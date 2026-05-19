@@ -141,3 +141,15 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/obsidian-git/data.json
+.trash/
+
+# Quartz (à venir)
+node_modules/
+public/
+.quartz-cache/
