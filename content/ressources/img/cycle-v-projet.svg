@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" role="img" aria-labelledby="title desc">
+  <title id="title">Cycle en V du projet mécatronique</title>
+  <desc id="desc">Cycle en V à 5 phases : branche descendante (Spécification, Concept, Preuve de concept) et branche ascendante (Dossier technique, Intégration et tests). Trois correspondances horizontales en pointillés relient chaque phase descendante à la phase ascendante qu'elle valide. Trois activités continues (gestion de projet, écoconception, sécurité et qualité) traversent toutes les phases.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .th { font: 500 14px sans-serif; }
+      .ts { font: 400 12px sans-serif; }
+      .arr { stroke-width: 1.5; fill: none; }
+      .leader { stroke-width: 0.8; stroke-dasharray: 4 4; fill: none; }
+      .b-purple { fill: #EEEDFE; stroke: #534AB7; }
+      .b-purple-text { fill: #26215C; }
+      .b-amber { fill: #FAEEDA; stroke: #BA7517; }
+      .b-amber-text { fill: #412402; }
+      .b-teal { fill: #E1F5EE; stroke: #0F6E56; }
+      .b-teal-text { fill: #04342C; }
+      .b-gray { fill: #F1EFE8; stroke: #888780; }
+      .b-gray-text { fill: #2C2C2A; }
+      .neutral-text { fill: #2C2C2A; }
+      .neutral-stroke { stroke: #555555; }
+      .neutral-light-stroke { stroke: #888888; }
+      @media (prefers-color-scheme: dark) {
+        .b-purple { fill: #3C3489; stroke: #AFA9EC; }
+        .b-purple-text { fill: #EEEDFE; }
+        .b-amber { fill: #633806; stroke: #EF9F27; }
+        .b-amber-text { fill: #FAEEDA; }
+        .b-teal { fill: #085041; stroke: #5DCAA5; }
+        .b-teal-text { fill: #E1F5EE; }
+        .b-gray { fill: #444441; stroke: #B4B2A9; }
+        .b-gray-text { fill: #F1EFE8; }
+        .neutral-text { fill: #F1EFE8; }
+        .neutral-stroke { stroke: #B4B2A9; }
+        .neutral-light-stroke { stroke: #888888; }
+      }
+    </style>
+  </defs>
+
+  <text class="th neutral-text" x="140" y="30" text-anchor="middle">Conception</text>
+  <text class="th neutral-text" x="540" y="30" text-anchor="middle">Réalisation et validation</text>
+
+  <rect class="b-purple" x="20" y="60" width="240" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th b-purple-text" x="140" y="80" text-anchor="middle" dominant-baseline="central">1. Spécification technique</text>
+  <text class="ts b-purple-text" x="140" y="98" text-anchor="middle" dominant-baseline="central">Besoin, état de l'art, cibles</text>
+
+  <rect class="b-purple" x="80" y="170" width="240" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th b-purple-text" x="200" y="190" text-anchor="middle" dominant-baseline="central">2. Concept</text>
+  <text class="ts b-purple-text" x="200" y="208" text-anchor="middle" dominant-baseline="central">Schémas, pré-dimensionnement</text>
+
+  <rect class="b-amber" x="220" y="280" width="240" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th b-amber-text" x="340" y="300" text-anchor="middle" dominant-baseline="central">3. Preuve de concept</text>
+  <text class="ts b-amber-text" x="340" y="318" text-anchor="middle" dominant-baseline="central">Dérisquer les points durs</text>
+
+  <rect class="b-teal" x="360" y="170" width="240" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th b-teal-text" x="480" y="190" text-anchor="middle" dominant-baseline="central">4. Dossier technique</text>
+  <text class="ts b-teal-text" x="480" y="208" text-anchor="middle" dominant-baseline="central">Plans, élec, soft, BOM</text>
+
+  <rect class="b-teal" x="420" y="60" width="240" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th b-teal-text" x="540" y="80" text-anchor="middle" dominant-baseline="central">5. Intégration et tests</text>
+  <text class="ts b-teal-text" x="540" y="98" text-anchor="middle" dominant-baseline="central">Prototype, qualif, clôture</text>
+
+  <line x1="180" y1="116" x2="220" y2="170" class="arr neutral-stroke" marker-end="url(#arrow)"/>
+  <line x1="240" y1="226" x2="280" y2="280" class="arr neutral-stroke" marker-end="url(#arrow)"/>
+  <line x1="400" y1="280" x2="440" y2="226" class="arr neutral-stroke" marker-end="url(#arrow)"/>
+  <line x1="500" y1="170" x2="540" y2="116" class="arr neutral-stroke" marker-end="url(#arrow)"/>
+
+  <line x1="260" y1="88" x2="420" y2="88" class="leader neutral-light-stroke"/>
+  <text class="ts neutral-text" x="340" y="82" text-anchor="middle">validée par</text>
+
+  <line x1="320" y1="198" x2="360" y2="198" class="leader neutral-light-stroke"/>
+  <text class="ts neutral-text" x="340" y="192" text-anchor="middle">guide</text>
+
+  <text class="ts neutral-text" x="340" y="358" text-anchor="middle">éclaire la conception détaillée</text>
+
+  <text class="th neutral-text" x="20" y="410">En parallèle de toutes les phases</text>
+
+  <rect class="b-gray" x="20" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="120" y="452" text-anchor="middle" dominant-baseline="central">Gestion de projet</text>
+
+  <rect class="b-gray" x="240" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="340" y="452" text-anchor="middle" dominant-baseline="central">Écoconception</text>
+
+  <rect class="b-gray" x="460" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="560" y="452" text-anchor="middle" dominant-baseline="central">Sécurité, qualité</text>
+
+  <text class="ts neutral-text" x="340" y="510" text-anchor="middle">Trait plein = avancement nominal. Pointillés horizontaux = correspondances spec ↔ validation.</text>
+  <text class="ts neutral-text" x="340" y="530" text-anchor="middle">Les retours itératifs (boucles arrière) seront ajoutés dans une version future de cette trame.</text>
+</svg>
