@@ -7,7 +7,7 @@
 ### 1. Installation à la maison (PC perso uniquement)
 - [ ] Installer Git for Windows sur PC perso
 - [ ] Installer Node.js v22 LTS sur PC perso
-- [ ] Installer Obsidian sur PC perso
+- [x] Installer Obsidian sur PC perso
 - [ ] Configurer Git (user.name, user.email, init.defaultBranch main)
 - [ ] Cloner le dépôt TheSkillCodex sur PC perso
 - [ ] Configurer Obsidian Git (mêmes réglages que sur PC pro)
