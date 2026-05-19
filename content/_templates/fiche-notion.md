@@ -19,14 +19,20 @@ GUIDE DU TEMPLATE
   qui ont du sens pour cette notion.
 - Mettre `draft: true` tant que la fiche n'est pas relue. Quartz ne publiera
   pas les fiches en draft (filtre RemoveDrafts activé).
+- Liens internes : [[notion]] crée un popover si la fiche cible existe,
+  ou un lien rouge sinon (= TODO list naturelle).
+- Apartés / verbatim étudiant : intégrer dans le texte en *italique*.
+- Gras : uniquement sur la 1ère occurrence des concepts-clé.
+  Exception tolérée : gras "structurel" (têtes de paragraphes-pièges, mots
+  de scan dans les listes à puces).
 -->
 
 [Définition courte de la notion — 1 à 3 phrases, autoportante. Cette ouverture sert de popover sur tout le site.]
 
-<!-- ## Pourquoi -->
-<!-- À quoi ça sert dans un projet mécatronique. Quel problème ça résout. -->
+<!-- ## À quoi ça sert ? -->
+<!-- Pourquoi cette notion existe, quel problème elle résout dans un projet mécatronique. -->
 
-<!-- ## Comment -->
+<!-- ## Comment le réaliser ? -->
 <!-- Démarche, méthode, étapes. Schémas Mermaid ou images si utile. -->
 
 <!-- ## Exemple -->

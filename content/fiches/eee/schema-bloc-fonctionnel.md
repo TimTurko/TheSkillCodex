@@ -12,7 +12,7 @@ draft: false
 
 Le **schéma bloc fonctionnel** est une représentation graphique d'un système mécatronique qui montre ses sous-fonctions ([[capteur|capteurs]], [[controleur|contrôleurs]], [[actionneur|actionneurs]], [[effecteur|effecteurs]]) et les flux d'information, d'énergie et de matière qui circulent entre elles. Il sert de pont entre le [[cahier-des-charges-fonctionnel|cahier des charges]] et le choix des solutions techniques.
 
-## Pourquoi
+## À quoi ça sert ?
 
 Avant de choisir un [[microcontroleur]], un moteur ou un capteur précis, il faut savoir quelles fonctions le système doit réaliser et comment elles s'enchaînent. Le schéma bloc fonctionnel répond à trois questions :
 
@@ -20,15 +20,11 @@ Avant de choisir un [[microcontroleur]], un moteur ou un capteur précis, il fau
 - **Comment ça communique ?** Quels flux (information, énergie, matière) circulent entre les blocs ?
 - **Où sont les frontières ?** Qu'est-ce qui appartient au système, qu'est-ce qui est dans son environnement ?
 
-Sans ce schéma, on se retrouve à choisir des composants au hasard sans comprendre leur rôle dans l'ensemble.
-
-> [!terrain] Vu en projet
-> *"On a pris un Arduino parce que c'est connu."*
-> Trois semaines plus tard, l'équipe découvre qu'il manque deux entrées analogiques et une sortie PWM. Refonte complète du câblage, deux jours perdus.
+Sans ce schéma, on se retrouve à choisir des composants au hasard sans comprendre leur rôle dans l'ensemble. C'est l'erreur classique en début de projet : *"on a pris un Arduino parce que c'est connu"*, sans savoir ce qu'on lui demande de faire. Trois semaines plus tard, l'équipe découvre qu'il manque deux entrées analogiques et une sortie [[pwm|PWM]] : refonte complète du câblage, deux jours perdus.
 
 Le schéma bloc joue un autre rôle décisif : c'est un document de communication. Il s'échange entre membres de l'équipe, se discute avec l'encadrant, se présente en revue de projet. Un schéma clair fait gagner des heures de malentendus.
 
-## Comment
+## Comment le réaliser ?
 
 Un schéma bloc se construit en partant du [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]] et en répondant dans l'ordre à cinq questions :
 
@@ -38,7 +34,7 @@ Un schéma bloc se construit en partant du [[cahier-des-charges-fonctionnel|cahi
 4. Qui décide ? → identifier le ou les [[controleur|contrôleurs]] (microcontrôleur, automate, logique câblée).
 5. Comment circule l'information ? → tracer les flèches entre les blocs avec le type de flux.
 
-L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène à dimensionner le système autour d'un composant plutôt qu'autour d'un besoin.
+L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène à dimensionner le système autour d'un composant plutôt qu'autour d'un besoin. *"Je connais bien les ESP32, je vais partir là-dessus"* — et l'on se retrouve à devoir caser l'usage dans les contraintes du composant.
 
 ### Conventions de représentation
 

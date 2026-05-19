@@ -5,17 +5,15 @@
 ## En cours
 
 - [ ] **Convention des tags AA** (session dédiée à programmer)
-- [ ] Refonte fiche `schema-bloc-fonctionnel` : gras minimal + popovers + callout terrain
-- [ ] Valider la justification du texte sur la fiche pilote
+- [ ] Commit + push de la session du 19/05 pour voir la fiche pilote en ligne
 
 ## Configuration / Outils
 
 - [ ] Installer Obsidian + Git sur **PC perso**
 - [ ] Installer Obsidian sur **smartphone Android**
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique
+- [ ] Configurer le plugin Templates d'Obsidian (`content/_templates`)
 - [ ] Choisir un thème couleur (ICAM ou autre, ou rester par défaut)
-- [ ] Décider d'une convention de nommage des fichiers (kebab-case confirmé)
-- [ ] Décider de la convention de tags AA (séparer en session dédiée)
 
 ## Contenu — fiches prioritaires (premières à créer)
 
@@ -29,8 +27,15 @@
 ## Améliorations techniques
 
 - [ ] Vérifier le rendu sur smartphone (mode responsive DevTools)
-- [ ] Configurer le plugin Templates d'Obsidian (`content/_templates`)
-- [ ] Trouver une icône custom pour callout `[!terrain]` (ou réutiliser existante)
+- [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
+- [ ] Trouver/produire une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
+
+## Décisions en attente
+
+- [ ] Convention des tags AA — par domaine, par code, ou les deux ? (session dédiée)
+- [ ] Politique de stockage des images : `content/ressources/img/` ou autre ?
+- [ ] Stratégie pour fiches MME/ESE : pages courtes pointant vers collègues, ou ne rien créer ?
+- [ ] Glossaire séparé pour les acronymes ou fiches courtes individuelles ?
 
 ## Fait
 
