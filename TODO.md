@@ -4,12 +4,16 @@
 
 ## Prochaines sessions (ordre logique)
 
-### 1. Installation à la maison
-- [ ] Installer Obsidian + Git sur **PC perso**
-- [ ] Cloner le dépôt et tester pull/push depuis le PC perso
-- [ ] Installer Obsidian sur **smartphone Android**
-- [ ] Configurer Obsidian Git mobile (PAT en HTTPS)
-- [ ] Tester le workflow complet sur les 3 appareils (pull → édit → push)
+### 1. Installation à la maison (PC perso uniquement)
+- [ ] Installer Git for Windows sur PC perso
+- [ ] Installer Node.js v22 LTS sur PC perso
+- [ ] Installer Obsidian sur PC perso
+- [ ] Configurer Git (user.name, user.email, init.defaultBranch main)
+- [ ] Cloner le dépôt TheSkillCodex sur PC perso
+- [ ] Configurer Obsidian Git (mêmes réglages que sur PC pro)
+- [ ] Tester un cycle complet : pull → édit test → commit-and-sync → vérifier sur GitHub
+
+> Smartphone : pas d'installation, usage en consultation seule via le site déployé.
 
 ### 2. Cadrage pédagogique (à faire AVANT la rédaction massive)
 - [ ] **Session "chronopédagogie"** : définir le parcours d'apprentissage type sur un semestre
@@ -33,7 +37,7 @@
 - [ ] Commit + push de la session du 19/05 pour voir la fiche pilote en ligne
 - [ ] Configurer le plugin Templates d'Obsidian (`content/_templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
-- [ ] Vérifier le rendu sur smartphone (mode responsive DevTools)
+- [ ] Vérifier le rendu de la fiche pilote sur smartphone une fois en ligne (vrai test responsive)
 - [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
 - [ ] Produire/trouver une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
 

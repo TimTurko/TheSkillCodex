@@ -69,3 +69,8 @@
 ### Référentiel
 - Analyse de `Compétences.xlsx` : 107 dénominations regroupées en 27 codes-AA uniques, 6 domaines
 - Note : `AA-PROJ-C03-CFE3-01` mélange MIA (objet connecté) et MME (fabrication) — anomalie référentiel à signaler à terme
+
+### Décisions calées en fin de session
+- **Smartphone en consultation seule** : pas d'install Obsidian mobile, le smartphone consulte directement le site déployé. Édition uniquement sur PC pro et PC perso. Cohérent avec le principe "écran vertical court = lecture, pas écriture". Évite aussi les conflits Git à 3 appareils.
+- **Démarrage de session automatisé** : ajout aux instructions du projet Claude.ai des consignes pour lire JOURNAL.md et TODO.md au démarrage de chaque conversation, et pour proposer une mise à jour à la fin de session.
+- **OS PC perso** : Windows 11 (cohérent avec PC pro). Le guide d'installation initial est directement réutilisable.
