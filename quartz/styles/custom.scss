@@ -41,3 +41,23 @@ article {
     margin: 1.5rem 0;
   }
 }
+
+// =====================================================================
+// Callout custom [!terrain] — apartés tirés de l'expérience projet
+// =====================================================================
+// Usage en markdown :
+//   > [!terrain] Vu en projet
+//   > Le texte de l'aparté ici.
+// =====================================================================
+
+.callout[data-callout="terrain"] {
+  --color: #c2410c;            // orange brûlé (tonalité "carnet de notes")
+  --border: #c2410c;
+  --bg: #fff7ed;               // fond très pâle
+}
+
+[saved-theme="dark"] .callout[data-callout="terrain"] {
+  --color: #fb923c;            // orange plus clair en mode sombre
+  --border: #fb923c;
+  --bg: rgba(251, 146, 60, 0.08);
+}
