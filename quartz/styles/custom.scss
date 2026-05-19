@@ -1,3 +1,31 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// =====================================================================
+// Typographie — justification du texte
+// =====================================================================
+// Justifie uniquement les paragraphes de l'article (pas les listes,
+// pas le code, pas les en-têtes). La césure automatique (hyphens) évite
+// les trous disgracieux entre les mots.
+// =====================================================================
+
+article {
+  & > p,
+  & > .callout p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+}
+
+// Sur écrans étroits (smartphone), la justification crée plus de problèmes
+// qu'elle n'en résout : on revient au drapeau (alignement à gauche).
+@media all and (max-width: 600px) {
+  article {
+    & > p,
+    & > .callout p {
+      text-align: left;
+      hyphens: none;
+    }
+  }
+}
