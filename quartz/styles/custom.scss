@@ -29,3 +29,15 @@ article {
     }
   }
 }
+
+// =====================================================================
+// Diagrammes Mermaid — centrage horizontal
+// =====================================================================
+
+article {
+  .mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+}
