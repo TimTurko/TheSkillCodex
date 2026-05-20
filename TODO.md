@@ -11,17 +11,38 @@
 
 ### 2. Rédaction de fiches (parcours prioritaire)
 
-Approche recommandée : remonter le cycle en V dans l'ordre des phases.
+**Stratégie actée (20/05 suite)** : squelettisation des 5 trames + 3 fils transverses bout en bout, puis cartographie AA, puis validation cohérence, **puis seulement** approfondissement trame par trame dans l'ordre.
 
-- [ ] **Fiche trame `specification-technique` — étapes 2 à 6** : poursuivre la rédaction (étape 1 déjà rédigée en session du 20/05). Prochaine en tête : étape 2 état de l'art.
-- [ ] **Fiche notion `bete-a-cornes`** (`fiches/proj/`) — référencée 5 fois dans `specification-technique`, prioritaire. Inclure exemples bon/moyen/mauvais.
-- [ ] **Produire le SVG de la bête à cornes** en même temps que la fiche-notion, puis revenir compléter `specification-technique.md` étape 1 (placeholder image actuellement).
-- [ ] **Fiche notion `cahier-des-charges-fonctionnel`** (`fiches/proj/`)
-  - Notion fondatrice, mentionnée 3 fois dans le hub et 2 fois dans la fiche pilote
-  - Couvre `AA-PROJ-C04-CFE3-02` (rédiger un CdCF) — sous réserve convention tags
-- [ ] **Fiche trame `concept`** : phase 2.
-- [ ] **Fiche trame `preuve-de-concept`** : phase 3. Insister sur la logique de dérisquage.
-- [ ] (Puis fiches selon priorité — voir BACKLOG.md)
+**Révision (20/05 fin)** : avant la squelettisation, **prochaine session = flowchart macroscopique du parcours projet**. Objectif : produire une carte navigable montrant les chemins, embranchements (choix techniques), points de synchronisation inter-équipiers, boucles de rétroaction. Le flowchart définira par construction la liste des fiches à créer.
+
+**À trancher en début de prochaine session** : tous les points traités en fin de session du 20/05. Récapitulatif des décisions :
+- Granularité : **N3** (décisions + synchros visibles, zoom N4 local si besoin)
+- Format : **Mermaid**, découpé en **5 flowcharts détaillés + 1 vue d'ensemble macro** pour les rétroactions inter-phases
+- Sémantique visuelle : rectangles=étapes, losanges=décisions, cercles=synchros inter-équipiers, doubles cercles=livrables évalués, flèches pleines=flux normal, flèches pointillées=rétroactions, fond couleur=discipline (palette callouts v1)
+- Position : **hors site** pour le moment, dans `_drafts/flowcharts/` (dossier ignoré par Quartz à créer, ou utiliser le pattern existant)
+- Périmètre disciplinaire : **modélisation complète incluant méca/fabrication**, fiches vides en attendant un collègue. ⚠️ **Changement** par rapport à la posture initiale d'interface uniquement.
+- Périmètre session : cadrage fait, prochaine session = **inventaire + construction des 6 flowcharts en Mermaid**
+
+Squelette = front matter complet + popover + posture + objectif + démarche en titres d'étapes seulement + livrable principal + voir aussi. Pas de rédaction détaillée des étapes à ce stade.
+
+- [x] ~~**Session flowchart macroscopique**~~ — sessions du 21/05 (en cours) : flowcharts phase 1 et 2 produits dans `_drafts/flowcharts/`, script de rendu Mermaid → SVG mis en place
+- [ ] **Phase 3 — preuve de concept** (flowchart) — prochaine session, cadrage déjà amorcé (inventaire posé, 3 questions ouvertes : structure des branches, acquisition matériel comme étape, nombre de sorties D-PoC)
+- [ ] **Phase 4 — dossier technique** (flowchart)
+- [ ] **Phase 5 — intégration et tests** (flowchart)
+- [ ] **Vue d'ensemble macro** (flowchart-overview) — rétroactions inter-phases
+- [ ] **Squelette `concept`** (phase 2) — branche descendante du V
+- [ ] **Squelette `preuve-de-concept`** (phase 3) — point pivot du V
+- [ ] **Squelette `dossier-technique`** (phase 4) — branche ascendante
+- [ ] **Squelette `integration-et-tests`** (phase 5) — branche ascendante
+- [ ] **Squelette `gestion-de-projet`** (fil transverse)
+- [ ] **Squelette `ecoconception`** (fil transverse)
+- [ ] **Squelette `securite-et-qualite`** (fil transverse)
+- [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
+- [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
+- [ ] **Approfondissement `specification-technique`** — étapes 2 à 6 (état de l'art / pieuvre / caractérisation / planification / rédaction CdCF)
+- [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V
+
+*Notion `cahier-des-charges-fonctionnel` à produire en parallèle à un moment opportun (mentionnée 3 fois dans le hub, prioritaire). Idem pour `pieuvre` (étape 3 specification-technique).*
 
 ### 3. Templates à rédiger
 - [ ] **Template fiche-trame** dans `_templates/fiche-trame.md` — à extraire **après** rédaction d'une 2ème fiche-trame (`preuve-de-concept` probablement), pour que le template repose sur 2 cas réels et pas un seul. La fiche `specification-technique.md` sert de modèle de travail en attendant.
@@ -36,8 +57,13 @@ Approche recommandée : remonter le cycle en V dans l'ordre des phases.
 
 ## Tâches techniques en suspens
 - [ ] Commit + push de la session du 19/05 (suite et suite 2) pour voir hub + SVG + callouts en ligne
+- [ ] Commit + push de la session du 20/05 (bête à cornes + 4 SVG + mises à jour doc)
+- [ ] **Commit + push de la session du 21/05** : flowcharts phase 1 et 2, script `scripts/render-flowcharts.mjs`, ajout `flowcharts` dans scripts de `package.json`, ajout `@mermaid-js/mermaid-cli` en devDependency
+- [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
+- [ ] **Désactiver Dark Reader sur localhost et le site déployé**
 - [ ] Vérifier le rendu de la fiche hub sur smartphone (vrai test responsive)
 - [ ] Vérifier le rendu de la fiche `_templates/callouts.md` (panorama des callouts) en ligne et sur mobile
+- [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
 - [ ] Configurer le plugin Templates d'Obsidian (`content/_templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
 - [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
@@ -52,6 +78,23 @@ Approche recommandée : remonter le cycle en V dans l'ordre des phases.
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-21 (Flowcharts phase 1 et 2)
+- [x] Créer `_drafts/flowcharts/`
+- [x] Mettre en place le pipeline Mermaid → SVG : `scripts/render-flowcharts.mjs`, ajout du script `npm run flowcharts` dans `package.json`, devDependency `@mermaid-js/mermaid-cli`
+- [x] Corriger le bug Windows `spawn EINVAL` (ajout `shell: true` dans `execFile`)
+- [x] Produire le flowchart de la **phase 1 — spécification technique** (rendu validé)
+- [x] Produire le flowchart de la **phase 2 — concept** (rendu fond OK, layout du subgraph BRANCHES non résolu malgré plusieurs tentatives — reporté dans BACKLOG)
+- [x] Décisions : convention `IO_LEFT` (subgraph invisible englobant START + FB_PHASE1 pour ancrage à gauche), 3 couleurs disciplines ad-hoc (élec/méca/info), suffixe de label `(élec)` / `(méca)` / `(info)`
+- [x] Cadrage **phase 3 — preuve de concept** amorcé (inventaire complet posé, 3 questions ouvertes), production reportée en nouvelle session
+
+### Session 2026-05-20 suite (Fiche-notion `bete-a-cornes` + stratégie d'enchaînement)
+- [x] Rédiger `content/fiches/proj/bete-a-cornes.md` (8 sections, popover de 3 phrases, exemples triptyque bras robotique 6 axes)
+- [x] Produire les 4 SVG : générique + 3 exemples bras (mauvais/moyen/bon), palette amber alignée sur cycle-v-projet.svg
+- [x] Itérer le SVG générique sur le modèle canonique (cornes vers le haut + flèche vers la fonction en bas)
+- [x] Patcher `specification-technique.md` étape 1 : placeholder image remplacé par le SVG générique
+- [x] Diagnostic incident Dark Reader (faux bug de rendu)
+- [x] Stratégie de rédaction actée puis révisée : squelettisation bout en bout des 5 trames + 3 transverses, puis cartographie AA, puis approfondissement trame par trame
 
 ### Session 2026-05-20 (Fiche-trame `specification-technique` — étape 1)
 - [x] Cadrer la structure type d'une fiche-trame (front matter + 7 sections)

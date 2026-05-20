@@ -46,7 +46,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ### PROJ — Démarche projet
 - [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
-- [ ] **Bête à cornes** (fiche-notion dédiée, référencée 5× dans `specification-technique`, inclure exemples bon/moyen/mauvais)
+- [x] ~~Bête à cornes~~ — fait le 20/05 (fiche-notion complète + 4 SVG)
 - [ ] Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?
 - [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
@@ -94,7 +94,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] Schéma annoté d'une couveuse réelle (référencé dans schema-bloc-fonctionnel)
 - [ ] Illustration des conventions de flèches (info / énergie / matière)
-- [ ] **SVG bête à cornes générique** (`content/ressources/img/bete-a-cornes-generique.svg`) — à produire avec la fiche-notion `bete-a-cornes`, puis revenir compléter `specification-technique.md` étape 1
+- [x] ~~**SVG bête à cornes générique**~~ — fait le 20/05 (4 SVG produits : générique + 3 exemples bras robotique). Placeholder dans `specification-technique.md` étape 1 remplacé.
+- [ ] SVG bête à cornes — version simplifiée 3-cases (variante éventuelle pour fiche très courte ou résumé carte mentale)
 - [ ] SVG pieuvre générique (pour étape 3 de `specification-technique`)
 - [ ] Photos de projets étudiants antérieurs avec accord (anonymisées si besoin)
 - [ ] Capture d'écran de schéma Fritzing / KiCad type
@@ -129,3 +130,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Quoi faire des fiches MME / ESE : pages très courtes pointant vers les collègues, ou ne rien créer du tout ?
 - [ ] Pliage des callouts (`[!example]-` replié par défaut ?) — à trancher après quelques fiches rédigées
 - [ ] Sort du flowchart Mermaid dans la fiche hub si jamais on veut le réintroduire un jour (actuellement remplacé par un sommaire textuel)
+- [ ] **Politique extensions navigateur pour validation visuelle** : recommander aux utilisateurs/collègues de désactiver Dark Reader (et similaires) sur le domaine du site — à documenter dans une page "comment lire ce site" éventuelle
+- [ ] **Palette couleurs disciplines (élec / méca / info)** : 3 couleurs ad-hoc définies pour le flowchart-2-concept (bleu `#D6E8F5`, ocre `#F5E8D6`, vert `#D6F5E0`). À harmoniser avec la palette callouts v1 dans une vraie itération design, puis à appliquer de manière cohérente sur **toutes les phases avec éclatement disciplinaire** (concept, PoC, dossier technique, intégration probable).
+- [ ] **Convention de suffixe disciplinaire** `(élec)` / `(méca)` / `(info)` en bout de label des nœuds : à acter comme convention si retenu après plusieurs flowcharts produits.
+- [ ] **Layout flowchart phase 2 — non résolu** : le subgraph BRANCHES (étude par discipline) reste chaotique malgré plusieurs tentatives (sous-subgraphs LR/TB, liens invisibles `~~~`). Pistes à explorer plus tard : (a) tester le renderer ELK via `%%{init: {'flowchart': {'defaultRenderer': 'elk'}} }%%` (peut nécessiter une mise à jour de `@mermaid-js/mermaid-cli`), (b) abandonner la grille pure et accepter un autre mode de représentation, (c) sortir complètement de Mermaid pour cette phase (SVG main, draw.io, Excalidraw).
+- [ ] **Règle de visualisation des flowcharts** : préférer le SVG généré par `npm run flowcharts` au rendu Obsidian quand le diagramme devient large (Obsidian ne permet pas le scroll horizontal facile). Le SVG s'ouvre dans n'importe quel visualiseur d'image avec zoom natif.

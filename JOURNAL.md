@@ -5,6 +5,170 @@
 
 ---
 
+## 2026-05-21 — Flowcharts phase 1 et 2 + pipeline Mermaid → SVG
+
+### Création du dossier et structure
+- `_drafts/flowcharts/` créé (dossier hors site, document de travail conformément à la décision du 20/05)
+- Méthode d'inventaire actée : **B — par phase** (vs brut total ou par typologie). Permet de produire le matériau directement exploitable pour le flowchart de la phase, fait émerger les transverses naturellement.
+
+### Pipeline de rendu Mermaid → SVG
+- **Problème déclencheur** : le rendu Mermaid dans Obsidian devient illisible dès qu'un flowchart dépasse la largeur d'écran (pas de scroll horizontal pratique). Bascule sur SVG fichier pour pouvoir zoomer/dézoomer dans un visualiseur d'image.
+- Choix : **install `@mermaid-js/mermaid-cli` en devDependency + script Node** qui parcourt `_drafts/flowcharts/`, extrait les blocs Mermaid des `.md`, génère un SVG par bloc dans le même dossier.
+- Création de `scripts/render-flowcharts.mjs` + ajout du script `flowcharts` dans `package.json`.
+- Cache mtime : SVG sauté si plus récent que `.md`. `npm run flowcharts -- --force` pour tout regen.
+- Convention de nommage : 1 bloc Mermaid dans `foo.md` → `foo.svg`. N blocs → `foo-1.svg`, `foo-2.svg`, etc.
+- Couleur de fond : transparent (`-b transparent`).
+
+### Incident Windows — `spawn EINVAL`
+- Premier lancement échoué : `spawn EINVAL` sur les deux fichiers `.md`.
+- Cause : depuis Node 20, `child_process.execFile` n'autorise plus l'exécution directe de `.cmd` / `.bat` sans `shell: true`. Le binaire mmdc s'appelle `mmdc.cmd` sur Windows.
+- **Résolution** : ajout `{ shell: true }` dans l'appel `execFileAsync`.
+- **Leçon méthodo** : sur Windows, tout binaire installé via npm en mode wrapper (`.cmd`) nécessite `shell: true` avec Node ≥ 20. À retenir pour les futurs scripts qui appellent des CLI npm.
+
+### Flowchart phase 1 — spécification technique
+
+#### Inventaire produit
+6 étapes (contextualiser → rencontre client + bête à cornes → étude existant → CdCF : formaliser fonctions + caractériser → planifier → rédiger), 4 décisions, 3 synchros, 2 livrables évalués.
+
+#### Décisions structurelles
+- **Boucle rencontre client ↔ formalisation bête à cornes** : aller-retour explicite jusqu'à stabilisation (D2). La bête à cornes est **un** outil, pas l'outil.
+- **Étude de l'existant simplifiée** : initialement avec losange « solution existante répond directement ? » + bloc « Re-cadrer le projet ». **Supprimé** : en projet étudiant, on ne fait pas de recherche fondamentale, l'existant est presque toujours disponible. L'étude vise à identifier les briques réutilisables et le point de départ simple, pas à décider de pivoter.
+- **Subgraph CdCF englobant** : formalisation des fonctions (FP/FC/FS), caractérisation et losange de validation regroupés dans un subgraph titré « Cahier des Charges Fonctionnel ». Matérialise visuellement que les deux étapes constituent un même livrable.
+- **D-CdCF** : reformulé en **« CdCF défendable en soutenance ? »** (vs « caractérisation complète ? »). Plus projetant pédagogiquement, embarque implicitement couverture des fonctions + SMART des critères.
+- **Pas de constitution d'équipe en tête de phase** : décision actée. Ne pas inciter à la répartition des rôles (les élèves doivent rester polyvalents).
+- **Transverses intégrées au flowchart de phase** : nœud GP « jalons + risques » après le contexte, nœud ESE « première lecture environnementale » avant la rédaction du CdCF. Stratégie **β + γ** actée (transverses injectées aux points d'ancrage clés ET détaillées dans leurs propres flowcharts à venir).
+
+#### Sémantique visuelle posée
+- **Flèches pleines** : flux normal + boucles d'itération normales (« non, à retravailler »)
+- **Flèches pointillées** : vraies rétroactions (remise en cause profonde d'un travail validé)
+
+#### Validation
+Rendu propre, subgraph CdCF lisible, validation utilisateur sans modification.
+
+### Flowchart phase 2 — concept
+
+#### Cadrage
+- **Périmètre** : architecture + pré-dimensionnement. Les composants définitifs viendront en phase 4. « Solutions retenues » ≠ « composants finaux ».
+- **Découpage disciplinaire visible** : 3 branches élec/méca/info dans le flowchart. Pédagogiquement crucial pour enseigner les **conflits inter-disciplines** (l'optimum local de chaque discipline n'est pas nécessairement compatible avec celui des autres).
+- **Matrice de décision en phase 2** : une matrice par sous-système, critère écoconception intégré dans la matrice (pas traité à part). C'est le choix pédagogique fort : l'éco est embarqué dans la décision, pas plaqué à la fin.
+- **FAST** : étape commune avant l'éclatement disciplinaire (vs un FAST par discipline).
+
+#### Décisions structurelles
+- **Synchro inter-disciplines (S2) + losange D-compat** : moment pédagogique central. Après les matrices, point de vérification que les solutions retenues sont compatibles entre elles. Si non, retour aux matrices avec contraintes mises à jour.
+- **Pré-dimensionnement post-architecture** : par discipline (3 nœuds parallèles), décision D-predim à la sortie.
+- **Rétroactions sortantes vers phase 1** : D1 (décomposition révélant un trou dans le CdCF) et D5 (remise en cause profonde à la présentation). Matérialisées par un nœud trapézoïde `FB_PHASE1` avec classe de style dédiée (`feedback`, fond ambré pointillé).
+
+#### Renommages débattus
+- **« Schéma bloc fonctionnel » → « Décomposition fonctionnelle du système »** : terme neutre disciplinairement (vs marqué élec/automatique). La fiche-tuto `schema-bloc-fonctionnel` reste **un** outil mobilisable, pas le seul. SADT/IDEF0 évoqués comme alternatives, fiches à créer plus tard.
+
+#### Layout — difficultés persistantes
+- **Bascule TD → LR** à mi-session : suite à la découverte que le flowchart dépasse la largeur d'écran Obsidian. Le SVG permet maintenant de s'étaler librement.
+- **Convention `IO_LEFT`** : subgraph invisible (titre vide, `fill:none, stroke:none`) englobant `START` et `FB_PHASE1` en TB. Permet d'ancrer les deux nœuds en colonne gauche du graphe LR, START en haut, FB_PHASE1 en bas. À réutiliser sur les autres phases.
+- **Subgraph PREDIM résolu** : 3 nœuds plats en TB — layout impeccable.
+- **Subgraph BRANCHES non résolu** : malgré plusieurs stratégies (sous-subgraphs LR/TB, sous-subgraphs aplatis, liens invisibles `~~~` pour forcer la grille 2×3), Mermaid LR + dagre n'arrive pas à produire un layout propre des 6 nœuds (E3e/E4e/E3m/E4m/E3i/E4i). Tentative ELK (`%%{init: {'flowchart': {'defaultRenderer': 'elk'}} }%%`) abandonnée pour ne pas bloquer la session. **Reporté dans BACKLOG**. SVG actuel laid mais accepté comme « assez bon » pour passer à la phase suivante.
+
+#### Conventions visuelles ajoutées
+- **3 couleurs disciplines (ad-hoc)** : élec `#D6E8F5` / stroke `#3B6EA8` (bleu clair), méca `#F5E8D6` / stroke `#A87B3B` (ocre clair), info `#D6F5E0` / stroke `#3BA85A` (vert clair). Trois classDef dédiées : `elec`, `meca`, `info`.
+- **Suffixe disciplinaire en bout de label** : `(élec)` / `(méca)` / `(info)`. À acter comme convention après plusieurs flowcharts produits.
+- **À réutiliser** sur toutes les phases avec éclatement disciplinaire (concept, PoC, dossier technique, intégration probable). Harmonisation avec palette callouts v1 reportée dans BACKLOG.
+
+### Cadrage phase 3 — preuve de concept (amorcé, reprise en nouvelle session)
+Inventaire complet posé en fin de session :
+- 8 étapes (énoncé PoC, choix composants représentatifs, acquisition matériel, banc de test, réalisation, mesure, analyse, rapport)
+- 5 décisions, 4 synchros, 2 livrables évalués
+- Transverses : GP (mise à jour risques), ESE (éco partielle = premières mesures réelles)
+- Rétroactions sortantes : vers phase 2 ou phase 1 si concept intenable
+
+**3 questions ouvertes** à trancher en début de prochaine session :
+1. Structure des branches de réalisation (3 disciplines ? unifié ? « par point dur » ?)
+2. Acquisition matériel comme étape distincte avec décision sortante ?
+3. Nombre de sorties du losange D-PoC (2 ou 3 ?)
+
+**Stratégie d'enchaînement** : phase 3 en nouvelle session pour fraîcheur cognitive (session du 21/05 déjà dense entre 2 flowcharts et la mise en place du pipeline SVG).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles de la session précédente
+- **Layout du subgraph BRANCHES (phase 2)** : voir BACKLOG. Pistes ELK / abandon de la grille / outil hors Mermaid.
+- **Palette couleurs disciplines** : harmonisation avec callouts v1 — voir BACKLOG.
+
+---
+
+## 2026-05-20 (suite) — Fiche-notion `bete-a-cornes` + stratégie d'enchaînement
+
+### Production de la fiche
+- `content/fiches/proj/bete-a-cornes.md` rédigée intégralement (8 sections, popover de 3 phrases, exemples triptyque bon/moyen/mauvais)
+- Cas support : **bras robotique pédagogique 6 axes** pour écoles d'ingénieurs (situation projet réaliste pour le public visé, alternative défendue à la couveuse)
+- Format des exemples : callouts `[!failure]` / `[!warning]` / `[!example]` avec **image SVG dédiée par cas** (vs listes à puces). Bloc "Coût réel de cette erreur" ajouté sur le mauvais cas (anecdote vécue : choix prématuré de servomoteurs, bascule sur steppers après 2 mois)
+
+### Production des SVG
+- 4 SVG produits dans `content/ressources/img/` :
+  - `bete-a-cornes-generique.svg` — schéma canonique (2 ovales en haut formant les "cornes", rectangle produit/service au centre, flèche vers rectangle FONCTION en bas)
+  - `bete-a-cornes-bras-mauvais.svg`
+  - `bete-a-cornes-bras-moyen.svg`
+  - `bete-a-cornes-bras-bon.svg`
+- Style cohérent avec `cycle-v-projet.svg` : palette amber (#BA7517), gestion native du mode sombre via `@media (prefers-color-scheme: dark)`, marker flèche réutilisé
+- **Itération sur le générique** : première version partait du modèle "système central avec 3 branches" ; refait sur le modèle canonique "cornes vers le haut + flèche vers le bas" après référence visuelle apportée par l'utilisateur. **Retenir** : pour les outils canoniques (bête à cornes, pieuvre, FAST), partir d'une référence visuelle de la littérature plutôt que d'inventer une variante — les étudiants doivent reconnaître l'outil dans d'autres sources.
+
+### Retour dans `specification-technique`
+- Placeholder image étape 1 remplacé par l'image SVG réelle (edit ciblé via `edit_file`)
+
+### Incident Dark Reader (à retenir)
+- Faux bug de rendu : fond brun foncé `#221818` observé en mode clair sur les pages contenant des callouts
+- Cause : extension navigateur **Dark Reader** active sur localhost, qui repère les `<blockquote class="callout">` et leur applique un fond sombre par-dessus le CSS Quartz
+- Diagnostic : confirmé par traces `data-darkreader-inline-stroke` dans le HTML rendu
+- Résolution : désactiver Dark Reader sur localhost et sur le site déployé (Quartz a son propre mode sombre natif, Dark Reader fait doublon et altère l'aperçu)
+- **Leçon méthodo** : avant de chercher un bug CSS, vérifier les extensions navigateur actives (Dark Reader, Stylus, uBlock Origin, etc.).
+
+### Stratégie d'enchaînement actée (deux temps)
+
+**Première décision** : 
+- Ordre de production : fiches-trame (cycle en V dans l'ordre) → fiches-tuto associées → fiches-notion → glossaire
+- Liens rouges pendant la rédaction des trames : assumés, tracking dans BACKLOG.md (option (a)). Pas de stubs systématiques.
+- Profondeur : finaliser chaque trame avant la suivante (vs MVP bout en bout)
+
+**Révision spontanée par l'utilisateur** : avant de plonger sur l'approfondissement de `specification-technique`, **fabriquer la trame complète bout en bout** pour avoir un guide cohérent avec les compétences à évaluer.
+
+**Stratégie finale** :
+1. Squelettes des 5 trames + 3 fils transverses (front matter complet + posture + objectif + démarche en titres d'étapes seulement + livrable principal + voir aussi). `draft: false` pour navigabilité.
+2. Cartographie systématique des 107 AA → phases/transverses, identification des trous.
+3. Validation cohérence d'ensemble (relecture bout en bout, ajustements de périmètre).
+4. Approfondissement trame par trame dans l'ordre du V, en commençant par `specification-technique` étapes 2 à 6.
+
+**Rationnel** : permet de positionner correctement chaque AA et chaque fil transverse avant de creuser, évite les retours en arrière sur les décisions de périmètre inter-phases.
+
+### 2ᵉ révision (fin de session) : flowchart macroscopique avant squelettisation
+
+Avant même de commencer la squelettisation, l'utilisateur propose une **étape zéro** : produire un flowchart macroscopique du parcours projet qui montre **les chemins réels** (pas seulement la séquence des phases).
+
+**Rationnel utilisateur** : *« Le cycle en V n'a qu'une porte d'entrée (le CdCF), mais dès le PoC ou les choix de solutions, des embranchements se créent (tutos méca/élec/info), des boucles de rétroaction pour validation, des attentes inter-équipiers. »*
+
+**Pourquoi c'est meilleur que la squelettisation séquentielle** :
+- Honnêteté pédagogique : un projet mécatronique est un graphe, pas une ligne droite
+- Inventaire structurel des fiches à produire (chaque nœud du graphe = fiche potentielle)
+- Rend visibles les points de synchronisation inter-équipiers (compétence MEO concrète)
+- Le flowchart devient outil d'auto-positionnement pour l'étudiant : *« où suis-je dans mon projet ? »*
+
+**Stratégie définitive (au 20/05 fin)** :
+1. **Étape zéro** : flowchart macroscopique du parcours projet (prochaine session)
+2. Squelettes des trames + transverses (la liste sera potentiellement révisée à partir du flowchart)
+3. Cartographie AA
+4. Validation cohérence
+5. Approfondissement trame par trame
+
+**Éléments à trancher en début de prochaine session** — **TOUS TRANCHÉS EN FIN DE SESSION DU 20/05** :
+- Granularité : **N3** (décisions + synchros visibles, zoom N4 local si besoin)
+- Format : **Mermaid**, organisé en **5 flowcharts détaillés + 1 vue d'ensemble macro**. Les rétroactions inter-phases (PoC échec → retour spec/concept, qualif échec → retour dossier) seront portées par la vue d'ensemble macro, pas diluées dans les flowcharts détaillés.
+- Sémantique visuelle validée : rectangles=étapes, losanges=décisions, cercles=synchros inter-équipiers, doubles cercles=livrables évalués, flèches pleines=flux normal, flèches pointillées=rétroactions, fond couleur=discipline (aligné palette callouts v1).
+- Position : **hors site pour l'instant**, dans `_drafts/flowcharts/`. Mention explicite : « document de travail, on verra selon la qualité du résultat si on l'intègre au hub ». Choix d'un meilleur outil que Mermaid différé à d'éventuelle publication.
+- Périmètre disciplinaire : **inflexion actée**. Initialement le tutoriel devait servir d'**interface** vers les cours collègues (méca, fabrication) sans refaire leur travail. Décision révisée : on **modélise complètement** la structure méca/fabrication dans le flowchart et on crée des **fiches vides** correspondantes. Rationnel utilisateur : *« avec un peu de chance j'arriverai à embarquer un collègue dans ce projet pour les compléter »*. C'est un pari raisonnable : la coquille existe, le collègue n'a plus qu'à remplir. Si le pari échoue, la coquille reste comme stub renvoyant vers le cours du collègue — statu quo de la posture initiale, sans perte.
+- Périmètre prochaine session : **inventaire + construction des 6 flowcharts en Mermaid**. Le cadrage est déjà acquis en fin de cette session.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles de la session précédente
+- **Politique extensions navigateur pour validation visuelle** : recommander la désactivation de Dark Reader (et similaires) sur le domaine du site
+
+---
+
 ## 2026-05-20 — Fiche-trame `specification-technique` (étape 1)
 
 ### Structure type d'une fiche-trame actée
