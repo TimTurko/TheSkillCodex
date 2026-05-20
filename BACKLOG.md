@@ -32,6 +32,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Filtrage analogique de base
 - [ ] Masse électrique, plan de masse
 - [ ] Découplage (condensateurs)
+- [ ] **PCB** (fiche-tuto : concevoir et faire fabriquer un PCB pour un projet étudiant)
 
 ### MIA — Informatique embarquée
 - [ ] Architecture logicielle d'un objet connecté
@@ -45,7 +46,9 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ### PROJ — Démarche projet
 - [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
-- [ ] Analyse fonctionnelle (FAST, SADT, bête à cornes)
+- [ ] **Bête à cornes** (fiche-notion dédiée, référencée 5× dans `specification-technique`, inclure exemples bon/moyen/mauvais)
+- [ ] Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?
+- [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
 - [ ] Revue de projet
 - [ ] Jalons et livrables
@@ -65,6 +68,12 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Outils de créativité (brainstorm, SCAMPER, etc.)
 - [ ] Prise de décision collective
 - [ ] Gamme de fabrication
+- [ ] **Relation client** (tuto) — valider la compréhension du besoin, posture en réunion client, gestion des changements de demande
+- [ ] **Archivage projet** (tuto) — CR de réunion, traçabilité documentaire, versioning des livrables
+- [ ] **Définir un objectif SMART** (tuto)
+- [ ] **Rétroplanning** ou **Planifier un projet** (tuto) — partir de la soutenance, remonter les jalons, anticiper le calendrier scolaire
+- [ ] **WBS** (Work Breakdown Structure)
+- [ ] **Diagramme de Gantt**
 
 ### MME — Matériaux / mécanique (interface collègues)
 - [ ] Liens vers cours mécanique
@@ -76,7 +85,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Idées de fiches transversales / méta
 
-- [ ] Glossaire d'acronymes (PWM, PID, PCB, etc.) — à décider : fiche unique ou fiches courtes ?
+- [ ] Glossaire d'acronymes (PWM, PID, PCB, PPM, etc.) — à décider : fiche unique ou fiches courtes ? `ppm` est un prospect typique (acronyme périphérique, pas digne d'une fiche dédiée)
 - [ ] FAQ projet mécatronique
 - [ ] "Premiers pas" (page d'onboarding pour étudiant qui arrive sur le site)
 - [ ] Mode d'emploi du site (popovers, recherche, graph)
@@ -85,6 +94,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] Schéma annoté d'une couveuse réelle (référencé dans schema-bloc-fonctionnel)
 - [ ] Illustration des conventions de flèches (info / énergie / matière)
+- [ ] **SVG bête à cornes générique** (`content/ressources/img/bete-a-cornes-generique.svg`) — à produire avec la fiche-notion `bete-a-cornes`, puis revenir compléter `specification-technique.md` étape 1
+- [ ] SVG pieuvre générique (pour étape 3 de `specification-technique`)
 - [ ] Photos de projets étudiants antérieurs avec accord (anonymisées si besoin)
 - [ ] Capture d'écran de schéma Fritzing / KiCad type
 - [ ] Vidéo courte de démo (intégration via embed ?)

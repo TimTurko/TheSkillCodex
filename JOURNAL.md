@@ -5,6 +5,69 @@
 
 ---
 
+## 2026-05-20 — Fiche-trame `specification-technique` (étape 1)
+
+### Structure type d'une fiche-trame actée
+Première fiche-trame du projet. Structure décidée par construction puis éprouvée sur le cas réel de la phase 1 :
+
+- **Front matter spécifique** : `type: trame`, `phase: N`, `phases: [nom]`, en plus des champs standards.
+- **7 sections de corps** :
+  1. Définition popover (1-3 phrases en tête)
+  2. **Posture attendue** — italique étudiant court, plante l'ambiance
+  3. **Objectif de la phase** — la promesse de fin (3-5 lignes)
+  4. **Démarche** — étapes ordonnées, callouts `[!livrable]` placés en fin d'étape
+  5. **Pièges fréquents**
+  6. **Pendant cette phase, côté équipe** — fusion interfaces métiers + fils transverses
+  7. **Voir aussi**
+
+### Décisions de structure
+- **Fusion "interfaces métiers" + "fils transverses"** dans une seule section "Pendant cette phase, côté équipe". Rationnel : même registre cognitif pour l'étudiant (attention aux dépendances), et les fiches-trame ne portent pas l'évaluation (c'est le corps enseignant qui évalue, les fiches sont une aide à la création).
+- **Pas de section "critères de fin de phase"** : les livrables au fil de la démarche jouent ce rôle.
+- **Pas de "position dans le cycle"** : redondant avec le hub.
+- **Pas de "durée estimée"** : effet repoussoir si la durée dépasse une heure de lecture.
+- **Un callout `[!livrable]` groupé par étape** : préféré à un callout par sous-étape (dilution). Liste à puces à l'intérieur.
+
+### Découpage de la phase 1 en 6 étapes
+1. Analyser le besoin (contextualiser → bête à cornes → valider)
+2. Étudier l'existant (état de l'art technique chiffré, comparaison N×M)
+3. Formaliser les fonctions (pieuvre NF X50-151)
+4. Caractériser les fonctions (étape **centrale**, exemples bon/moyen/mauvais)
+5. Planifier le projet (WBS + rétroplanning depuis la soutenance)
+6. Rédiger le CdCF (agrégation, intègre la démarche environnementale)
+
+### Cadrage méthodologique
+- **NF X50-151 (AFNOR)** retenue, avec mention explicite "norme française, payante".
+- **Ouverture sur autres modèles** (INCOSE, ingénierie système, user stories anglo-saxonnes) prévue en fin de fiche pour les étudiants partant à l'étranger.
+- **FAST reporté en phase 2 (concept)** : prématuré en phase 1 où le concept n'est pas encore choisi.
+- **SMART non détaillé dans la fiche-trame** : sera traité dans une fiche-tuto dédiée `definir-un-objectif-smart` (MEO).
+- **Grille d'évaluation CdCF transmise par l'utilisateur** : consultée pour calibrer la couverture, **mais pas mise en référence dans la fiche** (la grille passera bientôt à une évaluation par compétences, donc évolutive).
+
+### Décisions éditoriales
+- **Cas particulier "projet école sans client réel"** : encart dédié dans l'étape 1. Deux postures honnêtes proposées — étudiant-client-de-lui-même (acquisition de compétences ciblées, défendable en école mais pas en pro), ou client fictif crédible.
+- **Exemples bon/moyen/mauvais** : approche pédagogique systématique pour les éléments les plus structurants (caractérisation, bête à cornes).
+- **AFNOR NF X50-151** : pas de lien externe inline. Fiche-stub `afnor-nfx50-151.md` créée avec lien Wikipédia + mention payante, sert de popover propre.
+- **Lien Wikipédia AFNOR** : article "Analyse fonctionnelle (conception)" — ressource pédagogique francophone plutôt que page d'achat AFNOR.
+- **Traces écrites de validation client** : abordées ici mais méritent fiches-tuto dédiées à créer (`relation-client`, `archivage-projet`).
+
+### Production de la fiche
+- `content/fiches/proj/specification-technique.md` créée. **Étape 1 entièrement rédigée**, étapes 2-6 en placeholders explicites (titres + 2-3 lignes de cadrage).
+- 4 callouts dans l'étape 1 : `[!warning]` (verrous), `[!example]` (couveuse), `[!tip]` (bête à cornes triviale), `[!livrable]` (groupé fin d'étape).
+- Front matter avec `type: trame` et `phases: [specification]` — **première vraie utilisation** des champs actés la veille.
+- Popovers posés : `mecatronique`, `ecoconception`, `relation-client`, `bete-a-cornes`, `pcb`, `ppm`, `pid` (existant), `cahier-des-charges-fonctionnel`, `afnor-nfx50-151`, `concept`, `archivage-projet`.
+
+### Stub AFNOR
+- `content/fiches/proj/afnor-nfx50-151.md` créée. Trois lignes de définition + callout `[!info]` avec lien Wikipédia et mention que la norme officielle est payante. Taggée `stub` pour la distinguer des vraies fiches-notion.
+
+### À retenir méthode
+- **Ne pas écraser le travail de l'utilisateur** : bascule de `write_file` (écrase tout) à `edit_file` (patches ciblés) actée en cours de session. Discipline : relire le fichier avant toute modification.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles de la session précédente, plus :
+- **Glossaire vs fiches courtes pour acronymes** : `ppm` ajouté comme prospect pour le glossaire (vs `pcb` qui aura sa fiche-tuto dédiée). À trancher quand la décision globale sera prise.
+- **Template fiche-trame formel** : à extraire **après** une 2ème fiche-trame rédigée (probablement `preuve-de-concept`).
+
+---
+
 ## 2026-05-19 (suite 2) — Trame projet : cycle en V
 
 ### Cadrage de la trame

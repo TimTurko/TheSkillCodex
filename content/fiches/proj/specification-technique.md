@@ -10,14 +10,14 @@ tags:
   - phase-1
 prerequis: []
 aa: []
-draft: true
+draft: false
 ---
 
-La **spécification technique** est la première phase du projet mécatronique : elle transforme un besoin formulé en langage courant ("on aimerait un robot qui...") en un document de référence chiffré et opposable — le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. C'est la phase qui décide *ce qu'on doit faire*, avant tout choix de solution technique.
+La **spécification technique** est la première phase du projet [[mecatronique|mécatronique]] : elle transforme un besoin formulé en langage courant ("on aimerait un robot qui...") en un document de référence chiffré et opposable — le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. C'est la phase qui décide *ce qu'on doit faire*, avant tout choix de solution technique.
 
 ## Posture attendue
 
-*La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette phase ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte deux à cinq fois plus cher à la phase 4 ou 5 qu'à la phase 1.*
+La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette phase ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte deux à cinq fois plus cher en temps passer a le corriger à la fin du projet qu'au début.
 
 ## Objectif de la phase
 
@@ -25,9 +25,9 @@ Produire un cahier des charges fonctionnel (CdCF) qui :
 
 - formule sans ambiguïté **ce que le système doit faire** (et pas comment)
 - chiffre chaque exigence (critère, niveau, flexibilité)
-- intègre les contraintes d'écoconception
+- intègre les contraintes d'[[ecoconception|écoconception]]
 - s'appuie sur un état de l'art technique
-- est validé par le client (ou le commanditaire du projet)
+- est validé par le [[relation-client|client ou commanditaire du projet]]
 
 Ce document servira de **référence pendant tout le projet** et de **grille d'évaluation finale** : à la livraison, on reprend le CdCF point par point pour valider ou non chaque exigence.
 
@@ -52,11 +52,11 @@ Le contexte répond à la question : **pourquoi ce projet existe ?**
 - **Verrous technologiques** — quels obstacles techniques ou scientifiques le projet cherche à dépasser
 
 > [!warning] Piège : verrou technologique ≠ difficulté personnelle
-> « Nous n'avons jamais fait de PCB » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable en concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
+> « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 [[ppm|ppm]] avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
 
 #### Formuler le besoin avec la bête à cornes
 
-La bête à cornes est l'outil canonique de [[afnor-nfx50-151|la norme NF X50-151]] pour exprimer un besoin de manière formelle. Elle force trois réponses :
+La [[bete-a-cornes|bête à cornes]] est l'outil canonique de [[afnor-nfx50-151|la norme NF X50-151]] pour exprimer un besoin de manière formelle. Elle force trois réponses :
 
 - **À qui le système rend-il service ?** → l'utilisateur (au sens large)
 - **Sur quoi agit-il ?** → la matière d'œuvre, l'objet ou le milieu sur lequel il opère
@@ -72,7 +72,7 @@ La bête à cornes est l'outil canonique de [[afnor-nfx50-151|la norme NF X50-15
 
 ##### Cas particulier : projet école sans client réel
 
-Beaucoup de projets pédagogiques n'ont pas de client externe et seront démontés après soutenance (robot solveur de labyrinthe, robot suiveur de ligne, etc.). La bête à cornes paraît alors tourner à vide.
+Beaucoup de projets pédagogiques n'ont pas de client externe et seront démontés après soutenance (robot solveur de labyrinthe, robot sumo, etc.). La [[bete-a-cornes|bête à cornes]] paraît alors tourner à vide.
 
 Deux postures honnêtes selon le projet :
 
@@ -83,15 +83,20 @@ Choisissez explicitement l'une des deux postures et tenez-la pendant toute la r�
 
 #### Valider la compréhension du besoin
 
-Une fois la bête à cornes formulée, **confrontez-la** :
+Une fois la [[bete-a-cornes|bête à cornes]] formulée, **confrontez-la** :
 
-- **Mode sujet ouvert** (besoin construit par l'équipe) : la valider auprès du client réel ou de son représentant. Si la formulation surprend le client, c'est qu'on a mal compris.
+- **Mode sujet ouvert** (besoin construit par l'équipe) : la valider auprès du [[relation-client|client]] réel ou de son représentant. Si la formulation surprend le client, c'est qu'on a mal compris.
 - **Mode sujet cadré** (note de cadrage fournie) : la confronter au document. Y a-t-il des éléments du cadrage qui n'apparaissent pas dans la bête à cornes ? Des choix qu'on a faits qui ne sont pas justifiés par le cadrage ?
 
 Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou section dédiée du CdCF). C'est la preuve que la compréhension est partagée — sans elle, vous travaillez sur des suppositions.
 
 > [!tip] Pourquoi la bête à cornes paraît triviale (et ne l'est pas)
 > Trois questions, trois réponses : ça semble enfantin. La puissance de l'outil est précisément là : formuler en trois lignes ce qu'on croyait évident révèle les désaccords cachés dans l'équipe ou avec le client. Le moment où deux équipiers répondent différemment au « à qui » est exactement le moment où l'outil paye son utilité.
+
+> [!livrable] Livrables de l'étape 1
+> - Texte de contextualisation du projet (origine, parties prenantes, verrous technologiques)
+> - Schéma de la [[bete-a-cornes|bête à cornes]] du projet
+> - Trace écrite de validation du besoin (mail, compte-rendu de réunion, ou section dédiée du CdCF)
 
 ---
 
@@ -132,6 +137,9 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
-- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice)*
-- [[afnor-nfx50-151|Norme NF X50-151 — analyse fonctionnelle]] *(à créer)*
+- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice — à créer)*
+- [[bete-a-cornes|Bête à cornes]] *(à créer)*
+- [[afnor-nfx50-151|Norme NF X50-151]] *(stub)*
+- [[relation-client|Relation client]] *(tuto à créer)*
+- [[archivage-projet|Archivage projet]] *(tuto à créer)*
 - Phase suivante : [[concept|Concept]] *(à créer)*

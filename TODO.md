@@ -13,19 +13,21 @@
 
 Approche recommandée : remonter le cycle en V dans l'ordre des phases.
 
-- [ ] **Fiche trame — `specification-technique`** : première fiche-trame de phase. Définit ce qu'est la phase 1, ses livrables, comment la mener.
-- [ ] **Fiche notion — `cahier-des-charges-fonctionnel`** (`fiches/proj/`)
+- [ ] **Fiche trame `specification-technique` — étapes 2 à 6** : poursuivre la rédaction (étape 1 déjà rédigée en session du 20/05). Prochaine en tête : étape 2 état de l'art.
+- [ ] **Fiche notion `bete-a-cornes`** (`fiches/proj/`) — référencée 5 fois dans `specification-technique`, prioritaire. Inclure exemples bon/moyen/mauvais.
+- [ ] **Produire le SVG de la bête à cornes** en même temps que la fiche-notion, puis revenir compléter `specification-technique.md` étape 1 (placeholder image actuellement).
+- [ ] **Fiche notion `cahier-des-charges-fonctionnel`** (`fiches/proj/`)
   - Notion fondatrice, mentionnée 3 fois dans le hub et 2 fois dans la fiche pilote
   - Couvre `AA-PROJ-C04-CFE3-02` (rédiger un CdCF) — sous réserve convention tags
-- [ ] **Fiche trame — `concept`** : phase 2.
-- [ ] **Fiche trame — `preuve-de-concept`** : phase 3. Insister sur la logique de dérisquage.
+- [ ] **Fiche trame `concept`** : phase 2.
+- [ ] **Fiche trame `preuve-de-concept`** : phase 3. Insister sur la logique de dérisquage.
 - [ ] (Puis fiches selon priorité — voir BACKLOG.md)
 
 ### 3. Templates à rédiger
-- [ ] **Template fiche-trame** dans `_templates/fiche-trame.md` (structure spécifique aux fiches de phase)
+- [ ] **Template fiche-trame** dans `_templates/fiche-trame.md` — à extraire **après** rédaction d'une 2ème fiche-trame (`preuve-de-concept` probablement), pour que le template repose sur 2 cas réels et pas un seul. La fiche `specification-technique.md` sert de modèle de travail en attendant.
 - [ ] **Template fiche-tuto** dans `_templates/fiche-tuto.md`
 - [ ] **Vérifier / mettre à jour `fiche-notion.md`** existant pour cohérence avec la typologie 3 types
-- [ ] Formaliser le champ `type:` et `phases:` dans le front matter (documenter dans chaque template)
+- [ ] Formaliser le champ `type:` et `phases:` dans le front matter (documenter dans chaque template) — première vraie utilisation dans `specification-technique.md`
 
 ## Décisions à valider avec la hiérarchie
 - [ ] Convention de tags AA (granularité, syntaxe)
@@ -50,6 +52,16 @@ Approche recommandée : remonter le cycle en V dans l'ordre des phases.
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-20 (Fiche-trame `specification-technique` — étape 1)
+- [x] Cadrer la structure type d'une fiche-trame (front matter + 7 sections)
+- [x] Découper la phase 1 en 6 étapes (analyser le besoin / étudier l'existant / formaliser / caractériser / planifier / rédiger CdCF)
+- [x] Cadrage méthodo : NF X50-151 (AFNOR), enrichissement FAST reporté en phase 2
+- [x] Décision : un seul callout `[!livrable]` groupé par étape (vs un par sous-étape)
+- [x] Décision : fiche-stub pour `afnor-nfx50-151` (popover natif) plutôt que lien externe direct
+- [x] Créer `content/fiches/proj/specification-technique.md` avec étape 1 entièrement rédigée et étapes 2-6 en placeholders
+- [x] Créer la stub `content/fiches/proj/afnor-nfx50-151.md`
+- [x] Poser les popovers (`mecatronique`, `ecoconception`, `relation-client`, `bete-a-cornes`, `pcb`, `ppm`)
 
 ### Session 2026-05-19 (suite 2 — Trame projet)
 - [x] Cadrer le cycle en V : 5 phases retenues, PoC remonté avant dossier technique
