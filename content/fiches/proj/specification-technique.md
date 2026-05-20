@@ -62,7 +62,7 @@ La [[bete-a-cornes|bête à cornes]] est l'outil canonique de [[afnor-nfx50-151|
 - **Sur quoi agit-il ?** → la matière d'œuvre, l'objet ou le milieu sur lequel il opère
 - **Dans quel but ?** → le service rendu
 
-*[schéma bête à cornes à produire — `content/ressources/img/bete-a-cornes-generique.svg`]*
+![Bête à cornes — schéma générique](../../ressources/img/bete-a-cornes-generique.svg)
 
 > [!example] Exemple — Couveuse à œufs de poule
 >

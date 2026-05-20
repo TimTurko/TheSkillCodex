@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" role="img" aria-labelledby="title desc">
+  <title id="title">Bête à cornes — exemple mauvais (bras robotique)</title>
+  <desc id="desc">Exemple mauvais de bête à cornes pour le projet de bras robotique pédagogique. Usager : "Étudiants". Matière d'œuvre : "6 servomoteurs". Fonction : "Faire bouger un bras articulé via Arduino". Les éléments contiennent des choix de solution.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .th { font: 700 14px sans-serif; text-anchor: middle; letter-spacing: 0.3px; }
+      .ts { font: 600 12px sans-serif; text-anchor: middle; }
+      .tq { font: 600 13px sans-serif; text-anchor: middle; }
+      .arr { stroke-width: 1.8; fill: none; }
+      .horn { stroke-width: 2; fill: none; }
+      .b-amber-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .b-amber-text { fill: #FFFFFF; }
+      .b-gray-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .b-gray-text { fill: #2C2C2A; }
+      .question-text { fill: #BA7517; }
+      .neutral-stroke { stroke: #555555; }
+      @media (prefers-color-scheme: dark) {
+        .b-amber-fill { fill: #BA7517; stroke: #EF9F27; }
+        .b-amber-text { fill: #FFFFFF; }
+        .b-gray-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .b-gray-text { fill: #F1EFE8; }
+        .question-text { fill: #EF9F27; }
+        .neutral-stroke { stroke: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="130" y="30" class="tq question-text">À qui rend-il service ?</text>
+  <text x="470" y="30" class="tq question-text">Sur quoi agit-il ?</text>
+
+  <path d="M 130 90 Q 130 200, 270 240" class="horn neutral-stroke"/>
+  <path d="M 470 90 Q 470 200, 330 240" class="horn neutral-stroke"/>
+
+  <ellipse cx="130" cy="80" rx="110" ry="35" class="b-amber-fill"/>
+  <text x="130" y="86" class="th b-amber-text">ÉTUDIANTS</text>
+
+  <ellipse cx="470" cy="80" rx="115" ry="35" class="b-amber-fill"/>
+  <text x="470" y="86" class="th b-amber-text">6 SERVOMOTEURS</text>
+
+  <rect x="210" y="215" width="180" height="70" rx="4" class="b-amber-fill"/>
+  <text x="300" y="240" class="th b-amber-text">BRAS ROBOTIQUE</text>
+  <text x="300" y="262" class="ts b-amber-text">(sur Arduino)</text>
+
+  <text x="300" y="335" class="tq question-text">Dans quel but ?</text>
+
+  <path d="M 300 290 L 300 355" class="arr neutral-stroke" marker-end="url(#arrow)"/>
+
+  <rect x="120" y="365" width="360" height="55" rx="4" class="b-gray-fill"/>
+  <text x="300" y="398" class="th b-gray-text">FAIRE BOUGER LE BRAS</text>
+</svg>
