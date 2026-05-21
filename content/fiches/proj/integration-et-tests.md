@@ -104,6 +104,10 @@ Produire un **prototype qualifié** accompagné d'un **rapport final** et d'une 
 > - Rapport final (livrable documentaire évalué)
 > - Soutenance finale (livrable transversal évalué)
 
+## Conclusion
+
+Le projet est livré. Le prototype est qualifié (au sens fort ou avec écarts documentés), le rapport final synthétise les bilans et le REX, la soutenance démontre la lucidité d'analyse acquise au fil du parcours. Le cycle en V est refermé : ce qui avait été promis en [[specification-technique|spécification technique]] a été confronté à la réalité. Pour explorer d'autres parcours ou notions, retour au [[index|hub du tutoriel]].
+
 ---
 
 ## Pièges fréquents

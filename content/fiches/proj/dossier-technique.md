@@ -89,6 +89,10 @@ Et concrétise l'engagement matériel du projet : **commandes émises**.
 > [!livrable] Livrable de l'étape 5
 > - Bons de commande émis (matérialisation de l'engagement financier du projet)
 
+## Conclusion
+
+À ce stade, le dossier technique est validé en parties et en ensemble, la BOM est chiffrée et commandée, l'évaluation environnementale est quantifiée sur la base réelle. Le projet bascule matériellement : les pièces arrivent, l'argent est dépensé. La suite du travail bascule en [[integration-et-tests|intégration et tests]] pour remonter la branche ascendante du cycle en V et confronter le prototype au CdCF.
+
 ---
 
 ## Pièges fréquents

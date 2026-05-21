@@ -91,6 +91,10 @@ Ce document servira de **référence d'architecture** pour la suite du projet : 
 > [!livrable] Livrable de l'étape 5
 > - Dossier concept agrégé et validé (en revue d'équipe puis présentation à l'encadrant/client)
 
+## Conclusion
+
+À ce stade, l'architecture est posée, justifiée et pré-dimensionnée ; les incertitudes restantes sont explicitement listées. La suite du travail bascule en [[preuve-de-concept|preuve de concept]] pour lever ces incertitudes par l'expérimentation — avant d'engager le projet matériellement en [[dossier-technique|dossier technique]].
+
 ---
 
 ## Pièges fréquents

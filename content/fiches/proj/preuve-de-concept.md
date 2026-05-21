@@ -81,6 +81,10 @@ Ce rapport conditionne le passage au [[dossier-technique|dossier technique]] : s
 > - Rapport de preuve de concept (présentation des bancs, mesures, analyses, conclusions par incertitude)
 > - Matrice des risques mise à jour, évaluation [[ecoconception|écoconception]] révisée avec mesures réelles
 
+## Conclusion
+
+À ce stade, les incertitudes critiques sont levées : chaque hypothèse a été confrontée à la réalité physique, les solutions retenues sont confirmées ou ajustées, et les risques résiduels sont chiffrés. La suite du travail bascule en [[dossier-technique|dossier technique]] pour transformer cette architecture validée en plans détaillés exécutables et engager matériellement le projet.
+
 ---
 
 ## Pièges fréquents
