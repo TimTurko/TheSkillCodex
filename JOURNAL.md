@@ -5,6 +5,145 @@
 
 ---
 
+## 2026-05-21 (suite 2) — Vue d'ensemble macro : V replié avec rétroactions
+
+### Choix structurel : enrichir le SVG existant, pas un 6e flowchart Mermaid
+Au lancement de la session, le programme prévoyait un flowchart Mermaid « vue d'ensemble macro » consolidant les rétroactions inter-phases. **Bascule en début de session** sur l'enrichissement du `cycle-v-projet.svg` existant. Trois raisons :
+- Le V replié *montre* déjà les correspondances horizontales (« validée par », « guide », « éclaire ») — c'est exactement ce qu'on veut renforcer
+- Mermaid+dagre aurait peiné sur un graphe à 5 nœuds + 6 arcs (cf. galère subgraph BRANCHES phase 2)
+- Réutilisation d'un asset déjà validé et lisible, au lieu d'introduire une 6è représentation graphique
+
+### Archivage discipliné
+- Création du dossier `content/ressources/img/archive/`
+- Ancien SVG renommé `cycle-v-projet-v1.svg`. Convention `-vN.svg` retenue pour les futures archives (plus claire que `-old`)
+- Nouveau SVG `cycle-v-projet.svg` produit avec les rétroactions
+
+### Sémantique des rétroactions
+Quatre arcs pointillés ambrés (`#BA7517`, palette callouts v1), agrégés par couple (source, cible) avec étiquette explicite :
+- **R1** ph3 → ph2 : *ajuster les solutions* (PoC partiel, solutions à revoir)
+- **R2a** ph2 → ph1 : *trou dans le CdCF* (décomposition révèle un manque)
+- **R2b** ph3 → ph1 : *concept intenable* (PoC échec radical)
+- **R3** ph4 → ph2 : *interface impossible / écart BOM*
+
+**Convention de routage** : tous les arcs passent par l'**extérieur du V**, jamais dans le creux central — préserve la lisibilité de la structure en V. R2b passe à gauche (arc le plus large, viewBox étendu de `0 0 680 560` à `-110 0 800 580`). R3 a d'abord été tracé par le bas, **repositionné par le haut** sur retour utilisateur (lisibilité bien meilleure, étiquette logée dans la zone vide entre les titres et la barre ph1↔ph5).
+
+### Pointillé gris « guide » conservé malgré la présence de R3 entre ph2 et ph4
+Question utilisateur en cours de session : faut-il supprimer le pointillé gris « guide » (relation nominale ph2 → ph4) maintenant que R3 (rétroaction ph4 → ph2) est dans la même zone ? **Décision : garder les deux**. Les éléments encodent deux choses différentes — relation permanente descendante (gris) vs événement exceptionnel remontant (ambré). Supprimer « guide » casserait la symétrie pédagogique du V (validée par / guide / éclaire). La gêne visuelle a été résolue en déplaçant R3 par le haut (cf. ci-dessus).
+
+### Rupture pédagogique phase 5
+Étiquette italique discrète positionnée à côté de ph5 : *« pas de retour : les écarts se documentent »*. Matérialise explicitement l'absence de rétroaction sortante (calendrier qui impose la livraison) plutôt que de la laisser deviner par l'absence de flèche.
+
+### Décision : abandon des 3 flowcharts transverses
+Le programme initial prévoyait, en seconde partie de session, les flowcharts `gestion-projet`, `ecoconception`, `securite-qualite`. **Décision actée en fin de session** : on les abandonne. Rationnel : les flowcharts sont des **outils de travail amont pour la rédaction des trames**, pas des livrables exhaustifs en eux-mêmes. Les fils transverses sont déjà mentionnés dans chaque flowchart de phase aux points d'ancrage clés (stratégie β+γ actée le 20/05), c'est suffisant pour passer aux squelettes de fiches-trame. **Conséquence sur le périmètre `_drafts/flowcharts/`** : la collection est considérée comme close. Les fiches-trame transverses (`gestion-de-projet.md`, `ecoconception.md`, `securite-et-qualite.md`) restent au programme — c'est uniquement leur cartographie graphique préalable qui est abandonnée.
+
+### Incident méthodo — confusion outils sandbox vs MCP filesystem
+Perdu un moment sur un faux positif silencieux : `create_file` (outil sandbox Claude) renvoie « Successfully created » mais écrit dans un filesystem éphémère qui n'est **pas** le disque utilisateur. Seuls les outils préfixés `theskillcodex:*` (write_file, edit_file, move_file) touchent le dépôt local. Le piège est doublement perfide : (a) les noms sont quasi identiques, (b) les retours « success » sont indistinguables, (c) `move_file` MCP a bien marché en début de session, ce qui a entretenu l'illusion. **Leçon méthodo** : pour toute écriture sur le dépôt, **toujours** vérifier que l'outil est préfixé `theskillcodex:`. C'est le pendant filesystem de l'incident `spawn EINVAL` d'hier (un piège silencieux qui mange du temps si on ne vérifie pas).
+
+### Statut couverture du cycle en V
+**Vue macro produite et validée**. Les 5 flowcharts de phase + la vue macro dans `cycle-v-projet.svg` constituent le matériau complet pour démarrer les squelettes de fiches-trame. La séquence flowcharts est close.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Layout du subgraph BRANCHES (phase 2)** : reporté BACKLOG (résolu en pratique par contournement — phases suivantes ne souffrent pas du même problème grâce à la convention « grille carrée »)
+- **3 flowcharts transverses (gestProjet, ESE, sécu)** : **abandonnés**, pas reportés. À ressortir uniquement si une trame transverse révèle un vrai besoin de cartographie graphique.
+
+---
+
+## 2026-05-21 (suite) — Flowcharts phases 3, 4 et 5
+
+### Reprise de session
+- PC pro. `git pull` propre, fast-forward sans conflit (récup du travail PC perso : flowcharts phase 1 et 2 + pipeline SVG).
+- 3 questions ouvertes phase 3 tranchées en début de session.
+
+### Flowchart phase 3 — preuve de concept
+
+#### Décisions structurelles
+- **Structure des branches = par point dur, pas par discipline**. Rationnel : le PoC dérisque les **incertitudes critiques**, qui sont rarement mono-disciplinaires (un capteur d'effort = élec + méca + info). Forcer la grille élec/méca/info créerait des branches artificielles. La convention 3 couleurs disciplines reste mobilisable au niveau du label si un point dur est dominant sur une discipline, mais n'est pas systématique. **Rupture de pattern visuel** avec phase 2 assumée — le flowchart reste document de travail interne, pas un livrable public.
+- **Pas d'étape "acquisition matériel" séparée**. Le PoC se fait majoritairement avec du **matériel école standard + stock divers école**. Acquisition spécifique projet repoussée en phase 4 (BOM finale). Vocabulaire à retenir : **pas de composants "perso"** — interdit pour équité budgétaire et respect du cadre projet.
+- **Étape E2 commune amont "identifier les ressources matérielles"** (stock standard / stock divers / acquisition exceptionnelle si vraiment critique) plutôt que de dupliquer dans chaque branche point dur.
+- **Fusion D1 (énoncés validés) + S1 (revue énoncés)** → un seul nœud S1 "Revue des énoncés (validation encadrant)". La revue *est* la validation, un losange ne servirait à rien.
+- **Banc de test = intrinsèque à la branche point dur** (et non étape séparée). Le banc système global appartient à la phase 5. Clarification utilisateur reçue : deux niveaux de bancs distincts dans le projet (banc PoC focalisé sur un point dur, banc système global en intégration).
+- **3 sorties au losange D-PoC** (vs 2) : concluant / ajuster solutions (retour phase 2) / concept intenable (retour phase 1). Distinction pédagogiquement cruciale : un projet ne meurt pas pareil selon où le problème se situe.
+- **Grille à 3 branches dans le subgraph BRANCHES** : nombre figé pour stabilité visuelle, mention dans la fiche que N = 2 à 4 typiquement selon le projet.
+
+#### Rendu
+- **Layout BRANCHES nettement meilleur qu'en phase 2**. À retenir comme convention : **Mermaid+dagre gère mieux les grilles carrées et régulières** (3×3 ici : 3 points durs × 3 étapes) **que les rectangulaires** (2×3 en phase 2). Pour les futurs sous-graphes à grille, privilégier la structure carrée ou symétrique.
+- Validation utilisateur : *"très satisfait de la forme par rapport à la précédente"*.
+
+#### Points ouverts tranchés en fin de séquence
+- **Sécurité/qualité au PoC** : laissée pour le fil transverse propre (non matérialisée dans la phase). Évite la duplication entre phases.
+- **L1 (PoC fonctionnels) et L2 (rapport)** : maintenus séparés. Distinction pédagogique : L1 = livrable physique (le matériel marche), L2 = livrable documentaire (la pensée est claire).
+- **Protocole dans E1** : fusionné dans "formaliser l'énoncé". L'énoncé sans protocole n'est qu'une intention.
+- **E2 ressources matérielles mono-nœud** : maintenu (pas de mini sous-graphe "stock ou achat").
+
+### Flowchart phase 4 — dossier technique
+
+#### Périmètre
+- **Plans détaillés exécutables** (schémas élec finaux + routage PCB, plans méca cotés, architecture logicielle détaillée, BOM finale, bons de commande).
+- **Achats projet finalisés ici** (confirmé par utilisateur).
+- **Structure de branches = retour à élec/méca/info** (cohérence avec phase 2). Argument : on est sur du travail disciplinaire de fond, pas du dérisquage ciblé comme en phase 3.
+- **Livrable agrégé multi-validé** : un seul dossier technique, mais en parties indépendamment validables par les profs concernés.
+
+#### Multi-validation à 3 profs (correction utilisateur en cours de session)
+Initialement envisagé 4 ou 5 validateurs (élec, méca, info, achats, éco). Correction : à l'école il y a **3 validateurs réels** :
+- **Prof élec** (S2e) : valide élec **et** info (le prof élec porte les deux disciplines à l'école)
+- **Prof méca** (S2m) : valide méca + fabrication
+- **Responsable projet** (S2r) : valide achats + budget consolidé
+- **Écoconception** : pas de validateur dédié, vérifiée transversalement par les 3 sur leur périmètre.
+
+Matérialisation : **option 2 retenue (3 cercles parallèles + losange convergent D2)** plutôt que cercle unique. Pédagogiquement crucial de rendre visible le multi-validation, c'est l'enseignement central de cette phase sur les compétences MEO.
+
+#### Décisions structurelles
+- **3 décisions séquentielles** : D1 cohérence inter-disciplines (revue interne avant validation externe) → D2 validations disciplinaires obtenues (les 3 profs) → D3 dossier agrégé validé (validation transversale finale).
+- **2 livrables séparés** : L1 dossier technique (validation de la pensée) + L2 BOM finalisée + commandes émises (matérialisation de l'engagement). Distinct pédagogiquement et administrativement.
+- **Étape E7 "passer commandes" intérieure à la phase 4** (et non en sortie). Rationnel : sans commandes passées, le dossier n'a pas servi. Action concrète qui clôt la phase.
+- **Écoconception en étape dédiée (E4)** plutôt qu'intégrée dans la consolidation BOM. C'est ici que l'éco devient **quantifiable** (ACV simplifiée sur BOM réelle vs estimations qualitatives phase 2). Mérite sa case.
+- **Rétroactions sortantes** : D1 et D2 vers phase 2 (matrices à revoir si interface fondamentale impossible ou écart budgétaire majeur). Pas de rétroaction phase 1 ici : à ce stade le CdCF est gravé.
+
+### Flowchart phase 5 — intégration et tests
+
+#### Périmètre (option a)
+Phase 5 inclut **fabrication + intégration + tests + clôture**. Cohérent avec décision du 19/05.
+
+#### Pyramide de tests à 5 niveaux (cascade linéaire)
+Décision utilisateur (vs proposition Claude de pyramide avec diagnostic multi-cible) : **système linéaire avec rétroactions ciblées vers le niveau précédent**.
+- **Niveau 0** — validation fabrication (PCB, pièces imprimées, usinages) → retour fabrication si KO
+- **Niveau 1** — tests unitaires par fonction → retour banc (test mal posé) OU pièce (défaillance)
+- **Niveau 2** — tests d'intégration par fonction composée → retour niveau 1
+- **Niveau 3** — tests système → retour niveau 2
+- **Niveau 4** — qualification vs CdCF → écart documenté si non, **pas de retour**
+
+#### Décision pédagogique forte : "par fonction" et non "par discipline"
+Clarification utilisateur déterminante : **même les tests unitaires sont multi-disciplines**. Exemples donnés : *"faire avancer robot"* = élec + méca + info ; *"faire tourner roue"* = élec + info. 
+
+**Définition de la mécatronique qui en découle** : pas de sous-système isolable, tout est interface dès le niveau 1. Conséquence terminologique : on parle de **"par fonction"** plutôt que "par interface" (qui prête à confusion avec "interface" au sens API). Choix de découpage : structure variable selon le niveau de test (par pièce au N0, par fonction du N1 au N2, système global N3-N4).
+
+#### V qui se referme — traçabilité CdCF
+La qualification (niveau 4) confronte explicitement aux **fonctions caractérisées du CdCF** (phase 1). C'est le moment où la branche descendante du V est validée par la branche ascendante. **Matérialisation choisie : label clair sur l'étape de qualification** (sans flèche entrante depuis l'extérieur, jugée trop bricolage visuel).
+
+#### Rupture pédagogique : pas de rétroaction sortante
+C'est la première phase **sans rétroaction vers les phases amont**. Le calendrier de fin de semestre impose la livraison. Un échec en qualification (D4 non) ne renvoie pas en arrière, il **documente l'écart**. Message pédagogique : on n'est plus en cycle itératif, on est en cycle de production avec échéance immuable. L'évaluation se fait sur la **lucidité de l'analyse des écarts**, pas sur l'atteinte parfaite du CdCF.
+
+#### Sous-graphe APPRO_FAB déséquilibré assumé
+Deux branches (réception commandes / fabrication interne), pas trois. Pas d'équivalent info à fabriquer matériellement. **Déséquilibre assumé** plutôt que de bricoler une branche info artificielle.
+
+#### Clôture
+- **3 bilans en parallèle** : technique (E7t) / projet (E7p, transverse gestion projet) / écoconception (E7e, transverse, ACV réelle vs estimée phase 4).
+- **Tous évalués** dans le rapport final (confirmation utilisateur).
+- **REX d'équipe (E8)** : compétence MEO réflexive, distinct des bilans évalués.
+- **3 livrables évalués** : L1 prototype qualifié + L2 rapport final + L3 soutenance.
+
+### Statut couverture du cycle en V
+**Les 5 phases ont leur flowchart**. Reste à produire la **vue d'ensemble macro** (`flowchart-overview`) qui consolidera les rétroactions inter-phases (D1 phase 2 → phase 1, D5 phase 2 → phase 1, D1 phase 3 → phase 2, D1 phase 3 → phase 1, D1 phase 4 → phase 2, D2 phase 4 → phase 2). C'est la prochaine étape avant de basculer sur les squelettes de fiches-trame.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Layout du subgraph BRANCHES (phase 2)** : reporté BACKLOG, problème spécifique à la grille 2×3 rectangulaire. Confirmé par le succès du 3×3 carré en phase 3.
+- **Sécurité/qualité non matérialisée dans les phases** : à porter par le flowchart transverse propre quand il sera produit.
+- **Cohérence visuelle inter-phases** : phase 3 "par point dur" rompt avec phase 2/4 "par discipline". Acté comme document de travail. À revoir si jamais on publie.
+
+---
+
 ## 2026-05-21 — Flowcharts phase 1 et 2 + pipeline Mermaid → SVG
 
 ### Création du dossier et structure

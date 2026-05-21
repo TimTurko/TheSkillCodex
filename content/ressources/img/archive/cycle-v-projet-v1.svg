@@ -1,19 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 0 800 580" role="img" aria-labelledby="title desc">
-  <title id="title">Cycle en V du projet mécatronique avec rétroactions</title>
-  <desc id="desc">Cycle en V à 5 phases : branche descendante (Spécification, Concept, Preuve de concept) et branche ascendante (Dossier technique, Intégration et tests). Trois correspondances horizontales en pointillés relient chaque phase descendante à la phase ascendante qu'elle valide. Quatre rétroactions en pointillés ambrés extérieurs au V matérialisent les retours arrière possibles : ajustement des solutions depuis le PoC, retour à la spécification depuis le concept ou le PoC, retour au concept depuis le dossier technique. La phase 5 n'a pas de rétroaction sortante. Trois activités continues (gestion de projet, écoconception, sécurité et qualité) traversent toutes les phases.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" role="img" aria-labelledby="title desc">
+  <title id="title">Cycle en V du projet mécatronique</title>
+  <desc id="desc">Cycle en V à 5 phases : branche descendante (Spécification, Concept, Preuve de concept) et branche ascendante (Dossier technique, Intégration et tests). Trois correspondances horizontales en pointillés relient chaque phase descendante à la phase ascendante qu'elle valide. Trois activités continues (gestion de projet, écoconception, sécurité et qualité) traversent toutes les phases.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-fb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <style>
       .th { font: 500 14px sans-serif; }
       .ts { font: 400 12px sans-serif; }
-      .tfb { font: 500 11px sans-serif; }
       .arr { stroke-width: 1.5; fill: none; }
-      .feedback { stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
       .leader { stroke-width: 0.8; stroke-dasharray: 4 4; fill: none; }
       .b-purple { fill: #EEEDFE; stroke: #534AB7; }
       .b-purple-text { fill: #26215C; }
@@ -26,8 +21,6 @@
       .neutral-text { fill: #2C2C2A; }
       .neutral-stroke { stroke: #555555; }
       .neutral-light-stroke { stroke: #888888; }
-      .fb-stroke { stroke: #BA7517; }
-      .fb-text { fill: #7A4D0F; }
       @media (prefers-color-scheme: dark) {
         .b-purple { fill: #3C3489; stroke: #AFA9EC; }
         .b-purple-text { fill: #EEEDFE; }
@@ -40,8 +33,6 @@
         .neutral-text { fill: #F1EFE8; }
         .neutral-stroke { stroke: #B4B2A9; }
         .neutral-light-stroke { stroke: #888888; }
-        .fb-stroke { stroke: #EF9F27; }
-        .fb-text { fill: #FAEEDA; }
       }
     </style>
   </defs>
@@ -82,35 +73,17 @@
 
   <text class="ts neutral-text" x="340" y="358" text-anchor="middle">éclaire la conception détaillée</text>
 
-  <path d="M 220 308 C 120 308, 50 270, 80 200" class="feedback fb-stroke" marker-end="url(#arrow-fb)"/>
-  <text class="tfb fb-text" x="60" y="262" text-anchor="end">ajuster</text>
-  <text class="tfb fb-text" x="60" y="276" text-anchor="end">les solutions</text>
+  <text class="th neutral-text" x="20" y="410">En parallèle de toutes les phases</text>
 
-  <path d="M 80 188 C 35 188, 10 140, 20 100" class="feedback fb-stroke" marker-end="url(#arrow-fb)"/>
-  <text class="tfb fb-text" x="22" y="148" text-anchor="end">trou dans</text>
-  <text class="tfb fb-text" x="22" y="162" text-anchor="end">le CdCF</text>
+  <rect class="b-gray" x="20" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="120" y="452" text-anchor="middle" dominant-baseline="central">Gestion de projet</text>
 
-  <path d="M 220 320 C 60 320, -85 260, -60 140 C -45 70, 0 60, 20 76" class="feedback fb-stroke" marker-end="url(#arrow-fb)"/>
-  <text class="tfb fb-text" x="-95" y="200" text-anchor="middle">concept</text>
-  <text class="tfb fb-text" x="-95" y="214" text-anchor="middle">intenable</text>
+  <rect class="b-gray" x="240" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="340" y="452" text-anchor="middle" dominant-baseline="central">Écoconception</text>
 
-  <path d="M 480 170 C 480 130, 200 130, 200 170" class="feedback fb-stroke" marker-end="url(#arrow-fb)"/>
-  <text class="tfb fb-text" x="340" y="125" text-anchor="middle">interface impossible / écart BOM</text>
+  <rect class="b-gray" x="460" y="430" width="200" height="44" rx="8" stroke-width="0.5"/>
+  <text class="ts b-gray-text" x="560" y="452" text-anchor="middle" dominant-baseline="central">Sécurité, qualité</text>
 
-  <text class="tfb fb-text" x="540" y="160" text-anchor="middle" font-style="italic">pas de retour :</text>
-  <text class="tfb fb-text" x="540" y="174" text-anchor="middle" font-style="italic">les écarts se documentent</text>
-
-  <text class="th neutral-text" x="20" y="430">En parallèle de toutes les phases</text>
-
-  <rect class="b-gray" x="20" y="450" width="200" height="44" rx="8" stroke-width="0.5"/>
-  <text class="ts b-gray-text" x="120" y="472" text-anchor="middle" dominant-baseline="central">Gestion de projet</text>
-
-  <rect class="b-gray" x="240" y="450" width="200" height="44" rx="8" stroke-width="0.5"/>
-  <text class="ts b-gray-text" x="340" y="472" text-anchor="middle" dominant-baseline="central">Écoconception</text>
-
-  <rect class="b-gray" x="460" y="450" width="200" height="44" rx="8" stroke-width="0.5"/>
-  <text class="ts b-gray-text" x="560" y="472" text-anchor="middle" dominant-baseline="central">Sécurité, qualité</text>
-
-  <text class="ts neutral-text" x="340" y="525" text-anchor="middle">Trait plein noir = avancement nominal. Pointillés horizontaux gris = correspondances spec ↔ validation.</text>
-  <text class="ts neutral-text" x="340" y="545" text-anchor="middle">Pointillés ambrés = rétroactions (retours arrière déclenchés par un échec de jalon).</text>
+  <text class="ts neutral-text" x="340" y="510" text-anchor="middle">Trait plein = avancement nominal. Pointillés horizontaux = correspondances spec ↔ validation.</text>
+  <text class="ts neutral-text" x="340" y="530" text-anchor="middle">Les retours itératifs (boucles arrière) seront ajoutés dans une version future de cette trame.</text>
 </svg>

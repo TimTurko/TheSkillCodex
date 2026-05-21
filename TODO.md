@@ -25,11 +25,11 @@
 
 Squelette = front matter complet + popover + posture + objectif + démarche en titres d'étapes seulement + livrable principal + voir aussi. Pas de rédaction détaillée des étapes à ce stade.
 
-- [x] ~~**Session flowchart macroscopique**~~ — sessions du 21/05 (en cours) : flowcharts phase 1 et 2 produits dans `_drafts/flowcharts/`, script de rendu Mermaid → SVG mis en place
-- [ ] **Phase 3 — preuve de concept** (flowchart) — prochaine session, cadrage déjà amorcé (inventaire posé, 3 questions ouvertes : structure des branches, acquisition matériel comme étape, nombre de sorties D-PoC)
-- [ ] **Phase 4 — dossier technique** (flowchart)
-- [ ] **Phase 5 — intégration et tests** (flowchart)
-- [ ] **Vue d'ensemble macro** (flowchart-overview) — rétroactions inter-phases
+- [x] ~~**Session flowchart macroscopique**~~ — sessions du 21/05 : flowcharts phase 1, 2, 3, 4 et 5 produits dans `_drafts/flowcharts/`, script de rendu Mermaid → SVG mis en place
+- [x] ~~**Phase 3 — preuve de concept** (flowchart)~~ — 21/05 suite
+- [x] ~~**Phase 4 — dossier technique** (flowchart)~~ — 21/05 suite
+- [x] ~~**Phase 5 — intégration et tests** (flowchart)~~ — 21/05 suite
+- [x] ~~**Vue d'ensemble macro**~~ — 21/05 suite 2 : enrichissement du `cycle-v-projet.svg` (V replié + 4 rétroactions ambrées, archive de l'ancien en `archive/cycle-v-projet-v1.svg`). Choix retenu : pas de flowchart Mermaid supplémentaire.
 - [ ] **Squelette `concept`** (phase 2) — branche descendante du V
 - [ ] **Squelette `preuve-de-concept`** (phase 3) — point pivot du V
 - [ ] **Squelette `dossier-technique`** (phase 4) — branche ascendante
@@ -58,7 +58,9 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Tâches techniques en suspens
 - [ ] Commit + push de la session du 19/05 (suite et suite 2) pour voir hub + SVG + callouts en ligne
 - [ ] Commit + push de la session du 20/05 (bête à cornes + 4 SVG + mises à jour doc)
-- [ ] **Commit + push de la session du 21/05** : flowcharts phase 1 et 2, script `scripts/render-flowcharts.mjs`, ajout `flowcharts` dans scripts de `package.json`, ajout `@mermaid-js/mermaid-cli` en devDependency
+- [ ] **Commit + push de la session du 21/05** : flowchart phase 1, script `scripts/render-flowcharts.mjs`, ajout `flowcharts` dans scripts de `package.json`, ajout `@mermaid-js/mermaid-cli` en devDependency — *(une partie déjà pushée PC perso, vérifier)*
+- [ ] **Commit + push de la session du 21/05 (suite, PC pro)** : flowcharts phase 3, 4, 5 dans `_drafts/flowcharts/` (avec SVG générés), mise à jour JOURNAL / TODO / BACKLOG
+- [ ] **Commit + push de la session du 21/05 (suite 2)** : nouveau `cycle-v-projet.svg` avec rétroactions + archivage v1 dans `content/ressources/img/archive/`, mise à jour JOURNAL / TODO / BACKLOG
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
 - [ ] Vérifier le rendu de la fiche hub sur smartphone (vrai test responsive)
@@ -78,6 +80,23 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-21 suite 2 (Vue d'ensemble macro — V replié avec rétroactions)
+- [x] Décider de la forme : enrichir `cycle-v-projet.svg` plutôt qu'un 6è flowchart Mermaid
+- [x] Archiver `cycle-v-projet.svg` v1 dans `content/ressources/img/archive/cycle-v-projet-v1.svg`
+- [x] Produire le nouveau `cycle-v-projet.svg` avec 4 arcs de rétroaction agrégés (R1, R2a, R2b, R3) et l'étiquette « pas de retour » sur ph5
+- [x] Repositionner R3 par le haut (sur retour utilisateur) pour éviter la gêne visuelle avec le pointillé « guide »
+- [x] Décider : abandon des 3 flowcharts transverses (les flowcharts sont des outils amont de rédaction des trames, pas des livrables exhaustifs)
+- [x] Identifier la confusion outils sandbox vs MCP filesystem (`create_file` ≠ `theskillcodex:write_file`) — à retenir comme leçon méthodo
+
+### Session 2026-05-21 suite (Flowcharts phase 3, 4, 5)
+- [x] Trancher les 3 questions ouvertes phase 3 (branches par point dur, pas d'acquisition matériel séparée, 3 sorties D-PoC)
+- [x] Produire le flowchart **phase 3 — preuve de concept** (rendu validé, layout 3×3 propre)
+- [x] Cadrage **phase 4 — dossier technique** (périmètre, multi-validation à 3 profs, structures de décisions)
+- [x] Produire le flowchart **phase 4 — dossier technique**
+- [x] Cadrage **phase 5 — intégration et tests** (5 niveaux de tests en cascade linéaire, par fonction et non par discipline, pas de rétroaction sortante)
+- [x] Produire le flowchart **phase 5 — intégration et tests**
+- [x] Décisions structurelles consolidées : grilles carrées > grilles rectangulaires (Mermaid+dagre), tests "par fonction" en mécatronique (pas "par discipline" ni "par interface"), pas de retour arrière depuis ph5
 
 ### Session 2026-05-21 (Flowcharts phase 1 et 2)
 - [x] Créer `_drafts/flowcharts/`
