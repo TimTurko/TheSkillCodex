@@ -30,22 +30,28 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~**Phase 4 — dossier technique** (flowchart)~~ — 21/05 suite
 - [x] ~~**Phase 5 — intégration et tests** (flowchart)~~ — 21/05 suite
 - [x] ~~**Vue d'ensemble macro**~~ — 21/05 suite 2 : enrichissement du `cycle-v-projet.svg` (V replié + 4 rétroactions ambrées, archive de l'ancien en `archive/cycle-v-projet-v1.svg`). Choix retenu : pas de flowchart Mermaid supplémentaire.
-- [ ] **Squelette `concept`** (phase 2) — branche descendante du V
-- [ ] **Squelette `preuve-de-concept`** (phase 3) — point pivot du V
-- [ ] **Squelette `dossier-technique`** (phase 4) — branche ascendante
-- [ ] **Squelette `integration-et-tests`** (phase 5) — branche ascendante
+- [x] ~~**Squelette `concept`** (phase 2)~~ — 22/05
+- [x] ~~**Squelette `preuve-de-concept`** (phase 3)~~ — 22/05
+- [x] ~~**Squelette `dossier-technique`** (phase 4)~~ — 22/05
+- [x] ~~**Squelette `integration-et-tests`** (phase 5)~~ — 22/05
 - [ ] **Squelette `gestion-de-projet`** (fil transverse)
 - [ ] **Squelette `ecoconception`** (fil transverse)
 - [ ] **Squelette `securite-et-qualite`** (fil transverse)
+- [ ] **Template `_templates/fiche-trame.md`** — à extraire dès la prochaine session, sur la base des 5 trames stabilisées. *Priorité haute : posé maintenant la méthode figée bénéficiera à toutes les fiches à venir.*
+- [ ] **Refonte `specification-technique.md`** — étape 1 à réaligner sur la convention « 1 callout par étape » + ajout section Conclusion + harmonisation lexicale (« phase N » → noms en toutes lettres). À faire avant ou pendant l'approfondissement des étapes 2-6.
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [ ] **Approfondissement `specification-technique`** — étapes 2 à 6 (état de l'art / pieuvre / caractérisation / planification / rédaction CdCF)
 - [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V
 
-*Notion `cahier-des-charges-fonctionnel` à produire en parallèle à un moment opportun (mentionnée 3 fois dans le hub, prioritaire). Idem pour `pieuvre` (étape 3 specification-technique).*
+*Notions à produire en parallèle (popovers posés dès les squelettes du 22/05)* :
+- [ ] `cahier-des-charges-fonctionnel` (mentionné dans le hub + 4 trames — prioritaire)
+- [ ] `pieuvre` (étape 3 de specification-technique)
+- [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
+- [ ] `matrice-de-decision` (popover posé dans `concept.md`, mentionné aussi dans pré-concept)
 
 ### 3. Templates à rédiger
-- [ ] **Template fiche-trame** dans `_templates/fiche-trame.md` — à extraire **après** rédaction d'une 2ème fiche-trame (`preuve-de-concept` probablement), pour que le template repose sur 2 cas réels et pas un seul. La fiche `specification-technique.md` sert de modèle de travail en attendant.
+- [ ] **Template fiche-trame** dans `_templates/fiche-trame.md` — à extraire **dès la prochaine session**, sur la base des 5 trames stabilisées : `specification-technique` (étape 1) + les 4 squelettes du 22/05 (`concept`, `preuve-de-concept`, `dossier-technique`, `integration-et-tests`). Conventions à figer dans le template : front matter (type/phase/phases), 7 sections de corps + section Conclusion, 1 callout `[!livrable]` par étape, fil rouge incarné dans `[!example]` par étape, lexique (étape vs phase N, incertitude vs point dur).
 - [ ] **Template fiche-tuto** dans `_templates/fiche-tuto.md`
 - [ ] **Vérifier / mettre à jour `fiche-notion.md`** existant pour cohérence avec la typologie 3 types
 - [ ] Formaliser le champ `type:` et `phases:` dans le front matter (documenter dans chaque template) — première vraie utilisation dans `specification-technique.md`
@@ -61,8 +67,10 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Commit + push de la session du 21/05** : flowchart phase 1, script `scripts/render-flowcharts.mjs`, ajout `flowcharts` dans scripts de `package.json`, ajout `@mermaid-js/mermaid-cli` en devDependency — *(une partie déjà pushée PC perso, vérifier)*
 - [ ] **Commit + push de la session du 21/05 (suite, PC pro)** : flowcharts phase 3, 4, 5 dans `_drafts/flowcharts/` (avec SVG générés), mise à jour JOURNAL / TODO / BACKLOG
 - [ ] **Commit + push de la session du 21/05 (suite 2)** : nouveau `cycle-v-projet.svg` avec rétroactions + archivage v1 dans `content/ressources/img/archive/`, mise à jour JOURNAL / TODO / BACKLOG
+- [ ] **Commit + push de la session du 22/05** : 4 squelettes de fiches-trame (`concept.md`, `preuve-de-concept.md`, `dossier-technique.md`, `integration-et-tests.md`), 2 passes de patchs (corrections de fond + fil rouge + Conclusion), mise à jour JOURNAL / TODO / BACKLOG
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
+- [ ] Vérifier le rendu des 4 nouveaux squelettes (`concept`, `preuve-de-concept`, `dossier-technique`, `integration-et-tests`) en local Quartz + smartphone
 - [ ] Vérifier le rendu de la fiche hub sur smartphone (vrai test responsive)
 - [ ] Vérifier le rendu de la fiche `_templates/callouts.md` (panorama des callouts) en ligne et sur mobile
 - [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
@@ -80,6 +88,24 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-22 (Squelettes des 4 fiches-trame du cycle en V)
+- [x] Trancher les 4 questions de cadrage (ordre descendant strict, transposition non linéaire flowcharts→trames, popovers dès le squelette, « Voir aussi » dès le squelette)
+- [x] Décider du périmètre réaliste de session (4 phases, transverses reportées à session dédiée)
+- [x] Produire les 4 squelettes : `concept` (5 étapes), `preuve-de-concept` (4 étapes), `dossier-technique` (5 étapes), `integration-et-tests` (5 étapes)
+- [x] Relecture critique du squelette `concept` → 6 corrections de fond identifiées et traitées sur les 4 trames :
+  - « Dérisquer » banni en production étudiante → « lever une incertitude » / « valider le fonctionnement »
+  - « Phase N » proscrit dans la prose, noms de phases en toutes lettres systématiquement
+  - Popover `[[decomposition-fonctionnelle]]` posé (notion-mère manquante distincte de `schema-bloc-fonctionnel`)
+  - « Point dur » → « incertitude » partout
+  - Plus de callouts pédagogiques via le projet fil rouge
+  - Paragraphes trop courts → report à l'approfondissement avec exemples du fil rouge
+- [x] Acter le **projet fil rouge unique** : bras robotique pédagogique 3 axes (compromis simplicité + mécatronique canonique + ancrage par un étudiant disponible pour relecture). Cadrage figé (architecture, incertitudes, critères CdCF chiffrés).
+- [x] Acter la **convention de coexistence des cas d'illustration** : fiches-trame = fil rouge unique ; fiches-notion = cas autonome choisi pour la notion. `bete-a-cornes.md` (bras 6 axes) conserve son cas sans retravail rétroactif.
+- [x] Patcher les 4 trames : 25 callouts pédagogiques posés sur le fil rouge (19 `[!example]` + 5 `[!warning]` + 1 `[!tip]`), un par étape pour `[!example]`, optionnels pour les autres
+- [x] Acter la convention **« 1 callout `[!livrable]` par étape »** dès le squelette (était ambigüe dans `specification-technique`)
+- [x] Ajouter une section `## Conclusion` en fin de démarche dans les 4 trames (après le dernier livrable, avant le séparateur des pièges). Pattern à répliquer sur `specification-technique` lors de son approfondissement.
+- [x] Acter la convention rédactionnelle implicite : « étape » plutôt que « phase » dans la prose lorsqu'il y a risque de confusion avec « phase N du cycle en V »
 
 ### Session 2026-05-21 suite 2 (Vue d'ensemble macro — V replié avec rétroactions)
 - [x] Décider de la forme : enrichir `cycle-v-projet.svg` plutôt qu'un 6è flowchart Mermaid

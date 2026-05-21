@@ -8,15 +8,15 @@
 Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/hub/index.md` pour la trame complète.
 
 - [ ] `hub/specification-technique` — phase 1 du V
-- [ ] `hub/concept` — phase 2 du V
-- [ ] `hub/preuve-de-concept` — phase 3 du V (point pivot du V)
-- [ ] `hub/dossier-technique` — phase 4 du V
-- [ ] `hub/integration-et-tests` — phase 5 du V
+- [x] ~~`hub/concept` — phase 2 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/concept.md`
+- [x] ~~`hub/preuve-de-concept` — phase 3 du V (point pivot du V)~~ — squelette fait le 22/05 dans `content/fiches/proj/preuve-de-concept.md`
+- [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md`
+- [x] ~~`hub/integration-et-tests` — phase 5 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/integration-et-tests.md`
 - [ ] `hub/gestion-de-projet` — fil transverse
 - [ ] `hub/ecoconception` — fil transverse
 - [ ] `hub/securite-et-qualite` — fil transverse
 
-À noter : l'emplacement exact (`hub/` ou `fiches/proj/`) reste à arbitrer une fois les premières fiches-trame écrites.
+À noter : l'emplacement acté implicitement par la session du 22/05 est `content/fiches/proj/` (et non `content/hub/`). Le hub reste un point d'entrée vers ces fiches, pas leur conteneur.
 
 ## Fiches à rédiger — par domaine
 
@@ -47,6 +47,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 ### PROJ — Démarche projet
 - [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
 - [x] ~~Bête à cornes~~ — fait le 20/05 (fiche-notion complète + 4 SVG)
+- [ ] **Décomposition fonctionnelle** (notion-mère, distincte de `schema-bloc-fonctionnel` qui n'est qu'un des outils possibles — popover posé dans `concept.md` étape 1 le 22/05)
+- [ ] **Matrice de décision** (popover posé dans `concept.md` le 22/05, centrale pour la phase concept et la preuve de concept)
 - [ ] Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?
 - [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
@@ -119,6 +121,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Idées éditoriales
 
+- [ ] **Lexique étudiant : termes à proscrire** — démarrage suite à la décision du 22/05 de bannir « dérisquer » (non français) et « point dur » (peu lisible) dans toute production étudiante. À constituer comme petit document méthodologique (markdown court dans `_templates/` ou page de référence) listant les termes à éviter et leurs alternatives recommandées : « dérisquer » → « lever une incertitude » / « valider le fonctionnement », « point dur » → « incertitude », « phase N » → noms en toutes lettres dans la prose. À enrichir au fil des sessions.
 - [ ] Mini-séries thématiques (ex: "tout pour piloter un moteur DC en 5 fiches")
 - [ ] Parcours guidé : "Tu démarres ton projet ?" → suite logique de fiches
 - [ ] Encadré "Vu en projet" (callout terrain) systématisé
