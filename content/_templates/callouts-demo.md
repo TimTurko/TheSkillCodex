@@ -31,12 +31,6 @@ Ordre : par groupe sémantique — informatif → positif → narratif → alert
 > [!success] Succès
 > Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
 
-> [!check] Succès
-> Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
-
-> [!done] Succès
-> Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
-
 ## Narratif
 
 > [!example] Exemple
@@ -53,12 +47,6 @@ Ordre : par groupe sémantique — informatif → positif → narratif → alert
 ## Risque
 
 > [!danger] Danger
-> Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
-
-> [!failure] Danger
-> Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
-
-> [!bug] Danger
 > Contenu neutre pour valider le rendu visuel de ce callout. Phrase de test sans signification particulière, juste assez longue pour voir comment le texte se comporte sur deux lignes complètes dans le fond de couleur choisi.
 
 ## Projet
