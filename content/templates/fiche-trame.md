@@ -1,3 +1,18 @@
+---
+title: 
+type: trame
+phase: 
+phases:
+  - 
+tags:
+  - proj
+  - trame
+prerequis:
+  - 
+aa: []
+draft: false
+---
+
 <!--
 GUIDE DU TEMPLATE
 =================
@@ -14,28 +29,15 @@ sur tout le projet, pas sur une phase bornée. Voir le journal du 22/05
 pour le débat.
 
 Pour les conventions de callouts (sémantique d'usage, couleurs,
-conventions de titre), consulter `_templates/callouts.md`.
+conventions de titre), consulter `templates/callouts.md`.
 
 NE PAS mettre de H1 dans le corps : Quartz le génère depuis `title`.
-Mettre `draft: true` tant que la fiche n'est pas relue.
+Le template lui-même est `draft: false` pour être consultable sur le
+site ; les fiches que vous créerez à partir de lui doivent commencer
+en `draft: true` tant qu'elles ne sont pas relues.
 Liens internes : [[notion]] crée un popover si la fiche cible existe,
 ou un lien rouge sinon (= TODO list naturelle).
 -->
-
----
-title: 
-type: trame
-phase: 
-phases:
-  - 
-tags:
-  - proj
-  - trame
-prerequis:
-  - 
-aa: []
-draft: true
----
 
 <!--
 POPOVER (premier paragraphe, hors section)
@@ -130,7 +132,7 @@ CONVENTIONS À RESPECTER
      wiki-links : [[concept|concept]], jamais « phase 2 »
 
 Pour la sémantique d'usage des callouts et leurs conventions de titre,
-voir `_templates/callouts.md`.
+voir `templates/callouts.md`.
 -->
 
 ### 1. <Titre de l'étape à l'infinitif>
