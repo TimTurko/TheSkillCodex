@@ -179,20 +179,6 @@ Plafond pratique : 5-6 étapes par fiche-trame. Au-delà la fiche devient
 illisible sur smartphone (décision actée le 22/05).
 -->
 
-## Conclusion
-
-<!--
-CONCLUSION
-==========
-2 à 4 lignes. Récapitule l'état à la sortie de la phase et pose le pont
-explicite vers la phase suivante (avec wiki-link).
-
-Pour la dernière phase du cycle en V (intégration et tests), pas de
-phase suivante : pont vers le hub.
--->
-
-À ce stade, <récap de ce qui a été produit, validé, levé ou décidé>. La suite du travail bascule en [[<phase-suivante>|<phase suivante>]] pour <ce que cette phase fera>.
-
 ---
 
 ## Pièges fréquents
@@ -233,6 +219,20 @@ Section qui rassemble deux dimensions :
 Forme libre selon la phase. Peut être un paragraphe ou une liste
 structurée par sous-section.
 -->
+
+## Conclusion
+
+<!--
+CONCLUSION
+==========
+2 à 4 lignes. Récapitule l'état à la sortie de la phase et pose le pont
+explicite vers la phase suivante (avec wiki-link).
+
+Pour la dernière phase du cycle en V (intégration et tests), pas de
+phase suivante : pont vers le hub.
+-->
+
+À ce stade, <récap de ce qui a été produit, validé, levé ou décidé>. La suite du travail bascule en [[<phase-suivante>|<phase suivante>]] pour <ce que cette phase fera>.
 
 ## Voir aussi
 
