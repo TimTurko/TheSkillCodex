@@ -5,6 +5,150 @@
 
 ---
 
+## 2026-05-22 (suite) — Charte callouts v2 + templates fiche-trame et fiche-notion
+
+### Périmètre de session
+Production du template `fiche-trame.md` à partir des 5 trames stabilisées du 22/05 matin (specification-technique étape 1 + les 4 squelettes du cycle en V). Introduction au passage d'une charte graphique des callouts (palette v2). Vérification + refonte du template `fiche-notion.md` en fin de session.
+
+### Cadrage en début de session — 4 questions tranchées
+
+1. **Format du template** : sections vides avec commentaires HTML inline + exemple intégré pour les seuls éléments structurellement non évidents (placeholder italique + callouts fil rouge). Argument : un template entièrement pré-rempli pousserait l'auteur à copier-paraphraser au lieu de réfléchir.
+
+2. **Granularité des commentaires** : commentaires HTML inline, courts à moyens, pointant vers la charte callouts séparée. Pas de fiche méthodo séparée créée maintenant (option B retenue — elle viendra si le besoin se confirme).
+
+3. **Fil rouge dans le template** : présenté (bras 3 axes) avec convention de titre `Sur le bras 3 axes` figée. Pour les transverses, mention explicite dans le guide que la structure « démarche en étapes » peut ne pas s'appliquer telle quelle.
+
+4. **Fiche-notion en fin de session** : OK, traitée (voir section dédiée plus bas).
+
+### Charte callouts v2 — décisions de fond
+
+Proposition initiale utilisateur de palette pastel saturée (ambiance lecture longue) : `[!question]` `#85A2BD`, `[!info]`/`[!note]`/`[!example]`/`[!terrain]` fusionnés `#FAF6EC`, `[!tip]` `#C1D3BB`, `[!warning]` `#FFBD5B`, `[!danger]` `#F08A6A`, `[!livrable]` `#E2BDF9`. Critique constructive Claude + débat → 6 décisions structurantes :
+
+1. **Fusion `[!info]`+`[!note]` maintenue**, mais **différenciation `[!example]`/`[!terrain]` vs `[!info]`/`[!note]`** : ne pas noyer le callout pédagogiquement le plus important (`[!example]`, 1 par étape obligatoire en trame) dans une couleur indistincte de `[!info]`. Résultat : `[!example]`/`[!terrain]` reçoivent une teinte pêche pâle `#F9E6D4` distincte du crème `#FAF6EC` des info/note.
+
+2. **`[!warning]` désaturé** : `#FFBD5B` initial trop saturé par rapport au reste de la palette pastel. Bascule sur `#F5C77D` (ambre plus doux), puis éclairci en `#FADFAF` après la passe d'éclairement globale.
+
+3. **`[!success]`/`[!check]`/`[!done]` créés avec la couleur de `[!tip]`** : sémantique proche, fusion acceptée.
+
+4. **Mode sombre reporté** à une session ultérieure : les étudiants travaillent principalement en mode clair. Reporté dans TODO/BACKLOG, pas d'urgence.
+
+5. **Approche `--color` sombre + `--bg` clair conservée** : la palette utilisateur définit les `--bg`, Claude propose des `--color`/`--border` plus profonds dérivés. Évite le piège « texte de même couleur que fond ». Approche A validée.
+
+6. **Passe d'éclairement globale** sur 6 callouts (question, tip/success, warning, danger, example/terrain inchangé, livrable) après validation visuelle : palette trop saturée en V1.0 du SCSS. Interprétation A retenue (un cran plus pâle, sans aller jusqu'au quasi-blanc) pour préserver la gradation hiérarchique entre callouts.
+
+### Charte callouts v2 — palette finale figée
+
+| Callout | Fond (`--bg`) | Titre / filet (`--color`) |
+|---|---|---|
+| `[!question]` | `#B5C5D6` | `#3B5F7F` |
+| `[!info]` / `[!note]` | `#FAF6EC` | `#8C7E5C` |
+| `[!tip]` / `[!success]` / `[!check]` / `[!done]` | `#D8E3D3` | `#5C8556` |
+| `[!warning]` | `#FADFAF` | `#A8761F` |
+| `[!danger]` / `[!failure]` / `[!bug]` | `#F6B5A0` | `#A33A1F` |
+| `[!example]` / `[!terrain]` | `#F9E6D4` | `#A86A3F` |
+| `[!livrable]` | `#EED9FB` | `#6B3B96` |
+
+Icônes natives Quartz/Obsidian conservées (option B) : pas d'emoji additionnel dans les titres pour `[!warning]` et `[!danger]`.
+
+### Conventions de titres de callouts — figées
+
+Observation des patterns réels dans les trames du 22/05 + décision utilisateur :
+
+- `[!question]` : `Question : <la question posée>` (le titre EST la question)
+- `[!info]` / `[!note]` : `Info` ou `À retenir`
+- `[!tip]` / `[!success]` : `Astuce` ou `Succès`
+- `[!warning]` : `Attention` (icône native suffisante)
+- `[!danger]` : `Danger` (icône native suffisante)
+- `[!example]` dans une **fiche-trame** : `Sur le bras 3 axes` (fil rouge unique du projet)
+- `[!example]` dans une **fiche-notion** : nom court du cas d'illustration (`Couveuse`, `Bras 6 axes industriel`)
+- `[!terrain]` : `Vu dans une ancienne promo`
+- `[!livrable]` : `Livrable de l'étape N` (singulier) ou `Livrables de l'étape N` (pluriel)
+
+### Convention de coexistence des cas d'illustration — figée (rappel)
+
+Déjà actée le 22/05 matin, **inscrite dans les commentaires du template `fiche-notion.md`** :
+- Fiches-trame → fil rouge unique du projet (bras 3 axes)
+- Fiches-notion → cas autonome choisi pour la notion (varié : couveuse, bras 6 axes, etc.)
+
+### Règle de densité callouts — révisée
+
+Ancienne règle (palette v1) : « 0 à 3 callouts par fiche sauf cas justifié ». Révision v2 : **exception assumée pour les fiches-trame** (5-10 callouts par fiche est la norme, 1 `[!example]` + 1 `[!livrable]` par étape obligatoires, plus warnings/tips ponctuels). Inscrit dans `callouts.md`.
+
+### Production des templates
+
+#### `templates/callouts.md` (refonte complète v1 → v2)
+Nouveau plan : Règle générale + Charte graphique (tableau) + 8 callouts documentés avec sémantique + convention de titre + exemple markdown + rendu Quartz. Note `quartz/styles/custom.scss` comme source des couleurs CSS. Décision pliage maintenue en attente. La v1 reste traçable dans Git.
+
+#### `templates/fiche-trame.md` (nouveau)
+Extrait des 5 trames stabilisées. Structure :
+- Front matter complet (type/phase/phases/tags/prerequis/aa/draft)
+- Popover
+- ## Posture attendue
+- ## Objectif de la phase
+- ## Démarche (3 étapes d'exemple ; commentaire explicite « dupliquer pour ajouter, plafond pratique 5-6 étapes »)
+- ## Pièges fréquents
+- ## Pendant cette phase, côté équipe
+- ## Conclusion
+- ## Voir aussi
+
+Commentaires HTML pédagogiques par section + 1 bloc « CONVENTIONS À RESPECTER » dans la Démarche (callouts obligatoires/optionnels, lexique étape vs phase N, incertitude vs point dur, noms de phases en toutes lettres). 3 étapes-exemples dans le squelette pour montrer le motif sans alourdir.
+
+Test de reconstitution mentale sur `concept.md` : ✅ le template permet de reconstruire les 4 trames du 22/05.
+
+#### `templates/fiche-notion.md` (refonte complète v1 → v2)
+L'ancien template datait du 19/05, antérieur à la typologie 3 types. Manques principaux : pas de `type: notion`, pas de `phases:`, pas de tag `notion`, structure de corps trop générique. Refonte sur le modèle de `fiche-trame.md` (même esprit de commentaires HTML) + alignement sur la pratique observée dans `bete-a-cornes.md` (la seule fiche-notion réelle produite à ce jour).
+
+Structure :
+- Front matter complet (`type: notion`, `phases:`, `tags: [notion + domaine]`, `prerequis`, `aa`, `draft`)
+- Popover (catégorie : outil/méthode/concept/norme...)
+- ## À quoi ça sert ? (obligatoire)
+- ## Comment \<verbe adapté\> ? (titre adaptatif : construire / câbler / calculer / appliquer / implémenter)
+- ## Exemple — \<Nom court du cas\> (convention de titre incarné, cas autonome)
+- ## Pièges (obligatoire, pièges en **gras court** suivis d'explication, pas de puces)
+- ## Cas particulier — \<sujet\> (optionnel, à supprimer si non nécessaire)
+- ## Aller plus loin (optionnel)
+- ## Voir aussi (format `[[cible|texte]] — description`)
+
+Test de reconstitution mentale sur `bete-a-cornes.md` : ✅ le template permet de reconstruire la fiche.
+
+### Décisions structurelles annexes
+
+#### `templates/fiche-trame.md` — réordonnancement des sections finales
+Après première validation utilisateur, **réorganisation de l'ordre des sections post-Démarche** :
+- Ancien : Démarche → Conclusion → `---` → Pièges → Équipe → Voir aussi
+- Nouveau : Démarche → `---` → Pièges → Équipe → **Conclusion** → Voir aussi
+
+Argument utilisateur : la Conclusion (pont vers la phase suivante) gagne à être la dernière section utile **avant** le « Voir aussi », plutôt qu'enclavée entre la Démarche et les Pièges. L'étudiant qui termine la lecture utile tombe sur la transition vers la phase suivante au bon moment.
+
+**Conséquence sur les 4 trames du 22/05 + `specification-technique`** : décalage avec le template. **Décision : pas d'alignement rétroactif** (option B retenue). L'alignement se fera à l'approfondissement de chaque trame, naturellement.
+
+#### `_templates/` renommé en `templates/`
+Lors de la session, plusieurs frictions sur l'accès aux fiches du dossier `_templates/` :
+1. Le dossier était dans `ignorePatterns` (`quartz.config.ts`) — ignoré par le build Quartz. **Retiré** : décision éditoriale « `templates/` public » actée.
+2. Même après retrait, l'URL `localhost:8080/_templates/...` renvoyait 404. Cause probable : serveur HTTP de développement gère mal les URLs commençant par underscore. **Renommage** `_templates/` → `templates/` acté comme solution durable.
+3. Références internes patchées dans `fiche-trame.md`. `templates/index.md` mis à jour pour lister les 3 fiches.
+
+#### Templates passés en `draft: false`
+Le `Plugin.RemoveDrafts()` filtrait les templates eux-mêmes à cause de leur `draft: true`. **Résolution** : le template est de la doc, pas un brouillon. Passés en `draft: false`. Note explicite ajoutée dans le guide HTML : « le template lui-même est `draft: false` ; les fiches que vous créerez à partir de lui doivent commencer en `draft: true` tant qu'elles ne sont pas relues ».
+
+### Fiche-démo jetable `callouts-demo.md`
+Fiche créée en cours de session pour valider visuellement la palette callouts v2 sous Quartz (Obsidian ignore le SCSS Quartz, le rendu navigateur était la seule façon de vérifier). Servi depuis `content/callouts-demo.md` (contournement temporaire du problème underscore qui a finalement été résolu par le renommage). **Mission accomplie**, fiche jetable. Suppression à faire à la main (le serveur MCP filesystem n'a pas d'outil delete par sécurité).
+
+### Leçon méthodo — Obsidian vs Quartz
+Les couleurs CSS définies dans `quartz/styles/custom.scss` ne sont **pas** lues par Obsidian. Obsidian a son propre moteur de rendu et son propre thème. Pour valider visuellement la palette : **Quartz local obligatoire** (`npx quartz build --serve`). Obsidian reste pertinent pour la rédaction (vitesse, popovers natifs, recherche) mais pas pour valider le rendu visuel du site. Possible d'aligner Obsidian via un snippet CSS dans `.obsidian/snippets/` mais doublon de maintenance — pas la peine.
+
+### Leçon méthodo — modifications de `quartz.config.ts`
+Les changements de `quartz.config.ts` (config TypeScript) ne sont **pas** pris en compte par le hot reload. Il faut `Ctrl+C` puis relancer `npx quartz build --serve`. À retenir comme réflexe quand une modif de config ne semble pas prise en compte (`ignorePatterns`, locale, etc.).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Mode sombre des callouts** : non décliné en v2. À traiter dans une session ultérieure quand on aura du recul d'usage.
+- **Pliage des callouts** : toujours pas tranché (`[!example]-` replié par défaut ?). Note ajoutée dans `callouts.md` v2 que la décision est en attente.
+- **Alignement rétroactif des 5 trames** sur le nouvel ordre de sections : volontairement non fait. Se traitera à l'approfondissement de chaque trame.
+- **Suppression de `content/callouts-demo.md`** : à faire à la main par l'utilisateur (pas d'outil delete MCP).
+
+---
+
 ## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V
 
 ### Périmètre de session
