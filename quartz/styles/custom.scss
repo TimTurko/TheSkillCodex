@@ -61,7 +61,7 @@ article {
 .callout[data-callout="question"] {
   --color: #3B5F7F;            // bleu profond
   --border: #3B5F7F;
-  --bg: #85A2BD;               // bleu poudré
+  --bg: #B5C5D6;               // bleu très clair
 }
 
 // --- [!info] / [!note] — complément neutre, contexte -----------------
@@ -79,14 +79,14 @@ article {
 .callout[data-callout="done"] {
   --color: #5C8556;            // vert sauge profond
   --border: #5C8556;
-  --bg: #C1D3BB;               // vert sauge clair
+  --bg: #D8E3D3;               // vert sauge très clair
 }
 
 // --- [!warning] — piège fréquent, erreur courante --------------------
 .callout[data-callout="warning"] {
   --color: #A8761F;            // ambre profond
   --border: #A8761F;
-  --bg: #F5C77D;               // ambre désaturé
+  --bg: #FADFAF;               // ambre clair
 }
 
 // --- [!danger] / [!failure] / [!bug] — danger réel, risque ----------
@@ -95,7 +95,7 @@ article {
 .callout[data-callout="bug"] {
   --color: #A33A1F;            // rouge-brun
   --border: #A33A1F;
-  --bg: #F08A6A;               // corail
+  --bg: #F6B5A0;               // corail clair
 }
 
 // --- [!example] / [!terrain] — incarnation projet, narration --------
@@ -112,5 +112,5 @@ article {
 .callout[data-callout="livrable"] {
   --color: #6B3B96;            // violet profond
   --border: #6B3B96;
-  --bg: #E2BDF9;               // lavande clair
+  --bg: #EED9FB;               // lavande très clair
 }
