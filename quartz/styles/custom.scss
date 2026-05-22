@@ -43,138 +43,74 @@ article {
 }
 
 // =====================================================================
-// CALLOUTS — palette alignée sur le cycle en V (hub/index.md)
+// CALLOUTS — palette v2 (charte graphique, session 2026-05-22)
 // =====================================================================
-// Palette utilisée (référence : SVG cycle-v-projet.svg)
-//   Purple #534AB7 / #AFA9EC      → livrable, example
-//   Amber  #BA7517 / #EF9F27      → warning
-//   Teal   #0F6E56 / #5DCAA5      → tip
-//   Blue   #185FA5 / #85B7EB      → question
-//   Red    #A32D2D / #F09595      → danger
-//   Gray   #5F5E5A / #B4B2A9      → info
-//   Orange #c2410c / #fb923c      → terrain (déjà défini, conservé)
+// Palette pastel saturée, ambiance lecture longue.
+// Pour chaque callout :
+//   --bg     : couleur de fond (palette charte)
+//   --color  : couleur du texte de titre et du filet gauche (dérivée
+//              plus profonde de la couleur de fond, pour contraste)
+//   --border : identique à --color
 //
-// Convention : couleur claire en light mode, claire en dark mode pour
-// le texte, fond très pâle / transparent léger. Cohérent avec le V.
+// Mode sombre : non décliné en v2 (les étudiants travaillent
+// principalement en mode clair). À traiter dans une session ultérieure
+// — voir TODO.md / BACKLOG.md.
 // =====================================================================
 
 // --- [!question] — question centrale d'une phase ou notion -----------
 .callout[data-callout="question"] {
-  --color: #185FA5;
-  --border: #185FA5;
-  --bg: #E6F1FB;
-}
-[saved-theme="dark"] .callout[data-callout="question"] {
-  --color: #85B7EB;
-  --border: #85B7EB;
-  --bg: rgba(133, 183, 235, 0.08);
+  --color: #3B5F7F;            // bleu profond
+  --border: #3B5F7F;
+  --bg: #85A2BD;               // bleu poudré
 }
 
-// --- [!info] — complément neutre, contexte ---------------------------
+// --- [!info] / [!note] — complément neutre, contexte -----------------
 .callout[data-callout="info"],
 .callout[data-callout="note"] {
-  --color: #5F5E5A;
-  --border: #5F5E5A;
-  --bg: #F1EFE8;
-}
-[saved-theme="dark"] .callout[data-callout="info"],
-[saved-theme="dark"] .callout[data-callout="note"] {
-  --color: #B4B2A9;
-  --border: #B4B2A9;
-  --bg: rgba(180, 178, 169, 0.08);
+  --color: #8C7E5C;            // taupe doré
+  --border: #8C7E5C;
+  --bg: #FAF6EC;               // crème
 }
 
-// --- [!tip] — astuce pratique, raccourci -----------------------------
-.callout[data-callout="tip"] {
-  --color: #0F6E56;
-  --border: #0F6E56;
-  --bg: #E1F5EE;
-}
-[saved-theme="dark"] .callout[data-callout="tip"] {
-  --color: #5DCAA5;
-  --border: #5DCAA5;
-  --bg: rgba(93, 202, 165, 0.08);
+// --- [!tip] / [!success] / [!check] / [!done] — astuce, validation ---
+.callout[data-callout="tip"],
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+  --color: #5C8556;            // vert sauge profond
+  --border: #5C8556;
+  --bg: #C1D3BB;               // vert sauge clair
 }
 
 // --- [!warning] — piège fréquent, erreur courante --------------------
 .callout[data-callout="warning"] {
-  --color: #BA7517;
-  --border: #BA7517;
-  --bg: #FAEEDA;
-}
-[saved-theme="dark"] .callout[data-callout="warning"] {
-  --color: #EF9F27;
-  --border: #EF9F27;
-  --bg: rgba(239, 159, 39, 0.08);
+  --color: #A8761F;            // ambre profond
+  --border: #A8761F;
+  --bg: #F5C77D;               // ambre désaturé
 }
 
-// --- [!danger] — danger réel : sécurité, risque matériel -------------
+// --- [!danger] / [!failure] / [!bug] — danger réel, risque ----------
 .callout[data-callout="danger"],
 .callout[data-callout="failure"],
 .callout[data-callout="bug"] {
-  --color: #A32D2D;
-  --border: #A32D2D;
-  --bg: #FCEBEB;
-}
-[saved-theme="dark"] .callout[data-callout="danger"],
-[saved-theme="dark"] .callout[data-callout="failure"],
-[saved-theme="dark"] .callout[data-callout="bug"] {
-  --color: #F09595;
-  --border: #F09595;
-  --bg: rgba(240, 149, 149, 0.08);
+  --color: #A33A1F;            // rouge-brun
+  --border: #A33A1F;
+  --bg: #F08A6A;               // corail
 }
 
-// --- [!example] — exemple chiffré, cas pratique, mini-démo -----------
-.callout[data-callout="example"] {
-  --color: #7F77DD;
-  --border: #7F77DD;
-  --bg: #EEEDFE;
-}
-[saved-theme="dark"] .callout[data-callout="example"] {
-  --color: #CECBF6;
-  --border: #CECBF6;
-  --bg: rgba(206, 203, 246, 0.08);
-}
-
-// =====================================================================
-// Callout custom [!terrain] — apartés tirés de l'expérience projet
-// =====================================================================
-// Usage en markdown :
-//   > [!terrain] Vu en projet
-//   > Le texte de l'aparté ici.
-// =====================================================================
-
+// --- [!example] / [!terrain] — incarnation projet, narration --------
+.callout[data-callout="example"],
 .callout[data-callout="terrain"] {
-  --color: #c2410c;            // orange brûlé (tonalité "carnet de notes")
-  --border: #c2410c;
-  --bg: #fff7ed;               // fond très pâle
+  --color: #A86A3F;            // terre brûlée
+  --border: #A86A3F;
+  --bg: #F9E6D4;               // pêche très clair
 }
 
-[saved-theme="dark"] .callout[data-callout="terrain"] {
-  --color: #fb923c;            // orange plus clair en mode sombre
-  --border: #fb923c;
-  --bg: rgba(251, 146, 60, 0.08);
-}
-
-// =====================================================================
-// Callout custom [!livrable] — livrable attendu / compétence évaluée
-// =====================================================================
-// Usage strict : à utiliser UNIQUEMENT pour signaler un livrable concret
-// attendu de l'étudiant, ou une compétence évaluée. Ne pas en abuser.
-//
-// Usage en markdown :
-//   > [!livrable] Livrable principal
-//   > Description du livrable attendu, critères, format.
-// =====================================================================
-
+// --- [!livrable] (custom) — livrable attendu / compétence évaluée ---
+// Usage strict : UNIQUEMENT pour signaler un livrable concret attendu
+// de l'étudiant ou une compétence évaluée. Ne pas en abuser.
 .callout[data-callout="livrable"] {
-  --color: #534AB7;            // purple (ramp purple-600)
-  --border: #534AB7;
-  --bg: #EEEDFE;               // purple-50 très pâle
-}
-
-[saved-theme="dark"] .callout[data-callout="livrable"] {
-  --color: #AFA9EC;            // purple-200 en mode sombre
-  --border: #AFA9EC;
-  --bg: rgba(175, 169, 236, 0.08);
+  --color: #6B3B96;            // violet profond
+  --border: #6B3B96;
+  --bg: #E2BDF9;               // lavande clair
 }
