@@ -102,27 +102,30 @@ le motif :
   Paragraphe explicatif (placeholder *[À rédiger — ...]*  pendant le
   squelette, prose rédigée à l'approfondissement).
   
-  > [!example] Sur le bras 3 axes
+  > [!example] Exemple : projet bras 3 axes
   > Incarnation de l'étape sur le fil rouge (3-5 lignes, court).
   
-  > [!warning] <Phrase forte>  (optionnel)
-  > Anti-pattern ou message fort lié à l'étape.
+  > [!warning] Attention  (optionnel)
+  > **Phrase-clé portant l'anti-pattern.** Puis description complémentaire.
   
-  > [!tip] <Astuce>  (optionnel)
-  > Conseil de mise en œuvre.
+  > [!tip] Astuce  (optionnel)
+  > **Phrase-clé portant le conseil.** Puis détail si nécessaire.
   
-  > [!livrable] Livrable de l'étape N
+  > [!livrable] Livrable N/X — <Nom de la phase>
   > - Liste à puces des livrables concrets de l'étape
 
 CONVENTIONS À RESPECTER
 =======================
-1. 1 callout [!example] OBLIGATOIRE par étape, titre TOUJOURS « Sur le
-   bras 3 axes » (fil rouge unique des fiches-trame).
+1. 1 callout [!example] OBLIGATOIRE par étape, titre TOUJOURS
+   « Exemple : projet bras 3 axes » (fil rouge unique des fiches-trame).
 2. 1 callout [!livrable] OBLIGATOIRE par étape, en fin d'étape. Titre :
-   « Livrable de l'étape N » (singulier) ou « Livrables de l'étape N »
-   (pluriel). Liste à puces à l'intérieur.
-3. Callouts [!warning] et [!tip] optionnels, à utiliser quand l'étape
-   le justifie (anti-pattern récurrent, astuce non triviale).
+   « Livrable N/X — <Nom de la phase> » (singulier) ou « Livrables N/X
+   — <Nom de la phase> » (pluriel selon le nombre de livrables listés).
+   N = numéro de l'étape ; X = nombre total d'étapes de la phase. Liste
+   à puces à l'intérieur.
+3. Callouts [!warning] et [!tip] optionnels. Titres fixes « Attention »
+   / « Astuce » : la phrase-clé porteuse du message est portée par le
+   CORPS du callout en gras, jamais par le titre.
 4. Lexique :
    - « étape » dans la prose (pas « phase » sauf pour parler d'une
      phase du cycle en V)
@@ -139,10 +142,10 @@ voir `templates/callouts.md`.
 
 *[À rédiger — <description méthodo de l'étape, outils mobilisés, points d'attention pédagogiques, articulations avec les autres étapes. Inclure les wiki-links vers les notions à créer ou existantes. Ce placeholder reste en italique entre crochets tant que l'étape n'est pas approfondie.>]*
 
-> [!example] Sur le bras 3 axes
+> [!example] Exemple : projet bras 3 axes
 > <Incarnation de l'étape sur le fil rouge. 3 à 5 lignes maximum. Concret, chiffré quand pertinent.>
 
-> [!livrable] Livrable de l'étape 1
+> [!livrable] Livrable 1/X — <Nom de la phase>
 > - <Livrable concret 1>
 > - <Livrable concret 2 si pertinent>
 
@@ -150,26 +153,26 @@ voir `templates/callouts.md`.
 
 *[À rédiger — ...]*
 
-> [!example] Sur le bras 3 axes
+> [!example] Exemple : projet bras 3 axes
 > <Incarnation.>
 
-> [!warning] <Phrase forte décrivant l'anti-pattern>
-> <Description de l'anti-pattern et de la conséquence. Ce callout est optionnel : à inclure si l'étape porte un message fort qui mérite d'être ressorti visuellement.>
+> [!warning] Attention
+> **<Phrase forte décrivant l'anti-pattern>.** <Description complémentaire. Ce callout est optionnel : à inclure si l'étape porte un message fort qui mérite d'être ressorti visuellement.>
 
-> [!livrable] Livrable de l'étape 2
+> [!livrable] Livrable 2/X — <Nom de la phase>
 > - <Livrable concret>
 
 ### 3. <Titre de l'étape à l'infinitif>
 
 *[À rédiger — ...]*
 
-> [!example] Sur le bras 3 axes
+> [!example] Exemple : projet bras 3 axes
 > <Incarnation.>
 
-> [!tip] <Astuce courte>
-> <Conseil de mise en œuvre. Ce callout est optionnel.>
+> [!tip] Astuce
+> **<Phrase-clé courte>.** <Conseil complémentaire. Ce callout est optionnel.>
 
-> [!livrable] Livrables de l'étape 3
+> [!livrable] Livrables 3/X — <Nom de la phase>
 > - <Livrable 1>
 > - <Livrable 2>
 

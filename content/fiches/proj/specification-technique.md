@@ -17,17 +17,17 @@ La **spécification technique** est la première phase du projet [[mecatronique|
 
 ## Posture attendue
 
-La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette phase ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte deux à cinq fois plus cher en temps passer a le corriger à la fin du projet qu'au début.
+La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte deux à cinq fois plus cher en temps passé à le corriger à la fin du projet qu'au début.
 
 ## Objectif de la phase
 
 Produire un cahier des charges fonctionnel (CdCF) qui :
 
 - formule sans ambiguïté **ce que le système doit faire** (et pas comment)
-- chiffre chaque exigence (critère, niveau, flexibilité)
+- chiffre chaque exigence ([[critere|critère]], [[niveau|niveau]], [[flexibilite|flexibilité]])
 - intègre les contraintes d'[[ecoconception|écoconception]]
-- s'appuie sur un état de l'art technique
-- est validé par le [[relation-client|client ou commanditaire du projet]]
+- s'appuie sur un [[etat-de-l-art-technique|état de l'art technique]]
+- est validé par le client ou commanditaire du projet
 
 Ce document servira de **référence pendant tout le projet** et de **grille d'évaluation finale** : à la livraison, on reprend le CdCF point par point pour valider ou non chaque exigence.
 
@@ -51,8 +51,8 @@ Le contexte répond à la question : **pourquoi ce projet existe ?**
 - **Parties prenantes** — qui est concerné (utilisateur final, client, mainteneur, fabricant, voisinage, environnement)
 - **Verrous technologiques** — quels obstacles techniques ou scientifiques le projet cherche à dépasser
 
-> [!warning] Piège : verrou technologique ≠ difficulté personnelle
-> « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 [[ppm|ppm]] avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
+> [!warning] Attention
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 [[ppm|ppm]] avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
 
 #### Formuler le besoin avec la bête à cornes
 
@@ -64,7 +64,7 @@ La [[bete-a-cornes|bête à cornes]] est l'outil canonique de [[afnor-nfx50-151|
 
 ![Bête à cornes — schéma générique](../../ressources/img/bete-a-cornes-generique.svg)
 
-> [!example] Exemple — Couveuse à œufs de poule
+> [!example] Exemple : projet couveuse
 >
 > - **À qui** : éleveur amateur en autoconsommation
 > - **Sur quoi** : œufs de poule fécondés
@@ -81,6 +81,13 @@ Deux postures honnêtes selon le projet :
 
 Choisissez explicitement l'une des deux postures et tenez-la pendant toute la rédaction du CdCF.
 
+> [!example] Exemple : projet bras 3 axes
+> Le projet fil rouge de ce tutoriel — un bras robotique pédagogique 3 axes — relève de la **posture étudiant-client-de-lui-même** : le commanditaire est l'enseignant de mécatronique lui-même, et le service rendu est explicitement pédagogique (un support démontable et reproductible pour enseigner la chaîne d'asservissement complète).
+>
+> - **À qui** : enseignant de mécatronique souhaitant un support pédagogique réutilisable
+> - **Sur quoi** : objets légers (≤ 100 g) à déplacer dans un volume de travail accessible
+> - **But** : illustrer une démarche projet mécatronique complète sur un système simple, démontable et reproductible
+
 #### Valider la compréhension du besoin
 
 Une fois la [[bete-a-cornes|bête à cornes]] formulée, **confrontez-la** :
@@ -90,10 +97,10 @@ Une fois la [[bete-a-cornes|bête à cornes]] formulée, **confrontez-la** :
 
 Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou section dédiée du CdCF). C'est la preuve que la compréhension est partagée — sans elle, vous travaillez sur des suppositions.
 
-> [!tip] Pourquoi la bête à cornes paraît triviale (et ne l'est pas)
-> Trois questions, trois réponses : ça semble enfantin. La puissance de l'outil est précisément là : formuler en trois lignes ce qu'on croyait évident révèle les désaccords cachés dans l'équipe ou avec le client. Le moment où deux équipiers répondent différemment au « à qui » est exactement le moment où l'outil paye son utilité.
+> [!tip] Astuce
+> **La bête à cornes paraît triviale, et c'est précisément là sa puissance.** Trois questions, trois réponses : ça semble enfantin. Mais formuler en trois lignes ce qu'on croyait évident révèle les désaccords cachés dans l'équipe ou avec le client. Le moment où deux équipiers répondent différemment au « à qui » est exactement le moment où l'outil paye son utilité.
 
-> [!livrable] Livrables de l'étape 1
+> [!livrable] Livrables 1/6 — Spécification technique
 > - Texte de contextualisation du projet (origine, parties prenantes, verrous technologiques)
 > - Schéma de la [[bete-a-cornes|bête à cornes]] du projet
 > - Trace écrite de validation du besoin (mail, compte-rendu de réunion, ou section dédiée du CdCF)
@@ -134,6 +141,10 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 
 *[À rédiger — interfaces métiers (méca, fabrication) + fils transverses (gestion projet, écoconception, sécurité) spécifiques à la phase 1]*
 
+## Conclusion
+
+À ce stade, le besoin est compris et validé, l'existant est balisé, les fonctions sont formalisées et caractérisées de manière chiffrée, et le projet est planifié. Le **cahier des charges fonctionnel** est rédigé et opposable : il servira de référence pendant tout le projet et de grille d'évaluation finale. La suite du travail bascule en [[concept|concept]] pour transformer ce *quoi* en *comment* — choix d'architecture, matrices de décision, pré-dimensionnement.
+
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
@@ -142,4 +153,4 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 - [[afnor-nfx50-151|Norme NF X50-151]] *(stub)*
 - [[relation-client|Relation client]] *(tuto à créer)*
 - [[archivage-projet|Archivage projet]] *(tuto à créer)*
-- Phase suivante : [[concept|Concept]] *(à créer)*
+- Étape suivante : [[concept|Concept]]

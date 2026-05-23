@@ -5,6 +5,77 @@
 
 ---
 
+## 2026-05-23 — Refonte specification-technique étape 1 + révision conventions callouts
+
+### Périmètre de session
+Refonte ciblée de l'étape 1 de `specification-technique.md` pour alignement sur les conventions figées le 22/05 (suite), ajout de la section Conclusion absente, réordonnancement final. Au cours de la session, 5 remarques de relecture utilisateur ont déclenché une révision **structurante** des conventions de callouts — répercutée dans les templates `fiche-trame.md` et `callouts.md`.
+
+### Cadrage en début de session — 3 questions tranchées
+
+1. **Fil rouge bras 3 axes vs couveuse pour l'étape 1** : décision = **garder la couveuse** comme `[!example]` illustrant la démarche standard (client externe), et **ajouter** un `[!example]` bras 3 axes après le paragraphe « Cas particulier : projet école sans client réel » pour amorcer le fil rouge dès l'étape 1. Argument : l'étape 1 est structurellement particulière (traite des deux postures client externe / projet école), donc 2 `[!example]` côte à côte est pédagogiquement justifié. **Convention « 1 `[!example]` = bras 3 axes » assouplie pour cette seule étape** (exception assumée).
+
+2. **Convention « 1 `[!example]` par étape »** : ré-interprétée comme « **au moins** 1 `[!example]` obligatoire » et non « **exactement** 1 ». L'étape 1 actuelle est conforme (4 callouts : warning + example + tip + livrable). Faux écart retiré du programme.
+
+3. **Périmètre de session** : refonte étape 1 + Conclusion + réordonnancement final. L'approfondissement de l'étape 2 reporté à session dédiée pour éviter une étape 1 propre + une étape 2 bricolée.
+
+### Refonte spec-technique étape 1 — round 1 (7 patches)
+
+- **Lexique** : « Cette **phase** ne demande pas » → « Cette **étape** ne demande pas » (Posture attendue)
+- **Coquille** : « passer a le corriger » → « passé à le corriger »
+- **Callout `[!warning]`** : titre `Piège : verrou technologique ≠ difficulté personnelle` → `Attention`, phrase-clé `**Verrou technologique ≠ difficulté personnelle.**` portée par le corps en gras
+- **Callout `[!example]` couveuse** : titre `Exemple — Couveuse à œufs de poule` → `Sur la couveuse` (round 1)
+- **Nouveau callout `[!example]` bras 3 axes ajouté** après le bloc « Cas particulier » (illustration de la posture étudiant-client-de-lui-même, plante le fil rouge dès l'étape 1)
+- **Callout `[!tip]`** : titre `Pourquoi la bête à cornes paraît triviale (et ne l'est pas)` → `Astuce`, phrase-clé `**La bête à cornes paraît triviale, et c'est précisément là sa puissance.**` portée par le corps en gras
+- **Section `## Conclusion` ajoutée** entre Équipe et Voir aussi (pont explicite vers `[[concept|concept]]`)
+- **Voir aussi** : `Phase suivante : [[concept|Concept]] *(à créer)*` → `Étape suivante : [[concept|Concept]]` (la fiche existe désormais)
+
+### Révision des conventions callouts — round 2 (déclenchée par la relecture)
+
+À la relecture du round 1, 5 remarques utilisateur ont déclenché une révision **structurante** des conventions :
+
+1. **Popovers à ajouter** dans l'objectif de la phase : `[[critere|critère]]`, `[[niveau|niveau]]`, `[[flexibilite|flexibilité]]` (notions), `[[etat-de-l-art-technique|état de l'art technique]]` (tuto). Liens rouges assumés.
+2. **Popover à retirer** : `[[relation-client|client ou commanditaire du projet]]` → texte simple sans wiki-link (la notion « client » est trop générique pour mériter un popover ; `relation-client` reste dans Voir aussi en tant que tuto).
+3. **Convention titre `[!example]` révisée** : `Sur le bras 3 axes` → **`Exemple : projet bras 3 axes`** (fiche-trame). `Couveuse` → **`Exemple : couveuse`** (fiche-notion). Logique : préfixe `Exemple : ` partout, plus explicite, lecture-friendly.
+4. **Convention titre `[!livrable]` révisée** : `Livrable de l'étape N` → **`Livrable N/X — <Nom de la phase>`** (singulier) ou **`Livrables N/X — <Nom de la phase>`** (pluriel selon le nombre d'items listés). N = numéro de l'étape, X = nombre total d'étapes de la phase. Nom de phase en toutes lettres. Logique : un lecteur qui tombe directement sur la fiche (recherche, lien externe) se situe immédiatement dans le cycle en V.
+5. **Convention titre `[!warning]` / `[!tip]` confirmée** : titre **fixe** (`Attention` / `Astuce`), phrase-clé porteuse du message **obligatoirement** portée par le corps en gras, jamais par le titre. Confirme le revirement vs la pratique de `concept.md` et des 3 autres trames du 22/05 (qui utilisent encore des phrases-clés en titre).
+
+### Application des nouvelles conventions — 3 fichiers patchés
+
+- **`specification-technique.md`** étape 1 : 4 patches supplémentaires (objectif + 2 `[!example]` + 1 `[!livrable]`) en plus des 7 du round 1. Étape 1 désormais 100 % alignée sur les conventions v2.1.
+- **`templates/fiche-trame.md`** : bloc « CONVENTIONS À RESPECTER » réécrit (points 1, 2, 3) + commentaire HTML de motif d'étape patché + 3 étapes-exemple alignées.
+- **`templates/callouts.md`** : sections `[!warning]`, `[!tip]`, `[!example]` et `[!livrable]` mises à jour avec les nouvelles conventions et exemples cohérents.
+
+### Conséquence — dette d'alignement des 4 trames du 22/05
+
+`concept.md`, `preuve-de-concept.md`, `dossier-technique.md`, `integration-et-tests.md` utilisent encore les anciennes conventions (`Sur le bras 3 axes`, `Livrable de l'étape N`, phrases-clés en titre des `[!warning]`/`[!tip]`).
+
+**Décision actée** : pas d'alignement rétroactif systématique en session dédiée. L'alignement se fera à l'approfondissement de chaque trame, naturellement. **Conséquence assumée** : `specification-technique` devient temporairement plus rigoureuse que les autres trames sur la convention callouts — acceptable, c'est la fiche pilote du parcours étudiant.
+
+### Vérification visuelle
+
+- **`specification-technique.md` étape 1** : vérification visuelle sous Quartz **OK** (utilisateur, fin de session).
+- **`templates/fiche-trame.md`** et **`templates/callouts.md`** : vérification visuelle **à faire** en début de session suivante (modifications patchées n'ont pas été revérifiées visuellement post-round 2).
+
+### Exception assumée — titre `[!terrain]`
+
+Le titre `Vu dans une ancienne promo` reste **non fixe** (variantes possibles : `Vu dans la promo 2024`, etc.), contrairement aux autres callouts qui ont tous reçu un titre fixe. Cohérent avec la sémantique de retour d'expérience daté. Convention conservée en l'état.
+
+### Leçon méthodo — chemin différent par poste pour MCP filesystem
+
+Le contexte de session pointait vers `C:\Users\timothe.turko.ICAMAD\...` (PC pro), or la session s'est déroulée sur le PC perso (`C:\Users\turko\...`). Tentative initiale d'accès échouée (`path outside allowed directories`), résolue en pivotant sur le bon chemin. **À retenir** : le serveur MCP filesystem ne sert que les directories autorisées du poste courant ; vérifier `list_allowed_directories` (ou échec d'accès) pour pivoter sans tergiverser.
+
+### Leçon méthodo — nom du serveur MCP variable par poste
+
+Les consignes du projet pointaient vers les outils préfixés `theskillcodex:*`. Sur ce PC perso, le serveur MCP filesystem est exposé sous le préfixe **`filesystem:*`** (mêmes capacités, même sémantique d'écriture sur disque). Validation par lecture des fichiers à jour (JOURNAL cohérent avec le contexte de session). **À retenir** : le préfixe peut varier d'un poste à l'autre selon le nom donné au serveur dans la configuration MCP — vérifier les outils disponibles plutôt que se fier au nom attendu.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Alignement rétroactif des 4 trames du 22/05** sur les conventions callouts v2.1 : à faire à l'approfondissement de chacune.
+- **Vérification visuelle des 2 templates patchés** au round 2 : à faire en début de session suivante.
+- **Acquisition des 4 nouvelles notions/tuto** (`critere`, `niveau`, `flexibilite`, `etat-de-l-art-technique`) : popovers posés, fiches à créer.
+
+---
+
 ## 2026-05-22 (suite) — Charte callouts v2 + templates fiche-trame et fiche-notion
 
 ### Périmètre de session

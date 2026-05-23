@@ -37,18 +37,22 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Squelette `gestion-de-projet`** (fil transverse)
 - [ ] **Squelette `ecoconception`** (fil transverse)
 - [ ] **Squelette `securite-et-qualite`** (fil transverse)
-- [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion.
-- [ ] **Refonte `specification-technique.md`** — étape 1 à réaligner sur la convention « 1 callout par étape » + ajout section Conclusion + harmonisation lexicale (« phase N » → noms en toutes lettres) + réordonnancement des sections finales (Conclusion entre Équipe et Voir aussi). À faire avant ou pendant l'approfondissement des étapes 2-6.
+- [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion. **Conventions callouts révisées le 23/05** (titres `Exemple : projet bras 3 axes` / `Livrable N/X — <Nom de la phase>` / `Attention` / `Astuce` avec phrase-clé dans le corps en gras).
+- [x] ~~**Refonte `specification-technique.md` étape 1**~~ — fait le 23/05 : alignement callouts v2.1 + ajout section Conclusion + réordonnancement final + popovers de l'objectif posés. **Étapes 2-6 restent en placeholder** (objet de la prochaine session).
+- [ ] **Approfondissement `specification-technique` — étapes 2 à 6** → **session prioritaire suivante** (état de l'art / pieuvre / caractérisation / planification / rédaction CdCF)
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
-- [ ] **Approfondissement `specification-technique`** — étapes 2 à 6 (état de l'art / pieuvre / caractérisation / planification / rédaction CdCF)
-- [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V
+- [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V — à chaque approfondissement, **aligner les callouts** sur les conventions v2.1 (titres + phrase-clé dans le corps)
 
-*Notions à produire en parallèle (popovers posés dès les squelettes du 22/05)* :
+*Notions à produire en parallèle (popovers posés dès les squelettes du 22/05 + 23/05)* :
 - [ ] `cahier-des-charges-fonctionnel` (mentionné dans le hub + 4 trames — prioritaire)
 - [ ] `pieuvre` (étape 3 de specification-technique)
 - [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
 - [ ] `matrice-de-decision` (popover posé dans `concept.md`, mentionné aussi dans pré-concept)
+- [ ] **`critere`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
+- [ ] **`niveau`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
+- [ ] **`flexibilite`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
+- [ ] **`etat-de-l-art-technique`** (tuto, popover posé dans l'objectif de `specification-technique.md` — 23/05 ; fusionner avec l'entrée BACKLOG existante « État de l'art (méthodologie) »)
 
 ### 3. Templates à rédiger
 - [x] ~~**Template fiche-trame**~~ — fait le 22/05 (suite) dans `templates/fiche-trame.md`
@@ -69,15 +73,17 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Commit + push de la session du 21/05 (suite 2)** : nouveau `cycle-v-projet.svg` avec rétroactions + archivage v1 dans `content/ressources/img/archive/`, mise à jour JOURNAL / TODO / BACKLOG
 - [ ] **Commit + push de la session du 22/05** : 4 squelettes de fiches-trame (`concept.md`, `preuve-de-concept.md`, `dossier-technique.md`, `integration-et-tests.md`), 2 passes de patchs (corrections de fond + fil rouge + Conclusion), mise à jour JOURNAL / TODO / BACKLOG
 - [ ] **Commit + push de la session du 22/05 (suite)** : charte callouts v2 (refonte `quartz/styles/custom.scss` + refonte `templates/callouts.md`), nouveau `templates/fiche-trame.md`, refonte `templates/fiche-notion.md`, renommage `_templates/` → `templates/` (avec `quartz.config.ts` patché), `templates/index.md` mis à jour, templates passés en `draft: false`. À supprimer avant commit : `content/callouts-demo.md` (fiche jetable).
+- [ ] **Commit + push de la session du 23/05** : refonte `specification-technique.md` étape 1 (11 patches : alignement callouts v2.1 + ajout Conclusion + réordo final + popovers objectif), révision conventions callouts v2.1 dans `templates/fiche-trame.md` (bloc CONVENTIONS À RESPECTER + commentaires HTML + 3 étapes-exemple) et `templates/callouts.md` (sections warning/tip/example/livrable), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
 - [ ] Vérifier le rendu des 4 nouveaux squelettes (`concept`, `preuve-de-concept`, `dossier-technique`, `integration-et-tests`) en local Quartz + smartphone
 - [ ] Vérifier le rendu de la fiche hub sur smartphone (vrai test responsif)
-- [ ] Vérifier le rendu de la fiche `templates/callouts.md` (charte v2) en ligne et sur mobile
-- [ ] Vérifier le rendu des templates `templates/fiche-trame.md` et `templates/fiche-notion.md` en ligne et sur mobile (en particulier la lisibilité des commentaires HTML — normalement invisibles dans le rendu, à confirmer)
+- [ ] Vérifier le rendu de la fiche `templates/callouts.md` (charte v2 + révision v2.1 du 23/05) en ligne et sur mobile
+- [ ] Vérifier le rendu des templates `templates/fiche-trame.md` (post-23/05) et `templates/fiche-notion.md` en ligne et sur mobile (en particulier la lisibilité des commentaires HTML — normalement invisibles dans le rendu, à confirmer)
+- [x] ~~Vérifier le rendu de `specification-technique.md` étape 1 refondue sous Quartz~~ — fait le 23/05, OK utilisateur.
 - [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
-- [ ] Configurer le plugin Templates d'Obsidian (`content/_templates`)
+- [ ] Configurer le plugin Templates d'Obsidian (`content/templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
 - [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
 - [ ] Produire / trouver une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
@@ -86,13 +92,24 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Charte couleur / identité visuelle complète** du site (au-delà de la palette callouts v2 désormais figée) — à traiter quand on aura plus de matière
 - [ ] **Mode sombre des callouts v2** — non décliné, report délibéré. À traiter dans une session ultérieure quand on aura du recul d'usage et qu'on souhaitera élargir la charte au mode sombre. Le SCSS actuel commente la décision.
 - [ ] **Pliage des callouts** : faut-il replier `[!example]` par défaut ? À trancher après quelques fiches rédigées
-- [ ] **Alignement rétroactif des 5 trames** (specification-technique + 4 du 22/05) sur le nouvel ordre de sections du template (Conclusion entre Équipe et Voir aussi) — décision actée de **ne pas le faire systématiquement** mais lors de l'approfondissement de chaque trame, naturellement.
+- [ ] **Alignement rétroactif des 5 trames** (specification-technique + 4 du 22/05) sur le nouvel ordre de sections du template (Conclusion entre Équipe et Voir aussi) — décision actée de **ne pas le faire systématiquement** mais lors de l'approfondissement de chaque trame, naturellement. **`specification-technique` alignée le 23/05.**
+- [ ] **Alignement rétroactif des 4 trames du 22/05 sur les conventions callouts v2.1** (titres `Exemple : projet bras 3 axes`, `Livrable N/X — <Nom de la phase>`, `Attention` / `Astuce` avec phrase-clé dans le corps en gras) — acquis 23/05. Décision : **pas d'alignement systématique**, à faire lors de l'approfondissement de chaque trame. `specification-technique` est temporairement la seule fiche conforme v2.1.
 - [ ] Stratégie pour fiches MME/ESE : pages courtes pointant vers collègues, ou ne rien créer ?
 - [ ] Glossaire séparé pour acronymes ou fiches courtes individuelles ?
 
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-23 (Refonte specification-technique étape 1 + révision conventions callouts)
+- [x] Trancher les 3 questions de cadrage (fil rouge bras 3 axes + couveuse en double sur l'étape 1, interprétation « au moins 1 `[!example]` par étape », périmètre limité à l'étape 1)
+- [x] Round 1 — 7 patches sur `specification-technique.md` étape 1 : lexique `phase`→`étape`, coquille `passer a`→`passé à`, titres callouts alignés (warning/example/tip), ajout `[!example]` bras 3 axes, ajout section Conclusion, réordo final, `Phase suivante`→`Étape suivante`
+- [x] Round 2 — déclenché par 5 remarques de relecture : ajout popovers (`critere`, `niveau`, `flexibilite`, `etat-de-l-art-technique`) + retrait popover `relation-client` dans le texte + révision conventions titre `[!example]` (`Exemple : projet <cas>`) + révision conventions titre `[!livrable]` (`Livrable N/X — <Nom de la phase>`) + confirmation titres fixes `Attention`/`Astuce` avec phrase-clé dans le corps en gras
+- [x] Patches sur `templates/fiche-trame.md` (bloc CONVENTIONS À RESPECTER + commentaires HTML + 3 étapes-exemple) pour propager les nouvelles conventions v2.1
+- [x] Patches sur `templates/callouts.md` (4 sections : warning, tip, example, livrable) pour propager les nouvelles conventions v2.1
+- [x] Vérification visuelle de `specification-technique.md` étape 1 sous Quartz : OK
+- [x] Leçon méthodo : chemin différent par poste pour MCP filesystem (PC pro vs PC perso)
+- [x] Leçon méthodo : nom du serveur MCP variable par poste (`theskillcodex:*` vs `filesystem:*`)
 
 ### Session 2026-05-22 (suite — Charte callouts v2 + templates fiche-trame et fiche-notion)
 - [x] Trancher les 4 questions de cadrage (format du template, granularité des commentaires, fil rouge intégré, sort de fiche-notion)

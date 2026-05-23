@@ -46,6 +46,9 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ### PROJ — Démarche projet
 - [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
+- [ ] **`critere`** (notion — attribut d'une exigence du CdCF, popover posé dans l'objectif de `specification-technique.md` le 23/05). À voir si on regroupe `critere`/`niveau`/`flexibilite` dans une fiche unique « Caractériser une exigence » ou si on garde 3 fiches séparées (popovers séparés déjà posés).
+- [ ] **`niveau`** (notion — attribut d'une exigence du CdCF, popover posé 23/05)
+- [ ] **`flexibilite`** (notion — attribut d'une exigence du CdCF, popover posé 23/05)
 - [x] ~~Bête à cornes~~ — fait le 20/05 (fiche-notion complète + 4 SVG)
 - [ ] **Décomposition fonctionnelle** (notion-mère, distincte de `schema-bloc-fonctionnel` qui n'est qu'un des outils possibles — popover posé dans `concept.md` étape 1 le 22/05)
 - [ ] **Matrice de décision** (popover posé dans `concept.md` le 22/05, centrale pour la phase concept et la preuve de concept)
@@ -57,7 +60,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Gestion des risques projet
 - [ ] Approche-test / itération
 - [ ] Critères de comparaison de solutions
-- [ ] État de l'art (méthodologie)
+- [ ] **`etat-de-l-art-technique`** (tuto, popover posé dans l'objectif de `specification-technique.md` le 23/05). Méthode N×M (N solutions × M critères pondérés) pour étude comparative chiffrée. À distinguer d'une simple revue bibliographique. Fusionne l'ancienne entrée « État de l'art (méthodologie) ».
 - [ ] Schéma cinématique
 - [ ] Chaîne d'énergie
 - [ ] Pré-dimensionnement (méthodologie)

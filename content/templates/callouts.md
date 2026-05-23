@@ -65,29 +65,29 @@ Mise à jour : modifier `quartz/styles/custom.scss`. Les variables CSS suivent l
 
 **Sémantique** : pour un **conseil de mise en œuvre**, un raccourci, une bonne pratique non triviale — ce que dirait un pro à un débutant. Mêmes couleurs que `[!success]`, qui signale un état positif atteint.
 
-**Convention de titre** : `Astuce` ou `Succès`. Court, descriptif. Si l'astuce tient en quelques mots, le titre peut porter l'idée (`Branches ≠ rôles`).
+**Convention de titre** : `Astuce` ou `Succès` (titres fixes). La **phrase-clé** porteuse du message est portée par le **corps** du callout en gras, jamais par le titre.
 
 ```markdown
 > [!tip] Astuce
-> Toujours dimensionner l'alimentation au double du courant nominal calculé.
+> **Dimensionner l'alimentation au double du courant nominal calculé.** Cette marge protège des pics transitoires (démarrage moteur, charge variable) que le calcul nominal ne capture pas.
 ```
 
 > [!tip] Astuce
-> Toujours dimensionner l'alimentation au double du courant nominal calculé.
+> **Dimensionner l'alimentation au double du courant nominal calculé.** Cette marge protège des pics transitoires (démarrage moteur, charge variable) que le calcul nominal ne capture pas.
 
 ### `[!warning]` — piège fréquent
 
 **Sémantique** : pour signaler une **erreur courante** ou un piège dans lequel tombent les étudiants. Pas un danger physique, juste une source de bug ou de perte de temps. Inclut les anti-patterns pédagogiques (« on a tendance à faire X alors qu'il faut faire Y »).
 
-**Convention de titre** : `Attention`. L'icône native du callout suffit, pas d'emoji additionnel.
+**Convention de titre** : `Attention` (titre fixe). L'icône native du callout suffit, pas d'emoji additionnel. La **phrase-clé** porteuse du message est portée par le **corps** du callout en gras, jamais par le titre.
 
 ```markdown
 > [!warning] Attention
-> Oublier que l'ESP32 ne tolère pas 5 V sur ses GPIO — un seul fil mal câblé peut griller la carte.
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de PCB » n'est pas un verrou, c'est un manque d'expérience à combler.
 ```
 
 > [!warning] Attention
-> Oublier que l'ESP32 ne tolère pas 5 V sur ses GPIO — un seul fil mal câblé peut griller la carte.
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de PCB » n'est pas un verrou, c'est un manque d'expérience à combler.
 
 ### `[!danger]` — danger réel
 
@@ -108,15 +108,15 @@ Mise à jour : modifier `quartz/styles/custom.scss`. Les variables CSS suivent l
 **Sémantique** : pour un **exemple chiffré, un cas concret, une mini-démo** qui incarne la notion. Sert à ancrer la théorie sur un cas réel.
 
 **Convention de titre** :
-- Dans une **fiche-trame** (phase du cycle en V) : toujours `Sur le bras 3 axes` (fil rouge unique du projet, voir décision du 22/05).
-- Dans une **fiche-notion** : nom court du cas d'illustration (par exemple `Couveuse`, `Bras 6 axes industriel`).
+- Dans une **fiche-trame** (phase du cycle en V) : toujours `Exemple : projet bras 3 axes` (fil rouge unique du projet, voir décisions 22/05 + 23/05).
+- Dans une **fiche-notion** : `Exemple : <nom court du cas>` (par exemple `Exemple : couveuse`, `Exemple : bras 6 axes industriel`).
 
 ```markdown
-> [!example] Sur le bras 3 axes
+> [!example] Exemple : projet bras 3 axes
 > Décomposition probable en trois sous-systèmes : mobilité articulaire, interface utilisateur, alimentation et sécurité.
 ```
 
-> [!example] Sur le bras 3 axes
+> [!example] Exemple : projet bras 3 axes
 > Décomposition probable en trois sous-systèmes : mobilité articulaire, interface utilisateur, alimentation et sécurité.
 
 ### `[!terrain]` — retour d'expérience (custom)
@@ -137,14 +137,20 @@ Mise à jour : modifier `quartz/styles/custom.scss`. Les variables CSS suivent l
 
 **Sémantique** **stricte** : pour signaler un **livrable concret attendu de l'étudiant**, qui correspond à une compétence évaluée. Ne **pas** l'employer pour des livrables secondaires ou des suggestions.
 
-**Convention de titre** : `Livrable de l'étape N` (singulier) ou `Livrables de l'étape N` (pluriel selon le nombre de livrables listés).
+**Convention de titre** : `Livrable N/X — <Nom de la phase>` (singulier) ou `Livrables N/X — <Nom de la phase>` (pluriel selon le nombre de livrables listés dans le callout).
+
+- **N** = numéro de l'étape dans la phase ;
+- **X** = nombre total d'étapes de la phase ;
+- **\<Nom de la phase\>** = nom complet en toutes lettres (`Spécification technique`, `Concept`, `Preuve de concept`, `Dossier technique`, `Intégration et tests`).
+
+La présence du nom de phase dans le titre permet à un lecteur qui tomberait directement sur la fiche (recherche, lien externe) de se situer dans le cycle en V.
 
 ```markdown
-> [!livrable] Livrable de l'étape 1
+> [!livrable] Livrable 1/5 — Concept
 > Décomposition fonctionnelle du système (sous-systèmes + fonctions techniques par bloc).
 ```
 
-> [!livrable] Livrable de l'étape 1
+> [!livrable] Livrable 1/5 — Concept
 > Décomposition fonctionnelle du système (sous-systèmes + fonctions techniques par bloc).
 
 ## Pliage (à valider)
