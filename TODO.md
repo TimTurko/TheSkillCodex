@@ -39,20 +39,28 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Squelette `securite-et-qualite`** (fil transverse)
 - [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion. **Conventions callouts révisées le 23/05** (titres `Exemple : projet bras 3 axes` / `Livrable N/X — <Nom de la phase>` / `Attention` / `Astuce` avec phrase-clé dans le corps en gras).
 - [x] ~~**Refonte `specification-technique.md` étape 1**~~ — fait le 23/05 : alignement callouts v2.1 + ajout section Conclusion + réordonnancement final + popovers de l'objectif posés. **Étapes 2-6 restent en placeholder** (objet de la prochaine session).
-- [ ] **Approfondissement `specification-technique` — étapes 2 à 6** → **session prioritaire suivante** (état de l'art / pieuvre / caractérisation / planification / rédaction CdCF)
+- [x] ~~**Approfondissement `specification-technique` — étape 4 (cœur de la phase)**~~ — fait le 23/05 (suite 2) : 3 sous-sections + warning + tip + example + livrable 4/6 + 5 patches d'ajustement + 3 patches collatéraux étape 3 + décision méthodologique alias FP/FS/FC.
+- [ ] **Approfondissement `specification-technique` — étapes 5-6 + Pièges + section Équipe** → **session de clôture phase 1**.
+  - Étape 5 (Planifier) : Gantt / rétroplanning / jalons en fiches-tuto détaillées ; WBS / matrice de risques en fiches-notion légères ; outils mentionnés Excel/papier + GanttProject et autres à compléter.
+  - Étape 6 (Rédiger le CdCF) : structure canonique NF X50-151 avec souplesse ; intégration de la démarche écoconception confirmée.
+  - Pièges fréquents : intégrer les 4 pièges identifiés au 23/05 (suite 2) — niveau non chiffré, critère subjectif non mesurable, sur-spécification, F3 ≠ absence d'exigence.
+  - Section « Pendant cette phase, côté équipe » : à rédiger.
+  - Alignement v2.1 de la fiche déjà fait au fil — vérification de cohérence finale.
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V — à chaque approfondissement, **aligner les callouts** sur les conventions v2.1 (titres + phrase-clé dans le corps)
 
 *Notions à produire en parallèle (popovers posés dès les squelettes du 22/05 + 23/05)* :
 - [ ] `cahier-des-charges-fonctionnel` (mentionné dans le hub + 4 trames — prioritaire)
-- [ ] `pieuvre` (étape 3 de specification-technique)
+- [ ] `pieuvre` (fiche-notion **triplement prioritaire** : popover posé + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2). Intro à rédiger pour définir les 3 catégories d'un coup, contrainte induite par le popover servi sur les 3 sigles génériques.
 - [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
 - [ ] `matrice-de-decision` (popover posé dans `concept.md`, mentionné aussi dans pré-concept)
-- [ ] **`critere`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
-- [ ] **`niveau`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
-- [ ] **`flexibilite`** (notion, popover posé dans l'objectif de `specification-technique.md` — 23/05)
+- [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, avec front matter `aliases: [critere, niveau, flexibilite]` — décision 23/05 suite 2). Embarquera le triplet, le triptyque mauvais/moyen/bon (pattern à transposer de `bete-a-cornes.md`), l'échelle F0/F1/F2/F3 détaillée. Première phrase = définition du triplet pour popover cohérent au survol des 3 alias. Popovers déjà posés dans l'objectif de `specification-technique.md` (23/05) et dans le préambule de l'étape 4 (23/05 suite 2).
+- [ ] **`unite-si`** (fiche-notion, popover posé étape 4 du 23/05 suite 2 — lien rouge). Convention typographique des unités SI (espace insécable, format ± X mm, bornes, plages, etc.).
 - [ ] **`etat-de-l-art-technique`** (tuto, popover posé dans l'objectif de `specification-technique.md` — 23/05 ; fusionner avec l'entrée BACKLOG existante « État de l'art (méthodologie) »)
+- [ ] **`bom`** (tuto, popover posé étape 2 de `specification-technique.md` le 23/05 suite — acronyme + structure BOM, évolution attendue préliminaire/consolidée/finale)
+- [ ] **`mind-map`** (notion, popover posé étape 3 de `specification-technique.md` le 23/05 suite — outil méthodo générique)
+- [ ] **`fast`** (tuto, popover posé en ouverture de l'étape 3 de `specification-technique.md` le 23/05 suite — à créer en phase 2 concept)
 
 ### 3. Templates à rédiger
 - [x] ~~**Template fiche-trame**~~ — fait le 22/05 (suite) dans `templates/fiche-trame.md`
@@ -74,6 +82,8 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Commit + push de la session du 22/05** : 4 squelettes de fiches-trame (`concept.md`, `preuve-de-concept.md`, `dossier-technique.md`, `integration-et-tests.md`), 2 passes de patchs (corrections de fond + fil rouge + Conclusion), mise à jour JOURNAL / TODO / BACKLOG
 - [ ] **Commit + push de la session du 22/05 (suite)** : charte callouts v2 (refonte `quartz/styles/custom.scss` + refonte `templates/callouts.md`), nouveau `templates/fiche-trame.md`, refonte `templates/fiche-notion.md`, renommage `_templates/` → `templates/` (avec `quartz.config.ts` patché), `templates/index.md` mis à jour, templates passés en `draft: false`. À supprimer avant commit : `content/callouts-demo.md` (fiche jetable).
 - [ ] **Commit + push de la session du 23/05** : refonte `specification-technique.md` étape 1 (11 patches : alignement callouts v2.1 + ajout Conclusion + réordo final + popovers objectif), révision conventions callouts v2.1 dans `templates/fiche-trame.md` (bloc CONVENTIONS À RESPECTER + commentaires HTML + 3 étapes-exemple) et `templates/callouts.md` (sections warning/tip/example/livrable), mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Commit + push de la session du 23/05 (suite)** : approfondissement étapes 2-3 de `specification-technique.md` (2 patches initiaux + 7 patches round 2 de relecture), mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Commit + push de la session du 23/05 (suite 2)** : approfondissement étape 4 de `specification-technique.md` (rédaction complète + 5 patches d'ajustement) + 3 patches collatéraux étape 3 (cohérence BàC/pieuvre, FS1, définition FP) + 8+6 patches popovers FP/FS/FC, mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
@@ -82,6 +92,8 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Vérifier le rendu de la fiche `templates/callouts.md` (charte v2 + révision v2.1 du 23/05) en ligne et sur mobile
 - [ ] Vérifier le rendu des templates `templates/fiche-trame.md` (post-23/05) et `templates/fiche-notion.md` en ligne et sur mobile (en particulier la lisibilité des commentaires HTML — normalement invisibles dans le rendu, à confirmer)
 - [x] ~~Vérifier le rendu de `specification-technique.md` étape 1 refondue sous Quartz~~ — fait le 23/05, OK utilisateur.
+- [x] ~~Vérifier le rendu des étapes 2-3 de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en fin de session du 23/05 suite (MAJ doc avait dérapé, confirmé en début de session 23/05 suite 2).
+- [ ] Vérifier le rendu de l'étape 4 de `specification-technique.md` sous Quartz et sur smartphone (sous-liste F0/F1/F2/F3 avec indent 4 espaces — bascule en 2 espaces si la hiérarchie casse, callouts warning/tip/example/livrable côte à côte).
 - [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
 - [ ] Configurer le plugin Templates d'Obsidian (`content/templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
@@ -96,10 +108,33 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Alignement rétroactif des 4 trames du 22/05 sur les conventions callouts v2.1** (titres `Exemple : projet bras 3 axes`, `Livrable N/X — <Nom de la phase>`, `Attention` / `Astuce` avec phrase-clé dans le corps en gras) — acquis 23/05. Décision : **pas d'alignement systématique**, à faire lors de l'approfondissement de chaque trame. `specification-technique` est temporairement la seule fiche conforme v2.1.
 - [ ] Stratégie pour fiches MME/ESE : pages courtes pointant vers collègues, ou ne rien créer ?
 - [ ] Glossaire séparé pour acronymes ou fiches courtes individuelles ?
+- [ ] **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) à documenter dans le template `fiche-trame.md` ou note méthodo dédiée — décision 23/05 suite 2.
+- [ ] **Convention « alias Quartz CrawlLinks = mécanisme léger pour facettes indissociables d'un outil »** à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz — décision 23/05 suite 2.
 
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-23 (suite 2 — Approfondissement specification-technique étape 4)
+- [x] Trancher les 3 questions de cadrage (fiche-tuto unique avec alias / option (c) pas de triptyque dans la trame / mini-encart unités en prose)
+- [x] Acter le mécanisme alias Quartz CrawlLinks pour les facettes indissociables d'un outil (extension de la typologie 3 types)
+- [x] Acter alias `[FP, FS, FC]` vers la future fiche `pieuvre` avec granularité popover « sigles génériques uniquement »
+- [x] Patches collatéraux étape 3 : note italique BAC/pieuvre en tête de l'`[!example]`, FS1 réécrite pour relier deux milieux distincts, définition FP corrigée (« Sans FP » au lieu de « Sans FP1 »)
+- [x] 8 patches popovers FP/FS/FC sur les sigles génériques + 6 patches inverses sur les instances numérotées
+- [x] Rédiger l'étape 4 « Caractériser les fonctions » (3 sous-sections + 4 callouts + option (3) sur la flexibilité avec Fn + tolérance numérique)
+- [x] Round 2 — 5 patches d'ajustement étape 4 : phrase-clé `[!tip]` simplifiée avec popover `[[unite-si]]` posé, retrait phrase Obsidian, FP1 reformulée « manipuler le robot pour positionner » répercutée étapes 3 et 4, précision « le bras » devant Moveo et uArm Swift Pro
+- [x] Poser 2 nouvelles dépendances : `caracteriser-une-exigence` (fiche-tuto avec alias) et `unite-si` (fiche-notion)
+- [x] Lever la dette « vérification visuelle étapes 2-3 » (était faite en fin de session 23/05 suite, MAJ doc tardive identifiée en début de session)
+
+### Session 2026-05-23 (suite — Approfondissement specification-technique étapes 2 et 3)
+- [x] Trancher les 3 questions de cadrage (fil rouge bras 3 axes seul, découpage 2-3 / 4 dédiée / 5-6, popovers en lien rouge sauf cas bloquant)
+- [x] Rédiger l'étape 2 « Étudier l'existant » (préambule + 3 sous-sections H4 + warning EAT≠biblio + example tableau Niryo/uArm/Moveo + livrable 2/6)
+- [x] Round 2 — 6 patches de relecture sur l'étape 2 (gras votre, projet similaire, gras discriminer, popover BOM, titre H4, suppression échelle qualitative)
+- [x] Rédiger l'étape 3 « Formaliser les fonctions » (préambule + image pieuvre placeholder + 2 sous-sections H4 + warning fonction≠solution + example FP/FS/FC + ouverture FAST + livrable 3/6)
+- [x] Round 2 — 1 patch de relecture sur l'étape 3 (mind map avec popover)
+- [x] Acter le trio FP/FS/FC (vs duo FP/FC)
+- [x] Acter l'option α pour l'image pieuvre (placeholder cassé en attendant la session pieuvre, parallèle exact bete-a-cornes)
+- [x] Poser 3 nouvelles dépendances : `bom`, `mind-map`, `fast`
 
 ### Session 2026-05-23 (Refonte specification-technique étape 1 + révision conventions callouts)
 - [x] Trancher les 3 questions de cadrage (fil rouge bras 3 axes + couveuse en double sur l'étape 1, interprétation « au moins 1 `[!example]` par étape », périmètre limité à l'étape 1)

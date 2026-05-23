@@ -46,13 +46,14 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ### PROJ — Démarche projet
 - [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
-- [ ] **`critere`** (notion — attribut d'une exigence du CdCF, popover posé dans l'objectif de `specification-technique.md` le 23/05). À voir si on regroupe `critere`/`niveau`/`flexibilite` dans une fiche unique « Caractériser une exigence » ou si on garde 3 fiches séparées (popovers séparés déjà posés).
-- [ ] **`niveau`** (notion — attribut d'une exigence du CdCF, popover posé 23/05)
-- [ ] **`flexibilite`** (notion — attribut d'une exigence du CdCF, popover posé 23/05)
+- [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, décision 23/05 suite 2 : 1 fiche unique avec `aliases: [critere, niveau, flexibilite]` dans le front matter). Embarquera le triplet, le triptyque mauvais/moyen/bon (pattern `bete-a-cornes.md`), l'échelle F0/F1/F2/F3 NF X50-151. Première phrase = définition du triplet pour popover cohérent au survol des 3 alias.
+- [ ] **`unite-si`** (fiche-notion, popover posé étape 4 de `specification-technique.md` le 23/05 suite 2). Convention typographique des unités SI (espace insécable, format ± X mm, bornes, plages). Traitera aussi la mention `Ctrl+Maj+Espace` dans Obsidian.
 - [x] ~~Bête à cornes~~ — fait le 20/05 (fiche-notion complète + 4 SVG)
 - [ ] **Décomposition fonctionnelle** (notion-mère, distincte de `schema-bloc-fonctionnel` qui n'est qu'un des outils possibles — popover posé dans `concept.md` étape 1 le 22/05)
 - [ ] **Matrice de décision** (popover posé dans `concept.md` le 22/05, centrale pour la phase concept et la preuve de concept)
-- [ ] Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?
+- [x] ~~Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?~~ — décision 23/05 suite : on découpe en fiches séparées (entrées `pieuvre` et `fast` ci-dessous, SADT à voir si besoin)
+- [ ] **`pieuvre`** (notion, **triplement prioritaire** : popover posé étape 3 de `specification-technique.md` + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2). À produire avec référence visuelle canonique sous les yeux (leçon méthodo 20/05 sur les outils canoniques). Intro à rédiger pour définir les 3 catégories d'un coup, contrainte induite par le popover servi sur les 3 sigles.
+- [ ] **`fast`** (tuto, popover posé en ouverture de l'étape 3 de `specification-technique.md` le 23/05 suite — la pieuvre donne le *quoi*, FAST donne le *comment*). À traiter en phase 2 concept.
 - [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
 - [ ] Revue de projet
@@ -64,13 +65,14 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Schéma cinématique
 - [ ] Chaîne d'énergie
 - [ ] Pré-dimensionnement (méthodologie)
-- [ ] Nomenclature / BOM
+- [ ] **`bom`** / Nomenclature (tuto, popover posé étape 2 de `specification-technique.md` le 23/05 suite). Acronyme + structure d'un BOM. Évolution attendue : BOM préliminaire (spec) → consolidée (concept) → finale (dossier technique).
 - [ ] Plan de qualification produit
 - [ ] Retour d'expérience (REX)
 
 ### MEO — Méthodes et organisation
 - [ ] Outils collaboratifs (ODJ, CR, planning)
 - [ ] Outils de créativité (brainstorm, SCAMPER, etc.)
+- [ ] **`mind-map`** (notion, popover posé étape 3 de `specification-technique.md` le 23/05 suite). Outil méthodo générique mobilisable bien au-delà de la pieuvre (structuration d'idées, analyse de besoin, brainstorming).
 - [ ] Prise de décision collective
 - [ ] Gamme de fabrication
 - [ ] **Relation client** (tuto) — valider la compréhension du besoin, posture en réunion client, gestion des changements de demande
@@ -103,7 +105,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Illustration des conventions de flèches (info / énergie / matière)
 - [x] ~~**SVG bête à cornes générique**~~ — fait le 20/05 (4 SVG produits : générique + 3 exemples bras robotique). Placeholder dans `specification-technique.md` étape 1 remplacé.
 - [ ] SVG bête à cornes — version simplifiée 3-cases (variante éventuelle pour fiche très courte ou résumé carte mentale)
-- [ ] SVG pieuvre générique (pour étape 3 de `specification-technique`)
+- [ ] SVG pieuvre générique (pour étape 3 de `specification-technique`) — **désormais doublement prioritaire** : placeholder cassé dans la trame depuis le 23/05 suite.
 - [ ] Photos de projets étudiants antérieurs avec accord (anonymisées si besoin)
 - [ ] Capture d'écran de schéma Fritzing / KiCad type
 - [ ] Vidéo courte de démo (intégration via embed ?)
@@ -146,6 +148,9 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Convention de suffixe disciplinaire** `(élec)` / `(méca)` / `(info)` en bout de label des nœuds : à acter comme convention si retenu après plusieurs flowcharts produits.
 - [ ] **Layout flowchart phase 2 — non résolu** : le subgraph BRANCHES (étude par discipline) reste chaotique malgré plusieurs tentatives (sous-subgraphs LR/TB, liens invisibles `~~~`). Pistes à explorer plus tard : (a) tester le renderer ELK via `%%{init: {'flowchart': {'defaultRenderer': 'elk'}} }%%` (peut nécessiter une mise à jour de `@mermaid-js/mermaid-cli`), (b) abandonner la grille pure et accepter un autre mode de représentation, (c) sortir complètement de Mermaid pour cette phase (SVG main, draw.io, Excalidraw). **Confirmé 21/05 suite** : le même découpage en grille 3×3 régulière (phase 3) passe sans problème. C'est spécifiquement le 2×3 rectangulaire qui coince. Si on doit résoudre ph2, symétriser en 3×3 (ajouter un 3è étage : matrice + ?) pourrait suffire.
 - [ ] **Règle de visualisation des flowcharts** : préférer le SVG généré par `npm run flowcharts` au rendu Obsidian quand le diagramme devient large (Obsidian ne permet pas le scroll horizontal facile). Le SVG s'ouvre dans n'importe quel visualiseur d'image avec zoom natif.
+
+- [ ] **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) à documenter dans le template `fiche-trame.md` ou note méthodo dédiée — décision 23/05 suite 2.
+- [ ] **Convention « alias Quartz CrawlLinks = mécanisme léger pour facettes indissociables d'un outil plus large »** à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz — décision 23/05 suite 2. Distinction structurante : **notion autoportante → fiche-notion ; facette indissociable d'un outil → alias**.
 
 ## Points ouverts des flowcharts (21/05 suite)
 
