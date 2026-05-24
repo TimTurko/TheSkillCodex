@@ -5,6 +5,88 @@
 
 ---
 
+## 2026-05-24 (suite) — Clôture phase 1 partie 2 : étape 6 + section Équipe + template CdCF
+
+### Périmètre de session
+Clôture de la phase 1 partie 2 sur trois fronts : rédaction de l'étape 6 « Rédiger le CdCF » de `specification-technique.md` (3 sous-sections H4 + 4 callouts), rédaction de la section « Pendant cette phase, côté équipe » (4 paragraphes par thème), production du template Word `cdcf-ecole-template.docx`. Session sur PC perso, préfixe MCP `filesystem:*`. Cohérence finale des 6 étapes acquise comme session ultérieure (découpage acté en début de session pour préserver le geste critique).
+
+### Cadrage en début de session — 5 questions tranchées
+
+1. **Stratégie d'enchaînement** : scission étape 6 + Équipe (cette session) / cohérence finale des 6 étapes (session suivante). L'étape 6 est l'agrégateur des 5 précédentes ; le geste de relecture critique mérite distance et tête reposée.
+
+2. **TdM du CdCF école simplifié** : option C — agrégat avec sections explicitement labellisées (cœur NF X50-151 / complément école). Plan retenu en 5 sections suivant l'ordre des 5 étapes précédentes : Présentation / Besoin / Existant (complément école) / Analyse fonctionnelle (cœur NF X50-151) / Planification (complément école). Compromis : ni fidélité stricte NF X50-151 (qui se limite à 2 et 4) ni structure libre, mais agrégation reconnaissable.
+
+3. **Granularité étape 6** : 3 H4 (Structurer le document / Rédiger chaque section / Faire valider en revue de CdCF). Étape 6 = travail d'agrégation et de mise en forme, pas de production nouvelle.
+
+4. **Forme de l'encart « avec client réel »** : callout `[!info]` titré « À retenir », posé après l'introduction de la TdM dans la H4 « Structurer ». Évite le tableau (catalogue) et la prose noyée.
+
+5. **Profondeur section Équipe** : 4 paragraphes courts par thème (Interfaces métiers / Gestion de projet / Écoconception / Sécurité-qualité). Pas de liste de rôles (renvoyée à la fiche-trame `gestion-de-projet`).
+
+### Rédaction étape 6 — Rédiger le CdCF
+
+Structure produite :
+- **Préambule** (2 paragraphes) : pont depuis les 5 étapes (matériau déjà produit, reste à agréger), positionnement comme document de référence du projet, version école simplifiée comme dérivée reconnaissable de NF X50-151.
+- **H4 « Structurer le document »** : présentation de la TdM en 5 sections avec labellisation explicite (cœur NF X50-151 / compléments école), suivie du paragraphe d'annonce du template Word.
+- **H4 « Rédiger chaque section »** : trois soins à apporter — mise en forme, cohérence inter-sections, intégration transversale de l'écoconception (graines déjà semées aux étapes 1-5).
+- **H4 « Faire valider en revue de CdCF »** : nature du jalon (validation enseignante équivalente d'une signature client), préparation (auto-relecture, vérification du chiffrage de chaque exigence, anticipation des questions), issues possibles (validé / à reprendre), engagement du projet par ce qui a été validé.
+
+4 callouts :
+- `[!info] À retenir` — *En contexte professionnel, le CdCF NF X50-151 strict se limite à l'analyse fonctionnelle.* Différenciation cœur normatif (sections 2 et 4) vs compléments école (3 et 5), avec mention que le « cadre de réponse » NF X50-151 n'a pas d'équivalent direct en école.
+- `[!warning] Attention` — *Un CdCF n'est pas un copier-coller des livrables intermédiaires.* Le geste de l'étape 6 est précisément de relire l'ensemble et de réécrire ce qui doit l'être pour produire un récit cohérent.
+- `[!example] Exemple : projet bras 3 axes` — Organisation des 5 sections sur le bras, écoconception intégrée transversalement (critère EAT + FC2 démontabilité + risque fablab), revue de CdCF en S3 du rétroplanning, validation avec deux réserves mineures levées en une semaine. Choix délibéré contre « validé sans réserve » : plus réaliste pédagogiquement, illustre le caractère itératif de la validation.
+- `[!livrable] Livrable 6/6 — Spécification technique` — CdCF complet structuré en 5 sections, soigné en forme et cohérence inter-sections, présenté et validé en revue.
+
+### Rédaction section « Pendant cette phase, côté équipe »
+
+4 paragraphes courts en gras structurel + prose, alignés sur le format de la section Pièges fréquents (refonte 24/05 partie 1) :
+- **Interfaces métiers — mécanique et fabrication** : dialogue précoce avec les enseignants de méca/fabrication pour caler des FC réalistes (fablab, tour CN, impression 3D), éviter de découvrir en dossier technique que l'architecture pré-dimensionnée n'est pas fabricable.
+- **Gestion de projet** : la planification (étape 5) structure le travail de l'équipe au-delà du Gantt — qui suit quoi, qui actualise les risques. Premiers points hebdomadaires calés à ce moment.
+- **Écoconception** : ancrage par des graines réparties dans les 5 livrables, pas un fil séparé à activer plus tard.
+- **Sécurité et qualité** : repérage réglementaire en phase 1 (basse tension, conformité CE, public exposé), traduit en FC avec flexibilité F0 sur tout ce qui relève de la réglementation.
+
+### Production du template CdCF école
+
+Fichier `cdcf-ecole-template.docx` produit (8 pages, A4, validé docx schema). Composantes :
+- Page de garde avec métadonnées projet (nom, équipe, encadrant, date de revue, version)
+- Sommaire automatique (champ Word, à mettre à jour à l'ouverture)
+- 5 sections suivant la TdM (Présentation / Besoin / Existant / Analyse fonctionnelle / Planification) + Annexes
+- 4 tableaux pré-structurés : bête à cornes (3 colonnes), comparatif EAT (5 critères × 4 solutions, en-têtes pré-remplis), caractérisation des fonctions (4 colonnes × 4 fonctions FP1/FS1/FC1/FC2 en amorce), matrice de risques (4 colonnes × 5 lignes)
+- Header + footer avec pagination « Page X / Y »
+- Placeholders italiques en gris pour guider sans pré-remplir le contenu intellectuel
+- Police Arial 11 pt, A4, hiérarchie visuelle H1/H2 en bleu
+
+**Emplacement acté** : `content/ressources/templates/cdcf-ecole-template.docx`. Dossier `content/ressources/templates/` créé via MCP. Le fichier `.docx` (binaire) doit être copié manuellement par l'utilisateur — limite technique du MCP filesystem qui ne permet pas l'écriture binaire.
+
+**Liens posés dans la fiche** :
+- H4 « Structurer le document » : paragraphe d'annonce avec wiki-link
+- « Voir aussi » : entrée dédiée avec mention « (document Word fourni) »
+
+### Patches qualité post-rédaction (auto-critique sur 3 axes)
+
+L'utilisateur a challengé la qualité de la rédaction sans donner ses remarques exactes. Auto-critique honnête sur 3 axes, suivie de patches :
+
+- **Popovers manquants** : 3 ajouts dans l'étape 6 (`cahier-des-charges-fonctionnel` et `pieuvre` au préambule pour autoportance ; `jalons` dans la H4 « Faire valider »). Cas moins critiques notés au BACKLOG (`fablab`, `revue-de-cdcf`, conformité CE, basse tension).
+- **Gras dérapé sur demi-phrases** : 4 cas resserrés (« vérifier que cette intégration est présente partout » → retirer le gras ; « autoriser le passage en phase 2 » → « autoriser le passage » ; « chaque exigence du tableau de fonctions est chiffrée » → « chaque exigence chiffrée » ; « valider les ordres de grandeur des matériaux et procédés disponibles » → « valider les ordres de grandeur »).
+- **Redondances inter-paragraphes** : 2 doubles gras neutralisés (« agréger » et « intégrée transversalement », gras gardé à la 1ère occurrence seulement).
+- **Exemple supplémentaire / template** : troisième axe de challenge — un template Word à compléter manquait vraiment. Production immédiate du `cdcf-ecole-template.docx` en lieu et place d'un simple exemple supplémentaire dans la fiche.
+
+### Leçon méthodo — limite du MCP filesystem sur les binaires
+
+Le serveur MCP filesystem expose `write_file(content: string)` mais pas d'écriture binaire. Conséquence pratique : Claude peut produire un `.docx` dans son sandbox et le présenter en téléchargement, mais ne peut pas le déposer directement dans le dépôt local. L'utilisateur fait la copie manuelle. À retenir pour les futurs templates et ressources binaires (images exportées, PDF, etc.).
+
+### Nouvelles dépendances posées
+- `[[gestion-de-projet]]` — fiche-trame fil transverse (lien posé dans la section Équipe).
+- `[[securite-et-qualite]]` — fiche-trame fil transverse (lien posé dans la section Équipe).
+- `[[cdcf-ecole-template.docx]]` — ressource Word fournie, à copier manuellement dans `content/ressources/templates/` (dossier créé en session).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Cohérence finale des 6 étapes** de `specification-technique.md` : relecture progressive à effectuer en session dédiée pour vérifier que les 6 étapes forment un récit progressif et non une juxtaposition. Geste de clôture phase 1 partie 3.
+- **Notion `revue-de-cdcf`** : vocabulaire acté 24/05 partie 1, mais pas de fiche dédiée. À monitorer — si l'utilisation se répète au-delà de la phase 1, fiche-notion légère à produire.
+- **Notion `fablab`** : utilisée 2 fois dans la section Équipe (et probablement réutilisée ailleurs), candidate fiche-notion légère.
+
+---
+
 ## 2026-05-24 — Clôture phase 1 partie 1 : étape 5 + Pièges fréquents
 
 ### Périmètre de session
