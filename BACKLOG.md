@@ -12,7 +12,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [x] ~~`hub/preuve-de-concept` — phase 3 du V (point pivot du V)~~ — squelette fait le 22/05 dans `content/fiches/proj/preuve-de-concept.md`
 - [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md`
 - [x] ~~`hub/integration-et-tests` — phase 5 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/integration-et-tests.md`
-- [ ] `hub/gestion-de-projet` — fil transverse
+- [x] ~~`hub/gestion-de-projet` — fil transverse~~ — squelettisée + approfondie 25/05 dans `content/fiches/proj/gestion-de-projet.md`. 5 conventions transverses fixées à propager aux 2 autres transverses.
 - [ ] `hub/ecoconception` — fil transverse
 - [ ] `hub/securite-et-qualite` — fil transverse
 

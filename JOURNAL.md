@@ -5,6 +5,62 @@
 
 ---
 
+## 2026-05-25 — Première trame transverse : squelettisation + approfondissement direct de gestion-de-projet
+
+### Périmètre de session
+Première fiche-trame transverse du projet : `gestion-de-projet.md`. Session démarrée en mode squelettisation (cadre du TODO) puis basculée sur demande utilisateur en approfondissement complet dans la même session — soit un format inédit pour les transverses. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 5 questions tranchées
+
+1. **Structure de la fiche-trame transverse** : option (a) thématique, contre chronologique et par compétence MEO. Trois blocs **co-actifs** (non séquentiels) retenus : Rythmer / Outiller / Tenir la posture.
+2. **Articulation avec `specification-technique`** : principe acté — la trame transverse **ne redéveloppe aucun outil** (délégation aux notions/tutos dédiés : `wbs`, `gantt`, `jalons`, `retroplanning`, `matrice-de-risques`). La pilote enseigne à poser ; la trame enseigne à tenir.
+3. **Fil rouge bras 3 axes** : 1 `[!example]` par bloc thématique (transposition v2.1 « au moins 1 par étape »), pas un panorama 15 semaines unique.
+4. **Notions PROJ/MEO** : pointer sans redévelopper. Question secondaire (ajouter `revue-de-phase` / `point-hebdomadaire` au BACKLOG ?) reportée à l'approfondissement.
+5. **Périmètre de session** : squelettisation seule au départ, **basculé en approfondissement direct** sur demande utilisateur en cours de session.
+
+### Squelette produit (1ère version, niveau B)
+Front matter avec **nouveau tag `transverse`** (en plus de `proj`/`trame`) ; section « Démarche » conservée mais ouverte par préambule qui pose la non-séquentialité ; 3 blocs avec callouts `[!example]` + `[!warning]` (bloc 2) + `[!tip]` (bloc 3) + `[!livrable]` en placeholder explicite (format à trancher : jalonné vs continu) ; section « Pendant cette phase, côté équipe » reconvertie de fait en panorama d'articulation avec les 2 autres transverses ; conclusion adaptée (pas de phase suivante, pont vers le hub).
+
+### 4 décisions de niveau C validées
+- **Tag `transverse`** acté (à propager aux 2 autres transverses).
+- **Section « Démarche »** : conservée, variante « Mener la gestion de projet » jugée équivalente (arbitrable à l'usage).
+- **Format `[!livrable]` transverse** : sous-listes explicites « Continu » et « Jalonné » dans chaque livrable, pour rendre visible le double régime de production.
+- **Section « Pendant cette phase, côté équipe »** conservée, reconvertie en « articulation avec les autres transverses » (titre de section inchangé pour aligner template).
+
+### Approfondissement complet en passe unique
+Rédaction des 3 blocs en prose dense (3-4 paragraphes par bloc avant callouts), à densité comparable à la fiche pilote `specification-technique`. Format `[!livrable]` posé en sous-listes Continu/Jalonné (3 livrables uniformisés). Section « articulation avec les autres transverses » rédigée en 3 pratiques (intégrer dans la cadence / intégrer dans la matrice de risques / piloter sans écraser). Production initiale en `filesystem:write_file` (squelette de moi, structure connue).
+
+### Round 2 — 9 remarques utilisateur → 14 patches ciblés via `filesystem:edit_file`
+- Retrait de toute mention de durée projet chiffrée dans la prose générique (la trame doit servir à tous types de projet, pas seulement aux projets de 15 semaines).
+- Conversion `SX` → `semaine n°X` dans les exemples bras 3 axes (la notation `SX` ne parle pas à un étudiant qui découvre).
+- Retrait des extensions `.md` dans les conventions de nommage citées en prose (l'étudiant choisit son format).
+- Conversion `(i)/(ii)/(iii)` → liste numérotée 1/2/3 pour les énumérations méritant une structure.
+- Retrait d'un gras sur verbe isolé (`les **tenir**.`) — convention : gras sur morceau de phrase ou mot technique-clé.
+
+### 5 conventions transverses fixées (à propager à `ecoconception` et `securite-et-qualite`)
+1. **Pas de chiffrage de durée projet** dans la prose générique.
+2. **Notation `semaine n°X`** dans les exemples bras 3 axes (pas `SX`).
+3. **Pas d'extension de fichier** dans les conventions de nommage citées en prose.
+4. **Listes numérotées** plutôt que `(i)/(ii)/(iii)`.
+5. **Gras** sur morceau de phrase ou mot technique-clé, pas sur verbe isolé.
+
+### Format date : compromis pédagogie vs technique
+Demande utilisateur : `DD/MM/YYYY` (format FR). Application : `JJ-MM-AAAA` aux conventions de nommage de fichiers (`12-09-2025-revue-poc`). **Trade-off connu signalé** : la convention technique habituelle pour tri chronologique automatique est ISO 8601 `AAAA-MM-JJ` — décision à arbitrer si le besoin de tri auto émerge.
+
+### Leçon méthodo — `str_replace` vs `filesystem:edit_file`
+Confusion en début de round 2 : `str_replace` (outil sandbox de Claude) n'agit pas sur le filesystem MCP. Il faut `filesystem:edit_file` (MCP) pour éditer le dépôt. À retenir.
+
+### Nouvelles dépendances posées
+Aucune nouvelle notion ajoutée au-delà de celles déjà inventoriées au TODO/BACKLOG. La trame `gestion-de-projet` pointe vers les 5 outils canoniques (`wbs`, `jalons`, `retroplanning`, `gantt`, `matrice-de-risques`) et les 2 autres transverses (`ecoconception`, `securite-et-qualite`).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses** : à éprouver sur `ecoconception` et `securite-et-qualite` avant de les documenter formellement dans le template `fiche-trame.md`.
+- **Format date noms de fichiers** : `JJ-MM-AAAA` retenu sur consigne FR ; bascule en ISO 8601 possible si le tri auto chronologique devient nécessaire.
+- **Section « Pendant cette phase, côté équipe »** : titre de section conservé pour alignement template, mais sémantique réelle = « articulation avec les autres transverses » pour les fiches transverses. À documenter formellement quand le pattern aura été confirmé sur les 2 autres.
+
+---
+
 ## 2026-05-24 (suite 2) — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG
 
 ### Périmètre de session

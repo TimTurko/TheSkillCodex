@@ -34,7 +34,7 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~**Squelette `preuve-de-concept`** (phase 3)~~ — 22/05
 - [x] ~~**Squelette `dossier-technique`** (phase 4)~~ — 22/05
 - [x] ~~**Squelette `integration-et-tests`** (phase 5)~~ — 22/05
-- [ ] **Squelette `gestion-de-projet`** (fil transverse)
+- [x] ~~**Squelette + approfondissement `gestion-de-projet`** (fil transverse)~~ — fait 25/05 (5 questions de cadrage + squelette niveau B + bascule en approfondissement complet sur demande utilisateur + round 2 = 14 patches sur 9 remarques). 5 conventions transverses fixées à propager aux 2 autres transverses.
 - [ ] **Squelette `ecoconception`** (fil transverse)
 - [ ] **Squelette `securite-et-qualite`** (fil transverse)
 - [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion. **Conventions callouts révisées le 23/05** (titres `Exemple : projet bras 3 axes` / `Livrable N/X — <Nom de la phase>` / `Attention` / `Astuce` avec phrase-clé dans le corps en gras).
@@ -111,6 +111,8 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
 - [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
 - [ ] Produire / trouver une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
+- [ ] **Commit + push de la session du 25/05** : production de `content/fiches/proj/gestion-de-projet.md` (squelette + approfondissement complet + round 2 de 14 patches), mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] Vérifier le rendu de `gestion-de-projet.md` sous Quartz et sur smartphone (3 blocs co-actifs, callouts conformes v2.1, sous-listes Continu/Jalonné dans les 3 livrables, liste numérotée 1-2-3 dans le bloc 3).
 
 ## Décisions éditoriales en attente
 - [x] ~~**Convention `draft: false` par défaut**~~ — actée 24/05 (suite 2). Pilotage de la maturité éditoriale par le **BACKLOG** (inventaire systématique des stubs/placeholders avant publication), pas par le flag `draft`. Justification : Quartz est encore privé, le filtre n'a pas d'utilité opérationnelle et crée plus de friction (popovers cassés) que de bénéfice.
@@ -124,10 +126,23 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Glossaire séparé pour acronymes ou fiches courtes individuelles ?
 - [ ] **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) à documenter dans le template `fiche-trame.md` ou note méthodo dédiée — décision 23/05 suite 2.
 - [ ] **Convention « alias Quartz CrawlLinks = mécanisme léger pour facettes indissociables d'un outil »** à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz — décision 23/05 suite 2.
+- [ ] **5 conventions transverses fixées 25/05** à éprouver sur `ecoconception` et `securite-et-qualite` avant documentation formelle dans le template `fiche-trame.md` : pas de chiffrage durée projet, `semaine n°X` dans les exemples bras 3 axes, pas d'extension `.md` en prose, listes numérotées 1/2/3 plutôt que `(i)(ii)(iii)`, gras sur morceau de phrase pas sur verbe isolé, format `[!livrable]` en sous-listes Continu/Jalonné.
+- [ ] **Format date noms de fichiers** : `JJ-MM-AAAA` retenu sur consigne FR (décision 25/05) ; bascule en ISO 8601 `AAAA-MM-JJ` possible si tri chronologique automatique devient nécessaire à l'usage.
+- [ ] **Tag `transverse`** acté 25/05 dans le front matter de `gestion-de-projet.md` — à propager aux 2 autres transverses, puis documenter formellement dans le template `fiche-trame.md` après confirmation du pattern.
+- [ ] **Section « Pendant cette phase, côté équipe » pour fiches transverses** : titre de section conservé pour alignement template, sémantique réelle = « articulation avec les autres transverses » (3 pratiques : intégrer dans la cadence / intégrer dans la matrice de risques / piloter sans écraser). À confirmer sur les 2 autres transverses puis documenter dans le template.
 
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-25 (Première trame transverse — gestion-de-projet : squelette + approfondissement direct)
+- [x] Trancher les 5 questions de cadrage (structure thématique 3 blocs co-actifs / délégation totale des outils / 1 [!example] par bloc / pas de nouvelles notions / squelettisation seule au départ)
+- [x] Produire le squelette de `gestion-de-projet.md` (niveau B) avec front matter complet, popover, posture, objectif, 3 blocs + callouts conventionnels v2.1, section équipe en placeholder explicite, conclusion adaptée, voir aussi
+- [x] Valider 4 décisions de niveau C : tag `transverse`, conservation « Démarche » comme nom de section, format `[!livrable]` Continu/Jalonné, section « Pendant cette phase, côté équipe » reconvertie en articulation avec les autres transverses
+- [x] Basculer en approfondissement complet sur demande utilisateur — rédaction des 3 blocs en prose dense (3-4 paragraphes par bloc) + callouts incarnés + section articulation rédigée en 3 pratiques + conclusion adaptée
+- [x] Round 2 — 9 remarques utilisateur traitées en 14 patches `filesystem:edit_file` : pas de chiffrage durée projet, `semaine n°X`, pas d'extension `.md`, liste numérotée 1/2/3, gras sur morceau de phrase
+- [x] Fixer 5 conventions transverses à propager (à éprouver sur les 2 autres)
+- [x] Leçon méthodo : `str_replace` ≠ `filesystem:edit_file` (outil sandbox vs MCP)
 
 ### Session 2026-05-24 (suite 2 — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG)
 - [x] Trancher les 2 questions de cadrage (méthode mixte de relecture, cohérence pure prioritaire)
