@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" role="img" aria-labelledby="title desc">
+  <title id="title">Pieuvre — schéma générique</title>
+  <desc id="desc">Diagramme classique de la pieuvre. Au centre, un ovale ambre représentant le système. Autour, six ovales gris représentant les milieux environnants. Des liens relient les milieux entre eux à travers le système (fonctions principales FP et secondaires FS) ou relient un milieu au système (fonctions contraintes FC). Chaque lien porte une étiquette Fx.</desc>
+  <defs>
+    <style>
+      .th { font: 700 14px sans-serif; text-anchor: middle; letter-spacing: 0.5px; }
+      .tl { font: 400 12px sans-serif; text-anchor: middle; }
+      .tf { font: 700 13px sans-serif; text-anchor: middle; }
+      .b-amber-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .b-amber-text { fill: #FFFFFF; }
+      .b-gray-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .b-gray-text { fill: #2C2C2A; }
+      .link-stroke { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .link-text { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .b-amber-fill { fill: #BA7517; stroke: #EF9F27; }
+        .b-amber-text { fill: #FFFFFF; }
+        .b-gray-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .b-gray-text { fill: #F1EFE8; }
+        .link-stroke { stroke: #EF9F27; }
+        .link-text { fill: #EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <!-- Système au centre (tracé en premier pour que les segments de fonction s'arrêtent à son bord) -->
+  <ellipse cx="300" cy="230" rx="75" ry="38" class="b-amber-fill"/>
+  <text x="300" y="235" class="th b-amber-text">SYSTÈME</text>
+
+  <!-- FP1 : Milieu 1 (haut) ↔ Milieu 2 (bas) — verticale traversant le système -->
+  <line x1="300" y1="90" x2="300" y2="192" class="link-stroke"/>
+  <line x1="300" y1="268" x2="300" y2="370" class="link-stroke"/>
+  <text x="320" y="160" class="tf link-text">FP1</text>
+
+  <!-- FS1 : Milieu 3 (gauche) ↔ Milieu 4 (droite) — horizontale traversant le système -->
+  <line x1="150" y1="230" x2="225" y2="230" class="link-stroke"/>
+  <line x1="375" y1="230" x2="450" y2="230" class="link-stroke"/>
+  <text x="190" y="220" class="tf link-text">FS1</text>
+
+  <!-- FC1 : système ↔ Milieu 5 (haut droite) — un seul milieu -->
+  <line x1="360" y1="200" x2="425" y2="135" class="link-stroke"/>
+  <text x="410" y="180" class="tf link-text">FC1</text>
+
+  <!-- FC2 : système ↔ Milieu 6 (bas gauche) — un seul milieu -->
+  <line x1="240" y1="260" x2="175" y2="325" class="link-stroke"/>
+  <text x="195" y="280" class="tf link-text">FC2</text>
+
+  <!-- Milieux environnants (tracés après pour passer par-dessus l'amorce des traits) -->
+  <ellipse cx="300" cy="65" rx="60" ry="25" class="b-gray-fill"/>
+  <text x="300" y="69" class="tl b-gray-text">Milieu 1</text>
+
+  <ellipse cx="300" cy="395" rx="60" ry="25" class="b-gray-fill"/>
+  <text x="300" y="399" class="tl b-gray-text">Milieu 2</text>
+
+  <ellipse cx="90" cy="230" rx="60" ry="25" class="b-gray-fill"/>
+  <text x="90" y="234" class="tl b-gray-text">Milieu 3</text>
+
+  <ellipse cx="510" cy="230" rx="60" ry="25" class="b-gray-fill"/>
+  <text x="510" y="234" class="tl b-gray-text">Milieu 4</text>
+
+  <ellipse cx="455" cy="110" rx="55" ry="22" class="b-gray-fill"/>
+  <text x="455" y="114" class="tl b-gray-text">Milieu 5</text>
+
+  <ellipse cx="135" cy="350" rx="55" ry="22" class="b-gray-fill"/>
+  <text x="135" y="354" class="tl b-gray-text">Milieu 6</text>
+</svg>

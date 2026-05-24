@@ -109,7 +109,7 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 
 ### 2. Étudier l'existant
 
-Avant de chiffrer ce que votre système doit faire, regardez ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà réalisé un projet similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
+**Le besoin est compris et validé.** Avant de chiffrer ce que votre système doit faire, regardez ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà réalisé un projet similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
 
 Ce travail produit un **[[etat-de-l-art-technique|état de l'art technique]]** : une comparaison chiffrée de solutions existantes selon des critères choisis. Il se mène en trois temps : recenser les solutions, définir les critères, comparer et conclure.
 
@@ -196,7 +196,9 @@ Une fois les milieux identifiés, tracer les liens du diagramme. Chaque lien est
 > [!example] Exemple : projet bras 3 axes
 > *La pieuvre porte sur le système physique (le bras et ses interactions). La bête à cornes de l'étape 1 portait, elle, sur la commande pédagogique au-dessus (l'enseignant comme commanditaire, le service rendu étant l'illustration d'une démarche projet). Ces deux niveaux coexistent dans la posture étudiant-client-de-lui-même et ne se contredisent pas — ils ne décrivent simplement pas le même système.*
 >
-> **Milieux environnants identifiés** : objet à déplacer, opérateur, poste informatique, plan de travail, alimentation électrique, environnement pédagogique (fablab, moyens de fabrication accessibles).
+> ![Pieuvre du bras 3 axes](../../ressources/img/pieuvre-bras-3-axes.svg)
+>
+> **Milieux environnants identifiés** : objet à déplacer, opérateur, poste informatique, alimentation électrique, environnement pédagogique (fablab, moyens de fabrication accessibles).
 >
 > **Fonctions énoncées** :
 >
@@ -278,7 +280,7 @@ Le rôle pratique du `Fn` est de dire **comment on arbitrera** en cas de conflit
 
 ### 5. Planifier le projet
 
-Le *quoi* est posé : ce que le système doit faire et comment on l'évaluera. Reste à organiser le *quand* et le *qui*. La planification du projet se construit à la **fin de la phase 1**, parce qu'on ne peut pas planifier ce qu'on n'a pas encore défini — mais elle vit ensuite pendant toute la durée du projet, et se met à jour à chaque revue de phase.
+Le *quoi* est posé : ce que le système doit faire et comment on l'évaluera. Reste à organiser le *quand* et le *qui*. La planification du projet se construit à la **fin de la spécification technique**, parce qu'on ne peut pas planifier ce qu'on n'a pas encore défini — mais elle vit ensuite pendant toute la durée du projet, et se met à jour à chaque revue de phase.
 
 En projet école, la planification présente une spécificité : la **date de fin est imposée** par le calendrier scolaire (revue finale du CdCF, soutenance, calendrier d'examens). On ne planifie pas en partant d'aujourd'hui pour estimer une date d'arrivée — on planifie en partant de la date d'arrivée connue pour remonter à aujourd'hui. C'est un **rétroplanning**.
 
@@ -367,7 +369,7 @@ Le matériau de chaque section est déjà produit. Le travail consiste ici à l'
 
 #### Faire valider en revue de CdCF
 
-Le document terminé est présenté en **revue de CdCF**, [[jalons|jalon]] de fin de phase 1 dans le calendrier projet. La revue est conduite par les enseignants — qui jouent ici, dans la posture école, le rôle du client en contexte professionnel. Elle a deux fonctions : **valider le document** (qualité, cohérence, chiffrabilité de chaque exigence) et **autoriser le passage** en phase 2, [[concept|concept]].
+Le document terminé est présenté en **revue de CdCF**, [[jalons|jalon]] de fin de spécification technique dans le calendrier projet. La revue est conduite par les enseignants — qui jouent ici, dans la posture école, le rôle du client en contexte professionnel. Elle a deux fonctions : **valider le document** (qualité, cohérence, chiffrabilité de chaque exigence) et **autoriser le passage** en [[concept|concept]].
 
 Pour s'y préparer :
 
@@ -385,7 +387,7 @@ Pour s'y préparer :
 >
 > La démarche écoconception est intégrée transversalement : critère « ouverture / réparabilité » dans le tableau de l'état de l'art (section 3), FC2 sur la démontabilité dans la pieuvre (section 4), risque « disponibilité fablab » dans la matrice de risques (section 5). Pas de section écoconception dédiée — l'enjeu environnemental traverse le document.
 >
-> Le CdCF est présenté en **revue de CdCF **, puis validé par votre client (ou les enseignants), le projet bascule officiellement en [[concept|concept]].
+> Le CdCF est présenté en **revue de CdCF**, validé par les enseignants, et le projet bascule officiellement en [[concept|concept]].
 
 > [!livrable] Livrable 6/6 — Spécification technique
 > - Cahier des charges fonctionnel complet, structuré en 5 sections (présentation, besoin, existant, analyse fonctionnelle, planification), soigné en forme et en cohérence inter-sections, **présenté et validé en revue de CdCF**.
@@ -403,13 +405,13 @@ Pour s'y préparer :
 
 ## Pendant cette phase, côté équipe
 
-**Interfaces métiers — mécanique et fabrication.** La phase 1 se fait sur papier, mais les contraintes de fabrication doivent être anticipées dès maintenant. Un dialogue précoce avec les enseignants de mécanique et de fabrication permet de caler des [[FC]] réalistes (« compatible avec les moyens du fablab école », « usinable sur tour à commande numérique disponible », « imprimable 3D en un seul morceau de moins de 200 mm ») et d'éviter de découvrir en phase de [[dossier-technique|dossier technique]] que l'architecture pré-dimensionnée en [[concept|concept]] n'est pas fabricable. Sans aller jusqu'à figer la solution, l'équipe a tout intérêt à **valider les ordres de grandeur** des matériaux et procédés disponibles avec les enseignants concernés avant la revue de CdCF.
+**Interfaces métiers — mécanique et fabrication.** La spécification technique se fait sur papier, mais les contraintes de fabrication doivent être anticipées dès maintenant. Un dialogue précoce avec les enseignants de mécanique et de fabrication permet de caler des [[FC]] réalistes (« compatible avec les moyens du fablab école », « usinable sur tour à commande numérique disponible », « imprimable 3D en un seul morceau de moins de 200 mm ») et d'éviter de découvrir en phase de [[dossier-technique|dossier technique]] que l'architecture pré-dimensionnée en [[concept|concept]] n'est pas fabricable. Sans aller jusqu'à figer la solution, l'équipe a tout intérêt à **valider les ordres de grandeur** des matériaux et procédés disponibles avec les enseignants concernés avant la revue de CdCF.
 
-**Gestion de projet.** La fin de phase 1 lance toute la mécanique de pilotage du projet. La planification (étape 5) ne se limite pas à produire un Gantt — elle structure le travail de l'équipe : qui suit quel sous-livrable, qui maintient le rétroplanning, qui actualise la matrice de risques. Les premiers points hebdomadaires se calent à ce moment, sur un format léger (15 minutes, tour de table, points bloquants) qui se solidifiera au fil du projet. La fiche-trame [[gestion-de-projet|gestion de projet]] détaille la pratique transversale.
+**Gestion de projet.** La fin de cette phase lance toute la mécanique de pilotage du projet. La planification (étape 5) ne se limite pas à produire un Gantt — elle structure le travail de l'équipe : qui suit quel sous-livrable, qui maintient le rétroplanning, qui actualise la matrice de risques. Les premiers points hebdomadaires se calent à ce moment, sur un format léger (15 minutes, tour de table, points bloquants) qui se solidifiera au fil du projet. La fiche-trame [[gestion-de-projet|gestion de projet]] détaille la pratique transversale.
 
-**Écoconception.** L'[[ecoconception|écoconception]] n'est pas un fil séparé à activer plus tard — elle s'**ancre dès la phase 1** par des graines réparties dans les livrables : critère écoconception dans le tableau comparatif de l'état de l'art, [[FC]] sur les matériaux ou la fin de vie dans la pieuvre, risques liés à la disponibilité ou à la durabilité dans la matrice de risques. Un CdCF sans aucun ancrage écoconception en phase 1 produit un projet qui ne pourra pas rattraper cet oubli plus tard sans réouvrir le CdCF lui-même. La fiche-trame [[ecoconception|écoconception]] détaille la démarche transversale.
+**Écoconception.** L'[[ecoconception|écoconception]] n'est pas un fil séparé à activer plus tard — elle s'**ancre dès la spécification technique** par des graines réparties dans les livrables : critère écoconception dans le tableau comparatif de l'état de l'art, [[FC]] sur les matériaux ou la fin de vie dans la pieuvre, risques liés à la disponibilité ou à la durabilité dans la matrice de risques. Un CdCF sans aucun ancrage écoconception à ce stade produit un projet qui ne pourra pas rattraper cet oubli plus tard sans réouvrir le CdCF lui-même. La fiche-trame [[ecoconception|écoconception]] détaille la démarche transversale.
 
-**Sécurité et qualité.** La sécurité et la qualité commencent en phase 1 par un **repérage réglementaire** : quelles normes s'appliquent au système envisagé (basse tension, machines, public exposé, conformité CE) ? Quels seuils de sécurité sont incontournables ? Ces éléments se traduisent en [[FC]] dans la pieuvre à l'étape 3, avec une flexibilité F0 (impérative) sur tout ce qui relève de la réglementation. Le faire en phase 1, c'est s'épargner de découvrir en [[integration-et-tests|intégration]] une norme bloquante qui aurait dû orienter le concept. La fiche-trame [[securite-et-qualite|sécurité et qualité]] détaille la pratique transversale.
+**Sécurité et qualité.** La sécurité et la qualité commencent dès cette phase par un **repérage réglementaire** : quelles normes s'appliquent au système envisagé (basse tension, machines, public exposé, conformité CE) ? Quels seuils de sécurité sont incontournables ? Ces éléments se traduisent en [[FC]] dans la pieuvre à l'étape 3, avec une flexibilité F0 (impérative) sur tout ce qui relève de la réglementation. Le faire dès cette phase, c'est s'épargner de découvrir en [[integration-et-tests|intégration]] une norme bloquante qui aurait dû orienter le concept. La fiche-trame [[securite-et-qualite|sécurité et qualité]] détaille la pratique transversale.
 
 ## Conclusion
 

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" role="img" aria-labelledby="title desc">
+  <title id="title">Pieuvre — projet bras 3 axes</title>
+  <desc id="desc">Diagramme de pieuvre du projet bras robotique pédagogique 3 axes. Au centre, le bras 3 axes. Cinq milieux autour : opérateur, objet à déplacer, poste informatique, alimentation 230V, environnement pédagogique. Quatre fonctions : FP1 (opérateur ↔ objet à travers le système), FS1 (opérateur ↔ poste informatique à travers le système), FC1 (système ↔ alimentation), FC2 (système ↔ environnement pédagogique).</desc>
+  <defs>
+    <style>
+      .th { font: 700 14px sans-serif; text-anchor: middle; letter-spacing: 0.5px; }
+      .tl { font: 400 11px sans-serif; text-anchor: middle; }
+      .tf { font: 700 13px sans-serif; text-anchor: middle; }
+      .b-amber-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .b-amber-text { fill: #FFFFFF; }
+      .b-gray-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .b-gray-text { fill: #2C2C2A; }
+      .link-stroke { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .link-text { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .b-amber-fill { fill: #BA7517; stroke: #EF9F27; }
+        .b-amber-text { fill: #FFFFFF; }
+        .b-gray-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .b-gray-text { fill: #F1EFE8; }
+        .link-stroke { stroke: #EF9F27; }
+        .link-text { fill: #EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <!-- Système : BRAS 3 AXES (au centre) -->
+  <ellipse cx="340" cy="260" rx="95" ry="48" class="b-amber-fill"/>
+  <text x="340" y="256" class="th b-amber-text">BRAS</text>
+  <text x="340" y="274" class="th b-amber-text">3 AXES</text>
+
+  <!-- FP1 : Opérateur (haut) ↔ Objet à déplacer (bas) — verticale traversant le système -->
+  <line x1="340" y1="100" x2="340" y2="212" class="link-stroke"/>
+  <line x1="340" y1="308" x2="340" y2="420" class="link-stroke"/>
+  <text x="362" y="170" class="tf link-text">FP1</text>
+
+  <!-- FS1 : Opérateur (haut) ↔ Poste informatique (droite-bas) — diagonale traversant -->
+  <line x1="378" y1="92" x2="408" y2="220" class="link-stroke"/>
+  <line x1="425" y1="298" x2="530" y2="395" class="link-stroke"/>
+  <text x="438" y="175" class="tf link-text">FS1</text>
+
+  <!-- FC1 : Système ↔ Alimentation 230V (gauche-bas) — un seul milieu -->
+  <line x1="265" y1="295" x2="170" y2="380" class="link-stroke"/>
+  <text x="205" y="325" class="tf link-text">FC1</text>
+
+  <!-- FC2 : Système ↔ Environnement pédagogique (gauche-haut) — un seul milieu -->
+  <line x1="258" y1="228" x2="180" y2="155" class="link-stroke"/>
+  <text x="200" y="205" class="tf link-text">FC2</text>
+
+  <!-- Milieux environnants -->
+  <!-- Opérateur (haut centre) -->
+  <ellipse cx="340" cy="75" rx="70" ry="25" class="b-gray-fill"/>
+  <text x="340" y="79" class="tl b-gray-text">Opérateur</text>
+
+  <!-- Objet à déplacer (bas centre) -->
+  <ellipse cx="340" cy="445" rx="95" ry="25" class="b-gray-fill"/>
+  <text x="340" y="449" class="tl b-gray-text">Objet à déplacer</text>
+
+  <!-- Poste informatique (droite bas) -->
+  <ellipse cx="570" cy="415" rx="80" ry="25" class="b-gray-fill"/>
+  <text x="570" y="419" class="tl b-gray-text">Poste informatique</text>
+
+  <!-- Alimentation 230V (gauche bas) -->
+  <ellipse cx="115" cy="405" rx="80" ry="25" class="b-gray-fill"/>
+  <text x="115" y="409" class="tl b-gray-text">Alimentation 230V</text>
+
+  <!-- Environnement pédagogique (gauche haut) -->
+  <ellipse cx="135" cy="130" rx="105" ry="28" class="b-gray-fill"/>
+  <text x="135" y="126" class="tl b-gray-text">Environnement</text>
+  <text x="135" y="140" class="tl b-gray-text">pédagogique</text>
+</svg>

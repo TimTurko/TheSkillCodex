@@ -41,17 +41,18 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~**Refonte `specification-technique.md` étape 1**~~ — fait le 23/05 : alignement callouts v2.1 + ajout section Conclusion + réordonnancement final + popovers de l'objectif posés. **Étapes 2-6 restent en placeholder** (objet de la prochaine session).
 - [x] ~~**Approfondissement `specification-technique` — étape 4 (cœur de la phase)**~~ — fait le 23/05 (suite 2) : 3 sous-sections + warning + tip + example + livrable 4/6 + 5 patches d'ajustement + 3 patches collatéraux étape 3 + décision méthodologique alias FP/FS/FC.
 - [x] ~~**Approfondissement `specification-technique` — étape 5 + Pièges fréquents**~~ — fait 24/05 (clôture phase 1 partie 1) : 3 sous-sections H4 (WBS / Planifier dans le temps / Maîtriser les risques) + 4 callouts + 5 popovers liens rouges ; refonte Pièges en 6 entrées gras court + explication.
-- [ ] **Clôture phase 1 partie 2** → **Approfondissement `specification-technique` — étape 6 + section Équipe + cohérence finale**.
+- [x] ~~**Clôture phase 1 partie 2** → **Approfondissement `specification-technique` — étape 6 + section Équipe**~~ — fait 24/05 (suite) : étape 6 (3 sous-sections H4 + 4 callouts incluant `[!info]` première utilisation dans la fiche) + section Équipe (4 paragraphes par thème) + production du template Word `cdcf-ecole-template.docx` + patches qualité post-rédaction (popovers, gras, redondances).
   - Étape 6 (Rédiger le CdCF) : version école simplifiée enseignée par défaut, dérivée reconnaissable de NF X50-151 + encart « ce qui change avec un client réel » ; intégration de la démarche écoconception confirmée ; **revue de CdCF** comme jalon de validation enseignante (vocabulaire acté 24/05, vs « soutenance intermédiaire »).
-  - Section « Pendant cette phase, côté équipe » : à rédiger (interfaces méca/fabrication + ancrage phase 1 des fils transverses gestion-projet / écoconception / sécurité-qualité).
-  - Cohérence d'ensemble des 6 étapes : relecture progressive pour vérifier que les 6 étapes forment un récit progressif et non une juxtaposition.
+  - Section « Pendant cette phase, côté équipe » : rédigée (interfaces méca/fabrication + ancrage phase 1 des fils transverses gestion-projet / écoconception / sécurité-qualité).
+- [x] ~~**Clôture phase 1 partie 3** → **Cohérence finale des 6 étapes** de `specification-technique.md`~~ — fait 24/05 (suite 2) : 11 patches terminologiques en 3 passes successives (terminologie « phase N » → noms en toutes lettres, pont arrière étape 2 ajouté, refonte phrase finale example étape 6). Fiche pilote stabilisée. Session a aussi produit la refonte architecture pieuvre/fonction + 2 SVG (voir entrées dédiées ci-dessous).
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V — à chaque approfondissement, **aligner les callouts** sur les conventions v2.1 (titres + phrase-clé dans le corps)
 
 *Notions à produire en parallèle (popovers posés dès les squelettes du 22/05 + 23/05)* :
 - [ ] `cahier-des-charges-fonctionnel` (mentionné dans le hub + 4 trames — prioritaire)
-- [ ] `pieuvre` (fiche-notion **triplement prioritaire** : popover posé + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2). Intro à rédiger pour définir les 3 catégories d'un coup, contrainte induite par le popover servi sur les 3 sigles génériques.
+- [x] ~~`pieuvre` (fiche-notion **triplement prioritaire** : popover + placeholder image + aliases FP/FS/FC)~~ — fait 24/05 (suite 2) : fiche-notion légère produite (stub méthodologique). **Aliases déplacés sur la nouvelle fiche `fonction.md`** (décision 24/05 suite 2 : `FP/FS/FC` pointent sémantiquement vers la catégorie de fonction, pas l'outil pieuvre). **Approfondissement restant** au standard `bete-a-cornes.md` (sections À quoi ça sert / Comment construire / Pièges / Exemple commenté) — tâche placée en session dédiée ultérieure.
+- [x] ~~`fonction` (nouveau, aliases `[FP, FS, FC]`)~~ — fait 24/05 (suite 2) : fiche-notion brève complète (option b retenue) avec définition trichotomie FP/FS/FC, format d'énoncé verbe + complément, tableau d'exemples corrects/incorrects, 3 pièges. À enrichir au standard bete-a-cornes si la pratique le révèle nécessaire.
 - [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
 - [ ] `matrice-de-decision` (popover posé dans `concept.md`, mentionné aussi dans pré-concept)
 - [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, avec front matter `aliases: [critere, niveau, flexibilite]` — décision 23/05 suite 2). Embarquera le triplet, le triptyque mauvais/moyen/bon (pattern à transposer de `bete-a-cornes.md`), l'échelle F0/F1/F2/F3 détaillée. Première phrase = définition du triplet pour popover cohérent au survol des 3 alias. Popovers déjà posés dans l'objectif de `specification-technique.md` (23/05) et dans le préambule de l'étape 4 (23/05 suite 2).
@@ -89,6 +90,9 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Commit + push de la session du 23/05 (suite)** : approfondissement étapes 2-3 de `specification-technique.md` (2 patches initiaux + 7 patches round 2 de relecture), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Commit + push de la session du 23/05 (suite 2)** : approfondissement étape 4 de `specification-technique.md` (rédaction complète + 5 patches d'ajustement) + 3 patches collatéraux étape 3 (cohérence BàC/pieuvre, FS1, définition FP) + 8+6 patches popovers FP/FS/FC, mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Commit + push de la session du 24/05** : rédaction étape 5 de `specification-technique.md` + refonte section Pièges fréquents (6 entrées gras court + explication), mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Commit + push de la session du 24/05 (suite)** : rédaction étape 6 + section Équipe de `specification-technique.md`, patches qualité post-rédaction (popovers + gras + redondances), production de `cdcf-ecole-template.docx` (à déposer manuellement dans `content/ressources/templates/`), création du dossier `content/ressources/templates/`, mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Déposer manuellement `cdcf-ecole-template.docx`** dans `content/ressources/templates/` (limite technique : MCP filesystem ne permet pas l'écriture binaire). Fichier disponible en téléchargement depuis la session du 24/05 (suite).
+- [ ] **Commit + push de la session du 24/05 (suite 2)** : cohérence finale 6 étapes (11 patches), refonte architecture pieuvre/fonction (`fonction.md` nouveau + `pieuvre.md` refondu), 2 SVG (`pieuvre-generique.svg` refondu + `pieuvre-bras-3-axes.svg` nouveau), patch étape 3 specification-technique (retrait « plan de travail » + insertion image bras 3 axes), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
@@ -101,6 +105,7 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Vérifier le rendu de l'étape 4 de `specification-technique.md` sous Quartz et sur smartphone (sous-liste F0/F1/F2/F3 avec indent 4 espaces — bascule en 2 espaces si la hiérarchie casse, callouts warning/tip/example/livrable côte à côte).
 - [x] ~~Vérifier le rendu des étapes 3 et 4 de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en début de session du 24/05, OK.
 - [x] ~~Vérifier le rendu de l'étape 5 + Pièges de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en fin de session du 24/05, OK.
+- [ ] Vérifier le rendu de l'étape 6 + section Équipe de `specification-technique.md` sous Quartz et sur smartphone (callout `[!info]` première utilisation dans la fiche — vérifier que le rendu est conforme à la charte v2 ; densité de 6 popovers dans la TdM de la H4 Structurer — si visuellement chargé, alléger à la première occurrence seulement).
 - [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
 - [ ] Configurer le plugin Templates d'Obsidian (`content/templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
@@ -108,6 +113,8 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Produire / trouver une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
 
 ## Décisions éditoriales en attente
+- [x] ~~**Convention `draft: false` par défaut**~~ — actée 24/05 (suite 2). Pilotage de la maturité éditoriale par le **BACKLOG** (inventaire systématique des stubs/placeholders avant publication), pas par le flag `draft`. Justification : Quartz est encore privé, le filtre n'a pas d'utilité opérationnelle et crée plus de friction (popovers cassés) que de bénéfice.
+- [ ] **Convention SVG pieuvre** — actée 24/05 (suite 2) : forme rayonnante classique (convention AFNOR/France), tous les liens du même style, étiquettes Fx visibles sur chaque trait. Distinction FP/FS/FC par **topologie** (FP/FS traversantes / FC rayonnantes) et **numérotation**, pas par style de trait. À documenter dans la fiche `pieuvre.md` lors de son approfondissement.
 - [ ] **Charte couleur / identité visuelle complète** du site (au-delà de la palette callouts v2 désormais figée) — à traiter quand on aura plus de matière
 - [ ] **Mode sombre des callouts v2** — non décliné, report délibéré. À traiter dans une session ultérieure quand on aura du recul d'usage et qu'on souhaitera élargir la charte au mode sombre. Le SCSS actuel commente la décision.
 - [ ] **Pliage des callouts** : faut-il replier `[!example]` par défaut ? À trancher après quelques fiches rédigées
@@ -121,6 +128,28 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-24 (suite 2 — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG)
+- [x] Trancher les 2 questions de cadrage (méthode mixte de relecture, cohérence pure prioritaire)
+- [x] Cohérence finale 6 étapes de `specification-technique.md` : 11 patches terminologiques en 3 passes (5 + 3 + 2 + 1 pont arrière étape 2)
+- [x] Refonte phrase finale example étape 6 (version sobre sans réserves — l'équipe enseignante n'émet pas de réserves en général)
+- [x] **Refonte architecture pieuvre/fonction** : création de `fonction.md` (fiche-notion brève complète avec aliases FP/FS/FC) + refonte `pieuvre.md` (aliases retirés, typologie déléguée à `fonction`)
+- [x] **Convention `draft: false` par défaut** actée (pilotage maturité via BACKLOG, pas via flag draft)
+- [x] **Production SVG `pieuvre-generique.svg`** : refonte initialement « traversante FP/FS/FC » → forme rayonnante classique AFNOR (tous liens même style, étiquettes Fx, distinction par topologie)
+- [x] **Production SVG `pieuvre-bras-3-axes.svg`** : incarnation fil rouge (5 milieux + 4 fonctions FP1/FS1/FC1/FC2)
+- [x] **Patch collatéral étape 3** : retrait « plan de travail » de la liste des milieux (option a, assainissement cohérence liste/schéma) + insertion image bras 3 axes dans l'`[!example]`
+- [x] Leçon méthodo : auto-critique en plusieurs passes pour relecture terminologique exhaustive (en 1ère passe 4 occurrences, en réalité 9 résiduelles découvertes en passes 2 et 3 — grep aurait été plus efficace)
+
+### Session 2026-05-24 (suite — Clôture phase 1 partie 2 : étape 6 + section Équipe + template CdCF)
+- [x] Trancher les 5 questions structurantes (stratégie d'enchaînement scission / TdM option C agrégat labelé / 3 H4 / encart `[!info]` / 4 paragraphes par thème en Équipe)
+- [x] Rédiger l'étape 6 « Rédiger le CdCF » (préambule 2 paragraphes + 3 sous-sections H4 + 4 callouts incluant `[!info]` première utilisation)
+- [x] Rédiger la section « Pendant cette phase, côté équipe » (4 paragraphes gras structurel + prose : Interfaces métiers / Gestion de projet / Écoconception / Sécurité-qualité)
+- [x] Produire le template `cdcf-ecole-template.docx` (8 pages A4, page de garde + sommaire auto + 5 sections + annexes, 4 tableaux pré-structurés, header/footer pagination)
+- [x] Créer le dossier `content/ressources/templates/` dans le dépôt via MCP
+- [x] Poser le lien wiki vers le template dans la H4 « Structurer le document » et dans « Voir aussi »
+- [x] Auto-critique sur 3 axes (popovers, gras, exemples) + 8 patches qualité (3 popovers ajoutés + 4 gras resserrés + 2 redondances neutralisées)
+- [x] Acter la leçon méthodo : MCP filesystem n'écrit pas le binaire — copie manuelle des `.docx` par l'utilisateur
+- [x] Poser 2 nouvelles dépendances : `gestion-de-projet` et `securite-et-qualite` (fiches-trame fil transverse)
 
 ### Session 2026-05-24 (Clôture phase 1 partie 1 — étape 5 + Pièges fréquents)
 - [x] Trancher les 5 questions structurantes (CdCF version école simplifiée avec mention client réel / 3 H4 pour l'étape 5 / Trello cité sans détailler / revue de CdCF comme jalon de validation enseignante / scission 5+Pièges puis 6+Équipe+cohérence)

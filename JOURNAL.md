@@ -5,6 +5,73 @@
 
 ---
 
+## 2026-05-24 (suite 2) — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG
+
+### Périmètre de session
+Clôture de la phase 1 partie 3 sur deux gestes consolidants : (1) cohérence finale des 6 étapes de `specification-technique.md` via 11 patches terminologiques (en 3 passes successives), (2) refonte structurelle de l'architecture des fiches-notion autour de la pieuvre et des fonctions FP/FS/FC, accompagnée de la production des 2 SVG correspondants. Session sur PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 2 questions tranchées
+
+1. **Méthode de relecture** : mixte avec dimension prioritaire — passe 1 = terminologie + fil rouge en lecture continue, passe 2 = ponts par paires.
+2. **Stratégie d'enchaînement** : cohérence pure d'abord, puis résorption d'1-2 popovers majeurs si possible. Réalité : tout traité (cohérence + refonte architecture + 2 SVG).
+
+### Cohérence finale — 11 patches sur `specification-technique.md` en 3 passes
+
+Bilan par auto-critique progressive (leçon méthodo : une passe unique n'est jamais exhaustive sur ce type de relecture terminologique) :
+
+**Passe 1** — 5 patches : pont arrière étape 2 ajouté (« **Le besoin est compris et validé.** Avant de chiffrer… »), 4 occurrences « phase 1 » corrigées (préambule étape 5, étape 6 H4 Faire valider, section Équipe / Interfaces métiers, section Équipe / Sécurité-qualité), refonte phrase finale example étape 6 (initialement avec récupération « deux réserves mineures » du JOURNAL, finalement remplacée par version sobre sur retour utilisateur : « validé par les enseignants », sans réserves — l'équipe enseignante n'émet pas de réserves en général).
+
+**Passe 2** (occurrences résiduelles loupées) — 3 patches : « fin de phase 1 lance » → « fin de cette phase lance » (Gestion de projet), « s'ancre dès la phase 1 » → « s'ancre dès la spécification technique » (Écoconception), « ancrage écoconception en phase 1 » → « ancrage écoconception à ce stade » (même paragraphe).
+
+**Passe 3** (finale exhaustive) — 2 patches : « commencent en phase 1 » → « commencent dès cette phase » (Sécurité-qualité, cohérence avec « le faire dès cette phase » du même paragraphe), « autoriser le passage en phase 2, [[concept|concept]] » → « autoriser le passage en [[concept|concept]] » (élision du raccourci numérique redondant avec le wiki-link).
+
+### Refonte architecture `fonction` / `pieuvre` — décision structurante
+
+**Constat utilisateur** : architecture initiale (aliases `[FP, FS, FC]` posés sur `pieuvre.md`, décision 23/05 suite 2) ne correspond pas à l'intention pédagogique. Un étudiant qui survole `[[FC]]` veut une définition de la catégorie « fonction contrainte », pas de l'outil « pieuvre ». Architecture repensée : `FP/FS/FC` → fiche dédiée aux **fonctions** → renvoi vers la pieuvre comme outil graphique de représentation.
+
+**Décision actée** : **séparation `fonction` / `pieuvre`** :
+- **`fonction.md`** (nouveau, aliases `[FP, FS, FC]`) : fiche-notion *courte* (lisible au survol) définissant la trichotomie FP/FS/FC, le format d'énoncé verbe + complément, et redirigeant vers `[[pieuvre]]` pour la représentation graphique. Option (b) retenue (fiche brève complète tout de suite) plutôt que stub minimal.
+- **`pieuvre.md`** (refonte) : aliases retirés. Fiche-notion sur l'outil graphique, qui s'appuie sur `[[fonction]]` pour la typologie au lieu de la dupliquer. Sections « À quoi ça sert » / « Comment construire » / « Pièges » en placeholders explicites à approfondir en session dédiée.
+
+**Conséquence sur les liens** dans `specification-technique.md` : `[[FP]]` / `[[FS]]` / `[[FC]]` pointent désormais vers `fonction.md` (via alias), `[[pieuvre]]` continue vers `pieuvre.md`. Pas de patch nécessaire dans la trame — les liens existants se résolvent automatiquement via les nouveaux aliases.
+
+### Convention `draft: false` par défaut — actée
+
+Décision déclenchée par un faux bug : popovers `[[FP]]` / `[[FS]]` / `[[FC]]` toujours rouges après création du stub `pieuvre.md` initial. Cause : `Plugin.RemoveDrafts()` actif dans `quartz.config.ts`, filtrant les fiches en `draft: true` du build. Le stub était inaccessible.
+
+**Décision utilisateur** : **passer toutes les fiches en `draft: false` par défaut**. Justifications : (1) Quartz est encore privé, le filtre n'a pas d'utilité opérationnelle, (2) le pilotage de la maturité passera par le **BACKLOG** (inventaire systématique des stubs/placeholders avant publication aux élèves), (3) `draft: true` crée plus de friction (popovers cassés, tests visuels impossibles) que de bénéfice. Convention rétrospective : le template `fiche-trame.md` (déjà `draft: false`) avait préfiguré cette pratique.
+
+### Production des 2 SVG pieuvre
+
+Premier jet de `pieuvre-generique.svg` produit en cours de session (forme « traversante » avec distinction FP plein / FS pointillé / FC simple). **Remarque utilisateur** sur référence visuelle ECPI (5 milieux + système ECPI au centre, traits identiques étiquetés FC1 à FC7) : la convention dominante en France/AFNOR est **forme rayonnante avec tous les liens du même style**, étiquetés Fx.
+
+**Refonte du SVG générique** : forme rayonnante adoptée. Distinction FP/FS/FC ne passe plus par le style du trait, elle passe par : (a) la **topologie** (FP/FS = 2 segments traversant le système entre 2 milieux ; FC = 1 segment vers 1 seul milieu), (b) les **étiquettes** Fx visibles sur les traits, (c) la **numérotation** dans l'énoncé. Composition : système ovale ambre au centre, 6 milieux gris autour, 1 FP traversante (verticale) + 1 FS traversante (horizontale) + 2 FC rayonnantes. Palette `bete-a-cornes-generique.svg` conservée (ambre #BA7517 / gris #DDDBD3, dark mode via `prefers-color-scheme`).
+
+**Création de `pieuvre-bras-3-axes.svg`** (incarné fil rouge) : système « BRAS 3 AXES » au centre, 5 milieux gris (opérateur, objet à déplacer, poste informatique, alimentation 230V, environnement pédagogique), 4 fonctions (FP1 opérateur ↔ objet traversant, FS1 opérateur ↔ poste info traversant, FC1 vers alimentation, FC2 vers environnement pédagogique). Référencé dans l'`[!example]` étape 3 de `specification-technique.md` et dans la section Exemple de `pieuvre.md`.
+
+### Patch collatéral : retrait « plan de travail » de la liste des milieux étape 3
+
+La liste mentionnait 6 milieux mais les 4 fonctions n'en impliquaient que 5. Le plan de travail était listé sans fonction — sémantiquement faux pour une pieuvre qui formalise les fonctions de tous les milieux identifiés. **Décision actée** : retrait du plan de travail (option a). Modification mineure du texte qui assainit l'example et fait correspondre exactement liste textuelle et schéma. Probable héritage de mind map non nettoyé.
+
+### Nouvelles dépendances posées
+- `[[fonction]]` — fiche-notion brève complète produite ce jour (aliases FP/FS/FC).
+- `[[pieuvre]]` — fiche-notion légère produite (stub méthodologique avec placeholders dans 4 sections).
+- SVG `pieuvre-generique.svg` produit (forme rayonnante, convention AFNOR).
+- SVG `pieuvre-bras-3-axes.svg` produit (incarnation fil rouge).
+
+### Leçon méthodo — auto-critique en plusieurs passes pour relecture terminologique
+
+En 1ère passe sur la cohérence terminologique « phase N en raccourci numérique », identification de 4 occurrences. En réalité, 9 résiduelles trouvées en passes 2 et 3. Discipline future : pour ce type de relecture exhaustive (substitutions terminologiques systématiques), **grep avant d'annoncer exhaustivité**. L'auto-critique progressive a fonctionné ici (identification spontanée d'occurrences loupées entre les passes), mais un outil de recherche aurait été plus efficace.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes (sauf cohérence finale 6 étapes retombée).
+- **Approfondir `pieuvre.md`** au standard `bete-a-cornes.md` : rédiger les 4 sections en placeholder (À quoi ça sert / Comment construire / Pièges / Exemple commenté).
+- **Approfondir `fonction.md`** si besoin à l'usage (déjà brève complète, peut être enrichie au standard bete-a-cornes si la pratique le révèle nécessaire).
+- **Inventaire systématique des fiches stub/placeholders avant publication aux élèves** : nouvelle tâche structurante pour la phase de pré-ouverture. Le BACKLOG est désormais le pilote de la maturité éditoriale (la convention `draft` ne joue plus ce rôle).
+- **Reprise visuelle des images SVG** (pas du contenu) avant publication : à faire juste avant ouverture aux élèves.
+
+---
+
 ## 2026-05-24 (suite) — Clôture phase 1 partie 2 : étape 6 + section Équipe + template CdCF
 
 ### Périmètre de session

@@ -52,8 +52,10 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Décomposition fonctionnelle** (notion-mère, distincte de `schema-bloc-fonctionnel` qui n'est qu'un des outils possibles — popover posé dans `concept.md` étape 1 le 22/05)
 - [ ] **Matrice de décision** (popover posé dans `concept.md` le 22/05, centrale pour la phase concept et la preuve de concept)
 - [x] ~~Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?~~ — décision 23/05 suite : on découpe en fiches séparées (entrées `pieuvre` et `fast` ci-dessous, SADT à voir si besoin)
-- [ ] **`pieuvre`** (notion, **triplement prioritaire** : popover posé étape 3 de `specification-technique.md` + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2). À produire avec référence visuelle canonique sous les yeux (leçon méthodo 20/05 sur les outils canoniques). Intro à rédiger pour définir les 3 catégories d'un coup, contrainte induite par le popover servi sur les 3 sigles.
+- [x] ~~**`pieuvre`** (notion, **triplement prioritaire** : popover posé étape 3 de `specification-technique.md` + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2)~~ — fait 24/05 (suite 2) : fiche-notion légère produite (stub méthodologique). **Aliases déplacés sur la nouvelle fiche `fonction.md`** (décision 24/05 suite 2 : FP/FS/FC pointent sémantiquement vers la catégorie de fonction, pas l'outil pieuvre). Approfondissement au standard `bete-a-cornes.md` restant.
+- [x] ~~**`fonction`** (nouveau, aliases `[FP, FS, FC]`)~~ — fait 24/05 (suite 2) : fiche-notion brève complète (option b) avec trichotomie FP/FS/FC, format d'énoncé verbe + complément, tableau d'exemples correct/incorrect, 3 pièges.
 - [ ] **`fast`** (tuto, popover posé en ouverture de l'étape 3 de `specification-technique.md` le 23/05 suite — la pieuvre donne le *quoi*, FAST donne le *comment*). À traiter en phase 2 concept.
+- [ ] **`revue-de-cdcf`** (notion candidate — vocabulaire acté 24/05, utilisé 4-5 fois dans `specification-technique`. À monitorer ; produire une fiche-notion légère si l'utilisation se répète aux phases 2-5 ou si une fiche dédiée aux revues de jalon émerge).
 - [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
 - [ ] Revue de projet
@@ -71,6 +73,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Outils collaboratifs (ODJ, CR, planning)
 - [ ] Outils de créativité (brainstorm, SCAMPER, etc.)
 - [ ] **`mind-map`** (notion, popover posé étape 3 de `specification-technique.md` le 23/05 suite). Outil méthodo générique mobilisable bien au-delà de la pieuvre (structuration d'idées, analyse de besoin, brainstorming).
+- [ ] **`fablab`** (notion candidate — terme utilisé 2 fois dans la section Équipe de `specification-technique.md` (24/05 suite). À monitorer ; produire fiche-notion légère si l'utilisation se généralise dans les fiches de fabrication ou de mise à disposition de moyens école).
 - [ ] Prise de décision collective
 - [ ] Gamme de fabrication
 - [ ] **Relation client** (tuto) — valider la compréhension du besoin, posture en réunion client, gestion des changements de demande
@@ -105,13 +108,16 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Illustration des conventions de flèches (info / énergie / matière)
 - [x] ~~**SVG bête à cornes générique**~~ — fait le 20/05 (4 SVG produits : générique + 3 exemples bras robotique). Placeholder dans `specification-technique.md` étape 1 remplacé.
 - [ ] SVG bête à cornes — version simplifiée 3-cases (variante éventuelle pour fiche très courte ou résumé carte mentale)
-- [ ] SVG pieuvre générique (pour étape 3 de `specification-technique`) — **désormais doublement prioritaire** : placeholder cassé dans la trame depuis le 23/05 suite.
+- [x] ~~SVG pieuvre générique (pour étape 3 de `specification-technique`) — **désormais doublement prioritaire** : placeholder cassé dans la trame depuis le 23/05 suite.~~ — fait 24/05 (suite 2) : `pieuvre-generique.svg` produit (forme rayonnante classique AFNOR, tous liens même style, étiquettes Fx). Première version « traversante FP/FS/FC » refondue suite à retour utilisateur sur la convention dominante.
+- [x] ~~SVG pieuvre incarné bras 3 axes~~ — fait 24/05 (suite 2) : `pieuvre-bras-3-axes.svg` produit (système BRAS 3 AXES + 5 milieux + 4 fonctions FP1/FS1/FC1/FC2). Référencé dans l'`[!example]` étape 3 de `specification-technique.md` et dans la section Exemple de `pieuvre.md`.
 - [ ] Photos de projets étudiants antérieurs avec accord (anonymisées si besoin)
 - [ ] Capture d'écran de schéma Fritzing / KiCad type
 - [ ] Vidéo courte de démo (intégration via embed ?)
 - [x] ~~Schéma cycle en V v2 avec boucles de retour itératives~~ — fait le 21/05 suite 2 (`cycle-v-projet.svg` enrichi de 4 rétroactions ambrées, version v1 archivée)
 
 ## Améliorations site / Quartz
+
+- [ ] **Reprise visuelle des images SVG** (pas du contenu) avant publication — **très peu urgent, à faire juste avant l'ouverture aux élèves**. Concerne tous les SVG produits depuis le début du projet : `cycle-v-projet.svg`, `bete-a-cornes-generique.svg` + 3 exemples, `pieuvre-generique.svg`, `pieuvre-bras-3-axes.svg`. Critères : homogénéité visuelle (poids des traits, tailles relatives, alignement des éléments), positionnement texte (centrages, gaps autour des bords), cohérence palette, lisibilité smartphone. Le contenu pédagogique reste inchangé — il s'agit uniquement d'une passe de polissage esthétique. Posée 24/05 (suite 2).
 
 - [ ] Charte couleur / identité visuelle complète (au-delà de la palette callouts v1)
 - [ ] Thème couleur école / ICAM
@@ -134,6 +140,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Version anglaise des fiches (très long terme, après stabilisation du contenu français)
 
 ## Discussions / décisions en attente
+
+- [ ] **Inventaire systématique des fiches stub/placeholders avant publication aux élèves** — tâche structurante pour la phase de pré-ouverture. Posée 24/05 (suite 2) en conséquence de la décision « `draft: false` par défaut » : le BACKLOG est désormais le pilote de la maturité éditoriale. Passe à conduire en fin de phase de rédaction (avant ouverture aux élèves) sur l'ensemble du contenu : identifier les fiches stub, les sections `*[À rédiger]*`, les liens rouges, les images placeholder. Sortie : checklist d'éléments à finaliser ou à retirer.
 
 - [ ] Convention des tags AA (séparer domaine vs code complet)
 - [ ] Faut-il un glossaire séparé pour les acronymes ?
