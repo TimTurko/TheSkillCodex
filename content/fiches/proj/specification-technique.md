@@ -336,7 +336,59 @@ En école, 5 à 10 risques majeurs suffisent. Plus que la liste exhaustive, c'es
 
 ### 6. Rédiger le CdCF
 
-*[À rédiger — agrégation, intégration de la démarche environnementale, structure type du document, validation finale]*
+Les cinq étapes précédentes ont produit l'ensemble du matériau du [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]] : analyse du besoin, état de l'art, [[pieuvre|pieuvre]], fonctions caractérisées, planification. Reste à les **agréger** en un document unique, structuré, opposable et présentable en revue. Cette étape ne produit pas de matière nouvelle — elle organise et met en forme ce qui existe déjà, pour produire le **document de référence** du projet.
+
+La version enseignée ici est une **version école simplifiée**, dérivée reconnaissable de [[afnor-nfx50-151|la norme NF X50-151]]. Elle agrège dans un même document les livrables des cinq étapes précédentes, en distinguant explicitement le **cœur normatif** (l'analyse fonctionnelle au sens strict) et les **compléments école** (état de l'art, planification) qui n'appartiennent pas formellement au CdCF en contexte professionnel mais en font partie ici par cohérence pédagogique.
+
+#### Structurer le document
+
+Le CdCF école simplifié s'organise en cinq sections, qui suivent l'ordre des cinq étapes précédentes :
+
+1. **Présentation du projet** — contexte, parties prenantes, frontière système *(matière de l'étape 1)*
+2. **Expression du besoin** — [[bete-a-cornes|bête à cornes]], validation du besoin *(matière de l'étape 1)*
+3. **Étude de l'existant** *(complément école)* — [[etat-de-l-art-technique|état de l'art technique]], tableau comparatif, synthèse *(matière de l'étape 2)*
+4. **Analyse fonctionnelle** *(cœur NF X50-151)* — [[pieuvre|pieuvre]], tableau des fonctions caractérisées *(matière des étapes 3 et 4)*
+5. **Planification du projet** *(complément école)* — [[wbs|WBS]], [[gantt|Gantt]], [[matrice-de-risques|matrice de risques]] *(matière de l'étape 5)*
+
+L'**ordre suit le déroulé pédagogique** de la phase, ce qui rend la lecture naturelle pour le lecteur qui découvre le projet. Les sections sont **explicitement labellisées** — « cœur NF X50-151 » sur la section 4, « complément école » sur les sections 3 et 5 — pour que l'étudiant, et son lecteur, distinguent le cœur normatif des compléments.
+
+Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la rédaction : [[cdcf-ecole-template.docx|cdcf-ecole-template.docx]]. Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique, et les tableaux pré-structurés (bête à cornes, EAT comparatif, caractérisation des fonctions, matrice de risques) ; il suffit de compléter les placeholders entre crochets.
+
+> [!info] À retenir
+> **En contexte professionnel, le CdCF NF X50-151 strict se limite à l'analyse fonctionnelle** (sections 2 et 4 ci-dessus). L'état de l'art technique et la planification sont des livrables **séparés**, produits en parallèle et destinés à des interlocuteurs différents (équipe technique, direction de projet). Le « cadre de réponse » formel de NF X50-151 — chapitre dédié à la manière dont le fournisseur doit répondre à l'appel d'offres — n'a pas d'équivalent direct en école : la planification du projet en tient le rôle pratique, elle cadre la suite à défaut d'organiser une consultation fournisseur.
+
+#### Rédiger chaque section
+
+Le matériau de chaque section est déjà produit. Le travail consiste ici à l'agréger en un document unique et cohérent, en soignant trois choses :
+
+- **La mise en forme.** Sommaire, pagination, en-tête de page, numérotation des sections, tableaux propres, schémas légendés. Le fond est validé par les étapes précédentes ; la forme communique le sérieux du travail et facilite la lecture en revue.
+- **La cohérence inter-sections.** Une exigence chiffrée à l'étape 4 doit être cohérente avec l'ordre de grandeur retenu dans l'état de l'art à l'étape 2. Un risque identifié à l'étape 5 doit faire écho à une [[FC]] de la pieuvre ou à un point dur évoqué dans l'analyse du besoin. La rédaction du CdCF est l'occasion de **relire l'ensemble** et de corriger les incohérences résiduelles que les étapes successives n'avaient pas exposées.
+- **L'intégration de la démarche [[ecoconception|écoconception]].** L'écoconception n'est pas une section ajoutée à la fin — elle est **intégrée transversalement** dans chaque section : dans l'analyse du besoin (parties prenantes : environnement), dans l'état de l'art (critère écoconception du tableau comparatif), dans la pieuvre ([[FC]] sur les matériaux ou la fin de vie), dans la planification (jalons d'éco-vérification). Le CdCF est l'occasion de vérifier que cette intégration est présente partout, et pas en addendum cosmétique.
+
+#### Faire valider en revue de CdCF
+
+Le document terminé est présenté en **revue de CdCF**, [[jalons|jalon]] de fin de phase 1 dans le calendrier projet. La revue est conduite par les enseignants — qui jouent ici, dans la posture école, le rôle du client en contexte professionnel. Elle a deux fonctions : **valider le document** (qualité, cohérence, chiffrabilité de chaque exigence) et **autoriser le passage** en phase 2, [[concept|concept]].
+
+Pour s'y préparer :
+
+- Faire une **dernière auto-relecture systématique**, en se mettant à la place du lecteur qui découvre le document.
+- Vérifier que **chaque exigence est chiffrée** ([[critere|critère]] mesurable, [[niveau|niveau]] avec unité, [[flexibilite|flexibilité]] explicite). Une exigence non chiffrée est le premier point qui sera questionné en revue.
+- **Anticiper les questions** : pourquoi ce niveau et pas un autre ? pourquoi cette flexibilité ? que se passe-t-il si une [[FC]] n'est pas tenue ?
+
+À l'issue de la revue, deux issues sont possibles : **CdCF validé** — passage en concept ; **CdCF à reprendre** — corrections demandées avant nouvelle présentation. Dans les deux cas, le retour de la revue se consigne par écrit (compte-rendu de réunion, ou commentaires sur le document) et **engage le projet** : ce qui a été validé en revue ne se rediscute plus ensuite — c'est précisément la fonction du jalon.
+
+> [!warning] Attention
+> **Un CdCF n'est pas un copier-coller des livrables intermédiaires.** La tentation, quand cinq étapes ont produit cinq lots de pages, est d'agrafer le tout et de poser une page de garde. Ce qui en sort est une compilation — pas un document. Les répétitions ne sont pas résorbées, les transitions manquent, les incohérences entre sections passent inaperçues. Le geste de l'étape 6 est précisément de **relire l'ensemble** et de réécrire ce qui doit l'être pour que les cinq sections forment un **récit cohérent**, pas une juxtaposition.
+
+> [!example] Exemple : projet bras 3 axes
+> Le CdCF du bras 3 axes s'organise en 5 sections suivant la TdM standard. La section 1 reprend la posture étudiant-client-de-lui-même actée à l'étape 1 (commanditaire = enseignant de mécatronique, but pédagogique explicite). La section 4 — cœur NF X50-151 — agrège la pieuvre et le tableau de fonctions caractérisées : 1 FP, 1 FS, 2 FC, toutes chiffrées (précision ± 5 mm en F1, programmation depuis poste informatique en F2, alimentation 230 V en F0, démontabilité fablab en F0).
+>
+> La démarche écoconception est intégrée transversalement : critère « ouverture / réparabilité » dans le tableau de l'état de l'art (section 3), FC2 sur la démontabilité dans la pieuvre (section 4), risque « disponibilité fablab » dans la matrice de risques (section 5). Pas de section écoconception dédiée — l'enjeu environnemental traverse le document.
+>
+> Le CdCF est présenté en **revue de CdCF **, puis validé par votre client (ou les enseignants), le projet bascule officiellement en [[concept|concept]].
+
+> [!livrable] Livrable 6/6 — Spécification technique
+> - Cahier des charges fonctionnel complet, structuré en 5 sections (présentation, besoin, existant, analyse fonctionnelle, planification), soigné en forme et en cohérence inter-sections, **présenté et validé en revue de CdCF**.
 
 ---
 
@@ -351,7 +403,13 @@ En école, 5 à 10 risques majeurs suffisent. Plus que la liste exhaustive, c'es
 
 ## Pendant cette phase, côté équipe
 
-*[À rédiger — interfaces métiers (méca, fabrication) + fils transverses (gestion projet, écoconception, sécurité) spécifiques à la phase 1]*
+**Interfaces métiers — mécanique et fabrication.** La phase 1 se fait sur papier, mais les contraintes de fabrication doivent être anticipées dès maintenant. Un dialogue précoce avec les enseignants de mécanique et de fabrication permet de caler des [[FC]] réalistes (« compatible avec les moyens du fablab école », « usinable sur tour à commande numérique disponible », « imprimable 3D en un seul morceau de moins de 200 mm ») et d'éviter de découvrir en phase de [[dossier-technique|dossier technique]] que l'architecture pré-dimensionnée en [[concept|concept]] n'est pas fabricable. Sans aller jusqu'à figer la solution, l'équipe a tout intérêt à **valider les ordres de grandeur** des matériaux et procédés disponibles avec les enseignants concernés avant la revue de CdCF.
+
+**Gestion de projet.** La fin de phase 1 lance toute la mécanique de pilotage du projet. La planification (étape 5) ne se limite pas à produire un Gantt — elle structure le travail de l'équipe : qui suit quel sous-livrable, qui maintient le rétroplanning, qui actualise la matrice de risques. Les premiers points hebdomadaires se calent à ce moment, sur un format léger (15 minutes, tour de table, points bloquants) qui se solidifiera au fil du projet. La fiche-trame [[gestion-de-projet|gestion de projet]] détaille la pratique transversale.
+
+**Écoconception.** L'[[ecoconception|écoconception]] n'est pas un fil séparé à activer plus tard — elle s'**ancre dès la phase 1** par des graines réparties dans les livrables : critère écoconception dans le tableau comparatif de l'état de l'art, [[FC]] sur les matériaux ou la fin de vie dans la pieuvre, risques liés à la disponibilité ou à la durabilité dans la matrice de risques. Un CdCF sans aucun ancrage écoconception en phase 1 produit un projet qui ne pourra pas rattraper cet oubli plus tard sans réouvrir le CdCF lui-même. La fiche-trame [[ecoconception|écoconception]] détaille la démarche transversale.
+
+**Sécurité et qualité.** La sécurité et la qualité commencent en phase 1 par un **repérage réglementaire** : quelles normes s'appliquent au système envisagé (basse tension, machines, public exposé, conformité CE) ? Quels seuils de sécurité sont incontournables ? Ces éléments se traduisent en [[FC]] dans la pieuvre à l'étape 3, avec une flexibilité F0 (impérative) sur tout ce qui relève de la réglementation. Le faire en phase 1, c'est s'épargner de découvrir en [[integration-et-tests|intégration]] une norme bloquante qui aurait dû orienter le concept. La fiche-trame [[securite-et-qualite|sécurité et qualité]] détaille la pratique transversale.
 
 ## Conclusion
 
@@ -360,6 +418,7 @@ En école, 5 à 10 risques majeurs suffisent. Plus que la liste exhaustive, c'es
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
+- [[cdcf-ecole-template.docx|Template CdCF école à compléter]] *(document Word fourni)*
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice — à créer)*
 - [[bete-a-cornes|Bête à cornes]] *(à créer)*
 - [[afnor-nfx50-151|Norme NF X50-151]] *(stub)*
