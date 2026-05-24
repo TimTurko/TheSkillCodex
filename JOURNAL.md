@@ -5,6 +5,66 @@
 
 ---
 
+## 2026-05-24 — Clôture phase 1 partie 1 : étape 5 + Pièges fréquents
+
+### Périmètre de session
+Clôture de la phase 1 sur deux fronts : rédaction de l'étape 5 « Planifier le projet » de `specification-technique.md` (3 sous-sections H4 + 4 callouts) et refonte de la section « Pièges fréquents » (6 pièges en gras court + explication). Session sur PC perso, préfixe MCP `filesystem:*`. Scission acquise en début de session : 5 + Pièges aujourd'hui, 6 + section Équipe + cohérence d'ensemble dans une session ultérieure.
+
+### Cadrage en début de session — 5 questions tranchées
+
+1. **Structure du CdCF (étape 6)** : version école **simplifiée** enseignée par défaut, avec encart « ce qui change avec un client réel ». Dérivée reconnaissable de la NF X50-151 (pas une structure inventée). Évite à l'étudiant de croire que la version qu'il rédige est la version pro. Décision opérationnelle pour la session suivante.
+2. **Granularité étape 5** : **3 H4** (vs 4 initialement projetés). Regroupement `Gantt + jalons + rétroplanning` sous une H4 unique « Planifier dans le temps » qui reflète visuellement leur indissociabilité opérationnelle. WBS et risques en H4 dédiées plus courtes.
+3. **Outils de planification** : mention sobre — Excel/papier + GanttProject + **Trello** (acté ici comme outil en ligne grand public). Pas de comparatif, pas de détail de fonctionnement, juste citer.
+4. **Validation finale du CdCF** : pas « soutenance intermédiaire » comme initialement envisagé. Le vocabulaire correct est **revue de CdCF** (évaluation enseignante équivalente d'une signature client en contexte école). Reformulation à intégrer en étape 6 + retombée immédiate en étape 5 sur la formulation des jalons (« S3 — Revue de CdCF » dans l'exemple).
+5. **Stratégie d'enchaînement** : scission **5 + Pièges** (cette session) / **6 + Équipe + cohérence finale** (session suivante). L'étape 6 (CdCF) est l'agrégateur des 5 précédentes, mérite d'être traitée à tête reposée. La cohérence d'ensemble (vérifier que les 6 étapes forment un récit progressif) est un geste à part entière.
+
+### Vérification visuelle préalable — étapes 3 et 4 sous Quartz
+Checklist passée avec utilisateur en début de session, **toute validée**. Étape 3 (note italique BàC/pieuvre, FS1 réécrite, définition FP, popovers FP/FS/FC sur sigles génériques seulement) et étape 4 (sous-liste F0/F1/F2/F3, 4 callouts côte à côte, popover `unite-si`, FP1 reformulée répercutée étapes 3 et 4) : OK. Aucun patch correctif nécessaire avant d'attaquer l'étape 5.
+
+### Rédaction étape 5 — Planifier le projet
+
+Structure produite :
+- **Préambule** (2 paragraphes) : pont depuis étape 4 (le *quoi* est posé, reste le *quand* et le *qui*) + spécificité école (date de fin imposée → rétroplanning comme outil natif, pas optionnel)
+- **H4 « Décomposer en WBS »** (forme courte) : popover `[[wbs]]` lien rouge. Profondeur 2-3 niveaux pour usage école.
+- **H4 « Planifier dans le temps »** (forme longue) : 3 popovers liens rouges `[[jalons]]`, `[[retroplanning|rétroplanning]]`, `[[gantt|Gantt]]`. Trio indissociable présenté en cascade pédagogique (jalons posés → rétroplanning en remontant → Gantt qui matérialise). Paragraphe outils en clôture : Excel/papier, GanttProject, Trello, 1 phrase chacun, message « choisir un et s'y tenir ».
+- **H4 « Maîtriser les risques »** (forme courte) : popover `[[matrice-de-risques]]` lien rouge. Identifier / coter (probabilité × gravité) / parade. 5-10 risques en école, **actualisation régulière** comme message clé.
+
+4 callouts :
+- `[!warning] Attention` — *Un planning qu'on ne met pas à jour ment.* La planification est un outil vivant, pas un livrable archivé.
+- `[!tip] Astuce` — *Poser d'abord la date de soutenance, puis remonter à rebours en gardant une marge.* Au moins 2 semaines de marge avant la butoir.
+- `[!example] Exemple : projet bras 3 axes` — 5 jalons sur un projet 15 semaines (S3 Revue de CdCF / S6 PoC / S11 Dossier technique / S14 Intégration / S15 Soutenance), WBS niveau 2 en prose sur 4 branches (Mécanique / Électronique / Informatique / Projet), 5 risques numérotés avec cote *probabilité × gravité* en italique et parade.
+- `[!livrable] Livrables 5/6 — Spécification technique` — WBS + Gantt + matrice de risques.
+
+### Refonte section Pièges fréquents
+
+Fusion des 3 pièges génériques existants avec les 4 pièges identifiés au 23/05 suite 2. Résultat : **6 pièges** (et non 7), parce que l'ancien piège générique « Cahier des charges flou » faisait doublon avec les nouveaux « niveau non chiffré » et « critère subjectif » — fondu dans ces derniers, plus précis. Format adopté : **gras court en ouverture suivi d'une phrase d'explication concise** (1-2 phrases). Reformulation au passage des 2 pièges génériques préservés pour aligner le format.
+
+Les 6 pièges :
+- Sauter à la solution avant d'avoir formulé le besoin
+- Confondre verrou technologique et difficulté d'équipe
+- Niveau non chiffré (exigence non opposable)
+- Critère subjectif ou non mesurable
+- Sur-spécification
+- Confondre F3 avec une absence d'exigence
+
+### Vérification visuelle de la session
+Checklist passée avec utilisateur en fin de session : étape 5 (préambule + 3 H4 + popovers liens rouges visibles + 4 callouts conformes) + section Pièges (format gras court + explication, popover `pcb` préservé). **Tout validé.** Le dernier geste documentaire (MAJ JOURNAL / TODO / BACKLOG) tenu dans la même session — discipline appliquée suite à la leçon méthodo du 23/05 suite.
+
+### Nouvelles dépendances posées
+- `[[wbs]]` — fiche-notion légère (niveau de détail tranché 23/05 suite 2). Découpage projet en éléments traçables, 2-3 niveaux.
+- `[[jalons]]` — fiche-tuto détaillée. Points de validation rythmant le projet, conditionnent le passage à la phase suivante.
+- `[[retroplanning]]` — fiche-tuto détaillée. Planification à rebours depuis la soutenance, marge ≥ 2 semaines.
+- `[[gantt]]` — fiche-tuto détaillée. Matérialisation visuelle du rétroplanning. Outils : Excel/papier, GanttProject, Trello.
+- `[[matrice-de-risques]]` — fiche-notion légère. Identification + cotation probabilité × gravité + parade. Actualisation à chaque revue de phase.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Étape 6 — Rédiger le CdCF** : version école simplifiée + encart « avec client réel » + démarche écoconception intégrée + revue de CdCF comme jalon de validation enseignante. À rédiger en session suivante.
+- **Section « Pendant cette phase, côté équipe »** de `specification-technique.md` : toujours en placeholder. À rédiger en session suivante (interfaces méca/fabrication + ancrage phase 1 des fils transverses gestion-projet / écoconception / sécurité-qualité).
+- **Cohérence d'ensemble des 6 étapes** : relecture progressive à effectuer en session suivante pour vérifier que les 6 étapes forment un récit progressif et non une juxtaposition. Geste de clôture phase 1.
+
+---
+
 ## 2026-05-23 (suite 2) — Approfondissement specification-technique étape 4 (cœur structurant)
 
 ### Périmètre de session

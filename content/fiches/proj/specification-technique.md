@@ -278,7 +278,61 @@ Le rôle pratique du `Fn` est de dire **comment on arbitrera** en cas de conflit
 
 ### 5. Planifier le projet
 
-*[À rédiger — WBS, jalons, rétroplanning à partir de la date de soutenance, prise en compte du calendrier scolaire]*
+Le *quoi* est posé : ce que le système doit faire et comment on l'évaluera. Reste à organiser le *quand* et le *qui*. La planification du projet se construit à la **fin de la phase 1**, parce qu'on ne peut pas planifier ce qu'on n'a pas encore défini — mais elle vit ensuite pendant toute la durée du projet, et se met à jour à chaque revue de phase.
+
+En projet école, la planification présente une spécificité : la **date de fin est imposée** par le calendrier scolaire (revue finale du CdCF, soutenance, calendrier d'examens). On ne planifie pas en partant d'aujourd'hui pour estimer une date d'arrivée — on planifie en partant de la date d'arrivée connue pour remonter à aujourd'hui. C'est un **rétroplanning**.
+
+#### Décomposer en WBS
+
+Le [[wbs|WBS]] (*Work Breakdown Structure*) découpe le projet en éléments traçables, du livrable global vers les tâches élémentaires. Deux à trois niveaux de profondeur suffisent en école : phase → sous-livrable → tâche concrète. Au-delà, on s'égare en gestion administrative et on perd la vue d'ensemble. Le WBS sert de **référence partagée** pour répartir le travail dans l'équipe et pour s'assurer qu'aucune tâche structurante n'a été oubliée.
+
+#### Planifier dans le temps
+
+Une fois les tâches identifiées via le WBS, trois outils complémentaires les inscrivent dans le calendrier.
+
+Les [[jalons]] sont les points de validation qui rythment le projet. Ils marquent la transition entre deux phases du cycle en V (CdCF validé, PoC concluant, dossier technique validé, intégration livrée, soutenance finale) et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante — il décale tout l'aval.
+
+Le [[retroplanning|rétroplanning]] consiste à poser d'abord les jalons sur le calendrier (en partant de la fin et en remontant), puis à inscrire les tâches du WBS entre ces jalons. C'est le squelette temporel du projet.
+
+Le [[gantt|Gantt]] matérialise visuellement le rétroplanning : tâches en lignes, calendrier en colonnes, barres horizontales qui montrent durées et chevauchements. Sa force pédagogique : il fait apparaître les **dépendances** (telle tâche en attend une autre) et les **goulots** (telle semaine concentre trop de travail).
+
+Côté outils, plusieurs options sont mobilisables : Excel ou papier (rapides à mettre en place, suffisants pour un Gantt simple), **GanttProject** (logiciel libre dédié, gère bien les dépendances), **Trello** (en ligne, pratique pour le WBS et le suivi des tâches au quotidien). Choisir un outil et s'y tenir — le pire est d'éparpiller la planification entre trois supports désynchronisés.
+
+#### Maîtriser les risques
+
+Tout projet rencontre des aléas — composant indisponible, panne d'imprimante 3D, équipier absent, brique technique qui s'avère plus dure que prévu. La [[matrice-de-risques|matrice de risques]] consiste à les anticiper avant qu'ils surviennent : identifier les principaux risques, les coter selon leur **probabilité** et leur **gravité**, et décider pour chacun d'une parade (prévention, atténuation, plan B).
+
+En école, 5 à 10 risques majeurs suffisent. Plus que la liste exhaustive, c'est l'**actualisation régulière** qui compte — la matrice de risques se relit à chaque revue de phase et se met à jour quand un risque nouveau apparaît ou qu'un ancien est levé.
+
+> [!warning] Attention
+> **Un planning qu'on ne met pas à jour ment.** La planification n'est pas un livrable de début de phase qu'on archive ensuite — c'est un outil vivant, qui n'a de valeur que s'il reflète l'état réel du projet. Une équipe qui produit un beau Gantt en semaine 2 et ne le rouvre plus jusqu'à la semaine 14 a perdu son temps. Inversement, un Gantt actualisé chaque semaine, même imparfait, devient un outil de pilotage puissant : il révèle les dérives tôt, quand on peut encore agir.
+
+> [!tip] Astuce
+> **Poser d'abord la date de soutenance, puis remonter à rebours en gardant une marge.** Le rétroplanning naïf cale les tâches bout à bout jusqu'à la veille de la soutenance — il suffit d'un imprévu (et il y en a toujours) pour que tout déborde. Garder **au moins deux semaines de marge** avant la date butoir, dédiées à la finalisation du rapport et à la répétition de la soutenance, change la nature du projet : le stress n'est plus systémique mais ponctuel.
+
+> [!example] Exemple : projet bras 3 axes
+> **Jalons posés** (sur un projet de 15 semaines) :
+>
+> - S3 — Revue de CdCF
+> - S6 — PoC concluant (steppers synchronisés, tenue mécanique d'une articulation validée)
+> - S11 — Dossier technique validé, commandes passées
+> - S14 — Intégration et tests terminés
+> - S15 — Soutenance finale
+>
+> **WBS niveau 2** (extrait) : Mécanique (structure articulée, liaisons, montage), Électronique (carte de pilotage, câblage, alimentation), Informatique (commande des steppers, IHM PC, communication PC–carte), Projet (CdCF, dossier technique, rapport final).
+>
+> **Risques majeurs identifiés** (5) :
+>
+> 1. Tenue mécanique des articulations imprimées 3D — *probabilité moyenne × gravité élevée* → sur-dimensionner et tester au plus tôt sur une articulation isolée.
+> 2. Synchronisation des 3 steppers — *probabilité moyenne × gravité moyenne* → valider l'interface logiciel/driver dès le PoC.
+> 3. Indisponibilité fablab en période d'examens — *probabilité élevée × gravité moyenne* → caler les impressions critiques avant S10.
+> 4. IHM PC plus complexe qu'estimé — *probabilité moyenne × gravité faible* → version minimale (ligne de commande) en plan B.
+> 5. Équipier indisponible (stage, maladie) — *probabilité faible × gravité élevée* → binômage sur les tâches critiques pour éviter le mono-référent.
+
+> [!livrable] Livrables 5/6 — Spécification technique
+> - WBS du projet (2 à 3 niveaux de profondeur)
+> - Rétroplanning matérialisé en Gantt, avec les jalons clés du cycle en V
+> - Matrice de risques (5 à 10 risques majeurs, cotés probabilité × gravité, avec parade associée)
 
 ### 6. Rédiger le CdCF
 
@@ -288,11 +342,12 @@ Le rôle pratique du `Fn` est de dire **comment on arbitrera** en cas de conflit
 
 ## Pièges fréquents
 
-*[À compléter au fil de la rédaction des étapes]*
-
-- Sauter à la solution avant d'avoir formulé le besoin
-- Confondre verrou technologique et difficulté d'équipe
-- Cahier des charges flou ("le système doit être performant") qui ne permettra rien d'évaluer en fin de projet
+- **Sauter à la solution avant d'avoir formulé le besoin.** Le réflexe « il nous faudrait un ESP32, un capteur de température… » dès la semaine 1 produit des CdCF orientés solution qui se révèlent inadaptés quand la vraie analyse du besoin émerge plus tard. La discipline est de tenir le *quoi* séparé du *comment* jusqu'à la fin de la phase.
+- **Confondre verrou technologique et difficulté d'équipe.** *« Nous n'avons jamais fait de [[pcb|PCB]] »* n'est pas un verrou, c'est une lacune à combler. Un vrai verrou résiste même à une équipe compétente et bien outillée — c'est ce qui justifie un projet d'ingénierie plutôt qu'un simple assemblage.
+- **Niveau non chiffré.** *« Le système doit être précis »*, *« le coût doit être raisonnable »* : sans valeur ni unité, l'exigence n'est pas opposable. Elle ne peut être ni évaluée en fin de projet ni arbitrée en cours de route. Chaque ligne du CdCF doit porter un chiffre.
+- **Critère subjectif ou non mesurable.** *« Ergonomique »*, *« agréable »*, *« robuste »* ne sont pas des critères mais des intentions. À reformuler systématiquement en grandeur mesurable (force d'actionnement maximale, MTBF, plage de température admissible, temps d'apprentissage…).
+- **Sur-spécification.** Fixer un niveau plus précis que le besoin réel (`± 0,1 mm` quand `± 5 mm` suffit) n'apporte rien d'utilisable, fait exploser le coût et complique inutilement l'arbitrage en cours de projet. Le bon niveau est *celui qui permet au système de remplir son service*, pas le plus serré qu'on sait écrire.
+- **Confondre F3 avec une absence d'exigence.** F3 ne veut pas dire « pas important » : c'est une exigence formellement chiffrée dont l'écart est tolérable et négociable. Une exigence sans `Fn` du tout, en revanche, est non opposable — la flexibilité est une donnée à part entière du triplet, pas une option.
 
 ## Pendant cette phase, côté équipe
 

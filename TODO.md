@@ -40,12 +40,11 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion. **Conventions callouts révisées le 23/05** (titres `Exemple : projet bras 3 axes` / `Livrable N/X — <Nom de la phase>` / `Attention` / `Astuce` avec phrase-clé dans le corps en gras).
 - [x] ~~**Refonte `specification-technique.md` étape 1**~~ — fait le 23/05 : alignement callouts v2.1 + ajout section Conclusion + réordonnancement final + popovers de l'objectif posés. **Étapes 2-6 restent en placeholder** (objet de la prochaine session).
 - [x] ~~**Approfondissement `specification-technique` — étape 4 (cœur de la phase)**~~ — fait le 23/05 (suite 2) : 3 sous-sections + warning + tip + example + livrable 4/6 + 5 patches d'ajustement + 3 patches collatéraux étape 3 + décision méthodologique alias FP/FS/FC.
-- [ ] **Approfondissement `specification-technique` — étapes 5-6 + Pièges + section Équipe** → **session de clôture phase 1**.
-  - Étape 5 (Planifier) : Gantt / rétroplanning / jalons en fiches-tuto détaillées ; WBS / matrice de risques en fiches-notion légères ; outils mentionnés Excel/papier + GanttProject et autres à compléter.
-  - Étape 6 (Rédiger le CdCF) : structure canonique NF X50-151 avec souplesse ; intégration de la démarche écoconception confirmée.
-  - Pièges fréquents : intégrer les 4 pièges identifiés au 23/05 (suite 2) — niveau non chiffré, critère subjectif non mesurable, sur-spécification, F3 ≠ absence d'exigence.
-  - Section « Pendant cette phase, côté équipe » : à rédiger.
-  - Alignement v2.1 de la fiche déjà fait au fil — vérification de cohérence finale.
+- [x] ~~**Approfondissement `specification-technique` — étape 5 + Pièges fréquents**~~ — fait 24/05 (clôture phase 1 partie 1) : 3 sous-sections H4 (WBS / Planifier dans le temps / Maîtriser les risques) + 4 callouts + 5 popovers liens rouges ; refonte Pièges en 6 entrées gras court + explication.
+- [ ] **Clôture phase 1 partie 2** → **Approfondissement `specification-technique` — étape 6 + section Équipe + cohérence finale**.
+  - Étape 6 (Rédiger le CdCF) : version école simplifiée enseignée par défaut, dérivée reconnaissable de NF X50-151 + encart « ce qui change avec un client réel » ; intégration de la démarche écoconception confirmée ; **revue de CdCF** comme jalon de validation enseignante (vocabulaire acté 24/05, vs « soutenance intermédiaire »).
+  - Section « Pendant cette phase, côté équipe » : à rédiger (interfaces méca/fabrication + ancrage phase 1 des fils transverses gestion-projet / écoconception / sécurité-qualité).
+  - Cohérence d'ensemble des 6 étapes : relecture progressive pour vérifier que les 6 étapes forment un récit progressif et non une juxtaposition.
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V — à chaque approfondissement, **aligner les callouts** sur les conventions v2.1 (titres + phrase-clé dans le corps)
@@ -61,6 +60,11 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **`bom`** (tuto, popover posé étape 2 de `specification-technique.md` le 23/05 suite — acronyme + structure BOM, évolution attendue préliminaire/consolidée/finale)
 - [ ] **`mind-map`** (notion, popover posé étape 3 de `specification-technique.md` le 23/05 suite — outil méthodo générique)
 - [ ] **`fast`** (tuto, popover posé en ouverture de l'étape 3 de `specification-technique.md` le 23/05 suite — à créer en phase 2 concept)
+- [ ] **`wbs`** (fiche-notion légère, popover posé étape 5 le 24/05). Découpage projet en éléments traçables, 2-3 niveaux suffisent en école.
+- [ ] **`jalons`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Points de validation rythmant le projet, conditionnent le passage à la phase suivante.
+- [ ] **`retroplanning`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Planification à rebours depuis la soutenance, marge ≥ 2 semaines.
+- [ ] **`gantt`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Matérialisation visuelle du rétroplanning. Outils : Excel/papier, GanttProject, Trello.
+- [ ] **`matrice-de-risques`** (fiche-notion légère, popover posé étape 5 le 24/05). Identification + cotation probabilité × gravité + parade. 5-10 risques majeurs en école, actualisation à chaque revue de phase.
 
 ### 3. Templates à rédiger
 - [x] ~~**Template fiche-trame**~~ — fait le 22/05 (suite) dans `templates/fiche-trame.md`
@@ -84,6 +88,7 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Commit + push de la session du 23/05** : refonte `specification-technique.md` étape 1 (11 patches : alignement callouts v2.1 + ajout Conclusion + réordo final + popovers objectif), révision conventions callouts v2.1 dans `templates/fiche-trame.md` (bloc CONVENTIONS À RESPECTER + commentaires HTML + 3 étapes-exemple) et `templates/callouts.md` (sections warning/tip/example/livrable), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Commit + push de la session du 23/05 (suite)** : approfondissement étapes 2-3 de `specification-technique.md` (2 patches initiaux + 7 patches round 2 de relecture), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Commit + push de la session du 23/05 (suite 2)** : approfondissement étape 4 de `specification-technique.md` (rédaction complète + 5 patches d'ajustement) + 3 patches collatéraux étape 3 (cohérence BàC/pieuvre, FS1, définition FP) + 8+6 patches popovers FP/FS/FC, mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Commit + push de la session du 24/05** : rédaction étape 5 de `specification-technique.md` + refonte section Pièges fréquents (6 entrées gras court + explication), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [x] ~~**Créer `_drafts/flowcharts/`**~~ — fait le 21/05
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
@@ -94,6 +99,8 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~Vérifier le rendu de `specification-technique.md` étape 1 refondue sous Quartz~~ — fait le 23/05, OK utilisateur.
 - [x] ~~Vérifier le rendu des étapes 2-3 de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en fin de session du 23/05 suite (MAJ doc avait dérapé, confirmé en début de session 23/05 suite 2).
 - [ ] Vérifier le rendu de l'étape 4 de `specification-technique.md` sous Quartz et sur smartphone (sous-liste F0/F1/F2/F3 avec indent 4 espaces — bascule en 2 espaces si la hiérarchie casse, callouts warning/tip/example/livrable côte à côte).
+- [x] ~~Vérifier le rendu des étapes 3 et 4 de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en début de session du 24/05, OK.
+- [x] ~~Vérifier le rendu de l'étape 5 + Pièges de `specification-technique.md` sous Quartz~~ — fait par l'utilisateur en fin de session du 24/05, OK.
 - [ ] Vérifier le rendu de `bete-a-cornes.md` (3 SVG dans 3 callouts côte à côte : harmonie visuelle ? hauteur des images ?)
 - [ ] Configurer le plugin Templates d'Obsidian (`content/templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)
@@ -114,6 +121,15 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-24 (Clôture phase 1 partie 1 — étape 5 + Pièges fréquents)
+- [x] Trancher les 5 questions structurantes (CdCF version école simplifiée avec mention client réel / 3 H4 pour l'étape 5 / Trello cité sans détailler / revue de CdCF comme jalon de validation enseignante / scission 5+Pièges puis 6+Équipe+cohérence)
+- [x] Vérification visuelle étapes 3 et 4 sous Quartz en début de session (checklist 12 points, tout validé)
+- [x] Rédiger l'étape 5 « Planifier le projet » (préambule 2 paragraphes + 3 sous-sections H4 + 4 callouts + 5 popovers liens rouges)
+- [x] Refonte section Pièges fréquents : 6 pièges en gras court + explication (3 génériques reformulés + 4 nouveaux fondus, dont l'ancien « CdC flou » supprimé car redondant avec niveau non chiffré + critère subjectif)
+- [x] Vérification visuelle étape 5 + Pièges sous Quartz en fin de session
+- [x] Poser 5 nouvelles dépendances avec niveaux de détail tranchés (`wbs` notion légère, `jalons`/`retroplanning`/`gantt` tutos détaillés, `matrice-de-risques` notion légère)
+- [x] Vocabulaire acté : « revue de CdCF » (vs « soutenance intermédiaire ») pour désigner le jalon de validation enseignante
 
 ### Session 2026-05-23 (suite 2 — Approfondissement specification-technique étape 4)
 - [x] Trancher les 3 questions de cadrage (fiche-tuto unique avec alias / option (c) pas de triptyque dans la trame / mini-encart unités en prose)

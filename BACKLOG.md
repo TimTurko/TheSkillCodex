@@ -57,8 +57,6 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Mécatronique (fiche-notion racine, emplacement à arbitrer)
 - [ ] Frontière du système
 - [ ] Revue de projet
-- [ ] Jalons et livrables
-- [ ] Gestion des risques projet
 - [ ] Approche-test / itération
 - [ ] Critères de comparaison de solutions
 - [ ] **`etat-de-l-art-technique`** (tuto, popover posé dans l'objectif de `specification-technique.md` le 23/05). Méthode N×M (N solutions × M critères pondérés) pour étude comparative chiffrée. À distinguer d'une simple revue bibliographique. Fusionne l'ancienne entrée « État de l'art (méthodologie) ».
@@ -78,9 +76,11 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Relation client** (tuto) — valider la compréhension du besoin, posture en réunion client, gestion des changements de demande
 - [ ] **Archivage projet** (tuto) — CR de réunion, traçabilité documentaire, versioning des livrables
 - [ ] **Définir un objectif SMART** (tuto)
-- [ ] **Rétroplanning** ou **Planifier un projet** (tuto) — partir de la soutenance, remonter les jalons, anticiper le calendrier scolaire
-- [ ] **WBS** (Work Breakdown Structure)
-- [ ] **Diagramme de Gantt**
+- [ ] **`retroplanning`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 de `specification-technique.md` le 24/05). Planification à rebours depuis la soutenance, marge ≥ 2 semaines avant la date butoir, anticiper le calendrier scolaire.
+- [ ] **`jalons`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 le 24/05). Points de validation rythmant le projet (CdCF validé, PoC concluant, dossier technique validé, etc.). Conditionnent le passage à la phase suivante.
+- [ ] **`gantt`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 le 24/05). Matérialisation visuelle du rétroplanning. Outils mentionnés : Excel/papier, GanttProject, Trello.
+- [ ] **`wbs`** (fiche-notion légère — décision 23/05 suite 2, popover posé étape 5 le 24/05). Découpage projet en éléments traçables, 2-3 niveaux suffisent en école. Couvre la migration de l'entrée PROJ « Jalons et livrables » (volet WBS).
+- [ ] **`matrice-de-risques`** (fiche-notion légère — décision 23/05 suite 2, popover posé étape 5 le 24/05). Identification + cotation probabilité × gravité + parade. 5-10 risques majeurs en école, actualisation à chaque revue de phase. Migration de l'entrée PROJ « Gestion des risques projet ».
 
 ### MME — Matériaux / mécanique (interface collègues)
 - [ ] Liens vers cours mécanique
