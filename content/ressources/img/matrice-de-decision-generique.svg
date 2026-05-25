@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+  <title id="title">Matrice de décision — schéma générique</title>
+  <desc id="desc">Tableau de matrice de décision : trois colonnes pour les solutions candidates A, B, C ; cinq lignes pour les critères pondérés ; une ligne de poids en haut ; une ligne de somme pondérée en bas qui désigne le classement final.</desc>
+  <defs>
+    <style>
+      .grid { stroke: #888780; stroke-width: 1.2; fill: none; }
+      .grid-strong { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .header-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 1.5; }
+      .header-text { font: 700 12px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .crit-text { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .poids-text { font: 600 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .cell-text { font: 400 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .total-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .total-text { font: 700 13px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .winner-fill { fill: #C8E6C9; stroke: #888780; stroke-width: 2; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; font-style: italic; }
+      @media (prefers-color-scheme: dark) {
+        .grid { stroke: #BBBBBB; }
+        .grid-strong { stroke: #BBBBBB; }
+        .header-fill { fill: #BA7517; stroke: #EF9F27; }
+        .crit-text, .cell-text, .total-text, .title-text { fill: #F1EFE8; }
+        .poids-text { fill: #EF9F27; }
+        .total-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .winner-fill { fill: #4D6F4E; stroke: #BBBBBB; }
+        .legend-text { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="340" y="30" class="title-text">Matrice de décision : 3 solutions × 5 critères pondérés</text>
+
+  <!-- En-tête colonnes -->
+  <rect x="240" y="55" width="120" height="35" rx="3" class="header-fill"/>
+  <text x="300" y="78" class="header-text">Solution A</text>
+  <rect x="365" y="55" width="120" height="35" rx="3" class="header-fill"/>
+  <text x="425" y="78" class="header-text">Solution B</text>
+  <rect x="490" y="55" width="120" height="35" rx="3" class="header-fill"/>
+  <text x="550" y="78" class="header-text">Solution C</text>
+
+  <!-- Ligne poids -->
+  <text x="20" y="115" class="crit-text">Poids (sur 100)</text>
+  <text x="300" y="115" class="poids-text">×</text>
+  <text x="425" y="115" class="poids-text">×</text>
+  <text x="550" y="115" class="poids-text">×</text>
+
+  <!-- Grille horizontale -->
+  <line x1="15" y1="130" x2="610" y2="130" class="grid-strong"/>
+  <line x1="15" y1="170" x2="610" y2="170" class="grid"/>
+  <line x1="15" y1="210" x2="610" y2="210" class="grid"/>
+  <line x1="15" y1="250" x2="610" y2="250" class="grid"/>
+  <line x1="15" y1="290" x2="610" y2="290" class="grid"/>
+  <line x1="15" y1="330" x2="610" y2="330" class="grid-strong"/>
+
+  <!-- Grille verticale -->
+  <line x1="15" y1="130" x2="15" y2="330" class="grid-strong"/>
+  <line x1="220" y1="130" x2="220" y2="330" class="grid-strong"/>
+  <line x1="270" y1="130" x2="270" y2="330" class="grid"/>
+  <line x1="360" y1="130" x2="360" y2="330" class="grid"/>
+  <line x1="395" y1="130" x2="395" y2="330" class="grid"/>
+  <line x1="485" y1="130" x2="485" y2="330" class="grid"/>
+  <line x1="520" y1="130" x2="520" y2="330" class="grid"/>
+  <line x1="610" y1="130" x2="610" y2="330" class="grid-strong"/>
+
+  <!-- Critère 1 -->
+  <text x="20" y="155" class="crit-text">Critère 1 (perf.)</text>
+  <text x="245" y="155" class="poids-text">30</text>
+  <text x="320" y="155" class="cell-text">4 / 5</text>
+  <text x="377" y="155" class="cell-text">3</text>
+  <text x="447" y="155" class="cell-text">5 / 5</text>
+  <text x="502" y="155" class="cell-text">3</text>
+  <text x="567" y="155" class="cell-text">3 / 5</text>
+  <text x="565" y="155" class="cell-text" style="text-anchor:end">2</text>
+
+  <!-- Critère 2 -->
+  <text x="20" y="195" class="crit-text">Critère 2 (coût)</text>
+  <text x="245" y="195" class="poids-text">25</text>
+  <text x="320" y="195" class="cell-text">3 / 5</text>
+  <text x="377" y="195" class="cell-text">3</text>
+  <text x="447" y="195" class="cell-text">2 / 5</text>
+  <text x="502" y="195" class="cell-text">2</text>
+  <text x="567" y="195" class="cell-text">5 / 5</text>
+  <text x="565" y="195" class="cell-text" style="text-anchor:end">3</text>
+
+  <!-- Critère 3 -->
+  <text x="20" y="235" class="crit-text">Critère 3 (éco)</text>
+  <text x="245" y="235" class="poids-text">20</text>
+  <text x="320" y="235" class="cell-text">3 / 5</text>
+  <text x="377" y="235" class="cell-text">2</text>
+  <text x="447" y="235" class="cell-text">4 / 5</text>
+  <text x="502" y="235" class="cell-text">3</text>
+  <text x="567" y="235" class="cell-text">4 / 5</text>
+  <text x="565" y="235" class="cell-text" style="text-anchor:end">2</text>
+
+  <!-- Critère 4 -->
+  <text x="20" y="275" class="crit-text">Critère 4 (robustesse)</text>
+  <text x="245" y="275" class="poids-text">15</text>
+  <text x="320" y="275" class="cell-text">4 / 5</text>
+  <text x="377" y="275" class="cell-text">2</text>
+  <text x="447" y="275" class="cell-text">5 / 5</text>
+  <text x="502" y="275" class="cell-text">2</text>
+  <text x="567" y="275" class="cell-text">3 / 5</text>
+  <text x="565" y="275" class="cell-text" style="text-anchor:end">1</text>
+
+  <!-- Critère 5 -->
+  <text x="20" y="315" class="crit-text">Critère 5 (intégration)</text>
+  <text x="245" y="315" class="poids-text">10</text>
+  <text x="320" y="315" class="cell-text">3 / 5</text>
+  <text x="377" y="315" class="cell-text">1</text>
+  <text x="447" y="315" class="cell-text">4 / 5</text>
+  <text x="502" y="315" class="cell-text">1</text>
+  <text x="567" y="315" class="cell-text">5 / 5</text>
+  <text x="565" y="315" class="cell-text" style="text-anchor:end">1</text>
+
+  <!-- Total -->
+  <rect x="15" y="345" width="205" height="45" rx="3" class="total-fill"/>
+  <text x="118" y="372" class="total-text">Somme pondérée /500</text>
+
+  <rect x="240" y="345" width="120" height="45" rx="3" class="total-fill"/>
+  <text x="300" y="375" class="total-text">340</text>
+
+  <rect x="365" y="345" width="120" height="45" rx="3" class="winner-fill"/>
+  <text x="425" y="375" class="total-text">385</text>
+
+  <rect x="490" y="345" width="120" height="45" rx="3" class="total-fill"/>
+  <text x="550" y="375" class="total-text">365</text>
+
+  <!-- Légende -->
+  <text x="340" y="415" class="legend-text" style="text-anchor:middle">Solution B retenue (385). Choix à justifier en quelques lignes — la somme ne décide pas seule.</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" role="img" aria-labelledby="title desc">
+  <title id="title">Matrice de risques — schéma générique</title>
+  <desc id="desc">Matrice de risques classique à trois lignes (probabilité faible, moyenne, élevée) et trois colonnes (gravité faible, moyenne, élevée). Code couleur : vert dans la diagonale basse, jaune sur la diagonale médiane, rouge sur la diagonale haute. Les cases du haut-droite sont celles qui appellent une parade prioritaire.</desc>
+  <defs>
+    <style>
+      .cell-low { fill: #C8E6C9; stroke: #888780; stroke-width: 1.5; }
+      .cell-mid { fill: #FFF59D; stroke: #888780; stroke-width: 1.5; }
+      .cell-high { fill: #FFAB91; stroke: #888780; stroke-width: 1.5; }
+      .cell-critical { fill: #E57373; stroke: #888780; stroke-width: 1.5; }
+      .cell-text { font: 600 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .axis-label { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; letter-spacing: 0.5px; }
+      .level-label { font: 600 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; font-style: italic; }
+      @media (prefers-color-scheme: dark) {
+        .cell-low { fill: #4D6F4E; stroke: #BBBBBB; }
+        .cell-mid { fill: #897A30; stroke: #BBBBBB; }
+        .cell-high { fill: #A56251; stroke: #BBBBBB; }
+        .cell-critical { fill: #B04545; stroke: #BBBBBB; }
+        .cell-text { fill: #F1EFE8; }
+        .axis-label { fill: #EF9F27; }
+        .level-label, .title-text { fill: #F1EFE8; }
+        .legend-text { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="300" y="35" class="title-text">Matrice probabilité × gravité (3 × 3)</text>
+
+  <!-- Axe Y label -->
+  <text x="50" y="240" class="axis-label" transform="rotate(-90, 50, 240)">PROBABILITÉ →</text>
+
+  <!-- Levels Y (probabilité) -->
+  <text x="100" y="120" class="level-label">élevée</text>
+  <text x="100" y="220" class="level-label">moyenne</text>
+  <text x="100" y="320" class="level-label">faible</text>
+
+  <!-- Levels X (gravité) -->
+  <text x="200" y="385" class="level-label">faible</text>
+  <text x="320" y="385" class="level-label">moyenne</text>
+  <text x="440" y="385" class="level-label">élevée</text>
+
+  <!-- Axe X label -->
+  <text x="320" y="415" class="axis-label">GRAVITÉ →</text>
+
+  <!-- Cellules — ligne du haut (probabilité élevée) -->
+  <rect x="150" y="80" width="100" height="80" class="cell-mid"/>
+  <text x="200" y="125" class="cell-text">à surveiller</text>
+  <rect x="270" y="80" width="100" height="80" class="cell-high"/>
+  <text x="320" y="125" class="cell-text">parade</text>
+  <rect x="390" y="80" width="100" height="80" class="cell-critical"/>
+  <text x="440" y="120" class="cell-text">parade</text>
+  <text x="440" y="138" class="cell-text">prioritaire</text>
+
+  <!-- Cellules — ligne médiane (probabilité moyenne) -->
+  <rect x="150" y="180" width="100" height="80" class="cell-low"/>
+  <text x="200" y="225" class="cell-text">accepter</text>
+  <rect x="270" y="180" width="100" height="80" class="cell-mid"/>
+  <text x="320" y="225" class="cell-text">à surveiller</text>
+  <rect x="390" y="180" width="100" height="80" class="cell-high"/>
+  <text x="440" y="225" class="cell-text">parade</text>
+
+  <!-- Cellules — ligne du bas (probabilité faible) -->
+  <rect x="150" y="280" width="100" height="80" class="cell-low"/>
+  <text x="200" y="325" class="cell-text">accepter</text>
+  <rect x="270" y="280" width="100" height="80" class="cell-low"/>
+  <text x="320" y="325" class="cell-text">accepter</text>
+  <rect x="390" y="280" width="100" height="80" class="cell-mid"/>
+  <text x="440" y="325" class="cell-text">à surveiller</text>
+
+  <!-- Légende -->
+  <text x="80" y="450" class="legend-text">Haut-droite = à traiter en priorité (action préventive, atténuation ou plan B).</text>
+</svg>

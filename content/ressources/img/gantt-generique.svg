@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-labelledby="title desc">
+  <title id="title">Gantt — schéma générique</title>
+  <desc id="desc">Diagramme de Gantt générique. Une grille de huit colonnes représentant huit semaines, et quatre lignes représentant quatre tâches. Chaque tâche est matérialisée par une barre ambre couvrant les semaines concernées. Deux losanges représentent les jalons, en début et en fin. Une flèche de dépendance relie la fin d'une tâche au début d'une autre.</desc>
+  <defs>
+    <style>
+      .grid { stroke: #DDDBD3; stroke-width: 1; fill: none; }
+      .grid-strong { stroke: #888780; stroke-width: 1.5; fill: none; }
+      .header-text { font: 700 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .task-label { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .bar-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 1; }
+      .bar-text { font: 600 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .dep-arrow { stroke: #C0392B; stroke-width: 1.8; fill: none; stroke-dasharray: 5 3; }
+      .dep-head { fill: #C0392B; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; font-style: italic; }
+      @media (prefers-color-scheme: dark) {
+        .grid { stroke: #4A4A48; }
+        .grid-strong { stroke: #BBBBBB; }
+        .header-text { fill: #F1EFE8; }
+        .task-label { fill: #F1EFE8; }
+        .bar-fill { fill: #BA7517; stroke: #EF9F27; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .dep-arrow { stroke: #E74C3C; }
+        .dep-head { fill: #E74C3C; }
+        .title-text { fill: #F1EFE8; }
+        .legend-text { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="380" y="30" class="title-text">Mini-Gantt : 4 tâches sur 8 semaines, avec jalons et dépendance</text>
+
+  <!-- En-têtes de colonnes (semaines) -->
+  <text x="200" y="65" class="header-text">S1</text>
+  <text x="265" y="65" class="header-text">S2</text>
+  <text x="330" y="65" class="header-text">S3</text>
+  <text x="395" y="65" class="header-text">S4</text>
+  <text x="460" y="65" class="header-text">S5</text>
+  <text x="525" y="65" class="header-text">S6</text>
+  <text x="590" y="65" class="header-text">S7</text>
+  <text x="655" y="65" class="header-text">S8</text>
+
+  <!-- Grille verticale -->
+  <line x1="170" y1="80" x2="170" y2="290" class="grid-strong"/>
+  <line x1="232" y1="80" x2="232" y2="290" class="grid"/>
+  <line x1="297" y1="80" x2="297" y2="290" class="grid"/>
+  <line x1="362" y1="80" x2="362" y2="290" class="grid"/>
+  <line x1="427" y1="80" x2="427" y2="290" class="grid"/>
+  <line x1="492" y1="80" x2="492" y2="290" class="grid"/>
+  <line x1="557" y1="80" x2="557" y2="290" class="grid"/>
+  <line x1="622" y1="80" x2="622" y2="290" class="grid"/>
+  <line x1="687" y1="80" x2="687" y2="290" class="grid-strong"/>
+
+  <!-- Grille horizontale -->
+  <line x1="170" y1="80" x2="687" y2="80" class="grid-strong"/>
+  <line x1="170" y1="130" x2="687" y2="130" class="grid"/>
+  <line x1="170" y1="170" x2="687" y2="170" class="grid"/>
+  <line x1="170" y1="210" x2="687" y2="210" class="grid"/>
+  <line x1="170" y1="250" x2="687" y2="250" class="grid"/>
+  <line x1="170" y1="290" x2="687" y2="290" class="grid-strong"/>
+
+  <!-- Tâche 1 -->
+  <text x="15" y="113" class="task-label">Tâche 1</text>
+  <rect x="172" y="93" width="190" height="32" rx="4" class="bar-fill"/>
+  <text x="267" y="114" class="bar-text">Tâche 1</text>
+
+  <!-- Tâche 2 -->
+  <text x="15" y="153" class="task-label">Tâche 2</text>
+  <rect x="297" y="133" width="160" height="32" rx="4" class="bar-fill"/>
+  <text x="377" y="154" class="bar-text">Tâche 2</text>
+
+  <!-- Tâche 3 -->
+  <text x="15" y="193" class="task-label">Tâche 3</text>
+  <rect x="427" y="173" width="195" height="32" rx="4" class="bar-fill"/>
+  <text x="525" y="194" class="bar-text">Tâche 3</text>
+
+  <!-- Tâche 4 -->
+  <text x="15" y="233" class="task-label">Tâche 4</text>
+  <rect x="557" y="213" width="125" height="32" rx="4" class="bar-fill"/>
+  <text x="620" y="234" class="bar-text">Tâche 4</text>
+
+  <!-- Jalons -->
+  <text x="15" y="273" class="task-label">Jalons</text>
+  <polygon points="232,260 244,275 232,290 220,275" class="jalon-fill"/>
+  <text x="232" y="280" class="jalon-text">J1</text>
+  <polygon points="687,260 699,275 687,290 675,275" class="jalon-fill"/>
+  <text x="687" y="280" class="jalon-text">J2</text>
+
+  <!-- Flèche de dépendance Tâche 1 → Tâche 2 -->
+  <path d="M 362 109 L 380 109 L 380 133 L 297 133" class="dep-arrow"/>
+  <polygon points="297,133 309,127 309,139" class="dep-head"/>
+
+  <!-- Légende -->
+  <text x="80" y="340" class="legend-text">— barre ambre : tâche planifiée  •  losange ambre : jalon  •  flèche pointillée rouge : dépendance</text>
+</svg>

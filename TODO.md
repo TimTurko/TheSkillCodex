@@ -4,6 +4,16 @@
 
 ## Prochaines sessions (ordre logique)
 
+### 0. Session annexe — Nettoyage documentaire (prochaine session)
+**Décision 25/05 suite 2** : avant de reprendre la rédaction (`securite-et-qualite` notamment), session dédiée au compactage du set documentaire. Motivation : le coût en tokens des fichiers chargés au démarrage de chaque session (prompt projet + TODO + JOURNAL) croît à chaque itération sans contrepartie de valeur. Périmètre indicatif (à trancher en cadrage) :
+- **Prompt projet** : refonte / condensation des 13 sections, intégration des blocs SVG (7bis) et niveau B / texte rédigé (§13) proposés 25/05 suite 2, possible externalisation des conventions transverses vers un fichier `conventions.md` du dépôt.
+- **TODO** : compactage de la section « Tâches techniques en suspens » (15+ entrées « Commit + push de la session du XX/XX » → checklist unique ou suppression), raccourcissement de la section « Fait » (doublon avec JOURNAL), reclassement des décisions éditoriales acquises vs en attente.
+- **BACKLOG** : cochages définitifs, désencombrement de la section « Discussions / décisions en attente », éventuel déplacement des « Points ouverts des flowcharts » en annexe.
+- **JOURNAL** : possible archivage des entrées antérieures à une date à trancher (par ex. pré-22/05) dans `JOURNAL-archive.md` pour alléger le fichier lu au démarrage.
+- **Conventions transverses** : 9 conventions au compteur à documenter formellement quelque part — dans le prompt, dans un `conventions.md`, ou dans les templates ? À trancher.
+
+Questions de cadrage à prévoir : externaliser un `conventions.md` ou tout garder dans le prompt ? Garder l'historique détaillé « Fait » dans le TODO ou seulement les 3 dernières sessions ? Archiver JOURNAL pré-XX/05 ou non ? Quels fichiers Claude doit-il lire systématiquement au démarrage (vs sur demande seulement) ?
+
 ### 1. Cadrage pédagogique (suite)
 - [ ] **Session "chronopédagogie"** : projeter le cycle en V à 5 phases sur les 15 semaines du semestre. Quelle phase à quel moment, combien de temps, quels jalons concrets ?
 - [ ] **Format des compétences (AA)** : discussion sur la granularité et la convention de tag — en attente validation hiérarchie
@@ -35,7 +45,7 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [x] ~~**Squelette `dossier-technique`** (phase 4)~~ — 22/05
 - [x] ~~**Squelette `integration-et-tests`** (phase 5)~~ — 22/05
 - [x] ~~**Squelette + approfondissement `gestion-de-projet`** (fil transverse)~~ — fait 25/05 (5 questions de cadrage + squelette niveau B + bascule en approfondissement complet sur demande utilisateur + round 2 = 14 patches sur 9 remarques). 5 conventions transverses fixées à propager aux 2 autres transverses.
-- [ ] **Squelette `ecoconception`** (fil transverse)
+- [x] ~~**Squelette `ecoconception`** (fil transverse)~~ — fait 25/05 (suite, stresstest réussi : 4 questions C + squelette niveau B + approfondissement complet en passe unique + round 2 = 9 patches sur 4 remarques + 6ème convention transverse fixée sur les wiki-links).
 - [ ] **Squelette `securite-et-qualite`** (fil transverse)
 - [x] ~~**Template `_templates/fiche-trame.md`**~~ — fait le 22/05 (suite), renommé en `templates/fiche-trame.md`. Structure : front matter + popover + posture + objectif + démarche (3 étapes-exemple) + pièges + équipe + conclusion + voir aussi. Convention ordre des sections : Pièges/Équipe avant Conclusion. **Conventions callouts révisées le 23/05** (titres `Exemple : projet bras 3 axes` / `Livrable N/X — <Nom de la phase>` / `Attention` / `Astuce` avec phrase-clé dans le corps en gras).
 - [x] ~~**Refonte `specification-technique.md` étape 1**~~ — fait le 23/05 : alignement callouts v2.1 + ajout section Conclusion + réordonnancement final + popovers de l'objectif posés. **Étapes 2-6 restent en placeholder** (objet de la prochaine session).
@@ -50,22 +60,33 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] **Approfondissement `concept`**, puis `preuve-de-concept`, etc. dans l'ordre du V — à chaque approfondissement, **aligner les callouts** sur les conventions v2.1 (titres + phrase-clé dans le corps)
 
 *Notions à produire en parallèle (popovers posés dès les squelettes du 22/05 + 23/05)* :
-- [ ] `cahier-des-charges-fonctionnel` (mentionné dans le hub + 4 trames — prioritaire)
-- [x] ~~`pieuvre` (fiche-notion **triplement prioritaire** : popover + placeholder image + aliases FP/FS/FC)~~ — fait 24/05 (suite 2) : fiche-notion légère produite (stub méthodologique). **Aliases déplacés sur la nouvelle fiche `fonction.md`** (décision 24/05 suite 2 : `FP/FS/FC` pointent sémantiquement vers la catégorie de fonction, pas l'outil pieuvre). **Approfondissement restant** au standard `bete-a-cornes.md` (sections À quoi ça sert / Comment construire / Pièges / Exemple commenté) — tâche placée en session dédiée ultérieure.
+- [x] ~~`cahier-des-charges-fonctionnel`~~ — fait 25/05 (suite 2) : fiche-notion complète (modèle hybride bete-a-cornes + section « Structure type du document école » pointant vers `cdcf-ecole-template.docx`). 8 liens rouges résorbés sur l'ensemble du dépôt. Type:notion (notion fondatrice, pas un outil).
+- [x] ~~`pieuvre` (fiche-notion **triplement prioritaire** : popover + placeholder image + aliases FP/FS/FC)~~ — fait 24/05 (suite 2) version stub + **approfondissement complet 25/05 (suite 2)** au standard `bete-a-cornes.md` (À quoi / Comment construire avec tableau des 5 familles de milieux + paragraphe topologie / Exemple bras 3 axes enrichi / 5 pièges dont « Confondre FP et FS » nouveau). Aliases FP/FS/FC déplacés sur `fonction.md` (décision 24/05 suite 2).
 - [x] ~~`fonction` (nouveau, aliases `[FP, FS, FC]`)~~ — fait 24/05 (suite 2) : fiche-notion brève complète (option b retenue) avec définition trichotomie FP/FS/FC, format d'énoncé verbe + complément, tableau d'exemples corrects/incorrects, 3 pièges. À enrichir au standard bete-a-cornes si la pratique le révèle nécessaire.
 - [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
-- [ ] `matrice-de-decision` (popover posé dans `concept.md`, mentionné aussi dans pré-concept)
+- [x] ~~`matrice-de-decision`~~ — fait 25/05 (suite 2) : fiche-notion brève rédigée (À quoi / Comment en 4 temps recenser-lister-pondérer-noter / 3 pièges) + 2 SVG (tableau générique 3 sol × 5 critères pondérés + matrice choix d'alimentation station météo).
 - [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, avec front matter `aliases: [critere, niveau, flexibilite]` — décision 23/05 suite 2). Embarquera le triplet, le triptyque mauvais/moyen/bon (pattern à transposer de `bete-a-cornes.md`), l'échelle F0/F1/F2/F3 détaillée. Première phrase = définition du triplet pour popover cohérent au survol des 3 alias. Popovers déjà posés dans l'objectif de `specification-technique.md` (23/05) et dans le préambule de l'étape 4 (23/05 suite 2).
 - [ ] **`unite-si`** (fiche-notion, popover posé étape 4 du 23/05 suite 2 — lien rouge). Convention typographique des unités SI (espace insécable, format ± X mm, bornes, plages, etc.).
 - [ ] **`etat-de-l-art-technique`** (tuto, popover posé dans l'objectif de `specification-technique.md` — 23/05 ; fusionner avec l'entrée BACKLOG existante « État de l'art (méthodologie) »)
 - [ ] **`bom`** (tuto, popover posé étape 2 de `specification-technique.md` le 23/05 suite — acronyme + structure BOM, évolution attendue préliminaire/consolidée/finale)
 - [ ] **`mind-map`** (notion, popover posé étape 3 de `specification-technique.md` le 23/05 suite — outil méthodo générique)
 - [ ] **`fast`** (tuto, popover posé en ouverture de l'étape 3 de `specification-technique.md` le 23/05 suite — à créer en phase 2 concept)
-- [ ] **`wbs`** (fiche-notion légère, popover posé étape 5 le 24/05). Découpage projet en éléments traçables, 2-3 niveaux suffisent en école.
-- [ ] **`jalons`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Points de validation rythmant le projet, conditionnent le passage à la phase suivante.
-- [ ] **`retroplanning`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Planification à rebours depuis la soutenance, marge ≥ 2 semaines.
-- [ ] **`gantt`** (fiche-tuto détaillée, popover posé étape 5 le 24/05). Matérialisation visuelle du rétroplanning. Outils : Excel/papier, GanttProject, Trello.
-- [ ] **`matrice-de-risques`** (fiche-notion légère, popover posé étape 5 le 24/05). Identification + cotation probabilité × gravité + parade. 5-10 risques majeurs en école, actualisation à chaque revue de phase.
+- [x] ~~**`wbs`**~~ — fait 25/05 (suite 2) : fiche-notion brève rédigée (À quoi / Comment en 3 temps / 3 pièges) + 2 SVG (arbre générique 3 niveaux + WBS station météo par sous-système).
+- [x] ~~**`jalons`**~~ — fait 25/05 (suite 2) : fiche-notion brève rédigée (À quoi / Comment en 3 temps / 3 pièges) + 2 SVG (frise générique cycle en V + jalons station météo sur 15 semaines). **Type:notion** après clarif Q4 25/05 suite 2 (notion = court/popover, tuto = outil long).
+- [x] ~~**`retroplanning`**~~ — fait 25/05 (suite 2) : fiche-tuto brève rédigée (À quoi / Comment en 5 étapes / 3 pièges) + 2 SVG (axe temps avec flèche à rebours + rétroplanning station météo sur 15 semaines). Type:tuto conservé (outil long mais pas structurant).
+- [x] ~~**`gantt`**~~ — fait 25/05 (suite 2) : fiche-tuto brève rédigée (À quoi / Comment en 5 étapes + paragraphe outils / 3 pièges) + 2 SVG (mini-Gantt générique 4 tâches × 8 sem. + Gantt station météo 6 tâches × 15 sem. avec dépendances). Type:tuto conservé.
+- [x] ~~**`matrice-de-risques`**~~ — fait 25/05 (suite 2) : fiche-notion brève rédigée (À quoi / Comment en 3 temps / 3 pièges) + 2 SVG (grille 3×3 P×G générique colorée + 6 risques cotés sur projet station météo avec parades).
+- [ ] **`microcontroleur`** (fiche-notion, popover essentiel — wiki-linké à chaque 1ère occurrence de section dans `ecoconception`). Acronyme **MCU** à mentionner en alias.
+- [ ] **`pla`** (fiche-notion matériau, lien rouge dans `ecoconception` + `concept`)
+- [ ] **`abs`** (fiche-notion matériau)
+- [ ] **`rohs`** (fiche-notion norme environnementale)
+- [ ] **`reach`** (fiche-notion norme environnementale)
+- [ ] **`deee`** (fiche-notion norme environnementale)
+- [ ] **`usinage`** (fiche-tuto procédé fabrication — délégué cours collègues mais lien rouge à pourvoir)
+- [ ] **`impression-3d`** (fiche-tuto procédé fabrication — délégué cours collègues)
+- [ ] **`soudure`** (fiche-tuto procédé fabrication — délégué cours collègues)
+- [ ] **`matrice-eat`** (fiche-tuto, outil canonique de la trame `ecoconception`, doublement prioritaire — semé dans `specification-technique` étape 4 + dans le template CdCF + dans les 3 blocs de la trame éco)
+- [ ] **`acv-simplifiee`** (fiche-notion, citée + déléguée aux cours collègues pour la version complète)
 
 ### 3. Templates à rédiger
 - [x] ~~**Template fiche-trame**~~ — fait le 22/05 (suite) dans `templates/fiche-trame.md`
@@ -112,7 +133,12 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Produire le schéma d'illustration des conventions de flèches (mentionné dans `schema-bloc-fonctionnel`)
 - [ ] Produire / trouver une photo de couveuse annotée (mentionné dans `schema-bloc-fonctionnel`)
 - [ ] **Commit + push de la session du 25/05** : production de `content/fiches/proj/gestion-de-projet.md` (squelette + approfondissement complet + round 2 de 14 patches), mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] **Commit + push de la session du 25/05 (suite)** : production de `content/fiches/proj/ecoconception.md` (squelette + approfondissement complet + round 2 de 9 patches), mise à jour JOURNAL / TODO / BACKLOG.
 - [ ] Vérifier le rendu de `gestion-de-projet.md` sous Quartz et sur smartphone (3 blocs co-actifs, callouts conformes v2.1, sous-listes Continu/Jalonné dans les 3 livrables, liste numérotée 1-2-3 dans le bloc 3).
+- [ ] Vérifier le rendu de `ecoconception.md` sous Quartz et sur smartphone (3 blocs co-actifs, callouts conformes v2.1, sous-listes Continu/Jalonné dans les 3 livrables, liste numérotée 1-2-3 dans le bloc 3 Tracer, popovers wiki-links validés en survol — notamment sur `microcontroleur`, `pla`, `rohs`).
+- [ ] **Commit + push de la session du 25/05 (suite 2)** : production de 7 fiches-notion (`jalons`, `wbs`, `retroplanning`, `gantt`, `matrice-de-risques`, `matrice-de-decision`, `cahier-des-charges-fonctionnel`) + 12 SVG (`*-generique.svg` + `*-station-meteo.svg`) + approfondissement complet `pieuvre.md`, mise à jour JOURNAL / TODO / BACKLOG.
+- [ ] Vérifier le rendu des 7 nouvelles fiches sous Quartz et sur smartphone (notamment : densité du tableau matrice-de-decision générique avec doubles colonnes brute/pondérée à simplifier si chargeur visuel, légende dense matrice-de-risques station météo, rendu mode sombre des 12 SVG via `@media prefers-color-scheme: dark`).
+- [ ] Vérifier le rendu de `pieuvre.md` approfondi sous Quartz et sur smartphone (notamment : tableau des 5 familles de milieux dans la section Comment, double H3 « Familles » + « Topologie » à ajuster si trop dense).
 
 ## Décisions éditoriales en attente
 - [x] ~~**Convention `draft: false` par défaut**~~ — actée 24/05 (suite 2). Pilotage de la maturité éditoriale par le **BACKLOG** (inventaire systématique des stubs/placeholders avant publication), pas par le flag `draft`. Justification : Quartz est encore privé, le filtre n'a pas d'utilité opérationnelle et crée plus de friction (popovers cassés) que de bénéfice.
@@ -126,7 +152,10 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 - [ ] Glossaire séparé pour acronymes ou fiches courtes individuelles ?
 - [ ] **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) à documenter dans le template `fiche-trame.md` ou note méthodo dédiée — décision 23/05 suite 2.
 - [ ] **Convention « alias Quartz CrawlLinks = mécanisme léger pour facettes indissociables d'un outil »** à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz — décision 23/05 suite 2.
-- [ ] **5 conventions transverses fixées 25/05** à éprouver sur `ecoconception` et `securite-et-qualite` avant documentation formelle dans le template `fiche-trame.md` : pas de chiffrage durée projet, `semaine n°X` dans les exemples bras 3 axes, pas d'extension `.md` en prose, listes numérotées 1/2/3 plutôt que `(i)(ii)(iii)`, gras sur morceau de phrase pas sur verbe isolé, format `[!livrable]` en sous-listes Continu/Jalonné.
+- [ ] **6 conventions transverses fixées 25/05** à éprouver sur `securite-et-qualite` avant documentation formelle dans le template `fiche-trame.md` : 1. pas de chiffrage durée projet en prose générique, 2. `semaine n°X` dans les exemples bras 3 axes, 3. pas d'extension `.md` en prose, 4. listes numérotées 1/2/3 plutôt que `(i)(ii)(iii)`, 5. gras sur morceau de phrase pas sur verbe isolé, 6. wiki-link à la 1ère occurrence de chaque section/sous-section/callout (éprouvée sur ecoconception 25/05 suite + sur les 7 fiches-notion 25/05 suite 2).
+- [ ] **Convention « 2 images par fiche-notion d'outil méthodologique »** (générique après popover + exemple valeurs concrètes dans « Comment … ») acquise 25/05 suite 2, appliquée sur 6 fiches. À confirmer sur 2-3 autres fiches-notion d'outils puis documenter dans `templates/fiche-notion.md`.
+- [ ] **Convention « fil rouge alternatif station météo connectée »** pour les exemples non-bras-3-axes des fiches-notion d'outils — acquise 25/05 suite 2. À confirmer ou élargir.
+- [ ] **Convention « niveau B = livraison en texte rédigé, placeholders italiques inadmissibles sauf signalement explicite de manque de matière »** — acquise 25/05 suite 2 (correction en cours de session après dérive sur les premiers stubs). À intégrer aux instructions projet section 13.
 - [ ] **Format date noms de fichiers** : `JJ-MM-AAAA` retenu sur consigne FR (décision 25/05) ; bascule en ISO 8601 `AAAA-MM-JJ` possible si tri chronologique automatique devient nécessaire à l'usage.
 - [ ] **Tag `transverse`** acté 25/05 dans le front matter de `gestion-de-projet.md` — à propager aux 2 autres transverses, puis documenter formellement dans le template `fiche-trame.md` après confirmation du pattern.
 - [ ] **Section « Pendant cette phase, côté équipe » pour fiches transverses** : titre de section conservé pour alignement template, sémantique réelle = « articulation avec les autres transverses » (3 pratiques : intégrer dans la cadence / intégrer dans la matrice de risques / piloter sans écraser). À confirmer sur les 2 autres transverses puis documenter dans le template.
@@ -134,6 +163,16 @@ Squelette = front matter complet + popover + posture + objectif + démarche en t
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé.*
+
+### Session 2026-05-25 (suite 2 — Batch de 7 fiches-notion prioritaires + pieuvre approfondie)
+- [x] Trancher les 5 questions de cadrage (modèle hybride CdCF / stubs légers maintenus / ordre stubs puis CdCF / répartition type:notion vs type:tuto après clarif Q4 / popovers sémés comme base + micro-ajustements)
+- [x] Premier batch 7 fiches en mode stub avec placeholders italiques (modèle `pieuvre.md` littéral)
+- [x] **Recadrage utilisateur** : niveau B = livraison en texte rédigé, placeholders italiques inadmissibles — reprise complète des 6 stubs en rédaction réelle (modèle `fonction.md` fiche-notion brève)
+- [x] Production 12 SVG en batch (6 génériques + 6 exemples station météo connectée, palette ambre #BA7517 / gris #DDDBD3 alignée sur `pieuvre-generique.svg`, support `@media prefers-color-scheme: dark`)
+- [x] Patch des 6 fiches pour insertion 2 images (générique après popover + station météo dans « Comment »)
+- [x] **Approfondissement complet de `pieuvre.md`** au standard `bete-a-cornes.md` : 3 rôles / méthode 3 temps + tableau des 5 familles de milieux + paragraphe topologie / exemple bras 3 axes enrichi (5 milieux, 4 fonctions commentées) / 5 pièges dont « Confondre FP et FS » nouveau
+- [x] Mise à jour BACKLOG (2 nouvelles conventions + extension de l'item reprise visuelle des SVG)
+- [x] Clé d'enseignement : **typologie notion/tuto précisée par l'utilisateur** — notion = court (popover) ; tuto = long mais pas structurant (outils en général). Trame = structurante.
 
 ### Session 2026-05-25 (Première trame transverse — gestion-de-projet : squelette + approfondissement direct)
 - [x] Trancher les 5 questions de cadrage (structure thématique 3 blocs co-actifs / délégation totale des outils / 1 [!example] par bloc / pas de nouvelles notions / squelettisation seule au départ)

@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" role="img" aria-labelledby="title desc">
+  <title id="title">Matrice de décision — exemple station météo connectée</title>
+  <desc id="desc">Matrice de décision pour le choix de la stratégie d'alimentation d'une station météo connectée. Trois solutions candidates : pile alcaline, batterie Li-ion rechargée USB, panneau solaire avec batterie. Cinq critères pondérés : autonomie, coût, écoconception, fiabilité, complexité. La somme pondérée désigne le panneau solaire comme solution retenue.</desc>
+  <defs>
+    <style>
+      .grid { stroke: #888780; stroke-width: 1.2; fill: none; }
+      .grid-strong { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .header-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 1.5; }
+      .header-text { font: 700 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .crit-text { font: 600 11px sans-serif; fill: #2C2C2A; }
+      .poids-text { font: 600 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .cell-text { font: 400 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .total-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .total-text { font: 700 13px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .winner-fill { fill: #C8E6C9; stroke: #888780; stroke-width: 2; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; font-style: italic; }
+      .subtitle { font: 600 12px sans-serif; text-anchor: middle; fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .grid, .grid-strong { stroke: #BBBBBB; }
+        .header-fill { fill: #BA7517; stroke: #EF9F27; }
+        .crit-text, .cell-text, .total-text, .title-text { fill: #F1EFE8; }
+        .poids-text, .subtitle { fill: #EF9F27; }
+        .total-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .winner-fill { fill: #4D6F4E; stroke: #BBBBBB; }
+        .legend-text { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="title-text">Choix d'alimentation pour une station météo connectée</text>
+  <text x="360" y="48" class="subtitle">Sous-système : alimentation de capteurs basse consommation, déploiement extérieur</text>
+
+  <!-- En-tête colonnes -->
+  <rect x="240" y="65" width="140" height="40" rx="3" class="header-fill"/>
+  <text x="310" y="83" class="header-text">Pile alcaline</text>
+  <text x="310" y="98" class="header-text">(non rech.)</text>
+
+  <rect x="385" y="65" width="140" height="40" rx="3" class="header-fill"/>
+  <text x="455" y="83" class="header-text">Li-ion + USB</text>
+  <text x="455" y="98" class="header-text">(rechargeable)</text>
+
+  <rect x="530" y="65" width="140" height="40" rx="3" class="header-fill"/>
+  <text x="600" y="83" class="header-text">Panneau solaire</text>
+  <text x="600" y="98" class="header-text">+ batterie LiFePO4</text>
+
+  <!-- Ligne poids -->
+  <text x="20" y="128" class="crit-text">Poids (sur 100)</text>
+  <text x="310" y="128" class="poids-text">×</text>
+  <text x="455" y="128" class="poids-text">×</text>
+  <text x="600" y="128" class="poids-text">×</text>
+
+  <!-- Grille horizontale -->
+  <line x1="15" y1="140" x2="675" y2="140" class="grid-strong"/>
+  <line x1="15" y1="180" x2="675" y2="180" class="grid"/>
+  <line x1="15" y1="220" x2="675" y2="220" class="grid"/>
+  <line x1="15" y1="260" x2="675" y2="260" class="grid"/>
+  <line x1="15" y1="300" x2="675" y2="300" class="grid"/>
+  <line x1="15" y1="340" x2="675" y2="340" class="grid-strong"/>
+
+  <!-- Grille verticale -->
+  <line x1="15" y1="140" x2="15" y2="340" class="grid-strong"/>
+  <line x1="220" y1="140" x2="220" y2="340" class="grid-strong"/>
+  <line x1="270" y1="140" x2="270" y2="340" class="grid"/>
+  <line x1="380" y1="140" x2="380" y2="340" class="grid"/>
+  <line x1="415" y1="140" x2="415" y2="340" class="grid"/>
+  <line x1="525" y1="140" x2="525" y2="340" class="grid"/>
+  <line x1="560" y1="140" x2="560" y2="340" class="grid"/>
+  <line x1="675" y1="140" x2="675" y2="340" class="grid-strong"/>
+
+  <!-- Critère 1 : autonomie -->
+  <text x="20" y="165" class="crit-text">Autonomie (mois)</text>
+  <text x="245" y="165" class="poids-text">25</text>
+  <text x="325" y="165" class="cell-text">4 / 5</text>
+  <text x="397" y="165" class="cell-text">2</text>
+  <text x="470" y="165" class="cell-text">3 / 5</text>
+  <text x="542" y="165" class="cell-text">3</text>
+  <text x="615" y="165" class="cell-text">5 / 5</text>
+  <text x="655" y="165" class="cell-text" style="text-anchor:end">3</text>
+
+  <!-- Critère 2 : coût -->
+  <text x="20" y="205" class="crit-text">Coût matériel</text>
+  <text x="245" y="205" class="poids-text">20</text>
+  <text x="325" y="205" class="cell-text">5 / 5</text>
+  <text x="397" y="205" class="cell-text">2</text>
+  <text x="470" y="205" class="cell-text">3 / 5</text>
+  <text x="542" y="205" class="cell-text">2</text>
+  <text x="615" y="205" class="cell-text">2 / 5</text>
+  <text x="655" y="205" class="cell-text" style="text-anchor:end">2</text>
+
+  <!-- Critère 3 : écoconception -->
+  <text x="20" y="245" class="crit-text">Écoconception</text>
+  <text x="245" y="245" class="poids-text">25</text>
+  <text x="325" y="245" class="cell-text">1 / 5</text>
+  <text x="397" y="245" class="cell-text">3</text>
+  <text x="470" y="245" class="cell-text">3 / 5</text>
+  <text x="542" y="245" class="cell-text">2</text>
+  <text x="615" y="245" class="cell-text">5 / 5</text>
+  <text x="655" y="245" class="cell-text" style="text-anchor:end">3</text>
+
+  <!-- Critère 4 : fiabilité -->
+  <text x="20" y="285" class="crit-text">Fiabilité terrain</text>
+  <text x="245" y="285" class="poids-text">20</text>
+  <text x="325" y="285" class="cell-text">5 / 5</text>
+  <text x="397" y="285" class="cell-text">2</text>
+  <text x="470" y="285" class="cell-text">4 / 5</text>
+  <text x="542" y="285" class="cell-text">2</text>
+  <text x="615" y="285" class="cell-text">3 / 5</text>
+  <text x="655" y="285" class="cell-text" style="text-anchor:end">2</text>
+
+  <!-- Critère 5 : complexité d'intégration -->
+  <text x="20" y="325" class="crit-text">Complexité intégr.</text>
+  <text x="245" y="325" class="poids-text">10</text>
+  <text x="325" y="325" class="cell-text">5 / 5</text>
+  <text x="397" y="325" class="cell-text">1</text>
+  <text x="470" y="325" class="cell-text">4 / 5</text>
+  <text x="542" y="325" class="cell-text">1</text>
+  <text x="615" y="325" class="cell-text">2 / 5</text>
+  <text x="655" y="325" class="cell-text" style="text-anchor:end">1</text>
+
+  <!-- Total -->
+  <rect x="15" y="350" width="205" height="45" rx="3" class="total-fill"/>
+  <text x="118" y="378" class="total-text">Somme pondérée /500</text>
+
+  <rect x="240" y="350" width="140" height="45" rx="3" class="total-fill"/>
+  <text x="310" y="378" class="total-text">320</text>
+
+  <rect x="385" y="350" width="140" height="45" rx="3" class="total-fill"/>
+  <text x="455" y="378" class="total-text">335</text>
+
+  <rect x="530" y="350" width="140" height="45" rx="3" class="winner-fill"/>
+  <text x="600" y="378" class="total-text">385</text>
+
+  <!-- Légende -->
+  <text x="360" y="425" class="legend-text" style="text-anchor:middle">Panneau solaire retenu malgré un coût et une complexité défavorables : la pondération forte de</text>
+  <text x="360" y="442" class="legend-text" style="text-anchor:middle">l'autonomie et de l'écoconception (50 / 100 cumulés) tranche pour un déploiement extérieur durable.</text>
+</svg>

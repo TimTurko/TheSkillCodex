@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" role="img" aria-labelledby="title desc">
+  <title id="title">Jalons — schéma générique</title>
+  <desc id="desc">Timeline horizontale matérialisant les cinq jalons d'un projet mécatronique en cycle en V. Cinq losanges ambres répartis le long d'un axe, étiquetés J1 à J5, légendés en dessous par la phase qui se valide à chaque jalon.</desc>
+  <defs>
+    <style>
+      .axis { stroke: #888780; stroke-width: 2; fill: #888780; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 13px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .phase-text { font: 400 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .label { font: 400 11px sans-serif; fill: #2C2C2A; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      @media (prefers-color-scheme: dark) {
+        .axis { stroke: #BBBBBB; fill: #BBBBBB; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .phase-text, .label, .title-text { fill: #F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="350" y="35" class="title-text">Frise des jalons d'un projet en cycle en V</text>
+
+  <!-- Axe temporel -->
+  <line x1="50" y1="140" x2="650" y2="140" class="axis" stroke-width="2"/>
+  <polygon points="650,140 638,134 638,146" class="axis"/>
+  <text x="50" y="245" class="label">début du projet</text>
+  <text x="650" y="245" class="label" style="text-anchor:end">date butoir</text>
+
+  <!-- Jalon 1 -->
+  <polygon points="125,118 148,140 125,162 102,140" class="jalon-fill"/>
+  <text x="125" y="145" class="jalon-text">J1</text>
+  <text x="125" y="195" class="phase-text">Revue de</text>
+  <text x="125" y="210" class="phase-text">CdCF</text>
+
+  <!-- Jalon 2 -->
+  <polygon points="245,118 268,140 245,162 222,140" class="jalon-fill"/>
+  <text x="245" y="145" class="jalon-text">J2</text>
+  <text x="245" y="195" class="phase-text">PoC</text>
+  <text x="245" y="210" class="phase-text">concluant</text>
+
+  <!-- Jalon 3 -->
+  <polygon points="375,118 398,140 375,162 352,140" class="jalon-fill"/>
+  <text x="375" y="145" class="jalon-text">J3</text>
+  <text x="375" y="195" class="phase-text">Dossier tech</text>
+  <text x="375" y="210" class="phase-text">validé</text>
+
+  <!-- Jalon 4 -->
+  <polygon points="500,118 523,140 500,162 477,140" class="jalon-fill"/>
+  <text x="500" y="145" class="jalon-text">J4</text>
+  <text x="500" y="195" class="phase-text">Intégration</text>
+  <text x="500" y="210" class="phase-text">livrée</text>
+
+  <!-- Jalon 5 -->
+  <polygon points="610,118 633,140 610,162 587,140" class="jalon-fill"/>
+  <text x="610" y="145" class="jalon-text">J5</text>
+  <text x="610" y="195" class="phase-text">Soutenance</text>
+  <text x="610" y="210" class="phase-text">finale</text>
+</svg>

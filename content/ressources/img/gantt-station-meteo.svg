@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" role="img" aria-labelledby="title desc">
+  <title id="title">Gantt — exemple station météo connectée</title>
+  <desc id="desc">Gantt d'un projet de station météo connectée sur quinze semaines. Quinze colonnes représentent les semaines, six lignes représentent les tâches principales (CdCF, choix capteurs, firmware, PCB, boîtier, rapport et soutenance). Cinq jalons J1 à J5 marquent les fins de phase. Des flèches pointillées indiquent les dépendances entre tâches.</desc>
+  <defs>
+    <style>
+      .grid { stroke: #DDDBD3; stroke-width: 1; fill: none; }
+      .grid-strong { stroke: #888780; stroke-width: 1.5; fill: none; }
+      .header-text { font: 600 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .task-label { font: 600 11px sans-serif; fill: #2C2C2A; }
+      .bar-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 1; }
+      .bar-text { font: 600 10px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 10px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .dep-arrow { stroke: #C0392B; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+      .dep-head { fill: #C0392B; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; font-style: italic; }
+      @media (prefers-color-scheme: dark) {
+        .grid { stroke: #4A4A48; }
+        .grid-strong { stroke: #BBBBBB; }
+        .header-text, .task-label, .title-text { fill: #F1EFE8; }
+        .bar-fill { fill: #BA7517; stroke: #EF9F27; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .dep-arrow { stroke: #E74C3C; }
+        .dep-head { fill: #E74C3C; }
+        .legend-text { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="410" y="30" class="title-text">Gantt projet station météo connectée — 15 semaines</text>
+
+  <!-- En-têtes de colonnes -->
+  <text x="200" y="60" class="header-text">S1</text>
+  <text x="237" y="60" class="header-text">S2</text>
+  <text x="274" y="60" class="header-text">S3</text>
+  <text x="311" y="60" class="header-text">S4</text>
+  <text x="348" y="60" class="header-text">S5</text>
+  <text x="385" y="60" class="header-text">S6</text>
+  <text x="422" y="60" class="header-text">S7</text>
+  <text x="459" y="60" class="header-text">S8</text>
+  <text x="496" y="60" class="header-text">S9</text>
+  <text x="533" y="60" class="header-text">S10</text>
+  <text x="570" y="60" class="header-text">S11</text>
+  <text x="607" y="60" class="header-text">S12</text>
+  <text x="644" y="60" class="header-text">S13</text>
+  <text x="681" y="60" class="header-text">S14</text>
+  <text x="718" y="60" class="header-text">S15</text>
+
+  <!-- Grille verticale -->
+  <line x1="180" y1="75" x2="180" y2="370" class="grid-strong"/>
+  <line x1="218" y1="75" x2="218" y2="370" class="grid"/>
+  <line x1="255" y1="75" x2="255" y2="370" class="grid"/>
+  <line x1="292" y1="75" x2="292" y2="370" class="grid"/>
+  <line x1="329" y1="75" x2="329" y2="370" class="grid"/>
+  <line x1="366" y1="75" x2="366" y2="370" class="grid"/>
+  <line x1="403" y1="75" x2="403" y2="370" class="grid"/>
+  <line x1="440" y1="75" x2="440" y2="370" class="grid"/>
+  <line x1="477" y1="75" x2="477" y2="370" class="grid"/>
+  <line x1="514" y1="75" x2="514" y2="370" class="grid"/>
+  <line x1="551" y1="75" x2="551" y2="370" class="grid"/>
+  <line x1="588" y1="75" x2="588" y2="370" class="grid"/>
+  <line x1="625" y1="75" x2="625" y2="370" class="grid"/>
+  <line x1="662" y1="75" x2="662" y2="370" class="grid"/>
+  <line x1="699" y1="75" x2="699" y2="370" class="grid"/>
+  <line x1="736" y1="75" x2="736" y2="370" class="grid-strong"/>
+
+  <!-- Grille horizontale -->
+  <line x1="180" y1="75" x2="736" y2="75" class="grid-strong"/>
+  <line x1="180" y1="115" x2="736" y2="115" class="grid"/>
+  <line x1="180" y1="155" x2="736" y2="155" class="grid"/>
+  <line x1="180" y1="195" x2="736" y2="195" class="grid"/>
+  <line x1="180" y1="235" x2="736" y2="235" class="grid"/>
+  <line x1="180" y1="275" x2="736" y2="275" class="grid"/>
+  <line x1="180" y1="315" x2="736" y2="315" class="grid"/>
+  <line x1="180" y1="370" x2="736" y2="370" class="grid-strong"/>
+
+  <!-- Tâche 1 : Spec / CdCF (S1-S2) -->
+  <text x="15" y="98" class="task-label">CdCF</text>
+  <rect x="182" y="80" width="73" height="30" rx="3" class="bar-fill"/>
+  <text x="218" y="100" class="bar-text">Spec / CdCF</text>
+
+  <!-- Tâche 2 : Choix capteurs + EAT (S3-S5) -->
+  <text x="15" y="138" class="task-label">Capteurs</text>
+  <rect x="257" y="120" width="110" height="30" rx="3" class="bar-fill"/>
+  <text x="312" y="140" class="bar-text">Capteurs + PoC</text>
+
+  <!-- Tâche 3 : Firmware (S5-S9) -->
+  <text x="15" y="178" class="task-label">Firmware</text>
+  <rect x="332" y="160" width="170" height="30" rx="3" class="bar-fill"/>
+  <text x="417" y="180" class="bar-text">Firmware et liaison Wi-Fi</text>
+
+  <!-- Tâche 4 : PCB (S6-S9) -->
+  <text x="15" y="218" class="task-label">PCB</text>
+  <rect x="369" y="200" width="133" height="30" rx="3" class="bar-fill"/>
+  <text x="436" y="220" class="bar-text">Conception PCB</text>
+
+  <!-- Tâche 5 : Boîtier + intégration (S9-S12) -->
+  <text x="15" y="258" class="task-label">Boîtier</text>
+  <rect x="504" y="240" width="110" height="30" rx="3" class="bar-fill"/>
+  <text x="559" y="260" class="bar-text">Boîtier + intég.</text>
+
+  <!-- Tâche 6 : Tests + rapport (S12-S14) -->
+  <text x="15" y="298" class="task-label">Tests + rapport</text>
+  <rect x="614" y="280" width="98" height="30" rx="3" class="bar-fill"/>
+  <text x="663" y="300" class="bar-text">Tests + rapport</text>
+
+  <!-- Jalons -->
+  <text x="15" y="338" class="task-label">Jalons</text>
+  <polygon points="255,322 267,335 255,348 243,335" class="jalon-fill"/>
+  <text x="255" y="338" class="jalon-text">J1</text>
+  <polygon points="367,322 379,335 367,348 355,335" class="jalon-fill"/>
+  <text x="367" y="338" class="jalon-text">J2</text>
+  <polygon points="514,322 526,335 514,348 502,335" class="jalon-fill"/>
+  <text x="514" y="338" class="jalon-text">J3</text>
+  <polygon points="625,322 637,335 625,348 613,335" class="jalon-fill"/>
+  <text x="625" y="338" class="jalon-text">J4</text>
+  <polygon points="736,322 748,335 736,348 724,335" class="jalon-fill"/>
+  <text x="736" y="338" class="jalon-text">J5</text>
+
+  <!-- Dépendances -->
+  <!-- CdCF → Capteurs -->
+  <path d="M 255 95 L 268 95 L 268 120 L 257 120" class="dep-arrow"/>
+  <polygon points="257,120 269,114 269,126" class="dep-head"/>
+  <!-- Capteurs → Firmware -->
+  <path d="M 367 135 L 380 135 L 380 160 L 332 160" class="dep-arrow"/>
+  <polygon points="332,160 344,154 344,166" class="dep-head"/>
+  <!-- PCB → Boîtier -->
+  <path d="M 502 215 L 515 215 L 515 240 L 504 240" class="dep-arrow"/>
+  <polygon points="504,240 516,234 516,246" class="dep-head"/>
+
+  <!-- Légende -->
+  <text x="410" y="410" class="legend-text" style="text-anchor:middle">Granularité hebdomadaire. Flèches pointillées rouges = dépendances bloquantes.</text>
+  <text x="410" y="430" class="legend-text" style="text-anchor:middle">Firmware et PCB en parallèle ; intégration boîtier dépend de la PCB.</text>
+</svg>

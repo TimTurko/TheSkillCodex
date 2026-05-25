@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="title desc">
+  <title id="title">Rétroplanning — exemple station météo connectée</title>
+  <desc id="desc">Rétroplanning d'un projet de station météo connectée sur quinze semaines. Axe temporel des semaines 1 à 15. Une flèche rouge à rebours part de la semaine 15 (soutenance) et remonte vers le début, posant la marge tampon, puis les jalons de fin de phase, puis les blocs de tâches.</desc>
+  <defs>
+    <style>
+      .axis { stroke: #888780; stroke-width: 2; fill: #888780; }
+      .back-arrow { stroke: #C0392B; stroke-width: 2.5; fill: none; }
+      .back-arrow-head { fill: #C0392B; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .buffer-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .buffer-text { font: 600 10px sans-serif; text-anchor: middle; fill: #2C2C2A; font-style: italic; }
+      .week-label { font: 600 10px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .label { font: 400 11px sans-serif; fill: #2C2C2A; }
+      .phase-text { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .step-num { font: 700 13px sans-serif; fill: #C0392B; text-anchor: middle; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      @media (prefers-color-scheme: dark) {
+        .axis { stroke: #BBBBBB; fill: #BBBBBB; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .buffer-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .buffer-text { fill: #F1EFE8; }
+        .label, .phase-text, .title-text { fill: #F1EFE8; }
+        .week-label { fill: #EF9F27; }
+        .back-arrow { stroke: #E74C3C; }
+        .back-arrow-head { fill: #E74C3C; }
+        .step-num { fill: #E74C3C; }
+      }
+    </style>
+  </defs>
+
+  <text x="380" y="30" class="title-text">Rétroplanning station météo sur 15 semaines</text>
+
+  <!-- Axe temporel -->
+  <line x1="50" y1="200" x2="700" y2="200" class="axis" stroke-width="2"/>
+  <polygon points="700,200 688,194 688,206" class="axis"/>
+  <text x="50" y="285" class="label">Sem. 1</text>
+  <text x="700" y="285" class="label" style="text-anchor:end">Sem. 15 — soutenance</text>
+
+  <!-- Flèche à rebours -->
+  <path d="M 680 110 L 80 110" class="back-arrow"/>
+  <polygon points="80,110 92,104 92,116" class="back-arrow-head"/>
+  <text x="380" y="100" class="step-num">construction à rebours depuis la soutenance</text>
+
+  <!-- Marge tampon -->
+  <rect x="615" y="180" width="65" height="40" rx="4" class="buffer-fill"/>
+  <text x="647" y="205" class="buffer-text">marge</text>
+  <text x="647" y="217" class="buffer-text">tampon</text>
+
+  <!-- J5 — Sem. 15 -->
+  <polygon points="610,180 622,200 610,220 598,200" class="jalon-fill"/>
+  <text x="610" y="204" class="jalon-text">J5</text>
+  <text x="610" y="160" class="week-label">Sem. 15</text>
+
+  <!-- J4 — Sem. 12 -->
+  <polygon points="500,180 512,200 500,220 488,200" class="jalon-fill"/>
+  <text x="500" y="204" class="jalon-text">J4</text>
+  <text x="500" y="160" class="week-label">Sem. 12</text>
+
+  <!-- J3 — Sem. 9 -->
+  <polygon points="380,180 392,200 380,220 368,200" class="jalon-fill"/>
+  <text x="380" y="204" class="jalon-text">J3</text>
+  <text x="380" y="160" class="week-label">Sem. 9</text>
+
+  <!-- J2 — Sem. 5 -->
+  <polygon points="230,180 242,200 230,220 218,200" class="jalon-fill"/>
+  <text x="230" y="204" class="jalon-text">J2</text>
+  <text x="230" y="160" class="week-label">Sem. 5</text>
+
+  <!-- J1 — Sem. 2 -->
+  <polygon points="125,180 137,200 125,220 113,200" class="jalon-fill"/>
+  <text x="125" y="204" class="jalon-text">J1</text>
+  <text x="125" y="160" class="week-label">Sem. 2</text>
+
+  <!-- Labels phases entre jalons -->
+  <text x="80" y="248" class="phase-text">CdCF</text>
+  <text x="175" y="248" class="phase-text">capteurs</text>
+  <text x="300" y="248" class="phase-text">firmware + PCB</text>
+  <text x="440" y="248" class="phase-text">boîtier + intégration</text>
+  <text x="555" y="248" class="phase-text">tests + rapport</text>
+
+  <text x="380" y="320" class="phase-text" style="font-style:italic;fill:#888780">Marge tampon en fin = non négociable. Vacances et examens à intégrer dans les blocs.</text>
+</svg>

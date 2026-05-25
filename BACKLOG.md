@@ -45,12 +45,12 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Debug embarqué (sortie série, LED de status)
 
 ### PROJ — Démarche projet
-- [ ] Cahier des charges fonctionnel (mentionné 3 fois dans le hub, prioritaire)
+- [x] ~~Cahier des charges fonctionnel~~ — fait 25/05 suite 2 dans `content/fiches/proj/cahier-des-charges-fonctionnel.md` (fiche-notion complète au standard `bete-a-cornes.md` hybridé avec section « Structure type du document école »).
 - [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, décision 23/05 suite 2 : 1 fiche unique avec `aliases: [critere, niveau, flexibilite]` dans le front matter). Embarquera le triplet, le triptyque mauvais/moyen/bon (pattern `bete-a-cornes.md`), l'échelle F0/F1/F2/F3 NF X50-151. Première phrase = définition du triplet pour popover cohérent au survol des 3 alias.
 - [ ] **`unite-si`** (fiche-notion, popover posé étape 4 de `specification-technique.md` le 23/05 suite 2). Convention typographique des unités SI (espace insécable, format ± X mm, bornes, plages). Traitera aussi la mention `Ctrl+Maj+Espace` dans Obsidian.
 - [x] ~~Bête à cornes~~ — fait le 20/05 (fiche-notion complète + 4 SVG)
 - [ ] **Décomposition fonctionnelle** (notion-mère, distincte de `schema-bloc-fonctionnel` qui n'est qu'un des outils possibles — popover posé dans `concept.md` étape 1 le 22/05)
-- [ ] **Matrice de décision** (popover posé dans `concept.md` le 22/05, centrale pour la phase concept et la preuve de concept)
+- [x] ~~**Matrice de décision**~~ — fait 25/05 suite 2 dans `content/fiches/proj/matrice-de-decision.md` (fiche-notion brève rédigée + 2 SVG : tableau générique 3 sol × 5 critères + matrice choix d'alimentation station météo).
 - [x] ~~Analyse fonctionnelle (FAST, SADT, pieuvre) — découper ?~~ — décision 23/05 suite : on découpe en fiches séparées (entrées `pieuvre` et `fast` ci-dessous, SADT à voir si besoin)
 - [x] ~~**`pieuvre`** (notion, **triplement prioritaire** : popover posé étape 3 de `specification-technique.md` + placeholder image cassée dans la trame + **aliases `[FP, FS, FC]` à poser** dans le front matter — décision 23/05 suite 2)~~ — fait 24/05 (suite 2) : fiche-notion légère produite (stub méthodologique). **Aliases déplacés sur la nouvelle fiche `fonction.md`** (décision 24/05 suite 2 : FP/FS/FC pointent sémantiquement vers la catégorie de fonction, pas l'outil pieuvre). Approfondissement au standard `bete-a-cornes.md` restant.
 - [x] ~~**`fonction`** (nouveau, aliases `[FP, FS, FC]`)~~ — fait 24/05 (suite 2) : fiche-notion brève complète (option b) avec trichotomie FP/FS/FC, format d'énoncé verbe + complément, tableau d'exemples correct/incorrect, 3 pièges.
@@ -79,11 +79,11 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Relation client** (tuto) — valider la compréhension du besoin, posture en réunion client, gestion des changements de demande
 - [ ] **Archivage projet** (tuto) — CR de réunion, traçabilité documentaire, versioning des livrables
 - [ ] **Définir un objectif SMART** (tuto)
-- [ ] **`retroplanning`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 de `specification-technique.md` le 24/05). Planification à rebours depuis la soutenance, marge ≥ 2 semaines avant la date butoir, anticiper le calendrier scolaire.
-- [ ] **`jalons`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 le 24/05). Points de validation rythmant le projet (CdCF validé, PoC concluant, dossier technique validé, etc.). Conditionnent le passage à la phase suivante.
-- [ ] **`gantt`** (fiche-tuto détaillée — décision 23/05 suite 2, popover posé étape 5 le 24/05). Matérialisation visuelle du rétroplanning. Outils mentionnés : Excel/papier, GanttProject, Trello.
-- [ ] **`wbs`** (fiche-notion légère — décision 23/05 suite 2, popover posé étape 5 le 24/05). Découpage projet en éléments traçables, 2-3 niveaux suffisent en école. Couvre la migration de l'entrée PROJ « Jalons et livrables » (volet WBS).
-- [ ] **`matrice-de-risques`** (fiche-notion légère — décision 23/05 suite 2, popover posé étape 5 le 24/05). Identification + cotation probabilité × gravité + parade. 5-10 risques majeurs en école, actualisation à chaque revue de phase. Migration de l'entrée PROJ « Gestion des risques projet ».
+- [x] ~~**`retroplanning`** (fiche-tuto détaillée)~~ — fait 25/05 suite 2 : fiche-tuto brève rédigée (5 étapes méthode) + 2 SVG (axe temps avec flèche à rebours + rétroplanning station météo 15 sem.).
+- [x] ~~**`jalons`** (fiche-tuto détaillée)~~ — fait 25/05 suite 2 : **type:notion** après clarif Q4 25/05 suite 2 (notion = court/popover). Fiche-notion brève rédigée + 2 SVG (frise générique cycle en V + jalons station météo sur 15 semaines).
+- [x] ~~**`gantt`** (fiche-tuto détaillée)~~ — fait 25/05 suite 2 : fiche-tuto brève rédigée + 2 SVG (mini-Gantt générique 4 tâches × 8 sem. + Gantt station météo 6 × 15 sem. avec dépendances). Approfondissement avec captures GanttProject/Trello/Excel reste à faire ultérieurement.
+- [x] ~~**`wbs`** (fiche-notion légère)~~ — fait 25/05 suite 2 : fiche-notion brève rédigée + 2 SVG (arbre générique 3 niveaux + WBS station météo par sous-système).
+- [x] ~~**`matrice-de-risques`** (fiche-notion légère)~~ — fait 25/05 suite 2 : fiche-notion brève rédigée + 2 SVG (grille 3×3 P×G générique colorée + 6 risques cotés sur projet station météo avec parades).
 
 ### MME — Matériaux / mécanique (interface collègues)
 - [ ] Liens vers cours mécanique
@@ -117,7 +117,10 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Améliorations site / Quartz
 
-- [ ] **Reprise visuelle des images SVG** (pas du contenu) avant publication — **très peu urgent, à faire juste avant l'ouverture aux élèves**. Concerne tous les SVG produits depuis le début du projet : `cycle-v-projet.svg`, `bete-a-cornes-generique.svg` + 3 exemples, `pieuvre-generique.svg`, `pieuvre-bras-3-axes.svg`. Critères : homogénéité visuelle (poids des traits, tailles relatives, alignement des éléments), positionnement texte (centrages, gaps autour des bords), cohérence palette, lisibilité smartphone. Le contenu pédagogique reste inchangé — il s'agit uniquement d'une passe de polissage esthétique. Posée 24/05 (suite 2).
+- [ ] **Reprise visuelle des images SVG** (pas du contenu) avant publication — **très peu urgent, à faire juste avant l'ouverture aux élèves**. Concerne tous les SVG produits depuis le début du projet :
+  - **Premiers jets fragiles, affinage utilisateur attendu** (produits le 25/05 suite 2, génériques + exemples station météo) : `jalons-generique.svg`, `jalons-station-meteo.svg`, `wbs-generique.svg`, `wbs-station-meteo.svg`, `retroplanning-generique.svg`, `retroplanning-station-meteo.svg`, `gantt-generique.svg`, `gantt-station-meteo.svg`, `matrice-de-risques-generique.svg`, `matrice-de-risques-station-meteo.svg`, `matrice-de-decision-generique.svg`, `matrice-de-decision-station-meteo.svg`. Ce sont des premiers jets Claude, à reprendre visuellement avant publication (alignements, hauteurs de lignes, positionnements de textes proches des bords, lisibilité smartphone).
+  - **Versions stabilisées antérieures** : `cycle-v-projet.svg`, `bete-a-cornes-generique.svg` + 3 exemples, `pieuvre-generique.svg`, `pieuvre-bras-3-axes.svg`.
+  - **Critères de la passe d'affinage** : homogénéité visuelle (poids des traits, tailles relatives, alignement des éléments), positionnement texte (centrages, gaps autour des bords), cohérence palette, lisibilité smartphone. Le contenu pédagogique reste inchangé — passe de polissage esthétique uniquement. Posée 24/05 (suite 2), enrichie 25/05 suite 2.
 
 - [ ] Charte couleur / identité visuelle complète (au-delà de la palette callouts v1)
 - [ ] Thème couleur école / ICAM
@@ -159,6 +162,10 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) à documenter dans le template `fiche-trame.md` ou note méthodo dédiée — décision 23/05 suite 2.
 - [ ] **Convention « alias Quartz CrawlLinks = mécanisme léger pour facettes indissociables d'un outil plus large »** à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz — décision 23/05 suite 2. Distinction structurante : **notion autoportante → fiche-notion ; facette indissociable d'un outil → alias**.
+
+- [ ] **Convention « 2 images par fiche-notion d'outil méthodologique »** : image générique juste après le popover + image avec valeurs concrètes dans la section *Comment …* — décision 25/05 suite 2, appliquée sur 6 fiches (`jalons`, `wbs`, `retroplanning`, `gantt`, `matrice-de-risques`, `matrice-de-decision`). À documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois confirmée sur 2-3 autres fiches-notion d'outils. Articulation avec la convention existante de `pieuvre.md` / `bete-a-cornes.md` (image générique après popover) : ces fiches n'ont pas l'image exemple dans *Comment …* parce qu'elles ont une section *Exemple* dédiée — à harmoniser ou pas, à arbitrer.
+
+- [ ] **Fil rouge alternatif « station météo connectée »** pour les exemples de fiches-notion d'outils méthodologiques — décision 25/05 suite 2. Permet d'illustrer des outils méthodo sur un cas concret sans re-mobiliser le bras 3 axes (lui-même réservé aux fiches-trame). Cohérence inter-fiches : le lecteur reconnaît le même projet d'une fiche à l'autre. À confirmer comme convention si on ajoute d'autres fiches-notion d'outils, ou à élargir à d'autres cas (arrosage automatique, alarme connectée) selon les besoins.
 
 ## Points ouverts des flowcharts (21/05 suite)
 

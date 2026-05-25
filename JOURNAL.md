@@ -5,6 +5,123 @@
 
 ---
 
+## 2026-05-25 (suite 2) — Batch de 7 fiches-notion prioritaires + 12 SVG + approfondissement complet de pieuvre
+
+### Périmètre de session
+Lot batch des 7 notions prioritaires sémées dans plusieurs trames (`cahier-des-charges-fonctionnel` + 6 outils méthodologiques planification/décision/risques) suivi de l'approfondissement complet de `pieuvre.md` en clôture. Première session à produire autant de fiches d'un coup (7) et autant de SVG (12). PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 5 questions tranchées (niveau C)
+1. **Modèle de référence pour CdCF** : hybride basé sur `bete-a-cornes.md` + section « Structure type du document école » pointant vers `cdcf-ecole-template.docx`. Rejet du modèle `fonction.md` (trop léger pour un pivot).
+2. **Profondeur des stubs** : option (a), stubs légers maintenus sur les 6 fiches non-CdCF malgré le TODO qui marquait certaines en « fiche-tuto détaillée ». L'approfondissement détaillé reste pour une session ultérieure.
+3. **Ordre** : 6 stubs d'abord (calibrage du format commun), CdCF en seconde moitié.
+4. **Front matter `type:`** — **clarif structurante apportée par l'utilisateur** : notion = court (popover only) / tuto = long mais pas structurant (outils en général) / trame = structurante. Répartition : `cahier-des-charges-fonctionnel`, `wbs`, `jalons`, `matrice-de-risques`, `matrice-de-decision` en notion ; `retroplanning` et `gantt` en tuto.
+5. **Popovers déjà sémés** : récupération comme base + micro-ajustements ciblés pour cohérence avec les 6 conventions transverses.
+
+### Premier batch — dérive sur les placeholders italiques
+Production des 7 fiches en mode « stub avec placeholders italiques entre crochets », en m'alignant littéralement sur `pieuvre.md` post-24/05 suite 2 (qui est lui-même un stub à finir). **Erreur d'interprétation** : pieuvre.md est un stub non terminé, pas un standard cible. Résultat livré inacceptable.
+
+### Recadrage utilisateur — niveau B exige texte rédigé
+« Le niveau d'autonomie requiert que tu fasses la fiche avec un texte complet avant validation ». **Convention transverse acquise** : un placeholder italique entre crochets est un aveu de travail non fait, pas une livraison niveau B. La forme italique n'est admissible qu'avec signalement explicite d'un manque de matière.
+
+### Reprise complète des 6 stubs en texte rédigé
+Modèle de référence basculé sur `fonction.md` (fiche-notion brève rédigée). Pour chaque fiche : popover + 3 sections en texte complet (À quoi ça sert / Comment construire / Pièges) + Voir aussi. Commentaires HTML « STUB » retirés. Réécriture en `filesystem:write_file` (6 appels).
+
+### Production des 12 SVG — critique transverse de l'utilisateur
+Une fois les 6 fiches rédigées, critique transverse : il manque les images. Niveau C : 4 questions tranchées.
+1. **Production** : (a) Claude produit en premier jet + entrée backlog pour affinage utilisateur avant publication.
+2. **Stratégie** : 1 image générique + 1 image avec valeurs concrètes non liées au bras 3 axes — 12 SVG au total.
+3. **Emplacement** : générique après popover, exemple dans la section « Comment … ».
+4. **Fil rouge alternatif** retenu : **station météo connectée** (projet école générique, cohérent inter-fiches sur 15 semaines avec mêmes jalons Sem. 2 / 5 / 9 / 12 / 15).
+
+Production des 12 SVG en batch (palette ambre `#BA7517` / gris `#DDDBD3` alignée sur `pieuvre-generique.svg`, support `@media prefers-color-scheme: dark`, viewBox variables selon le type d'image). Patch des 6 fiches pour insertion des 2 images.
+
+### Approfondissement complet de `pieuvre.md` (clôture)
+Modèle de référence : `bete-a-cornes.md` (notion fondatrice, sections développées). Popover conservé, image générique conservée, image exemple bras 3 axes conservée (toutes existaient depuis 24/05 suite 2). Rédigé :
+- **À quoi ça sert** : 3 rôles articulés (recenser milieux / formaliser sans dériver vers solution / matériau direct pour caractérisation).
+- **Comment la construire** : méthode 3 temps + **tableau des 5 familles de milieux** (utilisateurs / matière d'œuvre / énergies / environnement physique / réglementaire) + **paragraphe topologie** (forme rayonnante AFNOR, distinction FP/FS/FC par topologie + numérotation, pas par style de trait).
+- **Exemple bras 3 axes** : commentaire enrichi des 5 milieux et des 4 fonctions, chacune avec sa sémantique (FP relie deux milieux et justifie l'existence, FS relie deux milieux pour service complémentaire, FC sur un seul milieu pour contrainte d'adaptation).
+- **Pièges** : 5 pièges en gras court, dont **« Confondre FP et FS » nouveau** (test pratique « si je retire cette fonction, le projet reste-t-il défendable ? ») et **« Diagramme rayonnant peu lisible »** (deux pistes : regrouper en familles, ou faire pieuvres locales par sous-système en concept).
+
+Pas de section *Cas particulier* ni *Aller plus loin* (non pertinent ici). Pas de triptyque mauvais/moyen/bon (le triptyque pertinent pour FP/FS/FC est porté par `fonction.md`).
+
+### Conventions transverses — compteur à 6 + 3 nouvelles
+6 conventions transverses fixées 25/05 (éprouvées sur ecoconception 25/05 suite + sur les 7 fiches-notion 25/05 suite 2). Trois nouvelles conventions acquises cette session :
+7. **2 images par fiche-notion d'outil méthodologique** : générique après popover + exemple valeurs concrètes dans « Comment … ». À confirmer sur 2-3 autres fiches-notion d'outils puis documenter dans `templates/fiche-notion.md`.
+8. **Fil rouge alternatif « station météo connectée »** pour les exemples non-bras-3-axes des fiches-notion d'outils. À confirmer ou élargir (arrosage automatique, alarme connectée selon les besoins).
+9. **Niveau B = livraison en texte rédigé, placeholders italiques inadmissibles** sauf signalement explicite de manque de matière. À intégrer aux instructions projet section 13.
+
+### Typologie notion / tuto / trame — clarification structurante
+Clarif apportée par l'utilisateur en cours de session :
+- **notion** = fiche courte (popover-only). Exemple : `jalons`, `wbs`, `matrice-de-risques`.
+- **tuto** = fiche longue mais pas structurante (outils méthodologiques détaillés, captures d'écran d'outils). Exemple : `retroplanning`, `gantt`.
+- **trame** = fiche structurante (phases du V, fils transverses). Déjà acquis depuis le 22/05.
+
+Cette clarif résoud la tension du TODO qui marquait certaines fiches en « fiche-tuto détaillée » tout en les traitant en stub aujourd'hui : pour les outils qui n'ont pas encore leurs captures d'écran, on pose la **notion** d'abord (court), on construit le **tuto** ensuite. Répartition appliquée : 5 notion + 2 tuto sur les 7 fiches du jour.
+
+### Leçon méthodo — niveau B et fidélité au modèle
+Une fiche stub existante (comme `pieuvre.md` post-24/05 suite 2) n'est **pas** un modèle cible ; c'est une fiche à finir, qu'on a marquée en stub pour la souligner. Prendre une fiche stub comme modèle littéral d'un autre stub revient à produire un travail non terminé sous couvert de cohérence. Modèle cible pour fiche-notion brève = `fonction.md` (brève mais rédigée). Modèle cible pour fiche-notion complète = `bete-a-cornes.md`.
+
+### Nouvelles dépendances posées
+Aucune nouvelle notion ajoutée au-delà de celles déjà inventoriées. Au contraire, 7 liens rouges résorbés sur l'ensemble du dépôt (`cahier-des-charges-fonctionnel` cité dans le hub + 4 trames + template CdCF + 3 stubs du jour).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses 7, 8, 9** : à éprouver sur les fiches à venir (notamment `caracteriser-une-exigence`, `microcontroleur`, `pla`) avant documentation formelle dans les templates.
+- **Reprise visuelle des 12 SVG produits aujourd'hui** : premiers jets, affinage utilisateur attendu avant publication (BACKLOG enrichi en conséquence).
+- **Densité du tableau matrice-de-decision générique** : double colonne brute/pondérée potentiellement chargeur visuel — à vérifier en relecture Quartz et simplifier le cas échéant.
+
+---
+
+## 2026-05-25 (suite) — Deuxième trame transverse : squelettisation + approfondissement direct de ecoconception (stresstest réussi)
+
+### Périmètre de session
+Deuxième fiche-trame transverse du projet : `ecoconception.md`. Stresstest volontaire de la capacité à rédiger un sujet complexe (interface disciplinaire + densité notionnelle plus forte) en passe unique avec round 2 ciblé, dans le format inauguré sur `gestion-de-projet.md` le matin même. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 4 questions tranchées (niveau C)
+
+1. **Structure de la fiche-trame** : 3 blocs co-actifs **Évaluer / Réduire / Tracer** (option a). Rejet argumenté de (b) cycle de vie = territoire des collègues et (c) niveau d'intégration = trop méta. Alignement sur le pattern transverse `rythmer/outiller/tenir` de `gestion-de-projet`.
+2. **Périmètre vs cours collègues** : frontière nette. Porté côté élec/info (sobriété énergétique, durée de vie composants, démontabilité PCB, sobriété logicielle). Délégué (cité sans approfondir) : ACV complète, recyclabilité matériaux, normes pointues.
+3. **Outils canoniques** : 1 outil approfondi (`matrice-eat`), 1 cité + délégué (`acv-simplifiee`), reste en ressources.
+4. **Articulation avec gestion-de-projet** : miroir asymétrique. La trame écoconception affirme qu'elle est pilotée par GdP, dans le bloc 3 « Tracer ».
+
+### Squelette + approfondissement en passe unique
+Squelette niveau B (front matter tag `transverse` seul, popover miroir GdP, 3 blocs en placeholder italique avec [!example] esquissé + [!livrable] Continu/Jalonné + callouts secondaires). Approfondissement complet enchaîné :
+- **Bloc 1 Évaluer** : 4 paragraphes (pourquoi/outils/frontière chiffrable/cadence) + example étoffé avec re-passage en revue de PoC.
+- **Bloc 2 Réduire** : 5 paragraphes (1 par front + 1 paragraphe délégation explicite) + warning sur l'optimisation à l'extrême.
+- **Bloc 3 Tracer** : 5 paragraphes (opposabilité + pilotage GdP / 3 pratiques liste numérotée / restitution soutenance) + tip intégration diffusée.
+- **Section côté équipe** : 3 articulations en gras (GdP miroir, SQ croisements RoHS/REACH/DEEE avec règle de non-redondance, délégation cours collègues).
+
+### Round 2 — 4 remarques utilisateur → 9 patches via `filesystem:edit_file`
+1. **MCU → microcontrôleur** avec popover : 5 patches (chaque section/callout).
+2. **PLA, ABS, RoHS, REACH, DEEE → popovers** : 4 patches.
+3. **usinage, impression 3D, soudure → wiki-links** : 2 patches.
+4. **Gras isolé « opposable »** : 1 patch (extension à « la dimension qui rend l'écoconception opposable »).
+
+### 6ème convention transverse fixée
+6. **Wiki-link à la 1ère occurrence de chaque section, sous-section ou callout** ; mot complet ailleurs. À éprouver sur `securite-et-qualite` et à documenter dans `templates/fiche-trame.md` une fois confirmée. Compteur conventions transverses : 6.
+
+### Nouvelles notions semées en lien rouge (inventoriées au TODO)
+- `microcontroleur` (fiche-notion, popover essentiel, acronyme MCU en alias)
+- `pla`, `abs` (fiches-notion matériaux)
+- `rohs`, `reach`, `deee` (fiches-notion normes environnementales)
+- `usinage`, `impression-3d`, `soudure` (fiches-tuto procédés, actées côté collègues)
+- `matrice-eat` (outil canonique de la trame éco, doublement prioritaire)
+- `acv-simplifiee` (citée et déléguée)
+
+### Bilan stresstest
+Format passe unique + round 2 ciblé tient sur sujet complexe. Pas de scission de session nécessaire malgré l'interface disciplinaire forte. Pattern applicable à `securite-et-qualite` avec prudence sur la matière notionnelle (CE, sécurité fonctionnelle, FMEA…) — risque de scission réel sur cette 3ème trame, à surveiller.
+
+### Évolution du mode de collaboration
+**Niveau B acté comme autonomie de base** pour la rédaction conventionnelle (cf. section 13 des instructions projet, paragraphe ajouté en fin de session). Niveau A réservé aux actions mécaniques (typo, formatage), niveaux C et D inchangés.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses** : à éprouver sur `securite-et-qualite` avant documentation formelle dans le template (6 conventions au compteur).
+- **Format `[!livrable]` transverse Continu/Jalonné** : confirmé sur 2 trames sur 3, à formaliser après la 3ème.
+- **Tag `transverse` seul vs `transverse` + `ese`** : tag seul retenu (alignement strict sur GdP), à arbitrer si besoin de classification par domaine émerge.
+
+---
+
 ## 2026-05-25 — Première trame transverse : squelettisation + approfondissement direct de gestion-de-projet
 
 ### Périmètre de session

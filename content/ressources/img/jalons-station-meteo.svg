@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" role="img" aria-labelledby="title desc">
+  <title id="title">Jalons — exemple station météo connectée</title>
+  <desc id="desc">Timeline horizontale matérialisant les cinq jalons d'un projet de station météo connectée sur quinze semaines. Cinq losanges ambres répartis le long d'un axe, étiquetés J1 à J5, légendés par la phase et la semaine d'occurrence.</desc>
+  <defs>
+    <style>
+      .axis { stroke: #888780; stroke-width: 2; fill: #888780; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 13px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .phase-text { font: 400 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .semaine-text { font: 600 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .label { font: 400 11px sans-serif; fill: #2C2C2A; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      @media (prefers-color-scheme: dark) {
+        .axis { stroke: #BBBBBB; fill: #BBBBBB; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .phase-text, .label, .title-text { fill: #F1EFE8; }
+        .semaine-text { fill: #EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <text x="350" y="35" class="title-text">Jalons d'un projet de station météo connectée</text>
+
+  <!-- Axe temporel -->
+  <line x1="50" y1="150" x2="650" y2="150" class="axis" stroke-width="2"/>
+  <polygon points="650,150 638,144 638,156" class="axis"/>
+  <text x="50" y="255" class="label">Sem. 1</text>
+  <text x="650" y="255" class="label" style="text-anchor:end">Sem. 15 (soutenance)</text>
+
+  <!-- Jalon 1 — Sem. 2 -->
+  <polygon points="115,128 138,150 115,172 92,150" class="jalon-fill"/>
+  <text x="115" y="155" class="jalon-text">J1</text>
+  <text x="115" y="105" class="semaine-text">Sem. 2</text>
+  <text x="115" y="200" class="phase-text">CdCF</text>
+  <text x="115" y="215" class="phase-text">validé</text>
+
+  <!-- Jalon 2 — Sem. 5 -->
+  <polygon points="220,128 243,150 220,172 197,150" class="jalon-fill"/>
+  <text x="220" y="155" class="jalon-text">J2</text>
+  <text x="220" y="105" class="semaine-text">Sem. 5</text>
+  <text x="220" y="200" class="phase-text">Capteurs</text>
+  <text x="220" y="215" class="phase-text">qualifiés</text>
+
+  <!-- Jalon 3 — Sem. 9 -->
+  <polygon points="370,128 393,150 370,172 347,150" class="jalon-fill"/>
+  <text x="370" y="155" class="jalon-text">J3</text>
+  <text x="370" y="105" class="semaine-text">Sem. 9</text>
+  <text x="370" y="200" class="phase-text">Carte sur</text>
+  <text x="370" y="215" class="phase-text">PCB validée</text>
+
+  <!-- Jalon 4 — Sem. 12 -->
+  <polygon points="500,128 523,150 500,172 477,150" class="jalon-fill"/>
+  <text x="500" y="155" class="jalon-text">J4</text>
+  <text x="500" y="105" class="semaine-text">Sem. 12</text>
+  <text x="500" y="200" class="phase-text">Boîtier</text>
+  <text x="500" y="215" class="phase-text">intégré</text>
+
+  <!-- Jalon 5 — Sem. 15 -->
+  <polygon points="615,128 638,150 615,172 592,150" class="jalon-fill"/>
+  <text x="615" y="155" class="jalon-text">J5</text>
+  <text x="615" y="105" class="semaine-text">Sem. 15</text>
+  <text x="615" y="200" class="phase-text">Soutenance</text>
+  <text x="615" y="215" class="phase-text">finale</text>
+</svg>

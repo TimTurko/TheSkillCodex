@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 500" role="img" aria-labelledby="title desc">
+  <title id="title">WBS — exemple station météo connectée</title>
+  <desc id="desc">Arbre de décomposition WBS d'un projet de station météo connectée sur trois niveaux : projet à la racine, trois sous-livrables disciplinaires (électronique, informatique, mécanique-projet) au niveau 2, trois tâches concrètes par sous-livrable au niveau 3.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; letter-spacing: 0.3px; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .niveau-label { font: 600 11px sans-serif; fill: #BA7517; letter-spacing: 0.5px; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .niveau-label { fill: #EF9F27; }
+        .title-text { fill: #F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="390" y="30" class="title-text">WBS d'un projet de station météo connectée</text>
+
+  <!-- Niveaux -->
+  <text x="10" y="80" class="niveau-label">Niveau 1</text>
+  <text x="10" y="200" class="niveau-label">Niveau 2</text>
+  <text x="10" y="345" class="niveau-label">Niveau 3</text>
+
+  <!-- Racine -->
+  <rect x="280" y="60" width="220" height="50" rx="6" class="n1-fill"/>
+  <text x="390" y="90" class="n1-text">Station météo connectée</text>
+
+  <!-- Liaisons N1 → N2 -->
+  <line x1="390" y1="110" x2="390" y2="135" class="conn"/>
+  <line x1="140" y1="135" x2="640" y2="135" class="conn"/>
+  <line x1="140" y1="135" x2="140" y2="170" class="conn"/>
+  <line x1="390" y1="135" x2="390" y2="170" class="conn"/>
+  <line x1="640" y1="135" x2="640" y2="170" class="conn"/>
+
+  <!-- N2 — Électronique -->
+  <rect x="55" y="170" width="170" height="50" rx="5" class="n2-fill"/>
+  <text x="140" y="200" class="n2-text">Chaîne d'acquisition</text>
+
+  <!-- N2 — Informatique -->
+  <rect x="305" y="170" width="170" height="50" rx="5" class="n2-fill"/>
+  <text x="390" y="195" class="n2-text">Firmware et</text>
+  <text x="390" y="210" class="n2-text">communication</text>
+
+  <!-- N2 — Méca / projet -->
+  <rect x="555" y="170" width="170" height="50" rx="5" class="n2-fill"/>
+  <text x="640" y="195" class="n2-text">Intégration</text>
+  <text x="640" y="210" class="n2-text">et projet</text>
+
+  <!-- Liaisons N2 → N3 (Élec) -->
+  <line x1="140" y1="220" x2="140" y2="250" class="conn"/>
+  <line x1="80" y1="250" x2="200" y2="250" class="conn"/>
+  <line x1="80" y1="250" x2="80" y2="290" class="conn"/>
+  <line x1="140" y1="250" x2="140" y2="290" class="conn"/>
+  <line x1="200" y1="250" x2="200" y2="290" class="conn"/>
+
+  <!-- Liaisons N2 → N3 (Info) -->
+  <line x1="390" y1="220" x2="390" y2="250" class="conn"/>
+  <line x1="330" y1="250" x2="450" y2="250" class="conn"/>
+  <line x1="330" y1="250" x2="330" y2="290" class="conn"/>
+  <line x1="390" y1="250" x2="390" y2="290" class="conn"/>
+  <line x1="450" y1="250" x2="450" y2="290" class="conn"/>
+
+  <!-- Liaisons N2 → N3 (Méca) -->
+  <line x1="640" y1="220" x2="640" y2="250" class="conn"/>
+  <line x1="580" y1="250" x2="700" y2="250" class="conn"/>
+  <line x1="580" y1="250" x2="580" y2="290" class="conn"/>
+  <line x1="640" y1="250" x2="640" y2="290" class="conn"/>
+  <line x1="700" y1="250" x2="700" y2="290" class="conn"/>
+
+  <!-- N3 — Tâches Élec -->
+  <rect x="30" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="80" y="313" class="n3-text">Choix capteurs</text>
+  <text x="80" y="328" class="n3-text">(T° / hum. / P)</text>
+
+  <rect x="90" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="140" y="313" class="n3-text">Câblage et</text>
+  <text x="140" y="328" class="n3-text">PCB</text>
+
+  <rect x="150" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="200" y="313" class="n3-text">Alimentation</text>
+  <text x="200" y="328" class="n3-text">solaire</text>
+
+  <!-- N3 — Tâches Info -->
+  <rect x="280" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="330" y="313" class="n3-text">Acquisition</text>
+  <text x="330" y="328" class="n3-text">capteurs</text>
+
+  <rect x="340" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="390" y="313" class="n3-text">Liaison Wi-Fi</text>
+  <text x="390" y="328" class="n3-text">/ MQTT</text>
+
+  <rect x="400" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="450" y="313" class="n3-text">Tableau de</text>
+  <text x="450" y="328" class="n3-text">bord web</text>
+
+  <!-- N3 — Tâches Méca / projet -->
+  <rect x="530" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="580" y="313" class="n3-text">Boîtier</text>
+  <text x="580" y="328" class="n3-text">étanche IP54</text>
+
+  <rect x="590" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="640" y="313" class="n3-text">CdCF, dossier</text>
+  <text x="640" y="328" class="n3-text">technique</text>
+
+  <rect x="650" y="290" width="100" height="50" rx="4" class="n3-fill"/>
+  <text x="700" y="313" class="n3-text">Rapport</text>
+  <text x="700" y="328" class="n3-text">final</text>
+
+  <text x="390" y="455" class="n3-text" style="font-style:italic;fill:#888780">WBS de N2 par sous-système / livrable transverse plutôt que par discipline pure.</text>
+</svg>

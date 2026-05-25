@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Rétroplanning — schéma générique</title>
+  <desc id="desc">Schéma de principe d'un rétroplanning. Axe temporel horizontal du début du projet vers la date butoir. Une flèche rouge à rebours part de la butoir et remonte le temps, posant successivement la marge tampon, les jalons de fin de phase et les tâches.</desc>
+  <defs>
+    <style>
+      .axis { stroke: #888780; stroke-width: 2; fill: #888780; }
+      .back-arrow { stroke: #C0392B; stroke-width: 2.5; fill: none; }
+      .back-arrow-head { fill: #C0392B; }
+      .jalon-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .jalon-text { font: 700 12px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .buffer-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .buffer-text { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; font-style: italic; }
+      .label { font: 400 11px sans-serif; fill: #2C2C2A; }
+      .phase-text { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .step-num { font: 700 14px sans-serif; fill: #C0392B; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .legend-text { font: 400 11px sans-serif; fill: #2C2C2A; }
+      @media (prefers-color-scheme: dark) {
+        .axis { stroke: #BBBBBB; fill: #BBBBBB; }
+        .jalon-fill { fill: #BA7517; stroke: #EF9F27; }
+        .buffer-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .buffer-text { fill: #F1EFE8; }
+        .label, .phase-text, .title-text, .legend-text { fill: #F1EFE8; }
+        .back-arrow { stroke: #E74C3C; }
+        .back-arrow-head { fill: #E74C3C; }
+        .step-num { fill: #E74C3C; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="35" class="title-text">Construire à rebours depuis la date butoir</text>
+
+  <!-- Axe temporel -->
+  <line x1="50" y1="180" x2="670" y2="180" class="axis" stroke-width="2"/>
+  <polygon points="670,180 658,174 658,186" class="axis"/>
+  <text x="50" y="265" class="label">début du projet</text>
+  <text x="670" y="265" class="label" style="text-anchor:end">date butoir</text>
+
+  <!-- Flèche à rebours -->
+  <path d="M 650 110 L 80 110" class="back-arrow"/>
+  <polygon points="80,110 92,104 92,116" class="back-arrow-head"/>
+  <text x="365" y="100" class="step-num" style="text-anchor:middle">sens de construction du rétroplanning</text>
+
+  <!-- Étape 1 — Marge tampon (côté butoir) -->
+  <rect x="555" y="160" width="95" height="40" rx="4" class="buffer-fill"/>
+  <text x="602" y="185" class="buffer-text">Marge</text>
+  <text x="602" y="198" class="buffer-text">tampon</text>
+
+  <!-- Jalons posés à rebours -->
+  <polygon points="540,160 555,180 540,200 525,180" class="jalon-fill"/>
+  <text x="540" y="185" class="jalon-text">J5</text>
+
+  <polygon points="430,160 445,180 430,200 415,180" class="jalon-fill"/>
+  <text x="430" y="185" class="jalon-text">J4</text>
+
+  <polygon points="320,160 335,180 320,200 305,180" class="jalon-fill"/>
+  <text x="320" y="185" class="jalon-text">J3</text>
+
+  <polygon points="210,160 225,180 210,200 195,180" class="jalon-fill"/>
+  <text x="210" y="185" class="jalon-text">J2</text>
+
+  <polygon points="120,160 135,180 120,200 105,180" class="jalon-fill"/>
+  <text x="120" y="185" class="jalon-text">J1</text>
+
+  <!-- Légendes phases -->
+  <text x="60" y="230" class="phase-text">tâches</text>
+  <text x="170" y="230" class="phase-text">tâches</text>
+  <text x="265" y="230" class="phase-text">tâches</text>
+  <text x="375" y="230" class="phase-text">tâches</text>
+  <text x="485" y="230" class="phase-text">tâches</text>
+
+  <!-- Légende -->
+  <text x="50" y="295" class="legend-text" style="font-style:italic">1. butoir → 2. marge → 3. jalons à rebours → 4. tâches entre jalons</text>
+</svg>
