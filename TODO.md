@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➤ Prochaine session = approfondissement `dossier-technique`** (acté 25/05 suite 7, option A retenue). Phase 4 du V, calque méthodo concept/PoC, épreuve 3/3 pour conv 10 + 12 et 1ʳᵉ épreuve pour conv 13 (relire amont). Tâche annexe en début de session : décider de l'archivage JOURNAL 22/05 → 24/05 (taille 131,8 ko > seuil).
+> **➤ Prochaine session = approfondissement `integration-et-tests`** (5ᵉ et dernière trame du V après `dossier-technique` 25/05 suite 8). Calque méthodo concept/PoC/dossier-tech, 2ᵉ épreuve formelle conv 13 (relire amont) avant promotion, confirmation épreuves 3/3 conv 10 et conv 12 déjà réussies (promotions § 2 et § 6 à acter à froid avant ou après). Tâche annexe début de session : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles).
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -32,6 +32,7 @@
 - [ ] **Approfondissement des fiches phases du V** : `concept.md` complet (étapes 1-2 + v2.1 squelette faits 25/05 suite 4 ; étapes 3-4-5 + Pièges + Équipe faits 25/05 suite 5 ; cohérence finale 4 passes faite 25/05 suite 6 — 27 patches, fiche complète et alignée v2.1). `preuve-de-concept.md` complet (5 étapes + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes + round 2 wiki-links outils, faits 25/05 suite 7). **Prochain : `dossier-technique`**, puis `integration-et-tests` dans l'ordre du V. À chaque approfondissement, conduire la passe dédiée wiki-links en sortie de fiche (filet de sécurité — cf. leçon méthodo 25/05 suite 7 : convention 6 applicable au fil quand discipline acquise).
 
 *Notions à produire en parallèle (popovers posés dès les squelettes)* :
+- [ ] **`pcb`** (fiche-tuto, popover posé dans `dossier-technique.md` étapes 2/4/5). Mention spécifique à inclure : **machine de gravure à l'anglaise** en interne école pour PCB monoface (pas de commande externe pour ce cas), routage logiciel + transfert physique. Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent).
 - [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
 - [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, front matter `aliases: [critere, niveau, flexibilite]`). Triplet + triptyque mauvais/moyen/bon (pattern `bete-a-cornes.md`) + échelle F0/F1/F2/F3.
 - [ ] **`unite-si`** (fiche-notion, popover posé étape 4 du 23/05 suite 2). Convention typographique unités SI.
@@ -68,8 +69,10 @@
 - [ ] **Commit + push de la session du 25/05 (suite 5)** (approfondissement concept étapes 3-4-5 + Pièges + Équipe + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 6)** (cohérence finale concept — 4 passes / 27 patches + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 7)** (approfondissement preuve-de-concept v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links + MAJ doc).
+- [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
 
 ### Manipulations manuelles en attente
+- [ ] **Finaliser archivage JOURNAL 22-24/05** — dans Obsidian : couper depuis `## 2026-05-24 (suite) — Clôture phase 1 partie 2` jusqu'à la fin de la session `## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V` (séparateur `---` inclus juste après), puis coller dans `JOURNAL-archive.md` juste avant `## 2026-05-21 (suite 2) — Vue d'ensemble macro`. Voir le warning du préambule JOURNAL. **Pourquoi manuel** : payload MCP ~50 ko inatteignable (leçon méthodo 25/05 suite 8 — conventions.md § 7).
 - [ ] **Déposer manuellement `cdcf-ecole-template.docx`** dans `content/ressources/templates/` (limite technique MCP filesystem : pas d'écriture binaire).
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
@@ -112,7 +115,26 @@
 
 ## Fait
 
-*Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
+*Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement (4 actuelles — rotation suite 5 à effectuer à froid en début de prochaine session).*
+
+### Session 2026-05-25 (suite 8 — Dossier technique : approfondissement complet + leçon méthodo MCP seuil 30 ko)
+- [x] Tâche annexe début de session : archivage JOURNAL 22-24/05 résolu partiellement (résorption duplication 24/05 suite 2 via MCP, JOURNAL 144 → 135 ko ; finalisation manuelle requise — ajoutée en Manipulations manuelles)
+- [x] Cadrer 5 questions tranchées en bloc + info utilisateur fournisseurs partenaires intégrée comme contrainte structurante étapes 3 et 5
+- [x] **Niveau A en autonomie** accordé par l'utilisateur
+- [x] **Phase 1** : alignement v2.1 squelette dossier-technique (11 patches batch — 5× exemple, 5× livrable, 1× warning Attention)
+- [x] **Phase 2** : étape 1 *Intégrer les retours de la preuve de concept* (2 H4 économes, fil rouge refondu sur articulation usinée alu 6061)
+- [x] **Phase 3** : étape 2 *Détailler les plans par discipline* (2 H4 économes : parallèle disciplinaire + revue interne cohérence inter-disciplines)
+- [x] **Phase 4** : étape 3 **trouvée pré-rédigée** (autre instance Claude probable, brief multi-appareil §2) — cohérence vérifiée et préservée
+- [x] **Phase 5** : étape 4 *Rédiger et faire valider* PIVOT (3 H4 dense, **tableau matriciel 3 validateurs × 5 colonnes** — 3ᵉ contexte convention 10)
+- [x] **Phase 6** : étape 5 *Émettre les commandes* cas inédit (2 H4 sortie matérielle, ni clôture ni économe, 3 bons de commande structurés)
+- [x] **Phase 7** : Pièges 5 → 11 entrées (45 % a posteriori étapes 2-5, éprouve C12) + Équipe 4 paragraphes thématiques
+- [x] **Phase 8** : cohérence finale 4 passes — **0 patch sur les 4 passes** (2ᵉ confirmation après PoC suite 7 que la discipline est acquise quand internalisée)
+- [x] Round 2 utilisateur : PCB monoface gravé en interne école (machine de gravure à l'anglaise) → 3 patches cascade (étape 2 H4 + étape 2 example + étape 5 example), cohérence chiffrée étape 5 alignée à 214 € HT
+- [x] **Convention 14 acquise** : seuil pratique MCP write_file/edit_file ~30 ko payload, capitalisée § 7
+- [x] Convention 10 (matrice incarnée) : **épreuve 3/3 réussie** — promotion § 2 envisageable à acter à froid
+- [x] Convention 12 (Pièges a posteriori) : **épreuve 3/3 réussie** — promotion § 6 envisageable à acter à froid
+- [x] Convention 13 (relire amont) : **1ʳᵉ épreuve formelle réussie**, à confirmer sur integration-et-tests
+- [x] Nouvelle dépendance posée : fiche-tuto `pcb` avec mention machine de gravure à l'anglaise + monoface en interne école (à créer, ajout liste notions/tutos à produire)
 
 ### Session 2026-05-25 (suite 7 — PoC : approfondissement v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links outils)
 - [x] Cadrer 4 questions tranchées en bloc (découpage 5 étapes 2/2/2/3/3, pivot = étape 4, fil rouge local PoC = articulation 3D PLA 60 %, boucle rétroactive α incarnée)

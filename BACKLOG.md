@@ -10,7 +10,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] `hub/specification-technique` — phase 1 du V
 - [x] ~~`hub/concept` — phase 2 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/concept.md`
 - [x] ~~`hub/preuve-de-concept` — phase 3 du V (point pivot du V)~~ — squelette fait le 22/05 dans `content/fiches/proj/preuve-de-concept.md` ; **approfondi 25/05 suite 7** (5 étapes + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes + 6 nouvelles cibles wiki-links sur outils)
-- [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md`
+- [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md` ; **approfondi 25/05 suite 8** (5 étapes [étape 3 pré-rédigée par autre instance Claude] + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes à 0 patch + round 2 PCB gravure à l'anglaise + alignement v2.1)
 - [x] ~~`hub/integration-et-tests` — phase 5 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/integration-et-tests.md`
 - [x] ~~`hub/gestion-de-projet` — fil transverse~~ — squelettisée + approfondie 25/05 dans `content/fiches/proj/gestion-de-projet.md`. 5 conventions transverses fixées à propager aux 2 autres transverses.
 - [ ] `hub/ecoconception` — fil transverse
@@ -40,7 +40,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Filtrage analogique de base
 - [ ] Masse électrique, plan de masse
 - [ ] Découplage (condensateurs)
-- [ ] **PCB** (fiche-tuto : concevoir et faire fabriquer un PCB pour un projet étudiant)
+- [ ] **PCB** (fiche-tuto : concevoir et faire fabriquer un PCB pour un projet étudiant). **Info 25/05 suite 8** : inclure la **production interne école sur machine de gravure à l'anglaise** pour PCB monoface (pas de commande externe pour ce cas). Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent). Popover posé dans `dossier-technique.md` étapes 2/4/5.
 
 ### MIA — Informatique embarquée
 - [ ] Architecture logicielle d'un objet connecté

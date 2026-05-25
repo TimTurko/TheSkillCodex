@@ -2,13 +2,107 @@
 
 > Mémoire du projet. Ce qui a été fait, daté, avec les décisions prises et leur justification.
 > Nouvelles entrées en HAUT (ordre antichronologique).
-> Sessions antérieures au 22/05/2026 archivées dans `JOURNAL-archive.md`
+> Sessions antichronologiques antérieures au 22/05/2026 archivées dans `JOURNAL-archive.md`
 > (mise en place initiale du dépôt, installation PC perso, trame projet cycle
-> en V, flowcharts de phase).
+> en V, flowcharts de phase). Session **24/05 (suite 2)** également migrée vers
+> l'archive (25/05 suite 7).
 
-> ⚠️ **Taille fichier : 131,8 ko (> seuil 100 ko)**. Archivage des sessions
-> 22/05 → 24/05 à envisager en début de prochaine session pour alléger le head
-> lu au démarrage. À trancher à froid.
+> ⚠️ **Archivage 22/05 → 24/05 partiellement réalisé** — sessions encore
+> présentes ici. Finalisation via Obsidian (couper depuis `## 2026-05-24 (suite)`
+> jusqu'à la fin de la session `22/05`, coller dans `JOURNAL-archive.md` juste
+> avant `## 2026-05-21 (suite 2)`). Voir TODO et conventions.md § 7 — leçon
+> méthodo seuil pratique MCP write_file/edit_file ~30 ko payload.
+
+---
+
+## 2026-05-25 (suite 8) — Dossier technique : approfondissement complet + leçon méthodo MCP seuil 30 ko
+
+### Périmètre de session
+Approfondissement complet de `dossier-technique.md` (phase 4 du V) sur session de démarrage PC perso. Tâche annexe initiale (archivage JOURNAL 22-24/05) résolue partiellement via MCP (résorption duplication 24/05 suite 2) + report en finalisation manuelle pour le reste. Surprise structurante : **étape 3 trouvée pré-rédigée** dans le fichier au moment d'attaquer la rédaction de fond — hypothèse plus probable : autre instance Claude Desktop lancée en parallèle (brief utilisateur multi-appareil §2). Cohérence vérifiée et préservée.
+
+### Cadrage en début de session — 5 questions tranchées en bloc
+1. **Fil rouge local** : aligner sur PoC final (articulation **usinée alu 6061** suite à marge négative en PoC), pas l'ajustement local PLA 60→80 % du squelette. Cohérence inter-fiches PoC ↔ dossier-technique recherchée. Refonte des 5 `[!example]`.
+2. **Étape pivot = étape 4** (multi-validation à 3 interlocuteurs). Rythme H4 : 2/2/3/3/2 (étape 5 = cas inédit sortie matérielle, ni clôture documentaire ni étape économe).
+3. **Convention 10 (matrice incarnée) — épreuve 3/3** : 4 contextes ciblés (ajustements PoC→dossier étape 1 / BOM matricielle étape 3 / 3 validateurs matriciels étape 4 / structure 3 bons commande étape 5).
+4. **Convention 13 (relire amont) — 1ʳᵉ épreuve formelle** : passe rapide sur Posture + Objectif + Conclusion avant chaque section avale.
+5. **Découpage** : session complète calque PoC suite 7, **niveau A en autonomie accordé par l'utilisateur**.
+
+**Info ajoutée par l'utilisateur en cours** : les commandes doivent être réalisées sur une liste de **fournisseurs partenaires** (catalogue restreint, pas de libre choix marché). Intégrée comme contrainte structurante en étapes 3 et 5.
+
+### Archivage JOURNAL 22-24/05 — résolu partiellement
+- Tentative `write_file` ~50 ko payload pour reconstruire JOURNAL : **échec silencieux** (taille fichier inchangée, date modification inchangée). 2ᵉ occurrence du symptôme après 25/05 suite 3.
+- Décision : abandon de l'approche massive. Action MCP minimale + procédure manuelle pour le reste.
+- **Action MCP** : suppression session 24/05 suite 2 du JOURNAL (résorption duplication avec archive). JOURNAL passé de 144 → 135 ko (−8,8 ko). Préambule patché pour pointer vers la finalisation manuelle.
+- **Action documentaire** : ajout au TODO d'une tâche *Finaliser archivage 22-24/05* en *Manipulations manuelles* (procédure Obsidian détaillée), nouvelle convention 14 capitalisée dans `conventions.md` § 7.
+
+### Convention 14 acquise — Seuil pratique MCP write_file/edit_file ≈ 30 ko payload
+Toute opération MCP `write_file` ou `edit_file` avec payload > 30 ko a une probabilité non négligeable d'échouer silencieusement (sans message d'erreur). Symptôme : tool call qui semble réussir mais `get_file_info` montre fichier inchangé. **Discipline acquise** : (a) `get_file_info` systématique après tout write/edit lourd, (b) opérations massives en édition manuelle Obsidian + Git ou script Node CLI hors MCP.
+
+### Phase 1 — Alignement v2.1 du squelette (11 patches batch)
+5× `[!example] Sur le bras 3 axes` → `Exemple : projet bras 3 axes` (désambiguïsation par première ligne du corps), 5× `[!livrable] Livrable de l'étape N` → `Livrable N/5 — Dossier technique` (et `Livrables 3/5` pluriel pour étape 3), 1× `[!warning] Trois interlocuteurs distincts, trois disponibilités` → titre fixe `Attention` + phrase-clé en gras. Diff propre.
+
+### Phase 2 — Étape 1 *Intégrer les retours de la preuve de concept* rédigée
+2 paragraphes intro (pont depuis PoC avec 3 issues nominales, anti-pattern « rouvrir CAO directement »), 2 H4 économes :
+- H4-1 « Du compte rendu PoC aux ajustements à intégrer » : 3 familles d'ajustements (composants confirmés / recalés / contraintes nouvelles) en liste numérotée + tip « Une page de synthèse, pas une réunion orale ».
+- H4-2 « Propager les ajustements aux trois disciplines » : effet inter-discipline, exemples concrets + warning « Repartir des plans du concept revient à effacer la PoC ».
+
+`[!example]` refondu sur articulation usinée alu 6061 : 3 familles d'ajustements instanciées. Wiki-links sémés : `[[microcontroleur]]`, `[[pla]]`, `[[usinage]]`, `[[retroplanning]]`, `[[ecoconception]]`.
+
+### Phase 3 — Étape 2 *Détailler les plans par discipline* rédigée
+2 paragraphes intro (transition étape 1, niveau précision supérieur, retour grille disciplinaire vs PoC), 2 H4 économes :
+- H4-1 « Travailler en parallèle par discipline » : 3 disciplines en liste (élec/méca/info), outils typiques cités + tip « Reprenez le schéma bloc fonctionnel comme carte d'interfaces ».
+- H4-2 « Vérifier la cohérence inter-disciplines avant les validateurs externes » : 3 familles d'interfaces (physiques / électriques / logicielles) en liste numérotée + warning « Une spécification d'interface n'est pas une spécification interne ».
+
+`[!example]` instancié : 3 disciplines + revue interne tracée (2 conflits arbitrés sans rétroaction concept). Wiki-links nouveaux : `[[schema-bloc-fonctionnel]]`, `[[cahier-des-charges-fonctionnel|CdCF]]`, `[[matrice-de-decision]]`, `[[impression-3d]]`.
+
+### Phase 4 — Étape 3 *Consolider la BOM et chiffrer l'environnement* : pré-rédigée (autre Claude)
+Étape 3 trouvée déjà rédigée en pleine qualité au moment de l'attaquer. Hypothèse autre instance Claude lancée en parallèle (brief multi-appareil). Contenu trouvé : 3 H4 dense (BOM finale chiffrée / Quantifier l'écoconception / Planning + budget) + tip + warning + example matriciel avec **BOM 7 lignes 6 colonnes** (213,20 € HT sous enveloppe 250 €) + ACV simplifiée (steppers ~52 %, alu+usinage ~28 %) + livrable 3 items. Cohérence vérifiée avec mes étapes 1-2-4-5.
+
+### Phase 5 — Étape 4 *Rédiger et faire valider* (PIVOT) rédigée
+2 paragraphes intro (pont depuis étape 3, multi-validation à 3+1 comme miniature industrielle), 3 H4 dense :
+- H4-1 « Préparer la multi-validation » : sous-dossier ciblé par validateur, 3 choses à figer.
+- H4-2 « Mener les trois validations disciplinaires » : 3 RDV séparés 1-2 semaines, ordre logique.
+- H4-3 « Faire valider l'ensemble en revue globale » : encadrant vérifie cohérence inter-parties + qualité argumentation + lisibilité tiers.
+
+Warning existant + tip nouveau « Ouvrez chaque RDV par les livrables-clés ». `[!example]` refondu : **tableau matriciel 3 validateurs × 5 colonnes** — 3ᵉ contexte fort de convention 10. Wiki-links de la table échappés avec `\|` pour pipe.
+
+### Phase 6 — Étape 5 *Émettre les commandes* rédigée (cas inédit)
+2 paragraphes intro (point de non-retour matériel, rôle équipe vs responsable projet), 2 H4 :
+- H4-1 « Préparer les bons de commande » : 1 bon par fournisseur partenaire, 4 contenus attendus.
+- H4-2 « Émettre et tracer » : émission par resp projet, traçabilité, vérification conformité à réception.
+
+Warning nouveau « Émettre avant la validation d'ensemble est un échec d'étape ». Tip nouveau « Suivi par tableau partagé ». `[!example]` structuré en 3 bons de commande (partenaire élec / matière / fablab-atelier) — 4ᵉ contexte de convention 10.
+
+### Phase 7 — Pièges + Équipe refondus
+- **Pièges fréquents** : refonte de 5 puces du squelette en **11 entrées format gras court + explication** (calque concept 8 / PoC 11). ~5/11 pièges émergés a posteriori des étapes 2-5 (≈ 45 %, ratio aligné PoC) — éprouve C12.
+- **Équipe** : 4 paragraphes thématiques (Interfaces métiers / Gestion de projet / Écoconception / Sécurité et qualité), calque concept/PoC. Wiki-links sémés : `[[gestion-de-projet]]`, `[[retroplanning]]`, `[[acv-simplifiee]]`, `[[securite-et-qualite]]`.
+
+### Phase 8 — Cohérence finale 4 passes : **0 patch sur les 4 passes** (pattern PoC confirmé)
+- Passe 1 (terminologie) : 0 patch.
+- Passe 2 (fil rouge bras 3 axes) : 0 patch — articulation usinée alu 6061 cohérente sur les 5 étapes (lead time 3 semaines / 15 j, masse +35 %, ISO 2768 m + Ra ≤ 1,6).
+- Passe 3 (ponts inter-étapes) : 0 patch — chaque intro d'étape ouvre par un pont rétro-arrière propre.
+- Passe 4 (wiki-links exhaustif) : 0 patch — convention 6 tenue au fil. **2ᵉ confirmation après PoC suite 7** que la discipline est acquise quand internalisée.
+
+### Round 2 utilisateur — 2 points tranchés
+1. **Cohérence PCB-BOM** : tranché par information utilisateur — PCB monoface gravé en interne sur **machine de gravure à l'anglaise** de l'école. Donc PCB jamais commandé, pas de ligne BOM nécessaire, **fiche-tuto PCB à créer** avec mention spécifique. 3 patches en cascade appliqués : étape 2 H4 (production interne possible), étape 2 example (5×7 cm monoface gravé en interne), étape 5 example (PCB non commandé + remplacement par 3 condensateurs 100 nF céramique pour le découplage + chiffre ajusté ≈ 98 € HT au lieu de 122 €).
+2. **Cohérence chiffrée étape 5** : ajustée automatiquement par patch 1. Désormais 98 + 21 + 95 = 214 € HT cohérent avec BOM étape 3 (213,20 €) + connecteur coudé étape 4 (+1,80 €) = 215 € HT.
+
+### Conventions éprouvées sur dossier-technique
+- **Convention 10 (matrice incarnée)** : **épreuve 3/3 réussie**, 4 contextes incarnés. Cumul total 8+ contextes (4 sur concept + 4 sur PoC + 4 sur dossier-tech). **Promotion vers § 2 envisageable** (à acter à froid).
+- **Convention 11 (rythme H4)** : promotion § 6 déjà actée en suite 7. Cas inédit nouveau éprouvé sur étape 5 (2 H4 sortie matérielle, ni clôture ni économe). Pattern stable.
+- **Convention 12 (Pièges a posteriori)** : **épreuve 3/3 réussie** (concept 37 %, PoC 45 %, dossier-tech 45 %). **Promotion vers § 6 envisageable**.
+- **Convention 13 (relire amont)** : **1ʳᵉ épreuve formelle réussie** — aucun round 2 sur sections amont, fiche cohérente. À éprouver sur `integration-et-tests` (5ᵉ trame) avant promotion.
+- **Convention 14 (seuil pratique MCP ~30 ko)** : nouvelle, acquise et capitalisée § 7.
+
+### Nouvelles dépendances posées
+- Fiche-tuto `[[pcb]]` à créer avec mention **machine de gravure à l'anglaise + monoface en interne école** (procédé spécifique projet école, pas une commande). Ajout BACKLOG.
+
+### Décisions reportées
+- Toutes celles des sessions précédentes (sauf cohérence inter-fiches concept↔PoC partiellement levée via fil rouge articulation usinée traversant les 5 étapes dossier-tech).
+- Promotion C10 vers § 2 : à acter à froid.
+- Promotion C12 vers § 6 : à acter à froid.
+- C13 à éprouver sur `integration-et-tests`.
+- Finalisation archivage 22-24/05 manuel à faire à la maison.
 
 ---
 
@@ -590,73 +684,6 @@ Aucune nouvelle notion ajoutée au-delà de celles déjà inventoriées au TODO/
 - **Conventions transverses** : à éprouver sur `ecoconception` et `securite-et-qualite` avant de les documenter formellement dans le template `fiche-trame.md`.
 - **Format date noms de fichiers** : `JJ-MM-AAAA` retenu sur consigne FR ; bascule en ISO 8601 possible si le tri auto chronologique devient nécessaire.
 - **Section « Pendant cette phase, côté équipe »** : titre de section conservé pour alignement template, mais sémantique réelle = « articulation avec les autres transverses » pour les fiches transverses. À documenter formellement quand le pattern aura été confirmé sur les 2 autres.
-
----
-
-## 2026-05-24 (suite 2) — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG
-
-### Périmètre de session
-Clôture de la phase 1 partie 3 sur deux gestes consolidants : (1) cohérence finale des 6 étapes de `specification-technique.md` via 11 patches terminologiques (en 3 passes successives), (2) refonte structurelle de l'architecture des fiches-notion autour de la pieuvre et des fonctions FP/FS/FC, accompagnée de la production des 2 SVG correspondants. Session sur PC perso, préfixe MCP `filesystem:*`.
-
-### Cadrage en début de session — 2 questions tranchées
-
-1. **Méthode de relecture** : mixte avec dimension prioritaire — passe 1 = terminologie + fil rouge en lecture continue, passe 2 = ponts par paires.
-2. **Stratégie d'enchaînement** : cohérence pure d'abord, puis résorption d'1-2 popovers majeurs si possible. Réalité : tout traité (cohérence + refonte architecture + 2 SVG).
-
-### Cohérence finale — 11 patches sur `specification-technique.md` en 3 passes
-
-Bilan par auto-critique progressive (leçon méthodo : une passe unique n'est jamais exhaustive sur ce type de relecture terminologique) :
-
-**Passe 1** — 5 patches : pont arrière étape 2 ajouté (« **Le besoin est compris et validé.** Avant de chiffrer… »), 4 occurrences « phase 1 » corrigées (préambule étape 5, étape 6 H4 Faire valider, section Équipe / Interfaces métiers, section Équipe / Sécurité-qualité), refonte phrase finale example étape 6 (initialement avec récupération « deux réserves mineures » du JOURNAL, finalement remplacée par version sobre sur retour utilisateur : « validé par les enseignants », sans réserves — l'équipe enseignante n'émet pas de réserves en général).
-
-**Passe 2** (occurrences résiduelles loupées) — 3 patches : « fin de phase 1 lance » → « fin de cette phase lance » (Gestion de projet), « s'ancre dès la phase 1 » → « s'ancre dès la spécification technique » (Écoconception), « ancrage écoconception en phase 1 » → « ancrage écoconception à ce stade » (même paragraphe).
-
-**Passe 3** (finale exhaustive) — 2 patches : « commencent en phase 1 » → « commencent dès cette phase » (Sécurité-qualité, cohérence avec « le faire dès cette phase » du même paragraphe), « autoriser le passage en phase 2, [[concept|concept]] » → « autoriser le passage en [[concept|concept]] » (élision du raccourci numérique redondant avec le wiki-link).
-
-### Refonte architecture `fonction` / `pieuvre` — décision structurante
-
-**Constat utilisateur** : architecture initiale (aliases `[FP, FS, FC]` posés sur `pieuvre.md`, décision 23/05 suite 2) ne correspond pas à l'intention pédagogique. Un étudiant qui survole `[[FC]]` veut une définition de la catégorie « fonction contrainte », pas de l'outil « pieuvre ». Architecture repensée : `FP/FS/FC` → fiche dédiée aux **fonctions** → renvoi vers la pieuvre comme outil graphique de représentation.
-
-**Décision actée** : **séparation `fonction` / `pieuvre`** :
-- **`fonction.md`** (nouveau, aliases `[FP, FS, FC]`) : fiche-notion *courte* (lisible au survol) définissant la trichotomie FP/FS/FC, le format d'énoncé verbe + complément, et redirigeant vers `[[pieuvre]]` pour la représentation graphique. Option (b) retenue (fiche brève complète tout de suite) plutôt que stub minimal.
-- **`pieuvre.md`** (refonte) : aliases retirés. Fiche-notion sur l'outil graphique, qui s'appuie sur `[[fonction]]` pour la typologie au lieu de la dupliquer. Sections « À quoi ça sert » / « Comment construire » / « Pièges » en placeholders explicites à approfondir en session dédiée.
-
-**Conséquence sur les liens** dans `specification-technique.md` : `[[FP]]` / `[[FS]]` / `[[FC]]` pointent désormais vers `fonction.md` (via alias), `[[pieuvre]]` continue vers `pieuvre.md`. Pas de patch nécessaire dans la trame — les liens existants se résolvent automatiquement via les nouveaux aliases.
-
-### Convention `draft: false` par défaut — actée
-
-Décision déclenchée par un faux bug : popovers `[[FP]]` / `[[FS]]` / `[[FC]]` toujours rouges après création du stub `pieuvre.md` initial. Cause : `Plugin.RemoveDrafts()` actif dans `quartz.config.ts`, filtrant les fiches en `draft: true` du build. Le stub était inaccessible.
-
-**Décision utilisateur** : **passer toutes les fiches en `draft: false` par défaut**. Justifications : (1) Quartz est encore privé, le filtre n'a pas d'utilité opérationnelle, (2) le pilotage de la maturité passera par le **BACKLOG** (inventaire systématique des stubs/placeholders avant publication aux élèves), (3) `draft: true` crée plus de friction (popovers cassés, tests visuels impossibles) que de bénéfice. Convention rétrospective : le template `fiche-trame.md` (déjà `draft: false`) avait préfiguré cette pratique.
-
-### Production des 2 SVG pieuvre
-
-Premier jet de `pieuvre-generique.svg` produit en cours de session (forme « traversante » avec distinction FP plein / FS pointillé / FC simple). **Remarque utilisateur** sur référence visuelle ECPI (5 milieux + système ECPI au centre, traits identiques étiquetés FC1 à FC7) : la convention dominante en France/AFNOR est **forme rayonnante avec tous les liens du même style**, étiquetés Fx.
-
-**Refonte du SVG générique** : forme rayonnante adoptée. Distinction FP/FS/FC ne passe plus par le style du trait, elle passe par : (a) la **topologie** (FP/FS = 2 segments traversant le système entre 2 milieux ; FC = 1 segment vers 1 seul milieu), (b) les **étiquettes** Fx visibles sur les traits, (c) la **numérotation** dans l'énoncé. Composition : système ovale ambre au centre, 6 milieux gris autour, 1 FP traversante (verticale) + 1 FS traversante (horizontale) + 2 FC rayonnantes. Palette `bete-a-cornes-generique.svg` conservée (ambre #BA7517 / gris #DDDBD3, dark mode via `prefers-color-scheme`).
-
-**Création de `pieuvre-bras-3-axes.svg`** (incarné fil rouge) : système « BRAS 3 AXES » au centre, 5 milieux gris (opérateur, objet à déplacer, poste informatique, alimentation 230V, environnement pédagogique), 4 fonctions (FP1 opérateur ↔ objet traversant, FS1 opérateur ↔ poste info traversant, FC1 vers alimentation, FC2 vers environnement pédagogique). Référencé dans l'`[!example]` étape 3 de `specification-technique.md` et dans la section Exemple de `pieuvre.md`.
-
-### Patch collatéral : retrait « plan de travail » de la liste des milieux étape 3
-
-La liste mentionnait 6 milieux mais les 4 fonctions n'en impliquaient que 5. Le plan de travail était listé sans fonction — sémantiquement faux pour une pieuvre qui formalise les fonctions de tous les milieux identifiés. **Décision actée** : retrait du plan de travail (option a). Modification mineure du texte qui assainit l'example et fait correspondre exactement liste textuelle et schéma. Probable héritage de mind map non nettoyé.
-
-### Nouvelles dépendances posées
-- `[[fonction]]` — fiche-notion brève complète produite ce jour (aliases FP/FS/FC).
-- `[[pieuvre]]` — fiche-notion légère produite (stub méthodologique avec placeholders dans 4 sections).
-- SVG `pieuvre-generique.svg` produit (forme rayonnante, convention AFNOR).
-- SVG `pieuvre-bras-3-axes.svg` produit (incarnation fil rouge).
-
-### Leçon méthodo — auto-critique en plusieurs passes pour relecture terminologique
-
-En 1ère passe sur la cohérence terminologique « phase N en raccourci numérique », identification de 4 occurrences. En réalité, 9 résiduelles trouvées en passes 2 et 3. Discipline future : pour ce type de relecture exhaustive (substitutions terminologiques systématiques), **grep avant d'annoncer exhaustivité**. L'auto-critique progressive a fonctionné ici (identification spontanée d'occurrences loupées entre les passes), mais un outil de recherche aurait été plus efficace.
-
-### Décisions reportées (toujours en attente)
-- Toutes celles des sessions précédentes (sauf cohérence finale 6 étapes retombée).
-- **Approfondir `pieuvre.md`** au standard `bete-a-cornes.md` : rédiger les 4 sections en placeholder (À quoi ça sert / Comment construire / Pièges / Exemple commenté).
-- **Approfondir `fonction.md`** si besoin à l'usage (déjà brève complète, peut être enrichie au standard bete-a-cornes si la pratique le révèle nécessaire).
-- **Inventaire systématique des fiches stub/placeholders avant publication aux élèves** : nouvelle tâche structurante pour la phase de pré-ouverture. Le BACKLOG est désormais le pilote de la maturité éditoriale (la convention `draft` ne joue plus ce rôle).
-- **Reprise visuelle des images SVG** (pas du contenu) avant publication : à faire juste avant ouverture aux élèves.
 
 ---
 
