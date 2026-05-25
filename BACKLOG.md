@@ -9,7 +9,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] `hub/specification-technique` — phase 1 du V
 - [x] ~~`hub/concept` — phase 2 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/concept.md`
-- [x] ~~`hub/preuve-de-concept` — phase 3 du V (point pivot du V)~~ — squelette fait le 22/05 dans `content/fiches/proj/preuve-de-concept.md`
+- [x] ~~`hub/preuve-de-concept` — phase 3 du V (point pivot du V)~~ — squelette fait le 22/05 dans `content/fiches/proj/preuve-de-concept.md` ; **approfondi 25/05 suite 7** (5 étapes + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes + 6 nouvelles cibles wiki-links sur outils)
 - [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md`
 - [x] ~~`hub/integration-et-tests` — phase 5 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/integration-et-tests.md`
 - [x] ~~`hub/gestion-de-projet` — fil transverse~~ — squelettisée + approfondie 25/05 dans `content/fiches/proj/gestion-de-projet.md`. 5 conventions transverses fixées à propager aux 2 autres transverses.
@@ -24,7 +24,15 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] PWM (modulation de largeur d'impulsion)
 - [ ] PID (régulateur proportionnel-intégral-dérivé)
 - [ ] Asservissement
-- [ ] Microcontrôleur (vs contrôleur générique)
+- [ ] **`microcontroleur`** — fiche-notion racine, alias `MCU`. **Plan long terme (25/05 suite 7)** : la fiche devient une **page d'aiguillage** vers tutoriels par famille de microcontrôleurs : `[[stm32]]`, `[[esp32]]`, `[[micropython]]`, `[[arduino]]`, `[[teensy]]`, etc. Pose les notions communes (registres, périphériques, bus, IDE) puis renvoie vers les tutos spécifiques. À traiter en même temps que la fiche-tuto `arduino` pour cadrer l'architecture aiguillage.
+- [ ] **`arduino`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Plate-forme + IDE + écosystème. Distinguer du langage ; positionner dans la famille `microcontroleur`. **À traiter en même temps que la page d'aiguillage `microcontroleur`**.
+- [ ] **`stm32`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible avancée, registres, HAL/LL, CubeMX.
+- [ ] **`esp32`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible Wi-Fi/Bluetooth intégrés, Arduino Core ou ESP-IDF.
+- [ ] **`micropython`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Approche scriptée haut niveau pour microcontrôleurs.
+- [ ] **`teensy`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible performance temps réel / DSP / MIDI.
+- [ ] **`multimetre`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Mesures de base (tension, courant, résistance, continuité), choix d'échelle, pièges classiques.
+- [ ] **`oscilloscope`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Lecture d'écran, calibration sonde, déclenchement, mesures de période/amplitude.
+- [ ] **`alimentation-stabilisee`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Tension/courant/limite, mode CV/CC, sécurité court-circuit.
 - [ ] Alimentation d'un système embarqué
 - [ ] Pull-up / pull-down
 - [ ] Niveau logique (3.3V, 5V, compatibilité)
@@ -88,6 +96,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 ### MME — Matériaux / mécanique (interface collègues)
 - [ ] Liens vers cours mécanique
 - [ ] Liens vers cours fabrication
+- [ ] **`pied-a-coulisse`** — fiche-notion (popover posé dans `preuve-de-concept.md` outillage, 25/05 suite 7). Instrument de mesure dimensionnelle de base, lecture vernier, plage 0-150 mm typique. Court, popover-only.
+- [ ] **`comparateur`** — fiche-notion (popover posé dans `preuve-de-concept.md` instruments de mesure, 25/05 suite 7). Aliases possibles `[comparateur-micrometrique]`. Mesure de variation dimensionnelle (jeu, défaut de planéité, dérive), précision typique 0,01–0,02 mm.
 
 ### ESE — Écoconception
 - [ ] ACV (analyse cycle de vie) — principes
@@ -158,6 +168,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Convention de suffixe disciplinaire** `(élec)` / `(méca)` / `(info)` en bout de label des nœuds : à acter comme convention si retenu après plusieurs flowcharts produits.
 - [ ] **Layout flowchart phase 2 — non résolu** : le subgraph BRANCHES (étude par discipline) reste chaotique malgré plusieurs tentatives (sous-subgraphs LR/TB, liens invisibles `~~~`). Pistes à explorer plus tard : (a) tester le renderer ELK via `%%{init: {'flowchart': {'defaultRenderer': 'elk'}} }%%` (peut nécessiter une mise à jour de `@mermaid-js/mermaid-cli`), (b) abandonner la grille pure et accepter un autre mode de représentation, (c) sortir complètement de Mermaid pour cette phase (SVG main, draw.io, Excalidraw). **Confirmé 21/05 suite** : le même découpage en grille 3×3 régulière (phase 3) passe sans problème. C'est spécifiquement le 2×3 rectangulaire qui coince. Si on doit résoudre ph2, symétriser en 3×3 (ajouter un 3è étage : matrice + ?) pourrait suffire.
 - [ ] **Règle de visualisation des flowcharts** : préférer le SVG généré par `npm run flowcharts` au rendu Obsidian quand le diagramme devient large (Obsidian ne permet pas le scroll horizontal facile). Le SVG s'ouvre dans n'importe quel visualiseur d'image avec zoom natif.
+
+- [ ] **Mode d'application convention 6 (wiki-link à la 1ère occurrence par section/sous-section/callout)** : observation 25/05 suite 6 — 20 patches sur 27 de la session de cohérence finale concept ont porté sur la convention 6 (74 %). Hypothèse : la convention 6 s'applique mieux en **passe dédiée en sortie de fiche** qu'en application au fil de la rédaction. À confirmer sur `preuve-de-concept` : si le ratio passe wiki-links / total reste similaire, formaliser le mode d'application dans `conventions.md` § 2 (Mise en forme — Popovers et wiki-links).
 
 *Note : 4 conventions à éprouver précédemment listées ici (popovers sigles génériques, alias Quartz CrawlLinks, 2 images par fiche-notion d'outil, fil rouge station météo) sont désormais portées par `conventions.md` section « En cours d'éprouvage ». Pas de duplication.*
 

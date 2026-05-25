@@ -261,6 +261,19 @@ Front matter → popover → posture → objectif → démarche (N étapes) → 
 équipe → conclusion → voir aussi. **Ordre : Pièges et Équipe avant
 Conclusion.**
 
+### Rythme des H4 par étape — fiches-trame des phases du V (25/05 suite 7)
+
+Éprouvée 2/2 sur `concept.md` puis `preuve-de-concept.md`. Règle tripartite :
+- Étape **pivot** → **3 H4 dense**
+  (étape 3 concept = arbitrage inter-disciplines ; étape 4 PoC = analyser et trancher).
+- Étape **hors pivot non-clôture** → **2 H4 économes**
+  (étapes 1, 2, 4 concept ; étapes 1, 2, 3 PoC).
+- Étape de **clôture documentaire** → **3 H4 calque structurel**
+  *Structurer / Rédiger / Faire valider* (étape 5 concept ; étape 5 PoC).
+
+Ne s'applique pas aux fiches-trame transverses (structure 3 blocs co-actifs).
+À éprouver sur `dossier-technique` puis `integration-et-tests`.
+
 ### Structure des fiches-notion
 Front matter → popover → image générique (si outil méthodologique) →
 À quoi ça sert ? → Comment <verbe adapté> → Exemple incarné → Pièges (en gras
@@ -295,10 +308,28 @@ formellement dans les templates une fois éprouvées.
 (25/05 suite 2). À confirmer sur `securite-et-qualite` avant intégration
 définitive dans le template `fiche-trame.md`.
 
+**Note méthodo confirmée 25/05 suite 7** : sur `preuve-de-concept.md`,
+la convention 6 a été appliquée correctement au fil de la rédaction
+(passe dédiée finale : **0 patch** vs 20 patches sur concept = 74 %).
+L'hypothèse 25/05 suite 6 est partiellement validée : la convention 6
+s'applique au fil **quand la discipline est acquise** ; la passe dédiée
+en sortie de fiche devient un **filet de sécurité**, pas le mode
+principal d'application. Mode d'application stabilisé :
+1. Wiki-link 1ère occurrence par section/sous-section/callout au fil.
+2. Passe dédiée finale en sortie de fiche pour rattraper les oublis.
+
 ### Acquises 25/05 suite 2 (à éprouver sur 2-3 fiches-notion d'outils)
 7. 2 images par fiche-notion d'outil méthodologique → § 3
 8. Fil rouge alternatif station météo → § 4
 9. Niveau B = livraison en texte rédigé → § 5
+
+### Acquises 25/05 suite 4-5 (à éprouver sur preuve-de-concept et trames ultérieures)
+10. **Matrice incarnée dans `[!example]`** des fiches-trame (objet structuré dans le callout exemple, valeurs chiffrées ou récapitulatives, décision/sortie tracée et ouverture vers la suite). Éprouvée sur **4 contextes au sein de concept** : (a) matrice de décision 3 solutions × 5 critères + scores pondérés en étape 2 ; (b) tableau de conflits 4 colonnes × 2 lignes en étape 3 ; (c) tableau de pré-dim 6 colonnes × 5 lignes en étape 4 (point de vigilance mobile) ; (d) TdM type + TdM instanciée 5 sections en étape 5. **Confirmée sur 4 contextes PoC supplémentaires (25/05 suite 7)** : liste à puces 3 sources étape 2, relevés 5 points 1000 cycles étape 3, tableau de statut + décision traçée étape 4, TdM type instanciée étape 5. Huit formes différentes du même pattern — indicateur de généralité très solide. Promotionnable vers § 2 si confirmée sur `dossier-technique`. → § 2
+11. ~~**Structure des H4 par étape dans les fiches-trame des phases du V**~~ — **promue vers § 6 le 25/05 suite 7** après épreuve 2/2 sur concept + PoC. Voir § 6 *Rythme des H4 par étape*.
+12. **Nourrissage a posteriori de la section *Pièges fréquents*** — les pièges d'une fiche-trame peuvent émerger spontanément pendant la rédaction des étapes (warning/tip d'étape transformé en piège de fiche). Mode complémentaire à la relecture critique à froid (pattern spec-tech 23/05 suite 2). Éprouvé sur concept (3 pièges sur 8 = 37 %) et sur PoC (5 pièges sur 11 = 45 %, indicateur en croissance). Confirmé 25/05 suite 7. Promotion possible vers § 6 si confirmé sur `dossier-technique`. → § 6 (Structure des fiches-trame).
+
+### Acquises 25/05 suite 7 (à éprouver sur dossier-technique)
+13. **Relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale**. Extension de la leçon ±2 phrases (25/05 suite 6). Le doublon « on a le matos, on monte, on verra ce que ça donne » détecté en round 2 sur PoC étape 1 a montré que le doublon peut remonter jusqu'aux sections amont rédigées en session antérieure (Posture, Objectif). Discipline : passe rapide en lecture sur sections amont avant de rédiger une nouvelle section H4. Coût 1 round 2 sur PoC. À confirmer sur dossier-technique. → § 5 (Collaboration) ou § 1 (Rédaction).
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

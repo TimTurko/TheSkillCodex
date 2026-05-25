@@ -6,6 +6,318 @@
 > (mise en place initiale du dépôt, installation PC perso, trame projet cycle
 > en V, flowcharts de phase).
 
+> ⚠️ **Taille fichier : 131,8 ko (> seuil 100 ko)**. Archivage des sessions
+> 22/05 → 24/05 à envisager en début de prochaine session pour alléger le head
+> lu au démarrage. À trancher à froid.
+
+---
+
+## 2026-05-25 (suite 7) — PoC : approfondissement v1 complet
+
+### Périmètre de session
+1ère session d'approfondissement de `preuve-de-concept.md` (squelette du 22/05). Calque méthodo 25/05 suite 4-5-6 sur `concept.md`. Geste de cette session : appliquer le mode d'application proposé pour la convention 6 (passe dédiée en sortie de fiche) et éprouver les conventions 10 / 11 / 12 sur la trame du V suivante. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 4 questions tranchées en bloc (niveau C)
+1. **Découpage en 5 étapes** (pas 4 du squelette) : 1) Définir / 2) Préparer / 3) Mener / 4) Analyser et trancher (pivot) / 5) Rédiger et faire valider (clôture documentaire). Rythme H4 selon convention 11 : 2/2/2/3/3.
+2. **Étape pivot = 4** (Analyser et trancher), clôture documentaire = étape 5. Justification : le pivot du V se joue au moment de la décision (go / ajustement / retour amont), pas au moment de la mesure.
+3. **Fil rouge local PoC = articulation 3D imprimée PLA 60 %** (incertitude locale cohérente avec le fil rouge global, pas alignement strict sur I1/I2 sortis de l'étape 4 concept). Décision tranchée : le callout exemple sert d'incarnation locale, pas de continuité narrative inter-fiches stricte. À surveiller si la cohérence inter-fiches devient un fil rouge structurant.
+4. **Boucle rétroactive marge négative incarnée (α)** : la preuve articulation 3D conclut marge négative → retour amont structurant vers concept étape 3 (renégociation à 3 disciplines). Matérialisée dans `[!example]` étape 4 + closure dans `[!example]` étape 5 (revue PoC validée sous conditions après reprise concept aboutie sur articulation usinée).
+
+### Phase 1 — Alignement v2.1 du squelette + restructuration 4→5 étapes (9 patches en batch)
+Niveau B annoncé. 3× `[!example]` titre fixe « Exemple : projet bras 3 axes » ; 3× `[!livrable]` titre format « Livrable N/5 — Preuve de concept » ; 1× `[!warning]` étape 2 titre fixe Attention + phrase-clé gras ; 1× renommage étape 3 (« Mener les preuves » → « Mener les essais ») ; 1× refonte massive étape 4 originale → étape 4 (placeholder pivot avec 3 sorties + warning + example + livrable) + nouvelle étape 5 (clôture documentaire, placeholders à rédiger).
+
+### Phase 2 — Étape 1 *Définir chaque preuve* (1 patch)
+Niveau B annoncé puis niveau A demandé par l'utilisateur pour la suite. Structure 2 H4 : *D'une incertitude à un énoncé testable* / *Le triplet hypothèse / critère / protocole*. `[!warning]` Un énoncé non écrit n'est pas un énoncé. `[!tip]` Formuler le critère en miroir d'une exigence chiffrée du CdCF. `[!example]` enrichi (triplet posé + revue encadrant traçée 3 corrections demandées). 1 pitié méthodo dryRun-rattrapée (1ère tentative astérisques parasites + duplication `[!livrable]`).
+
+**Round 2 utilisateur — 1 correction** : doublon « on a le matos, on monte, on verra ce que ça donne » présent dans Posture amont ET dans H4-1 étape 1. Patch correctif appliqué (refonte du paragraphe : 3 conséquences en miroir des 3 éléments du triplet — sans hypothèse / sans critère / sans protocole). **Leçon méthodo : extension de la leçon ±2 phrases (25/05 suite 6)** — relire les sections amont de la fiche elle-même (Posture, Objectif) avant de rédiger une section avale, même quand elles ont été rédigées en session antérieure. Convention candidate à pousser en § 7 conventions.
+
+### Phase 3 — Étape 2 *Préparer les moyens* (1 patch, niveau A)
+2 H4 économes : *Du protocole aux ressources* / *Trois sources, dans l'ordre*. `[!warning]` Pas d'achat à titre personnel (conservé). `[!tip]` Demander tôt le stock divers. `[!example]` enrichi liste à puces des 3 sources, rattachement traçable + lien rétroactif vers correction étape 1 (couple appliqué à la balance + pied à coulisse).
+
+### Phase 4 — Étape 3 *Mener les essais par incertitude* (1 patch, niveau A)
+2 H4 économes : *Monter le banc* (caractérisation préalable) / *Exécuter et tracer les mesures*. `[!warning]` Caractériser le banc avant de mesurer. `[!tip]` Noter les anomalies, pas seulement les valeurs. `[!example]` enrichi : caractérisation banc + relevés 5 points 1000 cycles montrant dépassement critère 0,5° entre 480-550 cycles (profil sur 3 articulations).
+
+### Phase 5 — Étape 4 *Analyser et trancher* (PIVOT, 1 patch, niveau A)
+3 H4 dense (convention 11 éprouvée une 2ᵉ fois) : *Confronter au critère* / *Synchroniser entre preuves* / *Statuer*. 3 sorties nominales numérotées : Validé / Ajustement local / Retour amont structurant + mises à jour amont dans la même séance ([[matrice-de-risques|matrice de risques]] + éco + matrices décision concept). `[!warning]` Une preuve non concluante n'est pas un échec. `[!tip]` Synchroniser avant de statuer. `[!example]` enrichi avec tableau de statut (incarnation α) + décision traçée retour concept étape 3 + mises à jour matrice de risques + écoconception révisée (PLA 60 % défavorable).
+
+### Phase 6 — Étape 5 *Rédiger et faire valider* (CLÔTURE DOCUMENTAIRE, 1 patch, niveau A)
+3 H4 calque concept étape 5 (convention 11 sous-règle clôture documentaire éprouvée 2/2) : *Structurer le rapport* / *Rédiger chaque section* / *Faire valider en revue PoC*. TdM type 5 sections numérotée. 4 issues nominales calque concept étape 5 (sans réserve / sous conditions / reprise locale / rétroaction amont). `[!warning]` Compiler n'est pas rédiger. `[!tip]` Faire la revue à blanc en équipe. `[!example]` avec TdM type instanciée sur cas bras 3 axes + revue PoC traçée *validé sous conditions* après reprise concept aboutie (articulation usinée).
+
+### Phase 7 — Pièges + Équipe (1 patch)
+**Pièges fréquents** : refonte 6 puces simples → 11 entrées format gras court + explication (convention 12 confirmée). **5/11 pièges issus a posteriori des étapes 3-4-5 (~45 %)**, supérieur à concept (3/8 ≈ 37 %) — indicateur que la convention 12 généralise.
+**Pendant cette phase, côté équipe** : 4 paragraphes thématiques (Interfaces métiers / Gestion de projet / Écoconception / Sécurité et qualité), calque concept.
+
+### Phase 8 — Cohérence finale d'ensemble (4 passes calque concept 25/05 suite 6, 1 batch de 3 patches)
+- **Passe 1 (terminologie)** : 2 corrections (« troisième étape » → « troisième phase » intro ; typo « enchâine » → « enchaîne » étape 3).
+- **Passe 2 (fil rouge bras 3 axes)** : 1 correction (« section 5 du dossier concept » ambigu en étape 5 → « bilan écoconception du dossier concept »).
+- **Passe 3 (ponts inter-étapes)** : 0 patch. Pattern stylistique déjà internalisé (annonces aval N→N+1 portées par intro étape suivante, calque concept).
+- **Passe 4 (wiki-links / popovers)** : 0 patch. **Résultat majeur** : la convention 6 a été appliquée correctement au fil de la rédaction sur PoC (vs 74 % des patches concentrés en passe finale sur concept). Audit final n'a révélé aucun oubli significatif. **Confirme partiellement** la leçon méthodo 25/05 suite 6 : la convention 6 est applicable au fil quand on a la discipline acquise, la passe dédiée devient plutôt un filet de sécurité.
+
+### Phase 9 — Round 2 utilisateur sur les wiki-links
+Demande utilisateur niveau A : ajouter wiki-links sur 4 outils tuto (multimètre, oscilloscope, alimentation stabilisée, Arduino) et 2 instruments notion (pied à coulisse, comparateur). 6 nouvelles cibles de wiki-links posées (1 batch de 7 patches sur 6 contextes : étape 2 H4-1, étape 2 H4-2, étape 2 example, étape 3 warning, étape 3 example, étape 5 example). Convention 6 (1ère occurrence par contexte) respectée.
+
+**Correction factuelle process fablab** : reformulation étape 2 H4-2 et example pour refléter la réalité école — l'équipe ne reçoit pas de filament en propre, elle transmet des fichiers STL au responsable fablab impression 3D qui prend en charge l'impression. Information de cadrage importante pour la PoC, transposable à d'autres fiches mentionnant l'impression 3D à surveiller.
+
+**Mini-patch final** : disjonction `[[microcontroleur|microcontrôleurs]]` et `[[arduino|Arduino]]` dans l'énumération Stock standard (après remarque utilisateur). **Plan long terme à matérialiser** : la fiche `microcontroleur` deviendra une page d'aiguillage vers tutoriels par famille (STM32, ESP32, MicroPython, Arduino, Teensy, etc.). Poussé au BACKLOG.
+
+### État de `preuve-de-concept.md` en fin de session
+- Démarche complète : 5 étapes rédigées et alignées sur les 4 dimensions auditées.
+- Sections transverses : *Pièges fréquents* (11 entrées) et *Pendant cette phase, côté équipe* (4 paragraphes thématiques) rédigées.
+- Front matter + Posture + Objectif + Conclusion + Voir aussi : posés et alignés.
+- Wiki-links : 6 nouvelles cibles ajoutées au réseau (multimetre / oscilloscope / alimentation-stabilisee / arduino / pied-a-coulisse / comparateur).
+- **Fiche complète et alignée v2.1. Phase 3 du cycle en V close.**
+
+### Leçons méthodo de la session
+- **Leçon 1 (extension leçon ±2 phrases du 25/05 suite 6)** : relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale, même quand elles ont été rédigées en session antérieure. Coût 1 round 2 sur PoC étape 1. Convention candidate → `conventions.md` § 7.
+- **Leçon 2 (confirmation partielle du 25/05 suite 6)** : la convention 6 (wiki-link 1ère occurrence par section/sous-section/callout) s'applique correctement au fil quand la discipline est acquise. Sur PoC, 0 patch en passe finale (vs 74 % sur concept). La passe dédiée en sortie de fiche devient un filet de sécurité, pas le mode principal d'application.
+- **Leçon 3 (généralité convention 12)** : la section *Pièges fréquents* se nourrit a posteriori des étapes aval à ~45 % sur PoC (5/11), supérieur au ratio concept (3/8). Convention 12 confirmée, promotion possible vers § 6.
+
+### État des conventions à éprouver — sortie session
+- **Convention 6** (wiki-link 1ère occurrence par contexte) : confirmée en audit final exhaustif PoC. Mode d'application affiné (au fil + filet passe dédiée). MAJ note méthodo dans `conventions.md` § 7.
+- **Convention 10** (matrice incarnée dans `[!example]`) : éprouvée sur **4 contextes PoC** (liste à puces 3 sources étape 2, relevés 5 points étape 3, tableau de statut étape 4, TdM type instanciée étape 5). Indicateur de généralité renforcé. Promotion possible vers § 2 si confirmée sur dossier-technique.
+- **Convention 11** (rythme H4 selon densité d'étape) : éprouvée 2/2 trames consécutives (concept + PoC). Règle tripartite validée : pivot → 3 H4 / hors pivot non-clôture → 2 H4 / clôture documentaire → 3 H4 calque. **Promotion proposée** vers `conventions.md` § 6 (Structure des fiches-trame).
+- **Convention 12** (Pièges nourris a posteriori) : confirmée (~45 % sur PoC vs ~37 % sur concept). Promotion possible vers § 6 si confirmée sur dossier-technique.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Cohérence inter-fiches concept ↔ PoC** : la rétroaction marge négative incarnée dans PoC étape 4 renvoie vers concept étape 3, et la rétroaction articulation usinée revient dans PoC étape 5. Ces ponts sont posés côté PoC mais pas instanciés côté concept (l'`[!example]` concept étape 3 connaissait déjà ses 2 conflits propres). Question reportée à une session dédiée « cohérence inter-fiches » après rendu 2-3 trames supplémentaires.
+- **`microcontroleur` page d'aiguillage par famille** : posé au BACKLOG. À décider quand on tackle la fiche notion.
+- **6 nouvelles fiches notion/tuto au réseau** (multimetre, oscilloscope, alimentation-stabilisee, arduino, pied-a-coulisse, comparateur) : poussées au BACKLOG.
+- **Prochaine session** : objectif à discuter en début de session suivante (cf. propositions ci-dessous).
+
+---
+
+## 2026-05-25 (suite 6) — Concept : cohérence finale d'ensemble (4 passes de relecture critique)
+
+### Périmètre de session
+Session de clôture phase 2 sur `concept.md`. Démarche complète rédigée (5 étapes + Pièges 8 entrées + Équipe 4 paragraphes, faits 25/05 suite 4 et suite 5). Geste de cette session : relecture critique progressive de l'ensemble sur 4 dimensions, calque méthodo 24/05 suite 2 sur spec-tech (11 patches en 3 passes successives auto-critiques). Session courte attendue, **résultat 27 patches** sur les 4 passes — plus volumineux que prévu en raison de la passe 4 (wiki-links) qui concentre 20 patches. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 3 arbitrages tranchés en bloc (niveau C)
+1. **Ordre des 4 passes** : terminologie → fil rouge → ponts inter-étapes → wiki-links. Justification : terminologie mécanique (grep) dégage le bruit avant les passes sémantiques ; le fil rouge nourrit la décision FC démontabilité qui peut créer des ponts à ajuster ; les wiki-links arrivent en dernier sur texte stabilisé.
+2. **Seuil d'arrêt** : 1 passe sans nouvel écart par dimension, max 2 passes par dimension. Plus strict que spec-tech 24/05 suite 2 (qui a tourné jusqu'à 3 passes), parce que `concept.md` a déjà bénéficié de 5 round 2 sans correction.
+3. **Profondeur audit wiki-links** : exhaustif sur les 5 étapes (et pas Pièges/Équipe/Conclusion qui ont leur propre logique). Audit ciblé mais complet.
+
+### Passe 1 — Terminologie (5 + 1 = 6 patches)
+Grep sur les 6 termes du brief : pas de « point dur », pas de « dérisquer », pas de « soutenance intermédiaire », pas d'extension `.md`, `incertitude(s)` employé au bon endroit partout, `semaine n°X` cohérent (n°5 revue de concept, n°6 engagement PoC).
+
+**5 écarts initiaux** :
+1. Posture : « Cette **étape** ne demande pas… » → « Cette **phase** » (désigne la phase concept entière)
+2. Posture : « la première **étape** où l'écoconception devient un critère » → « première **phase** »
+3. Section Équipe / Écoconception : « Le concept est l'**étape** où l'écoconception devient un critère d'arbitrage » → « la **phase** »
+4. Étape 5 intro : « elle **agrège** » → verbe isolé en gras (conflit convention 25/05) → « elle **agrège les quatre livrables précédents** »
+5. Étape 5 H4-3 : « La revue **valide** le dossier » → verbe isolé en gras → « La revue **valide sans réserve** » (homogénéise les 4 issues nominales : sans réserve / sous conditions / demande une reprise / rétroaction CdCF)
+
+**1 patch correctif effet de bord** : le patch 4 (« agrège les quatre livrables précédents ») a introduit un doublon avec la phrase suivante (« Les quatre livrables précédents… sont assemblés… »). Correction par fusion des 2 phrases : « elle agrège les quatre livrables précédents (décomposition, matrices, architecture, pré-dim et incertitudes) dans un dossier concept unique ».
+
+### Passe 2 — Fil rouge bras 3 axes (1 patch)
+Reconstitution de la chaîne d'éléments instanciés étape par étape. Chaînage propre vérifié sur 4 axes (solutions stepper+driver retenues étape 2 → reprises étape 3 → mesurées étape 4 → consolidées étape 5 ; I1/I2 étape 4 rattachées F0/F1 → reprises section 5 dossier étape 5 ; compromis offset court étape 3 → architecture étape 5 ; 2 conflits étape 3 → tableau conflits arbitrés étape 5).
+
+**Point A — FC démontabilité (point du brief)** : l'étape 5 mentionnait « ajout d'une FC liée à la démontabilité (rétroaction CdCF signalée et tracée en cours de phase) », mais l'étape 1 ne l'instanciait pas (le `[!warning]` reste générique, l'`[!example]` étape 1 ne racontait aucune rétroaction). Option (a) retenue : instanciation rétroactive dans l'`[!example]` étape 1, paragraphe ajouté (~4 lignes) : « Pendant cette décomposition, l'équipe identifie qu'aucune fonction de service du CdCF ne porte explicitement le remplacement d'un moteur en cas de panne… une FC liée à la démontabilité est ajoutée au CdCF avec son numéro de version mis à jour. » Wiki-links re-déclenchés selon convention 6 ([[cahier-des-charges-fonctionnel|CdCF]] et [[FC]]). Cohérence narrative 1→5 désormais propre.
+
+**Point B — réserve étape 2 → étape 3 vs annonce étape 4 (mineur)** : l'`[!example]` étape 2 dit « réserve à lever à l'étape 4 sur la consommation au maintien » mais l'étape 3 débloque concrètement via le compromis lookup table. Inconsistance narrative ténue, lecture continue tient. Laissé tel quel.
+
+### Passe 3 — Ponts inter-étapes (0 patch)
+Vérification des renvois explicites dans les deux sens (annonce N→N+1 et référence N+1→N). Tous les ponts amont OK (étape 3 → étape 2 matrices d'origine ; étape 4 → étape 3 retour si marge négative ; étape 5 → étapes 1-4 agrégation ; Conclusion → preuve de concept).
+
+**Pattern stylistique stable détecté** : les annonces aval N→N+1 sont systématiquement portées par l'**intro de l'étape suivante**, jamais par la sortie de l'étape courante. Cohérent sur les 4 transitions. Choix de fluidité narrative défendable.
+
+**Saut étape 3→5** (sortie étape 3 mentionne étape 5 « le dossier concept rédigé à l'étape 5 pourra s'appuyer sur cette traçabilité ») : déroge légèrement au pattern mais sémantiquement justifié (la traçabilité des matrices d'origine sert effectivement la section 3 du dossier étape 5). Option (a) retenue, laissé tel quel.
+
+### Passe 4 — Wiki-links / popovers (20 patches en batch)
+Audit exhaustif strict (option α) de la convention 6 (wiki-link à la 1ère occurrence par section/sous-section/callout). Profondeur sur les 5 étapes uniquement.
+
+**1 doublon détecté** : étape 2 H4 « Construire la matrice et arbitrer » → `[[ecoconception|écoconception]]` wiki-linkée 3 fois dans le même H4 (1 puce critère + 2 paragraphes suivants). Wiki-links 2 et 3 retirés.
+
+**19 oublis détectés** (1ère occurrence dans nouveau contexte sans wiki-link) :
+- `[!warning]` étape 1 H4-1 : [[cahier-des-charges-fonctionnel|CdCF]]
+- `[!example]` étape 1 ¶2 : [[fast|FAST]]
+- Étape 2 H4-2 puce Encombrement : [[pieuvre]] + [[cahier-des-charges-fonctionnel|CdCF]]
+- `[!example]` étape 2 tableau : [[ecoconception|Écoconception]]
+- Étape 3 H4-3 levier 1 : [[matrice-de-decision|matrice de décision]]
+- Étape 3 H4-3 levier 3 : [[cahier-des-charges-fonctionnel|CdCF]]
+- `[!example]` étape 3 : [[usinage]] + [[impression-3d|impression 3D]]
+- `[!warning]` étape 4 : [[preuve-de-concept|preuve de concept]]
+- `[!tip]` étape 4 : [[preuve-de-concept|preuve de concept]]
+- `[!example]` étape 4 : [[cahier-des-charges-fonctionnel|CdCF]]
+- Étape 5 intro : [[specification-technique|spécification technique]]
+- Étape 5 H4-2 « Rédiger » : [[cahier-des-charges-fonctionnel|CdCF]]
+- Étape 5 H4-3 « Faire valider » : [[preuve-de-concept|preuve de concept]]
+- `[!example]` étape 5 : [[cahier-des-charges-fonctionnel|CdCF]], [[FC]], [[fast|FAST]], [[ecoconception|écoconception]], [[schema-bloc-fonctionnel|schéma bloc]], [[preuve-de-concept|preuve de concept]]
+
+20 patches passés en un seul appel `filesystem:edit_file` (array d'edits, méthodo calque 25/05 suite 4). Diff propre.
+
+Cohérence aliases FP/FS/FC vérifiée : FC wiki-linké à 4 endroits (warning étape 1, puce étape 2 H4-2, `[!example]` étape 1 par patch passe 2, `[!example]` étape 5 par patch passe 4), FP wiki-linké 1 fois (warning étape 1), FS jamais mentionné. Aucun écart sur cet axe.
+
+### Round 2 utilisateur — validé sans correction
+6ᵉ round 2 successif validé sans correction sur `concept.md` depuis le 25/05 suite 4 (étapes 1+2 / étape 3 / étape 4 / étape 5 / Pièges+Équipe / cohérence finale 4 passes). Pattern de régularité maintenu. Signal renforcé : les conventions sont désormais internalisées dans la rédaction, mais la convention 6 fait exception (cf. leçon méthodo ci-dessous).
+
+### Leçon méthodo 1 — relire ±2 phrases avant de proposer une reformulation
+Le patch 4 de la passe 1 (verbe isolé « agrège » → morceau de phrase « agrège les quatre livrables précédents ») a introduit un doublon stylistique avec la phrase suivante (« Les quatre livrables précédents sont assemblés… »). Cause : reformulation proposée sans relecture du contexte aval. Discipline acquise : pour tout patch de gras / reformulation, lire ±2 phrases avant de figer la proposition. Coût : 1 patch correctif supplémentaire. Surface d'application : toutes les passes de relecture critique où Claude propose une reformulation locale.
+
+### Leçon méthodo 2 — convention 6 plus efficace en passe dédiée qu'en continu
+La passe 4 a généré 20 patches sur 27 de la session (74 %). Signal fort : la convention 6 (wiki-link à la 1ère occurrence par section/sous-section/callout) n'avait pas été appliquée stricte au fur et à mesure de la rédaction des étapes 1-5 (faits 25/05 suite 4 et suite 5), alors qu'elle est en éprouvage depuis 25/05 suite. Hypothèse : la convention 6 demande une vigilance constante difficile à tenir en continu pendant la production de fond, mais s'applique très efficacement en **passe dédiée en sortie de fiche** (20 patches en batch en une passe, audit exhaustif tenable). Mode d'application proposé : ne pas chercher à appliquer la convention 6 au fil de la rédaction ; faire une passe wiki-links systématique en sortie de fiche. À confirmer sur `preuve-de-concept` : si le ratio passe wiki-links / total reste similaire (~70-80 %), formaliser la convention dans `conventions.md` § 7 avec mode d'application explicite. MAJ légère effectuée ce jour sur convention 6.
+
+### État de `concept.md` en fin de session
+- Démarche complète : 5 étapes rédigées et alignées sur les 4 dimensions auditées.
+- Sections transverses : *Pièges fréquents* (8 entrées) et *Pendant cette phase, côté équipe* (4 paragraphes thématiques) rédigées et cohérentes.
+- Front matter + Posture + Objectif + Conclusion + Voir aussi : posés et alignés.
+- Wiki-links : audit exhaustif convention 6 appliqué, 1 doublon + 19 oublis corrigés.
+- **Fiche complète et alignée v2.1. Phase 2 du cycle en V close.**
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Prochaine session** posée : approfondissement de `preuve-de-concept` (fiche-trame phase 3 du V, point pivot du V, squelette fait 22/05). À chaque approfondissement, appliquer le mode d'application proposé pour la convention 6 (passe dédiée en sortie).
+- **Conventions 10 et 11 affinées** à éprouver sur preuve-de-concept et dossier-technique pour confirmation avant promotion vers les sections fixes du fichier `conventions.md`.
+- **Cohérence inter-fiches (spec-tech ↔ concept)** : hors champ pour cette session (annoncé brief). Vérification à conduire ultérieurement, possible session dédiée si désynchros détectées.
+
+---
+
+## 2026-05-25 (suite 5) — Concept : approfondissement étapes 3-4-5 + Pièges + Équipe
+
+### Périmètre de session
+Approfondissement des 3 étapes restantes de `concept.md` (étapes 1-2 + alignement v2.1 faits 25/05 suite 4), puis refonte des sections *Pièges fréquents* et *Pendant cette phase, côté équipe*. Cohérence finale d'ensemble (relecture progressive des 5 étapes) reportée à session dédiée selon le découpage acquis 24/05 suite 2 (geste de relecture critique = tête reposée). PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage étape 3 — 3 questions tranchées (niveau C)
+1. **Intitulés des 3 H4** : *Confronter les solutions retenues* / *Caractériser les conflits inter-disciplines* / *Renégocier sans tout casser*. Reformulation de H4-2 par rapport au cadrage initial (*Identifier et arbitrer* → *Caractériser*) : l'identification est mécaniquement induite par H4-1, l'arbitrage est porté par H4-3, H4-2 sert spécifiquement à qualifier (nature / périmètre / opposabilité CdCF).
+2. **Convention 10 (matrice incarnée) sur étape 3** : oui, sous forme de **tableau de conflits identifiés** (1 ligne = 1 conflit, colonnes : sous-systèmes impactés / nature / opposabilité CdCF) plutôt qu'une matrice 3×3 (élégante en apparence mais artificielle si peu de conflits réels — beaucoup de cellules vides ou symétriques). Scalable, narratif, et reste opposable.
+3. **Profondeur du fil rouge bras 3 axes** : option B — cas développé en sortie d'étape (1 `[!example]` riche), aligné sur la convention « 1 `[!example]` par étape ». Micro-allusions au fil rouge possibles dans le corps des H4 mais récit principal concentré dans le `[!example]`.
+
+### Production étape 3 (pivot dense) — 4 patches en batch
+Niveau B. Structure : intro 2 paragraphes (pont depuis étape 2, annonce 3 temps, positionnement comme **pivot de la phase concept**) + 3 H4 :
+- **Confronter les solutions retenues** — sortir des branches, parcourir les interfaces deux à deux (élec↔méca, élec↔info, méca↔info), rendre visibles les frictions sans trancher.
+- **Caractériser les conflits inter-disciplines** — 3 axes de qualification (nature / périmètre / opposabilité CdCF) en liste numérotée (convention 4), sortie = tableau récapitulatif hiérarchisé.
+- **Renégocier sans tout casser** — à toutes les disciplines impactées simultanément (jamais en bilatéral), 3 leviers ordonnés du moins au plus coûteux (revoir arbitrage local / modifier décomposition / assouplir exigence CdCF), anti-pattern « branche la plus avancée impose son arbitrage ».
+
+Callouts : `[!warning]` Attention légèrement retouché pour éviter doublon avec l'intro (« moment pédagogique central » → « moment où l'équipe apprend ce qu'arbitrer veut dire ») + `[!tip]` Astuce nouveau (convocation à trois plutôt qu'en bilatéral) + `[!example]` enrichi avec tableau de conflits 4 colonnes × 2 lignes (Conflit / Sous-systèmes impactés / Nature / Opposabilité CdCF) + déroulé renégociation à trois sur conflit n°1 (méca articulations à axe unique ↔ info cinématique inverse à offset) avec 3 voies explorées et compromis retenu (offset court côté méca + lookup table côté info). Conflit n°2 retombe en partie par effet collatéral. `[!livrable]` enrichi d'une ligne sur le tableau des conflits arbitrés.
+
+Round 2 validé sans correction.
+
+### Production étape 4 (hors pivot) — niveau B, annonce + batch de 2 patches
+Structure : intro 2 paragraphes (pont depuis étape 3, annonce 2 temps, distinction nette pré-dim ≠ dimensionnement définitif qui vient en dossier technique) + 2 H4 économes (éprouve convention 11 stricte) :
+- **Pré-dimensionner par discipline** — grandeurs critiques par discipline (méca : couples/efforts/flèches ; élec : courants/tensions/dissipation ; info : ressources/latences), sortie uniforme (valeur calculée / valeur de spec / marge), seuils 30 %/10 %/négative qui orientent vers OK / incertitude / retour étape 3.
+- **Identifier les incertitudes à lever en preuve de concept** — 4 catégories typiques (marge serrée à la limite du calcul / phénomène mal modélisé / couplage inter-disciplines / hypothèse d'usage non validée) en liste numérotée, sortie comme **liste de questions** rattachées au CdCF.
+
+Callouts : `[!warning]` « Une marge serrée n'est pas une marge, c'est une incertitude » + `[!tip]` formuler chaque incertitude en question (test pratique : ça se teste ou non) + `[!example]` avec **tableau de pré-dim 6 colonnes × 5 lignes** sur la *mobilité articulaire* (verdicts : 2 OK, 2 marges serrées, 1 incertitude) + I1 et I2 formulées en question, rattachées à F0 et F1, avec protocole d'essai esquissé. Livrables existants conservés.
+
+Round 2 validé sans correction.
+
+### Cadrage étape 5 — 3 questions tranchées (niveau C léger)
+1. **Structure 3 H4** — par analogie spec-tech étape 6 (Structurer / Rédiger / Faire valider). **Exception assumée à la convention 11 pour les étapes de clôture documentaire** — réformulation : « 2 H4 hors pivot, sauf clôture documentaire qui suit son propre miroir de spec-tech étape 6 ». Intitulés : *Structurer le dossier concept* / *Rédiger chaque section* / *Faire valider en revue de concept* (calque lexical de « revue de CdCF »).
+2. **Convention 10 sur étape 5** : oui, sous forme de **TdM incarnée du dossier concept** dans l'`[!example]`, calque de la TdM CdCF de spec-tech étape 6 — 5 sections agrégeant les 5 livrables des étapes 1-4 dans l'ordre. Convention 10 éprouvée dans son 4ᵉ contexte au sein de concept (matrice décision / tableau de conflits / tableau de pré-dim / TdM).
+3. **Template Word concept** : **non**, pas maintenant. Argument contre : le dossier concept agrège des productions hétérogènes (décomposition + matrices + architecture + pré-dim + incertitudes) là où le CdCF était plus normé. Un template Word figerait un format avant d'avoir du recul. Possibilité ouverte ultérieurement, pas en session.
+
+### Production étape 5 (clôture documentaire) — niveau B, batch de 3 patches
+Structure : intro 2 paragraphes (« l'étape 5 ne produit rien de nouveau, elle agrège » + équivalence directe avec rédaction du CdCF en fin de spec-tech) + 3 H4 :
+- **Structurer le dossier concept** — narration *quoi → comment → ensemble → chiffrage → ce qui reste* + **TdM type 5 sections** en liste numérotée (Présentation et contexte / Décomposition fonctionnelle / Arbitrages disciplinaires / Architecture globale / Pré-dim et incertitudes) + mention section *Annexes* optionnelle.
+- **Rédiger chaque section** — 3 soins (forme / cohérence inter-sections / traçabilité jusqu'au CdCF) avec mention explicite de la documentation des rétroactions CdCF intervenues en cours de phase (ne pas masquer).
+- **Faire valider en revue de concept** — nature du jalon (équivalent go/no-go d'architecture) + préparation + **4 issues** (validé / validé sous conditions / reprise locale étape 3-4 / rétroaction vers spec-tech).
+
+Callouts : `[!warning]` « Compiler n'est pas rédiger » + `[!tip]` revue à blanc en équipe avant le jour J + `[!example]` avec TdM type instanciée sur les 5 sections du dossier bras 3 axes (rappel rétroaction CdCF étape 1 = ajout FC démontabilité, 3 sous-systèmes, matrices, schéma bloc avec offset court, 2 incertitudes I1/I2 rattachées F0/F1) + issue de revue tracée (« validé sous conditions » + 2 compléments demandés) + engagement preuve de concept en semaine n°6. Livrable enrichi avec mention 5 sections + traçabilité CdCF + issue tracée.
+
+Round 2 validé sans correction.
+
+### Pièges fréquents — refonte 5 puces → 8 entrées gras court + explication
+Niveau B sur le calque spec-tech 24/05 partie 1. Les 5 pièges existants reformulés au format **« Piège court. » + 1-2 phrases d'explication** (Choisir les composants définitifs trop tôt / Laisser chaque discipline finir sa matrice avant de confronter / Traiter l'écoconception comme une case à cocher / Confondre front de travail et répartition des rôles / Sauter le pré-dim). **3 nouveaux pièges émergés spontanément des étapes 3-4-5** : Renégocier en bilatéral (étape 3) / Habiller une marge serrée en certitude par un calcul plus fin (étape 4) / Compiler le dossier au lieu de le rédiger (étape 5). Total : 8 pièges. **Leçon méthodo** : la section *Pièges* se nourrit a posteriori des leçons rédactionnelles des étapes (3 pièges sur 8 émergés pendant la rédaction), pas a priori d'une checklist méthodo. Mode complémentaire à spec-tech 23/05 suite 2 (pièges identifiés en relecture critique) — les deux modes coexistent.
+
+### Pendant cette phase, côté équipe — 4 paragraphes thématiques
+Niveau B sur le calque spec-tech 24/05 partie 1. **Interfaces métiers** — méca, fabrication, info, mobilisation des cours collègues, dialogue calé en amont de la phase. **Gestion de projet** — arbitrages d'architecture comme décisions structurantes (mise à jour matrice de risques et rétroplanning), incertitudes étape 4 comme commande de la PoC, revue de concept inscrite au rétroplanning dès spec-tech, autorisation des chevauchements temporels mais pas dans l'ordre des livrables. **Écoconception** — graines réparties étapes 2-3-4-5, agrégées par le dossier concept. **Sécurité-qualité** — exigences réglementaires CE/RoHS/REACH/DEEE traduites en contraintes d'arbitrage dès la matrice de l'étape 2 (éliminer en amont, pas en fin de course). Wiki-links semerés en lien rouge sur les notions normatives (rohs, reach, deee) et procédés (usinage, impression-3d, soudure) — déjà inventoriés au TODO.
+
+Round 2 validé sans correction.
+
+### 5 round 2 successifs sans correction — signal méthodo
+Les 5 étapes (étapes 1+2 du 25/05 suite 4, puis étapes 3+4+5 + Pièges + Équipe ce jour) ont toutes été validées en round 2 sans correction. Au-delà de l'indicateur « les conventions sont internalisées » déjà noté au 25/05 suite 4, signal renforcé : la régularité tient sur 5 étapes consécutives avec deux types d'étape (pivot vs hors pivot) et deux sections transverses (Pièges et Équipe). Discipline à maintenir : ne pas relâcher la rigueur du round 2 sous prétexte de régularité (l'absence de correction ne dispense pas de la relecture).
+
+### Convention 10 — 4 contextes éprouvés au sein de concept
+1. Matrice décision 3×5 + scores pondérés (étape 2, 25/05 suite 4) — forme matricielle classique.
+2. Tableau de conflits 4×2 (étape 3) — forme narrative, scalable.
+3. Tableau de pré-dim 6×5 (étape 4) — densité supérieure, point de vigilance mobile.
+4. TdM type 5 sections + TdM instanciée (étape 5) — forme listée plutôt que tabulaire.
+
+Quatre formes différentes du même pattern (« incarner par un objet structuré dans l'`[!example]` »). Indicateur de généralité solide. Convention 10 promotionnable de la section *En cours d'éprouvage* vers la section 2 (Mise en forme — Callouts) lors d'une session ultérieure si confirmée sur preuve-de-concept et au-delà. Pour l'instant, MAJ de l'entrée « En cours d'éprouvage » pour acter les 4 contextes.
+
+### Convention 11 — affinée avec exception clôture documentaire
+Formulation initiale : « 2 H4 hors pivot » (validation étapes 1 et 2). Étape 3 (pivot) conforme : 3 H4 dense. Étape 4 (hors pivot) conforme : 2 H4 économes. Étape 5 (hors pivot) ne suit pas la formulation initiale : 3 H4 par analogie spec-tech étape 6 (également clôture documentaire).
+
+Reformulation : **2 H4 hors pivot, sauf clôture documentaire qui suit son propre miroir** (3 H4 calque Structurer / Rédiger / Faire valider). Le critère d'application est donc tripartite : pivot → 3 H4 dense ; hors pivot non-clôture → 2 H4 économes ; clôture documentaire → 3 H4 calque structurel. À éprouver sur preuve-de-concept et dossier-technique étape 5 (probable clôture documentaire similaire). Convention reformulée poussée dans `conventions.md` § 7.
+
+### Leçon méthodo — nourriture a posteriori de la section *Pièges*
+Les 3 nouveaux pièges du concept (Renégocier en bilatéral / Marge serrée habillée / Compiler au lieu de rédiger) ont émergé spontanément pendant la rédaction des étapes 3-4-5 (warning / tip / warning respectivement). Indicateur : la section *Pièges* d'une fiche-trame n'a pas vocation à être rempli a priori comme une checklist méthodo — elle se nourrit a posteriori des arbitrages rendus visibles par la rédaction des étapes. Mode complémentaire à celui de spec-tech 23/05 suite 2 (4 pièges identifiés en relecture critique à froid). Les deux modes coexistent : un « grand nettoyage » en fin de phase (relecture critique) + un « dépôt continu » en cours de rédaction (warnings/tips qui se transforment en pièges). Convention possible à dériver si pattern confirmé sur preuve-de-concept.
+
+### État de `concept.md` en fin de session
+- Démarche complète : 5 étapes rédigées (1+2 économes, 3 pivot dense, 4 économe, 5 clôture documentaire 3 H4).
+- Sections transverses : *Pièges fréquents* (8 entrées) et *Pendant cette phase, côté équipe* (4 paragraphes thématiques) rédigées.
+- Front matter + Posture + Objectif + Conclusion + Voir aussi : posés depuis le 22/05 ou les sessions intermédiaires.
+- **Reste pour clôturer la fiche** : cohérence finale d'ensemble (relecture progressive des 5 étapes + recoupements terminologiques + vérification fil rouge entre étapes + alignement des wiki-links). Geste de relecture critique à part entière — session dédiée courte selon le découpage acquis 24/05 suite 2.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Cohérence finale concept** — prochain enchainement proposé, session courte.
+- **Conventions 10 et 11 affinées** à éprouver sur preuve-de-concept et dossier-technique pour confirmation avant promotion vers les sections fixes du fichier `conventions.md`.
+- **Rétroaction CdCF de l'étape 1** (ajout FC démontabilité instancié dans l'`[!example]` étape 5) : exemple placé dans la trame concept, pas à propager rétroactivement dans spec-tech. À surveiller : si l'exemple devient un fil de cohérence inter-trames, préparer une note au CdCF d'origine en spec-tech à l'occasion d'un approfondissement.
+
+---
+
+## 2026-05-25 (suite 4) — Concept : approfondissement étapes 1-2 + alignement callouts v2.1
+
+### Périmètre de session
+Première session d'approfondissement de la fiche-trame `concept.md` (squelette du 22/05). Le squelette portait 5 étapes en placeholder italique + callouts au format pré-v2.1. PC perso, préfixe MCP `filesystem:*`. Trois actions principales : alignement v2.1 des callouts du squelette entier (préalable mécanique), puis rédaction des étapes 1 et 2.
+
+### Cadrage en début de session — 3 questions tranchées (niveau C)
+1. **Profondeur par étape** : option (b) pondérée. Étape 3 (pivot) prévue dense avec sous-sections H4 sur la gestion du conflit inter-disciplines, étape 5 dense en miroir de spec-tech étape 6 (rédaction du dossier), étapes 1/2/4 plus économes (2 H4 chacune). Justification : structure de spec-tech inversée (là, étape 4 = pivot ; ici, étape 3 = pivot, étape 5 = clôture documentaire).
+2. **Ordre de traitement** : 1→5 linéaire (lecture naturelle, cohérence directe).
+3. **Popover `[[decomposition-fonctionnelle]]`** : laissé en lien rouge, fiche-notion en session dédiée. Focus session sur la trame.
+
+### Phase 1 — Alignement v2.1 du squelette (12 patches en batch)
+Application en un seul appel `filesystem:edit_file` avec array d'edits :
+- 5 `[!example] Sur le bras 3 axes` → `Exemple : projet bras 3 axes` (désambiguïsation par 1ère ligne du corps de chaque callout)
+- 5 `[!livrable] Livrable de l'étape N` → `Livrable N/5 — Concept` (et `Livrables 4/5 — Concept` pour étape 4 qui en a 2)
+- 1 `[!warning] Le conflit inter-disciplines arrive presque toujours` → titre fixe `Attention` + phrase-clé en gras dans le corps
+- 1 `[!tip] Branches ≠ rôles` → titre fixe `Astuce` + phrase-clé en gras dans le corps
+
+Diff propre, 12/12 patches appliqués. Discipline confirmée : `edit_file` accepte un array d'edits, suffisant pour batches multi-patches tant que chaque `oldText` est unique au fichier.
+
+### Phase 2 — Rédaction étape 1 « Décomposer le système »
+Niveau B (texte rédigé). Structure : intro 2 paragraphes (transition CdCF validé / annonce 2 temps) + 2 H4 :
+- **Du système aux sous-systèmes** — 3 paragraphes (interfaces nettes, autonomie technique, taille comparable / visualisations SADT-IDEF0 et schéma bloc fonctionnel / découpage non figé révisable post-étape 2) + `[!warning] Attention` sur rétroaction CdCF (trou révélé pendant décomposition, ne pas masquer, économie « quelques heures vs semaines »).
+- **Des sous-systèmes aux fonctions techniques** — 3 paragraphes (FAST verbe + complément, distinction service/technique, profondeur d'arrêt = adressabilité par solution candidate) + `[!tip] Astuce` sur raffinement FAST en plusieurs passes (premier jet haut niveau, raffinement à mesure que l'étape 2 fait apparaître les manques).
+
+`[!example]` enrichi : 3 sous-systèmes du bras (mobilité articulaire / IHM / alim & sécurité) + FAST premier jet sur mobilité articulaire (4 fonctions techniques en verbe + complément : générer un couple, mesurer position angulaire, asservir, synchroniser les axes). Note explicite : le découpage ne reflète pas une répartition par discipline.
+
+Wiki-links semés (étape 1) : `cahier-des-charges-fonctionnel`, `specification-technique`, `decomposition-fonctionnelle`, `schema-bloc-fonctionnel`, `fast`, `pieuvre`, `dossier-technique`, alias `FC` / `FP`.
+
+### Phase 3 — Rédaction étape 2 « Explorer les solutions par discipline »
+Niveau B. Structure parallèle à étape 1 (convention émergente sur les étapes hors pivot) : intro 2 paragraphes + 2 H4 :
+- **Recenser les solutions candidates** — 2-5 solutions par sous-système (pas plus = dilution, pas moins = justification a posteriori), 5 sources à parcourir (état de l'art technique / catalogues fabricants / open source / expérience disciplinaire / brainstorm équipe), ne pas filtrer trop tôt.
+- **Construire la matrice et arbitrer** — croisement solutions × critères, 6 familles de critères (performance / coût / encombrement-masse / écoconception / faisabilité école / risque technique), pondération opposable au CdCF (F0/F1 = poids fort, F3 = poids faible), écoconception comme critère pondéré (pas case à cocher), « le score guide, l'arbitrage motivé tranche ».
+
+Callouts : `[!warning] Attention` nouveau sur matrice cosmétique (notes 4/5 partout = pas de décision, habillage rétroactif). `[!tip] Astuce` existant sur branches ≠ rôles conservé, déplacé après le warning pour transition vers exemple.
+
+`[!example]` enrichi : tableau matrice incarné 3 solutions × 5 critères + score pondéré sur la branche élec de la mobilité articulaire (CC + encodeur 3,35 / Stepper + driver 3,85 / Servomoteur 3,40). Décision tracée : stepper + driver retenu, réserve identifiée sur l'écoconception (conso continue au maintien) à lever étape 4 (mode économie ou commande coupée à l'arrêt). Ouverture explicite vers branches méca + info en parallèle.
+
+Wiki-link nouveau semé : `etat-de-l-art-technique`.
+
+### Round 2 validé sans correction
+Garde-fou tenu : l'utilisateur a relu les étapes 1+2 et validé sans modification. Production tenue au pattern v2.1 et aux 9 conventions transverses (1-9) dès le premier jet, sur deux étapes consécutives. À surveiller : si la régularité se confirme sur les prochaines étapes, indicateur que les conventions sont désormais bien internalisées. Si exception, en revenir à un round 2 plus pointilleux.
+
+### Conventions émergentes — 2 nouvelles poussées dans `conventions.md` § 7
+10. **Matrice incarnée dans `[!example]`** des fiches-trame — pattern validé sur étape 2 concept : tableau dans le callout exemple, scores chiffrés, décision tracée et ouverture vers la suite. À éprouver sur étape 3 concept (tableau de compatibilité inter-disciplines ?), étape 4 (tableau de pré-dimensionnement ?), ou trame ultérieure. Convention de § 2 (Mise en forme — Callouts).
+11. **Structure 2 H4 par étape hors pivot** dans les fiches-trame des phases du V — convention de proportionnalité : étape pivot = 3 H4 dense, étape hors pivot = 2 H4 économes. Validée sur étapes 1 et 2 concept (parallélisme). Étape 3 (pivot) prévue à 3 H4 dense, étape 5 (clôture documentaire) probablement à 3 H4 par analogie spec-tech étape 6, étape 4 à éprouver à 2 H4 économes. Ne s'applique pas aux fiches-trame transverses (structure 3 blocs co-actifs). Convention de § 6 (Publication / Quartz — Structure des fiches-trame).
+
+### Leçon méthodo — batch d'edits via filesystem:edit_file
+Confirmation : `edit_file` accepte un array d'edits passés en un seul appel, traités en séquence. Plus rapide qu'un patch par appel, plus sûr qu'un `write_file` long (cf. leçon méthodo palier 2 du 25/05 suite 3 sur la troncature silencieuse). Discipline : chaque `oldText` doit être unique au fichier. Quand un titre se répète (ex : 5 `[!example] Sur le bras 3 axes`), désambiguïser en incluant la 1ère ligne du corps de chaque callout — ça suffit. 12 patches en batch passés sans incident.
+
+### État de `concept.md` en fin de session
+- Étapes 1 et 2 rédigées et validées.
+- Étapes 3, 4, 5 en placeholder italique avec callouts au format v2.1 désormais aligné.
+- Pièges + Côté équipe en placeholder.
+- Posture + Objectif + Conclusion + Voir aussi : rédigés depuis le 22/05 (squelette).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Étape 3 concept** (pivot dense) à approfondir en session suivante : 3 H4 prévues (Confronter les solutions retenues / Identifier et arbitrer les conflits / Renégocier sans tout casser), `[!warning]` enrichi + `[!example]` continuant le fil rouge bras 3 axes (conflit méca↔info sur articulations à axe unique vs cinématique inverse à offset, déjà esquissé dans le squelette).
+- **Conventions émergentes 10 et 11** à éprouver — convention 10 sur étape 3 ou 4 (matrice incarnée si pertinent), convention 11 sur étape 4 (2 H4 économes).
+- **Pattern matrice incarnée** — à surveiller en rendu Quartz mobile (tableau 6 lignes × 5 colonnes potentiellement chargé sur smartphone).
+
 ---
 
 ## 2026-05-25 (suite 3) — Nettoyage documentaire complet (paliers 1-6)
