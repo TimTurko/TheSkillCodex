@@ -5,15 +5,15 @@
 
 ## Prochaines sessions (ordre logique)
 
-### 0. Session annexe — Nettoyage documentaire (en cours)
-**Décision 25/05 suite 2** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Plan en 6 paliers acté 25/05 suite 3.
+### 0. Session annexe — Nettoyage documentaire (complète)
+**Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
 
 - Palier 1 — Création `conventions.md` ✅ fait 25/05 suite 3
 - Palier 2 — Archivage JOURNAL pré-22/05 dans `JOURNAL-archive.md` ✅ fait 25/05 suite 3
-- Palier 3 — Compactage TODO (3a Fait / 3b Commit+push / 3c Décisions) — **en cours**
-- Palier 4 — Compactage BACKLOG (léger). À faire (commit utilisateur attendu avant).
-- Palier 5 — Refonte v2 du prompt projet (production en chat, copie manuelle). À faire.
-- Palier 6 — Test de démarrage post-refonte. À faire.
+- Palier 3 — Compactage TODO (51 ko → 12,5 ko) ✅ fait 25/05 suite 3
+- Palier 4 — Compactage BACKLOG (22 ko → 20,2 ko) ✅ fait 25/05 suite 3
+- Palier 5 — Refonte v2 du prompt projet (9 ko → 5,5 ko, 13 sections → 9) ✅ fait 25/05 suite 3
+- Palier 6 — Test de démarrage post-refonte + patch §8 tail→head ✅ fait 25/05 suite 3
 
 ### 1. Cadrage pédagogique (suite)
 - [ ] **Session "chronopédagogie"** : projeter le cycle en V à 5 phases sur les 15 semaines du semestre. Quelle phase à quel moment, combien de temps, quels jalons concrets ?
@@ -95,6 +95,18 @@
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
 
+### Session 2026-05-25 (suite 3 — Nettoyage documentaire complet : paliers 1-6)
+- [x] Trancher les 7 questions de cadrage en bloc (externalisation conventions, rotation glissante TODO Fait, consolidation Commit+push, archivage JOURNAL, démarrage auto, méthode audit+refonte ciblée, regroupement conventions par thème)
+- [x] **Palier 1** : création de `conventions.md` (14,6 ko, 7 sections + section « En cours d'éprouvage »)
+- [x] **Palier 2** : archivage JOURNAL pré-22/05 (création `JOURNAL-archive.md` 49,7 ko, troncature JOURNAL.md 138 ko → 89 ko)
+- [x] **Palier 3** : compactage TODO (51 ko → 12,5 ko, gain ~75 %) — 3a réduction section Fait à 3 dernières sessions, 3b consolidation 16 lignes Commit+push, 3c quasi-vidage section Décisions éditoriales
+- [x] **Palier 4** : compactage BACKLOG (22 ko → 20,2 ko, gain ~8 %) — 5 items supprimés déjà absorbés par conventions.md ou obsolètes, 2 notes ajoutées pour traçabilité
+- [x] **Palier 5** : refonte v2 du prompt projet (~9 ko → ~5,5 ko, 13 sections → 9) avec fusions §3+§6+§10 et §8+§9, externalisations §7+§7bis vers conventions.md, mise à jour §8 démarrage et §9 fin de session, intégration note « niveau B = texte rédigé »
+- [x] **Palier 6** : test de démarrage post-refonte (~11-12 k tokens vs cible 15-20 k, réduction ~80 % vs initial)
+- [x] **Patch §8 post-test** : détection erreur `tail` → `head` sur lecture JOURNAL antichronologique, corrigé par l'utilisateur dans Claude Desktop
+- [x] Leçon méthodo : `filesystem:edit_file` (édit ciblé, plus sûr sur gros fichiers) préféré à `filesystem:write_file` (réécriture intégrale)
+- [x] Leçon méthodo : éprouver le prompt par un test de démarrage avant de figer
+
 ### Session 2026-05-25 (suite 2 — Batch de 7 fiches-notion prioritaires + pieuvre approfondie)
 - [x] Trancher les 5 questions de cadrage (modèle hybride CdCF / stubs légers maintenus / ordre stubs puis CdCF / répartition type:notion vs type:tuto après clarif Q4 / popovers sémés comme base + micro-ajustements)
 - [x] Premier batch 7 fiches en mode stub avec placeholders italiques (modèle `pieuvre.md` littéral)
@@ -113,14 +125,3 @@
 - [x] Round 2 — 9 remarques utilisateur traitées en 14 patches `filesystem:edit_file` : pas de chiffrage durée projet, `semaine n°X`, pas d'extension `.md`, liste numérotée 1/2/3, gras sur morceau de phrase
 - [x] Fixer 5 conventions transverses à propager (à éprouver sur les 2 autres)
 - [x] Leçon méthodo : `str_replace` ≠ `filesystem:edit_file` (outil sandbox vs MCP)
-
-### Session 2026-05-24 (suite 2 — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG)
-- [x] Trancher les 2 questions de cadrage (méthode mixte de relecture, cohérence pure prioritaire)
-- [x] Cohérence finale 6 étapes de `specification-technique.md` : 11 patches terminologiques en 3 passes (5 + 3 + 2 + 1 pont arrière étape 2)
-- [x] Refonte phrase finale example étape 6 (version sobre sans réserves — l'équipe enseignante n'émet pas de réserves en général)
-- [x] **Refonte architecture pieuvre/fonction** : création de `fonction.md` (fiche-notion brève complète avec aliases FP/FS/FC) + refonte `pieuvre.md` (aliases retirés, typologie déléguée à `fonction`)
-- [x] **Convention `draft: false` par défaut** actée (pilotage maturité via BACKLOG, pas via flag draft)
-- [x] **Production SVG `pieuvre-generique.svg`** : refonte initialement « traversante FP/FS/FC » → forme rayonnante classique AFNOR (tous liens même style, étiquettes Fx, distinction par topologie)
-- [x] **Production SVG `pieuvre-bras-3-axes.svg`** : incarnation fil rouge (5 milieux + 4 fonctions FP1/FS1/FC1/FC2)
-- [x] **Patch collatéral étape 3** : retrait « plan de travail » de la liste des milieux (option a, assainissement cohérence liste/schéma) + insertion image bras 3 axes dans l'`[!example]`
-- [x] Leçon méthodo : auto-critique en plusieurs passes pour relecture terminologique exhaustive (en 1ère passe 4 occurrences, en réalité 9 résiduelles découvertes en passes 2 et 3 — grep aurait été plus efficace)

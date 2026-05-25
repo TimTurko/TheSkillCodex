@@ -8,10 +8,10 @@
 
 ---
 
-## 2026-05-25 (suite 3) — Nettoyage documentaire partie 1 (paliers 1-2 sur 6)
+## 2026-05-25 (suite 3) — Nettoyage documentaire complet (paliers 1-6)
 
 ### Périmètre de session
-Session dédiée à réduire le poids des fichiers lus au démarrage de chaque conversation Claude (prompt projet + TODO + JOURNAL + BACKLOG, total mesuré à ~55 k tokens en début de session). Cible : ~15-20 k tokens. Plan en 6 paliers déroulé jusqu'au palier 2 inclus. PC perso, préfixe MCP `filesystem:*`.
+Session dédiée à réduire le poids des fichiers lus au démarrage de chaque conversation Claude (prompt projet + TODO + JOURNAL + BACKLOG, total mesuré à ~55 k tokens en début de session). Cible : ~15-20 k tokens. Plan en 6 paliers exécuté intégralement dans la session. PC perso, préfixe MCP `filesystem:*`.
 
 ### Audit initial — mesure du poids
 | Fichier | Poids | ~Tokens |
@@ -27,22 +27,22 @@ Redondances identifiées : TODO « Fait » ↔ JOURNAL (massif), JOURNAL pré-22
 ### 7 questions de cadrage tranchées (niveau C, validées en bloc)
 
 1. **Externalisation des conventions** dans un fichier dédié à la racine → `conventions.md` créé au palier 1.
-2. **Section « Fait » du TODO** → 3 dernières sessions seulement, avec **rotation glissante** (suppression auto session N-3 à chaque fin de session). À intégrer en §12 du prompt au palier 5.
+2. **Section « Fait » du TODO** → 3 dernières sessions seulement, avec **rotation glissante** (suppression auto session N-3 à chaque fin de session). Intégrée à §9 du prompt v2 au palier 5.
 3. **17 « Commit + push » du TODO** → consolidés en checklist unique « Rattrapage commits/pushs en retard — voir JOURNAL pour détail ». Traité au palier 3.
 4. **Archivage JOURNAL pré-22/05** dans `JOURNAL-archive.md` → fait au palier 2.
-5. **Démarrage automatique** = TODO + conventions.md + 2-3 dernières entrées JOURNAL (`tail`). À intégrer en §11 du prompt au palier 5.
+5. **Démarrage automatique** = TODO + conventions.md + 3 dernières entrées JOURNAL en `head` (le JOURNAL est antichronologique). Intégré à §8 du prompt v2 au palier 5, corrigé au palier 6 (cf. ci-dessous).
 6. **Méthode** = (c) audit puis refonte ciblée du prompt, plutôt que réécriture intégrale.
 7. **Conventions regroupées par thème** dans `conventions.md` (Rédaction / Mise en forme / Images & SVG / Cas d'illustration / Collaboration / Publication-Quartz / En cours d'éprouvage).
 
-### Plan d'exécution en 6 paliers (validé)
+### Plan d'exécution en 6 paliers (validé, exécuté intégralement)
 1. **Palier 1** — Création `conventions.md` (additif, non destructeur). ✅ Fait.
 2. **Palier 2** — Archivage JOURNAL pré-22/05. ✅ Fait.
-3. **Palier 3** — Compactage TODO (3 sous-paliers). À faire.
-4. **Palier 4** — Compactage BACKLOG (léger). À faire.
-5. **Palier 5** — Refonte v2 du prompt projet. À faire.
-6. **Palier 6** — Test de démarrage post-refonte. À faire.
+3. **Palier 3** — Compactage TODO (3 sous-paliers). ✅ Fait.
+4. **Palier 4** — Compactage BACKLOG (léger). ✅ Fait.
+5. **Palier 5** — Refonte v2 du prompt projet. ✅ Fait.
+6. **Palier 6** — Test de démarrage post-refonte. ✅ Fait.
 
-Discipline : commit + push utilisateur avant chaque palier destructeur (3, 4, 5).
+Discipline : commit + push utilisateur avant chaque palier destructeur (3, 4, 5), pratiquée en pratique.
 
 ### Palier 1 — Création `conventions.md` (14,6 ko)
 Fichier privé (non publié) à la racine du dépôt, au même niveau que TODO/JOURNAL/BACKLOG. 7 sections thématiques + 1 section « En cours d'éprouvage » pour les conventions récentes (3 dernières 25/05 suite 2 : 2 images par fiche-notion d'outil, fil rouge station météo, niveau B = texte rédigé). Dates d'acquisition entre parenthèses pour traçabilité. Centralise les 9 conventions transverses + §7 + §7bis du prompt + conventions disséminées du JOURNAL.
@@ -56,43 +56,55 @@ Fichier privé (non publié) à la racine du dépôt, au même niveau que TODO/J
 - Premier `write_file` de ~85 ko du nouveau JOURNAL tronqué par limite de réponse (échec silencieux : pas de soumission, fichier inchangé). Vérification systématique post-écriture via `get_file_info` est essentielle.
 - `edit_file` MCP exige matching exact du `oldText` au caractère près ; bloc multi-ko expose à des désynchronisations subtiles (whitespace, retours à la ligne, NBSP). Stratégie retenue : truncate via `write_file` après lecture préalable (head=N lignes) pour identifier la frontière exacte. `dryRun: true` utile pour tester un edit avant exécution.
 
-### Plan détaillé paliers 3-6 (pour reprise en nouvelle session)
+### Palier 3 — Compactage TODO (51 ko → 12,5 ko, gain ~75 %)
+- **3a** — Section « Fait » réduite à 3 dernières sessions (25/05 suite 2 + 25/05 + 24/05 suite 2). 14 sessions antérieures supprimées (détail dans JOURNAL).
+- **3b** — 16 lignes « Commit + push session du XX/XX » consolidées en une checklist unique « Rattrapage commits + pushs en retard depuis 19/05 — voir JOURNAL pour détail ».
+- **3c** — Section « Décisions éditoriales en attente » quasi-vidée : ne reste qu'une entrée (les 6 conventions transverses à éprouver sur `securite-et-qualite`). Note explicite renvoie au BACKLOG (conventions à éprouver) et à `conventions.md` (conventions acquises). Pas de duplication.
+- Réorganisations secondaires : « Tâches techniques en suspens » divisée en 3 sous-sections (Rattrapage / Manipulations manuelles / Vérifications visuelles). Section « Templates » réduite à la seule entrée restante (fiche-tuto).
+- Écriture en `write_file` intégrale (TODO compact, pas de risque de troncature).
 
-**Palier 3 — Compactage TODO**
-- 3a. Section « Fait » → conserver seulement les 3 dernières sessions (25/05 suite 2, 25/05 suite, 25/05). Le reste a sa version détaillée dans JOURNAL.md.
-- 3b. Section « Tâches techniques en suspens » → 17 lignes « Commit + push session du XX/XX » consolidées en 1 checklist unique « Rattrapage commits/pushs en retard depuis 19/05 — voir JOURNAL pour détail ».
-- 3c. Section « Décisions éditoriales en attente » → trier actions concrètes (rester TODO) vs conventions à éprouver (rester BACKLOG), dédupliquer avec BACKLOG (notamment conventions 25/05 sur 2 images, station météo, niveau B).
+### Palier 4 — Compactage BACKLOG (22 ko → 20,2 ko, gain ~8 %)
+- 5 items supprimés de « Discussions/décisions en attente » : 4 conventions à éprouver désormais portées par `conventions.md` (popovers sigles génériques, alias Quartz, 2 images, station météo) + item obsolète sur le flowchart Mermaid du hub.
+- 2 notes ajoutées : pointeur vers `conventions.md` pour traçabilité + rattachement de la section « Points ouverts des flowcharts » à l'inventaire pré-publication.
+- Édit ciblé via `filesystem:edit_file` (vs `write_file` réécriture intégrale) — plus sûr sur un fichier de 22 ko, applique la leçon méthodo du palier 2.
+- Gain volumétrique modeste comme annoncé (palier léger). L'objectif principal du palier 4 était la cohérence : zero duplication entre BACKLOG et `conventions.md`.
 
-**Palier 4 — Compactage BACKLOG (léger)**
-- Désencombrer « Discussions/décisions en attente » des items éclaircis depuis.
-- « Points ouverts des flowcharts » : décider si déplacement en annexe ou conservation.
+### Palier 5 — Refonte v2 du prompt projet (~9 ko → ~5,5 ko, gain ~40 %)
+- 13 sections → 9 sections après fusions (§3+§6+§10 / §8+§9) et externalisations (§7 + §7bis vers conventions.md, simple pointeur).
+- §8 démarrage mis à jour : lit TODO + conventions.md + JOURNAL en mode `head` (3 dernières entrées en haut, JOURNAL antichronologique).
+- §9 fin de session enrichi : rotation glissante session N-3 + seuil archivage JOURNAL ~100 ko.
+- Note structurelle « niveau B = livraison en texte rédigé » intégrée directement dans le bloc Mode de collaboration (anciennement section 13 séparée).
+- Chemins des deux PC mentionnés explicitement (pro + perso) avec consigne de fallback automatique.
+- Production en chat, copie manuelle par l'utilisateur dans Claude Desktop.
 
-**Palier 5 — Refonte v2 prompt projet** (production en chat, copie manuelle Claude Desktop)
-- Fusion §1+§8+§9 (rôle / ce que Claude doit faire / éviter — chevauchements).
-- Fusion §3+§6+§10 (objectif / domaines / référentiel).
-- §7 d'écriture des fiches → externalisé vers `conventions.md` (pointer simplement).
-- §7bis SVG → externalisé.
-- §11 lecture démarrage : TODO + conventions.md + tail JOURNAL (3 entrées).
-- §12 fin de session : rotation auto session N-3 dans TODO « Fait », proposition archivage JOURNAL si seuil dépassé.
-- Intégrer §13 : niveau B = texte rédigé.
-- Cible : passer de 13 sections à 9-10.
+### Palier 6 — Test de démarrage post-refonte
+| Fichier lu au démarrage | Poids | ~Tokens |
+|---|---|---|
+| TODO.md | 12,5 ko | ~3 k |
+| conventions.md | 14,6 ko | ~4 k |
+| JOURNAL.md (head 3 entrées) | ~15-18 ko | ~4-5 k |
+| **Total démarrage post-refonte** | | **~11-12 k tokens** |
 
-**Palier 6 — Test de démarrage post-refonte**
-- Mesurer le démarrage net, vérifier que le contexte tient.
+Vs cible 15-20 k → **sous la cible**. Vs initial ~55 k → **réduction ~80 %**, mieux qu'estimé en début de palier 1 (objectif initial parlait de ~65 %).
 
-### État final des fichiers principaux
-- `conventions.md` : 14,6 ko (nouveau).
-- `JOURNAL.md` : 89 ko (truncaté, 11 sessions 22/05 → 25/05 suite 2).
-- `JOURNAL-archive.md` : 49,7 ko (nouveau, 8 sessions 19/05 → 21/05 suite 2).
-- `TODO.md` : intact 51 ko (compactage palier 3).
-- `BACKLOG.md` : intact 22 ko (compactage palier 4).
+### Patch §8 post-test — erreur tail/head détectée
+- **Erreur dans la v2 livrée au palier 5** : §8 disait `tail` au sens sémantique (« 3 dernières entrées de session ») alors que le JOURNAL est antichronologique. Un `tail=N` technique aurait lu les sessions les plus ANCIENNES en bas du fichier — l'inverse de l'intention.
+- Correction proposée : remplacement `tail` → `head` au §8 avec explicitation de l'antichronologie. Appliquée par l'utilisateur dans Claude Desktop.
 
-Démarrage cible après tous paliers : ~15-20 k tokens (vs ~55 k initial).
+### Leçon méthodo — éprouver le prompt avant de figer
+Sans le palier 6 (test concret), le piège `tail` au lieu de `head` serait passé inaperçu jusqu'au prochain démarrage qui aurait chargé le mauvais contexte. Discipline acquise : intégrer un test de démarrage à toute refonte du prompt projet.
+
+### État final des fichiers
+- `conventions.md` : 14,6 ko (nouveau)
+- `JOURNAL.md` : 89 ko (truncaté palier 2)
+- `JOURNAL-archive.md` : 49,7 ko (nouveau palier 2)
+- `TODO.md` : 12,5 ko (compactage palier 3)
+- `BACKLOG.md` : 20,2 ko (compactage palier 4)
+- Prompt projet : ~5,5 ko dans Claude Desktop (refonte palier 5)
 
 ### Décisions reportées (toujours en attente)
 - Toutes celles des sessions précédentes.
-- **Paliers 3, 4, 5, 6** : à exécuter en session suivante, après commit utilisateur des changements paliers 1-2. Le plan détaillé ci-dessus permet de reprendre directement sans recadrage.
-- **Commit à faire avant palier 3** : création `conventions.md`, création `JOURNAL-archive.md`, truncature `JOURNAL.md`.
+- Prochaine session posée : **squelette `securite-et-qualite`** (3ème et dernière trame transverse, occasion d'éprouver les 6 conventions transverses fixées 25/05).
 
 ---
 
