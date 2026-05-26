@@ -81,7 +81,7 @@
 - [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
 - [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
 - [ ] **Commit + push de la session du 26/05 (suite 2)** (cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP 6ᵉ outil canonique + normalisation référentiel 57 critères + patches navigation MIA→EEE + production `couverture-en-cours.md` + MAJ doc complète + conventions C15 C16 acquises).
-- [ ] **Vérifier GitHub Actions « Deploy quartz site to github page »** : 1 échec signalé 26/05 suite 2 (failed in 2s). Aller voir les logs sur github.com/<user>/TheSkillCodex/actions, basculer Settings → Pages Source vers « GitHub Actions » si nécessaire, re-déclencher le workflow.
+- [x] ~~**Vérifier GitHub Actions « Deploy quartz site to github page »**~~ — **résolu en session 26/05 suite 2** : cause = action `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix appliqué : bump `upload-pages-artifact@v3` → `@v4` dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée (pas besoin de bumper deploy-pages).
 
 ### Manipulations manuelles en attente
 - [x] ~~**Finaliser archivage JOURNAL 22-24/05**~~ **fait 26/05 suite via MCP** (pattern MARKER + N segments, 10 edit_file successifs, JOURNAL 156→96 ko / archive 60→119 ko, antichronologie préservée). Le seuil C14 30 ko a été contourné par segmentation en sub-blocs <25 ko. Incident EPERM verrou Windows Obsidian rencontré et résolu en changeant d'onglet — à documenter dans conventions § 7.
@@ -162,7 +162,7 @@
 - [x] **Insight securite-et-qualite** = 0 critère Couvert : trame de posture professionnelle, à noter en synthèse globale (le cadre AA n'est pas le seul critère de pertinence)
 - [x] **C14 vécue à chaud** : 3 typos transcription anchors (espacement variable, caractère flèche U+279C vs U+27A4), 1 erreur de routage, 2 régressions typo introduites par patch corrigées immédiatement
 - [x] **6 nouvelles fiches phase 2** ajoutées au TODO : `ecodesign`, `analyse-de-schema-electronique`, 4 méthodes commande (`logigramme`/`machine-a-etats`/`grafcet`/`chronogramme`), `optimisation-mecanique`
-- [x] **Incident GitHub Pages signalé** : workflow Quartz local OK, cause probable Settings Pages. À vérifier prochaine session
+- [x] **Incident GitHub Pages résolu en session** : `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix bump v3→v4 dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée
 
 ### Session 2026-05-26 (suite) — Sécurité et qualité : création ex nihilo + approfondissement complet (clôture phase 1 du wiki)
 - [x] Cadrage niveau D en 5 questions tranchées + rappel actions manuelles Obsidian (finalisation archivage JOURNAL 22-24/05 + configuration plugin Templates)

@@ -65,8 +65,14 @@ Après acquisition de C15 en session, le critère `RA-PROJET-C04-4/PROJ/3` (Effl
 - **`content/index.md`**, **`content/hub/index.md`**, **`content/fiches/eee/index.md`** : MIA retiré de la navigation, EEE élargie sémantiquement (« Électronique et informatique embarquée »).
 - **`TODO.md`** : 6 fiches phase 2 ajoutées à la liste *Notions à produire en parallèle* (ecodesign, analyse-de-schema-electronique, 4 méthodes commande logigramme/MAE/grafcet/chronogramme, optimisation-mecanique). Ajout manipulation manuelle suppression dossier `content/fiches/mia/`.
 
-### Incident technique signalé par utilisateur
-**GitHub Actions « Deploy quartz site to github page » a échoué en 2s** d'après un mail reçu par l'utilisateur. Diagnostic local : workflow `.github/workflows/deploy.yml` standard (Quartz vanilla, Node 22, `actions/deploy-pages@v4`). Aucun changement local poussé cette session (commit/push toujours en pending depuis 19/05). Cause probable : Settings GitHub Pages mal configuré (Source doit être « GitHub Actions », pas « Deploy from a branch »), environnement `github-pages` non initialisé, ou changement récent d'infra. **À vérifier prochaine session** : aller voir les logs sur github.com/<user>/TheSkillCodex/actions, basculer la source Pages si nécessaire, re-déclencher le workflow.
+### Incident technique résolu en session
+**GitHub Actions « Deploy quartz site to github page » avait échoué en 2s** d'après un mail reçu par l'utilisateur. Diagnostic initial : workflow `.github/workflows/deploy.yml` standard (Quartz vanilla, Node 22, `actions/deploy-pages@v4`). Aucun changement local poussé cette session à ce stade.
+
+**Cause identifiée après remontée logs utilisateur** : `actions/upload-pages-artifact@v3` résolue par GitHub Actions vers le SHA `56afc609e74202658d3ffba0e8f6dda462b719fa`, non téléchargeable depuis `codeload.github.com` (« Failed to download archive after 1 attempts »). SHA pinné du tag v3 révoqué ou non servi.
+
+**Fix appliqué en session** : bump `actions/upload-pages-artifact@v3` → `@v4` dans `.github/workflows/deploy.yml`. Patch d'une ligne, niveau C (modification d'infra validée). Push utilisateur → build redevenu OK. Compatibilité avec `actions/deploy-pages@v4` conservée (pas besoin de bumper deploy-pages).
+
+**Leçon** : sur les actions GitHub officielles pinées par tag majeur, surveiller périodiquement les bumps majeurs. v3 → v4 d'`upload-pages-artifact` semble correspondre au passage de format d'artifact (suit la migration v3→v4 d'`actions/upload-artifact` plus largement, fin 2024-2025).
 
 ### Incident C14 vécu en session
 - 2 typos de transcription dans anchors `oldText` sur le batch initial de `couverture-en-cours.md` (espacement 2 vs 3 espaces avant `#` dans les commentaires YAML selon fiche). Batch rejeté, anchors recopiés depuis lecture MCP. **Discipline C14 confirmée** : recopier `oldText` exactement, ne jamais retranscrire de mémoire.
@@ -86,7 +92,7 @@ Total : **2-3 sessions** pour boucler. Reprise rédaction fiches phase 2 possibl
 - **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie, à acter à froid (niveau C requis).
 - **Promotion C13** (relire amont) déjà acquise.
 - **Promotions C15 + C16** : acquises 26/05 suite 2, à documenter en § 7 puis acter en § 6 après confirmation sur fiches-notion phase 2.
-- **Vérification GitHub Pages** : aller voir les logs Actions, fixer la config Pages si nécessaire.
+- **Vérification GitHub Pages** : résolu en session, voir paragraphe Incident technique ci-dessus.
 - **Commit/push** : rattrapage depuis 19/05 (9+ sessions accumulées maintenant) + session courante.
 - **Suppression manuelle dossier `content/fiches/mia/`** : limite MCP delete.
 
