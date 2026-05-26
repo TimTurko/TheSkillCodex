@@ -15,6 +15,93 @@
 
 ---
 
+## 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
+
+### Périmètre de session
+Approfondissement complet de `integration-et-tests.md` (5ᵉ et dernière trame du V) sur session démarrée sur PC pro. Session structurée en 3 actes à froid de capitalisation documentaire (rotation glissante TODO + promotions C10 et C12) puis cadrage voie C en 5 questions tranchées + arbitrage d'un conflit pédagogique détecté entre squelette 22/05 et demande Q1 utilisateur, puis rédaction complète en niveau A des 5 étapes (rythme 2/3/3/2/2 H4 dont 1 cas exception multi-disciplinaire et 1 cas pyramide compressée) + Pièges + Équipe + cohérence finale 4 passes.
+
+### 3 actes à froid en début de session
+1. **Rotation glissante TODO** : suite 5 retirée de la section Fait (4 sessions → 3 conformément à la règle § 9 du prompt projet).
+2. **Promotion C10 vers § 2** (matrice incarnée dans `[!example]`) après épreuve 3/3 cumulant **12 contextes** : concept 4 (matrice de décision 3×5 / tableau conflits 4×2 / pré-dim 6×5 / TdM 5 sections) + PoC 4 (liste 3 sources / relevés 5 points 1000 cycles / tableau de statut / TdM type 5 sections) + dossier-technique 4 (ajustements 3 familles / BOM 7×6 213,20 € HT / 3 validateurs × 5 colonnes / 3 bons de commande). Bannière promotion ajoutée en § 7 avec marqueur « promue 26/05 », entrée 10 conservée intacte pour traçabilité.
+3. **Promotion C12 vers § 6** (Pièges nourris a posteriori) après ratio stable 37-45 % sur 3 trames du V éprouvées (concept 37 %, PoC 45 %, dossier-tech 45 %). Bannière promotion ajoutée en § 7 avec marqueur « promue 26/05 », entrée 12 conservée pour traçabilité.
+
+### Cadrage en début de session — 5 questions tranchées + conflit pédagogique détecté
+5 questions tranchées en bloc, validées par utilisateur avec ajustements Q1 (sous-titres disciplinaires élec/méca/info avec wiki-links vers futurs tutos) et rappel Q3 (pas de temporel en prose, `semaine n°X` uniquement dans `[!example]`).
+
+**Conflit pédagogique majeur détecté** au moment de lire le squelette existant : la structure 22/05 défend explicitement les tests **par fonction** (anti-pattern explicite « par discipline = incohérent mécatronique »), incompatible avec la demande Q1 utilisateur (sous-titres disciplinaires). **Voie C retenue par utilisateur** : conserver la structure squelette 22/05 (tests par fonction sur les niveaux 1+), appliquer 3 H4 disciplinaires UNIQUEMENT en étape 2 (validation niveau 0 = inspection d'artefacts physiques disciplinaires, légitime). Compatible avec anti-pattern + demande Q1.
+
+**Rythme final 2/3/3/2/2 = 12 H4**, dont 2 cas inédits :
+- Étape 2 = 3 H4 par discipline (élec / méca / info) — exception multi-disciplinaire à acter en C11.
+- Étape 3 = 3 H4 dense pivot pour 4 niveaux (niveau 1 / niveaux 2-3 / niveau 4) — cas pyramide compressée à acter en C11.
+
+### Niveau A en autonomie sur toute la fiche
+Accordé par l'utilisateur après cadrage. Workflow A = clôture autonome avec récap synthétique en fin de phase 8.
+
+### Phase 1 — Alignement v2.1 du squelette (11 patches batch)
+5× titre example `Exemple : projet bras 3 axes`, 5× titre livrable `Livrable N/X — Intégration et tests` (singulier ou pluriel selon nombre d'items), 1× warning titre `Attention` + phrase-clé gras dans le corps. Squelette aligné conventions visuelles avant rédaction.
+
+### Phases 2-6 — Rédaction des 5 étapes en niveau A
+
+**Étape 1 *Approvisionner et fabriquer*** (2 H4 économes hors pivot) : intro 2 ¶ (pont depuis dossier-tech, propos parallélisme branche réception vs branche fabrication interne) + H4-1 *Recevoir les commandes externes au rythme des livraisons* (3 gestes simples à la réception) + tip Astuce traçabilité étiquette + H4-2 *Fabriquer en interne au rythme des moyens disponibles* (3 moyens : impression 3D / usinage / PCB gravure école) + warning Attention « Une pièce sortie de machine n'est pas une pièce validée » (pont vers étape 2 niveau 0). `[!example]` refondu sur fil rouge alu 6061 : 3 paragraphes structurés par branche + sortie d'étape sem. 15.
+
+**Étape 2 *Valider les pièces fabriquées*** (**3 H4 disciplinaires**, 1ʳᵉ exception multi-disciplinaire C11) : intro 2 ¶ justifiant pourquoi disciplinaire ici vs multi-discipline étape 3 (artefacts physiques disciplinaires vs fonctions mécatroniques). H4-1 *Valider la chaîne électrique* (4 axes : continuité PCB / alim régulée / niveaux logiques MCU / réponse drivers bench). H4-2 *Valider les pièces mécaniques* (visuel + dimensionnel + essai à blanc). H4-3 *Valider le firmware et l'environnement de développement*. Tip Astuce traçabilité fiche dossier de tests + warning Attention « Sauter le niveau 0 contamine ». `[!example]` : 4 paragraphes structurés (chaîne élec / pièces méca / firmware / sortie d'étape) avec 1 condensateur 100 nF remplacé, 1 segment PLA délamination → réimpression.
+
+**Étape 3 *Conduire la pyramide de tests*** (**3 H4 dense pivot, pyramide compressée** — cas particulier C11) : intro 2 ¶ (cœur de l'étape, tests par fonction multi-discipline, cascade ascendante avec rétroactions ciblées). H4-1 *Tester chaque fonction du CdCF isolément (niveau 1)*. H4-2 *Tester les compositions de fonctions, puis le système complet (niveaux 2 et 3)*. H4-3 *Qualifier le prototype contre le CdCF — refermer le V (niveau 4)* avec 3 sorties nominales (critères atteints / partiellement atteints / non atteints). Tip Astuce préparer fiche qualif niveau 4 en parallèle + warning Attention refondu sur « Au niveau 4, l'écart se documente, il ne se rattrape pas » (refonte pour éviter doublon avec H4-3 qui définit « le V se referme »). `[!example]` : 5 paragraphes structurés par niveau, qualification CdCF chiffrée (précision 8 mm vs 5 mm cible NON atteint, charge 100 g ATTEINT, vitesse 45 vs 50 mm/s PARTIELLEMENT atteint), statut « prototype qualifié avec écarts documentés », jeu articulaire identifié comme cause, articulations à roulements pistées.
+
+**Étape 4 *Mener les bilans de clôture*** (2 H4 économes, ni pivot ni clôture documentaire pure) : intro 2 ¶ (3 bilans en parallèle par contrainte calendaire + REX réflexif distinct). H4-1 *Conduire les trois bilans en parallèle* (bilan technique : tableau qualif + analyse écarts ; bilan projet : planning vs rétroplanning, budget, matrice de risques ; bilan écoconception : ACV réelle vs estimée du dossier-tech). H4-2 *Capitaliser via le REX d'équipe* (3 questions canoniques, compétence MEO en propre). Tip Astuce REX en revue à blanc + warning Attention « bilan technique ≠ liste d'écarts ». `[!example]` : 4 paragraphes structurés (bilan technique reprend précision 8 mm + jeu articulaire / bilan projet retard 4 jours + budget 215 € HT + risque lead time confirmé / bilan éco ACV ≈50 % steppers + 30 % alu aligné estimé / REX bascule PLA→alu salvatrice + caractérisation jeu plus précoce + transmission STL anticipée bonne pratique).
+
+**Étape 5 *Livrer le projet*** (2 H4 économes, livraison documentaire + orale) : intro 2 ¶ (rédiger d'abord, démontrer ensuite — rapport matrice de la soutenance). H4-1 *Rédiger le rapport final* (structure par phases du V, qualif + écarts les plus lus). H4-2 *Préparer et passer la soutenance* (3 moments : démo / écarts honnêtes / regard équipe). Tip Astuce rédiger rapport en commençant par les bilans + warning Attention « préparer soutenance avant rapport mauvaise idée ». `[!example]` : 3 paragraphes structurés (rapport remis dernier jour sem. 15 / soutenance lendemain avec démo trajectoire 3 points + jeu articulaire vidéo ralentie + REX transmission STL + répartition parole par bloc).
+
+### Phase 7 — Pièges + Équipe refondus
+
+**Pièges fréquents** : 6 puces simples du squelette refondues en **11 entrées format `**Piège court.** Phrase d'explication.`** (convention 12). Ratio a posteriori ~55 % (6/11 émergés pendant rédaction des étapes 2-5), cohérent avec range 37-45 % typique en légère augmentation. Pièges : sauter niveau 0 / confondre validation disciplinaire et tests fonctionnels / découper tests par discipline / banc vs pièce / fiche qualif en dernier / refaire cinématique en urgence / boucher au lieu documenter / bilans en série / énumérer sans positif / REX vs bilan projet / soutenance avant rapport.
+
+**Pendant cette phase, côté équipe** : 4 ¶ thématiques (interfaces métiers méca/info/élec / gestion-de-projet / écoconception / sécurité-et-qualité). Wiki-links posés sur cibles existantes ou à créer (`firmware`, `gabarit`, `cable-management`, `niveau-logique`).
+
+### Phase 8 — Cohérence finale 4 passes (3 patches)
+
+- **Passe 1 terminologie** : 1 typo « écartoé » → « écarté » dans piège 4 (banc vs pièce).
+- **Passe 2 fil rouge bras 3 axes** : 0 patch (cohérence chiffrée inter-étapes OK : précision 8 mm récurrente, budget 215 € HT, ACV 50 %/30 %, articulations alu en lead time long).
+- **Passe 3 ponts inter-étapes** : 0 patch (sortie d'étape 2 example renvoie vers étape 3, étape 3 H4-1 rétroactive vers étape 2, étape 4 intro ponte depuis étape 3, étape 5 intro depuis étape 4 — pattern stable).
+- **Passe 4 wiki-links exhaustif** : 2 doublons détectés (PCB ×2 dans étape 2 H4-1, CdCF ×2 dans étape 3 H4-1) → retirer le 2ᵉ wiki-link de chaque section. Pattern « 0 patch » du dossier-tech non atteint, mais corrections mineures (3 patches au total).
+
+Total **27 patches** sur la session, fiche `integration-et-tests.md` 35 878 bytes.
+
+### Round 2 utilisateur
+Validé sans correction. Fiche close.
+
+### Conventions éprouvées et acquises
+- **C1** (temporel limité aux `[!example]`) : 5/5 `[!example]` contiennent `semaine n°X`, aucune prose générique.
+- **C6** (wiki-links 1ʳᵉ occurrence par section/sous-section/callout) : audit passé en passe 4 avec 2 corrections de doublons (mode au fil + filet passe dédiée).
+- **C10** (matrice incarnée) : 5/5 `[!example]` sont des objets structurés (3/4/5/4/3 paragraphes selon étape). Pattern stable post-promotion.
+- **C11** (rythme H4) : 2 cas inédits acquis. **Convention amendée § 6** : exception multi-disciplinaire (3 H4 par discipline) + cas pyramide compressée (3 H4 dense pour 4 niveaux). Documenté en sortie de session.
+- **C12** (Pièges a posteriori) : ratio 55 % (6/11), cohérent avec range 37-45 % en légère croissance.
+- **C13** (relire amont) : 2ᵉ épreuve formelle réussie. **Convention promue § 5 (Collaboration)** en sortie de session après dossier-tech + integration-et-tests sans round 2 utilisateur sur sections amont.
+- **C14** (seuil 30 ko payload MCP) : éprouvée en début de session sur les patches d'alignement v2.1 (batch 11 patches ~2 ko). **Convention enrichie § 7** : leçon NBSPs U+202F + typos de transcription dans anchors longs comme source d'échec silencieux du matching `oldText` (2 cas vécus en session : NBSPs présumés sur placeholder + typo « enchaîner » → « enchaâîner » dans anchor).
+
+### Wiki-links nouveaux poussés au BACKLOG
+- `firmware` (MIA) — popover posé étape 2 intro + H4-3 + section Équipe
+- `gabarit` (MME) — popover posé étape 2 H4-2
+- `cable-management` (EEE) — popover posé section Équipe
+- `niveau-logique` (EEE) — transformation entrée existante en wiki-link explicite
+
+### Leçons méthodo capitalisées dans `conventions.md` § 7
+- **Typos de transcription dans anchors `edit_file`** : reconstituer un `oldText` de mémoire introduit des typos invisibles (cas vécu : « enchaâîner » au lieu de « enchaîner » dans anchor étape 3 example, mismatch silencieux). Discipline : recopier `oldText` directement depuis la sortie de `read_text_file` plutôt que retranscrire.
+- **NBSPs fines U+202F** : la typo française pose des NBSPs invisibles devant `: ; ? ! % » €`. Anchors longs reconstitués visuellement → mismatch silencieux. Discipline : anchors courts privilégiés (1 phrase identifiante), `\u202f` explicite si traversée nécessaire.
+
+### Tâches restantes en fin de session
+1. Tâche manuelle utilisateur : finalisation archivage JOURNAL 22-24/05 dans Obsidian (rappelée en début de session, toujours pendante).
+2. Commit + push session 26/05 (s'ajoute à la liste de rattrapage depuis 19/05).
+3. Vérifications visuelles rendu Quartz mobile poussées au TODO (5 étapes + Pièges + Équipe d'integration-et-tests).
+
+### Phase 1 du wiki = complète côté trames du V
+Avec la clôture de `integration-et-tests`, les 5 trames du V sont approfondies (concept 25/05 suite 4-6, PoC 25/05 suite 7, dossier-technique 25/05 suite 8, integration-et-tests 26/05 ; specification-technique antérieure). Prochaine cible : `securite-et-qualite` (3ᵉ et dernier fil transverse, après `gestion-de-projet` 25/05 et `ecoconception`). Niveau A en autonomie déjà validé par l'utilisateur pour cette fiche.
+
+### État JOURNAL.md
+Taille actuelle estimée 140 ko (au-dessus du seuil 100 ko). Archivage 22-24/05 toujours pendant en tâche manuelle utilisateur (procédure dans TODO Manipulations manuelles, voir convention 14 sur le seuil pratique MCP).
+
+---
+
 ## 2026-05-25 (suite 8) — Dossier technique : approfondissement complet + leçon méthodo MCP seuil 30 ko
 
 ### Périmètre de session

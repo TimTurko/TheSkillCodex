@@ -91,6 +91,10 @@ Charte graphique : 8 callouts × (couleur fond + couleur titre/filet). Voir
 **Mode sombre** : non décliné délibérément, à traiter dans une session
 ultérieure quand recul d'usage suffisant.
 
+### Convention « matrice incarnée dans `[!example]` » des fiches-trame (25/05 suite 4-8, promue 26/05)
+
+Dans les fiches-trame du V, chaque `[!example]` doit incarner la méthode de l'étape par un **objet structuré** — matrice, tableau, liste numérotée, TdM, BOM, relevé de mesures, énumération de bons de commande, etc. — avec **valeurs chiffrées ou récapitulatives** et **décision/sortie tracée**. L'objet structuré porte la démonstration, pas une narration floue. Éprouvée sur **12 contextes** : concept (4), preuve-de-concept (4), dossier-technique (4).
+
 ### Popovers et wiki-links
 - **Approche A** : liens directs `[[notion]]`, le rouge sert de TODO list
   (19/05). Pas de génération automatique de stubs vides.
@@ -221,6 +225,12 @@ rédaction.
 Une fiche stub existante (comme `pieuvre.md` avant son approfondissement du
 25/05 suite 2) n'est **pas** un modèle cible — c'est une fiche à finir.
 
+### Relire les sections amont avant de rédiger une section avale (26/05, promue depuis § 7)
+
+Avant d'attaquer une section avale (étape, Pièges, Équipe, Conclusion), passer en lecture rapide les sections amont déjà rédigées (Posture, Objectif, étapes précédentes). Le coût en temps est minime, le bénéfice est l'évitement de doublons sémantiques qui passent inaperçus en rédaction continue mais ressortent en round 2 utilisateur.
+
+Discipline issue de la leçon « ±2 phrases de contexte » (25/05 suite 6) étendue à toutes les sections amont. Éprouvée 2/2 : 25/05 suite 8 (dossier-technique) et 26/05 (integration-et-tests) sans round 2 utilisateur sur sections amont. Complément naturel à la convention de relecture critique (round 2 ci-dessous) : convention 13 réduit le travail à conduire en round 2.
+
 ### Round 2 de relecture
 Garde-fou : l'utilisateur conduit une passe de relecture critique après toute
 production substantielle, pour identifier les ajustements à apporter.
@@ -261,6 +271,8 @@ Front matter → popover → posture → objectif → démarche (N étapes) → 
 équipe → conclusion → voir aussi. **Ordre : Pièges et Équipe avant
 Conclusion.**
 
+**Section *Pièges fréquents* nourrie a posteriori** (25/05 suite 5-8, promue 26/05). Les pièges émergent spontanément pendant la rédaction des étapes (warning/tip d'étape transformé en piège de fiche), à hauteur de **37-45 % du total** sur les 3 fiches-trame du V éprouvées (concept 3/8, PoC 5/11, dossier-technique 5/11). Mode complémentaire à la relecture critique à froid — ne pas attendre la fin pour collecter. Format des entrées : `**Piège court.** Phrase d'explication.` (8-11 entrées par fiche typique).
+
 ### Rythme des H4 par étape — fiches-trame des phases du V (25/05 suite 7)
 
 Éprouvée 2/2 sur `concept.md` puis `preuve-de-concept.md`. Règle tripartite :
@@ -272,7 +284,10 @@ Conclusion.**
   *Structurer / Rédiger / Faire valider* (étape 5 concept ; étape 5 PoC).
 
 Ne s'applique pas aux fiches-trame transverses (structure 3 blocs co-actifs).
-À éprouver sur `dossier-technique` puis `integration-et-tests`.
+
+**Cas particuliers éprouvés sur `integration-et-tests` (26/05)** :
+- **Étape multi-disciplinaire = 3 H4 disciplinaires** (élec / méca / info), hors pivot. Pattern justifié quand l'étape inspecte des artefacts physiques disciplinaires (objets élec, méca, info isolés) plutôt que des fonctions mécatroniques. Éprouvé sur l'étape 2 *Valider les pièces fabriquées* d'`integration-et-tests` (niveau 0 de la pyramide de tests).
+- **Pyramide compressée = 3 H4 dense pour 4 niveaux conceptuels** (niveau 1 / niveaux 2 et 3 / niveau 4), au lieu du dispatch 4 H4 nominal. Pattern justifié par la proximité conceptuelle des niveaux 2 et 3 (intégration ascendante de fonctions composées puis système complet) et le rôle pivot du niveau 4 (qualification CdCF). Éprouvé sur l'étape 3 *Conduire la pyramide de tests* d'`integration-et-tests`.
 
 ### Structure des fiches-notion
 Front matter → popover → image générique (si outil méthodologique) →
@@ -324,15 +339,21 @@ principal d'application. Mode d'application stabilisé :
 9. Niveau B = livraison en texte rédigé → § 5
 
 ### Acquises 25/05 suite 4-5 (à éprouver sur preuve-de-concept et trames ultérieures)
+
+> **Conventions 10 et 12 : promues 26/05** vers § 2 et § 6 respectivement, après épreuve 3/3 réussie (cumul 12 contextes pour C10 sur concept + PoC + dossier-technique ; ratio stable 37-45 % pour C12). Voir § 2 *Convention matrice incarnée* et § 6 *Section Pièges fréquents nourrie a posteriori* pour la formulation définitive. Détail historique ci-dessous conservé pour traçabilité.
 10. **Matrice incarnée dans `[!example]`** des fiches-trame (objet structuré dans le callout exemple, valeurs chiffrées ou récapitulatives, décision/sortie tracée et ouverture vers la suite). Éprouvée sur **4 contextes au sein de concept** : (a) matrice de décision 3 solutions × 5 critères + scores pondérés en étape 2 ; (b) tableau de conflits 4 colonnes × 2 lignes en étape 3 ; (c) tableau de pré-dim 6 colonnes × 5 lignes en étape 4 (point de vigilance mobile) ; (d) TdM type + TdM instanciée 5 sections en étape 5. **Confirmée sur 4 contextes PoC supplémentaires (25/05 suite 7)** : liste à puces 3 sources étape 2, relevés 5 points 1000 cycles étape 3, tableau de statut + décision traçée étape 4, TdM type instanciée étape 5. Huit formes différentes du même pattern — indicateur de généralité très solide. **Confirmée épreuve 3/3 25/05 suite 8 sur dossier-technique** : 4 nouveaux contextes (ajustements PoC→dossier 3 familles étape 1, BOM 7 lignes 6 colonnes 213,20 € HT étape 3, 3 validateurs × 5 colonnes étape 4 PIVOT, 3 bons commande structurés étape 5). **Cumul 12 contextes total** sur 3 fiches-trame du V. **Promotion vers § 2 à acter à froid.** → § 2
 11. ~~**Structure des H4 par étape dans les fiches-trame des phases du V**~~ — **promue vers § 6 le 25/05 suite 7** après épreuve 2/2 sur concept + PoC. Voir § 6 *Rythme des H4 par étape*.
 12. **Nourrissage a posteriori de la section *Pièges fréquents*** — les pièges d'une fiche-trame peuvent émerger spontanément pendant la rédaction des étapes (warning/tip d'étape transformé en piège de fiche). Mode complémentaire à la relecture critique à froid (pattern spec-tech 23/05 suite 2). Éprouvé sur concept (3 pièges sur 8 = 37 %) et sur PoC (5 pièges sur 11 = 45 %, indicateur en croissance). **Confirmé 25/05 suite 8 sur dossier-technique (5/11 = 45 %, ratio aligné PoC). Épreuve 3/3 réussie. Promotion vers § 6 à acter à froid.** → § 6 (Structure des fiches-trame).
 
 ### Acquises 25/05 suite 7 (à éprouver sur dossier-technique)
-13. **Relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale**. Extension de la leçon ±2 phrases (25/05 suite 6). Le doublon « on a le matos, on monte, on verra ce que ça donne » détecté en round 2 sur PoC étape 1 a montré que le doublon peut remonter jusqu'aux sections amont rédigées en session antérieure (Posture, Objectif). Discipline : passe rapide en lecture sur sections amont avant de rédiger une nouvelle section H4. Coût 1 round 2 sur PoC. **1ʳᵉ épreuve formelle réussie 25/05 suite 8 sur dossier-technique** — aucun round 2 utilisateur sur sections amont, fiche cohérente. À éprouver sur `integration-et-tests` (5ᵉ trame) avant promotion. → § 5 (Collaboration) ou § 1 (Rédaction).
+13. **Relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale**. Extension de la leçon ±2 phrases (25/05 suite 6). Le doublon « on a le matos, on monte, on verra ce que ça donne » détecté en round 2 sur PoC étape 1 a montré que le doublon peut remonter jusqu'aux sections amont rédigées en session antérieure (Posture, Objectif). Discipline : passe rapide en lecture sur sections amont avant de rédiger une nouvelle section H4. Coût 1 round 2 sur PoC. **Épreuve 2/2 réussie 25/05 suite 8 (dossier-technique) + 26/05 (integration-et-tests). Promue § 5 (Collaboration) le 26/05 fin session.** Entrée § 7 conservée pour traçabilité. → § 5
 
 ### Acquises 25/05 suite 8 (à capitaliser)
 14. **Seuil pratique MCP write_file/edit_file ≈ 30 ko payload**. Tentative d'archivage 22-24/05 échouée silencieusement deux fois en suite 8 : edit_file timeout (~4 min, payload ~60 ko newText) et write_file inopérant (~50 ko content, fichier inchangé, prolongement de la leçon 25/05 suite 3). **Règle pragmatique** : tout edit_file ou write_file avec payload > 30 ko a une probabilité non négligeable d'échouer silencieusement (sans message d'erreur). Symptômes : tool call qui semble réussir mais `get_file_info` montre fichier inchangé. **Discipline** : (a) vérifier systématiquement `get_file_info` après tout write_file ou edit_file lourd, (b) pour les opérations massives (archivage, refonte, batch de patches inter-fichiers), préférer l'édition manuelle Obsidian + Git, ou un script Node CLI direct hors MCP. Épisode complet tracé dans JOURNAL session 25/05 suite 8.
+
+**Complément 26/05 (integration-et-tests)** : deux modes d'échec supplémentaires identifiés sur les anchors de `edit_file`, indépendants de la taille de payload.
+- **NBSPs fines U+202F** : la typo française pose une NBSP fine devant `:` `;` `?` `!` `%` `»` `€` et autres. Un `oldText` reconstitué à partir d'une copie visuelle ne contient pas ces NBSPs invisibles → mismatch silencieux du matching exact. **Discipline** : (a) anchors courts privilégiés (1 phrase identifiante plutôt qu'un paragraphe entier), (b) coller `\u202f` explicite aux positions probables si l'anchor doit traverser une ponctuation typographique française, (c) en cas d'échec et avant de soupçonner un NBSP, vérifier d'abord les typos de transcription.
+- **Typos de transcription** : reconstituer un `oldText` de mémoire ou par copie partielle peut introduire des typos invisibles (« enchaîner » → « enchaâîner » par exemple, ou glissement d'un accent). Symptôme identique à NBSPs : mismatch silencieux. **Discipline** : recopier `oldText` directement depuis la sortie de lecture `view`/`read_text_file` plutôt que retranscrire. Le coût en tokens est minime, la robustesse gagnée est significative.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

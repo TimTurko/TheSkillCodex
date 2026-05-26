@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➤ Prochaine session = approfondissement `integration-et-tests`** (5ᵉ et dernière trame du V après `dossier-technique` 25/05 suite 8). Calque méthodo concept/PoC/dossier-tech, 2ᵉ épreuve formelle conv 13 (relire amont) avant promotion, confirmation épreuves 3/3 conv 10 et conv 12 déjà réussies (promotions § 2 et § 6 à acter à froid avant ou après). Tâche annexe début de session : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles).
+> **➤ Prochaine session = squelette puis approfondissement `securite-et-qualite`** (3ᵉ et dernier fil transverse). Occasion d'éprouver les 6 conventions transverses § 7 fixées sur `gestion-de-projet` (25/05) puis éprouvées sur `ecoconception`. Candidature multi-discipline émergée 26/05 (étape 2 integration-et-tests) potentiellement applicable selon contenu. Tâche annexe début de session : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles).
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -26,10 +26,10 @@
 
 **Stratégie actée (20/05 suite)** : squelettisation des 5 trames + 3 fils transverses bout en bout, puis cartographie AA, puis validation cohérence, **puis seulement** approfondissement trame par trame dans l'ordre.
 
-- [ ] **Squelette `securite-et-qualite`** (fil transverse — dernière des 3 transverses, occasion d'éprouver les 6 conventions transverses fixées)
+- [ ] **Squelette + approfondissement `securite-et-qualite`** (fil transverse — dernière des 3 transverses ; les 6 conventions transverses à éprouver sur cette fiche viennent de `gestion-de-projet`/`ecoconception`. Niveau A en autonomie déjà validé par l'utilisateur pour cette fiche)
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
-- [ ] **Approfondissement des fiches phases du V** : `concept.md` complet (étapes 1-2 + v2.1 squelette faits 25/05 suite 4 ; étapes 3-4-5 + Pièges + Équipe faits 25/05 suite 5 ; cohérence finale 4 passes faite 25/05 suite 6 — 27 patches, fiche complète et alignée v2.1). `preuve-de-concept.md` complet (5 étapes + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes + round 2 wiki-links outils, faits 25/05 suite 7). **Prochain : `dossier-technique`**, puis `integration-et-tests` dans l'ordre du V. À chaque approfondissement, conduire la passe dédiée wiki-links en sortie de fiche (filet de sécurité — cf. leçon méthodo 25/05 suite 7 : convention 6 applicable au fil quand discipline acquise).
+- [x] ~~**Approfondissement des fiches phases du V**~~ : `concept.md` complet (25/05 suite 4-6, 27 patches). `preuve-de-concept.md` complet (25/05 suite 7, 5 étapes + 11 pièges + 4 ¶ équipe + 4 passes cohérence + round 2 wiki-links outils). `dossier-technique.md` complet (25/05 suite 8, alignement v2.1 + 5 étapes [étape 3 pré-rédigée autre Claude] + 11 pièges + 4 ¶ équipe + 0 patch cohérence + round 2 PCB). `integration-et-tests.md` complet (26/05, 27 patches : alignement v2.1 + 5 étapes voie C [2/3/3/2/2 H4 dont 3 H4 disciplinaires étape 2 et 3 H4 pyramide compressée étape 3] + 11 pièges + 4 ¶ équipe + 3 patches cohérence + round 2 validé). **Phase 1 du wiki = complète côté trames du V.**
 
 *Notions à produire en parallèle (popovers posés dès les squelettes)* :
 - [ ] **`pcb`** (fiche-tuto, popover posé dans `dossier-technique.md` étapes 2/4/5). Mention spécifique à inclure : **machine de gravure à l'anglaise** en interne école pour PCB monoface (pas de commande externe pour ce cas), routage logiciel + transfert physique. Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent).
@@ -70,6 +70,7 @@
 - [ ] **Commit + push de la session du 25/05 (suite 6)** (cohérence finale concept — 4 passes / 27 patches + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 7)** (approfondissement preuve-de-concept v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
+- [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
 
 ### Manipulations manuelles en attente
 - [ ] **Finaliser archivage JOURNAL 22-24/05** — dans Obsidian : couper depuis `## 2026-05-24 (suite) — Clôture phase 1 partie 2` jusqu'à la fin de la session `## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V` (séparateur `---` inclus juste après), puis coller dans `JOURNAL-archive.md` juste avant `## 2026-05-21 (suite 2) — Vue d'ensemble macro`. Voir le warning du préambule JOURNAL. **Pourquoi manuel** : payload MCP ~50 ko inatteignable (leçon méthodo 25/05 suite 8 — conventions.md § 7).
@@ -103,19 +104,48 @@
 - [ ] Vérifier le rendu de `preuve-de-concept.md` approfondi (5 étapes complètes, callouts v2.1, 6 nouveaux wiki-links sur outils/instruments, tableau de statut étape 4, TdM type 5 sections instanciée étape 5)
 - [ ] Vérifier le rendu de `preuve-de-concept.md` section Pièges (11 entrées gras court + explication, ratio supérieur à concept)
 - [ ] Vérifier le rendu de `preuve-de-concept.md` section Équipe (4 paragraphes thématiques, wiki-links rouges sur 6 nouvelles cibles)
+- [ ] Vérifier le rendu de `integration-et-tests.md` étape 1 (2 H4 économes, `[!example]` 3 paragraphes structurés par branche, calendrier semaine n°12-15)
+- [ ] Vérifier le rendu de `integration-et-tests.md` étape 2 (**3 H4 disciplinaires** élec/méca/info — cas inédit C11, `[!example]` 4 paragraphes structurés par discipline)
+- [ ] Vérifier le rendu de `integration-et-tests.md` étape 3 (**3 H4 pivot dense pyramide compressée** niveau 1 / niveaux 2-3 / niveau 4, `[!example]` 5 paragraphes structurés par niveau + 3 statuts qualification)
+- [ ] Vérifier le rendu de `integration-et-tests.md` étape 4 (2 H4 économes bilans, `[!example]` 4 paragraphes structurés par bilan + REX)
+- [ ] Vérifier le rendu de `integration-et-tests.md` étape 5 (2 H4 économes rapport+soutenance, `[!example]` 3 paragraphes structurés)
+- [ ] Vérifier le rendu de `integration-et-tests.md` section Pièges (11 entrées gras court + explication, ratio ~55 % a posteriori)
+- [ ] Vérifier le rendu de `integration-et-tests.md` section Équipe (4 paragraphes thématiques, wiki-links rouges sur nouvelles cibles : `cable-management`, `gabarit`, `firmware`)
 
 ## Décisions éditoriales en attente
 
-- [ ] **6 conventions transverses (25/05) + 3 conventions concept/PoC (25/05 suite 4-7)** à éprouver. Conventions 1-6 sur `securite-et-qualite` (3ème transverse), conventions 10-11-12 (matrice incarnée + structure H4 par étape + Pièges nourris a posteriori) sur `dossier-technique` (2ᵉ trame du V suivante). Documentation dans `conventions.md` § 7.
-  - Convention 11 (rythme H4) **promue à § 6** suite épreuve 2/2 sur concept + PoC (25/05 suite 7).
+- [ ] **6 conventions transverses (25/05) + conventions concept/PoC/dossier-technique (25/05 suite 4-8)** à éprouver. Conventions 1-6 à éprouver sur `securite-et-qualite` (3ᵉ transverse). Documentation dans `conventions.md` § 7.
   - Convention 6 mode d'application affiné (au fil + filet passe dédiée, 25/05 suite 7).
-  - Nouvelle convention candidate : relire sections amont de la fiche (Posture, Objectif) avant section avale (25/05 suite 7).
+  - **Convention 10** (matrice incarnée dans `[!example]`) **promue § 2 le 26/05 début session** après 12 contextes éprouvés (concept 4 + PoC 4 + dossier-tech 4).
+  - **Convention 11** (rythme H4 par étape) **promue § 6 le 25/05 suite 7**. **Amendée § 6 le 26/05** : 2 nouveaux cas inédits acquis sur `integration-et-tests` (étape multi-disciplinaire = 3 H4 par discipline ; pyramide compressée = 3 H4 dense pour 4 niveaux conceptuels).
+  - **Convention 12** (Pièges nourris a posteriori) **promue § 6 le 26/05 début session** après ratio stable 37-45 % sur 3 trames du V (concept 37 %, PoC 45 %, dossier-tech 45 % ; integration ~55 %).
+  - **Convention 13** (relire amont avant section avale) **promue § 5 le 26/05 fin session** après épreuve 2/2 sur dossier-tech (suite 8) + integration-et-tests.
+  - Convention 14 (seuil 30 ko MCP payload) à éprouver — enrichie 26/05 par leçon NBSPs U+202F et typos de transcription dans les anchors longs comme source d'échec silencieux (§ 7).
 
 *Note : les autres décisions éditoriales en attente (mode sombre callouts v2, pliage callouts, alignement rétroactif trames, alias Quartz, station météo, 2 images par fiche-notion, format date, tag `transverse`, section équipe transverses, etc.) sont désormais portées par BACKLOG.md (conventions à éprouver) ou par conventions.md (conventions acquises). Pas de duplication.*
 
 ## Fait
 
-*Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement (4 actuelles — rotation suite 5 à effectuer à froid en début de prochaine session).*
+*Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
+
+### Session 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
+- [x] 3 actes à froid début session : rotation glissante TODO (suite 5 retirée) + promotion C10 vers § 2 (matrice incarnée, 12 contextes) + promotion C12 vers § 6 (Pièges a posteriori, ratio 37-45 %)
+- [x] Cadrage niveau C en 5 questions tranchées + arbitrage **voie C** suite conflit pédagogique détecté entre squelette 22/05 (tests par fonction, anti-pattern par discipline) et demande Q1 utilisateur (sous-titres disciplinaires élec/méca/info)
+- [x] **Niveau A en autonomie** accordé par l'utilisateur sur toute la fiche
+- [x] **Phase 1** : alignement v2.1 squelette (11 patches batch — 5× example, 5× livrable, 1× warning Attention)
+- [x] **Phase 2** : étape 1 *Approvisionner et fabriquer* (2 H4 économes, fil rouge alu 6061 + segments PLA + PCB monoface gravé interne)
+- [x] **Phase 3** : étape 2 *Valider les pièces fabriquées* (**3 H4 disciplinaires** élec/méca/info — 1ᵉ exception multi-disciplinaire C11)
+- [x] **Phase 4** : étape 3 *Conduire la pyramide de tests* (**3 H4 dense pivot** — cas particulier pyramide compressée niveau 1 / niveaux 2-3 / niveau 4) + warning Attention refondu (« écart se documente » au lieu de « V se referme » pour éviter doublon avec H4-3)
+- [x] **Phase 5** : étape 4 *Mener les bilans de clôture* (2 H4 économes, 3 bilans en parallèle + REX réflexif)
+- [x] **Phase 6** : étape 5 *Livrer le projet* (2 H4 économes, rapport + soutenance)
+- [x] **Phase 7** : Pièges 11 entrées (~55 % a posteriori) + Équipe 4 paragraphes thématiques
+- [x] **Phase 8** : cohérence finale 4 passes — 3 patches (1 typo « écartoé » → « écarté », 2 doublons wiki-links PCB étape 2 H4-1 + CdCF étape 3 H4-1). Pattern « 0 patch » du dossier-tech non atteint mais corrections mineures.
+- [x] Round 2 utilisateur validé sans correction
+- [x] **Convention 11 amendée § 6** (cas étape multi-disciplinaire + cas pyramide compressée)
+- [x] **Convention 13 promue § 5** après 2ᵉ épreuve formelle réussie
+- [x] **Convention 14 enrichie § 7** : leçon NBSPs U+202F + typos de transcription dans anchors longs comme source d'échec silencieux du matching `oldText`
+- [x] Nouveaux wiki-links posés : `firmware`, `gabarit`, `cable-management` (à ajouter au BACKLOG)
+- [x] Total **27 patches** sur la session, fiche `integration-et-tests.md` 35 878 bytes
 
 ### Session 2026-05-25 (suite 8 — Dossier technique : approfondissement complet + leçon méthodo MCP seuil 30 ko)
 - [x] Tâche annexe début de session : archivage JOURNAL 22-24/05 résolu partiellement (résorption duplication 24/05 suite 2 via MCP, JOURNAL 144 → 135 ko ; finalisation manuelle requise — ajoutée en Manipulations manuelles)
@@ -154,28 +184,7 @@
 - [x] 6 nouvelles fiches notion/tuto poussées au BACKLOG + plan long terme `microcontroleur` = page d'aiguillage par famille (STM32 / ESP32 / MicroPython / Arduino / Teensy)
 - [x] Signal taille JOURNAL.md = 131,8 ko (> seuil 100 ko) : archivage sessions 22/05 → 24/05 à envisager en début de prochaine session
 
-### Session 2026-05-25 (suite 6 — Concept : cohérence finale d'ensemble — 4 passes de relecture critique)
-- [x] Cadrer 3 arbitrages en bloc : ordre des passes (terminologie → fil rouge → ponts → wiki-links), seuil 1 passe sans nouvel écart, audit exhaustif wiki-links sur les 5 étapes
-- [x] **Passe 1 (terminologie)** : 5 patches initiaux (3 étape→phase pour désigner la phase concept entière, 1 verbe isolé « agrège » → « agrège les quatre livrables précédents », 1 verbe isolé « valide » → « valide sans réserve ») + 1 patch correctif effet de bord (doublon « les quatre livrables précédents » introduit par le patch 4)
-- [x] **Passe 2 (fil rouge bras 3 axes)** : option (a) retenue — instanciation rétroactive de la rétroaction FC démontabilité dans l'`[!example]` étape 1 (1 patch, paragraphe ajouté avec wiki-links CdCF + FC selon convention 6). Point B (réserve étape 2 → étape 3 vs annonce étape 4) laissé tel quel
-- [x] **Passe 3 (ponts inter-étapes)** : 0 patch — pattern stylistique stable détecté (annonces aval N→N+1 portées par l'intro de l'étape suivante, jamais par la sortie de l'étape courante) ; saut étape 3→5 laissé tel quel (option a)
-- [x] **Passe 4 (wiki-links / popovers)** : audit exhaustif strict (option α) — 1 doublon (écoconception ×3 dans même H4 étape 2) + 19 oublis (1ère occurrence sans wiki-link dans nouveau contexte) = 20 patches en batch
-- [x] Round 2 utilisateur validé sans correction (6 round 2 successifs sur concept depuis 25/05 suite 4)
-- [x] **Leçon méthodo 1** : proposer une reformulation sans relire ±2 phrases de contexte crée des effets de bord (cas patch 4 passe 1)
-- [x] **Leçon méthodo 2** : convention 6 difficile à appliquer en continu (74 % des patches sur passe 4) → s'applique mieux en passe dédiée en sortie de fiche qu'au fil de la rédaction
-- [x] Total : **27 patches** sur la session, fiche `concept.md` complète et cohérente sur les 4 dimensions auditées
 
-### Session 2026-05-25 (suite 5 — Concept : approfondissement étapes 3-4-5 + Pièges + Équipe)
-- [x] Cadrer étape 3 (intitulés 3 H4, convention 10 en tableau de conflits, profondeur fil rouge B en cas développé sortie d'étape) — niveau C
-- [x] **Étape 3 (pivot dense)** : intro 2 paragraphes + 3 H4 (Confronter / Caractériser / Renégocier) + `[!warning]` retouché + `[!tip]` ajouté + `[!example]` enrichi avec tableau de conflits 4 colonnes × 2 lignes + déroulé renégociation à trois sur conflit n°1 + livrable enrichi
-- [x] **Étape 4 (hors pivot)** : intro 2 paragraphes + 2 H4 (Pré-dimensionner par discipline / Identifier les incertitudes) + `[!warning]` + `[!tip]` + `[!example]` enrichi avec tableau de pré-dim 6 colonnes × 5 lignes + 2 incertitudes I1/I2 formulées en question — éprouve convention 11
-- [x] Cadrer étape 5 (3 H4 par exception convention 11 pour clôture documentaire, convention 10 en TdM incarnée, pas de template Word) — niveau C
-- [x] **Étape 5 (clôture documentaire)** : intro 2 paragraphes + 3 H4 (Structurer / Rédiger / Faire valider) + `[!warning]` + `[!tip]` + `[!example]` avec TdM type 5 sections instanciée sur bras 3 axes + 4 issues nominales de revue + livrable enrichi
-- [x] **Pièges fréquents** : refonte de 5 puces simples en 8 pièges format gras court + explication (calque spec-tech 24/05 partie 1) ; 3 nouveaux pièges émergés des étapes 3-4-5 (Renégocier en bilatéral / Marge serrée habillée en certitude / Compiler au lieu de rédiger)
-- [x] **Pendant cette phase, côté équipe** : 4 paragraphes thématiques (Interfaces métiers / Gestion de projet / Écoconception / Sécurité-qualité), calque spec-tech
-- [x] 5 round 2 successifs validés sans correction (étapes 1, 2, 3, 4, 5)
-- [x] Leçon méthodo : section *Pièges* se nourrit a posteriori des leçons rédactionnelles (3/8 pièges émergés spontanément des étapes 3-5), pas a priori d'une checklist méthodo — mode complémentaire à spec-tech 23/05 suite 2 (pièges identifiés en relecture critique)
-- [x] Affiner convention 11 : exception clôture documentaire → 3 H4 (éprouvé sur étape 5) → conventions.md § 7
-- [x] Convention 10 éprouvée sur 4 contextes au sein de concept (matrice décision / conflits / pré-dim / TdM incarnée) — indicateur de généralité solide
+
 
 

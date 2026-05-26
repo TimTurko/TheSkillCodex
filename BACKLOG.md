@@ -35,14 +35,16 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`alimentation-stabilisee`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Tension/courant/limite, mode CV/CC, sécurité court-circuit.
 - [ ] Alimentation d'un système embarqué
 - [ ] Pull-up / pull-down
-- [ ] Niveau logique (3.3V, 5V, compatibilité)
+- [ ] **`niveau-logique`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 H4-1 + section Équipe, 26/05). Compatibilité 3,3 V / 5 V, level shifters, pièges classiques de cohabitation MCU / drivers / capteurs.
 - [ ] ADC / DAC
 - [ ] Filtrage analogique de base
 - [ ] Masse électrique, plan de masse
 - [ ] Découplage (condensateurs)
+- [ ] **`cable-management`** — fiche-tuto (popover posé dans `integration-et-tests.md` section Équipe, 26/05). Routage des câbles, attaches, repérage, anti-arrachement, protection en mouvement. Probablement délégable aux collègues méca ou dédié équipement.
 - [ ] **PCB** (fiche-tuto : concevoir et faire fabriquer un PCB pour un projet étudiant). **Info 25/05 suite 8** : inclure la **production interne école sur machine de gravure à l'anglaise** pour PCB monoface (pas de commande externe pour ce cas). Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent). Popover posé dans `dossier-technique.md` étapes 2/4/5.
 
 ### MIA — Informatique embarquée
+- [ ] **`firmware`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 intro + H4-3 + section Équipe, 26/05). Définition (logiciel embarqué dans un MCU), distinction firmware / driver / application, cycle de vie (compilation → flashage → exécution → mise à jour). À articuler avec `microcontroleur` page d'aiguillage.
 - [ ] Architecture logicielle d'un objet connecté
 - [ ] Boucle principale (`loop()`) vs interruptions
 - [ ] Lecture capteur (polling vs interrupt)
@@ -96,6 +98,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 ### MME — Matériaux / mécanique (interface collègues)
 - [ ] Liens vers cours mécanique
 - [ ] Liens vers cours fabrication
+- [ ] **`gabarit`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 H4-2, 26/05). Pièce de vérification dimensionnelle réutilisable, simple à fabriquer en interne, accélère les contrôles répétitifs sur séries de pièces identiques. Probablement délégable au cours fabrication des collègues.
 - [ ] **`pied-a-coulisse`** — fiche-notion (popover posé dans `preuve-de-concept.md` outillage, 25/05 suite 7). Instrument de mesure dimensionnelle de base, lecture vernier, plage 0-150 mm typique. Court, popover-only.
 - [ ] **`comparateur`** — fiche-notion (popover posé dans `preuve-de-concept.md` instruments de mesure, 25/05 suite 7). Aliases possibles `[comparateur-micrometrique]`. Mesure de variation dimensionnelle (jeu, défaut de planéité, dérive), précision typique 0,01–0,02 mm.
 
