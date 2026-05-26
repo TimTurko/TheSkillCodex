@@ -51,6 +51,7 @@
 - [ ] **`soudure`** (fiche-tuto procédé — délégué cours collègues)
 - [ ] **`matrice-eat`** (fiche-tuto, outil canonique trame `ecoconception`, doublement prioritaire)
 - [ ] **`acv-simplifiee`** (fiche-notion, citée + déléguée)
+- [ ] **`ecodesign`** (fiche-notion, popover à poser dans `specification-technique.md` étape 6 + `ecoconception.md`). Lien direct référentiel : critère `RA-PROJET-C04-4/PROJ/5` (« Différencier écoconception et écodesign »). À articuler avec la fiche-trame `ecoconception.md` existante (transverse) — ecodesign = notion complémentaire pour préciser le périmètre.
 
 ### 3. Templates à rédiger
 - [ ] **Template fiche-tuto** dans `templates/fiche-tuto.md` — reste à produire. Modèle potentiel : `schema-bloc-fonctionnel.md`. À traiter quand on aura une 2ᵉ fiche-tuto pour stabiliser les conventions.
@@ -77,6 +78,7 @@
 - [x] ~~**Finaliser archivage JOURNAL 22-24/05**~~ **fait 26/05 suite via MCP** (pattern MARKER + N segments, 10 edit_file successifs, JOURNAL 156→96 ko / archive 60→119 ko, antichronologie préservée). Le seuil C14 30 ko a été contourné par segmentation en sub-blocs <25 ko. Incident EPERM verrou Windows Obsidian rencontré et résolu en changeant d'onglet — à documenter dans conventions § 7.
 - [ ] **Déposer manuellement `cdcf-ecole-template.docx`** dans `content/ressources/templates/` (limite technique MCP filesystem : pas d'écriture binaire).
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
+- [ ] **Supprimer le dossier `content/fiches/mia/` et son `index.md`** — MIA fusionné dans EEE depuis 26/05/2026 (référentiel école mis à jour, plus de domaine MIA). À faire à la main (limite MCP : pas d'outil delete). Patches navigation déjà effectués sur `content/index.md`, `content/hub/index.md` et `content/fiches/eee/index.md` (élargissement sémantique EEE).
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
 - [ ] Configurer le plugin Templates d'Obsidian (`content/templates`)
 - [ ] Installer **Pandoc + MiKTeX** pour export PDF académique (pas urgent)

@@ -115,8 +115,7 @@ Le tutoriel comporte **trois types de fiches** que tu reconnaîtras au champ `ty
 
 Pour une lecture orientée révision (chercher une notion par discipline plutôt que par phase de projet) :
 
-- [[../fiches/eee/index|EEE]] — Électronique, énergie électrique
-- [[../fiches/mia/index|MIA]] — Informatique embarquée
+- [[../fiches/eee/index|EEE]] — Électronique et informatique embarquée
 - [[../fiches/meo/index|MEO]] — Méthodes, organisation, animation
 - [[../fiches/proj/index|PROJ]] — Démarche projet
 - [[../fiches/mme/index|MME]] — Matériaux, mécanique (renvoie vers les cours collègues)

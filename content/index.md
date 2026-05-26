@@ -12,8 +12,7 @@ Ce site rassemble des **fiches courtes et autoportantes** (≈ 5 minutes de lect
 ## Par où commencer
 
 - [[hub/index|Hub pédagogique]] — démarche du projet, étapes, jalons. C'est ici qu'on découvre le fil rouge.
-- [[fiches/eee/index|Fiches EEE]] — électronique, énergie électrique
-- [[fiches/mia/index|Fiches MIA]] — informatique embarquée
+- [[fiches/eee/index|Fiches EEE]] — électronique et informatique embarquée
 - [[fiches/meo/index|Fiches MEO]] — méthodes, organisation
 - [[fiches/proj/index|Fiches PROJ]] — démarche projet
 - [[fiches/mme/index|Fiches MME]] — matériaux, mécanique (renvoie vers les cours collègues)
