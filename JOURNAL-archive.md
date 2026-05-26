@@ -1,10 +1,13 @@
-# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-24)
+# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-25 suite 4)
 
-> Archive des sessions antérieures au 25/05/2026, déplacées hors du JOURNAL
+> Archive des sessions antérieures au 25/05 suite 5, déplacées hors du JOURNAL
 > principal lors des nettoyages documentaires successifs : 25/05 suite 3
 > pour les sessions 19→21/05 (mise en place initiale, flowcharts de phase),
-> puis 25/05 suite 7 pour les sessions 22→24/05 (squelettes du V, charte
-> callouts v2, rédaction complète de `specification-technique.md`).
+> 26/05 suite pour les sessions 22→24/05 (squelettes du V, charte
+> callouts v2, rédaction complète de `specification-technique.md`), puis
+> 26/05 suite 4 pour les sessions 25/05 → 25/05 suite 4 (première vague de
+> trames transverses, fiches-notion + SVG, nettoyage documentaire, concept
+> étapes 1-2).
 >
 > Périmètre couvert par cette archive :
 > - **19-20/05** : mise en place du dépôt et du site (Quartz, conventions,
@@ -48,7 +51,345 @@
 
 ---
 
-<!-- DEBUT DES SESSIONS 22/05 → 24/05 — ARCHIVEES LE 25/05 SUITE 7 -->
+<!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->
+
+## 2026-05-25 (suite 4) — Concept : approfondissement étapes 1-2 + alignement callouts v2.1
+
+### Périmètre de session
+Première session d'approfondissement de la fiche-trame `concept.md` (squelette du 22/05). Le squelette portait 5 étapes en placeholder italique + callouts au format pré-v2.1. PC perso, préfixe MCP `filesystem:*`. Trois actions principales : alignement v2.1 des callouts du squelette entier (préalable mécanique), puis rédaction des étapes 1 et 2.
+
+### Cadrage en début de session — 3 questions tranchées (niveau C)
+1. **Profondeur par étape** : option (b) pondérée. Étape 3 (pivot) prévue dense avec sous-sections H4 sur la gestion du conflit inter-disciplines, étape 5 dense en miroir de spec-tech étape 6 (rédaction du dossier), étapes 1/2/4 plus économes (2 H4 chacune). Justification : structure de spec-tech inversée (là, étape 4 = pivot ; ici, étape 3 = pivot, étape 5 = clôture documentaire).
+2. **Ordre de traitement** : 1→5 linéaire (lecture naturelle, cohérence directe).
+3. **Popover `[[decomposition-fonctionnelle]]`** : laissé en lien rouge, fiche-notion en session dédiée. Focus session sur la trame.
+
+### Phase 1 — Alignement v2.1 du squelette (12 patches en batch)
+Application en un seul appel `filesystem:edit_file` avec array d'edits :
+- 5 `[!example] Sur le bras 3 axes` → `Exemple : projet bras 3 axes` (désambiguïsation par 1ère ligne du corps de chaque callout)
+- 5 `[!livrable] Livrable de l'étape N` → `Livrable N/5 — Concept` (et `Livrables 4/5 — Concept` pour étape 4 qui en a 2)
+- 1 `[!warning] Le conflit inter-disciplines arrive presque toujours` → titre fixe `Attention` + phrase-clé en gras dans le corps
+- 1 `[!tip] Branches ≠ rôles` → titre fixe `Astuce` + phrase-clé en gras dans le corps
+
+Diff propre, 12/12 patches appliqués. Discipline confirmée : `edit_file` accepte un array d'edits, suffisant pour batches multi-patches tant que chaque `oldText` est unique au fichier.
+
+### Phase 2 — Rédaction étape 1 « Décomposer le système »
+Niveau B (texte rédigé). Structure : intro 2 paragraphes (transition CdCF validé / annonce 2 temps) + 2 H4 :
+- **Du système aux sous-systèmes** — 3 paragraphes (interfaces nettes, autonomie technique, taille comparable / visualisations SADT-IDEF0 et schéma bloc fonctionnel / découpage non figé révisable post-étape 2) + `[!warning] Attention` sur rétroaction CdCF (trou révélé pendant décomposition, ne pas masquer, économie « quelques heures vs semaines »).
+- **Des sous-systèmes aux fonctions techniques** — 3 paragraphes (FAST verbe + complément, distinction service/technique, profondeur d'arrêt = adressabilité par solution candidate) + `[!tip] Astuce` sur raffinement FAST en plusieurs passes (premier jet haut niveau, raffinement à mesure que l'étape 2 fait apparaître les manques).
+
+`[!example]` enrichi : 3 sous-systèmes du bras (mobilité articulaire / IHM / alim & sécurité) + FAST premier jet sur mobilité articulaire (4 fonctions techniques en verbe + complément : générer un couple, mesurer position angulaire, asservir, synchroniser les axes). Note explicite : le découpage ne reflète pas une répartition par discipline.
+
+Wiki-links semés (étape 1) : `cahier-des-charges-fonctionnel`, `specification-technique`, `decomposition-fonctionnelle`, `schema-bloc-fonctionnel`, `fast`, `pieuvre`, `dossier-technique`, alias `FC` / `FP`.
+
+### Phase 3 — Rédaction étape 2 « Explorer les solutions par discipline »
+Niveau B. Structure parallèle à étape 1 (convention émergente sur les étapes hors pivot) : intro 2 paragraphes + 2 H4 :
+- **Recenser les solutions candidates** — 2-5 solutions par sous-système (pas plus = dilution, pas moins = justification a posteriori), 5 sources à parcourir (état de l'art technique / catalogues fabricants / open source / expérience disciplinaire / brainstorm équipe), ne pas filtrer trop tôt.
+- **Construire la matrice et arbitrer** — croisement solutions × critères, 6 familles de critères (performance / coût / encombrement-masse / écoconception / faisabilité école / risque technique), pondération opposable au CdCF (F0/F1 = poids fort, F3 = poids faible), écoconception comme critère pondéré (pas case à cocher), « le score guide, l'arbitrage motivé tranche ».
+
+Callouts : `[!warning] Attention` nouveau sur matrice cosmétique (notes 4/5 partout = pas de décision, habillage rétroactif). `[!tip] Astuce` existant sur branches ≠ rôles conservé, déplacé après le warning pour transition vers exemple.
+
+`[!example]` enrichi : tableau matrice incarné 3 solutions × 5 critères + score pondéré sur la branche élec de la mobilité articulaire (CC + encodeur 3,35 / Stepper + driver 3,85 / Servomoteur 3,40). Décision tracée : stepper + driver retenu, réserve identifiée sur l'écoconception (conso continue au maintien) à lever étape 4 (mode économie ou commande coupée à l'arrêt). Ouverture explicite vers branches méca + info en parallèle.
+
+Wiki-link nouveau semé : `etat-de-l-art-technique`.
+
+### Round 2 validé sans correction
+Garde-fou tenu : l'utilisateur a relu les étapes 1+2 et validé sans modification. Production tenue au pattern v2.1 et aux 9 conventions transverses (1-9) dès le premier jet, sur deux étapes consécutives. À surveiller : si la régularité se confirme sur les prochaines étapes, indicateur que les conventions sont désormais bien internalisées. Si exception, en revenir à un round 2 plus pointilleux.
+
+### Conventions émergentes — 2 nouvelles poussées dans `conventions.md` § 7
+10. **Matrice incarnée dans `[!example]`** des fiches-trame — pattern validé sur étape 2 concept : tableau dans le callout exemple, scores chiffrés, décision tracée et ouverture vers la suite. À éprouver sur étape 3 concept (tableau de compatibilité inter-disciplines ?), étape 4 (tableau de pré-dimensionnement ?), ou trame ultérieure. Convention de § 2 (Mise en forme — Callouts).
+11. **Structure 2 H4 par étape hors pivot** dans les fiches-trame des phases du V — convention de proportionnalité : étape pivot = 3 H4 dense, étape hors pivot = 2 H4 économes. Validée sur étapes 1 et 2 concept (parallélisme). Étape 3 (pivot) prévue à 3 H4 dense, étape 5 (clôture documentaire) probablement à 3 H4 par analogie spec-tech étape 6, étape 4 à éprouver à 2 H4 économes. Ne s'applique pas aux fiches-trame transverses (structure 3 blocs co-actifs). Convention de § 6 (Publication / Quartz — Structure des fiches-trame).
+
+### Leçon méthodo — batch d'edits via filesystem:edit_file
+Confirmation : `edit_file` accepte un array d'edits passés en un seul appel, traités en séquence. Plus rapide qu'un patch par appel, plus sûr qu'un `write_file` long (cf. leçon méthodo palier 2 du 25/05 suite 3 sur la troncature silencieuse). Discipline : chaque `oldText` doit être unique au fichier. Quand un titre se répète (ex : 5 `[!example] Sur le bras 3 axes`), désambiguïser en incluant la 1ère ligne du corps de chaque callout — ça suffit. 12 patches en batch passés sans incident.
+
+### État de `concept.md` en fin de session
+- Étapes 1 et 2 rédigées et validées.
+- Étapes 3, 4, 5 en placeholder italique avec callouts au format v2.1 désormais aligné.
+- Pièges + Côté équipe en placeholder.
+- Posture + Objectif + Conclusion + Voir aussi : rédigés depuis le 22/05 (squelette).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Étape 3 concept** (pivot dense) à approfondir en session suivante : 3 H4 prévues (Confronter les solutions retenues / Identifier et arbitrer les conflits / Renégocier sans tout casser), `[!warning]` enrichi + `[!example]` continuant le fil rouge bras 3 axes (conflit méca↔info sur articulations à axe unique vs cinématique inverse à offset, déjà esquissé dans le squelette).
+- **Conventions émergentes 10 et 11** à éprouver — convention 10 sur étape 3 ou 4 (matrice incarnée si pertinent), convention 11 sur étape 4 (2 H4 économes).
+- **Pattern matrice incarnée** — à surveiller en rendu Quartz mobile (tableau 6 lignes × 5 colonnes potentiellement chargé sur smartphone).
+
+---
+
+## 2026-05-25 (suite 3) — Nettoyage documentaire complet (paliers 1-6)
+
+### Périmètre de session
+Session dédiée à réduire le poids des fichiers lus au démarrage de chaque conversation Claude (prompt projet + TODO + JOURNAL + BACKLOG, total mesuré à ~55 k tokens en début de session). Cible : ~15-20 k tokens. Plan en 6 paliers exécuté intégralement dans la session. PC perso, préfixe MCP `filesystem:*`.
+
+### Audit initial — mesure du poids
+| Fichier | Poids | ~Tokens |
+|---|---|---|
+| Prompt projet | ~9 ko | ~2,5 k |
+| JOURNAL.md | 138 ko | ~35-40 k |
+| TODO.md | 51 ko | ~13-15 k |
+| BACKLOG.md | 22 ko | ~5-6 k |
+| **Total démarrage** | | **~55 k tokens** |
+
+Redondances identifiées : TODO « Fait » ↔ JOURNAL (massif), JOURNAL pré-22/05, 17 entrées « Commit + push de la session du XX/XX » dans TODO, TODO « Décisions éditoriales » ↔ BACKLOG « Discussions/décisions en attente », prompt §7 (conventions de fiches) externalisable, prompt §1+§8+§9 chevauchements.
+
+### 7 questions de cadrage tranchées (niveau C, validées en bloc)
+
+1. **Externalisation des conventions** dans un fichier dédié à la racine → `conventions.md` créé au palier 1.
+2. **Section « Fait » du TODO** → 3 dernières sessions seulement, avec **rotation glissante** (suppression auto session N-3 à chaque fin de session). Intégrée à §9 du prompt v2 au palier 5.
+3. **17 « Commit + push » du TODO** → consolidés en checklist unique « Rattrapage commits/pushs en retard — voir JOURNAL pour détail ». Traité au palier 3.
+4. **Archivage JOURNAL pré-22/05** dans `JOURNAL-archive.md` → fait au palier 2.
+5. **Démarrage automatique** = TODO + conventions.md + 3 dernières entrées JOURNAL en `head` (le JOURNAL est antichronologique). Intégré à §8 du prompt v2 au palier 5, corrigé au palier 6 (cf. ci-dessous).
+6. **Méthode** = (c) audit puis refonte ciblée du prompt, plutôt que réécriture intégrale.
+7. **Conventions regroupées par thème** dans `conventions.md` (Rédaction / Mise en forme / Images & SVG / Cas d'illustration / Collaboration / Publication-Quartz / En cours d'éprouvage).
+
+### Plan d'exécution en 6 paliers (validé, exécuté intégralement)
+1. **Palier 1** — Création `conventions.md` (additif, non destructeur). ✅ Fait.
+2. **Palier 2** — Archivage JOURNAL pré-22/05. ✅ Fait.
+3. **Palier 3** — Compactage TODO (3 sous-paliers). ✅ Fait.
+4. **Palier 4** — Compactage BACKLOG (léger). ✅ Fait.
+5. **Palier 5** — Refonte v2 du prompt projet. ✅ Fait.
+6. **Palier 6** — Test de démarrage post-refonte. ✅ Fait.
+
+Discipline : commit + push utilisateur avant chaque palier destructeur (3, 4, 5), pratiquée en pratique.
+
+### Palier 1 — Création `conventions.md` (14,6 ko)
+Fichier privé (non publié) à la racine du dépôt, au même niveau que TODO/JOURNAL/BACKLOG. 7 sections thématiques + 1 section « En cours d'éprouvage » pour les conventions récentes (3 dernières 25/05 suite 2 : 2 images par fiche-notion d'outil, fil rouge station météo, niveau B = texte rédigé). Dates d'acquisition entre parenthèses pour traçabilité. Centralise les 9 conventions transverses + §7 + §7bis du prompt + conventions disséminées du JOURNAL.
+
+### Palier 2 — Archivage JOURNAL pré-22/05
+- `JOURNAL-archive.md` créé (49,7 ko, 8 sessions : 19/05 ×3, 20/05 ×2, 21/05 ×3). Préambule explicatif pointant vers le JOURNAL principal.
+- `JOURNAL.md` truncaté (138 ko → 89 ko). Conserve les 11 sessions du 22/05 au 25/05 (suite 2) + nouveau préambule mentionnant l'archive + commentaire HTML de fin pointant vers `JOURNAL-archive.md`.
+- Gain mesuré : ~12 k tokens sur le seul JOURNAL.
+
+### Leçon méthodo — write_file long et edit_file matching exact
+- Premier `write_file` de ~85 ko du nouveau JOURNAL tronqué par limite de réponse (échec silencieux : pas de soumission, fichier inchangé). Vérification systématique post-écriture via `get_file_info` est essentielle.
+- `edit_file` MCP exige matching exact du `oldText` au caractère près ; bloc multi-ko expose à des désynchronisations subtiles (whitespace, retours à la ligne, NBSP). Stratégie retenue : truncate via `write_file` après lecture préalable (head=N lignes) pour identifier la frontière exacte. `dryRun: true` utile pour tester un edit avant exécution.
+
+### Palier 3 — Compactage TODO (51 ko → 12,5 ko, gain ~75 %)
+- **3a** — Section « Fait » réduite à 3 dernières sessions (25/05 suite 2 + 25/05 + 24/05 suite 2). 14 sessions antérieures supprimées (détail dans JOURNAL).
+- **3b** — 16 lignes « Commit + push session du XX/XX » consolidées en une checklist unique « Rattrapage commits + pushs en retard depuis 19/05 — voir JOURNAL pour détail ».
+- **3c** — Section « Décisions éditoriales en attente » quasi-vidée : ne reste qu'une entrée (les 6 conventions transverses à éprouver sur `securite-et-qualite`). Note explicite renvoie au BACKLOG (conventions à éprouver) et à `conventions.md` (conventions acquises). Pas de duplication.
+- Réorganisations secondaires : « Tâches techniques en suspens » divisée en 3 sous-sections (Rattrapage / Manipulations manuelles / Vérifications visuelles). Section « Templates » réduite à la seule entrée restante (fiche-tuto).
+- Écriture en `write_file` intégrale (TODO compact, pas de risque de troncature).
+
+### Palier 4 — Compactage BACKLOG (22 ko → 20,2 ko, gain ~8 %)
+- 5 items supprimés de « Discussions/décisions en attente » : 4 conventions à éprouver désormais portées par `conventions.md` (popovers sigles génériques, alias Quartz, 2 images, station météo) + item obsolète sur le flowchart Mermaid du hub.
+- 2 notes ajoutées : pointeur vers `conventions.md` pour traçabilité + rattachement de la section « Points ouverts des flowcharts » à l'inventaire pré-publication.
+- Édit ciblé via `filesystem:edit_file` (vs `write_file` réécriture intégrale) — plus sûr sur un fichier de 22 ko, applique la leçon méthodo du palier 2.
+- Gain volumétrique modeste comme annoncé (palier léger). L'objectif principal du palier 4 était la cohérence : zero duplication entre BACKLOG et `conventions.md`.
+
+### Palier 5 — Refonte v2 du prompt projet (~9 ko → ~5,5 ko, gain ~40 %)
+- 13 sections → 9 sections après fusions (§3+§6+§10 / §8+§9) et externalisations (§7 + §7bis vers conventions.md, simple pointeur).
+- §8 démarrage mis à jour : lit TODO + conventions.md + JOURNAL en mode `head` (3 dernières entrées en haut, JOURNAL antichronologique).
+- §9 fin de session enrichi : rotation glissante session N-3 + seuil archivage JOURNAL ~100 ko.
+- Note structurelle « niveau B = livraison en texte rédigé » intégrée directement dans le bloc Mode de collaboration (anciennement section 13 séparée).
+- Chemins des deux PC mentionnés explicitement (pro + perso) avec consigne de fallback automatique.
+- Production en chat, copie manuelle par l'utilisateur dans Claude Desktop.
+
+### Palier 6 — Test de démarrage post-refonte
+| Fichier lu au démarrage | Poids | ~Tokens |
+|---|---|---|
+| TODO.md | 12,5 ko | ~3 k |
+| conventions.md | 14,6 ko | ~4 k |
+| JOURNAL.md (head 3 entrées) | ~15-18 ko | ~4-5 k |
+| **Total démarrage post-refonte** | | **~11-12 k tokens** |
+
+Vs cible 15-20 k → **sous la cible**. Vs initial ~55 k → **réduction ~80 %**, mieux qu'estimé en début de palier 1 (objectif initial parlait de ~65 %).
+
+### Patch §8 post-test — erreur tail/head détectée
+- **Erreur dans la v2 livrée au palier 5** : §8 disait `tail` au sens sémantique (« 3 dernières entrées de session ») alors que le JOURNAL est antichronologique. Un `tail=N` technique aurait lu les sessions les plus ANCIENNES en bas du fichier — l'inverse de l'intention.
+- Correction proposée : remplacement `tail` → `head` au §8 avec explicitation de l'antichronologie. Appliquée par l'utilisateur dans Claude Desktop.
+
+### Leçon méthodo — éprouver le prompt avant de figer
+Sans le palier 6 (test concret), le piège `tail` au lieu de `head` serait passé inaperçu jusqu'au prochain démarrage qui aurait chargé le mauvais contexte. Discipline acquise : intégrer un test de démarrage à toute refonte du prompt projet.
+
+### État final des fichiers
+- `conventions.md` : 14,6 ko (nouveau)
+- `JOURNAL.md` : 89 ko (truncaté palier 2)
+- `JOURNAL-archive.md` : 49,7 ko (nouveau palier 2)
+- `TODO.md` : 12,5 ko (compactage palier 3)
+- `BACKLOG.md` : 20,2 ko (compactage palier 4)
+- Prompt projet : ~5,5 ko dans Claude Desktop (refonte palier 5)
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- Prochaine session posée : **approfondissement de `concept`** (fiche-trame phase 2 du cycle en V, squelette fait 22/05). `securite-et-qualite` (3ème trame transverse) reste à faire mais n'est pas le prochain immédiat.
+
+---
+
+## 2026-05-25 (suite 2) — Batch de 7 fiches-notion prioritaires + 12 SVG + approfondissement complet de pieuvre
+
+### Périmètre de session
+Lot batch des 7 notions prioritaires sémées dans plusieurs trames (`cahier-des-charges-fonctionnel` + 6 outils méthodologiques planification/décision/risques) suivi de l'approfondissement complet de `pieuvre.md` en clôture. Première session à produire autant de fiches d'un coup (7) et autant de SVG (12). PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 5 questions tranchées (niveau C)
+1. **Modèle de référence pour CdCF** : hybride basé sur `bete-a-cornes.md` + section « Structure type du document école » pointant vers `cdcf-ecole-template.docx`. Rejet du modèle `fonction.md` (trop léger pour un pivot).
+2. **Profondeur des stubs** : option (a), stubs légers maintenus sur les 6 fiches non-CdCF malgré le TODO qui marquait certaines en « fiche-tuto détaillée ». L'approfondissement détaillé reste pour une session ultérieure.
+3. **Ordre** : 6 stubs d'abord (calibrage du format commun), CdCF en seconde moitié.
+4. **Front matter `type:`** — **clarif structurante apportée par l'utilisateur** : notion = court (popover only) / tuto = long mais pas structurant (outils en général) / trame = structurante. Répartition : `cahier-des-charges-fonctionnel`, `wbs`, `jalons`, `matrice-de-risques`, `matrice-de-decision` en notion ; `retroplanning` et `gantt` en tuto.
+5. **Popovers déjà sémés** : récupération comme base + micro-ajustements ciblés pour cohérence avec les 6 conventions transverses.
+
+### Premier batch — dérive sur les placeholders italiques
+Production des 7 fiches en mode « stub avec placeholders italiques entre crochets », en m'alignant littéralement sur `pieuvre.md` post-24/05 suite 2 (qui est lui-même un stub à finir). **Erreur d'interprétation** : pieuvre.md est un stub non terminé, pas un standard cible. Résultat livré inacceptable.
+
+### Recadrage utilisateur — niveau B exige texte rédigé
+« Le niveau d'autonomie requiert que tu fasses la fiche avec un texte complet avant validation ». **Convention transverse acquise** : un placeholder italique entre crochets est un aveu de travail non fait, pas une livraison niveau B. La forme italique n'est admissible qu'avec signalement explicite d'un manque de matière.
+
+### Reprise complète des 6 stubs en texte rédigé
+Modèle de référence basculé sur `fonction.md` (fiche-notion brève rédigée). Pour chaque fiche : popover + 3 sections en texte complet (À quoi ça sert / Comment construire / Pièges) + Voir aussi. Commentaires HTML « STUB » retirés. Réécriture en `filesystem:write_file` (6 appels).
+
+### Production des 12 SVG — critique transverse de l'utilisateur
+Une fois les 6 fiches rédigées, critique transverse : il manque les images. Niveau C : 4 questions tranchées.
+1. **Production** : (a) Claude produit en premier jet + entrée backlog pour affinage utilisateur avant publication.
+2. **Stratégie** : 1 image générique + 1 image avec valeurs concrètes non liées au bras 3 axes — 12 SVG au total.
+3. **Emplacement** : générique après popover, exemple dans la section « Comment … ».
+4. **Fil rouge alternatif** retenu : **station météo connectée** (projet école générique, cohérent inter-fiches sur 15 semaines avec mêmes jalons Sem. 2 / 5 / 9 / 12 / 15).
+
+Production des 12 SVG en batch (palette ambre `#BA7517` / gris `#DDDBD3` alignée sur `pieuvre-generique.svg`, support `@media prefers-color-scheme: dark`, viewBox variables selon le type d'image). Patch des 6 fiches pour insertion des 2 images.
+
+### Approfondissement complet de `pieuvre.md` (clôture)
+Modèle de référence : `bete-a-cornes.md` (notion fondatrice, sections développées). Popover conservé, image générique conservée, image exemple bras 3 axes conservée (toutes existaient depuis 24/05 suite 2). Rédigé :
+- **À quoi ça sert** : 3 rôles articulés (recenser milieux / formaliser sans dériver vers solution / matériau direct pour caractérisation).
+- **Comment la construire** : méthode 3 temps + **tableau des 5 familles de milieux** (utilisateurs / matière d'œuvre / énergies / environnement physique / réglementaire) + **paragraphe topologie** (forme rayonnante AFNOR, distinction FP/FS/FC par topologie + numérotation, pas par style de trait).
+- **Exemple bras 3 axes** : commentaire enrichi des 5 milieux et des 4 fonctions, chacune avec sa sémantique (FP relie deux milieux et justifie l'existence, FS relie deux milieux pour service complémentaire, FC sur un seul milieu pour contrainte d'adaptation).
+- **Pièges** : 5 pièges en gras court, dont **« Confondre FP et FS » nouveau** (test pratique « si je retire cette fonction, le projet reste-t-il défendable ? ») et **« Diagramme rayonnant peu lisible »** (deux pistes : regrouper en familles, ou faire pieuvres locales par sous-système en concept).
+
+Pas de section *Cas particulier* ni *Aller plus loin* (non pertinent ici). Pas de triptyque mauvais/moyen/bon (le triptyque pertinent pour FP/FS/FC est porté par `fonction.md`).
+
+### Conventions transverses — compteur à 6 + 3 nouvelles
+6 conventions transverses fixées 25/05 (éprouvées sur ecoconception 25/05 suite + sur les 7 fiches-notion 25/05 suite 2). Trois nouvelles conventions acquises cette session :
+7. **2 images par fiche-notion d'outil méthodologique** : générique après popover + exemple valeurs concrètes dans « Comment … ». À confirmer sur 2-3 autres fiches-notion d'outils puis documenter dans `templates/fiche-notion.md`.
+8. **Fil rouge alternatif « station météo connectée »** pour les exemples non-bras-3-axes des fiches-notion d'outils. À confirmer ou élargir (arrosage automatique, alarme connectée selon les besoins).
+9. **Niveau B = livraison en texte rédigé, placeholders italiques inadmissibles** sauf signalement explicite de manque de matière. À intégrer aux instructions projet section 13.
+
+### Typologie notion / tuto / trame — clarification structurante
+Clarif apportée par l'utilisateur en cours de session :
+- **notion** = fiche courte (popover-only). Exemple : `jalons`, `wbs`, `matrice-de-risques`.
+- **tuto** = fiche longue mais pas structurante (outils méthodologiques détaillés, captures d'écran d'outils). Exemple : `retroplanning`, `gantt`.
+- **trame** = fiche structurante (phases du V, fils transverses). Déjà acquis depuis le 22/05.
+
+Cette clarif resoud la tension du TODO qui marquait certaines fiches en « fiche-tuto détaillée » tout en les traitant en stub aujourd'hui : pour les outils qui n'ont pas encore leurs captures d'écran, on pose la **notion** d'abord (court), on construit le **tuto** ensuite. Répartition appliquée : 5 notion + 2 tuto sur les 7 fiches du jour.
+
+### Leçon méthodo — niveau B et fidélité au modèle
+Une fiche stub existante (comme `pieuvre.md` post-24/05 suite 2) n'est **pas** un modèle cible ; c'est une fiche à finir, qu'on a marquée en stub pour la souligner. Prendre une fiche stub comme modèle littéral d'un autre stub revient à produire un travail non terminé sous couvert de cohérence. Modèle cible pour fiche-notion brève = `fonction.md` (brève mais rédigée). Modèle cible pour fiche-notion complète = `bete-a-cornes.md`.
+
+### Nouvelles dépendances posées
+Aucune nouvelle notion ajoutée au-delà de celles déjà inventoriées. Au contraire, 7 liens rouges résorbés sur l'ensemble du dépôt (`cahier-des-charges-fonctionnel` cité dans le hub + 4 trames + template CdCF + 3 stubs du jour).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses 7, 8, 9** : à éprouver sur les fiches à venir (notamment `caracteriser-une-exigence`, `microcontroleur`, `pla`) avant documentation formelle dans les templates.
+- **Reprise visuelle des 12 SVG produits aujourd'hui** : premiers jets, affinage utilisateur attendu avant publication (BACKLOG enrichi en conséquence).
+- **Densité du tableau matrice-de-decision générique** : double colonne brute/pondérée potentiellement chargeur visuel — à vérifier en relecture Quartz et simplifier le cas échéant.
+
+---
+
+## 2026-05-25 (suite) — Deuxième trame transverse : squelettisation + approfondissement direct de ecoconception (stresstest réussi)
+
+### Périmètre de session
+Deuxième fiche-trame transverse du projet : `ecoconception.md`. Stresstest volontaire de la capacité à rédiger un sujet complexe (interface disciplinaire + densité notionnelle plus forte) en passe unique avec round 2 ciblé, dans le format inauguré sur `gestion-de-projet.md` le matin même. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 4 questions tranchées (niveau C)
+
+1. **Structure de la fiche-trame** : 3 blocs co-actifs **Évaluer / Réduire / Tracer** (option a). Rejet argumenté de (b) cycle de vie = territoire des collègues et (c) niveau d'intégration = trop méta. Alignement sur le pattern transverse `rythmer/outiller/tenir` de `gestion-de-projet`.
+2. **Périmètre vs cours collègues** : frontière nette. Porté côté élec/info (sobriété énergétique, durée de vie composants, démontabilité PCB, sobriété logicielle). Délégué (cité sans approfondir) : ACV complète, recyclabilité matériaux, normes pointues.
+3. **Outils canoniques** : 1 outil approfondi (`matrice-eat`), 1 cité + délégué (`acv-simplifiee`), reste en ressources.
+4. **Articulation avec gestion-de-projet** : miroir asymétrique. La trame écoconception affirme qu'elle est pilotée par GdP, dans le bloc 3 « Tracer ».
+
+### Squelette + approfondissement en passe unique
+Squelette niveau B (front matter tag `transverse` seul, popover miroir GdP, 3 blocs en placeholder italique avec [!example] esquissé + [!livrable] Continu/Jalonné + callouts secondaires). Approfondissement complet enchaîné :
+- **Bloc 1 Évaluer** : 4 paragraphes (pourquoi/outils/frontière chiffrable/cadence) + example étoffé avec re-passage en revue de PoC.
+- **Bloc 2 Réduire** : 5 paragraphes (1 par front + 1 paragraphe délégation explicite) + warning sur l'optimisation à l'extrême.
+- **Bloc 3 Tracer** : 5 paragraphes (opposabilité + pilotage GdP / 3 pratiques liste numérotée / restitution soutenance) + tip intégration diffusée.
+- **Section côté équipe** : 3 articulations en gras (GdP miroir, SQ croisements RoHS/REACH/DEEE avec règle de non-redondance, délégation cours collègues).
+
+### Round 2 — 4 remarques utilisateur → 9 patches via `filesystem:edit_file`
+1. **MCU → microcontrôleur** avec popover : 5 patches (chaque section/callout).
+2. **PLA, ABS, RoHS, REACH, DEEE → popovers** : 4 patches.
+3. **usinage, impression 3D, soudure → wiki-links** : 2 patches.
+4. **Gras isolé « opposable »** : 1 patch (extension à « la dimension qui rend l'écoconception opposable »).
+
+### 6ème convention transverse fixée
+6. **Wiki-link à la 1ère occurrence de chaque section, sous-section ou callout** ; mot complet ailleurs. À éprouver sur `securite-et-qualite` et à documenter dans `templates/fiche-trame.md` une fois confirmée. Compteur conventions transverses : 6.
+
+### Nouvelles notions semées en lien rouge (inventoriées au TODO)
+- `microcontroleur` (fiche-notion, popover essentiel, acronyme MCU en alias)
+- `pla`, `abs` (fiches-notion matériaux)
+- `rohs`, `reach`, `deee` (fiches-notion normes environnementales)
+- `usinage`, `impression-3d`, `soudure` (fiches-tuto procédés, actées côté collègues)
+- `matrice-eat` (outil canonique de la trame éco, doublement prioritaire)
+- `acv-simplifiee` (citée et déléguée)
+
+### Bilan stresstest
+Format passe unique + round 2 ciblé tient sur sujet complexe. Pas de scission de session nécessaire malgré l'interface disciplinaire forte. Pattern applicable à `securite-et-qualite` avec prudence sur la matière notionnelle (CE, sécurité fonctionnelle, FMEA…) — risque de scission réel sur cette 3ème trame, à surveiller.
+
+### Évolution du mode de collaboration
+**Niveau B acté comme autonomie de base** pour la rédaction conventionnelle (cf. section 13 des instructions projet, paragraphe ajouté en fin de session). Niveau A réservé aux actions mécaniques (typo, formatage), niveaux C et D inchangés.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses** : à éprouver sur `securite-et-qualite` avant documentation formelle dans le template (6 conventions au compteur).
+- **Format `[!livrable]` transverse Continu/Jalonné** : confirmé sur 2 trames sur 3, à formaliser après la 3ème.
+- **Tag `transverse` seul vs `transverse` + `ese`** : tag seul retenu (alignement strict sur GdP), à arbitrer si besoin de classification par domaine émerge.
+
+---
+
+## 2026-05-25 — Première trame transverse : squelettisation + approfondissement direct de gestion-de-projet
+
+### Périmètre de session
+Première fiche-trame transverse du projet : `gestion-de-projet.md`. Session démarrée en mode squelettisation (cadre du TODO) puis basculée sur demande utilisateur en approfondissement complet dans la même session — soit un format inédit pour les transverses. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 5 questions tranchées
+
+1. **Structure de la fiche-trame transverse** : option (a) thématique, contre chronologique et par compétence MEO. Trois blocs **co-actifs** (non séquentiels) retenus : Rythmer / Outiller / Tenir la posture.
+2. **Articulation avec `specification-technique`** : principe acté — la trame transverse **ne redéveloppe aucun outil** (délégation aux notions/tutos dédiés : `wbs`, `gantt`, `jalons`, `retroplanning`, `matrice-de-risques`). La pilote enseigne à poser ; la trame enseigne à tenir.
+3. **Fil rouge bras 3 axes** : 1 `[!example]` par bloc thématique (transposition v2.1 « au moins 1 par étape »), pas un panorama 15 semaines unique.
+4. **Notions PROJ/MEO** : pointer sans redévelopper. Question secondaire (ajouter `revue-de-phase` / `point-hebdomadaire` au BACKLOG ?) reportée à l'approfondissement.
+5. **Périmètre de session** : squelettisation seule au départ, **basculé en approfondissement direct** sur demande utilisateur en cours de session.
+
+### Squelette produit (1ère version, niveau B)
+Front matter avec **nouveau tag `transverse`** (en plus de `proj`/`trame`) ; section « Démarche » conservée mais ouverte par préambule qui pose la non-séquentialité ; 3 blocs avec callouts `[!example]` + `[!warning]` (bloc 2) + `[!tip]` (bloc 3) + `[!livrable]` en placeholder explicite (format à trancher : jalonné vs continu) ; section « Pendant cette phase, côté équipe » reconvertie de fait en panorama d'articulation avec les 2 autres transverses ; conclusion adaptée (pas de phase suivante, pont vers le hub).
+
+### 4 décisions de niveau C validées
+- **Tag `transverse`** acté (à propager aux 2 autres transverses).
+- **Section « Démarche »** : conservée, variante « Mener la gestion de projet » jugée équivalente (arbitrable à l'usage).
+- **Format `[!livrable]` transverse** : sous-listes explicites « Continu » et « Jalonné » dans chaque livrable, pour rendre visible le double régime de production.
+- **Section « Pendant cette phase, côté équipe »** conservée, reconvertie en « articulation avec les autres transverses » (titre de section inchangé pour aligner template).
+
+### Approfondissement complet en passe unique
+Rédaction des 3 blocs en prose dense (3-4 paragraphes par bloc avant callouts), à densité comparable à la fiche pilote `specification-technique`. Format `[!livrable]` posé en sous-listes Continu/Jalonné (3 livrables uniformisés). Section « articulation avec les autres transverses » rédigée en 3 pratiques (intégrer dans la cadence / intégrer dans la matrice de risques / piloter sans écraser). Production initiale en `filesystem:write_file` (squelette de moi, structure connue).
+
+### Round 2 — 9 remarques utilisateur → 14 patches ciblés via `filesystem:edit_file`
+- Retrait de toute mention de durée projet chiffrée dans la prose générique (la trame doit servir à tous types de projet, pas seulement aux projets de 15 semaines).
+- Conversion `SX` → `semaine n°X` dans les exemples bras 3 axes (la notation `SX` ne parle pas à un étudiant qui découvre).
+- Retrait des extensions `.md` dans les conventions de nommage citées en prose (l'étudiant choisit son format).
+- Conversion `(i)/(ii)/(iii)` → liste numérotée 1/2/3 pour les énumérations méritant une structure.
+- Retrait d'un gras sur verbe isolé (`les **tenir**.`) — convention : gras sur morceau de phrase ou mot technique-clé.
+
+### 5 conventions transverses fixées (à propager à `ecoconception` et `securite-et-qualite`)
+1. **Pas de chiffrage de durée projet** dans la prose générique.
+2. **Notation `semaine n°X`** dans les exemples bras 3 axes (pas `SX`).
+3. **Pas d'extension de fichier** dans les conventions de nommage citées en prose.
+4. **Listes numérotées** plutôt que `(i)/(ii)/(iii)`.
+5. **Gras** sur morceau de phrase ou mot technique-clé, pas sur verbe isolé.
+
+### Format date : compromis pédagogie vs technique
+Demande utilisateur : `DD/MM/YYYY` (format FR). Application : `JJ-MM-AAAA` aux conventions de nommage de fichiers (`12-09-2025-revue-poc`). **Trade-off connu signalé** : la convention technique habituelle pour tri chronologique automatique est ISO 8601 `AAAA-MM-JJ` — décision à arbitrer si le besoin de tri auto émerge.
+
+### Leçon méthodo — `str_replace` vs `filesystem:edit_file`
+Confusion en début de round 2 : `str_replace` (outil sandbox de Claude) n'agit pas sur le filesystem MCP. Il faut `filesystem:edit_file` (MCP) pour éditer le dépôt. À retenir.
+
+### Nouvelles dépendances posées
+Aucune nouvelle notion ajoutée au-delà de celles déjà inventoriées au TODO/BACKLOG. La trame `gestion-de-projet` pointe vers les 5 outils canoniques (`wbs`, `jalons`, `retroplanning`, `gantt`, `matrice-de-risques`) et les 2 autres transverses (`ecoconception`, `securite-et-qualite`).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Conventions transverses** : à éprouver sur `ecoconception` et `securite-et-qualite` avant de les documenter formellement dans le template `fiche-trame.md`.
+- **Format date noms de fichiers** : `JJ-MM-AAAA` retenu sur consigne FR ; bascule en ISO 8601 possible si le tri auto chronologique devient nécessaire.
+- **Section « Pendant cette phase, côté équipe »** : titre de section conservé pour alignement template, mais sémantique réelle = « articulation avec les autres transverses » pour les fiches transverses. À documenter formellement quand le pattern aura été confirmé sur les 2 autres.
+
+---
+
+<!-- DEBUT DES SESSIONS 22/05 → 24/05 — ARCHIVEES LE 26/05 SUITE -->
 
 ## 2026-05-24 (suite 2) — Clôture phase 1 partie 3 : cohérence finale + refonte architecture pieuvre/fonction + SVG
 

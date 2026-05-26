@@ -597,6 +597,86 @@ effleure: []
 
 ---
 
-## Synthèse globale (à compléter en fin de passe B+A)
+## Synthèse globale
 
-*Cette section sera générée une fois toutes les fiches cartographiées. Servira à identifier les trous (critères non couverts) qui nécessitent soit une nouvelle fiche, soit l'ajout d'une section dans une fiche existante.*
+### Bilan en chiffres
+
+| Domaine | C | E | HS | NC | Total |
+|---|---|---|---|---|---|
+| EEE | 5 | 2 | 0 | 3 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 6 |
+| MME | 3 | 6 | 0 | 2 | 11 |
+| PROJ | 17 | 1 | 4 | 3 | 25 |
+| **Total** | **36** | **9** | **4** | **8** | **57** |
+
+Lecture : la phase 1 du wiki (5 trames du V + 3 transverses, 21 fiches) couvre **directement** près des deux tiers du référentiel école (63 %), en effleure une part complémentaire (16 %), et identifie clairement les 8 trous restants (14 %) — dont 5 ont déjà une fiche phase 2 prévue au TODO et 3 relèvent d'un arbitrage hiérarchique. Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
+
+### Lecture par domaine
+
+**ESE** (5/5) et **MEO** (6/6) sont couverts à 100 % par la phase 1. Cohérent avec leur nature transverse : portés par les 3 trames transverses (gestion-de-projet, ecoconception, securite-et-qualite) avec multi-couverture forte depuis les trames du V. Pas de fiche phase 2 ni nécessaire ni prévue dans ces domaines.
+
+**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 17 C + 1 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. Les 3 NC restants tombent en zone design (sketchs, prise en compte design) et programmation contrôleur (phase 2).
+
+**EEE** (5 C / 10) a 3 NC structurés, tous adressés par fiches phase 2 déjà listées au TODO (`analyse-de-schema-electronique`, `simulation-electronique`, `microcontroleur` + `firmware`, 4 méthodes commande). Conforme à la grille phase 1 vs phase 2 : EEE = cœur disciplinaire à venir.
+
+**MME** (3 C / 11) est le domaine le moins couvert en phase 1 — partiellement délégué aux cours collègues (mention explicite dans `hub/index`). Effleurement récurrent dans concept et dossier-technique sans fiche centrale (4 critères concernés) + 2 NC structurels (schéma cinématique, outils designers). Stratégie de délégation à confirmer avec hiérarchie.
+
+### Lecture par catégorie
+
+- **Couvert (36)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
+- **Effleuré (9)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Effleurements purs = signal d'enrichissement possible mais pas urgent.
+- **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale : évalués transversalement par les enseignants, pas contenus pédagogiques.
+- **Non couvert (8)** : trous identifiés, ventilés en section suivante.
+
+### Trous NC : adressés vs à arbitrer
+
+**5 NC adressés au TODO phase 2** :
+
+- `RA-PROJET-C03-3/EEE/1` (identifier composants schéma) → `analyse-de-schema-electronique`
+- `RA-PROJET-C03-3/EEE/3` + `/4` (simulation électronique + interprétation) → `simulation-electronique` (1 fiche pour 2 critères groupés, conforme C16)
+- `RA-PROJET-C03-3/EEE/5` (programmer contrôleur) → `microcontroleur` + `firmware`
+- `RA-MME-C02-1/MME/5` (schéma cinématique) → `schema-cinematique` (statut wiki vs délégation à trancher, voir section suivante)
+
+**3 NC à arbitrer avec hiérarchie** : `RA-PROJET-C03-3/PROJ/1` (sketchs main d'un produit), `RA-PROJET-C03-3/PROJ/2` (prendre en compte design dans prototype), `RA-MME-C03-1/MME/1` (lister outils designers). Les 3 relèvent du **design produit** et sont probablement délégables aux cours collègues.
+
+### Décisions niveau D ouvertes
+
+Trois questions à porter en revue avec la hiérarchie en session ultérieure :
+
+1. **Instaurer la catégorie « Hors scope par délégation »** (distincte de HS C15) pour les 3 critères design ci-dessus. Officialise la délégation sans la confondre avec l'évaluation transversale enseignante.
+2. **Statut des 4 critères MME effleurés sans fiche centrale** : `RA-MME-C02-1/MME/2` (procédés d'assemblage), `/4` (sollicitations mécaniques), `/6` (caractéristiques actionneurs), `RA-MME-C03-1/MME/2` (note de calcul transmission), `/4` (paramètres dynamiques). Effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Délégation cours collègues MME ou fiches-tuto phase 2 à ajouter ?
+3. **Statut de `schema-cinematique`** : wiki-link rouge déjà posé dans `hub/index`. Fiche-tuto à produire dans le wiki, ou délégation entière cours collègues MME (auquel cas retrait du wiki-link rouge) ?
+
+Ces trois décisions structurent la finalisation de la stratégie de couverture. Tant qu'elles ne sont pas arbitrées, le bilan ci-dessus reste provisoire sur ses marges (8 NC affichés pourraient devenir 5 NC + 3 HS par délégation).
+
+### Ambition au-delà du référentiel
+
+Le wiki dépasse délibérément le scope AA : **mieux trop que pas assez**. Le référentiel école n'est pas un plafond, c'est un socle minimal (cf. prompt projet § 3 : *« aller au-delà du référentiel sans le contredire »*). Cette posture vaut tant pour les fiches qui ont des critères AA centraux (et qui peuvent les déborder) que pour les fiches qui n'en ont aucun.
+
+Trois fiches phase 1 illustrent cette ambition en ne portant aucun critère AA central, chacune pour une raison distincte mais légitime :
+
+- **`securite-et-qualite`** : trame de **posture professionnelle** — sécurité produit (AMDEC, arrêt d'urgence, parades), sécurité projet (3 règles non négociables, EPI, formations), qualité documentaire (Git tags, revue de code, plan de revues), normatif délégué (CE, EMC, ISO 12100). Domaine essentiel à la formation d'ingénieur mécatronicien, non explicitement capturé par les AA techniques du référentiel.
+- **`matrice-de-decision`** : **outil pivot transverse** — ne porte aucun critère en propre, mais constitue l'outil par lequel passent les critères de choix EEE/MME/ESE en phase concept. Sa valeur tient à la consolidation méthodologique, pas à l'adressage AA direct.
+- **`hub/index`** : **méta-structure** — point d'entrée du parcours pédagogique, ne porte pas de contenu pédagogique au sens AA.
+
+Implication directe : la cartographie sert à identifier les trous, pas à filtrer le contenu produit. Une fiche qui déborde ou qui n'adresse aucun critère central reste légitime si elle sert le projet pédagogique.
+
+### Conventions méthodo validées par la cartographie
+
+La cartographie a éprouvé empiriquement quatre conventions, désormais stables (consolidées dans `conventions.md` § 7 *Référentiel AA* depuis le 26/05 suite 4) :
+
+- **C15 — catégorie Hors scope** : 4 cas identifiés (terminologie technique + participation), tous propres et défendables. Distincte de NC : pas un trou, une décision éditoriale revendiquée.
+- **C16 — 1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent** : validée empiriquement — les 5 critères EEE attendus phase 2 sont chacun adressés par 1 à 4 fiches dédiées selon la granularité du critère source.
+- **Multi-couverture** : un tutoriel gonflé peut couvrir plusieurs critères. Cas `RA-PROJET-C05-3/PROJ/3+/4+/5` couvert simultanément en `preuve-de-concept` + `integration-et-tests` validé sur décision utilisateur.
+- **Granularité critère + statut dominant** : cartographie au niveau du critère (pas seulement de l'AA) + règle C > E > HS > NC quand un critère apparaît dans plusieurs fiches. Tenue sur les 21 fiches sans incohérence.
+
+### Suite des opérations
+
+Trois chantiers ouverts, dans l'ordre logique :
+
+1. **Arbitrer les 3 décisions niveau D** avec la hiérarchie (catégorie HS par délégation, 4 critères MME effleurés, `schema-cinematique`). Bloque la finalisation de la stratégie de couverture sur les marges.
+2. **Reprendre la rédaction des fiches** selon TODO : `caracteriser-une-exigence` (prioritaire), `pcb`, `amdec`, puis fiches-notion outils, puis fiches phase 2 EEE/MME selon priorisation.
+3. **Valider les conventions C15/C16 et multi-couverture sur les premières fiches-notion phase 2 produites**. Promotion vers le template `fiche-tuto.md` (à produire) une fois la stabilité confirmée sur 2-3 fiches.
+
+Le chantier cartographie AA est clos : la couverture est mesurée, les trous sont nommés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.

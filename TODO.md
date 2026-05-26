@@ -5,7 +5,11 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = synthèse globale dans `_drafts/referentiel/couverture-en-cours.md`** (niveau B/C, ~30-60 min) + reprise rédaction fiches phase 2 (`pcb` / `caracteriser-une-exigence` / `amdec` en priorité). **Cartographie AA bouclée 26/05 suite 3** : passe B (21 fiches), passe A (matrice critère × fiches par domaine), amendement passe B (integration-et-tests +1 Couvert), écriture champ `aa:` dans 17 fronts matters (+ 4 skip légitimes à `aa: []`). Couverture finale 36 C + 9 E + 4 HS + 8 NC sur 57 critères. **3 décisions niveau D en attente hiérarchie** (catégorie Hors scope par délégation, statut MME effleurés, statut schema-cinematique). **Actes à froid restants** : promotion C1-C6 vers § 1-2 conventions (épreuve 3/3 réussie) + promotion C15 Hors scope + promotion C16 (1-fiche-par-critère EEE / tutoriel gonflé).
+> **➜ Prochaine session = reprise rédaction phase 2** — `caracteriser-une-exigence` prioritaire (fiche-tuto, aliases `[critere, niveau, flexibilite]`, triplet + triptyque mauvais/moyen/bon calque `bete-a-cornes.md`). Puis `pcb` (mention gravure à l'anglaise interne école) et `amdec` (popover sémé dans `securite-et-qualite.md`).
+>
+> **Chantier clôture méthodologique terminé 26/05 suite 4** : (a) promotions C1-C6 dans §§ 1-2 + C15-C16 dans nouveau § 7 *Référentiel AA* de `conventions.md` ; (b) synthèse globale 8 sections dans `_drafts/referentiel/couverture-en-cours.md` (ambition au-delà du référentiel actée comme posture éditoriale) ; (c) archivage 3e vague JOURNAL.md (sessions 25/05 → 25/05 suite 4) via pattern MARKER + N segments éprouvé, JOURNAL 122→86 ko.
+>
+> **3 décisions niveau D en attente hiérarchie** (catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME).
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -145,6 +149,14 @@
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
 
+### Session 2026-05-26 (suite 4) — Clôture méthodologique : promotions conventions + synthèse globale couverture AA + archivage JOURNAL 3e vague
+- [x] **Acte 1 — Promotions conventions** (6 edits sur `conventions.md`) : retrait bannière § 7 acquise 25/05 suite (C1-C6), enrichissement bullet wiki-links § 2 (mode au fil + filet passe dédiée), création nouveau **§ 7 *Référentiel AA*** consolidant C15/C16 (codification critères, 4 catégories C/E/HS/NC + règle statut dominant, 1 fiche-tuto par critère EEE/info embarquée, front matter `aa`, référentiel source, 3 décisions niveau D ouvertes), renumérotation § 7 → § 8 *En cours d'éprouvage*, nettoyage redondance § 6.
+- [x] **Acte 2 — Synthèse globale couverture AA** (3 edits sur `_drafts/referentiel/couverture-en-cours.md`) : 8 sections rédigées (Bilan en chiffres / Lecture par domaine / Lecture par catégorie / Trous NC adressés vs à arbitrer / Décisions niveau D ouvertes / **Ambition au-delà du référentiel** / Conventions méthodo validées / Suite des opérations) + 2 patches typo correctifs (« critore » → « critère ») + précision pourcentage PROJ.
+- [x] **Acte 3 — Archivage JOURNAL 3e vague** (12 edits) : pattern MARKER + N segments éprouvé une 2e fois. Phase 1 (6 edits) : marker + correction dette commentaire HTML + 4 insertions segments (du plus ancien au plus récent) + retrait marker. Phase 2 (5 edits effectifs) : T1 + T2 + batch T3+T4+T5 + T6 préambule + commentaire HTML final. Bonus : correction préambule archive (dette « 25/05 SUITE 7 » → « 26/05 SUITE » + mention 3e vague).
+- [x] **Bilan tailles** : JOURNAL.md 122 → 86 ko (-36 ko, sous seuil 100 ko ✓) ; JOURNAL-archive.md 119 → 158 ko (+39 ko, cohérent).
+- [x] **1 incident C14 résolu** : T3 échoué sur typo de transcription (« resoud » sans accent vs « résoud » dans le fichier), corrigé en relisant le fichier via MCP (discipline C14 confirmée : ne pas retranscrire de mémoire pour les anchors).
+- [x] **Posture éditoriale actée** : le wiki dépasse délibérément le scope AA (mieux trop que pas assez). 3 fiches phase 1 sans critère AA central (securite-et-qualite, matrice-de-decision, hub/index) illustrent l'ambition au-delà du référentiel, pas exception à justifier. Inscrit dans la synthèse globale.
+
 ### Session 2026-05-26 (suite 3) — Cartographie AA bouclée (passes B + A + écriture aa: front matters)
 - [x] **Passe B accélérée** sur 13 fiches : 12 fiches-notion (afnor-nfx50-151, bete-a-cornes, cahier-des-charges-fonctionnel, fonction, pieuvre, gantt, jalons, retroplanning, wbs, matrice-de-decision, matrice-de-risques, schema-bloc-fonctionnel) + hub/index. 1 seul edit_file pour les 13 cartographies (~22 ko payload, sous seuil C14), 0 patch supplémentaire.
 - [x] **Passe A par domaine** (EEE → ESE → MEO → MME → PROJ) : matrice critère × fiches pour chaque critère, bilans par domaine, tableau global. **Couverture finale 57 critères : 36 C (63 %) + 9 E (16 %) + 4 HS (7 %) + 8 NC (14 %)**.
@@ -174,26 +186,6 @@
 - [x] **6 nouvelles fiches phase 2** ajoutées au TODO : `ecodesign`, `analyse-de-schema-electronique`, 4 méthodes commande (`logigramme`/`machine-a-etats`/`grafcet`/`chronogramme`), `optimisation-mecanique`
 - [x] **Incident GitHub Pages résolu en session** : `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix bump v3→v4 dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée
 
-### Session 2026-05-26 (suite) — Sécurité et qualité : création ex nihilo + approfondissement complet (clôture phase 1 du wiki)
-- [x] Cadrage niveau D en 5 questions tranchées + rappel actions manuelles Obsidian (finalisation archivage JOURNAL 22-24/05 + configuration plugin Templates)
-- [x] **Niveau A en autonomie** accordé par l'utilisateur sur toute la fiche
-- [x] **Création ex nihilo** : pas de squelette préexistant (sécurité-qualité hors du périmètre 22/05 qui n'a squelettisé que les 4 trames du V)
-- [x] **Structure** : 3 blocs co-actifs **Sécurité produit / Sécurité projet / Qualité documentaire** (sécu et qualité tressées dans chaque bloc, bloc 3 cristallise qualité documentaire au sens strict)
-- [x] **Bloc 1 Sécurité produit** : 4 paragraphes (identifier risques utilisateur dès spec / inscrire sécu dans archi pas en surcouche / valider en intégration / citer-déléguer normatif pointu) + `[!example]` 4 axes (pincement, couple moteur 0,5 Nm, énergie 24 V, parades : AU + butées + carter PLA + fusible 3 A)
-- [x] **Bloc 2 Sécurité projet** : 4 paragraphes (identifier risques équipe / **3 règles non négociables** : pas de 230 V sans encadrant, pas de machine sans formation, jamais seul / EPI / articulation responsables équipement) + `[!example]` 3 risques cotés + cas dérogation refusée semaine n°12 + `[!warning]` Une règle ne se relâche jamais sous pression de planning
-- [x] **Bloc 3 Qualité documentaire** : 4 paragraphes (plan de revues posé dès spec / traçabilité PCB Rev A/B + Git tags par jalon + revue de code croisée / dossier de sécu distribué dans 5 phases / articulation normes citées) + `[!example]` plan 6 points + tags Git v0.1-poc → v1.0.1-soutenance + `[!tip]` Tracer au moment où la décision se prend
-- [x] **Pièges** 11 entrées format gras court + explication (~5/11 a posteriori = ~45 %, cohérent C12) + **Équipe** 3 axes d'articulation (cadence / matrice de risques / piloter sans écraser) + paragraphe délégation explicite ESE + responsables équipement
-- [x] **Cohérence finale 4 passes** : passe 1 terminologie 0 patch, passe 2 fil rouge bras 3 axes 0 patch (cohérence chiffrée transverses ↔ trames du V tenue), passe 3 ponts inter-blocs N/A (blocs co-actifs), passe 4 wiki-links 1ʳᵉ occurrence par section **3 patches batch** (Objectif + Bloc 3 para 4 + Équipe — normes CE/basse-tension/EMC/ISO 12100 + procédés rallumés au changement de section)
-- [x] **8 nouvelles cibles wiki-links** poussées au BACKLOG : `amdec`, `marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `revue-de-code`, `epi` + élargissement section ESE (renommée « ESE — Écoconception, sécurité produit, normes »)
-- [x] **BACKLOG** : `hub/ecoconception` et `hub/securite-et-qualite` marqués faits (clôture phase 1 du wiki côté trames + transverses, 5/5 + 3/3)
-- [x] **C14 vécue à chaud** : 1 typo de transcription sur caractère arrow ➤ vs ➔ détectée au premier patch TODO, corrigée immédiatement après relecture (head=10) du fichier source. Confirme la leçon : recopier `oldText` depuis read plutôt que retranscrire.
-- [x] Conventions **C1-C6** (les 6 transverses § 7) : **épreuve 3/3 réussie** sur les 3 transverses (gestion-de-projet → ecoconception → securite-et-qualite). Promotion vers § 1-2 envisageable à acter à froid (niveau C requis).
-- [x] Conventions **C10** (matrice incarnée) + **C12** (Pièges a posteriori) + **C13** (relire amont) : tenues sans patch spécifique — conventions post-promotion stabilisées.
-
-- [x] **Convention C14 enrichie 26/05 suite** : pattern MARKER + N segments validé (archivage JOURNAL 22→24/05 réussi par segmentation, 10 edit_file successifs) + nouveau piège EPERM verrou Windows Obsidian identifié et résolu (changer d'onglet)
-- [x] **Archivage JOURNAL 22→24/05 via MCP segmenté** : 5 étapes insertion (MARKER posé + seg3 + seg2 + seg1 + MARKER retiré, antichronologie respectée) + 5 étapes trim (T1 seg1 + T2 seg2 + T3 seg3 [bloqué EPERM, résolu] + T4 warning préambule + T5 séparateur orphelin & commentaire HTML final). JOURNAL.md 156→96 ko, archive 60→119 ko.
-- [x] **Référentiel à jour rangé** : `_drafts/referentiel/Compétences.xlsx` (sous-dossier créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz.
-- [x] **Cadrage prochaine session AA** : 3 questions méthodo posées (format / granularité / ordre) + prompt de démarrage produit pour 1er message conversation suivante.
 
 
 

@@ -100,7 +100,9 @@ Dans les fiches-trame du V, chaque `[!example]` doit incarner la méthode de l'�
   (19/05). Pas de génération automatique de stubs vides.
 - **Wiki-link à la 1ère occurrence** de chaque section / sous-section /
   callout (25/05). Re-déclencher au changement de contexte permet au lecteur
-  qui arrive par scan de bénéficier du popover.
+  qui arrive par scan de bénéficier du popover. **Mode d'application
+  (25/05 suite 7)** : au fil de la rédaction quand la discipline est
+  acquise, complété par une passe dédiée finale comme filet de sécurité.
 - **Popovers seulement sur sigles génériques** (FP/FS/FC), pas sur les
   instances numérotées (FP1, FS1…) (23/05 suite 2).
 - **Alias Quartz CrawlLinks** = mécanisme léger pour facettes indissociables
@@ -304,44 +306,87 @@ court + explication) → Cas particulier → Aller plus loin → Voir aussi.
 
 Toutes optionnelles sauf *Voir aussi*. L'auteur garde ce qui sert.
 
-### Référence AA
-Indiquer en front matter les codes du référentiel couverts (champ `aa`).
-
 ### Format date des fichiers (25/05)
 `JJ-MM-AAAA` retenu sur consigne FR. Bascule en ISO 8601 `AAAA-MM-JJ` possible
 si tri chronologique automatique devient nécessaire à l'usage.
 
 ---
 
-## 7. En cours d'éprouvage
+## 7. Référentiel AA
+
+### Codification des critères (26/05 suite 2)
+Format : `<Code_RA>/<AA_DOMAIN>/<N°critère>` (ex. `RA-PROJET-C03-3/EEE/1`).
+AA_DOMAIN nécessaire car un même RA porte parfois plusieurs AA dans des
+domaines différents.
+
+### Cartographie — 4 catégories de couverture (26/05 suite 2-3)
+- **Couvert (C)** : objet central d'une fiche ou d'une section H2/H3.
+- **Effleuré (E)** : mention H4, `[!example]`, wiki-link, posture, piège.
+- **Hors scope (HS)** : critère non traité par décision éditoriale, car
+  relevant de l'évaluation transversale enseignante (soft skills,
+  engagement, terminologie évaluée en revue) plutôt que du contenu enseigné
+  par le wiki. À distinguer de **Non couvert** : pas un trou à combler, une
+  décision revendiquée. Cas identifiés en cartographie :
+  `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral),
+  `RA-PROJET-C07-1/PROJ/4` (participer aux tâches), `/5` (force de
+  proposition), `/6` (participer aux événements).
+- **Non couvert (NC)** : critère absent du wiki, à adresser en phase 2 ou
+  par délégation aux cours collègues.
+
+Règle de **statut dominant** quand un critère apparaît dans plusieurs fiches :
+C > E > HS > NC (le statut le plus fort l'emporte). Cartographie au **niveau
+du critère** (pas seulement de l'AA).
+
+### 1 fiche-tuto par critère EEE/info embarquée (26/05 suite 2)
+Pour les critères en lien avec EEE et info embarquée, **une fiche-tuto par
+critère ou par groupe cohérent** en phase 2 du wiki. Pas de critère EEE qui
+reste en effleurage permanent — chacun doit avoir un endroit nommé dans le
+wiki phase 2. Quand un critère cite plusieurs solutions (ex.
+logigramme/MAE/grafcet/chronogramme pour `RA-EEE-C03-2/EEE/5`), **1 fiche
+par solution** plutôt qu'une fiche regroupante — chaque méthode mérite son
+traitement, popovers distincts.
+
+**Un tutoriel gonflé peut couvrir plusieurs critères** : multi-couverture
+acquise sur décision utilisateur (cas `RA-PROJET-C05-3/PROJ/3/4/5` couvert
+en `preuve-de-concept` + `integration-et-tests`).
+
+### Front matter `aa`
+Indiquer les codes du référentiel couverts dans le front matter de chaque
+fiche. Fiches sans aucun Couvert (posture professionnelle, outil pivot
+transverse, méta-structure) → `aa: []` légitime. Exemples : `securite-et-qualite`
+(posture), `matrice-de-decision` (outil pivot transverse), `hub/index`
+(méta-structure), `afnor-nfx50-151` (stub référentiel).
+
+### Référentiel source
+Fichier `_drafts/referentiel/Compétences.xlsx` (107 acquis source,
+**57 critères normalisés**, 12 AA, 5 domaines : PROJ 25 / MME 12 / EEE 10 /
+MEO 10 / ESE 5). MIA fusionné dans EEE et PROJ depuis 26/05/2026. Document
+de pilotage interne, hors site Quartz. Également uploadé dans Project files
+Claude.ai pour accès `/mnt/project/` en session.
+
+Capitalisation des cartographies dans `_drafts/referentiel/couverture-en-cours.md`
+(fichier de travail privé, grille de lecture + bilans fiche-par-fiche + matrice
+inverse par domaine).
+
+### Décisions niveau D ouvertes (à arbitrer avec hiérarchie)
+- **Catégorie « Hors scope par délégation »** — distincte de HS classique
+  (transversal enseignant). Concerne 3 critères design probablement
+  délégables aux cours collègues : `RA-PROJET-C03-3/PROJ/1` (sketchs),
+  `/2` (prise en compte design), `RA-MME-C03-1/MME/1` (lister outils
+  designers).
+- **Statut des 4 critères MME effleurés sans fiche centrale** :
+  `RA-MME-C02-1/MME/2`, `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`. Délégation
+  cours collègues ou fiches-tuto phase 2 à ajouter ?
+- **Statut de `schema-cinematique`** — wiki-link rouge déjà posé dans
+  `hub/index.md`, critère `RA-MME-C02-1/MME/5` NC. Fiche-tuto à produire
+  dans le wiki, ou délégation entière cours collègues MME ?
+
+---
+
+## 8. En cours d'éprouvage
 
 Conventions récentes pas encore confirmées sur 2-3 fiches. À documenter
 formellement dans les templates une fois éprouvées.
-
-### Acquises 25/05 suite — épreuve 3/3 réussie
-
-> **Épreuve 3/3 validée 26/05 (suite)** sur les 3 fiches-trame transverses (`gestion-de-projet` → `ecoconception` → `securite-et-qualite`). Les 6 conventions ci-dessous ont été tenues sans patch spécifique. **Promotion vers § 1-2 envisageable, à acter à froid** (niveau C requis pour la réorganisation structurelle des conventions).
-1. Pas de chiffrage durée projet en prose générique → § 1
-2. `semaine n°X` dans les exemples bras 3 axes → § 1
-3. Pas d'extension `.md` en prose → § 1
-4. Listes numérotées 1/2/3 plutôt que `(i)(ii)(iii)` → § 1
-5. Gras sur morceau de phrase pas sur verbe isolé → § 2
-6. Wiki-link à la 1ère occurrence de chaque section / sous-section / callout
-   → § 2
-
-Éprouvées sur `ecoconception` (25/05 suite) et sur les 7 fiches-notion
-(25/05 suite 2). À confirmer sur `securite-et-qualite` avant intégration
-définitive dans le template `fiche-trame.md`.
-
-**Note méthodo confirmée 25/05 suite 7** : sur `preuve-de-concept.md`,
-la convention 6 a été appliquée correctement au fil de la rédaction
-(passe dédiée finale : **0 patch** vs 20 patches sur concept = 74 %).
-L'hypothèse 25/05 suite 6 est partiellement validée : la convention 6
-s'applique au fil **quand la discipline est acquise** ; la passe dédiée
-en sortie de fiche devient un **filet de sécurité**, pas le mode
-principal d'application. Mode d'application stabilisé :
-1. Wiki-link 1ère occurrence par section/sous-section/callout au fil.
-2. Passe dédiée finale en sortie de fiche pour rattraper les oublis.
 
 ### Acquises 25/05 suite 2 (à éprouver sur 2-3 fiches-notion d'outils)
 7. 2 images par fiche-notion d'outil méthodologique → § 3
@@ -373,9 +418,8 @@ principal d'application. Mode d'application stabilisé :
 
 - **Verrou Windows EPERM** — piège **distinct** du seuil de payload. Quand Obsidian a un fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS (verrou de fichier Windows), pas de payload — même un `edit_file` de 50 octets échouera si le verrou est actif. **Symptôme** : message d'erreur explicite EPERM dans le retour MCP (échec **non silencieux**, contrairement aux échecs C14 classiques). **Remède** : changer d'onglet dans Obsidian (libère le verrou de fichier ; pas besoin de fermer Obsidian, ni d'attendre). Reprendre immédiatement le même `edit_file`, il passera.
 
-### Acquises 26/05 suite 2 (cartographie AA, à éprouver sur fiches-notion phase 2)
-15. **Catégorie Hors scope dans la cartographie AA** — 4ᵉ catégorie de classement en complément de Couvert / Effleuré / Non couvert. Définition : critère du référentiel école non traité par le projet TheSkillCodex par décision éditoriale, parce qu'il relève de l'**évaluation transversale** des étudiants (soft skills, engagement, participation, terminologie professionnelle évaluée en revue par les enseignants) plutôt que du contenu enseigné par le wiki. À distinguer de **Non couvert** : pas un trou à combler, une décision éditoriale revendiquée. **Cas identifiés 26/05 suite 2** : `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral), `RA-PROJET-C07-1/PROJ/4` (participer aux tâches), `RA-PROJET-C07-1/PROJ/5` (être force de proposition), `RA-PROJET-C07-1/PROJ/6` (participer aux événements). À documenter dans `couverture-en-cours.md` grille de lecture (fait en session). Promotion vers § 6 (Publication / Quartz) ou § 7 nouveau (Référentiel AA) à acter après passe B complète.
-16. **1 fiche-tuto par critère EEE/info embarquée (ou tutoriel gonflé multi-couverture)** — pour les critères en lien avec EEE et info embarquée, une fiche-tuto par critère ou par groupe cohérent en phase 2 du wiki. **Pas de critère EEE qui reste en effleurage permanent** — chacun doit avoir un endroit nommé dans le wiki phase 2. Quand un critère cite plusieurs solutions (ex. logigramme/MAE/grafcet/chronogramme pour `RA-EEE-C03-2/EEE/5`), **1 fiche par solution** plutôt qu'une fiche regroupante — chaque méthode mérite son traitement, popovers distincts. **Un tutoriel gonflé peut couvrir plusieurs critères** : multi-couverture acquise en session sur décision utilisateur (cas `RA-PROJET-C05-3/PROJ/3/4/5` Couvert en PoC + integration-et-tests). Promotion vers § 6 (Publication / Quartz) ou § 7 nouveau (Référentiel AA) à acter après validation sur les premières fiches phase 2 produites.
+### Acquises 26/05 suite 3 (à éprouver en fin de session prochaine)
+17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuve 1/N réussie 26/05 suite 4** : patch flèche TODO effectué en fin de session (de « Prochaine session = clôture méthodologique en 3 actes » vers « Prochaine session = reprise rédaction phase 2 ») selon l'arbitrage utilisateur sortant de la clôture. À éprouver sur 2-3 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
@@ -397,7 +441,5 @@ principal d'application. Mode d'application stabilisé :
   rendus).
 - **Templates de fiches** : `templates/fiche-trame.md`,
   `templates/fiche-notion.md` (commentaires HTML pédagogiques inclus).
-- **Référentiel AA** : `_drafts/referentiel/Compétences.xlsx` (107 acquis, 6
-  domaines, format `AA-XXX-CYY-CFEZ-NN`). Hors site Quartz, document de
-  pilotage interne. Également uploadé dans Project files Claude.ai pour
-  accès `/mnt/project/` en session.
+- **Référentiel AA** : voir § 7 (codification, cartographie, statut des
+  fiches sans Couvert).
