@@ -52,6 +52,14 @@
 - [ ] **`matrice-eat`** (fiche-tuto, outil canonique trame `ecoconception`, doublement prioritaire)
 - [ ] **`acv-simplifiee`** (fiche-notion, citée + déléguée)
 - [ ] **`ecodesign`** (fiche-notion, popover à poser dans `specification-technique.md` étape 6 + `ecoconception.md`). Lien direct référentiel : critère `RA-PROJET-C04-4/PROJ/5` (« Différencier écoconception et écodesign »). À articuler avec la fiche-trame `ecoconception.md` existante (transverse) — ecodesign = notion complémentaire pour préciser le périmètre.
+- [ ] **`analyse-de-schema-electronique`** (fiche-tuto EEE, nom provisoire). Lien direct référentiel : critère `RA-PROJET-C03-3/EEE/2` (« Analyser le comportement d'un sous-ensemble d'un schéma jusqu'au composant »). Trou phase 2 identifié via cartographie AA — effleuré en `concept.md` (étape 4 pré-dim) et en `preuve-de-concept.md` (étapes 3-4 mesures), mais sans traitement central. À produire en phase 2 du wiki.
+- [ ] **Fiches-tuto méthodes d'algorithme de commande** (groupe phase 2 EEE/info embarquée). Couvrent `RA-EEE-C03-2/EEE/5` (« Concevoir le système de commande du mécanisme par un algorithme à l'aide d'une méthode »). Convention pédagogique actée 26/05 suite 2 : **1 fiche par méthode** plutôt qu'une fiche regroupante (chaque méthode mérite son traitement, popovers distincts) :
+    - [ ] `logigramme` (fiche-tuto)
+    - [ ] `machine-a-etats` (fiche-tuto, alias `MAE`)
+    - [ ] `grafcet` (fiche-tuto)
+    - [ ] `chronogramme` (fiche-tuto)
+  Effleurées en `dossier-technique.md` étape 2 (« architecture logicielle détaillée », UML cité génériquement).
+- [ ] **`optimisation-mecanique`** (fiche-tuto MME, nom provisoire). Lien direct référentiel : critère `RA-MME-C03-1/MME/6` (« Optimiser la conception de la ou des pièces en fonction de critère de performance à définir : coût, déformée maximale, … »). Effleurée en `dossier-technique.md` étape 2. Périmètre potentiellement large — à cadrer en phase 2 (matériau, géométrie, allégement ?).
 
 ### 3. Templates à rédiger
 - [ ] **Template fiche-tuto** dans `templates/fiche-tuto.md` — reste à produire. Modèle potentiel : `schema-bloc-fonctionnel.md`. À traiter quand on aura une 2ᵉ fiche-tuto pour stabiliser les conventions.
