@@ -13,8 +13,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [x] ~~`hub/dossier-technique` — phase 4 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/dossier-technique.md` ; **approfondi 25/05 suite 8** (5 étapes [étape 3 pré-rédigée par autre instance Claude] + Pièges 11 entrées + Équipe 4 paragraphes + cohérence finale 4 passes à 0 patch + round 2 PCB gravure à l'anglaise + alignement v2.1)
 - [x] ~~`hub/integration-et-tests` — phase 5 du V~~ — squelette fait le 22/05 dans `content/fiches/proj/integration-et-tests.md`
 - [x] ~~`hub/gestion-de-projet` — fil transverse~~ — squelettisée + approfondie 25/05 dans `content/fiches/proj/gestion-de-projet.md`. 5 conventions transverses fixées à propager aux 2 autres transverses.
-- [ ] `hub/ecoconception` — fil transverse
-- [ ] `hub/securite-et-qualite` — fil transverse
+- [x] ~~`hub/ecoconception` — fil transverse~~ — squelettisée + approfondie 25/05 suite dans `content/fiches/proj/ecoconception.md`. 3 blocs co-actifs Évaluer / Réduire / Tracer, calque transverse établi sur gestion-de-projet.
+- [x] ~~`hub/securite-et-qualite` — fil transverse~~ — créée ex nihilo + approfondie 26/05 dans `content/fiches/proj/securite-et-qualite.md`. 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire. **Phase 1 du wiki complète côté trames du V + fils transverses.**
 
 À noter : l'emplacement acté implicitement par la session du 22/05 est `content/fiches/proj/` (et non `content/hub/`). Le hub reste un point d'entrée vers ces fiches, pas leur conteneur.
 
@@ -45,6 +45,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ### MIA — Informatique embarquée
 - [ ] **`firmware`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 intro + H4-3 + section Équipe, 26/05). Définition (logiciel embarqué dans un MCU), distinction firmware / driver / application, cycle de vie (compilation → flashage → exécution → mise à jour). À articuler avec `microcontroleur` page d'aiguillage.
+- [ ] **`revue-de-code`** — fiche-notion (popover posé dans `securite-et-qualite.md` § Qualité documentaire, 26/05). Pratique de qualité logicielle : revue croisée entre équipiers ou avec l'encadrant, focus défauts manifestes (gestion interrupts, machine à états, fonctions de sécurité), 30 min par jalon.
 - [ ] Architecture logicielle d'un objet connecté
 - [ ] Boucle principale (`loop()`) vs interruptions
 - [ ] Lecture capteur (polling vs interrupt)
@@ -76,6 +77,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Chaîne d'énergie
 - [ ] Pré-dimensionnement (méthodologie)
 - [ ] **`bom`** / Nomenclature (tuto, popover posé étape 2 de `specification-technique.md` le 23/05 suite). Acronyme + structure d'un BOM. Évolution attendue : BOM préliminaire (spec) → consolidée (concept) → finale (dossier technique).
+- [ ] **`amdec`** — fiche-notion (popover posé dans `securite-et-qualite.md` § Sécurité produit, 26/05). Méthode d'analyse des risques produit : modes de défaillance, gravité, probabilité, parade. Variante allégée pédagogique envisageable ; méthode complète déléguée au cours dédié.
 - [ ] Plan de qualification produit
 - [ ] Retour d'expérience (REX)
 
@@ -102,9 +104,14 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`pied-a-coulisse`** — fiche-notion (popover posé dans `preuve-de-concept.md` outillage, 25/05 suite 7). Instrument de mesure dimensionnelle de base, lecture vernier, plage 0-150 mm typique. Court, popover-only.
 - [ ] **`comparateur`** — fiche-notion (popover posé dans `preuve-de-concept.md` instruments de mesure, 25/05 suite 7). Aliases possibles `[comparateur-micrometrique]`. Mesure de variation dimensionnelle (jeu, défaut de planéité, dérive), précision typique 0,01–0,02 mm.
 
-### ESE — Écoconception
+### ESE — Écoconception, sécurité produit, normes
 - [ ] ACV (analyse cycle de vie) — principes
 - [ ] Liens vers cours dédié
+- [ ] **`marquage-ce`** — fiche-notion (popover posé dans `securite-et-qualite.md` Objectif + § Sécurité produit + § Qualité documentaire + § Équipe, 26/05). Conformité européenne, périmètre projet pédagogique, renvoi cours normatif.
+- [ ] **`basse-tension`** — fiche-notion (popover posé dans `securite-et-qualite.md`, 26/05). Directive 2014/35/UE, périmètre, applicabilité projet étudiant. Délégué cours normatif.
+- [ ] **`emc`** — fiche-notion alias `[cem, compatibilite-electromagnetique]` (popover posé dans `securite-et-qualite.md`, 26/05). Compatibilité électromagnétique, principes, renvoi cours dédié.
+- [ ] **`iso-12100`** — fiche-notion (popover posé dans `securite-et-qualite.md`, 26/05). Norme sécurité des machines, principes, périmètre projet pédagogique.
+- [ ] **`epi`** — fiche-notion (popover posé dans `securite-et-qualite.md` § Sécurité projet, 26/05). Équipement de protection individuelle, recensement par environnement (atelier, fablab, salle élec), articulation avec les responsables d'équipement.
 
 ## Idées de fiches transversales / méta
 

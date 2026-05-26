@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➤ Prochaine session = squelette puis approfondissement `securite-et-qualite`** (3ᵉ et dernier fil transverse). Occasion d'éprouver les 6 conventions transverses § 7 fixées sur `gestion-de-projet` (25/05) puis éprouvées sur `ecoconception`. Candidature multi-discipline émergée 26/05 (étape 2 integration-et-tests) potentiellement applicable selon contenu. Tâche annexe début de session : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles).
+> **➤ Prochaine session = cartographie AA** (passe systématique sur les 107 acquis de `Compétences.xlsx`, rattachement à phase ou transverse, identification des trous) **OU** ouverture d'une fiche-notion prioritaire (PCB / AMDEC / caractériser-une-exigence). Phase 1 du wiki désormais complète côté trames du V (5/5) + fils transverses (3/3). Tâche annexe début de session toujours pendante : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles). Acte à froid à conduire : promotion C1–C6 vers § 1-2 conventions (épreuve 3/3 réussie sur les 3 transverses).
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -26,7 +26,7 @@
 
 **Stratégie actée (20/05 suite)** : squelettisation des 5 trames + 3 fils transverses bout en bout, puis cartographie AA, puis validation cohérence, **puis seulement** approfondissement trame par trame dans l'ordre.
 
-- [ ] **Squelette + approfondissement `securite-et-qualite`** (fil transverse — dernière des 3 transverses ; les 6 conventions transverses à éprouver sur cette fiche viennent de `gestion-de-projet`/`ecoconception`. Niveau A en autonomie déjà validé par l'utilisateur pour cette fiche)
+- [x] ~~**Squelette + approfondissement `securite-et-qualite`**~~ (fil transverse — créée ex nihilo + approfondie 26/05 suite, 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire, 11 Pièges, 4 paragraphes Équipe, cohérence finale 4 passes → 3 patches wiki-links uniquement)
 - [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [x] ~~**Approfondissement des fiches phases du V**~~ : `concept.md` complet (25/05 suite 4-6, 27 patches). `preuve-de-concept.md` complet (25/05 suite 7, 5 étapes + 11 pièges + 4 ¶ équipe + 4 passes cohérence + round 2 wiki-links outils). `dossier-technique.md` complet (25/05 suite 8, alignement v2.1 + 5 étapes [étape 3 pré-rédigée autre Claude] + 11 pièges + 4 ¶ équipe + 0 patch cohérence + round 2 PCB). `integration-et-tests.md` complet (26/05, 27 patches : alignement v2.1 + 5 étapes voie C [2/3/3/2/2 H4 dont 3 H4 disciplinaires étape 2 et 3 H4 pyramide compressée étape 3] + 11 pièges + 4 ¶ équipe + 3 patches cohérence + round 2 validé). **Phase 1 du wiki = complète côté trames du V.**
@@ -71,6 +71,7 @@
 - [ ] **Commit + push de la session du 25/05 (suite 7)** (approfondissement preuve-de-concept v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
 - [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
+- [ ] **Commit + push de la session du 26/05 (suite)** (création ex nihilo + approfondissement `securite-et-qualite` complet — 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire + Pièges 11 + Équipe 3 axes + délégation explicite + cohérence finale 3 patches wiki-links + 8 nouvelles cibles wiki-links poussées au BACKLOG + acte clôture phase 1 du wiki).
 
 ### Manipulations manuelles en attente
 - [ ] **Finaliser archivage JOURNAL 22-24/05** — dans Obsidian : couper depuis `## 2026-05-24 (suite) — Clôture phase 1 partie 2` jusqu'à la fin de la session `## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V` (séparateur `---` inclus juste après), puis coller dans `JOURNAL-archive.md` juste avant `## 2026-05-21 (suite 2) — Vue d'ensemble macro`. Voir le warning du préambule JOURNAL. **Pourquoi manuel** : payload MCP ~50 ko inatteignable (leçon méthodo 25/05 suite 8 — conventions.md § 7).
@@ -128,6 +129,22 @@
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
 
+### Session 2026-05-26 (suite) — Sécurité et qualité : création ex nihilo + approfondissement complet (clôture phase 1 du wiki)
+- [x] Cadrage niveau D en 5 questions tranchées + rappel actions manuelles Obsidian (finalisation archivage JOURNAL 22-24/05 + configuration plugin Templates)
+- [x] **Niveau A en autonomie** accordé par l'utilisateur sur toute la fiche
+- [x] **Création ex nihilo** : pas de squelette préexistant (sécurité-qualité hors du périmètre 22/05 qui n'a squelettisé que les 4 trames du V)
+- [x] **Structure** : 3 blocs co-actifs **Sécurité produit / Sécurité projet / Qualité documentaire** (sécu et qualité tressées dans chaque bloc, bloc 3 cristallise qualité documentaire au sens strict)
+- [x] **Bloc 1 Sécurité produit** : 4 paragraphes (identifier risques utilisateur dès spec / inscrire sécu dans archi pas en surcouche / valider en intégration / citer-déléguer normatif pointu) + `[!example]` 4 axes (pincement, couple moteur 0,5 Nm, énergie 24 V, parades : AU + butées + carter PLA + fusible 3 A)
+- [x] **Bloc 2 Sécurité projet** : 4 paragraphes (identifier risques équipe / **3 règles non négociables** : pas de 230 V sans encadrant, pas de machine sans formation, jamais seul / EPI / articulation responsables équipement) + `[!example]` 3 risques cotés + cas dérogation refusée semaine n°12 + `[!warning]` Une règle ne se relâche jamais sous pression de planning
+- [x] **Bloc 3 Qualité documentaire** : 4 paragraphes (plan de revues posé dès spec / traçabilité PCB Rev A/B + Git tags par jalon + revue de code croisée / dossier de sécu distribué dans 5 phases / articulation normes citées) + `[!example]` plan 6 points + tags Git v0.1-poc → v1.0.1-soutenance + `[!tip]` Tracer au moment où la décision se prend
+- [x] **Pièges** 11 entrées format gras court + explication (~5/11 a posteriori = ~45 %, cohérent C12) + **Équipe** 3 axes d'articulation (cadence / matrice de risques / piloter sans écraser) + paragraphe délégation explicite ESE + responsables équipement
+- [x] **Cohérence finale 4 passes** : passe 1 terminologie 0 patch, passe 2 fil rouge bras 3 axes 0 patch (cohérence chiffrée transverses ↔ trames du V tenue), passe 3 ponts inter-blocs N/A (blocs co-actifs), passe 4 wiki-links 1ʳᵉ occurrence par section **3 patches batch** (Objectif + Bloc 3 para 4 + Équipe — normes CE/basse-tension/EMC/ISO 12100 + procédés rallumés au changement de section)
+- [x] **8 nouvelles cibles wiki-links** poussées au BACKLOG : `amdec`, `marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `revue-de-code`, `epi` + élargissement section ESE (renommée « ESE — Écoconception, sécurité produit, normes »)
+- [x] **BACKLOG** : `hub/ecoconception` et `hub/securite-et-qualite` marqués faits (clôture phase 1 du wiki côté trames + transverses, 5/5 + 3/3)
+- [x] **C14 vécue à chaud** : 1 typo de transcription sur caractère arrow ➤ vs ➔ détectée au premier patch TODO, corrigée immédiatement après relecture (head=10) du fichier source. Confirme la leçon : recopier `oldText` depuis read plutôt que retranscrire.
+- [x] Conventions **C1-C6** (les 6 transverses § 7) : **épreuve 3/3 réussie** sur les 3 transverses (gestion-de-projet → ecoconception → securite-et-qualite). Promotion vers § 1-2 envisageable à acter à froid (niveau C requis).
+- [x] Conventions **C10** (matrice incarnée) + **C12** (Pièges a posteriori) + **C13** (relire amont) : tenues sans patch spécifique — conventions post-promotion stabilisées.
+
 ### Session 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
 - [x] 3 actes à froid début session : rotation glissante TODO (suite 5 retirée) + promotion C10 vers § 2 (matrice incarnée, 12 contextes) + promotion C12 vers § 6 (Pièges a posteriori, ratio 37-45 %)
 - [x] Cadrage niveau C en 5 questions tranchées + arbitrage **voie C** suite conflit pédagogique détecté entre squelette 22/05 (tests par fonction, anti-pattern par discipline) et demande Q1 utilisateur (sous-titres disciplinaires élec/méca/info)
@@ -166,23 +183,7 @@
 - [x] Convention 13 (relire amont) : **1ʳᵉ épreuve formelle réussie**, à confirmer sur integration-et-tests
 - [x] Nouvelle dépendance posée : fiche-tuto `pcb` avec mention machine de gravure à l'anglaise + monoface en interne école (à créer, ajout liste notions/tutos à produire)
 
-### Session 2026-05-25 (suite 7 — PoC : approfondissement v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links outils)
-- [x] Cadrer 4 questions tranchées en bloc (découpage 5 étapes 2/2/2/3/3, pivot = étape 4, fil rouge local PoC = articulation 3D PLA 60 %, boucle rétroactive α incarnée)
-- [x] **Phase 1** : alignement v2.1 squelette + restructuration 4→5 étapes (9 patches en batch)
-- [x] **Phase 2** : étape 1 *Définir chaque preuve* (2 H4, triplet hypothèse/critère/protocole, revue encadrant traçée) — niveau B annoncé puis niveau A pour la suite
-- [x] **Phase 3** : étape 2 *Préparer les moyens* (2 H4 économes, hiérarchie stock standard / stock divers / acquisition exceptionnelle)
-- [x] **Phase 4** : étape 3 *Mener les essais par incertitude* (2 H4 économes, caractérisation banc + exécution-traçage)
-- [x] **Phase 5** : étape 4 *Analyser et trancher* (PIVOT 3 H4 : Confronter / Synchroniser / Statuer, 3 sorties nominales validé / ajustement / retour amont, mises à jour amont même séance)
-- [x] **Phase 6** : étape 5 *Rédiger et faire valider* (CLÔTURE DOCUMENTAIRE 3 H4 calque concept : Structurer / Rédiger / Faire valider, TdM type 5 sections, 4 issues nominales)
-- [x] **Phase 7** : refonte Pièges (6 puces → 11 entrées gras court, 5/11 issues a posteriori étapes 3-4-5 = ~45 %) + section Équipe (4 paragraphes thématiques calque concept)
-- [x] **Phase 8** : cohérence finale 4 passes (3 patches au total : 2 terminologie + 1 fil rouge + 0 ponts + 0 wiki-links). **Résultat majeur : passe 4 wiki-links à 0 patch** vs 20 sur concept — convention 6 internalisée en cours de rédaction.
-- [x] **Phase 9** : round 2 utilisateur wiki-links outils (6 nouvelles cibles : multimetre / oscilloscope / alimentation-stabilisee / arduino / pied-a-coulisse / comparateur, 7 patches en batch) + correction factuelle process fablab (pas de filament en propre, transmission STL au responsable fablab) + disjonction MCU/Arduino dans énumération Stock standard
-- [x] 1 round 2 utilisateur sur étape 1 (doublon « on a le matos… » Posture vs H4-1) — extension de la leçon ±2 phrases du 25/05 suite 6 : relire sections amont fiche avant section avale
-- [x] **Convention 11 promue** vers `conventions.md` § 6 (éprouvée 2/2 trames du V)
-- [x] **Convention 6 mode d'application affiné** (au fil + filet passe dédiée)
-- [x] **Nouvelle convention candidate ajoutée** § 7 : relire sections amont (Posture, Objectif) avant section avale
-- [x] 6 nouvelles fiches notion/tuto poussées au BACKLOG + plan long terme `microcontroleur` = page d'aiguillage par famille (STM32 / ESP32 / MicroPython / Arduino / Teensy)
-- [x] Signal taille JOURNAL.md = 131,8 ko (> seuil 100 ko) : archivage sessions 22/05 → 24/05 à envisager en début de prochaine session
+
 
 
 
