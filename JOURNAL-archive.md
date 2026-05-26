@@ -117,6 +117,453 @@ En 1ère passe sur la cohérence terminologique « phase N en raccourci numériq
 
 ---
 
+<!-- ARCHIVE_INSERT_MARKER -->
+## 2026-05-23 (suite 2) — Approfondissement specification-technique étape 4 (cœur structurant)
+
+### Périmètre de session
+Approfondissement de l'étape 4 « Caractériser les fonctions » de `specification-technique.md`, cœur structurant de la phase 1. Réalisé sur PC perso. Trois questions de cadrage tranchées en début de session, une décision méthodologique additionnelle introduite en cours de session (alias FP/FS/FC), trois patches collatéraux sur l'étape 3 acquis en cours de session.
+
+### Cadrage en début de session — 3 questions tranchées
+
+1. **Fiche unique vs 3 fiches séparées (critère/niveau/flexibilité)** : décision = **1 fiche-tuto unique `caracteriser-une-exigence`** avec mécanisme d'alias Quartz CrawlLinks (`aliases: [critere, niveau, flexibilite]` dans le front matter). Les 3 wiki-links `[[critere]]`, `[[niveau]]`, `[[flexibilite]]` se résolvent vers la fiche unique. Contrainte rédactionnelle induite : la première phrase de la fiche doit définir le triplet d'un coup pour que le popover ait du sens au survol de chacun des 3 sigles. Argument : critère/niveau/flexibilité ne s'écrivent jamais isolément en NF X50-151, ce sont 3 colonnes d'une même ligne de tableau d'exigence ; 3 fiches séparées dupliqueraient nécessairement l'exemple.
+
+2. **Triptyque mauvais/moyen/bon dans la trame** : décision = **option (c)**, pas de triptyque dans la fiche-trame. Un seul `[!example]` bras 3 axes en mode « bon » sur FP1. Le triptyque vivra dans la future fiche-tuto `caracteriser-une-exigence` (pattern à transposer de `bete-a-cornes.md`). Argument : convention v2.1 « 1 `[!example]` fiche-trame = bras 3 axes » trop fraîchement figée pour la casser ici.
+
+3. **Charte unités/niveaux** : décision = **mini-encart méthodo en prose** porté par un `[!tip]` Astuce dans l'étape 4 (forme légère). Charte typographique complète déléguée à une fiche-notion **`unite-si`** créée comme dépendance dans la session (popover en lien rouge dans le `[!tip]`).
+
+### Décision méthodologique additionnelle — alias FP/FS/FC vers `pieuvre`
+
+Question soulevée en cours de session par l'utilisateur : les sigles **FP**, **FS**, **FC** étaient en gras simple dans l'étape 3, sans popover. Un étudiant qui arrive à l'exemple par ancre n'avait pas la définition sous la main.
+
+**Décision : option A — alias `[FP, FS, FC]` vers la future fiche `pieuvre`** (déjà au TODO doublement prioritaire). Contrainte rédactionnelle induite : l'intro de la fiche `pieuvre` doit énoncer les 3 catégories dès les premières phrases.
+
+**Granularité du popover figée** : popovers **seulement** sur les sigles **génériques** (FP, FS, FC — préambule, définitions, livrable). **Pas** sur les **instances numérotées** (FP1, FS1, FC1, FC2 — alourdiraient visuellement sans rien apporter). Convention à documenter dans le template `fiche-trame.md` ou note méthodo dédiée.
+
+### Élargissement méthodologique — alias comme alternative légère à la fiche-notion stub
+
+La décision Q1 (alias `[critere, niveau, flexibilite]`) étend la typologie 3 types (trame/tuto/notion) avec un mode supplémentaire : la **« facette indissociable d'un outil plus large »** est servie par alias plutôt que par fiche-notion stub.
+
+**Critère discriminant posé** :
+- **Notion autoportante** (sens propre, mérite ses propres exemples choisis pour elle) → reste fiche-notion. Exemples : `pieuvre`, `mind-map`, `bete-a-cornes`.
+- **Facette indissociable** d'un outil ou méthode plus large → alias suffit. Exemples : `critere`/`niveau`/`flexibilite` (3 colonnes d'une même ligne de tableau d'exigence), `FP`/`FS`/`FC` (3 catégories produites par la pieuvre).
+
+Test pratique : « si je rédige une fiche-notion autonome sur cette notion, est-ce que je vais inévitablement re-rédiger le même exemple et la même prose que dans la fiche-mère ? » Si oui → alias. Si non → fiche-notion.
+
+Convention à intégrer dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme alias validé en pratique sous Quartz (à confirmer à la création de `caracteriser-une-exigence` ou `pieuvre`).
+
+### Patches étape 3 — corrections collatérales et popovers FP/FS/FC
+
+Trois corrections de fond identifiées par lecture critique :
+
+- **Incohérence interne au fil rouge bras 3 axes** entre bête à cornes (étape 1, à-qui = enseignant, but = illustrer la démarche) et pieuvre (étape 3, FP1 = positionner un objet). Résolution : ajout d'une **note italique en tête du `[!example]` étape 3** explicitant que la pieuvre porte sur le système physique (le bras) tandis que la bête à cornes portait sur la commande pédagogique au-dessus (l'enseignant). Les deux niveaux coexistent dans la posture étudiant-client-de-lui-même, ne se contredisent pas.
+- **FS1 limite sur la règle « deux milieux »** : *« Permettre à l'opérateur de visualiser le statut »* reliait l'opérateur à… l'information du système. Réécriture en *« Permettre à l'opérateur de programmer une séquence de mouvements depuis un poste informatique »* — relie opérateur + PC, deux milieux distincts. **Ajout corrélé** : `poste informatique` dans les milieux environnants identifiés.
+- **Définition FP imprécise** : « Sans **FP1**, le système n'a pas lieu d'être » → « Sans **FP**, le système n'a pas lieu d'être » (le FP1 spécifique clouait artificiellement la règle à une seule fonction).
+
+**Patches popovers FP/FS/FC** : 8 patches d'ajout (préambule, définitions, warning anti-pattern, exemple, paragraphe pivot étape 4, livrable). 6 patches inverses ensuite pour retirer les popovers des instances numérotées (granularité figée « génériques seulement »).
+
+### Rédaction étape 4 — Caractériser les fonctions
+
+Structure produite :
+- Préambule (2 paragraphes) : pont avec étape 3, opposabilité comme enjeu central, renvoi à `caracteriser-une-exigence`
+- 3 sous-sections H4 : **Énoncer le critère** / **Fixer le niveau** / **Définir la flexibilité**
+- 4 callouts : `[!warning]` Attention « Niveau non chiffré = exigence non opposable » + `[!tip]` Astuce sur les unités SI + `[!example]` bras 3 axes (FP1 caractérisée + justification ancrée sur étape 2 + ouverture sur évaluation finale) + `[!livrable]` 4/6
+
+**Décision structurelle option (3) sur la flexibilité** : présenter Fn (échelle qualitative NF X50-151 F0/F1/F2/F3) **et** tolérance numérique (± X mm, ± X %) comme **deux composantes complémentaires**. Le `Fn` dit la négociabilité, la tolérance numérique dit la marge concrète. Option défendue contre Fn seul (trop abstrait pour étudiant qui découvre) et contre tolérance numérique seule (perd la dimension négociabilité).
+
+**Densité de callouts** : 4 callouts dans l'étape — borne haute, conforme à v2.1 puisque chacun porte un message distinct (opposabilité / forme d'écriture / illustration / livrable).
+
+### Round 2 — 5 patches d'ajustement étape 4
+
+- Phrase-clé `[!tip]` simplifiée : retrait de « avec un espace insécable entre la valeur et l'unité » — la convention typographique complète sera portée par la future fiche-notion `[[unite-si]]` (popover en lien rouge posé sur la phrase-clé).
+- Phrase Obsidian `Ctrl+Maj+Espace` retirée (sera traitée par `unite-si`).
+- **FP1 reformulée** : *« Permettre à l'opérateur de positionner un objet léger… »* → *« Permettre à l'opérateur de **manipuler le robot pour** positionner un objet léger… »* — plus précis (l'opérateur ne positionne pas directement, il manipule le bras qui positionne). **Répercuté étapes 3 ET 4** pour cohérence interne du fil rouge.
+- Justification de l'exemple : « Moveo » → « le bras Moveo », « uArm Swift Pro » → « le bras uArm Swift Pro » (précision lexicale).
+
+### Nouvelles dépendances posées
+- `[[caracteriser-une-exigence]]` — **fiche-tuto à créer en priorité**, avec front matter `aliases: [critere, niveau, flexibilite]`. Embarquera le triptyque mauvais/moyen/bon, la méthode pratique, et l'échelle F0/F1/F2/F3 détaillée.
+- `[[unite-si]]` — fiche-notion à créer (popover posé étape 4, lien rouge). Convention typographique des unités (espace insécable, format ± X mm, etc.).
+- Future fiche `[[pieuvre]]` : aliases `[FP, FS, FC]` à poser dans son front matter. Intro à rédiger pour définir les 3 catégories d'un coup.
+
+### Vérification visuelle étapes 2-3
+Identifiée en début de session comme dette du JOURNAL 23/05 suite (« à faire en début de session suivante »), elle avait en réalité été faite en fin de session du 23/05 suite — c'est la MAJ documentaire qui n'a pas pris ce dernier geste. Correction : étapes 2-3 sous Quartz **vues et validées le 23/05 suite par l'utilisateur en fin de session**, dette tombée. Le on et le off de l'écriture documentaire en fin de session mérite vigilance — ne pas conclure tant que le dernier geste n'est pas écrit.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes (sauf vérification visuelle étapes 2-3 retombée — voir ci-dessus).
+- **Étape 5 — Planifier le projet** : orientations actées en fin de session pour la session de clôture phase 1.
+  - **Gantt / rétroplanning / jalons** : niveau de détail élevé, fiches-tuto à créer.
+  - **WBS / matrice de risques** : niveau de détail léger, fiches-notion à créer.
+  - **Version pédagogique** : Excel ou papier, avec mention de quelques outils existants nommés (GanttProject, autres à compléter).
+  - Pas de conflit attendu avec les fils transverses (gestion-projet, écoconception, sécurité-qualité), qui seront en tutos/notions distinctes.
+- **Étape 6 — Rédiger le CdCF** : orientations actées en fin de session.
+  - **Structure canonique NF X50-151** avec souplesse dans l'écriture.
+  - **Intégration de la démarche écoconception** ✓.
+- **Section « Pendant cette phase, côté équipe »** de `specification-technique.md` : toujours en placeholder.
+- **Pièges fréquents** : 4 pièges identifiés ce soir à intégrer (niveau non chiffré / critère subjectif non mesurable / sur-spécification / confusion F3 ≠ absence d'exigence). À traiter à la session de clôture phase 1, conjointement aux étapes 5-6.
+- **Convention « popovers seulement sur sigles génériques »** (FP/FS/FC, pas FP1/FS1/…) : à documenter formellement (template fiche-trame ou note méthodo dédiée).
+- **Convention « alias = mécanisme léger pour facettes indissociables d'un outil »** : à documenter dans le commentaire HTML d'introduction de `templates/fiche-notion.md` une fois le mécanisme validé en pratique sous Quartz.
+
+---
+
+## 2026-05-23 (suite) — Approfondissement specification-technique étapes 2 et 3
+
+### Périmètre de session
+Approfondissement de l'étape 2 (« Étudier l'existant ») et de l'étape 3 (« Formaliser les fonctions ») de `specification-technique.md`. Découpage de l'approfondissement des étapes 2-6 acté en début de session : étapes 2-3 (cette session) / étape 4 dédiée (cœur structurant) / étapes 5-6 (clôture phase 1).
+
+### Cadrage en début de session — 3 questions tranchées
+
+1. **Fil rouge à partir de l'étape 2** : bras 3 axes seul. Retour à la convention « 1 `[!example]` fiche-trame = bras 3 axes ». La dualité couveuse/bras de l'étape 1 reste une exception assumée justifiée par la nature même de l'étape 1.
+2. **Découpage en sessions** : option étapes 2-3 / étape 4 dédiée / étapes 5-6 retenue. L'étape 4 (caractérisation) mérite une session dédiée du fait du double triptyque (critère/niveau/flexibilité × mauvais/moyen/bon) et de la question méta « 3 fiches séparées vs 1 fiche unique ».
+3. **Popovers en parallèle** : stratégie « liens rouges assumés, fiches-notion par lot ultérieurement » maintenue.
+
+### Étape 2 — « Étudier l'existant »
+
+Structure : préambule + 3 sous-sections H4 (Recenser les solutions / Définir les critères / Comparer en tableau) + 1 `[!warning]` + 1 `[!example]` avec tableau comparatif + 1 `[!livrable]` 2/6.
+
+**Décisions de fond :**
+- **Distinction structurante** entre revue bibliographique (lecture, production de notes) et état de l'art technique (recensement de ce qui marche, comparaison chiffrée orientée décision). Portée par un `[!warning]` — anti-pattern pédagogique typique.
+- **Tableau comparatif chiffré** dans le `[!example]` bras 3 axes : Niryo One, uArm Swift Pro, BCN3D Moveo × coût, charge utile, répétabilité, ouverture. Conclusion : Moveo comme référence inspirante (ouvert, démontable, abordable), simplification 6→3 axes pour scope pédagogique.
+- **Rigueur sur le livrable EAT** : option chiffrée seule retenue (pas d'échappatoire qualitative `--/-/=/+/++`) — la valeur chiffrée est la norme, « n.c. » documente l'inaccessible.
+
+**Round 2 (6 patches de relecture) :**
+- Gras retiré sur « votre » (préambule)
+- « attaqué un problème proche » → « réalisé un projet similaire »
+- Gras déplacé : « **discriminer** » → « **discriminer les solutions entre elles** »
+- BOM passé en popover (nouveau lien rouge `[[bom|BOM]]`)
+- Titre H4 « Comparer en tableau et conclure » → « Comparer en tableau »
+- Phrase sur l'échelle qualitative supprimée
+
+### Étape 3 — « Formaliser les fonctions »
+
+Structure : préambule + image pieuvre (placeholder cassé temporairement) + 2 sous-sections H4 (Identifier les milieux / Énoncer FP/FS/FC) + 1 `[!warning]` + 1 `[!example]` + ouverture FAST en prose + 1 `[!livrable]` 3/6.
+
+**Décisions de fond :**
+- **Trio FP/FS/FC retenu** (vs duo FP/FC) : FP relie deux milieux et justifie l'existence du système ; FS relie deux milieux mais répond à un service complémentaire non essentiel ; FC relie le système à un seul milieu, contrainte d'adaptation.
+- **Anti-pattern central** : « Une fonction exprime un besoin, jamais une solution. » Règle pratique : si on peut citer une marque, un composant ou une technologie dans l'énoncé, on a dérapé. Porté par `[!warning]`.
+- **Illustration pieuvre dans la trame** (option α retenue, parallèle exact `bete-a-cornes`) : placeholder image dans la fiche-trame, SVG `pieuvre-generique.svg` à produire à la session pieuvre avec référence visuelle canonique sous les yeux (leçon méthodo du 20/05 sur les outils canoniques).
+- **Ouverture FAST en prose** en fin d'étape : la pieuvre donne le *quoi*, FAST donnera le *comment* en phase concept.
+
+**Round 2 (1 patch de relecture) :**
+- « faire le tour mental » → « construire une [[mind-map|mind map]] du système en situation réelle » (nouveau lien rouge `[[mind-map]]`)
+
+### Nouvelles dépendances posées
+- `[[bom|BOM]]` — tuto (acronyme + structure d'un BOM : préliminaire en spec, consolidée en concept, finale en dossier technique). Popover posé étape 2.
+- `[[mind-map|mind map]]` — notion (outil méthodo générique, mobilisable bien au-delà de la pieuvre). Popover posé étape 3.
+- `[[fast|FAST]]` — tuto (popover posé en ouverture étape 3, fiche à créer en phase 2 concept).
+- `[[pieuvre]]` — déjà au TODO, désormais doublement prioritaire (popover + image SVG).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Question méta étape 4** : 3 fiches `critere`/`niveau`/`flexibilite` séparées vs 1 fiche unique « Caractériser une exigence ». À trancher en début de session étape 4.
+- **Image pieuvre cassée dans la trame** : assumé temporairement. À résoudre lors de la session pieuvre.
+
+---
+
+## 2026-05-23 — Refonte specification-technique étape 1 + révision conventions callouts
+
+### Périmètre de session
+Refonte ciblée de l'étape 1 de `specification-technique.md` pour alignement sur les conventions figées le 22/05 (suite), ajout de la section Conclusion absente, réordonnancement final. Au cours de la session, 5 remarques de relecture utilisateur ont déclenché une révision **structurante** des conventions de callouts — répercutée dans les templates `fiche-trame.md` et `callouts.md`.
+
+### Cadrage en début de session — 3 questions tranchées
+
+1. **Fil rouge bras 3 axes vs couveuse pour l'étape 1** : décision = **garder la couveuse** comme `[!example]` illustrant la démarche standard (client externe), et **ajouter** un `[!example]` bras 3 axes après le paragraphe « Cas particulier : projet école sans client réel » pour amorcer le fil rouge dès l'étape 1. Argument : l'étape 1 est structurellement particulière (traite des deux postures client externe / projet école), donc 2 `[!example]` côte à côte est pédagogiquement justifié. **Convention « 1 `[!example]` = bras 3 axes » assouplie pour cette seule étape** (exception assumée).
+
+2. **Convention « 1 `[!example]` par étape »** : ré-interprétée comme « **au moins** 1 `[!example]` obligatoire » et non « **exactement** 1 ». L'étape 1 actuelle est conforme (4 callouts : warning + example + tip + livrable). Faux écart retiré du programme.
+
+3. **Périmètre de session** : refonte étape 1 + Conclusion + réordonnancement final. L'approfondissement de l'étape 2 reporté à session dédiée pour éviter une étape 1 propre + une étape 2 bricolée.
+
+### Refonte spec-technique étape 1 — round 1 (7 patches)
+
+- **Lexique** : « Cette **phase** ne demande pas » → « Cette **étape** ne demande pas » (Posture attendue)
+- **Coquille** : « passer a le corriger » → « passé à le corriger »
+- **Callout `[!warning]`** : titre `Piège : verrou technologique ≠ difficulté personnelle` → `Attention`, phrase-clé `**Verrou technologique ≠ difficulté personnelle.**` portée par le corps en gras
+- **Callout `[!example]` couveuse** : titre `Exemple — Couveuse à œufs de poule` → `Sur la couveuse` (round 1)
+- **Nouveau callout `[!example]` bras 3 axes ajouté** après le bloc « Cas particulier » (illustration de la posture étudiant-client-de-lui-même, plante le fil rouge dès l'étape 1)
+- **Callout `[!tip]`** : titre `Pourquoi la bête à cornes paraît triviale (et ne l'est pas)` → `Astuce`, phrase-clé `**La bête à cornes paraît triviale, et c'est précisément là sa puissance.**` portée par le corps en gras
+- **Section `## Conclusion` ajoutée** entre Équipe et Voir aussi (pont explicite vers `[[concept|concept]]`)
+- **Voir aussi** : `Phase suivante : [[concept|Concept]] *(à créer)*` → `Étape suivante : [[concept|Concept]]` (la fiche existe désormais)
+
+### Révision des conventions callouts — round 2 (déclenchée par la relecture)
+
+À la relecture du round 1, 5 remarques utilisateur ont déclenché une révision **structurante** des conventions :
+
+1. **Popovers à ajouter** dans l'objectif de la phase : `[[critere|critère]]`, `[[niveau|niveau]]`, `[[flexibilite|flexibilité]]` (notions), `[[etat-de-l-art-technique|état de l'art technique]]` (tuto). Liens rouges assumés.
+2. **Popover à retirer** : `[[relation-client|client ou commanditaire du projet]]` → texte simple sans wiki-link (la notion « client » est trop générique pour mériter un popover ; `relation-client` reste dans Voir aussi en tant que tuto).
+3. **Convention titre `[!example]` révisée** : `Sur le bras 3 axes` → **`Exemple : projet bras 3 axes`** (fiche-trame). `Couveuse` → **`Exemple : couveuse`** (fiche-notion). Logique : préfixe `Exemple : ` partout, plus explicite, lecture-friendly.
+4. **Convention titre `[!livrable]` révisée** : `Livrable de l'étape N` → **`Livrable N/X — <Nom de la phase>`** (singulier) ou **`Livrables N/X — <Nom de la phase>`** (pluriel selon le nombre d'items listés). N = numéro de l'étape, X = nombre total d'étapes de la phase. Nom de phase en toutes lettres. Logique : un lecteur qui tombe directement sur la fiche (recherche, lien externe) se situe immédiatement dans le cycle en V.
+5. **Convention titre `[!warning]` / `[!tip]` confirmée** : titre **fixe** (`Attention` / `Astuce`), phrase-clé porteuse du message **obligatoirement** portée par le corps en gras, jamais par le titre. Confirme le revirement vs la pratique de `concept.md` et des 3 autres trames du 22/05 (qui utilisent encore des phrases-clés en titre).
+
+### Application des nouvelles conventions — 3 fichiers patchés
+
+- **`specification-technique.md`** étape 1 : 4 patches supplémentaires (objectif + 2 `[!example]` + 1 `[!livrable]`) en plus des 7 du round 1. Étape 1 désormais 100 % alignée sur les conventions v2.1.
+- **`templates/fiche-trame.md`** : bloc « CONVENTIONS À RESPECTER » réécrit (points 1, 2, 3) + commentaire HTML de motif d'étape patché + 3 étapes-exemple alignées.
+- **`templates/callouts.md`** : sections `[!warning]`, `[!tip]`, `[!example]` et `[!livrable]` mises à jour avec les nouvelles conventions et exemples cohérents.
+
+### Conséquence — dette d'alignement des 4 trames du 22/05
+
+`concept.md`, `preuve-de-concept.md`, `dossier-technique.md`, `integration-et-tests.md` utilisent encore les anciennes conventions (`Sur le bras 3 axes`, `Livrable de l'étape N`, phrases-clés en titre des `[!warning]`/`[!tip]`).
+
+**Décision actée** : pas d'alignement rétroactif systématique en session dédiée. L'alignement se fera à l'approfondissement de chaque trame, naturellement. **Conséquence assumée** : `specification-technique` devient temporairement plus rigoureuse que les autres trames sur la convention callouts — acceptable, c'est la fiche pilote du parcours étudiant.
+
+### Vérification visuelle
+
+- **`specification-technique.md` étape 1** : vérification visuelle sous Quartz **OK** (utilisateur, fin de session).
+- **`templates/fiche-trame.md`** et **`templates/callouts.md`** : vérification visuelle **à faire** en début de session suivante (modifications patchées n'ont pas été revérifiées visuellement post-round 2).
+
+### Exception assumée — titre `[!terrain]`
+
+Le titre `Vu dans une ancienne promo` reste **non fixe** (variantes possibles : `Vu dans la promo 2024`, etc.), contrairement aux autres callouts qui ont tous reçu un titre fixe. Cohérent avec la sémantique de retour d'expérience daté. Convention conservée en l'état.
+
+### Leçon méthodo — chemin différent par poste pour MCP filesystem
+
+Le contexte de session pointait vers `C:\Users\timothe.turko.ICAMAD\...` (PC pro), or la session s'est déroulée sur le PC perso (`C:\Users\turko\...`). Tentative initiale d'accès échouée (`path outside allowed directories`), résolue en pivotant sur le bon chemin. **À retenir** : le serveur MCP filesystem ne sert que les directories autorisées du poste courant ; vérifier `list_allowed_directories` (ou échec d'accès) pour pivoter sans tergiverser.
+
+### Leçon méthodo — nom du serveur MCP variable par poste
+
+Les consignes du projet pointaient vers les outils préfixés `theskillcodex:*`. Sur ce PC perso, le serveur MCP filesystem est exposé sous le préfixe **`filesystem:*`** (mêmes capacités, même sémantique d'écriture sur disque). Validation par lecture des fichiers à jour (JOURNAL cohérent avec le contexte de session). **À retenir** : le préfixe peut varier d'un poste à l'autre selon le nom donné au serveur dans la configuration MCP — vérifier les outils disponibles plutôt que se fier au nom attendu.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Alignement rétroactif des 4 trames du 22/05** sur les conventions callouts v2.1 : à faire à l'approfondissement de chacune.
+- **Vérification visuelle des 2 templates patchés** au round 2 : à faire en début de session suivante.
+- **Acquisition des 4 nouvelles notions/tuto** (`critere`, `niveau`, `flexibilite`, `etat-de-l-art-technique`) : popovers posés, fiches à créer.
+
+---
+
+## 2026-05-22 (suite) — Charte callouts v2 + templates fiche-trame et fiche-notion
+
+### Périmètre de session
+Production du template `fiche-trame.md` à partir des 5 trames stabilisées du 22/05 matin (specification-technique étape 1 + les 4 squelettes du cycle en V). Introduction au passage d'une charte graphique des callouts (palette v2). Vérification + refonte du template `fiche-notion.md` en fin de session.
+
+### Cadrage en début de session — 4 questions tranchées
+
+1. **Format du template** : sections vides avec commentaires HTML inline + exemple intégré pour les seuls éléments structurellement non évidents (placeholder italique + callouts fil rouge). Argument : un template entièrement pré-rempli pousserait l'auteur à copier-paraphraser au lieu de réfléchir.
+
+2. **Granularité des commentaires** : commentaires HTML inline, courts à moyens, pointant vers la charte callouts séparée. Pas de fiche méthodo séparée créée maintenant (option B retenue — elle viendra si le besoin se confirme).
+
+3. **Fil rouge dans le template** : présenté (bras 3 axes) avec convention de titre `Sur le bras 3 axes` figée. Pour les transverses, mention explicite dans le guide que la structure « démarche en étapes » peut ne pas s'appliquer telle quelle.
+
+4. **Fiche-notion en fin de session** : OK, traitée (voir section dédiée plus bas).
+
+### Charte callouts v2 — décisions de fond
+
+Proposition initiale utilisateur de palette pastel saturée (ambiance lecture longue) : `[!question]` `#85A2BD`, `[!info]`/`[!note]`/`[!example]`/`[!terrain]` fusionnés `#FAF6EC`, `[!tip]` `#C1D3BB`, `[!warning]` `#FFBD5B`, `[!danger]` `#F08A6A`, `[!livrable]` `#E2BDF9`. Critique constructive Claude + débat → 6 décisions structurantes :
+
+1. **Fusion `[!info]`+`[!note]` maintenue**, mais **différenciation `[!example]`/`[!terrain]` vs `[!info]`/`[!note]`** : ne pas noyer le callout pédagogiquement le plus important (`[!example]`, 1 par étape obligatoire en trame) dans une couleur indistincte de `[!info]`. Résultat : `[!example]`/`[!terrain]` reçoivent une teinte pêche pâle `#F9E6D4` distincte du crème `#FAF6EC` des info/note.
+
+2. **`[!warning]` désaturé** : `#FFBD5B` initial trop saturé par rapport au reste de la palette pastel. Bascule sur `#F5C77D` (ambre plus doux), puis éclairci en `#FADFAF` après la passe d'éclairement globale.
+
+3. **`[!success]`/`[!check]`/`[!done]` créés avec la couleur de `[!tip]`** : sémantique proche, fusion acceptée.
+
+4. **Mode sombre reporté** à une session ultérieure : les étudiants travaillent principalement en mode clair. Reporté dans TODO/BACKLOG, pas d'urgence.
+
+5. **Approche `--color` sombre + `--bg` clair conservée** : la palette utilisateur définit les `--bg`, Claude propose des `--color`/`--border` plus profonds dérivés. Évite le piège « texte de même couleur que fond ». Approche A validée.
+
+6. **Passe d'éclairement globale** sur 6 callouts (question, tip/success, warning, danger, example/terrain inchangé, livrable) après validation visuelle : palette trop saturée en V1.0 du SCSS. Interprétation A retenue (un cran plus pâle, sans aller jusqu'au quasi-blanc) pour préserver la gradation hiérarchique entre callouts.
+
+### Charte callouts v2 — palette finale figée
+
+| Callout | Fond (`--bg`) | Titre / filet (`--color`) |
+|---|---|---|
+| `[!question]` | `#B5C5D6` | `#3B5F7F` |
+| `[!info]` / `[!note]` | `#FAF6EC` | `#8C7E5C` |
+| `[!tip]` / `[!success]` / `[!check]` / `[!done]` | `#D8E3D3` | `#5C8556` |
+| `[!warning]` | `#FADFAF` | `#A8761F` |
+| `[!danger]` / `[!failure]` / `[!bug]` | `#F6B5A0` | `#A33A1F` |
+| `[!example]` / `[!terrain]` | `#F9E6D4` | `#A86A3F` |
+| `[!livrable]` | `#EED9FB` | `#6B3B96` |
+
+Icônes natives Quartz/Obsidian conservées (option B) : pas d'emoji additionnel dans les titres pour `[!warning]` et `[!danger]`.
+
+### Conventions de titres de callouts — figées
+
+Observation des patterns réels dans les trames du 22/05 + décision utilisateur :
+
+- `[!question]` : `Question : <la question posée>` (le titre EST la question)
+- `[!info]` / `[!note]` : `Info` ou `À retenir`
+- `[!tip]` / `[!success]` : `Astuce` ou `Succès`
+- `[!warning]` : `Attention` (icône native suffisante)
+- `[!danger]` : `Danger` (icône native suffisante)
+- `[!example]` dans une **fiche-trame** : `Sur le bras 3 axes` (fil rouge unique du projet)
+- `[!example]` dans une **fiche-notion** : nom court du cas d'illustration (`Couveuse`, `Bras 6 axes industriel`)
+- `[!terrain]` : `Vu dans une ancienne promo`
+- `[!livrable]` : `Livrable de l'étape N` (singulier) ou `Livrables de l'étape N` (pluriel)
+
+### Convention de coexistence des cas d'illustration — figée (rappel)
+
+Déjà actée le 22/05 matin, **inscrite dans les commentaires du template `fiche-notion.md`** :
+- Fiches-trame → fil rouge unique du projet (bras 3 axes)
+- Fiches-notion → cas autonome choisi pour la notion (varié : couveuse, bras 6 axes, etc.)
+
+### Règle de densité callouts — révisée
+
+Ancienne règle (palette v1) : « 0 à 3 callouts par fiche sauf cas justifié ». Révision v2 : **exception assumée pour les fiches-trame** (5-10 callouts par fiche est la norme, 1 `[!example]` + 1 `[!livrable]` par étape obligatoires, plus warnings/tips ponctuels). Inscrit dans `callouts.md`.
+
+### Production des templates
+
+#### `templates/callouts.md` (refonte complète v1 → v2)
+Nouveau plan : Règle générale + Charte graphique (tableau) + 8 callouts documentés avec sémantique + convention de titre + exemple markdown + rendu Quartz. Note `quartz/styles/custom.scss` comme source des couleurs CSS. Décision pliage maintenue en attente. La v1 reste traçable dans Git.
+
+#### `templates/fiche-trame.md` (nouveau)
+Extrait des 5 trames stabilisées. Structure :
+- Front matter complet (type/phase/phases/tags/prerequis/aa/draft)
+- Popover
+- ## Posture attendue
+- ## Objectif de la phase
+- ## Démarche (3 étapes d'exemple ; commentaire explicite « dupliquer pour ajouter, plafond pratique 5-6 étapes »)
+- ## Pièges fréquents
+- ## Pendant cette phase, côté équipe
+- ## Conclusion
+- ## Voir aussi
+
+Commentaires HTML pédagogiques par section + 1 bloc « CONVENTIONS À RESPECTER » dans la Démarche (callouts obligatoires/optionnels, lexique étape vs phase N, incertitude vs point dur, noms de phases en toutes lettres). 3 étapes-exemples dans le squelette pour montrer le motif sans alourdir.
+
+Test de reconstitution mentale sur `concept.md` : ✅ le template permet de reconstruire les 4 trames du 22/05.
+
+#### `templates/fiche-notion.md` (refonte complète v1 → v2)
+L'ancien template datait du 19/05, antérieur à la typologie 3 types. Manques principaux : pas de `type: notion`, pas de `phases:`, pas de tag `notion`, structure de corps trop générique. Refonte sur le modèle de `fiche-trame.md` (même esprit de commentaires HTML) + alignement sur la pratique observée dans `bete-a-cornes.md` (la seule fiche-notion réelle produite à ce jour).
+
+Structure :
+- Front matter complet (`type: notion`, `phases:`, `tags: [notion + domaine]`, `prerequis`, `aa`, `draft`)
+- Popover (catégorie : outil/méthode/concept/norme...)
+- ## À quoi ça sert ? (obligatoire)
+- ## Comment \<verbe adapté\> ? (titre adaptatif : construire / câbler / calculer / appliquer / implémenter)
+- ## Exemple — \<Nom court du cas\> (convention de titre incarné, cas autonome)
+- ## Pièges (obligatoire, pièges en **gras court** suivis d'explication, pas de puces)
+- ## Cas particulier — \<sujet\> (optionnel, à supprimer si non nécessaire)
+- ## Aller plus loin (optionnel)
+- ## Voir aussi (format `[[cible|texte]] — description`)
+
+Test de reconstitution mentale sur `bete-a-cornes.md` : ✅ le template permet de reconstruire la fiche.
+
+### Décisions structurelles annexes
+
+#### `templates/fiche-trame.md` — réordonnancement des sections finales
+Après première validation utilisateur, **réorganisation de l'ordre des sections post-Démarche** :
+- Ancien : Démarche → Conclusion → `---` → Pièges → Équipe → Voir aussi
+- Nouveau : Démarche → `---` → Pièges → Équipe → **Conclusion** → Voir aussi
+
+Argument utilisateur : la Conclusion (pont vers la phase suivante) gagne à être la dernière section utile **avant** le « Voir aussi », plutôt qu'enclavée entre la Démarche et les Pièges. L'étudiant qui termine la lecture utile tombe sur la transition vers la phase suivante au bon moment.
+
+**Conséquence sur les 4 trames du 22/05 + `specification-technique`** : décalage avec le template. **Décision : pas d'alignement rétroactif** (option B retenue). L'alignement se fera à l'approfondissement de chaque trame, naturellement.
+
+#### `_templates/` renommé en `templates/`
+Lors de la session, plusieurs frictions sur l'accès aux fiches du dossier `_templates/` :
+1. Le dossier était dans `ignorePatterns` (`quartz.config.ts`) — ignoré par le build Quartz. **Retiré** : décision éditoriale « `templates/` public » actée.
+2. Même après retrait, l'URL `localhost:8080/_templates/...` renvoyait 404. Cause probable : serveur HTTP de développement gère mal les URLs commençant par underscore. **Renommage** `_templates/` → `templates/` acté comme solution durable.
+3. Références internes patchées dans `fiche-trame.md`. `templates/index.md` mis à jour pour lister les 3 fiches.
+
+#### Templates passés en `draft: false`
+Le `Plugin.RemoveDrafts()` filtrait les templates eux-mêmes à cause de leur `draft: true`. **Résolution** : le template est de la doc, pas un brouillon. Passés en `draft: false`. Note explicite ajoutée dans le guide HTML : « le template lui-même est `draft: false` ; les fiches que vous créerez à partir de lui doivent commencer en `draft: true` tant qu'elles ne sont pas relues ».
+
+### Fiche-démo jetable `callouts-demo.md`
+Fiche créée en cours de session pour valider visuellement la palette callouts v2 sous Quartz (Obsidian ignore le SCSS Quartz, le rendu navigateur était la seule façon de vérifier). Servi depuis `content/callouts-demo.md` (contournement temporaire du problème underscore qui a finalement été résolu par le renommage). **Mission accomplie**, fiche jetable. Suppression à faire à la main (le serveur MCP filesystem n'a pas d'outil delete par sécurité).
+
+### Leçon méthodo — Obsidian vs Quartz
+Les couleurs CSS définies dans `quartz/styles/custom.scss` ne sont **pas** lues par Obsidian. Obsidian a son propre moteur de rendu et son propre thème. Pour valider visuellement la palette : **Quartz local obligatoire** (`npx quartz build --serve`). Obsidian reste pertinent pour la rédaction (vitesse, popovers natifs, recherche) mais pas pour valider le rendu visuel du site. Possible d'aligner Obsidian via un snippet CSS dans `.obsidian/snippets/` mais doublon de maintenance — pas la peine.
+
+### Leçon méthodo — modifications de `quartz.config.ts`
+Les changements de `quartz.config.ts` (config TypeScript) ne sont **pas** pris en compte par le hot reload. Il faut `Ctrl+C` puis relancer `npx quartz build --serve`. À retenir comme réflexe quand une modif de config ne semble pas prise en compte (`ignorePatterns`, locale, etc.).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Mode sombre des callouts** : non décliné en v2. À traiter dans une session ultérieure quand on aura du recul d'usage.
+- **Pliage des callouts** : toujours pas tranché (`[!example]-` replié par défaut ?). Note ajoutée dans `callouts.md` v2 que la décision est en attente.
+- **Alignement rétroactif des 5 trames** sur le nouvel ordre de sections : volontairement non fait. Se traitera à l'approfondissement de chaque trame.
+- **Suppression de `content/callouts-demo.md`** : à faire à la main par l'utilisateur (pas d'outil delete MCP).
+
+---
+
+## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V
+
+### Périmètre de session
+Production des 4 squelettes manquants du cycle en V (`concept`, `preuve-de-concept`, `dossier-technique`, `integration-et-tests`), à partir du matériau des flowcharts de phase produits les 20-21/05. Squelettes transverses (`gestion-de-projet`, `ecoconception`, `securite-et-qualite`) reportés en session dédiée (les transverses ne se traitent pas comme des phases : pas de « démarche en étapes » au sens cycle en V, plutôt des « postures à tenir tout au long du projet »).
+
+### Décisions de cadrage en début de session
+
+4 questions ouvertes tranchées avant production :
+
+1. **Ordre de production** : descendant strict du V (concept → PoC → dossier → intégration). Argument : la symétrie du V est déjà *montrée* par le SVG macro, pas besoin d'être *éprouvée* par l'ordre de rédaction. Cohérence narrative du parcours étudiant préservée.
+
+2. **Niveau de détail des étapes** : transposition non linéaire des flowcharts vers les trames. Plafond pratique 5-6 étapes par trame ; au-delà la fiche devient illisible sur smartphone. Compression systématique : 9→10 étapes brutes des flowcharts → 4-5 mouvements pédagogiques. **Argument méthodo retenu** : les flowcharts sont des outils d'analyse, les trames sont des outils de progression pédagogique — leurs granularités optimales diffèrent.
+
+3. **Popovers dès le squelette** : oui, sur popover/objectif/titres d'étapes. Coût zéro et fait émerger la liste des notions à créer pour tracking BACKLOG. Liens rouges assumés (décision du 20/05).
+
+4. **« Voir aussi » dès le squelette** : oui, mais discipline — uniquement les liens structurels évidents (phase précédente/suivante, fils transverses, notions centrales). Pas de chasse aux liens.
+
+### Périmètre revu en début de session
+
+Programme initial : 4 phases + 3 transverses + extraction du template = 8 unités. **Acte de prudence méthodo** : ramené à 4 phases + extraction du template si temps. Argument : les transverses méritent une session dédiée (structure différente), les bâcler en fin de session du soir serait dommage. Extraction du template finalement reportée aussi (densité de session déjà forte avec 2 passes de patchs sur les 4 trames).
+
+### Production des 4 squelettes
+
+| Trame | Étapes brutes (flowchart) → étapes (trame) | Notes |
+|---|---|---|
+| `concept` | 9 → 5 | Étape pivot = arbitrage architecture globale |
+| `preuve-de-concept` | 8 → 4 | 3 sorties de phase explicites (concluant/ajuster/intenable) |
+| `dossier-technique` | 10 → 5 | Multi-validation à 3 visible dès l'étape 4 ; étape 5 = point de non-retour |
+| `integration-et-tests` | 10 → 5 | Pyramide de tests à 4 niveaux fonctionnels condensée en étape 3 ; pas de rétroaction sortante |
+
+### Relecture critique — 6 corrections de fond
+
+Après relécture du squelette `concept`, 6 corrections demandées :
+
+1. **« Dérisquer » banni** dans toute production étudiante → « lever une incertitude » / « valider le fonctionnement ». Reste utilisable dans les échanges méthodo internes (sessions de travail). Lexique étudiant : termes à proscrire → BACKLOG.
+
+2. **Noms de phases en toutes lettres** : jamais « phase 1/2/3/4/5 » dans la prose ou les liens. Toujours « spécification technique », « concept », etc. Conv. rentrée dans les wiki-links : `[[specification-technique|spécification technique]]`.
+
+3. **Notion `[[decomposition-fonctionnelle]]` à créer** : popover posé dans `concept.md` étape 1. Le `schema-bloc-fonctionnel` n'est qu'**un** outil de décomposition, il manque la notion-mère.
+
+4. **Plus de callouts pédagogiques, moins de tout-livrable** : appliqué via un **fil rouge unique** — voir décision projet fil rouge ci-dessous.
+
+5. **Paragraphes trop courts** : se régleront naturellement à l'approfondissement avec les exemples du fil rouge. Pas d'action immmédiate sur le squelette.
+
+6. **« Point dur » → « incertitude »** : remplacement systématique. La phase 3 devient « lever les incertitudes du concept » plutôt que « dérisquer les points durs ». Sémantique cohérente avec correction 1.
+
+### Décision structurante — projet fil rouge unique
+
+L'hétérogénéité des cas d'illustration (`specification-technique` utilise une couveuse, `bete-a-cornes` utilise un bras 6 axes) pose un problème de charge cognitive : chaque fiche force l'étudiant à recharger un contexte projet.
+
+**Choix acté** : **bras robotique pédagogique 3 axes** comme fil rouge unique pour les 4 trames produites. Trois raisons :
+- Mécatronique canonique (élec + méca + info, conflits inter-disciplines naturels)
+- Volontairement simple (3 axes vs 6, imaginé en 30 s)
+- **Opportunité d'ancrage** : un étudiant de l'utilisateur travaille sur ce sujet et pourra servir de relecteur réel sur la cinématique
+
+**Cadrage figé** :
+- Client/contexte : enseignant en mécatronique souhaitant un bras pédagogique démontable et reproductible
+- Architecture cible (à découvrir au fil des trames, pas spoilée) : 3 axes rotatifs, steppers + drivers, microcontrôleur unique, structure imprimée 3D, IHM PC
+- Incertitudes plausibles : tenue mécanique articulations 3D, précision bout de bras, commande synchronisée des 3 steppers
+- Critères CdCF chiffrables : précision ± 5 mm en bout, charge utile 100 g, vitesse 50 mm/s
+
+**Coexistence avec `bete-a-cornes.md`** : la fiche conserve son cas illustratif autonome (bras 6 axes industriel) — c'est une fiche-notion d'outil méthodologique, son cas a vocation à illustrer la notion, pas à servir de fil rouge. **Convention actée** : les fiches-trame partagent un fil rouge unique, les fiches-notion ont leur propre cas d'illustration choisi pour la notion. Pas de retravail rétroactif sur `bete-a-cornes`.
+
+### Incarnation du fil rouge — conventions de callouts
+
+- **1 `[!example]` par étape**, court (3-5 lignes), incarne l'étape sur le bras 3 axes
+- `[!warning]` et `[!tip]` optionnels selon situation : warnings pour anti-patterns ou messages forts (« conflit inter-disciplines arrive presque toujours », « pas d'achat à titre personnel », etc.), tips pour clarifications utiles
+- Fil rouge se construit progressivement au fil des phases (incertitude identifiée au concept → testée en preuve → ajustement intégré en dossier technique → écart final documenté en intégration). C'est exactement le message pédagogique du cycle en V.
+
+**Total après 2ᵉ passe de patchs** : 19 `[!example]` + 5 `[!warning]` + 1 `[!tip]` = 25 callouts pédagogiques sur les 4 trames.
+
+### Ajout d'une section « Conclusion »
+
+**Décision actée** sur retour utilisateur : ajouter en fin de démarche (après le dernier livrable, avant le séparateur `---`) une section `## Conclusion` courte qui :
+- récapitule l'état à la sortie de l'étape
+- pose le pont explicite vers la phase suivante (lien interne en prose)
+- ferme sur le hub pour la dernière phase (pas de phase suivante)
+
+**Argument** : avant cet ajout, le seul accès à la trame suivante était dans la section « Voir aussi » tout en bas, après les pièges et la section équipe. L'étudiant qui termine la lecture de la démarche n'avait aucun pont vers la suite. Pattern à répliquer sur `specification-technique` lors de son approfondissement.
+
+### Convention rédactionnelle implicite
+
+Dans la prose : **« étape »** (de la démarche, du projet) plutôt que **« phase »** lorsque le mot « phase » pourrait prêter à confusion avec « phase N du cycle en V ». Application : posture, objectif, transitions. Le mot « phase » reste utilisé dans les métadonnées structurelles (front matter `phase: 2`, hub) et les cas où il n'y a pas d'ambiguïté.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes
+- **Extraction du template `_templates/fiche-trame.md`** : reportée à la prochaine session. 5 trames stabilisées en main (specification-technique + les 4 nouvelles), conventions consolidées, c'est le bon moment pour figer la méthode.
+- **Refonte `specification-technique.md` étape 1 + ajout Conclusion** : étape 1 ne suit pas la convention « 1 callout par étape » (3 callouts), et la fiche n'a pas de section Conclusion. À traiter lors de l'approfondissement des étapes 2-6.
+
+---
+
 ## 2026-05-21 (suite 2) — Vue d'ensemble macro : V replié avec rétroactions
 
 ### Choix structurel : enrichir le SVG existant, pas un 6e flowchart Mermaid
