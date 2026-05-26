@@ -245,6 +245,14 @@ des stubs/placeholders avant publication aux élèves), pas par le flag `draft`.
 Justification : Quartz est encore privé, le filtre n'a pas d'utilité
 opérationnelle et crée plus de friction (popovers cassés) que de bénéfice.
 
+### Workflow Git — commit/push systématique en fin de session (acquis 26/05 suite 3)
+
+L'utilisateur effectue le **commit et push** systématiquement en fin de session, **après le dernier prompt de Claude**. Ne pas inscrire le commit/push de la session courante (ni des sessions précédentes) comme tâche en attente dans le TODO — c'est un workflow utilisateur automatique, pas une dette technique.
+
+**Pour Claude en cours de session** : ne pas ajouter d'entrée « Commit + push de la session du JJ/MM » dans la section *Tâches techniques en suspens* du TODO. La section *Rattrapage commits + pushs en retard* a été nettoyée le 26/05 suite 3 et ne doit plus être alimentée. Le suivi des commits relève de Git (`git log`), pas du TODO.
+
+**Pour Claude en début de session** : si une question se pose sur l'état du commit, vérifier directement avec `git log` ou demander à l'utilisateur, pas présupposer un retard. Capitalisation 26/05 suite 3 : la session précédente du même jour avait remonté ~10 entrées de retard fantasmées, alors que tous les commits avaient été faits.
+
 ### Noms de fichiers
 **Kebab-case** : `cahier-des-charges-fonctionnel.md`,
 `schema-bloc-fonctionnel.md`. Pas d'accents, pas d'espaces, pas de

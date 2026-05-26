@@ -77,16 +77,9 @@
 ## Tâches techniques en suspens
 
 ### Rattrapage commits + pushs en retard
-- [ ] **Rattrapage commits + pushs en retard depuis 19/05** — voir `JOURNAL.md` pour le détail session par session (sessions 19/05 → 25/05 suite 2 non encore committées au moment du palier 3 du nettoyage documentaire). Les paliers 1-2 du nettoyage (25/05 suite 3) ont été committés avant le palier 3.
-- [ ] **Commit + push de la session du 25/05 (suite 3)** (paliers 3-6 du nettoyage documentaire) — à faire en fin de session.
-- [ ] **Commit + push de la session du 25/05 (suite 4)** (approfondissement concept étapes 1-2 + alignement v2.1 + MAJ doc).
-- [ ] **Commit + push de la session du 25/05 (suite 5)** (approfondissement concept étapes 3-4-5 + Pièges + Équipe + MAJ doc).
-- [ ] **Commit + push de la session du 25/05 (suite 6)** (cohérence finale concept — 4 passes / 27 patches + MAJ doc).
-- [ ] **Commit + push de la session du 25/05 (suite 7)** (approfondissement preuve-de-concept v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links + MAJ doc).
-- [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
-- [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
-- [ ] **Commit + push de la session du 26/05 (suite 2)** (cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP 6ᵉ outil canonique + normalisation référentiel 57 critères + patches navigation MIA→EEE + production `couverture-en-cours.md` + MAJ doc complète + conventions C15 C16 acquises).
-- [ ] **Commit + push de la session du 26/05 (suite 3)** (passes B + A cartographie AA bouclées : 13 cartographies fiche-notion + hub + 5 bilans par domaine + amendement passe B integration-et-tests + écriture champ aa: dans 17 fronts matters + 2 fiches phase 2 ajoutées au TODO + 3 décisions niveau D nouvelles).
+
+> **Section nettoyée le 26/05 suite 3.** Le commit+push se fait systématiquement en fin de session, après le dernier prompt de Claude (voir `conventions.md` § 6 *Workflow Git*). Ne plus alimenter cette section. Le suivi des commits relève de Git (`git log`), pas du TODO.
+
 - [x] ~~**Vérifier GitHub Actions « Deploy quartz site to github page »**~~ — **résolu en session 26/05 suite 2** : cause = action `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix appliqué : bump `upload-pages-artifact@v3` → `@v4` dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée (pas besoin de bumper deploy-pages).
 
 ### Manipulations manuelles en attente
