@@ -357,6 +357,12 @@ principal d'application. Mode d'application stabilisé :
 - **NBSPs fines U+202F** : la typo française pose une NBSP fine devant `:` `;` `?` `!` `%` `»` `€` et autres. Un `oldText` reconstitué à partir d'une copie visuelle ne contient pas ces NBSPs invisibles → mismatch silencieux du matching exact. **Discipline** : (a) anchors courts privilégiés (1 phrase identifiante plutôt qu'un paragraphe entier), (b) coller `\u202f` explicite aux positions probables si l'anchor doit traverser une ponctuation typographique française, (c) en cas d'échec et avant de soupçonner un NBSP, vérifier d'abord les typos de transcription.
 - **Typos de transcription** : reconstituer un `oldText` de mémoire ou par copie partielle peut introduire des typos invisibles (« enchaîner » → « enchaâîner » par exemple, ou glissement d'un accent). Symptôme identique à NBSPs : mismatch silencieux. **Discipline** : recopier `oldText` directement depuis la sortie de lecture `view`/`read_text_file` plutôt que retranscrire. Le coût en tokens est minime, la robustesse gagnée est significative.
 
+**Complément 26/05 suite (archivage JOURNAL 22→24/05 réussi via MCP)** : deux acquis méthodo supplémentaires distincts du seuil 30 ko de payload, identifiés lors de la finalisation de l'archivage des sessions 22→24/05 (suite) (60 ko net à déplacer, au-dessus du seuil).
+
+- **Pattern MARKER + N segments** — stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP malgré la limite C14. Procédure : (1) poser un marker temporaire (commentaire HTML unique, ex. `<!-- ARCHIVE_INSERT_MARKER -->`) à l'emplacement cible via un `edit_file` léger ; (2) insérer le bloc en N segments de < 25 ko chacun, chaque insertion remplaçant `MARKER` par `[segment]\nMARKER` (l'ordre d'insertion détermine l'ordre final — pour antichronologie, insérer du plus ancien au plus récent) ; (3) retirer le marker via un dernier `edit_file` léger. Symétriquement pour la suppression d'un gros bloc : segmenter en N suppressions indépendantes via anchors par session. **Épreuve réussie 26/05 suite** : 10 `edit_file` successifs (5 insertion + 5 trim), payload max 24 ko, antichronologie préservée, JOURNAL 156→96 ko / archive 60→119 ko. À capitaliser comme procédure standard pour les archivages JOURNAL ultérieurs ou tout déplacement de bloc lourd.
+
+- **Verrou Windows EPERM** — piège **distinct** du seuil de payload. Quand Obsidian a un fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS (verrou de fichier Windows), pas de payload — même un `edit_file` de 50 octets échouera si le verrou est actif. **Symptôme** : message d'erreur explicite EPERM dans le retour MCP (échec **non silencieux**, contrairement aux échecs C14 classiques). **Remède** : changer d'onglet dans Obsidian (libère le verrou de fichier ; pas besoin de fermer Obsidian, ni d'attendre). Reprendre immédiatement le même `edit_file`, il passera.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
@@ -377,5 +383,7 @@ principal d'application. Mode d'application stabilisé :
   rendus).
 - **Templates de fiches** : `templates/fiche-trame.md`,
   `templates/fiche-notion.md` (commentaires HTML pédagogiques inclus).
-- **Référentiel AA** : `Compétences.xlsx` (107 acquis, 6 domaines, format
-  `AA-XXX-CYY-CFEZ-NN`).
+- **Référentiel AA** : `_drafts/referentiel/Compétences.xlsx` (107 acquis, 6
+  domaines, format `AA-XXX-CYY-CFEZ-NN`). Hors site Quartz, document de
+  pilotage interne. Également uploadé dans Project files Claude.ai pour
+  accès `/mnt/project/` en session.

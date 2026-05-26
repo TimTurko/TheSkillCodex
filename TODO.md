@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➤ Prochaine session = cartographie AA** (passe systématique sur les 107 acquis de `Compétences.xlsx`, rattachement à phase ou transverse, identification des trous) **OU** ouverture d'une fiche-notion prioritaire (PCB / AMDEC / caractériser-une-exigence). Phase 1 du wiki désormais complète côté trames du V (5/5) + fils transverses (3/3). Tâche annexe début de session toujours pendante : finaliser archivage JOURNAL 22-24/05 dans Obsidian (procédure dans Manipulations manuelles). Acte à froid à conduire : promotion C1–C6 vers § 1-2 conventions (épreuve 3/3 réussie sur les 3 transverses).
+> **➜ Prochaine session = cartographie AA** sur les 107 acquis de `Compétences.xlsx` (rangé dans `_drafts/referentiel/`, également uploadé dans Project files Claude.ai pour accès `/mnt/project/`). **3 questions méthodo à trancher en début de session** : (1) format de cartographie — champ `aa: [...]` dans front matter (C9, jamais rempli) / table centralisée dans `hub/index.md` / les deux ; (2) granularité — un AA effleuré compte-t-il comme couvert ou faut-il un seuil (fiche dédiée OU section dédiée) ; (3) ordre — par domaine du référentiel (EEE → MIA → MEO → PROJ → MME → ESE) ou par fiche existante (lecture en aveugle puis recoupement). Mode niveau C jusqu'à conventions stabilisées sur 2-3 fiches, puis B sur l'exécution répétitive. **OU** ouverture d'une fiche-notion prioritaire (PCB / AMDEC / caractériser-une-exigence). Phase 1 du wiki désormais complète côté trames du V (5/5) + fils transverses (3/3). **Actes à froid à conduire** : promotion C1–C6 vers § 1-2 conventions (épreuve 3/3 réussie sur les 3 transverses) + amendement C14 leçon EPERM Windows + capitalisation pattern MARKER + N segments.
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -71,10 +71,10 @@
 - [ ] **Commit + push de la session du 25/05 (suite 7)** (approfondissement preuve-de-concept v1 complet — 5 étapes + Pièges + Équipe + cohérence finale + round 2 wiki-links + MAJ doc).
 - [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
 - [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
-- [ ] **Commit + push de la session du 26/05 (suite)** (création ex nihilo + approfondissement `securite-et-qualite` complet — 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire + Pièges 11 + Équipe 3 axes + délégation explicite + cohérence finale 3 patches wiki-links + 8 nouvelles cibles wiki-links poussées au BACKLOG + acte clôture phase 1 du wiki).
+- [ ] **Commit + push de la session du 26/05 (suite)** (création ex nihilo + approfondissement `securite-et-qualite` complet — 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire + Pièges 11 + Équipe 3 axes + délégation explicite + cohérence finale 3 patches wiki-links + 8 nouvelles cibles wiki-links poussées au BACKLOG + acte clôture phase 1 du wiki + **finalisation archivage MCP JOURNAL 22→24/05 via pattern MARKER + N segments** + cadrage prochaine session AA + MAJ doc).
 
 ### Manipulations manuelles en attente
-- [ ] **Finaliser archivage JOURNAL 22-24/05** — dans Obsidian : couper depuis `## 2026-05-24 (suite) — Clôture phase 1 partie 2` jusqu'à la fin de la session `## 2026-05-22 — Squelettes des 4 fiches-trame du cycle en V` (séparateur `---` inclus juste après), puis coller dans `JOURNAL-archive.md` juste avant `## 2026-05-21 (suite 2) — Vue d'ensemble macro`. Voir le warning du préambule JOURNAL. **Pourquoi manuel** : payload MCP ~50 ko inatteignable (leçon méthodo 25/05 suite 8 — conventions.md § 7).
+- [x] ~~**Finaliser archivage JOURNAL 22-24/05**~~ **fait 26/05 suite via MCP** (pattern MARKER + N segments, 10 edit_file successifs, JOURNAL 156→96 ko / archive 60→119 ko, antichronologie préservée). Le seuil C14 30 ko a été contourné par segmentation en sub-blocs <25 ko. Incident EPERM verrou Windows Obsidian rencontré et résolu en changeant d'onglet — à documenter dans conventions § 7.
 - [ ] **Déposer manuellement `cdcf-ecole-template.docx`** dans `content/ressources/templates/` (limite technique MCP filesystem : pas d'écriture binaire).
 - [ ] **Supprimer `content/callouts-demo.md`** — fiche jetable, mission accomplie (validation visuelle palette v2). À faire à la main (pas d'outil delete MCP).
 - [ ] **Désactiver Dark Reader sur localhost et le site déployé**
@@ -112,6 +112,12 @@
 - [ ] Vérifier le rendu de `integration-et-tests.md` étape 5 (2 H4 économes rapport+soutenance, `[!example]` 3 paragraphes structurés)
 - [ ] Vérifier le rendu de `integration-et-tests.md` section Pièges (11 entrées gras court + explication, ratio ~55 % a posteriori)
 - [ ] Vérifier le rendu de `integration-et-tests.md` section Équipe (4 paragraphes thématiques, wiki-links rouges sur nouvelles cibles : `cable-management`, `gabarit`, `firmware`)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` (3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire, callouts v2.1, popovers nouvelles cibles wiki-links rouges — `marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `amdec`, `revue-de-code`, `epi`)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` Bloc 1 (`[!example]` 4 axes pincement/couple/énergie/parades, calendrier semaine n°2-15 cohérence chiffrée avec dossier-tech)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` Bloc 2 (3 risques cotés, cas dérogation refusée semaine n°12, `[!warning]` règles non négociables)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` Bloc 3 (plan 6 points revues, tags Git v0.1→v1.0.1, `[!tip]` tracer au moment de la décision)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` section Pièges (11 entrées gras court + explication, ratio ~45 %)
+- [ ] Vérifier le rendu de `securite-et-qualite.md` section Équipe (3 axes articulation cadence/matrice de risques/piloter sans écraser, délégation explicite ESE + responsables équipement)
 
 ## Décisions éditoriales en attente
 
@@ -121,7 +127,7 @@
   - **Convention 11** (rythme H4 par étape) **promue § 6 le 25/05 suite 7**. **Amendée § 6 le 26/05** : 2 nouveaux cas inédits acquis sur `integration-et-tests` (étape multi-disciplinaire = 3 H4 par discipline ; pyramide compressée = 3 H4 dense pour 4 niveaux conceptuels).
   - **Convention 12** (Pièges nourris a posteriori) **promue § 6 le 26/05 début session** après ratio stable 37-45 % sur 3 trames du V (concept 37 %, PoC 45 %, dossier-tech 45 % ; integration ~55 %).
   - **Convention 13** (relire amont avant section avale) **promue § 5 le 26/05 fin session** après épreuve 2/2 sur dossier-tech (suite 8) + integration-et-tests.
-  - Convention 14 (seuil 30 ko MCP payload) à éprouver — enrichie 26/05 par leçon NBSPs U+202F et typos de transcription dans les anchors longs comme source d'échec silencieux (§ 7).
+  - **Convention 14** (seuil 30 ko MCP payload) **enrichie 26/05 suite** à deux niveaux : (a) **pattern MARKER + N segments** validé comme procédure standard pour déplacements de blocs > 30 ko (archivage JOURNAL 22→24/05 réussi, 60 ko net via 3 segments de 17-24 ko) ; (b) **nouveau piège EPERM Windows distinct du seuil de payload** : verrou de fichier quand Obsidian a le focus dessus, `edit_file` échoue au rename final, remède = changer d'onglet Obsidian. Zone intermédiaire 30-40 ko à éprouver pour calibrage exact (24 ko passe, 50 ko échoue suite 8).
 
 *Note : les autres décisions éditoriales en attente (mode sombre callouts v2, pliage callouts, alignement rétroactif trames, alias Quartz, station météo, 2 images par fiche-notion, format date, tag `transverse`, section équipe transverses, etc.) sont désormais portées par BACKLOG.md (conventions à éprouver) ou par conventions.md (conventions acquises). Pas de duplication.*
 
@@ -144,6 +150,11 @@
 - [x] **C14 vécue à chaud** : 1 typo de transcription sur caractère arrow ➤ vs ➔ détectée au premier patch TODO, corrigée immédiatement après relecture (head=10) du fichier source. Confirme la leçon : recopier `oldText` depuis read plutôt que retranscrire.
 - [x] Conventions **C1-C6** (les 6 transverses § 7) : **épreuve 3/3 réussie** sur les 3 transverses (gestion-de-projet → ecoconception → securite-et-qualite). Promotion vers § 1-2 envisageable à acter à froid (niveau C requis).
 - [x] Conventions **C10** (matrice incarnée) + **C12** (Pièges a posteriori) + **C13** (relire amont) : tenues sans patch spécifique — conventions post-promotion stabilisées.
+
+- [x] **Convention C14 enrichie 26/05 suite** : pattern MARKER + N segments validé (archivage JOURNAL 22→24/05 réussi par segmentation, 10 edit_file successifs) + nouveau piège EPERM verrou Windows Obsidian identifié et résolu (changer d'onglet)
+- [x] **Archivage JOURNAL 22→24/05 via MCP segmenté** : 5 étapes insertion (MARKER posé + seg3 + seg2 + seg1 + MARKER retiré, antichronologie respectée) + 5 étapes trim (T1 seg1 + T2 seg2 + T3 seg3 [bloqué EPERM, résolu] + T4 warning préambule + T5 séparateur orphelin & commentaire HTML final). JOURNAL.md 156→96 ko, archive 60→119 ko.
+- [x] **Référentiel à jour rangé** : `_drafts/referentiel/Compétences.xlsx` (sous-dossier créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz.
+- [x] **Cadrage prochaine session AA** : 3 questions méthodo posées (format / granularité / ordre) + prompt de démarrage produit pour 1er message conversation suivante.
 
 ### Session 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
 - [x] 3 actes à froid début session : rotation glissante TODO (suite 5 retirée) + promotion C10 vers § 2 (matrice incarnée, 12 contextes) + promotion C12 vers § 6 (Pièges a posteriori, ratio 37-45 %)

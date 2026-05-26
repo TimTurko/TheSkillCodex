@@ -9,6 +9,75 @@
 
 ---
 
+## 2026-05-26 (suite) — Sécurité-qualité (3e transverse) + finalisation archivage MCP + cadrage session AA
+
+### Périmètre de session
+Triple front : (1) rédaction complète de la fiche-trame `securite-et-qualite` (3e et dernière transverse, clôt la phase 1 du wiki avec 5/5 trames V + 3/3 transverses), (2) MAJ documentaire à chaud BACKLOG/TODO/conventions, (3) finalisation de l'archivage JOURNAL 22→24/05 (suite) via MCP segmenté (défi C14 relevé), (4) cadrage de la prochaine session sur la cartographie des 107 AA.
+
+### Rédaction `securite-et-qualite.md`
+
+Cadrage initial — 5 questions tranchées :
+
+1. **Structure** : 3 blocs co-actifs (Sécurité produit / Sécurité projet / Qualité documentaire), pas N étapes. Convention transverses confirmée (3/3).
+2. **Tressage** : sécu et qualité tressées dans chaque bloc (option a), pas séparées.
+3. **Frontière ESE** : citer + déléguer le normatif pointu (marquage CE, basse tension, EMC, ISO 12100, EPI) — ne pas refaire le travail des collègues.
+4. **Fil rouge bras 3 axes** : 3 axes méthodologiques + 3 règles ajoutées par l'utilisateur (pas de 230V sans encadrant, pas de machine sans formation, jamais seul).
+5. **Articulation des 3 axes** : cadence projet / matrice de risques / piloter sans écraser.
+
+Production : fiche complète (28 ko), 3 `[!example]` bras 3 axes avec semaines n°2-15 (cohérence chiffrée avec `integration-et-tests` et `dossier-technique` : alu 6061, PCB monoface gravé interne, 3 cond. 100 nF, 24 V, fusible 3 A, couple stepper 0.5 Nm), 3 `[!livrable]` format Continu/Jalonné, 1 `[!warning]` sécu projet + 1 `[!tip]` qualité doc, 11 pièges format gras court + explication (~45 % a posteriori, conforme C12).
+
+Cohérence finale 4 passes : 0/0/N-A/3 patches wiki-links (Objectif + Bloc 3 + Équipe). Pattern stable post-promotion C6.
+
+### MAJ documentaire à chaud
+
+- **BACKLOG.md** (5 patches batch) : `hub/ecoconception` et `hub/securite-et-qualite` cochés → phase 1 wiki complète (5/5 trames V + 3/3 transverses). 7 nouvelles cibles wiki-links ajoutées : `revue-de-code` (MIA), `amdec` (PROJ), `marquage-ce` / `basse-tension` / `emc` / `iso-12100` / `epi` (ESE renommée « Écoconception, sécurité produit, normes »).
+- **TODO.md** (5 patches en 2 batches) : flèche prochaine session refondue → cartographie AA OU fiche-notion prioritaire (PCB / AMDEC / caracteriser-une-exigence). Sécu-qualité cochée. Entry commit/push session ajoutée. Rotation glissante Fait : nouvelle session 2026-05-26 (suite) en tête (12 entrées capitalisation), session 25/05 suite 7 PoC retirée.
+- **conventions.md** (1 patch) : bannière § 7 C1-C6 épreuve 3/3 réussie → promotion § 1-2 envisageable à acter à froid (niveau C requis).
+
+Incident C14 vécu : typo de transcription arrow `➤` (U+27A4) vs `➔` (U+2794) → 1er patch TODO en échec, corrigé via `read_text_file head=10` puis re-batch OK. Discipline retenue : recopier `oldText` depuis lecture MCP plutôt que retranscrire.
+
+### Finalisation archivage JOURNAL 22→24/05 (suite) via MCP — défi C14 relevé
+
+Bloc à archiver = 7 sessions (22/05 + 22/05 suite + 23/05 + 23/05 suite + 23/05 suite 2 + 24/05 + 24/05 suite) = **~60 ko net**. Au-dessus du seuil C14 (~30 ko payload) → segmentation obligatoire.
+
+**Stratégie validée : MARKER temporaire + N segments**. Pattern à acter comme procédure standard pour gros déplacements de blocs.
+
+**Phase 1 — Insertion archive (5 étapes)** : pose marker `<!-- ARCHIVE_INSERT_MARKER -->` juste avant `## 2026-05-21 (suite 2)` dans `JOURNAL-archive.md` → insertion seg3 (22/05 ×2, ~20 ko) → seg2 (23/05 ×3, ~24 ko — payload le plus gros, sous seuil) → seg1 (24/05 ×2, ~17 ko) → retrait marker. Antichronologie respectée : 24/05 (suite 2) — 24/05 (suite) — 24/05 — 23/05 (suite 2) — 23/05 (suite) — 23/05 — 22/05 (suite) — 22/05 — 21/05 (suite 2).
+
+**Phase 2 — Trim JOURNAL.md (5 étapes)** : T1 seg1 supprimé → T2 seg2 supprimé → **T3 bloqué EPERM** (verrou Windows, Obsidian focus sur JOURNAL.md) → T3 réussi après libération du verrou (changement d'onglet dans Obsidian) → T4 warning préambule supprimé + mise à jour de la phrase « antérieures au 25/05 » + résumé d'archive élargi → T5 séparateur orphelin nettoyé + commentaire HTML final mis à jour (mentionne les deux vagues d'archivage : 25/05 pour 19→21/05 + 24/05 suite 2, et 26/05 suite pour 22→24/05 suite).
+
+**Bilan tailles** : JOURNAL.md 156 → 96 ko (−60 ko), JOURNAL-archive.md 60 → 119 ko (+59 ko). Cohérent.
+
+### Leçons méthodo
+
+**C14 seuil ~30 ko validé** : un `edit_file` de 24 ko net + 200 chars d'anchor passe sans souci. Marge confortable à 25 ko. La zone d'échec silencieux semble commencer plus haut que documenté initialement (à ré-éprouver à froid pour calibrage).
+
+**Nouveau piège distinct du seuil C14 — verrou Windows EPERM** : quand Obsidian a le fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS, pas de payload. Remède : changer d'onglet dans Obsidian (libère le verrou, pas besoin de fermer Obsidian). À documenter dans `conventions.md` § 7 comme amendement C14.
+
+**Pattern MARKER + N segments** : stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP. À capitaliser comme procédure standard si la situation se reproduit (typiquement les archivages JOURNAL ultérieurs).
+
+### Cadrage prochaine session — cartographie AA
+
+Référentiel école à jour rangé dans `_drafts/referentiel/Compétences.xlsx` (sous-dossier `referentiel/` créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz, document de pilotage interne. Également uploadé dans le projet Claude.ai pour accès `/mnt/project/` en début de session.
+
+3 questions méthodo à trancher en début de session AA :
+1. **Format de cartographie** : champ `aa: [...]` dans front matter (C9, jamais rempli) / table centralisée dans `hub/index.md` / les deux ?
+2. **Granularité** : un AA effleuré compte-t-il comme couvert, ou faut-il un seuil (fiche dédiée OU section dédiée) ?
+3. **Ordre de traitement** : par domaine du référentiel (EEE → MIA → MEO → PROJ → MME → ESE) ou par fiche existante (lecture en aveugle de chaque fiche, lister les AA couverts, recoupement) ?
+
+Mode : niveau C jusqu'aux conventions stabilisées sur 2-3 fiches, puis niveau B sur l'exécution répétitive.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie (`gestion-de-projet`, `ecoconception`, `securite-et-qualite`), à acter à froid (niveau C requis).
+- **Amendement C14 — leçon EPERM Windows** : à intégrer dans `conventions.md` § 7 « En cours d'éprouvage ».
+- **Cartographie 107 AA** : session dédiée à programmer (prochaine session, voir cadrage ci-dessus).
+- **Convention emplacement référentiels** : `_drafts/referentiel/` pour les documents école externes — à documenter formellement si confirmé sur un 2e cas.
+- **Re-calibrage seuil C14** : la valeur exacte du seuil pratique mérite éprouvage à froid (24 ko passe, 50 ko échoue le 25/05 suite 8 — zone intermédiaire 30-40 ko à explorer).
+- **Commit/push** : rattrapage depuis 19/05 (8+ sessions accumulées) + session courante — à faire en fin de session.
+
+---
+
 ## 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
 
 ### Périmètre de session

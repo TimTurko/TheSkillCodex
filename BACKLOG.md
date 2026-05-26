@@ -181,6 +181,14 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] **Mode d'application convention 6 (wiki-link à la 1ère occurrence par section/sous-section/callout)** : observation 25/05 suite 6 — 20 patches sur 27 de la session de cohérence finale concept ont porté sur la convention 6 (74 %). Hypothèse : la convention 6 s'applique mieux en **passe dédiée en sortie de fiche** qu'en application au fil de la rédaction. À confirmer sur `preuve-de-concept` : si le ratio passe wiki-links / total reste similaire, formaliser le mode d'application dans `conventions.md` § 2 (Mise en forme — Popovers et wiki-links).
 
+- [ ] **Pattern MARKER + N segments** comme procédure standard pour déplacements de gros blocs (>30 ko) via MCP — éprouvé avec succès 26/05 suite (archivage JOURNAL 22→24/05, 60 ko net via 3 segments de 17-24 ko + marker temporaire). Capitalisation possible dans `conventions.md` § 7 comme procédure méthodo MCP nommée. À confirmer sur un 2e cas d'usage (archivages JOURNAL ultérieurs, ou autres déplacements lourds).
+
+- [ ] **Re-calibrage seuil C14 dans la zone 30-40 ko** — valeur exacte du seuil pratique payload MCP non clairement identifiée. Épreuves connues : 24 ko net passe (26/05 suite, seg2 archive), 50 ko échoue silencieusement (25/05 suite 8). À éprouver à froid en testant des payloads progressivement croissants (35, 40, 45 ko) pour préciser la limite. Résultat utile pour calibrer la segmentation MARKER + N segments.
+
+- [ ] **Convention emplacement `_drafts/referentiel/`** pour les documents école externes (référentiel compétences, grilles d'évaluation, etc.) — acquise implicitement 26/05 suite (`_drafts/referentiel/Compétences.xlsx` rangé par l'utilisateur sur recommandation Claude, cohérent avec `_drafts/flowcharts/`). À documenter formellement comme convention de rangement si confirmé sur un 2e cas (par ex. grille d'évaluation école à venir).
+
+- [ ] **Amendement C14 — verrou Windows EPERM** : piège distinct du seuil de payload, identifié 26/05 suite. Quand Obsidian a un fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final (`EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`). Remède : changer d'onglet dans Obsidian (libère le verrou, pas besoin de fermer Obsidian). À documenter formellement dans `conventions.md` § 7 amendement C14.
+
 *Note : 4 conventions à éprouver précédemment listées ici (popovers sigles génériques, alias Quartz CrawlLinks, 2 images par fiche-notion d'outil, fil rouge station météo) sont désormais portées par `conventions.md` section « En cours d'éprouvage ». Pas de duplication.*
 
 ## Points ouverts des flowcharts (21/05 suite)
