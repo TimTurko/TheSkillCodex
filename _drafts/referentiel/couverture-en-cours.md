@@ -148,6 +148,7 @@ effleure:
 ```yaml
 couvert:
   - RA-PROJET-C03-3/EEE/2    # Analyser comportement sous-ensemble jusqu'au composant — étape 2 (validation chaîne élec, niveau 0)
+  - RA-PROJET-C03-3/PROJ/3   # Réaliser structure mécanique avec élec et énergie — étapes 1+2 (fabriquer + valider niveau 0). Amendement passe A 26/05 suite 3.
   - RA-PROJET-C03-3/PROJ/6   # Valider inter-opérabilité sous-ensembles réalisés — étape 3 (niveaux 2-3 composition + système complet)
   - RA-PROJET-C05-3/PROJ/1   # Réaliser tests d'intégration — étape 3 (cœur de l'étape, niveaux 1-4)
   - RA-PROJET-C05-3/PROJ/2   # Proposer axes d'amélioration prototype — étape 4 (bilan technique, pistes documentées)
@@ -167,7 +168,7 @@ hors_scope:
   - RA-PROJET-C07-1/PROJ/6   # Participer aux événements — évaluation transversale, hors périmètre tutoriel.
 ```
 
-**Bilan** : 7 Couvert + 6 Effleuré + 3 Hors scope = 13 critères touchés sur 54 cartographiables (57 – 3 hors scope du référentiel détectés ici). Moyenne stable parmi les trames du V après normalisation hors scope (spec-tech 11, concept 16, PoC 12, dossier-tech 17, integration 13).
+**Bilan** : 8 Couvert + 6 Effleuré + 3 Hors scope = 14 critères touchés sur 54 cartographiables (57 – 3 hors scope du référentiel détectés ici, amendement passe A 26/05 suite 3 : ajout PROJ-C03-3/PROJ/3). Moyenne stable parmi les trames du V après normalisation hors scope (spec-tech 11, concept 16, PoC 12, dossier-tech 17, integration 14).
 
 **Reclassement majeur sortie de session** : `RA-PROJET-C03-3/EEE/2` (analyser comportement sous-ensemble jusqu'au composant) **était identifié trou phase 2** en PoC. Reclassé en Couvert ici car le critère est matériellement traité par l'étape 2 de la trame. La fiche-tuto `analyse-de-schema-electronique` conservée au TODO **avec motivation reformulée** : tuto pédagogique propre (popover depuis integration-et-tests étape 2), pas trou AA.
 
@@ -419,6 +420,180 @@ effleure: []
 ```
 
 **Bilan** : 0 Couvert + 0 Effleuré = 0/57 critères touchés directement. **Page d'index méta** — recense les 5 phases et 3 transverses, ne porte aucun contenu pédagogique au sens AA. Tous les critères AA sont portés par les fiches-trame et fiches-notion en aval. Cohérent avec son rôle de point d'entrée. Comparable à l'insight `securite-et-qualite` (0 critère central) mais pour une raison différente : le hub est méta-structure, pas posture professionnelle.
+
+---
+
+## Passe A — Cartographie inverse par domaine
+
+> Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.
+>
+> Légende : **C** = Couvert / **E** = Effleuré / **HS** = Hors scope / **NC** = Non couvert (= absent des fiches existantes).
+
+### EEE (10 critères)
+
+**RA-PROJET-C03-3 [EEE]** — *Analyser / Fabriquer un sous-ensemble fonctionnel électrique et électronique*
+
+- **/1** *Identifier composants schéma et rôles* — **NC**. Trou phase 2 prévu : fiche-tuto `analyse-de-schema-electronique` (déjà au TODO, couvre /2 ET /1).
+- **/2** *Analyser comportement sous-ensemble jusqu'au composant* — **C** : integration-et-tests étape 2 (chaîne élec niveau 0). **E** : concept étape 4 (pré-dim partiel).
+- **/3** *Effectuer simulation système électronique* — **NC**. Trou phase 2 nouveau : fiche-tuto `simulation-electronique` à ajouter au TODO (couple /3 et /4).
+- **/4** *Interpréter résultats simulation* — **NC**. Idem /3 : à couvrir par `simulation-electronique`.
+- **/5** *Concevoir/réaliser carte électronique* — **C** : dossier-technique étape 2 (schémas câblés + routage PCB). **E** : securite-et-qualite bloc 3 (Rev A/B sérigraphie).
+
+**RA-EEE-C03-2 [EEE]** — *Mettre en œuvre démarche de conception système contrôle/commande*
+
+- **/1** *Choisir capteurs/actionneurs via prototypage rapide* — **C** : concept étape 2 (matrice élec). **E** : preuve-de-concept étape 2 (Arduino), schema-bloc-fonctionnel, matrice-de-decision.
+- **/2** *Choisir contrôleurs* — **C** : concept étape 2. **E** : schema-bloc-fonctionnel, matrice-de-decision.
+- **/3** *Sources d'énergie + dim alim* — **E** : concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2. Pas de fiche centrale, traitement diffus mais récurrent.
+- **/4** *Intégrer circuits électroniques (acquisition/traitement/transmission/conversion)* — **C** : dossier-technique étape 2. **E** : schema-bloc-fonctionnel.
+- **/5** *Concevoir système de commande par algorithme* — **E** : dossier-technique étape 2 (archi logicielle UML). Trous phase 2 prévus : 4 fiches-tuto (`logigramme`, `machine-a-etats`, `grafcet`, `chronogramme`) déjà au TODO.
+
+**Bilan EEE** : 5 C + 2 E + 0 HS + **3 NC** sur 10 critères (/1, /3, /4 du RA-PROJET-C03-3). Tous les NC tombent en phase 2. Conforme à la nature EEE (cœur disciplinaire couvert par les fiches-tuto à venir).
+
+---
+
+### ESE (5 critères)
+
+**RA-ESE-C09-2 [ESE]** — *Évaluer et sélectionner des améliorations dans une démarche d'écoconception*
+
+- **/1** *Mener l'ACV* — **C** : dossier-technique étape 3 (ACV simplifiée sur BOM réelle). **E** : ecoconception bloc 1 (cadre + délégation).
+- **/2** *Interpréter ACV* — **C** : dossier-technique étape 3 (contributeurs dominants). **E** : preuve-de-concept étape 4, integration-et-tests étape 4, ecoconception bloc 1.
+- **/3** *Proposer améliorations cycle de vie* — **C** : ecoconception bloc 2 (4 fronts : sobriété/durée/démontabilité/sobriété logicielle). **E** : concept étape 2, preuve-de-concept Équipe, integration-et-tests étape 4.
+- **/4** *Évaluer bénéfices d'amélioration* — **C** : concept étape 2 (matrice EAT), ecoconception bloc 1. **E** : matrice-de-decision.
+- **/5** *Sélectionner améliorations et justifier* — **C** : concept étape 2, ecoconception blocs 1 et 3. **E** : matrice-de-decision.
+
+**Bilan ESE** : 5 C + 0 NC sur 5 critères. **Domaine entièrement couvert phase 1**. Multi-couverture systématique sur tous les critères (3 fiches en moyenne par critère). Pas de fiche phase 2 ESE prévue ni nécessaire à ce stade.
+
+---
+
+### MEO (6 critères)
+
+**RA-MEO-C10-3 [MEO]** — *Utiliser des outils d'animation d'équipe en présentiel et à distance*
+
+- **/1** *Outils planification et gestion d'équipe* — **C** : specification-technique étape 5, gestion-de-projet bloc 1. **E** : gantt, jalons, retroplanning, wbs.
+- **/2** *Répartir les tâches* — **C** : gestion-de-projet bloc 3. **E** : specification-technique étape 5, wbs.
+- **/5** *Outils de prise de décision collective* — **C** : gestion-de-projet bloc 3 (3 options + règle pour dépassement).
+- **/6** *Organiser documents partagés* — **C** : gestion-de-projet bloc 2 (drive partagé + convention de nommage).
+
+**RA-MEO-C08-6 [MEO]** — *Développer conditions favorables aux interactions et engagement en équipe*
+
+- **/1** *Transmettre informations équipe* — **C** : gestion-de-projet bloc 3. **E** : concept Équipe, preuve-de-concept Équipe, dossier-technique étapes 1+4, specification-technique Équipe.
+- **/3** *Routines travail collectif* — **C** : preuve-de-concept étape 4 (tour de table), gestion-de-projet bloc 3 (point hebdo). **E** : integration-et-tests étape 4 (REX).
+
+**Bilan MEO** : 6 C + 0 NC sur 6 critères. **Domaine entièrement couvert phase 1**. Multi-couverture forte (5 fiches en moyenne par critère). Pas de fiche phase 2 MEO prévue ni nécessaire.
+
+---
+
+### MME (11 critères)
+
+**RA-MME-C02-1 [MME]** — *Analyser matériaux et phénomènes mécaniques mis en jeu et sollicitations associées*
+
+- **/1** *Choisir matériaux adaptés* — **C** : concept étapes 2+4. **E** : matrice-de-decision.
+- **/2** *Procédés d'assemblage* — **E** : dossier-technique étape 2. **NC central** : pas de fiche centrale, à interroger (délégation cours collègues ?).
+- **/4** *Identifier sollicitations mécaniques* — **E** : concept étape 4 (pré-dim couple, flèche, transitoires). **NC central**.
+- **/5** *Schéma cinématique* — **NC**. Wiki-link rouge déjà posé dans hub/index. Trou phase 2 nouveau : fiche-tuto `schema-cinematique` à ajouter au TODO (statut à trancher : délégation cours collègues ou fiche dans le wiki ?).
+- **/6** *Caractéristiques mécaniques actionneurs* — **E** : concept étapes 2+4. **NC central**.
+
+**RA-MME-C03-1 [MME]** — *Concevoir des structures et systèmes mécaniques*
+
+- **/1** *Lister outils designers* — **NC**. Critère possiblement délégué entièrement cours collègues (design). À interroger avec hiérarchie : hors scope par délégation ou trou phase 2 ?
+- **/2** *Note de calcul dimensionnement transmission* — **E** : concept étape 4. **NC central** : note de calcul formelle absente (effleurée seulement, traitement diffus).
+- **/3** *Créer assemblage CAO* — **C** : dossier-technique étape 2 (plans cotés, fichiers STL/DXF/STEP).
+- **/4** *Paramètres dynamiques* — **E** : concept étape 4 (modèle simplifié transitoire). **NC central**.
+- **/5** *Nomenclature à partir CAO* — **C** : dossier-technique étape 3 (BOM agrégée).
+- **/6** *Optimiser conception* — **E** : dossier-technique étape 2. Trou phase 2 prévu : fiche-tuto `optimisation-mecanique` déjà au TODO.
+
+**Bilan MME** : 3 C + 6 E + 0 HS + **2 NC structurels** (/5 schéma cinématique et C03-1/1 outils designers) sur 11 critères. **4 critères « NC central avec effleurement seulement »** (C02-1/2, /4, /6 et C03-1/2, /4) méritent une réflexion : effleurement récurrent mais pas de fiche centrale. Domaine **partiellement délégué aux cours collègues** (mention explicite dans hub/index). Stratégie cohérente, mais nécessite confirmation avec hiérarchie pour clarifier le statut des « NC central » : hors scope par délégation ou trous phase 2 à combler dans le wiki ?
+
+---
+
+### PROJ (25 critères)
+
+**RA-PROJET-C03-3 [PROJ]** — *Réaliser un système ou sous-ensemble incluant moyens numériques de prototypage rapide*
+
+- **/1** *Sketchs main d'un produit* — **NC**. Croquis/design probablement délégué cours collègues. À interroger avec hiérarchie.
+- **/2** *Prendre en compte design dans réalisation prototype* — **NC**. Idem /1 — possible délégation design.
+- **/3** *Réaliser structure mécanique avec élec et énergie* — **C amendement** : integration-et-tests étapes 1+2 (fabriquer + valider niveau 0). **Non explicité en passe B sur integration-et-tests, à amender** (voir section Amendements ci-dessous).
+- **/4** *Adapter, modifier conception et docs* — **C** : dossier-technique étape 1 (propagation PoC→dossier).
+- **/5** *Programmer/paramétrer contrôleur numérique* — **NC**. Trou phase 2 prévu : fiches-tuto `microcontroleur` + `firmware` déjà au TODO.
+- **/6** *Valider inter-opérabilité sous-ensembles* — **C** : integration-et-tests étape 3 (niveaux 2-3 composition + système complet).
+- **/7** *Garantir démontabilité* — **C** : ecoconception bloc 2 (démontabilité PCB, connectique JST, carte modulaire).
+
+**RA-PROJET-C04-4 [PROJ]** — *Établir cahier des charges fonctionnel et technique*
+
+- **/1** *Analyse fonctionnelle* — **C** : specification-technique étapes 1+3, cahier-des-charges-fonctionnel section 4, bete-a-cornes, fonction, pieuvre.
+- **/2** *Solutions existantes* — **C** : specification-technique étape 2, cahier-des-charges-fonctionnel section 3.
+- **/3** *Terminologie technique écrit/oral* — **HS** : 6 fiches (spec-tech, concept, PoC, dossier-tech, integration-et-tests, cahier-des-charges-fonctionnel). Hors scope par décision éditoriale (C15).
+- **/4** *Schéma bloc fonctionnel (capteurs/actionneurs/effecteurs/contrôleurs, boucle ouverte/fermée)* — **C** : concept étape 1 (décomposition), schema-bloc-fonctionnel. **E** : specification-technique étape 3, dossier-technique étape 2, cahier-des-charges-fonctionnel.
+- **/5** *Différencier écoconception/écodesign* — **E** : specification-technique étape 6, cahier-des-charges-fonctionnel. Trou phase 2 prévu : fiche-notion `ecodesign` déjà au TODO.
+- **/6** *Définir interactions entre blocs depuis CdCF* — **C** : concept étapes 1+3, schema-bloc-fonctionnel, dossier-technique étape 2. **E** : specification-technique, cahier-des-charges-fonctionnel, pieuvre.
+- **/7** *Performances désirées du système* — **C** : specification-technique étape 4 (caractériser-une-exigence). **E** : preuve-de-concept étape 1, integration-et-tests étape 3, cahier-des-charges-fonctionnel, fonction, pieuvre, afnor-nfx50-151.
+
+**RA-PROJET-C05-3 [PROJ]** — *Évaluer intégration et interopérabilité des sous-ensembles*
+
+- **/1** *Réaliser tests d'intégration* — **C** : integration-et-tests étape 3 (cœur, niveaux 1-4).
+- **/2** *Proposer axes amélioration prototype* — **C** : preuve-de-concept étape 4, integration-et-tests étape 4.
+- **/3** *Concevoir protocoles de test* — **C** : preuve-de-concept étape 1, integration-et-tests étape 3. **E** : securite-et-qualite bloc 1.
+- **/4** *Réaliser tests* — **C** : preuve-de-concept étape 3, integration-et-tests étape 3. **E** : securite-et-qualite bloc 1.
+- **/5** *Analyser résultats tests* — **C** : preuve-de-concept étape 4, integration-et-tests étape 3.
+
+**RA-PROJET-C07-1 [PROJ]** — *Mettre en œuvre outils de projet*
+
+- **/1** *Tableau de bord et indicateurs* — **C** : gestion-de-projet bloc 2, matrice-de-risques. **E** : specification-technique étape 5, dossier-technique étape 5, gantt.
+- **/2** *Outils GP (Gantt/PERT/WBS/livrables)* — **C** : specification-technique étape 5, gestion-de-projet blocs 1-2, gantt, jalons, retroplanning, wbs. **E** : concept Équipe, preuve-de-concept Équipe, dossier-technique étape 3, integration-et-tests étape 4, cahier-des-charges-fonctionnel, matrice-de-risques.
+- **/3** *Gérer le budget* — **C** : gestion-de-projet bloc 2 (patch 26/05 suite 2), dossier-technique étapes 3+5. **E** : preuve-de-concept étape 2, integration-et-tests étape 4.
+- **/4** *Participer aux tâches* — **HS** (C15, évaluation transversale enseignants).
+- **/5** *Être force de proposition* — **HS** (C15).
+- **/6** *Participer aux événements* — **HS** (C15).
+
+**Bilan PROJ** : 17 C + 1 E + 4 HS + **3 NC** sur 25 critères (/1 sketchs, /2 prise en compte design, /5 programmer contrôleur du RA-C03-3 ; +1 amendement C03-3/3 à confirmer en passe B). Domaine **majeur du wiki phase 1** (25/57 = 44 %). Tous les trous phase 1 « NC » sont identifiés et adressés : /1+/2 par délégation possible, /5 par fiches phase 2 (microcontroleur + firmware au TODO).
+
+---
+
+### Bilan passe A — récapitulatif global
+
+**Couverture globale (57 critères) :**
+
+| Domaine | C | E | HS | NC | Total |
+|---|---|---|---|---|---|
+| EEE | 5 | 2 | 0 | 3 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 6 |
+| MME | 3 | 6 | 0 | 2 | 11 |
+| PROJ | 17¹ | 1 | 4 | 3 | 25 |
+| **Total** | **36** | **9** | **4** | **8** | **57** |
+
+¹ Y compris amendement C03-3/3 (sans amendement : 16 C / 4 NC, total global 35 C). **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E.
+
+- **Couverts** : 36/57 = **63 %** (35 sans amendement = 61 %)
+- **Effleurés** : 9/57 = 16 %
+- **Hors scope** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation, C15)
+- **Non couverts (NC)** : 8/57 = 14 %, dont :
+  - **Trous NC déjà adressés au TODO** : 2 critères (EEE/PROJ-C03-3/1 via `analyse-de-schema-electronique`, EEE/PROJ-C03-3/5 programmer via `microcontroleur` + `firmware`)
+  - **Trous NC à adresser par fiches phase 2 nouvelles** : 3 critères (EEE/PROJ-C03-3/3 et /4 couple → nouvelle fiche-tuto `simulation-electronique` ; MME-C02-1/5 schéma cinématique → nouvelle fiche-tuto `schema-cinematique`, statut wiki vs délégation à trancher)
+  - **NC à interroger avec hiérarchie** : 3 critères relevant du **design produit** (PROJ-C03-3/1 sketchs, PROJ-C03-3/2 prise en compte design, MME-C03-1/1 outils designers) — délégation cours collègues possible, **catégorie « Hors scope par délégation »** à instaurer ?
+  - **Critères effleurés centraux à renforcer phase 2** (hors NC, mais NC central avec effleurement) : EEE-C03-2/5 commande par algorithme (4 fiches commande au TODO), MME-C03-1/6 optimisation (`optimisation-mecanique` au TODO), PROJ-C04-4/5 différencier écoconception/écodesign (`ecodesign` au TODO)
+
+**Amendements à appliquer à la passe B** (cohérence avec passe A) :
+
+1. **integration-et-tests** : ajouter `RA-PROJET-C03-3/PROJ/3` (réaliser structure méca avec élec et énergie) en Couvert via étapes 1+2 (fabriquer + valider niveau 0). Bilan passerait de 7 C à 8 C, total 14 → 15.
+
+**Fiches phase 2 à ajouter au TODO** :
+
+1. **`simulation-electronique`** (fiche-tuto EEE) — couvre `RA-PROJET-C03-3/EEE/3` (simulation) + `/4` (interpréter résultats). Conforme à C16 (1 fiche-tuto par groupe cohérent EEE : ici /3 et /4 sont indissociables).
+2. **`schema-cinematique`** (fiche-tuto MME) — couvre `RA-MME-C02-1/MME/5`. Déjà mentionné comme wiki-link rouge dans hub/index. **Statut à trancher** : délégation cours collègues (alors retrait du wiki-link rouge dans hub/index) ou fiche-tuto dans le wiki ?
+
+**Décisions à porter en niveau D** :
+
+- Statut de `MME-C03-1/1` (lister outils designers) et `PROJ-C03-3/1+2` (sketchs + prise en compte design) : 3 critères qui relèvent du **design produit** et peuvent être entièrement délégués aux cours collègues. **Catégorie « Hors scope par délégation »** à instaurer ? Différente de la **Hors scope C15** (évaluation transversale enseignants). À acter avec hiérarchie en session ultérieure.
+- Statut des 4 « NC central avec effleurement » MME (C02-1/2, /4, /6 et C03-1/2, /4) : effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Hors scope par délégation cours collègues, ou fiches-tuto MME phase 2 à ajouter ? Le hub mentionne explicitement « MME — Matériaux, mécanique (renvoie vers les cours collègues) » — piste forte de délégation, à confirmer.
+
+**Insights structurants** :
+
+1. **ESE et MEO sont entièrement couverts par la phase 1 du wiki** (0 NC, 0 trou phase 2). Cohérent avec leur nature transverse (portés par les 3 fiches-trame transverses + multi-couverture forte avec les trames du V).
+2. **EEE et MME ont des trous structurés** : adressés par les fiches phase 2 déjà au TODO ou à ajouter. Conforme à la grille de lecture phase 1 vs phase 2 actée en début de cartographie.
+3. **PROJ est le domaine majeur** du wiki phase 1 (25/57 = 44 %) avec une couverture **forte** : 17 C + 1 E + 4 HS = 22 critères traités, les 3 NC restants se ventilant entre design délégable (2) et programmation phase 2 (1).
+4. **La convention C16** (1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent) **est validée empiriquement** : les 5 critères EEE attendus en phase 2 (PROJ-C03-3/1, /3, /4, /5 NC + EEE-C03-2/5 effleurement central) sont chacun adressés par 1 ou plusieurs fiches-tuto dédiées (`analyse-de-schema-electronique` pour /1, `simulation-electronique` pour /3+/4 groupés, `microcontroleur` + `firmware` pour /5, 4 méthodes commande pour EEE-C03-2/5). Soit 1 à 4 fiches par critère selon la granularité du critère source.
+5. **3 fiches phase 1 sans critère AA central** identifiées (securite-et-qualite, matrice-de-decision, hub/index) chacune pour une raison distincte (posture professionnelle, outil pivot transverse, méta-structure). Le cadre AA n'est pas le seul critère de pertinence d'une fiche — à acter en synthèse globale.
 
 ---
 
