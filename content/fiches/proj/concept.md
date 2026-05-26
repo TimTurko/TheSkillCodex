@@ -10,7 +10,14 @@ tags:
   - phase-2
 prerequis:
   - specification-technique
-aa: []
+aa:
+  - RA-EEE-C03-2/EEE/1
+  - RA-EEE-C03-2/EEE/2
+  - RA-MME-C02-1/MME/1
+  - RA-PROJET-C04-4/PROJ/4
+  - RA-PROJET-C04-4/PROJ/6
+  - RA-ESE-C09-2/ESE/4
+  - RA-ESE-C09-2/ESE/5
 draft: false
 ---
 

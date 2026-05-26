@@ -9,7 +9,12 @@ tags:
   - trame
   - phase-1
 prerequis: []
-aa: []
+aa:
+  - RA-PROJET-C04-4/PROJ/1
+  - RA-PROJET-C04-4/PROJ/2
+  - RA-PROJET-C04-4/PROJ/7
+  - RA-PROJET-C07-1/PROJ/2
+  - RA-MEO-C10-3/MEO/1
 draft: false
 ---
 

@@ -10,7 +10,12 @@ tags:
   - phase-3
 prerequis:
   - concept
-aa: []
+aa:
+  - RA-PROJET-C05-3/PROJ/2
+  - RA-PROJET-C05-3/PROJ/3
+  - RA-PROJET-C05-3/PROJ/4
+  - RA-PROJET-C05-3/PROJ/5
+  - RA-MEO-C08-6/MEO/3
 draft: false
 ---
 

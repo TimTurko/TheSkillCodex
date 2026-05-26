@@ -14,7 +14,10 @@ prerequis:
   - pieuvre
   - fonction
   - caracteriser-une-exigence
-aa: []
+aa:
+  - RA-PROJET-C04-4/PROJ/1
+  - RA-PROJET-C04-4/PROJ/2
+  - RA-PROJET-C04-4/PROJ/7
 draft: false
 ---
 

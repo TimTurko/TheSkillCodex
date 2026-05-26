@@ -10,7 +10,17 @@ tags:
   - phase-4
 prerequis:
   - preuve-de-concept
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/4
+  - RA-PROJET-C03-3/EEE/5
+  - RA-PROJET-C04-4/PROJ/6
+  - RA-EEE-C03-2/EEE/4
+  - RA-MME-C03-1/MME/3
+  - RA-MME-C03-1/MME/5
+  - RA-ESE-C09-2/ESE/1
+  - RA-ESE-C09-2/ESE/2
+  - RA-PROJET-C07-1/PROJ/2
+  - RA-PROJET-C07-1/PROJ/3
 draft: false
 ---
 

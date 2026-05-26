@@ -13,7 +13,11 @@ tags:
   - trame
   - transverse
 prerequis: []
-aa: []
+aa:
+  - RA-ESE-C09-2/ESE/3
+  - RA-ESE-C09-2/ESE/4
+  - RA-ESE-C09-2/ESE/5
+  - RA-PROJET-C03-3/PROJ/7
 draft: false
 ---
 

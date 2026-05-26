@@ -6,7 +6,8 @@ tags:
   - architecture
 prerequis: []
 aa:
-  - AA-EEE-C02-CFE1-01
+  - RA-PROJET-C04-4/PROJ/4
+  - RA-PROJET-C04-4/PROJ/6
 draft: false
 ---
 

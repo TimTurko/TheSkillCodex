@@ -10,7 +10,15 @@ tags:
   - phase-5
 prerequis:
   - dossier-technique
-aa: []
+aa:
+  - RA-PROJET-C03-3/EEE/2
+  - RA-PROJET-C03-3/PROJ/3
+  - RA-PROJET-C03-3/PROJ/6
+  - RA-PROJET-C05-3/PROJ/1
+  - RA-PROJET-C05-3/PROJ/2
+  - RA-PROJET-C05-3/PROJ/3
+  - RA-PROJET-C05-3/PROJ/4
+  - RA-PROJET-C05-3/PROJ/5
 draft: false
 ---
 

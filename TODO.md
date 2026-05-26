@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = passe B sur 12 fiches-notion + hub** pour boucler la cartographie AA fiche par fiche, puis **passe A par domaine** (EEE → ESE → MEO → MME → PROJ) pour identifier vrais trous phase 1 / trous phase 2 prévus, puis **écriture champ `aa:` dans front matter** sur ~22 fiches (passe mécanique), puis **synthèse globale dans `couverture-en-cours.md`**. Total estimé : **2-3 sessions** pour boucler. Reprise rédaction fiches phase 2 (tutos EEE/MME au TODO) possible dès passe A finie. **Acte à froid à conduire** : promotion C1-C6 vers § 1-2 conventions (épreuve 3/3 réussie) + promotion C15 Hors scope + promotion C16 (1-fiche-par-critère EEE / tutoriel gonflé). **Incident technique à vérifier** : Deploy quartz site to github page failed in 2s — vérifier Settings GitHub Pages (Source = GitHub Actions), logs Actions, re-déclencher workflow.
+> **➜ Prochaine session = synthèse globale dans `_drafts/referentiel/couverture-en-cours.md`** (niveau B/C, ~30-60 min) + reprise rédaction fiches phase 2 (`pcb` / `caracteriser-une-exigence` / `amdec` en priorité). **Cartographie AA bouclée 26/05 suite 3** : passe B (21 fiches), passe A (matrice critère × fiches par domaine), amendement passe B (integration-et-tests +1 Couvert), écriture champ `aa:` dans 17 fronts matters (+ 4 skip légitimes à `aa: []`). Couverture finale 36 C + 9 E + 4 HS + 8 NC sur 57 critères. **3 décisions niveau D en attente hiérarchie** (catégorie Hors scope par délégation, statut MME effleurés, statut schema-cinematique). **Actes à froid restants** : promotion C1-C6 vers § 1-2 conventions (épreuve 3/3 réussie) + promotion C15 Hors scope + promotion C16 (1-fiche-par-critère EEE / tutoriel gonflé).
 
 ### 0. Session annexe — Nettoyage documentaire (complète)
 **Décision 25/05 suite 2 → exécutée 25/05 suite 3** : compactage du set documentaire pour réduire les tokens chargés au démarrage. Démarrage post-refonte : ~11-12 k tokens (vs ~55 k initial, réduction ~80 %).
@@ -27,7 +27,7 @@
 **Stratégie actée (20/05 suite)** : squelettisation des 5 trames + 3 fils transverses bout en bout, puis cartographie AA, puis validation cohérence, **puis seulement** approfondissement trame par trame dans l'ordre.
 
 - [x] ~~**Squelette + approfondissement `securite-et-qualite`**~~ (fil transverse — créée ex nihilo + approfondie 26/05 suite, 3 blocs co-actifs Sécurité produit / Sécurité projet / Qualité documentaire, 11 Pièges, 4 paragraphes Équipe, cohérence finale 4 passes → 3 patches wiki-links uniquement)
-- [ ] **Session de cartographie AA** : passe systématique sur `Compétences.xlsx`, rattacher chaque AA à une phase ou un fil transverse. Identifier les trous.
+- [x] ~~**Session de cartographie AA**~~ — bouclée 26/05 suite 3 (passes B + A + écriture champ aa:). 21 fiches cartographiées, matrice par domaine produite, 17 fronts matters écrits + 4 skip légitimes. **Reste : synthèse globale** dans `_drafts/referentiel/couverture-en-cours.md` (niveau B/C, 1 session).
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases.
 - [x] ~~**Approfondissement des fiches phases du V**~~ : `concept.md` complet (25/05 suite 4-6, 27 patches). `preuve-de-concept.md` complet (25/05 suite 7, 5 étapes + 11 pièges + 4 ¶ équipe + 4 passes cohérence + round 2 wiki-links outils). `dossier-technique.md` complet (25/05 suite 8, alignement v2.1 + 5 étapes [étape 3 pré-rédigée autre Claude] + 11 pièges + 4 ¶ équipe + 0 patch cohérence + round 2 PCB). `integration-et-tests.md` complet (26/05, 27 patches : alignement v2.1 + 5 étapes voie C [2/3/3/2/2 H4 dont 3 H4 disciplinaires étape 2 et 3 H4 pyramide compressée étape 3] + 11 pièges + 4 ¶ équipe + 3 patches cohérence + round 2 validé). **Phase 1 du wiki = complète côté trames du V.**
 
@@ -59,6 +59,8 @@
     - [ ] `grafcet` (fiche-tuto)
     - [ ] `chronogramme` (fiche-tuto)
   Effleurées en `dossier-technique.md` étape 2 (« architecture logicielle détaillée », UML cité génériquement).
+- [ ] **`simulation-electronique`** (fiche-tuto EEE, ajout 26/05 suite 3 via passe A cartographie). Liens directs référentiel : critères `RA-PROJET-C03-3/EEE/3` (« Effectuer une simulation du système électronique ») et `/4` (« Interpréter les résultats de la simulation »). Groupe cohérent de 2 critères couverts par la même fiche (conforme C16). NC pur en phase 1, à produire phase 2.
+- [ ] **`schema-cinematique`** (fiche-tuto MME, ajout 26/05 suite 3 via passe A cartographie). Lien direct référentiel : critère `RA-MME-C02-1/MME/5` (« Réaliser un schéma cinématique du système »). NC pur en phase 1. **Statut à trancher niveau D** : fiche-tuto dans le wiki, ou délégation entière au cours collègues MME (auquel cas retrait du wiki-link rouge dans hub/index.md) ?
 - [ ] **`optimisation-mecanique`** (fiche-tuto MME, nom provisoire). Lien direct référentiel : critère `RA-MME-C03-1/MME/6` (« Optimiser la conception de la ou des pièces en fonction de critère de performance à définir : coût, déformée maximale, … »). Effleurée en `dossier-technique.md` étape 2. Périmètre potentiellement large — à cadrer en phase 2 (matériau, géométrie, allégement ?).
 
 ### 3. Templates à rédiger
@@ -68,6 +70,9 @@
 - [ ] Convention de tags AA (granularité, syntaxe)
 - [ ] Niveau d'écart accepté entre référentiel et contenu produit (peut-on aller au-delà ?)
 - [ ] Couleurs / charte graphique : faut-il aligner sur la charte école ?
+- [ ] **Catégorie « Hors scope par délégation »** (acquise passe A 26/05 suite 3) : distincte de C15 (évaluation transversale enseignants). Concerne 3 critères design probablement délégables aux cours collègues : `PROJ-C03-3/1` (sketchs), `PROJ-C03-3/2` (prise en compte design), `MME-C03-1/1` (lister outils designers). À acter avec hiérarchie pour officialiser la délégation et la documenter dans les fiches concernées (specification-technique, concept).
+- [ ] **Statut des 4 critères MME effleurés sans fiche centrale** (acquis passe A 26/05 suite 3) : `RA-MME-C02-1/MME/2` (procédés d'assemblage), `/4` (sollicitations mécaniques), `/6` (caractéristiques actionneurs), `RA-MME-C03-1/MME/2` (note de calcul transmission), `/4` (paramètres dynamiques). Effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Délégation cours collègues MME ou fiches-tuto phase 2 à ajouter ?
+- [ ] **Statut de la fiche `schema-cinematique`** (acquise passe A 26/05 suite 3) : wiki-link rouge déjà posé dans `hub/index.md`, critère `RA-MME-C02-1/MME/5` NC. Fiche-tuto à produire dans le wiki, ou délégation entière cours collègues MME (et retrait du wiki-link rouge) ?
 
 ## Tâches techniques en suspens
 
@@ -81,6 +86,7 @@
 - [ ] **Commit + push de la session du 25/05 (suite 8)** (approfondissement dossier-technique complet — alignement v2.1 + 5 étapes [étape 3 pré-rédigée par autre Claude] + Pièges 11 + Équipe + cohérence finale 0 patch + round 2 PCB gravure anglaise + archivage JOURNAL partiel + conv 14 + MAJ doc).
 - [ ] **Commit + push de la session du 26/05** (approfondissement integration-et-tests complet — alignement v2.1 + 5 étapes voie C [rythme H4 2/3/3/2/2 dont étape 2 à 3 H4 disciplinaires et étape 3 à 3 H4 pyramide compressée] + Pièges 11 + Équipe + cohérence finale 3 patches + round 2 validé + 3 actes à froid TODO/conv + amendement C11 + promotion C13 + leçon NBSPs/typos transcription + MAJ doc).
 - [ ] **Commit + push de la session du 26/05 (suite 2)** (cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP 6ᵉ outil canonique + normalisation référentiel 57 critères + patches navigation MIA→EEE + production `couverture-en-cours.md` + MAJ doc complète + conventions C15 C16 acquises).
+- [ ] **Commit + push de la session du 26/05 (suite 3)** (passes B + A cartographie AA bouclées : 13 cartographies fiche-notion + hub + 5 bilans par domaine + amendement passe B integration-et-tests + écriture champ aa: dans 17 fronts matters + 2 fiches phase 2 ajoutées au TODO + 3 décisions niveau D nouvelles).
 - [x] ~~**Vérifier GitHub Actions « Deploy quartz site to github page »**~~ — **résolu en session 26/05 suite 2** : cause = action `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix appliqué : bump `upload-pages-artifact@v3` → `@v4` dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée (pas besoin de bumper deploy-pages).
 
 ### Manipulations manuelles en attente
@@ -146,6 +152,17 @@
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
 
+### Session 2026-05-26 (suite 3) — Cartographie AA bouclée (passes B + A + écriture aa: front matters)
+- [x] **Passe B accélérée** sur 13 fiches : 12 fiches-notion (afnor-nfx50-151, bete-a-cornes, cahier-des-charges-fonctionnel, fonction, pieuvre, gantt, jalons, retroplanning, wbs, matrice-de-decision, matrice-de-risques, schema-bloc-fonctionnel) + hub/index. 1 seul edit_file pour les 13 cartographies (~22 ko payload, sous seuil C14), 0 patch supplémentaire.
+- [x] **Passe A par domaine** (EEE → ESE → MEO → MME → PROJ) : matrice critère × fiches pour chaque critère, bilans par domaine, tableau global. **Couverture finale 57 critères : 36 C (63 %) + 9 E (16 %) + 4 HS (7 %) + 8 NC (14 %)**.
+- [x] **8 patches de correction** sur le tableau global (erreur initiale : sommation C+E quand un critère est dans plusieurs fiches ; correction : statut dominant C > E > HS > NC).
+- [x] **Amendement passe B** sur integration-et-tests : ajout `RA-PROJET-C03-3/PROJ/3` (réaliser structure méca avec élec et énergie) en Couvert via étapes 1+2. Bilan 7 C → 8 C, total 13 → 14.
+- [x] **Écriture champ `aa:` dans 17 fronts matters** : 7 trames (specification-technique, concept, preuve-de-concept, dossier-technique, integration-et-tests, gestion-de-projet, ecoconception) + 10 fiches-notion (bete-a-cornes, cahier-des-charges-fonctionnel, fonction, pieuvre, gantt, jalons, retroplanning, wbs, matrice-de-risques, schema-bloc-fonctionnel — remplacement ancien format AA-EEE-C02-CFE1-01 → 2 codes nouvelle convention RA-PROJET-C04-4/PROJ/4 et /6). **17 patches edit_file séquentiels passés du premier coup**, 0 échec C14, 0 typo de transcription. Discipline anchor court `aa: []` + lecture préalable confirmée.
+- [x] **4 fiches skip légitimes** à `aa: []` (0 Couvert justifié) : securite-et-qualite (posture professionnelle), afnor-nfx50-151 (stub référentiel), matrice-de-decision (outil pivot transverse), hub/index (méta-structure).
+- [x] **2 fiches phase 2 nouvelles ajoutées au TODO** : `simulation-electronique` (EEE, couvre EEE/3+/4 groupés), `schema-cinematique` (MME, couvre MME/5, statut wiki vs délégation à trancher).
+- [x] **3 décisions niveau D nouvelles** ajoutées à la liste hiérarchie : catégorie « Hors scope par délégation », statut des 4 critères MME effleurés sans fiche centrale, statut schema-cinematique wiki ou délégation.
+- [x] **5 insights structurants** capitalisés en bilan passe A : ESE et MEO entièrement couverts phase 1, EEE et MME ont des trous structurés, PROJ est le domaine majeur, convention C16 validée empiriquement, 3 fiches phase 1 sans critère AA central pour 3 raisons distinctes.
+
 ### Session 2026-05-26 (suite 2) — Cartographie AA passe B sur 8 fiches phase 1 + Hors scope + patch budget GP
 - [x] **Décisions méthodo Q1/Q2/Q3 tranchées** : format cartographie option C (champ `aa:` + table dérivée, descente jusqu'au critère) + granularité 3 niveaux + ordre hybride B-then-A
 - [x] **Codification critères** : `<Code_RA>/<AA_DOMAIN>/<N°critère>`
@@ -185,24 +202,7 @@
 - [x] **Référentiel à jour rangé** : `_drafts/referentiel/Compétences.xlsx` (sous-dossier créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz.
 - [x] **Cadrage prochaine session AA** : 3 questions méthodo posées (format / granularité / ordre) + prompt de démarrage produit pour 1er message conversation suivante.
 
-### Session 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
-- [x] 3 actes à froid début session : rotation glissante TODO (suite 5 retirée) + promotion C10 vers § 2 (matrice incarnée, 12 contextes) + promotion C12 vers § 6 (Pièges a posteriori, ratio 37-45 %)
-- [x] Cadrage niveau C en 5 questions tranchées + arbitrage **voie C** suite conflit pédagogique détecté entre squelette 22/05 (tests par fonction, anti-pattern par discipline) et demande Q1 utilisateur (sous-titres disciplinaires élec/méca/info)
-- [x] **Niveau A en autonomie** accordé par l'utilisateur sur toute la fiche
-- [x] **Phase 1** : alignement v2.1 squelette (11 patches batch — 5× example, 5× livrable, 1× warning Attention)
-- [x] **Phase 2** : étape 1 *Approvisionner et fabriquer* (2 H4 économes, fil rouge alu 6061 + segments PLA + PCB monoface gravé interne)
-- [x] **Phase 3** : étape 2 *Valider les pièces fabriquées* (**3 H4 disciplinaires** élec/méca/info — 1ᵉ exception multi-disciplinaire C11)
-- [x] **Phase 4** : étape 3 *Conduire la pyramide de tests* (**3 H4 dense pivot** — cas particulier pyramide compressée niveau 1 / niveaux 2-3 / niveau 4) + warning Attention refondu (« écart se documente » au lieu de « V se referme » pour éviter doublon avec H4-3)
-- [x] **Phase 5** : étape 4 *Mener les bilans de clôture* (2 H4 économes, 3 bilans en parallèle + REX réflexif)
-- [x] **Phase 6** : étape 5 *Livrer le projet* (2 H4 économes, rapport + soutenance)
-- [x] **Phase 7** : Pièges 11 entrées (~55 % a posteriori) + Équipe 4 paragraphes thématiques
-- [x] **Phase 8** : cohérence finale 4 passes — 3 patches (1 typo « écartoé » → « écarté », 2 doublons wiki-links PCB étape 2 H4-1 + CdCF étape 3 H4-1). Pattern « 0 patch » du dossier-tech non atteint mais corrections mineures.
-- [x] Round 2 utilisateur validé sans correction
-- [x] **Convention 11 amendée § 6** (cas étape multi-disciplinaire + cas pyramide compressée)
-- [x] **Convention 13 promue § 5** après 2ᵉ épreuve formelle réussie
-- [x] **Convention 14 enrichie § 7** : leçon NBSPs U+202F + typos de transcription dans anchors longs comme source d'échec silencieux du matching `oldText`
-- [x] Nouveaux wiki-links posés : `firmware`, `gabarit`, `cable-management` (à ajouter au BACKLOG)
-- [x] Total **27 patches** sur la session, fiche `integration-et-tests.md` 35 878 bytes
+
 
 
 
