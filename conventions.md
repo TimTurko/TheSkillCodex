@@ -310,7 +310,9 @@ si tri chronologique automatique devient nécessaire à l'usage.
 Conventions récentes pas encore confirmées sur 2-3 fiches. À documenter
 formellement dans les templates une fois éprouvées.
 
-### Acquises 25/05 suite (à éprouver sur `securite-et-qualite`)
+### Acquises 25/05 suite — épreuve 3/3 réussie
+
+> **Épreuve 3/3 validée 26/05 (suite)** sur les 3 fiches-trame transverses (`gestion-de-projet` → `ecoconception` → `securite-et-qualite`). Les 6 conventions ci-dessous ont été tenues sans patch spécifique. **Promotion vers § 1-2 envisageable, à acter à froid** (niveau C requis pour la réorganisation structurelle des conventions).
 1. Pas de chiffrage durée projet en prose générique → § 1
 2. `semaine n°X` dans les exemples bras 3 axes → § 1
 3. Pas d'extension `.md` en prose → § 1
