@@ -9,6 +9,64 @@
 
 ---
 
+## 2026-05-26 (suite 3) — Cartographie AA bouclée : passes B + A + écriture champ aa: dans 17 fronts matters
+
+### Périmètre de session
+Enchaînement des 4 sous-tâches du chantier cartographie AA en niveau A mécanique : (1) passe B accélérée sur 13 fiches restantes (12 fiches-notion + hub), (2) passe A par domaine (matrice critère × fiches), (3) amendement passe B sur integration-et-tests pour cohérence avec passe A, (4) écriture champ `aa:` dans 17 fronts matters. Bilan : couverture AA complète des 21 fiches phase 1, **36 C + 9 E + 4 HS + 8 NC sur 57 critères**. 3 décisions niveau D nouvelles, 2 fiches phase 2 nouvelles ajoutées au TODO.
+
+### Passe B accélérée — 13 cartographies fiche-par-fiche
+Lecture en aveugle + cartographie YAML pour les 13 fiches non encore traitées. **Un seul edit_file de ~22 ko payload pour les 13 cartographies, passe du premier coup**. Insights : quatuor CdCF (bete-a-cornes / fonction / pieuvre / cahier-des-charges-fonctionnel) se partage `RA-PROJET-C04-4` ; quatuor outils GP (gantt / jalons / retroplanning / wbs) se partage `RA-PROJET-C07-1/PROJ/2` ; matrice-de-decision = outil pivot transverse à 0 critère central ; hub/index = méta-structure pure ; schema-bloc-fonctionnel = seule fiche EEE phase 1.
+
+### Passe A par domaine — cartographie inverse
+Croisement des 21 cartographies pour produire la matrice critère × fiches par domaine. Légende C/E/HS/NC, règle de **statut dominant** (C > E > HS > NC). **Erreur initiale** : sommation C+E quand un critère est dans plusieurs fiches, 8 patches de correction appliqués (tableau global + bilans EEE/MME/PROJ + sous-liste NC + insight 3 + typo « critore » → « critère »).
+
+**Couverture finale (57 critères)** :
+
+| Domaine | C | E | HS | NC | Total |
+|---|---|---|---|---|---|
+| EEE | 5 | 2 | 0 | 3 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 6 |
+| MME | 3 | 6 | 0 | 2 | 11 |
+| PROJ | 17¹ | 1 | 4 | 3 | 25 |
+| **Total** | **36** | **9** | **4** | **8** | **57** |
+
+¹ Y compris amendement C03-3/3 (sans : 16 C / 4 NC, total global 35 C).
+
+**Pourcentages** : 63 % C / 16 % E / 7 % HS / 14 % NC.
+
+**8 NC ventilés** : 2 trous déjà adressés au TODO (analyse-de-schema-electronique pour EEE-C03-3/1, microcontroleur+firmware pour /5) + 3 trous à adresser par fiches nouvelles (simulation-electronique pour EEE-C03-3/3+/4, schema-cinematique pour MME-C02-1/5) + 3 NC à interroger hiérarchie (design délégable : PROJ-C03-3/1 sketchs + /2 prise en compte design + MME-C03-1/1 outils designers).
+
+**5 insights structurants** :
+1. ESE et MEO entièrement couverts phase 1 (0 NC). Cohérent nature transverse.
+2. EEE et MME ont trous structurés, tous adressés par phase 2.
+3. PROJ = domaine majeur (44 %), couverture forte hors design délégable.
+4. Convention C16 validée empiriquement : 5 critères EEE phase 2 chacun adressé par 1 à 4 fiches.
+5. 3 fiches phase 1 sans critère AA central (securite-et-qualite, matrice-de-decision, hub/index) pour 3 raisons distinctes — cadre AA pas le seul critère de pertinence.
+
+### Amendement passe B — integration-et-tests
+Passe A identifie un manquement passe B : integration-et-tests couvre matériellement `RA-PROJET-C03-3/PROJ/3` (réaliser structure mécanique avec élec et énergie) via étapes 1+2, non explicité en passe B initiale. **Patch en 2 edits sur couverture-en-cours.md** : ajout en Couvert + bilan 7 → 8 C, total 13 → 14. Discipline confirmée : la passe A vérifie la passe B.
+
+### Écriture champ `aa:` dans 17 fronts matters
+Inventaire : 4 fiches skip légitimes à `aa: []` (sans Couvert : securite-et-qualite, afnor-nfx50-151, matrice-de-decision, hub/index) ; 17 fiches à patcher dont 1 cas spécial (schema-bloc-fonctionnel : ancien format `AA-EEE-C02-CFE1-01` → 2 codes `RA-PROJET-C04-4/PROJ/4` et `/6`).
+
+**17 edit_file séquentiels en niveau A mécanique, tous passés du premier coup, 0 échec C14, 0 typo de transcription**. Discipline anchor court `aa: []` + lecture préalable confirmée robuste sur YAML standard.
+
+Trames patchées (7) : specification-technique (5 codes), concept (7), preuve-de-concept (5), dossier-technique (10), integration-et-tests (8), gestion-de-projet (9), ecoconception (4).
+Fiches-notion patchées (10) : bete-a-cornes (1), cahier-des-charges-fonctionnel (3), fonction (1), pieuvre (2), gantt (1), jalons (1), retroplanning (1), wbs (1), matrice-de-risques (1), schema-bloc-fonctionnel (1→2).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6, C15, C16** : actes à froid en attente, niveau C session ultérieure.
+- **Synthèse globale dans `couverture-en-cours.md`** : à conduire session ultérieure, niveau B/C, ~30-60 min.
+- **3 décisions niveau D nouvelles** : catégorie « Hors scope par délégation » à instaurer, statut des 4 critères MME effleurés sans fiche centrale, statut schema-cinematique wiki ou délégation.
+- **Commit/push** : rattrapage 10+ sessions cumulées + session courante.
+
+### État JOURNAL.md
+~96 ko avant cette entrée. Après ajout : estimation ~105-110 ko, **dépasse le seuil 100 ko**. **Archivage à proposer en session ultérieure** : sessions 25/05 suite 4 et antérieures peuvent être archivées dans `JOURNAL-archive.md` (pattern MARKER + N segments, méthode éprouvée 26/05 suite). À ne pas faire dans cette session pour limiter le coût.
+
+---
+
 ## 2026-05-26 (suite 2) — Cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP
 
 ### Périmètre de session
