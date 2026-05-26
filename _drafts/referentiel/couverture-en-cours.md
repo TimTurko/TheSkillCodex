@@ -173,6 +173,73 @@ hors_scope:
 
 ---
 
+### gestion-de-projet.md
+
+```yaml
+couvert:
+  - RA-PROJET-C07-1/PROJ/1   # Tableau de bord et indicateurs — bloc 2 (Gantt + matrice + registre engagements)
+  - RA-PROJET-C07-1/PROJ/2   # Outils GP (Gantt/PERT/WBS/livrables) — blocs 1 et 2 (cadence + outillage)
+  - RA-PROJET-C07-1/PROJ/3   # Gérer le budget — bloc 2 (suivi budgétaire ajouté patch 26/05 suite 2 comme 6ᵉ outil canonique)
+  - RA-MEO-C10-3/MEO/1       # Outils planification et gestion d'équipe — bloc 1 (cadence à 3 niveaux)
+  - RA-MEO-C10-3/MEO/2       # Répartir les tâches — bloc 3 (animation, registre, qui fait quoi)
+  - RA-MEO-C10-3/MEO/5       # Outils de prise de décision collective — bloc 3 (3 options + règle pour dépassement)
+  - RA-MEO-C10-3/MEO/6       # Organiser documents partagés — bloc 2 (drive partagé, convention nommage)
+  - RA-MEO-C08-6/MEO/1       # Transmettre informations équipe — bloc 3 (CR, traçabilité, alertes)
+  - RA-MEO-C08-6/MEO/3       # Routines travail collectif — bloc 3 (point hebdo créneau fixe, animation, OdJ veille)
+hors_scope:
+  - RA-PROJET-C07-1/PROJ/4   # Participer aux tâches — évaluation transversale
+  - RA-PROJET-C07-1/PROJ/5   # Être force de proposition — évaluation transversale (par analogie /4 et /6)
+  - RA-PROJET-C07-1/PROJ/6   # Participer aux événements — évaluation transversale
+```
+
+**Bilan** : 9 Couvert + 0 Effleuré + 3 Hors scope = 12 critères touchés. **Densité Couvert exceptionnelle** — cohérent avec le rôle structurant de la trame transverse : tout y est central, rien n'est en passant.
+
+**Trous phase 1 résolus en session** :
+- `RA-MEO-C10-3/MEO/5` (proposer outils de prise de décision collective) : **vérifié présent** (bloc 3, 3 options + règle pour dépassement = outil structurant de décision).
+- `RA-PROJET-C07-1/PROJ/3` (gérer le budget) : **patché en session** — ajout du suivi budgétaire comme 6ᵉ outil canonique dans le bloc 2, mention dans le livrable 2/3.
+
+---
+
+### ecoconception.md
+
+```yaml
+couvert:
+  - RA-ESE-C09-2/ESE/3       # Proposer améliorations cycle de vie — bloc 2 (4 fronts : sobriété énergétique, durée de vie, démontabilité, sobriété logicielle)
+  - RA-ESE-C09-2/ESE/4       # Évaluer bénéfices d'amélioration — bloc 1 (matrice EAT pondérée intégrée aux matrices de décision)
+  - RA-ESE-C09-2/ESE/5       # Sélectionner améliorations et justifier — blocs 1 et 3 (matrice EAT + annexe dossier technique)
+  - RA-PROJET-C03-3/PROJ/7   # Garantir la démontabilité du projet — bloc 2 (démontabilité PCB, connectique JST, carte modulaire)
+effleure:
+  - RA-ESE-C09-2/ESE/1       # Mener l'ACV — bloc 1 (cité et délégué explicitement aux cours collègues, central en dossier-tech)
+  - RA-ESE-C09-2/ESE/2       # Interpréter ACV — bloc 1 (cadence d'évaluation aux jalons, multi-couverture)
+  - RA-EEE-C03-2/EEE/3       # Sources d'énergie + dim alim — bloc 2 (dimensionnement juste besoin, multi-couverture)
+```
+
+**Bilan** : 4 Couvert + 3 Effleuré = 7 critères touchés. Densité plus faible que gestion-de-projet, cohérent : ecoconception est focalisée ESE + délègue beaucoup aux cours collègues.
+
+**Critère bien attribué découvert en session** : `RA-PROJET-C03-3/PROJ/7` (Démontabilité du projet) n'apparaissait dans aucune fiche cartographiée antérieurement. Couvert ici via la démontabilité PCB / connectique JST / carte modulaire (bloc 2). Pas un trou.
+
+---
+
+### securite-et-qualite.md
+
+```yaml
+couvert: []
+effleure:
+  - RA-PROJET-C04-4/PROJ/1   # Analyse fonctionnelle — bloc 1 (FC sécurité-utilisateur dans la pieuvre, mention)
+  - RA-PROJET-C03-3/EEE/5    # Concevoir/réaliser carte électronique — bloc 3 (Rev A/B sérigraphiée PCB, multi-couverture dossier-tech)
+  - RA-PROJET-C07-1/PROJ/2   # Outils GP (jalons, revues) — bloc 3 (plan de revues posé en jalons, multi-couverture spec-tech/GP)
+  - RA-PROJET-C05-3/PROJ/3   # Concevoir protocoles de test — bloc 1 (tests sécurité au niveau 4 de qualification, multi-couverture PoC/integration)
+  - RA-PROJET-C05-3/PROJ/4   # Réaliser tests — bloc 1 (tests sécurité en conditions réelles, multi-couverture PoC/integration)
+```
+
+**Bilan** : 0 Couvert + 5 Effleuré = 5 critères touchés. Densité la plus basse parmi les trames cartographiées (gestion-de-projet 12, ecoconception 7, securite-et-qualite 5).
+
+**Insight structurant** : cette trame ne porte pratiquement **aucun critère AA central** du référentiel école I3.5/I3.6. C'est **attendu et cohérent**, pas une défaillance. La sécurité-qualité est un domaine de **posture / culture professionnelle** qui prépare les étudiants à des enjeux (sécurité produit AMDEC + arrêt d'urgence + parades, sécurité projet 3 règles + EPI + formations, qualité documentaire Git tags + revue de code + sérigraphie PCB + plan de revues, normatif pointu CE/EMC/ISO 12100 délégué) **non explicitement capturés par les AA techniques du référentiel**.
+
+La fiche conserve toute sa valeur pédagogique (culture sécurité, traçabilité, articulation responsables) mais elle ne sert pas la cartographie AA. **À noter en synthèse globale** : le cadre AA n'est pas le seul critère de pertinence d'une fiche.
+
+---
+
 ## Synthèse globale (à compléter en fin de passe B+A)
 
 *Cette section sera générée une fois toutes les fiches cartographiées. Servira à identifier les trous (critères non couverts) qui nécessitent soit une nouvelle fiche, soit l'ajout d'une section dans une fiche existante.*
