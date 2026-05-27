@@ -5,7 +5,9 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = Phase 0 clôture phase 1 GP** — `decomposition-fonctionnelle` prioritaire (fiche-notion outil natif phase concept étape 1). Puis 7 notions phase 1 (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + **template `fiche-tuto.md`** + patches conventions (mini-hub imbriqué, fiche transverse multi-techno). Ensuite Phase 1 squelette transverse elec/info (8 fiches AA-centrées dont mini-hub `algorithme`).
+> **➜ Prochaine session = Mini-session bug SVG base path Quartz** — diagnostic posé 27/05 suite : `../../ressources/img/...` perd le base path `/TheSkillCodex/` sur GitHub Pages (rendu OK en local Quartz, KO en ligne). Solution candidate : migration vers format Obsidian-natif `![[fichier.svg]]`. Procédure : tester sur `pieuvre.md` (1 fichier, 2 images), push, vérifier rendu github.io, migrer globalement si OK. Bloque toutes les vérifs visuelles en attente.
+>
+> **➜ Puis** = Phase 0 reprise — `etat-de-l-art-technique` (fiche-tuto, occasion de figer le template `fiche-tuto.md`). Puis 6 notions/tutos restants Phase 0 (`bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + patches conventions (mini-hub imbriqué, fiche transverse multi-techno). Ensuite Phase 1 squelette transverse elec/info (8 fiches AA-centrées dont mini-hub `algorithme`).
 >
 > **Cadrage stratégique phase 2 elec/info acté 26/05 suite 5 (niveau D)** : (a) elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois ; (b) structure **squelette transverse** (AA + compétences pro communes, indépendantes du choix techno) + **embranchements technologiques** (familles MCU + outils spécifiques, modules autonomes) ; (c) 5 mini-hubs à structurer (`microcontroleur`, `algorithme`, `pcb`, `bus-de-communication`, `techno-sans-fil`) ; (d) roadmap structurée en 5 phases (Phase 0 clôture → Phase 5 alimentation continue) ; (e) 3 cercles de priorité publication : MVP strict (AA 100 %, ~21 sessions) / MVP étendu (~35 sessions) / cible complète (~70 sessions). MVP rentrée scolaire atteignable en 2-3 mois.
 >
@@ -43,8 +45,10 @@
 
 #### Phase 0 — Clôture phase 1 GP (~10 sessions, MVP rentrée)
 
-- [ ] `decomposition-fonctionnelle` (fiche-notion, popover posé dans `concept.md` étape 1) — **prochaine session**
-- [ ] `etat-de-l-art-technique` (fiche-tuto, popover posé `specification-technique.md` étape 2)
+- [x] ~~`decomposition-fonctionnelle` (fiche-tuto, calque bete-a-cornes complet + 4 SVG bras 3 axes + triptyque mauvais/moyen/bon + 2 AA mappés PROJ/1 et /6 multi-couverture + patch concept étape 1 + patch schema-bloc-fonctionnel)~~ — **fait 27/05 suite**
+- [ ] **Mini-session — résoudre bug SVG base path Quartz** : tester format `![[fichier.svg]]` sur `pieuvre.md` (1 fichier, 2 images), push, vérifier rendu github.io, migrer globalement si OK. **Bloque toutes les vérifs visuelles** des fiches à chemin `../../ressources/img/`. **Prochaine session.**
+- [ ] **Dette** : restructurer `decomposition-fonctionnelle.md` au format fiche-tuto (sections *Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois le template `fiche-tuto.md` figé.
+- [ ] `etat-de-l-art-technique` (fiche-tuto, popover posé `specification-technique.md` étape 2) — **occasion de figer le template `fiche-tuto.md`**
 - [ ] `bom` (fiche-tuto, popover posé étape 2)
 - [ ] `mind-map` (fiche-notion, popover posé étape 3)
 - [ ] `fast` (fiche-tuto, popover posé étape 3 — à créer en phase 2 concept)
@@ -196,6 +200,9 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [ ] Vérifier le rendu de `securite-et-qualite.md` Bloc 3 (plan 6 points revues, tags Git v0.1→v1.0.1, `[!tip]` tracer au moment de la décision)
 - [ ] Vérifier le rendu de `securite-et-qualite.md` section Pièges (11 entrées gras court + explication, ratio ~45 %)
 - [ ] Vérifier le rendu de `securite-et-qualite.md` section Équipe (3 axes articulation cadence/matrice de risques/piloter sans écraser, délégation explicite ESE + responsables équipement)
+- [ ] Vérifier le rendu de `decomposition-fonctionnelle.md` (4 SVG arborescences 3 niveaux + tableau conflits triptyque + triptyque mauvais/moyen/bon, densité SVG-3-axes en 920×500 = point de vigilance mobile). **Bloqué par bug SVG base path Quartz.**
+- [ ] Vérifier le rendu du patch `concept.md` étape 1 (arborescence descendante en lieu et place de schema-bloc-fonctionnel, SADT/IDEF0 en alternative formelle). Bloqué par bug SVG.
+- [ ] Vérifier le rendu du patch `schema-bloc-fonctionnel.md` *Voir aussi* (lien réciproque vers decomposition-fonctionnelle en première position). Bloqué par bug SVG.
 
 ## Décisions éditoriales en attente
 
@@ -212,6 +219,23 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
+
+### Session 2026-05-27 (suite) — Fiche `decomposition-fonctionnelle` (Phase 0 ouverte) + diagnostic bug SVG base path Quartz
+- [x] **Fiche `decomposition-fonctionnelle.md` livrée** (14 ko, `type: tuto`, calque bete-a-cornes complet, arborescence descendante 3 niveaux avec 4 SVG génériques + triptyque mauvais/moyen/bon bras 3 axes, 2 AA mappés `RA-PROJET-C04-4/PROJ/1` analyse fonctionnelle + `/PROJ/6` interactions entre blocs en multi-couverture). Cadrage niveau C en 4 questions (Q1 calque bete-a-cornes complet, Q2 forme graphique arborescence, Q3 articulation schema-bloc-fonctionnel clarifiée par utilisateur = elec+info aval / décomp fonct = GP amont, Q4 fil rouge bras 3 axes retenu).
+- [x] **Patch `concept.md` étape 1** : retrait `schema-bloc-fonctionnel` des outils de viz de la décomposition (recadrage utilisateur), arborescence descendante en première position, SADT/IDEF0 en alternative formelle.
+- [x] **Patch `schema-bloc-fonctionnel.md` *Voir aussi*** : ajout `decomposition-fonctionnelle` en première position avec libellé d'articulation explicite (analyse amont GP / concrétisation aval élec+info).
+- [x] **Reclassification `type: notion` → `type: tuto`** sur arbitrage utilisateur. **Dette TODO** : restructurer au format fiche-tuto attendu (*Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois template `fiche-tuto.md` figé.
+- [x] **Diagnostic bug SVG base path Quartz** : les images des fiches à chemin relatif `../../ressources/img/...` ne s'affichent pas sur github.io (URL résolue perd le base path `/TheSkillCodex/`). Hub fonctionne car chemin à 1 niveau de remontée seulement. Confirmé par fetch direct (pieuvre.md → `https://timturko.github.io/ressources/img/...` au lieu de `.../TheSkillCodex/ressources/img/...`). Mini-session test prochaine session sur `pieuvre.md` (1 fichier, 2 images), solution candidate = format Obsidian-natif `![[fichier.svg]]`.
+- [x] **Convention candidate C20 — mapping AA pertinent en multi-couverture** acquise sur consigne utilisateur (« n'hésite pas à mapper quand un AA peut être en lien »). À éprouver sur prochaines fiches Phase 0 avant promotion vers `conventions.md` § 7. Décision niveau D explicite.
+- [x] **Convention triptyque mauvais/moyen/bon** (`[!failure]` / `[!warning]` / `[!example]`) **promue vers `conventions.md` § 2** après épreuve 3/N réussie : bete-a-cornes + caracteriser-une-exigence + decomposition-fonctionnelle.
+- [x] **Rattrapage entrée JOURNAL 27/05** : dette signalée en briefing (entrée non rédigée en fin de session 27/05 matin), reconstruite a posteriori dans JOURNAL.md.
+
+### Session 2026-05-27 — Nettoyage documentaire infrastructure + tooling normalisation
+- [x] **Nettoyage TODO Fait** : suppression de la session 26/05 suite 2 (dette héritée du 26/05 suite 5 sur anchor C14 récalcitrant). Rotation glissante 3 sessions Fait rétablie.
+- [x] **Script `tools/normalize-pilotage.js`** (Node ESM sans dépendance, mode FIX + mode `--check`) + **hook `tools/git-hooks/pre-commit`** (activation par poste via `git config core.hooksPath tools/git-hooks`) + **`tools/README.md`**. Caractères nettoyés : U+202F (NBSP fine), U+00A0 (NBSP), U+200B (ZWSP), U+FEFF (BOM), CRLF → LF.
+- [x] **Convention `conventions.md` § 6 *Hygiène des fichiers de pilotage*** : nouvelle section. Fichiers ciblés : pilotage privé (TODO, JOURNAL, JOURNAL-archive, conventions, BACKLOG, couverture-en-cours). Fiches publiables `content/**.md` hors scope (gardent typo française pour Quartz).
+- [x] **Dette à TODO** : activation hook pre-commit sur PC perso (chemin `C:\Users\turko\...`) — tant que cette case n'est pas cochée, le hook ne tourne pas sur PC perso.
+- [x] **Dette de clôture** : entrée JOURNAL non rédigée en fin de session, identifiée et rattrapée en clôture de la session 27/05 suite.
 
 ### Session 2026-05-26 (suite 5) — Livraison `caracteriser-une-exigence` + cadrage stratégique phase 2 elec/info
 - [x] **Fiche `caracteriser-une-exigence.md` livrée** (15,5 ko, calque bete-a-cornes complet, triplet critère/niveau/flexibilité, triptyque tableau mauvais/moyen/bon sur exigence FP1 bras 3 axes ± 5 mm F1, tableau F0/F1/F2/F3 avec colonne *Quand l'utiliser*, 6 pièges, cas particulier exigences binaires et réglementaires, wiki-link `unite-si` propagé × 2). Cadrage niveau C en 4 questions méthodo tranchées, rédaction niveau A en autonomie.

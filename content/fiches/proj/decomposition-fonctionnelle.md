@@ -10,7 +10,9 @@ tags:
 prerequis:
   - cahier-des-charges-fonctionnel
   - fonction
-aa: []
+aa:
+  - RA-PROJET-C04-4/PROJ/1
+  - RA-PROJET-C04-4/PROJ/6
 draft: false
 ---
 
