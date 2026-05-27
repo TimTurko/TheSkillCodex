@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">
+  <title id="title">Décomposition fonctionnelle — mauvais exemple bras 3 axes</title>
+  <desc id="desc">Arborescence d'un mauvais découpage du bras 3 axes : à la racine, le bras ; à la première descente, trois branches par discipline (Élec, Méca, Info) reproduisant l'organigramme de l'équipe ; sous chaque branche, des tâches disciplinaires hétérogènes qui ne sont pas des fonctions techniques du système.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; letter-spacing: 0.3px; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .niveau-label { font: 600 11px sans-serif; fill: #BA7517; letter-spacing: 0.5px; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .warn-mark { font: 700 11px sans-serif; text-anchor: middle; fill: #B33A1C; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .niveau-label { fill: #EF9F27; }
+        .title-text { fill: #F1EFE8; }
+        .warn-mark { fill: #EF6F4D; }
+      }
+    </style>
+  </defs>
+
+  <text x="380" y="30" class="title-text">Découpage par discipline — confusion compétences / fonctions</text>
+
+  <text x="10" y="90" class="niveau-label">Système</text>
+  <text x="10" y="200" class="niveau-label">Sous-systèmes</text>
+  <text x="10" y="320" class="niveau-label">« Tâches »</text>
+
+  <!-- Racine -->
+  <rect x="290" y="60" width="180" height="50" rx="6" class="n1-fill"/>
+  <text x="380" y="90" class="n1-text">Bras 3 axes</text>
+
+  <!-- Liaisons N1 → N2 -->
+  <line x1="380" y1="110" x2="380" y2="135" class="conn"/>
+  <line x1="140" y1="135" x2="620" y2="135" class="conn"/>
+  <line x1="140" y1="135" x2="140" y2="170" class="conn"/>
+  <line x1="380" y1="135" x2="380" y2="170" class="conn"/>
+  <line x1="620" y1="135" x2="620" y2="170" class="conn"/>
+
+  <!-- N2 — Disciplines -->
+  <rect x="60" y="170" width="160" height="50" rx="5" class="n2-fill"/>
+  <text x="140" y="200" class="n2-text">Élec</text>
+
+  <rect x="300" y="170" width="160" height="50" rx="5" class="n2-fill"/>
+  <text x="380" y="200" class="n2-text">Méca</text>
+
+  <rect x="540" y="170" width="160" height="50" rx="5" class="n2-fill"/>
+  <text x="620" y="200" class="n2-text">Info</text>
+
+  <!-- Liaisons N2 → N3 (Élec) -->
+  <line x1="140" y1="220" x2="140" y2="250" class="conn"/>
+  <line x1="85" y1="250" x2="195" y2="250" class="conn"/>
+  <line x1="85" y1="250" x2="85" y2="290" class="conn"/>
+  <line x1="140" y1="250" x2="140" y2="290" class="conn"/>
+  <line x1="195" y1="250" x2="195" y2="290" class="conn"/>
+
+  <!-- Liaisons N2 → N3 (Méca) -->
+  <line x1="380" y1="220" x2="380" y2="250" class="conn"/>
+  <line x1="325" y1="250" x2="435" y2="250" class="conn"/>
+  <line x1="325" y1="250" x2="325" y2="290" class="conn"/>
+  <line x1="380" y1="250" x2="380" y2="290" class="conn"/>
+  <line x1="435" y1="250" x2="435" y2="290" class="conn"/>
+
+  <!-- Liaisons N2 → N3 (Info) -->
+  <line x1="620" y1="220" x2="620" y2="250" class="conn"/>
+  <line x1="565" y1="250" x2="675" y2="250" class="conn"/>
+  <line x1="565" y1="250" x2="565" y2="290" class="conn"/>
+  <line x1="620" y1="250" x2="620" y2="290" class="conn"/>
+  <line x1="675" y1="250" x2="675" y2="290" class="conn"/>
+
+  <!-- N3 — Élec (tâches non fonctionnelles) -->
+  <rect x="40" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="85" y="315" class="n3-text">Câbler</text>
+  <rect x="95" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="140" y="315" class="n3-text">Souder</text>
+  <rect x="150" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="195" y="315" class="n3-text">Alimenter</text>
+
+  <!-- N3 — Méca -->
+  <rect x="280" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="325" y="315" class="n3-text">Usiner</text>
+  <rect x="335" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="380" y="315" class="n3-text">Assembler</text>
+  <rect x="390" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="435" y="315" class="n3-text">Concevoir</text>
+
+  <!-- N3 — Info -->
+  <rect x="520" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="565" y="315" class="n3-text">Programmer</text>
+  <rect x="575" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="620" y="315" class="n3-text">Tester</text>
+  <rect x="630" y="290" width="90" height="40" rx="4" class="n3-fill"/>
+  <text x="675" y="315" class="n3-text">Interfacer</text>
+
+  <text x="380" y="380" class="warn-mark">⚠ Aucune interface inter-disciplinaire identifiable. Aucune matrice de décision constructible.</text>
+  <text x="380" y="430" class="n3-text" style="font-style:italic;fill:#888780">Le découpage reproduit l'organigramme de l'équipe, pas l'architecture du système.</text>
+</svg>

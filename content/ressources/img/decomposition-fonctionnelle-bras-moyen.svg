@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Décomposition fonctionnelle — exemple moyen bras 3 axes</title>
+  <desc id="desc">Découpage en trois sous-systèmes fonctionnels du bras 3 axes (Articulations, Pilotage, Énergie), mais déséquilibré : Articulations concentre cinq fonctions techniques tandis que Pilotage et Énergie n'en portent qu'une chacune. La frontière entre Articulations et Pilotage reste imprécise sur l'asservissement.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; letter-spacing: 0.3px; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .niveau-label { font: 600 11px sans-serif; fill: #BA7517; letter-spacing: 0.5px; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .warn-mark { font: 700 11px sans-serif; text-anchor: middle; fill: #B33A1C; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .niveau-label { fill: #EF9F27; }
+        .title-text { fill: #F1EFE8; }
+        .warn-mark { fill: #EF6F4D; }
+      }
+    </style>
+  </defs>
+
+  <text x="400" y="30" class="title-text">Sous-systèmes fonctionnels — déséquilibre de taille</text>
+
+  <text x="10" y="90" class="niveau-label">Système</text>
+  <text x="10" y="200" class="niveau-label">Sous-systèmes</text>
+  <text x="10" y="320" class="niveau-label">Fonctions techniques</text>
+
+  <!-- Racine -->
+  <rect x="310" y="60" width="180" height="50" rx="6" class="n1-fill"/>
+  <text x="400" y="90" class="n1-text">Bras 3 axes</text>
+
+  <!-- Liaisons N1 → N2 -->
+  <line x1="400" y1="110" x2="400" y2="135" class="conn"/>
+  <line x1="150" y1="135" x2="680" y2="135" class="conn"/>
+  <line x1="150" y1="135" x2="150" y2="170" class="conn"/>
+  <line x1="400" y1="135" x2="400" y2="170" class="conn"/>
+  <line x1="680" y1="135" x2="680" y2="170" class="conn"/>
+
+  <!-- N2 -->
+  <rect x="30" y="170" width="240" height="50" rx="5" class="n2-fill"/>
+  <text x="150" y="200" class="n2-text">Articulations</text>
+
+  <rect x="340" y="170" width="120" height="50" rx="5" class="n2-fill"/>
+  <text x="400" y="200" class="n2-text">Pilotage</text>
+
+  <rect x="620" y="170" width="120" height="50" rx="5" class="n2-fill"/>
+  <text x="680" y="200" class="n2-text">Énergie</text>
+
+  <!-- Liaisons N2 → N3 (Articulations, 5 leaves) -->
+  <line x1="150" y1="220" x2="150" y2="250" class="conn"/>
+  <line x1="45" y1="250" x2="305" y2="250" class="conn"/>
+  <line x1="45" y1="250" x2="45" y2="290" class="conn"/>
+  <line x1="110" y1="250" x2="110" y2="290" class="conn"/>
+  <line x1="175" y1="250" x2="175" y2="290" class="conn"/>
+  <line x1="240" y1="250" x2="240" y2="290" class="conn"/>
+  <line x1="305" y1="250" x2="305" y2="290" class="conn"/>
+
+  <!-- Liaison N2 → N3 (Pilotage, 1 leaf) -->
+  <line x1="400" y1="220" x2="400" y2="290" class="conn"/>
+
+  <!-- Liaison N2 → N3 (Énergie, 1 leaf) -->
+  <line x1="680" y1="220" x2="680" y2="290" class="conn"/>
+
+  <!-- N3 — Sous Articulations -->
+  <rect x="15" y="290" width="60" height="40" rx="4" class="n3-fill"/>
+  <text x="45" y="315" class="n3-text">Couple</text>
+  <rect x="80" y="290" width="60" height="40" rx="4" class="n3-fill"/>
+  <text x="110" y="315" class="n3-text">Position</text>
+  <rect x="145" y="290" width="60" height="40" rx="4" class="n3-fill"/>
+  <text x="175" y="315" class="n3-text">Asservir</text>
+  <rect x="210" y="290" width="60" height="40" rx="4" class="n3-fill"/>
+  <text x="240" y="315" class="n3-text">Synchro</text>
+  <rect x="275" y="290" width="60" height="40" rx="4" class="n3-fill"/>
+  <text x="305" y="315" class="n3-text">Refroidir</text>
+
+  <!-- N3 — Pilotage (1 leaf) -->
+  <rect x="340" y="290" width="120" height="40" rx="4" class="n3-fill"/>
+  <text x="400" y="315" class="n3-text">Recevoir consigne</text>
+
+  <!-- N3 — Énergie (1 leaf) -->
+  <rect x="620" y="290" width="120" height="40" rx="4" class="n3-fill"/>
+  <text x="680" y="315" class="n3-text">Fournir alimentation</text>
+
+  <text x="400" y="380" class="warn-mark">⚠ 5 FT côté Articulations, 1 côté Pilotage, 1 côté Énergie — déséquilibre net.</text>
+  <text x="400" y="430" class="n3-text" style="font-style:italic;fill:#888780">Frontière Articulations/Pilotage non tranchée : qui porte l'asservissement ?</text>
+</svg>

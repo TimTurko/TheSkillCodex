@@ -90,6 +90,7 @@ Quelques observations à tirer de cet exemple :
 
 ## Voir aussi
 
+- [[../proj/decomposition-fonctionnelle|Décomposition fonctionnelle]] — analyse amont côté gestion de projet, qui produit les fonctions techniques que ce schéma vient concrétiser en blocs matériels.
 - [[../proj/cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] — l'entrée du processus, dont découle le schéma bloc.
 - [[boucle-ouverte-boucle-fermee|Boucle ouverte / boucle fermée]] — caractérise la nature du contrôle dans le schéma.
 - [[capteur|Capteurs]] et [[actionneur|actionneurs]] — les deux familles de blocs d'interface avec l'environnement.
