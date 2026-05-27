@@ -1,0 +1,27 @@
+#!/bin/sh
+# tools/git-hooks/pre-commit
+# Bloque le commit si des caracteres invisibles ambigus sont detectes
+# dans les fichiers de pilotage TheSkillCodex.
+#
+# Activation (une fois) :
+#   git config core.hooksPath tools/git-hooks
+#
+# Desactivation :
+#   git config --unset core.hooksPath
+#
+# Bypass ponctuel (deconseille) :
+#   git commit --no-verify
+
+node tools/normalize-pilotage.js --check
+EXIT=$?
+
+if [ $EXIT -ne 0 ]; then
+  echo ""
+  echo "Commit refuse : caracteres invisibles ambigus detectes dans les fichiers de pilotage."
+  echo "Pour corriger automatiquement :"
+  echo "  node tools/normalize-pilotage.js"
+  echo "puis recommit."
+  exit 1
+fi
+
+exit 0
