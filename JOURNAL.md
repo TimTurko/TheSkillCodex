@@ -10,6 +10,114 @@
 
 ---
 
+## 2026-05-27 (suite) — Phase 0 ouverte : fiche `decomposition-fonctionnelle` + diagnostic bug SVG base path Quartz
+
+### Périmètre de session
+Ouverture Phase 0 (clôture phase 1 GP) avec la première fiche-tuto outil natif phase concept étape 1. Cadrage niveau C en 4 questions tranchées, rédaction niveau A en autonomie. En cours de clôture : découverte fortuite d'un bug structurel SVG sur le site déployé, ouverte comme mini-session prochaine. PC pro, MCP `theskillcodex`.
+
+### Livraison `decomposition-fonctionnelle.md` (14 ko, `type: tuto`)
+
+4 questions méthodo tranchées en cadrage niveau C en début de session :
+- **Q1 — Calque** : bete-a-cornes complet, cible 18-22 ko (livré économe à 14 ko, matrice de la fiche tient sans extension).
+- **Q2 — Forme graphique** : arborescence descendante (système → sous-systèmes → fonctions techniques), pas diagramme bloc. SADT/IDEF0 mention en alternative formelle.
+- **Q3 — Articulation `schema-bloc-fonctionnel`** : recadrage utilisateur déterminant — *« décomposition fonctionnelle = gestion de projet, schéma bloc fonctionnel = elec+info »*. Distinction séquentielle, pas concurrente : décomp = analyse amont GP (FT abstraites) ; schema bloc = réalisation aval elec/info (blocs concrets). Articulation explicite à réciproquer entre les deux fiches en clôture.
+- **Q4 — Fil rouge** : bras 3 axes retenu, deuxième épreuve potentielle de la convention candidate fil rouge fiches-tuto pivot phase 1 (après caracteriser-une-exigence, qui est typé notion donc épreuve formelle 1/N seulement).
+
+**Structure livrée** : popover → À quoi ça sert (3 rôles : structurer le travail équipe / préparer l'exploration solutions / révéler les trous du CdCF) → Comment décomposer (intro + 2 H3 *Du système aux sous-systèmes* + *Des sous-systèmes aux fonctions techniques* + H3 *Où s'arrêter*) → Exemple bras 3 axes avec **triptyque mauvais/moyen/bon** en 4 SVG arborescences → 6 pièges (gras court + explication) → Cas particulier *reconception et reverse engineering* → Voir aussi avec articulation explicite vers schema-bloc-fonctionnel.
+
+**4 SVG produits** dans `content/ressources/img/` : `-generique` (760×480), `-bras-mauvais` (découpage par discipline = anti-pattern), `-bras-moyen` (déséquilibre Articulations 5 leaves / Pilotage 1 / Énergie 1), `-bras-3-axes` (Mobilité articulaire 4 leaves / Interface utilisateur 2 / Alimentation et sécurité 3, format 920×500 plus large). Palette ambre/gris alignée wbs-generique, dark mode, conventions C3 SVG respectées.
+
+**Choix structurels assumés** :
+- Triptyque mauvais/moyen/bon repris depuis bete-a-cornes + caracteriser-une-exigence → épreuve 3/N de la convention candidate du § 4 conventions. **Promotion vers § 2 *Mise en forme* appliquée en clôture**.
+- Cas particulier *reverse engineering* assumé (léger écart au calque bete-a-cornes qui traitait *projet école sans client réel*) car plus pertinent pédagogiquement pour la décomp.
+- Aucune image *exemple incarné avec valeurs concrètes après méthode* (convention C7) : ici les 3 SVG du triptyque tiennent ce rôle — incarnation = qualité d'écriture du même cas, pas un cas supplémentaire.
+
+### Patches connexes
+
+- **`concept.md` étape 1** : retrait `schema-bloc-fonctionnel` des outils de viz de la décomposition (recadrage utilisateur Q3). Remplacement par *« La représentation directe est l'arborescence descendante (système global en racine, sous-systèmes au niveau 1, fonctions techniques au niveau 2). Les diagrammes SADT/IDEF0 restent une alternative plus formelle... »*. SADT/IDEF0 conservés en alternative.
+- **`schema-bloc-fonctionnel.md` *Voir aussi*** : ajout `decomposition-fonctionnelle` en première position avec libellé d'articulation explicite (*« analyse amont côté gestion de projet, qui produit les fonctions techniques que ce schéma vient concrétiser en blocs matériels »*).
+
+### Reclassification `type: notion` → `type: tuto`
+
+Arbitrage utilisateur explicite en cours de session (point 2 de mon récap intermédiaire). La fiche était initialement livrée en `type: notion` (calque bete-a-cornes), reclassée `type: tuto` après décision. La structure interne reste celle d'une notion approfondie — **dette à TODO** : restructurer au format fiche-tuto attendu (sections *Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois le template `fiche-tuto.md` figé (probablement sur `etat-de-l-art-technique`, qui sera la 2e fiche-tuto pour stabiliser les conventions).
+
+### Mapping AA explicite (consigne utilisateur)
+
+Deux critères Couvert mappés en multi-couverture assumée (sur consigne utilisateur « n'hésite pas à mapper quand un AA peut être en lien ») :
+- **`RA-PROJET-C04-4/PROJ/1`** *« Effectuer une analyse fonctionnelle du système »* → multi-couverture avec `bete-a-cornes` (analyse fonctionnelle externe vs interne descendante). Illustre pédagogiquement la transversalité du critère.
+- **`RA-PROJET-C04-4/PROJ/6`** *« Définir les interactions entre blocs à partir d'un cahier des charges »* → traité explicitement dans la section *Du système aux sous-systèmes* avec le critère « interfaces nettes » et le parcours « parcourir les interfaces deux à deux ». Multi-couverture avec `concept.md` qui pointe désormais vers la fiche pour le détail.
+
+Non mappés (effleurements seulement) : `RA-PROJET-C04-4/PROJ/4` (schema bloc fonctionnel, couvert par la fiche aval), `RA-MME-C02-1/MME/1` (choix matériaux, mention disciplines mais pas central).
+
+### Diagnostic bug SVG base path Quartz
+
+L'utilisateur signale en cours de clôture *« les images ne s'affichent pas sur github.io »*. Investigation immédiate :
+
+- **Symptomatologie** : les SVG des fiches s'affichent en local Quartz mais l'icône d'image cassée est rendue sur le site déployé timturko.github.io/TheSkillCodex.
+- **Diagnostic par fetch direct** sur le HTML rendu :
+  - `hub/index.md` (chemin `../ressources/img/cycle-v-projet.svg`) → URL résolue `https://timturko.github.io/TheSkillCodex/ressources/img/cycle-v-projet.svg` → **affiché OK**.
+  - `pieuvre.md` (chemin `../../ressources/img/pieuvre-generique.svg`) → URL résolue `https://timturko.github.io/ressources/img/pieuvre-generique.svg` → **404 KO**. Le base path `/TheSkillCodex/` est perdu.
+- **Cause** : Quartz perd le segment de base path quand le chemin relatif remonte de 2 niveaux (`../../`). 1 niveau (`../`) fonctionne. Bug structurel.
+- **Scope** : toutes les fiches à `content/fiches/<domaine>/` ont leurs images cassées sur le site déployé. Seules les images du hub fonctionnent. ~11 fiches concernées (bete-a-cornes, pieuvre, gantt, jalons, retroplanning, wbs, matrice-de-decision, matrice-de-risques, schema-bloc-fonctionnel, caracteriser-une-exigence, decomposition-fonctionnelle).
+- **Solutions candidates** par ordre de préférence : (a) **format Obsidian-natif `![[fichier.svg]]`** (Quartz résout par nom de fichier, marche dans les deux outils) ; (b) chemin absolu site `/ressources/img/...` (risque : ne marche pas dans Obsidian preview) ; (c) investigation conf Quartz (`baseUrl`, plugin CrawlLinks) pour cause racine.
+- **Décision** : mini-session test prochaine session sur `pieuvre.md` (1 fichier, 2 images) avec format `![[fichier.svg]]`, push, vérification rendu github.io, migration globale si OK. **Bloque toutes les vérifs visuelles en attente.**
+
+### Conventions
+
+- **Triptyque mauvais/moyen/bon (`[!failure]` / `[!warning]` / `[!example]`) promu vers `conventions.md` § 2** après épreuve 3/N réussie : `bete-a-cornes` (25/05 suite 2) + `caracteriser-une-exigence` (26/05 suite 5) + `decomposition-fonctionnelle` (27/05 suite). Patron stable : 3 callouts côte à côte avec SVG ou tableau markdown selon nature de la notion (graphique vs textuelle), chaque callout suivi de paragraphes *Pourquoi c'est ...* + parfois *Coût réel de cette erreur* pour le mauvais.
+- **Convention candidate C20 — mapping AA pertinent en multi-couverture** acquise sur consigne utilisateur. À éprouver sur prochaines fiches Phase 0 (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers `conventions.md` § 7. Décision niveau D explicite (rapport au référentiel AA).
+- **Convention candidate fil rouge fiches-tuto pivot phase 1 = bras 3 axes** : épreuve formelle 1/N seulement (decomposition-fonctionnelle, car caracteriser-une-exigence est typé `notion` malgré l'usage du fil rouge). Reformulation possible : *« fiches-tuto pivot phase 1 ET fiches-notion outils pivots étape 1 phase concept = fil rouge »* ou bien reclasser carac-exigence en tuto aussi. À trancher prochaine session de stabilisation template fiche-tuto.
+
+### Rattrapage entrée JOURNAL 27/05
+
+Dette signalée en briefing utilisateur en début de session : *« la session précédente (27/05) a été 100 % nettoyage documentaire et tooling »* mais aucune entrée JOURNAL correspondante. Entrée rattrapée a posteriori en clôture (juste au-dessous), périmètre reconstruit depuis briefing + livrables visibles dans le dépôt (`tools/`, `conventions.md` § 6) + TODO Fait.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
+- **C17 épreuve restante** avant promotion vers `conventions.md` § 5 ou § 8.
+- **C18 + C19 à éprouver** sur Phase 1 elec/info.
+- **C20 candidate à éprouver** sur Phase 0.
+- **Convention candidate fil rouge fiches-tuto pivot phase 1** : reformulation à acter (élargir aux notions ? reclasser carac-exigence ?).
+- **Dette restructuration `decomposition-fonctionnelle.md`** en format fiche-tuto une fois template figé.
+- **Bug SVG base path Quartz** : mini-session test prochaine session.
+- **Prochaine session** = mini-session bug SVG, puis Phase 0 reprise (`etat-de-l-art-technique` + figeage template `fiche-tuto.md`).
+- **Commit + push** : workflow fin de session utilisateur.
+
+### Tailles fichiers en fin de session
+- `decomposition-fonctionnelle.md` : 14 ko (livré).
+- 4 SVG decomposition-fonctionnelle : ~3 ko chacun.
+- `concept.md` : 42 ko (patch étape 1 mineur).
+- `schema-bloc-fonctionnel.md` : ~7 ko (patch *Voir aussi* mineur).
+- `TODO.md` : ~23 ko après rotation glissante.
+- `JOURNAL.md` : ~93 → ~108 ko après ajout 2 entrées 27/05 (sous le seuil 100 ko dépassé — archivage à envisager prochaines sessions).
+- `conventions.md` : ~18 → ~20 ko après promotion triptyque + ajout C20.
+
+---
+
+## 2026-05-27 — Nettoyage documentaire infrastructure + tooling normalisation
+
+> *Entrée rattrapée a posteriori en clôture 27/05 suite. Périmètre reconstruit depuis le briefing utilisateur de début de session 27/05 suite, les livrables visibles dans le dépôt (`tools/`, `conventions.md` § 6) et le TODO Fait. Précision et exhaustivité limitées par cette reconstitution.*
+
+### Périmètre de session
+Session 100 % infrastructure : nettoyage de dette héritée dans TODO + mise en place d'un système de normalisation des fichiers de pilotage (script Node ESM + hook pre-commit Git) pour prévenir les échecs récurrents d'anchor `edit_file` liés aux caractères invisibles (NBSP, ZWSP, BOM, CRLF). PC pro selon log de l'utilisateur en début de session 27/05 suite.
+
+### Livrables
+- **Nettoyage TODO Fait** : suppression de la session 26/05 suite 2 (dette héritée du 26/05 suite 5 sur anchor C14 récalcitrant, 4 sessions Fait au lieu de 3). Rotation glissante 3 sessions Fait rétablie.
+- **`tools/normalize-pilotage.js`** : script Node ESM sans dépendance, mode FIX par défaut + mode `--check` pour audit (exit 1 si invisibles trouvés). Caractères nettoyés : U+202F (NBSP fine), U+00A0 (NBSP), U+200B (ZWSP), U+FEFF (BOM), CRLF → LF. Fichiers ciblés : `TODO.md`, `JOURNAL.md`, `JOURNAL-archive.md`, `conventions.md`, `BACKLOG.md`, `_drafts/referentiel/couverture-en-cours.md`. Fiches publiables `content/**.md` hors scope (gardent typo française pour rendu Quartz).
+- **`tools/git-hooks/pre-commit`** : hook bloquant tout commit qui réintroduit des invisibles dans les fichiers ciblés. Activation par poste via `git config core.hooksPath tools/git-hooks` (PC pro fait ; PC perso = tâche TODO ouverte).
+- **`tools/README.md`** : doc complète d'usage.
+- **Convention `conventions.md` § 6 *Hygiène des fichiers de pilotage*** : nouvelle section consolidant la garantie + procédure de diagnostic en cas d'anchor récalcitrant (suggérer `node tools/normalize-pilotage.js --check` avant bisection, etc.).
+
+### Acquis méthodo
+
+Capitalisation du complément C14 (27/05) : NBSPs et CRLF identifiés comme causes récurrentes d'échec d'anchor sur les fichiers de pilotage. Le script + hook constituent une solution infrastructure pérenne, indépendante de la discipline anchor-court (qui reste utile pour les fiches publiables non normalisées). Documentation rappelle que ces fichiers de pilotage normalisés tolèrent désormais les anchors longs sans NBSP, mais que les fiches publiables `content/**.md` (typo française active pour Quartz) restent sensibles à la discipline historique.
+
+### Dette de clôture
+**Entrée JOURNAL non rédigée en fin de session** — dette identifiée et remontée en briefing par la session 27/05 suite. Rattrapée immédiatement en clôture 27/05 suite (entrée courante).
+
+---
+
 ## 2026-05-26 (suite 5) — Cadrage stratégique phase 2 elec/info + livraison `caracteriser-une-exigence`
 
 ### Périmètre de session
