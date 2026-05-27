@@ -51,7 +51,7 @@ Cette étape se mène en deux temps : du système aux sous-systèmes, puis des s
 
 La [[decomposition-fonctionnelle|décomposition fonctionnelle]] découpe le système global en **sous-systèmes** cohérents qui, assemblés, réalisent les fonctions de service énoncées dans le CdCF. Un bon découpage produit des blocs aux **interfaces nettes** (entrées et sorties identifiées), à l'**autonomie technique** suffisante pour être travaillés en parallèle par l'équipe, et de **taille comparable** — un sous-système qui pèse à lui seul 80 % du projet a probablement été sous-découpé.
 
-Plusieurs visualisations sont mobilisables selon la culture de l'équipe : le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] (rapide, lisible, sans formalisme lourd), les diagrammes **SADT/IDEF0** (plus formels, utiles si l'équipe les pratique déjà). L'outil compte moins que la discipline qu'il impose : rendre visibles les blocs et leurs interfaces.
+La représentation directe est l'**arborescence descendante** (système global en racine, sous-systèmes au niveau 1, fonctions techniques au niveau 2). Les diagrammes **SADT/IDEF0** restent une alternative plus formelle, utile si l'équipe les pratique déjà. L'outil compte moins que la discipline qu'il impose : rendre visibles les blocs et leurs interfaces.
 
 Le découpage produit ici n'est pas figé pour toute la phase. L'exploration des solutions à l'étape 2 peut révéler qu'un bloc doit être scindé (deux logiques de commande très différentes coexistent) ou fusionné (deux blocs partagent en fait la même structure). On revient corriger sans état d'âme.
 

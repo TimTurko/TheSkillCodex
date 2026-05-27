@@ -1,11 +1,11 @@
 ---
 title: Décomposition fonctionnelle
-type: notion
+type: tuto
 phases:
   - concept
 tags:
   - proj
-  - notion
+  - tuto
   - analyse-fonctionnelle
 prerequis:
   - cahier-des-charges-fonctionnel
