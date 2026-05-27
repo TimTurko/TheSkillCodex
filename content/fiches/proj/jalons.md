@@ -15,7 +15,7 @@ draft: false
 
 Les **jalons** sont les points de validation qui rythment un projet : ils marquent la transition entre deux phases et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante — il décale tout l'aval.
 
-![Jalons — frise générique d'un projet en cycle en V](../../ressources/img/jalons-generique.svg)
+![Jalons — frise générique d'un projet en cycle en V](/ressources/img/jalons-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -37,7 +37,7 @@ Trois temps :
 
 *Illustration sur un cas concret : projet de station météo connectée sur 15 semaines.*
 
-![Jalons d'un projet de station météo connectée](../../ressources/img/jalons-station-meteo.svg)
+![Jalons d'un projet de station météo connectée](/ressources/img/jalons-station-meteo.svg)
 
 ## Pièges
 

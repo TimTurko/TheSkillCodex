@@ -14,7 +14,7 @@ draft: false
 
 La **matrice de décision** est l'outil d'arbitrage argumenté entre solutions techniques candidates : on liste les solutions en colonnes, les critères de choix pondérés en lignes, on note chaque solution sur chaque critère et la somme pondérée donne un classement justifiable. Elle est l'outil canonique de la phase de [[concept|concept]] pour choisir, par sous-système, une solution technique sans tomber dans l'arbitraire ni dans la fausse intuition.
 
-![Matrice de décision — tableau générique 3 solutions × 5 critères pondérés](../../ressources/img/matrice-de-decision-generique.svg)
+![Matrice de décision — tableau générique 3 solutions × 5 critères pondérés](/ressources/img/matrice-de-decision-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -37,7 +37,7 @@ Quatre temps :
 
 *Illustration sur un cas concret : choix d'une stratégie d'alimentation pour une station météo connectée en déploiement extérieur.*
 
-![Matrice de décision — choix d'alimentation d'une station météo connectée](../../ressources/img/matrice-de-decision-station-meteo.svg)
+![Matrice de décision — choix d'alimentation d'une station météo connectée](/ressources/img/matrice-de-decision-station-meteo.svg)
 
 ## Pièges
 

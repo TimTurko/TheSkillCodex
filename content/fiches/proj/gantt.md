@@ -17,7 +17,7 @@ draft: false
 
 Le **Gantt** (ou diagramme de Gantt) est l'outil graphique qui matérialise un [[retroplanning|rétroplanning]] : tâches en lignes, calendrier en colonnes, barres horizontales qui montrent durées et chevauchements. Sa force pédagogique tient à ce qu'il fait apparaître visuellement les **dépendances** entre tâches et les **goulots** où plusieurs tâches se chevauchent dangereusement.
 
-![Gantt — mini-diagramme générique : 4 tâches, 8 semaines, jalons et dépendance](../../ressources/img/gantt-generique.svg)
+![Gantt — mini-diagramme générique : 4 tâches, 8 semaines, jalons et dépendance](/ressources/img/gantt-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -43,7 +43,7 @@ Côté outils, trois options principales sont mobilisables : **Excel ou papier**
 
 *Illustration sur un cas concret : Gantt d'un projet de station météo connectée sur 15 semaines.*
 
-![Gantt d'un projet de station météo connectée](../../ressources/img/gantt-station-meteo.svg)
+![Gantt d'un projet de station météo connectée](/ressources/img/gantt-station-meteo.svg)
 
 ## Pièges
 

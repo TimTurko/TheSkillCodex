@@ -34,7 +34,7 @@ Le découpage produit ici n'est pas figé pour autant. L'exploration des solutio
 
 La décomposition se mène en deux passes successives : du système global aux **sous-systèmes** cohérents, puis de chaque sous-système aux **fonctions techniques** internes. Le résultat se représente naturellement en arborescence descendante, racine en haut.
 
-![Décomposition fonctionnelle — arborescence générique](../../ressources/img/decomposition-fonctionnelle-generique.svg)
+![Décomposition fonctionnelle — arborescence générique](/ressources/img/decomposition-fonctionnelle-generique.svg)
 
 ### Du système aux sous-systèmes
 
@@ -72,19 +72,19 @@ Le découpage se construit en **plusieurs passes**, pas en un jet unique. Premie
 Reprenons le bras robotique pédagogique 3 axes, dont la fonction principale **FP1** énonce : *« permettre à l'opérateur de manipuler le robot pour positionner un objet léger en un point du volume de travail »*. Trois découpages possibles, depuis l'énoncé inutilisable jusqu'à la décomposition directement exploitable à l'étape suivante.
 
 > [!failure] Mauvais
-> ![Décomposition fonctionnelle — mauvais exemple](../../ressources/img/decomposition-fonctionnelle-bras-mauvais.svg)
+> ![Décomposition fonctionnelle — mauvais exemple](/ressources/img/decomposition-fonctionnelle-bras-mauvais.svg)
 >
 > **Pourquoi c'est mauvais.** Le découpage **par discipline** (Élec / Méca / Info) reproduit l'organigramme de l'équipe, pas l'architecture du système. Il dit *qui travaille sur quoi*, pas *comment le système est organisé*. Les interfaces sont indéfinissables : la branche « Élec » ne porte aucune fonction technique tant qu'on ne sait pas quel sous-système elle alimente. Pire, ce découpage **interdit la suite** : impossible de construire une matrice de décision sur « la partie élec » — la matrice opère par fonction technique, pas par discipline.
 >
 > **Coût réel de cette erreur.** Sur ce projet, l'équipe a travaillé six semaines en silos disciplinaires en croyant suivre la méthode. Au moment de confronter les solutions disciplinaires, personne n'avait défini où passait la limite entre le contrôleur (info) et son alimentation (élec), ni qui spécifiait les engrenages côté méca/élec. Trois semaines supplémentaires pour redécomposer correctement et reprendre les arbitrages de l'étape 2.
 
 > [!warning] Moyen
-> ![Décomposition fonctionnelle — exemple moyen](../../ressources/img/decomposition-fonctionnelle-bras-moyen.svg)
+> ![Décomposition fonctionnelle — exemple moyen](/ressources/img/decomposition-fonctionnelle-bras-moyen.svg)
 >
 > **Pourquoi c'est moyen.** Les sous-systèmes sont bien fonctionnels (*Articulations*, *Pilotage*, *Énergie*) et chacun mobilise plusieurs disciplines — ce qui constitue déjà un net progrès sur la version disciplinaire. Mais le découpage souffre de deux faiblesses persistantes. **Déséquilibre de taille** : *Articulations* concentre l'essentiel de la matière technique (génération du couple, mesure de position, asservissement, synchronisation des trois axes), tandis qu'*Énergie* se réduit à *« fournir l'alimentation »*. **Interfaces incomplètement décrites** : la frontière entre *Articulations* et *Pilotage* n'est pas tranchée — la boucle d'asservissement traverse les deux blocs, qui en porte la responsabilité ? Tant que la frontière n'est pas explicitée, deux étudiants travaillant en parallèle sur ces deux sous-systèmes ne peuvent pas avancer indépendamment.
 
 > [!example] Bon
-> ![Décomposition fonctionnelle — bon exemple](../../ressources/img/decomposition-fonctionnelle-bras-3-axes.svg)
+> ![Décomposition fonctionnelle — bon exemple](/ressources/img/decomposition-fonctionnelle-bras-3-axes.svg)
 >
 > **Pourquoi c'est bon.** Le découpage en **mobilité articulaire / interface utilisateur / alimentation et sécurité** respecte les trois critères du bon découpage. Tailles comparables : chaque sous-système porte 3 à 4 fonctions techniques internes d'effort similaire. Interfaces nettes : *mobilité articulaire* reçoit une consigne de position depuis *interface utilisateur* et une puissance régulée depuis *alimentation et sécurité*, et renvoie une position mesurée. Chacun mobilise élec, méca et info — il n'y a pas de bloc mono-disciplinaire. Les fonctions techniques sont chacune directement adressables par une solution candidate : *« générer un couple sur chaque axe »* appelle 2-5 candidats (servomoteur, moteur pas-à-pas, moteur DC + réducteur…) confrontables en [[matrice-de-decision|matrice de décision]]. Le découpage prépare directement l'étape 2 du concept.
 

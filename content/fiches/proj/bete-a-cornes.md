@@ -37,7 +37,7 @@ La bête à cornes répond à trois questions, dans cet ordre :
 
 Le schéma classique relie ces trois éléments au système placé au centre :
 
-![Bête à cornes — schéma générique](../../ressources/img/bete-a-cornes-generique.svg)
+![Bête à cornes — schéma générique](/ressources/img/bete-a-cornes-generique.svg)
 
 ### Méthode de remplissage
 
@@ -51,19 +51,19 @@ Le schéma classique relie ces trois éléments au système placé au centre :
 Un projet de bras robotique destiné à être déployé dans des écoles d'ingénieurs pour soutenir l'enseignement de la cinématique des manipulateurs.
 
 > [!failure] Mauvais
-> ![Bête à cornes — mauvais exemple](../../ressources/img/bete-a-cornes-bras-mauvais.svg)
+> ![Bête à cornes — mauvais exemple](/ressources/img/bete-a-cornes-bras-mauvais.svg)
 >
 > **Pourquoi c'est mauvais.** « 6 servomoteurs » et « Arduino » sont des choix de solution — la bête à cornes doit rester agnostique de l'implémentation. « Faire bouger » n'est pas un but, c'est une fonction technique. Le besoin pédagogique, raison d'être du projet, a disparu.
 >
 > **Coût réel de cette erreur.** Sur ce projet, l'équipe a tenu cette formulation deux mois avant de revenir en arrière : les servomoteurs choisis trop tôt se sont révélés inadaptés aux exigences réelles du bras, l'équipe a dû basculer sur des moteurs pas-à-pas. Deux mois de dimensionnement, de soudures et de code à refaire — erreur qui aurait été évitée si la bête à cornes n'avait pas verrouillé la technologie d'actionneur dès la phase de spec.
 
 > [!warning] Moyen
-> ![Bête à cornes — exemple moyen](../../ressources/img/bete-a-cornes-bras-moyen.svg)
+> ![Bête à cornes — exemple moyen](/ressources/img/bete-a-cornes-bras-moyen.svg)
 >
 > **Pourquoi c'est moyen.** Le public est ciblé, la posture besoin (et non solution) est respectée. Mais « mieux comprendre les bras robotiques » est trop vague pour être évaluable — comprendre quoi exactement ? « Compréhension de la robotique » comme matière d'œuvre est imprécis : le système agit sur l'**apprentissage** de l'étudiant, pas sur la robotique en tant que discipline.
 
 > [!example] Bon
-> ![Bête à cornes — bon exemple](../../ressources/img/bete-a-cornes-bras-bon.svg)
+> ![Bête à cornes — bon exemple](/ressources/img/bete-a-cornes-bras-bon.svg)
 >
 > **Pourquoi c'est bon.** La cible est précisée (découverte, pas perfectionnement), la matière d'œuvre est un apprentissage circonscrit à un objet précis, et le but énonce les compétences visées sans rien décider de l'implémentation. Un simulateur logiciel, un bras physique, un Arduino ou un STM32 sont toutes des solutions encore ouvertes à ce stade — c'est exactement ce qu'on veut.
 

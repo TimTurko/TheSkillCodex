@@ -16,7 +16,7 @@ draft: false
 
 Le **rétroplanning** est la technique de planification à rebours : on part de la date butoir (soutenance, livraison finale) et on remonte le temps en posant d'abord les [[jalons|jalons]] de fin de phase, puis en inscrivant les tâches du [[wbs|WBS]] entre ces jalons. C'est la méthode adaptée aux projets à **date de fin imposée** — typiquement les projets école, où le calendrier scolaire fixe la soutenance.
 
-![Rétroplanning — construire à rebours depuis la date butoir](../../ressources/img/retroplanning-generique.svg)
+![Rétroplanning — construire à rebours depuis la date butoir](/ressources/img/retroplanning-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -40,7 +40,7 @@ Cinq étapes, dans l'ordre :
 
 *Illustration sur un cas concret : rétroplanning d'un projet de station météo connectée sur 15 semaines.*
 
-![Rétroplanning d'un projet de station météo connectée](../../ressources/img/retroplanning-station-meteo.svg)
+![Rétroplanning d'un projet de station météo connectée](/ressources/img/retroplanning-station-meteo.svg)
 
 ## Pièges
 

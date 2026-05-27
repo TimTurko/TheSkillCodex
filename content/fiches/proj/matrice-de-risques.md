@@ -15,7 +15,7 @@ draft: false
 
 La **matrice de risques** est l'outil d'anticipation des aléas du projet : on identifie les principaux risques, on les **cote selon leur probabilité et leur gravité**, et on définit pour chacun une parade (prévention, atténuation, plan B). En projet école, 5 à 10 risques majeurs suffisent ; ce qui compte n'est pas l'exhaustivité initiale mais **l'actualisation régulière** à chaque revue de phase.
 
-![Matrice probabilité × gravité — grille 3 × 3 générique](../../ressources/img/matrice-de-risques-generique.svg)
+![Matrice probabilité × gravité — grille 3 × 3 générique](/ressources/img/matrice-de-risques-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -37,7 +37,7 @@ Trois temps :
 
 *Illustration sur un cas concret : six risques majeurs positionnés sur un projet de station météo connectée, avec parades associées.*
 
-![Six risques majeurs — projet station météo connectée](../../ressources/img/matrice-de-risques-station-meteo.svg)
+![Six risques majeurs — projet station météo connectée](/ressources/img/matrice-de-risques-station-meteo.svg)
 
 ## Pièges
 

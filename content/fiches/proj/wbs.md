@@ -17,7 +17,7 @@ draft: false
 
 Le **WBS** (*Work Breakdown Structure*) est l'outil de découpage d'un projet en éléments traçables, du livrable global vers les tâches élémentaires. Il sert de référence partagée pour répartir le travail dans l'équipe et garantir qu'aucune tâche structurante n'est oubliée. En projet école, **deux à trois niveaux de profondeur suffisent** : phase → sous-livrable → tâche concrète.
 
-![WBS — arbre de décomposition générique sur trois niveaux](../../ressources/img/wbs-generique.svg)
+![WBS — arbre de décomposition générique sur trois niveaux](/ressources/img/wbs-generique.svg)
 
 ## À quoi ça sert ?
 
@@ -39,7 +39,7 @@ Trois temps :
 
 *Illustration sur un cas concret : WBS d'un projet de station météo connectée, découpé par sous-système plutôt que par discipline.*
 
-![WBS d'un projet de station météo connectée](../../ressources/img/wbs-station-meteo.svg)
+![WBS d'un projet de station météo connectée](/ressources/img/wbs-station-meteo.svg)
 
 ## Pièges
 
