@@ -1,13 +1,16 @@
-# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-25 suite 4)
+# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-26 suite 2)
 
-> Archive des sessions antérieures au 25/05 suite 5, déplacées hors du JOURNAL
+> Archive des sessions antérieures au 26/05 suite 3, déplacées hors du JOURNAL
 > principal lors des nettoyages documentaires successifs : 25/05 suite 3
 > pour les sessions 19→21/05 (mise en place initiale, flowcharts de phase),
 > 26/05 suite pour les sessions 22→24/05 (squelettes du V, charte
-> callouts v2, rédaction complète de `specification-technique.md`), puis
+> callouts v2, rédaction complète de `specification-technique.md`),
 > 26/05 suite 4 pour les sessions 25/05 → 25/05 suite 4 (première vague de
 > trames transverses, fiches-notion + SVG, nettoyage documentaire, concept
-> étapes 1-2).
+> étapes 1-2), puis 27/05 suite 2 pour les sessions 26/05 → 26/05 suite 2
+> (livraison `integration-et-tests` trame 5, livraison `securite-et-qualite`
+> trame transverse 3 + cadrage session AA, cartographie AA passe B 8 fiches +
+> catégorie Hors scope).
 >
 > Périmètre couvert par cette archive :
 > - **19-20/05** : mise en place du dépôt et du site (Quartz, conventions,
@@ -175,7 +178,43 @@ Bloc à archiver = 7 sessions (22/05 + 22/05 suite + 23/05 + 23/05 suite + 23/05
 
 **Stratégie validée : MARKER temporaire + N segments**. Pattern à acter comme procédure standard pour gros déplacements de blocs.
 
-**Phase 1 — Insertion archive (5 étapes)** : pose marker `## 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
+**Phase 1 — Insertion archive (5 étapes)** : pose marker `<!-- ARCHIVE_INSERT_MARKER -->` juste avant `## 2026-05-21 (suite 2)` dans `JOURNAL-archive.md` → insertion seg3 (22/05 ×2, ~20 ko) → seg2 (23/05 ×3, ~24 ko — payload le plus gros, sous seuil) → seg1 (24/05 ×2, ~17 ko) → retrait marker. Antichronologie respectée : 24/05 (suite 2) — 24/05 (suite) — 24/05 — 23/05 (suite 2) — 23/05 (suite) — 23/05 — 22/05 (suite) — 22/05 — 21/05 (suite 2).
+
+**Phase 2 — Trim JOURNAL.md (5 étapes)** : T1 seg1 supprimé → T2 seg2 supprimé → **T3 bloqué EPERM** (verrou Windows, Obsidian focus sur JOURNAL.md) → T3 réussi après libération du verrou (changement d'onglet dans Obsidian) → T4 warning préambule supprimé + mise à jour de la phrase « antérieures au 25/05 » + résumé d'archive élargi → T5 séparateur orphelin nettoyé + commentaire HTML final mis à jour (mentionne les deux vagues d'archivage : 25/05 pour 19→21/05 + 24/05 suite 2, et 26/05 suite pour 22→24/05 suite).
+
+**Bilan tailles** : JOURNAL.md 156 → 96 ko (−60 ko), JOURNAL-archive.md 60 → 119 ko (+59 ko). Cohérent.
+
+### Leçons méthodo
+
+**C14 seuil ~30 ko validé** : un `edit_file` de 24 ko net + 200 chars d'anchor passe sans souci. Marge confortable à 25 ko. La zone d'échec silencieux semble commencer plus haut que documenté initialement (à ré-éprouver à froid pour calibrage).
+
+**Nouveau piège distinct du seuil C14 — verrou Windows EPERM** : quand Obsidian a le fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS, pas de payload. Remède : changer d'onglet dans Obsidian (libère le verrou, pas besoin de fermer Obsidian). À documenter dans `conventions.md` § 7 comme amendement C14.
+
+**Pattern MARKER + N segments** : stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP. À capitaliser comme procédure standard si la situation se reproduit (typiquement les archivages JOURNAL ultérieurs).
+
+### Cadrage prochaine session — cartographie AA
+
+Référentiel école à jour rangé dans `_drafts/referentiel/Compétences.xlsx` (sous-dossier `referentiel/` créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz, document de pilotage interne. Également uploadé dans le projet Claude.ai pour accès `/mnt/project/` en début de session.
+
+3 questions méthodo à trancher en début de session AA :
+1. **Format de cartographie** : champ `aa: [...]` dans front matter (C9, jamais rempli) / table centralisée dans `hub/index.md` / les deux ?
+2. **Granularité** : un AA effleuré compte-t-il comme couvert, ou faut-il un seuil (fiche dédiée OU section dédiée) ?
+3. **Ordre de traitement** : par domaine du référentiel (EEE → MIA → MEO → PROJ → MME → ESE) ou par fiche existante (lecture en aveugle de chaque fiche, lister les AA couverts, recoupement) ?
+
+Mode : niveau C jusqu'aux conventions stabilisées sur 2-3 fiches, puis niveau B sur l'exécution répétitive.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie (`gestion-de-projet`, `ecoconception`, `securite-et-qualite`), à acter à froid (niveau C requis).
+- **Amendement C14 — leçon EPERM Windows** : à intégrer dans `conventions.md` § 7 « En cours d'éprouvage ».
+- **Cartographie 107 AA** : session dédiée à programmer (prochaine session, voir cadrage ci-dessus).
+- **Convention emplacement référentiels** : `_drafts/referentiel/` pour les documents école externes — à documenter formellement si confirmé sur un 2e cas.
+- **Re-calibrage seuil C14** : la valeur exacte du seuil pratique mérite éprouvage à froid (24 ko passe, 50 ko échoue le 25/05 suite 8 — zone intermédiaire 30-40 ko à explorer).
+- **Commit/push** : rattrapage depuis 19/05 (8+ sessions accumulées) + session courante — à faire en fin de session.
+
+---
+
+## 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
 
 ### Périmètre de session
 Approfondissement complet de `integration-et-tests.md` (5ᵉ et dernière trame du V) sur session démarrée sur PC pro. Session structurée en 3 actes à froid de capitalisation documentaire (rotation glissante TODO + promotions C10 et C12) puis cadrage voie C en 5 questions tranchées + arbitrage d'un conflit pédagogique détecté entre squelette 22/05 et demande Q1 utilisateur, puis rédaction complète en niveau A des 5 étapes (rythme 2/3/3/2/2 H4 dont 1 cas exception multi-disciplinaire et 1 cas pyramide compressée) + Pièges + Équipe + cohérence finale 4 passes.
@@ -261,44 +300,6 @@ Avec la clôture de `integration-et-tests`, les 5 trames du V sont approfondies 
 Taille actuelle estimée 140 ko (au-dessus du seuil 100 ko). Archivage 22-24/05 toujours pendant en tâche manuelle utilisateur (procédure dans TODO Manipulations manuelles, voir convention 14 sur le seuil pratique MCP).
 
 ---
-
-<!-- ARCHIVE_INSERT_MARKER -->` juste avant `## 2026-05-21 (suite 2)` dans `JOURNAL-archive.md` → insertion seg3 (22/05 ×2, ~20 ko) → seg2 (23/05 ×3, ~24 ko — payload le plus gros, sous seuil) → seg1 (24/05 ×2, ~17 ko) → retrait marker. Antichronologie respectée : 24/05 (suite 2) — 24/05 (suite) — 24/05 — 23/05 (suite 2) — 23/05 (suite) — 23/05 — 22/05 (suite) — 22/05 — 21/05 (suite 2).
-
-**Phase 2 — Trim JOURNAL.md (5 étapes)** : T1 seg1 supprimé → T2 seg2 supprimé → **T3 bloqué EPERM** (verrou Windows, Obsidian focus sur JOURNAL.md) → T3 réussi après libération du verrou (changement d'onglet dans Obsidian) → T4 warning préambule supprimé + mise à jour de la phrase « antérieures au 25/05 » + résumé d'archive élargi → T5 séparateur orphelin nettoyé + commentaire HTML final mis à jour (mentionne les deux vagues d'archivage : 25/05 pour 19→21/05 + 24/05 suite 2, et 26/05 suite pour 22→24/05 suite).
-
-**Bilan tailles** : JOURNAL.md 156 → 96 ko (−60 ko), JOURNAL-archive.md 60 → 119 ko (+59 ko). Cohérent.
-
-### Leçons méthodo
-
-**C14 seuil ~30 ko validé** : un `edit_file` de 24 ko net + 200 chars d'anchor passe sans souci. Marge confortable à 25 ko. La zone d'échec silencieux semble commencer plus haut que documenté initialement (à ré-éprouver à froid pour calibrage).
-
-**Nouveau piège distinct du seuil C14 — verrou Windows EPERM** : quand Obsidian a le fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS, pas de payload. Remède : changer d'onglet dans Obsidian (libère le verrou, pas besoin de fermer Obsidian). À documenter dans `conventions.md` § 7 comme amendement C14.
-
-**Pattern MARKER + N segments** : stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP. À capitaliser comme procédure standard si la situation se reproduit (typiquement les archivages JOURNAL ultérieurs).
-
-### Cadrage prochaine session — cartographie AA
-
-Référentiel école à jour rangé dans `_drafts/referentiel/Compétences.xlsx` (sous-dossier `referentiel/` créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz, document de pilotage interne. Également uploadé dans le projet Claude.ai pour accès `/mnt/project/` en début de session.
-
-3 questions méthodo à trancher en début de session AA :
-1. **Format de cartographie** : champ `aa: [...]` dans front matter (C9, jamais rempli) / table centralisée dans `hub/index.md` / les deux ?
-2. **Granularité** : un AA effleuré compte-t-il comme couvert, ou faut-il un seuil (fiche dédiée OU section dédiée) ?
-3. **Ordre de traitement** : par domaine du référentiel (EEE → MIA → MEO → PROJ → MME → ESE) ou par fiche existante (lecture en aveugle de chaque fiche, lister les AA couverts, recoupement) ?
-
-Mode : niveau C jusqu'aux conventions stabilisées sur 2-3 fiches, puis niveau B sur l'exécution répétitive.
-
-### Décisions reportées (toujours en attente)
-- Toutes celles des sessions précédentes.
-- **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie (`gestion-de-projet`, `ecoconception`, `securite-et-qualite`), à acter à froid (niveau C requis).
-- **Amendement C14 — leçon EPERM Windows** : à intégrer dans `conventions.md` § 7 « En cours d'éprouvage ».
-- **Cartographie 107 AA** : session dédiée à programmer (prochaine session, voir cadrage ci-dessus).
-- **Convention emplacement référentiels** : `_drafts/referentiel/` pour les documents école externes — à documenter formellement si confirmé sur un 2e cas.
-- **Re-calibrage seuil C14** : la valeur exacte du seuil pratique mérite éprouvage à froid (24 ko passe, 50 ko échoue le 25/05 suite 8 — zone intermédiaire 30-40 ko à explorer).
-- **Commit/push** : rattrapage depuis 19/05 (8+ sessions accumulées) + session courante — à faire en fin de session.
-
----
-
-<!-- ARCHIVE_INSERT_MARKER -->
 
 <!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->
 
