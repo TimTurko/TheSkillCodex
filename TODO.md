@@ -5,7 +5,9 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = reprise rédaction phase 2** — `caracteriser-une-exigence` prioritaire (fiche-tuto, aliases `[critere, niveau, flexibilite]`, triplet + triptyque mauvais/moyen/bon calque `bete-a-cornes.md`). Puis `pcb` (mention gravure à l'anglaise interne école) et `amdec` (popover sémé dans `securite-et-qualite.md`).
+> **➜ Prochaine session = Phase 0 clôture phase 1 GP** — `decomposition-fonctionnelle` prioritaire (fiche-notion outil natif phase concept étape 1). Puis 7 notions phase 1 (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + **template `fiche-tuto.md`** + patches conventions (mini-hub imbriqué, fiche transverse multi-techno). Ensuite Phase 1 squelette transverse elec/info (8 fiches AA-centrées dont mini-hub `algorithme`).
+>
+> **Cadrage stratégique phase 2 elec/info acté 26/05 suite 5 (niveau D)** : (a) elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois ; (b) structure **squelette transverse** (AA + compétences pro communes, indépendantes du choix techno) + **embranchements technologiques** (familles MCU + outils spécifiques, modules autonomes) ; (c) 5 mini-hubs à structurer (`microcontroleur`, `algorithme`, `pcb`, `bus-de-communication`, `techno-sans-fil`) ; (d) roadmap structurée en 5 phases (Phase 0 clôture → Phase 5 alimentation continue) ; (e) 3 cercles de priorité publication : MVP strict (AA 100 %, ~21 sessions) / MVP étendu (~35 sessions) / cible complète (~70 sessions). MVP rentrée scolaire atteignable en 2-3 mois.
 >
 > **Chantier clôture méthodologique terminé 26/05 suite 4** : (a) promotions C1-C6 dans §§ 1-2 + C15-C16 dans nouveau § 7 *Référentiel AA* de `conventions.md` ; (b) synthèse globale 8 sections dans `_drafts/referentiel/couverture-en-cours.md` (ambition au-delà du référentiel actée comme posture éditoriale) ; (c) archivage 3e vague JOURNAL.md (sessions 25/05 → 25/05 suite 4) via pattern MARKER + N segments éprouvé, JOURNAL 122→86 ko.
 >
@@ -36,36 +38,97 @@
 - [x] ~~**Approfondissement des fiches phases du V**~~ : `concept.md` complet (25/05 suite 4-6, 27 patches). `preuve-de-concept.md` complet (25/05 suite 7, 5 étapes + 11 pièges + 4 ¶ équipe + 4 passes cohérence + round 2 wiki-links outils). `dossier-technique.md` complet (25/05 suite 8, alignement v2.1 + 5 étapes [étape 3 pré-rédigée autre Claude] + 11 pièges + 4 ¶ équipe + 0 patch cohérence + round 2 PCB). `integration-et-tests.md` complet (26/05, 27 patches : alignement v2.1 + 5 étapes voie C [2/3/3/2/2 H4 dont 3 H4 disciplinaires étape 2 et 3 H4 pyramide compressée étape 3] + 11 pièges + 4 ¶ équipe + 3 patches cohérence + round 2 validé). **Phase 1 du wiki = complète côté trames du V.**
 
 *Notions à produire en parallèle (popovers posés dès les squelettes)* :
-- [ ] **`pcb`** (fiche-tuto, popover posé dans `dossier-technique.md` étapes 2/4/5). Mention spécifique à inclure : **machine de gravure à l'anglaise** en interne école pour PCB monoface (pas de commande externe pour ce cas), routage logiciel + transfert physique. Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent).
-- [ ] `decomposition-fonctionnelle` (popover posé dans `concept.md` étape 1)
-- [ ] **`caracteriser-une-exigence`** (fiche-tuto **prioritaire**, front matter `aliases: [critere, niveau, flexibilite]`). Triplet + triptyque mauvais/moyen/bon (pattern `bete-a-cornes.md`) + échelle F0/F1/F2/F3.
-- [ ] **`unite-si`** (fiche-notion, popover posé étape 4 du 23/05 suite 2). Convention typographique unités SI.
-- [ ] **`etat-de-l-art-technique`** (tuto, popover posé étape 2)
-- [ ] **`bom`** (tuto, popover posé étape 2)
-- [ ] **`mind-map`** (notion, popover posé étape 3)
-- [ ] **`fast`** (tuto, popover posé étape 3 — à créer en phase 2 concept)
-- [ ] **`microcontroleur`** (fiche-notion, acronyme **MCU** en alias)
-- [ ] **`pla`** (fiche-notion matériau)
-- [ ] **`abs`** (fiche-notion matériau)
-- [ ] **`rohs`** (fiche-notion norme environnementale)
-- [ ] **`reach`** (fiche-notion norme environnementale)
-- [ ] **`deee`** (fiche-notion norme environnementale)
-- [ ] **`usinage`** (fiche-tuto procédé — délégué cours collègues)
-- [ ] **`impression-3d`** (fiche-tuto procédé — délégué cours collègues)
-- [ ] **`soudure`** (fiche-tuto procédé — délégué cours collègues)
+
+> **Roadmap phase 2 elec/info structurée** (actée 26/05 suite 5, niveau D). 3 sous-sections : Phase 0 clôture phase 1 GP / Phase 1 squelette transverse critique AA / Embranchements technologiques. Voir cadrage stratégique en tête de fichier.
+
+#### Phase 0 — Clôture phase 1 GP (~10 sessions, MVP rentrée)
+
+- [ ] `decomposition-fonctionnelle` (fiche-notion, popover posé dans `concept.md` étape 1) — **prochaine session**
+- [ ] `etat-de-l-art-technique` (fiche-tuto, popover posé `specification-technique.md` étape 2)
+- [ ] `bom` (fiche-tuto, popover posé étape 2)
+- [ ] `mind-map` (fiche-notion, popover posé étape 3)
+- [ ] `fast` (fiche-tuto, popover posé étape 3 — à créer en phase 2 concept)
+- [ ] **`amdec`** (fiche-tuto, popover sémé dans `securite-et-qualite.md`)
 - [ ] **`matrice-eat`** (fiche-tuto, outil canonique trame `ecoconception`, doublement prioritaire)
-- [ ] **`acv-simplifiee`** (fiche-notion, citée + déléguée)
-- [ ] **`ecodesign`** (fiche-notion, popover à poser dans `specification-technique.md` étape 6 + `ecoconception.md`). Lien direct référentiel : critère `RA-PROJET-C04-4/PROJ/5` (« Différencier écoconception et écodesign »). À articuler avec la fiche-trame `ecoconception.md` existante (transverse) — ecodesign = notion complémentaire pour préciser le périmètre.
-- [ ] **`analyse-de-schema-electronique`** (fiche-tuto EEE, nom provisoire). Lien direct référentiel : critère `RA-PROJET-C03-3/EEE/2` (« Analyser le comportement d'un sous-ensemble d'un schéma jusqu'au composant »). Trou phase 2 identifié via cartographie AA — effleuré en `concept.md` (étape 4 pré-dim) et en `preuve-de-concept.md` (étapes 3-4 mesures), mais sans traitement central. À produire en phase 2 du wiki.
-- [ ] **Fiches-tuto méthodes d'algorithme de commande** (groupe phase 2 EEE/info embarquée). Couvrent `RA-EEE-C03-2/EEE/5` (« Concevoir le système de commande du mécanisme par un algorithme à l'aide d'une méthode »). Convention pédagogique actée 26/05 suite 2 : **1 fiche par méthode** plutôt qu'une fiche regroupante (chaque méthode mérite son traitement, popovers distincts) :
-    - [ ] `logigramme` (fiche-tuto)
-    - [ ] `machine-a-etats` (fiche-tuto, alias `MAE`)
-    - [ ] `grafcet` (fiche-tuto)
-    - [ ] `chronogramme` (fiche-tuto)
-  Effleurées en `dossier-technique.md` étape 2 (« architecture logicielle détaillée », UML cité génériquement).
-- [ ] **`simulation-electronique`** (fiche-tuto EEE, ajout 26/05 suite 3 via passe A cartographie). Liens directs référentiel : critères `RA-PROJET-C03-3/EEE/3` (« Effectuer une simulation du système électronique ») et `/4` (« Interpréter les résultats de la simulation »). Groupe cohérent de 2 critères couverts par la même fiche (conforme C16). NC pur en phase 1, à produire phase 2.
-- [ ] **`schema-cinematique`** (fiche-tuto MME, ajout 26/05 suite 3 via passe A cartographie). Lien direct référentiel : critère `RA-MME-C02-1/MME/5` (« Réaliser un schéma cinématique du système »). NC pur en phase 1. **Statut à trancher niveau D** : fiche-tuto dans le wiki, ou délégation entière au cours collègues MME (auquel cas retrait du wiki-link rouge dans hub/index.md) ?
-- [ ] **`optimisation-mecanique`** (fiche-tuto MME, nom provisoire). Lien direct référentiel : critère `RA-MME-C03-1/MME/6` (« Optimiser la conception de la ou des pièces en fonction de critère de performance à définir : coût, déformée maximale, … »). Effleurée en `dossier-technique.md` étape 2. Périmètre potentiellement large — à cadrer en phase 2 (matériau, géométrie, allégement ?).
+- [ ] **`ecodesign`** (fiche-notion, popover à poser dans `specification-technique.md` étape 6 + `ecoconception.md`). Lien direct référentiel : critère `RA-PROJET-C04-4/PROJ/5`.
+- [ ] **Template `fiche-tuto.md`** à figer en transition Phase 0 → Phase 1 (modèle : calque `fiche-notion.md` + sections *Procédure pas à pas* + *Captures d'écran* + *Raccrochage projet*)
+- [ ] **Patches conventions** en transition : C18 mini-hub imbriqué (formalisation), C19 fiche transverse multi-techno (formalisation), patch couverture-en-cours § 6 (structure squelette + embranchements + stratégie MVP)
+
+#### Phase 1 — Squelette transverse critique AA elec/info (~8 sessions)
+
+Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formelles. Couvre 100 % des critères NC EEE.
+
+- [ ] `microcontroleur` (mini-hub mère, panorama familles MCU avec étiquette élargie *plateformes embarquées*)
+- [ ] **`lire-une-datasheet`** (fiche-tuto transverse, compétence pro)
+- [ ] **`analyse-de-schema-electronique`** (fiche-tuto transverse). Critère NC `RA-PROJET-C03-3/EEE/1`.
+- [ ] **`chronogramme`** (fiche-tuto transverse, jonction datasheet ↔ algorithme ↔ oscilloscope ; raccrochages multiples). Contribue au critère `RA-EEE-C03-2/EEE/5`.
+- [ ] **`algorithme`** (mini-hub mère pour 3 méthodes de description du flot de comportement)
+- [ ] **`logigramme`** (fiche-notion fille hub algorithme). Contribue à `RA-EEE-C03-2/EEE/5` (1/4).
+- [ ] **`machine-a-etats`** (fiche-notion fille hub algorithme, alias `MAE`). Contribue à `EEE/5` (2/4).
+- [ ] **`grafcet`** (fiche-notion fille hub algorithme). Contribue à `EEE/5` (3/4).
+
+→ **MVP strict atteint dès la fin de Phase 1 + 1er embranchement Arduino** (Phase 2 ci-dessous). Couverture AA 100 %. Site publiable.
+
+#### Phase 2 — Premier embranchement Arduino (~3 sessions, MVP strict publiable)
+
+- [ ] `arduino` (hub fille de `microcontroleur` — Uno + Mega, panorama écosystème)
+- [ ] `arduino-prise-en-main` (fiche-tuto)
+- [ ] `tinkercad` (fiche-tuto simu spécifique Arduino)
+
+#### Phase 3 — Squelette transverse pro (~10 sessions, MVP étendu)
+
+- [ ] `oscilloscope` (fiche-tuto compétence pro instrumentation)
+- [ ] `multimetre` (fiche-tuto compétence pro)
+- [ ] `firmware` (fiche-tuto transverse pure, archi code embarqué avec pseudocode ; rabbit hole possible mémoire / interruptions / RT non bloquante)
+- [ ] `debugger-embarque` (fiche-tuto compétence pro)
+- [ ] `pcb` (mini-hub mère, mention gravure à l'anglaise interne école, distinction monoface interne / double face externe JLCPCB)
+- [ ] `kicad` (fiche-tuto outil PCB principal, simu intégrée mention)
+- [ ] `bus-de-communication` (hub mère transverse)
+- [ ] `uart` (fiche-notion popover, fille hub bus)
+- [ ] `i2c` (fiche-notion popover, fille hub bus)
+- [ ] `spi` (fiche-notion popover, fille hub bus)
+
+#### Phase 4 — Second embranchement ESP32 (~4 sessions)
+
+- [ ] `esp32` (hub fille de `microcontroleur`)
+- [ ] `esp32-arduino-core` (fiche-tuto, entrée pratique)
+- [ ] `wokwi` (fiche-tuto simu spécifique ESP32)
+- [ ] `alimentation-electronique` (fiche-tuto compétence pro, raccrochage dossier-tech + intégration)
+
+#### Phase 5+ — Alimentation continue (~25 sessions)
+
+*Reste squelette transverse :*
+- [ ] `techno-sans-fil` (hub mère transverse)
+- [ ] `wifi`, `ble`, `xbee`, `zigbee`, `lora` (fiches-notion popovers, filles hub sans-fil)
+- [ ] `circuitverse` (fiche-tuto simu numérique en ligne, retenue 26/05 suite 5)
+- [ ] `ltspice` (fiche-tuto simu analogique desktop)
+- [ ] `easyeda` (fiche-tuto outil PCB altern, embranchement de choix)
+- [ ] `cable-management` (fiche-tuto, popover posé dans `integration-et-tests.md`)
+- [ ] `bom-electronique` (fiche-tuto compétence pro)
+- [ ] `falstad` (fiche-tuto simu altern, à évaluer si pertinent après CircuitVerse)
+
+*Embranchements technologiques restants :*
+- [ ] `esp32-idf` (fiche-tuto approfondissement, second tuto ESP32 après arduino-core)
+- [ ] `raspberry-pi` (hub fille, étiquette *plateforme embarquée* car SBC stricto sensu) + `raspberry-pi-prise-en-main`
+- [ ] `esp8266` (hub fille) + `esp8266-prise-en-main`
+- [ ] **Hubs prio 2** : `stm32`, `teensy`, `pic` (chacun = hub fille + tutos d'utilisation)
+- [ ] `pcb-gravure-ecole` (fiche-tuto spécifique monoface interne)
+
+#### Tutos EEE/info embarquée — méthodes commande hors mini-hub algorithme
+
+- [ ] **`chronogramme`** : voir Phase 1 ci-dessus (transverse, jonction datasheet/algorithme/oscilloscope)
+
+#### Tutos délégués cours collègues (mécanique / fabrication / ACV)
+
+- [ ] `usinage` (fiche-tuto procédé — délégué cours collègues)
+- [ ] `impression-3d` (fiche-tuto procédé — délégué cours collègues)
+- [ ] `soudure` (fiche-tuto procédé — délégué cours collègues)
+- [ ] `acv-simplifiee` (fiche-notion citée + déléguée)
+
+#### Tutos MME (statut à trancher niveau D)
+
+- [ ] `schema-cinematique` (fiche-tuto MME). Lien référentiel `RA-MME-C02-1/MME/5`. **Statut wiki vs délégation à trancher.**
+- [ ] `optimisation-mecanique` (fiche-tuto MME). Lien référentiel `RA-MME-C03-1/MME/6`. Périmètre à cadrer phase 2.
 
 ### 3. Templates à rédiger
 - [ ] **Template fiche-tuto** dans `templates/fiche-tuto.md` — reste à produire. Modèle potentiel : `schema-bloc-fonctionnel.md`. À traiter quand on aura une 2ᵉ fiche-tuto pour stabiliser les conventions.
@@ -148,6 +211,14 @@
 ## Fait
 
 *Voir `JOURNAL.md` pour l'historique détaillé. Rotation glissante : 3 dernières sessions seulement.*
+
+### Session 2026-05-26 (suite 5) — Livraison `caracteriser-une-exigence` + cadrage stratégique phase 2 elec/info
+- [x] **Fiche `caracteriser-une-exigence.md` livrée** (15,5 ko, calque bete-a-cornes complet, triplet critère/niveau/flexibilité, triptyque tableau mauvais/moyen/bon sur exigence FP1 bras 3 axes ± 5 mm F1, tableau F0/F1/F2/F3 avec colonne *Quand l'utiliser*, 6 pièges, cas particulier exigences binaires et réglementaires, wiki-link `unite-si` propagé × 2). Cadrage niveau C en 4 questions méthodo tranchées, rédaction niveau A en autonomie.
+- [x] **Cadrage stratégique phase 2 elec/info acté niveau D** : (a) posture éditoriale renforcée — elec/info devient le cœur du wiki, ~50-60 fiches phase 2 assumées ; (b) structure squelette transverse (AA + compétences pro communes) + embranchements technologiques (familles MCU + outils spécifiques) ; (c) 5 mini-hubs imbriqués identifiés (`microcontroleur`, `algorithme`, `pcb`, `bus-de-communication`, `techno-sans-fil`) ; (d) roadmap structurée en 5 phases (Phase 0 clôture phase 1 → Phase 5 alimentation continue) ; (e) 3 cercles de priorité publication (MVP strict / MVP étendu / cible complète) ; MVP rentrée scolaire ~21 sessions.
+- [x] **Choix techniques actés** : ESP32 Arduino-core puis IDF, hub `bus-de-communication` + hub `techno-sans-fil` avec fiches-notion popovers, Raspberry sous étiquette élargie *plateformes embarquées* dans hub MCU, CircuitVerse retenu pour simu numérique (testé par utilisateur), XBee reclassé en hub sans-fil (module hardware qui parle Zigbee/Wi-Fi), chronogramme transverse jonction datasheet/algorithme/oscilloscope (fiche autonome hors mini-hub algorithme), firmware transverse pur avec pseudocode et rabbit hole optionnel, fiches-tuto pivot phase 1 = fil rouge esquissée.
+- [x] **Refonte TODO** en 3 sous-sections roadmap (Phase 0 clôture phase 1 / Phase 1 squelette critique AA / Embranchements technologiques) avec ordre pédagogique datasheet → schéma → chronogramme → méthodes formelles. Flèche prochaine session patchée vers `decomposition-fonctionnelle`.
+- [x] **Conventions candidates en éprouvage** : C18 mini-hub imbriqué (5 cas identifiés), C19 fiche transverse multi-techno (à éprouver sur `firmware` et `analyse-de-schema-electronique`). C17 patch flèche TODO post-arbitrage éprouvée 2/N.
+- [x] **Limitation technique session** : serveur MCP `filesystem` (PC perso) déchargé entre l'écriture initiale de la fiche et la phase de clôture. Bascule sur `theskillcodex` (PC pro synchronisé via OneDrive/sync) pour appliquer les patches. Acquis : vérifier l'accès aux deux serveurs au démarrage de session, l'utilisateur peut indiquer la disponibilité si doute.
 
 ### Session 2026-05-26 (suite 4) — Clôture méthodologique : promotions conventions + synthèse globale couverture AA + archivage JOURNAL 3e vague
 - [x] **Acte 1 — Promotions conventions** (6 edits sur `conventions.md`) : retrait bannière § 7 acquise 25/05 suite (C1-C6), enrichissement bullet wiki-links § 2 (mode au fil + filet passe dédiée), création nouveau **§ 7 *Référentiel AA*** consolidant C15/C16 (codification critères, 4 catégories C/E/HS/NC + règle statut dominant, 1 fiche-tuto par critère EEE/info embarquée, front matter `aa`, référentiel source, 3 décisions niveau D ouvertes), renumérotation § 7 → § 8 *En cours d'éprouvage*, nettoyage redondance § 6.

@@ -24,15 +24,47 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] PWM (modulation de largeur d'impulsion)
 - [ ] PID (régulateur proportionnel-intégral-dérivé)
 - [ ] Asservissement
-- [ ] **`microcontroleur`** — fiche-notion racine, alias `MCU`. **Plan long terme (25/05 suite 7)** : la fiche devient une **page d'aiguillage** vers tutoriels par famille de microcontrôleurs : `[[stm32]]`, `[[esp32]]`, `[[micropython]]`, `[[arduino]]`, `[[teensy]]`, etc. Pose les notions communes (registres, périphériques, bus, IDE) puis renvoie vers les tutos spécifiques. À traiter en même temps que la fiche-tuto `arduino` pour cadrer l'architecture aiguillage.
-- [ ] **`arduino`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Plate-forme + IDE + écosystème. Distinguer du langage ; positionner dans la famille `microcontroleur`. **À traiter en même temps que la page d'aiguillage `microcontroleur`**.
-- [ ] **`stm32`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible avancée, registres, HAL/LL, CubeMX.
-- [ ] **`esp32`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible Wi-Fi/Bluetooth intégrés, Arduino Core ou ESP-IDF.
-- [ ] **`micropython`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Approche scriptée haut niveau pour microcontrôleurs.
-- [ ] **`teensy`** — fiche-tuto (mentionné dans le plan d'aiguillage `microcontroleur` 25/05 suite 7). Cible performance temps réel / DSP / MIDI.
-- [ ] **`multimetre`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Mesures de base (tension, courant, résistance, continuité), choix d'échelle, pièges classiques.
-- [ ] **`oscilloscope`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Lecture d'écran, calibration sonde, déclenchement, mesures de période/amplitude.
-- [ ] **`alimentation-stabilisee`** — fiche-tuto (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Tension/courant/limite, mode CV/CC, sécurité court-circuit.
+- [ ] **`microcontroleur`** — **hub mère** (re-cadrage 26/05 suite 5). Page d'aiguillage vers hubs filles familles MCU (mini-hubs imbriqués, convention C18). Familles priorité 1 : `arduino`, `esp32`, `esp8266`, `raspberry-pi` (sous étiquette élargie *plateformes embarquées*). Familles priorité 2 : `stm32`, `teensy`, `pic`. Chaque famille = hub fille + tutos d'utilisation. Pose les notions communes (registres, périphériques, bus, IDE) puis renvoie vers les tutos spécifiques.
+- [ ] **`arduino`** — **hub fille** de `microcontroleur` (re-cadrage 26/05 suite 5). Uno + Mega, panorama écosystème + tutos enfants : `arduino-prise-en-main`, `tinkercad` (simu spécifique). Popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7.
+- [ ] **`stm32`** — hub fille priorité 2. Cible avancée, registres, HAL/LL, CubeMX.
+- [ ] **`esp32`** — **hub fille** de `microcontroleur` (re-cadrage 26/05 suite 5). Wi-Fi/Bluetooth intégrés. Tutos enfants : `esp32-arduino-core` (entrée), `esp32-idf` (approfondissement), `wokwi` (simu spécifique).
+- [ ] **`esp8266`** — hub fille priorité 1. Wi-Fi intégré, alternative économique à l'ESP32.
+- [ ] **`raspberry-pi`** — hub fille priorité 1 (étiquette *plateforme embarquée* car SBC stricto sensu). Tutos enfants : `raspberry-pi-prise-en-main`.
+- [ ] **`micropython`** — fiche-tuto approche scriptée haut niveau (positionnement à trancher : tuto autonome ou enfant de hub MCU ?).
+- [ ] **`teensy`** — hub fille priorité 2. Performance temps réel / DSP / MIDI.
+- [ ] **`pic`** — hub fille priorité 2.
+- [ ] **`algorithme`** — mini-hub mère (acquis 26/05 suite 5). Regroupe 3 méthodes de description du flot de comportement : `logigramme`, `machine-a-etats` (MAE), `grafcet`. Critique pour la couverture du critère `RA-EEE-C03-2/EEE/5`.
+- [ ] **`logigramme`** — fiche-notion fille hub algorithme. Représentation graphique d'une séquence d'instructions/décisions.
+- [ ] **`machine-a-etats`** — fiche-notion fille hub algorithme, alias `MAE`. Automate fini, états et transitions sur événements.
+- [ ] **`grafcet`** — fiche-notion fille hub algorithme. Graphe de commande étape-transition, norme IEC 60848.
+- [ ] **`chronogramme`** — fiche-tuto transverse (acquis 26/05 suite 5). Jonction datasheet ↔ algorithme ↔ oscilloscope. Diagramme temporel, X = temps, Y = signaux. **Hors mini-hub algorithme** (sémantique différente : signaux dans le temps vs flot de comportement). Contribue au critère `RA-EEE-C03-2/EEE/5`.
+- [ ] **`bus-de-communication`** — hub mère transverse (acquis 26/05 suite 5). Filles : `uart`, `i2c`, `spi` (fiches-notion popovers, convention C16 = 1 fiche par solution). Optionnel ultérieur : `can`, `rs-485`.
+- [ ] **`uart`** — fiche-notion popover, fille hub bus.
+- [ ] **`i2c`** — fiche-notion popover, fille hub bus.
+- [ ] **`spi`** — fiche-notion popover, fille hub bus.
+- [ ] **`techno-sans-fil`** — hub mère transverse (acquis 26/05 suite 5). Filles : `wifi`, `ble`, `xbee`, `zigbee`, `lora`. Tutorial racine à produire.
+- [ ] **`wifi`** — fiche-notion popover, fille hub sans-fil.
+- [ ] **`ble`** — fiche-notion popover, fille hub sans-fil (Bluetooth Low Energy).
+- [ ] **`xbee`** — fiche-notion popover, fille hub sans-fil. Module Digi qui parle Zigbee/Wi-Fi.
+- [ ] **`zigbee`** — fiche-notion popover, fille hub sans-fil. Protocole IEEE 802.15.4.
+- [ ] **`lora`** — fiche-notion popover, fille hub sans-fil.
+- [ ] **`lire-une-datasheet`** — fiche-tuto transverse compétence pro (acquis 26/05 suite 5). Lecture structurée d'une datasheet : pinout, valeurs nominales, chronogrammes, exemples d'application. Première fiche à éprouver pour la convention C19 (fiche transverse multi-techno).
+- [ ] **`analyse-de-schema-electronique`** — fiche-tuto transverse compétence pro. Critère NC `RA-PROJET-C03-3/EEE/1` (couvert dans Phase 1 squelette critique AA). À éprouver pour la convention C19 (fiche transverse multi-techno).
+- [ ] **`firmware`** — fiche-tuto transverse pure (re-cadrage 26/05 suite 5). Archi code embarqué avec pseudocode (pas d'exemple spécifique à un MCU). Sections en option : rabbit hole gestion mémoire / interruptions / programmation RT non bloquante. À éprouver pour la convention C19. Popover posé dans `integration-et-tests.md`.
+- [ ] **`debugger-embarque`** — fiche-tuto compétence pro. SWD, JTAG, printf, breakpoints.
+- [ ] **`pcb`** — **mini-hub mère léger** (re-cadrage 26/05 suite 5). Mention machine de gravure à l'anglaise interne école, distinction monoface interne / double face externe JLCPCB. Tutos enfants : `kicad`, `easyeda`. Popover posé dans `dossier-technique.md` étapes 2/4/5.
+- [ ] **`kicad`** — fiche-tuto outil PCB principal (open source, double face). Simu intégrée mention possible.
+- [ ] **`easyeda`** — fiche-tuto outil PCB altern (en ligne, JLCPCB-friendly). Embranchement de choix outil.
+- [ ] **`pcb-gravure-ecole`** — fiche-tuto spécifique monoface interne école. À produire ultérieurement (alimentation continue).
+- [ ] **`circuitverse`** — fiche-tuto simu numérique en ligne (retenu 26/05 suite 5 après test utilisateur). Squelette transverse.
+- [ ] **`ltspice`** — fiche-tuto simu analogique desktop. Squelette transverse.
+- [ ] **`tinkercad`** — fiche-tuto simu Arduino (embranchement Arduino).
+- [ ] **`wokwi`** — fiche-tuto simu ESP32 (embranchement ESP32).
+- [ ] **`falstad`** — fiche-tuto simu altern, à évaluer après CircuitVerse. Squelette transverse.
+- [ ] **`multimetre`** — fiche-tuto compétence pro (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Mesures de base (tension, courant, résistance, continuité), choix d'échelle, pièges classiques.
+- [ ] **`oscilloscope`** — fiche-tuto compétence pro (popover posé dans `preuve-de-concept.md` Stock standard, 25/05 suite 7). Lecture d'écran, calibration sonde, déclenchement, mesures.
+- [ ] **`alimentation-electronique`** — fiche-tuto compétence pro (re-cadrage 26/05 suite 5, ex `alimentation-stabilisee`). Régulation, découplage, masse, mode CV/CC, sécurité court-circuit.
+- [ ] **`bom-electronique`** — fiche-tuto compétence pro. Au-delà du `bom` générique projet, focus composants élec.
 - [ ] Alimentation d'un système embarqué
 - [ ] Pull-up / pull-down
 - [ ] **`niveau-logique`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 H4-1 + section Équipe, 26/05). Compatibilité 3,3 V / 5 V, level shifters, pièges classiques de cohabitation MCU / drivers / capteurs.
@@ -40,8 +72,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] Filtrage analogique de base
 - [ ] Masse électrique, plan de masse
 - [ ] Découplage (condensateurs)
-- [ ] **`cable-management`** — fiche-tuto (popover posé dans `integration-et-tests.md` section Équipe, 26/05). Routage des câbles, attaches, repérage, anti-arrachement, protection en mouvement. Probablement délégable aux collègues méca ou dédié équipement.
-- [ ] **PCB** (fiche-tuto : concevoir et faire fabriquer un PCB pour un projet étudiant). **Info 25/05 suite 8** : inclure la **production interne école sur machine de gravure à l'anglaise** pour PCB monoface (pas de commande externe pour ce cas). Distinguer PCB monoface interne / PCB double face externe (JLCPCB ou équivalent). Popover posé dans `dossier-technique.md` étapes 2/4/5.
+- [ ] **`cable-management`** — fiche-tuto (popover posé dans `integration-et-tests.md` section Équipe, 26/05). Routage des câbles, attaches, repérage, anti-arrachement, protection en mouvement.
 
 ### MIA — Informatique embarquée
 - [ ] **`firmware`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 intro + H4-3 + section Équipe, 26/05). Définition (logiciel embarqué dans un MCU), distinction firmware / driver / application, cycle de vie (compilation → flashage → exécution → mise à jour). À articuler avec `microcontroleur` page d'aiguillage.

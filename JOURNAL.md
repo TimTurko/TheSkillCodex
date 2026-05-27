@@ -10,6 +10,115 @@
 
 ---
 
+## 2026-05-26 (suite 5) — Cadrage stratégique phase 2 elec/info + livraison `caracteriser-une-exigence`
+
+### Périmètre de session
+Session double : (1) rédaction de la fiche-tuto `caracteriser-une-exigence` (pivot phase 1, aliases `[critere, niveau, flexibilite]`, calque `bete-a-cornes`) ; (2) cadrage stratégique de la phase 2 elec/info en réponse à la demande utilisateur d'une roadmap de tutos elec/info raccrochés aux phases du V. Le cadrage stratégique a pris l'essentiel de la session après livraison de la fiche. PC perso, préfixe MCP `filesystem:*` puis bascule sur `theskillcodex:*` (PC pro synchronisé) en fin de session après déchargement du serveur filesystem.
+
+### Livraison `caracteriser-une-exigence.md` (15,5 ko)
+
+4 questions méthodo tranchées en cadrage niveau C en début de session :
+- **Q1 — Structure triptyque** : 1 exigence (FP1 bras 3 axes) déclinée en 3 niveaux de qualité, pas 3 triptyques séparés. Critère/niveau/flexibilité = triplet indissociable, pas trois objets pédagogiques distincts.
+- **Q2 — F0/F1/F2/F3** : tableau 4 lignes dans H3 *La flexibilité*, pas section H2 séparée. Sous-élément de la méthode, pas objet de niveau égal.
+- **Q3 — Fil rouge bras 3 axes** retenu (vs cas autonome). Trois arguments : (a) fiche-tuto pivot phase 1 fonctionnellement plus proche d'une trame, (b) critères CdCF chiffrés déjà figés (22/05) directement réutilisables, (c) crée boucle de lecture intra-wiki avec `specification-technique.md` étape 4. Esquisse une **convention candidate** : « fiches-tuto pivot phase 1 = fil rouge, fiches-notion historiques = cas autonome » — à éprouver sur PCB et AMDEC.
+- **Q4 — Profondeur** : calque bete-a-cornes complet visé, profondeur livrée à 15,5 ko sous la cible 25-30 ko (économe assumé, à étoffer en round 2 si manque de respiration).
+
+Rédaction niveau A en autonomie après cadrage. Structure : popover → À quoi ça sert (3 rôles : opposabilité, évaluation finale, arbitrage en cours de route) → Comment caractériser (intro + 3 H3 : critère / niveau / flexibilité avec tableau F0/F1/F2/F3 + colonne *Quand l'utiliser*) → Exemple bras 3 axes avec triptyque mauvais/moyen/bon en tableaux markdown 3 lignes (composant / valeur retenue) → Pièges (6 entrées format gras court + explication) → Cas particulier exigences binaires et réglementaires → Voir aussi.
+
+Choix structurels assumés :
+- Pas de SVG produit (caractérisation = format textuel d'énoncé, pas forme graphique canonique comme bête à cornes ou pieuvre).
+- Triptyque en **tableaux markdown** au lieu de SVG, cohérent avec la nature de la notion — pattern à acter si retenu pour les fiches-notion d'outils textuels (vs outils graphiques).
+- Colonne *Quand l'utiliser* ajoutée au tableau F0/F1/F2/F3 (utile pédagogiquement, à statuer en round 2).
+- Wiki-link `unite-si` propagé × 2 (popover déjà rouge dans spec-tech étape 4, déblocage transverse à venir intégré dans Phase 0 clôture phase 1 GP).
+
+### Cadrage stratégique phase 2 elec/info — décisions majeures
+
+Demande utilisateur : roadmap des tutos elec/info raccrochés aux phases du V, deux voies prioritaires (AA école + compétences pro pour aller plus loin). Cinq cycles d'échange en niveau D ont consolidé un cadrage majeur. Synthèse :
+
+**1. Posture éditoriale renforcée** : elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois de travail. Inflation de périmètre (× 7 par rapport à l'estimation initiale 8 fiches phase 2). Posture inscrite dans la section 6 *Ambition au-delà du référentiel* de `couverture-en-cours.md` (nouvelle sous-section *Phase 2 elec/info — cœur du wiki* ajoutée en fin de session).
+
+**2. Structure squelette transverse + embranchements technologiques** — distinction structurante pour publication progressive :
+- **Squelette transverse** = fiches indépendantes du choix techno, couvrent tous les AA pour n'importe quel chemin technologique suivi. Socle pédagogique publiable.
+- **Embranchements technologiques** = fiches spécifiques à une famille MCU et ses outils de simu liés. Chaque famille forme un module autonome complétable au fil de l'eau.
+- Un étudiant 100 % ESP32 doit voir tous les AA via squelette + module ESP32. Pareil pour Arduino, Raspberry Pi.
+- **Conséquence opérationnelle** : publication site possible à la rentrée scolaire dès que squelette transverse complet + ≥1 embranchement complet (idéalement Arduino).
+
+**3. Hiérarchie mini-hubs imbriqués** — 5 mini-hubs à structurer :
+- `microcontroleur` (hub mère panorama → hubs filles familles MCU → tutos d'utilisation, 2 niveaux d'imbrication)
+- `algorithme` (mini-hub mère → 3 fiches-notion filles : logigramme/MAE/grafcet)
+- `pcb` (hub léger → 2 tutos outils : kicad/easyeda)
+- `bus-de-communication` (hub → 3+ notions popovers : uart/i2c/spi)
+- `techno-sans-fil` (hub → 5 notions popovers : wifi/ble/xbee/zigbee/lora)
+
+**4. Roadmap structurée en 5 phases + clôture phase 1** :
+- **Phase 0** — clôture phase 1 GP (~10 sessions) : 8 fiches notion (`decomposition-fonctionnelle`, `etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + template `fiche-tuto.md` + patches conventions (C18/C19, couverture § 6).
+- **Phase 1** — squelette critique AA (~8 sessions) : ordre pédagogique `microcontroleur` (hub mère) → `lire-une-datasheet` → `analyse-de-schema-electronique` (NC EEE/1) → `chronogramme` (jonction datasheet ↔ algorithme ↔ oscilloscope) → `algorithme` (hub) → `logigramme` / `machine-a-etats` / `grafcet`. Critères NC EEE-C03-3/1 et EEE-C03-2/5 entièrement couverts.
+- **Phase 2** — premier embranchement Arduino (~3 sessions) : `arduino` (hub fille) + `arduino-prise-en-main` + `tinkercad`. **MVP strict atteint, site publiable.**
+- **Phase 3** — squelette transverse pro (~10 sessions) : `oscilloscope`, `multimetre`, `firmware`, `debugger-embarque`, `pcb` (hub) + `kicad`, `bus-de-communication` (hub) + `uart`/`i2c`/`spi`.
+- **Phase 4** — second embranchement ESP32 (~4 sessions) : `esp32` (hub fille) + `esp32-arduino-core` + `wokwi` + `alimentation-electronique`. **MVP étendu atteint.**
+- **Phase 5+** — alimentation continue (~25 sessions) : reste squelette transverse (sans-fil hub, circuitverse, ltspice, easyeda, cable-management, bom-electronique) + embranchements restants (Raspberry Pi, ESP8266, ESP32-IDF, MCU prio 2 STM32/Teensy/PIC, pcb-gravure-ecole, falstad).
+
+**5. Choix techniques actés** :
+- **ESP32** : Arduino-core en 1er tuto (entrée pratique), ESP-IDF en 2ème (approfondissement pro).
+- **Hub `bus-de-communication`** avec **fiches-notion popovers** (UART/I2C/SPI séparées, convention C16).
+- **Hub `techno-sans-fil`** avec **fiches-notion popovers** (Wi-Fi/BLE/XBee/Zigbee/LoRa séparées).
+- **Raspberry Pi** sous étiquette élargie *plateformes embarquées* dans hub MCU (techniquement SBC pas MCU, mais usage pédagogique commun avec les autres).
+- **CircuitVerse** retenu pour simu numérique en ligne (testé par utilisateur en session). **Falstad** évalué ultérieurement.
+- **XBee** (et non Zigbee) en initial : XBee = module hardware (Digi) qui parle Zigbee/Wi-Fi. Finalement reclassé en hub `techno-sans-fil` comme tous les modules radio.
+- **`chronogramme`** transverse à datasheet/algorithme/oscilloscope, fiche autonome (pas dans mini-hub algorithme malgré le critère EEE-C03-2/5 qui les liste ensemble — sémantique trop différente : signaux dans le temps vs flot de comportement).
+- **`firmware`** transverse pur avec pseudocode (pas d'exemple spécifique à un MCU), illustrations multi-techno via la structure wiki. Rabbit hole optionnel : gestion mémoire / interruptions / programmation RT non bloquante.
+- **Fiches-tuto pivot phase 1 = fil rouge** esquissée comme convention candidate (vs fiches-notion historiques = cas autonome).
+
+**6. Trois cercles MVP** pour publication :
+- **MVP strict** (AA 100 %) = Phase 0 + Phase 1 + Phase 2 = ~21 sessions, 2-3 mois. Site publiable rentrée.
+- **MVP étendu** (+ PCB + bus + ESP32) = + Phase 3 + Phase 4 = ~35 sessions, 3-4 mois.
+- **Cible complète** = ~70 sessions, plusieurs mois (alimentation continue post-rentrée).
+
+### Conventions candidates en éprouvage
+
+- **C18 candidate — mini-hub imbriqué** : 5 cas identifiés. À éprouver sur `algorithme` (cas le plus simple) puis `microcontroleur` (cas le plus complexe, 2 niveaux). Convention à fixer : front matter du hub, structure de dossier (sous-dossiers physiques vs à plat), format de listing des fiches filles dans le corps. Formalisation prévue dans `conventions.md` § 6 (Publication / Quartz) une fois éprouvée.
+- **C19 candidate — fiche transverse multi-techno** : fiche d'une notion couvrant plusieurs technologies (ex. `firmware`, `analyse-de-schema-electronique`, `lire-une-datasheet`). À éprouver sur `firmware` et `analyse-de-schema-electronique`. Trois options de structuration : (a) callouts par techno côte à côte ; (b) tableau comparatif ; (c) exemple unique générique + renvois vers modules MCU. Intuition : (c) plus léger éditorialement.
+- **C17 éprouvée 2/N** : patch flèche TODO post-arbitrage utilisateur en fin de session — épreuve 2 réussie (flèche patchée de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP » selon l'arbitrage sortant du cadrage stratégique). 1-2 épreuves restantes avant promotion vers § 5 ou § 8 du prompt projet.
+
+### Acquis méthodo et incidents
+
+**Convention candidate « fiches-tuto pivot phase 1 = fil rouge »** esquissée sur `caracteriser-une-exigence` (Q3). À éprouver sur PCB et AMDEC.
+
+**Triptyque en tableaux markdown** (vs SVG) pour fiches-notion d'outils textuels. À acter si reproduit sur 1-2 autres fiches.
+
+**Limitation technique session** : serveur MCP `filesystem` (PC perso) déchargé entre l'écriture initiale de `caracteriser-une-exigence.md` (début de session) et la phase de clôture (patches TODO/conventions/couverture/BACKLOG/JOURNAL). Tentatives directes échouées (« Tool 'filesystem:read_text_file' not found » même en invocation directe sans `tool_search`). **Bascule effective sur le serveur `theskillcodex` (PC pro)** après vérification que le PC pro est synchronisé avec le PC perso (probablement via OneDrive ou un sync de fond). Tous les patches de clôture ont été appliqués avec succès côté PC pro. **Acquis** : vérifier l'accès aux deux serveurs au démarrage de session, l'utilisateur peut indiquer la disponibilité si doute. Cas à évoquer en clôture si la situation se reproduit.
+
+**1 incident C14 à mi-clôture** : suppression de la session 26/05 suite 2 dans la section *Fait* du TODO (rotation glissante) **échouée 2 fois** sur anchor non matché. Hypothèse : NBSPs fines U+202F invisibles devant ponctuations françaises (`:`, `;`, etc.). Anchor non recopié depuis lecture MCP fraîche (j'avais le bloc en contexte début de session, mais la session du PC pro pouvait avoir des espaces typo différents après synchro). **Décision** : dette reportée à traitement manuel utilisateur ou prochaine session avec accès PC perso — 4 sessions dans *Fait* au lieu de 3 jusqu'à correction, pas de conséquence pédagogique. Discipline C14 confirmée à chaud : si retentative, recopier strictement depuis `read_text_file` fraîche.
+
+### État des patches de clôture appliqués
+
+- **TODO.md** : 4 patches réussis (flèche prochaine session → Phase 0 + cadrage stratégique en tête ; cocher `caracteriser-une-exigence` ; refonte section *Notions à produire* en 3 sous-sections roadmap phase 2 ; ajout session 26/05 suite 5 en tête section *Fait*). 1 patch échoué sur anchor non matché (retrait session 26/05 suite 2 pour rotation glissante — dette manuelle).
+- **conventions.md** : 1 patch réussi (§ 8 *En cours d'éprouvage* : maj C17 à épreuve 2/N + ajout C18 candidate mini-hub imbriqué + ajout C19 candidate fiche transverse multi-techno).
+- **couverture-en-cours.md** : 2 patches réussis (ajout sous-section *Phase 2 elec/info — cœur du wiki* dans § 6 *Ambition au-delà du référentiel* + correction typo « délibement » → « délibérément »).
+- **BACKLOG.md** : 2 patches réussis (refonte EEE avec nouvelles cibles wiki-links : 5 mini-hubs + filles + fiches transverses + outils simu + compétences pro ; nettoyage doublon `cable-management` et entrée PCB obsolète).
+- **JOURNAL.md** : entrée courante en tête (ce patch).
+
+### Décisions reportées (toujours en attente)
+
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
+- **C17 épreuve 1-2/N restantes** avant promotion vers `conventions.md` § 5 ou § 8.
+- **C18 + C19 à éprouver** sur Phase 0 (transition) puis Phase 1 elec/info.
+- **Dette manuelle TODO** : retrait session 26/05 suite 2 dans section *Fait* (anchor C14 récalcitrant en fin de session).
+- **Prochaine session** = Phase 0 démarre par `decomposition-fonctionnelle` (fiche-notion outil natif phase concept étape 1, popover déjà attendu).
+- **Commit + push** : workflow fin de session utilisateur, inclut la fiche `caracteriser-une-exigence` + tous les patches de clôture.
+
+### Tailles fichiers en fin de session
+
+- JOURNAL.md : 86 → ~93 ko (sous seuil 100 ko, marge confortable, archivage non nécessaire à cette session).
+- caracteriser-une-exigence.md : 15,5 ko (livré début de session).
+- TODO.md : 16 → ~22 ko (refonte section roadmap phase 2, attendu).
+- conventions.md : 16 → ~18 ko (ajout C18/C19).
+- couverture-en-cours.md : 12 → ~15 ko (ajout sous-section phase 2 elec/info).
+- BACKLOG.md : ~20 → ~22 ko (refonte EEE, nettoyage doublons).
+
+---
+
 ## 2026-05-26 (suite 4) — Clôture méthodologique : promotions conventions + synthèse globale couverture AA + archivage JOURNAL 3e vague
 
 ### Périmètre de session

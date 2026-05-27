@@ -662,6 +662,29 @@ Trois fiches phase 1 illustrent cette ambition en ne portant aucun critère AA c
 
 Implication directe : la cartographie sert à identifier les trous, pas à filtrer le contenu produit. Une fiche qui déborde ou qui n'adresse aucun critère central reste légitime si elle sert le projet pédagogique.
 
+### Phase 2 elec/info — cœur du wiki (cadrage 26/05 suite 5)
+
+L'ambition au-delà du référentiel se matérialise en phase 2 dans une posture éditoriale délibérément large côté **électronique et informatique embarquée**. Cadrage stratégique acté 26/05 suite 5 (niveau D) : la phase 2 elec/info devient le **cœur du wiki**, ~50-60 fiches assumées, plusieurs mois de travail revendiqués.
+
+**Architecture en deux strates** :
+
+- **Squelette transverse** — fiches indépendantes du choix techno (datasheet, analyse de schéma, chronogramme, méthodes algorithmiques, oscilloscope, multimètre, firmware, PCB générique, bus de communication, sans-fil). Couvre **tous les AA EEE pour n'importe quel chemin technologique** suivi par l'étudiant. **Socle pédagogique publiable**.
+- **Embranchements technologiques** — modules autonomes par famille MCU (Arduino + tinkercad, ESP32 + wokwi + arduino-core + IDF, Raspberry Pi, ESP8266, puis priorité 2 STM32/Teensy/PIC). Chaque famille = hub fille + tutos d'utilisation, complétable au fil de l'eau au rythme des projets étudiants.
+
+Un étudiant suivant un seul chemin (100 % ESP32 par exemple) doit pouvoir traverser tout le V et couvrir tous les AA via squelette + module ESP32. Pareil pour Arduino, Raspberry Pi. **Conséquence opérationnelle** : publication du site possible à la rentrée scolaire dès que squelette transverse complet + ≥1 embranchement complet (idéalement Arduino, le plus utilisé à l'ICAM).
+
+**Trois cercles de priorité publication** :
+
+| Cible | Périmètre | Volume estimé | Délai cible |
+|---|---|---|---|
+| **MVP strict** (AA 100 %) | Clôture phase 1 GP + squelette critique AA + embranchement Arduino | ~21 sessions | 2-3 mois |
+| **MVP étendu** | + squelette pro (oscillo, multimètre, firmware, PCB, bus) + embranchement ESP32 | ~35 sessions | 3-4 mois |
+| **Cible complète** | + reste squelette (sans-fil, simu pure, finitions) + tous embranchements MCU + alimentation continue post-rentrée | ~70 sessions | plusieurs mois |
+
+**Cinq mini-hubs imbriqués** à structurer en phase 2 (convention C18 candidate éprouvable) : `microcontroleur` (hub mère panorama → hubs filles familles → tutos utilisation, 2 niveaux), `algorithme` (hub → 3 fiches-notion logigramme/MAE/grafcet), `pcb` (hub léger → kicad/easyeda), `bus-de-communication` (hub → uart/i2c/spi), `techno-sans-fil` (hub → wifi/ble/xbee/zigbee/lora).
+
+**Convention C19 candidate** — fiche transverse multi-techno : certaines fiches du squelette (typiquement `firmware`, `analyse-de-schema-electronique`, `lire-une-datasheet`) couvrent des notions valables sur plusieurs familles MCU. Trois options de structuration à éprouver (callouts par techno côte à côte ; tableau comparatif ; exemple unique générique en prose + renvois vers les modules MCU spécifiques). Formalisation prévue après 2-3 fiches transverses produites.
+
 ### Conventions méthodo validées par la cartographie
 
 La cartographie a éprouvé empiriquement quatre conventions, désormais stables (consolidées dans `conventions.md` § 7 *Référentiel AA* depuis le 26/05 suite 4) :
