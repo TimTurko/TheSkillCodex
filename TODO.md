@@ -5,7 +5,7 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = Phase 0 reprise — `etat-de-l-art-technique`** — fiche-tuto, occasion de **figer le template `fiche-tuto.md`**. Bug SVG base path Quartz résolu 27/05 suite 2 (chemin absolu `/ressources/img/...` retenu, 10 fiches migrées, C21 promue § 6, vérifs visuelles débloquées). Puis 6 notions/tutos restants Phase 0 (`bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + patches conventions (mini-hub imbriqué, fiche transverse multi-techno). Ensuite Phase 1 squelette transverse elec/info (8 fiches AA-centrées dont mini-hub `algorithme`).
+> **➜ Prochaine session = Phase 0 `bom`** — fiche-tuto, popover posé dans `specification-technique.md` étape 2. Reprise du chantier Phase 0 (clôture phase 1 GP) après les livraisons 27/05 suite (`decomposition-fonctionnelle`), 27/05 suite 4 (`etat-de-l-art-technique` + template `fiche-tuto.md` figé + restructuration decomp) et la session méthodo 27/05 suite 5 (actage 4 conventions C1/C4/C24/C14-complément + premier test C4 1/N). Roadmap Phase 0 restante : `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`. Convention candidate fil rouge bras 3 axes pour fiches-tuto pivot phase 1 (épreuve 2/N réussie sur EAT) à confirmer sur `bom`.
 >
 > **Cadrage stratégique phase 2 elec/info acté 26/05 suite 5 (niveau D)** : (a) elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois ; (b) structure **squelette transverse** (AA + compétences pro communes, indépendantes du choix techno) + **embranchements technologiques** (familles MCU + outils spécifiques, modules autonomes) ; (c) 5 mini-hubs à structurer (`microcontroleur`, `algorithme`, `pcb`, `bus-de-communication`, `techno-sans-fil`) ; (d) roadmap structurée en 5 phases (Phase 0 clôture → Phase 5 alimentation continue) ; (e) 3 cercles de priorité publication : MVP strict (AA 100 %, ~21 sessions) / MVP étendu (~35 sessions) / cible complète (~70 sessions). MVP rentrée scolaire atteignable en 2-3 mois.
 >
@@ -44,16 +44,15 @@
 #### Phase 0 — Clôture phase 1 GP (~10 sessions, MVP rentrée)
 
 - [x] ~~`decomposition-fonctionnelle` (fiche-tuto, calque bete-a-cornes complet + 4 SVG bras 3 axes + triptyque mauvais/moyen/bon + 2 AA mappés PROJ/1 et /6 multi-couverture + patch concept étape 1 + patch schema-bloc-fonctionnel)~~ — **fait 27/05 suite**
-- [ ] **Mini-session — résoudre bug SVG base path Quartz** : tester format `![[fichier.svg]]` sur `pieuvre.md` (1 fichier, 2 images), push, vérifier rendu github.io, migrer globalement si OK. **Bloque toutes les vérifs visuelles** des fiches à chemin `../../ressources/img/`. **Prochaine session.**
-- [ ] **Dette** : restructurer `decomposition-fonctionnelle.md` au format fiche-tuto (sections *Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois le template `fiche-tuto.md` figé.
-- [ ] `etat-de-l-art-technique` (fiche-tuto, popover posé `specification-technique.md` étape 2) — **occasion de figer le template `fiche-tuto.md`**
+- [x] ~~**Dette** : restructurer `decomposition-fonctionnelle.md` au format fiche-tuto (sections *Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois le template `fiche-tuto.md` figé.~~ — fait 27/05 suite 4 (procédure en 3 H3 numérotées, Raccrochage projet ajouté entre Cas particulier et Voir aussi, contenu intact ailleurs)
+- [x] ~~`etat-de-l-art-technique` (fiche-tuto, popover posé `specification-technique.md` étape 2) — **occasion de figer le template `fiche-tuto.md`**~~ — fait 27/05 suite 4 (méthode N×M, exemple bras 3 axes 3 réfs × 6 critères Niryo/uArm/Moveo, 7 pièges, AA mappés multi-couverture PROJ/2 + MEO/1)
 - [ ] `bom` (fiche-tuto, popover posé étape 2)
 - [ ] `mind-map` (fiche-notion, popover posé étape 3)
 - [ ] `fast` (fiche-tuto, popover posé étape 3 — à créer en phase 2 concept)
 - [ ] **`amdec`** (fiche-tuto, popover sémé dans `securite-et-qualite.md`)
 - [ ] **`matrice-eat`** (fiche-tuto, outil canonique trame `ecoconception`, doublement prioritaire)
 - [ ] **`ecodesign`** (fiche-notion, popover à poser dans `specification-technique.md` étape 6 + `ecoconception.md`). Lien direct référentiel : critère `RA-PROJET-C04-4/PROJ/5`.
-- [ ] **Template `fiche-tuto.md`** à figer en transition Phase 0 → Phase 1 (modèle : calque `fiche-notion.md` + sections *Procédure pas à pas* + *Captures d'écran* + *Raccrochage projet*)
+- [x] ~~**Template `fiche-tuto.md`** à figer en transition Phase 0 → Phase 1 (modèle : calque `fiche-notion.md` + sections *Procédure pas à pas* + *Captures d'écran* + *Raccrochage projet*)~~ — figé 27/05 suite 4 (Captures d'écran option B = inline dans étapes, ordre A des sections finales avec Raccrochage projet en pénultième position, fil rouge bras 3 axes en commentaire de la section *Exemple* en éprouvage)
 - [ ] **Patches conventions** en transition : C18 mini-hub imbriqué (formalisation), C19 fiche transverse multi-techno (formalisation), patch couverture-en-cours § 6 (structure squelette + embranchements + stratégie MVP)
 
 #### Phase 1 — Squelette transverse critique AA elec/info (~8 sessions)
@@ -137,7 +136,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 ## Tâches techniques en suspens
 
-- [ ] **Activer le hook pre-commit sur le PC perso** : depuis la racine du dépôt, lancer `git config core.hooksPath tools/git-hooks` puis vérifier avec `git config core.hooksPath` (doit renvoyer `tools/git-hooks`). **Pour Claude** : signaler proactivement cette tâche en début de session quand le MCP filesystem répond avec un chemin commençant par `C:\Users\turko\` (PC perso) plutôt que `C:\Users\timothe.turko.ICAMAD\` (PC pro). Tant que cette case n'est pas cochée, le hook ne tourne pas sur le PC perso.
+_Aucune actuellement._
 
 ## Décisions éditoriales en attente
 

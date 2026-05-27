@@ -30,13 +30,13 @@ L'outil joue trois rôles indissociables :
 
 Le découpage produit ici n'est pas figé pour autant. L'exploration des solutions à l'étape suivante peut révéler qu'un bloc doit être scindé (deux logiques de commande très différentes coexistent) ou fusionné (deux blocs partagent en fait la même structure). On revient corriger sans état d'âme.
 
-## Comment décomposer le système ?
+## Procédure pas à pas
 
-La décomposition se mène en deux passes successives : du système global aux **sous-systèmes** cohérents, puis de chaque sous-système aux **fonctions techniques** internes. Le résultat se représente naturellement en arborescence descendante, racine en haut.
+La décomposition se mène en deux passes descendantes — du système global aux sous-systèmes, puis de chaque sous-système aux fonctions techniques internes — et se clôt par un choix de profondeur. Le résultat se représente naturellement en arborescence descendante, racine en haut.
 
 ![Décomposition fonctionnelle — arborescence générique](/ressources/img/decomposition-fonctionnelle-generique.svg)
 
-### Du système aux sous-systèmes
+### 1. Du système aux sous-systèmes
 
 À la racine, le système global. À la première descente, **3 à 5 sous-systèmes** qui, assemblés, réalisent l'ensemble des fonctions de service énoncées au CdCF. Plus que 5 : le découpage est trop fin pour ce niveau, on a déjà commencé à entrer dans les fonctions techniques. Moins que 2 : le système n'est pas décomposé, il est seulement renommé.
 
@@ -48,7 +48,7 @@ Trois critères de bon découpage :
 
 Le découpage **n'est pas une répartition par discipline**. Un bon sous-système mécatronique mobilise généralement élec, méca et info ensemble. Reproduire l'organigramme de l'équipe (« le bloc méca, le bloc info, le bloc élec ») rate la décomposition fonctionnelle : on décompose alors les compétences, pas le système.
 
-### Des sous-systèmes aux fonctions techniques
+### 2. Des sous-systèmes aux fonctions techniques
 
 Sous chaque sous-système, lister les **fonctions techniques internes** qui réalisent sa part des fonctions de service. La formulation suit rigoureusement la convention des [[fonction|fonctions de service]] : **verbe d'action à l'infinitif + complément** (*« mesurer la position angulaire »*, *« convertir l'énergie électrique en mouvement »*).
 
@@ -59,7 +59,7 @@ La distinction conceptuelle est cruciale et souvent confondue :
 
 Une même fonction de service peut être réalisée par plusieurs combinaisons de fonctions techniques — c'est précisément ce qui ouvre l'espace de solutions exploré à l'étape suivante.
 
-### Où s'arrêter
+### 3. Arrêter au bon niveau
 
 La règle pratique : **descendre tant que la fonction technique n'est pas directement adressable par une solution candidate, s'arrêter dès qu'elle l'est**. *« Mesurer la position angulaire »* est adressable (capteur de position, encodeur incrémental, potentiomètre…) → on s'arrête. *« Gérer le mouvement »* ne l'est pas (trop vague pour qu'on liste 2-5 solutions concrètes) → on raffine d'un niveau.
 
@@ -110,6 +110,14 @@ L'exercice reste utile, avec deux précautions :
 
 - **Ne pas confondre composants observables et fonctions techniques.** Un servomoteur visible dans l'objet ne *fait* pas la décomposition : il *réalise* une fonction technique qu'il faut nommer explicitement (*« générer un couple sur l'axe »*). Le passage par la formulation verbe + complément reste impératif, même quand le composant est sous les yeux.
 - **Comparer la décomposition obtenue au CdCF cible.** Si le projet est une reconception, le CdCF cible peut différer du CdCF de l'objet d'origine. La décomposition fonctionnelle de l'existant sert alors de point de départ, pas de référence à reproduire à l'identique — l'arbitrage des écarts est précisément ce que la nouvelle phase de concept doit trancher.
+
+## Raccrochage projet
+
+- **Étape 1 de la phase [[concept|concept]]** — phase principale où la décomposition est produite, en sortie immédiate du CdCF
+- **Étape 2 de la phase [[concept|concept]]** — chaque fonction technique feuille devient une ligne de [[matrice-de-decision|matrice de décision]] confrontant 2-5 solutions candidates
+- **[[dossier-technique|Dossier technique]]** — le découpage en sous-systèmes structure souvent les chapitres du dossier (un sous-système = un dossier de conception)
+
+Un découpage soigneux à l'étape 1 du concept évite de revenir le réviser à chaque étape suivante, où le coût de refonte croît avec l'avancement du projet.
 
 ## Voir aussi
 

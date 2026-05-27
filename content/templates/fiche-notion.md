@@ -31,7 +31,7 @@ Front matter :
 - `phases:` liste les phases où la notion est mobilisée (peut être
   vide si la notion est transverse ou pédagogique sans phase précise)
 - `tags:` doit contenir `notion` + au moins un tag de domaine
-  (`proj`, `eee`, `mia`, `meo`, `mme`, `ese`)
+  (`proj`, `eee`, `meo`, `mme`, `ese`)
 - `prerequis:` notions à connaître avant d'aborder celle-ci
 
 Pour les conventions de callouts (sémantique d'usage, couleurs,

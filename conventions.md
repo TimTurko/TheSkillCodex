@@ -272,6 +272,79 @@ L'utilisateur effectue le **commit et push** systématiquement en fin de session
 
 **Pour Claude en début de session** : si une question se pose sur l'état du commit, vérifier directement avec `git log` ou demander à l'utilisateur, pas présupposer un retard. Capitalisation 26/05 suite 3 : la session précédente du même jour avait remonté ~10 entrées de retard fantasmées, alors que tous les commits avaient été faits.
 
+### Archivage JOURNAL à la session suivante immédiate (acquise 27/05 suite 5)
+
+À chaque fin de session, après insertion de la nouvelle entrée JOURNAL
+en tête au marker `<!-- INSERT_JOURNAL_HERE -->`, Claude archive **une
+entrée** vers `JOURNAL-archive.md` : la session la plus ancienne du
+JOURNAL principal (en pied de fichier).
+
+**Procédure** :
+1. Lire le pied du JOURNAL via `read_text_file tail=N` pour copier
+   l'anchor avec exactitude (cf. C14 § 8).
+2. Couper l'entrée du JOURNAL via `filesystem:edit_file` (oldText =
+   bloc entrée complet incluant le séparateur `---` qui suit).
+3. Insérer l'entrée en tête de `JOURNAL-archive.md` via
+   `filesystem:edit_file` (anchor sur la première entrée existante
+   de l'archive, juste après l'intro du fichier).
+
+**Conditions techniques** :
+- Une entrée seule reste sous 20 ko (format hybride C21 cible 3-5 ko).
+  Pas de pattern MARKER + N segments nécessaire — sous le seuil 30 ko
+  de C14, 2 appels `edit_file` suffisent.
+- Coût typique : ~3 tool calls (1 tail + 2 edits) vs ~10 pour un
+  archivage de masse au seuil 100 ko.
+
+**Justification** : flux 1-pour-1 (1 entrée ajoutée en tête, 1 entrée
+déplacée en archive) stabilise la taille du JOURNAL principal autour
+de sa valeur courante (~38 ko au 27/05 suite 5). Évite l'accumulation
+qui force un archivage de masse coûteux quand le seuil 100 ko est
+franchi (pattern MARKER + N segments, durée MCP × 5-10 par rapport au
+flux courant).
+
+**Cas où sauter l'archivage** :
+- JOURNAL notablement court (< 25 ko) après archivage de masse récent
+  — préserver un peu d'historique récent à portée de lecture initiale.
+- Entrée la plus ancienne référencée explicitement dans le prompt de
+  lancement de la session courante (l'archiver casserait la lecture
+  Cas A). Vérifier le prompt avant d'archiver.
+
+Décision finale à prendre en fin de session, dans le cadre de la
+routine de clôture (§ 7 du prompt projet).
+
+### Préfixe MCP `filesystem:*` exclusif sur le dépôt (27/05 suite 5)
+
+Toutes les opérations sur les fichiers du dépôt TheSkillCodex
+(`C:\Users\turko\...\TheSkillCodex\` ou `C:\Users\timothe.turko.ICAMAD\
+...\TheSkillCodex\`) passent **exclusivement** par les outils MCP préfixés
+`filesystem:*` — typiquement `filesystem:read_text_file`,
+`filesystem:write_file`, `filesystem:edit_file`,
+`filesystem:list_directory`, `filesystem:get_file_info`.
+
+Les outils sans préfixe disponibles par défaut côté Claude — `view`,
+`str_replace`, `create_file`, `bash_tool` — opèrent sur un sandbox Linux
+isolé (`/mnt/user-data/...`, `/home/claude/...`) sans lien avec le dépôt
+utilisateur. Les invoquer sur un chemin Windows est soit refusé, soit pire,
+silencieusement réorienté vers le sandbox sans que l'utilisateur le voie.
+
+**Piège de nommage** : `filesystem:create_file` (MCP, dépôt Windows) et
+`create_file` (sandbox, Linux) sont **deux outils distincts au nom
+identique**. Le préfixe est obligatoire pour lever l'ambiguïté, y compris
+dans les raisonnements intermédiaires où Claude pourrait être tenté de
+« simplifier ».
+
+**Discipline pour Claude** :
+- Chemins **toujours** en absolu Windows `C:\Users\...\TheSkillCodex\...`
+  dans tout appel d'outil sur le dépôt.
+- Si un retour d'outil mentionne `Allowed directories`, un path Linux
+  (`/mnt/...`, `/home/...`), ou échoue avec un message qui ne ressemble pas
+  à une erreur Windows attendue, c'est un appel sandbox parasite — relancer
+  avec le préfixe `filesystem:` explicite.
+- Ne **jamais** lancer `bash_tool` pour manipuler des fichiers du dépôt.
+  Le sandbox n'a pas accès au dépôt, et inversement.
+- Si un fichier semble inchangé après un write_file/edit_file apparemment
+  réussi, vérifier le préfixe **avant** d'invoquer C14 (seuil 30 ko).
+
 ### Hygiène des fichiers de pilotage (acquise 27/05)
 
 Les fichiers de pilotage privés (`TODO.md`, `JOURNAL.md`, `JOURNAL-archive.md`, `conventions.md`, `BACKLOG.md`, `_drafts/referentiel/couverture-en-cours.md`) sont garantis sans caractères invisibles ambigus et en line endings LF uniquement. Caractères nettoyés : NBSP fin (U+202F), NBSP normal (U+00A0), ZWSP (U+200B), BOM (U+FEFF), CRLF → LF.
@@ -488,19 +561,69 @@ formellement dans les templates une fois éprouvées.
 
 **Complément 27/05 suite 3 (multi-edits `edit_file` est atomique)** : `edit_file` avec plusieurs entrées dans `edits[]` est **atomique** — un seul anchor non trouvé annule **tout le batch**, même les edits dont l'anchor était correct. Épisode 27/05 suite 3 : batch de 4 edits TODO, le 4e (suppression section *Fait* en fin de fichier, ~3 ko de oldText avec trailing newlines incertains) a échoué et annulé les 3 premiers (anchors courts pourtant sûrs). Reprise en 3 appels séparés, multiplication des tool calls et de la durée MCP. **Règle pratique** : (a) multi-edits OK pour 2-3 anchors courts et sûrs sur le même fichier ; (b) tout edit ambitieux (oldText > 1 ko, ancrage fin de fichier, NBSPs ou trailing newlines suspects) **toujours en appel séparé** pour isoler le risque ; (c) si un edit anchor de fin de fichier est nécessaire, lire `tail` du fichier juste avant pour copier l'anchor exact (la lecture initiale d'une session peut tronquer ou normaliser différemment les newlines finaux). **Corollaire** : préférer N petits edits séparés à 1 gros batch dès qu'il y a doute sur un anchor, le coût en tool calls est compensé par l'absence de retry sur les edits perdus.
 
+**Complément 27/05 suite 5 (artefact U+FFFD sur `read_text_file head=N`
+tronqué)** : quand `read_text_file` est appelé avec `head=N` (ou
+`tail=N`), la troncature peut tomber au milieu d'une séquence UTF-8
+multi-byte. Le caractère partiel apparaît alors dans la sortie comme
+U+FFFD, le *replacement character*, rendu côté Claude comme « �� »
+ou « 不不 » selon la chaîne d'affichage. Exemples observés dans le
+JOURNAL : « ��preuve » au lieu de « épreuve », « délibér��ment » au
+lieu de « délibérément ». **Le caractère est intact dans le
+fichier — seul l'affichage de la sortie tronquée est cassé.**
+
+**Symptôme** : un mot accentué français apparaît avec des glyphes
+étranges au voisinage de la dernière ligne du `head` (ou de la
+première ligne du `tail`).
+
+**Piège** : si Claude copie un anchor depuis cette sortie tronquée et
+l'utilise dans `edit_file`, le `oldText` contiendra des U+FFFD qui ne
+matcheront jamais le contenu réel. Échec silencieux du matching,
+indistinguable à première vue d'un NBSP U+202F ou d'une typo de
+transcription jusqu'à investigation.
+
+**Discipline** : (a) si un anchor près du bord du head/tail échoue,
+soupçonner l'artefact U+FFFD *avant* NBSP ou typo ; (b) relire la
+zone via l'extrémité opposée (`tail` si la zone est en haut, `head`
+plus long si en bas) ou sans head/tail du tout pour récupérer le
+contenu intact ; (c) éviter de copier un anchor situé dans les 1-2
+dernières lignes du head demandé — privilégier une zone bien à
+l'intérieur du buffer.
+
 ### Acquises 26/05 suite 3 (à éprouver en fin de session prochaine)
-17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuve 2/N réussie 26/05 suite 4 et 26/05 suite 5** : patch flèche TODO effectué en fin de session selon l'arbitrage utilisateur sortant (suite 4 : de « clôture méthodologique » vers « reprise rédaction phase 2 » ; suite 5 : de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP »). À éprouver sur 1-2 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
+17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuves 2-4/N réussies 26/05 suite 4, 26/05 suite 5, 27/05 suite 2, 27/05 suite 4** : patch flèche TODO effectué en fin de session selon l'arbitrage utilisateur sortant (suite 4 : de « clôture méthodologique » vers « reprise rédaction phase 2 » ; suite 5 : de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP »). À éprouver sur 1-2 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
 
 ### Acquises 26/05 suite 5 (à éprouver Phase 0 + Phase 1 elec/info)
 18. **Convention mini-hub imbriqué** — 5 cas identifiés sur la roadmap phase 2 elec/info : `microcontroleur` (hub mère panorama → hubs filles familles MCU → tutos d'utilisation, 2 niveaux d'imbrication), `algorithme` (mini-hub mère → 3 fiches-notion filles : logigramme/MAE/grafcet), `pcb` (hub léger → 2 tutos outils : kicad/easyeda), `bus-de-communication` (hub mère → 3+ fiches-notion popovers : uart/i2c/spi), `techno-sans-fil` (hub mère → 5 fiches-notion popovers : wifi/ble/xbee/zigbee/lora). À éprouver sur `algorithme` (cas le plus simple) puis `microcontroleur` (cas le plus complexe, 2 niveaux). Convention à fixer : (a) front matter du hub (champ dédié listant les filles, ou TdM en prose ?) ; (b) structure de dossier (sous-dossiers physiques `content/fiches/eee/mcu/arduino/` vs à plat avec convention de nommage) ; (c) format de listing des fiches filles dans le corps du hub (tableau, liste à puces, callouts). Formalisation prévue dans `conventions.md` § 6 (Publication / Quartz) une fois éprouvée.
 19. **Convention fiche transverse multi-techno** — fiche d'une notion couvrant plusieurs technologies (ex. `firmware` couvre Arduino/ESP32/STM32, `analyse-de-schema-electronique` couvre tous les schémas élec/info). À éprouver sur `firmware` et `analyse-de-schema-electronique`. Trois options de structuration à tester : (a) callouts par techno côte à côte dans la section *Comment* ; (b) tableau comparatif (notion × technos) ; (c) exemple unique générique en prose + renvois vers les modules MCU concernés pour les spécificités. Mon intuition : (c) est plus léger éditorialement et exploite la structure wiki, mais (a) ou (b) peuvent s'imposer si les techno divergent fortement. Convention à fixer après 2-3 fiches transverses produites.
 
 ### Acquises 27/05 suite (à éprouver Phase 0)
-20. **Mapping AA pertinent en multi-couverture** — acquise sur consigne utilisateur (« n'hésite pas à mapper quand un AA peut être en lien avec une notion ou un tuto, cela permet d'expliquer aux étudiants à quel point un critère peut être transverse »). Lorsqu'un critère AA est pédagogiquement lié à une notion ou un tuto, l'inscrire dans `aa:` du front matter même s'il est déjà Couvert par une autre fiche. La règle du statut dominant (C > E > HS > NC, § 7) reste opérante côté cartographie globale, mais le **front matter individuel** acte la transversalité du critère et la donne à voir aux étudiants. Éprouvée 1/N sur `decomposition-fonctionnelle` (multi-couverture avec `bete-a-cornes` sur `RA-PROJET-C04-4/PROJ/1` + avec `concept.md` sur `/PROJ/6`). À éprouver sur les fiches Phase 0 restantes (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers § 7 *Référentiel AA*. Décision niveau D explicite.
+20. **Mapping AA pertinent en multi-couverture** — acquise sur consigne utilisateur (« n'hésite pas à mapper quand un AA peut être en lien avec une notion ou un tuto, cela permet d'expliquer aux étudiants à quel point un critère peut être transverse »). Lorsqu'un critère AA est pédagogiquement lié à une notion ou un tuto, l'inscrire dans `aa:` du front matter même s'il est déjà Couvert par une autre fiche. La règle du statut dominant (C > E > HS > NC, § 7) reste opérante côté cartographie globale, mais le **front matter individuel** acte la transversalité du critère et la donne à voir aux étudiants. Éprouvée 2/N : `decomposition-fonctionnelle` (multi-couverture `bete-a-cornes` sur PROJ/1 + `concept.md` sur /PROJ/6) + `etat-de-l-art-technique` (multi-couverture PROJ-C04-4/PROJ/2 + MEO-C10-3/MEO/1, le second au titre du critère écoconception listé dans la procédure). À éprouver sur les fiches Phase 0 restantes (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers § 7 *Référentiel AA*. Décision niveau D explicite.
 
 ### Acquises 27/05 suite 3 (à éprouver sur 2-3 prochaines entrées JOURNAL)
-21. **Format JOURNAL hybride** — header bullets (Périmètre / Livrables / Décisions / Conventions / Tailles) + corps narratif court réservé aux cas non triviaux (acquis méthodo, échec, décision contre-intuitive). Cible 3-5 ko par session. Objectif : réduire le payload `edit_file` d'insertion en tête de JOURNAL (cumul avec le marker `<!-- INSERT_JOURNAL_HERE -->`) pour minimiser la durée MCP en fin de session. Format acté dans le prompt projet § 7. À éprouver sur 2-3 entrées : si la cible 3-5 ko est tenue sans perte de fidélité du contexte transmis au démarrage suivant, promotion vers `conventions.md` § 5 ou § 6.
-22. **Briques de réponse A/B/C/D** — indépendamment de l'acquisition formelle déjà actée § 5 et dans le prompt projet § 8, à éprouver dans la pratique conversationnelle sur les 2-3 prochaines sessions : vérifier que les briques sont effectivement combinables sans confusion, que la règle de défaut implicite tient (pas de bullet/explication parasites), que les topics forcent bien D obligatoirement. Critère de succès : réduction effective du texte produit par Claude dans les réponses, mesurée à vue par l'utilisateur.
+21. **Format JOURNAL hybride** — header bullets (Périmètre / Livrables / Décisions / Conventions / Tailles) + corps narratif court réservé aux cas non triviaux (acquis méthodo, échec, décision contre-intuitive). Cible 3-5 ko par session. Objectif : réduire le payload `edit_file` d'insertion en tête de JOURNAL (cumul avec le marker `<!-- INSERT_JOURNAL_HERE -->`) pour minimiser la durée MCP en fin de session. Format acté dans le prompt projet § 7. À éprouver sur 2-3 entrées. **Épreuve 1/N** : 27/05 suite 3 (~5 ko). **Épreuve 2/N** : 27/05 suite 4 (~6 ko, légèrement au-dessus de la cible — entrée capitalise un épisode méthodo non trivial sur bug MCP `create_file`). Si la cible 3-5 ko est tenue sans perte de fidélité du contexte transmis au démarrage suivant, promotion vers `conventions.md` § 5 ou § 6.
+22. **Briques de réponse A/B/C/D** — indépendamment de l'acquisition formelle déjà actée § 5 et dans le prompt projet § 8, à éprouver dans la pratique conversationnelle sur les 2-3 prochaines sessions : vérifier que les briques sont effectivement combinables sans confusion, que la règle de défaut implicite tient (pas de bullet/explication parasites), que les topics forcent bien D obligatoirement. Critère de succès : réduction effective du texte produit par Claude dans les réponses, mesurée à vue par l'utilisateur. **Épreuves 1-2/N** : 27/05 suite 3 (refonte conventions, brique D dominante) + 27/05 suite 4 (Phase 0 reprise + figeage template + fin de session — brique A en exécution silencieuse efficace, brique D mobilisée sur arbitrages template et diff structurel + analyse méta du coût de fin de session). Pas de confusion observée à vue.
+
+### Acquises 27/05 suite 4 (à éprouver Phase 0 reste)
+23. **Convention candidate — Fil rouge bras 3 axes pour fiches-tuto pivot phase 1** — esquissée 26/05 suite 5 sur `caracteriser-une-exigence` (cadrage Q3 : fiche-tuto pivot phase 1 fonctionnellement proche d'une trame, critères CdCF chiffrés du bras 3 axes directement réutilisables, boucle de lecture intra-wiki avec `specification-technique.md` étape 4). Éprouvée 2/N : `decomposition-fonctionnelle` (27/05 suite, fil rouge bras 3 axes en 4 SVG arborescences avec triptyque) + `etat-de-l-art-technique` (27/05 suite 4, tableau 3 réfs Niryo/uArm/Moveo × 6 critères). **Reformulation à acter** : (a) élargir aux fiches-notion outils pivots étape 1 phase concept comme `caracteriser-une-exigence` qui est typé `notion` malgré l'usage du fil rouge, ou (b) reclasser `caracteriser-une-exigence` en `tuto`. À trancher sur 1-2 sessions supplémentaires avant promotion vers § 4 (Cas d'illustration / fils rouges).
+
+### Acquises 27/05 suite 5 (à éprouver sur 2-3 créations de fichiers)
+24. **Préférer `filesystem:write_file` à `filesystem:create_file`** pour
+    toute création de fichier en session. `create_file` peut retourner
+    `File created successfully` alors que le fichier n'existe pas sur
+    disque (faux positif côté serveur MCP), puis se bloquer sur un état
+    mémoire corrompu — retour `File already exists` aux appels suivants
+    alors que `list_directory` confirme l'absence du fichier — nécessitant
+    un reboot complet de Claude Desktop pour résoudre.
+    `write_file` est idempotent (overwrite sans état préalable côté
+    serveur) et n'a pas montré ce mode d'échec.
+    **Discipline** : (a) utiliser `write_file` par défaut pour les
+    créations de fiches ; (b) si `create_file` est tout de même utilisé
+    et retourne succès, vérifier immédiatement avec `get_file_info` ou
+    `list_directory` avant d'enchaîner ; (c) en cas de faux positif
+    suspecté, ne pas retenter `create_file` (l'état mémoire serveur est
+    probablement corrompu) — passer à `write_file`.
+    Incident initial documenté JOURNAL 27/05 suite 4. À éprouver sur 2-3
+    créations supplémentaires avant promotion ou retrait.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

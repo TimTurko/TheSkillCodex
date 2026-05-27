@@ -10,6 +10,98 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-05-27 (suite 5) — Méthodo : actage 4 conventions candidates + test C4 boucle fermée 1/N
+
+### Périmètre
+Session 100 % méthodo selon prompt de lancement Cas A (option 2, méthodo pure pour mesurer proprement le gain C4). 4 conventions candidates issues de l'analyse méta 27/05 suite 4 actées en niveau D une par une (proposition → arbitrage utilisateur → écriture). 5ᵉ convention (signalement proactif hook PC perso) analysée puis écartée. Test boucle fermée de la convention C4 (archivage à session suivante immédiate) sur 25/05 suite 5. Hook pre-commit PC perso activé en début de session.
+
+### Livrables
+- **`conventions.md`** :
+  - § 6 nouvelles sous-sections : *Archivage JOURNAL à la session suivante immédiate* (C4) + *Préfixe MCP `filesystem:*` exclusif sur le dépôt* (C1) promues directement, sans passage par § 8 (incidents concrets + sémantique critique).
+  - § 6 ordre interne : Workflow Git → C4 (archivage) → C1 (MCP exclusif) → Hygiène fichiers.
+  - § 8 nouvelle sous-section *Acquises 27/05 suite 5* avec convention candidate 24 (`write_file > create_file`).
+  - § 8 nouveau complément à C14 (artefact U+FFFD sur `head=N` tronqué).
+- **`JOURNAL.md`** : entrée présente insérée en tête au marker, entrée 25/05 suite 5 archivée vers `JOURNAL-archive.md` à sa place chronologique (test C4 1/N) + commentaire de pied mis à jour (suite 5 → suite 6 + vague 27/05 suite 5).
+- **`TODO.md`** : tâche *Activer le hook pre-commit PC perso* supprimée (faite en début de session) + flèche prochaine session updated vers Phase 0 `bom`.
+
+### Décisions
+- **4 conventions actées niveau D**, formulations négociées une par une (C1 / C24 / C3 / C4 dans l'ordre du prompt utilisateur). Mode proposition → arbitrage → écriture maintenu strictement.
+- **5ᵉ convention écartée** (signalement proactif hook PC perso) : analyse → convention existante § 6 *Hygiène* suffisante, l'incident d'origine vient de non-application par l'instance Claude 27/05 suite 4 + le hook activé reste persistant pour toujours. Résolution naturelle après cette session.
+- **Cadrage session** : méthodo pure (option 2), pas d'enchaînement `bom`. Mesure C4 indépendante.
+
+### Conventions
+- **C1 — préfixe MCP `filesystem:*` exclusif** : promotion directe § 6 (sémantique critique, piège de nommage entre `filesystem:create_file` MCP et `create_file` sandbox).
+- **C4 — archivage 1-pour-1** : promotion directe § 6 (test boucle fermée 1/N réussi techniquement, voir Acquis méthodo).
+- **C24 — `write_file > create_file`** : candidate § 8, à éprouver sur 2-3 créations Phase 0 (`bom`, `mind-map`, `fast`...).
+- **C14 complément artefact U+FFFD** : ajout à la chaîne de compléments existants, pas une nouvelle convention.
+
+### Tailles
+- `conventions.md` : ~26 → ~32 ko (+6 ko pour 4 conventions).
+- `JOURNAL.md` : ~38 → ~28 ko (insertion entrée +~5 ko, archivage 25/05 suite 5 -~15 ko).
+- `JOURNAL-archive.md` : +~15 ko (insertion 25/05 suite 5).
+- `TODO.md` : -~0,5 ko (suppression hook PC perso + update flèche).
+
+### Acquis méthodo — C4 nécessite raffinement (cas invariant violé)
+
+La formulation actuelle de C4 dit « insérer en tête de l'archive », ce qui suppose l'invariant antichronologique JOURNAL/archive : toute entrée archive est plus ancienne que toute entrée JOURNAL. **Cet invariant est actuellement violé** : l'archive contient des entrées 27/05 (matin, suite, suite 2) qui sont plus récentes que les entrées 26/05 (suite 3 → suite 5) restées dans le JOURNAL — séquelle des archivages de masse antérieurs qui ont priorisé l'allègement du JOURNAL sur la cohérence chronologique globale.
+
+Pour cette session 1/N, l'entrée 25/05 suite 5 a été insérée à sa **place chronologique correcte** dans l'archive (entre 26/05 et 25/05 suite 4 via anchor court `## 2026-05-25 (suite 4)`) plutôt qu'en tête nominale. Trade-off : lisibilité de l'archive préservée, même coût en tool calls.
+
+**Raffinement C4 à acter session future** : reformuler la procédure pour dire « insérer à la place chronologique correcte dans l'archive » (qui tombe automatiquement en tête dans le cas standard où l'invariant tient), plutôt que « en tête » qui supposait l'invariant tacitement. Pas urgent — le cas tient avec un anchor court sur le titre de l'entrée voisine plus ancienne.
+
+### Acquis méthodo — test C4 1/N coût technique
+
+Le coût technique du test C4 sur cette session : **4 tool calls** dédiés archivage (1 read tail JOURNAL pour identifier l'entrée + 1 read head archive pour repérer l'anchor + 2 edits : insertion archive + coupe JOURNAL) + 0 retry, 0 échec C14. Conforme à l'estimation « 3 tool calls » de C4 (légèrement au-dessus parce que j'ai dû préparer l'anchor d'insertion archive cas invariant violé). Cas standard (invariant tenu) : 3 tool calls suffiraient. **Convention C4 validée 1/N** sur le coût technique. À éprouver 2-3 fois encore avant raffinement formel sur l'invariant.
+
+---
+
+## 2026-05-27 (suite 4) — Phase 0 reprise : EAT + figeage template fiche-tuto + restructuration `decomposition-fonctionnelle`
+
+### Périmètre
+Phase 0 reprise selon prompt de lancement Cas A (premier test du workflow démarrage Cas A formalisé § 6 du prompt projet). PC perso, MCP filesystem. Trois objectifs annoncés en briefing, trois objectifs réalisés.
+
+### Livrables
+- **`content/fiches/proj/etat-de-l-art-technique.md`** (~15 ko, `type: tuto`, fiche-tuto pivot phase 1) : méthode N × M, **Procédure pas à pas** en 4 étapes (recenser 3-6 solutions / définir 5-8 critères / chiffrer le tableau / synthétiser), exemple bras 3 axes en tableau 3 réfs × 6 critères (Niryo / uArm / Moveo), 7 pièges, *Cas particulier* marché immature, **Raccrochage projet** 4 entrées. Distinctions explicites **EAT vs revue bibliographique** (intro + Pièges) et **EAT vs matrice de décision** (pas de pondération dans EAT, réservée à la MdD aval).
+- **`content/templates/fiche-tuto.md`** **figé** : calque `fiche-notion.md` + 2 sections distinctives *Procédure pas à pas* (H3 numérotées 3-6 étapes) + *Raccrochage projet* (obligatoire, en pénultième position avant *Voir aussi*). Section *Captures d'écran* absente du template (option B retenue, voir Décisions). Convention candidate fil rouge bras 3 axes inscrite en commentaire de la section *Exemple* avec renvoi explicite vers conventions.md § 8.
+- **`content/fiches/proj/decomposition-fonctionnelle.md`** restructurée au format figé : renommage H2 *Comment décomposer* → *Procédure pas à pas*, 3 sous-sections H3 numérotées (1. Du système aux sous-systèmes / 2. Des sous-systèmes aux fonctions techniques / 3. Arrêter au bon niveau), intro reformulée pour annoncer 3 étapes, **Raccrochage projet** ajouté entre *Cas particulier* et *Voir aussi*. Contenu intact partout ailleurs. **Dette TODO résolue (cf. JOURNAL 27/05 suite).**
+- **2 templates patchés** (`fiche-notion.md` + `fiche-tuto.md`) : retrait `mia` de la liste de tags possibles dans le commentaire du front matter (dissous depuis 26/05/2026, coquille héritée signalée et corrigée).
+
+### Décisions structurelles template fiche-tuto
+- **Captures d'écran : pas de section dédiée** (option B). Convention dans le guide template : intégrer les captures INLINE dans les étapes de la procédure. Décision **provisoire**, à figer définitivement après premiers tutos Arduino/ESP32/oscilloscope (objets cibles plus complexes en UI).
+- **Ordre A des sections finales** retenu : Pièges → Cas particulier (opt) → **Raccrochage projet** → Aller plus loin (opt) → Voir aussi. Argument : *Raccrochage projet* clôt le contenu utile en rebouclant sur le projet, *Voir aussi* est un appendice navigationnel pur.
+- **Convention candidate fil rouge bras 3 axes** inscrite dans le commentaire du template avec mention « en éprouvage ». Quand promotion (après N épreuves), retrait de la mention.
+
+### Conventions éprouvées cette session
+- **C17 patch flèche TODO post-arbitrage** : épreuve 4/N réussie (flèche patchée vers `bom` en clôture).
+- **C20 mapping AA multi-couverture** : épreuve 2/N réussie sur EAT (PROJ-C04-4/PROJ/2 + MEO-C10-3/MEO/1, le second au titre du critère écoconception listé dans la procédure).
+- **C21 format JOURNAL hybride** : épreuve 2/N réussie (présente entrée, ~6 ko).
+- **C22 briques A/B/C/D** : épreuve 2/N — pas de confusion observée à vue par l'utilisateur, brique D mobilisée sur arbitrages template + diff structurel decomp-fonctionnelle, brique A en exécution silencieuse pendant la fin de session.
+- **Convention candidate fil rouge bras 3 axes pour fiches-tuto pivot phase 1** : épreuve 2/N réussie sur EAT (triplet Niryo/uArm/Moveo cohérent avec le projet pivot). Reformulation différée (élargissement aux fiches-notion-pivot ou reclassement `caracteriser-une-exigence` en tuto) — non scopée cette session.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** (catégorie Hors scope par délégation, 4 critères MME effleurés, statut `schema-cinematique`).
+- **Reformulation convention candidate fil rouge** vs reclassement carac-exigence.
+- **C18 + C19 + C20 + C21 + C22** : épreuves restantes avant promotion.
+- **Section *Captures d'écran* du template fiche-tuto** : à figer après tutos Arduino/ESP32/oscilloscope.
+
+### Tailles fichiers en fin de session
+- `etat-de-l-art-technique.md` : ~15 ko (créé).
+- `decomposition-fonctionnelle.md` : ~14 → ~15 ko (ajout Raccrochage projet).
+- `fiche-tuto.md` template : ~10 ko (créé).
+- `fiche-notion.md` template : inchangé sauf patch mia.
+- `JOURNAL.md` : ~104 → ~38 ko après archivage 3 entrées 27/05 (suite 2 + suite + matin) vers `JOURNAL-archive.md` + insertion présente entrée.
+- `JOURNAL-archive.md` : +~37 ko après réception des 3 entrées 27/05.
+- `conventions.md`, `TODO.md`, `BACKLOG.md` : patches mineurs (incréments épreuves § 8 + cochages).
+
+### Acquis méthodo — épisode faux positif MCP `create_file`
+
+Bug MCP non documenté précédemment. Première tentative de création de `etat-de-l-art-technique.md` via `create_file` : retour `File created successfully` du serveur MCP, mais le fichier n'existait pas sur disque (confirmé côté utilisateur via explorateur Windows). Le `get_file_info` qui a suivi a timeout 4 min. Reboot complet Claude Desktop par l'utilisateur. Au reboot, `list_directory` confirmait l'absence du fichier (état cohérent), mais une seconde tentative `create_file` a retourné `File already exists` — le serveur MCP gardait en mémoire un état incohérent malgré le redémarrage de Claude Desktop. Contournement : passage à `write_file` (idempotent, overwrite sans état préalable), création réussie en un appel.
+
+**Discipline pour sessions futures** : préférer `write_file` à `create_file` pour les fiches en session. `write_file` est idempotent et ne dépend pas d'un état préalable du serveur MCP. `create_file` peut échouer silencieusement (faux positif) puis se bloquer sur un état mémoire corrompu nécessitant un reboot complet de Claude Desktop. Coût de cet épisode cette session : ~3 messages perdus en diagnostic + 1 reboot + retry. Capitalisation immédiate dans cette entrée — pas de promotion en convention formelle (convention candidate au § 8 conventions seulement après 2-3 épreuves supplémentaires si le bug est revu).
+
+---
+
 ## 2026-05-27 (suite 3) — Refonte documentaire structurale : briques A/B/C/D, marker JOURNAL, migrations TODO→BACKLOG
 
 ### Périmètre
@@ -46,185 +138,6 @@ Session 100 % refonte du système documentaire (Q1–Q5 du briefing utilisateur)
 La refonte des « niveaux d'autonomie » a glissé en 3 itérations sous pression d'objectif. Ma proposition initiale = 3 niveaux par **nature d'action**. Proposition utilisateur = 3 niveaux par **dynamique d'interaction**. Recadrage utilisateur final = 4 briques par **forme de communication** (Fait / Question / Procédure / Explication). L'angle d'analyse a glissé deux fois (nature → dynamique → forme) sous le critère explicite « minimiser le texte ». Compromis final = briques combinables + règle de défaut implicite + liste D obligatoire = simplicité orientée verbosité produite, sans perte de garde-fou sur les topics structurants. Leçon : lorsque l'utilisateur fixe un objectif terminal explicite (« le but est de minimiser X »), arrêter de proposer des compromis multi-critères et réaligner entièrement sur l'objectif.
 
 L'épisode multi-edits sur TODO (1 batch de 4 edits raté → 3 appels successifs) a coûté ~3-4× la durée prévue. Cause : edit n°4 avec anchor de fin de fichier (~3 ko de oldText avec trailing newlines incertains) a échoué et annulé les 3 edits propres qui précédaient. Capitalisation immédiate sous forme de complément C14 § 8. Effet attendu : prochaines sessions, batches multi-edits prudents (2-3 anchors courts max), edits ambitieux isolés dans des appels dédiés. La leçon précise vient s'ajouter aux pièges connus (seuil 30 ko payload, EPERM verrou Windows, typos transcription).
-
----
-
-## 2026-05-27 (suite 2) — Mini-session bug SVG base path Quartz résolu + migration globale 10 fiches
-
-### Périmètre de session
-Mini-session technique pure, dédiée à la résolution du bug SVG diagnostiqué en clôture 27/05 suite (les chemins `../../ressources/img/...` perdent le base path `/TheSkillCodex/` sur github.io). PC pro, MCP `theskillcodex`. Procédure pré-cadrée par l'utilisateur en briefing : test isolé sur `pieuvre.md` avec solution candidate A (format Obsidian-natif `![[fichier.svg]]`), puis solution B (chemin absolu `/ressources/img/...`) si A KO, puis solution C (investigation conf Quartz) si B KO. Migration globale niveau A en cas de succès, puis clôture documentaire.
-
-### Test isolé sur `pieuvre.md` — 2 itérations
-
-**Itération 1 — Solution A `![[fichier.svg]]`** (format Obsidian-natif). Patch des 2 lignes `![alt](../../ressources/img/foo.svg)` → `![[foo.svg]]` (alt text supprimé, accessibilité préservée via `<title>` + `<desc>` internes des SVG vérifiés en sortie : les SVG `pieuvre-generique.svg` et `pieuvre-bras-3-axes.svg` portent bien les attributs `role="img" aria-labelledby` requis). Commit + push utilisateur. **Vérification utilisateur sur smartphone : KO github.io.** Hypothèse confirmée : Quartz perd également le base path en mode wikilink-embed Obsidian-natif quand le chemin n'est pas explicite.
-
-**Itération 2 — Solution B chemin absolu** `/ressources/img/fichier.svg`. Patch des 2 lignes vers format markdown standard avec chemin absolu site, alt text restauré. Commit + push. **Vérification utilisateur : OK github.io, KO Obsidian preview.** Arbitrage utilisateur immédiat : compromis assumé (github.io = cible prioritaire publication étudiants, édition markdown reste fonctionnelle, Obsidian preview dégradé acceptable).
-
-### Migration globale — 10 fiches publiables
-
-Niveau A mécanique, batch en 8 appels `edit_file` (1 par fiche, anchors sur le chemin `(../../ressources/img/...)` uniquement, robustes aux NBSP éventuels des alt texts). 25 substitutions au total :
-
-| Fiche | Substitutions |
-|---|---|
-| `pieuvre` | 2 (test) |
-| `bete-a-cornes` | 4 |
-| `decomposition-fonctionnelle` | 4 |
-| `specification-technique` | 3 |
-| `gantt`, `jalons`, `retroplanning`, `wbs`, `matrice-de-decision`, `matrice-de-risques` | 2 chacune |
-| **Total** | **25** |
-
-**Affinement du scope initial briefing utilisateur (11 fiches) à 10 utiles** : `caracteriser-une-exigence` ne contient pas d'image SVG externe (triptyque réalisé en tableaux markdown, cohérent avec convention C7 triptyque pour outils textuels), `schema-bloc-fonctionnel` ne contient pas d'image markdown classique (uniquement un bloc Mermaid + 2 TODO HTML pour SVG d'illustration à produire ultérieurement).
-
-**Ajout du scope par audit complet** : `specification-technique.md` non listée par l'utilisateur dans le scope initial mais révélée par lecture du contenu — 3 occurrences à l'étape 1 (`bete-a-cornes-generique.svg`) et à l'étape 3 (`pieuvre-generique.svg` + `pieuvre-bras-3-axes.svg`), réutilisation des SVG en illustration dans la trame. Patch appliqué.
-
-### Audit exhaustif du contenu `content/`
-
-6 fiches lourdes auditées en complément (lecture batch + grep dans la sortie via bash sur le tool result stocké en `/mnt/user-data/tool_results/`) : `preuve-de-concept`, `dossier-technique`, `integration-et-tests`, `ecoconception`, `gestion-de-projet`, `securite-et-qualite`. **Aucune image SVG externe** dans aucune : pattern callouts + tableaux markdown uniquement, cohérent avec l'inventaire « Vérifier le rendu » du TODO qui ne mentionne aucun SVG pour ces 6 fiches. Plusieurs sub-indices (`fiches/ese/`, `meo/`, `mia/`, `mme/`, `proj/`, `eee/`) et `content/index.md` également vérifiés : aucune image. Hub à 1 niveau de remontée déjà fonctionnel par diagnostic 27/05 suite — pas de migration nécessaire. **Inventaire bug SVG clôturé.**
-
-### Convention C21 *Chemin des images — racine absolue* — promotion directe en § 6
-
-Convention née opérationnelle après le test + arbitrage. Pas d'épreuve en attente (la convention découle d'un fait technique avéré, pas d'une intuition à valider) : promotion directe en `conventions.md` § 6 *Publication / Quartz*, entre *Hygiène des fichiers de pilotage* et *Noms de fichiers*. **Pas d'entrée § 8 en éprouvage** — la convention n'est pas en cours d'éprouvage, elle est acquise.
-
-Contenu : justification technique (Quartz perd le base path quand chemin remonte de 2 niveaux ou plus, bug structurel reproductible), tests négatifs documentés (Obsidian-natif `![[...]]` KO github.io), compromis assumé (preview Obsidian dégradée, github.io prioritaire), exception explicite pour depth ≤ 1 (hub/index.md et content/index.md conservent leurs chemins relatifs car la perte de base path n'affecte pas les chemins à 1 niveau ou moins), prescription `Pour Claude` (convention à appliquer en niveau A sur toute nouvelle fiche).
-
-### Acquis méthodo
-
-**L'audit complet du contenu vaut la peine quand le scope déclaré est étroit.** L'utilisateur avait listé 11 fiches dans le briefing initial. Après lecture systématique des 10 fiches du scope + 6 trames/transverses hors scope + 8 fiches notion/support, l'inventaire effectif est passé à : 10 fiches affectées (dont `specification-technique` non listée initialement), 2 fiches du scope écartées par audit (sans image), 6 fiches lourdes hors scope confirmées sans image. Le coût de l'audit (lecture batch de ~10 ko de fiches supplémentaires) est très inférieur au coût d'avoir laissé une fiche cassée sur le site déployé. À retenir pour les prochaines passes mécaniques globales.
-
-**`search_files` (MCP `theskillcodex`) matche les noms, pas le contenu**. Pour un grep récursif sur le contenu, il faut soit lire les fichiers et grep dans la sortie via `bash_tool` sur le résultat stocké en `/mnt/user-data/tool_results/` (cas où `read_multiple_files` dépasse le contexte et stocke automatiquement), soit lire chaque fichier individuellement. Stratégie efficace cette session : lecture batch de 6 fichiers en un appel `read_multiple_files`, puis `grep -nE '\]\(\.\./\.\./ressources/img/'` dans le fichier de sortie. À retenir comme procédure standard pour les audits de contenu sur les fiches lourdes.
-
-### Conventions
-
-- **C21 promue § 6** (voir ci-dessus). Pas d'éprouvage § 8.
-- **C17 patch flèche TODO post-arbitrage** : épreuve 3/N réussie cette session. Flèche patchée vers `etat-de-l-art-technique` (Phase 0 reprise) conformément à l'anticipation du briefing utilisateur (succès = phase 0 reprise). À éprouver 1 session supplémentaire avant promotion vers § 5 ou § 8.
-- **C20 mapping AA multi-couverture** : inchangée, aucune épreuve cette session (mini-session technique sans rédaction de fiche). Reste 1/N en éprouvage § 8.
-- **C14 segmentation MARKER + N segments** : mobilisée en clôture pour l'archivage JOURNAL (~26 ko à déplacer en 1-2 segments). Confirme la robustesse du pattern déjà acté.
-
-### Décisions reportées (toujours en attente)
-- Toutes celles des sessions précédentes.
-- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
-- **C17 épreuve restante** (1/N) avant promotion vers § 5 ou § 8.
-- **C18 + C19 à éprouver** sur Phase 1 elec/info.
-- **C20 candidate à éprouver** sur Phase 0.
-- **Convention candidate fil rouge fiches-tuto pivot phase 1** : reformulation à acter (élargir aux notions ? reclasser carac-exigence en tuto ?).
-- **Dette restructuration `decomposition-fonctionnelle.md`** en format fiche-tuto une fois template figé (probablement sur `etat-de-l-art-technique`).
-- **Prochaine session** = Phase 0 reprise (`etat-de-l-art-technique` + figeage template `fiche-tuto.md`).
-- **Commit + push** : workflow fin de session utilisateur.
-
-### Tailles fichiers en fin de session
-- 10 fiches publiables migrées : taille globalement inchangée (substitutions de quelques caractères chacune, 25 substitutions au total sur 10 fichiers).
-- `conventions.md` : ~20 → ~22 ko (ajout convention C21 § 6, ~1,5 ko de contenu).
-- `TODO.md` : ~23 → ~25 ko après rotation glissante (ajout session 27/05 suite 2, suppression session 26/05 suite 5).
-- `JOURNAL.md` : ~108 → ~125 ko après ajout entrée 27/05 suite 2 (~17 ko brut, au-dessus du seuil 100 ko). **Archivage à proposer** en clôture : sessions 26/05 + 26/05 suite + 26/05 suite 2 vers `JOURNAL-archive.md` (~26 ko à déplacer, JOURNAL → ~99 ko).
-- `BACKLOG.md` : ~25 ko, inchangé (aucune émergence d'idée nouvelle cette session, aucun item à cocher).
-
----
-
-## 2026-05-27 (suite) — Phase 0 ouverte : fiche `decomposition-fonctionnelle` + diagnostic bug SVG base path Quartz
-
-### Périmètre de session
-Ouverture Phase 0 (clôture phase 1 GP) avec la première fiche-tuto outil natif phase concept étape 1. Cadrage niveau C en 4 questions tranchées, rédaction niveau A en autonomie. En cours de clôture : découverte fortuite d'un bug structurel SVG sur le site déployé, ouverte comme mini-session prochaine. PC pro, MCP `theskillcodex`.
-
-### Livraison `decomposition-fonctionnelle.md` (14 ko, `type: tuto`)
-
-4 questions méthodo tranchées en cadrage niveau C en début de session :
-- **Q1 — Calque** : bete-a-cornes complet, cible 18-22 ko (livré économe à 14 ko, matrice de la fiche tient sans extension).
-- **Q2 — Forme graphique** : arborescence descendante (système → sous-systèmes → fonctions techniques), pas diagramme bloc. SADT/IDEF0 mention en alternative formelle.
-- **Q3 — Articulation `schema-bloc-fonctionnel`** : recadrage utilisateur déterminant — *« décomposition fonctionnelle = gestion de projet, schéma bloc fonctionnel = elec+info »*. Distinction séquentielle, pas concurrente : décomp = analyse amont GP (FT abstraites) ; schema bloc = réalisation aval elec/info (blocs concrets). Articulation explicite à réciproquer entre les deux fiches en clôture.
-- **Q4 — Fil rouge** : bras 3 axes retenu, deuxième épreuve potentielle de la convention candidate fil rouge fiches-tuto pivot phase 1 (après caracteriser-une-exigence, qui est typé notion donc épreuve formelle 1/N seulement).
-
-**Structure livrée** : popover → À quoi ça sert (3 rôles : structurer le travail équipe / préparer l'exploration solutions / révéler les trous du CdCF) → Comment décomposer (intro + 2 H3 *Du système aux sous-systèmes* + *Des sous-systèmes aux fonctions techniques* + H3 *Où s'arrêter*) → Exemple bras 3 axes avec **triptyque mauvais/moyen/bon** en 4 SVG arborescences → 6 pièges (gras court + explication) → Cas particulier *reconception et reverse engineering* → Voir aussi avec articulation explicite vers schema-bloc-fonctionnel.
-
-**4 SVG produits** dans `content/ressources/img/` : `-generique` (760×480), `-bras-mauvais` (découpage par discipline = anti-pattern), `-bras-moyen` (déséquilibre Articulations 5 leaves / Pilotage 1 / Énergie 1), `-bras-3-axes` (Mobilité articulaire 4 leaves / Interface utilisateur 2 / Alimentation et sécurité 3, format 920×500 plus large). Palette ambre/gris alignée wbs-generique, dark mode, conventions C3 SVG respectées.
-
-**Choix structurels assumés** :
-- Triptyque mauvais/moyen/bon repris depuis bete-a-cornes + caracteriser-une-exigence → épreuve 3/N de la convention candidate du § 4 conventions. **Promotion vers § 2 *Mise en forme* appliquée en clôture**.
-- Cas particulier *reverse engineering* assumé (léger écart au calque bete-a-cornes qui traitait *projet école sans client réel*) car plus pertinent pédagogiquement pour la décomp.
-- Aucune image *exemple incarné avec valeurs concrètes après méthode* (convention C7) : ici les 3 SVG du triptyque tiennent ce rôle — incarnation = qualité d'écriture du même cas, pas un cas supplémentaire.
-
-### Patches connexes
-
-- **`concept.md` étape 1** : retrait `schema-bloc-fonctionnel` des outils de viz de la décomposition (recadrage utilisateur Q3). Remplacement par *« La représentation directe est l'arborescence descendante (système global en racine, sous-systèmes au niveau 1, fonctions techniques au niveau 2). Les diagrammes SADT/IDEF0 restent une alternative plus formelle... »*. SADT/IDEF0 conservés en alternative.
-- **`schema-bloc-fonctionnel.md` *Voir aussi*** : ajout `decomposition-fonctionnelle` en première position avec libellé d'articulation explicite (*« analyse amont côté gestion de projet, qui produit les fonctions techniques que ce schéma vient concrétiser en blocs matériels »*).
-
-### Reclassification `type: notion` → `type: tuto`
-
-Arbitrage utilisateur explicite en cours de session (point 2 de mon récap intermédiaire). La fiche était initialement livrée en `type: notion` (calque bete-a-cornes), reclassée `type: tuto` après décision. La structure interne reste celle d'une notion approfondie — **dette à TODO** : restructurer au format fiche-tuto attendu (sections *Procédure pas à pas*, *Captures d'écran*, *Raccrochage projet*) une fois le template `fiche-tuto.md` figé (probablement sur `etat-de-l-art-technique`, qui sera la 2e fiche-tuto pour stabiliser les conventions).
-
-### Mapping AA explicite (consigne utilisateur)
-
-Deux critères Couvert mappés en multi-couverture assumée (sur consigne utilisateur « n'hésite pas à mapper quand un AA peut être en lien ») :
-- **`RA-PROJET-C04-4/PROJ/1`** *« Effectuer une analyse fonctionnelle du système »* → multi-couverture avec `bete-a-cornes` (analyse fonctionnelle externe vs interne descendante). Illustre pédagogiquement la transversalité du critère.
-- **`RA-PROJET-C04-4/PROJ/6`** *« Définir les interactions entre blocs à partir d'un cahier des charges »* → traité explicitement dans la section *Du système aux sous-systèmes* avec le critère « interfaces nettes » et le parcours « parcourir les interfaces deux à deux ». Multi-couverture avec `concept.md` qui pointe désormais vers la fiche pour le détail.
-
-Non mappés (effleurements seulement) : `RA-PROJET-C04-4/PROJ/4` (schema bloc fonctionnel, couvert par la fiche aval), `RA-MME-C02-1/MME/1` (choix matériaux, mention disciplines mais pas central).
-
-### Diagnostic bug SVG base path Quartz
-
-L'utilisateur signale en cours de clôture *« les images ne s'affichent pas sur github.io »*. Investigation immédiate :
-
-- **Symptomatologie** : les SVG des fiches s'affichent en local Quartz mais l'icône d'image cassée est rendue sur le site déployé timturko.github.io/TheSkillCodex.
-- **Diagnostic par fetch direct** sur le HTML rendu :
-  - `hub/index.md` (chemin `../ressources/img/cycle-v-projet.svg`) → URL résolue `https://timturko.github.io/TheSkillCodex/ressources/img/cycle-v-projet.svg` → **affiché OK**.
-  - `pieuvre.md` (chemin `../../ressources/img/pieuvre-generique.svg`) → URL résolue `https://timturko.github.io/ressources/img/pieuvre-generique.svg` → **404 KO**. Le base path `/TheSkillCodex/` est perdu.
-- **Cause** : Quartz perd le segment de base path quand le chemin relatif remonte de 2 niveaux (`../../`). 1 niveau (`../`) fonctionne. Bug structurel.
-- **Scope** : toutes les fiches à `content/fiches/<domaine>/` ont leurs images cassées sur le site déployé. Seules les images du hub fonctionnent. ~11 fiches concernées (bete-a-cornes, pieuvre, gantt, jalons, retroplanning, wbs, matrice-de-decision, matrice-de-risques, schema-bloc-fonctionnel, caracteriser-une-exigence, decomposition-fonctionnelle).
-- **Solutions candidates** par ordre de préférence : (a) **format Obsidian-natif `![[fichier.svg]]`** (Quartz résout par nom de fichier, marche dans les deux outils) ; (b) chemin absolu site `/ressources/img/...` (risque : ne marche pas dans Obsidian preview) ; (c) investigation conf Quartz (`baseUrl`, plugin CrawlLinks) pour cause racine.
-- **Décision** : mini-session test prochaine session sur `pieuvre.md` (1 fichier, 2 images) avec format `![[fichier.svg]]`, push, vérification rendu github.io, migration globale si OK. **Bloque toutes les vérifs visuelles en attente.**
-
-### Conventions
-
-- **Triptyque mauvais/moyen/bon (`[!failure]` / `[!warning]` / `[!example]`) promu vers `conventions.md` § 2** après épreuve 3/N réussie : `bete-a-cornes` (25/05 suite 2) + `caracteriser-une-exigence` (26/05 suite 5) + `decomposition-fonctionnelle` (27/05 suite). Patron stable : 3 callouts côte à côte avec SVG ou tableau markdown selon nature de la notion (graphique vs textuelle), chaque callout suivi de paragraphes *Pourquoi c'est ...* + parfois *Coût réel de cette erreur* pour le mauvais.
-- **Convention candidate C20 — mapping AA pertinent en multi-couverture** acquise sur consigne utilisateur. À éprouver sur prochaines fiches Phase 0 (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers `conventions.md` § 7. Décision niveau D explicite (rapport au référentiel AA).
-- **Convention candidate fil rouge fiches-tuto pivot phase 1 = bras 3 axes** : épreuve formelle 1/N seulement (decomposition-fonctionnelle, car caracteriser-une-exigence est typé `notion` malgré l'usage du fil rouge). Reformulation possible : *« fiches-tuto pivot phase 1 ET fiches-notion outils pivots étape 1 phase concept = fil rouge »* ou bien reclasser carac-exigence en tuto aussi. À trancher prochaine session de stabilisation template fiche-tuto.
-
-### Rattrapage entrée JOURNAL 27/05
-
-Dette signalée en briefing utilisateur en début de session : *« la session précédente (27/05) a été 100 % nettoyage documentaire et tooling »* mais aucune entrée JOURNAL correspondante. Entrée rattrapée a posteriori en clôture (juste au-dessous), périmètre reconstruit depuis briefing + livrables visibles dans le dépôt (`tools/`, `conventions.md` § 6) + TODO Fait.
-
-### Décisions reportées (toujours en attente)
-- Toutes celles des sessions précédentes.
-- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
-- **C17 épreuve restante** avant promotion vers `conventions.md` § 5 ou § 8.
-- **C18 + C19 à éprouver** sur Phase 1 elec/info.
-- **C20 candidate à éprouver** sur Phase 0.
-- **Convention candidate fil rouge fiches-tuto pivot phase 1** : reformulation à acter (élargir aux notions ? reclasser carac-exigence ?).
-- **Dette restructuration `decomposition-fonctionnelle.md`** en format fiche-tuto une fois template figé.
-- **Bug SVG base path Quartz** : mini-session test prochaine session.
-- **Prochaine session** = mini-session bug SVG, puis Phase 0 reprise (`etat-de-l-art-technique` + figeage template `fiche-tuto.md`).
-- **Commit + push** : workflow fin de session utilisateur.
-
-### Tailles fichiers en fin de session
-- `decomposition-fonctionnelle.md` : 14 ko (livré).
-- 4 SVG decomposition-fonctionnelle : ~3 ko chacun.
-- `concept.md` : 42 ko (patch étape 1 mineur).
-- `schema-bloc-fonctionnel.md` : ~7 ko (patch *Voir aussi* mineur).
-- `TODO.md` : ~23 ko après rotation glissante.
-- `JOURNAL.md` : ~93 → ~108 ko après ajout 2 entrées 27/05 (sous le seuil 100 ko dépassé — archivage à envisager prochaines sessions).
-- `conventions.md` : ~18 → ~20 ko après promotion triptyque + ajout C20.
-
----
-
-## 2026-05-27 — Nettoyage documentaire infrastructure + tooling normalisation
-
-> *Entrée rattrapée a posteriori en clôture 27/05 suite. Périmètre reconstruit depuis le briefing utilisateur de début de session 27/05 suite, les livrables visibles dans le dépôt (`tools/`, `conventions.md` § 6) et le TODO Fait. Précision et exhaustivité limitées par cette reconstitution.*
-
-### Périmètre de session
-Session 100 % infrastructure : nettoyage de dette héritée dans TODO + mise en place d'un système de normalisation des fichiers de pilotage (script Node ESM + hook pre-commit Git) pour prévenir les échecs récurrents d'anchor `edit_file` liés aux caractères invisibles (NBSP, ZWSP, BOM, CRLF). PC pro selon log de l'utilisateur en début de session 27/05 suite.
-
-### Livrables
-- **Nettoyage TODO Fait** : suppression de la session 26/05 suite 2 (dette héritée du 26/05 suite 5 sur anchor C14 récalcitrant, 4 sessions Fait au lieu de 3). Rotation glissante 3 sessions Fait rétablie.
-- **`tools/normalize-pilotage.js`** : script Node ESM sans dépendance, mode FIX par défaut + mode `--check` pour audit (exit 1 si invisibles trouvés). Caractères nettoyés : U+202F (NBSP fine), U+00A0 (NBSP), U+200B (ZWSP), U+FEFF (BOM), CRLF → LF. Fichiers ciblés : `TODO.md`, `JOURNAL.md`, `JOURNAL-archive.md`, `conventions.md`, `BACKLOG.md`, `_drafts/referentiel/couverture-en-cours.md`. Fiches publiables `content/**.md` hors scope (gardent typo française pour rendu Quartz).
-- **`tools/git-hooks/pre-commit`** : hook bloquant tout commit qui réintroduit des invisibles dans les fichiers ciblés. Activation par poste via `git config core.hooksPath tools/git-hooks` (PC pro fait ; PC perso = tâche TODO ouverte).
-- **`tools/README.md`** : doc complète d'usage.
-- **Convention `conventions.md` § 6 *Hygiène des fichiers de pilotage*** : nouvelle section consolidant la garantie + procédure de diagnostic en cas d'anchor récalcitrant (suggérer `node tools/normalize-pilotage.js --check` avant bisection, etc.).
-
-### Acquis méthodo
-
-Capitalisation du complément C14 (27/05) : NBSPs et CRLF identifiés comme causes récurrentes d'échec d'anchor sur les fichiers de pilotage. Le script + hook constituent une solution infrastructure pérenne, indépendante de la discipline anchor-court (qui reste utile pour les fiches publiables non normalisées). Documentation rappelle que ces fichiers de pilotage normalisés tolèrent désormais les anchors longs sans NBSP, mais que les fiches publiables `content/**.md` (typo française active pour Quartz) restent sensibles à la discipline historique.
-
-### Dette de clôture
-**Entrée JOURNAL non rédigée en fin de session** — dette identifiée et remontée en briefing par la session 27/05 suite. Rattrapée immédiatement en clôture 27/05 suite (entrée courante).
 
 ---
 
@@ -738,89 +651,4 @@ La passe 4 a généré 20 patches sur 27 de la session (74 %). Signal fort : la 
 
 ---
 
-## 2026-05-25 (suite 5) — Concept : approfondissement étapes 3-4-5 + Pièges + Équipe
-
-### Périmètre de session
-Approfondissement des 3 étapes restantes de `concept.md` (étapes 1-2 + alignement v2.1 faits 25/05 suite 4), puis refonte des sections *Pièges fréquents* et *Pendant cette phase, côté équipe*. Cohérence finale d'ensemble (relecture progressive des 5 étapes) reportée à session dédiée selon le découpage acquis 24/05 suite 2 (geste de relecture critique = tête reposée). PC perso, préfixe MCP `filesystem:*`.
-
-### Cadrage étape 3 — 3 questions tranchées (niveau C)
-1. **Intitulés des 3 H4** : *Confronter les solutions retenues* / *Caractériser les conflits inter-disciplines* / *Renégocier sans tout casser*. Reformulation de H4-2 par rapport au cadrage initial (*Identifier et arbitrer* → *Caractériser*) : l'identification est mécaniquement induite par H4-1, l'arbitrage est porté par H4-3, H4-2 sert spécifiquement à qualifier (nature / périmètre / opposabilité CdCF).
-2. **Convention 10 (matrice incarnée) sur étape 3** : oui, sous forme de **tableau de conflits identifiés** (1 ligne = 1 conflit, colonnes : sous-systèmes impactés / nature / opposabilité CdCF) plutôt qu'une matrice 3×3 (élégante en apparence mais artificielle si peu de conflits réels — beaucoup de cellules vides ou symétriques). Scalable, narratif, et reste opposable.
-3. **Profondeur du fil rouge bras 3 axes** : option B — cas développé en sortie d'étape (1 `[!example]` riche), aligné sur la convention « 1 `[!example]` par étape ». Micro-allusions au fil rouge possibles dans le corps des H4 mais récit principal concentré dans le `[!example]`.
-
-### Production étape 3 (pivot dense) — 4 patches en batch
-Niveau B. Structure : intro 2 paragraphes (pont depuis étape 2, annonce 3 temps, positionnement comme **pivot de la phase concept**) + 3 H4 :
-- **Confronter les solutions retenues** — sortir des branches, parcourir les interfaces deux à deux (élec↔méca, élec↔info, méca↔info), rendre visibles les frictions sans trancher.
-- **Caractériser les conflits inter-disciplines** — 3 axes de qualification (nature / périmètre / opposabilité CdCF) en liste numérotée (convention 4), sortie = tableau récapitulatif hiérarchisé.
-- **Renégocier sans tout casser** — à toutes les disciplines impactées simultanément (jamais en bilatéral), 3 leviers ordonnés du moins au plus coûteux (revoir arbitrage local / modifier décomposition / assouplir exigence CdCF), anti-pattern « branche la plus avancée impose son arbitrage ».
-
-Callouts : `[!warning]` Attention légèrement retouché pour éviter doublon avec l'intro (« moment pédagogique central » → « moment où l'équipe apprend ce qu'arbitrer veut dire ») + `[!tip]` Astuce nouveau (convocation à trois plutôt qu'en bilatéral) + `[!example]` enrichi avec tableau de conflits 4 colonnes × 2 lignes (Conflit / Sous-systèmes impactés / Nature / Opposabilité CdCF) + déroulé renégociation à trois sur conflit n°1 (méca articulations à axe unique ↔ info cinématique inverse à offset) avec 3 voies explorées et compromis retenu (offset court côté méca + lookup table côté info). Conflit n°2 retombe en partie par effet collatéral. `[!livrable]` enrichi d'une ligne sur le tableau des conflits arbitrés.
-
-Round 2 validé sans correction.
-
-### Production étape 4 (hors pivot) — niveau B, annonce + batch de 2 patches
-Structure : intro 2 paragraphes (pont depuis étape 3, annonce 2 temps, distinction nette pré-dim ≠ dimensionnement définitif qui vient en dossier technique) + 2 H4 économes (éprouve convention 11 stricte) :
-- **Pré-dimensionner par discipline** — grandeurs critiques par discipline (méca : couples/efforts/flèches ; élec : courants/tensions/dissipation ; info : ressources/latences), sortie uniforme (valeur calculée / valeur de spec / marge), seuils 30 %/10 %/négative qui orientent vers OK / incertitude / retour étape 3.
-- **Identifier les incertitudes à lever en preuve de concept** — 4 catégories typiques (marge serrée à la limite du calcul / phénomène mal modélisé / couplage inter-disciplines / hypothèse d'usage non validée) en liste numérotée, sortie comme **liste de questions** rattachées au CdCF.
-
-Callouts : `[!warning]` « Une marge serrée n'est pas une marge, c'est une incertitude » + `[!tip]` formuler chaque incertitude en question (test pratique : ça se teste ou non) + `[!example]` avec **tableau de pré-dim 6 colonnes × 5 lignes** sur la *mobilité articulaire* (verdicts : 2 OK, 2 marges serrées, 1 incertitude) + I1 et I2 formulées en question, rattachées à F0 et F1, avec protocole d'essai esquissé. Livrables existants conservés.
-
-Round 2 validé sans correction.
-
-### Cadrage étape 5 — 3 questions tranchées (niveau C léger)
-1. **Structure 3 H4** — par analogie spec-tech étape 6 (Structurer / Rédiger / Faire valider). **Exception assumée à la convention 11 pour les étapes de clôture documentaire** — réformulation : « 2 H4 hors pivot, sauf clôture documentaire qui suit son propre miroir de spec-tech étape 6 ». Intitulés : *Structurer le dossier concept* / *Rédiger chaque section* / *Faire valider en revue de concept* (calque lexical de « revue de CdCF »).
-2. **Convention 10 sur étape 5** : oui, sous forme de **TdM incarnée du dossier concept** dans l'`[!example]`, calque de la TdM CdCF de spec-tech étape 6 — 5 sections agrégeant les 5 livrables des étapes 1-4 dans l'ordre. Convention 10 éprouvée dans son 4ᵉ contexte au sein de concept (matrice décision / tableau de conflits / tableau de pré-dim / TdM).
-3. **Template Word concept** : **non**, pas maintenant. Argument contre : le dossier concept agrège des productions hétérogènes (décomposition + matrices + architecture + pré-dim + incertitudes) là où le CdCF était plus normé. Un template Word figerait un format avant d'avoir du recul. Possibilité ouverte ultérieurement, pas en session.
-
-### Production étape 5 (clôture documentaire) — niveau B, batch de 3 patches
-Structure : intro 2 paragraphes (« l'étape 5 ne produit rien de nouveau, elle agrège » + équivalence directe avec rédaction du CdCF en fin de spec-tech) + 3 H4 :
-- **Structurer le dossier concept** — narration *quoi → comment → ensemble → chiffrage → ce qui reste* + **TdM type 5 sections** en liste numérotée (Présentation et contexte / Décomposition fonctionnelle / Arbitrages disciplinaires / Architecture globale / Pré-dim et incertitudes) + mention section *Annexes* optionnelle.
-- **Rédiger chaque section** — 3 soins (forme / cohérence inter-sections / traçabilité jusqu'au CdCF) avec mention explicite de la documentation des rétroactions CdCF intervenues en cours de phase (ne pas masquer).
-- **Faire valider en revue de concept** — nature du jalon (équivalent go/no-go d'architecture) + préparation + **4 issues** (validé / validé sous conditions / reprise locale étape 3-4 / rétroaction vers spec-tech).
-
-Callouts : `[!warning]` « Compiler n'est pas rédiger » + `[!tip]` revue à blanc en équipe avant le jour J + `[!example]` avec TdM type instanciée sur les 5 sections du dossier bras 3 axes (rappel rétroaction CdCF étape 1 = ajout FC démontabilité, 3 sous-systèmes, matrices, schéma bloc avec offset court, 2 incertitudes I1/I2 rattachées F0/F1) + issue de revue tracée (« validé sous conditions » + 2 compléments demandés) + engagement preuve de concept en semaine n°6. Livrable enrichi avec mention 5 sections + traçabilité CdCF + issue tracée.
-
-Round 2 validé sans correction.
-
-### Pièges fréquents — refonte 5 puces → 8 entrées gras court + explication
-Niveau B sur le calque spec-tech 24/05 partie 1. Les 5 pièges existants reformulés au format **« Piège court. » + 1-2 phrases d'explication** (Choisir les composants définitifs trop tôt / Laisser chaque discipline finir sa matrice avant de confronter / Traiter l'écoconception comme une case à cocher / Confondre front de travail et répartition des rôles / Sauter le pré-dim). **3 nouveaux pièges émergés spontanément des étapes 3-4-5** : Renégocier en bilatéral (étape 3) / Habiller une marge serrée en certitude par un calcul plus fin (étape 4) / Compiler le dossier au lieu de le rédiger (étape 5). Total : 8 pièges. **Leçon méthodo** : la section *Pièges* se nourrit a posteriori des leçons rédactionnelles des étapes (3 pièges sur 8 émergés pendant la rédaction), pas a priori d'une checklist méthodo. Mode complémentaire à spec-tech 23/05 suite 2 (pièges identifiés en relecture critique) — les deux modes coexistent.
-
-### Pendant cette phase, côté équipe — 4 paragraphes thématiques
-Niveau B sur le calque spec-tech 24/05 partie 1. **Interfaces métiers** — méca, fabrication, info, mobilisation des cours collègues, dialogue calé en amont de la phase. **Gestion de projet** — arbitrages d'architecture comme décisions structurantes (mise à jour matrice de risques et rétroplanning), incertitudes étape 4 comme commande de la PoC, revue de concept inscrite au rétroplanning dès spec-tech, autorisation des chevauchements temporels mais pas dans l'ordre des livrables. **Écoconception** — graines réparties étapes 2-3-4-5, agrégées par le dossier concept. **Sécurité-qualité** — exigences réglementaires CE/RoHS/REACH/DEEE traduites en contraintes d'arbitrage dès la matrice de l'étape 2 (éliminer en amont, pas en fin de course). Wiki-links semerés en lien rouge sur les notions normatives (rohs, reach, deee) et procédés (usinage, impression-3d, soudure) — déjà inventoriés au TODO.
-
-Round 2 validé sans correction.
-
-### 5 round 2 successifs sans correction — signal méthodo
-Les 5 étapes (étapes 1+2 du 25/05 suite 4, puis étapes 3+4+5 + Pièges + Équipe ce jour) ont toutes été validées en round 2 sans correction. Au-delà de l'indicateur « les conventions sont internalisées » déjà noté au 25/05 suite 4, signal renforcé : la régularité tient sur 5 étapes consécutives avec deux types d'étape (pivot vs hors pivot) et deux sections transverses (Pièges et Équipe). Discipline à maintenir : ne pas relâcher la rigueur du round 2 sous prétexte de régularité (l'absence de correction ne dispense pas de la relecture).
-
-### Convention 10 — 4 contextes éprouvés au sein de concept
-1. Matrice décision 3×5 + scores pondérés (étape 2, 25/05 suite 4) — forme matricielle classique.
-2. Tableau de conflits 4×2 (étape 3) — forme narrative, scalable.
-3. Tableau de pré-dim 6×5 (étape 4) — densité supérieure, point de vigilance mobile.
-4. TdM type 5 sections + TdM instanciée (étape 5) — forme listée plutôt que tabulaire.
-
-Quatre formes différentes du même pattern (« incarner par un objet structuré dans l'`[!example]` »). Indicateur de généralité solide. Convention 10 promotionnable de la section *En cours d'éprouvage* vers la section 2 (Mise en forme — Callouts) lors d'une session ultérieure si confirmée sur preuve-de-concept et au-delà. Pour l'instant, MAJ de l'entrée « En cours d'éprouvage » pour acter les 4 contextes.
-
-### Convention 11 — affinée avec exception clôture documentaire
-Formulation initiale : « 2 H4 hors pivot » (validation étapes 1 et 2). Étape 3 (pivot) conforme : 3 H4 dense. Étape 4 (hors pivot) conforme : 2 H4 économes. Étape 5 (hors pivot) ne suit pas la formulation initiale : 3 H4 par analogie spec-tech étape 6 (également clôture documentaire).
-
-Reformulation : **2 H4 hors pivot, sauf clôture documentaire qui suit son propre miroir** (3 H4 calque Structurer / Rédiger / Faire valider). Le critère d'application est donc tripartite : pivot → 3 H4 dense ; hors pivot non-clôture → 2 H4 économes ; clôture documentaire → 3 H4 calque structurel. À éprouver sur preuve-de-concept et dossier-technique étape 5 (probable clôture documentaire similaire). Convention reformulée poussée dans `conventions.md` § 7.
-
-### Leçon méthodo — nourriture a posteriori de la section *Pièges*
-Les 3 nouveaux pièges du concept (Renégocier en bilatéral / Marge serrée habillée / Compiler au lieu de rédiger) ont émergé spontanément pendant la rédaction des étapes 3-4-5 (warning / tip / warning respectivement). Indicateur : la section *Pièges* d'une fiche-trame n'a pas vocation à être rempli a priori comme une checklist méthodo — elle se nourrit a posteriori des arbitrages rendus visibles par la rédaction des étapes. Mode complémentaire à celui de spec-tech 23/05 suite 2 (4 pièges identifiés en relecture critique à froid). Les deux modes coexistent : un « grand nettoyage » en fin de phase (relecture critique) + un « dépôt continu » en cours de rédaction (warnings/tips qui se transforment en pièges). Convention possible à dériver si pattern confirmé sur preuve-de-concept.
-
-### État de `concept.md` en fin de session
-- Démarche complète : 5 étapes rédigées (1+2 économes, 3 pivot dense, 4 économe, 5 clôture documentaire 3 H4).
-- Sections transverses : *Pièges fréquents* (8 entrées) et *Pendant cette phase, côté équipe* (4 paragraphes thématiques) rédigées.
-- Front matter + Posture + Objectif + Conclusion + Voir aussi : posés depuis le 22/05 ou les sessions intermédiaires.
-- **Reste pour clôturer la fiche** : cohérence finale d'ensemble (relecture progressive des 5 étapes + recoupements terminologiques + vérification fil rouge entre étapes + alignement des wiki-links). Geste de relecture critique à part entière — session dédiée courte selon le découpage acquis 24/05 suite 2.
-
-### Décisions reportées (toujours en attente)
-- Toutes celles des sessions précédentes.
-- **Cohérence finale concept** — prochain enchainement proposé, session courte.
-- **Conventions 10 et 11 affinées** à éprouver sur preuve-de-concept et dossier-technique pour confirmation avant promotion vers les sections fixes du fichier `conventions.md`.
-- **Rétroaction CdCF de l'étape 1** (ajout FC démontabilité instancié dans l'`[!example]` étape 5) : exemple placé dans la trame concept, pas à propager rétroactivement dans spec-tech. À surveiller : si l'exemple devient un fil de cohérence inter-trames, préparer une note au CdCF d'origine en spec-tech à l'occasion d'un approfondissement.
-
----
-
-<!-- Sessions antérieures au 25/05 suite 5 déplacées dans `JOURNAL-archive.md` lors des nettoyages documentaires successifs : 25/05 suite 3 (sessions 19→21/05 + 24/05 suite 2), 26/05 suite (sessions 22/05 → 24/05 suite) et 26/05 suite 4 (sessions 25/05 → 25/05 suite 4). -->
+<!-- Sessions antérieures au 25/05 suite 6 déplacées dans `JOURNAL-archive.md` lors des nettoyages documentaires successifs : 25/05 suite 3 (sessions 19→21/05 + 24/05 suite 2), 26/05 suite (sessions 22/05 → 24/05 suite), 26/05 suite 4 (sessions 25/05 → 25/05 suite 4) et 27/05 suite 5 (session 25/05 suite 5, premier flux 1-pour-1 selon C4). -->
