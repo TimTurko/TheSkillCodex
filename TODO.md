@@ -239,23 +239,23 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] **3 décisions niveau D nouvelles** ajoutées à la liste hiérarchie : catégorie « Hors scope par délégation », statut des 4 critères MME effleurés sans fiche centrale, statut schema-cinematique wiki ou délégation.
 - [x] **5 insights structurants** capitalisés en bilan passe A : ESE et MEO entièrement couverts phase 1, EEE et MME ont des trous structurés, PROJ est le domaine majeur, convention C16 validée empiriquement, 3 fiches phase 1 sans critère AA central pour 3 raisons distinctes.
 
-### Session 2026-05-26 (suite 2) — Cartographie AA passe B sur 8 fiches phase 1 + Hors scope + patch budget GP
-- [x] **Décisions méthodo Q1/Q2/Q3 tranchées** : format cartographie option C (champ `aa:` + table dérivée, descente jusqu'au critère) + granularité 3 niveaux + ordre hybride B-then-A
-- [x] **Codification critères** : `<Code_RA>/<AA_DOMAIN>/<N°critère>`
-- [x] **Normalisation référentiel** : `_drafts/referentiel/referentiel-normalise.md` produit, 57 critères distincts (62 lignes source, 5 doublons retirés), 12 AA, 5 domaines (PROJ 25 / MME 12 / EEE 10 / MEO 10 / ESE 5). MIA fusionné dans EEE et PROJ
-- [x] **Patches navigation MIA→EEE** : `content/index.md`, `content/hub/index.md`, `content/fiches/eee/index.md` (titre élargi « Électronique et informatique embarquée », mention historique 26/05/2026)
-- [x] **Fichier capitalisation** : `_drafts/referentiel/couverture-en-cours.md` produit avec grille de lecture (3 niveaux + Hors scope, phase 1 vs phase 2, convention 1-fiche-par-critère EEE)
-- [x] **Cartographie B passe sur 8 fiches phase 1** : spec-tech (11), concept (16), PoC (12), dossier-tech (17), integration-et-tests (13), gestion-de-projet (12), ecoconception (7), securite-et-qualite (5)
-- [x] **C15 acquise — catégorie Hors scope** : critère évalué transversalement par enseignants, hors périmètre wiki. 4 cas identifiés (`PROJ/3`, `PROJ/4`, `PROJ/5`, `PROJ/6`). Reclassement rétroactif sur 4 fiches déjà cartographiées
-- [x] **C16 acquise — 1 fiche par critère EEE/info embarquée** (ou tutoriel gonflé multi-couverture). Décision utilisateur 26/05 suite 2
+
+
+
+
+
+
+
+
+
 - [x] **Patch budget gestion-de-projet** : trou phase 1 identifié (`RA-PROJET-C07-1/PROJ/3`) puis résolu en session — 5 → 6 outils canoniques (ajout suivi budgétaire bloc 2) + livrable 2/3 enrichi
-- [x] **Trou phase 1 MEO/5 vérifié présent** dans GP bloc 3 (3 options + règle pour dépassement)
-- [x] **PROJ/7 démontabilité** : critère bien attribué découvert dans ecoconception bloc 2 (pas un trou)
-- [x] **EEE/2 reclassé en Couvert** dans integration-et-tests étape 2 (était identifié trou phase 2 sur PoC)
-- [x] **Insight securite-et-qualite** = 0 critère Couvert : trame de posture professionnelle, à noter en synthèse globale (le cadre AA n'est pas le seul critère de pertinence)
-- [x] **C14 vécue à chaud** : 3 typos transcription anchors (espacement variable, caractère flèche U+279C vs U+27A4), 1 erreur de routage, 2 régressions typo introduites par patch corrigées immédiatement
-- [x] **6 nouvelles fiches phase 2** ajoutées au TODO : `ecodesign`, `analyse-de-schema-electronique`, 4 méthodes commande (`logigramme`/`machine-a-etats`/`grafcet`/`chronogramme`), `optimisation-mecanique`
-- [x] **Incident GitHub Pages résolu en session** : `actions/upload-pages-artifact@v3` résolue vers un SHA non téléchargeable (`56afc60...`). Fix bump v3→v4 dans `.github/workflows/deploy.yml`. Build OK après push. Compatibilité avec `deploy-pages@v4` conservée
+
+
+
+
+
+
+
 
 
 
