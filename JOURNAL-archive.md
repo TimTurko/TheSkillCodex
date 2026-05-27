@@ -51,6 +51,255 @@
 
 ---
 
+<!-- DEBUT DES SESSIONS 26/05 — ARCHIVEES LE 27/05 SUITE 2 -->
+
+## 2026-05-26 (suite 2) — Cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP
+
+### Périmètre de session
+Session de cartographie AA déclenchée selon le cadrage de la session précédente. Tranchage des 3 questions méthodo Q1/Q2/Q3 en début, puis passe B (lecture en aveugle, fiche par fiche) sur les 8 fiches de la phase 1 du wiki (5 trames du V + 3 transverses). Acquisition d'une 4ᵉ catégorie de cartographie **Hors scope** en cours de session, propagée rétroactivement aux fiches déjà cartographiées. Patch structurel déclenché par cartographie : ajout du suivi budgétaire comme 6ᵉ outil canonique dans `gestion-de-projet.md`.
+
+### Décisions méthodo Q1/Q2/Q3 tranchées en début de session
+1. **Format cartographie** : option C — champ `aa:` dans front matter (source de vérité, codes courts) + table dérivée centralisée. La cartographie descend **jusqu'au critère** (pas juste l'AA).
+2. **Granularité** : 3 niveaux initiaux + 1 acquis en session.
+   - **Couvert** : objet central d'une fiche ou d'une section H2/H3.
+   - **Effleuré** : mention H4, `[!example]`, wiki-link, posture/pièges.
+   - **Non couvert** : pas du tout présent, identifie un trou à combler.
+   - **Hors scope** (acquise C15) : critère hors périmètre wiki par décision éditoriale (évaluation transversale enseignants, pas contenu pédagogique).
+3. **Ordre** : hybride B (fiche par fiche, lecture en aveugle) puis A (par domaine, check complétude).
+
+### Codification critères validée
+Format : `<Code_RA>/<AA_DOMAIN>/<N°critère>` (ex. `RA-PROJET-C03-3/EEE/1`). AA_DOMAIN nécessaire car un même RA porte parfois plusieurs AA dans des domaines différents.
+
+### Normalisation du référentiel
+Fichier source 62 lignes, 5 doublons supprimés → **57 critères distincts**, 12 AA, 5 domaines (PROJ 25, MME 12, EEE 10, MEO 10, ESE 5). **MIA n'existe plus** dans le référentiel — fusionné dans EEE et PROJ. Numérotation source conservée (trous explicites) pour traçabilité. Production du fichier `_drafts/referentiel/referentiel-normalise.md`.
+
+Patches navigation MIA→EEE (3 fichiers) : `content/index.md`, `content/hub/index.md`, `content/fiches/eee/index.md` (titre + description élargis « EEE — Électronique et informatique embarquée », mention historique du basculement MIA→EEE le 26/05/2026). Suppression manuelle du dossier `content/fiches/mia/` reste en attente (limite MCP delete).
+
+### Capitalisation des cartographies dans `_drafts/referentiel/couverture-en-cours.md`
+Fichier de travail privé produit avec grille de lecture (3 niveaux + Hors scope, phase 1 vs phase 2, convention 1-fiche-par-critère EEE/info). 8 cartographies fiche par fiche écrites au format YAML couvert/effleure/hors_scope avec commentaires localisant chaque critère dans la fiche. Synthèse globale en placeholder, à compléter en fin de passe B+A.
+
+### Bilans par fiche
+| Fiche | Couvert | Effleuré | Hors scope | Total touché / 57 |
+|---|---|---|---|---|
+| specification-technique | 5 | 6 | 1 | 11 |
+| concept | 7 | 9 | 1 | 16 |
+| preuve-de-concept | 5 | 7 | 1 | 12 |
+| dossier-technique | 10 | 7 | 1 | 17 |
+| integration-et-tests | 7 | 6 | 3 | 13 |
+| gestion-de-projet | 9 | 0 | 3 | 12 |
+| ecoconception | 4 | 3 | 0 | 7 |
+| securite-et-qualite | 0 | 5 | 0 | 5 |
+
+### Découvertes structurantes
+- **`RA-PROJET-C07-1/PROJ/3`** (gérer le budget) : vrai trou phase 1 identifié dans `gestion-de-projet.md` (5 outils canoniques mentionnés mais pas le budget). **Patché en session** : passage à 6 outils canoniques avec ajout du suivi budgétaire (« consolidation de la consommation projet vs enveloppe initiale, centralisé en dossier technique au moment des engagements matériels mais piloté en continu ») + mention dans le livrable 2/3 (sous-liste Continu).
+- **`RA-MEO-C10-3/MEO/5`** (proposer outils de prise de décision collective) : précédemment trou phase 1 à vérifier sur `gestion-de-projet`, **vérifié présent** (bloc 3, 3 options + règle pour dépassement = outil structurant de décision).
+- **`RA-PROJET-C03-3/PROJ/7`** (garantir la démontabilité du projet) : n'apparaissait dans aucune fiche cartographiée antérieurement. **Couvert dans ecoconception bloc 2** (démontabilité PCB / connectique JST / carte modulaire). Pas un trou, critère bien attribué.
+- **`RA-PROJET-C03-3/EEE/2`** (analyser comportement sous-ensemble jusqu'au composant) : précédemment identifié trou phase 2 sur PoC. **Reclassé en Couvert** dans `integration-et-tests` étape 2. La fiche-tuto `analyse-de-schema-electronique` reste au TODO mais avec motivation reformulée : tuto pédagogique propre (popover depuis integration-et-tests étape 2), pas trou AA.
+- **`securite-et-qualite.md` = 0 critère Couvert** : insight structurant. Cette trame ne porte pratiquement aucun critère AA central du référentiel école. Cohérent et attendu : c'est un domaine de **posture / culture professionnelle** (sécurité produit AMDEC + arrêt d'urgence, sécurité projet 3 règles + EPI, qualité documentaire Git tags + revue de code + sérigraphie PCB + plan de revues, normatif pointu CE/EMC/ISO 12100 délégué) non explicitement capturé par les AA techniques du référentiel I3.5/I3.6. La fiche conserve toute sa valeur pédagogique mais ne sert pas la cartographie AA. À noter en synthèse globale.
+
+### Conventions acquises en session
+- **C15 — catégorie Hors scope** : critère du référentiel école non traité par le projet TheSkillCodex par décision éditoriale (évaluation transversale des étudiants : soft skills, engagement, participation, terminologie professionnelle évaluée en revue par les enseignants). À distinguer de **Non couvert** : pas un trou, une décision éditoriale. Cas identifiés en session : `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral), `RA-PROJET-C07-1/PROJ/4` (participer aux tâches), `RA-PROJET-C07-1/PROJ/5` (être force de proposition), `RA-PROJET-C07-1/PROJ/6` (participer aux événements).
+- **C16 — 1 fiche-tuto par critère EEE/info embarquée (ou tutoriel gonflé multi-couverture)** : pour les critères EEE et info embarquée, une fiche-tuto par critère ou par groupe cohérent en phase 2. Pas de critère EEE qui reste en effleurage permanent — chacun doit avoir un endroit nommé dans le wiki phase 2. Quand un critère cite plusieurs solutions (ex. logigramme/MAE/grafcet/chronogramme pour `EEE/5`), **1 fiche par solution** plutôt qu'une fiche regroupante. **Un tutoriel gonflé peut couvrir plusieurs critères** — acquis 26/05 suite 2 sur décision utilisateur.
+
+### Reclassement rétroactif Hors scope sur fiches déjà cartographiées
+Après acquisition de C15 en session, le critère `RA-PROJET-C04-4/PROJ/3` (Effleuré dans spec-tech / concept / PoC / dossier-tech) a été déplacé vers la catégorie Hors scope dans les 4 cartographies concernées. Bilans normalisés en conséquence : spec-tech 12 → 11, concept 17 → 16, PoC 13 → 12, dossier-tech 18 → 17. Patch batch d'edits sur `couverture-en-cours.md`.
+
+### Patches structurels en session
+- **`content/fiches/proj/gestion-de-projet.md`** : 5 outils canoniques → 6 outils (ajout du suivi budgétaire dans le bloc 2) + livrable 2/3 enrichi (sous-liste Continu mentionne suivi budgétaire mis à jour à chaque revue de phase et engagement matériel majeur).
+- **`content/index.md`**, **`content/hub/index.md`**, **`content/fiches/eee/index.md`** : MIA retiré de la navigation, EEE élargie sémantiquement (« Électronique et informatique embarquée »).
+- **`TODO.md`** : 6 fiches phase 2 ajoutées à la liste *Notions à produire en parallèle* (ecodesign, analyse-de-schema-electronique, 4 méthodes commande logigramme/MAE/grafcet/chronogramme, optimisation-mecanique). Ajout manipulation manuelle suppression dossier `content/fiches/mia/`.
+
+### Incident technique résolu en session
+**GitHub Actions « Deploy quartz site to github page » avait échoué en 2s** d'après un mail reçu par l'utilisateur. Diagnostic initial : workflow `.github/workflows/deploy.yml` standard (Quartz vanilla, Node 22, `actions/deploy-pages@v4`). Aucun changement local poussé cette session à ce stade.
+
+**Cause identifiée après remontée logs utilisateur** : `actions/upload-pages-artifact@v3` résolue par GitHub Actions vers le SHA `56afc609e74202658d3ffba0e8f6dda462b719fa`, non téléchargeable depuis `codeload.github.com` (« Failed to download archive after 1 attempts »). SHA pinné du tag v3 révoqué ou non servi.
+
+**Fix appliqué en session** : bump `actions/upload-pages-artifact@v3` → `@v4` dans `.github/workflows/deploy.yml`. Patch d'une ligne, niveau C (modification d'infra validée). Push utilisateur → build redevenu OK. Compatibilité avec `actions/deploy-pages@v4` conservée (pas besoin de bumper deploy-pages).
+
+**Leçon** : sur les actions GitHub officielles pinées par tag majeur, surveiller périodiquement les bumps majeurs. v3 → v4 d'`upload-pages-artifact` semble correspondre au passage de format d'artifact (suit la migration v3→v4 d'`actions/upload-artifact` plus largement, fin 2024-2025).
+
+### Incident C14 vécu en session
+- 2 typos de transcription dans anchors `oldText` sur le batch initial de `couverture-en-cours.md` (espacement 2 vs 3 espaces avant `#` dans les commentaires YAML selon fiche). Batch rejeté, anchors recopiés depuis lecture MCP. **Discipline C14 confirmée** : recopier `oldText` exactement, ne jamais retranscrire de mémoire.
+- 1 erreur de routage : 2 edits sur 2 fichiers différents passés en un seul appel `edit_file` avec un seul path. Batch rejeté. **Discipline** : 1 appel `edit_file` = 1 fichier.
+- 2 régressions typographiques introduites par patch GP (« Le » → « le » et « centralisé » → « centralé ») corrigées immédiatement.
+
+### Estimation du restant pour boucler le traitement AA
+- **12 fiches-notion/tuto + hub** à cartographier en passe B accélérée — 1-2 sessions niveau B
+- **Passe A par domaine** (EEE, ESE, MEO, MME, PROJ) — 0.5 session
+- **Écriture champ `aa:` dans front matter** sur ~22 fiches — 0.5 session
+- **Synthèse globale dans `couverture-en-cours.md`** — 0.5 session
+
+Total : **2-3 sessions** pour boucler. Reprise rédaction fiches phase 2 possible dès passe A finie.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie, à acter à froid (niveau C requis).
+- **Promotion C13** (relire amont) déjà acquise.
+- **Promotions C15 + C16** : acquises 26/05 suite 2, à documenter en § 7 puis acter en § 6 après confirmation sur fiches-notion phase 2.
+- **Vérification GitHub Pages** : résolu en session, voir paragraphe Incident technique ci-dessus.
+- **Commit/push** : rattrapage depuis 19/05 (9+ sessions accumulées maintenant) + session courante.
+- **Suppression manuelle dossier `content/fiches/mia/`** : limite MCP delete.
+
+---
+
+## 2026-05-26 (suite) — Sécurité-qualité (3e transverse) + finalisation archivage MCP + cadrage session AA
+
+### Périmètre de session
+Triple front : (1) rédaction complète de la fiche-trame `securite-et-qualite` (3e et dernière transverse, clôt la phase 1 du wiki avec 5/5 trames V + 3/3 transverses), (2) MAJ documentaire à chaud BACKLOG/TODO/conventions, (3) finalisation de l'archivage JOURNAL 22→24/05 (suite) via MCP segmenté (défi C14 relevé), (4) cadrage de la prochaine session sur la cartographie des 107 AA.
+
+### Rédaction `securite-et-qualite.md`
+
+Cadrage initial — 5 questions tranchées :
+
+1. **Structure** : 3 blocs co-actifs (Sécurité produit / Sécurité projet / Qualité documentaire), pas N étapes. Convention transverses confirmée (3/3).
+2. **Tressage** : sécu et qualité tressées dans chaque bloc (option a), pas séparées.
+3. **Frontière ESE** : citer + déléguer le normatif pointu (marquage CE, basse tension, EMC, ISO 12100, EPI) — ne pas refaire le travail des collègues.
+4. **Fil rouge bras 3 axes** : 3 axes méthodologiques + 3 règles ajoutées par l'utilisateur (pas de 230V sans encadrant, pas de machine sans formation, jamais seul).
+5. **Articulation des 3 axes** : cadence projet / matrice de risques / piloter sans écraser.
+
+Production : fiche complète (28 ko), 3 `[!example]` bras 3 axes avec semaines n°2-15 (cohérence chiffrée avec `integration-et-tests` et `dossier-technique` : alu 6061, PCB monoface gravé interne, 3 cond. 100 nF, 24 V, fusible 3 A, couple stepper 0.5 Nm), 3 `[!livrable]` format Continu/Jalonné, 1 `[!warning]` sécu projet + 1 `[!tip]` qualité doc, 11 pièges format gras court + explication (~45 % a posteriori, conforme C12).
+
+Cohérence finale 4 passes : 0/0/N-A/3 patches wiki-links (Objectif + Bloc 3 + Équipe). Pattern stable post-promotion C6.
+
+### MAJ documentaire à chaud
+
+- **BACKLOG.md** (5 patches batch) : `hub/ecoconception` et `hub/securite-et-qualite` cochés → phase 1 wiki complète (5/5 trames V + 3/3 transverses). 7 nouvelles cibles wiki-links ajoutées : `revue-de-code` (MIA), `amdec` (PROJ), `marquage-ce` / `basse-tension` / `emc` / `iso-12100` / `epi` (ESE renommée « Écoconception, sécurité produit, normes »).
+- **TODO.md** (5 patches en 2 batches) : flèche prochaine session refondue → cartographie AA OU fiche-notion prioritaire (PCB / AMDEC / caracteriser-une-exigence). Sécu-qualité cochée. Entry commit/push session ajoutée. Rotation glissante Fait : nouvelle session 2026-05-26 (suite) en tête (12 entrées capitalisation), session 25/05 suite 7 PoC retirée.
+- **conventions.md** (1 patch) : bannière § 7 C1-C6 épreuve 3/3 réussie → promotion § 1-2 envisageable à acter à froid (niveau C requis).
+
+Incident C14 vécu : typo de transcription arrow `➤` (U+27A4) vs `➔` (U+2794) → 1er patch TODO en échec, corrigé via `read_text_file head=10` puis re-batch OK. Discipline retenue : recopier `oldText` depuis lecture MCP plutôt que retranscrire.
+
+### Finalisation archivage JOURNAL 22→24/05 (suite) via MCP — défi C14 relevé
+
+Bloc à archiver = 7 sessions (22/05 + 22/05 suite + 23/05 + 23/05 suite + 23/05 suite 2 + 24/05 + 24/05 suite) = **~60 ko net**. Au-dessus du seuil C14 (~30 ko payload) → segmentation obligatoire.
+
+**Stratégie validée : MARKER temporaire + N segments**. Pattern à acter comme procédure standard pour gros déplacements de blocs.
+
+**Phase 1 — Insertion archive (5 étapes)** : pose marker `## 2026-05-26 — Integration et tests : approfondissement complet voie C + 3 actes à froid + amendements conventions
+
+### Périmètre de session
+Approfondissement complet de `integration-et-tests.md` (5ᵉ et dernière trame du V) sur session démarrée sur PC pro. Session structurée en 3 actes à froid de capitalisation documentaire (rotation glissante TODO + promotions C10 et C12) puis cadrage voie C en 5 questions tranchées + arbitrage d'un conflit pédagogique détecté entre squelette 22/05 et demande Q1 utilisateur, puis rédaction complète en niveau A des 5 étapes (rythme 2/3/3/2/2 H4 dont 1 cas exception multi-disciplinaire et 1 cas pyramide compressée) + Pièges + Équipe + cohérence finale 4 passes.
+
+### 3 actes à froid en début de session
+1. **Rotation glissante TODO** : suite 5 retirée de la section Fait (4 sessions → 3 conformément à la règle § 9 du prompt projet).
+2. **Promotion C10 vers § 2** (matrice incarnée dans `[!example]`) après épreuve 3/3 cumulant **12 contextes** : concept 4 (matrice de décision 3×5 / tableau conflits 4×2 / pré-dim 6×5 / TdM 5 sections) + PoC 4 (liste 3 sources / relevés 5 points 1000 cycles / tableau de statut / TdM type 5 sections) + dossier-technique 4 (ajustements 3 familles / BOM 7×6 213,20 € HT / 3 validateurs × 5 colonnes / 3 bons de commande). Bannière promotion ajoutée en § 7 avec marqueur « promue 26/05 », entrée 10 conservée intacte pour traçabilité.
+3. **Promotion C12 vers § 6** (Pièges nourris a posteriori) après ratio stable 37-45 % sur 3 trames du V éprouvées (concept 37 %, PoC 45 %, dossier-tech 45 %). Bannière promotion ajoutée en § 7 avec marqueur « promue 26/05 », entrée 12 conservée pour traçabilité.
+
+### Cadrage en début de session — 5 questions tranchées + conflit pédagogique détecté
+5 questions tranchées en bloc, validées par utilisateur avec ajustements Q1 (sous-titres disciplinaires élec/méca/info avec wiki-links vers futurs tutos) et rappel Q3 (pas de temporel en prose, `semaine n°X` uniquement dans `[!example]`).
+
+**Conflit pédagogique majeur détecté** au moment de lire le squelette existant : la structure 22/05 défend explicitement les tests **par fonction** (anti-pattern explicite « par discipline = incohérent mécatronique »), incompatible avec la demande Q1 utilisateur (sous-titres disciplinaires). **Voie C retenue par utilisateur** : conserver la structure squelette 22/05 (tests par fonction sur les niveaux 1+), appliquer 3 H4 disciplinaires UNIQUEMENT en étape 2 (validation niveau 0 = inspection d'artefacts physiques disciplinaires, légitime). Compatible avec anti-pattern + demande Q1.
+
+**Rythme final 2/3/3/2/2 = 12 H4**, dont 2 cas inédits :
+- Étape 2 = 3 H4 par discipline (élec / méca / info) — exception multi-disciplinaire à acter en C11.
+- Étape 3 = 3 H4 dense pivot pour 4 niveaux (niveau 1 / niveaux 2-3 / niveau 4) — cas pyramide compressée à acter en C11.
+
+### Niveau A en autonomie sur toute la fiche
+Accordé par l'utilisateur après cadrage. Workflow A = clôture autonome avec récap synthétique en fin de phase 8.
+
+### Phase 1 — Alignement v2.1 du squelette (11 patches batch)
+5× titre example `Exemple : projet bras 3 axes`, 5× titre livrable `Livrable N/X — Intégration et tests` (singulier ou pluriel selon nombre d'items), 1× warning titre `Attention` + phrase-clé gras dans le corps. Squelette aligné conventions visuelles avant rédaction.
+
+### Phases 2-6 — Rédaction des 5 étapes en niveau A
+
+**Étape 1 *Approvisionner et fabriquer*** (2 H4 économes hors pivot) : intro 2 ¶ (pont depuis dossier-tech, propos parallélisme branche réception vs branche fabrication interne) + H4-1 *Recevoir les commandes externes au rythme des livraisons* (3 gestes simples à la réception) + tip Astuce traçabilité étiquette + H4-2 *Fabriquer en interne au rythme des moyens disponibles* (3 moyens : impression 3D / usinage / PCB gravure école) + warning Attention « Une pièce sortie de machine n'est pas une pièce validée » (pont vers étape 2 niveau 0). `[!example]` refondu sur fil rouge alu 6061 : 3 paragraphes structurés par branche + sortie d'étape sem. 15.
+
+**Étape 2 *Valider les pièces fabriquées*** (**3 H4 disciplinaires**, 1ʳᵉ exception multi-disciplinaire C11) : intro 2 ¶ justifiant pourquoi disciplinaire ici vs multi-discipline étape 3 (artefacts physiques disciplinaires vs fonctions mécatroniques). H4-1 *Valider la chaîne électrique* (4 axes : continuité PCB / alim régulée / niveaux logiques MCU / réponse drivers bench). H4-2 *Valider les pièces mécaniques* (visuel + dimensionnel + essai à blanc). H4-3 *Valider le firmware et l'environnement de développement*. Tip Astuce traçabilité fiche dossier de tests + warning Attention « Sauter le niveau 0 contamine ». `[!example]` : 4 paragraphes structurés (chaîne élec / pièces méca / firmware / sortie d'étape) avec 1 condensateur 100 nF remplacé, 1 segment PLA délamination → réimpression.
+
+**Étape 3 *Conduire la pyramide de tests*** (**3 H4 dense pivot, pyramide compressée** — cas particulier C11) : intro 2 ¶ (cœur de l'étape, tests par fonction multi-discipline, cascade ascendante avec rétroactions ciblées). H4-1 *Tester chaque fonction du CdCF isolément (niveau 1)*. H4-2 *Tester les compositions de fonctions, puis le système complet (niveaux 2 et 3)*. H4-3 *Qualifier le prototype contre le CdCF — refermer le V (niveau 4)* avec 3 sorties nominales (critères atteints / partiellement atteints / non atteints). Tip Astuce préparer fiche qualif niveau 4 en parallèle + warning Attention refondu sur « Au niveau 4, l'écart se documente, il ne se rattrape pas » (refonte pour éviter doublon avec H4-3 qui définit « le V se referme »). `[!example]` : 5 paragraphes structurés par niveau, qualification CdCF chiffrée (précision 8 mm vs 5 mm cible NON atteint, charge 100 g ATTEINT, vitesse 45 vs 50 mm/s PARTIELLEMENT atteint), statut « prototype qualifié avec écarts documentés », jeu articulaire identifié comme cause, articulations à roulements pistées.
+
+**Étape 4 *Mener les bilans de clôture*** (2 H4 économes, ni pivot ni clôture documentaire pure) : intro 2 ¶ (3 bilans en parallèle par contrainte calendaire + REX réflexif distinct). H4-1 *Conduire les trois bilans en parallèle* (bilan technique : tableau qualif + analyse écarts ; bilan projet : planning vs rétroplanning, budget, matrice de risques ; bilan écoconception : ACV réelle vs estimée du dossier-tech). H4-2 *Capitaliser via le REX d'équipe* (3 questions canoniques, compétence MEO en propre). Tip Astuce REX en revue à blanc + warning Attention « bilan technique ≠ liste d'écarts ». `[!example]` : 4 paragraphes structurés (bilan technique reprend précision 8 mm + jeu articulaire / bilan projet retard 4 jours + budget 215 € HT + risque lead time confirmé / bilan éco ACV ≈50 % steppers + 30 % alu aligné estimé / REX bascule PLA→alu salvatrice + caractérisation jeu plus précoce + transmission STL anticipée bonne pratique).
+
+**Étape 5 *Livrer le projet*** (2 H4 économes, livraison documentaire + orale) : intro 2 ¶ (rédiger d'abord, démontrer ensuite — rapport matrice de la soutenance). H4-1 *Rédiger le rapport final* (structure par phases du V, qualif + écarts les plus lus). H4-2 *Préparer et passer la soutenance* (3 moments : démo / écarts honnêtes / regard équipe). Tip Astuce rédiger rapport en commençant par les bilans + warning Attention « préparer soutenance avant rapport mauvaise idée ». `[!example]` : 3 paragraphes structurés (rapport remis dernier jour sem. 15 / soutenance lendemain avec démo trajectoire 3 points + jeu articulaire vidéo ralentie + REX transmission STL + répartition parole par bloc).
+
+### Phase 7 — Pièges + Équipe refondus
+
+**Pièges fréquents** : 6 puces simples du squelette refondues en **11 entrées format `**Piège court.** Phrase d'explication.`** (convention 12). Ratio a posteriori ~55 % (6/11 émergés pendant rédaction des étapes 2-5), cohérent avec range 37-45 % typique en légère augmentation. Pièges : sauter niveau 0 / confondre validation disciplinaire et tests fonctionnels / découper tests par discipline / banc vs pièce / fiche qualif en dernier / refaire cinématique en urgence / boucher au lieu documenter / bilans en série / énumérer sans positif / REX vs bilan projet / soutenance avant rapport.
+
+**Pendant cette phase, côté équipe** : 4 ¶ thématiques (interfaces métiers méca/info/élec / gestion-de-projet / écoconception / sécurité-et-qualité). Wiki-links posés sur cibles existantes ou à créer (`firmware`, `gabarit`, `cable-management`, `niveau-logique`).
+
+### Phase 8 — Cohérence finale 4 passes (3 patches)
+
+- **Passe 1 terminologie** : 1 typo « écartoé » → « écarté » dans piège 4 (banc vs pièce).
+- **Passe 2 fil rouge bras 3 axes** : 0 patch (cohérence chiffrée inter-étapes OK : précision 8 mm récurrente, budget 215 € HT, ACV 50 %/30 %, articulations alu en lead time long).
+- **Passe 3 ponts inter-étapes** : 0 patch (sortie d'étape 2 example renvoie vers étape 3, étape 3 H4-1 rétroactive vers étape 2, étape 4 intro ponte depuis étape 3, étape 5 intro depuis étape 4 — pattern stable).
+- **Passe 4 wiki-links exhaustif** : 2 doublons détectés (PCB ×2 dans étape 2 H4-1, CdCF ×2 dans étape 3 H4-1) → retirer le 2ᵉ wiki-link de chaque section. Pattern « 0 patch » du dossier-tech non atteint, mais corrections mineures (3 patches au total).
+
+Total **27 patches** sur la session, fiche `integration-et-tests.md` 35 878 bytes.
+
+### Round 2 utilisateur
+Validé sans correction. Fiche close.
+
+### Conventions éprouvées et acquises
+- **C1** (temporel limité aux `[!example]`) : 5/5 `[!example]` contiennent `semaine n°X`, aucune prose générique.
+- **C6** (wiki-links 1ʳᵉ occurrence par section/sous-section/callout) : audit passé en passe 4 avec 2 corrections de doublons (mode au fil + filet passe dédiée).
+- **C10** (matrice incarnée) : 5/5 `[!example]` sont des objets structurés (3/4/5/4/3 paragraphes selon étape). Pattern stable post-promotion.
+- **C11** (rythme H4) : 2 cas inédits acquis. **Convention amendée § 6** : exception multi-disciplinaire (3 H4 par discipline) + cas pyramide compressée (3 H4 dense pour 4 niveaux). Documenté en sortie de session.
+- **C12** (Pièges a posteriori) : ratio 55 % (6/11), cohérent avec range 37-45 % en légère croissance.
+- **C13** (relire amont) : 2ᵉ épreuve formelle réussie. **Convention promue § 5 (Collaboration)** en sortie de session après dossier-tech + integration-et-tests sans round 2 utilisateur sur sections amont.
+- **C14** (seuil 30 ko payload MCP) : éprouvée en début de session sur les patches d'alignement v2.1 (batch 11 patches ~2 ko). **Convention enrichie § 7** : leçon NBSPs U+202F + typos de transcription dans anchors longs comme source d'échec silencieux du matching `oldText` (2 cas vécus en session : NBSPs présumés sur placeholder + typo « enchaîner » → « enchaâîner » dans anchor).
+
+### Wiki-links nouveaux poussés au BACKLOG
+- `firmware` (MIA) — popover posé étape 2 intro + H4-3 + section Équipe
+- `gabarit` (MME) — popover posé étape 2 H4-2
+- `cable-management` (EEE) — popover posé section Équipe
+- `niveau-logique` (EEE) — transformation entrée existante en wiki-link explicite
+
+### Leçons méthodo capitalisées dans `conventions.md` § 7
+- **Typos de transcription dans anchors `edit_file`** : reconstituer un `oldText` de mémoire introduit des typos invisibles (cas vécu : « enchaâîner » au lieu de « enchaîner » dans anchor étape 3 example, mismatch silencieux). Discipline : recopier `oldText` directement depuis la sortie de `read_text_file` plutôt que retranscrire.
+- **NBSPs fines U+202F** : la typo française pose des NBSPs invisibles devant `: ; ? ! % » €`. Anchors longs reconstitués visuellement → mismatch silencieux. Discipline : anchors courts privilégiés (1 phrase identifiante), `\u202f` explicite si traversée nécessaire.
+
+### Tâches restantes en fin de session
+1. Tâche manuelle utilisateur : finalisation archivage JOURNAL 22-24/05 dans Obsidian (rappelée en début de session, toujours pendante).
+2. Commit + push session 26/05 (s'ajoute à la liste de rattrapage depuis 19/05).
+3. Vérifications visuelles rendu Quartz mobile poussées au TODO (5 étapes + Pièges + Équipe d'integration-et-tests).
+
+### Phase 1 du wiki = complète côté trames du V
+Avec la clôture de `integration-et-tests`, les 5 trames du V sont approfondies (concept 25/05 suite 4-6, PoC 25/05 suite 7, dossier-technique 25/05 suite 8, integration-et-tests 26/05 ; specification-technique antérieure). Prochaine cible : `securite-et-qualite` (3ᵉ et dernier fil transverse, après `gestion-de-projet` 25/05 et `ecoconception`). Niveau A en autonomie déjà validé par l'utilisateur pour cette fiche.
+
+### État JOURNAL.md
+Taille actuelle estimée 140 ko (au-dessus du seuil 100 ko). Archivage 22-24/05 toujours pendant en tâche manuelle utilisateur (procédure dans TODO Manipulations manuelles, voir convention 14 sur le seuil pratique MCP).
+
+---
+
+<!-- ARCHIVE_INSERT_MARKER -->` juste avant `## 2026-05-21 (suite 2)` dans `JOURNAL-archive.md` → insertion seg3 (22/05 ×2, ~20 ko) → seg2 (23/05 ×3, ~24 ko — payload le plus gros, sous seuil) → seg1 (24/05 ×2, ~17 ko) → retrait marker. Antichronologie respectée : 24/05 (suite 2) — 24/05 (suite) — 24/05 — 23/05 (suite 2) — 23/05 (suite) — 23/05 — 22/05 (suite) — 22/05 — 21/05 (suite 2).
+
+**Phase 2 — Trim JOURNAL.md (5 étapes)** : T1 seg1 supprimé → T2 seg2 supprimé → **T3 bloqué EPERM** (verrou Windows, Obsidian focus sur JOURNAL.md) → T3 réussi après libération du verrou (changement d'onglet dans Obsidian) → T4 warning préambule supprimé + mise à jour de la phrase « antérieures au 25/05 » + résumé d'archive élargi → T5 séparateur orphelin nettoyé + commentaire HTML final mis à jour (mentionne les deux vagues d'archivage : 25/05 pour 19→21/05 + 24/05 suite 2, et 26/05 suite pour 22→24/05 suite).
+
+**Bilan tailles** : JOURNAL.md 156 → 96 ko (−60 ko), JOURNAL-archive.md 60 → 119 ko (+59 ko). Cohérent.
+
+### Leçons méthodo
+
+**C14 seuil ~30 ko validé** : un `edit_file` de 24 ko net + 200 chars d'anchor passe sans souci. Marge confortable à 25 ko. La zone d'échec silencieux semble commencer plus haut que documenté initialement (à ré-éprouver à froid pour calibrage).
+
+**Nouveau piège distinct du seuil C14 — verrou Windows EPERM** : quand Obsidian a le fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS, pas de payload. Remède : changer d'onglet dans Obsidian (libère le verrou, pas besoin de fermer Obsidian). À documenter dans `conventions.md` § 7 comme amendement C14.
+
+**Pattern MARKER + N segments** : stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP. À capitaliser comme procédure standard si la situation se reproduit (typiquement les archivages JOURNAL ultérieurs).
+
+### Cadrage prochaine session — cartographie AA
+
+Référentiel école à jour rangé dans `_drafts/referentiel/Compétences.xlsx` (sous-dossier `referentiel/` créé par l'utilisateur). Décision d'emplacement : cohérent avec `_drafts/flowcharts/`, hors site Quartz, document de pilotage interne. Également uploadé dans le projet Claude.ai pour accès `/mnt/project/` en début de session.
+
+3 questions méthodo à trancher en début de session AA :
+1. **Format de cartographie** : champ `aa: [...]` dans front matter (C9, jamais rempli) / table centralisée dans `hub/index.md` / les deux ?
+2. **Granularité** : un AA effleuré compte-t-il comme couvert, ou faut-il un seuil (fiche dédiée OU section dédiée) ?
+3. **Ordre de traitement** : par domaine du référentiel (EEE → MIA → MEO → PROJ → MME → ESE) ou par fiche existante (lecture en aveugle de chaque fiche, lister les AA couverts, recoupement) ?
+
+Mode : niveau C jusqu'aux conventions stabilisées sur 2-3 fiches, puis niveau B sur l'exécution répétitive.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6 § 7 → § 1-2** : épreuve 3/3 réussie (`gestion-de-projet`, `ecoconception`, `securite-et-qualite`), à acter à froid (niveau C requis).
+- **Amendement C14 — leçon EPERM Windows** : à intégrer dans `conventions.md` § 7 « En cours d'éprouvage ».
+- **Cartographie 107 AA** : session dédiée à programmer (prochaine session, voir cadrage ci-dessus).
+- **Convention emplacement référentiels** : `_drafts/referentiel/` pour les documents école externes — à documenter formellement si confirmé sur un 2e cas.
+- **Re-calibrage seuil C14** : la valeur exacte du seuil pratique mérite éprouvage à froid (24 ko passe, 50 ko échoue le 25/05 suite 8 — zone intermédiaire 30-40 ko à explorer).
+- **Commit/push** : rattrapage depuis 19/05 (8+ sessions accumulées) + session courante — à faire en fin de session.
+
+---
+
+<!-- ARCHIVE_INSERT_MARKER -->
+
 <!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->
 
 ## 2026-05-25 (suite 4) — Concept : approfondissement étapes 1-2 + alignement callouts v2.1
