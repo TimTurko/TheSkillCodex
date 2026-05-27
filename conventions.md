@@ -282,6 +282,37 @@ Doc complète : `tools/README.md`.
 
 La typo française reste appliquée sur les fiches publiables (`content/**.md`) via Obsidian, pour le rendu Quartz. Ces fichiers ne sont pas concernés par le script.
 
+### Chemin des images — racine absolue (acquise 27/05 suite 2)
+
+Dans les fiches `content/fiches/<domaine>/*.md` (depth ≥ 2), les embeds d'images
+SVG/PNG utilisent le **chemin absolu depuis la racine du site** :
+`![alt](/ressources/img/fichier.svg)`.
+
+**Justification** : Quartz perd le base path `/TheSkillCodex/` quand le chemin
+relatif remonte de 2 niveaux ou plus (bug structurel diagnostiqué 27/05 suite,
+test reproductible 27/05 suite 2). Le chemin absolu est résolu correctement
+par Quartz qui préfixe le base path à la publication.
+
+**Tests négatifs sur `pieuvre.md`** :
+- Format Obsidian-natif `![[fichier.svg]]` → KO github.io.
+- Chemin absolu `/ressources/img/...` → OK github.io, KO Obsidian preview.
+  Retenu.
+
+**Compromis assumé** : la preview Obsidian ne résout pas les chemins absolus
+depuis la racine du vault — les images apparaissent cassées dans l'éditeur.
+Arbitrage utilisateur 27/05 suite 2 : le rendu github.io est la cible
+prioritaire (publication aux étudiants), l'édition dans Obsidian reste
+fonctionnelle sur le markdown source.
+
+**Exception — depth ≤ 1** : `content/hub/index.md` (chemin
+`../ressources/img/...`) et `content/index.md` (chemin `ressources/img/...`)
+conservent leurs chemins relatifs (la perte de base path n'affecte pas les
+chemins à 1 niveau ou moins). Pas de migration sur ces fichiers.
+
+**Pour Claude** : tout nouvel embed image dans une fiche
+`content/fiches/<domaine>/*.md` utilise la forme `![alt](/ressources/img/fichier.svg)`.
+Convention à appliquer en niveau A sur toute nouvelle fiche.
+
 ### Noms de fichiers
 **Kebab-case** : `cahier-des-charges-fonctionnel.md`,
 `schema-bloc-fonctionnel.md`. Pas d'accents, pas d'espaces, pas de

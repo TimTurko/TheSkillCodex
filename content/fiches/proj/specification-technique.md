@@ -67,7 +67,7 @@ La [[bete-a-cornes|bête à cornes]] est l'outil canonique de [[afnor-nfx50-151|
 - **Sur quoi agit-il ?** → la matière d'œuvre, l'objet ou le milieu sur lequel il opère
 - **Dans quel but ?** → le service rendu
 
-![Bête à cornes — schéma générique](../../ressources/img/bete-a-cornes-generique.svg)
+![Bête à cornes — schéma générique](/ressources/img/bete-a-cornes-generique.svg)
 
 > [!example] Exemple : projet couveuse
 >
@@ -173,7 +173,7 @@ Le tableau seul ne suffit pas. Conclure en quelques lignes : **qu'est-ce qu'on r
 
 Le besoin est compris et l'existant est balisé. Il faut maintenant **formaliser ce que le système doit faire**, sans présumer encore *comment*. L'outil canonique de [[afnor-nfx50-151|la norme NF X50-151]] pour cette formalisation est la **[[pieuvre|pieuvre]]**. Elle force à identifier d'abord *avec quoi* le système interagit (les milieux environnants), puis *quels services* il doit rendre, en distinguant trois catégories de fonctions : principales ([[FP]]), secondaires ([[FS]]) et contraintes ([[FC]]).
 
-![Pieuvre — schéma générique](../../ressources/img/pieuvre-generique.svg)
+![Pieuvre — schéma générique](/ressources/img/pieuvre-generique.svg)
 
 #### Identifier les milieux environnants
 
@@ -201,7 +201,7 @@ Une fois les milieux identifiés, tracer les liens du diagramme. Chaque lien est
 > [!example] Exemple : projet bras 3 axes
 > *La pieuvre porte sur le système physique (le bras et ses interactions). La bête à cornes de l'étape 1 portait, elle, sur la commande pédagogique au-dessus (l'enseignant comme commanditaire, le service rendu étant l'illustration d'une démarche projet). Ces deux niveaux coexistent dans la posture étudiant-client-de-lui-même et ne se contredisent pas — ils ne décrivent simplement pas le même système.*
 >
-> ![Pieuvre du bras 3 axes](../../ressources/img/pieuvre-bras-3-axes.svg)
+> ![Pieuvre du bras 3 axes](/ressources/img/pieuvre-bras-3-axes.svg)
 >
 > **Milieux environnants identifiés** : objet à déplacer, opérateur, poste informatique, alimentation électrique, environnement pédagogique (fablab, moyens de fabrication accessibles).
 >
