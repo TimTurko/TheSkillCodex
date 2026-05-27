@@ -199,31 +199,39 @@ approfondissement.
 
 ## 5. Collaboration — niveaux d'autonomie
 
-### Niveaux A / B / C / D
-- **Niveau A** (autonome silencieux) : rédaction mécanique, formatage,
-  alignement sur conventions stabilisées, correction de typo. Claude exécute
-  et signale en récap final.
-- **Niveau B** (autonome avec annonce) : choix de structure conventionnelle,
-  choix d'exemples cohérents avec le fil rouge. Claude annonce en 2-3 lignes,
-  exécute, l'utilisateur peut interrompre.
-- **Niveau C** (validation préalable) : nouvelle convention, rupture de
-  pattern établi, vocabulaire nouveau, ajout de notion au TODO/BACKLOG, ajout
-  d'une dépendance significative au réseau de liens. Claude propose, attend
-  l'OK.
-- **Niveau D** (toujours collaboratif) : rapport au référentiel AA, approche
-  pédagogique de fond, vocabulaire à proscrire, posture étudiante, choix
-  structurants sur le parcours.
+### Briques de réponse — A / B / C / D (27/05 suite 3)
 
-### Niveau par défaut (25/05 suite)
-**Niveau B**. Niveau A réservé aux actions strictement mécaniques. Niveaux C
-et D inchangés (selon les critères de chaque niveau).
+Découpage par **forme de communication**, pas par jauge de longueur. La forme
+borne naturellement le texte. Les briques sont **combinables** dans une même
+réponse, pas des modes exclusifs.
 
-En cas de doute sur le niveau, opter pour le niveau supérieur (plus
-collaboratif).
+- **A — Fait.** Action MCP + 1 phrase de signal (« Fait. » éventuellement
+  précisé). Pas d'annonce préalable, pas de récap après.
+- **B — Questions.** Liste de questions pour lever doute sur le besoin.
+  Format scannable.
+- **C — Procédure utilisateur.** Bullet points listant ce que l'utilisateur
+  doit faire (étapes manuelles, patches côté Claude.ai, choix à effectuer).
+- **D — Explication.** Prose argumentée pour développer un concept, comparer
+  des options, proposer une refonte. Détail élevé assumé.
 
-### Niveau B = livraison en texte rédigé (25/05 suite 2)
-Le niveau B implique livraison en **texte rédigé**. Un placeholder italique
-entre crochets (`*[À rédiger — ...]*`) n'est pas une livraison niveau B —
+Combinaisons typiques : A+C (j'ai fait ma part, voici la tienne), B avant
+action (questions puis exécution en A), D+B (argument + arbitrages à valider).
+
+**Règle de défaut implicite** : si une brique n'est pas explicitement requise
+par la situation, ne pas l'ajouter. Pas d'annonce préalable avant A (sauf
+go/no-go pour action très lourde). Pas d'explication accolée à un patch
+trivial.
+
+**Topics qui forcent D obligatoirement** : nouvelle convention, choix
+structurant sur le parcours, référentiel AA, pédagogie de fond, vocabulaire
+à proscrire, posture étudiante. Sinon Claude risque de répondre en A là où
+il fallait argumenter.
+
+Patch parallèle dans le prompt projet § 10 (à appliquer côté Claude.ai).
+
+### Livraison rédigée — pas de placeholders (25/05 suite 2)
+Toute livraison de contenu se fait en **texte rédigé**. Un placeholder
+italique entre crochets (`*[À rédiger — ...]*`) n'est pas une livraison —
 c'est un aveu de travail non fait. La forme italique avec indications
 méthodologiques n'est admissible qu'avec signalement explicite de manque de
 matière, et uniquement comme étape de transition vers un round 2 de
@@ -240,9 +248,9 @@ Une fiche stub existante (comme `pieuvre.md` avant son approfondissement du
 
 Avant d'attaquer une section avale (étape, Pièges, Équipe, Conclusion), passer en lecture rapide les sections amont déjà rédigées (Posture, Objectif, étapes précédentes). Le coût en temps est minime, le bénéfice est l'évitement de doublons sémantiques qui passent inaperçus en rédaction continue mais ressortent en round 2 utilisateur.
 
-Discipline issue de la leçon « ±2 phrases de contexte » (25/05 suite 6) étendue à toutes les sections amont. Éprouvée 2/2 : 25/05 suite 8 (dossier-technique) et 26/05 (integration-et-tests) sans round 2 utilisateur sur sections amont. Complément naturel à la convention de relecture critique (round 2 ci-dessous) : convention 13 réduit le travail à conduire en round 2.
+Discipline issue de la leçon « ±2 phrases de contexte » (25/05 suite 6) étendue à toutes les sections amont. Éprouvée 2/2 : 25/05 suite 8 (dossier-technique) et 26/05 (integration-et-tests) sans phase de relecture utilisateur sur sections amont. Complément naturel à la convention de relecture critique (phase de relecture utilisateur ci-dessous) : convention 13 réduit le travail à conduire en phase de relecture utilisateur.
 
-### Round 2 de relecture
+### Phase de relecture utilisateur
 Garde-fou : l'utilisateur conduit une passe de relecture critique après toute
 production substantielle, pour identifier les ajustements à apporter.
 
@@ -416,11 +424,11 @@ transverse, méta-structure) → `aa: []` légitime. Exemples : `securite-et-qua
 (méta-structure), `afnor-nfx50-151` (stub référentiel).
 
 ### Référentiel source
-Fichier `_drafts/referentiel/Compétences.xlsx` (107 acquis source,
-**57 critères normalisés**, 12 AA, 5 domaines : PROJ 25 / MME 12 / EEE 10 /
-MEO 10 / ESE 5). MIA fusionné dans EEE et PROJ depuis 26/05/2026. Document
-de pilotage interne, hors site Quartz. Également uploadé dans Project files
-Claude.ai pour accès `/mnt/project/` en session.
+Fichier `_drafts/referentiel/Compétences.xlsx` : **62 critères normalisés**,
+12 AA, 5 domaines (PROJ 25 / MME 12 / EEE 10 / MEO 10 / ESE 5). MIA fusionné
+dans EEE et PROJ depuis 26/05/2026. Document de pilotage interne, hors site
+Quartz. Également uploadé dans Project files Claude.ai pour accès
+`/mnt/project/` en session.
 
 Capitalisation des cartographies dans `_drafts/referentiel/couverture-en-cours.md`
 (fichier de travail privé, grille de lecture + bilans fiche-par-fiche + matrice
@@ -478,6 +486,8 @@ formellement dans les templates une fois éprouvées.
 
 **Complément 27/05 (solution infrastructure)** : NBSPs et CRLF identifiés comme causes récurrentes d'échec d'anchor sur les fichiers de pilotage. Mise en place d'un script de normalisation Node ESM (`tools/normalize-pilotage.js`) + hook pre-commit (`tools/git-hooks/pre-commit`). Voir § 6 *Hygiène des fichiers de pilotage* et `tools/README.md`. La discipline anchor court (recopie depuis `read_text_file` frais, anchor < 60 caractères, éviter de traverser `→` et `:` français) reste utile pour les fiches publiables (`content/**.md`) qui gardent la typo française pour le rendu Quartz.
 
+**Complément 27/05 suite 3 (multi-edits `edit_file` est atomique)** : `edit_file` avec plusieurs entrées dans `edits[]` est **atomique** — un seul anchor non trouvé annule **tout le batch**, même les edits dont l'anchor était correct. Épisode 27/05 suite 3 : batch de 4 edits TODO, le 4e (suppression section *Fait* en fin de fichier, ~3 ko de oldText avec trailing newlines incertains) a échoué et annulé les 3 premiers (anchors courts pourtant sûrs). Reprise en 3 appels séparés, multiplication des tool calls et de la durée MCP. **Règle pratique** : (a) multi-edits OK pour 2-3 anchors courts et sûrs sur le même fichier ; (b) tout edit ambitieux (oldText > 1 ko, ancrage fin de fichier, NBSPs ou trailing newlines suspects) **toujours en appel séparé** pour isoler le risque ; (c) si un edit anchor de fin de fichier est nécessaire, lire `tail` du fichier juste avant pour copier l'anchor exact (la lecture initiale d'une session peut tronquer ou normaliser différemment les newlines finaux). **Corollaire** : préférer N petits edits séparés à 1 gros batch dès qu'il y a doute sur un anchor, le coût en tool calls est compensé par l'absence de retry sur les edits perdus.
+
 ### Acquises 26/05 suite 3 (à éprouver en fin de session prochaine)
 17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuve 2/N réussie 26/05 suite 4 et 26/05 suite 5** : patch flèche TODO effectué en fin de session selon l'arbitrage utilisateur sortant (suite 4 : de « clôture méthodologique » vers « reprise rédaction phase 2 » ; suite 5 : de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP »). À éprouver sur 1-2 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
 
@@ -487,6 +497,10 @@ formellement dans les templates une fois éprouvées.
 
 ### Acquises 27/05 suite (à éprouver Phase 0)
 20. **Mapping AA pertinent en multi-couverture** — acquise sur consigne utilisateur (« n'hésite pas à mapper quand un AA peut être en lien avec une notion ou un tuto, cela permet d'expliquer aux étudiants à quel point un critère peut être transverse »). Lorsqu'un critère AA est pédagogiquement lié à une notion ou un tuto, l'inscrire dans `aa:` du front matter même s'il est déjà Couvert par une autre fiche. La règle du statut dominant (C > E > HS > NC, § 7) reste opérante côté cartographie globale, mais le **front matter individuel** acte la transversalité du critère et la donne à voir aux étudiants. Éprouvée 1/N sur `decomposition-fonctionnelle` (multi-couverture avec `bete-a-cornes` sur `RA-PROJET-C04-4/PROJ/1` + avec `concept.md` sur `/PROJ/6`). À éprouver sur les fiches Phase 0 restantes (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers § 7 *Référentiel AA*. Décision niveau D explicite.
+
+### Acquises 27/05 suite 3 (à éprouver sur 2-3 prochaines entrées JOURNAL)
+21. **Format JOURNAL hybride** — header bullets (Périmètre / Livrables / Décisions / Conventions / Tailles) + corps narratif court réservé aux cas non triviaux (acquis méthodo, échec, décision contre-intuitive). Cible 3-5 ko par session. Objectif : réduire le payload `edit_file` d'insertion en tête de JOURNAL (cumul avec le marker `<!-- INSERT_JOURNAL_HERE -->`) pour minimiser la durée MCP en fin de session. Format acté dans le prompt projet § 7. À éprouver sur 2-3 entrées : si la cible 3-5 ko est tenue sans perte de fidélité du contexte transmis au démarrage suivant, promotion vers `conventions.md` § 5 ou § 6.
+22. **Briques de réponse A/B/C/D** — indépendamment de l'acquisition formelle déjà actée § 5 et dans le prompt projet § 8, à éprouver dans la pratique conversationnelle sur les 2-3 prochaines sessions : vérifier que les briques sont effectivement combinables sans confusion, que la règle de défaut implicite tient (pas de bullet/explication parasites), que les topics forcent bien D obligatoirement. Critère de succès : réduction effective du texte produit par Claude dans les réponses, mesurée à vue par l'utilisateur.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

@@ -8,6 +8,45 @@
 > complète de `specification-technique.md`, première vague de trames
 > transverses et fiches-notion, nettoyage documentaire et concept étapes 1-2).
 
+<!-- INSERT_JOURNAL_HERE -->
+
+## 2026-05-27 (suite 3) — Refonte documentaire structurale : briques A/B/C/D, marker JOURNAL, migrations TODO→BACKLOG
+
+### Périmètre
+Session 100 % refonte du système documentaire (Q1–Q5 du briefing utilisateur). Pas de rédaction de fiche. Refonte du prompt projet, de `conventions.md`, et compactage TODO/BACKLOG. Première instance du format JOURNAL hybride.
+
+### Livrables
+- **Prompt projet refait** (8 sections au lieu de 10) : § 3 chiffres AA actualisés (62 critères, 12 AA, 5 domaines, MIA dissous), § 6 Cas A/B au démarrage selon prompt de lancement, § 7 nouvelle procédure fin de session (MAJ systématique → réflexion → prompt de lancement), § 8 briques A/B/C/D (par forme de communication). Copié-collé par utilisateur dans les instructions Claude.ai.
+- **`conventions.md`** : § 5 briques A/B/C/D (refonte complète de l'ancien découpage par nature d'action), § 5 *Round 2* → *Phase de relecture utilisateur*, § 5 *Livraison rédigée — pas de placeholders* (renommée et désindexée des niveaux), § 7 chiffres AA actualisés, § 8 complément C14 multi-edits atomique + C21 format JOURNAL hybride + C22 briques A/B/C/D en éprouvage pratique.
+- **`TODO.md` compacté** (~25 → ~12 ko) : suppression section *Fait* (rotation glissante abandonnée), nettoyage en-tête, migration des sections *Décisions hiérarchie* + *Manipulations différées* + *Vérifications visuelles* vers BACKLOG.
+- **`BACKLOG.md` enrichi** (~25 → ~33 ko) : 3 nouvelles sections H2 migrées depuis TODO.
+- **`JOURNAL.md` marker posé** : `<!-- INSERT_JOURNAL_HERE -->` après l'intro. Les insertions en tête auront désormais un payload = 1× la taille de l'entrée (au lieu de 2× avec l'ancien anchor sur la première entrée existante).
+
+### Décisions structurales
+- **Briques de réponse A/B/C/D** : refonte du contrat de communication. Découpage par **forme** (Fait / Questions / Procédure utilisateur / Explication), pas par nature de l'action. Briques **combinables**, pas mutuellement exclusives. Liste explicite des topics qui forcent D obligatoire.
+- **Section *Fait* TODO supprimée** : l'historique reste dans JOURNAL, plus de duplication.
+- **Workflow démarrage** : Cas A (prompt de lancement fourni) = lecture conventions + JOURNAL head seulement, pas de TODO. Cas B (sans prompt) = lecture des 3 fichiers + résumé classique.
+- **Workflow fin de session** : MAJ systématique TODO/JOURNAL/BACKLOG sur demande, puis réflexion commune, puis Claude rédige et propose un prompt de lancement pour la session suivante.
+
+### Conventions
+- **C14 complément 27/05 suite 3** (acquise) : `edit_file` multi-edits est **atomique** — un anchor non trouvé annule tout le batch. Règle : edits ambitieux (oldText > 1 ko, fin de fichier, NBSPs suspects) toujours en appel séparé.
+- **C21 Format JOURNAL hybride** (en éprouvage § 8) : header bullets + narratif court. Cible 3-5 ko. Cette entrée = épreuve 1/N.
+- **C22 Briques A/B/C/D** (en éprouvage § 8) : critère de succès = réduction effective du texte produit, mesurée à vue par l'utilisateur. Cette session = épreuve 1/N.
+- **« Round 2 » → « phase de relecture utilisateur »** (vocabulaire).
+- **Chiffres AA actualisés** : 62 critères (au lieu de 57), 5 domaines (au lieu de 6 — MIA dissous depuis 26/05/2026).
+
+### Tailles fichiers en fin de session
+- `conventions.md` : ~22 → ~26 ko (briques refondues + 2 conventions en éprouvage + complément C14)
+- `TODO.md` : ~25 → ~12 ko (compactage majeur)
+- `BACKLOG.md` : ~25 → ~33 ko (3 sections migrées)
+- `JOURNAL.md` : ~99 → ~104 ko avec cette entrée ~5 ko. **Seuil 100 ko dépassé** : archivage à proposer en début de prochaine session.
+
+### Acquis méthodo
+
+La refonte des « niveaux d'autonomie » a glissé en 3 itérations sous pression d'objectif. Ma proposition initiale = 3 niveaux par **nature d'action**. Proposition utilisateur = 3 niveaux par **dynamique d'interaction**. Recadrage utilisateur final = 4 briques par **forme de communication** (Fait / Question / Procédure / Explication). L'angle d'analyse a glissé deux fois (nature → dynamique → forme) sous le critère explicite « minimiser le texte ». Compromis final = briques combinables + règle de défaut implicite + liste D obligatoire = simplicité orientée verbosité produite, sans perte de garde-fou sur les topics structurants. Leçon : lorsque l'utilisateur fixe un objectif terminal explicite (« le but est de minimiser X »), arrêter de proposer des compromis multi-critères et réaligner entièrement sur l'objectif.
+
+L'épisode multi-edits sur TODO (1 batch de 4 edits raté → 3 appels successifs) a coûté ~3-4× la durée prévue. Cause : edit n°4 avec anchor de fin de fichier (~3 ko de oldText avec trailing newlines incertains) a échoué et annulé les 3 edits propres qui précédaient. Capitalisation immédiate sous forme de complément C14 § 8. Effet attendu : prochaines sessions, batches multi-edits prudents (2-3 anchors courts max), edits ambitieux isolés dans des appels dédiés. La leçon précise vient s'ajouter aux pièges connus (seuil 30 ko payload, EPERM verrou Windows, typos transcription).
+
 ---
 
 ## 2026-05-27 (suite 2) — Mini-session bug SVG base path Quartz résolu + migration globale 10 fiches
