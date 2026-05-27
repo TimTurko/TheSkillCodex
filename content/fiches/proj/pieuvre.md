@@ -18,7 +18,7 @@ draft: false
 
 La **pieuvre** est l'outil graphique d'[[afnor-nfx50-151|analyse fonctionnelle]] qui formalise *ce que le système doit faire* en le reliant aux **milieux environnants** avec lesquels il interagit. Chaque lien tracé est une [[fonction|fonction]] ([[FP|principale]], [[FS|secondaire]] ou [[FC|contrainte]]) qui sera ensuite chiffrée dans le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]].
 
-![Pieuvre — schéma générique](../../ressources/img/pieuvre-generique.svg)
+![[pieuvre-generique.svg]]
 
 ## À quoi ça sert ?
 
@@ -56,7 +56,7 @@ La forme classique (convention AFNOR / NF X50-151) est **rayonnante** : système
 
 ## Exemple — projet bras 3 axes
 
-![Pieuvre du bras 3 axes](../../ressources/img/pieuvre-bras-3-axes.svg)
+![[pieuvre-bras-3-axes.svg]]
 
 Cette pieuvre porte sur le **système physique** : le bras robotique et ses interactions directes avec son monde. Elle se distingue de la [[bete-a-cornes|bête à cornes]] de l'étape précédente, qui portait sur la commande pédagogique au-dessus du projet (l'enseignant comme commanditaire, le service rendu étant l'illustration d'une démarche projet). Les deux niveaux coexistent dans la posture étudiant-client-de-lui-même et ne se contredisent pas — ils décrivent simplement deux systèmes emboîtés.
 
