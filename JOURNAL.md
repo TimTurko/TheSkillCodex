@@ -10,6 +10,77 @@
 
 ---
 
+## 2026-05-27 (suite 2) — Mini-session bug SVG base path Quartz résolu + migration globale 10 fiches
+
+### Périmètre de session
+Mini-session technique pure, dédiée à la résolution du bug SVG diagnostiqué en clôture 27/05 suite (les chemins `../../ressources/img/...` perdent le base path `/TheSkillCodex/` sur github.io). PC pro, MCP `theskillcodex`. Procédure pré-cadrée par l'utilisateur en briefing : test isolé sur `pieuvre.md` avec solution candidate A (format Obsidian-natif `![[fichier.svg]]`), puis solution B (chemin absolu `/ressources/img/...`) si A KO, puis solution C (investigation conf Quartz) si B KO. Migration globale niveau A en cas de succès, puis clôture documentaire.
+
+### Test isolé sur `pieuvre.md` — 2 itérations
+
+**Itération 1 — Solution A `![[fichier.svg]]`** (format Obsidian-natif). Patch des 2 lignes `![alt](../../ressources/img/foo.svg)` → `![[foo.svg]]` (alt text supprimé, accessibilité préservée via `<title>` + `<desc>` internes des SVG vérifiés en sortie : les SVG `pieuvre-generique.svg` et `pieuvre-bras-3-axes.svg` portent bien les attributs `role="img" aria-labelledby` requis). Commit + push utilisateur. **Vérification utilisateur sur smartphone : KO github.io.** Hypothèse confirmée : Quartz perd également le base path en mode wikilink-embed Obsidian-natif quand le chemin n'est pas explicite.
+
+**Itération 2 — Solution B chemin absolu** `/ressources/img/fichier.svg`. Patch des 2 lignes vers format markdown standard avec chemin absolu site, alt text restauré. Commit + push. **Vérification utilisateur : OK github.io, KO Obsidian preview.** Arbitrage utilisateur immédiat : compromis assumé (github.io = cible prioritaire publication étudiants, édition markdown reste fonctionnelle, Obsidian preview dégradé acceptable).
+
+### Migration globale — 10 fiches publiables
+
+Niveau A mécanique, batch en 8 appels `edit_file` (1 par fiche, anchors sur le chemin `(../../ressources/img/...)` uniquement, robustes aux NBSP éventuels des alt texts). 25 substitutions au total :
+
+| Fiche | Substitutions |
+|---|---|
+| `pieuvre` | 2 (test) |
+| `bete-a-cornes` | 4 |
+| `decomposition-fonctionnelle` | 4 |
+| `specification-technique` | 3 |
+| `gantt`, `jalons`, `retroplanning`, `wbs`, `matrice-de-decision`, `matrice-de-risques` | 2 chacune |
+| **Total** | **25** |
+
+**Affinement du scope initial briefing utilisateur (11 fiches) à 10 utiles** : `caracteriser-une-exigence` ne contient pas d'image SVG externe (triptyque réalisé en tableaux markdown, cohérent avec convention C7 triptyque pour outils textuels), `schema-bloc-fonctionnel` ne contient pas d'image markdown classique (uniquement un bloc Mermaid + 2 TODO HTML pour SVG d'illustration à produire ultérieurement).
+
+**Ajout du scope par audit complet** : `specification-technique.md` non listée par l'utilisateur dans le scope initial mais révélée par lecture du contenu — 3 occurrences à l'étape 1 (`bete-a-cornes-generique.svg`) et à l'étape 3 (`pieuvre-generique.svg` + `pieuvre-bras-3-axes.svg`), réutilisation des SVG en illustration dans la trame. Patch appliqué.
+
+### Audit exhaustif du contenu `content/`
+
+6 fiches lourdes auditées en complément (lecture batch + grep dans la sortie via bash sur le tool result stocké en `/mnt/user-data/tool_results/`) : `preuve-de-concept`, `dossier-technique`, `integration-et-tests`, `ecoconception`, `gestion-de-projet`, `securite-et-qualite`. **Aucune image SVG externe** dans aucune : pattern callouts + tableaux markdown uniquement, cohérent avec l'inventaire « Vérifier le rendu » du TODO qui ne mentionne aucun SVG pour ces 6 fiches. Plusieurs sub-indices (`fiches/ese/`, `meo/`, `mia/`, `mme/`, `proj/`, `eee/`) et `content/index.md` également vérifiés : aucune image. Hub à 1 niveau de remontée déjà fonctionnel par diagnostic 27/05 suite — pas de migration nécessaire. **Inventaire bug SVG clôturé.**
+
+### Convention C21 *Chemin des images — racine absolue* — promotion directe en § 6
+
+Convention née opérationnelle après le test + arbitrage. Pas d'épreuve en attente (la convention découle d'un fait technique avéré, pas d'une intuition à valider) : promotion directe en `conventions.md` § 6 *Publication / Quartz*, entre *Hygiène des fichiers de pilotage* et *Noms de fichiers*. **Pas d'entrée § 8 en éprouvage** — la convention n'est pas en cours d'éprouvage, elle est acquise.
+
+Contenu : justification technique (Quartz perd le base path quand chemin remonte de 2 niveaux ou plus, bug structurel reproductible), tests négatifs documentés (Obsidian-natif `![[...]]` KO github.io), compromis assumé (preview Obsidian dégradée, github.io prioritaire), exception explicite pour depth ≤ 1 (hub/index.md et content/index.md conservent leurs chemins relatifs car la perte de base path n'affecte pas les chemins à 1 niveau ou moins), prescription `Pour Claude` (convention à appliquer en niveau A sur toute nouvelle fiche).
+
+### Acquis méthodo
+
+**L'audit complet du contenu vaut la peine quand le scope déclaré est étroit.** L'utilisateur avait listé 11 fiches dans le briefing initial. Après lecture systématique des 10 fiches du scope + 6 trames/transverses hors scope + 8 fiches notion/support, l'inventaire effectif est passé à : 10 fiches affectées (dont `specification-technique` non listée initialement), 2 fiches du scope écartées par audit (sans image), 6 fiches lourdes hors scope confirmées sans image. Le coût de l'audit (lecture batch de ~10 ko de fiches supplémentaires) est très inférieur au coût d'avoir laissé une fiche cassée sur le site déployé. À retenir pour les prochaines passes mécaniques globales.
+
+**`search_files` (MCP `theskillcodex`) matche les noms, pas le contenu**. Pour un grep récursif sur le contenu, il faut soit lire les fichiers et grep dans la sortie via `bash_tool` sur le résultat stocké en `/mnt/user-data/tool_results/` (cas où `read_multiple_files` dépasse le contexte et stocke automatiquement), soit lire chaque fichier individuellement. Stratégie efficace cette session : lecture batch de 6 fichiers en un appel `read_multiple_files`, puis `grep -nE '\]\(\.\./\.\./ressources/img/'` dans le fichier de sortie. À retenir comme procédure standard pour les audits de contenu sur les fiches lourdes.
+
+### Conventions
+
+- **C21 promue § 6** (voir ci-dessus). Pas d'éprouvage § 8.
+- **C17 patch flèche TODO post-arbitrage** : épreuve 3/N réussie cette session. Flèche patchée vers `etat-de-l-art-technique` (Phase 0 reprise) conformément à l'anticipation du briefing utilisateur (succès = phase 0 reprise). À éprouver 1 session supplémentaire avant promotion vers § 5 ou § 8.
+- **C20 mapping AA multi-couverture** : inchangée, aucune épreuve cette session (mini-session technique sans rédaction de fiche). Reste 1/N en éprouvage § 8.
+- **C14 segmentation MARKER + N segments** : mobilisée en clôture pour l'archivage JOURNAL (~26 ko à déplacer en 1-2 segments). Confirme la robustesse du pattern déjà acté.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
+- **C17 épreuve restante** (1/N) avant promotion vers § 5 ou § 8.
+- **C18 + C19 à éprouver** sur Phase 1 elec/info.
+- **C20 candidate à éprouver** sur Phase 0.
+- **Convention candidate fil rouge fiches-tuto pivot phase 1** : reformulation à acter (élargir aux notions ? reclasser carac-exigence en tuto ?).
+- **Dette restructuration `decomposition-fonctionnelle.md`** en format fiche-tuto une fois template figé (probablement sur `etat-de-l-art-technique`).
+- **Prochaine session** = Phase 0 reprise (`etat-de-l-art-technique` + figeage template `fiche-tuto.md`).
+- **Commit + push** : workflow fin de session utilisateur.
+
+### Tailles fichiers en fin de session
+- 10 fiches publiables migrées : taille globalement inchangée (substitutions de quelques caractères chacune, 25 substitutions au total sur 10 fichiers).
+- `conventions.md` : ~20 → ~22 ko (ajout convention C21 § 6, ~1,5 ko de contenu).
+- `TODO.md` : ~23 → ~25 ko après rotation glissante (ajout session 27/05 suite 2, suppression session 26/05 suite 5).
+- `JOURNAL.md` : ~108 → ~125 ko après ajout entrée 27/05 suite 2 (~17 ko brut, au-dessus du seuil 100 ko). **Archivage à proposer** en clôture : sessions 26/05 + 26/05 suite + 26/05 suite 2 vers `JOURNAL-archive.md` (~26 ko à déplacer, JOURNAL → ~99 ko).
+- `BACKLOG.md` : ~25 ko, inchangé (aucune émergence d'idée nouvelle cette session, aucun item à cocher).
+
+---
+
 ## 2026-05-27 (suite) — Phase 0 ouverte : fiche `decomposition-fonctionnelle` + diagnostic bug SVG base path Quartz
 
 ### Périmètre de session
