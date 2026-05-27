@@ -248,7 +248,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 
 
-- [x] **Patch budget gestion-de-projet** : trou phase 1 identifié (`RA-PROJET-C07-1/PROJ/3`) puis résolu en session — 5 → 6 outils canoniques (ajout suivi budgétaire bloc 2) + livrable 2/3 enrichi
+
 
 
 
