@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Trois façons d'adapter un niveau logique</title>
+  <desc id="d2">Trois parades pour relier deux composants de tensions différentes. À gauche, la liaison directe : quand les niveaux sont déjà compatibles, on relie sans composant. Au centre, le diviseur de tension : deux résistances ramènent un signal de 5 V vers 3,3 V, dans un seul sens et pour des signaux lents. À droite, le convertisseur de niveau : un composant dédié qui adapte dans les deux sens, sur plusieurs lignes, et convient aux bus rapides comme I2C ou SPI.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .st { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .boxg { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .boxa { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .lab { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .laba { font: 700 12px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .sub { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .wire { stroke: #888780; stroke-width: 1.7; fill: none; }
+      .res { fill: #FFFFFF; stroke: #888780; stroke-width: 1.4; }
+      .reslab { font: 700 10px sans-serif; fill: #2C2C2A; }
+      .node { fill: #888780; }
+      .nodelab { font: 600 10px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .ok { font: 700 14px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .cap { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .edge { font: 600 10px sans-serif; fill: #2C2C2A; }
+      .gnd { stroke: #888780; stroke-width: 1.6; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lab, .sub, .cap, .edge, .reslab { fill: #F1EFE8; }
+        .st, .nodelab, .ok { fill: #EF9F27; }
+        .boxg { fill: #4A4A48; stroke: #BBBBBB; }
+        .boxa { fill: #EF9F27; stroke: #EF9F27; }
+        .laba { fill: #2C2C2A; }
+        .wire, .gnd { stroke: #BBBBBB; }
+        .res { fill: #2C2C2A; stroke: #BBBBBB; }
+        .node { fill: #BBBBBB; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="bi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+  </defs>
+
+  <text x="420" y="28" class="ti">Trois façons d'adapter un niveau logique</text>
+  <line x1="280" y1="56" x2="280" y2="300" class="divi"/>
+  <line x1="560" y1="56" x2="560" y2="300" class="divi"/>
+
+  <!-- ===== 1 · LIAISON DIRECTE ===== -->
+  <text x="140" y="74" class="st">1 · Liaison directe</text>
+  <rect x="40" y="120" width="66" height="42" rx="4" class="boxg"/>
+  <text x="73" y="146" class="lab">3,3 V</text>
+  <rect x="172" y="112" width="96" height="58" rx="4" class="boxg"/>
+  <text x="220" y="136" class="lab">entrée 5 V</text>
+  <text x="220" y="153" class="sub">TTL ou tolérante</text>
+  <line x1="106" y1="141" x2="172" y2="141" class="wire"/>
+  <text x="139" y="132" class="ok">✓</text>
+  <text x="140" y="232" class="cap">Niveaux compatibles :</text>
+  <text x="140" y="248" class="cap">aucun composant.</text>
+  <text x="140" y="268" class="sub">À confirmer sur la datasheet.</text>
+
+  <!-- ===== 2 · DIVISEUR DE TENSION ===== -->
+  <text x="420" y="74" class="st">2 · Diviseur de tension</text>
+  <rect x="300" y="106" width="46" height="30" rx="4" class="boxg"/>
+  <text x="323" y="125" class="lab">5 V</text>
+  <line x1="346" y1="121" x2="376" y2="121" class="wire"/>
+  <rect x="376" y="111" width="40" height="20" rx="2" class="res"/>
+  <text x="389" y="125" class="reslab">R1</text>
+  <line x1="416" y1="121" x2="452" y2="121" class="wire"/>
+  <circle cx="452" cy="121" r="3.2" class="node"/>
+  <line x1="452" y1="121" x2="480" y2="121" class="wire"/>
+  <rect x="480" y="106" width="74" height="30" rx="4" class="boxg"/>
+  <text x="517" y="125" class="lab">entrée 3,3 V</text>
+  <text x="452" y="102" class="nodelab">≈ 3,3 V</text>
+  <line x1="452" y1="121" x2="452" y2="152" class="wire"/>
+  <rect x="443" y="152" width="18" height="42" rx="2" class="res"/>
+  <text x="466" y="178" class="reslab">R2</text>
+  <line x1="452" y1="194" x2="452" y2="208" class="wire"/>
+  <line x1="436" y1="208" x2="468" y2="208" class="gnd"/>
+  <line x1="440" y1="213" x2="464" y2="213" class="gnd"/>
+  <line x1="444" y1="218" x2="460" y2="218" class="gnd"/>
+  <text x="420" y="248" class="cap">Abaisse 5 V → 3,3 V.</text>
+  <text x="420" y="268" class="sub">Sens unique, signaux lents.</text>
+
+  <!-- ===== 3 · CONVERTISSEUR DE NIVEAU ===== -->
+  <text x="700" y="74" class="st">3 · Convertisseur de niveau</text>
+  <rect x="662" y="106" width="76" height="60" rx="5" class="boxa"/>
+  <text x="700" y="131" class="laba">Convertisseur</text>
+  <text x="700" y="148" class="laba">de niveau</text>
+  <line x1="610" y1="136" x2="662" y2="136" class="wire" marker-start="url(#bi)" marker-end="url(#bi)"/>
+  <text x="606" y="139" class="edge" text-anchor="end">3,3 V</text>
+  <line x1="738" y1="136" x2="790" y2="136" class="wire" marker-start="url(#bi)" marker-end="url(#bi)"/>
+  <text x="794" y="139" class="edge">5 V</text>
+  <line x1="700" y1="166" x2="700" y2="184" class="wire"/>
+  <line x1="686" y1="184" x2="714" y2="184" class="gnd"/>
+  <line x1="690" y1="189" x2="710" y2="189" class="gnd"/>
+  <line x1="694" y1="194" x2="706" y2="194" class="gnd"/>
+  <text x="700" y="232" class="cap">Adapte dans les deux sens,</text>
+  <text x="700" y="248" class="cap">plusieurs lignes.</text>
+  <text x="700" y="268" class="sub">Bus rapides (I2C, SPI).</text>
+</svg>

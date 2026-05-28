@@ -1,7 +1,7 @@
 # Couverture des acquis d'apprentissage — en cours
 
 > Fichier de travail privé (non publié). Capitalise les cartographies fiche par fiche pendant la **passe B** (lecture en aveugle), avant écriture des champs `aa:` dans les front matter (faite en une passe groupée une fois le pattern stabilisé sur 2-3 fiches).
-> Source de vérité : `referentiel-normalise.md` (57 critères distincts, 12 AA, 5 domaines).
+> Source de vérité : `referentiel-normalise.md` (62 entrées matrice − 5 doublons = 57 critères distincts, 12 AA, 5 domaines).
 
 ## Convention de granularité (3 niveaux)
 
@@ -206,8 +206,8 @@ hors_scope:
 ```yaml
 couvert:
   - RA-ESE-C09-2/ESE/3       # Proposer améliorations cycle de vie — bloc 2 (4 fronts : sobriété énergétique, durée de vie, démontabilité, sobriété logicielle)
-  - RA-ESE-C09-2/ESE/4       # Évaluer bénéfices d'amélioration — bloc 1 (matrice EAT pondérée intégrée aux matrices de décision)
-  - RA-ESE-C09-2/ESE/5       # Sélectionner améliorations et justifier — blocs 1 et 3 (matrice EAT + annexe dossier technique)
+  - RA-ESE-C09-2/ESE/4       # Évaluer bénéfices d'amélioration — bloc 1 (matrice éco-critères pondérée intégrée aux matrices de décision)
+  - RA-ESE-C09-2/ESE/5       # Sélectionner améliorations et justifier — blocs 1 et 3 (matrice éco-critères + annexe dossier technique)
   - RA-PROJET-C03-3/PROJ/7   # Garantir la démontabilité du projet — bloc 2 (démontabilité PCB, connectique JST, carte modulaire)
 effleure:
   - RA-ESE-C09-2/ESE/1       # Mener l'ACV — bloc 1 (cité et délégué explicitement aux cours collègues, central en dossier-tech)
@@ -412,6 +412,85 @@ effleure:
 
 ---
 
+### mind-map.md
+
+```yaml
+couvert: []
+effleure:
+  - RA-PROJET-C04-4/PROJ/1  # Analyse fonctionnelle — recensement des milieux en amont de la pieuvre (échafaudage, aucune fonction tracée)
+```
+
+**Bilan** : 0 Couvert + 1 Effleuré = 1 critère touché. Fiche-notion **échafaudage** : outil de brainstorming amont qui alimente la pieuvre (milieux) ou la matrice de décision (solutions), sans porter de critère central. `aa: []` légitime — sa valeur tient à ce qu'elle alimente, pas à elle-même.
+
+---
+
+### fast.md
+
+```yaml
+couvert:
+  - RA-PROJET-C04-4/PROJ/1  # Analyse fonctionnelle — FAST = diagramme d'AF (chaîne POURQUOI/COMMENT/QUAND), objet central
+effleure:
+  - RA-PROJET-C04-4/PROJ/6  # Interactions entre blocs — axe QUAND (fonctions simultanées), chaînage fonctionnel
+  - RA-PROJET-C04-4/PROJ/7  # Performances désirées — cas particulier (FAST sur fonctions critiques liées à la flexibilité F0/F1 du CdCF)
+```
+
+**Bilan** : 1 Couvert + 2 Effleuré = 3 critères touchés. Fiche-tuto outil d'AF de l'étape 1 du concept. `PROJ/1` en multi-couverture avec bete-a-cornes, fonction, pieuvre et decomposition-fonctionnelle (statut dominant C inchangé). Prépare les feuilles → lignes de matrice de décision (étape 2).
+
+---
+
+### ecodesign.md
+
+```yaml
+couvert:
+  - RA-PROJET-C04-4/PROJ/5  # Différencier écoconception/écodesign — objet central (tableau d'axes + complémentarité + faux ami anglais)
+effleure: []
+```
+
+**Bilan** : 1 Couvert + 0 Effleuré = 1 critère touché. Fiche-notion mono-critère qui **fait passer `RA-PROJET-C04-4/PROJ/5` d'Effleuré (specification-technique étape 6, cahier-des-charges-fonctionnel) à Couvert** : la distinction écoconception/écodesign devient l'objet central d'une fiche dédiée. **Amendement Passe A à appliquer** (PROJ/5 : E → C, voir stats globales). Multi-couverture avec specification-technique et cahier-des-charges-fonctionnel (désormais en effleurement).
+
+---
+
+### matrice-eco-criteres.md
+
+```yaml
+couvert:
+  - RA-ESE-C09-2/ESE/4  # Évaluer bénéfices d'amélioration — objet central (5 critères env. notés sur N solutions, enchâssés dans la matrice de décision)
+effleure:
+  - RA-ESE-C09-2/ESE/5  # Sélectionner améliorations et justifier — la pondération du bloc éco trace l'arbitrage (central en ecoconception/concept)
+```
+
+**Bilan** : 1 Couvert + 1 Effleuré = 2 critères touchés. Fiche-notion outil d'évaluation environnementale de l'écoconception (prérequis : matrice-de-decision). `ESE/4` et `ESE/5` déjà traités par concept + ecoconception (multi-couverture, statut dominant inchangé) — la fiche en porte l'outil dédié.
+
+---
+
+### bom.md
+
+```yaml
+couvert:
+  - RA-MME-C03-1/MME/5     # Réaliser nomenclature à partir d'une CAO — objet central (consolidation des nomenclatures des 3 disciplines)
+  - RA-PROJET-C07-1/PROJ/3  # Gérer le budget — étape 4 (total HT confronté à l'enveloppe, rétroaction concept si dépassement structurel)
+effleure:
+  - RA-ESE-C09-2/ESE/1     # Mener l'ACV — l'ACV simplifiée se calcule sur la BOM réelle (ACV conduite en dossier-technique étape 3)
+  - RA-PROJET-C07-1/PROJ/1  # Tableau de bord et indicateurs — étape 5 (BOM = source des bons de commande, suivi appro)
+```
+
+**Bilan** : 2 Couvert + 2 Effleuré = 4 critères touchés. Fiche-tuto de l'étape 3 du dossier technique. `MME/5` et `PROJ/3` déjà Couverts par dossier-technique (multi-couverture, statut dominant inchangé) — la BOM est l'artefact qui matérialise la nomenclature CAO et l'engagement budgétaire.
+
+---
+
+### amdec.md
+
+```yaml
+couvert: []
+effleure:
+  - RA-PROJET-C05-3/PROJ/1  # Réaliser tests d'intégration — la criticité hiérarchise les tests de sécurité niveau 4 (multi-couverture integration-et-tests)
+  - RA-PROJET-C04-4/PROJ/1  # Analyse fonctionnelle — l'AMDEC fonctionnelle s'appuie sur les fonctions techniques issues de la décomposition / du FAST
+```
+
+**Bilan** : 0 Couvert + 2 Effleuré = 2 critères touchés. Fiche-tuto **méthode de sûreté de fonctionnement** — comme `securite-et-qualite`, elle relève d'un domaine de posture/méthode non capturé par un AA technique central du référentiel. `aa: []` légitime : la trame sécurité-qualité porte l'intégration au cycle du projet, l'AMDEC en porte la méthode.
+
+---
+
 ### hub/index.md
 
 ```yaml
@@ -458,7 +537,7 @@ effleure: []
 - **/1** *Mener l'ACV* — **C** : dossier-technique étape 3 (ACV simplifiée sur BOM réelle). **E** : ecoconception bloc 1 (cadre + délégation).
 - **/2** *Interpréter ACV* — **C** : dossier-technique étape 3 (contributeurs dominants). **E** : preuve-de-concept étape 4, integration-et-tests étape 4, ecoconception bloc 1.
 - **/3** *Proposer améliorations cycle de vie* — **C** : ecoconception bloc 2 (4 fronts : sobriété/durée/démontabilité/sobriété logicielle). **E** : concept étape 2, preuve-de-concept Équipe, integration-et-tests étape 4.
-- **/4** *Évaluer bénéfices d'amélioration* — **C** : concept étape 2 (matrice EAT), ecoconception bloc 1. **E** : matrice-de-decision.
+- **/4** *Évaluer bénéfices d'amélioration* — **C** : concept étape 2 (matrice éco-critères), ecoconception bloc 1. **E** : matrice-de-decision.
 - **/5** *Sélectionner améliorations et justifier* — **C** : concept étape 2, ecoconception blocs 1 et 3. **E** : matrice-de-decision.
 
 **Bilan ESE** : 5 C + 0 NC sur 5 critères. **Domaine entièrement couvert phase 1**. Multi-couverture systématique sur tous les critères (3 fiches en moyenne par critère). Pas de fiche phase 2 ESE prévue ni nécessaire à ce stade.
@@ -524,7 +603,7 @@ effleure: []
 - **/2** *Solutions existantes* — **C** : specification-technique étape 2, cahier-des-charges-fonctionnel section 3.
 - **/3** *Terminologie technique écrit/oral* — **HS** : 6 fiches (spec-tech, concept, PoC, dossier-tech, integration-et-tests, cahier-des-charges-fonctionnel). Hors scope par décision éditoriale (C15).
 - **/4** *Schéma bloc fonctionnel (capteurs/actionneurs/effecteurs/contrôleurs, boucle ouverte/fermée)* — **C** : concept étape 1 (décomposition), schema-bloc-fonctionnel. **E** : specification-technique étape 3, dossier-technique étape 2, cahier-des-charges-fonctionnel.
-- **/5** *Différencier écoconception/écodesign* — **E** : specification-technique étape 6, cahier-des-charges-fonctionnel. Trou phase 2 prévu : fiche-notion `ecodesign` déjà au TODO.
+- **/5** *Différencier écoconception/écodesign* — **C** : ecodesign (fiche dédiée, objet central). **E** : specification-technique étape 6, cahier-des-charges-fonctionnel.
 - **/6** *Définir interactions entre blocs depuis CdCF* — **C** : concept étapes 1+3, schema-bloc-fonctionnel, dossier-technique étape 2. **E** : specification-technique, cahier-des-charges-fonctionnel, pieuvre.
 - **/7** *Performances désirées du système* — **C** : specification-technique étape 4 (caractériser-une-exigence). **E** : preuve-de-concept étape 1, integration-et-tests étape 3, cahier-des-charges-fonctionnel, fonction, pieuvre, afnor-nfx50-151.
 
@@ -545,7 +624,7 @@ effleure: []
 - **/5** *Être force de proposition* — **HS** (C15).
 - **/6** *Participer aux événements* — **HS** (C15).
 
-**Bilan PROJ** : 17 C + 1 E + 4 HS + **3 NC** sur 25 critères (/1 sketchs, /2 prise en compte design, /5 programmer contrôleur du RA-C03-3 ; +1 amendement C03-3/3 à confirmer en passe B). Domaine **majeur du wiki phase 1** (25/57 = 44 %). Tous les trous phase 1 « NC » sont identifiés et adressés : /1+/2 par délégation possible, /5 par fiches phase 2 (microcontroleur + firmware au TODO).
+**Bilan PROJ** : 18 C + 0 E + 4 HS + **3 NC** sur 25 critères (/1 sketchs, /2 prise en compte design, /5 programmer contrôleur du RA-C03-3 ; +1 amendement C03-3/3 à confirmer en passe B). Domaine **majeur du wiki phase 1** (25/57 = 44 %). Tous les trous phase 1 « NC » sont identifiés et adressés : /1+/2 par délégation possible, /5 par fiches phase 2 (microcontroleur + firmware au TODO).
 
 ---
 
@@ -559,13 +638,13 @@ effleure: []
 | ESE | 5 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 6 |
 | MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 17¹ | 1 | 4 | 3 | 25 |
-| **Total** | **36** | **9** | **4** | **8** | **57** |
+| PROJ | 18¹ | 0 | 4 | 3 | 25 |
+| **Total** | **37** | **8** | **4** | **8** | **57** |
 
-¹ Y compris amendement C03-3/3 (sans amendement : 16 C / 4 NC, total global 35 C). **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E.
+¹ Y compris amendement C03-3/3 (sans amendement : 17 C / 4 NC, total global 36 C). **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E.
 
-- **Couverts** : 36/57 = **63 %** (35 sans amendement = 61 %)
-- **Effleurés** : 9/57 = 16 %
+- **Couverts** : 37/57 = **65 %** (36 sans amendement = 63 %)
+- **Effleurés** : 8/57 = 14 %
 - **Hors scope** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation, C15)
 - **Non couverts (NC)** : 8/57 = 14 %, dont :
   - **Trous NC déjà adressés au TODO** : 2 critères (EEE/PROJ-C03-3/1 via `analyse-de-schema-electronique`, EEE/PROJ-C03-3/5 programmer via `microcontroleur` + `firmware`)
@@ -591,7 +670,7 @@ effleure: []
 
 1. **ESE et MEO sont entièrement couverts par la phase 1 du wiki** (0 NC, 0 trou phase 2). Cohérent avec leur nature transverse (portés par les 3 fiches-trame transverses + multi-couverture forte avec les trames du V).
 2. **EEE et MME ont des trous structurés** : adressés par les fiches phase 2 déjà au TODO ou à ajouter. Conforme à la grille de lecture phase 1 vs phase 2 actée en début de cartographie.
-3. **PROJ est le domaine majeur** du wiki phase 1 (25/57 = 44 %) avec une couverture **forte** : 17 C + 1 E + 4 HS = 22 critères traités, les 3 NC restants se ventilant entre design délégable (2) et programmation phase 2 (1).
+3. **PROJ est le domaine majeur** du wiki phase 1 (25/57 = 44 %) avec une couverture **forte** : 18 C + 0 E + 4 HS = 22 critères traités, les 3 NC restants se ventilant entre design délégable (2) et programmation phase 2 (1).
 4. **La convention C16** (1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent) **est validée empiriquement** : les 5 critères EEE attendus en phase 2 (PROJ-C03-3/1, /3, /4, /5 NC + EEE-C03-2/5 effleurement central) sont chacun adressés par 1 ou plusieurs fiches-tuto dédiées (`analyse-de-schema-electronique` pour /1, `simulation-electronique` pour /3+/4 groupés, `microcontroleur` + `firmware` pour /5, 4 méthodes commande pour EEE-C03-2/5). Soit 1 à 4 fiches par critère selon la granularité du critère source.
 5. **3 fiches phase 1 sans critère AA central** identifiées (securite-et-qualite, matrice-de-decision, hub/index) chacune pour une raison distincte (posture professionnelle, outil pivot transverse, méta-structure). Le cadre AA n'est pas le seul critère de pertinence d'une fiche — à acter en synthèse globale.
 
@@ -607,16 +686,16 @@ effleure: []
 | ESE | 5 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 6 |
 | MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 17 | 1 | 4 | 3 | 25 |
-| **Total** | **36** | **9** | **4** | **8** | **57** |
+| PROJ | 18 | 0 | 4 | 3 | 25 |
+| **Total** | **37** | **8** | **4** | **8** | **57** |
 
-Lecture : la phase 1 du wiki (5 trames du V + 3 transverses, 21 fiches) couvre **directement** près des deux tiers du référentiel école (63 %), en effleure une part complémentaire (16 %), et identifie clairement les 8 trous restants (14 %) — dont 5 ont déjà une fiche phase 2 prévue au TODO et 3 relèvent d'un arbitrage hiérarchique. Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
+Lecture : la phase 1 du wiki (5 trames du V + 3 transverses, 21 fiches) couvre **directement** près des deux tiers du référentiel école (65 %), en effleure une part complémentaire (14 %), et identifie clairement les 8 trous restants (14 %) — dont 5 ont déjà une fiche phase 2 prévue au TODO et 3 relèvent d'un arbitrage hiérarchique. Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
 
 ### Lecture par domaine
 
 **ESE** (5/5) et **MEO** (6/6) sont couverts à 100 % par la phase 1. Cohérent avec leur nature transverse : portés par les 3 trames transverses (gestion-de-projet, ecoconception, securite-et-qualite) avec multi-couverture forte depuis les trames du V. Pas de fiche phase 2 ni nécessaire ni prévue dans ces domaines.
 
-**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 17 C + 1 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. Les 3 NC restants tombent en zone design (sketchs, prise en compte design) et programmation contrôleur (phase 2).
+**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 18 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. Les 3 NC restants tombent en zone design (sketchs, prise en compte design) et programmation contrôleur (phase 2).
 
 **EEE** (5 C / 10) a 3 NC structurés, tous adressés par fiches phase 2 déjà listées au TODO (`analyse-de-schema-electronique`, `simulation-electronique`, `microcontroleur` + `firmware`, 4 méthodes commande). Conforme à la grille phase 1 vs phase 2 : EEE = cœur disciplinaire à venir.
 

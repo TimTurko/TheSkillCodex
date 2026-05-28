@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">FAST du sous-système mobilité articulaire — bras 3 axes</title>
+  <desc id="desc">Diagramme FAST appliqué au sous-système mobilité articulaire du bras 3 axes. À gauche, la fonction « mettre en mouvement les segments du bras ». Au centre, trois fonctions techniques simultanées : générer un couple sur chaque axe, mesurer la position angulaire, asservir le mouvement. À droite, les solutions candidates de chaque fonction technique, confrontables en matrice de décision.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .quand { stroke: #BA7517; stroke-width: 1.4; stroke-dasharray: 4 3; fill: none; }
+      .arrow { fill: #BA7517; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .axis-text { font: 600 12px sans-serif; fill: #BA7517; text-anchor: middle; letter-spacing: 0.4px; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .axis-text { fill: #EF9F27; }
+        .quand { stroke: #EF9F27; }
+        .arrow { fill: #EF9F27; }
+        .title-text { fill: #F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="480" y="28" class="title-text">FAST — sous-système « mobilité articulaire » du bras 3 axes</text>
+
+  <!-- Axe horizontal POURQUOI / COMMENT -->
+  <text x="250" y="54" class="axis-text">POURQUOI ?</text>
+  <text x="720" y="54" class="axis-text">COMMENT ?</text>
+  <line x1="145" y1="66" x2="820" y2="66" class="conn"/>
+  <polygon points="135,66 148,60 148,72" class="arrow"/>
+  <polygon points="830,66 817,60 817,72" class="arrow"/>
+
+  <!-- Fonction (racine) -->
+  <rect x="30" y="210" width="210" height="92" rx="6" class="n1-fill"/>
+  <text x="135" y="248" class="n1-text">Mettre en mouvement</text>
+  <text x="135" y="270" class="n1-text">les segments du bras</text>
+
+  <!-- Axe vertical QUAND -->
+  <line x1="312" y1="115" x2="312" y2="405" class="quand"/>
+  <text transform="rotate(-90 306 260)" x="306" y="260" class="axis-text">QUAND ? — simultané</text>
+
+  <!-- Fonctions techniques -->
+  <rect x="330" y="112" width="220" height="58" rx="5" class="n2-fill"/>
+  <text x="440" y="136" class="n2-text">Générer un couple</text>
+  <text x="440" y="154" class="n2-text">sur chaque axe</text>
+
+  <rect x="330" y="232" width="220" height="58" rx="5" class="n2-fill"/>
+  <text x="440" y="256" class="n2-text">Mesurer la position</text>
+  <text x="440" y="274" class="n2-text">angulaire</text>
+
+  <rect x="330" y="352" width="220" height="58" rx="5" class="n2-fill"/>
+  <text x="440" y="386" class="n2-text">Asservir le mouvement</text>
+
+  <!-- Solutions FT1 -->
+  <rect x="640" y="94" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="116" class="n3-text">Stepper + driver</text>
+  <rect x="640" y="132" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="154" class="n3-text">Moteur CC + réducteur</text>
+  <rect x="640" y="170" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="192" class="n3-text">Servomoteur intégré</text>
+
+  <!-- Solutions FT2 -->
+  <rect x="640" y="238" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="260" class="n3-text">Encodeur incrémental</text>
+  <rect x="640" y="276" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="298" class="n3-text">Potentiomètre rotatif</text>
+
+  <!-- Solutions FT3 -->
+  <rect x="640" y="350" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="372" class="n3-text">Boucle PID</text>
+  <rect x="640" y="388" width="210" height="34" rx="4" class="n3-fill"/>
+  <text x="745" y="410" class="n3-text">Commande pas-à-pas</text>
+
+  <!-- Liaisons racine -> FT -->
+  <line x1="240" y1="256" x2="330" y2="141" class="conn"/>
+  <line x1="240" y1="256" x2="330" y2="261" class="conn"/>
+  <line x1="240" y1="256" x2="330" y2="381" class="conn"/>
+
+  <!-- Liaisons FT1 -> solutions -->
+  <line x1="550" y1="141" x2="640" y2="111" class="conn"/>
+  <line x1="550" y1="141" x2="640" y2="149" class="conn"/>
+  <line x1="550" y1="141" x2="640" y2="187" class="conn"/>
+
+  <!-- Liaisons FT2 -> solutions -->
+  <line x1="550" y1="261" x2="640" y2="255" class="conn"/>
+  <line x1="550" y1="261" x2="640" y2="293" class="conn"/>
+
+  <!-- Liaisons FT3 -> solutions -->
+  <line x1="550" y1="381" x2="640" y2="367" class="conn"/>
+  <line x1="550" y1="381" x2="640" y2="405" class="conn"/>
+
+  <text x="480" y="455" class="foot">Chaque fonction technique (feuille) devient une ligne de matrice de décision : 2 à 5 solutions candidates confrontées.</text>
+  <text x="480" y="477" class="foot">Lecture COMMENT vers la droite, POURQUOI vers la gauche ; l'axe vertical QUAND marque la simultanéité des trois fonctions.</text>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" role="img" aria-labelledby="title desc">
+  <title id="title">Microcontrôleur — architecture générique</title>
+  <desc id="desc">Schéma bloc générique d'un microcontrôleur. Sur une seule puce : un processeur (cœur de calcul), une mémoire programme (Flash) et une mémoire de données (RAM), reliés par un bus interne. Sous le bus, les périphériques : GPIO, ADC, PWM (timers), UART, I2C et SPI, qui relient le cœur numérique au monde physique par les broches d'entrée/sortie vers capteurs, actionneurs et autres circuits.</desc>
+  <defs>
+    <style>
+      .title-text { font: 700 15px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.3px; }
+      .chip { fill: none; stroke: #888780; stroke-width: 1.6; stroke-dasharray: 6 4; }
+      .tag { font: italic 600 11px sans-serif; fill: #888780; text-anchor: end; }
+      .cpu { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .n1-sub { font: 400 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .mem { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n2-sub { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .periph { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-sub { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .bus { stroke: #BA7517; stroke-width: 3.5; fill: none; stroke-linecap: round; }
+      .bus-label { font: 600 12px sans-serif; text-anchor: middle; fill: #BA7517; letter-spacing: 0.3px; }
+      .ext { font: 600 12px sans-serif; text-anchor: middle; fill: #BA7517; letter-spacing: 0.3px; }
+      .conn { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .io { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .arrow { fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .title-text { fill: #F1EFE8; }
+        .chip { stroke: #BBBBBB; }
+        .tag { fill: #BBBBBB; }
+        .cpu { fill: #BA7517; stroke: #EF9F27; }
+        .mem { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n2-sub { fill: #F1EFE8; }
+        .periph { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .n3-sub { fill: #F1EFE8; }
+        .bus { stroke: #EF9F27; }
+        .bus-label { fill: #EF9F27; }
+        .ext { fill: #EF9F27; }
+        .conn { stroke: #BBBBBB; }
+        .io { stroke: #EF9F27; }
+        .arrow { fill: #EF9F27; }
+        .foot { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,0 L5,9 Z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="30" class="title-text">Microcontrôleur — architecture générique</text>
+
+  <!-- Frontière de la puce -->
+  <rect x="28" y="58" width="764" height="256" rx="12" class="chip"/>
+  <text x="780" y="76" class="tag">sur une seule puce</text>
+
+  <!-- Cœur de calcul + mémoires -->
+  <rect x="70" y="92" width="180" height="66" rx="6" class="cpu"/>
+  <text x="160" y="122" class="n1-text">Processeur</text>
+  <text x="160" y="142" class="n1-sub">cœur de calcul</text>
+
+  <rect x="300" y="92" width="200" height="66" rx="5" class="mem"/>
+  <text x="400" y="120" class="n2-text">Mémoire programme</text>
+  <text x="400" y="140" class="n2-sub">Flash</text>
+
+  <rect x="545" y="92" width="180" height="66" rx="5" class="mem"/>
+  <text x="635" y="120" class="n2-text">Mémoire données</text>
+  <text x="635" y="140" class="n2-sub">RAM</text>
+
+  <!-- Connecteurs vers le bus -->
+  <line x1="160" y1="158" x2="160" y2="186" class="conn"/>
+  <line x1="400" y1="158" x2="400" y2="186" class="conn"/>
+  <line x1="635" y1="158" x2="635" y2="186" class="conn"/>
+
+  <!-- Bus interne -->
+  <line x1="70" y1="186" x2="725" y2="186" class="bus"/>
+  <text x="255" y="180" class="bus-label">Bus interne</text>
+
+  <!-- Connecteurs bus vers périphériques -->
+  <line x1="100" y1="186" x2="100" y2="214" class="conn"/>
+  <line x1="220" y1="186" x2="220" y2="214" class="conn"/>
+  <line x1="340" y1="186" x2="340" y2="214" class="conn"/>
+  <line x1="460" y1="186" x2="460" y2="214" class="conn"/>
+  <line x1="580" y1="186" x2="580" y2="214" class="conn"/>
+  <line x1="700" y1="186" x2="700" y2="214" class="conn"/>
+
+  <!-- Périphériques -->
+  <rect x="50" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="100" y="240" class="n3-text">GPIO</text>
+  <text x="100" y="257" class="n3-sub">E/S num.</text>
+
+  <rect x="170" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="220" y="240" class="n3-text">ADC</text>
+  <text x="220" y="257" class="n3-sub">ana. → num.</text>
+
+  <rect x="290" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="340" y="240" class="n3-text">PWM</text>
+  <text x="340" y="257" class="n3-sub">timers</text>
+
+  <rect x="410" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="460" y="240" class="n3-text">UART</text>
+  <text x="460" y="257" class="n3-sub">série</text>
+
+  <rect x="530" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="580" y="240" class="n3-text">I2C</text>
+  <text x="580" y="257" class="n3-sub">bus 2 fils</text>
+
+  <rect x="650" y="214" width="100" height="58" rx="4" class="periph"/>
+  <text x="700" y="240" class="n3-text">SPI</text>
+  <text x="700" y="257" class="n3-sub">bus rapide</text>
+
+  <!-- Broches d'E/S vers le monde extérieur -->
+  <line x1="100" y1="272" x2="100" y2="336" class="io" marker-end="url(#ar)"/>
+  <line x1="220" y1="272" x2="220" y2="336" class="io" marker-end="url(#ar)"/>
+  <line x1="340" y1="272" x2="340" y2="336" class="io" marker-end="url(#ar)"/>
+  <line x1="460" y1="272" x2="460" y2="336" class="io" marker-end="url(#ar)"/>
+  <line x1="580" y1="272" x2="580" y2="336" class="io" marker-end="url(#ar)"/>
+  <line x1="700" y1="272" x2="700" y2="336" class="io" marker-end="url(#ar)"/>
+
+  <text x="410" y="358" class="ext">Broches d'entrée/sortie → capteurs · actionneurs · autres circuits</text>
+
+  <text x="410" y="392" class="foot">Tout est intégré sur une seule puce : le processeur exécute le programme (Flash), traite les données (RAM)</text>
+  <text x="410" y="410" class="foot">et dialogue via le bus interne. Les périphériques relient ce cœur numérique au monde physique.</text>
+</svg>

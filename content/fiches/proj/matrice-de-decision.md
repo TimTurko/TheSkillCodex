@@ -51,5 +51,6 @@ Quatre temps :
 
 - [[concept|Concept]] — phase où les matrices de décision sont construites (étape 2)
 - [[ecoconception|Écoconception]] — critère pondéré dans chaque matrice de décision
+- [[matrice-eco-criteres|Matrice éco-critères]] — bloc de critères environnementaux qui s'enchâsse dans cette matrice
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] — source des exigences qui fondent les critères de choix
 - [[caracteriser-une-exigence|Caractériser une exigence]] — méthode amont qui chiffre les exigences mobilisables comme critères

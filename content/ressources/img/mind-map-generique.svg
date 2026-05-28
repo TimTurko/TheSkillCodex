@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 560" role="img" aria-labelledby="title desc">
+  <title id="title">Mind map — schéma générique</title>
+  <desc id="desc">Carte mentale radiale générique. Au centre, un sujet. Quatre branches principales rayonnent vers des catégories, chacune se ramifiant en sous-idées. La structure se déploie du centre vers l'extérieur par associations successives.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .title-text { fill: #F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="410" y="28" class="title-text">Mind map — structure radiale</text>
+
+  <!-- Liaisons centre -> branches -->
+  <line x1="320" y1="262" x2="250" y2="143" class="conn"/>
+  <line x1="480" y1="262" x2="570" y2="143" class="conn"/>
+  <line x1="320" y1="298" x2="250" y2="417" class="conn"/>
+  <line x1="480" y1="298" x2="570" y2="417" class="conn"/>
+
+  <!-- Liaisons branches -> feuilles -->
+  <line x1="110" y1="143" x2="124" y2="75" class="conn"/>
+  <line x1="110" y1="143" x2="124" y2="190" class="conn"/>
+  <line x1="710" y1="143" x2="696" y2="75" class="conn"/>
+  <line x1="710" y1="143" x2="696" y2="190" class="conn"/>
+  <line x1="110" y1="417" x2="124" y2="385" class="conn"/>
+  <line x1="110" y1="417" x2="124" y2="485" class="conn"/>
+  <line x1="710" y1="417" x2="696" y2="385" class="conn"/>
+  <line x1="710" y1="417" x2="696" y2="485" class="conn"/>
+
+  <!-- Centre -->
+  <rect x="320" y="252" width="160" height="56" rx="8" class="n1-fill"/>
+  <text x="400" y="285" class="n1-text">Sujet central</text>
+
+  <!-- Branches -->
+  <rect x="110" y="123" width="140" height="40" rx="5" class="n2-fill"/>
+  <text x="180" y="148" class="n2-text">Catégorie A</text>
+  <rect x="570" y="123" width="140" height="40" rx="5" class="n2-fill"/>
+  <text x="640" y="148" class="n2-text">Catégorie B</text>
+  <rect x="110" y="397" width="140" height="40" rx="5" class="n2-fill"/>
+  <text x="180" y="422" class="n2-text">Catégorie C</text>
+  <rect x="570" y="397" width="140" height="40" rx="5" class="n2-fill"/>
+  <text x="640" y="422" class="n2-text">Catégorie D</text>
+
+  <!-- Feuilles -->
+  <rect x="20" y="60" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="72" y="80" class="n3-text">Sous-idée</text>
+  <rect x="20" y="175" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="72" y="195" class="n3-text">Sous-idée</text>
+  <rect x="696" y="60" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="748" y="80" class="n3-text">Sous-idée</text>
+  <rect x="696" y="175" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="748" y="195" class="n3-text">Sous-idée</text>
+  <rect x="20" y="370" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="72" y="390" class="n3-text">Sous-idée</text>
+  <rect x="20" y="470" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="72" y="490" class="n3-text">Sous-idée</text>
+  <rect x="696" y="370" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="748" y="390" class="n3-text">Sous-idée</text>
+  <rect x="696" y="470" width="104" height="30" rx="4" class="n3-fill"/>
+  <text x="748" y="490" class="n3-text">Sous-idée</text>
+
+  <text x="410" y="535" class="foot">Un mot-clé par branche. On déploie du centre vers l'extérieur, sans filtrer pendant le jet.</text>
+</svg>

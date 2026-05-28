@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" role="img" aria-labelledby="title desc">
+  <title id="title">Le L298N, un composant à deux mondes : commande logique 5 V et puissance jusqu'à 46 V</title>
+  <desc id="desc">Le L298N est un double pont en H. À gauche, le microcontrôleur envoie des signaux logiques 5 V (IN1 à IN4 pour le sens de rotation, ENA et ENB pour la marche et la vitesse en PWM, Vss et GND pour l'alimentation logique). Une frontière sépare ce monde logique du monde puissance, alimenté jusqu'à 46 V, où deux ponts en H pilotent chacun un moteur à courant continu via les sorties OUT. Les deux moteurs tournent dans des sens indépendants. Le côté logique se lit dans le brochage et les caractéristiques électriques ; le côté puissance dans les Absolute Maximum Ratings et les caractéristiques thermiques, qui imposent souvent un dissipateur.</desc>
+  <defs>
+    <style>
+      .title-text { font: 700 15px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.3px; }
+      .chip { fill: #FFFFFF; stroke: #888780; stroke-width: 1.6; }
+      .chip-title { font: 700 13px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .zone-label { font: 700 12.5px sans-serif; text-anchor: middle; fill: #BA7517; letter-spacing: 0.3px; }
+      .sub { font: italic 600 10.5px sans-serif; text-anchor: middle; fill: #888780; }
+      .pin { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .pin-sub { font: 400 10.5px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .hbox { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .hbox-text { font: 700 12px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .frontier { stroke: #BA7517; stroke-width: 1.4; stroke-dasharray: 5 4; fill: none; }
+      .frontier-label { font: italic 600 10.5px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .mcu { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .mcu-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .mcu-sub { font: 400 10.5px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .wire-a { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .arrow { fill: #BA7517; }
+      .motor { fill: #FFFFFF; stroke: #888780; stroke-width: 1.6; }
+      .motor-text { font: 700 15px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .motor-sub { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .rot { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .heat { font: italic 700 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .annot { font: italic 400 10.5px sans-serif; text-anchor: middle; fill: #888780; }
+      .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .lbl { font: 600 10.5px sans-serif; text-anchor: middle; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .title-text { fill: #F1EFE8; }
+        .chip { fill: #2C2C2A; stroke: #BBBBBB; }
+        .chip-title { fill: #F1EFE8; }
+        .zone-label { fill: #EF9F27; }
+        .sub { fill: #BBBBBB; }
+        .pin { fill: #F1EFE8; }
+        .pin-sub { fill: #F1EFE8; }
+        .hbox { fill: #BA7517; stroke: #EF9F27; }
+        .frontier { stroke: #EF9F27; }
+        .frontier-label { fill: #EF9F27; }
+        .mcu { fill: #4A4A48; stroke: #BBBBBB; }
+        .mcu-text { fill: #F1EFE8; }
+        .mcu-sub { fill: #F1EFE8; }
+        .wire { stroke: #BBBBBB; }
+        .wire-a { stroke: #EF9F27; }
+        .arrow { fill: #EF9F27; }
+        .motor { fill: #2C2C2A; stroke: #BBBBBB; }
+        .motor-text { fill: #F1EFE8; }
+        .motor-sub { fill: #F1EFE8; }
+        .rot { stroke: #EF9F27; }
+        .heat { fill: #EF9F27; }
+        .annot { fill: #BBBBBB; }
+        .foot { fill: #BBBBBB; }
+        .lbl { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="30" class="title-text">Le L298N — un composant à deux mondes</text>
+
+  <!-- Microcontrôleur -->
+  <rect x="24" y="196" width="120" height="64" rx="6" class="mcu"/>
+  <text x="84" y="224" class="mcu-text">Microcontrôleur</text>
+  <text x="84" y="242" class="mcu-sub">algo C</text>
+  <!-- liaison MCU -> logique -->
+  <line x1="144" y1="228" x2="230" y2="228" class="wire-a" marker-end="url(#a)"/>
+  <text x="187" y="216" class="lbl">IN1–IN4, ENA/ENB</text>
+  <text x="187" y="246" class="lbl">5 V (dont PWM)</text>
+
+  <!-- Boîtier L298N -->
+  <rect x="232" y="92" width="336" height="300" rx="10" class="chip"/>
+  <text x="400" y="116" class="chip-title">L298N — double pont en H</text>
+
+  <!-- Frontière logique / puissance -->
+  <line x1="400" y1="128" x2="400" y2="376" class="frontier"/>
+  <text transform="rotate(-90 392 252)" x="392" y="252" class="frontier-label">frontière logique / puissance</text>
+
+  <!-- Monde logique -->
+  <text x="314" y="150" class="zone-label">MONDE LOGIQUE</text>
+  <text x="314" y="167" class="sub">commande · 5 V</text>
+
+  <text x="314" y="200" class="pin">IN1 – IN4</text>
+  <text x="314" y="217" class="pin-sub">sens de rotation</text>
+
+  <text x="314" y="252" class="pin">ENA · ENB</text>
+  <text x="314" y="269" class="pin-sub">marche + vitesse (PWM)</text>
+
+  <text x="314" y="304" class="pin">Vss · GND</text>
+  <text x="314" y="321" class="pin-sub">alimentation logique</text>
+
+  <text x="314" y="362" class="annot">se lit : brochage + caract. élec.</text>
+
+  <!-- Monde puissance -->
+  <text x="486" y="150" class="zone-label">MONDE PUISSANCE</text>
+  <text x="486" y="167" class="sub">Vs · jusqu'à 46 V</text>
+
+  <rect x="416" y="186" width="140" height="48" rx="5" class="hbox"/>
+  <text x="486" y="215" class="hbox-text">Pont en H 1</text>
+
+  <rect x="416" y="252" width="140" height="48" rx="5" class="hbox"/>
+  <text x="486" y="281" class="hbox-text">Pont en H 2</text>
+
+  <!-- commande logique -> ponts -->
+  <line x1="400" y1="210" x2="416" y2="210" class="wire-a" marker-end="url(#a)"/>
+  <line x1="400" y1="276" x2="416" y2="276" class="wire-a" marker-end="url(#a)"/>
+
+  <text x="486" y="332" class="heat">échauffement → dissipateur</text>
+  <text x="486" y="362" class="annot">se lit : Max Ratings + thermique</text>
+
+  <!-- Sorties vers moteurs -->
+  <line x1="556" y1="210" x2="636" y2="196" class="wire" marker-end="url(#a)"/>
+  <text x="600" y="190" class="lbl">OUT1·2</text>
+  <line x1="556" y1="276" x2="636" y2="300" class="wire" marker-end="url(#a)"/>
+  <text x="600" y="296" class="lbl">OUT3·4</text>
+
+  <!-- Moteur A (sens horaire) -->
+  <circle cx="676" cy="190" r="34" class="motor"/>
+  <text x="676" y="190" class="motor-text">M</text>
+  <text x="676" y="207" class="motor-sub">A</text>
+  <path d="M 656,166 A 28 28 0 0 1 700,168" class="rot" marker-end="url(#a)"/>
+
+  <!-- Moteur B (sens anti-horaire) -->
+  <circle cx="676" cy="300" r="34" class="motor"/>
+  <text x="676" y="300" class="motor-text">M</text>
+  <text x="676" y="317" class="motor-sub">B</text>
+  <path d="M 696,324 A 28 28 0 0 1 652,322" class="rot" marker-end="url(#a)"/>
+
+  <text x="676" y="362" class="annot">2 moteurs CC, sens indépendants</text>
+
+  <text x="410" y="420" class="foot">Une commande logique en 5 V (à gauche) pilote un étage de puissance jusqu'à 46 V (à droite).</text>
+  <text x="410" y="440" class="foot">La table des fonctions relie l'état des entrées IN au sens de rotation de chaque moteur.</text>
+</svg>

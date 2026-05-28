@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 305" role="img" aria-labelledby="tb db">
+  <title id="tb">UART, I2C et SPI — trois topologies de bus</title>
+  <desc id="db">Comparaison des trois bus de communication les plus courants. UART : liaison asynchrone point-à-point sur deux fils croisés (TX vers RX). I2C : bus synchrone à deux fils partagés (SDA et SCL) reliant un maître à plusieurs esclaves adressés, avec des résistances de tirage vers Vcc. SPI : bus synchrone rapide où le maître partage trois fils (MOSI, MISO, SCK) avec les esclaves et active chacun par une ligne de sélection CS dédiée.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .st { font: 700 14px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .boxg { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .boxa { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .lab { font: 700 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .laba { font: 700 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .wire { stroke: #888780; stroke-width: 1.7; fill: none; }
+      .busw { stroke: #BA7517; stroke-width: 2.6; fill: none; }
+      .res { fill: #FFFFFF; stroke: #888780; stroke-width: 1.3; }
+      .pin { font: 600 9px sans-serif; fill: #888780; }
+      .sig { font: 600 10px sans-serif; fill: #BA7517; }
+      .cap { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .sub { font: 400 10px sans-serif; text-anchor: middle; fill: #888780; }
+      .node { fill: #888780; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lab, .cap { fill: #F1EFE8; }
+        .st, .sig { fill: #EF9F27; }
+        .boxg { fill: #4A4A48; stroke: #BBBBBB; }
+        .boxa { fill: #EF9F27; stroke: #EF9F27; }
+        .laba { fill: #2C2C2A; }
+        .wire { stroke: #BBBBBB; }
+        .busw { stroke: #EF9F27; }
+        .res { fill: #2C2C2A; stroke: #BBBBBB; }
+        .pin, .sub { fill: #BBBBBB; }
+        .node { fill: #BBBBBB; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="ua" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+  </defs>
+
+  <text x="420" y="26" class="ti">Trois bus, trois topologies</text>
+  <line x1="280" y1="46" x2="280" y2="295" class="divi"/>
+  <line x1="560" y1="46" x2="560" y2="295" class="divi"/>
+
+  <!-- ===== UART ===== -->
+  <text x="140" y="68" class="st">UART</text>
+  <rect x="46" y="104" width="62" height="56" rx="5" class="boxg"/>
+  <text x="77" y="136" class="lab">A</text>
+  <rect x="172" y="104" width="62" height="56" rx="5" class="boxg"/>
+  <text x="203" y="136" class="lab">B</text>
+  <line x1="108" y1="120" x2="172" y2="120" class="wire" marker-end="url(#ua)"/>
+  <text x="140" y="115" class="sig" text-anchor="middle">TX → RX</text>
+  <line x1="172" y1="144" x2="108" y2="144" class="wire" marker-end="url(#ua)"/>
+  <text x="140" y="159" class="sig" text-anchor="middle">RX ← TX</text>
+  <text x="140" y="232" class="cap">2 fils · asynchrone</text>
+  <text x="140" y="249" class="cap">point-à-point</text>
+  <text x="140" y="268" class="sub">accord de débit (baud)</text>
+
+  <!-- ===== I2C ===== -->
+  <text x="420" y="68" class="st">I2C</text>
+  <rect x="330" y="98" width="56" height="34" rx="5" class="boxa"/>
+  <text x="358" y="119" class="laba">Maître</text>
+  <!-- lignes partagées -->
+  <line x1="318" y1="162" x2="540" y2="162" class="busw"/>
+  <line x1="318" y1="180" x2="540" y2="180" class="busw"/>
+  <text x="314" y="165" class="sig" text-anchor="end">SDA</text>
+  <text x="314" y="183" class="sig" text-anchor="end">SCL</text>
+  <!-- maître vers lignes -->
+  <line x1="358" y1="132" x2="358" y2="180" class="wire"/>
+  <circle cx="358" cy="162" r="3" class="node"/><circle cx="358" cy="180" r="3" class="node"/>
+  <!-- esclaves -->
+  <rect x="398" y="196" width="52" height="30" rx="5" class="boxg"/>
+  <text x="424" y="215" class="lab">Esclave</text>
+  <line x1="424" y1="196" x2="424" y2="162" class="wire"/>
+  <circle cx="424" cy="162" r="3" class="node"/><circle cx="424" cy="180" r="3" class="node"/>
+  <rect x="462" y="196" width="52" height="30" rx="5" class="boxg"/>
+  <text x="488" y="215" class="lab">Esclave</text>
+  <line x1="488" y1="196" x2="488" y2="162" class="wire"/>
+  <circle cx="488" cy="162" r="3" class="node"/><circle cx="488" cy="180" r="3" class="node"/>
+  <!-- pull-ups -->
+  <line x1="520" y1="140" x2="540" y2="140" class="wire"/>
+  <text x="544" y="143" class="pin">Vcc</text>
+  <rect x="516" y="146" width="8" height="14" class="res"/>
+  <line x1="520" y1="160" x2="520" y2="162" class="wire"/>
+  <rect x="534" y="146" width="8" height="32" class="res"/>
+  <line x1="538" y1="178" x2="538" y2="180" class="wire"/>
+  <text x="528" y="138" class="sub">pull-ups</text>
+  <text x="420" y="258" class="cap">2 fils · synchrone</text>
+  <text x="420" y="275" class="sub">multi-nœuds (adresses)</text>
+
+  <!-- ===== SPI ===== -->
+  <text x="700" y="68" class="st">SPI</text>
+  <rect x="598" y="98" width="60" height="78" rx="5" class="boxa"/>
+  <text x="628" y="142" class="laba">Maître</text>
+  <rect x="730" y="98" width="58" height="30" rx="5" class="boxg"/>
+  <text x="759" y="117" class="lab">Esclave 1</text>
+  <rect x="730" y="150" width="58" height="30" rx="5" class="boxg"/>
+  <text x="759" y="169" class="lab">Esclave 2</text>
+  <!-- bus partagé MOSI/MISO/SCK -->
+  <line x1="658" y1="113" x2="712" y2="113" class="busw"/>
+  <line x1="712" y1="113" x2="712" y2="165" class="busw"/>
+  <line x1="712" y1="113" x2="730" y2="113" class="busw"/>
+  <line x1="712" y1="165" x2="730" y2="165" class="busw"/>
+  <text x="685" y="108" class="sig" text-anchor="middle">MOSI·MISO·SCK</text>
+  <!-- CS dédiés -->
+  <line x1="658" y1="150" x2="700" y2="150" class="wire"/>
+  <line x1="700" y1="150" x2="700" y2="123" class="wire"/>
+  <line x1="700" y1="123" x2="730" y2="123" class="wire"/>
+  <line x1="658" y1="165" x2="690" y2="165" class="wire"/>
+  <line x1="690" y1="165" x2="690" y2="175" class="wire"/>
+  <line x1="690" y1="175" x2="730" y2="175" class="wire"/>
+  <text x="668" y="190" class="sig">CS dédiés</text>
+  <text x="700" y="258" class="cap">4 fils · synchrone</text>
+  <text x="700" y="275" class="sub">sélection par CS</text>
+</svg>

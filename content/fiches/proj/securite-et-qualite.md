@@ -188,10 +188,10 @@ Spécifique à cette trame, **délégation explicite aux disciplines voisines** 
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
-- [[matrice-de-risques|Matrice de risques]] *(porte les risques sécurité et qualité — à créer)*
+- [[matrice-de-risques|Matrice de risques]] *(porte les risques sécurité et qualité)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse — pilote la sécurité-qualité)*
 - [[ecoconception|Écoconception]] *(fil transverse — croisements réglementaires RoHS / REACH / DEEE)*
-- [[amdec|AMDEC]] *(à créer — méthode d'analyse des risques produit)*
+- [[amdec|AMDEC]] *(méthode d'analyse des risques produit)*
 - [[marquage-ce|Marquage CE]] *(à créer — délégué cours normatifs)*
 - [[basse-tension|Directive basse tension]] *(à créer — délégué cours normatifs)*
 - [[emc|Compatibilité électromagnétique]] *(à créer — délégué cours normatifs)*

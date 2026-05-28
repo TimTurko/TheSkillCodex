@@ -21,7 +21,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 ## Fiches à rédiger — par domaine
 
 ### EEE — Électronique
-- [ ] PWM (modulation de largeur d'impulsion)
+- [x] ~~PWM (modulation de largeur d'impulsion)~~ — popover `pwm` créé 28/05 suite 4 (brique MCU).
 - [ ] PID (régulateur proportionnel-intégral-dérivé)
 - [ ] Asservissement
 - [ ] **`microcontroleur`** — **hub mère** (re-cadrage 26/05 suite 5). Page d'aiguillage vers hubs filles familles MCU (mini-hubs imbriqués, convention C18). Familles priorité 1 : `arduino`, `esp32`, `esp8266`, `raspberry-pi` (sous étiquette élargie *plateformes embarquées*). Familles priorité 2 : `stm32`, `teensy`, `pic`. Chaque famille = hub fille + tutos d'utilisation. Pose les notions communes (registres, périphériques, bus, IDE) puis renvoie vers les tutos spécifiques.
@@ -38,17 +38,10 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`machine-a-etats`** — fiche-notion fille hub algorithme, alias `MAE`. Automate fini, états et transitions sur événements.
 - [ ] **`grafcet`** — fiche-notion fille hub algorithme. Graphe de commande étape-transition, norme IEC 60848.
 - [ ] **`chronogramme`** — fiche-tuto transverse (acquis 26/05 suite 5). Jonction datasheet ↔ algorithme ↔ oscilloscope. Diagramme temporel, X = temps, Y = signaux. **Hors mini-hub algorithme** (sémantique différente : signaux dans le temps vs flot de comportement). Contribue au critère `RA-EEE-C03-2/EEE/5`.
-- [ ] **`bus-de-communication`** — hub mère transverse (acquis 26/05 suite 5). Filles : `uart`, `i2c`, `spi` (fiches-notion popovers, convention C16 = 1 fiche par solution). Optionnel ultérieur : `can`, `rs-485`.
-- [ ] **`uart`** — fiche-notion popover, fille hub bus.
-- [ ] **`i2c`** — fiche-notion popover, fille hub bus.
-- [ ] **`spi`** — fiche-notion popover, fille hub bus.
-- [ ] **`techno-sans-fil`** — hub mère transverse (acquis 26/05 suite 5). Filles : `wifi`, `ble`, `xbee`, `zigbee`, `lora`. Tutorial racine à produire.
-- [ ] **`wifi`** — fiche-notion popover, fille hub sans-fil.
-- [ ] **`ble`** — fiche-notion popover, fille hub sans-fil (Bluetooth Low Energy).
-- [ ] **`xbee`** — fiche-notion popover, fille hub sans-fil. Module Digi qui parle Zigbee/Wi-Fi.
-- [ ] **`zigbee`** — fiche-notion popover, fille hub sans-fil. Protocole IEEE 802.15.4.
-- [ ] **`lora`** — fiche-notion popover, fille hub sans-fil.
-- [ ] **`lire-une-datasheet`** — fiche-tuto transverse compétence pro (acquis 26/05 suite 5). Lecture structurée d'une datasheet : pinout, valeurs nominales, chronogrammes, exemples d'application. Première fiche à éprouver pour la convention C19 (fiche transverse multi-techno).
+- [x] ~~**`bus-de-communication`** + `uart` / `i2c` / `spi`~~ — **fait 28/05 suite 4** (grappe batch `eee/mcu/bus/` ; hub tableau comparatif + aide au choix + SVG topologies).
+- [ ] **Enrichissement grappes bus / sans-fil** (déféré 28/05 suite 4) : SVG de brochage par fille bus (`uart`/`i2c`/`spi`), trame UART + chronogrammes I2C/SPI (jonction `chronogramme`), approfondissement des filles sans-fil (actuellement popover). Optionnel bus : `can`, `rs-485`.
+- [x] ~~**`techno-sans-fil`** + `wifi` / `ble` / `zigbee` / `xbee` / `lora`~~ — **fait 28/05 suite 4** (grappe batch `eee/mcu/sans-fil/` ; hub tableau + carte portée×débit + SVG comparaison).
+- [x] ~~**`lire-une-datasheet`** — fiche-tuto transverse compétence pro~~ — **fait 28/05 suite 3** (procédure générique 5 étapes + *Exemple* L298N autonome 2 moteurs CC + 2 SVG ; C19 variante-(c), épreuve faible — vrai test multi-techno reste `analyse-de-schema-electronique` / `firmware`).
 - [ ] **`analyse-de-schema-electronique`** — fiche-tuto transverse compétence pro. Critère NC `RA-PROJET-C03-3/EEE/1` (couvert dans Phase 1 squelette critique AA). À éprouver pour la convention C19 (fiche transverse multi-techno).
 - [ ] **`firmware`** — fiche-tuto transverse pure (re-cadrage 26/05 suite 5). Archi code embarqué avec pseudocode (pas d'exemple spécifique à un MCU). Sections en option : rabbit hole gestion mémoire / interruptions / programmation RT non bloquante. À éprouver pour la convention C19. Popover posé dans `integration-et-tests.md`.
 - [ ] **`debugger-embarque`** — fiche-tuto compétence pro. SWD, JTAG, printf, breakpoints.
@@ -67,8 +60,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`bom-electronique`** — fiche-tuto compétence pro. Au-delà du `bom` générique projet, focus composants élec.
 - [ ] Alimentation d'un système embarqué
 - [ ] Pull-up / pull-down
-- [ ] **`niveau-logique`** — fiche-notion (popover posé dans `integration-et-tests.md` étape 2 H4-1 + section Équipe, 26/05). Compatibilité 3,3 V / 5 V, level shifters, pièges classiques de cohabitation MCU / drivers / capteurs.
-- [ ] ADC / DAC
+- [x] ~~**`niveau-logique`** — compatibilité 3,3 V / 5 V, level shifters~~ — **fait 28/05 suite 4** sous le slug **`niveaux-de-tension`** (fiche-notion + 2 SVG ; popover posé dans `integration-et-tests.md` 26/05).
+- [x] ~~ADC~~ / DAC — popover `adc` créé 28/05 suite 4 (brique MCU) ; `DAC` reste à traiter.
 - [ ] Filtrage analogique de base
 - [ ] Masse électrique, plan de masse
 - [ ] Découplage (condensateurs)
@@ -170,6 +163,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] **Reprise visuelle des images SVG** (pas du contenu) avant publication — **très peu urgent, à faire juste avant l'ouverture aux élèves**. Concerne tous les SVG produits depuis le début du projet :
   - **Premiers jets fragiles, affinage utilisateur attendu** (produits le 25/05 suite 2, génériques + exemples station météo) : `jalons-generique.svg`, `jalons-station-meteo.svg`, `wbs-generique.svg`, `wbs-station-meteo.svg`, `retroplanning-generique.svg`, `retroplanning-station-meteo.svg`, `gantt-generique.svg`, `gantt-station-meteo.svg`, `matrice-de-risques-generique.svg`, `matrice-de-risques-station-meteo.svg`, `matrice-de-decision-generique.svg`, `matrice-de-decision-station-meteo.svg`. Ce sont des premiers jets Claude, à reprendre visuellement avant publication (alignements, hauteurs de lignes, positionnements de textes proches des bords, lisibilité smartphone).
+  - **Premiers jets EEE/mcu (28/05)** : `microcontroleur-architecture.svg` (schéma bloc, 28/05 suite 2), `lire-une-datasheet-generique.svg` (anatomie datasheet), `lire-une-datasheet-l298n.svg` (L298N deux mondes). 1ers jets Claude — affinage avant publication (alignements, lisibilité smartphone, sens des deux flèches de rotation moteur sur le SVG L298N).
   - **Versions stabilisées antérieures** : `cycle-v-projet.svg`, `bete-a-cornes-generique.svg` + 3 exemples, `pieuvre-generique.svg`, `pieuvre-bras-3-axes.svg`.
   - **Critères de la passe d'affinage** : homogénéité visuelle (poids des traits, tailles relatives, alignement des éléments), positionnement texte (centrages, gaps autour des bords), cohérence palette, lisibilité smartphone. Le contenu pédagogique reste inchangé — passe de polissage esthétique uniquement. Posée 24/05 (suite 2), enrichie 25/05 suite 2.
 
@@ -264,6 +258,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **Inventaire systématique des fiches stub/placeholders avant publication aux élèves** — tâche structurante pour la phase de pré-ouverture. Posée 24/05 (suite 2) en conséquence de la décision « `draft: false` par défaut » : le BACKLOG est désormais le pilote de la maturité éditoriale. Passe à conduire en fin de phase de rédaction (avant ouverture aux élèves) sur l'ensemble du contenu : identifier les fiches stub, les sections `*[À rédiger]*`, les liens rouges, les images placeholder. Sortie : checklist d'éléments à finaliser ou à retirer.
 
 - [ ] Convention des tags AA (séparer domaine vs code complet)
+- [ ] **Harmoniser le commentaire `draft` des templates** (`fiche-tuto.md`, et vérifier `fiche-notion.md` / `fiche-trame.md`) : le commentaire indique de commencer une nouvelle fiche en `draft: true` tant qu'elle n'est pas relue, ce qui contredit la convention `draft: false` par défaut (24/05, maturité pilotée par le BACKLOG) appliquée de fait sur toutes les fiches récentes. Incohérence signalée 28/05 suite 3.
 - [ ] Faut-il un glossaire séparé pour les acronymes ?
 - [ ] Quoi faire des fiches MME / ESE : pages très courtes pointant vers les collègues, ou ne rien créer du tout ?
 - [ ] Pliage des callouts (`[!example]-` replié par défaut ?) — à trancher après quelques fiches rédigées

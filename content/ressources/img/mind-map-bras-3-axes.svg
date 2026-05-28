@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Mind map des milieux environnants — bras 3 axes</title>
+  <desc id="desc">Carte mentale des milieux environnants du bras 3 axes, organisée par les cinq familles de milieux. Au centre, le bras 3 axes. Cinq branches : utilisateurs (opérateur), matière d'œuvre (objet à déplacer), énergies (secteur 230 V), environnement physique (poste informatique, fablab), réglementaire (conformité CE, écoconception). Ces milieux deviennent les pattes de la pieuvre.</desc>
+  <defs>
+    <style>
+      .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .n1-fill { fill: #BA7517; stroke: #BA7517; stroke-width: 2; }
+      .n1-text { font: 700 14px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .n2-fill { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .n2-text { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .n3-fill { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .n3-text { font: 400 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .title-text { font: 700 14px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.5px; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .conn { stroke: #BBBBBB; }
+        .n1-fill { fill: #BA7517; stroke: #EF9F27; }
+        .n2-fill { fill: #4A4A48; stroke: #BBBBBB; }
+        .n2-text { fill: #F1EFE8; }
+        .n3-fill { fill: #2C2C2A; stroke: #BBBBBB; }
+        .n3-text { fill: #F1EFE8; }
+        .title-text { fill: #F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="450" y="28" class="title-text">Bras 3 axes — milieux environnants par les 5 familles</text>
+
+  <!-- Liaisons centre -> branches -->
+  <line x1="370" y1="270" x2="330" y2="90" class="conn"/>
+  <line x1="370" y1="280" x2="330" y2="280" class="conn"/>
+  <line x1="370" y1="296" x2="330" y2="470" class="conn"/>
+  <line x1="530" y1="270" x2="570" y2="150" class="conn"/>
+  <line x1="530" y1="296" x2="570" y2="410" class="conn"/>
+
+  <!-- Liaisons branches -> feuilles -->
+  <line x1="150" y1="90" x2="140" y2="90" class="conn"/>
+  <line x1="150" y1="280" x2="140" y2="266" class="conn"/>
+  <line x1="150" y1="280" x2="140" y2="306" class="conn"/>
+  <line x1="150" y1="470" x2="140" y2="464" class="conn"/>
+  <line x1="150" y1="470" x2="140" y2="504" class="conn"/>
+  <line x1="750" y1="150" x2="765" y2="150" class="conn"/>
+  <line x1="750" y1="410" x2="765" y2="410" class="conn"/>
+
+  <!-- Centre -->
+  <rect x="370" y="255" width="160" height="50" rx="8" class="n1-fill"/>
+  <text x="450" y="285" class="n1-text">Bras 3 axes</text>
+
+  <!-- Branches (5 familles) -->
+  <rect x="150" y="69" width="180" height="42" rx="5" class="n2-fill"/>
+  <text x="240" y="95" class="n2-text">Utilisateurs</text>
+  <rect x="150" y="259" width="180" height="42" rx="5" class="n2-fill"/>
+  <text x="240" y="285" class="n2-text">Réglementaire</text>
+  <rect x="150" y="449" width="180" height="42" rx="5" class="n2-fill"/>
+  <text x="240" y="475" class="n2-text">Environnement physique</text>
+  <rect x="570" y="129" width="180" height="42" rx="5" class="n2-fill"/>
+  <text x="660" y="155" class="n2-text">Matière d'œuvre</text>
+  <rect x="570" y="389" width="180" height="42" rx="5" class="n2-fill"/>
+  <text x="660" y="415" class="n2-text">Énergies</text>
+
+  <!-- Feuilles (milieux concrets) -->
+  <rect x="10" y="75" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="95" class="n3-text">Opérateur</text>
+
+  <rect x="10" y="251" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="271" class="n3-text">Conformité CE</text>
+  <rect x="10" y="291" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="311" class="n3-text">Écoconception</text>
+
+  <rect x="10" y="449" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="469" class="n3-text">Poste informatique</text>
+  <rect x="10" y="489" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="509" class="n3-text">Fablab</text>
+
+  <rect x="765" y="135" width="125" height="30" rx="4" class="n3-fill"/>
+  <text x="827" y="155" class="n3-text">Objet à déplacer</text>
+
+  <rect x="765" y="395" width="125" height="30" rx="4" class="n3-fill"/>
+  <text x="827" y="415" class="n3-text">Secteur 230 V</text>
+
+  <text x="450" y="545" class="foot">Ces milieux deviennent les pattes de la pieuvre : chaque lien système ↔ milieu y devient une fonction.</text>
+</svg>

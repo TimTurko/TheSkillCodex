@@ -394,6 +394,16 @@ chemins à 1 niveau ou moins). Pas de migration sur ces fichiers.
 `content/fiches/<domaine>/*.md` utilise la forme `![alt](/ressources/img/fichier.svg)`.
 Convention à appliquer en niveau A sur toute nouvelle fiche.
 
+### Convention mini-hub imbriqué (C18, promue 28/05 suite 4)
+
+Un domaine qui se ramifie en sous-thèmes se structure en **mini-hub** : une fiche mère panorama + des fiches filles. Forme fixée après épreuve 3/3 (`microcontroleur` à 2 niveaux, `bus-de-communication`, `techno-sans-fil`) :
+
+- **Sous-dossier physique** par mini-hub : `content/fiches/<domaine>/.../<theme>/` (ex. `eee/mcu/bus/`, `eee/mcu/sans-fil/`). Les briques transverses isolées, sans hub propre, restent **à plat** dans le dossier parent (ex. `processeur`, `adc`, `pwm` dans `eee/mcu/`).
+- **Hub en fichier nommé** (`<theme>.md`, pas `index.md`) pour que `[[theme]]` résolve par nom. `type: notion`.
+- **Listing des filles en tableau dans le corps** du hub (panorama comparatif + aide au choix), pas en champ front matter.
+- **AA** : le hub porte le critère transverse pertinent ; les filles popover-court peuvent rester `aa: []` (l'AA est porté collectivement par le hub).
+- **1 SVG dans le hub** quand une comparaison visuelle structure le choix (topologies, carte de positionnement) ; filles en texte.
+
 ### Noms de fichiers
 **Kebab-case** : `cahier-des-charges-fonctionnel.md`,
 `schema-bloc-fonctionnel.md`. Pas d'accents, pas d'espaces, pas de
@@ -589,12 +599,36 @@ contenu intact ; (c) éviter de copier un anchor situé dans les 1-2
 dernières lignes du head demandé — privilégier une zone bien à
 l'intérieur du buffer.
 
+**Complément 28/05 (réfutation de l'attribution U+202F → Obsidian)** :
+l'hypothèse portée depuis 26/05 puis formalisée 27/05 suite 5 — « Obsidian
+(plugin Smart Typography ou typo française) injecte des U+202F fines dans
+les fichiers de pilotage » — a été **testée et réfutée** sur PC perso le
+28/05. (a) Aucun plugin typographique installé (Excalidraw / Git / Pandoc
+seuls), aucune option Editor n'insérant de NBSP. (b) Test isolé décisif :
+une ligne écrite par Claude via MCP avec `: ; ? ! % €` ressort `--check
+[ok]` → les écritures MCP de Claude n'injectent **aucun** invisible.
+(c) Save Obsidian également propre. (d) Les seuls NBSP reproduits dans la
+session étaient des **U+00A0** (saveur `&nbsp;`) issus d'un collage web
+délibéré — hors flux normal — et **zéro U+202F**. **Conclusion** : pas de
+source active de NBSP dans le flux de travail réel (l'utilisateur ne touche
+jamais ces fichiers ; l'unique écrivain, mes écritures MCP, est propre).
+Les échecs d'anchor historiquement attribués à U+202F relèvent plus
+vraisemblablement des autres causes déjà listées dans cette chaîne C14
+(CRLF de states passés, artefacts U+FFFD de troncature `head`/`tail`, typos
+de transcription). Le couple `normalize` + hook reste justifié comme filet
+de sécurité contre le rare collage web, pas comme remède à une injection
+systématique. PRIORITÉ 1 du 28/05 actée **non reproductible**.
+
 ### Acquises 26/05 suite 3 (à éprouver en fin de session prochaine)
 17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuves 2-4/N réussies 26/05 suite 4, 26/05 suite 5, 27/05 suite 2, 27/05 suite 4** : patch flèche TODO effectué en fin de session selon l'arbitrage utilisateur sortant (suite 4 : de « clôture méthodologique » vers « reprise rédaction phase 2 » ; suite 5 : de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP »). À éprouver sur 1-2 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
 
 ### Acquises 26/05 suite 5 (à éprouver Phase 0 + Phase 1 elec/info)
 18. **Convention mini-hub imbriqué** — 5 cas identifiés sur la roadmap phase 2 elec/info : `microcontroleur` (hub mère panorama → hubs filles familles MCU → tutos d'utilisation, 2 niveaux d'imbrication), `algorithme` (mini-hub mère → 3 fiches-notion filles : logigramme/MAE/grafcet), `pcb` (hub léger → 2 tutos outils : kicad/easyeda), `bus-de-communication` (hub mère → 3+ fiches-notion popovers : uart/i2c/spi), `techno-sans-fil` (hub mère → 5 fiches-notion popovers : wifi/ble/xbee/zigbee/lora). À éprouver sur `algorithme` (cas le plus simple) puis `microcontroleur` (cas le plus complexe, 2 niveaux). Convention à fixer : (a) front matter du hub (champ dédié listant les filles, ou TdM en prose ?) ; (b) structure de dossier (sous-dossiers physiques `content/fiches/eee/mcu/arduino/` vs à plat avec convention de nommage) ; (c) format de listing des fiches filles dans le corps du hub (tableau, liste à puces, callouts). Formalisation prévue dans `conventions.md` § 6 (Publication / Quartz) une fois éprouvée.
+
+    **Épreuve 1/N réussie 28/05 suite 2 (`microcontroleur`)** : (a) listing des filles **en tableau** dans le corps (pas de champ front matter) ; (b) **sous-dossiers physiques** `content/fiches/eee/mcu/<famille>/` ; (c) hubs en **fichiers nommés** (`microcontroleur.md`, `arduino.md`) et non `index.md`, pour que `[[microcontroleur]]`/`[[arduino]]` résolvent par nom ; (d) `type: notion` pour les hubs. À confirmer sur `algorithme` (2ᵉ cas, plus simple) avant formalisation § 6. **Épreuves 2/N (`bus`) et 3/N (`sans-fil`) réussies 28/05 suite 4 → convention promue § 6** (voir § 6 *Convention mini-hub imbriqué*). Entrée § 8 conservée pour traçabilité.
 19. **Convention fiche transverse multi-techno** — fiche d'une notion couvrant plusieurs technologies (ex. `firmware` couvre Arduino/ESP32/STM32, `analyse-de-schema-electronique` couvre tous les schémas élec/info). À éprouver sur `firmware` et `analyse-de-schema-electronique`. Trois options de structuration à tester : (a) callouts par techno côte à côte dans la section *Comment* ; (b) tableau comparatif (notion × technos) ; (c) exemple unique générique en prose + renvois vers les modules MCU concernés pour les spécificités. Mon intuition : (c) est plus léger éditorialement et exploite la structure wiki, mais (a) ou (b) peuvent s'imposer si les techno divergent fortement. Convention à fixer après 2-3 fiches transverses produites.
+
+    **Épreuve faible 28/05 suite 3 (`lire-une-datasheet`)** : fiche mono-exemple (L298N), elle ne stresse pas réellement la question multi-techno — le vrai test reste `analyse-de-schema-electronique` / `firmware`. **Variante-(c) actée pour une fiche-*compétence*** : procédure rédigée en générique (réutilisable pour toute datasheet) + exemple incarné unique concentré dans la section *Exemple* + renvois wiki. Ne pas surcompter comme épreuve C19.
 
 ### Acquises 27/05 suite (à éprouver Phase 0)
 20. **Mapping AA pertinent en multi-couverture** — acquise sur consigne utilisateur (« n'hésite pas à mapper quand un AA peut être en lien avec une notion ou un tuto, cela permet d'expliquer aux étudiants à quel point un critère peut être transverse »). Lorsqu'un critère AA est pédagogiquement lié à une notion ou un tuto, l'inscrire dans `aa:` du front matter même s'il est déjà Couvert par une autre fiche. La règle du statut dominant (C > E > HS > NC, § 7) reste opérante côté cartographie globale, mais le **front matter individuel** acte la transversalité du critère et la donne à voir aux étudiants. Éprouvée 2/N : `decomposition-fonctionnelle` (multi-couverture `bete-a-cornes` sur PROJ/1 + `concept.md` sur /PROJ/6) + `etat-de-l-art-technique` (multi-couverture PROJ-C04-4/PROJ/2 + MEO-C10-3/MEO/1, le second au titre du critère écoconception listé dans la procédure). À éprouver sur les fiches Phase 0 restantes (`etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) avant promotion vers § 7 *Référentiel AA*. Décision niveau D explicite.
@@ -605,6 +639,8 @@ l'intérieur du buffer.
 
 ### Acquises 27/05 suite 4 (à éprouver Phase 0 reste)
 23. **Convention candidate — Fil rouge bras 3 axes pour fiches-tuto pivot phase 1** — esquissée 26/05 suite 5 sur `caracteriser-une-exigence` (cadrage Q3 : fiche-tuto pivot phase 1 fonctionnellement proche d'une trame, critères CdCF chiffrés du bras 3 axes directement réutilisables, boucle de lecture intra-wiki avec `specification-technique.md` étape 4). Éprouvée 2/N : `decomposition-fonctionnelle` (27/05 suite, fil rouge bras 3 axes en 4 SVG arborescences avec triptyque) + `etat-de-l-art-technique` (27/05 suite 4, tableau 3 réfs Niryo/uArm/Moveo × 6 critères). **Reformulation à acter** : (a) élargir aux fiches-notion outils pivots étape 1 phase concept comme `caracteriser-une-exigence` qui est typé `notion` malgré l'usage du fil rouge, ou (b) reclasser `caracteriser-une-exigence` en `tuto`. À trancher sur 1-2 sessions supplémentaires avant promotion vers § 4 (Cas d'illustration / fils rouges).
+
+    **Borne posée 28/05 suite 3 (`lire-une-datasheet`)** : la convention ne s'étend **pas** aux fiches-tuto spécifiques composant/MCU (`lire-une-datasheet`, futurs `arduino-*`), qui prennent un **cas autonome** propre au composant — écart volontaire au fil rouge bras 3 axes (qui cadre le projet, cycle en V). La candidate vise les fiches-tuto *pivot de phase projet*, pas les tutos de brique technique. À intégrer à la reformulation lors de la promotion.
 
 ### Acquises 27/05 suite 5 (à éprouver sur 2-3 créations de fichiers)
 24. **Préférer `filesystem:write_file` à `filesystem:create_file`** pour
@@ -624,6 +660,14 @@ l'intérieur du buffer.
     probablement corrompu) — passer à `write_file`.
     Incident initial documenté JOURNAL 27/05 suite 4. À éprouver sur 2-3
     créations supplémentaires avant promotion ou retrait.
+
+### Acquises 28/05 suite 2 (à éprouver sur 2ᵉ hub famille)
+25. **4 paliers de difficulté dans les hubs familles** — la section *Tutoriels* d'un hub famille (Arduino, ESP32…) classe les tutos en 4 paliers croissants : *Prendre en main* / *Apprendre les bases* / *Notions avancées* / *Niveau ingénieur*. Sert aussi de **carte de priorité publication** (Prendre en main + cœur des Bases = MVP strict ; Avancées/Ingénieur = MVP étendu/continu). Éprouvé 1/N sur `arduino` (28/05 suite 2). À confirmer sur `esp32` avant promotion vers § 6.
+26. **Double marquage [A] tuto famille / [T] fiche transverse** dans les hubs familles — distingue le tuto spécifique à la famille (`arduino-<action>` = le « comment faire en code/câblage ») de la fiche transverse référencée (notion/compétence valable pour toutes les familles : datasheet, niveaux de tension, cpp, bus, GPIO). Le hub liste les deux ; marqueur *(transverse)* visible côté étudiant (choix 28/05 suite 2, retirable). Évite la duplication des fondamentaux par famille — corollaire direct de la structure squelette transverse + embranchements (26/05 suite 5). Éprouvé 1/N sur `arduino`. À confirmer sur `esp32`.
+
+### Acquises 28/05 suite 4 (à éprouver)
+27. **Production par batch de grappe homogène** — pour une grappe de fiches de forme identique et à faibles arbitrages (popovers d'un mini-hub, briques d'architecture), un **cadrage groupé unique** (frontières + nommage + AA + SVG du hub) validé une fois par l'utilisateur, puis **écriture en A** de toutes les fiches d'un coup. Réservé aux grappes ; les fiches substantielles ou pivots (`gpio`, `analyse-de-schema`, `firmware`, hubs familles) restent une-par-une. Gain de débit (18 fiches en une session) au prix d'une **dette de relecture concentrée** : la relecture utilisateur se fait en bloc sur la grappe, garde-fou à conduire avant publication. Éprouvée 2/2 (grappes `bus` et `sans-fil`, 28/05 suite 4). À éprouver sur 1-2 grappes supplémentaires avant promotion § 5.
+28. **Rouge danger #B23A2E dans les SVG de sécurité** — complément ponctuel à la palette ambre #BA7517 / gris #DDDBD3 (§ 3), réservé aux zones de **danger matériel** (destruction d'une entrée, dépassement de tension maximale) où l'ambre ne transmet pas l'alerte. Variante mode sombre `#E0705F`. Éprouvée 1/1 (`niveaux-de-tension-generique.svg`, 28/05 suite 4). À éprouver sur 1-2 SVG avant intégration § 3.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

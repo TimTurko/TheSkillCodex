@@ -31,7 +31,7 @@ La tentation, sur l'écoconception, est de la traiter en case à cocher de fin d
 
 **Maintenir une démarche d'écoconception** intégrée aux choix techniques sur toute la durée du projet :
 
-- une **évaluation** environnementale des choix structurants ([[matrice-eat|matrice EAT]], [[acv-simplifiee|ACV simplifiée]] en délégation)
+- une **évaluation** environnementale des choix structurants ([[matrice-eco-criteres|matrice éco-critères]], [[acv-simplifiee|ACV simplifiée]] en délégation)
 - une **réduction** d'impact incarnée dans les choix élec et info embarqué (sobriété énergétique, durée de vie composants, démontabilité PCB, sobriété logicielle)
 - une **traçabilité** des arbitrages dans le dossier technique et la soutenance
 - une **articulation** explicite avec les cours de matériaux et d'analyse de cycle de vie portés par les disciplines voisines
@@ -64,19 +64,19 @@ L'écoconception se tient sur trois fronts qui s'activent **en parallèle** dès
 
 Évaluer l'impact environnemental d'un choix technique n'a de sens que **si l'évaluation peut encore orienter ce choix**. Une évaluation conduite après l'arbitrage ne sert plus qu'à justifier *a posteriori* ce qui a déjà été décidé — au mieux à produire un rapport de conformité, jamais à infléchir une trajectoire. C'est la raison pour laquelle l'évaluation se cale dès la première matrice où une décision se prend : tableau comparatif de l'[[etat-de-l-art-technique|état de l'art technique]] en [[specification-technique|spécification technique]], [[matrice-de-decision|matrices de décision]] par sous-système en [[concept|concept]]. Évaluer plus tard est toujours possible — mais sans levier sur les choix qui comptent.
 
-L'outil canonique porté par cette trame est la **[[matrice-eat|matrice EAT]]** : 5 critères environnementaux × N solutions candidates, intégrée directement aux matrices de décision existantes sous forme d'une ligne ou d'un bloc dédié, plutôt qu'isolée dans un livrable séparé. Cette intégration force l'arbitrage : le critère environnemental pèse au même titre que le coût, la performance ou la durée de vie. Une matrice EAT à côté ne pèse rien — une ligne EAT dans la matrice de décision pèse exactement autant que les autres lignes. L'[[acv-simplifiee|ACV simplifiée]] complète l'outillage pour les choix structurants où le périmètre dépasse l'élec/info : sa méthodologie complète relève des cours de matériaux et d'analyse de cycle de vie, la trame se contente de la citer et de renvoyer au cours dédié.
+L'outil canonique porté par cette trame est la **[[matrice-eco-criteres|matrice éco-critères]]** : 5 critères environnementaux × N solutions candidates, intégrée directement aux matrices de décision existantes sous forme d'une ligne ou d'un bloc dédié, plutôt qu'isolée dans un livrable séparé. Cette intégration force l'arbitrage : le critère environnemental pèse au même titre que le coût, la performance ou la durée de vie. Une matrice éco-critères à côté ne pèse rien — une ligne éco-critères dans la matrice de décision pèse exactement autant que les autres lignes. L'[[acv-simplifiee|ACV simplifiée]] complète l'outillage pour les choix structurants où le périmètre dépasse l'élec/info : sa méthodologie complète relève des cours de matériaux et d'analyse de cycle de vie, la trame se contente de la citer et de renvoyer au cours dédié.
 
 La frontière entre ce qui se chiffre côté expertise utilisateur et ce qui se délègue est nette. Côté élec/info, des grandeurs accessibles : **consommation en fonctionnement** (en W ou mW), **consommation en veille** (en µA ou mA), **durée de vie indicative** des composants (cycles, MTBF, échéance d'obsolescence annoncée), **masse de cuivre du PCB**, **nombre de couches**. Côté cours collègues : impact carbone des matières premières, énergie de fabrication, fin de vie matériaux, normes ACV ISO 14040. La règle pratique : si le chiffrage demande une compétence matériaux ou procédés que l'équipe n'a pas, on cite l'enjeu et on renvoie ; on n'invente pas une ACV ad hoc.
 
 La cadence d'évaluation suit naturellement les jalons du projet. Évaluation initiale dès la première matrice de décision en concept ; ré-évaluation à chaque revue de phase quand un choix bascule (nouveau composant retenu en [[dossier-technique|dossier technique]], recâblage d'architecture après [[preuve-de-concept|preuve de concept]]) ; vérification finale en revue d'[[integration-et-tests|intégration et tests]] pour confirmer que les arbitrages tenus en concept n'ont pas été silencieusement effacés par les choix de composants ultérieurs.
 
 > [!example] Exemple : projet bras 3 axes
-> Sur le choix des moteurs en [[concept|concept]] (étape 2), une [[matrice-eat|matrice EAT]] à 5 critères × 3 solutions (steppers / CC avec encodeurs / servomoteurs) intègre un critère **consommation en maintien** chiffré en W (les steppers consomment en couple statique, pas les CC à l'arrêt) et un critère **durée de vie indicative** en cycles. Le critère écoconception ne s'ajoute pas en colonne séparée — il pèse sur la décision au même titre que le coût ou la précision. En revue de PoC en semaine n°6, la matrice est re-passée : la consommation mesurée des steppers est conforme à l'ordre de grandeur retenu, le choix est confirmé sans rediscussion.
+> Sur le choix des moteurs en [[concept|concept]] (étape 2), une [[matrice-eco-criteres|matrice éco-critères]] à 5 critères × 3 solutions (steppers / CC avec encodeurs / servomoteurs) intègre un critère **consommation en maintien** chiffré en W (les steppers consomment en couple statique, pas les CC à l'arrêt) et un critère **durée de vie indicative** en cycles. Le critère écoconception ne s'ajoute pas en colonne séparée — il pèse sur la décision au même titre que le coût ou la précision. En revue de PoC en semaine n°6, la matrice est re-passée : la consommation mesurée des steppers est conforme à l'ordre de grandeur retenu, le choix est confirmé sans rediscussion.
 
 > [!livrable] Livrable 1/3 — Écoconception
 > Évaluation environnementale présente dans les choix techniques structurants, attestée par :
 > - **Continu** : critère écoconception intégré aux [[matrice-de-decision|matrices de décision]] (étape 2 de [[concept|concept]]) et au tableau comparatif de l'[[etat-de-l-art-technique|état de l'art technique]] (étape 2 de [[specification-technique|spécification technique]])
-> - **Jalonné** : une [[matrice-eat|matrice EAT]] par sous-système structurant, présentée en revue de phase
+> - **Jalonné** : une [[matrice-eco-criteres|matrice éco-critères]] par sous-système structurant, présentée en revue de phase
 
 ### 2. Réduire
 
@@ -178,8 +178,9 @@ recontextualiser dans le cycle en V global.
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
-- [[matrice-eat|Matrice EAT]] *(à créer — outil canonique de cette trame)*
+- [[matrice-eco-criteres|Matrice éco-critères]] *(outil canonique de cette trame)*
+- [[ecodesign|Écodesign]] *(notion sœur — démarche design vs démarche ingénierie, distinction du critère PROJ/5)*
 - [[acv-simplifiee|ACV simplifiée]] *(à créer — citée et déléguée aux cours collègues pour la version complète)*
-- [[matrice-de-decision|Matrice de décision]] *(à créer — porte le critère écoconception)*
+- [[matrice-de-decision|Matrice de décision]] *(porte le critère écoconception)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse — pilote l'écoconception)*
-- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse — à créer)*
+- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*

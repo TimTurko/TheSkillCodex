@@ -77,7 +77,7 @@ Le détail complet de la démarche de construction (les six étapes de la phase,
 
 **Critères subjectifs.** *« Ergonomique »*, *« agréable »*, *« robuste »* ne sont pas des critères mais des intentions. À reformuler systématiquement en grandeur mesurable (force d'actionnement maximale, MTBF, temps d'apprentissage, plage de température admissible).
 
-**Écoconception en addendum.** Une section *« écoconception »* ajoutée à la fin du CdCF, sans intégration dans les autres sections, ne tient pas — l'[[ecoconception|écoconception]] doit être **transverse** : critère dans l'état de l'art, [[FC]] dans la pieuvre, risque dans la matrice. Une fiche-trame dédiée détaille la démarche.
+**Écoconception en addendum.** Une section *« écoconception »* ajoutée à la fin du CdCF, sans intégration dans les autres sections, ne tient pas — l'[[ecoconception|écoconception]] doit être **transverse** : critère dans l'état de l'art, [[FC]] dans la pieuvre, risque dans la matrice. Une fiche-trame dédiée détaille la démarche. Et à ne pas confondre avec l'[[ecodesign|écodesign]] : le CdCF porte l'écoconception au sens ingénierie quantifiée, l'écodesign (design d'usage) étant plutôt délégué aux cours de design.
 
 **Sauter la revue de CdCF.** Le passage en revue par les enseignants (ou le client en contexte professionnel) n'est pas une formalité : c'est ce qui **engage** le document. Sans revue, le CdCF reste un brouillon d'équipe ; après revue, c'est un contrat qui ne se renégocie plus à la légère.
 

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 600" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomie d'une datasheet — quelle section répond à quelle question</title>
+  <desc id="desc">Une datasheet a une structure prévisible. De haut en bas : première page (description et fonction), boîtier, brochage, table des fonctions, Absolute Maximum Ratings, conditions de fonctionnement, caractéristiques électriques et thermiques, schéma d'application. En regard, la question à laquelle chaque section répond. La section Absolute Maximum Ratings est mise en évidence car elle donne les limites à ne jamais dépasser, à ne pas confondre avec les conditions de fonctionnement.</desc>
+  <defs>
+    <style>
+      .title-text { font: 700 15px sans-serif; text-anchor: middle; fill: #2C2C2A; letter-spacing: 0.3px; }
+      .doc { fill: #FFFFFF; stroke: #888780; stroke-width: 1.6; }
+      .dochead { fill: #BA7517; stroke: #BA7517; }
+      .dochead-text { font: 700 13px sans-serif; text-anchor: middle; fill: #FFFFFF; letter-spacing: 0.4px; }
+      .band { fill: #DDDBD3; stroke: #888780; stroke-width: 1; }
+      .band-crit { fill: #BA7517; stroke: #BA7517; stroke-width: 1; }
+      .band-text { font: 600 12.5px sans-serif; text-anchor: start; fill: #2C2C2A; }
+      .band-text-crit { font: 700 12.5px sans-serif; text-anchor: start; fill: #FFFFFF; }
+      .q-text { font: 400 12.5px sans-serif; text-anchor: start; fill: #2C2C2A; }
+      .q-crit { font: 700 12.5px sans-serif; text-anchor: start; fill: #BA7517; }
+      .conn { stroke: #888780; stroke-width: 1.4; fill: none; }
+      .conn-crit { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .arrow { fill: #888780; }
+      .arrow-crit { fill: #BA7517; }
+      .foot { font: italic 400 11.5px sans-serif; fill: #888780; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .title-text { fill: #F1EFE8; }
+        .doc { fill: #2C2C2A; stroke: #BBBBBB; }
+        .dochead { fill: #BA7517; stroke: #EF9F27; }
+        .band { fill: #4A4A48; stroke: #BBBBBB; }
+        .band-crit { fill: #BA7517; stroke: #EF9F27; }
+        .band-text { fill: #F1EFE8; }
+        .q-text { fill: #F1EFE8; }
+        .q-crit { fill: #EF9F27; }
+        .conn { stroke: #BBBBBB; }
+        .conn-crit { stroke: #EF9F27; }
+        .arrow { fill: #BBBBBB; }
+        .arrow-crit { fill: #EF9F27; }
+        .foot { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="arrow"/>
+    </marker>
+    <marker id="ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="arrow-crit"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="32" class="title-text">Anatomie d'une datasheet</text>
+
+  <!-- Le document -->
+  <rect x="55" y="68" width="345" height="500" rx="10" class="doc"/>
+  <rect x="55" y="68" width="345" height="36" rx="10" class="dochead"/>
+  <rect x="55" y="90" width="345" height="14" class="dochead"/>
+  <text x="227" y="92" class="dochead-text">DATASHEET — structure type</text>
+
+  <!-- Bandes : section (gauche) + question (droite) -->
+  <!-- 1 -->
+  <rect x="67" y="114" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="144" class="band-text">1 · 1re page — description &amp; fonction</text>
+  <line x1="400" y1="139" x2="452" y2="139" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="143" class="q-text">Qu'est-ce que c'est, à quoi ça sert ?</text>
+
+  <!-- 2 -->
+  <rect x="67" y="170" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="200" class="band-text">2 · Boîtier (package)</text>
+  <line x1="400" y1="195" x2="452" y2="195" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="199" class="q-text">Soudable comment ? Traversant ou CMS ?</text>
+
+  <!-- 3 -->
+  <rect x="67" y="226" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="256" class="band-text">3 · Brochage (pinout)</text>
+  <line x1="400" y1="251" x2="452" y2="251" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="255" class="q-text">Quelle broche fait quoi ?</text>
+
+  <!-- 4 -->
+  <rect x="67" y="282" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="312" class="band-text">4 · Table des fonctions</text>
+  <line x1="400" y1="307" x2="452" y2="307" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="311" class="q-text">Quelle commande donne quel comportement ?</text>
+
+  <!-- 5 — CRITIQUE -->
+  <rect x="67" y="338" width="321" height="50" rx="4" class="band-crit"/>
+  <text x="83" y="368" class="band-text-crit">5 · Absolute Maximum Ratings</text>
+  <line x1="400" y1="363" x2="452" y2="363" class="conn-crit" marker-end="url(#ac)"/>
+  <text x="458" y="367" class="q-crit">Quelles limites à ne JAMAIS dépasser ?</text>
+
+  <!-- 6 -->
+  <rect x="67" y="394" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="424" class="band-text">6 · Conditions de fonctionnement</text>
+  <line x1="400" y1="419" x2="452" y2="419" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="423" class="q-text">Dans quelle plage l'utiliser ?</text>
+
+  <!-- 7 -->
+  <rect x="67" y="450" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="480" class="band-text">7 · Caractéristiques élec. &amp; therm.</text>
+  <line x1="400" y1="475" x2="452" y2="475" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="479" class="q-text">Niveaux logiques, courants, chauffe</text>
+
+  <!-- 8 -->
+  <rect x="67" y="506" width="321" height="50" rx="4" class="band"/>
+  <text x="83" y="536" class="band-text">8 · Schéma d'application</text>
+  <line x1="400" y1="531" x2="452" y2="531" class="conn" marker-end="url(#ag)"/>
+  <text x="458" y="535" class="q-text">Comment le câbler ?</text>
+
+  <text x="410" y="588" class="foot">Lire une datasheet, ce n'est pas tout lire : c'est savoir quelle section répond à quelle question, et s'y rendre directement.</text>
+</svg>
