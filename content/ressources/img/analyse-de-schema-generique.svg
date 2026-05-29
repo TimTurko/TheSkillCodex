@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-labelledby="t d">
+  <title id="t">Anatomie d'un schéma électronique</title>
+  <desc id="d">Organisation fonctionnelle typique d'un schéma : un bloc Alimentation en haut alimente un bloc MCU au centre ; un bloc Capteur à gauche envoie une mesure en entrée du MCU ; le MCU commande un bloc Actionneur à droite en sortie. Des annotations en ambre rappellent les conventions de lecture : alimentation en haut et masse en bas, entrées à gauche et sorties à droite.</desc>
+  <defs>
+    <style>
+      .box { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .box-t { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .alim { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .fl { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .fl-t { font:400 11.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ann { font:700 11px sans-serif; fill:#BA7517; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .note { font:italic 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .box { fill:#4A4A48; stroke:#BBBBBB; }
+        .box-t { fill:#F1EFE8; }
+        .alim { fill:#4A4A48; stroke:#EF9F27; }
+        .fl { stroke:#BBBBBB; }
+        .fl-t { fill:#F1EFE8; }
+        .ann { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="300" y="26" class="ttl">Anatomie d'un schéma — les quatre fonctions</text>
+
+  <!-- Alimentation -->
+  <rect x="248" y="46" width="140" height="44" rx="4" class="alim"/>
+  <text x="318" y="73" class="box-t">Alimentation</text>
+  <text x="396" y="60" class="ann" text-anchor="start">en haut : VCC</text>
+
+  <line x1="318" y1="90" x2="318" y2="178" class="fl"/>
+  <text x="318" y="135" class="fl-t" text-anchor="start" dx="8">alimente</text>
+
+  <!-- Capteur -->
+  <rect x="36" y="180" width="120" height="52" rx="4" class="box"/>
+  <text x="96" y="211" class="box-t">Capteur</text>
+
+  <!-- MCU -->
+  <rect x="248" y="178" width="140" height="66" rx="4" class="box"/>
+  <text x="318" y="216" class="box-t">MCU</text>
+
+  <!-- Actionneur -->
+  <rect x="476" y="180" width="120" height="52" rx="4" class="box"/>
+  <text x="536" y="211" class="box-t">Actionneur</text>
+
+  <!-- Capteur -> MCU -->
+  <line x1="156" y1="206" x2="246" y2="206" class="fl"/>
+  <text x="201" y="197" class="fl-t">mesure</text>
+  <text x="96" y="252" class="ann" text-anchor="middle">entrées à gauche</text>
+
+  <!-- MCU -> Actionneur -->
+  <line x1="388" y1="206" x2="474" y2="206" class="fl"/>
+  <text x="431" y="197" class="fl-t">commande</text>
+  <text x="536" y="252" class="ann" text-anchor="middle">sorties à droite</text>
+
+  <!-- masse -->
+  <line x1="318" y1="244" x2="318" y2="300" class="fl" style="marker-end:none"/>
+  <path d="M300,300 L336,300 M306,307 L330,307 M312,314 L324,314" stroke="#888780" stroke-width="1.8"/>
+  <text x="344" y="305" class="ann" text-anchor="start">en bas : GND (masse)</text>
+
+  <text x="300" y="356" class="note">Chaque composant porte une référence (R1, U1…) et une valeur ; les fils d'un même nœud sont au même potentiel.</text>
+</svg>

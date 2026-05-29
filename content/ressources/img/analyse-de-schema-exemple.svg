@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" role="img" aria-labelledby="t d">
+  <title id="t">Schéma électronique commenté : capteur, MCU et actionneur</title>
+  <desc id="d">Schéma de principe. Un rail d'alimentation +5 V en haut et un rail de masse GND en bas. À gauche, un pont diviseur formé de la résistance R1 (10 kilohms) et d'une résistance variable R2 servant de capteur, dont le point milieu est relié à l'entrée A0 du microcontrôleur. Au centre, le circuit intégré U1 (MCU) alimenté entre VCC et GND. À droite, la sortie D9 commande la résistance R3 (220 ohms) en série avec la LED D1 vers la masse.</desc>
+  <defs>
+    <style>
+      .wire { stroke:#2C2C2A; stroke-width:1.8; fill:none; }
+      .rail { stroke:#2C2C2A; stroke-width:2.4; fill:none; }
+      .comp { fill:none; stroke:#2C2C2A; stroke-width:1.8; }
+      .ic { fill:#DDDBD3; stroke:#2C2C2A; stroke-width:1.8; }
+      .ic-t { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .pin { font:600 9.5px sans-serif; fill:#2C2C2A; }
+      .ref { font:600 11px sans-serif; fill:#2C2C2A; }
+      .rail-t { font:700 11px sans-serif; fill:#2C2C2A; }
+      .dot { fill:#2C2C2A; }
+      .ann { font:700 11px sans-serif; fill:#BA7517; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .emf { fill:#2C2C2A; }
+      @media (prefers-color-scheme: dark) {
+        .wire, .rail, .comp { stroke:#F1EFE8; }
+        .ic { fill:#4A4A48; stroke:#F1EFE8; }
+        .ic-t, .pin, .ref, .rail-t { fill:#F1EFE8; }
+        .dot { fill:#F1EFE8; }
+        .ann { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .emf { fill:#F1EFE8; }
+      }
+    </style>
+    <marker id="em" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="emf"/>
+    </marker>
+  </defs>
+
+  <text x="320" y="26" class="ttl">Exemple — pont diviseur (capteur), MCU et LED (actionneur)</text>
+
+  <!-- Rails -->
+  <line x1="70" y1="70" x2="570" y2="70" class="rail"/>
+  <text x="576" y="74" class="rail-t">+5 V</text>
+  <line x1="70" y1="400" x2="570" y2="400" class="rail"/>
+  <text x="576" y="404" class="rail-t">GND</text>
+
+  <!-- Symbole de masse -->
+  <line x1="335" y1="400" x2="335" y2="413" class="wire"/>
+  <path d="M319,413 H351 M325,419 H345 M330,425 H340" class="wire"/>
+
+  <!-- ===== Capteur : pont diviseur (gauche) ===== -->
+  <line x1="150" y1="70" x2="150" y2="118" class="wire"/>
+  <circle cx="150" cy="70" r="3" class="dot"/>
+  <rect x="138" y="118" width="24" height="48" class="comp"/>
+  <text x="122" y="137" class="ref" text-anchor="end">R1</text>
+  <text x="122" y="152" class="ref" text-anchor="end">10 kΩ</text>
+  <line x1="150" y1="166" x2="150" y2="300" class="wire"/>
+  <circle cx="150" cy="245" r="3" class="dot"/>
+  <rect x="138" y="300" width="24" height="48" class="comp"/>
+  <line x1="130" y1="358" x2="170" y2="294" class="comp" marker-end="url(#em)"/>
+  <text x="122" y="319" class="ref" text-anchor="end">R2</text>
+  <text x="122" y="334" class="ref" text-anchor="end">capteur</text>
+  <line x1="150" y1="348" x2="150" y2="400" class="wire"/>
+  <circle cx="150" cy="400" r="3" class="dot"/>
+
+  <!-- Point milieu -> A0 -->
+  <line x1="150" y1="245" x2="270" y2="245" class="wire"/>
+  <text x="210" y="238" class="ann" text-anchor="middle">entrée (mesure)</text>
+
+  <!-- ===== MCU (centre) ===== -->
+  <rect x="270" y="180" width="130" height="130" rx="3" class="ic"/>
+  <text x="335" y="244" class="ic-t">U1 · MCU</text>
+  <line x1="335" y1="180" x2="335" y2="70" class="wire"/>
+  <circle cx="335" cy="70" r="3" class="dot"/>
+  <text x="335" y="197" class="pin" text-anchor="middle">VCC</text>
+  <line x1="335" y1="310" x2="335" y2="400" class="wire"/>
+  <circle cx="335" cy="400" r="3" class="dot"/>
+  <text x="335" y="302" class="pin" text-anchor="middle">GND</text>
+  <text x="278" y="249" class="pin" text-anchor="start">A0</text>
+  <text x="392" y="249" class="pin" text-anchor="end">D9</text>
+
+  <!-- ===== Actionneur : LED (droite) ===== -->
+  <line x1="400" y1="245" x2="500" y2="245" class="wire"/>
+  <text x="450" y="238" class="ann" text-anchor="middle">sortie (commande)</text>
+  <line x1="500" y1="245" x2="500" y2="290" class="wire"/>
+  <rect x="488" y="290" width="24" height="44" class="comp"/>
+  <text x="518" y="309" class="ref" text-anchor="start">R3</text>
+  <text x="518" y="324" class="ref" text-anchor="start">220 Ω</text>
+  <line x1="500" y1="334" x2="500" y2="348" class="wire"/>
+  <!-- LED D1 -->
+  <polygon points="488,348 512,348 500,370" class="comp"/>
+  <line x1="488" y1="370" x2="512" y2="370" class="comp"/>
+  <line x1="516" y1="356" x2="528" y2="344" class="comp" marker-end="url(#em)"/>
+  <line x1="522" y1="362" x2="534" y2="350" class="comp" marker-end="url(#em)"/>
+  <text x="478" y="364" class="ref" text-anchor="end">D1</text>
+  <line x1="500" y1="370" x2="500" y2="400" class="wire"/>
+  <circle cx="500" cy="400" r="3" class="dot"/>
+</svg>
