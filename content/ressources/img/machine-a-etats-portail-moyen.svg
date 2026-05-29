@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-labelledby="t d">
+  <title id="t">Portail automatique — états nets mais transitions incomplètes</title>
+  <desc id="d">Quatre états — Fermé, Ouverture, Ouvert, Fermeture — disposés aux coins d'un carré et reliés par un cycle de transitions orientées dans le sens horaire. Chaque transition ne porte qu'un mot vague : bouton, capteur, minuterie, capteur. Aucune garde-condition, aucune action ni gestion d'obstacle n'est indiquée.</desc>
+  <defs>
+    <style>
+      .state { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .state-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .tr { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .tr-t { font:400 12.5px sans-serif; fill:#2C2C2A; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .note { font:italic 12px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .state { fill:#4A4A48; stroke:#EF9F27; }
+        .state-t { fill:#F1EFE8; }
+        .tr { stroke:#BBBBBB; }
+        .tr-t { fill:#F1EFE8; }
+        .ttl { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="260" y="26" class="ttl">Portail — états nets, transitions incomplètes</text>
+
+  <rect x="40" y="55" width="150" height="56" rx="10" class="state"/>
+  <text x="115" y="88" class="state-t">Fermé</text>
+  <rect x="330" y="55" width="150" height="56" rx="10" class="state"/>
+  <text x="405" y="88" class="state-t">Ouverture</text>
+  <rect x="330" y="250" width="150" height="56" rx="10" class="state"/>
+  <text x="405" y="283" class="state-t">Ouvert</text>
+  <rect x="40" y="250" width="150" height="56" rx="10" class="state"/>
+  <text x="115" y="283" class="state-t">Fermeture</text>
+
+  <!-- Fermé -> Ouverture -->
+  <line x1="190" y1="83" x2="328" y2="83" class="tr"/>
+  <text x="259" y="72" class="tr-t" text-anchor="middle">bouton</text>
+
+  <!-- Ouverture -> Ouvert -->
+  <line x1="405" y1="111" x2="405" y2="248" class="tr"/>
+  <text x="416" y="183" class="tr-t" text-anchor="start">capteur</text>
+
+  <!-- Ouvert -> Fermeture -->
+  <line x1="330" y1="278" x2="192" y2="278" class="tr"/>
+  <text x="261" y="299" class="tr-t" text-anchor="middle">minuterie</text>
+
+  <!-- Fermeture -> Fermé -->
+  <line x1="115" y1="250" x2="115" y2="113" class="tr"/>
+  <text x="104" y="183" class="tr-t" text-anchor="end">capteur</text>
+
+  <text x="260" y="343" class="note">Transitions sans garde-condition ni action : le comportement reste sous-spécifié.</text>
+</svg>

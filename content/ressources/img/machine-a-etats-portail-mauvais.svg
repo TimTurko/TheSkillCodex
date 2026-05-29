@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-labelledby="t d">
+  <title id="t">Portail automatique — états mal définis (anti-pattern)</title>
+  <desc id="d">Trois formes ovales aux contours en pointillés se recouvrent largement, portant des étiquettes vagues et redondantes comme « Ouvre ou bouge », « En marche ? » et « Arrêt ou attente ». Aucune flèche de transition claire ne les relie ; un point d'interrogation marque la zone de recouvrement. Le schéma illustre des états ambigus dont on ne peut pas savoir lequel est actif.</desc>
+  <defs>
+    <style>
+      .blob { fill:#DDDBD3; fill-opacity:.55; stroke:#888780; stroke-width:2; stroke-dasharray:7 5; }
+      .blob-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .q { font:800 26px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .tangle { stroke:#888780; stroke-width:1.6; fill:none; stroke-dasharray:4 4; marker-end:url(#ah); }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .note { font:italic 12px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .blob { fill:#4A4A48; fill-opacity:.6; stroke:#BBBBBB; }
+        .blob-t { fill:#F1EFE8; }
+        .q { fill:#EF9F27; }
+        .tangle { stroke:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="250" y="26" class="ttl">Portail — états flous (à éviter)</text>
+
+  <ellipse cx="160" cy="115" rx="108" ry="58" class="blob"/>
+  <ellipse cx="330" cy="135" rx="108" ry="58" class="blob"/>
+  <ellipse cx="245" cy="200" rx="118" ry="55" class="blob"/>
+
+  <text x="120" y="100" class="blob-t">Ouvre / bouge</text>
+  <text x="372" y="120" class="blob-t">En marche ?</text>
+  <text x="245" y="222" class="blob-t">Arrêt / attente</text>
+
+  <text x="247" y="158" class="q">?</text>
+
+  <!-- transition tangle (ambiguë, double sens) -->
+  <path d="M150,150 C200,185 260,185 300,165" class="tangle"/>
+  <path d="M300,165 C260,150 200,150 152,152" class="tangle"/>
+
+  <text x="250" y="285" class="note">Les états se recouvrent, sans transition claire : on ne sait pas lequel est actif.</text>
+</svg>

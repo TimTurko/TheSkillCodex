@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="t d">
+  <title id="t">Machine à états — schéma générique</title>
+  <desc id="d">Trois états dessinés en rectangles arrondis et reliés par des transitions orientées formant un cycle. Chaque transition porte une étiquette de la forme événement, garde-condition entre crochets, et action introduite par une barre oblique. Une légende en bas rappelle cette syntaxe et la notion d'état.</desc>
+  <defs>
+    <style>
+      .state { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .state-t { font:700 15px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .tr { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .tr-t { font:400 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .grd { fill:#BA7517; font-weight:600; }
+      .act { font-style:italic; }
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.5px; }
+      .lg { font:400 12px sans-serif; fill:#2C2C2A; }
+      .lg-b { font:700 12px sans-serif; fill:#2C2C2A; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .state { fill:#4A4A48; stroke:#EF9F27; }
+        .state-t { fill:#F1EFE8; }
+        .tr { stroke:#BBBBBB; }
+        .tr-t { fill:#F1EFE8; }
+        .grd { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .lg, .lg-b { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="380" y="28" class="ttl">Machine à états — états, transitions, gardes, actions</text>
+
+  <!-- États -->
+  <rect x="55" y="95" width="150" height="58" rx="10" class="state"/>
+  <text x="130" y="130" class="state-t">État A</text>
+  <rect x="305" y="95" width="150" height="58" rx="10" class="state"/>
+  <text x="380" y="130" class="state-t">État B</text>
+  <rect x="555" y="95" width="150" height="58" rx="10" class="state"/>
+  <text x="630" y="130" class="state-t">État C</text>
+
+  <!-- A -> B -->
+  <line x1="205" y1="124" x2="300" y2="124" class="tr"/>
+  <text x="252" y="112" class="tr-t">évén. <tspan class="act">/ action</tspan></text>
+
+  <!-- B -> C (avec garde) -->
+  <line x1="455" y1="124" x2="550" y2="124" class="tr"/>
+  <text x="502" y="112" class="tr-t"><tspan class="grd">[garde]</tspan> évén.</text>
+
+  <!-- C -> A (retour, arc inférieur) -->
+  <path d="M630,153 C630,255 130,255 130,156" class="tr"/>
+  <text x="380" y="247" class="tr-t">évén. <tspan class="act">/ action</tspan></text>
+
+  <!-- Légende -->
+  <line x1="57" y1="293" x2="100" y2="293" class="tr"/>
+  <text x="112" y="297" class="lg"><tspan class="lg-b">transition</tspan> — syntaxe : événement <tspan class="grd">[garde-condition]</tspan> <tspan class="act">/ action</tspan></text>
+  <rect x="57" y="311" width="38" height="20" rx="6" class="state"/>
+  <text x="112" y="326" class="lg"><tspan class="lg-b">état</tspan> — situation stable où le système attend un événement</text>
+</svg>
