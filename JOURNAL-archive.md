@@ -890,6 +890,97 @@ Taille actuelle estimée 140 ko (au-dessus du seuil 100 ko). Archivage 22-24/05 
 
 <!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->
 
+## 2026-05-25 (suite 8) — Dossier technique : approfondissement complet + leçon méthodo MCP seuil 30 ko
+
+### Périmètre de session
+Approfondissement complet de `dossier-technique.md` (phase 4 du V) sur session de démarrage PC perso. Tâche annexe initiale (archivage JOURNAL 22-24/05) résolue partiellement via MCP (résorption duplication 24/05 suite 2) + report en finalisation manuelle pour le reste. Surprise structurante : **étape 3 trouvée pré-rédigée** dans le fichier au moment d'attaquer la rédaction de fond — hypothèse plus probable : autre instance Claude Desktop lancée en parallèle (brief utilisateur multi-appareil §2). Cohérence vérifiée et préservée.
+
+### Cadrage en début de session — 5 questions tranchées en bloc
+1. **Fil rouge local** : aligner sur PoC final (articulation **usinée alu 6061** suite à marge négative en PoC), pas l'ajustement local PLA 60→80 % du squelette. Cohérence inter-fiches PoC ↔ dossier-technique recherchée. Refonte des 5 `[!example]`.
+2. **Étape pivot = étape 4** (multi-validation à 3 interlocuteurs). Rythme H4 : 2/2/3/3/2 (étape 5 = cas inédit sortie matérielle, ni clôture documentaire ni étape économe).
+3. **Convention 10 (matrice incarnée) — épreuve 3/3** : 4 contextes ciblés (ajustements PoC→dossier étape 1 / BOM matricielle étape 3 / 3 validateurs matriciels étape 4 / structure 3 bons commande étape 5).
+4. **Convention 13 (relire amont) — 1ʳᵉ épreuve formelle** : passe rapide sur Posture + Objectif + Conclusion avant chaque section avale.
+5. **Découpage** : session complète calque PoC suite 7, **niveau A en autonomie accordé par l'utilisateur**.
+
+**Info ajoutée par l'utilisateur en cours** : les commandes doivent être réalisées sur une liste de **fournisseurs partenaires** (catalogue restreint, pas de libre choix marché). Intégrée comme contrainte structurante en étapes 3 et 5.
+
+### Archivage JOURNAL 22-24/05 — résolu partiellement
+- Tentative `write_file` ~50 ko payload pour reconstruire JOURNAL : **échec silencieux** (taille fichier inchangée, date modification inchangée). 2ᵉ occurrence du symptôme après 25/05 suite 3.
+- Décision : abandon de l'approche massive. Action MCP minimale + procédure manuelle pour le reste.
+- **Action MCP** : suppression session 24/05 suite 2 du JOURNAL (résorption duplication avec archive). JOURNAL passé de 144 → 135 ko (−8,8 ko). Préambule patché pour pointer vers la finalisation manuelle.
+- **Action documentaire** : ajout au TODO d'une tâche *Finaliser archivage 22-24/05* en *Manipulations manuelles* (procédure Obsidian détaillée), nouvelle convention 14 capitalisée dans `conventions.md` § 7.
+
+### Convention 14 acquise — Seuil pratique MCP write_file/edit_file ≈ 30 ko payload
+Toute opération MCP `write_file` ou `edit_file` avec payload > 30 ko a une probabilité non négligeable d'échouer silencieusement (sans message d'erreur). Symptôme : tool call qui semble réussir mais `get_file_info` montre fichier inchangé. **Discipline acquise** : (a) `get_file_info` systématique après tout write/edit lourd, (b) opérations massives en édition manuelle Obsidian + Git ou script Node CLI hors MCP.
+
+### Phase 1 — Alignement v2.1 du squelette (11 patches batch)
+5× `[!example] Sur le bras 3 axes` → `Exemple : projet bras 3 axes` (désambiguïsation par première ligne du corps), 5× `[!livrable] Livrable de l'étape N` → `Livrable N/5 — Dossier technique` (et `Livrables 3/5` pluriel pour étape 3), 1× `[!warning] Trois interlocuteurs distincts, trois disponibilités` → titre fixe `Attention` + phrase-clé en gras. Diff propre.
+
+### Phase 2 — Étape 1 *Intégrer les retours de la preuve de concept* rédigée
+2 paragraphes intro (pont depuis PoC avec 3 issues nominales, anti-pattern « rouvrir CAO directement »), 2 H4 économes :
+- H4-1 « Du compte rendu PoC aux ajustements à intégrer » : 3 familles d'ajustements (composants confirmés / recalés / contraintes nouvelles) en liste numérotée + tip « Une page de synthèse, pas une réunion orale ».
+- H4-2 « Propager les ajustements aux trois disciplines » : effet inter-discipline, exemples concrets + warning « Repartir des plans du concept revient à effacer la PoC ».
+
+`[!example]` refondu sur articulation usinée alu 6061 : 3 familles d'ajustements instanciées. Wiki-links sémés : `[[microcontroleur]]`, `[[pla]]`, `[[usinage]]`, `[[retroplanning]]`, `[[ecoconception]]`.
+
+### Phase 3 — Étape 2 *Détailler les plans par discipline* rédigée
+2 paragraphes intro (transition étape 1, niveau précision supérieur, retour grille disciplinaire vs PoC), 2 H4 économes :
+- H4-1 « Travailler en parallèle par discipline » : 3 disciplines en liste (élec/méca/info), outils typiques cités + tip « Reprenez le schéma bloc fonctionnel comme carte d'interfaces ».
+- H4-2 « Vérifier la cohérence inter-disciplines avant les validateurs externes » : 3 familles d'interfaces (physiques / électriques / logicielles) en liste numérotée + warning « Une spécification d'interface n'est pas une spécification interne ».
+
+`[!example]` instancié : 3 disciplines + revue interne tracée (2 conflits arbitrés sans rétroaction concept). Wiki-links nouveaux : `[[schema-bloc-fonctionnel]]`, `[[cahier-des-charges-fonctionnel|CdCF]]`, `[[matrice-de-decision]]`, `[[impression-3d]]`.
+
+### Phase 4 — Étape 3 *Consolider la BOM et chiffrer l'environnement* : pré-rédigée (autre Claude)
+Étape 3 trouvée déjà rédigée en pleine qualité au moment de l'attaquer. Hypothèse autre instance Claude lancée en parallèle (brief multi-appareil). Contenu trouvé : 3 H4 dense (BOM finale chiffrée / Quantifier l'écoconception / Planning + budget) + tip + warning + example matriciel avec **BOM 7 lignes 6 colonnes** (213,20 € HT sous enveloppe 250 €) + ACV simplifiée (steppers ~52 %, alu+usinage ~28 %) + livrable 3 items. Cohérence vérifiée avec mes étapes 1-2-4-5.
+
+### Phase 5 — Étape 4 *Rédiger et faire valider* (PIVOT) rédigée
+2 paragraphes intro (pont depuis étape 3, multi-validation à 3+1 comme miniature industrielle), 3 H4 dense :
+- H4-1 « Préparer la multi-validation » : sous-dossier ciblé par validateur, 3 choses à figer.
+- H4-2 « Mener les trois validations disciplinaires » : 3 RDV séparés 1-2 semaines, ordre logique.
+- H4-3 « Faire valider l'ensemble en revue globale » : encadrant vérifie cohérence inter-parties + qualité argumentation + lisibilité tiers.
+
+Warning existant + tip nouveau « Ouvrez chaque RDV par les livrables-clés ». `[!example]` refondu : **tableau matriciel 3 validateurs × 5 colonnes** — 3ᵉ contexte fort de convention 10. Wiki-links de la table échappés avec `\|` pour pipe.
+
+### Phase 6 — Étape 5 *Émettre les commandes* rédigée (cas inédit)
+2 paragraphes intro (point de non-retour matériel, rôle équipe vs responsable projet), 2 H4 :
+- H4-1 « Préparer les bons de commande » : 1 bon par fournisseur partenaire, 4 contenus attendus.
+- H4-2 « Émettre et tracer » : émission par resp projet, traçabilité, vérification conformité à réception.
+
+Warning nouveau « Émettre avant la validation d'ensemble est un échec d'étape ». Tip nouveau « Suivi par tableau partagé ». `[!example]` structuré en 3 bons de commande (partenaire élec / matière / fablab-atelier) — 4ᵉ contexte de convention 10.
+
+### Phase 7 — Pièges + Équipe refondus
+- **Pièges fréquents** : refonte de 5 puces du squelette en **11 entrées format gras court + explication** (calque concept 8 / PoC 11). ~5/11 pièges émergés a posteriori des étapes 2-5 (≈ 45 %, ratio aligné PoC) — éprouve C12.
+- **Équipe** : 4 paragraphes thématiques (Interfaces métiers / Gestion de projet / Écoconception / Sécurité et qualité), calque concept/PoC. Wiki-links sémés : `[[gestion-de-projet]]`, `[[retroplanning]]`, `[[acv-simplifiee]]`, `[[securite-et-qualite]]`.
+
+### Phase 8 — Cohérence finale 4 passes : **0 patch sur les 4 passes** (pattern PoC confirmé)
+- Passe 1 (terminologie) : 0 patch.
+- Passe 2 (fil rouge bras 3 axes) : 0 patch — articulation usinée alu 6061 cohérente sur les 5 étapes (lead time 3 semaines / 15 j, masse +35 %, ISO 2768 m + Ra ≤ 1,6).
+- Passe 3 (ponts inter-étapes) : 0 patch — chaque intro d'étape ouvre par un pont rétro-arrière propre.
+- Passe 4 (wiki-links exhaustif) : 0 patch — convention 6 tenue au fil. **2ᵉ confirmation après PoC suite 7** que la discipline est acquise quand internalisée.
+
+### Round 2 utilisateur — 2 points tranchés
+1. **Cohérence PCB-BOM** : tranché par information utilisateur — PCB monoface gravé en interne sur **machine de gravure à l'anglaise** de l'école. Donc PCB jamais commandé, pas de ligne BOM nécessaire, **fiche-tuto PCB à créer** avec mention spécifique. 3 patches en cascade appliqués : étape 2 H4 (production interne possible), étape 2 example (5×7 cm monoface gravé en interne), étape 5 example (PCB non commandé + remplacement par 3 condensateurs 100 nF céramique pour le découplage + chiffre ajusté ≈ 98 € HT au lieu de 122 €).
+2. **Cohérence chiffrée étape 5** : ajustée automatiquement par patch 1. Désormais 98 + 21 + 95 = 214 € HT cohérent avec BOM étape 3 (213,20 €) + connecteur coudé étape 4 (+1,80 €) = 215 € HT.
+
+### Conventions éprouvées sur dossier-technique
+- **Convention 10 (matrice incarnée)** : **épreuve 3/3 réussie**, 4 contextes incarnés. Cumul total 8+ contextes (4 sur concept + 4 sur PoC + 4 sur dossier-tech). **Promotion vers § 2 envisageable** (à acter à froid).
+- **Convention 11 (rythme H4)** : promotion § 6 déjà actée en suite 7. Cas inédit nouveau éprouvé sur étape 5 (2 H4 sortie matérielle, ni clôture ni économe). Pattern stable.
+- **Convention 12 (Pièges a posteriori)** : **épreuve 3/3 réussie** (concept 37 %, PoC 45 %, dossier-tech 45 %). **Promotion vers § 6 envisageable**.
+- **Convention 13 (relire amont)** : **1ʳᵉ épreuve formelle réussie** — aucun round 2 sur sections amont, fiche cohérente. À éprouver sur `integration-et-tests` (5ᵉ trame) avant promotion.
+- **Convention 14 (seuil pratique MCP ~30 ko)** : nouvelle, acquise et capitalisée § 7.
+
+### Nouvelles dépendances posées
+- Fiche-tuto `[[pcb]]` à créer avec mention **machine de gravure à l'anglaise + monoface en interne école** (procédé spécifique projet école, pas une commande). Ajout BACKLOG.
+
+### Décisions reportées
+- Toutes celles des sessions précédentes (sauf cohérence inter-fiches concept↔PoC partiellement levée via fil rouge articulation usinée traversant les 5 étapes dossier-tech).
+- Promotion C10 vers § 2 : à acter à froid.
+- Promotion C12 vers § 6 : à acter à froid.
+- C13 à éprouver sur `integration-et-tests`.
+- Finalisation archivage 22-24/05 manuel à faire à la maison.
+
+---
+
 ## 2026-05-25 (suite 7) — PoC : approfondissement v1 complet
 
 ### Périmètre de session
