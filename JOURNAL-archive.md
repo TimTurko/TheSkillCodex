@@ -384,6 +384,265 @@ Capitalisation du complément C14 (27/05) : NBSPs et CRLF identifiés comme caus
 
 <!-- DEBUT DES SESSIONS 26/05 — ARCHIVEES LE 27/05 SUITE 2 -->
 
+## 2026-05-26 (suite 5) — Cadrage stratégique phase 2 elec/info + livraison `caracteriser-une-exigence`
+
+### Périmètre de session
+Session double : (1) rédaction de la fiche-tuto `caracteriser-une-exigence` (pivot phase 1, aliases `[critere, niveau, flexibilite]`, calque `bete-a-cornes`) ; (2) cadrage stratégique de la phase 2 elec/info en réponse à la demande utilisateur d'une roadmap de tutos elec/info raccrochés aux phases du V. Le cadrage stratégique a pris l'essentiel de la session après livraison de la fiche. PC perso, préfixe MCP `filesystem:*` puis bascule sur `theskillcodex:*` (PC pro synchronisé) en fin de session après déchargement du serveur filesystem.
+
+### Livraison `caracteriser-une-exigence.md` (15,5 ko)
+
+4 questions méthodo tranchées en cadrage niveau C en début de session :
+- **Q1 — Structure triptyque** : 1 exigence (FP1 bras 3 axes) déclinée en 3 niveaux de qualité, pas 3 triptyques séparés. Critère/niveau/flexibilité = triplet indissociable, pas trois objets pédagogiques distincts.
+- **Q2 — F0/F1/F2/F3** : tableau 4 lignes dans H3 *La flexibilité*, pas section H2 séparée. Sous-élément de la méthode, pas objet de niveau égal.
+- **Q3 — Fil rouge bras 3 axes** retenu (vs cas autonome). Trois arguments : (a) fiche-tuto pivot phase 1 fonctionnellement plus proche d'une trame, (b) critères CdCF chiffrés déjà figés (22/05) directement réutilisables, (c) crée boucle de lecture intra-wiki avec `specification-technique.md` étape 4. Esquisse une **convention candidate** : « fiches-tuto pivot phase 1 = fil rouge, fiches-notion historiques = cas autonome » — à éprouver sur PCB et AMDEC.
+- **Q4 — Profondeur** : calque bete-a-cornes complet visé, profondeur livrée à 15,5 ko sous la cible 25-30 ko (économe assumé, à étoffer en round 2 si manque de respiration).
+
+Rédaction niveau A en autonomie après cadrage. Structure : popover → À quoi ça sert (3 rôles : opposabilité, évaluation finale, arbitrage en cours de route) → Comment caractériser (intro + 3 H3 : critère / niveau / flexibilité avec tableau F0/F1/F2/F3 + colonne *Quand l'utiliser*) → Exemple bras 3 axes avec triptyque mauvais/moyen/bon en tableaux markdown 3 lignes (composant / valeur retenue) → Pièges (6 entrées format gras court + explication) → Cas particulier exigences binaires et réglementaires → Voir aussi.
+
+Choix structurels assumés :
+- Pas de SVG produit (caractérisation = format textuel d'énoncé, pas forme graphique canonique comme bête à cornes ou pieuvre).
+- Triptyque en **tableaux markdown** au lieu de SVG, cohérent avec la nature de la notion — pattern à acter si retenu pour les fiches-notion d'outils textuels (vs outils graphiques).
+- Colonne *Quand l'utiliser* ajoutée au tableau F0/F1/F2/F3 (utile pédagogiquement, à statuer en round 2).
+- Wiki-link `unite-si` propagé × 2 (popover déjà rouge dans spec-tech étape 4, déblocage transverse à venir intégré dans Phase 0 clôture phase 1 GP).
+
+### Cadrage stratégique phase 2 elec/info — décisions majeures
+
+Demande utilisateur : roadmap des tutos elec/info raccrochés aux phases du V, deux voies prioritaires (AA école + compétences pro pour aller plus loin). Cinq cycles d'échange en niveau D ont consolidé un cadrage majeur. Synthèse :
+
+**1. Posture éditoriale renforcée** : elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois de travail. Inflation de périmètre (× 7 par rapport à l'estimation initiale 8 fiches phase 2). Posture inscrite dans la section 6 *Ambition au-delà du référentiel* de `couverture-en-cours.md` (nouvelle sous-section *Phase 2 elec/info — cœur du wiki* ajoutée en fin de session).
+
+**2. Structure squelette transverse + embranchements technologiques** — distinction structurante pour publication progressive :
+- **Squelette transverse** = fiches indépendantes du choix techno, couvrent tous les AA pour n'importe quel chemin technologique suivi. Socle pédagogique publiable.
+- **Embranchements technologiques** = fiches spécifiques à une famille MCU et ses outils de simu liés. Chaque famille forme un module autonome complétable au fil de l'eau.
+- Un étudiant 100 % ESP32 doit voir tous les AA via squelette + module ESP32. Pareil pour Arduino, Raspberry Pi.
+- **Conséquence opérationnelle** : publication site possible à la rentrée scolaire dès que squelette transverse complet + ≥1 embranchement complet (idéalement Arduino).
+
+**3. Hiérarchie mini-hubs imbriqués** — 5 mini-hubs à structurer :
+- `microcontroleur` (hub mère panorama → hubs filles familles MCU → tutos d'utilisation, 2 niveaux d'imbrication)
+- `algorithme` (mini-hub mère → 3 fiches-notion filles : logigramme/MAE/grafcet)
+- `pcb` (hub léger → 2 tutos outils : kicad/easyeda)
+- `bus-de-communication` (hub → 3+ notions popovers : uart/i2c/spi)
+- `techno-sans-fil` (hub → 5 notions popovers : wifi/ble/xbee/zigbee/lora)
+
+**4. Roadmap structurée en 5 phases + clôture phase 1** :
+- **Phase 0** — clôture phase 1 GP (~10 sessions) : 8 fiches notion (`decomposition-fonctionnelle`, `etat-de-l-art-technique`, `bom`, `mind-map`, `fast`, `amdec`, `matrice-eat`, `ecodesign`) + template `fiche-tuto.md` + patches conventions (C18/C19, couverture § 6).
+- **Phase 1** — squelette critique AA (~8 sessions) : ordre pédagogique `microcontroleur` (hub mère) → `lire-une-datasheet` → `analyse-de-schema-electronique` (NC EEE/1) → `chronogramme` (jonction datasheet ↔ algorithme ↔ oscilloscope) → `algorithme` (hub) → `logigramme` / `machine-a-etats` / `grafcet`. Critères NC EEE-C03-3/1 et EEE-C03-2/5 entièrement couverts.
+- **Phase 2** — premier embranchement Arduino (~3 sessions) : `arduino` (hub fille) + `arduino-prise-en-main` + `tinkercad`. **MVP strict atteint, site publiable.**
+- **Phase 3** — squelette transverse pro (~10 sessions) : `oscilloscope`, `multimetre`, `firmware`, `debugger-embarque`, `pcb` (hub) + `kicad`, `bus-de-communication` (hub) + `uart`/`i2c`/`spi`.
+- **Phase 4** — second embranchement ESP32 (~4 sessions) : `esp32` (hub fille) + `esp32-arduino-core` + `wokwi` + `alimentation-electronique`. **MVP étendu atteint.**
+- **Phase 5+** — alimentation continue (~25 sessions) : reste squelette transverse (sans-fil hub, circuitverse, ltspice, easyeda, cable-management, bom-electronique) + embranchements restants (Raspberry Pi, ESP8266, ESP32-IDF, MCU prio 2 STM32/Teensy/PIC, pcb-gravure-ecole, falstad).
+
+**5. Choix techniques actés** :
+- **ESP32** : Arduino-core en 1er tuto (entrée pratique), ESP-IDF en 2ème (approfondissement pro).
+- **Hub `bus-de-communication`** avec **fiches-notion popovers** (UART/I2C/SPI séparées, convention C16).
+- **Hub `techno-sans-fil`** avec **fiches-notion popovers** (Wi-Fi/BLE/XBee/Zigbee/LoRa séparées).
+- **Raspberry Pi** sous étiquette élargie *plateformes embarquées* dans hub MCU (techniquement SBC pas MCU, mais usage pédagogique commun avec les autres).
+- **CircuitVerse** retenu pour simu numérique en ligne (testé par utilisateur en session). **Falstad** évalué ultérieurement.
+- **XBee** (et non Zigbee) en initial : XBee = module hardware (Digi) qui parle Zigbee/Wi-Fi. Finalement reclassé en hub `techno-sans-fil` comme tous les modules radio.
+- **`chronogramme`** transverse à datasheet/algorithme/oscilloscope, fiche autonome (pas dans mini-hub algorithme malgré le critère EEE-C03-2/5 qui les liste ensemble — sémantique trop différente : signaux dans le temps vs flot de comportement).
+- **`firmware`** transverse pur avec pseudocode (pas d'exemple spécifique à un MCU), illustrations multi-techno via la structure wiki. Rabbit hole optionnel : gestion mémoire / interruptions / programmation RT non bloquante.
+- **Fiches-tuto pivot phase 1 = fil rouge** esquissée comme convention candidate (vs fiches-notion historiques = cas autonome).
+
+**6. Trois cercles MVP** pour publication :
+- **MVP strict** (AA 100 %) = Phase 0 + Phase 1 + Phase 2 = ~21 sessions, 2-3 mois. Site publiable rentrée.
+- **MVP étendu** (+ PCB + bus + ESP32) = + Phase 3 + Phase 4 = ~35 sessions, 3-4 mois.
+- **Cible complète** = ~70 sessions, plusieurs mois (alimentation continue post-rentrée).
+
+### Conventions candidates en éprouvage
+
+- **C18 candidate — mini-hub imbriqué** : 5 cas identifiés. À éprouver sur `algorithme` (cas le plus simple) puis `microcontroleur` (cas le plus complexe, 2 niveaux). Convention à fixer : front matter du hub, structure de dossier (sous-dossiers physiques vs à plat), format de listing des fiches filles dans le corps. Formalisation prévue dans `conventions.md` § 6 (Publication / Quartz) une fois éprouvée.
+- **C19 candidate — fiche transverse multi-techno** : fiche d'une notion couvrant plusieurs technologies (ex. `firmware`, `analyse-de-schema-electronique`, `lire-une-datasheet`). À éprouver sur `firmware` et `analyse-de-schema-electronique`. Trois options de structuration : (a) callouts par techno côte à côte ; (b) tableau comparatif ; (c) exemple unique générique + renvois vers modules MCU. Intuition : (c) plus léger éditorialement.
+- **C17 éprouvée 2/N** : patch flèche TODO post-arbitrage utilisateur en fin de session — épreuve 2 réussie (flèche patchée de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP » selon l'arbitrage sortant du cadrage stratégique). 1-2 épreuves restantes avant promotion vers § 5 ou § 8 du prompt projet.
+
+### Acquis méthodo et incidents
+
+**Convention candidate « fiches-tuto pivot phase 1 = fil rouge »** esquissée sur `caracteriser-une-exigence` (Q3). À éprouver sur PCB et AMDEC.
+
+**Triptyque en tableaux markdown** (vs SVG) pour fiches-notion d'outils textuels. À acter si reproduit sur 1-2 autres fiches.
+
+**Limitation technique session** : serveur MCP `filesystem` (PC perso) déchargé entre l'écriture initiale de `caracteriser-une-exigence.md` (début de session) et la phase de clôture (patches TODO/conventions/couverture/BACKLOG/JOURNAL). Tentatives directes échouées (« Tool 'filesystem:read_text_file' not found » même en invocation directe sans `tool_search`). **Bascule effective sur le serveur `theskillcodex` (PC pro)** après vérification que le PC pro est synchronisé avec le PC perso (probablement via OneDrive ou un sync de fond). Tous les patches de clôture ont été appliqués avec succès côté PC pro. **Acquis** : vérifier l'accès aux deux serveurs au démarrage de session, l'utilisateur peut indiquer la disponibilité si doute. Cas à évoquer en clôture si la situation se reproduit.
+
+**1 incident C14 à mi-clôture** : suppression de la session 26/05 suite 2 dans la section *Fait* du TODO (rotation glissante) **échouée 2 fois** sur anchor non matché. Hypothèse : NBSPs fines U+202F invisibles devant ponctuations françaises (`:`, `;`, etc.). Anchor non recopié depuis lecture MCP fraîche (j'avais le bloc en contexte début de session, mais la session du PC pro pouvait avoir des espaces typo différents après synchro). **Décision** : dette reportée à traitement manuel utilisateur ou prochaine session avec accès PC perso — 4 sessions dans *Fait* au lieu de 3 jusqu'à correction, pas de conséquence pédagogique. Discipline C14 confirmée à chaud : si retentative, recopier strictement depuis `read_text_file` fraîche.
+
+### État des patches de clôture appliqués
+
+- **TODO.md** : 4 patches réussis (flèche prochaine session → Phase 0 + cadrage stratégique en tête ; cocher `caracteriser-une-exigence` ; refonte section *Notions à produire* en 3 sous-sections roadmap phase 2 ; ajout session 26/05 suite 5 en tête section *Fait*). 1 patch échoué sur anchor non matché (retrait session 26/05 suite 2 pour rotation glissante — dette manuelle).
+- **conventions.md** : 1 patch réussi (§ 8 *En cours d'éprouvage* : maj C17 à épreuve 2/N + ajout C18 candidate mini-hub imbriqué + ajout C19 candidate fiche transverse multi-techno).
+- **couverture-en-cours.md** : 2 patches réussis (ajout sous-section *Phase 2 elec/info — cœur du wiki* dans § 6 *Ambition au-delà du référentiel* + correction typo « délibement » → « délibérément »).
+- **BACKLOG.md** : 2 patches réussis (refonte EEE avec nouvelles cibles wiki-links : 5 mini-hubs + filles + fiches transverses + outils simu + compétences pro ; nettoyage doublon `cable-management` et entrée PCB obsolète).
+- **JOURNAL.md** : entrée courante en tête (ce patch).
+
+### Décisions reportées (toujours en attente)
+
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation MME.
+- **C17 épreuve 1-2/N restantes** avant promotion vers `conventions.md` § 5 ou § 8.
+- **C18 + C19 à éprouver** sur Phase 0 (transition) puis Phase 1 elec/info.
+- **Dette manuelle TODO** : retrait session 26/05 suite 2 dans section *Fait* (anchor C14 récalcitrant en fin de session).
+- **Prochaine session** = Phase 0 démarre par `decomposition-fonctionnelle` (fiche-notion outil natif phase concept étape 1, popover déjà attendu).
+- **Commit + push** : workflow fin de session utilisateur, inclut la fiche `caracteriser-une-exigence` + tous les patches de clôture.
+
+### Tailles fichiers en fin de session
+
+- JOURNAL.md : 86 → ~93 ko (sous seuil 100 ko, marge confortable, archivage non nécessaire à cette session).
+- caracteriser-une-exigence.md : 15,5 ko (livré début de session).
+- TODO.md : 16 → ~22 ko (refonte section roadmap phase 2, attendu).
+- conventions.md : 16 → ~18 ko (ajout C18/C19).
+- couverture-en-cours.md : 12 → ~15 ko (ajout sous-section phase 2 elec/info).
+- BACKLOG.md : ~20 → ~22 ko (refonte EEE, nettoyage doublons).
+
+---
+
+## 2026-05-26 (suite 4) — Clôture méthodologique : promotions conventions + synthèse globale couverture AA + archivage JOURNAL 3e vague
+
+### Périmètre de session
+Session de clôture méthodologique du chantier cartographie AA bouclé 26/05 suite 3. Alternative 2 actée en cadrage : trois actes à froid dédiés aux livrables méthodologiques avant reprise de la rédaction phase 2. PC perso, préfixe MCP `filesystem:*`.
+
+### Acte 1 — Promotions C1-C6 / C15 / C16 dans `conventions.md` (6 edits, niveau C)
+Retrait de la bannière « Acquises 25/05 suite — épreuve 3/3 réussie » du § 7 (les conventions transverses sont déjà dans les sections fixes, bannière obsolète). Enrichissement du bullet wiki-links § 2 avec mode d'application (au fil + filet passe dédiée en sortie de fiche).
+
+**Création d'un nouveau § 7 *Référentiel AA*** consolidant C15 et C16 :
+- Codification critique format `<Code_RA>/<AA_DOMAIN>/<N°critère>` (ex. `RA-PROJET-C03-3/EEE/1`)
+- 4 catégories de cartographie : Couvert / Effleuré / Hors scope / Non couvert
+- **Règle du statut dominant** quand un critère apparaît dans plusieurs fiches : C > E > HS > NC
+- Convention **1 fiche-tuto par critère EEE/info embarquée** en phase 2 (ou tutoriel gonflé multi-couverture)
+- Champ `aa:` dans front matter comme source de vérité (skip légitime à `aa: []` documenté)
+- Référentiel source : `_drafts/referentiel/Compétences.xlsx` + version normalisée `referentiel-normalise.md` (57 critères, 12 AA, 5 domaines)
+- 3 décisions niveau D ouvertes actées comme en attente hiérarchie
+
+Renumérotation § 7 *En cours d'éprouvage* → § 8 (puisque le nouveau § 7 *Référentiel AA* prend la place). Retrait des entrées 15 et 16 du § 8 (promues). Suppression d'une sous-section « Référence AA » redondante du § 6 (portée par le nouveau § 7). Mise à jour du bullet annexe pointant vers le nouveau § 7.
+
+**6 edits passés sans échec C14**. Discipline anchor court confirmée.
+
+### Acte 2 — Synthèse globale dans `couverture-en-cours.md` (3 edits, niveau B/C)
+Remplacement du placeholder de synthèse globale par 8 sections rédigées :
+
+1. **Bilan en chiffres** — tableau récap par domaine (EEE 5C/2E/0HS/3NC, ESE 5/0/0/0, MEO 6/0/0/0, MME 3/6/0/2, PROJ 17/1/4/3) + total 36 C / 9 E / 4 HS / 8 NC sur 57 critères (63 %/16 %/7 %/14 %)
+2. **Lecture par domaine** — ESE et MEO entirement couverts (cohérent nature transverse), EEE et MME ont trous structurés tous adressés phase 2, PROJ domaine majeur (44 %) couvert hors design délégable
+3. **Lecture par catégorie** — 17 fronts matters écrits + 4 skip légitimes à `aa: []`
+4. **Trous NC adressés vs à arbitrer** — 2 trous déjà au TODO (analyse-de-schema-electronique, microcontroleur+firmware) + 3 trous à adresser (simulation-electronique, schema-cinematique) + 3 NC à interroger hiérarchie (PROJ-C03-3/1, /2 design + MME-C03-1/1 outils designers)
+5. **Décisions niveau D ouvertes** — catégorie Hors scope par délégation, statut 4 critères MME effleurés, statut schema-cinematique
+6. **Ambition au-delà du référentiel** (reformulé selon retour utilisateur : *« on peut faire plus que le scope des AA, mieux trop que pas assez »*) — 3 fiches phase 1 sans critère AA central illustrent l'ambition au-delà du référentiel : `securite-et-qualite` (posture professionnelle), `matrice-de-decision` (outil pivot transverse), `hub/index` (méta-structure). Pas exception à justifier, ces fiches actent une posture éditoriale.
+7. **Conventions méthodo validées** — récapitulatif des 17 conventions du `conventions.md` actuel après acte 1
+8. **Suite des opérations** — reprise rédaction phase 2 (caracteriser-une-exigence prioritaire, puis pcb, puis amdec) + 3 décisions D à arbitrer hiérarchie
+
+Deux patches typo correctifs lors de la rédaction (« critore » → « critère », régression de la session 26/05 suite 3) + reformulation pourcentage PROJ (17 C + 1 E sur 21 critères non-HS).
+
+### Acte 3 — Archivage JOURNAL 3e vague via pattern MARKER + N segments (12 edits, niveau A/B)
+**JOURNAL.md initialement à 122 ko** (au-delà du seuil 100 ko). Périmètre d'archivage : 5 sessions 25/05 + suite + suite 2 + suite 3 + suite 4 (~36 ko net).
+
+Découpage 4 segments adopté pour sécurité (payload max ~22 ko vs seuil 24-25 ko documenté) :
+- Seg 1 (le + ancien, inséré en 1er) : 25/05 + 25/05 suite — ~22 ko
+- Seg 2 : 25/05 suite 2 — ~11 ko
+- Seg 3 : 25/05 suite 3 — ~12 ko
+- Seg 4 (le + récent, inséré en dernier) : 25/05 suite 4 — ~9 ko
+
+**Phase 1 — Insertion archive (6 edits)** : pose marker `<!-- ARCHIVE_INSERT_MARKER -->` + nouveau commentaire `<!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->` avec correction simultanée de la dette commentaire précédent (« 25/05 SUITE 7 » → « 26/05 SUITE »). Ordre d'insertion = du plus ancien au plus récent, empilement vers le bas du MARKER (chaque insertion remplace `MARKER` par `MARKER\n[segment]`). Retrait du marker en clôture. Antichronologie top-down vérifiée : suite 4 → suite 3 → suite 2 → suite → 25/05 → 24/05 suite 2 (existant) → ...
+
+**Phase 2 — Trim JOURNAL.md (5 edits effectifs)** : T1 (25/05 suite 4, ~110 lignes) + T2 (25/05 suite 3, ~108 lignes) + **batch groupé T3+T4+T5** après relecture authentique du fichier (suite 2 + suite + 25/05 supprimées en un seul edit_file à 3 entrées, ~175 lignes) + T6 mise à jour préambule (« Sessions antérieures au 25/05 suite 5 ») + commentaire HTML final (mention des 3 vagues 25/05 suite 3 + 26/05 suite + 26/05 suite 4).
+
+**Bonus** : correction du préambule de l'archive (dette « 25/05 SUITE 7 » → « 26/05 SUITE » + ajout 3e vague + titre Archive « sessions du 2026-05-19 au 2026-05-25 suite 4 »).
+
+### Bilan tailles
+- **JOURNAL.md** : 122 → **86 ko** (-36 ko, sous seuil 100 ko ✓)
+- **JOURNAL-archive.md** : 119 → **158 ko** (+39 ko, cohérent avec le delta)
+
+### Incident C14 — résolu en suivant la discipline
+**T3 échec initial** : suppression de 25/05 suite 2 a échoué sur typo de transcription. Cause : dans l'oldText reconstitué de mémoire (après lecture précédente), j'avais écrit « Cette clarif **resoud** la tension » sans accent, alors que le fichier authentique contient « Cette clarif **résoud** la tension » avec é. Mismatch silencieux, edit_file rejeté.
+
+**Résolution** : `read_text_file --tail 600` pour relire le contenu authentique. Identification de la typo. Reconstruction du oldText à partir du contenu MCP authentifié. Batch T3+T4+T5 groupé en un seul edit_file passé du premier coup après relecture.
+
+**Leçon** : discipline C14 confirmée à 100 %. Ne jamais retranscrire un oldText de mémoire pour un anchor de plus de quelques lignes. Toujours recopier depuis la sortie d'un `read_text_file` récent. Quand le contenu à supprimer a déjà été inséré ailleurs (cas archivage), le contenu inséré peut contenir des typos introduites à l'insertion (cas vécu : « resoud » dans le segment inséré dans l'archive vs « résoud » dans le JOURNAL source).
+
+**Séquelle assumée** : `JOURNAL-archive.md` contient désormais la typo « Cette clarif resoud » (sans accent) dans le segment 25/05 suite 2 archivé. Le JOURNAL source étant trim, plus de divergence à gérer. Acceptable comme dette mineure de transcription.
+
+### Posture éditoriale actée
+La section 6 de la synthèse globale **Ambition au-delà du référentiel** acte explicitement que le wiki dépasse délibérément le scope AA. Reformulation utilisateur en session : *« on peut faire plus que le scope des AA, mieux trop que pas assez »*. Les 3 fiches phase 1 sans critère AA central (securite-et-qualite = posture professionnelle, matrice-de-decision = outil pivot transverse, hub/index = méta-structure) illustrent cette ambition au-delà du référentiel — pas exception à justifier, choix éditorial assumé. Inscription dans le wiki via la synthèse globale.
+
+### Convention C17 candidate — éprouvée empiriquement
+**C17 candidate** : *patcher la flèche TODO après arbitrage utilisateur final, en fin de session*. Éprouvée empiriquement en fin de session courante : la flèche TODO du prompt projet était « Prochaine session = clôture méthodologique en 3 actes ». En fin de session, j'ai patché vers « Prochaine session = reprise rédaction phase 2 » (caracteriser-une-exigence prioritaire) selon l'arbitrage utilisateur sortant de la clôture. À confirmer sur 2-3 sessions avant promotion vers `conventions.md` § 8.
+
+### Conventions éprouvées et acquises
+- **C1-C6** (les 6 transverses) : promues vers §§ 1-2 (acte 1) après 3/3 épreuve réussie (gestion-de-projet → ecoconception → securite-et-qualite). Bannière § 7 retirée.
+- **C15** (catégorie Hors scope, acquise 26/05 suite 2) : consolidée dans nouveau § 7 *Référentiel AA*.
+- **C16** (1 fiche-tuto par critère EEE/info embarquée, acquise 26/05 suite 2) : consolidée dans nouveau § 7 *Référentiel AA*.
+- **C14** (seuil MCP) : 2e épreuve formelle réussie sur le pattern MARKER + N segments (archivage 3e vague). 1 incident résolu en suivant la discipline.
+- **C17 candidate** : patch flèche TODO post-arbitrage. À éprouver sur 2-3 sessions.
+
+### Tailles fichiers en fin de session
+- JOURNAL.md : 86 ko (sous seuil 100 ko ✓)
+- JOURNAL-archive.md : 158 ko
+- TODO.md : ~16 ko (rotation glissante respectée : 3 sessions Fait)
+- conventions.md : ~16 ko (après ajout § 7 *Référentiel AA*)
+- couverture-en-cours.md : ~12 ko (synthèse globale 8 sections)
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **3 décisions niveau D en attente hiérarchie** : catégorie Hors scope par délégation pour 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut schema-cinematique wiki vs délégation MME.
+- **C17 à éprouver** sur 2-3 sessions avant promotion vers `conventions.md` § 8.
+- **Prochaine session** = reprise rédaction phase 2 (caracteriser-une-exigence prioritaire).
+- **Commit + push** : workflow fin de session utilisateur.
+
+---
+
+## 2026-05-26 (suite 3) — Cartographie AA bouclée : passes B + A + écriture champ aa: dans 17 fronts matters
+
+### Périmètre de session
+Enchaînement des 4 sous-tâches du chantier cartographie AA en niveau A mécanique : (1) passe B accélérée sur 13 fiches restantes (12 fiches-notion + hub), (2) passe A par domaine (matrice critère × fiches), (3) amendement passe B sur integration-et-tests pour cohérence avec passe A, (4) écriture champ `aa:` dans 17 fronts matters. Bilan : couverture AA complète des 21 fiches phase 1, **36 C + 9 E + 4 HS + 8 NC sur 57 critères**. 3 décisions niveau D nouvelles, 2 fiches phase 2 nouvelles ajoutées au TODO.
+
+### Passe B accélérée — 13 cartographies fiche-par-fiche
+Lecture en aveugle + cartographie YAML pour les 13 fiches non encore traitées. **Un seul edit_file de ~22 ko payload pour les 13 cartographies, passe du premier coup**. Insights : quatuor CdCF (bete-a-cornes / fonction / pieuvre / cahier-des-charges-fonctionnel) se partage `RA-PROJET-C04-4` ; quatuor outils GP (gantt / jalons / retroplanning / wbs) se partage `RA-PROJET-C07-1/PROJ/2` ; matrice-de-decision = outil pivot transverse à 0 critère central ; hub/index = méta-structure pure ; schema-bloc-fonctionnel = seule fiche EEE phase 1.
+
+### Passe A par domaine — cartographie inverse
+Croisement des 21 cartographies pour produire la matrice critère × fiches par domaine. Légende C/E/HS/NC, règle de **statut dominant** (C > E > HS > NC). **Erreur initiale** : sommation C+E quand un critère est dans plusieurs fiches, 8 patches de correction appliqués (tableau global + bilans EEE/MME/PROJ + sous-liste NC + insight 3 + typo « critore » → « critère »).
+
+**Couverture finale (57 critères)** :
+
+| Domaine | C | E | HS | NC | Total |
+|---|---|---|---|---|---|
+| EEE | 5 | 2 | 0 | 3 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 6 |
+| MME | 3 | 6 | 0 | 2 | 11 |
+| PROJ | 17¹ | 1 | 4 | 3 | 25 |
+| **Total** | **36** | **9** | **4** | **8** | **57** |
+
+¹ Y compris amendement C03-3/3 (sans : 16 C / 4 NC, total global 35 C).
+
+**Pourcentages** : 63 % C / 16 % E / 7 % HS / 14 % NC.
+
+**8 NC ventilés** : 2 trous déjà adressés au TODO (analyse-de-schema-electronique pour EEE-C03-3/1, microcontroleur+firmware pour /5) + 3 trous à adresser par fiches nouvelles (simulation-electronique pour EEE-C03-3/3+/4, schema-cinematique pour MME-C02-1/5) + 3 NC à interroger hiérarchie (design délégable : PROJ-C03-3/1 sketchs + /2 prise en compte design + MME-C03-1/1 outils designers).
+
+**5 insights structurants** :
+1. ESE et MEO entièrement couverts phase 1 (0 NC). Cohérent nature transverse.
+2. EEE et MME ont trous structurés, tous adressés par phase 2.
+3. PROJ = domaine majeur (44 %), couverture forte hors design délégable.
+4. Convention C16 validée empiriquement : 5 critères EEE phase 2 chacun adressé par 1 à 4 fiches.
+5. 3 fiches phase 1 sans critère AA central (securite-et-qualite, matrice-de-decision, hub/index) pour 3 raisons distinctes — cadre AA pas le seul critère de pertinence.
+
+### Amendement passe B — integration-et-tests
+Passe A identifie un manquement passe B : integration-et-tests couvre matériellement `RA-PROJET-C03-3/PROJ/3` (réaliser structure mécanique avec élec et énergie) via étapes 1+2, non explicité en passe B initiale. **Patch en 2 edits sur couverture-en-cours.md** : ajout en Couvert + bilan 7 → 8 C, total 13 → 14. Discipline confirmée : la passe A vérifie la passe B.
+
+### Écriture champ `aa:` dans 17 fronts matters
+Inventaire : 4 fiches skip légitimes à `aa: []` (sans Couvert : securite-et-qualite, afnor-nfx50-151, matrice-de-decision, hub/index) ; 17 fiches à patcher dont 1 cas spécial (schema-bloc-fonctionnel : ancien format `AA-EEE-C02-CFE1-01` → 2 codes `RA-PROJET-C04-4/PROJ/4` et `/6`).
+
+**17 edit_file séquentiels en niveau A mécanique, tous passés du premier coup, 0 échec C14, 0 typo de transcription**. Discipline anchor court `aa: []` + lecture préalable confirmée robuste sur YAML standard.
+
+Trames patchées (7) : specification-technique (5 codes), concept (7), preuve-de-concept (5), dossier-technique (10), integration-et-tests (8), gestion-de-projet (9), ecoconception (4).
+Fiches-notion patchées (10) : bete-a-cornes (1), cahier-des-charges-fonctionnel (3), fonction (1), pieuvre (2), gantt (1), jalons (1), retroplanning (1), wbs (1), matrice-de-risques (1), schema-bloc-fonctionnel (1→2).
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Promotion C1-C6, C15, C16** : actes à froid en attente, niveau C session ultérieure.
+- **Synthèse globale dans `couverture-en-cours.md`** : à conduire session ultérieure, niveau B/C, ~30-60 min.
+- **3 décisions niveau D nouvelles** : catégorie « Hors scope par délégation » à instaurer, statut des 4 critères MME effleurés sans fiche centrale, statut schema-cinematique wiki ou délégation.
+- **Commit/push** : rattrapage 10+ sessions cumulées + session courante.
+
+### État JOURNAL.md
+~96 ko avant cette entrée. Après ajout : estimation ~105-110 ko, **dépasse le seuil 100 ko**. **Archivage à proposer en session ultérieure** : sessions 25/05 suite 4 et antérieures peuvent être archivées dans `JOURNAL-archive.md` (pattern MARKER + N segments, méthode éprouvée 26/05 suite). À ne pas faire dans cette session pour limiter le coût.
+
+---
+
 ## 2026-05-26 (suite 2) — Cartographie AA passe B sur 8 fiches phase 1 + nouvelle catégorie Hors scope + patch budget GP
 
 ### Périmètre de session
@@ -630,6 +889,81 @@ Taille actuelle estimée 140 ko (au-dessus du seuil 100 ko). Archivage 22-24/05 
 ---
 
 <!-- DEBUT DES SESSIONS 25/05 — ARCHIVEES LE 26/05 SUITE 4 -->
+
+## 2026-05-25 (suite 7) — PoC : approfondissement v1 complet
+
+### Périmètre de session
+1ère session d'approfondissement de `preuve-de-concept.md` (squelette du 22/05). Calque méthodo 25/05 suite 4-5-6 sur `concept.md`. Geste de cette session : appliquer le mode d'application proposé pour la convention 6 (passe dédiée en sortie de fiche) et éprouver les conventions 10 / 11 / 12 sur la trame du V suivante. PC perso, préfixe MCP `filesystem:*`.
+
+### Cadrage en début de session — 4 questions tranchées en bloc (niveau C)
+1. **Découpage en 5 étapes** (pas 4 du squelette) : 1) Définir / 2) Préparer / 3) Mener / 4) Analyser et trancher (pivot) / 5) Rédiger et faire valider (clôture documentaire). Rythme H4 selon convention 11 : 2/2/2/3/3.
+2. **Étape pivot = 4** (Analyser et trancher), clôture documentaire = étape 5. Justification : le pivot du V se joue au moment de la décision (go / ajustement / retour amont), pas au moment de la mesure.
+3. **Fil rouge local PoC = articulation 3D imprimée PLA 60 %** (incertitude locale cohérente avec le fil rouge global, pas alignement strict sur I1/I2 sortis de l'étape 4 concept). Décision tranchée : le callout exemple sert d'incarnation locale, pas de continuité narrative inter-fiches stricte. À surveiller si la cohérence inter-fiches devient un fil rouge structurant.
+4. **Boucle rétroactive marge négative incarnée (α)** : la preuve articulation 3D conclut marge négative → retour amont structurant vers concept étape 3 (renégociation à 3 disciplines). Matérialisée dans `[!example]` étape 4 + closure dans `[!example]` étape 5 (revue PoC validée sous conditions après reprise concept aboutie sur articulation usinée).
+
+### Phase 1 — Alignement v2.1 du squelette + restructuration 4→5 étapes (9 patches en batch)
+Niveau B annoncé. 3× `[!example]` titre fixe « Exemple : projet bras 3 axes » ; 3× `[!livrable]` titre format « Livrable N/5 — Preuve de concept » ; 1× `[!warning]` étape 2 titre fixe Attention + phrase-clé gras ; 1× renommage étape 3 (« Mener les preuves » → « Mener les essais ») ; 1× refonte massive étape 4 originale → étape 4 (placeholder pivot avec 3 sorties + warning + example + livrable) + nouvelle étape 5 (clôture documentaire, placeholders à rédiger).
+
+### Phase 2 — Étape 1 *Définir chaque preuve* (1 patch)
+Niveau B annoncé puis niveau A demandé par l'utilisateur pour la suite. Structure 2 H4 : *D'une incertitude à un énoncé testable* / *Le triplet hypothèse / critère / protocole*. `[!warning]` Un énoncé non écrit n'est pas un énoncé. `[!tip]` Formuler le critère en miroir d'une exigence chiffrée du CdCF. `[!example]` enrichi (triplet posé + revue encadrant tracée 3 corrections demandées). 1 pitié méthodo dryRun-rattrapée (1ère tentative astérisques parasites + duplication `[!livrable]`).
+
+**Round 2 utilisateur — 1 correction** : doublon « on a le matos, on monte, on verra ce que ça donne » présent dans Posture amont ET dans H4-1 étape 1. Patch correctif appliqué (refonte du paragraphe : 3 conséquences en miroir des 3 éléments du triplet — sans hypothèse / sans critère / sans protocole). **Leçon méthodo : extension de la leçon ±2 phrases (25/05 suite 6)** — relire les sections amont de la fiche elle-même (Posture, Objectif) avant de rédiger une section avale, même quand elles ont été rédigées en session antérieure. Convention candidate à pousser en § 7 conventions.
+
+### Phase 3 — Étape 2 *Préparer les moyens* (1 patch, niveau A)
+2 H4 économes : *Du protocole aux ressources* / *Trois sources, dans l'ordre*. `[!warning]` Pas d'achat à titre personnel (conservé). `[!tip]` Demander tôt le stock divers. `[!example]` enrichi liste à puces des 3 sources, rattachement traçable + lien rétroactif vers correction étape 1 (couple appliqué à la balance + pied à coulisse).
+
+### Phase 4 — Étape 3 *Mener les essais par incertitude* (1 patch, niveau A)
+2 H4 économes : *Monter le banc* (caractérisation préalable) / *Exécuter et tracer les mesures*. `[!warning]` Caractériser le banc avant de mesurer. `[!tip]` Noter les anomalies, pas seulement les valeurs. `[!example]` enrichi : caractérisation banc + relevés 5 points 1000 cycles montrant dépassement critère 0,5° entre 480-550 cycles (profil sur 3 articulations).
+
+### Phase 5 — Étape 4 *Analyser et trancher* (PIVOT, 1 patch, niveau A)
+3 H4 dense (convention 11 éprouvée une 2ème fois) : *Confronter au critère* / *Synchroniser entre preuves* / *Statuer*. 3 sorties nominales numérotées : Validé / Ajustement local / Retour amont structurant + mises à jour amont dans la même séance ([[matrice-de-risques|matrice de risques]] + éco + matrices décision concept). `[!warning]` Une preuve non concluante n'est pas un échec. `[!tip]` Synchroniser avant de statuer. `[!example]` enrichi avec tableau de statut (incarnation α) + décision tracée retour concept étape 3 + mises à jour matrice de risques + écoconception révisée (PLA 60 % défavorable).
+
+### Phase 6 — Étape 5 *Rédiger et faire valider* (CLÔTURE DOCUMENTAIRE, 1 patch, niveau A)
+3 H4 calque concept étape 5 (convention 11 sous-règle clôture documentaire éprouvée 2/2) : *Structurer le rapport* / *Rédiger chaque section* / *Faire valider en revue PoC*. TdM type 5 sections numérotée. 4 issues nominales calque concept étape 5 (sans réserve / sous conditions / reprise locale / rétroaction amont). `[!warning]` Compiler n'est pas rédiger. `[!tip]` Faire la revue à blanc en équipe. `[!example]` avec TdM type instanciée sur cas bras 3 axes + revue PoC tracée *validé sous conditions* après reprise concept aboutie (articulation usinée).
+
+### Phase 7 — Pièges + Équipe (1 patch)
+**Pièges fréquents** : refonte 6 puces simples → 11 entrées format gras court + explication (convention 12 confirmée). **5/11 pièges issus a posteriori des étapes 3-4-5 (~45 %)**, supérieur à concept (3/8 ≈ 37 %) — indicateur que la convention 12 généralise.
+**Pendant cette phase, côté équipe** : 4 paragraphes thématiques (Interfaces métiers / Gestion de projet / Écoconception / Sécurité et qualité), calque concept.
+
+### Phase 8 — Cohérence finale d'ensemble (4 passes calque concept 25/05 suite 6, 1 batch de 3 patches)
+- **Passe 1 (terminologie)** : 2 corrections (« troisième étape » → « troisième phase » intro ; typo « enchâine » → « enchaîne » étape 3).
+- **Passe 2 (fil rouge bras 3 axes)** : 1 correction (« section 5 du dossier concept » ambigu en étape 5 → « bilan écoconception du dossier concept »).
+- **Passe 3 (ponts inter-étapes)** : 0 patch. Pattern stylistique déjà internalisé (annonces aval N→N+1 portées par intro étape suivante, calque concept).
+- **Passe 4 (wiki-links / popovers)** : 0 patch. **Résultat majeur** : la convention 6 a été appliquée correctement au fil de la rédaction sur PoC (vs 74 % des patches concentrés en passe finale sur concept). Audit final n'a révélé aucun oubli significatif. **Confirme partiellement** la leçon méthodo 25/05 suite 6 : la convention 6 est applicable au fil quand on a la discipline acquise, la passe dédiée devient plutôt un filet de sécurité.
+
+### Phase 9 — Round 2 utilisateur sur les wiki-links
+Demande utilisateur niveau A : ajouter wiki-links sur 4 outils tuto (multimètre, oscilloscope, alimentation stabilisée, Arduino) et 2 instruments notion (pied à coulisse, comparateur). 6 nouvelles cibles de wiki-links posées (1 batch de 7 patches sur 6 contextes : étape 2 H4-1, étape 2 H4-2, étape 2 example, étape 3 warning, étape 3 example, étape 5 example). Convention 6 (1ère occurrence par contexte) respectée.
+
+**Correction factuelle process fablab** : reformulation étape 2 H4-2 et example pour refléter la réalité école — l'équipe ne reçoit pas de filament en propre, elle transmet des fichiers STL au responsable fablab impression 3D qui prend en charge l'impression. Information de cadrage importante pour la PoC, transposable à d'autres fiches mentionnant l'impression 3D à surveiller.
+
+**Mini-patch final** : disjonction `[[microcontroleur|microcontrôleurs]]` et `[[arduino|Arduino]]` dans l'énumération Stock standard (après remarque utilisateur). **Plan long terme à matérialiser** : la fiche `microcontroleur` deviendra une page d'aiguillage vers tutoriels par famille (STM32, ESP32, MicroPython, Arduino, Teensy, etc.). Poussé au BACKLOG.
+
+### État de `preuve-de-concept.md` en fin de session
+- Démarche complète : 5 étapes rédigées et alignées sur les 4 dimensions auditées.
+- Sections transverses : *Pièges fréquents* (11 entrées) et *Pendant cette phase, côté équipe* (4 paragraphes thématiques) rédigées.
+- Front matter + Posture + Objectif + Conclusion + Voir aussi : posés et alignés.
+- Wiki-links : 6 nouvelles cibles ajoutées au réseau (multimetre / oscilloscope / alimentation-stabilisee / arduino / pied-a-coulisse / comparateur).
+- **Fiche complète et alignée v2.1. Phase 3 du cycle en V close.**
+
+### Leçons méthodo de la session
+- **Leçon 1 (extension leçon ±2 phrases du 25/05 suite 6)** : relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale, même quand elles ont été rédigées en session antérieure. Coût 1 round 2 sur PoC étape 1. Convention candidate → `conventions.md` § 7.
+- **Leçon 2 (confirmation partielle du 25/05 suite 6)** : la convention 6 (wiki-link 1ère occurrence par section/sous-section/callout) s'applique correctement au fil quand la discipline est acquise. Sur PoC, 0 patch en passe finale (vs 74 % sur concept). La passe dédiée en sortie de fiche devient un filet de sécurité, pas le mode principal d'application.
+- **Leçon 3 (généralité convention 12)** : la section *Pièges fréquents* se nourrit a posteriori des étapes aval à ~45 % sur PoC (5/11), supérieur au ratio concept (3/8). Convention 12 confirmée, promotion possible vers § 6.
+
+### État des conventions à éprouver — sortie session
+- **Convention 6** (wiki-link 1ère occurrence par contexte) : confirmée en audit final exhaustif PoC. Mode d'application affiné (au fil + filet passe dédiée). MAJ note méthodo dans `conventions.md` § 7.
+- **Convention 10** (matrice incarnée dans `[!example]`) : éprouvée sur **4 contextes PoC** (liste à puces 3 sources étape 2, relevés 5 points étape 3, tableau de statut étape 4, TdM type instanciée étape 5). Indicateur de généralité renforcé. Promotion possible vers § 2 si confirmée sur dossier-technique.
+- **Convention 11** (rythme H4 selon densité d'étape) : éprouvée 2/2 trames consécutives (concept + PoC). Règle tripartite validée : pivot → 3 H4 / hors pivot non-clôture → 2 H4 / clôture documentaire → 3 H4 calque. **Promotion proposée** vers `conventions.md` § 6 (Structure des fiches-trame).
+- **Convention 12** (Pièges nourris a posteriori) : confirmée (~45 % sur PoC vs ~37 % sur concept). Promotion possible vers § 6 si confirmée sur dossier-technique.
+
+### Décisions reportées (toujours en attente)
+- Toutes celles des sessions précédentes.
+- **Cohérence inter-fiches concept ↔ PoC** : la rétroaction marge négative incarnée dans PoC étape 4 renvoie vers concept étape 3, et la rétroaction articulation usinée revient dans PoC étape 5. Ces ponts sont posés côté PoC mais pas instanciés côté concept (l'`[!example]` concept étape 3 connaissait déjà ses 2 conflits propres). Question reportée à une session dédiée « cohérence inter-fiches » après rendu 2-3 trames supplémentaires.
+- **`microcontroleur` page d'aiguillage par famille** : posé au BACKLOG. À décider quand on tackle la fiche notion.
+- **6 nouvelles fiches notion/tuto au réseau** (multimetre, oscilloscope, alimentation-stabilisee, arduino, pied-a-coulisse, comparateur) : poussées au BACKLOG.
+- **Prochaine session** : objectif à discuter en début de session suivante (cf. propositions ci-dessous).
+
+---
 
 ## 2026-05-25 (suite 6) — Concept : cohérence finale d'ensemble (4 passes de relecture critique)
 
