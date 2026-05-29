@@ -10,6 +10,36 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-05-29 (suite) — Phase 1 EEE : grappe « représentations d'algorithme » + tuto `analyse-de-schema-electronique` (MVP strict)
+
+### Périmètre
+Suite directe du batch Arduino (29/05). PC pro, MCP `theskillcodex:*`. Début de session : reprise du mini-hub `algorithme` + fiche `machine-a-etats` (faits avant compaction). Puis **batch des 4 fiches Phase 1 restantes hors `gpio`**, validé en cadrage groupé unique (C27) : `logigramme`, `grafcet`, `chronogramme` (3 notions filles du hub) + `analyse-de-schema-electronique` (1 tuto transverse). Scelle le squelette Phase 1 critique.
+
+### Livrables
+- **`logigramme`** (6,77 ko, notion EEE/5) + 4 SVG : générique (symboles normalisés) + triptyque thermostat (mauvais/moyen/bon).
+- **`grafcet`** (6,32 ko, notion EEE/5) + 2 SVG : générique (IEC 60848) + cycle poste de perçage.
+- **`chronogramme`** (6,01 ko, notion EEE/5) + 2 SVG : générique (axe commun, fronts) + PWM/UART.
+- **`analyse-de-schema-electronique`** (7,69 ko, fiche-tuto, `eee/` transverse) + 2 SVG : anatomie fonctionnelle + schéma commenté (pont diviseur → MCU → LED). aa `RA-PROJET-C03-3/EEE/1` + `/EEE/2`.
+- **Reprise** `machine-a-etats-portail-mauvais.svg` selon la nouvelle convention SVG.
+- Dossier `eee/algorithme/` complet : hub + 4 représentations (32,3 ko). **11 SVG touchés** (1 repris + 10 neufs, 3,2-4,9 ko/SVG).
+
+### Décisions
+- **Scope batch = 4** (logigramme/grafcet/chronogramme/analyse-de-schema), calibre hétérogène assumé (3 notions homogènes + 1 tuto plus lourd, critère NC). `gpio` laissé rouge (convention utilisateur maintenue).
+- **`chronogramme` typé notion** (4ᵉ représentation du hub), pas le tuto-transverse plus lourd ; raccrochages `oscilloscope`/`lire-une-datasheet` en Voir aussi.
+- **Triptyque sur `logigramme` uniquement** (la qualité du tracé EST la leçon) ; `grafcet`/`chronogramme` = générique + 1 exemple propre.
+
+### Conventions
+- **Nouvelle convention SVG (consigne utilisateur) — inscrite § 8 « Éprouvage »** : le « mauvais » d'un triptyque = schéma proprement rendu MAIS comportant des fautes/incohérences délibérées (signalées en ambre ✗), plus de brouillon flou. Et : explication → 1 SVG ; exemple de rendu/qualité → triptyque ; les deux peuvent cohabiter dans une fiche. **Raffine C7.** Éprouvée sur la reprise MAE + le triptyque logigramme.
+- **C27 confirmé sur grappe hétérogène** (3 notions + 1 tuto) : cadrage groupé unique validé → passe A. Borne « calibre homogène » tenue à l'œil (analyse-de-schema isolé comme le plus lourd).
+- **C20 multi-couverture** : `EEE/1` est déjà porté par `lire-une-datasheet` → analyse-de-schema en multi-couverture, pas sceau exclusif.
+
+### Tailles
+- 4 fiches (6,0-7,7 ko) + 11 SVG (3,2-4,9 ko). `eee/algorithme/` = 32,3 ko.
+- `JOURNAL.md` ~93 → ~97 ko avec cette entrée — **sous le seuil 100 ko**. Archivage 1-pour-1 de `25/05 suite 7` (PoC) **reporté en tête de prochaine session** (convention : archivage JOURNAL hors clôture ; à insérer dans le groupe « DEBUT DES SESSIONS 25/05 » de l'archive, au-dessus de suite 6).
+
+### Corps — points de relecture concentrés (garde-fou)
+La relecture utilisateur reste due sur l'ensemble. Quatre points signalés. (1) **AA** : la claim « MVP strict 100 % » repose sur une carto à reconcilier — `RA-PROJET-C03-3/EEE/1` est déjà couvert par `lire-une-datasheet`, donc quel sous-critère ferme réellement le 100 % (EEE/1 vs EEE/2) reste à trancher sur la cartographie. (2) **`phases: dossier-technique`** sur analyse-de-schema, repris du cadrage sans revérif de l'énum de phases du projet. (3) **Qualité géométrique des 11 SVG hand-codés** à valider au rendu Quartz, surtout `analyse-de-schema-exemple` (symboles composants : résistances rect IEC, LED, pont diviseur, IC) et les losanges/branches des triptyques — les SVG des triptyques sont DANS les callouts (`> ![…]`), à sortir au-dessus si le rendu coince. (4) Lien `[[del|LED]]` (analyse-de-schema étape 3) probablement rouge, pas de `del.md` repéré. Liens vérifiés : schema-bloc-fonctionnel, lire-une-datasheet, niveaux-de-tension, adc, arduino-sortie-pwm, uart, i2c, microcontroleur ✓ ; `oscilloscope` rouge volontaire (Phase 3+).
+
 ## 2026-05-29 — Phase 2 embranchement Arduino : batch 21 fiches-tuto Bases + Avancées straight
 
 ### Périmètre

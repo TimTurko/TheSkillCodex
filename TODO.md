@@ -5,6 +5,8 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➜ MAJ 29/05 (suite)** — Phase 1 squelette EEE **close** (grappe `algorithme` : algorithme / MAE / logigramme / grafcet / chronogramme + tuto `analyse-de-schema-electronique` ; reste `gpio` rouge). **MVP strict structurellement atteint** — couverture AA 100 % **à reconcilier** (cf. *Pré-publication MVP*). **Prochaine session = à décider ensemble (post-push)** : pistes ouvertes — clore `gpio` ; chaîne `arduino-machine-a-etats` (notion MAE désormais disponible) ; 1ʳᵉ fiche Niveau ingénieur ; hub `esp32` (Phase 4) ; ou passe relecture/images du backlog livré.
+>
 > **➜ Prochaine session = arbitrage utilisateur ouvert (post-batch Arduino)** — Phase 2 a livré 21 fiches arduino-* (Bases 11 + Avancées straight 10) en batch le 29/05 soir, hub Arduino Avancées à 19/21 (manquent `arduino-machine-a-etats` + `arduino-filtrage` optionnel) + Niveau ingénieur entièrement à faire (7 fiches, cadrage propre par fiche). **Choix probable à proposer en démarrage** : (a) chaîne `machine-a-etats` (notion transverse) + `arduino-machine-a-etats` ; (b) 1ère fiche Niveau ingénieur (`arduino-interruptions` ou `arduino-pid` comme têtes naturelles) ; (c) hub `esp32` (second embranchement, ouverture Phase 4) ; (d) `gpio` transverse (la grappe E/S reste rouge). **Relecture des 21 fiches arduino-* en attente** de la récolte du premier set d'images utilisateur (garde-fou explicite acté le 29/05).
 >
 > **Sessions 28/05** : Phase 0 GP **close** (6 fiches ; entrée JOURNAL reconstruite a posteriori 28/05 suite). Squelette EEE/mcu démarré 28/05 suite 2 — hubs `microcontroleur` + `arduino`, SVG archi MCU, Tutoriels Arduino en 4 paliers, **C18 épreuve 1/N**. Suite 3 : `lire-une-datasheet` (tuto transverse + 2 SVG). Suite 4 : `niveaux-de-tension` + grappes `bus` et `sans-fil` + 7 briques MCU **en batch** (18 fiches + 4 SVG), **C18 promue § 6** (épreuve 3/3).
@@ -61,15 +63,15 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] ~~`microcontroleur`~~ (hub mère — panorama 7 familles + aide au choix + SVG archi MCU + 11 popover-notions) — **fait 28/05 suite 2**
 - [x] ~~`lire-une-datasheet`~~ — **fait 28/05 suite 3** (fiche-tuto transverse ~15,3 ko + 2 SVG : anatomie datasheet générique + L298N deux mondes ; procédure générique 5 étapes + *Exemple* L298N autonome 2 moteurs CC ; C19 variante-(c) épreuve faible ; AA élargi C20 ; cas autonome ≠ fil rouge bras 3 axes — borne C23).
 - [x] ~~**`niveaux-de-tension`** (fiche-notion transverse — 3,3 V vs 5 V, adaptation de niveau)~~ — **fait 28/05 suite 4** (~8,6 ko + 2 SVG, AA EEE/4 + /1, cas autonome ESP32/HC-SR04, rouge danger #B23A2E)
-- [ ] **`gpio`** (fiche transverse — promue de popover à fiche substantielle : modes INPUT/OUTPUT/INPUT_PULLUP/open-drain + état à l'allumage ; émergée 28/05 suite 2)
-- [ ] **`analyse-de-schema-electronique`** (fiche-tuto transverse). Critère NC `RA-PROJET-C03-3/EEE/1`.
-- [ ] **`chronogramme`** (fiche-tuto transverse, jonction datasheet ↔ algorithme ↔ oscilloscope ; raccrochages multiples). Contribue au critère `RA-EEE-C03-2/EEE/5`.
-- [ ] **`algorithme`** (mini-hub mère pour 3 méthodes de description du flot de comportement)
-- [ ] **`logigramme`** (fiche-notion fille hub algorithme). Contribue à `RA-EEE-C03-2/EEE/5` (1/4).
-- [ ] **`machine-a-etats`** (fiche-notion fille hub algorithme, alias `MAE`). Contribue à `EEE/5` (2/4).
-- [ ] **`grafcet`** (fiche-notion fille hub algorithme). Contribue à `EEE/5` (3/4).
+- [ ] **`gpio`** (fiche transverse — promue de popover à fiche substantielle : modes INPUT/OUTPUT/INPUT_PULLUP/open-drain + état à l'allumage ; émergée 28/05 suite 2) — **seul reliquat Phase 1, laissé rouge**
+- [x] ~~**`analyse-de-schema-electronique`** (fiche-tuto transverse)~~ — fait 29/05 suite (+ 2 SVG ; aa `EEE/1` multi-couverture avec `lire-une-datasheet` + `EEE/2` ; cas autonome pont diviseur → MCU → LED)
+- [x] ~~**`chronogramme`** (fiche-notion, 4ᵉ représentation du hub algorithme)~~ — fait 29/05 suite (+ 2 SVG : générique axe-temps + PWM/UART ; `EEE/5` ; raccrochage oscilloscope/datasheet)
+- [x] ~~**`algorithme`** (mini-hub mère)~~ — fait 29/05 (début session ; hub léger : panorama 4 représentations + aide au choix)
+- [x] ~~**`logigramme`** (fiche-notion fille hub algorithme)~~ — fait 29/05 suite (+ générique symboles + triptyque thermostat ; `EEE/5`)
+- [x] ~~**`machine-a-etats`** (fiche-notion fille, alias `MAE`)~~ — fait 29/05 (début session ; + générique + triptyque portail ; `EEE/5`)
+- [x] ~~**`grafcet`** (fiche-notion fille hub algorithme)~~ — fait 29/05 suite (+ générique IEC 60848 + cycle perçage ; `EEE/5`)
 
-→ **MVP strict atteint dès la fin de Phase 1 + 1er embranchement Arduino** (Phase 2 ci-dessous). Couverture AA 100 %. Site publiable.
+→ **Phase 1 squelette quasi complète** (reste `gpio`, laissé rouge) + embranchement Arduino livré → **MVP strict structurellement atteint**. ⚠️ Couverture AA 100 % **à reconcilier** : `RA-PROJET-C03-3/EEE/1` est déjà porté par `lire-une-datasheet`, donc le sous-critère qui ferme réellement le 100 % (EEE/1 vs EEE/2) est à confirmer sur la cartographie avant de clamer le site publiable.
 
 #### Phase 2 — Premier embranchement Arduino (~3 sessions, MVP strict publiable)
 
@@ -83,7 +85,8 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 > Passe de vérification avant mise en ligne du site aux étudiants (MVP strict atteint).
 
 - [ ] **Créer le template Word `cdcf-ecole-template.docx`** — référencé en lien dans `specification-technique.md` étape 6 et `cahier-des-charges-fonctionnel.md`, mais le fichier n'existe pas encore. Vigilance « EAT » : réserver l'abréviation à *état de l'art technique*, ne pas réintroduire « matrice EAT » (renommée « matrice éco-critères »).
-- [ ] **Vérifier les images** de toutes les fiches (présence + rendu).
+- [ ] **Vérifier les images** de toutes les fiches (présence + rendu) — **dont les 11 SVG du 29/05** (algorithme : générique + triptyques logigramme/MAE ; grafcet, chronogramme, analyse-de-schema), hand-codés au premier jet : valider la géométrie au rendu Quartz, en priorité `analyse-de-schema-exemple` (symboles composants) et les SVG placés dans les callouts de triptyque.
+- [ ] **Reconcilier la cartographie AA Phase 1** : `RA-PROJET-C03-3/EEE/1` est porté à la fois par `lire-une-datasheet` et `analyse-de-schema-electronique` (multi-couverture C20) ; confirmer le statut de `EEE/2` et des `EEE/5` (logigramme/MAE/grafcet/chronogramme) pour étayer le « MVP strict 100 % ». Vérifier aussi `phases: dossier-technique` sur `analyse-de-schema` (repris du cadrage, non revérifié) et le lien `[[del|LED]]` (probablement rouge — créer `del.md` ou délier).
 - [ ] **Vérifier toutes les fiches du lot Phase 0 (gestion de projet)** avant publication : `bom`, `mind-map`, `fast`, `amdec`, `matrice-eco-criteres`, `ecodesign` + fiches GP/outils antérieures.
 
 #### Phase 3 — Squelette transverse pro (~10 sessions, MVP étendu)
@@ -142,7 +145,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 ## Tâches techniques en suspens
 
-- [ ] **Archivage JOURNAL — devenu urgent** : fichier réel ~104 ko (29/05 soir, **seuil 100 ko franchi**). Le flux 1-pour-1 C4 n'a pas été appliqué depuis 27/05 suite 5. Archiver les entrées les plus anciennes vers `JOURNAL-archive.md` (cut segmenté MARKER+N ou manuel Obsidian+Git), à partir de `25/05 (suite 6)` (legacy ~9 ko). À conduire hors clôture de session, en tête de la prochaine session ou en passe dédiée.
+- [ ] **Archivage JOURNAL — 1-pour-1 à reprendre en tête de prochaine session** : `25/05 suite 6` archivée 29/05 (début session, 104→93 ko). Avec l'entrée 29/05 suite, JOURNAL ~97 ko (**sous le seuil 100 ko**). Entrée la plus ancienne à archiver = `25/05 suite 7` (PoC) → vers `JOURNAL-archive.md`, dans le groupe « DEBUT DES SESSIONS 25/05 » (au-dessus de suite 6). Convention : archivage **hors clôture**, en tête de session.
 
 ## Décisions éditoriales en attente
 
