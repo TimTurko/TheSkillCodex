@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 470" role="img" aria-labelledby="t d">
+  <title id="t">Grafcet — symboles normalisés</title>
+  <desc id="d">Un grafcet vertical : une étape initiale en double carré numérotée 0, des liaisons verticales coupées par des transitions (barres horizontales) accompagnées de leurs réceptivités, des étapes carrées numérotées 1 et 2 portant chacune une action rectangulaire à droite (Avancer, Reculer), et une liaison de retour fléchée qui reboucle vers l'étape initiale. Des étiquettes en ambre nomment chaque élément.</desc>
+  <defs>
+    <style>
+      .etape { fill:#FFFFFF; stroke:#888780; stroke-width:1.8; }
+      .etape-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .liaison { stroke:#888780; stroke-width:1.8; fill:none; }
+      .trans { stroke:#2C2C2A; stroke-width:4; }
+      .recept { font:600 12px sans-serif; fill:#2C2C2A; }
+      .action { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .action-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ret { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .sym { font:700 11px sans-serif; fill:#BA7517; }
+      .note { font:italic 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .etape { fill:#2C2C2A; stroke:#BBBBBB; }
+        .etape-t { fill:#F1EFE8; }
+        .liaison, .ret { stroke:#BBBBBB; }
+        .trans { stroke:#F1EFE8; }
+        .recept { fill:#F1EFE8; }
+        .action { fill:#4A4A48; stroke:#BBBBBB; }
+        .action-t { fill:#F1EFE8; }
+        .sym { fill:#EF9F27; }
+        .note { fill:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="270" y="24" class="ttl">Grafcet — étapes, transitions, réceptivités, actions</text>
+
+  <!-- Étape initiale 0 (double carré) -->
+  <rect x="176" y="36" width="48" height="46" class="etape"/>
+  <rect x="181" y="41" width="38" height="36" fill="none" stroke="#888780" stroke-width="1.4"/>
+  <text x="200" y="64" class="etape-t">0</text>
+  <text x="232" y="52" class="sym" text-anchor="start">étape initiale</text>
+
+  <line x1="200" y1="82" x2="200" y2="106" class="liaison"/>
+  <!-- Transition 1 -->
+  <line x1="185" y1="106" x2="215" y2="106" class="trans"/>
+  <text x="224" y="110" class="recept" text-anchor="start">marche</text>
+  <line x1="200" y1="106" x2="200" y2="130" class="liaison"/>
+
+  <!-- Étape 1 + action -->
+  <rect x="176" y="130" width="48" height="44" class="etape"/>
+  <text x="200" y="157" class="etape-t">1</text>
+  <text x="168" y="157" class="sym" text-anchor="end">étape</text>
+  <line x1="224" y1="152" x2="250" y2="152" class="liaison"/>
+  <rect x="250" y="134" width="115" height="36" rx="2" class="action"/>
+  <text x="307" y="157" class="action-t">Avancer</text>
+  <text x="307" y="126" class="sym" text-anchor="middle">action</text>
+
+  <line x1="200" y1="174" x2="200" y2="202" class="liaison"/>
+  <!-- Transition 2 -->
+  <line x1="185" y1="202" x2="215" y2="202" class="trans"/>
+  <text x="224" y="206" class="recept" text-anchor="start">capteur haut</text>
+  <text x="175" y="206" class="sym" text-anchor="end">transition</text>
+  <line x1="200" y1="202" x2="200" y2="226" class="liaison"/>
+
+  <!-- Étape 2 + action -->
+  <rect x="176" y="226" width="48" height="44" class="etape"/>
+  <text x="200" y="253" class="etape-t">2</text>
+  <line x1="224" y1="248" x2="250" y2="248" class="liaison"/>
+  <rect x="250" y="230" width="115" height="36" rx="2" class="action"/>
+  <text x="307" y="253" class="action-t">Reculer</text>
+
+  <line x1="200" y1="270" x2="200" y2="300" class="liaison"/>
+  <!-- Transition 3 -->
+  <line x1="185" y1="300" x2="215" y2="300" class="trans"/>
+  <text x="224" y="304" class="recept" text-anchor="start">capteur bas</text>
+
+  <!-- Liaison de retour (reboucle vers l'étape initiale) -->
+  <path d="M200,300 L200,344 L34,344 L34,59 L176,59" class="ret"/>
+
+  <text x="270" y="456" class="note">À droite de chaque transition : la réceptivité (condition de franchissement).</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 450" role="img" aria-labelledby="t d">
+  <title id="t">Grafcet d'un poste de perçage</title>
+  <desc id="d">Grafcet cyclique d'un poste de perçage. Étape initiale 0 (repos). Réceptivité « départ et pièce présente » vers l'étape 1 « Descendre broche ». Réceptivité « broche en bas » vers l'étape 2 « Remonter broche ». Réceptivité « broche en haut » vers l'étape 3 « Éjecter pièce ». Réceptivité « pièce évacuée » rebouclant vers l'étape initiale.</desc>
+  <defs>
+    <style>
+      .etape { fill:#FFFFFF; stroke:#888780; stroke-width:1.8; }
+      .etape-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .liaison { stroke:#888780; stroke-width:1.8; fill:none; }
+      .trans { stroke:#2C2C2A; stroke-width:4; }
+      .recept { font:600 12px sans-serif; fill:#2C2C2A; }
+      .action { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .action-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ret { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .etape { fill:#2C2C2A; stroke:#BBBBBB; }
+        .etape-t { fill:#F1EFE8; }
+        .liaison, .ret { stroke:#BBBBBB; }
+        .trans { stroke:#F1EFE8; }
+        .recept { fill:#F1EFE8; }
+        .action { fill:#4A4A48; stroke:#BBBBBB; }
+        .action-t { fill:#F1EFE8; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="260" y="24" class="ttl">Poste de perçage — cycle</text>
+
+  <!-- Étape initiale 0 -->
+  <rect x="156" y="30" width="48" height="44" class="etape"/>
+  <rect x="161" y="35" width="38" height="34" fill="none" stroke="#888780" stroke-width="1.4"/>
+  <text x="180" y="57" class="etape-t">0</text>
+  <line x1="180" y1="74" x2="180" y2="98" class="liaison"/>
+
+  <line x1="165" y1="98" x2="195" y2="98" class="trans"/>
+  <text x="204" y="102" class="recept" text-anchor="start">départ · pièce présente</text>
+  <line x1="180" y1="98" x2="180" y2="122" class="liaison"/>
+
+  <!-- Étape 1 -->
+  <rect x="156" y="122" width="48" height="44" class="etape"/>
+  <text x="180" y="149" class="etape-t">1</text>
+  <line x1="204" y1="144" x2="230" y2="144" class="liaison"/>
+  <rect x="230" y="127" width="150" height="34" rx="2" class="action"/>
+  <text x="305" y="149" class="action-t">Descendre broche</text>
+  <line x1="180" y1="166" x2="180" y2="190" class="liaison"/>
+
+  <line x1="165" y1="190" x2="195" y2="190" class="trans"/>
+  <text x="204" y="194" class="recept" text-anchor="start">broche en bas</text>
+  <line x1="180" y1="190" x2="180" y2="214" class="liaison"/>
+
+  <!-- Étape 2 -->
+  <rect x="156" y="214" width="48" height="44" class="etape"/>
+  <text x="180" y="241" class="etape-t">2</text>
+  <line x1="204" y1="236" x2="230" y2="236" class="liaison"/>
+  <rect x="230" y="219" width="150" height="34" rx="2" class="action"/>
+  <text x="305" y="241" class="action-t">Remonter broche</text>
+  <line x1="180" y1="258" x2="180" y2="282" class="liaison"/>
+
+  <line x1="165" y1="282" x2="195" y2="282" class="trans"/>
+  <text x="204" y="286" class="recept" text-anchor="start">broche en haut</text>
+  <line x1="180" y1="282" x2="180" y2="306" class="liaison"/>
+
+  <!-- Étape 3 -->
+  <rect x="156" y="306" width="48" height="44" class="etape"/>
+  <text x="180" y="333" class="etape-t">3</text>
+  <line x1="204" y1="328" x2="230" y2="328" class="liaison"/>
+  <rect x="230" y="311" width="150" height="34" rx="2" class="action"/>
+  <text x="305" y="333" class="action-t">Éjecter pièce</text>
+  <line x1="180" y1="350" x2="180" y2="374" class="liaison"/>
+
+  <line x1="165" y1="374" x2="195" y2="374" class="trans"/>
+  <text x="204" y="378" class="recept" text-anchor="start">pièce évacuée</text>
+
+  <!-- Retour -->
+  <path d="M180,374 L180,410 L38,410 L38,52 L156,52" class="ret"/>
+</svg>

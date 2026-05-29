@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="t d">
+  <title id="t">Chronogramme d'un signal PWM et d'une trame série</title>
+  <desc id="d">Deux signaux sur un axe de temps commun. En haut, un signal PWM carré dont la période et le temps haut sont repérés par des cotes en ambre, illustrant le rapport cyclique. En bas, une trame série UART : niveau de repos haut, un bit de start bas, huit bits de données, puis un bit de stop, repérés par des étiquettes.</desc>
+  <defs>
+    <style>
+      .sig { stroke:#2C2C2A; stroke-width:2.2; fill:none; }
+      .axis { stroke:#888780; stroke-width:1.6; fill:none; marker-end:url(#ah); }
+      .lbl { font:600 12px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .seg { font:600 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ann { font:700 11px sans-serif; fill:#BA7517; }
+      .dim { stroke:#BA7517; stroke-width:1.4; fill:none; marker-start:url(#ahg); marker-end:url(#ahg); }
+      .dash { stroke:#888780; stroke-width:1.2; fill:none; stroke-dasharray:4 3; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .note { font:italic 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      .ahg { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .sig { stroke:#F1EFE8; }
+        .axis { stroke:#BBBBBB; }
+        .lbl { fill:#F1EFE8; }
+        .seg { fill:#F1EFE8; }
+        .ann { fill:#EF9F27; }
+        .dim { stroke:#EF9F27; }
+        .dash { stroke:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+        .ahg { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ahg"/>
+    </marker>
+  </defs>
+
+  <text x="320" y="22" class="ttl">Signal PWM et trame série (UART)</text>
+
+  <!-- Cotes PWM -->
+  <line x1="90" y1="52" x2="210" y2="52" class="dim"/>
+  <text x="150" y="47" class="ann" text-anchor="middle">période T</text>
+
+  <!-- PWM -->
+  <text x="80" y="90" class="lbl">PWM</text>
+  <polyline points="90,70 138,70 138,100 210,100 210,70 258,70 258,100 330,100 330,70 378,70 378,100 450,100 450,70 498,70 498,100 560,100" class="sig"/>
+  <line x1="90" y1="114" x2="138" y2="114" class="dim"/>
+  <text x="114" y="127" class="ann" text-anchor="middle">tₕ</text>
+
+  <!-- UART -->
+  <text x="80" y="198" class="lbl">UART (TX)</text>
+  <polyline points="90,180 130,180 130,210 170,210 170,180 210,180 210,210 290,210 290,180 330,180 330,210 370,210 370,180 450,180 450,210 490,210 490,180 530,180 560,180" class="sig"/>
+  <line x1="130" y1="222" x2="170" y2="222" class="dash"/>
+  <text x="150" y="234" class="seg">start</text>
+  <line x1="170" y1="222" x2="490" y2="222" class="dim"/>
+  <text x="330" y="234" class="seg">données (8 bits)</text>
+  <line x1="490" y1="222" x2="530" y2="222" class="dash"/>
+  <text x="510" y="234" class="seg">stop</text>
+
+  <!-- Axe de temps -->
+  <line x1="90" y1="262" x2="585" y2="262" class="axis"/>
+  <text x="592" y="266" class="lbl" text-anchor="start" style="fill:#888780">t</text>
+
+  <text x="320" y="296" class="note">PWM : rapport cyclique α = tₕ / T. UART : repos haut, bit de start, 8 bits, bit de stop.</text>
+</svg>
