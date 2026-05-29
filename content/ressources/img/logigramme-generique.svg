@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 450" role="img" aria-labelledby="t d">
+  <title id="t">Logigramme — symboles et flux</title>
+  <desc id="d">Un organigramme vertical illustrant les symboles normalisés : un terminal en forme de stade pour le début, un parallélogramme pour une entrée/sortie « Lire une valeur », un losange de décision « Condition ? » avec une sortie oui vers un rectangle de traitement « Action » et une sortie non, puis un terminal de fin. Des étiquettes en ambre nomment chaque type de symbole.</desc>
+  <defs>
+    <style>
+      .term { fill:#BA7517; stroke:#BA7517; stroke-width:2; }
+      .term-t { font:700 13px sans-serif; text-anchor:middle; fill:#FFFFFF; }
+      .box { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .box-t { font:600 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .deci { fill:#FFFFFF; stroke:#BA7517; stroke-width:2; }
+      .deci-t { font:600 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .fl { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .fl-t { font:400 12px sans-serif; fill:#2C2C2A; }
+      .sym { font:700 11px sans-serif; fill:#BA7517; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .term { fill:#BA7517; stroke:#EF9F27; }
+        .box { fill:#4A4A48; stroke:#BBBBBB; }
+        .box-t { fill:#F1EFE8; }
+        .deci { fill:#2C2C2A; stroke:#EF9F27; }
+        .deci-t { fill:#F1EFE8; }
+        .fl { stroke:#BBBBBB; }
+        .fl-t { fill:#F1EFE8; }
+        .sym { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="270" y="26" class="ttl">Logigramme — les symboles normalisés</text>
+
+  <!-- Début -->
+  <rect x="135" y="42" width="150" height="42" rx="21" class="term"/>
+  <text x="210" y="68" class="term-t">Début</text>
+  <text x="128" y="67" class="sym" text-anchor="end">terminal</text>
+  <line x1="210" y1="84" x2="210" y2="99" class="fl"/>
+
+  <!-- Entrée / sortie -->
+  <polygon points="151,99 301,99 269,141 119,141" class="box"/>
+  <text x="210" y="125" class="box-t">Lire une valeur</text>
+  <text x="112" y="124" class="sym" text-anchor="end">entrée / sortie</text>
+  <line x1="210" y1="141" x2="210" y2="162" class="fl"/>
+
+  <!-- Décision -->
+  <polygon points="210,162 292,210 210,258 128,210" class="deci"/>
+  <text x="210" y="214" class="deci-t">Condition ?</text>
+  <text x="121" y="210" class="sym" text-anchor="end">décision</text>
+
+  <!-- oui -> traitement -->
+  <line x1="292" y1="210" x2="356" y2="210" class="fl"/>
+  <text x="324" y="202" class="fl-t" text-anchor="middle">oui</text>
+  <rect x="358" y="186" width="140" height="48" rx="3" class="box"/>
+  <text x="428" y="215" class="box-t">Action</text>
+  <text x="428" y="178" class="sym" text-anchor="middle">traitement</text>
+  <path d="M428,234 L428,330 L210,330" class="fl" style="marker-end:none"/>
+
+  <!-- non (spine) -> Fin -->
+  <line x1="210" y1="258" x2="210" y2="366" class="fl"/>
+  <text x="220" y="298" class="fl-t" text-anchor="start">non</text>
+
+  <!-- Fin -->
+  <rect x="135" y="366" width="150" height="42" rx="21" class="term"/>
+  <text x="210" y="392" class="term-t">Fin</text>
+  <text x="128" y="391" class="sym" text-anchor="end">terminal</text>
+</svg>

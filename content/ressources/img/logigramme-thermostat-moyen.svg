@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 410" role="img" aria-labelledby="t d">
+  <title id="t">Logigramme de thermostat — version moyenne</title>
+  <desc id="d">Organigramme : début, lecture de la température, décision « T supérieure à la consigne ? », sortie oui vers « Couper le chauffage », sortie non vers « Allumer le chauffage », puis les deux mènent à une fin. La logique est correcte mais il n'y a aucune boucle : le programme ne vérifie la température qu'une seule fois.</desc>
+  <defs>
+    <style>
+      .term { fill:#BA7517; stroke:#BA7517; stroke-width:2; }
+      .term-t { font:700 12px sans-serif; text-anchor:middle; fill:#FFFFFF; }
+      .box { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .box-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .deci { fill:#FFFFFF; stroke:#BA7517; stroke-width:2; }
+      .deci-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .fl { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .fl2 { stroke:#888780; stroke-width:1.8; fill:none; }
+      .fl-t { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .note { font:italic 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .ttl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .term { fill:#BA7517; stroke:#EF9F27; }
+        .box { fill:#4A4A48; stroke:#BBBBBB; }
+        .box-t { fill:#F1EFE8; }
+        .deci { fill:#2C2C2A; stroke:#EF9F27; }
+        .deci-t { fill:#F1EFE8; }
+        .fl, .fl2 { stroke:#BBBBBB; }
+        .fl-t { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="210" y="22" class="ttl">Thermostat — correct mais sans boucle</text>
+
+  <rect x="135" y="34" width="150" height="38" rx="19" class="term"/>
+  <text x="210" y="58" class="term-t">Début</text>
+  <line x1="210" y1="72" x2="210" y2="88" class="fl"/>
+
+  <polygon points="154,89 294,89 266,129 126,129" class="box"/>
+  <text x="210" y="113" class="box-t">Lire T</text>
+  <line x1="210" y1="129" x2="210" y2="152" class="fl"/>
+
+  <polygon points="210,152 292,196 210,240 128,196" class="deci"/>
+  <text x="210" y="200" class="deci-t">T &gt; consigne ?</text>
+
+  <path d="M128,196 L108,196 L108,266" class="fl"/>
+  <text x="100" y="180" class="fl-t" text-anchor="end">non</text>
+  <rect x="48" y="266" width="120" height="42" rx="3" class="box"/>
+  <text x="108" y="292" class="box-t">Allumer</text>
+
+  <path d="M292,196 L312,196 L312,266" class="fl"/>
+  <text x="320" y="180" class="fl-t" text-anchor="start">oui</text>
+  <rect x="252" y="266" width="120" height="42" rx="3" class="box"/>
+  <text x="312" y="292" class="box-t">Couper</text>
+
+  <path d="M108,308 L108,344 L210,344" class="fl2"/>
+  <path d="M312,308 L312,344 L210,344" class="fl2"/>
+  <line x1="210" y1="344" x2="210" y2="360" class="fl"/>
+
+  <rect x="135" y="360" width="150" height="38" rx="19" class="term"/>
+  <text x="210" y="384" class="term-t">Fin</text>
+</svg>

@@ -1,20 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-labelledby="t d">
-  <title id="t">Portail automatique — états mal définis (anti-pattern)</title>
-  <desc id="d">Trois formes ovales aux contours en pointillés se recouvrent largement, portant des étiquettes vagues et redondantes comme « Ouvre ou bouge », « En marche ? » et « Arrêt ou attente ». Aucune flèche de transition claire ne les relie ; un point d'interrogation marque la zone de recouvrement. Le schéma illustre des états ambigus dont on ne peut pas savoir lequel est actif.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" role="img" aria-labelledby="t d">
+  <title id="t">Portail automatique — machine à états fautive</title>
+  <desc id="d">Quatre états — Fermé, Ouverture, Ouvert, Bloqué — proprement dessinés aux coins d'un carré. Le diagramme est soigné mais comporte trois erreurs de modélisation signalées en ambre : aucun état initial n'est indiqué sur Fermé, la transition de Fermé vers Ouverture ne porte aucune condition, et l'état Bloqué n'a aucune transition de sortie. Le cycle ne revient jamais à Fermé.</desc>
   <defs>
     <style>
-      .blob { fill:#DDDBD3; fill-opacity:.55; stroke:#888780; stroke-width:2; stroke-dasharray:7 5; }
-      .blob-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
-      .q { font:800 26px sans-serif; text-anchor:middle; fill:#BA7517; }
-      .tangle { stroke:#888780; stroke-width:1.6; fill:none; stroke-dasharray:4 4; marker-end:url(#ah); }
+      .state { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .state-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .tr { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .tr-t { font:400 12px sans-serif; fill:#2C2C2A; }
+      .fault { font:700 11px sans-serif; fill:#BA7517; }
       .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
       .note { font:italic 12px sans-serif; text-anchor:middle; fill:#888780; }
       .ah { fill:#888780; }
       @media (prefers-color-scheme: dark) {
-        .blob { fill:#4A4A48; fill-opacity:.6; stroke:#BBBBBB; }
-        .blob-t { fill:#F1EFE8; }
-        .q { fill:#EF9F27; }
-        .tangle { stroke:#BBBBBB; }
+        .state { fill:#4A4A48; stroke:#EF9F27; }
+        .state-t { fill:#F1EFE8; }
+        .tr { stroke:#BBBBBB; }
+        .tr-t { fill:#F1EFE8; }
+        .fault { fill:#EF9F27; }
         .ttl { fill:#F1EFE8; }
         .note { fill:#BBBBBB; }
         .ah { fill:#BBBBBB; }
@@ -25,21 +27,34 @@
     </marker>
   </defs>
 
-  <text x="250" y="26" class="ttl">Portail — états flous (à éviter)</text>
+  <text x="280" y="24" class="ttl">Portail — schéma soigné mais fautif</text>
 
-  <ellipse cx="160" cy="115" rx="108" ry="58" class="blob"/>
-  <ellipse cx="330" cy="135" rx="108" ry="58" class="blob"/>
-  <ellipse cx="245" cy="200" rx="118" ry="55" class="blob"/>
+  <rect x="50" y="60" width="150" height="56" rx="10" class="state"/>
+  <text x="125" y="93" class="state-t">Fermé</text>
+  <rect x="360" y="60" width="150" height="56" rx="10" class="state"/>
+  <text x="435" y="93" class="state-t">Ouverture</text>
+  <rect x="360" y="255" width="150" height="56" rx="10" class="state"/>
+  <text x="435" y="288" class="state-t">Ouvert</text>
+  <rect x="50" y="255" width="150" height="56" rx="10" class="state"/>
+  <text x="125" y="288" class="state-t">Bloqué</text>
 
-  <text x="120" y="100" class="blob-t">Ouvre / bouge</text>
-  <text x="372" y="120" class="blob-t">En marche ?</text>
-  <text x="245" y="222" class="blob-t">Arrêt / attente</text>
+  <!-- Faute 1 : aucun état initial -->
+  <text x="125" y="48" class="fault" text-anchor="middle">✗ aucun état initial</text>
 
-  <text x="247" y="158" class="q">?</text>
+  <!-- Fermé -> Ouverture : faute 2, transition sans condition -->
+  <line x1="200" y1="88" x2="358" y2="88" class="tr"/>
+  <text x="279" y="76" class="fault" text-anchor="middle">✗ sans événement</text>
 
-  <!-- transition tangle (ambiguë, double sens) -->
-  <path d="M150,150 C200,185 260,185 300,165" class="tangle"/>
-  <path d="M300,165 C260,150 200,150 152,152" class="tangle"/>
+  <!-- Ouverture -> Ouvert -->
+  <line x1="435" y1="116" x2="435" y2="253" class="tr"/>
+  <text x="446" y="187" class="tr-t" text-anchor="start">fin haut</text>
 
-  <text x="250" y="285" class="note">Les états se recouvrent, sans transition claire : on ne sait pas lequel est actif.</text>
+  <!-- Ouvert -> Bloqué -->
+  <line x1="360" y1="283" x2="202" y2="283" class="tr"/>
+  <text x="281" y="305" class="tr-t" text-anchor="middle">obstacle</text>
+
+  <!-- Faute 3 : Bloqué est un puits (aucune sortie) -->
+  <text x="125" y="333" class="fault" text-anchor="middle">✗ état sans sortie (puits)</text>
+
+  <text x="300" y="363" class="note">Un schéma propre peut rester faux : trois erreurs de modélisation, et le cycle ne boucle jamais.</text>
 </svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 430" role="img" aria-labelledby="t d">
+  <title id="t">Logigramme de thermostat — version correcte</title>
+  <desc id="d">Organigramme : début, lecture de la température, décision « T supérieure à la consigne ? ». La sortie oui mène à « Couper le chauffage », la sortie non à « Allumer le chauffage ». Les deux actions se rejoignent et une flèche reboucle vers la lecture de la température, assurant une régulation continue.</desc>
+  <defs>
+    <style>
+      .term { fill:#BA7517; stroke:#BA7517; stroke-width:2; }
+      .term-t { font:700 12px sans-serif; text-anchor:middle; fill:#FFFFFF; }
+      .box { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .box-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .deci { fill:#FFFFFF; stroke:#BA7517; stroke-width:2; }
+      .deci-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .fl { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .fl2 { stroke:#888780; stroke-width:1.8; fill:none; }
+      .fl-t { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .lp { font:italic 11px sans-serif; fill:#BA7517; }
+      .ttl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .term { fill:#BA7517; stroke:#EF9F27; }
+        .box { fill:#4A4A48; stroke:#BBBBBB; }
+        .box-t { fill:#F1EFE8; }
+        .deci { fill:#2C2C2A; stroke:#EF9F27; }
+        .deci-t { fill:#F1EFE8; }
+        .fl, .fl2 { stroke:#BBBBBB; }
+        .fl-t { fill:#F1EFE8; }
+        .lp { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="210" y="22" class="ttl">Thermostat — correct (avec boucle)</text>
+
+  <rect x="135" y="34" width="150" height="38" rx="19" class="term"/>
+  <text x="210" y="58" class="term-t">Début</text>
+  <line x1="210" y1="72" x2="210" y2="88" class="fl"/>
+
+  <polygon points="154,89 294,89 266,129 126,129" class="box"/>
+  <text x="210" y="113" class="box-t">Lire T</text>
+  <line x1="210" y1="129" x2="210" y2="152" class="fl"/>
+
+  <polygon points="210,152 292,196 210,240 128,196" class="deci"/>
+  <text x="210" y="200" class="deci-t">T &gt; consigne ?</text>
+
+  <!-- non -> Allumer -->
+  <path d="M128,196 L108,196 L108,266" class="fl"/>
+  <text x="100" y="180" class="fl-t" text-anchor="end">non</text>
+  <rect x="48" y="266" width="120" height="42" rx="3" class="box"/>
+  <text x="108" y="292" class="box-t">Allumer</text>
+
+  <!-- oui -> Couper -->
+  <path d="M292,196 L312,196 L312,266" class="fl"/>
+  <text x="320" y="180" class="fl-t" text-anchor="start">oui</text>
+  <rect x="252" y="266" width="120" height="42" rx="3" class="box"/>
+  <text x="312" y="292" class="box-t">Couper</text>
+
+  <!-- merge -->
+  <path d="M108,308 L108,350 L210,350" class="fl2"/>
+  <path d="M312,308 L312,350 L210,350" class="fl2"/>
+
+  <!-- boucle retour vers Lire T -->
+  <path d="M210,350 L210,388 L26,388 L26,109 L124,109" class="fl"/>
+  <text x="34" y="250" class="lp">boucle de régulation</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 370" role="img" aria-labelledby="t d">
+  <title id="t">Logigramme de thermostat — version fautive</title>
+  <desc id="d">Organigramme proprement dessiné mais incomplet : début, lecture de la température, décision « T supérieure à la consigne ? ». Seule la sortie oui est traitée, menant à « Couper le chauffage » ; la sortie non se termine par un trait sans suite, signalé en ambre. Aucun terminal de fin ne clôt le programme, également signalé en ambre.</desc>
+  <defs>
+    <style>
+      .term { fill:#BA7517; stroke:#BA7517; stroke-width:2; }
+      .term-t { font:700 12px sans-serif; text-anchor:middle; fill:#FFFFFF; }
+      .box { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .box-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .deci { fill:#FFFFFF; stroke:#BA7517; stroke-width:2; }
+      .deci-t { font:600 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .fl { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .fl2 { stroke:#888780; stroke-width:1.8; fill:none; }
+      .fl-t { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .fault { font:700 11px sans-serif; fill:#BA7517; }
+      .note { font:italic 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .ttl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .term { fill:#BA7517; stroke:#EF9F27; }
+        .box { fill:#4A4A48; stroke:#BBBBBB; }
+        .box-t { fill:#F1EFE8; }
+        .deci { fill:#2C2C2A; stroke:#EF9F27; }
+        .deci-t { fill:#F1EFE8; }
+        .fl, .fl2 { stroke:#BBBBBB; }
+        .fl-t { fill:#F1EFE8; }
+        .fault { fill:#EF9F27; }
+        .note { fill:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="210" y="22" class="ttl">Thermostat — tracé propre mais fautif</text>
+
+  <rect x="135" y="34" width="150" height="38" rx="19" class="term"/>
+  <text x="210" y="58" class="term-t">Début</text>
+  <line x1="210" y1="72" x2="210" y2="88" class="fl"/>
+
+  <polygon points="154,89 294,89 266,129 126,129" class="box"/>
+  <text x="210" y="113" class="box-t">Lire T</text>
+  <line x1="210" y1="129" x2="210" y2="152" class="fl"/>
+
+  <polygon points="210,152 292,196 210,240 128,196" class="deci"/>
+  <text x="210" y="200" class="deci-t">T &gt; consigne ?</text>
+
+  <!-- non : stub sans suite (faute) -->
+  <line x1="128" y1="196" x2="92" y2="196" class="fl2"/>
+  <text x="100" y="180" class="fl-t" text-anchor="end">non</text>
+  <text x="88" y="214" class="fault" text-anchor="end">✗ sans suite</text>
+
+  <!-- oui -> Couper -->
+  <path d="M292,196 L312,196 L312,258" class="fl"/>
+  <text x="320" y="180" class="fl-t" text-anchor="start">oui</text>
+  <rect x="252" y="258" width="120" height="42" rx="3" class="box"/>
+  <text x="312" y="284" class="box-t">Couper</text>
+
+  <!-- pas de fin (faute) -->
+  <line x1="312" y1="300" x2="312" y2="332" class="fl2"/>
+  <text x="312" y="348" class="fault" text-anchor="middle">✗ aucune fin</text>
+
+  <text x="200" y="362" class="note">Tracé soigné, logique incomplète : rien n'est prévu si T ≤ consigne.</text>
+</svg>
