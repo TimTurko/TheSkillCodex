@@ -1,6 +1,6 @@
-# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-27 suite 2)
+# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-27 suite 5)
 
-> Archive des sessions antérieures au 27/05 suite 3, déplacées hors du JOURNAL
+> Archive des sessions antérieures au 28/05, déplacées hors du JOURNAL
 > principal lors des nettoyages documentaires successifs : 25/05 suite 3
 > pour les sessions 19→21/05 (mise en place initiale, flowcharts de phase),
 > 26/05 suite pour les sessions 22→24/05 (squelettes du V, charte
@@ -13,7 +13,10 @@
 > catégorie Hors scope), puis 27/05 suite 4 pour les sessions 27/05 → 27/05
 > suite 2 (nettoyage documentaire infrastructure + tooling normalisation,
 > livraison `decomposition-fonctionnelle` + diagnostic bug SVG, mini-session
-> bug SVG résolu + migration globale 10 fiches).
+> bug SVG résolu + migration globale 10 fiches), puis 29/05 (3 vagues
+> successives au fil du seuil 100 ko : 25/05 suite 5, puis 25/05 suite 6,
+> puis 25/05 suite 7 → 27/05 suite 5 ; invariant antichronologique restauré
+> en dernière passe).
 >
 > Périmètre couvert par cette archive :
 > - **19-20/05** : mise en place du dépôt et du site (Quartz, conventions,
@@ -65,8 +68,16 @@
 >   (solution chemin absolu `/ressources/img/...`), migration globale
 >   10 fiches publiables, convention C21 *Chemin des images — racine
 >   absolue* promue § 6.
+> - **25/05 (suite 7)** : approfondissement `preuve-de-concept` (5 étapes, fil rouge articulation PLA, conventions 6/10/11/12 éprouvées).
+> - **25/05 (suite 8)** : approfondissement `dossier-technique` (5 étapes, fil rouge alu 6061, convention 14 seuil MCP ~30 ko).
+> - **26/05 (suite 3)** : cartographie AA bouclée (passes B + A, champ `aa:` dans 17 fronts matters, 36 C / 9 E / 4 HS / 8 NC).
+> - **26/05 (suite 4)** : clôture méthodologique (promotions C1-C6/C15/C16, synthèse globale couverture AA, archivage 3e vague).
+> - **26/05 (suite 5)** : cadrage stratégique phase 2 elec/info (roadmap 5 phases, cœur du wiki) + livraison `caracteriser-une-exigence`.
+> - **27/05 (suite 3)** : refonte documentaire structurale (briques A/B/C/D, marker JOURNAL, migrations TODO→BACKLOG).
+> - **27/05 (suite 4)** : reprise Phase 0 (EAT + figeage template `fiche-tuto` + restructuration `decomposition-fonctionnelle`).
+> - **27/05 (suite 5)** : méthodo (actage 4 conventions candidates + test C4 boucle fermée 1/N).
 >
-> Le JOURNAL principal reprend à partir du 27/05 suite 3.
+> Le JOURNAL principal reprend à partir du 28/05.
 
 ---
 
@@ -996,7 +1007,7 @@ Warning nouveau « Émettre avant la validation d'ensemble est un échec d'étap
 Niveau B annoncé. 3× `[!example]` titre fixe « Exemple : projet bras 3 axes » ; 3× `[!livrable]` titre format « Livrable N/5 — Preuve de concept » ; 1× `[!warning]` étape 2 titre fixe Attention + phrase-clé gras ; 1× renommage étape 3 (« Mener les preuves » → « Mener les essais ») ; 1× refonte massive étape 4 originale → étape 4 (placeholder pivot avec 3 sorties + warning + example + livrable) + nouvelle étape 5 (clôture documentaire, placeholders à rédiger).
 
 ### Phase 2 — Étape 1 *Définir chaque preuve* (1 patch)
-Niveau B annoncé puis niveau A demandé par l'utilisateur pour la suite. Structure 2 H4 : *D'une incertitude à un énoncé testable* / *Le triplet hypothèse / critère / protocole*. `[!warning]` Un énoncé non écrit n'est pas un énoncé. `[!tip]` Formuler le critère en miroir d'une exigence chiffrée du CdCF. `[!example]` enrichi (triplet posé + revue encadrant tracée 3 corrections demandées). 1 pitié méthodo dryRun-rattrapée (1ère tentative astérisques parasites + duplication `[!livrable]`).
+Niveau B annoncé puis niveau A demandé par l'utilisateur pour la suite. Structure 2 H4 : *D'une incertitude à un énoncé testable* / *Le triplet hypothèse / critère / protocole*. `[!warning]` Un énoncé non écrit n'est pas un énoncé. `[!tip]` Formuler le critère en miroir d'une exigence chiffrée du CdCF. `[!example]` enrichi (triplet posé + revue encadrant traçée 3 corrections demandées). 1 pitié méthodo dryRun-rattrapée (1ère tentative astérisques parasites + duplication `[!livrable]`).
 
 **Round 2 utilisateur — 1 correction** : doublon « on a le matos, on monte, on verra ce que ça donne » présent dans Posture amont ET dans H4-1 étape 1. Patch correctif appliqué (refonte du paragraphe : 3 conséquences en miroir des 3 éléments du triplet — sans hypothèse / sans critère / sans protocole). **Leçon méthodo : extension de la leçon ±2 phrases (25/05 suite 6)** — relire les sections amont de la fiche elle-même (Posture, Objectif) avant de rédiger une section avale, même quand elles ont été rédigées en session antérieure. Convention candidate à pousser en § 7 conventions.
 
@@ -1007,10 +1018,10 @@ Niveau B annoncé puis niveau A demandé par l'utilisateur pour la suite. Struct
 2 H4 économes : *Monter le banc* (caractérisation préalable) / *Exécuter et tracer les mesures*. `[!warning]` Caractériser le banc avant de mesurer. `[!tip]` Noter les anomalies, pas seulement les valeurs. `[!example]` enrichi : caractérisation banc + relevés 5 points 1000 cycles montrant dépassement critère 0,5° entre 480-550 cycles (profil sur 3 articulations).
 
 ### Phase 5 — Étape 4 *Analyser et trancher* (PIVOT, 1 patch, niveau A)
-3 H4 dense (convention 11 éprouvée une 2ème fois) : *Confronter au critère* / *Synchroniser entre preuves* / *Statuer*. 3 sorties nominales numérotées : Validé / Ajustement local / Retour amont structurant + mises à jour amont dans la même séance ([[matrice-de-risques|matrice de risques]] + éco + matrices décision concept). `[!warning]` Une preuve non concluante n'est pas un échec. `[!tip]` Synchroniser avant de statuer. `[!example]` enrichi avec tableau de statut (incarnation α) + décision tracée retour concept étape 3 + mises à jour matrice de risques + écoconception révisée (PLA 60 % défavorable).
+3 H4 dense (convention 11 éprouvée une 2ᵉ fois) : *Confronter au critère* / *Synchroniser entre preuves* / *Statuer*. 3 sorties nominales numérotées : Validé / Ajustement local / Retour amont structurant + mises à jour amont dans la même séance ([[matrice-de-risques|matrice de risques]] + éco + matrices décision concept). `[!warning]` Une preuve non concluante n'est pas un échec. `[!tip]` Synchroniser avant de statuer. `[!example]` enrichi avec tableau de statut (incarnation α) + décision traçée retour concept étape 3 + mises à jour matrice de risques + écoconception révisée (PLA 60 % défavorable).
 
 ### Phase 6 — Étape 5 *Rédiger et faire valider* (CLÔTURE DOCUMENTAIRE, 1 patch, niveau A)
-3 H4 calque concept étape 5 (convention 11 sous-règle clôture documentaire éprouvée 2/2) : *Structurer le rapport* / *Rédiger chaque section* / *Faire valider en revue PoC*. TdM type 5 sections numérotée. 4 issues nominales calque concept étape 5 (sans réserve / sous conditions / reprise locale / rétroaction amont). `[!warning]` Compiler n'est pas rédiger. `[!tip]` Faire la revue à blanc en équipe. `[!example]` avec TdM type instanciée sur cas bras 3 axes + revue PoC tracée *validé sous conditions* après reprise concept aboutie (articulation usinée).
+3 H4 calque concept étape 5 (convention 11 sous-règle clôture documentaire éprouvée 2/2) : *Structurer le rapport* / *Rédiger chaque section* / *Faire valider en revue PoC*. TdM type 5 sections numérotée. 4 issues nominales calque concept étape 5 (sans réserve / sous conditions / reprise locale / rétroaction amont). `[!warning]` Compiler n'est pas rédiger. `[!tip]` Faire la revue à blanc en équipe. `[!example]` avec TdM type instanciée sur cas bras 3 axes + revue PoC traçée *validé sous conditions* après reprise concept aboutie (articulation usinée).
 
 ### Phase 7 — Pièges + Équipe (1 patch)
 **Pièges fréquents** : refonte 6 puces simples → 11 entrées format gras court + explication (convention 12 confirmée). **5/11 pièges issus a posteriori des étapes 3-4-5 (~45 %)**, supérieur à concept (3/8 ≈ 37 %) — indicateur que la convention 12 généralise.

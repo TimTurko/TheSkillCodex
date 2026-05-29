@@ -145,7 +145,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 ## Tâches techniques en suspens
 
-- [ ] **Archivage JOURNAL — 1-pour-1 à reprendre en tête de prochaine session** : `25/05 suite 6` archivée 29/05 (début session, 104→93 ko). Avec l'entrée 29/05 suite, JOURNAL ~97 ko (**sous le seuil 100 ko**). Entrée la plus ancienne à archiver = `25/05 suite 7` (PoC) → vers `JOURNAL-archive.md`, dans le groupe « DEBUT DES SESSIONS 25/05 » (au-dessus de suite 6). Convention : archivage **hors clôture**, en tête de session.
+- [x] ~~**Archivage JOURNAL — masse 8 entrées (`25/05 suite 7` → `27/05 suite 5`)**~~ — fait 29/05 suite 2 (flux 1-pour-1 fidèle, JOURNAL 97→29,7 ko, archive →302,9 ko, somme conservée, invariant antichronologique restauré ; incident D8 résolu — graphies d'origine « traçée »/« 2ᵉ » à recopier verbatim, jamais « corriger », cf. C14). **Pas de backlog d'archivage** : JOURNAL repart à `28/05`, bien sous le seuil 100 ko. Rappel procédure (au prochain franchissement) : archivage **hors clôture, en tête de session**, plus ancienne entrée d'abord, marqueurs `<!-- DEBUT DES SESSIONS … -->` par groupe-date.
 
 ## Décisions éditoriales en attente
 

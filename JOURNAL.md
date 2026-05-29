@@ -2,13 +2,32 @@
 
 > Mémoire du projet. Ce qui a été fait, daté, avec les décisions prises et leur justification.
 > Nouvelles entrées en HAUT (ordre antichronologique).
-> Sessions antichronologiques antérieures au 25/05 suite 5 archivées dans `JOURNAL-archive.md`
+> Sessions antichronologiques antérieures au 28/05 archivées dans `JOURNAL-archive.md`
 > (mise en place initiale du dépôt, installation PC perso, trame projet cycle
 > en V, flowcharts de phase, squelettes du V, charte callouts v2, rédaction
 > complète de `specification-technique.md`, première vague de trames
 > transverses et fiches-notion, nettoyage documentaire et concept étapes 1-2).
 
 <!-- INSERT_JOURNAL_HERE -->
+
+## 2026-05-29 (suite 2) — Maintenance documentaire : archivage de masse 8 entrées (25/05 suite 7 → 27/05 suite 5)
+
+### Périmètre
+Session de maintenance pure (pas de rédaction de fiche). Le JOURNAL était repassé au-dessus du seuil 100 ko : déplacement **1-pour-1 fidèle** des 8 entrées les plus anciennes vers `JOURNAL-archive.md`. Périmètre = `25/05 suite 7`, `25/05 suite 8`, `26/05 suite 3/4/5`, `27/05 suite 3/4/5`. JOURNAL repart à `28/05`. PC pro, MCP `theskillcodex:*`.
+
+### Geste
+- **8 insertions archive + 8 suppressions JOURNAL**, chaque entrée recopiée intégralement (jamais résumée — archivage = déplacement). Marqueurs `<!-- DEBUT DES SESSIONS … -->` par groupe-date (27/05, 26/05, 25/05), ordre interne antichronologique.
+- **Invariant antichronologique restauré** : sommet de l'archive = `27/05 suite 5`, plus récent que tout ce qui reste au JOURNAL (`28/05`).
+- Logs synchronisés des deux fichiers (cutoffs intro/footer/titre/préambule + 8 bullets « Périmètre couvert » côté archive).
+
+### Incident D8 — leçon C14 confirmée
+La suppression de `25/05 suite 7` a échoué au premier essai : mon ancre portait des graphies « corrigées » (« tracée », « 2ème ») alors que l'original disait **« traçée »** (avec ç, ×3) et **« 2ᵉ »** (e exposant). Relecture fraîche `tail` → ancre recopiée verbatim → passe. La même cause m'avait fait insérer `25/05 suite 7` dans l'archive avec mes graphies : 4 correctifs appliqués côté archive pour rétablir la fidélité. **Leçon (C14)** : ne jamais « corriger » une graphie d'origine en déplaçant un bloc ; recopier l'ancre depuis une lecture fraîche, caractère pour caractère. Les 7 autres entrées ont matché du premier coup (donc fidèles).
+
+### Tailles
+- `JOURNAL.md` : 97,4 → **29,7 ko** (−67,6 ko, large marge sous le seuil 100 ko).
+- `JOURNAL-archive.md` : 234,0 → **302,9 ko** (+68,9 ko). Somme conservée (+1,25 ko = marqueurs + bullets périmètre + narrative, enrichissement attendu, aucune perte).
+
+---
 
 ## 2026-05-29 (suite) — Phase 1 EEE : grappe « représentations d'algorithme » + tuto `analyse-de-schema-electronique` (MVP strict)
 
@@ -225,4 +244,4 @@ Le prompt de lancement (rédigé 27/05 suite 5) posait une procédure détaillé
 
 ---
 
-<!-- Sessions antérieures au 25/05 suite 7 déplacées dans `JOURNAL-archive.md` lors des nettoyages documentaires successifs : 25/05 suite 3 (sessions 19→21/05 + 24/05 suite 2), 26/05 suite (sessions 22/05 → 24/05 suite), 26/05 suite 4 (sessions 25/05 → 25/05 suite 4), 27/05 suite 5 (session 25/05 suite 5, premier flux 1-pour-1 selon C4) et 29/05 (session 25/05 suite 6, archivage de masse au seuil 100 ko). -->
+<!-- Sessions antérieures au 28/05 déplacées dans `JOURNAL-archive.md` lors des nettoyages documentaires successifs : 25/05 suite 3 (sessions 19→21/05 + 24/05 suite 2), 26/05 suite (sessions 22/05 → 24/05 suite), 26/05 suite 4 (sessions 25/05 → 25/05 suite 4), 27/05 suite 5 (session 25/05 suite 5, premier flux 1-pour-1 selon C4), 29/05 (session 25/05 suite 6, archivage de masse au seuil 100 ko) et 29/05 suite 2 (sessions 25/05 suite 7 → 27/05 suite 5, archivage de masse 8 entrées). -->
