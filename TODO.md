@@ -5,9 +5,11 @@
 
 ## Prochaines sessions (ordre logique)
 
-> **➜ Prochaine session = fiches structurantes Arduino** — reprise du module Arduino (fiches-tuto pivots des paliers *Prendre en main* / *Bases*, sur le calque du hub `arduino`). Arbitrage utilisateur 28/05 suite 4 : on bascule sur l'embranchement Arduino (Phase 2) plutôt que de finir le squelette transverse. **Hors-batch** (fiches substantielles, une-par-une). En parallèle, liens rouges les plus sollicités à viser : `esp32` (hub famille), `gpio`, `firmware`.
+> **➜ Prochaine session = arbitrage utilisateur ouvert (post-batch Arduino)** — Phase 2 a livré 21 fiches arduino-* (Bases 11 + Avancées straight 10) en batch le 29/05 soir, hub Arduino Avancées à 19/21 (manquent `arduino-machine-a-etats` + `arduino-filtrage` optionnel) + Niveau ingénieur entièrement à faire (7 fiches, cadrage propre par fiche). **Choix probable à proposer en démarrage** : (a) chaîne `machine-a-etats` (notion transverse) + `arduino-machine-a-etats` ; (b) 1ère fiche Niveau ingénieur (`arduino-interruptions` ou `arduino-pid` comme têtes naturelles) ; (c) hub `esp32` (second embranchement, ouverture Phase 4) ; (d) `gpio` transverse (la grappe E/S reste rouge). **Relecture des 21 fiches arduino-* en attente** de la récolte du premier set d'images utilisateur (garde-fou explicite acté le 29/05).
 >
 > **Sessions 28/05** : Phase 0 GP **close** (6 fiches ; entrée JOURNAL reconstruite a posteriori 28/05 suite). Squelette EEE/mcu démarré 28/05 suite 2 — hubs `microcontroleur` + `arduino`, SVG archi MCU, Tutoriels Arduino en 4 paliers, **C18 épreuve 1/N**. Suite 3 : `lire-une-datasheet` (tuto transverse + 2 SVG). Suite 4 : `niveaux-de-tension` + grappes `bus` et `sans-fil` + 7 briques MCU **en batch** (18 fiches + 4 SVG), **C18 promue § 6** (épreuve 3/3).
+>
+> **Session 29/05** : Phase 2 embranchement Arduino — matinée PC perso, 3 fiches *Prendre en main* (`arduino-prise-en-main` + `tinkercad` + `arduino-serie`) hors-batch. Soir PC pro (MCP `theskillcodex:*`), **batch 21 fiches Bases + Avancées straight** après pushback D et arbitrage utilisateur Option A. Hub Arduino à 22/24 fiches en vert (manquent `arduino-machine-a-etats` + `arduino-filtrage`). **C27 épreuve 3/N étendue à batch de fiches-tuto pleines** — borne déplacée, reformulation à acter avant promotion. Relecture utilisateur des 21 fiches reportee a la recolte du premier set d'images.
 >
 > **Cadrage stratégique phase 2 elec/info acté 26/05 suite 5 (niveau D)** : (a) elec/info devient le **cœur du wiki**, ~50-60 fiches phase 2 assumées, plusieurs mois ; (b) structure **squelette transverse** (AA + compétences pro communes, indépendantes du choix techno) + **embranchements technologiques** (familles MCU + outils spécifiques, modules autonomes) ; (c) 5 mini-hubs à structurer (`microcontroleur`, `algorithme`, `pcb`, `bus-de-communication`, `techno-sans-fil`) ; (d) roadmap structurée en 5 phases (Phase 0 clôture → Phase 5 alimentation continue) ; (e) 3 cercles de priorité publication : MVP strict (AA 100 %, ~21 sessions) / MVP étendu (~35 sessions) / cible complète (~70 sessions). MVP rentrée scolaire atteignable en 2-3 mois.
 >
@@ -72,9 +74,9 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 #### Phase 2 — Premier embranchement Arduino (~3 sessions, MVP strict publiable)
 
 - [x] ~~`arduino`~~ (hub Arduino — panorama cartes Uno R3/R4/Mega/Nano + écosystème + section *Tutoriels* en 4 paliers) — **fait 28/05 suite 2**
-- [ ] `arduino-prise-en-main` (fiche-tuto, palier *Prendre en main*)
-- [ ] `tinkercad` (fiche-tuto simu, palier *Prendre en main*)
-- [ ] **Module Arduino ~20 tutos** : la section *Tutoriels* de `arduino.md` les liste en 4 paliers (Prendre en main / Bases / Avancées / Ingénieur) — TODO vivant du module (liens rouges = Approche A). **MVP strict = paliers Prendre en main + cœur des Bases** ; le reste = MVP étendu / continu.
+- [x] ~~`arduino-prise-en-main` (fiche-tuto, palier *Prendre en main*)~~ — fait 29/05 matin (cas Blink LED_BUILTIN)
+- [x] ~~`tinkercad` (fiche-tuto simu, palier *Prendre en main*)~~ — fait 29/05 matin (Blink simulé + bouton `INPUT_PULLUP`)
+- [x] ~~**Module Arduino — batch Bases + Avancées straight (21 fiches)**~~ — fait 29/05 soir (PC pro, MCP `theskillcodex:*`). **Reste à écrire** : `arduino-machine-a-etats` (chaîne avec notion `machine-a-etats`) ; `arduino-filtrage` (optionnel) ; 7 Niveau ingénieur (`arduino-programmation-non-bloquante`, `arduino-interruptions`, `arduino-deep-sleep`, `arduino-pid`, `arduino-timers`, `arduino-memoire`, `arduino-watchdog`) — chacun en session dédiée avec cadrage propre. **Relecture/amélioration utilisateur** post-récolte premier set d'images à conduire avant publication.
 
 #### Pré-publication MVP (après Phase 2)
 
@@ -140,7 +142,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 ## Tâches techniques en suspens
 
-- [ ] **Archivage JOURNAL** : fichier réel ~98 ko (proche du seuil 100 ko). Le flux 1-pour-1 C4 n'a pas été appliqué depuis 27/05 suite 5 et les estimations de taille des entrées avaient dérivé sous la réalité. Archiver les entrées les plus anciennes vers `JOURNAL-archive.md` (cut segmenté MARKER+N ou manuel Obsidian+Git), à partir de `25/05 (suite 6)` (legacy ~9 ko). À faire avant franchissement des 100 ko, hors clôture de session.
+- [ ] **Archivage JOURNAL — devenu urgent** : fichier réel ~104 ko (29/05 soir, **seuil 100 ko franchi**). Le flux 1-pour-1 C4 n'a pas été appliqué depuis 27/05 suite 5. Archiver les entrées les plus anciennes vers `JOURNAL-archive.md` (cut segmenté MARKER+N ou manuel Obsidian+Git), à partir de `25/05 (suite 6)` (legacy ~9 ko). À conduire hors clôture de session, en tête de la prochaine session ou en passe dédiée.
 
 ## Décisions éditoriales en attente
 

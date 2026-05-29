@@ -10,6 +10,40 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-05-29 — Phase 2 embranchement Arduino : batch 21 fiches-tuto Bases + Avancées straight
+
+### Périmètre
+Deux sessions successives. **Matinée (PC perso, MCP `filesystem:*`)** : suite directe de 28/05 suite 5, rédaction des 3 fiches structurantes Arduino *Prendre en main* (`arduino-prise-en-main`, `tinkercad`, `arduino-serie`) une-par-une. **Soir (PC pro, MCP `theskillcodex:*`)** : reprise sur prompt de lancement Cas A, **bascule batch** sur consigne utilisateur après pushback D (C27 borderline sur fiches-tuto pleines). Compromis Option A retenu : Bases (11) + Avancées straight (10) = **21 fiches**, exclusion explicite des 7 Niveau ingénieur + `arduino-machine-a-etats` + `arduino-filtrage`.
+
+### Livrables
+- **Prendre en main (3)** : `arduino-prise-en-main` (~10,0 ko, cas Blink LED_BUILTIN), `tinkercad` (~8,7 ko, Blink simulé + bouton `INPUT_PULLUP`), `arduino-serie` (~9,9 ko, compteur `millis` + lecture A0 + traceur série).
+- **Bases (11)** : `arduino-gpio` (bouton D2 `INPUT_PULLUP` + LED D13), `arduino-entree-tor` (anti-rebond logiciel + détection de front), `arduino-sortie-tor` (LED + buzzer via 2N2222 + module relais 5 V), `arduino-capteur-numerique` (HC-SR04 + `pulseIn`), `arduino-capteur-analogique` (potentiomètre + LDR + tableau ADC Uno R3/R4/Nano/Mega/ESP32), `arduino-sortie-pwm` (LED fondu + variateur), `arduino-temporisation` (`delay` vs `millis`, overflow), `arduino-bibliotheques` (`Servo.h` SG90), `arduino-module` (DHT11 + Adafruit DHT), `arduino-shield` (Motor Shield R3 L298), `arduino-alimentation` (USB / jack / Vin + cas batterie LiPo 7,4 V).
+- **Avancées straight (10)** : `arduino-uart` (pont série 2 Arduino via SoftwareSerial), `arduino-i2c` (scanner I2C + BMP280), `arduino-spi` (datalogger SD card), `arduino-debug` (`Serial.print` stratégique + IDE 2.x debugger R4), `arduino-gpio-boot` (relais qui claque + pull-up externe + ordre `digitalWrite` avant `pinMode`), `arduino-servomoteur` (SG90 balayage + alim séparée), `arduino-moteur-cc` (L298N + table pont H + potar+bouton), `arduino-moteur-pas-a-pas` (28BYJ-48 + ULN2003 + Stepper.h, mention NEMA17 + A4988), `arduino-afficheur` (OLED SSD1306 + LCD I2C, cas BMP280→OLED), `arduino-eeprom` (compteur démarrages + détection EEPROM neuve 0xFF + ESP32 Preferences).
+- **Dossier** `content/fiches/eee/mcu/arduino/` : 25 fichiers (hub + tinkercad + 23 fiches arduino-*), **226 ko total**. Toutes les fiches `draft: false`, template `fiche-tuto.md` respecté.
+
+### Décisions
+- **Scope batch** étendu de "fiches structurantes" (3) à "20 fiches" (Bases + Avancées straight). Pushback Claude justifié : C27 borderline (épreuves 2/2 sur popovers/hubs courts, pas fiches-tuto pleines), hétérogénéité de calibre Bases/Avancées/Ingénieur. Sortis du batch : `arduino-machine-a-etats` (chaîne dépendance avec notion `machine-a-etats`), `arduino-filtrage` (optionnel), 7 Niveau ingénieur (chacun mérite cadrage propre). Comptage final 21 (off-by-one corrigé sur Avancées straight : `eeprom` initialement omis du décompte).
+- **C23 confirmé** : tutos MCU prennent cas autonome propre (pas bras 3 axes). Consigne utilisateur explicite : "Nous pouvons dévier du bras 3 axes pour les tutos mcu".
+- **Format captures inline figé** (option B) : Claude rédige texte + insère phrases `Prendre capture d'écran de *info précise de l'image*` inline en italique, utilisateur prend captures/photos plus tard, itération texte après récolte. **Pas de SVG produits unilatéralement** cette session.
+- **GPIO transverse laissé rouge** : convention utilisateur ("Ok pour GPIO laissé rouge actuellement"). `arduino-gpio` (le tuto) écrit malgré tout — distinct du transverse `gpio`.
+- **Relecture/amélioration reportée** explicitement à la récolte du premier set d'images. Garde-fou utilisateur posé, dette de relecture concentrée massive acceptée.
+
+### Conventions
+- **C27 production par batch — épreuve 3/N étendue, borne déplacée**. Convention initialement éprouvée sur grappes de popovers/hubs courts (bus 6 fiches, sans-fil 7 fiches + 7 briques MCU). Ce soir : **batch massif de 21 fiches-tuto pleines** (procédure 4 étapes + cas autonome + 6-8 pièges + raccrochage projet, 8-10 ko/fiche). Saut qualitatif vs épreuves antérieures. À reformuler avant promotion : "grappe homogène en calibre" plutôt que "grappe homogène de popovers". La dette de relecture s'étend en proportion (~226 ko à relire avant publication).
+- **C23 fil rouge bras 3 axes — borne posée 28/05 suite 3, confirmée 29/05** sur consigne utilisateur explicite. Mure pour promotion au prochain figeage.
+- **Format captures inline** (candidate § 8) — `Prendre capture d'écran de *info précise de l'image*` tout en italique, posé en début de texte de l'étape. Pas de SVG produits unilatéralement par Claude pour les fiches-tuto MCU. Éprouvé sur ~70 mentions inline réparties sur 21 fiches.
+- **C24 `write_file`** — cumul ~46 créations sans incident (28/05 suite 4 + cette session). Vérification immédiate `get_file_info` remplacée par `list_directory_with_sizes` global en fin de batch — C27-compatible.
+- **Préfixe MCP variable selon poste** — `theskillcodex:*` sur PC pro vs `filesystem:*` sur PC perso. Le prompt projet § 6 référence l'ancien préfixe ; à généraliser ou contextualiser pour les futures sessions PC pro.
+
+### Tailles
+- 21 fiches arduino-* (7,8-10,4 ko / fiche) + 3 Prendre en main (8,7-10,0 ko). Dossier `arduino/` total **226 ko**.
+- **`JOURNAL.md` réel ~99 → ~104 ko** (cette entrée ~5 ko). **Seuil 100 ko franchi**. Tâche d'archivage TODO maintenue ; à conduire hors clôture de session, à partir de l'entrée la plus ancienne (`25/05 (suite 6)`, legacy ~9 ko).
+
+### Corps — pushback batch sur fiches-tuto pleines : C27 a tenu sans casse, mais la borne s'est élargie
+La demande utilisateur de batcher l'ensemble des fiches Arduino restantes (~30) a déclenché un D obligatoire avant exécution : C27 telle qu'éprouvée (popovers + hubs courts) ne couvrait pas le calibre des fiches-tuto pleines. Le compromis Option A (20 fiches Bases + Avancées straight, exclusion Ingénieur + machine-a-etats + filtrage) a tenu sans casse à l'œil — qualité homogène observée sur les 21 livrables, aucune fiche manifestement bâclée, pièges spécifiques fidèles à la techno (anti-rebond, overflow `millis`, EEPROM neuve 0xFF, `Servo.h` qui désactive PWM D9/D10, pull-ups I2C en parallèle). La dette de relecture utilisateur reste massive — c'est le garde-fou explicite acté en début de batch (relecture post-récolte d'images). **Acquis méthodo** : C27 peut s'étendre aux fiches-tuto pleines à condition que le calibre soit homogène — Ingénieur (PID, interruptions, watchdog, timers) reste hors batch. La reformulation à la promotion devra trancher "grappe homogène de popovers" vs "batch homogène en calibre", ouvrant à des cas autres que les popovers d'un mini-hub.
+
+---
+
 ## 2026-05-28 (suite 4) — Phase 1 squelette EEE : `niveaux-de-tension` + grappes `bus` et `sans-fil` en batch + briques MCU
 
 ### Périmètre
