@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" role="img" aria-labelledby="t d">
+  <title id="t">Portail automatique — machine à états complète</title>
+  <desc id="d">Quatre états — Fermé, Ouverture, Ouvert, Fermeture — aux coins d'un carré, reliés par un cycle de transitions horaires. Chaque transition porte une étiquette complète de la forme événement, garde-condition entre crochets, et action. Une transition supplémentaire mise en évidence en ambre part de Fermeture vers Ouverture, gardée par la condition obstacle détecté avec l'action inverser le moteur, illustrant la sécurité de réouverture.</desc>
+  <defs>
+    <style>
+      .state { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .state-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .tr { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .tr-g { stroke:#BA7517; stroke-width:2.2; fill:none; marker-end:url(#ahg); }
+      .tr-t { font:400 12px sans-serif; fill:#2C2C2A; }
+      .grd { fill:#BA7517; font-weight:700; }
+      .act { font-style:italic; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      .note { font:italic 12px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      .ahg { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .state { fill:#4A4A48; stroke:#EF9F27; }
+        .state-t { fill:#F1EFE8; }
+        .tr { stroke:#BBBBBB; }
+        .tr-g { stroke:#EF9F27; }
+        .tr-t { fill:#F1EFE8; }
+        .grd { fill:#EF9F27; }
+        .ttl { fill:#F1EFE8; }
+        .note { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+        .ahg { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ahg"/>
+    </marker>
+  </defs>
+
+  <text x="280" y="26" class="ttl">Portail — machine à états complète</text>
+
+  <rect x="50" y="60" width="150" height="56" rx="10" class="state"/>
+  <text x="125" y="93" class="state-t">Fermé</text>
+  <rect x="360" y="60" width="150" height="56" rx="10" class="state"/>
+  <text x="435" y="93" class="state-t">Ouverture</text>
+  <rect x="360" y="255" width="150" height="56" rx="10" class="state"/>
+  <text x="435" y="288" class="state-t">Ouvert</text>
+  <rect x="50" y="255" width="150" height="56" rx="10" class="state"/>
+  <text x="125" y="288" class="state-t">Fermeture</text>
+
+  <!-- Fermé -> Ouverture -->
+  <line x1="200" y1="88" x2="358" y2="88" class="tr"/>
+  <text x="279" y="77" class="tr-t" text-anchor="middle">bouton <tspan class="act">/ moteur ↑</tspan></text>
+
+  <!-- Ouverture -> Ouvert -->
+  <line x1="435" y1="116" x2="435" y2="253" class="tr"/>
+  <text x="446" y="187" class="tr-t" text-anchor="start">fin haut <tspan class="act">/ stop</tspan></text>
+
+  <!-- Ouvert -> Fermeture -->
+  <line x1="360" y1="283" x2="202" y2="283" class="tr"/>
+  <text x="281" y="305" class="tr-t" text-anchor="middle"><tspan class="grd">[T &gt; 5 s]</tspan> <tspan class="act">/ moteur ↓</tspan></text>
+
+  <!-- Fermeture -> Fermé -->
+  <line x1="125" y1="255" x2="125" y2="118" class="tr"/>
+  <text x="114" y="187" class="tr-t" text-anchor="end">fin bas <tspan class="act">/ stop</tspan></text>
+
+  <!-- Fermeture -> Ouverture : garde de sécurité (ambre) -->
+  <path d="M205,262 Q255,150 357,116" class="tr-g"/>
+  <text x="293" y="178" class="tr-t" text-anchor="middle"><tspan class="grd">[obstacle]</tspan> <tspan class="act">/ inverser</tspan></text>
+
+  <text x="280" y="363" class="note">La garde [obstacle] en sortie de Fermeture réouvre le portail : la sécurité est dans le schéma.</text>
+</svg>
