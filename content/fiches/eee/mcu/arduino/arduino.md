@@ -83,10 +83,10 @@ Les tutoriels du module Arduino, classés par difficulté croissante. La plupart
 ### Niveau ingénieur
 
 - [[arduino-programmation-non-bloquante|Programmation non bloquante]] ;
-- [[arduino-interruptions|Interruptions]] ;
+- [[arduino-interruptions|Interruptions]] *(→ notion [[interruption]])* ;
 - [[arduino-deep-sleep|Deep sleep]] ;
 - [[arduino-pid|Régulation PID]] — boucle de commande ;
-- [[arduino-timers|Timers matériels]] ;
+- [[arduino-timers|Timers matériels]] *(→ notion [[timer]])* ;
 - [[arduino-memoire|Gestion mémoire]] — RAM, PROGMEM ;
 - [[arduino-watchdog|Watchdog]] — robustesse du firmware.
 

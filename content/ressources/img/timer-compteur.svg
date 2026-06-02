@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Le fonctionnement d'un timer matériel</title>
+  <desc id="d1">Graphe de la valeur d'un compteur de timer au cours du temps. Le compteur monte régulièrement de zéro jusqu'à sa valeur maximale (TOP), puis revient instantanément à zéro : ce débordement déclenche un événement. Une valeur de comparaison intermédiaire est marquée par une ligne horizontale ; chaque fois que le compteur l'atteint en montant, un autre événement est déclenché. La pente de la montée, donc la fréquence des événements, est réglée par le prédiviseur (prescaler). La durée entre deux débordements est une période fixe.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .ax { stroke: #888780; stroke-width: 1.4; }
+      .axlab { font: 600 11px sans-serif; fill: #888780; }
+      .ref { stroke: #888780; stroke-width: 1.1; stroke-dasharray: 4 3; }
+      .reflab { font: 700 10px sans-serif; fill: #888780; }
+      .trace { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .dot { fill: #BA7517; }
+      .ev { font: 700 10px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .evtick { stroke: #BA7517; stroke-width: 1.4; }
+      .per { stroke: #888780; stroke-width: 1.2; }
+      .perlab { font: italic 600 10px sans-serif; text-anchor: middle; fill: #888780; }
+      .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti { fill: #F1EFE8; }
+        .ax, .ref, .per { stroke: #BBBBBB; }
+        .axlab, .reflab, .perlab, .foot { fill: #BBBBBB; }
+        .trace, .evtick { stroke: #EF9F27; }
+        .dot, .ev { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+    <marker id="ad" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+  </defs>
+
+  <text x="380" y="26" class="ti">Un timer : un compteur matériel qui se relève seul</text>
+
+  <!-- axes -->
+  <text x="74" y="62" class="axlab">compteur</text>
+  <line x1="90" y1="56" x2="90" y2="270" class="ax"/>
+  <line x1="90" y1="260" x2="712" y2="260" class="ax" marker-end="url(#aa)"/>
+  <text x="690" y="276" class="axlab">temps</text>
+
+  <!-- reference lines -->
+  <line x1="90" y1="80" x2="688" y2="80" class="ref"/>
+  <text x="96" y="74" class="reflab">TOP (valeur max)</text>
+  <line x1="90" y1="152" x2="688" y2="152" class="ref"/>
+  <text x="560" y="146" class="reflab">valeur de comparaison</text>
+
+  <!-- counter trace : 3 ramps + instantaneous resets -->
+  <polyline class="trace" points="90,260 270,80 270,260 450,80 450,260 630,80 630,260 690,200"/>
+
+  <!-- overflow events (at resets) -->
+  <circle cx="270" cy="80" r="3.6" class="dot"/>
+  <line x1="270" y1="76" x2="270" y2="52" class="evtick"/>
+  <text x="270" y="46" class="ev">débordement → ISR</text>
+  <circle cx="450" cy="80" r="3.6" class="dot"/>
+  <circle cx="630" cy="80" r="3.6" class="dot"/>
+
+  <!-- compare-match events (counter crosses compare line going up) -->
+  <circle cx="198" cy="152" r="3.6" class="dot"/>
+  <line x1="198" y1="152" x2="160" y2="120" class="evtick"/>
+  <text x="150" y="114" class="ev" text-anchor="end">comparaison → ISR</text>
+  <circle cx="378" cy="152" r="3.6" class="dot"/>
+  <circle cx="558" cy="152" r="3.6" class="dot"/>
+
+  <!-- period bracket between two overflows -->
+  <line x1="270" y1="278" x2="450" y2="278" class="per" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="360" y="291" class="perlab">période fixe</text>
+
+  <text x="380" y="312" class="foot">La pente — donc la fréquence des événements — est réglée par le prédiviseur (prescaler).</text>
+</svg>

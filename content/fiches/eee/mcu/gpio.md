@@ -76,5 +76,6 @@ La parade ne se joue pas dans le code, justement parce que le code n'est pas enc
 - [[microcontroleur|Microcontrôleur]] — le circuit qui porte les broches GPIO
 - [[adc|ADC]] — le pendant en entrée pour les grandeurs continues (lire une tension variable)
 - [[pwm|PWM]] — le pendant en sortie pour doser une commande plutôt que l'imposer en tout-ou-rien
+- [[interruption|Interruption]] — réagir immédiatement à un changement d'état d'une broche, sans la surveiller en boucle
 - [[bus-de-communication|Bus de communication]] — où le drain ouvert prend tout son sens (I2C, lignes partagées)
 - [[arduino-gpio|Arduino — GPIO]] — la mise en pratique sur Arduino (bouton, LED, code et câblage)
