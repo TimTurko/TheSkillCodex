@@ -20,5 +20,6 @@ C'est la façon courante, depuis un [[microcontroleur|microcontrôleur]], de ré
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui génère la PWM
+- [[timer|Timer]] — c'est lui qui, dans le microcontrôleur, produit le signal PWM et en règle la fréquence
 - [[entree-sortie|Entrée/sortie]] — la famille de périphériques dont fait partie la PWM
 - [[adc|ADC]] — le pendant en entrée : lire une mesure plutôt que doser une commande

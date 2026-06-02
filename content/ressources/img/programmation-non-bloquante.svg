@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Boucle bloquante contre boucle non bloquante</title>
+  <desc id="d1">Deux façons de structurer la boucle principale comparées. À gauche, l'approche bloquante : la boucle alterne une action courte et un long delay() pendant lequel tout le programme est figé ; un bouton pressé pendant un delay() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu, très vite, et distribue le travail à de petites tâches qui s'exécutent chacune quand c'est son tour ; un bouton pressé est vu dès le tour suivant. Une seule chose s'exécute à la fois, mais si vite que tout paraît simultané.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .st { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .blk { fill: #DDDBD3; stroke: #888780; stroke-width: 1.3; }
+      .blklab { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .frz { fill: #BA7517; stroke: #BA7517; stroke-width: 1.3; }
+      .frzlab { font: 700 12px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .frzsub { font: 400 10px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .slv { fill: #DDDBD3; stroke: #888780; stroke-width: 0.8; }
+      .tag { font: 700 10px sans-serif; text-anchor: start; fill: #BA7517; }
+      .cap { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .mark { fill: #BA7517; }
+      .arr { stroke: #BA7517; stroke-width: 1.6; }
+      .xlab { font: 700 12px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .blklab, .cap { fill: #F1EFE8; }
+        .st, .tag, .mark, .xlab { fill: #EF9F27; }
+        .arr { stroke: #EF9F27; }
+        .blk { fill: #4A4A48; stroke: #BBBBBB; }
+        .frz { fill: #EF9F27; stroke: #EF9F27; }
+        .frzlab, .frzsub { fill: #2C2C2A; }
+        .slv { fill: #4A4A48; stroke: #BBBBBB; }
+        .foot { fill: #BBBBBB; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+  </defs>
+
+  <text x="380" y="26" class="ti">La boucle ne doit jamais s'arrêter</text>
+  <line x1="380" y1="46" x2="380" y2="300" class="divi"/>
+
+  <!-- ===== LEFT : BLOCKING ===== -->
+  <text x="190" y="62" class="st">✗ Bloquant — delay()</text>
+  <rect x="120" y="78" width="180" height="22" rx="3" class="blk"/>
+  <text x="210" y="93" class="blklab">LED allumée</text>
+  <rect x="120" y="102" width="180" height="58" rx="3" class="frz"/>
+  <text x="210" y="126" class="frzlab">delay(1000)</text>
+  <text x="210" y="142" class="frzsub">tout est figé</text>
+  <rect x="120" y="164" width="180" height="22" rx="3" class="blk"/>
+  <text x="210" y="179" class="blklab">LED éteinte</text>
+  <rect x="120" y="190" width="180" height="58" rx="3" class="frz"/>
+  <text x="210" y="214" class="frzlab">delay(1000)</text>
+  <text x="210" y="230" class="frzsub">tout est figé</text>
+
+  <!-- button ignored -->
+  <circle cx="92" cy="131" r="4" class="mark"/>
+  <line x1="92" y1="131" x2="116" y2="131" class="arr" marker-end="url(#aa)"/>
+  <text x="60" y="120" class="xlab">bouton</text>
+  <text x="190" y="270" class="cap">Un appui pendant un delay() : vu seulement à la fin.</text>
+
+  <!-- ===== RIGHT : NON-BLOCKING ===== -->
+  <text x="570" y="62" class="st">✓ Non bloquant — loop() qui tourne</text>
+  <rect x="470" y="80" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="92" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="104" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="116" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="128" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="140" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="152" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="164" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="176" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="188" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="200" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="212" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="224" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="236" width="180" height="6" rx="2" class="slv"/>
+  <rect x="470" y="248" width="180" height="6" rx="2" class="slv"/>
+  <text x="656" y="111" class="tag">→ clignote</text>
+  <text x="656" y="159" class="tag">→ lit capteur</text>
+  <text x="656" y="219" class="tag">→ lit bouton</text>
+
+  <!-- button seen next turn -->
+  <circle cx="452" cy="143" r="4" class="mark"/>
+  <line x1="452" y1="143" x2="468" y2="143" class="arr" marker-end="url(#aa)"/>
+  <text x="420" y="132" class="xlab">bouton</text>
+  <text x="570" y="270" class="cap">Le loop tourne sans cesse : l'appui est vu au tour suivant.</text>
+
+  <text x="380" y="324" class="foot">Une seule chose s'exécute à la fois — mais si vite que tout paraît simultané.</text>
+</svg>

@@ -197,3 +197,4 @@ Faire le pas `delay() → millis()` une fois pour toutes en début de PoC évite
 - [[arduino-programmation-non-bloquante|Programmation non bloquante]] — généralisation du pattern à l'ensemble du code
 - [[arduino-interruptions|Interruptions]] — pour les événements ultra-rapides où `millis()` ne suffit pas
 - [[arduino-timers|Timers matériels]] — pour la périodicité au µs près
+- [[timer|Timer]] — le compteur matériel sur lequel reposent `millis()` et `delay()`

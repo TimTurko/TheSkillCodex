@@ -84,10 +84,10 @@ Les tutoriels du module Arduino, classés par difficulté croissante. La plupart
 
 - [[arduino-programmation-non-bloquante|Programmation non bloquante]] ;
 - [[arduino-interruptions|Interruptions]] *(→ notion [[interruption]])* ;
-- [[arduino-deep-sleep|Deep sleep]] ;
+- [[arduino-deep-sleep|Deep sleep]] *(→ notion [[deep-sleep]])* ;
 - [[arduino-pid|Régulation PID]] — boucle de commande ;
 - [[arduino-timers|Timers matériels]] *(→ notion [[timer]])* ;
-- [[arduino-memoire|Gestion mémoire]] — RAM, PROGMEM ;
+- [[arduino-memoire|Gestion mémoire]] *(→ notion [[memoire]])* — RAM, PROGMEM ;
 - [[arduino-watchdog|Watchdog]] — robustesse du firmware.
 
 Le multitâche (FreeRTOS) sera traité côté module ESP32 et dans [[firmware]]. D'autres tutos compléteront ces paliers au fil des projets.

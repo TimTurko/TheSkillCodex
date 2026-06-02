@@ -36,7 +36,7 @@ Une Uno a **trois timers** — Timer0, Timer1, Timer2 — mais ils ne sont pas t
 
 ### 2. Configurer le timer via la bibliothèque
 
-La bibliothèque **TimerOne** (à installer depuis le gestionnaire de bibliothèques) règle la période en microsecondes en une ligne. Pour 100 Hz, la période vaut 10 000 µs.
+La bibliothèque **TimerOne** (à installer via le [[arduino-bibliotheques|gestionnaire de bibliothèques]]) règle la période en microsecondes en une ligne. Pour 100 Hz, la période vaut 10 000 µs.
 
 ```cpp
 #include <TimerOne.h>
@@ -104,7 +104,7 @@ L'échantillonnage tombe toutes les 10 ms **quelle que soit la charge de la bouc
 
 ## Cas particulier — Sous le capot : les registres
 
-Ce que fait TimerOne, on peut l'écrire directement avec les **registres** de l'AVR, en mode CTC (*Clear Timer on Compare*). C'est plus verbeux et **spécifique à la puce** (ATmega328P de l'Uno), mais ça montre la mécanique réelle décrite dans la notion : un prédiviseur, une valeur de comparaison, une interruption sur comparaison.
+Ce que fait TimerOne, on peut l'écrire directement avec les **registres** de l'AVR, en mode CTC (*Clear Timer on Compare*). C'est plus verbeux et **spécifique à la puce** (ATmega328P de l'Uno), mais ça montre la mécanique réelle décrite dans la notion : un prédiviseur, une valeur de comparaison, une interruption sur comparaison. Les opérations bit-à-bit qu'il emploie — masque, mise à 1 avec `|=`, décalage `<<` — sont détaillées dans [[manipulation-de-bits|la manipulation de bits]].
 
 ```cpp
 void setup() {
