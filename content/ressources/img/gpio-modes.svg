@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 300" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Trois façons de configurer une broche logique</title>
+  <desc id="d1">Trois schémas comparés. À gauche, une sortie push-pull : deux interrupteurs internes relient la broche soit à l'alimentation (état haut) soit à la masse (état bas), si bien qu'elle impose activement les deux niveaux. Au centre, une sortie drain ouvert : un seul interrupteur tire la broche vers la masse ; pour l'état haut, une résistance de tirage externe (pull-up) ramène la broche vers l'alimentation. À droite, une entrée avec tirage : une résistance pull-up vers l'alimentation maintient un niveau franc au repos, qu'un bouton fait basculer vers la masse à l'appui.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .st { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .lab { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .sub { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .rail { font: 700 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .boxg { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .wire { stroke: #888780; stroke-width: 1.7; fill: none; }
+      .res { fill: #FFFFFF; stroke: #BA7517; stroke-width: 1.8; }
+      .reslab { font: 700 10px sans-serif; text-anchor: start; fill: #BA7517; }
+      .node { fill: #888780; }
+      .pin { font: 600 10px sans-serif; text-anchor: start; fill: #2C2C2A; }
+      .lev { stroke: #2C2C2A; stroke-width: 1.7; }
+      .term { fill: #2C2C2A; }
+      .gnd { stroke: #888780; stroke-width: 1.6; }
+      .cap { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lab, .sub, .cap, .pin { fill: #F1EFE8; }
+        .st, .reslab { fill: #EF9F27; }
+        .boxg { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire, .gnd { stroke: #BBBBBB; }
+        .res { fill: #2C2C2A; stroke: #EF9F27; }
+        .node, .term { fill: #BBBBBB; }
+        .lev { stroke: #F1EFE8; }
+        .rail { fill: #BBBBBB; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+  </defs>
+
+  <text x="420" y="26" class="ti">Configurer une broche : deux sorties, une entrée</text>
+  <line x1="280" y1="48" x2="280" y2="284" class="divi"/>
+  <line x1="560" y1="48" x2="560" y2="284" class="divi"/>
+
+  <!-- ===== 1 · SORTIE PUSH-PULL ===== -->
+  <text x="140" y="66" class="st">1 · Sortie push-pull</text>
+  <text x="140" y="90" class="rail">VCC</text>
+  <line x1="112" y1="96" x2="168" y2="96" class="wire"/>
+  <line x1="140" y1="96" x2="140" y2="110" class="wire"/>
+  <circle cx="140" cy="110" r="2.6" class="term"/>
+  <line x1="140" y1="110" x2="128" y2="128" class="lev"/>
+  <circle cx="140" cy="132" r="2.6" class="term"/>
+  <text x="98" y="125" class="sub">haut</text>
+  <line x1="140" y1="132" x2="140" y2="158" class="wire"/>
+  <circle cx="140" cy="158" r="3.2" class="node"/>
+  <line x1="140" y1="158" x2="205" y2="158" class="wire" marker-end="url(#ar)"/>
+  <text x="209" y="162" class="pin">broche</text>
+  <line x1="140" y1="158" x2="140" y2="180" class="wire"/>
+  <circle cx="140" cy="180" r="2.6" class="term"/>
+  <line x1="140" y1="180" x2="152" y2="198" class="lev"/>
+  <circle cx="140" cy="202" r="2.6" class="term"/>
+  <text x="178" y="195" class="sub">bas</text>
+  <line x1="140" y1="202" x2="140" y2="216" class="wire"/>
+  <line x1="126" y1="216" x2="154" y2="216" class="gnd"/>
+  <line x1="130" y1="221" x2="150" y2="221" class="gnd"/>
+  <line x1="134" y1="226" x2="146" y2="226" class="gnd"/>
+  <text x="140" y="256" class="cap">Pousse vers le haut</text>
+  <text x="140" y="272" class="cap">ET tire vers le bas.</text>
+
+  <!-- ===== 2 · SORTIE DRAIN OUVERT ===== -->
+  <text x="420" y="66" class="st">2 · Sortie drain ouvert</text>
+  <text x="420" y="90" class="rail">VCC</text>
+  <line x1="392" y1="96" x2="448" y2="96" class="wire"/>
+  <line x1="420" y1="96" x2="420" y2="108" class="wire"/>
+  <rect x="411" y="108" width="18" height="34" rx="2" class="res"/>
+  <text x="433" y="124" class="reslab">pull-up</text>
+  <text x="433" y="137" class="reslab">externe</text>
+  <line x1="420" y1="142" x2="420" y2="158" class="wire"/>
+  <circle cx="420" cy="158" r="3.2" class="node"/>
+  <line x1="420" y1="158" x2="485" y2="158" class="wire" marker-end="url(#ar)"/>
+  <text x="489" y="162" class="pin">broche</text>
+  <line x1="420" y1="158" x2="420" y2="180" class="wire"/>
+  <circle cx="420" cy="180" r="2.6" class="term"/>
+  <line x1="420" y1="180" x2="432" y2="198" class="lev"/>
+  <circle cx="420" cy="202" r="2.6" class="term"/>
+  <text x="458" y="195" class="sub">bas</text>
+  <line x1="420" y1="202" x2="420" y2="216" class="wire"/>
+  <line x1="406" y1="216" x2="434" y2="216" class="gnd"/>
+  <line x1="410" y1="221" x2="430" y2="221" class="gnd"/>
+  <line x1="414" y1="226" x2="426" y2="226" class="gnd"/>
+  <text x="420" y="256" class="cap">Tire vers le bas seulement ;</text>
+  <text x="420" y="272" class="cap">pull-up externe pour le haut.</text>
+
+  <!-- ===== 3 · ENTRÉE AVEC TIRAGE ===== -->
+  <text x="700" y="66" class="st">3 · Entrée avec tirage</text>
+  <text x="660" y="90" class="rail">VCC</text>
+  <line x1="632" y1="96" x2="688" y2="96" class="wire"/>
+  <line x1="660" y1="96" x2="660" y2="108" class="wire"/>
+  <rect x="651" y="108" width="18" height="34" rx="2" class="res"/>
+  <text x="673" y="130" class="reslab">pull-up</text>
+  <line x1="660" y1="142" x2="660" y2="158" class="wire"/>
+  <circle cx="660" cy="158" r="3.2" class="node"/>
+  <rect x="724" y="143" width="72" height="30" rx="4" class="boxg"/>
+  <text x="760" y="162" class="lab">entrée</text>
+  <line x1="660" y1="158" x2="724" y2="158" class="wire"/>
+  <line x1="660" y1="158" x2="660" y2="180" class="wire"/>
+  <circle cx="660" cy="180" r="2.6" class="term"/>
+  <line x1="660" y1="180" x2="672" y2="198" class="lev"/>
+  <circle cx="660" cy="202" r="2.6" class="term"/>
+  <text x="698" y="195" class="sub">bouton</text>
+  <line x1="660" y1="202" x2="660" y2="216" class="wire"/>
+  <line x1="646" y1="216" x2="674" y2="216" class="gnd"/>
+  <line x1="650" y1="221" x2="670" y2="221" class="gnd"/>
+  <line x1="654" y1="226" x2="666" y2="226" class="gnd"/>
+  <text x="700" y="256" class="cap">Au repos, le tirage fixe « 1 ».</text>
+  <text x="700" y="272" class="sub">Pull-down (vers GND) : repos à « 0 ».</text>
+</svg>

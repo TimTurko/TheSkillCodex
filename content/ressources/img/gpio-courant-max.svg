@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 310" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Une broche ne pilote jamais directement une charge gourmande</title>
+  <desc id="d3">Deux montages comparés pour piloter un moteur. À gauche, montage dangereux : la broche est reliée directement au moteur, qui appelle bien plus de courant que le maximum admissible par une broche, ce qui la met en surintensité et risque de la détruire. À droite, montage correct : la broche commande un transistor à travers une résistance ; c'est le transistor qui laisse passer le fort courant fourni par l'alimentation, la broche ne fournissant qu'un courant de commande négligeable. Valeurs indicatives, à lire dans la datasheet du microcontrôleur.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .stok { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .stko { font: 700 13px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .lab { font: 700 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .laba { font: 700 11px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .sub { font: 400 10px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .rail { font: 700 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .boxg { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .boxa { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .wire { stroke: #888780; stroke-width: 1.7; fill: none; }
+      .wired { stroke: #B23A2E; stroke-width: 2.4; fill: none; }
+      .res { fill: #FFFFFF; stroke: #888780; stroke-width: 1.4; }
+      .reslab { font: 700 10px sans-serif; text-anchor: start; fill: #2C2C2A; }
+      .gnd { stroke: #888780; stroke-width: 1.6; }
+      .cap { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .ok { font: 700 18px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .danz { font: 700 11px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .danlab { font: 700 11px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .bolt { fill: #B23A2E; stroke: none; }
+      .ilab { font: 700 10px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .ilabok { font: 700 10px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lab, .sub, .cap, .reslab { fill: #F1EFE8; }
+        .stok, .ok, .ilabok { fill: #EF9F27; }
+        .stko, .danz, .danlab, .ilab { fill: #E0705F; }
+        .boxg { fill: #4A4A48; stroke: #BBBBBB; }
+        .boxa { fill: #EF9F27; stroke: #EF9F27; }
+        .laba { fill: #2C2C2A; }
+        .wire, .gnd { stroke: #BBBBBB; }
+        .wired { stroke: #E0705F; }
+        .res { fill: #2C2C2A; stroke: #BBBBBB; }
+        .bolt { fill: #E0705F; }
+        .rail { fill: #BBBBBB; }
+        .foot { fill: #BBBBBB; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+    <marker id="aok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+  </defs>
+
+  <text x="420" y="26" class="ti">Une broche ne pilote pas directement une charge gourmande</text>
+  <line x1="420" y1="48" x2="420" y2="262" class="divi"/>
+
+  <!-- ===== GAUCHE : DIRECT (DANGER) ===== -->
+  <text x="210" y="66" class="stko">✗ En direct</text>
+  <rect x="70" y="92" width="84" height="46" rx="4" class="boxg"/>
+  <text x="112" y="112" class="lab">broche</text>
+  <text x="112" y="128" class="sub">≈ 20 mA max</text>
+  <!-- wire to motor, danger -->
+  <line x1="154" y1="115" x2="214" y2="115" class="wired" marker-end="url(#ad)"/>
+  <text x="184" y="106" class="ilab">I &gt; I max</text>
+  <!-- motor -->
+  <circle cx="244" cy="115" r="26" class="boxg"/>
+  <text x="244" y="120" class="lab">M</text>
+  <text x="244" y="158" class="sub">moteur ≈ 300 mA</text>
+  <line x1="244" y1="141" x2="244" y2="170" class="wire"/>
+  <line x1="230" y1="170" x2="258" y2="170" class="gnd"/>
+  <line x1="234" y1="175" x2="254" y2="175" class="gnd"/>
+  <line x1="238" y1="180" x2="250" y2="180" class="gnd"/>
+  <!-- bolt on pin -->
+  <path d="M150,92 l-12,18 l8,0 l-10,18 l22,-24 l-9,0 l9,-12 Z" class="bolt"/>
+  <text x="210" y="208" class="danz">Surintensité sur la broche</text>
+  <text x="210" y="223" class="danlab">→ échauffement, broche grillée.</text>
+
+  <!-- ===== DROITE : TRANSISTOR (OK) ===== -->
+  <text x="630" y="66" class="stok">✓ Via un transistor</text>
+  <text x="690" y="90" class="rail">VCC</text>
+  <line x1="662" y1="96" x2="718" y2="96" class="wire"/>
+  <!-- motor on VCC side -->
+  <line x1="690" y1="96" x2="690" y2="108" class="wire"/>
+  <circle cx="690" cy="130" r="20" class="boxg"/>
+  <text x="690" y="135" class="lab">M</text>
+  <line x1="690" y1="150" x2="690" y2="166" class="wire"/>
+  <!-- transistor box -->
+  <rect x="666" y="166" width="48" height="34" rx="4" class="boxa"/>
+  <text x="690" y="187" class="laba">transistor</text>
+  <!-- pin drives base through resistor -->
+  <rect x="556" y="100" width="78" height="40" rx="4" class="boxg"/>
+  <text x="595" y="118" class="lab">broche</text>
+  <text x="595" y="132" class="sub">faible courant</text>
+  <line x1="595" y1="140" x2="595" y2="183" class="wire"/>
+  <rect x="585" y="148" width="20" height="14" rx="2" class="res"/>
+  <text x="608" y="159" class="reslab">R</text>
+  <line x1="595" y1="183" x2="666" y2="183" class="wire" marker-end="url(#aok)"/>
+  <!-- emitter to gnd -->
+  <line x1="690" y1="200" x2="690" y2="214" class="wire"/>
+  <line x1="676" y1="214" x2="704" y2="214" class="gnd"/>
+  <line x1="680" y1="219" x2="700" y2="219" class="gnd"/>
+  <line x1="684" y1="224" x2="696" y2="224" class="gnd"/>
+  <text x="745" y="126" class="ilabok">I fort</text>
+  <text x="630" y="244" class="cap">Le courant passe par l'alim ;</text>
+  <text x="630" y="259" class="cap">la broche ne fait que commander.</text>
+
+  <text x="420" y="296" class="foot">Valeurs indicatives — le courant maximal par broche et le courant total se lisent dans la datasheet du microcontrôleur.</text>
+</svg>
