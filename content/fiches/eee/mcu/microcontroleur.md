@@ -25,7 +25,8 @@ Cette fiche tient une frontière nette avec les notions voisines, pour éviter l
 - **choisir** une famille et une carte adaptées au projet → ici (panorama + aide au choix) ;
 - **structurer** le code embarqué → [[firmware]] ;
 - **lire la datasheet** d'un composant → [[lire-une-datasheet]] ;
-- **faire communiquer** le MCU avec ses périphériques → [[bus-de-communication]].
+- **faire communiquer** le MCU avec ses périphériques → [[bus-de-communication]] ;
+- **réagir immédiatement à un événement** sans le surveiller en boucle → [[interruption]].
 
 ## Panorama des familles
 

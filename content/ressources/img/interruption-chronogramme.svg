@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Le déroulement d'une interruption dans le temps</title>
+  <desc id="d1">Chronogramme à deux niveaux. En bas, le programme principal s'exécute le long de l'axe du temps. Quand un événement survient — un front sur une broche, par exemple — le programme principal est suspendu et l'exécution saute vers le haut, dans la routine d'interruption (ISR), qui s'exécute brièvement. À la fin de l'ISR, l'exécution redescend et le programme principal reprend exactement là où il s'était arrêté. Pendant toute la durée de l'ISR, le programme principal est en pause.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .lane { font: 700 12px sans-serif; text-anchor: end; fill: #2C2C2A; }
+      .barp { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .bari { fill: #BA7517; stroke: #BA7517; stroke-width: 1.4; }
+      .laba { font: 700 13px sans-serif; text-anchor: middle; fill: #FFFFFF; }
+      .barlab { font: 600 11px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .pause { fill: #888780; fill-opacity: .14; stroke: #888780; stroke-width: 1; stroke-dasharray: 4 3; }
+      .pauselab { font: italic 600 10px sans-serif; text-anchor: middle; fill: #888780; }
+      .ax { stroke: #888780; stroke-width: 1.4; }
+      .axlab { font: 600 11px sans-serif; text-anchor: start; fill: #888780; }
+      .evline { stroke: #BA7517; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .ev { font: 700 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .evsub { font: 400 10px sans-serif; text-anchor: middle; fill: #888780; }
+      .jump { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .jlab { font: 600 10px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lane, .barlab { fill: #F1EFE8; }
+        .barp { fill: #4A4A48; stroke: #BBBBBB; }
+        .bari { fill: #EF9F27; stroke: #EF9F27; }
+        .laba { fill: #2C2C2A; }
+        .pause { fill: #BBBBBB; fill-opacity: .16; stroke: #BBBBBB; }
+        .pauselab { fill: #BBBBBB; }
+        .ax { stroke: #BBBBBB; }
+        .axlab, .evsub, .foot { fill: #BBBBBB; }
+        .evline, .ev, .jump, .jlab { stroke: #EF9F27; fill: #EF9F27; }
+        .ev, .jlab { stroke: none; }
+      }
+    </style>
+    <marker id="aj" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+  </defs>
+
+  <text x="380" y="26" class="ti">Le déroulement d'une interruption</text>
+
+  <!-- lane labels -->
+  <text x="118" y="115" class="lane">ISR</text>
+  <text x="118" y="190" class="lane">Programme</text>
+  <text x="118" y="204" class="lane">principal</text>
+
+  <!-- dashed event/return verticals -->
+  <line x1="310" y1="86" x2="310" y2="250" class="evline"/>
+  <line x1="460" y1="86" x2="460" y2="250" class="evline"/>
+
+  <!-- ISR bar -->
+  <rect x="310" y="100" width="150" height="30" rx="3" class="bari"/>
+  <text x="385" y="120" class="laba">ISR</text>
+
+  <!-- programme bars -->
+  <rect x="130" y="184" width="180" height="30" rx="3" class="barp"/>
+  <text x="220" y="204" class="barlab">en cours</text>
+  <rect x="310" y="184" width="150" height="30" rx="3" class="pause"/>
+  <text x="385" y="203" class="pauselab">en pause</text>
+  <rect x="460" y="184" width="240" height="30" rx="3" class="barp"/>
+  <text x="580" y="204" class="barlab">reprend où il s'était arrêté</text>
+
+  <!-- jump up / down -->
+  <line x1="310" y1="182" x2="310" y2="132" class="jump" marker-end="url(#aj)"/>
+  <text x="276" y="160" class="jlab">saut</text>
+  <line x1="460" y1="130" x2="460" y2="182" class="jump" marker-end="url(#aj)"/>
+  <text x="494" y="160" class="jlab">retour</text>
+
+  <!-- time axis -->
+  <line x1="130" y1="250" x2="712" y2="250" class="ax" marker-end="url(#aj)"/>
+  <text x="700" y="266" class="axlab">temps</text>
+
+  <!-- event marker -->
+  <text x="310" y="80" class="ev">événement</text>
+  <text x="310" y="68" class="evsub">(front sur une broche)</text>
+
+  <text x="380" y="290" class="foot">Pendant toute la durée de l'ISR, le programme principal est suspendu — d'où la règle : une ISR doit rester courte.</text>
+</svg>
