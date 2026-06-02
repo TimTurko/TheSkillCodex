@@ -10,6 +10,38 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-02 — Phase 1 EEE scellée (`gpio`) + grappes `interruption`/`timer` + palier Niveau ingénieur Arduino complet
+
+### Périmètre
+Session longue, PC perso (MCP `filesystem:*`). Démarrage Cas A (prompt `gpio`). Clôture du squelette Phase 1 EEE (dernier rouge `gpio`), puis ouverture **et complétion** du palier *Niveau ingénieur* du hub Arduino : 2 grappes notion+tuto (`interruption`, `timer`), 1 tuto seul (`programmation-non-bloquante`), 1 batch de 4. Clôture documentaire en fin de session.
+
+### Livrables
+- **`gpio`** (transverse substantielle, `aa: [RA-EEE-C03-2/EEE/4]` C20) + 3 SVG (modes push-pull/drain ouvert/tirage ; bouton flottant ; courant max #B23A2E). **Scelle le squelette Phase 1.**
+- **Grappe `interruption`** : notion transverse (`aa: []`, ISR/`volatile`/atomicité + panorama 5 sources) + `arduino-interruptions` (externes, cas débitmètre Hall) + SVG chronogramme.
+- **Grappe `timer`** : notion transverse (`aa: []`, compteur/prescaler/débordement/comparaison) + `arduino-timers` (TimerOne + encart registres CTC) + SVG sawtooth.
+- **`arduino-programmation-non-bloquante`** (tuto seul, architecture coopérative) + SVG (boucle bloquante vs non-bloquante).
+- **Batch 4** : `arduino-deep-sleep` (LowPower), `arduino-pid` (manuel + `PID_v1`), `arduino-memoire` (`F()`/`PROGMEM`/SRAM), `arduino-watchdog` (`avr/wdt.h`). → **palier Niveau ingénieur 7/7 ; hub Arduino complet (4 paliers)**.
+- **Patchs/cross-links** : hub microcontroleur (frontière `interruption`) ; gpio→interruption ; pwm→timer ; arduino-temporisation→timer ; arduino-bibliotheques dans arduino-timers ; marqueurs `*(→ notion [[x]])*` au hub pour interruption/timer/deep-sleep/memoire.
+
+### Décisions
+- **Interruptions Option A** (concept transverse + tutos par source) : `interruption` écrite une fois, `arduino-interruptions` = externes seules, timer→`arduino-timers`, série/ADC au panorama. Anti-duplication C26.
+- **Notion transverse `timer`** créée (demande utilisateur), symétrique d'`interruption` ; résout le `[[timer]]` de la notion interruption.
+- **Batch des 4 Niveau ingénieur** malgré « cadrage propre » (précédent batch 21) : relecture concentrée reportée. Trous `cpp`/bit-à-bit **contournés** par bibliothèques (LowPower, `avr/wdt.h`) + traitement conceptuel (`memoire`).
+- **`programmation-non-bloquante` = 1 fiche** (pas grappe) : l'architecture est portée par le tuto, qui référence les notions existantes.
+
+### Conventions (candidates § 8)
+- **Marqueur `*(→ notion [[x]])*`** dans les hubs familles (tuto→notion transverse), éprouvé 5×.
+- **Exception SVG conceptuel à C29** : un schéma conceptuel (chronogramme, sawtooth, boucle) reste légitime dans un tuto MCU ; captures inline pour le câblage. Éprouvé 3×.
+- **C28 #B23A2E** : 2/2 (gpio-courant-max après niveaux-de-tension).
+
+### Tailles
+gpio 9,3 ; interruption 9,7 ; timer 7,6 ko ; 6 tutos arduino 7,9-10,9 ko ; **6 SVG**. JOURNAL ~30→~35 ko. **Archivage 1-pour-1 sauté** (mass-archivage à la session immédiatement précédente 29/05 suite 2, JOURNAL court, fenêtre 28-29/05 préservée à portée de lecture).
+
+### Corps — relecture concentrée (garde-fou)
+Relecture utilisateur due. (1) **Trou `cpp`** : `cpp.md` inexistant (rouge depuis le hub) alors que `memoire`/`programmation-non-bloquante`/`timers` s'y appuient → **prochaine session = rédiger `cpp`** (décision utilisateur). (2) **`manipulation-de-bits`** à créer (registres/masques/bit-à-bit), red-linkée depuis l'encart registres de `arduino-timers`. (3) **Géométrie des 6 SVG** hand-codés à valider au rendu. (4) **2 SVG candidats** non produits : schéma-bloc PID, profil consommation deep-sleep. (5) **Explorateur Quartz** : masquer via le composant Explorer du layout (**pas `draft:true`**, qui dépublie) — au BACKLOG. (6) Liens rouges volontaires : `cpp`, `manipulation-de-bits`, `esp32`, `firmware`, `arduino-filtrage`.
+
+---
+
 ## 2026-05-29 (suite 2) — Maintenance documentaire : archivage de masse 8 entrées (25/05 suite 7 → 27/05 suite 5)
 
 ### Périmètre

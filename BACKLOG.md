@@ -59,7 +59,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`alimentation-electronique`** — fiche-tuto compétence pro (re-cadrage 26/05 suite 5, ex `alimentation-stabilisee`). Régulation, découplage, masse, mode CV/CC, sécurité court-circuit.
 - [ ] **`bom-electronique`** — fiche-tuto compétence pro. Au-delà du `bom` générique projet, focus composants élec.
 - [ ] Alimentation d'un système embarqué
-- [ ] Pull-up / pull-down
+- [x] ~~Pull-up / pull-down~~ — couvert par `gpio` (02/06) : modes de tirage interne/externe, logique inversée, schéma push-pull/drain ouvert/tirage.
 - [x] ~~**`niveau-logique`** — compatibilité 3,3 V / 5 V, level shifters~~ — **fait 28/05 suite 4** sous le slug **`niveaux-de-tension`** (fiche-notion + 2 SVG ; popover posé dans `integration-et-tests.md` 26/05).
 - [x] ~~ADC~~ / DAC — popover `adc` créé 28/05 suite 4 (brique MCU) ; `DAC` reste à traiter.
 - [ ] Filtrage analogique de base
@@ -161,9 +161,11 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Améliorations site / Quartz
 
+- [ ] **Masquer / filtrer l'explorateur de fichiers Quartz** — l'arborescence alphabétique des fiches (`arduino-*` notamment) paraît « en vrac » côté étudiant (signalé 02/06), alors que l'ordre pédagogique vit dans les hubs. Agir sur le **composant Explorer du layout Quartz** (le retirer, ou lui donner un filtre de dossiers). **Ne PAS utiliser `draft: true`** : en Quartz une page `draft` est exclue du build (dépubliée), ce qui casserait tous les wiki-links/popovers entrants. À traiter en pré-publication.
 - [ ] **Reprise visuelle des images SVG** (pas du contenu) avant publication — **très peu urgent, à faire juste avant l'ouverture aux élèves**. Concerne tous les SVG produits depuis le début du projet :
   - **Premiers jets fragiles, affinage utilisateur attendu** (produits le 25/05 suite 2, génériques + exemples station météo) : `jalons-generique.svg`, `jalons-station-meteo.svg`, `wbs-generique.svg`, `wbs-station-meteo.svg`, `retroplanning-generique.svg`, `retroplanning-station-meteo.svg`, `gantt-generique.svg`, `gantt-station-meteo.svg`, `matrice-de-risques-generique.svg`, `matrice-de-risques-station-meteo.svg`, `matrice-de-decision-generique.svg`, `matrice-de-decision-station-meteo.svg`. Ce sont des premiers jets Claude, à reprendre visuellement avant publication (alignements, hauteurs de lignes, positionnements de textes proches des bords, lisibilité smartphone).
   - **Premiers jets EEE/mcu (28/05)** : `microcontroleur-architecture.svg` (schéma bloc, 28/05 suite 2), `lire-une-datasheet-generique.svg` (anatomie datasheet), `lire-une-datasheet-l298n.svg` (L298N deux mondes). 1ers jets Claude — affinage avant publication (alignements, lisibilité smartphone, sens des deux flèches de rotation moteur sur le SVG L298N).
+  - **Premiers jets EEE/mcu (02/06)** : `gpio-modes`, `gpio-flottant`, `gpio-courant-max` (#B23A2E), `interruption-chronogramme`, `timer-compteur`, `programmation-non-bloquante` — 6 SVG hand-codés à valider au rendu Quartz. **+ 2 SVG candidats non encore produits** : schéma-bloc PID (consigne→erreur→P+I+D→système→retour) pour `arduino-pid`, profil de consommation deep-sleep (pics de réveil + vallées) pour `arduino-deep-sleep`.
   - **Versions stabilisées antérieures** : `cycle-v-projet.svg`, `bete-a-cornes-generique.svg` + 3 exemples, `pieuvre-generique.svg`, `pieuvre-bras-3-axes.svg`.
   - **Critères de la passe d'affinage** : homogénéité visuelle (poids des traits, tailles relatives, alignement des éléments), positionnement texte (centrages, gaps autour des bords), cohérence palette, lisibilité smartphone. Le contenu pédagogique reste inchangé — passe de polissage esthétique uniquement. Posée 24/05 (suite 2), enrichie 25/05 suite 2.
 

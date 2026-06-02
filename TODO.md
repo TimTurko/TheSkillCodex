@@ -5,6 +5,8 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➜ MAJ 02/06** — Squelette Phase 1 EEE **scellé** (`gpio` créée, dernier rouge résorbé) + **palier *Niveau ingénieur* du hub Arduino complet (7/7)** : grappes `interruption`+`timer` (notion transverse + tuto chacune), `arduino-programmation-non-bloquante`, batch 4 (`deep-sleep`/`pid`/`memoire`/`watchdog`). Hub Arduino aux 4 paliers. **Prochaine session = rédiger `cpp`** (trou des bases C++, lien rouge depuis le hub ; `memoire`/`programmation-non-bloquante`/`timers` s'y appuient). Émergé : notion `manipulation-de-bits` (registres/masques), 2 SVG candidats (schéma-bloc PID, profil deep-sleep), item explorateur Quartz au BACKLOG. **Relecture concentrée** des fiches Niveau ingénieur + grappes en attente (garde-fou).
+>
 > **➜ MAJ 29/05 (suite)** — Phase 1 squelette EEE **close** (grappe `algorithme` : algorithme / MAE / logigramme / grafcet / chronogramme + tuto `analyse-de-schema-electronique` ; reste `gpio` rouge). **MVP strict structurellement atteint** — couverture AA 100 % **à reconcilier** (cf. *Pré-publication MVP*). **Prochaine session = à décider ensemble (post-push)** : pistes ouvertes — clore `gpio` ; chaîne `arduino-machine-a-etats` (notion MAE désormais disponible) ; 1ʳᵉ fiche Niveau ingénieur ; hub `esp32` (Phase 4) ; ou passe relecture/images du backlog livré.
 >
 > **➜ Prochaine session = arbitrage utilisateur ouvert (post-batch Arduino)** — Phase 2 a livré 21 fiches arduino-* (Bases 11 + Avancées straight 10) en batch le 29/05 soir, hub Arduino Avancées à 19/21 (manquent `arduino-machine-a-etats` + `arduino-filtrage` optionnel) + Niveau ingénieur entièrement à faire (7 fiches, cadrage propre par fiche). **Choix probable à proposer en démarrage** : (a) chaîne `machine-a-etats` (notion transverse) + `arduino-machine-a-etats` ; (b) 1ère fiche Niveau ingénieur (`arduino-interruptions` ou `arduino-pid` comme têtes naturelles) ; (c) hub `esp32` (second embranchement, ouverture Phase 4) ; (d) `gpio` transverse (la grappe E/S reste rouge). **Relecture des 21 fiches arduino-* en attente** de la récolte du premier set d'images utilisateur (garde-fou explicite acté le 29/05).
@@ -63,7 +65,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] ~~`microcontroleur`~~ (hub mère — panorama 7 familles + aide au choix + SVG archi MCU + 11 popover-notions) — **fait 28/05 suite 2**
 - [x] ~~`lire-une-datasheet`~~ — **fait 28/05 suite 3** (fiche-tuto transverse ~15,3 ko + 2 SVG : anatomie datasheet générique + L298N deux mondes ; procédure générique 5 étapes + *Exemple* L298N autonome 2 moteurs CC ; C19 variante-(c) épreuve faible ; AA élargi C20 ; cas autonome ≠ fil rouge bras 3 axes — borne C23).
 - [x] ~~**`niveaux-de-tension`** (fiche-notion transverse — 3,3 V vs 5 V, adaptation de niveau)~~ — **fait 28/05 suite 4** (~8,6 ko + 2 SVG, AA EEE/4 + /1, cas autonome ESP32/HC-SR04, rouge danger #B23A2E)
-- [ ] **`gpio`** (fiche transverse — promue de popover à fiche substantielle : modes INPUT/OUTPUT/INPUT_PULLUP/open-drain + état à l'allumage ; émergée 28/05 suite 2) — **seul reliquat Phase 1, laissé rouge**
+- [x] ~~**`gpio`** (fiche transverse substantielle : modes INPUT/OUTPUT/INPUT_PULLUP/open-drain + état à l'allumage)~~ — fait 02/06 (+ 3 SVG : modes push-pull/drain ouvert/tirage, bouton flottant, courant max #B23A2E ; `aa: RA-EEE-C03-2/EEE/4` multi-couverture C20). **Squelette Phase 1 scellé.**
 - [x] ~~**`analyse-de-schema-electronique`** (fiche-tuto transverse)~~ — fait 29/05 suite (+ 2 SVG ; aa `EEE/1` multi-couverture avec `lire-une-datasheet` + `EEE/2` ; cas autonome pont diviseur → MCU → LED)
 - [x] ~~**`chronogramme`** (fiche-notion, 4ᵉ représentation du hub algorithme)~~ — fait 29/05 suite (+ 2 SVG : générique axe-temps + PWM/UART ; `EEE/5` ; raccrochage oscilloscope/datasheet)
 - [x] ~~**`algorithme`** (mini-hub mère)~~ — fait 29/05 (début session ; hub léger : panorama 4 représentations + aide au choix)
@@ -79,6 +81,10 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] ~~`arduino-prise-en-main` (fiche-tuto, palier *Prendre en main*)~~ — fait 29/05 matin (cas Blink LED_BUILTIN)
 - [x] ~~`tinkercad` (fiche-tuto simu, palier *Prendre en main*)~~ — fait 29/05 matin (Blink simulé + bouton `INPUT_PULLUP`)
 - [x] ~~**Module Arduino — batch Bases + Avancées straight (21 fiches)**~~ — fait 29/05 soir (PC pro, MCP `theskillcodex:*`). **Reste à écrire** : `arduino-machine-a-etats` (chaîne avec notion `machine-a-etats`) ; `arduino-filtrage` (optionnel) ; 7 Niveau ingénieur (`arduino-programmation-non-bloquante`, `arduino-interruptions`, `arduino-deep-sleep`, `arduino-pid`, `arduino-timers`, `arduino-memoire`, `arduino-watchdog`) — chacun en session dédiée avec cadrage propre. **Relecture/amélioration utilisateur** post-récolte premier set d'images à conduire avant publication.
+  - **02/06 — complété** : `arduino-machine-a-etats` + **7 Niveau ingénieur** (`arduino-programmation-non-bloquante`/`interruptions`/`deep-sleep`/`pid`/`timers`/`memoire`/`watchdog`) écrits → **palier *Niveau ingénieur* 7/7, hub Arduino complet (4 paliers)**. Reste `arduino-filtrage` (optionnel).
+
+- [ ] **`cpp`** (fiche transverse [T] — bases du langage : `setup`/`loop`, variables/types, fonctions, structures de contrôle ; référencée dans le hub Arduino « Apprendre les bases », **lien rouge**). **Prochaine session (02/06)** — trou révélé par `memoire`/`programmation-non-bloquante`/`timers`.
+- [ ] **`manipulation-de-bits`** (notion transverse — binaire, masque, mise à 1 `|=` / 0 `&= ~`, bascule `^=`, ET/OU/OU-X/NON, décalages, lien registres). Red-linkée depuis l'encart registres de `arduino-timers`.
 
 #### Pré-publication MVP (après Phase 2)
 
