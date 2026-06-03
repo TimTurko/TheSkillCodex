@@ -10,6 +10,39 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-02 (suite) — Phase 1 EEE : transverses langage/architecture + hub ESP32
+
+### Périmètre
+Suite directe de la session 02/06 (même jour), PC perso (MCP `filesystem:*`). Démarrage Cas A (prompt `cpp`). Rédaction de la fiche transverse `cpp`, puis enchaînement sur `fonction-informatique`, `manipulation-de-bits`, `firmware`, et le hub famille `esp32`. Toutes dans `eee/mcu/`.
+
+### Livrables
+- **`cpp`** (14,7 ko, tuto transverse, `aa: [RA-PROJET-C03-3/PROJ/5]` effleuré C20) — socle langage : **ferme le dernier rouge de *Apprendre les bases*** du hub Arduino. Tour du langage en 5 blocs (setup/loop · types + tailles AVR/ARM · opérateurs · fonctions & portée · contrôle), exemple classificateur de seuil, `#define`/`const`, *Aller plus loin* en tremplin.
+- **`fonction-informatique`** (3,0 ko, notion popover, `aa: []`) — fonction-programmation distinguée de la `fonction` AF ; profondeur déléguée à `cpp`.
+- **`manipulation-de-bits`** (6,2 ko, notion, `aa: [.../PROJ/5]` effleuré) — 4 idiomes masque (agnostiques) + 1 illustration registre AVR ; **résout le double rouge `cpp` ↔ `arduino-timers`** ; pas de SVG (motifs binaires monospace).
+- **`firmware`** (5,7 ko, notion, `aa: [.../PROJ/5]` effleuré) — progression super-loop → coopératif → MAE → modules → RTOS + section « selon la famille » ; option (c).
+- **`esp32/esp32.md`** (6,0 ko, hub famille, `aa: []`) — décalque `arduino`, 4 paliers + [A]/[T], alerte **3,3 V non tolérant 5 V** en callout. Nouveau sous-dossier dédié (C18).
+
+### Décisions
+- **AA PROJ/5** (« Programmer ou paramétrer un contrôleur numérique », trouvé via `Competences.xlsx`) posé en **effleuré C20** sur `cpp`/`manipulation-de-bits`/`firmware`. Déjà Couvert ailleurs → statut dominant intact, marqueur de transversalité seulement.
+- **`cpp` à plat dans `eee/mcu/`** (transverse [T], pas dans `arduino/`) ; structure « tour du langage » (déviation de la procédure séquentielle) ; saveur Arduino assumée. Pointeurs/allocation : `cpp` = socle qui ouvre (*Aller plus loin*), allocation côté ressource → `arduino-memoire` (arbitrage Tim).
+- **`firmware` + `esp32` une-par-une** (refus batch C27 argumenté : tous deux nommés exceptions une-par-une, zéro surface de cadrage commune). Tim a tranché « fais-les » → faites une-par-une, calls assumés en relecture.
+- **`esp32` en sous-dossier dédié** (C18), comme `arduino`.
+
+### Conventions (éprouvage)
+- **C19 — vrai test sur `firmware`** : `analyse-de-schema` était une épreuve faible (mono-exemple) ; `firmware` est le cas multi-techno réel → **option (c)** (générique + renvois). Reformulable/promouvable.
+- **C25 (4 paliers) + C26 ([A]/[T]) — épreuve 2/N sur `esp32`** : confirmées, promouvables §6. C32 (`*(→ notion [[x]])*`) réutilisé (`esp32-deep-sleep`).
+- **C20** : 3 fiches en effleuré PROJ/5.
+
+### Tailles
+`cpp` 14,7 · `fonction-informatique` 3,0 · `manipulation-de-bits` 6,2 · `firmware` 5,7 · `esp32` 6,0 ko. JOURNAL ~35 → ~40 ko. **Archivage 1-pour-1 repris** (entrée la plus ancienne déplacée en archive).
+
+### Corps — pushback batch + correctif méthodo (recherche récursive)
+Le « batch firmware+esp32 » demandé a déclenché un D obligatoire : C27 nomme explicitement `firmware` et les hubs familles comme exceptions une-par-une, et ces deux fiches n'ont aucune surface de cadrage commune (multi-techno transverse vs hub famille) — un « cadrage groupé » aurait été deux cadrages agrafés. Tim a maintenu « fais-les » ; faites une-par-une avec calls structurants assumés. C27 a tenu sans forcer sa borne.
+
+**Deux fausses alertes documentaires corrigées en clôture.** J'avais signalé `templates/` et `fonction.md` comme absents : c'était un artefact de recherche (`search_files` avec motif `*x*` ne scanne que le dossier courant, et j'avais regardé la racine au lieu de `content/`). En réalité `content/templates/` contient `fiche-tuto.md` / `-notion` / `-trame` / `callouts`, et `content/fiches/proj/fonction.md` (AF) existe. **Leçon** : pour un scan récursif, motif `**/*x*` obligatoire ; ne pas conclure « absent » sur un `*x*` simple. Aucun écart documentaire réel, rien au BACKLOG. Seul point ouvert : le tableau des variantes `esp32` (issu de ma connaissance, pas d'une source live) à confronter à la doc Espressif avant publication.
+
+---
+
 ## 2026-06-02 — Phase 1 EEE scellée (`gpio`) + grappes `interruption`/`timer` + palier Niveau ingénieur Arduino complet
 
 ### Périmètre
@@ -244,35 +277,6 @@ Clôture Phase 0 (clôture phase 1 GP) : création des 6 fiches restantes du lot
 
 ### Note
 Session non journalisée sur le moment. Vérification fine des 6 fiches reportée au gate *Pré-publication MVP* du TODO.
-
----
-
-## 2026-05-28 — Nettoyage documentaire : investigation NBSP, source réfutée
-
-### Périmètre
-Session de nettoyage documentaire (PRIORITÉ 1 du prompt de lancement Cas A) avant reprise Phase 0. PC perso, MCP `filesystem:*`. Investigation de la cause des NBSP parasitant les fichiers de pilotage. PRIORITÉ 2 (`bom`) non abordée (arbitrage utilisateur : arrêt après P1). C4 test 2/N différé (voir Décisions).
-
-### Livrables
-- **Diagnostic NBSP bouclé** : hypothèse 27/05 suite 5 (plugin Obsidian « Smart Typography » → U+202F) **réfutée**. Aucun plugin typographique installé (Excalidraw / Git / Pandoc seuls), aucune option Editor n'insérant de NBSP. Test isolé décisif : une ligne de contrôle écrite par Claude via MCP, bourrée de `: ; ? ! % €`, ressort `--check [ok]` → **mes écritures MCP n'injectent aucun invisible**. Save Obsidian également propre (`[ok]` après édition manuelle utilisateur). Seuls invisibles reproduits de la session : 4× U+00A0 issus d'un collage web délibéré (recette + code C), hors flux normal. Zéro U+202F nulle part.
-- **`TODO.md`** : zone de test temporaire retirée — mes 2 lignes de contrôle via MCP, bloc recette/code par l'utilisateur dans Obsidian. Fichier revenu à l'état propre, flèche/contexte 28/05.
-- **`conventions.md`** : complément C14 daté 28/05 (réfutation de l'attribution U+202F → Obsidian).
-
-### Décisions
-- **PRIORITÉ 1 actée non reproductible** : aucune source active de NBSP dans le flux normal (ni MCP Claude, ni Obsidian, ni saisie utilisateur — l'utilisateur ne touche jamais ces fichiers). `normalize` + hook conservés comme filet de sécurité bon marché pour le rare collage web. Rien à configurer dans Obsidian.
-- **C4 test 2/N différé** : l'entrée la plus ancienne du JOURNAL (25/05 suite 6) est une entrée *legacy* pré-C21 (~9 ko), pas une entrée hybride 3-5 ko. La couper en un seul `edit_file` exige de reproduire ~9 ko verbatim (risque de mismatch C14) pour un bénéfice marginal (JOURNAL ~28 ko, sans pression, archivage de masse récent 27/05 suite 4). Reporté à une session sous pression JOURNAL, ou via cut segmenté.
-- **Prochaine session = Phase 0 `bom`** (inchangé).
-
-### Conventions
-- **C14 complément 28/05** : l'attribution des échecs d'anchor à « la typo française U+202F injectée par Obsidian » (récit porté depuis 26/05) n'est **pas étayée** sur ce poste. Les seuls NBSP reproductibles sont des U+00A0 de collage web (hors flux normal). Les échecs d'anchor historiques relèvent plus probablement des autres causes déjà documentées dans la chaîne C14 (CRLF de states passés, artefacts U+FFFD de troncature `head`/`tail`, typos de transcription).
-- **Affinage C4 (candidat)** : la cible « 3 tool calls » suppose des entrées C21 (3-5 ko). Les entrées legacy (~9-15 ko) rendent le cut en 1 `edit_file` risqué → segmenter (symétrique au pattern MARKER+N segments) ou reproduire avec vigilance.
-
-### Tailles
-- `JOURNAL.md` : ~28 → ~32 ko (cette entrée, pas d'archivage C4 cette session).
-- `conventions.md` : ~32 → ~33 ko (complément C14).
-- `TODO.md` : retour à l'état propre (zone test retirée) + flèche/contexte 28/05.
-
-### Acquis méthodo — une hypothèse héritée n'est pas un fait
-Le prompt de lancement (rédigé 27/05 suite 5) posait une procédure détaillée de « config Obsidian anti-NBSP » sur la base d'un coupable *supposé* (plugin Smart Typography). Vérification : pas de plugin. L'investigation par élimination puis test isolé a renversé le diagnostic — la source supposée n'existait pas, et l'écrivain unique réel (mes propres écritures MCP) est propre. Leçon : une procédure héritée encode une *hypothèse*, pas un *fait* ; la vérifier avant d'exécuter évite de « couper » une source inexistante. Incident secondaire : `--check` mis en **gras** dans une consigne et copié littéralement (`**--check**`) a fait tourner le script en mode FIX au lieu de CHECK — les consignes de commande à l'utilisateur ne doivent pas porter de markdown.
 
 ---
 

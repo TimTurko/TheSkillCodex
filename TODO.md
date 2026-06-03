@@ -5,6 +5,8 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➜ MAJ 02/06 (suite)** — 5 fiches transverses/hub : `cpp` (ferme *Apprendre les bases*), `fonction-informatique`, `manipulation-de-bits`, `firmware`, hub `esp32` (Phase 4 ouverte). Archivage 1-pour-1 repris (`28/05` → archive). **Prochaine session = arbitrage ouvert (post-push)** : (a) **consolidation recommandée** — reconciliation AA Phase 1 + vérif images (dont 6 SVG 02/06) + relecture concentrée (dette : 21 arduino-* + 7 Niveau ingénieur + 5 transverses 02/06 suite) ; (b) remplir `esp32` (`esp32-prise-en-main` / `esp32-arduino-core` / `wokwi`) ; (c) Phase 3 squelette pro (`oscilloscope` / `multimetre` / `debugger-embarque` / `pcb`+`kicad`). **Calls en attente de relecture** : AA `PROJ/5` effleuré ×3 (`cpp`/`manipulation-de-bits`/`firmware`), `firmware`/`manipulation-de-bits` sans SVG (candidats notés), `firmware` typé **notion**, variantes `esp32` à confronter à la doc Espressif.
+>
 > **➜ MAJ 02/06** — Squelette Phase 1 EEE **scellé** (`gpio` créée, dernier rouge résorbé) + **palier *Niveau ingénieur* du hub Arduino complet (7/7)** : grappes `interruption`+`timer` (notion transverse + tuto chacune), `arduino-programmation-non-bloquante`, batch 4 (`deep-sleep`/`pid`/`memoire`/`watchdog`). Hub Arduino aux 4 paliers. **Prochaine session = rédiger `cpp`** (trou des bases C++, lien rouge depuis le hub ; `memoire`/`programmation-non-bloquante`/`timers` s'y appuient). Émergé : notion `manipulation-de-bits` (registres/masques), 2 SVG candidats (schéma-bloc PID, profil deep-sleep), item explorateur Quartz au BACKLOG. **Relecture concentrée** des fiches Niveau ingénieur + grappes en attente (garde-fou).
 >
 > **➜ MAJ 29/05 (suite)** — Phase 1 squelette EEE **close** (grappe `algorithme` : algorithme / MAE / logigramme / grafcet / chronogramme + tuto `analyse-de-schema-electronique` ; reste `gpio` rouge). **MVP strict structurellement atteint** — couverture AA 100 % **à reconcilier** (cf. *Pré-publication MVP*). **Prochaine session = à décider ensemble (post-push)** : pistes ouvertes — clore `gpio` ; chaîne `arduino-machine-a-etats` (notion MAE désormais disponible) ; 1ʳᵉ fiche Niveau ingénieur ; hub `esp32` (Phase 4) ; ou passe relecture/images du backlog livré.
@@ -83,8 +85,8 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] ~~**Module Arduino — batch Bases + Avancées straight (21 fiches)**~~ — fait 29/05 soir (PC pro, MCP `theskillcodex:*`). **Reste à écrire** : `arduino-machine-a-etats` (chaîne avec notion `machine-a-etats`) ; `arduino-filtrage` (optionnel) ; 7 Niveau ingénieur (`arduino-programmation-non-bloquante`, `arduino-interruptions`, `arduino-deep-sleep`, `arduino-pid`, `arduino-timers`, `arduino-memoire`, `arduino-watchdog`) — chacun en session dédiée avec cadrage propre. **Relecture/amélioration utilisateur** post-récolte premier set d'images à conduire avant publication.
   - **02/06 — complété** : `arduino-machine-a-etats` + **7 Niveau ingénieur** (`arduino-programmation-non-bloquante`/`interruptions`/`deep-sleep`/`pid`/`timers`/`memoire`/`watchdog`) écrits → **palier *Niveau ingénieur* 7/7, hub Arduino complet (4 paliers)**. Reste `arduino-filtrage` (optionnel).
 
-- [ ] **`cpp`** (fiche transverse [T] — bases du langage : `setup`/`loop`, variables/types, fonctions, structures de contrôle ; référencée dans le hub Arduino « Apprendre les bases », **lien rouge**). **Prochaine session (02/06)** — trou révélé par `memoire`/`programmation-non-bloquante`/`timers`.
-- [ ] **`manipulation-de-bits`** (notion transverse — binaire, masque, mise à 1 `|=` / 0 `&= ~`, bascule `^=`, ET/OU/OU-X/NON, décalages, lien registres). Red-linkée depuis l'encart registres de `arduino-timers`.
+- [x] ~~**`cpp`** (fiche transverse [T] — bases du langage)~~ — **fait 02/06 (suite)** (`eee/mcu/cpp.md` 14,7 ko ; tour du langage 5 blocs + exemple classificateur de seuil + *Aller plus loin* tremplin ; `aa: RA-PROJET-C03-3/PROJ/5` effleuré C20). Ferme le rouge *Apprendre les bases* du hub Arduino.
+- [x] ~~**`manipulation-de-bits`** (notion transverse — binaire, masque, registres)~~ — **fait 02/06 (suite)** (`eee/mcu/manipulation-de-bits.md` 6,2 ko ; 4 idiomes agnostiques + 1 illustration registre AVR ; `aa: .../PROJ/5` effleuré ; pas de SVG — motifs binaires monospace). Également créée : `fonction-informatique` (popover-notion). Résout le double rouge `cpp` ↔ `arduino-timers`.
 
 #### Pré-publication MVP (après Phase 2)
 
@@ -99,7 +101,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 - [ ] `oscilloscope` (fiche-tuto compétence pro instrumentation)
 - [ ] `multimetre` (fiche-tuto compétence pro)
-- [ ] `firmware` (fiche-tuto transverse pure, archi code embarqué avec pseudocode ; rabbit hole possible mémoire / interruptions / RT non bloquante)
+- [x] ~~`firmware` (transverse, archi code embarqué)~~ — **fait 02/06 (suite)** (`eee/mcu/firmware.md` 5,7 ko ; typé **notion** finalement, pas tuto ; progression super-loop → coopératif → MAE → modules → RTOS + section « selon la famille » ; C19 vrai test → **option (c)** ; `aa: .../PROJ/5` effleuré ; SVG couches = candidat)
 - [ ] `debugger-embarque` (fiche-tuto compétence pro)
 - [ ] `pcb` (mini-hub mère, mention gravure à l'anglaise interne école, distinction monoface interne / double face externe JLCPCB)
 - [ ] `kicad` (fiche-tuto outil PCB principal, simu intégrée mention)
@@ -107,7 +109,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 #### Phase 4 — Second embranchement ESP32 (~4 sessions)
 
-- [ ] `esp32` (hub fille de `microcontroleur`)
+- [x] ~~`esp32` (hub fille de `microcontroleur`)~~ — **fait 02/06 (suite)** (`eee/mcu/esp32/esp32.md` 6,0 ko ; décalque `arduino`, 4 paliers + [A]/[T], alerte 3,3 V ; C25/C26 épreuve 2/N ; `aa: []`). Tutos `esp32-*` rouges = roadmap Phase 4 ci-dessous.
 - [ ] `esp32-arduino-core` (fiche-tuto, entrée pratique)
 - [ ] `wokwi` (fiche-tuto simu spécifique ESP32)
 - [ ] `alimentation-electronique` (fiche-tuto compétence pro, raccrochage dossier-tech + intégration)
@@ -147,7 +149,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [ ] `optimisation-mecanique` (fiche-tuto MME). Lien référentiel `RA-MME-C03-1/MME/6`. Périmètre à cadrer phase 2.
 
 ### 3. Templates à rédiger
-- [ ] **Template fiche-tuto** dans `templates/fiche-tuto.md` — reste à produire. Modèle potentiel : `schema-bloc-fonctionnel.md`. À traiter quand on aura une 2ᵉ fiche-tuto pour stabiliser les conventions.
+- [x] ~~**Template fiche-tuto** dans `templates/fiche-tuto.md`~~ — **existe déjà** (`content/templates/fiche-tuto.md`, figé 27/05 suite 4). Ligne stale (le chemin réel est `content/templates/`, pas la racine).
 
 ## Tâches techniques en suspens
 

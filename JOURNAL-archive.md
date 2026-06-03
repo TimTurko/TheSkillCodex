@@ -1,4 +1,4 @@
-# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-27 suite 5)
+# JOURNAL — Archive (sessions du 2026-05-19 au 2026-05-28)
 
 > Archive des sessions antérieures au 28/05, déplacées hors du JOURNAL
 > principal lors des nettoyages documentaires successifs : 25/05 suite 3
@@ -76,8 +76,40 @@
 > - **27/05 (suite 3)** : refonte documentaire structurale (briques A/B/C/D, marker JOURNAL, migrations TODO→BACKLOG).
 > - **27/05 (suite 4)** : reprise Phase 0 (EAT + figeage template `fiche-tuto` + restructuration `decomposition-fonctionnelle`).
 > - **27/05 (suite 5)** : méthodo (actage 4 conventions candidates + test C4 boucle fermée 1/N).
+> - **28/05** : nettoyage documentaire — investigation NBSP, source réfutée (hypothèse plugin Obsidian écartée ; aucune source active de NBSP dans le flux normal). Archivée 02/06 (suite), flux 1-pour-1 C4.
 >
-> Le JOURNAL principal reprend à partir du 28/05.
+> Le JOURNAL principal reprend à partir du 28/05 (suite).
+
+---
+
+<!-- DEBUT DES SESSIONS 28/05 — ARCHIVEE LE 02/06 (SUITE) -->
+
+## 2026-05-28 — Nettoyage documentaire : investigation NBSP, source réfutée
+
+### Périmètre
+Session de nettoyage documentaire (PRIORITÉ 1 du prompt de lancement Cas A) avant reprise Phase 0. PC perso, MCP `filesystem:*`. Investigation de la cause des NBSP parasitant les fichiers de pilotage. PRIORITÉ 2 (`bom`) non abordée (arbitrage utilisateur : arrêt après P1). C4 test 2/N différé (voir Décisions).
+
+### Livrables
+- **Diagnostic NBSP bouclé** : hypothèse 27/05 suite 5 (plugin Obsidian « Smart Typography » → U+202F) **réfutée**. Aucun plugin typographique installé (Excalidraw / Git / Pandoc seuls), aucune option Editor n'insérant de NBSP. Test isolé décisif : une ligne de contrôle écrite par Claude via MCP, bourrée de `: ; ? ! % €`, ressort `--check [ok]` → **mes écritures MCP n'injectent aucun invisible**. Save Obsidian également propre (`[ok]` après édition manuelle utilisateur). Seuls invisibles reproduits de la session : 4× U+00A0 issus d'un collage web délibéré (recette + code C), hors flux normal. Zéro U+202F nulle part.
+- **`TODO.md`** : zone de test temporaire retirée — mes 2 lignes de contrôle via MCP, bloc recette/code par l'utilisateur dans Obsidian. Fichier revenu à l'état propre, flèche/contexte 28/05.
+- **`conventions.md`** : complément C14 daté 28/05 (réfutation de l'attribution U+202F → Obsidian).
+
+### Décisions
+- **PRIORITÉ 1 actée non reproductible** : aucune source active de NBSP dans le flux normal (ni MCP Claude, ni Obsidian, ni saisie utilisateur — l'utilisateur ne touche jamais ces fichiers). `normalize` + hook conservés comme filet de sécurité bon marché pour le rare collage web. Rien à configurer dans Obsidian.
+- **C4 test 2/N différé** : l'entrée la plus ancienne du JOURNAL (25/05 suite 6) est une entrée *legacy* pré-C21 (~9 ko), pas une entrée hybride 3-5 ko. La couper en un seul `edit_file` exige de reproduire ~9 ko verbatim (risque de mismatch C14) pour un bénéfice marginal (JOURNAL ~28 ko, sans pression, archivage de masse récent 27/05 suite 4). Reporté à une session sous pression JOURNAL, ou via cut segmenté.
+- **Prochaine session = Phase 0 `bom`** (inchangé).
+
+### Conventions
+- **C14 complément 28/05** : l'attribution des échecs d'anchor à « la typo française U+202F injectée par Obsidian » (récit porté depuis 26/05) n'est **pas étayée** sur ce poste. Les seuls NBSP reproductibles sont des U+00A0 de collage web (hors flux normal). Les échecs d'anchor historiques relèvent plus probablement des autres causes déjà documentées dans la chaîne C14 (CRLF de states passés, artefacts U+FFFD de troncature `head`/`tail`, typos de transcription).
+- **Affinage C4 (candidat)** : la cible « 3 tool calls » suppose des entrées C21 (3-5 ko). Les entrées legacy (~9-15 ko) rendent le cut en 1 `edit_file` risqué → segmenter (symétrique au pattern MARKER+N segments) ou reproduire avec vigilance.
+
+### Tailles
+- `JOURNAL.md` : ~28 → ~32 ko (cette entrée, pas d'archivage C4 cette session).
+- `conventions.md` : ~32 → ~33 ko (complément C14).
+- `TODO.md` : retour à l'état propre (zone test retirée) + flèche/contexte 28/05.
+
+### Acquis méthodo — une hypothèse héritée n'est pas un fait
+Le prompt de lancement (rédigé 27/05 suite 5) posait une procédure détaillée de « config Obsidian anti-NBSP » sur la base d'un coupable *supposé* (plugin Smart Typography). Vérification : pas de plugin. L'investigation par élimination puis test isolé a renversé le diagnostic — la source supposée n'existait pas, et l'écrivain unique réel (mes propres écritures MCP) est propre. Leçon : une procédure héritée encode une *hypothèse*, pas un *fait* ; la vérifier avant d'exécuter évite de « couper » une source inexistante. Incident secondaire : `--check` mis en **gras** dans une consigne et copié littéralement (`**--check**`) a fait tourner le script en mode FIX au lieu de CHECK — les consignes de commande à l'utilisateur ne doivent pas porter de markdown.
 
 ---
 
