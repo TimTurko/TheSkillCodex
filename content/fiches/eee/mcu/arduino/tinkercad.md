@@ -8,11 +8,11 @@ tags:
   - tuto
 prerequis:
   - arduino
-aa: []
+aa: [RA-PROJET-C03-3/PROJ/5]
 draft: false
 ---
 
-**Tinkercad Circuits** est un simulateur de circuits électroniques accessible gratuitement dans le navigateur (tinkercad.com). Il permet de monter un circuit Arduino, d'écrire le code, et de simuler son fonctionnement sans aucun matériel physique. C'est la rampe d'accès idéale avant d'avoir reçu sa carte, et le bac à sable sans risque pour tester un montage avant de risquer un composant réel.
+**Tinkercad Circuits** est un simulateur de circuits électroniques accessible gratuitement dans le navigateur (tinkercad.com). Il permet de monter un circuit [[arduino|Arduino]], d'écrire le code, et de simuler son fonctionnement sans aucun matériel physique. C'est la rampe d'accès idéale avant d'avoir reçu sa carte, et le bac à sable sans risque pour tester un montage avant de risquer un composant réel.
 
 ## À quoi ça sert ?
 
@@ -93,13 +93,15 @@ Prendre capture d'écran de *la simulation Tinkercad du circuit bouton + LED, bo
 
 ## Pièges
 
-**« Ça marche dans Tinkercad » ≠ « ça marche en vrai ».** Tinkercad simule un modèle idéalisé : pas de bruit, pas de rebonds de contact, pas de chutes de tension réalistes, timing approximatif. Un anti-rebond logiciel peut paraître inutile en simulation et indispensable sur le vrai bouton. **Valider en simulation est une étape, pas la dernière.**
+**« Ça marche dans Tinkercad » ≠ « ça marche en vrai ».** Tinkercad simule un modèle idéalisé : pas de bruit, pas de rebonds de contact, pas de chutes de tension réalistes, timing approximatif. Un [[arduino-entree-tor|anti-rebond logiciel]] peut paraître inutile en simulation et indispensable sur le vrai bouton. **Valider en simulation est une étape, pas la dernière.**
 
 **Composants absents.** Beaucoup de capteurs réels du commerce (DHT22, MPU6050, capteur de courant ACS712, modules sans-fil) ne sont pas dans la bibliothèque Tinkercad. Vérifier la disponibilité avant de baser une PoC simulée dessus.
 
 **Timing peu fidèle.** Les fonctions `millis()`, `micros()`, et tout code temps-réel critique ne se comportent pas comme sur du matériel. Ne pas y caler une mesure de fréquence ou un asservissement chronométré sans valider sur vrai matériel.
 
 **Pas de PWM réaliste.** L'`analogWrite()` est rendu graphiquement (la LED change d'intensité), mais l'oscilloscope virtuel et la mesure fine ne valent pas un vrai oscilloscope sur un signal carré modulé.
+
+**Bascule blocs → texte à sens unique.** Le passage des blocs au texte génère le C++ équivalent, mais l'inverse n'est pas vrai — une fois le code édité en texte, revenir au mode blocs **efface les modifications**. Passer en texte tôt, et ne plus revenir aux blocs.
 
 **Sauvegarde automatique avec latence.** Tinkercad sauvegarde en continu, mais après une perte de réseau ou de session, les dernières secondes peuvent être perdues. Pour un travail important, exporter le code régulièrement (*Code → Télécharger le code*).
 
