@@ -35,16 +35,34 @@ Sur Windows, l'installateur installe aussi les pilotes USB pour les cartes Ardui
 
 Prendre capture d'écran de *la page de téléchargement arduino.cc/en/software, avec les liens Windows / macOS / Linux visibles*.
 
-> [!warning]
-> **Cartes clones et pilote CH340.** Les cartes Uno ou Nano clones (non officielles, achetées 5-10 € sur AliExpress) embarquent souvent une puce USB-série CH340 au lieu de l'ATmega16U2 d'origine. Le pilote n'est pas installé par défaut sous Windows — la carte n'apparaît alors pas dans la liste des ports. Téléchargez le pilote CH340 sur le site du fabricant (wch-ic.com) et redémarrez après installation.
-
-### 2. Brancher la carte et la faire reconnaître
+### 2. Brancher la carte et vérifier la reconnaissance
 
 Branchez la carte avec un **câble USB de données**. Les câbles « charge only » des smartphones ne transmettent que l'alimentation, pas le signal — symptôme classique : la LED *ON* de la carte s'allume, mais l'IDE ne voit aucun port. C'est l'erreur n°1 des débuts.
 
 Dans l'IDE, ouvrez le menu *Outils → Type de carte* et choisissez votre modèle (`Arduino Uno`, `Arduino Mega or Mega 2560`, `Arduino Nano`...). Puis *Outils → Port* et sélectionnez le port qui correspond à votre carte. Sous Windows il apparaît comme `COM3`, `COM4`... ; sous macOS comme `/dev/cu.usbmodem...` ; sous Linux comme `/dev/ttyACM0` ou `/dev/ttyUSB0`.
 
 Prendre capture d'écran de *l'IDE Arduino 2.x ouvert, avec le menu Outils déroulé montrant la sélection carte + port active*.
+
+**Point de contrôle.** À ce stade, votre carte doit apparaître dans *Outils → Port* (`COMx` sous Windows, `/dev/cu.usbmodem...` sous macOS, `/dev/ttyACM0` ou `/dev/ttyUSB0` sous Linux). Si c'est le cas, passez à l'étape 3. Si **aucun port ne correspond à la carte**, traitez d'abord le dépannage ci-dessous.
+
+### Si la carte n'apparaît pas (dépannage)
+
+Symptôme commun : aucun port ne correspond à la carte dans *Outils → Port*. Les causes, par ordre de fréquence :
+
+**1. Câble USB *charge only*.** La LED *ON* de la carte est allumée — elle est alimentée — mais aucun port n'apparaît. Le câble, souvent un cordon de smartphone, ne transmet que l'alimentation, pas les données. C'est l'erreur n°1 des débuts : remplacez-le par un **câble USB de données**.
+
+**2. Pilote CH340 manquant (cartes clones).** Le câble est bon, la carte est alimentée, mais toujours aucun port sous Windows. Les cartes Uno/Nano clones (non officielles, 5-10 € sur AliExpress) embarquent une puce USB-série **CH340** au lieu du circuit USB officiel ; Windows ne sait pas lui parler tant que son pilote n'est pas installé.
+
+> [!tip]
+> **Installer le pilote CH340, pas à pas.**
+> 1. Ouvrez le *Gestionnaire de périphériques* (clic droit sur le menu Démarrer → *Gestionnaire de périphériques*). Un périphérique marqué d'un point d'exclamation jaune — sous *Autres périphériques*, ou nommé *USB-SERIAL CH340* — confirme le diagnostic.
+> 2. Téléchargez le pilote sur le site du fabricant, **wch-ic.com** (rubrique *Downloads*, paquet *CH341SER* qui couvre aussi le CH340).
+> 3. Décompressez l'archive, lancez `SETUP.EXE`, puis cliquez sur *Install*.
+> 4. Débranchez puis rebranchez la carte (redémarrez si le port n'apparaît toujours pas). Le port `COMx` doit désormais être listé dans *Outils → Port*.
+>
+> Prendre capture d'écran de *le Gestionnaire de périphériques Windows montrant le périphérique CH340 — avant (point d'exclamation jaune) puis après installation (COMx reconnu)*.
+
+**3. Linux / macOS.** Sous Linux, vérifiez l'appartenance au groupe `dialout` (cf. étape 1) ; un `ls /dev/ttyACM* /dev/ttyUSB*` après branchement confirme la présence du port. Sous macOS, les cartes officielles fonctionnent sans pilote ; seuls de vieux clones CH340 peuvent réclamer un pilote signé.
 
 ### 3. Charger l'exemple Blink
 
@@ -98,10 +116,6 @@ Téléversez à nouveau. La LED fait maintenant un éclair court (100 ms) toutes
 ## Pièges
 
 **Mauvais port sélectionné.** Si plusieurs cartes (ou un téléphone) sont branchées en USB, l'IDE peut proposer plusieurs ports. Téléverser sur le mauvais port échoue avec un message d'erreur cryptique — toujours vérifier *Outils → Port* avant chaque téléversement.
-
-**Câble USB charge only.** Symptôme : la LED *ON* s'allume (la carte est alimentée), mais aucun port série n'apparaît dans l'IDE. Le câble transmet l'alimentation mais pas les données. Remplacez-le par un câble de données.
-
-**Pilote CH340 manquant.** Les cartes clones bon marché ont une puce CH340 au lieu du chip USB officiel ; sans pilote, le port n'apparaît pas. À distinguer du piège précédent : ici, on peut avoir le bon câble et la carte alimentée, mais l'OS ne sait pas comment lui parler.
 
 **Compilation OK ≠ téléversement OK.** Une compilation réussie valide la syntaxe du code, pas la connexion à la carte. Si le téléversement échoue avec `programmer is not responding` ou `avrdude: stk500_recv()`, la carte n'a pas répondu — port, câble ou carte à vérifier.
 

@@ -14,6 +14,56 @@ draft: false
 
 **Arduino** est une plateforme open-source de prototypage électronique : une famille de cartes à microcontrôleur associées à un environnement de développement ([[ide|IDE]]) et à un vaste écosystème de [[bibliotheque|bibliothèques]] et de [[shield|shields]], pensée pour rendre l'électronique embarquée accessible. Cette fiche est **le hub qui regroupe l'ensemble des tutoriels liés à l'Arduino** : panorama des cartes, écosystème, et tutoriels d'utilisation classés par difficulté. Le panorama générique des familles de microcontrôleurs et l'aide au choix restent portés par [[microcontroleur|microcontrôleur]].
 
+## Tutoriels
+
+Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première LED qui clignote jusqu'au niveau ingénieur. La plupart appliquent sur Arduino une notion transverse, définie une fois pour toutes les familles — les items marqués *(transverse)* sont ces fiches partagées du squelette, le reste est propre à Arduino.
+
+### Prendre en main
+
+- [[arduino-prise-en-main|Prise en main d'Arduino]] — installer l'IDE, écrire et téléverser un premier programme ;
+- [[tinkercad|Tinkercad]] — simuler un montage en ligne, avant le matériel.
+
+### Apprendre les bases
+
+- [[cpp|Le langage C++]] *(transverse)* — bases du langage ;
+- [[niveaux-de-tension|Niveaux de tension]] *(transverse)* — 3,3 V vs 5 V, ne pas griller une carte ;
+- [[arduino-gpio|Configurer les GPIO]] — modes `INPUT` / `OUTPUT` / `INPUT_PULLUP` ;
+- [[arduino-serie|Moniteur série]] — lire et écrire sur le port série ;
+- [[arduino-entree-tor|Lire une entrée TOR]] — bouton/interrupteur + anti-rebond ;
+- [[arduino-sortie-tor|Piloter une sortie TOR]] — LED, relais ;
+- [[arduino-capteur-numerique|Lire un capteur numérique]] ;
+- [[arduino-capteur-analogique|Lire un capteur analogique]] — via l'ADC ;
+- [[arduino-sortie-pwm|Piloter une sortie PWM]] ;
+- [[arduino-temporisation|Temporiser]] — `delay()` vs `millis()` ;
+- [[arduino-bibliotheques|Utiliser une bibliothèque]] — installer, inclure, lire la doc ;
+- [[lire-une-datasheet|Lire une datasheet]] *(transverse)* — y trouver Vin, niveaux de tension et courant max, au moment de câbler un composant ;
+- [[arduino-module|Câbler un module]] · [[arduino-shield|Utiliser un shield]] ;
+- [[arduino-alimentation|Alimenter la carte]] — USB / Vin / jack, plage de tension, courant max.
+
+### Notions avancées
+
+- Communication, par protocole : [[arduino-uart|UART]] · [[arduino-i2c|I2C]] · [[arduino-spi|SPI]] *(notions transverses : [[bus-de-communication|bus de communication]])* ;
+- [[arduino-debug|Débugger un programme]] ;
+- [[arduino-gpio-boot|État des GPIO à l'allumage]] — niveaux par défaut, broches sensibles ;
+- Actionneurs : [[arduino-servomoteur|servomoteur]] · [[arduino-moteur-cc|moteur CC (pont en H)]] · [[arduino-moteur-pas-a-pas|moteur pas-à-pas]] ;
+- [[arduino-afficheur|Afficheur LCD / OLED]] ;
+- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — sortir du `delay()` bloquant, prérequis de la machine à états ;
+- [[arduino-machine-a-etats|Machine à états sur Arduino]] *(→ notion [[machine-a-etats]])* ;
+- [[arduino-eeprom|Stockage EEPROM]] ;
+- [[arduino-filtrage|Filtrer des mesures]] *(optionnel)*.
+
+### Niveau ingénieur
+
+- [[arduino-interruptions|Interruptions]] *(→ notion [[interruption]])* ;
+- [[arduino-timers|Timers matériels]] *(→ notion [[timer]])* ;
+- [[manipulation-de-bits|Manipulation de bits]] *(transverse)* — registres, masques, accès bas niveau ;
+- [[arduino-deep-sleep|Deep sleep]] *(→ notion [[deep-sleep]])* ;
+- [[arduino-pid|Régulation PID]] — boucle de commande ;
+- [[arduino-memoire|Gestion mémoire]] *(→ notion [[memoire]])* — RAM, PROGMEM ;
+- [[arduino-watchdog|Watchdog]] — robustesse du firmware.
+
+Le multitâche (FreeRTOS) sera traité côté module ESP32 et dans [[firmware]]. D'autres tutos compléteront ces paliers au fil des projets.
+
 ## Pourquoi Arduino ?
 
 Arduino occupe une **niche d'accessibilité** plus qu'une niche de performance. Ses atouts ne tiennent pas aux caractéristiques de la puce, mais à tout ce qui l'entoure :
@@ -42,55 +92,6 @@ Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la 
 L'environnement de référence est l'**IDE Arduino**, qui reconnaît les cartes sans [[pilote|pilote]] supplémentaire ; pour des projets plus structurés, PlatformIO ou l'Arduino CLI offrent une chaîne de compilation plus puissante. Le langage est un **[[cpp|C++]] outillé** (dialecte Wiring), organisé autour de deux [[fonction-informatique|fonctions]] : `setup()`, exécutée une fois au démarrage, et `loop()`, répétée indéfiniment. Le gestionnaire de bibliothèques intégré donne accès en quelques clics à des milliers de pilotes de capteurs et de modules.
 
 Cet écosystème déborde du seul matériel Arduino : le même cadre de développement programme aussi l'[[esp32|ESP32]] (via l'Arduino-core) et bien d'autres cartes. Frontière à garder en tête — ce bloc décrit l'**outillage** propre à Arduino, pas la façon de structurer le code embarqué, qui relève de [[firmware]].
-
-## Tutoriels
-
-Les tutoriels du module Arduino, classés par difficulté croissante. La plupart appliquent sur Arduino une notion transverse, définie une fois pour toutes les familles : les items marqués *(transverse)* sont ces fiches partagées du squelette, le reste est propre à Arduino.
-
-### Prendre en main
-
-- [[arduino-prise-en-main|Prise en main d'Arduino]] — installer l'IDE, écrire et téléverser un premier programme ;
-- [[tinkercad|Tinkercad]] — simuler un montage en ligne, avant le matériel ;
-- [[lire-une-datasheet|Lire une datasheet]] *(transverse)* — y trouver Vin, niveaux de tension et courant max.
-
-### Apprendre les bases
-
-- [[cpp|Le langage C++]] *(transverse)* — bases du langage ;
-- [[niveaux-de-tension|Niveaux de tension]] *(transverse)* — 3,3 V vs 5 V, ne pas griller une carte ;
-- [[arduino-gpio|Configurer les GPIO]] — modes `INPUT` / `OUTPUT` / `INPUT_PULLUP` ;
-- [[arduino-serie|Moniteur série]] — lire et écrire sur le port série ;
-- [[arduino-entree-tor|Lire une entrée TOR]] — bouton/interrupteur + anti-rebond ;
-- [[arduino-sortie-tor|Piloter une sortie TOR]] — LED, relais ;
-- [[arduino-capteur-numerique|Lire un capteur numérique]] ;
-- [[arduino-capteur-analogique|Lire un capteur analogique]] — via l'ADC ;
-- [[arduino-sortie-pwm|Piloter une sortie PWM]] ;
-- [[arduino-temporisation|Temporiser]] — `delay()` vs `millis()` ;
-- [[arduino-bibliotheques|Utiliser une bibliothèque]] — installer, inclure, lire la doc ;
-- [[arduino-module|Câbler un module]] · [[arduino-shield|Utiliser un shield]] ;
-- [[arduino-alimentation|Alimenter la carte]] — USB / Vin / jack, plage de tension, courant max.
-
-### Notions avancées
-
-- Communication, par protocole : [[arduino-uart|UART]] · [[arduino-i2c|I2C]] · [[arduino-spi|SPI]] *(notions transverses : [[bus-de-communication|bus de communication]])* ;
-- [[arduino-debug|Débugger un programme]] ;
-- [[arduino-gpio-boot|État des GPIO à l'allumage]] — niveaux par défaut, broches sensibles ;
-- Actionneurs : [[arduino-servomoteur|servomoteur]] · [[arduino-moteur-cc|moteur CC (pont en H)]] · [[arduino-moteur-pas-a-pas|moteur pas-à-pas]] ;
-- [[arduino-afficheur|Afficheur LCD / OLED]] ;
-- [[arduino-machine-a-etats|Machine à états sur Arduino]] *(→ notion [[machine-a-etats]])* ;
-- [[arduino-eeprom|Stockage EEPROM]] ;
-- [[arduino-filtrage|Filtrer des mesures]] *(optionnel)*.
-
-### Niveau ingénieur
-
-- [[arduino-programmation-non-bloquante|Programmation non bloquante]] ;
-- [[arduino-interruptions|Interruptions]] *(→ notion [[interruption]])* ;
-- [[arduino-deep-sleep|Deep sleep]] *(→ notion [[deep-sleep]])* ;
-- [[arduino-pid|Régulation PID]] — boucle de commande ;
-- [[arduino-timers|Timers matériels]] *(→ notion [[timer]])* ;
-- [[arduino-memoire|Gestion mémoire]] *(→ notion [[memoire]])* — RAM, PROGMEM ;
-- [[arduino-watchdog|Watchdog]] — robustesse du firmware.
-
-Le multitâche (FreeRTOS) sera traité côté module ESP32 et dans [[firmware]]. D'autres tutos compléteront ces paliers au fil des projets.
 
 ## Voir aussi
 
