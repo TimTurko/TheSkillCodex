@@ -11,6 +11,7 @@ prerequis:
   - machine-a-etats
 aa:
   - RA-EEE-C03-2/EEE/5
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 

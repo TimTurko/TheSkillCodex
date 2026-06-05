@@ -9,7 +9,8 @@ tags:
 prerequis:
   - arduino-sortie-pwm
   - lire-une-datasheet
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -138,7 +139,7 @@ const int POT = A0;
 const int BOUTON = 2;
 
 bool sensAvant = true;
-bool dernierBouton = HIGH;
+bool dernierBouton = HIGH, etatStable = HIGH;
 unsigned long dernierAntirebond = 0;
 const unsigned long DELAI_REBOND = 30;
 
@@ -157,9 +158,9 @@ void loop() {
     dernierAntirebond = millis();
     dernierBouton = lect;
   }
-  if (millis() - dernierAntirebond > DELAI_REBOND && lect == LOW) {
-    sensAvant = !sensAvant;
-    dernierAntirebond = millis() + 10000;  // verrou anti-doublon
+  if (millis() - dernierAntirebond > DELAI_REBOND && lect != etatStable) {
+    etatStable = lect;
+    if (etatStable == LOW) sensAvant = !sensAvant;  // front descendant : un seul basculement par appui
   }
 
   // Application

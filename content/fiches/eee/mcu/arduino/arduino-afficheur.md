@@ -9,7 +9,8 @@ tags:
 prerequis:
   - arduino-i2c
   - arduino-bibliotheques
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -73,8 +74,8 @@ Prendre capture d'écran ou photo de *un afficheur OLED SSD1306 0,96″ I2C câb
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#define LARGEUR 128
-#define HAUTEUR 64
+const int LARGEUR = 128;
+const int HAUTEUR = 64;
 Adafruit_SSD1306 ecran(LARGEUR, HAUTEUR, &Wire, -1);  // -1 = pas de broche reset
 
 void setup() {
@@ -145,8 +146,8 @@ Cas complet : lire la température sur un BMP280 (voir [[arduino-i2c|I2C sur Ard
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_BMP280.h>
 
-#define LARGEUR 128
-#define HAUTEUR 64
+const int LARGEUR = 128;
+const int HAUTEUR = 64;
 Adafruit_SSD1306 ecran(LARGEUR, HAUTEUR, &Wire, -1);
 Adafruit_BMP280 bmp;
 

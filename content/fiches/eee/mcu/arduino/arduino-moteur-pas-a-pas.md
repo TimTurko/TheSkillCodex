@@ -8,7 +8,8 @@ tags:
   - tuto
 prerequis:
   - arduino-bibliotheques
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -131,7 +132,7 @@ const int PAS_INCREMENT = PAS_PAR_TOUR / 4;  // quart de tour
 Stepper monMoteur(PAS_PAR_TOUR, 8, 10, 9, 11);
 
 const int BOUTON = 2;
-bool dernierEtat = HIGH;
+bool dernierEtat = HIGH, etatStable = HIGH;
 unsigned long dernierAntirebond = 0;
 
 void setup() {
@@ -145,9 +146,9 @@ void loop() {
     dernierAntirebond = millis();
     dernierEtat = lect;
   }
-  if (millis() - dernierAntirebond > 30 && lect == LOW) {
-    monMoteur.step(PAS_INCREMENT);
-    dernierAntirebond = millis() + 10000;  // verrou anti-doublon
+  if (millis() - dernierAntirebond > 30 && lect != etatStable) {
+    etatStable = lect;
+    if (etatStable == LOW) monMoteur.step(PAS_INCREMENT);  // front descendant : un pas par appui
   }
 }
 ```
