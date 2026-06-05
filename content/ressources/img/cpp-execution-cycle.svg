@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="te de">
+  <title id="te">Cycle d'exécution d'un programme Arduino</title>
+  <desc id="de">À la mise sous tension ou après un Reset, la carte exécute d'abord la fonction setup une seule fois, puis la fonction loop indéfiniment : dès qu'elle arrive au bout de loop, elle la recommence, et ainsi de suite tant que la carte est alimentée. Le programme ne se termine jamais de lui-même.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.5px; }
+      .term { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .term-t { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .box { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .box-t { font:700 18px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .flow { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+      .note { font:700 13px sans-serif; fill:#BA7517; }
+      .note-s { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .foot { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; }
+        .term { fill:#4A4A48; stroke:#BBBBBB; }
+        .term-t { fill:#F1EFE8; }
+        .box { fill:#4A4A48; stroke:#EF9F27; }
+        .box-t { fill:#F1EFE8; }
+        .flow { stroke:#BBBBBB; }
+        .note { fill:#EF9F27; }
+        .note-s { fill:#F1EFE8; }
+        .foot { fill:#BBBBBB; }
+        .ah { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="380" y="26" class="ttl">Cycle d'exécution — setup() une fois, loop() sans fin</text>
+
+  <!-- Terminal : mise sous tension / reset -->
+  <rect x="275" y="50" width="210" height="40" rx="20" class="term"/>
+  <text x="380" y="75" class="term-t">Mise sous tension / Reset</text>
+
+  <!-- Flèche vers setup -->
+  <line x1="380" y1="90" x2="380" y2="121" class="flow"/>
+
+  <!-- setup() -->
+  <rect x="290" y="123" width="180" height="54" rx="10" class="box"/>
+  <text x="380" y="157" class="box-t">setup()</text>
+  <text x="498" y="146" class="note">exécuté UNE fois</text>
+  <text x="498" y="163" class="note-s">réglages, ouverture du port série</text>
+
+  <!-- Flèche vers loop -->
+  <line x1="380" y1="177" x2="380" y2="213" class="flow"/>
+  <text x="395" y="199" class="note-s">puis…</text>
+
+  <!-- loop() -->
+  <rect x="290" y="215" width="180" height="54" rx="10" class="box"/>
+  <text x="380" y="249" class="box-t">loop()</text>
+
+  <!-- Boucle infinie : arc de retour à droite -->
+  <path d="M470,232 C552,224 552,262 472,254" class="flow"/>
+  <text x="560" y="240" class="note">répété</text>
+  <text x="560" y="256" class="note">à l'infini</text>
+
+  <text x="380" y="320" class="foot">Un programme embarqué ne se termine jamais : loop() tourne tant que la carte est alimentée.</text>
+</svg>

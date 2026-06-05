@@ -19,7 +19,7 @@ Avant d'écrire la moindre ligne, il faut comprendre ce qui se passe entre le mo
 
 Comprendre l'exécution sert deux fois. D'abord à **se dépanner** : quand un programme refuse de marcher, la première question est « est-ce qu'il a seulement compilé et été téléversé ? » — et on ne sait y répondre que si l'on connaît les étapes. Ensuite à **écrire du code juste** : la plupart des erreurs de débutant viennent d'une mauvaise idée de ce que fait la carte. Deux malentendus reviennent sans cesse :
 
-- croire que le programme s'exécute **une fois puis s'arrête**, comme un script sur un ordinateur — alors qu'un microcontrôleur tourne en **boucle sans fin** tant qu'il est alimenté ;
+- croire que le programme s'exécute **une fois puis s'arrête**, comme un script sur un ordinateur — alors qu'un [[microcontroleur|microcontrôleur]] tourne en **boucle sans fin** tant qu'il est alimenté ;
 - croire que tout le code dans le fichier s'exécute **de haut en bas** — alors que seules deux fonctions sont appelées, et pas dans l'ordre où on les lit.
 
 Lever ces deux malentendus, c'est le but de cette fiche.
@@ -95,6 +95,8 @@ void loop() {
   delay(500);                   // ralentit l'affichage pour qu'il soit lisible
 }
 ```
+
+Prendre capture d'écran de *la sortie du moniteur série : la ligne « === Demarrage : setup() execute === » affichée une fois, puis le compteur « Tour de loop n 1, 2, 3… » qui s'incrémente*.
 
 Trois choses à remarquer en lisant la sortie :
 
