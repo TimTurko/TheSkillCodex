@@ -90,8 +90,8 @@ Cas complet sur un module emblématique des kits Arduino.
 ```cpp
 #include <DHT.h>
 
-#define BROCHE_DHT 2
-#define TYPE_DHT   DHT11
+const int BROCHE_DHT = 2;
+const int TYPE_DHT = DHT11;
 
 DHT dht(BROCHE_DHT, TYPE_DHT);
 

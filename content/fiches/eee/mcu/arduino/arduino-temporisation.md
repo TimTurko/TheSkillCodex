@@ -118,10 +118,10 @@ Trois cadences (toggle LED 2 Hz, mesure 10 Hz, impression 1 Hz) cohabitent sans 
 Cas complet qui montre la valeur du pattern : une LED clignote à 1 Hz, **un bouton bascule la fréquence** entre 1 Hz et 5 Hz sans aucune perte de réactivité.
 
 ```cpp
-// --- Broches : #define = remplacement de texte par le préprocesseur (voir cpp-structure) ---
-#define LED 13            // broche de la LED de signalisation
-#define BOUTON 2          // broche du bouton-poussoir (autre patte vers GND)
-#define DELAI_REBOND 30   // ms de stabilité exigée avant de valider un changement d'état
+// --- Broches : constantes (const, fixées une fois pour toutes) ---
+const int LED = 13;                     // broche de la LED de signalisation
+const int BOUTON = 2;                   // broche du bouton-poussoir (autre patte vers GND)
+const unsigned long DELAI_REBOND = 30;  // ms de stabilité exigée avant de valider un changement d'état
 
 // --- Clignotement : ce sont des VARIABLES, elles changent en cours d'exécution ---
 unsigned long t_LED = 0;          // date (millis) du dernier basculement de la LED
