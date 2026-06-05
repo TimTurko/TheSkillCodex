@@ -210,7 +210,6 @@ Pour un projet francophone qui doit afficher proprement les accents, U8g2 est l'
 
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — premier affichage embarqué pour observer les mesures sans PC.
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — l'afficheur intégré au démonstrateur sert d'IHM pour les tests pyramidaux (mode courant, valeurs réelles).
-- **Étape 1 de la [[mise-en-service|phase de mise en service]]** — l'afficheur est le canal principal d'information à l'utilisateur final, à valider en condition.
 
 Un afficheur, même simple, transforme un projet du *« regarder le moniteur série »* en *« voir l'état directement »* — saut qualitatif en démonstration qui justifie largement les ~5 € de matériel.
 

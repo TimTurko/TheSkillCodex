@@ -195,7 +195,7 @@ void setup() {
 
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier paramètre utilisateur réglable (seuil, mode), envisager la sauvegarde en EEPROM dès la PoC pour ne pas avoir à recoder le paramétrage à chaque cycle.
 - **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — la persistance des paramètres et compteurs fait partie des choix d'architecture du firmware.
-- **Étape 1 de la [[mise-en-service|phase de mise en service]]** — la calibration en condition réelle se sauvegarde en EEPROM pour ne pas être perdue à la coupure.
+- **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — la calibration en condition réelle se sauvegarde en EEPROM pour ne pas être perdue à la coupure.
 
 L'EEPROM est un petit outil simple mais souvent négligé en projet débutant — l'introduire au moment où apparaît le premier paramètre persistant transforme un sketch de démo en système qui *se souvient*, étape clé pour un démonstrateur crédible.
 
