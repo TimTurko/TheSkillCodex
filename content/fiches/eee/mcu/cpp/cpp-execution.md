@@ -69,7 +69,7 @@ mise sous tension / Reset
    setup()        ←── exécuté UNE fois
         │
         ▼
-   loop()  ──┐
+   loop()   ──┐
         ▲     │     ←── répété À L'INFINI
         └─────┘
 ```
