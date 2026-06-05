@@ -118,43 +118,52 @@ Trois cadences (toggle LED 2 Hz, mesure 10 Hz, impression 1 Hz) cohabitent sans 
 Cas complet qui montre la valeur du pattern : une LED clignote à 1 Hz, **un bouton bascule la fréquence** entre 1 Hz et 5 Hz sans aucune perte de réactivité.
 
 ```cpp
-const int LED = 13;
-const int BOUTON = 2;
+// --- Broches : #define = remplacement de texte par le préprocesseur (voir cpp-structure) ---
+#define LED 13            // broche de la LED de signalisation
+#define BOUTON 2          // broche du bouton-poussoir (autre patte vers GND)
+#define DELAI_REBOND 30   // ms de stabilité exigée avant de valider un changement d'état
 
-unsigned long t_LED = 0;
-unsigned long intervalle = 500;  // 1 Hz par défaut (500 ms HIGH / 500 ms LOW)
-bool etatLED = false;
+// --- Clignotement : ce sont des VARIABLES, elles changent en cours d'exécution ---
+unsigned long t_LED = 0;          // date (millis) du dernier basculement de la LED
+unsigned long intervalle = 500;   // demi-période courante : 500 ms = 1 Hz, 100 ms = 5 Hz
+bool etatLED = false;             // LED actuellement allumée (true) ou éteinte (false)
 
-bool dernierBouton = HIGH;
-unsigned long dernierAntirebond = 0;
-const unsigned long DELAI_REBOND = 30;
+// --- Bouton : anti-rebond + détection de front ---
+bool dernierBouton = HIGH;            // dernière lecture BRUTE (HIGH = relâché, pull-up)
+bool etatStable    = HIGH;            // état CONFIRMÉ une fois le rebond passé
+unsigned long dernierChangement = 0;  // date de la dernière transition de la lecture brute
 
 void setup() {
   pinMode(LED, OUTPUT);
-  pinMode(BOUTON, INPUT_PULLUP);
+  pinMode(BOUTON, INPUT_PULLUP);  // pull-up interne : bouton relâché = HIGH, appuyé = LOW
 }
 
 void loop() {
-  unsigned long maintenant = millis();
+  unsigned long maintenant = millis();   // on lit l'horloge UNE fois par tour
 
-  // 1. Toggle LED
+  // 1. Clignotement à la cadence courante, sans delay() : on regarde si l'intervalle est écoulé
   if (maintenant - t_LED >= intervalle) {
-    t_LED = maintenant;
-    etatLED = !etatLED;
+    t_LED = maintenant;                  // mémoriser l'instant de ce basculement
+    etatLED = !etatLED;                  // inverser l'état
     digitalWrite(LED, etatLED);
   }
 
-  // 2. Lecture bouton avec anti-rebond
+  // 2. Bouton : on filtre le rebond, puis on n'agit qu'au FRONT (une seule fois par appui)
   bool lecture = digitalRead(BOUTON);
-  if (lecture != dernierBouton) {
-    dernierAntirebond = maintenant;
+
+  if (lecture != dernierBouton) {        // la lecture brute vient de changer (peut-être un rebond)
+    dernierChangement = maintenant;      // on (re)démarre le chrono d'anti-rebond
     dernierBouton = lecture;
   }
-  if (maintenant - dernierAntirebond > DELAI_REBOND && lecture == LOW) {
-    // Front descendant validé → basculer fréquence
-    intervalle = (intervalle == 500) ? 100 : 500;
-    dernierAntirebond = maintenant + 10000;  // verrou anti-doublon
+
+  // Lecture stable depuis plus de DELAI_REBOND, ET différente de l'état déjà confirmé ?
+  if (maintenant - dernierChangement > DELAI_REBOND && lecture != etatStable) {
+    etatStable = lecture;                // on valide ce nouvel état stable
+    if (etatStable == LOW) {             // LOW = front descendant = le bouton vient d'être appuyé
+      intervalle = (intervalle == 500) ? 100 : 500;   // basculer 1 Hz <-> 5 Hz, une seule fois
+    }
   }
+  // (Aucun "verrou" artificiel : tester lecture != etatStable suffit à n'agir qu'une fois par appui.)
 }
 ```
 
