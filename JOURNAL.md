@@ -10,6 +10,35 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-05 (suite) — Relecture/enrichissement complète du parcours Arduino (4 paliers) + lien rouge `mise-en-service`
+
+### Périmètre
+Session longue, **PC pro** (MCP `theskillcodex:*`). Démarrage Cas A — relecture/enrichissement du parcours d'apprentissage Arduino **bout en bout**, dans l'ordre étudiant : *Prendre en main* (`tinkercad`, module `cpp` relu) → *Apprendre les bases* → *Notions avancées* → *Niveau ingénieur*, ~33 fiches (hub + 32 filles + module cpp). Relecture technique fiche par fiche (faits élec/info vérifiés exacts), enrichissement, harmonisation. Clôture sur un lien rouge structurel.
+
+### Livrables
+- **AA `RA-PROJET-C03-3/PROJ/5` propagé en effleuré (C20)** sur toutes les fiches `arduino-*` qui programment/paramètrent la carte (~28) — marqueur de transversalité du critère « programmer un contrôleur ». **Pas** sur `arduino-alimentation` (matérielle). `arduino-machine-a-etats` : PROJ/5 **ajouté à côté** de `RA-EEE-C03-2/EEE/5` existant. `manipulation-de-bits` le portait déjà.
+- **Bug « verrou anti-doublon » — systémique, corrigé dans 3 fiches** (`arduino-temporisation`, `arduino-moteur-cc`, `arduino-moteur-pas-a-pas`). Cause : `dernierAntirebond = millis() + 10000` (verrou placé **dans le futur**) → `millis() - dernierAntirebond` **sous-déborde** (unsigned) → condition toujours vraie → action répétée à chaque tour tant que le bouton est tenu. Fix : pattern de **détection de front** (variable `etatStable`) aligné sur `arduino-entree-tor`, sans verrou temporel artificiel.
+- **`const` vs `#define` harmonisé** (décision A) — revert `#define`→`const` sur `arduino-temporisation`, `arduino-module`, `arduino-afficheur`. `#define` conservé là où il est seul légitime (compilation conditionnelle `DEBUG`/`DBG_PRINT` de `arduino-debug`, macros `F()`).
+- **Correction `arduino-alimentation`** — « le watchdog déclenche un reset » → « la tension passe sous le seuil, le µC se réinitialise (**brown-out**) » (cohérence avec `arduino-watchdog`).
+- **Lien rouge `mise-en-service` résolu** — `arduino-eeprom` repointé vers `integration-et-tests` (étape 3) ; bullet redondant retiré de `arduino-afficheur`. `mise-en-service` n'est plus référencé nulle part.
+- **2 SVG conceptuels module cpp** — `cpp-execution-cycle.svg` (mise sous tension → `setup()` une fois → `loop()` en boucle) et `cpp-portee-locale-globale.svg` (variable locale recréée à chaque tour vs globale persistante). Premiers jets → BACKLOG (reprise visuelle).
+
+### Décisions
+- **(A) `const` partout dans les tutos** pour les constantes de valeur — cohérence avec `cpp-types`/`cpp-structure` (« `const` préféré au `#define` »). `#define` réservé à la compilation conditionnelle et aux macros.
+- **(B) Pas de 6ᵉ phase `mise-en-service`** — le modèle reste un **V à 5 phases**, terminal à `integration-et-tests` (qui se présente noir sur blanc comme « cinquième et **dernière** étape », V refermé, projet clos, soutenance comprise). Les raccrochages pointant `mise-en-service` (valider l'IHM en condition, calibration réelle) relèvent en réalité de `integration-et-tests` niveaux 3-4 → repointés. Créer une 6ᵉ phase aurait exigé de réécrire ce cadrage et le modèle du V (refusé pour cohérence).
+
+### Conventions (éprouvage)
+- Nouvelles (§8, **C43-C44**) : `const` partout pour les valeurs / `#define` réservé compilation conditionnelle + macros ; **anti-rebond par détection de front** (`etatStable`), proscription du verrou temporel `millis() + offset`.
+- **C20** : +~28 instances PROJ/5 effleuré (parcours Arduino) → renforce vers promotion §7.
+
+### Tailles
+Aucune fiche créée (relecture/édition seule) : ~28 fronts matters PROJ/5 + 3 fixes bug + 3 revert `const` + 2 corrections techniques + 2 repointages + 2 SVG. JOURNAL ~41,6 → ~46 ko. **Archivage 1-pour-1 sauté** (large marge sous 100 ko ; fenêtre 28/05→05/06 utile à la poursuite ESP32).
+
+### Corps — un bug copié-collé, une phase fantôme
+Deux fils structurants en clôture de relecture. (1) **Le « verrou anti-doublon ».** Trois tutos partageaient le même idiome : armer un verrou en écrivant `dernierAntirebond = millis() + 10000`, puis comparer `millis() - dernierAntirebond > seuil`. Le verrou étant dans le futur, la soustraction unsigned déborde par le bas (~4 milliards) et repasse au-dessus du seuil immédiatement — l'« anti-doublon » ne bloque jamais rien, l'action se répète à chaque tour de `loop()`. Le bug était identique aux trois endroits (copier-coller). Fix unique : remplacer le verrou temporel par la détection de front déjà éprouvée dans `arduino-entree-tor` (mémoriser l'état stable, n'agir qu'à la transition). (2) **La phase `mise-en-service`.** Deux raccrochages (`afficheur`, `eeprom`) pointaient une phase inexistante. La trame `integration-et-tests` se définit comme la dernière étape du V (refermé à la soutenance) : pas de phase d'exploitation après dans le modèle projet école. Plutôt que d'ajouter une 6ᵉ phase (qui aurait contredit ce cadrage), les deux liens ont été ramenés sur `integration-et-tests`, où la validation en condition et la calibration réelle vivent déjà (niveaux 3-4).
+
+---
+
 ## 2026-06-05 — Module C++ (hub + 7 fiches) + refonte hub/prise-en-main Arduino + réconciliation AA + correctifs rendu Quartz
 
 ### Périmètre
