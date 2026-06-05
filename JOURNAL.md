@@ -10,6 +10,37 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-05 — Module C++ (hub + 7 fiches) + refonte hub/prise-en-main Arduino + réconciliation AA + correctifs rendu Quartz
+
+### Périmètre
+Session longue, **PC pro** (MCP `theskillcodex:*`) — bascule depuis PC perso en cours de session (git pull, d'où le « mystère » des deux serveurs MCP : deux dépôts synchronisés par Git, pas un FS partagé). Démarrage Cas A (réconciliation AA Phase 1 + relecture du parcours Arduino). Quatre chantiers : corrections de cartographie AA, refonte du hub Arduino + de la prise-en-main, **création du module C++ complet** (hub + 7 sous-fiches), puis correctifs de rendu Quartz sur les fiches à exercices.
+
+### Livrables
+- **Réconciliation AA Phase 1** — 2 corrections de front matter : `lire-une-datasheet` (retrait `RA-PROJET-C03-3/EEE/1` — une datasheet n'est pas un schéma, sur-attribution) ; `microcontroleur` (`RA-PROJET-C03-3/EEE/5` → `RA-EEE-C03-2/EEE/2` — le hub aide au *choix* du contrôleur, pas à la *conception* d'une carte).
+- **Hub `arduino.md` refondu** — section *Tutoriels* remontée en 2e (juste après l'intro-popover) ; 3 frictions corrigées : `lire-une-datasheet` → *Apprendre les bases* ; `programmation-non-bloquante` remontée en *Avancées* avant `machine-a-etats` ; `manipulation-de-bits` ajoutée en *Niveau ingénieur*.
+- **`arduino-prise-en-main.md` réorganisée** — logique brancher → vérifier la reconnaissance (point de contrôle) → bloc *« Si la carte n'apparaît pas »* (câble charge-only → pilote CH340 étoffé pas-à-pas → Linux/macOS) ; pièges de reconnaissance retirés de la liste *Pièges*.
+- **Module C++** dans nouveau sous-dossier `eee/mcu/cpp/` (C18) : hub `cpp.md` (ex-fiche transverse `cpp` déplacée + réécrite en hub, parcours des 7 filles) + 7 sous-tutoriels — `cpp-execution`, `cpp-structure`, `cpp-types`, `cpp-portee`, `cpp-conditions`, `cpp-boucles` (multi-notions for/while/do…while), `cpp-logs` (famille-spécifique AVR). Tous `type: tuto`, `aa: [RA-PROJET-C03-3/PROJ/5]` effleuré.
+- **Correctifs rendu Quartz** : CSS `custom.scss` (fond des blocs de code dans callouts = `var(--light)`) + dé-imbrication des corrigés sur les 7 fiches + bannières de zones `/* === ZONE n === */` dans `cpp-structure`.
+
+### Décisions
+- **Factorisation transverse du C++** (vs duplication par MCU) — pushback Claude accepté : le langage et le framework Arduino sont communs à ESP32/Teensy, donc hub + sous-fiches partagés ; seule `cpp-logs` est famille-spécifique (toolchain). Revient sur la duplication un temps envisagée.
+- **Hub `cpp` = fichier unique** sur le modèle `arduino.md` (intro-popover + parcours), pas notion + hub séparés.
+- **Trame fiche-tuto langage** validée comme étalon (`cpp-execution`) ; **structure multi-notions** (une section par forme + « Laquelle choisir ? » + Code/Pièges/Exercices mutualisés) sur `cpp-boucles`.
+- **AA** : EEE passe de 5C/2E/3NC à **7C/1E/2NC** ; couverture globale ~37C → **~40C (~70 % / 57)**. MAJ `couverture-en-cours.md` Phase 2 EEE/info **toujours reportée** (l'état bouge encore).
+
+### Conventions (éprouvage / amendements)
+- Nouvelles (§8, **C38-C42**) : trame fiche-tuto langage ; structure multi-notions ; **callout corrigé repliable = TOUJOURS frère de l'énoncé, JAMAIS imbriqué** (Quartz casse le pliage d'un callout pliable imbriqué) ; bannières de zones de code ; factorisation transverse du langage. + règle CSS fond code dans callouts.
+- **C27** : batch validé sur les 4 dernières fiches cpp (grappe homogène, étalon + format validés).
+- **C20** : +7 fiches cpp portent PROJ/5 effleuré.
+
+### Tailles
+hub `cpp` ~2,5 · `cpp-execution` ~9 · `cpp-structure` ~8 · `cpp-types` ~8 · `cpp-portee` ~7 · `cpp-conditions` ~7 · `cpp-boucles` ~7 · `cpp-logs` ~7 ko. JOURNAL ~40 → ~45 ko. **Archivage 1-pour-1 sauté** (large marge sous 100 ko ; les entrées 28/05 — C18, découpage transverse/famille — restent utiles à la poursuite Arduino/ESP32).
+
+### Corps — bug de rendu Quartz : l'imbrication des callouts pliables
+Les corrigés d'exercice, écrits selon ma trame initiale comme callout `[!success]-` **imbriqué** dans le `[!question]` de l'énoncé (`> >`), s'affichaient figés ouverts et non repliables sur Quartz (corrects sous Obsidian, plus permissif). Diagnostic : Quartz gère mal un callout pliable imbriqué dans un autre callout. Correctif = **dé-imbriquer** — le corrigé devient un callout `[!success]-` *frère*, juste après l'énoncé. Validé sur 2 pilotes (`cpp-execution`, `cpp-structure`) après rebuild de Tim, puis propagé aux 5 autres fiches. Bug connexe : les blocs de code dans les callouts se fondaient dans le pastel — `pre` n'a pas de fond propre, il héritait du `--bg` du callout ; corrigé par une règle CSS ciblée donnant aux blocs le fond de page (`var(--light)`, qui suit clair/sombre).
+
+---
+
 ## 2026-06-02 (suite) — Phase 1 EEE : transverses langage/architecture + hub ESP32
 
 ### Périmètre
