@@ -62,17 +62,7 @@ Les deux sont **obligatoires**, même vides : si l'une manque, le programme ne c
 
 Le déroulement est toujours le même, quel que soit le programme :
 
-```
-mise sous tension / Reset
-        │
-        ▼
-   setup()        ←── exécuté UNE fois
-        │
-        ▼
-   loop()  ──┐
-        ▲     │     ←── répété À L'INFINI
-        └─────┘
-```
+![Cycle d'exécution : setup() une fois puis loop() à l'infini](/ressources/img/cpp-execution-cycle.svg)
 
 Un programme embarqué ne « se termine » donc jamais de lui-même. C'est une différence de fond avec un programme d'ordinateur : il n'y a ni fin, ni retour au système — juste `loop()` qui tourne, encore et encore, jusqu'à ce qu'on débranche.
 

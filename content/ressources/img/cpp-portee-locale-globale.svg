@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="tp dp">
+  <title id="tp">Variable locale contre variable globale sur trois tours de loop</title>
+  <desc id="dp">Comparaison du comportement d'une variable globale et d'une variable locale sur trois tours successifs de la fonction loop. La variable globale, créée une seule fois au démarrage, conserve sa valeur d'un tour au suivant : elle affiche 1, puis 2, puis 3. La variable locale est recréée et remise à zéro à chaque tour : elle affiche toujours 1. À chaque frontière de tour, la valeur globale est transmise tandis que la valeur locale est détruite.</desc>
+  <defs>
+    <style>
+      .ti { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .col { font:700 12px sans-serif; text-anchor:middle; fill:#888780; }
+      .lbl { font:700 14px sans-serif; fill:#BA7517; }
+      .gbox { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .lbox { fill:#DDDBD3; stroke:#888780; stroke-width:1.4; }
+      .val { font:700 19px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .note { font:400 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .note-l { font:400 11px sans-serif; text-anchor:start; fill:#888780; }
+      .arr { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#aa); }
+      .xm { font:700 17px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .divi { stroke:#888780; stroke-width:1; stroke-dasharray:2 4; }
+      .foot { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .amk { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti { fill:#F1EFE8; }
+        .col { fill:#BBBBBB; }
+        .lbl { fill:#EF9F27; }
+        .gbox { fill:#4A4A48; stroke:#EF9F27; }
+        .lbox { fill:#4A4A48; stroke:#BBBBBB; }
+        .val { fill:#F1EFE8; }
+        .note { fill:#F1EFE8; }
+        .note-l { fill:#BBBBBB; }
+        .arr { stroke:#EF9F27; }
+        .xm { fill:#EF9F27; }
+        .divi { stroke:#BBBBBB; }
+        .foot { fill:#BBBBBB; }
+        .amk { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="amk"/>
+    </marker>
+  </defs>
+
+  <text x="380" y="24" class="ti">Locale vs globale — ce qui survit d'un tour de loop() au suivant</text>
+
+  <!-- Séparateurs de tours -->
+  <line x1="340" y1="44" x2="340" y2="286" class="divi"/>
+  <line x1="520" y1="44" x2="520" y2="286" class="divi"/>
+
+  <!-- En-têtes de colonnes -->
+  <text x="250" y="58" class="col">tour 1</text>
+  <text x="430" y="58" class="col">tour 2</text>
+  <text x="610" y="58" class="col">tour 3</text>
+
+  <!-- ===== Ligne GLOBALE ===== -->
+  <text x="24" y="108" class="lbl">globale</text>
+  <text x="24" y="125" class="note-l">(nbAppuis)</text>
+
+  <rect x="215" y="90" width="70" height="44" rx="8" class="gbox"/>
+  <text x="250" y="120" class="val">1</text>
+  <rect x="395" y="90" width="70" height="44" rx="8" class="gbox"/>
+  <text x="430" y="120" class="val">2</text>
+  <rect x="575" y="90" width="70" height="44" rx="8" class="gbox"/>
+  <text x="610" y="120" class="val">3</text>
+
+  <line x1="287" y1="112" x2="393" y2="112" class="arr"/>
+  <line x1="467" y1="112" x2="573" y2="112" class="arr"/>
+
+  <text x="430" y="162" class="note">créée une fois au démarrage — garde sa valeur d'un tour au suivant</text>
+
+  <!-- ===== Ligne LOCALE ===== -->
+  <text x="24" y="216" class="lbl">locale</text>
+  <text x="24" y="233" class="note-l">(etat)</text>
+
+  <rect x="215" y="198" width="70" height="44" rx="8" class="lbox"/>
+  <text x="250" y="228" class="val">1</text>
+  <rect x="395" y="198" width="70" height="44" rx="8" class="lbox"/>
+  <text x="430" y="228" class="val">1</text>
+  <rect x="575" y="198" width="70" height="44" rx="8" class="lbox"/>
+  <text x="610" y="228" class="val">1</text>
+
+  <text x="340" y="226" class="xm">✗</text>
+  <text x="520" y="226" class="xm">✗</text>
+
+  <text x="430" y="270" class="note">recréée et remise à 0 à chaque tour → affiche toujours 1</text>
+
+  <text x="380" y="312" class="foot">Globale : mémorise un état · Locale : valeur de travail, jetable.</text>
+</svg>
