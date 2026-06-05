@@ -69,7 +69,7 @@ mise sous tension / Reset
    setup()        ←── exécuté UNE fois
         │
         ▼
-   loop()   ──┐
+   loop()  ──┐
         ▲     │     ←── répété À L'INFINI
         └─────┘
 ```
@@ -85,12 +85,12 @@ unsigned long passages = 0;     // compte les tours de loop() — déclarée hor
 
 void setup() {
   Serial.begin(115200);         // ouvre le port série (une seule fois)
-  Serial.println("=== Démarrage : setup() exécuté ===");
+  Serial.println("=== Demarrage : setup() execute ===");
 }
 
 void loop() {
   passages = passages + 1;      // un de plus à chaque tour
-  Serial.print("Tour de loop n° ");
+  Serial.print("Tour de loop n ");
   Serial.println(passages);
   delay(500);                   // ralentit l'affichage pour qu'il soit lisible
 }
@@ -98,7 +98,7 @@ void loop() {
 
 Trois choses à remarquer en lisant la sortie :
 
-- la ligne `=== Démarrage ===` n'apparaît **qu'une fois** — c'est `setup()`, exécuté une seule fois ;
+- la ligne `=== Demarrage ===` n'apparaît **qu'une fois** — c'est `setup()`, exécuté une seule fois ;
 - le compteur s'incrémente **sans fin** (1, 2, 3, …) — c'est `loop()`, répété à l'infini ;
 - si vous appuyez sur le bouton **Reset** de la carte, le message de démarrage **réapparaît** et le compteur **repart de 1** : un Reset, c'est exactement « remise sous tension », donc `setup()` se rejoue.
 
@@ -120,45 +120,45 @@ Sans le `delay(500)`, la boucle tournerait des dizaines de milliers de fois par 
 
 > [!question] Exercice 1 — Le programme qui « ne fait rien »
 > Téléversez le code minimal (`setup()` et `loop()` vides). Que se passe-t-il ? La compilation réussit-elle ? Le téléversement ? Et sur la carte, observe-t-on quelque chose ?
->
-> > [!success]- Corrigé
-> > La compilation **réussit** et le téléversement **aussi** : le programme est valide. Mais sur la carte, **rien de visible** — aucune broche n'est pilotée, aucun message envoyé. C'est le point clé : *un programme qui compile et se téléverse n'« agit » pas pour autant*. Compiler prouve seulement que la syntaxe est correcte, pas que le programme fait quelque chose d'utile.
+
+> [!success]- Corrigé de l'exercice 1
+> La compilation **réussit** et le téléversement **aussi** : le programme est valide. Mais sur la carte, **rien de visible** — aucune broche n'est pilotée, aucun message envoyé. C'est le point clé : *un programme qui compile et se téléverse n'« agit » pas pour autant*. Compiler prouve seulement que la syntaxe est correcte, pas que le programme fait quelque chose d'utile.
 
 > [!question] Exercice 2 — Rendre la boucle visible
 > Faites afficher sur le moniteur série un compteur qui augmente à chaque tour de `loop()`, une ligne toutes les secondes. Combien de lignes voyez-vous en 10 secondes ?
+
+> [!success]- Corrigé de l'exercice 2
+> ```cpp
+> unsigned long n = 0;
 >
-> > [!success]- Corrigé
-> > ```cpp
-> > unsigned long n = 0;
-> >
-> > void setup() {
-> >   Serial.begin(115200);
-> > }
-> >
-> > void loop() {
-> >   n = n + 1;
-> >   Serial.println(n);
-> >   delay(1000);            // une seconde entre deux affichages
-> > }
-> > ```
-> > Avec `delay(1000)`, on obtient **une ligne par seconde**, donc une dizaine en 10 secondes. Le `delay` ne « cadence » pas la carte : il l'oblige juste à attendre entre deux affichages. Sans lui, `loop()` tournerait des milliers de fois par seconde.
+> void setup() {
+>   Serial.begin(115200);
+> }
+>
+> void loop() {
+>   n = n + 1;
+>   Serial.println(n);
+>   delay(1000);            // une seconde entre deux affichages
+> }
+> ```
+> Avec `delay(1000)`, on obtient **une ligne par seconde**, donc une dizaine en 10 secondes. Le `delay` ne « cadence » pas la carte : il l'oblige juste à attendre entre deux affichages. Sans lui, `loop()` tournerait des milliers de fois par seconde.
 
 > [!question] Exercice 3 — Prouver que `setup()` ne s'exécute qu'une fois
 > Écrivez un programme qui affiche `"setup"` dans `setup()` et `"loop"` dans `loop()` (une fois par seconde). Téléversez, observez, puis **appuyez sur le bouton Reset**. Qu'observe-t-on à chaque étape ?
+
+> [!success]- Corrigé de l'exercice 3
+> ```cpp
+> void setup() {
+>   Serial.begin(115200);
+>   Serial.println("setup");
+> }
 >
-> > [!success]- Corrigé
-> > ```cpp
-> > void setup() {
-> >   Serial.begin(115200);
-> >   Serial.println("setup");
-> > }
-> >
-> > void loop() {
-> >   Serial.println("loop");
-> >   delay(1000);
-> > }
-> > ```
-> > Au démarrage : **un seul** `"setup"`, puis `"loop"` qui se répète. À l'appui sur **Reset** : un nouveau `"setup"` apparaît, puis les `"loop"` reprennent. Conclusion : un Reset équivaut à une remise sous tension — `setup()` se rejoue intégralement, ce qui réinitialise aussi toutes les variables (à voir dans [[cpp-portee|variables locales et globales]]).
+> void loop() {
+>   Serial.println("loop");
+>   delay(1000);
+> }
+> ```
+> Au démarrage : **un seul** `"setup"`, puis `"loop"` qui se répète. À l'appui sur **Reset** : un nouveau `"setup"` apparaît, puis les `"loop"` reprennent. Conclusion : un Reset équivaut à une remise sous tension — `setup()` se rejoue intégralement, ce qui réinitialise aussi toutes les variables (à voir dans [[cpp-portee|variables locales et globales]]).
 
 ## Raccrochage projet
 

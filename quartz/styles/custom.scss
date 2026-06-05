@@ -114,3 +114,20 @@ article {
   --border: #6B3B96;
   --bg: #EED9FB;               // lavande très clair
 }
+
+// =====================================================================
+// Blocs de code DANS les callouts — lisibilité
+// =====================================================================
+// Sur le fond pastel d'un callout, un bloc de code prenait une teinte
+// trop proche du fond et devenait peu lisible. On lui redonne le fond
+// de page Quartz (--light), qui tranche sur le pastel et suit
+// automatiquement le mode clair / sombre. La bordure --lightgray du
+// <pre> continue de délimiter le bloc.
+// =====================================================================
+
+.callout {
+  pre,
+  code[data-theme] {
+    background-color: var(--light);
+  }
+}

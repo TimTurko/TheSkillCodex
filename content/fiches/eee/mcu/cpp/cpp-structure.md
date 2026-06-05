@@ -71,42 +71,53 @@ int lireCapteur() {                 // type de retour, nom, (paramètres)
 
 ## Code à lire
 
-Un sketch complet et **bien rangé** : il commande un servomoteur d'après un capteur, et allume une LED au-dessus d'un seuil. Repérez les quatre zones en le lisant.
+Un sketch complet et **bien rangé** : il commande un servomoteur d'après un capteur, et allume une LED au-dessus d'un seuil. Les **bannières de commentaires** séparent visuellement les quatre zones — une habitude qui rend un programme long bien plus lisible.
 
 ```cpp
-#include <Servo.h>               // [1] préprocesseur : bibliothèque servo
+/* ============================================= */
+/*  ZONE 1 — Préprocesseur (#include, #define)   */
+/* ============================================= */
+#include <Servo.h>               // bibliothèque : pilotage de servomoteur
+#define LED_ALERTE 13            // remplacement de texte : broche de la LED
 
-#define LED_ALERTE 13            // [1] préprocesseur : broche de la LED
-const int BROCHE_CAPTEUR = A0;   // [2] déclaration globale : constante typée
-const int SEUIL = 500;           // [2] au-dessus de cette valeur, on alerte
+/* ============================================= */
+/*  ZONE 2 — Déclarations globales               */
+/* ============================================= */
+const int BROCHE_CAPTEUR = A0;   // constante typée
+const int SEUIL = 500;           // au-dessus de cette valeur, on alerte
+Servo monServo;                  // objet global : le servo
+int derniereMesure = 0;          // variable globale : mémorisée entre les tours
 
-Servo monServo;                  // [2] objet global : le servo
-int derniereMesure = 0;          // [2] variable globale : mémorisée entre les tours
-
-void setup() {                   // [3] exécuté une fois
+/* ============================================= */
+/*  ZONE 3 — setup() et loop()                   */
+/* ============================================= */
+void setup() {                   // exécuté une fois
   Serial.begin(115200);
   pinMode(LED_ALERTE, OUTPUT);
   monServo.attach(9);            // le servo est câblé sur la broche 9
 }
 
-void loop() {                    // [3] répété sans fin
+void loop() {                    // répété sans fin
   derniereMesure = lireCapteur();        // on appelle nos fonctions
   positionnerServo(derniereMesure);
   delay(100);
 }
 
-int lireCapteur() {                       // [4] fonction perso : lit la mesure
+/* ============================================= */
+/*  ZONE 4 — Fonctions personnelles              */
+/* ============================================= */
+int lireCapteur() {                       // lit et renvoie la mesure
   return analogRead(BROCHE_CAPTEUR);
 }
 
-void positionnerServo(int mesure) {       // [4] fonction perso : agit
+void positionnerServo(int mesure) {       // agit selon la mesure
   int angle = map(mesure, 0, 1023, 0, 180);   // 0..1023 → 0..180°
   monServo.write(angle);
   digitalWrite(LED_ALERTE, mesure > SEUIL ? HIGH : LOW);
 }
 ```
 
-`loop()` reste **court et lisible** : il dit *quoi* faire (lire, positionner), pas *comment*. Le « comment » est rangé dans les fonctions du bas. C'est exactement le bénéfice d'une bonne structure — et la base de tout ce qui suivra sur la [[firmware|structuration du firmware]].
+`loop()` reste **court et lisible** : il dit *quoi* faire (lire, positionner), pas *comment*. Le « comment » est rangé dans les fonctions de la zone 4. C'est exactement le bénéfice d'une bonne structure — et la base de tout ce qui suivra sur la [[firmware|structuration du firmware]].
 
 ## Pièges
 
@@ -114,7 +125,7 @@ void positionnerServo(int mesure) {       // [4] fonction perso : agit
 
 **`#include` oublié.** Utiliser `Servo` ou `monServo.attach()` sans `#include <Servo.h>` en tête donne une erreur du type `'Servo' was not declared in this scope`. La bibliothèque doit être incluse avant d'être employée.
 
-**Une action écrite hors fonction.** `digitalWrite(13, HIGH);` placée entre les déclarations globales et `setup()`, hors de toute accolade, ne compile pas : à ce niveau, seules des **déclarations** sont permises. Les actions vont dans `setup()` ou `loop()`.
+**Une action écrite hors fonction.** `digitalWrite(13, HIGH);` placée dans la zone 2 (déclarations globales), hors de toute accolade, ne compile pas : à ce niveau, seules des **déclarations** sont permises. Les actions vont dans `setup()` ou `loop()`.
 
 **Variable utilisée avant d'être déclarée.** Le compilateur lit de haut en bas : une variable globale doit être déclarée **au-dessus** de la première ligne qui l'utilise.
 
@@ -122,17 +133,19 @@ void positionnerServo(int mesure) {       // [4] fonction perso : agit
 
 ## Exercices
 
-> [!question] Exercice 1 — Repérer les quatre zones
-> Reprenez le sketch « Code à lire » ci-dessus et, sans les annotations `[1]`–`[4]`, retrouvez où commence et finit chaque zone : préprocesseur, déclarations globales, `setup()`/`loop()`, fonctions personnelles.
+> [!question] Exercice 1 — Le rôle de chaque zone
+> Dans le sketch « Code à lire », quatre zones sont délimitées par des bannières. Pour chacune, dites ce qu'on y place. Puis expliquez pourquoi une **action** comme `digitalWrite(13, HIGH);` ne peut **pas** figurer dans la zone 2 (déclarations globales).
+
+> [!success]- Corrigé de l'exercice 1
+> - **Zone 1 — préprocesseur** : les `#include` (bibliothèques) et les `#define` (remplacements de texte).
+> - **Zone 2 — déclarations globales** : constantes (`const`), objets de bibliothèque (`Servo monServo;`), variables à mémoriser entre les tours.
+> - **Zone 3 — `setup()` / `loop()`** : les **actions** — réglages une fois dans `setup()`, cœur répété dans `loop()`.
+> - **Zone 4 — fonctions personnelles** : la logique découpée en fonctions nommées.
 >
-> > [!success]- Corrigé
-> > - **Préprocesseur** : les lignes `#include <Servo.h>` et `#define LED_ALERTE 13` (tout ce qui commence par `#`).
-> > - **Déclarations globales** : de `const int BROCHE_CAPTEUR` jusqu'à `int derniereMesure = 0;` (constantes, objet `Servo`, variable mémorisée) — tout ce qui est *déclaré* hors fonction.
-> > - **`setup()` / `loop()`** : les deux fonctions obligatoires, où vivent les actions.
-> > - **Fonctions personnelles** : `lireCapteur()` et `positionnerServo()`, après `loop()`.
+> Une action ne peut pas figurer en zone 2 parce qu'à ce niveau — **hors de toute fonction** — il n'existe aucun « moment » d'exécution : le compilateur n'accepte là que des **déclarations**. Une action n'a de sens que *dans* une fonction qui s'exécute (`setup()` une fois, `loop()` en boucle).
 
 > [!question] Exercice 2 — Extraire une fonction
-> Voici un `loop()` qui fait tout lui-même. Réécrivez le sketch en sortant le calcul de l'angle et la commande du servo dans une fonction nommée `commanderServo(int mesure)`.
+> Voici un `loop()` qui fait tout lui-même. Réécrivez-le en sortant le calcul de l'angle et la commande du servo dans une fonction nommée `commanderServo(int mesure)`.
 > ```cpp
 > void loop() {
 >   int mesure = analogRead(A0);
@@ -141,21 +154,21 @@ void positionnerServo(int mesure) {       // [4] fonction perso : agit
 >   delay(100);
 > }
 > ```
+
+> [!success]- Corrigé de l'exercice 2
+> ```cpp
+> void loop() {
+>   int mesure = analogRead(A0);
+>   commanderServo(mesure);        // loop() dit "quoi", la fonction dit "comment"
+>   delay(100);
+> }
 >
-> > [!success]- Corrigé
-> > ```cpp
-> > void loop() {
-> >   int mesure = analogRead(A0);
-> >   commanderServo(mesure);        // loop() dit "quoi", la fonction dit "comment"
-> >   delay(100);
-> > }
-> >
-> > void commanderServo(int mesure) {
-> >   int angle = map(mesure, 0, 1023, 0, 180);
-> >   monServo.write(angle);
-> > }
-> > ```
-> > `loop()` devient plus lisible : il décrit l'intention (lire, commander) et délègue le détail. La fonction `commanderServo` prend la mesure en **paramètre** et ne renvoie rien (`void`).
+> void commanderServo(int mesure) {
+>   int angle = map(mesure, 0, 1023, 0, 180);
+>   monServo.write(angle);
+> }
+> ```
+> `loop()` devient plus lisible : il décrit l'intention (lire, commander) et délègue le détail. La fonction `commanderServo` prend la mesure en **paramètre** et ne renvoie rien (`void`).
 
 ## Raccrochage projet
 
