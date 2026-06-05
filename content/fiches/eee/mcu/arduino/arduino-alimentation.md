@@ -74,7 +74,7 @@ Une fois alimenté, mesurer au multimètre :
 - **Tension entre 3,3 V et GND** : doit être 3,3 V (3,2-3,4 V).
 - **Sous charge** (actionneur activé) : la tension 5 V ne doit pas chuter en dessous de 4,5 V — sinon, le microcontrôleur peut se reset.
 
-Symptôme typique d'une alimentation faible : **l'Arduino reboote à chaque fois qu'un actionneur s'active**. Le pic de courant fait chuter la tension, le watchdog déclenche un reset, le programme repart.
+Symptôme typique d'une alimentation faible : **l'Arduino reboote à chaque fois qu'un actionneur s'active**. Le pic de courant fait chuter la tension sous le seuil de fonctionnement du microcontrôleur, qui se réinitialise (brown-out), puis repart.
 
 ## Exemple — Projet sur batterie : Arduino + 3 modules
 
