@@ -134,10 +134,10 @@ void loop() {
 > int n = 0;
 > void loop() { n++; Serial.println(n); delay(500); }
 > ```
->
-> > [!success]- Corrigé
-> > - **Version A** : `1`, `1`, `1`. `n` est **locale**, recréée et remise à 0 à chaque tour, donc toujours incrémentée de 0 à 1.
-> > - **Version B** : `1`, `2`, `3`. `n` est **globale**, créée une seule fois ; elle conserve sa valeur et s'incrémente tour après tour.
+
+> [!success]- Corrigé de l'exercice 1
+> - **Version A** : `1`, `1`, `1`. `n` est **locale**, recréée et remise à 0 à chaque tour, donc toujours incrémentée de 0 à 1.
+> - **Version B** : `1`, `2`, `3`. `n` est **globale**, créée une seule fois ; elle conserve sa valeur et s'incrémente tour après tour.
 
 > [!question] Exercice 2 — Le compteur qui ne compte pas
 > Ce programme doit compter combien de fois une mesure dépasse un seuil, mais il affiche toujours `1`. Corrigez-le de deux façons.
@@ -151,25 +151,25 @@ void loop() {
 >   delay(100);
 > }
 > ```
->
-> > [!success]- Corrigé
-> > `depassements` est locale → remise à 0 à chaque tour. Deux corrections possibles :
-> > ```cpp
-> > // Solution 1 : variable globale
-> > int depassements = 0;
-> > void loop() {
-> >   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
-> >   delay(100);
-> > }
-> > ```
-> > ```cpp
-> > // Solution 2 : variable locale static (confinée à loop, mais persistante)
-> > void loop() {
-> >   static int depassements = 0;
-> >   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
-> >   delay(100);
-> > }
-> > ```
+
+> [!success]- Corrigé de l'exercice 2
+> `depassements` est locale → remise à 0 à chaque tour. Deux corrections possibles :
+> ```cpp
+> // Solution 1 : variable globale
+> int depassements = 0;
+> void loop() {
+>   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
+>   delay(100);
+> }
+> ```
+> ```cpp
+> // Solution 2 : variable locale static (confinée à loop, mais persistante)
+> void loop() {
+>   static int depassements = 0;
+>   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
+>   delay(100);
+> }
+> ```
 
 ## Raccrochage projet
 

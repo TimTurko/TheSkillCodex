@@ -126,17 +126,17 @@ Lecture : `led` est utilisé mais jamais déclaré. Soit on a oublié `const int
 >   digitalWrite(13, etat);
 > }
 > ```
->
-> > [!success]- Corrigé
-> > Le message pointe la ligne 4, mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant. Correction : `int etat = digitalRead(2);`. *(Le message indiquait `delay` ou `digitalWrite` selon la mise en page exacte — l'idée reste : remonter d'une ligne.)*
+
+> [!success]- Corrigé de l'exercice 1
+> Le message pointe la ligne 4, mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant. Correction : `int etat = digitalRead(2);`. *(Le message indiquait `delay` ou `digitalWrite` selon la mise en page exacte — l'idée reste : remonter d'une ligne.)*
 
 > [!question] Exercice 2 — Le nom inconnu
 > Message : `error: 'tempo' was not declared in this scope`. Donnez **trois** causes possibles et la correction de chacune.
->
-> > [!success]- Corrigé
-> > 1. **Variable jamais déclarée** → l'ajouter, p. ex. `int tempo = 500;` dans les déclarations globales ou la fonction.
-> > 2. **Faute de frappe** → on a déclaré `tempo` mais écrit `Tempo` (ou l'inverse) ; le C++ distingue les majuscules. Aligner l'orthographe.
-> > 3. **Variable hors de sa portée** → `tempo` est une variable **locale** d'une autre fonction, utilisée ici où elle n'existe pas (voir [[cpp-portee|portée]]). La déclarer au bon niveau (globale si elle doit être partagée).
+
+> [!success]- Corrigé de l'exercice 2
+> 1. **Variable jamais déclarée** → l'ajouter, p. ex. `int tempo = 500;` dans les déclarations globales ou la fonction.
+> 2. **Faute de frappe** → on a déclaré `tempo` mais écrit `Tempo` (ou l'inverse) ; le C++ distingue les majuscules. Aligner l'orthographe.
+> 3. **Variable hors de sa portée** → `tempo` est une variable **locale** d'une autre fonction, utilisée ici où elle n'existe pas (voir [[cpp-portee|portée]]). La déclarer au bon niveau (globale si elle doit être partagée).
 
 ## Raccrochage projet
 

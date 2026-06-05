@@ -150,16 +150,16 @@ La cascade `if` gère un **intervalle** (zones de mesure) ; le `switch` gère de
 
 > [!question] Exercice 1 — Une plage de confort
 > Écrivez la condition qui allume une LED **uniquement** si la température `t` est comprise entre 18 et 25 °C **inclus**.
->
-> > [!success]- Corrigé
-> > ```cpp
-> > if (t >= 18 && t <= 25) {
-> >   digitalWrite(LED, HIGH);
-> > } else {
-> >   digitalWrite(LED, LOW);
-> > }
-> > ```
-> > Le `&&` impose que **les deux** bornes soient respectées. Avec `||`, la LED s'allumerait presque toujours (toute température vérifie au moins une des deux inégalités).
+
+> [!success]- Corrigé de l'exercice 1
+> ```cpp
+> if (t >= 18 && t <= 25) {
+>   digitalWrite(LED, HIGH);
+> } else {
+>   digitalWrite(LED, LOW);
+> }
+> ```
+> Le `&&` impose que **les deux** bornes soient respectées. Avec `||`, la LED s'allumerait presque toujours (toute température vérifie au moins une des deux inégalités).
 
 > [!question] Exercice 2 — Le switch qui déraille
 > Ce `switch` affiche `manuel` *et* `auto` quand `mode` vaut 1. Pourquoi, et comment corriger ?
@@ -169,15 +169,15 @@ La cascade `if` gère un **intervalle** (zones de mesure) ; le `switch` gère de
 >   case 2: Serial.println("auto");
 > }
 > ```
->
-> > [!success]- Corrigé
-> > Il manque les `break` : quand `mode == 1`, l'exécution entre au `case 1`, affiche `manuel`, puis **tombe** dans le `case 2` et affiche `auto`. Correction :
-> > ```cpp
-> > switch (mode) {
-> >   case 1: Serial.println("manuel"); break;
-> >   case 2: Serial.println("auto");   break;
-> > }
-> > ```
+
+> [!success]- Corrigé de l'exercice 2
+> Il manque les `break` : quand `mode == 1`, l'exécution entre au `case 1`, affiche `manuel`, puis **tombe** dans le `case 2` et affiche `auto`. Correction :
+> ```cpp
+> switch (mode) {
+>   case 1: Serial.println("manuel"); break;
+>   case 2: Serial.println("auto");   break;
+> }
+> ```
 
 ## Raccrochage projet
 

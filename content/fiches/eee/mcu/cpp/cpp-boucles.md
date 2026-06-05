@@ -125,22 +125,22 @@ Sans boucle, il aurait fallu écrire douze `digitalWrite` et autant de `delay`. 
 
 > [!question] Exercice 1 — Compter à rebours
 > Avec une boucle `for`, affichez sur le moniteur série un compte à rebours de 10 jusqu'à 1, puis le mot `"Partez !"`.
+
+> [!success]- Corrigé de l'exercice 1
+> ```cpp
+> void setup() {
+>   Serial.begin(115200);
+>   for (int i = 10; i >= 1; i--) {   // de 10 à 1, décrément
+>     Serial.println(i);
+>     delay(500);
+>   }
+>   Serial.println("Partez !");
+> }
 >
-> > [!success]- Corrigé
-> > ```cpp
-> > void setup() {
-> >   Serial.begin(115200);
-> >   for (int i = 10; i >= 1; i--) {   // de 10 à 1, décrément
-> >     Serial.println(i);
-> >     delay(500);
-> >   }
-> >   Serial.println("Partez !");
-> > }
-> >
-> > void loop() {
-> > }
-> > ```
-> > La boucle est dans `setup()` car le compte à rebours ne doit avoir lieu **qu'une fois**. Le compteur part de 10, la condition `i >= 1` arrête à 1, et `i--` décrémente.
+> void loop() {
+> }
+> ```
+> La boucle est dans `setup()` car le compte à rebours ne doit avoir lieu **qu'une fois**. Le compteur part de 10, la condition `i >= 1` arrête à 1, et `i--` décrémente.
 
 > [!question] Exercice 2 — `while` ou `do…while` ?
 > Que fait chacune de ces deux boucles si, dès le départ, le bouton est **déjà** relâché (`digitalRead` renvoie `HIGH`) ? En quoi diffèrent-elles ?
@@ -150,12 +150,12 @@ Sans boucle, il aurait fallu écrire douze `digitalWrite` et autant de `delay`. 
 > // B
 > do { Serial.println("B"); } while (digitalRead(BOUTON) == LOW);
 > ```
+
+> [!success]- Corrigé de l'exercice 2
+> - **A (`while`)** : la condition est testée **avant** ; comme le bouton est relâché (donc `== LOW` est faux), le bloc ne s'exécute **pas du tout** — `"A"` n'est jamais affiché.
+> - **B (`do…while`)** : le bloc s'exécute **une fois** avant le test ; `"B"` est affiché **une fois**, puis la condition fausse arrête la boucle.
 >
-> > [!success]- Corrigé
-> > - **A (`while`)** : la condition est testée **avant** ; comme le bouton est relâché (donc `== LOW` est faux), le bloc ne s'exécute **pas du tout** — `"A"` n'est jamais affiché.
-> > - **B (`do…while`)** : le bloc s'exécute **une fois** avant le test ; `"B"` est affiché **une fois**, puis la condition fausse arrête la boucle.
-> >
-> > C'est toute la différence : `do…while` garantit au moins un passage. (Et rappel : ces deux boucles d'attente figeraient le programme tant que le bouton resterait pressé.)
+> C'est toute la différence : `do…while` garantit au moins un passage. (Et rappel : ces deux boucles d'attente figeraient le programme tant que le bouton resterait pressé.)
 
 ## Raccrochage projet
 

@@ -134,9 +134,9 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 
 > [!question] Exercice 1 — Choisir le bon type
 > Un débitmètre renvoie un nombre de litres pouvant monter jusqu'à 50 000. Sur une **Uno R3**, dans quel type ranger cette valeur sans risque de débordement ? Et si la valeur pouvait être négative ?
->
-> > [!success]- Corrigé
-> > Sur Uno R3 (AVR), `int` plafonne à **32 767** : 50 000 le ferait **déborder**. Comme la valeur est positive, le plus juste est `unsigned long` (0 à ~4 milliards) — ou au minimum `unsigned int` (0 à 65 535), qui suffit tout juste mais laisse peu de marge. Si la valeur pouvait être **négative**, on prend `long` (signé, 4 octets), car `unsigned` interdit le négatif.
+
+> [!success]- Corrigé de l'exercice 1
+> Sur Uno R3 (AVR), `int` plafonne à **32 767** : 50 000 le ferait **déborder**. Comme la valeur est positive, le plus juste est `unsigned long` (0 à ~4 milliards) — ou au minimum `unsigned int` (0 à 65 535), qui suffit tout juste mais laisse peu de marge. Si la valeur pouvait être **négative**, on prend `long` (signé, 4 octets), car `unsigned` interdit le négatif.
 
 > [!question] Exercice 2 — Le calcul faux
 > Ce calcul de moyenne donne parfois un résultat aberrant. Trouvez les **deux** problèmes et corrigez-les.
@@ -145,19 +145,19 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 > int b = 18000;
 > int moyenne = (a + b) / 2;     // sur Uno R3
 > ```
+
+> [!success]- Corrigé de l'exercice 2
+> Deux pièges cumulés sur une Uno R3 :
+> 1. **Débordement** : `a + b = 38 000`, au-delà des 32 767 d'un `int` AVR → le résultat intermédiaire bascule dans le négatif avant même la division.
+> 2. **Division entière** : même sans débordement, `/ 2` tronque la partie décimale.
 >
-> > [!success]- Corrigé
-> > Deux pièges cumulés sur une Uno R3 :
-> > 1. **Débordement** : `a + b = 38 000`, au-delà des 32 767 d'un `int` AVR → le résultat intermédiaire bascule dans le négatif avant même la division.
-> > 2. **Division entière** : même sans débordement, `/ 2` tronque la partie décimale.
-> >
-> > Correction — typer assez large pour la somme, et garder un entier si la moyenne doit l'être :
-> > ```cpp
-> > long a = 20000;
-> > long b = 18000;
-> > long moyenne = (a + b) / 2;    // 19000, sans débordement
-> > ```
-> > Si l'on voulait une moyenne **décimale**, on passerait par un `float` : `float moyenne = (a + b) / 2.0;`.
+> Correction — typer assez large pour la somme, et garder un entier si la moyenne doit l'être :
+> ```cpp
+> long a = 20000;
+> long b = 18000;
+> long moyenne = (a + b) / 2;    // 19000, sans débordement
+> ```
+> Si l'on voulait une moyenne **décimale**, on passerait par un `float` : `float moyenne = (a + b) / 2.0;`.
 
 ## Raccrochage projet
 
