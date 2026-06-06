@@ -138,7 +138,7 @@ effleure:
 
 **Trous phase 2 identifiés** :
 - `RA-EEE-C03-2/EEE/5` (commande par algorithme : logigramme/MAE/grafcet/chronogramme) — 4 fiches-tuto à créer, 1 par méthode (ajout TODO).
-- `RA-MME-C03-1/MME/6` (optimisation conception) — fiche-tuto `optimisation-mecanique` à créer (ajout TODO).
+- `RA-MME-C03-1/MME/6` (optimisation conception) — **fermé 06/06** par la fiche `optimisation-mecanique` (notion MME interface, E→C).
 
 **Trou phase 1 à vérifier sur `gestion-de-projet.md`** : `RA-MEO-C10-3/MEO/5` (proposer outils de prise de décision collective). Si absent là-bas aussi, vrai trou à corriger.
 
@@ -683,6 +683,20 @@ alimentation-electronique.md (eee, transverse [T]):
 
 ---
 
+### optimisation-mecanique (06/06)
+
+> Fiche notion MME tenue en **frontière interface** (`mme/`), décalque de `schema-cinematique`. Ferme le dernier item MME ouvert. **Reclassement réel.**
+
+```yaml
+optimisation-mecanique.md (mme, notion interface):
+  couvert:
+    - RA-MME-C03-1/MME/6    # Optimiser la conception — OBJET CENTRAL (leviers à l'échelle système : matériau/procédé raisonné, allègement géométrique, réduction du nombre de pièces ; démarche itérative + critères). Dimensionnement fin (FEA, topologie) renvoyé au cours méca. Reclassement E → C.
+```
+
+**Bilan** : 1 fiche + 1 SVG conceptuel (avant/après allègement). **Reclassement** : `RA-MME-C03-1/MME/6` passe de **E → C** — était Effleuré (dossier-technique étape 2, choix matériau/procédé argumenté) avec fiche prévue ; désormais objet central d'une fiche dédiée tenue en frontière interface (raisonnement d'arbitrage système, renvoi cours méca pour le calcul). Distinct de ses frères de RA `C03-1/2` et `/4` (actés *E terminal par délégation* le 06/06) et de `RA-MME-C02-1/MME/6` (caractéristiques actionneurs, délégué). **MME refermé : 5 C / 5 E / 0 HS / 1 HS-D / 0 NC.** **Nouveau tally global : 45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %).**
+
+---
+
 ## Passe A — Cartographie inverse par domaine
 
 > Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.
@@ -760,9 +774,9 @@ alimentation-electronique.md (eee, transverse [T]):
 - **/3** *Créer assemblage CAO* — **C** : dossier-technique étape 2 (plans cotés, fichiers STL/DXF/STEP).
 - **/4** *Paramètres dynamiques* — **E** : concept étape 4 (modèle simplifié transitoire). *E terminal par délégation*.
 - **/5** *Nomenclature à partir CAO* — **C** : dossier-technique étape 3 (BOM agrégée).
-- **/6** *Optimiser conception* — **E** : dossier-technique étape 2. Trou phase 2 prévu : fiche-tuto `optimisation-mecanique` au TODO.
+- **/6** *Optimiser conception* — **C** : `optimisation-mecanique` (objet central : leviers d'optimisation à l'échelle système — choix matériau/procédé raisonné, allègement géométrique, réduction du nombre de pièces — démarche itérative + critères ; dimensionnement fin topologie/FEA renvoyé au cours méca). **E** : dossier-technique étape 2 (choix matériau/procédé argumenté). *(était E — fermé 06/06)*
 
-**Bilan MME** : **4 C + 6 E + 0 HS + 1 HS-D + 0 NC** sur 11 critères (vs 3C/6E/2NC avant arbitrage 06/06). `schema-cinematique` ferme `MME/5` (NC→C) ; `MME-C03-1/1` (outils designers) → **HS-D** (design délégué). Les **5 critères effleurés sans fiche centrale** (C02-1/2, /4, /6 et C03-1/2, /4) sont actés en **E terminal par délégation** — traitement disciplinaire profond renvoyé aux cours MME, le wiki les touchant via le prisme mécatronique (pré-dim concept/dossier-technique). Domaine assumé comme **interface** (§3 prompt projet) ; plus aucun trou ouvert.
+**Bilan MME** : **5 C + 5 E + 0 HS + 1 HS-D + 0 NC** sur 11 critères (vs 3C/6E/2NC avant arbitrage 06/06, puis 4C/6E). `schema-cinematique` ferme `MME/5` (NC→C) ; `optimisation-mecanique` ferme `MME-C03-1/6` (E→C, fiche interface : leviers d'arbitrage système + renvoi cours méca pour le calcul) ; `MME-C03-1/1` (outils designers) → **HS-D** (design délégué). Les **5 critères effleurés restants sans fiche centrale** (C02-1/2, /4, /6 et C03-1/2, /4) sont actés en **E terminal par délégation** — traitement disciplinaire profond renvoyé aux cours MME, le wiki les touchant via le prisme mécatronique (pré-dim concept/dossier-technique). Domaine assumé comme **interface** (§3 prompt projet) ; plus aucun trou ouvert.
 
 ---
 
@@ -818,14 +832,14 @@ alimentation-electronique.md (eee, transverse [T]):
 | EEE | 10 | 0 | 0 | 0 | 0 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 0 | 6 |
-| MME | 4 | 6 | 0 | 1 | 0 | 11 |
+| MME | 5 | 5 | 0 | 1 | 0 | 11 |
 | PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
-| **Total** | **44** | **6** | **4** | **3** | **0** | **57** |
+| **Total** | **45** | **5** | **4** | **3** | **0** | **57** |
 
 **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E. *(Reclassements phase 2 : EEE/1, EEE-C03-2/5 et PROJ/5 fermés ; voir section « Cartographies Phase 2 ».)*
 
-- **Couverts** : 44/57 = **77 %**
-- **Effleurés** : 6/57 = 11 %
+- **Couverts** : 45/57 = **79 %**
+- **Effleurés** : 5/57 = 9 %
 - **Hors scope (C15)** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation)
 - **Hors scope par délégation (HS-D)** : 3/57 = 5 % — design produit délégué aux cours collègues (`RA-PROJET-C03-3/PROJ/1` sketchs, `/2` prise en compte design, `RA-MME-C03-1/MME/1` outils designers). Tranché 06/06.
 - **Non couverts (NC)** : **0** — plus aucun trou ouvert.
@@ -866,11 +880,11 @@ alimentation-electronique.md (eee, transverse [T]):
 | EEE | 10 | 0 | 0 | 0 | 0 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 0 | 6 |
-| MME | 4 | 6 | 0 | 1 | 0 | 11 |
+| MME | 5 | 5 | 0 | 1 | 0 | 11 |
 | PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
-| **Total** | **44** | **6** | **4** | **3** | **0** | **57** |
+| **Total** | **45** | **5** | **4** | **3** | **0** | **57** |
 
-Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation) et les arbitrages du 06/06, la couverture **directe** atteint **77 %** (44/57), l'effleurement 11 %, et il ne reste **aucun trou ouvert** : les 3 critères design sont actés **HS-D** (délégation cours collègues) et `schema-cinematique` ferme le dernier NC. Règle de comptage : statut dominant (C > E > HS > HS-D > NC), pas de double comptage.
+Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation) et les arbitrages du 06/06, la couverture **directe** atteint **79 %** (45/57), l'effleurement 9 %, et il ne reste **aucun trou ouvert** : les 3 critères design sont actés **HS-D** (délégation cours collègues) et `schema-cinematique` ferme le dernier NC. Règle de comptage : statut dominant (C > E > HS > HS-D > NC), pas de double comptage.
 
 ### Lecture par domaine
 
@@ -880,12 +894,12 @@ Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simu
 
 **EEE** (10 C / 10) : **domaine entièrement couvert** par la phase 2 (analyse de schéma, module algorithme, hub microcontrôleur, niveaux de tension, bus, sans-fil, simulation). Le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). `RA-EEE-C03-2/EEE/3` (sources/dim alim) est fermé 06/06 (suite 4) par la fiche dédiée `alimentation-electronique` : domaine 10 C / 0 E.
 
-**MME** (4 C / 11) est le domaine le moins couvert en phase 1 — assumé comme **interface** vers les cours collègues (mention explicite dans `hub/index`). Cinq critères effleurés sans fiche centrale sont actés **E terminal par délégation** ; `schema-cinematique` ferme `MME/5` (C) et les outils designers basculent en **HS-D**. Domaine refermé : 4 C + 6 E + 1 HS-D, plus aucun trou.
+**MME** (5 C / 11) reste le domaine le moins couvert en phase 1 — assumé comme **interface** vers les cours collègues (mention explicite dans `hub/index`). `optimisation-mecanique` ferme `MME-C03-1/6` (E→C, fiche interface) ; cinq critères effleurés restants sont actés **E terminal par délégation** ; `schema-cinematique` ferme `MME/5` (C) et les outils designers basculent en **HS-D**. Domaine refermé : 5 C + 5 E + 1 HS-D, plus aucun trou.
 
 ### Lecture par catégorie
 
-- **Couvert (44)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
-- **Effleuré (6)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Inclut les 5 critères MME *terminaux par délégation* (traitement disciplinaire renvoyé aux cours collègues).
+- **Couvert (45)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
+- **Effleuré (5)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Inclut les 5 critères MME *terminaux par délégation* (traitement disciplinaire renvoyé aux cours collègues).
 - **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale C15 : évalués transversalement par les enseignants, pas contenus pédagogiques.
 - **Hors scope par délégation (3)** : `RA-PROJET-C03-3/PROJ/1`+`/2` (sketchs, prise en compte design) et `RA-MME-C03-1/MME/1` (outils designers). Design produit enseigné par les cours collègues, hors expertise auteur.
 - **Non couvert (0)** : plus aucun trou ouvert après les arbitrages du 06/06.

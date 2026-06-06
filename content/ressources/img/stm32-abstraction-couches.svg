@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="ta da">
+  <title id="ta">Les couches d'abstraction sur STM32</title>
+  <desc id="da">Sur STM32, le code peut s'écrire à plusieurs niveaux empilés, du plus abstrait au plus proche du matériel. Tout en haut, STM32duino expose l'API Arduino (setup, loop, digitalWrite). En dessous, la HAL est l'API portable de STMicroelectronics, celle que le code généré utilise par défaut. Plus bas, la couche bas niveau LL reste proche du registre tout en restant lisible. Au fond, l'accès direct aux registres via CMSIS (GPIOA, RCC) pilote le silicium. CubeMX est l'outil qui génère le code des couches HAL et LL. On monte d'une couche pour gagner en portabilité et en rapidité d'écriture ; on descend pour gagner en contrôle et en performance — seulement quand le besoin l'impose.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .lay { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .base { fill:#C9C7BF; stroke:#888780; stroke-width:1.8; }
+      .nm { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ds { font:400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .tool { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .gen { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#aa); stroke-dasharray:5 4; }
+      .gent { font:italic 700 10.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .axis { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#aa); }
+      .axt { font:700 11px sans-serif; fill:#BA7517; }
+      .tag { font:italic 700 10px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .foot { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .aa { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .lay { fill:#4A4A48; stroke:#EF9F27; } .base { fill:#3A3A38; stroke:#BBBBBB; }
+        .nm { fill:#F1EFE8; } .ds { fill:#BBBBBB; } .tool { fill:#4A4A48; stroke:#EF9F27; }
+        .gen { stroke:#EF9F27; } .gent { fill:#EF9F27; } .axis { stroke:#EF9F27; } .axt { fill:#EF9F27; }
+        .tag { fill:#EF9F27; } .foot { fill:#BBBBBB; } .aa { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="aa"/></marker>
+  </defs>
+
+  <text x="360" y="26" class="ttl">Les couches d'abstraction sur STM32 — du code Arduino au registre</text>
+
+  <!-- axe abstraction (vers le haut) -->
+  <line x1="46" y1="340" x2="46" y2="62" class="axis"/>
+  <text x="40" y="200" class="axt" transform="rotate(-90 40 200)">abstraction · portabilité · rapidité d'écriture ↑</text>
+
+  <!-- couches empilées -->
+  <rect x="110" y="60" width="320" height="54" rx="8" class="lay"/>
+  <text x="270" y="82" class="nm">STM32duino — API Arduino</text>
+  <text x="270" y="99" class="ds">setup() / loop() · digitalWrite()</text>
+
+  <text x="395" y="121" class="tag">défaut généré</text>
+  <rect x="110" y="124" width="320" height="54" rx="8" class="lay"/>
+  <text x="270" y="146" class="nm">HAL — API portable de ST</text>
+  <text x="270" y="163" class="ds">HAL_GPIO_WritePin() · handles</text>
+
+  <rect x="110" y="188" width="320" height="54" rx="8" class="lay"/>
+  <text x="270" y="210" class="nm">LL — couche bas niveau</text>
+  <text x="270" y="227" class="ds">proche du registre, performant</text>
+
+  <rect x="110" y="252" width="320" height="54" rx="8" class="lay"/>
+  <text x="270" y="274" class="nm">Registres — CMSIS</text>
+  <text x="270" y="291" class="ds">GPIOA-&gt;BSRR · RCC-&gt;AHB1ENR</text>
+
+  <rect x="94" y="318" width="352" height="30" rx="6" class="base"/>
+  <text x="270" y="338" class="nm">Le silicium STM32</text>
+
+  <!-- CubeMX genere HAL et LL -->
+  <rect x="470" y="150" width="144" height="64" rx="9" class="tool"/>
+  <text x="542" y="180" class="nm">CubeMX</text>
+  <text x="542" y="198" class="ds">génère le code</text>
+  <text x="450" y="142" class="gent">génère</text>
+  <path d="M470,167 L432,152" class="gen"/>
+  <path d="M470,199 L432,222" class="gen"/>
+
+  <text x="360" y="384" class="foot">On descend d'une couche quand le besoin l'impose — performance, finesse, accès direct au matériel.</text>
+</svg>

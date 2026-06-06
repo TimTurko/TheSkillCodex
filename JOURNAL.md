@@ -10,6 +10,63 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 6) — Ouverture de la famille MCU `stm32` : hub + 5 enfants + 2 SVG (vague 1 décalque / vague 2 pivots)
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A. Décision Tim (suite 5) : **prochaine grappe MCU = `stm32`**. Cadrage présenté en D, validé « tu peux y aller en A ». Ouverture de la famille comme **hub fille priorité 2** sous `microcontroleur`, décalque des hubs `arduino`/`esp32`. Angle distinctif : le **palier ingénieur natif** (CubeMX / HAL-LL / registres), neuf dans le wiki.
+
+### Livrables
+- **1 hub** `content/fiches/eee/mcu/stm32/stm32.md` (~9 ko ; `type: notion`, `aa: []`, `prerequis: [microcontroleur]`, `phases: [concept]`) : thèse **« deux portes »** (continuité STM32duino vs métier CubeMX/HAL/registres) en popover + Écosystème ; **table des variantes 7 lignes** par cœur Cortex-M (C0/F0/G0 · F1 BluePill · F4/F3 BlackPill · G4 · F7/H7 · L0/L4/U5 · WB/WL), marquée `[!info]` **à confronter au ST product selector** ; callout `[!warning]` **3,3 V / broches FT** tolérantes 5 V (pas toutes) ; 4 paliers C25 + marquage [A]/[T] C26 + marqueur C32 `*(→ notion [[manipulation-de-bits]])*` sur `stm32-registres` ; SVG couches embarqué. **Le lien rouge `[[stm32]]` préexistant de `microcontroleur` est résolu** (ligne déjà présente dans sa table familles → aucun patch requis).
+- **5 enfants** (`type: tuto`, `phases: [preuve-de-concept]`, tags `[eee, tuto, stm32]`), trame course-grade C49 avec exercices C40 et captures inline C29 :
+  - **Vague 1 (décalque homogène, A pur)** : `stm32-prise-en-main` (CubeIDE + Nucleo, projet de carte, zones USER CODE = piège n°1, flash ST-LINK sans bouton BOOT contrairement à l'ESP32 ; `aa: []`) ; `stm32-arduino-core` (STM32duino, URL Boards Manager, support « STM32 MCU based boards », upload SWD via ST-LINK, repose sur HAL/CMSIS, exemple `SystemCoreClock`/`HAL_GetUIDwX` ; `aa: [RA-PROJET-C03-3/PROJ/5]`).
+  - **Vague 2 (pivots, calls surfacés)** : `stm32-cubemx` (`.ioc` versionnable, brochage, **arbre d'horloge**, NVIC/DMA, choix HAL/LL, génération, SVG flux embarqué) ; `stm32-hal` (handles, **3 modes** scrutation/interruption/DMA, HAL vs LL, exemple bouton B1/PC13 + UART) ; `stm32-registres` (CMSIS, blink bare-metal PA5 RCC→MODER→BSRR, **BSRR atomique vs ODR read-modify-write**, renvoi fort `manipulation-de-bits`, Reference Manual ≠ datasheet). Les trois `aa: [RA-PROJET-C03-3/PROJ/5]`.
+- **2 SVG conceptuels** (1ers jets, `ressources/img/`, gabarit auto-contenu + mode sombre + marker flèche) : `stm32-abstraction-couches.svg` (4 couches STM32duino/HAL/LL/registres-CMSIS + silicium + CubeMX « génère » HAL&LL + axe abstraction↑ — la thèse) ; `stm32-cubemx-flux.svg` (6 boîtes Configurer→Générer→Compléter→Compiler→Flasher→Déboguer + boucle « USER CODE préservé »).
+
+### Décisions
+- **Thèse « deux portes »** = idée organisatrice du module (porte de continuité = réutilise le squelette [T]/Arduino ; porte du métier = CubeMX→HAL/LL→registres + debug SWD).
+- **Bases volontairement maigre (« lean-Bases »)** : **pas** de `stm32-gpio`/`stm32-serie` dédiés. GPIO et UART natifs sont portés par les **exemples travaillés** de `stm32-cubemx` et `stm32-hal` (et par la porte Arduino). Écart assumé au décalque ESP32, qui a des fiches `-gpio`/`-serie` dédiées. → `conventions.md` §8 C56.
+- **`cubemx` et `hal` = 2 fiches** (configurer vs programmer), pas fusionnées.
+- **Défauts tranchés en A** : Nucleo carte par défaut (ST-LINK intégré → tisse vers `debugger-embarque`) ; STM32CubeIDE toolchain mise en avant ; ordre pivots CubeMX→HAL→registres ; placement Tutoriels = décalque ESP32.
+- **AA : tally inchangé** (multi-couverture C20, PROJ/5 déjà C ailleurs). Aucune édition structurelle de la carto.
+
+### Conventions
+§8 (éprouvage) : **1 candidate nouvelle, C56 (« lean-Bases »)** — un hub MCU peut délibérément maigrir son palier *Bases* quand une porte native incarne GPIO/UART dans ses exemples (à confirmer sur une 2ᵉ famille à porte native, Teensy ?). Réutilisations denses : C18 (mini-hub n-ième famille), C24, C25/C26 (4 paliers + [A]/[T], 4/N), **C27/C48 (batch 2 régimes : vague 1 homogène A pur + vague 2 pivots calls surfacés)**, C29 (captures inline), C32 (marqueur), C33/C52 (SVG conceptuel), C40 (corrigés frères), C43 (`const`/typage), C47 (parcours MCU autonome / redites [A] OK), C49 (trame tuto + exercices). Gabarit SVG auto-contenu reconfirmé (liste `.th/.tl/.tf` du §3 toujours obsolète → BACKLOG).
+
+### Tailles
+Hub ~9 ko ; 5 enfants ~10-13 ko chacun ; 2 SVG ~3-4 ko. JOURNAL ~68 ko (**archivage 1-pour-1 sauté**, marge sous 100 ko). Tally global **45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %)** inchangé.
+
+### Corps — `stm32` ouvert par sa thèse, pas par son catalogue
+Le risque d'une famille aussi vaste que STM32 était la fiche-catalogue (vingt lignes de gamme, zéro fil conducteur). Le module est au contraire construit sur une **idée** : deux portes d'entrée, l'une qui prolonge ce que l'étudiant sait déjà (Arduino), l'autre qui ouvre le vrai métier embarqué (configurer un MCU, pas seulement le coder). Cette thèse structure le hub, l'ordre des paliers, et jusqu'au SVG des couches d'abstraction. Conséquence assumée sur les Bases : on ne refait pas de fiches GPIO/UART par périphérique (le **lean-Bases**, C56), les concepts natifs s'incarnant dans les exemples travaillés de CubeMX et HAL — première famille à s'écarter ainsi du décalque ESP32. STM32 est une famille de **largeur**, pas de couverture : aucun critère AA neuf, tally à 79 % inchangé (multi-couverture C20). Le palier ingénieur (CubeMX/HAL/registres) est le premier du wiki à descendre jusqu'au registre par besoin documenté (perf/déterminisme/empreinte), avec `stm32-registres` qui incarne enfin `manipulation-de-bits` sur du matériel réel (BSRR atomique vs ODR read-modify-write). Garde-fou : relecture utilisateur de l'exactitude API STM32 à conduire avant publication (fonctions HAL, broches Nucleo, macros CMSIS, URL STM32duino, modes de flashage).
+
+---
+
+## 2026-06-06 (suite 5) — Clôture du domaine MME : fiche `optimisation-mecanique` + SVG + carto MME/6 E→C
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A. Décision Tim : **finir MME avant d'attaquer la prochaine famille MCU**. MME n'avait plus qu'un item ouvert (`RA-MME-C03-1/MME/6`, *optimiser la conception*, Effleuré avec fiche prévue) → cadrage validé, rédaction, propagation carto. MME refermé.
+
+### Livrables
+- **1 fiche** `content/fiches/mme/optimisation-mecanique.md` (~8 ko) : **notion interface** (`mme/`), décalque de `schema-cinematique`. `aa: [RA-MME-C03-1/MME/6]`, `prerequis: [schema-cinematique]`, `phases: [concept]`. Concevoir vs optimiser → 3 leviers (couple matériau/procédé, allègement géométrique, réduction du nombre de pièces / DfA) + renvoi `ecoconception` (DfD) → démarche itérative + critères via `matrice-de-decision` → exemple bras 3 axes → Pièges → DfMA → Voir aussi. **0 lien rouge.**
+- **1 SVG conceptuel** (premier jet) `ressources/img/optimisation-mecanique-generique.svg` : avant/après d'allègement (profilé plein → ajouré, masse ≈ 70 %, fonctions conservées), auto-contenu + mode sombre.
+- **`mme/index`** : entrée ajoutée sous *Notions couvertes*.
+- **Carto `couverture-en-cours.md`** : `RA-MME-C03-1/MME/6` **E→C** propagé partout (ligne passe A + bilan MME + 2 tables de tally + pourcentages + prose synthèse + compteurs *Lecture par catégorie* + bloc dédié + mention obsolète en `dossier-technique`). 5 appels `edit_file`, tous OK du premier coup.
+
+### Décisions
+- **Placement MME interface** (`mme/`), pas PROJ/transverse — point laissé à mon jugement au cadrage : le critère est MME-codé, et une fiche-méthode transverse aurait doublonné `matrice-de-decision` (choix multi-critères), `ecoconception` (DfX) et la boucle itérative du V.
+- **Un SVG conceptuel** (pas texte-seul) — le concept *optimiser = améliorer* est intrinsèquement un avant→après.
+- **On écrit la fiche** (verrou Tim « ok pour rédaction »), pas de délégation E-terminal comme ses frères de RA `C03-1/2` et `/4` (actés *E terminal par délégation* le 06/06).
+
+### Conventions
+§8 (éprouvage) : **aucune nouvelle**. Réutilisation : gabarit notion interface `schema-cinematique`, aparté frontière **C55** (calcul/FEA/topologie → cours méca), fil rouge bras 3 axes **C23**, `write_file` neuf **C24**, anchors verbatim **C14**, propagation carto poussée. Le motif « critère Effleuré à fiche prévue → fiche interface dédiée → reclassement E→C + propagation + bloc dédié » est désormais appliqué **deux fois** (EEE/3 en suite 4, MME/6 ici) : stable, candidat à formalisation si un 3ᵉ cas se présente.
+
+### Tailles
+Fiche ~8 ko ; SVG ~1,7 ko ; index 1 edit ; carto 5 edits. Tally global **44→45 C / 6→5 E** ; **77→79 %**. MME **5 C / 5 E / 1 HS-D / 0 NC**. JOURNAL ~64 ko (archivage 1-pour-1 sauté, marge sous 100 ko).
+
+### Corps — MME refermé, dernier domaine cœur/interface sans trou
+Avec `optimisation-mecanique`, MME rejoint EEE, ESE et MEO : plus aucun trou ouvert. Le critère « optimiser la conception » est tenu honnêtement à l'échelle interface — leviers d'arbitrage système (matériau/procédé, allègement, nombre de pièces) que l'étudiant peut raisonner sans calcul, le dimensionnement fin (éléments finis, topologie, génératif) étant renvoyé au cours de mécanique en aparté. Même borne que `schema-cinematique` (lecture, pas formalisme) et que `alimentation-electronique` (choisir/dimensionner, pas la topologie de puissance) : le wiki s'arrête au raisonnement système. Reste PROJ comme seul domaine partiellement ouvert sur le papier (19 C, 2 critères non-HS portés par d'autres fiches, non bloquants). Couverture directe **79 %** des 57 critères, **0 NC**.
+
+---
+
 ## 2026-06-06 (suite 4) — Fiche transverse EEE `alimentation-electronique` + 3 SVG + liens entrants + carto EEE/3 E→C
 
 ### Périmètre

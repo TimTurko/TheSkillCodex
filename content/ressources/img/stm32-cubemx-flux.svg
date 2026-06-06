@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" role="img" aria-labelledby="tcm dcm">
+  <title id="tcm">Le flux de travail CubeMX</title>
+  <desc id="dcm">CubeMX organise le développement STM32 natif en une chaîne. On configure d'abord graphiquement le microcontrôleur — affectation des broches, arbre d'horloge, paramètres des périphériques. On génère ensuite le code d'initialisation (HAL ou LL). On complète ce code uniquement dans les zones réservées USER CODE. On compile, on flashe la carte via le ST-LINK, puis on débogue au pas avec des points d'arrêt. Quand il faut changer la configuration, on revient à CubeMX et on régénère : le code écrit dans les zones USER CODE est préservé.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .boxg { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .boxa { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .bt { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .bs { font:400 10px sans-serif; text-anchor:middle; fill:#888780; }
+      .flow { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#af1); }
+      .loop { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#af2); }
+      .loopt { font:italic 700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .f1 { fill:#888780; } .f2 { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .boxg { fill:#4A4A48; stroke:#BBBBBB; } .boxa { fill:#4A4A48; stroke:#EF9F27; }
+        .bt { fill:#F1EFE8; } .bs { fill:#BBBBBB; } .flow { stroke:#BBBBBB; } .loop { stroke:#EF9F27; }
+        .loopt { fill:#EF9F27; } .f1 { fill:#BBBBBB; } .f2 { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="af1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f1"/></marker>
+    <marker id="af2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f2"/></marker>
+  </defs>
+
+  <text x="440" y="24" class="ttl">Le flux de travail CubeMX — configurer, générer, compléter, flasher</text>
+
+  <rect x="20" y="76" width="168" height="56" rx="9" class="boxa"/>
+  <text x="104" y="100" class="bt">Configurer</text>
+  <text x="104" y="117" class="bs">broches · horloge · périph.</text>
+
+  <rect x="202" y="76" width="120" height="56" rx="9" class="boxg"/>
+  <text x="262" y="100" class="bt">Générer</text>
+  <text x="262" y="117" class="bs">init HAL ou LL</text>
+
+  <rect x="336" y="76" width="120" height="56" rx="9" class="boxg"/>
+  <text x="396" y="100" class="bt">Compléter</text>
+  <text x="396" y="117" class="bs">zones USER CODE</text>
+
+  <rect x="470" y="76" width="120" height="56" rx="9" class="boxg"/>
+  <text x="530" y="107" class="bt">Compiler</text>
+
+  <rect x="604" y="76" width="120" height="56" rx="9" class="boxg"/>
+  <text x="664" y="100" class="bt">Flasher</text>
+  <text x="664" y="117" class="bs">via ST-LINK</text>
+
+  <rect x="738" y="76" width="120" height="56" rx="9" class="boxa"/>
+  <text x="798" y="100" class="bt">Déboguer</text>
+  <text x="798" y="117" class="bs">au pas · points d'arrêt</text>
+
+  <line x1="188" y1="104" x2="200" y2="104" class="flow"/>
+  <line x1="322" y1="104" x2="334" y2="104" class="flow"/>
+  <line x1="456" y1="104" x2="468" y2="104" class="flow"/>
+  <line x1="590" y1="104" x2="602" y2="104" class="flow"/>
+  <line x1="724" y1="104" x2="736" y2="104" class="flow"/>
+
+  <path d="M798,132 C798,196 104,196 104,134" class="loop"/>
+  <text x="451" y="190" class="loopt">on reconfigure et on régénère — les zones USER CODE sont préservées</text>
+</svg>

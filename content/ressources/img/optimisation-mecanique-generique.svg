@@ -1,0 +1,52 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avant / apres d'un allegement de piece mecanique : un profile plein puis le meme profile ajoure, de masse reduite, fonctions conservees.">
+  <defs>
+    <style>
+      .om-part   { fill: #DDDBD3; stroke: #BA7517; stroke-width: 2.5; }
+      .om-cut    { fill: #FBFAF7; stroke: #BA7517; stroke-width: 1.4; stroke-dasharray: 5 3; }
+      .om-track  { fill: none; stroke: #BA7517; stroke-width: 1.4; }
+      .om-bar    { fill: #BA7517; }
+      .om-arrow  { fill: none; stroke: #BA7517; stroke-width: 3; }
+      .om-head   { fill: #BA7517; }
+      .om-t      { fill: #4a443c; font-family: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif; }
+      .om-title  { font-size: 16px; font-weight: 600; }
+      .om-lab    { font-size: 13px; }
+      .om-sub    { font-size: 11.5px; opacity: 0.85; }
+      @media (prefers-color-scheme: dark) {
+        .om-part  { fill: #3a3833; stroke: #D9962E; }
+        .om-cut   { fill: #232220; stroke: #D9962E; }
+        .om-track { stroke: #D9962E; }
+        .om-bar   { fill: #D9962E; }
+        .om-arrow { stroke: #D9962E; }
+        .om-head  { fill: #D9962E; }
+        .om-t     { fill: #DDDBD3; }
+      }
+    </style>
+    <marker id="om-ah" markerWidth="11" markerHeight="9" refX="8.5" refY="4.5" orient="auto">
+      <path class="om-head" d="M0,0 L11,4.5 L0,9 Z"/>
+    </marker>
+  </defs>
+
+  <text class="om-t om-title" x="158" y="48" text-anchor="middle">Avant — plein</text>
+  <text class="om-t om-title" x="562" y="48" text-anchor="middle">Après — évidé / nervuré</text>
+
+  <rect class="om-part" x="70" y="78" width="176" height="120" rx="10"/>
+
+  <rect class="om-part" x="474" y="78" width="176" height="120" rx="10"/>
+  <circle class="om-cut" cx="520" cy="116" r="20"/>
+  <circle class="om-cut" cx="604" cy="116" r="20"/>
+  <circle class="om-cut" cx="562" cy="162" r="22"/>
+
+  <line class="om-arrow" x1="266" y1="138" x2="452" y2="138" marker-end="url(#om-ah)"/>
+  <text class="om-t om-lab" x="359" y="124" text-anchor="middle" font-weight="600">optimiser</text>
+  <text class="om-t om-sub" x="359" y="162" text-anchor="middle">retirer la matière</text>
+  <text class="om-t om-sub" x="359" y="178" text-anchor="middle">qui ne travaille pas</text>
+
+  <rect class="om-bar"   x="70"  y="246" width="176" height="20" rx="5"/>
+  <rect class="om-track" x="474" y="246" width="176" height="20" rx="5"/>
+  <rect class="om-bar"   x="474" y="246" width="123" height="20" rx="5"/>
+
+  <text class="om-t om-lab" x="158" y="292" text-anchor="middle">masse 100 %</text>
+  <text class="om-t om-lab" x="562" y="292" text-anchor="middle">masse ≈ 70 %</text>
+
+  <text class="om-t om-sub" x="360" y="324" text-anchor="middle">Fonctions et exigences du cahier des charges conservées</text>
+</svg>
