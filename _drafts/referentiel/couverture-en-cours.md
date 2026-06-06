@@ -502,6 +502,105 @@ effleure: []
 
 ---
 
+## Cartographies Phase 2 — EEE / info embarquée
+
+> Cartographie des fiches produites en **phase 2 elec/info** (squelette transverse + modules MCU Arduino/ESP32), depuis le gel de la passe B phase 1. **74 fiches** dans `content/fiches/eee/` (hors `schema-bloc-fonctionnel`, phase 1, déjà cartographiée). Front matters `aa:` **vérifiés un par un** (session 06/06). Blocs individuels pour les fiches porteuses d'AA, blocs groupés pour les grappes homogènes (PROJ/5 ; `aa: []`).
+
+### analyse-de-schema-electronique.md
+
+```yaml
+couvert:
+  - RA-PROJET-C03-3/EEE/1   # Identifier les composants d'un schéma et leurs rôles — objet central (anatomie fonctionnelle + schéma commenté). FERME le NC EEE/1.
+  - RA-PROJET-C03-3/EEE/2   # Analyser le comportement d'un sous-ensemble jusqu'au composant — lecture signal par signal (multi-couverture integration-et-tests, dominant C inchangé)
+```
+
+**Bilan** : 2 C. Fiche-tuto transverse. **Reclassement majeur** : fait passer `RA-PROJET-C03-3/EEE/1` de **NC → C** (seul critère EEE jusque-là sans aucune fiche).
+
+### Module `algorithme` (hub + 4 représentations) — `RA-EEE-C03-2/EEE/5`
+
+```yaml
+# algorithme (hub) · logigramme · machine-a-etats · grafcet · chronogramme
+couvert:
+  - RA-EEE-C03-2/EEE/5   # Concevoir un système de commande par algorithme — 1 fiche par représentation (C16 : pas de fiche regroupante)
+```
+
+**Bilan** : 5 fiches, chacune Couvre `EEE/5`. **Reclassement** : fait passer `RA-EEE-C03-2/EEE/5` de **E → C** (était effleuré en dossier-technique étape 2, archi logicielle UML). `arduino-machine-a-etats` porte aussi ce critère (voir grappe Arduino) — incarnation famille du motif `switch(etat)`.
+
+### Briques & hubs transverses MCU porteurs d'AA
+
+```yaml
+microcontroleur.md (hub):
+  couvert:
+    - RA-EEE-C03-2/EEE/2   # Choisir un contrôleur — panorama des familles + aide au choix (multi-couverture concept, dominant C inchangé)
+
+gpio.md:
+  couvert:
+    - RA-EEE-C03-2/EEE/4   # Intégrer circuits (facette acquisition / E-S) — multi-couverture dossier-technique
+
+niveaux-de-tension.md:
+  couvert:
+    - RA-EEE-C03-2/EEE/4   # Intégrer circuits (compatibilité des niveaux) — multi-couverture
+  effleure:
+    - RA-EEE-C03-2/EEE/1   # Choisir capteurs/actionneurs — la tension de fonctionnement comme critère de choix
+
+lire-une-datasheet.md:
+  effleure:
+    - RA-EEE-C03-2/EEE/1   # Choisir — la datasheet alimente le choix (central concept)
+    - RA-EEE-C03-2/EEE/3   # Sources énergie + dim alim — Vin / courant / thermique pour dimensionner
+    - RA-EEE-C03-2/EEE/4   # Intégrer circuits — brochage, niveaux logiques
+    - RA-MME-C02-1/MME/6   # Caractéristiques mécaniques actionneurs — lire la datasheet d'un actionneur (central concept)
+
+bus-de-communication.md (hub):
+  couvert:
+    - RA-EEE-C03-2/EEE/4   # Intégrer circuits (facette transmission) — multi-couverture
+
+techno-sans-fil.md (hub):
+  couvert:
+    - RA-EEE-C03-2/EEE/4   # Intégrer circuits (facette transmission sans-fil) — multi-couverture
+```
+
+**Bilan** : 6 fiches, contribution majoritairement en **multi-couverture** sur des critères EEE déjà Couverts ailleurs (statut dominant inchangé). Renforce nettement `EEE/4` (intégration de circuits), désormais porté par 5 fiches phase 2 + dossier-technique. `niveaux-de-tension` et `lire-une-datasheet` réoutillent `EEE/1` et `EEE/3` en effleuré (C20).
+
+### Grappe PROJ/5 — programmation (`RA-PROJET-C03-3/PROJ/5`)
+
+```yaml
+# 40 fiches portent RA-PROJET-C03-3/PROJ/5 (« Programmer ou paramétrer un contrôleur numérique »)
+#
+# Coverers CENTRAUX (objet = écrire / structurer le programme) :
+#   Module cpp (8) : cpp (hub) · cpp-execution · cpp-structure · cpp-types · cpp-portee
+#                    · cpp-conditions · cpp-boucles · cpp-logs
+#   Module Arduino programmation (30) : tinkercad + arduino-{afficheur, bibliotheques,
+#     capteur-analogique, capteur-numerique, debug, deep-sleep, eeprom, entree-tor, gpio,
+#     gpio-boot, i2c, interruptions, machine-a-etats, memoire, module, moteur-cc,
+#     moteur-pas-a-pas, pid, programmation-non-bloquante, serie, servomoteur, shield,
+#     sortie-pwm, sortie-tor, spi, temporisation, timers, uart, watchdog}
+#
+# Marqueurs de transversalité (transverses) : firmware · manipulation-de-bits
+#
+# Note : arduino-machine-a-etats porte EN PLUS RA-EEE-C03-2/EEE/5 (voir module algorithme).
+couvert:
+  - RA-PROJET-C03-3/PROJ/5
+```
+
+**Bilan** : **40 fiches** portent PROJ/5. **Reclassement majeur** : `RA-PROJET-C03-3/PROJ/5` passe de **NC → C** — « programmer un contrôleur » est désormais l'objet central du module `cpp` (le langage) et des tutos `arduino-*` de programmation. C'est le marqueur de transversalité C20 le plus large du wiki.
+
+### Fiches sans critère AA (`aa: []`) — 22 fiches
+
+```yaml
+# Hubs famille : arduino · esp32
+# Rampe / matériel : arduino-prise-en-main · arduino-alimentation
+# Briques notion MCU : processeur · memoire · entree-sortie · adc · pwm · deep-sleep
+#                      · systeme-d-exploitation · interruption · timer · fonction-informatique
+# Popovers bus : uart · i2c · spi
+# Popovers sans-fil : wifi · ble · zigbee · xbee · lora
+couvert: []
+effleure: []
+```
+
+**Bilan** : 22 fiches sans AA propre. `aa: []` légitime (C18 : l'AA est porté collectivement par le hub / la fiche d'application). `interruption` et `timer` sont des notions transverses dont l'AA est porté par leurs tutos d'application (`arduino-interruptions`, `arduino-timers` → PROJ/5).
+
+---
+
 ## Passe A — Cartographie inverse par domaine
 
 > Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.
@@ -512,21 +611,21 @@ effleure: []
 
 **RA-PROJET-C03-3 [EEE]** — *Analyser / Fabriquer un sous-ensemble fonctionnel électrique et électronique*
 
-- **/1** *Identifier composants schéma et rôles* — **NC**. Trou phase 2 prévu : fiche-tuto `analyse-de-schema-electronique` (déjà au TODO, couvre /2 ET /1).
-- **/2** *Analyser comportement sous-ensemble jusqu'au composant* — **C** : integration-et-tests étape 2 (chaîne élec niveau 0). **E** : concept étape 4 (pré-dim partiel).
-- **/3** *Effectuer simulation système électronique* — **NC**. Trou phase 2 nouveau : fiche-tuto `simulation-electronique` à ajouter au TODO (couple /3 et /4).
+- **/1** *Identifier composants schéma et rôles* — **C** : `analyse-de-schema-electronique` (objet central). *(était NC — fermé phase 2)*
+- **/2** *Analyser comportement sous-ensemble jusqu'au composant* — **C** : integration-et-tests étape 2 (chaîne élec niveau 0). **E** : concept étape 4 (pré-dim partiel), `analyse-de-schema-electronique` (lecture signal par signal).
+- **/3** *Effectuer simulation système électronique* — **NC**. Trou phase 2 : fiche-tuto `simulation-electronique` (non produite ; tinkercad = prise en main, ne ferme pas /3).
 - **/4** *Interpréter résultats simulation* — **NC**. Idem /3 : à couvrir par `simulation-electronique`.
 - **/5** *Concevoir/réaliser carte électronique* — **C** : dossier-technique étape 2 (schémas câblés + routage PCB). **E** : securite-et-qualite bloc 3 (Rev A/B sérigraphie).
 
 **RA-EEE-C03-2 [EEE]** — *Mettre en œuvre démarche de conception système contrôle/commande*
 
-- **/1** *Choisir capteurs/actionneurs via prototypage rapide* — **C** : concept étape 2 (matrice élec). **E** : preuve-de-concept étape 2 (Arduino), schema-bloc-fonctionnel, matrice-de-decision.
-- **/2** *Choisir contrôleurs* — **C** : concept étape 2. **E** : schema-bloc-fonctionnel, matrice-de-decision.
-- **/3** *Sources d'énergie + dim alim* — **E** : concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2. Pas de fiche centrale, traitement diffus mais récurrent.
-- **/4** *Intégrer circuits électroniques (acquisition/traitement/transmission/conversion)* — **C** : dossier-technique étape 2. **E** : schema-bloc-fonctionnel.
-- **/5** *Concevoir système de commande par algorithme* — **E** : dossier-technique étape 2 (archi logicielle UML). Trous phase 2 prévus : 4 fiches-tuto (`logigramme`, `machine-a-etats`, `grafcet`, `chronogramme`) déjà au TODO.
+- **/1** *Choisir capteurs/actionneurs via prototypage rapide* — **C** : concept étape 2 (matrice élec). **E** : preuve-de-concept étape 2 (Arduino), schema-bloc-fonctionnel, matrice-de-decision, `niveaux-de-tension`, `lire-une-datasheet`.
+- **/2** *Choisir contrôleurs* — **C** : concept étape 2, `microcontroleur` (hub, aide au choix). **E** : schema-bloc-fonctionnel, matrice-de-decision.
+- **/3** *Sources d'énergie + dim alim* — **E** : concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2, `lire-une-datasheet`. Pas de fiche centrale, traitement diffus mais récurrent. *(seul E du domaine)*
+- **/4** *Intégrer circuits électroniques (acquisition/traitement/transmission/conversion)* — **C** : dossier-technique étape 2, `gpio`, `niveaux-de-tension`, `bus-de-communication`, `techno-sans-fil`, `lire-une-datasheet`. Massivement multi-couvert phase 2. **E** : schema-bloc-fonctionnel.
+- **/5** *Concevoir système de commande par algorithme* — **C** : module `algorithme` (hub + `logigramme` + `machine-a-etats` + `grafcet` + `chronogramme`, 1 fiche/méthode C16) + `arduino-machine-a-etats`. **E** : dossier-technique étape 2 (archi UML). *(était E — fermé phase 2)*
 
-**Bilan EEE** : 5 C + 2 E + 0 HS + **3 NC** sur 10 critères (/1, /3, /4 du RA-PROJET-C03-3). Tous les NC tombent en phase 2. Conforme à la nature EEE (cœur disciplinaire couvert par les fiches-tuto à venir).
+**Bilan EEE** : **7 C + 1 E + 0 HS + 2 NC** sur 10 critères (vs 5C/2E/3NC à la passe A phase 1). Les 2 NC restants (`RA-PROJET-C03-3/EEE/3` et `/4`, simulation) tombent sur `simulation-electronique`, **seule fiche EEE encore à produire**. Cœur disciplinaire EEE désormais couvert par le squelette transverse + module algorithme + modules MCU.
 
 ---
 
@@ -593,7 +692,7 @@ effleure: []
 - **/2** *Prendre en compte design dans réalisation prototype* — **NC**. Idem /1 — possible délégation design.
 - **/3** *Réaliser structure mécanique avec élec et énergie* — **C amendement** : integration-et-tests étapes 1+2 (fabriquer + valider niveau 0). **Non explicité en passe B sur integration-et-tests, à amender** (voir section Amendements ci-dessous).
 - **/4** *Adapter, modifier conception et docs* — **C** : dossier-technique étape 1 (propagation PoC→dossier).
-- **/5** *Programmer/paramétrer contrôleur numérique* — **NC**. Trou phase 2 prévu : fiches-tuto `microcontroleur` + `firmware` déjà au TODO.
+- **/5** *Programmer/paramétrer contrôleur numérique* — **C** : module `cpp` (hub + 7 sous-fiches, objet central « écrire le programme ») + module Arduino (tutos de programmation : tinkercad + 28 `arduino-*` + `arduino-machine-a-etats`). **E** : `firmware`, `manipulation-de-bits` (transverses). *(était NC — fermé phase 2 ; 40 fiches portent PROJ/5, marqueur de transversalité C20)*
 - **/6** *Valider inter-opérabilité sous-ensembles* — **C** : integration-et-tests étape 3 (niveaux 2-3 composition + système complet).
 - **/7** *Garantir démontabilité* — **C** : ecoconception bloc 2 (démontabilité PCB, connectique JST, carte modulaire).
 
@@ -624,7 +723,7 @@ effleure: []
 - **/5** *Être force de proposition* — **HS** (C15).
 - **/6** *Participer aux événements* — **HS** (C15).
 
-**Bilan PROJ** : 18 C + 0 E + 4 HS + **3 NC** sur 25 critères (/1 sketchs, /2 prise en compte design, /5 programmer contrôleur du RA-C03-3 ; +1 amendement C03-3/3 à confirmer en passe B). Domaine **majeur du wiki phase 1** (25/57 = 44 %). Tous les trous phase 1 « NC » sont identifiés et adressés : /1+/2 par délégation possible, /5 par fiches phase 2 (microcontroleur + firmware au TODO).
+**Bilan PROJ** : **19 C + 0 E + 4 HS + 2 NC** sur 25 critères (C03-3/3 réalise structure méca, amendement passé en passe B ; C03-3/5 programmer fermé phase 2). Domaine **majeur du wiki** (25/57 = 44 %). Les 2 NC restants (C03-3/1 sketchs, /2 prise en compte design) relèvent du **design produit** — arbitrage hiérarchie (délégation cours collègues probable).
 
 ---
 
@@ -634,27 +733,27 @@ effleure: []
 
 | Domaine | C | E | HS | NC | Total |
 |---|---|---|---|---|---|
-| EEE | 5 | 2 | 0 | 3 | 10 |
+| EEE | 7 | 1 | 0 | 2 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 6 |
 | MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 18¹ | 0 | 4 | 3 | 25 |
-| **Total** | **37** | **8** | **4** | **8** | **57** |
+| PROJ | 19 | 0 | 4 | 2 | 25 |
+| **Total** | **40** | **7** | **4** | **6** | **57** |
 
-¹ Y compris amendement C03-3/3 (sans amendement : 17 C / 4 NC, total global 36 C). **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E.
+**Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E. *(Reclassements phase 2 : EEE/1, EEE-C03-2/5 et PROJ/5 fermés ; voir section « Cartographies Phase 2 ».)*
 
-- **Couverts** : 37/57 = **65 %** (36 sans amendement = 63 %)
-- **Effleurés** : 8/57 = 14 %
+- **Couverts** : 40/57 = **70 %**
+- **Effleurés** : 7/57 = 12 %
 - **Hors scope** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation, C15)
-- **Non couverts (NC)** : 8/57 = 14 %, dont :
-  - **Trous NC déjà adressés au TODO** : 2 critères (EEE/PROJ-C03-3/1 via `analyse-de-schema-electronique`, EEE/PROJ-C03-3/5 programmer via `microcontroleur` + `firmware`)
-  - **Trous NC à adresser par fiches phase 2 nouvelles** : 3 critères (EEE/PROJ-C03-3/3 et /4 couple → nouvelle fiche-tuto `simulation-electronique` ; MME-C02-1/5 schéma cinématique → nouvelle fiche-tuto `schema-cinematique`, statut wiki vs délégation à trancher)
-  - **NC à interroger avec hiérarchie** : 3 critères relevant du **design produit** (PROJ-C03-3/1 sketchs, PROJ-C03-3/2 prise en compte design, MME-C03-1/1 outils designers) — délégation cours collègues possible, **catégorie « Hors scope par délégation »** à instaurer ?
-  - **Critères effleurés centraux à renforcer phase 2** (hors NC, mais NC central avec effleurement) : EEE-C03-2/5 commande par algorithme (4 fiches commande au TODO), MME-C03-1/6 optimisation (`optimisation-mecanique` au TODO), PROJ-C04-4/5 différencier écoconception/écodesign (`ecodesign` au TODO)
+- **Non couverts (NC)** : 6/57 = 11 %, dont :
+  - **Trou NC adressé par fiche phase 2 à produire** : 2 critères (`RA-PROJET-C03-3/EEE/3` et `/4`, simulation → fiche-tuto `simulation-electronique`, seule fiche EEE restante)
+  - **NC au statut à trancher** : 1 critère (`RA-MME-C02-1/MME/5` schéma cinématique → `schema-cinematique`, fiche wiki vs délégation cours collègues)
+  - **NC à interroger avec hiérarchie** : 3 critères relevant du **design produit** (`RA-PROJET-C03-3/PROJ/1` sketchs, `/2` prise en compte design, `RA-MME-C03-1/MME/1` outils designers) — délégation cours collègues possible, **catégorie « Hors scope par délégation »** à instaurer ?
+  - **Fermés en phase 2** (étaient NC ou E central) : `EEE/1` (analyse-de-schema), `EEE-C03-2/5` (module algorithme), `PROJ/5` (modules cpp + Arduino)
 
 **Amendements à appliquer à la passe B** (cohérence avec passe A) :
 
-1. **integration-et-tests** : ajouter `RA-PROJET-C03-3/PROJ/3` (réaliser structure méca avec élec et énergie) en Couvert via étapes 1+2 (fabriquer + valider niveau 0). Bilan passerait de 7 C à 8 C, total 14 → 15.
+1. **integration-et-tests** : `RA-PROJET-C03-3/PROJ/3` (réaliser structure méca avec élec et énergie) **✓ déjà appliqué** en passe B (couvert via étapes 1+2, mention « Amendement passe A 26/05 suite 3 »). Bilan integration-et-tests : 8 C.
 
 **Fiches phase 2 à ajouter au TODO** :
 
@@ -670,8 +769,8 @@ effleure: []
 
 1. **ESE et MEO sont entièrement couverts par la phase 1 du wiki** (0 NC, 0 trou phase 2). Cohérent avec leur nature transverse (portés par les 3 fiches-trame transverses + multi-couverture forte avec les trames du V).
 2. **EEE et MME ont des trous structurés** : adressés par les fiches phase 2 déjà au TODO ou à ajouter. Conforme à la grille de lecture phase 1 vs phase 2 actée en début de cartographie.
-3. **PROJ est le domaine majeur** du wiki phase 1 (25/57 = 44 %) avec une couverture **forte** : 18 C + 0 E + 4 HS = 22 critères traités, les 3 NC restants se ventilant entre design délégable (2) et programmation phase 2 (1).
-4. **La convention C16** (1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent) **est validée empiriquement** : les 5 critères EEE attendus en phase 2 (PROJ-C03-3/1, /3, /4, /5 NC + EEE-C03-2/5 effleurement central) sont chacun adressés par 1 ou plusieurs fiches-tuto dédiées (`analyse-de-schema-electronique` pour /1, `simulation-electronique` pour /3+/4 groupés, `microcontroleur` + `firmware` pour /5, 4 méthodes commande pour EEE-C03-2/5). Soit 1 à 4 fiches par critère selon la granularité du critère source.
+3. **PROJ est le domaine majeur** du wiki (25/57 = 44 %) avec une couverture **forte** : 19 C + 0 E + 4 HS = 23 critères traités, les 2 NC restants relevant du design délégable (sketchs, prise en compte design).
+4. **La convention C16** (1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent) **est réalisée empiriquement** : sur les 5 critères EEE attendus phase 2, 4 sont fermés (`analyse-de-schema-electronique` pour PROJ-C03-3/1 ; module `algorithme` 5 fiches pour EEE-C03-2/5 ; modules `cpp` + Arduino pour PROJ-C03-3/5), seul `simulation-electronique` (PROJ-C03-3/3+/4 groupés) reste à produire. Soit 1 à 5 fiches par critère selon sa granularité.
 5. **3 fiches phase 1 sans critère AA central** identifiées (securite-et-qualite, matrice-de-decision, hub/index) chacune pour une raison distincte (posture professionnelle, outil pivot transverse, méta-structure). Le cadre AA n'est pas le seul critère de pertinence d'une fiche — à acter en synthèse globale.
 
 ---
@@ -682,40 +781,39 @@ effleure: []
 
 | Domaine | C | E | HS | NC | Total |
 |---|---|---|---|---|---|
-| EEE | 5 | 2 | 0 | 3 | 10 |
+| EEE | 7 | 1 | 0 | 2 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 6 |
 | MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 18 | 0 | 4 | 3 | 25 |
-| **Total** | **37** | **8** | **4** | **8** | **57** |
+| PROJ | 19 | 0 | 4 | 2 | 25 |
+| **Total** | **40** | **7** | **4** | **6** | **57** |
 
-Lecture : la phase 1 du wiki (5 trames du V + 3 transverses, 21 fiches) couvre **directement** près des deux tiers du référentiel école (65 %), en effleure une part complémentaire (14 %), et identifie clairement les 8 trous restants (14 %) — dont 5 ont déjà une fiche phase 2 prévue au TODO et 3 relèvent d'un arbitrage hiérarchique. Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
+Lecture : après la phase 2 elec/info (squelette transverse + modules MCU), la couverture **directe** atteint **70 %** (40/57), l'effleurement 12 %, et il reste **6 trous** (11 %) — dont 2 adressés par une fiche à produire (`simulation-electronique`), 1 au statut à trancher (`schema-cinematique`) et 3 relevant d'un arbitrage hiérarchique (design). Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
 
 ### Lecture par domaine
 
 **ESE** (5/5) et **MEO** (6/6) sont couverts à 100 % par la phase 1. Cohérent avec leur nature transverse : portés par les 3 trames transverses (gestion-de-projet, ecoconception, securite-et-qualite) avec multi-couverture forte depuis les trames du V. Pas de fiche phase 2 ni nécessaire ni prévue dans ces domaines.
 
-**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 18 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. Les 3 NC restants tombent en zone design (sketchs, prise en compte design) et programmation contrôleur (phase 2).
+**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 19 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. La programmation du contrôleur (C03-3/5) est fermée en phase 2 (modules cpp + Arduino) ; les 2 NC restants tombent en zone design (sketchs, prise en compte design).
 
-**EEE** (5 C / 10) a 3 NC structurés, tous adressés par fiches phase 2 déjà listées au TODO (`analyse-de-schema-electronique`, `simulation-electronique`, `microcontroleur` + `firmware`, 4 méthodes commande). Conforme à la grille phase 1 vs phase 2 : EEE = cœur disciplinaire à venir.
+**EEE** (7 C / 10) : cœur disciplinaire désormais couvert par la phase 2 (analyse de schéma, module algorithme, hub microcontrôleur, niveaux de tension, bus, sans-fil). Reste 1 E (`EEE-C03-2/3` sources/dim alim, sans fiche centrale) et 2 NC (`RA-PROJET-C03-3/EEE/3`+`/4` simulation) adressés par la seule fiche EEE restante, `simulation-electronique`.
 
 **MME** (3 C / 11) est le domaine le moins couvert en phase 1 — partiellement délégué aux cours collègues (mention explicite dans `hub/index`). Effleurement récurrent dans concept et dossier-technique sans fiche centrale (4 critères concernés) + 2 NC structurels (schéma cinématique, outils designers). Stratégie de délégation à confirmer avec hiérarchie.
 
 ### Lecture par catégorie
 
-- **Couvert (36)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
-- **Effleuré (9)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Effleurements purs = signal d'enrichissement possible mais pas urgent.
+- **Couvert (40)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
+- **Effleuré (7)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Effleurements purs = signal d'enrichissement possible mais pas urgent.
 - **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale : évalués transversalement par les enseignants, pas contenus pédagogiques.
-- **Non couvert (8)** : trous identifiés, ventilés en section suivante.
+- **Non couvert (6)** : trous identifiés, ventilés en section suivante.
 
 ### Trous NC : adressés vs à arbitrer
 
-**5 NC adressés au TODO phase 2** :
+**3 NC fermés en phase 2** (étaient NC) : `RA-PROJET-C03-3/EEE/1` → `analyse-de-schema-electronique` ; `RA-PROJET-C03-3/PROJ/5` → modules `cpp` + Arduino. *(et `RA-EEE-C03-2/EEE/5`, qui était E central, fermé par le module `algorithme`.)*
 
-- `RA-PROJET-C03-3/EEE/1` (identifier composants schéma) → `analyse-de-schema-electronique`
-- `RA-PROJET-C03-3/EEE/3` + `/4` (simulation électronique + interprétation) → `simulation-electronique` (1 fiche pour 2 critères groupés, conforme C16)
-- `RA-PROJET-C03-3/EEE/5` (programmer contrôleur) → `microcontroleur` + `firmware`
-- `RA-MME-C02-1/MME/5` (schéma cinématique) → `schema-cinematique` (statut wiki vs délégation à trancher, voir section suivante)
+**2 NC adressés par une fiche à produire** : `RA-PROJET-C03-3/EEE/3` + `/4` (simulation électronique + interprétation) → `simulation-electronique` (1 fiche pour 2 critères groupés, conforme C16). Seule fiche EEE encore à produire.
+
+**1 NC au statut à trancher** : `RA-MME-C02-1/MME/5` (schéma cinématique) → `schema-cinematique` (fiche wiki vs délégation cours collègues, voir section suivante).
 
 **3 NC à arbitrer avec hiérarchie** : `RA-PROJET-C03-3/PROJ/1` (sketchs main d'un produit), `RA-PROJET-C03-3/PROJ/2` (prendre en compte design dans prototype), `RA-MME-C03-1/MME/1` (lister outils designers). Les 3 relèvent du **design produit** et sont probablement délégables aux cours collègues.
 
@@ -727,7 +825,7 @@ Trois questions à porter en revue avec la hiérarchie en session ultérieure :
 2. **Statut des 4 critères MME effleurés sans fiche centrale** : `RA-MME-C02-1/MME/2` (procédés d'assemblage), `/4` (sollicitations mécaniques), `/6` (caractéristiques actionneurs), `RA-MME-C03-1/MME/2` (note de calcul transmission), `/4` (paramètres dynamiques). Effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Délégation cours collègues MME ou fiches-tuto phase 2 à ajouter ?
 3. **Statut de `schema-cinematique`** : wiki-link rouge déjà posé dans `hub/index`. Fiche-tuto à produire dans le wiki, ou délégation entière cours collègues MME (auquel cas retrait du wiki-link rouge) ?
 
-Ces trois décisions structurent la finalisation de la stratégie de couverture. Tant qu'elles ne sont pas arbitrées, le bilan ci-dessus reste provisoire sur ses marges (8 NC affichés pourraient devenir 5 NC + 3 HS par délégation).
+Ces trois décisions structurent la finalisation de la stratégie de couverture. Tant qu'elles ne sont pas arbitrées, le bilan ci-dessus reste provisoire sur ses marges (6 NC affichés pourraient devenir 3 NC + 3 HS par délégation).
 
 ### Ambition au-delà du référentiel
 
