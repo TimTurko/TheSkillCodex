@@ -505,7 +505,7 @@ effleure: []
 
 ## Cartographies Phase 2 — EEE / info embarquée
 
-> Cartographie des fiches produites en **phase 2 elec/info** (squelette transverse + modules MCU Arduino/ESP32), depuis le gel de la passe B phase 1. **84 fiches** dans `content/fiches/eee/` (hors `schema-bloc-fonctionnel`, phase 1, déjà cartographiée ; +4 pour le module simulation ; +6 pour la phase 3 mesure/débogage/PCB, 06/06 suite 3). Front matters `aa:` **vérifiés un par un**. Blocs individuels pour les fiches porteuses d'AA, blocs groupés pour les grappes homogènes (PROJ/5 ; `aa: []`).
+> Cartographie des fiches produites en **phase 2 elec/info** (squelette transverse + modules MCU Arduino/ESP32), depuis le gel de la passe B phase 1. **85 fiches** dans `content/fiches/eee/` (hors `schema-bloc-fonctionnel`, phase 1, déjà cartographiée ; +4 pour le module simulation ; +6 pour la phase 3 mesure/débogage/PCB, 06/06 suite 3 ; +1 `alimentation-electronique`, 06/06 suite 4). Front matters `aa:` **vérifiés un par un**. Blocs individuels pour les fiches porteuses d'AA, blocs groupés pour les grappes homogènes (PROJ/5 ; `aa: []`).
 
 ### analyse-de-schema-electronique.md
 
@@ -667,6 +667,22 @@ kicad.md:  aa: []              # tuto-outil, AA porté par le hub (C45)
 
 ---
 
+### alimentation-electronique (06/06 suite 4)
+
+> Fiche transverse EEE [T] (`eee/`, type notion). 5 sections (réguler / découpler / router les masses / CV-CC / protéger) + exemple incarné bras 3 axes + 3 SVG conceptuels. **Reclassement réel** (≠ Phase 3, qui était tout en multi-couverture).
+
+```yaml
+alimentation-electronique.md (eee, transverse [T]):
+  couvert:
+    - RA-EEE-C03-2/EEE/3    # Sélectionner sources d'énergie + dimensionner l'alimentation — OBJET CENTRAL. Reclassement E → C.
+  effleure:
+    - RA-PROJET-C03-3/EEE/5  # Concevoir/réaliser carte — facette conversion statique de l'énergie (dédié par pcb, dominant C inchangé)
+```
+
+**Bilan** : 1 fiche. **Reclassement** : `RA-EEE-C03-2/EEE/3` passe de **E → C** — était le **seul Effleuré du domaine EEE** (traité en diffus dans concept / dossier-technique / ecoconception / `lire-une-datasheet`, sans fiche centrale), désormais objet central d'une fiche dédiée. **Domaine EEE refermé : 10 C / 0 E.** Premier vrai reclassement depuis le gel de la passe B (les fiches Phase 2/3 étaient toutes en multi-couverture C20). **Nouveau tally global : 44 C / 6 E / 4 HS / 3 HS-D / 0 NC (77 %).**
+
+---
+
 ## Passe A — Cartographie inverse par domaine
 
 > Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.
@@ -687,11 +703,11 @@ kicad.md:  aa: []              # tuto-outil, AA porté par le hub (C45)
 
 - **/1** *Choisir capteurs/actionneurs via prototypage rapide* — **C** : concept étape 2 (matrice élec). **E** : preuve-de-concept étape 2 (Arduino), schema-bloc-fonctionnel, matrice-de-decision, `niveaux-de-tension`, `lire-une-datasheet`.
 - **/2** *Choisir contrôleurs* — **C** : concept étape 2, `microcontroleur` (hub, aide au choix). **E** : schema-bloc-fonctionnel, matrice-de-decision.
-- **/3** *Sources d'énergie + dim alim* — **E** : concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2, `lire-une-datasheet`. Pas de fiche centrale, traitement diffus mais récurrent. *(seul E du domaine)*
+- **/3** *Sources d'énergie + dim alim* — **C** : `alimentation-electronique` (objet central : réguler / découpler / router les masses / CV-CC / protéger). **E** : concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2, `lire-une-datasheet` (multi-couv.). *(était E — fermé 06/06 suite 4)*
 - **/4** *Intégrer circuits électroniques (acquisition/traitement/transmission/conversion)* — **C** : dossier-technique étape 2, `gpio`, `niveaux-de-tension`, `bus-de-communication`, `techno-sans-fil`, `lire-une-datasheet`. Massivement multi-couvert phase 2. **E** : schema-bloc-fonctionnel.
 - **/5** *Concevoir système de commande par algorithme* — **C** : module `algorithme` (hub + `logigramme` + `machine-a-etats` + `grafcet` + `chronogramme`, 1 fiche/méthode C16) + `arduino-machine-a-etats`. **E** : dossier-technique étape 2 (archi UML). *(était E — fermé phase 2)*
 
-**Bilan EEE** : **9 C + 1 E + 0 HS + 0 NC** sur 10 critères (vs 5C/2E/3NC à la passe A phase 1). **Domaine EEE entièrement couvert** : le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). Seul subsiste 1 E (`RA-EEE-C03-2/EEE/3`, sources/dim alim, sans fiche centrale). Cœur disciplinaire couvert par le squelette transverse + module algorithme + modules MCU + simulation.
+**Bilan EEE** : **10 C + 0 E + 0 HS + 0 NC** sur 10 critères (vs 5C/2E/3NC à la passe A phase 1). **Domaine EEE entièrement couvert** : le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). `RA-EEE-C03-2/EEE/3` (sources/dim alim) est désormais **Couvert** : fiche dédiée `alimentation-electronique` créée le 06/06 (suite 4). Cœur disciplinaire couvert par le squelette transverse + module algorithme + modules MCU + simulation.
 
 ---
 
@@ -799,17 +815,17 @@ kicad.md:  aa: []              # tuto-outil, AA porté par le hub (C45)
 
 | Domaine | C | E | HS | HS-D | NC | Total |
 |---|---|---|---|---|---|---|
-| EEE | 9 | 1 | 0 | 0 | 0 | 10 |
+| EEE | 10 | 0 | 0 | 0 | 0 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 0 | 6 |
 | MME | 4 | 6 | 0 | 1 | 0 | 11 |
 | PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
-| **Total** | **43** | **7** | **4** | **3** | **0** | **57** |
+| **Total** | **44** | **6** | **4** | **3** | **0** | **57** |
 
 **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E. *(Reclassements phase 2 : EEE/1, EEE-C03-2/5 et PROJ/5 fermés ; voir section « Cartographies Phase 2 ».)*
 
-- **Couverts** : 43/57 = **75 %**
-- **Effleurés** : 7/57 = 12 %
+- **Couverts** : 44/57 = **77 %**
+- **Effleurés** : 6/57 = 11 %
 - **Hors scope (C15)** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation)
 - **Hors scope par délégation (HS-D)** : 3/57 = 5 % — design produit délégué aux cours collègues (`RA-PROJET-C03-3/PROJ/1` sketchs, `/2` prise en compte design, `RA-MME-C03-1/MME/1` outils designers). Tranché 06/06.
 - **Non couverts (NC)** : **0** — plus aucun trou ouvert.
@@ -847,14 +863,14 @@ kicad.md:  aa: []              # tuto-outil, AA porté par le hub (C45)
 
 | Domaine | C | E | HS | HS-D | NC | Total |
 |---|---|---|---|---|---|---|
-| EEE | 9 | 1 | 0 | 0 | 0 | 10 |
+| EEE | 10 | 0 | 0 | 0 | 0 | 10 |
 | ESE | 5 | 0 | 0 | 0 | 0 | 5 |
 | MEO | 6 | 0 | 0 | 0 | 0 | 6 |
 | MME | 4 | 6 | 0 | 1 | 0 | 11 |
 | PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
-| **Total** | **43** | **7** | **4** | **3** | **0** | **57** |
+| **Total** | **44** | **6** | **4** | **3** | **0** | **57** |
 
-Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation) et les arbitrages du 06/06, la couverture **directe** atteint **75 %** (43/57), l'effleurement 12 %, et il ne reste **aucun trou ouvert** : les 3 critères design sont actés **HS-D** (délégation cours collègues) et `schema-cinematique` ferme le dernier NC. Règle de comptage : statut dominant (C > E > HS > HS-D > NC), pas de double comptage.
+Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation) et les arbitrages du 06/06, la couverture **directe** atteint **77 %** (44/57), l'effleurement 11 %, et il ne reste **aucun trou ouvert** : les 3 critères design sont actés **HS-D** (délégation cours collègues) et `schema-cinematique` ferme le dernier NC. Règle de comptage : statut dominant (C > E > HS > HS-D > NC), pas de double comptage.
 
 ### Lecture par domaine
 
@@ -862,14 +878,14 @@ Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simu
 
 **PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 19 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. La programmation du contrôleur (C03-3/5) est fermée en phase 2 (modules cpp + Arduino) ; les 2 ex-NC design (sketchs, prise en compte design) sont actés HS-D — plus aucun trou ouvert.
 
-**EEE** (9 C / 10) : **domaine entièrement couvert** par la phase 2 (analyse de schéma, module algorithme, hub microcontrôleur, niveaux de tension, bus, sans-fil, simulation). Le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). Seul subsiste 1 E : `RA-EEE-C03-2/EEE/3` (sources/dim alim, sans fiche centrale).
+**EEE** (10 C / 10) : **domaine entièrement couvert** par la phase 2 (analyse de schéma, module algorithme, hub microcontrôleur, niveaux de tension, bus, sans-fil, simulation). Le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). `RA-EEE-C03-2/EEE/3` (sources/dim alim) est fermé 06/06 (suite 4) par la fiche dédiée `alimentation-electronique` : domaine 10 C / 0 E.
 
 **MME** (4 C / 11) est le domaine le moins couvert en phase 1 — assumé comme **interface** vers les cours collègues (mention explicite dans `hub/index`). Cinq critères effleurés sans fiche centrale sont actés **E terminal par délégation** ; `schema-cinematique` ferme `MME/5` (C) et les outils designers basculent en **HS-D**. Domaine refermé : 4 C + 6 E + 1 HS-D, plus aucun trou.
 
 ### Lecture par catégorie
 
-- **Couvert (43)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
-- **Effleuré (7)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Inclut les 5 critères MME *terminaux par délégation* (traitement disciplinaire renvoyé aux cours collègues).
+- **Couvert (44)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
+- **Effleuré (6)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Inclut les 5 critères MME *terminaux par délégation* (traitement disciplinaire renvoyé aux cours collègues).
 - **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale C15 : évalués transversalement par les enseignants, pas contenus pédagogiques.
 - **Hors scope par délégation (3)** : `RA-PROJET-C03-3/PROJ/1`+`/2` (sketchs, prise en compte design) et `RA-MME-C03-1/MME/1` (outils designers). Design produit enseigné par les cours collègues, hors expertise auteur.
 - **Non couvert (0)** : plus aucun trou ouvert après les arbitrages du 06/06.
@@ -890,7 +906,7 @@ Les trois questions ouvertes ont été arbitrées (autonomie déléguée pour le
 2. **5 critères MME effleurés sans fiche centrale** (`RA-MME-C02-1/MME/2`, `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`) **actés en E terminal par délégation** — pas de fiche MME phase 2. Le traitement disciplinaire profond est renvoyé aux cours MME ; le wiki les touche via le prisme mécatronique (pré-dim en concept et dossier-technique).
 3. **`schema-cinematique` créé** — fiche-notion MME tenue en frontière interface (lecture des liaisons + ddl + exemple bras 3 axes, renvoi explicite au cours de mécanique). `MME/5` fermé (NC→C), wiki-link du hub résolu.
 
-La cartographie AA est désormais **refermée** : 43 C, 7 E, 4 HS, 3 HS-D, **0 NC**. Le bilan n'est plus provisoire sur ses marges.
+La cartographie AA est désormais **refermée** : 44 C, 6 E, 4 HS, 3 HS-D, **0 NC**. Le bilan n'est plus provisoire sur ses marges.
 
 ### Ambition au-delà du référentiel
 
@@ -944,4 +960,4 @@ Trois chantiers ouverts, dans l'ordre logique :
 2. **Reprendre la rédaction des fiches** selon TODO : `caracteriser-une-exigence` (prioritaire), `pcb`, `amdec`, puis fiches-notion outils, puis fiches phase 2 EEE/MME selon priorisation.
 3. **Valider les conventions C15/C16 et multi-couverture sur les premières fiches-notion phase 2 produites**. Promotion vers le template `fiche-tuto.md` (à produire) une fois la stabilité confirmée sur 2-3 fiches.
 
-Le chantier cartographie AA est clos : 43 C, 7 E, 4 HS, 3 HS-D, **0 NC** — la couverture est mesurée, les trous sont fermés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.
+Le chantier cartographie AA est clos : 44 C, 6 E, 4 HS, 3 HS-D, **0 NC** — la couverture est mesurée, les trous sont fermés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.

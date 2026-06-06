@@ -56,7 +56,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 - [ ] **`falstad`** — fiche-tuto simu altern, à évaluer après CircuitVerse. Squelette transverse.
 - [x] ~~**`multimetre`** — fiche-tuto compétence pro (mesures tension/courant/résistance/continuité, choix d'échelle, pièges).~~ — **fait 06/06 (suite 3)** (eee/mesure/, fille du hub instruments-de-mesure, aa:[], + SVG série/parallèle).
 - [x] ~~**`oscilloscope`** — fiche-tuto compétence pro (lecture d'écran, sonde, déclenchement, mesures).~~ — **fait 06/06 (suite 3)** (eee/mesure/, fille du hub instruments-de-mesure, aa:[] ; frontière lecture conceptuelle → [[chronogramme]]).
-- [ ] **`alimentation-electronique`** — fiche-tuto compétence pro (re-cadrage 26/05 suite 5, ex `alimentation-stabilisee`). Régulation, découplage, masse, mode CV/CC, sécurité court-circuit.
+- [x] ~~**`alimentation-electronique`** — fiche-tuto compétence pro (re-cadrage 26/05 suite 5, ex `alimentation-stabilisee`). Régulation, découplage, masse, mode CV/CC, sécurité court-circuit.~~ — **fait 06/06 (suite 4)** : finalement **notion transverse [T]** (`eee/alimentation-electronique.md`), 5 principes + exemple bras 3 axes + 3 SVG ; carto `RA-EEE-C03-2/EEE/3` **E→C**. **2 SVG candidats restants** (différés du 1er jet) : courbe CV/CC, placement du découplage.
 - [ ] **`bom-electronique`** — fiche-tuto compétence pro. Au-delà du `bom` générique projet, focus composants élec.
 - [ ] Alimentation d'un système embarqué
 - [x] ~~Pull-up / pull-down~~ — couvert par `gpio` (02/06) : modes de tirage interne/externe, logique inversée, schéma push-pull/drain ouvert/tirage.

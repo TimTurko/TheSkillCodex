@@ -15,6 +15,7 @@ Le domaine s'organise autour de quelques **points d'entrée** ; chaque hub mène
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — la vue par fonctions
 - [[analyse-de-schema-electronique|Analyser un schéma électronique]] — lire un schéma de principe
 - [[chaine-energie|Chaîne d'énergie et d'information]] — les deux chaînes couplées
+- [[alimentation-electronique|Concevoir une alimentation]] — réguler, découpler, router les masses, protéger
 - [[lire-une-datasheet|Lire une datasheet]] — exploiter la documentation d'un composant
 
 **Microcontrôleur** — hub [[microcontroleur|microcontrôleur]]

@@ -61,6 +61,7 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 
 ## Voir aussi
 
+- [[alimentation-electronique|Concevoir une alimentation électronique]] — l'ingénierie du bloc *alimenter / distribuer*
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — les **fonctions** et leurs flux ; vue complémentaire
 - [[schema-cinematique|Schéma cinématique]] — les **mouvements** du mécanisme mis en action par la chaîne d'énergie
 - [[boucle-ouverte-boucle-fermee|Boucle ouverte / boucle fermée]] — ce que devient le couplage quand la mesure revient à la commande

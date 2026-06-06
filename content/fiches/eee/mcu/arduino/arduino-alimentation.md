@@ -156,4 +156,5 @@ L'alimentation est l'élément le plus sous-estimé d'un projet débutant — ig
 - [[arduino-deep-sleep|Deep sleep sur Arduino]] — réduire la consommation pour autonomie batterie
 - [[arduino-shield|Utiliser un shield]] — l'empilage qui peut doubler la consommation totale
 - [[niveaux-de-tension|Niveaux de tension]] — pour la cohabitation 3,3 / 5 V
+- [[alimentation-electronique|Concevoir une alimentation]] — les principes transverses que cette fiche applique à la carte
 - [[lire-une-datasheet|Lire une datasheet]] — pour repérer les courants nominaux des composants

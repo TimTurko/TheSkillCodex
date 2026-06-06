@@ -10,6 +10,33 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 4) — Fiche transverse EEE `alimentation-electronique` + 3 SVG + liens entrants + carto EEE/3 E→C
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A → arbitrage post-Phase 3 tranché vers **(a)** : `alimentation-electronique`, dernière fiche cœur du squelette pro. Cadrage validé avant rédaction (fiche cœur EEE substantielle). Puis résidu de contenu (liens entrants) + clôture.
+
+### Livrables
+- **1 fiche** `content/fiches/eee/alimentation-electronique.md` (~14,3 ko) : **notion transverse [T]** (`eee/` à plat), `aa: [RA-EEE-C03-2/EEE/3, RA-PROJET-C03-3/EEE/5]`, `prerequis: [chaine-energie]`, `phases: [concept]`. 5 sections de principes (réguler linéaire/découpage · découpler · router les masses · CV-CC · protéger) + exemple incarné bras 3 axes + Pièges + cas particulier (rails multiples) + Aller plus loin + Voir aussi. **Tous wiki-liens vers fiches existantes → 0 lien rouge créé.**
+- **3 SVG conceptuels** (premiers jets, `ressources/img/`) : `alimentation-electronique-regulation` (linéaire vs découpage) ; `-masses` (duo C31 étoile vs chaînage, faute ambre ✗) ; `-bras-3-axes` (archi incarnée : 2 rails, fusible, diode anti-inversion, découplage, masse étoile).
+- **3 liens entrants** (résidu de contenu) : `chaine-energie`, `arduino-alimentation`, `eee/index` → `alimentation-electronique`. Plus semi-orpheline.
+- **Carto `couverture-en-cours.md`** : `RA-EEE-C03-2/EEE/3` **E→C** propagé partout (matrice par critère + bilan EEE + 2 tables + reprises prose + bloc de session + compteur 84→85). Fichier entièrement cohérent.
+
+### Décisions
+- **Frontière à 3 étages** (cadrage validé) : `chaine-energie` situe le bloc *alimenter/distribuer* (niveau carte ⬆) / `alimentation-electronique` porte les principes transverses [T] / `arduino-alimentation` donne la recette d'une carte donnée [A] ⬇. **Zéro redite** : table courants/brown-out/batteries laissée côté Arduino ; ici, principes seuls.
+- **Borne de profondeur (C55)** : « Réguler » tenu au raisonnement choisir/dimensionner (expertise EEE, critère EEE/3) ; topologie buck/boost déléguée au cours d'élec de puissance (aparté italique). Frontière intra-EEE.
+- **Type notion [T] à plat** (pas tuto, pas de sous-dossier) : fiche de principes transverses popover-friendly, comme `chaine-energie`.
+
+### Conventions
+§ 8 (éprouvage) : **C55** nouvelle (borne profondeur Réguler) ; reprises **C19/C42** (alim [T] référencée familles, frontière 3 étages), **C23** +1 (fil rouge bras sur notion concept → conforte option a), **C31** (duo masses), **C33/C52** (SVG conceptuel hors-câblage étendu aux transverses).
+
+### Tailles
+Fiche 14,3 ko (cadré ~10, plus dense) ; 3 SVG 3,5 / 4,8 / 5,3 ko ; 3 edits liens entrants ; ~10 edits carto. JOURNAL ~60→~64 ko. **Archivage 1-pour-1 sauté** (marge sous 100 ko, fenêtre 28/05→06/06 utile, cohérent avec les entrées précédentes).
+
+### Corps — premier vrai reclassement depuis le gel de la passe B
+`RA-EEE-C03-2/EEE/3` (« sélectionner les sources d'énergie + dimensionner l'alimentation ») était le **seul Effleuré du domaine EEE** : traité en diffus (concept étapes 2+4, dossier-technique étape 3, ecoconception bloc 2, `lire-une-datasheet`) sans jamais être l'objet central d'une fiche. `alimentation-electronique` en fait l'objet central → **E→C**, vrai reclassement — contrairement aux 6 fiches Phase 3 et au module ESP32, toutes en multi-couverture C20 (tally inchangé). Conséquence : **EEE entièrement Couvert (10 C / 0 E)**, tally global **44 C / 6 E / 4 HS / 3 HS-D / 0 NC (77 %)**. Avec l'option (a) retenue, le **squelette pro cœur EEE est structurellement complet** (Phase 3 instruments/débogage/PCB + alimentation). Désambiguïsation reconfirmée : les deux `EEE/3` du référentiel sont distincts (`RA-PROJET-C03-3/EEE/3` = simulation, déjà C ; `RA-EEE-C03-2/EEE/3` = alimentation, ex-E) — ambiguïté RA structurelle connue. La carto étant un gros tracker à reprises multiples du tally, propagation poussée jusque dans la prose (2 tables + ~6 phrases) pour la garder cohérente.
+
+---
+
 ## 2026-06-06 (suite 3) — Phase 3 squelette pro EEE : 6 fiches + câblage + 3 SVG + carto
 
 ### Périmètre
