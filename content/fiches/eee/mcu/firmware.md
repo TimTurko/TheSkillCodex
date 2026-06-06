@@ -65,3 +65,4 @@ La leçon transverse : **les concepts d'architecture ne dépendent pas de la car
 - [[esp32|ESP32]] — Arduino-core vs ESP-IDF, et l'horizon FreeRTOS
 - [[arduino|Arduino]] — la super-loop et l'API Wiring
 - [[arduino-watchdog|Watchdog]] — la robustesse face aux blocages
+- [[debugger-embarque|Déboguer un système embarqué]] — traquer un bug dans le firmware (messages ou débogage matériel)

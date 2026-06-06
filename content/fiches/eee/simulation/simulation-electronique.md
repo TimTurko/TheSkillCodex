@@ -96,7 +96,7 @@ Deux repères pour s'orienter. Pour de l'**analogique** — un pont diviseur, un
 
 - **Phase de [[concept|concept]]** — la simulation aide à **explorer et figer une architecture électronique** : comparer deux étages de puissance, vérifier qu'une alimentation tient la charge, avant de trancher dans une [[matrice-de-decision|matrice de décision]].
 - **Phase de [[preuve-de-concept|preuve de concept]]** — simuler un sous-ensemble **avant de le câbler ou de commander les composants** : c'est quelques minutes qui épargnent une carte à refaire ou un composant grillé.
-- **Vers la mesure réelle** — la courbe simulée est l'**attendu** auquel on confrontera ensuite la trace de l'oscilloscope sur le vrai montage. Simulation idéale, datasheet normative, mesure réelle : trois facettes d'un même signal (voir [[chronogramme|chronogramme]]).
+- **Vers la mesure réelle** — la courbe simulée est l'**attendu** auquel on confrontera ensuite la trace de l'[[oscilloscope|oscilloscope]] sur le vrai montage. Simulation idéale, datasheet normative, mesure réelle : trois facettes d'un même signal (voir [[chronogramme|chronogramme]]).
 
 ## Voir aussi
 
@@ -106,3 +106,4 @@ Deux repères pour s'orienter. Pour de l'**analogique** — un pont diviseur, un
 - [[niveaux-de-tension|Niveaux de tension]] — une simulation aide à vérifier la compatibilité des niveaux avant câblage
 - [[falstad|Falstad]] · [[ltspice|LTspice]] — simulateurs analogiques (tutos outils)
 - [[wokwi|Wokwi]] · [[tinkercad|Tinkercad]] — simulateurs de cartes à microcontrôleur (tutos outils)
+- [[instruments-de-mesure|Instruments de mesure]] — le pendant réel : mesurer sur la table ce que la simulation a prédit

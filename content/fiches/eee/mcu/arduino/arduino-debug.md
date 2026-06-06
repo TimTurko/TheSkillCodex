@@ -174,4 +174,5 @@ Le débug est moins un coup de génie qu'une **méthode** : observer, comparer, 
 - [[arduino-serie|Moniteur série]] — prérequis pour utiliser `Serial.print()`
 - [[arduino-temporisation|Temporiser]] — pour cadencer les `print` sans surcharger
 - [[firmware|Firmware]] — organisation plus large du code embarqué
+- [[debugger-embarque|Déboguer un système embarqué]] — la vue transverse : méthode d'enquête et débogage matériel (JTAG/SWD)
 - [[arduino-watchdog|Watchdog sur Arduino]] — pour les blocages silencieux du programme

@@ -10,6 +10,60 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 3) — Phase 3 squelette pro EEE : 6 fiches + câblage + 3 SVG + carto
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A → **Phase 3 « squelette pro » EEE** (MVP étendu). Périmètre **hétérogène** → cadrage groupé + triage, pas de batch aveugle (C27). Vérif disque : front Phase 3 réellement vide (aucune des 6 cibles n'existait).
+
+### Livrables
+- **6 fiches** (~42,5 ko) : mini-hub `instruments-de-mesure` (`eee/mesure/`, `aa RA-PROJET-C03-3/EEE/2 + RA-PROJET-C05-3/PROJ/5`) + `multimetre` + `oscilloscope` (`aa:[]`, portés par le hub) ; `debugger-embarque` (`eee/mcu/`, tuto transverse [T], « Déboguer un système embarqué », `aa PROJ/5`) ; mini-hub `pcb` (`eee/pcb/`, `aa RA-PROJET-C03-3/EEE/5`) + `kicad` (`aa:[]`).
+- **Passe de câblage** (5 edits) : `firmware` + `arduino-debug` → `[[debugger-embarque]]` ; `analyse-de-schema` → `[[instruments-de-mesure]]`+`[[pcb]]` ; `simulation-electronique` → `[[instruments-de-mesure]]`+`[[oscilloscope]]` ; `eee/index` stub → **index curaté par points d'entrée**. `debugger-embarque` n'est plus orphelin ; slugs sortants tous vérifiés.
+- **3 SVG conceptuels** (premiers jets) : `multimetre-serie-parallele` (voltmètre //, ampèremètre série), `instruments-de-mesure-confrontation` (mesure dans plage attendue → validé), `pcb-flux` (schéma→Gerber→fabrication, frontière). Embeds posés (multimètre : remplace un placeholder C29).
+- **Carto `couverture-en-cours.md`** : bloc de suivi Phase 3 + compteur 78→84 fiches.
+
+### Décisions (cadrage groupé, validées)
+- **`debugger-embarque` hors hub mesure** — « déboguer ≠ mesurer » (logique C46 transposée au *placement* de fiche) : tuto transverse `eee/mcu/`, pas une fille d'`instruments-de-mesure`.
+- **Mini-hub `instruments-de-mesure`** (vs fiches à plat) — pattern « hub méthode + instruments », décalque de `simulation-electronique`.
+- **Conjecture E→C démentie** : `RA-PROJET-C03-3/EEE/5` était **déjà Couvert** (`dossier-technique` étape 2). Les 6 fiches sont donc toutes en **multi-couverture C20 ou `aa:[]`** → **tally inchangé : 43 C / 7 E / 4 HS / 3 HS-D / 0 NC (75 %)**. `pcb` *dédie* EEE/5 (1ʳᵉ fiche centrée), ne le *ferme* pas.
+
+### Conventions
+§8 (éprouvage) : **C45** confirmé 2ᵉ/3ᵉ hub d'outils (`instruments-de-mesure` + `pcb` → promouvable §6) ; **C46** généralisé au placement de fiches ; **C33** étendu aux fiches-outils (+3 SVG) ; sous-pattern « hub méthode + outils/instruments » confirmé ; **C27** « cadrage groupé + triage » a tenu sur périmètre hétérogène (non-grappe).
+
+### Tailles
+6 fiches ~42,5 ko ; 3 SVG (2,5–3,5 ko) ; 5 edits câblage + 2 edits carto. JOURNAL ~59 → ~64 ko. **Archivage 1-pour-1 sauté** (large marge sous 100 ko, fenêtre 28/05→06/06 utile, cohérent avec les entrées précédentes).
+
+### Corps — vérifier le statut avant de clamer un reclassement
+Le réflexe « `pcb` couvre EEE/5 donc E→C » était faux : la carto montrait EEE/5 déjà Couvert par la trame `dossier-technique`. `pcb` ne *ferme* rien — elle *dédie* le critère (1ʳᵉ fiche-tuto centrée sur « concevoir une carte », là où la trame le portait en sous-section). Même logique pour `instruments-de-mesure` (EEE/2 déjà couvert par `integration-et-tests`) et `debugger-embarque` (PROJ/5, grappe de 41 fiches). Leçon : un critère a UN statut dominant ; une nouvelle fiche sur un critère déjà C est une multi-couverture (C20), pas un reclassement — vérifier le statut courant avant d'annoncer un gain. Restent dus en relecture : peigne visuel des 3 SVG au rendu Quartz (surtout le circuit du multimètre) ; captures C29 (face multimètre, écran oscillo, session debugger, éditeurs KiCad).
+
+---
+
+## 2026-06-06 (suite 2) — Module ESP32 : 9 tutos enfants + 2 SVG + hub (batch en 2 régimes)
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A — arbitrage ouvert tranché vers **(a) écriture du batch complet ESP32**. Constat d'entrée (vérif disque) : `caracteriser-une-exigence` ET tout le track (c) PROJ AF/outils (`amdec`/`bom`/`fast`/`mind-map`/`ecoconception`/`ecodesign`/`matrice-eco-criteres`) déjà écrits et substantiels — seul vrai front d'écriture vide = les **enfants ESP32** (hub seul présent).
+
+### Livrables
+- **9 fiches `esp32-*`** (`eee/mcu/esp32/`), course-grade, autoportantes, **avec exercices** : *Prendre en main* = `prise-en-main` ; *Bases* = `gpio`, `serie`, `arduino-core` ; *Avancées* = `wifi`, `ble`, `deep-sleep` ; *Ingénieur* = `idf` (orientation), `freertos`. AA : PROJ/5 effleuré sur celles qui programment ; `aa:[]` sur `prise-en-main` et `idf`.
+- **2 SVG conceptuels** : `esp32-deep-sleep-reveil` (cycle réveil=RESET + sources), `esp32-freertos-ordonnancement` (préemption 2 tâches).
+- **Hub `esp32` retouché** : variantes +C5/H2/P4 (confrontées à Espressif en live) + tendance **Xtensa→RISC-V** ; `[[esp32-idf]]` lié (écosystème + palier Ingénieur) ; `arduino-core` ajouté en *Bases*.
+
+### Décisions (consigne D + calls)
+- **Parcours MCU autonome / redites inter-familles assumées** (consigne) — autoportance par famille, redites au niveau **[A]**, couche **[T]** (concepts/langage) commune. Ré-incarner les [T] par famille exclu (contredit C42).
+- **Exercices dans les tutos MCU** (consigne) — filles ESP32 = trame C38 + exercices C40 ; asymétrie `arduino-*` (sans exercices) à résoudre.
+- **Batch en 2 régimes** — 6 homogènes en A pur, trio `arduino-core`/`idf`/`freertos` avec calls structurels surfacés.
+- **IDF tenu en orientation** (pas un cours) ; Wi-Fi/BLE en traitement complet.
+
+### Conventions
+§8 nouvelles : **C47** (parcours MCU autonome / redites [A] OK), **C48** (batch 2 régimes), **C49** (trame tuto MCU + exercices). Épreuves : C25/C26 (3/N), C29/C33 (2 SVG), C32 (`[[deep-sleep]]`/`[[firmware]]`), C23 (exemples autonomes). Gabarit SVG auto-contenu confirmé ; liste `.th/.tl/.tf` du §3 paraît obsolète (→ BACKLOG).
+
+### Tailles
+9 fiches (~8-12 ko) + 2 SVG ; hub `esp32` 5,9→6,6 ko. JOURNAL ~54→~59 ko. **Archivage 1-pour-1 sauté** (large marge sous 100 ko, fenêtre 28/05→06/06 utile à la poursuite MCU, cohérent avec les entrées précédentes).
+
+### Corps — vérifier le disque, pas le souvenir
+Fil méthodo : le track (c) PROJ cru « à rédiger » était entièrement écrit (de `caracteriser-une-exigence` à `ecoconception`). La vérif `list_directory` a évité de refaire du travail fait et redirigé vers le seul vrai vide — les enfants ESP32 — qui se sont révélés le meilleur candidat batch (grappe homogène en calibre, transverses déjà écrits) mais **sans dépendance lecteur vers Arduino** : redites assumées au niveau [A]. La borne C27 a tenu via deux régimes (A pur + trio « avec calls »). Reste dû en relecture utilisateur (garde-fou, 9 fiches + 2 SVG) : exactitude API ESP32 (LEDC core 3.x, BLE2902, pile FreeRTOS en octets, *USB CDC On Boot*), rendu Quartz des 2 SVG, et vérifier que les transverses tissés `[[deep-sleep]]`/`[[wifi]]`/`[[ble]]`/`[[techno-sans-fil]]`/`[[pwm]]` ne sont pas rouges.
+
+---
+
 ## 2026-06-06 (suite) — Arbitrages design/MME tranchés + fiches & SVG méca + propagation carto AA
 
 ### Périmètre

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 372" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Architecture d'alimentation du bras 3 axes</title>
+  <desc id="d3">Une source unique (batterie ou secteur) passe par une protection contre l'inversion de polarité, puis se sépare en deux rails. Le rail de puissance, protégé par un fusible, alimente les drivers puis les moteurs. Le rail logique, via un régulateur 5 V, alimente le microcontrôleur, les codeurs et l'IHM. Chaque rail porte un condensateur de découplage au plus près. Les retours de masse des deux rails et de la source rejoignent un point de masse commun unique, en étoile.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .bt  { font:700 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .be  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .bi  { fill:#DDDBD3; stroke:#888780; stroke-width:2; }
+      .cap { font:400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .wire{ stroke:#888780; stroke-width:1.8; fill:none; }
+      .flow{ stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#a3); }
+      .gnd { stroke:#888780; stroke-width:1.8; fill:none; stroke-dasharray:5 3; }
+      .gndm{ stroke:#888780; stroke-width:2.6; fill:none; stroke-dasharray:5 3; }
+      .gndbar{ stroke:#888780; stroke-width:3.4; fill:none; }
+      .diodef{ fill:#BA7517; }
+      .diodes{ stroke:#BA7517; stroke-width:2; fill:none; }
+      .capsym{ stroke:#BA7517; stroke-width:2; fill:none; }
+      .node{ fill:#888780; }
+      .a3 { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .bt { fill:#F1EFE8; }
+        .be { fill:#4A4A48; stroke:#EF9F27; } .bi { fill:#4A4A48; stroke:#BBBBBB; }
+        .cap { fill:#BBBBBB; } .wire { stroke:#BBBBBB; } .flow { stroke:#BBBBBB; }
+        .gnd { stroke:#BBBBBB; } .gndm { stroke:#BBBBBB; } .gndbar { stroke:#BBBBBB; }
+        .diodef { fill:#EF9F27; } .diodes { stroke:#EF9F27; } .capsym { stroke:#EF9F27; }
+        .node { fill:#BBBBBB; } .a3 { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a3"/></marker>
+  </defs>
+
+  <text x="410" y="26" class="ttl">Alimentation du bras 3 axes : deux rails, protections, masse étoile</text>
+
+  <!-- Source + protection inversion -->
+  <rect x="40" y="158" width="110" height="54" rx="8" class="be"/>
+  <text x="95" y="181" class="bt">Batterie /</text>
+  <text x="95" y="198" class="bt">secteur</text>
+  <line x1="150" y1="185" x2="176" y2="185" class="wire"/>
+  <path d="M176,177 L196,185 L176,193 Z" class="diodef"/>
+  <line x1="196" y1="177" x2="196" y2="193" class="diodes"/>
+  <line x1="196" y1="185" x2="250" y2="185" class="wire"/>
+  <text x="190" y="170" class="cap">protection inversion</text>
+  <circle cx="250" cy="185" r="3" class="node"/>
+
+  <!-- Rail puissance (haut) -->
+  <line x1="250" y1="185" x2="250" y2="90" class="wire"/>
+  <line x1="250" y1="90" x2="275" y2="90" class="flow"/>
+  <rect x="275" y="68" width="78" height="44" rx="8" class="be"/><text x="314" y="94" class="bt">Fusible</text>
+  <line x1="353" y1="90" x2="408" y2="90" class="flow"/>
+  <rect x="408" y="68" width="98" height="44" rx="8" class="be"/><text x="457" y="94" class="bt">Drivers ×3</text>
+  <line x1="506" y1="90" x2="560" y2="90" class="flow"/>
+  <rect x="560" y="68" width="98" height="44" rx="8" class="be"/><text x="609" y="94" class="bt">Moteurs ×3</text>
+  <!-- découplage drivers -->
+  <line x1="380" y1="90" x2="380" y2="114" class="wire"/>
+  <line x1="371" y1="114" x2="389" y2="114" class="capsym"/>
+  <line x1="374" y1="119" x2="386" y2="119" class="capsym"/>
+  <line x1="380" y1="119" x2="380" y2="127" class="wire"/>
+  <line x1="375" y1="127" x2="385" y2="127" class="wire"/>
+  <line x1="378" y1="130" x2="382" y2="130" class="wire"/>
+  <text x="398" y="121" class="cap">C</text>
+  <text x="392" y="150" class="cap">découplage (C au plus près)</text>
+
+  <!-- Rail logique (bas) -->
+  <line x1="250" y1="185" x2="250" y2="275" class="wire"/>
+  <line x1="250" y1="275" x2="280" y2="275" class="flow"/>
+  <rect x="280" y="253" width="112" height="44" rx="8" class="be"/><text x="336" y="280" class="bt">Régulateur 5 V</text>
+  <line x1="392" y1="275" x2="424" y2="275" class="flow"/>
+  <rect x="424" y="253" width="160" height="44" rx="8" class="bi"/>
+  <text x="504" y="273" class="bt">MCU + codeurs</text>
+  <text x="504" y="289" class="bt">+ IHM</text>
+  <!-- découplage MCU -->
+  <line x1="410" y1="275" x2="410" y2="300" class="wire"/>
+  <line x1="401" y1="300" x2="419" y2="300" class="capsym"/>
+  <line x1="404" y1="305" x2="416" y2="305" class="capsym"/>
+  <line x1="410" y1="305" x2="410" y2="313" class="wire"/>
+  <line x1="405" y1="313" x2="415" y2="313" class="wire"/>
+  <line x1="408" y1="316" x2="412" y2="316" class="wire"/>
+  <text x="428" y="306" class="cap">C</text>
+
+  <!-- Masse commune en étoile -->
+  <line x1="150" y1="332" x2="250" y2="332" class="gndbar"/>
+  <text x="200" y="323" class="cap">masse commune (étoile)</text>
+  <path d="M95,212 L95,332 L150,332" class="gnd"/>
+  <path d="M504,297 L504,350 L250,350 L250,332" class="gnd"/>
+  <path d="M609,112 L609,360 L200,360 L200,332" class="gndm"/>
+</svg>

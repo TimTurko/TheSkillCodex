@@ -505,7 +505,7 @@ effleure: []
 
 ## Cartographies Phase 2 — EEE / info embarquée
 
-> Cartographie des fiches produites en **phase 2 elec/info** (squelette transverse + modules MCU Arduino/ESP32), depuis le gel de la passe B phase 1. **78 fiches** dans `content/fiches/eee/` (hors `schema-bloc-fonctionnel`, phase 1, déjà cartographiée ; +4 pour le module simulation, màj 06/06). Front matters `aa:` **vérifiés un par un**. Blocs individuels pour les fiches porteuses d'AA, blocs groupés pour les grappes homogènes (PROJ/5 ; `aa: []`).
+> Cartographie des fiches produites en **phase 2 elec/info** (squelette transverse + modules MCU Arduino/ESP32), depuis le gel de la passe B phase 1. **84 fiches** dans `content/fiches/eee/` (hors `schema-bloc-fonctionnel`, phase 1, déjà cartographiée ; +4 pour le module simulation ; +6 pour la phase 3 mesure/débogage/PCB, 06/06 suite 3). Front matters `aa:` **vérifiés un par un**. Blocs individuels pour les fiches porteuses d'AA, blocs groupés pour les grappes homogènes (PROJ/5 ; `aa: []`).
 
 ### analyse-de-schema-electronique.md
 
@@ -635,6 +635,35 @@ chaine-energie.md (eee, transverse):
 ```
 
 **Bilan** : 2 fiches (créées 06/06, fil rouge bras 3 axes). `schema-cinematique` fait passer `RA-MME-C02-1/MME/5` de **NC → C** (frontière interface : lecture + renvoi cours mécanique). `chaine-energie` est une fiche d'**ambition** (modèle des deux chaînes, complément de `schema-bloc-fonctionnel`) — `aa: []` légitime, pas de critère central. Les deux ferment les liens rouges `[[schema-cinematique]]` et `[[chaine-energie]]` du hub.
+
+---
+
+### Phase 3 — instruments de mesure, débogage, PCB (06/06 suite 3)
+
+> 6 fiches « squelette pro » (cœur EEE, MVP étendu). Toutes en **multi-couverture (C20)** ou `aa: []` (porté par le hub, C45) → **tally global inchangé**.
+
+```yaml
+# Module mesure (eee/mesure/) — hub + 2 tutos-outils :
+instruments-de-mesure.md (hub):
+  couvert:
+    - RA-PROJET-C03-3/EEE/2    # Analyser le comportement réel par la mesure (multi-couv. integration-et-tests + analyse-de-schema ; dominant C inchangé)
+    - RA-PROJET-C05-3/PROJ/5   # Analyser les résultats des tests — les instruments fournissent les relevés (multi-couv. PoC + integration)
+multimetre.md:   aa: []        # tuto-outil, AA porté par le hub (C45)
+oscilloscope.md: aa: []        # tuto-outil, AA porté par le hub (C45)
+
+# Débogage embarqué (eee/mcu/, transverse [T]) :
+debugger-embarque.md:
+  couvert:
+    - RA-PROJET-C03-3/PROJ/5   # Déboguer = mettre au point le programme (multi-couv. grappe PROJ/5)
+
+# Module PCB (eee/pcb/) — hub + tuto-outil :
+pcb.md (hub):
+  couvert:
+    - RA-PROJET-C03-3/EEE/5    # Concevoir/réaliser une carte — 1re fiche DÉDIÉE (multi-couv. dossier-technique étape 2 ; dominant C inchangé)
+kicad.md:  aa: []              # tuto-outil, AA porté par le hub (C45)
+```
+
+**Bilan** : 6 fiches, **aucun reclassement**. `EEE/2`, `EEE/5`, `PROJ/5` et `RA-PROJET-C05-3/PROJ/5` étaient déjà Couverts ailleurs → multi-couverture C20 (statut dominant inchangé). `pcb` devient la **fiche dédiée** d'`EEE/5` (jusque-là porté en sous-section de `dossier-technique`). **Tally global inchangé : 43 C / 7 E / 4 HS / 3 HS-D / 0 NC (75 %).**
 
 ---
 

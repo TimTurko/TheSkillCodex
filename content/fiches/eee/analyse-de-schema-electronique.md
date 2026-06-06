@@ -93,3 +93,5 @@ Un schéma volumineux s'étale sur **plusieurs feuilles** reliées par des label
 - [[niveaux-de-tension|Niveaux de tension]] — la cohérence des tensions, contrôle clé de l'étape 5
 - [[adc|Conversion analogique-numérique]] — comment le MCU lit une tension de capteur
 - [[logigramme|Logigramme]] — la logique de décision derrière la commande
+- [[instruments-de-mesure|Instruments de mesure]] — mesurer sur le circuit réel ce que le schéma décrit
+- [[pcb|Circuit imprimé]] — transformer le schéma validé en carte fabricable

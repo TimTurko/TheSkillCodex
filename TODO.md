@@ -5,6 +5,10 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➜ MAJ 06/06 (suite 3)** — **Phase 3 squelette pro EEE bouclée** : 6 fiches (mini-hub `instruments-de-mesure` + `multimetre`/`oscilloscope` ; `debugger-embarque` transverse [T] ; mini-hub `pcb` + `kicad`) + passe de câblage (5 edits, `eee/index` curaté) + **3 SVG conceptuels** (multimètre série/parallèle, confrontation mesure, flux PCB) + carto (bloc Phase 3, 78→84 fiches, **tally inchangé 43 C/7 E/4 HS/3 HS-D/0 NC** — EEE/5 était déjà C). **MVP étendu structurellement complet** (squelette pro + Arduino + ESP32). **Prochaine session = arbitrage ouvert post-Phase 3** : (a) `alimentation-electronique` (dernière fiche cœur du squelette pro, raccroche dossier-tech/intégration) ; (b) **passe consolidation pré-publication** (peigne visuel des SVG accumulés, `cdcf-ecole-template.docx`, filtre Explorer Quartz, inventaire stubs) ; (c) autre famille MCU (`raspberry-pi`/`esp8266`/`stm32`) ou `optimisation-mecanique` (MME). **En attente de relecture (garde-fou)** : 3 SVG Phase 3 au rendu Quartz (surtout circuit multimètre) ; captures C29 (face multimètre, écran oscillo, session debugger, éditeurs KiCad).
+>
+> **➜ MAJ 06/06 (suite 2)** — **Module ESP32 : 9 tutos enfants + 2 SVG + hub** (batch en 2 régimes). Constat : track (c) PROJ AF/outils (`amdec`/`bom`/`fast`/`mind-map`/`ecoconception`/`ecodesign`/`matrice-eco-criteres`) + `caracteriser-une-exigence` **déjà écrits** — seul vrai vide = enfants ESP32. Écrites : `esp32-prise-en-main`/`-gpio`/`-serie`/`-arduino-core`/`-wifi`/`-ble`/`-deep-sleep`/`-idf`/`-freertos` (course-grade, autoportantes, **avec exercices**, zéro renvoi `arduino-*`). 2 SVG conceptuels (deep-sleep réveil, freertos ordonnancement). Hub : variantes +C5/H2/P4 + tendance RISC-V (Espressif live), `[[esp32-idf]]` lié, `arduino-core` en Bases. Conventions §8 : **C47** (parcours MCU autonome / redites [A] OK), **C48** (batch 2 régimes), **C49** (trame tuto MCU + exercices). **Prochaine session = Phase 3 squelette pro (proposé)** : `oscilloscope`/`multimetre`/`debugger-embarque`/`pcb`+`kicad` — cœur EEE, dérouge des liens vivants. **En attente de relecture (garde-fou)** : 9 fiches + 2 SVG ESP32 — exactitude API (LEDC 3.x, BLE2902, pile FreeRTOS en octets, USB CDC On Boot), rendu Quartz des SVG, **vérifier `[[deep-sleep]]`/`[[wifi]]`/`[[ble]]`/`[[techno-sans-fil]]`/`[[pwm]]` non rouges** ; captures C29 à récolter ; asymétrie exercices `arduino-*` à aligner.
+>
 > **➜ MAJ 06/06 (suite)** — **Arbitrages design/MME tranchés + fiches & SVG méca + carto AA refermée**. Autonomie totale (2 chantiers). **3 décisions niveau D tranchées** : catégorie **HS-D** instaurée (3 critères design) ; **5 critères MME effleurés** actés *Effleuré terminal par délégation* (pas de fiche MME phase 2) ; **`schema-cinematique` créé** (frontière interface). Livré : 2 fiches (`schema-cinematique` mme/ `aa MME/5` ; `chaine-energie` eee/ transverse `aa:[]`) + **8 SVG** (4 méca fil-rouge bras 3 axes + 4 élec conceptuels : simulation cycle/lecture-courbe, masquage, firmware) + 5 embeds outils simulation → placeholders C29. **`couverture-en-cours.md` refermée : 43 C / 7 E / 4 HS / 3 HS-D / 0 NC (75 %)**. `conventions.md` §7 : HS-D = 5e catégorie, décisions tranchées. **Prochaine session = arbitrage ouvert (post-relecture méca)** : (a) **tutos enfants ESP32** (Phase 4, hub validé : `esp32-prise-en-main`/`-arduino-core`/`-idf`/`-gpio`/`-serie`/`-wifi`/`-ble`/`-deep-sleep`/`-freertos`) ; (b) **Phase 3 squelette pro** (`oscilloscope`/`multimetre`/`pcb`+`kicad`/`debugger-embarque`) ; (c) reprise rédaction fiches (`caracteriser-une-exigence` prioritaire, `amdec`, fiches-notion outils) ; (d) `optimisation-mecanique` (MME phase 2). **En attente de relecture** : 8 SVG premiers jets — 4 méca relus 06/06 (schema-cinematique validés, chaine-energie corrigés), 4 élec simulation à valider au rendu ; captures C29 à récolter.
 >
 > **➜ MAJ 06/06** — **Réconciliation carto AA Phase 2** (`couverture-en-cours.md`, passe complète : **74 front matters vérifiés un par un**, EEE→7C puis **9C/1E/0NC**, global **42/57 = 74 %**, NC 6→4) + **module `simulation`** sur pattern hub (C18) : `simulation-electronique` (hub [T], ferme **EEE/3+/4**) + `falstad`/`ltspice` (analogique) + `wokwi` (MCU, PROJ/5). 2 écarts JOURNAL corrigés (`lire-une-datasheet` ≠ [], grappe PROJ/5 = **40** fiches). Fritzing tenu hors hub. Conventions nouvelles §8 : **C45** (AA tutos-outils = [] porté par le hub) + **C46** (« simuler ≠ représenter »). 5 SVG conceptuels simulation en placeholder. **Prochaine session = AUTONOMIE TOTALE** (Claude définit périmètre + priorités) : (a) **design MME/PROJ** — 2 NC `PROJ-C03-3/1`+`/2` + 3 arbitrages niveau D (catégorie « HS par délégation » pour les 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation) ; (b) **passe SVG** — créer les SVG conceptuels en attente (placeholders C29 : module simulation = cycle / lecture-courbe / 3 interfaces ; bitmasking ; couches firmware ; cpp ×2 ; etc.), **fil rouge bras 3 axes pour les SVG méca**.
@@ -105,18 +109,18 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 #### Phase 3 — Squelette transverse pro (~10 sessions, MVP étendu)
 
-- [ ] `oscilloscope` (fiche-tuto compétence pro instrumentation)
-- [ ] `multimetre` (fiche-tuto compétence pro)
+- [x] ~~`oscilloscope` (fiche-tuto compétence pro instrumentation)~~ — **fait 06/06 (suite 3)** (eee/mesure/, fille du hub instruments-de-mesure, aa:[])
+- [x] ~~`multimetre` (fiche-tuto compétence pro)~~ — **fait 06/06 (suite 3)** (eee/mesure/, fille hub, aa:[], + SVG série/parallèle)
 - [x] ~~`firmware` (transverse, archi code embarqué)~~ — **fait 02/06 (suite)** (`eee/mcu/firmware.md` 5,7 ko ; typé **notion** finalement, pas tuto ; progression super-loop → coopératif → MAE → modules → RTOS + section « selon la famille » ; C19 vrai test → **option (c)** ; `aa: .../PROJ/5` effleuré ; SVG couches = candidat)
-- [ ] `debugger-embarque` (fiche-tuto compétence pro)
-- [ ] `pcb` (mini-hub mère, mention gravure à l'anglaise interne école, distinction monoface interne / double face externe JLCPCB)
-- [ ] `kicad` (fiche-tuto outil PCB principal, simu intégrée mention)
+- [x] ~~`debugger-embarque` (fiche-tuto compétence pro)~~ — **fait 06/06 (suite 3)** (eee/mcu/, tuto transverse [T], aa PROJ/5)
+- [x] ~~`pcb` (mini-hub mère, gravure école / monoface interne vs double face JLCPCB)~~ — **fait 06/06 (suite 3)** (eee/pcb/, hub C18, aa EEE/5 dédiée, + SVG flux ; frontière fab = Gerber)
+- [x] ~~`kicad` (fiche-tuto outil PCB principal, simu intégrée mention)~~ — **fait 06/06 (suite 3)** (eee/pcb/, fille hub pcb, aa:[])
 - [x] ~~`bus-de-communication` (hub mère) + `uart` / `i2c` / `spi`~~ — **fait 28/05 suite 4** (grappe batch dans `eee/mcu/bus/` ; hub tableau comparatif + aide au choix + SVG topologies ; C18 épreuve 2/N ; AA hub EEE/4, filles [])
 
 #### Phase 4 — Second embranchement ESP32 (~4 sessions)
 
 - [x] ~~`esp32` (hub fille de `microcontroleur`)~~ — **fait 02/06 (suite)** (`eee/mcu/esp32/esp32.md` 6,0 ko ; décalque `arduino`, 4 paliers + [A]/[T], alerte 3,3 V ; C25/C26 épreuve 2/N ; `aa: []`). Tutos `esp32-*` rouges = roadmap Phase 4 ci-dessous.
-- [ ] `esp32-arduino-core` (fiche-tuto, entrée pratique)
+- [x] ~~`esp32-arduino-core`~~ — **fait 06/06 (suite)** (l'API Arduino sur ESP-IDF/FreeRTOS ; `loop()`=tâche, 2 cœurs ; PROJ/5)
 - [x] ~~`wokwi` (fiche-tuto simu spécifique ESP32)~~ — fait 06/06 (module `simulation`, MCU + `aa: PROJ/5`)
 - [ ] `alimentation-electronique` (fiche-tuto compétence pro, raccrochage dossier-tech + intégration)
 
@@ -132,7 +136,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 - [x] ~~`falstad` (fiche-tuto simu altern, à évaluer si pertinent après CircuitVerse)~~ — fait 06/06 (module `simulation`, analogique navigateur, exemple charge RC). `circuitverse` reste à évaluer (simu **numérique/logique**, niche distincte).
 
 *Embranchements technologiques restants :*
-- [ ] `esp32-idf` (fiche-tuto approfondissement, second tuto ESP32 après arduino-core)
+- [x] ~~`esp32-idf`~~ — **fait 06/06 (suite)** (orientation : quand/pourquoi le natif ; `app_main`/`idf.py`/`menuconfig` ; `aa:[]`)
 - [ ] `raspberry-pi` (hub fille, étiquette *plateforme embarquée* car SBC stricto sensu) + `raspberry-pi-prise-en-main`
 - [ ] `esp8266` (hub fille) + `esp8266-prise-en-main`
 - [ ] **Hubs prio 2** : `stm32`, `teensy`, `pic` (chacun = hub fille + tutos d'utilisation)

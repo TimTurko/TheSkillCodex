@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Confronter la mesure à l'attendu</title>
+  <desc id="d2">Sur un axe de tension, une plage attendue est mise en évidence entre 4,75 et 5,25 volts (5 volts plus ou moins 5 pour cent). Une valeur mesurée de 4,98 volts tombe dans cette plage. Un encart confronte l'attendu et le mesuré et conclut que la mesure est conforme, donc le sous-ensemble est validé. Une mesure ne vaut que rapportée à un ordre de grandeur attendu.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .axis{stroke:#888780;stroke-width:1.8;fill:none;marker-end:url(#a2);}
+      .axl{font:400 11.5px sans-serif;fill:#888780;}
+      .band{fill:#BA7517;fill-opacity:.28;stroke:#BA7517;stroke-width:1.6;}
+      .guide{stroke:#888780;stroke-width:1.2;stroke-dasharray:4 3;fill:none;}
+      .brk{stroke:#888780;stroke-width:1.4;fill:none;}
+      .brlbl{font:400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .needle{fill:#BA7517;}
+      .ndl{font:700 12px sans-serif;text-anchor:middle;fill:#BA7517;}
+      .cap{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .card{fill:#DDDBD3;stroke:#BA7517;stroke-width:2;}
+      .ct{font:700 12px sans-serif;fill:#2C2C2A;}
+      .cok{font:700 13px sans-serif;fill:#BA7517;}
+      .a2f{fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .axis{stroke:#BBBBBB;} .axl{fill:#BBBBBB;}
+        .band{fill:#EF9F27;stroke:#EF9F27;} .guide{stroke:#BBBBBB;} .brk{stroke:#BBBBBB;} .brlbl{fill:#BBBBBB;}
+        .needle{fill:#EF9F27;} .ndl{fill:#EF9F27;} .cap{fill:#BBBBBB;}
+        .card{fill:#4A4A48;stroke:#EF9F27;} .ct{fill:#F1EFE8;} .cok{fill:#EF9F27;} .a2f{fill:#BBBBBB;}
+      }
+    </style>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a2f"/></marker>
+  </defs>
+
+  <text x="360" y="28" class="ttl">Confronter la mesure à l'attendu — la valeur seule ne suffit pas</text>
+
+  <line x1="90" y1="160" x2="585" y2="160" class="axis"/>
+  <text x="600" y="164" class="axl">tension</text>
+
+  <line x1="375" y1="116" x2="375" y2="160" class="guide"/>
+  <rect x="300" y="120" width="150" height="40" class="band"/>
+
+  <path d="M300,170 L300,176 L450,176 L450,170" class="brk"/>
+  <text x="375" y="193" class="brlbl">plage attendue : 4,75 – 5,25 V  (5 V ± 5 %)</text>
+
+  <path d="M360,100 L376,100 L368,118 z" class="needle"/>
+  <text x="368" y="92" class="ndl">mesuré : 4,98 V</text>
+
+  <rect x="430" y="212" width="256" height="84" rx="10" class="card"/>
+  <text x="447" y="237" class="ct">attendu : 5 V ± 5 %</text>
+  <text x="447" y="259" class="ct">mesuré : 4,98 V</text>
+  <line x1="447" y1="269" x2="669" y2="269" class="guide"/>
+  <text x="447" y="289" class="cok">✓ conforme → validé</text>
+
+  <text x="220" y="258" class="cap">Une mesure ne vaut que</text>
+  <text x="220" y="276" class="cap">rapportée à un attendu.</text>
+</svg>

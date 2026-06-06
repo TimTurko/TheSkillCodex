@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 200" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Le flux de conception d'un circuit imprimé</title>
+  <desc id="d3">Une chaîne d'étapes de conception d'une carte : saisir le schéma, associer les empreintes, placer les composants, router les pistes, vérifier les règles de conception (DRC), générer les fichiers Gerber. Ces six étapes relèvent du wiki. Une frontière marquée « fichiers Gerber » sépare la conception de la dernière étape, la fabrication, qui relève de l'atelier ou du cours de fabrication.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .box{fill:#DDDBD3;stroke:#BA7517;stroke-width:2.2;}
+      .boxo{fill:none;stroke:#888780;stroke-width:2;stroke-dasharray:5 3;}
+      .n{font:700 12px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .no{font:700 12px sans-serif;text-anchor:middle;fill:#888780;}
+      .sub{font:400 9.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .arr{stroke:#BA7517;stroke-width:2;fill:none;marker-end:url(#a3);}
+      .fr{stroke:#888780;stroke-width:1.6;stroke-dasharray:5 4;fill:none;}
+      .frl{font:italic 700 10.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .a3f{fill:#BA7517;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .box{fill:#4A4A48;stroke:#EF9F27;} .boxo{stroke:#BBBBBB;}
+        .n{fill:#F1EFE8;} .no{fill:#BBBBBB;} .sub{fill:#BBBBBB;}
+        .arr{stroke:#EF9F27;} .fr{stroke:#BBBBBB;} .frl{fill:#BBBBBB;} .foot{fill:#BBBBBB;} .a3f{fill:#EF9F27;}
+      }
+    </style>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a3f"/></marker>
+  </defs>
+
+  <text x="430" y="26" class="ttl">De l'idée à la carte — le flux de conception</text>
+
+  <!-- 6 étapes wiki -->
+  <rect x="12"  y="78" width="96" height="46" rx="7" class="box"/><text x="60"  y="106" class="n">1 · Schéma</text>
+  <rect x="128" y="78" width="96" height="46" rx="7" class="box"/><text x="176" y="106" class="n">2 · Empreintes</text>
+  <rect x="244" y="78" width="96" height="46" rx="7" class="box"/><text x="292" y="106" class="n">3 · Placement</text>
+  <rect x="360" y="78" width="96" height="46" rx="7" class="box"/><text x="408" y="106" class="n">4 · Routage</text>
+  <rect x="476" y="78" width="96" height="46" rx="7" class="box"/><text x="524" y="106" class="n">5 · DRC</text>
+  <rect x="592" y="78" width="96" height="46" rx="7" class="box"/><text x="640" y="106" class="n">6 · Gerber</text>
+
+  <!-- flèches -->
+  <line x1="110" y1="101" x2="126" y2="101" class="arr"/>
+  <line x1="226" y1="101" x2="242" y2="101" class="arr"/>
+  <line x1="342" y1="101" x2="358" y2="101" class="arr"/>
+  <line x1="458" y1="101" x2="474" y2="101" class="arr"/>
+  <line x1="574" y1="101" x2="590" y2="101" class="arr"/>
+  <line x1="690" y1="101" x2="738" y2="101" class="arr"/>
+
+  <!-- frontière -->
+  <line x1="715" y1="60" x2="715" y2="150" class="fr"/>
+  <text x="715" y="52" class="frl">frontière</text>
+
+  <!-- fabrication (hors wiki) -->
+  <rect x="740" y="78" width="106" height="46" rx="7" class="boxo"/>
+  <text x="793" y="100" class="no">Fabrication</text>
+  <text x="793" y="115" class="sub">atelier / cours</text>
+
+  <text x="430" y="178" class="foot">Le wiki couvre jusqu'au Gerber ; la fabrication relève de l'atelier.</text>
+</svg>

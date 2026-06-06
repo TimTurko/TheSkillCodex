@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Régulateur linéaire contre régulateur à découpage</title>
+  <desc id="d1">Deux façons de régler 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, (Vin moins Vout) fois le courant, en chaleur ; il est simple et silencieux mais chauffe si la chute est forte. À droite, un régulateur à découpage : un interrupteur commute à travers une inductance et un condensateur, avec peu de pertes (rendement 85 à 95 pourcent) mais un bruit de commutation et plus de composants.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .hd  { font:700 12px sans-serif; text-anchor:middle; fill:#888780; letter-spacing:.5px; }
+      .be  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .bt  { font:700 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .flow{ stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#a1); }
+      .io  { font:700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .cap { font:400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .heat{ font:700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .sw  { stroke:#BA7517; stroke-width:1.8; fill:none; }
+      .div { stroke:#DDDBD3; stroke-width:1.5; }
+      .a1  { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .hd { fill:#BBBBBB; }
+        .be { fill:#4A4A48; stroke:#EF9F27; } .bt { fill:#F1EFE8; }
+        .flow { stroke:#BBBBBB; } .io { fill:#EF9F27; } .cap { fill:#BBBBBB; }
+        .heat { fill:#EF9F27; } .sw { stroke:#EF9F27; } .div { stroke:#5A5A57; }
+        .a1 { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a1"/></marker>
+  </defs>
+
+  <text x="380" y="26" class="ttl">Régler 5 V : linéaire (simple, dissipe) — découpage (efficace, complexe)</text>
+  <line x1="380" y1="50" x2="380" y2="244" class="div"/>
+
+  <!-- Panneau A : linéaire -->
+  <text x="188" y="62" class="hd">LINÉAIRE (LDO)</text>
+  <text x="50"  y="122" class="io">9 V</text>
+  <line x1="66" y1="117" x2="108" y2="117" class="flow"/>
+  <rect x="108" y="95" width="120" height="46" rx="8" class="be"/>
+  <text x="168" y="123" class="bt">Élément série</text>
+  <line x1="228" y1="117" x2="298" y2="117" class="flow"/>
+  <text x="320" y="122" class="io">5 V</text>
+  <text x="168" y="166" class="heat">→ chaleur</text>
+  <text x="168" y="184" class="cap">(Vin − Vout) × I</text>
+  <text x="188" y="222" class="cap">simple · silencieux</text>
+
+  <!-- Panneau B : découpage -->
+  <text x="566" y="62" class="hd">À DÉCOUPAGE</text>
+  <path d="M500,86 h12 v-13 h13 v13 h13 v-13 h13 v13 h13 v-13 h13 v13 h13" class="sw"/>
+  <text x="430" y="122" class="io">9 V</text>
+  <line x1="446" y1="117" x2="488" y2="117" class="flow"/>
+  <rect x="488" y="95" width="132" height="46" rx="8" class="be"/>
+  <text x="554" y="114" class="bt">Interrupteur</text>
+  <text x="554" y="131" class="bt">+ L + C</text>
+  <line x1="620" y1="117" x2="690" y2="117" class="flow"/>
+  <text x="712" y="122" class="io">5 V</text>
+  <text x="554" y="166" class="heat">≈ peu de pertes</text>
+  <text x="554" y="184" class="cap">rendement 85-95 %</text>
+  <text x="566" y="222" class="cap">complexe · bruit de commutation</text>
+</svg>
