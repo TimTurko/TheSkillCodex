@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="tds dds">
+  <title id="tds">Le cycle du deep sleep et ses sources de réveil</title>
+  <desc id="dds">Le programme actif (setup puis travail : mesure, envoi) consomme des dizaines de milliampères, puis appelle esp_deep_sleep_start() pour entrer en deep sleep, où le processeur et la radio sont coupés et la consommation tombe à une dizaine de microampères. La puce y reste jusqu'à un réveil, déclenché par l'une de ses sources : un timer, un bouton (ext0 ou ext1), ou le toucher capacitif. Le réveil est un RESET : le code ne reprend pas où il s'était arrêté, tout recommence à setup(). La mémoire RTC (déclarée RTC_DATA_ATTR) est la seule conservée pendant le sommeil.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .box  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.3; }
+      .src  { fill:#DDDBD3; stroke:#BA7517; stroke-width:1.8; }
+      .nm   { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ds   { font:400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .srct { font:700 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 700 10.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .code { font:700 11px ui-monospace, "Courier New", monospace; text-anchor:middle; fill:#BA7517; }
+      .note { font:italic 400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .arrow{ stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#af); }
+      .af   { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .box { fill:#4A4A48; stroke:#EF9F27; } .src { fill:#4A4A48; stroke:#EF9F27; }
+        .nm { fill:#F1EFE8; } .ds { fill:#BBBBBB; } .srct { fill:#F1EFE8; }
+        .cap { fill:#EF9F27; } .code { fill:#EF9F27; } .note { fill:#BBBBBB; } .foot { fill:#BBBBBB; }
+        .arrow { stroke:#EF9F27; } .af { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="af"/></marker>
+  </defs>
+
+  <text x="400" y="26" class="ttl">Le cycle du deep sleep — la puce dort, un réveil la redémarre</text>
+
+  <!-- note RTC, au-dessus du bloc actif -->
+  <text x="185" y="146" class="note">RTC_DATA_ATTR : seule mémoire conservée en veille</text>
+
+  <!-- sources de réveil, au-dessus du bloc deep sleep -->
+  <text x="615" y="50" class="cap">Sources de réveil</text>
+  <rect x="500" y="60" width="70" height="34" rx="6" class="src"/>
+  <text x="535" y="82" class="srct">Timer</text>
+  <rect x="580" y="60" width="70" height="34" rx="6" class="src"/>
+  <text x="615" y="82" class="srct">ext0/ext1</text>
+  <rect x="660" y="60" width="70" height="34" rx="6" class="src"/>
+  <text x="695" y="82" class="srct">Touch</text>
+  <line x1="535" y1="94" x2="535" y2="167" class="arrow"/>
+  <line x1="615" y1="94" x2="615" y2="167" class="arrow"/>
+  <line x1="695" y1="94" x2="695" y2="167" class="arrow"/>
+
+  <!-- bloc actif -->
+  <rect x="70" y="170" width="230" height="90" rx="10" class="box"/>
+  <text x="185" y="200" class="nm">Programme actif</text>
+  <text x="185" y="222" class="ds">setup() → mesure, envoi</text>
+  <text x="185" y="242" class="ds">~ dizaines de mA</text>
+
+  <!-- bloc deep sleep -->
+  <rect x="500" y="170" width="230" height="90" rx="10" class="box"/>
+  <text x="615" y="200" class="nm">Deep sleep</text>
+  <text x="615" y="222" class="ds">CPU + radio coupés</text>
+  <text x="615" y="242" class="ds">~ 10 µA</text>
+
+  <!-- actif -> deep sleep -->
+  <line x1="300" y1="205" x2="497" y2="205" class="arrow"/>
+  <text x="399" y="196" class="code">esp_deep_sleep_start()</text>
+
+  <!-- deep sleep -> actif (reveil = reset) -->
+  <path d="M615,260 L615,330 L185,330 L185,263" class="arrow"/>
+  <text x="400" y="350" class="cap">réveil = RESET : tout recommence à setup()</text>
+
+  <text x="400" y="402" class="foot">Le code placé après esp_deep_sleep_start() n'est jamais atteint — au réveil, l'exécution repart du début.</text>
+</svg>

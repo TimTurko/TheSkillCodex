@@ -468,7 +468,7 @@ Format : `<Code_RA>/<AA_DOMAIN>/<N°critère>` (ex. `RA-PROJET-C03-3/EEE/1`).
 AA_DOMAIN nécessaire car un même RA porte parfois plusieurs AA dans des
 domaines différents.
 
-### Cartographie — 4 catégories de couverture (26/05 suite 2-3)
+### Cartographie — catégories de couverture (26/05 suite 2-3 ; HS-D 06/06)
 - **Couvert (C)** : objet central d'une fiche ou d'une section H2/H3.
 - **Effleuré (E)** : mention H4, `[!example]`, wiki-link, posture, piège.
 - **Hors scope (HS)** : critère non traité par décision éditoriale, car
@@ -481,9 +481,17 @@ domaines différents.
   proposition), `/6` (participer aux événements).
 - **Non couvert (NC)** : critère absent du wiki, à adresser en phase 2 ou
   par délégation aux cours collègues.
+- **Hors scope par délégation (HS-D)** (06/06) : critère qui *est* un
+  contenu enseigné, mais par un cours collègue hors du périmètre
+  d'expertise de l'auteur (typiquement design produit, mécanique pure).
+  Le wiki ne le traite pas mais peut y renvoyer. Distinct de **HS**
+  (évaluation transversale comportementale, jamais enseignée comme contenu)
+  et de **NC** (trou réel à combler). Cas : `RA-PROJET-C03-3/PROJ/1`
+  (sketchs), `/2` (prise en compte design), `RA-MME-C03-1/MME/1` (outils
+  designers).
 
 Règle de **statut dominant** quand un critère apparaît dans plusieurs fiches :
-C > E > HS > NC (le statut le plus fort l'emporte). Cartographie au **niveau
+C > E > HS > HS-D > NC (le statut le plus fort l'emporte). Cartographie au **niveau
 du critère** (pas seulement de l'AA).
 
 ### 1 fiche-tuto par critère EEE/info embarquée (26/05 suite 2)
@@ -517,18 +525,19 @@ Capitalisation des cartographies dans `_drafts/referentiel/couverture-en-cours.m
 (fichier de travail privé, grille de lecture + bilans fiche-par-fiche + matrice
 inverse par domaine).
 
-### Décisions niveau D ouvertes (à arbitrer avec hiérarchie)
-- **Catégorie « Hors scope par délégation »** — distincte de HS classique
-  (transversal enseignant). Concerne 3 critères design probablement
-  délégables aux cours collègues : `RA-PROJET-C03-3/PROJ/1` (sketchs),
-  `/2` (prise en compte design), `RA-MME-C03-1/MME/1` (lister outils
-  designers).
-- **Statut des 4 critères MME effleurés sans fiche centrale** :
-  `RA-MME-C02-1/MME/2`, `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`. Délégation
-  cours collègues ou fiches-tuto phase 2 à ajouter ?
-- **Statut de `schema-cinematique`** — wiki-link rouge déjà posé dans
-  `hub/index.md`, critère `RA-MME-C02-1/MME/5` NC. Fiche-tuto à produire
-  dans le wiki, ou délégation entière cours collègues MME ?
+### Décisions niveau D — tranchées (06/06)
+Les trois décisions ouvertes ont été arbitrées (autonomie déléguée pour les
+instruire, validées par l'utilisateur) :
+- **Catégorie « Hors scope par délégation » (HS-D) instaurée** — voir la
+  catégorie ci-dessus (§ 7 *Cartographie*). Reçoit les 3 critères design
+  (`RA-PROJET-C03-3/PROJ/1`, `/2`, `RA-MME-C03-1/MME/1`).
+- **5 critères MME effleurés sans fiche centrale** (`RA-MME-C02-1/MME/2`,
+  `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`) **actés Effleuré terminal par
+  délégation** — pas de fiche MME phase 2, traitement disciplinaire renvoyé
+  aux cours collègues, le wiki les touchant via le prisme mécatronique.
+- **`schema-cinematique` créé** — fiche-notion MME tenue en frontière
+  interface (liaisons + ddl + exemple bras 3 axes, renvoi cours mécanique).
+  `RA-MME-C02-1/MME/5` fermé (NC→C). Cartographie AA refermée : 0 NC.
 
 ---
 
@@ -641,6 +650,8 @@ systématique. PRIORITÉ 1 du 28/05 actée **non reproductible**.
 23. **Convention candidate — Fil rouge bras 3 axes pour fiches-tuto pivot phase 1** — esquissée 26/05 suite 5 sur `caracteriser-une-exigence` (cadrage Q3 : fiche-tuto pivot phase 1 fonctionnellement proche d'une trame, critères CdCF chiffrés du bras 3 axes directement réutilisables, boucle de lecture intra-wiki avec `specification-technique.md` étape 4). Éprouvée 2/N : `decomposition-fonctionnelle` (27/05 suite, fil rouge bras 3 axes en 4 SVG arborescences avec triptyque) + `etat-de-l-art-technique` (27/05 suite 4, tableau 3 réfs Niryo/uArm/Moveo × 6 critères). **Reformulation à acter** : (a) élargir aux fiches-notion outils pivots étape 1 phase concept comme `caracteriser-une-exigence` qui est typé `notion` malgré l'usage du fil rouge, ou (b) reclasser `caracteriser-une-exigence` en `tuto`. À trancher sur 1-2 sessions supplémentaires avant promotion vers § 4 (Cas d'illustration / fils rouges).
 
     **Borne posée 28/05 suite 3 (`lire-une-datasheet`)** : la convention ne s'étend **pas** aux fiches-tuto spécifiques composant/MCU (`lire-une-datasheet`, futurs `arduino-*`), qui prennent un **cas autonome** propre au composant — écart volontaire au fil rouge bras 3 axes (qui cadre le projet, cycle en V). La candidate vise les fiches-tuto *pivot de phase projet*, pas les tutos de brique technique. À intégrer à la reformulation lors de la promotion.
+
+    **Donnée 06/06 (fiches méca)** : fil rouge bras 3 axes réutilisé sur les SVG de `schema-cinematique` (MME) et `chaine-energie` (EEE transverse), deux fiches-**notion** de phase concept. Conforte l'option (a) — le fil rouge cadre les concepts de phase concept (fonctionnels comme mécaniques), pas seulement les tuto-pivots.
 
 ### Acquises 27/05 suite 5 (à éprouver sur 2-3 créations de fichiers)
 24. **Préférer `filesystem:write_file` à `filesystem:create_file`** pour

@@ -10,6 +10,34 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite) — Arbitrages design/MME tranchés + fiches & SVG méca + propagation carto AA
+
+### Périmètre
+Session **PC perso** (MCP `filesystem:*`), continuité du 06/06. **Autonomie totale déléguée** sur 2 chantiers : (1) arbitrages design/MME du référentiel ; (2) passe SVG. Relecture utilisateur des fiches conduite en parallèle.
+
+### Livrables
+- **2 fiches créées** : `schema-cinematique` (`mme/`, `type: notion`, `aa: RA-MME-C02-1/MME/5`) — tenue en **frontière interface** (liaisons + ddl + exemple bras 3 axes, renvoi explicite au cours de mécanique) ; `chaine-energie` (`eee/`, notion transverse, `aa: []`) — modèle des deux chaînes couplées énergie/information + couplage commande/mesure + 4 pièges. `mme/index` : `schema-cinematique` listé. Les 2 liens rouges du hub résolus.
+- **8 SVG** : 4 méca fil-rouge bras 3 axes (`schema-cinematique-generique`/`-bras-3-axes`, `chaine-energie-generique`/`-bras-3-axes`) + 4 élec conceptuels (`simulation-electronique-cycle`/`-lecture-courbe`, `manipulation-de-bits-masquage`, `firmware-architectures`, embeds posés). 5 embeds outils du module simulation → placeholders C29.
+- **Cartographie AA `couverture-en-cours.md` entièrement propagée et refermée** : était 42 C / 74 % avec 4 NC → **43 C / 7 E / 4 HS / 3 HS-D / 0 NC (75 %)**. MME 4C/6E/1HS-D ; PROJ +2 HS-D. HS-D définie dans la convention de granularité ; sections « Trous NC » et « Décisions niveau D » réécrites (tranchées).
+- **`conventions.md` §7** : HS-D ajoutée (5e catégorie) ; décisions niveau D marquées tranchées. §8 : note C23 (fil rouge étendu aux notions concept-phase).
+
+### Décisions (3 niveau D, tranchées par l'utilisateur)
+- **Catégorie « Hors scope par délégation » (HS-D) instaurée** — distincte de HS C15 (transversal enseignant). Acte la délégation d'un contenu enseigné par un cours collègue hors expertise auteur (design produit, méca pure). Reçoit 3 critères design.
+- **5 critères MME effleurés** (C02-1/2, /4, /6 ; C03-1/2, /4) **actés Effleuré terminal par délégation** — pas de fiche MME phase 2.
+- **`schema-cinematique` créé** — revirement assumé vs délégation : tenu en frontière interface. `chaine-energie` = fiche d'ambition (`aa: []`).
+
+### Conventions
+- **HS-D** → `conventions.md` §7 (5e catégorie de couverture).
+- **C23** (fil rouge bras 3 axes) — donnée 06/06 : réutilisé sur les SVG de `schema-cinematique`/`chaine-energie` (notions concept-phase), conforte l'option (a) de la reformulation.
+
+### Tailles
+2 fiches (~5 + 7 ko) ; 8 SVG (3,2–4,7 ko) ; `couverture-en-cours.md` propagé en ~10 edits ciblés. JOURNAL ~50,8 → ~54 ko. **Archivage 1-pour-1 sauté** (marge sous 100 ko, cohérent avec l'entrée précédente).
+
+### Corps — le défaut SVG de la chaîne d'énergie
+La relecture utilisateur a validé le texte des 2 fiches et les SVG de `schema-cinematique` du premier coup. Les deux SVG `chaine-energie` partageaient un défaut (trame clonée) : la flèche de feedback (mesure) partait de `(723, 82)` — au niveau de la rangée *information* mais à droite du dernier bloc info — donnant l'illusion d'un bloc manquant en haut à droite. Corrigée pour partir du haut du bloc **Agir** `(723, 210)` : la mesure remonte alors visiblement du système vers Acquérir, et la boucle se lit correctement (commande qui descend à gauche, mesure qui remonte à droite). Leçon SVG : un tracé de retour doit émaner d'un bloc réel, jamais d'un point libre, sous peine d'être lu comme une structure incomplète.
+
+---
+
 ## 2026-06-06 — Réconciliation cartographie AA Phase 2 EEE/info + module simulation (hub + 3 outils)
 
 ### Périmètre

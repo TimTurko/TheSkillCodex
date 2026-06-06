@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="tfr dfr">
+  <title id="tfr">Ordonnancement préemptif de deux tâches FreeRTOS</title>
+  <desc id="dfr">Deux tâches partagent un processeur. La tâche A est de haute priorité et s'exécute par courtes salves périodiques ; la tâche B est de basse priorité et s'exécute dans les intervalles. Quand A devient prête, le scheduler l'exécute immédiatement en interrompant B (préemption) ; quand A appelle vTaskDelay(), elle rend la main et B reprend. Un bloc plein représente une tâche en exécution, une ligne fine une tâche en attente. L'ESP32 possède deux cœurs : xTaskCreatePinnedToCore() permet d'épingler une tâche à un cœur précis.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .lane { font:700 11px sans-serif; text-anchor:start; fill:#2C2C2A; }
+      .box  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .wait { stroke:#888780; stroke-width:1.4; }
+      .cap  { font:italic 700 10.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .axis { stroke:#BA7517; stroke-width:1.6; fill:none; marker-end:url(#af); }
+      .axt  { font:700 11px sans-serif; fill:#BA7517; }
+      .lg   { font:400 10.5px sans-serif; text-anchor:start; fill:#888780; }
+      .arrow{ stroke:#BA7517; stroke-width:1.6; fill:none; marker-end:url(#af); }
+      .foot { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .af   { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .lane { fill:#F1EFE8; } .box { fill:#4A4A48; stroke:#EF9F27; }
+        .wait { stroke:#BBBBBB; } .cap { fill:#EF9F27; } .axis { stroke:#EF9F27; } .axt { fill:#EF9F27; }
+        .lg { fill:#BBBBBB; } .arrow { stroke:#EF9F27; } .foot { fill:#BBBBBB; } .af { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="af"/></marker>
+  </defs>
+
+  <text x="400" y="26" class="ttl">Ordonnancement préemptif — la tâche prête la plus prioritaire passe devant</text>
+
+  <!-- annotation preemption -->
+  <text x="262" y="62" class="cap">A prête → préempte B</text>
+  <line x1="262" y1="70" x2="262" y2="89" class="arrow"/>
+
+  <!-- lane A : haute priorite -->
+  <text x="14" y="108" class="lane">Tâche A · haute prio</text>
+  <line x1="200" y1="104" x2="770" y2="104" class="wait"/>
+  <rect x="260" y="92" width="70" height="24" rx="4" class="box"/>
+  <rect x="540" y="92" width="70" height="24" rx="4" class="box"/>
+
+  <!-- lane B : basse priorite -->
+  <text x="14" y="178" class="lane">Tâche B · basse prio</text>
+  <line x1="200" y1="174" x2="770" y2="174" class="wait"/>
+  <rect x="200" y="162" width="60" height="24" rx="4" class="box"/>
+  <rect x="330" y="162" width="210" height="24" rx="4" class="box"/>
+  <rect x="610" y="162" width="160" height="24" rx="4" class="box"/>
+
+  <!-- axe temps -->
+  <line x1="200" y1="205" x2="775" y2="205" class="axis"/>
+  <text x="744" y="223" class="axt">temps</text>
+
+  <!-- legende -->
+  <rect x="210" y="238" width="22" height="14" rx="3" class="box"/>
+  <text x="240" y="249" class="lg">en exécution</text>
+  <line x1="360" y1="245" x2="384" y2="245" class="wait"/>
+  <text x="392" y="249" class="lg">en attente</text>
+
+  <text x="400" y="283" class="foot">A interrompt B (préemption), puis lui rend la main via vTaskDelay() ; B reprend où elle en était.</text>
+  <text x="400" y="302" class="foot">L'ESP32 a deux cœurs — xTaskCreatePinnedToCore() épingle une tâche à un cœur précis.</text>
+</svg>

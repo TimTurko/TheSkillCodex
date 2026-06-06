@@ -36,15 +36,20 @@ La famille s'est diversifiée ; quelques variantes couvrent l'essentiel des beso
 | ESP32-S3 | 2× Xtensa LX7 | Wi-Fi + BLE 5 | USB natif, instructions pour l'IA |
 | ESP32-C3 | 1× RISC-V | Wi-Fi + BLE 5 | économique, faible encombrement |
 | ESP32-C6 | 1× RISC-V | Wi-Fi 6 + BLE 5 + 802.15.4 | Thread / Zigbee pour la domotique |
+| ESP32-C5 | 1× RISC-V | Wi-Fi 6 bi-bande (2,4 + 5 GHz) + BLE 5 + 802.15.4 | seule variante en 5 GHz |
+| ESP32-H2 | 1× RISC-V | BLE 5 + 802.15.4, pas de Wi-Fi | Thread / Zigbee, sans Wi-Fi |
+| ESP32-P4 | 2× RISC-V haute perf | aucune (s'appaire à une puce sans fil) | calcul / multimédia / IHM |
 
 On rencontre ces puces sur des **modules** (WROOM, WROVER) eux-mêmes montés sur des **cartes de développement** (DevKitC, et des variantes Feather, LOLIN…). Pour un projet, une carte de type DevKit ESP32 d'origine est le point d'entrée sûr.
+
+Tendance de fond : l'ESP32 d'origine et la série S reposent sur des cœurs **Xtensa**, tandis que les variantes récentes (séries C, H, P) passent au **RISC-V** — le S3 est le dernier grand Xtensa. Pour un nouveau projet, le RISC-V est la direction de l'écosystème.
 
 ## Écosystème
 
 Deux chemins de programmation coexistent :
 
 - **Arduino-core pour ESP32** — la **même API que l'Arduino** (`setup()`, `loop()`, `digitalWrite`…), via l'[[esp32-arduino-core|core ESP32]] installé dans l'[[ide|IDE]] Arduino. C'est la migration la plus douce depuis l'Arduino, et le chemin recommandé pour débuter.
-- **ESP-IDF** — le cadre **natif** d'Espressif, bâti sur **FreeRTOS**, qui donne le plein contrôle (multitâche, gestion fine de l'alimentation, pile réseau). Plus exigeant, il prend son sens sur les projets aboutis.
+- **[[esp32-idf|ESP-IDF]]** — le cadre **natif** d'Espressif, bâti sur **FreeRTOS**, qui donne le plein contrôle (multitâche, gestion fine de l'alimentation, pile réseau). Plus exigeant, il prend son sens sur les projets aboutis.
 
 PlatformIO gère les deux. La façon de **structurer** le code (boucle, tâches, états, RTOS) relève de [[firmware|firmware]] — indépendante du chemin choisi.
 
@@ -68,6 +73,7 @@ Les tutoriels du module ESP32, classés par difficulté croissante. Comme pour l
 - [[niveaux-de-tension|Niveaux de tension]] *(transverse)* — **3,3 V**, ne pas griller une broche ;
 - [[esp32-gpio|Configurer les GPIO]] — broches utilisables, broches à éviter au démarrage ;
 - [[esp32-serie|Moniteur série]] — lire et écrire sur le port série.
+- [[esp32-arduino-core|Programmer avec l'Arduino-core]] — l'environnement de code, et ce qui change sous le capot.
 
 ### Notions avancées
 
@@ -78,6 +84,7 @@ Les tutoriels du module ESP32, classés par difficulté croissante. Comme pour l
 ### Niveau ingénieur
 
 - [[esp32-freertos|Multitâche avec FreeRTOS]] — la spécialité de l'ESP32 : plusieurs tâches préemptives ;
+- [[esp32-idf|Découvrir ESP-IDF]] — l'environnement natif, quand le besoin dépasse l'Arduino-core ;
 - [[interruption|Interruptions]] *(transverse)* · [[timer|Timers]] *(transverse)* ;
 - [[firmware|Firmware]] *(transverse)* — structurer un firmware ESP32, du super-loop au RTOS.
 
