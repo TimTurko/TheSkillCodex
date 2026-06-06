@@ -9,4 +9,6 @@ Interface vers cours collègues. Fiches courtes qui renvoient vers les ressource
 
 ## Notions couvertes
 
-*À compléter au fil de la rédaction. Liens vers cours mécanique/fabrication.*
+- [[schema-cinematique|Schéma cinématique]] — décrire les liaisons et compter les degrés de liberté d'un mécanisme (la théorie complète relève du cours de mécanique).
+
+*À compléter au fil de la rédaction. La plupart des notions mécaniques restent déléguées aux cours collègues.*

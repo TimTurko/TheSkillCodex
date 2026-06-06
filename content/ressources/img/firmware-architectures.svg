@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="tf df">
+  <title id="tf">L'escalier des architectures de firmware</title>
+  <desc id="df">Cinq architectures de firmware classées par complexité croissante, en escalier. De la plus simple à la plus exigeante : la super-loop pour une seule activité, la boucle coopérative non bloquante pour plusieurs activités, les machines à états pour un comportement à modes, le découpage en modules par responsabilité, et le système temps réel RTOS pour des échéances strictes. On ne monte d'un cran que lorsque le besoin l'impose ; la plupart des projets école vivent aux niveaux intermédiaires, le RTOS restant un horizon.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .step { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.3; }
+      .nm { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .ds { font:400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .axis { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#af); }
+      .axt { font:700 11.5px sans-serif; fill:#BA7517; }
+      .tag { font:italic 700 10.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .foot { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .af { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .step { fill:#4A4A48; stroke:#EF9F27; }
+        .nm { fill:#F1EFE8; } .ds { fill:#BBBBBB; }
+        .axis { stroke:#EF9F27; } .axt { fill:#EF9F27; } .tag { fill:#EF9F27; }
+        .foot { fill:#BBBBBB; } .af { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="af"/></marker>
+  </defs>
+
+  <text x="400" y="26" class="ttl">Structurer un firmware — monter d'un cran quand le besoin l'impose</text>
+
+  <!-- axe complexité -->
+  <line x1="22" y1="340" x2="22" y2="60" class="axis"/>
+  <text x="16" y="210" class="axt" transform="rotate(-90 16 210)">complexité · exigence croissante</text>
+
+  <!-- marches -->
+  <rect x="40" y="274" width="180" height="52" rx="8" class="step"/>
+  <text x="130" y="297" class="nm">1 · Super-loop</text>
+  <text x="130" y="315" class="ds">une seule activité</text>
+
+  <rect x="190" y="222" width="180" height="52" rx="8" class="step"/>
+  <text x="280" y="245" class="nm">2 · Boucle coopérative</text>
+  <text x="280" y="263" class="ds">plusieurs activités, sans bloquer</text>
+
+  <rect x="340" y="170" width="180" height="52" rx="8" class="step"/>
+  <text x="430" y="193" class="nm">3 · Machines à états</text>
+  <text x="430" y="211" class="ds">comportement à modes</text>
+
+  <rect x="490" y="118" width="180" height="52" rx="8" class="step"/>
+  <text x="580" y="141" class="nm">4 · Découpage en modules</text>
+  <text x="580" y="159" class="ds">une responsabilité par module</text>
+
+  <rect x="620" y="66" width="160" height="52" rx="8" class="step"/>
+  <text x="700" y="89" class="nm">5 · RTOS — temps réel</text>
+  <text x="700" y="107" class="ds">échéances strictes</text>
+  <text x="700" y="58" class="tag">horizon</text>
+
+  <text x="400" y="362" class="foot">La plupart des projets école vivent aux niveaux 2 à 4 — le RTOS reste un horizon.</text>
+</svg>

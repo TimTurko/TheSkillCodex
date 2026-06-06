@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-labelledby="tc dc">
+  <title id="tc">Le cycle de simulation</title>
+  <desc id="dc">Un schéma électronique saisi sur ordinateur alimente un moteur de calcul qui produit des courbes de tensions et de courants ; ces courbes sont confrontées au comportement attendu. Tant que le résultat ne correspond pas, on corrige le schéma et on relance — cette boucle se fait entièrement sur l'ordinateur, gratuitement et sans risque. Le passage au câblage réel n'intervient qu'une fois la simulation validée.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .zone { fill:none; stroke:#888780; stroke-width:1.2; stroke-dasharray:5 4; }
+      .zone-t { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .boxg { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .boxa { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .bt { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .bs { font:400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .flow { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#a1); }
+      .loop { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#a2); }
+      .loop-t { font:700 12px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .ok-t { font:700 11.5px sans-serif; fill:#BA7517; }
+      .a1 { fill:#888780; } .a2 { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .zone { stroke:#BBBBBB; } .zone-t { fill:#BBBBBB; }
+        .boxg { fill:#4A4A48; stroke:#BBBBBB; } .boxa { fill:#4A4A48; stroke:#EF9F27; }
+        .bt { fill:#F1EFE8; } .bs { fill:#BBBBBB; }
+        .flow { stroke:#BBBBBB; } .loop { stroke:#EF9F27; } .loop-t { fill:#EF9F27; }
+        .ok-t { fill:#EF9F27; } .a1 { fill:#BBBBBB; } .a2 { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a1"/></marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a2"/></marker>
+  </defs>
+
+  <text x="440" y="26" class="ttl">Le cycle de simulation — itérer sur l'ordinateur avant de câbler</text>
+
+  <rect x="20" y="50" width="690" height="104" rx="10" class="zone"/>
+  <text x="365" y="68" class="zone-t">Sur l'ordinateur — gratuit, instantané, sans composant en danger</text>
+
+  <rect x="30" y="84" width="150" height="54" rx="9" class="boxg"/>
+  <text x="105" y="108" class="bt">Saisir le schéma</text>
+  <text x="105" y="125" class="bs">valeurs · modèles · sources</text>
+
+  <rect x="205" y="84" width="135" height="54" rx="9" class="boxa"/>
+  <text x="272" y="115" class="bt">Moteur de calcul</text>
+
+  <rect x="365" y="84" width="150" height="54" rx="9" class="boxg"/>
+  <text x="440" y="108" class="bt">Lire les courbes</text>
+  <text x="440" y="125" class="bs">tensions · courants</text>
+
+  <rect x="540" y="84" width="160" height="54" rx="9" class="boxa"/>
+  <text x="620" y="108" class="bt">Confronter</text>
+  <text x="620" y="125" class="bt">à l'attendu</text>
+
+  <line x1="180" y1="111" x2="203" y2="111" class="flow"/>
+  <line x1="340" y1="111" x2="363" y2="111" class="flow"/>
+  <line x1="515" y1="111" x2="538" y2="111" class="flow"/>
+
+  <path d="M620,138 C620,192 105,192 105,140" class="loop"/>
+  <text x="362" y="186" class="loop-t">écart : on corrige le schéma et on relance</text>
+
+  <line x1="700" y1="111" x2="734" y2="111" class="flow"/>
+  <text x="709" y="101" class="ok-t">validé</text>
+  <rect x="738" y="84" width="132" height="54" rx="9" class="boxg"/>
+  <text x="804" y="108" class="bt">Câblage réel</text>
+  <text x="804" y="125" class="bs">une fois validé</text>
+</svg>

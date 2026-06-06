@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-labelledby="tk dk">
+  <title id="tk">Symboles de liaisons normalisés</title>
+  <desc id="dk">Trois symboles de base du schéma cinématique. Le bâti, référence fixe, est représenté par une ligne avec des hachures et ne laisse aucun degré de liberté. La liaison pivot, figurée par un cercle entre deux barres, autorise une rotation. La liaison glissière, figurée par un patin sur un rail, autorise une translation. Le catalogue complet des liaisons est traité dans le cours de mécanique.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .sym { stroke:#2C2C2A; stroke-width:2.6; fill:none; stroke-linecap:round; }
+      .hatch { stroke:#888780; stroke-width:1.4; }
+      .joint { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.6; }
+      .arr { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#ak); }
+      .lbl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .sub { font:400 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .foot { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .ak { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .sym { stroke:#F1EFE8; } .hatch { stroke:#BBBBBB; }
+        .joint { fill:#4A4A48; stroke:#EF9F27; } .arr { stroke:#EF9F27; }
+        .lbl { fill:#F1EFE8; } .sub { fill:#EF9F27; } .foot { fill:#BBBBBB; } .ak { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ak"/></marker>
+  </defs>
+
+  <text x="360" y="26" class="ttl">Trois symboles de base du schéma cinématique</text>
+
+  <!-- BÂTI -->
+  <line x1="70" y1="78" x2="195" y2="78" class="sym"/>
+  <line x1="78" y1="78" x2="68" y2="92" class="hatch"/>
+  <line x1="98" y1="78" x2="88" y2="92" class="hatch"/>
+  <line x1="118" y1="78" x2="108" y2="92" class="hatch"/>
+  <line x1="138" y1="78" x2="128" y2="92" class="hatch"/>
+  <line x1="158" y1="78" x2="148" y2="92" class="hatch"/>
+  <line x1="178" y1="78" x2="168" y2="92" class="hatch"/>
+  <text x="132" y="150" class="lbl">Bâti</text>
+  <text x="132" y="168" class="sub">référence fixe · 0 ddl</text>
+
+  <!-- PIVOT -->
+  <line x1="360" y1="105" x2="360" y2="80" class="sym"/>
+  <line x1="360" y1="80" x2="408" y2="48" class="sym"/>
+  <circle cx="360" cy="80" r="8.5" class="joint"/>
+  <path d="M388,58 A34 34 0 0 0 372,44" class="arr"/>
+  <text x="372" y="150" class="lbl">Liaison pivot</text>
+  <text x="372" y="168" class="sub">1 rotation</text>
+
+  <!-- GLISSIÈRE -->
+  <line x1="528" y1="80" x2="652" y2="80" class="sym"/>
+  <rect x="575" y="70" width="30" height="20" rx="2" class="sym" fill="none"/>
+  <line x1="590" y1="70" x2="590" y2="50" class="sym"/>
+  <line x1="545" y1="103" x2="635" y2="103" class="arr"/>
+  <line x1="635" y1="103" x2="545" y2="103" class="arr"/>
+  <text x="590" y="150" class="lbl">Liaison glissière</text>
+  <text x="590" y="168" class="sub">1 translation</text>
+
+  <text x="360" y="208" class="foot">Catalogue complet des liaisons : voir le cours de mécanique.</text>
+</svg>

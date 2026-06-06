@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 360" role="img" aria-labelledby="tl dl">
+  <title id="tl">Lire une courbe de simulation</title>
+  <desc id="dl">Une courbe de tension monte de zéro vers un palier. Trois repères sont marqués : la valeur finale atteinte (le palier), la constante de temps tau au point où la tension atteint environ 63 pour cent de sa valeur finale, et une ligne en pointillés indiquant la valeur attendue par la théorie. Un encart compare la valeur simulée à la valeur attendue et conclut que le montage est validé.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .axis { stroke:#888780; stroke-width:1.6; fill:none; marker-end:url(#al); }
+      .axl { font:400 11.5px sans-serif; fill:#888780; }
+      .curve { stroke:#BA7517; stroke-width:2.6; fill:none; }
+      .guide { stroke:#888780; stroke-width:1.2; stroke-dasharray:4 3; fill:none; }
+      .exp { stroke:#888780; stroke-width:1.4; stroke-dasharray:6 3; fill:none; }
+      .lbl { font:700 12px sans-serif; fill:#2C2C2A; }
+      .lbla { font:700 12px sans-serif; fill:#BA7517; }
+      .sm { font:400 11px sans-serif; fill:#888780; }
+      .card { fill:#DDDBD3; stroke:#BA7517; stroke-width:2; }
+      .card-t { font:700 12px sans-serif; fill:#2C2C2A; }
+      .card-ok { font:700 13px sans-serif; fill:#BA7517; }
+      .al { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .axis { stroke:#BBBBBB; } .axl { fill:#BBBBBB; }
+        .curve { stroke:#EF9F27; } .guide { stroke:#BBBBBB; } .exp { stroke:#BBBBBB; }
+        .lbl { fill:#F1EFE8; } .lbla { fill:#EF9F27; } .sm { fill:#BBBBBB; }
+        .card { fill:#4A4A48; stroke:#EF9F27; } .card-t { fill:#F1EFE8; } .card-ok { fill:#EF9F27; }
+        .al { fill:#BBBBBB; }
+      }
+    </style>
+    <marker id="al" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="al"/></marker>
+  </defs>
+
+  <text x="370" y="26" class="ttl">Lire une courbe — repérer la grandeur, puis confronter à l'attendu</text>
+
+  <!-- axes -->
+  <line x1="92" y1="300" x2="660" y2="300" class="axis"/>
+  <line x1="92" y1="300" x2="92" y2="54" class="axis"/>
+  <text x="640" y="320" class="axl">temps</text>
+  <text x="40" y="60" class="axl">tension</text>
+  <text x="78" y="305" class="sm">0</text>
+
+  <!-- palier (valeur finale) -->
+  <line x1="92" y1="104" x2="640" y2="104" class="guide"/>
+  <text x="468" y="98" class="lbl">valeur finale — le palier</text>
+
+  <!-- 63 % guides -->
+  <line x1="92" y1="176" x2="225" y2="176" class="exp"/>
+  <line x1="225" y1="300" x2="225" y2="176" class="exp"/>
+  <text x="100" y="170" class="sm">~63 % de la valeur finale</text>
+  <text x="214" y="318" class="lbla">τ</text>
+
+  <!-- courbe exponentielle montante -->
+  <path d="M92,300 C160,150 200,118 300,108 S470,104 640,104" class="curve"/>
+
+  <!-- encart simulé vs attendu -->
+  <rect x="430" y="208" width="210" height="86" rx="10" class="card"/>
+  <text x="446" y="232" class="card-t">attendu (théorie) : 2,5 V</text>
+  <text x="446" y="254" class="card-t">simulé : 2,5 V</text>
+  <line x1="446" y1="264" x2="624" y2="264" class="guide"/>
+  <text x="446" y="284" class="card-ok">✓ conforme → validé</text>
+</svg>

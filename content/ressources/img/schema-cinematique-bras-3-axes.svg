@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-labelledby="tb db">
+  <title id="tb">Schéma cinématique du bras 3 axes</title>
+  <desc id="db">Schéma cinématique d'un bras robotisé à trois axes, vu de côté. Le bras est fixé au bâti par une base qui tourne autour d'un axe vertical (premier degré de liberté, theta 1). Au-dessus, deux liaisons pivot en série — l'épaule (theta 2) et le coude (theta 3) — articulent un bras puis un avant-bras, terminés par un préhenseur. Au total trois degrés de liberté.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .link { stroke:#888780; stroke-width:7; fill:none; stroke-linecap:round; }
+      .joint { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.8; }
+      .base { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.6; }
+      .hatch { stroke:#888780; stroke-width:1.4; }
+      .ground { stroke:#2C2C2A; stroke-width:2.4; }
+      .axis { stroke:#888780; stroke-width:1.2; stroke-dasharray:4 3; }
+      .arr { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#ab); }
+      .th { font:700 14px sans-serif; fill:#BA7517; }
+      .tx { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .foot { font:italic 700 12px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .ab { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .link { stroke:#BBBBBB; } .joint { fill:#4A4A48; stroke:#EF9F27; }
+        .base { fill:#4A4A48; stroke:#EF9F27; } .hatch { stroke:#BBBBBB; } .ground { stroke:#F1EFE8; }
+        .axis { stroke:#BBBBBB; } .arr { stroke:#EF9F27; } .th { fill:#EF9F27; } .tx { fill:#F1EFE8; }
+        .foot { fill:#EF9F27; } .ab { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ab"/></marker>
+  </defs>
+
+  <text x="300" y="26" class="ttl">Schéma cinématique — bras 3 axes (3 degrés de liberté)</text>
+
+  <!-- bâti -->
+  <line x1="110" y1="346" x2="250" y2="346" class="ground"/>
+  <line x1="120" y1="346" x2="110" y2="360" class="hatch"/>
+  <line x1="142" y1="346" x2="132" y2="360" class="hatch"/>
+  <line x1="164" y1="346" x2="154" y2="360" class="hatch"/>
+  <line x1="186" y1="346" x2="176" y2="360" class="hatch"/>
+  <line x1="208" y1="346" x2="198" y2="360" class="hatch"/>
+  <line x1="230" y1="346" x2="220" y2="360" class="hatch"/>
+
+  <!-- base tournante (theta1, axe vertical) -->
+  <line x1="180" y1="300" x2="180" y2="346" class="axis"/>
+  <ellipse cx="180" cy="338" rx="38" ry="8" class="base"/>
+  <path d="M150,332 A40 12 0 0 0 210,332" class="arr"/>
+  <text x="60" y="338" class="th">θ₁</text>
+  <text x="36" y="356" class="tx">rotation de base</text>
+
+  <!-- pedestal -->
+  <line x1="180" y1="335" x2="180" y2="292" class="link"/>
+
+  <!-- theta2 épaule -->
+  <circle cx="180" cy="290" r="9" class="joint"/>
+  <path d="M198,278 A26 26 0 0 0 188,266" class="arr"/>
+  <text x="150" y="282" class="th">θ₂</text>
+  <text x="150" y="298" class="tx" text-anchor="end">épaule</text>
+
+  <!-- bras (segment 1) -->
+  <line x1="180" y1="290" x2="312" y2="178" class="link"/>
+
+  <!-- theta3 coude -->
+  <circle cx="312" cy="178" r="9" class="joint"/>
+  <path d="M330,168 A24 24 0 0 1 336,190" class="arr"/>
+  <text x="318" y="162" class="th">θ₃</text>
+  <text x="318" y="148" class="tx">coude</text>
+
+  <!-- avant-bras (segment 2) -->
+  <line x1="312" y1="178" x2="444" y2="236" class="link"/>
+
+  <!-- poignet + préhenseur -->
+  <line x1="444" y1="236" x2="506" y2="212" class="link"/>
+  <line x1="506" y1="212" x2="524" y2="198" class="ground"/>
+  <line x1="506" y1="212" x2="528" y2="216" class="ground"/>
+  <text x="498" y="186" class="tx">préhenseur</text>
+
+  <text x="300" y="366" class="foot">θ₁ + θ₂ + θ₃ = 3 degrés de liberté</text>
+</svg>

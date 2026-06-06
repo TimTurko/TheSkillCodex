@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="th dh">
+  <title id="th">Chaîne d'énergie et d'information du bras 3 axes</title>
+  <desc id="dh">Les deux chaînes appliquées au bras robotisé. Chaîne d'énergie : la batterie ou le secteur alimente, les drivers distribuent, les moteurs convertissent, les réducteurs et courroies transmettent, et le bras agit. Chaîne d'information : les codeurs et fins de course acquièrent la position, le microcontrôleur traite, l'IHM communique avec l'opérateur. Le microcontrôleur commande les drivers et reçoit la position mesurée par les capteurs.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .hd { font:700 12px sans-serif; fill:#888780; letter-spacing:.5px; }
+      .be { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .bi { fill:#DDDBD3; stroke:#888780; stroke-width:2; }
+      .bt { font:700 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .flow { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ah1); }
+      .cmd { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#ah2); }
+      .meas { stroke:#888780; stroke-width:1.6; fill:none; stroke-dasharray:5 3; marker-end:url(#ah1); }
+      .io { font:700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .cap { font:400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .ah1 { fill:#888780; } .ah2 { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .hd { fill:#BBBBBB; }
+        .be { fill:#4A4A48; stroke:#EF9F27; } .bi { fill:#4A4A48; stroke:#BBBBBB; } .bt { fill:#F1EFE8; }
+        .flow { stroke:#BBBBBB; } .cmd { stroke:#EF9F27; } .meas { stroke:#BBBBBB; }
+        .io { fill:#EF9F27; } .cap { fill:#BBBBBB; } .ah1 { fill:#BBBBBB; } .ah2 { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah1"/></marker>
+    <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah2"/></marker>
+  </defs>
+
+  <text x="410" y="24" class="ttl">Les deux chaînes incarnées sur le bras 3 axes</text>
+
+  <!-- mesure -->
+  <path d="M723,82 L723,52 L255,52 L255,80" class="meas"/>
+  <text x="489" y="46" class="cap">position mesurée (codeurs)</text>
+
+  <!-- chaîne d'information -->
+  <text x="196" y="74" class="hd">CHAÎNE D'INFORMATION</text>
+  <rect x="196" y="82" width="118" height="50" rx="8" class="bi"/><text x="255" y="103" class="bt">Codeurs,</text><text x="255" y="119" class="bt">fins de course</text>
+  <rect x="352" y="82" width="118" height="50" rx="8" class="bi"/><text x="411" y="103" class="bt">Micro-</text><text x="411" y="119" class="bt">contrôleur</text>
+  <rect x="508" y="82" width="118" height="50" rx="8" class="bi"/><text x="567" y="103" class="bt">IHM /</text><text x="567" y="119" class="bt">opérateur</text>
+  <line x1="314" y1="107" x2="352" y2="107" class="flow"/>
+  <line x1="470" y1="107" x2="508" y2="107" class="flow"/>
+
+  <!-- entrée consigne -->
+  <line x1="150" y1="107" x2="194" y2="107" class="flow"/>
+  <text x="112" y="111" class="io">position</text>
+  <text x="112" y="123" class="io">cible</text>
+
+  <!-- commande -->
+  <path d="M411,134 L300,210" class="cmd"/>
+  <text x="345" y="178" class="io">commande</text>
+
+  <!-- chaîne d'énergie -->
+  <text x="40" y="200" class="hd">CHAÎNE D'ÉNERGIE</text>
+  <rect x="40" y="210" width="118" height="50" rx="8" class="be"/><text x="99" y="231" class="bt">Batterie</text><text x="99" y="247" class="bt">/ secteur</text>
+  <rect x="196" y="210" width="118" height="50" rx="8" class="be"/><text x="255" y="231" class="bt">Drivers</text><text x="255" y="247" class="bt">moteurs</text>
+  <rect x="352" y="210" width="118" height="50" rx="8" class="be"/><text x="411" y="240" class="bt">Moteurs</text>
+  <rect x="508" y="210" width="118" height="50" rx="8" class="be"/><text x="567" y="231" class="bt">Réducteurs,</text><text x="567" y="247" class="bt">courroies</text>
+  <rect x="664" y="210" width="118" height="50" rx="8" class="be"/><text x="723" y="231" class="bt">Bras en</text><text x="723" y="247" class="bt">mouvement</text>
+  <line x1="158" y1="235" x2="196" y2="235" class="flow"/>
+  <line x1="314" y1="235" x2="352" y2="235" class="flow"/>
+  <line x1="470" y1="235" x2="508" y2="235" class="flow"/>
+  <line x1="626" y1="235" x2="664" y2="235" class="flow"/>
+
+  <!-- sortie action -->
+  <line x1="782" y1="235" x2="808" y2="235" class="flow"/>
+  <text x="700" y="296" class="io">déplacer ou saisir l'objet</text>
+</svg>

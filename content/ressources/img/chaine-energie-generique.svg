@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="tg dg">
+  <title id="tg">Chaîne d'énergie et chaîne d'information</title>
+  <desc id="dg">Modèle d'un système mécatronique en deux chaînes couplées. La chaîne d'énergie, en bas, transforme une source : alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre. La chaîne d'information, en haut, pilote le système : acquérir des grandeurs, traiter, communiquer. La chaîne d'information commande la chaîne d'énergie (au niveau distribuer) et reçoit en retour la mesure des capteurs.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .hd { font:700 12px sans-serif; fill:#888780; letter-spacing:.5px; }
+      .be { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .bi { fill:#DDDBD3; stroke:#888780; stroke-width:2; }
+      .bt { font:700 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .flow { stroke:#888780; stroke-width:1.8; fill:none; marker-end:url(#ag1); }
+      .cmd { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#ag2); }
+      .meas { stroke:#888780; stroke-width:1.6; fill:none; stroke-dasharray:5 3; marker-end:url(#ag1); }
+      .io { font:700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .cap { font:400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .ag1 { fill:#888780; } .ag2 { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .hd { fill:#BBBBBB; }
+        .be { fill:#4A4A48; stroke:#EF9F27; } .bi { fill:#4A4A48; stroke:#BBBBBB; } .bt { fill:#F1EFE8; }
+        .flow { stroke:#BBBBBB; } .cmd { stroke:#EF9F27; } .meas { stroke:#BBBBBB; }
+        .io { fill:#EF9F27; } .cap { fill:#BBBBBB; } .ag1 { fill:#BBBBBB; } .ag2 { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ag1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ag1"/></marker>
+    <marker id="ag2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ag2"/></marker>
+  </defs>
+
+  <text x="410" y="24" class="ttl">Deux chaînes couplées : information (pilotage) et énergie (puissance)</text>
+
+  <!-- mesure (retour) : feedback en haut -->
+  <path d="M723,82 L723,52 L255,52 L255,80" class="meas"/>
+  <text x="489" y="46" class="cap">mesure (capteurs)</text>
+
+  <!-- chaîne d'information -->
+  <text x="196" y="74" class="hd">CHAÎNE D'INFORMATION</text>
+  <rect x="196" y="82" width="118" height="50" rx="8" class="bi"/><text x="255" y="112" class="bt">Acquérir</text>
+  <rect x="352" y="82" width="118" height="50" rx="8" class="bi"/><text x="411" y="112" class="bt">Traiter</text>
+  <rect x="508" y="82" width="118" height="50" rx="8" class="bi"/><text x="567" y="112" class="bt">Communiquer</text>
+  <line x1="314" y1="107" x2="352" y2="107" class="flow"/>
+  <line x1="470" y1="107" x2="508" y2="107" class="flow"/>
+
+  <!-- entrée consigne -->
+  <line x1="150" y1="107" x2="194" y2="107" class="flow"/>
+  <text x="115" y="111" class="io">consigne</text>
+
+  <!-- commande info -> énergie -->
+  <path d="M411,134 L300,210" class="cmd"/>
+  <text x="345" y="178" class="io">commande</text>
+
+  <!-- chaîne d'énergie -->
+  <text x="40" y="200" class="hd">CHAÎNE D'ÉNERGIE</text>
+  <rect x="40" y="210" width="118" height="50" rx="8" class="be"/><text x="99" y="240" class="bt">Alimenter</text>
+  <rect x="196" y="210" width="118" height="50" rx="8" class="be"/><text x="255" y="240" class="bt">Distribuer</text>
+  <rect x="352" y="210" width="118" height="50" rx="8" class="be"/><text x="411" y="240" class="bt">Convertir</text>
+  <rect x="508" y="210" width="118" height="50" rx="8" class="be"/><text x="567" y="240" class="bt">Transmettre</text>
+  <rect x="664" y="210" width="118" height="50" rx="8" class="be"/><text x="723" y="240" class="bt">Agir</text>
+  <line x1="158" y1="235" x2="196" y2="235" class="flow"/>
+  <line x1="314" y1="235" x2="352" y2="235" class="flow"/>
+  <line x1="470" y1="235" x2="508" y2="235" class="flow"/>
+  <line x1="626" y1="235" x2="664" y2="235" class="flow"/>
+
+  <!-- sortie action -->
+  <line x1="782" y1="235" x2="808" y2="235" class="flow"/>
+  <text x="700" y="296" class="io">action sur la matière d'œuvre</text>
+</svg>

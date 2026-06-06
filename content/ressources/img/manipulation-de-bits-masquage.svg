@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="tm dm">
+  <title id="tm">Le masquage agit sur le seul bit visé</title>
+  <desc id="dm">Une opération OU bit-à-bit entre une valeur et un masque. La valeur 0b00101001 est combinée par OU avec le masque 0b00000100, qui ne porte qu'un seul bit à 1 — le bit numéro 2, fabriqué par 1 décalé de 2 positions. Le résultat 0b00101101 ne diffère de la valeur que sur ce bit 2, passé de 0 à 1 ; les sept autres bits sont inchangés. En bas, les quatre idiomes : OU pour mettre à 1, ET-NON pour mettre à 0, OU-exclusif pour basculer, ET pour tester.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .band { fill:#BA7517; }
+      .cell { fill:#DDDBD3; stroke:#888780; stroke-width:1.5; }
+      .cellh { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .bit { font:700 17px monospace; text-anchor:middle; fill:#2C2C2A; }
+      .bith { font:700 17px monospace; text-anchor:middle; fill:#BA7517; }
+      .rl { font:700 12px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .rls { font:400 10.5px monospace; text-anchor:end; fill:#888780; }
+      .op { font:700 22px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .col { font:400 10px monospace; text-anchor:middle; fill:#888780; }
+      .colh { font:700 10px monospace; text-anchor:middle; fill:#BA7517; }
+      .sum { stroke:#888780; stroke-width:1.6; }
+      .note { font:700 12px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .foot { font:400 12px monospace; text-anchor:middle; fill:#2C2C2A; }
+      .footk { font:700 12px monospace; fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .band { fill:#EF9F27; }
+        .cell { fill:#4A4A48; stroke:#BBBBBB; } .cellh { fill:#4A4A48; stroke:#EF9F27; }
+        .bit { fill:#F1EFE8; } .bith { fill:#EF9F27; }
+        .rl { fill:#F1EFE8; } .rls { fill:#BBBBBB; }
+        .op { fill:#EF9F27; } .col { fill:#BBBBBB; } .colh { fill:#EF9F27; }
+        .sum { stroke:#BBBBBB; } .note { fill:#EF9F27; }
+        .foot { fill:#F1EFE8; } .footk { fill:#EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="26" class="ttl">Mettre un bit à 1 sans toucher aux autres — le masquage</text>
+
+  <!-- bande de surbrillance colonne bit 2 -->
+  <rect x="446" y="70" width="48" height="184" rx="5" class="band" fill-opacity="0.13"/>
+
+  <!-- numéros de bits -->
+  <text x="222" y="63" class="col">7</text>
+  <text x="272" y="63" class="col">6</text>
+  <text x="322" y="63" class="col">5</text>
+  <text x="372" y="63" class="col">4</text>
+  <text x="422" y="63" class="col">3</text>
+  <text x="470" y="63" class="colh">2</text>
+  <text x="522" y="63" class="col">1</text>
+  <text x="572" y="63" class="col">0</text>
+
+  <!-- VALEUR -->
+  <text x="185" y="98" class="rl">valeur</text>
+  <rect x="200" y="80" width="44" height="40" rx="5" class="cell"/><text x="222" y="106" class="bit">0</text>
+  <rect x="250" y="80" width="44" height="40" rx="5" class="cell"/><text x="272" y="106" class="bit">0</text>
+  <rect x="300" y="80" width="44" height="40" rx="5" class="cell"/><text x="322" y="106" class="bit">1</text>
+  <rect x="350" y="80" width="44" height="40" rx="5" class="cell"/><text x="372" y="106" class="bit">0</text>
+  <rect x="400" y="80" width="44" height="40" rx="5" class="cell"/><text x="422" y="106" class="bit">1</text>
+  <rect x="448" y="80" width="44" height="40" rx="5" class="cellh"/><text x="470" y="106" class="bith">0</text>
+  <rect x="500" y="80" width="44" height="40" rx="5" class="cell"/><text x="522" y="106" class="bit">0</text>
+  <rect x="550" y="80" width="44" height="40" rx="5" class="cell"/><text x="572" y="106" class="bit">1</text>
+
+  <text x="170" y="173" class="op">|</text>
+
+  <!-- MASQUE -->
+  <text x="185" y="164" class="rl">masque</text>
+  <text x="185" y="178" class="rls">(1 &lt;&lt; 2)</text>
+  <rect x="200" y="146" width="44" height="40" rx="5" class="cell"/><text x="222" y="172" class="bit">0</text>
+  <rect x="250" y="146" width="44" height="40" rx="5" class="cell"/><text x="272" y="172" class="bit">0</text>
+  <rect x="300" y="146" width="44" height="40" rx="5" class="cell"/><text x="322" y="172" class="bit">0</text>
+  <rect x="350" y="146" width="44" height="40" rx="5" class="cell"/><text x="372" y="172" class="bit">0</text>
+  <rect x="400" y="146" width="44" height="40" rx="5" class="cell"/><text x="422" y="172" class="bit">0</text>
+  <rect x="448" y="146" width="44" height="40" rx="5" class="cellh"/><text x="470" y="172" class="bith">1</text>
+  <rect x="500" y="146" width="44" height="40" rx="5" class="cell"/><text x="522" y="172" class="bit">0</text>
+  <rect x="550" y="146" width="44" height="40" rx="5" class="cell"/><text x="572" y="172" class="bit">0</text>
+
+  <line x1="196" y1="198" x2="598" y2="198" class="sum"/>
+  <text x="170" y="238" class="op">=</text>
+
+  <!-- RESULTAT -->
+  <text x="185" y="236" class="rl">résultat</text>
+  <rect x="200" y="212" width="44" height="40" rx="5" class="cell"/><text x="222" y="238" class="bit">0</text>
+  <rect x="250" y="212" width="44" height="40" rx="5" class="cell"/><text x="272" y="238" class="bit">0</text>
+  <rect x="300" y="212" width="44" height="40" rx="5" class="cell"/><text x="322" y="238" class="bit">1</text>
+  <rect x="350" y="212" width="44" height="40" rx="5" class="cell"/><text x="372" y="238" class="bit">0</text>
+  <rect x="400" y="212" width="44" height="40" rx="5" class="cell"/><text x="422" y="238" class="bit">1</text>
+  <rect x="448" y="212" width="44" height="40" rx="5" class="cellh"/><text x="470" y="238" class="bith">1</text>
+  <rect x="500" y="212" width="44" height="40" rx="5" class="cell"/><text x="522" y="238" class="bit">0</text>
+  <rect x="550" y="212" width="44" height="40" rx="5" class="cell"/><text x="572" y="238" class="bit">1</text>
+
+  <text x="470" y="276" class="note">bit 2 : 0 → 1</text>
+  <text x="360" y="298" class="note">seul le bit visé change — les sept autres restent intacts</text>
+
+  <!-- pied : les 4 idiomes -->
+  <line x1="60" y1="320" x2="660" y2="320" class="sum"/>
+  <text x="360" y="346" class="foot"><tspan class="footk">|</tspan>  mettre à 1     <tspan class="footk">&amp;~</tspan>  mettre à 0     <tspan class="footk">^</tspan>  basculer     <tspan class="footk">&amp;</tspan>  tester</text>
+</svg>

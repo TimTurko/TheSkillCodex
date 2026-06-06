@@ -10,6 +10,37 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 — Réconciliation cartographie AA Phase 2 EEE/info + module simulation (hub + 3 outils)
+
+### Périmètre
+Session **PC perso** (MCP `filesystem:*`). Deux chantiers : (1) **passe complète** de mise à jour de `_drafts/referentiel/couverture-en-cours.md` pour intégrer la phase 2 elec/info (reportée depuis plusieurs sessions) ; (2) sur proposition utilisateur, création d'un **module `simulation`** sur le pattern hub (C18), fermant les 2 derniers NC EEE.
+
+### Livrables
+- **Carto Phase 2 réconciliée** — front matters `aa:` des **74 fiches** `content/fiches/eee/` vérifiés un par un. Section « Cartographies Phase 2 » ajoutée (blocs individuels pour les porteuses d'AA, blocs groupés pour les grappes homogènes PROJ/5 et `aa:[]`). Passe A + synthèse globale réécrites. **EEE 5C/2E/3NC → 7C/1E/2NC** ; **PROJ/5 NC→C** (40 fiches) ; global **37→40 C (70 %)**.
+- **2 écarts JOURNAL corrigés** à la vérif : `lire-une-datasheet` porte EEE/1+/3+/4+MME/6 (pas `[]`) ; grappe Arduino = **3 exceptions `aa:[]`** (hub, `prise-en-main`, `alimentation`), pas ~28 — la grappe PROJ/5 fait 30 Arduino + 8 cpp + firmware + manip-bits = **40**.
+- **Module `simulation`** (`content/fiches/eee/simulation/`) — hub `simulation-electronique` [T] (méthode + 3 familles d'analyse + section *Interpréter les résultats*, porte **EEE/3+/4**) + 3 tutos-outils : `falstad` (analogique navigateur, charge RC), `ltspice` (SPICE, filtre RC + fc), `wokwi` (MCU, potar+LED+série, porte PROJ/5). 5 SVG conceptuels en placeholder (cycle, lecture de courbe, 3 interfaces).
+- **Carto re-propagée** après le module — **EEE 9C/1E/0NC (domaine complet)** ; global **42/57 = 74 %** ; NC 6→4 (`schema-cinematique` + 3 design).
+
+### Décisions
+- **Passe complète d'un coup** (vs MAJ légère) — arbitrage utilisateur.
+- **Hub simulation à deux familles** (analogique : Falstad/LTspice ; MCU : Wokwi/Tinkercad) — proposition utilisateur, pattern C18 réappliqué hors « famille MCU ».
+- **Fritzing tenu hors hub** (pushback Claude accepté) — outil de représentation/câblage, pas de simulation de comportement → future fiche câblage.
+- **AA des tutos-outils** : `[]` (porté par le hub) sauf critère distinct (`wokwi` = PROJ/5 comme `tinkercad`).
+- **Design MME/PROJ** (2 NC + arbitrages niveau D) → reporté prochaine session.
+
+### Conventions (éprouvage)
+- Nouvelles §8 : **C45** (AA tutos-outils = [] porté par le hub) + **C46** (« simuler ≠ représenter », exclusion d'outils hors-catégorie d'un hub).
+- Nouvelles épreuves : **C18** (hub `simulation`, nouvelle famille de hub) ; **C27** (batch 3 tutos-outils homogènes) ; **C29/C33** (SVG conceptuels simulation).
+- **C20** : PROJ/5 désormais **Couvert** (40→41 avec wokwi) — promotion §7 mûre.
+
+### Tailles
+4 fiches créées (hub + 3 outils, ~6-13 ko ch.) ; `couverture-en-cours.md` réécrit en profondeur (carto 40→42 C / 74 %). JOURNAL ~45,8 → ~50 ko. **Archivage 1-pour-1 sauté** (marge sous 100 ko).
+
+### Corps — la vérification qui recompte
+Point méthodo de la session : ne pas faire confiance au JOURNAL pour la carto. La vérification fiche par fiche des 74 front matters a corrigé deux croyances héritées (`lire-une-datasheet` cru `aa:[]`, « ~28 » fiches PROJ/5) — le bon décompte est **40**, et `lire-une-datasheet` réoutille EEE/1+/3 en effleuré. Sans cette relecture des sources réelles, la carto aurait propagé les approximations du JOURNAL. Le module simulation, lui, illustre que le pattern hub (C18) se réapplique hors « famille MCU » : un hub *méthode + outils* ferme un critère (EEE/3+/4) comme `microcontroleur` ferme EEE/2, les outils étant des embranchements non bloquants. Fin de session : design MME/PROJ et passe SVG laissés en autonomie totale à la prochaine session (fil rouge bras 3 axes pour la part méca).
+
+---
+
 ## 2026-06-05 (suite) — Relecture/enrichissement complète du parcours Arduino (4 paliers) + lien rouge `mise-en-service`
 
 ### Périmètre

@@ -5,6 +5,8 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➜ MAJ 06/06** — **Réconciliation carto AA Phase 2** (`couverture-en-cours.md`, passe complète : **74 front matters vérifiés un par un**, EEE→7C puis **9C/1E/0NC**, global **42/57 = 74 %**, NC 6→4) + **module `simulation`** sur pattern hub (C18) : `simulation-electronique` (hub [T], ferme **EEE/3+/4**) + `falstad`/`ltspice` (analogique) + `wokwi` (MCU, PROJ/5). 2 écarts JOURNAL corrigés (`lire-une-datasheet` ≠ [], grappe PROJ/5 = **40** fiches). Fritzing tenu hors hub. Conventions nouvelles §8 : **C45** (AA tutos-outils = [] porté par le hub) + **C46** (« simuler ≠ représenter »). 5 SVG conceptuels simulation en placeholder. **Prochaine session = AUTONOMIE TOTALE** (Claude définit périmètre + priorités) : (a) **design MME/PROJ** — 2 NC `PROJ-C03-3/1`+`/2` + 3 arbitrages niveau D (catégorie « HS par délégation » pour les 3 critères design, statut des 4 critères MME effleurés sans fiche centrale, statut `schema-cinematique` wiki vs délégation) ; (b) **passe SVG** — créer les SVG conceptuels en attente (placeholders C29 : module simulation = cycle / lecture-courbe / 3 interfaces ; bitmasking ; couches firmware ; cpp ×2 ; etc.), **fil rouge bras 3 axes pour les SVG méca**.
+>
 > **➜ MAJ 05/06 (suite)** — **Relecture/enrichissement complète du parcours Arduino** (4 paliers, ~33 fiches : hub + 32 filles + module cpp), bout en bout. Livrables : `PROJ/5` effleuré propagé sur ~28 fiches `arduino-*` (pas `arduino-alimentation`, matérielle) ; **bug « verrou anti-doublon » corrigé** (sous-débordement unsigned `millis()+offset`, systémique → `temporisation`/`moteur-cc`/`moteur-pas-a-pas`, fix = détection de front `etatStable`) ; **`const`/`#define` harmonisé** (décision A : `const` pour les valeurs, `#define` pour compil. conditionnelle + macros ; revert `temporisation`/`module`/`afficheur`) ; correction `alimentation` (watchdog → brown-out) ; **lien rouge `mise-en-service` résolu** (décision B : pas de 6ᵉ phase, `eeprom` repointé vers `integration-et-tests`, bullet redondant retiré d'`afficheur`) ; 2 SVG cpp (`cpp-execution-cycle`, `cpp-portee-locale-globale`). Conventions nouvelles §8 : **C43** (`const` partout) + **C44** (anti-rebond détection de front). **Prochaine session = arbitrage ouvert (post-relecture Arduino)** : (a) **tutos enfants ESP32** (Phase 4, hub Arduino = modèle validé) ; (b) MAJ `couverture-en-cours.md` (PROJ/5 propagé + Phase 2 EEE/info, toujours reportée) ; (c) Phase 3 squelette pro (`oscilloscope`/`multimetre`/`pcb`/`kicad`) ; (d) reprise visuelle SVG. **Micro-items émergés** : « Spécification » en gras non liée dans `arduino-deep-sleep`/`-watchdog` (à lier à `[[specification-technique]]` ou laisser) ; captures C29 à récolter ; reprise visuelle SVG toujours ouverte.
 >
 > **➜ MAJ 05/06** — **Module C++ complet** : la fiche transverse `cpp` devient un **hub** (`eee/mcu/cpp/cpp.md`) + **7 sous-tutoriels** progressifs avec *Code à lire* et exercices corrigés (`cpp-execution` étalon / `-structure` / `-types` / `-portee` / `-conditions` / `-boucles` multi-notions / `-logs`). **Factorisation transverse** (pas de duplication par MCU ; `cpp-logs` seule famille-spécifique — réutilisable ESP32/Teensy). Aussi : **hub Arduino refondu** (Tutoriels remontés en 2e, 3 frictions corrigées) + **prise-en-main réorganisée** (dépannage par symptôme, pilote CH340 en dernier) + **2 corrections AA** (`lire-une-datasheet` retrait EEE/1, `microcontroleur` EEE/5→RA-EEE/2 ; EEE **7C/1E/2NC**, ~40C/70 %). **Correctifs rendu Quartz** : corrigés dé-imbriqués (C40) + CSS fond des blocs code dans callouts. **Prochaine session = relecture/enrichissement du parcours Arduino** (étape 0 hub+prise-en-main faite → suite `tinkercad` puis *Apprendre les bases*), en intégrant la relecture du module cpp. **Calls en attente de relecture** : captures C29 (`cpp-execution` moniteur série, `cpp-logs` messages IDE) ; 2 SVG conceptuels candidats (cycle `setup()`/`loop()`, portée locale/globale) ; MAJ `couverture-en-cours.md` Phase 2 EEE/info toujours reportée ; mode sombre callouts toujours ouvert.
@@ -115,7 +117,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 - [x] ~~`esp32` (hub fille de `microcontroleur`)~~ — **fait 02/06 (suite)** (`eee/mcu/esp32/esp32.md` 6,0 ko ; décalque `arduino`, 4 paliers + [A]/[T], alerte 3,3 V ; C25/C26 épreuve 2/N ; `aa: []`). Tutos `esp32-*` rouges = roadmap Phase 4 ci-dessous.
 - [ ] `esp32-arduino-core` (fiche-tuto, entrée pratique)
-- [ ] `wokwi` (fiche-tuto simu spécifique ESP32)
+- [x] ~~`wokwi` (fiche-tuto simu spécifique ESP32)~~ — fait 06/06 (module `simulation`, MCU + `aa: PROJ/5`)
 - [ ] `alimentation-electronique` (fiche-tuto compétence pro, raccrochage dossier-tech + intégration)
 
 #### Phase 5+ — Alimentation continue (~25 sessions)
@@ -123,11 +125,11 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 *Reste squelette transverse :*
 - [x] ~~`techno-sans-fil` (hub mère) + `wifi` / `ble` / `zigbee` / `xbee` / `lora`~~ — **fait 28/05 suite 4** (grappe batch dans `eee/mcu/sans-fil/` ; hub tableau + carte portée×débit ; C18 épreuve 3/N)
 - [ ] `circuitverse` (fiche-tuto simu numérique en ligne, retenue 26/05 suite 5)
-- [ ] `ltspice` (fiche-tuto simu analogique desktop)
+- [x] ~~`ltspice` (fiche-tuto simu analogique desktop)~~ — fait 06/06 (module `simulation`, SPICE / dimensionnement, exemple filtre RC + fc)
 - [ ] `easyeda` (fiche-tuto outil PCB altern, embranchement de choix)
 - [ ] `cable-management` (fiche-tuto, popover posé dans `integration-et-tests.md`)
 - [ ] `bom-electronique` (fiche-tuto compétence pro)
-- [ ] `falstad` (fiche-tuto simu altern, à évaluer si pertinent après CircuitVerse)
+- [x] ~~`falstad` (fiche-tuto simu altern, à évaluer si pertinent après CircuitVerse)~~ — fait 06/06 (module `simulation`, analogique navigateur, exemple charge RC). `circuitverse` reste à évaluer (simu **numérique/logique**, niche distincte).
 
 *Embranchements technologiques restants :*
 - [ ] `esp32-idf` (fiche-tuto approfondissement, second tuto ESP32 après arduino-core)
