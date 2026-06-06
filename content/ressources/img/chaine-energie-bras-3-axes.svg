@@ -28,7 +28,7 @@
   <text x="410" y="24" class="ttl">Les deux chaînes incarnées sur le bras 3 axes</text>
 
   <!-- mesure -->
-  <path d="M723,82 L723,52 L255,52 L255,80" class="meas"/>
+  <path d="M723,210 L723,52 L255,52 L255,80" class="meas"/>
   <text x="489" y="46" class="cap">position mesurée (codeurs)</text>
 
   <!-- chaîne d'information -->

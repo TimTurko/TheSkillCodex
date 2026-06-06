@@ -3,12 +3,13 @@
 > Fichier de travail privé (non publié). Capitalise les cartographies fiche par fiche pendant la **passe B** (lecture en aveugle), avant écriture des champs `aa:` dans les front matter (faite en une passe groupée une fois le pattern stabilisé sur 2-3 fiches).
 > Source de vérité : `referentiel-normalise.md` (62 entrées matrice − 5 doublons = 57 critères distincts, 12 AA, 5 domaines).
 
-## Convention de granularité (3 niveaux)
+## Convention de granularité (catégories de couverture)
 
 - **Couvert** : critère qui est l'objet central d'une fiche dédiée OU d'une section H2/H3 dédiée au sein d'une trame/transverse.
 - **Effleuré** : critère mentionné en passant (H4, dans un `[!example]`, via un wiki-link uniquement, ou en posture/pièges sans traitement central).
 - **Non couvert** : pas du tout présent, mais qui devrait l'être. Se déduit par différence avec l'ensemble du référentiel (pas listé fiche par fiche, calculé en synthèse finale). Identifie un trou à combler.
 - **Hors scope** (acquise 26/05 suite 2) : critère du référentiel école que le projet TheSkillCodex ne traite pas par choix pédagogique, parce qu'il relève de l'évaluation transversale des étudiants (soft skills, engagement, participation, terminologie professionnelle évaluée en revue par les enseignants) plutôt que du contenu enseigné par le wiki. À distinguer de **Non couvert** : pas un trou, une décision éditoriale. Cas identifiés : `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral), `RA-PROJET-C07-1/PROJ/4` (participer aux tâches), `RA-PROJET-C07-1/PROJ/6` (participer aux événements).
+- **Hors scope par délégation** (HS-D, acquise 06/06) : critère qui *est* un contenu enseigné, mais par un **cours collègue** hors du périmètre d'expertise de l'auteur (élec / info embarquée / gestion de projet) — typiquement le **design produit** et la **mécanique pure**. Le wiki ne le traite pas mais peut y renvoyer. À distinguer du **Hors scope** classique (évaluation transversale comportementale, jamais enseignée comme contenu) et du **Non couvert** (trou réel à combler). Cas identifiés : `RA-PROJET-C03-3/PROJ/1` (sketchs), `RA-PROJET-C03-3/PROJ/2` (prise en compte design), `RA-MME-C03-1/MME/1` (outils designers).
 
 ## Grille de lecture par phase du wiki (acquise 26/05 suite 2)
 
@@ -621,6 +622,22 @@ effleure: []
 
 ---
 
+### Fiches méca / transverses (06/06)
+
+```yaml
+schema-cinematique.md (mme):
+  couvert:
+    - RA-MME-C02-1/MME/5   # Schéma cinématique — objet central (liaisons, ddl, exemple bras 3 axes). FERME le NC MME/5.
+
+chaine-energie.md (eee, transverse):
+  couvert: []
+  effleure: []
+```
+
+**Bilan** : 2 fiches (créées 06/06, fil rouge bras 3 axes). `schema-cinematique` fait passer `RA-MME-C02-1/MME/5` de **NC → C** (frontière interface : lecture + renvoi cours mécanique). `chaine-energie` est une fiche d'**ambition** (modèle des deux chaînes, complément de `schema-bloc-fonctionnel`) — `aa: []` légitime, pas de critère central. Les deux ferment les liens rouges `[[schema-cinematique]]` et `[[chaine-energie]]` du hub.
+
+---
+
 ## Passe A — Cartographie inverse par domaine
 
 > Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.
@@ -686,21 +703,21 @@ effleure: []
 **RA-MME-C02-1 [MME]** — *Analyser matériaux et phénomènes mécaniques mis en jeu et sollicitations associées*
 
 - **/1** *Choisir matériaux adaptés* — **C** : concept étapes 2+4. **E** : matrice-de-decision.
-- **/2** *Procédés d'assemblage* — **E** : dossier-technique étape 2. **NC central** : pas de fiche centrale, à interroger (délégation cours collègues ?).
-- **/4** *Identifier sollicitations mécaniques* — **E** : concept étape 4 (pré-dim couple, flèche, transitoires). **NC central**.
-- **/5** *Schéma cinématique* — **NC**. Wiki-link rouge déjà posé dans hub/index. Trou phase 2 nouveau : fiche-tuto `schema-cinematique` à ajouter au TODO (statut à trancher : délégation cours collègues ou fiche dans le wiki ?).
-- **/6** *Caractéristiques mécaniques actionneurs* — **E** : concept étapes 2+4. **NC central**.
+- **/2** *Procédés d'assemblage* — **E** : dossier-technique étape 2. *E terminal par délégation* (méca collègues), pas un trou phase 2 (arbitrage 06/06).
+- **/4** *Identifier sollicitations mécaniques* — **E** : concept étape 4 (pré-dim couple, flèche, transitoires). *E terminal par délégation*.
+- **/5** *Schéma cinématique* — **C** : `schema-cinematique` (objet central, liaisons + ddl + exemple bras 3 axes, frontière interface + renvoi cours mécanique). *(était NC — fermé 06/06)*
+- **/6** *Caractéristiques mécaniques actionneurs* — **E** : concept étapes 2+4, `lire-une-datasheet`. *E terminal par délégation*.
 
 **RA-MME-C03-1 [MME]** — *Concevoir des structures et systèmes mécaniques*
 
-- **/1** *Lister outils designers* — **NC**. Critère possiblement délégué entièrement cours collègues (design). À interroger avec hiérarchie : hors scope par délégation ou trou phase 2 ?
-- **/2** *Note de calcul dimensionnement transmission* — **E** : concept étape 4. **NC central** : note de calcul formelle absente (effleurée seulement, traitement diffus).
+- **/1** *Lister outils designers* — **HS-D** : design produit, délégué cours collègues (arbitrage 06/06). Pas un trou, décision revendiquée.
+- **/2** *Note de calcul dimensionnement transmission* — **E** : concept étape 4. *E terminal par délégation* (note de calcul formelle = cours méca).
 - **/3** *Créer assemblage CAO* — **C** : dossier-technique étape 2 (plans cotés, fichiers STL/DXF/STEP).
-- **/4** *Paramètres dynamiques* — **E** : concept étape 4 (modèle simplifié transitoire). **NC central**.
+- **/4** *Paramètres dynamiques* — **E** : concept étape 4 (modèle simplifié transitoire). *E terminal par délégation*.
 - **/5** *Nomenclature à partir CAO* — **C** : dossier-technique étape 3 (BOM agrégée).
-- **/6** *Optimiser conception* — **E** : dossier-technique étape 2. Trou phase 2 prévu : fiche-tuto `optimisation-mecanique` déjà au TODO.
+- **/6** *Optimiser conception* — **E** : dossier-technique étape 2. Trou phase 2 prévu : fiche-tuto `optimisation-mecanique` au TODO.
 
-**Bilan MME** : 3 C + 6 E + 0 HS + **2 NC structurels** (/5 schéma cinématique et C03-1/1 outils designers) sur 11 critères. **4 critères « NC central avec effleurement seulement »** (C02-1/2, /4, /6 et C03-1/2, /4) méritent une réflexion : effleurement récurrent mais pas de fiche centrale. Domaine **partiellement délégué aux cours collègues** (mention explicite dans hub/index). Stratégie cohérente, mais nécessite confirmation avec hiérarchie pour clarifier le statut des « NC central » : hors scope par délégation ou trous phase 2 à combler dans le wiki ?
+**Bilan MME** : **4 C + 6 E + 0 HS + 1 HS-D + 0 NC** sur 11 critères (vs 3C/6E/2NC avant arbitrage 06/06). `schema-cinematique` ferme `MME/5` (NC→C) ; `MME-C03-1/1` (outils designers) → **HS-D** (design délégué). Les **5 critères effleurés sans fiche centrale** (C02-1/2, /4, /6 et C03-1/2, /4) sont actés en **E terminal par délégation** — traitement disciplinaire profond renvoyé aux cours MME, le wiki les touchant via le prisme mécatronique (pré-dim concept/dossier-technique). Domaine assumé comme **interface** (§3 prompt projet) ; plus aucun trou ouvert.
 
 ---
 
@@ -708,8 +725,8 @@ effleure: []
 
 **RA-PROJET-C03-3 [PROJ]** — *Réaliser un système ou sous-ensemble incluant moyens numériques de prototypage rapide*
 
-- **/1** *Sketchs main d'un produit* — **NC**. Croquis/design probablement délégué cours collègues. À interroger avec hiérarchie.
-- **/2** *Prendre en compte design dans réalisation prototype* — **NC**. Idem /1 — possible délégation design.
+- **/1** *Sketchs main d'un produit* — **HS-D** : design produit, délégué cours collègues (arbitrage 06/06).
+- **/2** *Prendre en compte design dans réalisation prototype* — **HS-D** : idem /1, design délégué.
 - **/3** *Réaliser structure mécanique avec élec et énergie* — **C amendement** : integration-et-tests étapes 1+2 (fabriquer + valider niveau 0). **Non explicité en passe B sur integration-et-tests, à amender** (voir section Amendements ci-dessous).
 - **/4** *Adapter, modifier conception et docs* — **C** : dossier-technique étape 1 (propagation PoC→dossier).
 - **/5** *Programmer/paramétrer contrôleur numérique* — **C** : module `cpp` (hub + 7 sous-fiches, objet central « écrire le programme ») + module Arduino (tutos de programmation : tinkercad + 28 `arduino-*` + `arduino-machine-a-etats`). **E** : `firmware`, `manipulation-de-bits` (transverses). *(était NC — fermé phase 2 ; 40 fiches portent PROJ/5, marqueur de transversalité C20)*
@@ -743,7 +760,7 @@ effleure: []
 - **/5** *Être force de proposition* — **HS** (C15).
 - **/6** *Participer aux événements* — **HS** (C15).
 
-**Bilan PROJ** : **19 C + 0 E + 4 HS + 2 NC** sur 25 critères (C03-3/3 réalise structure méca, amendement passé en passe B ; C03-3/5 programmer fermé phase 2). Domaine **majeur du wiki** (25/57 = 44 %). Les 2 NC restants (C03-3/1 sketchs, /2 prise en compte design) relèvent du **design produit** — arbitrage hiérarchie (délégation cours collègues probable).
+**Bilan PROJ** : **19 C + 0 E + 4 HS + 2 HS-D + 0 NC** sur 25 critères (C03-3/3 réalise structure méca, amendement passé en passe B ; C03-3/5 programmer fermé phase 2). Domaine **majeur du wiki** (25/57 = 44 %). Les 2 ex-NC (C03-3/1 sketchs, /2 prise en compte design) sont actés en **HS-D** (design produit délégué, arbitrage 06/06). Plus aucun trou ouvert.
 
 ---
 
@@ -751,24 +768,24 @@ effleure: []
 
 **Couverture globale (57 critères) :**
 
-| Domaine | C | E | HS | NC | Total |
-|---|---|---|---|---|---|
-| EEE | 9 | 1 | 0 | 0 | 10 |
-| ESE | 5 | 0 | 0 | 0 | 5 |
-| MEO | 6 | 0 | 0 | 0 | 6 |
-| MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 19 | 0 | 4 | 2 | 25 |
-| **Total** | **42** | **7** | **4** | **4** | **57** |
+| Domaine | C | E | HS | HS-D | NC | Total |
+|---|---|---|---|---|---|---|
+| EEE | 9 | 1 | 0 | 0 | 0 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 0 | 6 |
+| MME | 4 | 6 | 0 | 1 | 0 | 11 |
+| PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
+| **Total** | **43** | **7** | **4** | **3** | **0** | **57** |
 
 **Règle de comptage** : un critère a UN seul statut dominant (C > E > HS > NC). Si un critère est Couvert dans une fiche et Effleuré dans une autre, il compte C, pas C+E. *(Reclassements phase 2 : EEE/1, EEE-C03-2/5 et PROJ/5 fermés ; voir section « Cartographies Phase 2 ».)*
 
-- **Couverts** : 42/57 = **74 %**
+- **Couverts** : 43/57 = **75 %**
 - **Effleurés** : 7/57 = 12 %
-- **Hors scope** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation, C15)
-- **Non couverts (NC)** : 4/57 = 7 %, dont :
-  - **NC au statut à trancher** : 1 critère (`RA-MME-C02-1/MME/5` schéma cinématique → `schema-cinematique`, fiche wiki vs délégation cours collègues)
-  - **NC à interroger avec hiérarchie** : 3 critères relevant du **design produit** (`RA-PROJET-C03-3/PROJ/1` sketchs, `/2` prise en compte design, `RA-MME-C03-1/MME/1` outils designers) — délégation cours collègues possible, **catégorie « Hors scope par délégation »** à instaurer ?
+- **Hors scope (C15)** : 4/57 = 7 % (4 critères tous PROJ : terminologie + participation)
+- **Hors scope par délégation (HS-D)** : 3/57 = 5 % — design produit délégué aux cours collègues (`RA-PROJET-C03-3/PROJ/1` sketchs, `/2` prise en compte design, `RA-MME-C03-1/MME/1` outils designers). Tranché 06/06.
+- **Non couverts (NC)** : **0** — plus aucun trou ouvert.
   - **Fermés en phase 2** (étaient NC ou E central) : `EEE/1` (analyse-de-schema), `EEE/3`+`/4` (hub simulation-electronique), `EEE-C03-2/5` (module algorithme), `PROJ/5` (modules cpp + Arduino)
+  - **Fermé 06/06** : `RA-MME-C02-1/MME/5` (schéma cinématique) → fiche `schema-cinematique` créée (NC→C)
 
 **Amendements à appliquer à la passe B** (cohérence avec passe A) :
 
@@ -777,18 +794,19 @@ effleure: []
 **Fiches phase 2 à ajouter au TODO** :
 
 1. **`simulation-electronique`** (fiche-tuto EEE) — couvre `RA-PROJET-C03-3/EEE/3` (simulation) + `/4` (interpréter résultats). Conforme à C16 (1 fiche-tuto par groupe cohérent EEE : ici /3 et /4 sont indissociables).
-2. **`schema-cinematique`** (fiche-tuto MME) — couvre `RA-MME-C02-1/MME/5`. Déjà mentionné comme wiki-link rouge dans hub/index. **Statut à trancher** : délégation cours collègues (alors retrait du wiki-link rouge dans hub/index) ou fiche-tuto dans le wiki ?
+2. **`schema-cinematique`** (fiche-notion MME) — couvre `RA-MME-C02-1/MME/5`. **✓ Créée 06/06** (frontière interface : lecture + renvoi cours mécanique). Wiki-link du hub résolu.
 
-**Décisions à porter en niveau D** :
+**Décisions niveau D — tranchées 06/06** :
 
-- Statut de `MME-C03-1/1` (lister outils designers) et `PROJ-C03-3/1+2` (sketchs + prise en compte design) : 3 critères qui relèvent du **design produit** et peuvent être entièrement délégués aux cours collègues. **Catégorie « Hors scope par délégation »** à instaurer ? Différente de la **Hors scope C15** (évaluation transversale enseignants). À acter avec hiérarchie en session ultérieure.
-- Statut des 4 « NC central avec effleurement » MME (C02-1/2, /4, /6 et C03-1/2, /4) : effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Hors scope par délégation cours collègues, ou fiches-tuto MME phase 2 à ajouter ? Le hub mentionne explicitement « MME — Matériaux, mécanique (renvoie vers les cours collègues) » — piste forte de délégation, à confirmer.
+- **Catégorie « Hors scope par délégation » (HS-D) instaurée** ✓ — distincte de HS C15. Les 3 critères design (`MME-C03-1/1` outils designers, `PROJ-C03-3/1` sketchs, `/2` prise en compte design) y basculent.
+- **5 critères MME effleurés** (C02-1/2, /4, /6 et C03-1/2, /4) **actés en E terminal par délégation** ✓ — pas de fiche MME phase 2, traitement disciplinaire renvoyé aux cours collègues, le wiki les touchant via le prisme mécatronique.
+- **`schema-cinematique` créé** ✓ — `MME/5` fermé (NC→C).
 
 **Insights structurants** :
 
 1. **ESE et MEO sont entièrement couverts par la phase 1 du wiki** (0 NC, 0 trou phase 2). Cohérent avec leur nature transverse (portés par les 3 fiches-trame transverses + multi-couverture forte avec les trames du V).
-2. **EEE et MME ont des trous structurés** : adressés par les fiches phase 2 déjà au TODO ou à ajouter. Conforme à la grille de lecture phase 1 vs phase 2 actée en début de cartographie.
-3. **PROJ est le domaine majeur** du wiki (25/57 = 44 %) avec une couverture **forte** : 19 C + 0 E + 4 HS = 23 critères traités, les 2 NC restants relevant du design délégable (sketchs, prise en compte design).
+2. **EEE et MME avaient des trous structurés**, désormais tous fermés : EEE par la phase 2 elec/info, MME par `schema-cinematique` (NC→C) + délégation (HS-D et E terminal). Conforme à la grille de lecture phase 1 vs phase 2 actée en début de cartographie.
+3. **PROJ est le domaine majeur** du wiki (25/57 = 44 %) avec une couverture **forte** : 19 C + 0 E + 4 HS + 2 HS-D = 25 critères traités, plus aucun NC (sketchs et prise en compte design actés HS-D).
 4. **La convention C16** (1 fiche-tuto par critère EEE/info embarquée ou groupe cohérent) **est réalisée empiriquement** : les 5 critères EEE attendus phase 2 sont **tous fermés** (`analyse-de-schema-electronique` pour PROJ-C03-3/1 ; module `algorithme` 5 fiches pour EEE-C03-2/5 ; modules `cpp` + Arduino pour PROJ-C03-3/5 ; hub `simulation-electronique` + 3 tutos-outils pour PROJ-C03-3/3+/4). Soit 1 à 5 fiches par critère selon sa granularité.
 5. **3 fiches phase 1 sans critère AA central** identifiées (securite-et-qualite, matrice-de-decision, hub/index) chacune pour une raison distincte (posture professionnelle, outil pivot transverse, méta-structure). Le cadre AA n'est pas le seul critère de pertinence d'une fiche — à acter en synthèse globale.
 
@@ -798,51 +816,52 @@ effleure: []
 
 ### Bilan en chiffres
 
-| Domaine | C | E | HS | NC | Total |
-|---|---|---|---|---|---|
-| EEE | 9 | 1 | 0 | 0 | 10 |
-| ESE | 5 | 0 | 0 | 0 | 5 |
-| MEO | 6 | 0 | 0 | 0 | 6 |
-| MME | 3 | 6 | 0 | 2 | 11 |
-| PROJ | 19 | 0 | 4 | 2 | 25 |
-| **Total** | **42** | **7** | **4** | **4** | **57** |
+| Domaine | C | E | HS | HS-D | NC | Total |
+|---|---|---|---|---|---|---|
+| EEE | 9 | 1 | 0 | 0 | 0 | 10 |
+| ESE | 5 | 0 | 0 | 0 | 0 | 5 |
+| MEO | 6 | 0 | 0 | 0 | 0 | 6 |
+| MME | 4 | 6 | 0 | 1 | 0 | 11 |
+| PROJ | 19 | 0 | 4 | 2 | 0 | 25 |
+| **Total** | **43** | **7** | **4** | **3** | **0** | **57** |
 
-Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation), la couverture **directe** atteint **74 %** (42/57), l'effleurement 12 %, et il reste **4 trous** (7 %) — 1 au statut à trancher (`schema-cinematique`) et 3 relevant d'un arbitrage hiérarchique (design). Règle de comptage : statut dominant (C > E > HS > NC), pas de double comptage.
+Lecture : après la phase 2 elec/info (squelette transverse + modules MCU + simulation) et les arbitrages du 06/06, la couverture **directe** atteint **75 %** (43/57), l'effleurement 12 %, et il ne reste **aucun trou ouvert** : les 3 critères design sont actés **HS-D** (délégation cours collègues) et `schema-cinematique` ferme le dernier NC. Règle de comptage : statut dominant (C > E > HS > HS-D > NC), pas de double comptage.
 
 ### Lecture par domaine
 
 **ESE** (5/5) et **MEO** (6/6) sont couverts à 100 % par la phase 1. Cohérent avec leur nature transverse : portés par les 3 trames transverses (gestion-de-projet, ecoconception, securite-et-qualite) avec multi-couverture forte depuis les trames du V. Pas de fiche phase 2 ni nécessaire ni prévue dans ces domaines.
 
-**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 19 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. La programmation du contrôleur (C03-3/5) est fermée en phase 2 (modules cpp + Arduino) ; les 2 NC restants tombent en zone design (sketchs, prise en compte design).
+**PROJ** est le domaine majeur du wiki (25/57 = 44 %), couvert par 19 C + 0 E sur les 21 critères non-HS (les 4 HS étant des critères de participation et terminologie évalués transversalement). Couverture forte sur l'analyse fonctionnelle (RA-PROJET-C04-4), le cycle en V (C03-3 + C05-3), la gestion de projet (C07-1) et l'écoconception. La programmation du contrôleur (C03-3/5) est fermée en phase 2 (modules cpp + Arduino) ; les 2 ex-NC design (sketchs, prise en compte design) sont actés HS-D — plus aucun trou ouvert.
 
 **EEE** (9 C / 10) : **domaine entièrement couvert** par la phase 2 (analyse de schéma, module algorithme, hub microcontrôleur, niveaux de tension, bus, sans-fil, simulation). Le hub `simulation-electronique` ferme les 2 derniers NC (`EEE/3`+`/4`). Seul subsiste 1 E : `RA-EEE-C03-2/EEE/3` (sources/dim alim, sans fiche centrale).
 
-**MME** (3 C / 11) est le domaine le moins couvert en phase 1 — partiellement délégué aux cours collègues (mention explicite dans `hub/index`). Effleurement récurrent dans concept et dossier-technique sans fiche centrale (4 critères concernés) + 2 NC structurels (schéma cinématique, outils designers). Stratégie de délégation à confirmer avec hiérarchie.
+**MME** (4 C / 11) est le domaine le moins couvert en phase 1 — assumé comme **interface** vers les cours collègues (mention explicite dans `hub/index`). Cinq critères effleurés sans fiche centrale sont actés **E terminal par délégation** ; `schema-cinematique` ferme `MME/5` (C) et les outils designers basculent en **HS-D**. Domaine refermé : 4 C + 6 E + 1 HS-D, plus aucun trou.
 
 ### Lecture par catégorie
 
-- **Couvert (42)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
-- **Effleuré (7)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Effleurements purs = signal d'enrichissement possible mais pas urgent.
-- **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale : évalués transversalement par les enseignants, pas contenus pédagogiques.
-- **Non couvert (4)** : trous identifiés, ventilés en section suivante.
+- **Couvert (43)** : critères qui ont un endroit nommé dans le wiki — section H2/H3 dédiée d'une trame, ou fiche-notion/tuto dédiée. C'est l'objet pédagogique principal.
+- **Effleuré (7)** : critères mentionnés en passant (H4, `[!example]`, wiki-link, posture/piège). Ne créent pas de trou si le critère est par ailleurs Couvert dans une autre fiche. Inclut les 5 critères MME *terminaux par délégation* (traitement disciplinaire renvoyé aux cours collègues).
+- **Hors scope (4)** : critères `RA-PROJET-C04-4/PROJ/3` (terminologie technique écrit/oral) et `RA-PROJET-C07-1/PROJ/4/5/6` (participation, force de proposition, événements). Décision éditoriale C15 : évalués transversalement par les enseignants, pas contenus pédagogiques.
+- **Hors scope par délégation (3)** : `RA-PROJET-C03-3/PROJ/1`+`/2` (sketchs, prise en compte design) et `RA-MME-C03-1/MME/1` (outils designers). Design produit enseigné par les cours collègues, hors expertise auteur.
+- **Non couvert (0)** : plus aucun trou ouvert après les arbitrages du 06/06.
 
-### Trous NC : adressés vs à arbitrer
+### Trous NC : tous fermés (06/06)
 
-**5 NC fermés en phase 2** (étaient NC) : `RA-PROJET-C03-3/EEE/1` → `analyse-de-schema-electronique` ; `EEE/3`+`/4` → hub `simulation-electronique` ; `PROJ/5` → modules `cpp` + Arduino. *(et `RA-EEE-C03-2/EEE/5`, qui était E central, fermé par le module `algorithme`.)*
+**5 NC fermés en phase 2** : `RA-PROJET-C03-3/EEE/1` → `analyse-de-schema-electronique` ; `EEE/3`+`/4` → hub `simulation-electronique` ; `PROJ/5` → modules `cpp` + Arduino. *(et `RA-EEE-C03-2/EEE/5`, qui était E central, fermé par le module `algorithme`.)*
 
-**1 NC au statut à trancher** : `RA-MME-C02-1/MME/5` (schéma cinématique) → `schema-cinematique` (fiche wiki vs délégation cours collègues, voir section suivante).
+**1 NC fermé 06/06** : `RA-MME-C02-1/MME/5` (schéma cinématique) → fiche `schema-cinematique` créée (frontière interface + renvoi cours mécanique).
 
-**3 NC à arbitrer avec hiérarchie** : `RA-PROJET-C03-3/PROJ/1` (sketchs main d'un produit), `RA-PROJET-C03-3/PROJ/2` (prendre en compte design dans prototype), `RA-MME-C03-1/MME/1` (lister outils designers). Les 3 relèvent du **design produit** et sont probablement délégables aux cours collègues.
+**3 ex-NC actés HS-D (06/06)** : `RA-PROJET-C03-3/PROJ/1` (sketchs), `/2` (prise en compte design), `RA-MME-C03-1/MME/1` (outils designers) — design produit délégué aux cours collègues. Plus aucun trou NC ouvert.
 
-### Décisions niveau D ouvertes
+### Décisions niveau D — tranchées (06/06)
 
-Trois questions à porter en revue avec la hiérarchie en session ultérieure :
+Les trois questions ouvertes ont été arbitrées (autonomie déléguée pour les instruire, puis validées) :
 
-1. **Instaurer la catégorie « Hors scope par délégation »** (distincte de HS C15) pour les 3 critères design ci-dessus. Officialise la délégation sans la confondre avec l'évaluation transversale enseignante.
-2. **Statut des 4 critères MME effleurés sans fiche centrale** : `RA-MME-C02-1/MME/2` (procédés d'assemblage), `/4` (sollicitations mécaniques), `/6` (caractéristiques actionneurs), `RA-MME-C03-1/MME/2` (note de calcul transmission), `/4` (paramètres dynamiques). Effleurement récurrent dans concept et dossier-technique mais pas de fiche centrale. Délégation cours collègues MME ou fiches-tuto phase 2 à ajouter ?
-3. **Statut de `schema-cinematique`** : wiki-link rouge déjà posé dans `hub/index`. Fiche-tuto à produire dans le wiki, ou délégation entière cours collègues MME (auquel cas retrait du wiki-link rouge) ?
+1. **Catégorie « Hors scope par délégation » (HS-D) instaurée** — distincte de HS C15. Acte la délégation d'un contenu enseigné par un cours collègue hors expertise auteur, sans la confondre avec l'évaluation transversale. Reçoit les 3 critères design.
+2. **5 critères MME effleurés sans fiche centrale** (`RA-MME-C02-1/MME/2`, `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`) **actés en E terminal par délégation** — pas de fiche MME phase 2. Le traitement disciplinaire profond est renvoyé aux cours MME ; le wiki les touche via le prisme mécatronique (pré-dim en concept et dossier-technique).
+3. **`schema-cinematique` créé** — fiche-notion MME tenue en frontière interface (lecture des liaisons + ddl + exemple bras 3 axes, renvoi explicite au cours de mécanique). `MME/5` fermé (NC→C), wiki-link du hub résolu.
 
-Ces trois décisions structurent la finalisation de la stratégie de couverture. Tant qu'elles ne sont pas arbitrées, le bilan ci-dessus reste provisoire sur ses marges (4 NC affichés pourraient devenir 1 NC + 3 HS par délégation).
+La cartographie AA est désormais **refermée** : 43 C, 7 E, 4 HS, 3 HS-D, **0 NC**. Le bilan n'est plus provisoire sur ses marges.
 
 ### Ambition au-delà du référentiel
 
@@ -892,8 +911,8 @@ La cartographie a éprouvé empiriquement quatre conventions, désormais stables
 
 Trois chantiers ouverts, dans l'ordre logique :
 
-1. **Arbitrer les 3 décisions niveau D** avec la hiérarchie (catégorie HS par délégation, 4 critères MME effleurés, `schema-cinematique`). Bloque la finalisation de la stratégie de couverture sur les marges.
+1. **Arbitrages niveau D : faits (06/06)** ✓ — HS-D instaurée, 5 critères MME effleurés actés *E terminal par délégation*, `schema-cinematique` créé. Cartographie AA refermée (0 NC). Reste à reporter dans `conventions.md` (§7) et `TODO.md` à la clôture de session.
 2. **Reprendre la rédaction des fiches** selon TODO : `caracteriser-une-exigence` (prioritaire), `pcb`, `amdec`, puis fiches-notion outils, puis fiches phase 2 EEE/MME selon priorisation.
 3. **Valider les conventions C15/C16 et multi-couverture sur les premières fiches-notion phase 2 produites**. Promotion vers le template `fiche-tuto.md` (à produire) une fois la stabilité confirmée sur 2-3 fiches.
 
-Le chantier cartographie AA est clos : la couverture est mesurée, les trous sont nommés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.
+Le chantier cartographie AA est clos : 43 C, 7 E, 4 HS, 3 HS-D, **0 NC** — la couverture est mesurée, les trous sont fermés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.
