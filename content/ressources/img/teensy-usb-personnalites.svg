@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" role="img" aria-labelledby="tup dup">
+  <title id="tup">Le Teensy, caméléon USB</title>
+  <desc id="dup">Un même Teensy peut s'énumérer auprès de l'ordinateur comme différents appareils USB. Le type est choisi à la compilation, dans le menu Tools puis USB Type. Selon le choix, le Teensy apparaît comme un port série (USB CDC), un périphérique d'interface humaine — clavier, souris, manette (HID) —, un instrument MIDI, une carte audio, un disque MTP, ou une combinaison comme Série plus MIDI. C'est une capacité du matériel USB et de la pile logicielle PJRC, pas une simple bibliothèque.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .boxg { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .boxa { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .bt { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .bs { font:400 10px sans-serif; text-anchor:middle; fill:#888780; }
+      .cord { stroke:#BA7517; stroke-width:1.8; fill:none; marker-end:url(#au); }
+      .cap { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .au { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .boxg { fill:#4A4A48; stroke:#BBBBBB; } .boxa { fill:#4A4A48; stroke:#EF9F27; }
+        .bt { fill:#F1EFE8; } .bs { fill:#BBBBBB; } .cord { stroke:#EF9F27; } .cap { fill:#BBBBBB; } .au { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="au" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="au"/></marker>
+  </defs>
+
+  <text x="410" y="26" class="ttl">Le Teensy, caméléon USB — une identité choisie à la compilation</text>
+
+  <rect x="24" y="131" width="120" height="54" rx="9" class="boxa"/>
+  <text x="84" y="162" class="bt">Teensy</text>
+
+  <rect x="200" y="131" width="160" height="54" rx="9" class="boxg"/>
+  <text x="280" y="156" class="bt">USB Type</text>
+  <text x="280" y="172" class="bs">(Tools → menu)</text>
+
+  <line x1="144" y1="158" x2="198" y2="158" class="cord"/>
+
+  <rect x="470" y="42" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="61" class="bt">Série (USB CDC)</text>
+
+  <rect x="470" y="86" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="105" class="bt">Clavier · Souris · Manette (HID)</text>
+
+  <rect x="470" y="130" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="149" class="bt">MIDI</text>
+
+  <rect x="470" y="174" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="193" class="bt">Audio</text>
+
+  <rect x="470" y="218" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="237" class="bt">Disque MTP</text>
+
+  <rect x="470" y="262" width="312" height="30" rx="7" class="boxg"/>
+  <text x="626" y="281" class="bt">combinés : Série + MIDI, Série + HID…</text>
+
+  <path d="M360,150 C415,150 415,57 468,57" class="cord"/>
+  <path d="M360,154 C415,154 415,101 468,101" class="cord"/>
+  <line x1="360" y1="158" x2="468" y2="145" class="cord"/>
+  <path d="M360,162 C415,162 415,189 468,189" class="cord"/>
+  <path d="M360,166 C415,166 415,233 468,233" class="cord"/>
+  <path d="M360,170 C415,170 415,277 468,277" class="cord"/>
+
+  <text x="410" y="308" class="cap">Un même Teensy s'énumère comme l'appareil USB choisi à la compilation (Tools → USB Type).</text>
+</svg>

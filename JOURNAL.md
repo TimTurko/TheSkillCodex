@@ -10,6 +10,64 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 8) — Ouverture de la famille MCU `esp8266` : hub lean + 2 enfants (porte Arduino, sans SVG)
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A. Après inventaire, Tim retient **esp8266** comme prochaine famille (la plus proche de l'ESP32, chemin court). Cadrage présenté en D, **option 1 validée** (hub lean propre + 2 enfants, pas de SVG). Ouverture comme **hub fille priorité 1** sous `microcontroleur`, décalque C18.
+
+### Livrables
+- **1 hub** `content/fiches/eee/mcu/esp8266/esp8266.md` (`type: notion`, `aa: []`, `prerequis: [microcontroleur]`, `phases: [concept]`) : thèse **« le petit frère Wi-Fi de l'ESP32 »** (Wi-Fi seul, **pas de BLE**, moins de GPIO, un seul ADC, moins cher) ; une porte (ESP8266 Arduino core) ; **table des variantes** (NodeMCU ESP-12E / D1 mini ESP-12F / ESP-01) marquée `[!info]` ; **deux callouts** `[!warning]` — 3,3 V non tolérant 5 V **et** broches de démarrage (GPIO0/2/15) + ADC 0–1 V ; 4 paliers [A]/[T] ; **pas de SVG**.
+- **2 enfants** (`type: tuto`, `phases: [preuve-de-concept]`, tags `[eee, tuto, esp8266]`), trame C49 + exercices C40 + captures C29 :
+  - `esp8266-prise-en-main` (Arduino IDE + core ESP8266, URL Boards Manager, **pilote USB-série CH340/CP2102**, NodeMCU, blink **LED active à l'état bas**, auto-reset DTR/RTS ; `aa: []`).
+  - `esp8266-arduino-core` (la porte unique : **décalage Dxx ≠ GPIO**, **broches de boot** GPIO0/2/15, **ADC unique** A0 0–1 V / 0–3,3 V sur carte, **pile Wi-Fi en tâche de fond → yield()/watchdog** ; **exemple Wi-Fi intégré** = connexion + IP + RSSI, renvoi `esp32-wifi` ; `aa: PROJ/5`).
+
+### Décisions
+- **Une seule porte (Arduino/ESP8266 core)** ; **lean reconduit** : pas de `esp8266-wifi`/`-ble`. Le **Wi-Fi essentiel est porté par l'exemple** d'`esp8266-arduino-core`, les **concepts Wi-Fi renvoyés à `esp32-wifi`** (API quasi identique) ; le *deep sleep* renvoyé à `esp32-deep-sleep`. → 3ᵉ épreuve de C56, sur une famille « moins-disante » (ni native ni distinctive), qui confirme la reformulation (déclencheur = périphériques de base couverts ailleurs).
+- **Renvois cross-famille assumés** : exception ponctuelle à C47 (parcours autonome) pour ne pas dupliquer les fiches Wi-Fi/deep-sleep ESP32 ; cohérent avec la thèse « petit frère ». Le parcours reste autonome pour les **spécificités** esp8266 (broches Dxx, boot, ADC, watchdog).
+- **Pas de SVG** : famille « moins », aucun concept neuf à illustrer (pièges en tableau).
+- **AA : tally inchangé** (multi-couverture C20, PROJ/5 déjà C).
+
+### Conventions
+§8 (éprouvage) : **aucune nouvelle convention numérotée** (reste à 56). **C56 (lean-Bases) éprouvée 3/N** — confirme la reformulation (déclencheur indépendant du type de porte). **Nuance C47** : renvois cross-famille (vers `esp32-wifi`/`esp32-deep-sleep`) tolérés pour une famille « petit frère », le parcours restant autonome sur les spécificités. Réutilisations : C18, C25/C26 (6/N), C27/C48 (vague 1 décalque A pur ; **pas de vague 2** — grappe homogène), C29, C40, C43, C49. Détail en §8.
+
+### Tailles
+Hub ~9 ko ; 2 enfants ~10-12 ko ; pas de SVG. JOURNAL ~78→~83 ko (**archivage 1-pour-1 sauté**, marge sous 100 ko). Tally global **45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %)** inchangé.
+
+### Corps — la 3ᵉ épreuve de lean-Bases, et un cran plus loin
+STM32 (porte native) puis Teensy (porte Arduino) avaient posé puis élargi le lean-Bases. ESP8266 ajoute un cas « moins-disant » : non seulement pas de fiche par périphérique de base, mais **pas de fiche par capacité signature** (le Wi-Fi, pourtant sa raison d'être, ne reçoit pas de fiche dédiée). Le Wi-Fi essentiel tient dans l'exemple d'`arduino-core`, et les concepts sont renvoyés à `esp32-wifi`. C'est un cran de plus que le lean : on **mutualise vers une famille voisine** plutôt que de dupliquer — exception assumée à C47, justifiée par le positionnement « petit frère ». Risque à surveiller : que le parcours esp8266 paraisse trop dépendant de l'esp32 ; on a gardé l'autonomie sur les spécificités (Dxx, boot, ADC, watchdog). Famille de **largeur** : aucun critère AA neuf, 79 % inchangé. Garde-fou : relecture exactitude API ESP8266 (URL core, pilote USB-série, LED active-bas, mapping Dxx, broches de boot, ADC, `ESP8266WiFi`).
+
+---
+
+## 2026-06-06 (suite 7) — Ouverture de la famille MCU `teensy` : hub + 4 enfants + 2 SVG (lean-Bases 2/N, porte Arduino)
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité du 06/06. Démarrage Cas A. Après inventaire des familles non traitées (raspberry-pi / esp8266 / teensy / pic + micropython), Tim choisit **teensy** comme chemin le plus court (décalque Arduino + lean-Bases). Cadrage présenté en D, validé. Ouverture comme **hub fille priorité 2** sous `microcontroleur`, décalque des hubs arduino/esp32/stm32.
+
+### Livrables
+- **1 hub** `content/fiches/eee/mcu/teensy/teensy.md` (`type: notion`, `aa: []`, `prerequis: [microcontroleur]`, `phases: [concept]`) : thèse **« l'Arduino, mais rapide + couteau-suisse USB/audio »** (une seule porte, Teensyduino) ; **table des variantes** par cœur (4.1/4.0 Cortex-M7 600 MHz · LC M0+ · 3.2/3.6 legacy) marquée `[!info]` à confronter à la doc PJRC ; callout `[!warning]` **3,3 V** avec nuance générationnelle (**4.x NON tolérant 5 V**, ≠ STM32/FT ; 3.2 l'était sur les broches num.) ; 4 paliers [A]/[T] ; pas de SVG embarqué dans le hub (les 2 SVG vivent dans les enfants distinctifs).
+- **4 enfants** (`type: tuto`, `phases: [preuve-de-concept]`, tags `[eee, tuto, teensy]`), trame C49 + exercices C40 + captures C29 :
+  - **Vague 1 (décalque, A pur)** : `teensy-prise-en-main` (Arduino IDE + Teensyduino, URL Boards Manager PJRC, Teensy Loader + bouton, blink broche 13 ; `aa: []`) ; `teensy-arduino-core` (la porte unique — Arduino musclé : `digitalWriteFast`, `elapsedMillis`, plusieurs Serial, F_CPU 600 MHz ; noyau PJRC **sur registres NXP, pas de HAL** — contraste STM32 ; `aa: PROJ/5`).
+  - **Vague 2 (distinctifs, calls surfacés)** : `teensy-audio` (Audio Library + **Audio System Design Tool** + objets/cordons + traitement en tâche de fond DMA + exemple oscillateur→I2S/Audio Shield, alt. USB audio sans shield ; **pas de DAC sur 4.x** ; `aa: PROJ/5`) ; `teensy-usb` (menu **USB Type** : clavier/souris/manette/MIDI/audio + exemple bouton→`Keyboard` avec détection de front C44 ; `aa: PROJ/5`).
+- **2 SVG conceptuels** (1ers jets, `ressources/img/`, gabarit auto-contenu + mode sombre) : `teensy-audio-flux.svg` (chaîne audio = objets reliés par cordons, traitement DMA) embarqué dans `teensy-audio` ; `teensy-usb-personnalites.svg` (un Teensy → identités USB choisies à la compilation) embarqué dans `teensy-usb`.
+
+### Décisions
+- **Une seule porte (Arduino/Teensyduino)** : pas de thèse « deux portes » comme STM32. Apport = performance + audio/DSP + USB-device, *dans* le cadre Arduino.
+- **lean-Bases reconduit** : pas de `teensy-gpio`/`teensy-serie` ; GPIO/UART portés par [T] + `teensy-arduino-core`. → 2ᵉ épreuve de C56, **et élargissement** : Teensy n'ayant **pas** de porte native (≠ STM32), C56 se généralise (déclencheur = couverture suffisante ailleurs, pas la nature *native* de la porte). Cf. conventions §8 suite 7.
+- **2 distinctifs = audio + usb** ; **pas de fiche `teensy-performance`** séparée (diluée dans hub + arduino-core) — 5 fiches au total (arbitrage Tim validé).
+- **Profondeur `teensy-audio` bornée (C55)** : assembler/piloter la chaîne, théorie du traitement du signal déléguée à un cours de TS.
+- **AA : tally inchangé** (multi-couverture C20, PROJ/5 déjà C).
+
+### Conventions
+§8 (éprouvage) : **aucune nouvelle convention numérotée** (reste à 56). **C56 (lean-Bases) éprouvée 2/N et reformulée** (déclencheur = couverture des périphériques de base par [T] + fiche(s) de porte, indépendamment du caractère natif de la porte). Réutilisations : C18, C25/C26 (5/N), C27/C48 (batch 2 régimes — variante « vague 2 = capacités signatures », pas pivots d'outillage), C29/C33 (captures + 2 SVG), C40, C43 + **C44** (détection de front réutilisée dans `teensy-usb`), C47, C49, **C55** (borne de profondeur réappliquée au DSP). Détail en §8.
+
+### Tailles
+Hub ~10 ko ; 4 enfants ~10-13 ko ; 2 SVG ~3 ko. JOURNAL ~73→~78 ko (**archivage 1-pour-1 sauté**, marge sous 100 ko). Tally global **45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %)** inchangé.
+
+### Corps — la 2ᵉ famille « porte Arduino » valide et élargit le lean-Bases
+STM32 (suite 6) avait posé le lean-Bases avec une *porte native* (CubeMX/HAL) portant GPIO/UART. Teensy le rejoue sur le cas opposé : **une seule porte, Arduino**. La Bases reste maigre — GPIO/Serial sont du pur vocabulaire Arduino, couverts par la couche [T] et `teensy-arduino-core` — ce qui montre que le déclencheur de C56 n'est pas « avoir une porte native » mais « les périphériques de base sont déjà couverts ailleurs ». C56 passe ainsi à 2/N sur **deux portes différentes**, mûre pour reformulation. Le module évite la fiche-catalogue en s'organisant autour de ce que Teensy fait de neuf *dans* Arduino : la performance (diluée, pas une fiche), et surtout les deux signatures — audio (DSP temps réel par objets/cordons + Audio Design Tool) et USB (le caméléon d'identités). Famille de **largeur** : aucun critère AA neuf, 79 % inchangé. Garde-fou : relecture de l'exactitude API Teensy avant publication (Teensyduino, broches, USB Type, Audio Library, pas-de-DAC 4.x).
+
+---
+
 ## 2026-06-06 (suite 6) — Ouverture de la famille MCU `stm32` : hub + 5 enfants + 2 SVG (vague 1 décalque / vague 2 pivots)
 
 ### Périmètre

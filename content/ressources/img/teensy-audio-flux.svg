@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" role="img" aria-labelledby="tau dau">
+  <title id="tau">Une chaîne audio Teensy</title>
+  <desc id="dau">Le traitement audio sur Teensy se construit comme un graphe d'objets reliés par des cordons. Ici, une entrée audio USB passe dans un filtre, un synthétiseur génère une forme d'onde, et les deux sont combinés par un mixeur dont la sortie part en I2S vers l'Audio Shield. Ces objets et leurs cordons se câblent dans l'Audio System Design Tool, qui génère le code correspondant. Le traitement tourne en tâche de fond, porté par le DMA, indépendamment de la boucle loop().</desc>
+  <defs>
+    <style>
+      .ttl { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .boxg { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .boxa { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.5; }
+      .bt { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .bs { font:400 10px sans-serif; text-anchor:middle; fill:#888780; }
+      .cord { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#ac); }
+      .cap { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ac { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .boxg { fill:#4A4A48; stroke:#BBBBBB; } .boxa { fill:#4A4A48; stroke:#EF9F27; }
+        .bt { fill:#F1EFE8; } .bs { fill:#BBBBBB; } .cord { stroke:#EF9F27; } .cap { fill:#BBBBBB; } .ac { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ac"/></marker>
+  </defs>
+
+  <text x="410" y="26" class="ttl">Une chaîne audio Teensy — des objets reliés par des « cordons »</text>
+
+  <rect x="24" y="66" width="150" height="46" rx="9" class="boxg"/>
+  <text x="99" y="94" class="bt">Entrée USB audio</text>
+
+  <rect x="24" y="168" width="150" height="46" rx="9" class="boxg"/>
+  <text x="99" y="196" class="bt">Synthé (waveform)</text>
+
+  <rect x="224" y="66" width="120" height="46" rx="9" class="boxg"/>
+  <text x="284" y="94" class="bt">Filtre</text>
+
+  <rect x="414" y="117" width="120" height="46" rx="9" class="boxa"/>
+  <text x="474" y="145" class="bt">Mixeur</text>
+
+  <rect x="604" y="117" width="184" height="46" rx="9" class="boxg"/>
+  <text x="696" y="139" class="bt">Sortie I2S</text>
+  <text x="696" y="155" class="bs">→ Audio Shield</text>
+
+  <line x1="174" y1="89" x2="222" y2="89" class="cord"/>
+  <path d="M344,89 C384,89 384,140 412,140" class="cord"/>
+  <path d="M174,191 C300,191 300,148 412,148" class="cord"/>
+  <line x1="534" y1="140" x2="602" y2="140" class="cord"/>
+
+  <text x="410" y="272" class="cap">Traitement en tâche de fond (DMA), indépendant de loop() ; les cordons se câblent dans l'Audio System Design Tool.</text>
+</svg>
