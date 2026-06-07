@@ -101,7 +101,7 @@ L'inventaire produit ici ne déborde pas du strict nécessaire pour lever l'ince
 
 Une fois l'inventaire posé, chaque élément est cherché dans trois sources, dans l'ordre de friction croissante.
 
-1. **Stock école standard** — composants courants disponibles immédiatement au labo ([[microcontroleur|microcontrôleurs]], cartes [[arduino|Arduino]], [[multimetre|multimètres]], [[oscilloscope|oscilloscopes]] de paillasse, [[alimentation-stabilisee|alimentations stabilisées]], [[comparateur|comparateurs]], balance). Source par défaut, à épuiser en premier.
+1. **Stock école standard** — composants courants disponibles immédiatement au labo ([[microcontroleur|microcontrôleurs]], cartes [[arduino|Arduino]], [[multimetre|multimètres]], [[oscilloscope|oscilloscopes]] de paillasse, [[alimentation-electronique|alimentations stabilisées]], [[comparateur|comparateurs]], balance). Source par défaut, à épuiser en premier.
 2. **Stock école divers** — composants spécifiques disponibles à la demande auprès du fablab ou du gestionnaire matériel (capteurs particuliers, vis hors stock standard) et **pièces imprimées 3D à la demande** : l'équipe ne reçoit pas de filament en propre, elle transmet des fichiers STL au responsable fablab [[impression-3d|impression 3D]] qui prend en charge l'impression. Coût zéro mais friction logistique : il faut anticiper le délai d'approvisionnement et le créneau du fablab.
 3. **Acquisition exceptionnelle** — uniquement si vraiment critique pour la preuve, et après validation budget par le responsable projet. Le délai d'achat doit être compatible avec le planning de la preuve ; si l'arrivée du composant repousse l'essai au-delà du jalon de revue PoC, le besoin doit être requestionné plutôt qu'acheté dans l'urgence.
 
@@ -113,7 +113,7 @@ Le respect de cette hiérarchie n'est pas qu'une question d'organisation : c'est
 > [!example] Exemple : projet bras 3 axes
 > Pour la preuve *tenue articulation 3D*, inventaire des moyens et rattachement aux sources :
 >
-> - **Stock école standard** — [[microcontroleur|microcontrôleur]] [[arduino|Arduino]] (automatisation des cycles), [[comparateur|comparateur micrométrique]] (mesure du jeu angulaire), balance de précision et [[pied-a-coulisse|pied à coulisse]] (traçabilité du couple appliqué selon la correction demandée en revue d'étape 1), [[alimentation-stabilisee|alimentation de paillasse]], [[multimetre|multimètre]].
+> - **Stock école standard** — [[microcontroleur|microcontrôleur]] [[arduino|Arduino]] (automatisation des cycles), [[comparateur|comparateur micrométrique]] (mesure du jeu angulaire), balance de précision et [[pied-a-coulisse|pied à coulisse]] (traçabilité du couple appliqué selon la correction demandée en revue d'étape 1), [[alimentation-electronique|alimentation de paillasse]], [[multimetre|multimètre]].
 > - **Stock école divers** — articulations en [[pla|PLA]] à 60 % de remplissage (3 articulations + 1 de réserve) à imprimer au fablab : fichiers STL transmis au responsable fablab [[impression-3d|impression 3D]] dès la sortie d'étape 1 pour réserver le créneau d'impression (délai indicatif 3 jours ouvrés).
 > - **Acquisition exceptionnelle** — aucune. Le banc tient avec le stock disponible.
 
@@ -135,7 +135,7 @@ Le montage doit refléter fidèlement le protocole validé. Si la revue d'étape
 Avant la première mesure, le banc lui-même est **caractérisé** : constantes mesurables (longueur du bras de levier, masse étalonnée, calibration des instruments), conditions ambiantes (température, humidité quand pertinent), références traçables. Cette caractérisation sert ensuite à distinguer un défaut du banc d'un comportement du composant testé — sans elle, toute mesure surprise reste ambigüe.
 
 > [!warning] Attention
-> **Caractériser le banc avant de mesurer.** Un [[comparateur|comparateur]] mal réglé peut donner 0,1° de dérive intrinsèque, une [[alimentation-stabilisee|alimentation]] non stabilisée peut faire varier la mesure de courant de 5 %, un capteur de température mal positionné peut mesurer l'air ambiant au lieu du composant. Sans caractérisation préalable, l'équipe ne sait pas distinguer un défaut du banc d'un comportement réel du composant — et le résultat de la preuve perd son opposabilité.
+> **Caractériser le banc avant de mesurer.** Un [[comparateur|comparateur]] mal réglé peut donner 0,1° de dérive intrinsèque, une [[alimentation-electronique|alimentation]] non stabilisée peut faire varier la mesure de courant de 5 %, un capteur de température mal positionné peut mesurer l'air ambiant au lieu du composant. Sans caractérisation préalable, l'équipe ne sait pas distinguer un défaut du banc d'un comportement réel du composant — et le résultat de la preuve perd son opposabilité.
 
 #### Exécuter et tracer les mesures
 

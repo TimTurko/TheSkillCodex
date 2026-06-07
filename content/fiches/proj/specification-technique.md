@@ -57,7 +57,7 @@ Le contexte répond à la question : **pourquoi ce projet existe ?**
 - **Verrous technologiques** — quels obstacles techniques ou scientifiques le projet cherche à dépasser
 
 > [!warning] Attention
-> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 [[ppm|ppm]] avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
 
 #### Formuler le besoin avec la bête à cornes
 
@@ -81,7 +81,7 @@ Beaucoup de projets pédagogiques n'ont pas de client externe et seront démont�
 
 Deux postures honnêtes selon le projet :
 
-- **L'étudiant devient son propre client** : le service rendu est l'acquisition de compétences ciblées (« développer une chaîne d'asservissement, intégrer une carte électronique sur mesure, manipuler une régulation [[pid|PID]] »). Le « à qui » est l'équipe elle-même, le « but » est explicitement pédagogique. C'est défendable en école, **pas en projet professionnel**.
+- **L'étudiant devient son propre client** : le service rendu est l'acquisition de compétences ciblées (« développer une chaîne d'asservissement, intégrer une carte électronique sur mesure, manipuler une régulation [[arduino-pid|PID]] »). Le « à qui » est l'équipe elle-même, le « but » est explicitement pédagogique. C'est défendable en école, **pas en projet professionnel**.
 - **L'équipe se donne un client fictif crédible** : pour le robot labyrinthe, on peut imaginer un cas d'usage (« robot d'inspection de canalisations enterrées »). L'analyse fonctionnelle devient cohérente, et l'exercice prend une dimension d'ingénierie réaliste.
 
 Choisissez explicitement l'une des deux postures et tenez-la pendant toute la rédaction du CdCF.

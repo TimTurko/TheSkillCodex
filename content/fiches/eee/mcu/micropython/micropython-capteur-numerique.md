@@ -115,7 +115,7 @@ La factorisation en [[micropython-fonctions|fonction]] `mesurer_cm()` annonce l'
 
 **Timeout de `time_pulse_us()` oublié.** Sans timeout, l'appel peut bloquer si aucun écho ne revient. Toujours passer le 3ᵉ argument (en µs) ; pour 4 m, ~23 ms → 30 ms.
 
-**Valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes — filtrer (médiane sur 3-5 mesures) avant d'asservir (voir [[micropython-filtrage|filtrer des mesures]]).
+**Valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes — filtrer (médiane sur 3-5 mesures) avant d'asservir (voir filtrer des mesures).
 
 **Mesure trop fréquente.** Cycle de mesure ≈ 60 ms ; mesurer plus vite donne des résultats incohérents. 10 Hz est un bon rythme.
 

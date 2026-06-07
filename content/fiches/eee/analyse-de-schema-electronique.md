@@ -46,7 +46,7 @@ Regrouper mentalement les composants par **fonction** : alimentation, traitement
 
 ### 3. Identifier chaque composant
 
-Chaque symbole est un composant avec une **référence** (R1, C2, U1, D1) et une **valeur** (10 kΩ, 100 nF). Reconnaître les symboles courants — résistance, condensateur, diode et [[del|LED]], transistor, circuit intégré. Pour un circuit intégré, le rôle de chaque broche se lit dans sa [[lire-une-datasheet|datasheet]].
+Chaque symbole est un composant avec une **référence** (R1, C2, U1, D1) et une **valeur** (10 kΩ, 100 nF). Reconnaître les symboles courants — résistance, condensateur, diode et LED, transistor, circuit intégré. Pour un circuit intégré, le rôle de chaque broche se lit dans sa [[lire-une-datasheet|datasheet]].
 
 ### 4. Suivre les signaux : entrée → traitement → sortie
 

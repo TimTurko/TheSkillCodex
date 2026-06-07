@@ -110,7 +110,7 @@ La sortie au [[micropython-repl|REPL]] (et le traceur de Thonny) permet de visua
 
 **Croire à une référence réglable.** Sur le Pico la référence est fixe (3,3 V) ; on convertit toujours par rapport à 3,3 V. Une alimentation 3,3 V bruitée biaise toutes les mesures — découpler proprement.
 
-**Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur précis, ça compte : moyenner sur 10–20 mesures (suréchantillonnage), ou filtre RC matériel (voir [[micropython-filtrage|filtrer des mesures]]).
+**Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur précis, ça compte : moyenner sur 10–20 mesures (suréchantillonnage), ou filtre RC matériel (voir filtrer des mesures).
 
 **Tension d'entrée hors plage.** Appliquer > 3,3 V sur une entrée ADC abîme la puce (Pico non tolérant 5 V). Vérifier la plage de sortie du capteur dans sa datasheet ([[lire-une-datasheet|lire une datasheet]]).
 
@@ -132,6 +132,6 @@ L'étalonnage transforme un capteur « qui sort un nombre » en *instrument de m
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-capteur-numerique|Lire un capteur numérique]] — l'alternative TOR ou impulsionnelle
 - [[micropython-repl|Le REPL]] — observer les mesures et calibrer
-- [[micropython-filtrage|Filtrer des mesures]] — lisser le bruit ADC
+- Filtrer des mesures — lisser le bruit ADC
 - [[niveaux-de-tension|Niveaux de tension]] — 3,3 V vs 5 V sur capteurs et cartes
 - [[arduino-capteur-analogique|Lire un capteur analogique (Arduino)]] — l'équivalent C++

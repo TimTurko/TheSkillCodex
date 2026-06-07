@@ -155,7 +155,7 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 >   }
 > }
 > ```
-> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[programmation-non-bloquante|la programmation non bloquante]].
+> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[arduino-programmation-non-bloquante|la programmation non bloquante]].
 
 > [!question] Exercice 2 — LED externe
 > Câblez une LED externe (avec sa résistance de ~220 Ω en série) sur **GPIO 16** et faites-la clignoter, sans toucher à la LED intégrée. Quelle ligne change ?

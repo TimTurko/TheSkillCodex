@@ -239,7 +239,7 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 ## Aller plus loin
 
 - [Référence de la classe Serial (Arduino)](https://www.arduino.cc/reference/en/language/functions/communication/serial/) — `peek`, `parseFloat`, `readBytes`…
-- [[programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple).
+- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple).
 - Pour traiter la sortie en aval : un script Python avec `pyserial` lit le flux (graphique, log fichier, déclenchement d'actions).
 
 ## Voir aussi

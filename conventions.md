@@ -782,6 +782,16 @@ Notes hygiène 07/06 (pas de convention numérotée) :
 - **Script CLI pour déplacement de bloc lourd** — l'archivage massif (~46 ko, avec un octet U+FFFD hérité) a été fait par un **script Node fail-safe** (`tools/archive-journal-0607.mjs` : `slice` sur deux ancres propres + écritures atomiques archive-d'abord, `process.exit(1)` si une ancre manque) plutôt qu'une séquence d'`edit_file` — le ré-assemblage manuel des séparateurs `---` est fragile, le matching d'un `oldText` contenant des octets corrompus est douteux, et un `edit_file` peut s'appliquer à moitié. Outille concrètement la mention « préférer un script CLI pour les opérations massives ».
 - **U+FFFD résiduels** — 2 occurrences héritées : `28/05 suite 2` (partie fidèlement en archive) et `06/06 suite 10` (reste au JOURNAL). **Hors** `normalize-pilotage.js` (qui ne cible que les invisibles) ; visibles, cosmétiques, fichiers non publiés → nettoyage manuel Obsidian si souhaité.
 
+### Acquises 07/06 (suite) — module SBC Raspberry Pi (hub + 3 fiches + 3 SVG)
+
+Pas de nouvelle convention numérotée (reste à **57**). Le module Raspberry Pi est le **premier SBC** (ordinateur sous Linux, pas un microcontrôleur) et fournit le **contre-cas de C57** :
+
+- **Borne de C57 (clone) — le SBC ne se clone pas.** C57 autorise le clonage du curriculum Arduino pour une plateforme à *paradigme distinct mais transposable* (MicroPython). Un SBC est à paradigme distinct **et non transposable** (on apprend à se servir d'un ordinateur, pas à programmer une puce nue) : il reçoit une **structure propre** — paliers adaptés (*Prendre en main OS/headless/SSH → Piloter le matériel → Projet*), **ni les 4 paliers C25, ni un décalque C57**. Si une 2ᵉ plateforme-ordinateur apparaît un jour, candidate à numéroter (C58) ; sinon, borne de facto.
+- **C55 (borne de profondeur) étendue à l'OS/sysadmin.** 3ᵉ frontière de délégation après l'élec de puissance (suite 4) et le DSP Teensy (suite 7) : le wiki traite le **choix MCU/SBC** et le **pilotage matériel depuis Linux** (GPIO `gpiozero`, pas de temps réel dur), mais **délègue le sysadmin Linux pur** (paquets, services, sécurité OS) comme la méca/ACV — posé en aparté italique. Prise en main bornée : jusqu'au **shell headless + Python**, pas au-delà.
+- **C23 (fil rouge bras 3 axes) +1** sur `raspberry-pi-projet` (fiche d'intégration de phase concept) — conforte l'option (a) : le fil rouge cadre les concepts/architectures de phase concept.
+
+Réutilisations : **C18** (mini-hub, sous-dossier `eee/mcu/raspberry-pi/`, hub nommé `type: notion`) ; **C20** (multi-couverture : hub `EEE/2`, `-gpio`/`-projet` `PROJ/5` effleurés, **tally inchangé 79 %**) ; **C24** (`write_file`) ; **C29** (captures inline) ; **C33/C52** (3 SVG conceptuels, gabarit auto-contenu + dark) ; **C46** (catégoriel : SBC rangé sous `eee/mcu/` « par usage » malgré le paradigme distinct). **Exemples travaillés, pas d'exercices C49** (arbitrage Tim). Lien rouge `[[raspberry-pi]]` préexistant de `microcontroleur` **résolu par la seule création du hub** (aucun patch — comme stm32/esp8266). **Avec cette famille, le panorama `microcontroleur` n'a plus aucun lien-famille rouge.**
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

@@ -107,7 +107,7 @@ print(capteur["broche"])   # -> 26
 > moyenne = sum(mesures) / len(mesures)
 > print(moyenne)        # 523.33...
 > ```
-> `sum()` additionne les éléments, `len()` les compte ; la division réelle `/` donne une moyenne en `float`. On retrouvera ce motif pour [[micropython-filtrage|lisser des mesures]] bruitées.
+> `sum()` additionne les éléments, `len()` les compte ; la division réelle `/` donne une moyenne en `float`. On retrouvera ce motif pour lisser des mesures bruitées.
 
 ## Voir aussi
 

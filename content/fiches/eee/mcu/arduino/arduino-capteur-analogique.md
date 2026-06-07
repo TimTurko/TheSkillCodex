@@ -129,7 +129,7 @@ La sortie au [[arduino-serie|moniteur série]] (et au **traceur série**) permet
 
 **Référence de tension non précisée.** Par défaut, l'ADC compare à la tension d'alimentation de la carte. Si l'Arduino est alimenté par USB d'un PC qui débite 4,8 V au lieu de 5 V, la plage pleine échelle est 4,8 V — toutes les mesures sont biaisées de 4 %. Pour des mesures précises, utiliser `analogReference(INTERNAL)` (1,1 V interne stable) ou une référence externe sur `AREF`.
 
-**Bruit sur les mesures.** Une mesure analogique brute a typiquement ±1 à ±3 LSB de bruit (~5-15 mV). Sur un capteur précis (LM35 0,01 V/°C → 1 LSB = 0,5 °C), ça compte. Filtrer : moyenne sur 10-20 mesures (oversampling), ou filtre passe-bas RC matériel (voir [[arduino-filtrage|filtrer des mesures]]).
+**Bruit sur les mesures.** Une mesure analogique brute a typiquement ±1 à ±3 LSB de bruit (~5-15 mV). Sur un capteur précis (LM35 0,01 V/°C → 1 LSB = 0,5 °C), ça compte. Filtrer : moyenne sur 10-20 mesures (oversampling), ou filtre passe-bas RC matériel (voir filtrer des mesures).
 
 **Tension d'entrée hors plage.** Brancher une tension > 5 V sur une broche analogique d'Uno R3 abîme l'ADC. Vérifier la plage de sortie du capteur dans sa datasheet — voir [[lire-une-datasheet|lire une datasheet]].
 
@@ -155,6 +155,6 @@ Le pas-à-pas étalonnage est l'étape qui transforme un capteur « branché qui
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-capteur-numerique|Lire un capteur numérique]] — l'alternative TOR ou impulsionnelle
 - [[arduino-serie|Moniteur série]] — observer les mesures brutes et calibrer
-- [[arduino-filtrage|Filtrer des mesures]] — lisser le bruit ADC
+- Filtrer des mesures — lisser le bruit ADC
 - [[niveaux-de-tension|Niveaux de tension]] — 3,3 V vs 5 V sur capteurs et cartes
 - [[lire-une-datasheet|Lire une datasheet]] — pour repérer la plage de tension du capteur

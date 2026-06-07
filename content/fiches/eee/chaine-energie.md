@@ -22,7 +22,7 @@ Un système mécatronique fait deux choses à la fois : il **transforme de l'én
 
 - **répartir le projet** — la chaîne d'énergie mobilise l'électronique de puissance et la mécanique (côté collègues) ; la chaîne d'information, les capteurs, le [[microcontroleur|microcontrôleur]] et le [[cpp|code]] ;
 - **repérer les interfaces** — c'est à la jonction des deux chaînes que se jouent les [[niveaux-de-tension|niveaux de tension]], les drivers, la compatibilité des signaux ;
-- **voir l'asservissement** — quand l'information mesure ce que l'énergie produit, la boucle se ferme ([[boucle-ouverte-boucle-fermee|boucle fermée]]).
+- **voir l'asservissement** — quand l'information mesure ce que l'énergie produit, la boucle se ferme (boucle fermée).
 
 Le modèle complète le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] (qui montre les fonctions) et le [[schema-cinematique|schéma cinématique]] (qui montre les mouvements) : ici, on suit les **flux** d'énergie et d'information.
 
@@ -55,7 +55,7 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 
 **Confondre convertir et transmettre.** Le moteur **convertit** l'énergie (électrique → mécanique) ; le réducteur la **transmet** en l'adaptant (couple, vitesse). Deux fonctions distinctes, souvent dans deux composants distincts.
 
-**Tracer une chaîne d'énergie sans retour.** Sans capteur qui mesure l'effet produit, le système est en [[boucle-ouverte-boucle-fermee|boucle ouverte]] : il commande à l'aveugle. Beaucoup de défaillances viennent d'un retour oublié dès la conception.
+**Tracer une chaîne d'énergie sans retour.** Sans capteur qui mesure l'effet produit, le système est en boucle ouverte : il commande à l'aveugle. Beaucoup de défaillances viennent d'un retour oublié dès la conception.
 
 **Ranger un composant dans la mauvaise chaîne.** Un capteur appartient à la chaîne d'**information** (il renseigne), même s'il est parcouru par un courant. Le critère : le composant transporte-t-il de la **puissance** (énergie) ou une **grandeur à connaître** (information) ?
 
@@ -64,6 +64,6 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 - [[alimentation-electronique|Concevoir une alimentation électronique]] — l'ingénierie du bloc *alimenter / distribuer*
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — les **fonctions** et leurs flux ; vue complémentaire
 - [[schema-cinematique|Schéma cinématique]] — les **mouvements** du mécanisme mis en action par la chaîne d'énergie
-- [[boucle-ouverte-boucle-fermee|Boucle ouverte / boucle fermée]] — ce que devient le couplage quand la mesure revient à la commande
+- Boucle ouverte / boucle fermée — ce que devient le couplage quand la mesure revient à la commande
 - [[microcontroleur|Microcontrôleur]] — le cœur de la chaîne d'information
 - [[concept|Concept]] — la phase où l'on pose ces chaînes pour répartir le projet

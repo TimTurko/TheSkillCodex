@@ -137,7 +137,7 @@ La factorisation en fonction `mesurerDistance()` annonce la pratique d'organisat
 
 **Timeout de `pulseIn()` mal calibré.** Sans timeout, `pulseIn()` peut bloquer indéfiniment si aucun écho ne revient (cible trop loin, surface absorbante). Toujours passer un troisième argument (en microsecondes). Pour HC-SR04 en 4 m : ~23 ms d'aller-retour, donc timeout 30 ms.
 
-**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie — voir [[arduino-filtrage|filtrer des mesures]].
+**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie — voir filtrer des mesures.
 
 **Niveau 5 V sur entrée ESP32.** Le HC-SR04 sort `Echo` à 5 V. Sur ESP32 (entrée tolérante 3,3 V), brancher directement endommage la broche. Diviseur de tension ou convertisseur de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
@@ -165,4 +165,4 @@ Brancher un capteur, lire sa documentation, en sortir une mesure crédible sur q
 - [[arduino-i2c|I2C sur Arduino]] — bus pour capteurs numériques évolués (BMP280, MPU6050)
 - [[arduino-bibliotheques|Utiliser une bibliothèque]] — pour DHT11, DS18B20, etc.
 - [[lire-une-datasheet|Lire une datasheet]] — pour identifier la nature exacte du signal
-- [[arduino-filtrage|Filtrer des mesures]] — pour lisser le bruit des capteurs
+- Filtrer des mesures — pour lisser le bruit des capteurs

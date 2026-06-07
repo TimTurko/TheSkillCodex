@@ -50,7 +50,7 @@ Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première L
 - [[arduino-programmation-non-bloquante|Programmation non bloquante]] — sortir du `delay()` bloquant, prérequis de la machine à états ;
 - [[arduino-machine-a-etats|Machine à états sur Arduino]] *(→ notion [[machine-a-etats]])* ;
 - [[arduino-eeprom|Stockage EEPROM]] ;
-- [[arduino-filtrage|Filtrer des mesures]] *(optionnel)*.
+- Filtrer des mesures *(optionnel)*.
 
 ### Niveau ingénieur
 
@@ -89,7 +89,7 @@ Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la 
 
 ## Écosystème
 
-L'environnement de référence est l'**IDE Arduino**, qui reconnaît les cartes sans [[pilote|pilote]] supplémentaire ; pour des projets plus structurés, PlatformIO ou l'Arduino CLI offrent une chaîne de compilation plus puissante. Le langage est un **[[cpp|C++]] outillé** (dialecte Wiring), organisé autour de deux [[fonction-informatique|fonctions]] : `setup()`, exécutée une fois au démarrage, et `loop()`, répétée indéfiniment. Le gestionnaire de bibliothèques intégré donne accès en quelques clics à des milliers de pilotes de capteurs et de modules.
+L'environnement de référence est l'**IDE Arduino**, qui reconnaît les cartes sans pilote supplémentaire ; pour des projets plus structurés, PlatformIO ou l'Arduino CLI offrent une chaîne de compilation plus puissante. Le langage est un **[[cpp|C++]] outillé** (dialecte Wiring), organisé autour de deux [[fonction-informatique|fonctions]] : `setup()`, exécutée une fois au démarrage, et `loop()`, répétée indéfiniment. Le gestionnaire de bibliothèques intégré donne accès en quelques clics à des milliers de pilotes de capteurs et de modules.
 
 Cet écosystème déborde du seul matériel Arduino : le même cadre de développement programme aussi l'[[esp32|ESP32]] (via l'Arduino-core) et bien d'autres cartes. Frontière à garder en tête — ce bloc décrit l'**outillage** propre à Arduino, pas la façon de structurer le code embarqué, qui relève de [[firmware]].
 

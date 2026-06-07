@@ -93,7 +93,7 @@ La synthèse fait deux à quatre paragraphes. Au-delà, elle se transforme en r�
 
 ## Exemple — Bras 3 axes pédagogique
 
-Reprenons le projet fil rouge — un [[bras-3-axes|bras robotique pédagogique 3 axes]]. L'EAT mené pour calibrer le CdCF retient trois références issues de catalogues commerciaux et de communautés open source, comparées sur six critères discriminants.
+Reprenons le projet fil rouge — un bras robotique pédagogique 3 axes. L'EAT mené pour calibrer le CdCF retient trois références issues de catalogues commerciaux et de communautés open source, comparées sur six critères discriminants.
 
 | Critère | Niryo One | uArm Swift Pro | BCN3D Moveo |
 |---|---|---|---|

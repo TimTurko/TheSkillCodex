@@ -11,7 +11,7 @@ aa:
 draft: false
 ---
 
-Le **schéma bloc fonctionnel** est une représentation graphique d'un système mécatronique qui montre ses sous-fonctions ([[capteur|capteurs]], [[controleur|contrôleurs]], [[actionneur|actionneurs]], [[effecteur|effecteurs]]) et les flux d'information, d'énergie et de matière qui circulent entre elles. Il sert de pont entre le [[cahier-des-charges-fonctionnel|cahier des charges]] et le choix des solutions techniques.
+Le **schéma bloc fonctionnel** est une représentation graphique d'un système mécatronique qui montre ses sous-fonctions (capteurs, [[microcontroleur|contrôleurs]], actionneurs, effecteurs) et les flux d'information, d'énergie et de matière qui circulent entre elles. Il sert de pont entre le [[cahier-des-charges-fonctionnel|cahier des charges]] et le choix des solutions techniques.
 
 ## À quoi ça sert ?
 
@@ -29,10 +29,10 @@ Le schéma bloc joue un autre rôle décisif : c'est un document de communicatio
 
 Un schéma bloc se construit en partant du [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]] et en répondant dans l'ordre à cinq questions :
 
-1. Quelle est la fonction principale du système ? → un bloc central, ou la [[frontiere-systeme|frontière du système]].
-2. Quels signaux d'entrée perçoit-il ? → identifier les [[capteur|capteurs]] (information venant de l'environnement ou de l'utilisateur).
-3. Quelles actions produit-il sur le monde ? → identifier les [[actionneur|actionneurs]] et [[effecteur|effecteurs]].
-4. Qui décide ? → identifier le ou les [[controleur|contrôleurs]] (microcontrôleur, automate, logique câblée).
+1. Quelle est la fonction principale du système ? → un bloc central, ou la frontière du système.
+2. Quels signaux d'entrée perçoit-il ? → identifier les capteurs (information venant de l'environnement ou de l'utilisateur).
+3. Quelles actions produit-il sur le monde ? → identifier les actionneurs et effecteurs.
+4. Qui décide ? → identifier le ou les [[microcontroleur|contrôleurs]] (microcontrôleur, automate, logique câblée).
 5. Comment circule l'information ? → tracer les flèches entre les blocs avec le type de flux.
 
 L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène à dimensionner le système autour d'un composant plutôt qu'autour d'un besoin. *"Je connais bien les ESP32, je vais partir là-dessus"* — et l'on se retrouve à devoir caser l'usage dans les contraintes du composant.
@@ -44,8 +44,8 @@ L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène 
   - *Information* : signal logique, valeur capteur, message réseau. Trait fin par convention.
   - *Énergie* : puissance électrique, mécanique, hydraulique. Trait épais ou flèche double.
   - *Matière* : fluide, pièce manipulée, échantillon. Trait pointillé ou flèche pleine large.
-- **[[frontiere-systeme|Frontière du système]]** : pointillé englobant les blocs qui appartiennent au système. Tout ce qui est dehors est environnement (utilisateur, objet à manipuler, conditions extérieures).
-- **[[boucle-ouverte-boucle-fermee|Boucle ouverte vs fermée]]** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
+- **Frontière du système** : pointillé englobant les blocs qui appartiennent au système. Tout ce qui est dehors est environnement (utilisateur, objet à manipuler, conditions extérieures).
+- **Boucle ouverte vs fermée** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
 
 <!-- TODO: insérer ici un schéma d'illustration des conventions (légende des flèches, blocs types). -->
 
@@ -66,13 +66,13 @@ flowchart TD
     class CTRL,CAPT,ACT,EFF sys;
 ```
 
-On lit le schéma ainsi : l'utilisateur fixe une consigne, le contrôleur la compare à la mesure de la thermistance, et pilote en [[pwm|PWM]] le relais qui alimente la résistance chauffante. La chaleur diffuse dans l'air de la couveuse, le capteur mesure, [[boucle-ouverte-boucle-fermee|boucle fermée]].
+On lit le schéma ainsi : l'utilisateur fixe une consigne, le contrôleur la compare à la mesure de la thermistance, et pilote en [[pwm|PWM]] le relais qui alimente la résistance chauffante. La chaleur diffuse dans l'air de la couveuse, le capteur mesure, boucle fermée.
 
 Quelques observations à tirer de cet exemple :
 
 - L'utilisateur et l'air de la couveuse sont en dehors du système (pas dans la frontière colorée). Ce sont des éléments d'environnement.
 - L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance ; la résistance la transforme en chaleur.
-- La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'[[asservissement]] (un correcteur [[pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
+- La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[arduino-pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
 
 <!-- TODO: ajouter une photo de couveuse réelle annotée avec les blocs identifiés. -->
 
@@ -92,5 +92,5 @@ Quelques observations à tirer de cet exemple :
 
 - [[../proj/decomposition-fonctionnelle|Décomposition fonctionnelle]] — analyse amont côté gestion de projet, qui produit les fonctions techniques que ce schéma vient concrétiser en blocs matériels.
 - [[../proj/cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] — l'entrée du processus, dont découle le schéma bloc.
-- [[boucle-ouverte-boucle-fermee|Boucle ouverte / boucle fermée]] — caractérise la nature du contrôle dans le schéma.
-- [[capteur|Capteurs]] et [[actionneur|actionneurs]] — les deux familles de blocs d'interface avec l'environnement.
+- Boucle ouverte / boucle fermée — caractérise la nature du contrôle dans le schéma.
+- Capteurs et actionneurs — les deux familles de blocs d'interface avec l'environnement.

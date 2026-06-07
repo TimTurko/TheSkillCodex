@@ -10,6 +10,38 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-07 (suite) — Ouverture de la famille SBC `raspberry-pi` : hub + 3 fiches + 3 SVG (module complet, ≠ clone C57)
+
+### Périmètre
+PC perso (`filesystem:*`), `git pull` fait. Démarrage Cas A. Dernière famille du panorama `microcontroleur` non traitée. **Cadrage D obligatoire d'abord** (validé Tim : option A, SBC Linux), puis production en A. Le versant microcontrôleur de la « famille Raspberry » (Pico/RP2040) étant déjà couvert par MicroPython, le module ne traite que le **SBC Linux**.
+
+### Livrables
+Module `eee/mcu/raspberry-pi/` (sous-dossier C18) :
+- **hub** `raspberry-pi.md` (`notion`, `aa: EEE/2`) : thèse **MCU vs SBC** (le cœur), panorama cartes Pi 5/4/Zero `[!info]`, warning **3,3 V**, distinction explicite Pico → `micropython`, **paliers adaptés** (Prendre en main / Piloter le matériel / Projet) ;
+- `raspberry-pi-prise-en-main.md` (`tuto`, `aa:[]`) : Raspberry Pi Imager + Pi OS Lite, **headless + SSH**, premier Python ; aparté C55 sysadmin délégué ; captures C29 ;
+- `raspberry-pi-gpio.md` (`tuto`, `aa: PROJ/5`) : `gpiozero`/`RPi.GPIO` (KO Pi 5)/`lgpio`, LED + bouton (exemples travaillés), **« pas de temps réel dur »** (l'OS s'intercale), 3,3 V ;
+- `raspberry-pi-projet.md` (`tuto`, `phases: integration`, `aa: PROJ/5`) : **architecture bicéphale** SBC (haut niveau) + microcontrôleur (temps réel) sur le **fil rouge bras 3 axes**, quand le SBC suffit seul, démarrage auto en aparté C55.
+- **3 SVG conceptuels** (gabarit auto-contenu + dark) : `raspberry-pi-mcu-vs-sbc` · `raspberry-pi-gpio-pile` · `raspberry-pi-architecture-bicephale`.
+
+### Décisions
+- **Option A (SBC Linux)** ; B caduque (Pico déjà couvert + déjà distingué dans la prose de `microcontroleur`) ; **porte Pico-SDK C/C++ reportée** (optionnelle, hors module).
+- **Frontière headless/SSH** : jusqu'au **shell headless + Python**, le sysadmin pur délégué (C55).
+- **Paliers adaptés, ≠ 4 paliers C25, ≠ clone C57** : un SBC s'apprend comme un ordinateur, pas comme une puce nue → structure propre.
+- **Exemples travaillés, pas d'exercices C49** (un SBC se prête moins au format énoncé/corrigé).
+- **Placement `eee/mcu/`** (par usage, malgré le paradigme distinct ; C46).
+- **Référentiel** : aucun critère SBC-spécifique (il *nomme* « Raspberry » en `EEE/1` et « PC embarqué » en `PROJ/5`, déjà Couverts) → **tally 79 % inchangé**, multi-couverture C20, **carto non touchée**.
+
+### Conventions
+Numérotation reste **57**. **Borne de C57** (le SBC est le contre-cas : paradigme distinct MAIS non transposable → structure propre, pas un clone ; candidate C58 si un 2ᵉ SBC apparaît). **C55 étendue** (OS/sysadmin = 3ᵉ frontière de délégation, après l'élec de puissance et le DSP). **C23 +1** (`-projet`). Réutilisations : C18, C20, C24, C29, C33/C52, C46.
+
+### Tailles
+4 fiches 7-8 ko, 3 SVG 3-4 ko. JOURNAL ~55→~60 ko (**archivage 1-pour-1 sauté** — marge sous 100 ko, archivage de masse ce matin). Tally **45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %)** inchangé.
+
+### Corps — le SBC, contre-cas de C57
+MicroPython avait montré qu'une plateforme à paradigme distinct mais *transposable* pouvait cloner le curriculum Arduino (C57). Le Raspberry Pi (SBC sous Linux) est l'autre branche : paradigme distinct **et non transposable** — on n'y programme pas une puce nue, on s'y sert d'un ordinateur. D'où une **structure propre** (prise en main OS/headless/SSH → piloter le matériel depuis Linux → architecture de projet), ni les 4 paliers MCU ni un décalque. La fiche `-gpio` porte le point pédagogique central, incarné par un SVG : sous Linux, l'OS s'intercale entre le programme et la broche, donc **pas de temps réel dur** — ce qui justifie l'**architecture bicéphale** (le SBC pense, le microcontrôleur agit) de `-projet`, sur le fil rouge bras 3 axes. La profondeur est bornée par C55 (3ᵉ frontière : le sysadmin Linux pur est délégué, comme la méca/ACV). Famille de **largeur** (0 critère neuf, 79 % inchangé) qui **clôt la couche familles MCU/SBC** : le panorama `microcontroleur` n'a plus aucun lien-famille rouge. Reste dû : relecture exactitude OS/API + captures C29 + peigne Quartz des 3 SVG ; et, hors module, le nettoyage pré-publication (4 items) + relectures API en bloc.
+
+---
+
 ## 2026-06-07 — Nettoyage pré-publication (partiel) : archivage JOURNAL coupe α + suppression `mia` + promotion C57
 
 ### Périmètre
