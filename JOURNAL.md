@@ -10,6 +10,29 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 12) — MicroPython Vague 3 : 6 fiches Ingénieur — MODULE COMPLET
+
+### Périmètre
+PC perso (`filesystem:*`), continuité 06/06, enchaîné sur « go vague 3 ». Régime décalque (Cas A), transposition Python/`machine` des 6 jumelles `arduino-*` du palier « ingénieur ». **Cette vague clôt le module MicroPython** (4 vagues). Relecture API + peigne SVG toujours reportés en bloc final (validé Tim).
+
+### Livrables
+**6 fiches** dans `content/fiches/eee/mcu/micropython/` (type tuto, tag micropython, renvoi vers la jumelle `arduino-*`) : `micropython-interruptions` (`Pin.irq`, **règle « pas d'allocation en ISR »** + `micropython.schedule` + `alloc_emergency_exception_buf` + `disable_irq`/`enable_irq`) · `-timers` (`machine.Timer`, API **uniforme**, callback = contexte d'interruption) · `-deep-sleep` (**`lightsleep` reprend / `deepsleep` redémarre**, `reset_cause`, sauvegarde d'état par fichier, réalisme conso carte Pico) · `-pid` (`borne()` maison + `duty_u16` 16 bits + anti-emballement) · `-memoire` (**`gc` ramasse-miettes**, fragmentation, `const()`, modules gelés) · `-watchdog` (`machine.WDT` + `feed()`, **non désarmable**, timeout max ~8,3 s). `manipulation-de-bits` reste **[T]** (transverse, non dupliqué). Aucun SVG produit.
+
+### Décisions
+- **API/divergences V3** : **pas d'allocation mémoire en ISR** (ni `print` formaté ni objet ni flottant) → `micropython.schedule()` pour différer ; `machine.Timer` **uniforme** (vs registres AVR) ; **`deepsleep` redémarre** la puce (sauver l'état dans un fichier, comme l'ESP) ; **`gc` ramasse-miettes** renverse la gestion manuelle d'Arduino (`F()`/`PROGMEM`) — surveiller fragmentation + pauses ; **`WDT` non désarmable** une fois armé (vs `wdt_disable()`).
+- **aa** : 6 fiches `PROJ/5`. **Tally inchangé 79 %** (largeur, multi-couverture C20).
+
+### Conventions
+Aucune convention numérotée nouvelle (reste **56**). **Le motif « clone de curriculum + hub langage substitué » est désormais éprouvé sur les TROIS vagues hands-on (V1 bases, V2 avancées, V3 ingénieur) + des fiches divergentes — il est MÛR.** Recommandation : le **promouvoir en convention numérotée** (C57) — décision structurelle à acter par Tim. Réutilisations : C27/C48, C49, C23, C20.
+
+### Tailles
+6 fiches ~7-10 ko ch. Module MicroPython = hub + 37 enfants = **38 fiches** (8 V0 + 11 V1 + 12 V2 + 6 V3 + hub). **Seul `micropython-filtrage` reste rouge** (optionnel, pas de jumeau `arduino-filtrage`). **JOURNAL > 100 ko — ARCHIVAGE URGENT** (`JOURNAL-archive.md`).
+
+### Corps
+Clôture du module MicroPython (4 vagues, ouvert suite 9). Le palier ingénieur confirme le motif clone une 3ᵉ fois, avec quelques divergences API marquantes : la règle **« pas d'allocation en ISR »** (+ `micropython.schedule`) est le piège MicroPython le plus subtil de la vague ; le **ramasse-miettes `gc`** renverse complètement la gestion mémoire manuelle d'Arduino (plus de `F()`/`PROGMEM`, mais fragmentation et pauses à surveiller) ; **`deepsleep` redémarre** comme l'ESP (sauvegarde par fichier) ; **`WDT` non désarmable**. Le module est complet et navigable de la première LED au watchdog. **Prochaine = Raspberry** (session dédiée : scoping SBC Linux vs Pico RP2040). Le motif clone, mûr, attend la décision de promotion en convention.
+
+---
+
 ## 2026-06-06 (suite 11) — MicroPython Vague 2 : 12 fiches Avancées
 
 ### Périmètre
