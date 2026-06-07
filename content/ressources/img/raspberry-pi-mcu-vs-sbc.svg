@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Microcontrôleur ou ordinateur monocarte (SBC) ?</title>
+  <desc id="d1">Comparaison de deux cibles de commande. À gauche, le microcontrôleur exécute un programme nu, sans système d'exploitation : il est déterministe et temps réel, consomme très peu (jusqu'au microampère en veille), démarre instantanément et coûte quelques euros. À droite, l'ordinateur monocarte (SBC) comme le Raspberry Pi fait tourner un système d'exploitation complet (Linux) : il permet le calcul lourd, la vision, le réseau et le multitâche, au prix de plusieurs watts, d'un démarrage lent et d'un coût plus élevé. Le bon choix part du besoin du projet, pas de la puissance disponible.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 15px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .panel { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .hdt { font:700 14px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .sub { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .li { font:400 12.5px sans-serif; fill:#2C2C2A; }
+      .dot { fill:#BA7517; }
+      .vs { font:700 16px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 12px sans-serif; text-anchor:middle; fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .panel { fill:#4A4A48; stroke:#EF9F27; } .hdt { fill:#EF9F27; }
+        .sub { fill:#BBBBBB; } .li { fill:#F1EFE8; } .dot { fill:#EF9F27; }
+        .vs { fill:#BBBBBB; } .foot { fill:#EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="ttl">Deux cibles de commande, deux paradigmes</text>
+
+  <!-- Panneau gauche : MCU -->
+  <rect x="40" y="52" width="290" height="266" rx="12" class="panel"/>
+  <text x="185" y="82" class="hdt">Microcontrôleur</text>
+  <text x="185" y="100" class="sub">un programme nu, sans OS</text>
+  <g>
+    <circle cx="64" cy="132" r="3.5" class="dot"/><text x="78" y="136" class="li">Temps réel · déterministe</text>
+    <circle cx="64" cy="166" r="3.5" class="dot"/><text x="78" y="170" class="li">Faible conso (µA en veille)</text>
+    <circle cx="64" cy="200" r="3.5" class="dot"/><text x="78" y="204" class="li">Démarrage instantané</text>
+    <circle cx="64" cy="234" r="3.5" class="dot"/><text x="78" y="238" class="li">Simple, robuste, pas de carte SD</text>
+    <circle cx="64" cy="268" r="3.5" class="dot"/><text x="78" y="272" class="li">~5–20 €</text>
+    <circle cx="64" cy="298" r="3.5" class="dot"/><text x="78" y="302" class="li">Arduino · ESP32 · STM32 · Pico…</text>
+  </g>
+
+  <text x="360" y="190" class="vs">vs</text>
+
+  <!-- Panneau droit : SBC -->
+  <rect x="390" y="52" width="290" height="266" rx="12" class="panel"/>
+  <text x="535" y="82" class="hdt">Ordinateur monocarte (SBC)</text>
+  <text x="535" y="100" class="sub">un système d'exploitation complet</text>
+  <g>
+    <circle cx="414" cy="132" r="3.5" class="dot"/><text x="428" y="136" class="li">Calcul lourd · vision · IA</text>
+    <circle cx="414" cy="166" r="3.5" class="dot"/><text x="428" y="170" class="li">Réseau · services · fichiers</text>
+    <circle cx="414" cy="200" r="3.5" class="dot"/><text x="428" y="204" class="li">Multitâche · écran · Linux</text>
+    <circle cx="414" cy="234" r="3.5" class="dot"/><text x="428" y="238" class="li">Plusieurs W · démarrage lent</text>
+    <circle cx="414" cy="268" r="3.5" class="dot"/><text x="428" y="272" class="li">~40–90 €</text>
+    <circle cx="414" cy="298" r="3.5" class="dot"/><text x="428" y="302" class="li">Raspberry Pi 5 / 4 / Zero…</text>
+  </g>
+
+  <text x="360" y="352" class="foot">Le bon choix part du besoin du projet, pas de la puissance disponible.</text>
+</svg>

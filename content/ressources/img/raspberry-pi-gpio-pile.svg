@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Du programme à la broche : accès direct sur microcontrôleur, traversée de l'OS sur un SBC</title>
+  <desc id="d2">Comparaison du chemin entre le programme et la broche GPIO. Sur un microcontrôleur, le code accède directement à la broche : c'est déterministe et temps réel. Sur un Raspberry Pi sous Linux, le script Python passe par une bibliothèque (gpiozero), puis par le noyau Linux — son ordonnanceur et son pilote — avant d'atteindre la broche. Ce noyau s'intercale et peut suspendre le programme à tout instant : il introduit de la latence et de la gigue, et ne garantit pas le temps réel dur. C'est pourquoi un SBC convient au haut niveau, mais pas à une boucle de commande cadencée finement.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 15px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .colh { font:700 13px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .box { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .os { fill:#DDDBD3; stroke:#BA7517; stroke-width:3.4; }
+      .base { fill:#C9C7BF; stroke:#888780; stroke-width:1.8; }
+      .bt { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .bs { font:400 10.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .arr { stroke:#BA7517; stroke-width:2; fill:none; marker-end:url(#a2); }
+      .lbl { font:italic 700 11px sans-serif; fill:#BA7517; }
+      .lblc { font:italic 700 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 12px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .aa { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .colh { fill:#EF9F27; } .box { fill:#4A4A48; stroke:#EF9F27; }
+        .os { fill:#4A4A48; stroke:#EF9F27; } .base { fill:#3A3A38; stroke:#BBBBBB; }
+        .bt { fill:#F1EFE8; } .bs { fill:#BBBBBB; } .arr { stroke:#EF9F27; }
+        .lbl { fill:#EF9F27; } .lblc { fill:#BBBBBB; } .foot { fill:#EF9F27; } .aa { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="aa"/></marker>
+  </defs>
+
+  <text x="360" y="28" class="ttl">Du programme à la broche</text>
+
+  <!-- Colonne gauche : MCU -->
+  <text x="175" y="60" class="colh">Microcontrôleur</text>
+  <rect x="75" y="74" width="200" height="44" rx="8" class="box"/>
+  <text x="175" y="101" class="bt">Votre programme</text>
+  <path d="M175,118 L175,316" class="arr"/>
+  <text x="188" y="220" class="lbl">accès direct</text>
+  <text x="188" y="236" class="lblc" text-anchor="start">déterministe · temps réel</text>
+  <rect x="75" y="318" width="200" height="40" rx="6" class="base"/>
+  <text x="175" y="343" class="bt">Broche GPIO</text>
+
+  <!-- Colonne droite : SBC sous Linux -->
+  <text x="540" y="60" class="colh">Raspberry Pi (sous Linux)</text>
+  <rect x="440" y="74" width="200" height="40" rx="8" class="box"/>
+  <text x="540" y="99" class="bt">Script Python</text>
+  <path d="M540,114 L540,134" class="arr"/>
+  <rect x="440" y="136" width="200" height="40" rx="8" class="box"/>
+  <text x="540" y="161" class="bt">Bibliothèque (gpiozero)</text>
+  <path d="M540,176 L540,196" class="arr"/>
+  <rect x="440" y="198" width="200" height="52" rx="8" class="os"/>
+  <text x="540" y="220" class="bt">Noyau Linux</text>
+  <text x="540" y="238" class="bs">ordonnanceur · pilote (gpiochip)</text>
+  <path d="M540,250 L540,316" class="arr"/>
+  <rect x="440" y="318" width="200" height="40" rx="6" class="base"/>
+  <text x="540" y="343" class="bt">Broche GPIO</text>
+
+  <!-- annotation "l'OS s'intercale" -->
+  <text x="652" y="220" class="lbl" text-anchor="start" transform="rotate(90 652 220)">l'OS s'intercale → latence · gigue</text>
+
+  <text x="360" y="416" class="foot">Sur un SBC, le système d'exploitation se place entre le programme et la broche : pas de temps réel dur.</text>
+</svg>

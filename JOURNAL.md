@@ -10,6 +10,33 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-07 — Nettoyage pré-publication (partiel) : archivage JOURNAL coupe α + suppression `mia` + promotion C57
+
+### Périmètre
+PC perso (`filesystem:*`). Session d'**hygiène pure** (aucune fiche produite), brief de 7 items pré-publication. **2 exécutés** (archivage JOURNAL, suppression ciblée `mia`), **4 reportés** (inventaire stubs/liens rouges, triage `[[ide]]` STM32 + rouges, filtrage Explorer Quartz, peigne SVG). Pivot Tim en clôture : **prochaine session = Raspberry** (cadrage), pas la fin du nettoyage → le nettoyage pré-publication reste **non bouclé**.
+
+### Livrables
+- **Archivage coupe α** via script one-off `tools/archive-journal-0607.mjs` : **11 entrées** (28/05 → 06/05 (suite), ~46 ko) déplacées de `JOURNAL.md` vers le haut de `JOURNAL-archive.md`. Invariant antichronologique préservé (raccord 28/05 ↔ 27/05 suite 5), marqueur de groupe « 28/05 → 05/06 » posé, titre/intro/pied resynchronisés, deux `.bak` créés.
+- **Suppression ciblée** : `content/fiches/mia/` (stub orphelin du domaine MIA fusionné dans EEE/PROJ, non référencé par l'accueil) → `git rm -r content/fiches/mia` côté Tim. `content/callouts-demo.md` **introuvable** (déjà supprimé lors d'une passe antérieure) — rien à faire.
+
+### Décisions
+- **Coupe = α** (tout l'antérieur au 06/06 archivé ; journée 06/06 entièrement conservée au JOURNAL).
+- **Méthode archivage = script Node fail-safe**, pas MARKER + N MCP : bloc ~46 ko (au-dessus du seuil `edit_file`) **et** caractère hérité **U+FFFD** dans `28/05 suite 2` → un `slice` brut déplace le bloc fidèlement, atomiquement (octets corrompus inclus), et avorte sans rien écrire si une ancre manque. §8 sanctionne le script pour l'archivage massif.
+- **Promotion C57** : le motif « clone de curriculum + hub langage substitué » (éprouvé V1-V3 MicroPython + fiches divergentes) passe en convention numérotée.
+- **Arbitrage de priorité (Tim)** : Raspberry avant la fin du nettoyage.
+
+### Conventions
+- **C57 promue** : *une plateforme à paradigme distinct peut être traitée comme un clone du curriculum d'une famille de référence (Arduino) — substitution du hub langage, concepts agnostiques en [T] partagés, transposition API fiche-à-fiche, divergences de fond assumées.*
+- Note : **2× U+FFFD résiduels** — `28/05 suite 2` (parti fidèlement en archive) et `06/06 suite 10` (reste au JOURNAL, « hands-on … il tient »). Cosmétique, **hors** `normalize-pilotage.js` (qui ne cible que les invisibles), fichiers non publiés → nettoyage manuel si souhaité.
+
+### Tailles
+`JOURNAL.md` **~100 → ~55 ko** ; `JOURNAL-archive.md` **~307 → ~353 ko** ; script ~3 ko. Aucune fiche.
+
+### Corps — script vs edit_file pour un déplacement de bloc lourd
+Le brief prévoyait l'archivage en MARKER + N segments MCP. Deux constats l'ont écarté : (1) le bloc à déplacer pèse ~46 ko — au-dessus du seuil pratique d'`edit_file` (C14), et le ré-assemblage manuel des séparateurs `---` sur plusieurs segments est intrinsèquement fragile ; (2) un caractère **U+FFFD hérité** (« appliqu—e ») dans `28/05 suite 2` aurait dû être matché à l'identique dans un `oldText` — piège C14 typique, fiabilité douteuse. Le script Node lève les deux : `slice` sur deux ancres propres + écritures atomiques, les octets corrompus voyageant tels quels (déplacement = copie conforme, on ne « corrige » pas — leçon C14 du 29/05 suite 2). Bonus fail-safe : ancre absente → `process.exit(1)` sans écriture, là où un `edit_file` peut s'appliquer à moitié. **Acquis** : pour tout déplacement de bloc lourd (a fortiori avec octets douteux), le script CLI bat la séquence d'`edit_file`. Reste dû : les 4 items de nettoyage reportés, à reprendre avant publication.
+
+---
+
 ## 2026-06-06 (suite 12) — MicroPython Vague 3 : 6 fiches Ingénieur — MODULE COMPLET
 
 ### Périmètre

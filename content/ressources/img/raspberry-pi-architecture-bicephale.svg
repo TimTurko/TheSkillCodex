@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Architecture bicéphale : un SBC pour le haut niveau, un microcontrôleur pour le temps réel</title>
+  <desc id="d3">Architecture typique d'un projet mécatronique combinant un ordinateur monocarte et un microcontrôleur, illustrée sur un bras robotique trois axes. Le Raspberry Pi assure le haut niveau : vision et détection de cible, planification de trajectoire, réseau et interface utilisateur. Il envoie des consignes au microcontrôleur via un bus (UART, I2C ou USB). Le microcontrôleur assure le temps réel : il exécute la boucle d'asservissement et pilote les moteurs des trois axes, et renvoie au SBC l'état du système et les fins de course. Le SBC pense, le microcontrôleur agit.</desc>
+  <defs>
+    <style>
+      .ttl { font:700 15px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.3px; }
+      .bigbox { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.6; }
+      .box { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .base { fill:#C9C7BF; stroke:#888780; stroke-width:1.8; }
+      .hd { font:700 13px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .bt { font:700 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .li { font:400 11.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .arr { stroke:#BA7517; stroke-width:2.2; fill:none; marker-end:url(#a3); }
+      .lbl { font:italic 700 11px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .lblg { font:italic 700 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 12.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .aa { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl { fill:#F1EFE8; } .bigbox { fill:#4A4A48; stroke:#EF9F27; } .box { fill:#4A4A48; stroke:#EF9F27; }
+        .base { fill:#3A3A38; stroke:#BBBBBB; } .hd { fill:#EF9F27; } .bt { fill:#F1EFE8; } .li { fill:#F1EFE8; }
+        .arr { stroke:#EF9F27; } .lbl { fill:#EF9F27; } .lblg { fill:#BBBBBB; } .foot { fill:#EF9F27; } .aa { fill:#EF9F27; }
+      }
+    </style>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="aa"/></marker>
+  </defs>
+
+  <text x="360" y="28" class="ttl">Le SBC pense, le microcontrôleur agit — exemple du bras 3 axes</text>
+
+  <!-- SBC -->
+  <rect x="44" y="64" width="276" height="150" rx="12" class="bigbox"/>
+  <text x="182" y="90" class="hd">Raspberry Pi — haut niveau</text>
+  <text x="182" y="120" class="li">Vision · détection de cible</text>
+  <text x="182" y="146" class="li">Planification de trajectoire</text>
+  <text x="182" y="172" class="li">Réseau · interface utilisateur</text>
+  <text x="182" y="198" class="lblg">(calcul, pas de temps réel garanti)</text>
+
+  <!-- Liaison bus -->
+  <path d="M322,118 L466,118" class="arr"/>
+  <text x="394" y="108" class="lbl">consignes</text>
+  <text x="394" y="160" class="lblg">UART / I2C / USB</text>
+  <path d="M466,150 L322,150" class="arr"/>
+  <text x="394" y="178" class="lbl">état · fins de course</text>
+
+  <!-- MCU -->
+  <rect x="468" y="64" width="208" height="120" rx="12" class="box"/>
+  <text x="572" y="90" class="hd">Microcontrôleur</text>
+  <text x="572" y="118" class="li">Asservissement</text>
+  <text x="572" y="140" class="li">temps réel</text>
+  <text x="572" y="166" class="li">Commande des moteurs</text>
+
+  <!-- 3 axes -->
+  <path d="M512,184 L470,300" class="arr"/>
+  <path d="M572,184 L572,300" class="arr"/>
+  <path d="M632,184 L674,300" class="arr"/>
+  <rect x="430" y="302" width="80" height="40" rx="6" class="base"/>
+  <text x="470" y="327" class="bt">Axe 1</text>
+  <rect x="532" y="302" width="80" height="40" rx="6" class="base"/>
+  <text x="572" y="327" class="bt">Axe 2</text>
+  <rect x="634" y="302" width="80" height="40" rx="6" class="base"/>
+  <text x="674" y="327" class="bt">Axe 3</text>
+  <text x="572" y="364" class="lblg">moteurs des trois articulations</text>
+
+  <text x="360" y="406" class="foot">Chacun fait ce qu'il sait faire de mieux — reliés par un bus de communication.</text>
+</svg>
