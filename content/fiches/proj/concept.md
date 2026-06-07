@@ -345,9 +345,9 @@ Trois issues nominales, plus un cas rétroactif. La revue **valide sans réserve
 
 - [[index|Hub du parcours projet]]
 - Étape précédente : [[specification-technique|Spécification technique]]
-- Étape suivante : [[preuve-de-concept|Preuve de concept]] *(à créer)*
-- [[matrice-de-decision|Matrice de décision]] *(à créer)*
-- [[decomposition-fonctionnelle|Décomposition fonctionnelle]] *(à créer)*
+- Étape suivante : [[preuve-de-concept|Preuve de concept]]
+- [[matrice-de-decision|Matrice de décision]]
+- [[decomposition-fonctionnelle|Décomposition fonctionnelle]]
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]]
-- [[ecoconception|Écoconception]] *(fil transverse — à créer)*
-- [[gestion-de-projet|Gestion de projet]] *(fil transverse — à créer)*
+- [[ecoconception|Écoconception]] *(fil transverse)*
+- [[gestion-de-projet|Gestion de projet]] *(fil transverse)*

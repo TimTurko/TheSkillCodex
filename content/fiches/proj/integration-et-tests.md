@@ -249,7 +249,7 @@ Côté **[[securite-et-qualite|sécurité et qualité]]**, la phase d'intégrati
 
 - [[index|Hub du parcours projet]]
 - Étape précédente : [[dossier-technique|Dossier technique]]
-- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(à créer — référencé à la qualification niveau 4)*
-- [[gestion-de-projet|Gestion de projet]] *(fil transverse — à créer)*
-- [[ecoconception|Écoconception]] *(fil transverse — à créer)*
-- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse — à créer)*
+- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(référencé à la qualification niveau 4)*
+- [[gestion-de-projet|Gestion de projet]] *(fil transverse)*
+- [[ecoconception|Écoconception]] *(fil transverse)*
+- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*

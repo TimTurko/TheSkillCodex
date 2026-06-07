@@ -112,4 +112,4 @@ Le flux de travail typique : on **bricole au REPL** jusqu'à ce qu'une séquence
 - [[micropython-langage|Le langage MicroPython]] — hub du parcours langage
 - [[micropython-prise-en-main|Prise en main]] — où le REPL apparaît pour la première fois
 - [[micropython-modules|Modules et import]] — `dir()`/`import` pour explorer et charger du code
-- [[micropython-debug|Débugger un programme]] — le REPL comme outil de diagnostic (transverse à venir)
+- [[micropython-debug|Débugger un programme]] — le REPL comme outil de diagnostic (transverse)

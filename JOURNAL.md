@@ -10,6 +10,31 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-07 (suite 3) — Re-scan exhaustif liens rouges (`bash`) : 0 rouge confirmé + nettoyage des annotations périmées
+
+### Périmètre
+PC perso (`filesystem:*`), **`bash` disponible** (cœur du brief). Clôture de l'arc « liens rouges » reportée en (suite 2) : re-scan **exhaustif** réel + traitement des stragglers + passe sur les placeholders périmés rendus faux par les 24 fiches créées en (suite 2).
+
+### Livrables
+- **Re-scan exhaustif** — 221 fiches lues (100 % de `content/`) via `read_multiple_files` (déversements `/mnt/user-data/tool_results/`) + parsing python. Univers = 212 basenames ∪ dossiers ∪ alias front-matter ∪ alias manuels (`cdcf`, `critere`, `niveau`, `flexibilite`, `fp`/`fs`/`fc`). **Résultat : 0 lien rouge réel.** ~3260 tokens `[[…]]`, tous résolus hors annotations TODO.
+- **Objectif 3 — 43 annotations périmées corrigées** sur 11 fichiers (`edit_file`, ancres verbatim) : `concept` (5), `dossier-technique` (5), `gestion-de-projet` (7), `preuve-de-concept` (4), `integration-et-tests` (4), `securite-et-qualite` (6), `specification-technique` (4), `ecoconception` (1), `micropython-modules` (1), `micropython-repl` (1), `hub/index` (5). Règle : **retirer le statut** (`à créer`/`à venir`), **conserver le descripteur** (`*(fil transverse — à créer)*` → `*(fil transverse)*` ; `*(à créer — délégué cours normatifs)*` → `*(délégué cours normatifs)*`).
+- **Objectif 1 — 3 templates** : `[[notion]]` de guidage passé en code `` `[[notion]]` `` (fiche-notion, fiche-tuto, fiche-trame).
+
+### Décisions
+- **Objectif 2 (stragglers) vide** : 0 annotation pointant vers une cible absente → **aucun rouge masqué**. L'inventaire est désormais **confirmé exhaustif** ; la faille `acv-simplifiee` de (suite 2) est close.
+- **`afnor-nfx50-151 *(stub)*` conservé** : vrai stub (`draft: true`, tag `stub`, 20 l.) — annotation exacte.
+- **Faux positifs écartés** : `*(à venir)*` de `instruments-de-mesure` (Analyseur logique, Générateur) et `pcb` (EasyEDA) sont des lignes de **tableau** sur des sous-outils non couverts, pas des annotations de lien.
+- **Wording délégation** : les fiches ESE/MEO cibles existent et portent elles-mêmes l'aparté de délégation (C58) → en source on garde le descripteur thématique seul.
+
+### Conventions (→ §8 éprouvage)
+- **C59 — Hygiène d'annotation** : quand une cible passe de TODO à existante, retirer le statut `(à créer)`/`(à venir)` de chaque *Voir aussi* qui la référence, **en conservant tout descripteur** ; `(stub)` reste tant que la fiche est un stub.
+
+### Tailles
+14 fichiers édités, 46 changements (suppressions/réécritures courtes), ~0 octet net. 0 git (Tim pilote). JOURNAL ~64→~68 ko.
+
+### Corps — méthode de scan `bash` réutilisable
+Les déversements `read_multiple_files` **persistent** dans `/mnt/user-data/tool_results/*.json` (réutilisables sans relire, même après compaction). Segmentation fiable par **en-têtes de chemin** (ligne = chemin Windows terminé par `.md:`), pas par `---` (présent en YAML/règles md). Piège corrigé : `os.path.basename()` ne découpe pas les chemins Windows sous POSIX (`\` non séparateur) → **split manuel sur `\`** (sinon tous les tests d'existence faux-négatifs — d'abord interprété à tort comme « tout absent »). `repr()` des lignes cibles avant `edit_file` pour révéler les NBSP : **aucun** dans les annotations, tiret `—` à espaces normaux → 46 ancres matchées sans échec.
+
 ## 2026-06-07 (suite 2) — Pré-publication : sweep liens rouges complet + création des 24 fiches cibles
 
 ### Périmètre

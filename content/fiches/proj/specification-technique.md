@@ -426,9 +426,9 @@ Pour s'y préparer :
 
 - [[index|Hub du parcours projet]]
 - [Template CdCF école à compléter](/ressources/templates/cdcf-ecole-template.docx) *(document Word fourni)*
-- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice — à créer)*
-- [[bete-a-cornes|Bête à cornes]] *(à créer)*
+- [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice)*
+- [[bete-a-cornes|Bête à cornes]]
 - [[afnor-nfx50-151|Norme NF X50-151]] *(stub)*
-- [[relation-client|Relation client]] *(tuto à créer)*
-- [[archivage-projet|Archivage projet]] *(tuto à créer)*
+- [[relation-client|Relation client]]
+- [[archivage-projet|Archivage projet]]
 - Étape suivante : [[concept|Concept]]

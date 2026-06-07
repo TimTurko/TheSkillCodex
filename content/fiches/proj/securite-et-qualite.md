@@ -192,9 +192,9 @@ Spécifique à cette trame, **délégation explicite aux disciplines voisines** 
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse — pilote la sécurité-qualité)*
 - [[ecoconception|Écoconception]] *(fil transverse — croisements réglementaires RoHS / REACH / DEEE)*
 - [[amdec|AMDEC]] *(méthode d'analyse des risques produit)*
-- [[marquage-ce|Marquage CE]] *(à créer — délégué cours normatifs)*
-- [[basse-tension|Directive basse tension]] *(à créer — délégué cours normatifs)*
-- [[emc|Compatibilité électromagnétique]] *(à créer — délégué cours normatifs)*
-- [[iso-12100|ISO 12100]] *(à créer — délégué cours normatifs)*
-- [[revue-de-code|Revue de code]] *(à créer — pratique de qualité logicielle)*
-- [[epi|EPI]] *(à créer — équipement de protection individuelle)*
+- [[marquage-ce|Marquage CE]] *(délégué cours normatifs)*
+- [[basse-tension|Directive basse tension]] *(délégué cours normatifs)*
+- [[emc|Compatibilité électromagnétique]] *(délégué cours normatifs)*
+- [[iso-12100|ISO 12100]] *(délégué cours normatifs)*
+- [[revue-de-code|Revue de code]] *(pratique de qualité logicielle)*
+- [[epi|EPI]] *(équipement de protection individuelle)*

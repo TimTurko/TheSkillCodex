@@ -180,7 +180,7 @@ recontextualiser dans le cycle en V global.
 - [[index|Hub du parcours projet]]
 - [[matrice-eco-criteres|Matrice éco-critères]] *(outil canonique de cette trame)*
 - [[ecodesign|Écodesign]] *(notion sœur — démarche design vs démarche ingénierie, distinction du critère PROJ/5)*
-- [[acv-simplifiee|ACV simplifiée]] *(à créer — citée et déléguée aux cours collègues pour la version complète)*
+- [[acv-simplifiee|ACV simplifiée]] *(version complète déléguée aux cours collègues)*
 - [[matrice-de-decision|Matrice de décision]] *(porte le critère écoconception)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse — pilote l'écoconception)*
 - [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*

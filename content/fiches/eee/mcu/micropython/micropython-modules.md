@@ -119,5 +119,5 @@ Détaillé dans [[micropython-bibliotheques|utiliser une bibliothèque]].
 
 - [[micropython-langage|Le langage MicroPython]] — hub du parcours langage
 - [[micropython-repl|Le REPL]] — `dir()`/`import` pour explorer un module
-- [[micropython-bibliotheques|Utiliser une bibliothèque]] — installer et inclure un pilote (à venir)
+- [[micropython-bibliotheques|Utiliser une bibliothèque]] — installer et inclure un pilote
 - [[firmware|Firmware]] — structurer un projet multi-fichiers (transverse)

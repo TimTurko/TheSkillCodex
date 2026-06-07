@@ -41,7 +41,7 @@ L'équipe traduit un besoin (souvent flou en début de projet) en exigences tech
 > [!livrable] Livrable principal
 > Le [[cahier-des-charges-fonctionnel]], complété d'un dossier de spécification technique.
 
-**À lire ensuite** : [[specification-technique]] (à venir).
+**À lire ensuite** : [[specification-technique]].
 
 ## 2. Concept
 
@@ -53,7 +53,7 @@ L'équipe choisit un concept parmi plusieurs candidats, le décrit par des sché
 > [!livrable] Livrable principal
 > Un dossier de concept présentant le schéma bloc, les diagrammes de chaînes, et les calculs de pré-dimensionnement.
 
-**À lire ensuite** : [[concept]] (à venir).
+**À lire ensuite** : [[concept]].
 
 ## 3. Preuve de concept
 
@@ -67,7 +67,7 @@ Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : 
 > [!livrable] Livrable principal
 > Un ou plusieurs prototypes minimaux démontrant que les points durs sont maîtrisés, accompagnés d'une mise à jour de la spec et du concept si besoin.
 
-**À lire ensuite** : [[preuve-de-concept]] (à venir).
+**À lire ensuite** : [[preuve-de-concept]].
 
 ## 4. Dossier technique
 
@@ -79,7 +79,7 @@ L'équipe produit l'ensemble des documents permettant de réaliser le prototype 
 > [!livrable] Livrable principal
 > Le dossier technique complet, suffisant pour qu'une équipe extérieure puisse fabriquer et tester le système.
 
-**À lire ensuite** : [[dossier-technique]] (à venir).
+**À lire ensuite** : [[dossier-technique]].
 
 ## 5. Intégration et tests
 
@@ -91,7 +91,7 @@ L'équipe fabrique, assemble et câble le prototype, puis exécute le plan de qu
 > [!livrable] Livrable principal
 > Prototype fonctionnel, dossier de qualification, soutenance et REX.
 
-**À lire ensuite** : [[integration-et-tests]] (à venir).
+**À lire ensuite** : [[integration-et-tests]].
 
 ## En parallèle de toutes les phases
 

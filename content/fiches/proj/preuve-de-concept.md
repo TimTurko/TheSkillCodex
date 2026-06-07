@@ -330,7 +330,7 @@ Quatre issues nominales, calquées sur la revue de [[concept|concept]] en miroir
 
 - [[index|Hub du parcours projet]]
 - Étape précédente : [[concept|Concept]]
-- Étape suivante : [[dossier-technique|Dossier technique]] *(à créer)*
-- [[gestion-de-projet|Gestion de projet]] *(fil transverse — à créer)*
-- [[ecoconception|Écoconception]] *(fil transverse — à créer)*
-- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse — à créer)*
+- Étape suivante : [[dossier-technique|Dossier technique]]
+- [[gestion-de-projet|Gestion de projet]] *(fil transverse)*
+- [[ecoconception|Écoconception]] *(fil transverse)*
+- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*

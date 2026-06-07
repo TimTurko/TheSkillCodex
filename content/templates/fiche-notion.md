@@ -43,7 +43,7 @@ NE PAS mettre de H1 dans le corps : Quartz le génère depuis `title`.
 Le template lui-même est `draft: false` pour être consultable sur le
 site ; les fiches que vous créerez à partir de lui doivent commencer
 en `draft: true` tant qu'elles ne sont pas relues.
-Liens internes : [[notion]] crée un popover si la fiche cible existe,
+Liens internes : `[[notion]]` crée un popover si la fiche cible existe,
 ou un lien rouge sinon (= TODO list naturelle).
 -->
 

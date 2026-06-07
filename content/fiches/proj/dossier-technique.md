@@ -307,8 +307,8 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 
 - [[index|Hub du parcours projet]]
 - Étape précédente : [[preuve-de-concept|Preuve de concept]]
-- Étape suivante : [[integration-et-tests|Intégration et tests]] *(à créer)*
-- [[pcb|PCB]] *(à créer)*
-- [[gestion-de-projet|Gestion de projet]] *(fil transverse — à créer)*
-- [[ecoconception|Écoconception]] *(fil transverse — à créer)*
-- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse — à créer)*
+- Étape suivante : [[integration-et-tests|Intégration et tests]]
+- [[pcb|PCB]]
+- [[gestion-de-projet|Gestion de projet]] *(fil transverse)*
+- [[ecoconception|Écoconception]] *(fil transverse)*
+- [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*
