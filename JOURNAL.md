@@ -10,6 +10,31 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 11) — MicroPython Vague 2 : 12 fiches Avancées
+
+### Périmètre
+PC perso (`filesystem:*`), continuité 06/06, enchaîné sur « continuer vague 2 ». Régime décalque **mixte** (C27/C48) : 9 fiches homogènes en Cas A silencieux (bus, actionneurs, afficheur/debug/gpio-boot) + 3 fiches **structurellement distinctes** surfacées en clôture (prog non bloquante, machine à états, stockage). Transposition Python/`machine` des 12 jumelles `arduino-*` du palier « avancées ». Relecture API + peigne SVG toujours reportés en bloc final (validé Tim).
+
+### Livrables
+**12 fiches** dans `content/fiches/eee/mcu/micropython/` (type tuto, tag micropython, renvoi « voir aussi » vers la jumelle `arduino-*`, exercices/pièges adaptés) : **bus** `micropython-uart` (UART0/1, REPL sur USB ≠ UART matériel, `bytes`) · `-i2c` (`i2c.scan()` intégré, BMP280) · `-spi` (CS = `Pin` manuel, `sdcard`+`os.mount`, 3,3 V natif SD) ; **actionneurs** `-servomoteur` (PWM 50 Hz + `duty_u16`, pas de `Servo.h`) · `-moteur-cc` (pont H, **3,3 V → DRV8833/TB6612 plutôt que L298N**, pot→PWM direct) · `-moteur-pas-a-pas` (28BYJ-48+ULN2003 séquence demi-pas manuelle, A4988 STEP/DIR) ; **`-afficheur`** (OLED SSD1306 via `ssd1306`, `show()` obligatoire) · **`-debug`** (`print`+REPL+`try/except`+`sys.print_exception`+débogueur Thonny) · **`-gpio-boot`** (entrée flottante au reset, Pico sans strapping, broches internes GP23/24/25/29, astuce `Pin(...,value=)`) ; **`-programmation-non-bloquante`** (super-loop `ticks_diff` + **`asyncio` intégré** + second cœur `_thread`) · **`-machine-a-etats`** (constantes + `if/elif`, pas de `switch`/`enum`) · **`-eeprom`** (« Stockage persistant » : **pas d'EEPROM → fichier sur la flash**, `json`, `try/except OSError`, EEPROM I2C externe en option).
+Pas de SVG produit (les jumelles n'en exigent pas ; un SVG `micropython` pour la prog non bloquante reste **optionnel**, flag). `micropython-filtrage` **laissé rouge** : pas de jumeau `arduino-filtrage` dans le module, fiche optionnelle.
+
+### Décisions
+- **Régime mixte** : 9 décalques homogènes en Cas A ; 3 fiches divergentes traitées et signalées (voir Corps).
+- **API spécifiques V2** : `i2c.scan()` intégré (pas de sketch scanner) ; **REPL sur USB ≠ UART matériel** (2 UART libres, pas de `SoftwareSerial`) ; `CS` = `Pin` manuel en SPI ; **servo = PWM 50 Hz + `duty_u16`** (pas de `Servo.h`) ; **DRV8833/TB6612 plutôt que L298N** sur 3,3 V ; OLED `ssd1306` avec `show()` obligatoire ; **`asyncio` intégré** comme forme idiomatique du non-bloquant ; **persistance par fichier ≠ EEPROM** (divergence forte vs `EEPROM.h`) ; Pico **sans broche de strapping** + astuce `Pin(...,value=)`.
+- **aa** : 11 fiches `PROJ/5` ; `micropython-machine-a-etats` porte **EEE/5 + PROJ/5** (deux critères, comme sa jumelle). **Tally inchangé 79 %** (EEE/5 déjà couvert ailleurs — multi-couverture C20).
+
+### Conventions
+Aucune convention numérotée nouvelle (reste **56**). **Motif « clone de curriculum + hub langage substitué » tient sur sa 2ᵉ vague** (et sur des fiches divergentes, pas seulement des décalques 1:1). Réutilisations : C27/C48 (mixte), C49 (trame + exercices), C23, C20, C33/C52 (pas de SVG neuf ici).
+
+### Tailles
+12 fiches ~6-10 ko ch. Module MicroPython = hub + 31 enfants = **32 fiches** (8 V0 + 11 V1 + 12 V2). Restent V3 Ingénieur (~6) + `filtrage` optionnel. **JOURNAL ~100 ko — archivage à faire (seuil atteint, `JOURNAL-archive.md`).**
+
+### Corps
+Deuxième vague hands-on du module clone. Les 9 premières fiches confirment le constat de V1 (transposition = travail d'API sur des montages identiques). Les **3 dernières sont les plus intéressantes** car elles *divergent* du jumeau et valident que le clone n'est pas un copier-coller : (1) la **prog non bloquante** gagne un outil que C++ n'a pas — **`asyncio` intégré** — en plus du patron `ticks_diff` ; (2) la **machine à états** perd `switch`/`enum` (absents de Python) au profit de constantes + `if/elif` (ou dict d'états), et l'absence de fall-through remplace le piège du `break` par une exigence d'indentation ; (3) le **stockage** diverge franchement : le Pico n'ayant pas d'EEPROM, la persistance passe par un **fichier sur la flash** (`json`, `try/except OSError`) — plus simple et plus lisible que l'EEPROM brute d'Arduino. Module désormais doté d'un parcours bases + avancées complet. Garde-fou inchangé : relecture API en bloc final + peigne Quartz.
+
+---
+
 ## 2026-06-06 (suite 10) — MicroPython Vague 1 : 11 fiches Bases hands-on + SVG modèle d'exécution
 
 ### Périmètre
