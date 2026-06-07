@@ -10,6 +10,40 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-07 (suite 2) — Pré-publication : sweep liens rouges complet + création des 24 fiches cibles
+
+### Périmètre
+PC perso (`filesystem:*`). Fin de l'arc « liens rouges » avant publication : sweep d'édition terminé (repoints + déliés) puis **création de toutes les fiches cibles**. Outillage instable (voir Corps). Re-scan de confirmation **reporté** (pas de `bash`).
+
+### Livrables
+- **Sweep liens (`edit_file`)** — repoints : `alimentation-stabilisee→alimentation-electronique` (×4), `niveau-logique→niveaux-de-tension` (×2), `pid→arduino-pid` (×2), `controleur→microcontroleur`, `programmation-non-bloquante→arduino-programmation-non-bloquante` (×2). Déliés (wikilink retiré, **texte conservé**) : `capteur`, `actionneur`, `effecteur`, `frontiere-systeme`, `boucle-ouverte-boucle-fermee`, `asservissement`, `del`, `gabarit`, `ppm`, `bras-3-axes`, `pilote`, `arduino-filtrage` (5/5), `micropython-filtrage` (5/5), `abs` (×2), `ese` (×2).
+- **24 fiches créées** (`type: notion`, `draft: false`, `aa: []`) :
+  - `proj/` : `mecatronique` (racine), `acv-simplifiee` (hors inventaire, cf. Décisions).
+  - `eee/mcu/` : `ide`, `bibliotheque`, `shield` (notions transverses).
+  - `mme/` : `usinage`, `impression-3d`, `pla`, `soudure`, `comparateur`, `pied-a-coulisse`.
+  - `ese/` : `marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `reach`, `rohs`, `deee`, `epi`.
+  - `meo/` : `unite-si`, `relation-client`, `revue-de-code`, `archivage-projet`, `cable-management`.
+- **Lien ressource `.docx`** — 4 wikilinks `[[cdcf-ecole-template.docx]]` → **chemin absolu markdown** `/ressources/templates/cdcf-ecole-template.docx` (cahier-des-charges-fonctionnel ×2, specification-technique ×2). Fichier déjà présent.
+
+### Décisions
+- `bibliotheque`/`shield`/`ide` **créés en notions transverses** (pas repointés) — les fiches `*-bibliotheques`/`*-shield` les désignaient « la notion transverse ».
+- `epi` reclassé délier→**création** (marqué « à créer » dans le *Voir aussi*, comme `revue-de-code`).
+- `acv-simplifiee` : **lien rouge réel hors des 45 de l'inventaire**, repéré en relisant `ecoconception`/`integration-et-tests`. Créé en pointeur. ⚠️ **L'inventaire n'était donc pas exhaustif** → re-scan `bash` obligatoire avant tout « 0 rouge ».
+- Vérif d'intégrité par `directory_tree` (faute de `bash`) : 0 rouge sur la **surface connue** (cibles repoint + liens des 24 fiches), **pas** une ré-énumération exhaustive.
+
+### Conventions (→ §8 éprouvage)
+- **Pointeur d'interface léger** (MME/ESE) : définition popover + « Dans le projet » + **aparté italique de délégation** + « **Cours de X** (collègues) » en *Voir aussi*. Plus léger qu'une fiche de domaine (modèle `optimisation-mecanique`). Affine C55.
+- **Asset téléchargeable** (`.docx`…) → **lien markdown chemin absolu** `/ressources/…`, jamais wikilink (Quartz résout mal les wikilinks non-`.md` → rouge). Généralise la convention SVG.
+- **Anti-régression liens** : une fiche neuve ne relie **jamais** un concept précédemment délié (`capteur`, `actionneur`…).
+
+### Tailles
+24 fiches (~150-300 mots, pointeurs ; `mecatronique` racine). ~15 edits de liens + 4 conversions `.docx`. 0 git (Tim pilote). JOURNAL ~60→~64 ko.
+
+### Corps — outillage instable, sweep sans grep-contenu, vérif par arbre
+`write_file`/`create_file` ont été **absents plusieurs tours** (création bloquée) avant de revenir comme **outils différés à charger via `tool_search`** (le serveur les expose mais ne les liste pas d'emblée — l'erreur « not loaded yet » a mis sur la piste). `bash` absent en clôture → re-scan reporté.
+Sweep efficace **sans grep de contenu** : extraction des lignes-liens **verbatim depuis les déversements** `read_multiple_files` via `bash`+python avec `repr()` (révèle les NBSP) quand `bash` dispo ; sinon lecture `filesystem` ciblée. Un échec d'ancre bruyant (« portés » vs « porté » sur `ese`) a confirmé l'intérêt de recopier verbatim (C14).
+Faute de `bash` en clôture, vérif finale par **`directory_tree`** = univers des basenames, contre lequel toutes les cibles de repoint et tous les liens sortants des fiches neuves ont été confirmés présents. Couvre la surface de risque mais **pas** l'exhaustif — d'où le re-scan `bash` en tête de prochaine session, d'autant que `acv-simplifiee` a montré une faille d'inventaire.
+
 ## 2026-06-07 (suite) — Ouverture de la famille SBC `raspberry-pi` : hub + 3 fiches + 3 SVG (module complet, ≠ clone C57)
 
 ### Périmètre

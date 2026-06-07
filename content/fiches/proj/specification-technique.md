@@ -359,7 +359,7 @@ Le CdCF école simplifié s'organise en cinq sections, qui suivent l'ordre des c
 
 L'**ordre suit le déroulé pédagogique** de la phase, ce qui rend la lecture naturelle pour le lecteur qui découvre le projet. Les sections sont **explicitement labellisées** — « cœur NF X50-151 » sur la section 4, « complément école » sur les sections 3 et 5 — pour que l'étudiant, et son lecteur, distinguent le cœur normatif des compléments.
 
-Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la rédaction : [[cdcf-ecole-template.docx|cdcf-ecole-template.docx]]. Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique, et les tableaux pré-structurés (bête à cornes, EAT comparatif, caractérisation des fonctions, matrice de risques) ; il suffit de compléter les placeholders entre crochets.
+Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la rédaction : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique, et les tableaux pré-structurés (bête à cornes, EAT comparatif, caractérisation des fonctions, matrice de risques) ; il suffit de compléter les placeholders entre crochets.
 
 > [!info] À retenir
 > **En contexte professionnel, le CdCF NF X50-151 strict se limite à l'analyse fonctionnelle** (sections 2 et 4 ci-dessus). L'état de l'art technique et la planification sont des livrables **séparés**, produits en parallèle et destinés à des interlocuteurs différents (équipe technique, direction de projet). Le « cadre de réponse » formel de NF X50-151 — chapitre dédié à la manière dont le fournisseur doit répondre à l'appel d'offres — n'a pas d'équivalent direct en école : la planification du projet en tient le rôle pratique, elle cadre la suite à défaut d'organiser une consultation fournisseur.
@@ -425,7 +425,7 @@ Pour s'y préparer :
 ## Voir aussi
 
 - [[index|Hub du parcours projet]]
-- [[cdcf-ecole-template.docx|Template CdCF école à compléter]] *(document Word fourni)*
+- [Template CdCF école à compléter](/ressources/templates/cdcf-ecole-template.docx) *(document Word fourni)*
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice — à créer)*
 - [[bete-a-cornes|Bête à cornes]] *(à créer)*
 - [[afnor-nfx50-151|Norme NF X50-151]] *(stub)*

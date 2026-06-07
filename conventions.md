@@ -792,6 +792,15 @@ Pas de nouvelle convention numérotée (reste à **57**). Le module Raspberry Pi
 
 Réutilisations : **C18** (mini-hub, sous-dossier `eee/mcu/raspberry-pi/`, hub nommé `type: notion`) ; **C20** (multi-couverture : hub `EEE/2`, `-gpio`/`-projet` `PROJ/5` effleurés, **tally inchangé 79 %**) ; **C24** (`write_file`) ; **C29** (captures inline) ; **C33/C52** (3 SVG conceptuels, gabarit auto-contenu + dark) ; **C46** (catégoriel : SBC rangé sous `eee/mcu/` « par usage » malgré le paradigme distinct). **Exemples travaillés, pas d'exercices C49** (arbitrage Tim). Lien rouge `[[raspberry-pi]]` préexistant de `microcontroleur` **résolu par la seule création du hub** (aucun patch — comme stm32/esp8266). **Avec cette famille, le panorama `microcontroleur` n'a plus aucun lien-famille rouge.**
 
+### Acquises 07/06 (suite 2) — arc liens rouges + 24 fiches pointeurs/notions
+
+58. **Pointeur d'interface léger (notion déléguée)** — pour une notion d'interface (MME/ESE/MEO) dont le fond relève d'un cours collègue, structure courte et reproductible : **1ʳᵉ phrase = définition popover** (terme en gras) → section **« Dans le projet »** (à quoi ça sert *ici*, ancré fil rouge si pertinent) → **aparté italique de délégation** (« *…relève du **cours de X**…* ») → *Voir aussi* terminé par **« Cours de X (collègues) »** (gras non-lien). Nettement plus léger qu'une fiche de domaine (≠ trame C38/C49 ; modèle de référence `optimisation-mecanique`, en plus court). Applique C55 (borne de profondeur) à l'échelle d'une notion entière. Éprouvée en lot sur 13 pointeurs (6 procédés/instruments `mme/` + 7 normes `ese/` + `epi` + `acv-simplifiee`) le 07/06 suite 2. **La numérotation éprouvage atteint 58.**
+
+Notes 07/06 (suite 2) (pas de convention numérotée) :
+- **Asset téléchargeable → lien markdown à chemin absolu, jamais wikilink.** Un fichier non-`.md` servi par Quartz (`.docx`, `.pdf`…) se lie en `[libellé](/ressources/.../fichier.ext)`, **pas** en `[[fichier.ext]]` : Quartz résout les wikilinks vers des *pages* `.md`, et un wikilink vers un asset non-`.md` risque d'apparaître comme **lien de page cassé (rouge)** alors que le fichier existe. Généralise la convention des SVG (chemin absolu `/ressources/img/…`) à tout asset téléchargeable. Appliqué aux 4 liens `cdcf-ecole-template.docx`.
+- **Anti-régression de liens (création/nettoyage)** — une fiche neuve (ou un texte réécrit) ne doit **jamais** introduire de wikilink vers un concept **précédemment délié** (`capteur`, `actionneur`, `effecteur`…) : ce serait recréer un lien rouge. Corollaire opérationnel du sweep liens rouges ; à garder en tête tant que ces concepts n'ont pas de fiche.
+- **`search_files` (MCP filesystem) peu fiable** — a renvoyé « No matches » pour `cdcf-ecole-template` alors que le `.docx` existait. Le **listing de répertoire fait foi** : préférer `directory_tree`/`list_directory` pour vérifier une présence.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

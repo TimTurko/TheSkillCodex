@@ -44,7 +44,7 @@ La rédaction du document lui-même (étape 6 de la phase) consiste à :
 3. **Vérifier la cohérence inter-sections** : une exigence chiffrée à l'étape 4 doit être cohérente avec l'ordre de grandeur retenu à l'étape 2 ; un risque identifié à l'étape 5 doit faire écho à une [[FC]] de la pieuvre
 4. **Faire valider** en *revue de CdCF*, [[jalons|jalon]] de fin de spécification technique conduit par les enseignants (qui jouent le rôle du client en contexte école)
 
-Un **template Word pré-rempli** est fourni dans le dépôt : [[cdcf-ecole-template.docx|cdcf-ecole-template.docx]]. Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique et tableaux pré-structurés (bête à cornes, état de l'art comparatif, caractérisation des fonctions, matrice de risques). Compléter les placeholders entre crochets et le CdCF prend forme.
+Un **template Word pré-rempli** est fourni dans le dépôt : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique et tableaux pré-structurés (bête à cornes, état de l'art comparatif, caractérisation des fonctions, matrice de risques). Compléter les placeholders entre crochets et le CdCF prend forme.
 
 ## Structure type du document école
 
@@ -88,7 +88,7 @@ Quand le projet n'a pas de client externe (robot sumo, robot suiveur de ligne, d
 ## Voir aussi
 
 - [[specification-technique|Spécification technique]] — phase qui produit le CdCF (démarche détaillée en 6 étapes)
-- [[cdcf-ecole-template.docx|Template CdCF école à compléter]] — document Word pré-rempli pour démarrer la rédaction
+- [Template CdCF école à compléter](/ressources/templates/cdcf-ecole-template.docx) — document Word pré-rempli pour démarrer la rédaction
 - [[bete-a-cornes|Bête à cornes]] — outil pour formuler le besoin (section 2 du CdCF)
 - [[pieuvre|Pieuvre]] — outil pour formaliser les fonctions (section 4 du CdCF)
 - [[fonction|Fonction]] — typologie FP/FS/FC mobilisée dans l'analyse fonctionnelle
