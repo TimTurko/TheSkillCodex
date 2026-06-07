@@ -10,6 +10,67 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-06 (suite 10) — MicroPython Vague 1 : 11 fiches Bases hands-on + SVG modèle d'exécution
+
+### Périmètre
+PC perso (`filesystem:*`), continuité 06/06. **Cas A pur** (régime décalque homogène, C27/C48), enchaîné sur « Continuer ». Vague 1 du module MicroPython : transposition Python/`machine` des **11 fiches hands-on `arduino-*`** du palier « bases », + le SVG conceptuel du module. Relecture API + peigne SVG toujours reportés en bloc final (validé Tim).
+
+### Livrables
+**11 fiches** dans `content/fiches/eee/mcu/micropython/` (toutes type tuto, tag micropython, lien « voir aussi » vers la jumelle `arduino-*`, exercices C40, captures C29) : `micropython-gpio` (machine.Pin, PULL_UP **et** PULL_DOWN) · `-entree-tor` (anti-rebond `ticks_diff` + détection de front + renvoi `Pin.irq`) · `-sortie-tor` (LED/transistor/relais, pièges ~12 mA + **3,3 V → relais 5 V marginal**) · `-capteur-numerique` (HC-SR04 `time_pulse_us` + pont diviseur Echo) · `-capteur-analogique` (`ADC.read_u16` + temp interne `ADC(4)`) · `-sortie-pwm` (`PWM.duty_u16` 16 bits + pot→PWM direct) · `-temporisation` (`sleep` vs `ticks_ms`/`ticks_diff`) · `-bibliotheques` (`mip`/Thonny/copie + `dht` intégré) · `-module` (DHT11 via `dht`, pull-ups I2C, GND commun) · `-shield` (cartes porteuses/packs Pico, honnête sur l'absence de shield Uno) · `-alimentation` (VBUS/VSYS/3V3(OUT)/3V3_EN, batterie VSYS, brown-out ; `aa:[]`).
+**SVG** : `content/ressources/img/micropython-modele-execution.svg` (comparaison 2 colonnes *compilé C++/Arduino* vs *scripté MicroPython*, gabarit standard ambre/gris + dark), **embarqué** dans `## Pourquoi` du hub.
+
+### Décisions
+- **Régime décalque Cas A** : structure et pédagogie reprises des jumelles arduino, contenu adapté à MicroPython/Pico.
+- **API spécifiques transposées** (différences clés vs Arduino) : `ticks_diff()` **obligatoire** (jamais soustraction directe — débordement du compteur) ; `duty_u16()`/`read_u16()` **tous deux 16 bits** → pot→PWM **sans mise à l'échelle** ; `time_pulse_us()` (≡ pulseIn) ; module **`dht` intégré** ; **toutes** broches PWM ; ~12 mA/broche (< 20 mA Arduino) ; 3,3 V non tolérant 5 V ; alim **VSYS** 1,8-5,5 V / **3V3(OUT)** sortie limitée ; **shield = cartes porteuses** (pas de shield Uno empilable).
+- **« Communication » (bases)** confirmé en pratique : pas de fiche `-serie`, le hub pointe `micropython-repl` (déviation au 1:1 **toujours à valider par Tim**).
+- **aa** : 10 fiches `PROJ/5` effleuré, `-alimentation` `aa:[]` (comme `arduino-alimentation`). **Tally inchangé 79 %.**
+
+### Conventions
+Aucune convention numérotée nouvelle (reste **56**). **Motif « clone de curriculum + hub langage substitué » éprouvé sur sa 1ʳᵉ vague hands-on — il tient.** Réutilisations : C27/C48 (décalque Cas A sur 11 fiches d'un coup), C49 (trame + exercices C40), C23, C20, C33/C52 (SVG conceptuel hors-câblage).
+
+### Tailles
+11 fiches ~6-11 ko ch. SVG ~3,5 ko. Module MicroPython = hub + prise-en-main + simulation + hub langage(+5) + 11 bases = **19 fiches** (sur ~28 prévues). JOURNAL ~89→~95 ko — **archivage à envisager** (seuil 100, `JOURNAL-archive.md`).
+
+### Corps
+Première vague hands-on d'un module « clone ». L'exercice confirme que la transposition arduino→MicroPython est surtout un travail d'**API** (mêmes montages, mêmes pièges pédagogiques, code Python/`machine`) avec une poignée de **différences de fond** qui méritent l'insistance et distinguent un vrai portage d'un copier-coller : `ticks_diff` (débordement), `duty_u16`/`read_u16` 16 bits (élégance pot→PWM, absente côté Arduino), `time_pulse_us`, `dht` intégré, et les contraintes Pico (3,3 V, ~12 mA, VSYS). Le module a maintenant un **parcours bases complet et navigable**. Restent V2 (Avancées ~12) + V3 (Ingénieur ~6). Garde-fou inchangé : relecture API en bloc final + peigne Quartz du SVG.
+
+---
+
+## 2026-06-06 (suite 9) — PIC (notion) + ouverture du module MicroPython : Vague 0 (hub + prise-en-main + simulation + hub langage à 5 filles)
+
+### Périmètre
+Session PC perso (MCP `filesystem:*`), continuité 06/06. Cas A. Deux livrables : (1) **PIC** en fiche notion de positionnement (clôt la famille `pic` en « pointeur léger », pas de module) ; (2) ouverture du **module MicroPython** au **format Arduino**, ancré sur **Pico 2**, découpé en **4 vagues** — **Vague 0** produite ici. Ordre validé Tim : PIC → MicroPython → Raspberry (session dédiée). **Relecture API + intégration SVG reportées en bloc à la fin** (validé Tim : laisse le temps d'intégrer les SVG au fil).
+
+### Livrables
+**PIC** — `content/fiches/eee/mcu/pic.md` (notion, `aa:[]`, prereq microcontroleur) : ancien µC Microchip très répandu, MPLAB X/XC, pas d'Arduino-core natif ; détrôné par STM32 en industrie et Arduino en école ; **positionnement seul**. **Lien rouge `[[pic]]` de `microcontroleur` résolu.**
+
+**MicroPython — Vague 0** (`content/fiches/eee/mcu/micropython/`, 9 fiches) :
+- `micropython.md` (hub plateforme, **format Arduino** = Tutoriels en tête + Pourquoi/Panorama/Écosystème ; thèse approche scriptée Python ; panorama Pico 2 / 2 W / Pico RP2040 `[!info]` ; **note portabilité** ESP32/Pyboard/Arduino ; callout 3,3 V ; **parcours complet listé sur 4 paliers** — la plupart des enfants rouges jusqu'aux vagues 1-3) ;
+- `micropython-prise-en-main.md` (Thonny + flash firmware BOOTSEL/`.uf2` + REPL + blink `machine.Pin`/`while True` + `main.py` autonome ; `aa:[]`) ;
+- `micropython-simulation.md` (Wokwi Pico+MicroPython, jumelle de `tinkercad` ; `aa:PROJ/5`) ;
+- `micropython-langage.md` (sous-hub langage, calque `cpp.md`, parcours numéroté 5 filles ; `aa:PROJ/5`) + ses **5 filles** (`aa:[]`) : `micropython-repl` (shell interactif), `micropython-types` (typage dynamique), `micropython-controle` (conditions/boucles/indentation), `micropython-fonctions` (def/return), `micropython-modules` (import/`machine`/fichiers/`mip`).
+
+### Décisions
+- **PIC = notion seule** (pointeur léger), pas de module — proportionné (PIC hors usage école/projet).
+- **MicroPython = clone du curriculum Arduino** transposé Python sur Pico 2 (décision Tim « reprendre le format arduino »). Partage [A]/[T] : **`cpp` [T] remplacé par le hub langage MicroPython propre** ; `niveaux-de-tension`/`lire-une-datasheet`/`manipulation-de-bits` + notions-concept (machine-a-etats/interruption/timer/deep-sleep/memoire) **référencés [T]**, pas redupliqués.
+- **Hub langage = sous-hub à 5 filles** (validé Tim), ordre REPL→types→contrôle→fonctions→modules.
+- **« Communication » (bases)** : pas de fiche `micropython-serie` — en MicroPython le REPL/`print()` EST la console, donc le hub pointe vers `micropython-repl` (déviation au 1:1 Arduino assumée, à confirmer).
+- **Simulation = Wokwi** (Tinkercad ne fait pas le Pico/MicroPython).
+- **4 vagues** : V0 (faite) / V1 Bases hands-on (~11) / V2 Avancées (~12) / V3 Ingénieur (~6).
+- **AA inchangé** (multi-couverture C20 ; simulation + hub langage portent PROJ/5 effleuré ; reste `aa:[]`).
+- **Pas de SVG en V0** ; SVG du module (candidat : modèle d'exécution *firmware une fois + REPL* vs *compiler→binaire*) à produire en V1, validation au peigne final.
+
+### Conventions
+§8 : aucune convention numérotée nouvelle (reste à **56**). Réutilisations : C18 (`pic` notion à plat / `micropython` hub+dossier), C25/C26 (4 paliers + [A]/[T], format Arduino repris), C49 (trame tuto + exercices C40), C23 (exemples autonomes), C20. **Motif nouveau à éprouver** : **module « clone de curriculum »** d'une autre famille (MicroPython calque Arduino) **avec substitution du hub langage** (au lieu de référencer `cpp`). À documenter en convention si le motif tient sur les vagues 1-3.
+
+### Tailles
+PIC ~3,5 ko. MicroPython V0 : hub ~11 ko, prise-en-main ~11 ko, simulation ~9 ko, hub langage ~3 ko, 5 filles ~5-6 ko ch. JOURNAL ~83→~89 ko (archivage 1-pour-1 sauté, **archivage à envisager bientôt**, seuil 100). Tally global **45 C / 5 E / 4 HS / 3 HS-D / 0 NC (79 %)** inchangé.
+
+### Corps — premier module hors paradigme Arduino-core
+Jusqu'ici toutes les familles partageaient le cycle compiler→téléverser un binaire. MicroPython est le **premier module scripté** : firmware une fois, puis REPL + fichiers `.py`. D'où deux partis pris structurants. (1) Le « langage » n'est pas `cpp` mais un **hub propre** (`micropython-langage` + 5 filles), le paradigme différant trop (interprété, typage dynamique, indentation, REPL). (2) Le module **clone le curriculum Arduino** (mêmes paliers, mêmes sujets hands-on) parce que Tim l'a demandé et que les élèves utilisent beaucoup le Pico 2 — au prix d'un parc de ~28 fiches parallèles à produire (4 vagues) et à maintenir en regard d'Arduino (coût assumé, cohérent C47). La V0 pose les fondations (entrée + paradigme + langage) ; les vagues 1-3 rempliront le hands-on, surtout une transposition Python/`machine` des fiches `arduino-*`. Garde-fou : relecture API MicroPython en bloc final (Thonny/firmware Pico 2, `machine`/`time`, `Pin("LED")`/GP25, REPL).
+
+---
+
 ## 2026-06-06 (suite 8) — Ouverture de la famille MCU `esp8266` : hub lean + 2 enfants (porte Arduino, sans SVG)
 
 ### Périmètre
