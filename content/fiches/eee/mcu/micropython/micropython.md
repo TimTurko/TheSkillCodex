@@ -49,8 +49,7 @@ Les tutoriels du module MicroPython, **dans l'ordre conseillé**. Les items marq
 - [[micropython-afficheur|Afficheur OLED]] ;
 - [[micropython-programmation-non-bloquante|Programmation non bloquante]] — sortir du `sleep()` bloquant, prérequis de la machine à états ;
 - [[micropython-machine-a-etats|Machine à états]] *(→ notion [[machine-a-etats]])* ;
-- [[micropython-eeprom|Stockage persistant]] — fichiers sur la flash, ou EEPROM externe ;
-- Filtrer des mesures *(optionnel)*.
+- [[micropython-stockage|Stockage persistant]] — fichiers sur la flash, ou EEPROM externe.
 
 ### Niveau ingénieur
 

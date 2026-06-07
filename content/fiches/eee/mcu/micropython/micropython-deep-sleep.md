@@ -25,7 +25,7 @@ Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d
 ## `lightsleep` vs `deepsleep` — la différence clé
 
 - **`machine.lightsleep(ms)`** — endort la puce ; au réveil, le programme **reprend juste après l'appel**, variables conservées. Consommation réduite mais pas minimale.
-- **`machine.deepsleep(ms)`** — sommeil plus profond ; au réveil, **la puce redémarre** comme après un reset : `main.py` repart du début. Les variables sont perdues — il faut **sauvegarder l'état** (dans un fichier, voir [[micropython-eeprom|stockage persistant]]) avant de dormir, et le relire au démarrage. C'est le même comportement « réveil = redémarrage » que sur l'[[esp32-deep-sleep|ESP32]].
+- **`machine.deepsleep(ms)`** — sommeil plus profond ; au réveil, **la puce redémarre** comme après un reset : `main.py` repart du début. Les variables sont perdues — il faut **sauvegarder l'état** (dans un fichier, voir [[micropython-stockage|stockage persistant]]) avant de dormir, et le relire au démarrage. C'est le même comportement « réveil = redémarrage » que sur l'[[esp32-deep-sleep|ESP32]].
 
 ## Procédure pas à pas
 
@@ -47,7 +47,7 @@ else:
 
 capteur = ADC(Pin(26))
 print("mesure :", capteur.read_u16())     # reveil utile : on mesure
-# ... transmettre, ou sauvegarder dans un fichier (voir micropython-eeprom) ...
+# ... transmettre, ou sauvegarder dans un fichier (voir micropython-stockage) ...
 
 machine.deepsleep(32000)                   # dort 32 s puis REDEMARRE (main.py relance)
 ```
@@ -80,7 +80,7 @@ machine.lightsleep()            # dort jusqu'a l'appui
 
 ### 4. Préparer le réveil (sauvegarde d'état)
 
-Avant un `deepsleep`, comme la puce redémarrera, **sauvegarder ce qui doit survivre** : un compteur de cycles, la dernière mesure, l'état d'une machine — dans un **fichier** sur la flash (voir [[micropython-eeprom|stockage persistant]]), relu au démarrage. Avec `lightsleep`, rien à sauvegarder (l'exécution reprend).
+Avant un `deepsleep`, comme la puce redémarrera, **sauvegarder ce qui doit survivre** : un compteur de cycles, la dernière mesure, l'état d'une machine — dans un **fichier** sur la flash (voir [[micropython-stockage|stockage persistant]]), relu au démarrage. Avec `lightsleep`, rien à sauvegarder (l'exécution reprend).
 
 Prendre capture d'écran ou photo de *un multimètre en série avec l'alimentation du montage, affichant la chute du courant quand la carte s'endort*.
 
@@ -140,7 +140,7 @@ Sur un objet connecté autonome, la veille n'est pas un détail mais l'**archite
 - [[deep-sleep|Deep sleep]] — la notion : les modes de veille et leur intérêt énergétique
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-interruptions|Interruptions]] — la source de réveil sur événement
-- [[micropython-eeprom|Stockage persistant]] — sauvegarder l'état avant un `deepsleep` (qui redémarre)
+- [[micropython-stockage|Stockage persistant]] — sauvegarder l'état avant un `deepsleep` (qui redémarre)
 - [[micropython-alimentation|Alimenter la carte]] — budget énergétique et choix de l'alimentation
 - [[arduino-deep-sleep|Mettre un Arduino en veille]] — l'équivalent C++ (bibliothèque LowPower)
 - [[esp32-deep-sleep|Deep sleep sur ESP32]] — même logique « réveil = redémarrage », sur une famille où la veille est très soignée
