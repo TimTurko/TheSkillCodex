@@ -10,6 +10,39 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-08 — Bascule PC pro, tableau de bord de relecture & refonte architecture 3 branches
+
+### Périmètre
+PC pro (`theskillcodex:*`, **outils déférés chargés via `tool_search`**). Démarrage de la **relecture humaine** fiche par fiche ; 1re séance = accueil + hub. **Décision structurelle** prise en séance (refonte en branches métier). Synchro Git OK (rename `micropython-stockage` ramené du PC perso).
+
+### Livrables
+- **Tableau de bord de relecture** `_drafts/relecture-ordre.md` : 213 fiches de contenu dans l'ordre pédagogique validé, cases `[ ]`/`[x]`, repères image (SVG à valider) / attention, méthode + gabarit de retour. Fil conducteur **inter-conversations** (synchronisé entre les 2 PC).
+- **Refonte architecture — 3 branches métier** (couche d'orientation, fichiers **NON déplacés**) :
+  - `index.md` (accueil) **refondu** : mot d'accueil retiré, 3 sections (Comment utiliser / Par où commencer = 3 branches / À propos). **Validé Tim.**
+  - `hub/index.md` → **« Conduite de projet »** (PROJ+MEO+ESE) : titre changé, embed SVG corrigé relatif→**absolu**, « Entrée par domaine » remplacée par « Méthodes, organisation & cadre » (MEO+ESE, index PROJ/MEO/ESE conservés → pas d'orphelins). Puis retours relecture : **sommaire « Les cinq phases » remonté** avant le SVG ; **lien de phase intégré à chaque callout `[!livrable]`** (sur le mot-clé), lignes « À lire ensuite » supprimées (5 phases).
+  - `fiches/eee/index.md` → **« Système embarqué »** (EEE+MIA) : promu hub de branche, familles MCU complétées (ESP8266/STM32/Teensy/MicroPython/Raspberry/PIC + MicroPython langage).
+  - `fiches/mme/index.md` → **« Méca »** (MME) : promu hub de branche, notions complétées, posture interface.
+- **`index` (accueil) coché** dans le tableau de bord. **`hub/index` en cours** (pas validé).
+
+### Décisions
+- **3 branches = couche d'orientation, pas de déplacement de fichiers** (3 raisons : régression embeds relatifs + URL ; traçabilité AA par dossier ; wiki-links par slug → transversalité gratuite). `eee`/`mme` index promus hubs de branche ; `proj`/`meo`/`ese` restent index de domaine sous la branche Conduite.
+- **Nom « Conduite de projet »** (≠ fiche transverse `gestion-de-projet`).
+- **Cycle en V = hub de la branche Conduite** (supprime le doublon accueil/hub).
+- **SVG : voie A** (re-coder maison pour cohérence + dark mode) ; cycle-v et le reste traités en **sessions SVG dédiées**.
+- Ancres de sommaire **relatives** (`#1-…`) conservées, pas les URL absolues `github.io` (cassent hors-ligne).
+- Pas d'emojis dans les pages (pictos d'orientation proposés, en attente Tim).
+
+### Conventions (→ §8 éprouvage)
+- **C60 — Architecture par 3 branches métier** (couche d'orientation).
+- **C61 — Callout *Livrable* à lien intégré** (fiches-trame du V, plus de ligne « À lire ensuite »).
+- Notes : méthode de relecture (1 conversation = 1 session, tableau de bord, rendu Quartz local) ; MCP pro déféré (`tool_search` au démarrage).
+
+### Tailles
+5 fichiers `content/` édités/réécrits + tableau de bord créé. 0 git (Tim pilote). JOURNAL ~68→~72 ko.
+
+### Corps — MCP pro déféré au démarrage
+Après reboot du serveur MCP côté PC pro, les outils `theskillcodex:*` ne sont plus en connexion directe (comme `filesystem:*` côté perso) mais **déférés** : il faut `tool_search` pour charger chaque grappe (list_allowed_directories, read/edit/write_file, directory_tree, list_directory, read_multiple_files…) avant tout appel. L'erreur « has not been loaded yet » est le signal qu'un outil existe mais n'est pas chargé (≠ « not found » = serveur absent). À intégrer à la procédure de démarrage pro. Pour le reste, mêmes pièges qu'avant (dryRun systématique avant apply sur `content/`, anchors verbatim) : les 6 edits du hub ont matché sans échec (em-dash à espaces normaux, aucun NBSP).
+
 ## 2026-06-07 (suite 3) — Re-scan exhaustif liens rouges (`bash`) : 0 rouge confirmé + nettoyage des annotations périmées
 
 ### Périmètre

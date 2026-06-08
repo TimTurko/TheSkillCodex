@@ -144,8 +144,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 - [ ] Glossaire d'acronymes (PWM, PID, PCB, PPM, etc.) — à décider : fiche unique ou fiches courtes ? `ppm` est un prospect typique (acronyme périphérique, pas digne d'une fiche dédiée)
 - [ ] FAQ projet mécatronique
-- [ ] "Premiers pas" (page d'onboarding pour étudiant qui arrive sur le site)
-- [ ] Mode d'emploi du site (popovers, recherche, graph)
+- [x] ~~"Premiers pas" (page d'onboarding pour étudiant qui arrive sur le site)~~ — l'accueil refondu fait office d'onboarding (« Par où commencer » = 3 branches), 08/06.
+- [x] ~~Mode d'emploi du site (popovers, recherche, graph)~~ — couvert par la refonte de l'accueil (section « Comment utiliser ce site »), 08/06.
 
 ## Idées d'illustrations / médias à produire
 
