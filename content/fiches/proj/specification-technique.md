@@ -22,7 +22,7 @@ La **spécification technique** est la première phase du projet [[mecatronique|
 
 ## Posture attendue
 
-La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte deux à cinq fois plus cher en temps passé à le corriger à la fin du projet qu'au début.
+La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte plusieurs fois plus cher en temps passé à le corriger à la fin du projet qu'au début.
 
 ## Objectif de la phase
 
@@ -40,7 +40,7 @@ Ce document servira de **référence pendant tout le projet** et de **grille d'�
 
 ### 1. Analyser le besoin
 
-Avant tout schéma ou choix de composant, il faut comprendre **ce qu'on cherche vraiment à faire et pour qui**. Cette étape est la plus tentée d'être bâclée, et la plus pénalisante quand elle l'est : un besoin mal compris produit un système qui fonctionne mais qui ne sert à rien.
+Avant tout schéma ou choix de composant, il faut comprendre **ce qu'on cherche vraiment à faire et pour qui**. Cette étape est celle qu'on est le plus tenté de bâcler, et la plus pénalisante quand elle l'est : un besoin mal compris produit un système qui fonctionne mais qui ne sert à rien.
 
 L'analyse du besoin se mène en trois temps : contextualiser, formuler avec la bête à cornes, valider.
 
@@ -114,7 +114,7 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 
 ### 2. Étudier l'existant
 
-**Le besoin est compris et validé.** Avant de chiffrer ce que votre système doit faire, regardez ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà réalisé un projet similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
+**Le besoin est compris et validé.** Avant de chiffrer ce que votre système doit faire, regardez ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà traité un besoin similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
 
 Ce travail produit un **[[etat-de-l-art-technique|état de l'art technique]]** : une comparaison chiffrée de solutions existantes selon des critères choisis. Il se mène en trois temps : recenser les solutions, définir les critères, comparer et conclure.
 
@@ -129,7 +129,7 @@ Sources à explorer systématiquement :
 
 - **Produits commerciaux** — catalogues fabricants, sites de distributeurs, fiches techniques
 - **Projets open source** — GitHub, Hackaday, Thingiverse, Instructables, Open Hardware Repository
-- **Publications académiques courtes** — papiers de conférence, mémoires de fin d'études, articles de vulgarisation technique
+- **Publications académiques courtes** — communications de conférence, mémoires de fin d'études, articles de vulgarisation technique
 - **Projets école antérieurs** — archives de l'établissement, retours d'expérience disponibles
 
 Noter pour chaque référence retenue : nom, source/URL, principaux chiffres connus, statut (en production, en projet, abandonné). Cette première passe peut être large : on filtre ensuite par pertinence.
@@ -297,7 +297,7 @@ Le [[wbs|WBS]] (*Work Breakdown Structure*) découpe le projet en éléments tra
 
 Une fois les tâches identifiées via le WBS, trois outils complémentaires les inscrivent dans le calendrier.
 
-Les [[jalons]] sont les points de validation qui rythment le projet. Ils marquent la transition entre deux phases du cycle en V (CdCF validé, PoC concluant, dossier technique validé, intégration livrée, soutenance finale) et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante — il décale tout l'aval.
+Les [[jalons]] sont les points de validation qui rythment le projet. Ils marquent la transition entre deux phases du cycle en V (CdCF validé, [[preuve-de-concept|PoC]] concluant, dossier technique validé, intégration livrée, soutenance finale) et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante — il décale tout l'aval.
 
 Le [[retroplanning|rétroplanning]] consiste à poser d'abord les jalons sur le calendrier (en partant de la fin et en remontant), puis à inscrire les tâches du WBS entre ces jalons. C'est le squelette temporel du projet.
 
@@ -321,17 +321,17 @@ En école, 5 à 10 risques majeurs suffisent. Plus que la liste exhaustive, c'es
 > **Jalons posés** (sur un projet de 15 semaines) :
 >
 > - S3 — Revue de CdCF
-> - S6 — PoC concluant (steppers synchronisés, tenue mécanique d'une articulation validée)
+> - S6 — PoC concluant (moteurs pas-à-pas synchronisés, tenue mécanique d'une articulation validée)
 > - S11 — Dossier technique validé, commandes passées
 > - S14 — Intégration et tests terminés
 > - S15 — Soutenance finale
 >
-> **WBS niveau 2** (extrait) : Mécanique (structure articulée, liaisons, montage), Électronique (carte de pilotage, câblage, alimentation), Informatique (commande des steppers, IHM PC, communication PC–carte), Projet (CdCF, dossier technique, rapport final).
+> **WBS niveau 2** (extrait) : Mécanique (structure articulée, liaisons, montage), Électronique (carte de pilotage, câblage, alimentation), Informatique (commande des moteurs pas-à-pas, IHM PC, communication PC–carte), Projet (CdCF, dossier technique, rapport final).
 >
 > **Risques majeurs identifiés** (5) :
 >
 > 1. Tenue mécanique des articulations imprimées 3D — *probabilité moyenne × gravité élevée* → sur-dimensionner et tester au plus tôt sur une articulation isolée.
-> 2. Synchronisation des 3 steppers — *probabilité moyenne × gravité moyenne* → valider l'interface logiciel/driver dès le PoC.
+> 2. Synchronisation des 3 moteurs pas-à-pas — *probabilité moyenne × gravité moyenne* → valider l'interface logiciel/driver dès le PoC.
 > 3. Indisponibilité fablab en période d'examens — *probabilité élevée × gravité moyenne* → caler les impressions critiques avant S10.
 > 4. IHM PC plus complexe qu'estimé — *probabilité moyenne × gravité faible* → version minimale (ligne de commande) en plan B.
 > 5. Équipier indisponible (stage, maladie) — *probabilité faible × gravité élevée* → binômage sur les tâches critiques pour éviter le mono-référent.
@@ -359,7 +359,7 @@ Le CdCF école simplifié s'organise en cinq sections, qui suivent l'ordre des c
 
 L'**ordre suit le déroulé pédagogique** de la phase, ce qui rend la lecture naturelle pour le lecteur qui découvre le projet. Les sections sont **explicitement labellisées** — « cœur NF X50-151 » sur la section 4, « complément école » sur les sections 3 et 5 — pour que l'étudiant, et son lecteur, distinguent le cœur normatif des compléments.
 
-Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la rédaction : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique, et les tableaux pré-structurés (bête à cornes, EAT comparatif, caractérisation des fonctions, matrice de risques) ; il suffit de compléter les placeholders entre crochets.
+Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la rédaction : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la table des matières en 5 sections, avec page de garde, sommaire automatique, et les tableaux pré-structurés (bête à cornes, état de l'art comparatif, caractérisation des fonctions, matrice de risques) ; il suffit de compléter les placeholders entre crochets.
 
 > [!info] À retenir
 > **En contexte professionnel, le CdCF NF X50-151 strict se limite à l'analyse fonctionnelle** (sections 2 et 4 ci-dessus). L'état de l'art technique et la planification sont des livrables **séparés**, produits en parallèle et destinés à des interlocuteurs différents (équipe technique, direction de projet). Le « cadre de réponse » formel de NF X50-151 — chapitre dédié à la manière dont le fournisseur doit répondre à l'appel d'offres — n'a pas d'équivalent direct en école : la planification du projet en tient le rôle pratique, elle cadre la suite à défaut d'organiser une consultation fournisseur.
@@ -369,7 +369,7 @@ Un **template Word pré-rempli** est fourni dans le dépôt pour démarrer la r�
 Le matériau de chaque section est déjà produit. Le travail consiste ici à l'agréger en un document unique et cohérent, en soignant trois choses :
 
 - **La mise en forme.** Sommaire, pagination, en-tête de page, numérotation des sections, tableaux propres, schémas légendés. Le fond est validé par les étapes précédentes ; la forme communique le sérieux du travail et facilite la lecture en revue.
-- **La cohérence inter-sections.** Une exigence chiffrée à l'étape 4 doit être cohérente avec l'ordre de grandeur retenu dans l'état de l'art à l'étape 2. Un risque identifié à l'étape 5 doit faire écho à une [[FC]] de la pieuvre ou à un point dur évoqué dans l'analyse du besoin. La rédaction du CdCF est l'occasion de **relire l'ensemble** et de corriger les incohérences résiduelles que les étapes successives n'avaient pas exposées.
+- **La cohérence inter-sections.** Une exigence chiffrée à l'étape 4 doit être cohérente avec l'ordre de grandeur retenu dans l'état de l'art à l'étape 2. Un risque identifié à l'étape 5 doit faire écho à une [[FC]] de la pieuvre ou à un verrou évoqué dans l'analyse du besoin. La rédaction du CdCF est l'occasion de **relire l'ensemble** et de corriger les incohérences résiduelles que les étapes successives n'avaient pas exposées.
 - **L'intégration de la démarche [[ecoconception|écoconception]].** L'écoconception n'est pas une section ajoutée à la fin — elle est **intégrée transversalement** dans chaque section : dans l'analyse du besoin (parties prenantes : environnement), dans l'état de l'art (critère écoconception du tableau comparatif), dans la pieuvre ([[FC]] sur les matériaux ou la fin de vie), dans la planification (jalons d'éco-vérification). Le CdCF est l'occasion de vérifier que cette intégration est présente partout, et pas en addendum cosmétique. À distinguer de l'[[ecodesign|écodesign]] (design d'usage, plutôt délégué aux cours de design) : le CdCF porte l'écoconception au sens ingénierie quantifiée, pas l'écodesign — les confondre revient à ne traiter qu'une moitié de l'enjeu environnemental.
 
 #### Faire valider en revue de CdCF
@@ -388,7 +388,7 @@ Pour s'y préparer :
 > **Un CdCF n'est pas un copier-coller des livrables intermédiaires.** La tentation, quand cinq étapes ont produit cinq lots de pages, est d'agrafer le tout et de poser une page de garde. Ce qui en sort est une compilation — pas un document. Les répétitions ne sont pas résorbées, les transitions manquent, les incohérences entre sections passent inaperçues. Le geste de l'étape 6 est précisément de **relire l'ensemble** et de réécrire ce qui doit l'être pour que les cinq sections forment un **récit cohérent**, pas une juxtaposition.
 
 > [!example] Exemple : projet bras 3 axes
-> Le CdCF du bras 3 axes s'organise en 5 sections suivant la TdM standard. La section 1 reprend la posture étudiant-client-de-lui-même actée à l'étape 1 (commanditaire = enseignant de mécatronique, but pédagogique explicite). La section 4 — cœur NF X50-151 — agrège la pieuvre et le tableau de fonctions caractérisées : 1 FP, 1 FS, 2 FC, toutes chiffrées (précision ± 5 mm en F1, programmation depuis poste informatique en F2, alimentation 230 V en F0, démontabilité fablab en F0).
+> Le CdCF du bras 3 axes s'organise en 5 sections suivant la table des matières standard. La section 1 reprend la posture étudiant-client-de-lui-même actée à l'étape 1 (commanditaire = enseignant de mécatronique, but pédagogique explicite). La section 4 — cœur NF X50-151 — agrège la pieuvre et le tableau de fonctions caractérisées : 1 FP, 1 FS, 2 FC, toutes chiffrées (précision ± 5 mm en F1, programmation depuis poste informatique en F2, alimentation 230 V en F0, démontabilité fablab en F0).
 >
 > La démarche écoconception est intégrée transversalement : critère « ouverture / réparabilité » dans le tableau de l'état de l'art (section 3), FC2 sur la démontabilité dans la pieuvre (section 4), risque « disponibilité fablab » dans la matrice de risques (section 5). Pas de section écoconception dédiée — l'enjeu environnemental traverse le document.
 >
