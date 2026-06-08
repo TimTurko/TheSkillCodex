@@ -105,6 +105,6 @@ Le tutoriel comporte **trois types de fiches** que tu reconnaîtras au champ `ty
 
 Au-delà des phases, la conduite de projet mobilise des **outils d'organisation** et un **cadre réglementaire** :
 
-- **Méthodes & organisation** ([[../fiches/meo/index|MEO]]) : [[relation-client|relation client]], [[archivage-projet|archivage et traçabilité]], [[revue-de-code|revue de code]], [[unite-si|unités SI]], [[cable-management|gestion du câblage]].
-- **Normes, sécurité & écoconception** ([[../fiches/ese/index|ESE]]) : sécurité produit et conformité dans [[securite-et-qualite|sécurité et qualité]] ; empreinte environnementale dans [[ecoconception|écoconception]].
-- **Tous les outils projet** : voir l'index [[../fiches/proj/index|PROJ]].
+- **Méthodes & organisation** ([[fiches/meo/index|MEO]]) : [[relation-client|relation client]], [[archivage-projet|archivage et traçabilité]], [[revue-de-code|revue de code]], [[unite-si|unités SI]], [[cable-management|gestion du câblage]].
+- **Normes, sécurité & écoconception** ([[fiches/ese/index|ESE]]) : sécurité produit et conformité dans [[securite-et-qualite|sécurité et qualité]] ; empreinte environnementale dans [[ecoconception|écoconception]].
+- **Tous les outils projet** : voir l'index [[fiches/proj/index|PROJ]].

@@ -343,7 +343,7 @@ Trois issues nominales, plus un cas rétroactif. La revue **valide sans réserve
 
 ## Voir aussi
 
-- [[index|Hub du parcours projet]]
+- [[hub/index|Hub du parcours projet]]
 - Étape précédente : [[specification-technique|Spécification technique]]
 - Étape suivante : [[preuve-de-concept|Preuve de concept]]
 - [[matrice-de-decision|Matrice de décision]]

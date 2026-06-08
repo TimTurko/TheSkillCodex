@@ -174,11 +174,11 @@ récapitule la nature continue de la trame et renvoie au hub pour
 recontextualiser dans le cycle en V global.
 -->
 
-À l'issue du projet, la gestion de projet aura **traversé les 5 phases du cycle en V sans interruption** — chaque phase y a contribué par ses propres livrables, chaque revue y a trouvé son moment de mise à jour, chaque point hebdomadaire en a ancré la cadence. Une gestion de projet réussie ne se voit pas ; elle se mesure à l'absence des accidents qu'elle a évités. Voir le [[index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[ecoconception|écoconception]] et [[securite-et-qualite|sécurité et qualité]] pour les deux autres fils transverses qu'elle pilote.
+À l'issue du projet, la gestion de projet aura **traversé les 5 phases du cycle en V sans interruption** — chaque phase y a contribué par ses propres livrables, chaque revue y a trouvé son moment de mise à jour, chaque point hebdomadaire en a ancré la cadence. Une gestion de projet réussie ne se voit pas ; elle se mesure à l'absence des accidents qu'elle a évités. Voir le [[hub/index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[ecoconception|écoconception]] et [[securite-et-qualite|sécurité et qualité]] pour les deux autres fils transverses qu'elle pilote.
 
 ## Voir aussi
 
-- [[index|Hub du parcours projet]]
+- [[hub/index|Hub du parcours projet]]
 - [[wbs|WBS]]
 - [[jalons|Jalons]]
 - [[retroplanning|Rétroplanning]]
