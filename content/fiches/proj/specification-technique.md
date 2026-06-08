@@ -57,7 +57,7 @@ Le contexte répond à la question : **pourquoi ce projet existe ?**
 - **Verrous technologiques** — quels obstacles techniques ou scientifiques le projet cherche à dépasser
 
 > [!warning] Attention
-> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience qu'on va combler. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience que vous allez combler au cours du projet. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
 
 #### Formuler le besoin avec la bête à cornes
 
@@ -71,7 +71,7 @@ La [[bete-a-cornes|bête à cornes]] est l'outil canonique de [[afnor-nfx50-151|
 
 > [!example] Exemple : projet couveuse
 >
-> - **À qui** : éleveur amateur en autoconsommation
+> - **À qui** : éleveur de poules amateur visant l'autonomie en nourriture
 > - **Sur quoi** : œufs de poule fécondés
 > - **But** : assurer le développement embryonnaire jusqu'à l'éclosion sans surveillance permanente
 
