@@ -18,11 +18,11 @@ aa:
 draft: false
 ---
 
-La **spécification technique** est la première phase du projet [[mecatronique|mécatronique]] : elle transforme un besoin formulé en langage courant ("on aimerait un robot qui...") en un document de référence chiffré et opposable — le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. C'est la phase qui décide *ce qu'on doit faire*, avant tout choix de solution technique.
+La **spécification technique** est la première phase du projet [[mecatronique|mécatronique]] : elle transforme un besoin formulé en langage courant ("on aimerait un robot qui...") en un document de référence chiffré — le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. C'est la phase qui décide *ce qu'on doit faire*, avant tout choix de solution technique.
 
 ## Posture attendue
 
-La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte plusieurs fois plus cher en temps passé à le corriger à la fin du projet qu'au début.
+La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte plus cher en temps de correction à la fin du projet qu'au début.
 
 ## Objectif de la phase
 
