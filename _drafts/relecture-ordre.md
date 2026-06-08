@@ -25,7 +25,7 @@ Verdict : OK / a corriger
 ---
 
 ## 0 · Entrée
-- [ ] `index` (accueil) — 🖼✅ *(cycle-v-projet)*
+- [x] `index` (accueil) — 🖼✅ *(cycle-v-projet)*
 - [ ] `hub/index` (parcours central)
 - [ ] `mecatronique` (notion racine)
 
