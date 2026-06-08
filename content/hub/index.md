@@ -17,10 +17,6 @@ draft: false
 
 Le **parcours projet** décrit les cinq phases successives d'un projet mécatronique étudiant, du besoin initial à la soutenance finale. Il suit une logique de **cycle en V** : la branche descendante définit progressivement le système (spécification, concept, preuve de concept), la branche ascendante le réalise et le valide (dossier technique, intégration et tests). Cette trame structure l'ensemble du tutoriel et sert de point d'entrée pour situer chaque notion, chaque outil et chaque livrable dans le déroulé du projet.
 
-## Le cycle en V
-
-![Cycle en V du projet mécatronique](/ressources/img/cycle-v-projet.svg)
-
 ## Les cinq phases
 
 1. [Spécification technique](#1-spécification-technique) — traduire un besoin en exigences techniques mesurables
@@ -31,6 +27,10 @@ Le **parcours projet** décrit les cinq phases successives d'un projet mécatron
 
 Chaque phase produit un livrable identifiable et conditionne la suivante. Aucune phase n'est validée tant que son livrable n'est pas accepté en revue.
 
+## Le cycle en V
+
+![Cycle en V du projet mécatronique](/ressources/img/cycle-v-projet.svg)
+
 ## 1. Spécification technique
 
 > [!question] Question centrale
@@ -39,9 +39,7 @@ Chaque phase produit un livrable identifiable et conditionne la suivante. Aucune
 L'équipe traduit un besoin (souvent flou en début de projet) en exigences techniques mesurables. Cette phase regroupe l'analyse du besoin, l'étude du contexte d'usage, l'état de l'art des solutions existantes, la prise en compte des contraintes d'[[ecoconception]], et la formalisation des cibles de performance.
 
 > [!livrable] Livrable principal
-> Le [[cahier-des-charges-fonctionnel]], complété d'un dossier de spécification technique.
-
-**À lire ensuite** : [[specification-technique]].
+> Le [[cahier-des-charges-fonctionnel]], complété d'un dossier de [[specification-technique|spécification technique]].
 
 ## 2. Concept
 
@@ -51,9 +49,7 @@ L'équipe traduit un besoin (souvent flou en début de projet) en exigences tech
 L'équipe choisit un concept parmi plusieurs candidats, le décrit par des schémas (notamment le [[schema-bloc-fonctionnel]], le [[schema-cinematique]], la [[chaine-energie]]), et vérifie par un pré-dimensionnement rapide que les ordres de grandeur tiennent (puissance, autonomie, encombrement).
 
 > [!livrable] Livrable principal
-> Un dossier de concept présentant le schéma bloc, les diagrammes de chaînes, et les calculs de pré-dimensionnement.
-
-**À lire ensuite** : [[concept]].
+> Un dossier de [[concept]] présentant le schéma bloc, les diagrammes de chaînes, et les calculs de pré-dimensionnement.
 
 ## 3. Preuve de concept
 
@@ -65,9 +61,7 @@ Avant d'engager toute la conception détaillée, l'équipe identifie les **point
 Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : le **dérisquage amont**. Plutôt que de tout concevoir puis tester, on teste tôt ce qui peut faire échouer le projet.
 
 > [!livrable] Livrable principal
-> Un ou plusieurs prototypes minimaux démontrant que les points durs sont maîtrisés, accompagnés d'une mise à jour de la spec et du concept si besoin.
-
-**À lire ensuite** : [[preuve-de-concept]].
+> Un ou plusieurs prototypes minimaux — la [[preuve-de-concept|preuve de concept]] proprement dite — démontrant que les points durs sont maîtrisés, accompagnés d'une mise à jour de la spec et du concept si besoin.
 
 ## 4. Dossier technique
 
@@ -77,9 +71,7 @@ Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : 
 L'équipe produit l'ensemble des documents permettant de réaliser le prototype : plans de détail et d'assemblage, nomenclature (BOM), schémas électriques, routage [[pcb|PCB]], algorithmes embarqués, simulations, et le plan de qualification produit (comment on validera que le système répond à la spec).
 
 > [!livrable] Livrable principal
-> Le dossier technique complet, suffisant pour qu'une équipe extérieure puisse fabriquer et tester le système.
-
-**À lire ensuite** : [[dossier-technique]].
+> Le [[dossier-technique|dossier technique]] complet, suffisant pour qu'une équipe extérieure puisse fabriquer et tester le système.
 
 ## 5. Intégration et tests
 
@@ -89,9 +81,7 @@ L'équipe produit l'ensemble des documents permettant de réaliser le prototype 
 L'équipe fabrique, assemble et câble le prototype, puis exécute le plan de qualification : chaque fonction décrite dans la spec est testée, mesurée, validée ou identifiée comme écart. L'assemblage doit être sûr et présentable. La phase se conclut par la soutenance, le rapport final et le retour d'expérience (REX).
 
 > [!livrable] Livrable principal
-> Prototype fonctionnel, dossier de qualification, soutenance et REX.
-
-**À lire ensuite** : [[integration-et-tests]].
+> Le résultat de l'[[integration-et-tests|intégration et des tests]] — prototype fonctionnel, dossier de qualification, soutenance et REX.
 
 ## En parallèle de toutes les phases
 
