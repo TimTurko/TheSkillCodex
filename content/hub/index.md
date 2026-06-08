@@ -15,13 +15,13 @@ phases:
 draft: false
 ---
 
-Le **parcours projet** décrit les cinq phases successives d'un projet mécatronique étudiant, du besoin initial à la soutenance finale. Il suit une logique de **cycle en V** : la branche descendante définit progressivement le système (spécification, concept, preuve de concept), la branche ascendante le réalise et le valide (dossier technique, intégration et tests). Cette trame structure l'ensemble du tutoriel et sert de point d'entrée pour situer chaque notion, chaque outil et chaque livrable dans le déroulé du projet.
+La fiche **parcours projet** décrit les cinq phases d'un projet mécatronique ou IoT niveau étudiant étudiant, du besoin initial à la soutenance finale. Il suit une logique de **cycle en V** : la branche de gauche (descendante) définit progressivement le système (spécification, concept, preuve de concept), la branche de droite (ascendante) le réalise et le valide (dossier technique, intégration et tests). Cette trame structure l'ensemble du tutoriel et sert de point d'entrée pour situer chaque notion, chaque outil et chaque livrable dans le déroulé du projet.
 
 ## Les cinq phases
 
 1. [Spécification technique](#1-spécification-technique) — traduire un besoin en exigences techniques mesurables
 2. [Concept](#2-concept) — choisir une architecture et la pré-dimensionner
-3. [Preuve de concept](#3-preuve-de-concept) — dérisquer les points durs avant la conception détaillée
+3. [Preuve de concept](#3-preuve-de-concept) — lever les incertitudes techniques avant la conception détaillée
 4. [Dossier technique](#4-dossier-technique) — produire tous les documents permettant la fabrication
 5. [Intégration et tests](#5-intégration-et-tests) — assembler, qualifier, conclure le projet
 
@@ -56,12 +56,12 @@ L'équipe choisit un concept parmi plusieurs candidats, le décrit par des sché
 > [!question] Question centrale
 > Les points techniques incertains du concept fonctionnent-ils réellement ?
 
-Avant d'engager toute la conception détaillée, l'équipe identifie les **points durs** du concept (régulation à atteindre, communication à valider, composant à caractériser) et les teste sur un montage minimal. Si un point dur échoue, la spec ou le concept évolue **avant** que l'erreur coûte cher.
+Avant d'engager toute la conception détaillée, l'équipe identifie les **incertitudes** du concept (régulation à atteindre, communication à valider, composant à caractériser) et les teste sur un montage minimal. Si un test échoue, la spec ou le concept évolue **avant** que l'erreur coûte cher.
 
-Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : le **dérisquage amont**. Plutôt que de tout concevoir puis tester, on teste tôt ce qui peut faire échouer le projet.
+Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : **lever les incertitudes en amont**. Plutôt que de tout concevoir puis tester, on teste tôt ce qui peut faire échouer le projet.
 
 > [!livrable] Livrable principal
-> Un ou plusieurs prototypes minimaux — la [[preuve-de-concept|preuve de concept]] proprement dite — démontrant que les points durs sont maîtrisés, accompagnés d'une mise à jour de la spec et du concept si besoin.
+> Un ou plusieurs prototypes minimaux — la [[preuve-de-concept|preuve de concept]] proprement dite — démontrant que les incertitudes sont levées, accompagnés d'une mise à jour de la spec et du concept si besoin.
 
 ## 4. Dossier technique
 

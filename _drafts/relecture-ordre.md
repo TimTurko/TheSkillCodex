@@ -26,7 +26,7 @@ Verdict : OK / a corriger
 
 ## 0 · Entrée
 - [x] `index` (accueil) — 🖼✅ *(cycle-v-projet)*
-- [ ] `hub/index` (parcours central)
+- [x] `hub/index` (parcours central)
 - [ ] `mecatronique` (notion racine)
 
 ## 1 · Trame — cycle en V
@@ -287,7 +287,7 @@ Verdict : OK / a corriger
 ## Annexe — hors parcours étudiant (vérif technique, basse priorité)
 - [ ] `ressources/index` (page assets)
 - [ ] Templates internes (masqués de la nav) : `templates/callouts`, `fiche-notion`, `fiche-trame`, `fiche-tuto`, `templates/index`
-- ⚠ **À supprimer à la main** : `content/fiches/mia/index.md` + dossier `mia/` (résidu de la fusion MIA→EEE ; le MCP ne sait pas supprimer).
+- ✅ **`mia/` supprimé (08/06)** — dossier `content/fiches/mia/` retiré (résidu de la fusion MIA dans EEE).
 
 ---
 
