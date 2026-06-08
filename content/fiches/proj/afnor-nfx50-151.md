@@ -1,12 +1,13 @@
 ---
 title: NF X50-151
+type: notion
 tags:
   - proj
   - notion
   - stub
 prerequis: []
 aa: []
-draft: true
+draft: false
 ---
 
 La **norme NF X50-151** est la norme française AFNOR qui définit le cadre de l'analyse fonctionnelle d'un produit ou système. Elle décrit notamment les outils de la [[bete-a-cornes|bête à cornes]] (expression du besoin) et de la pieuvre (recensement des fonctions), et impose une caractérisation chiffrée des fonctions par triplet **critère / niveau / flexibilité**.

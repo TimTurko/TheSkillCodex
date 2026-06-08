@@ -10,6 +10,34 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-08 (suite) — Relecture humaine : session 1 (entrée + passe liens parcours + spécification technique)
+
+### Périmètre
+PC pro (`theskillcodex:*` déférés). Suite directe de la refonte 3 branches : **1re vraie session de relecture humaine** sur le rendu Quartz. Bouclé l'entrée du tableau de bord (`hub/index`, `mecatronique`) + 1re trame du V (`specification-technique`), avec une **passe de correction des liens parcours** au milieu. 0 git (Tim pilote).
+
+### Livrables
+- **Hub « Conduite de projet » validé** : lexique proscrit corrigé (5 patches — « dérisquer »→« lever les incertitudes », « point dur »→« incertitude » dans sommaire + phase 3) ; coché.
+- **`mecatronique` validé** : 2 liens `[[index|…]]` (qui visaient l'accueil) → `[[hub/index|…]]` ; coché.
+- **Passe liens parcours (grep exhaustif, méthode dumps + bash)** : toute la sphère parcours — 31 fiches `proj/` + 5 index de domaine + hubs `eee/index`/`mme/index` — **0 `[[index]]`/`[[..]]`**. La refonte du 08/06 n'avait laissé **qu'un seul straggler**, `mecatronique` (corrigé). `hub/index` et `ecoconception` étaient **déjà** en forme absolue — mes signalements antérieurs « liens cassés » étaient des **erreurs de mémoire**, infirmées par relecture fraîche. Les `[[FP/FS/FC]]` et `[[critère/niveau/flexibilité]]` **ne sont pas rouges** (résolus par `aliases:` front-matter sur `fonction` et `caracteriser-une-exigence`).
+- **`specification-technique` validée — 12 corrections** : « point dur »→« verrou » (proscrit) ; abréviations explicitées (`PoC` lié à `[[preuve-de-concept]]`, EAT/TdM développés) ; « steppers »→« moteurs pas-à-pas » (×3) ; 4 tournures. Cochée.
+- **`afnor-nfx50-151` publié** : `draft:true→false` + ajout `type: notion` → résout le **404** (le stub était exclu du build).
+- **Bookkeeping** : `ecodesign` confirmé non-doublon (notion sœur) ; `mia/` supprimé (Tim) ; TODO item docx requalifié « créer »→« **remplacer** » (fichier présent = mauvais) ; SVG `bete-a-cornes-generique` + `pieuvre-generique`/`-bras-3-axes` ajoutés à « Reprise visuelle SVG » ; marques 🖼✅→🖼 ⚠ sur `bete-a-cornes`/`pieuvre` en §2.
+
+### Décisions (Tim)
+- **Mélange tu/vous toléré** (pas d'uniformisation de registre hub/trames).
+- **`(stub)`** sur le lien afnor en Voir aussi : **gardé**.
+- **Récap « Pièges fréquents »** en fin de trame : **gardé** (valeur checklist, duplication assumée).
+- afnor **publié** (option a) plutôt qu'étoffé d'abord. MTBF/ROI/IHM **non glossés** (termes standard).
+
+### Conventions
+Aucune nouvelle (réutilisation C14, dryRun, grep dumps).
+
+### Tailles
+`content/` : hub (5 patches), `specification-technique` (12), `afnor` (2). Pilotage : `relecture-ordre.md`, `TODO.md`. JOURNAL ~72→~76 ko.
+
+### Corps — la leçon « vérifier, ne jamais affirmer de mémoire »
+Trois fausses alertes en chaîne, toutes nées d'une reconstruction mémorielle au lieu d'une lecture fraîche : (1) j'ai d'abord « corrigé » `mecatronique` en `[[../../hub/index]]` (relatif → 404) avant de retrouver que Quartz résout **racine-absolu** (`[[hub/index|…]]`) ; (2) puis annoncé 3 liens `../` cassés sur `hub/index` — faux, déjà absolus ; (3) puis 2 `[[index]]` sur `ecoconception` — faux, déjà `[[hub/index]]`. À chaque fois la relecture fraîche (ou le grep) a tranché. **Renforce C14** : sur les liens comme sur les ancres d'édition, l'autorité est le fichier vivant, jamais le souvenir. Corollaire découvert : les termes d'un cluster conceptuel (FP/FS/FC ; critère/niveau/flexibilité) sont rendus **non-rouges par `aliases:`** sur la fiche-parapluie — ne pas les compter rouges lors d'un audit. Méthode grep confirmée : `read_multiple_files` **dump en sandbox** (cap **1 Mo**/résultat → ~25 fiches/lot, sinon batcher) que `bash` parcourt sans coût contexte.
+
 ## 2026-06-08 — Bascule PC pro, tableau de bord de relecture & refonte architecture 3 branches
 
 ### Périmètre
