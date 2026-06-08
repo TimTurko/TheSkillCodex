@@ -16,7 +16,7 @@ La **mécatronique** est l'ingénierie des systèmes qui font coopérer **mécan
 
 Ce qui caractérise la mécatronique n'est pas la juxtaposition des trois disciplines mais leur **intégration**. La structure mécanique conditionne le choix des actionneurs ; les actionneurs imposent une électronique de puissance ; l'électronique fixe les contraintes du [[firmware]] ; et le comportement logiciel doit tenir compte des inerties et des temps de réponse mécaniques. Concevoir mécatronique, c'est arbitrer en permanence à ces frontières plutôt qu'optimiser chaque domaine isolément.
 
-Sur ce wiki, ces disciplines sont outillées par des parcours techniques dédiés, tandis que le **[[../../hub/index|parcours projet]]** porte la méthodologie qui les fait converger : le cycle en V, de la [[specification-technique|spécification]] à l'[[integration-et-tests|intégration et tests]].
+Sur ce wiki, ces disciplines sont outillées par des parcours techniques dédiés, tandis que le **[[hub/index|parcours projet]]** porte la méthodologie qui les fait converger : le cycle en V, de la [[specification-technique|spécification]] à l'[[integration-et-tests|intégration et tests]].
 
 ## Fil rouge
 
@@ -24,6 +24,6 @@ Tout le wiki illustre ces principes sur un même projet : un **bras robotique p�
 
 ## Voir aussi
 
-- [[../../hub/index|Parcours projet (PROJ)]] — la méthodologie du cycle en V
+- [[hub/index|Parcours projet (PROJ)]] — la méthodologie du cycle en V
 - [[microcontroleur|Microcontrôleur]] — le cœur décisionnel du système
 - [[specification-technique|Spécification technique]] — le point de départ du cycle en V
