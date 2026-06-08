@@ -56,7 +56,7 @@ L'équipe choisit un concept parmi plusieurs candidats, le décrit par des sché
 > [!question] Question centrale
 > Les points techniques incertains du concept fonctionnent-ils réellement ?
 
-Avant d'engager toute la conception détaillée, l'équipe identifie les **incertitudes** du concept (régulation à atteindre, communication à valider, composant à caractériser) et les teste sur un montage minimal. Si un test échoue, la spec ou le concept évolue **avant** que l'erreur coûte cher.
+Avant d'engager toute la conception détaillée, l'équipe identifie les **incertitudes** du concept (régulation à atteindre, communication à valider, composant à caractériser) et les teste sur un montage minimal. Si un test échoue, la spec ou le concept doit évoluer **avant** que l'erreur ne coûte trop cher.
 
 Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : **lever les incertitudes en amont**. Plutôt que de tout concevoir puis tester, on teste tôt ce qui peut faire échouer le projet.
 
