@@ -1,5 +1,5 @@
 ---
-title: Parcours projet
+title: Conduite de projet
 tags:
   - hub
   - trame
@@ -19,7 +19,7 @@ Le **parcours projet** décrit les cinq phases successives d'un projet mécatron
 
 ## Le cycle en V
 
-![Cycle en V du projet mécatronique](../ressources/img/cycle-v-projet.svg)
+![Cycle en V du projet mécatronique](/ressources/img/cycle-v-projet.svg)
 
 ## Les cinq phases
 
@@ -111,14 +111,10 @@ Le tutoriel comporte **trois types de fiches** que tu reconnaîtras au champ `ty
 - **Fiches tuto** : montrent comment mettre en œuvre un outil ou une méthode (installer un IDE, comprendre les GPIO d'un microcontrôleur, fabriquer un PID numérique). Pratiques, orientées action.
 - **Fiches notion** : rappels courts (tension, résistance, couple, force) faisant le pont avec d'autres cours. À consulter en cas de doute sur une base.
 
-## Entrée par domaine
+## Méthodes, organisation & cadre
 
-Pour une lecture orientée révision (chercher une notion par discipline plutôt que par phase de projet) :
+Au-delà des phases, la conduite de projet mobilise des **outils d'organisation** et un **cadre réglementaire** :
 
-- [[../fiches/eee/index|EEE]] — Électronique et informatique embarquée
-- [[../fiches/meo/index|MEO]] — Méthodes, organisation, animation
-- [[../fiches/proj/index|PROJ]] — Démarche projet
-- [[../fiches/mme/index|MME]] — Matériaux, mécanique (renvoie vers les cours collègues)
-- [[../fiches/ese/index|ESE]] — Écoconception, ACV (renvoie vers les cours collègues)
-
-Chaque fiche du site indique en en-tête les phases du parcours dans lesquelles elle est mobilisée.
+- **Méthodes & organisation** ([[../fiches/meo/index|MEO]]) : [[relation-client|relation client]], [[archivage-projet|archivage et traçabilité]], [[revue-de-code|revue de code]], [[unite-si|unités SI]], [[cable-management|gestion du câblage]].
+- **Normes, sécurité & écoconception** ([[../fiches/ese/index|ESE]]) : sécurité produit et conformité dans [[securite-et-qualite|sécurité et qualité]] ; empreinte environnementale dans [[ecoconception|écoconception]].
+- **Tous les outils projet** : voir l'index [[../fiches/proj/index|PROJ]].
