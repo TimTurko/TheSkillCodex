@@ -130,7 +130,7 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 > Passe de vérification avant mise en ligne du site aux étudiants (MVP strict atteint).
 
-- [ ] **Créer le template Word `cdcf-ecole-template.docx`** — référencé en lien dans `specification-technique.md` étape 6 et `cahier-des-charges-fonctionnel.md`, mais le fichier n'existe pas encore. Vigilance « EAT » : réserver l'abréviation à *état de l'art technique*, ne pas réintroduire « matrice EAT » (renommée « matrice éco-critères »).
+- [ ] **Remplacer le template Word `cdcf-ecole-template.docx`** — référencé en lien dans `specification-technique.md` étape 6 et `cahier-des-charges-fonctionnel.md`, mais le fichier présent dans `ressources/templates/` n'est PAS le bon (mauvais fichier repéré en relecture 08/06). Vigilance « EAT » : réserver l'abréviation à *état de l'art technique*, ne pas réintroduire « matrice EAT » (renommée « matrice éco-critères »).
 - [ ] **Vérifier les images** de toutes les fiches (présence + rendu) — **dont les 11 SVG du 29/05** (algorithme : générique + triptyques logigramme/MAE ; grafcet, chronogramme, analyse-de-schema), hand-codés au premier jet : valider la géométrie au rendu Quartz, en priorité `analyse-de-schema-exemple` (symboles composants) et les SVG placés dans les callouts de triptyque.
 - [ ] **Reconcilier la cartographie AA Phase 1** : `RA-PROJET-C03-3/EEE/1` est porté à la fois par `lire-une-datasheet` et `analyse-de-schema-electronique` (multi-couverture C20) ; confirmer le statut de `EEE/2` et des `EEE/5` (logigramme/MAE/grafcet/chronogramme) pour étayer le « MVP strict 100 % ». Vérifier aussi `phases: dossier-technique` sur `analyse-de-schema` (repris du cadrage, non revérifié) et le lien `[[del|LED]]` (probablement rouge — créer `del.md` ou délier).
 - [ ] **Vérifier toutes les fiches du lot Phase 0 (gestion de projet)** avant publication : `bom`, `mind-map`, `fast`, `amdec`, `matrice-eco-criteres`, `ecodesign` + fiches GP/outils antérieures.
@@ -191,6 +191,8 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 ## Reprise visuelle SVG (voie A — sessions dédiées)
 
 - [ ] **`cycle-v-projet`** — re-coder en voie A (cohérence de style + mode sombre). Signalé en relecture du hub « Conduite de projet » (08/06) ; embarqué sur l'accueil + le hub. Le peigne complet des ~81 SVG est suivi dans `_drafts/peigne-svg-prepublication.md` et au BACKLOG.
+- [ ] **`bete-a-cornes-generique`** — reprendre en voie A. Signalé en relecture de `specification-technique` (08/06) ; embarqué sur `specification-technique` + `bete-a-cornes`.
+- [ ] **`pieuvre-generique`** + **`pieuvre-bras-3-axes`** — reprendre en voie A. Signalés en relecture de `specification-technique` (08/06) ; embarqués sur `specification-technique` (générique aussi sur `pieuvre`).
 
 ## Tâches techniques en suspens
 

@@ -30,7 +30,7 @@ Verdict : OK / a corriger
 - [x] `mecatronique` (notion racine)
 
 ## 1 · Trame — cycle en V
-- [ ] `specification-technique` (phase 1)
+- [x] `specification-technique` (phase 1) — ⚠ SVG + template docx → TODO
 - [ ] `concept` (phase 2)
 - [ ] `preuve-de-concept` (phase 3)
 - [ ] `dossier-technique` (phase 4)
@@ -42,8 +42,8 @@ Verdict : OK / a corriger
 - [ ] `securite-et-qualite`
 
 ## 2 · Notions & outils PROJ
-- [ ] `bete-a-cornes` — 🖼✅
-- [ ] `pieuvre` — 🖼✅
+- [ ] `bete-a-cornes` — 🖼 ⚠ SVG à reprendre (relecture 08/06)
+- [ ] `pieuvre` — 🖼 ⚠ SVG à reprendre (relecture 08/06)
 - [ ] `fonction`
 - [ ] `fast` — 🖼
 - [ ] `decomposition-fonctionnelle` — 🖼 ⚠ arbo 3-axes dense sur mobile
