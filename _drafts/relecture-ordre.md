@@ -63,7 +63,7 @@ Verdict : OK / a corriger
 - [ ] `matrice-de-risques` — 🖼 ⚠ légende station-météo
 - [ ] `acv-simplifiee`
 - [ ] `matrice-eco-criteres`
-- [ ] `ecodesign` — ⚠ vérifier si doublon/alias de `ecoconception`
+- [ ] `ecodesign` — *(vérifié 08/06 : pas un doublon — notion sœur d'`ecoconception`, distinction ingénierie/design ; on garde les deux)*
 
 ## 3 · MEO — méthodes & organisation
 - [ ] `relation-client`

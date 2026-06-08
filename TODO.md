@@ -188,6 +188,10 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 ### 3. Templates à rédiger
 - [x] ~~**Template fiche-tuto** dans `templates/fiche-tuto.md`~~ — **existe déjà** (`content/templates/fiche-tuto.md`, figé 27/05 suite 4). Ligne stale (le chemin réel est `content/templates/`, pas la racine).
 
+## Reprise visuelle SVG (voie A — sessions dédiées)
+
+- [ ] **`cycle-v-projet`** — re-coder en voie A (cohérence de style + mode sombre). Signalé en relecture du hub « Conduite de projet » (08/06) ; embarqué sur l'accueil + le hub. Le peigne complet des ~81 SVG est suivi dans `_drafts/peigne-svg-prepublication.md` et au BACKLOG.
+
 ## Tâches techniques en suspens
 
 - [x] ~~**Archivage JOURNAL — masse 8 entrées (`25/05 suite 7` → `27/05 suite 5`)**~~ — fait 29/05 suite 2 (flux 1-pour-1 fidèle, JOURNAL 97→29,7 ko, archive →302,9 ko, somme conservée, invariant antichronologique restauré ; incident D8 résolu — graphies d'origine « traçée »/« 2ᵉ » à recopier verbatim, jamais « corriger », cf. C14). **Pas de backlog d'archivage** : JOURNAL repart à `28/05`, bien sous le seuil 100 ko. Rappel procédure (au prochain franchissement) : archivage **hors clôture, en tête de session**, plus ancienne entrée d'abord, marqueurs `<!-- DEBUT DES SESSIONS … -->` par groupe-date.
