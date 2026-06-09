@@ -10,6 +10,34 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-09 (suite) — Production : colonne « Système embarqué » (hub + 5 fiches-étape)
+
+### Périmètre
+PC pro (`theskillcodex:*` déférés). Session de production lançant le cadrage D validé en session précédente : restructuration de `eee/index` en **colonne de méthodologie de réalisation** du sous-système embarqué, orthogonale au cycle en V, puis création des **5 fiches-étape détaillées** dans `eee/realisation/`. Pilotage itératif : cadrage en brique B → arbitrages Tim → production. 0 git (Tim pilote).
+
+### Livrables
+- **`eee/index` restructuré** en colonne (7 H2 : cadrer → choisir le matériel → concevoir l'élec → programmer → faire communiquer → fiabiliser & déboguer → intégrer & tester). Intro « point d'entrée » en **tu** ; `[!info]` d'orthogonalité en tête ; sommaire à ancres ; un `[!livrable]` par étape (lien C61 dans le mot-clé + label « Livrable X/7 » + dénominations Tim) ; catalogue des familles **dissous** (renvoi au hub `microcontroleur`) ; clôture « Le management, c'est le cycle en V ». `aa: []`, tags `[branche, trame, eee]`. ~12 ko.
+- **5 fiches-étape créées** dans `content/fiches/eee/realisation/` (toutes `type: trame`, `aa: []`, tags `[eee, trame, realisation]`, en **tu**) : `choisir-le-materiel` (11,6 ko), `concevoir-l-electronique` (15,1 ko, pilote), `programmer-l-embarque` (10,8 ko), `faire-communiquer` (8,9 ko, optionnelle), `fiabiliser-et-deboguer` (10,2 ko). Étapes 1 et 7 **sans fiche neuve** (rattachées à `decomposition-fonctionnelle`/`concept` et `integration-et-tests` du V).
+- **7 livrables du hub reliés** ; **0 lien rouge** dans la colonne ; navigation précédente/suivante chaînée.
+
+### Décisions (Tim)
+- **Architecture** : hub calqué sur le cycle en V (`hub/index`) + **fiches-étape détaillées avec livrables** — *renverse* la sous-question Q1 du cadrage (« pas de fiches-étape »). Périmètre = **5 fiches** (étapes 2-6) ; étapes 1 et 7 réutilisent le V.
+- **Livrable embarqué = artefact technique** (tableau de composants, schéma validé, firmware+algorithme, plan de comm, protocole de tests, produit fini), distinct du jalon-revue projet du V ; les artefacts *alimentent* le dossier technique sans cloner les revues. Élargi par Tim : objet physique / rendu papier ou simu / algorithme.
+- **Dénominations des livrables** (hub) fixées par Tim : 1 Définir et chiffrer les fonctions / 2 Sélectionner le microcontrôleur, les capteurs et les actionneurs / 3 Le schéma électronique validé / 4 Algorithme et documentation / 5 Choix des technologies de communications (optionnel) / 6 Protocole de tests et débogage / 7 Produit fini. Label « Livrable X/7 » dans le titre du callout.
+- **Registre = « tu »** pour la colonne (hub + 5 fiches) — la pilote, d'abord rédigée en « on »/infinitif (calque `concept.md`), a été reconvertie. Les trames du V restent en « on » → **incohérence de registre à arbitrer** (→ BACKLOG).
+- **Étape 5 optionnelle** : `faire-communiquer` assume l'optionnalité (pour le bras : capteurs analogiques + drivers en direct → aucun bus interne ; cas léger illustré).
+- **Production en bloc** validée pour les 4 fiches restantes (relecture après).
+
+### Conventions
+- **§8 — candidates C63-C64** : (C63) **colonne d'ingénierie orthogonale au V** (hub de branche = colonne méthodo à N étapes, délègue le pilotage au V par `[!info]` de tête + aparté italique par étape + section de clôture ; hub sobre sans `[!example]`) ; (C64) **fiche-étape de réalisation** (fiche-trame en « tu » SANS « Équipe » → « Ce qui relève d'ailleurs » ; fiche de méthode qui orchestre les fiches outils → `aa: []` ; livrable = artefact technique ; tag `realisation`).
+- **C61 confirmée au rendu** : le lien dans le mot-clé du `[!livrable]` s'affiche bien (validé Tim).
+
+### Tailles
+`content/fiches/eee/index.md` (~12 ko) ; `content/fiches/eee/realisation/` créé (5 fiches, 56,5 ko) ; pilotage : `JOURNAL.md`, `TODO.md`, `BACKLOG.md`, `conventions.md`. JOURNAL ~80→~85 ko (archivage 1-pour-1 non requis sous 100 ko).
+
+### Corps — un hub orthogonal qui demande des livrables sans cloner le V
+Le pivot de la session : après le hub linéaire, Tim a voulu **rapprocher la colonne du cycle en V** — y demander des livrables et créer des fiches-étape détaillées (ce que Q1 du cadrage avait écarté). Le risque immédiat était de recréer le V (revues, jalons). Désamorçage retenu : les livrables de la colonne sont des **artefacts techniques** (un schéma, un firmware, une recette de banc), pas des jalons-revue ; ils *alimentent* les livrables du V sans les redéfinir. Chaque fiche-étape est une **fiche de méthode** qui *orchestre* les fiches outils existantes (`microcontroleur`, `alimentation-electronique`, `analyse-de-schema-electronique`, `cpp`, `bus-de-communication`…) comme `concept.md` orchestre `matrice-de-decision` — pas un re-cours technique. La section « Équipe » des trames du V (pilotage) est remplacée par « Ce qui relève d'ailleurs » (pilotage → V, fabrication → cours collègues, délégation C55). Deux contraintes de densité ont guidé le hub : garder 7 `[!example]` **et** 7 `[!livrable]` aurait fait 15 callouts (budget trame ~10) → les `[!example]` fil rouge ont migré du hub vers les fiches-étape, leur place naturelle. Le fil rouge bras 3 axes a été aligné sur `concept.md` (steppers NEMA 17 + drivers A4988, ESP32). Point ouvert : le **registre** — la colonne est en « tu » (point d'entrée étudiant), les trames du V en « on » ; harmonisation à trancher.
+
 ## 2026-06-09 — Relecture humaine : session 2 (trames du V terminées) + cadrage trame embarquée
 
 ### Périmètre
