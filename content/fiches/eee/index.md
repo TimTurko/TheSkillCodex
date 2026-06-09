@@ -40,17 +40,8 @@ Pars de la décomposition fonctionnelle du système et isole les fonctions qui r
 
 *Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
 
-> [!example] Exemple : projet bras 3 axes
-> Les fonctions du bras, traduites en exigences embarquées :
->
-> | Fonction du bras | Ce que l'embarqué doit assurer | Cible |
-> |---|---|---|
-> | Positionner 3 axes | Commander 3 moteurs indépendants | ± 0,5° en statique |
-> | Connaître la position | Acquérir 3 retours d'angle | 1 mesure / 10 ms |
-> | Sécuriser les fins de course | Lire 6 contacts tout-ou-rien | détection < 5 ms |
-> | Dialoguer avec l'opérateur | Recevoir des consignes, afficher l'état | liaison série |
->
-> **Sortie** : 4 fonctions techniques, ~12 entrées-sorties utiles, une boucle de régulation à 100 Hz. Ce relevé devient le cahier des charges du choix de carte (étape 2).
+> [!livrable] [[decomposition-fonctionnelle|La liste chiffrée des fonctions embarquées]]
+> Un tableau « fonction → exigence embarquée » : pour chaque fonction, le nombre d'entrées-sorties, la résolution, la cadence, la latence. Rendu papier — c'est le contrat d'entrée de toutes les étapes suivantes.
 
 ## 2. Choisir le matériel
 
@@ -66,17 +57,8 @@ Le panorama des familles et l'aide au choix sont portés par le hub microcontrô
 
 *Côté cycle en V : le choix d'architecture matérielle est arbitré en phase [[concept|concept]].*
 
-> [!example] Exemple : projet bras 3 axes
-> Trois candidats confrontés aux besoins de l'étape 1 :
->
-> | Critère | Arduino Uno | ESP32 | STM32 « Blue Pill » |
-> |---|---|---|---|
-> | Entrées-sorties disponibles | 20 | 34 | 37 |
-> | Sorties PWM / temporisateurs | 6 / 3 | 16 / 4 | 15 / 7 |
-> | Sans fil intégré | non | Wi-Fi + BLE | non |
-> | Prix indicatif | moyen | bas | bas |
->
-> **Décision** : ESP32 retenu — assez de temporisateurs pour 3 axes, sans fil intégré pour piloter le bras à distance, marge de calcul pour la régulation. Le détail des broches part à l'étape 4.
+> [!livrable] [[choisir-le-materiel|La carte retenue, justifiée]]
+> Une matrice de choix tranchée et le budget d'alimentation. Rendu papier (la note de choix) ; la carte physique arrive avec lui.
 
 ## 3. Concevoir l'électronique
 
@@ -91,17 +73,8 @@ Lis et produis le schéma de principe, traque les incompatibilités de tension (
 
 *Côté cycle en V : ces livrables nourrissent le [[dossier-technique|dossier technique]] (schémas, routage, simulations).*
 
-> [!example] Exemple : projet bras 3 axes
-> Inventaire des interfaces et de leur adaptation vers l'ESP32 (logique 3,3 V) :
->
-> | Élément | Tension | Adaptation |
-> |---|---|---|
-> | Drivers de moteur | commande 3,3 V | directe |
-> | Capteurs d'angle | sortie 3,3 V | directe |
-> | Fins de course | contact sec | pont diviseur + résistance de tirage |
-> | Étage de puissance | 12 V | rail séparé, masse commune |
->
-> **Sortie** : deux rails (3,3 V logique, 12 V puissance), une seule incompatibilité (fins de course) traitée par diviseur. Schéma figé → routage du circuit imprimé.
+> [!livrable] [[concevoir-l-electronique|Le schéma électronique validé]]
+> Le schéma de principe vérifié et la simulation des parties incertaines (preuve de concept simulée). Rendu papier + simulation ; le circuit imprimé en est la version fabricable.
 
 ## 4. Programmer
 
@@ -116,16 +89,8 @@ Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage
 
 *Côté cycle en V : l'algorithme et le code sont des livrables du [[dossier-technique|dossier technique]].*
 
-> [!example] Exemple : projet bras 3 axes
-> Affectation des broches de l'ESP32 et périphérique employé :
->
-> | Sous-ensemble | Broches | Périphérique |
-> |---|---|---|
-> | 3 drivers de moteur | 3 × (STEP, DIR) | sorties PWM |
-> | 3 capteurs d'angle | 3 × entrée analogique | convertisseur A/N |
-> | 6 fins de course | 6 × entrée logique | interruption |
->
-> **Logique** : une machine à états (Repos → Calibrage → En course → Arrêt d'urgence). **Sortie** : table d'affectation gelée, machine à états validée avant le premier essai moteur.
+> [!livrable] [[programmer-l-embarque|Le firmware fonctionnel et l'algorithme documenté]]
+> L'algorithme de commande (logigramme ou machine à états) et son implémentation, qui compile et tourne sur la carte. Un algorithme + du code.
 
 ## 5. Faire communiquer
 
@@ -138,16 +103,8 @@ Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux f
 
 *Côté cycle en V : les choix de communication figurent au [[dossier-technique|dossier technique]].*
 
-> [!example] Exemple : projet bras 3 axes
-> Répartition des échanges :
->
-> | Échange | Support | Pourquoi |
-> |---|---|---|
-> | Capteurs d'angle → ESP32 | I²C | un seul bus à deux fils pour 3 capteurs |
-> | Afficheur d'état | I²C | partagé avec les capteurs |
-> | Consignes de l'opérateur | Wi-Fi | pilotage à distance |
->
-> **Sortie** : un bus I²C interne, une liaison Wi-Fi vers l'extérieur. Aucune liaison filaire vers l'opérateur à câbler.
+> [!livrable] [[faire-communiquer|Le plan de communication, testé]]
+> La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout — typiquement une preuve de concept sur breadboard.
 
 ## 6. Fiabiliser et déboguer
 
@@ -162,16 +119,8 @@ Mobilise les notions transverses de temps réel et de robustesse, puis les fiche
 
 *Côté cycle en V : la robustesse se prépare dès la [[preuve-de-concept|preuve de concept]] et se consolide au [[dossier-technique|dossier technique]].*
 
-> [!example] Exemple : projet bras 3 axes
-> Trois risques techniques et leur parade embarquée :
->
-> | Risque | Conséquence | Parade |
-> |---|---|---|
-> | Lecture d'angle ratée | régulation faussée | acquisition sur interruption temporisée |
-> | Programme bloqué | bras figé sous tension | chien de garde (redémarrage automatique) |
-> | Fin de course manquée | collision mécanique | interruption prioritaire, pas de scrutation |
->
-> **Sortie** : acquisition cadencée par temporisateur, chien de garde armé, arrêts d'urgence sur interruption. Bugs résiduels traqués à l'oscilloscope.
+> [!livrable] [[fiabiliser-et-deboguer|Le système durci et le rapport de mise au point]]
+> Les parades aux risques techniques en place (temps réel, chien de garde, veille) et la trace des bugs traités. Système robuste + journal de débogage.
 
 ## 7. Intégrer et tester
 
@@ -183,17 +132,8 @@ Le déroulé de l'intégration et de la qualification — pyramide de tests, pla
 
 *Côté cycle en V : cette étape est la phase [[integration-et-tests|intégration et tests]] elle-même, vue côté embarqué.*
 
-> [!example] Exemple : projet bras 3 axes
-> Recette du sous-système embarqué, fonction par fonction :
->
-> | Fonction (étape 1) | Test au banc | Attendu | Statut |
-> |---|---|---|---|
-> | Positionner 3 axes | course complète commandée | ± 0,5° | validé |
-> | Connaître la position | écart capteur / consigne | < 1° | validé |
-> | Sécuriser les fins de course | déclenchement provoqué | arrêt < 5 ms | validé |
-> | Dialoguer | consigne envoyée en Wi-Fi | exécutée | validé |
->
-> **Décision** : 4 fonctions sur 4 validées → sous-système embarqué qualifié, prêt pour la soutenance.
+> [!livrable] [[integration-et-tests|La recette du sous-système, au banc]]
+> Chaque fonction de l'étape 1 testée, mesurée, validée ou tracée en écart. Sous-système assemblé + dossier de recette. C'est la phase d'intégration du V, exécutée sur l'embarqué.
 
 ## Le management, c'est le cycle en V
 
