@@ -124,7 +124,7 @@ Le respect de cette hiérarchie n'est pas qu'une question d'organisation : c'est
 
 L'étape 2 a sécurisé les moyens : chaque incertitude dispose d'un protocole validé et des ressources matérielles rattachées. L'étape 3 enchaîne par l'exécution proprement dite. Le geste : pour chaque incertitude, construire un banc focalisé sur la question posée, exécuter le protocole en respectant strictement les conditions du triplet, et déposer les données brutes dans un format exploitable pour l'analyse de l'étape suivante.
 
-L'étape se mène en deux temps : monter le banc, puis exécuter et tracer les mesures. Plusieurs preuves peuvent être menées en parallèle si l'équipe est ressourcée — le découpage est **par incertitude**, pas par discipline : une incertitude de mécatronique est rarement mono-disciplinaire, et la répartition par discipline introduirait artificiellement des frontières que la mesure ne respectera pas.
+L'étape se mène en deux temps : monter le banc, puis exécuter et tracer les mesures. Plusieurs preuves peuvent être menées en parallèle si l'équipe a les ressources — le découpage est **par incertitude**, pas par discipline : une incertitude de mécatronique est rarement mono-disciplinaire, et la répartition par discipline introduirait artificiellement des frontières que la mesure ne respectera pas.
 
 #### Monter le banc
 
@@ -132,7 +132,7 @@ Le banc est **focalisé sur l'incertitude testée**, distinct du banc système g
 
 Le montage doit refléter fidèlement le protocole validé. Si la revue d'étape 1 a demandé des corrections (par exemple : tracer la traçabilité du couple appliqué via balance et pied à coulisse), elles sont implémentées physiquement avant tout démarrage. Sauter une correction au montage, c'est invalider implicitement le triplet validé.
 
-Avant la première mesure, le banc lui-même est **caractérisé** : constantes mesurables (longueur du bras de levier, masse étalonnée, calibration des instruments), conditions ambiantes (température, humidité quand pertinent), références traçables. Cette caractérisation sert ensuite à distinguer un défaut du banc d'un comportement du composant testé — sans elle, toute mesure surprise reste ambigüe.
+Avant la première mesure, le banc lui-même est **caractérisé** : constantes mesurables (longueur du bras de levier, masse étalonnée, calibration des instruments), conditions ambiantes (température, humidité quand pertinent), références traçables. Cette caractérisation sert ensuite à distinguer un défaut du banc d'un comportement du composant testé — sans elle, toute mesure surprise reste ambiguë.
 
 > [!warning] Attention
 > **Caractériser le banc avant de mesurer.** Un [[comparateur|comparateur]] mal réglé peut donner 0,1° de dérive intrinsèque, une [[alimentation-electronique|alimentation]] non stabilisée peut faire varier la mesure de courant de 5 %, un capteur de température mal positionné peut mesurer l'air ambiant au lieu du composant. Sans caractérisation préalable, l'équipe ne sait pas distinguer un défaut du banc d'un comportement réel du composant — et le résultat de la preuve perd son opposabilité.
@@ -165,17 +165,17 @@ La **répétabilité** est testée pendant l'essai, pas après. Au premier point
 
 > [!livrable] Livrable 3/5 — Preuve de concept
 > - Bancs de test montés et caractérisés (un par incertitude)
-> - Données de mesure et analyses brutes par preuve
+> - Données de mesure brutes par preuve
 
 ### 4. Analyser et trancher
 
-L'étape 3 a livré les données brutes ; chaque preuve dispose d'un relevé déposé au format partagé. L'étape 4 est le **pivot du V** : la première étape du projet où la chaîne aval peut renvoyer la chaîne amont. L'équipe apprend à statuer — pas à constater, à statuer. La distinction est nette : constater énonce un fait (« le jeu dépasse 0,5° à 500 cycles »), statuer engage une décision opposable (« retour [[concept|concept]] étape 3 pour renégocier »). Cette étape produit la seconde, pas la première.
+L'étape 3 a livré les données brutes ; chaque preuve dispose d'un relevé déposé au format partagé. L'étape 4 est le **point de bascule du V** : la première étape du projet où la chaîne aval peut renvoyer la chaîne amont. L'équipe apprend à statuer — pas à constater, à statuer. La distinction est nette : constater énonce un fait (« le jeu dépasse 0,5° à 500 cycles »), statuer engage une décision opposable (« retour [[concept|concept]] étape 3 pour renégocier »). Cette étape produit la seconde, pas la première.
 
 L'étape se mène en trois temps : confronter chaque résultat à son critère de succès, synchroniser entre preuves pour faire émerger les interactions, statuer parmi trois sorties nominales en mettant à jour les artefacts amont ([[matrice-de-risques|matrice de risques]], évaluation [[ecoconception|écoconception]], matrices de décision concept si retour amont). L'ordre n'est pas négociable : statuer avant la synchronisation fait rater les effets croisés ; mettre à jour les artefacts après le rapport (étape 5) brise la traçabilité.
 
 #### Confronter au critère
 
-Pour chaque preuve, mettre face à face la donnée mesurée et le critère chiffré fixé à l'étape 1. La confrontation est mécanique : valeur observée vs valeur de critère, marge absolue et relative, verdict immédiat (marge confortable / marge serrée / critère manqué / non-conclusif). Visuellement, une courbe avec la valeur seuil tracée en pointillés et le profil mesuré rend le verdict évident pour un lecteur extérieur.
+Pour chaque preuve, mettre face à face la donnée mesurée et le critère chiffré fixé à l'étape 1. La confrontation est mécanique : valeur observée vs valeur de critère, marge absolue et relative, verdict immédiat (marge confortable / marge serrée / critère manqué / non concluant). Visuellement, une courbe avec la valeur seuil tracée en pointillés et le profil mesuré rend le verdict évident pour un lecteur extérieur.
 
 Trois pièges classiques à éviter à ce stade. D'abord, **raffiner le critère a posteriori** : si la mesure dépasse le critère, c'est un dépassement, pas une mesure « presque conforme ». Le critère a été figé à l'étape 1, il sert précisément à ce qu'on ne puisse pas le déplacer maintenant. Ensuite, **interpréter la marge avant de l'avoir mesurée proprement** : une marge calculée à 5 % sur une mesure dont la précision est de 10 % n'est pas une marge, c'est une incertitude résiduelle. La précision du verdict ne dépasse pas la précision de la mesure. Enfin, **conclure sur un cas particulier** : si l'essai a porté sur 3 articulations et qu'une seule passe le critère, le verdict n'est pas « ça passe » — c'est « une articulation sur trois passe », ce qui pose au moins autant de questions que ça n'en répond.
 
@@ -214,7 +214,7 @@ La décision s'accompagne **dans la même séance** des mises à jour qu'elle en
 >
 > | Preuve | Résultat | Comparaison critère | Décision |
 > |---|---|---|---|
-> | Tenue articulation 3D | Jeu > 0,5° dès ~500 cycles, 3 articulations | Critère manqué | ⚠️ Retour amont → [[concept|concept]] étape 3 |
+> | Tenue articulation 3D | Jeu > 0,5° dès ~500 cycles, 3 articulations | Critère manqué | ⚠️ Retour amont → [[concept\|concept]] étape 3 |
 >
 > Décision tracée : retour amont structurant vers [[concept|concept]] étape 3 pour renégociation à trois disciplines. Trois voies à explorer : méca articulation [[impression-3d|imprimée]] à plus haut remplissage (impact poids et temps d'impression), passage à une articulation [[usinage|usinée]] (impact coût et délai), ou retour info pour revoir la cinématique de manière à réduire le couple sur l'axe concerné (impact concept). La [[matrice-de-decision|matrice de décision]] méca de l'étape 2 concept sera mise à jour avec le critère « tenue en cycle continu » réajusté à la baisse pour le PLA 60 %.
 >
@@ -226,7 +226,7 @@ La décision s'accompagne **dans la même séance** des mises à jour qu'elle en
 
 ### 5. Rédiger et faire valider
 
-L'étape 4 a livré les décisions tracées et les artefacts amont à jour ([[matrice-de-risques|matrice de risques]], évaluation [[ecoconception|écoconception]], matrices de décision du [[concept|concept]] si retour amont). L'étape 5 ne produit rien de nouveau techniquement : elle **agrège les quatre étapes précédentes** (énoncés de preuves, bancs montés, mesures, analyses et décisions) dans un **rapport de preuve de concept** unique, relu et réécrit pour un lecteur extérieur. Le geste est l'équivalent direct de la rédaction du dossier concept en sortie de phase 2 : on passe du matériau de travail interne à un document de référence opposable.
+L'étape 4 a livré les décisions tracées et les artefacts amont à jour ([[matrice-de-risques|matrice de risques]], évaluation [[ecoconception|écoconception]], matrices de décision du [[concept|concept]] si retour amont). L'étape 5 ne produit rien de nouveau techniquement : elle **agrège les quatre étapes précédentes** (énoncés de preuves, bancs montés, mesures, analyses et décisions) dans un **rapport de preuve de concept** unique, relu et réécrit pour un lecteur extérieur. Le geste est l'équivalent direct de la rédaction du dossier concept en sortie de la phase concept : on passe du matériau de travail interne à un document de référence opposable.
 
 L'étape se mène en trois temps : structurer le rapport, rédiger chaque section, faire valider en revue PoC.
 
@@ -254,7 +254,7 @@ Soigner la **traçabilité jusqu'au CdCF** : chaque décision tracée en étape 
 
 #### Faire valider en revue PoC
 
-La **revue PoC** est l'équivalent enseignant d'un go/no-go pour engagement matériel : elle valide ou non le passage au [[dossier-technique|dossier technique]] et l'achat des composants définitifs. Conduite par l'encadrant (et par le client si externe), elle vérifie que les incertitudes en entrée ont été levées (ou que le retour amont a été acté proprement), et que la phase suivante peut engager les commandes en sécurité.
+La **revue PoC** est l'équivalent enseignant d'un *go / no-go* pour engagement matériel : elle valide ou non le passage au [[dossier-technique|dossier technique]] et l'achat des composants définitifs. Conduite par l'encadrant (et par le client si externe), elle vérifie que les incertitudes en entrée ont été levées (ou que le retour amont a été acté proprement), et que la phase suivante peut engager les commandes en sécurité.
 
 Préparation : auto-relecture par l'équipe complète, pas seulement par le rédacteur. Anticipation des questions critiques — chaque décision tracée doit pouvoir être défendue en moins d'une minute, en pointant la mesure et le critère qui l'ont produite. Répétition orale.
 
