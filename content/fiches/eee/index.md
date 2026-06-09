@@ -1,38 +1,206 @@
 ---
 title: Système embarqué
-tags: [branche, eee]
+tags:
+  - branche
+  - trame
+  - eee
+prerequis: []
+aa: []
+draft: false
 ---
 
-**Branche électronique & informatique embarquée** — le cœur technique du projet, de l'énergie qui alimente la carte jusqu'au firmware qui la pilote. (Elle réunit les anciens domaines EEE et MIA, fusionnés en 2026.)
+Cette page est la **colonne d'ingénierie embarquée** : elle répond à « où j'en suis » et « quoi faire ensuite » quand tu réalises le sous-système électronique et informatique de ton projet. Sept étapes enfilent les fiches du site dans l'ordre d'usage, du besoin technique jusqu'au banc de test. (La branche réunit les anciens domaines EEE et MIA, fusionnés en 2026.)
 
-Suis les points d'entrée ci-dessous dans l'ordre, ou va droit au sujet qui te concerne. Les fiches renvoient vers la [[hub/index|conduite de projet]] et la [[fiches/mme/index|méca]] quand une notion l'exige.
+Le fil rouge est le même que celui des phases du projet — un **bras robotisé 3 axes** — suivi ici sous l'angle de son électronique embarquée. Deux lentilles sur un seul projet.
 
-## Lire et concevoir l'électronique
-- [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — la vue par fonctions
-- [[analyse-de-schema-electronique|Analyser un schéma électronique]] — lire un schéma de principe
-- [[chaine-energie|Chaîne d'énergie et d'information]] — les deux chaînes couplées
+> [!info] Cette colonne est orthogonale au cycle en V
+> Le [[hub/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles — ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
+
+## Les sept étapes
+
+1. [Cadrer le besoin embarqué](#1-cadrer-le-besoin-embarqué) — quelles fonctions techniques l'électronique et l'informatique doivent assurer
+2. [Choisir le matériel](#2-choisir-le-matériel) — microcontrôleur ou ordinateur monocarte, famille, alimentation
+3. [Concevoir l'électronique](#3-concevoir-lélectronique) — schéma, niveaux de tension, circuit imprimé, simulation
+4. [Programmer](#4-programmer) — algorithme de commande, langage, périphériques, firmware
+5. [Faire communiquer](#5-faire-communiquer) — bus filaires et liaisons sans fil
+6. [Fiabiliser et déboguer](#6-fiabiliser-et-déboguer) — temps réel, robustesse, instruments de mesure
+7. [Intégrer et tester](#7-intégrer-et-tester) — assembler au reste du système, valider au banc
+
+Chaque étape suppose la précédente sans interdire les allers-retours : on revient souvent au matériel ou au schéma après un essai.
+
+## 1. Cadrer le besoin embarqué
+
+Avant de choisir une carte, formule **ce que l'électronique et l'informatique doivent faire** : quelles fonctions techniques portent les exigences du cahier des charges. C'est la traduction du besoin en fonctions réalisables, côté embarqué.
+
+Pars de la décomposition fonctionnelle du système et isole les fonctions qui reviennent à l'élec/info : commander des actionneurs, acquérir des grandeurs, dialoguer, décider. Chacune devient une contrainte chiffrée — nombre d'entrées-sorties, résolution, cadence, latence — qui guidera tous les choix suivants.
+
+- [[decomposition-fonctionnelle|Décomposition fonctionnelle]] — découper le système en fonctions
+- [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — la vue par fonctions et leurs flux
+- [[chaine-energie|Chaîne d'énergie et d'information]] — repérer ce qui relève de la commande et de la mesure
+
+*Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
+
+> [!example] Exemple : projet bras 3 axes
+> Les fonctions du bras, traduites en exigences embarquées :
+>
+> | Fonction du bras | Ce que l'embarqué doit assurer | Cible |
+> |---|---|---|
+> | Positionner 3 axes | Commander 3 moteurs indépendants | ± 0,5° en statique |
+> | Connaître la position | Acquérir 3 retours d'angle | 1 mesure / 10 ms |
+> | Sécuriser les fins de course | Lire 6 contacts tout-ou-rien | détection < 5 ms |
+> | Dialoguer avec l'opérateur | Recevoir des consignes, afficher l'état | liaison série |
+>
+> **Sortie** : 4 fonctions techniques, ~12 entrées-sorties utiles, une boucle de régulation à 100 Hz. Ce relevé devient le cahier des charges du choix de carte (étape 2).
+
+## 2. Choisir le matériel
+
+La question : **quelle plateforme exécute le mieux les fonctions de l'étape 1 ?** Un microcontrôleur (réactif, temps réel, peu coûteux) ou un ordinateur monocarte (puissant, sous Linux) ? Quelle famille ? Et comment l'alimenter ?
+
+Le panorama des familles et l'aide au choix sont portés par le hub microcontrôleur — ne le redétaille pas ici, va le consulter puis reviens avec une carte candidate. Pense l'alimentation dès ce stade : c'est elle qui conditionne l'autonomie et la stabilité.
+
+- [[microcontroleur|Microcontrôleur]] — panorama des familles, microcontrôleur contre monocarte, aide au choix
+- Familles : [[arduino|Arduino]], [[esp32|ESP32]], [[esp8266|ESP8266]], [[stm32|STM32]], [[teensy|Teensy]], [[pic|PIC]]
+- [[raspberry-pi|Raspberry Pi]] — l'option ordinateur monocarte, et l'architecture à deux cerveaux
+- [[lire-une-datasheet|Lire une datasheet]] — comparer des composants sur pièces
+- [[alimentation-electronique|Concevoir une alimentation]] — source, régulation, autonomie
+
+*Côté cycle en V : le choix d'architecture matérielle est arbitré en phase [[concept|concept]].*
+
+> [!example] Exemple : projet bras 3 axes
+> Trois candidats confrontés aux besoins de l'étape 1 :
+>
+> | Critère | Arduino Uno | ESP32 | STM32 « Blue Pill » |
+> |---|---|---|---|
+> | Entrées-sorties disponibles | 20 | 34 | 37 |
+> | Sorties PWM / temporisateurs | 6 / 3 | 16 / 4 | 15 / 7 |
+> | Sans fil intégré | non | Wi-Fi + BLE | non |
+> | Prix indicatif | moyen | bas | bas |
+>
+> **Décision** : ESP32 retenu — assez de temporisateurs pour 3 axes, sans fil intégré pour piloter le bras à distance, marge de calcul pour la régulation. Le détail des broches part à l'étape 4.
+
+## 3. Concevoir l'électronique
+
+La carte choisie ne suffit pas : il faut **dessiner le circuit autour d'elle** — relier capteurs et actionneurs, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées. Puis vérifier le comportement avant de souder quoi que ce soit.
+
+Lis et produis le schéma de principe, traque les incompatibilités de tension (un capteur 5 V sur une entrée 3,3 V détruit l'entrée), et simule les parties incertaines. Le passage au circuit imprimé vient quand le schéma est stabilisé.
+
+- [[analyse-de-schema-electronique|Analyser un schéma électronique]] — lire et produire un schéma de principe
 - [[niveaux-de-tension|Niveaux de tension]] — 3,3 V / 5 V, compatibilité et adaptation
-- [[alimentation-electronique|Concevoir une alimentation]] — réguler, découpler, router les masses, protéger
-- [[lire-une-datasheet|Lire une datasheet]] — exploiter la documentation d'un composant
-
-## Programmer un microcontrôleur
-Point de départ : le hub [[microcontroleur|microcontrôleur]] (panorama des familles et aide au choix).
-- **Familles** : [[arduino|Arduino]] (la référence), [[esp32|ESP32]], [[esp8266|ESP8266]], [[stm32|STM32]], [[teensy|Teensy]], [[raspberry-pi|Raspberry Pi]], [[pic|PIC]]
-- **Langages** : [[cpp|C++]] (écosystème Arduino) et [[micropython|MicroPython]]
-- **Concepts transverses** : [[gpio|GPIO]], [[firmware|firmware]], [[interruption|interruptions]], [[timer|timers]], [[deep-sleep|veille]], [[manipulation-de-bits|manipulation de bits]]
-
-## Communiquer
-- [[bus-de-communication|Bus de communication]] — [[uart|UART]], [[i2c|I²C]], [[spi|SPI]]
-- [[techno-sans-fil|Technologies sans fil]] — [[wifi|Wi-Fi]], [[ble|BLE]], [[zigbee|Zigbee]], [[lora|LoRa]]…
-
-## Commander par un algorithme
-Point de départ : le hub [[algorithme|algorithme]].
-- [[logigramme|Logigramme]], [[machine-a-etats|machine à états]], [[grafcet|GRAFCET]], [[chronogramme|chronogramme]]
-
-## Vérifier et mettre au point
 - [[simulation-electronique|Simulation électronique]] — calculer le comportement avant de câbler
-- [[instruments-de-mesure|Instruments de mesure]] — [[multimetre|multimètre]], [[oscilloscope|oscilloscope]]
-- [[debugger-embarque|Déboguer un système embarqué]] — traquer un bug dans le firmware
-
-## Réaliser une carte
 - [[pcb|Circuit imprimé]] — du schéma à la carte fabricable, avec [[kicad|KiCad]]
+
+*Côté cycle en V : ces livrables nourrissent le [[dossier-technique|dossier technique]] (schémas, routage, simulations).*
+
+> [!example] Exemple : projet bras 3 axes
+> Inventaire des interfaces et de leur adaptation vers l'ESP32 (logique 3,3 V) :
+>
+> | Élément | Tension | Adaptation |
+> |---|---|---|
+> | Drivers de moteur | commande 3,3 V | directe |
+> | Capteurs d'angle | sortie 3,3 V | directe |
+> | Fins de course | contact sec | pont diviseur + résistance de tirage |
+> | Étage de puissance | 12 V | rail séparé, masse commune |
+>
+> **Sortie** : deux rails (3,3 V logique, 12 V puissance), une seule incompatibilité (fins de course) traitée par diviseur. Schéma figé → routage du circuit imprimé.
+
+## 4. Programmer
+
+Deux temps : **concevoir l'algorithme** de commande (la logique, indépendante du code), puis **l'écrire** pour la carte. La logique se décrit avec un logigramme, une machine à états ou un GRAFCET ; le code l'implémente en pilotant les périphériques — entrées-sorties, convertisseur analogique-numérique, sorties PWM.
+
+Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage selon la famille — C++ dans l'écosystème Arduino, ou MicroPython. Le firmware est l'organisation d'ensemble du programme embarqué.
+
+- Concevoir la logique : [[algorithme|algorithme]] — [[logigramme|logigramme]], [[machine-a-etats|machine à états]], [[grafcet|GRAFCET]], [[chronogramme|chronogramme]]
+- Langage : [[cpp|C++]] (écosystème Arduino) ou [[micropython-langage|MicroPython]]
+- Périphériques : [[gpio|GPIO]], [[adc|convertisseur analogique-numérique]], [[pwm|sortie PWM]], [[manipulation-de-bits|manipulation de bits]]
+- [[firmware|Firmware]] — structurer l'ensemble du programme embarqué
+
+*Côté cycle en V : l'algorithme et le code sont des livrables du [[dossier-technique|dossier technique]].*
+
+> [!example] Exemple : projet bras 3 axes
+> Affectation des broches de l'ESP32 et périphérique employé :
+>
+> | Sous-ensemble | Broches | Périphérique |
+> |---|---|---|
+> | 3 drivers de moteur | 3 × (STEP, DIR) | sorties PWM |
+> | 3 capteurs d'angle | 3 × entrée analogique | convertisseur A/N |
+> | 6 fins de course | 6 × entrée logique | interruption |
+>
+> **Logique** : une machine à états (Repos → Calibrage → En course → Arrêt d'urgence). **Sortie** : table d'affectation gelée, machine à états validée avant le premier essai moteur.
+
+## 5. Faire communiquer
+
+Dès que plusieurs composants doivent échanger, il faut **choisir comment ils dialoguent** : un bus filaire entre puces d'une même carte, une liaison sans fil vers l'extérieur. Chaque bus a ses contraintes — nombre de fils, débit, distance, nombre de participants.
+
+Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux fils, SPI pour la vitesse, UART pour une liaison simple ; Wi-Fi ou BLE pour le sans-fil.
+
+- [[bus-de-communication|Bus de communication]] — [[uart|UART]], [[i2c|I²C]], [[spi|SPI]]
+- [[techno-sans-fil|Technologies sans fil]] — [[wifi|Wi-Fi]], [[ble|BLE]], [[zigbee|Zigbee]], [[lora|LoRa]]
+
+*Côté cycle en V : les choix de communication figurent au [[dossier-technique|dossier technique]].*
+
+> [!example] Exemple : projet bras 3 axes
+> Répartition des échanges :
+>
+> | Échange | Support | Pourquoi |
+> |---|---|---|
+> | Capteurs d'angle → ESP32 | I²C | un seul bus à deux fils pour 3 capteurs |
+> | Afficheur d'état | I²C | partagé avec les capteurs |
+> | Consignes de l'opérateur | Wi-Fi | pilotage à distance |
+>
+> **Sortie** : un bus I²C interne, une liaison Wi-Fi vers l'extérieur. Aucune liaison filaire vers l'opérateur à câbler.
+
+## 6. Fiabiliser et déboguer
+
+Un montage qui marche au premier essai n'est pas fiable pour autant. Cette étape **durcit le système** : garantir le temps réel (interruptions, temporisateurs), survivre aux blocages (chien de garde), économiser l'énergie (veille), et surtout **trouver les bugs** avec les bons instruments.
+
+Mobilise les notions transverses de temps réel et de robustesse, puis les fiches du palier ingénieur de ta famille (chien de garde, PID, système temps réel…). Pour déboguer, l'oscilloscope et le multimètre voient ce que le code ne dit pas.
+
+- Temps réel et robustesse : [[interruption|interruptions]], [[timer|temporisateurs]], [[deep-sleep|veille]], [[memoire|gestion mémoire]]
+- [[instruments-de-mesure|Instruments de mesure]] — [[multimetre|multimètre]], [[oscilloscope|oscilloscope]]
+- [[debugger-embarque|Déboguer un système embarqué]] — méthode pour traquer un bug
+- Le palier ingénieur de ta famille : [[arduino|Arduino]], [[esp32|ESP32]], [[stm32|STM32]]…
+
+*Côté cycle en V : la robustesse se prépare dès la [[preuve-de-concept|preuve de concept]] et se consolide au [[dossier-technique|dossier technique]].*
+
+> [!example] Exemple : projet bras 3 axes
+> Trois risques techniques et leur parade embarquée :
+>
+> | Risque | Conséquence | Parade |
+> |---|---|---|
+> | Lecture d'angle ratée | régulation faussée | acquisition sur interruption temporisée |
+> | Programme bloqué | bras figé sous tension | chien de garde (redémarrage automatique) |
+> | Fin de course manquée | collision mécanique | interruption prioritaire, pas de scrutation |
+>
+> **Sortie** : acquisition cadencée par temporisateur, chien de garde armé, arrêts d'urgence sur interruption. Bugs résiduels traqués à l'oscilloscope.
+
+## 7. Intégrer et tester
+
+Le sous-système embarqué rejoint enfin **le reste du projet** — la mécanique, l'opérateur — et l'on **vérifie au banc** que chaque fonction de l'étape 1 est tenue. C'est le moment de vérité : la spécification est-elle satisfaite ?
+
+Le déroulé de l'intégration et de la qualification — pyramide de tests, plan de validation, écarts — est porté par la phase d'intégration du cycle en V. Ne le redécris pas : exécute-le sur ton sous-système.
+
+- [[integration-et-tests|Intégration et tests]] — assembler, qualifier, conclure (phase du V)
+
+*Côté cycle en V : cette étape est la phase [[integration-et-tests|intégration et tests]] elle-même, vue côté embarqué.*
+
+> [!example] Exemple : projet bras 3 axes
+> Recette du sous-système embarqué, fonction par fonction :
+>
+> | Fonction (étape 1) | Test au banc | Attendu | Statut |
+> |---|---|---|---|
+> | Positionner 3 axes | course complète commandée | ± 0,5° | validé |
+> | Connaître la position | écart capteur / consigne | < 1° | validé |
+> | Sécuriser les fins de course | déclenchement provoqué | arrêt < 5 ms | validé |
+> | Dialoguer | consigne envoyée en Wi-Fi | exécutée | validé |
+>
+> **Décision** : 4 fonctions sur 4 validées → sous-système embarqué qualifié, prêt pour la soutenance.
+
+## Le management, c'est le cycle en V
+
+Cette colonne décrit l'ingénierie ; elle ne pilote pas le projet. Les revues, les jalons, la nomenclature, le suivi d'équipe et la validation des livrables sont décrits par la branche [[hub/index|Conduite de projet]] :
+
+- **Cadrer** (étapes 1-2) se décide en phase [[concept|concept]].
+- **Concevoir, programmer, communiquer, fiabiliser** (étapes 3-6) alimentent le [[dossier-technique|dossier technique]].
+- **Intégrer et tester** (étape 7) est la phase [[integration-et-tests|intégration et tests]].
+
+Si une fiche te demande de produire un planning, une revue ou une analyse de risques projet, c'est que tu touches au pilotage : suis le lien vers le cycle en V.
