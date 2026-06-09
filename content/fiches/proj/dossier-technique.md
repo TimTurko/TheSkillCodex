@@ -281,17 +281,27 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 
 ## Pièges fréquents
 
-- **Reprendre le pré-dimensionnement du concept sans intégrer les ajustements de la PoC.** L'étape 1 sert précisément à fermer cette porte. Si elle est sautée, le dossier technique est déconnecté du travail de levée d'incertitudes qui vient de se faire.
-- **Confondre spécification d'interface et spécification interne.** Les interfaces sont le seul livrable que les autres disciplines lisent. La spécification interne reste l'affaire de la discipline qui la produit.
-- **Différer la revue interne inter-disciplines après les profs.** Aller chercher les validateurs externes avec trois dossiers qui ne s'articulent pas en interne est une perte de temps collective. La revue interne se fait *avant*, pas pendant la multi-validation.
-- **Construire la BOM sans intégrer la contrainte fournisseurs partenaires.** Choisir une référence parfaite sur un distributeur généraliste est inutile si elle n'est pas au catalogue partenaire. Le sourcing se fait sur le catalogue fermé, pas sur le marché ouvert.
-- **Différer l'écoconception à la fin du projet.** L'ACV simplifiée est quantifiable dès l'étape 3 sur la BOM réelle. La différer prive le dossier d'un livrable structurant et fait perdre la valeur décisionnelle (choix matière, alternative recyclée).
-- **Découvrir un dépassement budgétaire en étape 5.** Au moment d'émettre, il est trop tard pour rétroagir vers le concept proprement. Le total cumulé se vérifie à chaque ligne ajoutée à la BOM, pas à la fin.
-- **Amputer la BOM pour rentrer dans l'enveloppe.** Réduire des quantités ou supprimer des sécurités pour rester sous budget est une porte ouverte vers une intégration ratée. Si le dépassement est structurel, c'est le concept qu'il faut reprendre, pas la BOM qu'il faut tronquer.
-- **Sous-estimer la charge calendaire de la multi-validation.** Trois interlocuteurs aux agendas indépendants ne se synchronisent pas en une réunion. Anticiper deux semaines minimum, sinon le planning aval glisse.
-- **Envoyer le dossier intégral à tous les validateurs.** Diluer le travail de relecture sur le tout fait baisser le taux de retour utile. Cibler le sous-dossier sur le périmètre du validateur est la règle.
-- **Émettre les commandes avant la validation d'ensemble.** L'autorisation vient de la revue globale encadrant, pas de la satisfaction d'avoir un dossier visuellement complet. Une commande émise sans cette autorisation est non-conforme processus école.
-- **Négliger la traçabilité des numéros de commande et dates de livraison.** Sans tableau de suivi en regard de la BOM, une ligne en retard passe inaperçue jusqu'à ce qu'elle bloque l'intégration. Les numéros de commande sont aussi la piste comptable pour l'école.
+**Reprendre le pré-dimensionnement du concept sans intégrer les ajustements de la PoC.** L'étape 1 sert précisément à fermer cette porte. Si elle est sautée, le dossier technique est déconnecté du travail de levée d'incertitudes qui vient de se faire.
+
+**Confondre spécification d'interface et spécification interne.** Les interfaces sont le seul livrable que les autres disciplines lisent. La spécification interne reste l'affaire de la discipline qui la produit.
+
+**Différer la revue interne inter-disciplines après les profs.** Aller chercher les validateurs externes avec trois dossiers qui ne s'articulent pas en interne est une perte de temps collective. La revue interne se fait *avant*, pas pendant la multi-validation.
+
+**Construire la BOM sans intégrer la contrainte fournisseurs partenaires.** Choisir une référence parfaite sur un distributeur généraliste est inutile si elle n'est pas au catalogue partenaire. Le sourcing se fait sur le catalogue fermé, pas sur le marché ouvert.
+
+**Différer l'écoconception à la fin du projet.** L'ACV simplifiée est quantifiable dès l'étape 3 sur la BOM réelle. La différer prive le dossier d'un livrable structurant et fait perdre la valeur décisionnelle (choix matière, alternative recyclée).
+
+**Découvrir un dépassement budgétaire en étape 5.** Au moment d'émettre, il est trop tard pour rétroagir vers le concept proprement. Le total cumulé se vérifie à chaque ligne ajoutée à la BOM, pas à la fin.
+
+**Amputer la BOM pour rentrer dans l'enveloppe.** Réduire des quantités ou supprimer des sécurités pour rester sous budget est une porte ouverte vers une intégration ratée. Si le dépassement est structurel, c'est le concept qu'il faut reprendre, pas la BOM qu'il faut tronquer.
+
+**Sous-estimer la charge calendaire de la multi-validation.** Trois interlocuteurs aux agendas indépendants ne se synchronisent pas en une réunion. Anticiper deux semaines minimum, sinon le planning aval glisse.
+
+**Envoyer le dossier intégral à tous les validateurs.** Diluer le travail de relecture sur le tout fait baisser le taux de retour utile. Cibler le sous-dossier sur le périmètre du validateur est la règle.
+
+**Émettre les commandes avant la validation d'ensemble.** L'autorisation vient de la revue globale encadrant, pas de la satisfaction d'avoir un dossier visuellement complet. Une commande émise sans cette autorisation est non-conforme processus école.
+
+**Négliger la traçabilité des numéros de commande et dates de livraison.** Sans tableau de suivi en regard de la BOM, une ligne en retard passe inaperçue jusqu'à ce qu'elle bloque l'intégration. Les numéros de commande sont aussi la piste comptable pour l'école.
 
 ## Pendant cette phase, côté équipe
 
