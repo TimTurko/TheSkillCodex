@@ -31,7 +31,7 @@ Verdict : OK / a corriger
 
 ## 1 · Trame — cycle en V
 - [x] `specification-technique` (phase 1) — ⚠ SVG + template docx → TODO
-- [ ] `concept` (phase 2)
+- [x] `concept` (phase 2)
 - [ ] `preuve-de-concept` (phase 3)
 - [ ] `dossier-technique` (phase 4)
 - [ ] `integration-et-tests` (phase 5)
