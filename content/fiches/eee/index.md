@@ -9,9 +9,9 @@ aa: []
 draft: false
 ---
 
-Cette page est la **colonne d'ingénierie embarquée** : elle répond à « où j'en suis » et « quoi faire ensuite » quand tu réalises le sous-système électronique et informatique de ton projet. Sept étapes enfilent les fiches du site dans l'ordre d'usage, du besoin technique jusqu'au banc de test. (La branche réunit les anciens domaines EEE et MIA, fusionnés en 2026.)
+Tu réalises la partie **électronique et informatique** d'un projet mécatronique : la carte, ses capteurs, ses actionneurs, et le programme qui les pilote. Cette page est ton **point d'entrée**. Elle déroule la réalisation du sous-système embarqué en **sept étapes**, du besoin technique jusqu'à la validation au banc — et te dit, à chaque étape, **ce que tu dois produire** (le livrable) et **où trouver la méthode** pour y arriver.
 
-Le fil rouge est le même que celui des phases du projet — un **bras robotisé 3 axes** — suivi ici sous l'angle de son électronique embarquée. Deux lentilles sur un seul projet.
+Inutile de tout lire d'affilée : repère l'étape qui correspond à où tu en es, et suis les liens. Le fil rouge — un **bras robotisé 3 axes** — est le même projet que celui des phases du cycle en V, vu ici sous l'angle de son électronique. Deux lentilles, un seul projet. (La branche réunit les anciens domaines EEE et MIA, fusionnés en 2026.)
 
 > [!info] Cette colonne est orthogonale au cycle en V
 > Le [[hub/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles — ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
