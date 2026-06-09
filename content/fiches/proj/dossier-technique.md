@@ -48,7 +48,7 @@ Et concrétise l'engagement matériel du projet : **commandes émises**.
 
 Le dossier technique commence là où la [[preuve-de-concept|preuve de concept]] s'arrête. La fiche `preuve-de-concept` s'est conclue par une revue qui statue : *validée sans réserve* (rare), *validée sous conditions* (le plus fréquent — reprises locales à intégrer) ou *retour amont structurant* (une preuve a renvoyé l'équipe en [[concept|concept]] pour reprendre une décision d'architecture, qui revient maintenant remaniée dans le dossier technique). Dans les trois cas, le dossier technique **récupère un matériau qui n'est plus exactement celui du concept**.
 
-L'erreur la plus fréquente à ce stade est de rouvrir directement les outils de plans (CAO, schéma élec, IDE) et de **partir du concept tel qu'il était sorti à la fin de la phase 2**, comme si la preuve de concept n'avait pas eu lieu. Cette étape sert précisément à fermer cette porte : on prend trente minutes en équipe pour faire le tri entre *ce que la preuve a confirmé*, *ce qu'elle a fait basculer* et *ce qu'elle a fait rétroagir vers le concept*. Sans ce tri explicite, les enseignements de la phase 3 s'évaporent.
+L'erreur la plus fréquente à ce stade est de rouvrir directement les outils de plans (CAO, schéma élec, IDE) et de **partir du concept tel qu'il était sorti à la fin de la phase concept**, comme si la preuve de concept n'avait pas eu lieu. Cette étape sert précisément à fermer cette porte : on prend trente minutes en équipe pour faire le tri entre *ce que la preuve a confirmé*, *ce qu'elle a fait basculer* et *ce qu'elle a fait rétroagir vers le concept*. Sans ce tri explicite, les enseignements de la preuve de concept s'évaporent.
 
 #### Du compte rendu PoC aux ajustements à intégrer
 
@@ -71,7 +71,7 @@ Pratiquement : pour chaque ajustement, identifiez en équipe les disciplines imp
 > **Repartir des plans du concept revient à effacer la PoC.** Avant d'ouvrir un seul outil de production (CAO, schéma élec, IDE), figez en équipe la liste des ajustements à propager. Cinq lignes écrites évitent dix heures de retours arrière.
 
 > [!example] Exemple : projet bras 3 axes
-> La preuve de concept sur les articulations imprimées en PLA 60 % a montré que les marges en cisaillement n'étaient pas tenues malgré 1000 cycles à 0,5° de précision — l'équipe a tranché en *retour amont structurant* (basculer vers articulations usinées en aluminium 6061) et le concept a été repris avec compromis offset court côté méca + lookup table côté info. Trois familles d'ajustements à propager au dossier technique en sortie :
+> La preuve de concept sur les articulations imprimées en PLA 60 % a montré que le jeu angulaire dépassait le critère de 0,5° dès ~500 cycles (matage du logement), bien avant les 1000 cycles visés — l'équipe a tranché en *retour amont structurant* (basculer vers articulations usinées en aluminium 6061). Le compromis offset court côté méca + lookup table côté info, lui, vient de l'arbitrage d'architecture initial du concept (conflit cinématique ↔ articulations) et reste en place. Trois familles d'ajustements à propager au dossier technique en sortie :
 >
 > - **Composants confirmés** : steppers + drivers + [[microcontroleur|microcontrôleur]] + alim 12 V (matrice élec de l'étape 2 concept inchangée).
 > - **Composants recalés** : articulations imprimées [[pla|PLA]] → articulations [[usinage|usinées]] alu 6061. À tracer dans la BOM (ligne *filament PLA* supprimée, ligne *barre alu Ø20 mm + usinage sous-traité* ajoutée) et dans l'ACV (acier/cuivre des steppers déjà identifiés comme empreinte dominante en concept ; à confirmer ou réviser avec la nouvelle ligne alu).
@@ -92,11 +92,11 @@ Le retour à la **grille disciplinaire** marque la différence avec la [[preuve-
 
 Les trois branches travaillent en parallèle sur leur livrable disciplinaire, avec un niveau de précision systématiquement supérieur à celui du concept :
 
-- **Électronique** — schémas câblés (composants finaux référencés, valeurs des passifs, connectique précisée), routage [[pcb|PCB]] si carte sur mesure (production interne possible sur machine de gravure à l'anglaise pour monoface ; sinon plaque à essais documentée), nomenclature électronique chiffrée avec références fournisseurs. Outils typiques : KiCAD, EasyEDA, ou équivalent.
+- **Électronique** — schémas câblés (composants finaux référencés, valeurs des passifs, connectique précisée), routage [[pcb|PCB]] si carte sur mesure (production interne possible sur machine de gravure mécanique / fraisage pour monoface ; sinon plaque à essais documentée), nomenclature électronique chiffrée avec références fournisseurs. Outils typiques : KiCAD, EasyEDA, ou équivalent.
 - **Mécanique** — plans cotés avec tolérances ISO, choix matériaux argumenté (au-delà de la décision concept), procédé de fabrication spécifié ([[impression-3d|impression 3D]], [[usinage|usinage]], assemblage), fichiers exportables (STL, DXF, STEP) selon le procédé. Outils typiques : Fusion 360, FreeCAD, SolidWorks.
 - **Informatique** — architecture logicielle détaillée (modules, dépendances, flux de données), spécifications d'interfaces (protocoles série, format des trames, API internes), structures de données partagées. Diagrammes UML ou équivalent pour la vue d'ensemble.
 
-L'arbitrage *qui fait quoi* a été pris en début de phase 2 (concept) et tient en général sur la totalité du projet. Si une discipline déborde sur l'autre (par exemple : un composant élec impose un assemblage méca particulier), c'est négocié à la revue de cohérence ci-dessous, pas en bilatéral.
+L'arbitrage *qui fait quoi* a été pris en début de phase concept et tient en général sur la totalité du projet. Si une discipline déborde sur l'autre (par exemple : un composant élec impose un assemblage méca particulier), c'est négocié à la revue de cohérence ci-dessous, pas en bilatéral.
 
 > [!tip] Astuce
 > **Reprenez le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] du concept comme carte d'interfaces.** Ce schéma a perdu sa vocation décisionnelle (les solutions sont arbitrées) mais retrouve une utilité opératoire : il identifie tous les points de contact entre disciplines, donc tous les points de spécification d'interface à figer pendant cette étape.
@@ -115,7 +115,7 @@ Si la revue révèle un conflit qu'aucune renégociation locale ne résout (ex. 
 > **Une spécification d'interface n'est pas une spécification interne.** Les interfaces sont les seules choses qu'on doit pouvoir lire à plusieurs : tensions, signaux, perçages, protocoles, formats. La spécification interne de chaque discipline reste son affaire — c'est l'interface qui se documente pour les autres.
 
 > [!example] Exemple : projet bras 3 axes
-> Élec : schéma de câblage finalisé (3 drivers + [[microcontroleur|microcontrôleur]] + alim 12 V régulée), nomenclature avec références ; [[pcb|PCB]] routé pour le module de commande (carte 5×7 cm, monoface, gravée en interne école sur machine de gravure à l'anglaise). Méca : plans cotés des 3 segments + des 3 articulations [[usinage|usinées]] alu 6061 (tolérances ISO 2768 m, finitions usinage spécifiées), nomenclature visserie M3 et M5. Info : architecture logicielle en 4 modules (cinématique inverse / commande synchrone des 3 axes / lookup table compensation offset / IHM série), spécification du protocole série PC↔microcontrôleur (format de trame, fréquence, gestion d'erreurs).
+> Élec : schéma de câblage finalisé (3 drivers + [[microcontroleur|microcontrôleur]] + alim 12 V régulée), nomenclature avec références ; [[pcb|PCB]] routé pour le module de commande (carte 5×7 cm, monoface, gravée en interne école sur machine de gravure mécanique / fraisage). Méca : plans cotés des 3 segments + des 3 articulations [[usinage|usinées]] alu 6061 (tolérances ISO 2768 m, finitions usinage spécifiées), nomenclature visserie M3 et M5. Info : architecture logicielle en 4 modules (cinématique inverse / commande synchrone des 3 axes / lookup table compensation offset / IHM série), spécification du protocole série PC↔microcontrôleur (format de trame, fréquence, gestion d'erreurs).
 >
 > Revue interne de cohérence inter-disciplines tenue en équipe avant rendez-vous validateurs : 2 conflits remontés et arbitrés sans rétroaction concept — (1) hauteur PCB sous le 2ᵉ segment méca incompatible avec connecteur droit, résolu par bascule sur connecteur coudé ; (2) protocole série à 9600 bauds initialement, jugé insuffisant pour la fréquence d'asservissement, porté à 115 200 bauds après vérification compatibilité microcontrôleur.
 >
@@ -177,7 +177,7 @@ En parallèle, le **budget consolidé** est comparé à l'enveloppe initiale du 
 >
 > Synthèse posée en pages 2-4 du dossier technique (BOM + ACV + planning), prête pour la multi-validation de l'étape 4.
 
-> [!livrable] Livrables 3/5 — Dossier technique
+> [!livrable] Livrable 3/5 — Dossier technique
 > - BOM finale chiffrée au centime près, références catalogue partenaires explicites, lignes hors catalogue signalées
 > - Évaluation environnementale quantifiée ([[acv-simplifiee|ACV simplifiée]] sur BOM réelle, contributeurs dominants identifiés)
 > - Rétroplanning d'approvisionnement et budget consolidé, comparé à l'enveloppe initiale
@@ -263,7 +263,7 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 > [!example] Exemple : projet bras 3 axes
 > Trois bons de commande préparés en parallèle :
 >
-> - **Partenaire élec** — 3 steppers NEMA 17 (ELEC-MOT-N17), 3 drivers A4988 (ELEC-DRV-A49), 1 [[microcontroleur|microcontrôleur]] Arduino-compatible (ELEC-MCU-ARD), 1 alim 12 V / 5 A (ELEC-ALI-125), 3 condensateurs céramique 100 nF (ELEC-PAS-100N — ajustement étape 4 pour découplage drivers), connectique et passifs courants → ≈ 98 € HT. **[[pcb|PCB]] non commandé** : gravé en interne école sur machine de gravure à l'anglaise (monoface, carte 5×7 cm).
+> - **Partenaire élec** — 3 steppers NEMA 17 (ELEC-MOT-N17), 3 drivers A4988 (ELEC-DRV-A49), 1 [[microcontroleur|microcontrôleur]] Arduino-compatible (ELEC-MCU-ARD), 1 alim 12 V / 5 A (ELEC-ALI-125), 3 condensateurs céramique 100 nF (ELEC-PAS-100N — ajustement étape 4 pour découplage drivers), connectique et passifs courants → ≈ 98 € HT. **[[pcb|PCB]] non commandé** : gravé en interne école sur machine de gravure mécanique / fraisage (monoface, carte 5×7 cm).
 > - **Partenaire matière** — 1 barre alu 6061 Ø20 mm × 1 m (MAT-ALU-6061-20), visserie M3 + M5 lot (MAT-VIS-LOT) → ≈ 21 € HT.
 > - **Partenaire fablab/atelier** — sous-traitance [[usinage|usinage]] des 3 articulations (SST-USI-3PCS) avec spécif. tolérance ISO 2768 m + état de surface Ra ≤ 1,6 sur portées de roulement (ajustement étape 4) → ≈ 95 € HT.
 >
