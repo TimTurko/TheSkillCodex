@@ -130,9 +130,9 @@ Le score pondéré final classe les solutions, mais ne décide pas seul. Une sol
 > | Couple disponible | 25 % | 3/5 | 4/5 | 3/5 |
 > | Précision angulaire | 25 % | 2/5 | 4/5 | 5/5 |
 > | Coût unitaire | 20 % | 5/5 | 4/5 | 2/5 |
-> | [[ecoconception|Écoconception]] (conso, réparabilité) | 15 % | 4/5 | 2/5 | 3/5 |
+> | [[ecoconception\|Écoconception]] (conso, réparabilité) | 15 % | 4/5 | 2/5 | 3/5 |
 > | Faisabilité école (dispo, doc) | 15 % | 4/5 | 5/5 | 3/5 |
-> | **Score pondéré** | | **3,35** | **3,85** | **3,40** |
+> | **Score pondéré** | | **3,45** | **3,85** | **3,30** |
 >
 > Le **stepper + driver** sort en tête sur la précision et la faisabilité école. Faiblesse identifiée : score écoconception bas en raison de la consommation continue en maintien. Décision retenue : *stepper + driver*, avec une réserve à lever à l'étape 4 sur la consommation au maintien (mode économie ou commande coupée à l'arrêt à étudier). Les branches méca (structure articulée) et info (commande synchronisée des trois axes) construisent en parallèle leurs propres matrices.
 
@@ -232,19 +232,19 @@ Chaque incertitude est **formulée comme une question** à laquelle un essai exp
 > | Discipline | Grandeur | Valeur calculée | Spec retenue | Marge | Verdict |
 > |---|---|---|---|---|---|
 > | Méca | Couple maximal axe 1, charge nominale 100 g | 1,2 N·m | 1,5 N·m (stepper) | +25 % | OK |
-> | Méca | Flèche en bout, charge nominale | 3 mm | 5 mm (F0) | +40 % | OK |
-> | Élec | Courant total 3 steppers en service | 4,5 A | 5 A (alim 5 V/5 A) | +11 % | **Marge serrée** |
-> | Info | Période boucle asservissement, modèle simplifié | 1,25 ms | 1 ms cible | hors cible | **Marge serrée** |
+> | Méca | Flèche en bout, charge nominale | 3 mm | 5 mm (F0) | +67 % | OK |
+> | Élec | Courant total 3 steppers en service | 4,6 A | 5 A (alim 5 V/5 A) | +9 % | **Marge serrée** |
+> | Info | Période boucle asservissement, modèle simplifié | 0,85 ms | 1 ms cible | +18 % | OK |
 > | Méca | Couple en accélération maximale (transitoire) | modèle non confiant | — | — | **Incertitude** |
 >
 > Deux incertitudes formulées en question, rattachées au [[cahier-des-charges-fonctionnel|CdCF]] :
 >
 > - **I1** — *Le couple disponible des steppers tient-il en accélération maximale réelle, charge en bout ?* (catégorie : phénomène transitoire mal modélisé ; exigence en jeu : F0 précision bout de bras). À lever par essai banc moteur en accélération échelon.
-> - **I2** — *L'alimentation tient-elle thermiquement en service prolongé avec une marge courant de +11 % ?* (catégorie : marge serrée + couplage élec↔thermique mal modélisé ; exigence en jeu : F1 durée d'utilisation continue). À lever par essai en charge continue avec mesure de température.
+> - **I2** — *L'alimentation tient-elle thermiquement en service prolongé avec une marge courant de +9 % ?* (catégorie : marge serrée + couplage élec↔thermique mal modélisé ; exigence en jeu : F1 durée d'utilisation continue). À lever par essai en charge continue avec mesure de température.
 >
 > Ces deux incertitudes deviennent la commande explicite de la phase preuve de concept.
 
-> [!livrable] Livrables 4/5 — Concept
+> [!livrable] Livrable 4/5 — Concept
 > - Pré-dimensionnements par discipline (calculs de vérification, marges, ordres de grandeur)
 > - Liste des incertitudes à lever en [[preuve-de-concept|preuve de concept]]
 
@@ -266,7 +266,7 @@ Cinq sections types, dans cet ordre :
 4. **Architecture globale** — assemblage cohérent des solutions retenues + tableau des conflits inter-disciplines arbitrés.
 5. **Pré-dimensionnement et incertitudes** — calculs de vérification par discipline + liste des incertitudes formulées en question, rattachées au CdCF.
 
-Une éventuelle section *Annexes* peut accueillir les calculs détaillés, les fiches techniques des solutions retenues, ou les compte-rendus de séance qui ont tracé une renégociation. Le dossier reste lisible sans elle ; les annexes servent l'instruction approfondie sans alourdir le récit principal.
+Une éventuelle section *Annexes* peut accueillir les calculs détaillés, les fiches techniques des solutions retenues, ou les comptes rendus de séance qui ont tracé une renégociation. Le dossier reste lisible sans elle ; les annexes servent l'instruction approfondie sans alourdir le récit principal.
 
 #### Rédiger chaque section
 
