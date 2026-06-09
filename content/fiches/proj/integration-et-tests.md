@@ -55,15 +55,15 @@ Les livraisons arrivent à des dates différentes selon le fournisseur partenair
 
 #### Fabriquer en interne au rythme des moyens disponibles
 
-Trois moyens de fabrication interne se partagent ici : l'[[impression-3d|impression 3D]] (transmise au responsable fablab via fichiers STL), l'[[usinage|usinage]] de pièces simples sur les machines école, et la gravure interne de [[pcb|PCB]] monoface sur la machine à l'anglaise. Chaque moyen a sa file d'attente. L'équipe transmet les fichiers (STL, FAO, GERBER) dès la clôture du dossier technique pour entrer au plus tôt dans les files. La fabrication interne ne se commande pas, elle se planifie au calendrier des machines disponibles.
+Trois moyens de fabrication interne se partagent ici : l'[[impression-3d|impression 3D]] (transmise au responsable fablab via fichiers STL), l'[[usinage|usinage]] de pièces simples sur les machines école, et la gravure interne de [[pcb|PCB]] monoface par fraisage mécanique. Chaque moyen a sa file d'attente. L'équipe transmet les fichiers (STL, FAO, GERBER) dès la clôture du dossier technique pour entrer au plus tôt dans les files. La fabrication interne ne se commande pas, elle se planifie au calendrier des machines disponibles.
 
 > [!warning] Attention
 > **Une pièce sortie de machine n'est pas une pièce validée.** L'inspection visuelle au moment du retrait machine est insuffisante pour conclure à la conformité. La validation formelle se joue à l'étape suivante (niveau 0 de la pyramide de tests).
 
 > [!example] Exemple : projet bras 3 axes
-> Branche réception : les 3 steppers Nema 17 et leurs drivers arrivent en début de **semaine n°13** chez le fournisseur électronique (lead time 5 jours). Les 3 articulations usinées en alu 6061 arrivent en fin de **semaine n°15** chez le fournisseur matière (lead time 3 semaines, contraignant pour le calendrier). Les composants passifs (résistances, condensateurs, connecteurs) sont déjà au stock divers depuis la fin du dossier technique.
+> Branche réception : les 3 steppers NEMA 17 et leurs drivers arrivent en début de **semaine n°13** chez le fournisseur électronique (lead time 5 jours). Les 3 articulations usinées en alu 6061 arrivent en fin de **semaine n°15** chez le fournisseur matière (lead time 3 semaines, contraignant pour le calendrier). Les composants passifs (résistances, condensateurs, connecteurs) sont déjà au stock divers depuis la fin du dossier technique.
 >
-> Branche fabrication interne : les 3 segments imprimés en PLA passent en file fablab dès l'envoi des STL au responsable (**semaine n°12**), sortie machine en **semaine n°13**. Le [[pcb|PCB]] monoface gravé en interne sur la machine à l'anglaise est lancé dès la clôture du dossier technique (**semaine n°12**), sortie en **semaine n°13**.
+> Branche fabrication interne : les 3 segments imprimés en PLA passent en file fablab dès l'envoi des STL au responsable (**semaine n°12**), sortie machine en **semaine n°13**. Le [[pcb|PCB]] monoface gravé en interne par fraisage mécanique est lancé dès la clôture du dossier technique (**semaine n°12**), sortie en **semaine n°13**.
 >
 > En **semaine n°15**, l'ensemble est physiquement disponible. La contrainte structurante du calendrier est l'arrivée des articulations usinées en dernier — les autres branches sont terminées deux semaines plus tôt.
 
@@ -78,7 +78,7 @@ Cette étape est intrinsèquement **disciplinaire** — par opposition aux tests
 
 #### Valider la chaîne électrique
 
-Les artefacts électroniques produits ou reçus se valident sur quatre axes : 1/ continuité et absence de court-circuit sur le [[pcb|PCB]] gravé, vérifiée au [[multimetre|multimètre]] en mode buzzer ; 2/ alimentation correctement régulée et stable sous charge nominale, mesurée à l'[[alimentation-electronique|alimentation stabilisée]] et confirmée à l'[[oscilloscope|oscilloscope]] ; 3/ [[niveaux-de-tension|niveaux logiques]] cohérents en sortie de [[microcontroleur|MCU]] (typiquement 3,3 V ou 5 V selon la famille) et compatibles avec les entrées des composants en aval (drivers, capteurs, écrans) ; 4/ réponse correcte des drivers en bench, sans charge mécanique, à une commande d'impulsion de référence. Toute non-conformité retourne en étape 1 : refaire le PCB ou remplacer le composant défaillant.
+Les artefacts électroniques produits ou reçus se valident sur quatre axes : 1/ continuité et absence de court-circuit sur le [[pcb|PCB]] gravé, vérifiée au [[multimetre|multimètre]] en mode buzzer ; 2/ alimentation correctement régulée et stable sous charge nominale, mesurée à l'[[alimentation-electronique|alimentation stabilisée]] et confirmée à l'[[oscilloscope|oscilloscope]] ; 3/ [[niveaux-de-tension|niveaux logiques]] cohérents en sortie de [[microcontroleur|MCU]] (typiquement 3,3 V ou 5 V selon la famille) et compatibles avec les entrées des composants en aval (drivers, capteurs, écrans) ; 4/ réponse correcte des drivers au banc, sans charge mécanique, à une commande d'impulsion de référence. Toute non-conformité retourne en étape 1 : refaire le PCB ou remplacer le composant défaillant.
 
 #### Valider les pièces mécaniques
 
@@ -116,7 +116,7 @@ La pyramide se déroule **en cascade linéaire ascendante** avec rétroactions c
 
 #### Tester chaque fonction du CdCF isolément (niveau 1)
 
-Chaque fonction principale ([[fonction|FP]]) et complémentaire (FC) du [[cahier-des-charges-fonctionnel|CdCF]] est testée individuellement, sur le système assemblé mais en isolant la fonction des autres. Insister sur un point souvent mal compris : une fonction mécatronique mobilise **déjà plusieurs disciplines**. Tester « faire tourner un axe » fait intervenir l'élec (commande, alimentation), l'info (logique de commande, lecture du retour) et la méca (transmission mécanique). Il n'existe pas de test « purement élec » au niveau fonctionnel — c'est précisément ce que disait l'étape précédente au niveau 0 et que la pyramide quitte ici. Le protocole de chaque test unitaire reprend les critères chiffrés du CdCF et trace les résultats sur la fiche dédiée du dossier de tests. Échec → diagnostic banc vs pièce, puis retour étape 2 si pièce défaillante.
+Chaque fonction principale ([[fonction|FP]]) et complémentaire ([[fonction|FC]]) du [[cahier-des-charges-fonctionnel|CdCF]] est testée individuellement, sur le système assemblé mais en isolant la fonction des autres. Insister sur un point souvent mal compris : une fonction mécatronique mobilise **déjà plusieurs disciplines**. Tester « faire tourner un axe » fait intervenir l'élec (commande, alimentation), l'info (logique de commande, lecture du retour) et la méca (transmission mécanique). Il n'existe pas de test « purement élec » au niveau fonctionnel — c'est précisément ce que disait l'étape précédente au niveau 0 et que la pyramide quitte ici. Le protocole de chaque test unitaire reprend les critères chiffrés du CdCF et trace les résultats sur la fiche dédiée du dossier de tests. Échec → diagnostic banc vs pièce, puis retour étape 2 si pièce défaillante.
 
 #### Tester les compositions de fonctions, puis le système complet (niveaux 2 et 3)
 
@@ -134,7 +134,7 @@ Le niveau 4 est le pivot pédagogique de la phase. On ressort le [[cahier-des-ch
 >
 > Niveau 1 (fonctions unitaires) : **FP1** *Faire tourner un axe* testée indépendamment sur les 3 axes — commande, sens de rotation, course, butée logicielle. **FP2** *Lire la position* testée via comptage de pas. Toutes les fonctions unitaires passent au premier essai, modulo un dépassement de butée logicielle sur l'axe 2 corrigé par ré-étalonnage du zéro machine.
 >
-> Niveau 2 (compositions) : *Atteindre un point cible* combine les 3 axes via cinématique inverse + synchronisation de commande. Passe à la deuxième tentative après correction d'une rotation repère sur l'axe 3 (sens inversé dans le modèle).
+> Niveau 2 (compositions) : *Atteindre un point cible* combine les 3 axes via cinématique inverse + synchronisation de commande. Passe à la deuxième tentative après correction du sens de rotation de l'axe 3 (inversé dans le modèle).
 >
 > Niveau 3 (système complet) : enchaîner une trajectoire prédéfinie depuis l'interface utilisateur. Passe, avec un léger à-coup observé en transition entre les segments de trajectoire — analysé comme un effet du jeu cumulé sur les articulations, pas un défaut de commande.
 >
@@ -143,7 +143,7 @@ Le niveau 4 est le pivot pédagogique de la phase. On ressort le [[cahier-des-ch
 > [!warning] Attention
 > **Au niveau 4, l'écart se documente, il ne se rattrape pas.** Le calendrier de fin de semestre impose la livraison — il n'y a plus de rétroaction sortante de cette phase. Si la précision visée n'est pas atteinte, on **ne refait pas** la cinématique en urgence : on consigne l'écart au tableau de qualification, on analyse son origine, on propose des pistes d'amélioration documentées dans le rapport final. L'évaluation porte autant sur cette lucidité d'analyse que sur les chiffres bruts.
 
-> [!livrable] Livrables 3/5 — Intégration et tests
+> [!livrable] Livrable 3/5 — Intégration et tests
 > - Prototype qualifié (au sens fort si critères CdCF atteints, avec écarts documentés sinon)
 > - Dossier de tests (niveaux 1 à 4, protocoles + résultats)
 
@@ -155,7 +155,7 @@ Conduire ces bilans en parallèle plutôt qu'en série est une question de réal
 
 #### Conduire les trois bilans en parallèle
 
-**Bilan technique** : reprendre le tableau de qualification de l'étape 3 et l'analyser — pour chaque écart constaté, formuler une **hypothèse de cause** (chiffrée si possible) et une **piste d'amélioration documentée** (sans avoir à la valider, on est en clôture). Ce que le système fait bien doit également apparaître — l'analyse ne se réduit pas aux écarts. **Bilan projet** ([[gestion-de-projet|gestion de projet]]) : planning effectif vs planning prévisionnel issu du [[retroplanning|rétroplanning]] de phase 1, budget consommé vs budget prévu, risques de la [[matrice-de-risques|matrice de risques]] qui se sont réalisés (ou pas, ou autrement). **Bilan écoconception** ([[ecoconception|écoconception]]) : [[acv-simplifiee|ACV]] **réelle** sur prototype effectif (avec articulations alu, segments PLA, [[pcb|PCB]] gravé) confrontée à l'ACV estimée du [[dossier-technique|dossier technique]] (sur BOM théorique). Identifier les écarts d'empreinte, en tirer une leçon transférable au projet suivant.
+**Bilan technique** : reprendre le tableau de qualification de l'étape 3 et l'analyser — pour chaque écart constaté, formuler une **hypothèse de cause** (chiffrée si possible) et une **piste d'amélioration documentée** (sans avoir à la valider, on est en clôture). Ce que le système fait bien doit également apparaître — l'analyse ne se réduit pas aux écarts. **Bilan projet** ([[gestion-de-projet|gestion de projet]]) : planning effectif vs planning prévisionnel issu du [[retroplanning|rétroplanning]] de la spécification technique, budget consommé vs budget prévu, risques de la [[matrice-de-risques|matrice de risques]] qui se sont réalisés (ou pas, ou autrement). **Bilan écoconception** ([[ecoconception|écoconception]]) : [[acv-simplifiee|ACV]] **réelle** sur prototype effectif (avec articulations alu, segments PLA, [[pcb|PCB]] gravé) confrontée à l'ACV estimée du [[dossier-technique|dossier technique]] (sur BOM théorique). Identifier les écarts d'empreinte, en tirer une leçon transférable au projet suivant.
 
 #### Capitaliser via le REX d'équipe
 
@@ -178,7 +178,7 @@ Le REX d'équipe est un **retour d'expérience réflexif** — ce que l'équipe 
 >
 > **REX** : « la bascule PLA → alu en sortie de PoC a été coûteuse en temps mais salvatrice pour le respect du CdCF ; une caractérisation plus précoce du jeu articulaire dès la phase concept aurait permis d'arbitrer plus tôt. Pratique à conserver : la transmission STL au responsable fablab dès la clôture du dossier technique, qui nous a fait gagner deux semaines. »
 
-> [!livrable] Livrables 4/5 — Intégration et tests
+> [!livrable] Livrable 4/5 — Intégration et tests
 > - 3 bilans (technique, projet, écoconception)
 > - REX d'équipe documenté
 
@@ -211,7 +211,7 @@ La soutenance est un **exercice de démonstration courte et structurée**, pas u
 >
 > Issue de la phase : prototype qualifié avec écarts documentés, rapport et soutenance livrés dans les délais — le projet est officiellement clos.
 
-> [!livrable] Livrables 5/5 — Intégration et tests
+> [!livrable] Livrable 5/5 — Intégration et tests
 > - Rapport final (livrable documentaire évalué)
 > - Soutenance finale (livrable transversal évalué)
 
@@ -223,25 +223,35 @@ Le projet est livré. Le prototype est qualifié (au sens fort ou avec écarts d
 
 ## Pièges fréquents
 
-- **Sauter le niveau 0 de validation pièces.** Une non-conformité non détectée à l'unité se manifeste plus tard en test fonctionnel sous une forme méconnaissable, et le diagnostic prend dix fois plus de temps que la validation initiale aurait pris.
-- **Confondre validation disciplinaire (étape 2) et tests fonctionnels (étape 3).** Le niveau 0 est intrinsèquement disciplinaire (on inspecte un objet élec, méca ou info isolé). Les niveaux 1 à 4 sont intrinsèquement multi-disciplines, parce qu'une fonction mécatronique mobilise déjà plusieurs disciplines.
-- **Découper les tests fonctionnels par discipline.** « On teste l'élec puis la méca puis l'info » est incohérent avec la nature mécatronique du système. À partir du niveau 1, le découpage est par **fonction**, jamais par discipline.
-- **Diagnostiquer un test KO comme défaillance pièce alors que c'est le banc de test.** L'inverse arrive aussi. La discipline minimale du diagnostic : isoler le banc d'un côté, la pièce de l'autre, et conclure seulement quand l'un des deux est écarté.
-- **Préparer la fiche de qualification niveau 4 en dernier.** « On verra à la fin » conduit régulièrement à des oublis de critères au moment de qualifier. La fiche se prépare dès le début de l'étape 3, en parallèle des niveaux 1 à 3.
-- **Refaire la cinématique en urgence quand la précision dépasse.** Au niveau 4, l'écart se documente, il ne se rattrape pas. Le calendrier impose la livraison ; l'évaluation porte autant sur la lucidité d'analyse que sur les chiffres bruts.
-- **Chercher à boucher tous les écarts au lieu de les documenter.** Un prototype « qualifié avec écarts documentés » vaut largement mieux qu'un prototype qu'on n'a pas eu le temps de livrer parce qu'on cherchait à corriger un dernier critère.
-- **Conduire les trois bilans en série au lieu de les paralléliser.** Le calendrier de fin de phase ne le permet pas. Chaque membre prend la main sur un bilan tandis que les autres avancent sur les leurs, avec des points de synchronisation courts.
-- **Énumérer les écarts sans rien dire de ce qui a fonctionné.** L'évaluation porte aussi sur la capacité à analyser positivement ce qui a été produit, pas seulement sur la lucidité des manques.
-- **Confondre REX d'équipe et bilan projet.** Le bilan projet est factuel (planning, budget, risques réalisés), compétence gestion de projet. Le REX est réflexif (ce qu'on referait différemment), compétence MEO en propre. Les deux sont évalués séparément.
-- **Préparer la soutenance avant le rapport.** Le rapport est le support stable qui sert de référence à la soutenance ; l'inverse conduit à une soutenance brillante qui s'effondre quand le jury demande à se reporter au rapport pour creuser un point.
+**Sauter le niveau 0 de validation pièces.** Une non-conformité non détectée à l'unité se manifeste plus tard en test fonctionnel sous une forme méconnaissable, et le diagnostic prend dix fois plus de temps que la validation initiale aurait pris.
+
+**Confondre validation disciplinaire (étape 2) et tests fonctionnels (étape 3).** Le niveau 0 est intrinsèquement disciplinaire (on inspecte un objet élec, méca ou info isolé). Les niveaux 1 à 4 sont intrinsèquement multi-disciplines, parce qu'une fonction mécatronique mobilise déjà plusieurs disciplines.
+
+**Découper les tests fonctionnels par discipline.** « On teste l'élec puis la méca puis l'info » est incohérent avec la nature mécatronique du système. À partir du niveau 1, le découpage est par **fonction**, jamais par discipline.
+
+**Diagnostiquer un test KO comme défaillance pièce alors que c'est le banc de test.** L'inverse arrive aussi. La discipline minimale du diagnostic : isoler le banc d'un côté, la pièce de l'autre, et conclure seulement quand l'un des deux est écarté.
+
+**Préparer la fiche de qualification niveau 4 en dernier.** « On verra à la fin » conduit régulièrement à des oublis de critères au moment de qualifier. La fiche se prépare dès le début de l'étape 3, en parallèle des niveaux 1 à 3.
+
+**Refaire la cinématique en urgence quand la précision dépasse.** Au niveau 4, l'écart se documente, il ne se rattrape pas. Le calendrier impose la livraison ; l'évaluation porte autant sur la lucidité d'analyse que sur les chiffres bruts.
+
+**Chercher à boucher tous les écarts au lieu de les documenter.** Un prototype « qualifié avec écarts documentés » vaut largement mieux qu'un prototype qu'on n'a pas eu le temps de livrer parce qu'on cherchait à corriger un dernier critère.
+
+**Conduire les trois bilans en série au lieu de les paralléliser.** Le calendrier de fin de phase ne le permet pas. Chaque membre prend la main sur un bilan tandis que les autres avancent sur les leurs, avec des points de synchronisation courts.
+
+**Énumérer les écarts sans rien dire de ce qui a fonctionné.** L'évaluation porte aussi sur la capacité à analyser positivement ce qui a été produit, pas seulement sur la lucidité des manques.
+
+**Confondre REX d'équipe et bilan projet.** Le bilan projet est factuel (planning, budget, risques réalisés), compétence gestion de projet. Le REX est réflexif (ce qu'on referait différemment), compétence MEO en propre. Les deux sont évalués séparément.
+
+**Préparer la soutenance avant le rapport.** Le rapport est le support stable qui sert de référence à la soutenance ; l'inverse conduit à une soutenance brillante qui s'effondre quand le jury demande à se reporter au rapport pour creuser un point.
 
 ## Pendant cette phase, côté équipe
 
-La phase d'intégration mobilise davantage les **interfaces avec les autres disciplines techniques** que les phases précédentes, parce qu'elle confronte le système assemblé aux conditions réelles d'usage. Côté mécanique, les tutoriels des collègues sur les procédés de fabrication ([[impression-3d|impression 3D]], [[usinage|usinage]], assemblage) servent de référence pendant la validation niveau 0 et l'intégration. Côté informatique, les bonnes pratiques de déploiement de [[firmware|firmware]] sur cible matérielle et d'instrumentation de mesure (acquisition, journalisation) accompagnent les niveaux 1 à 4 de la pyramide. Les fiches-tutos disciplinaires de l'électronique ([[pcb|PCB]], [[microcontroleur|microcontroleur]], [[niveaux-de-tension|niveaux logiques]], [[cable-management|cable management]]) restent accessibles depuis cette fiche pour combler les besoins ponctuels d'approfondissement.
+La phase d'intégration mobilise davantage les **interfaces avec les autres disciplines techniques** que les phases précédentes, parce qu'elle confronte le système assemblé aux conditions réelles d'usage. Côté mécanique, les tutoriels des collègues sur les procédés de fabrication ([[impression-3d|impression 3D]], [[usinage|usinage]], assemblage) servent de référence pendant la validation niveau 0 et l'intégration. Côté informatique, les bonnes pratiques de déploiement de [[firmware|firmware]] sur cible matérielle et d'instrumentation de mesure (acquisition, journalisation) accompagnent les niveaux 1 à 4 de la pyramide. Les fiches-tutos disciplinaires de l'électronique ([[pcb|PCB]], [[microcontroleur|microcontrôleur]], [[niveaux-de-tension|niveaux logiques]], [[cable-management|cable management]]) restent accessibles depuis cette fiche pour combler les besoins ponctuels d'approfondissement.
 
-La **[[gestion-de-projet|gestion de projet]]** de cette phase est dense par contrainte calendaire — la marge initiale s'est érodée au fil des phases précédentes, et la phase d'intégration est celle où l'on ne peut plus se rattraper. Le suivi se resserre : points équipe quotidiens ou bi-quotidiens, [[matrice-de-risques|matrice de risques]] mise à jour en continu, jalons internes courts (un par étape de la pyramide). Le bilan projet de l'étape 4 ferme ce volet — confrontation du planning effectif au [[retroplanning|rétroplanning]] de phase 1, du budget consommé au budget prévu, des risques réalisés à la matrice initiale.
+La **[[gestion-de-projet|gestion de projet]]** de cette phase est dense par contrainte calendaire — la marge initiale s'est érodée au fil des phases précédentes, et la phase d'intégration est celle où l'on ne peut plus se rattraper. Le suivi se resserre : points équipe quotidiens ou bi-quotidiens, [[matrice-de-risques|matrice de risques]] mise à jour en continu, jalons internes courts (un par étape de la pyramide). Le bilan projet de l'étape 4 ferme ce volet — confrontation du planning effectif au [[retroplanning|rétroplanning]] de la spécification technique, du budget consommé au budget prévu, des risques réalisés à la matrice initiale.
 
-Côté **[[ecoconception|écoconception]]**, l'[[acv-simplifiee|ACV]] réelle sur prototype effectif vient ici clore l'arc démarré en phase 2 (premier filtre éco dans le concept) et poursuivi en phase 4 (BOM théorique et ACV estimée du dossier technique). La comparaison ACV réelle vs ACV estimée est le moment principal d'apprentissage — les écarts entre le théorique et le réel pointent les angles morts de l'estimation précoce, et alimentent une leçon transférable au projet suivant. Bilan éco documenté en propre à l'étape 4.
+Côté **[[ecoconception|écoconception]]**, l'[[acv-simplifiee|ACV]] réelle sur prototype effectif vient ici clore l'arc démarré au concept (premier filtre éco) et poursuivi au dossier technique (BOM théorique et ACV estimée). La comparaison ACV réelle vs ACV estimée est le moment principal d'apprentissage — les écarts entre le théorique et le réel pointent les angles morts de l'estimation précoce, et alimentent une leçon transférable au projet suivant. Bilan éco documenté en propre à l'étape 4.
 
 Côté **[[securite-et-qualite|sécurité et qualité]]**, la phase d'intégration introduit pour la première fois la **manipulation du système intégré sous tension et en mouvement** — les conditions de sécurité des tests se formalisent explicitement, particulièrement pour le niveau 3 (test système complet) et le niveau 4 (qualification CdCF), où le système est mis en marche dans son scénario nominal. Les protocoles de sécurité (mise sous tension contrôlée, accès à la zone de mouvement, arrêt d'urgence accessible) se documentent en amont du démarrage des tests, pas en cours d'exécution.
 
