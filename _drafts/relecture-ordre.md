@@ -33,7 +33,7 @@ Verdict : OK / a corriger
 - [x] `specification-technique` (phase 1) — ⚠ SVG + template docx → TODO
 - [x] `concept` (phase 2)
 - [x] `preuve-de-concept` (phase 3)
-- [ ] `dossier-technique` (phase 4)
+- [x] `dossier-technique` (phase 4)
 - [ ] `integration-et-tests` (phase 5)
 
 ## 1bis · Trame — fils transverses
