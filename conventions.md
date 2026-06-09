@@ -24,6 +24,19 @@ les conventions récentes pas encore confirmées sur 2-3 fiches.
   aux contextes structurels (titres de section, schéma du V).
 - « **Soutenance intermédiaire** » → « **revue de CdCF** » pour désigner le
   jalon de validation enseignante de fin de phase 1 (24/05).
+- « **Gravure à l'anglaise** » → « **gravure mécanique** » / « **fraisage** »
+  (terme non standard pour la gravure mécanique de PCB ; 09/06).
+
+### Anglicismes techniques — admis (09/06, relecture)
+- « **stepper** » **conservé** (exposer le vocabulaire fr/eng aux étudiants).
+  Ne **pas** convertir en « moteur pas-à-pas » — renverse la conversion de la
+  session 1 sur `specification-technique` (assumée comme double exposition :
+  la spec introduit le terme FR, les fiches techno emploient « stepper »).
+- **Anglicismes techniques courants admis** : lookup table, brainstorm, mock,
+  *go / no-go*, lead time, BOM, REX, bench (→ préférer « banc » quand naturel).
+- « **Xᵉ étape du projet** » toléré en phrase d'introduction d'une fiche-trame
+  (renvoie à la place de la phase dans le V). La forme « phase N » en *nombre*
+  reste proscrite dans la prose (cf. Termes proscrits).
 
 ### Conventions générales de prose (25/05)
 - **Pas d'extension `.md` dans la prose**. Citer une fiche par son titre ou
@@ -818,6 +831,9 @@ Notes 07/06 (suite 3) (pas de convention numérotée) :
 Notes 08/06 (pas de convention numérotée) :
 - **Méthode de relecture humaine** : 1 conversation = 1 session ; `_drafts/relecture-ordre.md` (213 fiches ordonnées, cases, repères image/attention) = fil conducteur inter-conversations (synchronisé entre PC) ; relire sur le **rendu Quartz local** (`npx quartz build --serve`, pas Obsidian où les images absolues paraissent cassées) ; cocher à la **validation** (pas à la production) ; **prompt de reprise** rédigé en clôture.
 - **MCP pro déféré** : au démarrage PC pro post-reboot, les outils `theskillcodex:*` sont **différés** (≠ `filesystem:*` perso en direct) → `tool_search` requis pour charger chaque grappe avant appel ; « has not been loaded yet » = à charger (≠ « not found » = serveur absent).
+
+### Acquises 09/06 — relecture trames du V
+62. **Échappement du pipe dans un wikilink en cellule de tableau** — un wikilink à libellé `[[slug|Libellé]]` placé **dans une cellule de tableau markdown** doit échapper sa barre : `[[slug\|Libellé]]`. Sinon le `|` non échappé est lu comme séparateur de colonne → le lien casse **et** la colonne se décale. Hors tableau, pas d'échappement nécessaire. Trouvé et corrigé en relecture sur `concept` (matrice écoconception) et `preuve-de-concept` (synthèse étape 4) ; les tables de `dossier-technique` étaient déjà correctement échappées. **La numérotation éprouvage atteint 62.**
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

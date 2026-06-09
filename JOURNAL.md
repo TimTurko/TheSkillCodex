@@ -10,6 +10,32 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-09 — Relecture humaine : session 2 (trames du V terminées) + cadrage trame embarquée
+
+### Périmètre
+PC pro (`theskillcodex:*` déférés). Session 2 de relecture humaine sur le rendu Quartz : les **4 trames du V restantes** relues une par une (`concept`/`preuve-de-concept`/`dossier-technique`/`integration-et-tests`), retour critique → arbitrage Tim → `edit_file` (dryRun puis apply, ancres verbatim C14). **§1 (trame cycle en V) intégralement relue.** Clôture par un **cadrage D** d'une nouvelle trame (Système embarqué). 0 git (Tim pilote).
+
+### Livrables
+- **`concept` validé** : matrice (scores pondérés recalculés CC+encodeur 3,45 / servo 3,30), pré-dim ré-harmonisé (marges sur base uniforme, courant +9 %), pipe `\|` échappé dans la cellule de tableau écoconception, « comptes rendus », « Livrable 4/5 ». Coché.
+- **`preuve-de-concept` validé** : pipe `\|` échappé (synthèse étape 4), « en sortie de la phase concept », « Données de mesure brutes » (retrait « et analyses »), « non concluant »/« ambiguë », *go / no-go* italique, « point de bascule du V ». Coché.
+- **`dossier-technique` validé** : 3× « phase N » → noms de phase, exemple PoC étape 1 recadré (jeu angulaire/matage ≠ cisaillement), « gravure à l'anglaise » → « fraisage mécanique » ×3, 11 pièges dé-puçés, « Livrable 3/5 », BOM vérifié (213,20 € HT). Coché.
+- **`integration-et-tests` validé** : 4× « phase N » → noms de phase, « par fraisage mécanique » ×2, 11 pièges dé-puçés, 3 « Livrable N/5 » au singulier, « NEMA 17 », display « microcontrôleur », « correction du sens de rotation de l'axe 3 », `[[fonction|FC]]` lié, « au banc ». Coché. **§1 close.**
+
+### Décisions (Tim)
+- **Lexique relecture** : « stepper » **conservé** (exposer fr/eng — *renverse* la conversion « moteurs pas-à-pas » de la session 1 sur `specification-technique`, désormais assumée comme double exposition) ; **anglicismes techniques admis** (lookup table, go/no-go, lead time, BOM, REX…) ; « **Xᵉ étape du projet** » en intro **toléré** (« phase N » en *nombre* reste proscrit ailleurs) ; « **gravure à l'anglaise** » **proscrit** → « gravure mécanique / fraisage ». Harmonisation globale du libellé de hub (« Hub du parcours projet » vs « hub du tutoriel ») → BACKLOG.
+- **E2 (integration) tenu** : les 4 blocs « Pendant cette phase, côté équipe » restent en prose (non reformatés en gras-tête) — laissé à l'appréciation, non demandé.
+- **Nouvelle trame « Système embarqué » — cadrage D validé** (production en session dédiée suivante) : **nature** = méthodo de réalisation (« où j'en suis / quoi faire ensuite » sur le sous-système embarqué, délègue tout le management au V par liens) ; **fil rouge** = bras 3 axes (même projet, deux lentilles) ; **placement** = **restructurer `eee/index`** en colonne linéaire (le catalogue familles MCU devient une section). Brief détaillé dans `_drafts/cadrage-trame-embarquee.md`.
+
+### Conventions
+- **§1 enrichi** : « gravure à l'anglaise » ajouté aux termes proscrits ; nouveau bloc « Anglicismes techniques — admis » (stepper, lookup table…, « Xᵉ étape » intro).
+- **§8 — C62 candidate** : échappement du pipe `\|` dans un wikilink à libellé en **cellule de tableau** (`[[slug\|Libellé]]`), sinon le `|` casse le lien et la colonne. 2 instances (`concept`, `preuve-de-concept`).
+
+### Tailles
+4 fiches `content/fiches/proj/` patchées ; pilotage : `relecture-ordre.md` (4 cases), `conventions.md` (§1+§8), `TODO.md`, `BACKLOG.md`, `_drafts/cadrage-trame-embarquee.md` (créé). JOURNAL ~76→~80 ko (archivage 1-pour-1 non requis sous 100 ko, comme sessions 08/06).
+
+### Corps — la trame embarquée doit rester orthogonale au V
+Le réflexe naturel (« une 2ᵉ trame pour réaliser un projet ») dupliquerait le cycle en V et ferait croire à deux projets. Recadrage retenu : le V est la colonne **gestion de projet** (axe temporel — décisions, revues, équipe), la nouvelle trame est la colonne **ingénierie embarquée** (axe technique — choisir le matériel, concevoir l'élec, programmer, faire communiquer, fiabiliser, intégrer). Le manque réel comblé : la branche Système embarqué (`eee/index`) est aujourd'hui un **catalogue** (panorama des familles + notions) sans parcours linéaire — un mur de fiches, pas un chemin. La colonne (7 étapes, cf. cadrage) enfile les fiches existantes dans l'ordre d'usage et **délègue tout le management au V par liens** ; elle ne tient que si cette frontière tient (sinon clone du V en moins bien). Mapping naturel sur les phases (cadrer↔concept, concevoir/programmer↔dossier technique, intégrer↔intégration). Côté outil : le bug récurrent du pipe en cellule de tableau (C62) — le `|` d'un `[[slug\|Libellé]]` entre en collision avec le séparateur de colonne ; remède `\|`. Trouvé sur `concept` et `preuve-de-concept`, tables de `dossier-technique` déjà correctes.
+
 ## 2026-06-08 (suite) — Relecture humaine : session 1 (entrée + passe liens parcours + spécification technique)
 
 ### Périmètre
