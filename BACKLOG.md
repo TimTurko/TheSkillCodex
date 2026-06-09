@@ -149,6 +149,7 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Idées d'illustrations / médias à produire
 
+- [ ] **SVG colonne « Système embarqué » (à produire, voie A)** — diagramme des 7 étapes de réalisation montrant l'**orthogonalité au cycle en V** (deux colonnes : gestion de projet [le V] vs ingénierie embarquée [la colonne], reliées par le mapping par étape). Renforcerait le hub `eee/index`. Session SVG dédiée (voie A, hand-codé). Posé 09/06.
 - [ ] Schéma annoté d'une couveuse réelle (référencé dans schema-bloc-fonctionnel)
 - [ ] Illustration des conventions de flèches (info / énergie / matière)
 - [x] ~~**SVG bête à cornes générique**~~ — fait le 20/05 (4 SVG produits : générique + 3 exemples bras robotique). Placeholder dans `specification-technique.md` étape 1 remplacé.
@@ -267,6 +268,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Discussions / décisions en attente
 
+- [ ] **Harmoniser le registre tu / on (colonne realisation vs trames du V)** — la colonne « Système embarqué » (hub `eee/index` + 5 fiches-étape `eee/realisation/`) est en **« tu »** (adresse directe, point d'entrée étudiant), les **trames du V** en **« on »/infinitif**. Décision à prendre : garder le contraste (colonne tu / V on) ou uniformiser tout le wiki (en tu ? en on ?). Signé 09/06 (production colonne embarquée). La pilote `concevoir-l-electronique` a déjà été reconvertie de « on » vers « tu ».
+- [ ] **`aa:` de la colonne realisation** — le hub `eee/index` et les 5 fiches-étape sont en `aa: []` (fiches de méthode qui orchestrent les fiches outils ; les critères vivent dans les outils). À trancher en relecture : rattacher des critères EEE (ex. `PROJ/5`, `EEE/5`) ou laisser vide ? Source de vérité `_drafts/referentiel/couverture-en-cours.md`.
 - [ ] **Inventaire systématique des fiches stub/placeholders avant publication aux élèves** — tâche structurante pour la phase de pré-ouverture. Posée 24/05 (suite 2) en conséquence de la décision « `draft: false` par défaut » : le BACKLOG est désormais le pilote de la maturité éditoriale. Passe à conduire en fin de phase de rédaction (avant ouverture aux élèves) sur l'ensemble du contenu : identifier les fiches stub, les sections `*[À rédiger]*`, les liens rouges, les images placeholder. Sortie : checklist d'éléments à finaliser ou à retirer. **➜ Liens rouges : CLOS 07/06 (suite 3)** — re-scan exhaustif `bash` (221 fiches, 100 % de `content/`), **0 lien rouge réel** confirmé + **43 annotations périmées** nettoyées (statut retiré / descripteur conservé, C59). **Restent ouverts** (3 autres volets de l'inventaire) : fiches **stub** (`afnor-nfx50-151` recensé), sections `*[À rédiger]*`/placeholders des templates, **images placeholder** (peigne Quartz des SVG — liste « Vérifications visuelles différées » ci-dessus).
 
 - [ ] Convention des tags AA (séparer domaine vs code complet)
