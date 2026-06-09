@@ -40,7 +40,7 @@ Pars de la décomposition fonctionnelle du système et isole les fonctions qui r
 
 *Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
 
-> [!livrable] [[decomposition-fonctionnelle|La liste chiffrée des fonctions embarquées]]
+> [!livrable] Livrable 1/7 — [[decomposition-fonctionnelle|Définir et chiffrer les fonctions du système embarqué]]
 > Un tableau « fonction → exigence embarquée » : pour chaque fonction, le nombre d'entrées-sorties, la résolution, la cadence, la latence. Rendu papier — c'est le contrat d'entrée de toutes les étapes suivantes.
 
 ## 2. Choisir le matériel
@@ -57,7 +57,7 @@ Le panorama des familles et l'aide au choix sont portés par le hub microcontrô
 
 *Côté cycle en V : le choix d'architecture matérielle est arbitré en phase [[concept|concept]].*
 
-> [!livrable] [[choisir-le-materiel|La carte retenue, justifiée]]
+> [!livrable] Livrable 2/7 — [[choisir-le-materiel|Sélectionner le microcontrôleur, les capteurs et les actionneurs]]
 > Une matrice de choix tranchée et le budget d'alimentation. Rendu papier (la note de choix) ; la carte physique arrive avec lui.
 
 ## 3. Concevoir l'électronique
@@ -73,7 +73,7 @@ Lis et produis le schéma de principe, traque les incompatibilités de tension (
 
 *Côté cycle en V : ces livrables nourrissent le [[dossier-technique|dossier technique]] (schémas, routage, simulations).*
 
-> [!livrable] [[concevoir-l-electronique|Le schéma électronique validé]]
+> [!livrable] Livrable 3/7 — [[concevoir-l-electronique|Le schéma électronique validé]]
 > Le schéma de principe vérifié et la simulation des parties incertaines (preuve de concept simulée). Rendu papier + simulation ; le circuit imprimé en est la version fabricable.
 
 ## 4. Programmer
@@ -89,7 +89,7 @@ Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage
 
 *Côté cycle en V : l'algorithme et le code sont des livrables du [[dossier-technique|dossier technique]].*
 
-> [!livrable] [[programmer-l-embarque|Le firmware fonctionnel et l'algorithme documenté]]
+> [!livrable] Livrable 4/7 — [[programmer-l-embarque|Algorithme et documentation]]
 > L'algorithme de commande (logigramme ou machine à états) et son implémentation, qui compile et tourne sur la carte. Un algorithme + du code.
 
 ## 5. Faire communiquer
@@ -103,7 +103,7 @@ Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux f
 
 *Côté cycle en V : les choix de communication figurent au [[dossier-technique|dossier technique]].*
 
-> [!livrable] [[faire-communiquer|Le plan de communication, testé]]
+> [!livrable] Livrable 5/7 — [[faire-communiquer|Choix des technologies de communications (optionnel selon le projet)]]
 > La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout — typiquement une preuve de concept sur breadboard.
 
 ## 6. Fiabiliser et déboguer
@@ -119,7 +119,7 @@ Mobilise les notions transverses de temps réel et de robustesse, puis les fiche
 
 *Côté cycle en V : la robustesse se prépare dès la [[preuve-de-concept|preuve de concept]] et se consolide au [[dossier-technique|dossier technique]].*
 
-> [!livrable] [[fiabiliser-et-deboguer|Le système durci et le rapport de mise au point]]
+> [!livrable] Livrable 6/7 — [[fiabiliser-et-deboguer|Protocole de tests et débogage]]
 > Les parades aux risques techniques en place (temps réel, chien de garde, veille) et la trace des bugs traités. Système robuste + journal de débogage.
 
 ## 7. Intégrer et tester
@@ -132,7 +132,7 @@ Le déroulé de l'intégration et de la qualification — pyramide de tests, pla
 
 *Côté cycle en V : cette étape est la phase [[integration-et-tests|intégration et tests]] elle-même, vue côté embarqué.*
 
-> [!livrable] [[integration-et-tests|La recette du sous-système, au banc]]
+> [!livrable] Livrable 7/7 — [[integration-et-tests|Produit fini]]
 > Chaque fonction de l'étape 1 testée, mesurée, validée ou tracée en écart. Sous-système assemblé + dossier de recette. C'est la phase d'intégration du V, exécutée sur l'embarqué.
 
 ## Le management, c'est le cycle en V
