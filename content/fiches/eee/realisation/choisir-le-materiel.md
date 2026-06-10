@@ -37,10 +37,10 @@ Reprends la liste chiffrée du [[decomposition-fonctionnelle|cadrage du besoin]]
 >
 > | Fonction | Besoin matériel | Grandeur dimensionnante |
 > |---|---|---|
-> | Positionner 3 axes | 3 actionneurs rotatifs | couple, précision ± 0,5° |
+> | Positionner 3 axes | 3 actionneurs rotatifs | couple (chiffré au CdCF), précision ± 0,5° |
 > | Connaître la position | 3 capteurs d'angle | résolution, plage 0–270° |
 > | Sécuriser les fins de course | 6 contacts tout-ou-rien | détection < 5 ms |
-> | Dialoguer avec l'opérateur | 1 liaison de commande | débit modéré |
+> | Dialoguer avec l'opérateur | 1 liaison de commande | quelques dizaines de kbit/s |
 >
 > **Sortie** : 3 actionneurs, 3 capteurs, 6 contacts, 1 liaison — chacun avec sa grandeur dimensionnante. C'est la commande du choix de composants.
 
@@ -55,7 +55,7 @@ Pour chaque besoin, identifie un **type** de composant (capteur d'angle potentio
 > **Un composant ne se choisit pas sur sa photo ni sur son prix.** Deux capteurs d'angle « identiques » peuvent différer sur la tension (3,3 V ou 5 V), l'interface (analogique ou I²C) ou la plage — détails qui décident de toute l'électronique d'interface. Lis la datasheet *avant* de retenir une référence, pas après l'avoir commandée.
 
 > [!example] Exemple : projet bras 3 axes
-> Pour l'actionnement, deux types confrontés : moteur à courant continu + réducteur, ou stepper + driver. Le stepper l'emporte sur la précision en boucle ouverte (pas besoin de capteur pour positionner finement) ; la référence retenue est un stepper NEMA 17 piloté par driver A4988. Pour la mesure d'angle, un capteur magnétique à sortie analogique 0–3,3 V, lu directement par le convertisseur de la carte. Les fins de course sont de simples contacts mécaniques.
+> Pour l'actionnement, deux types confrontés : moteur à courant continu + réducteur, ou stepper + driver. Le stepper l'emporte sur la précision en boucle ouverte (pas besoin de capteur pour positionner finement) ; la référence retenue est un stepper NEMA 17 piloté par driver A4988. Pour la mesure d'angle — conservée malgré la boucle ouverte du stepper, pour le calibrage à la mise sous tension et la surveillance d'écart en fonctionnement — un capteur magnétique à sortie analogique 0–3,3 V, lu directement par le convertisseur de la carte. Les fins de course sont de simples contacts mécaniques.
 >
 > **Sortie** : 3 steppers NEMA 17 + drivers A4988, 3 capteurs d'angle analogiques 3,3 V, 6 contacts. Toutes les tensions et interfaces sont relevées sur datasheet.
 
@@ -70,7 +70,7 @@ Les capteurs et actionneurs fixent une grande partie du cahier des charges de la
 > **Ne refais pas le panorama des familles : sers-t'en.** Le hub [[microcontroleur|microcontrôleur]] compare déjà Arduino, ESP32, STM32, Teensy, PIC et l'option monocarte. Ton travail ici n'est pas de réécrire cette comparaison, mais de la *confronter à tes besoins* dans une matrice — c'est l'étape qui transforme un panorama générique en un choix justifié.
 
 > [!example] Exemple : projet bras 3 axes
-> Trois candidats confrontés aux besoins (≈ 12 entrées-sorties, 3 voies analogiques, 6 PWM, une liaison opérateur) :
+> Trois candidats confrontés aux besoins (≈ 15 entrées-sorties, dont 3 voies analogiques et 3 sorties d'impulsions STEP en PWM/timer, plus une liaison opérateur) :
 >
 > | Critère | Pond. | Arduino Uno | ESP32 | STM32 |
 > |---|---|---|---|---|
@@ -79,9 +79,9 @@ Les capteurs et actionneurs fixent une grande partie du cahier des charges de la
 > | Connectivité opérateur | 20 % | 2/5 | 5/5 | 3/5 |
 > | Écosystème et prise en main | 20 % | 5/5 | 4/5 | 3/5 |
 > | Prix | 10 % | 3/5 | 5/5 | 4/5 |
-> | **Score pondéré** | | **3,3** | **4,7** | **4,2** |
+> | **Score pondéré** | | **3,4** | **4,8** | **4,1** |
 >
-> L'**ESP32** sort en tête : assez de PWM et de voies analogiques pour les trois axes, Wi-Fi intégré pour la liaison opérateur, marge de calcul pour l'asservissement. Décision retenue : ESP32.
+> L'**ESP32** sort en tête : assez de PWM et de voies analogiques pour les trois axes, Wi-Fi intégré pour la liaison opérateur, marge de calcul pour l'asservissement. Deux notes sont à tracer pour la revue : l'Uno perd un point en analogique (résolution 10 bits, marge juste face au ± 0,5° demandé) et en connectivité face au STM32 (un seul UART via pont USB, contre USB natif et UART multiples). Décision retenue : ESP32.
 
 > [!livrable] Livrable 3/4 — Plateforme retenue (matrice de choix)
 > - Le type (microcontrôleur ou monocarte) et la famille retenus, justifiés par une matrice de décision pondérée selon les besoins
@@ -94,7 +94,7 @@ Avant de figer le choix, vérifie qu'il tient pour de bon. Compte les **entrées
 > **Sous-dimensionner les entrées-sorties ou oublier l'alimentation se paie par un re-choix tardif.** Une carte retenue sans compter les broches se révèle trop juste au câblage, quand la commande est déjà passée. Compte les entrées-sorties et pose le besoin d'énergie *avant* de figer — ce sont les deux oublis qui obligent à recommencer le choix.
 
 > [!example] Exemple : projet bras 3 axes
-> Vérification de l'ESP32 : 3 × (STEP, DIR) = 6 sorties logiques, 3 voies analogiques pour les capteurs d'angle, 6 entrées à interruption pour les fins de course — soit 15 broches utiles, dans les capacités de la carte. Périphériques : assez de canaux pour générer les signaux STEP, convertisseur analogique-numérique présent. Alimentation : une source 12 V pour les drivers, régulée en 5 V et 3,3 V pour la logique — réalisable, détail renvoyé à l'étape 3.
+> Vérification de l'ESP32 : 3 × (STEP, DIR) = 6 sorties (3 impulsions STEP générées par PWM/timer, 3 directions en logique simple), 3 voies analogiques pour les capteurs d'angle, 6 entrées à interruption pour les fins de course — soit 15 broches utiles, dans les capacités de la carte. Périphériques : assez de canaux pour générer les signaux STEP, convertisseur analogique-numérique présent. Alimentation : une source 12 V pour les drivers, régulée en 5 V et 3,3 V pour la logique — réalisable, détail renvoyé à l'étape 3.
 >
 > **Sortie** : entrées-sorties suffisantes, périphériques présents, alimentation faisable. Le choix matériel est figé.
 
