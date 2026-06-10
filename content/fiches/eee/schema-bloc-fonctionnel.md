@@ -47,32 +47,22 @@ L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène 
 - **Frontière du système** : pointillé englobant les blocs qui appartiennent au système. Tout ce qui est dehors est environnement (utilisateur, objet à manipuler, conditions extérieures).
 - **Boucle ouverte vs fermée** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
 
-<!-- TODO: insérer ici un schéma d'illustration des conventions (légende des flèches, blocs types). -->
+![Conventions du schéma bloc fonctionnel : blocs, frontière du système et types de flux](/ressources/img/schema-bloc-fonctionnel-generique.svg)
 
 ## Exemple
 
 Projet : régulation de température d'une couveuse à œufs.
 
-```mermaid
-flowchart TD
-    U([Utilisateur]) -- consigne température --> CTRL
-    CTRL[Contrôleur<br/>microcontrôleur] -- commande PWM --> ACT[Actionneur<br/>relais SSR]
-    ACT -- puissance électrique --> EFF[Effecteur<br/>résistance chauffante]
-    EFF -- chaleur --> ENV[(Air de la couveuse)]
-    ENV -- température réelle --> CAPT[Capteur<br/>thermistance]
-    CAPT -- température mesurée --> CTRL
-
-    classDef sys fill:#e8f0fe,stroke:#284b63,color:#1a1a1a;
-    class CTRL,CAPT,ACT,EFF sys;
-```
+![Schéma bloc fonctionnel de la couveuse : boucle fermée de régulation de température](/ressources/img/schema-bloc-fonctionnel-couveuse.svg)
 
 On lit le schéma ainsi : l'utilisateur fixe une consigne, le contrôleur la compare à la mesure de la thermistance, et pilote en [[pwm|PWM]] le relais qui alimente la résistance chauffante. La chaleur diffuse dans l'air de la couveuse, le capteur mesure, boucle fermée.
 
 Quelques observations à tirer de cet exemple :
 
-- L'utilisateur et l'air de la couveuse sont en dehors du système (pas dans la frontière colorée). Ce sont des éléments d'environnement.
+- L'utilisateur et l'air de la couveuse sont en dehors du système (hors de la frontière en pointillé). Ce sont des éléments d'environnement.
 - L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance ; la résistance la transforme en chaleur.
 - La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[arduino-pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
+- Le flux d'énergie est tracé jusqu'à sa source : le réseau 230 V alimente le relais depuis l'extérieur de la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
 <!-- TODO: ajouter une photo de couveuse réelle annotée avec les blocs identifiés. -->
 
