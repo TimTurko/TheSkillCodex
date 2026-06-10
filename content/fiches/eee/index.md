@@ -35,7 +35,6 @@ Avant de choisir une carte, formule **ce que l'électronique et l'informatique d
 Pars de la décomposition fonctionnelle du système et isole les fonctions qui reviennent à l'élec/info : commander des actionneurs, acquérir des grandeurs, dialoguer, décider. Chacune devient une contrainte chiffrée — nombre d'entrées-sorties, résolution, cadence, latence — qui guidera tous les choix suivants.
 
 - [[decomposition-fonctionnelle|Décomposition fonctionnelle]] — découper le système en fonctions
-- [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — la vue par fonctions et leurs flux
 - [[chaine-energie|Chaîne d'énergie et d'information]] — repérer ce qui relève de la commande et de la mesure
 
 *Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
