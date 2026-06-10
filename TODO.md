@@ -202,6 +202,8 @@ Ordre pédagogique : datasheet → schéma → chronogramme → méthodes formel
 
 ## Tâches techniques en suspens
 
+- [ ] **Réorganisation des dossiers en 3 branches (Explorer Quartz) — SESSION DÉDIÉE** (validé Tim 10/06, option 2 ; révise le « non-déplacement » de C60, dont les raisons ont vieilli : wikilinks par slug insensibles, embeds absolus, URL pas encore publiées — fenêtre idéale avant publication). Cible indicative (nommage à confirmer au cadrage) : `content/conduite/{hub, proj, meo, ese}/` · `content/embarque/eee/` · `content/meca/mme/` — sous-dossiers de domaine conservés → traçabilité AA préservée. À traiter dans la session : **2 embeds relatifs d'exception** à migrer en absolu (`content/index.md`, `hub/index.md`) ; MAJ `quartz.layout.ts` (masquer `templates`/`ressources` de l'Explorer) ; build complet + clic-test des ancres ; **déplacements git (`git mv`) côté Tim**, Claude prépare la liste exacte des moves et patche les fichiers.
+
 - [x] ~~**Archivage JOURNAL — masse 8 entrées (`25/05 suite 7` → `27/05 suite 5`)**~~ — fait 29/05 suite 2 (flux 1-pour-1 fidèle, JOURNAL 97→29,7 ko, archive →302,9 ko, somme conservée, invariant antichronologique restauré ; incident D8 résolu — graphies d'origine « traçée »/« 2ᵉ » à recopier verbatim, jamais « corriger », cf. C14). **Pas de backlog d'archivage** : JOURNAL repart à `28/05`, bien sous le seuil 100 ko. Rappel procédure (au prochain franchissement) : archivage **hors clôture, en tête de session**, plus ancienne entrée d'abord, marqueurs `<!-- DEBUT DES SESSIONS … -->` par groupe-date.
 
 ## Décisions éditoriales en attente
