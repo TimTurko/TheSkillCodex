@@ -31,22 +31,22 @@ Produire un **firmware fonctionnel et documenté** qui :
 
 ### 1. Concevoir l'algorithme de commande
 
-Avant la moindre ligne de code, décris **comment le système se comporte**, indépendamment de la carte et du langage. Selon le problème, l'outil change : un [[logigramme|logigramme]] pour un enchaînement de décisions, une [[machine-a-etats|machine à états]] pour un système qui passe par des modes (repos, marche, défaut), un [[grafcet|GRAFCET]] pour un procédé séquentiel, un [[chronogramme|chronogramme]] pour des signaux à synchroniser dans le temps. La fiche [[algorithme|algorithme]] aide à choisir la forme. Cette logique est ton plan : le code en découlera directement.
+Avant la moindre ligne de code, décris **comment le système se comporte**, indépendamment de la carte et du langage. Et commence encore plus simplement : **raconte le comportement en langage naturel**, comme une recette de cuisine. Si tu sais écrire « faire bouillir l'eau, plonger les pâtes, attendre 9 minutes, goûter, égoutter », tu sais le transformer en logigramme : chaque phrase devient une action, chaque « si » ou « quand » une décision. Un comportement que tu ne sais pas raconter en français ne se laissera pas coder. Selon le problème, l'outil change : un [[logigramme|logigramme]] pour un enchaînement de décisions, une [[machine-a-etats|machine à états]] pour un système qui passe par des modes (repos, marche, défaut), un [[grafcet|GRAFCET]] pour un procédé séquentiel, un [[chronogramme|chronogramme]] pour des signaux à synchroniser dans le temps. La fiche [[algorithme|algorithme]] aide à choisir la forme. Cette logique est ton plan : le code en découlera directement.
 
 > [!warning] Attention
 > **Coder sans avoir conçu l'algorithme produit du code spaghetti.** Sans plan, chaque cas particulier s'ajoute à la volée, les conditions s'imbriquent, et le comportement devient impossible à raisonner ou à corriger. La logique se pose d'abord sur le papier ; le code n'est que sa traduction.
 
 > [!example] Exemple : projet bras 3 axes
-> Le comportement du bras se décrit par une **machine à états** : *Repos* (moteurs coupés), *Calibrage* (recherche des fins de course pour fixer l'origine), *En course* (asservissement vers la consigne), *Arrêt d'urgence* (coupure immédiate sur fin de course imprévue ou commande opérateur). Les transitions sont nettes : une consigne reçue fait passer de *Repos* à *Calibrage* puis *En course* ; une fin de course imprévue fait basculer n'importe quel état vers *Arrêt d'urgence*.
+> Raconté d'abord en français : « au repos, les moteurs sont coupés ; quand une consigne arrive, le bras cherche ses fins de course pour fixer l'origine, puis rejoint la position ; à tout moment, une fin de course imprévue ou un ordre opérateur coupe tout ». Cette description devient une **machine à états** : *Repos* (moteurs coupés), *Calibrage* (recherche de l'origine), *En course* (asservissement vers la consigne), *Arrêt d'urgence* (coupure immédiate). Les transitions sont nettes : une consigne reçue fait passer de *Repos* à *Calibrage* puis *En course* ; une fin de course imprévue fait basculer n'importe quel état vers *Arrêt d'urgence*.
 >
 > **Sortie** : une machine à états à 4 états et ses transitions, validée avant tout codage.
 
 > [!livrable] Livrable 1/4 — Algorithme de commande
-> - La logique du comportement (logigramme, machine à états ou GRAFCET), indépendante du code
+> - La description du comportement en langage naturel, puis sa formalisation (logigramme, machine à états ou GRAFCET), indépendante du code
 
 ### 2. Choisir le langage et structurer le firmware
 
-Le langage dépend de la famille de la carte : **C++** dans l'écosystème [[cpp|Arduino]] (le plus répandu sur microcontrôleur), ou **[[micropython-langage|MicroPython]]** sur les cartes qui le supportent. Une fois le langage choisi, structure le programme dès le départ : une partie **initialisation** (configuration des broches, des périphériques), une **boucle principale** qui exécute la machine à états, et des **modules** séparés pour les fonctions distinctes. C'est l'objet du [[firmware|firmware]] : organiser le programme embarqué pour qu'il reste lisible et évolutif.
+Le langage dépend de la famille de la carte : **[[cpp|C++]]** dans l'écosystème Arduino (le plus répandu sur microcontrôleur), **[[micropython-langage|MicroPython]]** sur les cartes qui le supportent, ou l'**environnement constructeur** de ta famille (STM32Cube pour [[stm32|STM32]], par exemple) quand elle l'impose. Une fois le langage choisi, structure le programme dès le départ : une partie **initialisation** (configuration des broches, des périphériques), une **boucle principale** qui exécute la machine à états, et des **modules** séparés pour les fonctions distinctes. C'est l'objet du [[firmware|firmware]] : organiser le programme embarqué pour qu'il reste lisible et évolutif. Dès ce stade, bannis les attentes bloquantes : la [[programmation-non-bloquante|programmation non bloquante]] est ce qui permet à la boucle de tout faire « en même temps ».
 
 > [!tip] Astuce
 > **Structure le firmware avant de le remplir.** Poser d'emblée la séparation initialisation / boucle / modules coûte quelques minutes et évite le monolithe où tout se répond. Un firmware structuré se débogue et s'étend ; un firmware monolithique se réécrit.
@@ -61,7 +61,10 @@ Le langage dépend de la famille de la carte : **C++** dans l'écosystème [[cpp
 
 ### 3. Piloter les périphériques
 
-L'algorithme doit maintenant agir sur le matériel. Chaque action passe par un périphérique de la carte : lire une entrée logique ou commander une sortie ([[gpio|GPIO]]), mesurer une tension analogique ([[adc|convertisseur analogique-numérique]]), produire un signal modulé pour un moteur ou une LED ([[pwm|sortie PWM]]), parfois manipuler des bits pour configurer un registre ([[manipulation-de-bits|manipulation de bits]]). Relie chaque entrée et sortie de ta machine à états au périphérique qui la réalise, en gardant cette couche d'accès **séparée** de la logique.
+L'algorithme doit maintenant agir sur le matériel. Chaque action passe par un périphérique de la carte : lire une entrée logique ou commander une sortie ([[gpio|GPIO]]), mesurer une tension analogique ([[adc|convertisseur analogique-numérique]]), produire un signal modulé pour un moteur ou une LED ([[pwm|sortie PWM]]), parfois manipuler des bits pour configurer un registre ([[manipulation-de-bits|manipulation de bits]]). Relie chaque entrée et sortie de ta machine à états au périphérique qui la réalise, en gardant cette couche d'accès **séparée** de la logique. Le point d'ancrage est l'**affectation des broches** : c'est toi qui décides quelle broche GPIO porte quel signal, en cohérence avec le schéma électronique de l'[[concevoir-l-electronique|étape 3]]. Ce tableau broche ↔ signal naît ici ; l'étape 4 le documentera.
+
+> [!warning] Attention
+> **Un code juste sur les mauvaises broches ne fait rien — ou grille quelque chose.** Demander du code à un tutoriel ou à une IA sans lui donner ton affectation de broches et ton câblage produit un programme correct… pour un autre montage. Fournis toujours le contexte avec la demande : carte exacte, tableau broche ↔ signal, tensions. Le code s'adapte au câblage, jamais l'inverse.
 
 > [!warning] Attention
 > **Scruter en boucle un événement critique au lieu d'utiliser une interruption fait rater l'événement.** Lire une fin de course en la testant à chaque tour de boucle peut la manquer si la boucle est occupée ailleurs. Les événements critiques (sécurité, fronts rapides) se câblent sur **interruption** ; la scrutation est réservée à ce qui peut attendre le prochain tour.
@@ -98,7 +101,7 @@ Un firmware qui marche mais que personne ne comprend est un firmware à demi ter
 
 ## Conclusion
 
-Ton firmware est fonctionnel et documenté : l'algorithme est posé, le code structuré, les périphériques pilotés. La suite consiste à **fiabiliser** ce comportement à l'[[fiabiliser-et-deboguer|étape 6]] — temps réel, robustesse, débogage — et, si le projet l'exige, à organiser les **communications** à l'[[faire-communiquer|étape 5]]. L'algorithme et le code sont des livrables du [[dossier-technique|dossier technique]] du cycle en V.
+Ton firmware est fonctionnel et documenté : l'algorithme est posé, le code structuré, les périphériques pilotés. La suite : organiser, si le projet l'exige, les **communications** à l'[[faire-communiquer|étape 5]], puis **fiabiliser** ce comportement à l'[[fiabiliser-et-deboguer|étape 6]] — temps réel, robustesse, débogage. L'algorithme et le code sont des livrables du [[dossier-technique|dossier technique]] du cycle en V.
 
 ---
 

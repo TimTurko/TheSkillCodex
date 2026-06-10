@@ -256,8 +256,8 @@ Verdict : OK / a corriger
 
 ## 17 · EEE — colonne « Réalisation » (hub de branche + fiches-étape)
 - [ ] `eee/index` (hub « Système embarqué », colonne 7 étapes)
-- [ ] `choisir-le-materiel`
-- [ ] `concevoir-l-electronique` *(pilote)*
+- [x] `choisir-le-materiel`
+- [x] `concevoir-l-electronique` *(pilote)*
 - [ ] `programmer-l-embarque`
 - [ ] `faire-communiquer` *(étape optionnelle)*
 - [ ] `fiabiliser-et-deboguer`
