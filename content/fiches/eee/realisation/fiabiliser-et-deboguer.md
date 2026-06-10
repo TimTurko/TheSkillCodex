@@ -29,7 +29,7 @@ Produire un **protocole de tests et de débogage** et le système durci qui va a
 
 ### 1. Définir le protocole de tests
 
-Avant de durcir ou de corriger quoi que ce soit, décide **comment tu vérifieras** que le système tient. Reprends les fonctions chiffrées du [[decomposition-fonctionnelle|cadrage du besoin]] : pour chacune, écris un **test** (l'action à mener), le **résultat attendu** (la valeur ou le comportement), et la **condition** (à froid, en charge, en durée). Ce protocole est le fil conducteur de toute la mise au point — et il prépare la recette finale, conduite à l'[[integration-et-tests|étape 7]] au niveau de tout le système.
+Avant de durcir ou de corriger quoi que ce soit, décide **comment tu vérifieras** que le système tient. Reprends les fonctions chiffrées du [[decomposition-fonctionnelle|cadrage du besoin]] : pour chacune, écris un **test** (l'action à mener), le **résultat attendu** (la valeur ou le comportement), et la **condition** (à froid, en charge, en durée). L'idéal est de remonter au [[cahier-des-charges-fonctionnel|cahier des charges]] : chaque exigence reçoit son test et se valide **individuellement**, puis les fonctions se testent **simultanément** — c'est dans ces essais combinés qu'apparaissent les défauts d'interaction qu'aucun test isolé ne révèle. Ce protocole est le fil conducteur de toute la mise au point — et il prépare la recette finale, conduite à l'[[integration-et-tests|étape 7]] au niveau de tout le système.
 
 > [!warning] Attention
 > **Tester au hasard ne prouve rien.** « J'ai branché, ça a bougé » ne dit pas si la précision est tenue, si la sécurité réagit assez vite, si le système survit à dix minutes de service. Un essai n'a de valeur que rattaché à un résultat attendu défini à l'avance. Écris le protocole *avant* d'allumer.
@@ -40,14 +40,16 @@ Avant de durcir ou de corriger quoi que ce soit, décide **comment tu vérifiera
 > | Fonction | Test | Attendu | Condition |
 > |---|---|---|---|
 > | Positionner | commander une course complète | ± 0,5° | à froid et après 10 min |
-> | Mesurer la position | comparer mesure et consigne | écart < 1° | sur toute la plage |
+> | Mesurer la position | confronter la mesure du capteur à un angle de référence externe (butée connue, rapporteur) | écart < 0,2° (bien sous la tolérance de positionnement) | sur toute la plage |
 > | Sécurité fin de course | provoquer un contact | arrêt < 5 ms | en mouvement |
 > | Liaison opérateur | envoyer une consigne à distance | exécutée sans perte | portée nominale |
 >
-> **Sortie** : un protocole de quatre tests, chacun avec attendu et condition. Il guide la mise au point et nourrit la recette de l'étape 7.
+> Une fois chaque ligne validée seule, le protocole se rejoue en **combiné** : positionner pendant que la liaison opérateur émet, par exemple — exactement l'interaction qui révélera le défaut traqué à l'étape 3.
+>
+> **Sortie** : un protocole de quatre tests, chacun avec attendu et condition, validés un à un puis en simultané. Il guide la mise au point et nourrit la recette de l'étape 7.
 
 > [!livrable] Livrable 1/3 — Protocole de tests
-> - Pour chaque fonction : le test à mener, le résultat attendu et la condition d'essai
+> - Pour chaque fonction : le test à mener, le résultat attendu et la condition d'essai — validés individuellement, puis en simultané
 
 ### 2. Durcir le temps réel et la robustesse
 
@@ -57,9 +59,9 @@ Le firmware fonctionnel de l'[[programmer-l-embarque|étape 4]] doit maintenant 
 > **Pas de temps réel sans interruptions ni temporisateurs, pas de robustesse sans chien de garde.** Une acquisition cadencée par la boucle principale dérive dès que la boucle se charge ; une sécurité scrutée se manque. Et un programme qui se fige sans chien de garde laisse le système bloqué, parfois sous tension et en mouvement. Ces deux mécanismes ne sont pas optionnels dès qu'il y a de la sécurité en jeu.
 
 > [!example] Exemple : projet bras 3 axes
-> Durcissement du bras : l'acquisition des trois capteurs d'angle est déclenchée par un **temporisateur** toutes les 10 ms (cadence garantie, indépendante de la charge de la boucle) ; les six fins de course sont câblées en **interruption** prioritaire, qui force l'état *Arrêt d'urgence* sans attendre le tour de boucle ; un **chien de garde** redémarre l'ESP32 si la boucle ne le rafraîchit pas (programme figé). Aucune attente bloquante dans la boucle.
+> Durcissement du bras : l'acquisition des trois capteurs d'angle est déclenchée par un **temporisateur** toutes les 10 ms (cadence garantie, indépendante de la charge de la boucle) ; les six fins de course sont câblées en **interruption** prioritaire, qui force l'état *Arrêt d'urgence* sans attendre le tour de boucle ; un **chien de garde** redémarre l'ESP32 si la boucle ne le rafraîchit pas (programme figé). Aucune attente bloquante dans la boucle. La **mémoire** est surveillée à la console (stable après 30 minutes de service) ; pas de mise en **veille** — le bras est alimenté en permanence, et l'écrire est aussi une décision.
 >
-> **Sortie** : temps réel garanti par temporisateur, sécurité sur interruption, chien de garde armé. Le système résiste aux blocages et tient la cadence.
+> **Sortie** : temps réel garanti par temporisateur, sécurité sur interruption, chien de garde armé, mémoire surveillée. Le système résiste aux blocages et tient la cadence.
 
 > [!livrable] Livrable 2/3 — Mesures de robustesse
 > - Les mécanismes en place : tâches sur temporisateur, événements critiques sur interruption, chien de garde, gestion mémoire et énergie
@@ -72,7 +74,7 @@ Quelque chose ne marche pas comme prévu : c'est inévitable. Débogue avec **m�
 > **L'oscilloscope voit ce que le code ne dit pas.** Quand un signal numérique « devrait » être bon mais que le comportement cloche, l'instrument tranche en une mesure : le signal STEP est-il vraiment régulier ? la tension d'alimentation tient-elle sous charge ? Deviner fait perdre des heures ; mesurer fait gagner la réponse.
 
 > [!example] Exemple : projet bras 3 axes
-> Symptôme : un axe « saccade » par moments. Démarche — le défaut est reproduit en commandant des courses rapides ; on isole côté logiciel (les deux autres axes vont bien sur le même matériel) ; à l'**oscilloscope**, le signal STEP de cet axe montre des trous quand la liaison Wi-Fi émet. Cause trouvée : l'émission Wi-Fi bloque brièvement la génération des pas. Correction : déplacer la génération des pas sur une tâche temporisée prioritaire. Trou disparu, vérifié de nouveau à l'oscilloscope.
+> Symptôme : un axe « saccade » par moments. Démarche — le défaut est reproduit en commandant des courses rapides ; on isole côté logiciel (les deux autres axes vont bien sur le même matériel) ; à l'**oscilloscope**, le signal STEP de cet axe — généré par une tâche logicielle — montre des trous quand la liaison Wi-Fi émet. Cause trouvée : l'émission Wi-Fi bloque brièvement la génération des pas. Correction : déplacer la génération des pas sur une tâche temporisée prioritaire. Trou disparu, vérifié de nouveau à l'oscilloscope.
 >
 > **Sortie** : un défaut reproduit, isolé, observé à l'instrument, corrigé et revérifié — consigné au journal de débogage.
 
