@@ -18,9 +18,9 @@ Ce site rassemble des **fiches courtes et autoportantes** (≈ 5 min de lecture)
 
 Choisis la branche qui correspond à ton rôle dans le projet — le wiki te réorientera vers les autres au fil des liens quand une notion l'exige.
 
-- **[[hub/index|Conduite de projet]]** — la démarche : cycle en V, étapes, jalons, méthodes, organisation, normes et écoconception.
-- **[[fiches/eee/index|Système embarqué]]** — électronique et informatique embarquée 
-- **[[fiches/mme/index|Méca]]** — matériaux et mécanique, (partie traitée principalement par les profs de mécanique)
+- **[[conduite/index|Conduite de projet]]** — la démarche : cycle en V, étapes, jalons, méthodes, organisation, normes et écoconception.
+- **[[embarque/index|Système embarqué]]** — électronique et informatique embarquée 
+- **[[meca/index|Méca]]** — matériaux et mécanique, (partie traitée principalement par les profs de mécanique)
 
 ## À propos
 

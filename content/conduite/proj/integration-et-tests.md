@@ -217,7 +217,7 @@ La soutenance est un **exercice de démonstration courte et structurée**, pas u
 
 ## Conclusion
 
-Le projet est livré. Le prototype est qualifié (au sens fort ou avec écarts documentés), le rapport final synthétise les bilans et le REX, la soutenance démontre la lucidité d'analyse acquise au fil du parcours. Le cycle en V est refermé : ce qui avait été promis en [[specification-technique|spécification technique]] a été confronté à la réalité. Pour explorer d'autres parcours ou notions, retour au [[hub/index|hub du tutoriel]].
+Le projet est livré. Le prototype est qualifié (au sens fort ou avec écarts documentés), le rapport final synthétise les bilans et le REX, la soutenance démontre la lucidité d'analyse acquise au fil du parcours. Le cycle en V est refermé : ce qui avait été promis en [[specification-technique|spécification technique]] a été confronté à la réalité. Pour explorer d'autres parcours ou notions, retour au [[conduite/index|hub du tutoriel]].
 
 ---
 
@@ -257,7 +257,7 @@ Côté **[[securite-et-qualite|sécurité et qualité]]**, la phase d'intégrati
 
 ## Voir aussi
 
-- [[hub/index|Hub du parcours projet]]
+- [[conduite/index|Hub du parcours projet]]
 - Étape précédente : [[dossier-technique|Dossier technique]]
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(référencé à la qualification niveau 4)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse)*

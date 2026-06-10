@@ -26,7 +26,7 @@ Verdict : OK / a corriger
 
 ## 0 · Entrée
 - [x] `index` (accueil) — 🖼✅ *(cycle-v-projet)*
-- [x] `hub/index` (parcours central)
+- [x] `conduite/index` (parcours central)
 - [x] `mecatronique` (notion racine)
 
 ## 1 · Trame — cycle en V
@@ -71,7 +71,7 @@ Verdict : OK / a corriger
 - [ ] `revue-de-code`
 - [ ] `cable-management`
 - [ ] `unite-si`
-- [ ] `meo/index`
+- [ ] `conduite/meo/index`
 
 ## 4 · EEE — fondations électronique
 - [ ] `niveaux-de-tension` — 🖼 ⚠ rouge `#B23A2E` en sombre
@@ -255,7 +255,7 @@ Verdict : OK / a corriger
 - [ ] `kicad`
 
 ## 17 · EEE — colonne « Réalisation » (hub de branche + fiches-étape)
-- [x] `eee/index` (hub « Système embarqué », colonne 7 étapes)
+- [x] `embarque/index` (hub « Système embarqué », colonne 7 étapes)
 - [x] `choisir-le-materiel`
 - [x] `concevoir-l-electronique` *(pilote)*
 - [x] `programmer-l-embarque`
@@ -271,7 +271,7 @@ Verdict : OK / a corriger
 - [ ] `pla`
 - [ ] `pied-a-coulisse`
 - [ ] `comparateur`
-- [ ] `mme/index`
+- [ ] `meca/index`
 
 ## 19 · ESE — normes & sécurité produit (interface)
 - [ ] `marquage-ce`
@@ -282,10 +282,10 @@ Verdict : OK / a corriger
 - [ ] `rohs`
 - [ ] `reach`
 - [ ] `deee`
-- [ ] `ese/index`
+- [ ] `conduite/ese/index`
 
 ## 20 · Index PROJ
-- [ ] `proj/index`
+- [ ] `conduite/proj/index`
 
 ---
 

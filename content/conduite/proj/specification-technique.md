@@ -424,7 +424,7 @@ Pour s'y préparer :
 
 ## Voir aussi
 
-- [[hub/index|Hub du parcours projet]]
+- [[conduite/index|Hub du parcours projet]]
 - [Template CdCF école à compléter](/ressources/templates/cdcf-ecole-template.docx) *(document Word fourni)*
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] *(notion fondatrice)*
 - [[bete-a-cornes|Bête à cornes]]

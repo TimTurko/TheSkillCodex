@@ -173,11 +173,11 @@ récapitule la nature continue de la trame et renvoie au hub pour
 recontextualiser dans le cycle en V global.
 -->
 
-À l'issue du projet, l'écoconception aura **traversé les 5 phases du cycle en V** sans constituer une section ou un livrable séparé — elle se sera incarnée dans les choix techniques, dans les [[matrice-de-decision|matrices de décision]], dans la [[matrice-de-risques|matrice de risques]], dans le [[dossier-technique|dossier technique]]. Une écoconception réussie ne se voit pas comme un addendum ; elle se mesure à la **cohérence des arbitrages** sous l'angle environnemental tout au long du projet. Voir le [[hub/index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[gestion-de-projet|gestion de projet]] et [[securite-et-qualite|sécurité et qualité]] pour les deux autres fils transverses avec lesquels elle s'articule.
+À l'issue du projet, l'écoconception aura **traversé les 5 phases du cycle en V** sans constituer une section ou un livrable séparé — elle se sera incarnée dans les choix techniques, dans les [[matrice-de-decision|matrices de décision]], dans la [[matrice-de-risques|matrice de risques]], dans le [[dossier-technique|dossier technique]]. Une écoconception réussie ne se voit pas comme un addendum ; elle se mesure à la **cohérence des arbitrages** sous l'angle environnemental tout au long du projet. Voir le [[conduite/index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[gestion-de-projet|gestion de projet]] et [[securite-et-qualite|sécurité et qualité]] pour les deux autres fils transverses avec lesquels elle s'articule.
 
 ## Voir aussi
 
-- [[hub/index|Hub du parcours projet]]
+- [[conduite/index|Hub du parcours projet]]
 - [[matrice-eco-criteres|Matrice éco-critères]] *(outil canonique de cette trame)*
 - [[ecodesign|Écodesign]] *(notion sœur — démarche design vs démarche ingénierie, distinction du critère PROJ/5)*
 - [[acv-simplifiee|ACV simplifiée]] *(version complète déléguée aux cours collègues)*

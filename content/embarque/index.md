@@ -14,7 +14,7 @@ Tu réalises la partie **électronique et informatique** d'un projet mécatroniq
 Inutile de tout lire d'affilée : repère l'étape où tu en es, et suis les liens. Le fil rouge — un **bras robotisé 3 axes** — est le même projet que celui des phases du cycle en V, vu ici sous l'angle de son électronique. Deux regards, un seul projet.[^fusion]
 
 > [!info] Cette colonne est orthogonale au cycle en V
-> Le [[hub/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles — ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
+> Le [[conduite/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles — ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
 
 ## Les sept étapes
 
@@ -136,7 +136,7 @@ Le déroulé de l'intégration et de la qualification — pyramide de tests, pla
 
 ## Le management, c'est le cycle en V
 
-Cette colonne décrit l'ingénierie ; elle ne pilote pas le projet. Les revues, les jalons, la nomenclature, le suivi d'équipe et la validation des livrables sont décrits par la branche [[hub/index|Conduite de projet]] :
+Cette colonne décrit l'ingénierie ; elle ne pilote pas le projet. Les revues, les jalons, la nomenclature, le suivi d'équipe et la validation des livrables sont décrits par la branche [[conduite/index|Conduite de projet]] :
 
 - **Cadrer** (étapes 1-2) se décide en phase [[concept|concept]].
 - **Concevoir, programmer, communiquer, fiabiliser** (étapes 3-6) alimentent le [[dossier-technique|dossier technique]].

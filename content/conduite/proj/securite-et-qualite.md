@@ -183,11 +183,11 @@ Spécifique à cette trame, **délégation explicite aux disciplines voisines** 
 
 ## Conclusion
 
-À l'issue du projet, la sécurité et qualité aura **traversé les 5 phases du cycle en V sans interruption** — chaque phase y aura contribué par une analyse, une parade, une vérification ou une trace. Une sécurité-qualité réussie ne se voit pas comme un addendum ; elle se mesure à la **cohérence du fil sécu** entre l'analyse des risques en spécification et les tests de qualification en intégration, et à la **lisibilité de la trace documentaire** que le jury de soutenance peut suivre sans rupture. Voir le [[hub/index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[gestion-de-projet|gestion de projet]] et [[ecoconception|écoconception]] pour les deux autres fils transverses avec lesquels elle s'articule.
+À l'issue du projet, la sécurité et qualité aura **traversé les 5 phases du cycle en V sans interruption** — chaque phase y aura contribué par une analyse, une parade, une vérification ou une trace. Une sécurité-qualité réussie ne se voit pas comme un addendum ; elle se mesure à la **cohérence du fil sécu** entre l'analyse des risques en spécification et les tests de qualification en intégration, et à la **lisibilité de la trace documentaire** que le jury de soutenance peut suivre sans rupture. Voir le [[conduite/index|hub du parcours projet]] pour replacer cette trame dans le cycle en V global, et les fiches [[gestion-de-projet|gestion de projet]] et [[ecoconception|écoconception]] pour les deux autres fils transverses avec lesquels elle s'articule.
 
 ## Voir aussi
 
-- [[hub/index|Hub du parcours projet]]
+- [[conduite/index|Hub du parcours projet]]
 - [[matrice-de-risques|Matrice de risques]] *(porte les risques sécurité et qualité)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse — pilote la sécurité-qualité)*
 - [[ecoconception|Écoconception]] *(fil transverse — croisements réglementaires RoHS / REACH / DEEE)*

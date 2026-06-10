@@ -11,7 +11,7 @@ aa: []
 draft: false
 ---
 
-**Choisir le matériel**, c'est la deuxième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. À partir des fonctions chiffrées au [[decomposition-fonctionnelle|cadrage du besoin]], tu sélectionnes **les capteurs, les actionneurs et la carte** qui les réaliseront, puis tu vérifies que l'ensemble tient — entrées-sorties, calcul, énergie. Le livrable est un **matériel retenu et justifié**, prêt à être câblé à l'[[concevoir-l-electronique|étape 3]].
+**Choisir le matériel**, c'est la deuxième étape de la [[embarque/index|réalisation du sous-système embarqué]]. À partir des fonctions chiffrées au [[decomposition-fonctionnelle|cadrage du besoin]], tu sélectionnes **les capteurs, les actionneurs et la carte** qui les réaliseront, puis tu vérifies que l'ensemble tient — entrées-sorties, calcul, énergie. Le livrable est un **matériel retenu et justifié**, prêt à être câblé à l'[[concevoir-l-electronique|étape 3]].
 
 ## Posture attendue
 
@@ -131,7 +131,7 @@ Ton matériel est choisi et justifié : capteurs, actionneurs, carte, et vérifi
 
 ## Voir aussi
 
-- [[fiches/eee/index|Réalisation du sous-système embarqué]]
+- [[embarque/index|Réalisation du sous-système embarqué]]
 - Étape précédente : [[decomposition-fonctionnelle|Cadrer le besoin embarqué]]
 - Étape suivante : [[concevoir-l-electronique|Concevoir l'électronique]]
 - [[microcontroleur|Microcontrôleur]]

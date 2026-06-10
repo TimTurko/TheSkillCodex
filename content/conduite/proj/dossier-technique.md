@@ -315,7 +315,7 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 
 ## Voir aussi
 
-- [[hub/index|Hub du parcours projet]]
+- [[conduite/index|Hub du parcours projet]]
 - Étape précédente : [[preuve-de-concept|Preuve de concept]]
 - Étape suivante : [[integration-et-tests|Intégration et tests]]
 - [[pcb|PCB]]

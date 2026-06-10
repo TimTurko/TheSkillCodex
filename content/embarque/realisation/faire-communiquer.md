@@ -11,7 +11,7 @@ aa: []
 draft: false
 ---
 
-**Faire communiquer**, c'est la cinquième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. Dès que plusieurs composants doivent échanger des données — entre puces d'une même carte, ou vers l'extérieur (un PC, un réseau, un opérateur) — il faut **choisir comment ils dialoguent** : un bus filaire à l'intérieur, une liaison sans fil ou câblée vers le dehors. Le livrable est un **choix de technologies de communication** justifié et testé.
+**Faire communiquer**, c'est la cinquième étape de la [[embarque/index|réalisation du sous-système embarqué]]. Dès que plusieurs composants doivent échanger des données — entre puces d'une même carte, ou vers l'extérieur (un PC, un réseau, un opérateur) — il faut **choisir comment ils dialoguent** : un bus filaire à l'intérieur, une liaison sans fil ou câblée vers le dehors. Le livrable est un **choix de technologies de communication** justifié et testé.
 
 Cette étape est **optionnelle : c'est le besoin client qui décide**. Relis le [[cahier-des-charges-fonctionnel|cahier des charges]] et les fonctions du cadrage : si aucune n'exige de dialoguer — piloter à distance, superviser, transmettre des mesures, coopérer avec un autre système — tu peux passer cette fiche et aller directement à l'[[fiabiliser-et-deboguer|étape 6]]. Un sous-système bâti autour d'un seul microcontrôleur, dont tous les capteurs et actionneurs sont reliés en direct (entrées-sorties, voies analogiques, signaux PWM), n'a souvent ni bus interne à choisir ni liaison externe à créer. Le recensement de l'étape 1 tranche : s'il ne révèle aucun échange entre puces ni besoin de liaison externe, l'étape se réduit à presque rien.
 
@@ -112,7 +112,7 @@ Tes communications sont arrêtées : les échanges sont recensés, les bus inter
 
 ## Voir aussi
 
-- [[fiches/eee/index|Réalisation du sous-système embarqué]]
+- [[embarque/index|Réalisation du sous-système embarqué]]
 - Étape précédente : [[programmer-l-embarque|Programmer]]
 - Étape suivante : [[fiabiliser-et-deboguer|Fiabiliser et déboguer]]
 - [[bus-de-communication|Bus de communication]] — [[uart|UART]], [[i2c|I²C]], [[spi|SPI]]

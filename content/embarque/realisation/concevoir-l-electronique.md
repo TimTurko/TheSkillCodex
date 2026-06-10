@@ -11,7 +11,7 @@ aa: []
 draft: false
 ---
 
-**Concevoir l'électronique**, c'est la troisième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. Ta carte est choisie ([[choisir-le-materiel|étape 2]]) ; tu dois maintenant **dessiner le circuit qui l'entoure** — relier les capteurs et les actionneurs retenus à l'étape 2, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées — puis le **vérifier** par le calcul et la simulation avant de souder quoi que ce soit. Le livrable est un **schéma électronique validé**, prêt à passer au [[pcb|circuit imprimé]].
+**Concevoir l'électronique**, c'est la troisième étape de la [[embarque/index|réalisation du sous-système embarqué]]. Ta carte est choisie ([[choisir-le-materiel|étape 2]]) ; tu dois maintenant **dessiner le circuit qui l'entoure** — relier les capteurs et les actionneurs retenus à l'étape 2, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées — puis le **vérifier** par le calcul et la simulation avant de souder quoi que ce soit. Le livrable est un **schéma électronique validé**, prêt à passer au [[pcb|circuit imprimé]].
 
 ## Posture attendue
 
@@ -175,7 +175,7 @@ Ton schéma est validé : interfaces inventoriées, niveaux adaptés, énergie d
 
 ## Voir aussi
 
-- [[fiches/eee/index|Réalisation du sous-système embarqué]]
+- [[embarque/index|Réalisation du sous-système embarqué]]
 - Étape précédente : [[choisir-le-materiel|Choisir le matériel]]
 - Étape suivante : [[programmer-l-embarque|Programmer]]
 - [[analyse-de-schema-electronique|Analyser un schéma électronique]]
