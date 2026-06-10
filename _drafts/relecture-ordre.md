@@ -254,8 +254,13 @@ Verdict : OK / a corriger
 - [ ] `pcb` — 🖼
 - [ ] `kicad`
 
-## 17 · EEE — index de section
-- [ ] `eee/index`
+## 17 · EEE — colonne « Réalisation » (hub de branche + fiches-étape)
+- [ ] `eee/index` (hub « Système embarqué », colonne 7 étapes)
+- [ ] `choisir-le-materiel`
+- [ ] `concevoir-l-electronique` *(pilote)*
+- [ ] `programmer-l-embarque`
+- [ ] `faire-communiquer` *(étape optionnelle)*
+- [ ] `fiabiliser-et-deboguer`
 
 ## 18 · MME — mécanique (interface)
 - [ ] `schema-cinematique` — 🖼✅

@@ -40,7 +40,7 @@ Pars de la décomposition fonctionnelle du système et isole les fonctions qui r
 
 *Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
 
-> [!livrable] Livrable 1/7 — [[decomposition-fonctionnelle|Définir et chiffrer les fonctions du système embarqué]]
+> [!livrable] Livrable 1/7 — [[schema-bloc-fonctionnel|Définir et chiffrer les fonctions du système embarqué]]
 > Un tableau « fonction → exigence embarquée » : pour chaque fonction, le nombre d'entrées-sorties, la résolution, la cadence, la latence. Rendu papier — c'est le contrat d'entrée de toutes les étapes suivantes.
 
 ## 2. Choisir le matériel
