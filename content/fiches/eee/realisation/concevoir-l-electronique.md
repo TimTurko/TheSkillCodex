@@ -138,6 +138,10 @@ Ton schéma est complet ; avant de le figer, **vérifie ses points incertains**.
 >
 > **Sortie** : les deux incertitudes levées, le schéma est figé et transmis au routage.
 
+En synthèse, le schéma de principe du bras, annoté des cinq couches de la démarche :
+
+![Schéma de principe annoté du sous-système embarqué du bras 3 axes : interfaces, niveaux, énergie, protections et points vérifiés](/ressources/img/concevoir-l-electronique-bras-3-axes.svg)
+
 > [!livrable] Livrable 5/5 — Schéma électronique
 > - Le **schéma électronique validé** : complet, vérifié en simulation sur les points incertains, figé et prêt pour le routage du circuit imprimé
 
