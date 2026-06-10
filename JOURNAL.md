@@ -10,6 +10,34 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-10 — Relecture humaine : colonne « Système embarqué » terminée (6/6) + 3 SVG
+
+### Périmètre
+PC pro (`theskillcodex:*` déférés). Session de relecture humaine sur rendu Quartz : hub `eee/index` + les 5 fiches `eee/realisation/`, corrections appliquées au fil (Tim lit, Claude propose, Tim tranche, Claude applique). Détour sur `schema-bloc-fonctionnel` (devenue fiche-livrable de l'étape 1). 0 git (Tim pilote).
+
+### Livrables
+- **Colonne relue et validée intégralement** — 6/6 cochées au tableau de bord (le §17 du tableau de bord a été étendu aux 6 lignes de la colonne).
+- **Lien mort systémique corrigé** : `[[eee/index|…]]` ne résout pas (slug réel `fiches/eee`) → `[[fiches/eee/index|…]]`, 10 occurrences sur les 5 fiches.
+- **3 SVG voie A neufs** : `schema-bloc-fonctionnel-generique` (conventions : frontière pointillée, 3 styles de flux, blocs par fonction) et `-couveuse` (remplaçant un Mermaid hors charte ; rails 230 V et 5 V ajoutés) ; `concevoir-l-electronique-bras-3-axes` (schéma de principe annoté de synthèse, pastilles d'étapes ①-⑤ — validé smartphone).
+- **Corrections de fond par fiche** : `choisir` — scores de matrice recalculés (3,4/4,8/4,1), notes traçables, ≈ 15 E/S harmonisées, capteurs conservés malgré la boucle ouverte (calibrage/surveillance) ; `concevoir` — tableaux MCU/GPIO, rails réalistes (5 V → VIN, 3,3 V embarqué), liaison opérateur Wi-Fi vs console série harmonisée sur 3 fiches, tip « droit de ne pas savoir — pas de ne pas tester », « routage » retiré de la posture, livrables 2-4/5 renommés en artefacts nominaux ; `programmer` — étage langage naturel (recette de cuisine), warning « code juste, mauvaises broches » (contexte obligatoire pour toute demande de code, IA comprise), `programmation-non-bloquante` enfin liée, environnement constructeur ajouté ; `faire-communiquer` — optionnalité réancrée sur le CdCF, tableau d'aide au choix sans fil (portée/débit/conso/infra), « bus imposé par le composant », test de fumée bout-en-bout ; `fiabiliser` — test « Mesurer » corrigé métrologiquement (référence externe, < 0,2°, instrument plus juste que la tolérance), principe « CdC → tests individuels puis simultanés », mémoire/veille incarnées.
+- **Hub** : livrable 1/7 repointé sur `schema-bloc-fonctionnel` ; passe stylistique complète (accroches étapes 2/4/5, registre tu généralisé, labels 1/7-2/7 nominalisés, livrable 5/7 « si le cahier des charges l'exige », note de bas de page EEE/MIA).
+
+### Décisions (Tim)
+- **`aa: []` confirmé vide** pour les 6 pages de la colonne (C64-c) ; exception « instruments » sur `fiabiliser` rejetée.
+- **Registre tu/on : contraste conservé** et promu en candidate **C65** (trames du V = on/infinitif ; colonne réalisation + hubs de branche = tu).
+- **Réorganisation des dossiers en 3 branches validée** (option 2, révise C60) — session dédiée inscrite au TODO ; fenêtre idéale avant publication (URL non publiées, embeds absolus, wikilinks par slug).
+- Optionnalité de l'étape 5 : **le cahier des charges décide** (fiche + hub + sommaire alignés).
+- Tests : principe pédagogique inscrit — partir du CdC, valider chaque exigence individuellement puis en simultané.
+
+### Conventions
+- Candidate **C65** (registre par type de trame) inscrite en §8 ; **C64-c confirmée** (10/06).
+
+### Acquis méthodo (narratif)
+Deux leçons techniques. (1) **Angle mort des audits de liens** : un wikilink de forme `x/index` échoue à la résolution Quartz alors qu'il est propre côté source — le scan bash ne peut pas le voir, seul un clic-test au rendu le révèle (→ BACKLOG : vérifier les autres `x/index` du site). (2) **SVG** : une règle CSS de classe écrase les attributs de présentation (`text-anchor`, `font-size`) — cause du chevauchement flèches/textes des légendes ; ne plus mettre ces propriétés dans `<defs><style>`, les poser par élément.
+
+### Tailles
+3 SVG (4,3-4,6 ko) ; fiches stables (± 1 ko) ; JOURNAL ≈ +4 ko.
+
 ## 2026-06-09 (suite) — Production : colonne « Système embarqué » (hub + 5 fiches-étape)
 
 ### Périmètre

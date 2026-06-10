@@ -843,7 +843,16 @@ Notes 08/06 (pas de convention numérotée) :
 
 Notes 09/06 (suite) (pas de convention numérotée) :
 - **C61 confirmée au rendu** — le lien dans le **mot-clé du callout `[!livrable]`** s'affiche correctement sur le rendu Quartz (validé Tim) ; le label « Livrable X/N » se place dans le titre, avant le lien.
-- **Point ouvert — registre « tu » vs « on »** : la colonne realisation (hub + 5 fiches) est en **« tu »**, les trames du V en **« on »/infinitif**. Incohérence de registre à l'échelle du wiki **à arbitrer** (→ BACKLOG) : garder le contraste, ou uniformiser. La pilote `concevoir-l-electronique`, d'abord en « on » (calque `concept.md`), a été reconvertie en « tu ».
+- **Point ouvert — registre « tu » vs « on »** : la colonne realisation (hub + 5 fiches) est en **« tu »**, les trames du V en **« on »/infinitif**. Incohérence de registre à l'échelle du wiki **arbitrée 10/06 → C65 ci-dessous** (contraste conservé). La pilote `concevoir-l-electronique`, d'abord en « on » (calque `concept.md`), a été reconvertie en « tu ».
+
+### Acquises 10/06 — relecture colonne « Système embarqué »
+
+65. **Registre d'adresse par type de trame** — les **trames du V** s'écrivent en **« on »/infinitif** (registre de méthode) ; les **fiches de réalisation (C64) et les hubs de branche** s'écrivent en **« tu »** (point d'entrée étudiant, adresse directe). Le contraste est **volontaire** — le V décrit *le projet*, la colonne parle *à l'étudiant qui réalise*. Arbitré par Tim le 10/06 (relecture de la colonne ; deux « on » résiduels du hub reconvertis dans la foulée). **La numérotation éprouvage atteint 65.**
+
+Notes 10/06 (pas de convention numérotée) :
+- **C64-c confirmée** — `aa: []` maintenu vide sur les 6 pages de la colonne (hub + 5 fiches-étape) ; l'exception envisagée (critère instruments sur `fiabiliser-et-deboguer`) est **rejetée** — les critères vivent dans les fiches outils.
+- **Wikilink `x/index` ne résout pas par slug** — `[[eee/index|…]]` produit un href `/eee/` → 404 (le slug réel d'un index de dossier est `fiches/eee`) ; forme correcte `[[fiches/eee/index|…]]` (chemin complet depuis `content/`). **Angle mort des audits** — le scan bash de la source ne voit pas cet échec de résolution, seul le clic-test au rendu le détecte (sweep des formes équivalentes → BACKLOG).
+- **SVG — les attributs de présentation se posent par élément** — une règle CSS de classe dans `<defs><style>` (`text-anchor`, `font-size`) **écrase** les attributs de présentation posés sur les éléments. Conséquence : ne jamais définir `text-anchor` en classe ; l'ancrage s'écrit sur chaque `<text>`.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

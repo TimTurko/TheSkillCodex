@@ -255,12 +255,12 @@ Verdict : OK / a corriger
 - [ ] `kicad`
 
 ## 17 · EEE — colonne « Réalisation » (hub de branche + fiches-étape)
-- [ ] `eee/index` (hub « Système embarqué », colonne 7 étapes)
+- [x] `eee/index` (hub « Système embarqué », colonne 7 étapes)
 - [x] `choisir-le-materiel`
 - [x] `concevoir-l-electronique` *(pilote)*
-- [ ] `programmer-l-embarque`
+- [x] `programmer-l-embarque`
 - [x] `faire-communiquer` *(étape optionnelle)*
-- [ ] `fiabiliser-et-deboguer`
+- [x] `fiabiliser-et-deboguer`
 
 ## 18 · MME — mécanique (interface)
 - [ ] `schema-cinematique` — 🖼✅
