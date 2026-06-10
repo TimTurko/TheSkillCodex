@@ -4,9 +4,9 @@
       .blk { fill:#DDDBD3; stroke:#4a4a4a; stroke-width:1.4; }
       .env { fill:none; stroke:#8a8a8a; stroke-width:1.4; }
       .frt { fill:none; stroke:#BA7517; stroke-width:2; stroke-dasharray:9 6; }
-      .t  { font-size:13.5px; fill:#1a1a1a; text-anchor:middle; }
-      .ts { font-size:11.5px; fill:#5a5a5a; text-anchor:middle; }
-      .tl { font-size:11.5px; fill:#1a1a1a; text-anchor:middle; }
+      .t  { font-size:13.5px; fill:#1a1a1a; }
+      .ts { font-size:11.5px; fill:#5a5a5a; }
+      .tl { font-size:11.5px; fill:#1a1a1a; }
       .ti { font-size:11.5px; font-style:italic; fill:#BA7517; }
       .fi { stroke:#1a1a1a; stroke-width:1.4; fill:none; }
       .fe { stroke:#BA7517; stroke-width:3.5; fill:none; }
@@ -32,58 +32,58 @@
 
   <!-- Frontière du système -->
   <rect class="frt" x="150" y="55" width="425" height="305" rx="8"/>
-  <text class="ti" x="165" y="78">Frontière du système</text>
+  <text class="ti" x="165" y="78" text-anchor="start">Frontière du système</text>
 
   <!-- Éléments d'environnement -->
   <rect class="env" x="15" y="100" width="115" height="58" rx="14"/>
-  <text class="t" x="72" y="133">Utilisateur</text>
+  <text class="t" x="72" y="133" text-anchor="middle">Utilisateur</text>
 
   <rect class="env" x="600" y="255" width="115" height="58" rx="14"/>
-  <text class="t" x="657" y="288" font-size="12.5">Environnement</text>
+  <text class="t" x="657" y="288" text-anchor="middle" style="font-size:12.5px">Environnement</text>
 
   <!-- Blocs fonctionnels -->
   <rect class="blk" x="180" y="100" width="160" height="58" rx="6"/>
-  <text class="t" x="260" y="124">Décider</text>
-  <text class="ts" x="260" y="142">(contrôleur)</text>
+  <text class="t" x="260" y="124" text-anchor="middle">Décider</text>
+  <text class="ts" x="260" y="142" text-anchor="middle">(contrôleur)</text>
 
   <rect class="blk" x="395" y="100" width="160" height="58" rx="6"/>
-  <text class="t" x="475" y="124" font-size="13">Convertir l'énergie</text>
-  <text class="ts" x="475" y="142">(actionneur)</text>
+  <text class="t" x="475" y="124" text-anchor="middle" style="font-size:13px">Convertir l'énergie</text>
+  <text class="ts" x="475" y="142" text-anchor="middle">(actionneur)</text>
 
   <rect class="blk" x="395" y="255" width="160" height="58" rx="6"/>
-  <text class="t" x="475" y="279">Agir</text>
-  <text class="ts" x="475" y="297">(effecteur)</text>
+  <text class="t" x="475" y="279" text-anchor="middle">Agir</text>
+  <text class="ts" x="475" y="297" text-anchor="middle">(effecteur)</text>
 
   <rect class="blk" x="180" y="255" width="160" height="58" rx="6"/>
-  <text class="t" x="260" y="279">Acquérir</text>
-  <text class="ts" x="260" y="297">(capteur)</text>
+  <text class="t" x="260" y="279" text-anchor="middle">Acquérir</text>
+  <text class="ts" x="260" y="297" text-anchor="middle">(capteur)</text>
 
   <!-- Flux -->
   <line class="fi" x1="132" y1="129" x2="176" y2="129" marker-end="url(#ai)"/>
-  <text class="tl" x="154" y="118">consigne</text>
+  <text class="tl" x="154" y="118" text-anchor="middle">consigne</text>
 
   <line class="fi" x1="342" y1="129" x2="391" y2="129" marker-end="url(#ai)"/>
-  <text class="tl" x="366" y="118">commande</text>
+  <text class="tl" x="366" y="118" text-anchor="middle">commande</text>
 
   <line class="fe" x1="475" y1="160" x2="475" y2="250" marker-end="url(#ae)"/>
   <text class="tl" x="487" y="208" text-anchor="start">énergie</text>
 
   <line class="fm" x1="557" y1="284" x2="596" y2="284" marker-end="url(#ai)"/>
-  <text class="tl" x="577" y="272">matière</text>
+  <text class="tl" x="577" y="272" text-anchor="middle">matière</text>
 
   <polyline class="fi" points="657,315 657,355 260,355 260,317" marker-end="url(#ai)"/>
-  <text class="tl" x="460" y="347">grandeur physique</text>
+  <text class="tl" x="460" y="347" text-anchor="middle">grandeur physique</text>
 
   <line class="fi" x1="260" y1="253" x2="260" y2="162" marker-end="url(#ai)"/>
   <text class="tl" x="250" y="200" text-anchor="end">mesure</text>
   <text class="ti" x="250" y="216" text-anchor="end">(boucle fermée)</text>
 
   <!-- Légende des types de flux -->
-  <text class="tl" x="40" y="408" text-anchor="start" font-size="12.5">Types de flux :</text>
+  <text class="tl" x="40" y="408" text-anchor="start" style="font-size:12.5px">Types de flux :</text>
   <line class="fi" x1="40" y1="432" x2="104" y2="432" marker-end="url(#ai)"/>
-  <text class="tl" x="116" y="436" text-anchor="start">information</text>
+  <text class="tl" x="118" y="436" text-anchor="start">information</text>
   <line class="fe" x1="250" y1="432" x2="314" y2="432" marker-end="url(#ae)"/>
-  <text class="tl" x="326" y="436" text-anchor="start">énergie</text>
+  <text class="tl" x="328" y="436" text-anchor="start">énergie</text>
   <line class="fm" x1="440" y1="432" x2="504" y2="432" marker-end="url(#ai)"/>
-  <text class="tl" x="516" y="436" text-anchor="start">matière</text>
+  <text class="tl" x="518" y="436" text-anchor="start">matière</text>
 </svg>

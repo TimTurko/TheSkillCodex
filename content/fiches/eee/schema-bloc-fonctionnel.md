@@ -62,7 +62,7 @@ Quelques observations à tirer de cet exemple :
 - L'utilisateur et l'air de la couveuse sont en dehors du système (hors de la frontière en pointillé). Ce sont des éléments d'environnement.
 - L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance ; la résistance la transforme en chaleur.
 - La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[arduino-pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
-- Le flux d'énergie est tracé jusqu'à sa source : le réseau 230 V alimente le relais depuis l'extérieur de la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
+- Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur — deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
 <!-- TODO: ajouter une photo de couveuse réelle annotée avec les blocs identifiés. -->
 

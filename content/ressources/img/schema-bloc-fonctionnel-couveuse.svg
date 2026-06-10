@@ -4,9 +4,9 @@
       .blk { fill:#DDDBD3; stroke:#4a4a4a; stroke-width:1.4; }
       .env { fill:none; stroke:#8a8a8a; stroke-width:1.4; }
       .frt { fill:none; stroke:#BA7517; stroke-width:2; stroke-dasharray:9 6; }
-      .t  { font-size:13.5px; fill:#1a1a1a; text-anchor:middle; }
-      .ts { font-size:11.5px; fill:#5a5a5a; text-anchor:middle; }
-      .tl { font-size:11.5px; fill:#1a1a1a; text-anchor:middle; }
+      .t  { font-size:13.5px; fill:#1a1a1a; }
+      .ts { font-size:11.5px; fill:#5a5a5a; }
+      .tl { font-size:11.5px; fill:#1a1a1a; }
       .ti { font-size:11.5px; font-style:italic; fill:#BA7517; }
       .fi { stroke:#1a1a1a; stroke-width:1.4; fill:none; }
       .fe { stroke:#BA7517; stroke-width:3.5; fill:none; }
@@ -31,63 +31,70 @@
 
   <!-- Frontière du système -->
   <rect class="frt" x="150" y="55" width="430" height="330" rx="8"/>
-  <text class="ti" x="165" y="78">Frontière du système</text>
+  <text class="ti" x="165" y="78" text-anchor="start">Frontière du système</text>
 
   <!-- Éléments d'environnement -->
   <rect class="env" x="15" y="97" width="115" height="58" rx="14"/>
-  <text class="t" x="72" y="130">Utilisateur</text>
+  <text class="t" x="72" y="130" text-anchor="middle">Utilisateur</text>
 
   <rect class="env" x="610" y="97" width="115" height="58" rx="14"/>
-  <text class="t" x="667" y="130" font-size="12.5">Réseau 230 V</text>
+  <text class="t" x="667" y="130" text-anchor="middle" style="font-size:12.5px">Réseau 230 V</text>
+
+  <rect class="env" x="15" y="287" width="115" height="58" rx="14"/>
+  <text class="t" x="72" y="310" text-anchor="middle" style="font-size:12.5px">Alimentation</text>
+  <text class="t" x="72" y="326" text-anchor="middle" style="font-size:12.5px">5 V</text>
 
   <rect class="env" x="610" y="287" width="115" height="58" rx="14"/>
-  <text class="t" x="667" y="310" font-size="12.5">Air de la</text>
-  <text class="t" x="667" y="326" font-size="12.5">couveuse</text>
+  <text class="t" x="667" y="310" text-anchor="middle" style="font-size:12.5px">Air de la</text>
+  <text class="t" x="667" y="326" text-anchor="middle" style="font-size:12.5px">couveuse</text>
 
   <!-- Blocs fonctionnels -->
   <rect class="blk" x="175" y="95" width="170" height="62" rx="6"/>
-  <text class="t" x="260" y="119" font-size="13">Réguler la température</text>
-  <text class="ts" x="260" y="140">(microcontrôleur)</text>
+  <text class="t" x="260" y="119" text-anchor="middle" style="font-size:13px">Réguler la température</text>
+  <text class="ts" x="260" y="140" text-anchor="middle">(microcontrôleur)</text>
 
   <rect class="blk" x="390" y="95" width="170" height="62" rx="6"/>
-  <text class="t" x="475" y="119" font-size="13">Commuter la puissance</text>
-  <text class="ts" x="475" y="140">(relais SSR)</text>
+  <text class="t" x="475" y="119" text-anchor="middle" style="font-size:13px">Commuter la puissance</text>
+  <text class="ts" x="475" y="140" text-anchor="middle">(relais SSR)</text>
 
   <rect class="blk" x="390" y="285" width="170" height="62" rx="6"/>
-  <text class="t" x="475" y="309">Chauffer</text>
-  <text class="ts" x="475" y="330" font-size="11">(résistance chauffante)</text>
+  <text class="t" x="475" y="309" text-anchor="middle">Chauffer</text>
+  <text class="ts" x="475" y="330" text-anchor="middle" style="font-size:11px">(résistance chauffante)</text>
 
   <rect class="blk" x="175" y="285" width="170" height="62" rx="6"/>
-  <text class="t" x="260" y="309" font-size="13">Mesurer la température</text>
-  <text class="ts" x="260" y="330">(thermistance)</text>
+  <text class="t" x="260" y="309" text-anchor="middle" style="font-size:13px">Mesurer la température</text>
+  <text class="ts" x="260" y="330" text-anchor="middle">(thermistance)</text>
 
   <!-- Flux -->
   <line class="fi" x1="132" y1="126" x2="171" y2="126" marker-end="url(#ai)"/>
-  <text class="tl" x="152" y="114">consigne</text>
+  <text class="tl" x="152" y="114" text-anchor="middle">consigne</text>
 
   <line class="fi" x1="347" y1="126" x2="386" y2="126" marker-end="url(#ai)"/>
-  <text class="tl" x="366" y="114">PWM</text>
+  <text class="tl" x="366" y="114" text-anchor="middle">PWM</text>
 
   <line class="fe" x1="608" y1="126" x2="564" y2="126" marker-end="url(#ae)"/>
-  <text class="tl" x="586" y="112">230 V</text>
+  <text class="tl" x="586" y="112" text-anchor="middle">230 V</text>
+
+  <polyline class="fe" points="132,316 161,316 161,147 171,147" marker-end="url(#ae)"/>
+  <text class="tl" x="168" y="230" text-anchor="start">5 V</text>
 
   <line class="fe" x1="475" y1="159" x2="475" y2="280" marker-end="url(#ae)"/>
   <text class="tl" x="489" y="224" text-anchor="start">puissance</text>
 
   <line class="fe" x1="562" y1="316" x2="606" y2="316" marker-end="url(#ae)"/>
-  <text class="tl" x="584" y="304">chaleur</text>
+  <text class="tl" x="584" y="304" text-anchor="middle">chaleur</text>
 
   <polyline class="fi" points="667,345 667,415 260,415 260,351" marker-end="url(#ai)"/>
-  <text class="tl" x="465" y="407">température réelle</text>
+  <text class="tl" x="465" y="407" text-anchor="middle">température réelle</text>
 
   <line class="fi" x1="260" y1="283" x2="260" y2="161" marker-end="url(#ai)"/>
   <text class="tl" x="272" y="205" text-anchor="start">température mesurée</text>
   <text class="ti" x="272" y="221" text-anchor="start">(boucle fermée)</text>
 
   <!-- Légende des types de flux -->
-  <text class="tl" x="40" y="455" text-anchor="start" font-size="12.5">Types de flux :</text>
+  <text class="tl" x="40" y="455" text-anchor="start" style="font-size:12.5px">Types de flux :</text>
   <line class="fi" x1="40" y1="478" x2="104" y2="478" marker-end="url(#ai)"/>
-  <text class="tl" x="116" y="482" text-anchor="start">information</text>
+  <text class="tl" x="118" y="482" text-anchor="start">information</text>
   <line class="fe" x1="250" y1="478" x2="314" y2="478" marker-end="url(#ae)"/>
-  <text class="tl" x="326" y="482" text-anchor="start">énergie</text>
+  <text class="tl" x="328" y="482" text-anchor="start">énergie</text>
 </svg>
