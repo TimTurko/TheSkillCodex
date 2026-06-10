@@ -13,7 +13,7 @@ draft: false
 
 **Faire communiquer**, c'est la cinquième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. Dès que plusieurs composants doivent échanger des données — entre puces d'une même carte, ou vers l'extérieur (un PC, un réseau, un opérateur) — il faut **choisir comment ils dialoguent** : un bus filaire à l'intérieur, une liaison sans fil ou câblée vers le dehors. Le livrable est un **choix de technologies de communication** justifié et testé.
 
-Cette étape est **optionnelle selon le projet**. Un sous-système bâti autour d'un seul microcontrôleur, dont tous les capteurs et actionneurs sont reliés en direct (entrées-sorties, voies analogiques, signaux PWM), n'a pas de bus interne à choisir : il lui reste seulement, parfois, une liaison vers l'extérieur. Recense d'abord les échanges (étape 1) ; si elle ne révèle aucun échange entre puces ni besoin de liaison externe, l'étape se réduit à presque rien.
+Cette étape est **optionnelle : c'est le besoin client qui décide**. Relis le [[cahier-des-charges-fonctionnel|cahier des charges]] et les fonctions du cadrage : si aucune n'exige de dialoguer — piloter à distance, superviser, transmettre des mesures, coopérer avec un autre système — tu peux passer cette fiche et aller directement à l'[[fiabiliser-et-deboguer|étape 6]]. Un sous-système bâti autour d'un seul microcontrôleur, dont tous les capteurs et actionneurs sont reliés en direct (entrées-sorties, voies analogiques, signaux PWM), n'a souvent ni bus interne à choisir ni liaison externe à créer. Le recensement de l'étape 1 tranche : s'il ne révèle aucun échange entre puces ni besoin de liaison externe, l'étape se réduit à presque rien.
 
 ## Posture attendue
 
@@ -44,7 +44,7 @@ Avant de choisir une technologie, liste **qui doit parler à qui**. Distingue le
 
 ### 2. Choisir les bus internes
 
-Pour chaque échange **entre puces**, choisis le bus selon les critères recensés. L'**[[i2c|I²C]]** relie plusieurs composants avec deux fils, à débit modéré — idéal pour quelques capteurs et un afficheur. Le **[[spi|SPI]]** est plus rapide mais demande plus de fils — pour une mémoire ou un écran exigeant. L'**[[uart|UART]]** est une liaison série simple, point à point. La fiche [[bus-de-communication|bus de communication]] détaille leurs principes et leurs limites. S'il n'y a aucun échange entre puces, cette étape est vide — c'est un résultat valable, pas un oubli.
+Pour chaque échange **entre puces**, choisis le bus selon les critères recensés. L'**[[i2c|I²C]]** relie plusieurs composants avec deux fils, à débit modéré — idéal pour quelques capteurs et un afficheur. Le **[[spi|SPI]]** est plus rapide mais demande plus de fils — pour une mémoire ou un écran exigeant. L'**[[uart|UART]]** est une liaison série simple, point à point. La fiche [[bus-de-communication|bus de communication]] détaille leurs principes et leurs limites. Souvent, le bus t'est d'ailleurs **imposé par le composant** retenu au [[choisir-le-materiel|choix du matériel]] : un capteur vendu en I²C se câble en I²C — ton choix se réduit alors à vérifier la compatibilité et à organiser le partage du bus. S'il n'y a aucun échange entre puces, cette étape est vide — c'est un résultat valable, pas un oubli.
 
 > [!warning] Attention
 > **Multiplier les bus ou en choisir un par réflexe complique le système sans le servir.** Un bus se justifie par un échange réel et par ses critères (participants, débit, distance) — pas par sa présence sur la carte. Trois capteurs analogiques lus en direct n'ont pas besoin d'un bus ; un afficheur ajouté plus tard ira, lui, naturellement sur l'I²C déjà disponible.
@@ -61,16 +61,28 @@ Pour chaque échange **entre puces**, choisis le bus selon les critères recens�
 
 Pour le lien vers l'extérieur — un PC opérateur, un téléphone, un réseau — choisis entre **filaire** et **sans fil**. Le filaire (USB-série) est simple, fiable et alimente parfois la carte, mais attache le système. Le sans-fil ouvre la mobilité : **[[wifi|Wi-Fi]]** pour un débit élevé et un réseau existant, **[[ble|BLE]]** pour de petits échanges économes, **[[zigbee|Zigbee]]** pour un maillage de capteurs, **[[lora|LoRa]]** pour la longue portée à très bas débit. La fiche [[techno-sans-fil|technologies sans fil]] aide à arbitrer. Garde à l'esprit qu'une liaison de **console série** (USB) reste presque toujours utile pour le débogage, quelle que soit la liaison opérateur retenue.
 
+Pour t'orienter, les critères qui départagent sont la **portée**, le **débit**, la **consommation** et l'**infrastructure disponible** :
+
+| La question à te poser | Réponse type |
+|---|---|
+| Le système reste à portée de câble pendant l'usage ? | **Filaire (USB-série)** — simple et fiable |
+| Mobilité ou distance, débit confortable, un réseau existe ? | **Wi-Fi** |
+| Petits messages vers un téléphone, budget batterie serré ? | **BLE** |
+| Beaucoup de capteurs à mailler dans un bâtiment ? | **Zigbee** |
+| Kilomètres de portée, quelques octets par heure ? | **LoRa** |
+
+Avant de figer le choix, **teste la liaison de bout en bout** — une consigne dans un sens, un état en retour : dix minutes qui évitent de découvrir tard qu'une portée, un débit ou un appairage ne tient pas. La qualification complète viendra avec le protocole de l'[[fiabiliser-et-deboguer|étape 6]].
+
 > [!tip] Astuce
 > **Le sans-fil est séduisant, mais il a un coût : consommation, fiabilité, sécurité.** Si le système reste à portée de câble pendant son usage, une liaison filaire est souvent plus sûre et plus simple. Réserve le sans-fil aux cas où la mobilité ou la distance le justifient vraiment.
 
 > [!example] Exemple : projet bras 3 axes
 > L'opérateur doit pouvoir piloter le bras à distance : la liaison retenue est le **Wi-Fi** (intégré à l'ESP32, débit largement suffisant pour des consignes et un retour d'état). En parallèle, la **console USB-série** reste branchée en phase de mise au point, pour observer le firmware.
 >
-> **Sortie** : une liaison opérateur en Wi-Fi, une console série de débogage. C'est l'unique « communication » réelle du bras.
+> **Sortie** : une liaison opérateur en Wi-Fi, vérifiée par un aller-retour consigne/état, et une console série de débogage. C'est l'unique « communication » réelle du bras.
 
 > [!livrable] Livrable 3/3 — Liaison externe retenue
-> - La technologie retenue pour le lien externe (filaire ou sans fil), justifiée, et la liaison de débogage conservée
+> - La technologie retenue pour le lien externe (filaire ou sans fil), justifiée et testée de bout en bout, et la liaison de débogage conservée
 
 ## Conclusion
 
@@ -95,6 +107,8 @@ Tes communications sont arrêtées : les échanges sont recensés, les bus inter
 **Le pilotage, c'est le cycle en V.** Les choix de communication figurent au [[dossier-technique|dossier technique]] — cette fiche produit l'artefact, le V l'inscrit dans le projet.
 
 *La sécurité des liaisons* (chiffrement, intégrité, authentification), dès que les données échangées sont sensibles, est une dimension de [[securite-et-qualite|sécurité et qualité]] arbitrée au niveau projet.
+
+*Le protocole applicatif* — le format des consignes et des états échangés au-dessus de la liaison — relève du firmware et du palier ingénieur de ta famille.
 
 ## Voir aussi
 

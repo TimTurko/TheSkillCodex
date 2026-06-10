@@ -37,7 +37,7 @@ Avant de tracer le moindre fil, dresse la liste exhaustive de ce que ta carte do
 Cet inventaire est ta carte des interfaces : il dit *quoi* relier avant de dire *comment*. Toute liaison oubliée ici devient un fil manquant sur le circuit imprimé.
 
 > [!example] Exemple : projet bras 3 axes
-> Le bras retient trois steppers pilotés par drivers, trois capteurs d'angle, six fins de course et une liaison vers le PC opérateur. Inventaire des interfaces autour de l'ESP32 (logique 3,3 V) :
+> Le bras retient trois steppers pilotés par drivers, trois capteurs d'angle, six fins de course et une console série vers le PC — la liaison opérateur finale est en Wi-Fi : sans fil, elle n'ajoute aucune interface à câbler. Inventaire des interfaces autour de l'ESP32 (logique 3,3 V) :
 >
 > | Liaison | Nature | Tension | Courant / fréquence |
 > |---|---|---|---|
@@ -45,7 +45,7 @@ Cet inventaire est ta carte des interfaces : il dit *quoi* relier avant de dire 
 > | 3 capteurs d'angle | analogique | 3,3 V | 1 mesure / 10 ms |
 > | 6 fins de course | logique (état tout-ou-rien) | contact sec | événementiel |
 > | Bobines des steppers (via drivers) | puissance | 12 V | ~1 A par phase |
-> | Liaison PC opérateur | série | 3,3 V | 115 kbit/s |
+> | Console PC (débogage) | série | 3,3 V | 115 kbit/s |
 >
 > **Sortie** : 5 familles de liaisons, dont une seule en puissance (12 V) et une seule à adapter (fins de course). Cet inventaire commande les étapes 2 à 4.
 
@@ -70,7 +70,7 @@ Chaque liaison de l'inventaire relie deux mondes qui n'ont pas forcément la mê
 > | Drivers STEP/DIR | sorties GPIO 3,3 V | entrées 3,3 V tolérées | directe |
 > | Capteurs d'angle | entrées ADC 0–3,3 V | sortie 0–3,3 V | directe |
 > | Fins de course | entrées GPIO 3,3 V | contact vers tension de tirage | tirage sur 3,3 V |
-> | Liaison PC | UART 3,3 V (TX/RX) | pont USB-série de la carte de dev | directe (intégrée à la carte) |
+> | Console PC | UART 3,3 V (TX/RX) | pont USB-série de la carte de dev | directe (intégrée à la carte) |
 > | Bobines des steppers | — (jamais reliées au MCU) | 12 V | gérée par le driver |
 >
 > **Sortie** : aucune incompatibilité résiduelle dès lors que les fins de course sont tirées sur le 3,3 V — et non sur un 5 V, piège classique écarté par conception.
