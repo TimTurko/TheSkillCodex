@@ -259,7 +259,7 @@ Verdict : OK / a corriger
 - [x] `choisir-le-materiel`
 - [x] `concevoir-l-electronique` *(pilote)*
 - [ ] `programmer-l-embarque`
-- [ ] `faire-communiquer` *(étape optionnelle)*
+- [x] `faire-communiquer` *(étape optionnelle)*
 - [ ] `fiabiliser-et-deboguer`
 
 ## 18 · MME — mécanique (interface)
