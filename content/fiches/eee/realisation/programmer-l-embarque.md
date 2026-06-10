@@ -11,7 +11,7 @@ aa: []
 draft: false
 ---
 
-**Programmer**, c'est la quatrième étape de la [[eee/index|réalisation du sous-système embarqué]]. La carte est choisie et l'électronique conçue ; tu dois maintenant **lui donner un comportement**. Cela se fait en deux temps : d'abord **concevoir l'algorithme** de commande (la logique, indépendante du code), puis l'**écrire** pour la carte en pilotant ses périphériques. Le livrable est un **firmware fonctionnel et documenté**, prêt à être fiabilisé à l'[[fiabiliser-et-deboguer|étape 6]].
+**Programmer**, c'est la quatrième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. La carte est choisie et l'électronique conçue ; tu dois maintenant **lui donner un comportement**. Cela se fait en deux temps : d'abord **concevoir l'algorithme** de commande (la logique, indépendante du code), puis l'**écrire** pour la carte en pilotant ses périphériques. Le livrable est un **firmware fonctionnel et documenté**, prêt à être fiabilisé à l'[[fiabiliser-et-deboguer|étape 6]].
 
 ## Posture attendue
 
@@ -124,7 +124,7 @@ Ton firmware est fonctionnel et documenté : l'algorithme est posé, le code str
 
 ## Voir aussi
 
-- [[eee/index|Réalisation du sous-système embarqué]]
+- [[fiches/eee/index|Réalisation du sous-système embarqué]]
 - Étape précédente : [[concevoir-l-electronique|Concevoir l'électronique]]
 - Étape suivante : [[faire-communiquer|Faire communiquer]]
 - [[algorithme|Algorithme]] — [[logigramme|logigramme]], [[machine-a-etats|machine à états]], [[grafcet|GRAFCET]], [[chronogramme|chronogramme]]

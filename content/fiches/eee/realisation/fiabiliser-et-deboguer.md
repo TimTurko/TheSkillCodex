@@ -11,7 +11,7 @@ aa: []
 draft: false
 ---
 
-**Fiabiliser et déboguer**, c'est la sixième étape de la [[eee/index|réalisation du sous-système embarqué]]. Un montage qui fonctionne au premier essai n'est pas fiable pour autant. Cette étape **durcit le système** — garantir le temps réel, survivre aux blocages, économiser l'énergie — et installe la **méthode** pour traquer les défauts. Le livrable est un **protocole de tests et de débogage** : ce que tu vérifies, comment, et la trace des problèmes traités.
+**Fiabiliser et déboguer**, c'est la sixième étape de la [[fiches/eee/index|réalisation du sous-système embarqué]]. Un montage qui fonctionne au premier essai n'est pas fiable pour autant. Cette étape **durcit le système** — garantir le temps réel, survivre aux blocages, économiser l'énergie — et installe la **méthode** pour traquer les défauts. Le livrable est un **protocole de tests et de débogage** : ce que tu vérifies, comment, et la trace des problèmes traités.
 
 ## Posture attendue
 
@@ -107,7 +107,7 @@ Ton système est durci et ta mise au point est outillée : protocole de tests é
 
 ## Voir aussi
 
-- [[eee/index|Réalisation du sous-système embarqué]]
+- [[fiches/eee/index|Réalisation du sous-système embarqué]]
 - Étape précédente : [[faire-communiquer|Faire communiquer]]
 - Étape suivante : [[integration-et-tests|Intégrer et tester]]
 - Temps réel et robustesse : [[interruption|interruptions]], [[timer|temporisateurs]], [[deep-sleep|veille]], [[memoire|gestion mémoire]]
