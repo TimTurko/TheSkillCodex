@@ -16,6 +16,9 @@ tsconfig.tsbuildinfo
 *.log
 npm-debug.log*
 
+# Sauvegardes locales (scripts d'archivage)
+*.bak
+
 # ============================================================
 # Obsidian (specifique appareil, ne pas synchroniser)
 # ============================================================
