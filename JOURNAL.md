@@ -11,6 +11,32 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-11 — Grooming conventions.md (promotions §6 + élagage §8)
+
+### Périmètre
+PC perso (`filesystem:*` direct). Session de maintenance documentaire (Cas A, 2ᵉ volet après l'archivage JOURNAL du 10/06) : grooming de `conventions.md` — promotions §8→§6 et élagage des blocs d'éprouvage clos. Aucune production de fiches. 0 git (Tim pilote).
+
+### Livrables
+- **conventions.md 112→103 ko** : nouveau cluster §6 « Modules MCU — conventions de famille » (sous C18) + élagage §8.
+- **BACKLOG.md** : anomalie C50 logée (section Décisions en attente).
+
+### Décisions
+- **6 conventions de famille MCU promues §6** (arbitrage Tim en deux temps : C32/C45/C56/C57 puis C25/C26) : **C25** (4 paliers), **C26** ([A]/[T]), **C32** (marqueur → notion), **C45** (AA porté par le hub), **C56** (lean-Bases, **reformulation actée** — déclencheur = couverture des périphériques de base ailleurs, indépendamment de la nature de la porte ; cran ESP8266 = mutualisation de capacité signature), **C57** (clone de curriculum + contre-cas SBC en borne).
+- **C50 = numéro orphelin confirmé** : aucune définition nulle part (conventions.md / JOURNAL / archive / BACKLOG) ; Tim a confirmé que Claude est seul responsable du nommage — slip de numérotation assumé. Référence neutralisée dans la note §8 du 06/07, anomalie logée BACKLOG. **Ne jamais réaffecter C50** ; numéroter à partir du plus haut atteint (C65).
+- **Élagage §8 cadré** : bloc 28/05 suite 2 (C25/C26) → pointeur une-ligne ; **7 blocs MCU per-session 06/06 suite 6→12** (~14 ko de logs d'éprouvage) → une synthèse condensée pointant le cluster §6 (détail au JOURNAL archivé). **Préservés** : toutes les candidates en vol (C19/C20/C23/C27/C28/C46/C55, C58→C65) et la chaîne C14 (load-bearing).
+
+### Conventions
+Aucune nouvelle convention numérotée (maintenance).
+
+### Tailles
+conventions.md 103 ko · JOURNAL.md 27 ko (hors cette entrée) · BACKLOG.md 58 ko.
+
+Acquis méthodo : la copie locale sandbox de `conventions.md` (dump initial de session) avait **divergé du disque** — un `edit_file` a échoué sur un `oldText` recopié depuis elle. Confirme C14 sous un angle nouveau : recopier l'`oldText` verbatim depuis une **lecture MCP fraîche**, jamais depuis une copie locale, même issue d'un dump de la même session (le fichier peut avoir été édité entre-temps). Le fichier disque est par ailleurs propre d'invisibles (ancres ASCII matchent directement).
+
+Complément (même session, reprise PC pro) : mentions « promouvable § 6 » caduques neutralisées dans les items 32/35/36/45/50 du §8 (→ « promue §6 le 10/06 ») + ancre d'intro corrigée (`#7-` → `#8-en-cours-déprouvage`, lien interne cassé depuis la renumérotation des sections). **Grooming TODO.md exécuté dans la foulée : 77,3 → 6,3 ko** (réécriture complète `write_file`) — pile de ~25 flèches historiques remplacée par une flèche unique ➤ MAJ 11/06 ; sections faites supprimées (« 0. Session annexe », items cochés des phases 0-5, « Tâches techniques » vidée, bloc C10-C14 des « Décisions éditoriales » purgé — doublons de conventions.md) ; préservés : 3 items cadrage, validation d'ensemble, 4 items Pré-publication MVP (dont « vérifier lot Phase 0 GP »), 4 fiches d'alimentation continue + porte Pico-SDK, 3 SVG voie A. Au passage : premier pull post-réorganisation 3 branches sur PC pro — échecs Windows de suppression de dossiers (verrous) sans conséquence git ; coquilles vides `content/hub` et `content/fiches` supprimées à la main par Tim. Reste ouvert : déviation `micropython-serie`→`micropython-repl` toujours à valider par Tim.
+
+---
+
 ## 2026-06-10 (suite) — Réorganisation physique en 3 branches (dossiers) + repointage des liens index
 
 ### Périmètre

@@ -25,7 +25,7 @@ Un signal numérique n'est jamais exactement 0 V ou la tension d'alimentation : 
 
 Côté sortie, le composant garantit deux seuils : **VOL**, la tension maximale qu'il produit pour un « 0 », et **VOH**, la tension minimale qu'il produit pour un « 1 ». Côté entrée, il en attend deux autres : **VIL**, sous laquelle il lit un « 0 », et **VIH**, au-dessus de laquelle il lit un « 1 ». Entre VIL et VIH s'étend une **zone indéterminée**, où le niveau lu n'est pas garanti.
 
-Deux composants sont donc compatibles si le « 1 » émis dépasse le VIH attendu, si le « 0 » émis reste sous le VIL attendu, et si la tension émise ne dépasse pas la **tension maximale admissible** de l'entrée réceptrice. Le mélange 3,3 V / 5 V met justement ces conditions en défaut, de deux façons opposées :
+Deux composants sont donc compatibles si le « 1 » émis dépasse le VIH attendu, si le « 0 » émis reste sous le VIL attendu, et si la tension émise ne dépasse pas la **tension maximale admissible** de l'entrée réceptrice. L'écart entre le niveau émis et le seuil attendu — la **marge de bruit** — n'est pas du luxe : c'est lui qui absorbe les parasites du montage. Le mélange 3,3 V / 5 V met justement ces conditions en défaut, de deux façons opposées :
 
 - **un « 1 » à 3,3 V peut ne pas être lu par une entrée 5 V** : certaines entrées 5 V attendent un VIH proche de 3,5 V, et 3,3 V tombe alors dans la zone indéterminée — la communication échoue silencieusement ;
 - **un « 1 » à 5 V peut détruire une entrée 3,3 V** : la plupart des broches 3,3 V ne tolèrent qu'environ 3,6 V, et 5 V les met en surtension, ce qui peut griller la broche.
@@ -36,9 +36,12 @@ Le premier défaut fait perdre des heures de débogage ; le second coûte un com
 
 L'adaptation se range en trois cas, par ordre de préférence — la meilleure est souvent celle qu'on n'a pas à faire.
 
-**Vérifier d'abord : souvent, rien à adapter.** Avant d'ajouter un composant, lire les seuils dans la [[lire-une-datasheet|datasheet]] des deux côtés. Beaucoup d'entrées 5 V sont de type TTL (VIH ≈ 2 V) et lisent sans peine un « 1 » à 3,3 V ; beaucoup de broches 3,3 V sont déclarées tolérantes 5 V. Quand les plages se recouvrent, on relie directement, sans composant. Mieux encore : **choisir des composants de même tension de fonctionnement** dès le départ supprime le problème — un critère à intégrer au choix des capteurs et des actionneurs.
+**Vérifier d'abord : souvent, rien à adapter.** Avant d'ajouter un composant, lire les seuils dans la [[lire-une-datasheet|datasheet]] des deux côtés. Beaucoup d'entrées 5 V sont de type **TTL** — une famille logique historique aux seuils bas (VIH ≈ 2 V) — et lisent sans peine un « 1 » à 3,3 V ; beaucoup de broches 3,3 V sont déclarées tolérantes 5 V. Quand les plages se recouvrent, on relie directement, sans composant. Mieux encore : **choisir des composants de même tension de fonctionnement** dès le départ supprime le problème — un critère à intégrer au choix des capteurs et des actionneurs.
 
-**Abaisser une tension : le diviseur de tension.** Pour ramener un signal de 5 V vers 3,3 V, deux résistances en **diviseur de tension** suffisent : on prélève la tension au point milieu, dans un rapport fixé par les valeurs choisies. C'est la solution la moins chère, montable à la main, avec deux limites à connaître : elle ne fonctionne que dans **un seul sens** (abaisser, jamais élever) et elle **ralentit les fronts** du signal — réservée donc aux signaux lents.
+**Abaisser une tension : le diviseur de tension.** Pour ramener un signal de 5 V vers 3,3 V, deux résistances en **diviseur de tension** suffisent : on prélève la tension au point milieu, dans un rapport fixé par les valeurs choisies. C'est la solution la moins chère, montable à la main, avec trois limites à connaître : elle ne fonctionne que dans **un seul sens** (abaisser, jamais élever), elle **ralentit les fronts** du signal — réservée donc aux signaux lents — et elle **consomme en permanence** : le pont conduit du 5 V vers la masse tant qu'il est alimenté. Négligeable avec des valeurs élevées, mais à compter sur batterie.
+
+> [!warning] Attention
+> Un diviseur de tension adapte un **signal, jamais une alimentation**. Alimenter un montage 3,3 V par un pont diviseur depuis le 5 V ne marche pas : la tension s'effondre dès que le montage tire du courant, et l'énergie part en chaleur dans les résistances. Distribuer une tension d'alimentation est le rôle d'un régulateur — voir [[alimentation-electronique|Alimentation électronique]].
 
 **Adapter dans les deux sens : le convertisseur de niveau.** Pour **élever** un niveau (3,3 V vers 5 V), pour un échange **bidirectionnel**, ou pour un **bus rapide**, on emploie un **convertisseur de niveau** (*level shifter*) : un composant dédié, avec un côté basse tension et un côté haute tension, qui translate les niveaux dans les deux sens et sur plusieurs lignes à la fois. C'est la solution propre pour des bus comme l'[[i2c|I2C]] ou le SPI, où le diviseur de tension ne convient pas.
 
@@ -57,19 +60,21 @@ La règle générale se lit dans cet exemple : **du 3,3 V vers du 5 V, on risque
 
 **Croire qu'un « 0 » vaut 0 V et un « 1 » la tension d'alimentation.** Ce sont des plages garanties (VOL/VOH côté sortie, VIL/VIH côté entrée), pas des valeurs exactes ; entre les deux s'étend une zone où rien n'est garanti.
 
-**Brancher du 5 V sur une entrée 3,3 V « juste pour voir ».** La plupart des entrées 3,3 V ne tolèrent pas 5 V : l'essai peut détruire la broche, parfois la puce entière. La tension maximale se vérifie sur la [[lire-une-datasheet|datasheet]] avant de brancher, pas après.
+**Brancher du 5 V sur une entrée 3,3 V « juste pour voir ».** La plupart des entrées 3,3 V ne tolèrent pas 5 V : l'essai peut détruire la broche, parfois la puce entière. Le danger vaut autant pour une entrée analogique — une broche [[adc|ADC]] 3,3 V ne tolère pas davantage un capteur qui sort du 0-5 V. La tension maximale se vérifie sur la [[lire-une-datasheet|datasheet]] avant de brancher, pas après.
+
+**Confondre tension d'alimentation et niveau logique.** Un module alimenté en 5 V n'émet pas forcément des signaux à 5 V : beaucoup de cartes breakout embarquent un régulateur et des E/S déjà compatibles 3,3 V — et l'inverse existe. L'alimentation se lit sur une ligne de la datasheet, les niveaux logiques sur une autre.
 
 **Oublier la masse commune.** Comparer des niveaux n'a de sens que si les deux composants partagent la même référence de masse (GND). Sans masse commune, les tensions mesurées ne veulent plus rien dire.
 
-**Mettre un diviseur de tension sur un signal rapide.** Le diviseur ralentit les fronts du signal : il convient à une liaison lente, mais déforme un bus rapide comme le SPI ou l'I2C, qui appelle un convertisseur dédié.
+**Mettre un diviseur de tension sur un signal rapide.** Le diviseur ralentit les fronts du signal : il convient à une liaison lente et unidirectionnelle, mais déforme un bus rapide comme le SPI, qui appelle un convertisseur dédié. Quant à l'I2C, ce n'est pas sa vitesse qui disqualifie le diviseur, c'est sa bidirectionnalité (voir le cas particulier ci-dessous).
 
 **Adapter dans le mauvais sens.** Un diviseur abaisse (5 V → 3,3 V) ; il n'élève jamais 3,3 V vers 5 V. Pour élever, ou pour un échange bidirectionnel, seul un convertisseur convient.
 
-**Supposer la compatibilité sans vérifier.** Deux composants « 5 V » ne partagent pas forcément les mêmes seuils : une entrée TTL et une entrée CMOS diffèrent nettement. Les valeurs se lisent, elles ne se devinent pas.
+**Supposer la compatibilité sans vérifier.** Deux composants « 5 V » ne partagent pas forcément les mêmes seuils : une entrée TTL (seuils fixes hérités des familles historiques, VIH ≈ 2 V) et une entrée CMOS (seuils proportionnels à l'alimentation, VIH ≈ 0,7 × Valim) diffèrent nettement. Les valeurs se lisent, elles ne se devinent pas.
 
 ## Cas particulier — Open-drain et I2C
 
-Les bus en **collecteur ou drain ouvert** — dont l'[[i2c|I2C]] est le cas le plus courant — adaptent les niveaux autrement. Sur ces lignes, aucun composant ne **pousse** activement l'état haut : chacun ne fait que **tirer la ligne vers le bas**, et une résistance de tirage (*pull-up*) ramène la ligne à l'état haut au repos. La tension de la ligne est alors fixée par celle vers laquelle pointe le pull-up, pas par les composants eux-mêmes.
+Les bus en **collecteur ou drain ouvert** — dont l'[[i2c|I2C]] est le cas le plus courant — adaptent les niveaux autrement. Sur ces lignes, aucun composant ne **pousse** activement l'état haut : chacun ne fait que **tirer la ligne vers le bas**, et une [[gpio|résistance de tirage]] (*pull-up*) ramène la ligne à l'état haut au repos. La tension de la ligne est alors fixée par celle vers laquelle pointe le pull-up, pas par les composants eux-mêmes.
 
 Conséquence pratique : un composant 3,3 V et un composant 5 V peuvent parfois cohabiter sur un même bus I2C tiré à 3,3 V, si le composant 5 V accepte 3,3 V comme niveau haut. Mais dès que les tensions divergent vraiment, la solution propre reste un **convertisseur de niveau bidirectionnel** prévu pour l'open-drain, qui gère les deux lignes (SDA et SCL) à la fois.
 
