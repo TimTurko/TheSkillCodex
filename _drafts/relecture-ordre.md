@@ -81,10 +81,10 @@ Verdict : OK / a corriger
 - [x] `chaine-energie` — 🖼✅ *(relue 11/06 : agir explicité, lien rouge boucle-fermee, tip composants par bloc)*
 - [x] `analyse-de-schema-electronique` — 🖼✅ *(enrichie et validée 11/06 ; reprise SVG zones : C3 derrière le bloc MCU → session SVG future)*
 - [x] `lire-une-datasheet` — 🖼 *(validée 11/06 : flèche moteur B corrigée, restructurée en 2 parties + sommaire, lecture commentée L298N — 6 captures C29 à récolter, ancres du sommaire à clic-tester ; enrichissement futur → TODO)*
-- [ ] `instruments-de-mesure` — 🖼 *(enrichie 11/06 : callout TBT, paragraphe qualité d'instrument, liens analyseur/GBF)*
-- [ ] `generateur-de-signaux` — 🖼 *(créée 11/06, SVG injection + capture face avant à prendre)*
-- [ ] `analyseur-logique` — 🖼 *(créée 11/06, SVG branchement + capture PulseView à prendre, tableau C66)*
-- [ ] `precision-de-mesure` — 🖼 *(créée 11/06, SVG 4 cibles)*
+- [x] `instruments-de-mesure` — 🖼✅ *(enrichie et validée 11/06 : callout TBT, paragraphe qualité d'instrument, liens analyseur/GBF)*
+- [x] `generateur-de-signaux` — 🖼✅ *(créée et validée 11/06 — capture face avant à prendre)*
+- [x] `analyseur-logique` — 🖼✅ *(créée et validée 11/06, tableau C66 — capture PulseView à prendre)*
+- [x] `precision-de-mesure` — 🖼✅ *(créée et validée 11/06, SVG 4 cibles)*
 - [ ] `multimetre` — 🖼 ⚠ géométrie du circuit série/parallèle
 - [ ] `oscilloscope`
 

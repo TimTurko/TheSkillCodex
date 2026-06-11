@@ -35,8 +35,8 @@
   <line x1="199" y1="283" x2="199" y2="297" class="bat" stroke-width="3.4"/>
   <rect x="291" y="195" width="18" height="60" rx="2" class="comp"/>
   <text x="320" y="229" class="clbl">R</text>
-  <line x1="300" y1="195" x2="352" y2="213" class="wire"/>
-  <line x1="300" y1="255" x2="352" y2="237" class="wire"/>
+  <line x1="300" y1="195" x2="354" y2="217" class="wire"/>
+  <line x1="300" y1="255" x2="354" y2="233" class="wire"/>
   <circle cx="374" cy="225" r="22" class="meter"/>
   <text x="374" y="231" class="mlbl">V</text>
   <text x="236" y="324" class="cap">aux bornes du composant — le circuit reste fermé</text>

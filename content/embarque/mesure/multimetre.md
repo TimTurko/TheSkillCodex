@@ -23,7 +23,7 @@ draft: false
 Les fonctions courantes d'un multimètre :
 
 - **tension continue (V⎓ / DC)** — vérifier une alimentation (5 V, 3,3 V, tension d'une pile), relever un niveau logique ;
-- **tension alternative (V∼ / AC)** — mesurer une tension du secteur ou un signal alternatif (valeur efficace) ;
+- **tension alternative (V∼ / AC)** — mesurer un signal alternatif (valeur **efficace**) — rare dans un projet qui vit en continu ; le secteur 230 V reste hors périmètre (cf. [[instruments-de-mesure|le hub]], *Périmètre de tension*) ;
 - **résistance (Ω)** — lire la valeur d'une résistance, vérifier un capteur résistif (thermistance, photorésistance) ;
 - **continuité** — un bip quand la résistance est quasi nulle : tester en quelques secondes si une piste, une soudure ou un câble est bien connecté ;
 - **courant (A)** — mesurer le courant consommé par un montage (en série, voir plus bas) ;
@@ -39,9 +39,12 @@ Pour les signaux qui **varient dans le temps** ([[pwm|PWM]], trame série, rebon
    - **tension** → pointes **en parallèle** sur les deux points entre lesquels on veut la différence de potentiel (le circuit reste alimenté) ;
    - **résistance / continuité** → composant **hors tension**, idéalement isolé du reste du circuit ;
    - **courant** → **en série**, en ouvrant le circuit pour y insérer le multimètre.
-4. **Lire la valeur** et son unité, en tenant compte du calibre.
+4. **Lire la valeur** et son unité, en tenant compte du calibre — et sans sur-interpréter le dernier chiffre : [[precision-de-mesure|résolution n'est pas précision]].
 
 ![Deux montages comparés : à gauche un voltmètre branché en parallèle aux bornes d'une résistance (circuit fermé), à droite un ampèremètre inséré en série dans le circuit (ouvert pour le placer).](/ressources/img/multimetre-serie-parallele.svg)
+
+> [!tip] Mesurer un courant sans couper le circuit
+> Le réflexe de terrain : mesurer la **tension aux bornes d'une résistance connue** du circuit, puis diviser — I = V / R. Pas de circuit à ouvrir, pas de fusible en jeu. C'est le principe des broches *Sense* croisées dans [[lire-une-datasheet|la datasheet du L298N]].
 
 > [!tip]
 > **Le mode continuité est le meilleur ami du dépannage.** Avant de soupçonner un composant, on vérifie au bip que chaque liaison est bien établie : un câble coupé, une soudure froide ou une piste fêlée se trouvent en quelques secondes, montage éteint.
@@ -60,7 +63,7 @@ En trois mesures simples, on a localisé si le problème vient de l'alimentation
 
 ## Pièges
 
-**Ampèremètre laissé en position courant, rebranché en parallèle.** L'erreur classique : après une mesure de courant, on oublie de remettre le cordon rouge dans la borne V/Ω et de repasser le sélecteur en tension. La fois suivante, on pose les pointes en parallèle « pour mesurer une tension » — mais l'appareil est encore en ampèremètre : court-circuit, **fusible grillé**. Réflexe : revenir en mesure de tension dès qu'on a fini une mesure de courant.
+**Ampèremètre laissé en position courant, rebranché en parallèle.** L'erreur classique : après une mesure de courant, on oublie de remettre le cordon rouge dans la borne V/Ω et de repasser le sélecteur en tension. La fois suivante, on pose les pointes en parallèle « pour mesurer une tension » — mais l'appareil est encore en ampèremètre : court-circuit, **fusible grillé** — le fusible interne est précisément un organe de [[protection-electronique|protection]] : il s'est sacrifié pour l'appareil. Réflexe : revenir en mesure de tension dès qu'on a fini une mesure de courant.
 
 **Mesurer une résistance sous tension.** La fonction ohmmètre injecte son propre courant : appliquée à un circuit alimenté, elle donne n'importe quoi et peut endommager l'appareil. On mesure une résistance **hors tension**.
 
