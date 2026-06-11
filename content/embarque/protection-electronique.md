@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-Les **protections électroniques** rendent les fautes courantes — court-circuit, inversion de polarité, surtension — **non destructrices** : la faute coûte un fusible ou une seconde de repli, pas une carte. Elles se conçoivent en partant du principe qu'on **se trompera** au branchement, et se placent en tête d'alimentation, entre le connecteur d'entrée et les rails.
+Les **protections électroniques** rendent les fautes courantes — court-circuit, inversion de polarité, surtension, décharge électrostatique — **non destructrices** : la faute coûte un fusible ou une seconde de repli, pas une carte. Elles se conçoivent en partant du principe qu'on **se trompera** au branchement, et se placent en tête d'alimentation, entre le connecteur d'entrée et les rails.
 
 ![Étage de protection en tête d'alimentation : le connecteur d'entrée alimente un bloc anti-inversion (diode ou MOSFET-P), puis un fusible, puis un nœud d'où une diode TVS écrête vers la masse, avant la distribution vers les rails. Trois fautes annotées : l'inversion de polarité est bloquée par le premier bloc, le court-circuit en aval est coupé par le fusible, la surtension est écrêtée par la TVS.](/ressources/img/protection-electronique-generique.svg)
 
@@ -28,10 +28,16 @@ Sur la durée d'un projet, les trois fautes finiront par arriver : un fil qui gl
 
 **Contre l'inversion de polarité : bloquer ou détromper.** Une **diode en série** bloque le branchement à l'envers — simple, mais elle chute ~0,7 V (~0,3 V pour une Schottky) et chauffe sous fort courant. Un **MOSFET-P** monté en anti-inversion fait le même travail avec une chute négligeable : c'est la solution propre au-delà de quelques centaines de mA. La meilleure protection reste toutefois **mécanique** : un connecteur détrompé (XT60, JST polarisé) rend la faute physiquement impossible — à choisir dès la conception.
 
-**Contre la surtension : écrêter.** Une **diode TVS** (ou une Zener) montée en parallèle écrête les pics — décharge électrostatique, transitoire de la source — vers la masse, avant qu'ils n'atteignent les circuits. Cas particulier obligatoire : toute **charge inductive** (relais, moteur CC) renvoie une surtension à sa coupure ; une **diode de roue libre** à ses bornes la recycle, sans quoi le transistor qui la commande meurt en quelques cycles.
+**Contre la surtension : écrêter.** Une **diode TVS** (ou une Zener) montée en parallèle écrête les pics de tension — transitoire de la source, rebond à la coupure d'une charge — vers la masse, avant qu'ils n'atteignent les circuits. Elle se choisit à la tension du rail : transparente en fonctionnement normal, conductrice dès que la tension s'emballe.
+
+**Contre la surtension de coupure des inductifs : la diode de roue libre.** Une bobine — relais, moteur CC, électrovanne — s'oppose aux variations de son courant : à l'ouverture du transistor qui la commande, elle génère une surtension de plusieurs dizaines de volts pour maintenir son courant, et c'est le transistor qui encaisse. Une **diode de roue libre** montée en inverse aux bornes de la bobine offre un chemin de recirculation : le courant s'y éteint doucement, le transistor survit. Elle est **obligatoire** sur toute charge inductive commandée — et souvent déjà intégrée aux drivers et modules relais du commerce, à vérifier dans la datasheet.
+
+**Contre les décharges électrostatiques (ESD) : protéger les lignes exposées — et les mains.** Un corps humain chargé porte plusieurs **kilovolts** : toucher une broche suffit à claquer une entrée CMOS, immédiatement ou en la fragilisant pour plus tard. Côté circuit, des **diodes TVS spécifiques ESD** se placent sur toute ligne accessible de l'extérieur — connecteur USB, bornier, boutons. Côté manipulation, les gestes comptent autant que les composants : toucher une masse avant de saisir une carte, tenir les cartes par les bords, conserver les composants dans leurs sachets antistatiques.
+
+**Les organes complémentaires.** Trois protections existent souvent *déjà* dans le système, à connaître pour ne pas les doubler inutilement : la **protection thermique** intégrée aux régulateurs modernes (ils se coupent en surchauffe) ; le ***brown-out detector*** du microcontrôleur, qui le maintient en reset quand son alimentation descend sous un seuil au lieu de le laisser dérailler ; et le **BMS** (*battery management system*) des batteries lithium, indispensable contre la surcharge et la décharge profonde. Enfin, quand puissance et commande doivent être franchement séparées, un **optocoupleur** isole galvaniquement les deux mondes — aucun chemin électrique, le signal passe par la lumière.
 
 > [!tip] Astuce
-> **Références éprouvées** — fusible verre 5×20 + porte-fusible ; polyfuse PTC réarmable ; Schottky **1N5819** ou **SS34** (anti-inversion légère, roue libre rapide) ; **1N4007** (roue libre des relais) ; MOSFET-P **AO3401** (petits courants) ou **IRF4905** (forts courants) ; TVS série **SMBJ** choisie à la tension du rail. Des familles stables et courantes : partir d'elles, vérifier la disponibilité et lire la datasheet avant d'acheter.
+> **Références éprouvées** — fusible verre 5×20 + porte-fusible ; polyfuse PTC réarmable ; Schottky **1N5819** ou **SS34** (anti-inversion légère, roue libre rapide) ; **1N4007** (roue libre des relais) ; MOSFET-P **AO3401** (petits courants) ou **IRF4905** (forts courants) ; TVS série **SMBJ** choisie à la tension du rail ; pour l'ESD des lignes de données, **USBLC6** ou famille **PESD**. Des familles stables et courantes : partir d'elles, vérifier la disponibilité et lire la datasheet avant d'acheter.
 
 ## Exemple — le bras 3 axes
 
@@ -46,6 +52,8 @@ Sur le bras du fil rouge, l'étage d'entrée enchaîne les trois parades : un **
 **Compter sur une diode série sous fort courant.** À 2 A, une diode classique dissipe ~1,4 W et vole 0,7 V au rail. Au-delà de quelques centaines de mA, le MOSFET-P s'impose.
 
 **Oublier la roue libre d'une charge inductive.** Relais ou moteur commandé par un transistor sans diode de roue libre : le transistor meurt à la coupure, première ou centième — mais il meurt.
+
+**Saisir une carte par ses broches.** Les kilovolts d'une décharge électrostatique ne se sentent même pas — le composant, lui, les sent. Par les bords, après avoir touché une masse.
 
 **Croire que l'étage d'entrée protège tout.** Il protège l'alimentation, pas les broches : une GPIO en court-circuit ou recevant une tension trop haute se protège localement — résistance série, et compatibilité des [[niveaux-de-tension|niveaux de tension]].
 
