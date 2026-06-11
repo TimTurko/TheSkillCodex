@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="ta da">
+  <title id="ta">Branchement d'un analyseur logique sur un bus I2C</title>
+  <desc id="da">Un microcontrôleur et un capteur dialoguent par un bus I2C à deux lignes, SDA et SCL. Un analyseur logique USB se branche en dérivation : sa voie CH0 pique la ligne SDA, sa voie CH1 pique la ligne SCL, et sa masse rejoint la masse du montage — à brancher en premier. L'analyseur se relie en USB à un PC où le logiciel PulseView affiche et décode les trames.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;fill:#2C2C2A;letter-spacing:.2px;}
+      .box{fill:#DDDBD3;stroke:#888780;stroke-width:1.8;}
+      .boxa{fill:#DDDBD3;stroke:#BA7517;stroke-width:2;}
+      .bt{font:700 12.5px sans-serif;fill:#2C2C2A;}
+      .bs{font:400 11px sans-serif;fill:#888780;}
+      .bus{stroke:#888780;stroke-width:2;fill:none;}
+      .tap{stroke:#BA7517;stroke-width:2;fill:none;}
+      .tapdot{fill:#BA7517;}
+      .tlbl{font:700 11.5px sans-serif;fill:#BA7517;}
+      .gndl{stroke:#888780;stroke-width:1.4;fill:none;stroke-dasharray:5 3;}
+      .wire{stroke:#888780;stroke-width:1.8;fill:none;marker-end:url(#aa2);}
+      .cap{font:italic 400 11.5px sans-serif;fill:#888780;}
+      .blbl{font:400 11.5px sans-serif;fill:#888780;}
+      .aaf{fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .box{fill:#4A4A48;stroke:#BBBBBB;} .boxa{fill:#4A4A48;stroke:#EF9F27;}
+        .bt{fill:#F1EFE8;} .bs{fill:#BBBBBB;} .bus{stroke:#BBBBBB;}
+        .tap{stroke:#EF9F27;} .tapdot{fill:#EF9F27;} .tlbl{fill:#EF9F27;}
+        .gndl{stroke:#BBBBBB;} .wire{stroke:#BBBBBB;} .cap{fill:#BBBBBB;} .blbl{fill:#BBBBBB;} .aaf{fill:#BBBBBB;}
+      }
+    </style>
+    <marker id="aa2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="aaf"/></marker>
+  </defs>
+
+  <text x="360" y="28" class="ttl" text-anchor="middle">Brancher un analyseur logique sur un bus (exemple I²C)</text>
+
+  <!-- Blocs du montage -->
+  <rect x="55" y="70" width="140" height="90" rx="10" class="box"/>
+  <text x="125" y="105" class="bt" text-anchor="middle">Microcontrôleur</text>
+  <text x="125" y="123" class="bs" text-anchor="middle">maître I²C</text>
+
+  <rect x="525" y="70" width="140" height="90" rx="10" class="box"/>
+  <text x="595" y="105" class="bt" text-anchor="middle">Capteur</text>
+  <text x="595" y="123" class="bs" text-anchor="middle">esclave I²C</text>
+
+  <!-- Bus -->
+  <line x1="195" y1="98" x2="525" y2="98" class="bus"/>
+  <text x="360" y="90" class="blbl" text-anchor="middle">SDA</text>
+  <line x1="195" y1="138" x2="525" y2="138" class="bus"/>
+  <text x="360" y="130" class="blbl" text-anchor="middle">SCL</text>
+
+  <!-- Analyseur -->
+  <rect x="270" y="235" width="180" height="85" rx="10" class="boxa"/>
+  <text x="360" y="268" class="bt" text-anchor="middle">Analyseur logique</text>
+  <text x="360" y="286" class="bs" text-anchor="middle">8 voies · USB</text>
+
+  <!-- Dérivations (taps) -->
+  <line x1="330" y1="235" x2="330" y2="98" class="tap"/>
+  <circle cx="330" cy="98" r="4.5" class="tapdot"/>
+  <text x="322" y="195" class="tlbl" text-anchor="end">CH0</text>
+  <line x1="390" y1="235" x2="390" y2="138" class="tap"/>
+  <circle cx="390" cy="138" r="4.5" class="tapdot"/>
+  <text x="398" y="195" class="tlbl" text-anchor="start">CH1</text>
+
+  <!-- GND commun -->
+  <path d="M 270,292 L 125,292 L 125,160" class="gndl"/>
+  <text x="192" y="312" class="cap" text-anchor="middle">GND commun — à brancher en premier</text>
+
+  <!-- USB vers PC -->
+  <line x1="450" y1="277" x2="504" y2="277" class="wire"/>
+  <text x="477" y="268" class="blbl" text-anchor="middle">USB</text>
+  <rect x="510" y="242" width="155" height="70" rx="10" class="box"/>
+  <text x="587" y="270" class="bt" text-anchor="middle">PC · PulseView</text>
+  <text x="587" y="288" class="bs" text-anchor="middle">décodeurs UART · I²C · SPI</text>
+
+  <text x="360" y="346" class="cap" text-anchor="middle">L'analyseur se branche en dérivation : il écoute les lignes sans couper le bus.</text>
+</svg>

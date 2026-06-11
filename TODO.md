@@ -16,6 +16,7 @@
 
 ### 2. Rédaction de fiches
 
+- [ ] **Enrichir `lire-une-datasheet` partie 2** (« Lecture de la datasheet du L298N », restructurée 11/06) — souhait Tim 11/06 : approfondir la lecture commentée plus tard (autres extraits annotés, exercices, etc. — périmètre à cadrer en session dédiée).
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases. *(Largement portée par la relecture humaine en cours via `_drafts/relecture-ordre.md`.)*
 
 *Fiches restantes (alimentation continue, non bloquantes pour la publication) :*

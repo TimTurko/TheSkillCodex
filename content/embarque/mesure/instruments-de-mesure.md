@@ -19,7 +19,7 @@ draft: false
 
 ## À quoi ça sert ?
 
-Un montage qui « devrait marcher » d'après le schéma et la simulation ne marche pas toujours sur la table : une soudure froide, une pile fatiguée, un composant monté à l'envers, un niveau de tension incompatible. La mesure est le seul moyen de savoir ce qui se passe réellement. Elle sert à :
+Un montage qui « devrait marcher » d'après le schéma et la simulation ne marche pas toujours sur la table : une soudure froide, une pile fatiguée, un composant monté à l'envers, un [[niveaux-de-tension|niveau de tension]] incompatible. La mesure est le seul moyen de savoir ce qui se passe réellement. Elle sert à :
 
 - **diagnostiquer** — « pourquoi ça ne marche pas ? » : y a-t-il bien 5 V à cette broche ? la piste est-elle continue ? le signal sort-il du capteur ?
 - **valider** — confirmer qu'un sous-ensemble produit la tension, le courant ou la forme d'onde attendus, avant de l'intégrer ;
@@ -36,8 +36,8 @@ Chaque instrument répond à une question différente. Le premier réflexe est d
 | --- | --- | --- |
 | [[multimetre\|Multimètre]] | tension, courant, résistance, continuité (valeurs **continues ou lentes**) | « quelle est la valeur ici ? » |
 | [[oscilloscope\|Oscilloscope]] | tension **en fonction du temps** (signaux **rapides**, forme d'onde) | « quelle est la *forme* de ce signal ? » |
-| Analyseur logique *(à venir)* | états logiques de plusieurs lignes numériques simultanées | « que disent ces lignes de [[bus-de-communication\|bus]] ? » |
-| Générateur de signaux *(à venir)* | *injecte* un signal calibré (ce n'est pas une mesure) | « comment réagit le montage à *cette* entrée ? » |
+| [[analyseur-logique\|Analyseur logique]] | états logiques de plusieurs lignes numériques simultanées | « que disent ces lignes de [[bus-de-communication\|bus]] ? » |
+| [[generateur-de-signaux\|Générateur de signaux (GBF)]] | *injecte* un signal calibré (ce n'est pas une mesure) | « comment réagit le montage à *cette* entrée ? » |
 
 Le partage essentiel : le **multimètre donne une valeur** (un nombre, lentement), l'**oscilloscope montre une forme** (l'évolution dans le temps, vite). Vérifier une alimentation se fait au multimètre ; observer un signal PWM, un rebond de bouton ou une trame série demande un oscilloscope.
 
@@ -51,13 +51,18 @@ Quel que soit l'instrument, une mesure suit le même enchaînement.
 4. **Lire** la valeur ou la courbe, en notant l'unité et l'échelle.
 5. **Confronter à l'attendu.** Une mesure ne vaut que rapportée à un ordre de grandeur attendu, comme en simulation — étape traitée juste en dessous.
 
+> [!warning] Périmètre de tension
+> Le projet se mène en **très basse tension** : piles, USB, alimentations de laboratoire. Le **secteur 230 V ne se mesure pas** dans le cadre du projet — c'est un autre univers de précautions, d'instruments et d'habilitations → [[basse-tension|basse tension]].
+
 ## Interpréter une mesure
 
 Relever un chiffre ne suffit pas : encore faut-il savoir ce qu'il vaut. Trois gestes, symétriques de ceux de la [[simulation-electronique|simulation]].
 
 **Lire la grandeur.** Identifier l'unité, l'échelle et le calibre avant de conclure. « 2,5 » ne veut rien dire sans savoir si ce sont des volts, des millivolts ou des ampères, ni si le calibre est adapté. Sur un oscilloscope, vérifier le réglage de la sonde (×1 / ×10) avant de lire une amplitude.
 
-**Confronter à l'attendu.** Comparer la mesure à ce que prédit la théorie, la [[lire-une-datasheet|datasheet]] ou la [[simulation-electronique|simulation]]. Une alimentation régulée 5 V *doit* afficher entre 4,75 et 5,25 V : si le multimètre lit 3,2 V, l'alimentation s'écroule sous charge ; s'il lit 0 V, un fil manque. **Une mesure se valide d'abord sur un point dont on connaît la réponse** (la tension d'une pile, une résistance marquée).
+**Connaître la qualité de l'instrument.** Une mesure hérite des défauts de l'instrument : sa [[precision-de-mesure|précision]] réelle — affaire de **justesse** et de **fidélité** — se lit dans sa propre documentation, et le dernier chiffre affiché n'est pas une garantie (résolution n'est pas précision). À garder en tête avant de commenter un écart de quelques pour cent.
+
+**Confronter à l'attendu.** Comparer la mesure à ce que prédit la théorie, la [[lire-une-datasheet|datasheet]] ou la [[simulation-electronique|simulation]]. Une alimentation régulée 5 V *doit* afficher entre 4,75 et 5,25 V : si le multimètre lit 3,2 V, l'alimentation s'écroule probablement sous charge ; s'il lit 0 V, un fil manque. **Une mesure se valide d'abord sur un point dont on connaît la réponse** (la tension d'une pile, une résistance marquée).
 
 **Décider.** Trois issues : le sous-ensemble est **validé** (on l'intègre) ; il est **à revoir** (une valeur ne convient pas, on corrige le montage) ; ou la mesure est **aberrante** — et une mesure aberrante trahit le plus souvent un **problème de branchement, de calibre ou de masse**, pas une physique exotique. Devant l'invraisemblable, on vérifie d'abord la mesure elle-même.
 
@@ -88,6 +93,9 @@ Relever un chiffre ne suffit pas : encore faut-il savoir ce qu'il vaut. Trois ge
 
 - [[multimetre|Multimètre]] — mesurer tension, courant, résistance, continuité (tuto outil)
 - [[oscilloscope|Oscilloscope]] — observer une forme d'onde dans le temps (tuto outil)
+- [[generateur-de-signaux|Générateur de signaux (GBF)]] — injecter un signal calibré : tester par stimulus connu (tuto outil)
+- [[analyseur-logique|Analyseur logique]] — suivre et décoder plusieurs lignes numériques (tuto outil)
+- [[precision-de-mesure|Précision, justesse, fidélité]] — ce que vaut vraiment le chiffre affiché
 - [[simulation-electronique|Simulation électronique]] — le pendant logiciel : calculer l'attendu avant de câbler
 - [[chronogramme|Chronogramme]] — lire une forme d'onde, idéale comme réelle
 - [[analyse-de-schema-electronique|Analyser un schéma électronique]] — savoir *ce* qu'on mesure avant de le mesurer (prérequis)

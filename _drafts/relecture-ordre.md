@@ -80,8 +80,11 @@ Verdict : OK / a corriger
 - [x] `protection-electronique` — 🖼✅ *(créée, complétée et validée 11/06 — 6 SVG)*
 - [x] `chaine-energie` — 🖼✅ *(relue 11/06 : agir explicité, lien rouge boucle-fermee, tip composants par bloc)*
 - [x] `analyse-de-schema-electronique` — 🖼✅ *(enrichie et validée 11/06 ; reprise SVG zones : C3 derrière le bloc MCU → session SVG future)*
-- [ ] `lire-une-datasheet` — 🖼 ⚠ sens des 2 flèches moteur (L298N)
-- [ ] `instruments-de-mesure`
+- [x] `lire-une-datasheet` — 🖼 *(validée 11/06 : flèche moteur B corrigée, restructurée en 2 parties + sommaire, lecture commentée L298N — 6 captures C29 à récolter, ancres du sommaire à clic-tester ; enrichissement futur → TODO)*
+- [ ] `instruments-de-mesure` — 🖼 *(enrichie 11/06 : callout TBT, paragraphe qualité d'instrument, liens analyseur/GBF)*
+- [ ] `generateur-de-signaux` — 🖼 *(créée 11/06, SVG injection + capture face avant à prendre)*
+- [ ] `analyseur-logique` — 🖼 *(créée 11/06, SVG branchement + capture PulseView à prendre, tableau C66)*
+- [ ] `precision-de-mesure` — 🖼 *(créée 11/06, SVG 4 cibles)*
 - [ ] `multimetre` — 🖼 ⚠ géométrie du circuit série/parallèle
 - [ ] `oscilloscope`
 

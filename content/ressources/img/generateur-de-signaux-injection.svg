@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="tg dg">
+  <title id="tg">Principe du générateur de signaux : injecter un stimulus connu, observer la réponse</title>
+  <desc id="dg">Chaîne de test en trois blocs reliés par des flèches : le générateur de signaux injecte un signal maîtrisé, ici un sinus, dans le montage à tester ; l'oscilloscope observe la réponse en sortie, un sinus atténué. Les trois appareils partagent une masse commune représentée par un rail en bas du schéma. Le signal injecté est connu en forme, fréquence et amplitude, ce qui permet de comparer la réponse à l'attendu.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;fill:#2C2C2A;letter-spacing:.2px;}
+      .box{fill:#DDDBD3;stroke:#888780;stroke-width:1.8;}
+      .boxa{fill:#DDDBD3;stroke:#BA7517;stroke-width:2;}
+      .bt{font:700 12.5px sans-serif;fill:#2C2C2A;}
+      .bs{font:400 11px sans-serif;fill:#888780;}
+      .wire{stroke:#888780;stroke-width:1.8;fill:none;marker-end:url(#ag);}
+      .sig{stroke:#BA7517;stroke-width:2;fill:none;}
+      .gndl{stroke:#888780;stroke-width:1.4;fill:none;stroke-dasharray:5 3;}
+      .cap{font:italic 400 11.5px sans-serif;fill:#888780;}
+      .agf{fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .box{fill:#4A4A48;stroke:#BBBBBB;} .boxa{fill:#4A4A48;stroke:#EF9F27;}
+        .bt{fill:#F1EFE8;} .bs{fill:#BBBBBB;} .wire{stroke:#BBBBBB;} .sig{stroke:#EF9F27;}
+        .gndl{stroke:#BBBBBB;} .cap{fill:#BBBBBB;} .agf{fill:#BBBBBB;}
+      }
+    </style>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="agf"/></marker>
+  </defs>
+
+  <text x="360" y="28" class="ttl" text-anchor="middle">Injecter un signal connu, observer la réponse</text>
+
+  <!-- Blocs -->
+  <rect x="55" y="105" width="155" height="80" rx="10" class="boxa"/>
+  <text x="132" y="138" class="bt" text-anchor="middle">Générateur</text>
+  <text x="132" y="155" class="bt" text-anchor="middle">de signaux (GBF)</text>
+  <text x="132" y="172" class="bs" text-anchor="middle">stimulus maîtrisé</text>
+
+  <rect x="282" y="105" width="165" height="80" rx="10" class="box"/>
+  <text x="364" y="138" class="bt" text-anchor="middle">Montage testé</text>
+  <text x="364" y="155" class="bs" text-anchor="middle">filtre, étage capteur,</text>
+  <text x="364" y="170" class="bs" text-anchor="middle">entrée ADC…</text>
+
+  <rect x="515" y="105" width="150" height="80" rx="10" class="box"/>
+  <text x="590" y="138" class="bt" text-anchor="middle">Oscilloscope</text>
+  <text x="590" y="155" class="bs" text-anchor="middle">réponse observée</text>
+
+  <!-- Liaisons signal -->
+  <line x1="210" y1="145" x2="276" y2="145" class="wire"/>
+  <path d="M 218,122 q 6,-12 12,0 q 6,12 12,0 q 6,-12 12,0 q 6,12 12,0" class="sig"/>
+  <line x1="447" y1="145" x2="509" y2="145" class="wire"/>
+  <path d="M 456,124 q 6,-7 12,0 q 6,7 12,0 q 6,-7 12,0 q 6,7 12,0" class="sig"/>
+
+  <text x="243" y="108" class="cap" text-anchor="middle">signal injecté</text>
+  <text x="478" y="110" class="cap" text-anchor="middle">réponse</text>
+
+  <!-- Masse commune -->
+  <line x1="132" y1="185" x2="132" y2="252" class="gndl"/>
+  <line x1="364" y1="185" x2="364" y2="252" class="gndl"/>
+  <line x1="590" y1="185" x2="590" y2="252" class="gndl"/>
+  <line x1="132" y1="252" x2="590" y2="252" class="gndl"/>
+  <text x="360" y="276" class="cap" text-anchor="middle">masse commune — générateur, montage et oscilloscope partagent la même référence</text>
+
+  <text x="360" y="306" class="cap" text-anchor="middle">Forme, fréquence et amplitude du stimulus sont choisies : la réponse se compare à un attendu.</text>
+</svg>

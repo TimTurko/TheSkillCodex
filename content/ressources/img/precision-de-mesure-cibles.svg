@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-labelledby="tp dp">
+  <title id="tp">Justesse et fidélité : les quatre cibles</title>
+  <desc id="dp">Quatre cibles illustrent les combinaisons de justesse et de fidélité. La croix centrale représente la valeur vraie, les points représentent des mesures répétées. Première cible : points groupés au centre, mesure juste et fidèle, c'est l'exactitude. Deuxième cible : points groupés mais décalés du centre, mesure fidèle mais pas juste, erreur systématique. Troisième cible : points dispersés mais centrés en moyenne, mesure juste mais pas fidèle, erreur aléatoire. Quatrième cible : points dispersés et décalés, mesure ni juste ni fidèle.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;fill:#2C2C2A;letter-spacing:.2px;}
+      .ring{fill:none;stroke:#888780;stroke-width:1.6;}
+      .cross{stroke:#888780;stroke-width:1.8;}
+      .dot{fill:#BA7517;}
+      .lbl{font:700 12px sans-serif;fill:#2C2C2A;}
+      .sub{font:italic 400 11.5px sans-serif;fill:#888780;}
+      .leg{font:400 11.5px sans-serif;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .ring{stroke:#BBBBBB;} .cross{stroke:#BBBBBB;}
+        .dot{fill:#EF9F27;} .lbl{fill:#F1EFE8;} .sub{fill:#BBBBBB;} .leg{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="ttl" text-anchor="middle">La « précision » a deux visages : justesse et fidélité</text>
+
+  <!-- Légende -->
+  <line x1="218" y1="48" x2="230" y2="48" class="cross"/>
+  <line x1="224" y1="42" x2="224" y2="54" class="cross"/>
+  <text x="238" y="52" class="leg" text-anchor="start">valeur vraie</text>
+  <circle cx="352" cy="48" r="5" class="dot"/>
+  <text x="364" y="52" class="leg" text-anchor="start">mesures répétées</text>
+
+  <!-- Cible A : juste et fidèle -->
+  <circle cx="180" cy="150" r="56" class="ring"/>
+  <circle cx="180" cy="150" r="38" class="ring"/>
+  <circle cx="180" cy="150" r="20" class="ring"/>
+  <line x1="172" y1="150" x2="188" y2="150" class="cross"/>
+  <line x1="180" y1="142" x2="180" y2="158" class="cross"/>
+  <circle cx="176" cy="146" r="5" class="dot"/>
+  <circle cx="185" cy="153" r="5" class="dot"/>
+  <circle cx="178" cy="155" r="5" class="dot"/>
+  <circle cx="184" cy="144" r="5" class="dot"/>
+  <circle cx="181" cy="150" r="5" class="dot"/>
+  <text x="180" y="226" class="lbl" text-anchor="middle">juste et fidèle</text>
+  <text x="180" y="243" class="sub" text-anchor="middle">la mesure est exacte</text>
+
+  <!-- Cible B : fidèle mais pas juste -->
+  <circle cx="540" cy="150" r="56" class="ring"/>
+  <circle cx="540" cy="150" r="38" class="ring"/>
+  <circle cx="540" cy="150" r="20" class="ring"/>
+  <line x1="532" y1="150" x2="548" y2="150" class="cross"/>
+  <line x1="540" y1="142" x2="540" y2="158" class="cross"/>
+  <circle cx="566" cy="124" r="5" class="dot"/>
+  <circle cx="574" cy="131" r="5" class="dot"/>
+  <circle cx="568" cy="133" r="5" class="dot"/>
+  <circle cx="575" cy="123" r="5" class="dot"/>
+  <circle cx="570" cy="128" r="5" class="dot"/>
+  <text x="540" y="226" class="lbl" text-anchor="middle">fidèle mais pas juste</text>
+  <text x="540" y="243" class="sub" text-anchor="middle">erreur systématique — un biais constant</text>
+
+  <!-- Cible C : juste mais pas fidèle -->
+  <circle cx="180" cy="340" r="56" class="ring"/>
+  <circle cx="180" cy="340" r="38" class="ring"/>
+  <circle cx="180" cy="340" r="20" class="ring"/>
+  <line x1="172" y1="340" x2="188" y2="340" class="cross"/>
+  <line x1="180" y1="332" x2="180" y2="348" class="cross"/>
+  <circle cx="158" cy="325" r="5" class="dot"/>
+  <circle cx="205" cy="330" r="5" class="dot"/>
+  <circle cx="170" cy="360" r="5" class="dot"/>
+  <circle cx="198" cy="356" r="5" class="dot"/>
+  <circle cx="165" cy="342" r="5" class="dot"/>
+  <text x="180" y="416" class="lbl" text-anchor="middle">juste mais pas fidèle</text>
+  <text x="180" y="433" class="sub" text-anchor="middle">erreur aléatoire — une dispersion</text>
+
+  <!-- Cible D : ni juste ni fidèle -->
+  <circle cx="540" cy="340" r="56" class="ring"/>
+  <circle cx="540" cy="340" r="38" class="ring"/>
+  <circle cx="540" cy="340" r="20" class="ring"/>
+  <line x1="532" y1="340" x2="548" y2="340" class="cross"/>
+  <line x1="540" y1="332" x2="540" y2="348" class="cross"/>
+  <circle cx="548" cy="312" r="5" class="dot"/>
+  <circle cx="572" cy="325" r="5" class="dot"/>
+  <circle cx="540" cy="305" r="5" class="dot"/>
+  <circle cx="566" cy="346" r="5" class="dot"/>
+  <circle cx="556" cy="317" r="5" class="dot"/>
+  <text x="540" y="416" class="lbl" text-anchor="middle">ni juste ni fidèle</text>
+  <text x="540" y="433" class="sub" text-anchor="middle">les deux défauts cumulés</text>
+</svg>
