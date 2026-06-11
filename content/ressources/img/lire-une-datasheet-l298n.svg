@@ -127,7 +127,7 @@
   <circle cx="676" cy="300" r="34" class="motor"/>
   <text x="676" y="300" class="motor-text">M</text>
   <text x="676" y="317" class="motor-sub">B</text>
-  <path d="M 696,324 A 28 28 0 0 1 652,322" class="rot" marker-end="url(#a)"/>
+  <path d="M 652,322 A 28 28 0 0 0 696,324" class="rot" marker-end="url(#a)"/>
 
   <text x="676" y="362" class="annot">2 moteurs CC, sens indépendants</text>
 

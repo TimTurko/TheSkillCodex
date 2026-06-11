@@ -24,6 +24,11 @@ draft: false
 
 ![Anatomie d'une datasheet : de haut en bas, les sections types (première page, boîtier, brochage, table des fonctions, Absolute Maximum Ratings, conditions de fonctionnement, caractéristiques électriques et thermiques, schéma d'application) et, en regard, la question à laquelle chacune répond.](/ressources/img/lire-une-datasheet-generique.svg)
 
+**Dans cette fiche** — deux parties :
+
+1. [Lecture d'une datasheet](#lecture-dune-datasheet) — la méthode générique : quelle section répond à quelle question ;
+2. [Lecture de la datasheet du L298N](#lecture-de-la-datasheet-du-l298n) — la méthode appliquée, document sous les yeux : boîtiers, brochage et table de vérité, de la table à l'algorithme, maximum ratings, chauffe et radiateur, module ou composant nu.
+
 ## À quoi ça sert ?
 
 La datasheet est le **contrat du fabricant** : tout ce que le composant garantit — et tout ce qu'il interdit — y est écrit. La lire avant de câbler, c'est éviter trois écueils classiques : griller un composant en dépassant une limite, le sous-exploiter en ignorant une fonction, ou perdre des heures à déboguer un montage que la datasheet rendait évident.
@@ -37,7 +42,7 @@ Concrètement, savoir lire une datasheet permet de :
 
 Cette fiche suppose quelques bases acquises : ce qu'est un [[microcontroleur|microcontrôleur]] et ses [[gpio|GPIO]], la notion de [[niveaux-de-tension|niveau de tension]] logique, et les grandeurs élémentaires tension / courant / puissance (la puissance dissipée vaut le produit d'une tension par un courant). Ce sont les prérequis listés en tête de fiche.
 
-## Procédure pas à pas
+## Lecture d'une datasheet
 
 Une datasheet a une structure prévisible. Lire efficacement, ce n'est pas tout parcourir de la première à la dernière page : c'est savoir quelle section répond à quelle question, et s'y rendre directement.
 
@@ -84,38 +89,40 @@ Deux tableaux à ne **jamais** confondre :
 Travailler au ras des maximum ratings, c'est concevoir une panne. La marge se prend sur les conditions de fonctionnement, pas sur les limites absolues.
 
 > [!warning] Attention
-> **Un maximum absolu n'est pas une cible.** « Tension d'alimentation max 46 V » ne veut pas dire « alimenter en 46 V », mais « au-delà de 46 V, on casse ». La tension d'usage se lit dans les conditions de fonctionnement, avec une marge.
+> **Un maximum absolu n'est pas une cible.** « Power supply : 50 V » dans les maximum ratings ne veut pas dire « alimenter en 50 V », mais « au-delà de 50 V, on casse ». La tension d'usage se lit dans les conditions de fonctionnement — pour le même composant, « jusqu'à 46 V » — avec une marge.
 
 ### 5. Caractéristiques détaillées et schéma d'application
 
 Reste le cœur quantitatif de la datasheet :
 
 - **niveaux logiques** — à partir de quelle tension une entrée est vue comme un « 1 », en dessous de quelle tension comme un « 0 ». C'est ce qui décide de la compatibilité avec un microcontrôleur 3,3 V ou 5 V → [[niveaux-de-tension|niveaux de tension]] ;
-- **courants et chutes de tension** — le courant de sortie garanti, et la tension perdue *dans* le composant : la charge ne reçoit pas toute la tension d'alimentation ;
+- **courants et chutes de tension** — le courant de sortie garanti, et la tension perdue *dans* le composant : la charge ne reçoit pas toute la tension d'alimentation — lire la colonne **min** ou **max** selon le pire cas, jamais la colonne *typ* ;
 - **caractéristiques thermiques** — résistance thermique et puissance dissipable : combien le composant chauffe, et s'il faut un **dissipateur** ;
 - **schéma d'application** — un montage de référence proposé par le fabricant, à lire comme un point de départ, et non comme le schéma final du projet → [[analyse-de-schema-electronique|analyse d'un schéma]] pour l'étude d'un schéma complet.
 
 > [!tip] Astuce
 > **Le schéma d'application n'est pas ton schéma.** Le fabricant montre le composant en situation idéale ; ton montage devra y ajouter ce que ton projet impose. Sers-t'en comme d'un modèle, pas d'un copier-coller.
 
-## Exemple — L298N : piloter deux moteurs CC
+## Lecture de la datasheet du L298N
 
-Le **L298N** est un *double pont en H* : un seul composant capable de piloter **deux moteurs à courant continu** indépendamment, chacun dans les deux sens de rotation. C'est un bon cas d'école pour lire une datasheet, parce qu'il vit dans **deux mondes** à la fois.
+La méthode, maintenant, document sous les yeux. Le **L298N** est un *double pont en H* : un seul composant capable de piloter **deux moteurs à courant continu** indépendamment, chacun dans les deux sens de rotation. C'est un bon cas d'école, parce qu'il vit dans **deux mondes** à la fois. Ouvre la datasheet trouvée à l'étape 1 — on la parcourt ensemble ; les valeurs citées ci-dessous viennent de la révision 5 (octobre 2023) de la datasheet ST, ta version fait foi.
 
 ![Le L298N en deux mondes : à gauche le monde logique 5 V (entrées IN1 à IN4 pour le sens, ENA/ENB pour la marche et la vitesse en PWM, alimentation logique), commandé par le microcontrôleur ; à droite le monde puissance jusqu'à 46 V, où deux ponts en H pilotent chacun un moteur à courant continu dans des sens indépendants, avec échauffement et dissipateur à prévoir.](/ressources/img/lire-une-datasheet-l298n.svg)
 
-**Un monde logique, un monde puissance.** D'un côté, des entrées **numériques** en 5 V : IN1 à IN4 fixent le sens de chaque moteur, ENA et ENB activent chaque pont. C'est le côté que touche le microcontrôleur, et il se lit dans le brochage et les niveaux logiques. De l'autre, un étage de **puissance** : une alimentation moteur qui peut grimper à plusieurs dizaines de volts, des courants de plusieurs ampères, des sorties OUT vers les moteurs. Les grandeurs y sont **analogiques et continues** (tensions, courants, chutes de tension, échauffement) et se lisent dans les maximum ratings et les caractéristiques thermiques. La datasheet décrit ces deux mondes dans des sections différentes : savoir de quel côté on se trouve évite bien des confusions.
+**Un monde logique, un monde puissance.** D'un côté, des entrées **numériques** en 5 V : IN1 à IN4 fixent le sens de chaque moteur, ENA et ENB activent chaque pont. C'est le côté que touche le microcontrôleur, et il se lit dans le brochage et les niveaux logiques. Détail concret à y lire : un « 1 » est reconnu dès 2,3 V environ — seuil assez bas pour qu'un microcontrôleur 3,3 V pilote le L298N, alors même que sa logique est alimentée en 5 V. C'est exactement le raisonnement de [[niveaux-de-tension|niveaux de tension]]. De l'autre, un étage de **puissance** : une alimentation moteur qui peut grimper à plusieurs dizaines de volts, des courants de plusieurs ampères, des sorties OUT vers les moteurs. Les grandeurs y sont **analogiques et continues** (tensions, courants, chutes de tension, échauffement) et se lisent dans les maximum ratings et les caractéristiques thermiques. La datasheet décrit ces deux mondes dans des sections différentes : savoir de quel côté on se trouve évite bien des confusions.
 
-**Le lien avec l'algo C : la table des fonctions.** Entre ces deux mondes, la datasheet donne une table des fonctions qui relie l'état des entrées au comportement des sorties. Pour un moteur : une combinaison d'entrées donne « avant », la combinaison inverse donne « arrière », une troisième donne « arrêt ». Faire tourner les deux moteurs **dans des sens opposés**, c'est donc commander un pont dans un sens et l'autre dans le sens inverse. Cette table *est* la spécification du programme : le code en C se contente de poser les bons niveaux sur IN1 à IN4 et de moduler ENA/ENB. La vitesse se règle en envoyant un signal [[arduino-sortie-pwm|PWM]] sur l'enable, et le pilotage complet est traité dans [[arduino-moteur-cc|piloter un moteur CC]].
+**Le lien avec l'algo C : la table des fonctions.** Entre ces deux mondes, la datasheet donne une table des fonctions qui relie l'état des entrées au comportement des sorties. Pour un moteur : une combinaison d'entrées donne « avant », la combinaison inverse donne « arrière », une troisième donne « arrêt ». Faire tourner les deux moteurs **dans des sens opposés**, c'est donc commander un pont dans un sens et l'autre dans le sens inverse. Cette table *est* la spécification du programme : le code en C se contente de poser les bons niveaux sur IN1 à IN4 et de moduler ENA/ENB. La vitesse se règle en envoyant un signal [[pwm|PWM]] sur l'enable, et le pilotage complet est traité dans [[arduino-moteur-cc|piloter un moteur CC]].
 
 **Les limites à lire en priorité.** Deux valeurs comptent avant d'alimenter quoi que ce soit : la tension d'alimentation maximale (un maximum absolu, pas une consigne) et le courant maximal par pont. Un piège propre à ce composant : la **chute de tension** introduite par le pont. Le moteur ne reçoit pas la tension d'alimentation, mais cette tension *moins* ce que le L298N consomme au passage — à intégrer dans le dimensionnement, sous peine d'un moteur plus mou que prévu.
 
 **La chauffe et le dissipateur.** Cette tension perdue ne disparaît pas : elle se transforme en chaleur. Sous courant soutenu, le composant peut atteindre sa température de coupure et décrocher. La datasheet donne la résistance thermique nécessaire pour estimer s'il faut un **dissipateur** — et, le cas échéant, sa taille. Conséquence à anticiper tôt : un dissipateur occupe de la place et se prévoit dès le tracé du circuit, pas une fois la carte gravée.
 
-**Module ou composant nu.** Le L298N existe en composant nu (boîtier traversant) et sous forme de **module** tout prêt. Les deux ne se câblent pas pareil, et ne s'intègrent pas pareil sur une carte :
+### Module ou composant nu
+
+Le L298N existe en composant nu (boîtier traversant) et sous forme de **module** tout prêt. Les deux ne se câblent pas pareil, et ne s'intègrent pas pareil sur une carte :
 
 - le **module** embarque déjà le dissipateur, les diodes de protection et parfois un régulateur 5 V ; il se branche au fil à fil, sans soudure, et convient au prototypage — mais c'est une petite carte à part entière, peu intégrable dans un circuit dédié, et encombrante ;
-- le **composant nu** se soude sur ta propre carte ; à toi d'ajouter alors les diodes de roue libre, le découplage et le dissipateur que le module portait. Plus de travail de conception, mais une intégration compacte et maîtrisée — à condition de disposer d'un boîtier traversant, puisque l'atelier ne soude pas le CMS.
+- le **composant nu** se soude sur ta propre carte ; à toi d'ajouter alors les [[protection-electronique|diodes de roue libre]], le [[decouplage|découplage]] et le dissipateur que le module portait. Plus de travail de conception, mais une intégration compacte et maîtrisée — à condition de disposer d'un boîtier traversant, puisque l'atelier ne soude pas le CMS.
 
 Le choix module / nu se lit donc en partie dans la datasheet (boîtier, éléments externes requis) et se tranche selon la phase du projet : module pour valider vite, composant nu pour la carte finale.
 
@@ -129,7 +136,7 @@ Le choix module / nu se lit donc en partie dans la datasheet (boîtier, élémen
 
 **Ignorer le dissipateur.** Sous courant soutenu, sans dissipateur, le composant atteint sa coupure thermique et décroche — un défaut intermittent difficile à diagnostiquer. À prévoir aussi par sa place sur la carte.
 
-**Oublier les diodes de roue libre.** Piloter une charge inductive — un moteur — sans diodes de protection détruit le pont. Le module les intègre, le composant nu non : à ajouter soi-même.
+**Oublier les diodes de roue libre.** Piloter une charge inductive — un moteur — sans [[protection-electronique|diodes de protection]] détruit le pont. Le module les intègre, le composant nu non : à ajouter soi-même.
 
 **Lire une valeur « typique » pour une valeur garantie.** Les colonnes min / typ / max ne disent pas la même chose. Dimensionner sur le pire cas, pas sur le typique.
 
