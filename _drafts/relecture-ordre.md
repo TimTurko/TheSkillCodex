@@ -74,7 +74,7 @@ Verdict : OK / a corriger
 - [ ] `conduite/meo/index`
 
 ## 4 · EEE — fondations électronique
-- [ ] `niveaux-de-tension` — 🖼 ⚠ rouge `#B23A2E` en sombre
+- [x] `niveaux-de-tension` — 🖼✅ *(rouge `#B23A2E` validé en sombre, 11/06)*
 - [ ] `alimentation-electronique` — 🖼
 - [ ] `chaine-energie` — 🖼✅
 - [ ] `analyse-de-schema-electronique` — 🖼
