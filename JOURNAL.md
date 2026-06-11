@@ -11,6 +11,36 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-11 (suite) — Relecture §4 EEE fondations (6/8) + production decouplage / protection-electronique
+
+### Périmètre
+PC pro (`theskillcodex:*` déférés). Reprise de la relecture humaine sur la branche Système embarqué (§4 du tableau de bord). **Mode inversé inédit, demandé par Tim** : Claude relit en premier passage et livre une critique (pédagogie, progression, notions connexes), Tim arbitre, Claude applique — avec deux détours de production validés en séance. 0 git (Tim pilote).
+
+### Livrables
+- **6 fiches §4 relues, corrigées et validées** : `niveaux-de-tension` (piège I2C corrigé — bidirectionnalité, pas vitesse ; pièges alim/niveau logique et ADC ; marge de bruit ; glosses TTL/CMOS ; warning « un diviseur n'est pas une alimentation ») · `alimentation-electronique` (refonte : **section *Choisir la source* créée** — le popover annonçait un geste sans section ; plan de masse PCB ; piège « puissance à travers le régulateur de la logique » ; « régler »→« produire », exemple aligné sur le 9 V du SVG ; tip références régulateurs) · `decouplage` et `protection-electronique` (**créées**, cf. ci-dessous) · `chaine-energie` (*agir* explicité hors item 4 ; lien rouge `[[boucle-fermee]]` *(à créer)* posé ; tip « quels composants pour chaque bloc » à 7 lignes, colonne « Pour choisir » vers `choisir-le-materiel` et les hubs) · `analyse-de-schema-electronique` (multi-rails étape 1, **6 contrôles** étape 5 avec liens decouplage/gpio/protection, **justification fausse corrigée** — le pont transforme des ohms en volts, il ne « ramène pas dans la plage » —, § « découpage au crayon »).
+- **2 fiches créées** dans `content/embarque/` : `decouplage` (~6,5 ko — physique du creux, deux étages, « au plus près », exemple drivers A4988) et `protection-electronique` (~9 ko — fusible / anti-inversion / TVS + **roue libre en parade dédiée, ESD circuit-et-gestes, organes complémentaires** ajoutés sur demande Tim). `aa: EEE/3` en multi-couverture C20 ; marqueurs C32 et entrées *Voir aussi* posés dans la fiche mère.
+- **9 SVG neufs** (gabarit auto-contenu + dark, ancrage par élément) : `decouplage-generique`, `protection-electronique-generique`, **5 petits SVG de branchement** (fusible, anti-inversion, TVS, roue libre, ESD), `analyse-de-schema-netlabels`, `analyse-de-schema-zones` (schéma complet à 6 zones encadrées).
+- Tableau de bord : **§4 à 6/8** (les 2 fiches créées ajoutées puis cochées) ; restent `lire-une-datasheet`, `instruments-de-mesure`, `multimetre`, `oscilloscope`.
+
+### Décisions (Tim)
+- **Approfondir par fiches filles, pas par gonflement** : `decouplage`/`protection-electronique` créées, la fiche mère reste la carte d'architecture.
+- **Tableaux « Références éprouvées »** demandés et répétés 4× (régulateurs, condensateurs, organes de protection, composants par bloc de chaîne) — familles d'abord, références en exemples, précaution disponibilité/datasheet.
+- **Chaque organe de protection reçoit son petit SVG de branchement** (5 SVG) ; le MOSFET-P reste textuel (câblage trop subtil pour le format).
+- **Pas de planche de symboles** dans analyse-de-schema (étudiants déjà à l'aise IEC/ANSI) ; **TTL/CMOS glossé sans développement** (territoire cours d'élec numérique, logique C55).
+- Diviseur de tension : la perte thermique **reformulée** (négligeable sur signal ; warning dédié « signal, jamais une alimentation ») — pushback Claude accepté.
+- Lien rouge `[[boucle-fermee]]` assumé comme TODO (option a).
+
+### Conventions
+- §8 : candidates **C66** (tableau de références éprouvées famille-first, éprouvée 4/N) et **C67** (petit SVG de branchement par organe, extension C33, éprouvée 1/N).
+
+### Tailles
+6 fiches éditées + 2 créées ; 9 SVG (2–5 ko pièce) ; `relecture-ordre.md` (+2 lignes, 6 coches) ; JOURNAL +~4,5 ko. **Archivage 1-pour-1 sauté** : JOURNAL court (~32 ko) après la coupe β du 10/06 (cas prévu §6).
+
+### Corps — le mode « Claude relit en premier »
+Inversion du protocole de relecture : Tim demande la critique avant sa propre lecture, et veut du pushback. Rendement élevé sur cette session : une **justification techniquement fausse** (« le pont ramène dans la plage admissible »), une **incohérence interne** (piège I2C classé « bus rapide » contredisant le cas particulier open-drain trois paragraphes plus bas), un **programme non tenu** (popover annonçant « choisir une source » sans section correspondante) — trois défauts invisibles à une relecture de forme, que la lecture critique de fond attrape. Le garde-fou reste le clic-test de Tim au rendu (qui a d'ailleurs attrapé ce que la source ne montre pas : C3 derrière le bloc MCU sur `analyse-de-schema-zones`, logé au TODO SVG). Pour la suite, Tim demande une **posture critique renforcée** : proposer spontanément upgrades, images, reformulations, popovers — intégré au prompt de lancement.
+
+---
+
 ## 2026-06-11 — Grooming conventions.md (promotions §6 + élagage §8)
 
 ### Périmètre
