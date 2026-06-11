@@ -28,13 +28,24 @@ Tant qu'un montage tient sur table, alimenté en USB, la question ne se pose pas
 
 La démarche relève de la conception du système ([[concept|phase de concept]], puis dimensionnement au [[dossier-technique|dossier technique]]). Sa mise en œuvre concrète sur une carte donnée — par exemple [[arduino-alimentation|alimenter une carte Arduino]] — applique ces principes à un matériel précis.
 
+## Choisir la source
+
+Tout part d'une **source**, et son choix précède la régulation : c'est elle qui fixe ce qu'il y aura à réguler. Quatre familles couvrent l'essentiel des projets :
+
+- l'**USB** (5 V) — la source des essais sur table : gratuite, sûre, mais limitée en courant (0,5 A sur un port d'ordinateur classique, jusqu'à ~3 A sur un chargeur récent) et inadaptée dès que des moteurs entrent en jeu ;
+- les **piles et accus** — la mobilité, au prix d'une tension qui glisse en se déchargeant (un accu Li-ion descend de 4,2 à 3,0 V) : la régulation devient obligatoire, et le lithium exige un circuit de protection et de charge dédié ;
+- le **bloc secteur** (9 à 12 V typiques) — la puissance stationnaire, simple et abondante, à dimensionner sur la pointe de consommation ;
+- l'**alimentation de laboratoire** — la source des phases d'essai : tension et limite de courant réglables (voir *Tension constante ou courant constant* plus bas), c'est elle qui protège un montage neuf.
+
+Le choix se joue sur quatre critères : la **tension** (compatible avec l'étage de régulation en aval), le **courant de pointe** disponible (jamais le courant moyen), l'**autonomie** si le système est mobile, et la **sécurité** de mise en œuvre. Les valeurs concrètes pour une carte donnée — connecteurs, plages admises, courants disponibles par broche — se lisent dans la fiche de la carte, par exemple [[arduino-alimentation|alimenter une carte Arduino]].
+
 ## Réguler la tension
 
 Une source brute (une batterie qui se décharge de 8,4 à 6 V, un secteur redressé à 9-12 V) ne fournit pas directement le 5 V ou le 3,3 V stable qu'attend la logique. Un **régulateur** ramène une entrée variable à une sortie fixe. Deux familles existent, deux compromis.
 
-![Deux façons de régler 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, soit (Vin moins Vout) multiplié par le courant, sous forme de chaleur. À droite, un régulateur à découpage : un interrupteur commute rapidement à travers une inductance et un condensateur, avec très peu de pertes mais un bruit de commutation.](/ressources/img/alimentation-electronique-regulation.svg)
+![Deux façons de produire 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, soit (Vin moins Vout) multiplié par le courant, sous forme de chaleur. À droite, un régulateur à découpage : un interrupteur commute rapidement à travers une inductance et un condensateur, avec très peu de pertes mais un bruit de commutation.](/ressources/img/alimentation-electronique-regulation.svg)
 
-Le **régulateur linéaire** (un LDO, *low-dropout*) est simple, silencieux et bon marché : il se comporte comme une résistance pilotée qui absorbe l'écart entre l'entrée et la sortie. Le revers est mécanique : tout ce qu'il n'envoie pas en sortie part en **chaleur**, à hauteur de (Vin − Vout) × I. Régler 5 V à partir de 12 V sous 0,5 A dissipe (12 − 5) × 0,5 ≈ 3,5 W — assez pour brûler les doigts en quelques minutes. On le réserve aux faibles écarts de tension et aux faibles courants, là où sa propreté électrique prime.
+Le **régulateur linéaire** (un LDO, *low-dropout*) est simple, silencieux et bon marché : il se comporte comme une résistance pilotée qui absorbe l'écart entre l'entrée et la sortie. Le revers est mécanique : tout ce qu'il n'envoie pas en sortie part en **chaleur**, à hauteur de (Vin − Vout) × I. Produire 5 V à partir de 9 V sous 0,5 A dissipe (9 − 5) × 0,5 = 2 W — assez pour brûler les doigts sans dissipateur. On le réserve aux faibles écarts de tension et aux faibles courants, là où sa propreté électrique prime.
 
 Le **régulateur à découpage** (*switching*) commute l'énergie par paquets à travers une inductance : il ne dissipe presque rien et atteint des rendements de 85 à 95 %, même avec un grand écart de tension. Le prix à payer est la complexité — plus de composants, un dessin de carte soigné — et un **bruit de commutation** qu'il faut parfois filtrer. C'est le choix par défaut dès que le courant ou l'écart de tension devient important, et sur batterie où chaque watt perdu raccourcit l'autonomie.
 
@@ -46,7 +57,7 @@ Un régulateur réagit vite, mais pas instantanément. Quand un composant appell
 
 On combine deux types par étage : un **condensateur réservoir** (*bulk*, quelques dizaines à centaines de µF) qui encaisse les grosses variations, et un **condensateur céramique** (100 nF typique) collé à la broche d'alimentation, qui répond aux variations les plus rapides. La règle d'or tient en deux mots : **au plus près**. Un découplage à dix centimètres du composant, au bout d'une longue piste, ne sert presque à rien — l'inductance de la piste annule son effet.
 
-C'est l'absence de découplage qui explique une bonne part des comportements erratiques « inexpliqués » : un capteur qui donne des valeurs aberrantes pendant qu'un moteur tourne, un microcontrôleur qui plante par intermittence. La pointe est trop brève pour se voir au multimètre — elle se débusque à l'[[oscilloscope|oscilloscope]].
+C'est l'absence de découplage qui explique une bonne part des comportements erratiques « inexpliqués » : un capteur qui donne des valeurs aberrantes pendant qu'un moteur tourne, un microcontrôleur qui plante par intermittence. La pointe est trop brève pour se voir au [[multimetre|multimètre]] — elle se débusque à l'[[oscilloscope|oscilloscope]].
 
 ## Router les masses
 
@@ -55,6 +66,8 @@ La masse (le 0 V) n'est pas un fil neutre : c'est le **chemin de retour** de tou
 ![Deux façons de câbler les masses de trois charges (microcontrôleur, capteur, moteur). À gauche, en chaînage : les retours sont mis en série, et le fort courant du moteur traverse le segment de masse partagé par la logique, dont il décale la référence. À droite, en étoile : chaque retour rejoint séparément un point de masse commun unique, si bien que le courant du moteur n'emprunte jamais le chemin du signal.](/ressources/img/alimentation-electronique-masses.svg)
 
 D'où la distinction entre **masse de puissance** (retours des actionneurs, gros courants, parfois bruyants) et **masse de signal** (retours de la logique et des capteurs, faibles courants à protéger). L'objectif est qu'elles ne partagent pas leurs chemins de retour, tout en restant **un seul et même potentiel de référence**. La technique de base est la **masse en étoile** : chaque retour rejoint un **point commun unique** plutôt que d'être chaîné aux autres. À l'inverse, des masses **en chaînage** (*daisy-chain*) font transiter les gros courants par les segments partagés et y injectent leur bruit.
+
+La masse en étoile est la technique du câblage filaire et de la breadboard. Sur un [[pcb|circuit imprimé]], elle se généralise en **plan de masse** : une couche entière dédiée au 0 V, qui offre à chaque retour un chemin court et de faible impédance — le réflexe à prendre dès la conception de la carte.
 
 Quand on dispose de deux alimentations distinctes — une pour la logique, une pour les moteurs —, la même règle impose une **masse commune** : sans référence partagée, les signaux logiques échangés entre les deux mondes n'ont aucun sens. C'est l'erreur classique du débutant qui alimente ses moteurs « à part » et oublie de relier les masses.
 
@@ -91,7 +104,9 @@ Chaque rail porte son **découplage** au plus près : un condensateur réservoir
 
 **Dimensionner sur le courant moyen.** Une alimentation se choisit sur la **pointe** de consommation (démarrage moteur, émission radio), pas sur la moyenne. Une marge de l'ordre de 1,5× sur la pointe évite les chutes en limite de charge.
 
-**Régler un linéaire sur une forte chute.** Un LDO qui ramène 12 V à 5 V sous quelques centaines de mA chauffe vite : (Vin − Vout) × I part en chaleur. Baisser la tension d'entrée, ou passer au découpage.
+**Imposer une forte chute à un régulateur linéaire.** Un LDO qui ramène 12 V à 5 V sous quelques centaines de mA chauffe vite : (Vin − Vout) × I part en chaleur. Baisser la tension d'entrée, ou passer au découpage.
+
+**Tirer la puissance à travers le régulateur de la logique.** Un moteur ou un servo branché sur le rail 5 V de la carte fait transiter sa pointe de courant par un régulateur prévu pour la logique : chute de tension, reset du microcontrôleur, voire destruction du régulateur. La puissance prend son propre rail, directement depuis la source.
 
 **Masses en chaînage.** Mettre les retours en série fait transiter le courant de puissance par la masse du signal et y injecte son bruit. Une masse en étoile, vers un point commun unique, sépare les chemins.
 
