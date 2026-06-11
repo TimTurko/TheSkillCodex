@@ -4,6 +4,7 @@
   <defs>
     <style>
       .etape { fill:#FFFFFF; stroke:#888780; stroke-width:1.8; }
+      .etape-i { fill:none; stroke:#888780; stroke-width:1.4; }
       .etape-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
       .liaison { stroke:#888780; stroke-width:1.8; fill:none; }
       .trans { stroke:#2C2C2A; stroke-width:4; }
@@ -15,6 +16,7 @@
       .ah { fill:#888780; }
       @media (prefers-color-scheme: dark) {
         .etape { fill:#2C2C2A; stroke:#BBBBBB; }
+        .etape-i { stroke:#BBBBBB; }
         .etape-t { fill:#F1EFE8; }
         .liaison, .ret { stroke:#BBBBBB; }
         .trans { stroke:#F1EFE8; }
@@ -34,7 +36,7 @@
 
   <!-- Étape initiale 0 -->
   <rect x="156" y="30" width="48" height="44" class="etape"/>
-  <rect x="161" y="35" width="38" height="34" fill="none" stroke="#888780" stroke-width="1.4"/>
+  <rect x="161" y="35" width="38" height="34" class="etape-i"/>
   <text x="180" y="57" class="etape-t">0</text>
   <line x1="180" y1="74" x2="180" y2="98" class="liaison"/>
 

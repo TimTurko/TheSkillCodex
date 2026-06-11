@@ -91,9 +91,9 @@ Verdict : OK / a corriger
 ## 5 · EEE — algorithme
 - [x] `algorithme` (hub) — 🖼✅ *(enrichi et validé 11/06 : SVG quadriptyque quatre-regards, paragraphe pseudocode, tip Le test du récit)*
 - [x] `logigramme` — 🖼✅ *(validée 11/06 : flèche de boucle du `bon` prolongée, exception programme embarqué, liens cpp, ISO 5807 ; `mauvais` laissé tel quel — arbitrage Tim)*
-- [ ] `machine-a-etats` — 🖼 *(retouches 11/06 : callout mauvais réécrit pour coller au SVG à fautes étiquetées, état initial ajouté au générique + au bon, événement/garde remodélisés [tempo 5 s, obstacle, fin bas [aucun obstacle]], syntaxe B→C corrigée, lien MicroPython)*
-- [ ] `grafcet` — 🖼
-- [ ] `chronogramme` — 🖼
+- [x] `machine-a-etats` — 🖼✅ *(validée 11/06 : callout mauvais resynchronisé avec le SVG, état initial ajouté [générique + bon], événement/garde remodélisés, syntaxe B→C corrigée, lien MicroPython)*
+- [x] `grafcet` — 🖼✅ *(validée 11/06 : double carré initial basculé en sombre [2 SVG], bande vide compressée, nouveau SVG grafcet-divergences au Cas particulier)*
+- [x] `chronogramme` — 🖼✅ *(validée 11/06 : SVG vérifiés au pixel [RAS], liens analyseur-logique, I²C, paragraphe Un statut à part)*
 
 ## 6 · EEE — microcontrôleurs : socle commun
 - [ ] `microcontroleur` (hub mère) — 🖼

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="tdv ddv">
+  <title id="tdv">Les deux divergences du grafcet</title>
+  <desc id="ddv">Deux panneaux. À gauche, la divergence en OU : depuis l'étape 1, la liaison se sépare en deux branches portant chacune sa propre transition avec sa réceptivité a ou b ; selon la réceptivité vraie, une seule branche s'active. À droite, la divergence en ET : après une transition unique de réceptivité c, une double barre horizontale active simultanément les étapes 5 et 6 ; plus bas, une convergence en double barre les resynchronise, suivie d'une transition unique de réceptivité d vers l'étape 7.</desc>
+  <defs>
+    <style>
+      .etape { fill:#FFFFFF; stroke:#888780; stroke-width:1.8; }
+      .etape-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .liaison { stroke:#888780; stroke-width:1.8; fill:none; }
+      .trans { stroke:#2C2C2A; stroke-width:4; }
+      .recept { font:600 12px sans-serif; fill:#2C2C2A; }
+      .sym { font:700 11px sans-serif; fill:#BA7517; }
+      .lbl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .ttl { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.4px; }
+      @media (prefers-color-scheme: dark) {
+        .etape { fill:#2C2C2A; stroke:#BBBBBB; }
+        .etape-t { fill:#F1EFE8; }
+        .liaison { stroke:#BBBBBB; }
+        .trans { stroke:#F1EFE8; }
+        .recept { fill:#F1EFE8; }
+        .sym { fill:#EF9F27; }
+        .lbl { fill:#F1EFE8; }
+        .cap { fill:#BBBBBB; }
+        .ttl { fill:#F1EFE8; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="22" class="ttl">Les deux divergences du grafcet</text>
+
+  <!-- ===== Divergence en OU ===== -->
+  <text x="190" y="46" class="lbl">Divergence en OU — sélection</text>
+
+  <rect x="166" y="60" width="48" height="44" class="etape"/>
+  <text x="190" y="87" class="etape-t">1</text>
+  <line x1="190" y1="104" x2="190" y2="124" class="liaison"/>
+  <line x1="120" y1="124" x2="260" y2="124" class="liaison"/>
+
+  <line x1="120" y1="124" x2="120" y2="142" class="liaison"/>
+  <line x1="105" y1="142" x2="135" y2="142" class="trans"/>
+  <text x="143" y="146" class="recept" text-anchor="start">a</text>
+  <line x1="120" y1="142" x2="120" y2="162" class="liaison"/>
+  <rect x="96" y="162" width="48" height="44" class="etape"/>
+  <text x="120" y="189" class="etape-t">2</text>
+  <line x1="120" y1="206" x2="120" y2="220" class="liaison"/>
+
+  <line x1="260" y1="124" x2="260" y2="142" class="liaison"/>
+  <line x1="245" y1="142" x2="275" y2="142" class="trans"/>
+  <text x="283" y="146" class="recept" text-anchor="start">b</text>
+  <line x1="260" y1="142" x2="260" y2="162" class="liaison"/>
+  <rect x="236" y="162" width="48" height="44" class="etape"/>
+  <text x="260" y="189" class="etape-t">3</text>
+  <line x1="260" y1="206" x2="260" y2="220" class="liaison"/>
+
+  <text x="190" y="252" class="cap">une transition par branche : selon a ou b,</text>
+  <text x="190" y="268" class="cap">une seule branche s'active — choix exclusif</text>
+
+  <!-- ===== Divergence en ET ===== -->
+  <text x="530" y="46" class="lbl">Divergence en ET — parallélisme</text>
+
+  <rect x="506" y="60" width="48" height="44" class="etape"/>
+  <text x="530" y="87" class="etape-t">4</text>
+  <line x1="530" y1="104" x2="530" y2="124" class="liaison"/>
+  <line x1="515" y1="124" x2="545" y2="124" class="trans"/>
+  <text x="553" y="128" class="recept" text-anchor="start">c</text>
+  <line x1="530" y1="124" x2="530" y2="140" class="liaison"/>
+
+  <line x1="460" y1="140" x2="600" y2="140" class="liaison"/>
+  <line x1="460" y1="146" x2="600" y2="146" class="liaison"/>
+  <text x="608" y="147" class="sym" text-anchor="start">double barre : ET</text>
+
+  <line x1="460" y1="146" x2="460" y2="164" class="liaison"/>
+  <rect x="436" y="164" width="48" height="44" class="etape"/>
+  <text x="460" y="191" class="etape-t">5</text>
+  <line x1="460" y1="208" x2="460" y2="226" class="liaison"/>
+
+  <line x1="600" y1="146" x2="600" y2="164" class="liaison"/>
+  <rect x="576" y="164" width="48" height="44" class="etape"/>
+  <text x="600" y="191" class="etape-t">6</text>
+  <line x1="600" y1="208" x2="600" y2="226" class="liaison"/>
+
+  <line x1="460" y1="226" x2="600" y2="226" class="liaison"/>
+  <line x1="460" y1="232" x2="600" y2="232" class="liaison"/>
+  <text x="608" y="233" class="sym" text-anchor="start">convergence en ET</text>
+
+  <line x1="530" y1="232" x2="530" y2="248" class="liaison"/>
+  <line x1="515" y1="248" x2="545" y2="248" class="trans"/>
+  <text x="553" y="252" class="recept" text-anchor="start">d</text>
+  <line x1="530" y1="248" x2="530" y2="264" class="liaison"/>
+  <rect x="506" y="264" width="48" height="44" class="etape"/>
+  <text x="530" y="291" class="etape-t">7</text>
+
+  <text x="530" y="340" class="cap">une seule transition : les étapes 5 et 6 sont actives</text>
+  <text x="530" y="356" class="cap">en même temps, puis resynchronisées avant d</text>
+</svg>

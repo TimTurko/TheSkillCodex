@@ -23,11 +23,13 @@ Un **chronogramme** est une représentation graphique de l'évolution d'un ou pl
 Beaucoup de problèmes embarqués ne sont pas des problèmes de logique mais de **temps** : un signal doit-il monter avant l'autre ? combien de temps dure une impulsion ? à quelle fréquence ? Le chronogramme rend ces questions visibles. Il sert à :
 
 - **lire les diagrammes de timing d'une datasheet** — la plupart des composants spécifient leurs signaux sous forme de chronogrammes (voir [[lire-une-datasheet|lire une datasheet]]) ;
-- **spécifier ou vérifier un protocole** — l'ordre et la durée des bits d'une trame [[uart|UART]], [[i2c|I2C]] ou [[spi|SPI]] ;
+- **spécifier ou vérifier un protocole** — l'ordre et la durée des bits d'une trame [[uart|UART]], [[i2c|I²C]] ou [[spi|SPI]] ;
 - **caractériser un PWM** — période, temps haut, rapport cyclique ;
 - **confronter l'attendu au réel** — le chronogramme idéal se compare à ce que montre l'[[oscilloscope|oscilloscope]] sur le vrai montage.
 
 C'est la représentation à mobiliser dès qu'une **contrainte de temps** entre en jeu, en complément des autres : on décrit *quoi faire* avec une machine à états, et *quand* avec un chronogramme.
+
+**Un statut à part.** Le chronogramme n'est pas une quatrième façon de décrire la *logique* : c'est la seule des quatre représentations qui parle du **matériel**. Logigramme, machine à états et grafcet manipulent des abstractions — décisions, états, étapes — et se traduisent en code ; le chronogramme montre des **grandeurs physiques**, des tensions qui basculent dans le temps. C'est aussi le seul qu'on peut **mesurer** sur le système réel ([[oscilloscope|oscilloscope]], [[analyseur-logique|analyseur logique]]). Et plus on descend vers le bas niveau — bits d'un bus, timings d'une datasheet, PWM — plus la question cesse d'être « quelle logique ? » pour devenir « *quand, exactement ?* » : c'est là qu'il devient l'outil principal.
 
 ## Comment lire un chronogramme ?
 
@@ -64,12 +66,13 @@ Le **PWM** (en haut) est un carré dont seul compte le **rapport cyclique** α =
 
 ## Cas particulier — Du chronogramme à l'oscilloscope
 
-Le chronogramme existe sous trois formes complémentaires. **Idéalisé**, c'est l'outil de conception (signaux parfaits, fronts verticaux). **Normatif**, c'est le diagramme de timing d'une [[lire-une-datasheet|datasheet]], qui fixe les durées minimales à respecter. **Réel**, c'est ce que trace l'[[oscilloscope|oscilloscope]] sur le montage — avec ses imperfections (temps de montée non nul, bruit, rebonds). Savoir lire un chronogramme idéal est le prérequis pour interpréter les deux autres.
+Le chronogramme existe sous trois formes complémentaires. **Idéalisé**, c'est l'outil de conception (signaux parfaits, fronts verticaux). **Normatif**, c'est le diagramme de timing d'une [[lire-une-datasheet|datasheet]], qui fixe les durées minimales à respecter. **Réel**, c'est ce que trace l'[[oscilloscope|oscilloscope]] sur le montage — ou ce que capture un [[analyseur-logique|analyseur logique]] sur plusieurs lignes à la fois — avec ses imperfections (temps de montée non nul, bruit, rebonds). Savoir lire un chronogramme idéal est le prérequis pour interpréter les deux autres.
 
 ## Voir aussi
 
 - [[algorithme|Algorithme]] — la fiche mère ; le chronogramme y est la représentation du *temps*
 - [[oscilloscope|Oscilloscope]] — l'instrument qui affiche le chronogramme réel d'un signal
+- [[analyseur-logique|Analyseur logique]] — le chronogramme réel de plusieurs lignes numériques, trames décodées
 - [[lire-une-datasheet|Lire une datasheet]] — où l'on rencontre les chronogrammes normatifs des composants
 - [[arduino-sortie-pwm|Piloter une sortie PWM]] — générer un signal dont le rapport cyclique se lit en chronogramme
 - [[uart|UART]] — la trame série dont le chronogramme fixe l'ordre des bits

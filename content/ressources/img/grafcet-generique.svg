@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 470" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 404" role="img" aria-labelledby="t d">
   <title id="t">Grafcet — symboles normalisés</title>
   <desc id="d">Un grafcet vertical : une étape initiale en double carré numérotée 0, des liaisons verticales coupées par des transitions (barres horizontales) accompagnées de leurs réceptivités, des étapes carrées numérotées 1 et 2 portant chacune une action rectangulaire à droite (Avancer, Reculer), et une liaison de retour fléchée qui reboucle vers l'étape initiale. Des étiquettes en ambre nomment chaque élément.</desc>
   <defs>
     <style>
       .etape { fill:#FFFFFF; stroke:#888780; stroke-width:1.8; }
+      .etape-i { fill:none; stroke:#888780; stroke-width:1.4; }
       .etape-t { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; }
       .liaison { stroke:#888780; stroke-width:1.8; fill:none; }
       .trans { stroke:#2C2C2A; stroke-width:4; }
@@ -17,6 +18,7 @@
       .ah { fill:#888780; }
       @media (prefers-color-scheme: dark) {
         .etape { fill:#2C2C2A; stroke:#BBBBBB; }
+        .etape-i { stroke:#BBBBBB; }
         .etape-t { fill:#F1EFE8; }
         .liaison, .ret { stroke:#BBBBBB; }
         .trans { stroke:#F1EFE8; }
@@ -38,7 +40,7 @@
 
   <!-- Étape initiale 0 (double carré) -->
   <rect x="176" y="36" width="48" height="46" class="etape"/>
-  <rect x="181" y="41" width="38" height="36" fill="none" stroke="#888780" stroke-width="1.4"/>
+  <rect x="181" y="41" width="38" height="36" class="etape-i"/>
   <text x="200" y="64" class="etape-t">0</text>
   <text x="232" y="52" class="sym" text-anchor="start">étape initiale</text>
 
@@ -79,5 +81,5 @@
   <!-- Liaison de retour (reboucle vers l'étape initiale) -->
   <path d="M200,300 L200,344 L34,344 L34,59 L176,59" class="ret"/>
 
-  <text x="270" y="456" class="note">À droite de chaque transition : la réceptivité (condition de franchissement).</text>
+  <text x="270" y="378" class="note">À droite de chaque transition : la réceptivité (condition de franchissement).</text>
 </svg>

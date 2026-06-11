@@ -65,6 +65,8 @@ La réceptivité de la première transition, `départ · pièce présente`, est 
 
 Deux structures distinguent le grafcet des représentations purement séquentielles. La **divergence en OU** (sélection de séquence) : plusieurs transitions partent d'une même étape, et selon les réceptivités **une seule** branche est empruntée — un choix exclusif. La **divergence en ET** (parallélisme) : une seule transition active **plusieurs étapes simultanément**, lançant des séquences en parallèle, qui devront être resynchronisées par une convergence en ET. C'est cette capacité au parallélisme qui fait la spécificité du grafcet ; un [[logigramme]] ou une [[machine-a-etats|machine à états]] simple ne l'expriment pas naturellement.
 
+![Les deux divergences du grafcet : à gauche la divergence en OU — depuis une étape, deux branches portant chacune sa transition, une seule est empruntée selon la réceptivité vraie ; à droite la divergence en ET — une transition unique puis une double barre activant deux étapes en parallèle, resynchronisées plus bas par une convergence en double barre suivie d'une transition unique.](/ressources/img/grafcet-divergences.svg)
+
 ## Voir aussi
 
 - [[algorithme|Algorithme]] — la fiche mère qui situe le grafcet parmi les représentations
