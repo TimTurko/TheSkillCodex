@@ -30,6 +30,8 @@ Cette représentation se construit en phase de [[concept|concept]] (quand on dé
 
 Les quatre représentations ne décrivent pas la même chose. Le choix dépend de la **nature du comportement** : enchaînement de décisions, succession d'états, étapes parallèles, ou relations de temps entre signaux.
 
+![Quatre regards sur un même comportement : un mini-logigramme (des décisions en cascade), une mini-machine à états (des modes et des événements), un mini-grafcet (des séquences, éventuellement parallèles) et un mini-chronogramme (des signaux dans le temps).](/ressources/img/algorithme-quatre-regards.svg)
+
 | Représentation | Décrit bien | Forme | Quand l'utiliser |
 | --- | --- | --- | --- |
 | [[logigramme\|Logigramme]] | un enchaînement de décisions et d'actions | losanges (tests) et rectangles (actions) reliés par des flèches | un traitement linéaire avec des branchements (`si… alors… sinon`) |
@@ -37,9 +39,11 @@ Les quatre représentations ne décrivent pas la même chose. Le choix dépend d
 | [[grafcet\|Grafcet]] | un procédé séquentiel, éventuellement avec étapes en parallèle | étapes et transitions normalisées (norme IEC 60848) | l'**automatisme industriel**, les séquences avec actions simultanées |
 | [[chronogramme\|Chronogramme]] | l'évolution de plusieurs signaux **dans le temps** | courbes/niveaux logiques sur un axe temporel commun | vérifier des **relations temporelles** (qui change avant quoi, durées, fronts) |
 
-Trois réflexes pour trancher. Si le comportement est une **cascade de décisions** ponctuelle, le logigramme suffit. Si le système **change de mode** et réagit différemment selon où il en est, c'est une machine à états — le cas le plus fréquent en projet mécatronique. Si plusieurs séquences avancent **en parallèle** (typique d'un automate), le grafcet est taillé pour ça. Et pour raisonner sur le **timing** (un signal doit-il monter avant l'autre, combien de temps dure une impulsion), aucun des trois ne remplace le chronogramme.
+Pour trancher. Si le comportement est une **cascade de décisions** ponctuelle, le logigramme suffit. Si le système **change de mode** et réagit différemment selon où il en est, c'est une machine à états — le cas le plus fréquent en projet mécatronique. Si plusieurs séquences avancent **en parallèle** (typique d'un automate), le grafcet est taillé pour ça. Et pour raisonner sur le **timing** (un signal doit-il monter avant l'autre, combien de temps dure une impulsion), aucun des trois ne remplace le chronogramme.
 
 Ces représentations ne s'excluent pas : on décrit souvent l'architecture générale en machine à états, puis le détail d'un traitement par un logigramme, et on vérifie une contrainte de timing par un chronogramme.
+
+**Et le pseudocode ?** L'algorithme se rédige aussi en texte — phrases courtes, impératives, hors de tout langage (cf. l'exemple du L298N dans [[lire-une-datasheet|lire une datasheet]]). C'est la représentation la plus rapide à écrire, idéale en brouillon ou pour spécifier une fonction isolée ; les schémas prennent le relais dès que les modes et les branchements se multiplient.
 
 ## Voir aussi
 
