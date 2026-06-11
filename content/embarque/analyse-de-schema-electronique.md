@@ -38,7 +38,7 @@ Une lecture efficace suit toujours le même ordre : on cadre l'alimentation, on 
 
 ### 1. Repérer l'alimentation et la masse
 
-Tout montage vit **entre deux potentiels** : l'alimentation (VCC, dessinée en haut par convention) et la masse (GND, en bas). Commencer par les localiser et **noter la tension** (3,3 V ? 5 V ? 12 V ?) : c'est le cadre dans lequel tout le reste se lit, et la première source d'incompatibilité (voir [[niveaux-de-tension|niveaux de tension]]).
+Tout montage vit **entre deux potentiels** : l'alimentation (étiquetée VCC, VDD ou directement +5 V / 3V3 selon les schémas, dessinée en haut par convention) et la masse (GND, en bas). Commencer par les localiser et **noter la tension** (3,3 V ? 5 V ? 12 V ?) : c'est le cadre dans lequel tout le reste se lit, et la première source d'incompatibilité (voir [[niveaux-de-tension|niveaux de tension]]). Un schéma en compte souvent **plusieurs** : un rail de puissance et un rail logique, parfois des rails symétriques (+15 V / −15 V) pour l'analogique — repérer chaque rail, et noter qui alimente quoi.
 
 ### 2. Découper en blocs fonctionnels
 
@@ -52,9 +52,11 @@ Chaque symbole est un composant avec une **référence** (R1, C2, U1, D1) et une
 
 Suivre les fils. Par convention, l'information circule **de gauche à droite** : les entrées à gauche, les sorties à droite. On trace un signal depuis sa source (un capteur) jusqu'à sa destination (un actionneur), en passant par le traitement. Attention aux **labels de net** : deux fils portant le même nom sont reliés, même si aucun trait ne les joint sur le dessin.
 
+![Le label de net : la sortie D9 d'un MCU aboutit à une étiquette CMD_LED ; plus loin sur le schéma, une étiquette identique alimente la résistance et la LED. Même nom, même nœud : les deux fils sont électriquement reliés sans qu'aucun trait ne les joigne.](/ressources/img/analyse-de-schema-netlabels.svg)
+
 ### 5. Vérifier la cohérence
 
-Quelques contrôles de bon sens closent l'analyse. Chaque entrée a-t-elle une source, chaque sortie une charge ? Pas de liaison directe VCC–GND (court-circuit) ? Les résistances de tirage (*pull-up* / *pull-down*) et de limitation sont-elles présentes ? Les condensateurs de découplage proches des circuits intégrés ? Les **tensions sont-elles compatibles** d'un bout à l'autre (voir [[niveaux-de-tension|niveaux de tension]]) ? Un schéma cohérent passe ces cinq questions.
+Quelques contrôles de bon sens closent l'analyse. Chaque entrée a-t-elle une source, chaque sortie une charge ? Pas de liaison directe VCC–GND (court-circuit) ? Les [[gpio|résistances de tirage]] (*pull-up* / *pull-down*) et de limitation sont-elles présentes ? Les condensateurs de [[decouplage|découplage]] proches des circuits intégrés ? L'étage de [[protection-electronique|protection]] est-il là (fusible, anti-inversion) ? Les **tensions sont-elles compatibles** d'un bout à l'autre (voir [[niveaux-de-tension|niveaux de tension]]) ? Un schéma cohérent passe ces six questions.
 
 ## Exemple commenté
 
@@ -66,7 +68,11 @@ Appliquons la méthode à un petit montage : un capteur lu par un MCU qui pilote
 2. **Blocs.** Trois fonctions se dessinent : un pont diviseur à gauche (entrée capteur), `U1` au centre (traitement), la LED à droite (sortie actionneur).
 3. **Composants.** `R1` (10 kΩ, fixe) et `R2` (capteur, résistance variable) ; `U1`, le MCU ; `R3` (220 Ω) ; `D1`, la LED.
 4. **Signaux.** Quand la résistance du capteur `R2` varie, la **tension du point milieu** change ; cette tension est lue par l'entrée analogique `A0` du MCU (une [[adc|conversion analogique-numérique]]). Le MCU décide (sa [[logigramme|logique]]) et active la sortie `D9`, qui commande la LED.
-5. **Cohérence.** `R3` limite le courant dans `D1` (pas de court-circuit qui la grillerait), et le pont diviseur ramène la tension du capteur dans la plage admissible de `A0`. Le montage tient debout.
+5. **Cohérence.** `R3` limite le courant dans `D1` (sans elle, la LED grillerait), et le pont diviseur **transforme la variation de résistance du capteur en tension** — un MCU ne lit pas des ohms, il lit des volts sur `A0`. Le montage tient debout.
+
+Sur un schéma réel, plus fourni, le même découpage se pratique **au crayon** : encadrer les zones fonctionnelles (protection, alimentation, entrée, adaptation, traitement, sortie) transforme une page de symboles en carte lisible.
+
+![Un schéma complet annoté par zones fonctionnelles encadrées : protection (connecteur, diode anti-inversion, fusible), alimentation (régulateur 5 V et ses condensateurs), capteur d'entrée (pont diviseur), adaptation de niveau (level shifter), traitement (MCU et son découplage), sortie (transistor, diode de roue libre et moteur). Les rails +5 V circulent par labels de net.](/ressources/img/analyse-de-schema-zones.svg)
 
 ## Pièges
 

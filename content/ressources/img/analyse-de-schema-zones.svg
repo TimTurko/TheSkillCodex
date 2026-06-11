@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 485" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Un schéma complet, lu par zones</title>
+  <desc id="d1">Un schéma de principe complet annoté par zones fonctionnelles encadrées en pointillé : protection (connecteur J1, diode anti-inversion D1, fusible F1), alimentation (régulateur 5 volts U2 et ses condensateurs C1 et C2), capteur d'entrée (pont diviseur R1 et R2), adaptation de niveau (level shifter U3), traitement (microcontrôleur U1 et son découplage C3), sortie (résistance R4, transistor Q1, moteur M et diode de roue libre D2). Les rails +5 V circulent par labels de net, la masse par symboles de masse.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .zone { stroke: #BA7517; stroke-width: 1.4; stroke-dasharray: 6 4; fill: none; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .flagshape { stroke: #BA7517; stroke-width: 1.6; fill: none; }
+      .flagtxt { font: 700 10px sans-serif; fill: #2C2C2A; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .sym { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .symf { fill: #888780; }
+      .wire { stroke: #888780; stroke-width: 1.4; fill: none; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .flagtxt { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .zone, .flagshape { stroke: #EF9F27; }
+        .orglab { fill: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .sym, .wire { stroke: #BBBBBB; }
+        .symf { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="420" y="26" text-anchor="middle" class="ti">Un schéma complet, lu par zones</text>
+
+  <!-- ===== ZONE PROTECTION ===== -->
+  <rect x="30" y="55" width="230" height="135" rx="6" class="zone"/>
+  <text x="42" y="75" text-anchor="start" class="orglab">Protection</text>
+  <circle cx="58" cy="110" r="4" class="sym"/>
+  <circle cx="58" cy="150" r="4" class="sym"/>
+  <text x="58" y="96" text-anchor="middle" class="sm">J1</text>
+  <line x1="62" y1="110" x2="95" y2="110" class="wire"/>
+  <path d="M95,102 L95,118 L117,110 Z" class="symf"/>
+  <line x1="117" y1="102" x2="117" y2="118" class="sym"/>
+  <text x="106" y="94" text-anchor="middle" class="sm">D1</text>
+  <line x1="117" y1="110" x2="150" y2="110" class="wire"/>
+  <rect x="150" y="103" width="44" height="14" class="sym"/>
+  <line x1="150" y1="110" x2="194" y2="110" class="sym"/>
+  <text x="172" y="96" text-anchor="middle" class="sm">F1</text>
+  <line x1="194" y1="110" x2="340" y2="110" class="wire"/>
+  <line x1="62" y1="150" x2="80" y2="150" class="wire"/>
+  <line x1="80" y1="150" x2="80" y2="168" class="wire"/>
+  <line x1="70" y1="168" x2="90" y2="168" class="wire"/>
+  <line x1="74" y1="173" x2="86" y2="173" class="wire"/>
+  <line x1="78" y1="178" x2="82" y2="178" class="wire"/>
+
+  <!-- ===== ZONE ALIMENTATION ===== -->
+  <rect x="280" y="55" width="290" height="135" rx="6" class="zone"/>
+  <text x="292" y="75" text-anchor="start" class="orglab">Alimentation</text>
+  <line x1="315" y1="110" x2="315" y2="124" class="wire"/>
+  <line x1="307" y1="124" x2="323" y2="124" class="sym"/>
+  <line x1="307" y1="130" x2="323" y2="130" class="sym"/>
+  <line x1="315" y1="130" x2="315" y2="148" class="wire"/>
+  <line x1="305" y1="148" x2="325" y2="148" class="wire"/>
+  <line x1="309" y1="153" x2="321" y2="153" class="wire"/>
+  <line x1="313" y1="158" x2="317" y2="158" class="wire"/>
+  <text x="303" y="122" text-anchor="end" class="sm">C1</text>
+  <rect x="340" y="85" width="95" height="50" rx="3" class="bx"/>
+  <text x="387" y="105" text-anchor="middle" class="hd">U2</text>
+  <text x="387" y="121" text-anchor="middle" class="sm">régulateur 5 V</text>
+  <line x1="435" y1="110" x2="495" y2="110" class="wire"/>
+  <line x1="470" y1="110" x2="470" y2="124" class="wire"/>
+  <line x1="462" y1="124" x2="478" y2="124" class="sym"/>
+  <line x1="462" y1="130" x2="478" y2="130" class="sym"/>
+  <line x1="470" y1="130" x2="470" y2="148" class="wire"/>
+  <line x1="460" y1="148" x2="480" y2="148" class="wire"/>
+  <line x1="464" y1="153" x2="476" y2="153" class="wire"/>
+  <line x1="468" y1="158" x2="472" y2="158" class="wire"/>
+  <text x="483" y="122" text-anchor="start" class="sm">C2</text>
+  <path d="M495,102 L549,102 L557,110 L549,118 L495,118 Z" class="flagshape"/>
+  <text x="524" y="114" text-anchor="middle" class="flagtxt">+5V</text>
+
+  <!-- ===== ZONE CAPTEUR ===== -->
+  <rect x="30" y="215" width="180" height="180" rx="6" class="zone"/>
+  <text x="42" y="235" text-anchor="start" class="orglab">Capteur (entrée)</text>
+  <path d="M62,248 L116,248 L124,256 L116,264 L62,264 Z" class="flagshape"/>
+  <text x="89" y="260" text-anchor="middle" class="flagtxt">+5V</text>
+  <line x1="91" y1="264" x2="91" y2="280" class="wire"/>
+  <rect x="85" y="280" width="12" height="32" class="sym"/>
+  <text x="103" y="298" text-anchor="start" class="sm">R1 10 k</text>
+  <line x1="91" y1="312" x2="91" y2="338" class="wire"/>
+  <circle cx="91" cy="330" r="3" class="symf"/>
+  <line x1="91" y1="330" x2="250" y2="330" class="wire"/>
+  <rect x="85" y="338" width="12" height="32" class="sym"/>
+  <line x1="78" y1="374" x2="104" y2="336" class="sym"/>
+  <text x="103" y="358" text-anchor="start" class="sm">R2 (capteur)</text>
+  <line x1="91" y1="370" x2="91" y2="382" class="wire"/>
+  <line x1="81" y1="382" x2="101" y2="382" class="wire"/>
+  <line x1="85" y1="387" x2="97" y2="387" class="wire"/>
+  <line x1="89" y1="392" x2="93" y2="392" class="wire"/>
+
+  <!-- ===== ZONE ADAPTATION ===== -->
+  <rect x="230" y="255" width="130" height="120" rx="6" class="zone"/>
+  <text x="242" y="275" text-anchor="start" class="orglab">Adaptation</text>
+  <rect x="250" y="290" width="90" height="55" rx="3" class="bx"/>
+  <text x="295" y="312" text-anchor="middle" class="hd">U3</text>
+  <text x="295" y="328" text-anchor="middle" class="sm">level shifter</text>
+  <line x1="340" y1="318" x2="420" y2="318" class="wire"/>
+
+  <!-- ===== ZONE MCU ===== -->
+  <rect x="380" y="215" width="210" height="200" rx="6" class="zone"/>
+  <text x="392" y="235" text-anchor="start" class="orglab">MCU (traitement)</text>
+  <path d="M458,244 L512,244 L520,252 L512,260 L458,260 Z" class="flagshape"/>
+  <text x="485" y="256" text-anchor="middle" class="flagtxt">+5V</text>
+  <line x1="487" y1="260" x2="487" y2="275" class="wire"/>
+  <line x1="487" y1="268" x2="530" y2="268" class="wire"/>
+  <line x1="530" y1="268" x2="530" y2="272" class="wire"/>
+  <line x1="522" y1="272" x2="538" y2="272" class="sym"/>
+  <line x1="522" y1="278" x2="538" y2="278" class="sym"/>
+  <line x1="530" y1="278" x2="530" y2="290" class="wire"/>
+  <line x1="520" y1="290" x2="540" y2="290" class="wire"/>
+  <line x1="524" y1="295" x2="536" y2="295" class="wire"/>
+  <line x1="528" y1="300" x2="532" y2="300" class="wire"/>
+  <text x="544" y="280" text-anchor="start" class="sm">C3 100 nF</text>
+  <rect x="420" y="275" width="140" height="100" rx="3" class="bx"/>
+  <text x="490" y="320" text-anchor="middle" class="hd">U1 — MCU</text>
+  <text x="428" y="322" text-anchor="start" class="sm">A0</text>
+  <text x="552" y="304" text-anchor="end" class="sm">D9</text>
+  <line x1="560" y1="300" x2="614" y2="300" class="wire"/>
+  <line x1="487" y1="375" x2="487" y2="392" class="wire"/>
+  <line x1="477" y1="392" x2="497" y2="392" class="wire"/>
+  <line x1="481" y1="397" x2="493" y2="397" class="wire"/>
+  <line x1="485" y1="402" x2="489" y2="402" class="wire"/>
+
+  <!-- ===== ZONE SORTIE ===== -->
+  <rect x="600" y="215" width="215" height="215" rx="6" class="zone"/>
+  <text x="612" y="235" text-anchor="start" class="orglab">Sortie (actionneur)</text>
+  <path d="M655,242 L709,242 L717,250 L709,258 L655,258 Z" class="flagshape"/>
+  <text x="682" y="254" text-anchor="middle" class="flagtxt">+5V</text>
+  <line x1="684" y1="258" x2="684" y2="272" class="wire"/>
+  <circle cx="684" cy="288" r="16" class="sym"/>
+  <text x="684" y="293" text-anchor="middle" class="hd">M</text>
+  <line x1="684" y1="304" x2="684" y2="326" class="wire"/>
+  <line x1="684" y1="266" x2="745" y2="266" class="wire"/>
+  <line x1="684" y1="320" x2="745" y2="320" class="wire"/>
+  <line x1="745" y1="320" x2="745" y2="302" class="sym"/>
+  <path d="M737,302 L753,302 L745,288 Z" class="symf"/>
+  <line x1="737" y1="288" x2="753" y2="288" class="sym"/>
+  <line x1="745" y1="288" x2="745" y2="266" class="sym"/>
+  <text x="760" y="298" text-anchor="start" class="sm">D2</text>
+  <rect x="614" y="294" width="32" height="12" class="sym"/>
+  <text x="630" y="288" text-anchor="middle" class="sm">R4</text>
+  <line x1="646" y1="300" x2="656" y2="300" class="wire"/>
+  <line x1="656" y1="300" x2="656" y2="344" class="wire"/>
+  <line x1="656" y1="344" x2="668" y2="344" class="wire"/>
+  <line x1="668" y1="330" x2="668" y2="358" class="sym"/>
+  <line x1="668" y1="336" x2="684" y2="326" class="wire"/>
+  <line x1="668" y1="352" x2="684" y2="362" class="wire"/>
+  <path d="M678,356 L684,362 L676,363 Z" class="symf"/>
+  <line x1="684" y1="362" x2="684" y2="380" class="wire"/>
+  <line x1="674" y1="380" x2="694" y2="380" class="wire"/>
+  <line x1="678" y1="385" x2="690" y2="385" class="wire"/>
+  <line x1="682" y1="390" x2="686" y2="390" class="wire"/>
+  <text x="700" y="348" text-anchor="start" class="sm">Q1</text>
+
+  <text x="420" y="470" text-anchor="middle" class="foot">Le découpage au crayon : chaque cadre est un bloc fonctionnel — le schéma se lit zone par zone, pas symbole par symbole.</text>
+</svg>

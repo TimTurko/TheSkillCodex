@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 240" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Le label de net : une liaison par le nom</title>
+  <desc id="d1">À gauche, la sortie D9 d'un microcontrôleur aboutit à une étiquette CMD_LED. À droite, une étiquette identique alimente une résistance en série avec une LED vers la masse. Même nom, même nœud : les deux fils sont électriquement reliés sans qu'aucun trait ne les joigne sur le dessin.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .flagshape { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .flagtxt { font: 700 11px sans-serif; fill: #2C2C2A; }
+      .rec { stroke: #BA7517; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .sym { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .symf { fill: #888780; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .flagtxt { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .orglab { fill: #EF9F27; }
+        .flagshape, .rec { stroke: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .sym, .wire { stroke: #BBBBBB; }
+        .symf { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="280" y="26" text-anchor="middle" class="ti">Le label de net : une liaison par le nom</text>
+
+  <text x="300" y="84" text-anchor="middle" class="orglab">même nom = même nœud</text>
+  <text x="300" y="100" text-anchor="middle" class="sm">ces deux fils sont reliés, sans trait dessiné</text>
+  <path d="M263,126 C285,104 315,104 338,126" class="rec"/>
+
+  <!-- fragment gauche : MCU -->
+  <rect x="40" y="95" width="110" height="90" rx="3" class="bx"/>
+  <text x="95" y="120" text-anchor="middle" class="hd">U1 — MCU</text>
+  <text x="144" y="144" text-anchor="end" class="sm">D9</text>
+  <line x1="150" y1="140" x2="195" y2="140" class="wire"/>
+  <path d="M195,132 L263,132 L271,140 L263,148 L195,148 Z" class="flagshape"/>
+  <text x="229" y="144" text-anchor="middle" class="flagtxt">CMD_LED</text>
+
+  <!-- fragment droit : R + LED -->
+  <path d="M406,132 L338,132 L330,140 L338,148 L406,148 Z" class="flagshape"/>
+  <text x="372" y="144" text-anchor="middle" class="flagtxt">CMD_LED</text>
+  <line x1="406" y1="140" x2="438" y2="140" class="wire"/>
+  <rect x="438" y="134" width="36" height="12" class="sym"/>
+  <text x="456" y="126" text-anchor="middle" class="sm">R3</text>
+  <line x1="474" y1="140" x2="498" y2="140" class="wire"/>
+  <path d="M498,132 L498,148 L512,140 Z" class="symf"/>
+  <line x1="512" y1="132" x2="512" y2="148" class="sym"/>
+  <line x1="506" y1="128" x2="512" y2="120" class="sym"/>
+  <line x1="512" y1="124" x2="518" y2="116" class="sym"/>
+  <text x="505" y="162" text-anchor="middle" class="sm">D1</text>
+  <line x1="512" y1="140" x2="532" y2="140" class="wire"/>
+  <line x1="532" y1="140" x2="532" y2="158" class="wire"/>
+  <line x1="522" y1="158" x2="542" y2="158" class="wire"/>
+  <line x1="526" y1="163" x2="538" y2="163" class="wire"/>
+  <line x1="530" y1="168" x2="534" y2="168" class="wire"/>
+
+  <text x="280" y="220" text-anchor="middle" class="foot">Indispensable dès qu'un schéma se densifie — et c'est ce qui assure la continuité entre les feuilles d'un schéma multi-feuilles.</text>
+</svg>
