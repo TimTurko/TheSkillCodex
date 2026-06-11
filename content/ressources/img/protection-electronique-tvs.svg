@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 205" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Branchement de la diode TVS</title>
+  <desc id="d1">La diode TVS se branche en parallèle entre le rail et la masse, après les protections série. Un pic de tension arrivant sur le rail est écrêté vers la masse avant d'atteindre la charge. Transparente en fonctionnement normal.</desc>
+  <defs>
+    <style>
+      .lab { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .org { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .orgf { fill: #BA7517; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .flt { font: 700 10px sans-serif; fill: #B23A2E; }
+      .farr { stroke: #B23A2E; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      @media (prefers-color-scheme: dark) {
+        .lab { fill: #F1EFE8; }
+        .sm { fill: #BBBBBB; }
+        .orglab { fill: #EF9F27; }
+        .org { stroke: #EF9F27; }
+        .orgf { fill: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire { stroke: #BBBBBB; }
+        .flt { fill: #E0705F; }
+        .farr { stroke: #E0705F; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+  </defs>
+
+  <text x="120" y="28" text-anchor="start" class="flt">pic de tension</text>
+  <polyline points="150,38 168,52 158,66 196,86" class="farr" marker-end="url(#af)"/>
+
+  <rect x="20" y="75" width="90" height="40" rx="3" class="bx"/>
+  <text x="65" y="99" text-anchor="middle" class="lab">source</text>
+  <line x1="110" y1="95" x2="360" y2="95" class="wire"/>
+  <circle cx="240" cy="95" r="3.5" class="orgf"/>
+
+  <line x1="240" y1="95" x2="240" y2="114" class="org"/>
+  <path d="M232,114 L248,114 L240,126 Z" class="orgf"/>
+  <line x1="232" y1="126" x2="248" y2="126" class="org"/>
+  <path d="M232,138 L248,138 L240,126 Z" class="orgf"/>
+  <line x1="240" y1="138" x2="240" y2="156" class="org"/>
+  <line x1="228" y1="156" x2="252" y2="156" class="wire"/>
+  <line x1="232" y1="161" x2="248" y2="161" class="wire"/>
+  <line x1="236" y1="166" x2="244" y2="166" class="wire"/>
+  <text x="256" y="122" text-anchor="start" class="orglab">TVS</text>
+  <text x="256" y="140" text-anchor="start" class="sm">écrête le pic vers la masse</text>
+
+  <rect x="360" y="75" width="90" height="40" rx="3" class="bx"/>
+  <text x="405" y="99" text-anchor="middle" class="lab">charge</text>
+
+  <polyline points="405,115 405,185 65,185 65,115" class="wire"/>
+</svg>

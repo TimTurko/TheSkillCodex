@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 235" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Branchement de la diode de roue libre</title>
+  <desc id="d1">La diode de roue libre se branche en antiparallèle aux bornes de la bobine (relais ou moteur), cathode vers le plus. À la coupure du transistor de commande, le courant de la bobine se referme à travers la diode au lieu de générer une surtension qui détruirait le transistor. Souvent déjà intégrée aux drivers et modules relais du commerce.</desc>
+  <defs>
+    <style>
+      .lab { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .org { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .orgf { fill: #BA7517; }
+      .rec { stroke: #BA7517; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .flt { font: 700 10px sans-serif; fill: #B23A2E; }
+      .farr { stroke: #B23A2E; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .lab { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .orglab { fill: #EF9F27; }
+        .org, .rec { stroke: #EF9F27; }
+        .orgf { fill: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire { stroke: #BBBBBB; }
+        .flt { fill: #E0705F; }
+        .farr { stroke: #E0705F; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+    <marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+  </defs>
+
+  <text x="200" y="40" text-anchor="middle" class="lab">+V</text>
+  <line x1="200" y1="46" x2="200" y2="70" class="wire"/>
+
+  <rect x="180" y="70" width="40" height="56" rx="3" class="bx"/>
+  <text x="236" y="94" text-anchor="start" class="sm">bobine</text>
+  <text x="236" y="108" text-anchor="start" class="sm">(relais, moteur)</text>
+
+  <line x1="200" y1="126" x2="200" y2="150" class="wire"/>
+  <rect x="160" y="150" width="80" height="40" rx="3" class="bx"/>
+  <text x="200" y="174" text-anchor="middle" class="lab">transistor</text>
+  <line x1="200" y1="190" x2="200" y2="204" class="wire"/>
+  <line x1="186" y1="204" x2="214" y2="204" class="wire"/>
+  <line x1="191" y1="209" x2="209" y2="209" class="wire"/>
+  <line x1="196" y1="214" x2="204" y2="214" class="wire"/>
+
+  <line x1="200" y1="70" x2="280" y2="70" class="wire"/>
+  <line x1="200" y1="126" x2="280" y2="126" class="wire"/>
+  <line x1="280" y1="70" x2="280" y2="84" class="org"/>
+  <path d="M272,98 L288,98 L280,84 Z" class="orgf"/>
+  <line x1="272" y1="84" x2="288" y2="84" class="org"/>
+  <line x1="280" y1="98" x2="280" y2="126" class="org"/>
+  <text x="298" y="86" text-anchor="start" class="orglab">diode de roue libre</text>
+  <text x="298" y="102" text-anchor="start" class="sm">cathode vers le +</text>
+
+  <path d="M240,120 C264,118 264,78 240,76" class="rec" marker-end="url(#am)"/>
+  <text x="298" y="120" text-anchor="start" class="sm">à la coupure, le courant se referme ici</text>
+
+  <text x="84" y="144" text-anchor="middle" class="flt">sans la diode :</text>
+  <text x="84" y="158" text-anchor="middle" class="flt">surtension, transistor détruit</text>
+  <line x1="118" y1="162" x2="156" y2="168" class="farr" marker-end="url(#af)"/>
+
+  <text x="280" y="228" text-anchor="middle" class="foot">Souvent intégrée aux drivers et modules relais — vérifier la datasheet.</text>
+</svg>

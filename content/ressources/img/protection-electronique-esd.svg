@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Branchement de la TVS ESD</title>
+  <desc id="d1">La TVS ESD se branche en parallèle entre la ligne de données et la masse, au plus près du connecteur exposé (USB, bornier, bouton). La décharge électrostatique de plusieurs kilovolts est écrêtée vers la masse avant d'atteindre la broche du microcontrôleur.</desc>
+  <defs>
+    <style>
+      .lab { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .org { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .orgf { fill: #BA7517; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .flt { font: 700 10px sans-serif; fill: #B23A2E; }
+      .farr { stroke: #B23A2E; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .lab { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .orglab { fill: #EF9F27; }
+        .org { stroke: #EF9F27; }
+        .orgf { fill: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire { stroke: #BBBBBB; }
+        .flt { fill: #E0705F; }
+        .farr { stroke: #E0705F; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+  </defs>
+
+  <text x="118" y="30" text-anchor="start" class="flt">décharge électrostatique (plusieurs kV)</text>
+  <polyline points="100,36 86,48 96,58 82,70" class="farr" marker-end="url(#af)"/>
+
+  <rect x="20" y="72" width="110" height="46" rx="3" class="bx"/>
+  <text x="75" y="92" text-anchor="middle" class="lab">connecteur</text>
+  <text x="75" y="108" text-anchor="middle" class="sm">USB, bornier, bouton</text>
+
+  <line x1="130" y1="95" x2="360" y2="95" class="wire"/>
+  <circle cx="225" cy="95" r="3.5" class="orgf"/>
+
+  <line x1="225" y1="95" x2="225" y2="114" class="org"/>
+  <path d="M217,114 L233,114 L225,126 Z" class="orgf"/>
+  <line x1="217" y1="126" x2="233" y2="126" class="org"/>
+  <path d="M217,138 L233,138 L225,126 Z" class="orgf"/>
+  <line x1="225" y1="138" x2="225" y2="156" class="org"/>
+  <line x1="213" y1="156" x2="237" y2="156" class="wire"/>
+  <line x1="217" y1="161" x2="233" y2="161" class="wire"/>
+  <line x1="221" y1="166" x2="229" y2="166" class="wire"/>
+  <text x="241" y="122" text-anchor="start" class="orglab">TVS ESD</text>
+  <text x="241" y="140" text-anchor="start" class="sm">écrête la décharge vers la masse</text>
+
+  <rect x="360" y="75" width="100" height="40" rx="3" class="bx"/>
+  <text x="410" y="99" text-anchor="middle" class="lab">broche du MCU</text>
+
+  <text x="280" y="196" text-anchor="middle" class="foot">Au plus près du connecteur — et côté gestes : toucher une masse, tenir la carte par les bords.</text>
+</svg>
