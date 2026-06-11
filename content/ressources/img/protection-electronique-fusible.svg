@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 185" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Branchement du fusible</title>
+  <desc id="d1">Le fusible se branche en série sur le fil d'alimentation, entre la source et la charge. Un court-circuit en aval fait fondre le fusible, qui coupe le circuit. Le calibre est choisi au-dessus de la pointe normale de consommation. Le polyfuse réarmable se branche au même endroit.</desc>
+  <defs>
+    <style>
+      .lab { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .orglab { font: 700 11px sans-serif; fill: #BA7517; }
+      .org { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .flt { font: 700 10px sans-serif; fill: #B23A2E; }
+      .farr { stroke: #B23A2E; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .lab { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .orglab { fill: #EF9F27; }
+        .org { stroke: #EF9F27; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire { stroke: #BBBBBB; }
+        .flt { fill: #E0705F; }
+        .farr { stroke: #E0705F; }
+      }
+    </style>
+    <marker id="af" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+  </defs>
+
+  <rect x="20" y="75" width="90" height="40" rx="3" class="bx"/>
+  <text x="65" y="99" text-anchor="middle" class="lab">source</text>
+  <line x1="110" y1="95" x2="198" y2="95" class="wire"/>
+
+  <rect x="198" y="87" width="60" height="16" rx="2" class="org"/>
+  <line x1="198" y1="95" x2="258" y2="95" class="org"/>
+  <text x="228" y="76" text-anchor="middle" class="orglab">fusible</text>
+  <text x="228" y="132" text-anchor="middle" class="sm">calibre : au-dessus de la pointe normale</text>
+
+  <line x1="258" y1="95" x2="360" y2="95" class="wire"/>
+  <rect x="360" y="75" width="90" height="40" rx="3" class="bx"/>
+  <text x="405" y="99" text-anchor="middle" class="lab">charge</text>
+
+  <polyline points="405,115 405,148 65,148 65,115" class="wire"/>
+
+  <text x="468" y="48" text-anchor="middle" class="flt">court-circuit</text>
+  <line x1="468" y1="56" x2="420" y2="72" class="farr" marker-end="url(#af)"/>
+
+  <text x="280" y="172" text-anchor="middle" class="foot">Le polyfuse (réarmable) se branche au même endroit.</text>
+</svg>
