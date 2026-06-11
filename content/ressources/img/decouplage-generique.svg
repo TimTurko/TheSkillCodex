@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Le découplage : un réservoir local contre les pointes de courant</title>
+  <desc id="d1">Deux panneaux comparés. À gauche, sans découplage : un régulateur alimente un microcontrôleur au bout d'une longue piste ; lors d'un appel de courant, la tension à la broche creuse sous la tension minimale du microcontrôleur, qui redémarre. À droite, avec découplage : un condensateur réservoir et un céramique de 100 nanofarads placés au plus près de la broche servent la pointe localement, et la tension reste au-dessus du seuil.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; fill: #2C2C2A; }
+      .pt { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 11px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .cap { stroke: #BA7517; stroke-width: 2.4; fill: none; }
+      .caplead { stroke: #888780; stroke-width: 1.4; fill: none; }
+      .ax { stroke: #888780; stroke-width: 1.4; fill: none; }
+      .nom { stroke: #888780; stroke-width: 1; stroke-dasharray: 3 3; }
+      .curve { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .thr { stroke: #B23A2E; stroke-width: 1.4; stroke-dasharray: 5 3; }
+      .thrlab { font: 700 10px sans-serif; fill: #B23A2E; }
+      .zone { fill: #888780; fill-opacity: .12; }
+      .note { font: 600 11px sans-serif; fill: #2C2C2A; }
+      .noted { font: 700 11px sans-serif; fill: #B23A2E; }
+      .emph { font: italic 600 10px sans-serif; fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; }
+      .divi { stroke: #888780; stroke-width: 1; stroke-dasharray: 2 4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .pt, .hd, .note { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire, .caplead, .ax { stroke: #BBBBBB; }
+        .nom { stroke: #BBBBBB; }
+        .cap, .curve { stroke: #EF9F27; }
+        .thr { stroke: #E0705F; }
+        .thrlab, .noted { fill: #E0705F; }
+        .emph { fill: #EF9F27; }
+        .zone { fill: #BBBBBB; fill-opacity: .14; }
+        .divi { stroke: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="420" y="26" text-anchor="middle" class="ti">Le découplage : un réservoir local contre les pointes de courant</text>
+  <line x1="420" y1="46" x2="420" y2="400" class="divi"/>
+
+  <!-- ============ PANNEAU GAUCHE : sans découplage ============ -->
+  <text x="240" y="56" text-anchor="middle" class="pt">Sans découplage</text>
+
+  <rect x="80" y="72" width="100" height="40" rx="3" class="bx"/>
+  <text x="130" y="96" text-anchor="middle" class="hd">régulateur</text>
+  <line x1="180" y1="92" x2="285" y2="92" class="wire"/>
+  <text x="232" y="84" text-anchor="middle" class="sm">longue piste</text>
+  <rect x="285" y="72" width="80" height="40" rx="3" class="bx"/>
+  <text x="325" y="96" text-anchor="middle" class="hd">MCU</text>
+
+  <!-- graphe -->
+  <text x="92" y="178" text-anchor="start" class="sm">tension à la broche du MCU</text>
+  <line x1="90" y1="185" x2="90" y2="370" class="ax"/>
+  <line x1="90" y1="370" x2="390" y2="370" class="ax"/>
+  <rect x="200" y="185" width="70" height="185" class="zone"/>
+  <text x="235" y="198" text-anchor="middle" class="sm">appel de courant</text>
+  <line x1="90" y1="210" x2="390" y2="210" class="nom"/>
+  <text x="84" y="214" text-anchor="end" class="sm">5 V</text>
+  <line x1="90" y1="295" x2="390" y2="295" class="thr"/>
+  <text x="388" y="290" text-anchor="end" class="thrlab">tension minimale du MCU</text>
+  <path d="M90,210 L200,210 C215,210 215,335 235,335 C255,335 255,210 270,210 L390,210" class="curve"/>
+  <text x="240" y="392" text-anchor="middle" class="noted">Le creux passe sous le seuil : le MCU redémarre.</text>
+
+  <!-- ============ PANNEAU DROIT : avec découplage ============ -->
+  <text x="650" y="56" text-anchor="middle" class="pt">Avec découplage</text>
+
+  <rect x="470" y="72" width="100" height="40" rx="3" class="bx"/>
+  <text x="520" y="96" text-anchor="middle" class="hd">régulateur</text>
+  <line x1="570" y1="92" x2="695" y2="92" class="wire"/>
+  <rect x="695" y="72" width="80" height="40" rx="3" class="bx"/>
+  <text x="735" y="96" text-anchor="middle" class="hd">MCU</text>
+
+  <!-- condensateur réservoir -->
+  <line x1="610" y1="92" x2="610" y2="104" class="caplead"/>
+  <line x1="601" y1="104" x2="619" y2="104" class="cap"/>
+  <line x1="601" y1="110" x2="619" y2="110" class="cap"/>
+  <line x1="610" y1="110" x2="610" y2="122" class="caplead"/>
+  <line x1="600" y1="122" x2="620" y2="122" class="caplead"/>
+  <line x1="604" y1="126" x2="616" y2="126" class="caplead"/>
+  <line x1="607" y1="130" x2="613" y2="130" class="caplead"/>
+  <text x="610" y="144" text-anchor="middle" class="sm">réservoir (µF)</text>
+
+  <!-- condensateur céramique -->
+  <line x1="672" y1="92" x2="672" y2="104" class="caplead"/>
+  <line x1="663" y1="104" x2="681" y2="104" class="cap"/>
+  <line x1="663" y1="110" x2="681" y2="110" class="cap"/>
+  <line x1="672" y1="110" x2="672" y2="122" class="caplead"/>
+  <line x1="662" y1="122" x2="682" y2="122" class="caplead"/>
+  <line x1="666" y1="126" x2="678" y2="126" class="caplead"/>
+  <line x1="669" y1="130" x2="675" y2="130" class="caplead"/>
+  <text x="672" y="144" text-anchor="middle" class="sm">100 nF</text>
+  <text x="672" y="160" text-anchor="middle" class="emph">au plus près de la broche</text>
+
+  <!-- graphe -->
+  <text x="502" y="178" text-anchor="start" class="sm">tension à la broche du MCU</text>
+  <line x1="500" y1="185" x2="500" y2="370" class="ax"/>
+  <line x1="500" y1="370" x2="800" y2="370" class="ax"/>
+  <rect x="610" y="185" width="70" height="185" class="zone"/>
+  <text x="645" y="198" text-anchor="middle" class="sm">appel de courant</text>
+  <line x1="500" y1="210" x2="800" y2="210" class="nom"/>
+  <text x="494" y="214" text-anchor="end" class="sm">5 V</text>
+  <line x1="500" y1="295" x2="800" y2="295" class="thr"/>
+  <text x="798" y="290" text-anchor="end" class="thrlab">tension minimale du MCU</text>
+  <path d="M500,210 L610,210 C625,210 625,242 645,242 C665,242 665,210 680,210 L800,210" class="curve"/>
+  <text x="650" y="392" text-anchor="middle" class="note">Le condensateur sert la pointe : la tension tient.</text>
+
+  <text x="420" y="424" text-anchor="middle" class="foot">Valeurs indicatives — la profondeur du creux dépend de la pointe, de la longueur de piste et des condensateurs.</text>
+</svg>

@@ -75,7 +75,9 @@ Verdict : OK / a corriger
 
 ## 4 · EEE — fondations électronique
 - [x] `niveaux-de-tension` — 🖼✅ *(rouge `#B23A2E` validé en sombre, 11/06)*
-- [ ] `alimentation-electronique` — 🖼
+- [ ] `alimentation-electronique` — 🖼 ⚠ refonte 11/06 (section source, plan de masse, tip références) — à revalider au rendu
+- [ ] `decouplage` — 🖼 *(créée 11/06, SVG neuf)*
+- [ ] `protection-electronique` — 🖼 *(créée 11/06, SVG neuf)*
 - [ ] `chaine-energie` — 🖼✅
 - [ ] `analyse-de-schema-electronique` — 🖼
 - [ ] `lire-une-datasheet` — 🖼 ⚠ sens des 2 flèches moteur (L298N)

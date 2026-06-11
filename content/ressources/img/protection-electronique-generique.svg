@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" role="img" aria-labelledby="t1 d1">
+  <title id="t1">L'étage de protection : trois fautes, trois parades</title>
+  <desc id="d1">Chaîne de protection en tête d'alimentation : le connecteur d'entrée alimente un bloc anti-inversion (diode ou MOSFET-P), puis un fusible, puis un nœud d'où une diode TVS écrête vers la masse, avant la distribution vers les rails. Trois fautes annotées en rouge : l'inversion de polarité est bloquée par le premier bloc, le court-circuit en aval est coupé par le fusible, la surtension est écrêtée vers la masse par la TVS. Près d'une charge inductive, ajouter en plus une diode de roue libre.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #888780; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .wire { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .gnd { stroke: #888780; stroke-width: 1.4; fill: none; }
+      .out { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .flt { font: 700 11px sans-serif; fill: #B23A2E; }
+      .farr { stroke: #B23A2E; stroke-width: 1.8; stroke-dasharray: 5 3; fill: none; }
+      .nd { fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .out { fill: #F1EFE8; }
+        .sm, .foot { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .wire { stroke: #EF9F27; }
+        .nd { fill: #EF9F27; }
+        .gnd { stroke: #BBBBBB; }
+        .flt { fill: #E0705F; }
+        .farr { stroke: #E0705F; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+    <marker id="af" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
+  </defs>
+
+  <text x="420" y="26" text-anchor="middle" class="ti">L'étage de protection : trois fautes, trois parades</text>
+
+  <!-- fautes (rouge) -->
+  <text x="285" y="106" text-anchor="middle" class="flt">① inversion de polarité</text>
+  <line x1="285" y1="116" x2="285" y2="192" class="farr" marker-end="url(#af)"/>
+  <text x="455" y="106" text-anchor="middle" class="flt">② court-circuit en aval</text>
+  <line x1="455" y1="116" x2="455" y2="192" class="farr" marker-end="url(#af)"/>
+  <text x="672" y="106" text-anchor="middle" class="flt">③ surtension (pic, ESD)</text>
+  <line x1="660" y1="116" x2="575" y2="218" class="farr" marker-end="url(#af)"/>
+
+  <!-- chaîne -->
+  <rect x="55" y="200" width="110" height="60" rx="3" class="bx"/>
+  <text x="110" y="226" text-anchor="middle" class="hd">connecteur</text>
+  <text x="110" y="244" text-anchor="middle" class="hd">d'entrée</text>
+
+  <line x1="165" y1="230" x2="213" y2="230" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="215" y="200" width="140" height="60" rx="3" class="bx"/>
+  <text x="285" y="226" text-anchor="middle" class="hd">anti-inversion</text>
+  <text x="285" y="244" text-anchor="middle" class="sm">diode ou MOSFET-P</text>
+  <text x="285" y="278" text-anchor="middle" class="sm">bloque le branchement à l'envers</text>
+
+  <line x1="355" y1="230" x2="403" y2="230" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="405" y="200" width="100" height="60" rx="3" class="bx"/>
+  <text x="455" y="226" text-anchor="middle" class="hd">fusible</text>
+  <text x="455" y="244" text-anchor="middle" class="sm">ou polyfuse</text>
+  <text x="455" y="278" text-anchor="middle" class="sm">coupe le courant de faute</text>
+
+  <line x1="505" y1="230" x2="658" y2="230" class="wire" marker-end="url(#aw)"/>
+  <circle cx="560" cy="230" r="3.5" class="nd"/>
+
+  <!-- branche TVS -->
+  <line x1="560" y1="230" x2="560" y2="288" class="gnd"/>
+  <rect x="520" y="288" width="80" height="46" rx="3" class="bx"/>
+  <text x="560" y="308" text-anchor="middle" class="hd">TVS</text>
+  <text x="560" y="324" text-anchor="middle" class="sm">écrêteur</text>
+  <line x1="560" y1="334" x2="560" y2="354" class="gnd"/>
+  <line x1="546" y1="354" x2="574" y2="354" class="gnd"/>
+  <line x1="551" y1="359" x2="569" y2="359" class="gnd"/>
+  <line x1="556" y1="364" x2="564" y2="364" class="gnd"/>
+  <text x="612" y="308" text-anchor="start" class="sm">écrête le pic</text>
+  <text x="612" y="322" text-anchor="start" class="sm">vers la masse</text>
+
+  <text x="668" y="234" text-anchor="start" class="out">vers les rails</text>
+
+  <text x="420" y="412" text-anchor="middle" class="foot">Près d'une charge inductive (relais, moteur), ajouter une diode de roue libre — la surtension de coupure naît en aval de cet étage.</text>
+</svg>

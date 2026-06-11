@@ -51,9 +51,12 @@ Le **régulateur à découpage** (*switching*) commute l'énergie par paquets à
 
 *Le détail des topologies (abaisseur, élévateur, leurs équations) relève du cours d'électronique de puissance ; ce qui se décide au niveau du projet, c'est lequel choisir et comment le dimensionner.*
 
+> [!tip] Astuce
+> **Références éprouvées** — linéaires : 7805 (5 V, l'historique), AMS1117 (compact, 5 V ou 3,3 V), MCP1700 (LDO très basse consommation) ; découpage : modules abaisseurs LM2596 ou MP1584, élévateur MT3608. Des familles stables et courantes : partir d'elles, vérifier la disponibilité et lire la datasheet avant d'acheter.
+
 ## Découpler
 
-Un régulateur réagit vite, mais pas instantanément. Quand un composant appelle une pointe de courant brève — un module radio qui émet, un moteur qui démarre, une sortie logique qui bascule —, la tension locale s'effondre le temps que la régulation rattrape. Un **condensateur de découplage** placé **au plus près** du composant joue le rôle de petit réservoir : il fournit la pointe localement, puis se recharge.
+Un régulateur réagit vite, mais pas instantanément. Quand un composant appelle une pointe de courant brève — un module radio qui émet, un moteur qui démarre, une sortie logique qui bascule —, la tension locale s'effondre le temps que la régulation rattrape. Un **condensateur de découplage** placé **au plus près** du composant joue le rôle de petit réservoir : il fournit la pointe localement, puis se recharge. *(→ notion [[decouplage|découplage]])*
 
 On combine deux types par étage : un **condensateur réservoir** (*bulk*, quelques dizaines à centaines de µF) qui encaisse les grosses variations, et un **condensateur céramique** (100 nF typique) collé à la broche d'alimentation, qui répond aux variations les plus rapides. La règle d'or tient en deux mots : **au plus près**. Un découplage à dix centimètres du composant, au bout d'une longue piste, ne sert presque à rien — l'inductance de la piste annule son effet.
 
@@ -79,7 +82,7 @@ Une **alimentation de laboratoire** rend ce comportement visible : on y règle u
 
 ## Protéger
 
-Une alimentation bien conçue rend les fautes courantes **non destructrices**. Trois protections couvrent l'essentiel des projets.
+Une alimentation bien conçue rend les fautes courantes **non destructrices**. Trois protections couvrent l'essentiel des projets. *(→ notion [[protection-electronique|protections électroniques]])*
 
 Contre le **court-circuit**, une limitation de courant : un **fusible**, qui coupe définitivement au-delà d'un seuil, ou un repli électronique qui plafonne le courant (comme le mode CC). On dimensionne le seuil un peu au-dessus de la pointe normale attendue, jamais en dessous, sous peine de coupures intempestives.
 
@@ -129,6 +132,8 @@ Beaucoup de systèmes mélangent les tensions : 5 V pour une logique ancienne ou
 ## Voir aussi
 
 - [[chaine-energie|Chaîne d'énergie]] — le modèle d'ensemble ; cette fiche en détaille le bloc *alimenter / distribuer*
+- [[decouplage|Découplage]] — l'approfondissement : pourquoi la pointe creuse la tension, valeurs et placement des condensateurs
+- [[protection-electronique|Protections électroniques]] — l'approfondissement : fusibles, anti-inversion, TVS et roue libre
 - [[arduino-alimentation|Alimenter une carte Arduino]] — la mise en œuvre concrète de ces principes sur une carte précise
 - [[niveaux-de-tension|Niveaux de tension]] — faire dialoguer des logiques 3,3 / 5 V (le signal, pas la puissance)
 - [[pcb|Concevoir une carte (PCB)]] — router proprement l'alimentation : largeurs de pistes, plans de masse, découplage
