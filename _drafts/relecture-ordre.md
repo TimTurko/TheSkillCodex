@@ -78,7 +78,7 @@ Verdict : OK / a corriger
 - [x] `alimentation-electronique` — 🖼✅ *(refonte 11/06 validée : section source, plan de masse, tip références)*
 - [x] `decouplage` — 🖼✅ *(créée et validée 11/06)*
 - [x] `protection-electronique` — 🖼✅ *(créée, complétée et validée 11/06 — 6 SVG)*
-- [ ] `chaine-energie` — 🖼✅
+- [x] `chaine-energie` — 🖼✅ *(relue 11/06 : agir explicité, lien rouge boucle-fermee, tip composants par bloc)*
 - [ ] `analyse-de-schema-electronique` — 🖼
 - [ ] `lire-une-datasheet` — 🖼 ⚠ sens des 2 flèches moteur (L298N)
 - [ ] `instruments-de-mesure`
