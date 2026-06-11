@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="to do2">
+  <title id="to">Brancher une sonde d'oscilloscope</title>
+  <desc id="do2">Un oscilloscope à gauche, une carte à microcontrôleur à droite. Le câble de sonde part du canal CH1 de l'oscilloscope ; à son extrémité, la pointe touche la broche signal D9 de la carte et la pince crocodile de masse se clippe sur la broche GND. Le cordon d'alimentation de l'oscilloscope descend vers un symbole de terre : la masse de l'oscilloscope est reliée à la terre du secteur, la pince impose donc cette terre au point qu'elle touche — elle ne se clippe que sur la masse du montage.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;fill:#2C2C2A;letter-spacing:.2px;}
+      .box{fill:#DDDBD3;stroke:#888780;stroke-width:1.8;}
+      .scr{fill:none;stroke:#888780;stroke-width:1.4;}
+      .bt{font:700 12.5px sans-serif;fill:#2C2C2A;}
+      .bs{font:400 11px sans-serif;fill:#888780;}
+      .sig{stroke:#BA7517;stroke-width:2;fill:none;}
+      .probe{stroke:#BA7517;stroke-width:2.2;fill:none;}
+      .clip{stroke:#888780;stroke-width:2;fill:none;}
+      .dot{fill:#BA7517;}
+      .bnc{fill:#DDDBD3;stroke:#BA7517;stroke-width:2;}
+      .wire{stroke:#888780;stroke-width:1.8;fill:none;}
+      .cap{font:italic 400 11.5px sans-serif;fill:#888780;}
+      .foot{font:italic 700 11.5px sans-serif;fill:#BA7517;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .box{fill:#4A4A48;stroke:#BBBBBB;} .scr{stroke:#BBBBBB;}
+        .bt{fill:#F1EFE8;} .bs{fill:#BBBBBB;} .sig{stroke:#EF9F27;} .probe{stroke:#EF9F27;}
+        .clip{stroke:#BBBBBB;} .dot{fill:#EF9F27;} .bnc{fill:#4A4A48;stroke:#EF9F27;}
+        .wire{stroke:#BBBBBB;} .cap{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="ttl" text-anchor="middle">Brancher une sonde d'oscilloscope</text>
+
+  <!-- Oscilloscope -->
+  <rect x="55" y="80" width="180" height="130" rx="10" class="box"/>
+  <text x="145" y="102" class="bt" text-anchor="middle">Oscilloscope</text>
+  <rect x="72" y="115" width="105" height="75" rx="4" class="scr"/>
+  <path d="M 80,168 L 95,168 L 95,138 L 112,138 L 112,168 L 129,168 L 129,138 L 146,138 L 146,168 L 169,168" class="sig"/>
+  <text x="235" y="126" class="bs" text-anchor="middle">CH1</text>
+  <circle cx="235" cy="145" r="7" class="bnc"/>
+
+  <!-- Cordon secteur et terre -->
+  <line x1="145" y1="210" x2="145" y2="265" class="wire"/>
+  <line x1="130" y1="265" x2="160" y2="265" class="wire"/>
+  <line x1="136" y1="272" x2="154" y2="272" class="wire"/>
+  <line x1="141" y1="279" x2="149" y2="279" class="wire"/>
+  <text x="160" y="302" class="cap" text-anchor="middle">la masse de l'oscillo est reliée à la terre du secteur</text>
+  <text x="160" y="318" class="cap" text-anchor="middle">— la pince impose donc cette terre au point clippé</text>
+
+  <!-- Carte microcontrôleur -->
+  <rect x="520" y="85" width="150" height="120" rx="10" class="box"/>
+  <text x="595" y="108" class="bt" text-anchor="middle">Carte</text>
+  <text x="595" y="124" class="bt" text-anchor="middle">microcontrôleur</text>
+  <text x="532" y="154" class="bs" text-anchor="start">D9 · signal</text>
+  <text x="532" y="189" class="bs" text-anchor="start">GND</text>
+
+  <!-- Sonde : signal -->
+  <path d="M 242,145 C 320,145 400,150 468,150 L 516,150" class="probe"/>
+  <circle cx="520" cy="150" r="4.5" class="dot"/>
+  <text x="430" y="136" class="cap" text-anchor="middle">pointe de sonde — sur le signal</text>
+
+  <!-- Sonde : pince de masse -->
+  <path d="M 468,150 L 468,185 L 516,185" class="clip"/>
+  <circle cx="520" cy="185" r="4.5" class="dot"/>
+  <text x="430" y="207" class="cap" text-anchor="middle">pince de masse — sur le GND</text>
+
+  <text x="360" y="346" class="foot" text-anchor="middle">Pointe sur le signal, pince sur la masse du montage — jamais ailleurs.</text>
+</svg>

@@ -25,17 +25,27 @@ L'oscilloscope répond à des questions que le multimètre ne peut pas traiter :
 - **voir la forme** d'un signal — carré, sinusoïdal, en dents de scie, bruité — et pas seulement sa valeur moyenne ;
 - **mesurer dans le temps** — la période et donc la **fréquence**, le **rapport cyclique** d'un PWM, un temps de montée, la durée d'une impulsion ;
 - **repérer un défaut dynamique** — un rebond de contact, une oscillation parasite, un signal qui s'effondre sous charge, un *glitch* trop bref pour un multimètre ;
-- **vérifier une communication** — l'allure d'une trame [[bus-de-communication|UART, I²C ou SPI]] (un analyseur logique la *décode*, l'oscilloscope en montre la *qualité électrique*).
+- **vérifier une communication** — l'allure d'une trame [[bus-de-communication|UART, I²C ou SPI]] (un [[analyseur-logique|analyseur logique]] la *décode*, l'oscilloscope en montre la *qualité électrique*).
 
 Pour une simple valeur continue — une tension d'alimentation, une résistance — le [[multimetre|multimètre]] reste plus rapide. L'oscilloscope se réserve aux signaux qui **bougent**.
 
+## Brancher la sonde
+
+La sonde est le seul lien entre le circuit et l'écran — la brancher correctement est la moitié du travail :
+
+1. **le câble de sonde se visse sur un canal** (CH1, CH2…) en face avant ;
+2. à l'autre bout, deux contacts : la **pointe**, qui va sur le point à observer, et la **pince crocodile de masse**, qui va sur la **masse du montage** — et nulle part ailleurs ;
+3. le pourquoi : par son cordon d'alimentation, la masse de l'oscilloscope est **reliée à la terre du secteur**. La pince *impose* donc la terre au point qu'elle touche — sur la masse du circuit, elle établit la référence commune ; sur tout autre point, elle crée un **court-circuit par la terre** (voir *Pièges*).
+
+![Branchement d'une sonde d'oscilloscope : le câble part du canal CH1, la pointe va sur la broche signal de la carte, la pince crocodile sur la masse GND ; le cordon d'alimentation relie la masse de l'oscilloscope à la terre du secteur, c'est pourquoi la pince ne se clippe que sur la masse du montage.](/ressources/img/oscilloscope-branchement-sonde.svg)
+
 ## Prendre en main
 
-1. **Brancher la sonde, masse comprise.** La sonde a une pointe (le signal) et une **pince de masse** : cette pince doit être reliée à la **masse du circuit**. Ce n'est pas optionnel — c'est une condition de sécurité (voir *Pièges*).
+1. **Brancher la sonde** comme ci-dessus — pointe sur le signal, pince sur la masse du montage.
 2. **Régler le calibre vertical (Volts/div).** L'axe vertical est en volts : choisir l'échelle pour que le signal occupe une bonne partie de l'écran sans déborder.
 3. **Régler la base de temps (Temps/div).** L'axe horizontal est en secondes : l'ajuster pour voir quelques périodes du signal — ni une bouillie d'oscillations tassées, ni une seule période étirée.
 4. **Régler le déclenchement (*trigger*).** C'est le réglage clé : il dit à l'oscilloscope **quand** commencer à tracer (par exemple « au front montant, quand le signal passe 1,6 V »). Sans trigger correct, l'image défile et reste illisible.
-5. **Tenir compte de la sonde (×1 / ×10).** Une sonde ×10 divise le signal par 10 (pour mesurer de plus fortes tensions sans saturer) : l'oscilloscope doit être réglé sur ×10 pour afficher la vraie valeur.
+5. **Tenir compte de la sonde (×1 / ×10).** Une sonde ×10 divise le signal par 10 — elle permet de mesurer de plus fortes tensions sans saturer, et **charge moins le circuit** (cf. *La mesure n'est pas neutre*, au hub) : l'oscilloscope doit être réglé sur ×10 pour afficher la vraie valeur.
 6. **Lire** amplitude et durées sur le quadrillage, ou via les mesures automatiques de l'appareil.
 
 > [!note]
@@ -49,7 +59,7 @@ On veut vérifier le signal produit par un `analogWrite()` sur une carte Arduino
 
 1. **Brancher** la pointe de sonde sur la broche PWM, la pince de masse sur la GND de la carte.
 2. **Régler** le calibre vertical autour de 1 à 2 V/div (signal 0–5 V) et la base de temps pour voir quelques périodes.
-3. **Déclencher** sur le front montant, niveau ≈ 1,6 V : le signal carré se fige.
+3. **Déclencher** sur le front montant, niveau ≈ 2,5 V : le signal carré se fige.
 4. **Lire la fréquence** : mesurer la période T sur l'axe horizontal ; la fréquence vaut 1/T (≈ 490 Hz sur la plupart des broches PWM Arduino par défaut).
 5. **Lire le rapport cyclique** : la proportion du temps passé à l'état haut sur une période. Une consigne `analogWrite(broche, 128)` (la moitié de 255) doit donner ≈ 50 %, une consigne 64 ≈ 25 %.
 
@@ -73,6 +83,7 @@ On a confirmé non seulement *que* le signal sort, mais *à quelle fréquence* e
 
 - [[instruments-de-mesure|Instruments de mesure]] — le hub : méthode et choix de l'instrument
 - [[multimetre|Multimètre]] — quand une valeur ponctuelle suffit
+- [[generateur-de-signaux|Générateur de signaux (GBF)]] — le binôme : injecter d'un côté, observer de l'autre
 - [[chronogramme|Chronogramme]] — lire et interpréter une forme d'onde (prérequis conceptuel)
 - [[simulation-electronique|Simulation électronique]] — la courbe simulée, attendu auquel confronter la trace réelle
 - [[pwm|PWM]] — le signal carré qu'on observe le plus souvent à l'oscilloscope

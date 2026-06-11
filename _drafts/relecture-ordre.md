@@ -85,8 +85,8 @@ Verdict : OK / a corriger
 - [x] `generateur-de-signaux` — 🖼✅ *(créée et validée 11/06 — capture face avant à prendre)*
 - [x] `analyseur-logique` — 🖼✅ *(créée et validée 11/06, tableau C66 — capture PulseView à prendre)*
 - [x] `precision-de-mesure` — 🖼✅ *(créée et validée 11/06, SVG 4 cibles)*
-- [ ] `multimetre` — 🖼 ⚠ géométrie du circuit série/parallèle
-- [ ] `oscilloscope`
+- [x] `multimetre` — 🖼✅ *(validée 11/06 : fils du voltmètre prolongés, secteur recadré, recroisements protection/précision, tip I = V/R)*
+- [ ] `oscilloscope` — 🖼 *(enrichie 11/06 : section Brancher la sonde + SVG terre/pince, liens analyseur/GBF, trigger 2,5 V)*
 
 ## 5 · EEE — algorithme
 - [ ] `algorithme` (hub)
