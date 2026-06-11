@@ -63,6 +63,6 @@
   <path d="M312,308 L312,350 L210,350" class="fl2"/>
 
   <!-- boucle retour vers Lire T -->
-  <path d="M210,350 L210,388 L26,388 L26,109 L124,109" class="fl"/>
+  <path d="M210,350 L210,388 L26,388 L26,109 L140,109" class="fl"/>
   <text x="34" y="250" class="lp">boucle de régulation</text>
 </svg>

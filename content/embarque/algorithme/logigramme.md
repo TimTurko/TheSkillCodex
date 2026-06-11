@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-Un **logigramme** (aussi appelé *organigramme* ou *ordinogramme*) est une représentation graphique d'un [[algorithme]] sous forme d'un enchaînement de **symboles normalisés** — début/fin, traitements, décisions — reliés par des flèches qui suivent le fil d'exécution. Il décrit bien un **traitement à branchements** (`si… alors… sinon`, boucles), là où la [[machine-a-etats|machine à états]] décrit plutôt un système à modes.
+Un **logigramme** (aussi appelé *organigramme* ou *ordinogramme*) est une représentation graphique d'un [[algorithme]] sous forme d'un enchaînement de **symboles normalisés** (norme ISO 5807) — début/fin, traitements, décisions — reliés par des flèches qui suivent le fil d'exécution. Il décrit bien un **traitement à branchements** (`si… alors… sinon`, boucles), là où la [[machine-a-etats|machine à états]] décrit plutôt un système à modes.
 
 ![Symboles d'un logigramme : un terminal en forme de stade (début/fin), un parallélogramme (entrée/sortie), un losange de décision à deux sorties oui/non, et un rectangle de traitement, reliés par des flèches.](/ressources/img/logigramme-generique.svg)
 
@@ -33,7 +33,7 @@ C'est l'outil naturel pour un **traitement séquentiel à embranchements** ponct
 
 Quatre symboles suffisent à la plupart des logigrammes, reliés par des **flèches** qui donnent le sens de lecture (de haut en bas par convention).
 
-- **Terminal** (forme de stade) — marque le **début** et la **fin**. Un logigramme commence par un seul début et se termine par au moins une fin.
+- **Terminal** (forme de stade) — marque le **début** et la **fin**. Un logigramme commence par un seul début et se termine par au moins une fin — à une exception près, voulue : le programme embarqué qui tourne en permanence n'a pas de fin, sa boucle principale en tient lieu (cf. la version cible de l'exemple).
 - **Entrée / sortie** (parallélogramme) — une donnée qui entre (lire un capteur) ou sort (afficher, envoyer).
 - **Traitement** (rectangle) — une action ou un calcul (« incrémenter », « couper le chauffage »).
 - **Décision** (losange) — une **condition** à deux sorties **étiquetées** (`oui` / `non`). C'est le seul symbole à plusieurs sorties.
@@ -59,7 +59,7 @@ Le même thermostat « si la température dépasse la consigne, couper le chauff
 > [!example] Version cible — logique complète et bouclée
 > ![Logigramme de thermostat complet : les deux branches sont traitées et une flèche reboucle vers la lecture de la température, assurant une régulation continue.](/ressources/img/logigramme-thermostat-bon.svg)
 >
-> **Pourquoi c'est bon.** Les deux cas sont couverts, et une **boucle** ramène le flux vers la lecture de la température : la régulation tourne en permanence. Chaque symbole se traduit directement en code — le losange en `if`, les rectangles en actions, la boucle en `while` ou en `loop()`. C'est un logigramme qu'on peut coder sans rien deviner.
+> **Pourquoi c'est bon.** Les deux cas sont couverts, et une **boucle** ramène le flux vers la lecture de la température : la régulation tourne en permanence. Chaque symbole se traduit directement en code — le losange en `if` ([[cpp-conditions|conditions]]), les rectangles en actions, la boucle en `while` ou `loop()` ([[cpp-boucles|boucles]]). C'est un logigramme qu'on peut coder sans rien deviner.
 
 ## Pièges
 

@@ -89,9 +89,9 @@ Verdict : OK / a corriger
 - [x] `oscilloscope` — 🖼✅ *(enrichie et validée 11/06 : section Brancher la sonde + SVG terre/pince, liens analyseur/GBF, trigger 2,5 V)*
 
 ## 5 · EEE — algorithme
-- [ ] `algorithme` (hub) — 🖼 *(enrichi 11/06 : SVG quadriptyque quatre-regards, paragraphe pseudocode)*
-- [ ] `logigramme` — 🖼
-- [ ] `machine-a-etats` — 🖼
+- [x] `algorithme` (hub) — 🖼✅ *(enrichi et validé 11/06 : SVG quadriptyque quatre-regards, paragraphe pseudocode, tip Le test du récit)*
+- [x] `logigramme` — 🖼✅ *(validée 11/06 : flèche de boucle du `bon` prolongée, exception programme embarqué, liens cpp, ISO 5807 ; `mauvais` laissé tel quel — arbitrage Tim)*
+- [ ] `machine-a-etats` — 🖼 *(retouches 11/06 : callout mauvais réécrit pour coller au SVG à fautes étiquetées, état initial ajouté au générique + au bon, événement/garde remodélisés [tempo 5 s, obstacle, fin bas [aucun obstacle]], syntaxe B→C corrigée, lien MicroPython)*
 - [ ] `grafcet` — 🖼
 - [ ] `chronogramme` — 🖼
 

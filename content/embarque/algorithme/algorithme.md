@@ -45,6 +45,9 @@ Ces représentations ne s'excluent pas : on décrit souvent l'architecture gén�
 
 **Et le pseudocode ?** L'algorithme se rédige aussi en texte — phrases courtes, impératives, hors de tout langage (cf. l'exemple du L298N dans [[lire-une-datasheet|lire une datasheet]]). C'est la représentation la plus rapide à écrire, idéale en brouillon ou pour spécifier une fonction isolée ; les schémas prennent le relais dès que les modes et les branchements se multiplient.
 
+> [!tip] Le test du récit
+> Un algorithme qu'on ne sait pas raconter en français simple n'est pas prêt à être codé : la verbalisation est le premier détecteur d'idées floues. Mais l'inverse ne suffit pas — le langage naturel tolère les ambiguïtés que le code refuse (« le portail s'ouvre quand quelqu'un arrive »… et s'il arrive quelqu'un *pendant* la fermeture ?). C'est le passage par une représentation qui les débusque. La chaîne saine : **raconter, représenter, coder**.
+
 ## Voir aussi
 
 - [[machine-a-etats|Machine à états]] — la représentation reine du comportement séquentiel à modes
