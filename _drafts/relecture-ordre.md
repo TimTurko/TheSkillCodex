@@ -77,7 +77,7 @@ Verdict : OK / a corriger
 - [x] `niveaux-de-tension` — 🖼✅ *(rouge `#B23A2E` validé en sombre, 11/06)*
 - [x] `alimentation-electronique` — 🖼✅ *(refonte 11/06 validée : section source, plan de masse, tip références)*
 - [x] `decouplage` — 🖼✅ *(créée et validée 11/06)*
-- [ ] `protection-electronique` — 🖼 ⚠ complétée 11/06 (roue libre, ESD, organes complémentaires) + 5 petits SVG de branchement — à relire
+- [x] `protection-electronique` — 🖼✅ *(créée, complétée et validée 11/06 — 6 SVG)*
 - [ ] `chaine-energie` — 🖼✅
 - [ ] `analyse-de-schema-electronique` — 🖼
 - [ ] `lire-une-datasheet` — 🖼 ⚠ sens des 2 flèches moteur (L298N)
