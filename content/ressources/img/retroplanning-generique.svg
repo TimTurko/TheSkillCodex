@@ -70,5 +70,5 @@
   <text x="485" y="230" class="phase-text">tâches</text>
 
   <!-- Légende -->
-  <text x="50" y="295" class="legend-text" style="font-style:italic">1. butoir → 2. marge → 3. jalons à rebours → 4. tâches entre jalons</text>
+  <text x="50" y="295" class="legend-text" style="font-style:italic">1. butoir → 2. marge → 3. jalons à rebours → 4. tâches entre jalons → 5. calendrier réel</text>
 </svg>

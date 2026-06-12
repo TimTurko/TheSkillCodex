@@ -114,7 +114,7 @@ L'exercice reste utile, avec deux précautions :
 ## Raccrochage projet
 
 - **Étape 1 de la phase [[concept|concept]]** — phase principale où la décomposition est produite, en sortie immédiate du CdCF
-- **Étape 2 de la phase [[concept|concept]]** — chaque fonction technique feuille devient une ligne de [[matrice-de-decision|matrice de décision]] confrontant 2-5 solutions candidates
+- **Étape 2 de la phase [[concept|concept]]** — chaque fonction technique feuille appelle sa [[matrice-de-decision|matrice de décision]] confrontant 2-5 solutions candidates
 - **[[dossier-technique|Dossier technique]]** — le découpage en sous-systèmes structure souvent les chapitres du dossier (un sous-système = un dossier de conception)
 
 Un découpage soigneux à l'étape 1 du concept évite de revenir le réviser à chaque étape suivante, où le coût de refonte croît avec l'avancement du projet.

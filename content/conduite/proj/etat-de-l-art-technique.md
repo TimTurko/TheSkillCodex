@@ -20,7 +20,7 @@ L'**état de l'art technique** (EAT) est une comparaison chiffrée de solutions 
 
 ## À quoi ça sert ?
 
-L'EAT répond à une discipline d'ingénieur : avant de chiffrer ce qu'on va construire, on regarde **ce qui existe déjà**. Personne ne conçoit dans le vide — pour presque tout projet [[mecatronique|mécatronique]], des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà attaqué un besoin proche du vôtre. Les étudier épargne du temps, calibre les attentes, et oriente les choix d'architecture qui suivront.
+L'EAT répond à une discipline d'ingénieur : avant de chiffrer ce qu'on va construire, on regarde **ce qui existe déjà**. Personne ne conçoit dans le vide — pour presque tout projet [[mecatronique|mécatronique]], des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà attaqué un besoin proche du projet à mener. Les étudier épargne du temps, calibre les attentes, et oriente les choix d'architecture qui suivront.
 
 L'outil joue trois rôles indissociables :
 
@@ -31,7 +31,7 @@ L'outil joue trois rôles indissociables :
 L'EAT n'est pas une décision technique — il **prépare** la décision. La pondération des critères et l'arbitrage entre solutions candidates internes au projet relèvent de la [[matrice-de-decision|matrice de décision]], en phase de [[concept|concept]]. Mélanger les deux outils fait faire deux fois le même travail à l'étudiant.
 
 > [!warning] Attention
-> **EAT ≠ revue bibliographique.** La revue bibliographique consiste à lire (articles, datasheets, normes, livres) et à produire des notes. L'EAT consiste à recenser ce qui existe et qui marche, et à produire une **comparaison chiffrée orientée décision**. Les deux se nourrissent — la biblio fournit la matière — mais ce n'est pas le même livrable. Un EAT qui n'est qu'une liste d'articles lus n'est pas un EAT.
+> **EAT ≠ revue bibliographique.** La revue bibliographique consiste à lire (articles, [[lire-une-datasheet|datasheets]], normes, livres) et à produire des notes. L'EAT consiste à recenser ce qui existe et qui marche, et à produire une **comparaison chiffrée orientée décision**. Les deux se nourrissent — la biblio fournit la matière — mais ce n'est pas le même livrable. Un EAT qui n'est qu'une liste d'articles lus n'est pas un EAT.
 
 ## Procédure pas à pas
 
@@ -39,7 +39,7 @@ L'EAT se mène en quatre étapes courtes mais disciplinées : recenser les solut
 
 ### 1. Recenser 3 à 6 solutions comparables
 
-Identifier des références qui adressent un besoin proche du vôtre, **même partiellement**. Pas plus de 6 : au-delà, l'analyse se dilue et le tableau devient illisible. Pas moins de 3 : avec 1 ou 2 références, on n'a pas de quoi comparer.
+Identifier des références qui adressent un besoin proche du projet, **même partiellement**. Pas plus de 6 : au-delà, l'analyse se dilue et le tableau devient illisible. Pas moins de 3 : avec 1 ou 2 références, on n'a pas de quoi comparer.
 
 Sources à varier systématiquement :
 
@@ -52,7 +52,7 @@ Pour chaque référence retenue, noter le nom, la source ou l'URL, les principau
 
 ### 2. Définir 5 à 8 critères chiffrables
 
-Choisir les critères qui font sens **pour votre projet**, en partant du besoin formulé à l'étape 1 de la spec-tech (la [[bete-a-cornes|bête à cornes]]). Les critères doivent **discriminer les solutions** : un critère sur lequel toutes les références ont la même valeur n'apporte rien au tableau et peut être retiré.
+Choisir les critères qui font sens **pour le projet**, en partant du besoin formulé à l'étape 1 de la spécification technique (la [[bete-a-cornes|bête à cornes]]). Les critères doivent **discriminer les solutions** : un critère sur lequel toutes les références ont la même valeur n'apporte rien au tableau et peut être retiré.
 
 Familles à parcourir systématiquement :
 
@@ -63,7 +63,7 @@ Familles à parcourir systématiquement :
 - **Ouverture** — disponibilité du [[bom|BOM]], du firmware, des schémas, de la documentation. Déterminant pour réutiliser des briques.
 
 > [!tip] Astuce
-> **Les critères choisis ici préfigurent ceux que vous chiffrerez à l'étape 4 de la spec-tech.** Un EAT bien outillé en critères rend l'écriture du [[cahier-des-charges-fonctionnel|CdCF]] nettement plus simple — chaque critère discriminant du tableau donne un point d'ancrage pour [[caracteriser-une-exigence|caractériser une exigence]] avec un niveau réaliste plutôt qu'arbitraire.
+> **Les critères choisis ici préfigurent ceux que l'on chiffrera à l'étape 4 de la spécification technique.** Un EAT bien outillé en critères rend l'écriture du [[cahier-des-charges-fonctionnel|CdCF]] nettement plus simple — chaque critère discriminant du tableau donne un point d'ancrage pour [[caracteriser-une-exigence|caractériser une exigence]] avec un niveau réaliste plutôt qu'arbitraire.
 
 ### 3. Chiffrer le tableau N × M
 
@@ -84,7 +84,7 @@ Le tableau seul ne suffit pas. Conclure en quelques lignes : **qu'est-ce qu'on r
 
 - **Quelle ou quelles solutions inspirent l'architecture envisagée ?** Pas une décision technique (on ne choisit pas encore), mais un éclairage : telle référence semble cohérente avec le besoin et les contraintes du projet.
 - **Quelles solutions écarte-t-on, et pourquoi ?** Coût prohibitif, complexité hors scope, indisponibilité de la documentation. Documenter l'élimination est aussi important que documenter la retenue.
-- **Quels ordres de grandeur retient-on pour calibrer le CdCF ?** Coût matériaux cible, performance principale visée, contraintes plancher. Ces ordres de grandeur deviennent les chiffres de référence pour l'étape 4 de la spec-tech.
+- **Quels ordres de grandeur retient-on pour calibrer le CdCF ?** Coût matériaux cible, performance principale visée, contraintes plancher. Ces ordres de grandeur deviennent les chiffres de référence pour l'étape 4 de la spécification.
 
 La synthèse fait deux à quatre paragraphes. Au-delà, elle se transforme en récit qui dilue la décision. En deçà, elle reste vague et n'apporte rien au lecteur du CdCF.
 
@@ -97,24 +97,24 @@ Reprenons le projet fil rouge — un bras robotique pédagogique 3 axes. L'EAT m
 
 | Critère | Niryo One | uArm Swift Pro | BCN3D Moveo |
 |---|---|---|---|
-| **Coût** | ~3 000 € prêt à l'emploi | ~600 € prêt à l'emploi | ~300 € en matériaux à fabriquer |
-| **Charge utile** | 500 g | 500 g | ~250 g (estimé, communauté) |
-| **Répétabilité** | 0,5 mm | 0,2 mm | 1 à 2 mm (estimé) |
+| **Coût** | ~2 000 € prêt à l'emploi | ~600 € prêt à l'emploi | ~300 € en matériaux à fabriquer |
+| **Charge utile** | 300 g | 500 g | ~250 g (estimé, communauté) |
+| **Répétabilité** | ± 1 mm | 0,2 mm | 1 à 2 mm (estimé) |
 | **Volume de travail** | sphère R ≈ 440 mm | sphère R ≈ 340 mm | sphère R ≈ 500 mm |
 | **Ouverture** | BOM partiel + firmware ouvert | fermé | BOM complet + firmware ouvert + plans STL |
 | **Démontabilité fablab** | non (kit industriel monobloc) | non (assemblage usine) | oui (imprimable 3D + visserie standard) |
 
 **Sources** : sites fabricants Niryo et UFactory pour les deux premières références, dépôt GitHub BCN3D Moveo et fil communautaire Reddit r/robotics pour la troisième.
 
-**Ce qu'on retient.** Le **Moveo** est la référence la plus inspirante pour le projet — il est ouvert, démontable, abordable, et sa structure imprimable 3D s'aligne avec les contraintes du fablab école. On en reprend la logique générale (architecture articulée, imprimable, pilotée par steppers) mais on simplifie de 6 axes à 3 axes pour rester dans un scope pédagogique d'un semestre. Le Niryo et l'uArm sont écartés : le premier par son coût hors budget projet école, le second par sa fermeture qui interdit toute exploration des choix d'architecture.
+**Ce qu'on retient.** Le **Moveo** est la référence la plus inspirante pour le projet — il est ouvert, démontable, abordable, et sa structure imprimable 3D s'aligne avec les contraintes du fablab école. On en reprend la logique générale (architecture articulée, imprimable, pilotée par steppers) mais on simplifie de 5 axes à 3 axes pour rester dans un scope pédagogique d'un semestre. Le Niryo et l'uArm sont écartés : le premier par son coût hors budget projet école, le second par sa fermeture qui interdit toute exploration des choix d'architecture.
 
 **Ordres de grandeur calibrés pour le CdCF :**
 
 - Coût matériaux **cible ~300 €**, aligné sur le Moveo.
-- Charge utile **cible 100 g** (réduction assumée du fait des 3 axes au lieu de 6, et de l'objectif démonstratif plutôt que productif).
+- Charge utile **cible 100 g** (réduction assumée du fait des 3 axes au lieu de 5, et de l'objectif démonstratif plutôt que productif).
 - Répétabilité **cible ± 5 mm** en bout, calibrée entre le Moveo (1 à 2 mm avec une complexité hors scope) et un minimum opérationnel pour une démonstration en classe.
 
-Ces trois ordres de grandeur deviennent les chiffres de référence à l'étape 4 de la spec-tech, où chaque [[fonction|fonction]] sera caractérisée par un triplet [[critere|critère]] / [[niveau|niveau]] / [[flexibilite|flexibilité]].
+Ces trois ordres de grandeur deviennent les chiffres de référence à l'étape 4 de la spécification, où chaque [[fonction|fonction]] sera caractérisée par un triplet [[critere|critère]] / [[niveau|niveau]] / [[flexibilite|flexibilité]].
 
 ## Pièges
 
@@ -153,7 +153,7 @@ L'EAT n'est pas un livrable isolé : il alimente plusieurs étapes ultérieures,
 - **Étape 2 de la phase de [[concept|concept]]** — les critères choisis pour l'EAT deviennent souvent la base des critères de la [[matrice-de-decision|matrice de décision]] qui arbitre entre solutions candidates internes au projet, avec l'ajout central de la **pondération**, absente de l'EAT.
 - **[[dossier-technique|Dossier technique]]** — le pré-dimensionnement et le choix final des composants peuvent réutiliser des ordres de grandeur EAT (consommation, encombrement, contraintes thermiques) pour calibrer les premières simulations.
 
-Ce raccrochage multi-phases est ce qui justifie l'investissement initial : un EAT solide à l'étape 2 de la spec-tech évite de revenir en arrière sur des hypothèses non calibrées à chacune des étapes suivantes.
+Ce raccrochage multi-phases est ce qui justifie l'investissement initial : un EAT solide à l'étape 2 de la spécification évite de revenir en arrière sur des hypothèses non calibrées à chacune des étapes suivantes.
 
 ## Voir aussi
 

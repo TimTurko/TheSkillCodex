@@ -34,8 +34,10 @@ Il joue trois rôles :
 Trois temps :
 
 1. **Partir du livrable global** (ici, le projet mécatronique complet) et le décomposer en **phases du cycle en V** : spécification, concept, preuve de concept, dossier technique, intégration et tests.
-2. **Décomposer chaque phase en sous-livrables identifiables.** Pour la phase de spécification, on aura par exemple le CdCF, l'état de l'art, la matrice de risques, le Gantt. Chaque sous-livrable doit pouvoir être désigné par un nom sans ambiguïté.
+2. **Décomposer chaque phase en sous-livrables identifiables.** Pour la phase de spécification, on aura par exemple le [[cahier-des-charges-fonctionnel|CdCF]], l'[[etat-de-l-art-technique|état de l'art]], la [[matrice-de-risques|matrice de risques]], le Gantt. Chaque sous-livrable doit pouvoir être désigné par un nom sans ambiguïté.
 3. **Descendre d'un niveau supplémentaire si nécessaire** jusqu'aux tâches concrètes confiables à une personne sur une durée de l'ordre de quelques jours. S'arrêter à ce niveau — un WBS qui descend plus fin bascule en gestion administrative et perd son utilité de pilotage.
+
+Deux logiques de découpage coexistent — par **phases du V** (robuste pour les livrables transverses) ou par **sous-système** (lisible pour la répartition technique du travail). La méthode ci-dessus déroule la première ; l'illustration ci-dessous montre la seconde.
 
 *Illustration sur un cas concret : WBS d'un projet de station météo connectée, découpé par sous-système plutôt que par discipline.*
 

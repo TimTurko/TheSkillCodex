@@ -58,7 +58,7 @@ Pendant cette passe, repérer les fonctions qui doivent être assurées **en mê
 
 ### 4. Raccorder les feuilles aux solutions candidates
 
-Chaque fonction technique terminale — la feuille la plus à droite de chaque chaîne — devient le point d'entrée d'un choix technique. Lister pour chacune **2 à 5 solutions candidates** : ce sont elles qui peupleront les lignes de la [[matrice-de-decision|matrice de décision]] de l'étape 2. À ce stade, on **n'arbitre pas** encore — on identifie le champ des possibles. Choisir une solution dès le FAST revient à décider sans comparer, ce qui vide la matrice de décision de son sens.
+Chaque fonction technique terminale — la feuille la plus à droite de chaque chaîne — devient le point d'entrée d'un choix technique. Lister pour chacune **2 à 5 solutions candidates** : ce sont elles qui peupleront les colonnes de sa [[matrice-de-decision|matrice de décision]] à l'étape 2. À ce stade, on **n'arbitre pas** encore — on identifie le champ des possibles. Choisir une solution dès le FAST revient à décider sans comparer, ce qui vide la matrice de décision de son sens.
 
 ## Exemple — Bras 3 axes pédagogique
 
@@ -72,7 +72,7 @@ Reprenons le sous-système **mobilité articulaire** du bras 3 axes, déjà isol
 
 **Axe QUAND.** Les trois fonctions techniques sont empilées verticalement : il ne s'agit pas de les enchaîner dans le temps, mais de les assurer **ensemble**. Sans génération de couple *et* mesure *et* asservissement simultanés, l'articulation ne se positionne pas.
 
-**Ce que le FAST prépare.** Chaque feuille devient une ligne de [[matrice-de-decision|matrice de décision]] : *générer un couple* confronte stepper / moteur CC / servomoteur, *mesurer la position* confronte encodeur / potentiomètre, *asservir* confronte boucle PID / commande pas-à-pas. Le FAST a transformé une fonction abstraite en sept décisions techniques traçables — sans en trancher aucune.
+**Ce que le FAST prépare.** Chaque feuille ouvre sa [[matrice-de-decision|matrice de décision]] : *générer un couple* confronte stepper / moteur CC / servomoteur, *mesurer la position* confronte encodeur / potentiomètre, *asservir* confronte boucle [[arduino-pid|PID]] / commande pas-à-pas. Le FAST a transformé une fonction abstraite en trois décisions techniques traçables — sept solutions candidates en lice — sans en trancher aucune.
 
 ## Pièges
 
@@ -98,7 +98,7 @@ La pratique efficace est donc un FAST **partiel** : on déroule en détail le ou
 
 - **Étape 1 de la [[concept|phase de concept]]** — phase principale où le FAST est déroulé, en aval immédiat de la [[decomposition-fonctionnelle|décomposition fonctionnelle]] : un FAST par sous-système (ou par fonction critique).
 - **Sortie de la [[specification-technique|spécification technique]]** — les fonctions de service issues de la [[pieuvre|pieuvre]] alimentent les racines des FAST : le FAST est la passerelle entre fonction de service (le *quoi*) et fonctions techniques (le *comment*).
-- **Étape 2 de la [[concept|phase de concept]]** — chaque feuille du FAST devient une ligne de [[matrice-de-decision|matrice de décision]] confrontant 2 à 5 solutions candidates.
+- **Étape 2 de la [[concept|phase de concept]]** — chaque feuille du FAST ouvre une [[matrice-de-decision|matrice de décision]] confrontant 2 à 5 solutions candidates.
 
 Un FAST validé dans les deux sens à l'étape 1 garantit que l'espace de solutions exploré à l'étape 2 est complet et bien rattaché au besoin — aucune fonction technique orpheline, aucune solution sans fonction d'origine.
 

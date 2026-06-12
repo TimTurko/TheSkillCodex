@@ -53,4 +53,5 @@ Trois temps :
 - [[gestion-de-projet|Gestion de projet]] — fil transverse qui maintient la matrice vivante au fil du projet
 - [[ecoconception|Écoconception]] — risques environnementaux et réglementaires intégrés à la matrice
 - [[securite-et-qualite|Sécurité et qualité]] — risques de sécurité et de conformité qui s'y croisent
+- [[amdec|AMDEC]] — analyse des défaillances **produit**, complémentaire de la matrice de risques **projet**
 - [[jalons|Jalons]] — rendez-vous d'actualisation de la matrice

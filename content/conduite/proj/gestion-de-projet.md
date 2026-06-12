@@ -1,7 +1,6 @@
 ---
 title: Gestion de projet
 type: trame
-phase: 
 phases:
   - specification
   - concept

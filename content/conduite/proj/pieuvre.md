@@ -34,7 +34,7 @@ Trois rôles articulés :
 
 Trois temps, dans l'ordre.
 
-1. **Identifier les milieux environnants** par mind map autour du système. Placer le système au centre d'une feuille, et lister tout autour ce qui l'entoure : utilisateurs, matière d'œuvre, énergies, environnement physique, contraintes réglementaires. Pas de filtre à ce stade — un milieu oublié est une fonction qui n'apparaîtra pas dans le CdCF.
+1. **Identifier les milieux environnants** par [[mind-map|mind map]] autour du système. Placer le système au centre d'une feuille, et lister tout autour ce qui l'entoure : utilisateurs, matière d'œuvre, énergies, environnement physique, contraintes réglementaires. Pas de filtre à ce stade — un milieu oublié est une fonction qui n'apparaîtra pas dans le CdCF.
 2. **Tracer les liens entre système et milieux**, et formuler chaque lien comme une [[fonction|fonction]] au format **verbe à l'infinitif + complément** (voir la fiche dédiée pour le détail du format d'énoncé et les pièges spécifiques à la formulation).
 3. **Classer en [[FP]] / [[FS]] / [[FC]] et numéroter.** Un lien qui traverse le système entre deux milieux est une FP ou une FS ; un lien qui ne touche qu'un seul milieu est une FC. La numérotation (FP1, FP2…, FS1…, FC1…) sert de référence stable pour toute la suite du projet — du CdCF jusqu'à la grille d'évaluation finale.
 
@@ -46,7 +46,7 @@ Trois temps, dans l'ordre.
 | **Matière d'œuvre** | l'objet, l'information, le milieu sur lequel le système agit |
 | **Énergies** | alimentation électrique, fluide, ressource consommable |
 | **Environnement physique** | température, humidité, vibrations, supports, encombrement disponible |
-| **Réglementaire** | normes applicables, contraintes de sécurité, d'[[ecoconception|écoconception]], de conformité CE |
+| **Réglementaire** | normes applicables, contraintes de sécurité, d'[[ecoconception\|écoconception]], de conformité CE |
 
 Le parcours systématique de ces cinq familles est ce qui rend la pieuvre **robuste** : c'est en se forçant à passer chaque famille en revue, même celle qui paraît évidemment vide, qu'on découvre les milieux discrets qui auraient été oubliés en remplissage spontané.
 
@@ -62,12 +62,13 @@ Cette pieuvre porte sur le **système physique** : le bras robotique et ses inte
 
 **Cinq milieux identifiés** : opérateur, objet à déplacer, poste informatique, alimentation électrique, environnement pédagogique (fablab et moyens de fabrication accessibles).
 
-**Quatre fonctions énoncées** :
+**Cinq fonctions énoncées** :
 
 - **[[FP]]1** — *Permettre à l'opérateur de manipuler le robot pour positionner un objet léger en un point du volume de travail.* Fonction principale qui relie deux milieux (opérateur et objet à déplacer) à travers le système : elle justifie l'existence du bras.
 - **[[FS]]1** — *Permettre à l'opérateur de programmer une séquence de mouvements depuis un poste informatique.* Fonction secondaire qui ajoute un service utile (programmation différée), mais sans laquelle le bras remplit déjà sa mission principale.
 - **[[FC]]1** — *S'adapter à l'alimentation électrique disponible (secteur 230 V via adaptateur).* Contrainte d'adaptation qui ne relie le système qu'à un seul milieu : la prise secteur du bâtiment.
 - **FC2** — *Être démontable et reproductible avec les moyens d'un fablab école (imprimante 3D, perceuse, tournevis).* Contrainte d'adaptation à un seul milieu : l'environnement pédagogique du projet.
+- **FC3** — *Préserver la sécurité de l'opérateur (zones de pincement, organes mobiles).* Contrainte qui ne touche qu'un seul milieu : l'opérateur — déjà relié par FP1 côté service rendu, ici côté risque subi. C'est la FC sécurité-utilisateur que le fil [[securite-et-qualite|sécurité et qualité]] suivra jusqu'aux tests de qualification.
 
 À ce stade, l'énoncé des fonctions ne dit rien des **niveaux attendus** ni des **flexibilités**. La pieuvre dit qu'il faut « positionner un objet léger », pas combien il pèse ni à quelle précision. C'est précisément le rôle de l'étape suivante — caractériser chaque fonction par un triplet [[caracteriser-une-exigence|critère / niveau / flexibilité]].
 

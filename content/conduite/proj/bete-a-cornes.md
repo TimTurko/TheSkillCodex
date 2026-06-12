@@ -13,7 +13,7 @@ aa:
 draft: false
 ---
 
-La **bête à cornes** est un outil graphique d'analyse fonctionnelle qui formule un besoin en trois questions : à qui le système rend-il service, sur quoi agit-il, et dans quel but. Issue de la méthode [[afnor-nfx50-151|NF X50-151]], elle ouvre la [[specification-technique|phase de spécification]] et fixe ce qui sera ensuite chiffré dans le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]].
+La **bête à cornes** est un outil graphique d'analyse fonctionnelle qui formule un besoin en trois questions : à qui le système rend-il service, sur quoi agit-il, et dans quel but. Issue de la méthode APTE et adossée à la norme [[afnor-nfx50-151|NF X50-151]], elle ouvre la [[specification-technique|phase de spécification]] et fixe ce qui sera ensuite chiffré dans le [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]].
 
 ## À quoi ça sert ?
 
@@ -55,7 +55,7 @@ Un projet de bras robotique destiné à être déployé dans des écoles d'ingé
 >
 > **Pourquoi c'est mauvais.** « 6 servomoteurs » et « Arduino » sont des choix de solution — la bête à cornes doit rester agnostique de l'implémentation. « Faire bouger » n'est pas un but, c'est une fonction technique. Le besoin pédagogique, raison d'être du projet, a disparu.
 >
-> **Coût réel de cette erreur.** Sur ce projet, l'équipe a tenu cette formulation deux mois avant de revenir en arrière : les servomoteurs choisis trop tôt se sont révélés inadaptés aux exigences réelles du bras, l'équipe a dû basculer sur des moteurs pas-à-pas. Deux mois de dimensionnement, de soudures et de code à refaire — erreur qui aurait été évitée si la bête à cornes n'avait pas verrouillé la technologie d'actionneur dès la phase de spec.
+> **Coût réel de cette erreur.** Sur ce projet, l'équipe a tenu cette formulation deux mois avant de revenir en arrière : les servomoteurs choisis trop tôt se sont révélés inadaptés aux exigences réelles du bras, l'équipe a dû basculer sur des moteurs pas-à-pas. Deux mois de dimensionnement, de soudures et de code à refaire — erreur qui aurait été évitée si la bête à cornes n'avait pas verrouillé la technologie d'actionneur dès la phase de spécification.
 
 > [!warning] Moyen
 > ![Bête à cornes — exemple moyen](/ressources/img/bete-a-cornes-bras-moyen.svg)
@@ -77,11 +77,11 @@ Un projet de bras robotique destiné à être déployé dans des écoles d'ingé
 
 **Matière d'œuvre absente ou floue.** Si la case « sur quoi » est vide ou très vague, le système n'a probablement pas de raison d'être claire. C'est un signal pour revenir à l'analyse du besoin avant d'avancer.
 
-**Formulation jolie mais vide.** « Améliorer l'expérience utilisateur », « optimiser les performances » : tout projet pourrait afficher ce but. S'il s'applique à n'importe quel projet, il ne dit rien sur le vôtre.
+**Formulation jolie mais vide.** « Améliorer l'expérience utilisateur », « optimiser les performances » : tout projet pourrait afficher ce but. S'il s'applique à n'importe quel projet, il ne dit rien du projet.
 
 ## Cas particulier — projet école sans client réel
 
-Quand le projet n'a pas de client externe (robot sumo, robot suiveur de ligne, démonstrateur démonté après soutenance), la bête à cornes paraît tourner à vide. Deux postures honnêtes existent, voir le [[specification-technique#cas-particulier-projet-école-sans-client-réel|cas particulier de la phase de spécification]] pour le détail. L'essentiel : choisir explicitement une posture et la tenir.
+Quand le projet n'a pas de client externe (robot sumo, robot suiveur de ligne, démonstrateur démonté après soutenance), la bête à cornes paraît tourner à vide. Deux postures honnêtes existent, voir le [[specification-technique#cas-particulier--projet-école-sans-client-réel|cas particulier de la phase de spécification]] pour le détail. L'essentiel : choisir explicitement une posture et la tenir.
 
 ## Voir aussi
 

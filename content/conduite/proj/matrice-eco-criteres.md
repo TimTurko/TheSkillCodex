@@ -58,7 +58,7 @@ Bloc éco-critères pour le choix des moteurs du bras, sur trois solutions (step
 | Sobriété matière | 4 | 2 | 4 | 3 |
 | **Sous-total éco pondéré** (/150) | **30** | **85** | **114** | **90** |
 
-**Lecture.** Sur le seul plan environnemental, les moteurs CC sortent en tête (114/150) : pas de consommation au repos, masse plus faible. Les steppers sont pénalisés par leur consommation en maintien (couple statique permanent). Pourtant, une fois ce bloc **réintégré dans la matrice de décision complète** — où la précision de positionnement en boucle ouverte et la simplicité de commande pèsent lourd — ce sont les steppers qui ont été retenus pour le bras. C'est exactement le comportement attendu : l'éco a **pesé sans trancher seul**. Un bloc éco isolé aurait orienté vers les CC ; intégré, il a fait partie d'un arbitrage équilibré.
+**Lecture.** Sur le seul plan environnemental, les moteurs CC sortent en tête (114/150) : consommation à l'arrêt réduite — sous réserve d'une transmission irréversible, nuance tracée dans [[ecoconception|la trame écoconception]] — et masse plus faible. Les steppers sont pénalisés par leur consommation en maintien (couple statique permanent). Pourtant, une fois ce bloc **réintégré dans la matrice de décision complète** — où la précision de positionnement en boucle ouverte et la simplicité de commande pèsent lourd — ce sont les steppers qui ont été retenus pour le bras. C'est exactement le comportement attendu : l'éco a **pesé sans trancher seul**. Un bloc éco isolé aurait orienté vers les CC ; intégré, il a fait partie d'un arbitrage équilibré.
 
 ## Pièges
 

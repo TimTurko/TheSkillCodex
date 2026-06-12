@@ -66,7 +66,7 @@ Le **niveau** est la valeur cible que doit atteindre le critère. **Toujours chi
 - **Valeur unique** — `100 g`, `230 V`, `12 V`
 - **Borne** — `≤ 5 mm`, `≥ 50 mm/s`, `< 200 € HT`
 - **Plage** — entre `20 °C` et `30 °C`, `2,4 GHz ± 100 MHz`
-- **Cible binaire** — *conforme directive basse tension 2014/35/UE*, *démontable sans outil spécifique*
+- **Cible binaire** — *conforme [[basse-tension|directive basse tension 2014/35/UE]]*, *démontable sans outil spécifique*
 
 Le niveau se construit à l'intersection de deux sources : **le besoin formulé** ([[bete-a-cornes|bête à cornes]], étape 1 de la spécification) et **les ordres de grandeur identifiés** dans l'[[etat-de-l-art-technique|état de l'art technique]] (étape 2). Le besoin dit ce qu'il faut atteindre ; l'état de l'art dit ce qui se fait déjà et fixe les ordres de grandeur réalistes.
 
@@ -91,9 +91,6 @@ Ensuite, le **niveau de négociabilité**, échelle qualitative à quatre crans 
 | **F3 — Très négociable** | Valeur de confort, écart non bloquant. | Détails finaux d'IHM, options esthétiques |
 
 Le rôle pratique du cran F est de dire **comment on arbitrera** en cas de conflit — entre exigences, contre le budget, contre le calendrier. Une exigence F0 verrouille le projet ; une exigence F3 peut s'effacer sans drame ; les F1 et F2 sont les vrais terrains d'arbitrage en cours de route.
-
-> [!warning] Attention
-> **F3 ne veut pas dire « pas important ».** C'est une exigence formellement chiffrée dont l'écart est tolérable et négociable. Une exigence **sans** F du tout, en revanche, est non opposable — la flexibilité est une donnée à part entière du triplet, pas une option qu'on peut omettre quand on n'y a pas réfléchi.
 
 ## Exemple — Bras 3 axes pédagogique
 
@@ -139,7 +136,7 @@ L'écart entre les trois écritures n'est pas une question de longueur — la ve
 
 **Niveau non chiffré.** *« Le système doit être précis »*, *« le coût doit être raisonnable »*, *« la maintenance doit être aisée »* : sans valeur ni unité, l'exigence n'est ni opposable ni évaluable. C'est le piège le plus fréquent en CdCF école, et le premier signalé en revue.
 
-**Citer une solution dans le critère.** *« Précision laser ± 0,1 mm »* mélange le critère (précision) et l'implémentation (laser). On caractérise le besoin, pas l'instrument de mesure — celui-ci sera choisi en phase de [[concept|concept]] ou de [[dossier-technique|dossier technique]] selon la solution retenue.
+**Citer une solution dans le critère.** *« Précision laser ± 0,1 mm »* mélange le critère (précision) et l'implémentation (laser). On caractérise le besoin, pas l'instrument de mesure — celui-ci sera choisi au moment d'écrire le protocole de mesure ([[preuve-de-concept|preuve de concept]] pour lever les incertitudes, puis qualification en [[integration-et-tests|intégration]]).
 
 **Flexibilité absente ou réduite au cran F seul.** Écrire *« F1 »* sans préciser la tolérance numérique, ou inversement *« ± 10 mm acceptable »* sans cran F, est un triplet incomplet. Les deux composantes sont nécessaires : sans tolérance numérique, on ne sait pas jusqu'où l'écart est admis ; sans cran F, on ne sait pas comment arbitrer cet écart en cours de projet.
 
@@ -151,8 +148,8 @@ L'écart entre les trois écritures n'est pas une question de longueur — la ve
 
 Certaines exigences ne se prêtent pas naturellement à un chiffrage par valeur cible et tolérance. Trois familles typiques :
 
-- **Conformité réglementaire** — *« conforme à la directive basse tension 2014/35/UE »*, *« marquage CE »*, *« RoHS »*. Le niveau est binaire (conforme / non conforme), pas chiffré.
-- **Présence/absence d'une caractéristique** — *« démontable sans outil spécifique »*, *« pilotable depuis poste informatique »*, *« porte coupure d'urgence accessible »*.
+- **Conformité réglementaire** — *« conforme à la [[basse-tension|directive basse tension 2014/35/UE]] »*, *« [[marquage-ce|marquage CE]] »*, *« [[rohs|RoHS]] »*. Le niveau est binaire (conforme / non conforme), pas chiffré.
+- **Présence/absence d'une caractéristique** — *« démontable sans outil spécifique »*, *« pilotable depuis poste informatique »*, *« arrêt d'urgence accessible »*.
 - **Validation par un référent** — *« validé par l'enseignant de mécanique »*, *« approuvé par le responsable sécurité fablab »*.
 
 Le triplet reste applicable, simplement avec un niveau binaire :

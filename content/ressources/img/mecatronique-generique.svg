@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" role="img" aria-labelledby="title desc">
+  <title id="title">La boucle perception → décision → action d'un système mécatronique</title>
+  <desc id="desc">Boucle fermée à quatre blocs : les capteurs mesurent le monde physique et alimentent le microcontrôleur (perception), le microcontrôleur décide et commande les actionneurs, qui agissent sur le monde physique — lequel est mesuré à nouveau par les capteurs. Les disciplines sont indiquées sous chaque bloc.</desc>
+  <defs>
+    <marker id="arr-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .th { font: 700 14px sans-serif; letter-spacing: 0.5px; }
+      .ts { font: 600 13px sans-serif; }
+      .tl { font: 500 11px sans-serif; }
+      .ti { font: italic 400 11px sans-serif; }
+      .arr { stroke-width: 2; fill: none; }
+      .b-gray { fill: #F1EFE8; stroke: #888780; stroke-width: 1.2; }
+      .b-gray-text { fill: #2C2C2A; }
+      .b-amber { fill: #FAEEDA; stroke: #BA7517; stroke-width: 1.5; }
+      .b-amber-text { fill: #412402; }
+      .amber-stroke { stroke: #BA7517; }
+      .amber-text { fill: #7A4D0F; }
+      .neutral-text { fill: #2C2C2A; }
+      .neutral-stroke { stroke: #555555; }
+      .muted-text { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .b-gray { fill: #444441; stroke: #B4B2A9; }
+        .b-gray-text { fill: #F1EFE8; }
+        .b-amber { fill: #633806; stroke: #EF9F27; }
+        .b-amber-text { fill: #FAEEDA; }
+        .amber-stroke { stroke: #EF9F27; }
+        .amber-text { fill: #FAEEDA; }
+        .neutral-text { fill: #F1EFE8; }
+        .neutral-stroke { stroke: #B4B2A9; }
+        .muted-text { fill: #888888; }
+      }
+    </style>
+  </defs>
+
+  <text x="350" y="30" class="th neutral-text" text-anchor="middle">La boucle perception → décision → action</text>
+
+  <!-- Capteurs -->
+  <rect class="b-gray" x="55" y="125" width="155" height="48" rx="8"/>
+  <text class="ts b-gray-text" x="132" y="149" text-anchor="middle" dominant-baseline="central">Capteurs</text>
+  <text class="ti muted-text" x="132" y="190" text-anchor="middle">électronique</text>
+
+  <!-- Microcontrôleur -->
+  <rect class="b-amber" x="272" y="125" width="156" height="48" rx="8"/>
+  <text class="ts b-amber-text" x="350" y="143" text-anchor="middle" dominant-baseline="central">Microcontrôleur</text>
+  <text class="ti b-amber-text" x="350" y="160" text-anchor="middle" dominant-baseline="central">décide</text>
+  <text class="ti muted-text" x="350" y="190" text-anchor="middle">informatique embarquée</text>
+
+  <!-- Actionneurs -->
+  <rect class="b-gray" x="490" y="125" width="155" height="48" rx="8"/>
+  <text class="ts b-gray-text" x="567" y="149" text-anchor="middle" dominant-baseline="central">Actionneurs</text>
+  <text class="ti muted-text" x="567" y="190" text-anchor="middle">électronique · mécanique</text>
+
+  <!-- Monde physique -->
+  <rect class="b-gray" x="272" y="248" width="156" height="42" rx="21"/>
+  <text class="ts b-gray-text" x="350" y="269" text-anchor="middle" dominant-baseline="central">Monde physique</text>
+
+  <!-- Flèches -->
+  <line x1="210" y1="149" x2="268" y2="149" class="arr amber-stroke" marker-end="url(#arr-head)"/>
+  <text class="tl amber-text" x="239" y="118" text-anchor="middle">perception</text>
+
+  <line x1="428" y1="149" x2="486" y2="149" class="arr amber-stroke" marker-end="url(#arr-head)"/>
+  <text class="tl amber-text" x="457" y="118" text-anchor="middle">commande</text>
+
+  <path d="M 567 173 L 567 269 L 432 269" class="arr amber-stroke" marker-end="url(#arr-head)"/>
+  <text class="tl amber-text" x="540" y="240" text-anchor="middle">action</text>
+
+  <path d="M 268 269 L 132 269 L 132 177" class="arr amber-stroke" marker-end="url(#arr-head)"/>
+  <text class="tl amber-text" x="165" y="240" text-anchor="middle">mesure</text>
+
+  <text class="ti muted-text" x="350" y="320" text-anchor="middle">Le motif fondamental d'un système mécatronique : une boucle fermée à travers les trois disciplines.</text>
+</svg>

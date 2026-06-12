@@ -1,11 +1,16 @@
 ---
 title: ACV simplifiée
 type: notion
+phases:
+  - dossier-technique
+  - integration-et-tests
 tags:
   - proj
   - notion
+  - ecoconception
 prerequis: []
-aa: []
+aa:
+  - RA-ESE-C09-2/ESE/4
 draft: false
 ---
 

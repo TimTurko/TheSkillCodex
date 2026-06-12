@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" role="img" aria-labelledby="title desc">
   <title id="title">Matrice de risques — exemple station météo connectée</title>
   <desc id="desc">Matrice probabilité × gravité positionnant six risques concrets d'un projet de station météo connectée : panne capteur, indisponibilité fablab, complexité Wi-Fi, étanchéité boîtier, absence équipier, dérive du planning. Les risques en haut-droite (probabilité élevée et gravité élevée) appellent une parade prioritaire.</desc>
   <defs>
@@ -78,10 +78,10 @@
 
   <!-- Légende -->
   <text x="50" y="450" class="legend-title">Légende :</text>
-  <text x="50" y="470" class="legend-text">1. Indisponibilité fablab en période d'examens — parade : commandes critiques avant Sem. 8.</text>
-  <text x="50" y="488" class="legend-text">2. Complexité de la liaison Wi-Fi — parade : plan B liaison filaire USB validé en PoC.</text>
-  <text x="50" y="506" class="legend-text">3. Étanchéité boîtier insuffisante — atténuation : prototype boîtier dès Sem. 10.</text>
-  <text x="380" y="470" class="legend-text">4. Absence équipier — atténuation : binômage sur les tâches critiques.</text>
-  <text x="380" y="488" class="legend-text">5. Panne capteur — accepter, capteur de rechange en stock.</text>
-  <text x="380" y="506" class="legend-text">6. Dérive du planning — parade : revue hebdomadaire + actualisation Gantt.</text>
+  <text x="50" y="472" class="legend-text">1. Indisponibilité fablab en période d'examens — parade : créneaux de fabrication réservés hors fenêtres d'examens.</text>
+  <text x="50" y="490" class="legend-text">2. Complexité de la liaison Wi-Fi — parade : plan B liaison filaire USB validé en PoC.</text>
+  <text x="50" y="508" class="legend-text">3. Étanchéité boîtier insuffisante — atténuation : prototype boîtier dès Sem. 10.</text>
+  <text x="50" y="526" class="legend-text">4. Absence équipier — atténuation : binômage sur les tâches critiques.</text>
+  <text x="50" y="544" class="legend-text">5. Panne capteur — accepter, capteur de rechange en stock.</text>
+  <text x="50" y="562" class="legend-text">6. Dérive du planning — parade : revue hebdomadaire + actualisation Gantt.</text>
 </svg>

@@ -8,7 +8,8 @@ tags:
   - notion
   - analyse-fonctionnelle
 prerequis: []
-aa: []
+aa:
+  - RA-PROJET-C04-4/PROJ/1
 draft: false
 ---
 
@@ -44,9 +45,9 @@ Reprenons le bras robotique pédagogique 3 axes. Avant de tracer sa [[pieuvre|pi
 
 ![Mind map des milieux environnants — bras 3 axes](/ressources/img/mind-map-bras-3-axes.svg)
 
-Le parcours systématique des familles fait remonter cinq milieux : l'**opérateur** (utilisateurs), l'**objet à déplacer** (matière d'œuvre), le **secteur 230 V** (énergies), le **poste informatique** et le **fablab** (environnement physique et moyens de fabrication), la **conformité CE** et l'**écoconception** (réglementaire). C'est en se forçant à passer la famille *réglementaire*, qui paraissait vide au premier abord, que l'équipe a noté les contraintes de conformité — un milieu discret qui aurait été oublié dans un remplissage spontané.
+Le parcours systématique des familles fait remonter **huit candidats** : l'**opérateur** (utilisateurs), l'**objet à déplacer** (matière d'œuvre), le **secteur 230 V** (énergies), le **poste informatique** et le **fablab** (environnement physique et moyens de fabrication), la **conformité CE**, l'**écoconception** et la **sécurité opérateur** (réglementaire). C'est en se forçant à passer la famille *réglementaire*, qui paraissait vide au premier abord, que l'équipe a noté ces trois contraintes — des candidats discrets qui auraient été oubliés dans un remplissage spontané.
 
-À ce stade, on ne trace aucune fonction : la mind map ne fait que **lister les milieux**. Le passage de main est immédiat — chacun de ces milieux devient une patte de la [[pieuvre|pieuvre]], où le lien système ↔ milieu se formalise en [[fonction|fonction]] [[FP]] / [[FS]] / [[FC]] puis se numérote.
+À ce stade, on ne trace aucune fonction : la mind map ne fait que **lister des candidats**. Le tri se fait au passage en [[pieuvre|pieuvre]] : cinq candidats deviennent les milieux du diagramme, où le lien système ↔ milieu se formalise en [[fonction|fonction]] [[FP]] / [[FS]] / [[FC]] puis se numérote ; la **sécurité opérateur** devient la FC sécurité sur le milieu opérateur ; l'**écoconception** migre dans les critères des FC ; la **conformité CE** — notée, tracée — est consciemment écartée du périmètre (pas de visée de certification en projet école). C'est le tri post-jet en acte : la carte capture large, l'outil aval structure.
 
 ## Pièges
 

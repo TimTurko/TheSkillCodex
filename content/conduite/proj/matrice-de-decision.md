@@ -8,7 +8,8 @@ tags:
   - notion
   - methode-decision
 prerequis: []
-aa: []
+aa:
+  - RA-PROJET-C04-4/PROJ/6
 draft: false
 ---
 
@@ -30,7 +31,7 @@ Trois rôles :
 
 Quatre temps :
 
-1. **Recenser les solutions candidates** pour le sous-système concerné. Trois à cinq solutions maximum — au-delà, l'analyse se dilue et l'effort d'évaluation explose. Les solutions issues de l'[[etat-de-l-art-technique|état de l'art]] sont des candidates naturelles.
+1. **Recenser les solutions candidates** pour chaque fonction technique feuille issue de la [[decomposition-fonctionnelle|décomposition]] et du [[fast|FAST]]. Trois à cinq solutions maximum — au-delà, l'analyse se dilue et l'effort d'évaluation explose. Les solutions repérées dans l'[[etat-de-l-art-technique|état de l'art]] sont des candidates naturelles.
 2. **Lister les critères de choix** ancrés sur les exigences du [[cahier-des-charges-fonctionnel|CdCF]] : performance principale, coût, écoconception, robustesse, complexité d'intégration, ouverture, disponibilité. Cinq à huit critères suffisent.
 3. **Pondérer les critères** par poids relatifs (somme = 100, par exemple). La pondération doit refléter la hiérarchie réelle des enjeux du projet, pas un consensus mou. Si tout est pondéré à parts égales, la matrice n'arbitre rien.
 4. **Noter chaque solution sur chaque critère** sur une échelle simple (1 à 5 typiquement) et calculer la somme pondérée. La somme donne un **classement**, pas une décision automatique — il reste à interpréter, à discuter les écarts faibles, et à conclure en justifiant le choix retenu en quelques lignes.
@@ -50,6 +51,8 @@ Quatre temps :
 ## Voir aussi
 
 - [[concept|Concept]] — phase où les matrices de décision sont construites (étape 2)
+- [[decomposition-fonctionnelle|Décomposition fonctionnelle]] — amont : produit les fonctions techniques feuilles à arbitrer
+- [[fast|FAST]] — amont : valide les chaînes dont chaque feuille ouvre une matrice
 - [[ecoconception|Écoconception]] — critère pondéré dans chaque matrice de décision
 - [[matrice-eco-criteres|Matrice éco-critères]] — bloc de critères environnementaux qui s'enchâsse dans cette matrice
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] — source des exigences qui fondent les critères de choix

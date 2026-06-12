@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" role="img" aria-labelledby="title desc">
   <title id="title">Jalons — schéma générique</title>
-  <desc id="desc">Timeline horizontale matérialisant les cinq jalons d'un projet mécatronique en cycle en V. Cinq losanges ambres répartis le long d'un axe, étiquetés J1 à J5, légendés en dessous par la phase qui se valide à chaque jalon.</desc>
+  <desc id="desc">Timeline horizontale matérialisant les six jalons d'un projet mécatronique en cycle en V. Six losanges ambres répartis le long d'un axe, étiquetés J1 à J6, légendés en dessous par la phase qui se valide à chaque jalon.</desc>
   <defs>
     <style>
       .axis { stroke: #888780; stroke-width: 2; fill: #888780; }
@@ -26,32 +26,38 @@
   <text x="650" y="245" class="label" style="text-anchor:end">date butoir</text>
 
   <!-- Jalon 1 -->
-  <polygon points="125,118 148,140 125,162 102,140" class="jalon-fill"/>
-  <text x="125" y="145" class="jalon-text">J1</text>
-  <text x="125" y="195" class="phase-text">Revue de</text>
-  <text x="125" y="210" class="phase-text">CdCF</text>
+  <polygon points="105,118 128,140 105,162 82,140" class="jalon-fill"/>
+  <text x="105" y="145" class="jalon-text">J1</text>
+  <text x="105" y="195" class="phase-text">Revue de</text>
+  <text x="105" y="210" class="phase-text">CdCF</text>
 
   <!-- Jalon 2 -->
-  <polygon points="245,118 268,140 245,162 222,140" class="jalon-fill"/>
-  <text x="245" y="145" class="jalon-text">J2</text>
-  <text x="245" y="195" class="phase-text">PoC</text>
-  <text x="245" y="210" class="phase-text">concluant</text>
+  <polygon points="210,118 233,140 210,162 187,140" class="jalon-fill"/>
+  <text x="210" y="145" class="jalon-text">J2</text>
+  <text x="210" y="195" class="phase-text">Concept</text>
+  <text x="210" y="210" class="phase-text">validé</text>
 
   <!-- Jalon 3 -->
-  <polygon points="375,118 398,140 375,162 352,140" class="jalon-fill"/>
-  <text x="375" y="145" class="jalon-text">J3</text>
-  <text x="375" y="195" class="phase-text">Dossier tech</text>
-  <text x="375" y="210" class="phase-text">validé</text>
+  <polygon points="315,118 338,140 315,162 292,140" class="jalon-fill"/>
+  <text x="315" y="145" class="jalon-text">J3</text>
+  <text x="315" y="195" class="phase-text">PoC</text>
+  <text x="315" y="210" class="phase-text">concluant</text>
 
   <!-- Jalon 4 -->
-  <polygon points="500,118 523,140 500,162 477,140" class="jalon-fill"/>
-  <text x="500" y="145" class="jalon-text">J4</text>
-  <text x="500" y="195" class="phase-text">Intégration</text>
-  <text x="500" y="210" class="phase-text">livrée</text>
+  <polygon points="420,118 443,140 420,162 397,140" class="jalon-fill"/>
+  <text x="420" y="145" class="jalon-text">J4</text>
+  <text x="420" y="195" class="phase-text">Dossier tech</text>
+  <text x="420" y="210" class="phase-text">validé</text>
 
   <!-- Jalon 5 -->
-  <polygon points="610,118 633,140 610,162 587,140" class="jalon-fill"/>
-  <text x="610" y="145" class="jalon-text">J5</text>
-  <text x="610" y="195" class="phase-text">Soutenance</text>
-  <text x="610" y="210" class="phase-text">finale</text>
+  <polygon points="525,118 548,140 525,162 502,140" class="jalon-fill"/>
+  <text x="525" y="145" class="jalon-text">J5</text>
+  <text x="525" y="195" class="phase-text">Intégration</text>
+  <text x="525" y="210" class="phase-text">livrée</text>
+
+  <!-- Jalon 6 -->
+  <polygon points="615,118 638,140 615,162 592,140" class="jalon-fill"/>
+  <text x="615" y="145" class="jalon-text">J6</text>
+  <text x="615" y="195" class="phase-text">Soutenance</text>
+  <text x="615" y="210" class="phase-text">finale</text>
 </svg>

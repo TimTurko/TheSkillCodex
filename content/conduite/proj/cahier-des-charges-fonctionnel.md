@@ -21,7 +21,7 @@ aa:
 draft: false
 ---
 
-Le **cahier des charges fonctionnel** (CdCF) est le document de référence d'un projet : il formalise sans ambiguïté ce que le système doit faire, chiffre chaque exigence et engage formellement le client et le concepteur. Issu de la méthode [[afnor-nfx50-151|NF X50-151]], il est l'**output principal de la phase de [[specification-technique|spécification technique]]**. La version enseignée dans ce tutoriel est une *version école simplifiée* qui agrège dans un document unique les cinq livrables de la phase : présentation du projet, expression du besoin, étude de l'existant, analyse fonctionnelle et planification.
+Le **cahier des charges fonctionnel** (CdCF) est le document de référence d'un projet : il formalise sans ambiguïté ce que le système doit faire, chiffre chaque exigence et engage formellement le client et le concepteur. Défini par la norme [[afnor-nfx50-151|NF X50-151]], il est l'**output principal de la phase de [[specification-technique|spécification technique]]**. La version enseignée dans ce tutoriel est une *version école simplifiée* qui agrège dans un document unique les cinq livrables de la phase : présentation du projet, expression du besoin, étude de l'existant, analyse fonctionnelle et planification.
 
 ## À quoi ça sert ?
 
@@ -44,7 +44,7 @@ La rédaction du document lui-même (étape 6 de la phase) consiste à :
 3. **Vérifier la cohérence inter-sections** : une exigence chiffrée à l'étape 4 doit être cohérente avec l'ordre de grandeur retenu à l'étape 2 ; un risque identifié à l'étape 5 doit faire écho à une [[FC]] de la pieuvre
 4. **Faire valider** en *revue de CdCF*, [[jalons|jalon]] de fin de spécification technique conduit par les enseignants (qui jouent le rôle du client en contexte école)
 
-Un **template Word pré-rempli** est fourni dans le dépôt : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la TdM en 5 sections, avec page de garde, sommaire automatique et tableaux pré-structurés (bête à cornes, état de l'art comparatif, caractérisation des fonctions, matrice de risques). Compléter les placeholders entre crochets et le CdCF prend forme.
+Un **template Word pré-rempli** est fourni dans le dépôt : [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). Il reprend la table des matières (TdM) en 5 sections, avec page de garde, sommaire automatique et tableaux pré-structurés (bête à cornes, état de l'art comparatif, caractérisation des fonctions, matrice de risques). Compléter les placeholders entre crochets et le CdCF prend forme.
 
 ## Structure type du document école
 
@@ -54,7 +54,7 @@ Le CdCF école simplifié s'organise en cinq sections, qui suivent l'ordre du d�
 2. **Expression du besoin** — [[bete-a-cornes|bête à cornes]], validation du besoin *(matière de l'étape 1)*
 3. **Étude de l'existant** *(complément école)* — [[etat-de-l-art-technique|état de l'art technique]], tableau comparatif, synthèse *(matière de l'étape 2)*
 4. **Analyse fonctionnelle** *(cœur NF X50-151)* — [[pieuvre|pieuvre]], tableau des [[fonction|fonctions]] caractérisées *(matière des étapes 3 et 4)*
-5. **Planification du projet** *(complément école)* — [[wbs|WBS]], [[gantt|Gantt]], [[matrice-de-risques|matrice de risques]] *(matière de l'étape 5)*
+5. **Planification du projet** *(complément école)* — [[wbs|WBS]], [[jalons|jalons]], [[retroplanning|rétroplanning]], [[gantt|Gantt]], [[matrice-de-risques|matrice de risques]] *(matière de l'étape 5)*
 
 Les sections sont **explicitement labellisées** « cœur NF X50-151 » (section 4) et « complément école » (sections 3 et 5) pour que le lecteur — et l'étudiant lui-même — distingue le cœur normatif des compléments pédagogiques.
 
@@ -63,7 +63,7 @@ Les sections sont **explicitement labellisées** « cœur NF X50-151 » (section
 
 ## Exemple — projet bras 3 axes
 
-Pour le projet fil rouge — un bras robotique pédagogique 3 axes — le CdCF s'organise selon la TdM standard en 5 sections. La section 1 reprend la posture étudiant-client-de-lui-même (commanditaire = enseignant de mécatronique, but pédagogique explicite). La section 4 — cœur NF X50-151 — agrège la pieuvre et le tableau de fonctions caractérisées : 1 [[FP]], 1 [[FS]], 2 [[FC]], toutes chiffrées (précision ± 5 mm en F1, programmation depuis poste informatique en F2, alimentation 230 V en F0, démontabilité fablab en F0).
+Pour le projet fil rouge — un bras robotique pédagogique 3 axes — le CdCF s'organise selon la TdM standard en 5 sections. La section 1 reprend la posture étudiant-client-de-lui-même (commanditaire = enseignant de mécatronique, but pédagogique explicite). La section 4 — cœur NF X50-151 — agrège la pieuvre et le tableau de fonctions caractérisées : 1 [[FP]], 1 [[FS]], 3 [[FC]], toutes chiffrées (précision ± 5 mm en F1, programmation depuis poste informatique en F2, alimentation 230 V en F0, démontabilité fablab en F0, sécurité opérateur en F0).
 
 La démarche [[ecoconception|écoconception]] est intégrée transversalement : critère « ouverture / réparabilité » dans le tableau de l'état de l'art (section 3), FC2 sur la démontabilité dans la pieuvre (section 4), risque « disponibilité fablab » dans la matrice de risques (section 5). Pas de section écoconception dédiée — l'enjeu environnemental traverse le document.
 
@@ -83,7 +83,7 @@ Le détail complet de la démarche de construction (les six étapes de la phase,
 
 ## Cas particulier — projet école sans client réel
 
-Quand le projet n'a pas de client externe (robot sumo, robot suiveur de ligne, démonstrateur démonté après soutenance), la rédaction d'un CdCF complet peut sembler artificielle. Deux postures honnêtes existent — voir le [[specification-technique#cas-particulier-projet-école-sans-client-réel|cas particulier de la phase de spécification]] pour le détail. L'essentiel : choisir explicitement une posture (*étudiant-client-de-lui-même* ou *client fictif crédible*) et la tenir tout au long du document.
+Quand le projet n'a pas de client externe (robot sumo, robot suiveur de ligne, démonstrateur démonté après soutenance), la rédaction d'un CdCF complet peut sembler artificielle. Deux postures honnêtes existent — voir le [[specification-technique#cas-particulier--projet-école-sans-client-réel|cas particulier de la phase de spécification]] pour le détail. L'essentiel : choisir explicitement une posture (*étudiant-client-de-lui-même* ou *client fictif crédible*) et la tenir tout au long du document.
 
 ## Voir aussi
 

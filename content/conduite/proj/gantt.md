@@ -39,7 +39,7 @@ Cinq étapes :
 4. **Ajouter les dépendances** sous forme de flèches reliant les tâches qui s'enchaînent obligatoirement.
 5. **Actualiser à chaque revue de phase** — sans cela, le Gantt ment dès la première dérive.
 
-Côté outils, trois options principales sont mobilisables : **Excel ou papier** (rapides à mettre en place, suffisants pour un Gantt simple), **GanttProject** (logiciel libre dédié, gère proprement les dépendances), **Trello** (en ligne, pratique pour combiner suivi WBS et Gantt simplifié via plugins). Choisir un outil et s'y tenir — éparpiller la planification entre trois supports désynchronisés est pire qu'un outil imparfait.
+Côté outils, trois options principales sont mobilisables : **Excel ou papier** (rapides à mettre en place, suffisants pour un Gantt simple), **GanttProject** (logiciel libre dédié, gère proprement les dépendances), **Trello** (suivi des tâches en kanban — complément utile au Gantt, mais qui ne le remplace pas : la dimension temporelle continue se perd). Choisir un outil et s'y tenir — éparpiller la planification entre trois supports désynchronisés est pire qu'un outil imparfait.
 
 *Illustration sur un cas concret : Gantt d'un projet de station météo connectée sur 15 semaines.*
 

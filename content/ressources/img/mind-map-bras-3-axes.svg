@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
   <title id="title">Mind map des milieux environnants — bras 3 axes</title>
-  <desc id="desc">Carte mentale des milieux environnants du bras 3 axes, organisée par les cinq familles de milieux. Au centre, le bras 3 axes. Cinq branches : utilisateurs (opérateur), matière d'œuvre (objet à déplacer), énergies (secteur 230 V), environnement physique (poste informatique, fablab), réglementaire (conformité CE, écoconception). Ces milieux deviennent les pattes de la pieuvre.</desc>
+  <desc id="desc">Carte mentale des milieux environnants du bras 3 axes, organisée par les cinq familles de milieux. Au centre, le bras 3 axes. Cinq branches : utilisateurs (opérateur), matière d'œuvre (objet à déplacer), énergies (secteur 230 V), environnement physique (poste informatique, fablab), réglementaire (conformité CE, écoconception, sécurité opérateur). Ces candidats sont ensuite triés au passage en pieuvre.</desc>
   <defs>
     <style>
       .conn { stroke: #888780; stroke-width: 1.8; fill: none; }
@@ -37,6 +37,7 @@
   <line x1="150" y1="90" x2="140" y2="90" class="conn"/>
   <line x1="150" y1="280" x2="140" y2="266" class="conn"/>
   <line x1="150" y1="280" x2="140" y2="306" class="conn"/>
+  <line x1="150" y1="280" x2="140" y2="346" class="conn"/>
   <line x1="150" y1="470" x2="140" y2="464" class="conn"/>
   <line x1="150" y1="470" x2="140" y2="504" class="conn"/>
   <line x1="750" y1="150" x2="765" y2="150" class="conn"/>
@@ -66,6 +67,8 @@
   <text x="75" y="271" class="n3-text">Conformité CE</text>
   <rect x="10" y="291" width="130" height="30" rx="4" class="n3-fill"/>
   <text x="75" y="311" class="n3-text">Écoconception</text>
+  <rect x="10" y="331" width="130" height="30" rx="4" class="n3-fill"/>
+  <text x="75" y="351" class="n3-text">Sécurité opérateur</text>
 
   <rect x="10" y="449" width="130" height="30" rx="4" class="n3-fill"/>
   <text x="75" y="469" class="n3-text">Poste informatique</text>
@@ -78,5 +81,5 @@
   <rect x="765" y="395" width="125" height="30" rx="4" class="n3-fill"/>
   <text x="827" y="415" class="n3-text">Secteur 230 V</text>
 
-  <text x="450" y="545" class="foot">Ces milieux deviennent les pattes de la pieuvre : chaque lien système ↔ milieu y devient une fonction.</text>
+  <text x="450" y="545" class="foot">Des candidats à trier : la pieuvre en retiendra cinq comme milieux et formalisera le reste en contraintes.</text>
 </svg>
