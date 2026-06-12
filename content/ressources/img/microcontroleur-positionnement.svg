@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" role="img" aria-labelledby="title desc">
   <title id="title">Familles de microcontrôleurs — carte de positionnement</title>
-  <desc id="desc">Carte de positionnement des familles de microcontrôleurs selon deux axes : la puissance de calcul (horizontal) et la connectivité sans fil intégrée (vertical, trois bandes : aucune, Wi-Fi, Wi-Fi et Bluetooth). PIC et Arduino en bas à gauche, STM32 et Teensy en bas à droite (puissants, sans radio), ESP8266 en bande Wi-Fi, ESP32 et XIAO en bande Wi-Fi + Bluetooth. Le Raspberry Pi figure à part, en haut à droite, comme ordinateur sous Linux hors catégorie.</desc>
+  <desc id="desc">Carte de positionnement des familles de microcontrôleurs selon deux axes : la puissance de calcul (horizontal) et la connectivité sans fil intégrée (vertical, trois bandes : aucune, Wi-Fi, Wi-Fi et Bluetooth). PIC et Arduino en bas à gauche, STM32 et Teensy en bas à droite (puissants, sans radio), ESP8266 en bande Wi-Fi, ESP32 et XIAO en bande Wi-Fi et Bluetooth. Le Pico figure en bande sans radio, entre Arduino et STM32 (sa variante W ajoute Wi-Fi et Bluetooth). Le Raspberry Pi figure à part, en haut à droite, comme ordinateur sous Linux hors catégorie.</desc>
   <defs>
     <style>
       .pt-title { font: 700 15px sans-serif; fill: #2C2C2A; letter-spacing: 0.3px; }
@@ -66,6 +66,10 @@
   <rect x="255" y="318" width="110" height="44" rx="22" class="pt-mcu"/>
   <text x="310" y="337" text-anchor="middle" class="pt-mcu-text">Arduino</text>
   <text x="310" y="352" text-anchor="middle" class="pt-mcu-sub">apprentissage</text>
+
+  <rect x="380" y="358" width="92" height="44" rx="22" class="pt-mcu"/>
+  <text x="426" y="377" text-anchor="middle" class="pt-mcu-text">Pico</text>
+  <text x="426" y="392" text-anchor="middle" class="pt-mcu-sub">W : Wi-Fi + BT</text>
 
   <rect x="470" y="318" width="105" height="44" rx="22" class="pt-mcu"/>
   <text x="522" y="337" text-anchor="middle" class="pt-mcu-text">STM32</text>
