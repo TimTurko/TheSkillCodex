@@ -22,7 +22,7 @@ La **spécification technique** est la première phase du projet [[mecatronique|
 
 ## Posture attendue
 
-La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Résistez. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus vous serez précis ici, moins vous reviendrez en arrière plus tard. Un cahier des charges bâclé coûte plus cher en temps de correction à la fin du projet qu'au début.
+La tentation, à ce stade, est de sauter directement aux composants : "il nous faudrait un ESP32, un capteur de température, un moteur pas-à-pas". Il faut y résister. Cette étape ne demande pas d'imaginer la solution, elle demande de **comprendre le problème**. Plus le besoin est précis ici, moins on revient en arrière plus tard. Un cahier des charges bâclé coûte plus cher en temps de correction à la fin du projet qu'au début.
 
 ## Objectif de la phase
 
@@ -57,7 +57,7 @@ Le contexte répond à la question : **pourquoi ce projet existe ?**
 - **Verrous technologiques** — quels obstacles techniques ou scientifiques le projet cherche à dépasser
 
 > [!warning] Attention
-> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience que vous allez combler au cours du projet. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si votre projet n'a pas de verrou technologique fort, dites-le honnêtement et déplacez l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
+> **Verrou technologique ≠ difficulté personnelle.** « Nous n'avons jamais fait de [[pcb|PCB]] » n'est pas un verrou technologique, c'est un manque d'expérience que l'équipe comblera au cours du projet. Un vrai verrou : « détecter un gaz inflammable avec une concentration < 50 ppm avec un composant à moins de 10 € en grande série ». Si le projet n'a pas de verrou technologique fort, le dire honnêtement et déplacer l'enjeu ailleurs (intégration système, contraintes industrielles, performances).
 
 #### Formuler le besoin avec la bête à cornes
 
@@ -84,7 +84,7 @@ Deux postures honnêtes selon le projet :
 - **L'étudiant devient son propre client** : le service rendu est l'acquisition de compétences ciblées (« développer une chaîne d'asservissement, intégrer une carte électronique sur mesure, manipuler une régulation [[arduino-pid|PID]] »). Le « à qui » est l'équipe elle-même, le « but » est explicitement pédagogique. C'est défendable en école, **pas en projet professionnel**.
 - **L'équipe se donne un client fictif crédible** : pour le robot labyrinthe, on peut imaginer un cas d'usage (« robot d'inspection de canalisations enterrées »). L'analyse fonctionnelle devient cohérente, et l'exercice prend une dimension d'ingénierie réaliste.
 
-Choisissez explicitement l'une des deux postures et tenez-la pendant toute la rédaction du CdCF.
+Choisir explicitement l'une des deux postures et la tenir pendant toute la rédaction du CdCF.
 
 > [!example] Exemple : projet bras 3 axes
 > Le projet fil rouge de ce tutoriel — un bras robotique pédagogique 3 axes — relève de la **posture étudiant-client-de-lui-même** : le commanditaire est l'enseignant de mécatronique lui-même, et le service rendu est explicitement pédagogique (un support démontable et reproductible pour enseigner la chaîne d'asservissement complète).
@@ -95,12 +95,12 @@ Choisissez explicitement l'une des deux postures et tenez-la pendant toute la r�
 
 #### Valider la compréhension du besoin
 
-Une fois la [[bete-a-cornes|bête à cornes]] formulée, **confrontez-la** :
+Une fois la [[bete-a-cornes|bête à cornes]] formulée, **la confronter** :
 
 - **Mode sujet ouvert** (besoin construit par l'équipe) : la valider auprès du [[relation-client|client]] réel ou de son représentant. Si la formulation surprend le client, c'est qu'on a mal compris.
 - **Mode sujet cadré** (note de cadrage fournie) : la confronter au document. Y a-t-il des éléments du cadrage qui n'apparaissent pas dans la bête à cornes ? Des choix qu'on a faits qui ne sont pas justifiés par le cadrage ?
 
-Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou section dédiée du CdCF). C'est la preuve que la compréhension est partagée — sans elle, vous travaillez sur des suppositions.
+Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou section dédiée du CdCF). C'est la preuve que la compréhension est partagée — sans elle, on travaille sur des suppositions.
 
 > [!tip] Astuce
 > **La bête à cornes paraît triviale, et c'est précisément là sa puissance.** Trois questions, trois réponses : ça semble enfantin. Mais formuler en trois lignes ce qu'on croyait évident révèle les désaccords cachés dans l'équipe ou avec le client. Le moment où deux équipiers répondent différemment au « à qui » est exactement le moment où l'outil paye son utilité.
@@ -114,7 +114,7 @@ Cette validation laisse une trace écrite (mail, compte-rendu de réunion, ou se
 
 ### 2. Étudier l'existant
 
-**Le besoin est compris et validé.** Avant de chiffrer ce que votre système doit faire, regardez ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà traité un besoin similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
+**Le besoin est compris et validé.** Avant de chiffrer ce que le système doit faire, regarder ce qui existe déjà. Personne ne conçoit dans le vide : pour presque tout projet mécatronique, des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà traité un besoin similaire. Les étudier permet d'identifier des briques réutilisables, de calibrer les ordres de grandeur réalistes, et d'éviter de réinventer ce qui marche déjà.
 
 Ce travail produit un **[[etat-de-l-art-technique|état de l'art technique]]** : une comparaison chiffrée de solutions existantes selon des critères choisis. Il se mène en trois temps : recenser les solutions, définir les critères, comparer et conclure.
 
@@ -136,7 +136,7 @@ Noter pour chaque référence retenue : nom, source/URL, principaux chiffres con
 
 #### Définir les critères de comparaison
 
-Choisir **5 à 8 critères chiffrables** qui font sens pour votre projet, ancrés sur le besoin formulé à l'étape 1. Les critères doivent permettre de **discriminer les solutions entre elles** : un critère sur lequel toutes les solutions ont la même valeur n'apporte rien.
+Choisir **5 à 8 critères chiffrables** qui font sens pour le projet, ancrés sur le besoin formulé à l'étape 1. Les critères doivent permettre de **discriminer les solutions entre elles** : un critère sur lequel toutes les solutions ont la même valeur n'apporte rien.
 
 Familles de critères à considérer :
 
@@ -146,7 +146,7 @@ Familles de critères à considérer :
 - **[[ecoconception|Écoconception]]** — origine et recyclabilité des matériaux, durabilité, démontabilité, réparabilité
 - **Ouverture** — disponibilité du [[bom|BOM]], du firmware, des schémas (déterminant pour réutiliser des briques)
 
-Les critères retenus ici préfigurent ceux que vous chiffrerez à l'étape 4 dans le CdCF. Bien choisis, ils rendent l'étape 4 nettement plus simple.
+Les critères retenus ici préfigurent ceux que l'on chiffrera à l'étape 4 dans le CdCF. Bien choisis, ils rendent l'étape 4 nettement plus simple.
 
 #### Comparer en tableau
 

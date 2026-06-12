@@ -23,7 +23,7 @@ La **preuve de concept** (PoC) est la troisième phase du projet [[mecatronique|
 
 ## Posture attendue
 
-La tentation, à ce stade, est de plonger directement dans le bricolage : "on a le matos, on monte, on verra ce que ça donne". Résistez. Une preuve de concept sans **énoncé écrit, hypothèse formulée, critère de succès quantifié et protocole** n'est pas une preuve de concept — c'est une expérience qui produira des résultats inexploitables. Vous reviendrez en arrière. À l'inverse, une preuve bien cadrée peut conclure en quelques heures là où le bricolage met une semaine. Cette étape enseigne une compétence centrale de l'ingénieur : **savoir tester avant de fabriquer**.
+La tentation, à ce stade, est de plonger directement dans le bricolage : "on a le matos, on monte, on verra ce que ça donne". Il faut y résister. Une preuve de concept sans **énoncé écrit, hypothèse formulée, critère de succès quantifié et protocole** n'est pas une preuve de concept — c'est une expérience qui produira des résultats inexploitables — et un retour en arrière garanti. À l'inverse, une preuve bien cadrée peut conclure en quelques heures là où le bricolage met une semaine. Cette étape enseigne une compétence centrale de l'ingénieur : **savoir tester avant de fabriquer**.
 
 ## Objectif de la phase
 
@@ -95,7 +95,7 @@ Pour chaque incertitude, relire le protocole validé à l'étape 1 et en extrair
 L'inventaire produit ici ne déborde pas du strict nécessaire pour lever l'incertitude. Les choix définitifs de composants (références exactes du produit final) viendront en [[dossier-technique|dossier technique]], avec les calculs précis et l'engagement budgétaire associé — pas ici. La preuve de concept reste un instrument de mesure, pas un pré-engagement.
 
 > [!warning] Attention
-> **Pas d'achat à titre personnel.** Même si un composant à 5 € vous semble plus rapide à commander vous-même qu'à demander à l'école, n'achetez rien sur vos deniers personnels. C'est une entorse à l'équité budgétaire entre équipes, et c'est expressément hors cadre projet. Si une acquisition exceptionnelle est nécessaire, elle passe par le responsable projet.
+> **Pas d'achat à titre personnel.** Même si un composant à 5 € semble plus rapide à commander soi-même qu'à demander à l'école, ne rien acheter sur ses deniers personnels. C'est une entorse à l'équité budgétaire entre équipes, et c'est expressément hors cadre projet. Si une acquisition exceptionnelle est nécessaire, elle passe par le responsable projet.
 
 #### Trois sources, dans l'ordre
 

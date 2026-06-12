@@ -25,7 +25,7 @@ Le **concept** est la deuxième étape du projet [[mecatronique|mécatronique]] 
 
 ## Posture attendue
 
-La tentation, à ce stade, est d'aller trop vite vers les composants ("on prendra un ESP32 et un driver A4988") ou de laisser chaque discipline travailler dans son coin. Résistez aux deux. Cette phase ne demande pas de choisir les références exactes, elle demande de **poser une architecture défendable** — c'est-à-dire compatible inter-disciplines, justifiée par des matrices, et pré-dimensionnée. C'est aussi la première phase où l'**[[ecoconception|écoconception]] devient un critère de choix**, pas un commentaire en marge.
+La tentation, à ce stade, est d'aller trop vite vers les composants ("on prendra un ESP32 et un driver A4988") ou de laisser chaque discipline travailler dans son coin. Il faut résister aux deux. Cette phase ne demande pas de choisir les références exactes, elle demande de **poser une architecture défendable** — c'est-à-dire compatible inter-disciplines, justifiée par des matrices, et pré-dimensionnée. C'est aussi la première phase où l'**[[ecoconception|écoconception]] devient un critère de choix**, pas un commentaire en marge.
 
 ## Objectif de la phase
 
@@ -56,7 +56,7 @@ La représentation directe est l'**arborescence descendante** (système global e
 Le découpage produit ici n'est pas figé pour toute la phase. L'exploration des solutions à l'étape 2 peut révéler qu'un bloc doit être scindé (deux logiques de commande très différentes coexistent) ou fusionné (deux blocs partagent en fait la même structure). On revient corriger sans état d'âme.
 
 > [!warning] Attention
-> **La décomposition peut révéler un trou dans le [[cahier-des-charges-fonctionnel|CdCF]].** Une [[FC]] oubliée, une [[FP]] mal énoncée, un sous-système qui ne se rattache à aucune fonction de service : ces signaux remontent presque toujours pendant la décomposition, parce que c'est la première fois qu'on regarde le système de l'intérieur. La tentation est de les masquer pour ne pas remettre en cause la revue de CdCF validée. Faites l'inverse : tracez la modification, validez-la avec l'encadrant, puis poursuivez. Un CdCF corrigé en début de concept se paye en quelques heures ; le même trou découvert en intégration coûte des semaines.
+> **La décomposition peut révéler un trou dans le [[cahier-des-charges-fonctionnel|CdCF]].** Une [[FC]] oubliée, une [[FP]] mal énoncée, un sous-système qui ne se rattache à aucune fonction de service : ces signaux remontent presque toujours pendant la décomposition, parce que c'est la première fois qu'on regarde le système de l'intérieur. La tentation est de les masquer pour ne pas remettre en cause la revue de CdCF validée. Faire l'inverse : tracer la modification, la valider avec l'encadrant, puis poursuivre. Un CdCF corrigé en début de concept se paye en quelques heures ; le même trou découvert en intégration coûte des semaines.
 
 #### Des sous-systèmes aux fonctions techniques
 

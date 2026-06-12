@@ -26,7 +26,7 @@ L'**intégration et les tests** est la cinquième et dernière étape du projet 
 
 ## Posture attendue
 
-La tentation, à ce stade, est de croire que l'essentiel est derrière soi ("on a juste à monter et tester"). Résistez. L'intégration est **précisément l'endroit où les écarts entre la pensée et la réalité se révèlent**, et où l'on doit gérer ces écarts **sans pouvoir revenir en arrière**. C'est aussi l'étape qui enseigne une compétence ingénieur rarement explicitée : **livrer un système avec ses écarts documentés vaut mieux que ne pas livrer en cherchant la perfection**. L'évaluation porte sur la **lucidité de l'analyse**, pas sur l'atteinte parfaite du CdCF.
+La tentation, à ce stade, est de croire que l'essentiel est derrière soi ("on a juste à monter et tester"). Il faut y résister. L'intégration est **précisément l'endroit où les écarts entre la pensée et la réalité se révèlent**, et où l'on doit gérer ces écarts **sans pouvoir revenir en arrière**. C'est aussi l'étape qui enseigne une compétence ingénieur rarement explicitée : **livrer un système avec ses écarts documentés vaut mieux que ne pas livrer en cherchant la perfection**. L'évaluation porte sur la **lucidité de l'analyse**, pas sur l'atteinte parfaite du CdCF.
 
 ## Objectif de la phase
 

@@ -28,7 +28,7 @@ Le **dossier technique** est la quatrième étape du projet [[mecatronique|méca
 
 ## Posture attendue
 
-La tentation, à ce stade, est de croire que le travail est fait ("on a validé l'architecture en concept, on copie-colle"). Résistez. Le dossier technique exige un **niveau de précision que le concept n'avait pas** : un schéma bloc devient un schéma électrique câblé, un pré-dimensionnement devient une cote, une intention logicielle devient une spécification d'interface. C'est aussi l'étape de la **multi-validation** : trois interlocuteurs distincts valident chacun leur périmètre. C'est dans cette logique de pluralité que se joue l'apprentissage du travail en équipe d'ingénieurs.
+La tentation, à ce stade, est de croire que le travail est fait ("on a validé l'architecture en concept, on copie-colle"). Il faut y résister. Le dossier technique exige un **niveau de précision que le concept n'avait pas** : un schéma bloc devient un schéma électrique câblé, un pré-dimensionnement devient une cote, une intention logicielle devient une spécification d'interface. C'est aussi l'étape de la **multi-validation** : trois interlocuteurs distincts valident chacun leur périmètre. C'est dans cette logique de pluralité que se joue l'apprentissage du travail en équipe d'ingénieurs.
 
 ## Objectif de la phase
 
@@ -52,23 +52,23 @@ L'erreur la plus fréquente à ce stade est de rouvrir directement les outils de
 
 #### Du compte rendu PoC aux ajustements à intégrer
 
-Reprenez le rapport de preuve de concept et listez, point par point, ce qui change pour le dossier technique. Trois familles d'ajustements à distinguer :
+Reprendre le rapport de preuve de concept et lister, point par point, ce qui change pour le dossier technique. Trois familles d'ajustements à distinguer :
 
 1. **Composants confirmés** — les choix de l'étape 2 du [[concept|concept]] (matrices de décision) passés sans réserve. Référence, fournisseur, ordre de grandeur de coût validés. Ils filent directement dans la BOM finale (étape 3) sans relecture.
 2. **Composants ou solutions recalés** — issus d'un *ajustement local* ou d'un *retour amont structurant* en sortie de PoC. Il faut tracer la décision : quelle preuve a échoué, quelle alternative a été retenue, sur quelles bases. Cette traçabilité sera redemandée par les validateurs disciplinaires (étape 4).
 3. **Contraintes nouvelles** — valeurs mesurées qui s'imposent désormais (couples maximum constatés, courants de pointe, temps de cycle observés), ou contraintes émergées du protocole d'essai (alignement de fabrication, sensibilité au montage, etc.). À reporter dans les exigences chiffrées propagées aux disciplines.
 
 > [!tip] Astuce
-> **Une page de synthèse, pas une réunion orale.** Posez un tableau écrit *avant* / *après* PoC, daté et nominatif. Sans trace écrite, les trois disciplines reconstruisent trois versions différentes du compte rendu et arbitrent chacune dans son coin.
+> **Une page de synthèse, pas une réunion orale.** Poser un tableau écrit *avant* / *après* PoC, daté et nominatif. Sans trace écrite, les trois disciplines reconstruisent trois versions différentes du compte rendu et arbitrent chacune dans son coin.
 
 #### Propager les ajustements aux trois disciplines
 
 Chaque ajustement de la sous-section précédente a presque toujours un effet sur **plus d'une discipline**. Un composant recalé en méca change la masse en bout, donc le couple à fournir par l'élec, donc la commande à programmer par l'info. Un protocole de mesure qui a révélé une dérive thermique impose une consigne logicielle de compensation et un dimensionnement électrique avec marge supplémentaire. La discipline qui propage les ajustements n'est pas forcément celle qui les a découverts en PoC.
 
-Pratiquement : pour chaque ajustement, identifiez en équipe les disciplines impactées et notez l'effet attendu — *masse +30 %, couple à recalculer*, *lead time fournisseur +2 semaines, planning à recaler*, *bilan [[ecoconception|écoconception]] à reprendre sur nouvelle référence matière*. C'est ce travail de propagation qui ouvre proprement les étapes 2 (plans par discipline) et 3 (BOM + ACV + planning).
+Pratiquement : pour chaque ajustement, identifier en équipe les disciplines impactées et noter l'effet attendu — *masse +30 %, couple à recalculer*, *lead time fournisseur +2 semaines, planning à recaler*, *bilan [[ecoconception|écoconception]] à reprendre sur nouvelle référence matière*. C'est ce travail de propagation qui ouvre proprement les étapes 2 (plans par discipline) et 3 (BOM + ACV + planning).
 
 > [!warning] Attention
-> **Repartir des plans du concept revient à effacer la PoC.** Avant d'ouvrir un seul outil de production (CAO, schéma élec, IDE), figez en équipe la liste des ajustements à propager. Cinq lignes écrites évitent dix heures de retours arrière.
+> **Repartir des plans du concept revient à effacer la PoC.** Avant d'ouvrir un seul outil de production (CAO, schéma élec, IDE), figer en équipe la liste des ajustements à propager. Cinq lignes écrites évitent dix heures de retours arrière.
 
 > [!example] Exemple : projet bras 3 axes
 > La preuve de concept sur les articulations imprimées en PLA 60 % a montré que le jeu angulaire dépassait le critère de 0,5° dès ~500 cycles (matage du logement), bien avant les 1000 cycles visés — l'équipe a tranché en *retour amont structurant* (basculer vers articulations usinées en aluminium 6061). Le compromis offset court côté méca + lookup table côté info, lui, vient de l'arbitrage d'architecture initial du concept (conflit cinématique ↔ articulations) et reste en place. Trois familles d'ajustements à propager au dossier technique en sortie :
@@ -99,7 +99,7 @@ Les trois branches travaillent en parallèle sur leur livrable disciplinaire, av
 L'arbitrage *qui fait quoi* a été pris en début de phase concept et tient en général sur la totalité du projet. Si une discipline déborde sur l'autre (par exemple : un composant élec impose un assemblage méca particulier), c'est négocié à la revue de cohérence ci-dessous, pas en bilatéral.
 
 > [!tip] Astuce
-> **Reprenez le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] du concept comme carte d'interfaces.** Ce schéma a perdu sa vocation décisionnelle (les solutions sont arbitrées) mais retrouve une utilité opératoire : il identifie tous les points de contact entre disciplines, donc tous les points de spécification d'interface à figer pendant cette étape.
+> **Reprendre le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] du concept comme carte d'interfaces.** Ce schéma a perdu sa vocation décisionnelle (les solutions sont arbitrées) mais retrouve une utilité opératoire : il identifie tous les points de contact entre disciplines, donc tous les points de spécification d'interface à figer pendant cette étape.
 
 #### Vérifier la cohérence inter-disciplines avant les validateurs externes
 
@@ -136,7 +136,7 @@ Spécificité du projet école : la **BOM se construit sur un catalogue de fourn
 Agréger les trois nomenclatures disciplinaires (élec, méca, info — bien que l'info ne consomme généralement pas de matériel propre au-delà du PC de développement) en une seule [[bom|BOM]], ligne par ligne : *désignation, référence catalogue partenaire, quantité, prix unitaire HT, prix total HT, lead time annoncé*. Le chiffrage est attendu **au centime près** : c'est ce niveau de précision qui rend le total opposable à l'enveloppe budget en H4-3. Toute ligne hors catalogue est marquée explicitement (drapeau *hors catalogue, achat à négocier*) avec son surcoût estimé.
 
 > [!tip] Astuce
-> **Démarrez la BOM par les composants confirmés en étape 1.** Ces lignes sont stables et chiffrent vite. Gardez les composants recalés pour la fin : ils peuvent demander un aller-retour avec le partenaire (disponibilité, lead time) ou impliquer une sous-traitance à chiffrer séparément.
+> **Démarrer la BOM par les composants confirmés en étape 1.** Ces lignes sont stables et chiffrent vite. Garder les composants recalés pour la fin : ils peuvent demander un aller-retour avec le partenaire (disponibilité, lead time) ou impliquer une sous-traitance à chiffrer séparément.
 
 #### Quantifier l'écoconception sur la BOM réelle
 
@@ -211,10 +211,10 @@ Une fois les trois validations disciplinaires obtenues, l'équipe organise une *
 C'est cette revue globale qui produit le **feu vert pour l'étape 5** : autorisation d'émettre les commandes. Sans elle, le dossier reste validé en parties mais non engageant matériellement.
 
 > [!warning] Attention
-> **Trois interlocuteurs distincts ne se synchronisent pas en une réunion.** Il faut **organiser trois rendez-vous séparés** avec trois interlocuteurs aux agendas indépendants. Anticipez d'au moins deux semaines, sinon vous serez bloqués au moment d'émettre les commandes et tout le planning aval glissera.
+> **Trois interlocuteurs distincts ne se synchronisent pas en une réunion.** Il faut **organiser trois rendez-vous séparés** avec trois interlocuteurs aux agendas indépendants. Anticiper d'au moins deux semaines, sinon l'équipe sera bloquée au moment d'émettre les commandes et tout le planning aval glissera.
 
 > [!tip] Astuce
-> **Ouvrez chaque rendez-vous par les livrables-clés du périmètre.** Le validateur a peu de temps : commencer par les livrables ciblés (et non par l'historique de la phase) maximise le retour utile. L'historique se déroule en cas de question, pas par défaut.
+> **Ouvrir chaque rendez-vous par les livrables-clés du périmètre.** Le validateur a peu de temps : commencer par les livrables ciblés (et non par l'historique de la phase) maximise le retour utile. L'historique se déroule en cas de question, pas par défaut.
 
 > [!example] Exemple : projet bras 3 axes
 > Découpage de la multi-validation :
