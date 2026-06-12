@@ -27,11 +27,12 @@ Le **C++** est le langage dans lequel s'écrivent les programmes Arduino — un 
 6. [[cpp-boucles|Les boucles]] — `for`, `while`, `do…while` : laquelle choisir ;
 7. [[cpp-logs|Lire et comprendre les erreurs]] — décoder les messages du compilateur pour se dépanner seul.
 
-Une fois ces briques acquises, l'enjeu devient *comment structurer* le code : voir [[arduino-programmation-non-bloquante|programmation non bloquante]], [[machine-a-etats|machines à états]] et la structuration d'ensemble du [[firmware|firmware]].
+Une fois ces briques acquises, l'enjeu devient *comment structurer* le code : voir [[arduino-programmation-non-bloquante|programmation non bloquante]], [[machine-a-etats|machines à états]] et la structuration d'ensemble du [[firmware|firmware]]. Et pour le parcours **MicroPython**, le même apprentissage du langage existe en jumeau : [[micropython-langage]].
 
 ## Voir aussi
 
 - [[arduino|Arduino]] — hub du module
+- [[micropython-langage|MicroPython — le langage]] — le parcours jumeau côté MicroPython
 - [[arduino-prise-en-main|Prise en main]] — compiler et téléverser, le prérequis pratique pour essayer les exemples
 - [[fonction-informatique|Fonction]] — la notion de fonction en programmation
 - [[arduino-memoire|Gestion mémoire]] — types, `String`, pointeurs et allocation, sous l'angle ressource (transverse)

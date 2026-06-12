@@ -120,7 +120,7 @@ Lecture : `led` est utilisé mais jamais déclaré. Soit on a oublié `const int
 ## Exercices
 
 > [!question] Exercice 1 — Où est la faute ?
-> Le compilateur affiche `sketch.ino:4:3: error: expected ';' before 'digitalWrite'`. Voici le code. Quelle ligne corriger, et comment ?
+> Le compilateur affiche `sketch.ino:3:3: error: expected ';' before 'delay'`. Voici le code. Quelle ligne corriger, et comment ?
 > ```cpp
 > void loop() {
 >   int etat = digitalRead(2)
@@ -130,7 +130,7 @@ Lecture : `led` est utilisé mais jamais déclaré. Soit on a oublié `const int
 > ```
 
 > [!success]- Corrigé de l'exercice 1
-> Le message pointe la ligne 4, mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant. Correction : `int etat = digitalRead(2);`. *(Le message indiquait `delay` ou `digitalWrite` selon la mise en page exacte — l'idée reste : remonter d'une ligne.)*
+> Le message pointe la ligne 3 (`delay`), mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant — d'où le signalement une ligne plus bas. Correction : `int etat = digitalRead(2);`.
 
 > [!question] Exercice 2 — Le nom inconnu
 > Message : `error: 'tempo' was not declared in this scope`. Donnez **trois** causes possibles et la correction de chacune.

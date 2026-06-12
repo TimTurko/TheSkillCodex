@@ -91,6 +91,19 @@ switch (mode) {
 
 Chaque `case` se termine par `break`, qui **sort** du `switch`. Sans lui, l'exécution « tombe » dans le `case` suivant (voir Pièges). Le `default` (optionnel) attrape les valeurs non prévues. Le `switch` est omniprésent dans les [[machine-a-etats|machines à états]], où l'on aiguille selon l'état courant.
 
+## L'opérateur ternaire
+
+Pour les tout petits choix — affecter une valeur ou une autre selon une condition — le C++ offre une forme condensée du `if`/`else` : l'**opérateur ternaire** `condition ? valeur_si_vrai : valeur_si_faux`.
+
+```cpp
+digitalWrite(LED, mesure > SEUIL ? HIGH : LOW);   // équivaut au if/else ci-dessous
+
+if (mesure > SEUIL) { digitalWrite(LED, HIGH); }
+else                { digitalWrite(LED, LOW);  }
+```
+
+Vous l'avez déjà croisé dans le sketch de [[cpp-structure|la structure d'un programme]]. À réserver aux cas **simples et lisibles** (une affectation, un argument) : dès qu'il y a plusieurs actions ou qu'on serait tenté d'en imbriquer deux, revenir au `if`/`else` classique.
+
 ## Code à lire
 
 Ce sketch classe une mesure en trois zones avec une cascade `if`, et illustre le `switch` dans une fonction d'affichage de mode.

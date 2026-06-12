@@ -26,7 +26,7 @@ Choisir une technologie, c'est arbitrer entre quelques paramètres — sachant q
 
 - la **portée** utile (quelques mètres à plusieurs kilomètres) ;
 - le **débit** atteignable ;
-- la **consommation**, donc l'autonomie sur batterie ;
+- la **consommation**, donc l'autonomie sur batterie — sachant que l'autonomie réelle se joue autant dans le [[deep-sleep|deep sleep]] entre deux transmissions que dans la radio choisie ;
 - la **topologie** : étoile (autour d'un point central) ou maillage (chaque nœud relaie) ;
 - l'**infrastructure** requise (point d'accès, passerelle) et la bande de fréquence.
 
@@ -44,6 +44,8 @@ Les cinq technologies courantes se rangent selon ces paramètres :
 | [[xbee\|XBee]] | moyenne à longue | bas | basse | point-à-point / maillage | liaison série sans-fil, télémétrie |
 | [[lora\|LoRa]] | très longue (km) | très bas | très basse | étoile longue portée | capteurs distants, agriculture, ville |
 
+Trois précisions de paysage. **XBee n'est pas un protocole** mais une gamme de **modules** (Digi) prêts à l'emploi, qui embarquent du Zigbee ou des variantes propriétaires — le détail vit dans la fiche fille. **Quatre des cinq technologies vivent dans la même bande 2,4 GHz** mondiale : elles peuvent interférer entre elles (et avec un four à micro-ondes). Le **LoRa émet en 868 MHz** en Europe : une fréquence plus basse porte plus loin — c'est une partie du secret de sa portée.
+
 Trois réflexes pour trancher. Pour relier l'objet à **internet ou à un smartphone**, le Wi-Fi (débit, accès réseau) ou le BLE (basse conso, proximité du téléphone). Pour un **réseau de capteurs** nombreux et économes, le Zigbee ou les modules XBee, dont le maillage étend la portée. Pour quelques mesures envoyées **de très loin** et rarement, le LoRa, qui échange le débit contre la distance et l'autonomie.
 
 La mise en œuvre concrète (pile protocolaire, antenne, code) dépend du module et du contrôleur retenus : certaines familles intègrent la radio nativement, l'[[esp32|ESP32]] embarquant à la fois le Wi-Fi et le BLE.
@@ -55,4 +57,5 @@ La mise en œuvre concrète (pile protocolaire, antenne, code) dépend du module
 - [[zigbee|Zigbee]] — maillage basse consommation pour réseaux de capteurs
 - [[xbee|XBee]] — modules radio prêts à l'emploi, liaison série sans-fil
 - [[lora|LoRa]] — très longue portée, très bas débit
+- [[deep-sleep|Deep sleep]] — l'autre moitié de l'autonomie : dormir entre deux transmissions
 - [[microcontroleur|Microcontrôleur]] — certaines familles intègrent la radio (ESP32 : Wi-Fi + BLE)

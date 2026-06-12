@@ -15,7 +15,7 @@ Le **Zigbee** est une [[techno-sans-fil|technologie sans-fil]] **basse consommat
 
 ## Comment ça marche ?
 
-On le retrouve surtout en **domotique** et dans les réseaux d'objets nombreux. Le maillage rend le réseau **robuste** — si un nœud tombe, les messages le contournent — au prix d'une organisation plus complexe qu'une simple étoile. Le débit, volontairement bas, suffit à des capteurs et des commandes, et sert la basse consommation.
+On le retrouve surtout en **domotique** et dans les réseaux d'objets nombreux. Le réseau ne s'auto-organise pas par magie : il lui faut un **coordinateur** (box domotique, dongle USB) qui le fonde et l'administre. Le maillage rend ensuite le réseau **robuste** — si un nœud tombe, les messages le contournent — au prix d'une organisation plus complexe qu'une simple étoile. Le débit, volontairement bas, suffit à des capteurs et des commandes, et sert la basse consommation.
 
 ## Voir aussi
 

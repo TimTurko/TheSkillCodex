@@ -115,15 +115,15 @@ Verdict : OK / a corriger
 - [x] `firmware` — 🖼✅ *(validée 12/06 : 3 liens — réciproque systeme-d-exploitation, esp32-freertos au niveau 5, bullet MicroPython dans « selon la famille » ; SVG escalier pré-audité propre ; C68 conforme)*
 - [x] `debugger-embarque` — 🖼✅ *(validée 12/06 : lien trompeur « verrou temporel »→timer corrigé [comparaison millis() + arduino-temporisation], porte micropython-debug [REPL], **SVG deux chaînes créé** [série directe vs sonde SWD/JTAG insérée] ; C67/C68 : branchement instrumenté)*
 - [x] `bus-de-communication` — 🖼✅ *(validée 12/06 : marker TX→RX du SVG passé en classe [sombre], recroisement analyseur-logique [prose + Voir aussi], ouverture bus de terrain RS-485/CAN avec lien rouge volontaire [[bus-de-terrain]] [item TODO posé] ; C68 conforme — SVG topologies)*
-- [ ] `uart`
-- [ ] `i2c`
-- [ ] `spi`
-- [ ] `techno-sans-fil` — 🖼
-- [ ] `wifi`
-- [ ] `ble`
-- [ ] `zigbee`
-- [ ] `xbee`
-- [ ] `lora`
+- [x] `uart` — 🖼✅ *(validée 12/06 : gonflée sur demande Tim — 2 SVG créés [branchement TX/RX croisés + GND, chronogramme de trame], § Sur le fil, piège TX-sur-TX, max explicite « deux équipements, pas plus », portes arduino-uart/micropython-uart ; pas de terminaison à ces distances)*
+- [x] `i2c` — 🖼✅ *(validée 12/06 : gonflée — 2 SVG créés [branchement maître + 2 esclaves avec pull-ups ≈ 4,7 kΩ, chronogramme START/adresse/ACK/STOP], § Sur le fil, lien réciproque [[gpio|drain ouvert]], max = capacité du bus [~dizaine] vs centaine d'adresses théoriques, portes arduino-i2c/micropython-i2c)*
+- [x] `spi` — 🖼✅ *(validée 12/06 : gonflée — 2 SVG créés [branchement faisceau partagé + CS dédiés, chronogramme CS/SCK/MOSI-MISO full-duplex], § Sur le fil, piège mode SPI [datasheet → bibliothèque], max = broches CS disponibles, portes arduino-spi/micropython-spi)*
+- [x] `techno-sans-fil` — 🖼✅ *(validée 12/06 : marker des axes passé en classe .aro [4ᵉ récidive markers], recroisement deep-sleep [bullet conso + Voir aussi], § Trois précisions de paysage [XBee = gamme de modules, bande 2,4 GHz partagée, LoRa 868 MHz → portée] ; C68 conforme — SVG carte portée×débit)*
+- [x] `wifi` — ✅ *(validée 12/06 : piège pics de courant à l'émission [centaines de mA → alimentation-electronique], porte esp32-wifi ; C68 : pas de SVG, couvert par la carte du hub)*
+- [x] `ble` — ✅ *(validée 12/06 : distinction Bluetooth classique/BLE [pas de son] au popover, porte esp32-ble ; C68 : couvert par le hub)*
+- [x] `zigbee` — ✅ *(validée 12/06 : coordinateur [box/dongle] ajouté ; C68 : couvert par le hub)*
+- [x] `xbee` — ✅ *(validée 12/06 : RAS — marque/module assumé, pilotage UART ; C68 : couvert par le hub)*
+- [x] `lora` — ✅ *(validée 12/06 : distinction LoRa/LoRaWAN [modulation point-à-point vs protocole réseau TTN], lien deep-sleep ; C68 : couvert par le hub)*
 - [ ] `cpp` (hub)
 - [ ] `cpp-structure`
 - [ ] `cpp-execution` — 🖼

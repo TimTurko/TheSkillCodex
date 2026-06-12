@@ -41,7 +41,7 @@ On l'**appelle** ensuite par son nom, en lui passant ses arguments :
 float m = moyenne(10, 20);      // m vaut 15.0
 ```
 
-Les variables déclarées **dans** une fonction n'existent que le temps de son exécution (leur *portée* est locale) : ce point, central en embarqué, est détaillé dans [[cpp|le langage C++]].
+Les variables déclarées **dans** une fonction n'existent que le temps de son exécution (leur *portée* est locale) : ce point, central en embarqué, est détaillé dans [[cpp-portee|variables locales et globales]].
 
 ## Pièges
 
