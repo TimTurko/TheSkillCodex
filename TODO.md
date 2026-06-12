@@ -18,6 +18,7 @@
 
 ### 2. Rédaction de fiches
 
+- [ ] **Module XIAO (Seeed Studio) — cours complet** (demande Tim 12/06 : carte retenue pour un projet de l'an prochain à l'ICAM, base ESP32-C3/S3). Déjà fait : ligne ajoutée au panorama de `microcontroleur` + pastille sur le SVG de positionnement, lien rouge `[[xiao]]` posé (TODO approche A). À cadrer en session dédiée : hub famille C18 dans `embarque/mcu/xiao/` ; la XIAO étant un **format** sur base ESP32, candidat naturel au régime **lean C56** appuyé sur le module `esp32` + couche [T] (spécificités propres : brochage réduit ~11 broches, antenne, formats C3/S3/Sense caméra-micro, pad batterie) — vs parcours autonome complet C47 ; arbitrage Tim au cadrage.
 - [ ] **Enrichir `lire-une-datasheet` partie 2** (« Lecture de la datasheet du L298N », restructurée 11/06) — souhait Tim 11/06 : approfondir la lecture commentée plus tard (autres extraits annotés, exercices, etc. — périmètre à cadrer en session dédiée).
 - [ ] **Session de validation cohérence d'ensemble** : relecture bout en bout, ajustements de périmètre entre phases. *(Largement portée par la relecture humaine en cours via `_drafts/relecture-ordre.md`.)*
 

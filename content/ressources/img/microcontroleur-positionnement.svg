@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" role="img" aria-labelledby="title desc">
+  <title id="title">Familles de microcontrôleurs — carte de positionnement</title>
+  <desc id="desc">Carte de positionnement des familles de microcontrôleurs selon deux axes : la puissance de calcul (horizontal) et la connectivité sans fil intégrée (vertical, trois bandes : aucune, Wi-Fi, Wi-Fi et Bluetooth). PIC et Arduino en bas à gauche, STM32 et Teensy en bas à droite (puissants, sans radio), ESP8266 en bande Wi-Fi, ESP32 et XIAO en bande Wi-Fi + Bluetooth. Le Raspberry Pi figure à part, en haut à droite, comme ordinateur sous Linux hors catégorie.</desc>
+  <defs>
+    <style>
+      .pt-title { font: 700 15px sans-serif; fill: #2C2C2A; letter-spacing: 0.3px; }
+      .pt-axis { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .pt-axis-label { font: 600 12px sans-serif; fill: #888780; }
+      .pt-band { stroke: #BBBBB4; stroke-width: 1; stroke-dasharray: 5 5; fill: none; }
+      .pt-band-label { font: italic 600 11px sans-serif; fill: #888780; }
+      .pt-mcu { fill: #BA7517; stroke: #BA7517; stroke-width: 1.5; }
+      .pt-mcu-text { font: 700 13px sans-serif; fill: #FFFFFF; }
+      .pt-mcu-sub { font: 400 10px sans-serif; fill: #FFFFFF; }
+      .pt-mini { fill: #DDDBD3; stroke: #BA7517; stroke-width: 1.6; }
+      .pt-mini-text { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .pt-mini-sub { font: 400 10px sans-serif; fill: #2C2C2A; }
+      .pt-link { stroke: #BA7517; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; }
+      .pt-sbc { fill: none; stroke: #888780; stroke-width: 1.5; stroke-dasharray: 6 4; }
+      .pt-sbc-text { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .pt-sbc-sub { font: italic 400 10px sans-serif; fill: #888780; }
+      .pt-arrow { fill: #888780; }
+      .pt-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .pt-title { fill: #F1EFE8; }
+        .pt-axis { stroke: #BBBBBB; }
+        .pt-axis-label { fill: #BBBBBB; }
+        .pt-band { stroke: #5A5A57; }
+        .pt-band-label { fill: #BBBBBB; }
+        .pt-mcu { fill: #BA7517; stroke: #EF9F27; }
+        .pt-mini { fill: #4A4A48; stroke: #EF9F27; }
+        .pt-mini-text { fill: #F1EFE8; }
+        .pt-mini-sub { fill: #F1EFE8; }
+        .pt-link { stroke: #EF9F27; }
+        .pt-sbc { stroke: #BBBBBB; }
+        .pt-sbc-text { fill: #F1EFE8; }
+        .pt-sbc-sub { fill: #BBBBBB; }
+        .pt-arrow { fill: #BBBBBB; }
+        .pt-foot { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="pt-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="pt-arrow"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="28" text-anchor="middle" class="pt-title">Familles de microcontrôleurs — carte de positionnement</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="410" x2="770" y2="410" class="pt-axis" marker-end="url(#pt-ar)"/>
+  <text x="435" y="438" text-anchor="middle" class="pt-axis-label">Puissance de calcul</text>
+  <line x1="100" y1="410" x2="100" y2="58" class="pt-axis" marker-end="url(#pt-ar)"/>
+  <text x="40" y="234" text-anchor="middle" transform="rotate(-90 40 234)" class="pt-axis-label">Connectivité sans fil intégrée</text>
+
+  <!-- Bandes de connectivité -->
+  <line x1="100" y1="300" x2="760" y2="300" class="pt-band"/>
+  <line x1="100" y1="200" x2="760" y2="200" class="pt-band"/>
+  <text x="112" y="394" text-anchor="start" class="pt-band-label">aucune radio</text>
+  <text x="112" y="290" text-anchor="start" class="pt-band-label">Wi-Fi</text>
+  <text x="112" y="190" text-anchor="start" class="pt-band-label">Wi-Fi + Bluetooth</text>
+
+  <!-- Bande « aucune radio » -->
+  <rect x="140" y="330" width="90" height="44" rx="22" class="pt-mcu"/>
+  <text x="185" y="349" text-anchor="middle" class="pt-mcu-text">PIC</text>
+  <text x="185" y="364" text-anchor="middle" class="pt-mcu-sub">industriel, série</text>
+
+  <rect x="255" y="318" width="110" height="44" rx="22" class="pt-mcu"/>
+  <text x="310" y="337" text-anchor="middle" class="pt-mcu-text">Arduino</text>
+  <text x="310" y="352" text-anchor="middle" class="pt-mcu-sub">apprentissage</text>
+
+  <rect x="470" y="318" width="105" height="44" rx="22" class="pt-mcu"/>
+  <text x="522" y="337" text-anchor="middle" class="pt-mcu-text">STM32</text>
+  <text x="522" y="352" text-anchor="middle" class="pt-mcu-sub">pro / industriel</text>
+
+  <rect x="615" y="330" width="105" height="44" rx="22" class="pt-mcu"/>
+  <text x="667" y="349" text-anchor="middle" class="pt-mcu-text">Teensy</text>
+  <text x="667" y="364" text-anchor="middle" class="pt-mcu-sub">audio, DSP</text>
+
+  <!-- Bande Wi-Fi -->
+  <rect x="290" y="228" width="115" height="44" rx="22" class="pt-mcu"/>
+  <text x="347" y="247" text-anchor="middle" class="pt-mcu-text">ESP8266</text>
+  <text x="347" y="262" text-anchor="middle" class="pt-mcu-sub">IoT économique</text>
+
+  <!-- Bande Wi-Fi + Bluetooth -->
+  <rect x="430" y="124" width="110" height="44" rx="22" class="pt-mcu"/>
+  <text x="485" y="143" text-anchor="middle" class="pt-mcu-text">ESP32</text>
+  <text x="485" y="158" text-anchor="middle" class="pt-mcu-sub">objets connectés</text>
+
+  <rect x="575" y="146" width="118" height="40" rx="20" class="pt-mini"/>
+  <text x="634" y="163" text-anchor="middle" class="pt-mini-text">XIAO (Seeed)</text>
+  <text x="634" y="177" text-anchor="middle" class="pt-mini-sub">format mini, base ESP32</text>
+  <line x1="540" y1="146" x2="575" y2="160" class="pt-link"/>
+
+  <!-- Raspberry Pi — hors catégorie -->
+  <rect x="600" y="64" width="190" height="52" rx="8" class="pt-sbc"/>
+  <text x="695" y="86" text-anchor="middle" class="pt-sbc-text">Raspberry Pi</text>
+  <text x="695" y="103" text-anchor="middle" class="pt-sbc-sub">ordinateur sous Linux — hors catégorie</text>
+
+  <text x="435" y="466" text-anchor="middle" class="pt-foot">Positions indicatives : chaque famille couvre une gamme de cartes — pour chiffrer, la datasheet fait foi.</text>
+</svg>
