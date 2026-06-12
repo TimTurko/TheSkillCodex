@@ -75,7 +75,7 @@ AMDEC fonctionnelle partielle du bras 3 axes, centrée sur les fonctions critiqu
 | Arrêt d'urgence | Ne coupe pas la puissance | Aucun moyen d'arrêter un mouvement dangereux | Coupure pilotée par le [[firmware]] (peut planter) | 4 | 2 | 3 | 24 | Câbler l'AU en coupure directe de l'alim, hors logiciel |
 | Articulation (butée) | Dépassement de l'angle max | Pincement opérateur, casse mécanique | Butée logicielle seule, non doublée | 4 | 2 | 2 | 16 | Ajouter une butée mécanique (fin de course) |
 | Stepper axe 1 | Perte de pas sous charge | Position erronée, précision hors F0 | Couple insuffisant en accélération | 2 | 3 | 3 | 18 | Marge de couple + détection d'écart par encodeur |
-| Alim 12 V | Surchauffe en service continu | Coupure intempestive, arrêt du bras | Marge courant trop serrée (+11 %) | 2 | 2 | 2 | 8 | Surveillance thermique, sinon acceptable en l'état |
+| Alim 24 V | Surchauffe en service continu | Coupure intempestive, arrêt du bras | Marge courant trop serrée (+11 %) | 2 | 2 | 2 | 8 | Surveillance thermique, sinon acceptable en l'état |
 
 **Lecture.** Les deux modes à **G = 4** (arrêt d'urgence, butée) appellent une action quelle que soit leur criticité — ce sont les parades de sécurité qui s'inscriront dans l'architecture en concept (arrêt d'urgence câblé hors firmware, butée mécanique doublant la butée logicielle), cohérentes avec la trame sécurité-qualité. La perte de pas (C = 18) rejoint l'incertitude *couple en accélération* déjà identifiée en concept — l'AMDEC et le pré-dimensionnement convergent. La surchauffe alim (C = 8) reste sous le seuil d'action prioritaire : surveillée, mais non bloquante.
 

@@ -1,12 +1,19 @@
 ---
 title: Revue de code
 type: notion
+phases:
+  - specification
+  - concept
+  - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - meo
   - eee
   - notion
 prerequis: []
-aa: []
+aa:
+  - RA-MEO-C08-6/MEO/3
 draft: false
 ---
 
@@ -14,7 +21,7 @@ La **revue de code** consiste à faire relire un morceau de code — par un équ
 
 ## Dans le projet
 
-La revue ne cherche pas la perfection : elle cible les **défauts manifestes** et les **zones critiques** du [[firmware|firmware]] — gestion des interruptions, [[machine-a-etats|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres.
+La revue ne cherche pas la perfection : elle cible les **défauts manifestes** et les **zones critiques** du [[firmware|firmware]] — gestion des [[interruption|interruptions]], [[machine-a-etats|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres.
 
 ## Voir aussi
 

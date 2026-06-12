@@ -1,6 +1,8 @@
 ---
 title: Cable management
 type: notion
+phases:
+  - integration-et-tests
 tags:
   - eee
   - meo

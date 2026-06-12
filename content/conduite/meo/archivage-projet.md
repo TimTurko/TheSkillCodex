@@ -1,11 +1,18 @@
 ---
 title: Archivage projet
 type: notion
+phases:
+  - specification
+  - concept
+  - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - meo
   - notion
 prerequis: []
-aa: []
+aa:
+  - RA-MEO-C10-3/MEO/6
 draft: false
 ---
 

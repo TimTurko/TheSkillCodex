@@ -1,6 +1,12 @@
 ---
 title: Unités SI
 type: notion
+phases:
+  - specification
+  - concept
+  - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - meo
   - notion
@@ -18,5 +24,6 @@ L'enjeu n'est pas théorique mais de **rigueur d'ingénieur** : toujours écrire
 ## Voir aussi
 
 - [[lire-une-datasheet|Lire une datasheet]] — où les grandeurs et leurs unités se lisent
-- [[specification-technique|Spécification technique]] — exprimer des exigences chiffrées et unitées
+- [[specification-technique|Spécification technique]] — exprimer des exigences chiffrées avec leurs unités
+- [[caracteriser-une-exigence|Caractériser une exigence]] — la discipline du chiffre + unité dans les exigences
 - [[dossier-technique|Dossier technique]] — tracer des valeurs cohérentes

@@ -28,7 +28,7 @@ Elle remplit trois rôles indissociables :
 - **Alimenter les livrables aval** — l'[[acv-simplifiee|ACV simplifiée]] se calcule sur la BOM réelle (empreinte environnementale par poste), et le [[retroplanning|rétroplanning]] d'approvisionnement se cale sur les délais de livraison (*lead times*) annoncés ligne à ligne.
 
 > [!warning] Attention
-> **BOM ≠ [[etat-de-l-art-technique|état de l'art technique]].** Les deux sont des tableaux chiffrés, mais ils regardent dans des directions opposées. L'état de l'art compare des solutions **externes existantes**, en amont (phase de [[specification-technique|spécification technique]]), pour *calibrer* les niveaux du [[cahier-des-charges-fonctionnel|CdCF]]. La BOM liste les composants **internes au projet**, en aval (dossier technique), pour *engager* le budget et acheter. Le seul pont entre les deux : le critère « ouverture / BOM disponible » de l'état de l'art désigne parfois une brique réutilisable, qui se retrouvera plus tard dans votre propre BOM.
+> **BOM ≠ [[etat-de-l-art-technique|état de l'art technique]].** Les deux sont des tableaux chiffrés, mais ils regardent dans des directions opposées. L'état de l'art compare des solutions **externes existantes**, en amont (phase de [[specification-technique|spécification technique]]), pour *calibrer* les niveaux du [[cahier-des-charges-fonctionnel|CdCF]]. La BOM liste les composants **internes au projet**, en aval (dossier technique), pour *engager* le budget et acheter. Le seul pont entre les deux : le critère « ouverture / BOM disponible » de l'état de l'art désigne parfois une brique réutilisable, qui se retrouvera plus tard dans la BOM du projet.
 
 ## Procédure pas à pas
 
@@ -41,7 +41,7 @@ Agréger les nomenclatures des trois disciplines en une seule liste. La mécaniq
 Le piège récurrent à ce stade est l'oubli silencieux : ce ne sont pas les gros composants qu'on oublie, mais la visserie, les consommables (filament, soudure, gaines) et la **sous-traitance** ([[usinage|usinage]], impression 3D externalisée). Une ligne oubliée ici est une commande manquante qui bloquera l'intégration.
 
 > [!tip] Astuce
-> **Démarrez par les composants confirmés.** Les choix passés sans réserve dans les matrices de décision du concept chiffrent vite et stabilisent le gros de la BOM. Gardez les composants recalés en sortie de [[preuve-de-concept|preuve de concept]] pour la fin : ils peuvent demander un aller-retour avec le fournisseur ou une sous-traitance à chiffrer à part.
+> **Démarrer par les composants confirmés.** Les choix passés sans réserve dans les matrices de décision du concept chiffrent vite et stabilisent le gros de la BOM. Garder les composants recalés en sortie de [[preuve-de-concept|preuve de concept]] pour la fin : ils peuvent demander un aller-retour avec le fournisseur ou une sous-traitance à chiffrer à part.
 
 ### 2. Sourcer sur le catalogue fournisseurs
 
@@ -72,13 +72,13 @@ Reprenons le projet fil rouge — un bras robotique pédagogique 3 axes. La BOM 
 | Élec | Stepper NEMA 17 1,8°/pas | ELEC-MOT-N17 | 3 | 14,80 € | 44,40 € | 5 j |
 | Élec | Driver A4988 | ELEC-DRV-A49 | 3 | 4,20 € | 12,60 € | 5 j |
 | Élec | [[microcontroleur\|MCU]] Arduino-compatible | ELEC-MCU-ARD | 1 | 22,00 € | 22,00 € | 5 j |
-| Élec | Alim 12 V / 5 A régulée | ELEC-ALI-125 | 1 | 18,50 € | 18,50 € | 5 j |
+| Élec | Alim 24 V / 3 A régulée | ELEC-ALI-243 | 1 | 18,50 € | 18,50 € | 5 j |
 | Matière | Barre alu 6061 Ø20 mm × 1 m | MAT-ALU-6061-20 | 1 | 12,30 € | 12,30 € | 7 j |
 | Matière | Visserie M3 + M5 (lot) | MAT-VIS-LOT | 1 | 8,40 € | 8,40 € | 5 j |
 | Fablab | Usinage 3 articulations (sous-traité) | SST-USI-3PCS | 1 | 95,00 € | 95,00 € | 15 j |
 | **Total HT** | | | | | **213,20 €** | **15 j (max)** |
 
-**Ce que la BOM décide.** Total **213,20 € HT**, sous l'enveloppe initiale de 250 € → passage en validation sans alerte budgétaire. Le **lead time critique** est l'usinage sous-traité (15 jours) : il fixe la date butoir d'émission de commande à trois semaines avant le début de l'[[integration-et-tests|intégration et tests]]. Le regroupement par fournisseur (3 lignes élec, 2 matière, 1 fablab) préfigure directement les **trois bons de commande** qui seront émis à l'étape 5 — un par partenaire.
+**Ce que la BOM décide.** Total **213,20 € HT**, sous l'enveloppe initiale de 300 € → passage en validation sans alerte budgétaire. Le **lead time critique** est l'usinage sous-traité (15 jours) : il fixe la date butoir d'émission de commande à trois semaines avant le début de l'[[integration-et-tests|intégration et tests]]. Le regroupement par fournisseur (3 lignes élec, 2 matière, 1 fablab) préfigure directement les **trois bons de commande** qui seront émis à l'étape 5 — un par partenaire.
 
 La BOM nourrit aussi l'[[acv-simplifiee|ACV simplifiée]] : la ligne *barre alu + usinage* pèse à elle seule près de 28 % de l'empreinte, contre 3 % pour l'ancienne ligne PLA — coût environnemental réel du retour amont, à reporter dans la conclusion d'[[ecoconception|écoconception]].
 

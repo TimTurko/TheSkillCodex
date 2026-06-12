@@ -1,6 +1,12 @@
 ---
 title: Relation client
 type: notion
+phases:
+  - specification
+  - concept
+  - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - meo
   - notion
