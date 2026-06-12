@@ -114,7 +114,7 @@ Verdict : OK / a corriger
 - [x] `manipulation-de-bits` — 🖼✅ *(validée 12/06 : fond irréprochable [RAS], phrase de transposition MicroPython ajoutée au rappel binaire ; SVG masquage pré-audité propre [dark complet, bande bit 2 alignée] ; C68 conforme)*
 - [x] `firmware` — 🖼✅ *(validée 12/06 : 3 liens — réciproque systeme-d-exploitation, esp32-freertos au niveau 5, bullet MicroPython dans « selon la famille » ; SVG escalier pré-audité propre ; C68 conforme)*
 - [x] `debugger-embarque` — 🖼✅ *(validée 12/06 : lien trompeur « verrou temporel »→timer corrigé [comparaison millis() + arduino-temporisation], porte micropython-debug [REPL], **SVG deux chaînes créé** [série directe vs sonde SWD/JTAG insérée] ; C67/C68 : branchement instrumenté)*
-- [ ] `bus-de-communication` — 🖼
+- [x] `bus-de-communication` — 🖼✅ *(validée 12/06 : marker TX→RX du SVG passé en classe [sombre], recroisement analyseur-logique [prose + Voir aussi], ouverture bus de terrain RS-485/CAN avec lien rouge volontaire [[bus-de-terrain]] [item TODO posé] ; C68 conforme — SVG topologies)*
 - [ ] `uart`
 - [ ] `i2c`
 - [ ] `spi`

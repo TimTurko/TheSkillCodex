@@ -46,7 +46,9 @@ Les trois protocoles courants se rangent ainsi :
 
 Trois réflexes pour trancher. Pour une **liaison simple** vers un seul périphérique, une console de mise au point ou un module série, l'UART suffit. Pour brancher **plusieurs capteurs** sans multiplier les fils, l'I2C les regroupe sur deux lignes grâce à l'adressage. Pour un périphérique **rapide** (écran graphique, carte SD, convertisseur), le SPI offre le débit, au prix d'un fil de sélection par composant ajouté.
 
-Sur n'importe lequel de ces bus, la compatibilité des [[niveaux-de-tension|niveaux de tension]] (3,3 V / 5 V) entre les composants reste à vérifier avant de câbler.
+Sur n'importe lequel de ces bus, la compatibilité des [[niveaux-de-tension|niveaux de tension]] (3,3 V / 5 V) entre les composants reste à vérifier avant de câbler. Et pour *voir* ce qui circule réellement sur les fils — et décoder les échanges trame par trame — l'instrument dédié est l'[[analyseur-logique|analyseur logique]].
+
+Au-delà de ces trois protocoles, les **bus de terrain** — le RS-485 (liaison série robuste, multi-nœuds, des dizaines de mètres) et surtout le **CAN** (le bus de l'automobile et de l'industrie, omniprésent en robotique) — prolongent les mêmes principes sur des distances et des exigences de fiabilité d'un autre ordre → [[bus-de-terrain]].
 
 ## Voir aussi
 
@@ -55,3 +57,5 @@ Sur n'importe lequel de ces bus, la compatibilité des [[niveaux-de-tension|nive
 - [[spi|SPI]] — bus synchrone rapide, 4 fils, sélection par CS
 - [[microcontroleur|Microcontrôleur]] — le bus relie le contrôleur à ses périphériques
 - [[niveaux-de-tension|Niveaux de tension]] — la compatibilité des niveaux se pose sur chaque bus
+- [[analyseur-logique|Analyseur logique]] — voir et décoder ce qui circule sur un bus
+- [[bus-de-terrain|Bus de terrain]] — RS-485, CAN : les bus robustes de l'industrie et de la robotique

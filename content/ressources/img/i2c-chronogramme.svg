@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" role="img" aria-labelledby="tic dic">
+  <title id="tic">L'échange I2C : START, adresse, ACK, STOP</title>
+  <desc id="dic">Chronogramme simplifié d'un échange I2C sur les deux lignes. SCL, l'horloge, est cadencée par le maître en impulsions régulières. SDA, la ligne de données : le maître ouvre l'échange par une condition START (SDA descend pendant que SCL est haut), envoie l'adresse sur 7 bits suivie du bit lecture/écriture, l'esclave visé acquitte par un bit ACK, puis les octets de données suivent le même motif (non représentés) et le maître referme par une condition STOP (SDA remonte pendant que SCL est haut).</desc>
+  <defs>
+    <style>
+      .h-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .h-sig { stroke: #888780; stroke-width: 2; fill: none; stroke-linejoin: miter; }
+      .h-bus { stroke: #BA7517; stroke-width: 2; fill: none; stroke-linejoin: miter; }
+      .h-rail { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .h-lab { font: 600 10.5px sans-serif; fill: #2C2C2A; }
+      .h-amb { font: 700 11px sans-serif; fill: #BA7517; }
+      .h-sub { font: 400 10px sans-serif; fill: #888780; }
+      .h-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .h-title { fill: #F1EFE8; }
+        .h-sig { stroke: #BBBBBB; }
+        .h-bus { stroke: #EF9F27; }
+        .h-rail { fill: #F1EFE8; }
+        .h-lab { fill: #F1EFE8; }
+        .h-amb { fill: #EF9F27; }
+        .h-sub { fill: #BBBBBB; }
+        .h-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="340" y="24" text-anchor="middle" class="h-title">Sur le fil : le maître ouvre, adresse, l'esclave acquitte</text>
+
+  <!-- SCL : horloge tenue par le maître -->
+  <text x="60" y="104" text-anchor="end" class="h-rail">SCL</text>
+  <path d="M70,80 L150,80 L150,120 L170,120 L170,80 L190,80 L190,120 L210,120 L210,80 L230,80 L230,120 L250,120 L250,80 L270,80 L270,120 L290,120 L290,80 L310,80 L310,120 L330,120 L330,80 L350,80 L350,120 L370,120 L370,80 L390,80 L390,120 L410,120 L410,80 L430,80 L430,120 L450,120 L450,80 L470,80 L470,120 L490,120 L490,80 L510,80 L640,80" class="h-sig"/>
+
+  <!-- SDA -->
+  <text x="60" y="186" text-anchor="end" class="h-rail">SDA</text>
+  <path d="M70,160 L110,160 L110,200 L150,200 L158,160 L422,160 L438,200 L462,200 L478,160 L502,160 L510,200 L522,200 L522,160 L640,160" class="h-bus"/>
+  <path d="M150,200 L422,200 L438,160 L462,160 L478,200 L502,200 L510,200" class="h-bus"/>
+
+  <!-- étiquettes -->
+  <text x="110" y="148" text-anchor="middle" class="h-amb">START</text>
+  <text x="290" y="184" text-anchor="middle" class="h-lab">adresse — 7 bits</text>
+  <text x="450" y="222" text-anchor="middle" class="h-lab">R/W</text>
+  <text x="490" y="222" text-anchor="middle" class="h-lab">ACK</text>
+  <text x="522" y="148" text-anchor="middle" class="h-amb">STOP</text>
+  <text x="110" y="222" text-anchor="middle" class="h-sub">SDA ↓, SCL haut</text>
+  <text x="585" y="222" text-anchor="middle" class="h-sub">SDA ↑, SCL haut</text>
+
+  <text x="340" y="256" text-anchor="middle" class="h-foot">Après l'ACK, les octets de données suivent le même motif (8 bits + ACK) jusqu'au STOP. L'horloge SCL est toujours tenue par le maître.</text>
+</svg>

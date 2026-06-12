@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="tsb dsb">
+  <title id="tsb">Câbler un bus SPI</title>
+  <desc id="dsb">Un maître et deux esclaves. Les trois fils de données et d'horloge — MOSI, MISO et SCK — sont partagés par tous les composants (représentés en un seul faisceau). Chaque esclave reçoit en plus sa propre ligne de sélection CS depuis le maître : CS1 vers l'esclave 1, CS2 vers l'esclave 2. Toutes les masses GND sont reliées. Pas de résistance de terminaison nécessaire à ces distances très courtes.</desc>
+  <defs>
+    <style>
+      .p-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .p-box { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .p-master { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .p-lab { font: 700 11px sans-serif; fill: #2C2C2A; }
+      .p-laba { font: 700 11px sans-serif; fill: #FFFFFF; }
+      .p-bus { stroke: #BA7517; stroke-width: 2.8; fill: none; }
+      .p-wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .p-sig { font: 700 11px sans-serif; fill: #BA7517; }
+      .p-sigg { font: 600 10px sans-serif; fill: #888780; }
+      .p-sub { font: 400 10px sans-serif; fill: #888780; }
+      .p-node { fill: #BA7517; }
+      .p-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .p-title { fill: #F1EFE8; }
+        .p-box { fill: #4A4A48; stroke: #BBBBBB; }
+        .p-master { fill: #EF9F27; stroke: #EF9F27; }
+        .p-lab { fill: #F1EFE8; }
+        .p-laba { fill: #2C2C2A; }
+        .p-bus { stroke: #EF9F27; }
+        .p-wire { stroke: #BBBBBB; }
+        .p-sig { fill: #EF9F27; }
+        .p-sigg { fill: #BBBBBB; }
+        .p-sub { fill: #BBBBBB; }
+        .p-node { fill: #EF9F27; }
+        .p-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="24" text-anchor="middle" class="p-title">SPI : trois fils pour tous, une sélection CS par esclave</text>
+
+  <!-- Maître -->
+  <rect x="70" y="80" width="110" height="140" rx="8" class="p-master"/>
+  <text x="125" y="105" text-anchor="middle" class="p-laba">Maître</text>
+
+  <!-- Faisceau partagé MOSI/MISO/SCK -->
+  <line x1="180" y1="120" x2="400" y2="120" class="p-bus"/>
+  <circle cx="400" cy="120" r="3.4" class="p-node"/>
+  <line x1="400" y1="120" x2="400" y2="225" class="p-bus"/>
+  <line x1="400" y1="120" x2="450" y2="120" class="p-bus"/>
+  <line x1="400" y1="225" x2="450" y2="225" class="p-bus"/>
+  <text x="290" y="111" text-anchor="middle" class="p-sig">MOSI · MISO · SCK (partagés)</text>
+
+  <!-- Esclave 1 -->
+  <rect x="450" y="92" width="130" height="62" rx="6" class="p-box"/>
+  <text x="515" y="118" text-anchor="middle" class="p-lab">Esclave 1</text>
+  <text x="515" y="134" text-anchor="middle" class="p-sub">écran, carte SD…</text>
+
+  <!-- Esclave 2 -->
+  <rect x="450" y="196" width="130" height="62" rx="6" class="p-box"/>
+  <text x="515" y="222" text-anchor="middle" class="p-lab">Esclave 2</text>
+  <text x="515" y="238" text-anchor="middle" class="p-sub">convertisseur…</text>
+
+  <!-- CS dédiés -->
+  <line x1="180" y1="160" x2="428" y2="160" class="p-wire"/>
+  <line x1="428" y1="160" x2="428" y2="140" class="p-wire"/>
+  <line x1="428" y1="140" x2="450" y2="140" class="p-wire"/>
+  <text x="250" y="154" text-anchor="middle" class="p-sigg">CS1 — dédié</text>
+  <line x1="180" y1="186" x2="416" y2="186" class="p-wire"/>
+  <line x1="416" y1="186" x2="416" y2="244" class="p-wire"/>
+  <line x1="416" y1="244" x2="450" y2="244" class="p-wire"/>
+  <text x="250" y="180" text-anchor="middle" class="p-sigg">CS2 — dédié</text>
+
+  <!-- GND commun -->
+  <line x1="125" y1="220" x2="125" y2="290" class="p-wire"/>
+  <line x1="125" y1="290" x2="515" y2="290" class="p-wire"/>
+  <line x1="515" y1="258" x2="515" y2="290" class="p-wire"/>
+  <line x1="540" y1="154" x2="540" y2="172" class="p-wire"/>
+  <line x1="540" y1="172" x2="600" y2="172" class="p-wire"/>
+  <line x1="600" y1="172" x2="600" y2="290" class="p-wire"/>
+  <line x1="515" y1="290" x2="600" y2="290" class="p-wire"/>
+  <text x="320" y="284" text-anchor="middle" class="p-sub">GND commun</text>
+
+  <text x="320" y="312" text-anchor="middle" class="p-foot">Ajouter un esclave = ajouter un fil CS. Pas de terminaison à ces distances très courtes.</text>
+</svg>

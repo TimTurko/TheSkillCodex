@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" role="img" aria-labelledby="tub dub">
+  <title id="tub">Câbler une liaison UART</title>
+  <desc id="dub">Deux cartes reliées par trois fils : le TX de la carte A va au RX du module B, le RX de A vient du TX de B — les deux fils de données se croisent — et les masses GND des deux côtés sont reliées. Sans masse commune, la liaison ne fonctionne pas. Pas de résistance de terminaison nécessaire à ces distances.</desc>
+  <defs>
+    <style>
+      .u-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .u-box { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .u-lab { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .u-pin { font: 600 11px sans-serif; fill: #BA7517; }
+      .u-wire { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .u-gnd { stroke: #888780; stroke-width: 1.8; fill: none; stroke-dasharray: none; }
+      .u-note { font: italic 600 11px sans-serif; fill: #BA7517; }
+      .u-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      .u-ar { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .u-title { fill: #F1EFE8; }
+        .u-box { fill: #4A4A48; stroke: #BBBBBB; }
+        .u-lab { fill: #F1EFE8; }
+        .u-pin { fill: #EF9F27; }
+        .u-wire, .u-gnd { stroke: #BBBBBB; }
+        .u-note { fill: #EF9F27; }
+        .u-foot { fill: #BBBBBB; }
+        .u-ar { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="u-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="u-ar"/>
+    </marker>
+  </defs>
+
+  <text x="280" y="24" text-anchor="middle" class="u-title">UART : trois fils, dont deux qui se croisent</text>
+
+  <!-- Carte A -->
+  <rect x="50" y="60" width="140" height="140" rx="8" class="u-box"/>
+  <text x="120" y="84" text-anchor="middle" class="u-lab">Carte A</text>
+  <text x="182" y="112" text-anchor="end" class="u-pin">TX</text>
+  <text x="182" y="147" text-anchor="end" class="u-pin">RX</text>
+  <text x="182" y="182" text-anchor="end" class="u-pin">GND</text>
+
+  <!-- Module B -->
+  <rect x="370" y="60" width="140" height="140" rx="8" class="u-box"/>
+  <text x="440" y="84" text-anchor="middle" class="u-lab">Module B</text>
+  <text x="378" y="112" text-anchor="start" class="u-pin">TX</text>
+  <text x="378" y="147" text-anchor="start" class="u-pin">RX</text>
+  <text x="378" y="182" text-anchor="start" class="u-pin">GND</text>
+
+  <!-- Fils croisés -->
+  <line x1="190" y1="108" x2="365" y2="143" class="u-wire" marker-end="url(#u-ar)"/>
+  <line x1="370" y1="108" x2="195" y2="143" class="u-wire" marker-end="url(#u-ar)"/>
+  <text x="280" y="98" text-anchor="middle" class="u-note">TX → RX et RX ← TX : ça se croise</text>
+
+  <!-- Masse commune -->
+  <line x1="190" y1="178" x2="370" y2="178" class="u-gnd"/>
+  <text x="280" y="172" text-anchor="middle" class="u-note">masse commune — obligatoire</text>
+
+  <text x="280" y="240" text-anchor="middle" class="u-foot">Trois fils suffisent ; les deux côtés sont réglés au même débit (baud).</text>
+  <text x="280" y="257" text-anchor="middle" class="u-foot">Pas de résistance de terminaison nécessaire à ces distances.</text>
+</svg>

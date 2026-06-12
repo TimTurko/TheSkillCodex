@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" role="img" aria-labelledby="tsc dsc">
+  <title id="tsc">L'échange SPI : CS, horloge, full-duplex</title>
+  <desc id="dsc">Chronogramme d'un échange SPI sur quatre signaux. CS, la sélection, est abaissée en premier par le maître et reste basse pendant tout l'échange. SCK, l'horloge du maître, bat huit coups : un par bit. MOSI et MISO, représentés en bandes d'octet, changent en même temps au rythme de l'horloge : pendant que le maître émet un octet sur MOSI, l'esclave en renvoie un sur MISO — c'est le full-duplex. CS remonte à la fin de l'échange.</desc>
+  <defs>
+    <style>
+      .k-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .k-sig { stroke: #888780; stroke-width: 2; fill: none; stroke-linejoin: miter; }
+      .k-cs { stroke: #BA7517; stroke-width: 2.2; fill: none; stroke-linejoin: miter; }
+      .k-hex { stroke: #888780; stroke-width: 2; fill: none; stroke-linejoin: miter; }
+      .k-sep { stroke: #BBBBB4; stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
+      .k-rail { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .k-lab { font: 600 10.5px sans-serif; fill: #2C2C2A; }
+      .k-amb { font: 700 11px sans-serif; fill: #BA7517; }
+      .k-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .k-title { fill: #F1EFE8; }
+        .k-sig { stroke: #BBBBBB; }
+        .k-cs { stroke: #EF9F27; }
+        .k-hex { stroke: #BBBBBB; }
+        .k-sep { stroke: #5A5A57; }
+        .k-rail { fill: #F1EFE8; }
+        .k-lab { fill: #F1EFE8; }
+        .k-amb { fill: #EF9F27; }
+        .k-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="340" y="22" text-anchor="middle" class="k-title">Sur le fil : CS d'abord, huit coups d'horloge, deux octets à la fois</text>
+
+  <!-- CS -->
+  <text x="62" y="64" text-anchor="end" class="k-rail">CS</text>
+  <path d="M70,52 L112,52 L112,80 L560,80 L560,52 L640,52" class="k-cs"/>
+  <text x="112" y="44" text-anchor="middle" class="k-amb">① CS abaissé d'abord</text>
+  <text x="560" y="44" text-anchor="middle" class="k-amb">③ CS relevé</text>
+
+  <!-- SCK : 8 coups -->
+  <text x="62" y="128" text-anchor="end" class="k-rail">SCK</text>
+  <path d="M70,142 L150,142 L150,112 L172,112 L172,142 L194,142 L194,112 L216,112 L216,142 L238,142 L238,112 L260,112 L260,142 L282,142 L282,112 L304,112 L304,142 L326,142 L326,112 L348,112 L348,142 L370,142 L370,112 L392,112 L392,142 L414,142 L414,112 L436,112 L436,142 L458,142 L458,112 L480,112 L480,142 L502,142 L640,142" class="k-sig"/>
+  <text x="326" y="160" text-anchor="middle" class="k-lab">② 8 coups d'horloge = 1 octet</text>
+
+  <!-- MOSI -->
+  <text x="62" y="200" text-anchor="end" class="k-rail">MOSI</text>
+  <path d="M150,196 L158,183 L494,183 L502,196 L494,209 L158,209 Z" class="k-hex"/>
+  <line x1="70" y1="196" x2="150" y2="196" class="k-sig"/>
+  <line x1="502" y1="196" x2="640" y2="196" class="k-sig"/>
+  <text x="326" y="200" text-anchor="middle" class="k-lab">octet émis par le maître</text>
+
+  <!-- MISO -->
+  <text x="62" y="252" text-anchor="end" class="k-rail">MISO</text>
+  <path d="M150,248 L158,235 L494,235 L502,248 L494,261 L158,261 Z" class="k-hex"/>
+  <line x1="70" y1="248" x2="150" y2="248" class="k-sig"/>
+  <line x1="502" y1="248" x2="640" y2="248" class="k-sig"/>
+  <text x="326" y="252" text-anchor="middle" class="k-lab">octet renvoyé par l'esclave — en même temps</text>
+
+  <!-- séparateurs de bits sur les bandes -->
+  <line x1="194" y1="178" x2="194" y2="266" class="k-sep"/>
+  <line x1="238" y1="178" x2="238" y2="266" class="k-sep"/>
+  <line x1="282" y1="178" x2="282" y2="266" class="k-sep"/>
+  <line x1="326" y1="178" x2="326" y2="266" class="k-sep"/>
+  <line x1="370" y1="178" x2="370" y2="266" class="k-sep"/>
+  <line x1="414" y1="178" x2="414" y2="266" class="k-sep"/>
+  <line x1="458" y1="178" x2="458" y2="266" class="k-sep"/>
+
+  <text x="340" y="300" text-anchor="middle" class="k-foot">Full-duplex : chaque coup d'horloge pousse un bit dans chaque sens. Le moment exact d'échantillonnage dépend du mode SPI (polarité/phase).</text>
+</svg>

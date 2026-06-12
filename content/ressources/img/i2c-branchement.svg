@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-labelledby="tib dib">
+  <title id="tib">Câbler un bus I2C</title>
+  <desc id="dib">Un maître et deux esclaves suspendus aux deux mêmes fils SDA et SCL. Deux résistances de tirage d'environ 4,7 kilo-ohms relient chaque ligne à l'alimentation Vcc : elles tiennent le bus à l'état haut au repos, puisque les composants ne savent que tirer les lignes vers le bas. Toutes les masses GND sont reliées. Le tirage tient lieu de conditionnement de ligne — pas d'autre terminaison.</desc>
+  <defs>
+    <style>
+      .i-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .i-box { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .i-master { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .i-lab { font: 700 11px sans-serif; fill: #2C2C2A; }
+      .i-laba { font: 700 11px sans-serif; fill: #FFFFFF; }
+      .i-bus { stroke: #BA7517; stroke-width: 2.6; fill: none; }
+      .i-wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .i-res { fill: #FFFFFF; stroke: #BA7517; stroke-width: 1.6; }
+      .i-sig { font: 700 11px sans-serif; fill: #BA7517; }
+      .i-sub { font: 400 10px sans-serif; fill: #888780; }
+      .i-node { fill: #888780; }
+      .i-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .i-title { fill: #F1EFE8; }
+        .i-box { fill: #4A4A48; stroke: #BBBBBB; }
+        .i-master { fill: #EF9F27; stroke: #EF9F27; }
+        .i-lab { fill: #F1EFE8; }
+        .i-laba { fill: #2C2C2A; }
+        .i-bus { stroke: #EF9F27; }
+        .i-wire { stroke: #BBBBBB; }
+        .i-res { fill: #2C2C2A; stroke: #EF9F27; }
+        .i-sig { fill: #EF9F27; }
+        .i-sub { fill: #BBBBBB; }
+        .i-node { fill: #BBBBBB; }
+        .i-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="24" text-anchor="middle" class="i-title">I2C : tout le monde sur les deux mêmes fils, tirés vers Vcc</text>
+
+  <!-- Vcc -->
+  <line x1="470" y1="52" x2="560" y2="52" class="i-wire"/>
+  <text x="515" y="46" text-anchor="middle" class="i-sub">Vcc</text>
+
+  <!-- pull-ups -->
+  <line x1="490" y1="52" x2="490" y2="62" class="i-wire"/>
+  <rect x="483" y="62" width="14" height="30" rx="2" class="i-res"/>
+  <line x1="490" y1="92" x2="490" y2="118" class="i-wire"/>
+  <line x1="535" y1="52" x2="535" y2="62" class="i-wire"/>
+  <rect x="528" y="62" width="14" height="30" rx="2" class="i-res"/>
+  <line x1="535" y1="92" x2="535" y2="143" class="i-wire"/>
+  <text x="560" y="82" text-anchor="middle" class="i-sub">≈ 4,7 kΩ</text>
+
+  <!-- rails SDA / SCL -->
+  <line x1="80" y1="118" x2="540" y2="118" class="i-bus"/>
+  <line x1="80" y1="143" x2="540" y2="143" class="i-bus"/>
+  <text x="76" y="121" text-anchor="end" class="i-sig">SDA</text>
+  <text x="76" y="146" text-anchor="end" class="i-sig">SCL</text>
+  <circle cx="490" cy="118" r="3" class="i-node"/>
+  <circle cx="535" cy="143" r="3" class="i-node"/>
+
+  <!-- Maître -->
+  <rect x="100" y="180" width="100" height="52" rx="6" class="i-master"/>
+  <text x="150" y="210" text-anchor="middle" class="i-laba">Maître</text>
+  <line x1="135" y1="180" x2="135" y2="118" class="i-wire"/>
+  <line x1="165" y1="180" x2="165" y2="143" class="i-wire"/>
+  <circle cx="135" cy="118" r="3" class="i-node"/>
+  <circle cx="165" cy="143" r="3" class="i-node"/>
+
+  <!-- Esclave 1 -->
+  <rect x="250" y="180" width="100" height="52" rx="6" class="i-box"/>
+  <text x="300" y="205" text-anchor="middle" class="i-lab">Esclave</text>
+  <text x="300" y="221" text-anchor="middle" class="i-sub">adresse 0x3C</text>
+  <line x1="285" y1="180" x2="285" y2="118" class="i-wire"/>
+  <line x1="315" y1="180" x2="315" y2="143" class="i-wire"/>
+  <circle cx="285" cy="118" r="3" class="i-node"/>
+  <circle cx="315" cy="143" r="3" class="i-node"/>
+
+  <!-- Esclave 2 -->
+  <rect x="400" y="180" width="100" height="52" rx="6" class="i-box"/>
+  <text x="450" y="205" text-anchor="middle" class="i-lab">Esclave</text>
+  <text x="450" y="221" text-anchor="middle" class="i-sub">adresse 0x68</text>
+  <line x1="435" y1="180" x2="435" y2="118" class="i-wire"/>
+  <line x1="465" y1="180" x2="465" y2="143" class="i-wire"/>
+  <circle cx="435" cy="118" r="3" class="i-node"/>
+  <circle cx="465" cy="143" r="3" class="i-node"/>
+
+  <!-- GND commun -->
+  <line x1="100" y1="262" x2="500" y2="262" class="i-wire"/>
+  <line x1="150" y1="232" x2="150" y2="262" class="i-wire"/>
+  <line x1="300" y1="232" x2="300" y2="262" class="i-wire"/>
+  <line x1="450" y1="232" x2="450" y2="262" class="i-wire"/>
+  <text x="520" y="266" text-anchor="start" class="i-sub">GND commun</text>
+
+  <text x="310" y="292" text-anchor="middle" class="i-foot">Le tirage tient les lignes au repos (chacun ne sait que tirer vers le bas) — pas d'autre terminaison. Une adresse unique par esclave.</text>
+</svg>
