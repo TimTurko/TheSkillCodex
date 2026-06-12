@@ -61,12 +61,13 @@ Une boucle de traitement du signal ou d'asservissement doit lire un capteur à *
 
 ## Cas particulier — Une ressource rare et partagée
 
-Un microcontrôleur ne dispose que de **quelques timers** (trois sur une Arduino Uno). Or plusieurs fonctions très utilisées s'en servent déjà, le plus souvent à l'insu du débutant : `millis()` et `delay()` mobilisent l'un d'eux, la génération de [[pwm|PWM]] par `analogWrite()` en occupe d'autres, et des bibliothèques comme Servo ou la génération de tonalités réquisitionnent les leurs. Configurer un timer pour son propre usage revient donc à **choisir lequel sacrifier**, en connaissant ce qu'il pilotait — sous peine de voir `delay()` se dérégler ou un servomoteur trembler. Le détail des timers disponibles et de leurs conflits sur Arduino est traité dans [[arduino-timers|le tuto dédié]].
+Un microcontrôleur ne dispose que de **quelques timers** (trois sur une Arduino Uno). Or plusieurs fonctions très utilisées s'en servent déjà, le plus souvent à l'insu du débutant : `millis()` et `delay()` mobilisent l'un d'eux, la génération de [[pwm|PWM]] par `analogWrite()` en occupe d'autres, et des bibliothèques comme Servo ou la génération de tonalités réquisitionnent les leurs. Configurer un timer pour son propre usage revient donc à **choisir lequel sacrifier**, en connaissant ce qu'il pilotait — sous peine de voir `delay()` se dérégler ou un servomoteur trembler. Le détail des timers disponibles et de leurs conflits sur Arduino est traité dans [[arduino-timers|le tuto dédié]] ; côté MicroPython, la classe `Timer` est traitée dans [[micropython-timers]].
 
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui intègre les timers
 - [[arduino-timers|Timers sur Arduino]] — la mise en œuvre concrète (bibliothèque et registres)
+- [[micropython-timers|Timers en MicroPython]] — la même mécanique côté MicroPython
 - [[interruption|Interruption]] — ce qu'un débordement ou une comparaison déclenche pour exécuter une routine périodique
 - [[pwm|PWM]] — le signal généré par un timer, dont on règle le rapport cyclique
 - [[arduino-temporisation|delay() vs millis()]] — la temporisation logicielle, bâtie sur un timer

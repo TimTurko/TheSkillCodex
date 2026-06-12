@@ -104,12 +104,12 @@ Verdict : OK / a corriger
 - [x] `gpio` — 🖼✅ *(validée 12/06 clair+sombre+smartphone : markers des 3 SVG passés en classes [rouge #E0705F et ambre #EF9F27 suivent en sombre — cause du ⚠ levée], prose drain ouvert → [[i2c]], renvoi arduino-gpio-boot [section boot + Voir aussi] ; C68 exemplaire : 3 SVG compréhension/branchement)*
 - [x] `adc` — 🖼✅ *(validée 12/06 : § En pratique [Vref, 2ⁿ paliers chiffrés, saturation, résolution ≠ précision/cas ESP32], SVG quantification, renvois precision-de-mesure + tutos famille ; C68 : SVG compréhension justifié)*
 - [x] `dac` *(créée et validée 12/06 — popover-court symétrique de l'adc, PWM en remplaçant habituel ; lienée depuis entree-sortie et adc)*
-- [ ] `pwm`
-- [ ] `ide`
-- [ ] `bibliotheque`
-- [ ] `shield`
-- [ ] `interruption`
-- [ ] `timer`
+- [x] `pwm` — 🖼✅ *(validée 12/06 : rapport cyclique en gras + duty cycle, SVG 3 chronogrammes 25/50/75 % à moyenne ambre, § En pratique [fréquence selon la charge : scintillement / sifflement < 20 kHz / servo 50 Hz, PWM filtrée → dac], renvois tutos famille + chronogramme ; C68 : SVG compréhension justifié)*
+- [x] `ide` *(validée 12/06 : mention capture C29 inline [IDE Arduino annoté — 1ʳᵉ capture sur une notion T, extension C29 arbitrée], renvoi prise-en-main + Voir aussi ; C68 : ni SVG ni schéma — territoire capture)*
+- [x] `bibliotheque` *(validée 12/06 : « Trois réflexes » corrigé [bug de comptage], lien i2c 1ʳᵉ occurrence, note shield ↔ bibliothèque associée, renvois arduino/micropython-bibliotheques ; C68 : délégation aux captures des tutos)*
+- [x] `shield` *(validée 12/06 : réciproque bibliothèque associée, distinction module/breakout → arduino-module, mention photo C29 [Arduino + shield empilés], Voir aussi complété ; C68 : photo plutôt que schéma)*
+- [x] `interruption` — 🖼✅ *(validée 12/06 : piège « temps dans l'ISR » reformulé [horloge logicielle, pas matérielle], piège rebond ajouté [plusieurs ISR par appui], porte micropython-interruptions ouverte ; C68 conforme — SVG chronogramme C33)*
+- [x] `timer` — 🖼✅ *(validée 12/06 : porte micropython-timers ouverte [Cas particulier + Voir aussi] — même motif que interruption ; C68 conforme — SVG dent de scie C33)*
 - [ ] `deep-sleep`
 - [ ] `manipulation-de-bits` — 🖼
 - [ ] `firmware` — 🖼

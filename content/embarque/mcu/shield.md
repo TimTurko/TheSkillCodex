@@ -10,11 +10,13 @@ aa: []
 draft: false
 ---
 
-Un **shield** est une carte d'extension qui s'enfiche directement sur les connecteurs d'une carte à [[microcontroleur|microcontrôleur]] (typiquement un Arduino) pour lui ajouter une fonction — pilotage de moteurs, écran, capteurs, communication — sans aucun câblage.
+Un **shield** est une carte d'extension qui s'enfiche directement sur les connecteurs d'une carte à [[microcontroleur|microcontrôleur]] (typiquement un Arduino) pour lui ajouter une fonction — pilotage de moteurs, écran, capteurs, communication — sans aucun câblage. À distinguer du **module** (*breakout*), qui rend le même genre de service mais se câble par fils → [[arduino-module]].
 
 ## Le principe d'empilement
 
-Le shield reprend exactement l'implantation des connecteurs de la carte hôte : il se pose par-dessus, broche sur broche, et plusieurs shields peuvent parfois s'empiler. L'intérêt est la rapidité de prototypage : pas de fils volants, un montage mécaniquement solide, une fonction ajoutée en quelques secondes. C'est l'une des raisons du succès du format [[arduino|Arduino]], dont l'implantation de connecteurs est devenue un standard de fait repris par de nombreuses cartes.
+Le shield reprend exactement l'implantation des connecteurs de la carte hôte : il se pose par-dessus, broche sur broche, et plusieurs shields peuvent parfois s'empiler. L'intérêt est la rapidité de prototypage : pas de fils volants, un montage mécaniquement solide, une fonction ajoutée en quelques secondes. C'est l'une des raisons du succès du format [[arduino|Arduino]], dont l'implantation de connecteurs est devenue un standard de fait repris par de nombreuses cartes. Côté logiciel, chaque shield s'accompagne de **sa [[bibliotheque|bibliothèque]] associée**, qui expose la fonction sans qu'on ait à connaître le câblage interne.
+
+*Prendre photo d'une carte Arduino Uno avec un shield enfiché par-dessus (vue de trois quarts montrant l'empilement broche sur broche), éventuellement un deuxième cliché carte et shield séparés côte à côte.*
 
 ## Limites
 
@@ -24,4 +26,6 @@ Un shield occupe un jeu de broches imposé : empiler deux shields qui réclament
 
 - [[microcontroleur|Microcontrôleur]] — la carte hôte
 - [[arduino|Arduino]] — format de référence des shields
+- [[bibliotheque|Bibliothèque]] — le pendant logiciel du shield
+- [[arduino-shield|Arduino — shield]] — la mise en œuvre en pratique
 - [[pcb|PCB]] — l'alternative intégrée hors prototypage

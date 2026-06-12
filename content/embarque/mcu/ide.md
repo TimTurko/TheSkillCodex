@@ -16,12 +16,15 @@ Un **IDE** (*Integrated Development Environment*, environnement de développemen
 
 Sans IDE, programmer une cible embarquée imposerait d'enchaîner à la main compilation, édition de liens, conversion et flashage. L'IDE masque cette chaîne derrière deux boutons (« Vérifier » / « Téléverser ») et gère la sélection de la carte, du port et des bibliothèques. Il intègre généralement un **gestionnaire de [[bibliotheque|bibliothèques]]** et un **gestionnaire de cartes** qui installe le support d'une nouvelle famille de microcontrôleurs.
 
+*Prendre capture d'écran de l'IDE Arduino annoté : zone d'édition du code, boutons Vérifier / Téléverser, sélecteur de carte et de port, moniteur série.*
+
 ## Lesquels selon la cible
 
-Chaque famille a son environnement de référence : l'[[arduino|IDE Arduino]] et PlatformIO pour l'écosystème Arduino et l'[[esp32|ESP32]], STM32CubeIDE pour les [[stm32|STM32]], Thonny pour MicroPython. Le choix de l'IDE n'est pas neutre : il conditionne la facilité de mise en route, la richesse du débogage et la portabilité du projet entre postes.
+Chaque famille a son environnement de référence : l'[[arduino|IDE Arduino]] et PlatformIO pour l'écosystème Arduino et l'[[esp32|ESP32]], STM32CubeIDE pour les [[stm32|STM32]], Thonny pour MicroPython. Le choix de l'IDE n'est pas neutre : il conditionne la facilité de mise en route, la richesse du débogage et la portabilité du projet entre postes. L'installation et la prise en main pas à pas se font dans le tuto de chaque famille : [[arduino-prise-en-main]], [[micropython-prise-en-main]]…
 
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — la cible que l'IDE programme
 - [[bibliotheque|Bibliothèque]] — gérées depuis l'IDE
 - [[firmware|Firmware]] — le binaire produit et téléversé par l'IDE
+- [[arduino-prise-en-main|Arduino — prise en main]] — installer et utiliser l'IDE pas à pas (captures)

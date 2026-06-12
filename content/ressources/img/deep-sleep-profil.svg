@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="ts ds">
+  <title id="ts">Deep sleep : le profil de consommation en créneaux</title>
+  <desc id="ds">Courbe du courant consommé au cours du temps par un objet alternant phases actives et sommeil profond : de brefs pics de quelques dizaines de milliampères (mesure et transmission) séparés par de longs planchers de quelques microampères (deep sleep). Une ligne pointillée ambre proche du bas matérialise la consommation moyenne, qui détermine l'autonomie. L'échelle verticale est symbolique : trois ordres de grandeur séparent le pic du plancher.</desc>
+  <defs>
+    <style>
+      .s-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .s-axis { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .s-axis-label { font: 600 11px sans-serif; fill: #888780; }
+      .s-sig { stroke: #888780; stroke-width: 2.2; fill: none; stroke-linejoin: miter; }
+      .s-avg { stroke: #BA7517; stroke-width: 2; stroke-dasharray: 6 4; fill: none; }
+      .s-lab { font: 700 11px sans-serif; fill: #2C2C2A; }
+      .s-amber-lab { font: 700 11px sans-serif; fill: #BA7517; }
+      .s-sub { font: 400 10px sans-serif; fill: #888780; }
+      .s-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      .s-arrow { fill: #888780; }
+      .s-brk { stroke: #888780; stroke-width: 1.2; fill: none; }
+      @media (prefers-color-scheme: dark) {
+        .s-title { fill: #F1EFE8; }
+        .s-axis { stroke: #BBBBBB; }
+        .s-axis-label { fill: #BBBBBB; }
+        .s-sig { stroke: #BBBBBB; }
+        .s-avg { stroke: #EF9F27; }
+        .s-lab { fill: #F1EFE8; }
+        .s-amber-lab { fill: #EF9F27; }
+        .s-sub { fill: #BBBBBB; }
+        .s-foot { fill: #BBBBBB; }
+        .s-arrow { fill: #BBBBBB; }
+        .s-brk { stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="s-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="s-arrow"/>
+    </marker>
+  </defs>
+
+  <text x="280" y="22" text-anchor="middle" class="s-title">Actif bref, sommeil long : la moyenne fait l'autonomie</text>
+
+  <!-- Axes -->
+  <line x1="62" y1="232" x2="528" y2="232" class="s-axis" marker-end="url(#s-ar)"/>
+  <text x="505" y="250" text-anchor="middle" class="s-axis-label">temps</text>
+  <line x1="62" y1="232" x2="62" y2="46" class="s-axis" marker-end="url(#s-ar)"/>
+  <text x="54" y="44" text-anchor="end" class="s-axis-label">courant</text>
+  <text x="54" y="72" text-anchor="end" class="s-sub">~80 mA</text>
+  <text x="54" y="222" text-anchor="end" class="s-sub">~10 µA</text>
+  <!-- cassure d'échelle -->
+  <path d="M56,140 l12,-6 M56,148 l12,-6" class="s-brk"/>
+
+  <!-- Profil : plancher long, pics brefs -->
+  <path d="M70,218 L150,218 L150,64 L168,64 L168,218 L300,218 L300,64 L318,64 L318,218 L450,218 L450,64 L468,64 L468,218 L520,218" class="s-sig"/>
+
+  <!-- Moyenne -->
+  <line x1="70" y1="204" x2="520" y2="204" class="s-avg"/>
+  <text x="524" y="196" text-anchor="end" class="s-amber-lab">moyenne</text>
+
+  <!-- Annotations -->
+  <text x="159" y="52" text-anchor="middle" class="s-lab">actif : des mA, bref</text>
+  <text x="234" y="208" text-anchor="middle" class="s-lab">sommeil : des µA, long</text>
+  <text x="234" y="222" text-anchor="middle" class="s-sub">(échelle symbolique — rapport ~10 000)</text>
+
+  <text x="280" y="282" text-anchor="middle" class="s-foot">L'autonomie de la pile se calcule sur la moyenne : raccourcir les réveils et abaisser le plancher.</text>
+</svg>

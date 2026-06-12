@@ -39,7 +39,7 @@ Deux notions techniques accompagnent ce mécanisme et sont la source des bugs le
 
 **La lecture atomique.** Sur un microcontrôleur 8 bits, lire une variable de 16 ou 32 bits prend **plusieurs accès mémoire**. Si une interruption tombe au milieu de cette lecture et modifie la variable, le programme principal récupère une valeur **mi-ancienne mi-nouvelle**, incohérente. La parade est de lire la variable dans une **section critique** — en désactivant brièvement les interruptions le temps de la copie, puis en les réactivant.
 
-Côté Arduino, ce mécanisme se manipule avec `attachInterrupt()` et le mot-clé `volatile` ; la mise en œuvre concrète est traitée dans [[arduino-interruptions|le tuto sur les interruptions Arduino]].
+Côté Arduino, ce mécanisme se manipule avec `attachInterrupt()` et le mot-clé `volatile` ; la mise en œuvre concrète est traitée dans [[arduino-interruptions|le tuto sur les interruptions Arduino]], et côté MicroPython dans [[micropython-interruptions]].
 
 ## Les sources d'interruption
 
@@ -75,7 +75,9 @@ Ce cas résume la règle de choix : dès qu'un événement est **urgent** ou **f
 
 **Appeler `delay()` ou écrire sur le port série dans l'ISR.** Ces fonctions reposent elles-mêmes sur des interruptions, désactivées pendant l'ISR : elles s'y comportent mal ou bloquent. On n'y fait ni temporisation, ni affichage.
 
-**Croire que le temps avance dans l'ISR.** Sur beaucoup de microcontrôleurs, l'horloge interne (qui sert à mesurer les durées) est suspendue pendant l'ISR. Mesurer un temps depuis l'intérieur d'une ISR donne des résultats faux.
+**Croire que le temps avance dans l'ISR.** Le compteur matériel, lui, tourne toujours — mais l'**horloge logicielle** (`millis()` et consorts) repose elle-même sur une interruption, bloquée pendant l'ISR : elle ne progresse plus. Mesurer ou attendre une durée depuis l'intérieur d'une ISR donne des résultats faux.
+
+**Oublier le rebond du bouton.** Un appui mécanique rebondit pendant quelques millisecondes : une broche d'interruption câblée sur un bouton déclenche **plusieurs ISR par appui**. Filtrer — ignorer les déclenchements trop rapprochés, ou lever un drapeau dans l'ISR et traiter l'anti-rebond dans le programme principal.
 
 **Mettre une interruption partout.** Une interruption ajoute de la complexité et des pièges (concurrence, `volatile`, atomicité). Pour un événement lent et non urgent, le polling est plus simple et plus sûr. L'interruption se réserve aux événements brefs ou critiques.
 
@@ -87,6 +89,7 @@ Quand un microcontrôleur est mis en sommeil pour économiser l'énergie (voir [
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui porte le mécanisme d'interruption
 - [[arduino-interruptions|Interruptions sur Arduino]] — la mise en œuvre concrète des interruptions externes (`attachInterrupt`, code et câblage)
+- [[micropython-interruptions|Interruptions en MicroPython]] — la même mécanique côté MicroPython
 - [[arduino-timers|Timers Arduino]] — les interruptions périodiques pour cadencer une tâche
 - [[gpio|GPIO]] — les broches d'entrée, source des interruptions externes
 - [[deep-sleep|Deep sleep]] — la veille, dont une interruption assure le réveil
