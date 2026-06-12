@@ -96,7 +96,7 @@ Verdict : OK / a corriger
 - [x] `chronogramme` — 🖼✅ *(validée 11/06 : SVG vérifiés au pixel [RAS], liens analyseur-logique, I²C, paragraphe Un statut à part)*
 
 ## 6 · EEE — microcontrôleurs : socle commun
-- [ ] `microcontroleur` (hub mère) — 🖼
+- [x] `microcontroleur` (hub mère) — 🖼✅ *(validée 12/06 : tension logique + budget courant aux critères, recroisements choisir-le-materiel/ide/bibliotheque, lignes XIAO + Pico ajoutées [liens rouges = modules/fiche à créer, cf. TODO], nouveau SVG carte de positionnement — Pico 2 W en bande Wi-Fi+BT)*
 - [ ] `processeur`
 - [ ] `memoire`
 - [ ] `systeme-d-exploitation`
