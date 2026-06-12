@@ -59,7 +59,7 @@
 
   <rect class="b-amber" x="220" y="280" width="240" height="56" rx="8" stroke-width="0.5"/>
   <text class="th b-amber-text" x="340" y="300" text-anchor="middle" dominant-baseline="central">3. Preuve de concept</text>
-  <text class="ts b-amber-text" x="340" y="318" text-anchor="middle" dominant-baseline="central">Dérisquer les points durs</text>
+  <text class="ts b-amber-text" x="340" y="318" text-anchor="middle" dominant-baseline="central">Lever les incertitudes</text>
 
   <rect class="b-teal" x="360" y="170" width="240" height="56" rx="8" stroke-width="0.5"/>
   <text class="th b-teal-text" x="480" y="190" text-anchor="middle" dominant-baseline="central">4. Dossier technique</text>

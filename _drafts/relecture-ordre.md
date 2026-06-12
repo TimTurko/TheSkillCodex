@@ -124,15 +124,15 @@ Verdict : OK / a corriger
 - [x] `zigbee` — ✅ *(validée 12/06 : coordinateur [box/dongle] ajouté ; C68 : couvert par le hub)*
 - [x] `xbee` — ✅ *(validée 12/06 : RAS — marque/module assumé, pilotage UART ; C68 : couvert par le hub)*
 - [x] `lora` — ✅ *(validée 12/06 : distinction LoRa/LoRaWAN [modulation point-à-point vs protocole réseau TTN], lien deep-sleep ; C68 : couvert par le hub)*
-- [ ] `cpp` (hub)
-- [ ] `cpp-structure`
-- [ ] `cpp-execution` — 🖼
-- [ ] `cpp-types`
-- [ ] `cpp-conditions`
-- [ ] `cpp-boucles`
-- [ ] `cpp-portee` — 🖼
-- [ ] `cpp-logs`
-- [ ] `fonction-informatique`
+- [x] `cpp` (hub) — ✅ *(validé 12/06 : pont C57 vers micropython-langage [prose + Voir aussi] ; chaîne des prerequis vérifiée conforme à l'ordre 1→7 du parcours)*
+- [x] `cpp-structure` — ✅ *(validée 12/06 : RAS — le ternaire de son sketch est désormais expliqué dans cpp-conditions)*
+- [x] `cpp-execution` — 🖼✅ *(validée 12/06 : RAS fond ; SVG cycle pré-audité propre [markers en classes] ; capture moniteur série déjà mentionnée inline)*
+- [x] `cpp-types` — ✅ *(validée 12/06 : RAS — tableau AVR/ARM exact, pièges débordement/division entière justes)*
+- [x] `cpp-conditions` — ✅ *(validée 12/06 : § « L'opérateur ternaire » ajouté — trou pédagogique repéré en croisant avec cpp-structure qui l'utilisait sans explication)*
+- [x] `cpp-boucles` — ✅ *(validée 12/06 : RAS — tableaux utilisés sans fiche dédiée, explication inline suffisante, item BACKLOG cpp-tableaux posé)*
+- [x] `cpp-portee` — 🖼✅ *(validée 12/06 : étiquettes du SVG corrigées [(etat)→(compteur local)/(compteur global), raccord valeurs 1-1-1/1-2-3] ; SVG pré-audité propre par ailleurs)*
+- [x] `cpp-logs` — ✅ *(validée 12/06 : message de l'exercice 1 corrigé [:3:3 before 'delay' — le token suivant est delay, pas digitalWrite], corrigé nettoyé de sa rustine ; capture panneau d'erreur déjà mentionnée inline)*
+- [x] `fonction-informatique` — ✅ *(validée 12/06 : renvoi portée pointé directement sur cpp-portee [au lieu du hub cpp] ; désambiguïsation analyse fonctionnelle déjà en place)*
 
 ## 7 · EEE — Arduino (famille de référence)
 - [ ] `arduino` (hub)

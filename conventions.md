@@ -850,6 +850,15 @@ Notes 10/06 (pas de convention numérotée) :
 ### Acquises 11/06 (suite 2) — relecture §4 fin + §5 algorithme
 68. **Un schéma explicatif par fiche-outil** — toute fiche outil ou notion technique porte **au moins un SVG explicatif**, choisi parmi trois angles : **branchement** (comment l'objet se raccorde — prolonge C67), **utilisation** (la chaîne d'usage — ex. stimulus→réponse du GBF) ou **compréhension** (le concept rendu visible — ex. les 4 cibles de `precision-de-mesure`, le quadriptyque du hub `algorithme`, les divergences ET/OU du grafcet). Consigne Tim 11/06 (« dans toutes les sous-fiches, des schémas explicatifs : branchement, utilisation ou compréhension »). Éprouvée sur le lot mesure (4 fiches) et les compléments §5 (quadriptyque, divergences). **La numérotation éprouvage atteint 68.**
 
+### Acquises 12/06 — relecture §6 socle MCU (complète, 37/37)
+69. **Pointes de flèches SVG toujours en classes** — les `<path>` des `<marker>` ne doivent **jamais** porter un `fill` codé en dur : le `<style>` du SVG s'applique au contenu des markers, et un fill en dur ne suit pas le mode sombre (flèches ternes sur fils éclaircis). Toute pointe de flèche reçoit une **classe avec override sombre** (classe dédiée `.aro`/`.ah`, ou réemploi d'une classe de fill existante). Récidive constatée ×4 en relecture du §6 (`gpio-courant-max`, `gpio-modes`, `bus-de-communication-topologies`, `techno-sans-fil-comparaison`) — tous corrigés ; les SVG produits depuis (deep-sleep, debugger, 6 SVG bus) naissent conformes. À intégrer au peigne SVG pré-publication (grep `marker` + `fill="#`). **La numérotation éprouvage atteint 69.**
+
+Notes 12/06 (pas de convention numérotée) :
+- **C68 éprouvée en grand sur le §6 (37 fiches)** avec une **typologie de verdicts** stabilisée : *SVG justifié* (adc, pwm, deep-sleep, debugger-embarque, trio bus gonflé à 2 SVG chacun — branchement + chronogramme) / *couvert par le SVG du hub* (processeur, memoire, systeme-d-exploitation, entree-sortie, les 5 filles sans-fil) / *territoire capture C29* (ide, cpp-logs) / *photo plutôt que schéma* (shield). Le verdict se rend fiche par fiche, pas mécaniquement.
+- **Extension C29 arbitrée** : les mentions de capture inline sont désormais admises sur les **notions [T]** (1ʳᵉˢ : `ide`, `shield`), pas seulement les tutos.
+- **Motif de relecture « porte famille manquante »** : les notions [T] écrites avant les modules MicroPython/ESP32 ne renvoyaient que les tutos Arduino — contrôle d'office instauré et appliqué en série (interruption, timer, deep-sleep, firmware, debugger, manipulation-de-bits, trio bus, wifi/ble, hub cpp → micropython-langage). À conserver comme point de contrôle pour les sections restantes.
+- **C66 réutilisée** (panorama hub MCU enrichi XIAO/Pico, tableau hub sans-fil) ; **C67 étendue de fait** aux chaînes instrumentées (debugger : série directe vs sonde SWD/JTAG) et aux branchements de bus (uart/i2c/spi avec masse commune et tirage).
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
