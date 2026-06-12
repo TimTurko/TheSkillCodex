@@ -29,7 +29,7 @@ Un bug sur microcontrôleur est plus difficile à cerner que sur un PC : pas d'a
 
 ## Deux approches
 
-**Débogage par messages (*printf* / log).** On insère des affichages (`Serial.print`, macros de log) à des points clés du code, et on observe le défilement dans le moniteur série. C'est **universel** (toute carte dotée d'une [[uart|liaison série]]), **sans matériel supplémentaire**, et c'est l'entrée naturelle du débutant. Limites : c'est **intrusif** (les affichages modifient le déroulement et le *timing*), cela alourdit le code, et il n'y a **ni pause ni inspection à la demande** — on ne voit que ce qu'on a pensé à afficher. Détaillé côté famille dans [[cpp-logs|lire les logs d'erreur]] et via les macros `DEBUG` de [[arduino-debug|déboguer un programme Arduino]].
+**Débogage par messages (*printf* / log).** On insère des affichages (`Serial.print`, macros de log) à des points clés du code, et on observe le défilement dans le moniteur série. C'est **universel** (toute carte dotée d'une [[uart|liaison série]]), **sans matériel supplémentaire**, et c'est l'entrée naturelle du débutant. Limites : c'est **intrusif** (les affichages modifient le déroulement et le *timing*), cela alourdit le code, et il n'y a **ni pause ni inspection à la demande** — on ne voit que ce qu'on a pensé à afficher. Détaillé côté famille dans [[cpp-logs|lire les logs d'erreur]] et via les macros `DEBUG` de [[arduino-debug|déboguer un programme Arduino]] ; côté MicroPython, le **REPL interactif** change la donne — voir [[micropython-debug]].
 
 **Débogage matériel (JTAG / SWD).** Une **sonde de débogage** (ST-Link, J-Link, ou le contrôleur intégré à certaines cartes comme l'ESP32-S3/C3) se connecte aux broches de débogage du microcontrôleur et donne la main sur l'exécution :
 
@@ -39,6 +39,8 @@ Un bug sur microcontrôleur est plus difficile à cerner que sur un PC : pas d'a
 - **pile d'appels** (*call stack*) — savoir par quel chemin on est arrivé là.
 
 Avantage : **non intrusif** (le code ne change pas) et bien plus puissant. Coût : il faut le **matériel** (la sonde) et la **configuration de la chaîne d'outils** (toolchain + IDE), spécifique à la famille de microcontrôleur.
+
+![Deux chaînes comparées : par messages, le PC est relié en USB directement au microcontrôleur et lit ce que le code affiche ; en matériel, une sonde (ST-Link, J-Link ou intégrée) s'insère entre le PC et les broches SWD/JTAG du microcontrôleur pour figer, poser des points d'arrêt et inspecter.](/ressources/img/debugger-embarque-chaines.svg)
 
 ## La méthode, quelle que soit l'approche
 
@@ -61,7 +63,7 @@ Une LED censée clignoter reste éteinte. Le câblage et l'alimentation sont vé
 
 1. **Hypothèse 1** — « la ligne qui inverse la LED n'est jamais atteinte ». On y pose un **point d'arrêt** : s'il ne se déclenche jamais, le chemin d'exécution ne passe pas par là (une condition au-dessus est fausse).
 2. **Variante par messages** — sans sonde, on place `Serial.print` juste avant : l'absence de message confirme la même chose.
-3. **Remonter** — on déplace le point d'observation vers la condition qui garde ce bloc, on inspecte la variable testée : on découvre qu'elle ne change pas comme prévu (un `=` au lieu d'un `==`, un délai jamais écoulé à cause d'un [[timer|verrou temporel]] mal posé).
+3. **Remonter** — on déplace le point d'observation vers la condition qui garde ce bloc, on inspecte la variable testée : on découvre qu'elle ne change pas comme prévu (un `=` au lieu d'un `==`, un délai jamais écoulé à cause d'une comparaison de `millis()` mal posée — cf. [[arduino-temporisation]]).
 4. **Corriger** l'hypothèse validée, retirer l'instrumentation, vérifier que la LED clignote.
 
 L'enquête a localisé la cause sans toucher au reste du code — au lieu de modifier des lignes au hasard.
@@ -83,6 +85,7 @@ L'enquête a localisé la cause sans toucher au reste du code — au lieu de mod
 - [[firmware|Firmware]] — l'architecture du programme qu'on débogue (prérequis)
 - [[cpp-logs|Lire les logs d'erreur]] — le débogage par messages, côté chaîne d'outils
 - [[arduino-debug|Déboguer un programme Arduino]] — l'incarnation Arduino (macros `DEBUG`, moniteur série)
+- [[micropython-debug|Déboguer en MicroPython]] — l'incarnation MicroPython (REPL interactif)
 - [[instruments-de-mesure|Instruments de mesure]] — quand le bug est électrique et non logiciel
 - [[machine-a-etats|Machine à états]] — inspecter une variable d'état est un cas fréquent de débogage
 - [[microcontroleur|Microcontrôleur]] — les broches de débogage (JTAG/SWD) selon la famille

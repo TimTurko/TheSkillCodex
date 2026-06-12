@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="tdbg ddbg">
+  <title id="tdbg">Les deux chaînes de débogage</title>
+  <desc id="ddbg">Deux chaînes matérielles comparées. En haut, le débogage par messages : le PC et son moniteur série sont reliés par USB directement à la carte microcontrôleur — on lit ce que le code affiche. En bas, le débogage matériel : entre le PC (IDE en mode débogueur) et le microcontrôleur s'insère une sonde de débogage (ST-Link, J-Link ou contrôleur intégré), reliée au PC par USB et au microcontrôleur par les broches SWD ou JTAG — la sonde fige l'exécution, pose des points d'arrêt et inspecte les variables.</desc>
+  <defs>
+    <style>
+      .d-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .d-st { font: 700 13px sans-serif; fill: #BA7517; }
+      .d-box { fill: #DDDBD3; stroke: #888780; stroke-width: 1.5; }
+      .d-probe { fill: #BA7517; stroke: #BA7517; stroke-width: 1.6; }
+      .d-lab { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .d-laba { font: 700 12px sans-serif; fill: #FFFFFF; }
+      .d-sub { font: 400 10px sans-serif; fill: #888780; }
+      .d-suba { font: 400 10px sans-serif; fill: #FFFFFF; }
+      .d-wire { stroke: #888780; stroke-width: 1.8; fill: none; }
+      .d-wlab { font: 600 10px sans-serif; fill: #888780; }
+      .d-note { font: italic 600 11px sans-serif; fill: #BA7517; }
+      .d-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .d-title { fill: #F1EFE8; }
+        .d-st { fill: #EF9F27; }
+        .d-box { fill: #4A4A48; stroke: #BBBBBB; }
+        .d-probe { fill: #EF9F27; stroke: #EF9F27; }
+        .d-lab { fill: #F1EFE8; }
+        .d-laba { fill: #2C2C2A; }
+        .d-sub { fill: #BBBBBB; }
+        .d-suba { fill: #2C2C2A; }
+        .d-wire { stroke: #BBBBBB; }
+        .d-wlab { fill: #BBBBBB; }
+        .d-note { fill: #EF9F27; }
+        .d-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="24" text-anchor="middle" class="d-title">Deux chaînes : les messages passent par la série, la sonde s'insère</text>
+
+  <!-- ===== Par messages ===== -->
+  <text x="60" y="62" text-anchor="start" class="d-st">Par messages</text>
+  <rect x="60" y="76" width="140" height="56" rx="6" class="d-box"/>
+  <text x="130" y="100" text-anchor="middle" class="d-lab">PC</text>
+  <text x="130" y="116" text-anchor="middle" class="d-sub">moniteur série</text>
+
+  <line x1="200" y1="104" x2="520" y2="104" class="d-wire"/>
+  <text x="360" y="96" text-anchor="middle" class="d-wlab">USB · liaison série</text>
+
+  <rect x="520" y="76" width="140" height="56" rx="6" class="d-box"/>
+  <text x="590" y="100" text-anchor="middle" class="d-lab">Microcontrôleur</text>
+  <text x="590" y="116" text-anchor="middle" class="d-sub">Serial.print(...)</text>
+
+  <text x="360" y="148" text-anchor="middle" class="d-note">on lit ce que le code a pensé à afficher — universel, mais intrusif</text>
+
+  <!-- ===== Matériel ===== -->
+  <text x="60" y="188" text-anchor="start" class="d-st">Matériel (sonde)</text>
+  <rect x="60" y="202" width="140" height="56" rx="6" class="d-box"/>
+  <text x="130" y="226" text-anchor="middle" class="d-lab">PC</text>
+  <text x="130" y="242" text-anchor="middle" class="d-sub">IDE en mode débogueur</text>
+
+  <line x1="200" y1="230" x2="295" y2="230" class="d-wire"/>
+  <text x="247" y="222" text-anchor="middle" class="d-wlab">USB</text>
+
+  <rect x="295" y="202" width="130" height="56" rx="6" class="d-probe"/>
+  <text x="360" y="226" text-anchor="middle" class="d-laba">Sonde</text>
+  <text x="360" y="242" text-anchor="middle" class="d-suba">ST-Link · J-Link · intégrée</text>
+
+  <line x1="425" y1="230" x2="520" y2="230" class="d-wire"/>
+  <text x="472" y="222" text-anchor="middle" class="d-wlab">SWD / JTAG</text>
+
+  <rect x="520" y="202" width="140" height="56" rx="6" class="d-box"/>
+  <text x="590" y="226" text-anchor="middle" class="d-lab">Microcontrôleur</text>
+  <text x="590" y="242" text-anchor="middle" class="d-sub">broches de débogage</text>
+
+  <text x="360" y="274" text-anchor="middle" class="d-note">la sonde fige, pose des points d'arrêt, inspecte — non intrusif</text>
+
+  <text x="360" y="312" text-anchor="middle" class="d-foot">Même PC, même carte : la sonde s'insère dans la chaîne et donne la main sur l'exécution.</text>
+</svg>

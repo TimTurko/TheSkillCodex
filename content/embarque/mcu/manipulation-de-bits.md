@@ -27,7 +27,7 @@ On y touche en [[preuve-de-concept|preuve de concept]], dès qu'on configure un 
 
 ## Comment manipuler les bits
 
-**Le rappel binaire.** Un octet, ce sont 8 bits numérotés de 0 (poids faible, à droite) à 7. En [[cpp|C++]], le préfixe `0b` écrit un nombre en binaire (`0b00101101`). L'expression `1 << n` décale un `1` de `n` positions vers la gauche : elle fabrique un **masque** qui isole exactement le bit `n`.
+**Le rappel binaire.** Un octet, ce sont 8 bits numérotés de 0 (poids faible, à droite) à 7. En [[cpp|C++]], le préfixe `0b` écrit un nombre en binaire (`0b00101101`). L'expression `1 << n` décale un `1` de `n` positions vers la gauche : elle fabrique un **masque** qui isole exactement le bit `n`. *Les mêmes opérateurs existent à l'identique en MicroPython — les idiomes ci-dessous s'y transposent mot pour mot.*
 
 **Les opérateurs.** Chacun a un rôle dédié :
 

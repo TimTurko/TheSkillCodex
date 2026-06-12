@@ -110,10 +110,10 @@ Verdict : OK / a corriger
 - [x] `shield` *(validée 12/06 : réciproque bibliothèque associée, distinction module/breakout → arduino-module, mention photo C29 [Arduino + shield empilés], Voir aussi complété ; C68 : photo plutôt que schéma)*
 - [x] `interruption` — 🖼✅ *(validée 12/06 : piège « temps dans l'ISR » reformulé [horloge logicielle, pas matérielle], piège rebond ajouté [plusieurs ISR par appui], porte micropython-interruptions ouverte ; C68 conforme — SVG chronogramme C33)*
 - [x] `timer` — 🖼✅ *(validée 12/06 : porte micropython-timers ouverte [Cas particulier + Voir aussi] — même motif que interruption ; C68 conforme — SVG dent de scie C33)*
-- [ ] `deep-sleep`
-- [ ] `manipulation-de-bits` — 🖼
-- [ ] `firmware` — 🖼
-- [ ] `debugger-embarque`
+- [x] `deep-sleep` — 🖼✅ *(réécrite et validée 12/06 : montée au calibre interruption [7,6 ko] sur demande Tim — ordres de grandeur ×10 000, domaine RTC, sources de réveil, section réveil = redémarrage ESP32 vs reprise AVR, exemple chiffré 10 mois vs 1 jour, 5 pièges [dont carte de dev → plancher mA], 3 portes famille ; SVG profil de consommation créé ; C68 : SVG compréhension)*
+- [x] `manipulation-de-bits` — 🖼✅ *(validée 12/06 : fond irréprochable [RAS], phrase de transposition MicroPython ajoutée au rappel binaire ; SVG masquage pré-audité propre [dark complet, bande bit 2 alignée] ; C68 conforme)*
+- [x] `firmware` — 🖼✅ *(validée 12/06 : 3 liens — réciproque systeme-d-exploitation, esp32-freertos au niveau 5, bullet MicroPython dans « selon la famille » ; SVG escalier pré-audité propre ; C68 conforme)*
+- [x] `debugger-embarque` — 🖼✅ *(validée 12/06 : lien trompeur « verrou temporel »→timer corrigé [comparaison millis() + arduino-temporisation], porte micropython-debug [REPL], **SVG deux chaînes créé** [série directe vs sonde SWD/JTAG insérée] ; C67/C68 : branchement instrumenté)*
 - [ ] `bus-de-communication` — 🖼
 - [ ] `uart`
 - [ ] `i2c`
