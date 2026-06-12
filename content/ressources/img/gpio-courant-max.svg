@@ -22,6 +22,7 @@
       .danz { font: 700 11px sans-serif; text-anchor: middle; fill: #B23A2E; }
       .danlab { font: 700 11px sans-serif; text-anchor: middle; fill: #B23A2E; }
       .bolt { fill: #B23A2E; stroke: none; }
+      .arok { fill: #BA7517; stroke: none; }
       .ilab { font: 700 10px sans-serif; text-anchor: middle; fill: #B23A2E; }
       .ilabok { font: 700 10px sans-serif; text-anchor: middle; fill: #BA7517; }
       .foot { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
@@ -37,13 +38,14 @@
         .wired { stroke: #E0705F; }
         .res { fill: #2C2C2A; stroke: #BBBBBB; }
         .bolt { fill: #E0705F; }
+        .arok { fill: #EF9F27; }
         .rail { fill: #BBBBBB; }
         .foot { fill: #BBBBBB; }
         .divi { stroke: #BBBBBB; }
       }
     </style>
-    <marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#B23A2E"/></marker>
-    <marker id="aok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#BA7517"/></marker>
+    <marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="bolt"/></marker>
+    <marker id="aok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="arok"/></marker>
   </defs>
 
   <text x="420" y="26" class="ti">Une broche ne pilote pas directement une charge gourmande</text>

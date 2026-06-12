@@ -35,7 +35,7 @@ Une même broche peut servir d'entrée ou de sortie ; c'est le programme qui fix
 
 Les noms entre parenthèses (`INPUT`, `INPUT_PULLUP`, `OUTPUT`) sont les constantes que l'on retrouve côté Arduino : ce sont des étiquettes de vocabulaire, la mise en pratique du code est traitée dans [[arduino-gpio|le tuto Arduino GPIO]].
 
-**Push-pull ou drain ouvert ?** Une sortie **push-pull** est le cas courant : elle relie la broche à l'alimentation pour un « 1 » et à la masse pour un « 0 », imposant les deux niveaux de façon nette. Une sortie **drain ouvert** ne sait que tirer la broche vers le bas ; pour l'état haut, elle relâche la broche et compte sur une résistance **pull-up** externe pour la ramener vers l'alimentation. Ce comportement, en apparence handicapé, est exactement ce qu'il faut quand **plusieurs composants partagent une même ligne** : aucun ne pousse activement l'état haut, donc aucun n'entre en conflit avec les autres. C'est le principe de l'[[bus-de-communication|I2C]] et des lignes d'alarme communes.
+**Push-pull ou drain ouvert ?** Une sortie **push-pull** est le cas courant : elle relie la broche à l'alimentation pour un « 1 » et à la masse pour un « 0 », imposant les deux niveaux de façon nette. Une sortie **drain ouvert** ne sait que tirer la broche vers le bas ; pour l'état haut, elle relâche la broche et compte sur une résistance **pull-up** externe pour la ramener vers l'alimentation. Ce comportement, en apparence handicapé, est exactement ce qu'il faut quand **plusieurs composants partagent une même ligne** : aucun ne pousse activement l'état haut, donc aucun n'entre en conflit avec les autres. C'est le principe de l'[[i2c|I2C]] et des lignes d'alarme communes.
 
 ## Le piège du flottant — pourquoi un bouton a besoin d'un tirage
 
@@ -53,7 +53,7 @@ Au moment précis où le système est mis sous tension, le programme n'a pas enc
 
 Le danger n'est pas pour les broches d'entrée, mais pour ce qu'on a branché **en sortie**. Si une broche commande un relais, un moteur ou un buzzer, et que rien ne fixe son niveau pendant le boot, l'actionneur peut **partir dans un état non maîtrisé** : un relais qui claque, un moteur qui a un soubresaut, une sortie qui s'active une fraction de seconde avant que le programme ne reprenne la main. Sur un bras robotisé ou une machine, ce genre de transitoire est une vraie question de [[securite-et-qualite|sécurité]].
 
-La parade ne se joue pas dans le code, justement parce que le code n'est pas encore là : elle est **matérielle**. On ajoute une résistance de tirage **externe** sur les sorties critiques, dimensionnée pour forcer l'actionneur dans son état sûr (généralement éteint) tant que le microcontrôleur n'a pas pris le contrôle. Compter sur la seule initialisation logicielle pour mettre une sortie dans un état sûr, c'est ignorer la fenêtre de démarrage.
+La parade ne se joue pas dans le code, justement parce que le code n'est pas encore là : elle est **matérielle**. On ajoute une résistance de tirage **externe** sur les sorties critiques, dimensionnée pour forcer l'actionneur dans son état sûr (généralement éteint) tant que le microcontrôleur n'a pas pris le contrôle. Compter sur la seule initialisation logicielle pour mettre une sortie dans un état sûr, c'est ignorer la fenêtre de démarrage. La mise en pratique — broches à éviter au démarrage, câblage des tirages de sécurité — est traitée dans [[arduino-gpio-boot|le tuto GPIO au démarrage]].
 
 ## Pièges
 
@@ -79,3 +79,4 @@ La parade ne se joue pas dans le code, justement parce que le code n'est pas enc
 - [[interruption|Interruption]] — réagir immédiatement à un changement d'état d'une broche, sans la surveiller en boucle
 - [[bus-de-communication|Bus de communication]] — où le drain ouvert prend tout son sens (I2C, lignes partagées)
 - [[arduino-gpio|Arduino — GPIO]] — la mise en pratique sur Arduino (bouton, LED, code et câblage)
+- [[arduino-gpio-boot|Arduino — GPIO au démarrage]] — l'état des broches au boot en pratique, tirages de sécurité

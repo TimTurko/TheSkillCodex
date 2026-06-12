@@ -31,7 +31,7 @@
         .divi { stroke: #BBBBBB; }
       }
     </style>
-    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#888780"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="node"/></marker>
   </defs>
 
   <text x="420" y="26" class="ti">Configurer une broche : deux sorties, une entrée</text>
