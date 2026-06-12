@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 310" role="img" aria-labelledby="tp dp">
+  <title id="tp">PWM : le rapport cyclique règle la tension moyenne</title>
+  <desc id="dp">Trois chronogrammes empilés d'un même signal PWM à rapports cycliques croissants : 25 %, 50 % puis 75 % du temps à l'état haut. Sur chacun, une ligne pointillée ambre matérialise la tension moyenne simulée : elle monte avec le rapport cyclique. Le signal reste strictement tout-ou-rien ; seule la proportion de temps à l'état haut change.</desc>
+  <defs>
+    <style>
+      .p-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .p-sig { stroke: #888780; stroke-width: 2.2; fill: none; stroke-linejoin: miter; }
+      .p-avg { stroke: #BA7517; stroke-width: 2; stroke-dasharray: 6 4; fill: none; }
+      .p-lab { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .p-avg-lab { font: 700 11px sans-serif; fill: #BA7517; }
+      .p-rail { font: 600 10px sans-serif; fill: #888780; }
+      .p-base { stroke: #BBBBB4; stroke-width: 1; fill: none; }
+      .p-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .p-title { fill: #F1EFE8; }
+        .p-sig { stroke: #BBBBBB; }
+        .p-avg { stroke: #EF9F27; }
+        .p-lab { fill: #F1EFE8; }
+        .p-avg-lab { fill: #EF9F27; }
+        .p-rail { fill: #BBBBBB; }
+        .p-base { stroke: #5A5A57; }
+        .p-foot { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="280" y="22" text-anchor="middle" class="p-title">Même signal tout-ou-rien, trois rapports cycliques</text>
+
+  <!-- ===== 25 % ===== -->
+  <text x="14" y="68" text-anchor="start" class="p-lab">25 %</text>
+  <text x="66" y="52" text-anchor="end" class="p-rail">haut</text>
+  <text x="66" y="92" text-anchor="end" class="p-rail">bas</text>
+  <line x1="72" y1="88" x2="472" y2="88" class="p-base"/>
+  <path d="M72,88 L72,48 L97,48 L97,88 L172,88 L172,48 L197,48 L197,88 L272,88 L272,48 L297,48 L297,88 L372,88 L372,48 L397,48 L397,88 L472,88" class="p-sig"/>
+  <line x1="72" y1="78" x2="472" y2="78" class="p-avg"/>
+  <text x="480" y="82" text-anchor="start" class="p-avg-lab">moyenne</text>
+
+  <!-- ===== 50 % ===== -->
+  <text x="14" y="158" text-anchor="start" class="p-lab">50 %</text>
+  <text x="66" y="142" text-anchor="end" class="p-rail">haut</text>
+  <text x="66" y="182" text-anchor="end" class="p-rail">bas</text>
+  <line x1="72" y1="178" x2="472" y2="178" class="p-base"/>
+  <path d="M72,178 L72,138 L122,138 L122,178 L172,178 L172,138 L222,138 L222,178 L272,178 L272,138 L322,138 L322,178 L372,178 L372,138 L422,138 L422,178 L472,178" class="p-sig"/>
+  <line x1="72" y1="158" x2="472" y2="158" class="p-avg"/>
+  <text x="480" y="162" text-anchor="start" class="p-avg-lab">moyenne</text>
+
+  <!-- ===== 75 % ===== -->
+  <text x="14" y="248" text-anchor="start" class="p-lab">75 %</text>
+  <text x="66" y="232" text-anchor="end" class="p-rail">haut</text>
+  <text x="66" y="272" text-anchor="end" class="p-rail">bas</text>
+  <line x1="72" y1="268" x2="472" y2="268" class="p-base"/>
+  <path d="M72,268 L72,228 L147,228 L147,268 L172,268 L172,228 L247,228 L247,268 L272,268 L272,228 L347,228 L347,268 L372,268 L372,228 L447,228 L447,268 L472,268" class="p-sig"/>
+  <line x1="72" y1="238" x2="472" y2="238" class="p-avg"/>
+  <text x="480" y="242" text-anchor="start" class="p-avg-lab">moyenne</text>
+
+  <text x="280" y="298" text-anchor="middle" class="p-foot">Le signal reste tout-ou-rien : seule la proportion de temps à l'état haut change — la moyenne suit.</text>
+</svg>
