@@ -101,8 +101,9 @@ Verdict : OK / a corriger
 - [x] `memoire` *(validée 12/06 : § En pratique — ordres de grandeur Uno/ESP32, RAM ressource rare, 3ᵉ zone EEPROM — renvois arduino-memoire/arduino-eeprom/micropython-stockage ; C68 : pas de SVG dédié, couvert par le hub)*
 - [x] `systeme-d-exploitation` *(validée 12/06 : 3 régimes en gradation — bare metal déterministe / RTOS ordonnanceur [fait FreeRTOS sous le capot de l'ESP32] / OS complet sans temps réel dur — liens firmware, esp32-freertos, raspberry-pi ; C68 : pas de SVG dédié)*
 - [x] `entree-sortie` *(validée 12/06 : demi-phrase DAC vs PWM, lien interruption ; C68 : pas de SVG dédié — la rangée périphériques du SVG du hub porte la fiche)*
-- [ ] `gpio` — 🖼 ⚠ `#B23A2E` en sombre
-- [ ] `adc`
+- [x] `gpio` — 🖼✅ *(validée 12/06 clair+sombre+smartphone : markers des 3 SVG passés en classes [rouge #E0705F et ambre #EF9F27 suivent en sombre — cause du ⚠ levée], prose drain ouvert → [[i2c]], renvoi arduino-gpio-boot [section boot + Voir aussi] ; C68 exemplaire : 3 SVG compréhension/branchement)*
+- [ ] `adc` — 🖼 *(enrichie 12/06 : § En pratique + SVG quantification — à valider au rendu)*
+- [ ] `dac` *(créée 12/06 — popover-court symétrique de l'adc, à valider au rendu)*
 - [ ] `pwm`
 - [ ] `ide`
 - [ ] `bibliotheque`

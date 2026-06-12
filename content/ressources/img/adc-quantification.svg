@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 290" role="img" aria-labelledby="tq dq">
+  <title id="tq">Quantification : la résolution découpe la tension en paliers</title>
+  <desc id="dq">Un signal analogique continu (courbe grise en cloche) est converti par l'ADC en escalier de paliers (trait ambre) : la tension lue est arrondie au palier le plus proche. Des pointillés horizontaux matérialisent les niveaux de quantification ; un crochet indique qu'un palier vaut la tension de référence divisée par deux puissance n, où n est la résolution en bits. Note de pied : 10 bits donnent 1024 paliers, 12 bits 4096 — plus de paliers ne signifie pas une mesure plus juste.</desc>
+  <defs>
+    <style>
+      .q-title { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .q-axis { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .q-axis-label { font: 600 11px sans-serif; fill: #888780; }
+      .q-pal { stroke: #BBBBB4; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+      .q-sig { stroke: #888780; stroke-width: 2; fill: none; }
+      .q-sig-label { font: italic 600 11px sans-serif; fill: #888780; }
+      .q-stair { stroke: #BA7517; stroke-width: 2.6; fill: none; stroke-linejoin: round; }
+      .q-stair-label { font: 700 11px sans-serif; fill: #BA7517; }
+      .q-brace { stroke: #BA7517; stroke-width: 1.6; fill: none; }
+      .q-foot { font: italic 400 11px sans-serif; fill: #888780; }
+      .q-arrow { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .q-title { fill: #F1EFE8; }
+        .q-axis { stroke: #BBBBBB; }
+        .q-axis-label { fill: #BBBBBB; }
+        .q-pal { stroke: #5A5A57; }
+        .q-sig { stroke: #BBBBBB; }
+        .q-sig-label { fill: #BBBBBB; }
+        .q-stair { stroke: #EF9F27; }
+        .q-stair-label { fill: #EF9F27; }
+        .q-brace { stroke: #EF9F27; }
+        .q-foot { fill: #BBBBBB; }
+        .q-arrow { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="q-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" class="q-arrow"/>
+    </marker>
+  </defs>
+
+  <text x="280" y="22" text-anchor="middle" class="q-title">L'ADC arrondit la tension au palier le plus proche</text>
+
+  <!-- Axes -->
+  <line x1="60" y1="230" x2="525" y2="230" class="q-axis" marker-end="url(#q-ar)"/>
+  <text x="500" y="248" text-anchor="middle" class="q-axis-label">temps</text>
+  <line x1="60" y1="230" x2="60" y2="44" class="q-axis" marker-end="url(#q-ar)"/>
+  <text x="52" y="40" text-anchor="end" class="q-axis-label">tension</text>
+
+  <!-- Niveaux de quantification -->
+  <line x1="60" y1="200" x2="470" y2="200" class="q-pal"/>
+  <line x1="60" y1="175" x2="470" y2="175" class="q-pal"/>
+  <line x1="60" y1="150" x2="470" y2="150" class="q-pal"/>
+  <line x1="60" y1="125" x2="470" y2="125" class="q-pal"/>
+  <line x1="60" y1="100" x2="470" y2="100" class="q-pal"/>
+  <line x1="60" y1="80" x2="470" y2="80" class="q-pal"/>
+
+  <!-- Signal analogique continu -->
+  <path d="M70,205 Q290,-60 510,200" class="q-sig"/>
+  <text x="118" y="148" text-anchor="start" class="q-sig-label">signal analogique</text>
+
+  <!-- Escalier quantifié -->
+  <path d="M70,200 L110,200 L110,175 L145,175 L145,150 L175,150 L175,125 L205,125 L205,100 L240,100 L240,80 L340,80 L340,100 L375,100 L375,125 L405,125 L405,150 L435,150 L435,175 L470,175 L470,200 L510,200" class="q-stair"/>
+  <text x="350" y="64" text-anchor="start" class="q-stair-label">valeur convertie</text>
+
+  <!-- Crochet : un palier (entre les niveaux 100 et 125) -->
+  <path d="M484,100 h-6 v25 h6" class="q-brace"/>
+  <text x="490" y="110" text-anchor="start" class="q-stair-label">1 palier =</text>
+  <text x="490" y="124" text-anchor="start" class="q-stair-label">Vréf / 2ⁿ</text>
+
+  <!-- Pied -->
+  <text x="280" y="276" text-anchor="middle" class="q-foot">10 bits → 1024 paliers · 12 bits → 4096 — plus de paliers ne veut pas dire mesure plus juste.</text>
+</svg>
