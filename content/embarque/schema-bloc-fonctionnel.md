@@ -82,5 +82,6 @@ Quelques observations à tirer de cet exemple :
 
 - [[decomposition-fonctionnelle|Décomposition fonctionnelle]] — analyse amont côté gestion de projet, qui produit les fonctions techniques que ce schéma vient concrétiser en blocs matériels.
 - [[cahier-des-charges-fonctionnel|Cahier des charges fonctionnel]] — l'entrée du processus, dont découle le schéma bloc.
+- [[schema-cinematique|Schéma cinématique]] — la vue des **mouvements** du mécanisme, complémentaire de celle des fonctions.
 - Boucle ouverte / boucle fermée — caractérise la nature du contrôle dans le schéma.
 - Capteurs et actionneurs — les deux familles de blocs d'interface avec l'environnement.

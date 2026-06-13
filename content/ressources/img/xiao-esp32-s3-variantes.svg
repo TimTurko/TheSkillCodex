@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-labelledby="t d">
+  <title id="t">Quelle XIAO ESP32 choisir ?</title>
+  <desc id="d">Arbre de decision pour choisir une carte de la gamme XIAO ESP32. Besoin d'une camera, d'un micro ou d'IA embarquee : XIAO ESP32-S3 Sense. Sinon besoin de Matter, Zigbee ou Thread : XIAO ESP32-C6. Sinon besoin de Wi-Fi 5 GHz bi-bande : XIAO ESP32-C5. Sinon cout et consommation au minimum : XIAO ESP32-C3. Sinon choix par defaut : XIAO ESP32-S3, equilibre Wi-Fi, BLE et puissance.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; fill: #2C2C2A; }
+      .q { font: 600 12.5px sans-serif; fill: #2C2C2A; }
+      .nm { font: 700 13px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .lab { font: 600 10px sans-serif; fill: #888780; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .wire { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .ah { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .q, .nm { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .lab { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .wire { stroke: #EF9F27; }
+        .ah { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="360" y="26" text-anchor="middle" class="ti">Quelle XIAO ESP32 choisir ?</text>
+
+  <rect x="50" y="52" width="250" height="48" rx="5" class="bx"/>
+  <text x="175" y="81" text-anchor="middle" class="q">Caméra · micro · IA ?</text>
+  <text x="318" y="70" text-anchor="start" class="lab">oui</text>
+  <line x1="300" y1="76" x2="468" y2="76" class="wire" marker-end="url(#aw)"/>
+  <rect x="470" y="54" width="230" height="44" rx="5" class="obx"/>
+  <text x="585" y="73" text-anchor="middle" class="nm">XIAO ESP32-S3 Sense</text>
+  <text x="585" y="89" text-anchor="middle" class="sm">caméra OV2640/OV3660 · micro · SD · TinyML</text>
+  <text x="190" y="118" text-anchor="start" class="lab">non</text>
+  <line x1="175" y1="100" x2="175" y2="144" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="50" y="144" width="250" height="48" rx="5" class="bx"/>
+  <text x="175" y="173" text-anchor="middle" class="q">Matter · Zigbee · Thread ?</text>
+  <text x="318" y="162" text-anchor="start" class="lab">oui</text>
+  <line x1="300" y1="168" x2="468" y2="168" class="wire" marker-end="url(#aw)"/>
+  <rect x="470" y="146" width="230" height="44" rx="5" class="obx"/>
+  <text x="585" y="165" text-anchor="middle" class="nm">XIAO ESP32-C6</text>
+  <text x="585" y="181" text-anchor="middle" class="sm">Wi-Fi 6 + BLE 5 + 802.15.4 · domotique</text>
+  <text x="190" y="210" text-anchor="start" class="lab">non</text>
+  <line x1="175" y1="192" x2="175" y2="236" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="50" y="236" width="250" height="48" rx="5" class="bx"/>
+  <text x="175" y="265" text-anchor="middle" class="q">Wi-Fi 5 GHz (bi-bande) ?</text>
+  <text x="318" y="254" text-anchor="start" class="lab">oui</text>
+  <line x1="300" y1="260" x2="468" y2="260" class="wire" marker-end="url(#aw)"/>
+  <rect x="470" y="238" width="230" height="44" rx="5" class="obx"/>
+  <text x="585" y="257" text-anchor="middle" class="nm">XIAO ESP32-C5</text>
+  <text x="585" y="273" text-anchor="middle" class="sm">Wi-Fi 6 bi-bande 2,4 / 5 GHz · passerelles</text>
+  <text x="190" y="302" text-anchor="start" class="lab">non</text>
+  <line x1="175" y1="284" x2="175" y2="328" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="50" y="328" width="250" height="48" rx="5" class="bx"/>
+  <text x="175" y="357" text-anchor="middle" class="q">Coût · conso au minimum ?</text>
+  <text x="318" y="346" text-anchor="start" class="lab">oui</text>
+  <line x1="300" y1="352" x2="468" y2="352" class="wire" marker-end="url(#aw)"/>
+  <rect x="470" y="330" width="230" height="44" rx="5" class="obx"/>
+  <text x="585" y="349" text-anchor="middle" class="nm">XIAO ESP32-C3</text>
+  <text x="585" y="365" text-anchor="middle" class="sm">RISC-V · Wi-Fi 4 + BLE 5 · entrée de gamme</text>
+  <text x="190" y="394" text-anchor="start" class="lab">non</text>
+  <line x1="175" y1="376" x2="175" y2="420" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="50" y="420" width="650" height="46" rx="5" class="obx"/>
+  <text x="64" y="441" text-anchor="start" class="nm">→ XIAO ESP32-S3</text>
+  <text x="64" y="458" text-anchor="start" class="sm">le cheval de trait : Wi-Fi 4 + BLE 5, 8 Mo PSRAM, deux cœurs — le choix par défaut du parcours.</text>
+</svg>

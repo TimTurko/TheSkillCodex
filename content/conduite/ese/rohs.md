@@ -22,4 +22,5 @@ RoHS se rencontre directement à l'établi : l'étain de [[soudure|soudure]] uti
 - [[reach|REACH]] et [[deee|DEEE]] — les réglementations environnementales voisines
 - [[soudure|Soudure]] — la soudure sans plomb découle de RoHS
 - [[ecoconception|Écoconception]] — où la contrainte oriente les choix
+- [[caracteriser-une-exigence|Caractériser une exigence]] — une contrainte normative s'écrit en exigence (cible binaire, souvent F0)
 - **Cours normatif** (collègues) — substances, seuils, exemptions

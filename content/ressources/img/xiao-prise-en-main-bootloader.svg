@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-labelledby="t d">
+  <title id="t">Récupérer une carte muette : le mode bootloader</title>
+  <desc id="d">Procedure en quatre etapes pour recuperer un XIAO ESP32-S3 dont le port a disparu ou dont le televersement echoue. Etape 1 : maintenir le bouton BOOT. Etape 2 : brancher le cable USB-C en gardant BOOT tenu. Etape 3 : relacher BOOT, la carte est en mode bootloader. Etape 4 : televerser le programme puis appuyer sur Reset pour le lancer.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 11.5px sans-serif; fill: #2C2C2A; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .wire { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .foot { font: italic 400 10.5px sans-serif; fill: #888780; }
+      .ah { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd { fill: #F1EFE8; }
+        .foot { fill: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .wire { stroke: #EF9F27; }
+        .ah { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="380" y="26" text-anchor="middle" class="ti">Récupérer une carte muette : le mode bootloader</text>
+
+  <rect x="20" y="62" width="165" height="64" rx="5" class="obx"/>
+  <text x="102" y="90" text-anchor="middle" class="hd">① Maintiens</text>
+  <text x="102" y="106" text-anchor="middle" class="hd">le bouton BOOT</text>
+
+  <line x1="187" y1="94" x2="203" y2="94" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="205" y="62" width="165" height="64" rx="5" class="obx"/>
+  <text x="287" y="90" text-anchor="middle" class="hd">② Branche l'USB-C</text>
+  <text x="287" y="106" text-anchor="middle" class="hd">(BOOT toujours tenu)</text>
+
+  <line x1="372" y1="94" x2="388" y2="94" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="390" y="62" width="165" height="64" rx="5" class="obx"/>
+  <text x="472" y="90" text-anchor="middle" class="hd">③ Relâche BOOT</text>
+  <text x="472" y="106" text-anchor="middle" class="hd">→ mode bootloader</text>
+
+  <line x1="557" y1="94" x2="573" y2="94" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="575" y="62" width="165" height="64" rx="5" class="obx"/>
+  <text x="657" y="90" text-anchor="middle" class="hd">④ Téléverse,</text>
+  <text x="657" y="106" text-anchor="middle" class="hd">puis appuie Reset</text>
+
+  <text x="380" y="160" text-anchor="middle" class="foot">Symptôme : pas de port, ou port présent mais téléversement qui échoue.</text>
+  <text x="380" y="178" text-anchor="middle" class="foot">Variante : maintiens BOOT à la mise sous tension, puis appuie Reset une fois.</text>
+</svg>

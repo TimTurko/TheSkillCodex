@@ -7,7 +7,7 @@ tags:
 prerequis: []
 aa: []
 phases:
-  - specification-technique
+  - specification
   - concept
   - preuve-de-concept
   - dossier-technique
@@ -15,7 +15,7 @@ phases:
 draft: false
 ---
 
-La fiche **parcours projet** décrit les cinq phases d'un projet mécatronique ou IoT niveau étudiant étudiant, du besoin initial à la soutenance finale. Il suit une logique de **cycle en V** : la branche de gauche (descendante) définit progressivement le système (spécification, concept, preuve de concept), la branche de droite (ascendante) le réalise et le valide (dossier technique, intégration et tests). Cette trame structure l'ensemble du tutoriel et sert de point d'entrée pour situer chaque notion, chaque outil et chaque livrable dans le déroulé du projet.
+La fiche **parcours projet** décrit les cinq phases d'un projet mécatronique ou IoT niveau étudiant, du besoin initial à la soutenance finale. Le parcours suit une logique de **cycle en V** : la branche de gauche (descendante) définit progressivement le système (spécification, concept, preuve de concept), la branche de droite (ascendante) le réalise et le valide (dossier technique, intégration et tests). Cette trame structure l'ensemble du tutoriel et sert de point d'entrée pour situer chaque notion, chaque outil et chaque livrable dans le déroulé du projet.
 
 ## Les cinq phases
 

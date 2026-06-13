@@ -331,6 +331,7 @@ Quatre issues nominales, calquées sur la revue de [[concept|concept]] en miroir
 - [[conduite/index|Hub du parcours projet]]
 - Étape précédente : [[concept|Concept]]
 - Étape suivante : [[dossier-technique|Dossier technique]]
+- [[comparateur|Comparateur]] *(caractériser le jeu d'un banc d'essai)*
 - [[gestion-de-projet|Gestion de projet]] *(fil transverse)*
 - [[ecoconception|Écoconception]] *(fil transverse)*
 - [[securite-et-qualite|Sécurité et qualité]] *(fil transverse)*

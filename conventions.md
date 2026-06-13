@@ -859,6 +859,38 @@ Notes 12/06 (pas de convention numérotée) :
 - **Motif de relecture « porte famille manquante »** : les notions [T] écrites avant les modules MicroPython/ESP32 ne renvoyaient que les tutos Arduino — contrôle d'office instauré et appliqué en série (interruption, timer, deep-sleep, firmware, debugger, manipulation-de-bits, trio bus, wifi/ble, hub cpp → micropython-langage). À conserver comme point de contrôle pour les sections restantes.
 - **C66 réutilisée** (panorama hub MCU enrichi XIAO/Pico, tableau hub sans-fil) ; **C67 étendue de fait** aux chaînes instrumentées (debugger : série directe vs sonde SWD/JTAG) et aux branchements de bus (uart/i2c/spi avec masse commune et tirage).
 
+### Acquises 12/06 (suite) — relecture branche Conduite de projet
+70. **Ancre vers un titre contenant un deux-points → double tiret.** Pour un wikilink à ancre `[[fiche#titre|libellé]]` visé sur un titre qui contient « : » (ex. `## Cas particulier : projet école sans client réel`), le slug GitHub/Quartz **supprime le deux-points mais conserve les espaces qui l'entouraient**, qui se réduisent en **double tiret** : « particulier : projet » → `particulier--projet`. L'ancre doit donc porter le double tiret : `#cas-particulier--projet-école-sans-client-réel`. Une ancre à tiret simple **échoue silencieusement** (lien rouge / saut nul). Comme l'angle mort `x/index` (10/06), **seul le clic-test au rendu le détecte** (le scan de la source ne voit rien). Appliquée ×2 (`bete-a-cornes`, `cahier-des-charges-fonctionnel`). **La numérotation éprouvage atteint 70.**
+
+Notes 12/06 (suite) (pas de convention numérotée) :
+- **Index de domaine = sommaire par grappe pédagogique.** Remplir un index de domaine (`proj`/`meo`/`ese`) : intro courte (renvoi au parcours pour le déroulé chronologique) + sections **par famille de fiches** + **une ligne descriptive par fiche** dans l'ordre pédagogique. `proj/index` range 30 fiches en 5 grappes (trames / analyse fonctionnelle / planification / concept-arbitrage / réalisation-bilan). Cas ponctuel (les 3 index sont désormais remplis), noté pour un futur index de domaine.
+- **Harmonisation `phases` sur les notions + enum canonique.** Notion **transverse** → les 5 phases ; notion **ciblée** → la/les phase(s) concernée(s) (ex. `cable-management` → `integration-et-tests`). La valeur d'enum est **`integration-et-tests`**, jamais `integration` (un `integration` erroné cassait silencieusement le filtre Explorer — corrigé sur `acv-simplifiee`) ; une clé fantôme `phase:` (singulier, vide) a aussi été retirée de `gestion-de-projet`.
+- **`x/index` n'est pas par défaut un stub.** Né du revert `mecatronique` : `conduite/index` **est** la fiche parcours complète (cycle en V), pas un hub de branche vide — vérifier le contenu d'un index avant d'y (re)pointer des liens. Complète C60.
+- **aa ajouté sur une fiche précédemment `aa:[]` = multi-couverture, tally inchangé.** 5 fiches ont reçu un aa cette session (`mind-map` PROJ/1, `matrice-de-decision` PROJ/6, `acv-simplifiee` ESE/1+2, `archivage-projet` MEO/6, `revue-de-code` MEO/3) ; tous les critères étaient déjà C ailleurs → **C20, statut dominant et tally 79 % inchangés**. Pushback aa validé : `amdec` reste `aa:[]` (aucun critère sûreté de fonctionnement au référentiel, vérif xlsx), `mecatronique` reste `aa:[]` (définitionnelle).
+
+### Acquises 13/06 — relecture branche Méca (confirmations + nuances)
+
+Pas de nouvelle convention numérotée (reste à **70**) — session de confirmations et d'une nuance sur C65.
+
+- **C58 (pointeur d'interface léger) — motif mûr.** Réemployée à la lecture sur 6 pointeurs `meca/` (`optimisation-mecanique`, `impression-3d`, `usinage`, `soudure`, `pla` + délégations) sans accroc : popover → « Dans le projet » → aparté de délégation → *Voir aussi* fini par « Cours de X (collègues) ». **Candidate à promotion** vers §1-§7 + template (à arbitrer).
+- **C68 confirmée sur instruments de métrologie.** Les 2 SVG créés (`pied-a-coulisse-mesures`, `comparateur-battement`) sont du type *compréhension* (« comment fonctionne l'instrument », consigne Tim explicite). Le verdict « SVG justifié » tient pour un instrument de mesure dimensionnelle au même titre que pour un instrument électronique.
+- **C69 confirmée sans correction.** Les 3 SVG méca préexistants (schéma cinématique ×2, optimisation ×1) étaient déjà markers-en-classes + override sombre — première branche relue où le contrôle C69 ne lève aucune récidive.
+
+Notes 13/06 (pas de convention numérotée) :
+- **C65 nuancée — le « tu » marque l'adresse à l'étudiant qui réalise, pas tout hub de branche.** C65 disait « hubs de branche = tu » ; à l'épreuve, seul le **hub-colonne d'action** (`embarque/index`, réalisation) parle en « tu ». Un **hub-sommaire d'interface** (`meca/index`) ou un **hub-parcours** (`conduite/index`, le V) reste en **« on »** (registre de méthode / sommaire), parce qu'il *décrit* ou *recense* au lieu de guider un geste. Décision Tim (« tu/on, je te laisse choisir ») tranchée en ce sens.
+- **Pas de champ `type` sur un index/sommaire de branche ou domaine.** `meca/index` reste sans `type:`, aligné sur `proj/index` (`tags: [domaine, proj]`, sans type — vérifié ce jour) : un index navigationnel n'est ni notion ni trame ni tuto. Complète la note « index de domaine = sommaire par grappe » (12/06 suite).
+- **Réciproque inter-branches : vérifier l'existant avant d'ajouter (C14 appliqué aux liens).** Avant de poser une réciproque `A → B`, lire la *Voir aussi* de B : `chaine-energie` liait déjà `schema-cinematique`, doublon évité. Vaut pour tout ajout de lien réciproque en lecture groupée.
+- **Motif « porte famille manquante » (12/06) : n/a pour Méca** — pas de notion [T] à familles dans la branche (pointeurs d'interface, pas de modules). Contrôle d'office sans objet ici.
+
+### Acquises 13/06 (suite) — relecture branche ESE (confirmations)
+
+Pas de nouvelle convention numérotée (reste à **70**) — session de confirmations.
+
+- **C58 — base d'éprouvage complète.** Réemployée sans accroc sur les 8 pointeurs ESE (`marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `epi`, `rohs`, `reach`, `deee`) : popover → « Dans le projet » → aparté de délégation → *Voir aussi* « Cours de X (collègues) » ; bonne adaptation `epi` (délégation responsables atelier/fablab). Les **deux branches d'interface (Méca + ESE) sont désormais relues** → motif **promotion-ready** (promotion vers §1-§7 + template à arbitrer ; escalade la « candidate à promotion » du bloc Méca ci-dessus).
+- **C65 tenu.** Registre « on » sur les 8 pointeurs et sur `conduite/ese/index` (sommaire d'interface, cohérent avec la nuance `meca/index` ci-dessus) — zéro « tu ».
+- **C62 / C68 / C69 / C70 sans objet pour la branche** : ni tableau, ni SVG (un pointeur C58 délégué n'en porte pas — verdict C68), ni ancre. Première branche relue où tous ces contrôles d'office sont à vide.
+- **« Vérifier l'existant avant réciproque » (C14 sur les liens) réaffirmé** : `securite-et-qualite` ↔ ESE était déjà réciproque (5 pointeurs dans sa *Voir aussi*), rien à rajouter de ce côté ; les réciproques posées l'ont été vers `caracteriser-une-exigence` (FC normative) et `protection-electronique`/`decouplage` (versant matériel EMC).
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

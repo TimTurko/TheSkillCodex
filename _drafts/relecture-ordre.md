@@ -37,41 +37,41 @@ Verdict : OK / a corriger
 - [x] `integration-et-tests` (phase 5)
 
 ## 1bis · Trame — fils transverses
-- [ ] `gestion-de-projet`
-- [ ] `ecoconception`
-- [ ] `securite-et-qualite`
+- [x] `gestion-de-projet` *(relu 12/06)*
+- [x] `ecoconception` *(relu 12/06)*
+- [x] `securite-et-qualite` *(relu 12/06)*
 
 ## 2 · Notions & outils PROJ
-- [ ] `bete-a-cornes` — 🖼 ⚠ SVG à reprendre (relecture 08/06)
-- [ ] `pieuvre` — 🖼 ⚠ SVG à reprendre (relecture 08/06)
-- [ ] `fonction`
-- [ ] `fast` — 🖼
-- [ ] `decomposition-fonctionnelle` — 🖼 ⚠ arbo 3-axes dense sur mobile
-- [ ] `schema-bloc-fonctionnel`
-- [ ] `cahier-des-charges-fonctionnel`
-- [ ] `caracteriser-une-exigence`
-- [ ] `afnor-nfx50-151` *(stub)*
-- [ ] `etat-de-l-art-technique`
-- [ ] `mind-map` — 🖼
-- [ ] `bom`
-- [ ] `matrice-de-decision` — 🖼
-- [ ] `amdec`
-- [ ] `jalons` — 🖼
-- [ ] `gantt` — 🖼
-- [ ] `wbs` — 🖼
-- [ ] `retroplanning` — 🖼
-- [ ] `matrice-de-risques` — 🖼 ⚠ légende station-météo
-- [ ] `acv-simplifiee`
-- [ ] `matrice-eco-criteres`
-- [ ] `ecodesign` — *(vérifié 08/06 : pas un doublon — notion sœur d'`ecoconception`, distinction ingénierie/design ; on garde les deux)*
+- [x] `bete-a-cornes` — 🖼 ⚠ SVG à reprendre (relu 12/06 ; SVG en session dédiée)
+- [x] `pieuvre` — 🖼 ⚠ SVG à reprendre + FC3 à intégrer (relu 12/06 ; SVG en session dédiée)
+- [x] `fonction` *(relu 12/06)*
+- [x] `fast` — 🖼 *(relu 12/06)*
+- [x] `decomposition-fonctionnelle` — 🖼 ⚠ arbo 3-axes dense sur mobile (relu 12/06)
+- [x] `schema-bloc-fonctionnel` *(relu 12/06 ; réciproque schema-cinematique ajoutée 13/06)*
+- [x] `cahier-des-charges-fonctionnel` *(relu 12/06)*
+- [x] `caracteriser-une-exigence` *(relu 12/06)*
+- [x] `afnor-nfx50-151` *(stub ; relu 12/06)*
+- [x] `etat-de-l-art-technique` *(relu 12/06 ; chiffres Niryo/Moveo web-corrigés)*
+- [x] `mind-map` — 🖼 *(relu 12/06 ; aa PROJ/1)*
+- [x] `bom` *(relu 12/06)*
+- [x] `matrice-de-decision` — 🖼 *(relu 12/06 ; aa PROJ/6 retiré 13/06 — mal collé pour une matrice d'arbitrage, retour aa:[])*
+- [x] `amdec` *(relu 12/06 ; aa:[] assumé)*
+- [x] `jalons` — 🖼 *(relu 12/06 ; ossature 6 losanges)*
+- [x] `gantt` — 🖼 *(relu 12/06)*
+- [x] `wbs` — 🖼 *(relu 12/06)*
+- [x] `retroplanning` — 🖼 *(relu 12/06)*
+- [x] `matrice-de-risques` — 🖼 ⚠ légende station-météo (relu 12/06 ; légende recodée, clic-test rendu)
+- [x] `acv-simplifiee` *(relu 12/06 ; aa ESE/1+2)*
+- [x] `matrice-eco-criteres` *(relu 12/06)*
+- [x] `ecodesign` — *(vérifié 08/06 : pas un doublon — notion sœur d'`ecoconception`, distinction ingénierie/design ; on garde les deux ; relu 12/06)*
 
 ## 3 · MEO — méthodes & organisation
-- [ ] `relation-client`
-- [ ] `archivage-projet`
-- [ ] `revue-de-code`
-- [ ] `cable-management`
-- [ ] `unite-si`
-- [ ] `conduite/meo/index`
+- [x] `relation-client` *(relu 12/06 ; phases transverses, aa:[] assumé)*
+- [x] `archivage-projet` *(relu 12/06 ; aa MEO/6)*
+- [x] `revue-de-code` *(relu 12/06 ; aa MEO/3, lien interruption)*
+- [x] `cable-management` *(relu 12/06 ; phases: integration-et-tests)*
+- [x] `unite-si` *(relu 12/06 ; « unitées »→« unités », réciproque caracteriser)*
+- [x] `conduite/meo/index` *(relu 12/06)*
 
 ## 4 · EEE — fondations électronique
 - [x] `niveaux-de-tension` — 🖼✅ *(rouge `#B23A2E` validé en sombre, 11/06)*
@@ -269,29 +269,29 @@ Verdict : OK / a corriger
 - [x] `fiabiliser-et-deboguer`
 
 ## 18 · MME — mécanique (interface)
-- [ ] `schema-cinematique` — 🖼✅
-- [ ] `optimisation-mecanique` — 🖼
-- [ ] `impression-3d`
-- [ ] `usinage`
-- [ ] `soudure`
-- [ ] `pla`
-- [ ] `pied-a-coulisse`
-- [ ] `comparateur`
-- [ ] `meca/index`
+- [x] `schema-cinematique` — 🖼✅ *(relue 13/06 : RAS fond ; réciproque [[schema-bloc-fonctionnel]] ajoutée)*
+- [x] `optimisation-mecanique` — 🖼 *(relue 13/06 : RAS — pointeur C58 propre ; SVG générique render à valider)*
+- [x] `impression-3d` *(relue 13/06 : RAS — fiche procédé, territoire photo C29)*
+- [x] `usinage` *(relue 13/06 : RAS — fiche procédé)*
+- [x] `soudure` *(relue 13/06 : RAS — dual-tag eee/mme assumé)*
+- [x] `pla` *(relue 13/06 : RAS — fiche matériau)*
+- [x] `pied-a-coulisse` — 🖼 *(relue 13/06 : SVG mesures créé [becs ext/int + jauge], recroisement precision-de-mesure)*
+- [x] `comparateur` — 🖼 *(relue 13/06 : SVG battement créé, « jeu angulaire »→« jeu », amorce + lien precision-de-mesure)*
+- [x] `meca/index` *(relue 13/06 : registre « on » tranché [sommaire d'interface], pas de champ type)*
 
 ## 19 · ESE — normes & sécurité produit (interface)
-- [ ] `marquage-ce`
-- [ ] `basse-tension`
-- [ ] `emc`
-- [ ] `iso-12100`
-- [ ] `epi`
-- [ ] `rohs`
-- [ ] `reach`
-- [ ] `deee`
-- [ ] `conduite/ese/index`
+- [x] `marquage-ce` *(relu 13/06 : RAS — pointeur C58 propre ; réciproque caracteriser-une-exigence ajoutée)*
+- [x] `basse-tension` *(relu 13/06 : RAS — C58 propre ; réciproque caracteriser-une-exigence ajoutée)*
+- [x] `emc` *(relu 13/06 : C58 propre ; pont protection-electronique + decouplage ajouté — immunité côté matériel)*
+- [x] `iso-12100` *(relu 13/06 : RAS — C58 propre)*
+- [x] `epi` *(relu 13/06 : RAS — C58 propre, délégation atelier/fablab)*
+- [x] `rohs` *(relu 13/06 : RAS — C58 propre ; réciproque caracteriser-une-exigence ajoutée)*
+- [x] `reach` *(relu 13/06 : RAS — C58 propre)*
+- [x] `deee` *(relu 13/06 : RAS — C58 propre)*
+- [x] `conduite/ese/index` *(relu 13/06 : registre « on » [sommaire d'interface] ; RAS)*
 
 ## 20 · Index PROJ
-- [ ] `conduite/proj/index`
+- [x] `conduite/proj/index` *(relu/rempli 12/06 — sommaire par grappe, 30 fiches)*
 
 ---
 

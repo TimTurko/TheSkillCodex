@@ -697,6 +697,22 @@ optimisation-mecanique.md (mme, notion interface):
 
 ---
 
+### Rattachements AA front-matter (review 12/06, reportés 13/06)
+
+> 5 fiches-notion PROJ/MEO/ESE ont reçu leur champ `aa:` en front matter lors de la relecture du socle MCU + index (12/06). Toutes en **multi-couverture** : chaque critère est déjà Couvert ailleurs → **statut dominant inchangé**, **tally global inchangé (45 C / 5 E / 4 HS / 3 HS-D / 0 NC, 79 %)**.
+
+```yaml
+mind-map.md (proj):            aa: RA-PROJET-C04-4/PROJ/1   # AF amont — multi-couv. spec-tech / CdCF / bete-a-cornes / fonction / pieuvre (C). Harmonise le bloc plus haut qui notait aa:[] (échafaudage).
+matrice-de-decision.md (proj): aa: []   # ✓ résolu 13/06 (relecture ESE) : PROJ/6 « définir les interactions entre blocs » confirmé mal collé pour une matrice d'arbitrage → retiré du front matter, aa: [] rétabli (« outil pivot transverse »). Réaligne sur la cartographie (couvert: []) ; PROJ/6 reste C via concept / schema-bloc-fonctionnel / dossier-technique. Tally inchangé (45 C / 5 E / 4 HS / 3 HS-D / 0 NC, 79 %).
+acv-simplifiee.md (proj):      aa: RA-ESE-C09-2/ESE/1, /2   # mener + interpréter l'ACV — multi-couv. dossier-technique (C)
+archivage-projet.md (meo):     aa: RA-MEO-C10-3/MEO/6       # organiser documents partagés — multi-couv. gestion-de-projet bloc 2 (C)
+revue-de-code.md (meo):        aa: RA-MEO-C08-6/MEO/3       # routines travail collectif — multi-couv. PoC + gestion-de-projet (C)
+```
+
+**Bilan** : 5 fiches, 0 reclassement, tally inchangé. Les blocs `mind-map` (aa:[]) et `matrice-de-decision` (0 C / 5 E) plus haut **précèdent** ces rattachements ; l'attribution `aa:` du 12/06 prime côté Quartz, la cartographie granulaire reste indicative.
+
+---
+
 ## Passe A — Cartographie inverse par domaine
 
 > Croisement des 21 cartographies fiche-par-fiche (passe B) pour identifier, pour chaque critère du référentiel, l'ensemble des fiches qui le portent. Permet de repérer trous phase 1, trous phase 2 prévus, et amendements à apporter à la passe B.

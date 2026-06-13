@@ -73,3 +73,4 @@ Sur le bras du fil rouge, l'étage d'entrée enchaîne les trois parades : un **
 - [[niveaux-de-tension|Niveaux de tension]] — la surtension côté signal (5 V sur une broche 3,3 V), cousine de celle traitée ici
 - [[pcb|Concevoir une carte (PCB)]] — intégrer l'étage de protection à la carte
 - [[securite-et-qualite|Sécurité & qualité]] — la sécurité des personnes, sujet distinct de la protection du matériel
+- [[emc|Compatibilité électromagnétique (EMC)]] — la protection ESD/surtension est le versant matériel de l'immunité EMC

@@ -21,4 +21,5 @@ Un prototype pédagogique **ne vise pas** un marquage CE réel — il n'est pas 
 
 - [[basse-tension|Directive basse tension]], [[emc|EMC]], [[iso-12100|ISO 12100]] — directives fréquemment concernées
 - [[securite-et-qualite|Sécurité et qualité]] — où se trace la conformité
+- [[caracteriser-une-exigence|Caractériser une exigence]] — une contrainte normative s'écrit en exigence (cible binaire, souvent F0)
 - **Cours normatif** (collègues) — directives et procédures de conformité

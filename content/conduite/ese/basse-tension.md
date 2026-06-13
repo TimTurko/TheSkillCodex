@@ -22,4 +22,5 @@ La plupart des projets étudiants travaillent en **très basse tension** (24 V e
 - [[marquage-ce|Marquage CE]] — la DBT est l'une des directives concernées
 - [[niveaux-de-tension|Niveaux de tension]] — les ordres de grandeur côté électronique
 - [[securite-et-qualite|Sécurité et qualité]] — règle « pas de 230 V sans encadrant »
+- [[caracteriser-une-exigence|Caractériser une exigence]] — une contrainte normative s'écrit en exigence (cible binaire, souvent F0)
 - **Cours normatif** (collègues) — seuils, classes d'isolation

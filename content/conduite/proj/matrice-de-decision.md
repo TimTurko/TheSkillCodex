@@ -8,8 +8,7 @@ tags:
   - notion
   - methode-decision
 prerequis: []
-aa:
-  - RA-PROJET-C04-4/PROJ/6
+aa: []
 draft: false
 ---
 

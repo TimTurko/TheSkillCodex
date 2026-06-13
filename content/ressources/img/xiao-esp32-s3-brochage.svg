@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" role="img" aria-labelledby="t d">
+  <title id="t">XIAO ESP32-S3 — ce que sortent les onze broches</title>
+  <desc id="d">Carte XIAO ESP32-S3 au centre, USB-C en haut, connecteur d'antenne U.FL, LED utilisateur sur GPIO21, boutons Boot (GPIO0) et Reset. Autour, six groupes de fonctions reliés a la carte : alimentation (5V en entree via une diode, GND, 3V3 en sortie 700 mA, pads batterie B plus et B moins au dos), onze GPIO tous capables de PWM, neuf entrees ADC sur D0 a D5 et D8 a D10, bus I2C avec SDA sur D4 et SCL sur D5, bus SPI sur D8 D9 D10, liaison serie UART avec TX sur D6 et RX sur D7.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 16px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .bd { font: 700 13px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .board { fill: #ECEAE2; stroke: #888780; stroke-width: 1.6; }
+      .wire { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .nd { fill: #BA7517; }
+      .foot { font: italic 400 11px sans-serif; fill: #888780; }
+      .ah { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .bd { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .board { fill: #3C3C3A; stroke: #BBBBBB; }
+        .wire { stroke: #EF9F27; }
+        .nd { fill: #EF9F27; }
+        .ah { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="390" y="26" text-anchor="middle" class="ti">XIAO ESP32-S3 — ce que sortent les onze broches</text>
+
+  <rect x="322" y="150" width="136" height="150" rx="8" class="board"/>
+  <rect x="372" y="142" width="36" height="14" rx="3" class="bx"/>
+  <text x="390" y="152" text-anchor="middle" class="sm">USB-C</text>
+  <text x="390" y="212" text-anchor="middle" class="bd">XIAO</text>
+  <text x="390" y="230" text-anchor="middle" class="bd">ESP32-S3</text>
+  <circle cx="340" cy="170" r="4" class="nd"/>
+  <text x="348" y="173" text-anchor="start" class="sm">U.FL</text>
+  <circle cx="340" cy="284" r="3.5" class="nd"/>
+  <text x="348" y="287" text-anchor="start" class="sm">LED GPIO21</text>
+  <text x="392" y="287" text-anchor="middle" class="sm">Boot · Reset</text>
+
+  <rect x="40" y="66" width="244" height="62" rx="4" class="obx"/>
+  <text x="52" y="86" text-anchor="start" class="hd">Alimentation</text>
+  <text x="52" y="103" text-anchor="start" class="sm">5V (entrée via diode) · GND · 3V3 (sortie, 700 mA)</text>
+  <text x="52" y="119" text-anchor="start" class="sm">pads batterie B+ / B− au dos</text>
+  <line x1="284" y1="106" x2="320" y2="158" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="40" y="158" width="214" height="44" rx="4" class="bx"/>
+  <text x="52" y="178" text-anchor="start" class="hd">11 GPIO</text>
+  <text x="52" y="194" text-anchor="start" class="sm">tous capables de PWM</text>
+  <line x1="254" y1="184" x2="320" y2="200" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="40" y="230" width="214" height="44" rx="4" class="bx"/>
+  <text x="52" y="250" text-anchor="start" class="hd">9 ADC</text>
+  <text x="52" y="266" text-anchor="start" class="sm">D0–D5, D8–D10</text>
+  <line x1="254" y1="252" x2="320" y2="240" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="496" y="118" width="244" height="44" rx="4" class="obx"/>
+  <text x="508" y="138" text-anchor="start" class="hd">I²C</text>
+  <text x="508" y="154" text-anchor="start" class="sm">SDA = D4 · SCL = D5</text>
+  <line x1="496" y1="144" x2="460" y2="174" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="496" y="190" width="244" height="44" rx="4" class="bx"/>
+  <text x="508" y="210" text-anchor="start" class="hd">SPI</text>
+  <text x="508" y="226" text-anchor="start" class="sm">SCK = D8 · MISO = D9 · MOSI = D10</text>
+  <line x1="496" y1="212" x2="460" y2="212" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="496" y="262" width="244" height="44" rx="4" class="bx"/>
+  <text x="508" y="282" text-anchor="start" class="hd">UART (série)</text>
+  <text x="508" y="298" text-anchor="start" class="sm">TX = D6 · RX = D7</text>
+  <line x1="496" y1="284" x2="460" y2="250" class="wire" marker-end="url(#aw)"/>
+
+  <text x="390" y="346" text-anchor="middle" class="foot">Disposition logique — repère les pads sur la sérigraphie de ta carte (table ci-dessous).</text>
+  <text x="390" y="366" text-anchor="middle" class="foot">Sérigraphie D0…D10 ≠ numéro GPIO (D6 = GPIO43) ; D6/D7 ne sont pas ADC.</text>
+</svg>

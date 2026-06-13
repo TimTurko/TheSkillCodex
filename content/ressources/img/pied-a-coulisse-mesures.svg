@@ -1,0 +1,65 @@
+<svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tpc dpc">
+  <title id="tpc">Pied à coulisse — trois mesures avec une même règle</title>
+  <desc id="dpc">Schéma d'un pied à coulisse. Une règle graduée porte un mors fixe à gauche et un mors coulissant. Les deux becs tournés vers le bas serrent une pièce et mesurent une longueur ou un diamètre extérieur. Les deux becs tournés vers le haut s'écartent dans un trou et mesurent un diamètre intérieur. Une jauge sort à droite de la règle et mesure une profondeur. Dans les trois cas l'instrument donne une cote absolue, lue sur la règle et le vernier ou sur un afficheur numérique.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 15px sans-serif; fill:#2C2C2A; }
+      .lbl  { font:700 13px sans-serif; fill:#BA7517; }
+      .tx   { font:400 12px sans-serif; fill:#2C2C2A; }
+      .foot { font:italic 400 11.5px sans-serif; fill:#888780; }
+      .metal{ fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .grad { stroke:#BA7517; stroke-width:1; }
+      .work { fill:#C9C7BF; stroke:#888780; stroke-width:1.6; }
+      .dim  { stroke:#BA7517; stroke-width:1.6; fill:none; marker-start:url(#pcA); marker-end:url(#pcA); }
+      .pch  { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#EF9F27;} .tx{fill:#F1EFE8;} .foot{fill:#BBBBBB;}
+        .metal{fill:#4A4A48; stroke:#EF9F27;} .grad{stroke:#EF9F27;}
+        .work{fill:#5A5852; stroke:#BBBBBB;} .dim{stroke:#EF9F27;} .pch{fill:#EF9F27;}
+      }
+    </style>
+    <marker id="pcA" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="pch"/></marker>
+  </defs>
+
+  <text x="330" y="26" class="ttl" text-anchor="middle">Pied à coulisse — une règle, trois mesures</text>
+
+  <!-- mesure intérieure : entre les faces extérieures des becs hauts -->
+  <text x="249" y="58" class="tx"  text-anchor="middle">Ø intérieur (alésage)</text>
+  <text x="249" y="82" class="lbl" text-anchor="middle">becs intérieurs</text>
+  <line class="dim" x1="150" y1="98" x2="349" y2="98"/>
+
+  <!-- règle graduée -->
+  <rect class="metal" x="150" y="170" width="310" height="20" rx="3"/>
+  <line class="grad" x1="172" y1="170" x2="172" y2="178"/>
+  <line class="grad" x1="200" y1="170" x2="200" y2="178"/>
+  <line class="grad" x1="228" y1="170" x2="228" y2="178"/>
+  <line class="grad" x1="256" y1="170" x2="256" y2="178"/>
+  <line class="grad" x1="380" y1="170" x2="380" y2="178"/>
+  <line class="grad" x1="408" y1="170" x2="408" y2="178"/>
+  <line class="grad" x1="436" y1="170" x2="436" y2="178"/>
+
+  <!-- mors fixe (gauche) -->
+  <rect class="metal" x="150" y="118" width="12" height="52"/>
+  <rect class="metal" x="150" y="190" width="14" height="66"/>
+
+  <!-- coulisse -->
+  <rect class="metal" x="305" y="156" width="44" height="38" rx="3"/>
+  <rect class="metal" x="337" y="118" width="12" height="52"/>
+  <rect class="metal" x="335" y="190" width="14" height="66"/>
+
+  <!-- jauge de profondeur (sort du bout droit de la règle) -->
+  <rect class="metal" x="460" y="176" width="92" height="8"/>
+
+  <!-- pièce serrée par les becs extérieurs -->
+  <rect class="work" x="186" y="220" width="132" height="30" rx="2"/>
+  <line class="dim" x1="164" y1="210" x2="335" y2="210"/>
+  <text x="249" y="276" class="lbl" text-anchor="middle">becs extérieurs</text>
+  <text x="249" y="292" class="tx"  text-anchor="middle">longueur · Ø extérieur</text>
+
+  <!-- profondeur : longueur de jauge sortie -->
+  <line class="dim" x1="462" y1="162" x2="550" y2="162"/>
+  <text x="506" y="208" class="lbl" text-anchor="middle">jauge de profondeur</text>
+  <text x="506" y="224" class="tx"  text-anchor="middle">profondeur d'un trou</text>
+
+  <text x="330" y="344" class="foot" text-anchor="middle">Cote absolue — lue sur la règle + vernier, ou sur l'afficheur numérique.</text>
+</svg>

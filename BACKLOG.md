@@ -20,6 +20,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 
 ## Fiches à rédiger — par domaine
 
+> **MAJ 12/06** — la **branche Conduite de projet** (fiches PROJ + MEO + ESE) est **intégralement créée et relue** (relecture humaine close 12/06). Beaucoup d'entrées non cochées des sections PROJ/MEO/ESE ci-dessous correspondent à des fiches **existantes et validées** (`caracteriser-une-exigence`, `etat-de-l-art-technique`, `decomposition-fonctionnelle`, `fast`, `mind-map`, `mecatronique`, `bom`, `amdec`, `unite-si`, `relation-client`, `archivage-projet`, `revue-de-code`, `cable-management`, `marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `epi`…). À cocher lors d'un grooming BACKLOG dédié (éviter un balayage à risque en clôture).
+
 ### EEE — Électronique
 - [x] ~~PWM (modulation de largeur d'impulsion)~~ — popover `pwm` créé 28/05 suite 4 (brique MCU).
 - [ ] PID (régulateur proportionnel-intégral-dérivé)
@@ -222,6 +224,8 @@ Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/
 *Migrées depuis TODO 27/05 suite 3. Accumulées au fil des fiches, à conduire en passe dédiée avant publication aux élèves.*
 
 - [ ] **Clic-test des wikilinks de forme `x/index` au rendu** — un wikilink `eee/index` ne résout pas par slug (404 ; 10 occurrences corrigées 10/06 en `fiches/eee/index`) et **le scan bash de la source ne peut pas détecter ce type d'échec** — seul le clic au rendu le voit. À vérifier avant publication sur les liens équivalents restants (homepage, `hub/index`, `mme/index`, `proj/index`, Voir aussi des hubs).
+
+- [ ] **Clic-tests branche Conduite de projet (12/06)** — au rendu Quartz + mobile : SVG `fils-transverses-generique` (sur les 3 transverses, clair + sombre), `jalons-generique` (6 losanges), `mecatronique-generique`, `matrice-de-risques-station-meteo` (légende colonne unique 720×600), `mind-map-bras-3-axes` (feuille opérateur), `retroplanning-generique` (légende) ; **ancres double-tiret** `#cas-particulier--projet-école-sans-client-réel` (`bete-a-cornes`, `cahier-des-charges-fonctionnel` — C70) ; **liens slug-nu** des 3 index de domaine (`proj`/`meo`/`ese`) ; valeur `phases: integration-et-tests` (`acv-simplifiee`, `cable-management`) au filtre Explorer ; `text-anchor` en classes sur les 8 SVG planification + `matrice-de-risques` (vérifier le non-décalage des libellés).
 
 - [ ] Vérifier le rendu des 4 squelettes (`concept`, `preuve-de-concept`, `dossier-technique`, `integration-et-tests`) en local Quartz + smartphone
 - [ ] Vérifier le rendu de la fiche hub sur smartphone (vrai test responsif)

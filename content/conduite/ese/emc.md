@@ -21,4 +21,6 @@ L'EMC se rencontre concrètement bien avant toute certification : un moteur qui 
 
 - [[marquage-ce|Marquage CE]] — l'EMC en est une directive
 - [[securite-et-qualite|Sécurité et qualité]] — traçabilité des normes touchées
+- [[protection-electronique|Protections électroniques]] — TVS et protection ESD, le versant matériel de l'immunité
+- [[decouplage|Découplage]] — masses propres et découplage, première réponse EMC côté carte
 - **Cours normatif** (collègues) — essais et conception EMC

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" role="img" aria-labelledby="t d">
+  <title id="t">Antenne : céramique interne ou externe (U.FL)</title>
+  <desc id="d">A gauche, la XIAO ESP32-S3 avec son antenne ceramique integree, active par defaut, portee standard. A droite, la meme carte avec une antenne externe branchee sur le connecteur U.FL pour une portee superieure, utile en boitier, pres du metal ou pour une longue distance. Le choix est materiel, il n'y a pas de reglage logiciel.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .nm { font: 700 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .board { fill: #ECEAE2; stroke: #888780; stroke-width: 1.5; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .ant { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .arc { stroke: #BA7517; stroke-width: 1.3; fill: none; }
+      .nd { fill: #BA7517; }
+      .foot { font: italic 400 10.5px sans-serif; fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .nm { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .board { fill: #3C3C3A; stroke: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .ant, .arc { stroke: #EF9F27; }
+        .nd { fill: #EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="24" text-anchor="middle" class="ti">Antenne : céramique interne ou externe (U.FL)</text>
+
+  <rect x="70" y="60" width="130" height="112" rx="6" class="board"/>
+  <rect x="95" y="70" width="80" height="16" rx="2" class="obx"/>
+  <text x="135" y="82" text-anchor="middle" class="sm">céramique</text>
+  <text x="135" y="128" text-anchor="middle" class="nm">XIAO S3</text>
+  <text x="135" y="194" text-anchor="middle" class="hd">Interne — par défaut</text>
+  <text x="135" y="210" text-anchor="middle" class="sm">portée standard, rien à brancher</text>
+
+  <rect x="400" y="60" width="130" height="112" rx="6" class="board"/>
+  <text x="465" y="128" text-anchor="middle" class="nm">XIAO S3</text>
+  <circle cx="515" cy="78" r="4.5" class="nd"/>
+  <text x="505" y="70" text-anchor="middle" class="sm">U.FL</text>
+  <line x1="515" y1="78" x2="560" y2="78" class="ant"/>
+  <line x1="560" y1="92" x2="560" y2="48" class="ant"/>
+  <path d="M 570 56 q 10 14 0 32" class="arc"/>
+  <path d="M 578 50 q 16 22 0 46" class="arc"/>
+  <text x="465" y="194" text-anchor="middle" class="hd">Externe — connecteur U.FL</text>
+  <text x="465" y="210" text-anchor="middle" class="sm">portée ++ : boîtier, métal, longue distance</text>
+
+  <text x="310" y="238" text-anchor="middle" class="foot">Connecteur U.FL fragile — clipse / déclipse avec soin. Choix matériel, pas de réglage logiciel.</text>
+</svg>
