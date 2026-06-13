@@ -891,6 +891,16 @@ Pas de nouvelle convention numérotée (reste à **70**) — session de confirma
 - **C62 / C68 / C69 / C70 sans objet pour la branche** : ni tableau, ni SVG (un pointeur C58 délégué n'en porte pas — verdict C68), ni ancre. Première branche relue où tous ces contrôles d'office sont à vide.
 - **« Vérifier l'existant avant réciproque » (C14 sur les liens) réaffirmé** : `securite-et-qualite` ↔ ESE était déjà réciproque (5 pointeurs dans sa *Voir aussi*), rien à rajouter de ce côté ; les réciproques posées l'ont été vers `caracteriser-une-exigence` (FC normative) et `protection-electronique`/`decouplage` (versant matériel EMC).
 
+### Acquises 13/06 (suite 2) — production module XIAO ESP32-S3
+
+71. **Pas de prix ni de cadrage « achat » dans les fiches — l'école fournit le matériel.** Les étudiants ne paient ni leurs cartes ni leurs composants (fournis par l'école) : une fiche ne mentionne donc ni prix, ni « à l'achat », ni « dans la boîte ». L'aide au choix porte sur l'**adéquation technique** (capacités, périphériques, contraintes), jamais sur le coût. Demande Tim explicite (callout « À l'achat » retiré du hub XIAO). Éprouvée 1/N. **La numérotation éprouvage atteint 71.**
+72. **Un hub de famille assume un primo-découvreur.** Un hub de famille (MCU, etc.) peut être le **premier point de contact** d'un étudiant avec le sujet : sa prose ne présuppose jamais le parcours déjà lu. Proscrit : « ce hub enfile les fiches existantes », « comme tu l'as vu ». À la place, formuler les renvois en self-contained — « le tableau pointe chaque besoin vers la fiche qui l'explique ; si tu débutes, parcours-le de haut en bas ». Demande Tim (reformulation de l'intro « Mettre en œuvre » du hub XIAO). Éprouvée 1/N. **La numérotation éprouvage atteint 72.**
+
+Notes 13/06 (suite 2) (pas de convention numérotée) :
+- **C47 (parcours par composition) réemployée en production.** Le module XIAO n'introduit aucune compétence neuve : le hub délègue le SoC à `esp32`, le choix inter-familles à `microcontroleur`, les fondamentaux aux [T], et ne porte que le **spécifique carte** (onze broches, alimentation/charge, antenne, variantes) en aiguillant le reste. `aliases: [xiao]` résout le lien rouge `[[xiao]]` du panorama sans retoucher `microcontroleur`. Confirme C47 en création (pas seulement en relecture).
+- **C66 / C67 / C68 / C69 appliquées sans accroc** : table famille-first des variantes + table d'aiguillage (C66, pipes échappés C62) ; SVG extendeur I²C de type *branchement* (C67) ; au moins un SVG par fiche, 7 au total mêlant *compréhension* (brochage, variantes, périphériques Sense) et *branchement* (extendeur, antenne, alim, bootloader) (C68) ; markers en classes + override sombre + text-anchor par élément (C69).
+- **Specs vérifiées au pad en production** (wiki Seeed, pas de mémoire) : D6 = GPIO43, 9 ADC (D6/D7 et A11/A12 exclus malgré le nom), LED utilisateur GPIO21 active à l'état bas, charge LiPo 50 mA, deep sleep 14 µA, 3V3 <= 700 mA.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

@@ -187,6 +187,12 @@ Verdict : OK / a corriger
 - [ ] `esp32-deep-sleep` — 🖼
 - [ ] `esp32-freertos` — 🖼
 
+## 9bis · EEE — XIAO ESP32-S3 (module créé 13/06, à relire au rendu)
+- [ ] `xiao-esp32-s3` (hub) — 🖼 *(créé 13/06 ; 4 SVG : brochage, variantes, extendeur-i2c, antenne)*
+- [ ] `xiao-prise-en-main` — 🖼 *(créé 13/06 ; SVG bootloader)*
+- [ ] `xiao-alimentation` — 🖼 *(créé 13/06 ; SVG paths)*
+- [ ] `xiao-sense` — 🖼 *(créé 13/06 ; SVG peripheriques)*
+
 ## 10 · EEE — ESP8266
 - [ ] `esp8266` (hub)
 - [ ] `esp8266-prise-en-main`

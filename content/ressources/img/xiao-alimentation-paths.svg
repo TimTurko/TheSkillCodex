@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-labelledby="t d">
+  <title id="t">Alimenter et recharger le XIAO ESP32-S3</title>
+  <desc id="d">Chemins d'alimentation du XIAO ESP32-S3. L'USB-C en 5V passe par le circuit de charge integre vers la batterie LiPo 3,7V branchee sur les pads B plus et B moins au dos. L'USB-C ou la batterie alimentent le regulateur 3V3, qui fournit jusqu'a 700 mA a l'ESP32-S3 et aux peripheriques. Quand la carte est sur batterie seule, la broche 5V est eteinte.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #555450; }
+      .lab { font: 600 10px sans-serif; fill: #888780; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .wire { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      .ah { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .lab, .foot { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .wire { stroke: #EF9F27; }
+        .ah { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="350" y="26" text-anchor="middle" class="ti">Alimenter et recharger le XIAO ESP32-S3</text>
+
+  <rect x="36" y="54" width="104" height="46" rx="5" class="bx"/>
+  <text x="88" y="76" text-anchor="middle" class="hd">USB-C</text>
+  <text x="88" y="91" text-anchor="middle" class="sm">5 V</text>
+
+  <line x1="140" y1="77" x2="194" y2="77" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="196" y="54" width="132" height="46" rx="5" class="obx"/>
+  <text x="262" y="81" text-anchor="middle" class="hd">circuit de charge</text>
+
+  <line x1="328" y1="77" x2="382" y2="77" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="384" y="54" width="160" height="46" rx="5" class="bx"/>
+  <text x="464" y="75" text-anchor="middle" class="hd">batterie LiPo 3,7 V</text>
+  <text x="464" y="91" text-anchor="middle" class="sm">B+ / B− (au dos)</text>
+
+  <path d="M88,100 V160 H236 V188" class="wire" marker-end="url(#aw)"/>
+  <text x="98" y="152" text-anchor="start" class="lab">5 V</text>
+  <path d="M464,100 V160 H300 V188" class="wire" marker-end="url(#aw)"/>
+  <text x="430" y="152" text-anchor="end" class="lab">ou accu</text>
+
+  <rect x="196" y="190" width="132" height="46" rx="5" class="obx"/>
+  <text x="262" y="211" text-anchor="middle" class="hd">régulateur 3V3</text>
+  <text x="262" y="227" text-anchor="middle" class="sm">sortie ≤ 700 mA</text>
+
+  <line x1="328" y1="213" x2="382" y2="213" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="384" y="190" width="160" height="46" rx="5" class="bx"/>
+  <text x="464" y="211" text-anchor="middle" class="hd">ESP32-S3</text>
+  <text x="464" y="227" text-anchor="middle" class="sm">+ périphériques</text>
+
+  <text x="350" y="266" text-anchor="middle" class="foot">USB branché : recharge l'accu ET alimente la carte. Sur batterie seule : le 3V3 vient de l'accu, la broche 5V est éteinte.</text>
+  <text x="350" y="284" text-anchor="middle" class="foot">Charge : 50 mA (rapide) / 3,8 mA (entretien). Pour alimenter par la broche 5V, une diode en série (anode côté source).</text>
+</svg>

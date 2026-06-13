@@ -45,12 +45,9 @@ XIAO décline le même format sur plusieurs puces ESP32. Pars du **besoin du pro
 | **ESP32-C6** | RISC-V (HP + LP) | 512 Ko / 4 Mo | Wi-Fi 6 + BLE 5 + 802.15.4 | Thread / Zigbee / **Matter** | domotique interopérable |
 | **ESP32-C5** | RISC-V | 512 Ko / 4 Mo | Wi-Fi 6 **bi-bande** (2,4 / 5 GHz) | — | passerelle, Wi-Fi 5 GHz |
 
-> [!tip] À l'achat
-> Compte de l'ordre de **5 à 15 €** selon la variante (la C3 en entrée de gamme, la Sense en haut) — *indicatifs : disponibilité et tarif varient, la boutique Seeed fait foi*. Vérifie surtout **S3 vs S3 Sense** (la Sense embarque caméra + micro + microSD) et la présence de l'**antenne externe** dans la boîte.
-
 ## Mettre en œuvre dans ton projet
 
-Ce hub ne ré-explique pas les fondamentaux : il **enfile les fiches existantes** dans l'ordre où tu en as besoin. La démarche projet complète — chiffrer, choisir, concevoir, programmer, tester — est portée par la [[embarque/index|colonne de réalisation]] (le XIAO entre à l'étape [[choisir-le-materiel|choisir le matériel]]).
+Programmer cette carte mobilise les mêmes briques que tout microcontrôleur : entrées/sorties, communication, sans-fil, basse consommation. Le tableau ci-dessous **renvoie chaque besoin vers la fiche qui l'explique** — si tu débutes, parcours-le de haut en bas ; sinon, va droit à ce qu'il te manque. Et pour mener un projet de bout en bout (chiffrer les besoins, choisir, concevoir, programmer, tester), tout est déroulé dans la [[embarque/index|colonne de réalisation]], où le XIAO entre à l'étape [[choisir-le-materiel|choisir le matériel]].
 
 | Tu veux… | Va voir |
 | --- | --- |
@@ -117,9 +114,9 @@ Les **bords castellés** permettent de souder la XIAO directement sur ton propre
 
 - [[esp32|ESP32]] — le SoC, les radios, les chaînes d'outils (le parcours puce)
 - [[microcontroleur|Microcontrôleur]] — panorama des familles et aide au choix inter-familles
-- [[xiao-prise-en-main|XIAO — prise en main]] — premier flashage, boutons, USB *(à venir)*
-- [[xiao-alimentation|XIAO — alimentation]] — recharge d'accu, basse consommation *(à venir)*
-- [[xiao-sense|XIAO Sense]] — caméra, micro, microSD, IA embarquée *(à venir)*
+- [[xiao-prise-en-main|XIAO — prise en main]] — premier flashage, boutons, USB
+- [[xiao-alimentation|XIAO — alimentation]] — recharge d'accu, basse consommation
+- [[xiao-sense|XIAO Sense]] — caméra, micro, microSD, IA embarquée
 - [[embarque/index|Colonne de réalisation]] — la démarche projet de bout en bout
 - [[choisir-le-materiel|Choisir le matériel]] — l'étape où le XIAO entre dans le projet
 - [[i2c|I²C]] — le bus de l'extendeur d'E/S

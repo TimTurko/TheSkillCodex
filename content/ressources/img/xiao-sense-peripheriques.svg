@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="t d">
+  <title id="t">Ce que la Sense ajoute, et par quel bus</title>
+  <desc id="d">Le XIAO ESP32-S3, avec ses 8 Mo de PSRAM, est relie par le connecteur B2B a trois peripheriques de la carte Sense : une camera OV3660 en liaison DVP parallele plus un bus I2C de reglage (SCCB), un microphone numerique PDM sur GPIO42 (horloge) et GPIO41 (donnees), et un lecteur microSD jusqu'a 32 Go sur le bus SPI partage D8 D9 D10 avec une ligne CS. L'image de la camera est stockee dans la PSRAM.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10px sans-serif; fill: #555450; }
+      .bx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .wire { stroke: #BA7517; stroke-width: 1.8; fill: none; }
+      .foot { font: italic 400 10px sans-serif; fill: #888780; }
+      .ah { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .bx { fill: #4A4A48; stroke: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .wire { stroke: #EF9F27; }
+        .ah { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="360" y="26" text-anchor="middle" class="ti">Ce que la Sense ajoute, et par quel bus</text>
+
+  <rect x="40" y="110" width="150" height="88" rx="6" class="bx"/>
+  <text x="115" y="148" text-anchor="middle" class="hd">XIAO ESP32-S3</text>
+  <text x="115" y="166" text-anchor="middle" class="sm">8 Mo PSRAM</text>
+  <text x="115" y="206" text-anchor="middle" class="sm">connecteur B2B →</text>
+
+  <line x1="192" y1="140" x2="414" y2="82" class="wire" marker-end="url(#aw)"/>
+  <line x1="192" y1="154" x2="414" y2="157" class="wire" marker-end="url(#aw)"/>
+  <line x1="192" y1="168" x2="414" y2="232" class="wire" marker-end="url(#aw)"/>
+
+  <rect x="416" y="56" width="276" height="50" rx="5" class="obx"/>
+  <text x="554" y="77" text-anchor="middle" class="hd">Caméra OV3660</text>
+  <text x="554" y="94" text-anchor="middle" class="sm">DVP parallèle + I²C (SCCB) · framebuffer en PSRAM</text>
+
+  <rect x="416" y="132" width="276" height="50" rx="5" class="obx"/>
+  <text x="554" y="153" text-anchor="middle" class="hd">Micro numérique (PDM)</text>
+  <text x="554" y="170" text-anchor="middle" class="sm">GPIO42 (CLK) · GPIO41 (DATA)</text>
+
+  <rect x="416" y="208" width="276" height="50" rx="5" class="obx"/>
+  <text x="554" y="229" text-anchor="middle" class="hd">Lecteur microSD (≤ 32 Go)</text>
+  <text x="554" y="246" text-anchor="middle" class="sm">bus SPI : D8 / D9 / D10 + CS</text>
+
+  <text x="360" y="286" text-anchor="middle" class="foot">Tout passe par le B2B. Micro (D11/D12) et carte SD (bus SPI) mobilisent des broches partagées — un périphérique à la fois sur celles-ci.</text>
+</svg>
