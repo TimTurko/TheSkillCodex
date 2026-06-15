@@ -8,7 +8,8 @@ tags:
   - tuto
 prerequis:
   - arduino
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -21,7 +22,7 @@ La prise en main valide en une fois toute la chaîne entre votre code et la cart
 Au-delà du premier programme, l'étape a deux rôles :
 
 - **Diagnostiquer plus tard.** Quand un sketch plus avancé refusera de fonctionner, on saura distinguer un problème de *code* d'un problème de *toolchain* — parce que le Blink, lui, fonctionne sur la même chaîne.
-- **Donner un repère de référence.** L'IDE, le menu *Outils → Type de carte / Port*, le bouton Téléverser, le moniteur série : ce sont les gestes mille fois répétés du tutoriel. Les ancrer une fois sur du code trivial libère l'attention pour le reste.
+- **Donner un repère de référence.** L'IDE, le menu *Outils → Type de carte / Port*, le bouton Téléverser, le [[arduino-serie|moniteur série]] : ce sont les gestes mille fois répétés du tutoriel. Les ancrer une fois sur du code trivial libère l'attention pour le reste.
 
 ## Procédure pas à pas
 
@@ -49,9 +50,9 @@ Prendre capture d'écran de *l'IDE Arduino 2.x ouvert, avec le menu Outils déro
 
 Symptôme commun : aucun port ne correspond à la carte dans *Outils → Port*. Les causes, par ordre de fréquence :
 
-**1. Câble USB *charge only*.** La LED *ON* de la carte est allumée — elle est alimentée — mais aucun port n'apparaît. Le câble, souvent un cordon de smartphone, ne transmet que l'alimentation, pas les données. C'est l'erreur n°1 des débuts : remplacez-le par un **câble USB de données**.
+**1. Câble USB *charge only*.** La LED *ON* de la carte est allumée — elle est alimentée — mais aucun port n'apparaît. Le câble, souvent un cordon de smartphone, ne transmet que l'alimentation, pas les données. C'est de loin la cause la plus fréquente : remplacez-le par un **câble USB de données**.
 
-**2. Pilote CH340 manquant (cartes clones).** Le câble est bon, la carte est alimentée, mais toujours aucun port sous Windows. Les cartes Uno/Nano clones (non officielles, 5-10 € sur AliExpress) embarquent une puce USB-série **CH340** au lieu du circuit USB officiel ; Windows ne sait pas lui parler tant que son pilote n'est pas installé.
+**2. Pilote CH340 manquant (cartes clones).** Le câble est bon, la carte est alimentée, mais toujours aucun port sous Windows. Les cartes Uno/Nano clones (non officielles) embarquent une puce USB-série **CH340** au lieu du circuit USB officiel ; Windows ne sait pas lui parler tant que son pilote n'est pas installé.
 
 > [!tip]
 > **Installer le pilote CH340, pas à pas.**
@@ -118,6 +119,8 @@ Téléversez à nouveau. La LED fait maintenant un éclair court (100 ms) toutes
 **Mauvais port sélectionné.** Si plusieurs cartes (ou un téléphone) sont branchées en USB, l'IDE peut proposer plusieurs ports. Téléverser sur le mauvais port échoue avec un message d'erreur cryptique — toujours vérifier *Outils → Port* avant chaque téléversement.
 
 **Compilation OK ≠ téléversement OK.** Une compilation réussie valide la syntaxe du code, pas la connexion à la carte. Si le téléversement échoue avec `programmer is not responding` ou `avrdude: stk500_recv()`, la carte n'a pas répondu — port, câble ou carte à vérifier.
+
+**Clone Nano, mauvais bootloader.** Sur certains clones Nano, le port est reconnu mais le téléversement échoue (timeout `avrdude`). Choisir *Outils → Processeur → ATmega328P (Old Bootloader)* règle le souci.
 
 **Téléverser avec le moniteur série ouvert ailleurs.** Si une autre application (PlatformIO, un terminal externe, un autre IDE) tient le port ouvert, le téléversement échoue car le port est verrouillé. Fermer l'autre fenêtre, retenter.
 
