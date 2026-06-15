@@ -43,6 +43,21 @@ article {
 }
 
 // =====================================================================
+// Images de contenu (raster + SVG) — centrage horizontal
+// =====================================================================
+// Quartz aligne les images à gauche par défaut. On les centre, comme les
+// diagrammes Mermaid. La taille d'affichage se règle par image dans le
+// markdown (`![alt|largeur](...)`), pas ici.
+// =====================================================================
+
+article {
+  img {
+    display: block;
+    margin-inline: auto;
+  }
+}
+
+// =====================================================================
 // CALLOUTS — palette v2 (charte graphique, session 2026-05-22)
 // =====================================================================
 // Palette pastel saturée, ambiance lecture longue.
