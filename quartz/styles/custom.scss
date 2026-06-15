@@ -57,6 +57,13 @@ article {
   }
 }
 
+// Légende d'image — paragraphe en italique seul placé juste après une
+// image : centré (rendu « figure »). N'affecte pas les amorces (qui
+// précèdent l'image) ni la prose qui suit une image.
+article > p:has(img) + p:has(> em:only-child) {
+  text-align: center;
+}
+
 // =====================================================================
 // CALLOUTS — palette v2 (charte graphique, session 2026-05-22)
 // =====================================================================
