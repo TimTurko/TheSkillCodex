@@ -81,9 +81,13 @@ C'est donc le choix par défaut pour apprendre, prototyper vite et valider un pr
 
 Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la gamme (Leonardo, Due, Giga, variantes Nano) se choisit au cas par cas.
 
-![Carte Arduino Uno R3 vue de dessus](/ressources/img/arduino-uno-photo.webp)
+![Carte Arduino Uno R3 vue de dessus|420](/ressources/img/arduino-uno-photo.webp)
 
-![Brochage (pinout) de l'Arduino Uno R3](/ressources/img/arduino-uno-pinout.webp)
+*Carte Arduino Uno R3 — la carte de référence du panorama.*
+
+![Brochage (pinout) de l'Arduino Uno R3|600](/ressources/img/arduino-uno-pinout.webp)
+
+*Brochage de l'Arduino Uno R3 : broches numériques, analogiques, alimentation et bus.*
 
 | Carte | MCU | Flash / RAM | E/S (num. / ana. / PWM) | Particularité | Cas d'usage typique |
 | --- | --- | --- | --- | --- | --- |
