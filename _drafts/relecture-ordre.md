@@ -135,7 +135,7 @@ Verdict : OK / a corriger
 - [x] `fonction-informatique` — ✅ *(validée 12/06 : renvoi portée pointé directement sur cpp-portee [au lieu du hub cpp] ; désambiguïsation analyse fonctionnelle déjà en place)*
 
 ## 7 · EEE — Arduino (famille de référence)
-- [ ] `arduino` (hub)
+- [x] `arduino` (hub) — 🖼 *(relu 15/06 : tutoriels gardés en tête [fonction hub], « par où commencer » → prise-en-main, plafond AVR ajouté, radio restreinte au panorama, FreeRTOS « est traité » ; 2 images webp posées [photo Uno R3 + pinout, |420 / |600, légendes centrées] ; CSS — centrage images global + légende-figure)*
 - [ ] `arduino-prise-en-main`
 - [ ] `tinkercad`
 - [ ] `arduino-serie`
