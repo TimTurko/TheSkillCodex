@@ -18,6 +18,8 @@ draft: false
 
 Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première LED qui clignote jusqu'au niveau ingénieur. La plupart appliquent sur Arduino une notion transverse, définie une fois pour toutes les familles — les items marqués *(transverse)* sont ces fiches partagées du squelette, le reste est propre à Arduino.
 
+**Par où commencer ?** Par la [[arduino-prise-en-main|prise en main]] : installer l'IDE et faire clignoter une première LED sur du matériel réel. Le reste se suit dans l'ordre, ou se pioche au besoin du projet.
+
 ### Prendre en main
 
 - [[arduino-prise-en-main|Prise en main d'Arduino]] — installer l'IDE, écrire et téléverser un premier programme ;
@@ -62,7 +64,7 @@ Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première L
 - [[arduino-memoire|Gestion mémoire]] *(→ notion [[memoire]])* — RAM, PROGMEM ;
 - [[arduino-watchdog|Watchdog]] — robustesse du firmware.
 
-Le multitâche (FreeRTOS) sera traité côté module ESP32 et dans [[firmware]]. D'autres tutos compléteront ces paliers au fil des projets.
+Le multitâche (FreeRTOS) est traité côté module ESP32 et dans [[firmware]]. D'autres tutos compléteront ces paliers au fil des projets.
 
 ## Pourquoi Arduino ?
 
@@ -73,11 +75,15 @@ Arduino occupe une **niche d'accessibilité** plus qu'une niche de performance. 
 - une **tolérance 5 V** sur les entrées/sorties, compatible avec un grand parc de capteurs et de modules ;
 - une **courbe d'apprentissage douce**, idéale pour entrer dans l'embarqué.
 
-C'est donc le choix par défaut pour apprendre, prototyper vite et valider un principe. Quand le projet réclame du **sans-fil** (Wi-Fi, Bluetooth), de l'**autonomie sur batterie** ou de la **performance**, une autre famille s'impose souvent — la décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]]. À noter : hors Uno R4 WiFi, les cartes Arduino n'embarquent pas de radio ; pour un objet connecté, regarder du côté de l'[[esp32|ESP32]].
+C'est donc le choix par défaut pour apprendre, prototyper vite et valider un principe. Ses limites se font sentir sur les cartes 8 bits (Uno R3, Mega, Nano) : 2 Ko de RAM sur l'Uno R3, pas d'unité de calcul flottant (les `float` sont émulés, donc lents) et pas d'USB natif. Quand le projet réclame du **sans-fil** (Wi-Fi, Bluetooth), de l'**autonomie sur batterie** ou de la **performance**, une autre famille s'impose souvent — la décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]]. À noter : hors Uno R4 WiFi, les cartes de ce panorama n'embarquent pas de radio ; pour un objet connecté, regarder du côté de l'[[esp32|ESP32]].
 
 ## Panorama des cartes
 
 Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la gamme (Leonardo, Due, Giga, variantes Nano) se choisit au cas par cas.
+
+![Carte Arduino Uno R3 vue de dessus](/ressources/img/arduino-uno-photo.webp)
+
+![Brochage (pinout) de l'Arduino Uno R3](/ressources/img/arduino-uno-pinout.webp)
 
 | Carte | MCU | Flash / RAM | E/S (num. / ana. / PWM) | Particularité | Cas d'usage typique |
 | --- | --- | --- | --- | --- | --- |
