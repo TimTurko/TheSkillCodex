@@ -30,7 +30,9 @@ Quatre étapes : installer, brancher, écrire (ou charger), téléverser.
 
 ### 1. Installer l'IDE Arduino
 
-Téléchargez l'IDE depuis le site officiel `arduino.cc`, section *Software*. Deux versions coexistent : l'**IDE 2.x** (récente, recommandée — autocomplétion, débogueur, gestionnaire de cartes intégré) et l'**IDE 1.8.x** (legacy, plus légère, encore présente sur de nombreuses machines pédagogiques). Les captures de cette fiche utilisent l'IDE 2.x.
+Téléchargez l'IDE depuis le site officiel : [arduino.cc](https://www.arduino.cc/) → *Products → Software → Arduino IDE* (lien direct : [arduino.cc/en/software](https://www.arduino.cc/en/software)). Deux versions coexistent : l'**IDE 2.x** (récente, recommandée — autocomplétion, débogueur, gestionnaire de cartes intégré) et l'**IDE 1.8.x** (legacy, plus légère, encore présente sur de nombreuses machines pédagogiques). Les captures de cette fiche utilisent l'IDE 2.x.
+
+Au moment du téléchargement, Arduino peut proposer de **contribuer (don)** ou de créer un compte : c'est **optionnel** — cliquer sur *Just Download* pour passer directement au téléchargement.
 
 Sur Windows, l'installateur installe aussi les pilotes USB pour les cartes Arduino officielles. Sous Linux, ajoutez votre utilisateur au groupe `dialout` pour accéder au port série sans `sudo`. Sous macOS, rien à faire en plus.
 
