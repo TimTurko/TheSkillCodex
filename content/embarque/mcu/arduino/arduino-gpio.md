@@ -71,7 +71,7 @@ void loop() {
 - **Entrée sur bouton, mode `INPUT_PULLUP`** : un côté du bouton sur la broche, l'autre côté sur GND. Rien d'autre.
 - **Entrée sur bouton, mode `INPUT`** : il faut une résistance externe (pull-up vers `+5 V` ou pull-down vers GND, ~10 kΩ) pour donner un état de repos défini.
 
-*Prendre une photo d'un montage breadboard : carte Arduino Uno, bouton entre D2 et GND, LED + résistance 220 Ω entre D13 et GND.*
+![Montage : carte Arduino Uno, bouton entre D2 et GND, LED + résistance 220 Ω entre D13 et GND|600](/ressources/img/arduino-gpio/montage-bouton-led.webp)
 
 ## Exemple — Bouton qui allume une LED
 
