@@ -16,7 +16,7 @@ draft: false
 
 Les **technologies sans-fil** permettent à un système d'échanger des données par ondes radio, sans liaison filaire — pour dialoguer avec un smartphone, un serveur, ou d'autres nœuds d'un réseau de capteurs. Cette fiche est le **hub d'entrée** vers les protocoles les plus courants en projet — le [[wifi|Wi-Fi]], le [[ble|BLE]], le [[zigbee|Zigbee]], les modules [[xbee|XBee]] et le [[lora|LoRa]] — et donne la méthode pour choisir entre eux, sans détailler chacun (c'est le rôle des fiches filles).
 
-![Carte de positionnement des cinq technologies sans-fil selon la portée (axe horizontal) et le débit (axe vertical). Wi-Fi : débit élevé, courte portée. BLE : portée courte, débit modéré. Zigbee et XBee : portée moyenne, débit bas. LoRa : très longue portée, débit très faible. Tendance d'ensemble : plus la portée augmente, plus le débit diminue.](/ressources/img/techno-sans-fil-comparaison.svg)
+![Carte de positionnement des cinq technologies sans-fil selon la portée (axe horizontal) et le débit (axe vertical). Wi-Fi : débit élevé, courte portée. BLE : portée courte, débit modéré. Zigbee et XBee : portée moyenne, débit bas. LoRa : très longue portée, débit très faible. Tendance d'ensemble : plus la portée augmente, plus le débit diminue.](/ressources/img/techno-sans-fil/comparaison.svg)
 
 ## À quoi ça sert ?
 
