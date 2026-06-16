@@ -3,6 +3,7 @@ title: Lire une entrée TOR
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -25,11 +26,11 @@ Quatre étapes : câbler avec pull-up, lire, ajouter l'anti-rebond, détecter le
 
 ### 1. Câbler le bouton avec `INPUT_PULLUP`
 
-Un côté du bouton sur la broche choisie (ici D2), l'autre côté sur GND. Aucune résistance externe — la résistance interne de pull-up (configurée par `pinMode(BOUTON, INPUT_PULLUP)`) tire le potentiel vers `+5 V` quand le bouton est relâché et le tombe à GND quand il est appuyé.
+Un côté du bouton sur la broche choisie (ici D2), l'autre côté sur GND. Aucune résistance externe — la résistance interne de pull-up (configurée par `pinMode(BOUTON, INPUT_PULLUP)`) tire le potentiel vers `+5 V` quand le bouton est relâché et le fait tomber à GND quand il est appuyé.
 
 **Logique inversée** : `digitalRead()` renvoie `HIGH` au repos, `LOW` quand appuyé.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec bouton-poussoir entre la broche D2 et GND, et carte Arduino Uno branchée en USB*.
+![Montage : bouton-poussoir entre D2 et GND et LED + résistance sur D13 (réutilisée dans l'exemple), carte Arduino Uno|600](/ressources/img/arduino-gpio/montage-bouton-led.webp)
 
 ### 2. Lecture brute
 
@@ -53,6 +54,8 @@ Téléversez, ouvrez le moniteur série, appuyez : on voit `1, 1, 1, 0, 0, 0, 1,
 ### 3. Anti-rebond logiciel
 
 La parade la plus simple : ignorer toute commutation qui n'est pas confirmée pendant 20-50 ms.
+
+![Chronogramme de l'anti-rebond : à l'appui, la lecture brute oscille quelques millisecondes (rebond) ; après 30 ms sans changement, l'état stable bascule une seule fois.|640](/ressources/img/arduino-entree-tor/rebond.svg)
 
 ```cpp
 const int BOUTON = 2;
@@ -150,7 +153,7 @@ void loop() {
 }
 ```
 
-Chaque appui incrémente un compteur visible au moniteur série et inverse l'état de la LED — comportement net, immune au rebond.
+Chaque appui incrémente un compteur visible au moniteur série et inverse l'état de la LED — comportement net, insensible au rebond.
 
 ## Pièges
 

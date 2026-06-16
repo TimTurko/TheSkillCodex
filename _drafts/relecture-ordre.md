@@ -139,7 +139,7 @@ Verdict : OK / a corriger
 - [x] `arduino-prise-en-main` — 🖼✅ *(relu + médias intégrés 15/06 : C71 prix retiré, AA PROJ/5 ajouté, piège clone Nano Old Bootloader, lien arduino-serie, chemin téléchargement IDE + don optionnel, captures scindées type-de-carte/port + pilote CH340 [sparks.gogo.co.nz] ; 7 médias intégrés à plat [6 captures + GIF Blink + vidéo CH340, 1re vidéo du wiki] ; chemins migrés en dossier `arduino-prise-en-main/` le 16/06 — C73)*
 - [x] `tinkercad` — 🖼✅ *(relu + médias 16/06 : symptôme bouton corrigé [pull-up → LED jamais allumée], mode Scratch écarté + image de bascule, placeholders C29, recroisement simulation-electronique + wokwi wikilisés, 4 captures intégrées ; casse git Creer→creer résolue ; C68 = territoire-capture)*
 - [ ] `arduino-serie`
-- [ ] `arduino-gpio`
+- [x] `arduino-gpio` — 🖼✅ *(relu + médias 16/06 : diagnostic pull-up corrigé [LED toujours allumée = liaison GND / bouton tactile 4 pattes], Nano « D2 »→D0–D13, phases +integration-et-tests, pinout du hub réutilisé étape 1 [C76] + schéma de montage ; C68 territoire-capture)*
 - [ ] `arduino-entree-tor`
 - [ ] `arduino-sortie-tor`
 - [ ] `arduino-capteur-numerique`
