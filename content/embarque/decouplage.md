@@ -16,7 +16,7 @@ draft: false
 
 Le **découplage** consiste à placer des condensateurs au plus près de chaque composant pour servir localement ses **pointes de courant**, trop brèves pour que l'alimentation les rattrape. Sans lui, chaque pointe creuse la tension à la broche du composant — assez pour fausser une mesure ou faire redémarrer un [[microcontroleur|microcontrôleur]] — et le défaut est d'autant plus vicieux qu'il est invisible au [[multimetre|multimètre]].
 
-![Deux panneaux comparés. Sans découplage : un régulateur alimente un microcontrôleur au bout d'une longue piste ; lors d'un appel de courant, la tension à la broche creuse sous la tension minimale du microcontrôleur, qui redémarre. Avec découplage : un condensateur réservoir et un céramique 100 nF placés au plus près de la broche servent la pointe localement, et la tension tient au-dessus du seuil.](/ressources/img/decouplage-generique.svg)
+![Deux panneaux comparés. Sans découplage : un régulateur alimente un microcontrôleur au bout d'une longue piste ; lors d'un appel de courant, la tension à la broche creuse sous la tension minimale du microcontrôleur, qui redémarre. Avec découplage : un condensateur réservoir et un céramique 100 nF placés au plus près de la broche servent la pointe localement, et la tension tient au-dessus du seuil.](/ressources/img/decouplage/generique.svg)
 
 ## À quoi ça sert ?
 

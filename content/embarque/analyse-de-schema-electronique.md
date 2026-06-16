@@ -19,7 +19,7 @@ draft: false
 
 **Analyser un schéma électronique**, c'est lire un schéma de principe pour comprendre *ce que fait le montage* : identifier ses fonctions, suivre le parcours des signaux et de l'énergie, et vérifier sa cohérence — avant de câbler, de déboguer ou de valider un choix. C'est une compétence de **lecture**, complémentaire du [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] (qui dit *quelles fonctions*) et de la [[lire-une-datasheet|datasheet]] (qui détaille *chaque composant*).
 
-![Anatomie d'un schéma : un bloc Alimentation en haut alimente un bloc MCU central, un bloc Capteur à gauche envoie une mesure en entrée, le MCU commande un bloc Actionneur à droite ; annotations rappelant que l'alimentation est en haut, la masse en bas, les entrées à gauche et les sorties à droite.](/ressources/img/analyse-de-schema-generique.svg)
+![Anatomie d'un schéma : un bloc Alimentation en haut alimente un bloc MCU central, un bloc Capteur à gauche envoie une mesure en entrée, le MCU commande un bloc Actionneur à droite ; annotations rappelant que l'alimentation est en haut, la masse en bas, les entrées à gauche et les sorties à droite.](/ressources/img/analyse-de-schema-electronique/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -52,7 +52,7 @@ Chaque symbole est un composant avec une **référence** (R1, C2, U1, D1) et une
 
 Suivre les fils. Par convention, l'information circule **de gauche à droite** : les entrées à gauche, les sorties à droite. On trace un signal depuis sa source (un capteur) jusqu'à sa destination (un actionneur), en passant par le traitement. Attention aux **labels de net** : deux fils portant le même nom sont reliés, même si aucun trait ne les joint sur le dessin.
 
-![Le label de net : la sortie D9 d'un MCU aboutit à une étiquette CMD_LED ; plus loin sur le schéma, une étiquette identique alimente la résistance et la LED. Même nom, même nœud : les deux fils sont électriquement reliés sans qu'aucun trait ne les joigne.](/ressources/img/analyse-de-schema-netlabels.svg)
+![Le label de net : la sortie D9 d'un MCU aboutit à une étiquette CMD_LED ; plus loin sur le schéma, une étiquette identique alimente la résistance et la LED. Même nom, même nœud : les deux fils sont électriquement reliés sans qu'aucun trait ne les joigne.](/ressources/img/analyse-de-schema-electronique/netlabels.svg)
 
 ### 5. Vérifier la cohérence
 
@@ -62,7 +62,7 @@ Quelques contrôles de bon sens closent l'analyse. Chaque entrée a-t-elle une s
 
 Appliquons la méthode à un petit montage : un capteur lu par un MCU qui pilote une LED.
 
-![Schéma de principe : à gauche un pont diviseur R1 (10 kΩ) et R2 (capteur variable) dont le point milieu va à l'entrée A0 du MCU U1, alimenté entre +5 V et GND ; à droite la sortie D9 commande R3 (220 Ω) en série avec la LED D1 vers la masse.](/ressources/img/analyse-de-schema-exemple.svg)
+![Schéma de principe : à gauche un pont diviseur R1 (10 kΩ) et R2 (capteur variable) dont le point milieu va à l'entrée A0 du MCU U1, alimenté entre +5 V et GND ; à droite la sortie D9 commande R3 (220 Ω) en série avec la LED D1 vers la masse.](/ressources/img/analyse-de-schema-electronique/exemple.svg)
 
 1. **Alimentation.** Deux rails : `+5 V` en haut, `GND` en bas. Tout le montage travaille en 5 V.
 2. **Blocs.** Trois fonctions se dessinent : un pont diviseur à gauche (entrée capteur), `U1` au centre (traitement), la LED à droite (sortie actionneur).
@@ -72,7 +72,7 @@ Appliquons la méthode à un petit montage : un capteur lu par un MCU qui pilote
 
 Sur un schéma réel, plus fourni, le même découpage se pratique **au crayon** : encadrer les zones fonctionnelles (protection, alimentation, entrée, adaptation, traitement, sortie) transforme une page de symboles en carte lisible.
 
-![Un schéma complet annoté par zones fonctionnelles encadrées : protection (connecteur, diode anti-inversion, fusible), alimentation (régulateur 5 V et ses condensateurs), capteur d'entrée (pont diviseur), adaptation de niveau (level shifter), traitement (MCU et son découplage), sortie (transistor, diode de roue libre et moteur). Les rails +5 V circulent par labels de net.](/ressources/img/analyse-de-schema-zones.svg)
+![Un schéma complet annoté par zones fonctionnelles encadrées : protection (connecteur, diode anti-inversion, fusible), alimentation (régulateur 5 V et ses condensateurs), capteur d'entrée (pont diviseur), adaptation de niveau (level shifter), traitement (MCU et son découplage), sortie (transistor, diode de roue libre et moteur). Les rails +5 V circulent par labels de net.](/ressources/img/analyse-de-schema-electronique/zones.svg)
 
 ## Pièges
 

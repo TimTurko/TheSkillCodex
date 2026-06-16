@@ -43,7 +43,7 @@ Le choix se joue sur quatre critères : la **tension** (compatible avec l'étage
 
 Une source brute (une batterie qui se décharge de 8,4 à 6 V, un secteur redressé à 9-12 V) ne fournit pas directement le 5 V ou le 3,3 V stable qu'attend la logique. Un **régulateur** ramène une entrée variable à une sortie fixe. Deux familles existent, deux compromis.
 
-![Deux façons de produire 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, soit (Vin moins Vout) multiplié par le courant, sous forme de chaleur. À droite, un régulateur à découpage : un interrupteur commute rapidement à travers une inductance et un condensateur, avec très peu de pertes mais un bruit de commutation.](/ressources/img/alimentation-electronique-regulation.svg)
+![Deux façons de produire 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, soit (Vin moins Vout) multiplié par le courant, sous forme de chaleur. À droite, un régulateur à découpage : un interrupteur commute rapidement à travers une inductance et un condensateur, avec très peu de pertes mais un bruit de commutation.](/ressources/img/alimentation-electronique/regulation.svg)
 
 Le **régulateur linéaire** (un LDO, *low-dropout*) est simple, silencieux et bon marché : il se comporte comme une résistance pilotée qui absorbe l'écart entre l'entrée et la sortie. Le revers est mécanique : tout ce qu'il n'envoie pas en sortie part en **chaleur**, à hauteur de (Vin − Vout) × I. Produire 5 V à partir de 9 V sous 0,5 A dissipe (9 − 5) × 0,5 = 2 W — assez pour brûler les doigts sans dissipateur. On le réserve aux faibles écarts de tension et aux faibles courants, là où sa propreté électrique prime.
 
@@ -66,7 +66,7 @@ C'est l'absence de découplage qui explique une bonne part des comportements err
 
 La masse (le 0 V) n'est pas un fil neutre : c'est le **chemin de retour** de tous les courants. Or un fil a une résistance, si petite soit-elle, et tout courant qui le traverse y crée une chute de tension. Si le retour d'un moteur et la référence d'un capteur partagent le même bout de fil, le courant du moteur **décale la référence** du capteur : le signal mesuré est faussé, sans qu'aucun composant ne soit en cause.
 
-![Deux façons de câbler les masses de trois charges (microcontrôleur, capteur, moteur). À gauche, en chaînage : les retours sont mis en série, et le fort courant du moteur traverse le segment de masse partagé par la logique, dont il décale la référence. À droite, en étoile : chaque retour rejoint séparément un point de masse commun unique, si bien que le courant du moteur n'emprunte jamais le chemin du signal.](/ressources/img/alimentation-electronique-masses.svg)
+![Deux façons de câbler les masses de trois charges (microcontrôleur, capteur, moteur). À gauche, en chaînage : les retours sont mis en série, et le fort courant du moteur traverse le segment de masse partagé par la logique, dont il décale la référence. À droite, en étoile : chaque retour rejoint séparément un point de masse commun unique, si bien que le courant du moteur n'emprunte jamais le chemin du signal.](/ressources/img/alimentation-electronique/masses.svg)
 
 D'où la distinction entre **masse de puissance** (retours des actionneurs, gros courants, parfois bruyants) et **masse de signal** (retours de la logique et des capteurs, faibles courants à protéger). L'objectif est qu'elles ne partagent pas leurs chemins de retour, tout en restant **un seul et même potentiel de référence**. La technique de base est la **masse en étoile** : chaque retour rejoint un **point commun unique** plutôt que d'être chaîné aux autres. À l'inverse, des masses **en chaînage** (*daisy-chain*) font transiter les gros courants par les segments partagés et y injectent leur bruit.
 
@@ -94,7 +94,7 @@ La règle générale tient en une phrase : prévoir qu'on **se trompera** au bra
 
 ## Exemple — Le bras 3 axes
 
-![Architecture d'alimentation du bras 3 axes. Une source unique passe par une protection contre l'inversion, puis se sépare en deux rails : un rail de puissance protégé par un fusible alimente les drivers et les moteurs ; un régulateur 5 V alimente le microcontrôleur, les codeurs et l'IHM. Chaque rail est découplé au plus près. Les retours de masse des deux rails rejoignent un point de masse commun unique, en étoile, près de la source.](/ressources/img/alimentation-electronique-bras-3-axes.svg)
+![Architecture d'alimentation du bras 3 axes. Une source unique passe par une protection contre l'inversion, puis se sépare en deux rails : un rail de puissance protégé par un fusible alimente les drivers et les moteurs ; un régulateur 5 V alimente le microcontrôleur, les codeurs et l'IHM. Chaque rail est découplé au plus près. Les retours de masse des deux rails rejoignent un point de masse commun unique, en étoile, près de la source.](/ressources/img/alimentation-electronique/bras-3-axes.svg)
 
 Sur le bras du fil rouge, le bloc *alimenter / distribuer* de la chaîne d'énergie se concrétise en **deux rails issus d'une même source**. En entrée, une **protection contre l'inversion** garde tout le système d'un branchement à l'envers. La source se sépare ensuite :
 

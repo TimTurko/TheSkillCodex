@@ -14,7 +14,7 @@ draft: false
 
 La **chaîne d'énergie** et la **chaîne d'information** sont deux suites de fonctions qui décrivent tout système mécatronique : l'une dit comment il **agit** sur le monde (la puissance), l'autre comment il se **pilote** (la commande). Les deux sont couplées — l'information commande l'énergie et mesure ses effets en retour. C'est le modèle le plus simple pour situer chaque composant d'un projet : côté puissance, ou côté commande.
 
-![Modèle d'un système mécatronique en deux chaînes couplées : en bas la chaîne d'énergie (alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre) ; en haut la chaîne d'information (acquérir, traiter, communiquer). La chaîne d'information commande la chaîne d'énergie au niveau « distribuer » et reçoit en retour la mesure des capteurs.](/ressources/img/chaine-energie-generique.svg)
+![Modèle d'un système mécatronique en deux chaînes couplées : en bas la chaîne d'énergie (alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre) ; en haut la chaîne d'information (acquérir, traiter, communiquer). La chaîne d'information commande la chaîne d'énergie au niveau « distribuer » et reçoit en retour la mesure des capteurs.](/ressources/img/chaine-energie/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -60,7 +60,7 @@ Au bout de la chaîne, le système **agit** sur la matière d'œuvre.
 
 ## Exemple — Le bras 3 axes
 
-![Les deux chaînes appliquées au bras 3 axes. Chaîne d'énergie : batterie ou secteur (alimenter), drivers (distribuer), moteurs (convertir), réducteurs et courroies (transmettre), bras en mouvement (agir). Chaîne d'information : codeurs et fins de course (acquérir), microcontrôleur (traiter), IHM opérateur (communiquer). Le microcontrôleur commande les drivers et reçoit la position mesurée.](/ressources/img/chaine-energie-bras-3-axes.svg)
+![Les deux chaînes appliquées au bras 3 axes. Chaîne d'énergie : batterie ou secteur (alimenter), drivers (distribuer), moteurs (convertir), réducteurs et courroies (transmettre), bras en mouvement (agir). Chaîne d'information : codeurs et fins de course (acquérir), microcontrôleur (traiter), IHM opérateur (communiquer). Le microcontrôleur commande les drivers et reçoit la position mesurée.](/ressources/img/chaine-energie/bras-3-axes.svg)
 
 Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté **énergie** : la batterie alimente, les drivers distribuent la puissance vers chaque axe, les moteurs convertissent, les réducteurs et courroies transmettent, et le bras agit pour saisir l'objet. Côté **information** : les codeurs et fins de course acquièrent la position, le microcontrôleur traite (il compare à la position cible et calcule la commande), et l'IHM communique l'état à l'opérateur. Le microcontrôleur **commande** les drivers et lit en retour la **position mesurée** : la boucle est fermée, le bras sait où il se trouve.
 
