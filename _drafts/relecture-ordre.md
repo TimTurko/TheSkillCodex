@@ -140,7 +140,7 @@ Verdict : OK / a corriger
 - [x] `tinkercad` — 🖼✅ *(relu + médias 16/06 : symptôme bouton corrigé [pull-up → LED jamais allumée], mode Scratch écarté + image de bascule, placeholders C29, recroisement simulation-electronique + wokwi wikilisés, 4 captures intégrées ; casse git Creer→creer résolue ; C68 = territoire-capture)*
 - [ ] `arduino-serie`
 - [x] `arduino-gpio` — 🖼✅ *(relu + médias 16/06 : diagnostic pull-up corrigé [LED toujours allumée = liaison GND / bouton tactile 4 pattes], Nano « D2 »→D0–D13, phases +integration-et-tests, pinout du hub réutilisé étape 1 [C76] + schéma de montage ; C68 territoire-capture)*
-- [ ] `arduino-entree-tor`
+- [x] `arduino-entree-tor` — 🖼✅ *(relu + médias + code commenté 16/06 : pull-up & anti-rebond corrects [C44], SVG rebond créé [chronogramme lecture brute → fenêtre 30 ms → état stable], montage gpio réutilisé [C76], phases +integration, style [insensible / fait tomber] ; code commenté débutant + encart « Comment lire ce code » → C77)*
 - [ ] `arduino-sortie-tor`
 - [ ] `arduino-capteur-numerique`
 - [ ] `arduino-capteur-analogique`

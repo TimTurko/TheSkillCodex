@@ -3,6 +3,7 @@ title: Piloter une sortie TOR
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -42,37 +43,39 @@ Pour la suite de la procédure, on prend les trois cas usuels : **LED** (broche 
 
 **Module relais 5 V** : broche IN du module → broche D10 ; VCC du module → +5 V Arduino ; GND du module → GND Arduino. La charge secteur se branche **sur les bornes COM + NO du module**, l'Arduino n'y touche jamais.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec carte Arduino Uno, LED + résistance sur D8, transistor 2N2222 + buzzer sur D9, et module relais 5 V branché sur D10*.
+![Étage de commutation à transistor NPN (bas-côté) : GPIO → résistance de base → base, émetteur à la masse, charge entre +5 V et le collecteur, diode de roue libre en parallèle de la charge|520](/ressources/img/arduino-sortie-tor/transistor-bas-cote.svg)
+
+*Prendre une photo d'un montage breadboard : carte Arduino Uno, LED + résistance sur D8, transistor 2N2222 + buzzer sur D9, module relais 5 V sur D10.*
 
 ### 3. Écrire le code
 
 Le code est identique quelle que soit l'interface — le `digitalWrite()` ne sait pas s'il pilote une LED ou un module relais.
 
 ```cpp
-const int LED    = 8;
-const int BUZZER = 9;
-const int RELAIS = 10;
+const int LED    = 8;          // LED sur D8 (broche directe)
+const int BUZZER = 9;          // buzzer via transistor sur D9
+const int RELAIS = 10;         // module relais sur D10
 
 void setup() {
-  pinMode(LED,    OUTPUT);
+  pinMode(LED,    OUTPUT);      // les trois broches en sortie
   pinMode(BUZZER, OUTPUT);
   pinMode(RELAIS, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(LED,    HIGH);  // LED allumée
-  digitalWrite(BUZZER, HIGH);  // Buzzer activé
-  digitalWrite(RELAIS, HIGH);  // Relais collé
-  delay(2000);
-  digitalWrite(LED,    LOW);
+  digitalWrite(LED,    HIGH);   // LED allumée
+  digitalWrite(BUZZER, HIGH);   // buzzer activé
+  digitalWrite(RELAIS, HIGH);   // relais collé (HIGH ou LOW selon le module, cf. avertissement)
+  delay(2000);                  // on maintient 2 s
+  digitalWrite(LED,    LOW);    // tout éteindre
   digitalWrite(BUZZER, LOW);
   digitalWrite(RELAIS, LOW);
-  delay(2000);
+  delay(2000);                  // 2 s éteint, puis on recommence
 }
 ```
 
 > [!warning]
-> **Logique du relais souvent inversée.** Beaucoup de modules relais 5 V chinois (LU-5V, JQC-3FF) sont *actifs au niveau bas* : `digitalWrite(RELAIS, LOW)` colle le relais, `HIGH` le relâche. Vérifier sur le module ou par essai — la LED rouge du module s'allume quand le relais est collé.
+> **Logique du relais souvent inversée.** Beaucoup de modules relais 5 V bon marché (LU-5V, JQC-3FF) sont *actifs au niveau bas* : `digitalWrite(RELAIS, LOW)` colle le relais, `HIGH` le relâche. Vérifier sur le module ou par essai — la LED rouge du module s'allume quand le relais est collé.
 
 ### 4. Vérifier la consommation
 
@@ -98,14 +101,14 @@ void setup() {
 }
 
 void loop() {
-  // 3 bips courts, LED clignote
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(LED,    HIGH);
+  // une salve = 3 bips courts, LED clignote en même temps
+  for (int i = 0; i < 3; i++) {   // répéter 3 fois
+    digitalWrite(LED,    HIGH);   // LED + buzzer ON
     digitalWrite(BUZZER, HIGH);
-    delay(200);
-    digitalWrite(LED,    LOW);
+    delay(200);                   // ON pendant 200 ms
+    digitalWrite(LED,    LOW);    // LED + buzzer OFF
     digitalWrite(BUZZER, LOW);
-    delay(200);
+    delay(200);                   // OFF pendant 200 ms
   }
   delay(3000);  // pause avant la prochaine salve
 }

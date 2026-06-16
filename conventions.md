@@ -922,6 +922,10 @@ Notes 15/06 (pas de convention numérotée) :
     - **Renommage ponctuel admis** quand le nom à plat n'a pas de préfixe-slug exploitable : `programmation-non-bloquante.svg` -> `arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg`.
     - **Contrôle de fin de migration/ajout** : lister la racine `img/`, aucun `[FILE]` *.svg ne doit subsister à plat. C'est ce contrôle qui a rattrapé `techno-sans-fil-comparaison.svg` (la famille `sans-fil/` manquait de la carte SVG de la session 15/06). **La numérotation éprouvage atteint 76.**
 
+### Acquises 16/06 (suite) — relecture §7 Arduino (code commenté débutant)
+
+77. **Code commenté pour débutant (tutos famille).** Dans les tutos de famille, tout bloc de code reçoit des **commentaires en ligne sur chaque ligne utile** (le rôle, pas une paraphrase) ; le **bloc conceptuellement difficile** est suivi d'un court encart **« Comment lire ce code »** en prose (langage clair, le *pourquoi* de la logique) ; un **motif déjà vu** est commenté plus légèrement avec un **renvoi à sa première occurrence** (« bloc identique à l'étape N »). Motivé par la 1ʳᵉ fiche dense en code pour un néophyte (`arduino-entree-tor` : déclarations + boucle anti-rebond commentées, encart sur les deux variables + `millis()`, exemple final allégé renvoyant à l'étape 3). Demande Tim. Appliquée en avant sur les tutos denses à venir (`arduino-sortie-pwm`, `-temporisation`, `-programmation-non-bloquante`, `-machine-a-etats`, `-pid`) ; rétro-action différée (candidat : l'exemple de `arduino-serie`). Éprouvée 1/N. **La numérotation éprouvage atteint 77.**
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
