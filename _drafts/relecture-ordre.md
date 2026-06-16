@@ -141,7 +141,7 @@ Verdict : OK / a corriger
 - [ ] `arduino-serie`
 - [x] `arduino-gpio` — 🖼✅ *(relu + médias 16/06 : diagnostic pull-up corrigé [LED toujours allumée = liaison GND / bouton tactile 4 pattes], Nano « D2 »→D0–D13, phases +integration-et-tests, pinout du hub réutilisé étape 1 [C76] + schéma de montage ; C68 territoire-capture)*
 - [x] `arduino-entree-tor` — 🖼✅ *(relu + médias + code commenté 16/06 : pull-up & anti-rebond corrects [C44], SVG rebond créé [chronogramme lecture brute → fenêtre 30 ms → état stable], montage gpio réutilisé [C76], phases +integration, style [insensible / fait tomber] ; code commenté débutant + encart « Comment lire ce code » → C77)*
-- [ ] `arduino-sortie-tor`
+- [x] `arduino-sortie-tor` — 🖼✅ *(relu + médias + code commenté 16/06 : fond OK ; 2 SVG créés [transistor-bas-cote zoom NPN + montage carte d'interfaces], photo de montage proscrite → C78 ; code commenté C77 ; phases +integration, « relais chinois »→« bon marché » ; ⚠ SVG transistor à reprendre avant mise en ligne)*
 - [ ] `arduino-capteur-numerique`
 - [ ] `arduino-capteur-analogique`
 - [ ] `arduino-sortie-pwm`
