@@ -18,7 +18,7 @@ draft: false
 
 La **mécatronique** est l'ingénierie des systèmes qui font coopérer **mécanique**, **électronique** et **informatique embarquée** pour produire une fonction qu'aucune de ces disciplines ne réaliserait seule. Un système mécatronique perçoit son environnement par des capteurs, décide via un [[microcontroleur|microcontrôleur]], et agit sur le monde physique par des actionneurs — la boucle *perception → décision → action* est son motif fondamental.
 
-![La boucle perception → décision → action d'un système mécatronique](/ressources/img/mecatronique-generique.svg)
+![La boucle perception → décision → action d'un système mécatronique](/ressources/img/mecatronique/generique.svg)
 
 ## Trois disciplines, un système
 

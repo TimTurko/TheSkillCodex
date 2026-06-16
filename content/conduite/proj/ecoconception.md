@@ -23,7 +23,7 @@ draft: false
 
 L'**écoconception** est un **fil transverse** qui informe les choix techniques tout au long du projet [[mecatronique|mécatronique]] : évaluer leur impact environnemental, en réduire la part qui relève de l'électronique et de l'informatique embarquée, tracer les arbitrages dans les livrables du projet. Comme la [[gestion-de-projet|gestion de projet]], elle ne se déclenche pas à une phase précise — elle s'installe en continu, de la [[specification-technique|spécification technique]] à l'[[integration-et-tests|intégration et tests]]. Elle s'articule avec les cours de matériaux et d'analyse de cycle de vie portés par les disciplines voisines.
 
-![Les trois fils transverses courent le long du cycle en V](/ressources/img/fils-transverses-generique.svg)
+![Les trois fils transverses courent le long du cycle en V](/ressources/img/commun/fils-transverses-generique.svg)
 
 ## Posture attendue
 

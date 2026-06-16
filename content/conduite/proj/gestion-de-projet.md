@@ -27,7 +27,7 @@ draft: false
 
 La **gestion de projet** est un **fil transverse** qui court sur toute la durée du projet [[mecatronique|mécatronique]] : rythmer le travail de l'équipe, outiller la coordination, anticiper les aléas. Elle ne se déclenche pas à une phase précise — elle se tient en continu, de la [[specification-technique|spécification technique]] à l'[[integration-et-tests|intégration et tests]]. Les phases du cycle en V en sont l'objet ; la gestion de projet en est la cadence.
 
-![Les trois fils transverses courent le long du cycle en V](/ressources/img/fils-transverses-generique.svg)
+![Les trois fils transverses courent le long du cycle en V](/ressources/img/commun/fils-transverses-generique.svg)
 
 ## Posture attendue
 

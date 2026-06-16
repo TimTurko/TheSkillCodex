@@ -15,7 +15,7 @@ draft: false
 
 La **mind map** (ou *carte mentale*) est un schéma **radial** qui organise des idées autour d'un concept central : on place le sujet au cœur de la feuille, et on déploie tout autour des branches hiérarchisées par associations successives. En projet [[mecatronique|mécatronique]], elle sert d'outil de **brainstorming structuré** — son usage le plus canonique étant de recenser les milieux environnants d'un système avant de tracer sa [[pieuvre|pieuvre]].
 
-![Mind map — schéma générique](/ressources/img/mind-map-generique.svg)
+![Mind map — schéma générique](/ressources/img/mind-map/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -43,7 +43,7 @@ Quelques règles qui font la différence entre une mind map utile et un gribouil
 
 Reprenons le bras robotique pédagogique 3 axes. Avant de tracer sa [[pieuvre|pieuvre]] en [[specification-technique|spécification technique]], l'équipe recense ses milieux environnants par une mind map, en parcourant les cinq familles une à une.
 
-![Mind map des milieux environnants — bras 3 axes](/ressources/img/mind-map-bras-3-axes.svg)
+![Mind map des milieux environnants — bras 3 axes](/ressources/img/mind-map/bras-3-axes.svg)
 
 Le parcours systématique des familles fait remonter **huit candidats** : l'**opérateur** (utilisateurs), l'**objet à déplacer** (matière d'œuvre), le **secteur 230 V** (énergies), le **poste informatique** et le **fablab** (environnement physique et moyens de fabrication), la **conformité CE**, l'**écoconception** et la **sécurité opérateur** (réglementaire). C'est en se forçant à passer la famille *réglementaire*, qui paraissait vide au premier abord, que l'équipe a noté ces trois contraintes — des candidats discrets qui auraient été oubliés dans un remplissage spontané.
 

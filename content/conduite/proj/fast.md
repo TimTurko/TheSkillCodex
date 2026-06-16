@@ -18,7 +18,7 @@ draft: false
 
 Le **FAST** (*Function Analysis System Technique*) est un diagramme d'analyse fonctionnelle qui enchaîne une fonction et les **fonctions techniques** qui la réalisent, selon une chaîne logique lue dans deux sens : **POURQUOI** de droite à gauche, **COMMENT** de gauche à droite, l'axe vertical portant le **QUAND** (fonctions assurées simultanément). Mobilisé à l'étape 1 de la [[concept|phase de concept]], il formalise une branche de la [[decomposition-fonctionnelle|décomposition fonctionnelle]] jusqu'au grain où chaque fonction technique appelle des solutions candidates.
 
-![FAST — schéma générique](/ressources/img/fast-generique.svg)
+![FAST — schéma générique](/ressources/img/fast/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -64,7 +64,7 @@ Chaque fonction technique terminale — la feuille la plus à droite de chaque c
 
 Reprenons le sous-système **mobilité articulaire** du bras 3 axes, déjà isolé par la [[decomposition-fonctionnelle|décomposition fonctionnelle]]. On en déroule le FAST à partir de la fonction racine *« mettre en mouvement les segments du bras »*.
 
-![FAST du sous-système mobilité articulaire — bras 3 axes](/ressources/img/fast-bras-3-axes.svg)
+![FAST du sous-système mobilité articulaire — bras 3 axes](/ressources/img/fast/bras-3-axes.svg)
 
 **Lecture COMMENT (vers la droite).** *Comment* mettre en mouvement les segments ? En assurant trois fonctions techniques simultanées : générer un couple sur chaque axe, mesurer la position angulaire, asservir le mouvement. *Comment* générer un couple ? Par un stepper + driver, un moteur CC + réducteur, ou un servomoteur intégré.
 

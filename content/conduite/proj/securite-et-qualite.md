@@ -19,7 +19,7 @@ draft: false
 
 La **sécurité et qualité** est un **fil transverse** qui veille à deux exigences indissociables du projet [[mecatronique|mécatronique]] : protéger les personnes — utilisateurs comme équipe — et garantir la traçabilité documentaire qui rend les choix techniques défendables. Comme la [[gestion-de-projet|gestion de projet]] et l'[[ecoconception|écoconception]], elle ne se déclenche pas à une phase précise — elle s'installe en continu, de la [[specification-technique|spécification technique]] à l'[[integration-et-tests|intégration et tests]]. Elle s'articule avec les disciplines voisines (mécanique, fabrication) et avec les expertises normatives portées par les enseignants spécialisés.
 
-![Les trois fils transverses courent le long du cycle en V](/ressources/img/fils-transverses-generique.svg)
+![Les trois fils transverses courent le long du cycle en V](/ressources/img/commun/fils-transverses-generique.svg)
 
 ## Posture attendue
 

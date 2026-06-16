@@ -29,7 +29,7 @@ Chaque phase produit un livrable identifiable et conditionne la suivante. Aucune
 
 ## Le cycle en V
 
-![Cycle en V du projet mécatronique](/ressources/img/cycle-v-projet.svg)
+![Cycle en V du projet mécatronique](/ressources/img/conduite/cycle-v-projet.svg)
 
 ## 1. Spécification technique
 
