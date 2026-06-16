@@ -35,17 +35,17 @@ Un côté du bouton sur la broche choisie (ici D2), l'autre côté sur GND. Aucu
 ### 2. Lecture brute
 
 ```cpp
-const int BOUTON = 2;
+const int BOUTON = 2;                  // bouton câblé sur la broche D2
 
 void setup() {
-  pinMode(BOUTON, INPUT_PULLUP);
-  Serial.begin(115200);
+  pinMode(BOUTON, INPUT_PULLUP);       // entrée + résistance interne : repos = HIGH
+  Serial.begin(115200);                // ouvre la liaison série pour observer
 }
 
 void loop() {
-  int etat = digitalRead(BOUTON);
-  Serial.println(etat);
-  delay(10);
+  int etat = digitalRead(BOUTON);      // lit la broche : HIGH (1) ou LOW (0)
+  Serial.println(etat);                // affiche 1 ou 0 au moniteur
+  delay(10);                           // petite pause : ~100 lectures par seconde
 }
 ```
 
@@ -58,35 +58,45 @@ La parade la plus simple : ignorer toute commutation qui n'est pas confirmée pe
 ![Chronogramme de l'anti-rebond : à l'appui, la lecture brute oscille quelques millisecondes (rebond) ; après 30 ms sans changement, l'état stable bascule une seule fois.|640](/ressources/img/arduino-entree-tor/rebond.svg)
 
 ```cpp
-const int BOUTON = 2;
-int dernierEtat = HIGH;
-int etatStable = HIGH;
-unsigned long dernierChangement = 0;
-const unsigned long DELAI_REBOND = 30;  // ms
+const int BOUTON = 2;                    // bouton câblé sur la broche D2
+
+int dernierEtat = HIGH;                  // dernière valeur LUE (tremble pendant le rebond)
+int etatStable = HIGH;                   // état CONFIRMÉ du bouton (celui sur lequel on agit)
+unsigned long dernierChangement = 0;     // date, en ms, du dernier changement de lecture
+const unsigned long DELAI_REBOND = 30;   // calme exigé avant de valider (ms)
 
 void setup() {
-  pinMode(BOUTON, INPUT_PULLUP);
-  Serial.begin(115200);
+  pinMode(BOUTON, INPUT_PULLUP);         // entrée + résistance interne : repos = HIGH
+  Serial.begin(115200);                  // liaison série pour afficher les appuis
 }
 
 void loop() {
-  int lecture = digitalRead(BOUTON);
+  int lecture = digitalRead(BOUTON);     // lecture brute à chaque tour de boucle
 
+  // La lecture vient-elle de changer ? (à l'appui, elle change plein de fois : rebond)
   if (lecture != dernierEtat) {
-    dernierChangement = millis();  // mémoriser l'instant du changement
-    dernierEtat = lecture;
+    dernierChangement = millis();        // on note QUAND ce changement a eu lieu
+    dernierEtat = lecture;               // et on retient la nouvelle valeur lue
   }
 
-  if (millis() - dernierChangement > DELAI_REBOND) {
-    // lecture stable depuis assez longtemps
-    if (lecture != etatStable) {
-      etatStable = lecture;
+  // La lecture est-elle restée identique assez longtemps (> 30 ms) ?
+  if (millis() - dernierChangement > DELAI_REBOND) {   // oui : le rebond est fini
+    if (lecture != etatStable) {         // et l'état confirmé a vraiment changé
+      etatStable = lecture;              // on valide le nouvel état
       Serial.print("Bouton : ");
-      Serial.println(etatStable == LOW ? "appuye" : "relache");
+      Serial.println(etatStable == LOW ? "appuye" : "relache");  // LOW = appuyé (pull-up)
     }
   }
 }
 ```
+
+**Comment lire ce code.** L'astuce tient en **deux variables**. `dernierEtat` suit la valeur *brute* lue à l'instant (elle tremble pendant le rebond) ; `etatStable` ne retient que l'état *confirmé*, le seul sur lequel on agit. À chaque tour de `loop()` :
+
+- si la lecture **change**, on ne croit pas le bouton tout de suite : on note seulement *l'heure* du changement (`dernierChangement = millis()`) ;
+- tant qu'elle **rechange** (rebond), cette heure est repoussée encore et encore ;
+- dès qu'elle **reste identique pendant 30 ms**, le rebond est terminé : on valide `etatStable`.
+
+`millis()` renvoie le nombre de millisecondes écoulées depuis le démarrage de la carte ; `millis() - dernierChangement` est donc le temps écoulé *depuis le dernier tremblement*. Le comparer à `DELAI_REBOND`, c'est demander : « le signal est-il calme depuis assez longtemps pour y croire ? »
 
 Tester : maintenant chaque appui produit *exactement une* ligne `Bouton : appuye` puis `Bouton : relache`, peu importe la qualité mécanique du bouton.
 
@@ -121,12 +131,12 @@ Cas complet qui combine anti-rebond + détection de front + action visible.
 const int BOUTON = 2;
 const int LED = 13;
 
-int dernierEtat = HIGH, etatStable = HIGH;
+int dernierEtat = HIGH, etatStable = HIGH;   // mêmes 2 variables qu'à l'étape 3
 unsigned long dernierChangement = 0;
 const unsigned long DELAI_REBOND = 30;
 
-int compteur = 0;
-bool ledAllumee = false;
+int compteur = 0;                            // nombre d'appuis comptés
+bool ledAllumee = false;                     // état courant de la LED
 
 void setup() {
   pinMode(BOUTON, INPUT_PULLUP);
@@ -136,16 +146,16 @@ void setup() {
 
 void loop() {
   int lecture = digitalRead(BOUTON);
-  if (lecture != dernierEtat) {
+  if (lecture != dernierEtat) {              // --- bloc anti-rebond, identique à l'étape 3 ---
     dernierChangement = millis();
     dernierEtat = lecture;
   }
   if (millis() - dernierChangement > DELAI_REBOND && lecture != etatStable) {
-    etatStable = lecture;
-    if (etatStable == LOW) {
-      compteur++;
-      ledAllumee = !ledAllumee;
-      digitalWrite(LED, ledAllumee);
+    etatStable = lecture;                    // état confirmé
+    if (etatStable == LOW) {                 // front descendant = un nouvel appui
+      compteur++;                            // +1 appui
+      ledAllumee = !ledAllumee;              // on inverse la LED (toggle)
+      digitalWrite(LED, ledAllumee);         // on applique le nouvel état à la LED
       Serial.print("Appui n°");
       Serial.println(compteur);
     }
