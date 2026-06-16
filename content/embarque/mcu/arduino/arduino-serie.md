@@ -71,7 +71,7 @@ Téléversez d'abord le code, puis cliquez sur l'**icône loupe** en haut à dro
 
 Le texte imprimé par la carte apparaît au fil de l'eau.
 
-*Prendre une capture d'écran de l'IDE Arduino 2.x avec le moniteur série ouvert en bas, montrant plusieurs lignes de sortie « Valeur du capteur : XXX » et le sélecteur de baud rate visible.*
+![Moniteur série de l'IDE Arduino 2.x : lignes « Valeur du capteur : XXX » et sélecteur de baud rate|600](/ressources/img/arduino-serie/moniteur-serie.jpg)
 
 > [!tip]
 > **Le téléversement redémarre la carte.** À chaque téléversement, le programme repart de zéro, le moniteur série reste ouvert — pratique pour observer le démarrage. Si rien ne s'affiche après téléversement, vérifier d'abord le baud rate, ensuite la présence de `Serial.begin()`.
@@ -128,7 +128,7 @@ void loop() {
 
 Au moniteur série, on voit défiler trois colonnes séparées par des tabulations — copiables directement dans un tableur pour analyse. Au **traceur série** (*Outils → Traceur série*), les trois valeurs s'affichent en trois courbes superposées, avec une légende prise de la ligne d'en-tête. Tourner le potentiomètre — la courbe `consigne` bouge, la courbe `mesure` suit avec du bruit.
 
-*Prendre une capture d'écran du traceur série de l'IDE Arduino 2.x affichant trois courbes superposées (temps_ms, consigne, mesure) avec la légende visible.*
+![Traceur série de l'IDE Arduino 2.x : trois courbes superposées (temps_ms, consigne, mesure) avec légende|600](/ressources/img/arduino-serie/traceur-serie.png)
 
 ## Pièges
 
