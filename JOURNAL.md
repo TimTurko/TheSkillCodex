@@ -11,6 +11,18 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-15 — Relecture §7 Arduino (hub + prise-en-main) : images, vidéo, médias par fiche
+
+- **Périmètre** : ouverture de la relecture des **modules familles MCU** (§7-§16) par le **module Arduino** (§7, famille de référence — plus grosse dette du batch C27/C28). Mode inversé posture renforcée, PC pro, **ralenti à la fiche** (demande Tim : la grappe Arduino sert de base aux corrections suivantes). 2 fiches relues et validées : **hub `arduino`** + **`arduino-prise-en-main`**. Contrôles d'office C62/C65/C69/C70 + porte famille + C71 (prix).
+- **Hub `arduino`** : 5 corrections — ligne « **Par où commencer ?** » → `arduino-prise-en-main`, **plafond AVR** (2 Ko RAM, pas de flottant matériel, pas d'USB natif), affirmation radio **restreinte au panorama**, FreeRTOS « sera traité » → « **est traité** » ; **tutoriels gardés en tête** (arbitrage Tim — la fonction hub prime). 2 images posées (photo Uno R3 + pinout, légendes centrées). Gabarit hub famille verrouillé (→ conventions).
+- **`arduino-prise-en-main`** : **C71** prix « 5-10 € » retiré ; **AA `PROJ/5` ajouté** (cohérence palier — la prise en main compile+téléverse) ; piège **clone Nano « Old Bootloader »** ; lien `[[arduino-serie]]` ; « erreur n°1 » dédoublonnée ; **chemin de téléchargement IDE** (Products→Software→Arduino IDE) + note **don optionnel** (*Just Download*) ; lien direct pilote **sparks.gogo.co.nz/ch340.html** ; captures de l'étape 2 **scindées** (type de carte / port). **7 médias intégrés** (à plat) : 6 captures (.png/.jpg) + **GIF** du Blink + **vidéo** `.mp4` de l'install CH340 (consolidation du placeholder vidéo + capture Gestionnaire en une seule vidéo).
+- **CSS `custom.scss`** : centrage global des images (puis `video`, `max-width:100%`), légende-figure centrée (`p:has(img) + p:has(>em)`).
+- **Décisions (Tim)** : tutoriels en tête du hub ; images **par dossier de fiche** (C73), **migration de l'existant en session dédiée** (mode b) ; lien CH340 → sparks ; tout validé au rendu.
+- **Conventions** : éprouvage §8 — **C73** (dossiers images par fiche), **C74** (présentation images : largeur/centrage/légende-figure), **C75** (vidéo HTML5, 1re du wiki) ; notes : gabarit hub famille, C71 en contrôle d'office sur le batch Arduino, C29 étendue à la vidéo/GIF. Numérotation éprouvage **72 → 75**.
+- **Tailles** : 2 fiches relues + corrigées, `custom.scss` (3 ajouts), 9 médias posés (2 hub + 7 prise-en-main). **Couverture AA inchangée 79 %** (PROJ/5 sur prise-en-main = multi-couverture C20).
+
+**La grappe Arduino comme gabarit.** Tim a explicitement ralenti « à la fiche » parce que le hub et la prise en main servent de **base aux corrections des autres familles** : les décisions de structure prises ici (tutoriels en tête, `aa:[]`/`phases:[concept]` du hub, présentation des médias) se propageront à `esp32`/`stm32`/etc. La séquence « images » a fait émerger une **convention médias complète** (dossier par fiche, largeur par image, légende réservée aux figures autonomes, vidéo HTML5) — la **première vidéo du wiki** entre par la fiche prise-en-main (install CH340). Reste pour la session de migration : déplacer les ~120 médias à plat vers les dossiers par fiche et corriger tous les chemins d'embed (dont le `src` vidéo).
+
 ## 2026-06-13 (suite 2) — Module XIAO ESP32-S3 (hub-parcours par composition + 3 fiches)
 
 - **Périmètre** : création du **module XIAO ESP32-S3** dans `content/embarque/mcu/xiao/` (nouveau dossier famille), PC perso, mode **production**. Démarrage Cas A sur le cadrage `_drafts/cadrage-xiao-esp32s3.md`. Specs vérifiées **au pad** sur le wiki Seeed (pin multiplexing + getting-started) plutôt que de mémoire. Hub + 3 fiches filles + 7 SVG.
