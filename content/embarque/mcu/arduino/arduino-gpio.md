@@ -3,6 +3,7 @@ title: Configurer les GPIO Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -27,9 +28,9 @@ Quatre étapes : identifier la broche, configurer le mode, lire ou écrire, vér
 
 Sur Arduino Uno, les broches **D0 à D13** sont des GPIO numériques. D0 et D1 sont aussi utilisées par l'USB (TX/RX) — à éviter pour autre chose. Les broches **A0 à A5** peuvent aussi servir de GPIO numériques (référencées comme `A0`, `A1`, ..., ou comme `14`, `15`, ..., `19`).
 
-Sur Mega 2560 : D0 à D53. Sur Nano : D2 à D13 + A0-A7 (A6/A7 ne fonctionnent qu'en entrée analogique).
+Sur Mega 2560 : D0 à D53. Sur Nano : D0 à D13 + A0-A7 (D0/D1 partagées avec l'USB comme sur l'Uno ; A6/A7 ne fonctionnent qu'en entrée analogique).
 
-Prendre capture d'écran de *le brochage officiel de l'Arduino Uno R3, avec les broches numériques D0-D13 visibles*.
+![Brochage de l'Arduino Uno R3 : broches numériques D0–D13, analogiques A0–A5, alimentation et bus|600](/ressources/img/arduino/uno-pinout.webp)
 
 ### 2. Configurer le mode dans `setup()`
 
@@ -70,7 +71,7 @@ void loop() {
 - **Entrée sur bouton, mode `INPUT_PULLUP`** : un côté du bouton sur la broche, l'autre côté sur GND. Rien d'autre.
 - **Entrée sur bouton, mode `INPUT`** : il faut une résistance externe (pull-up vers `+5 V` ou pull-down vers GND, ~10 kΩ) pour donner un état de repos défini.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec carte Arduino Uno, bouton entre D2 et GND, et LED + résistance 220 Ω entre D13 et GND*.
+*Prendre une photo d'un montage breadboard : carte Arduino Uno, bouton entre D2 et GND, LED + résistance 220 Ω entre D13 et GND.*
 
 ## Exemple — Bouton qui allume une LED
 
@@ -99,7 +100,7 @@ void loop() {
 }
 ```
 
-Téléversez, appuyez sur le bouton — la LED s'allume. Relâchez — elle s'éteint. Si vous tenez le bouton appuyé en permanence, c'est probablement que vous avez câblé un côté du bouton sur `+5 V` au lieu de GND (la résistance de pull-up perd la bataille face à un court-circuit franc).
+Téléversez, appuyez sur le bouton — la LED s'allume. Relâchez — elle s'éteint. Si la LED reste allumée en permanence (comme si le bouton était toujours appuyé), c'est que la broche est reliée en continu à GND — souvent un **bouton tactile 4 pattes** câblé sur la mauvaise paire : deux de ses pattes sont déjà reliées entre elles à l'intérieur et relient la broche à GND en permanence. Le pull-up perd alors la bataille face à cette liaison franche.
 
 ## Pièges
 
