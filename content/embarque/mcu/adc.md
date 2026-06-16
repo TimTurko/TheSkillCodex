@@ -13,7 +13,7 @@ draft: false
 
 Un **ADC** (*Analog-to-Digital Converter*, convertisseur analogique-numérique) est le périphérique qui **convertit une tension analogique en nombre** exploitable par le programme — par exemple la tension délivrée par un capteur de température ou un potentiomètre. Sa **résolution** (en bits) fixe la finesse de la mesure : plus elle est élevée, plus on distingue de paliers de tension.
 
-![Quantification : un signal analogique continu (courbe grise) est arrondi par l'ADC au palier le plus proche (escalier ambre) ; un palier vaut la tension de référence divisée par 2 puissance n.](/ressources/img/adc-quantification.svg)
+![Quantification : un signal analogique continu (courbe grise) est arrondi par l'ADC au palier le plus proche (escalier ambre) ; un palier vaut la tension de référence divisée par 2 puissance n.](/ressources/img/adc/quantification.svg)
 
 ## À quoi ça sert ?
 

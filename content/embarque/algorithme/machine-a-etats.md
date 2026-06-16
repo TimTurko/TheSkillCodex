@@ -16,7 +16,7 @@ draft: false
 
 Une **machine à états** (ou **automate fini**) est une représentation d'un [[algorithme]] où le système occupe, à chaque instant, un **état** parmi un nombre fini, et passe de l'un à l'autre par des **transitions** déclenchées par des événements. Elle décrit les comportements **séquentiels à modes** — un système qui réagit différemment selon là où il en est (un portail est fermé, en ouverture, ouvert ou en fermeture) — et se traduit presque directement en code (voir [[arduino-machine-a-etats|sa mise en œuvre sur Arduino]]).
 
-![Schéma générique d'une machine à états : trois états reliés par des transitions orientées en cycle, chaque transition portant la syntaxe « événement [garde-condition] / action ».](/ressources/img/machine-a-etats-generique.svg)
+![Schéma générique d'une machine à états : trois états reliés par des transitions orientées en cycle, chaque transition portant la syntaxe « événement [garde-condition] / action ».](/ressources/img/machine-a-etats/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -47,19 +47,19 @@ La discipline tient en une phrase : **un seul état actif, des transitions expli
 Un portail coulissant motorisé piloté par un bouton, deux fins de course (haut/bas) et un capteur d'obstacle. Le même système est décrit ci-dessous à trois niveaux de qualité, du brouillon à la machine à états exploitable.
 
 > [!failure] Contre-exemple — schéma soigné, modélisation fautive
-> ![Quatre états propres — Fermé, Ouverture, Ouvert, Bloqué — aux coins d'un carré, avec trois fautes de modélisation signalées en ambre : aucun état initial sur Fermé, une transition de Fermé vers Ouverture sans événement, et un état Bloqué sans aucune transition de sortie ; le cycle ne revient jamais à Fermé.](/ressources/img/machine-a-etats-portail-mauvais.svg)
+> ![Quatre états propres — Fermé, Ouverture, Ouvert, Bloqué — aux coins d'un carré, avec trois fautes de modélisation signalées en ambre : aucun état initial sur Fermé, une transition de Fermé vers Ouverture sans événement, et un état Bloqué sans aucune transition de sortie ; le cycle ne revient jamais à Fermé.](/ressources/img/machine-a-etats/portail-mauvais.svg)
 >
 > **Pourquoi c'est mauvais.** Les états sont propres, le tracé est net — et la modélisation est trouée trois fois. **D'où part-on ?** Aucun état initial : le comportement à la mise sous tension n'est pas défini. **Qu'est-ce qui ouvre ?** La transition *Fermé → Ouverture* ne porte aucun événement : elle se franchit… quand ? Et surtout, **Bloqué est un puits** : aucune transition n'en sort, le cycle ne reboucle jamais. Comme pour le [[logigramme|logigramme]] : la propreté du dessin ne valide pas la logique.
 >
 > **Coût réel.** Traduit tel quel, le programme démarre dans un état imprévisible et, au premier obstacle, le portail entre dans *Bloqué*… pour toujours. Seule issue : couper le courant. Le bug n'est pas dans le code — il était déjà dans le schéma.
 
 > [!warning] Version moyenne — états nets, transitions creuses
-> ![Quatre états Fermé, Ouverture, Ouvert, Fermeture aux coins d'un carré, reliés par un cycle de transitions, chacune étiquetée d'un seul mot vague : bouton, capteur, minuterie, capteur.](/ressources/img/machine-a-etats-portail-moyen.svg)
+> ![Quatre états Fermé, Ouverture, Ouvert, Fermeture aux coins d'un carré, reliés par un cycle de transitions, chacune étiquetée d'un seul mot vague : bouton, capteur, minuterie, capteur.](/ressources/img/machine-a-etats/portail-moyen.svg)
 >
 > **Pourquoi c'est moyen.** Les quatre états sont propres et exclusifs, le cycle est clair — c'est déjà exploitable. Mais les transitions restent **sous-spécifiées** : « capteur » lequel ? aucune garde-condition, aucune action notée, et surtout **aucune gestion de l'obstacle**. Un portail qui ne sait pas réagir à un obstacle pendant la fermeture est dangereux. Le schéma est lisible mais incomplet pour passer au code.
 
 > [!example] Version cible — machine à états complète
-> ![Les mêmes quatre états avec un point plein d'état initial relié à Fermé, des transitions complètes notées « événement [garde] / action », et une transition de sécurité en ambre de Fermeture vers Ouverture déclenchée par l'événement obstacle avec l'action inverser le moteur.](/ressources/img/machine-a-etats-portail-bon.svg)
+> ![Les mêmes quatre états avec un point plein d'état initial relié à Fermé, des transitions complètes notées « événement [garde] / action », et une transition de sécurité en ambre de Fermeture vers Ouverture déclenchée par l'événement obstacle avec l'action inverser le moteur.](/ressources/img/machine-a-etats/portail-bon.svg)
 >
 > **Pourquoi c'est bon.** L'**état initial** est marqué (le point plein → *Fermé* : à la mise sous tension, le portail se considère fermé). Chaque transition porte les informations utiles : l'**événement** (`bouton`, `fin haut`, `tempo 5 s`, `obstacle`), la **garde-condition** quand il en faut une (`fin bas [aucun obstacle]` — le portail ne se déclare fermé que si rien ne gêne), et l'**action** associée (`/ moteur ↑`, `/ stop`, `/ inverser`). La transition de sécurité — *Fermeture → Ouverture* sur l'événement `obstacle` — met la **sécurité dans le schéma**, pas dans un patch ajouté après coup. Ce diagramme se transcrit ligne pour ligne en code (un `case` par état, voir le tuto Arduino).
 

@@ -24,7 +24,7 @@ L'enjeu n'est pas d'« écrire du code » — ça, c'est le [[cpp|langage]] — 
 
 Il existe une **progression** d'architectures, de la plus simple à la plus exigeante. On adopte le niveau juste nécessaire — monter en architecture seulement quand le besoin l'impose.
 
-![Escalier des cinq architectures de firmware, classées par complexité croissante : super-loop, boucle coopérative non bloquante, machines à états, découpage en modules, RTOS temps réel.](/ressources/img/firmware-architectures.svg)
+![Escalier des cinq architectures de firmware, classées par complexité croissante : super-loop, boucle coopérative non bloquante, machines à états, découpage en modules, RTOS temps réel.](/ressources/img/firmware/architectures.svg)
 
 1. **La super-loop.** `setup()` règle, `loop()` répète : tout le programme dans la boucle. Suffisant pour un montage qui fait *une* chose. C'est le point de départ ([[cpp|langage C++]]).
 2. **La boucle coopérative non bloquante.** Dès que le système fait *plus d'une chose*, chaque activité devient une tâche brève appelée à chaque tour, sans jamais bloquer. C'est l'architecture par défaut de presque tout firmware réel ([[arduino-programmation-non-bloquante|programmation non bloquante]]).

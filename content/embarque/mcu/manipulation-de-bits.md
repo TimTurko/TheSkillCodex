@@ -56,7 +56,7 @@ Le masquage agit **sur le seul bit visé**, les autres restent intacts :
   valeur | masque  0b0010 1101     -> le bit 2 passe de 0 à 1
 ```
 
-![Opération de masquage OU : la valeur 0b00101001 combinée par OU avec le masque 0b00000100 (bit 2) donne 0b00101101 ; seul le bit 2 passe de 0 à 1, les sept autres restent intacts. En pied, les quatre idiomes : | mettre à 1, &~ mettre à 0, ^ basculer, & tester.](/ressources/img/manipulation-de-bits-masquage.svg)
+![Opération de masquage OU : la valeur 0b00101001 combinée par OU avec le masque 0b00000100 (bit 2) donne 0b00101101 ; seul le bit 2 passe de 0 à 1, les sept autres restent intacts. En pied, les quatre idiomes : | mettre à 1, &~ mettre à 0, ^ basculer, & tester.](/ressources/img/manipulation-de-bits/masquage.svg)
 
 ## Exemple — Huit drapeaux dans un octet
 

@@ -13,7 +13,7 @@ draft: false
 
 Une **interruption** est un mécanisme par lequel un [[microcontroleur|microcontrôleur]] **suspend le programme en cours** dès qu'un événement survient, exécute une petite fonction dédiée — la **routine d'interruption** (ISR, *Interrupt Service Routine*) — puis reprend le programme exactement là où il s'était arrêté. C'est la façon de **réagir immédiatement** à un événement sans avoir à le surveiller en boucle, et de ne **jamais manquer** un signal trop bref pour être attrapé au passage.
 
-![Chronogramme à deux niveaux : le programme principal s'exécute le long de l'axe du temps, un événement le suspend, l'exécution saute vers la routine d'interruption (ISR) qui s'exécute brièvement, puis redescend et le programme principal reprend là où il s'était arrêté.](/ressources/img/interruption-chronogramme.svg)
+![Chronogramme à deux niveaux : le programme principal s'exécute le long de l'axe du temps, un événement le suspend, l'exécution saute vers la routine d'interruption (ISR) qui s'exécute brièvement, puis redescend et le programme principal reprend là où il s'était arrêté.](/ressources/img/interruption/chronogramme.svg)
 
 ## À quoi ça sert ?
 

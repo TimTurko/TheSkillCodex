@@ -24,7 +24,7 @@ La GPIO se distingue des deux autres périphériques d'[[entree-sortie|entrée/s
 
 Une même broche peut servir d'entrée ou de sortie ; c'est le programme qui fixe son rôle au démarrage. Au-delà de la direction, deux réglages décident de la façon dont la broche se comporte électriquement : le **tirage** en entrée et le **type de sortie**.
 
-![Trois schémas comparés : une sortie push-pull dont deux interrupteurs internes relient la broche à l'alimentation (haut) ou à la masse (bas) ; une sortie drain ouvert qui ne tire que vers le bas et a besoin d'une résistance pull-up externe pour l'état haut ; une entrée avec résistance de tirage (pull-up) qui maintient un niveau franc au repos.](/ressources/img/gpio-modes.svg)
+![Trois schémas comparés : une sortie push-pull dont deux interrupteurs internes relient la broche à l'alimentation (haut) ou à la masse (bas) ; une sortie drain ouvert qui ne tire que vers le bas et a besoin d'une résistance pull-up externe pour l'état haut ; une entrée avec résistance de tirage (pull-up) qui maintient un niveau franc au repos.](/ressources/img/gpio/modes.svg)
 
 | Mode | Direction | Ce qu'il fait | État au repos | Usage typique |
 | --- | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ Une entrée en **haute impédance** ne consomme presque rien : c'est sa qualité
 
 C'est exactement ce qui arrive avec un bouton câblé naïvement. Quand le bouton est **appuyé**, il relie la broche à une tension définie ; mais quand il est **relâché**, la broche n'est plus reliée à rien — elle flotte.
 
-![À gauche, un bouton sans résistance de tirage : relâché, la broche n'est reliée à rien, flotte et lit « 0 » ou « 1 » au hasard. À droite, le même bouton avec une résistance pull-up vers l'alimentation et le bouton vers la masse : au repos le niveau est « 1 », l'appui force « 0 », le niveau est toujours défini.](/ressources/img/gpio-flottant.svg)
+![À gauche, un bouton sans résistance de tirage : relâché, la broche n'est reliée à rien, flotte et lit « 0 » ou « 1 » au hasard. À droite, le même bouton avec une résistance pull-up vers l'alimentation et le bouton vers la masse : au repos le niveau est « 1 », l'appui force « 0 », le niveau est toujours défini.](/ressources/img/gpio/flottant.svg)
 
 La parade est une **résistance de tirage**, qui impose un niveau franc au repos. Un **pull-up** (vers l'alimentation) maintient la broche à « 1 » tant que le bouton est relâché, et l'appui la force à « 0 » : la logique est alors **inversée** (repos = 1, appui = 0), ce qui surprend souvent au premier câblage. Un **pull-down** (vers la masse) fait l'inverse. La plupart des microcontrôleurs intègrent un pull-up activable par programme *(INPUT_PULLUP)*, ce qui évite d'ajouter une résistance externe — le réflexe le plus simple pour un bouton.
 
@@ -61,7 +61,7 @@ La parade ne se joue pas dans le code, justement parce que le code n'est pas enc
 
 **Tirer trop de courant sur une broche.** Une broche fournit au mieux quelques dizaines de milliampères ; un moteur, une bobine de relais ou une grappe de LED en demandent bien davantage. Brancher une charge gourmande **en direct** met la broche en surintensité et la grille. On passe par un transistor, un *driver* ou un module relais, qui laissent l'alimentation fournir le courant.
 
-![À gauche, montage dangereux : la broche pilote un moteur en direct, le courant dépasse le maximum admissible et grille la broche. À droite, montage correct : la broche commande un transistor à travers une résistance, et c'est le transistor qui laisse passer le fort courant de l'alimentation, la broche ne fournissant qu'un courant de commande.](/ressources/img/gpio-courant-max.svg)
+![À gauche, montage dangereux : la broche pilote un moteur en direct, le courant dépasse le maximum admissible et grille la broche. À droite, montage correct : la broche commande un transistor à travers une résistance, et c'est le transistor qui laisse passer le fort courant de l'alimentation, la broche ne fournissant qu'un courant de commande.](/ressources/img/gpio/courant-max.svg)
 
 **Confondre logique et niveau électrique.** Un « 1 » logique n'est pas forcément 5 V : c'est le niveau haut du composant, qui peut être 3,3 V. Faire dialoguer deux broches de tensions différentes est un sujet à part entière, traité dans [[niveaux-de-tension|niveaux de tension]].
 

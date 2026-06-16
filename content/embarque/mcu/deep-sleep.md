@@ -13,7 +13,7 @@ draft: false
 
 Le **deep sleep** (sommeil profond) est un **mode de basse consommation** d'un [[microcontroleur|microcontrôleur]] : le cœur, les horloges rapides et la plupart des périphériques sont coupés, ne laissant qu'une consommation résiduelle de quelques microampères, jusqu'à un **réveil** déclenché par une minuterie ou un événement extérieur — qui est, mécaniquement, une [[interruption|interruption]].
 
-![Profil de consommation en créneaux : de brefs pics actifs de quelques dizaines de milliampères séparés par de longs planchers de quelques microampères en deep sleep ; la moyenne, en pointillé ambre près du bas, détermine l'autonomie.](/ressources/img/deep-sleep-profil.svg)
+![Profil de consommation en créneaux : de brefs pics actifs de quelques dizaines de milliampères séparés par de longs planchers de quelques microampères en deep sleep ; la moyenne, en pointillé ambre près du bas, détermine l'autonomie.](/ressources/img/deep-sleep/profil.svg)
 
 ## À quoi ça sert ?
 

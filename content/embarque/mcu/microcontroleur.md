@@ -14,7 +14,7 @@ draft: false
 
 Un **microcontrôleur** (MCU, pour *microcontroller unit*) est un circuit intégré programmable qui réunit sur une seule puce un [[processeur]], de la [[memoire|mémoire]] et des périphériques d'[[entree-sortie|entrée/sortie]] : c'est le composant qui exécute le programme de commande au cœur d'un système [[mecatronique|mécatronique]]. Cette fiche est le **hub d'entrée** vers les familles de microcontrôleurs — elle en dresse le panorama et donne la méthode pour en choisir un, sans entrer dans les spécificités de chaque famille (traitées dans les fiches filles) ni dans la façon d'écrire le code (voir [[firmware]]).
 
-![Schéma bloc générique de l'architecture d'un microcontrôleur — processeur, mémoires Flash et RAM, bus interne et périphériques (GPIO, ADC, PWM, UART, I2C, SPI) reliés aux broches d'entrée/sortie.](/ressources/img/microcontroleur-architecture.svg)
+![Schéma bloc générique de l'architecture d'un microcontrôleur — processeur, mémoires Flash et RAM, bus interne et périphériques (GPIO, ADC, PWM, UART, I2C, SPI) reliés aux broches d'entrée/sortie.](/ressources/img/microcontroleur/architecture.svg)
 
 ## À quoi ça sert ?
 
@@ -58,7 +58,7 @@ Le bon réflexe n'est pas de partir du microcontrôleur à la mode, mais des **b
 5. **Écosystème et disponibilité** — documentation, communauté, bibliothèques et surtout disponibilité du composant dans la durée comptent souvent plus que quelques mégahertz : un MCU bien documenté et qu'on retrouve chez deux distributeurs fait gagner un temps considérable.
 6. **Prix** — au coût unitaire, et au coût en série si le projet vise une petite production.
 
-![Carte de positionnement des familles de microcontrôleurs selon la puissance de calcul et la connectivité sans fil intégrée — PIC et Arduino en entrée de gamme sans radio, STM32 et Teensy puissants sans radio, ESP8266 en Wi-Fi, ESP32, XIAO et Pico 2 W en Wi-Fi + Bluetooth, Raspberry Pi à part en ordinateur sous Linux.](/ressources/img/microcontroleur-positionnement.svg)
+![Carte de positionnement des familles de microcontrôleurs selon la puissance de calcul et la connectivité sans fil intégrée — PIC et Arduino en entrée de gamme sans radio, STM32 et Teensy puissants sans radio, ESP8266 en Wi-Fi, ESP32, XIAO et Pico 2 W en Wi-Fi + Bluetooth, Raspberry Pi à part en ordinateur sous Linux.](/ressources/img/microcontroleur/positionnement.svg)
 
 En pratique, ces critères se confrontent dans une [[matrice-de-decision|matrice de décision]] menée en [[concept]], au même titre que les autres choix d'architecture. La démarche complète dans le projet — chiffrer les besoins, confronter les candidats, tracer le choix — est déroulée dans [[choisir-le-materiel]], l'étape 2 de la colonne de réalisation. Une stratégie fréquente en projet école : **prototyper sur une carte facile** (Arduino) pour valider le principe, puis migrer vers une cible plus adaptée (ESP32 pour le sans-fil, STM32 pour la performance) si le besoin le justifie.
 

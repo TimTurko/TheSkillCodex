@@ -40,7 +40,7 @@ Un bug sur microcontrôleur est plus difficile à cerner que sur un PC : pas d'a
 
 Avantage : **non intrusif** (le code ne change pas) et bien plus puissant. Coût : il faut le **matériel** (la sonde) et la **configuration de la chaîne d'outils** (toolchain + IDE), spécifique à la famille de microcontrôleur.
 
-![Deux chaînes comparées : par messages, le PC est relié en USB directement au microcontrôleur et lit ce que le code affiche ; en matériel, une sonde (ST-Link, J-Link ou intégrée) s'insère entre le PC et les broches SWD/JTAG du microcontrôleur pour figer, poser des points d'arrêt et inspecter.](/ressources/img/debugger-embarque-chaines.svg)
+![Deux chaînes comparées : par messages, le PC est relié en USB directement au microcontrôleur et lit ce que le code affiche ; en matériel, une sonde (ST-Link, J-Link ou intégrée) s'insère entre le PC et les broches SWD/JTAG du microcontrôleur pour figer, poser des points d'arrêt et inspecter.](/ressources/img/debugger-embarque/chaines.svg)
 
 ## La méthode, quelle que soit l'approche
 
