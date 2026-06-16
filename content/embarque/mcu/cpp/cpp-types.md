@@ -171,4 +171,5 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 - [[cpp-portee|Variables locales et globales]] — l'étape suivante : la durée de vie d'une variable
 - [[arduino-memoire|Gestion mémoire]] — `String`, pointeurs et coût mémoire des types (transverse)
 - [[arduino-temporisation|delay() vs millis()]] — pourquoi le temps se stocke en `unsigned long`
+- [[ascii|Code ASCII]] — ce que contient un `char` : le code numérique d'un caractère
 - [[manipulation-de-bits|Manipulation de bits]] — agir sur les bits d'un entier (transverse)

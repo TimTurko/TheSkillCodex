@@ -104,6 +104,7 @@ TCCR1B |= (1 << WGM12);   // active le mode CTC du Timer1, sans toucher aux autr
 ## Voir aussi
 
 - [[cpp|Le langage C++]] — les opérateurs et les types, socle de la manipulation de bits
+- [[ascii|Code ASCII]] — un caractère est un octet : sa valeur est son code
 - [[timer|Timer]] · [[arduino-timers|Timers sur Arduino]] — l'application directe : configurer un timer par ses registres
 - [[lire-une-datasheet|Lire une datasheet]] — la cartographie des registres : quel bit commande quelle fonction
 - [[gpio|GPIO]] · [[entree-sortie|Entrées-sorties]] — les registres de port qui pilotent les broches

@@ -1,0 +1,73 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chaque caractère correspond à un code numérique : espace = 32, le chiffre 0 = 48, le chiffre 4 = 52, A = 65, a = 97, saut de ligne = 10.">
+  <defs>
+    <style>
+      .char-box { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .code-box { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
+      .glyph { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-weight: 700; font-size: 26px; }
+      .glyph-sm { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-weight: 600; font-size: 15px; }
+      .code { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-weight: 700; font-size: 22px; }
+      .note { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; }
+      .note-strong { fill: #8A5512; font-weight: 700; }
+      .arr { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .arrhead { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .char-box { fill: #3A2F1D; stroke: #E0A24A; }
+        .code-box { fill: #2C2B27; stroke: #6D6A61; }
+        .glyph, .glyph-sm, .note-strong { fill: #E0A24A; }
+        .code { fill: #D8D6CF; }
+        .note { fill: #B7B4AC; }
+        .arr { stroke: #E0A24A; }
+        .arrhead { fill: #E0A24A; }
+      }
+    </style>
+    <marker id="ascii-ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path class="arrhead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <!-- Colonne 1 : espace = 32 -->
+  <rect class="char-box" x="42" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph-sm" x="80" y="66" text-anchor="middle">espace</text>
+  <line class="arr" x1="80" y1="92" x2="80" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="48" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="80" y="162" text-anchor="middle">32</text>
+
+  <!-- Colonne 2 : '0' = 48 -->
+  <rect class="char-box" x="152" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph" x="190" y="70" text-anchor="middle">0</text>
+  <line class="arr" x1="190" y1="92" x2="190" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="158" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="190" y="162" text-anchor="middle">48</text>
+
+  <!-- Colonne 3 : '4' = 52 -->
+  <rect class="char-box" x="262" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph" x="300" y="70" text-anchor="middle">4</text>
+  <line class="arr" x1="300" y1="92" x2="300" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="268" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="300" y="162" text-anchor="middle">52</text>
+
+  <!-- Colonne 4 : 'A' = 65 -->
+  <rect class="char-box" x="372" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph" x="410" y="70" text-anchor="middle">A</text>
+  <line class="arr" x1="410" y1="92" x2="410" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="378" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="410" y="162" text-anchor="middle">65</text>
+
+  <!-- Colonne 5 : 'a' = 97 -->
+  <rect class="char-box" x="482" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph" x="520" y="70" text-anchor="middle">a</text>
+  <line class="arr" x1="520" y1="92" x2="520" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="488" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="520" y="162" text-anchor="middle">97</text>
+
+  <!-- Colonne 6 : saut de ligne = 10 -->
+  <rect class="char-box" x="592" y="36" width="76" height="50" rx="8"/>
+  <text class="glyph" x="630" y="69" text-anchor="middle">\n</text>
+  <line class="arr" x1="630" y1="92" x2="630" y2="128" marker-end="url(#ascii-ah)"/>
+  <rect class="code-box" x="598" y="134" width="64" height="42" rx="8"/>
+  <text class="code" x="630" y="162" text-anchor="middle">10</text>
+
+  <!-- Légende -->
+  <text class="note" x="360" y="226" text-anchor="middle">Sur le fil, un caractère est un octet : son code ASCII.</text>
+  <text class="note" x="360" y="252" text-anchor="middle"><tspan class="note-strong">'4' vaut 52, pas l'entier 4.</tspan> Convertir un chiffre : c − '0'.</text>
+</svg>

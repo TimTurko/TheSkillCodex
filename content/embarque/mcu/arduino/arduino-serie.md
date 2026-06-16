@@ -96,7 +96,7 @@ void loop() {
 ```
 
 > [!warning]
-> **`Serial.read()` renvoie un caractère, pas un nombre.** Si vous tapez `42` dans le moniteur, vous recevrez successivement `'4'` (code ASCII 52) puis `'2'` (code ASCII 50), pas l'entier 42. Pour lire un nombre, utilisez `Serial.parseInt()` qui agrège les chiffres jusqu'au prochain séparateur.
+> **`Serial.read()` renvoie un caractère, pas un nombre.** Si vous tapez `42` dans le moniteur, vous recevrez successivement `'4'` ([[ascii|code ASCII]] 52) puis `'2'` (code ASCII 50), pas l'entier 42. Pour lire un nombre, utilisez `Serial.parseInt()` qui agrège les chiffres jusqu'au prochain séparateur.
 
 ## Exemple — Surveiller consigne et mesure
 
@@ -176,4 +176,5 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 - [[arduino-prise-en-main|Prise en main d'Arduino]] — prérequis (IDE + premier téléversement)
 - [[tinkercad|Tinkercad]] — le moniteur série est aussi disponible en simulation
 - [[cpp|C++]] — le langage utilisé dans les sketches
+- [[ascii|Code ASCII]] — pourquoi un caractère reçu (`Serial.read()`) est un nombre, pas l'entier tapé
 - [[bus-de-communication|Bus de communication]] — l'[[uart|UART]] est le bus utilisé en sous-jacent par le moniteur série
