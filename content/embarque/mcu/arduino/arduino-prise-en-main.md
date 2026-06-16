@@ -36,7 +36,7 @@ Au moment du téléchargement, Arduino peut proposer de **contribuer (don)** ou 
 
 Sur Windows, l'installateur installe aussi les pilotes USB pour les cartes Arduino officielles. Sous Linux, ajoutez votre utilisateur au groupe `dialout` pour accéder au port série sans `sudo`. Sous macOS, rien à faire en plus.
 
-Prendre capture d'écran de *la page de téléchargement arduino.cc/en/software, avec les liens Windows / macOS / Linux visibles*.
+![Page de téléchargement de l'IDE Arduino|600](/ressources/img/arduino-prise-en-main-telechargement.png)
 
 ### 2. Brancher la carte et vérifier la reconnaissance
 
@@ -44,7 +44,9 @@ Branchez la carte avec un **câble USB de données**. Les câbles « charge only
 
 Dans l'IDE, ouvrez le menu *Outils → Type de carte* et choisissez votre modèle (`Arduino Uno`, `Arduino Mega or Mega 2560`, `Arduino Nano`...). Puis *Outils → Port* et sélectionnez le port qui correspond à votre carte. Sous Windows il apparaît comme `COM3`, `COM4`... ; sous macOS comme `/dev/cu.usbmodem...` ; sous Linux comme `/dev/ttyACM0` ou `/dev/ttyUSB0`.
 
-Prendre capture d'écran de *l'IDE Arduino 2.x ouvert, avec le menu Outils déroulé montrant la sélection carte + port active*.
+![Menu Outils → Type de carte|600](/ressources/img/arduino-prise-en-main-type-de-carte.png)
+
+![Menu Outils → Port|600](/ressources/img/arduino-prise-en-main-port.png)
 
 **Point de contrôle.** À ce stade, votre carte doit apparaître dans *Outils → Port* (`COMx` sous Windows, `/dev/cu.usbmodem...` sous macOS, `/dev/ttyACM0` ou `/dev/ttyUSB0` sous Linux). Si c'est le cas, passez à l'étape 3. Si **aucun port ne correspond à la carte**, traitez d'abord le dépannage ci-dessous.
 
@@ -59,11 +61,13 @@ Symptôme commun : aucun port ne correspond à la carte dans *Outils → Port*. 
 > [!tip]
 > **Installer le pilote CH340, pas à pas.**
 > 1. Ouvrez le *Gestionnaire de périphériques* (clic droit sur le menu Démarrer → *Gestionnaire de périphériques*). Un périphérique marqué d'un point d'exclamation jaune — sous *Autres périphériques*, ou nommé *USB-SERIAL CH340* — confirme le diagnostic.
-> 2. Téléchargez le pilote sur le site du fabricant, **wch-ic.com** (rubrique *Downloads*, paquet *CH341SER* qui couvre aussi le CH340).
+> 2. Téléchargez le pilote CH340 directement depuis [sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html), qui regroupe les pilotes Windows / macOS / Linux. *(Pilote d'origine : le fabricant wch-ic.com, paquet CH341SER.)*
 > 3. Décompressez l'archive, lancez `SETUP.EXE`, puis cliquez sur *Install*.
 > 4. Débranchez puis rebranchez la carte (redémarrez si le port n'apparaît toujours pas). Le port `COMx` doit désormais être listé dans *Outils → Port*.
->
-> Prendre capture d'écran de *le Gestionnaire de périphériques Windows montrant le périphérique CH340 — avant (point d'exclamation jaune) puis après installation (COMx reconnu)*.
+
+![Téléchargement du pilote CH340 — sparks.gogo.co.nz|600](/ressources/img/arduino-prise-en-main-ch340-driver.jpg)
+
+<video controls src="/ressources/img/arduino-prise-en-main-ch340-gestionnaire.mp4"></video>
 
 **3. Linux / macOS.** Sous Linux, vérifiez l'appartenance au groupe `dialout` (cf. étape 1) ; un `ls /dev/ttyACM* /dev/ttyUSB*` après branchement confirme la présence du port. Sous macOS, les cartes officielles fonctionnent sans pilote ; seuls de vieux clones CH340 peuvent réclamer un pilote signé.
 
@@ -88,7 +92,7 @@ Deux [[fonction-informatique|fonctions]] structurent tout programme Arduino : `s
 
 Cliquez sur **Vérifier** (icône coche, en haut à gauche) — c'est la phase de *compilation*. Si tout est correct, la console en bas affiche `Sketch uses XXX bytes (X%) of program storage space`. Aucune ligne rouge.
 
-Prendre capture d'écran de *l'IDE Arduino 2.x avec le code Blink dans l'éditeur et la console en bas affichant la fin de compilation réussie*.
+![IDE Arduino — Blink compilé|600](/ressources/img/arduino-prise-en-main-blink-compilation.png)
 
 ### 4. Téléverser et observer
 
@@ -96,7 +100,7 @@ Cliquez sur **Téléverser** (icône flèche, à droite de Vérifier). L'IDE rec
 
 Une fois le téléversement terminé, la LED *L* (broche 13) se met à clignoter au rythme d'une seconde allumée, une seconde éteinte. **Le programme tourne — la prise en main est validée.**
 
-Prendre capture d'écran ou photo de *la carte Arduino branchée, avec la LED L (broche 13) allumée*.
+![Carte Arduino — LED L clignotante|420](/ressources/img/arduino-prise-en-main-led-blink.gif)
 
 > [!tip]
 > **Vérifier ≠ téléverser.** *Vérifier* compile sans envoyer à la carte (utile pour traquer une erreur de syntaxe sans risquer de casser un programme qui tourne). *Téléverser* compile puis envoie. Au moindre doute, *Vérifier* d'abord — ça évite d'attendre l'aller-retour USB pour découvrir une faute de frappe.

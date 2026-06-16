@@ -51,9 +51,11 @@ article {
 // =====================================================================
 
 article {
-  img {
+  img,
+  video {
     display: block;
     margin-inline: auto;
+    max-width: 100%;
   }
 }
 
