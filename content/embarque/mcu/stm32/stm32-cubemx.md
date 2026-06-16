@@ -62,7 +62,7 @@ Avant de générer, le **Project Manager → Code Generator** offre un choix imp
 
 « **Generate Code** » écrit alors `main.c`, un fichier d'init par périphérique, et les fonctions `MX_<PERIPH>_Init()`. Tout est jalonné de balises **`/* USER CODE BEGIN/END */`** : votre code n'y survit que **dans** ces balises.
 
-![Le flux de travail CubeMX en six temps : configurer (broches, horloge, périphériques), générer le code d'initialisation (HAL ou LL), compléter dans les zones USER CODE, compiler, flasher via le ST-LINK, déboguer au pas. Une boucle de retour part du débogage vers la configuration : on reconfigure et on régénère, et le code écrit dans les zones USER CODE est préservé.](/ressources/img/stm32-cubemx-flux.svg)
+![Le flux de travail CubeMX en six temps : configurer (broches, horloge, périphériques), générer le code d'initialisation (HAL ou LL), compléter dans les zones USER CODE, compiler, flasher via le ST-LINK, déboguer au pas. Une boucle de retour part du débogage vers la configuration : on reconfigure et on régénère, et le code écrit dans les zones USER CODE est préservé.](/ressources/img/stm32-cubemx/flux.svg)
 
 ## Exemple — Configurer LED + port série, puis générer
 

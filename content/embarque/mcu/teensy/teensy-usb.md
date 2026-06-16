@@ -38,7 +38,7 @@ Tout part de *Tools → USB Type*. Le choix est fait **avant la compilation** et
 - **MTP Disk**, **Raw HID**, **Flight Sim Controls**… — d'autres profils spécialisés ;
 - des **combinaisons** : *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick*… — qui cumulent plusieurs identités, dont Serial pour garder le débogage.
 
-![Un même Teensy peut s'énumérer comme différents appareils USB selon le choix fait dans Tools puis USB Type : port série (USB CDC), périphérique HID (clavier, souris, manette), instrument MIDI, carte audio, disque MTP, ou des combinaisons comme Série plus MIDI. C'est une capacité du matériel USB et de la pile logicielle PJRC.](/ressources/img/teensy-usb-personnalites.svg)
+![Un même Teensy peut s'énumérer comme différents appareils USB selon le choix fait dans Tools puis USB Type : port série (USB CDC), périphérique HID (clavier, souris, manette), instrument MIDI, carte audio, disque MTP, ou des combinaisons comme Série plus MIDI. C'est une capacité du matériel USB et de la pile logicielle PJRC.](/ressources/img/teensy-usb/personnalites.svg)
 
 Selon le type choisi, des objets globaux deviennent disponibles dans le sketch : `Keyboard`, `Mouse`, `Joystick`, `usbMIDI`… On les utilise comme n'importe quelle API Arduino.
 

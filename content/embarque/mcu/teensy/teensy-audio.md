@@ -33,7 +33,7 @@ Trois briques structurent toute chaîne audio :
 - **les cordons** (`AudioConnection`) — qui relient la sortie d'un objet à l'entrée d'un autre, comme des câbles de patch ;
 - **la mémoire** — `AudioMemory(n)` réserve `n` blocs d'échantillons partagés par la chaîne ; **à appeler dans `setup()`**, sans quoi rien ne sonne.
 
-![Une chaîne audio Teensy : une entrée USB audio passe dans un filtre, un synthétiseur génère une forme d'onde, les deux sont combinés par un mixeur dont la sortie part en I2S vers l'Audio Shield. Les objets sont reliés par des cordons (patch cords). Le traitement tourne en tâche de fond, porté par le DMA, indépendamment de la boucle loop().](/ressources/img/teensy-audio-flux.svg)
+![Une chaîne audio Teensy : une entrée USB audio passe dans un filtre, un synthétiseur génère une forme d'onde, les deux sont combinés par un mixeur dont la sortie part en I2S vers l'Audio Shield. Les objets sont reliés par des cordons (patch cords). Le traitement tourne en tâche de fond, porté par le DMA, indépendamment de la boucle loop().](/ressources/img/teensy-audio/flux.svg)
 
 ## L'Audio System Design Tool
 
