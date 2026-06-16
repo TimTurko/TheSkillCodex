@@ -137,7 +137,7 @@ Verdict : OK / a corriger
 ## 7 · EEE — Arduino (famille de référence)
 - [x] `arduino` (hub) — 🖼 *(relu 15/06 : tutoriels gardés en tête [fonction hub], « par où commencer » → prise-en-main, plafond AVR ajouté, radio restreinte au panorama, FreeRTOS « est traité » ; 2 images webp posées [photo Uno R3 + pinout, |420 / |600, légendes centrées] ; CSS — centrage images global + légende-figure)*
 - [x] `arduino-prise-en-main` — 🖼✅ *(relu + médias intégrés 15/06 : C71 prix retiré, AA PROJ/5 ajouté, piège clone Nano Old Bootloader, lien arduino-serie, chemin téléchargement IDE + don optionnel, captures scindées type-de-carte/port + pilote CH340 [sparks.gogo.co.nz] ; 7 médias intégrés à plat [6 captures + GIF Blink + vidéo CH340, 1re vidéo du wiki] ; chemins migrés en dossier `arduino-prise-en-main/` le 16/06 — C73)*
-- [ ] `tinkercad`
+- [x] `tinkercad` — 🖼✅ *(relu + médias 16/06 : symptôme bouton corrigé [pull-up → LED jamais allumée], mode Scratch écarté + image de bascule, placeholders C29, recroisement simulation-electronique + wokwi wikilisés, 4 captures intégrées ; casse git Creer→creer résolue ; C68 = territoire-capture)*
 - [ ] `arduino-serie`
 - [ ] `arduino-gpio`
 - [ ] `arduino-entree-tor`
