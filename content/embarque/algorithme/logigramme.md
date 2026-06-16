@@ -16,7 +16,7 @@ draft: false
 
 Un **logigramme** (aussi appelé *organigramme* ou *ordinogramme*) est une représentation graphique d'un [[algorithme]] sous forme d'un enchaînement de **symboles normalisés** (norme ISO 5807) — début/fin, traitements, décisions — reliés par des flèches qui suivent le fil d'exécution. Il décrit bien un **traitement à branchements** (`si… alors… sinon`, boucles), là où la [[machine-a-etats|machine à états]] décrit plutôt un système à modes.
 
-![Symboles d'un logigramme : un terminal en forme de stade (début/fin), un parallélogramme (entrée/sortie), un losange de décision à deux sorties oui/non, et un rectangle de traitement, reliés par des flèches.](/ressources/img/logigramme-generique.svg)
+![Symboles d'un logigramme : un terminal en forme de stade (début/fin), un parallélogramme (entrée/sortie), un losange de décision à deux sorties oui/non, et un rectangle de traitement, reliés par des flèches.](/ressources/img/logigramme/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -45,19 +45,19 @@ Trois règles de bonne lecture. Le flux **ne se sépare qu'au niveau d'un losang
 Le même thermostat « si la température dépasse la consigne, couper le chauffage, sinon chauffer » décliné en trois niveaux, du tracé fautif au logigramme exploitable.
 
 > [!failure] Contre-exemple — tracé propre mais fautif
-> ![Logigramme de thermostat proprement dessiné mais incomplet : seule la sortie oui de la décision est traitée, la sortie non se termine sans suite, et aucun terminal de fin ne clôt le programme.](/ressources/img/logigramme-thermostat-mauvais.svg)
+> ![Logigramme de thermostat proprement dessiné mais incomplet : seule la sortie oui de la décision est traitée, la sortie non se termine sans suite, et aucun terminal de fin ne clôt le programme.](/ressources/img/logigramme/thermostat-mauvais.svg)
 >
 > **Pourquoi c'est mauvais.** Le tracé est soigné — symboles corrects, flèches nettes — mais la **logique est trouée**. La décision n'a qu'une branche traitée : *que se passe-t-il si la température est sous la consigne ?* Rien n'est prévu. Et le flux s'arrête dans le vide, sans terminal de fin. Un schéma bien dessiné peut être tout aussi faux qu'un schéma brouillon : la propreté ne valide pas la logique.
 >
 > **Coût réel.** Traduit tel quel, le code ne fait rien dans la moitié des cas, et personne ne s'en aperçoit avant que le chauffage ne reste bloqué — le bug est dans la branche qu'on a oublié de dessiner.
 
 > [!warning] Version moyenne — correcte mais sans boucle
-> ![Logigramme de thermostat avec les deux branches traitées, oui vers couper et non vers allumer, se rejoignant vers un terminal de fin, sans aucune boucle.](/ressources/img/logigramme-thermostat-moyen.svg)
+> ![Logigramme de thermostat avec les deux branches traitées, oui vers couper et non vers allumer, se rejoignant vers un terminal de fin, sans aucune boucle.](/ressources/img/logigramme/thermostat-moyen.svg)
 >
 > **Pourquoi c'est moyen.** Les deux branches sont traitées et le flux se termine proprement : la logique est juste. Mais il **manque la boucle** — le programme lit la température *une seule fois*, agit, et s'arrête. Un thermostat doit réguler en continu. Le logigramme est correct pour un traitement ponctuel, incomplet pour une régulation.
 
 > [!example] Version cible — logique complète et bouclée
-> ![Logigramme de thermostat complet : les deux branches sont traitées et une flèche reboucle vers la lecture de la température, assurant une régulation continue.](/ressources/img/logigramme-thermostat-bon.svg)
+> ![Logigramme de thermostat complet : les deux branches sont traitées et une flèche reboucle vers la lecture de la température, assurant une régulation continue.](/ressources/img/logigramme/thermostat-bon.svg)
 >
 > **Pourquoi c'est bon.** Les deux cas sont couverts, et une **boucle** ramène le flux vers la lecture de la température : la régulation tourne en permanence. Chaque symbole se traduit directement en code — le losange en `if` ([[cpp-conditions|conditions]]), les rectangles en actions, la boucle en `while` ou `loop()` ([[cpp-boucles|boucles]]). C'est un logigramme qu'on peut coder sans rien deviner.
 

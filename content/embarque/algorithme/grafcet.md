@@ -16,7 +16,7 @@ draft: false
 
 Le **grafcet** (*GRAphe Fonctionnel de Commande Étapes-Transitions*) est un langage graphique **normalisé** (norme **IEC 60848**) qui décrit le comportement séquentiel d'un système automatisé. Il représente un [[algorithme]] de commande par des **étapes** — ce que le système fait — reliées par des **transitions** qui portent les conditions de passage, et excelle là où plusieurs séquences avancent **en parallèle** : c'est l'outil de l'automatisme.
 
-![Symboles d'un grafcet : une étape initiale en double carré, des étapes carrées numérotées portant des actions à droite, des transitions en barres horizontales accompagnées de leurs réceptivités, et une liaison de retour fléchée.](/ressources/img/grafcet-generique.svg)
+![Symboles d'un grafcet : une étape initiale en double carré, des étapes carrées numérotées portant des actions à droite, des transitions en barres horizontales accompagnées de leurs réceptivités, et une liaison de retour fléchée.](/ressources/img/grafcet/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -43,7 +43,7 @@ Une **liaison de retour** (fléchée quand elle remonte) reboucle le cycle. Sur 
 
 Un poste qui perce une pièce puis l'éjecte, en cycle. Au repos (étape 0), rien ne bouge. Le grafcet enchaîne ensuite quatre situations.
 
-![Grafcet cyclique du poste de perçage : étape initiale 0 au repos, franchie sur « départ et pièce présente » vers l'étape 1 Descendre broche, puis « broche en bas » vers l'étape 2 Remonter, « broche en haut » vers l'étape 3 Éjecter, et « pièce évacuée » rebouclant vers le repos.](/ressources/img/grafcet-percage.svg)
+![Grafcet cyclique du poste de perçage : étape initiale 0 au repos, franchie sur « départ et pièce présente » vers l'étape 1 Descendre broche, puis « broche en bas » vers l'étape 2 Remonter, « broche en haut » vers l'étape 3 Éjecter, et « pièce évacuée » rebouclant vers le repos.](/ressources/img/grafcet/percage.svg)
 
 La réceptivité de la première transition, `départ · pièce présente`, est une **combinaison logique** : le cycle ne démarre que si l'opérateur appuie sur départ **et** qu'une pièce est en place. Chaque étape ne fait qu'une chose et ne cède la main que sur la condition explicite suivante — la séquence est lisible, et se transcrit telle quelle vers un automate. C'est cette clarté normalisée qui fait préférer le grafcet au logigramme pour un cycle de machine.
 
@@ -65,7 +65,7 @@ La réceptivité de la première transition, `départ · pièce présente`, est 
 
 Deux structures distinguent le grafcet des représentations purement séquentielles. La **divergence en OU** (sélection de séquence) : plusieurs transitions partent d'une même étape, et selon les réceptivités **une seule** branche est empruntée — un choix exclusif. La **divergence en ET** (parallélisme) : une seule transition active **plusieurs étapes simultanément**, lançant des séquences en parallèle, qui devront être resynchronisées par une convergence en ET. C'est cette capacité au parallélisme qui fait la spécificité du grafcet ; un [[logigramme]] ou une [[machine-a-etats|machine à états]] simple ne l'expriment pas naturellement.
 
-![Les deux divergences du grafcet : à gauche la divergence en OU — depuis une étape, deux branches portant chacune sa transition, une seule est empruntée selon la réceptivité vraie ; à droite la divergence en ET — une transition unique puis une double barre activant deux étapes en parallèle, resynchronisées plus bas par une convergence en double barre suivie d'une transition unique.](/ressources/img/grafcet-divergences.svg)
+![Les deux divergences du grafcet : à gauche la divergence en OU — depuis une étape, deux branches portant chacune sa transition, une seule est empruntée selon la réceptivité vraie ; à droite la divergence en ET — une transition unique puis une double barre activant deux étapes en parallèle, resynchronisées plus bas par une convergence en double barre suivie d'une transition unique.](/ressources/img/grafcet/divergences.svg)
 
 ## Voir aussi
 

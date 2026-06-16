@@ -16,7 +16,7 @@ draft: false
 
 Un **chronogramme** est une représentation graphique de l'évolution d'un ou plusieurs **signaux dans le temps**, tracés sur un **axe de temps commun**. Là où les autres représentations d'un [[algorithme]] décrivent la *logique* (l'enchaînement des décisions ou des états), le chronogramme décrit le *timing* : il sert à vérifier les **relations temporelles** entre signaux — qui change avant quoi, combien de temps dure une impulsion, sur quel front réagir.
 
-![Chronogramme générique : trois signaux logiques empilés sur un axe de temps commun, avec une horloge périodique, un signal A à fronts montant et descendant repérés, et un signal B qui réagit après un délai.](/ressources/img/chronogramme-generique.svg)
+![Chronogramme générique : trois signaux logiques empilés sur un axe de temps commun, avec une horloge périodique, un signal A à fronts montant et descendant repérés, et un signal B qui réagit après un délai.](/ressources/img/chronogramme/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -46,7 +46,7 @@ La règle de lecture tient en une phrase : on choisit un instant sur l'axe, et o
 
 Deux signaux courants en projet, lus sur le même axe.
 
-![Chronogramme à deux signaux : en haut un PWM carré avec période et temps haut cotés, en bas une trame UART avec bit de start, huit bits de données et bit de stop repérés.](/ressources/img/chronogramme-pwm.svg)
+![Chronogramme à deux signaux : en haut un PWM carré avec période et temps haut cotés, en bas une trame UART avec bit de start, huit bits de données et bit de stop repérés.](/ressources/img/chronogramme/pwm.svg)
 
 Le **PWM** (en haut) est un carré dont seul compte le **rapport cyclique** α = tₕ / T : à fréquence fixe, plus le temps haut est long, plus la puissance moyenne transmise est grande (vitesse d'un moteur, luminosité d'une LED — voir [[arduino-sortie-pwm|piloter une sortie PWM]]). La **trame UART** (en bas) illustre l'autre usage : la ligne au repos est haute, un **bit de start** (bas) annonce la trame, suivent les **8 bits de données**, puis un **bit de stop**. Sans chronogramme, impossible de vérifier qu'on échantillonne chaque bit au bon instant.
 

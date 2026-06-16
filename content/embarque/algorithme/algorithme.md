@@ -30,7 +30,7 @@ Cette représentation se construit en phase de [[concept|concept]] (quand on dé
 
 Les quatre représentations ne décrivent pas la même chose. Le choix dépend de la **nature du comportement** : enchaînement de décisions, succession d'états, étapes parallèles, ou relations de temps entre signaux.
 
-![Quatre regards sur un même comportement : un mini-logigramme (des décisions en cascade), une mini-machine à états (des modes et des événements), un mini-grafcet (des séquences, éventuellement parallèles) et un mini-chronogramme (des signaux dans le temps).](/ressources/img/algorithme-quatre-regards.svg)
+![Quatre regards sur un même comportement : un mini-logigramme (des décisions en cascade), une mini-machine à états (des modes et des événements), un mini-grafcet (des séquences, éventuellement parallèles) et un mini-chronogramme (des signaux dans le temps).](/ressources/img/algorithme/quatre-regards.svg)
 
 | Représentation | Décrit bien | Forme | Quand l'utiliser |
 | --- | --- | --- | --- |

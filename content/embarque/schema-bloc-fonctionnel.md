@@ -47,13 +47,13 @@ L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène 
 - **Frontière du système** : pointillé englobant les blocs qui appartiennent au système. Tout ce qui est dehors est environnement (utilisateur, objet à manipuler, conditions extérieures).
 - **Boucle ouverte vs fermée** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
 
-![Conventions du schéma bloc fonctionnel : blocs, frontière du système et types de flux](/ressources/img/schema-bloc-fonctionnel-generique.svg)
+![Conventions du schéma bloc fonctionnel : blocs, frontière du système et types de flux](/ressources/img/schema-bloc-fonctionnel/generique.svg)
 
 ## Exemple
 
 Projet : régulation de température d'une couveuse à œufs.
 
-![Schéma bloc fonctionnel de la couveuse : boucle fermée de régulation de température](/ressources/img/schema-bloc-fonctionnel-couveuse.svg)
+![Schéma bloc fonctionnel de la couveuse : boucle fermée de régulation de température](/ressources/img/schema-bloc-fonctionnel/couveuse.svg)
 
 On lit le schéma ainsi : l'utilisateur fixe une consigne, le contrôleur la compare à la mesure de la thermistance, et pilote en [[pwm|PWM]] le relais qui alimente la résistance chauffante. La chaleur diffuse dans l'air de la couveuse, le capteur mesure, boucle fermée.
 
