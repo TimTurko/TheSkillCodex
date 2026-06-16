@@ -13,7 +13,7 @@ draft: false
 
 Le **SPI** (*Serial Peripheral Interface*) est un [[bus-de-communication|bus de communication]] **synchrone** et rapide à quatre fils : **MOSI** et **MISO** (les données dans chaque sens), **SCK** (l'horloge) et **CS** (la sélection). Un composant **maître** échange en **full-duplex** — il émet et reçoit en même temps — avec un esclave à la fois, qu'il active en abaissant sa ligne **CS** dédiée.
 
-![Branchement SPI : un maître et deux esclaves — les trois fils MOSI, MISO et SCK sont partagés (faisceau unique), chaque esclave reçoit sa propre ligne CS, masses GND reliées.](/ressources/img/spi-branchement.svg)
+![Branchement SPI : un maître et deux esclaves — les trois fils MOSI, MISO et SCK sont partagés (faisceau unique), chaque esclave reçoit sa propre ligne CS, masses GND reliées.](/ressources/img/spi/branchement.svg)
 
 ## Comment ça marche ?
 
@@ -21,7 +21,7 @@ Les trois fils MOSI, MISO et SCK sont **partagés** par tous les composants ; en
 
 ## Sur le fil
 
-![Chronogramme SPI : CS abaissé en premier, huit coups d'horloge SCK, et les octets MOSI et MISO qui circulent en même temps — full-duplex — avant la remontée de CS.](/ressources/img/spi-chronogramme.svg)
+![Chronogramme SPI : CS abaissé en premier, huit coups d'horloge SCK, et les octets MOSI et MISO qui circulent en même temps — full-duplex — avant la remontée de CS.](/ressources/img/spi/chronogramme.svg)
 
 Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d'horloge** sur SCK : à chaque coup, un bit part sur MOSI **et** un bit revient sur MISO — l'échange est simultané, c'est le full-duplex. CS remonte à la fin. Le moment exact où les bits sont échantillonnés dépend du **mode SPI** (polarité et phase d'horloge, numérotés 0 à 3). La mise en œuvre est traitée dans [[arduino-spi]] côté Arduino et [[micropython-spi]] côté MicroPython.
 

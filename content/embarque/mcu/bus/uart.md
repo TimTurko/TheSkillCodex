@@ -13,7 +13,7 @@ draft: false
 
 L'**UART** (*Universal Asynchronous Receiver-Transmitter*) est un [[bus-de-communication|bus de communication]] **asynchrone** : deux composants échangent des données sur deux fils, **TX** (émission) et **RX** (réception), croisés l'un vers l'autre. Sans horloge commune, les deux côtés doivent s'accorder à l'avance sur un même **débit** (le *baud*).
 
-![Branchement UART entre deux cartes : le TX de A va au RX de B, le RX de A vient du TX de B — les fils se croisent — et les masses GND sont reliées. Pas de terminaison nécessaire à ces distances.](/ressources/img/uart-branchement.svg)
+![Branchement UART entre deux cartes : le TX de A va au RX de B, le RX de A vient du TX de B — les fils se croisent — et les masses GND sont reliées. Pas de terminaison nécessaire à ces distances.](/ressources/img/uart/branchement.svg)
 
 ## Comment ça marche ?
 
@@ -21,7 +21,7 @@ Chaque octet est encadré par un **bit de start** et un ou plusieurs **bits de s
 
 ## Sur le fil
 
-![Chronogramme d'une trame UART : ligne au repos à l'état haut, bit de start bas, huit bits de données du poids faible au poids fort, bit de stop haut, retour au repos. Chaque bit dure l'inverse du débit.](/ressources/img/uart-chronogramme.svg)
+![Chronogramme d'une trame UART : ligne au repos à l'état haut, bit de start bas, huit bits de données du poids faible au poids fort, bit de stop haut, retour au repos. Chaque bit dure l'inverse du débit.](/ressources/img/uart/chronogramme.svg)
 
 La ligne est au repos à l'état haut. Le **start** (un bit bas) prévient le récepteur, qui se met à compter : chaque bit durant exactement 1 ÷ débit, il échantillonne la ligne au milieu de chaque intervalle pour lire les 8 bits de données (poids faible en premier), puis vérifie le **stop**. Tout repose sur ce comptage : c'est pourquoi un débit mal accordé produit des caractères illisibles.
 

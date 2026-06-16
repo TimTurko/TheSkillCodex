@@ -16,7 +16,7 @@ draft: false
 
 Un **bus de communication** est un ensemble de lignes et de règles qui permet à deux composants numériques d'échanger des données — typiquement un [[microcontroleur|microcontrôleur]] et ses capteurs, mémoires ou écrans. Cette fiche est le **hub d'entrée** vers les trois protocoles les plus courants en projet : l'[[uart|UART]], l'[[i2c|I2C]] et le [[spi|SPI]]. Elle les situe les uns par rapport aux autres et donne la méthode pour choisir, sans détailler chacun (c'est le rôle des fiches filles).
 
-![Trois topologies de bus. UART : liaison point-à-point sur deux fils croisés (TX vers RX). I2C : deux fils partagés (SDA, SCL) reliant un maître à plusieurs esclaves adressés, avec résistances de tirage. SPI : trois fils partagés (MOSI, MISO, SCK) plus une ligne de sélection CS dédiée par esclave.](/ressources/img/bus-de-communication-topologies.svg)
+![Trois topologies de bus. UART : liaison point-à-point sur deux fils croisés (TX vers RX). I2C : deux fils partagés (SDA, SCL) reliant un maître à plusieurs esclaves adressés, avec résistances de tirage. SPI : trois fils partagés (MOSI, MISO, SCK) plus une ligne de sélection CS dédiée par esclave.](/ressources/img/bus-de-communication/topologies.svg)
 
 ## À quoi ça sert ?
 

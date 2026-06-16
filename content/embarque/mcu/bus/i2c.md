@@ -13,7 +13,7 @@ draft: false
 
 L'**I2C** (*Inter-Integrated Circuit*) est un [[bus-de-communication|bus de communication]] **synchrone** à deux fils : **SDA** (les données) et **SCL** (l'horloge), partagés par tous les composants. Un composant **maître** cadence les échanges ; chaque composant **esclave** répond à une **adresse** unique, ce qui permet d'en brancher plusieurs sur les deux mêmes fils.
 
-![Branchement I2C : un maître et deux esclaves suspendus aux deux mêmes fils SDA et SCL, deux résistances de tirage d'environ 4,7 kΩ vers Vcc, masses GND reliées.](/ressources/img/i2c-branchement.svg)
+![Branchement I2C : un maître et deux esclaves suspendus aux deux mêmes fils SDA et SCL, deux résistances de tirage d'environ 4,7 kΩ vers Vcc, masses GND reliées.](/ressources/img/i2c/branchement.svg)
 
 ## Comment ça marche ?
 
@@ -23,7 +23,7 @@ Le débit est modéré et la portée courte (l'échelle de la carte). En échang
 
 ## Sur le fil
 
-![Chronogramme I2C simplifié : le maître cadence SCL en impulsions régulières ; sur SDA, condition START, adresse sur 7 bits, bit lecture/écriture, acquittement ACK de l'esclave, puis condition STOP.](/ressources/img/i2c-chronogramme.svg)
+![Chronogramme I2C simplifié : le maître cadence SCL en impulsions régulières ; sur SDA, condition START, adresse sur 7 bits, bit lecture/écriture, acquittement ACK de l'esclave, puis condition STOP.](/ressources/img/i2c/chronogramme.svg)
 
 Le maître ouvre par une condition **START** (SDA descend pendant que SCL est haut), envoie l'**adresse** sur 7 bits suivie du bit lecture/écriture, et l'esclave visé répond par un bit d'**acquittement** (ACK) — c'est ainsi qu'on sait qu'il est bien là. Les octets de données suivent le même motif (8 bits + ACK), jusqu'à la condition **STOP**. L'horloge SCL, elle, est tenue par le maître du début à la fin. La mise en œuvre est traitée dans [[arduino-i2c]] côté Arduino et [[micropython-i2c]] côté MicroPython.
 
