@@ -24,6 +24,8 @@ Tinkercad résout trois problèmes courants en projet étudiant :
 
 L'outil reste limité : tous les composants ne sont pas simulés, le timing n'est pas réaliste à la microseconde près, et certains modules (capteurs spécialisés, écrans complexes) sont absents. **Tinkercad ne remplace pas le montage réel — il accélère la phase d'idéation et fiabilise la première mise sous tension.**
 
+La **méthode** générale de simulation — choisir l'analyse adaptée à la question, placer les sondes, confronter le résultat à un ordre de grandeur attendu — et le panorama des autres simulateurs sont portés par le hub [[simulation-electronique|simulation électronique]].
+
 ## Procédure pas à pas
 
 Quatre étapes : ouvrir un projet, poser les composants, écrire le code, simuler.
@@ -32,7 +34,7 @@ Quatre étapes : ouvrir un projet, poser les composants, écrire le code, simule
 
 Rendez-vous sur `tinkercad.com` et créez un compte gratuit (un compte Google ou un compte établissement Autodesk Education fonctionne aussi). Dans le tableau de bord, cliquez sur *Créer* → *Circuit*. Un plan de travail vide s'ouvre.
 
-Prendre capture d'écran de *le tableau de bord Tinkercad avec le bouton « Créer un nouveau Circuit » visible*.
+*Prendre une capture d'écran du tableau de bord Tinkercad, avec le bouton « Créer un nouveau Circuit » visible.*
 
 ### 2. Poser les composants
 
@@ -40,7 +42,7 @@ Prendre capture d'écran de *le tableau de bord Tinkercad avec le bouton « Cré
 
 Glissez-déposez les composants dans le plan de travail. Cliquez-droit pour faire pivoter une pièce. Pour câbler, cliquez sur une broche : un fil démarre, suivez en cliquant à chaque coude, terminez par un clic sur la broche cible. Les valeurs (résistance, tension) se définissent en cliquant sur le composant et en éditant le panneau qui apparaît.
 
-Prendre capture d'écran de *un plan de travail Tinkercad avec une carte Arduino Uno, une LED et une résistance câblées, et la barre latérale des composants visible à droite*.
+*Prendre une capture d'écran d'un plan de travail Tinkercad avec une carte Arduino Uno, une LED et une résistance câblées, et la barre latérale des composants visible à droite.*
 
 ### 3. Écrire le code
 
@@ -51,7 +53,7 @@ Cliquez sur **Code** en haut à droite. Deux modes sont disponibles :
 
 Au-dessus de l'éditeur, un bouton permet de basculer entre les deux modes. Tinkercad génère le code C++ équivalent au montage en blocs lorsqu'on bascule du graphique vers le texte — pratique pour faire le pont pédagogique.
 
-Prendre capture d'écran de *le volet Code de Tinkercad ouvert en mode Texte, avec un sketch Blink dans l'éditeur*.
+*Prendre une capture d'écran du volet Code de Tinkercad ouvert en mode Texte, avec un sketch Blink dans l'éditeur.*
 
 ### 4. Lancer la simulation et observer
 
@@ -61,7 +63,7 @@ Un bouton **Moniteur série** (en bas du volet code) permet de voir les `Serial.
 
 Pour arrêter, cliquez sur **Arrêter la simulation**. Vous pouvez modifier le code ou le câblage à chaud, puis relancer.
 
-Prendre capture d'écran de *une simulation Tinkercad en cours d'exécution, avec la LED allumée sur le plan de travail et le bouton « Arrêter la simulation » visible*.
+*Prendre une capture d'écran d'une simulation Tinkercad en cours d'exécution, avec la LED allumée sur le plan de travail et le bouton « Arrêter la simulation » visible.*
 
 ## Exemple — Blink simulé avec bouton
 
@@ -87,9 +89,9 @@ void loop() {
 }
 ```
 
-Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (ex. bouton entre 5 V et la broche au lieu de GND), la LED reste allumée en permanence — la simulation reproduit fidèlement l'erreur sans rien casser.
+Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (ex. bouton entre 5 V et la broche au lieu de GND), la LED ne s'allume jamais, quel que soit l'appui — la broche reste tirée à HIGH par le pull-up, et la simulation reproduit fidèlement l'erreur sans rien casser.
 
-Prendre capture d'écran de *la simulation Tinkercad du circuit bouton + LED, bouton en cours d'appui et LED allumée*.
+*Prendre une capture d'écran de la simulation Tinkercad du circuit bouton + LED, bouton en cours d'appui et LED allumée.*
 
 ## Pièges
 
@@ -109,7 +111,7 @@ Prendre capture d'écran de *la simulation Tinkercad du circuit bouton + LED, bo
 
 ## Cas particulier — Wokwi pour ESP32 et microcontrôleurs avancés
 
-Tinkercad gère bien Arduino Uno / Mega et quelques composants standards. Pour simuler de l'[[esp32|ESP32]] (Wi-Fi, BLE, écran SSD1306, pilotage de modules avancés), regardez **Wokwi** (wokwi.com), simulateur web concurrent qui couvre un parc bien plus large de cartes et de modules. Même logique d'usage, interface proche.
+Tinkercad gère bien Arduino Uno / Mega et quelques composants standards. Pour simuler de l'[[esp32|ESP32]] (Wi-Fi, BLE, écran SSD1306, pilotage de modules avancés), regardez [[wokwi|Wokwi]] (wokwi.com), simulateur web complémentaire qui couvre un parc bien plus large de cartes et de modules. Même logique d'usage, interface proche.
 
 ## Raccrochage projet
 
@@ -129,5 +131,7 @@ Une demi-heure de simulation avant la première mise sous tension du vrai circui
 
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-prise-en-main|Prise en main d'Arduino]] — l'équivalent sur du matériel réel
+- [[simulation-electronique|Simulation électronique]] — le hub méthode : choisir une analyse, lire et confronter les résultats
+- [[wokwi|Wokwi]] — simulateur de cartes MCU plus riche (ESP32, sans-fil)
 - [[arduino-serie|Moniteur série]] — observable aussi dans Tinkercad
 - [[microcontroleur|Microcontrôleur]] — panorama des familles MCU
