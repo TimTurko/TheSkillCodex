@@ -65,7 +65,7 @@ D'autres tutos compléteront ces paliers au fil des projets. La structuration d'
 
 ## Pourquoi MicroPython ?
 
-![Modèle d'exécution : approche compilée (C++/Arduino) vs approche scriptée (MicroPython)](/ressources/img/micropython-modele-execution.svg)
+![Modèle d'exécution : approche compilée (C++/Arduino) vs approche scriptée (MicroPython)](/ressources/img/micropython/modele-execution.svg)
 
 MicroPython occupe une **niche de lisibilité et d'itération rapide**, pas de performance brute. Ses atouts :
 

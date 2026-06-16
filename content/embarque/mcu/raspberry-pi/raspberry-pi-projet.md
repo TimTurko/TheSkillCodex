@@ -16,7 +16,7 @@ draft: false
 
 Intégrer un **ordinateur monocarte (SBC)** dans un projet mécatronique, c'est lui confier le **haut niveau** — vision, décision, réseau, interface — pendant qu'un [[microcontroleur|microcontrôleur]] tient le **temps réel** — capteurs cadencés, asservissement, commande des moteurs. Cette répartition n'est pas un compromis subi : c'est l'**architecture la plus courante** dès qu'un projet demande à la fois du calcul lourd et de la commande précise. Cette fiche montre comment les deux cerveaux se partagent le travail et dialoguent, et quand, à l'inverse, le SBC suffit seul.
 
-![Architecture bicéphale sur un bras 3 axes : le Raspberry Pi assure vision, planification, réseau ; il envoie des consignes via un bus à un microcontrôleur qui asservit et pilote les moteurs des trois axes.](/ressources/img/raspberry-pi-architecture-bicephale.svg)
+![Architecture bicéphale sur un bras 3 axes : le Raspberry Pi assure vision, planification, réseau ; il envoie des consignes via un bus à un microcontrôleur qui asservit et pilote les moteurs des trois axes.](/ressources/img/raspberry-pi-projet/architecture-bicephale.svg)
 
 ## À quoi ça sert ?
 

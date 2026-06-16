@@ -11,7 +11,7 @@ draft: false
 
 Le **pied à coulisse** est l'instrument de mesure dimensionnelle de base de l'atelier : il donne une **cote absolue** (longueur, diamètre extérieur ou intérieur, profondeur) au dixième, voire au centième de millimètre pour les modèles numériques.
 
-![Schéma d'un pied à coulisse : une règle graduée avec un mors fixe et un mors coulissant. Les becs vers le bas serrent une pièce (longueur ou diamètre extérieur), les becs vers le haut mesurent un diamètre intérieur, et une jauge sort à droite pour mesurer une profondeur — toujours une cote absolue.](/ressources/img/pied-a-coulisse-mesures.svg)
+![Schéma d'un pied à coulisse : une règle graduée avec un mors fixe et un mors coulissant. Les becs vers le bas serrent une pièce (longueur ou diamètre extérieur), les becs vers le haut mesurent un diamètre intérieur, et une jauge sort à droite pour mesurer une profondeur — toujours une cote absolue.](/ressources/img/pied-a-coulisse/mesures.svg)
 
 ## Dans le projet
 

@@ -17,7 +17,7 @@ Le **XIAO ESP32-S3 Sense** est la variante « capteurs » du [[xiao-esp32-s3|XIA
 
 ## Ce que la Sense ajoute
 
-![Le XIAO ESP32-S3 relié par le connecteur B2B à trois périphériques de la Sense : caméra OV3660 en DVP parallèle plus I²C de réglage, micro PDM sur GPIO42 et GPIO41, lecteur microSD sur le bus SPI D8 D9 D10.](/ressources/img/xiao-sense-peripheriques.svg)
+![Le XIAO ESP32-S3 relié par le connecteur B2B à trois périphériques de la Sense : caméra OV3660 en DVP parallèle plus I²C de réglage, micro PDM sur GPIO42 et GPIO41, lecteur microSD sur le bus SPI D8 D9 D10.](/ressources/img/xiao-sense/peripheriques.svg)
 
 Trois périphériques, branchés par le **connecteur B2B**, qui expose au passage **2 GPIO de plus** (D11 = GPIO42, D12 = GPIO41). Mais attention : ces deux-là sont **réservés au micro par défaut** — pour les récupérer, il faut couper le pont J1/J2 de la carte d'extension, et on **perd alors le micro**. La Sense est dense : chaque broche sert déjà à quelque chose.
 

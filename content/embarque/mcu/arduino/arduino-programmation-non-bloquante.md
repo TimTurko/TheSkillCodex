@@ -17,7 +17,7 @@ draft: false
 
 La **programmation non bloquante** est une **façon de structurer** un programme embarqué pour que la boucle principale ne s'arrête **jamais**. Au lieu d'attendre avec `delay()`, chaque tâche avance un peu à chaque tour de `loop()` puis rend la main : le système peut ainsi mener **plusieurs activités de front** et rester réactif. Ce n'est pas une fonction à appeler, mais une **discipline d'architecture** qui s'appuie sur la [[arduino-temporisation|temporisation par `millis()`]] et sur les [[machine-a-etats|machines à états]].
 
-![Comparaison de deux boucles principales. À gauche, l'approche bloquante : la boucle alterne une action courte et un long delay() pendant lequel tout le programme est figé, et un bouton pressé pendant le delay() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu et distribue le travail à de petites tâches exécutées chacune à son tour, et un bouton pressé est vu dès le tour suivant.](/ressources/img/programmation-non-bloquante.svg)
+![Comparaison de deux boucles principales. À gauche, l'approche bloquante : la boucle alterne une action courte et un long delay() pendant lequel tout le programme est figé, et un bouton pressé pendant le delay() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu et distribue le travail à de petites tâches exécutées chacune à son tour, et un bouton pressé est vu dès le tour suivant.](/ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg)
 
 ## À quoi ça sert ?
 

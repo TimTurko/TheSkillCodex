@@ -68,7 +68,7 @@ Pour vérifier que les **radios** répondent, lance ensuite un scan Wi-Fi ou BLE
 
 Tôt ou tard, un mauvais programme (ou un deep sleep mal réglé) fait « disparaître » la carte : **plus de port**, ou un port présent mais le **téléversement échoue**. La parade est le **mode bootloader**, qu'on force avec le bouton BOOT.
 
-![Procédure en quatre étapes pour passer le XIAO ESP32-S3 en mode bootloader : maintenir BOOT, brancher l'USB-C, relâcher BOOT, téléverser puis appuyer sur Reset.](/ressources/img/xiao-prise-en-main-bootloader.svg)
+![Procédure en quatre étapes pour passer le XIAO ESP32-S3 en mode bootloader : maintenir BOOT, brancher l'USB-C, relâcher BOOT, téléverser puis appuyer sur Reset.](/ressources/img/xiao-prise-en-main/bootloader.svg)
 
 Une fois en mode bootloader, téléverse un programme sain (le Blink fait l'affaire), puis appuie sur **Reset** pour le lancer. Le bouton **Reset** seul, lui, relance simplement le programme déjà en place.
 

@@ -14,7 +14,7 @@ draft: false
 
 Le **schéma cinématique** est une représentation simplifiée d'un mécanisme qui ne montre que ses **liaisons** entre pièces et les **mouvements** qu'elles autorisent — pas les formes, pas les dimensions. C'est l'outil pour décrire l'architecture mécanique d'un système et compter ses **degrés de liberté** avant d'en dessiner la moindre pièce. Cette fiche pose ce que c'est et comment le lire dans un projet ; la théorie complète (catalogue des liaisons, torseurs, calcul de mobilité) relève du **cours de mécanique**.
 
-![Trois symboles de base du schéma cinématique : le bâti (ligne hachurée, référence fixe, 0 degré de liberté), la liaison pivot (cercle entre deux barres, 1 rotation) et la liaison glissière (patin sur un rail, 1 translation).](/ressources/img/schema-cinematique-generique.svg)
+![Trois symboles de base du schéma cinématique : le bâti (ligne hachurée, référence fixe, 0 degré de liberté), la liaison pivot (cercle entre deux barres, 1 rotation) et la liaison glissière (patin sur un rail, 1 translation).](/ressources/img/schema-cinematique/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -39,7 +39,7 @@ On lit la chaîne depuis le bâti vers l'extrémité, en additionnant les degré
 
 ## Exemple — Le bras 3 axes
 
-![Schéma cinématique du bras 3 axes vu de côté : une base tournant autour d'un axe vertical (θ₁), puis deux liaisons pivot en série, l'épaule (θ₂) et le coude (θ₃), articulant un bras puis un avant-bras terminés par un préhenseur. Trois liaisons pivot, donc trois degrés de liberté.](/ressources/img/schema-cinematique-bras-3-axes.svg)
+![Schéma cinématique du bras 3 axes vu de côté : une base tournant autour d'un axe vertical (θ₁), puis deux liaisons pivot en série, l'épaule (θ₂) et le coude (θ₃), articulant un bras puis un avant-bras terminés par un préhenseur. Trois liaisons pivot, donc trois degrés de liberté.](/ressources/img/schema-cinematique/bras-3-axes.svg)
 
 Le bras du fil rouge se décrit par **trois liaisons pivot en série** : une rotation de base (axe vertical), puis deux articulations (épaule, coude). Chaque pivot ajoute un degré de liberté → **3 ddl**, juste ce qu'il faut pour amener le préhenseur à une position dans son volume de travail. Le schéma se lit d'un coup d'œil : on voit l'architecture (sérielle), on compte les axes — donc les moteurs à prévoir — et on situe les liaisons à dimensionner, sans avoir encore dessiné la moindre pièce.
 

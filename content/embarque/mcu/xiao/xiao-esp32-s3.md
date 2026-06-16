@@ -17,7 +17,7 @@ aliases:
 
 Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 17,5 mm) de **Seeed Studio**, bâtie autour de la puce [[esp32|ESP32]]-S3 : deux cœurs à 240 MHz, 8 Mo de PSRAM, Wi-Fi et BLE, le tout sur une carte USB-C qui tient sur un ongle. Cette fiche est le **hub-parcours** de la carte : pourquoi elle, quelle variante choisir, et comment l'utiliser dans ton projet en t'appuyant sur les fiches existantes. XIAO est un **format**, pas une famille de puces — tout ce qui concerne le SoC, les radios et les chaînes d'outils est porté par le module [[esp32|ESP32]], et le choix entre familles de microcontrôleurs reste porté par [[microcontroleur|microcontrôleur]].
 
-![Carte XIAO ESP32-S3 et ses fonctions : USB-C, antenne U.FL, LED utilisateur sur GPIO21, boutons Boot et Reset, et les groupes alimentation, 11 GPIO, 9 ADC, I²C, SPI et UART.](/ressources/img/xiao-esp32-s3-brochage.svg)
+![Carte XIAO ESP32-S3 et ses fonctions : USB-C, antenne U.FL, LED utilisateur sur GPIO21, boutons Boot et Reset, et les groupes alimentation, 11 GPIO, 9 ADC, I²C, SPI et UART.](/ressources/img/xiao-esp32-s3/brochage.svg)
 
 ## Pourquoi le XIAO ESP32-S3 ?
 
@@ -35,7 +35,7 @@ La rançon de la miniaturisation : **onze broches seulement** sortent sur les bo
 
 XIAO décline le même format sur plusieurs puces ESP32. Pars du **besoin du projet**, pas de la fiche technique.
 
-![Arbre de décision pour choisir une variante XIAO ESP32 : caméra ou IA vers la S3 Sense, Matter ou Zigbee vers la C6, Wi-Fi 5 GHz vers la C5, coût minimal vers la C3, sinon la S3 par défaut.](/ressources/img/xiao-esp32-s3-variantes.svg)
+![Arbre de décision pour choisir une variante XIAO ESP32 : caméra ou IA vers la S3 Sense, Matter ou Zigbee vers la C6, Wi-Fi 5 GHz vers la C5, coût minimal vers la C3, sinon la S3 par défaut.](/ressources/img/xiao-esp32-s3/variantes.svg)
 
 | Variante | Cœur | RAM / Flash | Radios | Périphérique signature | À choisir si… |
 | --- | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ Côté alimentation : **5V** (sortie de l'USB, ou entrée *via une diode* en sé
 
 Onze broches, c'est vite court. La réponse standard est un **expandeur d'E/S sur le bus [[i2c|I²C]]** : deux fils (SDA sur D4, SCL sur D5) pilotent un circuit comme le **PCF8574** (8 E/S) ou le **MCP23017** (16 E/S), adressable — tu en chaînes plusieurs sur le même bus.
 
-![Branchement d'un expandeur d'E/S sur le bus I²C du XIAO : SDA sur D4, SCL sur D5, deux résistances de tirage vers 3V3, et 8 à 16 entrées-sorties en sortie de l'expandeur.](/ressources/img/xiao-esp32-s3-extendeur-i2c.svg)
+![Branchement d'un expandeur d'E/S sur le bus I²C du XIAO : SDA sur D4, SCL sur D5, deux résistances de tirage vers 3V3, et 8 à 16 entrées-sorties en sortie de l'expandeur.](/ressources/img/xiao-esp32-s3/extendeur-i2c.svg)
 
 L'autre voie, sans soudure, est l'**écosystème d'extension XIAO** : la *Expansion Base* (écran OLED, RTC, buzzer, lecteur microSD, connecteurs Grove) et les modules **Grove** se branchent directement et donnent accès aux périphériques courants sans câblage fin.
 
@@ -102,7 +102,7 @@ L'autre voie, sans soudure, est l'**écosystème d'extension XIAO** : la *Expans
 
 La carte embarque une **antenne céramique** active par défaut, et un **connecteur d'antenne externe (U.FL / IPEX)** avec une antenne fournie. Tu branches l'antenne externe pour gagner en portée : en **boîtier** (surtout métallique), à **proximité d'une batterie ou d'un plan de masse**, ou pour une **longue distance**.
 
-![Comparaison antenne interne et externe du XIAO : à gauche l'antenne céramique intégrée par défaut, à droite une antenne externe branchée sur le connecteur U.FL pour plus de portée.](/ressources/img/xiao-esp32-s3-antenne.svg)
+![Comparaison antenne interne et externe du XIAO : à gauche l'antenne céramique intégrée par défaut, à droite une antenne externe branchée sur le connecteur U.FL pour plus de portée.](/ressources/img/xiao-esp32-s3/antenne.svg)
 
 Deux précautions : le connecteur U.FL est **fragile** (clipse et déclipse avec soin, en tenant le connecteur et non le câble), et le choix est **matériel** — pas de bascule logicielle.
 

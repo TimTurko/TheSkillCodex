@@ -16,7 +16,7 @@ draft: false
 
 Le **Raspberry Pi** est un *ordinateur monocarte* (SBC, pour *single-board computer*) : une carte de la taille d'une carte bancaire qui fait tourner un [[systeme-d-exploitation|système d'exploitation]] complet — Linux — là où un [[microcontroleur|microcontrôleur]] exécute un programme « nu », directement sur le [[processeur|processeur]]. Ce n'est donc **pas** un microcontrôleur : c'est un vrai ordinateur miniature, avec ses ports USB, sa sortie vidéo, son réseau et son stockage. On le range pourtant ici, parmi les cibles de commande, parce qu'il rend les mêmes services en projet *quand le besoin dépasse le microcontrôleur*. Cette fiche est le **hub d'entrée** du module : elle pose le choix MCU vs SBC, puis renvoie aux tutoriels.
 
-![Comparaison microcontrôleur (programme nu, temps réel, faible conso) et ordinateur monocarte SBC (système d'exploitation, calcul, réseau, plusieurs watts) — deux outils pour deux besoins.](/ressources/img/raspberry-pi-mcu-vs-sbc.svg)
+![Comparaison microcontrôleur (programme nu, temps réel, faible conso) et ordinateur monocarte SBC (système d'exploitation, calcul, réseau, plusieurs watts) — deux outils pour deux besoins.](/ressources/img/raspberry-pi/mcu-vs-sbc.svg)
 
 ## Microcontrôleur ou SBC ?
 

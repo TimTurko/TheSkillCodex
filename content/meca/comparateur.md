@@ -11,7 +11,7 @@ draft: false
 
 Un **comparateur** (à cadran ou numérique) est un instrument de mesure qui affiche un **écart de position** au centième de millimètre par rapport à une référence — il ne mesure pas une cote absolue, mais une variation.
 
-![Schéma d'un comparateur monté sur colonne et socle rigides : le palpeur touche un axe en rotation, et tout déplacement du palpeur fait dévier l'aiguille du cadran. L'instrument affiche un écart (une variation), pas une cote absolue.](/ressources/img/comparateur-battement.svg)
+![Schéma d'un comparateur monté sur colonne et socle rigides : le palpeur touche un axe en rotation, et tout déplacement du palpeur fait dévier l'aiguille du cadran. L'instrument affiche un écart (une variation), pas une cote absolue.](/ressources/img/comparateur/battement.svg)
 
 ## Dans le projet
 

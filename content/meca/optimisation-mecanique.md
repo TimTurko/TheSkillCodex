@@ -15,7 +15,7 @@ draft: false
 
 **Optimiser une conception**, c'est l'améliorer une fois qu'un premier dimensionnement fonctionne — réduire sa masse, son coût ou son nombre de pièces, faciliter sa fabrication et son assemblage — sans dégrader ses fonctions ni sortir des exigences du cahier des charges. C'est une démarche d'arbitrage entre critères concurrents, distincte de l'acte de concevoir. Cette fiche pose le raisonnement d'optimisation à l'échelle d'un projet ; le dimensionnement fin (calcul de structure, optimisation topologique) relève du **cours de mécanique** et de la CAO avancée.
 
-![Avant / après d'un allègement : à gauche un profilé plein (masse 100 %), à droite le même profilé ajouré et nervuré (masse réduite d'environ 30 %). La matière retirée est celle qui ne participe pas à la tenue ; les fonctions et les exigences du cahier des charges sont conservées.](/ressources/img/optimisation-mecanique-generique.svg)
+![Avant / après d'un allègement : à gauche un profilé plein (masse 100 %), à droite le même profilé ajouré et nervuré (masse réduite d'environ 30 %). La matière retirée est celle qui ne participe pas à la tenue ; les fonctions et les exigences du cahier des charges sont conservées.](/ressources/img/optimisation-mecanique/generique.svg)
 
 ## À quoi ça sert ?
 

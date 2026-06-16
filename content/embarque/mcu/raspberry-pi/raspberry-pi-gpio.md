@@ -16,7 +16,7 @@ draft: false
 
 **Piloter les GPIO depuis Linux**, c'est commander les broches d'entrée/sortie du Raspberry Pi depuis un programme — en Python le plus souvent — alors qu'un [[systeme-d-exploitation|système d'exploitation]] tourne en arrière-plan. Le principe reste celui de tout [[gpio|GPIO]] : une broche en sortie applique un niveau logique, une broche en entrée le lit. Mais ici, le programme ne touche pas le matériel directement : il passe par une bibliothèque, puis par le **noyau Linux**, avant d'atteindre la broche. Cette couche supplémentaire est à la fois un confort (du code Python lisible) et une limite (pas de temps réel dur).
 
-![Comparaison du chemin programme vers broche : accès direct sur microcontrôleur, traversée de la bibliothèque puis du noyau Linux sur un Raspberry Pi.](/ressources/img/raspberry-pi-gpio-pile.svg)
+![Comparaison du chemin programme vers broche : accès direct sur microcontrôleur, traversée de la bibliothèque puis du noyau Linux sur un Raspberry Pi.](/ressources/img/raspberry-pi-gpio/pile.svg)
 
 ## À quoi ça sert ?
 

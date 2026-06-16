@@ -17,7 +17,7 @@ L'**alimentation du XIAO ESP32-S3** se fait de trois façons — **USB-C**, **ba
 
 ## Trois façons de l'alimenter
 
-![Chemins d'alimentation du XIAO : l'USB-C 5V charge la batterie LiPo via le circuit de charge intégré ; l'USB-C ou la batterie alimentent le régulateur 3V3 qui fournit jusqu'à 700 mA à l'ESP32-S3.](/ressources/img/xiao-alimentation-paths.svg)
+![Chemins d'alimentation du XIAO : l'USB-C 5V charge la batterie LiPo via le circuit de charge intégré ; l'USB-C ou la batterie alimentent le régulateur 3V3 qui fournit jusqu'à 700 mA à l'ESP32-S3.](/ressources/img/xiao-alimentation/paths.svg)
 
 - **USB-C (5 V)** — le cas normal : la carte est alimentée **et** l'accu se recharge en même temps.
 - **Batterie LiPo 3,7 V** — soudée sur les pads **B+ / B−** au dos, pour l'autonomie. Attention : **sur batterie seule, la broche 5V est éteinte** (aucune tension à en tirer).
