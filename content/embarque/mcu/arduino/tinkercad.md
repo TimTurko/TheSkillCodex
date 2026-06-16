@@ -32,9 +32,9 @@ Quatre étapes : ouvrir un projet, poser les composants, écrire le code, simule
 
 ### 1. Créer un compte et ouvrir un nouveau circuit
 
-Rendez-vous sur `tinkercad.com` et créez un compte gratuit (un compte Google ou un compte établissement Autodesk Education fonctionne aussi). Dans le tableau de bord, cliquez sur *Créer* → *Circuit*. Un plan de travail vide s'ouvre.
+Rendez-vous sur [tinkercad.com](https://www.tinkercad.com/) et créez un compte gratuit (un compte Google ou un compte établissement Autodesk Education fonctionne aussi). Dans le tableau de bord, cliquez sur *Créer* → *Circuit*. Un plan de travail vide s'ouvre.
 
-*Prendre une capture d'écran du tableau de bord Tinkercad, avec le bouton « Créer un nouveau Circuit » visible.*
+![Tableau de bord Tinkercad, bouton « Créer un nouveau Circuit » visible|600](/ressources/img/tinkercad/creer-circuit.png)
 
 ### 2. Poser les composants
 
@@ -42,18 +42,18 @@ Rendez-vous sur `tinkercad.com` et créez un compte gratuit (un compte Google ou
 
 Glissez-déposez les composants dans le plan de travail. Cliquez-droit pour faire pivoter une pièce. Pour câbler, cliquez sur une broche : un fil démarre, suivez en cliquant à chaque coude, terminez par un clic sur la broche cible. Les valeurs (résistance, tension) se définissent en cliquant sur le composant et en éditant le panneau qui apparaît.
 
-*Prendre une capture d'écran d'un plan de travail Tinkercad avec une carte Arduino Uno, une LED et une résistance câblées, et la barre latérale des composants visible à droite.*
+![Plan de travail Tinkercad : Arduino Uno, LED et résistance câblées, barre latérale des composants à droite|600](/ressources/img/tinkercad/plan-de-travail.png)
 
 ### 3. Écrire le code
 
 Cliquez sur **Code** en haut à droite. Deux modes sont disponibles :
 
-- **Blocs** — programmation visuelle façon Scratch, idéale pour débuter ou pour montrer la logique sans la syntaxe.
-- **Texte** — éditeur [[cpp|C++]] Arduino classique. C'est le mode à privilégier dès qu'on a vu un peu de C++.
+- **Blocs** — programmation visuelle façon Scratch : on assemble des instructions à la souris, sans écrire de syntaxe. C'est adapté à la découverte au collège ou au lycée, mais **ce mode n'a pas cours dans le monde professionnel** — on ne l'utilise pas ici.
+- **Texte** — éditeur [[cpp|C++]] Arduino classique. **C'est le mode à utiliser dès le départ** : c'est exactement le code qu'on retrouvera sur la vraie carte et dans l'industrie.
 
-Au-dessus de l'éditeur, un bouton permet de basculer entre les deux modes. Tinkercad génère le code C++ équivalent au montage en blocs lorsqu'on bascule du graphique vers le texte — pratique pour faire le pont pédagogique.
+Au-dessus de l'éditeur, un bouton permet de basculer entre les deux modes. Tinkercad génère le code C++ équivalent au montage en blocs quand on passe du graphique au texte — utile une fois pour voir la correspondance, mais on reste ensuite en mode Texte (revenir aux blocs efface le code édité, voir *Pièges*).
 
-*Prendre une capture d'écran du volet Code de Tinkercad ouvert en mode Texte, avec un sketch Blink dans l'éditeur.*
+![Bascule du mode Blocs vers le mode Texte dans le volet Code de Tinkercad|600](/ressources/img/tinkercad/editeur-code-texte.png)
 
 ### 4. Lancer la simulation et observer
 
@@ -62,8 +62,6 @@ Cliquez sur **Démarrer la simulation**. Tinkercad téléverse virtuellement le 
 Un bouton **Moniteur série** (en bas du volet code) permet de voir les `Serial.print()` au fil de l'exécution, comme dans l'IDE réel — voir [[arduino-serie|moniteur série]].
 
 Pour arrêter, cliquez sur **Arrêter la simulation**. Vous pouvez modifier le code ou le câblage à chaud, puis relancer.
-
-*Prendre une capture d'écran d'une simulation Tinkercad en cours d'exécution, avec la LED allumée sur le plan de travail et le bouton « Arrêter la simulation » visible.*
 
 ## Exemple — Blink simulé avec bouton
 
@@ -91,7 +89,7 @@ void loop() {
 
 Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (ex. bouton entre 5 V et la broche au lieu de GND), la LED ne s'allume jamais, quel que soit l'appui — la broche reste tirée à HIGH par le pull-up, et la simulation reproduit fidèlement l'erreur sans rien casser.
 
-*Prendre une capture d'écran de la simulation Tinkercad du circuit bouton + LED, bouton en cours d'appui et LED allumée.*
+![Simulation Tinkercad en cours d'exécution, LED allumée sur le plan de travail|600](/ressources/img/tinkercad/simulation-en-cours.png)
 
 ## Pièges
 
