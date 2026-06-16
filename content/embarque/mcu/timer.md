@@ -13,7 +13,7 @@ draft: false
 
 Un **timer** (ou *minuterie*, *compteur matériel*) est un circuit interne au [[microcontroleur|microcontrôleur]] qui **compte des impulsions d'horloge tout seul**, en parallèle du programme et sans solliciter le processeur. Parce qu'il compte le temps à la place du code, il sert à **mesurer une durée**, à **cadencer** un événement à intervalle régulier, à **générer un signal [[pwm|PWM]]**, ou à **surveiller un délai** — le tout sans bloquer le programme principal.
 
-![Graphe de la valeur d'un compteur de timer au cours du temps : il monte régulièrement de zéro jusqu'à sa valeur maximale (TOP), revient instantanément à zéro en déclenchant un événement de débordement, et déclenche aussi un événement chaque fois qu'il atteint une valeur de comparaison intermédiaire. La durée entre deux débordements est une période fixe.](/ressources/img/timer-compteur.svg)
+![Graphe de la valeur d'un compteur de timer au cours du temps : il monte régulièrement de zéro jusqu'à sa valeur maximale (TOP), revient instantanément à zéro en déclenchant un événement de débordement, et déclenche aussi un événement chaque fois qu'il atteint une valeur de comparaison intermédiaire. La durée entre deux débordements est une période fixe.](/ressources/img/timer/compteur.svg)
 
 ## À quoi ça sert ?
 

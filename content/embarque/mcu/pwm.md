@@ -13,7 +13,7 @@ draft: false
 
 La **PWM** (*Pulse Width Modulation*, modulation de largeur d'impulsion) est un signal **tout-ou-rien** dont on fait varier la proportion de temps à l'état haut — le **rapport cyclique** (*duty cycle*). En moyenne, ce hachage simule une tension réglable, sans aucun composant analogique.
 
-![Trois chronogrammes du même signal PWM à rapports cycliques 25, 50 et 75 % : le signal reste tout-ou-rien, la moyenne en pointillé ambre monte avec la proportion de temps à l'état haut.](/ressources/img/pwm-rapport-cyclique.svg)
+![Trois chronogrammes du même signal PWM à rapports cycliques 25, 50 et 75 % : le signal reste tout-ou-rien, la moyenne en pointillé ambre monte avec la proportion de temps à l'état haut.](/ressources/img/pwm/rapport-cyclique.svg)
 
 ## À quoi ça sert ?
 

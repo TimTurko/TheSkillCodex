@@ -17,7 +17,7 @@ draft: false
 
 Les **niveaux de tension** logiques sont les plages de tension par lesquelles un composant numérique représente un « 0 » et un « 1 ». Deux composants ne peuvent dialoguer que si le niveau émis par l'un tombe dans la plage attendue par l'autre — et c'est loin d'être automatique dès qu'on mélange du **3,3 V** et du **5 V**, le cas le plus courant en projet. Vérifier la compatibilité des niveaux est l'un des tout premiers réflexes de câblage : s'en passer, c'est risquer un signal mal lu, ou pire, une entrée détruite.
 
-![Deux scénarios sur une échelle de 0 à 5 V. À gauche, un « 1 » à 3,3 V envoyé vers une entrée 5 V reste sous le seuil VIH (≈ 3,5 V) et tombe dans la zone indéterminée : il n'est pas lu de façon fiable. À droite, un « 1 » à 5 V envoyé vers une entrée 3,3 V dépasse la tension maximale admissible (≈ 3,6 V) et risque de détruire l'entrée.](/ressources/img/niveaux-de-tension-generique.svg)
+![Deux scénarios sur une échelle de 0 à 5 V. À gauche, un « 1 » à 3,3 V envoyé vers une entrée 5 V reste sous le seuil VIH (≈ 3,5 V) et tombe dans la zone indéterminée : il n'est pas lu de façon fiable. À droite, un « 1 » à 5 V envoyé vers une entrée 3,3 V dépasse la tension maximale admissible (≈ 3,6 V) et risque de détruire l'entrée.](/ressources/img/niveaux-de-tension/generique.svg)
 
 ## À quoi ça sert ?
 
@@ -45,7 +45,7 @@ L'adaptation se range en trois cas, par ordre de préférence — la meilleure e
 
 **Adapter dans les deux sens : le convertisseur de niveau.** Pour **élever** un niveau (3,3 V vers 5 V), pour un échange **bidirectionnel**, ou pour un **bus rapide**, on emploie un **convertisseur de niveau** (*level shifter*) : un composant dédié, avec un côté basse tension et un côté haute tension, qui translate les niveaux dans les deux sens et sur plusieurs lignes à la fois. C'est la solution propre pour des bus comme l'[[i2c|I2C]] ou le SPI, où le diviseur de tension ne convient pas.
 
-![Trois parades : la liaison directe quand les niveaux sont déjà compatibles ; le diviseur de tension à deux résistances pour abaisser un signal 5 V vers 3,3 V dans un seul sens ; le convertisseur de niveau, composant dédié qui adapte dans les deux sens et convient aux bus rapides.](/ressources/img/niveaux-de-tension-adaptation.svg)
+![Trois parades : la liaison directe quand les niveaux sont déjà compatibles ; le diviseur de tension à deux résistances pour abaisser un signal 5 V vers 3,3 V dans un seul sens ; le convertisseur de niveau, composant dédié qui adapte dans les deux sens et convient aux bus rapides.](/ressources/img/niveaux-de-tension/adaptation.svg)
 
 ## Exemple — ESP32 et un capteur 5 V
 
