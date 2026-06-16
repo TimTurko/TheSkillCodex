@@ -45,7 +45,7 @@ Pour la suite de la procédure, on prend les trois cas usuels : **LED** (broche 
 
 ![Étage de commutation à transistor NPN (bas-côté) : GPIO → résistance de base → base, émetteur à la masse, charge entre +5 V et le collecteur, diode de roue libre en parallèle de la charge|520](/ressources/img/arduino-sortie-tor/transistor-bas-cote.svg)
 
-*Prendre une photo d'un montage breadboard : carte Arduino Uno, LED + résistance sur D8, transistor 2N2222 + buzzer sur D9, module relais 5 V sur D10.*
+![Carte des interfaces de sortie : D8 résistance + LED (broche directe), D9 résistance de base + transistor NPN + buzzer, D10 module relais opto-isolé vers charge secteur|600](/ressources/img/arduino-sortie-tor/montage.svg)
 
 ### 3. Écrire le code
 

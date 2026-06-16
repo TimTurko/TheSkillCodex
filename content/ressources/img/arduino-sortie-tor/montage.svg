@@ -1,0 +1,63 @@
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte des interfaces de sortie : la broche D8 pilote une LED via une résistance en direct (charge faible), la broche D9 pilote un buzzer via une résistance de base et un transistor NPN (charge moyenne), la broche D10 pilote un module relais opto-isolé vers une charge secteur (charge forte).">
+  <defs>
+    <style>
+      .chip { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .chip-txt { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .ifbox { fill: none; stroke: #BA7517; stroke-width: 2; }
+      .res { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; }
+      .sub { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; }
+      .res-txt { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+      .wire { stroke: #4A4843; stroke-width: 2; fill: none; }
+      .arrowfill { fill: #4A4843; }
+      .title { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      @media (prefers-color-scheme: dark) {
+        .chip { fill: #3A2F1D; stroke: #E0A24A; }
+        .chip-txt, .sub { fill: #E0A24A; }
+        .ifbox { stroke: #E0A24A; }
+        .res { fill: #2C2B27; stroke: #6D6A61; }
+        .lbl, .res-txt, .title { fill: #D8D6CF; }
+        .wire { stroke: #D8D6CF; }
+        .arrowfill { fill: #D8D6CF; }
+      }
+    </style>
+    <marker id="sortie-ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path class="arrowfill" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="320" y="28" text-anchor="middle">Une sortie, une interface — selon le courant et la tension de la charge</text>
+
+  <!-- Ligne 1 : LED directe -->
+  <rect class="chip" x="24" y="70" width="58" height="36" rx="6"/>
+  <text class="chip-txt" x="53" y="93" text-anchor="middle">D8</text>
+  <line class="wire" x1="82" y1="88" x2="106" y2="88" marker-end="url(#sortie-ah)"/>
+  <rect class="ifbox" x="110" y="66" width="290" height="44" rx="6"/>
+  <text class="lbl" x="255" y="86" text-anchor="middle">Résistance série + LED</text>
+  <text class="sub" x="255" y="102" text-anchor="middle">broche directe · ≤ 20 mA</text>
+  <line class="wire" x1="400" y1="88" x2="424" y2="88" marker-end="url(#sortie-ah)"/>
+  <rect class="res" x="428" y="68" width="190" height="40" rx="6"/>
+  <text class="res-txt" x="523" y="92" text-anchor="middle">la LED s'allume</text>
+
+  <!-- Ligne 2 : transistor -->
+  <rect class="chip" x="24" y="134" width="58" height="36" rx="6"/>
+  <text class="chip-txt" x="53" y="157" text-anchor="middle">D9</text>
+  <line class="wire" x1="82" y1="152" x2="106" y2="152" marker-end="url(#sortie-ah)"/>
+  <rect class="ifbox" x="110" y="130" width="290" height="44" rx="6"/>
+  <text class="lbl" x="255" y="150" text-anchor="middle">Résistance de base → transistor NPN → buzzer</text>
+  <text class="sub" x="255" y="166" text-anchor="middle">transistor · 20–100 mA · détail ci-dessus</text>
+  <line class="wire" x1="400" y1="152" x2="424" y2="152" marker-end="url(#sortie-ah)"/>
+  <rect class="res" x="428" y="132" width="190" height="40" rx="6"/>
+  <text class="res-txt" x="523" y="156" text-anchor="middle">le buzzer sonne</text>
+
+  <!-- Ligne 3 : module relais -->
+  <rect class="chip" x="24" y="198" width="58" height="36" rx="6"/>
+  <text class="chip-txt" x="53" y="221" text-anchor="middle">D10</text>
+  <line class="wire" x1="82" y1="216" x2="106" y2="216" marker-end="url(#sortie-ah)"/>
+  <rect class="ifbox" x="110" y="194" width="290" height="44" rx="6"/>
+  <text class="lbl" x="255" y="214" text-anchor="middle">Module relais opto-isolé (IN / VCC / GND)</text>
+  <text class="sub" x="255" y="230" text-anchor="middle">charge sur COM / NO · secteur</text>
+  <line class="wire" x1="400" y1="216" x2="424" y2="216" marker-end="url(#sortie-ah)"/>
+  <rect class="res" x="428" y="196" width="190" height="40" rx="6"/>
+  <text class="res-txt" x="523" y="220" text-anchor="middle">charge 230 V (isolée)</text>
+</svg>
