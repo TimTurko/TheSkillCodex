@@ -71,7 +71,7 @@ Téléversez d'abord le code, puis cliquez sur l'**icône loupe** en haut à dro
 
 Le texte imprimé par la carte apparaît au fil de l'eau.
 
-Prendre capture d'écran de *l'IDE Arduino 2.x avec le moniteur série ouvert en bas, montrant plusieurs lignes de sortie « Valeur du capteur : XXX » et le sélecteur de baud rate visible*.
+*Prendre une capture d'écran de l'IDE Arduino 2.x avec le moniteur série ouvert en bas, montrant plusieurs lignes de sortie « Valeur du capteur : XXX » et le sélecteur de baud rate visible.*
 
 > [!tip]
 > **Le téléversement redémarre la carte.** À chaque téléversement, le programme repart de zéro, le moniteur série reste ouvert — pratique pour observer le démarrage. Si rien ne s'affiche après téléversement, vérifier d'abord le baud rate, ensuite la présence de `Serial.begin()`.
@@ -128,7 +128,7 @@ void loop() {
 
 Au moniteur série, on voit défiler trois colonnes séparées par des tabulations — copiables directement dans un tableur pour analyse. Au **traceur série** (*Outils → Traceur série*), les trois valeurs s'affichent en trois courbes superposées, avec une légende prise de la ligne d'en-tête. Tourner le potentiomètre — la courbe `consigne` bouge, la courbe `mesure` suit avec du bruit.
 
-Prendre capture d'écran de *le traceur série de l'IDE Arduino 2.x affichant trois courbes superposées (temps_ms, consigne, mesure) avec la légende visible*.
+*Prendre une capture d'écran du traceur série de l'IDE Arduino 2.x affichant trois courbes superposées (temps_ms, consigne, mesure) avec la légende visible.*
 
 ## Pièges
 
@@ -144,7 +144,7 @@ Prendre capture d'écran de *le traceur série de l'IDE Arduino 2.x affichant tr
 
 **`Serial.read()` consomme un seul octet.** Une boucle qui appelle `Serial.read()` une fois ne lit qu'un caractère même si l'ordinateur a envoyé un mot entier. Pour lire jusqu'au saut de ligne, boucler sur `Serial.available()`. Plus simple : `Serial.parseInt()` ou `Serial.readStringUntil('\n')`.
 
-**Tampon non vidé à l'ouverture.** Certaines cartes (Leonardo, Micro) ne réinitialisent pas la liaison série au téléversement comme l'Uno. Le tampon peut contenir des données anciennes. Ajouter `while (!Serial) {}` après `Serial.begin()` attend que la liaison soit prête (inutile sur Uno, recommandé sur Leonardo).
+**Tampon non vidé à l'ouverture.** Certaines cartes (Leonardo, Micro) ne réinitialisent pas la liaison série au téléversement comme l'Uno. Le tampon peut contenir des données anciennes. Ajouter `while (!Serial) {}` après `Serial.begin()` attend que la liaison soit prête (inutile sur Uno, recommandé sur Leonardo) — mais à éviter si la carte doit fonctionner sans ordinateur connecté : elle resterait bloquée au démarrage tant qu'aucun moniteur n'est ouvert.
 
 ## Cas particulier — Le traceur série pour visualiser des grandeurs
 
@@ -162,7 +162,7 @@ Le **traceur série** (*Outils → Traceur série*) est un mini-oscilloscope log
 - **Étape 1 de la [[integration-et-tests|phase d'intégration et tests]]** — pour qualifier le comportement d'une fonction sur un parcours de mesures connues, le moniteur permet de tracer mesure attendue / mesure obtenue côte à côte.
 - **Toutes les étapes où on calibre un capteur ou un actionneur** — relevés rapides, vérification de plage, observation de comportement transitoire.
 
-Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs cohérents, fréquence raisonnable) évite de devoir refaire son instrumentation à chaque nouveau capteur. Le moniteur série est l'instrument le moins cher du projet et l'un des plus payants.
+Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs cohérents, fréquence raisonnable) évite de devoir refaire son instrumentation à chaque nouveau capteur. Le moniteur série est l'instrument le plus immédiat du projet — rien à installer ni à câbler — et l'un des plus payants.
 
 ## Aller plus loin
 
@@ -176,4 +176,4 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 - [[arduino-prise-en-main|Prise en main d'Arduino]] — prérequis (IDE + premier téléversement)
 - [[tinkercad|Tinkercad]] — le moniteur série est aussi disponible en simulation
 - [[cpp|C++]] — le langage utilisé dans les sketches
-- [[bus-de-communication|Bus de communication]] — UART est le bus utilisé en sous-jacent par le moniteur série
+- [[bus-de-communication|Bus de communication]] — l'[[uart|UART]] est le bus utilisé en sous-jacent par le moniteur série
