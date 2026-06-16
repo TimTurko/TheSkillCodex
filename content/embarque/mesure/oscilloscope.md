@@ -37,7 +37,7 @@ La sonde est le seul lien entre le circuit et l'écran — la brancher correctem
 2. à l'autre bout, deux contacts : la **pointe**, qui va sur le point à observer, et la **pince crocodile de masse**, qui va sur la **masse du montage** — et nulle part ailleurs ;
 3. le pourquoi : par son cordon d'alimentation, la masse de l'oscilloscope est **reliée à la terre du secteur**. La pince *impose* donc la terre au point qu'elle touche — sur la masse du circuit, elle établit la référence commune ; sur tout autre point, elle crée un **court-circuit par la terre** (voir *Pièges*).
 
-![Branchement d'une sonde d'oscilloscope : le câble part du canal CH1, la pointe va sur la broche signal de la carte, la pince crocodile sur la masse GND ; le cordon d'alimentation relie la masse de l'oscilloscope à la terre du secteur, c'est pourquoi la pince ne se clippe que sur la masse du montage.](/ressources/img/oscilloscope-branchement-sonde.svg)
+![Branchement d'une sonde d'oscilloscope : le câble part du canal CH1, la pointe va sur la broche signal de la carte, la pince crocodile sur la masse GND ; le cordon d'alimentation relie la masse de l'oscilloscope à la terre du secteur, c'est pourquoi la pince ne se clippe que sur la masse du montage.](/ressources/img/oscilloscope/branchement-sonde.svg)
 
 ## Prendre en main
 

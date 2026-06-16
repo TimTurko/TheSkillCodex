@@ -20,7 +20,7 @@ draft: false
 
 **La « précision » du langage courant** recouvre en réalité **deux qualités indépendantes** d'une mesure : la **justesse** — la moyenne des mesures tombe-t-elle sur la valeur vraie ? — et la **fidélité** — des mesures répétées donnent-elles le même résultat ? Une mesure peut être fidèle sans être juste (toujours le même chiffre… toujours faux) et juste sans être fidèle (la bonne valeur, mais en moyenne seulement). La métrologie réserve le mot **exactitude** à la combinaison des deux.
 
-![Quatre cibles : mesures groupées au centre (juste et fidèle), groupées mais décalées (fidèle mais pas juste, erreur systématique), dispersées autour du centre (juste mais pas fidèle, erreur aléatoire), dispersées et décalées (ni juste ni fidèle).](/ressources/img/precision-de-mesure-cibles.svg)
+![Quatre cibles : mesures groupées au centre (juste et fidèle), groupées mais décalées (fidèle mais pas juste, erreur systématique), dispersées autour du centre (juste mais pas fidèle, erreur aléatoire), dispersées et décalées (ni juste ni fidèle).](/ressources/img/precision-de-mesure/cibles.svg)
 
 ## Deux défauts, deux remèdes
 

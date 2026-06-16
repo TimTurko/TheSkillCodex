@@ -17,7 +17,7 @@ draft: false
 
 Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeur et la radio sont coupés, la consommation tombe d'une dizaine de **milliampères** à une dizaine de **microampères**, et la puce ne se réveille qu'à un événement choisi (un délai, un bouton, un toucher). C'est ce qui rend l'ESP32 viable sur batterie : un capteur qui se réveille, mesure, envoie, puis se rendort passe l'essentiel de sa vie à ne presque rien consommer. La notion générale de gestion d'énergie est traitée dans [[deep-sleep|deep sleep]] *(→ notion [[deep-sleep]])* ; cette fiche en donne l'incarnation ESP32.
 
-![Cycle du deep sleep et ses sources de réveil](/ressources/img/esp32-deep-sleep-reveil.svg)
+![Cycle du deep sleep et ses sources de réveil](/ressources/img/esp32-deep-sleep/reveil.svg)
 
 ## À quoi ça sert ?
 

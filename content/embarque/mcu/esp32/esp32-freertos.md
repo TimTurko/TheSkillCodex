@@ -17,7 +17,7 @@ draft: false
 
 **FreeRTOS** est le système temps réel au cœur de l'ESP32 : il permet de faire tourner plusieurs **tâches** « en parallèle », chacune écrite comme une petite boucle indépendante, que l'ordonnanceur (*scheduler*) entrelace sur le ou les processeurs. C'est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS natif. La `loop()` d'un sketch Arduino est elle-même une tâche FreeRTOS ; cette fiche montre comment **créer et coordonner ses propres tâches**. Le *pourquoi* d'un RTOS et sa place dans l'échelle des architectures sont traités dans [[firmware|firmware]] *(→ notion [[firmware]])*.
 
-![Ordonnancement préemptif de deux tâches FreeRTOS](/ressources/img/esp32-freertos-ordonnancement.svg)
+![Ordonnancement préemptif de deux tâches FreeRTOS](/ressources/img/esp32-freertos/ordonnancement.svg)
 
 ## À quoi ça sert ?
 

@@ -41,7 +41,7 @@ Pour les signaux qui **varient dans le temps** ([[pwm|PWM]], trame série, rebon
    - **courant** → **en série**, en ouvrant le circuit pour y insérer le multimètre.
 4. **Lire la valeur** et son unité, en tenant compte du calibre — et sans sur-interpréter le dernier chiffre : [[precision-de-mesure|résolution n'est pas précision]].
 
-![Deux montages comparés : à gauche un voltmètre branché en parallèle aux bornes d'une résistance (circuit fermé), à droite un ampèremètre inséré en série dans le circuit (ouvert pour le placer).](/ressources/img/multimetre-serie-parallele.svg)
+![Deux montages comparés : à gauche un voltmètre branché en parallèle aux bornes d'une résistance (circuit fermé), à droite un ampèremètre inséré en série dans le circuit (ouvert pour le placer).](/ressources/img/multimetre/serie-parallele.svg)
 
 > [!tip] Mesurer un courant sans couper le circuit
 > Le réflexe de terrain : mesurer la **tension aux bornes d'une résistance connue** du circuit, puis diviser — I = V / R. Pas de circuit à ouvrir, pas de fusible en jeu. C'est le principe des broches *Sense* croisées dans [[lire-une-datasheet|la datasheet du L298N]].

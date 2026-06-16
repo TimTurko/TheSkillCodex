@@ -55,7 +55,7 @@ Deux chemins de programmation coexistent — ce sont les **deux portes** d'entr�
 
 Ces deux portes ne s'excluent pas : depuis un sketch STM32duino, on peut appeler des fonctions HAL ; et inversement. **PlatformIO** (extension VS Code) gère les deux mondes et facilite le versionnage Git. Keil MDK et IAR EWARM existent aussi (environnements commerciaux), mais CubeIDE suffit largement en contexte école.
 
-![Les couches d'abstraction sur STM32, empilées du plus abstrait au plus proche du matériel : STM32duino (API Arduino), HAL (API portable de ST, le défaut généré), LL (couche bas niveau proche du registre), puis les registres CMSIS qui pilotent le silicium. CubeMX génère le code des couches HAL et LL. On monte pour la portabilité et la rapidité d'écriture, on descend pour le contrôle et la performance.](/ressources/img/stm32-abstraction-couches.svg)
+![Les couches d'abstraction sur STM32, empilées du plus abstrait au plus proche du matériel : STM32duino (API Arduino), HAL (API portable de ST, le défaut généré), LL (couche bas niveau proche du registre), puis les registres CMSIS qui pilotent le silicium. CubeMX génère le code des couches HAL et LL. On monte pour la portabilité et la rapidité d'écriture, on descend pour le contrôle et la performance.](/ressources/img/stm32/abstraction-couches.svg)
 
 La façon de **structurer** le code (boucle, tâches, états, RTOS) relève de [[firmware|firmware]] — indépendante de la porte choisie.
 

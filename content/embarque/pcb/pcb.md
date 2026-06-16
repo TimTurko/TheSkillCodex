@@ -40,7 +40,7 @@ Quel que soit l'outil, la conception suit le même enchaînement.
 6. **Générer les fichiers de fabrication** — les **Gerber** (couches de cuivre, sérigraphie, masque) et le fichier de **perçage**, qui décrivent la carte au fabricant.
 7. **Fabriquer** — gravure et perçage en atelier, ou commande chez un fabricant. *Cette étape sort du périmètre du wiki (voir le cours/atelier de fabrication).*
 
-![Le flux de conception d'une carte : schéma, empreintes, placement, routage, DRC, Gerber, puis la fabrication (atelier, hors wiki), séparée par la frontière des fichiers Gerber.](/ressources/img/pcb-flux.svg)
+![Le flux de conception d'une carte : schéma, empreintes, placement, routage, DRC, Gerber, puis la fabrication (atelier, hors wiki), séparée par la frontière des fichiers Gerber.](/ressources/img/pcb/flux.svg)
 
 ## Mono, double ou multicouche
 

@@ -69,7 +69,7 @@ Relever un chiffre ne suffit pas : encore faut-il savoir ce qu'il vaut. Trois ge
 > [!warning]
 > **La mesure n'est pas neutre.** Brancher un instrument modifie légèrement le circuit : un voltmètre y prélève un peu de courant, une sonde d'oscilloscope ajoute une capacité. Sur les montages courants l'effet est négligeable, mais sur un nœud à très haute impédance une mesure peut fausser ce qu'elle observe. Le réflexe : se demander si l'instrument est adapté au point mesuré.
 
-![Confrontation d'une mesure à l'attendu : une valeur mesurée de 4,98 V tombe dans la plage attendue de 5 V ± 5 % ; la mesure est conforme, le sous-ensemble est validé.](/ressources/img/instruments-de-mesure-confrontation.svg)
+![Confrontation d'une mesure à l'attendu : une valeur mesurée de 4,98 V tombe dans la plage attendue de 5 V ± 5 % ; la mesure est conforme, le sous-ensemble est validé.](/ressources/img/instruments-de-mesure/confrontation.svg)
 
 ## Pièges
 

@@ -15,7 +15,7 @@ draft: false
 
 La **portée** d'une variable décide de deux choses : *où* elle est visible dans le programme, et *combien de temps* elle vit. Une variable déclarée **dans** une fonction est *locale* — elle naît à l'appel et meurt au retour. Déclarée **hors** de toute fonction, elle est *globale* — elle vit pendant tout le programme. En embarqué, cette distinction est très concrète : c'est elle qui décide si une valeur **survit** d'un tour de `loop()` au suivant ou se réinitialise à chaque passage.
 
-![Locale vs globale : sur trois tours de loop(), la globale garde sa valeur (1, 2, 3) tandis que la locale repart de 0 à chaque tour (1, 1, 1)](/ressources/img/cpp-portee-locale-globale.svg)
+![Locale vs globale : sur trois tours de loop(), la globale garde sa valeur (1, 2, 3) tandis que la locale repart de 0 à chaque tour (1, 1, 1)](/ressources/img/cpp-portee/locale-globale.svg)
 
 ## À quoi ça sert ?
 

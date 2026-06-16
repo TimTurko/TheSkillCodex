@@ -28,7 +28,7 @@ Tester un montage exige une entrée. Tant que le capteur n'est pas câblé ou qu
 - **remplacer provisoirement** un élément absent : simuler la sortie d'un capteur analogique pour tester l'étage de conditionnement ou une entrée [[adc|ADC]] avant que le vrai capteur n'arrive ;
 - **caractériser** : balayer plusieurs fréquences pour relever la réponse d'un filtre, monter l'amplitude pour trouver le seuil d'une entrée.
 
-![Principe du générateur de signaux : le GBF injecte un stimulus maîtrisé dans le montage testé, l'oscilloscope observe la réponse, les trois appareils partagent une masse commune.](/ressources/img/generateur-de-signaux-injection.svg)
+![Principe du générateur de signaux : le GBF injecte un stimulus maîtrisé dans le montage testé, l'oscilloscope observe la réponse, les trois appareils partagent une masse commune.](/ressources/img/generateur-de-signaux/injection.svg)
 
 Le GBF et l'oscilloscope forment un **binôme** : l'un injecte, l'autre observe. C'est la version paillasse du couple simulation / mesure — sauf qu'ici tout est réel.
 

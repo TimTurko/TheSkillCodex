@@ -47,7 +47,7 @@ Le projet n'exige pas un instrument de laboratoire :
 4. **Choisir la fréquence d'échantillonnage** : au moins quatre fois le signal le plus rapide observé — dix fois pour être confortable.
 5. **Capturer, puis activer le décodeur** du protocole : les impulsions deviennent des octets.
 
-![Branchement d'un analyseur logique sur un bus I²C : les voies CH0 et CH1 piquent les lignes SDA et SCL en dérivation, la masse rejoint celle du montage, l'analyseur se relie en USB au PC qui décode sous PulseView.](/ressources/img/analyseur-logique-branchement.svg)
+![Branchement d'un analyseur logique sur un bus I²C : les voies CH0 et CH1 piquent les lignes SDA et SCL en dérivation, la masse rejoint celle du montage, l'analyseur se relie en USB au PC qui décode sous PulseView.](/ressources/img/analyseur-logique/branchement.svg)
 
 ## Pièges
 
