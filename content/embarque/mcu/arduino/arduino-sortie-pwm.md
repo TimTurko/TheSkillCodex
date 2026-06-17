@@ -38,6 +38,8 @@ Toutes les broches numériques ne génèrent pas du PWM. Sur Arduino Uno R3, six
 - Sur **Nano** : D3, D5, D6, D9, D10, D11.
 - Sur **Uno R4** : D3, D5, D6, D9, D10, D11 (compatibilité préservée, mais résolution et fréquence différentes).
 
+Pour **tout autre microcontrôleur** (ESP32, STM32, RP2040…), les broches PWM ne se devinent pas : se reporter au **schéma de brochage (*pinout*) du constructeur** ou à la **documentation technique** de la carte, qui indiquent les broches capables de PWM (souvent repérées `PWM`, `TIM` ou `~`).
+
 `analogWrite()` sur une broche non-PWM ne génère pas d'erreur — elle force juste `HIGH` (si valeur > 127) ou `LOW`. Symptôme : la LED reste allumée à pleine puissance ou éteinte, peu importe la valeur passée.
 
 ### 2. Câbler une LED PWM
@@ -82,6 +84,8 @@ Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un sig
 Cas complet : lire la position d'un potentiomètre sur `A0`, l'utiliser comme consigne pour la luminosité de la LED.
 
 **Câblage** : [[potentiometre|potentiomètre]] 10 kΩ sur `A0` (curseur), `5 V` et `GND` aux extrêmes ; LED + 220 Ω sur D9.
+
+![Branchement du potentiomètre : extrémité 1 sur +5 V, extrémité 2 sur GND, curseur sur A0. La LED se câble comme à l'étape 2.|520](/ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg)
 
 ```cpp
 const int POT = A0;
