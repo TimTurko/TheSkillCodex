@@ -1,0 +1,77 @@
+<svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement du capteur ultrason HC-SR04 sur Arduino Uno : VCC vers +5 V, GND vers GND, Trig (piloté par l'Arduino) vers la broche D9, Echo (sortie du capteur) vers la broche D10.">
+  <defs>
+    <style>
+      .board { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
+      .board-txt { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .sensor { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .sensor-txt { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .eye { fill: none; stroke: #BA7517; stroke-width: 2; }
+      .pin { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .pin-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .wire { stroke: #4A4843; stroke-width: 2.5; fill: none; }
+      .wirehead { fill: #4A4843; }
+      .wlbl { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .pad { fill: #BA7517; }
+      .pad-b { fill: #6D6A61; }
+      .title { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      @media (prefers-color-scheme: dark) {
+        .board { fill: #2C2B27; stroke: #6D6A61; }
+        .board-txt { fill: #D8D6CF; }
+        .sensor { fill: #3A2F1D; stroke: #E0A24A; }
+        .sensor-txt, .pin-am { fill: #E0A24A; }
+        .eye { stroke: #E0A24A; }
+        .pin { fill: #D8D6CF; }
+        .wire { stroke: #D8D6CF; }
+        .wirehead { fill: #D8D6CF; }
+        .wlbl { fill: #B7B4AC; }
+        .pad { fill: #E0A24A; }
+        .pad-b { fill: #9A968C; }
+        .title { fill: #D8D6CF; }
+      }
+    </style>
+    <marker id="hcsr-ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path class="wirehead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="330" y="26" text-anchor="middle">HC-SR04 sur Arduino Uno — quatre fils</text>
+
+  <!-- Arduino Uno -->
+  <rect class="board" x="40" y="70" width="150" height="180" rx="10"/>
+  <text class="board-txt" x="115" y="58" text-anchor="middle">Arduino Uno</text>
+  <circle class="pad" cx="190" cy="100" r="4"/>
+  <text class="pin" x="178" y="104" text-anchor="end">+5V</text>
+  <circle class="pad" cx="190" cy="150" r="4"/>
+  <text class="pin" x="178" y="154" text-anchor="end">D9</text>
+  <circle class="pad" cx="190" cy="190" r="4"/>
+  <text class="pin" x="178" y="194" text-anchor="end">D10</text>
+  <circle class="pad-b" cx="190" cy="240" r="4"/>
+  <text class="pin" x="178" y="244" text-anchor="end">GND</text>
+
+  <!-- HC-SR04 -->
+  <rect class="sensor" x="470" y="70" width="150" height="180" rx="10"/>
+  <text class="sensor-txt" x="545" y="58" text-anchor="middle">HC-SR04</text>
+  <circle class="eye" cx="512" cy="160" r="22"/>
+  <circle class="eye" cx="578" cy="160" r="22"/>
+  <circle class="pad" cx="470" cy="100" r="4"/>
+  <text class="pin-am" x="482" y="104" text-anchor="start">VCC</text>
+  <circle class="pad" cx="470" cy="150" r="4"/>
+  <text class="pin-am" x="482" y="154" text-anchor="start">Trig</text>
+  <circle class="pad" cx="470" cy="190" r="4"/>
+  <text class="pin-am" x="482" y="194" text-anchor="start">Echo</text>
+  <circle class="pad-b" cx="470" cy="240" r="4"/>
+  <text class="pin-am" x="482" y="244" text-anchor="start">GND</text>
+
+  <!-- Wires -->
+  <path class="wire" d="M190,100 L470,100"/>
+  <text class="wlbl" x="330" y="92" text-anchor="middle">alimentation 5 V</text>
+
+  <path class="wire" d="M190,150 L466,150" marker-end="url(#hcsr-ah)"/>
+  <text class="wlbl" x="330" y="142" text-anchor="middle">Trig — l'Arduino déclenche</text>
+
+  <path class="wire" d="M470,190 L194,190" marker-end="url(#hcsr-ah)"/>
+  <text class="wlbl" x="330" y="182" text-anchor="middle">Echo — le capteur répond</text>
+
+  <path class="wire" d="M190,240 L470,240"/>
+  <text class="wlbl" x="330" y="232" text-anchor="middle">masse commune</text>
+</svg>

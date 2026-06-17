@@ -37,6 +37,18 @@ Les plages utiles à connaître (le reste se retrouve dans n'importe quelle tabl
 - **saut de ligne** `\n` → 10, **retour chariot** `\r` → 13
 - **0 à 31** → caractères de **contrôle** (non imprimables : tabulation, fin de ligne…) ; **32 à 126** → caractères **imprimables**.
 
+Pour retrouver un code précis, la table complète se lit d'un coup d'œil :
+
+![Table ASCII complète : pour chaque caractère, son code en décimal, son code en hexadécimal et le caractère lui-même ; les codes 0 à 31 sont des caractères de contrôle nommés entre crochets.|700](/ressources/img/ascii/tableau-ascii.webp)
+
+Chaque ligne décrit **un caractère** et se lit de gauche à droite, sur trois colonnes :
+
+- **Decimal** — le code en base 10, le nombre 0-127 manipulé jusqu'ici (`'A'` = 65).
+- **Hex** — la **même valeur** écrite en base 16, notée `0x..` : c'est la forme qu'affichent les datasheets, les vidages mémoire et le moniteur série en mode HEX. `'A'` = 65 en décimal s'écrit `0x41` en hexadécimal ; les deux désignent le même octet, seule la base d'écriture change.
+- **Char** — le caractère lui-même, ou son **nom entre crochets** pour les codes 0 à 31, qui ne s'impriment pas (`[LINE FEED]` = `\n` = 10 = `0x0A`, `[CARRIAGE RETURN]` = `\r` = 13).
+
+Les quatre blocs se suivent simplement : 0-31 (contrôle), 32-63 (espace, chiffres, ponctuation), 64-95 (majuscules), 96-127 (minuscules).
+
 > [!tip]
 > **Trois ancres suffisent.** Inutile de retenir la table entière : espace = 32, `'0'` = 48, `'A'` = 65 — et les minuscules sont 32 plus loin que les majuscules. Tout le reste se déduit.
 

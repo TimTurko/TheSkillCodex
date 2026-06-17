@@ -1,0 +1,53 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme du HC-SR04 : l'Arduino envoie une impulsion de 10 microsecondes sur Trig ; le capteur répond par une impulsion sur Echo dont la largeur est proportionnelle au temps d'aller-retour de l'onde, donc à la distance. La distance se calcule en multipliant la durée Echo par 0,0343 puis en divisant par deux.">
+  <defs>
+    <style>
+      .trig { stroke: #4A4843; stroke-width: 2.5; fill: none; }
+      .echo { stroke: #BA7517; stroke-width: 2.5; fill: none; }
+      .guide { stroke: #B8B5AC; stroke-width: 1.5; stroke-dasharray: 4 4; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      .meas { stroke: #8A5512; stroke-width: 1.5; fill: none; }
+      .meashead { fill: #8A5512; }
+      .formula { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .fbox { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 1.5; }
+      @media (prefers-color-scheme: dark) {
+        .trig { stroke: #D8D6CF; }
+        .echo { stroke: #E0A24A; }
+        .guide { stroke: #6D6A61; }
+        .lbl { fill: #D8D6CF; }
+        .lbl-am, .sm-am { fill: #E0A24A; }
+        .sm { fill: #B7B4AC; }
+        .meas { stroke: #E0A24A; }
+        .meashead { fill: #E0A24A; }
+        .formula { fill: #D8D6CF; }
+        .fbox { fill: #2C2B27; stroke: #6D6A61; }
+      }
+    </style>
+    <marker id="hcsr-mh" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path class="meashead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <!-- Trig -->
+  <text class="lbl" x="20" y="58" text-anchor="start">Trig — l'Arduino déclenche</text>
+  <polyline class="trig" points="150,110 172,110 172,72 184,72 184,110 690,110"/>
+  <text class="sm" x="178" y="64" text-anchor="middle">10 µs</text>
+
+  <!-- Echo -->
+  <text class="lbl-am" x="20" y="178" text-anchor="start">Echo — le capteur répond</text>
+  <polyline class="echo" points="150,250 250,250 250,196 470,196 470,250 690,250"/>
+
+  <!-- Guides depuis les fronts d'Echo -->
+  <line class="guide" x1="250" y1="196" x2="250" y2="292"/>
+  <line class="guide" x1="470" y1="196" x2="470" y2="292"/>
+
+  <!-- Mesure de la largeur d'Echo -->
+  <line class="meas" x1="250" y1="280" x2="470" y2="280" marker-start="url(#hcsr-mh)" marker-end="url(#hcsr-mh)"/>
+  <text class="sm-am" x="360" y="274" text-anchor="middle">largeur = aller-retour de l'onde</text>
+
+  <!-- Formule -->
+  <rect class="fbox" x="186" y="300" width="348" height="28" rx="6"/>
+  <text class="formula" x="360" y="319" text-anchor="middle">distance (cm) = durée Echo (µs) × 0,0343 / 2</text>
+</svg>

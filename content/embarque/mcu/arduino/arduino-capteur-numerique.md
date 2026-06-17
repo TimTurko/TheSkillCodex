@@ -3,6 +3,7 @@ title: Lire un capteur numérique
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -18,7 +19,7 @@ Un **capteur numérique** délivre une information codée en signal binaire — 
 
 ## À quoi ça sert ?
 
-Les capteurs numériques sont les briques de mesure les plus utilisées en projet école : détecter une présence (PIR), mesurer une distance (HC-SR04 ultrason), mesurer une vitesse de rotation (encodeur à effet Hall), repérer un passage (capteur infrarouge). Leur intérêt sur les capteurs analogiques : insensibilité au bruit du câble, valeur déjà conditionnée, lecture directe sans étalonnage électrique. Leur contrepartie : on dépend de la documentation du capteur (protocole, timing, bibliothèque).
+Les capteurs numériques sont les briques de mesure les plus utilisées en projet école : détecter une présence (PIR), mesurer une distance (HC-SR04 ultrason), repérer un passage (capteur infrarouge). Mesurer une **vitesse** de rotation (encodeur) est un cas voisin mais distinct — du comptage d'impulsions, traité par [[interruption|interruptions]] ou [[timer|timers]], pas par `digitalRead()` ni `pulseIn()`. Leur intérêt sur les capteurs analogiques : insensibilité au bruit du câble, valeur déjà conditionnée, lecture directe sans étalonnage électrique. Leur contrepartie : on dépend de la documentation du capteur (protocole, timing, bibliothèque).
 
 ## Procédure pas à pas
 
@@ -36,14 +37,14 @@ La datasheet ou la fiche-produit du capteur indique systématiquement à laquell
 
 ### 2. Câbler
 
-Cas du **HC-SR04** (ultrason) retenu pour la suite — capteur emblématique du projet école, à 2-3 €, présent dans tous les kits :
+Cas du **HC-SR04** (ultrason) retenu pour la suite — capteur emblématique du projet école, présent dans tous les kits :
 
 - `VCC` du capteur → `+5 V` Arduino
 - `GND` du capteur → `GND` Arduino
 - `Trig` du capteur → broche D9 (sortie : impulsion de déclenchement)
 - `Echo` du capteur → broche D10 (entrée : impulsion de retour)
 
-Prendre capture d'écran ou photo de *un capteur ultrason HC-SR04 câblé sur une carte Arduino Uno, avec les fils VCC/GND/Trig/Echo identifiables*.
+![Branchement du HC-SR04 sur Arduino Uno : VCC vers +5 V, GND vers GND, Trig vers D9 (l'Arduino déclenche), Echo vers D10 (le capteur répond).|600](/ressources/img/arduino-capteur-numerique/branchement-hc-sr04.svg)
 
 ### 3. Lire le datasheet du HC-SR04
 
@@ -53,40 +54,44 @@ Prendre capture d'écran ou photo de *un capteur ultrason HC-SR04 câblé sur un
 - Plage utile : 2 cm à 4 m.
 - Tension `Echo` : 5 V — compatible Uno R3, à adapter sur ESP32 (voir [[niveaux-de-tension|niveaux de tension]]).
 
+![Chronogramme Trig/Echo du HC-SR04 : impulsion de 10 µs sur Trig, puis impulsion sur Echo dont la largeur vaut le temps d'aller-retour de l'onde — la distance s'en déduit par la formule.|620](/ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg)
+
 ### 4. Écrire le code
 
 ```cpp
-const int TRIG = 9;
-const int ECHO = 10;
+const int TRIG = 9;                 // broche de déclenchement (sortie)
+const int ECHO = 10;                // broche de l'écho de retour (entrée)
 
 void setup() {
-  pinMode(TRIG, OUTPUT);
-  pinMode(ECHO, INPUT);
-  Serial.begin(115200);
+  pinMode(TRIG, OUTPUT);            // TRIG : l'Arduino écrit dessus
+  pinMode(ECHO, INPUT);             // ECHO : l'Arduino lit dessus
+  Serial.begin(115200);            // liaison série pour afficher la distance
 }
 
 void loop() {
-  // Déclencher une mesure : impulsion 10 µs sur TRIG
-  digitalWrite(TRIG, LOW);
-  delayMicroseconds(2);
-  digitalWrite(TRIG, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG, LOW);
+  // Déclenchement : une impulsion PROPRE de 10 µs sur TRIG
+  digitalWrite(TRIG, LOW);          // on part d'un état bas net...
+  delayMicroseconds(2);             // ...stabilisé 2 µs
+  digitalWrite(TRIG, HIGH);         // front montant : début de l'impulsion
+  delayMicroseconds(10);            // maintenue 10 µs (durée exigée par le capteur)
+  digitalWrite(TRIG, LOW);          // retour au repos : l'impulsion est émise
 
-  // Lire la durée de l'impulsion ECHO en microsecondes
-  unsigned long duree_us = pulseIn(ECHO, HIGH, 30000UL);  // timeout 30 ms
+  // Mesure : pulseIn() attend l'impulsion ECHO et renvoie sa durée (µs)
+  unsigned long duree_us = pulseIn(ECHO, HIGH, 30000UL);  // 30000 = timeout 30 ms
 
-  if (duree_us == 0) {
+  if (duree_us == 0) {              // 0 = aucun écho avant le timeout (hors portée)
     Serial.println("Hors plage");
   } else {
-    float distance_cm = duree_us * 0.0343 / 2;
+    float distance_cm = duree_us * 0.0343 / 2;  // durée -> distance (voir encart)
     Serial.print(distance_cm);
     Serial.println(" cm");
   }
 
-  delay(100);  // 10 Hz
+  delay(100);                       // une mesure toutes les 100 ms (~10 Hz)
 }
 ```
+
+**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `TRIG` une impulsion **propre** de 10 µs — le `LOW` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `pulseIn(ECHO, HIGH, 30000UL)` met le programme **en attente** de l'impulsion sur `ECHO` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Un `0` signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
 
 Approchez et éloignez la main du capteur — la distance s'affiche au moniteur série.
 
@@ -100,7 +105,7 @@ Cas complet : si un objet entre dans une zone proche (< 20 cm), allumer une LED 
 const int TRIG  = 9;
 const int ECHO  = 10;
 const int LED   = 13;
-const float SEUIL_CM = 20.0;
+const float SEUIL_CM = 20.0;        // distance d'alerte en cm
 
 void setup() {
   pinMode(TRIG, OUTPUT);
@@ -109,21 +114,23 @@ void setup() {
   Serial.begin(115200);
 }
 
+// Renvoie la distance en cm, ou -1 si aucun écho (cf. encart de l'étape 4)
 float mesurerDistance() {
+  // Bloc déclenchement + mesure identique à l'étape 4
   digitalWrite(TRIG, LOW);  delayMicroseconds(2);
   digitalWrite(TRIG, HIGH); delayMicroseconds(10);
   digitalWrite(TRIG, LOW);
   unsigned long d = pulseIn(ECHO, HIGH, 30000UL);
-  return (d == 0) ? -1.0 : d * 0.0343 / 2;
+  return (d == 0) ? -1.0 : d * 0.0343 / 2;   // -1 = hors plage, sinon distance
 }
 
 void loop() {
-  float d = mesurerDistance();
-  if (d > 0 && d < SEUIL_CM) {
-    digitalWrite(LED, HIGH);
+  float d = mesurerDistance();               // une mesure
+  if (d > 0 && d < SEUIL_CM) {               // objet valide ET dans la zone proche
+    digitalWrite(LED, HIGH);                 // alerte : LED allumée
     Serial.print("ALERTE : "); Serial.print(d); Serial.println(" cm");
   } else {
-    digitalWrite(LED, LOW);
+    digitalWrite(LED, LOW);                  // rien dans la zone : LED éteinte
   }
   delay(100);
 }
@@ -135,9 +142,9 @@ La factorisation en fonction `mesurerDistance()` annonce la pratique d'organisat
 
 **Confondre numérique et analogique.** Un capteur de présence à niveau logique se lit par `digitalRead()`, pas par `analogRead()`. À l'inverse, un capteur de température LM35 est *analogique* malgré son nom techy — il sort une tension continue, à lire par `analogRead()` (voir [[arduino-capteur-analogique|lire un capteur analogique]]).
 
-**Timeout de `pulseIn()` mal calibré.** Sans timeout, `pulseIn()` peut bloquer indéfiniment si aucun écho ne revient (cible trop loin, surface absorbante). Toujours passer un troisième argument (en microsecondes). Pour HC-SR04 en 4 m : ~23 ms d'aller-retour, donc timeout 30 ms.
+**Timeout de `pulseIn()` mal calibré.** Sans timeout explicite, `pulseIn()` bloque jusqu'à 1 s (son timeout par défaut) si aucun écho ne revient (cible trop loin, surface absorbante). Toujours passer un troisième argument (en microsecondes). Pour HC-SR04 en 4 m : ~23 ms d'aller-retour, donc timeout 30 ms.
 
-**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie — voir filtrer des mesures.
+**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie — voir [[filtrage|filtrer des mesures]].
 
 **Niveau 5 V sur entrée ESP32.** Le HC-SR04 sort `Echo` à 5 V. Sur ESP32 (entrée tolérante 3,3 V), brancher directement endommage la broche. Diviseur de tension ou convertisseur de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
@@ -165,4 +172,4 @@ Brancher un capteur, lire sa documentation, en sortir une mesure crédible sur q
 - [[arduino-i2c|I2C sur Arduino]] — bus pour capteurs numériques évolués (BMP280, MPU6050)
 - [[arduino-bibliotheques|Utiliser une bibliothèque]] — pour DHT11, DS18B20, etc.
 - [[lire-une-datasheet|Lire une datasheet]] — pour identifier la nature exacte du signal
-- Filtrer des mesures — pour lisser le bruit des capteurs
+- [[filtrage|Filtrer des mesures]] — pour lisser le bruit des capteurs
