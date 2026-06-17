@@ -39,6 +39,8 @@ La datasheet ou la fiche-produit du capteur indique systématiquement à laquell
 
 Avant l'ultrason, le cas minimal : un capteur qui sort directement `HIGH` ou `LOW`, lu d'un `digitalRead()`. Dans le thème de la distance, l'exemple courant est le **module IR de détection d'obstacle** (type FC-51) : il émet un faisceau infrarouge et bascule sa sortie quand un obstacle réfléchit ce faisceau en deçà d'un seuil réglé par un potentiomètre embarqué. Trois fils, aucune temporisation.
 
+![Principe du capteur IR de détection d'obstacle : l'émetteur (IR transmitter) envoie un faisceau infrarouge qui se réfléchit sur l'objet ; le récepteur (IR receiver) capte le faisceau réfléchi, ce qui fait basculer la sortie du module.|520](/ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif)
+
 - `VCC` → `+5 V`, `GND` → `GND`, `OUT` → broche D2 (entrée)
 
 ```cpp
