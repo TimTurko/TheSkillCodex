@@ -23,7 +23,7 @@ Les capteurs numériques sont les briques de mesure les plus utilisées en proje
 
 ## Procédure pas à pas
 
-Quatre étapes : identifier le type de signal, câbler, lire le datasheet, écrire le code.
+D'abord identifier le type de signal, puis mettre la méthode en pratique sur deux capteurs de proximité : un **capteur IR à seuil** lu d'un simple `digitalRead` (le cas minimal), puis le **HC-SR04** à ultrason qui *mesure* la distance par impulsion (câblage, datasheet, code).
 
 ### 1. Identifier le type de signal
 
@@ -35,9 +35,35 @@ Trois familles courantes :
 
 La datasheet ou la fiche-produit du capteur indique systématiquement à laquelle des trois familles il appartient.
 
-### 2. Câbler
+### 2. Le cas le plus simple — un capteur IR à seuil
 
-Cas du **HC-SR04** (ultrason) retenu pour la suite — capteur emblématique du projet école, présent dans tous les kits :
+Avant l'ultrason, le cas minimal : un capteur qui sort directement `HIGH` ou `LOW`, lu d'un `digitalRead()`. Dans le thème de la distance, l'exemple courant est le **module IR de détection d'obstacle** (type FC-51) : il émet un faisceau infrarouge et bascule sa sortie quand un obstacle réfléchit ce faisceau en deçà d'un seuil réglé par un potentiomètre embarqué. Trois fils, aucune temporisation.
+
+- `VCC` → `+5 V`, `GND` → `GND`, `OUT` → broche D2 (entrée)
+
+```cpp
+const int IR  = 2;
+const int LED = 13;
+
+void setup() {
+  pinMode(IR, INPUT);                       // sortie déjà conditionnée par le module
+  pinMode(LED, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  bool obstacle = (digitalRead(IR) == LOW); // ce module : LOW = obstacle détecté
+  digitalWrite(LED, obstacle);              // LED allumée si un obstacle est proche
+  Serial.println(obstacle ? "Obstacle" : "Libre");
+  delay(200);
+}
+```
+
+La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `LOW` quand un obstacle est détecté), d'où le test `== LOW` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[arduino-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi* ; pour mesurer la distance réelle, voir le cas suivant.
+
+### 3. Câbler le HC-SR04
+
+Cas plus riche : le **HC-SR04** (ultrason) *mesure* la distance au lieu de signaler un seuil — capteur emblématique du projet école, présent dans tous les kits :
 
 - `VCC` du capteur → `+5 V` Arduino
 - `GND` du capteur → `GND` Arduino
@@ -46,7 +72,7 @@ Cas du **HC-SR04** (ultrason) retenu pour la suite — capteur emblématique du 
 
 ![Branchement du HC-SR04 sur Arduino Uno : VCC vers +5 V, GND vers GND, Trig vers D9 (l'Arduino déclenche), Echo vers D10 (le capteur répond).|600](/ressources/img/arduino-capteur-numerique/branchement-hc-sr04.svg)
 
-### 3. Lire le datasheet du HC-SR04
+### 4. Lire le datasheet du HC-SR04
 
 Le HC-SR04 fonctionne au **temps de vol** (*time of flight*) : l'émetteur envoie une salve d'ultrasons, l'onde se propage, **rebondit sur l'objet**, puis revient vers le récepteur. En mesurant le **temps d'aller-retour** et connaissant la vitesse du son, on en déduit la distance. Ce temps est précisément ce que la broche `Echo` restitue — et que le code lira à l'étape suivante.
 
@@ -62,7 +88,7 @@ La datasheet précise les paramètres exploités par ce principe :
 
 ![Chronogramme Trig/Echo du HC-SR04 : impulsion de 10 µs sur Trig, puis impulsion sur Echo dont la largeur vaut le temps d'aller-retour de l'onde — la distance s'en déduit par la formule.|620](/ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg)
 
-### 4. Écrire le code
+### 5. Écrire le code
 
 ```cpp
 const int TRIG = 9;                 // broche de déclenchement (sortie)
@@ -120,9 +146,9 @@ void setup() {
   Serial.begin(115200);
 }
 
-// Renvoie la distance en cm, ou -1 si aucun écho (cf. encart de l'étape 4)
+// Renvoie la distance en cm, ou -1 si aucun écho (cf. encart de l'étape 5)
 float mesurerDistance() {
-  // Bloc déclenchement + mesure identique à l'étape 4
+  // Bloc déclenchement + mesure identique à l'étape 5
   digitalWrite(TRIG, LOW);  delayMicroseconds(2);
   digitalWrite(TRIG, HIGH); delayMicroseconds(10);
   digitalWrite(TRIG, LOW);
