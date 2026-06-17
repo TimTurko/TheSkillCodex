@@ -3,6 +3,7 @@ title: UART sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -14,7 +15,7 @@ aa:
 draft: false
 ---
 
-**UART** (*Universal Asynchronous Receiver-Transmitter*) est un bus série point-à-point à deux fils : `TX` (transmission) et `RX` (réception), traversants entre deux devices. C'est le bus sous-jacent du moniteur série de l'IDE (entre Arduino et PC via le chip USB) et aussi celui qu'on utilise pour faire dialoguer **deux Arduino entre eux**, ou un Arduino avec un module externe (GPS NEO-6M, Bluetooth HC-05, lecteur RFID PN532). Cette fiche se concentre sur la liaison UART vers un device externe — par opposition à la liaison vers le PC, déjà traitée dans [[arduino-serie|moniteur série]].
+**[[uart|UART]]** (*Universal Asynchronous Receiver-Transmitter*) est un bus série point-à-point à deux fils : `TX` (transmission) et `RX` (réception), traversants entre deux devices. C'est le bus sous-jacent du moniteur série de l'IDE (entre Arduino et PC via le chip USB) et aussi celui qu'on utilise pour faire dialoguer **deux Arduino entre eux**, ou un Arduino avec un module externe (GPS NEO-6M, Bluetooth HC-05, lecteur RFID PN532). Cette fiche se concentre sur la liaison UART vers un device externe — par opposition à la liaison vers le PC, déjà traitée dans [[arduino-serie|moniteur série]].
 
 ## À quoi ça sert ?
 
@@ -42,6 +43,8 @@ Quatre étapes : identifier les UART disponibles, câbler en croisant `TX`/`RX`,
 
 **Sur Uno R3, l'unique UART matériel est partagé avec l'USB** — utiliser `Serial` pour parler à un module externe désactive le moniteur série pendant le téléversement et la communication. Solution : **`SoftwareSerial`**, une bibliothèque qui émule un UART sur n'importe quelle paire de broches GPIO.
 
+**Sur Uno R4, le problème disparaît** : `Serial` (USB) et `Serial1` (broches D0/D1) sont deux UART matériels **indépendants**. Un module externe se branche sur D0/D1 et se pilote avec `Serial1`, tout en gardant le moniteur série USB actif — `SoftwareSerial` n'est plus nécessaire pour un seul module.
+
 ### 2. Câbler en croisant TX/RX
 
 Règle inviolable d'UART : **TX d'un côté → RX de l'autre**. Le TX de l'Arduino émet, donc il se branche sur le RX du device qui reçoit. Symétriquement, le RX de l'Arduino reçoit ce que le device émet sur son TX.
@@ -54,7 +57,7 @@ Règle inviolable d'UART : **TX d'un côté → RX de l'autre**. Le TX de l'Ardu
 
 GND commun **obligatoire**. La tension VCC du device est indépendante (alimentation séparée souvent recommandée pour modules gourmands comme HC-05).
 
-Prendre capture d'écran ou photo de *deux cartes Arduino Uno reliées entre elles par leurs broches D10/D11 (SoftwareSerial) en croisé, plus GND commun*.
+![Câblage UART croisé : le TX de chaque carte rejoint le RX de l'autre, GND commun|520](/ressources/img/arduino-uart/cablage-croise.svg)
 
 ### 3. Configurer le baud rate
 
@@ -86,6 +89,9 @@ void loop() {
 }
 ```
 
+> [!info] Comment lire ce code
+> La boucle `loop()` est un **pont bidirectionnel**. Le premier `if` demande à `Serial1` : « as-tu reçu un octet du module ? » (`available()` renvoie le nombre d'octets en attente) ; si oui, on le lit (`read()`) et on le recopie vers le PC (`Serial.print`). Le second `if` fait l'inverse, du PC vers le module. Rien ne bloque : à chaque tour de `loop()`, on transfère au plus un caractère dans chaque sens.
+
 **Cas b — `SoftwareSerial` sur Uno** :
 
 ```cpp
@@ -112,13 +118,15 @@ void loop() {
 }
 ```
 
-Ce pattern *« pont série »* sert à observer ce que dit un module sur le moniteur, et à lui envoyer des commandes depuis le moniteur.
+La boucle `loop()` est identique à celle du Cas a — seul l'objet de communication change (`monSerie` au lieu de `Serial1`). Ce pattern *« pont série »* sert à observer ce que dit un module sur le moniteur, et à lui envoyer des commandes depuis le moniteur.
+
+![Le « pont série » : l'Arduino relaie chaque octet entre le PC (USB, `Serial`) et le module externe (UART, `Serial1` ou `SoftwareSerial`), dans les deux sens|500](/ressources/img/arduino-uart/pont-serie.svg)
 
 ## Exemple — Communication entre deux Arduino
 
 Cas complet : un Arduino A envoie un compteur ; un Arduino B le reçoit, le décode, l'affiche au moniteur série.
 
-**Câblage** :
+**Câblage** *(même croisement TX↔RX qu'au schéma de l'étape 2)* :
 - Arduino A D11 (TX SoftwareSerial) → Arduino B D10 (RX SoftwareSerial)
 - Arduino A D10 (RX) ← Arduino B D11 (TX)
 - GND A — GND B (obligatoire)
@@ -157,16 +165,16 @@ void setup() {
 }
 
 void loop() {
-  if (lien.available()) {
-    String trame = lien.readStringUntil('\n');
-    int valeur = trame.toInt();
+  if (lien.available()) {                        // un octet (au moins) est arrive
+    String trame = lien.readStringUntil('\n');   // on accumule jusqu'au marqueur de fin '\n'
+    int valeur = trame.toInt();                  // on reconvertit le texte recu en entier
     Serial.print("Recu : ");
     Serial.println(valeur);
   }
 }
 ```
 
-Téléverser sur chaque Arduino, ouvrir le moniteur série de chacun (sur deux PC, ou ouvrir l'un puis débrancher avant l'autre). On voit le compteur émis d'un côté, reçu de l'autre.
+Téléverser sur chaque Arduino, puis ouvrir un moniteur série pour chaque carte — deux fenêtres de l'IDE sur deux ports COM différents suffisent, chaque Arduino apparaissant sur son propre port. On voit le compteur émis d'un côté, reçu de l'autre.
 
 ## Pièges
 
@@ -194,7 +202,7 @@ Un **adaptateur USB-série** (FTDI FT232, CH340, CP2102) permet de relier le PC 
 - Programmer une carte sans USB intégré (ATmega328 nu, ESP-01).
 - Tester un module Bluetooth/Wi-Fi en mode AT en direct depuis le PC, avant intégration Arduino.
 
-Coût : 2-5 € sur AliExpress. Investissement très rentable pour le debug embarqué.
+Outil très utile pour le debug embarqué : il permet d'observer ou de piloter un UART depuis le PC sans mobiliser de carte Arduino.
 
 ## Raccrochage projet
 

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 600 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Le pont serie : l'Arduino relaie les octets entre le PC en USB et le module externe en UART">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .mid  { fill:#BA7517; stroke:#8a5e12; stroke-width:1.5; }
+      .wire { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .ah   { fill:#BA7517; }
+      .t    { fill:#2a2a2a; }
+      .tw   { fill:#ffffff; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .mid  { fill:#9c6314; stroke:#E0A040; }
+        .wire { stroke:#E0A040; }
+        .ah   { fill:#E0A040; }
+        .t    { fill:#e8e6df; }
+        .tw   { fill:#f4f1e9; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+    <marker id="arh" markerWidth="11" markerHeight="11" refX="7" refY="3.2" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3.2 L0,6.4 Z" class="ah"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="25"  y="70" width="135" height="68" rx="6"/>
+  <rect class="mid" x="232" y="70" width="135" height="68" rx="6"/>
+  <rect class="box" x="440" y="70" width="135" height="68" rx="6"/>
+
+  <text class="t"  x="92"  y="100" text-anchor="middle" font-size="15" font-weight="bold">PC</text>
+  <text class="t"  x="92"  y="120" text-anchor="middle" font-size="12">moniteur serie</text>
+  <text class="tw" x="299" y="100" text-anchor="middle" font-size="15" font-weight="bold">Arduino</text>
+  <text class="tw" x="299" y="120" text-anchor="middle" font-size="12">le pont</text>
+  <text class="t"  x="507" y="100" text-anchor="middle" font-size="15" font-weight="bold">Module</text>
+  <text class="t"  x="507" y="120" text-anchor="middle" font-size="12">GPS, HC-05...</text>
+
+  <line class="wire" x1="164" y1="104" x2="228" y2="104" marker-start="url(#arh)" marker-end="url(#arh)"/>
+  <line class="wire" x1="371" y1="104" x2="436" y2="104" marker-start="url(#arh)" marker-end="url(#arh)"/>
+
+  <text class="tg" x="196" y="58" text-anchor="middle" font-size="12">USB</text>
+  <text class="tg" x="196" y="155" text-anchor="middle" font-size="11">Serial</text>
+  <text class="tg" x="403" y="58" text-anchor="middle" font-size="12">UART</text>
+  <text class="tg" x="403" y="155" text-anchor="middle" font-size="11">Serial1 / SoftwareSerial</text>
+
+  <text class="tg" x="300" y="192" text-anchor="middle" font-size="13">Chaque octet recu d'un cote est relaye vers l'autre, dans les deux sens</text>
+</svg>
