@@ -3,6 +3,7 @@ title: SPI sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -14,7 +15,7 @@ aa:
 draft: false
 ---
 
-**SPI** (*Serial Peripheral Interface*) est un bus série synchrone à 4 fils — `SCK` (horloge), `MOSI` (Master Out Slave In), `MISO` (Master In Slave Out) et `SS` (Slave Select, aussi noté `CS`). Il offre des débits nettement plus élevés qu'[[arduino-i2c|I2C]] (plusieurs MHz en pratique) au prix de plus de broches. C'est le bus de prédilection des **cartes SD**, des **écrans TFT**, des **modules sans fil** (NRF24L01, LoRa SX1276) et de certains capteurs rapides (accéléromètres haute fréquence).
+**[[spi|SPI]]** (*Serial Peripheral Interface*) est un bus série synchrone à 4 fils — `SCK` (horloge), `MOSI` (Master Out Slave In), `MISO` (Master In Slave Out) et `SS` (Slave Select, aussi noté `CS`). Il offre des débits nettement plus élevés qu'[[arduino-i2c|I2C]] (plusieurs MHz en pratique) au prix de plus de broches. C'est le bus de prédilection des **cartes SD**, des **écrans TFT**, des **modules sans fil** (NRF24L01, LoRa SX1276) et de certains capteurs rapides (accéléromètres haute fréquence).
 
 ## À quoi ça sert ?
 
@@ -56,7 +57,7 @@ Câblage générique pour un module SD card :
 
 Si on a plusieurs devices SPI sur le même bus (SD + écran TFT, par exemple), `SCK`/`MOSI`/`MISO` sont partagés, mais **chaque device a sa propre broche `CS` sur une GPIO distincte**.
 
-Prendre capture d'écran ou photo de *un module lecteur de carte microSD câblé sur les broches SPI D10-D13 d'un Arduino Uno R3*.
+![Branchement SPI d'un module microSD : SCK→D13, MOSI→D11, MISO→D12, CS→D10, plus VCC et GND|520](/ressources/img/arduino-spi/branchement-sd.svg)
 
 ### 3. Installer la bibliothèque
 
@@ -68,33 +69,33 @@ Pour la carte SD : `SD.h` est **livrée avec l'IDE** — pas besoin d'installer.
 #include <SPI.h>
 #include <SD.h>
 
-const int CS_SD = 10;
+const int CS_SD = 10;   // broche Chip Select de la carte SD
 
 void setup() {
   Serial.begin(115200);
   delay(2000);
 
-  if (!SD.begin(CS_SD)) {
+  if (!SD.begin(CS_SD)) {   // initialise la carte sur le bus SPI
     Serial.println("Echec initialisation SD");
-    while (1);
+    while (1);              // pas de carte : inutile de continuer
   }
   Serial.println("SD OK");
 
-  // Ecrire dans un fichier
+  // Ouvrir (ou creer) un fichier en ecriture, puis le refermer
   File f = SD.open("test.txt", FILE_WRITE);
-  if (f) {
+  if (f) {                 // f invalide si l'ouverture echoue : toujours tester
     f.println("Hello SD card !");
     f.println(millis());
-    f.close();
+    f.close();             // close() force l'ecriture reelle sur la carte
     Serial.println("Ecrit");
   } else {
     Serial.println("Echec ouverture fichier en ecriture");
   }
 
-  // Relire
+  // Relire le fichier caractere par caractere
   f = SD.open("test.txt");
   if (f) {
-    while (f.available()) Serial.write(f.read());
+    while (f.available()) Serial.write(f.read());  // tant qu'il reste des octets, les afficher
     f.close();
   }
 }
@@ -102,39 +103,43 @@ void setup() {
 void loop() {}
 ```
 
+> [!info] Comment lire ce code
+> L'écriture sur carte SD suit toujours le même cycle : `SD.open(nom, FILE_WRITE)` ouvre (ou crée) un fichier et renvoie un objet `File` ; on y écrit avec `print`/`println` comme sur le moniteur série ; **`close()` est obligatoire** — c'est lui qui force l'écriture réelle sur la carte (sans `close()`, le fichier peut rester vide). La relecture rouvre le fichier et le parcourt avec `while (f.available())` : tant qu'il reste des octets, on les lit un par un. Le test `if (f)` après chaque ouverture est indispensable — un `File` invalide ne lève pas d'erreur, il échoue en silence.
+
 Insérer une carte microSD formatée en FAT16 ou FAT32 (capacité ≤ 32 Go pour FAT32), téléverser, observer le moniteur série. Retirer la carte, la lire sur un PC pour vérifier le fichier `test.txt`.
 
 ## Exemple — Datalogger température sur SD card
 
 Cas complet : lire un capteur (potentiomètre comme proxy de température), écrire la mesure horodatée sur la carte SD toutes les 5 secondes.
 
-**Câblage** : SD module sur SPI (D10-D13), potentiomètre sur A0.
+**Câblage** : SD module sur SPI (D10-D13, comme au schéma de l'étape 2), [[potentiometre|potentiomètre]] sur A0 (câblage en diviseur : voir [[arduino-capteur-analogique]]).
 
 ```cpp
 #include <SPI.h>
 #include <SD.h>
 
-const int CS_SD  = 10;
-const int CAPTEUR = A0;
-const unsigned long INTERVALLE = 5000;
-unsigned long dernierEnreg = 0;
+const int CS_SD  = 10;                       // Chip Select de la carte SD
+const int CAPTEUR = A0;                      // capteur (ici un potentiometre) sur A0
+const unsigned long INTERVALLE = 5000;       // periode d'enregistrement : 5 s
+unsigned long dernierEnreg = 0;              // date du dernier enregistrement
 
 void setup() {
   Serial.begin(115200);
   if (!SD.begin(CS_SD)) {
     Serial.println("SD KO");
-    while (1);
+    while (1);                                 // pas de carte : on bloque
   }
 }
 
 void loop() {
+  // cadence non bloquante : on agit seulement quand 5 s se sont ecoulees (cf. arduino-temporisation)
   if (millis() - dernierEnreg >= INTERVALLE) {
     dernierEnreg = millis();
-    int val = analogRead(CAPTEUR);
+    int val = analogRead(CAPTEUR);             // lecture du capteur (0-1023)
 
-    File f = SD.open("data.csv", FILE_WRITE);
+    File f = SD.open("data.csv", FILE_WRITE);  // ouverture en ajout
     if (f) {
-      f.print(millis()); f.print(","); f.println(val);
+      f.print(millis()); f.print(","); f.println(val);  // une ligne CSV : horodatage,valeur
       f.close();
       Serial.print("Loggue : t="); Serial.print(millis()); Serial.print(" val="); Serial.println(val);
     }
@@ -162,7 +167,7 @@ Laisser tourner quelques minutes, retirer la carte, ouvrir `data.csv` dans un ta
 
 ## Cas particulier — SPI software vs hardware
 
-Toutes les broches SPI peuvent être émulées en logiciel (`bit-banging`) sur des GPIO standard, au prix d'un débit nettement plus faible. Bibliothèque : `SoftwareSPI` ou écriture manuelle. Utile pour les cartes avec peu de broches matérielles ou les cas où on veut isoler complètement un device problématique sur ses propres lignes.
+Toutes les broches SPI peuvent être émulées en logiciel (`bit-banging`) sur des GPIO standard, au prix d'un débit nettement plus faible. Bibliothèque : une bibliothèque de SPI logiciel (p. ex. `SoftSPI`) ou écriture manuelle. Utile pour les cartes avec peu de broches matérielles ou les cas où on veut isoler complètement un device problématique sur ses propres lignes.
 
 ## Raccrochage projet
 

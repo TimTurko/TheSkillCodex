@@ -152,7 +152,7 @@ Souffler sur le module : la température monte. Faire varier l'altitude (montée
 
 ## Cas particulier — Plusieurs bus I2C
 
-Sur ESP32 ou Mega 2560, on peut activer **plusieurs bus I2C** indépendants pour résoudre les conflits d'adresses ou répartir la charge :
+Sur ESP32 ou Uno R4 WiFi, on peut activer **plusieurs bus I2C** indépendants pour résoudre les conflits d'adresses ou répartir la charge :
 
 - ESP32 : deux contrôleurs I2C, `Wire` et `Wire1`, sur des broches distinctes.
 - Uno R4 WiFi : le connecteur **Qwiic** expose un 2ᵉ bus I2C (`Wire1`, 3,3 V), distinct du bus principal `Wire` (A4/A5).
