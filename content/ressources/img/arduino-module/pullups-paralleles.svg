@@ -1,0 +1,71 @@
+<svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plusieurs modules I2C sur le meme bus : chaque module ajoute sa resistance de pull-up integree (environ 4,7 kilo-ohms) en parallele entre VCC et la ligne SDA. La resistance equivalente chute (4,7 k seul, 2,35 k a deux, 0,94 k a cinq) jusqu'a ce que la broche open-drain ne puisse plus tirer le bus assez bas.">
+  <defs>
+    <style>
+      .rail { stroke: #8C8A82; stroke-width: 2.5; }
+      .lead { stroke: #8C8A82; stroke-width: 2; }
+      .res { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .node { fill: #8C8A82; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      @media (prefers-color-scheme: dark) {
+        .rail, .lead { stroke: #A7A49B; }
+        .res { fill: #3A2F1D; stroke: #E0A24A; }
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .node { fill: #A7A49B; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+  </defs>
+
+  <text class="lbl-am" x="20" y="26" text-anchor="start">Pull-ups I2C en parallèle : la résistance chute</text>
+
+  <!-- VCC rail -->
+  <line class="rail" x1="120" y1="56" x2="500" y2="56"/>
+  <text class="lbl-b" x="108" y="60" text-anchor="end">VCC</text>
+
+  <!-- 3 pull-up resistors (one per module) -->
+  <!-- M1 -->
+  <line class="lead" x1="180" y1="56" x2="180" y2="80"/>
+  <rect class="res" x="169" y="80" width="22" height="44" rx="3"/>
+  <line class="lead" x1="180" y1="124" x2="180" y2="178"/>
+  <text class="lbl-sm-am" x="198" y="98" text-anchor="start">M1</text>
+  <text class="lbl-sm-am" x="198" y="114" text-anchor="start">4,7 kΩ</text>
+  <!-- M2 -->
+  <line class="lead" x1="300" y1="56" x2="300" y2="80"/>
+  <rect class="res" x="289" y="80" width="22" height="44" rx="3"/>
+  <line class="lead" x1="300" y1="124" x2="300" y2="178"/>
+  <text class="lbl-sm-am" x="318" y="98" text-anchor="start">M2</text>
+  <text class="lbl-sm-am" x="318" y="114" text-anchor="start">4,7 kΩ</text>
+  <!-- M3 -->
+  <line class="lead" x1="420" y1="56" x2="420" y2="80"/>
+  <rect class="res" x="409" y="80" width="22" height="44" rx="3"/>
+  <line class="lead" x1="420" y1="124" x2="420" y2="178"/>
+  <text class="lbl-sm-am" x="438" y="98" text-anchor="start">M3</text>
+  <text class="lbl-sm-am" x="438" y="114" text-anchor="start">4,7 kΩ</text>
+
+  <!-- SDA node -->
+  <line class="rail" x1="120" y1="178" x2="500" y2="178"/>
+  <text class="lbl-b" x="108" y="182" text-anchor="end">SDA</text>
+  <circle class="node" cx="180" cy="178" r="3.5"/>
+  <circle class="node" cx="300" cy="178" r="3.5"/>
+  <circle class="node" cx="420" cy="178" r="3.5"/>
+
+  <!-- open-drain pin pulling low -->
+  <line class="lead" x1="480" y1="178" x2="480" y2="206"/>
+  <rect class="box-gray" x="437" y="206" width="86" height="40" rx="6"/>
+  <text class="lbl" x="480" y="223" text-anchor="middle">broche</text>
+  <text class="lbl" x="480" y="239" text-anchor="middle">open-drain</text>
+  <line class="lead" x1="480" y1="246" x2="480" y2="280"/>
+
+  <!-- GND rail -->
+  <line class="rail" x1="120" y1="280" x2="500" y2="280"/>
+  <text class="lbl-b" x="108" y="284" text-anchor="end">GND</text>
+
+  <text class="lbl-sm" x="310" y="312" text-anchor="middle">R éq : 4,7 kΩ (1 module) → 2,35 kΩ (2) → 0,94 kΩ (5) — trop faible, la broche ne tire plus le bus assez bas.</text>
+</svg>

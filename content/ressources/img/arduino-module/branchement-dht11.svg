@@ -1,0 +1,57 @@
+<svg viewBox="0 0 580 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un module DHT11 : le + va au +5 V de l'Arduino, le moins a GND, et la broche OUT (signal numerique 1-wire) a la broche D2.">
+  <defs>
+    <style>
+      .box-amber { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .wire-g { stroke: #8C8A82; stroke-width: 3; fill: none; }
+      .wire-a { stroke: #BA7517; stroke-width: 3; fill: none; }
+      .dot-g { fill: #8C8A82; }
+      .dot-a { fill: #BA7517; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      @media (prefers-color-scheme: dark) {
+        .box-amber { fill: #3A2F1D; stroke: #E0A24A; }
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .wire-g { stroke: #A7A49B; }
+        .wire-a { stroke: #E0A24A; }
+        .dot-g { fill: #A7A49B; }
+        .dot-a { fill: #E0A24A; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+  </defs>
+
+  <text class="lbl-am" x="20" y="26" text-anchor="start">Branchement d'un module DHT11</text>
+
+  <!-- Module -->
+  <rect class="box-amber" x="40" y="68" width="120" height="94" rx="8"/>
+  <text class="lbl-b" x="100" y="108" text-anchor="middle">Module</text>
+  <text class="lbl" x="100" y="128" text-anchor="middle">DHT11</text>
+
+  <!-- Arduino pin strip -->
+  <rect class="box-gray" x="450" y="56" width="96" height="132" rx="8"/>
+  <text class="lbl-b" x="498" y="78" text-anchor="middle">Arduino</text>
+  <text class="lbl" x="470" y="102" text-anchor="start">5 V</text>
+  <text class="lbl" x="470" y="132" text-anchor="start">GND</text>
+  <text class="lbl" x="470" y="162" text-anchor="start">D2</text>
+
+  <!-- Wires -->
+  <path class="wire-g" d="M160,98 H450"/>
+  <circle class="dot-g" cx="160" cy="98" r="4"/><circle class="dot-g" cx="450" cy="98" r="4"/>
+  <text class="lbl-sm" x="305" y="91" text-anchor="middle">+ → +5 V</text>
+
+  <path class="wire-g" d="M160,126 H450"/>
+  <circle class="dot-g" cx="160" cy="126" r="4"/><circle class="dot-g" cx="450" cy="126" r="4"/>
+  <text class="lbl-sm" x="305" y="120" text-anchor="middle">− → GND</text>
+
+  <path class="wire-a" d="M160,154 H320 Q340,154 340,156 H450"/>
+  <circle class="dot-a" cx="160" cy="154" r="4"/><circle class="dot-a" cx="450" cy="156" r="4"/>
+  <text class="lbl-sm-am" x="300" y="176" text-anchor="middle">OUT → D2 (signal 1-wire)</text>
+
+  <text class="lbl-sm" x="290" y="212" text-anchor="middle">Trois fils : alimentation (+5 V), masse (GND), signal numérique (D2).</text>
+</svg>

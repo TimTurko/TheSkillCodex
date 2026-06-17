@@ -3,6 +3,7 @@ title: Câbler un module
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -18,7 +19,7 @@ Un **module** est un petit PCB préfabriqué qui héberge un composant principal
 
 ## À quoi ça sert ?
 
-Un projet école typique embarque 5 à 15 modules : module capteur (DHT11, HC-SR04, BMP280, MPU6050), module driver (L298N, DRV8833), module afficheur (OLED I2C, LCD I2C), module communication (HC-05 Bluetooth, ESP-01 Wi-Fi), module alimentation (régulateur LM2596, convertisseur USB), module utilitaire (RTC DS3231, MicroSD). Tous suivent la même logique de câblage — la maîtriser une fois épargne des heures de tâtonnement.
+Un projet école typique embarque 5 à 15 modules : module capteur (DHT11, HC-SR04, BMP280, MPU6050), [[arduino-moteur-cc|module driver]] (L298N, DRV8833), [[arduino-afficheur|module afficheur]] (OLED I2C, LCD I2C), module communication (HC-05 Bluetooth, ESP-01 Wi-Fi), module alimentation (régulateur LM2596, convertisseur USB), module utilitaire (RTC DS3231, MicroSD). Tous suivent la même logique de câblage — la maîtriser une fois épargne des heures de tâtonnement.
 
 ## Procédure pas à pas
 
@@ -57,9 +58,11 @@ Pour le reste : suivre la logique du bus utilisé (voir [[bus-de-communication|b
 
 ### 4. Vérifier les pull-ups et configurations
 
-Beaucoup de modules I2C intègrent leurs propres résistances pull-up sur `SDA` / `SCL` (typiquement 4,7 kΩ). C'est utile pour le premier essai (pas besoin d'ajouter de résistances), mais **multiplier les modules I2C sur le même bus revient à mettre toutes les pull-ups en parallèle** — la résistance équivalente devient trop faible, le bus ne tient plus la montée.
+Beaucoup de modules I2C intègrent leurs propres résistances pull-up sur `SDA` / `SCL` (typiquement 4,7 kΩ). C'est utile pour le premier essai (pas besoin d'ajouter de résistances), mais **multiplier les modules I2C sur le même bus revient à mettre toutes les pull-ups en parallèle** — la résistance équivalente devient trop faible : les broches open-drain n'arrivent plus à tirer le bus assez bas (le courant à absorber dépasse ce qu'elles encaissent), et le niveau bas devient invalide.
 
 Symptôme typique : un module marche seul, deux modules ensemble ne marchent plus. Solution : retirer les jumpers de pull-up sur tous les modules sauf un (souvent un petit jumper soudé à dessouder, ou une piste à couper au cutter).
+
+![Plusieurs modules I2C sur le même bus : chaque module ajoute sa pull-up intégrée (≈ 4,7 kΩ) en parallèle sur SDA et SCL. La résistance équivalente chute (4,7 kΩ seul, 2,35 kΩ à deux, 0,94 kΩ à cinq) jusqu'à ce que les broches ne tirent plus le bus assez bas.|560](/ressources/img/arduino-module/pullups-paralleles.svg)
 
 D'autres jumpers fréquents :
 
@@ -67,7 +70,7 @@ D'autres jumpers fréquents :
 - **Sélection 3,3 / 5 V** (sur certains modules SD card).
 - **Activation / désactivation d'un opto** (sur modules relais).
 
-Prendre capture d'écran ou photo de *un module I2C (typiquement BMP280 ou MPU6050) sur breadboard, avec les fils VCC/GND/SDA/SCL identifiables et la sérigraphie du module lisible*.
+Prendre une photo de *un module I2C (typiquement BMP280 ou MPU6050) en gros plan, sérigraphie des broches (VCC/GND/SDA/SCL) bien lisible — l'objectif est d'apprendre à identifier les broches sur un vrai module*.
 
 ## Exemple — Câbler un module DHT11 (température + humidité)
 
@@ -83,33 +86,35 @@ Cas complet sur un module emblématique des kits Arduino.
 - `−` du module → `GND` Arduino
 - `OUT` du module → broche D2 Arduino
 
+![Branchement d'un module DHT11 : le + va au +5 V de l'Arduino, le − à GND, et la broche OUT (signal numérique 1-wire) à D2.|520](/ressources/img/arduino-module/branchement-dht11.svg)
+
 **Bibliothèque** : `DHT sensor library` (par Adafruit) — installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
 
 **Code** :
 
 ```cpp
-#include <DHT.h>
+#include <DHT.h>           // bibliothèque DHT (Adafruit) : gère le protocole 1-wire du capteur
 
-const int BROCHE_DHT = 2;
-const int TYPE_DHT = DHT11;
+const int BROCHE_DHT = 2;       // OUT du module câblé sur D2
+const int TYPE_DHT = DHT11;     // type de capteur (DHT11 ici ; DHT22 = autre constante)
 
-DHT dht(BROCHE_DHT, TYPE_DHT);
+DHT dht(BROCHE_DHT, TYPE_DHT);  // crée l'objet capteur
 
 void setup() {
-  Serial.begin(115200);
-  dht.begin();
+  Serial.begin(115200);    // liaison série pour afficher les mesures
+  dht.begin();             // initialise le capteur
 }
 
 void loop() {
-  delay(2000);  // DHT11 limite à 1 mesure / 2 s
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
+  delay(2000);             // le DHT11 accepte 1 mesure/s ; 2 s reste prudent (et compatible DHT22)
+  float h = dht.readHumidity();      // humidité relative (%)
+  float t = dht.readTemperature();   // température (°C)
 
-  if (isnan(h) || isnan(t)) {
+  if (isnan(h) || isnan(t)) {        // isnan = "is Not A Number" : lecture ratée ?
     Serial.println("Echec de lecture");
-    return;
+    return;                          // on saute ce tour, on retentera au suivant
   }
-  Serial.print("T="); Serial.print(t); Serial.print("°C\t");
+  Serial.print("T="); Serial.print(t); Serial.print("°C\t");   // \t = tabulation
   Serial.print("H="); Serial.print(h); Serial.println("%");
 }
 ```
@@ -130,11 +135,11 @@ Téléversez, observez au moniteur série. Souffler sur le capteur — l'humidit
 
 **Jumper de configuration mal positionné.** Un module qui semble mort peut simplement avoir son jumper d'adresse en position incorrecte (collision avec autre device I2C), ou son jumper VCC sur 3,3 V au lieu de 5 V. Inspecter la fiche du module pour identifier tous les straps.
 
-**Module contrefait.** Pour les modules courants à bas prix (DHT22, MPU6050), il existe des contrefaçons qui passent vaguement les premiers tests puis dérivent. Symptôme : mesures correctes au début, lente dégradation, ou panne aléatoire. Pour un projet sérieux, source connue (Adafruit, SparkFun, Mouser).
+**Module contrefait.** Pour les modules courants grand public (DHT22, MPU6050), il existe des contrefaçons qui passent vaguement les premiers tests puis dérivent. Symptôme : mesures correctes au début, lente dégradation, ou panne aléatoire. Pour un projet sérieux, source connue (Adafruit, SparkFun, Mouser).
 
 ## Cas particulier — Module sans datasheet
 
-Modules génériques chinois sur AliExpress, marqués d'une simple référence (`HW-XXX`, `KY-XXX`) sans fournisseur identifiable. Trois pistes :
+Modules génériques sans marque, marqués d'une simple référence (`HW-XXX`, `KY-XXX`) sans fournisseur identifiable. Trois pistes :
 
 - Chercher la **référence du composant principal soudé sur le module** (par exemple `MAX30102` lisible à la loupe) — la datasheet du composant existe, le câblage du module se déduit.
 - Chercher la référence du module + `pinout` en image (la communauté Arduino documente massivement ces modules).
