@@ -41,7 +41,8 @@ Quatre étapes : identifier les UART disponibles, câbler en croisant `TX`/`RX`,
 | Mega 2560 | 4 (UART0, UART1, UART2, UART3) | D0/D1, D19/D18, D17/D16, D15/D14 |
 | ESP32 | 3 | configurables |
 
-**Sur Uno R3, l'unique UART matériel est partagé avec l'USB** — utiliser `Serial` pour parler à un module externe désactive le moniteur série pendant le téléversement et la communication. Solution : **`SoftwareSerial`**, une bibliothèque qui émule un UART sur n'importe quelle paire de broches GPIO.
+> [!danger] Erreur classique : conflit UART/USB sur Uno R3
+> Sur Uno R3, l'unique UART matériel est **partagé avec l'USB**. Utiliser `Serial` pour parler à un module externe occupe les broches D0/D1 — les mêmes que le câble USB. Résultat très fréquent en projet étudiant : **le téléversement échoue** tant que le module reste branché sur D0/D1 (`avrdude: stk500_recv()`, *port not responding*…), et le message d'erreur ne désigne jamais la vraie cause — on perd du temps à chercher côté code ou côté port. Deux réflexes : débrancher le module de D0/D1 avant chaque téléversement, ou — bien mieux — utiliser **`SoftwareSerial`**, une bibliothèque qui émule un UART sur n'importe quelle paire de broches GPIO et laisse `Serial`/USB libre.
 
 **Sur Uno R4, le problème disparaît** : `Serial` (USB) et `Serial1` (broches D0/D1) sont deux UART matériels **indépendants**. Un module externe se branche sur D0/D1 et se pilote avec `Serial1`, tout en gardant le moniteur série USB actif — `SoftwareSerial` n'est plus nécessaire pour un seul module.
 

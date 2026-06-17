@@ -1,0 +1,71 @@
+<svg viewBox="0 0 580 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement I2C : module sur A4 (SDA) et A5 (SCL), VCC et GND, avec pull-ups vers VCC">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .pw   { fill:none; stroke:#6b6b6b; stroke-width:2.4; }
+      .bus  { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .res  { fill:none; stroke:#BA7517; stroke-width:2; }
+      .dot  { fill:#BA7517; }
+      .gdot { fill:#6b6b6b; }
+      .t    { fill:#2a2a2a; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .pw   { stroke:#b0b0b0; }
+        .bus  { stroke:#E0A040; }
+        .res  { stroke:#E0A040; }
+        .dot  { fill:#E0A040; }
+        .gdot { fill:#b0b0b0; }
+        .t    { fill:#e8e6df; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="40" y="130" width="150" height="180" rx="6"/>
+  <rect class="box" x="400" y="130" width="150" height="180" rx="6"/>
+  <text class="t" x="115" y="120" text-anchor="middle" font-size="16" font-weight="bold">Arduino Uno</text>
+  <text class="t" x="475" y="120" text-anchor="middle" font-size="16" font-weight="bold">Module I2C</text>
+  <text class="tg" x="475" y="300" text-anchor="middle" font-size="11">BMP280, OLED, RTC...</text>
+
+  <text class="tg" x="182" y="165" text-anchor="end" font-size="13">GND</text>
+  <text class="t"  x="182" y="200" text-anchor="end" font-size="13">5V</text>
+  <text class="t"  x="182" y="240" text-anchor="end" font-size="13">A4 (SDA)</text>
+  <text class="t"  x="182" y="280" text-anchor="end" font-size="13">A5 (SCL)</text>
+  <circle class="gdot" cx="190" cy="160" r="4.5"/>
+  <circle class="dot"  cx="190" cy="195" r="4.5"/>
+  <circle class="dot"  cx="190" cy="235" r="4.5"/>
+  <circle class="dot"  cx="190" cy="275" r="4.5"/>
+
+  <text class="tg" x="408" y="165" text-anchor="start" font-size="13">GND</text>
+  <text class="t"  x="408" y="200" text-anchor="start" font-size="13">VCC</text>
+  <text class="t"  x="408" y="240" text-anchor="start" font-size="13">SDA</text>
+  <text class="t"  x="408" y="280" text-anchor="start" font-size="13">SCL</text>
+  <circle class="gdot" cx="400" cy="160" r="4.5"/>
+  <circle class="dot"  cx="400" cy="195" r="4.5"/>
+  <circle class="dot"  cx="400" cy="235" r="4.5"/>
+  <circle class="dot"  cx="400" cy="275" r="4.5"/>
+
+  <path class="pw"  d="M190,160 L400,160"/>
+  <path class="pw"  d="M190,195 L400,195"/>
+  <path class="bus" d="M190,235 L400,235"/>
+  <path class="bus" d="M190,275 L400,275"/>
+
+  <!-- pull-up SDA (x=300) vers VCC -->
+  <circle class="dot" cx="300" cy="195" r="3.5"/>
+  <path class="res" d="M300,195 L300,205"/>
+  <rect class="res" x="294" y="205" width="12" height="20"/>
+  <path class="res" d="M300,225 L300,235"/>
+  <circle class="dot" cx="300" cy="235" r="3.5"/>
+  <text class="tg" x="288" y="219" text-anchor="end" font-size="11">4,7 k&#8486;</text>
+
+  <!-- pull-up SCL (x=345) vers VCC -->
+  <circle class="dot" cx="345" cy="195" r="3.5"/>
+  <path class="res" d="M345,195 L345,205"/>
+  <rect class="res" x="339" y="205" width="12" height="20"/>
+  <path class="res" d="M345,225 L345,275"/>
+  <circle class="dot" cx="345" cy="275" r="3.5"/>
+  <text class="tg" x="357" y="219" text-anchor="start" font-size="11">4,7 k&#8486;</text>
+
+  <text class="tg" x="290" y="328" text-anchor="middle" font-size="12">Pull-ups vers VCC souvent int\u00e9gr\u00e9es au module &#183; A4 = SDA, A5 = SCL (Uno)</text>
+</svg>

@@ -2,6 +2,7 @@
 title: I2C sur Arduino
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -14,7 +15,7 @@ aa:
 draft: false
 ---
 
-**I2C** (*Inter-Integrated Circuit*) est un bus série synchrone à deux fils — `SDA` (data) et `SCL` (clock) — qui permet à plusieurs devices de cohabiter sur le même bus, chacun identifié par une **adresse 7 bits**. Là où [[arduino-uart|UART]] est limité au point-à-point, I2C met en réseau jusqu'à 127 devices théoriques sur les deux mêmes fils. C'est le bus de prédilection des capteurs évolués (BMP280, MPU6050, BME680, MAX30102), des afficheurs (OLED SSD1306, LCD via PCF8574) et des horloges (DS3231, DS1307).
+**[[i2c|I2C]]** (*Inter-Integrated Circuit*) est un bus série synchrone à deux fils — `SDA` (data) et `SCL` (clock) — qui permet à plusieurs devices de cohabiter sur le même bus, chacun identifié par une **adresse 7 bits**. Là où [[arduino-uart|UART]] est limité au point-à-point, I2C met en réseau jusqu'à 127 devices théoriques sur les deux mêmes fils. C'est le bus de prédilection des capteurs évolués (BMP280, MPU6050, BME680, MAX30102), des afficheurs (OLED SSD1306, LCD via PCF8574) et des horloges (DS3231, DS1307).
 
 ## À quoi ça sert ?
 
@@ -43,7 +44,7 @@ Sur Uno R3, les broches SDA/SCL sont aussi *dupliquées* en haut de la carte (à
 
 ### 2. Câbler avec pull-ups
 
-I2C nécessite des résistances de **pull-up vers VCC** sur `SDA` et `SCL` (typiquement 4,7 kΩ pour 5 V, 2,2 kΩ pour 3,3 V). **La plupart des modules I2C du commerce les intègrent** — pas besoin de les ajouter manuellement pour un premier essai avec un seul module.
+I2C nécessite des résistances de **pull-up vers VCC** sur `SDA` et `SCL` (typiquement 4,7 kΩ pour 5 V, 2,2 kΩ pour 3,3 V). **La plupart des modules I2C du commerce les intègrent** — pas besoin de les ajouter manuellement pour un premier essai avec un seul module. À noter : aucune carte Uno (R3 comme R4) n'embarque de pull-ups I2C exploitables — sur R4, seules des pastilles à souder sont prévues —, on compte donc sur celles du module.
 
 Câblage générique :
 
@@ -54,7 +55,7 @@ Câblage générique :
 | SDA | A4 |
 | SCL | A5 |
 
-Prendre capture d'écran ou photo de *un module I2C BMP280 (ou équivalent : BME280, MPU6050, RTC DS3231) câblé sur les broches A4/A5 d'un Arduino Uno R3*.
+![Branchement I2C : module sur A4 (SDA) / A5 (SCL), VCC et GND, avec pull-ups vers VCC|520](/ressources/img/arduino-i2c/branchement-i2c.svg)
 
 ### 3. Scanner les adresses I2C présentes
 
@@ -64,19 +65,19 @@ Avant tout code applicatif, vérifier que le module répond avec un **scanner I2
 #include <Wire.h>
 
 void setup() {
-  Wire.begin();
+  Wire.begin();           // initialise le bus I2C (Arduino en maitre)
   Serial.begin(115200);
-  delay(2000);
+  delay(2000);            // laisse le temps d'ouvrir le moniteur serie
   Serial.println("Scan I2C...");
 
   byte trouves = 0;
-  for (byte adresse = 1; adresse < 127; adresse++) {
-    Wire.beginTransmission(adresse);
-    byte erreur = Wire.endTransmission();
+  for (byte adresse = 1; adresse < 127; adresse++) {   // on essaie chaque adresse possible
+    Wire.beginTransmission(adresse);      // prepare un message pour cette adresse
+    byte erreur = Wire.endTransmission();  // l'envoie : 0 = un device a repondu (ACK)
     if (erreur == 0) {
       Serial.print("Device a 0x");
-      if (adresse < 16) Serial.print("0");
-      Serial.println(adresse, HEX);
+      if (adresse < 16) Serial.print("0");  // remplissage : 0x7 -> 0x07 (deux chiffres)
+      Serial.println(adresse, HEX);         // adresse affichee en hexadecimal
       trouves++;
     }
   }
@@ -85,6 +86,9 @@ void setup() {
 
 void loop() {}
 ```
+
+> [!info] Comment lire ce code
+> Le scanner exploite une astuce : `beginTransmission(adresse)` prépare un message pour une adresse, et `endTransmission()` l'envoie réellement sur le bus. Si un device porte cette adresse, il répond par un **ACK** et `endTransmission()` renvoie `0` ; sinon, pas de réponse, le code est non nul. En balayant les adresses 1 à 126, on liste ainsi tout ce qui est branché — sans rien connaître des devices à l'avance. La ligne `if (adresse < 16) Serial.print("0")` ne sert qu'à l'affichage : elle complète `0x7` en `0x07` pour aligner les adresses sur deux chiffres.
 
 Téléverser, ouvrir le moniteur série, lire l'adresse. **Si le scanner ne trouve rien** : vérifier le câblage (SDA/SCL non inversés, pull-ups, alimentation du module).
 
@@ -96,7 +100,7 @@ Une fois l'adresse confirmée, installer la bibliothèque du composant (voir [[a
 
 ## Exemple — Lecture d'un BMP280 (pression et température)
 
-Cas complet sur un module emblématique des projets école.
+Cas complet sur un module emblématique des projets école. *(Câblage : un module sur A4/A5, comme au schéma de l'étape 2.)*
 
 **Bibliothèque** : *Adafruit BMP280 Library* (gestionnaire de bibliothèques, taper « BMP280 »). Installe également `Adafruit BusIO` et `Adafruit Unified Sensor` en dépendances — accepter.
 
@@ -106,20 +110,21 @@ Cas complet sur un module emblématique des projets école.
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
 
-Adafruit_BMP280 bmp;  // I2C
+Adafruit_BMP280 bmp;  // capteur sur le bus I2C
 
 void setup() {
   Serial.begin(115200);
   delay(2000);
 
-  if (!bmp.begin(0x76)) {  // adresse trouvée au scanner
+  if (!bmp.begin(0x76)) {  // demarre le capteur a l'adresse trouvee au scanner
     Serial.println("BMP280 introuvable, verifier le cablage");
-    while (1);
+    while (1);             // capteur absent : on bloque ici (rien a faire sans lui)
   }
   Serial.println("BMP280 OK");
 }
 
 void loop() {
+  // la bibliotheque encapsule le dialogue I2C : on lit des valeurs pretes a l'emploi
   Serial.print("T = "); Serial.print(bmp.readTemperature()); Serial.print(" °C\t");
   Serial.print("P = "); Serial.print(bmp.readPressure() / 100.0); Serial.print(" hPa\t");
   Serial.print("Alt = "); Serial.print(bmp.readAltitude(1013.25)); Serial.println(" m");
@@ -127,11 +132,11 @@ void loop() {
 }
 ```
 
-Soufflez sur le module — la température monte. Faites varier l'altitude (montée d'escalier) — la pression baisse de ~12 Pa par mètre, l'altitude estimée varie.
+Souffler sur le module : la température monte. Faire varier l'altitude (montée d'escalier) : la pression baisse de ~12 Pa par mètre, l'altitude estimée varie.
 
 ## Pièges
 
-**Adresse fausse.** Une adresse de bibliothèque par défaut (souvent `0x77`) qui ne correspond pas à l'adresse réelle du module (souvent `0x76` sur les BMP280 chinois) : le device est introuvable. **Toujours commencer par le scanner.**
+**Adresse fausse.** Une adresse de bibliothèque par défaut (souvent `0x77`) qui ne correspond pas à l'adresse réelle du module (souvent `0x76` sur les BMP280 génériques) : le device est introuvable. **Toujours commencer par le scanner.**
 
 **Pull-ups manquantes ou en surnombre.** Sans pull-up, le bus reste flottant et rien ne marche. Avec trop de modules à pull-ups en parallèle, la résistance équivalente devient trop faible et le bus ne tient plus la montée du signal. Désactiver les pull-ups sur tous les modules sauf un (un jumper à dessouder).
 
