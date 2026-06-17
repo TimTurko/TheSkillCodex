@@ -1,4 +1,4 @@
-<svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pont diviseur LDR : la LDR et une résistance fixe de 10 kΩ sont en série entre +5 V et GND ; le point milieu est lu sur A1. La résistance de la LDR varie avec la lumière, ce qui déplace la tension du point milieu.">
+<svg viewBox="0 0 620 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pont diviseur LDR : la LDR et une résistance fixe de 10 kΩ sont en série entre +5 V et GND ; le point milieu est lu sur A1. La résistance de la LDR varie avec la lumière, ce qui déplace la tension du point milieu.">
   <defs>
     <style>
       .board { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
@@ -42,7 +42,7 @@
   <text class="title" x="310" y="26" text-anchor="middle">Pont diviseur LDR sur A1</text>
 
   <!-- Arduino Uno (hauteur suffisante pour porter les 3 broches, GND comprise) -->
-  <rect class="board" x="40" y="70" width="140" height="245" rx="10"/>
+  <rect class="board" x="40" y="70" width="140" height="265" rx="10"/>
   <text class="board-txt" x="110" y="58" text-anchor="middle">Arduino Uno</text>
   <circle class="pad" cx="180" cy="95" r="4"/>
   <text class="pin" x="168" y="99" text-anchor="end">+5V</text>
