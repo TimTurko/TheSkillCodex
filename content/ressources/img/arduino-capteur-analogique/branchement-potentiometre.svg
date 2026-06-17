@@ -1,0 +1,64 @@
+<svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un potentiomètre sur Arduino : une extrémité de la piste résistive sur +5 V, l'autre sur GND, le curseur (broche du milieu) sur A0. Le potentiomètre forme un pont diviseur dont la sortie varie de 0 V (curseur côté GND) à 5 V (curseur côté 5 V).">
+  <defs>
+    <style>
+      .board { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
+      .board-txt { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .track { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .track-txt { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      .pin { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .wire { stroke: #4A4843; stroke-width: 2.5; fill: none; }
+      .wirehead { fill: #4A4843; }
+      .wlbl { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .pad { fill: #BA7517; }
+      .pad-b { fill: #6D6A61; }
+      .note { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-style: italic; }
+      .title { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      @media (prefers-color-scheme: dark) {
+        .board { fill: #2C2B27; stroke: #6D6A61; }
+        .board-txt { fill: #D8D6CF; }
+        .track { fill: #3A2F1D; stroke: #E0A24A; }
+        .track-txt, .note { fill: #E0A24A; }
+        .pin { fill: #D8D6CF; }
+        .wire { stroke: #D8D6CF; }
+        .wirehead { fill: #D8D6CF; }
+        .wlbl { fill: #B7B4AC; }
+        .pad { fill: #E0A24A; }
+        .pad-b { fill: #9A968C; }
+        .title { fill: #D8D6CF; }
+      }
+    </style>
+    <marker id="pot-ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path class="wirehead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="310" y="26" text-anchor="middle">Potentiomètre en pont diviseur sur A0</text>
+
+  <!-- Arduino Uno -->
+  <rect class="board" x="40" y="70" width="140" height="180" rx="10"/>
+  <text class="board-txt" x="110" y="58" text-anchor="middle">Arduino Uno</text>
+  <circle class="pad" cx="180" cy="100" r="4"/>
+  <text class="pin" x="168" y="104" text-anchor="end">+5V</text>
+  <circle class="pad" cx="180" cy="165" r="4"/>
+  <text class="pin" x="168" y="169" text-anchor="end">A0</text>
+  <circle class="pad-b" cx="180" cy="235" r="4"/>
+  <text class="pin" x="168" y="239" text-anchor="end">GND</text>
+
+  <!-- Piste résistive du potentiomètre (verticale) -->
+  <rect class="track" x="470" y="100" width="34" height="135" rx="4"/>
+  <text class="track-txt" x="487" y="92" text-anchor="middle">10 kΩ</text>
+
+  <!-- Wires -->
+  <!-- +5V -> haut de piste -->
+  <path class="wire" d="M180,100 L487,100"/>
+  <text class="wlbl" x="330" y="92" text-anchor="middle">extrémité 1 → 5 V</text>
+  <!-- GND -> bas de piste -->
+  <path class="wire" d="M180,235 L487,235"/>
+  <text class="wlbl" x="330" y="252" text-anchor="middle">extrémité 2 → GND</text>
+  <!-- Curseur -> A0 (flèche vers la piste) -->
+  <path class="wire" d="M180,165 L466,165" marker-end="url(#pot-ah)"/>
+  <text class="wlbl" x="320" y="157" text-anchor="middle">curseur (broche du milieu) → A0</text>
+
+  <!-- Note -->
+  <text class="note" x="487" y="262" text-anchor="middle">0 V en bas, 5 V en haut :<tspan x="487" dy="15">le curseur prélève la tension intermédiaire</tspan></text>
+</svg>
