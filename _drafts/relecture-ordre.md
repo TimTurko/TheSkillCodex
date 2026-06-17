@@ -143,7 +143,7 @@ Verdict : OK / a corriger
 - [x] `arduino-gpio` — 🖼✅ *(relu + médias 16/06 : diagnostic pull-up corrigé [LED toujours allumée = liaison GND / bouton tactile 4 pattes], Nano « D2 »→D0–D13, phases +integration-et-tests, pinout du hub réutilisé étape 1 [C76] + schéma de montage ; C68 territoire-capture)*
 - [x] `arduino-entree-tor` — 🖼✅ *(relu + médias + code commenté 16/06 : pull-up & anti-rebond corrects [C44], SVG rebond créé [chronogramme lecture brute → fenêtre 30 ms → état stable], montage gpio réutilisé [C76], phases +integration, style [insensible / fait tomber] ; code commenté débutant + encart « Comment lire ce code » → C77)*
 - [x] `arduino-sortie-tor` — 🖼✅ *(relu + médias + code commenté 16/06 : fond OK ; 2 SVG créés [transistor-bas-cote zoom NPN + montage carte d'interfaces], photo de montage proscrite → C78 ; code commenté C77 ; phases +integration, « relais chinois »→« bon marché » ; ⚠ SVG transistor à reprendre avant mise en ligne)*
-- [ ] `arduino-capteur-numerique`
+- [x] `arduino-capteur-numerique` — 🖼✅ *(relu + médias + code commenté 17/06 : pulseIn timeout 1 s [pas indéfini], vitesse de rotation = comptage d'impulsions [renvoi interruption/timer], C71 prix retiré, C78 schéma branchement SVG [remplace placeholder photo], C68 chronogramme Trig/Echo, C77 code loop commenté + encart + renvoi exemple, principe temps de vol [how-ultrasonic-sensor-works.webp en intro étape 3], phases +integration, liens rouges [[filtrage]] ×2 [fiche transverse à créer → TODO] ; 2 SVG + webp validés au rendu)*
 - [ ] `arduino-capteur-analogique`
 - [ ] `arduino-sortie-pwm`
 - [ ] `arduino-temporisation`

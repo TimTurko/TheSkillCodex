@@ -48,6 +48,12 @@ Cas du **HC-SR04** (ultrason) retenu pour la suite — capteur emblématique du 
 
 ### 3. Lire le datasheet du HC-SR04
 
+Le HC-SR04 fonctionne au **temps de vol** (*time of flight*) : l'émetteur envoie une salve d'ultrasons, l'onde se propage, **rebondit sur l'objet**, puis revient vers le récepteur. En mesurant le **temps d'aller-retour** et connaissant la vitesse du son, on en déduit la distance. Ce temps est précisément ce que la broche `Echo` restitue — et que le code lira à l'étape suivante.
+
+![Principe du capteur à ultrasons HC-SR04 : l'émetteur (Transmitter) envoie une onde sonore qui rebondit sur l'objet ; le récepteur (Receiver) capte l'onde réfléchie (écho). Le temps écoulé entre l'émission et la réception donne la distance.|520](/ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp)
+
+La datasheet précise les paramètres exploités par ce principe :
+
 - Le capteur attend une impulsion de **10 µs sur `Trig`** pour déclencher une mesure.
 - Il génère ensuite une impulsion sur `Echo` dont la durée est proportionnelle au temps d'aller-retour de l'onde sonore.
 - Vitesse du son ≈ 343 m/s à 20 °C. Distance = durée × 343 / 2 (aller-retour).
