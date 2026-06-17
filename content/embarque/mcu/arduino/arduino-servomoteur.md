@@ -169,6 +169,64 @@ Un *servo à rotation continue* (parfois noté FS90R, MG995-360, ou modifié à 
 
 Très utile pour les robots à roues légers, en remplacement d'un moteur CC + pont en H. Limite : pas de retour de position, vitesse mal calibrée, à éviter pour des asservissements précis.
 
+## Servos à retour de position
+
+Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `write(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
+
+Rappel utile : tout servo analogique se positionne déjà en **boucle fermée** grâce à un [[potentiometre|potentiomètre]] interne solidaire de l'axe (c'est lui qui permet au servo de « tenir » sa position). Un feedback servo ne fait que **sortir ce signal** vers une broche de l'Arduino.
+
+### Lire la position (retour analogique)
+
+Le cas qui porte bien son nom de « retour par potentiomètre » est le **servo à retour analogique** (par exemple l'Adafruit Analog Feedback Servo) : le 4ᵉ fil donne directement la **tension du curseur** du potentiomètre interne, image de l'angle. On la lit sur une entrée analogique (→ [[adc]]).
+
+![Branchement d'un servo à retour de position : 3 fils standards (rouge → +5 V, marron → GND, orange → D9 commande) plus un fil de retour relié à A0|520](/ressources/img/arduino-servomoteur/retour-position.svg)
+
+```cpp
+#include <Servo.h>
+
+Servo monServo;
+const int CMD    = 9;    // fil de commande (PWM) du servo
+const int RETOUR = A0;   // 4e fil : tension du potentiometre interne
+
+// Valeurs ADC relevees en calibration (a mesurer pour CHAQUE servo)
+const int ADC_0   = 110;   // analogRead quand le servo est a 0 deg
+const int ADC_180 = 910;   // analogRead quand le servo est a 180 deg
+
+void setup() {
+  Serial.begin(115200);
+  monServo.attach(CMD);
+}
+
+void loop() {
+  monServo.write(90);                  // consigne : aller a 90 deg
+  delay(500);
+
+  int brut = analogRead(RETOUR);       // tension du curseur (0-1023)
+  int angleReel = map(brut, ADC_0, ADC_180, 0, 180);  // convertie en degres
+
+  Serial.print("Consigne 90 -> mesure ");
+  Serial.print(angleReel);
+  Serial.println(" deg");
+  delay(500);
+}
+```
+
+> [!info] Comment lire ce code
+> La consigne (`write`) et la mesure (`analogRead`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les valeurs `ADC_0` et `ADC_180` ne se devinent pas — elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève la valeur `analogRead` à chaque extrémité, et `map()` interpole entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
+
+### À quoi ça sert
+
+- **Confirmer l'arrivée** — comparer consigne et mesure repère un servo qui n'atteint pas sa cible (obstacle, surcharge) : `if (abs(angleReel - 90) > 5) { /* signaler l'écart */ }`.
+- **Boucle de plus haut niveau** — asservir un mouvement à la position *réelle* plutôt qu'à la consigne supposée.
+- **Bras 3 axes** — connaître l'angle effectif de chaque articulation pour vérifier une posture ou journaliser un mouvement.
+
+### Variante — retour numérique (PWM)
+
+Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `pulseIn()` (ou une interruption), **pas** avec `analogRead` ; en contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ `analogRead` sur une broche A*) ou **PWM** (→ `pulseIn` sur une broche numérique).
+
+> [!warning] Le retour n'est pas une métrologie
+> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable — voir [[arduino-pid|le réglage PID]].
+
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — premier essai de positionnement angulaire sur banc isolé.
@@ -185,3 +243,6 @@ Un servomoteur bien câblé (alimentation séparée + GND commun) est l'actionne
 - [[arduino-moteur-cc|Piloter un moteur CC]] — pour rotation continue contrôlée
 - [[arduino-moteur-pas-a-pas|Piloter un moteur pas-à-pas]] — pour positionnement précis multi-tours
 - [[arduino-alimentation|Alimenter la carte]] — pour dimensionner la PSU avec servos
+- [[potentiometre|Potentiomètre]] — le capteur interne qu'un servo à retour de position expose
+- [[adc|Convertisseur analogique-numérique]] — pour lire la tension du retour analogique
+- [[arduino-pid|Réglage PID]] — pour un asservissement de position fin

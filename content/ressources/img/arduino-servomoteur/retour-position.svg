@@ -1,0 +1,54 @@
+<svg viewBox="0 0 580 275" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un servo a retour de position : trois fils standards (rouge vers 5V, marron vers GND, orange vers D9 commande) plus un quatrieme fil de retour relie a A0, qui porte la tension du potentiometre interne.">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .pw   { fill:none; stroke:#6b6b6b; stroke-width:2.4; }
+      .sig  { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .dot  { fill:#BA7517; }
+      .gdot { fill:#6b6b6b; }
+      .t    { fill:#2a2a2a; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .pw   { stroke:#b0b0b0; }
+        .sig  { stroke:#E0A040; }
+        .dot  { fill:#E0A040; }
+        .gdot { fill:#b0b0b0; }
+        .t    { fill:#e8e6df; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="40" y="65" width="140" height="160" rx="6"/>
+  <rect class="box" x="410" y="65" width="140" height="160" rx="6"/>
+  <text class="t" x="110" y="55" text-anchor="middle" font-size="16" font-weight="bold">Servo</text>
+  <text class="tg" x="110" y="150" text-anchor="middle" font-size="12">a retour</text>
+  <text class="tg" x="110" y="166" text-anchor="middle" font-size="12">de position</text>
+  <text class="t" x="480" y="55" text-anchor="middle" font-size="16" font-weight="bold">Arduino</text>
+
+  <text class="t"  x="172" y="115" text-anchor="end" font-size="12">rouge</text>
+  <text class="tg" x="172" y="150" text-anchor="end" font-size="12">marron</text>
+  <text class="t"  x="172" y="185" text-anchor="end" font-size="12">orange</text>
+  <text class="t"  x="172" y="220" text-anchor="end" font-size="12">retour</text>
+  <circle class="dot"  cx="180" cy="110" r="4.5"/>
+  <circle class="gdot" cx="180" cy="145" r="4.5"/>
+  <circle class="dot"  cx="180" cy="180" r="4.5"/>
+  <circle class="dot"  cx="180" cy="215" r="4.5"/>
+
+  <text class="t"  x="418" y="115" text-anchor="start" font-size="12">5V</text>
+  <text class="tg" x="418" y="150" text-anchor="start" font-size="12">GND</text>
+  <text class="t"  x="418" y="185" text-anchor="start" font-size="12">D9 (commande)</text>
+  <text class="t"  x="418" y="220" text-anchor="start" font-size="12">A0 (retour)</text>
+  <circle class="dot"  cx="410" cy="110" r="4.5"/>
+  <circle class="gdot" cx="410" cy="145" r="4.5"/>
+  <circle class="dot"  cx="410" cy="180" r="4.5"/>
+  <circle class="dot"  cx="410" cy="215" r="4.5"/>
+
+  <path class="pw"  d="M180,110 L410,110"/>
+  <path class="pw"  d="M180,145 L410,145"/>
+  <path class="sig" d="M180,180 L410,180"/>
+  <path class="sig" d="M180,215 L410,215"/>
+
+  <text class="tg" x="290" y="258" text-anchor="middle" font-size="12">3 fils standards + 1 fil de retour : tension du potentiom\u00e8tre interne, lue sur A0</text>
+</svg>
