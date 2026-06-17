@@ -58,17 +58,21 @@ Pour le reste : suivre la logique du bus utilisé (voir [[bus-de-communication|b
 
 ### 4. Vérifier les pull-ups et configurations
 
-Beaucoup de modules I2C intègrent leurs propres résistances pull-up sur `SDA` / `SCL` (typiquement 4,7 kΩ). C'est utile pour le premier essai (pas besoin d'ajouter de résistances), mais **multiplier les modules I2C sur le même bus revient à mettre toutes les pull-ups en parallèle** — la résistance équivalente devient trop faible : les broches open-drain n'arrivent plus à tirer le bus assez bas (le courant à absorber dépasse ce qu'elles encaissent), et le niveau bas devient invalide.
+Beaucoup de modules I2C intègrent leur propre résistance pull-up sur `SDA` / `SCL` (souvent 4,7 kΩ). Sur un bus [[arduino-i2c|I2C]], ces deux fils sont partagés par tous les modules et maintenus à l'état haut par cette résistance pull-up, qui tire le fil vers le haut. Pour envoyer un `0`, un composant doit tirer le fil vers le bas, contre cette résistance.
 
-Symptôme typique : un module marche seul, deux modules ensemble ne marchent plus. Solution : retirer les jumpers de pull-up sur tous les modules sauf un (souvent un petit jumper soudé à dessouder, ou une piste à couper au cutter).
+Avec un seul module, tout va bien. Mais en brancher plusieurs sur le même bus revient à **mettre toutes ces résistances pull-up en parallèle** : **si trop de modules sont connectés sur le bus I2C, le trop grand nombre de résistances en parallèle va faire s'effondrer le bus et il ne sera plus possible de communiquer dessus.**
 
-![Plusieurs modules I2C sur le même bus : chaque module ajoute sa pull-up intégrée (≈ 4,7 kΩ) en parallèle sur SDA et SCL. La résistance équivalente chute (4,7 kΩ seul, 2,35 kΩ à deux, 0,94 kΩ à cinq) jusqu'à ce que les broches ne tirent plus le bus assez bas.|560](/ressources/img/arduino-module/pullups-paralleles.svg)
+**Symptôme typique** : un module marche seul, mais deux modules ensemble ne répondent plus. **Solution** : ne garder qu'**une seule** pull-up active — retirer le petit jumper de pull-up (ou couper la piste prévue) sur tous les modules **sauf un**.
 
-D'autres jumpers fréquents :
+![Avant / après : avec un seul module, une seule résistance pull-up tire la ligne SDA vers le haut et un composant peut la tirer à 0 (le bus communique) ; avec plusieurs modules, leurs résistances pull-up en parallèle font s'effondrer le bus et on ne peut plus le tirer à 0. Repères : 4,7 kΩ seul, 2,35 kΩ à deux, 0,94 kΩ à cinq.|560](/ressources/img/arduino-module/pullups-paralleles.svg)
 
-- **Sélection d'adresse I2C** (sur modules comme PCF8574 ou LCD I2C) — typiquement trois ponts pour choisir 1 adresse parmi 8.
-- **Sélection 3,3 / 5 V** (sur certains modules SD card).
-- **Activation / désactivation d'un opto** (sur modules relais).
+**Les autres jumpers à vérifier.** Beaucoup de modules ont aussi de petits cavaliers de configuration :
+
+- **Adresse I2C** (PCF8574, LCD I2C) — souvent trois ponts pour choisir une adresse parmi huit, à ajuster si deux modules ont la même.
+- **Tension 3,3 / 5 V** (certains modules carte SD).
+- **Activation d'un relais / opto** (modules relais).
+
+Un module qui « semble mort » a souvent juste un jumper mal placé : à inspecter avant de le croire défectueux.
 
 Prendre une photo de *un module I2C (typiquement BMP280 ou MPU6050) en gros plan, sérigraphie des broches (VCC/GND/SDA/SCL) bien lisible — l'objectif est d'apprendre à identifier les broches sur un vrai module*.
 
