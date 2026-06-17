@@ -2,6 +2,7 @@
 title: Piloter un moteur CC
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -40,10 +41,10 @@ Quatre étapes : choisir le driver, câbler, alimenter, écrire le code.
 
 | Driver | Tension moteur | Courant continu | Notes |
 |---|---|---|---|
-| **L298N** (module classique) | 5-35 V | 2 A par canal (avec dissipateur) | Le plus répandu, économique, dissipation par chaleur élevée |
+| **L298N** (module classique) | 5-35 V | 2 A par canal (avec dissipateur) | Le plus répandu, dissipation par chaleur élevée |
 | **TB6612FNG** | 4,5-13,5 V | 1,2 A par canal (3,2 A en pic) | MOSFET, peu de chute de tension, efficace |
 | **DRV8833** | 2,7-10,8 V | 1,2 A par canal | Compact, dual H-bridge intégré |
-| **L9110S** | 2,5-12 V | 0,8 A par canal | Petit, très bon marché, deux moteurs |
+| **L9110S** | 2,5-12 V | 0,8 A par canal | Petit, compact, deux moteurs |
 
 Pour un premier projet : **L298N** est le module pédagogique standard. Pour un projet sérieux ou un robot léger, le **TB6612FNG** offre un bien meilleur rendement énergétique.
 
@@ -72,7 +73,7 @@ Pour un L298N pilotant un moteur CC (mêmes broches que dans la fiche [[arduino-
 | HIGH | HIGH | × | Frein actif |
 | × | × | 0 | Roue libre (peu importe IN1/IN2) |
 
-Prendre capture d'écran ou photo de *un module L298N câblé sur une carte Arduino Uno, avec un moteur CC sur OUT1/OUT2 et une alimentation externe 9 V branchée sur le bornier d'alimentation moteur*.
+![Branchement d'un moteur CC via un L298N : IN1→D12, IN2→D11, ENA→D3, OUT1/OUT2 vers le moteur, alimentation externe 9-12 V, masses communes|560](/ressources/img/arduino-moteur-cc/branchement-l298n.svg)
 
 ### 3. Alimenter
 
@@ -133,6 +134,8 @@ Téléverser. Le moteur tourne 2 s dans un sens à vitesse modérée, s'arrête 
 
 Cas complet : un potentiomètre règle la vitesse, un bouton inverse le sens à chaque appui.
 
+**Câblage** : L298N comme au schéma de l'étape 2 ; [[potentiometre|potentiomètre]] 10 kΩ sur A0 (diviseur, voir [[arduino-capteur-analogique]]) ; bouton entre D2 et GND (`INPUT_PULLUP`, pas de résistance externe).
+
 ```cpp
 const int IN1 = 12, IN2 = 11, ENA = 3;
 const int POT = A0;
@@ -169,6 +172,9 @@ void loop() {
   analogWrite(ENA, vitesse);
 }
 ```
+
+> [!info] Comment lire ce code
+> L'anti-rebond non bloquant repose sur **deux variables** : `dernierBouton` mémorise la dernière lecture *brute* (pour repérer l'instant où le signal bouge et relancer le chronomètre), `etatStable` mémorise l'état *confirmé* (celui qu'on retient une fois le signal stable depuis `DELAI_REBOND`). On ne bascule le sens que sur un **front descendant** (`etatStable == LOW`) : avec `INPUT_PULLUP`, la broche est à `HIGH` au repos et tombe à `LOW` quand on appuie — un seul basculement par appui, sans rebond parasite. Tout est non bloquant : pas de `delay()`, le moteur reste piloté à chaque tour de `loop()`.
 
 Tourner le potentiomètre, presser le bouton — sens et vitesse changent en temps réel.
 

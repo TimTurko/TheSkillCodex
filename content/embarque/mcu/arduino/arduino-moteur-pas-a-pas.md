@@ -2,6 +2,7 @@
 title: Piloter un moteur pas-à-pas
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -26,11 +27,11 @@ Cas typiques :
 
 Comparaison rapide :
 
-| Actionneur | Position | Couple | Précision | Coût |
-|---|---|---|---|---|
-| Servo standard | 0-180° | faible | moyenne | bas |
-| Moteur CC | aucun | bon | nul (sans encodeur) | bas |
-| **Moteur pas-à-pas** | par pas | moyen | excellente | moyen |
+| Actionneur | Position | Couple | Précision |
+|---|---|---|---|
+| Servo standard | 0-180° | faible | moyenne |
+| Moteur CC | aucun | bon | nul (sans encodeur) |
+| **Moteur pas-à-pas** | par pas | moyen | excellente |
 
 ## Procédure pas à pas
 
@@ -42,13 +43,13 @@ Quatre étapes : choisir le couple moteur + driver, câbler, installer la biblio
 
 - Moteur : 28BYJ-48, 5 V, 4 fils + 1 commun (mode unipolaire), réducteur 1:64 intégré (donc 2048 ou 4096 pas par tour à l'arbre sortant).
 - Driver : ULN2003 (transistors Darlington), montage carte LED de 4 LEDs qui clignotent dans l'ordre des phases — très pédagogique.
-- Coût : 3-5 € le couple, fourni dans les kits Arduino.
+- Fourni dans la plupart des kits Arduino.
 
 **Version industrielle : NEMA17 + A4988 ou DRV8825**
 
 - Moteur : NEMA17, bipolaire, 4 fils, 200 pas/tour, 0,8 à 1,7 A par bobine.
 - Driver : A4988 ou DRV8825, microstepping jusqu'à 1/16 ou 1/32, contrôle par 2 broches seulement (STEP, DIR).
-- Coût : 8-15 € le moteur + 3-5 € le driver. Utilisé dans les imprimantes 3D et CNC.
+- Utilisé dans les imprimantes 3D et CNC.
 
 Pour un premier essai pédagogique, le 28BYJ-48 + ULN2003 est imbattable. Pour un projet sérieux à puissance, on bascule sur NEMA17 + A4988.
 
@@ -81,7 +82,7 @@ Pour un premier essai pédagogique, le 28BYJ-48 + ULN2003 est imbattable. Pour u
 
 **Important sur A4988** : un condensateur 100 µF entre `VMOT` et GND est *obligatoire* pour absorber les pics de courant — son absence détruit le driver.
 
-Prendre capture d'écran ou photo de *un moteur pas-à-pas 28BYJ-48 connecté à son module ULN2003 et câblé sur les broches D8 à D11 d'une carte Arduino Uno, avec les 4 LEDs du module visibles*.
+![Branchement d'un 28BYJ-48 via un module ULN2003 : IN1-IN4 → D8-D11, alimentation + et −, le moteur s'enfiche sur le connecteur 5 broches du module|560](/ressources/img/arduino-moteur-pas-a-pas/branchement-28byj48.svg)
 
 ### 3. Installer la bibliothèque
 
@@ -122,7 +123,7 @@ Téléverser. Le moteur tourne d'un tour, fait une pause, repart en sens inverse
 
 Cas complet : un bouton fait avancer le moteur d'un quart de tour à chaque appui.
 
-**Câblage** : 28BYJ-48 + ULN2003 comme précédemment + bouton sur D2 (INPUT_PULLUP).
+**Câblage** : 28BYJ-48 + ULN2003 comme au schéma de l'étape 2 + bouton entre D2 et GND (`INPUT_PULLUP`, pas de résistance externe).
 
 ```cpp
 #include <Stepper.h>
@@ -153,6 +154,9 @@ void loop() {
 }
 ```
 
+> [!info] Comment lire ce code
+> L'anti-rebond non bloquant suit le même motif que pour le [[arduino-moteur-cc|moteur CC]] : `dernierEtat` repère l'instant où la lecture brute change (et relance le chronomètre), `etatStable` retient l'état confirmé après 30 ms ; le pas n'est déclenché que sur un **front descendant** (`INPUT_PULLUP` → appui = `LOW`). **Attention** : `monMoteur.step()` est **bloquant** — pendant le quart de tour, la `loop()` est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré (voir *Pièges*). Pour réagir en continu, il faut une bibliothèque non bloquante comme `AccelStepper`.
+
 Chaque appui fait avancer d'un quart de tour. Pratique pour des projets de positionnement séquentiel (distributeur, sélecteur multi-positions).
 
 ## Pièges
@@ -163,7 +167,7 @@ Chaque appui fait avancer d'un quart de tour. Pratique pour des projets de posit
 
 **`A4988` sans condensateur sur VMOT.** Destruction quasi-immédiate du driver à l'allumage par pic de tension inductif. **Condensateur 100 µF minimum** entre VMOT et GND, près du driver.
 
-**Réglage du courant A4988 incorrect.** Le potentiomètre du driver règle le courant limité par bobine. Trop bas → couple trop faible, perte de pas. Trop haut → driver et moteur surchauffent. Calibrer en mesurant Vref au multimètre selon la formule de la fiche du driver (Vref = 8 × R_SENSE × I_MAX, typiquement Vref ≈ 0,8 V pour 1 A sur A4988 avec R = 0,1 Ω).
+**Réglage du courant A4988 incorrect.** Le [[potentiometre|potentiomètre]] du driver règle le courant limité par bobine. Trop bas → couple trop faible, perte de pas. Trop haut → driver et moteur surchauffent. Calibrer en mesurant Vref au multimètre selon la formule de la fiche du driver (Vref = 8 × R_SENSE × I_MAX, typiquement Vref ≈ 0,8 V pour 1 A sur A4988 avec R = 0,1 Ω).
 
 **Perte de pas sous charge.** Si on lui demande d'aller trop vite ou si la charge est trop importante, le moteur *saute* des pas — la position calculée par le programme ne correspond plus à la position réelle. Symptôme : décalage cumulatif au cours du temps. Solutions : réduire la vitesse, augmenter le couple (driver plus puissant, microstepping plus fin, ressort de rappel mécanique).
 

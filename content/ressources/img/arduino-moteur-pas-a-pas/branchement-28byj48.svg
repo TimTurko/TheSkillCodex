@@ -1,0 +1,71 @@
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un moteur pas-a-pas 28BYJ-48 via un module ULN2003 : les broches IN1 a IN4 du module sont reliees aux broches D8 a D11 de l'Arduino, l'alimentation plus et moins aux broches 5V et GND ; le moteur s'enfiche sur le connecteur 5 broches du module.">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .pw   { fill:none; stroke:#6b6b6b; stroke-width:2.4; }
+      .sig  { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .conn { fill:none; stroke:#6b6b6b; stroke-width:5; }
+      .dot  { fill:#BA7517; }
+      .gdot { fill:#6b6b6b; }
+      .mot  { fill:#DDDBD3; stroke:#6b6b6b; stroke-width:2; }
+      .t    { fill:#2a2a2a; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .pw   { stroke:#b0b0b0; }
+        .sig  { stroke:#E0A040; }
+        .conn { stroke:#b0b0b0; }
+        .dot  { fill:#E0A040; }
+        .gdot { fill:#b0b0b0; }
+        .mot  { fill:#3a3a3a; stroke:#b0b0b0; }
+        .t    { fill:#e8e6df; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="30" y="85" width="120" height="210" rx="6"/>
+  <text class="t" x="90" y="75" text-anchor="middle" font-size="15" font-weight="bold">Arduino</text>
+  <text class="t"  x="142" y="120" text-anchor="end" font-size="13">D8</text>
+  <text class="t"  x="142" y="150" text-anchor="end" font-size="13">D9</text>
+  <text class="t"  x="142" y="180" text-anchor="end" font-size="13">D10</text>
+  <text class="t"  x="142" y="210" text-anchor="end" font-size="13">D11</text>
+  <text class="t"  x="142" y="245" text-anchor="end" font-size="13">5V</text>
+  <text class="tg" x="142" y="275" text-anchor="end" font-size="13">GND</text>
+  <circle class="dot"  cx="150" cy="115" r="4.5"/>
+  <circle class="dot"  cx="150" cy="145" r="4.5"/>
+  <circle class="dot"  cx="150" cy="175" r="4.5"/>
+  <circle class="dot"  cx="150" cy="205" r="4.5"/>
+  <circle class="gdot" cx="150" cy="240" r="4.5"/>
+  <circle class="gdot" cx="150" cy="270" r="4.5"/>
+
+  <rect class="box" x="330" y="85" width="150" height="210" rx="6"/>
+  <text class="t" x="405" y="75" text-anchor="middle" font-size="15" font-weight="bold">ULN2003</text>
+  <text class="t"  x="338" y="120" text-anchor="start" font-size="13">IN1</text>
+  <text class="t"  x="338" y="150" text-anchor="start" font-size="13">IN2</text>
+  <text class="t"  x="338" y="180" text-anchor="start" font-size="13">IN3</text>
+  <text class="t"  x="338" y="210" text-anchor="start" font-size="13">IN4</text>
+  <text class="t"  x="338" y="245" text-anchor="start" font-size="13">+</text>
+  <text class="tg" x="338" y="275" text-anchor="start" font-size="13">&#8722;</text>
+  <circle class="dot"  cx="330" cy="115" r="4.5"/>
+  <circle class="dot"  cx="330" cy="145" r="4.5"/>
+  <circle class="dot"  cx="330" cy="175" r="4.5"/>
+  <circle class="dot"  cx="330" cy="205" r="4.5"/>
+  <circle class="gdot" cx="330" cy="240" r="4.5"/>
+  <circle class="gdot" cx="330" cy="270" r="4.5"/>
+
+  <circle class="mot" cx="585" cy="170" r="38"/>
+  <text class="t" x="585" y="166" text-anchor="middle" font-size="13" font-weight="bold">28BYJ-48</text>
+  <text class="tg" x="585" y="184" text-anchor="middle" font-size="11">unipolaire</text>
+
+  <path class="sig" d="M150,115 L330,115"/>
+  <path class="sig" d="M150,145 L330,145"/>
+  <path class="sig" d="M150,175 L330,175"/>
+  <path class="sig" d="M150,205 L330,205"/>
+  <path class="pw"  d="M150,240 L330,240"/>
+  <path class="pw"  d="M150,270 L330,270"/>
+  <path class="conn" d="M480,170 L547,170"/>
+  <text class="tg" x="510" y="160" text-anchor="middle" font-size="11">connecteur 5 broches</text>
+
+  <text class="tg" x="320" y="305" text-anchor="middle" font-size="12">IN1-IN4 \u2192 D8-D11 (s\u00e9quence des phases) &#183; le moteur s'enfiche sur le module</text>
+</svg>

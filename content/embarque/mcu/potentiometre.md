@@ -50,3 +50,4 @@ La **course** peut être :
 - [[niveaux-de-tension|Niveaux de tension]] — le principe du pont diviseur
 - [[arduino-sortie-pwm|Piloter une sortie PWM]] — le potentiomètre comme consigne d'intensité ou de vitesse
 - [[arduino-servomoteur|Piloter un servomoteur]] — le potentiomètre comme consigne de vitesse / position
+- [[arduino-moteur-cc|Piloter un moteur CC]] — le potentiomètre comme consigne de vitesse

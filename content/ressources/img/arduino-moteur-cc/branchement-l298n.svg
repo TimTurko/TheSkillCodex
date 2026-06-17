@@ -1,0 +1,71 @@
+<svg viewBox="0 0 640 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un moteur a courant continu via un module L298N : les broches IN1, IN2 et ENA de l'Arduino (D12, D11, D3) commandent le pont en H ; OUT1 et OUT2 alimentent le moteur ; une alimentation externe 9 a 12 V alimente l'etage de puissance ; les masses sont communes.">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .pw   { fill:none; stroke:#6b6b6b; stroke-width:2.4; }
+      .sig  { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .dot  { fill:#BA7517; }
+      .gdot { fill:#6b6b6b; }
+      .mot  { fill:#DDDBD3; stroke:#6b6b6b; stroke-width:2; }
+      .t    { fill:#2a2a2a; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .pw   { stroke:#b0b0b0; }
+        .sig  { stroke:#E0A040; }
+        .dot  { fill:#E0A040; }
+        .gdot { fill:#b0b0b0; }
+        .mot  { fill:#3a3a3a; stroke:#b0b0b0; }
+        .t    { fill:#e8e6df; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="30" y="110" width="130" height="200" rx="6"/>
+  <text class="t" x="95" y="100" text-anchor="middle" font-size="15" font-weight="bold">Arduino</text>
+  <text class="t"  x="152" y="155" text-anchor="end" font-size="13">D12</text>
+  <text class="t"  x="152" y="190" text-anchor="end" font-size="13">D11</text>
+  <text class="t"  x="152" y="225" text-anchor="end" font-size="13">D3</text>
+  <text class="tg" x="152" y="290" text-anchor="end" font-size="13">GND</text>
+  <circle class="dot"  cx="160" cy="150" r="4.5"/>
+  <circle class="dot"  cx="160" cy="185" r="4.5"/>
+  <circle class="dot"  cx="160" cy="220" r="4.5"/>
+  <circle class="gdot" cx="160" cy="285" r="4.5"/>
+
+  <rect class="box" x="350" y="95" width="160" height="230" rx="6"/>
+  <text class="t" x="430" y="85" text-anchor="middle" font-size="15" font-weight="bold">L298N (pont en H)</text>
+  <text class="t"  x="358" y="155" text-anchor="start" font-size="13">IN1</text>
+  <text class="t"  x="358" y="190" text-anchor="start" font-size="13">IN2</text>
+  <text class="t"  x="358" y="225" text-anchor="start" font-size="13">ENA</text>
+  <text class="tg" x="358" y="290" text-anchor="start" font-size="13">GND</text>
+  <circle class="dot"  cx="350" cy="150" r="4.5"/>
+  <circle class="dot"  cx="350" cy="185" r="4.5"/>
+  <circle class="dot"  cx="350" cy="220" r="4.5"/>
+  <circle class="gdot" cx="350" cy="285" r="4.5"/>
+  <text class="t"  x="502" y="155" text-anchor="end" font-size="13">OUT1</text>
+  <text class="t"  x="502" y="190" text-anchor="end" font-size="13">OUT2</text>
+  <circle class="gdot" cx="510" cy="150" r="4.5"/>
+  <circle class="gdot" cx="510" cy="185" r="4.5"/>
+  <text class="t"  x="400" y="315" text-anchor="middle" font-size="12">+12V</text>
+  <text class="tg" x="470" y="315" text-anchor="middle" font-size="12">GND</text>
+  <circle class="gdot" cx="400" cy="325" r="4.5"/>
+  <circle class="gdot" cx="470" cy="325" r="4.5"/>
+
+  <circle class="mot" cx="595" cy="167" r="30"/>
+  <text class="t" x="595" y="172" text-anchor="middle" font-size="18" font-weight="bold">M</text>
+
+  <rect class="box" x="350" y="358" width="160" height="34" rx="5"/>
+  <text class="t" x="430" y="380" text-anchor="middle" font-size="13">Alim 9-12 V</text>
+
+  <path class="sig" d="M160,150 L350,150"/>
+  <path class="sig" d="M160,185 L350,185"/>
+  <path class="sig" d="M160,220 L350,220"/>
+  <path class="pw"  d="M160,285 L350,285"/>
+  <path class="pw"  d="M510,150 L566,155"/>
+  <path class="pw"  d="M510,185 L566,179"/>
+  <path class="pw"  d="M400,325 L400,358"/>
+  <path class="pw"  d="M470,325 L470,358"/>
+
+  <text class="tg" x="320" y="404" text-anchor="middle" font-size="12">IN1/IN2 = sens &#183; ENA = vitesse (PWM) &#183; masses communes Arduino + alim moteur</text>
+</svg>
