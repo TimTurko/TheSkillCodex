@@ -1,0 +1,65 @@
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme de trois cadences independantes dans un meme loop() : la LED bascule toutes les 500 ms, une mesure est prise toutes les 100 ms, une ligne serie est imprimee toutes les 1000 ms. Les trois rythmes cohabitent sur l'axe du temps sans se gener.">
+  <defs>
+    <style>
+      .base { stroke: #B8B5AC; stroke-width: 1.5; stroke-dasharray: 4 4; }
+      .tick { stroke: #BA7517; stroke-width: 2.5; }
+      .ev { fill: #BA7517; }
+      .arr { stroke: #8A5512; stroke-width: 1.5; fill: none; }
+      .arrhead { fill: #8A5512; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      @media (prefers-color-scheme: dark) {
+        .base { stroke: #6D6A61; }
+        .tick { stroke: #E0A24A; }
+        .ev { fill: #E0A24A; }
+        .arr { stroke: #E0A24A; }
+        .arrhead { fill: #E0A24A; }
+        .lbl { fill: #D8D6CF; }
+        .lbl-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+    <marker id="tempo3-ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path class="arrhead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="lbl-am" x="20" y="28" text-anchor="start">Trois cadences indépendantes dans un seul loop(), sans delay()</text>
+
+  <!-- Track A : LED 500 ms -->
+  <text class="lbl" x="180" y="84" text-anchor="end">LED · 500 ms</text>
+  <line class="base" x1="190" y1="80" x2="660" y2="80"/>
+  <line class="tick" x1="190" y1="80" x2="190" y2="64"/><circle class="ev" cx="190" cy="64" r="4"/>
+  <line class="tick" x1="425" y1="80" x2="425" y2="64"/><circle class="ev" cx="425" cy="64" r="4"/>
+  <line class="tick" x1="660" y1="80" x2="660" y2="64"/><circle class="ev" cx="660" cy="64" r="4"/>
+
+  <!-- Track B : mesure 100 ms -->
+  <text class="lbl" x="180" y="154" text-anchor="end">Mesure · 100 ms</text>
+  <line class="base" x1="190" y1="150" x2="660" y2="150"/>
+  <line class="tick" x1="190" y1="150" x2="190" y2="134"/><circle class="ev" cx="190" cy="134" r="4"/>
+  <line class="tick" x1="237" y1="150" x2="237" y2="134"/><circle class="ev" cx="237" cy="134" r="4"/>
+  <line class="tick" x1="284" y1="150" x2="284" y2="134"/><circle class="ev" cx="284" cy="134" r="4"/>
+  <line class="tick" x1="331" y1="150" x2="331" y2="134"/><circle class="ev" cx="331" cy="134" r="4"/>
+  <line class="tick" x1="378" y1="150" x2="378" y2="134"/><circle class="ev" cx="378" cy="134" r="4"/>
+  <line class="tick" x1="425" y1="150" x2="425" y2="134"/><circle class="ev" cx="425" cy="134" r="4"/>
+  <line class="tick" x1="472" y1="150" x2="472" y2="134"/><circle class="ev" cx="472" cy="134" r="4"/>
+  <line class="tick" x1="519" y1="150" x2="519" y2="134"/><circle class="ev" cx="519" cy="134" r="4"/>
+  <line class="tick" x1="566" y1="150" x2="566" y2="134"/><circle class="ev" cx="566" cy="134" r="4"/>
+  <line class="tick" x1="613" y1="150" x2="613" y2="134"/><circle class="ev" cx="613" cy="134" r="4"/>
+  <line class="tick" x1="660" y1="150" x2="660" y2="134"/><circle class="ev" cx="660" cy="134" r="4"/>
+
+  <!-- Track C : serie 1000 ms -->
+  <text class="lbl" x="180" y="224" text-anchor="end">Série · 1000 ms</text>
+  <line class="base" x1="190" y1="220" x2="660" y2="220"/>
+  <line class="tick" x1="190" y1="220" x2="190" y2="204"/><circle class="ev" cx="190" cy="204" r="4"/>
+  <line class="tick" x1="660" y1="220" x2="660" y2="204"/><circle class="ev" cx="660" cy="204" r="4"/>
+
+  <!-- axe temps -->
+  <line class="arr" x1="190" y1="266" x2="662" y2="266" marker-end="url(#tempo3-ah)"/>
+  <text class="lbl-sm" x="190" y="284" text-anchor="middle">0</text>
+  <text class="lbl-sm" x="425" y="284" text-anchor="middle">500 ms</text>
+  <text class="lbl-sm" x="655" y="284" text-anchor="middle">1000 ms</text>
+
+  <text class="lbl-sm" x="350" y="306" text-anchor="middle">Entre deux événements, le loop() reste libre (bouton, autres mesures…).</text>
+</svg>

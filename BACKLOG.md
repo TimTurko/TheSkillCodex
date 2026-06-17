@@ -3,6 +3,12 @@
 > Fichier privé (non publié). Idées et notions à traiter "un jour".
 > Pas d'ordre, pas de priorité. On y déverse, on y pioche selon l'inspiration.
 
+## Récent (17/06) — idées émergées en relecture §7
+
+- [ ] **Bibliothèque de composants (notion par composant)** — *futur lointain.* Beaucoup de composants (LDR, LM35, FSR, MQ-x, résistance, LED, diode…) n'ont pas de fiche-notion propre et restent expliqués **inline** là où on les utilise. Le **potentiomètre** a fait exception (notion créée 17/06) car **générique, réutilisé et porteur du diviseur** (archétype transverse). **Ligne de périmètre** : n'ouvrir une notion-composant que pour un composant générique/réutilisé/transverse ; sinon inline. Ne pas lancer d'encyclopédie de composants avant la couverture du socle + publication. (Tim 17/06 : « à rajouter dans un futur lointain ».)
+- [ ] **Passe de contrôle C79 (rétroactif)** — C79 (« un montage/schéma de principe par bloc de code ») émerge le 17/06. Repasser les **fiches déjà relues** pour vérifier que chaque bloc de code a un montage ou un schéma de principe adjacent (ou un renvoi). Candidats probables : tutos MicroPython, fiches algorithme. À faire en grooming, pas en clôture.
+- [ ] **Filigrane « robocraze » sur le GIF IR** (`how-ir-sensor-works.gif`, `arduino-capteur-numerique`) — image tierce avec watermark ; décider avant publication (garder / remplacer par un schéma maison / recréer en SVG). Vérifier au passage les autres médias fournis (webp `how-ultrasonic-sensor-works`, `how-potentiometer-works`…) pour d'éventuels watermarks.
+
 ## Fiches-trame à rédiger (phases du cycle en V)
 
 Ces fiches forment l'épine dorsale du parcours étudiant. Voir le hub `content/hub/index.md` pour la trame complète.

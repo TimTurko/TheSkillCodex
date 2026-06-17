@@ -8,6 +8,7 @@ tags:
   - tuto
 prerequis:
   - arduino-prise-en-main
+  - arduino-entree-tor
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
@@ -17,7 +18,7 @@ draft: false
 
 ## À quoi ça sert ?
 
-Tout programme un peu sérieux a besoin de temps : faire clignoter une LED à 1 Hz, échantillonner un capteur à 10 Hz, déclencher une alarme après 3 secondes, asservir un moteur en boucle fermée tous les 20 ms. Sans gestion du temps, on a soit un programme qui s'exécute aussi vite que le processeur (sans rythme), soit un programme bloqué par `delay()` qui rate tout ce qui se passe pendant ses pauses. La fiche montre les deux outils, en argumentant pourquoi `millis()` finit par s'imposer.
+Tout programme un peu sérieux a besoin de temps : faire clignoter une LED à 1 Hz, échantillonner un [[arduino-capteur-analogique|capteur]] à 10 Hz, déclencher une alarme après 3 secondes, asservir un moteur en boucle fermée tous les 20 ms. Sans gestion du temps, on a soit un programme qui s'exécute aussi vite que le processeur (sans rythme), soit un programme bloqué par `delay()` qui rate tout ce qui se passe pendant ses pauses. La fiche montre les deux outils, en argumentant pourquoi `millis()` finit par s'imposer.
 
 ## Procédure pas à pas
 
@@ -54,6 +55,9 @@ void loop() {
 
 Si un bouton doit interrompre le clignotement, ce code ne le verra qu'avec jusqu'à 2 secondes de retard. C'est inacceptable dès qu'on a deux choses à faire en parallèle.
 
+> [!danger] Danger
+> **Un programme figé dans `delay()` est aveugle à tout ce qui survient pendant la pause.** Sur un système critique — arrêt d'urgence, fin de course, détection d'obstacle, seuil de courant ou de température — un événement qui tombe pendant un `delay()` n'est vu qu'à la fin de la pause, voire raté s'il est fugace. Ce retard de réaction peut endommager le matériel ou blesser une personne. Dès qu'une entrée doit être surveillée en continu, on bannit `delay()` au profit de `millis()`.
+
 ### 3. `millis()` — l'horloge non bloquante
 
 `millis()` renvoie le nombre de millisecondes écoulées depuis le démarrage de la carte. Le programme ne s'arrête pas — il consulte l'horloge.
@@ -79,7 +83,11 @@ void loop() {
 }
 ```
 
-Le `loop()` tourne à pleine vitesse (~100 000 itérations par seconde sur Uno R3). À chaque tour, on vérifie si l'intervalle est écoulé — si oui, on agit ; sinon, on continue. Le pattern `if (millis() - last >= interval)` est l'incantation à mémoriser une fois pour toutes.
+Le `loop()` tourne à pleine vitesse (de l'ordre de 100 000 fois par seconde sur Uno R3, selon la charge de la boucle). À chaque tour, on vérifie si l'intervalle est écoulé — si oui, on agit ; sinon, on continue. Le pattern `if (millis() - last >= interval)` est l'incantation à mémoriser une fois pour toutes.
+
+*Le contraste entre les deux philosophies se lit d'un coup d'œil sur un chronogramme :*
+
+![Chronogramme de principe opposant delay() et millis() : avec delay() la boucle reste figée pendant les pauses et un appui survenant pendant une pause n'est vu qu'au prochain réveil (jusqu'à 500 ms de retard) ; avec millis() la boucle repasse des milliers de fois par seconde et voit l'appui au tour suivant.|640](/ressources/img/arduino-temporisation/delay-vs-millis.svg)
 
 ### 4. Plusieurs temps en parallèle
 
@@ -111,7 +119,9 @@ void loop() {
 }
 ```
 
-Trois cadences (toggle LED 2 Hz, mesure 10 Hz, impression 1 Hz) cohabitent sans aucun `delay()`. Le `loop()` est libre d'écouter aussi un bouton, du Serial, etc.
+Trois cadences (toggle LED 2 Hz, mesure 10 Hz, impression 1 Hz) cohabitent sans aucun `delay()`. Le `loop()` est libre d'écouter aussi un [[arduino-entree-tor|bouton]], du [[arduino-serie|Serial]], etc.
+
+![Chronogramme de trois cadences indépendantes dans un même loop() : la LED bascule toutes les 500 ms, une mesure est prise toutes les 100 ms, une ligne série est imprimée toutes les 1000 ms ; les trois rythmes cohabitent sur l'axe du temps sans se gêner, et entre deux événements le loop() reste libre.|640](/ressources/img/arduino-temporisation/cadences-paralleles.svg)
 
 ## Exemple — Blink non bloquant + bouton réactif
 
@@ -167,6 +177,15 @@ void loop() {
 }
 ```
 
+**Comment lire ce code.** Le sketch fait tourner **deux mécanismes indépendants dans le même `loop()`**, sans qu'aucun ne bloque l'autre.
+
+- **Le clignotement** repose sur `millis()` : `t_LED` retient la date du dernier basculement, et `maintenant - t_LED >= intervalle` demande à chaque tour « assez de temps a-t-il passé ? ». Si oui, on rebascule la LED et on remet `t_LED` à `maintenant`. Changer `intervalle` (500 ↔ 100 ms) suffit à changer la cadence.
+- **Le bouton** combine anti-rebond et détection de front, exactement comme dans [[arduino-entree-tor|lire une entrée TOR]] : `dernierBouton` suit la lecture *brute*, `etatStable` l'état *confirmé* une fois le rebond passé (`DELAI_REBOND`). La condition `etatStable == LOW` ne se réalise qu'**une seule fois par appui** (au front descendant) — c'est ce qui évite de basculer la fréquence en boucle tant que le doigt reste posé.
+
+Les deux blocs s'exécutent à chaque tour : la LED clignote *pendant* qu'on surveille le bouton — précisément ce qu'un `delay()` interdirait.
+
+Le câblage n'a rien de nouveau : un bouton sur `INPUT_PULLUP` (une patte vers la broche, l'autre vers `GND`) et une LED sur sa broche — il est détaillé et illustré dans [[arduino-entree-tor|lire une entrée TOR]].
+
 Avec un seul `delay()` dans le code, ce comportement ne serait pas possible — c'est l'illustration directe de pourquoi `millis()` est le bon outil dès qu'il y a plus d'une chose à faire à la fois.
 
 ## Pièges
@@ -176,6 +195,8 @@ Avec un seul `delay()` dans le code, ce comportement ne serait pas possible — 
 **Overflow de `millis()` mal géré.** `millis()` est un `unsigned long` (32 bits) qui déborde après ~49,7 jours. Le test `if (millis() - last >= interval)` reste **correct au moment de l'overflow** grâce à l'arithmétique modulaire des unsigned. À l'inverse, `if (millis() >= last + interval)` est **faux** au moment de l'overflow (peut produire un blocage temporaire). Toujours préférer la première forme.
 
 **Variable de temps en `int` ou `long` signé.** Stocker un résultat de `millis()` dans un `int` (16 bits sur Uno R3) provoque un overflow toutes les 32 secondes. Toujours `unsigned long` pour les variables qui mémorisent un timestamp.
+
+*Sur Uno R4 (cœur Arm Cortex-M4 32 bits), un `int` fait 32 bits : le même bug ne déborde alors qu'après ~24,8 jours — plus rare, donc d'autant plus insidieux. La règle ne change pas : `unsigned long` pour tout timestamp.*
 
 **`delayMicroseconds(N)` au-delà de 16383.** La fonction n'est précise que pour des durées inférieures à ~16 ms (16383 µs sur Uno R3). Pour plus, utiliser `delay()` (en millisecondes) ou un compteur basé sur `micros()`.
 

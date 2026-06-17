@@ -1,0 +1,76 @@
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme de principe opposant delay() et millis(). Avec delay(), la boucle reste figee pendant les pauses : un appui sur le bouton survenant pendant une pause n'est vu qu'au prochain reveil, jusqu'a 500 ms plus tard. Avec millis(), la boucle repasse des milliers de fois par seconde et voit l'appui au tour suivant.">
+  <defs>
+    <style>
+      .led { stroke: #BA7517; stroke-width: 2.5; fill: none; }
+      .win { fill: #F3E2C7; opacity: 0.55; }
+      .guide { stroke: #B8B5AC; stroke-width: 1.5; }
+      .loopfast { stroke: #BA7517; stroke-width: 10; stroke-dasharray: 2 4; fill: none; }
+      .ev { fill: #BA7517; }
+      .arr { stroke: #8A5512; stroke-width: 1.5; fill: none; }
+      .arrhead { fill: #8A5512; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      @media (prefers-color-scheme: dark) {
+        .led { stroke: #E0A24A; }
+        .win { fill: #3A2F1D; opacity: 0.6; }
+        .guide { stroke: #6D6A61; }
+        .loopfast { stroke: #E0A24A; }
+        .ev { fill: #E0A24A; }
+        .arr { stroke: #E0A24A; }
+        .arrhead { fill: #E0A24A; }
+        .lbl { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+    <marker id="tempo-ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path class="arrhead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <!-- ===== Bloc haut : delay() ===== -->
+  <text class="lbl-am" x="20" y="28" text-anchor="start">Avec delay() — la boucle est figée pendant les pauses</text>
+
+  <!-- LED -->
+  <text class="lbl-sm" x="158" y="74" text-anchor="end">LED</text>
+  <polyline class="led" points="170,58 292,58 292,86 415,86 415,58 537,58 537,86 660,86"/>
+
+  <!-- boucle figée -->
+  <text class="lbl-sm" x="158" y="122" text-anchor="end">boucle</text>
+  <rect class="win" x="170" y="104" width="490" height="28"/>
+  <line class="guide" x1="170" y1="104" x2="170" y2="132"/>
+  <line class="guide" x1="292" y1="104" x2="292" y2="132"/>
+  <line class="guide" x1="415" y1="104" x2="415" y2="132"/>
+  <line class="guide" x1="537" y1="104" x2="537" y2="132"/>
+  <line class="guide" x1="660" y1="104" x2="660" y2="132"/>
+  <text class="lbl-sm-am" x="415" y="122" text-anchor="middle">figée dans delay() — n'écoute ni bouton, ni capteur, ni série</text>
+
+  <!-- appui -->
+  <circle class="ev" cx="235" cy="104" r="5"/>
+  <text class="lbl-sm-am" x="235" y="98" text-anchor="middle">appui bouton</text>
+  <line class="arr" x1="235" y1="146" x2="290" y2="146" marker-end="url(#tempo-ah)"/>
+  <text class="lbl-sm-am" x="298" y="150" text-anchor="start">✗ vu jusqu'à 500 ms plus tard</text>
+
+  <!-- ===== Bloc bas : millis() ===== -->
+  <text class="lbl-am" x="20" y="208" text-anchor="start">Avec millis() — la boucle tourne en continu</text>
+
+  <!-- LED -->
+  <text class="lbl-sm" x="158" y="246" text-anchor="end">LED</text>
+  <polyline class="led" points="170,230 292,230 292,258 415,258 415,230 537,230 537,258 660,258"/>
+
+  <!-- boucle libre -->
+  <text class="lbl-sm" x="158" y="294" text-anchor="end">boucle</text>
+  <line class="loopfast" x1="170" y1="290" x2="660" y2="290"/>
+  <text class="lbl-sm" x="415" y="318" text-anchor="middle">libre : repasse des milliers de fois/s, lit tout à chaque tour</text>
+
+  <!-- appui -->
+  <circle class="ev" cx="235" cy="290" r="5"/>
+  <text class="lbl-sm-am" x="235" y="278" text-anchor="middle">appui bouton</text>
+  <text class="lbl" x="248" y="285" text-anchor="start">✓ vu au tour suivant (&lt; 1 ms)</text>
+
+  <!-- axe temps -->
+  <line class="arr" x1="170" y1="344" x2="662" y2="344" marker-end="url(#tempo-ah)"/>
+  <text class="lbl-sm" x="415" y="338" text-anchor="middle">temps</text>
+</svg>

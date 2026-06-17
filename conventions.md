@@ -928,6 +928,15 @@ Notes 15/06 (pas de convention numérotée) :
 
 78. **Montage/câblage → schéma SVG, pas photo.** Une photo de breadboard est peu lisible et n'aide guère à la compréhension ; le câblage d'une fiche se montre par un **schéma SVG** (branchement C67, étage électrique, ou carte d'interfaces broche → charge), pas par une photo. Amende la tolérance « capture/photo » de C29 pour le **câblage** : Claude **produit le schéma** au lieu de laisser un placeholder photo à shooter. Un schéma raster déjà fourni (ex. capture de simulateur `montage-bouton-led.webp`) satisfait aussi le critère — c'est la *photo de montage* qui est proscrite, pas le raster schématique. Demande Tim. Éprouvée sur `arduino-sortie-tor` (placeholder photo → `montage.svg` carte d'interfaces + zoom `transistor-bas-cote.svg`). **La numérotation éprouvage atteint 78.**
 
+### Acquises 17/06 — relecture §7 Arduino (capteur analogique, sortie PWM, notion potentiomètre)
+
+79. **Un montage (ou schéma de principe) par bloc de code.** Tout bloc de code d'une fiche s'accompagne d'un visuel qui l'illustre : un **montage** (câblage SVG, C78) pour du code qui pilote du matériel, un **schéma de principe** (chronogramme, organigramme, diagramme d'états) pour du code purement logique. Si le câblage concerné est **déjà montré plus haut** dans la fiche, un **renvoi** suffit — pas de duplication. Renforce C68 (« ≥ 1 schéma par fiche ») au niveau du bloc de code. Demande Tim (relecture `arduino-sortie-pwm` : l'Exemple potentiomètre + LED réclamait son montage, ressorti du SVG de branchement potentiomètre ; le code de fondu était couvert par le SVG LED de l'étape 2). Éprouvée 1/N. **Portée rétroactive** : les fiches déjà relues sont à repasser (BACKLOG). **La numérotation éprouvage atteint 79.**
+
+Notes 17/06 (pas de convention numérotée) :
+- **Vérification en source = filet anti-erreur (C14 élargi aux specs).** L'erreur ADC de l'Uno R4 (`arduino-capteur-analogique` annonçait « 12 bits par défaut » → en réalité **10 bits**, 12/14 sur option `analogReadResolution()`) a été prise en lisant les docs Arduino plutôt qu'en se fiant à la fiche. Idem `analogWrite()` (0-255 par défaut, y compris R4). **Specs hardware = source primaire, jamais la mémoire ni la fiche existante.**
+- **Notion-composant = exception réservée.** Le potentiomètre obtient une notion [T] (générique, réutilisé, archétype du diviseur) ; les capteurs one-shot (LDR, LM35…) restent **inline**. Pas de bibliothèque de composants avant socle + publication (BACKLOG).
+- **Cache GitHub Pages.** Après push, une image au **même nom** peut rester servie depuis le cache navigateur/CDN ; `Ctrl+Shift+R` ou un test direct de l'URL `?v=2` tranche « cache » vs « pas déployé ». Vécu sur `pont-diviseur-ldr.svg`.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
