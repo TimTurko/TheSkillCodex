@@ -85,3 +85,4 @@ Conséquence pratique : un composant 3,3 V et un composant 5 V peuvent parfois c
 - [[lire-une-datasheet|Lire une datasheet]] — où lire les seuils VIH / VIL / VOH / VOL et la tension maximale admissible
 - [[i2c|I2C]] — bus en drain ouvert, cas particulier d'adaptation de niveau
 - [[bus-de-communication|Bus de communication]] — UART / I2C / SPI, là où la compatibilité des niveaux se pose le plus souvent
+- [[potentiometre|Potentiomètre]] — un pont diviseur réglable, application concrète du diviseur de tension

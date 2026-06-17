@@ -39,7 +39,7 @@ Quatre étapes : connaître son ADC, câbler, lire, convertir.
 
 ### 2. Câbler un potentiomètre
 
-Pour ce premier exemple : un potentiomètre 10 kΩ, trois broches.
+Pour ce premier exemple : un **[[potentiometre|potentiomètre]]** 10 kΩ, trois broches (la notion détaille son fonctionnement).
 
 - Broche extrême 1 → `+5 V` Arduino
 - Broche extrême 2 → `GND` Arduino
