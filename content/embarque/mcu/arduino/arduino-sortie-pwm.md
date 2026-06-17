@@ -3,6 +3,7 @@ title: Piloter une sortie PWM
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -43,7 +44,7 @@ Toutes les broches numériques ne génèrent pas du PWM. Sur Arduino Uno R3, six
 
 LED anode (+) → résistance 220 Ω → broche **D9** (PWM) ; cathode (−) → GND. Identique au câblage d'une LED en TOR — c'est le code qui change.
 
-Prendre capture d'écran ou photo de *une LED + résistance 220 Ω câblée sur la broche D9 d'un Arduino Uno, avec la sérigraphie ~9 visible sur la carte*.
+![Branchement d'une LED sur une sortie PWM : broche D9 (~) → résistance 220 Ω → anode de la LED, cathode → GND. Câblage identique à une LED en tout-ou-rien.|520](/ressources/img/arduino-sortie-pwm/branchement-led-pwm.svg)
 
 ### 3. Écrire le code — fondu progressif
 
@@ -57,22 +58,22 @@ void setup() {
 void loop() {
   // Fondu montant : 0 → 255
   for (int v = 0; v <= 255; v++) {
-    analogWrite(LED, v);
-    delay(8);
+    analogWrite(LED, v);  // applique le rapport cyclique v/255
+    delay(8);             // 8 ms par pas → fondu d'environ 2 s
   }
   // Fondu descendant : 255 → 0
   for (int v = 255; v >= 0; v--) {
-    analogWrite(LED, v);
+    analogWrite(LED, v);  // même principe, valeur décroissante
     delay(8);
   }
 }
 ```
 
-Le paramètre de `analogWrite()` est un entier de **0** (rapport cyclique 0 %, sortie toujours basse) à **255** (rapport cyclique 100 %, sortie toujours haute) sur Uno R3. La LED s'allume progressivement puis s'éteint progressivement en boucle.
+Le paramètre de `analogWrite()` est un entier de **0** (rapport cyclique 0 %, sortie toujours basse) à **255** (rapport cyclique 100 %, sortie toujours haute). Cette plage 0-255 reste le défaut sur Uno R4 aussi ; une résolution supérieure n'est accessible qu'en option via `analogWriteResolution()`. La LED s'allume progressivement puis s'éteint progressivement en boucle.
 
 ### 4. Observer
 
-À l'œil nu, la LED varie en intensité — c'est l'effet de moyenne perceptive (l'œil intègre les ~490 commutations par seconde du PWM Arduino sur D9). À l'**oscilloscope**, on voit la vraie nature du signal : créneau 0-5 V dont la proportion de temps à 5 V varie avec la valeur passée.
+À l'œil nu, la LED varie en intensité — c'est l'effet de moyenne perceptive (l'œil intègre les ~490 commutations par seconde du PWM Arduino sur D9). À l'**oscilloscope**, on voit la vraie nature du signal : créneau 0-5 V dont la proportion de temps à 5 V varie avec la valeur passée (chronogrammes idéalisés dans [[pwm]]).
 
 Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un signal PWM sur la broche D9, rapport cyclique ~50 %, fréquence ~490 Hz*.
 
@@ -80,7 +81,7 @@ Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un sig
 
 Cas complet : lire la position d'un potentiomètre sur `A0`, l'utiliser comme consigne pour la luminosité de la LED.
 
-**Câblage** : potentiomètre 10 kΩ sur `A0` (curseur), `5 V` et `GND` aux extrêmes ; LED + 220 Ω sur D9.
+**Câblage** : [[potentiometre|potentiomètre]] 10 kΩ sur `A0` (curseur), `5 V` et `GND` aux extrêmes ; LED + 220 Ω sur D9.
 
 ```cpp
 const int POT = A0;
@@ -98,13 +99,13 @@ void loop() {
 }
 ```
 
-Tournez le potentiomètre : la luminosité de la LED suit. Note : `analogRead()` renvoie 0-1023 sur Uno R3, mais `analogWrite()` veut 0-255 — la conversion par division par 4 (ou la fonction `map()`) est obligatoire.
+Tournez le potentiomètre : la luminosité de la LED suit. Note : `analogRead()` renvoie 0-1023 sur Uno R3 (voir [[arduino-capteur-analogique|lire un capteur analogique]]), mais `analogWrite()` veut 0-255 — la conversion par division par 4 (ou la fonction `map()`) est obligatoire.
 
 ## Pièges
 
 **Broche non PWM.** Le code compile, `analogWrite()` ne génère pas d'erreur — mais la sortie est binaire. Vérifier le `~` sur la sérigraphie de la carte ou la doc.
 
-**Confondre `analogWrite()` et vraie sortie analogique.** `analogWrite()` ne sort pas une tension analogique — il sort un créneau 0/5 V à rapport cyclique variable. La tension *moyenne* est analogique pour une charge lente (LED, moteur), mais l'instantané reste binaire. Pour une vraie tension analogique, il faut un DAC (Uno R4 a un DAC sur A0) ou un filtre RC passe-bas en sortie de PWM.
+**Confondre `analogWrite()` et vraie sortie analogique.** `analogWrite()` ne sort pas une tension analogique — il sort un créneau 0/5 V à rapport cyclique variable. La tension *moyenne* est analogique pour une charge lente (LED, moteur), mais l'instantané reste binaire. Pour une vraie tension analogique, il faut un [[dac|DAC]] (Uno R4 a un DAC sur A0) ou un filtre RC passe-bas en sortie de PWM.
 
 **Confondre 0-255 et 0-100.** Le paramètre de `analogWrite()` est 0-255 (8 bits), pas 0-100 ou 0-1023. Une valeur 100 = 39 % de rapport cyclique, pas 100 %.
 

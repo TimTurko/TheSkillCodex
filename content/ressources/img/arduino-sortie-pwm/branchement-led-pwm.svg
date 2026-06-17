@@ -1,0 +1,75 @@
+<svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'une LED sur une sortie PWM : la broche D9 (marquée d'un tilde) alimente une résistance de 220 ohms en série avec l'anode de la LED ; la cathode revient à GND. Le câblage est identique à celui d'une LED en tout-ou-rien.">
+  <defs>
+    <style>
+      .board { fill: #EFEEE9; stroke: #B8B5AC; stroke-width: 2; }
+      .board-txt { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .pin { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .wire { stroke: #4A4843; stroke-width: 2.5; fill: none; }
+      .wlbl { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .pad { fill: #BA7517; }
+      .pad-b { fill: #6D6A61; }
+      .res { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .res-txt { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      .led { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .led-bar { stroke: #BA7517; stroke-width: 3; }
+      .light { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .lighthead { fill: #BA7517; }
+      .note { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-style: italic; }
+      .title { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      @media (prefers-color-scheme: dark) {
+        .board { fill: #2C2B27; stroke: #6D6A61; }
+        .board-txt { fill: #D8D6CF; }
+        .pin { fill: #D8D6CF; }
+        .wire { stroke: #D8D6CF; }
+        .wlbl { fill: #B7B4AC; }
+        .pad { fill: #E0A24A; }
+        .pad-b { fill: #9A968C; }
+        .res { fill: #3A2F1D; stroke: #E0A24A; }
+        .res-txt, .note { fill: #E0A24A; }
+        .led { fill: #3A2F1D; stroke: #E0A24A; }
+        .led-bar { stroke: #E0A24A; }
+        .light { stroke: #E0A24A; }
+        .lighthead { fill: #E0A24A; }
+        .title { fill: #D8D6CF; }
+      }
+    </style>
+    <marker id="pwm-lh" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path class="lighthead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="300" y="26" text-anchor="middle">LED sur sortie PWM (D9 ~)</text>
+
+  <!-- Arduino Uno -->
+  <rect class="board" x="40" y="55" width="130" height="150" rx="10"/>
+  <text class="board-txt" x="105" y="44" text-anchor="middle">Arduino Uno</text>
+  <circle class="pad" cx="170" cy="95" r="4"/>
+  <text class="pin" x="158" y="99" text-anchor="end">D9 ~</text>
+  <circle class="pad-b" cx="170" cy="175" r="4"/>
+  <text class="pin" x="158" y="179" text-anchor="end">GND</text>
+
+  <!-- Wire D9 -> résistance -->
+  <path class="wire" d="M170,95 L235,95"/>
+
+  <!-- Résistance 220 ohm -->
+  <rect class="res" x="235" y="83" width="70" height="24" rx="3"/>
+  <text class="res-txt" x="270" y="77" text-anchor="middle">220 Ω</text>
+
+  <!-- Wire résistance -> LED -->
+  <path class="wire" d="M305,95 L360,95"/>
+
+  <!-- LED (symbole diode : anode à gauche, cathode à droite) -->
+  <path class="led" d="M360,82 L360,108 L386,95 Z"/>
+  <line class="led-bar" x1="386" y1="80" x2="386" y2="110"/>
+  <!-- flèches de lumière -->
+  <line class="light" x1="378" y1="80" x2="392" y2="64" marker-end="url(#pwm-lh)"/>
+  <line class="light" x1="390" y1="78" x2="404" y2="62" marker-end="url(#pwm-lh)"/>
+  <text class="res-txt" x="410" y="62" text-anchor="start">lumière</text>
+
+  <!-- Wire cathode -> GND -->
+  <path class="wire" d="M386,95 L430,95 L430,175 L170,175"/>
+  <text class="wlbl" x="300" y="190" text-anchor="middle">cathode (−) → GND</text>
+
+  <!-- Note -->
+  <text class="note" x="300" y="228" text-anchor="middle">Câblage identique à une LED en tout-ou-rien — c'est le code (analogWrite) qui module l'intensité.</text>
+</svg>

@@ -48,3 +48,4 @@ La **course** peut être :
 - [[arduino-capteur-analogique|Lire un capteur analogique]] — le lire sur Arduino (câblage, conversion)
 - [[adc|Convertisseur analogique-numérique]] — ce qui transforme la tension du curseur en nombre
 - [[niveaux-de-tension|Niveaux de tension]] — le principe du pont diviseur
+- [[arduino-sortie-pwm|Piloter une sortie PWM]] — le potentiomètre comme consigne d'intensité ou de vitesse
