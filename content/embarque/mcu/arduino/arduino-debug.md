@@ -88,6 +88,45 @@ Procédure :
 
 Prendre capture d'écran de *l'IDE Arduino 2.x en mode Debug, avec un breakpoint posé sur une ligne de code et le panneau des variables ouvert à droite*.
 
+## Comprendre où est le problème
+
+Un programme rate de deux façons bien distinctes, et la marche à suivre n'est pas la même :
+
+- **Il ne compile pas** : le compilateur refuse de produire le programme et affiche un message d'erreur. Le bug est *syntaxique* — il faut lire le message (section suivante).
+- **Il compile mais ne fait pas ce qu'on veut** : la syntaxe est bonne, la **logique** ne l'est pas. Aucun message, aucune piste affichée — c'est le moment le plus déroutant, et c'est là que la méthode (observer, comparer, dichotomiser) prend tout son sens.
+
+![Arbre de triage du débogage : ça compile ? puis ça fait ce qu'on veut ? — et la conduite à tenir dans chaque cas|480](/ressources/img/arduino-debug/ou-est-le-probleme.svg)
+
+## Quand ça ne compile pas — lire le message d'erreur
+
+Le compilateur est sévère mais honnête : il refuse tant qu'une faute de syntaxe subsiste, et il indique (presque) où elle est. Apprendre à lire ses messages fait gagner un temps considérable — c'est l'erreur la plus fréquente en début d'apprentissage.
+
+- **Lire le *premier* message, pas les quarante suivants.** Une seule faute — une accolade, un `;` manquant — fait souvent dérailler le compilateur, qui crache ensuite des dizaines d'erreurs en cascade. Corriger la première, recompiler : la plupart des autres disparaissent.
+- **L'erreur est souvent à la ligne *au-dessus* de celle indiquée.** `expected ';' before ...` signalé ligne 12 signifie presque toujours qu'il manque un `;` à la fin de la ligne 11 — le compilateur ne détecte le manque qu'en arrivant au mot suivant.
+- **`'xxx' was not declared in this scope`** — le nom `xxx` est inconnu ici. Causes : faute de frappe ou de **casse** (`maLed` ≠ `maLED`), variable déclarée dans un autre bloc (portée → voir [[cpp]]), `#include` oublié, ou variable utilisée avant d'être déclarée.
+- **`expected '}' at end of input`** — une accolade ouvrante `{` n'a jamais été refermée. Réindenter le code fait ressortir le bloc bancal ; en cliquant à côté d'une accolade, l'IDE surligne celle qui lui correspond.
+- **`no matching function for call to '...'`** — la fonction existe mais on l'appelle avec le mauvais nombre ou type d'arguments (ex. `digitalWrite(13)` sans l'état `HIGH`/`LOW`). Vérifier sa signature.
+- **Caractères invisibles (`stray '\357'`, guillemets courbes).** Un copier-coller depuis le web glisse parfois des guillemets « courbes » (`“ ”`) au lieu des guillemets droits, ou un espace insécable. Retaper la ligne à la main lève le mystère.
+
+## Quand ça compile mais ne fait pas ce qu'on veut
+
+C'est l'étape qui déroute le plus : **ça compile** veut seulement dire que la syntaxe est correcte — pas que le programme fait ce qu'on imagine. Ici, aucune erreur affichée : il faut **observer** (`Serial.print`, dichotomie — voir la *Procédure* ci-dessus) et connaître les pièges de logique les plus courants.
+
+- **`=` au lieu de `==` dans un test.** `if (etat = HIGH)` *affecte* `HIGH` à `etat` au lieu de le *comparer* — la condition est alors toujours vraie. Pour comparer, c'est toujours `==`.
+- **`Serial.begin()` oublié.** Aucun `print` n'apparaît alors que le code semble correct. Vérifier que `Serial.begin(115200);` figure bien dans `setup()`.
+- **Débit du moniteur ≠ `Serial.begin()`.** Le moniteur affiche du charabia. Régler sa vitesse (sélecteur en bas à droite) sur la même valeur que `Serial.begin()` — voir [[arduino-serie]].
+- **`pinMode()` oublié.** Une broche non déclarée `OUTPUT` ne pilote rien ; une entrée sans `INPUT_PULLUP` flotte et lit n'importe quoi. Configurer chaque broche dans `setup()` — voir [[arduino-gpio]].
+- **`INPUT_PULLUP` et logique inversée.** Avec le tirage interne, la broche est à `HIGH` au repos et tombe à `LOW` à l'appui : on teste donc `== LOW`, pas `== HIGH`. C'est l'erreur de bouton la plus fréquente.
+- **Division entière.** `analogRead(A0) * 5 / 1023` calculé en entiers tombe souvent à 0 (`5 / 1023` vaut 0 dès qu'il est évalué entre entiers). Écrire `5.0` (un flottant) pour forcer le calcul réel. Voir [[cpp]].
+- **`millis()` rangé dans un `int`.** `millis()` renvoie un `unsigned long` qui dépasse 32 767 en 33 secondes ; le stocker dans un `int` provoque un débordement et des comparaisons de temps absurdes. Toujours `unsigned long` pour les durées.
+- **Comparer deux `float` avec `==`.** `if (tension == 2.5)` est presque toujours faux : les flottants traînent des erreurs d'arrondi. Tester un intervalle : `if (abs(tension - 2.5) < 0.01)`.
+- **`delay()` qui gèle tout.** Pendant `delay(1000)`, rien d'autre ne s'exécute — ni lecture de bouton, ni autre tâche. « Le bouton ne répond qu'une fois sur deux » est souvent un `delay` qui bloque. Voir [[arduino-temporisation]].
+- **Index de tableau hors borne.** `int t[4];` puis `t[4] = ...` écrit *au-delà* du tableau (les indices vont de 0 à 3). Symptôme déroutant : une *autre* variable change toute seule. Les indices vont de `0` à `taille - 1`.
+- **Variable non initialisée.** `int compteur;` puis `compteur++` part d'une valeur indéterminée. Toujours initialiser : `int compteur = 0;`.
+- **`setup` / `loop` mal orthographiés.** `void Setup()` (majuscule) ou un nom approchant compile comme une fonction *ordinaire* jamais appelée — le programme ne fait rien, sans la moindre erreur. Respecter exactement `setup()` et `loop()` en minuscules.
+
+Aucune de ces erreurs ne produit de message : c'est précisément pourquoi la méthode — observer avec `Serial.print`, comparer attendu et observé, resserrer par dichotomie — est la seule porte de sortie. L'exemple ci-dessous la déroule sur un cas réel.
+
 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie 0
 
 Cas réel : on a câblé un HC-SR04, le code tourne, mais la distance affichée est toujours 0 ou très étrange. Démarche structurée.
@@ -172,6 +211,8 @@ Le débug est moins un coup de génie qu'une **méthode** : observer, comparer, 
 
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-serie|Moniteur série]] — prérequis pour utiliser `Serial.print()`
+- [[cpp|C++ pour Arduino]] — types, portée, division entière : la racine de beaucoup d'erreurs de base
+- [[arduino-gpio|Entrées-sorties (GPIO)]] — `pinMode`, pull-up et logique des broches
 - [[arduino-temporisation|Temporiser]] — pour cadencer les `print` sans surcharger
 - [[firmware|Firmware]] — organisation plus large du code embarqué
 - [[debugger-embarque|Déboguer un système embarqué]] — la vue transverse : méthode d'enquête et débogage matériel (JTAG/SWD)

@@ -111,25 +111,26 @@ void loop() {
 **LCD I2C 16×2** :
 
 ```cpp
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <Wire.h>                // bus I2C
+#include <LiquidCrystal_I2C.h>    // pilote du LCD via l'extenseur PCF8574
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // adresse, colonnes, lignes
+// adresse I2C du module (0x27 ou 0x3F), puis nombre de colonnes et de lignes
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
-  lcd.init();
-  lcd.backlight();
-  lcd.setCursor(0, 0);
+  lcd.init();              // initialise le LCD et le bus I2C
+  lcd.backlight();         // allume le retroeclairage (sinon texte illisible)
+  lcd.setCursor(0, 0);     // place le curseur colonne 0, ligne 0 (coin haut-gauche)
   lcd.print("Hello LCD !");
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1);     // colonne 0, ligne 1 (deuxieme ligne)
   lcd.print("Ligne 2");
 }
 
 void loop() {
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1);          // revenir au debut de la 2e ligne avant de reecrire
   lcd.print("Temps : ");
-  lcd.print(millis() / 1000);
-  lcd.print(" s   ");  // espaces pour effacer les chiffres précédents
+  lcd.print(millis() / 1000);   // secondes ecoulees depuis le demarrage
+  lcd.print(" s   ");           // espaces de fin : effacent les chiffres de la valeur precedente
   delay(500);
 }
 ```
