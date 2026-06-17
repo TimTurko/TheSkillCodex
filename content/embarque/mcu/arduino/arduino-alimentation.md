@@ -31,7 +31,7 @@ Quatre étapes : choisir la voie, estimer le courant, câbler, vérifier la stab
 | Voie | Tension d'entrée | Régulateur | Limite typique | Cas d'usage |
 |---|---|---|---|---|
 | **USB** (port type B Uno R3, USB-C Uno R4) | 5 V (fourni par PC ou chargeur) | aucun (passe-plat) | 500 mA depuis PC, jusqu'à 1-2 A depuis chargeur USB-C | Programmation et tests, projets sans actionneurs |
-| **Jack DC** | 7-12 V (max 20 V brièvement) | régulateur linéaire LM7805 (Uno R3) ou switching (Uno R4) | ~1 A en sortie 5 V théorique, ~500 mA en pratique sans dissipation | Projets mobiles, démonstration sans PC |
+| **Jack DC** | 7-12 V (Uno R3, max ~20 V) ; 6-24 V (Uno R4) | LDO NCP1117 (Uno R3) ou convertisseur à découpage ISL854102 (Uno R4) | ~800 mA en sortie 5 V théorique, ~500 mA en pratique | Projets mobiles, démonstration sans PC |
 | **Broche Vin** | 7-12 V (mêmes contraintes que le jack) | mêmes | ~500-800 mA | Alimentation par bornier ou breadboard, équivalent fonctionnel du jack |
 | **Broche 5 V (entrée)** | 5 V régulés | aucun (bypass du régulateur) | dépend de la PSU externe | Alim 5 V externe stable, pas de réserve |
 | **Broche 3,3 V (entrée)** | 3,3 V régulés | aucun (bypass) | rarement utilisé en entrée, ~150 mA en sortie | Compatibilité fine, à éviter en entrée |
@@ -62,7 +62,7 @@ Méthode rapide : **estimer haut** chaque composant et sommer. Comparer à la ca
 
 **Broche Vin** : alimenter par cette broche est l'équivalent du jack DC en moins encombrant. Toujours référencer GND.
 
-**5 V externe** : si on a déjà une alimentation 5 V stable (bus 5 V de l'installation), alimenter directement par la broche `5V`. **Ne pas alimenter en 5 V via le jack ou Vin** — le régulateur LM7805 a besoin d'au moins 7 V en entrée pour fournir 5 V en sortie stable.
+**5 V externe** : si on a déjà une alimentation 5 V stable (bus 5 V de l'installation), alimenter directement par la broche `5V`. **Ne pas alimenter en 5 V via le jack ou Vin** — le régulateur de la carte (NCP1117 sur l'Uno R3) a besoin d'au moins ~7 V en entrée pour fournir un 5 V stable.
 
 Prendre capture d'écran ou photo de *une carte Arduino Uno avec trois alimentations possibles visibles : câble USB type B, jack DC 9 V branché, et fil Vin/GND sur breadboard*.
 
@@ -95,18 +95,19 @@ Cas type : alimenter un Arduino Uno avec un module DHT11, un module OLED SSD1306
 - Servo : alimenté via le `+5 V` régulé… ou via une alimentation séparée si la chute de tension est observée.
 
 ```cpp
-#include <Servo.h>
-Servo monServo;
+#include <Servo.h>      // pilotage du servo
+Servo monServo;          // objet servo
 
 void setup() {
-  monServo.attach(9);
+  monServo.attach(9);    // signal du servo sur la broche D9
   Serial.begin(115200);
 }
 
 void loop() {
+  // balayage 0° → 180° : c'est ce mouvement qui crée l'appel de courant
   for (int a = 0; a <= 180; a += 10) {
-    monServo.write(a);
-    delay(100);
+    monServo.write(a);   // position cible (degrés)
+    delay(100);          // laisse le temps au servo d'atteindre la position
   }
   // ... lecture capteurs, affichage OLED
 }
@@ -114,11 +115,13 @@ void loop() {
 
 Au premier essai, l'Arduino redémarre toutes les 5 secondes au moment où le servo bouge — la chute de tension sur le 5 V régulé est trop forte. **Solution** : alimenter le servo directement par la batterie 7,4 V via un régulateur 5 V externe dédié, en gardant GND commun avec l'Arduino. Ou réduire la vitesse de balayage du servo. Voir [[arduino-servomoteur|piloter un servomoteur]] pour les bonnes pratiques d'alimentation servo.
 
+![Alimentation séparée du servo avec masse commune : la batterie 7,4 V alimente la logique de l'Arduino (jack) et alimente aussi un régulateur 5 V externe dédié au servo ; le signal vient de D9 ; toutes les masses (batterie, Arduino, régulateur, servo) sont reliées — GND commun.|560](/ressources/img/arduino-alimentation/alimentation-separee.svg)
+
 ## Pièges
 
-**Brancher 5 V sur Vin (ou jack).** Le régulateur LM7805 a besoin d'au moins ~7 V à l'entrée pour fournir 5 V stables (chute de tension de ~2 V). Brancher 5 V sur Vin donne une tension régulée à ~3 V, l'Arduino devient instable. Si on veut alimenter en 5 V, brancher sur la broche `5V` directement (en bypass du régulateur).
+**Brancher 5 V sur Vin (ou jack).** Le régulateur de la carte a besoin de plus de 5 V à l'entrée : sur l'Uno R3, le LDO NCP1117 a une chute d'environ 1,2 V (on vise ~7 V mini) ; sur l'Uno R4, le convertisseur à découpage demande au moins 6 V. Brancher 5 V sur Vin ou le jack donne une sortie sous-régulée (~3,8 V sur R3), l'Arduino devient instable. Pour alimenter en 5 V, brancher sur la broche `5V` directement (en bypass du régulateur).
 
-**Brancher 12 V (ou plus) sur la broche 5 V.** Destruction immédiate du microcontrôleur (l'alimentation passe direct, le LM7805 ne protège pas). Trois fois plus que le maximum supporté.
+**Brancher 12 V (ou plus) sur la broche 5 V.** Destruction immédiate du microcontrôleur (l'alimentation passe directement sur le rail 5 V, le régulateur ne protège pas). Trois fois plus que le maximum supporté.
 
 **USB d'un PC à 500 mA pour des actionneurs.** Symptôme : l'Arduino reboote quand on active un actionneur. Diagnostic à faire **avant** de chercher un bug logiciel. Solution : alimentation externe.
 
@@ -126,9 +129,9 @@ Au premier essai, l'Arduino redémarre toutes les 5 secondes au moment où le se
 
 **Pic d'émission Wi-Fi non anticipé.** Un ESP-01 ou un module Wi-Fi tire des pointes courtes (1-10 ms) à 300 mA pendant l'émission, pas visibles au multimètre. Un condensateur de découplage 470 µF à 1000 µF près du module absorbe la pointe et stabilise l'alimentation. Voir notes de l'ESP-01.
 
-**GND non commun entre Arduino et charge externe.** Quand on a deux alimentations (une pour l'Arduino, une pour les moteurs), GND doit être *commun*. Sinon les signaux logiques n'ont pas la même référence, le système ne marche pas, et selon le différentiel des courants peuvent passer là où ils ne devraient pas.
+**GND non commun entre Arduino et charge externe.** Quand on a deux alimentations (une pour l'Arduino, une pour les moteurs), GND doit être *commun*. Sinon les signaux logiques n'ont pas la même référence, le système ne marche pas, et des courants peuvent passer là où ils ne devraient pas. Le schéma de l'exemple ci-dessus montre ce GND commun.
 
-**Régulateur Uno R3 qui chauffe.** Le LM7805 dissipe (Vin − 5 V) × I_total. À 12 V en entrée et 500 mA en sortie : (12-5) × 0,5 = 3,5 W — assez pour atteindre 80 °C en quelques minutes sans dissipateur. Symptôme : odeur, chaleur palpable. Réduire la tension d'entrée à 7-9 V (chute moindre, dissipation plus basse) ou alimenter en 5 V régulés via la broche 5 V.
+**Régulateur Uno R3 qui chauffe.** Le régulateur linéaire (NCP1117, un LDO) dissipe (Vin − 5 V) × I_total. À 12 V en entrée et 500 mA en sortie : (12-5) × 0,5 = 3,5 W — assez pour chauffer fortement sans dissipateur. Symptôme : odeur, chaleur palpable. Réduire la tension d'entrée à 7-9 V (chute moindre, dissipation plus basse) ou alimenter en 5 V régulés via la broche 5 V. (L'Uno R4, dont le régulateur est à découpage, ne souffre pas de ce problème.)
 
 ## Cas particulier — Alimentation par batterie pour projets autonomes
 
@@ -142,7 +145,7 @@ Voir [[deep-sleep|deep sleep]] et [[arduino-deep-sleep|deep sleep sur Arduino]] 
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[concept|phase de concept]]** — l'EAT et l'arbitrage entre architectures intègrent l'alimentation comme critère (USB vs autonome, démo branchée vs démo mobile).
+- **Étape 4 de la [[concept|phase de concept]]** — l'[[etat-de-l-art-technique|EAT]] et l'arbitrage entre architectures intègrent l'alimentation comme critère (USB vs autonome, démo branchée vs démo mobile).
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier ajout d'un actionneur de puissance, estimer la consommation et redimensionner la PSU si nécessaire.
 - **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — la PSU finale du démonstrateur (avec marge de sécurité) fait partie du BOM.
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — vérification que la tension 5 V tient en charge sur le système intégré (mesure au multimètre, observation à l'oscilloscope).

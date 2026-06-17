@@ -1,0 +1,87 @@
+<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alimentation separee du servo avec masse commune. La batterie 7,4 V alimente la logique de l'Arduino par le jack, et alimente aussi un regulateur 5 V externe dedie qui alimente le servo. Le signal du servo vient de la broche D9 de l'Arduino. Toutes les masses (batterie, Arduino, regulateur, servo) sont reliees a un meme rail GND commun.">
+  <defs>
+    <style>
+      .box-amber { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .wire-g { stroke: #8C8A82; stroke-width: 2.5; fill: none; }
+      .wire-sig { stroke: #8C8A82; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+      .wire-gnd { stroke: #BA7517; stroke-width: 3; fill: none; }
+      .node { fill: #8C8A82; }
+      .node-a { fill: #BA7517; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; font-weight: 600; }
+      @media (prefers-color-scheme: dark) {
+        .box-amber { fill: #3A2F1D; stroke: #E0A24A; }
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .wire-g, .wire-sig { stroke: #A7A49B; }
+        .wire-gnd { stroke: #E0A24A; }
+        .node { fill: #A7A49B; }
+        .node-a { fill: #E0A24A; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-sm { fill: #B7B4AC; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+      }
+    </style>
+  </defs>
+
+  <text class="lbl-am" x="20" y="26" text-anchor="start">Alimentation séparée du servo, masse (GND) commune</text>
+
+  <!-- Power wires (gray) -->
+  <!-- battery + up, across to regulator IN -->
+  <path class="wire-g" d="M88,72 V44 H470"/>
+  <text class="lbl-sm" x="300" y="38" text-anchor="middle">alim servo (dédiée)</text>
+  <!-- tap down to Arduino Vin -->
+  <path class="wire-g" d="M185,44 V180"/>
+  <text class="lbl-sm" x="193" y="120" text-anchor="start">alim logique</text>
+  <circle class="node" cx="185" cy="44" r="4"/>
+  <!-- regulator OUT down to servo VCC -->
+  <path class="wire-g" d="M560,118 V190"/>
+
+  <!-- Signal wire D9 -> servo (dashed gray) -->
+  <path class="wire-sig" d="M290,216 H500"/>
+  <text class="lbl-sm" x="395" y="210" text-anchor="middle">D9 → commande</text>
+
+  <!-- GND rail (amber) -->
+  <path class="wire-gnd" d="M88,300 H560"/>
+  <path class="wire-gnd" d="M88,130 V300"/>
+  <path class="wire-gnd" d="M220,262 V300"/>
+  <path class="wire-gnd" d="M500,118 V300"/>
+  <path class="wire-gnd" d="M560,262 V300"/>
+  <circle class="node-a" cx="88" cy="300" r="4"/>
+  <circle class="node-a" cx="220" cy="300" r="4"/>
+  <circle class="node-a" cx="500" cy="300" r="4"/>
+  <circle class="node-a" cx="560" cy="300" r="4"/>
+  <text class="lbl-am" x="324" y="323" text-anchor="middle">GND commun à tous</text>
+
+  <!-- Battery -->
+  <rect class="box-gray" x="40" y="72" width="96" height="58" rx="6"/>
+  <text class="lbl-b" x="88" y="96" text-anchor="middle">Batterie</text>
+  <text class="lbl" x="88" y="115" text-anchor="middle">7,4 V</text>
+  <text class="lbl-sm" x="78" y="68" text-anchor="end">+</text>
+  <text class="lbl-sm" x="78" y="142" text-anchor="end">−</text>
+
+  <!-- Regulator (amber = la solution) -->
+  <rect class="box-amber" x="460" y="58" width="150" height="60" rx="6"/>
+  <text class="lbl-b" x="535" y="82" text-anchor="middle">Régulateur 5 V</text>
+  <text class="lbl-sm" x="535" y="99" text-anchor="middle">externe, dédié</text>
+  <text class="lbl-sm" x="455" y="90" text-anchor="end">IN</text>
+  <text class="lbl-sm-am" x="566" y="134" text-anchor="middle">5 V</text>
+  <text class="lbl-sm" x="495" y="134" text-anchor="end">GND</text>
+
+  <!-- Arduino -->
+  <rect class="box-gray" x="150" y="180" width="140" height="82" rx="6"/>
+  <text class="lbl-b" x="220" y="216" text-anchor="middle">Arduino</text>
+  <text class="lbl-sm" x="178" y="176" text-anchor="middle">Vin</text>
+  <text class="lbl-sm" x="296" y="212" text-anchor="start">D9</text>
+  <text class="lbl-sm" x="226" y="258" text-anchor="start">GND</text>
+
+  <!-- Servo -->
+  <rect class="box-gray" x="500" y="190" width="120" height="72" rx="6"/>
+  <text class="lbl-b" x="560" y="230" text-anchor="middle">Servo</text>
+  <text class="lbl-sm" x="560" y="186" text-anchor="middle">VCC</text>
+  <text class="lbl-sm" x="494" y="221" text-anchor="end">sig</text>
+  <text class="lbl-sm" x="566" y="258" text-anchor="start">GND</text>
+</svg>
