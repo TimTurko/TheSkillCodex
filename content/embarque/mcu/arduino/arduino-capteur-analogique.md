@@ -80,6 +80,8 @@ float pourcentage = valeur * 100.0 / 1023.0; // règle de trois : 1023 → 100 %
 
 **LDR comme niveau de luminosité** : un pont diviseur LDR + résistance fixe donne une tension qui dépend de la lumière. Pas d'unité physique directe — souvent on garde la valeur brute ou on étalonne par seuils (`< 200` = sombre, `> 800` = lumineux).
 
+![Montage en pont diviseur d'une LDR : la LDR et une résistance fixe en série entre +5 V et GND, le point milieu lu sur une entrée analogique ; deux flèches figurent la lumière incidente.|520](/ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg)
+
 **LM35 comme capteur de température** : le LM35 délivre 10 mV par °C. À 5 V de pleine échelle :
 
 ```cpp

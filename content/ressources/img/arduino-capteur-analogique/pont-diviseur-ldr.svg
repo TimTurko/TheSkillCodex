@@ -41,8 +41,8 @@
 
   <text class="title" x="310" y="26" text-anchor="middle">Pont diviseur LDR sur A1</text>
 
-  <!-- Arduino Uno -->
-  <rect class="board" x="40" y="70" width="140" height="200" rx="10"/>
+  <!-- Arduino Uno (hauteur suffisante pour porter les 3 broches, GND comprise) -->
+  <rect class="board" x="40" y="70" width="140" height="245" rx="10"/>
   <text class="board-txt" x="110" y="58" text-anchor="middle">Arduino Uno</text>
   <circle class="pad" cx="180" cy="95" r="4"/>
   <text class="pin" x="168" y="99" text-anchor="end">+5V</text>
@@ -74,7 +74,7 @@
   <!-- noeud -> A1 -->
   <path class="wire" d="M497,185 L180,185"/>
   <text class="wlbl" x="320" y="177" text-anchor="middle">point milieu → A1</text>
-  <!-- bas R -> GND -->
+  <!-- bas R -> GND (raccordé à la pastille GND du bloc) -->
   <path class="wire" d="M497,270 L497,295 L180,295"/>
   <text class="wlbl" x="330" y="312" text-anchor="middle">GND</text>
 
