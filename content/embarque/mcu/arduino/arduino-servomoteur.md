@@ -2,6 +2,7 @@
 title: Piloter un servomoteur
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -32,11 +33,11 @@ Quatre étapes : choisir le servo, câbler, installer `Servo.h`, écrire le code
 
 ### 1. Choisir le servo
 
-| Référence | Tension | Couple | Plage | Coût | Usage |
-|---|---|---|---|---|---|
-| SG90 (plastique) | 4,8-6 V | ~1,8 kg·cm | 0-180° | 2-3 € | Tests, prototypes légers, robots éducatifs |
-| MG90S (métal) | 4,8-6 V | ~2,2 kg·cm | 0-180° | 4-6 € | Pinces, mouvements répétés |
-| MG996R | 4,8-7,2 V | 9-11 kg·cm | 0-180° | 5-10 € | Actionneurs de puissance, drone à grande échelle |
+| Référence | Tension | Couple | Plage | Usage |
+|---|---|---|---|---|
+| SG90 (plastique) | 4,8-6 V | ~1,8 kg·cm | 0-180° | Tests, prototypes légers, robots éducatifs |
+| MG90S (métal) | 4,8-6 V | ~2,2 kg·cm | 0-180° | Pinces, mouvements répétés |
+| MG996R | 4,8-7,2 V | 9-11 kg·cm | 0-180° | Articulations de bras, pinces lourdes, axes sous contrainte (forte charge) |
 
 Pour un premier test, le SG90 est le standard incontournable — petit, léger, fourni dans tous les kits.
 
@@ -60,7 +61,7 @@ Un servomoteur a **3 fils** :
 - Marron → GND commune (alimentation **+** Arduino)
 - Orange → broche Arduino
 
-Prendre capture d'écran ou photo de *un servomoteur SG90 câblé sur une carte Arduino Uno, fil orange sur D9, fil rouge sur +5 V et fil marron sur GND*.
+![Branchement d'un servomoteur SG90 : fil rouge → +5 V, fil marron → GND, fil orange → D9 (signal)|520](/ressources/img/arduino-servomoteur/branchement-sg90.svg)
 
 ### 3. Installer `Servo.h`
 
@@ -95,13 +96,13 @@ void loop() {
 }
 ```
 
-Téléverser. Le servo va à trois positions discrètes avec une seconde entre chacune. Si vous voyez le servo tressauter sans aller où vous voulez, voir la section *Pièges*.
+Téléverser. Le servo va à trois positions discrètes avec une seconde entre chacune. Si le servo tressaute sans aller où on veut, voir la section *Pièges*.
 
 ## Exemple — Balayage continu avec contrôle de vitesse
 
 Cas complet : balayage 0° → 180° → 0° à vitesse réglable par potentiomètre.
 
-**Câblage** : servo sur D9, potentiomètre 10 kΩ sur A0.
+**Câblage** : servo sur D9 (comme au schéma de l'étape 2), [[potentiometre|potentiomètre]] 10 kΩ sur A0 (câblage en diviseur : voir [[arduino-capteur-analogique]]).
 
 ```cpp
 #include <Servo.h>
@@ -122,21 +123,24 @@ void loop() {
   int valPot = analogRead(POT);
   int pas = map(valPot, 0, 1023, 1, 10);  // 1° à 10° par pas
 
-  angle += sens * pas;
+  angle += sens * pas;                            // avance d'un pas dans le sens courant
 
-  if (angle >= 180) { angle = 180; sens = -1; }
-  if (angle <= 0)   { angle = 0;   sens = +1; }
+  if (angle >= 180) { angle = 180; sens = -1; }   // butee haute : on repart en descendant
+  if (angle <= 0)   { angle = 0;   sens = +1; }   // butee basse : on repart en montant
 
   monServo.write(angle);
   delay(20);  // ~50 Hz de rafraîchissement
 }
 ```
 
+> [!info] Comment lire ce code
+> Le balayage va-et-vient repose sur une variable `sens` qui vaut `+1` (on monte vers 180°) ou `-1` (on descend vers 0°). À chaque tour de `loop()`, on ajoute `sens * pas` à l'angle ; quand on atteint une butée, on **inverse `sens`** et le servo repart dans l'autre sens. Le `map(valPot, 0, 1023, 1, 10)` traduit la position du potentiomètre (0-1023) en un pas de 1° à 10° : plus le pas est grand, plus le balayage est rapide.
+
 Tourner le potentiomètre — la vitesse de balayage varie. Pratique pour calibrer la vitesse en démo sans recompiler.
 
 ## Pièges
 
-**Arduino qui reboote au démarrage du servo.** Symptôme classique : la consommation du servo en mouvement (jusqu'à 500 mA en pic) fait chuter la tension `+5 V`, l'Arduino reset. Solution : **alimentation séparée pour le servo**, GND commune avec l'Arduino.
+**Arduino qui reboote au démarrage du servo.** Symptôme classique : la consommation du servo en mouvement (quelques centaines de mA pour un SG90, plus de 1 A au calage pour un MG996R) fait chuter la tension `+5 V`, l'Arduino reset. Solution : **alimentation séparée pour le servo**, GND commune avec l'Arduino.
 
 **GND non commun.** Servo alimenté par batterie séparée, fil GND non relié à celui d'Arduino : le signal PWM n'a pas de référence, le servo se positionne aléatoirement ou ne bouge pas. Toujours GND commun, dès qu'il y a deux alimentations.
 
@@ -149,7 +153,7 @@ Tourner le potentiomètre — la vitesse de balayage varie. Pratique pour calibr
 
 **Confondre `write(angle)` et `writeMicroseconds(N)`.** `write(angle)` accepte 0-180° et convertit en interne. `writeMicroseconds(N)` accepte la largeur d'impulsion directe en µs (typiquement 1000-2000 µs, parfois étendue 500-2500). Sur un servo qui ne va pas aux extrêmes attendus, `writeMicroseconds()` permet la calibration fine.
 
-**`Servo.h` qui désactive PWM sur D9/D10.** Inclure `Servo.h` empêche `analogWrite(9)` ou `analogWrite(10)` de fonctionner — Timer1 est confisqué. Si vous avez besoin de PWM sur ces broches, soit changer de broche, soit utiliser une bibliothèque alternative.
+**`Servo.h` qui désactive PWM sur D9/D10.** Inclure `Servo.h` empêche `analogWrite(9)` ou `analogWrite(10)` de fonctionner — Timer1 est confisqué. Si on a besoin de PWM sur ces broches, soit changer de broche, soit utiliser une bibliothèque alternative.
 
 **Trop de servos sur Uno R3.** `Servo.h` supporte jusqu'à **12 servos sur Uno** (limite logicielle), mais la consommation cumulée dépasse vite la capacité du régulateur 5 V de la carte. Au-delà de 2 servos, alimentation externe obligatoire ; au-delà de 6 servos, considérer un driver dédié (PCA9685, 16 canaux PWM en I2C).
 

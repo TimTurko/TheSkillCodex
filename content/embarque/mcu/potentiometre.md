@@ -49,3 +49,4 @@ La **course** peut être :
 - [[adc|Convertisseur analogique-numérique]] — ce qui transforme la tension du curseur en nombre
 - [[niveaux-de-tension|Niveaux de tension]] — le principe du pont diviseur
 - [[arduino-sortie-pwm|Piloter une sortie PWM]] — le potentiomètre comme consigne d'intensité ou de vitesse
+- [[arduino-servomoteur|Piloter un servomoteur]] — le potentiomètre comme consigne de vitesse / position
