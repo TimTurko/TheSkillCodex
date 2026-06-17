@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema en couches : ton sketch s'appuie sur une bibliotheque (par exemple Adafruit_BMP280), qui s'appuie elle-meme sur une primitive de bus (Wire pour l'I2C), qui dialogue avec le composant. La bibliotheque encapsule le protocole : tu appelles des fonctions simples au lieu d'ecrire les trames.">
+  <defs>
+    <style>
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .box-amber { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .arr { stroke: #8A5512; stroke-width: 1.8; fill: none; }
+      .arrhead { fill: #8A5512; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12.5px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12.5px; font-weight: 600; }
+      @media (prefers-color-scheme: dark) {
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .box-amber { fill: #3A2F1D; stroke: #E0A24A; }
+        .arr { stroke: #E0A24A; }
+        .arrhead { fill: #E0A24A; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+    <marker id="lib-ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path class="arrhead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <text class="lbl-am" x="20" y="26" text-anchor="start">Ce qu'une bibliothèque encapsule</text>
+
+  <!-- Box 1 : sketch -->
+  <rect class="box-gray" x="70" y="44" width="300" height="52" rx="8"/>
+  <text class="lbl" x="220" y="75" text-anchor="middle">Ton sketch (le code du projet)</text>
+  <line class="arr" x1="220" y1="96" x2="220" y2="130" marker-end="url(#lib-ah)"/>
+
+  <!-- Box 2 : bibliotheque (highlight) -->
+  <rect class="box-amber" x="70" y="132" width="300" height="64" rx="8"/>
+  <text class="lbl-b" x="220" y="160" text-anchor="middle">Bibliothèque</text>
+  <text class="lbl" x="220" y="182" text-anchor="middle">Adafruit_BMP280</text>
+  <line class="arr" x1="220" y1="196" x2="220" y2="230" marker-end="url(#lib-ah)"/>
+
+  <!-- Box 3 : primitive -->
+  <rect class="box-gray" x="70" y="232" width="300" height="52" rx="8"/>
+  <text class="lbl" x="220" y="263" text-anchor="middle">Primitive : Wire (I2C)</text>
+  <line class="arr" x1="220" y1="284" x2="220" y2="318" marker-end="url(#lib-ah)"/>
+
+  <!-- Box 4 : composant -->
+  <rect class="box-gray" x="70" y="320" width="300" height="52" rx="8"/>
+  <text class="lbl" x="220" y="351" text-anchor="middle">Composant : capteur BMP280</text>
+
+  <!-- Annotation box 2 -->
+  <line class="arr" x1="388" y1="164" x2="373" y2="164" marker-end="url(#lib-ah)"/>
+  <text class="lbl-sm-am" x="396" y="159" text-anchor="start">Tu appelles des fonctions simples<tspan x="396" dy="16">(ex. bmp.readTemperature()).</tspan></text>
+
+  <!-- Annotation box 3 -->
+  <line class="arr" x1="388" y1="258" x2="373" y2="258" marker-end="url(#lib-ah)"/>
+  <text class="lbl-sm" x="396" y="253" text-anchor="start">Elle parle le protocole I2C à ta<tspan x="396" dy="16">place — tu n'écris pas les trames.</tspan></text>
+</svg>

@@ -3,6 +3,7 @@ title: Utiliser une bibliothèque
 type: tuto
 phases:
   - preuve-de-concept
+  - concept
 tags:
   - eee
   - tuto
@@ -14,6 +15,8 @@ draft: false
 ---
 
 Une **bibliothèque** (ou *library* en anglais) est un module de code prêt à l'emploi qui encapsule la communication avec un composant ou un service : `Servo.h` pour les servomoteurs, `Wire.h` pour le bus I2C, `LiquidCrystal.h` pour les afficheurs LCD, `Adafruit_BMP280.h` pour le capteur de pression BMP280. Au lieu de réécrire à chaque projet le protocole d'un capteur ou le timing d'un actionneur, on inclut la bibliothèque et on utilise ses fonctions. L'écosystème Arduino compte des **milliers** de bibliothèques tierces — savoir en installer une, l'inclure, et lire sa documentation est un geste de base.
+
+![Schéma en couches : ton sketch s'appuie sur une bibliothèque (par exemple Adafruit_BMP280), qui s'appuie elle-même sur une primitive de bus (Wire pour l'I2C), qui dialogue avec le composant. La bibliothèque encapsule le protocole et la conversion : tu appelles des fonctions simples au lieu d'écrire les trames.|460](/ressources/img/arduino-bibliotheques/couches-abstraction.svg)
 
 ## À quoi ça sert ?
 
@@ -35,7 +38,7 @@ Trois sources légitimes :
 - **GitHub du fabricant du module** — pour un composant un peu spécialisé (Pololu, Adafruit, SparkFun, Sensirion), aller sur leur dépôt GitHub.
 - **PlatformIO Registry** — équivalent du gestionnaire Arduino mais pour PlatformIO, recouvre largement.
 
-Pour un composant nouveau, taper le nom du composant + « arduino library » dans un moteur de recherche. Vérifier sur la fiche GitHub : nombre d'étoiles, date du dernier commit, issues ouvertes vs fermées. Une bibliothèque pas touchée depuis 2018 sur un composant courant doit éveiller la méfiance.
+Pour un composant nouveau, taper le nom du composant + « arduino library » dans un moteur de recherche. Vérifier sur la fiche GitHub : nombre d'étoiles, date du dernier commit, issues ouvertes vs fermées. Une bibliothèque pas touchée depuis plusieurs années sur un composant courant doit éveiller la méfiance.
 
 ### 2. Installer la bibliothèque
 
@@ -94,35 +97,37 @@ Cas complet : installer `Servo.h`, câbler un servo SG90, balayer un angle.
 
 **Câblage** : servo SG90, fil rouge sur `+5 V`, fil marron (ou noir) sur `GND`, fil orange (ou jaune, signal) sur **D9**.
 
+![Branchement d'un servomoteur SG90 : trois fils — fil rouge vers +5 V, fil marron (ou noir) vers GND, fil orange (ou jaune) vers la broche D9 qui porte le signal de commande.|520](/ressources/img/arduino-servomoteur/branchement-sg90.svg)
+
 **Code** :
 
 ```cpp
-#include <Servo.h>
+#include <Servo.h>          // rend disponibles les fonctions de la bibliothèque Servo
 
-Servo monServo;
+Servo monServo;             // crée un objet servo (un par servomoteur piloté)
 
 void setup() {
-  monServo.attach(9);
-  Serial.begin(115200);
+  monServo.attach(9);       // associe le servo à la broche D9 (génère le signal pour lui)
+  Serial.begin(115200);     // (facultatif ici) ouvre la liaison série
 }
 
 void loop() {
   // Balayage 0° → 180°
-  for (int angle = 0; angle <= 180; angle++) {
-    monServo.write(angle);
-    delay(15);
+  for (int angle = 0; angle <= 180; angle++) {  // l'angle croît degré par degré
+    monServo.write(angle);  // envoie la consigne d'angle au servo
+    delay(15);              // 15 ms par pas : laisse au servo le temps de bouger
   }
   // Retour 180° → 0°
-  for (int angle = 180; angle >= 0; angle--) {
+  for (int angle = 180; angle >= 0; angle--) {  // même chose en sens inverse
     monServo.write(angle);
-    delay(15);
+    delay(15);              // bloc identique au balayage aller
   }
 }
 ```
 
 Téléversez. Le servo balaye continûment.
 
-Prendre capture d'écran ou photo de *un servomoteur SG90 câblé sur la broche D9 d'un Arduino Uno avec une palette qui tourne, et l'IDE Arduino 2.x ouvert avec le code Servo en arrière-plan*.
+Intégrer un GIF ou une photo de *le servomoteur SG90, palette montée, qui balaye de 0° à 180° puis revient — le câblage des trois fils est donné par le schéma ci-dessus*.
 
 Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer manuellement le signal PWM 50 Hz avec impulsion 1-2 ms. La bibliothèque encapsule tout ça — d'où son intérêt.
 
@@ -146,12 +151,12 @@ Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer man
 
 `Wire.h` (I2C) et `SPI.h` sont **livrées avec l'IDE** — pas besoin d'installer. Elles fournissent les primitives bas niveau, sur lesquelles les bibliothèques de capteurs sur bus s'appuient. Voir [[arduino-i2c|I2C sur Arduino]] et [[arduino-spi|SPI sur Arduino]].
 
-Pareil pour `EEPROM.h` (mémoire non volatile), `SoftwareSerial.h` (UART logiciel), `Stepper.h` (moteur pas-à-pas) : livrées avec l'IDE.
+Pareil pour `EEPROM.h` ([[arduino-eeprom|mémoire non volatile]]), `SoftwareSerial.h` ([[arduino-uart|UART logiciel]]), `Stepper.h` ([[arduino-moteur-pas-a-pas|moteur pas-à-pas]]) : livrées avec l'IDE.
 
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier capteur ou actionneur évolué (servo, LCD, BMP280), installer la bonne bibliothèque et faire tourner son exemple AVANT d'écrire du code projet. C'est le test de validation matériel + outil.
-- **Étape 4 de la [[concept|phase de concept]]** — l'EAT inclut souvent la disponibilité d'une bibliothèque comme critère de choix d'un composant : un composant sans bibliothèque maintenue ajoute des semaines de développement.
+- **Étape 4 de la [[concept|phase de concept]]** — l'[[etat-de-l-art-technique|EAT]] inclut souvent la disponibilité d'une bibliothèque comme critère de choix d'un composant : un composant sans bibliothèque maintenue ajoute des semaines de développement.
 
 Une bibliothèque bien choisie est l'un des plus gros leviers d'efficacité d'un projet embarqué. Inversement, s'obstiner à réinventer ce qu'une bibliothèque éprouvée fait déjà est un faux pas qu'on paye en bugs sur la durée.
 

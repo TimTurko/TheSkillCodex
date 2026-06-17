@@ -1,0 +1,61 @@
+<svg viewBox="0 0 580 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un servomoteur SG90 : trois fils relient le servo a l'Arduino. Le fil rouge va au +5 V, le fil marron (ou noir) a la masse GND, le fil orange (ou jaune) a la broche D9 qui porte le signal de commande.">
+  <defs>
+    <style>
+      .box-amber { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .horn { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2; }
+      .wire-g { stroke: #8C8A82; stroke-width: 3; fill: none; }
+      .wire-a { stroke: #BA7517; stroke-width: 3; fill: none; }
+      .dot-g { fill: #8C8A82; }
+      .dot-a { fill: #BA7517; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      @media (prefers-color-scheme: dark) {
+        .box-amber { fill: #3A2F1D; stroke: #E0A24A; }
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .horn { fill: #3A2F1D; stroke: #E0A24A; }
+        .wire-g { stroke: #A7A49B; }
+        .wire-a { stroke: #E0A24A; }
+        .dot-g { fill: #A7A49B; }
+        .dot-a { fill: #E0A24A; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+      }
+    </style>
+  </defs>
+
+  <text class="lbl-am" x="20" y="26" text-anchor="start">Branchement d'un servomoteur SG90</text>
+
+  <!-- Servo -->
+  <rect class="horn" x="58" y="62" width="84" height="8" rx="4"/>
+  <circle class="horn" cx="100" cy="66" r="9"/>
+  <rect class="box-amber" x="40" y="78" width="120" height="92" rx="8"/>
+  <text class="lbl-b" x="100" y="118" text-anchor="middle">Servo</text>
+  <text class="lbl" x="100" y="138" text-anchor="middle">SG90</text>
+
+  <!-- Arduino pin strip -->
+  <rect class="box-gray" x="450" y="58" width="96" height="132" rx="8"/>
+  <text class="lbl-b" x="498" y="80" text-anchor="middle">Arduino</text>
+  <text class="lbl" x="470" y="104" text-anchor="start">5 V</text>
+  <text class="lbl" x="470" y="134" text-anchor="start">GND</text>
+  <text class="lbl" x="470" y="164" text-anchor="start">D9</text>
+
+  <!-- Wires -->
+  <path class="wire-g" d="M160,100 H300 Q320,100 320,100 H450"/>
+  <circle class="dot-g" cx="160" cy="100" r="4"/><circle class="dot-g" cx="450" cy="100" r="4"/>
+  <text class="lbl-sm" x="305" y="93" text-anchor="middle">fil rouge → +5 V</text>
+
+  <path class="wire-g" d="M160,128 H450"/>
+  <circle class="dot-g" cx="160" cy="128" r="4"/><circle class="dot-g" cx="450" cy="128" r="4"/>
+  <text class="lbl-sm" x="305" y="122" text-anchor="middle">fil marron (ou noir) → GND</text>
+
+  <path class="wire-a" d="M160,156 H320 Q340,156 340,160 V160 H450"/>
+  <circle class="dot-a" cx="160" cy="156" r="4"/><circle class="dot-a" cx="450" cy="160" r="4"/>
+  <text class="lbl-sm-am" x="300" y="178" text-anchor="middle">fil orange (ou jaune) → D9 (signal)</text>
+
+  <text class="lbl-sm" x="290" y="226" text-anchor="middle">Trois fils : alimentation (+5 V), masse (GND), signal de commande (D9).</text>
+</svg>
