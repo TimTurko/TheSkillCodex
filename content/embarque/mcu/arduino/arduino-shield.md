@@ -2,7 +2,9 @@
 title: Utiliser un shield
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -33,7 +35,7 @@ Quatre étapes : identifier le brochage du shield, l'empiler, l'alimenter, insta
 
 Tout shield Uno-compatible utilise les broches dans la zone qu'il occupe. Pour savoir lesquelles :
 
-- **Documentation officielle** du shield (Adafruit, Arduino) — toujours présente, à lire avant d'acheter et avant de câbler quoi que ce soit d'autre.
+- **Documentation officielle** du shield (Adafruit, Arduino) — toujours présente, à lire avant de t'en servir et avant de câbler quoi que ce soit d'autre.
 - **Sérigraphie du shield** — les broches utilisées sont marquées sur le PCB.
 - **Tester en démontant** — empiler, faire fonctionner avec son exemple, démonter, regarder quelles broches étaient sollicitées.
 
@@ -41,7 +43,7 @@ Quelques exemples typiques :
 
 | Shield | Broches occupées | Notes |
 |---|---|---|
-| Motor shield Arduino R3 (L298) | D3, D8, D9, D11, D12, D13 | PWM + dir pour 2 moteurs |
+| Motor Shield Arduino officiel (L298P) | D3, D8, D9, D11, D12, D13 | PWM + dir pour 2 moteurs |
 | Ethernet shield W5500 | D10 (CS), D11-D13 (SPI), D4 (CS SD) | Bus SPI partagé |
 | Data logging shield | D10 (CS SD), D11-D13 (SPI), A4-A5 (I2C RTC) | SPI + I2C |
 | Proto shield | aucune | Surface vierge à souder |
@@ -55,7 +57,7 @@ Points de vigilance :
 - **Ne jamais empiler sous tension** — débrancher l'USB et l'alimentation externe avant l'empilage / désempilage.
 - **Vérifier les entretoises** — pour des shields lourds (LCD avec dissipateur, motor shield avec radiateur), des entretoises plastiques entre carte mère et shield évitent les courts-circuits.
 
-Prendre capture d'écran ou photo de *un shield empilé proprement sur une carte Arduino Uno, avec les broches mâles bien insérées et le shield à plat*.
+![Un shield empilé proprement sur une carte Arduino Uno : broches mâles entièrement insérées, shield bien à plat.|480](/ressources/img/arduino-shield/empilage-shield.webp)
 
 ### 3. Alimenter l'ensemble
 
@@ -65,61 +67,49 @@ Trois cas :
 - **Shield à courant modéré** (LCD avec rétroéclairage, ethernet) — passer à une alimentation jack DC 7-12 V sur Arduino, ou alimentation USB de bonne qualité (5 V / 2 A).
 - **Shield à actionneurs de puissance** (motor shield avec moteurs CC, GSM avec pic d'émission) — **alimentation séparée pour la charge** sur le shield (entrée jack ou bornier), et alimentation USB ou jack pour la logique Arduino.
 
-Pour le motor shield Arduino R3 : un connecteur supplémentaire `Vin` ou un bornier permet d'alimenter directement les moteurs à 7-12 V, sans passer par le régulateur 5 V de l'Arduino. C'est obligatoire dès que les moteurs dépassent 50 mA.
+Pour un motor shield (L293D, L298P…) : un bornier d'alimentation moteur permet d'alimenter directement les moteurs à 7-12 V, sans passer par le régulateur 5 V de l'Arduino. C'est obligatoire dès que les moteurs dépassent 50 mA.
 
 ### 4. Installer la bibliothèque du shield
 
 La plupart des shields ont leur bibliothèque dédiée. Voir [[arduino-bibliotheques|utiliser une bibliothèque]].
 
-Pour le motor shield Arduino R3 (en exemple ici) : la bibliothèque officielle est `Adafruit Motor Shield V2` pour la V2, et un fork générique pour la V1 (compatible L298). Installer via le gestionnaire de bibliothèques, ouvrir l'exemple `MotorTest`, téléverser.
+Pour un shield moteur (en exemple ici), deux familles principales : le shield à base de **L293D** (le plus répandu, dit « v1 ») se pilote avec la bibliothèque `Adafruit Motor Shield library` (version 1.x) ; l'**Adafruit Motor Shield V2** (driver TB6612, commandé en I2C par une puce PWM dédiée) utilise la bibliothèque `Adafruit Motor Shield V2`. Installer via le gestionnaire, ouvrir un exemple fourni par la bibliothèque, téléverser.
 
-## Exemple — Motor Shield Arduino R3 : faire tourner un moteur CC
+## Exemple — Motor shield (L293D) : faire tourner un moteur CC
 
-Cas complet sur le motor shield officiel ou un clone L298 compatible.
+Le shield moteur à base de **L293D** (le plus répandu, dit « v1 ») s'empile sur l'Arduino et se pilote entièrement par sa bibliothèque — aucun câblage de broches, c'est tout l'intérêt du shield.
 
-**Empilage** : shield directement sur Arduino Uno, broches mâles dans les connecteurs femelles.
+**Empilage** : shield directement sur l'Arduino Uno.
+**Moteur** : un moteur CC 6-9 V sur le bornier `M1` (deux fils).
+**Alimentation moteur** : pile 9 V ou alim de table sur le bornier d'alimentation du shield (séparée de l'USB qui alimente la logique).
+**Bibliothèque** : `Adafruit Motor Shield library` (version 1.x, pour les shields L293D) — installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
 
-**Alimentation moteur** : pile 9 V ou alim de table 9 V sur le bornier d'alimentation moteur du shield.
+![Montage de l'exemple : le shield moteur L293D empilé sur l'Uno, un moteur CC câblé sur le bornier M1, et l'alimentation 9 V sur le bornier d'alimentation moteur du shield.|520](/ressources/img/arduino-shield/montage-shield-l293d.webp)
 
-**Câblage moteur** : un moteur CC 6-9 V connecté sur les bornes `M1` (deux fils).
-
-**Code** (pour clone L298 compatible Arduino R3 broches D11/D12/D3) :
+**Code** :
 
 ```cpp
-const int IN1 = 12;  // Direction moteur 1
-const int IN2 = 11;  // Direction moteur 1
-const int EN1 = 3;   // PWM vitesse moteur 1 (PWM)
+#include <AFMotor.h>      // bibliothèque du shield L293D (Adafruit Motor Shield v1.x)
+
+AF_DCMotor moteur(1);      // moteur branché sur le bornier M1 (ports 1 à 4 disponibles)
 
 void setup() {
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(EN1, OUTPUT);
+  moteur.setSpeed(150);    // vitesse de 0 à 255 (le shield gère le signal PWM)
 }
 
 void loop() {
-  // Sens avant à 50%
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  analogWrite(EN1, 128);
+  moteur.run(FORWARD);     // sens avant
   delay(2000);
-
-  // Stop
-  analogWrite(EN1, 0);
+  moteur.run(RELEASE);     // roue libre : le moteur s'arrête
   delay(1000);
-
-  // Sens arrière à 75%
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  analogWrite(EN1, 192);
+  moteur.run(BACKWARD);    // sens arrière
   delay(2000);
-
-  // Stop
-  analogWrite(EN1, 0);
+  moteur.run(RELEASE);
   delay(1000);
 }
 ```
 
-Téléversez : le moteur tourne dans un sens, s'arrête, tourne dans l'autre, recommence. Le pilotage détaillé d'un moteur CC est traité par sa fiche dédiée — voir [[arduino-moteur-cc|piloter un moteur CC]].
+On ne touche **aucune broche** directement : la bibliothèque sait quelles broches le shield occupe. Le détail du pilotage d'un moteur CC (pont en H, sens, vitesse) est traité par sa fiche dédiée — voir [[arduino-moteur-cc|piloter un moteur CC]].
 
 ## Pièges
 
@@ -133,7 +123,7 @@ Téléversez : le moteur tourne dans un sens, s'arrête, tourne dans l'autre, re
 
 **Brochage du shield non Uno-compatible.** Quelques shields supposent un brochage Uno strict (D0-D13, A0-A5). Empilés sur un Mega, ils marchent mais n'occupent pas toujours les bonnes broches (par exemple, les broches `SS / MOSI / MISO / SCK` sont sur D50-D53 sur Mega, pas sur D10-D13). Lire les notes de compatibilité.
 
-**Bibliothèque obsolète.** Les motor shields Arduino V1 (L298) sont déprécié·e·s depuis 2013 ; la bibliothèque correspondante peut ne plus compiler. Vérifier qu'il s'agit bien d'un shield V2 (avec bus I2C) ou utiliser une bibliothèque alternative.
+**Bibliothèque vieillissante.** Les anciens shields **L293D** (« v1 ») et leur bibliothèque historique peuvent poser problème avec les IDE récents (compilation qui échoue). Préférer une version à jour de la bibliothèque, ou pour un projet neuf un shield **V2** (TB6612, commandé en I2C).
 
 **Empilage à chaud.** Empiler ou désempiler un shield sur un Arduino sous tension peut détruire les broches par court-circuit transitoire. Toujours débrancher l'USB avant.
 
@@ -150,11 +140,11 @@ Pour un projet école qui doit présenter un démonstrateur final fonctionnel et
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[concept|phase de concept]]** — l'EAT inclut souvent les shields disponibles comme accélérateurs de PoC (« on prend un motor shield, on gagne deux semaines »).
+- **Étape 4 de la [[concept|phase de concept]]** — l'[[etat-de-l-art-technique|EAT]] inclut souvent les shields disponibles comme accélérateurs de PoC (« on prend un motor shield, on gagne deux semaines »).
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — empilage et test du shield isolé, avant intégration au système complet.
 - **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — décision « shield + protoshield maison » vs « PCB dédié » sur le critère robustesse / coût / délai.
 
-Un shield bien choisi en début de projet est un investissement modeste qui rapporte gros — autant en temps de PoC qu'en robustesse du démonstrateur final. À l'inverse, accumuler les shields incompatibles est un piège mécanique et électrique qui se paye sur la durée.
+Un shield bien choisi en début de projet fait gagner du temps de PoC et de la robustesse sur le démonstrateur final. À l'inverse, accumuler les shields incompatibles est un piège mécanique et électrique qui se paye sur la durée.
 
 ## Voir aussi
 
