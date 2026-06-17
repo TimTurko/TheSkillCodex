@@ -937,6 +937,10 @@ Notes 17/06 (pas de convention numérotée) :
 - **Notion-composant = exception réservée.** Le potentiomètre obtient une notion [T] (générique, réutilisé, archétype du diviseur) ; les capteurs one-shot (LDR, LM35…) restent **inline**. Pas de bibliothèque de composants avant socle + publication (BACKLOG).
 - **Cache GitHub Pages.** Après push, une image au **même nom** peut rester servie depuis le cache navigateur/CDN ; `Ctrl+Shift+R` ou un test direct de l'URL `?v=2` tranche « cache » vs « pas déployé ». Vécu sur `pont-diviseur-ldr.svg`.
 
+### Acquises 17/06 (suite) — relecture §7 Arduino (bus, actionneurs, afficheur, debug)
+
+80. **SVG de câblage = noms de broches du code.** Tout schéma de câblage étiquette ses broches avec les **noms ou numéros que le code emploie** (`IN1 → D12`, `ENA → D3`, `SDA → A4`), pour que le schéma et le sketch se lisent à l'identique — c'est le pont qui manque le plus aux débutants entre le branchement physique et la ligne de code qui le pilote. Corollaire rédactionnel : **nommer les broches par des constantes** (`const int LED_ROUGE = 8;`) plutôt que des nombres en dur. Motivé par un constat Tim (les élèves ont du mal à relier câblage et code, dans les deux sens ; section dédiée « Le code dit une chose, le câblage en dit une autre » ajoutée à `arduino-debug`, avec la méthode d'isolement carte / câblage / logique). Déjà respecté de fait par les SVG de câblage produits cette session (uart, i2c, spi, servomoteur, moteur-cc, moteur-pas-a-pas, afficheur). Éprouvée — rétroactive de fait. **La numérotation éprouvage atteint 80.**
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

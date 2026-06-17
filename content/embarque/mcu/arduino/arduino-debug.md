@@ -125,7 +125,20 @@ C'est l'étape qui déroute le plus : **ça compile** veut seulement dire que la
 - **Variable non initialisée.** `int compteur;` puis `compteur++` part d'une valeur indéterminée. Toujours initialiser : `int compteur = 0;`.
 - **`setup` / `loop` mal orthographiés.** `void Setup()` (majuscule) ou un nom approchant compile comme une fonction *ordinaire* jamais appelée — le programme ne fait rien, sans la moindre erreur. Respecter exactement `setup()` et `loop()` en minuscules.
 
-Aucune de ces erreurs ne produit de message : c'est précisément pourquoi la méthode — observer avec `Serial.print`, comparer attendu et observé, resserrer par dichotomie — est la seule porte de sortie. L'exemple ci-dessous la déroule sur un cas réel.
+Aucune de ces erreurs ne produit de message : c'est précisément pourquoi la méthode — observer avec `Serial.print`, comparer attendu et observé, resserrer par dichotomie — est la seule porte de sortie.
+
+## Le code dit une chose, le câblage en dit une autre
+
+Le programme peut être juste et le câblage faux ; le câblage peut être bon et le code faux. Les deux donnent souvent le **même symptôme** (« rien ne se passe »), et c'est l'un des blocages les plus fréquents en TP. La clé : **le numéro de broche dans le code *est* l'adresse physique du composant**. `digitalWrite(8, HIGH)` est une promesse qu'un fil part de D8 vers le composant — ni D7, ni D9. On perd ce lien parce que le code manipule des numéros abstraits tandis que la plaque d'essai est un champ de trous identiques.
+
+La sortie est la dichotomie, appliquée à la frontière code / matériel — **isoler les deux moitiés** :
+
+- **Prouver la carte et le téléversement** avec le clignotement de la LED intégrée (`LED_BUILTIN`), sans rien câbler. Si elle clignote, la chaîne IDE → carte fonctionne ; le problème est en aval.
+- **Prouver le câblage** avec un sketch minimal qui ne pilote (ou ne lit) que *la* broche suspecte — un `digitalWrite` qui clignote, un `analogRead` imprimé au moniteur. Si le composant réagit, le câblage est bon : le bug est dans la logique du programme principal.
+- **Tracer le fil** depuis la broche nommée dans le code jusqu'au composant : lire `const int LED = 8;`, poser le doigt sur D8, suivre le fil. Neuf fois sur dix, l'erreur saute aux yeux à cet instant.
+- **Vérifier le *rôle* et la *polarité*, pas seulement le numéro.** Une broche déclarée `OUTPUT` mais câblée à un capteur (une entrée), ou une LED reliée à `GND` alors que le code la croit active à l'état haut : le numéro est bon, mais le sens ne colle pas. Code et câblage doivent s'accorder sur le **numéro**, la **direction** (`INPUT`/`OUTPUT`) et la **polarité** (actif haut / actif bas).
+
+Deux disciplines gardent ce lien lisible : **nommer les broches par des constantes** (`const int LED_ROUGE = 8;` plutôt que `8` répété en dur — le code se lit alors comme le câblage), et **lire les schémas de câblage de ce wiki en regard du code** : leurs broches portent les mêmes noms que le sketch (`IN1 → D12`, `SDA → A4`). L'exemple ci-dessous applique exactement cette logique d'isolement, du capteur vers la sortie.
 
 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie 0
 
