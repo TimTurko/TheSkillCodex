@@ -1,0 +1,54 @@
+<svg viewBox="0 0 560 245" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un afficheur I2C (OLED ou LCD) sur Arduino : VCC vers 5 V, GND vers GND, SDA vers A4, SCL vers A5. Seuls deux fils de donnees plus l'alimentation sont necessaires.">
+  <defs>
+    <style>
+      .box  { fill:#DDDBD3; stroke:#8a7a55; stroke-width:1.5; }
+      .pw   { fill:none; stroke:#6b6b6b; stroke-width:2.4; }
+      .sig  { fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .dot  { fill:#BA7517; }
+      .gdot { fill:#6b6b6b; }
+      .t    { fill:#2a2a2a; }
+      .tg   { fill:#6b6b6b; }
+      @media (prefers-color-scheme: dark) {
+        .box  { fill:#3a3a3a; stroke:#b89a5e; }
+        .pw   { stroke:#b0b0b0; }
+        .sig  { stroke:#E0A040; }
+        .dot  { fill:#E0A040; }
+        .gdot { fill:#b0b0b0; }
+        .t    { fill:#e8e6df; }
+        .tg   { fill:#b0b0b0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="40" y="55" width="140" height="160" rx="6"/>
+  <rect class="box" x="400" y="55" width="140" height="160" rx="6"/>
+  <text class="t" x="110" y="45" text-anchor="middle" font-size="16" font-weight="bold">Arduino</text>
+  <text class="t" x="470" y="40" text-anchor="middle" font-size="15" font-weight="bold">Afficheur I2C</text>
+  <text class="tg" x="470" y="138" text-anchor="middle" font-size="12">OLED</text>
+  <text class="tg" x="470" y="154" text-anchor="middle" font-size="12">ou LCD</text>
+
+  <text class="t"  x="172" y="95" text-anchor="end" font-size="13">5V</text>
+  <text class="tg" x="172" y="130" text-anchor="end" font-size="13">GND</text>
+  <text class="t"  x="172" y="165" text-anchor="end" font-size="13">A4</text>
+  <text class="t"  x="172" y="200" text-anchor="end" font-size="13">A5</text>
+  <circle class="gdot" cx="180" cy="90" r="4.5"/>
+  <circle class="gdot" cx="180" cy="125" r="4.5"/>
+  <circle class="dot"  cx="180" cy="160" r="4.5"/>
+  <circle class="dot"  cx="180" cy="195" r="4.5"/>
+
+  <text class="t"  x="408" y="95" text-anchor="start" font-size="13">VCC</text>
+  <text class="tg" x="408" y="130" text-anchor="start" font-size="13">GND</text>
+  <text class="t"  x="408" y="165" text-anchor="start" font-size="13">SDA</text>
+  <text class="t"  x="408" y="200" text-anchor="start" font-size="13">SCL</text>
+  <circle class="gdot" cx="400" cy="90" r="4.5"/>
+  <circle class="gdot" cx="400" cy="125" r="4.5"/>
+  <circle class="dot"  cx="400" cy="160" r="4.5"/>
+  <circle class="dot"  cx="400" cy="195" r="4.5"/>
+
+  <path class="pw"  d="M180,90 L400,90"/>
+  <path class="pw"  d="M180,125 L400,125"/>
+  <path class="sig" d="M180,160 L400,160"/>
+  <path class="sig" d="M180,195 L400,195"/>
+
+  <text class="tg" x="290" y="232" text-anchor="middle" font-size="12">2 fils de donn\u00e9es (SDA/SCL) + alimentation &#183; adresse au scanner (OLED 0x3C, LCD 0x27)</text>
+</svg>

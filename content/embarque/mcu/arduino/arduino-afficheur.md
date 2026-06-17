@@ -3,6 +3,7 @@ title: Afficheur LCD / OLED
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -27,12 +28,12 @@ L'afficheur intervient au moment où un projet quitte le banc d'essai branché a
 
 Comparaison rapide :
 
-| Type | Coût | Lisibilité | Graphique | Consommation |
-|---|---|---|---|---|
-| LCD 16×2 I2C (HD44780 + PCF8574) | 3-5 € | excellente même en plein soleil | aucun | ~20-50 mA (rétroéclairage allumé) |
-| OLED 0,96″ I2C SSD1306 (128×64) | 3-7 € | très contrastée, faible angle | ✅ | ~20 mA |
-| TFT 2,4″ SPI (ILI9341) | 8-15 € | couleur, lent | ✅ | ~80-150 mA |
-| E-paper 2,9″ SPI | 15-30 € | léger consommation nulle hors refresh | ✅ | refresh lent (2 s) |
+| Type | Lisibilité | Graphique | Consommation |
+|---|---|---|---|
+| LCD 16×2 I2C (HD44780 + PCF8574) | excellente même en plein soleil | aucun | ~20-50 mA (rétroéclairage allumé) |
+| OLED 0,96″ I2C SSD1306 (128×64) | très contrastée, faible angle | ✅ | ~20 mA |
+| TFT 2,4″ SPI (ILI9341) | couleur, angle large | ✅ | ~80-150 mA |
+| E-paper 2,9″ SPI | excellente en lumière ambiante | ✅ | nulle hors refresh (refresh lent ~2 s) |
 
 ## Procédure pas à pas
 
@@ -40,7 +41,7 @@ Quatre étapes : choisir l'afficheur, câbler en I2C, installer la bibliothèque
 
 ### 1. Choisir l'afficheur
 
-Pour un premier projet école : **OLED SSD1306 128×64 I2C**. Petit, lisible, graphique simple, ~5 €.
+Pour un premier projet école : **OLED SSD1306 128×64 I2C**. Petit, lisible, graphique simple.
 
 Pour de l'affichage texte robuste, avec lecture facile à distance : **LCD I2C 16×2** (étiquette PCF8574 sur l'arrière). Pas de graphique mais texte parfait, et plus grand.
 
@@ -57,7 +58,7 @@ Identique pour les deux types — 4 fils.
 
 L'OLED SSD1306 grand public accepte 3,3 V et 5 V (régulateur intégré). Vérifier sur l'étiquette du module. Le LCD I2C est conçu pour 5 V uniquement.
 
-Prendre capture d'écran ou photo de *un afficheur OLED SSD1306 0,96″ I2C câblé sur les broches A4/A5 d'une carte Arduino Uno, avec un texte affiché à l'écran*.
+![Branchement d'un afficheur I2C (OLED ou LCD) : VCC→5 V, GND, SDA→A4, SCL→A5|520](/ressources/img/arduino-afficheur/branchement-i2c.svg)
 
 ### 3. Installer la bibliothèque
 
@@ -104,7 +105,8 @@ void loop() {
 }
 ```
 
-`ecran.display()` est obligatoire — la bibliothèque met à jour un buffer interne, et seul cet appel l'envoie réellement à l'écran. Oublier `display()` = écran qui reste vide.
+> [!info] Comment lire ce code
+> `ecran.display()` est **obligatoire** — la bibliothèque Adafruit dessine dans un **buffer interne** (en RAM), et seul cet appel l'envoie réellement à l'écran. Les commandes `print`/`setCursor`/`clearDisplay` ne touchent que ce buffer ; tant qu'on n'appelle pas `display()`, l'écran reste tel quel. Oublier `display()` = écran qui semble vide alors que le code « tourne ».
 
 **LCD I2C 16×2** :
 
@@ -132,13 +134,14 @@ void loop() {
 }
 ```
 
-Le LCD n'a pas de buffer — chaque `lcd.print()` apparaît immédiatement. Mais il **ne réécrit pas les pixels au-delà du texte** — pour effacer un ancien affichage, écrire des espaces ou appeler `lcd.clear()` (lent, à utiliser parcimonieusement).
+> [!info] Comment lire ce code
+> À l'inverse de l'OLED, le LCD **n'a pas de buffer** : chaque `lcd.print()` s'affiche immédiatement. Mais il **n'efface pas ce qui était écrit avant** — afficher `42` puis `7` au même endroit laisse voir `72`. Pour nettoyer, écrire des espaces après la valeur (comme le `" s   "` ci-dessus) ou appeler `lcd.clear()` (lent, à utiliser parcimonieusement).
 
 ## Exemple — Thermomètre OLED avec icône thermomètre
 
 Cas complet : lire la température sur un BMP280 (voir [[arduino-i2c|I2C sur Arduino]]), l'afficher sur l'OLED en gros chiffres avec une icône.
 
-**Câblage** : BMP280 + OLED tous deux en I2C sur A4/A5 (le bus supporte plusieurs devices à adresses différentes — BMP280 = `0x76`, OLED = `0x3C`).
+**Câblage** : BMP280 + OLED tous deux en I2C sur A4/A5 (même bus qu'à l'étape 2 ; plusieurs devices à adresses différentes — BMP280 = `0x76`, OLED = `0x3C`).
 
 ```cpp
 #include <Wire.h>
@@ -211,7 +214,7 @@ Pour un projet francophone qui doit afficher proprement les accents, U8g2 est l'
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — premier affichage embarqué pour observer les mesures sans PC.
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — l'afficheur intégré au démonstrateur sert d'IHM pour les tests pyramidaux (mode courant, valeurs réelles).
 
-Un afficheur, même simple, transforme un projet du *« regarder le moniteur série »* en *« voir l'état directement »* — saut qualitatif en démonstration qui justifie largement les ~5 € de matériel.
+Un afficheur, même simple, transforme un projet du *« regarder le moniteur série »* en *« voir l'état directement »* — un vrai saut qualitatif en démonstration.
 
 ## Voir aussi
 
