@@ -24,29 +24,29 @@
   </defs>
 
   <rect class="box" x="210" y="18" width="180" height="40" rx="6"/>
-  <text class="t" x="300" y="43" text-anchor="middle" font-size="13">Code \u00e9crit / t\u00e9l\u00e9vers\u00e9</text>
+  <text class="t" x="300" y="43" text-anchor="middle" font-size="13">Code écrit / téléversé</text>
 
   <rect class="dbox" x="222" y="92" width="156" height="40" rx="6"/>
-  <text class="t" x="300" y="117" text-anchor="middle" font-size="13" font-weight="bold">\u00c7a compile ?</text>
+  <text class="t" x="300" y="117" text-anchor="middle" font-size="13" font-weight="bold">Ça compile ?</text>
 
   <rect class="box" x="20" y="86" width="172" height="74" rx="6"/>
   <text class="t"  x="106" y="110" text-anchor="middle" font-size="12" font-weight="bold">Erreur de compilation</text>
-  <text class="t"  x="106" y="128" text-anchor="middle" font-size="11">\u2192 lire le message</text>
+  <text class="t"  x="106" y="128" text-anchor="middle" font-size="11">→ lire le message</text>
   <text class="tg" x="106" y="145" text-anchor="middle" font-size="11">(souvent la ligne d'avant)</text>
 
   <rect class="dbox" x="206" y="180" width="188" height="44" rx="6"/>
-  <text class="t" x="300" y="207" text-anchor="middle" font-size="13" font-weight="bold">\u00c7a fait ce qu'on veut ?</text>
+  <text class="t" x="300" y="207" text-anchor="middle" font-size="13" font-weight="bold">Ça fait ce qu'on veut ?</text>
 
   <rect class="ok" x="450" y="182" width="128" height="40" rx="6"/>
-  <text class="t" x="514" y="207" text-anchor="middle" font-size="13" font-weight="bold">\u2713 Termin\u00e9</text>
+  <text class="t" x="514" y="207" text-anchor="middle" font-size="13" font-weight="bold">✓ Terminé</text>
 
   <rect class="box" x="190" y="278" width="220" height="58" rx="6"/>
   <text class="t" x="300" y="302" text-anchor="middle" font-size="12" font-weight="bold">Bug de comportement</text>
   <text class="tg" x="300" y="321" text-anchor="middle" font-size="11">observer : Serial.print + dichotomie</text>
 
   <rect class="box" x="190" y="392" width="220" height="58" rx="6"/>
-  <text class="t" x="300" y="416" text-anchor="middle" font-size="12" font-weight="bold">P\u00e9riph\u00e9rique muet ?</text>
-  <text class="tg" x="300" y="435" text-anchor="middle" font-size="11">\u2192 v\u00e9rifier c\u00e2blage + alimentation</text>
+  <text class="t" x="300" y="416" text-anchor="middle" font-size="12" font-weight="bold">Périphérique muet ?</text>
+  <text class="tg" x="300" y="435" text-anchor="middle" font-size="11">→ vérifier câblage + alimentation</text>
 
   <path class="arrow" marker-end="url(#ah)" d="M300,58 L300,90"/>
   <path class="arrow" marker-end="url(#ah)" d="M222,112 L194,112"/>

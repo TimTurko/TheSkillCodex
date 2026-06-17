@@ -67,5 +67,5 @@
   <circle class="dot" cx="345" cy="275" r="3.5"/>
   <text class="tg" x="357" y="219" text-anchor="start" font-size="11">4,7 k&#8486;</text>
 
-  <text class="tg" x="290" y="328" text-anchor="middle" font-size="12">Pull-ups vers VCC souvent int\u00e9gr\u00e9es au module &#183; A4 = SDA, A5 = SCL (Uno)</text>
+  <text class="tg" x="290" y="328" text-anchor="middle" font-size="12">Pull-ups vers VCC souvent intégrées au module &#183; A4 = SDA, A5 = SCL (Uno)</text>
 </svg>

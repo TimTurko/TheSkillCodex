@@ -58,5 +58,5 @@
   <path class="bus" d="M190,275 L400,275"/>
   <path class="bus" d="M190,310 L400,310"/>
 
-  <text class="tg" x="280" y="358" text-anchor="middle" font-size="12">SCK / MOSI / MISO partag\u00e9s &#183; un CS d\u00e9di\u00e9 par device (ici D10)</text>
+  <text class="tg" x="280" y="358" text-anchor="middle" font-size="12">SCK / MOSI / MISO partagés &#183; un CS dédié par device (ici D10)</text>
 </svg>

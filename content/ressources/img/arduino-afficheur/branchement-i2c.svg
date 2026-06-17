@@ -50,5 +50,5 @@
   <path class="sig" d="M180,160 L400,160"/>
   <path class="sig" d="M180,195 L400,195"/>
 
-  <text class="tg" x="290" y="232" text-anchor="middle" font-size="12">2 fils de donn\u00e9es (SDA/SCL) + alimentation &#183; adresse au scanner (OLED 0x3C, LCD 0x27)</text>
+  <text class="tg" x="290" y="232" text-anchor="middle" font-size="12">2 fils de données (SDA/SCL) + alimentation &#183; adresse au scanner (OLED 0x3C, LCD 0x27)</text>
 </svg>
