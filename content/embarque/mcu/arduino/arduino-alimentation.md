@@ -2,13 +2,17 @@
 title: Alimenter la carte Arduino
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - eee
   - tuto
 prerequis:
   - arduino-prise-en-main
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -18,7 +22,7 @@ draft: false
 
 Tant qu'un projet tient sur la breadboard, alimenté par le PC en USB, tout va bien. Dès qu'on ajoute des moteurs, des relais, des modules sans-fil ou un display TFT, le courant grimpe — et l'alimentation USB de l'Arduino (500 mA partagés sur un PC) atteint ses limites. La maîtrise des trois voies d'alimentation et de leurs contraintes permet de :
 
-- **Choisir la PSU adaptée** à la consommation totale prévue (logique + actionneurs + accessoires).
+- **Choisir l'alimentation (PSU) adaptée** à la consommation totale prévue (logique + actionneurs + accessoires).
 - **Séparer les alimentations** quand les actionneurs perturbent la logique (motors).
 - **Anticiper les pics de consommation** (Wi-Fi en émission, démarrage de moteur, attaque de relais).
 
@@ -53,6 +57,8 @@ Sommer les consommations :
 - **Afficheur OLED 0,96″ SSD1306** : ~20 mA.
 
 Méthode rapide : **estimer haut** chaque composant et sommer. Comparer à la capacité de la voie choisie. Marge de sécurité 1,5×.
+
+Pour la méthode générale de dimensionnement (bilan de puissance, choix de la source, marges), voir [[alimentation-electronique|concevoir une alimentation]].
 
 ### 3. Câbler
 
@@ -146,8 +152,8 @@ Voir [[deep-sleep|deep sleep]] et [[arduino-deep-sleep|deep sleep sur Arduino]] 
 ## Raccrochage projet
 
 - **Étape 4 de la [[concept|phase de concept]]** — l'[[etat-de-l-art-technique|EAT]] et l'arbitrage entre architectures intègrent l'alimentation comme critère (USB vs autonome, démo branchée vs démo mobile).
-- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier ajout d'un actionneur de puissance, estimer la consommation et redimensionner la PSU si nécessaire.
-- **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — la PSU finale du démonstrateur (avec marge de sécurité) fait partie du BOM.
+- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier ajout d'un actionneur de puissance, estimer la consommation et redimensionner l'alimentation si nécessaire.
+- **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — l'alimentation finale du démonstrateur (avec marge de sécurité) fait partie du BOM (la nomenclature).
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — vérification que la tension 5 V tient en charge sur le système intégré (mesure au multimètre, observation à l'oscilloscope).
 
 L'alimentation est l'élément le plus sous-estimé d'un projet débutant — ignoré quand tout va bien, accusé à tort quand un autre bug survient. Le mesurer au multimètre au premier symptôme suspect évite des heures d'errance.
