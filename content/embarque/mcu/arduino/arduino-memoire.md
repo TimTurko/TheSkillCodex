@@ -3,6 +3,7 @@ title: Gérer la mémoire sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -34,6 +35,8 @@ Un AVR (ATmega328P de l'Uno) sépare trois espaces aux rôles distincts :
 
 La règle de fond : **la SRAM est la ressource critique**, et tout ce qui peut en sortir doit en sortir.
 
+Ces chiffres — et donc la pression sur la RAM — sont propres à l'**AVR**. Une **Uno R4** (32 Ko de SRAM) ou un **ESP32** (~520 Ko) desserrent énormément la contrainte : `F()` et `PROGMEM` y restent valides mais quasi sans gain, et la chasse aux octets n'a plus le même sens. Les bonnes habitudes (mesurer, éviter de fragmenter le tas) restent utiles partout — voir [[esp32|ESP32]].
+
 ### 2. Comprendre où vivent les variables en SRAM
 
 La SRAM se partage en trois zones :
@@ -43,6 +46,8 @@ La SRAM se partage en trois zones :
 - le **tas** (*heap*), qui grandit vers le haut, sert à l'allocation **dynamique** (les chaînes `String`, le `new`).
 
 Pile et tas grandissent **l'un vers l'autre** dans le même petit espace : s'ils se rejoignent, c'est le plantage. Les détails du langage (pointeurs, allocation) relèvent des bases du [[cpp|C++]] ; ici, l'essentiel est de savoir que **chaque variable a un coût** et que le tas est le plus risqué.
+
+![Carte mémoire d'un Arduino : la Flash (32 Ko) contient le programme et, à droite, les constantes déportées par F() et PROGMEM ; la SRAM (2 Ko) est découpée en variables globales/statiques (fixe), tas qui grandit vers la droite, espace libre mesuré par freeMemory(), et pile qui grandit vers la gauche — si le tas et la pile se rejoignent, c'est le plantage.|680](/ressources/img/arduino-memoire/carte-memoire-sram.svg)
 
 ### 3. Économiser la RAM : `F()` et `PROGMEM`
 
@@ -125,3 +130,4 @@ Anticiper la mémoire évite la situation la plus pénible en embarqué : un pro
 - [[cpp|Le langage C++]] — pointeurs, types et allocation, à la racine de la gestion mémoire (transverse)
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[processeur|Processeur]] — le cœur qui accède à ces mémoires
+- [[esp32|ESP32]] — beaucoup plus de SRAM (~520 Ko) : la contrainte mémoire de l'AVR s'y desserre largement
