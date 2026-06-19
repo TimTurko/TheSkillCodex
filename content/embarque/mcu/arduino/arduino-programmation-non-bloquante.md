@@ -3,6 +3,7 @@ title: Programmation non bloquante
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -10,6 +11,7 @@ prerequis:
   - arduino-prise-en-main
   - arduino-temporisation
   - machine-a-etats
+  - arduino-machine-a-etats
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
@@ -17,7 +19,7 @@ draft: false
 
 La **programmation non bloquante** est une **façon de structurer** un programme embarqué pour que la boucle principale ne s'arrête **jamais**. Au lieu d'attendre avec `delay()`, chaque tâche avance un peu à chaque tour de `loop()` puis rend la main : le système peut ainsi mener **plusieurs activités de front** et rester réactif. Ce n'est pas une fonction à appeler, mais une **discipline d'architecture** qui s'appuie sur la [[arduino-temporisation|temporisation par `millis()`]] et sur les [[machine-a-etats|machines à états]].
 
-![Comparaison de deux boucles principales. À gauche, l'approche bloquante : la boucle alterne une action courte et un long delay() pendant lequel tout le programme est figé, et un bouton pressé pendant le delay() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu et distribue le travail à de petites tâches exécutées chacune à son tour, et un bouton pressé est vu dès le tour suivant.](/ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg)
+![Comparaison de deux boucles principales. À gauche, l'approche bloquante : la boucle alterne une action courte et un long delay() pendant lequel tout le programme est figé, et un bouton pressé pendant le delay() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu et distribue le travail à de petites tâches exécutées chacune à son tour, et un bouton pressé est vu dès le tour suivant.|680](/ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg)
 
 ## À quoi ça sert ?
 
@@ -117,6 +119,7 @@ void tacheCapteur() {                      // tâche 2 : lire à cadence réguli
 }
 
 void tacheBouton() {                       // tâche 3 : réagir à un appui
+  // anti-rebond omis ici pour la clarté — en production, encapsuler la lecture comme dans arduino-entree-tor
   bool lecture = digitalRead(BOUTON);
   if (dernierBouton == HIGH && lecture == LOW) {   // front descendant
     Serial.println("appui !");
@@ -137,7 +140,9 @@ void loop() {
 }
 ```
 
-Le `loop()` tourne en continu et passe ses trois tâches en revue à chaque tour. La LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui** — parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité (piloter un afficheur, écouter le port série) revient à écrire une quatrième tâche et à l'appeler dans `loop()` : la structure encaisse sans réécriture. La même chose écrite avec des `delay()` serait infaisable.
+Les trois tâches reprennent le même patron `millis()` qu'à l'étape 4. Le `loop()` tourne en continu et passe ses trois tâches en revue à chaque tour. La LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui** — parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité (piloter un afficheur, écouter le port série) revient à écrire une quatrième tâche et à l'appeler dans `loop()` : la structure encaisse sans réécriture. La même chose écrite avec des `delay()` serait infaisable.
+
+![Frise temporelle des trois tâches de la station : la LED bascule toutes les 500 ms, le capteur est lu toutes les 100 ms, le bouton est lu à chaque tour de boucle ; un appui est vu au tour suivant. Une seule boucle, trois rythmes, aucune attente.|680](/ressources/img/arduino-programmation-non-bloquante/frise-3-taches.svg)
 
 ## Cas particulier — Un planificateur coopératif
 
@@ -162,7 +167,10 @@ void loop() {
 }
 ```
 
-C'est un mini-ordonnanceur maison (le `void (*fonction)()` est un *pointeur de fonction*, une notion C++ avancée). Utile au-delà de quelques tâches ; en deçà, l'appel direct de l'étape 3 reste plus simple à lire.
+> [!info] Comment lire ce code
+> La `struct Tache` regroupe trois informations par tâche : **quelle** fonction appeler, **à quel intervalle**, et **quand** elle a tourné pour la dernière fois. Le champ `void (*fonction)()` est un *pointeur de fonction* — une case qui ne contient pas un nombre mais l'adresse d'une fonction à appeler (notion C++ avancée). Le tableau `taches[]` liste toutes les tâches ; la boucle `for (Tache &t : taches)` les parcourt une à une et, pour chacune, si l'intervalle est écoulé, note la date et appelle sa fonction. Ajouter une tâche revient alors à ajouter une ligne au tableau — plus aucun test à recopier.
+
+Utile au-delà de quelques tâches ; en deçà, l'appel direct de l'étape 3 reste plus simple à lire.
 
 ## Cas particulier — La limite : vers un RTOS
 
@@ -192,7 +200,8 @@ Adopter la discipline non bloquante au premier montage multi-fonctions évite la
 ## Voir aussi
 
 - [[arduino-temporisation|delay() vs millis()]] — l'outil de base : la temporisation non bloquante, brique de chaque tâche
-- [[machine-a-etats|Machine à états]] — chaque tâche à modes est une petite machine à états
+- [[machine-a-etats|Machine à états]] — chaque tâche à modes est une petite machine à états (la notion générique)
+- [[arduino-machine-a-etats|Machine à états sur Arduino]] — l'implémentation de ce même concept dans le parcours Arduino
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-interruptions|Interruptions]] — pour les événements que la boucle ne peut pas attraper assez vite
 - [[arduino-timers|Timers matériels]] — pour imposer une cadence précise à une tâche critique
