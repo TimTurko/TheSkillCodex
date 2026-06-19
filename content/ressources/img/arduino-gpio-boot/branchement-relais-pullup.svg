@@ -1,0 +1,56 @@
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branchement d'un module relais actif au niveau bas avec un pull-up externe entre la broche de commande D8 et le plus 5 volts">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:13px;font-weight:600;}
+      .t-pin{font-size:12px;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .box{fill:#DDDBD3;stroke:#9A958A;stroke-width:1.5;}
+      .wire{stroke:#7A766C;stroke-width:2;fill:none;}
+      .res{stroke:#BA7517;stroke-width:2;fill:none;}
+      .res-fill{fill:#F3E4C8;stroke:#BA7517;stroke-width:2;}
+      .node{fill:#7A766C;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .box{fill:#3B3A34;stroke:#8A867C;}
+        .wire{stroke:#A9A59B;}
+        .res{stroke:#E0A24A;}
+        .res-fill{fill:#4A3E26;stroke:#E0A24A;}
+        .node{fill:#A9A59B;}
+      }
+    </style>
+  </defs>
+
+  <!-- Carte Arduino -->
+  <rect class="box" x="40" y="80" width="150" height="150"/>
+  <text class="t-title" x="115" y="68" text-anchor="middle">Arduino</text>
+  <text class="t-pin" x="182" y="124" text-anchor="end">+5V</text>
+  <text class="t-pin" x="182" y="164" text-anchor="end">D8 (RELAIS)</text>
+  <text class="t-pin" x="182" y="204" text-anchor="end">GND</text>
+
+  <!-- Module relais -->
+  <rect class="box" x="450" y="80" width="160" height="150"/>
+  <text class="t-title" x="530" y="68" text-anchor="middle">Module relais 5 V</text>
+  <text class="t-sm"   x="530" y="250" text-anchor="middle">commande active à l'état BAS</text>
+  <text class="t-pin" x="458" y="124" text-anchor="start">VCC</text>
+  <text class="t-pin" x="458" y="164" text-anchor="start">IN</text>
+  <text class="t-pin" x="458" y="204" text-anchor="start">GND</text>
+
+  <!-- Fils -->
+  <path class="wire" d="M190,120 L450,120"/>   <!-- +5V -> VCC -->
+  <path class="wire" d="M190,160 L450,160"/>   <!-- D8 -> IN (commande) -->
+  <path class="wire" d="M190,200 L450,200"/>   <!-- GND -> GND -->
+
+  <!-- Pull-up externe entre la commande et le +5V -->
+  <path class="res" d="M300,120 L300,138"/>
+  <rect class="res-fill" x="289" y="138" width="22" height="30"/>
+  <path class="res" d="M300,168 L300,160"/>
+  <circle class="node" cx="300" cy="120" r="3.5"/>
+  <circle class="node" cx="300" cy="160" r="3.5"/>
+  <text class="t-pin" x="320" y="157" text-anchor="start">10 kΩ</text>
+
+  <!-- note de pied -->
+  <text class="t-sm" x="40" y="294" text-anchor="start">Au boot, D8 flotte → le pull-up tire la commande à HIGH → le relais (actif-bas) reste relâché.</text>
+  <text class="t-sm" x="40" y="310" text-anchor="start">Les broches portent le nom du code : D8 = RELAIS.</text>
+</svg>
