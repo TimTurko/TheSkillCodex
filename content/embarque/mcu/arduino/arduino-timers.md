@@ -3,6 +3,7 @@ title: Utiliser un timer matériel sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -48,6 +49,8 @@ void setup() {
 ```
 
 La bibliothèque calcule pour nous le prédiviseur et la valeur de comparaison correspondants — c'est exactement le travail décrit dans la notion [[timer|timer]], fait automatiquement.
+
+TimerOne ne fonctionne que sur les cartes **AVR** (Uno R3, Nano, Mega). Sur une **Uno R4** (Renesas) ou un **ESP32**, l'architecture des timers diffère et l'on passe par d'autres bibliothèques (`FspTimer` sur R4, timers natifs `timerBegin()` sur [[esp32|ESP32]]) ; le principe — un compteur matériel qui déclenche une interruption périodique — reste identique.
 
 ### 3. Attacher la fonction périodique
 
@@ -103,9 +106,11 @@ void loop() {
 
 L'échantillonnage tombe toutes les 10 ms **quelle que soit la charge de la boucle**, parce que c'est le matériel qui tient l'horloge. L'ISR se contente de signaler l'échéance ; toute la logique reste dans `loop()`. Comparée à une cadence en `millis()`, la régularité est sans dérive — ce qui change tout pour un traitement du signal.
 
+![Chronogramme comparant deux cadences pour une même période visée de 10 ms : la cadence logicielle (millis) dérive — ses instants réels glissent vers la droite à mesure que la charge de loop() varie, le retard s'accumule ; la cadence matérielle (timer) tombe exactement sur la grille, intervalle constant sans dérive.|680](/ressources/img/arduino-timers/cadence-millis-vs-timer.svg)
+
 ## Cas particulier — Sous le capot : les registres
 
-Ce que fait TimerOne, on peut l'écrire directement avec les **registres** de l'AVR, en mode CTC (*Clear Timer on Compare*). C'est plus verbeux et **spécifique à la puce** (ATmega328P de l'Uno), mais ça montre la mécanique réelle décrite dans la notion : un prédiviseur, une valeur de comparaison, une interruption sur comparaison. Les opérations bit-à-bit qu'il emploie — masque, mise à 1 avec `|=`, décalage `<<` — sont détaillées dans [[manipulation-de-bits|la manipulation de bits]].
+Ce que fait TimerOne, on peut l'écrire directement avec les **registres** de l'AVR, en mode CTC (*Clear Timer on Compare*). C'est plus verbeux et **spécifique à la puce** (ATmega328P de l'Uno), mais ça montre la mécanique réelle décrite dans la notion : un prédiviseur, une valeur de comparaison, une interruption sur comparaison. Les opérations bit-à-bit qu'il emploie — masque, mise à 1 avec `|=`, décalage `<<` — sont détaillées dans [[manipulation-de-bits|la manipulation de bits]]. L'ISR `TIMER1_COMPA_vect` lève le même drapeau `volatile echeance` que l'exemple plus haut.
 
 ```cpp
 void setup() {
@@ -124,6 +129,9 @@ ISR(TIMER1_COMPA_vect) {       // la routine, déclenchée à chaque comparaison
   echeance = true;
 }
 ```
+
+> [!info] Comment lire ce code
+> Le bloc se lit en cinq temps. `cli()` **coupe les interruptions** le temps de configurer (sinon l'une d'elles pourrait tomber sur un timer à moitié réglé). On remet à zéro les registres de contrôle (`TCCR1A`/`TCCR1B`) et le compteur (`TCNT1`). `OCR1A` est la **valeur de comparaison** : le compteur monte jusqu'à elle, puis l'interruption part — c'est elle qui fixe la période. `WGM12` choisit le **mode CTC** (le compteur se remet à zéro à chaque comparaison) ; `CS11 | CS10` règlent le **prédiviseur à 64**. `OCIE1A` **autorise l'interruption** sur comparaison A. Enfin `sei()` **réactive les interruptions**. Dès lors, `ISR(TIMER1_COMPA_vect)` s'exécute toute seule à chaque comparaison.
 
 La formule `f = 16 MHz / (prescaler × (OCR1A + 1))` est la traduction concrète du *fréquence ÷ (prédiviseur × valeur)* de la notion. En projet, la bibliothèque suffit presque toujours ; ce niveau ne sert que pour un réglage fin ou pour comprendre un code existant.
 
@@ -160,3 +168,4 @@ Disposer d'une base de temps matérielle fiable est ce qui sépare un montage qu
 - [[arduino-temporisation|delay() vs millis()]] — la temporisation logicielle, l'alternative non précise
 - [[arduino-sortie-pwm|Piloter une sortie PWM]] — `analogWrite()`, dont ce tuto permet de régler la fréquence
 - [[arduino-pid|Régulation PID]] — un usage direct de l'échantillonnage à pas constant
+- [[esp32|ESP32]] — timers natifs (`timerBegin`), à la place de TimerOne qui est propre à l'AVR

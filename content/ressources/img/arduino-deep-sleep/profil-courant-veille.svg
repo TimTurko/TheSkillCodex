@@ -1,0 +1,55 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profil du courant dans le temps : de longues plages a quelques microamperes pendant le sommeil, entrecoupees de brefs pics a quelques milliamperes lors des reveils ; la consommation moyenne reste tres basse, loin du niveau d'un microcontroleur toujours eveille">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .lbl{font-size:11px;font-weight:600;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      .wave{stroke:#BA7517;stroke-width:2.4;fill:none;}
+      .avg{stroke:#BA7517;stroke-width:1.6;stroke-dasharray:6 4;fill:none;}
+      .ref{stroke:#BFB8A6;stroke-width:1.4;stroke-dasharray:4 4;fill:none;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+        .wave{stroke:#E0A24A;}
+        .avg{stroke:#E0A24A;}
+        .ref{stroke:#5A574E;}
+      }
+    </style>
+  </defs>
+
+  <text class="t-title" x="40" y="28" text-anchor="start">Dormir beaucoup, se réveiller peu</text>
+
+  <!-- axes -->
+  <line class="axis" x1="90" y1="70" x2="90" y2="245"/>
+  <polygon class="arrh" points="85,70 90,58 95,70"/>
+  <line class="axis" x1="90" y1="245" x2="710" y2="245"/>
+  <polygon class="arrh" points="710,240 722,245 710,250"/>
+  <text class="t-sm" x="90" y="52" text-anchor="middle">courant</text>
+  <text class="t-sm" x="724" y="249" text-anchor="start">temps</text>
+
+  <!-- niveaux de référence -->
+  <text class="t-sm" x="84" y="94" text-anchor="end">≈ mA</text>
+  <text class="t-sm" x="84" y="226" text-anchor="end">≈ µA</text>
+
+  <!-- référence : toujours éveillé -->
+  <line class="ref" x1="90" y1="90" x2="700" y2="90"/>
+  <text class="t-sm" x="700" y="84" text-anchor="end">si toujours éveillé : ~mA en continu</text>
+
+  <!-- profil du courant : sommeil bas, pics de réveil -->
+  <path class="wave" d="M90,222 L160,222 L160,90 L188,90 L188,222 L360,222 L360,90 L388,90 L388,222 L560,222 L560,90 L588,90 L588,222 L700,222"/>
+
+  <!-- consommation moyenne -->
+  <line class="avg" x1="90" y1="210" x2="700" y2="210"/>
+  <text class="lbl" x="430" y="204" text-anchor="middle">consommation moyenne ≈ quelques dizaines de µA</text>
+
+  <!-- annotations -->
+  <text class="t-sm" x="174" y="80" text-anchor="middle">réveil :</text>
+  <text class="t-sm" x="174" y="93" text-anchor="middle">mesure + envoi</text>
+  <text class="t-sm" x="274" y="238" text-anchor="middle">sommeil profond (~µA)</text>
+  <text class="t-sm" x="474" y="238" text-anchor="middle">sommeil profond (~µA)</text>
+</svg>
