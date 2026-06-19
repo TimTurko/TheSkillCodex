@@ -40,6 +40,8 @@ void setup() {
 
 (En interne, cette fonction configure un registre dédié ; les opérations bit-à-bit correspondantes sont décrites dans [[manipulation-de-bits|la manipulation de bits]], mais `avr/wdt.h` les masque entièrement.)
 
+`avr/wdt.h` est propre à l'**AVR** (Uno R3, Nano, Mega). Sur **Uno R4** (Renesas), le watchdog s'arme via la bibliothèque `WDT` (`WDT.begin()`, `WDT.refresh()`) ; sur **ESP32**, c'est le *task watchdog* (`esp_task_wdt`). Le principe — nourrir un compteur sous peine de reset — reste partout le même ; seule l'API change (voir [[esp32|ESP32]]).
+
 ### 2. Nourrir le chien régulièrement
 
 `wdt_reset()` remet le compteur à zéro : c'est « nourrir » le chien. On l'appelle à chaque tour de la boucle principale, à un endroit que le programme **ne peut atteindre que s'il fonctionne normalement**.
@@ -52,6 +54,8 @@ void loop() {
 ```
 
 Tant que `loop()` boucle, le chien est nourri et tout va bien. Si une partie du code se bloque et empêche d'atteindre `wdt_reset()`, l'échéance tombe et la carte redémarre.
+
+![Chronogramme du chien de garde : tant que la boucle appelle wdt_reset() à intervalle régulier, la marge avant reset est rechargée au délai armé et ne descend jamais à zéro ; lorsqu'un blocage interrompt les wdt_reset(), la marge décroît jusqu'à zéro et la carte redémarre (RESET puis retour à setup()).|680](/ressources/img/arduino-watchdog/chronogramme-watchdog.svg)
 
 ### 3. Choisir le délai
 
@@ -96,7 +100,7 @@ En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sou
 
 ## Pièges
 
-**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le drapeau de reset n'est pas effacé et le chien se redéclenche aussitôt : la carte redémarre en boucle, inutilisable. La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
+**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le chien **reste actif avec un délai très court** et le bootloader ne le désarme pas : la carte se réinitialise avant même d'avoir pu re-nourrir le chien — redémarrage en boucle, inutilisable. La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
 
 **Un délai plus court que la boucle normale.** Si le pire temps de boucle dépasse le délai du chien, celui-ci redémarre une carte qui fonctionnait parfaitement. Toujours régler le délai **au-dessus** de la durée maximale légitime d'un tour, avec marge.
 
@@ -123,5 +127,6 @@ Le chien de garde est la dernière ligne de défense d'un firmware robuste : il 
 - [[arduino-programmation-non-bloquante|Programmation non bloquante]] — structurer le code pour nourrir le chien sans blocage
 - [[timer|Timer]] — le chien de garde est un compteur dédié
 - [[interruption|Interruption]] — le mode interruption du watchdog
+- [[esp32|ESP32]] — le watchdog y passe par le task watchdog (`esp_task_wdt`), API distincte de `avr/wdt.h`
 - [[firmware|Firmware]] — la robustesse du code embarqué (transverse)
 - [[arduino|Arduino]] — hub des tutoriels Arduino

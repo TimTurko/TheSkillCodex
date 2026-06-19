@@ -944,6 +944,15 @@ Notes 17/06 (pas de convention numérotée) :
 Note 17/06 (suite) (pas de convention numérotée) :
 - **`write_file` n'interprète pas les échappements `\u` — SVG en vrais caractères UTF-8.** Un fichier écrit via `filesystem:write_file` reçoit la chaîne **littéralement** : un `\u00e9` y atterrit en six caractères visibles, pas en « é » (contrairement à `edit_file`, dont le `newText` interprète bien les `\u`). Conséquence : les SVG créés par `write_file` s'écrivent avec de **vrais caractères** accentués / symboles (é, è, →, Ω…), jamais en `\u`. Contrôle : **relire le fichier juste après écriture**. Incident 17/06 (suite 2) — 6 SVG de la session (`ou-est-le-probleme`, `retour-position`, `branchement-i2c` afficheur+i2c, `branchement-sd`, `branchement-28byj48`) portaient des `\u` en clair dans leurs notes de pied ; corrigés (réécriture complète ou `edit_file` ciblant le littéral `\\u`). Les SVG déjà écrits en vrais caractères ou ASCII+entités (`cablage-croise`, `pont-serie`, `branchement-l298n`, `branchement-sg90`) étaient indemnes.
 
+### Acquises 17/06 (suite 3) — relecture §7 Arduino terminée (gpio-boot → watchdog) + notion asservissement
+
+**Aucune convention numérotée nouvelle — la numérotation éprouvage reste à C80.**
+
+Notes 17/06 (suite 3) :
+- **Note de portabilité « familles MCU » (affinement de C47).** Quand une fiche Arduino traite un mécanisme dont l'**API est propre à l'AVR** (registres CTC, `avr/wdt.h`, modes de veille `LowPower`, `F()`/`PROGMEM`, EEPROM 1 Ko…) et qu'**aucune fiche cible famille n'existe encore**, on ajoute une **note de portabilité brève** — le principe reste le même, seule l'API (ou l'ordre de grandeur) change — close par un **renvoi `[[esp32]]`**, plutôt que de détailler les autres familles. C'est le pendant « sortant » de C47 (qui délègue quand une fiche cible existe) : ici on *signale sans détailler*. Systématisé cette session (`timers`, `eeprom`, `deep-sleep`, `memoire`, `watchdog`). À promouvoir comme corollaire de C47 si confirmé sur les modules famille à venir.
+- **Notion mère d'un tuto : la créer si elle manque, sinon s'appuyer sur le parent existant.** Le tuto `arduino-pid` n'avait pas de notion mère → **notion `asservissement` créée** (concept transverse majeur, réutilisable méca/automatique). À l'inverse, `arduino-watchdog` **n'a pas** de notion dédiée : le WDT étant un compteur dédié, la fiche s'appuie sur `[[timer]]` comme parent légitime. Critère : créer une notion mère seulement si le concept est **transverse et substantiel** ; sinon raccrocher au parent existant. (Décisions Tim 17/06 suite 3.)
+- **Emplacement des notions transverses systèmes/contrôle.** `asservissement` rangée à `content/embarque/` (racine), près de `schema-bloc-fonctionnel` et `chaine-energie` — notion automatique/contrôle, non spécifique MCU. Le wikilink `[[asservissement]]` résout quel que soit le dossier ; emplacement à confirmer par Tim.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
