@@ -3,10 +3,12 @@ title: Réguler avec un PID sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
 prerequis:
+  - asservissement
   - arduino-prise-en-main
   - arduino-sortie-pwm
   - arduino-temporisation
@@ -15,7 +17,7 @@ aa:
 draft: false
 ---
 
-Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'**asservissement** — réguler une vitesse, une température, une position — et sa mise en œuvre sur Arduino repose sur un calcul répété à **pas de temps constant**, donc sur une [[arduino-temporisation|cadence régulière]].
+Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] — réguler une vitesse, une température, une position — et sa mise en œuvre sur Arduino repose sur un calcul répété à **pas de temps constant**, donc sur une [[arduino-temporisation|cadence régulière]].
 
 ## À quoi ça sert ?
 
@@ -24,6 +26,8 @@ Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise f
 - **P (proportionnel)** — corrige proportionnellement à l'erreur courante : réactif, mais laisse souvent une **erreur résiduelle** ;
 - **I (intégral)** — accumule l'erreur passée : **élimine** l'erreur résiduelle, au risque de s'**emballer** ;
 - **D (dérivé)** — réagit à la **vitesse de variation** de l'erreur : **amortit** et anticipe, mais amplifie le bruit.
+
+![Boucle fermée d'un asservissement de vitesse : la consigne entre dans un comparateur (erreur = consigne − mesure), le PID en déduit une commande envoyée en PWM au pont en H qui pilote le moteur ; un capteur (encodeur) mesure la vitesse réelle et la renvoie au comparateur, tandis qu'une perturbation (charge) agit sur le moteur.|680](/ressources/img/arduino-pid/boucle-fermee-pid.svg)
 
 On met un PID en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction doit tenir une consigne malgré les perturbations — typiquement un asservissement de vitesse ou de position.
 
@@ -131,6 +135,9 @@ void loop() {
 }
 ```
 
+> [!info] Comment lire ce code
+> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `constrain` — c'est l'anti-emballement. `derivee = (erreur − erreurPrec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreurPrec` pour le pas suivant. La commande est la **somme pondérée** `Kp·erreur + Ki·integrale + Kd·derivee`, enfin `constrain(…, 0, 255)` la ramène dans la plage PWM avant `analogWrite`. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur série.
+
 Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sans lui, si le moteur sature (PWM déjà à 255 mais consigne inatteignable), l'intégrale gonfle indéfiniment et la commande met longtemps à « redescendre » quand l'erreur s'inverse. Borner l'intégrale évite ce dépassement. Le couple consigne/mesure imprimé alimente le traceur série pour régler les gains à l'œil.
 
 ## Pièges
@@ -149,7 +156,7 @@ Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sa
 
 ## Cas particulier — La bibliothèque `PID_v1`
 
-Plutôt que de coder le calcul à la main, la bibliothèque **PID** (Brett Beauregard, `PID_v1`) fournit un régulateur prêt à l'emploi, qui gère le pas de temps, l'anti-emballement et les bornes. On lui passe des références vers l'entrée, la sortie et la consigne, les gains, puis on appelle `Compute()` régulièrement. Pratique en production ; le calcul manuel ci-dessus reste préférable **pour comprendre** ce que la bibliothèque fait, avant de la laisser le faire.
+Plutôt que de coder le calcul à la main, la bibliothèque **PID** (Brett Beauregard, `PID_v1`) fournit un régulateur prêt à l'emploi, qui gère le pas de temps, l'anti-emballement et les bornes. On lui passe des références vers l'entrée, la sortie et la consigne, les gains, puis on appelle `Compute()` régulièrement. Elle calcule en outre la dérivée **sur la mesure** plutôt que sur l'erreur, ce qui évite le « coup de dérivée » (un pic brutal de commande) lorsqu'on change brusquement de consigne — un raffinement que le calcul manuel ci-dessus n'intègre pas. Pratique en production ; le calcul manuel reste préférable **pour comprendre** ce que la bibliothèque fait, avant de la laisser le faire.
 
 ## Raccrochage projet
 
@@ -160,6 +167,7 @@ Un PID se conçoit autour d'une **mesure fiable** et d'une **cadence régulière
 
 ## Voir aussi
 
+- [[asservissement|Asservissement]] — la notion mère : boucle fermée, consigne/erreur/correcteur, rôle du PID
 - [[arduino-temporisation|delay() vs millis()]] — cadencer le calcul à pas constant
 - [[arduino-timers|Timers matériels]] — pour un pas de temps précis sur un asservissement exigeant
 - [[arduino-sortie-pwm|Piloter une sortie PWM]] — la commande de sortie du régulateur
