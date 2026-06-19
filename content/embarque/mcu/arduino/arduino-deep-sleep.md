@@ -23,6 +23,8 @@ Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d
 
 Le principe se résume à un cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**. Plus la part de sommeil est grande, plus l'autonomie s'allonge. On met cela en place tard dans le projet, en [[integration-et-tests|phase d'intégration]], comme **optimisation énergétique** d'un montage déjà fonctionnel — pas avant que la fonction marche.
 
+![Profil du courant dans le temps : de longues plages à quelques µA pendant le sommeil, entrecoupées de brefs pics à quelques mA lors des réveils (mesure + envoi) ; la consommation moyenne reste à quelques dizaines de µA, très loin du niveau (~mA en continu) d'un microcontrôleur toujours éveillé.|680](/ressources/img/arduino-deep-sleep/profil-courant-veille.svg)
+
 ## Procédure pas à pas
 
 Quatre étapes : choisir un mode de veille, couper les périphériques, endormir, et préparer le réveil.
@@ -113,9 +115,11 @@ Entre deux mesures, la carte ne consomme presque rien. `Serial.flush()` est impo
 
 **S'endormir avant d'avoir fini d'émettre.** Le port série et les communications sont asynchrones : `Serial.flush()` (ou l'équivalent) garantit que l'envoi est terminé avant la mise en veille, sinon le message est tronqué.
 
-**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille** — il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.)
+**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille** — il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.) Sur **ESP32**, c'est l'inverse : le deep sleep **redémarre** la puce au réveil et ré-exécute `setup()` (seule la *RTC memory* survit) — à connaître si l'on porte le code (API et sources de réveil propres à l'ESP32, voir [[esp32|ESP32]]).
 
 **Câbler une source de réveil sur une broche qui ne réveille pas.** En power-down, seules certaines broches d'interruption peuvent réveiller (D2/D3 sur Uno). Vérifier avant de compter dessus.
+
+**Durée de sommeil non multiple de 8 s.** Le helper `dormir(secondes)` boucle `secondes / 8` fois : la division entière **tronque**. `dormir(32)` donne bien 4 cycles (32 s), mais `dormir(30)` donne `30 / 8 = 3` cycles, soit 24 s — la carte dort moins que demandé, sans le moindre avertissement. Passer un multiple de 8 s, ou composer la durée avec les constantes plus fines (`SLEEP_4S`, `SLEEP_2S`, `SLEEP_1S`…).
 
 ## Cas particulier — Réveil par chien de garde en mode interruption
 
