@@ -70,7 +70,9 @@ Le mode dit ce qui déclenche l'ISR : `RISING` (front montant), `FALLING` (front
 
 ### 4. Lire le compteur proprement dans `loop()`
 
-La boucle lit le compteur **sans rien bloquer**. Comme `impulsions` est partagée avec l'ISR et fait plusieurs octets, on la copie dans une **section critique** — interruptions coupées le temps de la copie — pour ne pas lire une valeur modifiée en plein milieu. Le rythme d'affichage est donné par `millis()`, sans `delay()`.
+La boucle lit le compteur **sans rien bloquer**, à un rythme donné par `millis()` (pas de `delay()`). Une précaution s'impose : `impulsions` fait quatre octets, et sur une Uno (8 bits) le processeur la lit en **plusieurs accès successifs**. Si une impulsion arrive *entre* ces accès, l'ISR modifie la variable au milieu de la lecture et `loop()` récupère une valeur incohérente (moitié ancienne, moitié neuve).
+
+On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique** — tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
 
 ```cpp
 unsigned long tAffichage = 0;
@@ -132,7 +134,7 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> Le point délicat est la **section critique** dans `loop()`. `impulsions` est un `unsigned long` (4 octets) ; sur une Uno (8 bits), le processeur le lit en plusieurs accès. Si une impulsion survient *pendant* cette lecture, on récupérerait une valeur à moitié ancienne, à moitié neuve. On encadre donc la copie par `noInterrupts()` / `interrupts()` : le temps de copier `impulsions` dans `n` et de le remettre à 0, aucune interruption ne passe. La remise à 0 se fait **dans** la même section, pour ne compter que les impulsions de la seconde écoulée — d'où une mesure de fréquence (impulsions par seconde, convertie en tours par minute).
+> Une fois par seconde, `loop()` relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `noInterrupts()` / `interrupts()` (cf. étape 4) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** (impulsions par seconde) ; la dernière ligne la convertit en tours par minute (`× 60`).
 
 L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR — les deux comptages cohabitent sans se gêner.
 
