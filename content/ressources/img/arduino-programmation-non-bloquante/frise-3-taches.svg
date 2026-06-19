@@ -1,0 +1,91 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frise temporelle de trois taches cooperatives : la LED bascule toutes les 500 ms, le capteur est lu toutes les 100 ms, le bouton est lu a chaque tour de boucle ; un appui est vu au tour suivant">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .lane{font-size:12px;font-weight:600;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .base{stroke:#BFB8A6;stroke-width:1.5;fill:none;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      .ev{stroke:#BA7517;stroke-width:2;fill:none;}
+      .ev-f{fill:#BA7517;}
+      .bus{stroke:#BA7517;stroke-width:2.4;fill:none;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .base{stroke:#5A574E;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+        .ev{stroke:#E0A24A;}
+        .ev-f{fill:#E0A24A;}
+        .bus{stroke:#E0A24A;}
+      }
+    </style>
+  </defs>
+
+  <text class="t-title" x="40" y="26">Trois tâches, une seule boucle</text>
+
+  <!-- Lane LED -->
+  <text class="lane" x="138" y="64" text-anchor="end">LED</text>
+  <line class="base" x1="150" y1="68" x2="690" y2="68"/>
+  <line class="ev" x1="150" y1="58" x2="150" y2="78"/>
+  <line class="ev" x1="285" y1="58" x2="285" y2="78"/>
+  <line class="ev" x1="420" y1="58" x2="420" y2="78"/>
+  <line class="ev" x1="555" y1="58" x2="555" y2="78"/>
+  <line class="ev" x1="690" y1="58" x2="690" y2="78"/>
+  <text class="t-sm" x="700" y="72" text-anchor="start">bascule / 500 ms</text>
+
+  <!-- Lane Capteur -->
+  <text class="lane" x="138" y="129" text-anchor="end">Capteur</text>
+  <line class="base" x1="150" y1="133" x2="690" y2="133"/>
+  <line class="ev" x1="150" y1="126" x2="150" y2="140"/>
+  <line class="ev" x1="177" y1="126" x2="177" y2="140"/>
+  <line class="ev" x1="204" y1="126" x2="204" y2="140"/>
+  <line class="ev" x1="231" y1="126" x2="231" y2="140"/>
+  <line class="ev" x1="258" y1="126" x2="258" y2="140"/>
+  <line class="ev" x1="285" y1="126" x2="285" y2="140"/>
+  <line class="ev" x1="312" y1="126" x2="312" y2="140"/>
+  <line class="ev" x1="339" y1="126" x2="339" y2="140"/>
+  <line class="ev" x1="366" y1="126" x2="366" y2="140"/>
+  <line class="ev" x1="393" y1="126" x2="393" y2="140"/>
+  <line class="ev" x1="420" y1="126" x2="420" y2="140"/>
+  <line class="ev" x1="447" y1="126" x2="447" y2="140"/>
+  <line class="ev" x1="474" y1="126" x2="474" y2="140"/>
+  <line class="ev" x1="501" y1="126" x2="501" y2="140"/>
+  <line class="ev" x1="528" y1="126" x2="528" y2="140"/>
+  <line class="ev" x1="555" y1="126" x2="555" y2="140"/>
+  <line class="ev" x1="582" y1="126" x2="582" y2="140"/>
+  <line class="ev" x1="609" y1="126" x2="609" y2="140"/>
+  <line class="ev" x1="636" y1="126" x2="636" y2="140"/>
+  <line class="ev" x1="663" y1="126" x2="663" y2="140"/>
+  <line class="ev" x1="690" y1="126" x2="690" y2="140"/>
+  <text class="t-sm" x="700" y="137" text-anchor="start">lit / 100 ms</text>
+
+  <!-- Lane Bouton -->
+  <text class="lane" x="138" y="194" text-anchor="end">Bouton</text>
+  <line class="bus" x1="150" y1="198" x2="690" y2="198"/>
+  <line class="ev" x1="340" y1="172" x2="340" y2="196"/>
+  <polygon class="ev-f" points="335,190 340,198 345,190"/>
+  <text class="t-sm" x="340" y="168" text-anchor="middle">appui</text>
+  <circle class="ev-f" cx="367" cy="198" r="4"/>
+  <text class="t-sm" x="700" y="202" text-anchor="start">lu à chaque tour</text>
+  <text class="t-sm" x="375" y="220" text-anchor="start">vu au tour suivant</text>
+
+  <!-- Axe du temps -->
+  <line class="axis" x1="150" y1="250" x2="700" y2="250"/>
+  <polygon class="arrh" points="700,245 712,250 700,255"/>
+  <line class="axis" x1="150" y1="246" x2="150" y2="254"/>
+  <line class="axis" x1="285" y1="246" x2="285" y2="254"/>
+  <line class="axis" x1="420" y1="246" x2="420" y2="254"/>
+  <line class="axis" x1="555" y1="246" x2="555" y2="254"/>
+  <line class="axis" x1="690" y1="246" x2="690" y2="254"/>
+  <text class="t-sm" x="150" y="268" text-anchor="middle">0</text>
+  <text class="t-sm" x="285" y="268" text-anchor="middle">500</text>
+  <text class="t-sm" x="420" y="268" text-anchor="middle">1000</text>
+  <text class="t-sm" x="555" y="268" text-anchor="middle">1500</text>
+  <text class="t-sm" x="690" y="268" text-anchor="middle">2000</text>
+  <text class="t-sm" x="716" y="254" text-anchor="start">ms</text>
+
+  <text class="t-sm" x="40" y="290" text-anchor="start">Chacune agit à son rythme, aucune n'attend : la boucle les passe toutes en revue des milliers de fois par seconde.</text>
+</svg>
