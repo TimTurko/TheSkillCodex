@@ -3,11 +3,13 @@ title: Programmer une machine à états sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
 prerequis:
   - arduino-prise-en-main
+  - arduino-temporisation
   - machine-a-etats
 aa:
   - RA-EEE-C03-2/EEE/5
@@ -84,7 +86,7 @@ case VERT:
 
 Pour l'exemple ci-dessous : cinq LED (trois pour les voitures, deux pour les piétons) chacune avec sa résistance série de 220 Ω, et un bouton poussoir entre une broche et GND en `INPUT_PULLUP` (voir [[arduino-entree-tor|lire une entrée TOR]] pour l'anti-rebond).
 
-Prendre capture d'écran ou photo de *un montage breadboard avec carte Arduino Uno : 3 LED voiture (verte D12, orange D11, rouge D10), 2 LED piéton (rouge D8, verte D9), résistances 220 Ω, et un bouton poussoir entre D2 et GND*.
+![Montage du carrefour : LED voiture verte (D12), orange (D11), rouge (D10), LED piéton verte (D9) et rouge (D8), chacune avec sa résistance 220 Ω vers GND, et un bouton poussoir entre D2 et GND ; les broches portent les noms du code.|600](/ressources/img/arduino-machine-a-etats/montage.svg)
 
 Après téléversement, le cycle tourne seul ; un appui sur le bouton avance le passage au rouge pour laisser traverser.
 
@@ -93,6 +95,8 @@ Prendre capture d'écran ou photo de *le carrefour en fonctionnement, LED voitur
 ## Exemple — Feux tricolores avec passage piéton
 
 Un carrefour à un feu : les voitures ont le cycle vert → orange → rouge, les piétons disposent d'un feu rouge/vert et d'un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — exactement la garde-condition `[demande && minimum écoulé]` du diagramme.
+
+![Diagramme d'états du feu : VERT puis JAUNE puis ROUGE, puis retour à VERT. La transition VERT vers JAUNE part dès que la durée de vert est écoulée, ou qu'un piéton a appelé après le minimum de vert ; JAUNE vers ROUGE et ROUGE vers VERT se font sur durée écoulée. La boucle teste ces gardes à chaque tour, sans bloquer.|620](/ressources/img/arduino-machine-a-etats/diagramme-etats.svg)
 
 ```cpp
 enum Etat { VERT, JAUNE, ROUGE };
@@ -168,7 +172,12 @@ void loop() {
 }
 ```
 
+> [!info] Comment lire ce code
+> La transition clé est dans le `case VERT` : `if (millis() - tDebut >= DUREE_VERT || (demandePieton && millis() - tDebut >= DUREE_VERT_MIN))`. Elle se lit « **on passe au jaune si** le vert a duré son temps plein (`DUREE_VERT`) **ou bien** un piéton a appelé (`demandePieton`) **et** que le minimum de vert est déjà écoulé ». Le `||` ouvre deux chemins de sortie, le second protégé par un minimum pour ne pas couper un vert qui vient de démarrer. `demandePieton` passe à `true` dès l'appui (testé en tête de `loop()`, donc à chaque tour) et revient à `false` en entrant dans `ROUGE`, une fois la demande satisfaite. À chaque changement d'état, `tDebut = millis()` redate l'entrée pour que les comparaisons de durée repartent de zéro.
+
 Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit le bouton à chaque tour et avance dans le cycle quand les conditions sont réunies. Ajouter un quatrième état (orange clignotant la nuit, par exemple) revient à ajouter un `case` — la structure encaisse sans réécriture.
+
+*Pour rester lisible, l'exemple omet la phase « tout rouge » de dégagement entre le vert piéton et le vert voiture ; un vrai carrefour l'ajouterait — précisément comme un état de plus, au coût d'un `case` supplémentaire.*
 
 ## Pièges
 
@@ -186,7 +195,7 @@ Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit 
 
 ## Cas particulier — Plusieurs machines à états en parallèle
 
-Un montage peut faire tourner **plusieurs machines à états simultanément** (un feu *et* un afficheur clignotant, par exemple). Chacune a sa propre variable d'état et son propre `tDebut`, et toutes leurs `switch` s'exécutent à la suite dans le même `loop()`. C'est précisément parce qu'aucune n'utilise `delay()` qu'elles peuvent cohabiter sans se bloquer l'une l'autre — chacune avance à son rythme à chaque tour de boucle.
+Un montage peut faire tourner **plusieurs machines à états simultanément** (un feu *et* un afficheur clignotant, par exemple). Chacune a sa propre variable d'état et son propre `tDebut`, et toutes leurs `switch` s'exécutent à la suite dans le même `loop()`. C'est précisément parce qu'aucune n'utilise `delay()` qu'elles peuvent cohabiter sans se bloquer l'une l'autre — chacune avance à son rythme à chaque tour de boucle. C'est le cœur de la [[arduino-programmation-non-bloquante|programmation non bloquante]].
 
 ## Raccrochage projet
 
@@ -200,5 +209,6 @@ Maîtriser le motif `switch(etat)` sur un cas simple comme les feux donne le squ
 - [[machine-a-etats|Machine à états]] — la notion mère : états, transitions, gardes, actions (à concevoir avant de coder)
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-temporisation|delay() vs millis()]] — la temporisation non bloquante, cœur du motif
+- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — faire tourner plusieurs machines à états de front dans le même `loop()`
 - [[arduino-entree-tor|Lire une entrée TOR]] — bouton avec anti-rebond et détection de front
 - [[arduino-sortie-tor|Piloter une sortie TOR]] — au-delà de la LED : relais, buzzer
