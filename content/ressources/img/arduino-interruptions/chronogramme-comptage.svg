@@ -1,0 +1,72 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme : impulsions sur la broche D2, chaque front descendant declenche l'ISR qui incremente le compteur, puis la boucle lit et remet a zero une fois par seconde">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .lane{font-size:12px;font-weight:600;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .cnt{font-size:11px;font-weight:600;fill:#BA7517;}
+      .sig{stroke:#7A766C;stroke-width:2.2;fill:none;}
+      .guide{stroke:#BA7517;stroke-width:1;stroke-dasharray:3 3;fill:none;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      .edge{fill:#BA7517;}
+      .win{stroke:#BA7517;stroke-width:1.6;fill:none;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .cnt{fill:#E0A24A;}
+        .sig{stroke:#A9A59B;}
+        .guide{stroke:#E0A24A;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+        .edge{fill:#E0A24A;}
+        .win{stroke:#E0A24A;}
+      }
+    </style>
+  </defs>
+
+  <text class="t-title" x="40" y="26" text-anchor="start">Compter sans rien manquer</text>
+
+  <!-- guides verticaux sur chaque front descendant -->
+  <line class="guide" x1="204" y1="64" x2="204" y2="196"/>
+  <line class="guide" x1="333" y1="64" x2="333" y2="196"/>
+  <line class="guide" x1="434" y1="64" x2="434" y2="196"/>
+  <line class="guide" x1="579" y1="64" x2="579" y2="196"/>
+
+  <!-- D2 : ligne au repos HIGH, dips LOW -->
+  <text class="lane" x="112" y="76" text-anchor="end">D2</text>
+  <path class="sig" d="M120,72 L204,72 L204,100 L220,100 L220,72 L333,72 L333,100 L349,100 L349,72 L434,72 L434,100 L450,100 L450,72 L579,72 L579,100 L595,100 L595,72 L680,72"/>
+  <circle class="edge" cx="204" cy="86" r="3.5"/>
+  <circle class="edge" cx="333" cy="86" r="3.5"/>
+  <circle class="edge" cx="434" cy="86" r="3.5"/>
+  <circle class="edge" cx="579" cy="86" r="3.5"/>
+  <text class="t-sm" x="700" y="76" text-anchor="start">repos HIGH,</text>
+  <text class="t-sm" x="700" y="90" text-anchor="start">dip = impulsion</text>
+
+  <!-- ISR : +1 à chaque front -->
+  <text class="lane" x="112" y="146" text-anchor="end">ISR</text>
+  <text class="cnt" x="204" y="150" text-anchor="middle">+1</text>
+  <text class="cnt" x="333" y="150" text-anchor="middle">+1</text>
+  <text class="cnt" x="434" y="150" text-anchor="middle">+1</text>
+  <text class="cnt" x="579" y="150" text-anchor="middle">+1</text>
+  <text class="t-sm" x="204" y="166" text-anchor="middle">1</text>
+  <text class="t-sm" x="333" y="166" text-anchor="middle">2</text>
+  <text class="t-sm" x="434" y="166" text-anchor="middle">3</text>
+  <text class="t-sm" x="579" y="166" text-anchor="middle">4</text>
+  <text class="t-sm" x="700" y="150" text-anchor="start">impulsions++</text>
+
+  <!-- loop : fenêtre 1 s -->
+  <text class="lane" x="112" y="210" text-anchor="end">loop()</text>
+  <path class="win" d="M120,200 L120,210 L680,210 L680,200"/>
+  <text class="t-sm" x="400" y="228" text-anchor="middle">à 1 s : lit n = 4, calcule les tr/min, remet à 0</text>
+
+  <!-- axe du temps -->
+  <line class="axis" x1="120" y1="256" x2="690" y2="256"/>
+  <polygon class="arrh" points="690,251 702,256 690,261"/>
+  <line class="axis" x1="120" y1="252" x2="120" y2="260"/>
+  <line class="axis" x1="680" y1="252" x2="680" y2="260"/>
+  <text class="t-sm" x="120" y="274" text-anchor="middle">0</text>
+  <text class="t-sm" x="680" y="274" text-anchor="middle">1 s</text>
+  <text class="t-sm" x="708" y="260" text-anchor="start">temps</text>
+</svg>

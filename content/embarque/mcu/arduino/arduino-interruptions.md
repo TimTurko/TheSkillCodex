@@ -3,6 +3,7 @@ title: Programmer une interruption externe sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -89,11 +90,13 @@ void loop() {
 }
 ```
 
-Prendre capture ou photo de *un montage breadboard : carte Arduino Uno, capteur à effet Hall (ou débitmètre) dont la sortie va sur D2, alimenté en 5 V et GND*.
+![Montage : capteur à effet Hall (VCC/GND/OUT) relié à l'Arduino — VCC au 5V, GND au GND, sortie OUT sur la broche D2 (BROCHE_CAPTEUR) en INPUT_PULLUP. La broche porte le nom du code.|560](/ressources/img/arduino-interruptions/montage.svg)
 
 ## Exemple — Compteur de vitesse à effet Hall
 
 Un capteur à effet Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées et trop courtes pour être lues de façon fiable dans `loop()` — c'est le cas d'école de l'interruption. On compte les impulsions par interruption, et la boucle calcule la vitesse de rotation chaque seconde.
+
+![Chronogramme du comptage : la broche D2 est au repos à HIGH et chute à LOW à chaque passage d'aimant ; chaque front descendant déclenche l'ISR qui fait impulsions++ (1, 2, 3, 4) ; une fois par seconde, loop() lit le compteur, calcule les tr/min et le remet à zéro.|640](/ressources/img/arduino-interruptions/chronogramme-comptage.svg)
 
 ```cpp
 const byte BROCHE_CAPTEUR = 2;            // sortie du capteur Hall sur D2
@@ -127,6 +130,9 @@ void loop() {
   }
 }
 ```
+
+> [!info] Comment lire ce code
+> Le point délicat est la **section critique** dans `loop()`. `impulsions` est un `unsigned long` (4 octets) ; sur une Uno (8 bits), le processeur le lit en plusieurs accès. Si une impulsion survient *pendant* cette lecture, on récupérerait une valeur à moitié ancienne, à moitié neuve. On encadre donc la copie par `noInterrupts()` / `interrupts()` : le temps de copier `impulsions` dans `n` et de le remettre à 0, aucune interruption ne passe. La remise à 0 se fait **dans** la même section, pour ne compter que les impulsions de la seconde écoulée — d'où une mesure de fréquence (impulsions par seconde, convertie en tours par minute).
 
 L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR — les deux comptages cohabitent sans se gêner.
 
@@ -162,3 +168,4 @@ Roder le couple `attachInterrupt` + lecture atomique sur un compteur simple donn
 - [[arduino-temporisation|delay() vs millis()]] — la temporisation non bloquante utilisée pour cadencer l'affichage
 - [[arduino-entree-tor|Lire une entrée TOR]] — l'anti-rebond, indispensable pour compter des appuis de bouton
 - [[arduino-timers|Timers Arduino]] — l'autre grande source d'interruption : cadencer une tâche à intervalle régulier
+- [[esp32|ESP32]] — les interruptions y exigent l'attribut `IRAM_ATTR` sur l'ISR
