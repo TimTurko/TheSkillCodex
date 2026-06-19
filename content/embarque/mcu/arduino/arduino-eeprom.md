@@ -3,6 +3,8 @@ title: Stockage EEPROM sur Arduino
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -24,7 +26,7 @@ Cas d'usage en projet école :
 - **Mémorisation de la dernière configuration** — dernier mode actif, dernière valeur de consigne — pour reprendre où on s'était arrêté.
 - **Petits logs** — quelques dernières valeurs d'un capteur conservées pour analyse post-démarrage.
 
-**Limites importantes** : capacité réduite (1 ko = 1024 octets sur Uno R3), nombre de cycles d'écriture limité (~100 000 par cellule), pas de gestion de système de fichiers — c'est une mémoire brute adressée par numéro d'octet. Pour des volumes plus gros, voir la SD card (voir [[arduino-spi|SPI sur Arduino]]).
+**Limites importantes** : capacité réduite (1 ko = 1024 octets sur Uno R3), nombre de cycles d'écriture limité (~100 000 par cellule), pas de gestion de système de fichiers — c'est une mémoire brute adressée par numéro d'octet. Pour des volumes plus gros, voir la carte SD (voir [[arduino-spi|SPI sur Arduino]]).
 
 ## Procédure pas à pas
 
@@ -36,10 +38,10 @@ Quatre étapes : connaître la capacité de la carte, lire la valeur initiale, �
 |---|---|---|
 | Uno R3, Nano (ATmega328P) | **1024 octets** | EEPROM dédiée |
 | Mega 2560 | 4096 octets | EEPROM dédiée |
-| **Uno R4** | 8 ko émulés sur Data Flash (Renesas RA4M1) | **émulation** — comportement légèrement différent |
-| ESP32 | aucune EEPROM matérielle — **émulée sur Flash** (4 ko par défaut) | émulation via `EEPROM.h` ou `Preferences.h` |
+| **Uno R4** | 8 ko émulés sur Data Flash (Renesas RA4M1) | **émulation** — effacement par page |
+| ESP32 | aucune EEPROM matérielle — **émulée sur Flash** (taille déclarée à l'init) | émulation via `EEPROM.h` ou `Preferences.h` |
 
-Sur **Uno R4**, l'EEPROM n'existe pas physiquement — Renesas RA4M1 utilise sa **Data Flash** pour émuler le comportement. La bibliothèque `EEPROM.h` est compatible, mais les caractéristiques diffèrent : durée d'écriture, nombre de cycles, granularité de l'effacement.
+Sur **Uno R4**, l'EEPROM n'existe pas physiquement — le Renesas RA4M1 utilise sa **Data Flash** (8 ko) pour émuler le comportement. La bibliothèque `EEPROM.h` reste compatible, mais l'effacement se fait **par page de 1024 octets** : écrire un seul octet peut obliger à réécrire toute la page. Conséquence : l'usure grimpe bien plus vite qu'en EEPROM dédiée — **ne jamais faire de data logging via `EEPROM.h` sur R4** (et `update()` n'y apporte pas le même gain qu'en AVR). Pour des écritures fréquentes, passer par une carte SD.
 
 Sur **ESP32**, préférer `Preferences.h` (plus moderne) à `EEPROM.h` (héritage compatibilité).
 
@@ -113,6 +115,8 @@ void chargerConfig(Config &c) {
 
 Avantage : la structure documente le format des données et facilite l'évolution.
 
+![Carte mémoire de l'EEPROM : un octet de signature à l'adresse 0, puis la structure Config étalée (seuilCapteur sur 2 octets, coeffEtalonnage sur 4, modeActif sur 1, nbDemarrages sur 4), le reste libre à 0xFF. L'adresse de chaque champ se déduit de la taille du précédent.|640](/ressources/img/arduino-eeprom/carte-memoire-eeprom.svg)
+
 ## Exemple — Compteur de démarrages persistant
 
 Cas complet : compter le nombre de démarrages de l'Arduino et l'afficher au moniteur série.
@@ -150,11 +154,14 @@ void setup() {
 void loop() {}
 ```
 
+> [!info] Comment lire ce code
+> `EEPROM.get(ADRESSE_COMPTEUR, compteur)` relit les 4 octets d'un `uint32_t` à l'adresse 0. Sur une carte **neuve**, ces octets valent tous `0xFF`, donc `compteur` vaut `0xFFFFFFFF` (soit 4294967295) : on teste ce cas pour repartir de 0 plutôt que d'un nombre aberrant. On incrémente, puis `EEPROM.put(...)` réécrit les 4 octets. `get`/`put` gèrent seuls la (dé)sérialisation du type — pas besoin de découper en octets à la main.
+
 Téléverser, observer la valeur (par exemple : `Demarrage n°1`). Débrancher l'Arduino, rebrancher — la valeur s'incrémente (`n°2`, `n°3`...). Elle persiste même après une déconnexion totale.
 
 ## Pièges
 
-**Détection de l'EEPROM neuve.** Une EEPROM vierge a tous ses octets à `0xFF` (255). Si on lit un `int` à l'adresse 0 sans avoir jamais écrit, on lit `0xFFFF` (32767 ou -1 selon le signe). **Toujours détecter ce cas** et initialiser à une valeur sensée — sinon, le programme part avec des paramètres aberrants. Variante : écrire une **signature** (octet de valeur connue à une adresse fixe) qu'on vérifie au démarrage.
+**Détection de l'EEPROM neuve.** Une EEPROM vierge a tous ses octets à `0xFF` (255). Si on lit un `int` à l'adresse 0 sans avoir jamais écrit, on lit `0xFFFF` (soit -1 en signé, 65535 en non signé). **Toujours détecter ce cas** et initialiser à une valeur sensée — sinon, le programme part avec des paramètres aberrants. Variante : écrire une **signature** (octet de valeur connue à une adresse fixe) qu'on vérifie au démarrage.
 
 **Pas d'`EEPROM.commit()` oublié sur ESP32.** Sur ESP32, l'`EEPROM.h` émulée nécessite un appel explicite à `EEPROM.commit()` après chaque modification pour que les données soient effectivement écrites en Flash. Sur Uno R3, ce n'est pas nécessaire — code écrit pour Uno qui passe sur ESP32 et perd ses données = oubli du `commit()`.
 
@@ -166,30 +173,13 @@ Téléverser, observer la valeur (par exemple : `Demarrage n°1`). Débrancher l
 
 **Corruption d'EEPROM par reset pendant l'écriture.** Une coupure d'alimentation pendant `EEPROM.write()` peut corrompre l'octet en cours d'écriture (~3 ms sur Uno R3). Pour des données critiques, utiliser un double-buffer (deux copies à adresses différentes, basculer entre les deux) ou un checksum.
 
-**Mauvaise interprétation des types.** Lire avec `EEPROM.get<float>` ce qui a été écrit avec `EEPROM.put<int>` donne des valeurs aberrantes — pas d'erreur, juste de mauvais bits. La cohérence type-à-type est de la responsabilité du programmeur.
+**Mauvaise interprétation des types.** Relire en `float` (via `EEPROM.get(adr, monFloat)`) ce qui avait été écrit en `int` (via `EEPROM.put(adr, monInt)`) donne des valeurs aberrantes — pas d'erreur de compilation, juste de mauvais bits réinterprétés. `get`/`put` déduisent le type de la variable passée : la cohérence type-à-type entre l'écriture et la lecture est de la responsabilité du programmeur.
 
-**Confondre Flash et EEPROM.** La mémoire **Flash** d'un Arduino contient le sketch — on ne peut pas l'écrire en cours d'exécution depuis le code utilisateur. La **EEPROM** est une zone séparée, dédiée aux données utilisateur. Sur Uno R4 et ESP32, la frontière s'estompe (émulation), mais le concept reste valide.
+**Confondre Flash et EEPROM.** La mémoire **Flash** d'un Arduino contient le sketch — on ne peut pas l'écrire en cours d'exécution depuis le code utilisateur. La **EEPROM** est une zone séparée, dédiée aux données utilisateur. Sur Uno R4 et ESP32, la frontière s'estompe (émulation), mais le concept reste valide (voir [[memoire|les mémoires d'un microcontrôleur]]).
 
-## Cas particulier — Alternatives pour ESP32
+## Cas particulier — Stockage sur ESP32
 
-Sur ESP32, deux APIs cohabitent :
-
-- **`EEPROM.h`** — émulée pour rétrocompatibilité Arduino. Simple mais brut.
-- **`Preferences.h`** — API native ESP32, paires clé-valeur sur Flash, gestion automatique des espaces, plus robuste. **Recommandée**.
-
-```cpp
-#include <Preferences.h>
-
-Preferences prefs;
-
-void setup() {
-  prefs.begin("mon-app", false);  // namespace, mode RW
-  int compteur = prefs.getInt("demarrages", 0);
-  compteur++;
-  prefs.putInt("demarrages", compteur);
-  prefs.end();
-}
-```
+Sur ESP32, l'`EEPROM.h` est seulement **émulée** (rétrocompatibilité Arduino, avec `commit()` obligatoire). L'API native recommandée est **`Preferences.h`** : des paires clé-valeur stockées en Flash (NVS), avec gestion automatique de l'espace et de l'usure — nettement plus robuste pour des paramètres persistants. Le détail de cette API relève du parcours ESP32 ; ici, retenir surtout que **le code EEPROM d'un Arduino ne se transpose pas tel quel** sur ESP32 (au minimum, ajouter `commit()`).
 
 ## Raccrochage projet
 
@@ -203,6 +193,8 @@ L'EEPROM est un petit outil simple mais souvent négligé en projet débutant �
 
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-bibliotheques|Utiliser une bibliothèque]] — prérequis, `EEPROM.h` est livrée
+- [[memoire|Mémoire d'un microcontrôleur]] — Flash, SRAM, EEPROM : les trois mémoires et leurs rôles
 - [[arduino-spi|SPI sur Arduino]] — pour les volumes plus grands (carte SD)
+- [[esp32|ESP32]] — sur ESP32, le stockage persistant passe par `Preferences.h` (EEPROM émulée)
 - [[arduino-debug|Débugger un programme Arduino]] — pour inspecter le contenu EEPROM
 - [[firmware|Firmware]] — organisation du code embarqué incluant persistance
