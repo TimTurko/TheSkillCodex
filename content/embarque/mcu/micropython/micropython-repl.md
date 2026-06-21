@@ -68,6 +68,32 @@ Le REPL est aussi un outil de **découverte** et de **contrôle** :
 
 Le flux de travail typique : on **bricole au REPL** jusqu'à ce qu'une séquence marche, puis on la **recopie dans un fichier** `.py` (voir [[micropython-prise-en-main|prise en main]], `main.py`).
 
+## Tracer une grandeur dans Thonny
+
+Thonny embarque un **traceur** (la vue *Plotter*, *View → Plotter*) qui porte sur un graphique les **nombres imprimés au Shell**, au fil du temps — l'équivalent du traceur série de l'IDE Arduino. Une valeur numérique par ligne, et la courbe se dessine : pratique pour observer un capteur qui évolue ou caler un seuil, sans rien câbler de plus.
+
+```python
+from machine import ADC, Pin
+import time
+
+capteur = ADC(Pin(26))           # entree analogique (Pico : GP26 = ADC0)
+
+while True:
+    valeur = capteur.read_u16()  # 0..65535
+    print(valeur)                # une valeur par ligne -> une courbe
+    time.sleep_ms(50)            # ~20 Hz, lisible a l'oeil
+```
+
+*Prendre capture d'écran de la vue Plotter de Thonny traçant une grandeur qui varie (la courbe ondule au fil des `print`).*
+
+Pour superposer plusieurs grandeurs — comparer une consigne et une mesure, par exemple —, on les imprime **sur la même ligne, séparées par un espace** :
+
+```python
+print(consigne, mesure)          # deux nombres -> deux courbes
+```
+
+Le traceur attend des **nombres** : une ligne qui mêle texte et valeur (`print("capteur", valeur)`) se trace mal. Pour tracer, imprimer le(s) nombre(s) seul(s) et garder les `print()` annotés pour la lecture au Shell. Comme le traceur lit le Shell, une boucle qui imprime trop vite le sature : garder une cadence raisonnable (`sleep_ms`).
+
 ## Pièges
 
 **Une affectation n'affiche rien.** `x = 10` ne renvoie pas de valeur ; pour voir le contenu, taper `x`. C'est normal, pas un bug.
