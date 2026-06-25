@@ -1,0 +1,101 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:17px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .card { fill:#FFFFFF; stroke:#DDDBD3; stroke-width:1.2; }
+      .accN { fill:#B9B6AC; }
+      .accA { fill:#BA7517; }
+      .accD { fill:#B23A2E; }
+      .tN { font-size:13px; font-weight:600; fill:#4A4A4A; }
+      .tA { font-size:13px; font-weight:600; fill:#BA7517; }
+      .tD { font-size:13px; font-weight:600; fill:#B23A2E; }
+      .csub { font-size:10.5px; fill:#7A7A7A; }
+      .chipN { fill:#F2F1EC; stroke:#C2BFB4; stroke-width:1; }
+      .chipA { fill:#F7EBD6; stroke:#BA7517; stroke-width:1; }
+      .chipD { fill:#F4DED9; stroke:#B23A2E; stroke-width:1; }
+      .chipT { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .adcbox { fill:#FAF8F3; stroke:#DDDBD3; stroke-width:1; }
+      .swN { fill:#B9B6AC; }
+      .swA { fill:#BA7517; }
+      .swD { fill:#B23A2E; }
+      .leg { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .card { fill:#1F1F1F; stroke:#3A3A3A; }
+        .accN { fill:#5A5A5A; }
+        .accA { fill:#E0A24A; }
+        .accD { fill:#E0705F; }
+        .tN { fill:#D8D8D8; }
+        .tA { fill:#E0A24A; }
+        .tD { fill:#E0705F; }
+        .csub { fill:#9A9A9A; }
+        .chipN { fill:#2A2A2A; stroke:#4A4A4A; }
+        .chipA { fill:#3A2E19; stroke:#E0A24A; }
+        .chipD { fill:#3A201D; stroke:#E0705F; }
+        .chipT { fill:#ECECEC; }
+        .nStrong { fill:#DADADA; }
+        .n { fill:#B0B0B0; }
+        .adcbox { fill:#232323; stroke:#3A3A3A; }
+        .swN { fill:#5A5A5A; }
+        .swA { fill:#E0A24A; }
+        .swD { fill:#E0705F; }
+        .leg { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="380" y="30" class="h1" text-anchor="middle">Brochage ESP32 — quelles broches utiliser ?</text>
+  <text x="380" y="50" class="sub" text-anchor="middle">Carte ESP32 DevKit · les numéros GPIO sont ceux employés dans le code</text>
+
+  <rect x="24" y="70" width="348" height="116" rx="10" class="card"/>
+  <rect x="24" y="70" width="6" height="116" rx="3" class="accN"/>
+  <text x="42" y="94" class="tN" text-anchor="start">Entrée seule</text>
+  <text x="42" y="112" class="csub" text-anchor="start">lecture uniquement · pas de sortie · pas de pull interne</text>
+  <rect x="42" y="132" width="58" height="26" rx="6" class="chipN"/><text x="71" y="149" class="chipT" text-anchor="middle">GPIO34</text>
+  <rect x="108" y="132" width="58" height="26" rx="6" class="chipN"/><text x="137" y="149" class="chipT" text-anchor="middle">GPIO35</text>
+  <rect x="174" y="132" width="58" height="26" rx="6" class="chipN"/><text x="203" y="149" class="chipT" text-anchor="middle">GPIO36</text>
+  <rect x="240" y="132" width="58" height="26" rx="6" class="chipN"/><text x="269" y="149" class="chipT" text-anchor="middle">GPIO39</text>
+
+  <rect x="388" y="70" width="348" height="116" rx="10" class="card"/>
+  <rect x="388" y="70" width="6" height="116" rx="3" class="accA"/>
+  <text x="406" y="94" class="tA" text-anchor="start">Strapping — prudence</text>
+  <text x="406" y="112" class="csub" text-anchor="start">leur état est lu au démarrage de la carte</text>
+  <rect x="406" y="132" width="52" height="26" rx="6" class="chipA"/><text x="432" y="149" class="chipT" text-anchor="middle">GPIO0</text>
+  <rect x="464" y="132" width="52" height="26" rx="6" class="chipA"/><text x="490" y="149" class="chipT" text-anchor="middle">GPIO2</text>
+  <rect x="522" y="132" width="52" height="26" rx="6" class="chipA"/><text x="548" y="149" class="chipT" text-anchor="middle">GPIO5</text>
+  <rect x="580" y="132" width="52" height="26" rx="6" class="chipA"/><text x="606" y="149" class="chipT" text-anchor="middle">GPIO12</text>
+  <rect x="638" y="132" width="52" height="26" rx="6" class="chipA"/><text x="664" y="149" class="chipT" text-anchor="middle">GPIO15</text>
+
+  <rect x="24" y="198" width="348" height="116" rx="10" class="card"/>
+  <rect x="24" y="198" width="6" height="116" rx="3" class="accD"/>
+  <text x="42" y="222" class="tD" text-anchor="start">Mémoire flash — à ne jamais utiliser</text>
+  <text x="42" y="240" class="csub" text-anchor="start">broches câblées à la mémoire interne</text>
+  <rect x="42" y="260" width="48" height="26" rx="6" class="chipD"/><text x="66" y="277" class="chipT" text-anchor="middle">GPIO6</text>
+  <rect x="96" y="260" width="48" height="26" rx="6" class="chipD"/><text x="120" y="277" class="chipT" text-anchor="middle">GPIO7</text>
+  <rect x="150" y="260" width="48" height="26" rx="6" class="chipD"/><text x="174" y="277" class="chipT" text-anchor="middle">GPIO8</text>
+  <rect x="204" y="260" width="48" height="26" rx="6" class="chipD"/><text x="228" y="277" class="chipT" text-anchor="middle">GPIO9</text>
+  <rect x="258" y="260" width="48" height="26" rx="6" class="chipD"/><text x="282" y="277" class="chipT" text-anchor="middle">GPIO10</text>
+  <rect x="312" y="260" width="48" height="26" rx="6" class="chipD"/><text x="336" y="277" class="chipT" text-anchor="middle">GPIO11</text>
+
+  <rect x="388" y="198" width="348" height="116" rx="10" class="card"/>
+  <rect x="388" y="198" width="6" height="116" rx="3" class="accN"/>
+  <text x="406" y="222" class="tN" text-anchor="start">Port série</text>
+  <text x="406" y="240" class="csub" text-anchor="start">téléversement du programme + moniteur série</text>
+  <rect x="406" y="260" width="120" height="26" rx="6" class="chipN"/><text x="466" y="277" class="chipT" text-anchor="middle">GPIO1 · TX0</text>
+  <rect x="536" y="260" width="120" height="26" rx="6" class="chipN"/><text x="596" y="277" class="chipT" text-anchor="middle">GPIO3 · RX0</text>
+
+  <text x="24" y="346" class="nStrong" text-anchor="start">Toutes les autres broches sont libres, en entrée comme en sortie :</text>
+  <text x="24" y="364" class="n" text-anchor="start">GPIO 4, 13, 14, 16–19, 21–23, 25–27, 32, 33.</text>
+
+  <rect x="24" y="378" width="712" height="48" rx="8" class="adcbox"/>
+  <text x="38" y="399" class="nStrong" text-anchor="start">Entrées analogiques (ADC)</text>
+  <text x="38" y="416" class="n" text-anchor="start">ADC1 : GPIO 32–39, fiables même avec le Wi-Fi.   ADC2 : GPIO 0, 2, 4, 12–15, 25–27, inutilisables quand le Wi-Fi est actif.</text>
+
+  <rect x="24" y="438" width="12" height="12" rx="2" class="swN"/><text x="42" y="448" class="leg" text-anchor="start">Utilisable en entrée/sortie</text>
+  <rect x="210" y="438" width="12" height="12" rx="2" class="swA"/><text x="228" y="448" class="leg" text-anchor="start">Prudence au démarrage (strapping)</text>
+  <rect x="470" y="438" width="12" height="12" rx="2" class="swD"/><text x="488" y="448" class="leg" text-anchor="start">À éviter (mémoire flash)</text>
+</svg>

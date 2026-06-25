@@ -47,7 +47,7 @@ Règle inviolable : **la masse (GND) du module doit être reliée à la masse du
 
 Beaucoup de modules I2C intègrent leurs pull-up sur `SDA`/`SCL` (≈ 4,7 kΩ). Utile pour un premier essai, mais **multiplier les modules I2C met toutes les pull-ups en parallèle** : la résistance équivalente devient trop faible et le bus ne tient plus. Symptôme : un module marche seul, deux ensemble ne marchent plus → retirer les jumpers de pull-up sur tous sauf un. Autres jumpers fréquents : sélection d'adresse I2C, sélection de tension, activation d'opto sur module relais.
 
-Prendre capture d'écran ou photo de *un module I2C (BMP280 ou MPU6050) câblé sur un Pico, fils VCC/GND/SDA/SCL identifiables*.
+![Montage : module I2C (type BMP280/MPU6050) sur un Pico — VCC, GND, SDA sur GP4, SCL sur GP5|600](/ressources/img/micropython-module/montage-module.svg)
 
 ## Exemple — Câbler un module DHT11 (température + humidité)
 

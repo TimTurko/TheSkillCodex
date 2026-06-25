@@ -1,0 +1,91 @@
+<svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .dot { fill:#6E6E6E; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .pin { fill:#E0A24A; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+  </defs>
+
+  <text x="330" y="26" class="h1" text-anchor="middle">Câblage — moteur CC via pont en H (L298N) sur Pico</text>
+  <text x="330" y="46" class="sub" text-anchor="middle">Broches du code : IN1=GP14, IN2=GP15, ENA=GP13 (PWM) · alim. moteur séparée</text>
+
+  <rect x="30" y="86" width="140" height="180" rx="10" class="boxN"/>
+  <text x="100" y="112" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="162" y="134" class="lblPin" text-anchor="end">GP14 (IN1)</text>
+  <text x="162" y="168" class="lblPin" text-anchor="end">GP15 (IN2)</text>
+  <text x="162" y="202" class="lblPin" text-anchor="end">GP13 (ENA)</text>
+  <text x="162" y="246" class="lblPin" text-anchor="end">GND</text>
+  <circle cx="170" cy="130" r="3" class="dot"/>
+  <circle cx="170" cy="164" r="3" class="dot"/>
+  <circle cx="170" cy="198" r="3" class="dot"/>
+  <circle cx="170" cy="242" r="3" class="dot"/>
+
+  <rect x="260" y="80" width="170" height="200" rx="10" class="comp"/>
+  <text x="345" y="106" class="lblBox" text-anchor="middle">Pont en H (L298N)</text>
+  <circle cx="260" cy="130" r="3" class="dot"/><text x="268" y="134" class="pin" text-anchor="start">IN1</text>
+  <circle cx="260" cy="164" r="3" class="dot"/><text x="268" y="168" class="pin" text-anchor="start">IN2</text>
+  <circle cx="260" cy="198" r="3" class="dot"/><text x="268" y="202" class="pin" text-anchor="start">ENA</text>
+  <circle cx="260" cy="242" r="3" class="dot"/><text x="268" y="246" class="pin" text-anchor="start">GND</text>
+  <circle cx="430" cy="130" r="3" class="dot"/><text x="422" y="134" class="pin" text-anchor="end">OUT1</text>
+  <circle cx="430" cy="164" r="3" class="dot"/><text x="422" y="168" class="pin" text-anchor="end">OUT2</text>
+  <circle cx="430" cy="210" r="3" class="dot"/><text x="422" y="214" class="pin" text-anchor="end">+12 V</text>
+  <circle cx="430" cy="244" r="3" class="dot"/><text x="422" y="248" class="pin" text-anchor="end">GND</text>
+
+  <line x1="170" y1="130" x2="260" y2="130" class="wire"/>
+  <line x1="170" y1="164" x2="260" y2="164" class="wire"/>
+  <line x1="170" y1="198" x2="260" y2="198" class="wire"/>
+  <line x1="170" y1="242" x2="260" y2="242" class="wire"/>
+
+  <!-- Moteur -->
+  <rect x="520" y="104" width="110" height="56" rx="10" class="boxN"/>
+  <text x="575" y="138" class="lblBox" text-anchor="middle">Moteur CC</text>
+  <circle cx="520" cy="120" r="3" class="dot"/>
+  <circle cx="520" cy="148" r="3" class="dot"/>
+  <line x1="430" y1="130" x2="475" y2="130" class="wire"/>
+  <line x1="475" y1="130" x2="475" y2="120" class="wire"/>
+  <line x1="475" y1="120" x2="520" y2="120" class="wire"/>
+  <line x1="430" y1="164" x2="495" y2="164" class="wire"/>
+  <line x1="495" y1="164" x2="495" y2="148" class="wire"/>
+  <line x1="495" y1="148" x2="520" y2="148" class="wire"/>
+
+  <!-- Alim séparée -->
+  <rect x="520" y="208" width="110" height="48" rx="10" class="boxN"/>
+  <text x="575" y="230" class="lbl" text-anchor="middle" style="font-size:12px;">Alim. moteur</text>
+  <text x="575" y="246" class="n" text-anchor="middle">(ex. 12 V)</text>
+  <circle cx="520" cy="216" r="3" class="dot"/><text x="512" y="220" class="lblPin" text-anchor="end">+</text>
+  <circle cx="520" cy="248" r="3" class="dot"/><text x="512" y="252" class="lblPin" text-anchor="end">−</text>
+  <line x1="430" y1="210" x2="520" y2="210" class="wire"/>
+  <line x1="510" y1="210" x2="510" y2="216" class="wire"/>
+  <line x1="510" y1="216" x2="520" y2="216" class="wire"/>
+
+  <!-- Masse commune -->
+  <line x1="170" y1="242" x2="170" y2="320" class="wire"/>
+  <line x1="430" y1="244" x2="450" y2="244" class="wire"/>
+  <line x1="450" y1="244" x2="450" y2="320" class="wire"/>
+  <line x1="520" y1="248" x2="500" y2="248" class="wire"/>
+  <line x1="500" y1="248" x2="500" y2="320" class="wire"/>
+  <line x1="120" y1="320" x2="500" y2="320" class="wire"/>
+  <text x="300" y="338" class="n" text-anchor="middle">masse commune entre le Pico, le pont en H et l'alimentation moteur</text>
+</svg>

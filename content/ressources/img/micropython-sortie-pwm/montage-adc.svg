@@ -1,0 +1,59 @@
+<svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .compLine { fill:none; stroke:#BA7517; stroke-width:2; }
+      .dot { fill:#6E6E6E; }
+      .lbl { font-size:12px; fill:#2A2A2A; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .compLine { stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lbl { fill:#ECECEC; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .nStrong { fill:#DADADA; }
+        .n { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="280" y="26" class="h1" text-anchor="middle">Câblage — LED en PWM (intensité) sur Pico</text>
+  <text x="280" y="46" class="sub" text-anchor="middle">Broche du code : GP15 · même montage qu'une LED, l'intensité varie par le logiciel</text>
+
+  <rect x="44" y="80" width="140" height="120" rx="10" class="boxN"/>
+  <text x="114" y="106" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="176" y="128" class="lblPin" text-anchor="end">GP15</text>
+  <text x="176" y="180" class="lblPin" text-anchor="end">GND</text>
+
+  <circle cx="184" cy="124" r="3" class="dot"/>
+  <line x1="184" y1="124" x2="280" y2="124" class="wire"/>
+  <rect x="280" y="113" width="56" height="22" rx="2" class="comp"/>
+  <text x="308" y="106" class="lbl" text-anchor="middle">R 220 Ω</text>
+  <line x1="336" y1="124" x2="400" y2="124" class="wire"/>
+  <polygon points="400,114 400,134 426,124" class="comp"/>
+  <line x1="426" y1="114" x2="426" y2="134" class="compLine"/>
+  <line x1="416" y1="110" x2="426" y2="100" class="compLine"/>
+  <line x1="408" y1="112" x2="418" y2="102" class="compLine"/>
+  <text x="413" y="154" class="lbl" text-anchor="middle">LED</text>
+  <line x1="426" y1="124" x2="490" y2="124" class="wire"/>
+  <line x1="490" y1="124" x2="490" y2="176" class="wire"/>
+  <line x1="490" y1="176" x2="184" y2="176" class="wire"/>
+  <circle cx="184" cy="176" r="3" class="dot"/>
+
+  <text x="44" y="232" class="nStrong" text-anchor="start">Bon à savoir</text>
+  <text x="44" y="250" class="n" text-anchor="start">Le câblage est identique à une LED simple. PWM(Pin(15)) allume/éteint très vite : l'œil voit une intensité moyenne.</text>
+  <text x="44" y="268" class="n" text-anchor="start">duty_u16(0) = éteinte, duty_u16(65535) = pleine intensité.</text>
+</svg>

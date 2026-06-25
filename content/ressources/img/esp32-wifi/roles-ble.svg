@@ -1,0 +1,78 @@
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:16px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .boxT { font-size:13px; font-weight:600; fill:#2A2A2A; }
+      .roleT { font-size:11px; font-weight:600; fill:#BA7517; }
+      .roleN { font-size:11px; font-weight:600; fill:#5A5A5A; }
+      .inner { fill:#FFFFFF; stroke:#C9C6BC; stroke-width:1; }
+      .innerT { font-size:10.5px; fill:#3A3A3A; }
+      .wifi { fill:none; stroke:#BA7517; stroke-width:2; }
+      .wdot { fill:#BA7517; }
+      .arr { fill:none; stroke:#6E6E6E; stroke-width:1.8; }
+      .arrH { fill:#6E6E6E; }
+      .lbl { font-size:11px; fill:#5A5A5A; }
+      .cap { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .boxT { fill:#ECECEC; }
+        .roleT { fill:#E0A24A; }
+        .roleN { fill:#B0B0B0; }
+        .inner { fill:#2A2A2A; stroke:#4A4A4A; }
+        .innerT { fill:#D8D8D8; }
+        .wifi { stroke:#E0A24A; }
+        .wdot { fill:#E0A24A; }
+        .arr { stroke:#B0B0B0; }
+        .arrH { fill:#B0B0B0; }
+        .lbl { fill:#B0B0B0; }
+        .cap { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="340" y="28" class="h1" text-anchor="middle">Les deux rôles en Bluetooth BLE</text>
+  <text x="340" y="48" class="sub" text-anchor="middle">Un côté expose des données, l'autre vient les chercher</text>
+
+  <!-- Périphérique / serveur (ESP32) -->
+  <rect x="40" y="80" width="220" height="200" rx="10" class="comp"/>
+  <text x="150" y="106" class="boxT" text-anchor="middle">ESP32</text>
+  <text x="150" y="124" class="roleT" text-anchor="middle">Périphérique (serveur)</text>
+  <rect x="62" y="140" width="176" height="50" rx="6" class="inner"/>
+  <text x="150" y="160" class="innerT" text-anchor="middle">Service</text>
+  <text x="150" y="178" class="innerT" text-anchor="middle">(ex. capteur de température)</text>
+  <rect x="62" y="200" width="176" height="60" rx="6" class="inner"/>
+  <text x="150" y="220" class="innerT" text-anchor="middle">Caractéristique</text>
+  <text x="150" y="238" class="innerT" text-anchor="middle">la valeur lisible</text>
+  <text x="150" y="252" class="innerT" text-anchor="middle">(ex. 23.5 °C)</text>
+
+  <!-- Ondes d'annonce -->
+  <path d="M270,150 A12 12 0 0 1 270,190" class="wifi"/>
+  <path d="M282,142 A22 22 0 0 1 282,198" class="wifi"/>
+  <path d="M294,134 A32 32 0 0 1 294,206" class="wifi"/>
+  <circle cx="266" cy="170" r="2.5" class="wdot"/>
+  <text x="340" y="148" class="lbl" text-anchor="middle">annonce sa présence</text>
+
+  <!-- Flèches d'échange -->
+  <line x1="312" y1="176" x2="418" y2="176" class="arr"/>
+  <polygon points="312,176 322,171 322,181" class="arrH"/>
+  <text x="365" y="200" class="lbl" text-anchor="middle">lit / s'abonne</text>
+
+  <!-- Central / client -->
+  <rect x="420" y="80" width="220" height="200" rx="10" class="boxN"/>
+  <text x="530" y="106" class="boxT" text-anchor="middle">Téléphone / PC</text>
+  <text x="530" y="124" class="roleN" text-anchor="middle">Central (client)</text>
+  <rect x="442" y="150" width="176" height="90" rx="6" class="inner"/>
+  <text x="530" y="180" class="innerT" text-anchor="middle">1. scanne les alentours</text>
+  <text x="530" y="202" class="innerT" text-anchor="middle">2. repère l'ESP32</text>
+  <text x="530" y="224" class="innerT" text-anchor="middle">3. se connecte et lit la valeur</text>
+
+  <!-- Légende du sens -->
+  <text x="340" y="312" class="cap" text-anchor="middle">Le périphérique attend, visible de tous. Le central décide de scanner,</text>
+  <text x="340" y="330" class="cap" text-anchor="middle">de se connecter, puis de lire ou de recevoir les données exposées.</text>
+</svg>

@@ -39,7 +39,7 @@ Les entrées analogiques sont **GP26, GP27, GP28**. Un canal interne (`ADC(4)`) 
 
 Potentiomètre 10 kΩ : une extrême → `3,3 V` ; l'autre → `GND` ; curseur (milieu) → `GP26`. Le potentiomètre forme un pont diviseur variant de 0 V à 3,3 V.
 
-Prendre capture d'écran ou photo de *un potentiomètre 10 kΩ câblé sur une breadboard, ses trois broches vers 3,3 V / GP26 / GND d'un Pico*.
+![Montage : potentiomètre 10 kΩ sur un Pico — extrémités vers 3,3 V et GND, curseur vers GP26 (ADC0)|600](/ressources/img/micropython-capteur-analogique/montage-adc.svg)
 
 ### 3. Lecture brute
 

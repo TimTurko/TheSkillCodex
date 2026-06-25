@@ -48,7 +48,7 @@ Deux réglages : **`freq()`** (la fréquence, librement choisie) et **`duty_u16(
 
 LED anode (+) → résistance 220 Ω → **GP15** ; cathode (−) → GND. Identique au câblage TOR — c'est le code qui change.
 
-Prendre capture d'écran ou photo de *une LED + résistance 220 Ω câblée sur GP15 d'un Pico*.
+![Montage : LED + résistance 220 Ω sur GP15 d'un Pico (câblage identique à une LED TOR, c'est le code qui change)|600](/ressources/img/micropython-sortie-pwm/montage-led-pwm.svg)
 
 ### 3. Écrire le code — fondu progressif
 

@@ -30,7 +30,7 @@ Un côté du bouton sur la broche (ici GP14), l'autre sur GND. Aucune résistanc
 
 **Logique inversée** : `bouton.value()` renvoie `1` au repos, `0` quand appuyé.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec un bouton-poussoir entre GP14 et GND, et un Pico branché en USB*.
+![Montage : bouton-poussoir entre GP14 et GND sur un Raspberry Pi Pico, lecture en PULL_UP (repos = 1, appui = 0)|600](/ressources/img/micropython-entree-tor/montage-bouton.svg)
 
 ### 2. Lecture brute
 

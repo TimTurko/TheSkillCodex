@@ -42,7 +42,7 @@ Pour un premier test, le **SG90** est le standard.
 
 3 fils : **rouge** → `+5 V` (VBUS, ou alimentation externe dès 2 servos / un servo de couple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de signal (ex. **GP15**). Le signal du Pico est en 3,3 V — accepté par la plupart des servos. **GND commun** si alimentation séparée.
 
-Prendre capture d'écran ou photo de *un servo SG90 câblé sur un Pico, signal sur GP15, rouge sur +5 V, marron sur GND*.
+![Câblage : servomoteur sur un Pico — signal sur GP15, fil rouge sur +5 V (VBUS), fil marron sur GND|600](/ressources/img/micropython-servomoteur/branchement-servo.svg)
 
 ### 3. Convertir un angle en impulsion
 

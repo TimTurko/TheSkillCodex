@@ -35,6 +35,8 @@ L'ESP32 d'origine expose des GPIO numérotées (`GPIO0` à `GPIO39`). On les dé
 - **Broches série** — `GPIO1` (TX) et `GPIO3` (RX) : c'est l'UART0 du [[esp32-serie|moniteur série]] ; les laisser libres tant qu'on l'utilise.
 - **Strapping pins** — `GPIO0`, `2`, `5`, `12`, `15` : lues au reset pour le mode de boot. Utilisables, mais avec précaution (voir Pièges).
 
+![Brochage de l'ESP32 par catégorie : broches polyvalentes, entrée seule (GPIO34/35/36/39), broches Flash (GPIO6-11), série (GPIO1/3) et strapping (GPIO0/2/5/12/15)|640](/ressources/img/esp32-gpio/brochage.svg)
+
 > [!warning]
 > **L'ESP32 est en 3,3 V et ne tolère pas le 5 V.** Appliquer 5 V sur une entrée peut **détruire la broche**. Tout signal 5 V (capteur, module) passe par une adaptation de niveau — voir [[niveaux-de-tension|niveaux de tension]]. C'est la différence la plus piégeuse avec l'Arduino.
 
@@ -58,6 +60,8 @@ void loop() {
 ```
 
 `pinMode` accepte `INPUT`, `OUTPUT`, `INPUT_PULLUP` et — spécificité ESP32 absente de l'Arduino AVR — `INPUT_PULLDOWN` (tirage interne vers la masse). Le tirage interne évite l'entrée *flottante* : une broche en `INPUT` nu capte le bruit ambiant et lit n'importe quoi. **Rappel : les broches `GPIO34-39` n'ont aucun tirage interne** — un bouton sur l'une d'elles exige une résistance externe.
+
+![Câblage sur ESP32 : LED avec résistance 220 Ω sur GPIO16, bouton entre GPIO4 et GND lu en INPUT_PULLUP|600](/ressources/img/esp32-gpio/montage-led-bouton.svg)
 
 > [!tip]
 > **Constantes en `const`, pas en `#define`.** Déclarer `const int LED = 16;` est typé et lisible ; le compilateur vérifie l'usage. On réserve `#define` à ce que `const` ne sait pas faire (compilation conditionnelle, macros).

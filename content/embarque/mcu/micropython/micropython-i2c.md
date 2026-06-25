@@ -47,7 +47,7 @@ I2C exige des **pull-up vers VCC** sur `SDA` et `SCL` (≈ 4,7 kΩ ; 2,2 kΩ en 
 | SDA | GP4 |
 | SCL | GP5 |
 
-Prendre capture d'écran ou photo de *un module I2C (BMP280, MPU6050 ou RTC DS3231) câblé sur GP4/GP5 d'un Pico*.
+![Câblage : bus I2C sur un Pico — SDA sur GP4, SCL sur GP5, pull-ups vers 3,3 V|600](/ressources/img/micropython-i2c/branchement-i2c.svg)
 
 ### 3. Scanner les adresses (intégré)
 

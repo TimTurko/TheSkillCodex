@@ -1,0 +1,145 @@
+<svg viewBox="0 0 640 620" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:10.5px; fill:#6E6E6E; }
+      .conn { fill:#FAF8F3; stroke:#DDDBD3; stroke-width:1.2; }
+      .pad { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1; }
+      .padN { font-size:9px; fill:#3A3A3A; }
+      .gp { fill:#F2F1EC; stroke:#C2BFB4; stroke-width:1; }
+      .pA { fill:#BA7517; }
+      .p5 { fill:#B23A2E; }
+      .gnd { fill:#6E6E6E; }
+      .tDark { font-size:10px; font-weight:600; fill:#2A2A2A; }
+      .tLight { font-size:10px; font-weight:600; fill:#FFFFFF; }
+      .leg { font-size:10.5px; fill:#5A5A5A; }
+      .note { font-size:10px; fill:#6E6E6E; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .conn { fill:#232323; stroke:#3A3A3A; }
+        .pad { fill:#2A2A2A; stroke:#5A5A5A; }
+        .padN { fill:#D8D8D8; }
+        .gp { fill:#2A2A2A; stroke:#4A4A4A; }
+        .pA { fill:#E0A24A; }
+        .p5 { fill:#E0705F; }
+        .gnd { fill:#888888; }
+        .tDark { fill:#ECECEC; }
+        .tLight { fill:#FFFFFF; }
+        .leg { fill:#B0B0B0; }
+        .note { fill:#A8A8A8; }
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="28" class="h1" text-anchor="middle">Brochage du Raspberry Pi — connecteur 40 broches</text>
+  <text x="320" y="50" class="sub" text-anchor="middle">Numéro BCM (GPIO) = nom dans le code · numéro physique = position sur le connecteur</text>
+
+  <rect x="294" y="78" width="52" height="488" rx="6" class="conn"/>
+
+  <rect x="120" y="86" width="168" height="16" rx="5" class="pA"/><text x="280" y="98" class="tLight" text-anchor="end">3V3 — 3,3 V</text>
+  <rect x="300" y="86" width="16" height="16" rx="3" class="pad"/><text x="308" y="98" class="padN" text-anchor="middle">1</text>
+  <rect x="324" y="86" width="16" height="16" rx="3" class="pad"/><text x="332" y="98" class="padN" text-anchor="middle">2</text>
+  <rect x="352" y="86" width="168" height="16" rx="5" class="p5"/><text x="360" y="98" class="tLight" text-anchor="start">5 V</text>
+
+  <rect x="120" y="110" width="168" height="16" rx="5" class="gp"/><text x="280" y="122" class="tDark" text-anchor="end">GPIO2 · SDA</text>
+  <rect x="300" y="110" width="16" height="16" rx="3" class="pad"/><text x="308" y="122" class="padN" text-anchor="middle">3</text>
+  <rect x="324" y="110" width="16" height="16" rx="3" class="pad"/><text x="332" y="122" class="padN" text-anchor="middle">4</text>
+  <rect x="352" y="110" width="168" height="16" rx="5" class="p5"/><text x="360" y="122" class="tLight" text-anchor="start">5 V</text>
+
+  <rect x="120" y="134" width="168" height="16" rx="5" class="gp"/><text x="280" y="146" class="tDark" text-anchor="end">GPIO3 · SCL</text>
+  <rect x="300" y="134" width="16" height="16" rx="3" class="pad"/><text x="308" y="146" class="padN" text-anchor="middle">5</text>
+  <rect x="324" y="134" width="16" height="16" rx="3" class="pad"/><text x="332" y="146" class="padN" text-anchor="middle">6</text>
+  <rect x="352" y="134" width="168" height="16" rx="5" class="gnd"/><text x="360" y="146" class="tLight" text-anchor="start">GND</text>
+
+  <rect x="120" y="158" width="168" height="16" rx="5" class="gp"/><text x="280" y="170" class="tDark" text-anchor="end">GPIO4</text>
+  <rect x="300" y="158" width="16" height="16" rx="3" class="pad"/><text x="308" y="170" class="padN" text-anchor="middle">7</text>
+  <rect x="324" y="158" width="16" height="16" rx="3" class="pad"/><text x="332" y="170" class="padN" text-anchor="middle">8</text>
+  <rect x="352" y="158" width="168" height="16" rx="5" class="gp"/><text x="360" y="170" class="tDark" text-anchor="start">GPIO14 · TXD</text>
+
+  <rect x="120" y="182" width="168" height="16" rx="5" class="gnd"/><text x="280" y="194" class="tLight" text-anchor="end">GND</text>
+  <rect x="300" y="182" width="16" height="16" rx="3" class="pad"/><text x="308" y="194" class="padN" text-anchor="middle">9</text>
+  <rect x="324" y="182" width="16" height="16" rx="3" class="pad"/><text x="332" y="194" class="padN" text-anchor="middle">10</text>
+  <rect x="352" y="182" width="168" height="16" rx="5" class="gp"/><text x="360" y="194" class="tDark" text-anchor="start">GPIO15 · RXD</text>
+
+  <rect x="120" y="206" width="168" height="16" rx="5" class="gp"/><text x="280" y="218" class="tDark" text-anchor="end">GPIO17</text>
+  <rect x="300" y="206" width="16" height="16" rx="3" class="pad"/><text x="308" y="218" class="padN" text-anchor="middle">11</text>
+  <rect x="324" y="206" width="16" height="16" rx="3" class="pad"/><text x="332" y="218" class="padN" text-anchor="middle">12</text>
+  <rect x="352" y="206" width="168" height="16" rx="5" class="gp"/><text x="360" y="218" class="tDark" text-anchor="start">GPIO18 · PWM</text>
+
+  <rect x="120" y="230" width="168" height="16" rx="5" class="gp"/><text x="280" y="242" class="tDark" text-anchor="end">GPIO27</text>
+  <rect x="300" y="230" width="16" height="16" rx="3" class="pad"/><text x="308" y="242" class="padN" text-anchor="middle">13</text>
+  <rect x="324" y="230" width="16" height="16" rx="3" class="pad"/><text x="332" y="242" class="padN" text-anchor="middle">14</text>
+  <rect x="352" y="230" width="168" height="16" rx="5" class="gnd"/><text x="360" y="242" class="tLight" text-anchor="start">GND</text>
+
+  <rect x="120" y="254" width="168" height="16" rx="5" class="gp"/><text x="280" y="266" class="tDark" text-anchor="end">GPIO22</text>
+  <rect x="300" y="254" width="16" height="16" rx="3" class="pad"/><text x="308" y="266" class="padN" text-anchor="middle">15</text>
+  <rect x="324" y="254" width="16" height="16" rx="3" class="pad"/><text x="332" y="266" class="padN" text-anchor="middle">16</text>
+  <rect x="352" y="254" width="168" height="16" rx="5" class="gp"/><text x="360" y="266" class="tDark" text-anchor="start">GPIO23</text>
+
+  <rect x="120" y="278" width="168" height="16" rx="5" class="pA"/><text x="280" y="290" class="tLight" text-anchor="end">3V3 — 3,3 V</text>
+  <rect x="300" y="278" width="16" height="16" rx="3" class="pad"/><text x="308" y="290" class="padN" text-anchor="middle">17</text>
+  <rect x="324" y="278" width="16" height="16" rx="3" class="pad"/><text x="332" y="290" class="padN" text-anchor="middle">18</text>
+  <rect x="352" y="278" width="168" height="16" rx="5" class="gp"/><text x="360" y="290" class="tDark" text-anchor="start">GPIO24</text>
+
+  <rect x="120" y="302" width="168" height="16" rx="5" class="gp"/><text x="280" y="314" class="tDark" text-anchor="end">GPIO10 · MOSI</text>
+  <rect x="300" y="302" width="16" height="16" rx="3" class="pad"/><text x="308" y="314" class="padN" text-anchor="middle">19</text>
+  <rect x="324" y="302" width="16" height="16" rx="3" class="pad"/><text x="332" y="314" class="padN" text-anchor="middle">20</text>
+  <rect x="352" y="302" width="168" height="16" rx="5" class="gnd"/><text x="360" y="314" class="tLight" text-anchor="start">GND</text>
+
+  <rect x="120" y="326" width="168" height="16" rx="5" class="gp"/><text x="280" y="338" class="tDark" text-anchor="end">GPIO9 · MISO</text>
+  <rect x="300" y="326" width="16" height="16" rx="3" class="pad"/><text x="308" y="338" class="padN" text-anchor="middle">21</text>
+  <rect x="324" y="326" width="16" height="16" rx="3" class="pad"/><text x="332" y="338" class="padN" text-anchor="middle">22</text>
+  <rect x="352" y="326" width="168" height="16" rx="5" class="gp"/><text x="360" y="338" class="tDark" text-anchor="start">GPIO25</text>
+
+  <rect x="120" y="350" width="168" height="16" rx="5" class="gp"/><text x="280" y="362" class="tDark" text-anchor="end">GPIO11 · SCLK</text>
+  <rect x="300" y="350" width="16" height="16" rx="3" class="pad"/><text x="308" y="362" class="padN" text-anchor="middle">23</text>
+  <rect x="324" y="350" width="16" height="16" rx="3" class="pad"/><text x="332" y="362" class="padN" text-anchor="middle">24</text>
+  <rect x="352" y="350" width="168" height="16" rx="5" class="gp"/><text x="360" y="362" class="tDark" text-anchor="start">GPIO8 · CE0</text>
+
+  <rect x="120" y="374" width="168" height="16" rx="5" class="gnd"/><text x="280" y="386" class="tLight" text-anchor="end">GND</text>
+  <rect x="300" y="374" width="16" height="16" rx="3" class="pad"/><text x="308" y="386" class="padN" text-anchor="middle">25</text>
+  <rect x="324" y="374" width="16" height="16" rx="3" class="pad"/><text x="332" y="386" class="padN" text-anchor="middle">26</text>
+  <rect x="352" y="374" width="168" height="16" rx="5" class="gp"/><text x="360" y="386" class="tDark" text-anchor="start">GPIO7 · CE1</text>
+
+  <rect x="120" y="398" width="168" height="16" rx="5" class="gp"/><text x="280" y="410" class="tDark" text-anchor="end">GPIO0 · ID_SD</text>
+  <rect x="300" y="398" width="16" height="16" rx="3" class="pad"/><text x="308" y="410" class="padN" text-anchor="middle">27</text>
+  <rect x="324" y="398" width="16" height="16" rx="3" class="pad"/><text x="332" y="410" class="padN" text-anchor="middle">28</text>
+  <rect x="352" y="398" width="168" height="16" rx="5" class="gp"/><text x="360" y="410" class="tDark" text-anchor="start">GPIO1 · ID_SC</text>
+
+  <rect x="120" y="422" width="168" height="16" rx="5" class="gp"/><text x="280" y="434" class="tDark" text-anchor="end">GPIO5</text>
+  <rect x="300" y="422" width="16" height="16" rx="3" class="pad"/><text x="308" y="434" class="padN" text-anchor="middle">29</text>
+  <rect x="324" y="422" width="16" height="16" rx="3" class="pad"/><text x="332" y="434" class="padN" text-anchor="middle">30</text>
+  <rect x="352" y="422" width="168" height="16" rx="5" class="gnd"/><text x="360" y="434" class="tLight" text-anchor="start">GND</text>
+
+  <rect x="120" y="446" width="168" height="16" rx="5" class="gp"/><text x="280" y="458" class="tDark" text-anchor="end">GPIO6</text>
+  <rect x="300" y="446" width="16" height="16" rx="3" class="pad"/><text x="308" y="458" class="padN" text-anchor="middle">31</text>
+  <rect x="324" y="446" width="16" height="16" rx="3" class="pad"/><text x="332" y="458" class="padN" text-anchor="middle">32</text>
+  <rect x="352" y="446" width="168" height="16" rx="5" class="gp"/><text x="360" y="458" class="tDark" text-anchor="start">GPIO12 · PWM</text>
+
+  <rect x="120" y="470" width="168" height="16" rx="5" class="gp"/><text x="280" y="482" class="tDark" text-anchor="end">GPIO13 · PWM</text>
+  <rect x="300" y="470" width="16" height="16" rx="3" class="pad"/><text x="308" y="482" class="padN" text-anchor="middle">33</text>
+  <rect x="324" y="470" width="16" height="16" rx="3" class="pad"/><text x="332" y="482" class="padN" text-anchor="middle">34</text>
+  <rect x="352" y="470" width="168" height="16" rx="5" class="gnd"/><text x="360" y="482" class="tLight" text-anchor="start">GND</text>
+
+  <rect x="120" y="494" width="168" height="16" rx="5" class="gp"/><text x="280" y="506" class="tDark" text-anchor="end">GPIO19</text>
+  <rect x="300" y="494" width="16" height="16" rx="3" class="pad"/><text x="308" y="506" class="padN" text-anchor="middle">35</text>
+  <rect x="324" y="494" width="16" height="16" rx="3" class="pad"/><text x="332" y="506" class="padN" text-anchor="middle">36</text>
+  <rect x="352" y="494" width="168" height="16" rx="5" class="gp"/><text x="360" y="506" class="tDark" text-anchor="start">GPIO16</text>
+
+  <rect x="120" y="518" width="168" height="16" rx="5" class="gp"/><text x="280" y="530" class="tDark" text-anchor="end">GPIO26</text>
+  <rect x="300" y="518" width="16" height="16" rx="3" class="pad"/><text x="308" y="530" class="padN" text-anchor="middle">37</text>
+  <rect x="324" y="518" width="16" height="16" rx="3" class="pad"/><text x="332" y="530" class="padN" text-anchor="middle">38</text>
+  <rect x="352" y="518" width="168" height="16" rx="5" class="gp"/><text x="360" y="530" class="tDark" text-anchor="start">GPIO20</text>
+
+  <rect x="120" y="542" width="168" height="16" rx="5" class="gnd"/><text x="280" y="554" class="tLight" text-anchor="end">GND</text>
+  <rect x="300" y="542" width="16" height="16" rx="3" class="pad"/><text x="308" y="554" class="padN" text-anchor="middle">39</text>
+  <rect x="324" y="542" width="16" height="16" rx="3" class="pad"/><text x="332" y="554" class="padN" text-anchor="middle">40</text>
+  <rect x="352" y="542" width="168" height="16" rx="5" class="gp"/><text x="360" y="554" class="tDark" text-anchor="start">GPIO21</text>
+
+  <rect x="120" y="582" width="12" height="12" rx="2" class="pA"/><text x="138" y="592" class="leg" text-anchor="start">3,3 V</text>
+  <rect x="196" y="582" width="12" height="12" rx="2" class="p5"/><text x="214" y="592" class="leg" text-anchor="start">5 V</text>
+  <rect x="258" y="582" width="12" height="12" rx="2" class="gnd"/><text x="276" y="592" class="leg" text-anchor="start">GND</text>
+  <rect x="330" y="582" width="12" height="12" rx="2" class="gp"/><text x="348" y="592" class="leg" text-anchor="start">GPIO (entrée/sortie)</text>
+  <text x="120" y="612" class="note" text-anchor="start">SDA/SCL = I2C · TXD/RXD = UART · MOSI/MISO/SCLK/CE = SPI · PWM = sortie modulée</text>
+</svg>

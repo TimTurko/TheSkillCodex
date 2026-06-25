@@ -1,0 +1,59 @@
+<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .dot { fill:#6E6E6E; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .pin { fill:#E0A24A; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+  </defs>
+
+  <text x="300" y="26" class="h1" text-anchor="middle">Câblage — servomoteur sur Pico (MicroPython)</text>
+  <text x="300" y="46" class="sub" text-anchor="middle">Broche du code : signal = GP15 · rouge sur +5 V (VBUS) · marron sur GND</text>
+
+  <rect x="44" y="86" width="150" height="170" rx="10" class="boxN"/>
+  <text x="119" y="112" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="186" y="134" class="lblPin" text-anchor="end">GP15</text>
+  <text x="186" y="184" class="lblPin" text-anchor="end">VBUS (5 V)</text>
+  <text x="186" y="234" class="lblPin" text-anchor="end">GND</text>
+  <circle cx="194" cy="130" r="3" class="dot"/>
+  <circle cx="194" cy="180" r="3" class="dot"/>
+  <circle cx="194" cy="230" r="3" class="dot"/>
+
+  <rect x="406" y="86" width="150" height="170" rx="10" class="comp"/>
+  <text x="481" y="112" class="lblBox" text-anchor="middle">Servomoteur</text>
+  <circle cx="406" cy="130" r="3" class="dot"/><text x="414" y="134" class="pin" text-anchor="start">signal (orange)</text>
+  <circle cx="406" cy="180" r="3" class="dot"/><text x="414" y="184" class="pin" text-anchor="start">+ (rouge)</text>
+  <circle cx="406" cy="230" r="3" class="dot"/><text x="414" y="234" class="pin" text-anchor="start">− (marron)</text>
+
+  <line x1="194" y1="130" x2="406" y2="130" class="wire"/>
+  <line x1="194" y1="180" x2="406" y2="180" class="wire"/>
+  <line x1="194" y1="230" x2="406" y2="230" class="wire"/>
+
+  <text x="300" y="124" class="n" text-anchor="middle">signal PWM</text>
+  <text x="300" y="174" class="n" text-anchor="middle">+5 V</text>
+  <text x="300" y="224" class="n" text-anchor="middle">masse commune</text>
+
+  <text x="44" y="290" class="nStrong" text-anchor="start">Bon à savoir</text>
+  <text x="44" y="308" class="n" text-anchor="start">Un petit servo (SG90) peut tirer sur VBUS ; un gros servo demande une alimentation 5 V séparée, masse reliée au Pico.</text>
+</svg>

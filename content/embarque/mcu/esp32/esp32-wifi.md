@@ -35,6 +35,8 @@ Tout part de la bibliothèque `WiFi.h`, incluse dans le cœur ESP32.
 - **Station (STA)** — l'ESP32 se connecte à un réseau existant (votre box). C'est le mode courant pour accéder à Internet.
 - **Point d'accès (AP)** — l'ESP32 crée un réseau auquel d'autres appareils se connectent. Pratique pour une configuration locale.
 
+![Les deux modes Wi-Fi de l'ESP32 : en station (STA) la carte rejoint une box existante ; en point d'accès (AP) elle crée son propre réseau auquel un téléphone ou un PC se connecte|640](/ressources/img/esp32-wifi/sta-vs-ap.svg)
+
 ```cpp
 #include <WiFi.h>
 

@@ -35,6 +35,8 @@ Trois bibliothèques Python coexistent ; on n'en utilise qu'une à la fois.
 
 Toutes ces bibliothèques désignent les broches par leur **numéro GPIO « BCM »** (par exemple `GPIO17`), qui n'est **pas** le numéro de position physique sur le connecteur. C'est une source de confusion classique : un brochage du connecteur 40 broches du Pi est indispensable pour câbler juste.
 
+![Brochage du connecteur 40 broches du Raspberry Pi : numéros BCM (GPIO) utilisés dans le code et numéros physiques, avec les alimentations 3,3 V / 5 V et les masses|640](/ressources/img/raspberry-pi-gpio/brochage-40-broches.svg)
+
 ## Allumer une LED
 
 Câblage : la broche `GPIO17` → une **résistance** (~330 Ω) → l'anode de la LED → la cathode → une broche **GND**. La résistance limite le courant ; le niveau de sortie est à **3,3 V**.

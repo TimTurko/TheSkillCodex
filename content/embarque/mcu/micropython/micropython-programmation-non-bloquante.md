@@ -49,6 +49,8 @@ while True:
 
 L'ordre importe peu tant que chaque tâche reste brève : la boucle tourne très vite, toutes sont servies quasi simultanément.
 
+![Frise : trois tâches à cadences différentes (LED, capteur, bouton) progressent en parallèle dans une même boucle, sans attente bloquante|640](/ressources/img/micropython-programmation-non-bloquante/frise-taches.svg)
+
 ### 4. Refactorer un code bloquant
 
 Le clignotant bloquant :

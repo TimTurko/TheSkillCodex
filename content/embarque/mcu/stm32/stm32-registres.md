@@ -63,6 +63,8 @@ while (1) {
 
 On reconnaît la grammaire de la [[manipulation-de-bits|manipulation de bits]] : `|=` pour poser un bit, `&= ~` pour en effacer, des masques nommés partout. Comparé à l'unique `HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin)` de la HAL, c'est plus long — mais on voit **exactement** ce que le matériel fait. La boucle `for` à compteur `volatile` est un délai rudimentaire (à proscrire en vrai code, où l'on utilise un [[timer|timer]]) ; ici elle sert juste à rendre le clignotement visible.
 
+![Le registre MODER d'un port GPIO STM32 : 16 broches × 2 bits ; les 2 bits de la broche 5 à 01 configurent PA5 en sortie (00 entrée, 01 sortie, 10 fonction alternée, 11 analogique)|640](/ressources/img/stm32-registres/registre-gpio.svg)
+
 Prendre capture d'écran de *la perspective Debug de CubeIDE, vue Registers ouverte sur GPIOA, montrant le bit 5 de ODR basculer à l'exécution pas à pas*.
 
 ## BSRR contre ODR — l'atomicité

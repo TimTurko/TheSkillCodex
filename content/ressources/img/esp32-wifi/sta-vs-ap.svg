@@ -1,0 +1,64 @@
+<svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .panelT { font-size:13.5px; font-weight:600; fill:#3A3A3A; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .boxT { font-size:13px; font-weight:600; fill:#2A2A2A; }
+      .boxS { font-size:10.5px; fill:#7A7A7A; }
+      .wifi { fill:none; stroke:#BA7517; stroke-width:2; }
+      .wdot { fill:#BA7517; }
+      .link { fill:none; stroke:#9A988F; stroke-width:1.6; stroke-dasharray:5 4; }
+      .linkT { font-size:11px; fill:#5A5A5A; }
+      .cap { font-size:11px; fill:#5A5A5A; }
+      .divider { stroke:#DDDBD3; stroke-width:1.2; }
+      @media (prefers-color-scheme: dark) {
+        .panelT { fill:#DADADA; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .boxT { fill:#ECECEC; }
+        .boxS { fill:#9A9A9A; }
+        .wifi { stroke:#E0A24A; }
+        .wdot { fill:#E0A24A; }
+        .link { stroke:#7A7870; }
+        .linkT { fill:#B0B0B0; }
+        .cap { fill:#B0B0B0; }
+        .divider { stroke:#3A3A3A; }
+      }
+    </style>
+  </defs>
+
+  <line x1="340" y1="24" x2="340" y2="312" class="divider"/>
+
+  <!-- Mode station -->
+  <text x="170" y="34" class="panelT" text-anchor="middle">Mode station (STA)</text>
+  <rect x="108" y="60" width="124" height="46" rx="8" class="boxN"/>
+  <text x="170" y="82" class="boxT" text-anchor="middle">Box Wi-Fi</text>
+  <text x="170" y="98" class="boxS" text-anchor="middle">réseau déjà en place</text>
+  <line x1="170" y1="106" x2="170" y2="214" class="link"/>
+  <path d="M160,160 A10 10 0 0 1 180,160" class="wifi"/>
+  <path d="M153,160 A17 17 0 0 1 187,160" class="wifi"/>
+  <path d="M146,160 A24 24 0 0 1 194,160" class="wifi"/>
+  <circle cx="170" cy="160" r="2.5" class="wdot"/>
+  <text x="202" y="164" class="linkT" text-anchor="start">Wi-Fi</text>
+  <rect x="120" y="214" width="100" height="46" rx="8" class="comp"/>
+  <text x="170" y="242" class="boxT" text-anchor="middle">ESP32</text>
+  <text x="170" y="290" class="cap" text-anchor="middle">L'ESP32 rejoint un réseau Wi-Fi</text>
+  <text x="170" y="306" class="cap" text-anchor="middle">déjà existant (la box de la maison).</text>
+
+  <!-- Mode point d'accès -->
+  <text x="510" y="34" class="panelT" text-anchor="middle">Mode point d'accès (AP)</text>
+  <rect x="460" y="60" width="100" height="46" rx="8" class="comp"/>
+  <text x="510" y="82" class="boxT" text-anchor="middle">ESP32</text>
+  <text x="510" y="98" class="boxS" text-anchor="middle">crée son réseau</text>
+  <line x1="510" y1="106" x2="510" y2="214" class="link"/>
+  <path d="M500,160 A10 10 0 0 1 520,160" class="wifi"/>
+  <path d="M493,160 A17 17 0 0 1 527,160" class="wifi"/>
+  <path d="M486,160 A24 24 0 0 1 534,160" class="wifi"/>
+  <circle cx="510" cy="160" r="2.5" class="wdot"/>
+  <text x="542" y="164" class="linkT" text-anchor="start">Wi-Fi</text>
+  <rect x="448" y="214" width="124" height="46" rx="8" class="boxN"/>
+  <text x="510" y="242" class="boxT" text-anchor="middle">Téléphone / PC</text>
+  <text x="510" y="290" class="cap" text-anchor="middle">L'ESP32 crée son propre réseau ;</text>
+  <text x="510" y="306" class="cap" text-anchor="middle">un appareil vient s'y connecter.</text>
+</svg>

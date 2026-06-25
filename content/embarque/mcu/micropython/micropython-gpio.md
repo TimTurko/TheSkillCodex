@@ -66,7 +66,7 @@ while True:
 - **Entrée sur bouton, `PULL_UP`** : un côté du bouton sur la broche, l'autre côté sur GND. Rien d'autre.
 - **Entrée sur bouton, `Pin.IN` seul** : il faut une résistance externe (~10 kΩ vers 3,3 V ou GND) pour un état de repos défini.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec un Pico, un bouton entre GP14 et GND, et une LED + résistance entre GP15 et GND*.
+![Montage : LED + résistance sur GP15 et bouton entre GP14 et GND, sur un Raspberry Pi Pico|600](/ressources/img/micropython-gpio/montage-led-bouton.svg)
 
 ## Exemple — Bouton qui allume une LED
 

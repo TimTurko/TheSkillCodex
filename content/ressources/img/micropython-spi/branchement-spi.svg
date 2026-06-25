@@ -1,0 +1,66 @@
+<svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .dot { fill:#6E6E6E; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .pin { fill:#E0A24A; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+  </defs>
+
+  <text x="300" y="26" class="h1" text-anchor="middle">Câblage — bus SPI sur Pico (carte microSD)</text>
+  <text x="300" y="46" class="sub" text-anchor="middle">Broches du code : SCK=GP18, MOSI=GP19, MISO=GP16, CS=GP17 · 3,3 V, masse</text>
+
+  <rect x="44" y="76" width="160" height="240" rx="10" class="boxN"/>
+  <text x="124" y="102" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="196" y="126" class="lblPin" text-anchor="end">GP18 (SCK)</text>
+  <text x="196" y="162" class="lblPin" text-anchor="end">GP19 (MOSI)</text>
+  <text x="196" y="198" class="lblPin" text-anchor="end">GP16 (MISO)</text>
+  <text x="196" y="234" class="lblPin" text-anchor="end">GP17 (CS)</text>
+  <text x="196" y="270" class="lblPin" text-anchor="end">3V3</text>
+  <text x="196" y="300" class="lblPin" text-anchor="end">GND</text>
+  <circle cx="204" cy="122" r="3" class="dot"/>
+  <circle cx="204" cy="158" r="3" class="dot"/>
+  <circle cx="204" cy="194" r="3" class="dot"/>
+  <circle cx="204" cy="230" r="3" class="dot"/>
+  <circle cx="204" cy="266" r="3" class="dot"/>
+  <circle cx="204" cy="296" r="3" class="dot"/>
+
+  <rect x="416" y="76" width="150" height="240" rx="10" class="comp"/>
+  <text x="491" y="102" class="lblBox" text-anchor="middle">Carte microSD</text>
+  <circle cx="416" cy="122" r="3" class="dot"/><text x="424" y="126" class="pin" text-anchor="start">SCK</text>
+  <circle cx="416" cy="158" r="3" class="dot"/><text x="424" y="162" class="pin" text-anchor="start">MOSI</text>
+  <circle cx="416" cy="194" r="3" class="dot"/><text x="424" y="198" class="pin" text-anchor="start">MISO</text>
+  <circle cx="416" cy="230" r="3" class="dot"/><text x="424" y="234" class="pin" text-anchor="start">CS</text>
+  <circle cx="416" cy="266" r="3" class="dot"/><text x="424" y="270" class="pin" text-anchor="start">VCC</text>
+  <circle cx="416" cy="296" r="3" class="dot"/><text x="424" y="300" class="pin" text-anchor="start">GND</text>
+
+  <line x1="204" y1="122" x2="416" y2="122" class="wire"/>
+  <line x1="204" y1="158" x2="416" y2="158" class="wire"/>
+  <line x1="204" y1="194" x2="416" y2="194" class="wire"/>
+  <line x1="204" y1="230" x2="416" y2="230" class="wire"/>
+  <line x1="204" y1="266" x2="416" y2="266" class="wire"/>
+  <line x1="204" y1="296" x2="416" y2="296" class="wire"/>
+
+  <text x="44" y="332" class="nStrong" text-anchor="start">Bon à savoir : MOSI va sur MOSI, MISO sur MISO (le SPI ne croise pas). CS sélectionne le périphérique.</text>
+</svg>

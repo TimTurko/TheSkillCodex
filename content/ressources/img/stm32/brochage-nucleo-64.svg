@@ -1,0 +1,88 @@
+<svg viewBox="0 0 720 488" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .panel { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .panelH { font-size:12.5px; font-weight:600; fill:#3A3A3A; }
+      .panelHsub { font-size:10.5px; fill:#7A7A7A; }
+      .sep { stroke:#EAE8E1; stroke-width:1; }
+      .row { font-size:11px; fill:#2A2A2A; }
+      .board { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .boardT { font-size:14px; font-weight:600; fill:#2A2A2A; }
+      .boardL { font-size:11px; fill:#3A3A3A; }
+      .boardS { font-size:10px; fill:#7A6020; }
+      .link { stroke:#C2BFB4; stroke-width:1.4; fill:none; }
+      .morpho { font-size:11px; fill:#5A5A5A; }
+      .caveat { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.2; }
+      .caveatT { font-size:11px; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .panel { fill:#1F1F1F; stroke:#5A5A5A; }
+        .panelH { fill:#DADADA; }
+        .panelHsub { fill:#9A9A9A; }
+        .sep { stroke:#333333; }
+        .row { fill:#ECECEC; }
+        .board { fill:#3A2E19; stroke:#E0A24A; }
+        .boardT { fill:#ECECEC; }
+        .boardL { fill:#D8D8D8; }
+        .boardS { fill:#D8B77A; }
+        .link { stroke:#4A4A4A; }
+        .morpho { fill:#B0B0B0; }
+        .caveat { fill:#3A2E19; stroke:#E0A24A; }
+        .caveatT { fill:#E8E2D6; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="h1" text-anchor="middle">STM32 Nucleo-64 — éléments communs à toute la gamme</text>
+  <text x="360" y="48" class="sub" text-anchor="middle">Tous les Nucleo-64 partagent ces connecteurs et repères ; seule la fonction précise des broches change selon le MCU.</text>
+
+  <!-- Liaisons board ↔ panneaux -->
+  <line x1="224" y1="190" x2="260" y2="190" class="link"/>
+  <line x1="224" y1="250" x2="260" y2="250" class="link"/>
+  <line x1="460" y1="190" x2="496" y2="190" class="link"/>
+  <line x1="460" y1="250" x2="496" y2="250" class="link"/>
+
+  <!-- Panneau gauche : Arduino analogique + alim -->
+  <rect x="24" y="72" width="200" height="290" rx="10" class="panel"/>
+  <text x="38" y="96" class="panelH" text-anchor="start">Connecteur Arduino</text>
+  <text x="38" y="112" class="panelHsub" text-anchor="start">analogique + alimentation</text>
+  <line x1="38" y1="120" x2="210" y2="120" class="sep"/>
+  <text x="38" y="148" class="row" text-anchor="start">A0 – A5  ·  entrées analogiques</text>
+  <text x="38" y="180" class="row" text-anchor="start">IOREF  ·  niveau logique</text>
+  <text x="38" y="212" class="row" text-anchor="start">RESET</text>
+  <text x="38" y="244" class="row" text-anchor="start">3V3  ·  5V  ·  GND</text>
+  <text x="38" y="276" class="row" text-anchor="start">VIN  ·  7–12 V</text>
+
+  <!-- Carte centrale -->
+  <rect x="260" y="120" width="200" height="200" rx="12" class="board"/>
+  <text x="360" y="156" class="boardT" text-anchor="middle">Nucleo-64</text>
+  <text x="360" y="182" class="boardL" text-anchor="middle">ST-LINK intégré</text>
+  <text x="360" y="200" class="boardS" text-anchor="middle">programmation + debug par USB</text>
+  <line x1="284" y1="216" x2="436" y2="216" class="sep"/>
+  <text x="360" y="240" class="boardL" text-anchor="middle">LED LD2 → D13</text>
+  <text x="360" y="262" class="boardL" text-anchor="middle">Bouton bleu B1 → PC13</text>
+  <text x="360" y="284" class="boardL" text-anchor="middle">Bouton noir → RESET</text>
+
+  <!-- Panneau droit : Arduino numérique -->
+  <rect x="496" y="72" width="200" height="290" rx="10" class="panel"/>
+  <text x="510" y="96" class="panelH" text-anchor="start">Connecteur Arduino</text>
+  <text x="510" y="112" class="panelHsub" text-anchor="start">numérique</text>
+  <line x1="510" y1="120" x2="682" y2="120" class="sep"/>
+  <text x="510" y="148" class="row" text-anchor="start">D0 · D1  ·  UART (RX / TX)</text>
+  <text x="510" y="180" class="row" text-anchor="start">D2 – D12  ·  E/S numériques</text>
+  <text x="510" y="212" class="row" text-anchor="start">D13  ·  LED LD2</text>
+  <text x="510" y="244" class="row" text-anchor="start">D14 · D15  ·  I2C (SDA / SCL)</text>
+  <text x="510" y="276" class="row" text-anchor="start">PWM sur plusieurs broches Dx</text>
+
+  <!-- Note Morpho -->
+  <text x="360" y="380" class="morpho" text-anchor="middle">Rangées extérieures = connecteurs Morpho (CN7 / CN10) : accès à toutes les broches du MCU.</text>
+
+  <!-- Encadré modèle-dépendant -->
+  <rect x="24" y="394" width="672" height="80" rx="8" class="caveat"/>
+  <text x="38" y="418" class="caveatT" text-anchor="start">Positions des connecteurs Arduino et Morpho : identiques sur toute la gamme Nucleo-64.</text>
+  <text x="38" y="440" class="caveatT" text-anchor="start">Mais la fonction derrière chaque broche (PWM, ADC, I2C, SPI, UART) dépend du MCU exact —</text>
+  <text x="38" y="462" class="caveatT" text-anchor="start">se reporter au datasheet de la carte (F401RE, F411RE, L476RG…).</text>
+</svg>

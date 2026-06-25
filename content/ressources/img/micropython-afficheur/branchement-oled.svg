@@ -1,0 +1,72 @@
+<svg viewBox="0 0 600 310" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .screen { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1; }
+      .dot { fill:#6E6E6E; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .screen { fill:#11161C; stroke:#5A5A5A; }
+        .dot { fill:#B0B0B0; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .pin { fill:#E0A24A; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+  </defs>
+
+  <text x="300" y="26" class="h1" text-anchor="middle">Câblage — afficheur OLED I2C (SSD1306) sur Pico</text>
+  <text x="300" y="46" class="sub" text-anchor="middle">Broches du code : SDA = GP4, SCL = GP5 · alimentation 3,3 V, masse commune</text>
+
+  <rect x="44" y="84" width="150" height="190" rx="10" class="boxN"/>
+  <text x="119" y="110" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="186" y="132" class="lblPin" text-anchor="end">3V3</text>
+  <text x="186" y="174" class="lblPin" text-anchor="end">GP4 (SDA)</text>
+  <text x="186" y="216" class="lblPin" text-anchor="end">GP5 (SCL)</text>
+  <text x="186" y="258" class="lblPin" text-anchor="end">GND</text>
+  <circle cx="194" cy="128" r="3" class="dot"/>
+  <circle cx="194" cy="170" r="3" class="dot"/>
+  <circle cx="194" cy="212" r="3" class="dot"/>
+  <circle cx="194" cy="254" r="3" class="dot"/>
+
+  <rect x="406" y="84" width="150" height="190" rx="10" class="comp"/>
+  <text x="481" y="108" class="lblBox" text-anchor="middle">OLED SSD1306</text>
+  <rect x="430" y="118" width="102" height="40" rx="3" class="screen"/>
+  <circle cx="406" cy="184" r="3" class="dot"/><text x="414" y="188" class="pin" text-anchor="start">VCC</text>
+  <circle cx="406" cy="212" r="3" class="dot"/><text x="414" y="216" class="pin" text-anchor="start">GND</text>
+  <circle cx="406" cy="240" r="3" class="dot"/><text x="414" y="244" class="pin" text-anchor="start">SDA</text>
+  <circle cx="406" cy="262" r="3" class="dot"/><text x="414" y="266" class="pin" text-anchor="start">SCL</text>
+
+  <line x1="194" y1="128" x2="380" y2="128" class="wire"/>
+  <line x1="380" y1="128" x2="380" y2="184" class="wire"/>
+  <line x1="380" y1="184" x2="406" y2="184" class="wire"/>
+
+  <line x1="194" y1="254" x2="360" y2="254" class="wire"/>
+  <line x1="360" y1="254" x2="360" y2="212" class="wire"/>
+  <line x1="360" y1="212" x2="406" y2="212" class="wire"/>
+
+  <line x1="194" y1="170" x2="340" y2="170" class="wire"/>
+  <line x1="340" y1="170" x2="340" y2="240" class="wire"/>
+  <line x1="340" y1="240" x2="406" y2="240" class="wire"/>
+
+  <line x1="194" y1="212" x2="320" y2="212" class="wire"/>
+  <line x1="320" y1="212" x2="320" y2="262" class="wire"/>
+  <line x1="320" y1="262" x2="406" y2="262" class="wire"/>
+
+  <text x="44" y="298" class="nStrong" text-anchor="start">Bon à savoir : un OLED I2C n'utilise que 2 fils de données (SDA + SCL), comme tout module I2C. Alimentation en 3,3 V.</text>
+</svg>

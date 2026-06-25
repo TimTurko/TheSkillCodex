@@ -53,6 +53,8 @@ while True:
 
 Si un bouton doit interrompre le clignotement, ce code ne le verra qu'avec jusqu'à 2 s de retard. Inacceptable dès qu'on a deux choses à faire en parallèle.
 
+![Schéma de principe : attente bloquante (sleep) qui fige le programme, vs attente non bloquante (ticks_ms) qui laisse la boucle libre entre deux échéances|640](/ressources/img/micropython-temporisation/sleep-vs-ticks.svg)
+
 ### 3. `ticks_ms()` — l'horloge non bloquante
 
 `ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage. Le programme ne s'arrête pas — il consulte l'horloge. **Différence cruciale avec Arduino** : on **ne soustrait pas** `ticks_ms()` directement (le compteur déborde et repart) ; on utilise **`ticks_diff(maintenant, depart)`**, conçu pour gérer ce débordement.

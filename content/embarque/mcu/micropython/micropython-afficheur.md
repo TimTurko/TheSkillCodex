@@ -36,7 +36,7 @@ Quatre étapes : câbler en I2C, installer le pilote, dessiner dans le tampon, p
 
 4 fils : `VCC` → 3,3 V (le SSD1306 grand public accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confirmer l'adresse avec `i2c.scan()` (souvent `0x3C`).
 
-Prendre capture d'écran ou photo de *un OLED SSD1306 0,96″ I2C câblé sur GP4/GP5 d'un Pico, un texte affiché*.
+![Câblage : afficheur OLED SSD1306 I2C sur un Pico — VCC, GND, SDA sur GP4, SCL sur GP5|600](/ressources/img/micropython-afficheur/branchement-oled.svg)
 
 ### 2. Installer le pilote
 

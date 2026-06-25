@@ -1,0 +1,71 @@
+<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .compLine { fill:none; stroke:#BA7517; stroke-width:2; }
+      .dot { fill:#6E6E6E; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .lbl { font-size:12px; fill:#2A2A2A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .compLine { stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .lbl { fill:#ECECEC; }
+        .nStrong { fill:#DADADA; }
+        .n { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="300" y="26" class="h1" text-anchor="middle">Câblage — potentiomètre sur entrée analogique du Pico</text>
+  <text x="300" y="46" class="sub" text-anchor="middle">Broche du code : GP26 (ADC0) · 3,3 V et GND aux extrémités</text>
+
+  <rect x="44" y="92" width="150" height="170" rx="10" class="boxN"/>
+  <text x="119" y="118" class="lblBox" text-anchor="middle">Pico</text>
+  <text x="186" y="140" class="lblPin" text-anchor="end">3V3</text>
+  <text x="186" y="190" class="lblPin" text-anchor="end">GP26 (ADC0)</text>
+  <text x="186" y="240" class="lblPin" text-anchor="end">GND</text>
+  <circle cx="194" cy="136" r="3" class="dot"/>
+  <circle cx="194" cy="186" r="3" class="dot"/>
+  <circle cx="194" cy="236" r="3" class="dot"/>
+
+  <!-- Potentiomètre : corps + curseur -->
+  <rect x="380" y="120" width="120" height="26" rx="4" class="comp"/>
+  <text x="440" y="112" class="lbl" text-anchor="middle">Potentiomètre</text>
+  <circle cx="380" cy="133" r="3" class="dot"/>
+  <circle cx="500" cy="133" r="3" class="dot"/>
+  <line x1="440" y1="120" x2="440" y2="100" class="compLine"/>
+  <polygon points="434,100 446,100 440,110" class="comp"/>
+  <line x1="440" y1="100" x2="440" y2="186" class="wire"/>
+  <circle cx="440" cy="186" r="3" class="dot"/>
+
+  <!-- 3V3 vers une extrémité -->
+  <line x1="194" y1="136" x2="300" y2="136" class="wire"/>
+  <line x1="300" y1="136" x2="300" y2="133" class="wire"/>
+  <line x1="300" y1="133" x2="380" y2="133" class="wire"/>
+
+  <!-- GND vers l'autre extrémité -->
+  <line x1="194" y1="236" x2="540" y2="236" class="wire"/>
+  <line x1="540" y1="236" x2="540" y2="133" class="wire"/>
+  <line x1="540" y1="133" x2="500" y2="133" class="wire"/>
+
+  <!-- Curseur vers GP26 -->
+  <line x1="194" y1="186" x2="440" y2="186" class="wire"/>
+  <text x="320" y="180" class="n" text-anchor="middle">curseur → GP26</text>
+
+  <text x="44" y="292" class="nStrong" text-anchor="start">Bon à savoir</text>
+  <text x="44" y="310" class="n" text-anchor="start">ADC(0).read_u16() renvoie 0 à 65535 pour une tension de 0 à 3,3 V au curseur. Ne jamais dépasser 3,3 V.</text>
+</svg>

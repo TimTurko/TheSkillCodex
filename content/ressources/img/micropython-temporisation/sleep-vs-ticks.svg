@@ -1,0 +1,66 @@
+<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .panelT { font-size:13px; font-weight:600; fill:#3A3A3A; }
+      .axis { fill:none; stroke:#6E6E6E; stroke-width:1.5; }
+      .tick { stroke:#9A988F; stroke-width:1; }
+      .busy { fill:#B23A2E; }
+      .free { fill:#BA7517; }
+      .work { fill:#6E6E6E; }
+      .lbl { font-size:10.5px; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .panelT { fill:#DADADA; }
+        .axis { stroke:#B0B0B0; }
+        .tick { stroke:#7A7870; }
+        .busy { fill:#E0705F; }
+        .free { fill:#E0A24A; }
+        .work { fill:#B0B0B0; }
+        .lbl { fill:#D8D8D8; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="26" class="h1" text-anchor="middle">Attente bloquante vs non bloquante</text>
+  <text x="320" y="46" class="sub" text-anchor="middle">Pendant une attente, le programme peut-il faire autre chose ?</text>
+
+  <!-- Frise 1 : sleep bloquant -->
+  <text x="40" y="84" class="panelT" text-anchor="start">time.sleep(1) — bloquant</text>
+  <line x1="40" y1="130" x2="600" y2="130" class="axis"/>
+  <rect x="40" y="100" width="20" height="20" class="work"/>
+  <rect x="60" y="100" width="180" height="20" class="busy"/>
+  <rect x="240" y="100" width="20" height="20" class="work"/>
+  <rect x="260" y="100" width="180" height="20" class="busy"/>
+  <rect x="440" y="100" width="20" height="20" class="work"/>
+  <rect x="460" y="100" width="140" height="20" class="busy"/>
+  <text x="150" y="150" class="lbl" text-anchor="middle">attente : rien d'autre possible</text>
+  <text x="350" y="150" class="lbl" text-anchor="middle">attente : rien d'autre possible</text>
+
+  <!-- Frise 2 : ticks non bloquant -->
+  <text x="40" y="206" class="panelT" text-anchor="start">time.ticks_ms() — non bloquant</text>
+  <line x1="40" y1="252" x2="600" y2="252" class="axis"/>
+  <rect x="40" y="222" width="20" height="20" class="work"/>
+  <rect x="100" y="222" width="20" height="20" class="work"/>
+  <rect x="160" y="222" width="20" height="20" class="work"/>
+  <rect x="220" y="222" width="20" height="20" class="work"/>
+  <rect x="280" y="222" width="20" height="20" class="work"/>
+  <rect x="340" y="222" width="20" height="20" class="work"/>
+  <rect x="400" y="222" width="20" height="20" class="work"/>
+  <rect x="460" y="222" width="20" height="20" class="work"/>
+  <rect x="520" y="222" width="20" height="20" class="work"/>
+  <line x1="60" y1="232" x2="100" y2="232" class="free" stroke="none"/>
+  <rect x="60" y="234" width="540" height="6" class="free"/>
+  <text x="330" y="276" class="lbl" text-anchor="middle">la boucle continue : on vérifie l'heure et on fait d'autres tâches entre-temps</text>
+
+  <!-- Légende -->
+  <rect x="40" y="300" width="12" height="12" class="work"/><text x="58" y="310" class="n" text-anchor="start">action utile</text>
+  <rect x="160" y="300" width="12" height="12" class="busy"/><text x="178" y="310" class="n" text-anchor="start">attente bloquante (figé)</text>
+  <rect x="380" y="300" width="12" height="12" class="free"/><text x="398" y="310" class="n" text-anchor="start">temps libre (autres tâches)</text>
+</svg>

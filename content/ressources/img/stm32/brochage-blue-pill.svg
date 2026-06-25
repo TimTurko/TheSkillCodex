@@ -1,0 +1,77 @@
+<svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .accent { fill:#BA7517; }
+      .cat { font-size:12px; font-weight:600; fill:#BA7517; }
+      .val { font-size:11px; fill:#2A2A2A; }
+      .sep { stroke:#EAE8E1; stroke-width:1; }
+      .warnBox { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.2; }
+      .warnT { font-size:11px; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .accent { fill:#E0A24A; }
+        .cat { fill:#E0A24A; }
+        .val { fill:#ECECEC; }
+        .sep { stroke:#333333; }
+        .warnBox { fill:#3A2E19; stroke:#E0A24A; }
+        .warnT { fill:#E8E2D6; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" class="h1" text-anchor="middle">Brochage de la Blue Pill (STM32F103C8T6) — par fonction</text>
+  <text x="360" y="48" class="sub" text-anchor="middle">Chaque broche a plusieurs fonctions ; on n'en choisit qu'une dans le code. Noms = ceux du code (PA9, PB6…).</text>
+
+  <line x1="24" y1="66" x2="700" y2="66" class="sep"/>
+  <rect x="24" y="71" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="87" class="cat" text-anchor="start">Alimentation</text>
+  <text x="210" y="87" class="val" text-anchor="start">5V · 3V3 · GND · VBAT</text>
+
+  <line x1="24" y1="100" x2="700" y2="100" class="sep"/>
+  <rect x="24" y="105" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="121" class="cat" text-anchor="start">LED intégrée</text>
+  <text x="210" y="121" class="val" text-anchor="start">PC13 — allumée à l'état bas</text>
+
+  <line x1="24" y1="134" x2="700" y2="134" class="sep"/>
+  <rect x="24" y="139" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="155" class="cat" text-anchor="start">Programmation / debug</text>
+  <text x="210" y="155" class="val" text-anchor="start">SWDIO = PA13 · SWCLK = PA14 · RESET · cavaliers BOOT0 / BOOT1</text>
+
+  <line x1="24" y1="168" x2="700" y2="168" class="sep"/>
+  <rect x="24" y="173" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="189" class="cat" text-anchor="start">Entrées analogiques</text>
+  <text x="210" y="189" class="val" text-anchor="start">ADC 12 bits : PA0–PA7 · PB0 · PB1</text>
+
+  <line x1="24" y1="202" x2="700" y2="202" class="sep"/>
+  <rect x="24" y="207" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="223" class="cat" text-anchor="start">UART (série)</text>
+  <text x="210" y="223" class="val" text-anchor="start">USART1 PA9/PA10 · USART2 PA2/PA3 · USART3 PB10/PB11  (TX/RX)</text>
+
+  <line x1="24" y1="236" x2="700" y2="236" class="sep"/>
+  <rect x="24" y="241" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="257" class="cat" text-anchor="start">I2C</text>
+  <text x="210" y="257" class="val" text-anchor="start">I2C1 PB6/PB7 · I2C2 PB10/PB11  (SCL/SDA)</text>
+
+  <line x1="24" y1="270" x2="700" y2="270" class="sep"/>
+  <rect x="24" y="275" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="291" class="cat" text-anchor="start">SPI</text>
+  <text x="210" y="291" class="val" text-anchor="start">SPI1 PA5/PA6/PA7/PA4 · SPI2 PB13/PB14/PB15/PB12  (SCK/MISO/MOSI/NSS)</text>
+
+  <line x1="24" y1="304" x2="700" y2="304" class="sep"/>
+  <rect x="24" y="309" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="325" class="cat" text-anchor="start">PWM / timers</text>
+  <text x="210" y="325" class="val" text-anchor="start">TIM1 PA8–PA11 · TIM2 PA0–PA3 · TIM3 PA6–PA7,PB0–PB1 · TIM4 PB6–PB9</text>
+
+  <line x1="24" y1="338" x2="700" y2="338" class="sep"/>
+  <rect x="24" y="343" width="5" height="22" rx="2" class="accent"/>
+  <text x="36" y="359" class="cat" text-anchor="start">USB</text>
+  <text x="210" y="359" class="val" text-anchor="start">PA11 (D−) · PA12 (D+)</text>
+  <line x1="24" y1="372" x2="700" y2="372" class="sep"/>
+
+  <rect x="24" y="388" width="676" height="62" rx="8" class="warnBox"/>
+  <text x="38" y="410" class="warnT" text-anchor="start">Logique 3,3 V. Certaines broches tolèrent 5 V en entrée — vérifier au datasheet avant de brancher du 5 V.</text>
+  <text x="38" y="432" class="warnT" text-anchor="start">PC13, PC14 et PC15 ne fournissent que peu de courant : à réserver à une LED, pas à une charge.</text>
+</svg>

@@ -46,7 +46,7 @@ Règle inviolable : **TX d'un côté → RX de l'autre**. GND commun **obligatoi
 | RX (GP1) | ← TX |
 | GND | — GND |
 
-Prendre capture d'écran ou photo de *un Pico relié à un module (ou un autre Pico) par GP0/GP1 en croisé, GND commun*.
+![Câblage : liaison UART entre un Pico (TX GP0, RX GP1) et un périphérique — TX et RX croisés, GND commun|600](/ressources/img/micropython-uart/branchement-uart.svg)
 
 ### 3. Configurer le baud rate
 
