@@ -26,7 +26,7 @@ neuve porte d'abord sur les **SVG** ; (2) plusieurs placeholders de câblage Mic
 | ESP32 | 1 | 10 | 2 | ~4 | 1 | ~7 |
 | MicroPython | 1 | 37 | 1 | ~16 | 1 | ~7 |
 | Raspberry Pi | 1 | 4 | 3 | ~2 | 1 | ~3 |
-| STM32 | 2 | 6 | 2 | ~1 (option) | 1 | ~6 |
+| STM32 | 2 | 6 | 4 | ~1 (option) | 1 | ~5 |
 | Teensy | 2 | 5 | 2 | 0 | 1 | ~5 |
 | ESP8266 | 2 | 3 | 0 | ~1 | 1 | ~2 |
 | XIAO | — | 4 | 7 | 0 (audit) | — | à vérifier |
@@ -84,7 +84,8 @@ neuve porte d'abord sur les **SVG** ; (2) plusieurs placeholders de câblage Mic
 | `raspberry-pi-prise-en-main` | `raspi-config.<x>` | `/ressources/img/raspberry-pi-prise-en-main/` | `raspi-config` dans un terminal : menu de configuration des interfaces (I2C/SPI/SSH). | capture |
 | `raspberry-pi-prise-en-main` | `ssh-headless.<x>` | `/ressources/img/raspberry-pi-prise-en-main/` | Session SSH connectée depuis un PC (`ssh pi@…`), invite shell du Pi affichée. | capture |
 | `stm32` (hub) | `photo-carte.<x>` | `/ressources/img/stm32/` | Photo d'une carte STM32 de cours (Nucleo ou « Blue Pill »), connecteur de programmation visible. | photo |
-| `stm32` (hub) | `brochage.<x>` | `/ressources/img/stm32/` | Brochage (pinout) officiel de la carte STM32 utilisée, fonctions des broches repérées. | capture |
+| `stm32-prise-en-main` | `brochage-nucleo-64.svg` | `/ressources/img/stm32-prise-en-main/` | Brochage commun aux Nucleo-64 : connecteurs Arduino/Morpho, ST-LINK, LD2→D13, B1→PC13 ; fonction des broches selon le MCU. **Placé le 27/06.** | svg |
+| `stm32-arduino-core` | `brochage-blue-pill.svg` | `/ressources/img/stm32-arduino-core/` | Brochage de la Blue Pill (STM32F103C8T6) par fonction : alim, PC13, SWD, ADC, UART, I2C, SPI, PWM/timers, USB. **Placé le 27/06.** | svg |
 | `stm32-prise-en-main` | `cubeide-install.<x>` | `/ressources/img/stm32-prise-en-main/` | STM32CubeIDE (ou Arduino core STM32) : écran de création de projet / sélection de la carte. | capture |
 | `stm32-prise-en-main` | `televersement-stlink.<x>` | `/ressources/img/stm32-prise-en-main/` | Téléversement réussi via ST-Link (ou DFU), message de fin de flash. | capture |
 | `stm32-arduino-core` | `boards-manager-stm32.<x>` | `/ressources/img/stm32-arduino-core/` | Boards Manager : paquet « STM32 MCU based boards » (STM32duino) installé + URL du gestionnaire. | capture |
@@ -98,7 +99,7 @@ neuve porte d'abord sur les **SVG** ; (2) plusieurs placeholders de câblage Mic
 | `teensy-audio` | `audio-design-tool.<x>` | `/ressources/img/teensy-audio/` | Audio System Design Tool (interface web) : un patch de blocs audio reliés. | capture |
 | `teensy-usb` | `menu-usb-type.<x>` | `/ressources/img/teensy-usb/` | Menu *Outils → USB Type* de l'IDE montrant les personnalités USB disponibles (Serial, MIDI, Keyboard…). | capture |
 | `esp8266` (hub) | `photo-carte.<x>` | `/ressources/img/esp8266/` | Photo d'une carte ESP8266 (NodeMCU ou Wemos D1 mini), connecteur USB visible. | photo |
-| `esp8266` (hub) | `brochage-d1-gpio.svg` | `/ressources/img/esp8266/` | Mapping des étiquettes de carte (D0…D8) vers les **vrais numéros GPIO** + broches à usage restreint. C'est le piège n°1 de la famille. | svg |
+| `esp8266-arduino-core` | `brochage-d1-gpio.svg` | `/ressources/img/esp8266-arduino-core/` | Mapping des étiquettes de carte (D0…D8) vers les **vrais numéros GPIO** + broches à usage restreint. C'est le piège n°1 de la famille. **Placé le 27/06.** | svg |
 | `esp8266-prise-en-main` | `boards-manager-esp8266.<x>` | `/ressources/img/esp8266-prise-en-main/` | Boards Manager : paquet « esp8266 by ESP8266 Community » installé + URL du gestionnaire. | capture |
 | `esp8266-prise-en-main` | `selection-nodemcu.<x>` | `/ressources/img/esp8266-prise-en-main/` | Sélecteur de carte réglé sur « NodeMCU 1.0 » (ou Wemos D1) + port. | capture |
 

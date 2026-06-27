@@ -1,4 +1,4 @@
-<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
   <defs>
     <style>
       .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
@@ -9,8 +9,7 @@
       .dot { fill:#6E6E6E; }
       .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
       .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
-      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
-      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .pin { font-size:11.5px; font-weight:700; fill:#7A5310; }
       .n { font-size:11px; fill:#5A5A5A; }
       @media (prefers-color-scheme: dark) {
         .h1 { fill:#EDEDED; }
@@ -22,39 +21,53 @@
         .lblBox { fill:#DADADA; }
         .lblPin { fill:#ECECEC; }
         .pin { fill:#E0A24A; }
-        .nStrong { fill:#DADADA; }
         .n { fill:#B0B0B0; }
       }
     </style>
   </defs>
 
-  <text x="300" y="26" class="h1" text-anchor="middle">Câblage — capteur numérique sur Pico (MicroPython)</text>
-  <text x="300" y="46" class="sub" text-anchor="middle">Broches du code : signal sur GP16, alimentation 3,3 V, masse commune</text>
+  <text x="330" y="26" class="h1" text-anchor="middle">Câblage — HC-SR04 (ultrason) sur Pico</text>
+  <text x="330" y="46" class="sub" text-anchor="middle">Broches du code : Trig → GP9 · Echo → pont diviseur → GP10 · VCC +5 V (VBUS) · masse commune</text>
 
-  <rect x="44" y="86" width="150" height="170" rx="10" class="boxN"/>
-  <text x="119" y="112" class="lblBox" text-anchor="middle">Pico</text>
-  <text x="186" y="134" class="lblPin" text-anchor="end">3V3</text>
-  <text x="186" y="184" class="lblPin" text-anchor="end">GP16</text>
-  <text x="186" y="234" class="lblPin" text-anchor="end">GND</text>
-  <circle cx="194" cy="130" r="3" class="dot"/>
-  <circle cx="194" cy="180" r="3" class="dot"/>
-  <circle cx="194" cy="230" r="3" class="dot"/>
+  <!-- Pico -->
+  <rect x="40" y="92" width="130" height="210" rx="10" class="boxN"/>
+  <text x="105" y="120" class="lblBox" text-anchor="middle">Pico</text>
+  <circle cx="170" cy="132" r="3" class="dot"/><text x="164" y="136" class="lblPin" text-anchor="end">VBUS 5 V</text>
+  <circle cx="170" cy="182" r="3" class="dot"/><text x="164" y="186" class="pin" text-anchor="end">GP9</text>
+  <circle cx="170" cy="232" r="3" class="dot"/><text x="164" y="236" class="pin" text-anchor="end">GP10</text>
+  <circle cx="170" cy="278" r="3" class="dot"/><text x="164" y="282" class="lblPin" text-anchor="end">GND</text>
 
-  <rect x="406" y="86" width="150" height="170" rx="10" class="comp"/>
-  <text x="481" y="112" class="lblBox" text-anchor="middle">Capteur</text>
-  <text x="481" y="128" class="n" text-anchor="middle">(ex. IR, DHT…)</text>
-  <circle cx="406" cy="130" r="3" class="dot"/><text x="414" y="134" class="pin" text-anchor="start">VCC</text>
-  <circle cx="406" cy="180" r="3" class="dot"/><text x="414" y="184" class="pin" text-anchor="start">OUT</text>
-  <circle cx="406" cy="230" r="3" class="dot"/><text x="414" y="234" class="pin" text-anchor="start">GND</text>
+  <!-- HC-SR04 -->
+  <rect x="486" y="92" width="144" height="210" rx="10" class="comp"/>
+  <text x="558" y="118" class="lblBox" text-anchor="middle">HC-SR04</text>
+  <text x="558" y="134" class="n" text-anchor="middle">(ultrason)</text>
+  <circle cx="486" cy="132" r="3" class="dot"/><text x="494" y="136" class="lblPin" text-anchor="start">VCC</text>
+  <circle cx="486" cy="182" r="3" class="dot"/><text x="494" y="186" class="lblPin" text-anchor="start">Trig</text>
+  <circle cx="486" cy="232" r="3" class="dot"/><text x="494" y="236" class="lblPin" text-anchor="start">Echo</text>
+  <circle cx="486" cy="278" r="3" class="dot"/><text x="494" y="282" class="lblPin" text-anchor="start">GND</text>
 
-  <line x1="194" y1="130" x2="406" y2="130" class="wire"/>
-  <line x1="194" y1="180" x2="406" y2="180" class="wire"/>
-  <line x1="194" y1="230" x2="406" y2="230" class="wire"/>
+  <!-- VCC / Trig / GND directs -->
+  <line x1="170" y1="132" x2="486" y2="132" class="wire"/>
+  <text x="320" y="126" class="n" text-anchor="middle">+5 V</text>
+  <line x1="170" y1="182" x2="486" y2="182" class="wire"/>
+  <text x="320" y="176" class="n" text-anchor="middle">Trig (impulsion 10 µs)</text>
+  <line x1="170" y1="278" x2="486" y2="278" class="wire"/>
+  <text x="250" y="272" class="n" text-anchor="middle">masse commune</text>
 
-  <text x="300" y="124" class="n" text-anchor="middle">3,3 V</text>
-  <text x="300" y="174" class="n" text-anchor="middle">signal</text>
-  <text x="300" y="224" class="n" text-anchor="middle">masse</text>
+  <!-- Echo -> pont diviseur -> GP10 -->
+  <line x1="486" y1="232" x2="416" y2="232" class="wire"/>
+  <text x="452" y="224" class="n" text-anchor="middle">Echo 5 V</text>
+  <rect x="360" y="220" width="56" height="24" rx="4" class="boxN"/>
+  <text x="388" y="236" class="n" text-anchor="middle">1 kΩ</text>
+  <line x1="360" y1="232" x2="320" y2="232" class="wire"/>
+  <circle cx="320" cy="232" r="3.5" class="dot"/>
+  <line x1="320" y1="232" x2="170" y2="232" class="wire"/>
+  <text x="244" y="224" class="n" text-anchor="middle">→ GP10 (≈ 3,3 V)</text>
+  <line x1="320" y1="232" x2="320" y2="244" class="wire"/>
+  <rect x="308" y="244" width="24" height="26" rx="3" class="boxN"/>
+  <text x="340" y="262" class="n" text-anchor="start">2 kΩ</text>
+  <line x1="320" y1="270" x2="320" y2="278" class="wire"/>
+  <circle cx="320" cy="278" r="3.5" class="dot"/>
 
-  <text x="44" y="288" class="nStrong" text-anchor="start">Bon à savoir</text>
-  <text x="44" y="306" class="n" text-anchor="start">Le signal se lit en entrée (0 ou 1). Certains capteurs (ex. DHT) demandent une résistance de 10 kΩ entre OUT et 3,3 V.</text>
+  <text x="40" y="330" class="n" text-anchor="start">L'Echo du HC-SR04 sort en 5 V : le pont diviseur (≈ 1 kΩ / 2 kΩ) le ramène à ~3,3 V avant GP10 — le Pico n'est pas tolérant 5 V.</text>
 </svg>

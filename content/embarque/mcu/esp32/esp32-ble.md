@@ -39,6 +39,8 @@ Le BLE organise les données selon le modèle **GATT**. Deux rôles et trois obj
 
 L'idée : l'ESP32 publie un service contenant une caractéristique ; un téléphone scanne, se connecte, lit la caractéristique (ou reçoit ses notifications).
 
+![Les deux rôles BLE : l'ESP32 périphérique (serveur) expose un service et une caractéristique et diffuse sa présence ; le téléphone central (client) scanne, se connecte, puis lit ou s'abonne à la valeur.|640](/ressources/img/esp32-ble/roles-ble.svg)
+
 ## Exemple — Publier un compteur en notification
 
 Un serveur GATT minimal : l'ESP32 expose une caractéristique dont la valeur s'incrémente chaque seconde et la **notifie** aux clients connectés. Testable avec l'application **nRF Connect** (gratuite, iOS/Android).

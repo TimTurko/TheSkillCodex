@@ -43,7 +43,7 @@ On prend les trois cas usuels : **LED** (broche directe), **buzzer** (transistor
 
 **Module relais** : IN du module → GP10 ; VCC → +5 V (souvent depuis VBUS) ; GND → GND. La charge secteur se branche **sur les bornes COM + NO du module**, le Pico n'y touche jamais.
 
-Prendre capture d'écran ou photo de *un montage breadboard avec un Pico, une LED + résistance sur GP8, un transistor 2N2222 + buzzer sur GP9, et un module relais sur GP10*.
+![Câblage des trois interfaces de sortie TOR sur le Pico : LED via résistance 220 Ω sur GP8, buzzer via transistor NPN 2N2222 (base sur GP9), module relais commandé par GP10 ; alimentation +5 V (VBUS) et masse communes.|640](/ressources/img/micropython-sortie-tor/montage-relais.svg)
 
 ### 3. Écrire le code
 

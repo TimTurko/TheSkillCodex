@@ -49,7 +49,7 @@ cs.value(1)        # device deselectionne au repos (CS actif a l'etat bas)
 
 Plusieurs devices SPI partagent `SCK`/`MOSI`/`MISO`, mais **chacun a son propre `CS`** sur une GPIO distincte.
 
-Prendre capture d'écran ou photo de *un module lecteur microSD câblé sur GP2-GP5 d'un Pico*.
+![Câblage d'un module microSD sur le bus SPI0 du Pico : SCK sur GP2, MOSI sur GP3, MISO sur GP4, CS sur GP5, VCC sur 3,3 V, masse commune (MOSI→MOSI, MISO→MISO, le SPI ne croise pas).|640](/ressources/img/micropython-spi/branchement-spi.svg)
 
 ### 3. Installer la bibliothèque
 

@@ -9,7 +9,7 @@
       .dot { fill:#6E6E6E; }
       .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
       .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
-      .pin { font-size:11px; font-weight:600; fill:#7A5310; }
+      .pin { font-size:11.5px; font-weight:700; fill:#7A5310; }
       .n { font-size:11px; fill:#5A5A5A; }
       .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
       @media (prefers-color-scheme: dark) {
@@ -29,14 +29,14 @@
   </defs>
 
   <text x="300" y="26" class="h1" text-anchor="middle">Câblage — bus SPI sur Pico (carte microSD)</text>
-  <text x="300" y="46" class="sub" text-anchor="middle">Broches du code : SCK=GP18, MOSI=GP19, MISO=GP16, CS=GP17 · 3,3 V, masse</text>
+  <text x="300" y="46" class="sub" text-anchor="middle">Broches du code : SCK=GP2, MOSI=GP3, MISO=GP4, CS=GP5 · VCC 3,3 V, masse</text>
 
   <rect x="44" y="76" width="160" height="240" rx="10" class="boxN"/>
   <text x="124" y="102" class="lblBox" text-anchor="middle">Pico</text>
-  <text x="196" y="126" class="lblPin" text-anchor="end">GP18 (SCK)</text>
-  <text x="196" y="162" class="lblPin" text-anchor="end">GP19 (MOSI)</text>
-  <text x="196" y="198" class="lblPin" text-anchor="end">GP16 (MISO)</text>
-  <text x="196" y="234" class="lblPin" text-anchor="end">GP17 (CS)</text>
+  <text x="196" y="126" class="pin" text-anchor="end">GP2 (SCK)</text>
+  <text x="196" y="162" class="pin" text-anchor="end">GP3 (MOSI)</text>
+  <text x="196" y="198" class="pin" text-anchor="end">GP4 (MISO)</text>
+  <text x="196" y="234" class="pin" text-anchor="end">GP5 (CS)</text>
   <text x="196" y="270" class="lblPin" text-anchor="end">3V3</text>
   <text x="196" y="300" class="lblPin" text-anchor="end">GND</text>
   <circle cx="204" cy="122" r="3" class="dot"/>
@@ -48,12 +48,12 @@
 
   <rect x="416" y="76" width="150" height="240" rx="10" class="comp"/>
   <text x="491" y="102" class="lblBox" text-anchor="middle">Carte microSD</text>
-  <circle cx="416" cy="122" r="3" class="dot"/><text x="424" y="126" class="pin" text-anchor="start">SCK</text>
-  <circle cx="416" cy="158" r="3" class="dot"/><text x="424" y="162" class="pin" text-anchor="start">MOSI</text>
-  <circle cx="416" cy="194" r="3" class="dot"/><text x="424" y="198" class="pin" text-anchor="start">MISO</text>
-  <circle cx="416" cy="230" r="3" class="dot"/><text x="424" y="234" class="pin" text-anchor="start">CS</text>
-  <circle cx="416" cy="266" r="3" class="dot"/><text x="424" y="270" class="pin" text-anchor="start">VCC</text>
-  <circle cx="416" cy="296" r="3" class="dot"/><text x="424" y="300" class="pin" text-anchor="start">GND</text>
+  <circle cx="416" cy="122" r="3" class="dot"/><text x="424" y="126" class="lblPin" text-anchor="start">SCK</text>
+  <circle cx="416" cy="158" r="3" class="dot"/><text x="424" y="162" class="lblPin" text-anchor="start">MOSI</text>
+  <circle cx="416" cy="194" r="3" class="dot"/><text x="424" y="198" class="lblPin" text-anchor="start">MISO</text>
+  <circle cx="416" cy="230" r="3" class="dot"/><text x="424" y="234" class="lblPin" text-anchor="start">CS</text>
+  <circle cx="416" cy="266" r="3" class="dot"/><text x="424" y="270" class="lblPin" text-anchor="start">VCC</text>
+  <circle cx="416" cy="296" r="3" class="dot"/><text x="424" y="300" class="lblPin" text-anchor="start">GND</text>
 
   <line x1="204" y1="122" x2="416" y2="122" class="wire"/>
   <line x1="204" y1="158" x2="416" y2="158" class="wire"/>
@@ -62,5 +62,5 @@
   <line x1="204" y1="266" x2="416" y2="266" class="wire"/>
   <line x1="204" y1="296" x2="416" y2="296" class="wire"/>
 
-  <text x="44" y="332" class="nStrong" text-anchor="start">Bon à savoir : MOSI va sur MOSI, MISO sur MISO (le SPI ne croise pas). CS sélectionne le périphérique.</text>
+  <text x="44" y="332" class="nStrong" text-anchor="start">Bon à savoir : MOSI va sur MOSI, MISO sur MISO (le SPI ne croise pas). CS (GP5) sélectionne le périphérique.</text>
 </svg>

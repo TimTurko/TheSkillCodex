@@ -69,6 +69,10 @@ void loop() {
 - **l'ADC est en 12 bits** par défaut (`analogReadResolution(12)`), contre 10 sur un Uno ;
 - **`Serial`** part ici sur le **port série virtuel du ST-LINK** (USART2 sur les Nucleo) : on lit le moniteur sans adaptateur USB-série supplémentaire.
 
+Sur une *Blue Pill* (STM32F103), chaque broche porte son nom de port (PA9, PB6…) et plusieurs fonctions possibles — le brochage par fonction aide à choisir laquelle déclarer :
+
+![Brochage de la Blue Pill (STM32F103C8T6) organisé par fonction : alimentation, LED PC13, SWD (PA13/PA14), entrées analogiques, UART, I2C, SPI, PWM/timers, USB ; logique 3,3 V, certaines broches tolérantes 5 V.|640](/ressources/img/stm32-arduino-core/brochage-blue-pill.svg)
+
 ## Ce qui change sous le capot
 
 STM32duino n'est pas du « bare metal » écrit à la main : il s'appuie sur la **HAL** et **CMSIS** de ST. Concrètement :

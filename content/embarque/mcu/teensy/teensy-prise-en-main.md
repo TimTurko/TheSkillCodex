@@ -117,6 +117,12 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 
 **Mauvais modèle sélectionné.** Choisir « Teensy 4.0 » pour une 4.1 (ou l'inverse) peut fausser le brochage de certains exemples ; sélectionner le modèle exact.
 
+Pour câbler au-delà de la LED intégrée (broche 13) — par exemple sur la broche 14 de l'exercice suivant — le brochage de la carte est la référence à garder sous les yeux.
+
+![Brochage officiel du Teensy : broches numériques, analogiques et fonctions spéciales, repérées par leur numéro utilisé dans le code.|640](/ressources/img/teensy-prise-en-main/brochage.png)
+
+*Source : PJRC (Paul Stoffregen).*
+
 ## Exercices
 
 > [!question] Exercice 1 — Deux rythmes

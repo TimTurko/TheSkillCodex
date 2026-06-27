@@ -41,7 +41,7 @@ Toutes ces bibliothèques désignent les broches par leur **numéro GPIO « BCM 
 
 Câblage : la broche `GPIO17` → une **résistance** (~330 Ω) → l'anode de la LED → la cathode → une broche **GND**. La résistance limite le courant ; le niveau de sortie est à **3,3 V**.
 
-Prendre capture d'écran ou photo de *un Raspberry Pi relié à une platine d'essai : GPIO17 vers une résistance puis une LED, retour à une broche GND, brochage visible*.
+![Câblage sur Raspberry Pi : LED sur GPIO17 via une résistance 330 Ω vers GND, et bouton entre GPIO2 et GND (pull-up interne) ; broches en logique 3,3 V.|640](/ressources/img/raspberry-pi-gpio/montage-led-bouton.svg)
 
 Avec `gpiozero`, le programme tient en quelques lignes :
 

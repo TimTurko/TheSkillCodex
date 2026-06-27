@@ -39,6 +39,8 @@ Sur NodeMCU / D1 mini, la sérigraphie note les broches **D0, D1, D2…**, qui *
 const int RELAIS = D1;   // = GPIO5, mais on raisonne avec l'etiquette de la carte
 ```
 
+![Correspondance des étiquettes Dxx et des numéros GPIO sur ESP8266 (NodeMCU / Wemos D1 mini) : D1=GPIO5, D2=GPIO4, D5=GPIO14, D6=GPIO12, etc. ; broches sûres D1/D2/D5/D6/D7, broches de boot D3/D4/D8 à manier avec précaution, A0 = ADC0 unique.|640](/ressources/img/esp8266-arduino-core/brochage-d1-gpio.svg)
+
 ### Les broches de démarrage
 
 **GPIO0, GPIO2 et GPIO15** conditionnent le mode au reset (exécution normale vs flashage). Les utiliser en sortie de manière à forcer un mauvais état au démarrage **empêche la puce de booter**. En pratique : éviter d'y mettre une charge qui les tire au mauvais niveau, et préférer d'autres broches pour les sorties libres. **GPIO16** est particulier (pas d'interruption ; sert au réveil de *deep sleep* en le reliant à RST).

@@ -54,7 +54,7 @@ Sur le Pico (sorties **3,3 V**), **préférer DRV8833 ou TB6612FNG**, dont les e
 
 Le DRV8833 attend **deux signaux par moteur** : on fait varier la **vitesse en envoyant un PWM sur `AIN1`** (sens avant) ou `AIN2` (sens arrière), l'autre étant à 0.
 
-Prendre capture d'écran ou photo de *un module DRV8833 câblé sur un Pico, moteur sur AO1/AO2, alimentation moteur sur VM*.
+![Câblage d'un pont en H DRV8833 sur le Pico : AIN1 sur GP12 (PWM avant), AIN2 sur GP11 (PWM arrière), VCC logique sur 3,3 V, VM sur une alimentation moteur séparée, moteur sur AO1/AO2 avec condensateur 100 µF, masse commune.|640](/ressources/img/micropython-moteur-cc/branchement-pont-h.svg)
 
 ### 3. Alimenter
 

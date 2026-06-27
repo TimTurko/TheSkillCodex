@@ -30,7 +30,9 @@ Le Pico expose les broches **GP0 à GP28** (numérotation *GP*, à ne pas confon
 
 Toutes les broches sont en **3,3 V** et **ne sont pas tolérantes 5 V** — voir [[niveaux-de-tension|niveaux de tension]].
 
-Prendre capture d'écran de *le brochage (pinout) officiel du Raspberry Pi Pico 2, avec les numéros GPxx et les fonctions ADC / bus repérées*.
+![Brochage officiel du Raspberry Pi Pico : les 40 broches avec les numéros GPxx utilisés dans le code, les entrées analogiques (ADC) et les broches de bus (UART, I2C, SPI) repérées.|640](/ressources/img/micropython-gpio/brochage-pico.png)
+
+*Source : Raspberry Pi Ltd — licence CC BY-ND, image non modifiée.*
 
 ### 2. Créer l'objet `Pin` avec son mode
 

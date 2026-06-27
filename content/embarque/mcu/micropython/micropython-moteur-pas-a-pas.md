@@ -52,7 +52,7 @@ Le moteur s'enfiche sur le module ULN2003. Côté Pico :
 
 Les entrées de l'ULN2003 (Darlington) acceptent le 3,3 V du Pico.
 
-Prendre capture d'écran ou photo de *un 28BYJ-48 sur son module ULN2003, câblé sur GP2-GP5 d'un Pico, les 4 LEDs du module visibles*.
+![Câblage d'un 28BYJ-48 via son module ULN2003 sur le Pico : IN1–IN4 sur GP2–GP5, alimentation 5 V (VBUS ou externe) sur « + », moteur enfiché sur le module, masse commune.|640](/ressources/img/micropython-moteur-pas-a-pas/branchement-stepper.svg)
 
 ### 3. Séquencer les bobines
 

@@ -40,7 +40,7 @@ Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V
 - `Trig` → GP9 (sortie) ;
 - `Echo` → **pont diviseur** → GP10 (entrée).
 
-Prendre capture d'écran ou photo de *un HC-SR04 câblé sur un Pico, avec le pont diviseur sur la ligne Echo bien visible*.
+![Câblage du HC-SR04 sur le Pico : VCC sur +5 V (VBUS), Trig sur GP9, Echo ramené à ~3,3 V par un pont diviseur (≈ 1 kΩ / 2 kΩ) avant GP10, masse commune.|640](/ressources/img/micropython-capteur-numerique/montage-capteur.svg)
 
 ### 3. Lire le datasheet du HC-SR04
 

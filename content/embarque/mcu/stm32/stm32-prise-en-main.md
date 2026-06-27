@@ -111,6 +111,10 @@ Prendre capture d'écran de *la perspective Debug de CubeIDE, point d'arrêt pos
 
 **Oublier de lancer la bonne configuration d'exécution.** Au premier *Run*, CubeIDE demande parfois de choisir « STM32 C/C++ Application ». La sélectionner ; les fois suivantes, c'est automatique.
 
+Sur les Nucleo-64, la LED LD2 et le bouton B1 (utilisés ci-dessus et en exercice) occupent des positions communes à toute la gamme :
+
+![Repères communs aux STM32 Nucleo-64 : connecteurs Arduino (analogique + alimentation, numérique) et Morpho, ST-LINK intégré, LED LD2 sur D13 et bouton B1 sur PC13 ; la fonction précise des broches dépend du MCU.|640](/ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg)
+
 ## Exercices
 
 > [!question] Exercice 1 — Deux rythmes
