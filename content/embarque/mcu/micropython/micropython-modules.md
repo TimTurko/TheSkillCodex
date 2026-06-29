@@ -19,14 +19,14 @@ Un **module** est un ensemble de fonctions et d'objets qu'on charge avec `import
 
 ```python
 import machine                 # importe tout le module
-led = machine.Pin(25, machine.Pin.OUT)
+led = machine.Pin("LED", machine.Pin.OUT)
 ```
 
 ou, plus court, en important seulement ce dont on a besoin :
 
 ```python
 from machine import Pin        # importe juste Pin
-led = Pin(25, Pin.OUT)
+led = Pin("LED", Pin.OUT)
 ```
 
 La seconde forme est la plus courante dans les exemples. Les deux sont équivalentes ; elles diffèrent par la façon de **nommer** ensuite (`machine.Pin` vs `Pin`).
@@ -89,12 +89,12 @@ Détaillé dans [[micropython-bibliotheques|utiliser une bibliothèque]].
 > [!success]- Corrigé
 > ```python
 > import machine
-> led = machine.Pin(25, machine.Pin.OUT)
+> led = machine.Pin("LED", machine.Pin.OUT)
 > led.on()
 > ```
 > ```python
 > from machine import Pin
-> led = Pin(25, Pin.OUT)
+> led = Pin("LED", Pin.OUT)
 > led.on()
 > ```
 > Seul le **préfixe** change : `machine.Pin` quand on importe tout le module, `Pin` quand on importe ce nom directement. Le comportement est identique.
