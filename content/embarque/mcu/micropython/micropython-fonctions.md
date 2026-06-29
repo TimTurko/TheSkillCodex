@@ -40,7 +40,7 @@ def clignote(led, n=3, duree=0.2):
         led.off()
         sleep(duree)
 
-clignote(led)            # 3 clignotements de 0,2 s (valeurs par defaut)
+clignote(led)            # 3 clignotements de 0,2 s (valeurs par défaut)
 clignote(led, 5)         # 5 clignotements
 clignote(led, 10, 0.05)  # 10 clignotements rapides
 ```
@@ -96,7 +96,7 @@ Une fonction peut même renvoyer **plusieurs valeurs** d'un coup (sous forme de 
 > def en_volts(brut):
 >     return brut * 3.3 / 65535
 >
-> print(en_volts(32768))    # ~1.65 V (moitie de l'echelle)
+> print(en_volts(32768))    # ~1.65 V (moitié de l'échelle)
 > ```
 > `return` rend le résultat utilisable par l'appelant (affichage, comparaison…). Une demi-échelle (32768) donne bien ~1,65 V, soit la moitié de 3,3 V — un bon test de cohérence.
 

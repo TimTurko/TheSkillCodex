@@ -79,6 +79,8 @@ print(capteur["broche"])   # -> 26
 
 **`/` n'est pas `//`.** `5 / 2` vaut `2.5` (réel), pas `2`. Pour une division entière, utiliser `//`. C'est l'inverse du réflexe C où `/` entre entiers tronque.
 
+**Le Pico calcule en simple précision.** Ses `float` tiennent sur 32 bits, pas 64 comme sur un PC : un calcul pourtant simple peut afficher des décimales parasites — `float("3.3") * 2` peut donner `6.5999999` au lieu de `6.6`. C'est normal. Conséquence : ne pas comparer deux réels par égalité stricte (`==`), mais tester un petit écart (`abs(a - b) < 0.001`).
+
 **`str` + `int` lève une erreur.** `"valeur : " + 42` provoque un `TypeError` : il faut convertir (`+ str(42)`). Python ne mélange pas les types implicitement.
 
 **Coût mémoire.** Un objet Python est plus lourd qu'un entier C. Sans gravité pour apprendre, mais à garder en tête sur de gros tableaux (voir [[memoire|gestion mémoire]]).
@@ -96,7 +98,7 @@ print(capteur["broche"])   # -> 26
 > >>> float(v) * 2
 > 6.6
 > ```
-> La chaîne `"3.3"` n'est pas un nombre tant qu'on ne la convertit pas : `float(v)` la transforme en réel, qu'on peut alors calculer. Multiplier la chaîne (`v * 2`) donnerait `'3.33.3'` — d'où l'importance de la conversion.
+> La chaîne `"3.3"` n'est pas un nombre tant qu'on ne la convertit pas : `float(v)` la transforme en réel, qu'on peut alors calculer. Multiplier la chaîne (`v * 2`) donnerait `'3.33.3'` — d'où l'importance de la conversion. Sur le Pico (simple précision), l'affichage réel peut être `6.5999999` plutôt que `6.6` — le calcul est juste, c'est l'affichage qui révèle la limite (voir le piège).
 
 > [!question] Exercice 2 — Moyenne de mesures
 > À partir d'une liste de trois mesures `[512, 530, 528]`, calculez leur moyenne. Indice : `sum()` et `len()`.

@@ -21,9 +21,9 @@ Là où le [[cpp|C++]] entoure un bloc d'accolades `{ }`, MicroPython le marque 
 
 ```python
 if temperature > 25:
-    print("Il fait chaud")     # dans le bloc (indente)
+    print("Il fait chaud")     # dans le bloc (indenté)
     ventilateur.on()           # dans le bloc
-print("Suite du programme")    # hors du bloc (revenu a gauche)
+print("Suite du programme")    # hors du bloc (revenu à gauche)
 ```
 
 La convention est de **4 espaces** par niveau (Thonny le fait automatiquement). Pas d'accolades, pas de point-virgule en fin de ligne.

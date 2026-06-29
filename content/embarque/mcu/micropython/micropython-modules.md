@@ -104,7 +104,7 @@ Détaillé dans [[micropython-bibliotheques|utiliser une bibliothèque]].
 
 > [!success]- Corrigé
 > ```python
-> # outils.py  (enregistre SUR la carte)
+> # outils.py  (enregistré SUR la carte)
 > def moyenne(liste):
 >     return sum(liste) / len(liste)
 > ```
