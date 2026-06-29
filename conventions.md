@@ -970,6 +970,18 @@ Notes 25/06 (pas de convention numérotée) :
 - **Attribution d'une image officielle = légende italique sous l'embed (extension C74-c).** Image tierce sous licence → légende `*Source : <détenteur> — <licence>, image non modifiée.*` juste après l'embed : Pico (Raspberry Pi Ltd, CC BY-ND), Teensy (PJRC). Le cas « attribution » s'ajoute aux figures autonomes de C74-c. Candidate à intégrer formellement à C74 si réemployée.
 - **« Acceptable au rendu » ≠ « définitif ».** Rendu Tim : 12 pages acceptables, **3 réserves tracées BACKLOG** — 2 SVG fonctionnellement corrects mais à retravailler visuellement (`montage-relais`, `branchement-stepper` → peigne SVG), 1 image officielle à reprendre avant publication (`brochage-pico.png`). La réserve esthétique va au peigne, jamais en blocage d'intégration.
 
+### Acquises 29/06 — relecture de fond §13 MicroPython (registre, float, Pin LED, accents)
+
+82. **Float simple précision (MicroPython/RP2).** Le firmware standard du Pico calcule en **simple précision** (float 32 bits, vérifié en source). Les corrigés/exemples affichant un float posent une valeur **approchée** (`≈ 1,65 V`, `523.33…`), jamais des décimales exactes. Sur la fiche qui *introduit* le type (`micropython-types`), c'est un **piège pédagogique** explicite (`float("3.3")*2` peut afficher `6.5999999` ; comparer deux réels par `abs(a-b) < ε`, pas `==`). Sorties REPL float **à vérifier au matériel** (specs = source primaire). Éprouvée 1/N. **La numérotation éprouvage atteint 82.**
+
+83. **`Pin("LED")` pour les exemples LED réel (MicroPython).** Alias portable (résout GP25 sur Pico/Pico 2 **et** la LED CYW43 sur Pico W/Pico 2 W) ; jamais `Pin(25)` en dur, qui n'allume rien sur les variantes W. **Exception : la simulation Wokwi** garde `Pin(25)` (alias nommé pas toujours résolu — piège dans `micropython-simulation`). Éprouvée (hub, prise-en-main, controle, repl, modules — 4 blocs réalignés). **La numérotation éprouvage atteint 83.**
+
+Notes 29/06 (pas de convention numérotée) :
+- **Registre des tutos = précision de C65 (corrige une sur-application).** Le « on »/infinitif vaut pour la **prose explicative** ; les **instructions de manipulation directe** — procédure pas à pas, narration « essaie-le » de l'Exemple, énoncés `[!question]`, dépannage — restent en **« vous »**. Vérifié en source : l'étalon `arduino-prise-en-main` est **intégralement en « vous »**, `arduino-gpio` garde le « vous » de l'Exemple, `cpp-execution` ses exercices. Les « vous→infinitif » antérieurs (i2c, servomoteur) étaient des **corrections ponctuelles** de « vous » égarés en prose, **pas** un dévoussage. Erreur de la session : `micropython-prise-en-main` (16) et `-simulation` (4) dévoussées à tort → **20 conversions annulées**. C65 d'office §13 = ne convertir que le « vous » de prose explicative.
+- **Accents dans les commentaires de code.** On **accentue** comme la prose (`# entrée`, `# intégrée`, `# éclair court`) — le bloc Quartz rend l'UTF-8 sans souci. Contrôle d'office léger §13.
+- **Parité C77 par le jumeau.** L'encart « Comment lire ce code » suit le jumeau Arduino : s'il n'en a pas (`arduino-gpio`, logique pull-up couverte par bullet + commentaire + piège), la fiche MicroPython non plus. Verdict C77 par comparaison, pas mécanique.
+- **Câblage d'une fiche de simulation.** L'Exemple Wokwi (`micropython-simulation`, bouton GP14 + LED GP15) est couvert par la **capture** (raster simulateur = exception C78, broches du code visibles) — pas de SVG dédié, même sous câblage strict.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

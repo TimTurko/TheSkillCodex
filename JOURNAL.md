@@ -11,6 +11,18 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-06-29 — Relecture de fond §13 MicroPython (mode inversé) : 10 fiches hub→gpio + correction registre C65
+
+- **Périmètre** : démarrage PC pro (bascule MCP `theskillcodex:*`, git vérifié à jour) ; relecture de fond mode inversé du parcours langage MicroPython (hub famille, prise-en-main, simulation, hub langage, repl, types, contrôle, fonctions, modules) + 1ʳᵉ fiche matérielle (gpio). **10 fiches relues+corrigées, en attente de clic-test rendu** (non cochées dans `relecture-ordre`).
+- **Décisions d'ouverture** : (a) relecture de fond plutôt que production des médias résiduels ; (b) câblage MicroPython strict ; (c) `aa: PROJ/5` sur `micropython-repl`.
+- **Livrables** : hub (ligne « Par où commencer ? », REPL dédoublonné, exemple `Pin("LED")`) ; prise-en-main + repl (`aa: PROJ/5`) ; types (piège « simple précision » + caveat float) ; modules (4× `Pin("LED")`) ; accents commentaires sur 7 fiches ; gpio (SVG `montage-led-bouton` audité **C80-conforme**, parité C77 vérifiée). `langage` : RAS.
+- **Conventions** : **C82** (float simple précision RP2 → corrigés en ≈, piège sur `types`) ; **C83** (`Pin("LED")` portable réel-matériel, Wokwi excepté) ; notes — précision de C65 (registre tutos), accents commentaires, parité C77 par le jumeau, câblage fiche-simulation = capture.
+- **Tailles** : éditions ciblées (accents, aa, registre) ; pas de nouveau gros bloc.
+
+**Acquis méthodo (l'épisode de la session).** Sur-application de C65 : j'avais lu les notes « vous→infinitif » du JOURNAL comme un dévoussage systématique des tutos et converti la procédure de `prise-en-main` (+ `simulation`) en infinitif. Vérification en source des jumeaux : `arduino-prise-en-main` est **intégralement en « vous »**, `arduino-gpio` garde le « vous » de l'Exemple, `cpp-execution` ses exercices. Vrai patron : « vous » pour la manipulation directe (procédure, « essaie-le », exercices, dépannage), « on »/infinitif pour la prose explicative. **20 conversions annulées**, retour au style étalon. Leçon : un acquis de convention se vérifie sur l'étalon avant d'être généralisé en contrôle d'office — la mémoire du JOURNAL résume, elle ne remplace pas la lecture du jumeau.
+
+**Vérif source utile.** Le firmware MicroPython standard du Pico calcule en **simple précision** (float 32 bits) — confirmé micropython.org/discussions RP2. D'où C82 : sorties REPL float des corrigés en approché (`≈`), et le cas devient un piège pédagogique sur `types`.
+
 ## 2026-06-27 — Relecture/correction des médias familles MCU : 6 SVG régénérés contre le code, 2 replacés, 4 brochages + attributions
 
 - **Périmètre** : session de **relecture/correction** des médias intégrés le 25/06 (PC perso, MCP `filesystem:*`, Cas A). Boucle l'intégration du dépôt Martin : régénérer les SVG divergents **contre le code réel**, replacer les SVG mal ciblés, placer les brochages restants avec attributions, mettre à jour la cartographie, valider le rendu de chaque page.

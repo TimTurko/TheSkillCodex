@@ -220,17 +220,17 @@ Verdict : OK / a corriger
 - [ ] `teensy-usb` — 🖼
 
 ## 13 · EEE — MicroPython
-> *Médias 25–27/06 : 16 embeds posés dont **6 SVG de câblage régénérés contre le code** (C81) — `micropython-sortie-tor`, `-capteur-numerique`, `-spi`, `-moteur-cc`, `-moteur-pas-a-pas` + `-gpio` (brochage Pico, attribution Raspberry Pi CC BY-ND) ; tous **rendus validés 27/06** (`montage-relais` et `branchement-stepper` acceptables, à retravailler — BACKLOG). **Relecture de fond (mode inversé) restant à faire.***
-- [ ] `micropython` (hub) — 🖼
-- [ ] `micropython-prise-en-main`
-- [ ] `micropython-simulation`
-- [ ] `micropython-langage` (hub langage)
-- [ ] `micropython-repl`
-- [ ] `micropython-types`
-- [ ] `micropython-controle`
-- [ ] `micropython-fonctions`
-- [ ] `micropython-modules`
-- [ ] `micropython-gpio`
+> *Médias 25–27/06 : 16 embeds posés dont **6 SVG de câblage régénérés contre le code** (C81) — `micropython-sortie-tor`, `-capteur-numerique`, `-spi`, `-moteur-cc`, `-moteur-pas-a-pas` + `-gpio` (brochage Pico, attribution Raspberry Pi CC BY-ND) ; tous **rendus validés 27/06** (`montage-relais` et `branchement-stepper` acceptables, à retravailler — BACKLOG). **Relecture de fond (mode inversé) — session 29/06 : 10 premières fiches relues+corrigées (hub → gpio), attente clic-test rendu ; reste entree-tor → watchdog.***
+- [ ] `micropython` (hub) — 🖼 *(relu 29/06 : ligne « Par où commencer ? » ajoutée, REPL dédoublonné du parenthétique langage, exemple REPL → `Pin("LED")` ; attente rendu)*
+- [ ] `micropython-prise-en-main` *(relu 29/06 : `aa: PROJ/5`, accents commentaires ; registre étalon « vous » confirmé [conversions infinitif annulées] ; attente rendu)*
+- [ ] `micropython-simulation` *(relu 29/06 : accents, registre étalon ; câblage Exemple = capture Wokwi [C78 raster, pas de SVG] ; attente rendu)*
+- [ ] `micropython-langage` (hub langage) *(relu 29/06 : RAS — hub-parcours propre)*
+- [ ] `micropython-repl` *(relu 29/06 : `aa: PROJ/5` [déc. c], accents ; fond exact Ctrl-C/D/E + Plotter ; attente rendu)*
+- [ ] `micropython-types` *(relu 29/06 : accents, piège « simple précision » + caveat float Ex.1 [option 3] ; attente rendu)*
+- [ ] `micropython-controle` *(relu 29/06 : 2 accents, RAS fond ; attente rendu)*
+- [ ] `micropython-fonctions` *(relu 29/06 : 2 accents, float déjà en ≈ ; attente rendu)*
+- [ ] `micropython-modules` *(relu 29/06 : accent, 4× `Pin("LED")` ; attente rendu)*
+- [ ] `micropython-gpio` *(relu 29/06 : fond exact [4/12 mA, PWM toutes broches], SVG montage-led-bouton C80-ok, parité C77 OK, 2 accents ; attente rendu)*
 - [ ] `micropython-entree-tor`
 - [ ] `micropython-sortie-tor`
 - [ ] `micropython-capteur-numerique`
