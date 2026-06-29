@@ -31,7 +31,7 @@ Cinq étapes : installer Thonny, flasher le firmware, se connecter, écrire (au 
 
 ### 1. Installer Thonny
 
-Télécharger **Thonny** depuis `thonny.org` et l'installer (Windows / macOS / Linux). C'est l'IDE débutant de référence pour MicroPython : il sait flasher le firmware, ouvre le REPL, et gère les fichiers de la carte.
+Téléchargez **Thonny** depuis `thonny.org` et installez-le (Windows / macOS / Linux). C'est l'IDE débutant de référence pour MicroPython : il sait flasher le firmware, ouvre le REPL, et gère les fichiers de la carte.
 
 Prendre capture d'écran de *la page de téléchargement thonny.org avec les liens par système*.
 
@@ -39,23 +39,23 @@ Prendre capture d'écran de *la page de téléchargement thonny.org avec les lie
 
 C'est l'étape propre à MicroPython, à faire **une seule fois** par carte. Le plus simple passe par Thonny :
 
-- brancher le Pico 2, puis, en bas à droite de Thonny, cliquer sur le sélecteur d'interpréteur → **« Installer MicroPython… »** (ou *Outils → Options → Interpréteur*) ;
-- choisir la variante **Raspberry Pi Pico / Pico 2**, et suivre l'invite : Thonny demande de **maintenir le bouton BOOTSEL** en rebranchant la carte, puis installe le firmware.
+- branchez le Pico 2, puis, en bas à droite de Thonny, cliquez sur le sélecteur d'interpréteur → **« Installer MicroPython… »** (ou *Outils → Options → Interpréteur*) ;
+- choisissez la variante **Raspberry Pi Pico / Pico 2**, et suivez l'invite : Thonny demande de **maintenir le bouton BOOTSEL** en rebranchant la carte, puis installe le firmware.
 
 > [!tip]
-> **Méthode manuelle (sans Thonny).** Maintenir le bouton **BOOTSEL** du Pico **enfoncé en branchant l'USB** : la carte apparaît comme une **clé USB** nommée `RP2350` (ou `RPI-RP2`). Y glisser le fichier `.uf2` du firmware Pico 2, téléchargé sur `micropython.org` (rubrique *Download*, carte Pico 2) ou `raspberrypi.com`. La carte redémarre en exécutant MicroPython.
+> **Méthode manuelle (sans Thonny).** Maintenez le bouton **BOOTSEL** du Pico **enfoncé en branchant l'USB** : la carte apparaît comme une **clé USB** nommée `RP2350` (ou `RPI-RP2`). Glissez-y le fichier `.uf2` du firmware Pico 2, téléchargé sur `micropython.org` (rubrique *Download*, carte Pico 2) ou `raspberrypi.com`. La carte redémarre en exécutant MicroPython.
 
 Prendre capture d'écran de *la boîte de dialogue « Installer MicroPython » de Thonny, variante Pico 2 sélectionnée*.
 
 ### 3. Se connecter à la carte (le REPL)
 
-Dans *Outils → Options → Interpréteur*, choisir **« MicroPython (Raspberry Pi Pico) »** et le **port** de la carte. En bas de Thonny, le panneau **Shell** affiche l'invite du REPL :
+Dans *Outils → Options → Interpréteur*, choisissez **« MicroPython (Raspberry Pi Pico) »** et le **port** de la carte. En bas de Thonny, le panneau **Shell** affiche l'invite du REPL :
 
 ```
 >>>
 ```
 
-C'est l'interpréteur **qui tourne sur le Pico**. Taper pour vérifier :
+C'est l'interpréteur **qui tourne sur le Pico**. Tapez pour vérifier :
 
 ```python
 >>> print("Bonjour depuis le Pico")
@@ -75,7 +75,7 @@ D'abord **en direct**, ligne à ligne — c'est là que l'approche scriptée bri
 >>> led.off()
 ```
 
-Puis le **Blink** comme programme. Dans l'éditeur de Thonny, saisir :
+Puis le **Blink** comme programme. Dans l'éditeur de Thonny, saisissez :
 
 ```python
 from machine import Pin
@@ -90,21 +90,21 @@ while True:
     sleep(1)
 ```
 
-La différence avec Arduino est nette : **pas de `setup()`/`loop()`**, mais du code qui s'exécute de haut en bas, et une boucle `while True:` pour répéter. Les blocs sont délimités par l'**indentation**, pas par des accolades (voir [[micropython-langage|le langage]]).
+Notez la différence avec Arduino : **pas de `setup()`/`loop()`**, mais du code qui s'exécute de haut en bas, et une boucle `while True:` pour répéter. Les blocs sont délimités par l'**indentation**, pas par des accolades (voir [[micropython-langage|le langage]]).
 
-Cliquer sur **Exécuter** (le bouton vert) : Thonny envoie le script au Pico et le lance. La LED clignote. **Le programme tourne — la prise en main est validée.** Pour l'arrêter, le bouton **Stop** (rouge), ou `Ctrl-C` dans le Shell.
+Cliquez sur **Exécuter** (le bouton vert) : Thonny envoie le script au Pico et le lance. La LED clignote. **Le programme tourne — la prise en main est validée.** Pour l'arrêter, le bouton **Stop** (rouge), ou `Ctrl-C` dans le Shell.
 
 Prendre capture d'écran de *Thonny avec le script Blink dans l'éditeur, le bouton Exécuter, et le Pico LED allumée*.
 
 ### 5. Rendre la carte autonome (`main.py`)
 
-Tant que le script est lancé depuis Thonny, il s'arrête si l'on débranche. Pour qu'il tourne **seul à la mise sous tension**, l'enregistrer **sur la carte** sous le nom **`main.py`** (*Fichier → Enregistrer sous… → Raspberry Pi Pico*). Débrancher/rebrancher : la LED clignote sans ordinateur.
+Tant que le script est lancé depuis Thonny, il s'arrête si l'on débranche. Pour qu'il tourne **seul à la mise sous tension**, enregistrez-le **sur la carte** sous le nom **`main.py`** (*Fichier → Enregistrer sous… → Raspberry Pi Pico*). Débranchez/rebranchez : la LED clignote sans ordinateur.
 
 Prendre capture d'écran de *la boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, fichier nommé main.py*.
 
 ## Exemple — Blink modifié
 
-Pour vérifier qu'on contrôle réellement le comportement, changer le rythme :
+Pour vérifier qu'on contrôle réellement le comportement, changez le rythme :
 
 ```python
 from machine import Pin
@@ -119,7 +119,7 @@ while True:
     sleep(0.9)
 ```
 
-Relancer : un éclair court toutes les secondes. Ce **petit pas** — modifier, relancer, observer — est le geste de base de tous les tutoriels suivants. (On peut aussi tester `led.toggle()` au REPL pour basculer l'état d'un coup.)
+Relancez : un éclair court toutes les secondes. Ce **petit pas** — modifier, relancer, observer — est le geste de base de tous les tutoriels suivants. (On peut aussi tester `led.toggle()` au REPL pour basculer l'état d'un coup.)
 
 ## Pièges
 
@@ -144,7 +144,7 @@ Relancer : un éclair court toutes les secondes. Ce **petit pas** — modifier, 
 ## Raccrochage projet
 
 - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — flasher le firmware et lancer un premier programme est l'acte fondateur de la PoC logicielle en MicroPython. Tant que le Blink ne clignote pas, rien en aval n'est crédible.
-- **Tous les tutoriels MicroPython aval** — faire le Blink (et essayer le REPL) au moins une fois, sur le matériel cible, le plus tôt possible.
+- **Tous les tutoriels MicroPython aval** — faites le Blink (et essayez le REPL) au moins une fois, sur le matériel cible, le plus tôt possible.
 
 Le REPL change la façon de déboguer : avant d'écrire un programme complet, on **teste une ligne** sur la carte. Prendre ce réflexe dès la prise en main fait gagner un temps considérable sur tout le reste du module.
 

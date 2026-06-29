@@ -42,7 +42,7 @@ Contrairement à Arduino (`pinMode` dans `setup()`), on crée un **objet** par b
 from machine import Pin
 
 led = Pin(15, Pin.OUT)                 # sortie
-bouton = Pin(14, Pin.IN, Pin.PULL_UP)  # entree, resistance interne vers 3,3 V
+bouton = Pin(14, Pin.IN, Pin.PULL_UP)  # entrée, résistance interne vers 3,3 V
 ```
 
 - **`Pin.OUT`** — la broche pilote un signal vers l'extérieur (LED, relais, transistor).
@@ -54,7 +54,7 @@ bouton = Pin(14, Pin.IN, Pin.PULL_UP)  # entree, resistance interne vers 3,3 V
 
 ```python
 while True:
-    if bouton.value() == 0:    # bouton appuye (pull-up : 0 = appuye)
+    if bouton.value() == 0:    # bouton appuyé (pull-up : 0 = appuyé)
         led.on()
     else:
         led.off()
