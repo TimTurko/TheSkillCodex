@@ -178,6 +178,7 @@ Verdict : OK / a corriger
 - [ ] `falstad`
 
 ## 9 · EEE — ESP32
+> *Médias 25–27/06 : `esp32-gpio` (brochage + montage), `esp32-wifi` (sta-vs-ap), `esp32-ble` (`roles-ble` rapatrié depuis `esp32-wifi/` + embed section GATT) — embeds posés + **rendus validés**. Relecture de fond (mode inversé) restant à faire.*
 - [ ] `esp32` (hub)
 - [ ] `esp32-prise-en-main`
 - [ ] `esp32-arduino-core`
@@ -196,11 +197,13 @@ Verdict : OK / a corriger
 - [ ] `xiao-sense` — 🖼 *(créé 13/06 ; SVG peripheriques)*
 
 ## 10 · EEE — ESP8266
+> *Médias 27/06 : `esp8266-arduino-core` (`brochage-d1-gpio` rapatrié depuis `esp8266/` + embed section « Dxx ≠ GPIO ») — **rendu validé**. Relecture de fond restant à faire.*
 - [ ] `esp8266` (hub)
 - [ ] `esp8266-prise-en-main`
 - [ ] `esp8266-arduino-core`
 
 ## 11 · EEE — STM32
+> *Médias 25–27/06 : `stm32-prise-en-main` (`brochage-nucleo-64`), `stm32-arduino-core` (`brochage-blue-pill`), `stm32-registres` (registre MODER) — embeds posés + **rendus validés**. Relecture de fond restant à faire.*
 - [ ] `stm32` (hub) — 🖼
 - [ ] `stm32-prise-en-main`
 - [ ] `stm32-arduino-core`
@@ -209,6 +212,7 @@ Verdict : OK / a corriger
 - [ ] `stm32-registres`
 
 ## 12 · EEE — Teensy
+> *Médias 27/06 : `teensy-prise-en-main` (`brochage.png` PJRC, attribution posée) — **rendu validé**. Relecture de fond restant à faire.*
 - [ ] `teensy` (hub)
 - [ ] `teensy-prise-en-main`
 - [ ] `teensy-arduino-core`
@@ -216,6 +220,7 @@ Verdict : OK / a corriger
 - [ ] `teensy-usb` — 🖼
 
 ## 13 · EEE — MicroPython
+> *Médias 25–27/06 : 16 embeds posés dont **6 SVG de câblage régénérés contre le code** (C81) — `micropython-sortie-tor`, `-capteur-numerique`, `-spi`, `-moteur-cc`, `-moteur-pas-a-pas` + `-gpio` (brochage Pico, attribution Raspberry Pi CC BY-ND) ; tous **rendus validés 27/06** (`montage-relais` et `branchement-stepper` acceptables, à retravailler — BACKLOG). **Relecture de fond (mode inversé) restant à faire.***
 - [ ] `micropython` (hub) — 🖼
 - [ ] `micropython-prise-en-main`
 - [ ] `micropython-simulation`
@@ -256,6 +261,7 @@ Verdict : OK / a corriger
 - [ ] `micropython-watchdog`
 
 ## 14 · EEE — Raspberry Pi
+> *Médias 25–27/06 : `raspberry-pi-gpio` (`montage-led-bouton` régénéré → bouton GPIO2 ; `brochage-40-broches`) — **rendus validés**. Relecture de fond restant à faire.*
 - [ ] `raspberry-pi` (hub) — 🖼
 - [ ] `raspberry-pi-prise-en-main`
 - [ ] `raspberry-pi-gpio` — 🖼
