@@ -9,7 +9,8 @@ tags:
   - micropython
 prerequis:
   - micropython-prise-en-main
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -40,7 +41,7 @@ Et surtout, on **agit sur le matériel en direct** :
 >>> from machine import Pin
 >>> led = Pin("LED", Pin.OUT)
 >>> led.on()          # la LED s'allume tout de suite
->>> led.value()       # on lit son etat
+>>> led.value()       # on lit son état
 1
 ```
 
@@ -76,12 +77,12 @@ Thonny embarque un **traceur** (la vue *Plotter*, *View → Plotter*) qui porte 
 from machine import ADC, Pin
 import time
 
-capteur = ADC(Pin(26))           # entree analogique (Pico : GP26 = ADC0)
+capteur = ADC(Pin(26))           # entrée analogique (Pico : GP26 = ADC0)
 
 while True:
     valeur = capteur.read_u16()  # 0..65535
     print(valeur)                # une valeur par ligne -> une courbe
-    time.sleep_ms(50)            # ~20 Hz, lisible a l'oeil
+    time.sleep_ms(50)            # ~20 Hz, lisible à l'œil
 ```
 
 *Prendre capture d'écran de la vue Plotter de Thonny traçant une grandeur qui varie (la courbe ondule au fil des `print`).*
@@ -117,7 +118,7 @@ Le traceur attend des **nombres** : une ligne qui mêle texte et valeur (`print(
 > >>> led.off()
 > >>> led.value()
 > 0
-> >>> led.toggle()   # bascule l'etat
+> >>> led.toggle()   # bascule l'état
 > ```
 > `toggle()` inverse l'état courant — pratique pour un clignotement écrit en une ligne.
 

@@ -19,7 +19,7 @@ En MicroPython, une **variable** se crée par simple affectation, **sans déclar
 
 ```python
 temperature = 21.5      # float
-nom = "Pico"            # str (chaine de caracteres)
+nom = "Pico"            # str (chaîne de caractères)
 actif = True            # bool
 nombre = 42             # int
 ```
@@ -36,9 +36,9 @@ nombre = 42             # int
 Les **`int` sont de précision arbitraire** (pas de débordement à 65535 comme sur un `int` 16 bits AVR), et la **division** distingue deux opérateurs :
 
 ```python
->>> 5 / 2      # division reelle -> float
+>>> 5 / 2      # division réelle -> float
 2.5
->>> 5 // 2     # division entiere -> int
+>>> 5 // 2     # division entière -> int
 2
 ```
 
@@ -47,9 +47,9 @@ Les **`int` sont de précision arbitraire** (pas de débordement à 65535 comme 
 Les conversions sont explicites : `int()`, `float()`, `str()`.
 
 ```python
->>> int("42") + 1        # une chaine "42" devient le nombre 42
+>>> int("42") + 1        # une chaîne "42" devient le nombre 42
 43
->>> "valeur : " + str(nombre)   # pour concatener, convertir le nombre en str
+>>> "valeur : " + str(nombre)   # pour concaténer, convertir le nombre en str
 'valeur : 42'
 ```
 
@@ -62,8 +62,8 @@ Une **`list`** range des valeurs ordonnées, modifiables :
 ```python
 mesures = [512, 530, 528]
 mesures.append(541)      # ajoute en fin
-print(mesures[0])        # premier element -> 512
-print(len(mesures))      # nombre d'elements -> 4
+print(mesures[0])        # premier élément -> 512
+print(len(mesures))      # nombre d'éléments -> 4
 ```
 
 Un **`dict`** associe des clés à des valeurs (pratique pour nommer) :
