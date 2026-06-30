@@ -3,6 +3,7 @@ title: Programmer une interruption externe en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -75,7 +76,7 @@ while True:
         print(n, "impulsions/s")
 ```
 
-Prendre capture d'écran ou photo de *un montage breadboard : Pico, capteur à effet Hall (ou débitmètre) dont la sortie va sur GP2, alimenté en 3,3 V et GND*.
+![Montage : capteur à effet Hall (VCC, OUT, GND) relié à un Pico — VCC sur 3,3 V, OUT sur la broche GP2 en PULL_UP, GND commun ; la broche porte le nom du code.|560](/ressources/img/micropython-interruptions/montage.svg)
 
 ### 4. Respecter la règle d'allocation
 
@@ -92,6 +93,8 @@ def isr(pin):
 ## Exemple — Compteur de vitesse à effet Hall
 
 Un capteur Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées pour être lues dans la boucle — cas d'école de l'interruption. On compte par interruption ; la boucle calcule la vitesse chaque seconde.
+
+![Chronogramme du comptage : la broche GP2 est au repos à HIGH et chute à LOW à chaque passage d'aimant ; chaque front descendant déclenche l'ISR qui fait impulsions += 1 (1, 2, 3, 4) ; une fois par seconde, la boucle lit le compteur, calcule les tr/min et le remet à zéro.|640](/ressources/img/micropython-interruptions/chronogramme-comptage.svg)
 
 ```python
 from machine import Pin, disable_irq, enable_irq
@@ -120,6 +123,9 @@ while True:
         tr_min = (n / IMPULS_PAR_TOUR) * 60        # calcul dans la boucle
         print(tr_min, "tr/min")
 ```
+
+> [!info] Comment lire ce code
+> Une fois par seconde, la boucle relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `disable_irq()` / `enable_irq()` (cf. étape 3) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** ; la dernière ligne la convertit en tours par minute (× 60). Tout le calcul est dans la boucle — l'ISR ne fait qu'incrémenter, sans allocation.
 
 L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tr/min, affichage) se passe dans la boucle, là où l'allocation est permise et où le temps de calcul ne gêne personne. La boucle reste réactive, aucune impulsion n'est perdue.
 

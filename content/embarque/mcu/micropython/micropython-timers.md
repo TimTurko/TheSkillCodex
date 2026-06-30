@@ -3,6 +3,7 @@ title: Utiliser un timer matériel en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -44,9 +45,11 @@ tim.init(freq=100, mode=Timer.PERIODIC, callback=on_timer)   # 100 Hz
 
 Au choix : `freq=100` (Hz) ou `period=10` (ms). Mode : `Timer.PERIODIC` (répété) ou `Timer.ONE_SHOT` (une fois). `tim.deinit()` arrête le timer.
 
+Sur le Pico (RP2), `machine.Timer` est un timer **virtuel** (seul `id=-1`, d'où l'appel `Timer()` sans numéro) : pas de périphérique timer dédié à choisir comme sur l'AVR. Sa base de temps est le **timer système matériel** du RP2040 (microseconde), qui génère les interruptions — d'où la régularité : c'est cette base matérielle qui « tient l'horloge », pas un compteur qu'on configurerait à la main.
+
 ### 2. Garder le callback minimal
 
-Le callback s'exécute **comme une routine d'interruption** : il obéit aux règles des [[interruption|interruptions]] — court, et surtout **pas d'allocation mémoire** (pas de `print` formaté, pas d'objet créé ; voir [[micropython-interruptions|interruptions]]). Il se contente de **lever un drapeau** (un global déjà existant).
+Le callback s'exécute **comme une routine d'interruption** : il obéit aux règles des [[interruption|interruptions]] — court, et idéalement **sans allocation mémoire** (pas de `print` formaté, pas d'objet créé ; voir [[micropython-interruptions|interruptions]]). Cette règle d'allocation vaut pleinement avec **`hard=True`** (le callback devient une *hard IRQ*, à gigue minimale) ; **par défaut**, c'est une *soft IRQ* où l'allocation passe, mais nuit à la régularité. Dans les deux cas, même réflexe : il se contente de **lever un drapeau** (un global déjà existant).
 
 ### 3. Traiter dans la boucle
 
@@ -84,11 +87,13 @@ while True:
         print(capteur.read_u16()) # lecture + print dans la boucle, pas dans le callback
 ```
 
+![Chronogramme comparant deux cadences pour une même période visée de 10 ms : la cadence logicielle (ticks_ms) dérive — ses instants réels glissent vers la droite à mesure que la charge de la boucle varie, le retard s'accumule ; la cadence timer tombe exactement sur la grille, intervalle constant sans dérive.|680](/ressources/img/micropython-timers/cadence-ticks-vs-timer.svg)
+
 L'échantillonnage tombe toutes les 10 ms **quelle que soit la charge de la boucle**, parce que c'est le matériel qui tient l'horloge. Le callback se contente de signaler ; toute la logique reste dans la boucle. Comparée à une cadence `ticks_ms()`, la régularité est sans dérive — ce qui change tout pour un traitement du signal.
 
 ## Pièges
 
-**Allouer dans le callback.** `print` formaté, création d'objet, calcul flottant qui alloue : interdits dans le callback (interruption). Il lève un drapeau, la boucle traite. Voir la règle d'allocation des [[micropython-interruptions|interruptions]].
+**Allouer dans un callback `hard=True`.** En *hard IRQ*, `print` formaté, création d'objet ou calcul flottant qui alloue sont **interdits**. En *soft* IRQ (le défaut), l'allocation passe mais nuit à la régularité — dans les deux cas, le callback se contente de lever un drapeau, la boucle traite. Voir la règle d'allocation des [[micropython-interruptions|interruptions]].
 
 **Oublier `global`.** Sans `global echeance`, le callback crée une variable locale et le drapeau de la boucle ne se lève jamais.
 

@@ -3,6 +3,7 @@ title: Programmation non bloquante
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -11,12 +12,15 @@ prerequis:
   - micropython-prise-en-main
   - micropython-temporisation
   - machine-a-etats
+  - micropython-machine-a-etats
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
 La **programmation non bloquante** est une **façon de structurer** un programme embarqué pour que la boucle principale ne s'arrête **jamais**. Au lieu d'attendre avec `sleep()`, chaque tâche avance un peu à chaque tour de boucle puis rend la main : le système mène **plusieurs activités de front** et reste réactif. Ce n'est pas une fonction à appeler, mais une **discipline d'architecture** qui s'appuie sur la [[micropython-temporisation|temporisation par `ticks_ms()`]] et sur les [[machine-a-etats|machines à états]]. MicroPython offre en plus un outil dédié, **`asyncio`**, qui formalise cette coopération.
+
+![Comparaison de deux boucles principales. À gauche, l'approche bloquante : la boucle alterne une action courte et un long sleep() pendant lequel tout est figé, et un bouton pressé pendant le sleep() n'est vu qu'à la fin. À droite, l'approche non bloquante : la boucle tourne en continu et distribue le travail à de petites tâches, et un bouton pressé est vu dès le tour suivant.|680](/ressources/img/micropython-programmation-non-bloquante/bloquant-vs-non-bloquant.svg)
 
 ## À quoi ça sert ?
 
@@ -180,7 +184,9 @@ Adopter la discipline non bloquante au premier montage multi-fonctions évite la
 
 - [[micropython-temporisation|sleep() vs ticks_ms()]] — la brique de chaque tâche
 - [[machine-a-etats|Machine à états]] — chaque tâche à modes est une petite machine à états
+- [[micropython-machine-a-etats|Machine à états sur MicroPython]] — l'implémentation de ce concept dans le parcours MicroPython
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-interruptions|Interruptions]] — pour les événements que la boucle ne peut pas attraper assez vite
+- [[micropython-timers|Timers matériels]] — pour imposer une cadence précise à une tâche critique
 - [[firmware|Firmware]] — l'architecture du code embarqué et l'horizon RTOS (transverse)
 - [[arduino-programmation-non-bloquante|Programmation non bloquante (Arduino)]] — l'équivalent C++ (`millis()`)

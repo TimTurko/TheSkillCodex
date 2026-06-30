@@ -2,6 +2,7 @@
 title: Piloter un moteur pas-à-pas
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -64,7 +65,7 @@ from time import sleep_ms
 
 broches = [Pin(p, Pin.OUT) for p in (2, 3, 4, 5)]   # IN1..IN4
 
-SEQ = [                       # demi-pas (8 etapes)
+SEQ = [                       # demi-pas (8 étapes)
     [1,0,0,0], [1,1,0,0], [0,1,0,0], [0,1,1,0],
     [0,0,1,0], [0,0,1,1], [0,0,0,1], [1,0,0,1],
 ]
@@ -107,7 +108,7 @@ def pas_a4988(nb, sens=1, delai_us=800):
     dir_.value(1 if sens > 0 else 0)
     for _ in range(nb):
         step.value(1); sleep_us(2)        # impulsion STEP
-        step.value(0); sleep_us(delai_us) # delai = vitesse
+        step.value(0); sleep_us(delai_us) # délai = vitesse
 ```
 
 **`VMOT` du A4988 exige un condensateur 100 µF** vers GND (sinon destruction à l'allumage), une alimentation moteur 12–24 V, et le courant réglé au potentiomètre du driver.
@@ -141,6 +142,9 @@ while True:
         if etat_stable == 0:                 # front : un quart de tour par appui
             pas(PAS_PAR_TOUR // 4)
 ```
+
+> [!info] Comment lire ce code
+> L'anti-rebond non bloquant suit le même motif que pour le [[micropython-moteur-cc|moteur CC]] : `dernier` repère l'instant où la lecture brute change (et relance le chronomètre), `etat_stable` retient l'état confirmé après 30 ms ; le quart de tour n'est déclenché que sur un **front descendant** (`PULL_UP` → appui = 0). **Attention** : `pas()` est **bloquant** — pendant le quart de tour, la boucle est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré. Pour réagir en continu, structurer en [[micropython-programmation-non-bloquante|non bloquant]].
 
 ## Pièges
 
@@ -177,5 +181,6 @@ Le pas-à-pas est l'actionneur des projets qui visent un mouvement répétable p
 - [[micropython-gpio|Configurer les GPIO]] — prérequis (séquencement des broches)
 - [[micropython-moteur-cc|Piloter un moteur CC]] · [[micropython-servomoteur|Servomoteur]] — alternatives
 - [[micropython-programmation-non-bloquante|Programmation non bloquante]] — pour un séquencement non bloquant
+- [[micropython-interruptions|Interruptions]] — lecture de fin de course en parallèle du mouvement
 - [[micropython-alimentation|Alimenter la carte]] — dimensionnement avec moteur de puissance
 - [[arduino-moteur-pas-a-pas|Piloter un moteur pas-à-pas (Arduino)]] — l'équivalent C++ (`Stepper.h`)

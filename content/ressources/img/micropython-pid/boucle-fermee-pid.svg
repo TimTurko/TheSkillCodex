@@ -1,0 +1,85 @@
+<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boucle fermee d'un asservissement de vitesse : la consigne entre dans un comparateur qui calcule l'erreur (consigne moins mesure), le PID en deduit une commande, envoyee en PWM au pont en H qui pilote le moteur ; un capteur (encodeur) mesure la vitesse reelle et la renvoie au comparateur ; une perturbation (charge) agit sur le moteur">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .blk{font-size:12px;font-weight:600;}
+      .sub{font-size:10px;fill:#6B6862;}
+      .lbl{font-size:11px;fill:#6B6862;}
+      .box{fill:#DDDBD3;stroke:#9A958A;stroke-width:1.5;}
+      .sum{fill:#F3E4C8;stroke:#BA7517;stroke-width:1.8;}
+      .flow{stroke:#7A766C;stroke-width:2;fill:none;}
+      .fb{stroke:#BA7517;stroke-width:2;fill:none;}
+      .arrh{fill:#7A766C;}
+      .arrha{fill:#BA7517;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .sub,.lbl{fill:#A9A59B;}
+        .box{fill:#3B3A34;stroke:#8A867C;}
+        .sum{fill:#4A3E26;stroke:#E0A24A;}
+        .flow{stroke:#A9A59B;}
+        .fb{stroke:#E0A24A;}
+        .arrh{fill:#A9A59B;}
+        .arrha{fill:#E0A24A;}
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="arrh"/></marker>
+    <marker id="aha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="arrha"/></marker>
+  </defs>
+
+  <text class="t-title" x="40" y="26" text-anchor="start">La boucle fermée d'un asservissement de vitesse</text>
+
+  <!-- consigne -->
+  <text class="blk" x="24" y="86" text-anchor="start">consigne</text>
+  <text class="sub" x="24" y="101" text-anchor="start">vitesse visée</text>
+  <line class="flow" x1="92" y1="92" x2="110" y2="92" marker-end="url(#ah)"/>
+
+  <!-- comparateur -->
+  <circle class="sum" cx="130" cy="92" r="18"/>
+  <text class="blk" x="130" y="97" text-anchor="middle">Σ</text>
+  <text class="sub" x="111" y="80" text-anchor="middle">+</text>
+  <text class="sub" x="117" y="119" text-anchor="middle">−</text>
+
+  <!-- erreur -->
+  <line class="flow" x1="148" y1="92" x2="206" y2="92" marker-end="url(#ah)"/>
+  <text class="lbl" x="177" y="84" text-anchor="middle">erreur</text>
+
+  <!-- PID -->
+  <rect class="box" x="206" y="66" width="156" height="52"/>
+  <text class="blk" x="284" y="86" text-anchor="middle">PID</text>
+  <text class="sub" x="284" y="104" text-anchor="middle">Kp·e + Ki·∫e + Kd·de/dt</text>
+
+  <!-- commande -->
+  <line class="flow" x1="362" y1="92" x2="420" y2="92" marker-end="url(#ah)"/>
+  <text class="lbl" x="391" y="84" text-anchor="middle">commande</text>
+
+  <!-- actionneur -->
+  <rect class="box" x="420" y="66" width="130" height="52"/>
+  <text class="blk" x="485" y="96" text-anchor="middle">PWM → pont en H</text>
+
+  <line class="flow" x1="550" y1="92" x2="600" y2="92" marker-end="url(#ah)"/>
+
+  <!-- procédé -->
+  <rect class="box" x="600" y="66" width="120" height="52"/>
+  <text class="blk" x="660" y="96" text-anchor="middle">moteur CC</text>
+
+  <!-- perturbation -->
+  <line class="flow" x1="660" y1="40" x2="660" y2="64" marker-end="url(#ah)"/>
+  <text class="lbl" x="660" y="34" text-anchor="middle">perturbation (charge)</text>
+
+  <!-- sortie + retour -->
+  <line class="fb" x1="720" y1="92" x2="742" y2="92"/>
+  <line class="fb" x1="742" y1="92" x2="742" y2="210"/>
+  <text class="lbl" x="734" y="84" text-anchor="end">vitesse</text>
+  <line class="fb" x1="742" y1="210" x2="550" y2="210"/>
+
+  <!-- capteur -->
+  <rect class="box" x="420" y="186" width="130" height="48"/>
+  <text class="blk" x="485" y="206" text-anchor="middle">capteur</text>
+  <text class="sub" x="485" y="222" text-anchor="middle">(encodeur)</text>
+
+  <!-- retour vers Σ -->
+  <line class="fb" x1="420" y1="210" x2="130" y2="210"/>
+  <line class="fb" x1="130" y1="210" x2="130" y2="112" marker-end="url(#aha)"/>
+  <text class="lbl" x="275" y="204" text-anchor="middle">mesure (vitesse réelle)</text>
+</svg>

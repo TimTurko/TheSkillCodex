@@ -3,6 +3,8 @@ title: Stockage persistant (fichier, EEPROM)
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -29,6 +31,8 @@ Quatre étapes : comprendre où vivent les données, lire/écrire un fichier, é
 ### 1. Comprendre : un fichier sur la flash
 
 Le système de fichiers MicroPython est **persistant** : un fichier créé par le programme survit aux redémarrages et aux coupures. On le lit/écrit avec `open()` comme en Python standard. `import os` permet de l'inspecter (`os.listdir()`, `os.remove()`).
+
+![Comparaison RAM volatile / flash persistante : avant la coupure, la variable compteur vaut 3 en RAM et config.json contient demarrages 3 sur la flash ; après le redémarrage, la RAM repart de zéro alors que le fichier sur la flash a gardé sa valeur.|640](/ressources/img/micropython-stockage/persistance-fichier.svg)
 
 ### 2. Lire / écrire un fichier (texte)
 
@@ -105,6 +109,9 @@ with open(FICHIER, "w") as f:
 print("Demarrage n°", data["demarrages"])
 ```
 
+> [!info] Comment lire ce code
+> Le `try/except OSError` gère le **premier démarrage** : au tout premier lancement, `compteur.json` n'existe pas, `json.load` lève `OSError`, et on repart d'un dictionnaire par défaut `{"demarrages": 0}` — l'équivalent propre de la détection « EEPROM neuve » d'Arduino. Ensuite on incrémente et on réécrit le fichier entier avec `json.dump`. `json` restitue directement les types (ici un entier), sans découpage en octets ni adresses à calculer.
+
 Lancer (`Demarrage n° 1`), débrancher, rebrancher — la valeur s'incrémente (`n° 2`, `n° 3`…) et persiste après une déconnexion totale. (Ici on écrit à chaque démarrage, ce qui est acceptable ; pour des écritures fréquentes en boucle, appliquer l'économie de l'étape 3.)
 
 ## Pièges
@@ -141,5 +148,6 @@ Sauvegarder par fichier transforme un programme de démo en système qui *se sou
 - [[micropython-modules|Modules]] — prérequis (`json`, `os`)
 - [[micropython-i2c|I2C]] — pour une EEPROM externe 24LCxx
 - [[micropython-spi|SPI]] — pour les gros volumes (carte SD)
+- [[memoire|Mémoire d'un microcontrôleur]] — Flash, SRAM, EEPROM : où vivent le code et les données
 - [[firmware|Firmware]] — organisation du code embarqué incluant la persistance
 - [[arduino-eeprom|Stockage EEPROM (Arduino)]] — l'équivalent C++ (`EEPROM.h`) et la divergence

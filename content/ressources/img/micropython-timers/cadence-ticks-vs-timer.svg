@@ -1,0 +1,73 @@
+<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison de deux cadences : en haut la cadence ticks_ms() dont les declenchements derivent par rapport a la grille ideale selon la charge de la boucle, en bas la cadence timer dont les declenchements restent exactement sur la grille">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .lane{font-size:12px;font-weight:600;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .grid{stroke:#BFB8A6;stroke-width:1;stroke-dasharray:3 4;fill:none;}
+      .base{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .dotg{fill:#7A766C;}
+      .dott{fill:#BA7517;}
+      .lag{stroke:#BA7517;stroke-width:2.4;fill:none;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .grid{stroke:#5A574E;}
+        .base{stroke:#8A867C;}
+        .dotg{fill:#A9A59B;}
+        .dott{fill:#E0A24A;}
+        .lag{stroke:#E0A24A;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+      }
+    </style>
+  </defs>
+
+  <text class="t-title" x="40" y="28" text-anchor="start">Même période visée, deux régularités</text>
+
+  <!-- grille idéale (instants visés, tous les 10 ms) -->
+  <line class="grid" x1="120" y1="48" x2="120" y2="214"/>
+  <line class="grid" x1="200" y1="48" x2="200" y2="214"/>
+  <line class="grid" x1="280" y1="48" x2="280" y2="214"/>
+  <line class="grid" x1="360" y1="48" x2="360" y2="214"/>
+  <line class="grid" x1="440" y1="48" x2="440" y2="214"/>
+  <line class="grid" x1="520" y1="48" x2="520" y2="214"/>
+  <text class="t-sm" x="600" y="52" text-anchor="start">grille idéale : tous les 10 ms</text>
+
+  <!-- Lane ticks_ms() : dérive -->
+  <text class="lane" x="112" y="88" text-anchor="end">ticks_ms()</text>
+  <line class="base" x1="120" y1="84" x2="600" y2="84"/>
+  <!-- retards croissants (segment ambre de l'instant visé vers l'instant réel) -->
+  <line class="lag" x1="200" y1="84" x2="204" y2="84"/>
+  <line class="lag" x1="280" y1="84" x2="292" y2="84"/>
+  <line class="lag" x1="360" y1="84" x2="384" y2="84"/>
+  <line class="lag" x1="440" y1="84" x2="480" y2="84"/>
+  <line class="lag" x1="520" y1="84" x2="580" y2="84"/>
+  <!-- instants réels (en retard, dérivent vers la droite) -->
+  <circle class="dotg" cx="120" cy="84" r="4.5"/>
+  <circle class="dotg" cx="204" cy="84" r="4.5"/>
+  <circle class="dotg" cx="292" cy="84" r="4.5"/>
+  <circle class="dotg" cx="384" cy="84" r="4.5"/>
+  <circle class="dotg" cx="480" cy="84" r="4.5"/>
+  <circle class="dotg" cx="580" cy="84" r="4.5"/>
+  <text class="t-sm" x="120" y="118" text-anchor="start">selon la charge de la boucle, l'instant réel glisse — le retard s'accumule</text>
+
+  <!-- Lane timer : régulier -->
+  <text class="lane" x="112" y="174" text-anchor="end">timer</text>
+  <line class="base" x1="120" y1="170" x2="600" y2="170"/>
+  <circle class="dott" cx="120" cy="170" r="4.5"/>
+  <circle class="dott" cx="200" cy="170" r="4.5"/>
+  <circle class="dott" cx="280" cy="170" r="4.5"/>
+  <circle class="dott" cx="360" cy="170" r="4.5"/>
+  <circle class="dott" cx="440" cy="170" r="4.5"/>
+  <circle class="dott" cx="520" cy="170" r="4.5"/>
+  <text class="t-sm" x="120" y="204" text-anchor="start">l'interruption (base matérielle) tombe sur la grille — intervalle constant, sans dérive</text>
+
+  <!-- axe du temps -->
+  <line class="axis" x1="120" y1="244" x2="690" y2="244"/>
+  <polygon class="arrh" points="690,239 702,244 690,249"/>
+  <text class="t-sm" x="708" y="248" text-anchor="start">temps</text>
+</svg>

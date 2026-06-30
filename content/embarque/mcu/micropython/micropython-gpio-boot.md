@@ -2,6 +2,7 @@
 title: État des GPIO à l'allumage
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
   - integration-et-tests
 tags:
@@ -34,6 +35,8 @@ Quatre étapes : comprendre la séquence, repérer les broches réservées, ajou
 
 Pendant les phases 1-2, **toute broche utilisée plus tard en sortie flotte** : un actionneur branché dessus est dans un état indéterminé. Contrairement à l'[[esp8266-arduino-core|ESP8266]]/ESP32, aucune broche du Pico ne doit être à un niveau précis pour *démarrer* — pas de piège de boot bloquant.
 
+![Chronogramme du démarrage d'un Pico : reset, firmware MicroPython (court délai), puis lancement de main.py ; une broche de sortie flotte jusqu'à ce que la création de l'objet Pin la force à son état voulu.|680](/ressources/img/micropython-gpio-boot/sequence-boot.svg)
+
 ### 2. Repérer les broches réservées de la carte
 
 Le Pico réserve quelques broches pour son propre fonctionnement — **à ne pas utiliser** pour un usage général :
@@ -51,7 +54,7 @@ Le Pico réserve quelques broches pour son propre fonctionnement — **à ne pas
 
 Une broche flottante au boot se stabilise par une **résistance externe** : **pull-down** (10 kΩ vers GND) pour que l'actionneur soit *éteint* tant que le code n'a pas pris le contrôle ; **pull-up** (10 kΩ vers 3,3 V) pour un actionneur *actif au repos* (module à entrée active au niveau bas). Pour un **module relais actif-bas**, un pull-up externe garde le relais relâché pendant le boot — la parade générique au *« clic relais au démarrage »*.
 
-Prendre capture d'écran ou photo de *un module relais câblé sur un Pico avec un pull-up externe 10 kΩ entre la broche de commande et 3,3 V*.
+![Module relais actif-bas câblé sur la broche GP8 (RELAIS) d'un Pico, avec un pull-up externe 10 kΩ entre la broche de commande et le 3,3 V|560](/ressources/img/micropython-gpio-boot/branchement-relais-pullup.svg)
 
 ### 4. Initialiser proprement dès la création de l'objet
 
@@ -60,10 +63,10 @@ MicroPython offre une parade élégante absente d'Arduino : le **constructeur `P
 ```python
 from machine import Pin
 
-# Le relais (actif-bas) part directement a l'etat relache (1), sans passer par 0
+# Le relais (actif-bas) part directement à l'état relâché (1), sans passer par 0
 relais = Pin(8, Pin.OUT, value=1)
 
-# Le moteur part arrete
+# Le moteur part arrêté
 moteur_en = Pin(15, Pin.OUT, value=0)
 ```
 
@@ -82,8 +85,8 @@ Symptôme : un relais actif-bas qui pilote une lampe *clique* à chaque démarra
 
 ```python
 from machine import Pin
-relais = Pin(8, Pin.OUT, value=1)   # relache des l'init
-# le relais ne colle qu'a la demande explicite (relais.value(0))
+relais = Pin(8, Pin.OUT, value=1)   # relâché dès l'init
+# le relais ne colle qu'à la demande explicite (relais.value(0))
 ```
 
 Démarrage silencieux et propre.

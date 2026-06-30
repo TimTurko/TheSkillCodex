@@ -2,6 +2,7 @@
 title: Piloter un servomoteur
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -52,8 +53,8 @@ from machine import Pin, PWM
 servo = PWM(Pin(15))
 servo.freq(50)                 # 50 Hz = signal servo
 
-MIN_DUTY = 1638                # ~0,5 ms (0°)   -- a calibrer
-MAX_DUTY = 8192                # ~2,5 ms (180°) -- a calibrer
+MIN_DUTY = 1638                # ~0,5 ms (0°)   -- à calibrer
+MAX_DUTY = 8192                # ~2,5 ms (180°) -- à calibrer
 
 def angle(deg):
     deg = max(0, min(180, deg))           # borne 0..180
@@ -91,13 +92,16 @@ def angle(deg):
 
 a, sens = 0, 1
 while True:
-    pas = 1 + pot.read_u16() * 9 // 65535    # 1 a 10 degres par pas
+    pas = 1 + pot.read_u16() * 9 // 65535    # 1 à 10 degrés par pas
     a += sens * pas
     if a >= 180: a, sens = 180, -1
     if a <= 0:   a, sens = 0, 1
     angle(a)
-    sleep_ms(20)                              # ~50 Hz de rafraichissement
+    sleep_ms(20)                              # ~50 Hz de rafraîchissement
 ```
+
+> [!info] Comment lire ce code
+> Le va-et-vient repose sur `sens`, qui vaut `+1` (on monte vers 180°) ou `-1` (on descend). À chaque tour, on ajoute `sens * pas` ; en butée, on **inverse `sens`** et le servo repart. Le `pas` est tiré du potentiomètre (`read_u16()` 0-65535 → 1 à 10°) : plus le pas est grand, plus le balayage est rapide.
 
 Tourner le potentiomètre fait varier la vitesse de balayage — pratique pour calibrer en démo sans recompiler.
 
@@ -120,6 +124,60 @@ Tourner le potentiomètre fait varier la vitesse de balayage — pratique pour c
 - Un *servo à rotation continue* (FS90R…) **tourne** à vitesse proportionnelle à l'impulsion : ~1,5 ms = arrêt, plus court/plus long = un sens ou l'autre. Utile pour un petit robot à roues, en remplacement d'un moteur CC + pont H. Pas de retour de position.
 - Des **bibliothèques servo** MicroPython existent (installables via `mip`, voir [[micropython-bibliotheques|bibliothèques]]) et encapsulent la conversion angle→impulsion ; le pilotage PWM direct ci-dessus reste le socle à comprendre.
 
+## Servos à retour de position
+
+Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `angle(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
+
+Rappel utile : tout servo analogique se positionne déjà en **boucle fermée** grâce à un [[potentiometre|potentiomètre]] interne solidaire de l'axe (c'est lui qui permet au servo de « tenir » sa position). Un feedback servo ne fait que **sortir ce signal** vers une broche du Pico.
+
+### Lire la position (retour analogique)
+
+Le cas le plus courant est le **servo à retour analogique** (par exemple l'Adafruit Analog Feedback Servo) : le 4ᵉ fil donne directement la **tension du curseur** du potentiomètre interne, image de l'angle. On la lit sur une entrée [[micropython-capteur-analogique|ADC]] (→ [[adc]]).
+
+![Branchement d'un servo à retour de position sur un Pico : 3 fils standards (rouge → VBUS, marron → GND, orange → GP15 commande) plus un fil de retour relié à GP26 (ADC).|520](/ressources/img/micropython-servomoteur/retour-position.svg)
+
+```python
+from machine import Pin, PWM, ADC
+from time import sleep_ms
+
+servo = PWM(Pin(15)); servo.freq(50)
+retour = ADC(Pin(26))            # 4e fil : tension du potentiometre interne
+MIN_DUTY, MAX_DUTY = 1638, 8192
+
+# Valeurs ADC relevees en calibration (a mesurer pour CHAQUE servo)
+ADC_0   = 7000                   # read_u16() quand le servo est a 0 deg
+ADC_180 = 58000                  # read_u16() quand le servo est a 180 deg
+
+def commande(deg):
+    servo.duty_u16(int(MIN_DUTY + (deg/180)*(MAX_DUTY-MIN_DUTY)))
+
+def angle_reel():
+    brut = retour.read_u16()
+    return (brut - ADC_0) * 180 // (ADC_180 - ADC_0)   # interpolation -> degres
+
+while True:
+    commande(90)                 # consigne : aller a 90 deg
+    sleep_ms(500)
+    print("Consigne 90 -> mesure", angle_reel(), "deg")
+    sleep_ms(500)
+```
+
+> [!info] Comment lire ce code
+> La consigne (`commande`) et la mesure (`angle_reel`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les bornes `ADC_0` et `ADC_180` ne se devinent pas — elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève `read_u16()` à chaque extrémité, et l'interpolation convertit entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
+
+### À quoi ça sert
+
+- **Confirmer l'arrivée** — comparer consigne et mesure repère un servo qui n'atteint pas sa cible (obstacle, surcharge) : `if abs(angle_reel() - 90) > 5: ...`.
+- **Boucle de plus haut niveau** — asservir un mouvement à la position *réelle* plutôt qu'à la consigne supposée (→ [[micropython-pid|PID]]).
+- **Bras 3 axes** — connaître l'angle effectif de chaque articulation pour vérifier une posture ou journaliser un mouvement.
+
+### Variante — retour numérique (PWM)
+
+Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `time_pulse_us()` (mesure de la durée de l'impulsion), **pas** avec `read_u16()` ; en contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ ADC) ou **PWM** (→ `time_pulse_us` sur une broche numérique).
+
+> [!warning] Le retour n'est pas une métrologie
+> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable — voir [[micropython-pid|le réglage PID]].
+
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — premier essai de positionnement angulaire sur banc isolé.
@@ -135,4 +193,7 @@ Un servo bien câblé (alimentation séparée + GND commun) est l'actionneur le 
 - [[micropython-moteur-cc|Piloter un moteur CC]] — pour rotation continue
 - [[micropython-moteur-pas-a-pas|Piloter un moteur pas-à-pas]] — pour positionnement précis multi-tours
 - [[micropython-alimentation|Alimenter la carte]] — dimensionner l'alimentation avec servos
+- [[potentiometre|Potentiomètre]] — le capteur interne qu'un servo à retour de position expose
+- [[adc|Convertisseur analogique-numérique]] — pour lire la tension du retour analogique
+- [[micropython-pid|Réglage PID]] — pour un asservissement de position fin
 - [[arduino-servomoteur|Piloter un servomoteur (Arduino)]] — l'équivalent C++ (`Servo.h`)

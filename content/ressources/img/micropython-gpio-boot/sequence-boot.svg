@@ -1,0 +1,69 @@
+<svg viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme de la sequence de demarrage d'un Pico et etat d'une broche de sortie">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:15px;font-weight:600;}
+      .t-lbl{font-size:13px;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .seg{fill:#E8E3D7;stroke:#BFB8A6;stroke-width:1;}
+      .seg-boot{fill:#F3E4C8;stroke:#D8B877;stroke-width:1;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      .sig{stroke:#BA7517;stroke-width:2.6;fill:none;}
+      .sig-floue{stroke:#BA7517;stroke-width:2;stroke-dasharray:5 4;fill:none;}
+      .tick{stroke:#9A958A;stroke-width:1;stroke-dasharray:3 3;fill:none;}
+      .amber-f{fill:#BA7517;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .t-sm{fill:#A9A59B;}
+        .seg{fill:#3B3A34;stroke:#5A574E;}
+        .seg-boot{fill:#4A3E26;stroke:#7A6638;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+        .sig{stroke:#E0A24A;}
+        .sig-floue{stroke:#E0A24A;}
+        .tick{stroke:#8A867C;}
+        .amber-f{fill:#E0A24A;}
+      }
+    </style>
+  </defs>
+
+  <text class="t-title" x="60" y="28">De la mise sous tension au premier code utile</text>
+
+  <!-- Frise des phases -->
+  <rect class="seg"      x="60"  y="52" width="70"  height="42"/>
+  <rect class="seg-boot" x="130" y="52" width="250" height="42"/>
+  <rect class="seg"      x="380" y="52" width="150" height="42"/>
+  <rect class="seg"      x="530" y="52" width="170" height="42"/>
+
+  <text class="t-lbl" x="95"  y="70" text-anchor="middle">Reset</text>
+  <text class="t-sm"  x="95"  y="86" text-anchor="middle">~µs</text>
+  <text class="t-lbl" x="255" y="70" text-anchor="middle">Firmware MicroPython</text>
+  <text class="t-sm"  x="255" y="86" text-anchor="middle">court délai · pas de strapping</text>
+  <text class="t-lbl" x="455" y="76" text-anchor="middle">main.py</text>
+  <text class="t-lbl" x="615" y="76" text-anchor="middle">boucle</text>
+
+  <!-- Axe du temps -->
+  <line class="axis" x1="60" y1="112" x2="708" y2="112"/>
+  <polygon class="arrh" points="708,107 720,112 708,117"/>
+  <text class="t-sm" x="724" y="116" text-anchor="start">temps</text>
+
+  <!-- Repere du basculement -->
+  <line class="tick" x1="380" y1="94" x2="380" y2="244"/>
+  <text class="t-sm" x="388" y="156" text-anchor="start">Pin(8, Pin.OUT, value=1)</text>
+
+  <!-- Piste : etat d'une broche de sortie -->
+  <text class="t-lbl" x="60" y="210" text-anchor="start">Broche GP8 (sortie)</text>
+
+  <!-- niveau flottant pendant Reset + Firmware -->
+  <path class="sig-floue" d="M60,262 L380,262"/>
+  <text class="t-sm" x="220" y="282" text-anchor="middle">flotte (haute impédance) — état indéterminé</text>
+
+  <!-- basculement puis niveau HIGH stable -->
+  <path class="sig" d="M380,262 L380,232 L700,232"/>
+  <text class="t-sm" x="545" y="226" text-anchor="middle">forcée à 1 dès la création de l'objet</text>
+
+  <!-- note de pied -->
+  <text class="t-sm" x="60" y="324" text-anchor="start">Tant que le firmware n'a pas lancé main.py, un actionneur branché sur la broche est dans un état non maîtrisé :</text>
+  <text class="t-sm" x="60" y="340" text-anchor="start">la parade ne peut venir que du matériel (pull-up / pull-down externe).</text>
+</svg>

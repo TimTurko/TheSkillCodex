@@ -2,6 +2,7 @@
 title: Piloter un moteur CC
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -67,7 +68,7 @@ from machine import Pin, PWM
 from time import sleep
 
 av = PWM(Pin(12)); av.freq(1000)     # AIN1 : sens avant
-ar = PWM(Pin(11)); ar.freq(1000)     # AIN2 : sens arriere
+ar = PWM(Pin(11)); ar.freq(1000)     # AIN2 : sens arrière
 
 def avancer(vitesse):                # vitesse 0..65535
     ar.duty_u16(0)
@@ -93,6 +94,8 @@ Le moteur tourne dans un sens, s'arrête, repart dans l'autre. (Sur un L298N, on
 ## Exemple — Vitesse au potentiomètre + bouton de sens
 
 Élégance MicroPython : `read_u16()` et `duty_u16()` sont tous deux **16 bits** → la vitesse du potentiomètre pilote le PWM **sans mise à l'échelle**.
+
+**Câblage** : DRV8833 comme à l'étape 2 ; [[potentiometre|potentiomètre]] sur GP26 (→ [[micropython-capteur-analogique]]) ; bouton entre GP14 et GND (`PULL_UP`, pas de résistance externe).
 
 ```python
 from machine import Pin, PWM, ADC
@@ -123,6 +126,9 @@ while True:
     else:
         av.duty_u16(0); ar.duty_u16(vitesse)
 ```
+
+> [!info] Comment lire ce code
+> L'anti-rebond non bloquant repose sur **deux variables** : `dernier_btn` mémorise la dernière lecture *brute* (pour relancer le chronomètre dès que le signal bouge), `etat_stable` mémorise l'état *confirmé* (retenu une fois le signal stable depuis 30 ms). On ne bascule le sens que sur un **front descendant** (`etat_stable == 0`) : avec `PULL_UP`, la broche est à 1 au repos et tombe à 0 à l'appui — un seul basculement par appui. Tout est non bloquant : pas de `sleep()`, le moteur reste piloté à chaque tour.
 
 ## Pièges
 

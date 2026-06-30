@@ -1,0 +1,80 @@
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-label="Ce qui survit a une coupure d'alimentation : avant la coupure, une variable compteur vaut 3 en RAM et un fichier config.json contient demarrages 3 sur la flash ; apres le redemarrage, la variable RAM est perdue (repart de 0) tandis que le fichier sur la flash conserve sa valeur 3.">
+  <defs>
+    <style>
+      .h1 { font-size:15px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .panel { fill:none; stroke:#B9B6AC; stroke-width:1.4; }
+      .ptitle { font-size:12px; font-weight:600; fill:#3A3A3A; }
+      .ram { fill:#EDEBE4; stroke:#9A958A; stroke-width:1.3; }
+      .flash { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.5; }
+      .lbl { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .mono { font-size:11px; font-family:'Consolas','Courier New',monospace; fill:#2A2A2A; }
+      .monoF { font-size:11px; font-family:'Consolas','Courier New',monospace; fill:#7A5310; }
+      .lost { font-size:11px; fill:#9A958A; }
+      .ok { font-size:12px; font-weight:700; fill:#BA7517; }
+      .bolt { fill:#BA7517; }
+      .arr { stroke:#7A766C; stroke-width:2; fill:none; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .panel { stroke:#5A5A5A; }
+        .ptitle { fill:#DADADA; }
+        .ram { fill:#2C2C2C; stroke:#7A766C; }
+        .flash { fill:#3A2E19; stroke:#E0A24A; }
+        .lbl { fill:#DADADA; }
+        .mono { fill:#DADADA; }
+        .monoF { fill:#E0A24A; }
+        .lost { fill:#7A766C; }
+        .ok { fill:#E0A24A; }
+        .bolt { fill:#E0A24A; }
+        .arr { stroke:#A9A59B; }
+        .n { fill:#B0B0B0; }
+        .nStrong { fill:#DADADA; }
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="bolt"/></marker>
+  </defs>
+
+  <text x="360" y="26" class="h1" text-anchor="middle">Ce qui survit à une coupure d'alimentation</text>
+  <text x="360" y="46" class="sub" text-anchor="middle">Les variables vivent en RAM (volatile) ; un fichier vit sur la flash (persistant)</text>
+
+  <!-- ===== Panneau AVANT ===== -->
+  <rect class="panel" x="30" y="70" width="270" height="246" rx="8"/>
+  <text x="165" y="92" class="ptitle" text-anchor="middle">Avant la coupure</text>
+
+  <rect class="ram" x="50" y="106" width="230" height="74" rx="6"/>
+  <text x="64" y="126" class="lbl" text-anchor="start">RAM — variables</text>
+  <text x="64" y="150" class="mono" text-anchor="start">compteur = 3</text>
+  <text x="64" y="168" class="n" text-anchor="start">vit pendant l'exécution</text>
+
+  <rect class="flash" x="50" y="196" width="230" height="100" rx="6"/>
+  <text x="64" y="216" class="lbl" text-anchor="start">Flash — système de fichiers</text>
+  <text x="64" y="240" class="monoF" text-anchor="start">config.json</text>
+  <text x="64" y="258" class="monoF" text-anchor="start">{"demarrages": 3}</text>
+  <text x="64" y="280" class="n" text-anchor="start">écrit avec json.dump</text>
+
+  <!-- ===== Transition : coupure ===== -->
+  <polygon class="bolt" points="352,150 338,196 356,196 344,238 372,184 356,184 366,150"/>
+  <text x="360" y="120" class="nStrong" text-anchor="middle">coupure</text>
+  <line class="arr" x1="318" y1="266" x2="402" y2="266" marker-end="url(#ah)"/>
+  <text x="360" y="286" class="n" text-anchor="middle">redémarrage</text>
+
+  <!-- ===== Panneau APRÈS ===== -->
+  <rect class="panel" x="420" y="70" width="270" height="246" rx="8"/>
+  <text x="555" y="92" class="ptitle" text-anchor="middle">Après le redémarrage</text>
+
+  <rect class="ram" x="440" y="106" width="230" height="74" rx="6"/>
+  <text x="454" y="126" class="lbl" text-anchor="start">RAM — variables</text>
+  <text x="454" y="150" class="lost" text-anchor="start">compteur : vide → repart de 0</text>
+  <text x="454" y="168" class="lost" text-anchor="start">tout le contenu RAM est perdu</text>
+
+  <rect class="flash" x="440" y="196" width="230" height="100" rx="6"/>
+  <text x="454" y="216" class="lbl" text-anchor="start">Flash — système de fichiers</text>
+  <text x="454" y="240" class="monoF" text-anchor="start">config.json</text>
+  <text x="454" y="258" class="monoF" text-anchor="start">{"demarrages": 3}</text>
+  <text x="454" y="280" class="ok" text-anchor="start">✓ intact — relu au démarrage</text>
+
+  <text x="30" y="338" class="nStrong" text-anchor="start">Sur le Pico, la persistance passe par un fichier sur la flash — pas par une variable, qui disparaît à la coupure.</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramme d'etats du feu tricolore : VERT vers JAUNE vers ROUGE puis retour a VERT, avec les gardes de transition et les durees">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .st{font-size:14px;font-weight:600;}
+      .sub{font-size:10px;fill:#6B6862;}
+      .grd{font-size:10.5px;fill:#6B6862;}
+      .state{fill:#DDDBD3;stroke:#9A958A;stroke-width:1.5;}
+      .tr{stroke:#BA7517;stroke-width:2;fill:none;}
+      .ah{fill:#BA7517;}
+      .init{fill:#7A766C;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .sub,.grd{fill:#A9A59B;}
+        .state{fill:#3B3A34;stroke:#8A867C;}
+        .tr{stroke:#E0A24A;}
+        .ah{fill:#E0A24A;}
+        .init{fill:#A9A59B;}
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text class="t-title" x="40" y="30" text-anchor="start">Le feu, vu comme une machine à états</text>
+
+  <!-- initial marker -->
+  <circle class="init" cx="120" cy="70" r="5"/>
+  <line class="tr" x1="120" y1="75" x2="120" y2="106" marker-end="url(#ah)"/>
+  <text class="sub" x="132" y="92" text-anchor="start">état initial</text>
+
+  <!-- states -->
+  <rect class="state" x="60" y="110" width="120" height="62" rx="6"/>
+  <text class="st"  x="120" y="138" text-anchor="middle">VERT</text>
+  <text class="sub" x="120" y="156" text-anchor="middle">voitures passent</text>
+
+  <rect class="state" x="320" y="110" width="120" height="62" rx="6"/>
+  <text class="st"  x="380" y="138" text-anchor="middle">JAUNE</text>
+  <text class="sub" x="380" y="156" text-anchor="middle">transition</text>
+
+  <rect class="state" x="580" y="110" width="120" height="62" rx="6"/>
+  <text class="st"  x="640" y="138" text-anchor="middle">ROUGE</text>
+  <text class="sub" x="640" y="156" text-anchor="middle">piétons traversent</text>
+
+  <!-- VERT -> JAUNE -->
+  <line class="tr" x1="180" y1="141" x2="320" y2="141" marker-end="url(#ah)"/>
+  <text class="grd" x="250" y="125" text-anchor="middle">t ≥ DUREE_VERT</text>
+  <text class="grd" x="250" y="108" text-anchor="middle">ou (demande et t ≥ min)</text>
+
+  <!-- JAUNE -> ROUGE -->
+  <line class="tr" x1="440" y1="141" x2="580" y2="141" marker-end="url(#ah)"/>
+  <text class="grd" x="510" y="125" text-anchor="middle">t ≥ DUREE_JAUNE</text>
+  <text class="grd" x="510" y="108" text-anchor="middle">/ demande satisfaite</text>
+
+  <!-- ROUGE -> VERT (retour) -->
+  <path class="tr" d="M640,172 L640,250 L120,250 L120,172" marker-end="url(#ah)"/>
+  <text class="grd" x="380" y="268" text-anchor="middle">t ≥ DUREE_ROUGE</text>
+
+  <text class="sub" x="40" y="312" text-anchor="start">t = temps écoulé depuis l'entrée dans l'état (ticks_diff(ticks_ms(), t_debut)). Aucune attente bloquante : la boucle teste les gardes à chaque tour.</text>
+</svg>

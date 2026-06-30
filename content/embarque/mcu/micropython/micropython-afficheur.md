@@ -3,6 +3,7 @@ title: Afficheur OLED / LCD
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -49,12 +50,12 @@ from machine import I2C, Pin
 from ssd1306 import SSD1306_I2C
 
 i2c = I2C(0, scl=Pin(5), sda=Pin(4))
-oled = SSD1306_I2C(128, 64, i2c)        # 0x3C par defaut
+oled = SSD1306_I2C(128, 64, i2c)        # 0x3C par défaut
 
 oled.fill(0)                            # efface le tampon (0 = noir)
 oled.text("Bonjour", 0, 0)              # texte (x, y en pixels)
 oled.text("Ligne 2", 0, 12)
-oled.show()                             # pousse le tampon a l'ecran
+oled.show()                             # pousse le tampon à l'écran
 ```
 
 `SSD1306_I2C` dérive de `framebuf` : on dispose donc aussi de `pixel()`, `line()`, `rect()`, `hline()`, `fill_rect()`…
@@ -71,11 +72,12 @@ while True:
     sleep_ms(500)
 ```
 
-`oled.show()` est **obligatoire** : sans lui, le tampon change mais l'écran reste figé.
+> [!info] Comment lire ce code
+> `oled.show()` est **obligatoire** : la bibliothèque dessine dans un **tampon** (en RAM) et seul cet appel l'envoie à l'écran. `fill`/`text` ne touchent que le tampon ; tant qu'on n'appelle pas `show()`, l'écran reste figé. Oublier `show()` = écran noir alors que le code « tourne ».
 
 ## Exemple — Thermomètre OLED (deux modules I2C sur un bus)
 
-Lire la température sur un BMP280 (voir [[micropython-i2c|I2C]]) et l'afficher en gros sur l'OLED. Le bus supporte les deux devices (adresses différentes : BMP280 `0x76`, OLED `0x3C`).
+Lire la température sur un BMP280 (voir [[micropython-i2c|I2C]]) et l'afficher sur l'OLED. Le bus supporte les deux devices (adresses différentes : BMP280 `0x76`, OLED `0x3C`).
 
 ```python
 from machine import I2C, Pin
@@ -91,7 +93,7 @@ while True:
     t = capteur.temperature
     oled.fill(0)
     oled.text("Temperature", 0, 0)
-    oled.text("{:.1f} C".format(t), 20, 28)     # police agrandie via scale selon pilote
+    oled.text("{:.1f} C".format(t), 20, 28)     # texte 8 px (framebuf, pas d'échelle)
     oled.show()
     sleep_ms(500)
 ```

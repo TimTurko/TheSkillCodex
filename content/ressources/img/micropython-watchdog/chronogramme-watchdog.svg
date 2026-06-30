@@ -1,0 +1,62 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme du chien de garde : tant que la boucle appelle feed() periodiquement, la marge avant reset est rechargee au delai arme et ne descend jamais a zero ; quand le programme se bloque et cesse de nourrir le chien, la marge decroit jusqu'a zero et la carte redemarre (RESET, relance de main.py)">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:14px;font-weight:600;}
+      .lbl{font-size:11px;fill:#6B6862;}
+      .em{font-size:12px;font-weight:600;}
+      .axis{stroke:#9A958A;stroke-width:1.5;fill:none;}
+      .arrh{fill:#9A958A;}
+      .ref{stroke:#BFB8A6;stroke-width:1.3;stroke-dasharray:5 4;fill:none;}
+      .wave{stroke:#BA7517;stroke-width:2.4;fill:none;}
+      .feed{fill:#BA7517;}
+      .reset{stroke:#BA7517;stroke-width:1.6;stroke-dasharray:4 3;fill:none;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .lbl{fill:#A9A59B;}
+        .axis{stroke:#8A867C;}
+        .arrh{fill:#8A867C;}
+        .ref{stroke:#5A574E;}
+        .wave{stroke:#E0A24A;}
+        .feed{fill:#E0A24A;}
+        .reset{stroke:#E0A24A;}
+      }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="arrh"/></marker>
+  </defs>
+
+  <text class="t-title" x="40" y="26" text-anchor="start">Nourrir le chien, ou redémarrer</text>
+
+  <!-- axes -->
+  <line class="axis" x1="80" y1="62" x2="80" y2="244"/>
+  <polygon class="arrh" points="75,62 80,50 85,62"/>
+  <line class="axis" x1="80" y1="240" x2="712" y2="240"/>
+  <polygon class="arrh" points="712,235 724,240 712,245"/>
+  <text class="lbl" x="88" y="58" text-anchor="start">marge avant reset</text>
+  <text class="lbl" x="716" y="244" text-anchor="start">temps</text>
+
+  <!-- niveaux de référence -->
+  <line class="ref" x1="80" y1="80" x2="700" y2="80"/>
+  <text class="lbl" x="700" y="74" text-anchor="end">délai armé (ex. 8 s)</text>
+  <text class="lbl" x="76" y="244" text-anchor="end">0</text>
+
+  <!-- feeds périodiques -->
+  <text class="lbl" x="240" y="46" text-anchor="middle">feed() à chaque tour sain</text>
+  <circle class="feed" cx="120" cy="80" r="4"/>
+  <circle class="feed" cx="200" cy="80" r="4"/>
+  <circle class="feed" cx="280" cy="80" r="4"/>
+  <circle class="feed" cx="360" cy="80" r="4"/>
+
+  <!-- marge : dents de scie (rechargée à chaque feed), puis chute après blocage -->
+  <path class="wave" d="M120,80 L200,108 L200,80 L280,108 L280,80 L360,108 L360,80 L620,240"/>
+
+  <!-- blocage -->
+  <text class="em" x="470" y="150" text-anchor="middle">blocage</text>
+  <text class="lbl" x="470" y="166" text-anchor="middle">le capteur fige, plus de feed()</text>
+
+  <!-- reset -->
+  <line class="reset" x1="620" y1="240" x2="620" y2="62"/>
+  <circle class="feed" cx="620" cy="240" r="4"/>
+  <text class="em" x="620" y="58" text-anchor="middle">RESET</text>
+  <text class="lbl" x="628" y="210" text-anchor="start">→ relance de main.py</text>
+</svg>

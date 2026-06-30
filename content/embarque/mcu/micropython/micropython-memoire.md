@@ -3,6 +3,7 @@ title: Gérer la mémoire en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -20,6 +21,8 @@ Gérer la **mémoire** en MicroPython, c'est composer avec une ressource rare �
 ## À quoi ça sert ?
 
 Sur un PC, la mémoire semble infinie ; sur un microcontrôleur, elle est comptée — et en MicroPython, **l'interpréteur en occupe déjà une partie**, laissant moins de RAM utile que la taille brute de la puce. Un programme qui crée des objets en boucle (chaînes, listes) peut fragmenter le tas au point qu'une allocation échoue, alors qu'il « reste » de la mémoire en théorie. Le symptôme : une `MemoryError`, ou des **pauses** quand le ramasse-miettes se déclenche. Savoir mesurer et limiter les allocations est une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse l'exemple.
+
+![Tas fragmenté : plusieurs petits blocs occupés séparés par des trous libres ; la somme des trous (220) est grande, mais le plus grand trou contigu ne fait que 55, donc un objet de 120 ne tient nulle part — l'allocation échoue (MemoryError) bien qu'il « reste » de la mémoire.|680](/ressources/img/micropython-memoire/fragmentation-tas.svg)
 
 ## Procédure pas à pas
 
@@ -127,7 +130,7 @@ Anticiper la mémoire évite la situation la plus pénible en embarqué : un pro
 
 - [[memoire|Mémoire]] — la notion : les types de mémoire d'un microcontrôleur
 - [[micropython-bibliotheques|Utiliser une bibliothèque]] — geler des modules dans le firmware pour économiser la RAM
-- [[micropython-eeprom|Stockage persistant]] — conserver des données après extinction (fichier sur la flash)
+- [[micropython-stockage|Stockage persistant]] — conserver des données après extinction (fichier sur la flash)
 - [[micropython-interruptions|Interruptions]] — la règle « pas d'allocation en contexte d'interruption »
 - [[micropython|MicroPython]] — hub du module
 - [[arduino-memoire|Gérer la mémoire (Arduino)]] — l'équivalent C++ (`F()`, `PROGMEM`, pas de ramasse-miettes)

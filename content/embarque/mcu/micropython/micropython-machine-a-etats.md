@@ -3,12 +3,14 @@ title: Programmer une machine à états en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
   - micropython
 prerequis:
   - micropython-prise-en-main
+  - micropython-temporisation
   - machine-a-etats
 aa:
   - RA-EEE-C03-2/EEE/5
@@ -76,11 +78,13 @@ if etat == VERT:
 
 Pour l'exemple : cinq LED (trois voitures, deux piétons) avec résistances série 220 Ω, et un bouton entre une broche et GND en `PULL_UP` (voir [[micropython-entree-tor|lire une entrée TOR]] pour l'anti-rebond).
 
-Prendre capture d'écran ou photo de *un montage breadboard avec un Pico : 3 LED voiture (verte GP12, orange GP11, rouge GP10), 2 LED piéton (rouge GP8, verte GP9), résistances 220 Ω, bouton entre GP14 et GND*.
+![Montage du carrefour sur Pico : LED voiture verte (GP12), orange (GP11), rouge (GP10), LED piéton verte (GP9) et rouge (GP8), chacune avec sa résistance 220 Ω vers GND, et un bouton poussoir entre GP14 et GND ; les broches portent les noms du code.|600](/ressources/img/micropython-machine-a-etats/montage.svg)
 
 ## Exemple — Feux tricolores avec passage piéton
 
 Les voitures suivent vert → orange → rouge ; les piétons ont un feu et un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — la garde-condition `[demande and minimum écoulé]` du diagramme.
+
+![Diagramme d'états du feu : VERT puis JAUNE puis ROUGE, puis retour à VERT. La transition VERT vers JAUNE part dès que la durée de vert est écoulée, ou qu'un piéton a appelé après le minimum de vert ; JAUNE vers ROUGE et ROUGE vers VERT se font sur durée écoulée. La boucle teste ces gardes à chaque tour, sans bloquer.|620](/ressources/img/micropython-machine-a-etats/diagramme-etats.svg)
 
 ```python
 from machine import Pin
@@ -126,6 +130,9 @@ while True:
             etat = VERT; t_debut = ticks_ms()
 ```
 
+> [!info] Comment lire ce code
+> La transition clé est dans le bloc `VERT` : `if ticks_diff(ticks_ms(), t_debut) >= DUREE_VERT or (demande_pieton and ticks_diff(ticks_ms(), t_debut) >= DUREE_VERT_MIN)`. Elle se lit « **on passe au jaune si** le vert a duré son temps plein (`DUREE_VERT`) **ou bien** un piéton a appelé (`demande_pieton`) **et** que le minimum de vert est écoulé ». Le `or` ouvre deux chemins de sortie, le second protégé par un minimum pour ne pas couper un vert qui vient de démarrer. `demande_pieton` passe à `True` dès l'appui (testé en tête de boucle, à chaque tour) et revient à `False` en entrant dans `ROUGE`. À chaque changement d'état, `t_debut = ticks_ms()` redate l'entrée pour que les comparaisons repartent de zéro.
+
 Le programme ne contient **aucun `sleep()`** : la boucle tourne en continu, lit le bouton à chaque tour, avance quand les conditions sont réunies. Ajouter un quatrième état revient à ajouter un `elif` — la structure encaisse sans réécriture.
 
 ## Pièges
@@ -159,6 +166,7 @@ Maîtriser ce motif sur un cas simple comme les feux donne le squelette réutili
 - [[machine-a-etats|Machine à états]] — la notion mère : états, transitions, gardes, actions (à concevoir avant de coder)
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-temporisation|sleep() vs ticks_ms()]] — la temporisation non bloquante, cœur du motif
+- [[micropython-programmation-non-bloquante|Programmation non bloquante]] — faire tourner plusieurs machines à états de front dans la même boucle
 - [[micropython-entree-tor|Lire une entrée TOR]] — bouton avec anti-rebond et détection de front
 - [[micropython-sortie-tor|Piloter une sortie TOR]] — au-delà de la LED : relais, buzzer
 - [[arduino-machine-a-etats|Machine à états (Arduino)]] — l'équivalent C++ (`switch`/`enum`)

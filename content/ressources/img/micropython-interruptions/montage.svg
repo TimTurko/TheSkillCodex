@@ -1,0 +1,48 @@
+<svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Montage : capteur a effet Hall VCC GND OUT relie a un Pico, sortie OUT sur la broche GP2 (capteur), alimentation 3,3V et GND">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#33312B;}
+      .t-title{font-size:13px;font-weight:600;}
+      .pin{font-size:12px;font-weight:600;}
+      .role{font-size:11px;fill:#6B6862;}
+      .t-sm{font-size:11px;fill:#6B6862;}
+      .box{fill:#DDDBD3;stroke:#9A958A;stroke-width:1.5;}
+      .wire{stroke:#7A766C;stroke-width:2;fill:none;}
+      .sig{stroke:#BA7517;stroke-width:2.4;fill:none;}
+      @media (prefers-color-scheme: dark){
+        text{fill:#DDDBD3;}
+        .role,.t-sm{fill:#A9A59B;}
+        .box{fill:#3B3A34;stroke:#8A867C;}
+        .wire{stroke:#A9A59B;}
+        .sig{stroke:#E0A24A;}
+      }
+    </style>
+  </defs>
+
+  <!-- Pico -->
+  <rect class="box" x="40" y="80" width="150" height="150"/>
+  <text class="t-title" x="115" y="68" text-anchor="middle">Pico</text>
+  <text class="pin" x="182" y="124" text-anchor="end">3V3</text>
+  <text class="pin" x="182" y="164" text-anchor="end">GP2</text>
+  <text class="pin" x="182" y="204" text-anchor="end">GND</text>
+
+  <!-- Capteur Hall -->
+  <rect class="box" x="440" y="80" width="150" height="150"/>
+  <text class="t-title" x="515" y="68" text-anchor="middle">Capteur Hall</text>
+  <text class="pin" x="448" y="124" text-anchor="start">VCC</text>
+  <text class="pin" x="448" y="164" text-anchor="start">OUT</text>
+  <text class="pin" x="448" y="204" text-anchor="start">GND</text>
+
+  <!-- Fils -->
+  <path class="wire" d="M190,120 L440,120"/>   <!-- 3V3 -> VCC -->
+  <path class="sig"  d="M190,164 L440,164"/>   <!-- GP2 -> OUT (signal) -->
+  <path class="wire" d="M190,204 L440,204"/>   <!-- GND -> GND -->
+
+  <text class="role" x="315" y="112" text-anchor="middle">+3,3 V</text>
+  <text class="role" x="315" y="156" text-anchor="middle">capteur = GP2  (signal, front descendant)</text>
+  <text class="role" x="315" y="196" text-anchor="middle">GND commun</text>
+
+  <!-- note -->
+  <text class="t-sm" x="40" y="264" text-anchor="start">GP2 est en PULL_UP : au repos la ligne est à HIGH, l'impulsion la tire à LOW (front descendant = comptage).</text>
+  <text class="t-sm" x="40" y="282" text-anchor="start">La broche du schéma porte le nom du code : OUT → GP2 = capteur.</text>
+</svg>

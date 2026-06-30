@@ -3,11 +3,13 @@ title: Réguler avec un PID en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
   - micropython
 prerequis:
+  - asservissement
   - micropython-prise-en-main
   - micropython-sortie-pwm
   - micropython-temporisation
@@ -16,11 +18,15 @@ aa:
 draft: false
 ---
 
-Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'**asservissement** — réguler une vitesse, une température, une position. Sa mise en œuvre repose sur un calcul répété à **pas de temps constant**, donc sur une [[micropython-temporisation|cadence régulière]] via `ticks_ms()`. L'algorithme est le même qu'en C++ ; seule la syntaxe change.
+Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] — réguler une vitesse, une température, une position. Sa mise en œuvre repose sur un calcul répété à **pas de temps constant**, donc sur une [[micropython-temporisation|cadence régulière]] via `ticks_ms()`. L'algorithme est le même qu'en C++ ; seule la syntaxe change.
 
 ## À quoi ça sert ?
 
-Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une PWM fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. La **boucle fermée** **mesure** le résultat, le compare à la consigne, et **corrige** sans cesse. Le PID combine trois comportements : **P** (proportionnel à l'erreur courante : réactif, mais laisse une **erreur résiduelle**) ; **I** (accumule l'erreur passée : **élimine** le résiduel, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de variation** : **amortit**, mais amplifie le bruit). On le met en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction doit tenir une consigne malgré les perturbations.
+Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une PWM fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. La **boucle fermée** **mesure** le résultat, le compare à la consigne, et **corrige** sans cesse. Le PID combine trois comportements : **P** (proportionnel à l'erreur courante : réactif, mais laisse une **erreur résiduelle**) ; **I** (accumule l'erreur passée : **élimine** le résiduel, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de variation** : **amortit**, mais amplifie le bruit).
+
+![Schéma-bloc de la boucle fermée : la consigne entre dans un comparateur (erreur = consigne − mesure), le PID en déduit une commande envoyée en PWM au pont en H qui pilote le moteur ; un capteur (encodeur) mesure la vitesse réelle et la renvoie au comparateur ; une perturbation (charge) agit sur le moteur.|680](/ressources/img/micropython-pid/boucle-fermee-pid.svg)
+
+On le met en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction doit tenir une consigne malgré les perturbations.
 
 ## Procédure pas à pas
 
@@ -123,6 +129,9 @@ while True:
         print(consigne, mesure)                       # pour le traceur
 ```
 
+> [!info] Comment lire ce code
+> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `borne(…, -50000, 50000)` — c'est l'anti-emballement. `derivee = (erreur − erreur_prec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreur_prec` pour le pas suivant. La commande est la **somme pondérée** `Kp*erreur + Ki*integrale + Kd*derivee`, enfin `borne(…, 0, 65535)` la ramène dans la plage `duty_u16` avant de piloter le moteur. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur.
+
 Le `borne` sur l'intégrale est l'**anti-emballement** (*anti-windup*) : sans lui, si l'actionneur sature (PWM déjà au max mais consigne inatteignable), l'intégrale gonfle et la commande met longtemps à redescendre quand l'erreur s'inverse. Le couple consigne/mesure imprimé alimente le traceur pour régler les gains à l'œil.
 
 ## Pièges
@@ -153,10 +162,12 @@ Un PID se conçoit autour d'une **mesure fiable** et d'une **cadence régulière
 
 ## Voir aussi
 
+- [[asservissement|Asservissement]] — la notion mère : boucle fermée, consigne/erreur/correcteur, rôle du PID
 - [[micropython-temporisation|sleep() vs ticks_ms()]] — cadencer le calcul à pas constant
 - [[micropython-timers|Timers matériels]] — pour un pas de temps précis sur un asservissement exigeant
 - [[micropython-sortie-pwm|Piloter une sortie PWM]] — la commande de sortie du régulateur
 - [[micropython-moteur-cc|Moteur CC]] — l'actionneur de l'exemple (pont en H)
 - [[micropython-capteur-analogique|Lire un capteur analogique]] — la mesure qui ferme la boucle
+- [[micropython-programmation-non-bloquante|Programmation non bloquante]] — le PID est une tâche cadencée parmi d'autres
 - [[micropython|MicroPython]] — hub du module
 - [[arduino-pid|Réguler avec un PID (Arduino)]] — l'équivalent C++ (`constrain`, `PID_v1`)

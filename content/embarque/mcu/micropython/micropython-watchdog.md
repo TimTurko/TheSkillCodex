@@ -49,6 +49,8 @@ while True:
 
 Tant que la boucle tourne, le chien est nourri. Si une partie du code se bloque et empêche d'atteindre `feed()`, l'échéance tombe et la carte redémarre.
 
+![Chronogramme du chien de garde : tant que la boucle appelle feed() régulièrement, la marge avant reset est rechargée au délai armé et ne descend jamais à zéro ; quand un blocage interrompt les feed(), la marge décroît jusqu'à zéro et la carte redémarre (RESET puis relance de main.py).|680](/ressources/img/micropython-watchdog/chronogramme-watchdog.svg)
+
 ### 3. Choisir le délai
 
 Le délai doit être **plus long que le pire temps de boucle normal**, sinon le chien redémarre une carte qui fonctionnait. Mais pas inutilement long, sinon le système reste bloqué avant de se relancer. Sur le Pico, le plafond (~8,3 s) impose de nourrir le chien **au moins une fois par cycle** dans une boucle bien structurée.
