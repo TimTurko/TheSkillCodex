@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Pilotage du Raspberry Pi en mode headless par SSH</title>
+  <desc id="d1">Le poste de développement (l'ordinateur portable de l'étudiant) et le Raspberry Pi sont reliés au même réseau local, par Wi-Fi ou par câble Ethernet via la box ou le routeur. Le Raspberry Pi fonctionne en mode headless : il n'a ni écran ni clavier. Depuis son poste, on ouvre une session SSH vers le Pi, joint par son nom monpi.local (mDNS) ou par son adresse IP, et on l'administre entièrement à distance.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 15px sans-serif; fill:#2C2C2A; }
+      .panel{ fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .net  { fill:#F4F2EA; stroke:#BA7517; stroke-width:2; }
+      .hdt  { font:700 13.5px sans-serif; fill:#BA7517; }
+      .sub  { font:italic 400 10.5px sans-serif; fill:#888780; }
+      .li   { font:400 11.5px sans-serif; fill:#2C2C2A; }
+      .lnk  { stroke:#BA7517; stroke-width:2; fill:none; }
+      .ssh  { stroke:#BA7517; stroke-width:2.4; fill:none; }
+      .lbl  { font:700 11px sans-serif; fill:#BA7517; }
+      .lbln { font:400 10.5px sans-serif; fill:#888780; }
+      .ah   { fill:#BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .panel{fill:#4A4A48;stroke:#EF9F27;} .net{fill:#3A3A38;stroke:#EF9F27;}
+        .hdt{fill:#EF9F27;} .sub{fill:#BBBBBB;} .li{fill:#F1EFE8;}
+        .lnk{stroke:#EF9F27;} .ssh{stroke:#EF9F27;} .lbl{fill:#EF9F27;} .lbln{fill:#BBBBBB;} .ah{fill:#EF9F27;}
+      }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="ah"/>
+    </marker>
+  </defs>
+
+  <text x="30" y="28" class="ttl">Headless : on administre le Pi à distance, sans écran</text>
+
+  <!-- Poste de developpement -->
+  <rect x="28" y="92" width="184" height="118" rx="12" class="panel"/>
+  <text x="120" y="120" class="hdt" text-anchor="middle">Poste de développement</text>
+  <text x="120" y="138" class="sub" text-anchor="middle">ton ordinateur portable</text>
+  <text x="120" y="171" class="li" text-anchor="middle">terminal + client SSH</text>
+  <text x="120" y="191" class="li" text-anchor="middle">écran &amp; clavier ici</text>
+
+  <!-- Reseau -->
+  <rect x="268" y="116" width="124" height="70" rx="35" class="net"/>
+  <text x="330" y="146" class="hdt" text-anchor="middle">Réseau local</text>
+  <text x="330" y="164" class="sub" text-anchor="middle">box / routeur</text>
+
+  <!-- Pi headless -->
+  <rect x="448" y="92" width="184" height="118" rx="12" class="panel"/>
+  <text x="540" y="120" class="hdt" text-anchor="middle">Raspberry Pi</text>
+  <text x="540" y="138" class="sub" text-anchor="middle">headless</text>
+  <text x="540" y="171" class="li" text-anchor="middle">pas d'écran</text>
+  <text x="540" y="191" class="li" text-anchor="middle">ni clavier</text>
+
+  <!-- liaisons physiques -->
+  <line x1="212" y1="151" x2="268" y2="151" class="lnk"/>
+  <line x1="392" y1="151" x2="448" y2="151" class="lnk"/>
+  <text x="330" y="207" class="lbln" text-anchor="middle">Wi-Fi ou Ethernet</text>
+
+  <!-- session SSH (logique) -->
+  <path d="M120 92 C 120 50, 540 50, 540 92" class="ssh" marker-end="url(#arr)"/>
+  <text x="330" y="46" class="lbl" text-anchor="middle">SSH → monpi.local (ou adresse IP)</text>
+</svg>

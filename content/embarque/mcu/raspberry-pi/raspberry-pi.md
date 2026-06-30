@@ -27,7 +27,7 @@ Un **microcontrôleur** gagne quand le projet demande :
 - du **temps réel et du déterminisme** — une boucle d'asservissement, une commande moteur, une lecture cadencée à la microseconde près ;
 - une **faible consommation** — un système sur batterie qui doit tenir des jours (modes veille en µA) ;
 - un **démarrage instantané** — à la mise sous tension, le programme tourne en quelques millisecondes ;
-- de la **simplicité et de la robustesse** — pas d'OS à corrompre, pas de carte SD à monter, un coût unitaire de quelques euros.
+- de la **simplicité et de la robustesse** — pas d'OS à corrompre, pas de carte SD à monter, un coût matériel très faible.
 
 Un **SBC** comme le Raspberry Pi s'impose quand le projet demande :
 
@@ -36,23 +36,23 @@ Un **SBC** comme le Raspberry Pi s'impose quand le projet demande :
 - du **multitâche** — faire tourner plusieurs programmes en parallèle, sous l'arbitrage de l'OS ;
 - un **écran, des fichiers, un écosystème logiciel complet** — toute la richesse d'un environnement Linux (Python, OpenCV, n'importe quelle bibliothèque).
 
-Le prix de ces capacités : une **consommation de plusieurs watts** (impensable sur batterie pour tenir longtemps), un **démarrage lent** (l'OS met plusieurs dizaines de secondes à se lancer), une **carte SD** sensible à la corruption si on coupe l'alimentation brutalement, et **pas de garantie de temps réel** — l'ordonnanceur de l'OS peut suspendre votre programme à tout instant (voir [[raspberry-pi-gpio|piloter les GPIO depuis Linux]]).
+Le prix de ces capacités : une **consommation de plusieurs watts** (impensable sur batterie pour tenir longtemps), un **démarrage lent** (l'OS met plusieurs dizaines de secondes à se lancer), une **carte SD** sensible à la corruption si on coupe l'alimentation brutalement, et **pas de garantie de temps réel** — l'ordonnanceur de l'OS peut suspendre le programme à tout instant (voir [[raspberry-pi-gpio|piloter les GPIO depuis Linux]]).
 
 > [!tip]
 > Très souvent, le bon choix n'est **pas** « l'un ou l'autre » mais **les deux** : un SBC pour le haut niveau (vision, planification, réseau) et un microcontrôleur pour le temps réel (moteurs), reliés par un [[bus-de-communication|bus]]. C'est l'**architecture bicéphale** détaillée dans [[raspberry-pi-projet|le SBC dans un projet]].
 
 ## Le Pico, lui, est un microcontrôleur
 
-Attention au piège de nom. Le **Raspberry Pi Pico** (puces RP2040 / RP2350) porte la même marque, mais c'est un **vrai microcontrôleur**, pas un SBC : pas d'OS, un programme nu, quelques euros, faible consommation. Tout ce que dit cette fiche sur le SBC Linux **ne le concerne pas**. Le Pico est traité dans le module [[micropython|MicroPython]] (et reste programmable en C/C++). En clair : *Raspberry Pi 5 / 4 / Zero* → ici, cette fiche ; *Raspberry Pi Pico* → [[micropython|MicroPython]].
+Attention au piège de nom. Le **Raspberry Pi Pico** (puces RP2040 / RP2350) porte la même marque, mais c'est un **vrai microcontrôleur**, pas un SBC : pas d'OS, un programme nu, faible consommation. Tout ce que dit cette fiche sur le SBC Linux **ne le concerne pas**. Le Pico est traité dans le module [[micropython|MicroPython]] (et reste programmable en C/C++). En clair : *Raspberry Pi 5 / 4 / Zero* → ici, cette fiche ; *Raspberry Pi Pico* → [[micropython|MicroPython]].
 
 ## Panorama des cartes
 
 > [!info]
-> Tableau **repère pédagogique**, à confirmer sur `raspberrypi.com` avant de figer un choix (gammes, prix et disponibilités évoluent).
+> Tableau **repère pédagogique**, à confirmer sur `raspberrypi.com` avant de figer un choix (gammes et disponibilités évoluent).
 
 | Carte | Puce (SoC) | Cœur | RAM | Pour quoi |
 | --- | --- | --- | --- | --- |
-| Raspberry Pi 5 | BCM2712 | 4× Cortex-A76 ~2,4 GHz | 2–16 Go | le plus puissant ; vision, calcul, PCIe, deux ports caméra |
+| Raspberry Pi 5 | BCM2712 | 4× Cortex-A76 ~2,4 GHz | 1–16 Go | le plus puissant ; vision, calcul, PCIe, deux ports caméra |
 | Raspberry Pi 4 B | BCM2711 | 4× Cortex-A72 ~1,8 GHz | 1–8 Go | le cheval de bataille, très répandu et documenté |
 | Raspberry Pi Zero 2 W | RP3A0 | 4× Cortex-A53 ~1 GHz | 512 Mo | minuscule, Wi-Fi/BT intégrés, conso modérée — l'embarqué contraint |
 | Compute Module 4 / 5 | (idem Pi 4 / 5) | — | — | version « à intégrer » sur carte porteuse — projets industriels |

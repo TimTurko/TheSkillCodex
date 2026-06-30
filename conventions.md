@@ -982,6 +982,15 @@ Notes 29/06 (pas de convention numérotée) :
 - **Parité C77 par le jumeau.** L'encart « Comment lire ce code » suit le jumeau Arduino : s'il n'en a pas (`arduino-gpio`, logique pull-up couverte par bullet + commentaire + piège), la fiche MicroPython non plus. Verdict C77 par comparaison, pas mécanique.
 - **Câblage d'une fiche de simulation.** L'Exemple Wokwi (`micropython-simulation`, bouton GP14 + LED GP15) est couvert par la **capture** (raster simulateur = exception C78, broches du code visibles) — pas de SVG dédié, même sous câblage strict.
 
+### Acquises 30/06 — relecture de fond §13 MicroPython terminée (SVG non transposable, vérif specs RP2)
+
+84. **SVG-concept neuf quand le SVG du jumeau n'est pas transposable.** En module famille (clone de curriculum C57), un SVG du jumeau se **copie localement** (C47) tant que l'architecture illustrée est commune. Mais quand le SVG du jumeau **encode une architecture propre à l'autre famille** (carte 3-mémoires AVR, EEPROM adressée à l'octet, conso chiffrée en µA…), il n'est **pas transposable** : on crée alors un **SVG-concept neuf adapté au modèle de la famille**, plutôt que de plaquer un schéma faux. Pendant « créatif » de C47 (copie quand commun) et corollaire de C57 (parité de fond, pas de forme aveugle). Éprouvée 3/N cette session : `memoire` (`carte-memoire-sram` AVR → `fragmentation-tas` : tas troué + `MemoryError`), `stockage` (`carte-memoire-eeprom` octet → `persistance-fichier` : RAM vs fichier flash, pas d'EEPROM sur Pico), `deep-sleep` (profil µA chiffré → `profil-courant-veille` « principe » faible/élevé sans chiffre). **La numérotation éprouvage atteint 84.**
+
+Notes 30/06 (pas de convention numérotée) :
+- **Vérification source RP2 = filet (prolonge C82).** Trois specs corrigées en lisant doc/tracker MicroPython, jamais de mémoire : `machine.Timer` **virtuel** sur RP2 (`id=-1`) + callback **soft IRQ par défaut** / **hard IRQ via `hard=True`** (la règle « pas d'allocation » ne vaut que pour le hard) ; `lightsleep()` réveil-broche = **bug ouvert** (#7035/#16442) ; `deepsleep` ≈ `lightsleep` sur RP2040 (pas de µA). Confirme C82 au-delà des floats : *toute spec RP2 se vérifie en source avant correction*.
+- **Verdict C82 « clean ».** Une fiche bourrée de flottants peut être **C82-propre** si **aucun n'est affiché ni asserté en décimal** (`pid` : `print` de 2 entiers, gains en entrée, `dt` calculé live → le piège simple précision ne mord pas). C82 ne mord que sur une **décimale assertée**, pas sur la simple présence de floats.
+- **Divergence honnête étiquetée « principe ».** Quand une correction de fond retire une valeur chiffrée (`deepsleep` ne descend pas en µA sur RP2), le SVG-concept correspondant s'étiquette **« principe »** (faible/élevé qualitatif) pour ne pas réintroduire le chiffre faux — cohérence fiche↔visuel.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

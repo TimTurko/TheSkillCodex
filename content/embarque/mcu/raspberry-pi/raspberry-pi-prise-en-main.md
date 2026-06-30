@@ -9,7 +9,8 @@ tags:
   - raspberry-pi
 prerequis:
   - raspberry-pi
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -18,6 +19,8 @@ La **prise en main d'un Raspberry Pi** consiste à installer son système d'expl
 ## À quoi ça sert ?
 
 Avant de pouvoir faire quoi que ce soit d'utile avec un Pi — lire un capteur, faire de la vision, servir une page web — il faut un système qui démarre et un moyen d'y accéder. Cette étape valide les deux. En projet, on ne branche presque jamais d'écran sur le Pi embarqué dans la maquette : il vit **headless**, alimenté et connecté au réseau, et on l'administre depuis son propre ordinateur portable. Maîtriser ce mode dès le départ, c'est se donner le bon réflexe pour tout le reste du projet.
+
+![Topologie headless : poste de développement et Raspberry Pi sans écran reliés au même réseau local, session SSH du poste vers le Pi|600](/ressources/img/raspberry-pi-prise-en-main/topologie-headless.svg)
 
 ## 1. Choisir et flasher le système
 
@@ -34,7 +37,7 @@ Prendre capture d'écran de *la fenêtre principale de Raspberry Pi Imager, avec
 
 ## 2. Préparer le démarrage headless — avant de flasher
 
-C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire la carte. Imager propose une **personnalisation de l'OS** (une fenêtre apparaît à la fin, ou via l'icône d'engrenage / `Ctrl+Maj+X`). On y configure tout ce qui, sinon, demanderait un écran au premier démarrage :
+C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire la carte. Imager propose une **personnalisation de l'OS** (une fenêtre apparaît à la fin, ou via *Modifier les réglages* / `Ctrl+Maj+X`). On y configure tout ce qui, sinon, demanderait un écran au premier démarrage :
 
 - **le nom d'hôte** (*hostname*), par exemple `monpi` — il servira à joindre la carte sur le réseau ;
 - **un nom d'utilisateur et un mot de passe** — les versions récentes de Raspberry Pi OS ne créent plus d'utilisateur `pi` par défaut, il faut donc le définir ici ;

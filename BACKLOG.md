@@ -5,6 +5,11 @@
 
 ## Récent (17/06) — idées émergées en relecture §7
 
+### 30/06 — relecture de fond §13 MicroPython terminée
+- [ ] **Audit des liens entrants `[[micropython-eeprom]]`** — la fiche a été renommée `micropython-stockage` ; un lien cassé corrigé dans `micropython-memoire` (30/06), mais d'autres *Voir aussi* / renvois entrants peuvent subsister dans le module (et hors module). Grep `[[micropython-eeprom]]` sur `content/` et repointer vers `[[micropython-stockage]]`. À faire en grooming, pas urgent.
+- [ ] **Captures C29 du §13 (review 30/06)** — placeholders matériels laissés en place dans les fiches relues, à shooter par Tim : Shell Thonny / débogueur (`micropython-debug`, `-timers` Plotter), multimètre en veille (`micropython-deep-sleep`), REPL `gc.mem_free()` (`micropython-memoire`), enfichage carte porteuse (`micropython-shield`), alimentation étape 3 (`micropython-alimentation`). Complètent les SVG-concepts.
+- [ ] **Relire l'ajout « Servos à retour de position » de `micropython-servomoteur`** — gros ajout 30/06 (déc. a : retour ADC `read_u16` + calibration + variante Hall/PWM `time_pulse_us`) : **relecture humaine du contenu** (le rendu est validé). Pendant du même ajout côté `arduino-servomoteur` (déjà signalé 17/06).
+
 ### 25/06 — intégration des médias familles MCU (dépôt Martin)
 - [x] ~~**Régénérer 6 SVG divergents contre le code de la fiche**~~ ✅ *Fait 27/06.* (audit 25/06, violation C80 — produits d'après la cartographie générique, pas le code) : `micropython-sortie-tor/montage-relais.svg` (→ LED GP8 + buzzer/transistor GP9 + relais GP10), `micropython-capteur-numerique/montage-capteur.svg` (→ HC-SR04 : Trig GP9, Echo via pont diviseur GP10), `micropython-spi/branchement-spi.svg` (→ SCK GP2 / MOSI GP3 / MISO GP4 / CS GP5), `micropython-moteur-cc/branchement-pont-h.svg` (→ DRV8833 AIN1 GP12 / AIN2 GP11), `micropython-moteur-pas-a-pas/branchement-stepper.svg` (→ ULN2003 GP2-GP5), `raspberry-pi-gpio/montage-led-bouton.svg` (→ bouton GPIO2, pas GP27). Leur placeholder « photo » est resté dans la fiche. Claude régénère direct (écriture MCP).
 - [x] ~~**Replacer 2 SVG mal ciblés**~~ ✅ *Fait 27/06.* : `esp32-wifi/roles-ble.svg` → fiche `esp32-ble` (schéma BLE, hors sujet Wi-Fi) ; `esp8266/brochage-d1-gpio.svg` → probablement `esp8266-arduino-core` (le hub `esp8266` renvoie les broches à cette fiche). Décider la cible + insérer.
