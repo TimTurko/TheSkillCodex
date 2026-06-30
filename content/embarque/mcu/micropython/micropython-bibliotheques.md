@@ -3,6 +3,7 @@ title: Utiliser une bibliothèque
 type: tuto
 phases:
   - preuve-de-concept
+  - concept
 tags:
   - eee
   - tuto
@@ -59,10 +60,10 @@ Une fois le `.py` sur la carte, on l'`import` :
 from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
 
-i2c = I2C(0, scl=Pin(5), sda=Pin(4))
-ecran = SSD1306_I2C(128, 64, i2c)
-ecran.text("Bonjour", 0, 0)
-ecran.show()
+i2c = I2C(0, scl=Pin(5), sda=Pin(4))   # bus I2C 0 : SCL=GP5, SDA=GP4
+ecran = SSD1306_I2C(128, 64, i2c)      # écran 128×64 pixels
+ecran.text("Bonjour", 0, 0)            # écrit en haut à gauche (x=0, y=0)
+ecran.show()                           # transfère le tampon vers l'écran
 ```
 
 Sources de doc : le **README** du dépôt, les **exemples** fournis, et — pour les bibliothèques courtes — le **code source** lui-même (lisible, c'est du Python).
@@ -73,16 +74,18 @@ Cas complet : `dht` est **gelé dans le firmware** du Pico — aucune installati
 
 **Câblage** : module DHT11, `+` → 3,3 V, `−` → GND, `OUT` → GP2.
 
+![Câblage du module DHT11 sur le Pico : broche + vers 3,3 V, broche − vers GND, broche OUT (données) vers GP2 ; la résistance de tirage est intégrée au module.|560](/ressources/img/micropython-bibliotheques/montage-dht11.svg)
+
 ```python
 from machine import Pin
 import dht
 from time import sleep
 
-capteur = dht.DHT11(Pin(2))
+capteur = dht.DHT11(Pin(2))     # capteur DHT11 sur GP2
 
 while True:
-    sleep(2)                 # le DHT11 limite a 1 mesure / 2 s
-    capteur.measure()
+    sleep(2)                 # 1 mesure/s max sur DHT11 ; 2 s laisse de la marge
+    capteur.measure()        # déclenche une mesure (protocole 1-wire encapsulé)
     print("T =", capteur.temperature(), "°C   H =", capteur.humidity(), "%")
 ```
 

@@ -1,0 +1,87 @@
+<svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avant / apres. A gauche, un seul module : une seule resistance pull-up relie VCC a la ligne SDA, et un composant peut tirer SDA a 0, le bus communique. A droite, plusieurs modules : leurs resistances pull-up en parallele font s'effondrer le bus, on ne peut plus tirer SDA a 0, plus de communication.">
+  <defs>
+    <style>
+      .rail { stroke: #8C8A82; stroke-width: 2.5; }
+      .lead { stroke: #8C8A82; stroke-width: 2; }
+      .res { fill: #F3E2C7; stroke: #BA7517; stroke-width: 2.5; }
+      .box-gray { fill: #EDEBE4; stroke: #B8B5AC; stroke-width: 2; }
+      .node { fill: #8C8A82; }
+      .guide { stroke: #B8B5AC; stroke-width: 1.5; stroke-dasharray: 4 5; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+      .lbl-b { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 13px; font-weight: 700; }
+      @media (prefers-color-scheme: dark) {
+        .rail, .lead { stroke: #A7A49B; }
+        .res { fill: #3A2F1D; stroke: #E0A24A; }
+        .box-gray { fill: #3A3833; stroke: #6D6A61; }
+        .node { fill: #A7A49B; }
+        .guide { stroke: #6D6A61; }
+        .lbl, .lbl-b { fill: #D8D6CF; }
+        .lbl-sm { fill: #B7B4AC; }
+        .lbl-sm-am, .lbl-am { fill: #E0A24A; }
+      }
+    </style>
+  </defs>
+
+  <line class="guide" x1="330" y1="50" x2="330" y2="272"/>
+
+  <!-- ===== Gauche : 1 module ===== -->
+  <text class="lbl-b" x="175" y="32" text-anchor="middle">1 module</text>
+
+  <line class="rail" x1="120" y1="66" x2="230" y2="66"/>
+  <text class="lbl-sm" x="112" y="70" text-anchor="end">3,3 V</text>
+
+  <line class="lead" x1="175" y1="66" x2="175" y2="80"/>
+  <rect class="res" x="166" y="80" width="18" height="38"/>
+  <line class="lead" x1="175" y1="118" x2="175" y2="150"/>
+  <text class="lbl-sm-am" x="192" y="96" text-anchor="start">pull-up</text>
+  <text class="lbl-sm-am" x="192" y="111" text-anchor="start">4,7 kΩ</text>
+
+  <line class="rail" x1="120" y1="150" x2="230" y2="150"/>
+  <text class="lbl-sm" x="112" y="154" text-anchor="end">SDA</text>
+  <circle class="node" cx="175" cy="150" r="3.5"/>
+
+  <line class="lead" x1="175" y1="150" x2="175" y2="176"/>
+  <rect class="box-gray" x="143" y="176" width="64" height="32" rx="5"/>
+  <text class="lbl" x="175" y="197" text-anchor="middle">met à 0</text>
+
+  <text class="lbl" x="175" y="244" text-anchor="middle">✓ le fil descend à 0</text>
+  <text class="lbl-sm" x="175" y="261" text-anchor="middle">→ le bus communique</text>
+
+  <!-- ===== Droite : plusieurs modules ===== -->
+  <text class="lbl-b" x="490" y="32" text-anchor="middle">plusieurs modules</text>
+
+  <line class="rail" x1="415" y1="66" x2="565" y2="66"/>
+  <text class="lbl-sm" x="407" y="70" text-anchor="end">3,3 V</text>
+
+  <line class="lead" x1="440" y1="66" x2="440" y2="80"/>
+  <rect class="res" x="432" y="80" width="16" height="38"/>
+  <line class="lead" x1="440" y1="118" x2="440" y2="150"/>
+  <line class="lead" x1="480" y1="66" x2="480" y2="80"/>
+  <rect class="res" x="472" y="80" width="16" height="38"/>
+  <line class="lead" x1="480" y1="118" x2="480" y2="150"/>
+  <line class="lead" x1="520" y1="66" x2="520" y2="80"/>
+  <rect class="res" x="512" y="80" width="16" height="38"/>
+  <line class="lead" x1="520" y1="118" x2="520" y2="150"/>
+  <line class="lead" x1="560" y1="66" x2="560" y2="80"/>
+  <rect class="res" x="552" y="80" width="16" height="38"/>
+  <line class="lead" x1="560" y1="118" x2="560" y2="150"/>
+
+  <line class="rail" x1="415" y1="150" x2="565" y2="150"/>
+  <text class="lbl-sm" x="407" y="154" text-anchor="end">SDA</text>
+  <circle class="node" cx="440" cy="150" r="3.5"/>
+  <circle class="node" cx="480" cy="150" r="3.5"/>
+  <circle class="node" cx="520" cy="150" r="3.5"/>
+  <circle class="node" cx="560" cy="150" r="3.5"/>
+
+  <line class="lead" x1="490" y1="150" x2="490" y2="176"/>
+  <rect class="box-gray" x="458" y="176" width="64" height="32" rx="5"/>
+  <text class="lbl" x="490" y="197" text-anchor="middle">met à 0</text>
+
+  <text class="lbl-am" x="490" y="244" text-anchor="middle">✗ le bus s'effondre</text>
+  <text class="lbl-sm-am" x="490" y="261" text-anchor="middle">→ plus de communication</text>
+
+  <text class="lbl-sm" x="330" y="288" text-anchor="middle">Résistance équivalente : 4,7 kΩ (1 module) → 2,35 kΩ (2) → 0,94 kΩ (5).</text>
+</svg>

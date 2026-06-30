@@ -3,6 +3,7 @@ title: Piloter une sortie TOR
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -53,15 +54,15 @@ Le code est identique quelle que soit l'interface — `Pin.on()` ne sait pas s'i
 from machine import Pin
 from time import sleep
 
-led    = Pin(8, Pin.OUT)
-buzzer = Pin(9, Pin.OUT)
-relais = Pin(10, Pin.OUT)
+led    = Pin(8, Pin.OUT)        # LED sur GP8 (broche directe)
+buzzer = Pin(9, Pin.OUT)        # buzzer via transistor sur GP9
+relais = Pin(10, Pin.OUT)       # module relais sur GP10
 
 while True:
-    led.on(); buzzer.on(); relais.on()      # tout actif
-    sleep(2)
-    led.off(); buzzer.off(); relais.off()
-    sleep(2)
+    led.on(); buzzer.on(); relais.on()      # tout actif (relais parfois inversé, cf. avertissement)
+    sleep(2)                                 # maintenu 2 s
+    led.off(); buzzer.off(); relais.off()    # tout éteint
+    sleep(2)                                 # 2 s, puis on recommence
 ```
 
 > [!warning]
@@ -81,11 +82,11 @@ led    = Pin(8, Pin.OUT)
 buzzer = Pin(9, Pin.OUT)
 
 while True:
-    for i in range(3):          # 3 bips, LED clignote
-        led.on(); buzzer.on()
-        sleep(0.2)
-        led.off(); buzzer.off()
-        sleep(0.2)
+    for i in range(3):          # une salve = 3 bips, LED clignote en même temps
+        led.on(); buzzer.on()   # LED + buzzer ON
+        sleep(0.2)              # ON pendant 200 ms
+        led.off(); buzzer.off() # LED + buzzer OFF
+        sleep(0.2)              # OFF pendant 200 ms
     sleep(3)                    # pause avant la prochaine salve
 ```
 

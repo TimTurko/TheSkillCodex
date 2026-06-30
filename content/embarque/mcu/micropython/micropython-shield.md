@@ -2,7 +2,9 @@
 title: Utiliser un shield / une carte d'extension
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -46,7 +48,7 @@ La plupart des cartes d'extension ont une bibliothèque dédiée (souvent fourni
 ```python
 from machine import Pin
 # Exemple illustratif : la doc de la carte indique le GP de chaque fonction
-buzzer = Pin(18, Pin.OUT)     # GP a remplacer par celui de votre carte
+buzzer = Pin(18, Pin.OUT)     # GP à remplacer par celui de votre carte
 buzzer.on()
 ```
 

@@ -3,12 +3,14 @@ title: Lire un capteur analogique
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
   - micropython
 prerequis:
   - micropython-gpio
+  - micropython-repl
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
@@ -37,7 +39,7 @@ Les entrées analogiques sont **GP26, GP27, GP28**. Un canal interne (`ADC(4)`) 
 
 ### 2. Câbler un potentiomètre
 
-Potentiomètre 10 kΩ : une extrême → `3,3 V` ; l'autre → `GND` ; curseur (milieu) → `GP26`. Le potentiomètre forme un pont diviseur variant de 0 V à 3,3 V.
+[[potentiometre|Potentiomètre]] 10 kΩ : une extrême → `3,3 V` ; l'autre → `GND` ; curseur (milieu) → `GP26`. Le potentiomètre forme un pont diviseur variant de 0 V à 3,3 V.
 
 ![Montage : potentiomètre 10 kΩ sur un Pico — extrémités vers 3,3 V et GND, curseur vers GP26 (ADC0)|600](/ressources/img/micropython-capteur-analogique/montage-adc.svg)
 
@@ -47,11 +49,11 @@ Potentiomètre 10 kΩ : une extrême → `3,3 V` ; l'autre → `GND` ; curseur (
 from machine import ADC, Pin
 from time import sleep
 
-pot = ADC(Pin(26))      # ou ADC(26)
+pot = ADC(Pin(26))      # ou ADC(26) ; entrée analogique sur GP26
 
 while True:
-    print(pot.read_u16())   # 0 a 65535
-    sleep(0.1)
+    print(pot.read_u16())   # 0 à 65535 (12 bits ramenés sur 16)
+    sleep(0.1)              # ~10 lectures par seconde
 ```
 
 Tournez le potentiomètre : 0 à 65535, environ 32768 à mi-course.
@@ -61,24 +63,26 @@ Tournez le potentiomètre : 0 à 65535, environ 32768 à mi-course.
 **Potentiomètre comme consigne 0–100 %** :
 
 ```python
-pourcentage = pot.read_u16() * 100 / 65535
+pourcentage = pot.read_u16() * 100 / 65535     # règle de trois : 65535 → 100 %
 ```
 
 **Tension** :
 
 ```python
-tension = pot.read_u16() * 3.3 / 65535     # en volts
+tension = pot.read_u16() * 3.3 / 65535     # brut -> volts (réf. 3,3 V, pleine échelle 65535)
 ```
 
-**Température de la puce** (canal interne, formule de la datasheet RP2350) :
+**Température de la puce** (canal interne, formule de la datasheet RP2040) :
 
 ```python
 from machine import ADC
-capteur = ADC(4)
+capteur = ADC(4)                                 # canal interne (CORE_TEMP)
 def temperature_c():
-    v = capteur.read_u16() * 3.3 / 65535
-    return 27 - (v - 0.706) / 0.001721
+    v = capteur.read_u16() * 3.3 / 65535         # tension du capteur interne
+    return 27 - (v - 0.706) / 0.001721           # loi RP2040 : 0,706 V à 27 °C, -1,721 mV/°C
 ```
+
+**Comment lire ce code.** La conversion se fait en deux temps : la valeur brute (`read_u16()`, 0–65535) redevient d'abord une **tension** — on divise par la pleine échelle 65535 et on multiplie par la référence 3,3 V —, puis cette tension devient une **grandeur physique** selon la loi du capteur (ici la formule du capteur interne). Tout l'art est de diviser par la **bonne pleine échelle** (65535, pas 4095 — `read_u16()` met déjà la lecture 12 bits à l'échelle) et d'appliquer la **bonne loi** : c'est le geste à refaire pour chaque capteur.
 
 ## Exemple — Potentiomètre comme variateur de seuil
 
@@ -88,14 +92,14 @@ Lire un potentiomètre (`GP26`) comme seuil, une LDR (`GP27`) comme mesure, allu
 from machine import ADC, Pin
 from time import sleep
 
-pot     = ADC(Pin(26))
-lumiere = ADC(Pin(27))
+pot     = ADC(Pin(26))           # potentiomètre = seuil réglable
+lumiere = ADC(Pin(27))           # LDR = mesure de luminosité
 led     = Pin(15, Pin.OUT)
 
 while True:
-    seuil = pot.read_u16()
+    seuil = pot.read_u16()                       # 0 à 65535
     mesure = lumiere.read_u16()
-    led.value(1 if mesure < seuil else 0)
+    led.value(1 if mesure < seuil else 0)        # LED si la lumière passe sous le seuil
     print("Seuil :", seuil, " Lumiere :", mesure)
     sleep(0.05)
 ```
@@ -110,7 +114,7 @@ La sortie au [[micropython-repl|REPL]] (et le traceur de Thonny) permet de visua
 
 **Croire à une référence réglable.** Sur le Pico la référence est fixe (3,3 V) ; on convertit toujours par rapport à 3,3 V. Une alimentation 3,3 V bruitée biaise toutes les mesures — découpler proprement.
 
-**Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur précis, ça compte : moyenner sur 10–20 mesures (suréchantillonnage), ou filtre RC matériel (voir filtrer des mesures).
+**Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur précis, ça compte : moyenner sur 10–20 mesures (suréchantillonnage), ou filtre RC matériel (voir [[filtrage|filtrer des mesures]]).
 
 **Tension d'entrée hors plage.** Appliquer > 3,3 V sur une entrée ADC abîme la puce (Pico non tolérant 5 V). Vérifier la plage de sortie du capteur dans sa datasheet ([[lire-une-datasheet|lire une datasheet]]).
 
@@ -132,6 +136,7 @@ L'étalonnage transforme un capteur « qui sort un nombre » en *instrument de m
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-capteur-numerique|Lire un capteur numérique]] — l'alternative TOR ou impulsionnelle
 - [[micropython-repl|Le REPL]] — observer les mesures et calibrer
-- Filtrer des mesures — lisser le bruit ADC
+- [[filtrage|Filtrer des mesures]] — lisser le bruit ADC
+- [[precision-de-mesure|Précision de mesure]] — résolution ≠ précision, étalonnage
 - [[niveaux-de-tension|Niveaux de tension]] — 3,3 V vs 5 V sur capteurs et cartes
 - [[arduino-capteur-analogique|Lire un capteur analogique (Arduino)]] — l'équivalent C++

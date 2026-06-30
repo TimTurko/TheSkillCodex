@@ -2,14 +2,18 @@
 title: Alimenter la carte
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
+  - dossier-technique
+  - integration-et-tests
 tags:
   - eee
   - tuto
   - micropython
 prerequis:
   - micropython-prise-en-main
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -46,7 +50,7 @@ Sommer les consommations (estimées **haut**) :
 - **Wi-Fi (Pico 2 W) en émission** : pointes de plusieurs centaines de mA.
 - **Bandeau LED WS2812** : 3–5 A en blanc plein — alimentation dédiée obligatoire.
 
-La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec le Pico lui-même) : **ne pas y brancher de grosse charge**. Au-delà, alimenter la charge séparément (depuis VBUS/5 V ou une alimentation dédiée).
+La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec le Pico lui-même) : **ne pas y brancher de grosse charge**. Au-delà, alimenter la charge séparément (depuis VBUS/5 V ou une alimentation dédiée). Pour la méthode générale de dimensionnement (bilan de puissance, marges), voir [[alimentation-electronique|concevoir une alimentation]].
 
 ### 3. Câbler
 
@@ -70,11 +74,13 @@ Au multimètre : **3V3(OUT)** doit être ~3,3 V (3,2–3,4 V) ; **sous charge** 
 
 ```python
 from machine import Pin, PWM
-servo = PWM(Pin(15)); servo.freq(50)
+servo = PWM(Pin(15)); servo.freq(50)   # servo sur GP15, 50 Hz
 # ... lecture capteurs, affichage OLED, pilotage servo
 ```
 
 Au premier essai, alimenter aussi le servo par 3V3(OUT) fait rebooter le Pico quand il bouge. **Solution** : alimenter le servo par une source 5 V dédiée (ou VBUS si USB présent), **GND commun** avec le Pico. Voir [[micropython-servomoteur|servomoteur]] pour les bonnes pratiques d'alimentation servo.
+
+![Alimentation séparée du servo avec masse commune : le servo est alimenté par une source 5 V dédiée (VBUS ou alim externe), seul le signal vient de GP15 du Pico, et toutes les masses (Pico, source, servo) sont reliées — GND commun.|560](/ressources/img/micropython-alimentation/alimentation-separee.svg)
 
 ## Pièges
 
@@ -112,4 +118,6 @@ L'alimentation est l'élément le plus sous-estimé d'un projet débutant — ig
 - [[micropython-deep-sleep|Deep sleep]] — réduire la consommation pour l'autonomie
 - [[micropython-shield|Carte d'extension]] — l'enfichage qui augmente la consommation
 - [[niveaux-de-tension|Niveaux de tension]] — cohabitation 3,3 / 5 V
+- [[alimentation-electronique|Concevoir une alimentation]] — les principes transverses appliqués ici
+- [[lire-une-datasheet|Lire une datasheet]] — repérer les courants nominaux des composants
 - [[arduino-alimentation|Alimenter la carte Arduino]] — l'équivalent (USB / jack / Vin)

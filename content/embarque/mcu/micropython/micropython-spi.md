@@ -3,6 +3,7 @@ title: SPI en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -33,7 +34,7 @@ Le Pico a deux contrôleurs (`SPI0`, `SPI1`). `SCK`/`MOSI`/`MISO` sont sur des b
 from machine import SPI, Pin
 spi = SPI(0, baudrate=1_000_000, sck=Pin(2), mosi=Pin(3), miso=Pin(4))
 cs = Pin(5, Pin.OUT)
-cs.value(1)        # device deselectionne au repos (CS actif a l'etat bas)
+cs.value(1)        # device désélectionné au repos (CS actif à l'état bas)
 ```
 
 ### 2. Câbler avec un CS dédié
@@ -77,6 +78,9 @@ with open("/sd/test.txt") as f:
 
 os.umount("/sd")
 ```
+
+> [!info] Comment lire ce code
+> `os.mount(sd, "/sd")` greffe la carte SD dans le système de fichiers du Pico : à partir de là, `/sd/...` se manipule **exactement comme un fichier local**. Le bloc `with open(...) as f:` ouvre le fichier **et le referme tout seul** en fin de bloc — l'écriture est alors réellement enregistrée, sans `close()` à la main comme en Arduino. `os.umount("/sd")` détache proprement la carte avant de la retirer.
 
 Insérer une microSD formatée en FAT32, lancer, observer le REPL. Relire la carte sur un PC pour vérifier `test.txt`.
 

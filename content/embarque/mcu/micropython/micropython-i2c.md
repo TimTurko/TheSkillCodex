@@ -2,6 +2,7 @@
 title: I2C en MicroPython
 type: tuto
 phases:
+  - concept
   - preuve-de-concept
 tags:
   - eee
@@ -49,6 +50,10 @@ I2C exige des **pull-up vers VCC** sur `SDA` et `SCL` (≈ 4,7 kΩ ; 2,2 kΩ en 
 
 ![Câblage : bus I2C sur un Pico — SDA sur GP4, SCL sur GP5, pull-ups vers 3,3 V|600](/ressources/img/micropython-i2c/branchement-i2c.svg)
 
+Avec **plusieurs modules**, leurs pull-ups se retrouvent en parallèle : la résistance équivalente chute et le bus finit par ne plus pouvoir remonter — on ne garde alors qu'**une seule paire active** (voir le piège « surnombre »).
+
+![Pull-ups en parallèle : à gauche un seul module (une pull-up tire SDA, le bus descend bien à 0) ; à droite plusieurs modules dont les pull-ups en parallèle font chuter la résistance équivalente — le bus ne tient plus.|620](/ressources/img/micropython-i2c/pullups-paralleles.svg)
+
 ### 3. Scanner les adresses (intégré)
 
 Avant tout code applicatif, `i2c.scan()` liste les adresses qui répondent — **pas besoin d'un sketch scanner séparé** :
@@ -71,13 +76,13 @@ Adresse confirmée, installer le pilote (voir [[micropython-bibliotheques|biblio
 
 ```python
 from machine import I2C, Pin
-from bmp280 import BMP280       # nom selon le pilote installe
+from bmp280 import BMP280       # nom selon le pilote installé
 from time import sleep
 
 i2c = I2C(0, scl=Pin(5), sda=Pin(4))
 print("Adresses :", [hex(a) for a in i2c.scan()])
 
-capteur = BMP280(i2c)           # adresse par defaut 0x76
+capteur = BMP280(i2c)           # adresse par défaut 0x76
 
 while True:
     print("T =", capteur.temperature, "°C   P =", capteur.pressure, "Pa")
@@ -119,4 +124,5 @@ Le Pico a **deux contrôleurs** (`I2C0` et `I2C1` sur des broches distinctes) : 
 - [[micropython-afficheur|Afficheur OLED]] — usage typique d'I2C
 - [[micropython-bibliotheques|Utiliser une bibliothèque]] — pour les capteurs I2C
 - [[i2c|I2C]] — la notion transverse
+- [[niveaux-de-tension|Niveaux de tension]] — pour les bus mixtes 3,3 / 5 V
 - [[arduino-i2c|I2C sur Arduino]] — l'équivalent C++ (`Wire.h`)

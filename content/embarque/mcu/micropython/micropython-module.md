@@ -3,6 +3,7 @@ title: Câbler un module
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -55,6 +56,8 @@ Beaucoup de modules I2C intègrent leurs pull-up sur `SDA`/`SCL` (≈ 4,7 kΩ). 
 
 **Câblage** : `+` → 3,3 V ; `−` → GND ; `OUT` → GP2.
 
+![Câblage du module DHT11 sur le Pico : broche + vers 3,3 V, broche − vers GND, broche OUT (données) vers GP2 ; la résistance de tirage est intégrée au module.|560](/ressources/img/micropython-bibliotheques/montage-dht11.svg)
+
 **Bibliothèque** : le module **`dht`** est intégré au firmware (voir [[micropython-bibliotheques|bibliothèques]]).
 
 ```python
@@ -62,11 +65,11 @@ from machine import Pin
 import dht
 from time import sleep
 
-capteur = dht.DHT11(Pin(2))
+capteur = dht.DHT11(Pin(2))     # capteur DHT11 sur GP2
 
 while True:
-    sleep(2)
-    capteur.measure()
+    sleep(2)                 # 1 mesure/s max sur DHT11 ; 2 s laisse de la marge
+    capteur.measure()        # déclenche une mesure (protocole 1-wire encapsulé)
     print("T =", capteur.temperature(), "°C   H =", capteur.humidity(), "%")
 ```
 

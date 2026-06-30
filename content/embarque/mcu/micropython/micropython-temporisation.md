@@ -9,6 +9,7 @@ tags:
   - micropython
 prerequis:
   - micropython-prise-en-main
+  - micropython-entree-tor
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
@@ -48,7 +49,7 @@ while True:
     sleep(1)
     led.off()
     sleep(1)
-    # Pendant ces 2 s : impossible de lire un bouton, un capteur, ou la liaison serie
+    # Pendant ces 2 s : impossible de lire un bouton, un capteur, ou la liaison série
 ```
 
 Si un bouton doit interrompre le clignotement, ce code ne le verra qu'avec jusqu'à 2 s de retard. Inacceptable dès qu'on a deux choses à faire en parallèle.
@@ -112,6 +113,8 @@ while True:
 
 Trois cadences (LED 1 Hz, mesure 10 Hz, impression 1 Hz) cohabitent sans aucun `sleep()`. La boucle reste libre d'écouter un bouton.
 
+![Chronogramme de trois cadences indépendantes dans une même boucle : la LED bascule toutes les 500 ms, une mesure est prise toutes les 100 ms, une ligne « Vivant » est imprimée toutes les 1000 ms ; les trois rythmes cohabitent sur l'axe du temps sans se gêner, et entre deux événements la boucle reste libre.|640](/ressources/img/micropython-temporisation/cadences-paralleles.svg)
+
 ## Exemple — Blink non bloquant + bouton réactif
 
 Une LED clignote à 1 Hz, **un bouton bascule la fréquence** entre 1 Hz et 5 Hz sans perte de réactivité — impossible avec un seul `sleep()`.
@@ -123,36 +126,43 @@ from time import ticks_ms, ticks_diff
 led = Pin(15, Pin.OUT)
 bouton = Pin(14, Pin.IN, Pin.PULL_UP)
 
-# Clignotement (variables, elles changent en cours de route)
-t_led = ticks_ms()
-intervalle = 500          # 500 ms = 1 Hz, 100 ms = 5 Hz
-etat = False
+# Clignotement : ce sont des VARIABLES, elles changent en cours d'exécution
+t_led = ticks_ms()        # date du dernier basculement de la LED
+intervalle = 500          # demi-période courante : 500 ms = 1 Hz, 100 ms = 5 Hz
+etat = False              # LED actuellement allumée (True) ou éteinte (False)
 
-# Bouton : anti-rebond + detection de front
-dernier_btn = 1
-etat_stable = 1
-dernier_chg = ticks_ms()
-DELAI_REBOND = 30
+# Bouton : anti-rebond + détection de front
+dernier_btn = 1           # dernière lecture BRUTE (1 = relâché, pull-up)
+etat_stable = 1           # état CONFIRMÉ une fois le rebond passé
+dernier_chg = ticks_ms()  # date de la dernière transition de la lecture brute
+DELAI_REBOND = 30         # ms de stabilité exigée avant de valider
 
 while True:
-    maintenant = ticks_ms()
+    maintenant = ticks_ms()                # on lit l'horloge UNE fois par tour
 
-    # 1. Clignotement a la cadence courante, sans sleep()
+    # 1. Clignotement à la cadence courante, sans sleep()
     if ticks_diff(maintenant, t_led) >= intervalle:
-        t_led = maintenant
-        etat = not etat
+        t_led = maintenant                 # mémoriser l'instant du basculement
+        etat = not etat                    # inverser l'état
         led.value(etat)
 
     # 2. Bouton : filtrer le rebond, agir au FRONT (une fois par appui)
     lecture = bouton.value()
-    if lecture != dernier_btn:
-        dernier_chg = maintenant
+    if lecture != dernier_btn:             # la lecture brute vient de changer
+        dernier_chg = maintenant           # (re)démarrer le chrono d'anti-rebond
         dernier_btn = lecture
     if ticks_diff(maintenant, dernier_chg) > DELAI_REBOND and lecture != etat_stable:
-        etat_stable = lecture
-        if etat_stable == 0:                       # front descendant
+        etat_stable = lecture              # valider ce nouvel état stable
+        if etat_stable == 0:                       # front descendant = bouton appuyé
             intervalle = 100 if intervalle == 500 else 500   # bascule 1 Hz <-> 5 Hz
 ```
+
+**Comment lire ce code.** Le programme fait tourner **deux mécanismes indépendants dans la même boucle**, sans qu'aucun ne bloque l'autre.
+
+- **Le clignotement** repose sur `ticks_ms()` : `t_led` retient la date du dernier basculement, et `ticks_diff(maintenant, t_led) >= intervalle` demande à chaque tour « assez de temps a-t-il passé ? ». Si oui, on rebascule la LED et on remet `t_led` à `maintenant`. Changer `intervalle` (500 ↔ 100 ms) suffit à changer la cadence.
+- **Le bouton** combine anti-rebond et détection de front, exactement comme dans [[micropython-entree-tor|lire une entrée TOR]] : `dernier_btn` suit la lecture *brute*, `etat_stable` l'état *confirmé* une fois le rebond passé (`DELAI_REBOND`). La condition `etat_stable == 0` ne se réalise qu'**une seule fois par appui** (au front descendant) — c'est ce qui évite de basculer la fréquence en boucle tant que le doigt reste posé.
+
+Les deux blocs s'exécutent à chaque tour : la LED clignote *pendant* qu'on surveille le bouton — précisément ce qu'un `sleep()` interdirait.
 
 C'est l'illustration directe de pourquoi `ticks_ms()` est le bon outil dès qu'il y a plus d'une chose à faire à la fois.
 

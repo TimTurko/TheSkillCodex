@@ -3,6 +3,7 @@ title: Piloter une sortie PWM
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -38,7 +39,7 @@ Sur le Pico, **toutes** les broches GPIO peuvent générer du PWM (pas de broche
 from machine import Pin, PWM
 
 led = PWM(Pin(15))
-led.freq(1000)            # frequence du signal, en Hz
+led.freq(1000)            # fréquence du signal, en Hz
 led.duty_u16(32768)       # rapport cyclique sur 16 bits : 32768 = 50 %
 ```
 
@@ -60,10 +61,10 @@ led = PWM(Pin(15))
 led.freq(1000)
 
 while True:
-    for d in range(0, 65536, 1024):     # montee 0 -> 65535
-        led.duty_u16(d)
-        sleep_ms(8)
-    for d in range(65535, -1, -1024):   # descente
+    for d in range(0, 65536, 1024):     # montée : 0 → 65535 par pas de 1024
+        led.duty_u16(d)                 # applique le rapport cyclique
+        sleep_ms(8)                     # 8 ms par pas → fondu ~0,5 s
+    for d in range(65535, -1, -1024):   # descente : 65535 → 0
         led.duty_u16(d)
         sleep_ms(8)
 ```
@@ -78,7 +79,7 @@ Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un sig
 
 ## Exemple — Variateur de LED avec potentiomètre
 
-Lire un potentiomètre sur `GP26`, l'utiliser comme consigne de luminosité. Élégance MicroPython : `read_u16()` et `duty_u16()` sont **tous deux sur 16 bits**, donc on relie l'un à l'autre **sans mise à l'échelle** (contrairement à Arduino, où il faut diviser 1023 → 255).
+Lire un potentiomètre sur `GP26`, l'utiliser comme consigne de luminosité. Élégance MicroPython : `read_u16()` (voir [[micropython-capteur-analogique|lire un capteur analogique]]) et `duty_u16()` sont **tous deux sur 16 bits**, donc on relie l'un à l'autre **sans mise à l'échelle** (contrairement à Arduino, où il faut diviser 1023 → 255).
 
 ```python
 from machine import Pin, PWM, ADC
@@ -97,7 +98,7 @@ Tournez le potentiomètre : la luminosité suit.
 
 ## Pièges
 
-**`duty_u16()` est sur 16 bits, pas 0–255.** Le rapport cyclique va de 0 à **65535**, pas de 0 à 255 comme l'`analogWrite()` d'Arduino. Passer `255` donne ~0,4 % — quasi éteint. (Il existe aussi `duty_u16` exclusivement sur RP2 ; d'autres ports proposent `duty_ns` pour piloter en nanosecondes.)
+**`duty_u16()` est sur 16 bits, pas 0–255.** Le rapport cyclique va de 0 à **65535**, pas de 0 à 255 comme l'`analogWrite()` d'Arduino. Passer `255` donne ~0,4 % — quasi éteint. (`duty_u16()` est l'API **portable** standard de `machine.PWM` ; certains ports offrent aussi `duty_ns()` pour fixer la largeur d'impulsion en nanosecondes — disponible sur le Pico —, tandis que l'ancien `duty()` 0–1023 subsiste sur ESP8266/ESP32.)
 
 **Confondre PWM et vraie sortie analogique.** Le PWM sort un créneau 0/3,3 V à rapport cyclique variable, pas une tension. La *moyenne* est analogique pour une charge lente ; l'instantané reste binaire. Pour une vraie tension : DAC externe (MCP4725 en I2C) ou filtre RC.
 
@@ -117,6 +118,7 @@ Pour transformer un PWM en vraie tension continue (piloter l'entrée analogique 
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — toute charge à puissance variable (LED à intensité, ventilateur, moteur CC) se valide d'abord en PWM sur banc isolé.
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — la commande aval d'une boucle de régulation passe souvent par du PWM (voir [[micropython-pid|régulation PID]]).
+- **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — pilotage des actionneurs intégrés au système complet.
 
 Le PWM est l'outil de modulation de puissance par excellence — peu coûteux, bien outillé, suffisant pour l'essentiel des besoins de vitesse moteur et de luminosité.
 

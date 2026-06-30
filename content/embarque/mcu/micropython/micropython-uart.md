@@ -3,6 +3,7 @@ title: UART en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -64,7 +65,7 @@ while True:
     if uart.any():                 # octets disponibles ?
         data = uart.read()         # lit tout ce qui est en attente (bytes)
         print("Recu :", data)
-    uart.write(b"ping\n")          # emet (bytes, pas str)
+    uart.write(b"ping\n")          # émet (bytes, pas str)
     sleep(1)
 ```
 
@@ -86,7 +87,7 @@ uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 compteur = 0
 
 while True:
-    uart.write("{}\n".format(compteur).encode())   # trame terminee par \n
+    uart.write("{}\n".format(compteur).encode())   # trame terminée par \n
     print("Envoye :", compteur)
     compteur += 1
     sleep(1)
@@ -103,7 +104,7 @@ while True:
     if uart.any():
         ligne = uart.readline()        # lit jusqu'au \n (bytes)
         if ligne:
-            valeur = int(ligne.decode().strip())
+            valeur = int(ligne.decode().strip())   # bytes → texte → entier
             print("Recu :", valeur)
 ```
 
@@ -133,6 +134,7 @@ Un **adaptateur USB-série** (CH340, CP2102) relie le PC à un UART sans passer 
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — validation isolée d'un module UART (GPS, Bluetooth) avant intégration.
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — bus de commande entre sous-systèmes quand l'architecture sépare perception et commande sur plusieurs MCU.
+- **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — vérifier que les bus tiennent à pleine charge (débit, fiabilité, parasites).
 
 UART est le bus à connaître en premier : 2 fils, et la passerelle vers une foule de modules. Sur le Pico, l'avantage est que ses 2 UART matériels sont libres (la console est sur l'USB).
 

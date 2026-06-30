@@ -1,0 +1,56 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronogramme de l'anti-rebond : à l'appui, la lecture brute oscille quelques millisecondes (rebond mécanique) ; après 30 ms sans changement, l'état stable bascule une seule fois.">
+  <defs>
+    <style>
+      .raw { stroke: #BA7517; stroke-width: 2.5; fill: none; }
+      .stable { stroke: #4A4843; stroke-width: 2.5; fill: none; }
+      .guide { stroke: #B8B5AC; stroke-width: 1.5; stroke-dasharray: 4 4; }
+      .win { fill: #F3E2C7; opacity: 0.55; }
+      .lbl { fill: #4A4843; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .lbl-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .lbl-sm { fill: #5B5953; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; }
+      .lbl-sm-am { fill: #8A5512; font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      .arr { stroke: #8A5512; stroke-width: 1.5; fill: none; }
+      .arrhead { fill: #8A5512; }
+      @media (prefers-color-scheme: dark) {
+        .raw { stroke: #E0A24A; }
+        .stable { stroke: #D8D6CF; }
+        .guide { stroke: #6D6A61; }
+        .win { fill: #3A2F1D; opacity: 0.6; }
+        .lbl { fill: #D8D6CF; }
+        .lbl-am, .lbl-sm-am { fill: #E0A24A; }
+        .lbl-sm { fill: #B7B4AC; }
+        .arr { stroke: #E0A24A; }
+        .arrhead { fill: #E0A24A; }
+      }
+    </style>
+    <marker id="mp-etor-ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path class="arrhead" d="M0,0 L8,4 L0,8 Z"/>
+    </marker>
+  </defs>
+
+  <!-- Fenêtre d'anti-rebond -->
+  <rect class="win" x="350" y="56" width="80" height="244"/>
+
+  <!-- Guides verticaux -->
+  <line class="guide" x1="290" y1="56" x2="290" y2="300"/>
+  <line class="guide" x1="350" y1="56" x2="350" y2="300"/>
+  <line class="guide" x1="430" y1="56" x2="430" y2="300"/>
+
+  <!-- Trace 1 : lecture brute -->
+  <text class="lbl-am" x="130" y="26" text-anchor="start">Lecture brute (value())</text>
+  <text class="lbl-sm-am" x="320" y="46" text-anchor="middle">rebond mécanique</text>
+  <polyline class="raw" points="130,90 290,90 290,130 298,130 298,90 306,90 306,130 316,130 316,90 324,90 324,130 350,130 690,130"/>
+  <text class="lbl-sm-am" x="205" y="82" text-anchor="middle">relâché (1)</text>
+  <text class="lbl-sm-am" x="540" y="122" text-anchor="middle">appuyé (0)</text>
+
+  <!-- Étiquette fenêtre -->
+  <text class="lbl-sm" x="390" y="176" text-anchor="middle">fenêtre d'anti-rebond<tspan x="390" dy="16">30 ms sans changement</tspan></text>
+
+  <!-- Trace 2 : état stable -->
+  <text class="lbl" x="130" y="224" text-anchor="start">État stable (anti-rebond)</text>
+  <polyline class="stable" points="130,240 430,240 430,280 690,280"/>
+
+  <!-- Front confirmé -->
+  <line class="arr" x1="500" y1="262" x2="438" y2="278" marker-end="url(#mp-etor-ah)"/>
+  <text class="lbl-sm" x="506" y="260" text-anchor="start">front confirmé : un seul basculement</text>
+</svg>
