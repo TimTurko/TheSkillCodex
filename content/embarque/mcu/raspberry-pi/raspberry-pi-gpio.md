@@ -99,7 +99,7 @@ C'est l'équivalent, côté SBC, de la lecture d'une [[entree-sortie|entrée log
 
 ## Pas de temps réel dur
 
-Voilà la différence de fond avec un microcontrôleur, et elle conditionne ce qu'on peut confier au Pi. Entre votre script et la broche, **le noyau Linux s'intercale** : son ordonnanceur peut suspendre votre programme à tout moment pour exécuter une autre tâche. Conséquences :
+Voilà la différence de fond avec un microcontrôleur, et elle conditionne ce qu'on peut confier au Pi. Entre le script et la broche, **le noyau Linux s'intercale** : son ordonnanceur peut suspendre le programme à tout moment pour exécuter une autre tâche. Conséquences :
 
 - la durée d'un `sleep()` n'est **pas** garantie au millième près — elle peut s'allonger si le système est occupé ;
 - la **gigue** (variation du temps de réaction) rend le Pi inadapté à une boucle de commande cadencée finement ;

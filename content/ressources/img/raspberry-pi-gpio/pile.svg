@@ -30,7 +30,7 @@
   <!-- Colonne gauche : MCU -->
   <text x="175" y="60" class="colh">Microcontrôleur</text>
   <rect x="75" y="74" width="200" height="44" rx="8" class="box"/>
-  <text x="175" y="101" class="bt">Votre programme</text>
+  <text x="175" y="101" class="bt">Le programme</text>
   <path d="M175,118 L175,316" class="arr"/>
   <text x="188" y="220" class="lbl">accès direct</text>
   <text x="188" y="236" class="lblc" text-anchor="start">déterministe · temps réel</text>

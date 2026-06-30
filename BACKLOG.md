@@ -5,6 +5,9 @@
 
 ## Récent (17/06) — idées émergées en relecture §7
 
+### 30/06 (suite) — relecture de fond §14 Raspberry Pi
+- [ ] **Bloc « Caméra → SBC » sur `architecture-bicephale.svg`** (enrichissement optionnel, faible priorité, proposé 30/06) : le fil rouge parle d'« un bras augmenté d'une caméra » et `raspberry-pi-projet` mentionne la vision, mais le schéma n'a pas de bloc caméra en **entrée** du SBC (la « Vision · détection de cible » est listée dans la boîte SBC). Ajouter un petit bloc *Caméra* fléché vers le Raspberry Pi compléterait le récit visuel. Non bloquant — Tim a clos la session sans le prendre.
+
 ### 30/06 — relecture de fond §13 MicroPython terminée
 - [ ] **Audit des liens entrants `[[micropython-eeprom]]`** — la fiche a été renommée `micropython-stockage` ; un lien cassé corrigé dans `micropython-memoire` (30/06), mais d'autres *Voir aussi* / renvois entrants peuvent subsister dans le module (et hors module). Grep `[[micropython-eeprom]]` sur `content/` et repointer vers `[[micropython-stockage]]`. À faire en grooming, pas urgent.
 - [ ] **Captures C29 du §13 (review 30/06)** — placeholders matériels laissés en place dans les fiches relues, à shooter par Tim : Shell Thonny / débogueur (`micropython-debug`, `-timers` Plotter), multimètre en veille (`micropython-deep-sleep`), REPL `gc.mem_free()` (`micropython-memoire`), enfichage carte porteuse (`micropython-shield`), alimentation étape 3 (`micropython-alimentation`). Complètent les SVG-concepts.

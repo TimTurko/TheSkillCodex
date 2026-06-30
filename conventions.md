@@ -991,6 +991,12 @@ Notes 30/06 (pas de convention numérotée) :
 - **Verdict C82 « clean ».** Une fiche bourrée de flottants peut être **C82-propre** si **aucun n'est affiché ni asserté en décimal** (`pid` : `print` de 2 entiers, gains en entrée, `dt` calculé live → le piège simple précision ne mord pas). C82 ne mord que sur une **décimale assertée**, pas sur la simple présence de floats.
 - **Divergence honnête étiquetée « principe ».** Quand une correction de fond retire une valeur chiffrée (`deepsleep` ne descend pas en µA sur RP2), le SVG-concept correspondant s'étiquette **« principe »** (faible/élevé qualitatif) pour ne pas réintroduire le chiffre faux — cohérence fiche↔visuel.
 
+### Acquises 30/06 (suite) — MAJ documentaire (archivage de masse du JOURNAL)
+
+**Aucune convention numérotée nouvelle — la numérotation éprouvage reste à C84.**
+
+- **Archivage/déplacement d'un bloc JOURNAL lourd → script Node fail-safe, jamais une séquence d'`edit_file`.** Déclencheur décisif : non pas seulement la **taille** (un bloc > ~30 ko dépasse le seuil pratique d'`edit_file`), mais surtout la présence d'**échappements littéraux** dans la prose — un antislash-u (code Unicode), un antislash-n (saut de ligne), un pipe échappé dans un wikilink, un antislash isolé — que le `newText` d'`edit_file` **interprète** (les transformant en accent, retour ligne, trait vertical) et qui corromprait silencieusement l'archive. Un script (`tools/archive-journal-0630.mjs`) fait un **slice de chaîne brut** (zéro interprétation), avec garde **fail-safe** (toute ancre ou tout remplacement manquant → `exit 1` sans rien écrire), écriture **archive d'abord**, sauvegardes `.bak` et report des tailles avant/après. Le côté JOURNAL tronqué pourrait se réécrire en `write_file` (~17 ko), mais le côté archive (~514 ko) impose le script. Motif déjà acquis le 07/06 (`archive-journal-0607.mjs`), ici fixé avec son **déclencheur** : échappements littéraux dans le bloc → script obligatoire.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
