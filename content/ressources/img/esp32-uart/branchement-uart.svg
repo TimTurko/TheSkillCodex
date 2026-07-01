@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <style>
+      .board { fill:#f0eee7; stroke:#b8b5ac; stroke-width:1.5; }
+      .title { fill:#2b2b2b; font-size:14px; font-weight:600; }
+      .pin   { fill:#3d3d3d; font-size:12px; }
+      .wire  { stroke:#BA7517; stroke-width:2.2; fill:none; }
+      .gnd   { stroke:#8a8a8a; stroke-width:2.2; fill:none; }
+      .dot   { fill:#BA7517; }
+      .gdot  { fill:#8a8a8a; }
+      .note  { fill:#7d4f0f; font-size:11px; font-style:italic; }
+      @media (prefers-color-scheme: dark) {
+        .board { fill:#2a2a28; stroke:#57554f; }
+        .title { fill:#DDDBD3; }
+        .pin   { fill:#c7c7c7; }
+        .wire  { stroke:#E0A24A; }
+        .gnd   { stroke:#a5a5a5; }
+        .dot   { fill:#E0A24A; }
+        .gdot  { fill:#a5a5a5; }
+        .note  { fill:#E0A24A; }
+      }
+    </style>
+  </defs>
+
+  <rect class="board" x="60"  y="70" width="140" height="150" rx="6"/>
+  <rect class="board" x="420" y="70" width="150" height="150" rx="6"/>
+
+  <text class="title" x="130" y="58" text-anchor="middle">ESP32</text>
+  <text class="title" x="495" y="58" text-anchor="middle">Module série</text>
+
+  <!-- wires (TX vers RX, croisés) -->
+  <line class="wire" x1="200" y1="115" x2="420" y2="155"/>
+  <line class="wire" x1="200" y1="155" x2="420" y2="115"/>
+  <line class="gnd"  x1="200" y1="205" x2="420" y2="205"/>
+
+  <circle class="dot"  cx="200" cy="115" r="4"/>
+  <circle class="dot"  cx="200" cy="155" r="4"/>
+  <circle class="gdot" cx="200" cy="205" r="4"/>
+  <circle class="dot"  cx="420" cy="115" r="4"/>
+  <circle class="dot"  cx="420" cy="155" r="4"/>
+  <circle class="gdot" cx="420" cy="205" r="4"/>
+
+  <!-- ESP32 pin labels -->
+  <text class="pin" x="194" y="119" text-anchor="end">GPIO17 — TX2</text>
+  <text class="pin" x="194" y="159" text-anchor="end">GPIO16 — RX2</text>
+  <text class="pin" x="194" y="209" text-anchor="end">GND</text>
+
+  <!-- module pin labels -->
+  <text class="pin" x="426" y="119" text-anchor="start">TX</text>
+  <text class="pin" x="426" y="159" text-anchor="start">RX</text>
+  <text class="pin" x="426" y="209" text-anchor="start">GND</text>
+
+  <text class="note" x="310" y="278" text-anchor="middle">TX ↔ RX croisés · masse commune obligatoire · alimenter le module en 3,3 V</text>
+</svg>

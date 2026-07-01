@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <style>
+      .board { fill:#f0eee7; stroke:#b8b5ac; stroke-width:1.5; }
+      .title { fill:#2b2b2b; font-size:14px; font-weight:600; }
+      .pin   { fill:#3d3d3d; font-size:12px; }
+      .wire  { stroke:#BA7517; stroke-width:2.2; fill:none; }
+      .gnd   { stroke:#8a8a8a; stroke-width:2.2; fill:none; }
+      .dot   { fill:#BA7517; }
+      .gdot  { fill:#8a8a8a; }
+      .note  { fill:#7d4f0f; font-size:11px; font-style:italic; }
+      @media (prefers-color-scheme: dark) {
+        .board { fill:#2a2a28; stroke:#57554f; }
+        .title { fill:#DDDBD3; }
+        .pin   { fill:#c7c7c7; }
+        .wire  { stroke:#E0A24A; }
+        .gnd   { stroke:#a5a5a5; }
+        .dot   { fill:#E0A24A; }
+        .gdot  { fill:#a5a5a5; }
+        .note  { fill:#E0A24A; }
+      }
+    </style>
+  </defs>
+
+  <rect class="board" x="60"  y="60" width="140" height="225" rx="6"/>
+  <rect class="board" x="440" y="60" width="150" height="225" rx="6"/>
+
+  <text class="title" x="130" y="48" text-anchor="middle">ESP32</text>
+  <text class="title" x="515" y="48" text-anchor="middle">Module SPI (carte SD)</text>
+
+  <!-- faisceau : le SPI ne croise pas -->
+  <line class="wire" x1="200" y1="95"  x2="440" y2="95"/>
+  <line class="wire" x1="200" y1="130" x2="440" y2="130"/>
+  <line class="wire" x1="200" y1="165" x2="440" y2="165"/>
+  <line class="wire" x1="200" y1="200" x2="440" y2="200"/>
+  <line class="wire" x1="200" y1="235" x2="440" y2="235"/>
+  <line class="gnd"  x1="200" y1="270" x2="440" y2="270"/>
+
+  <!-- pin dots -->
+  <circle class="dot"  cx="200" cy="95"  r="4"/>
+  <circle class="dot"  cx="200" cy="130" r="4"/>
+  <circle class="dot"  cx="200" cy="165" r="4"/>
+  <circle class="dot"  cx="200" cy="200" r="4"/>
+  <circle class="dot"  cx="200" cy="235" r="4"/>
+  <circle class="gdot" cx="200" cy="270" r="4"/>
+  <circle class="dot"  cx="440" cy="95"  r="4"/>
+  <circle class="dot"  cx="440" cy="130" r="4"/>
+  <circle class="dot"  cx="440" cy="165" r="4"/>
+  <circle class="dot"  cx="440" cy="200" r="4"/>
+  <circle class="dot"  cx="440" cy="235" r="4"/>
+  <circle class="gdot" cx="440" cy="270" r="4"/>
+
+  <!-- ESP32 pin labels -->
+  <text class="pin" x="194" y="99"  text-anchor="end">GPIO18 — SCK</text>
+  <text class="pin" x="194" y="134" text-anchor="end">GPIO23 — MOSI</text>
+  <text class="pin" x="194" y="169" text-anchor="end">GPIO19 — MISO</text>
+  <text class="pin" x="194" y="204" text-anchor="end">GPIO5 — CS</text>
+  <text class="pin" x="194" y="239" text-anchor="end">3V3</text>
+  <text class="pin" x="194" y="274" text-anchor="end">GND</text>
+
+  <!-- module pin labels -->
+  <text class="pin" x="446" y="99"  text-anchor="start">SCK</text>
+  <text class="pin" x="446" y="134" text-anchor="start">MOSI</text>
+  <text class="pin" x="446" y="169" text-anchor="start">MISO</text>
+  <text class="pin" x="446" y="204" text-anchor="start">CS</text>
+  <text class="pin" x="446" y="239" text-anchor="start">VCC</text>
+  <text class="pin" x="446" y="274" text-anchor="start">GND</text>
+
+  <text class="note" x="320" y="305" text-anchor="middle">SPI ne croise pas (MOSI↔MOSI, MISO↔MISO) · un CS par périphérique · faisceau SCK/MOSI/MISO partagé</text>
+</svg>
