@@ -81,7 +81,7 @@ Les tutoriels du module ESP32, classés par difficulté croissante. Comme pour l
 ### Notions avancées
 
 - Connectivité : [[esp32-wifi|Wi-Fi]] · [[esp32-ble|Bluetooth LE]] — le cœur de la famille ;
-- Communication : [[arduino-uart|UART]] · [[arduino-i2c|I2C]] · [[arduino-spi|SPI]] *(notion transverse : [[bus-de-communication|bus de communication]])* ;
+- Communication : [[esp32-uart|UART]] · [[esp32-i2c|I2C]] · [[esp32-spi|SPI]] *(notion transverse : [[bus-de-communication|bus de communication]])* ;
 - [[esp32-deep-sleep|Deep sleep]] *(→ notion [[deep-sleep]])* — fonctionnement sur batterie.
 
 ### Niveau ingénieur
