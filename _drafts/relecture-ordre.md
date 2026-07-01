@@ -179,12 +179,16 @@ Verdict : OK / a corriger
 
 ## 9 · EEE — ESP32
 > *Médias 25–27/06 : `esp32-gpio` (brochage + montage), `esp32-wifi` (sta-vs-ap), `esp32-ble` (`roles-ble` rapatrié depuis `esp32-wifi/` + embed section GATT) — embeds posés + **rendus validés**. Relecture de fond (mode inversé) restant à faire.*
-- [ ] `esp32` (hub)
+> *01/07 : **3 fiches bus créées (C47a)** — `esp32-uart`/`-i2c`/`-spi` + 3 SVG câblage audités C80/C81, rendus validés ; hub relu (carte C68 en attente de clic-test).*
+- [ ] `esp32` (hub) — 🖼 *(relu 01/07 : C71 ×2 [« prix contenu » retiré, « économique » C3 reformulé], coquille liste, **carte C68 `positionnement-variantes` créée + embarquée** [8 variantes, connectivité × puissance], C47 bloc Communication repointé arduino-* → esp32-* ; fond variantes web-vérifié Espressif [RAS] ; attente clic-test carte)*
 - [ ] `esp32-prise-en-main`
 - [ ] `esp32-arduino-core`
 - [ ] `esp32-idf`
 - [ ] `esp32-gpio`
 - [ ] `esp32-serie`
+- [x] `esp32-uart` — 🖼✅ *(créée 01/07 C47a : Serial2 GPIO16/17, 3 UARTs, remappable, caveat WROVER ; SVG `branchement-uart` C80/C81 [TX2=17/RX2=16 croisés] ; aa PROJ/5 ; rendu validé 01/07)*
+- [x] `esp32-i2c` — 🖼✅ *(créée 01/07 C47a : Wire GPIO21/22, scanner, Wire1, pull-ups 4,7k ; SVG `branchement-i2c` C80/C81 ; aa PROJ/5 ; rendu validé 01/07)*
+- [x] `esp32-spi` — 🖼✅ *(créée 01/07 C47a : VSPI 18/23/19/5, carte SD, HSPI ; SVG `branchement-spi` C80/C81 [ne croise pas] ; aa PROJ/5 ; rendu validé 01/07)*
 - [ ] `esp32-wifi`
 - [ ] `esp32-ble`
 - [ ] `esp32-deep-sleep` — 🖼

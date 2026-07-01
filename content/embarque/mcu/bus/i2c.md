@@ -25,7 +25,7 @@ Le débit est modéré et la portée courte (l'échelle de la carte). En échang
 
 ![Chronogramme I2C simplifié : le maître cadence SCL en impulsions régulières ; sur SDA, condition START, adresse sur 7 bits, bit lecture/écriture, acquittement ACK de l'esclave, puis condition STOP.](/ressources/img/i2c/chronogramme.svg)
 
-Le maître ouvre par une condition **START** (SDA descend pendant que SCL est haut), envoie l'**adresse** sur 7 bits suivie du bit lecture/écriture, et l'esclave visé répond par un bit d'**acquittement** (ACK) — c'est ainsi qu'on sait qu'il est bien là. Les octets de données suivent le même motif (8 bits + ACK), jusqu'à la condition **STOP**. L'horloge SCL, elle, est tenue par le maître du début à la fin. La mise en œuvre est traitée dans [[arduino-i2c]] côté Arduino et [[micropython-i2c]] côté MicroPython.
+Le maître ouvre par une condition **START** (SDA descend pendant que SCL est haut), envoie l'**adresse** sur 7 bits suivie du bit lecture/écriture, et l'esclave visé répond par un bit d'**acquittement** (ACK) — c'est ainsi qu'on sait qu'il est bien là. Les octets de données suivent le même motif (8 bits + ACK), jusqu'à la condition **STOP**. L'horloge SCL, elle, est tenue par le maître du début à la fin. La mise en œuvre est traitée dans [[arduino-i2c]] côté Arduino, [[esp32-i2c]] côté ESP32 et [[micropython-i2c]] côté MicroPython.
 
 ## Pièges
 
@@ -36,7 +36,7 @@ Le maître ouvre par une condition **START** (SDA descend pendant que SCL est ha
 ## Voir aussi
 
 - [[bus-de-communication|Bus de communication]] — hub : situer l'I2C face à l'UART et au SPI
-- [[arduino-i2c|I2C sur Arduino]] · [[micropython-i2c|I2C en MicroPython]] — la mise en œuvre par famille
+- [[arduino-i2c|I2C sur Arduino]] · [[esp32-i2c|I2C sur ESP32]] · [[micropython-i2c|I2C en MicroPython]] — la mise en œuvre par famille
 - [[spi|SPI]] — alternative synchrone plus rapide, mais un fil de sélection par composant
 - [[uart|UART]] — alternative asynchrone, point-à-point
 - [[niveaux-de-tension|Niveaux de tension]] — cas particulier open-drain et tirage sur le bus I2C

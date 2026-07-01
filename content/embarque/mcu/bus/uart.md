@@ -25,7 +25,7 @@ Chaque octet est encadré par un **bit de start** et un ou plusieurs **bits de s
 
 La ligne est au repos à l'état haut. Le **start** (un bit bas) prévient le récepteur, qui se met à compter : chaque bit durant exactement 1 ÷ débit, il échantillonne la ligne au milieu de chaque intervalle pour lire les 8 bits de données (poids faible en premier), puis vérifie le **stop**. Tout repose sur ce comptage : c'est pourquoi un débit mal accordé produit des caractères illisibles.
 
-C'est le bus de la **console de mise au point** (souvent via une passerelle USB-série vers le PC) et de nombreux modules autonomes : GPS, Bluetooth, modules radio. La mise en œuvre est traitée dans [[arduino-uart]] côté Arduino et [[micropython-uart]] côté MicroPython.
+C'est le bus de la **console de mise au point** (souvent via une passerelle USB-série vers le PC) et de nombreux modules autonomes : GPS, Bluetooth, modules radio. La mise en œuvre est traitée dans [[arduino-uart]] côté Arduino, [[esp32-uart]] côté ESP32 et [[micropython-uart]] côté MicroPython.
 
 ## Pièges
 
@@ -38,7 +38,7 @@ C'est le bus de la **console de mise au point** (souvent via une passerelle USB-
 ## Voir aussi
 
 - [[bus-de-communication|Bus de communication]] — hub : situer l'UART face à l'I2C et au SPI
-- [[arduino-uart|UART sur Arduino]] · [[micropython-uart|UART en MicroPython]] — la mise en œuvre par famille
+- [[arduino-uart|UART sur Arduino]] · [[esp32-uart|UART sur ESP32]] · [[micropython-uart|UART en MicroPython]] — la mise en œuvre par famille
 - [[i2c|I2C]] — alternative synchrone à plusieurs composants
 - [[spi|SPI]] — alternative synchrone rapide
 - [[niveaux-de-tension|Niveaux de tension]] — TX/RX à adapter entre un composant 3,3 V et un 5 V

@@ -23,7 +23,7 @@ Les trois fils MOSI, MISO et SCK sont **partagés** par tous les composants ; en
 
 ![Chronogramme SPI : CS abaissé en premier, huit coups d'horloge SCK, et les octets MOSI et MISO qui circulent en même temps — full-duplex — avant la remontée de CS.](/ressources/img/spi/chronogramme.svg)
 
-Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d'horloge** sur SCK : à chaque coup, un bit part sur MOSI **et** un bit revient sur MISO — l'échange est simultané, c'est le full-duplex. CS remonte à la fin. Le moment exact où les bits sont échantillonnés dépend du **mode SPI** (polarité et phase d'horloge, numérotés 0 à 3). La mise en œuvre est traitée dans [[arduino-spi]] côté Arduino et [[micropython-spi]] côté MicroPython.
+Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d'horloge** sur SCK : à chaque coup, un bit part sur MOSI **et** un bit revient sur MISO — l'échange est simultané, c'est le full-duplex. CS remonte à la fin. Le moment exact où les bits sont échantillonnés dépend du **mode SPI** (polarité et phase d'horloge, numérotés 0 à 3). La mise en œuvre est traitée dans [[arduino-spi]] côté Arduino, [[esp32-spi]] côté ESP32 et [[micropython-spi]] côté MicroPython.
 
 ## Pièges
 
@@ -36,7 +36,7 @@ Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d
 ## Voir aussi
 
 - [[bus-de-communication|Bus de communication]] — hub : situer le SPI face à l'UART et à l'I2C
-- [[arduino-spi|SPI sur Arduino]] · [[micropython-spi|SPI en MicroPython]] — la mise en œuvre par famille
+- [[arduino-spi|SPI sur Arduino]] · [[esp32-spi|SPI sur ESP32]] · [[micropython-spi|SPI en MicroPython]] — la mise en œuvre par famille
 - [[i2c|I2C]] — alternative synchrone à deux fils, au débit plus modeste
 - [[uart|UART]] — alternative asynchrone, point-à-point
 - [[niveaux-de-tension|Niveaux de tension]] — quatre lignes à adapter entre un composant 3,3 V et un 5 V
