@@ -20,8 +20,7 @@ Là où l'Arduino vise l'accessibilité, l'ESP32 vise la **connectivité et la p
 
 - **Wi-Fi et Bluetooth intégrés** — l'argument décisif : un objet connecté sans module radio externe ;
 - **puissance** — un ou deux cœurs jusqu'à 240 MHz, beaucoup plus de RAM et de Flash, et un [[systeme-d-exploitation|RTOS]] (FreeRTOS) natif pour le multitâche ;
-- **autonomie** — un mode [[deep-sleep|deep sleep]] très économe, adapté au fonctionnement sur batterie ;
-- **prix contenu**, malgré ces capacités.
+- **autonomie** — un mode [[deep-sleep|deep sleep]] très économe, adapté au fonctionnement sur batterie.
 
 En contrepartie, l'ESP32 est **moins indulgent** : il fonctionne en **3,3 V** (voir l'alerte ci-dessous), demande une alimentation soignée (appels de courant en émission radio), et sa richesse le rend plus complexe à débuter. Le choix se tranche avec l'aide au choix du hub [[microcontroleur|microcontrôleur]] : pour apprendre ou prototyper simple sans connectivité, l'Arduino reste plus doux ; dès qu'il faut du **sans-fil**, de l'**autonomie** ou de la **puissance de calcul**, l'ESP32 s'impose.
 
@@ -34,7 +33,7 @@ La famille s'est diversifiée ; quelques variantes couvrent l'essentiel des beso
 | ESP32 (original) | 2× Xtensa LX6, 240 MHz | Wi-Fi + Bluetooth Classic + BLE | le polyvalent, le plus répandu |
 | ESP32-S2 | 1× Xtensa LX7 | Wi-Fi seul | USB natif, pas de Bluetooth |
 | ESP32-S3 | 2× Xtensa LX7 | Wi-Fi + BLE 5 | USB natif, instructions pour l'IA |
-| ESP32-C3 | 1× RISC-V | Wi-Fi + BLE 5 | économique, faible encombrement |
+| ESP32-C3 | 1× RISC-V | Wi-Fi + BLE 5 | faible encombrement |
 | ESP32-C6 | 1× RISC-V | Wi-Fi 6 + BLE 5 + 802.15.4 | Thread / Zigbee pour la domotique |
 | ESP32-C5 | 1× RISC-V | Wi-Fi 6 bi-bande (2,4 + 5 GHz) + BLE 5 + 802.15.4 | seule variante en 5 GHz |
 | ESP32-H2 | 1× RISC-V | BLE 5 + 802.15.4, pas de Wi-Fi | Thread / Zigbee, sans Wi-Fi |
@@ -43,6 +42,10 @@ La famille s'est diversifiée ; quelques variantes couvrent l'essentiel des beso
 On rencontre ces puces sur des **modules** (WROOM, WROVER) eux-mêmes montés sur des **cartes de développement** (DevKitC, et des variantes Feather, LOLIN…). Pour un projet, une carte de type DevKit ESP32 d'origine est le point d'entrée sûr.
 
 Tendance de fond : l'ESP32 d'origine et la série S reposent sur des cœurs **Xtensa**, tandis que les variantes récentes (séries C, H, P) passent au **RISC-V** — le S3 est le dernier grand Xtensa. Pour un nouveau projet, le RISC-V est la direction de l'écosystème.
+
+![Carte de positionnement des variantes ESP32 selon leur connectivité sans fil et leur puissance de calcul|640](/ressources/img/esp32/positionnement-variantes.svg)
+
+*Situer les variantes selon leur connectivité et leur puissance ; le tableau ci-dessus en donne le détail.*
 
 ## Écosystème
 
@@ -72,7 +75,7 @@ Les tutoriels du module ESP32, classés par difficulté croissante. Comme pour l
 - [[cpp|Le langage C++]] *(transverse)* — bases du langage ;
 - [[niveaux-de-tension|Niveaux de tension]] *(transverse)* — **3,3 V**, ne pas griller une broche ;
 - [[esp32-gpio|Configurer les GPIO]] — broches utilisables, broches à éviter au démarrage ;
-- [[esp32-serie|Moniteur série]] — lire et écrire sur le port série.
+- [[esp32-serie|Moniteur série]] — lire et écrire sur le port série ;
 - [[esp32-arduino-core|Programmer avec l'Arduino-core]] — l'environnement de code, et ce qui change sous le capot.
 
 ### Notions avancées

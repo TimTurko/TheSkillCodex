@@ -261,11 +261,11 @@ Verdict : OK / a corriger
 - [x] `micropython-watchdog` *(relu 30/06 : **fond exact — limite RP2 vérifiée** [`machine.WDT(timeout=)` + `feed()` ; **plafond `timeout` ~8,3 s (8388 ms)** = doc RP2 ✓ ; **ne se désarme plus une fois armé** (pas de `wdt_disable()`) juste et bien exploité (armer après init, code non bloquant) ; reset = relance `main.py`]. **C82 sans objet** [timeout entier, `sleep(0.5)` exact]. **Divergences légitimes** : pas de section « mode interruption/réveil » (le `WDT` MicroPython est **reset-only**) ; à la place **« Au-delà du plafond ~8,3 s »** (feed répartis) ; pas de piège « boucle de reboot bootloader » (AVR). **SVG `chronogramme-watchdog` créé** [déc. : copie adaptée du jumeau ; `wdt_reset()`→`feed()`, `WDTO_4S`→`8 s`, `setup()`→`main.py`] en §2 ; parité + C68. *(phases/prereq alignés, aucun lien cassé, pas d'encart manquant → rien en d'office. §3 placeholder multimètre/REPL = C29, capture à ta main.)* Attente clic-test rendu : chronogramme-watchdog)*
 
 ## 14 · EEE — Raspberry Pi
-> *Médias 25–27/06 : `raspberry-pi-gpio` (`montage-led-bouton` régénéré → bouton GPIO2 ; `brochage-40-broches`) — **rendus validés**. Relecture de fond restant à faire.*
-- [ ] `raspberry-pi` (hub) — 🖼
-- [ ] `raspberry-pi-prise-en-main`
-- [ ] `raspberry-pi-gpio` — 🖼
-- [ ] `raspberry-pi-projet` — 🖼
+> *Médias 25–27/06 : `raspberry-pi-gpio` (`montage-led-bouton` régénéré → bouton GPIO2 ; `brochage-40-broches`) — rendus validés. **Relecture de fond TERMINÉE** — session 30/06 (hub → prise-en-main → gpio → projet), rendus Quartz validés 01/07.*
+- [x] `raspberry-pi` (hub) — 🖼✅ *(relu 30/06 : C71 ×3 prix retirés, C65 « votre »→« le », SVG `mcu-vs-sbc` [2 étiquettes € → qualitatif], RAM Pi 5 1–16 Go ; rendu validé 01/07)*
+- [x] `raspberry-pi-prise-en-main` — 🖼✅ *(relu 30/06 : `aa: PROJ/5` parité, SVG `topologie-headless` créé [C68 — flux SSH headless], libellé Imager « Modifier les réglages » ; rendu validé 01/07)*
+- [x] `raspberry-pi-gpio` — 🖼✅ *(relu 30/06 : C65 ×3 [prose ×2 + label `pile.svg`], SVG `montage-led-bouton` C80/C81-conforme [GPIO17/GPIO2], brochage 40 broches vérifié pin par pin, `pile`/`architecture-bicephale` C69 ; rendu validé 01/07)*
+- [x] `raspberry-pi-projet` — 🖼✅ *(relu 30/06 : RAS fond ; C23 fil rouge bras 3 axes ; rendu validé 01/07)*
 
 ## 15 · EEE — PIC
 - [ ] `pic`
