@@ -23,21 +23,23 @@ Là où l'[[arduino|Arduino]] vise l'accessibilité, l'[[esp32|ESP32]] la connec
 - **la polyvalence USB** — le Teensy peut *devenir* n'importe quel périphérique USB (clavier, souris, manette, MIDI, audio…), choisi à la compilation — voir [[teensy-usb]] ;
 - **des E/S rapides** — `digitalWriteFast`, PWM à fréquence/résolution réglables, plusieurs ports série et bus matériels.
 
-En contrepartie, le Teensy est **plus cher** qu'un Arduino ou un ESP32 (~25–35 €) et, sur la génération actuelle (4.x), **strictement 3,3 V**. C'est le choix qui se justifie quand le projet demande du **son, du DSP, une interface USB sur mesure** ou de la **performance** dans un cadre Arduino familier. La décision se tranche avec l'aide au choix du hub [[microcontroleur|microcontrôleur]].
+En contrepartie, le Teensy impose trois limites qu'il faut peser avant de le choisir. Sa génération actuelle (4.x) est **strictement 3,3 V**, sans une seule broche tolérante 5 V — là où un Arduino Uno se moque du niveau et où le STM32 offre ses broches *FT*. Il n'embarque **aucune radio** : dès qu'un objet doit communiquer, l'ESP32 ou l'[[esp8266|ESP8266]] le supplantent d'office. Et son **écosystème matériel est volontairement mince** — PJRC l'écrit lui-même, il n'a pas les moyens d'entretenir une gamme de cartes filles, là où les [[shield|shields]] Arduino se comptent par dizaines. C'est le choix qui se justifie quand le projet demande du **son, du DSP, une interface USB sur mesure** ou de la **performance** dans un cadre Arduino familier. La décision se tranche avec l'aide au choix du hub [[microcontroleur|microcontrôleur]].
+
+![Ce que le Teensy garde du cadre Arduino et ce qu'il y ajoute : à gauche le même langage, les mêmes fonctions et les mêmes bibliothèques ; à droite un cœur Cortex-M7 à 600 MHz avec FPU et DSP, l'audio temps réel, l'identité USB choisie à la compilation et plusieurs bus matériels.|640](/ressources/img/teensy/comparaison-arduino.svg)
 
 ## Panorama des cartes
 
 La famille est petite et lisible ; le **cœur Cortex-M** donne la classe de performance.
 
 > [!info]
-> Le tableau ci-dessous est un **repère pédagogique**, à confirmer sur le site de PJRC (`pjrc.com`) avant de figer un choix : les références exactes, fréquences et disponibilités évoluent (les générations 3.x sont en voie de disparition).
+> Le tableau ci-dessous est un **repère pédagogique**, à confirmer sur le site de PJRC (`pjrc.com`) avant de figer un choix : les références exactes et les disponibilités évoluent.
 
-| Carte | Cœur | Fréquence | Signatures | Prix indicatif |
-| --- | --- | --- | --- | --- |
-| Teensy 4.1 | Cortex-M7 (NXP i.MX RT1062) | 600 MHz | Ethernet, lecteur microSD, nombreuses E/S, empreintes PSRAM/Flash | ~30–35 € |
-| Teensy 4.0 | Cortex-M7 (NXP i.MX RT1062) | 600 MHz | format compact, mêmes performances que la 4.1 | ~25–30 € |
-| Teensy LC | Cortex-M0+ | 48 MHz | entrée de gamme économique (en fin de vie) | ~12 € |
-| Teensy 3.2 / 3.6 | Cortex-M4 / M4F | 72–180 MHz | générations antérieures, largement remplacées ; **la 3.2 tolère le 5 V sur les broches numériques** | ~20–30 € (raréfiées) |
+| Carte | Cœur | Fréquence | Signatures |
+| --- | --- | --- | --- |
+| Teensy 4.1 | Cortex-M7 (NXP i.MX RT1062) | 600 MHz | Ethernet, lecteur microSD, nombreuses E/S, empreintes PSRAM/Flash |
+| Teensy 4.0 | Cortex-M7 (NXP i.MX RT1062) | 600 MHz | format compact, mêmes performances que la 4.1 |
+
+Les générations antérieures — **Teensy LC, 3.2, 3.5 et 3.6** — sont **arrêtées depuis 2023**, PJRC ne parvenant plus à s'approvisionner en puces des anciennes séries. On peut encore en croiser dans un projet existant, mais on n'en spécifie plus. À noter au passage : la 3.2 tolérait le 5 V sur ses broches numériques — **aucune carte actuelle ne le fait**.
 
 La génération actuelle est la **4.x** (Cortex-M7 à 600 MHz) : la **Teensy 4.1** est la plus capable (Ethernet, microSD, beaucoup d'E/S), la **4.0** en est la version compacte. Pour la plupart des projets, l'une des deux convient. Le compagnon audio naturel est l'**Audio Shield** (codec SGTL5000), qui apporte une entrée/sortie analogique propre par le bus [[bus-de-communication|I2S]].
 

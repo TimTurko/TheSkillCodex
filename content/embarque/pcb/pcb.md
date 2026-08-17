@@ -32,7 +32,7 @@ On conçoit un PCB **une fois le prototype validé** sur breadboard et en [[simu
 
 Quel que soit l'outil, la conception suit le même enchaînement.
 
-1. **Saisir le schéma** — placer les composants et leurs liaisons logiques (*schematic capture*), comme un [[analyse-de-schema-electronique|schéma]] propre et vérifié.
+1. **Saisir le schéma** — placer les composants et leurs liaisons logiques (*schematic capture*), comme un [[analyse-de-schema-electronique|schéma]] propre, puis le soumettre au **contrôle des règles électriques** (*ERC*, Electrical Rules Check), qui repère broches oubliées et incohérences avant d'aller plus loin.
 2. **Associer les empreintes** (*footprints*) — à chaque composant du schéma correspond une **empreinte** physique (la forme des pastilles et le pas réels du boîtier). Une empreinte fausse = un composant qui ne rentre pas.
 3. **Placer les composants** sur la surface de la carte — regrouper par fonction, soigner l'ergonomie (connecteurs en bord de carte, dissipation).
 4. **Router les pistes** — tracer le cuivre qui réalise les liaisons du schéma, manuellement ou avec l'aide d'un routeur automatique.
@@ -40,7 +40,7 @@ Quel que soit l'outil, la conception suit le même enchaînement.
 6. **Générer les fichiers de fabrication** — les **Gerber** (couches de cuivre, sérigraphie, masque) et le fichier de **perçage**, qui décrivent la carte au fabricant.
 7. **Fabriquer** — gravure et perçage en atelier, ou commande chez un fabricant. *Cette étape sort du périmètre du wiki (voir le cours/atelier de fabrication).*
 
-![Le flux de conception d'une carte : schéma, empreintes, placement, routage, DRC, Gerber, puis la fabrication (atelier, hors wiki), séparée par la frontière des fichiers Gerber.](/ressources/img/pcb/flux.svg)
+![Le flux de conception d'une carte : schéma, empreintes, placement, routage, DRC, Gerber, puis la fabrication (atelier, hors wiki), séparée par la frontière des fichiers Gerber.|640](/ressources/img/pcb/flux.svg)
 
 ## Mono, double ou multicouche
 

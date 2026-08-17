@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t d">
+  <title id="t">Les trois modes de la HAL : ce que fait le cœur pendant un transfert</title>
+  <desc id="d">Trois chronogrammes superposes montrant l'occupation du coeur pendant un meme transfert. En scrutation, le coeur est occupe pendant toute la duree du transfert : il attend. En interruption, il lance le transfert, reste libre pendant toute sa duree, et n'est rappele qu'a la fin pour executer la fonction de rappel. En DMA, il lance egalement le transfert, le controleur DMA deplace les donnees a sa place pendant que le coeur reste libre, et un rappel signale la fin. La duree du transfert est identique dans les trois cas : ce qui change, c'est le temps de coeur consomme.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .md { font: 700 12.5px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .lg { font: 400 10.5px sans-serif; fill: #555450; }
+      .foot { font: italic 400 10.5px sans-serif; fill: #888780; }
+      .busy { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .free { fill: #DDDBD3; stroke: #888780; stroke-width: 1; }
+      .dma { fill: none; stroke: #BA7517; stroke-width: 1.6; stroke-dasharray: 5 3; }
+      .axis { stroke: #888780; stroke-width: 1; }
+      .tick { stroke: #888780; stroke-width: 1; stroke-dasharray: 3 3; }
+      .ah { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .md { fill: #F1EFE8; }
+        .sm, .lg { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .busy { fill: #5A4A2E; stroke: #EF9F27; }
+        .free { fill: #4A4A48; stroke: #BBBBBB; }
+        .dma { stroke: #EF9F27; }
+        .axis, .tick { stroke: #BBBBBB; }
+        .ah { fill: #BBBBBB; }
+      }
+    </style>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="ah"/></marker>
+  </defs>
+
+  <text x="360" y="26" text-anchor="middle" class="ti">Les trois modes de la HAL : que fait le cœur pendant le transfert ?</text>
+
+  <line x1="200" y1="56" x2="200" y2="300" class="tick"/>
+  <line x1="560" y1="56" x2="560" y2="300" class="tick"/>
+  <text x="200" y="50" text-anchor="middle" class="sm">début</text>
+  <text x="560" y="50" text-anchor="middle" class="sm">fin du transfert</text>
+
+  <text x="20" y="84" class="md">Scrutation</text>
+  <text x="20" y="100" class="sm">HAL_UART_Transmit</text>
+  <rect x="200" y="70" width="360" height="30" rx="3" class="busy"/>
+  <text x="380" y="90" text-anchor="middle" class="sm">cœur occupé : il attend que ce soit fini</text>
+  <rect x="560" y="70" width="130" height="30" rx="3" class="free"/>
+
+  <text x="20" y="164" class="md">Interruption</text>
+  <text x="20" y="180" class="sm">HAL_UART_Receive_IT</text>
+  <rect x="200" y="150" width="34" height="30" rx="3" class="busy"/>
+  <rect x="234" y="150" width="292" height="30" rx="3" class="free"/>
+  <text x="380" y="170" text-anchor="middle" class="sm">cœur libre : il fait autre chose</text>
+  <rect x="526" y="150" width="60" height="30" rx="3" class="busy"/>
+  <text x="556" y="200" text-anchor="middle" class="sm">rappel</text>
+  <rect x="586" y="150" width="104" height="30" rx="3" class="free"/>
+
+  <text x="20" y="254" class="md">DMA</text>
+  <text x="20" y="270" class="sm">HAL_UART_Transmit_DMA</text>
+  <rect x="200" y="240" width="34" height="30" rx="3" class="busy"/>
+  <rect x="234" y="240" width="292" height="30" rx="3" class="free"/>
+  <text x="380" y="260" text-anchor="middle" class="sm">cœur libre : il fait autre chose</text>
+  <rect x="526" y="240" width="60" height="30" rx="3" class="busy"/>
+  <rect x="586" y="240" width="104" height="30" rx="3" class="free"/>
+  <line x1="234" y1="284" x2="526" y2="284" class="dma"/>
+  <text x="380" y="300" text-anchor="middle" class="sm">le contrôleur DMA déplace les données, sans le cœur</text>
+
+  <line x1="200" y1="322" x2="690" y2="322" class="axis" marker-end="url(#aw)"/>
+  <text x="700" y="326" text-anchor="end" class="lg">temps</text>
+
+  <rect x="200" y="340" width="16" height="12" rx="2" class="busy"/>
+  <text x="222" y="350" class="lg">cœur occupé</text>
+  <rect x="320" y="340" width="16" height="12" rx="2" class="free"/>
+  <text x="342" y="350" class="lg">cœur libre</text>
+
+  <text x="690" y="350" text-anchor="end" class="foot">Le transfert dure aussi longtemps dans les trois cas — c'est le temps de cœur qui change.</text>
+</svg>

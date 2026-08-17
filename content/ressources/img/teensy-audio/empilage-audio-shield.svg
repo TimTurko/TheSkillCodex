@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" role="img" aria-labelledby="teas deas">
+  <title id="teas">L'Audio Shield empilé sur le Teensy</title>
+  <desc id="deas">Vue en écorché de l'empilage. En bas, la carte Teensy 4.x avec ses deux rangées de connecteurs. Au-dessus, l'Audio Shield qui vient s'y enficher : le codec SGTL5000, la sortie casque, les entrées et sorties ligne, l'entrée micro et un lecteur de carte microSD. Entre les deux cartes, deux liaisons passent par les connecteurs sans aucun câblage manuel : le bus I2S qui transporte les échantillons audio, et le bus I2C qui transporte les ordres de réglage du codec. Une note rappelle que le shield existe en version pour Teensy 4.x et qu'il faut souder les broches avant l'empilage.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .brd{fill:#DDDBD3;stroke:#BA7517;stroke-width:2.2;}
+      .brdg{fill:#F1EFE8;stroke:#888780;stroke-width:2;}
+      .n{font:700 13px sans-serif;fill:#2C2C2A;}
+      .c{font:400 11.5px sans-serif;fill:#5F5E5A;}
+      .hdr{fill:#888780;}
+      .link{stroke:#BA7517;stroke-width:2.2;fill:none;}
+      .lt{font:700 11px sans-serif;text-anchor:middle;fill:#854F0B;}
+      .lts{font:400 10.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;}
+        .brd{fill:#4A4A48;stroke:#EF9F27;} .brdg{fill:#3A3A38;stroke:#BBBBBB;}
+        .n{fill:#F1EFE8;} .c{fill:#D3D1C7;} .hdr{fill:#BBBBBB;}
+        .link{stroke:#EF9F27;} .lt{fill:#FAC775;} .lts{fill:#BBBBBB;}
+        .foot{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="340" y="26" class="ttl">Le shield s'empile — rien à câbler à la main</text>
+
+  <rect x="150" y="48" width="380" height="76" rx="8" class="brd"/>
+  <text x="170" y="74" class="n">Audio Shield (codec SGTL5000)</text>
+  <text x="170" y="94" class="c">sortie casque · entrées et sorties ligne · entrée micro</text>
+  <text x="170" y="112" class="c">lecteur de carte microSD</text>
+
+  <rect x="182" y="124" width="10" height="12" class="hdr"/>
+  <rect x="212" y="124" width="10" height="12" class="hdr"/>
+  <rect x="242" y="124" width="10" height="12" class="hdr"/>
+  <rect x="428" y="124" width="10" height="12" class="hdr"/>
+  <rect x="458" y="124" width="10" height="12" class="hdr"/>
+  <rect x="488" y="124" width="10" height="12" class="hdr"/>
+
+  <rect x="182" y="184" width="10" height="12" class="hdr"/>
+  <rect x="212" y="184" width="10" height="12" class="hdr"/>
+  <rect x="242" y="184" width="10" height="12" class="hdr"/>
+  <rect x="428" y="184" width="10" height="12" class="hdr"/>
+  <rect x="458" y="184" width="10" height="12" class="hdr"/>
+  <rect x="488" y="184" width="10" height="12" class="hdr"/>
+
+  <line x1="187" y1="136" x2="187" y2="184" class="link"/>
+  <line x1="217" y1="136" x2="217" y2="184" class="link"/>
+  <line x1="247" y1="136" x2="247" y2="184" class="link"/>
+  <line x1="433" y1="136" x2="433" y2="184" class="link"/>
+  <line x1="463" y1="136" x2="463" y2="184" class="link"/>
+  <line x1="493" y1="136" x2="493" y2="184" class="link"/>
+
+  <text x="217" y="154" class="lt">I2S</text>
+  <text x="217" y="170" class="lts">les échantillons</text>
+  <text x="463" y="154" class="lt">I2C</text>
+  <text x="463" y="170" class="lts">les réglages du codec</text>
+
+  <rect x="150" y="196" width="380" height="62" rx="8" class="brdg"/>
+  <text x="170" y="222" class="n">Teensy 4.x</text>
+  <text x="170" y="242" class="c">le sketch pilote les objets de la chaîne audio</text>
+
+  <text x="340" y="286" class="foot">Le shield existe en version Teensy 4.x — souder les broches avant d'empiler.</text>
+</svg>

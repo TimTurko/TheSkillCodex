@@ -44,7 +44,7 @@ Faire clignoter LD2 (broche `PA5`) **sans la HAL**, registre par registre, est l
 
 ```c
 /* USER CODE BEGIN 3 */
-// 1. Alimenter l'horloge du port A  (sinon, tout ecrit dans GPIOA est ignore !)
+// 1. Alimenter l'horloge du port A  (sinon, tout écrit dans GPIOA est ignoré !)
 RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 
 // 2. Configurer PA5 en sortie : champ MODE5 = 01
@@ -53,9 +53,9 @@ GPIOA->MODER |=  GPIO_MODER_MODE5_0;   // poser le bit de poids faible -> 01 = s
 
 // 3. Faire clignoter via BSRR (atomique)
 while (1) {
-  GPIOA->BSRR = GPIO_BSRR_BS5;         // mettre PA5 a 1
-  for (volatile int i = 0; i < 800000; i++);   // delai grossier
-  GPIOA->BSRR = GPIO_BSRR_BR5;         // remettre PA5 a 0
+  GPIOA->BSRR = GPIO_BSRR_BS5;         // mettre PA5 à 1
+  for (volatile int i = 0; i < 800000; i++);   // délai grossier
+  GPIOA->BSRR = GPIO_BSRR_BR5;         // remettre PA5 à 0
   for (volatile int i = 0; i < 800000; i++);
 }
 /* USER CODE END 3 */

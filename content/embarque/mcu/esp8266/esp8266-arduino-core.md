@@ -23,7 +23,7 @@ L'Arduino-core ESP8266 permet d'écrire un objet **connecté en Wi-Fi** avec le 
 
 - **Réutiliser ce qu'on sait** — tout le vocabulaire Arduino fonctionne (`pinMode`, `digitalWrite`, `analogRead`, `Serial`, `Wire`, `SPI`…) ;
 - **Ajouter le Wi-Fi simplement** — la bibliothèque `ESP8266WiFi` connecte la carte à un réseau en quelques lignes ;
-- **Au prix le plus bas** — pour un petit capteur qui publie une mesure sur le réseau, l'ESP8266 fait le travail pour quelques euros.
+- **Au plus simple** — pour un petit capteur qui publie une mesure sur le réseau, l'ESP8266 fait le travail avec une seule bibliothèque et sans radio externe.
 
 C'est le **bon (et seul) point d'entrée**. Les particularités ci-dessous ne sont pas un autre environnement, mais des **points de vigilance** à connaître une fois.
 
@@ -36,7 +36,7 @@ Un sketch ESP8266 a la forme d'un sketch Arduino — `setup()` une fois, `loop()
 Sur NodeMCU / D1 mini, la sérigraphie note les broches **D0, D1, D2…**, qui **ne correspondent pas** aux numéros GPIO. Par exemple **D1 = GPIO5**, **D2 = GPIO4**, **D5 = GPIO14**. Le plus sûr est d'utiliser les **constantes `Dxx`** (déjà définies par le core) plutôt que les numéros bruts :
 
 ```cpp
-const int RELAIS = D1;   // = GPIO5, mais on raisonne avec l'etiquette de la carte
+const int RELAIS = D1;   // = GPIO5, mais on raisonne avec l'étiquette de la carte
 ```
 
 ![Correspondance des étiquettes Dxx et des numéros GPIO sur ESP8266 (NodeMCU / Wemos D1 mini) : D1=GPIO5, D2=GPIO4, D5=GPIO14, D6=GPIO12, etc. ; broches sûres D1/D2/D5/D6/D7, broches de boot D3/D4/D8 à manier avec précaution, A0 = ADC0 unique.|640](/ressources/img/esp8266-arduino-core/brochage-d1-gpio.svg)
@@ -58,24 +58,24 @@ Le Wi-Fi est géré en arrière-plan par la puce. Si `loop()` exécute un calcul
 Ce sketch connecte la carte à un réseau Wi-Fi et affiche son adresse IP. Il illustre la porte (Arduino + `ESP8266WiFi`) et la bonne pratique du `delay()` qui laisse tourner la pile.
 
 ```cpp
-#include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h>          // pile Wi-Fi de l'ESP8266
 
-const char* ssid = "MonReseau";
-const char* motdepasse = "MonMotDePasse";
+const char* ssid = "MonReseau";           // nom du réseau à rejoindre
+const char* motdepasse = "MonMotDePasse"; // sa clé WPA
 
 void setup() {
-  Serial.begin(115200);
-  WiFi.begin(ssid, motdepasse);
+  Serial.begin(115200);          // ouvre le moniteur série pour suivre la connexion
+  WiFi.begin(ssid, motdepasse);  // lance la connexion (elle n'est pas instantanée)
 
   Serial.print("Connexion");
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);            // delay() rend la main a la pile Wi-Fi (evite le watchdog)
-    Serial.print(".");
+  while (WiFi.status() != WL_CONNECTED) {   // tant que la liaison n'est pas établie
+    delay(500);            // delay() rend la main à la pile Wi-Fi (évite le watchdog)
+    Serial.print(".");     // un point par tentative, pour voir que ça avance
   }
 
   Serial.println();
   Serial.print("Connecte. IP : ");
-  Serial.println(WiFi.localIP());
+  Serial.println(WiFi.localIP());   // l'adresse attribuée par la box
 }
 
 void loop() {
@@ -105,6 +105,8 @@ Prendre capture d'écran de *le moniteur série affichant la progression de conn
 
 > [!question] Exercice 1 — La bonne broche
 > Faites clignoter une LED externe câblée sur **D6**. Quel GPIO est-ce réellement, et pourquoi vaut-il mieux écrire `D6` que le numéro ?
+>
+> Le montage est celui de la [[esp8266-prise-en-main#Exercices|prise en main]] — résistance en série puis anode de la LED, cathode à GND — sur **D6** au lieu de D5.
 
 > [!success]- Corrigé
 > ```cpp
@@ -147,7 +149,7 @@ Prendre capture d'écran de *le moniteur série affichant la progression de conn
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — l'Arduino-core ESP8266 est l'environnement de la PoC d'un objet connecté Wi-Fi à bas coût : on valide tôt la connexion réseau et la lecture capteur, en gardant à l'esprit les contraintes de broches.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — l'Arduino-core ESP8266 est l'environnement de la PoC d'un objet connecté Wi-Fi bâti sur une carte déjà disponible : on valide tôt la connexion réseau et la lecture capteur, en gardant à l'esprit les contraintes de broches.
 - **Choix de cible** — si la PoC révèle un besoin de Bluetooth, de plus de broches ou de puissance, c'est le signal de migrer vers l'[[esp32|ESP32]] ; le code Wi-Fi se reporte presque tel quel.
 
 Connaître les quatre particularités (étiquettes, broches de boot, ADC unique, pile Wi-Fi à ménager) suffit à exploiter l'ESP8266 sereinement : le reste est de l'Arduino, et le Wi-Fi est celui de l'ESP32.

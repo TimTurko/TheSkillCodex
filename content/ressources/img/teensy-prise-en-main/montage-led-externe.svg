@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 260" role="img" aria-labelledby="tml dml">
+  <title id="tml">LED externe sur la broche 14 du Teensy</title>
+  <desc id="dml">La broche 14 du Teensy, nommée LED dans le code, part vers une résistance de 220 ohms. La sortie de la résistance rejoint l'anode de la LED, patte longue. La cathode de la LED, patte courte du côté méplat, revient à une broche GND du Teensy. La sortie délivre 3,3 volts, valeur à prendre en compte pour le calcul de la résistance.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .card{fill:#DDDBD3;stroke:#BA7517;stroke-width:2.2;}
+      .cn{font:700 13px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .pin{font:700 11.5px sans-serif;fill:#854F0B;}
+      .lbl{font:400 11.5px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .sub{font:400 10.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .w{stroke:#BA7517;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .g{stroke:#888780;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .cmp{fill:none;stroke:#2C2C2A;stroke-width:2;}
+      .cmpf{fill:#2C2C2A;stroke:#2C2C2A;stroke-width:2;stroke-linejoin:round;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .card{fill:#4A4A48;stroke:#EF9F27;} .cn{fill:#F1EFE8;}
+        .pin{fill:#FAC775;} .lbl{fill:#F1EFE8;} .sub{fill:#BBBBBB;}
+        .w{stroke:#EF9F27;} .g{stroke:#BBBBBB;}
+        .cmp{stroke:#F1EFE8;} .cmpf{fill:#F1EFE8;stroke:#F1EFE8;}
+        .foot{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="26" class="ttl">Exercice 2 — une LED sur la broche 14</text>
+
+  <rect x="28" y="66" width="132" height="126" rx="9" class="card"/>
+  <text x="94" y="100" class="cn">Teensy 4.x</text>
+  <text x="94" y="118" class="sub">sortie 3,3 V</text>
+  <text x="166" y="140" class="pin">14</text>
+  <text x="166" y="178" class="pin">GND</text>
+
+  <line x1="160" y1="136" x2="232" y2="136" class="w"/>
+
+  <rect x="232" y="122" width="72" height="28" rx="3" class="cmp"/>
+  <text x="268" y="112" class="lbl">220 Ω</text>
+
+  <line x1="304" y1="136" x2="382" y2="136" class="w"/>
+
+  <path d="M382,118 L382,154 L414,136 Z" class="cmpf"/>
+  <line x1="414" y1="118" x2="414" y2="154" class="cmp"/>
+  <text x="398" y="108" class="lbl">LED</text>
+  <text x="376" y="176" class="sub">anode</text>
+  <text x="424" y="176" class="sub">cathode</text>
+
+  <line x1="414" y1="136" x2="470" y2="136" class="g"/>
+  <line x1="470" y1="136" x2="470" y2="206" class="g"/>
+  <line x1="470" y1="206" x2="160" y2="206" class="g"/>
+  <line x1="160" y1="206" x2="160" y2="174" class="g"/>
+
+  <line x1="452" y1="222" x2="488" y2="222" class="g"/>
+  <line x1="459" y1="230" x2="481" y2="230" class="g"/>
+  <line x1="466" y1="238" x2="474" y2="238" class="g"/>
+  <line x1="470" y1="206" x2="470" y2="222" class="g"/>
+
+  <text x="310" y="256" class="foot">La broche 14 est celle que le code nomme LED — le schéma et le sketch se lisent à l'identique.</text>
+</svg>

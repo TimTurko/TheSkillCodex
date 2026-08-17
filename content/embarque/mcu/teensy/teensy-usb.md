@@ -3,6 +3,7 @@ title: Le Teensy comme appareil USB
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -38,13 +39,15 @@ Tout part de *Tools → USB Type*. Le choix est fait **avant la compilation** et
 - **MTP Disk**, **Raw HID**, **Flight Sim Controls**… — d'autres profils spécialisés ;
 - des **combinaisons** : *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick*… — qui cumulent plusieurs identités, dont Serial pour garder le débogage.
 
-![Un même Teensy peut s'énumérer comme différents appareils USB selon le choix fait dans Tools puis USB Type : port série (USB CDC), périphérique HID (clavier, souris, manette), instrument MIDI, carte audio, disque MTP, ou des combinaisons comme Série plus MIDI. C'est une capacité du matériel USB et de la pile logicielle PJRC.](/ressources/img/teensy-usb/personnalites.svg)
+![Un même Teensy s'énumère en port série, clavier, souris, manette, instrument MIDI ou carte son, selon le type choisi dans Tools puis USB Type.|640](/ressources/img/teensy-usb/personnalites.svg)
 
 Selon le type choisi, des objets globaux deviennent disponibles dans le sketch : `Keyboard`, `Mouse`, `Joystick`, `usbMIDI`… On les utilise comme n'importe quelle API Arduino.
 
 ## Exemple — Un bouton qui tape au clavier
 
 Ce montage envoie un texte à l'ordinateur quand on appuie sur un bouton. Il suppose *USB Type* réglé sur **Keyboard** (ou une combinaison incluant le clavier, par ex. *Serial + Keyboard + Mouse + Joystick* pour garder le moniteur série).
+
+![Montage de l'exemple : le bouton relie la broche 2 du Teensy à la masse GND. Aucune résistance externe n'est nécessaire, le tirage interne étant activé par INPUT_PULLUP dans le code ; la broche est donc au niveau haut au repos et tombe au niveau bas à l'appui.|560](/ressources/img/teensy-usb/montage-bouton.svg)
 
 ```cpp
 const int BOUTON = 2;
@@ -57,7 +60,7 @@ void setup() {
 void loop() {
   bool appuye = (digitalRead(BOUTON) == LOW);
 
-  if (appuye && !dejaAppuye) {     // detection de front : agir une seule fois par appui
+  if (appuye && !dejaAppuye) {     // détection de front : agir une seule fois par appui
     Keyboard.print("Teensy!");     // tape le texte sur l'ordinateur
   }
   dejaAppuye = appuye;
@@ -102,6 +105,8 @@ Prendre capture d'écran ou vidéo de *un éditeur de texte sur l'ordinateur rec
 
 > [!question] Exercice 2 — Un potentiomètre MIDI
 > Transformez un potentiomètre (sur une entrée analogique) en **contrôleur MIDI** : envoyez un *Control Change* uniquement **quand la valeur change**, pour ne pas inonder la liaison. Quel *USB Type* faut-il ?
+
+![Montage de l'exercice 2 : les deux extrémités du potentiomètre vont à la broche 3,3 V et à la masse GND, son curseur va à l'entrée analogique A0 du Teensy. Le potentiomètre forme un diviseur de tension réglable dont l'ADC lit la position.|560](/ressources/img/teensy-usb/montage-potentiometre.svg)
 
 > [!success]- Corrigé
 > *USB Type* sur **MIDI** (ou *Serial + MIDI* pour garder le débogage). On lit le potentiomètre, on ramène la valeur sur 0–127, et on n'émet qu'au **changement** :

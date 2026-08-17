@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="tpa dpa">
+  <title id="tpa">Les paliers d'accès au matériel sur Teensy</title>
+  <desc id="dpa">Trois paliers empilés sur le matériel NXP i.MX RT. Au sommet, l'API Arduino : digitalWrite, analogRead, Serial et Wire, le palier par défaut où l'on écrit la quasi-totalité du code. Au milieu, les fonctions rapides du cœur PJRC : digitalWriteFast, digitalToggleFast et elapsedMillis, pour les chemins où la vitesse compte. En bas, l'écriture directe des registres NXP par les macros CORE_PIN_PORTSET et PORTCLEAR, réservée aux chemins critiques. Une flèche indique qu'on ne descend d'un palier que lorsqu'un besoin précis l'exige. À droite, un rappel de contraste : sur STM32, une couche HAL générée par le fournisseur s'intercale entre le code et les registres ; sur Teensy, il n'y en a aucune.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .l1{fill:#FAEEDA;stroke:#BA7517;stroke-width:2.4;}
+      .l2{fill:#DDDBD3;stroke:#BA7517;stroke-width:1.8;}
+      .l3{fill:#DDDBD3;stroke:#888780;stroke-width:1.8;}
+      .hw{fill:#F1EFE8;stroke:#888780;stroke-width:1.8;stroke-dasharray:6 4;}
+      .n{font:700 13px sans-serif;fill:#2C2C2A;}
+      .c{font:400 11.5px sans-serif;fill:#5F5E5A;}
+      .tag{font:700 10.5px sans-serif;text-anchor:end;fill:#854F0B;}
+      .tagg{font:700 10.5px sans-serif;text-anchor:end;fill:#5F5E5A;}
+      .arr{stroke:#BA7517;stroke-width:2;fill:none;marker-end:url(#apa);}
+      .apaf{fill:#BA7517;}
+      .side{font:400 11.5px sans-serif;fill:#5F5E5A;}
+      .sideh{font:700 11.5px sans-serif;fill:#5F5E5A;}
+      .div{stroke:#888780;stroke-width:1.4;stroke-dasharray:4 4;}
+      .rot{font:400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;}
+        .l1{fill:#4A4A48;stroke:#EF9F27;} .l2{fill:#4A4A48;stroke:#EF9F27;}
+        .l3{fill:#4A4A48;stroke:#BBBBBB;} .hw{fill:#3A3A38;stroke:#BBBBBB;}
+        .n{fill:#F1EFE8;} .c{fill:#D3D1C7;} .tag{fill:#FAC775;} .tagg{fill:#D3D1C7;}
+        .arr{stroke:#EF9F27;} .apaf{fill:#EF9F27;}
+        .side{fill:#D3D1C7;} .sideh{fill:#D3D1C7;} .div{stroke:#BBBBBB;} .rot{fill:#BBBBBB;}
+        .foot{fill:#BBBBBB;}
+      }
+    </style>
+    <marker id="apa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="apaf"/></marker>
+  </defs>
+
+  <text x="380" y="26" class="ttl">On programme « en Arduino », et l'on descend seulement si besoin</text>
+
+  <rect x="76" y="52" width="424" height="56" rx="8" class="l1"/>
+  <text x="94" y="76" class="n">API Arduino</text>
+  <text x="94" y="95" class="c">digitalWrite · analogRead · Serial · Wire · SPI</text>
+  <text x="486" y="82" class="tag">par défaut</text>
+
+  <rect x="76" y="128" width="424" height="56" rx="8" class="l2"/>
+  <text x="94" y="152" class="n">Fonctions rapides du cœur PJRC</text>
+  <text x="94" y="171" class="c">digitalWriteFast · digitalToggleFast · elapsedMillis</text>
+  <text x="486" y="158" class="tag">si la vitesse compte</text>
+
+  <rect x="76" y="204" width="424" height="56" rx="8" class="l3"/>
+  <text x="94" y="228" class="n">Registres NXP</text>
+  <text x="94" y="247" class="c">CORE_PIN..._PORTSET / PORTCLEAR</text>
+  <text x="486" y="234" class="tagg">chemin critique</text>
+
+  <rect x="76" y="276" width="424" height="34" rx="8" class="hw"/>
+  <text x="94" y="298" class="c">Matériel — NXP i.MX RT1062, 600 MHz</text>
+
+  <line x1="52" y1="62" x2="52" y2="252" class="arr"/>
+  <text x="44" y="160" class="rot" transform="rotate(-90 44 160)">on descend d'un cran</text>
+
+  <line x1="528" y1="52" x2="528" y2="310" class="div"/>
+  <text x="548" y="76" class="sideh">Le contraste STM32</text>
+  <text x="548" y="98" class="side">Là-bas, une couche HAL</text>
+  <text x="548" y="116" class="side">générée par le fournisseur</text>
+  <text x="548" y="134" class="side">s'intercale entre le code</text>
+  <text x="548" y="152" class="side">et les registres.</text>
+  <text x="548" y="184" class="sideh">Sur Teensy : aucune.</text>
+  <text x="548" y="206" class="side">Le cœur PJRC est posé</text>
+  <text x="548" y="224" class="side">directement sur les</text>
+  <text x="548" y="242" class="side">registres NXP.</text>
+
+  <text x="380" y="332" class="foot">Les trois paliers cohabitent dans le même sketch — on ne change jamais d'environnement.</text>
+</svg>

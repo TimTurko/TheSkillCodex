@@ -15,7 +15,7 @@ Le **Wi-Fi** est une [[techno-sans-fil|technologie sans-fil]] à **haut débit**
 
 ## Comment ça marche ?
 
-Le Wi-Fi s'organise en **étoile** autour d'un point d'accès (box, routeur), qui assure la liaison vers le réseau. En contrepartie de son débit, il **consomme beaucoup** — peu adapté à un objet sur pile censé durer des mois. Et pas seulement en moyenne : l'émission provoque des **pics de courant** de plusieurs centaines de mA en rafale — une [[alimentation-electronique|alimentation]] sous-dimensionnée s'écroule et le contrôleur redémarre sans message clair. Sur microcontrôleur, il est intégré nativement à certaines familles, l'[[esp32|ESP32]] en tête, ce qui évite un module radio séparé — la mise en œuvre est traitée dans [[esp32-wifi]].
+Le Wi-Fi s'organise en **étoile** autour d'un point d'accès (box, routeur), qui assure la liaison vers le réseau. En contrepartie de son débit, il **consomme beaucoup** — peu adapté à un objet sur pile censé durer des mois. Et pas seulement en moyenne : l'émission provoque des **pics de courant** de plusieurs centaines de mA en rafale — une [[alimentation-electronique|alimentation]] sous-dimensionnée s'écroule et le contrôleur redémarre sans message clair. Sur microcontrôleur, il est intégré nativement à certaines familles, l'[[esp32|ESP32]] en tête, ce qui évite un module radio séparé — la mise en œuvre est traitée dans [[esp32-wifi]]. Son prédécesseur l'[[esp8266|ESP8266]] ne sait faire que ça (pas de Bluetooth) et reste très répandu dans le matériel existant ; son API est si proche que le code se transpose presque tel quel — voir [[esp8266-arduino-core|programmer l'ESP8266]].
 
 ## Voir aussi
 
@@ -24,3 +24,4 @@ Le Wi-Fi s'organise en **étoile** autour d'un point d'accès (box, routeur), qu
 - [[ble|BLE]] — alternative courte portée à très basse consommation
 - [[alimentation-electronique|Alimentation électronique]] — dimensionner pour les pics d'émission
 - [[esp32|ESP32]] — microcontrôleur à Wi-Fi (et BLE) intégré
+- [[esp8266|ESP8266]] — le prédécesseur à Wi-Fi seul, API quasi identique

@@ -3,6 +3,7 @@ title: Programmer un STM32 avec la HAL
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -41,20 +42,22 @@ On ne crée pas ces handles soi-même : on les **configure dans CubeMX** et on l
 
 Un même périphérique se pilote de **trois façons** en HAL, du plus simple au plus efficace. Comprendre ce choix est le cœur de la HAL.
 
+![Trois chronogrammes comparés pour un même transfert : en scrutation le cœur est occupé pendant toute sa durée ; en interruption il lance puis reste libre et n'est rappelé qu'à la fin ; en DMA le contrôleur déplace les données à sa place pendant qu'il reste libre.|640](/ressources/img/stm32-hal/trois-modes.svg)
+
 **Scrutation (*polling*, bloquant).** La fonction fait le travail et **rend la main une fois terminé** (ou au bout d'un délai d'attente). Simple, mais elle **immobilise le programme** pendant l'opération.
 
 ```c
-HAL_UART_Transmit(&huart2, data, len, 100);   // bloque jusqu'a fini ou 100 ms
+HAL_UART_Transmit(&huart2, data, len, 100);   // bloque jusqu'à la fin, ou 100 ms
 ```
 
 **Interruption.** La fonction `_IT` **lance** l'opération et rend la main aussitôt ; quand l'opération est finie, la HAL appelle une **fonction de rappel** (*callback*) que vous écrivez. Le cœur reste libre entre-temps. Nécessite que l'interruption du périphérique soit **activée dans le NVIC** (case à cocher dans CubeMX).
 
 ```c
-HAL_UART_Receive_IT(&huart2, &rx, 1);          // arme la reception d'un octet
+HAL_UART_Receive_IT(&huart2, &rx, 1);          // arme la réception d'un octet
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-  // appelee automatiquement quand un octet est recu
-  HAL_UART_Receive_IT(&huart2, &rx, 1);        // re-armer pour le suivant
+  // appelée automatiquement quand un octet est reçu
+  HAL_UART_Receive_IT(&huart2, &rx, 1);        // ré-armer pour le suivant
 }
 ```
 
@@ -74,7 +77,7 @@ HAL_UART_Transmit_DMA(&huart2, buffer, taille);   // le DMA s'en charge
 - **HAL** — portable, lisible, un peu de surcoût et de mémoire ; le défaut.
 - **LL** — proche du registre, rapide, compacte, **moins portable** ; pour les chemins critiques en performance ou les puces à très peu de mémoire.
 
-On **mélange** les deux sans problème (le choix se fait par périphérique dans CubeMX) : HAL partout, LL là où ça compte. La couche encore en dessous, l'accès direct aux registres, fait l'objet de [[stm32-registres|descendre au registre]].
+On **mélange** les deux sans problème, **périphérique par périphérique** : HAL partout, LL là où ça compte. Le choix se fait dans CubeMX (*Project Manager → Advanced Settings → Driver Selector*) et il est **exclusif pour un même périphérique** — un USART donné est généré en HAL *ou* en LL, jamais dans les deux à la fois. La couche encore en dessous, l'accès direct aux registres, fait l'objet de [[stm32-registres|descendre au registre]].
 
 ## Exemple — Bouton, LED et port série en HAL
 
@@ -84,7 +87,7 @@ Sur une Nucleo configurée dans CubeMX (LD2 en sortie, B1 en entrée sur `PC13`,
 /* USER CODE BEGIN 3 */
 GPIO_PinState etat = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
 
-if (etat == GPIO_PIN_RESET) {              // B1 appuye = niveau bas sur Nucleo
+if (etat == GPIO_PIN_RESET) {              // B1 appuyé = niveau bas sur Nucleo
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 } else {
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
@@ -100,14 +103,14 @@ Pour passer la **réception série en interruption** (écho des caractères reç
 uint8_t rx;
 /* USER CODE END PV */
 
-/* USER CODE BEGIN 2 */         // une fois, apres l'init
+/* USER CODE BEGIN 2 */         // une fois, après l'init
 HAL_UART_Receive_IT(&huart2, &rx, 1);
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-  HAL_UART_Transmit(&huart2, &rx, 1, 10);   // renvoie l'octet recu
-  HAL_UART_Receive_IT(&huart2, &rx, 1);     // re-arme la reception
+  HAL_UART_Transmit(&huart2, &rx, 1, 10);   // renvoie l'octet reçu
+  HAL_UART_Receive_IT(&huart2, &rx, 1);     // ré-arme la réception
 }
 /* USER CODE END 4 */
 ```

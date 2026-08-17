@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="t d">
+  <title id="t">ESP8266 face à l'ESP32 : ce qu'on garde, ce qu'on perd</title>
+  <desc id="d">Comparaison en deux colonnes entre l'ESP8266 et l'ESP32. A gauche, ce que l'ESP8266 garde de son grand frere : Wi-Fi b/g/n integre, la meme API Arduino, une logique 3,3 V, un mode deep sleep. A droite, ce qu'il perd : aucun Bluetooth, un seul coeur au lieu de deux, un seul convertisseur analogique sur 10 bits au lieu de plusieurs, moins de GPIO dont trois broches de demarrage contraintes, et moins de memoire. Note de pied : pour une cible neuve l'ESP32 part favori, l'ESP8266 s'impose quand la carte est deja la ou quand la place manque.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 15px sans-serif; fill: #2C2C2A; }
+      .hd { font: 700 13px sans-serif; fill: #2C2C2A; }
+      .it { font: 400 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .foot { font: italic 400 10.5px sans-serif; fill: #888780; }
+      .obx { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.4; }
+      .gbx { fill: #DDDBD3; stroke: #888780; stroke-width: 1.2; }
+      .chip { fill: none; stroke: #BA7517; stroke-width: 1.6; }
+      .keep { fill: #BA7517; }
+      .lose { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .hd, .it { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .obx { fill: #5A4A2E; stroke: #EF9F27; }
+        .gbx { fill: #4A4A48; stroke: #BBBBBB; }
+        .chip { stroke: #EF9F27; }
+        .keep { fill: #EF9F27; }
+        .lose { fill: #BBBBBB; }
+      }
+    </style>
+  </defs>
+
+  <text x="360" y="28" text-anchor="middle" class="ti">ESP8266 face à l'ESP32 : ce qu'on garde, ce qu'on perd</text>
+
+  <rect x="280" y="46" width="160" height="34" rx="17" class="chip"/>
+  <text x="360" y="68" text-anchor="middle" class="hd">ESP8266</text>
+
+  <rect x="30" y="100" width="320" height="200" rx="8" class="obx"/>
+  <text x="190" y="126" text-anchor="middle" class="hd">On garde</text>
+
+  <circle cx="58" cy="152" r="4" class="keep"/>
+  <text x="72" y="156" class="it">Wi-Fi b/g/n intégré</text>
+  <text x="72" y="171" class="sm">bibliothèque ESP8266WiFi, API proche de l'ESP32</text>
+
+  <circle cx="58" cy="196" r="4" class="keep"/>
+  <text x="72" y="200" class="it">La même API Arduino</text>
+  <text x="72" y="215" class="sm">setup / loop / digitalWrite / Serial / Wire / SPI</text>
+
+  <circle cx="58" cy="240" r="4" class="keep"/>
+  <text x="72" y="244" class="it">Logique 3,3 V et deep sleep</text>
+  <text x="72" y="259" class="sm">non tolérant 5 V ; réveil par GPIO16 relié à RST</text>
+
+  <text x="190" y="288" text-anchor="middle" class="sm">→ ce qui est appris ici se reporte sur l'ESP32</text>
+
+  <rect x="370" y="100" width="320" height="200" rx="8" class="gbx"/>
+  <text x="530" y="126" text-anchor="middle" class="hd">On perd</text>
+
+  <circle cx="398" cy="152" r="4" class="lose"/>
+  <text x="412" y="156" class="it">Le Bluetooth : aucun</text>
+  <text x="412" y="171" class="sm">ni BLE ni classique — c'est l'ESP32 ou rien</text>
+
+  <circle cx="398" cy="196" r="4" class="lose"/>
+  <text x="412" y="200" class="it">Un seul cœur, moins de mémoire</text>
+  <text x="412" y="215" class="sm">et la pile Wi-Fi partage la boucle : yield() obligatoire</text>
+
+  <circle cx="398" cy="240" r="4" class="lose"/>
+  <text x="412" y="244" class="it">Un seul ADC, moins de GPIO</text>
+  <text x="412" y="259" class="sm">A0 sur 10 bits ; GPIO0, 2 et 15 pilotent le démarrage</text>
+
+  <text x="530" y="288" text-anchor="middle" class="sm">→ les contraintes se découvrent au câblage</text>
+
+  <text x="360" y="330" text-anchor="middle" class="foot">Cible neuve et sans-fil central : l'ESP32 part favori. Carte déjà disponible, ou place comptée : l'ESP8266 tient le rôle.</text>
+</svg>

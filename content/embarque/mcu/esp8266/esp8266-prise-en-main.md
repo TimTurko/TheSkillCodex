@@ -9,7 +9,8 @@ tags:
   - esp8266
 prerequis:
   - esp8266
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -34,12 +35,12 @@ Téléchargez l'**IDE Arduino 2.x** depuis `arduino.cc` (rubrique *Software*). L
 Ouvrez *Fichier → Préférences*, et dans **URL de gestionnaire de cartes supplémentaires**, ajoutez :
 
 ```
-http://arduino.esp8266.com/stable/package_esp8266com_index.json
+https://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 
 Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL ESP8266 collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
 
-Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community**.
+Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community** — prenez la **dernière version 3.x** proposée par le menu déroulant, qui est la branche stable actuelle du cœur. Les tutoriels de ce module s'y réfèrent.
 
 Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp8266 », montrant le paquet ESP8266 Community avec son bouton Installer*.
 
@@ -63,9 +64,9 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED_BUILTIN, LOW);    // LED active a l'etat BAS : LOW = ALLUMEE
+  digitalWrite(LED_BUILTIN, LOW);    // LED active à l'état BAS : LOW = ALLUMÉE
   delay(1000);
-  digitalWrite(LED_BUILTIN, HIGH);   // HIGH = eteinte
+  digitalWrite(LED_BUILTIN, HIGH);   // HIGH = éteinte
   delay(1000);
 }
 ```
@@ -83,9 +84,9 @@ Modifiez les temporisations pour vérifier que vous contrôlez le comportement :
 
 ```cpp
 void loop() {
-  digitalWrite(LED_BUILTIN, LOW);    // allumee
+  digitalWrite(LED_BUILTIN, LOW);    // allumée
   delay(100);
-  digitalWrite(LED_BUILTIN, HIGH);   // eteinte
+  digitalWrite(LED_BUILTIN, HIGH);   // éteinte
   delay(900);
 }
 ```
@@ -116,13 +117,13 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 > }
 >
 > void loop() {
->   digitalWrite(LED_BUILTIN, HIGH);   // eteinte
+>   digitalWrite(LED_BUILTIN, HIGH);   // éteinte
 >   delay(3000);
 >
 >   for (int i = 0; i < 5; i++) {
->     digitalWrite(LED_BUILTIN, LOW);  // allumee
+>     digitalWrite(LED_BUILTIN, LOW);  // allumée
 >     delay(100);
->     digitalWrite(LED_BUILTIN, HIGH); // eteinte
+>     digitalWrite(LED_BUILTIN, HIGH); // éteinte
 >     delay(100);
 >   }
 > }
@@ -130,7 +131,9 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 > Le piège est la logique inversée : `HIGH` éteint, `LOW` allume. La boucle `for` factorise les cinq éclairs.
 
 > [!question] Exercice 2 — LED externe
-> Câblez une LED externe (avec sa résistance ~220 Ω) sur une broche libre et faites-la clignoter de façon « normale » (`HIGH` = allumée). Pourquoi la logique n'est-elle pas inversée cette fois ?
+> Câblez une LED externe (avec sa résistance ~220 Ω) sur la broche **D5** et faites-la clignoter de façon « normale » (`HIGH` = allumée). Pourquoi la logique n'est-elle pas inversée cette fois ?
+
+![Câblage d'une LED externe sur une NodeMCU ESP8266 : la broche D5, qui vaut GPIO14, part vers une résistance de 220 ohms puis vers l'anode de la LED, dont la cathode revient à GND.|600](/ressources/img/esp8266-prise-en-main/montage-led-externe.svg)
 
 > [!success]- Corrigé
 > ```cpp
@@ -141,7 +144,7 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 > }
 >
 > void loop() {
->   digitalWrite(LED, HIGH);   // anode vers la broche : HIGH = allumee
+>   digitalWrite(LED, HIGH);   // anode vers la broche : HIGH = allumée
 >   delay(500);
 >   digitalWrite(LED, LOW);
 >   delay(500);

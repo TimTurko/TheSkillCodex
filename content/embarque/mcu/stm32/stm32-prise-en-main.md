@@ -9,7 +9,8 @@ tags:
   - stm32
 prerequis:
   - stm32
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -40,7 +41,11 @@ Prendre capture d'écran de *la page de téléchargement de STM32CubeIDE sur st.
 
 C'est l'étape propre au STM32 natif : on part de la **carte**, pas d'un fichier vide. *File → New → STM32 Project*, puis l'onglet **Board Selector**. Cherchez votre Nucleo (par exemple **NUCLEO-F411RE** ou **NUCLEO-G431RB**), sélectionnez-la, *Next*, nommez le projet.
 
-À la question **« Initialize all peripherals with their default Mode? »**, répondez **Yes** : CubeMX configure alors automatiquement le microcontrôleur pour cette carte — notamment la **LED utilisateur LD2** (sur GPIO `PA5` de la plupart des Nucleo-64) déjà déclarée en sortie, et l'horloge système réglée.
+À la question **« Initialize all peripherals with their default Mode? »**, répondez **Yes** : CubeMX configure alors automatiquement le microcontrôleur pour cette carte — notamment la **LED utilisateur LD2** (sur `PA5`, soit **D13** côté connecteur Arduino, sur la plupart des Nucleo-64) déjà déclarée en sortie, et l'horloge système réglée.
+
+Ces repères — LED LD2, bouton B1, connecteurs — sont communs à toute la gamme Nucleo-64 :
+
+![Repères communs aux STM32 Nucleo-64 : connecteurs Arduino (analogique + alimentation, numérique) et Morpho, ST-LINK intégré, LED LD2 sur PA5 (D13 côté connecteur Arduino) et bouton B1 sur PC13 ; la fonction précise des broches dépend du MCU.|640](/ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg)
 
 Prendre capture d'écran de *l'onglet Board Selector de STM32CubeIDE, NUCLEO-F411RE sélectionnée, avec le bouton Next*.
 
@@ -110,10 +115,6 @@ Prendre capture d'écran de *la perspective Debug de CubeIDE, point d'arrêt pos
 **Confondre le câble ST-LINK avec une simple alimentation.** Le connecteur USB de la Nucleo porte trois fonctions (flashage, débogage, port série). Brancher la carte sur un chargeur l'alimente mais ne permet ni flashage ni débogage.
 
 **Oublier de lancer la bonne configuration d'exécution.** Au premier *Run*, CubeIDE demande parfois de choisir « STM32 C/C++ Application ». La sélectionner ; les fois suivantes, c'est automatique.
-
-Sur les Nucleo-64, la LED LD2 et le bouton B1 (utilisés ci-dessus et en exercice) occupent des positions communes à toute la gamme :
-
-![Repères communs aux STM32 Nucleo-64 : connecteurs Arduino (analogique + alimentation, numérique) et Morpho, ST-LINK intégré, LED LD2 sur D13 et bouton B1 sur PC13 ; la fonction précise des broches dépend du MCU.|640](/ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg)
 
 ## Exercices
 

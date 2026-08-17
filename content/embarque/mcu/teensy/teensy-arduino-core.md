@@ -33,6 +33,7 @@ Un sketch Teensy a la forme d'un sketch Arduino :
 
 ```cpp
 const int LED = LED_BUILTIN;   // broche 13
+bool allumee = false;          // on mémorise l'état, on ne le relit jamais sur la broche
 
 void setup() {
   Serial.begin(115200);
@@ -40,7 +41,8 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED, !digitalRead(LED));
+  allumee = !allumee;                      // on bascule la variable
+  digitalWrite(LED, allumee ? HIGH : LOW); // puis on applique l'état à la broche
   delay(500);
 }
 ```
@@ -49,18 +51,21 @@ void loop() {
 
 - **les broches se nomment par leur numéro** (0, 1, 2…), comme sur Arduino ; le Teensy en offre beaucoup, avec plusieurs bus matériels ;
 - **la logique est en 3,3 V** (4.x non tolérant 5 V, voir [[niveaux-de-tension|niveaux de tension]]) ;
-- **l'ADC** monte à 12 bits et plus (`analogReadResolution`), la **PWM** a une fréquence et une résolution réglables (`analogWriteFrequency`, `analogWriteResolution`) ;
+- **l'ADC** est un convertisseur **12 bits**, que Teensyduino lit **par défaut sur 10 bits** (0-1023) pour rester compatible avec les sketchs écrits pour un Uno : `analogReadResolution(12)` débride la pleine échelle (0-4095), mais PJRC ne garantit qu'environ **10 bits utiles** — au-delà, on numérise du bruit (voir [[precision-de-mesure|précision de mesure]]). La plage d'entrée est **figée à 0-3,3 V** et `analogReference()` n'a **aucun effet** sur les 4.x ;
+- **la PWM** a une fréquence et une résolution réglables (`analogWriteFrequency`, `analogWriteResolution`) ;
 - **`Serial`** est un **port USB (CDC)** toujours disponible (tant que le *USB Type* inclut Serial), sans adaptateur ;
-- **plusieurs ports série matériels** (`Serial1`, `Serial2`… jusqu'à `Serial8` sur la 4.1).
+- **plusieurs ports série matériels** (`Serial1`, `Serial2`… jusqu'à `Serial7` sur la 4.0 et `Serial8` sur la 4.1).
 
 ## Ce qui change sous le capot
 
 L'Arduino-core Teensy n'est pas un portage minimal : c'est un noyau **écrit et optimisé à la main par PJRC** sur le matériel NXP. Concrètement :
 
 - **Pas de HAL fournisseur.** Là où le STM32 a une couche HAL générée, le core Teensy parle **directement aux registres** i.MX RT. Le code est rapide, au prix d'être spécifique au Teensy.
-- **Des fonctions rapides.** `digitalWriteFast(pin, val)` et `digitalReadFast(pin)` compilent en quelques instructions (quasi un accès registre) quand la broche est connue à la compilation — utiles pour générer un signal rapide.
+- **Des fonctions rapides.** `digitalWriteFast(pin, val)` et `digitalReadFast(pin)` compilent en quelques instructions (quasi un accès registre) quand la broche est connue à la compilation — utiles pour générer un signal rapide. `digitalToggleFast(pin)` fait basculer une sortie **dans le matériel**, en écrivant le registre de bascule du port — sans jamais relire la broche.
 - **Des aides au temps.** Les types `elapsedMillis` et `elapsedMicros` mesurent une durée écoulée sans gérer soi-même la soustraction de `millis()`.
 - **L'accès registre reste ouvert.** On peut lire/écrire les registres NXP (ou utiliser les macros `CORE_PIN..._PORTSET`/`PORTCLEAR`) pour les chemins critiques — la même logique que [[stm32-registres|descendre au registre sur STM32]], mais sans quitter le sketch.
+
+![Les trois paliers d'accès au matériel sur Teensy : l'API Arduino en surface, les fonctions rapides du cœur PJRC au niveau intermédiaire, et l'écriture directe des registres NXP au plus bas. Aucune couche d'abstraction fournisseur ne s'intercale, contrairement à la HAL du STM32.|640](/ressources/img/teensy-arduino-core/paliers-d-acces.svg)
 
 > [!tip]
 > **Toutes les bibliothèques Arduino ne supportent pas le Teensy.** Certaines tapent dans des registres **AVR** (`<avr/io.h>`), absents sur ARM NXP. Avant de dépendre d'une bibliothèque, vérifier qu'elle annonce le support Teensy (la plupart des grandes le font, et PJRC fournit des versions optimisées des plus courantes).
@@ -84,7 +89,7 @@ void setup() {
 void loop() {
   if (depuisClignotement >= 500) {   // toutes les 500 ms, sans bloquer
     depuisClignotement = 0;
-    digitalWriteFast(LED_BUILTIN, !digitalReadFast(LED_BUILTIN));
+    digitalToggleFast(LED_BUILTIN);  // bascule matérielle : on écrit le registre, on ne relit rien
   }
   // la boucle reste libre pour d'autres tâches entre deux clignotements
 }
@@ -95,6 +100,8 @@ Au moniteur série, on lit `Coeur : 600 MHz` — et la LED clignote **sans `dela
 Prendre capture d'écran de *le moniteur série affichant « Coeur : 600 MHz » pendant que la LED clignote*.
 
 ## Pièges
+
+**Relire une broche de sortie pour connaître son état.** L'écriture `digitalWrite(pin, !digitalRead(pin))` traîne dans les tutoriels du web, et elle est fausse dans son principe : tous les microcontrôleurs ne permettent pas de relire une broche configurée en sortie, le résultat dépend du mode de sortie (push-pull ou drain ouvert), et sur une sortie chargée le niveau lu peut différer du niveau commandé. On **mémorise l'état dans une variable**, ou on emploie la **bascule matérielle** `digitalToggleFast(pin)`, qui agit sur le registre de sortie.
 
 **Supposer les réflexes AVR.** Registres AVR, timings au cycle près façon AVR, `<avr/...>` : inopérants sur ARM NXP. Passer par l'API Arduino, les fonctions rapides ou les registres NXP.
 
@@ -138,7 +145,7 @@ Prendre capture d'écran de *le moniteur série affichant « Coeur : 600 MHz » 
 > void loop() {
 >   if (t >= 500) {
 >     t = 0;
->     digitalWriteFast(LED_BUILTIN, !digitalReadFast(LED_BUILTIN));
+>     digitalToggleFast(LED_BUILTIN);
 >   }
 >   // ... autre travail ici, exécuté à chaque tour sans attendre ...
 > }

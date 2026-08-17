@@ -33,7 +33,7 @@ Trois briques structurent toute chaîne audio :
 - **les cordons** (`AudioConnection`) — qui relient la sortie d'un objet à l'entrée d'un autre, comme des câbles de patch ;
 - **la mémoire** — `AudioMemory(n)` réserve `n` blocs d'échantillons partagés par la chaîne ; **à appeler dans `setup()`**, sans quoi rien ne sonne.
 
-![Une chaîne audio Teensy : une entrée USB audio passe dans un filtre, un synthétiseur génère une forme d'onde, les deux sont combinés par un mixeur dont la sortie part en I2S vers l'Audio Shield. Les objets sont reliés par des cordons (patch cords). Le traitement tourne en tâche de fond, porté par le DMA, indépendamment de la boucle loop().](/ressources/img/teensy-audio/flux.svg)
+![Une chaîne audio Teensy : entrée USB, synthétiseur et filtre reliés par des cordons vers un mixeur, puis sortie I2S vers l'Audio Shield.|640](/ressources/img/teensy-audio/flux.svg)
 
 ## L'Audio System Design Tool
 
@@ -49,18 +49,20 @@ Point clé : une fois la chaîne déclarée, **le son est traité automatiquemen
 
 Cette chaîne minimale joue un *la* à 440 Hz. Elle suppose l'**Audio Shield** (codec SGTL5000) branché sur le Teensy, relié par le bus [[bus-de-communication|I2S]] (données) et I2C (contrôle).
 
+![L'Audio Shield s'empile directement sur le Teensy : les broches I2S de données et I2C de contrôle passent par les connecteurs, il n'y a rien à relier à la main. Le shield porte la sortie casque, les entrées ligne et le lecteur de carte SD.|560](/ressources/img/teensy-audio/empilage-audio-shield.svg)
+
 ```cpp
 #include <Audio.h>
 
 AudioSynthWaveform   forme;       // un oscillateur
 AudioOutputI2S       sortie;      // sortie I2S vers l'Audio Shield
-AudioControlSGTL5000 codec;       // controle du codec de l'Audio Shield
+AudioControlSGTL5000 codec;       // contrôle du codec de l'Audio Shield
 
 AudioConnection cordonG(forme, 0, sortie, 0);   // forme -> canal gauche
 AudioConnection cordonD(forme, 0, sortie, 1);   // forme -> canal droit
 
 void setup() {
-  AudioMemory(8);                 // reserver 8 blocs audio (sinon : pas de son)
+  AudioMemory(8);                 // réserver 8 blocs audio (sinon : pas de son)
   codec.enable();
   codec.volume(0.5);
   forme.begin(WAVEFORM_SINE);
@@ -69,7 +71,7 @@ void setup() {
 }
 
 void loop() {
-  // le son joue en tache de fond ; loop() ne fait que piloter les parametres
+  // le son joue en tâche de fond ; loop() ne fait que piloter les paramètres
 }
 ```
 
@@ -117,7 +119,7 @@ Prendre capture d'écran ou enregistrement de *l'Audio Shield branché sur le Te
 > AudioConnection c1(forme, 0, filtre, 0);     // forme -> filtre
 > AudioConnection c2(filtre, 0, sortie, 0);    // sortie passe-bas (port 0) -> gauche
 > AudioConnection c3(filtre, 0, sortie, 1);    // -> droite
-> // dans setup(): filtre.frequency(800);  // coupure a 800 Hz
+> // dans setup(): filtre.frequency(800);  // coupure à 800 Hz
 > ```
 > L'**Audio System Design Tool** évite d'écrire tout cela à la main : on glisse le filtre, on retire/retrace les cordons, on ré-exporte le code. C'est précisément le cas d'usage de l'outil. (La *conception* du filtre — type, pente, fréquence de coupure — relève d'un cours de traitement du signal ; ici on l'**assemble** et on le **règle**.)
 

@@ -9,7 +9,8 @@ tags:
   - teensy
 prerequis:
   - teensy
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -30,7 +31,7 @@ Cinq étapes : installer l'IDE Arduino, ajouter Teensyduino, brancher et sélect
 
 ### 1. Installer l'IDE Arduino
 
-Téléchargez l'**IDE Arduino 2.x** depuis `arduino.cc`, rubrique *Software*. C'est l'IDE recommandé ; Teensyduino s'y installe via le gestionnaire de cartes (étape 2).
+Téléchargez l'**IDE Arduino 2.x** depuis `arduino.cc`, rubrique *Software*. C'est l'IDE recommandé ; Teensyduino s'y installe via le gestionnaire de cartes (étape 2). PJRC demande la version **2.0.4 au minimum**, et conseille une **2.3.10 ou plus récente** (recompilation nettement plus rapide).
 
 Sur Windows récent, **aucun pilote particulier** n'est nécessaire : le Teensy se programme par USB (HID) et expose un port série sans pilote tiers.
 
@@ -46,7 +47,7 @@ https://www.pjrc.com/teensy/package_teensy_index.json
 
 Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL PJRC collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
 
-Ouvrez le **gestionnaire de cartes**, cherchez `teensy`, et installez le paquet **« Teensy (for Arduino IDE 2.x) » par Paul Stoffregen**. Il apporte le noyau PJRC, les bibliothèques Teensy (dont l'Audio) et le Teensy Loader.
+Ouvrez le **gestionnaire de cartes**, cherchez `teensy`, et installez le paquet **« Teensy (for Arduino IDE 2.0.4 or later) » par Paul Stoffregen**. Il apporte le noyau PJRC, les bibliothèques Teensy (dont l'Audio) et le Teensy Loader.
 
 Prendre capture d'écran de *le gestionnaire de cartes filtré sur « teensy », montrant le paquet de Paul Stoffregen avec son bouton Installer*.
 
@@ -64,7 +65,7 @@ Saisissez (ou collez) ce sketch — il clignote sur la LED intégrée du Teensy 
 
 ```cpp
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);   // LED integree sur la broche 13
+  pinMode(LED_BUILTIN, OUTPUT);   // LED intégrée sur la broche 13
 }
 
 void loop() {
@@ -153,6 +154,8 @@ Pour câbler au-delà de la LED intégrée (broche 13) — par exemple sur la br
 > [!question] Exercice 2 — LED externe
 > Câblez une LED externe (avec sa résistance de ~220 Ω en série) sur la **broche 14** et faites-la clignoter, sans toucher à la LED intégrée. Quelle ligne change ?
 
+![Montage de l'exercice 2 : la broche 14 du Teensy part vers une résistance de 220 ohms, puis vers l'anode de la LED ; la cathode revient à la masse GND. La broche 14 est celle que le code nomme LED.|600](/ressources/img/teensy-prise-en-main/montage-led-externe.svg)
+
 > [!success]- Corrigé
 > Une seule chose change : la broche pilotée, déclarée en `const int` (constante typée) plutôt qu'en `#define`.
 > ```cpp
@@ -176,7 +179,7 @@ Pour câbler au-delà de la LED intégrée (broche 13) — par exemple sur la br
 Deux variantes dépassent l'IDE Arduino 2.x :
 
 - **PlatformIO** (extension VS Code) gère le Teensy avec un versionnage Git et un multi-fichiers commodes — pratique dès que le projet grossit.
-- **Installeur Teensyduino historique** — pour l'ancien IDE Arduino 1.8.x, PJRC fournit un installeur add-on séparé (plutôt que le gestionnaire de cartes). À réserver si l'on est resté sur l'IDE 1.8.x.
+- **Installeur Teensyduino historique** — pour l'ancien IDE Arduino 1.8.x, PJRC fournit un installeur add-on séparé (plutôt que le gestionnaire de cartes). À réserver si l'on est resté sur l'IDE 1.8.x — et **seulement sous Windows ou Linux 64 bits** : depuis Teensyduino 1.60, PJRC a cessé de supporter l'IDE 1.8.x sous macOS. Sur Mac, l'IDE 2.x est la seule voie.
 
 ## Raccrochage projet
 

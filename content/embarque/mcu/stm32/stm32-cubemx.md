@@ -3,6 +3,7 @@ title: Configurer un STM32 avec CubeMX
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -58,11 +59,11 @@ Prendre capture d'écran de *le panneau de configuration d'un USART dans CubeMX 
 
 ## HAL ou LL, puis générer
 
-Avant de générer, le **Project Manager → Code Generator** offre un choix important par périphérique : générer l'init en **[[stm32-hal|HAL]]** (l'API portable, par défaut) ou en **LL** (la couche bas niveau, plus proche du registre et plus légère). On peut mélanger : HAL pour la plupart, LL pour un périphérique critique en performance.
+Avant de générer, le **Project Manager → Advanced Settings → Driver Selector** offre un choix important par périphérique : générer l'init en **[[stm32-hal|HAL]]** (l'API portable, par défaut) ou en **LL** (la couche bas niveau, plus proche du registre et plus légère). On peut mélanger d'un périphérique à l'autre : HAL pour la plupart, LL pour un périphérique critique en performance. *(L'onglet voisin **Code Generator** porte d'autres réglages — un fichier par périphérique, conservation du code utilisateur — pas le choix du pilote.)*
 
 « **Generate Code** » écrit alors `main.c`, un fichier d'init par périphérique, et les fonctions `MX_<PERIPH>_Init()`. Tout est jalonné de balises **`/* USER CODE BEGIN/END */`** : votre code n'y survit que **dans** ces balises.
 
-![Le flux de travail CubeMX en six temps : configurer (broches, horloge, périphériques), générer le code d'initialisation (HAL ou LL), compléter dans les zones USER CODE, compiler, flasher via le ST-LINK, déboguer au pas. Une boucle de retour part du débogage vers la configuration : on reconfigure et on régénère, et le code écrit dans les zones USER CODE est préservé.](/ressources/img/stm32-cubemx/flux.svg)
+![Le flux de travail CubeMX en six temps : configurer (broches, horloge, périphériques), générer le code d'initialisation (HAL ou LL), compléter dans les zones USER CODE, compiler, flasher via le ST-LINK, déboguer au pas. Une boucle de retour part du débogage vers la configuration : on reconfigure et on régénère, et le code écrit dans les zones USER CODE est préservé.|640](/ressources/img/stm32-cubemx/flux.svg)
 
 ## Exemple — Configurer LED + port série, puis générer
 
@@ -77,9 +78,9 @@ Dans `main.c`, CubeMX a produit `MX_GPIO_Init()` et `MX_USART2_UART_Init()`, et 
 
 ```c
 /* USER CODE BEGIN 3 */
-HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-HAL_UART_Transmit(&huart2, (uint8_t *)"tic\r\n", 5, 100);
-HAL_Delay(1000);
+HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);            // inverse l'état de la LED
+HAL_UART_Transmit(&huart2, (uint8_t *)"tic\r\n", 5, 100);   // 5 = octets à envoyer, 100 = délai d'attente en ms
+HAL_Delay(1000);                                       // attend une seconde
 /* USER CODE END 3 */
 ```
 

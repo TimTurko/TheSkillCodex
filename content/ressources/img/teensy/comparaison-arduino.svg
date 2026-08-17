@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" role="img" aria-labelledby="tca dca">
+  <title id="tca">Le Teensy face au cadre Arduino</title>
+  <desc id="dca">Deux colonnes. À gauche, ce que le Teensy garde du cadre Arduino : le même langage C++ avec setup et loop, les mêmes fonctions digitalWrite, analogRead et Serial, les mêmes bibliothèques et le même IDE, complété par l'add-on Teensyduino. À droite, ce qu'il y ajoute : un cœur Cortex-M7 à 600 MHz avec unité de calcul flottant et instructions de traitement du signal, le traitement audio temps réel de la Teensy Audio Library, une identité USB choisie à la compilation (clavier, souris, manette, MIDI, carte son) et plusieurs ports série, SPI et I2C matériels. En pied, les trois contreparties : logique strictement 3,3 V sans tolérance 5 V, aucune radio intégrée, et un écosystème de cartes filles très restreint.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 15px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .hg{font:700 13px sans-serif;text-anchor:middle;fill:#5F5E5A;}
+      .ha{font:700 13px sans-serif;text-anchor:middle;fill:#854F0B;}
+      .colg{fill:#F1EFE8;stroke:#888780;stroke-width:1.8;}
+      .cola{fill:#FAEEDA;stroke:#BA7517;stroke-width:2.2;}
+      .it{font:400 12.5px sans-serif;fill:#2C2C2A;}
+      .its{font:400 11px sans-serif;fill:#5F5E5A;}
+      .bul{fill:#888780;}
+      .bula{fill:#BA7517;}
+      .warn{fill:none;stroke:#888780;stroke-width:1.6;stroke-dasharray:5 4;}
+      .wt{font:700 11.5px sans-serif;fill:#5F5E5A;}
+      .wi{font:400 11.5px sans-serif;fill:#5F5E5A;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .hg{fill:#D3D1C7;} .ha{fill:#FAC775;}
+        .colg{fill:#4A4A48;stroke:#BBBBBB;} .cola{fill:#4A4A48;stroke:#EF9F27;}
+        .it{fill:#F1EFE8;} .its{fill:#D3D1C7;} .bul{fill:#BBBBBB;} .bula{fill:#EF9F27;}
+        .warn{stroke:#BBBBBB;} .wt{fill:#D3D1C7;} .wi{fill:#D3D1C7;} .foot{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="410" y="26" class="ttl">L'Arduino, mais rapide — ce qu'on garde, ce qu'on gagne</text>
+
+  <rect x="24" y="46" width="368" height="182" rx="10" class="colg"/>
+  <text x="208" y="70" class="hg">On garde le cadre Arduino</text>
+
+  <circle cx="48" cy="97" r="3.5" class="bul"/>
+  <text x="62" y="95" class="it">Le même langage C++</text>
+  <text x="62" y="111" class="its">setup() une fois, loop() en boucle</text>
+
+  <circle cx="48" cy="137" r="3.5" class="bul"/>
+  <text x="62" y="135" class="it">Les mêmes fonctions</text>
+  <text x="62" y="151" class="its">digitalWrite, analogRead, Serial, Wire, SPI</text>
+
+  <circle cx="48" cy="177" r="3.5" class="bul"/>
+  <text x="62" y="175" class="it">Le même IDE et les mêmes bibliothèques</text>
+  <text x="62" y="191" class="its">l'add-on Teensyduino s'y greffe</text>
+
+  <rect x="428" y="46" width="368" height="182" rx="10" class="cola"/>
+  <text x="612" y="70" class="ha">On gagne la puissance et deux signatures</text>
+
+  <circle cx="452" cy="97" r="3.5" class="bula"/>
+  <text x="466" y="95" class="it">Un Cortex-M7 à 600 MHz</text>
+  <text x="466" y="111" class="its">calcul flottant matériel, instructions DSP</text>
+
+  <circle cx="452" cy="137" r="3.5" class="bula"/>
+  <text x="466" y="135" class="it">L'audio temps réel</text>
+  <text x="466" y="151" class="its">Audio Library, traitement en tâche de fond</text>
+
+  <circle cx="452" cy="177" r="3.5" class="bula"/>
+  <text x="466" y="175" class="it">Une identité USB au choix</text>
+  <text x="466" y="191" class="its">clavier, manette, MIDI, carte son</text>
+
+  <rect x="24" y="244" width="772" height="52" rx="9" class="warn"/>
+  <text x="44" y="268" class="wt">Les contreparties</text>
+  <text x="44" y="286" class="wi">logique 3,3 V stricte, aucune broche tolérante 5 V  ·  aucune radio intégrée  ·  très peu de cartes filles</text>
+
+  <text x="410" y="318" class="foot">Le Teensy ne change pas la façon de programmer — il change ce que le programme peut faire.</text>
+</svg>

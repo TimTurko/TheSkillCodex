@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-labelledby="t d">
+  <title id="t">LED externe sur une NodeMCU ESP8266</title>
+  <desc id="d">Cablage d'une LED externe sur une carte NodeMCU ESP8266. La broche etiquetee D5, qui correspond au GPIO14, part vers une resistance de 220 ohms en serie, puis vers l'anode de la LED. La cathode de la LED revient a la broche GND de la carte. Note de pied : l'anode est reliee a la broche, donc un niveau HAUT allume la LED, contrairement a la LED integree qui est active a l'etat bas.</desc>
+  <defs>
+    <style>
+      .ti { font: 700 14px sans-serif; fill: #2C2C2A; }
+      .lb { font: 600 12px sans-serif; fill: #2C2C2A; }
+      .sm { font: 400 10.5px sans-serif; fill: #555450; }
+      .foot { font: italic 400 10.5px sans-serif; fill: #888780; }
+      .board { fill: #DDDBD3; stroke: #888780; stroke-width: 1.4; }
+      .pad { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.2; }
+      .wire { stroke: #BA7517; stroke-width: 2; fill: none; }
+      .gnd { stroke: #888780; stroke-width: 2; fill: none; }
+      .res { fill: none; stroke: #BA7517; stroke-width: 2; }
+      .led { fill: #F4E2C0; stroke: #BA7517; stroke-width: 1.8; }
+      .bar { stroke: #BA7517; stroke-width: 2.4; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lb { fill: #F1EFE8; }
+        .sm { fill: #C9C7C0; }
+        .foot { fill: #BBBBBB; }
+        .board { fill: #4A4A48; stroke: #BBBBBB; }
+        .pad { fill: #5A4A2E; stroke: #EF9F27; }
+        .wire, .res { stroke: #EF9F27; }
+        .gnd { stroke: #BBBBBB; }
+        .led { fill: #5A4A2E; stroke: #EF9F27; }
+        .bar { stroke: #EF9F27; }
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="26" text-anchor="middle" class="ti">LED externe sur une NodeMCU (ESP8266)</text>
+
+  <rect x="40" y="70" width="140" height="180" rx="6" class="board"/>
+  <text x="110" y="100" text-anchor="middle" class="lb">NodeMCU</text>
+  <text x="110" y="117" text-anchor="middle" class="sm">ESP8266</text>
+
+  <rect x="150" y="130" width="60" height="26" rx="4" class="pad"/>
+  <text x="180" y="148" text-anchor="middle" class="lb">D5</text>
+  <text x="180" y="170" text-anchor="middle" class="sm">GPIO14</text>
+
+  <rect x="150" y="206" width="60" height="26" rx="4" class="pad"/>
+  <text x="180" y="224" text-anchor="middle" class="lb">GND</text>
+
+  <line x1="210" y1="143" x2="270" y2="143" class="wire"/>
+
+  <rect x="270" y="131" width="66" height="24" rx="3" class="res"/>
+  <text x="303" y="122" text-anchor="middle" class="sm">220 Ω</text>
+
+  <line x1="336" y1="143" x2="400" y2="143" class="wire"/>
+
+  <path d="M400,131 L400,155 L424,143 Z" class="led"/>
+  <line x1="424" y1="130" x2="424" y2="156" class="bar"/>
+  <text x="412" y="112" text-anchor="middle" class="sm">anode</text>
+  <text x="446" y="112" text-anchor="middle" class="sm">cathode</text>
+
+  <path d="M424,143 H500 V219 H210" class="gnd"/>
+
+  <text x="360" y="180" text-anchor="middle" class="sm">LED rouge 5 mm</text>
+
+  <text x="310" y="272" text-anchor="middle" class="foot">L'anode est du côté de la broche : ici HIGH allume, LOW éteint.</text>
+  <text x="310" y="288" text-anchor="middle" class="foot">C'est l'inverse de la LED intégrée de la carte, câblée entre l'alimentation et la broche.</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240" role="img" aria-labelledby="tmb dmb">
+  <title id="tmb">Bouton sur la broche 2 du Teensy</title>
+  <desc id="dmb">La broche 2 du Teensy, nommée BOUTON dans le code, part vers une borne du bouton poussoir. L'autre borne du bouton revient à une broche GND du Teensy. Aucune résistance externe n'est câblée : le tirage interne est activé par pinMode avec INPUT_PULLUP. La broche est donc au niveau haut au repos et tombe au niveau bas quand on appuie, ce que le code teste par une comparaison à LOW.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .card{fill:#DDDBD3;stroke:#BA7517;stroke-width:2.2;}
+      .cn{font:700 13px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .pin{font:700 11.5px sans-serif;fill:#854F0B;}
+      .lbl{font:400 11.5px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .sub{font:400 10.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .w{stroke:#BA7517;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .g{stroke:#888780;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .cmp{fill:none;stroke:#2C2C2A;stroke-width:2;stroke-linecap:round;}
+      .pad{fill:#2C2C2A;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .card{fill:#4A4A48;stroke:#EF9F27;} .cn{fill:#F1EFE8;}
+        .pin{fill:#FAC775;} .lbl{fill:#F1EFE8;} .sub{fill:#BBBBBB;}
+        .w{stroke:#EF9F27;} .g{stroke:#BBBBBB;}
+        .cmp{stroke:#F1EFE8;} .pad{fill:#F1EFE8;} .foot{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="26" class="ttl">Un bouton sur la broche 2, sans résistance externe</text>
+
+  <rect x="34" y="62" width="140" height="112" rx="9" class="card"/>
+  <text x="104" y="98" class="cn">Teensy 4.x</text>
+  <text x="104" y="118" class="sub">tirage interne activé</text>
+  <text x="180" y="126" class="pin">2</text>
+  <text x="180" y="164" class="pin">GND</text>
+
+  <line x1="174" y1="122" x2="288" y2="122" class="w"/>
+
+  <circle cx="288" cy="122" r="4" class="pad"/>
+  <line x1="288" y1="122" x2="288" y2="102" class="cmp"/>
+  <line x1="272" y1="102" x2="336" y2="94" class="cmp"/>
+  <line x1="368" y1="122" x2="368" y2="102" class="cmp"/>
+  <circle cx="368" cy="122" r="4" class="pad"/>
+  <text x="328" y="76" class="lbl">bouton</text>
+
+  <line x1="368" y1="122" x2="440" y2="122" class="g"/>
+  <line x1="440" y1="122" x2="440" y2="188" class="g"/>
+  <line x1="440" y1="188" x2="174" y2="188" class="g"/>
+  <line x1="174" y1="188" x2="174" y2="160" class="g"/>
+
+  <text x="310" y="216" class="sub">au repos la broche 2 est au niveau haut ; l'appui la tire au niveau bas — le code teste == LOW</text>
+  <text x="310" y="234" class="foot">pinMode(BOUTON, INPUT_PULLUP) remplace la résistance de tirage.</text>
+</svg>

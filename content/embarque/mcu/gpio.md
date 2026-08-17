@@ -33,7 +33,7 @@ Une même broche peut servir d'entrée ou de sortie ; c'est le programme qui fix
 | Sortie push-pull *(OUTPUT)* | sortie | impose activement haut **et** bas | imposé par le programme | LED, signal de commande |
 | Sortie drain ouvert | sortie | ne tire que vers le bas | « 1 » si pull-up externe | bus partagé ([[i2c|I2C]]), ligne d'alarme commune |
 
-Les noms entre parenthèses (`INPUT`, `INPUT_PULLUP`, `OUTPUT`) sont les constantes que l'on retrouve côté Arduino : ce sont des étiquettes de vocabulaire, la mise en pratique du code est traitée dans [[arduino-gpio|le tuto Arduino GPIO]].
+Les noms entre parenthèses (`INPUT`, `INPUT_PULLUP`, `OUTPUT`) sont les constantes que l'on retrouve côté Arduino : ce sont des étiquettes de vocabulaire, la mise en pratique du code est traitée dans [[arduino-gpio|le tuto Arduino GPIO]]. Les autres familles ont leur propre tutoriel — [[esp32-gpio|ESP32]], [[micropython-gpio|MicroPython]], [[raspberry-pi-gpio|Raspberry Pi]] — avec le même concept et une syntaxe différente.
 
 **Push-pull ou drain ouvert ?** Une sortie **push-pull** est le cas courant : elle relie la broche à l'alimentation pour un « 1 » et à la masse pour un « 0 », imposant les deux niveaux de façon nette. Une sortie **drain ouvert** ne sait que tirer la broche vers le bas ; pour l'état haut, elle relâche la broche et compte sur une résistance **pull-up** externe pour la ramener vers l'alimentation. Ce comportement, en apparence handicapé, est exactement ce qu'il faut quand **plusieurs composants partagent une même ligne** : aucun ne pousse activement l'état haut, donc aucun n'entre en conflit avec les autres. C'est le principe de l'[[i2c|I2C]] et des lignes d'alarme communes.
 
@@ -80,3 +80,4 @@ La parade ne se joue pas dans le code, justement parce que le code n'est pas enc
 - [[bus-de-communication|Bus de communication]] — où le drain ouvert prend tout son sens (I2C, lignes partagées)
 - [[arduino-gpio|Arduino — GPIO]] — la mise en pratique sur Arduino (bouton, LED, code et câblage)
 - [[arduino-gpio-boot|Arduino — GPIO au démarrage]] — l'état des broches au boot en pratique, tirages de sécurité
+- [[esp32-gpio|ESP32 — GPIO]] · [[micropython-gpio|MicroPython — GPIO]] · [[raspberry-pi-gpio|Raspberry Pi — GPIO]] — la même brique dans les autres familles

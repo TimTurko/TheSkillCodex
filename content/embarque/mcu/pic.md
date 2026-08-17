@@ -16,21 +16,23 @@ Les **PIC** sont une famille de microcontrôleurs conçue par **Microchip**, lon
 
 ## Un classique en recul
 
-Pendant des décennies, le PIC a été un choix par défaut de l'embarqué, surtout dans ses déclinaisons **8 bits** (PIC16, PIC18) : robuste, peu cher à l'unité en grande série, très documenté, avec un écosystème industriel mûr. On en trouve encore dans d'innombrables produits.
+Pendant des décennies, le PIC a été un choix par défaut de l'embarqué, surtout dans ses déclinaisons **8 bits** (PIC16, PIC18) : robuste, disponible en très grand volume, très documenté, avec un écosystème industriel mûr. On en trouve encore dans d'innombrables produits.
 
 Deux mouvements l'ont toutefois marginalisé pour les projets neufs :
 
-- **en industrie**, les **ARM Cortex-M** (STM32 en tête) offrent plus de performance et de périphériques par euro, un outillage moderne et un écosystème unifié — ce qui a déplacé la majorité des nouvelles conceptions vers eux ;
-- **en école**, l'**Arduino** (et l'ESP32) l'emporte par l'accessibilité : prise en main immédiate, communauté énorme, bibliothèques foisonnantes, pas de programmateur dédié à acheter.
+- **en industrie**, les **ARM Cortex-M** (STM32 en tête) offrent plus de performance et de périphériques dans un même boîtier, un outillage moderne et un écosystème unifié — ce qui a déplacé la majorité des nouvelles conceptions vers eux ;
+- **en école**, l'**Arduino** (et l'ESP32) l'emporte par l'accessibilité : prise en main immédiate, communauté énorme, bibliothèques foisonnantes, pas de programmateur dédié à prévoir.
 
 ## Ce que c'est, techniquement
 
 Le PIC couvre plusieurs familles selon la largeur du cœur : **8 bits** (PIC10/12/16/18), **16 bits** (PIC24, dsPIC pour le traitement du signal) et **32 bits** (PIC32). On les programme **en C** dans **MPLAB X** avec le compilateur **XC** adapté (XC8/XC16/XC32), et on les flashe avec un **programmateur** Microchip (gamme *PICkit*). À la différence de l'[[esp32|ESP32]], du [[teensy|Teensy]] ou du [[stm32|STM32]] (via STM32duino), le PIC **n'a pas d'Arduino-core natif** d'usage courant — l'écosystème reste celui de Microchip.
 
+Détail qui éclaire le paysage : **Microchip a racheté Atmel en 2016**. Le PIC et l'**AVR** qui équipe l'Arduino Uno sortent donc du même fabricant depuis une dizaine d'années — deux familles historiquement concurrentes, désormais entretenues sous le même toit.
+
 ## Quand on le rencontre encore
 
 - **Maintenance de systèmes existants** (*legacy*) — beaucoup d'équipements en service reposent sur des PIC ;
-- **Production en grande série à très bas coût** — où le prix unitaire et la disponibilité à long terme priment ;
+- **Production en très grande série** — où la stabilité de la référence et la disponibilité à long terme priment ;
 - **Compétences déjà en place** — une équipe formée à MPLAB peut rester sur PIC par continuité.
 
 ## Pour vos projets

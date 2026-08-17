@@ -50,6 +50,7 @@ Un sketch STM32 a la forme d'un sketch Arduino :
 
 ```cpp
 const int LED = LED_BUILTIN;   // LD2 sur la plupart des Nucleo
+bool allumee = false;          // on mémorise l'état, on ne le relit pas sur la broche
 
 void setup() {
   Serial.begin(115200);
@@ -57,7 +58,8 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED, !digitalRead(LED));
+  allumee = !allumee;                        // inverse l'état mémorisé
+  digitalWrite(LED, allumee ? HIGH : LOW);   // applique le nouvel état
   delay(500);
 }
 ```
@@ -66,7 +68,7 @@ void loop() {
 
 - **les broches se nomment par leur port** (`PA5`, `PB6`…) ; sur Nucleo, les alias Arduino `D0`–`D15` et `A0`–`A5` des connecteurs sont aussi acceptés ;
 - **la logique est en 3,3 V** (broches *FT* tolérantes 5 V, voir [[niveaux-de-tension|niveaux de tension]]) ;
-- **l'ADC est en 12 bits** par défaut (`analogReadResolution(12)`), contre 10 sur un Uno ;
+- **l'ADC est un convertisseur 12 bits**, mais `analogRead()` renvoie **10 bits par défaut** — le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023 ; appeler `analogReadResolution(12)` dans `setup()` pour débrider la pleine échelle 0-4095 ;
 - **`Serial`** part ici sur le **port série virtuel du ST-LINK** (USART2 sur les Nucleo) : on lit le moniteur sans adaptateur USB-série supplémentaire.
 
 Sur une *Blue Pill* (STM32F103), chaque broche porte son nom de port (PA9, PB6…) et plusieurs fonctions possibles — le brochage par fonction aide à choisir laquelle déclarer :
@@ -123,6 +125,8 @@ Prendre capture d'écran de *le moniteur série affichant « Frequence du coeur 
 
 **Croire au tout-en-5 V.** En venant de l'Arduino tolérant 5 V partout, on grille une entrée analogique ou une broche non *FT* en y appliquant 5 V. Vérifier la datasheet (voir [[lire-une-datasheet|lire une datasheet]]).
 
+**Relire une broche de sortie pour connaître son état.** L'écriture `digitalWrite(pin, !digitalRead(pin))` paraît élégante, mais elle demande au microcontrôleur de **relire ce qu'il vient d'écrire** : tous ne le permettent pas, le résultat dépend du mode de sortie configuré, et sur une sortie chargée la broche peut ne pas être au niveau qu'on croit. **Mémoriser l'état dans une variable** (ou piloter explicitement en `HIGH`/`LOW`) : le programme sait ce qu'il a demandé, il n'a pas à le deviner.
+
 **Confondre les noms de broches.** `PA5`, `D13` et `LED_BUILTIN` peuvent désigner la même broche sur une Nucleo — ou non, selon la carte. En cas de doute, se référer au brochage de la carte.
 
 ## Exercices
@@ -148,7 +152,7 @@ Prendre capture d'écran de *le moniteur série affichant « Frequence du coeur 
 
 > [!success]- Corrigé
 > ```cpp
-> const int BTN = PC13;   // bouton B1 integre, logique inversee sur Nucleo
+> const int BTN = PC13;   // bouton B1 intégré, logique inversée sur Nucleo
 > const int LED = LED_BUILTIN;
 >
 > void setup() {

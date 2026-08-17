@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" role="img" aria-labelledby="tmp dmp">
+  <title id="tmp">Potentiomètre sur l'entrée A0 du Teensy</title>
+  <desc id="dmp">Les deux extrémités de la piste du potentiomètre sont reliées, l'une à la broche 3,3 V du Teensy, l'autre à la masse GND. Le curseur, la borne du milieu, part vers l'entrée analogique A0 que le code lit par analogRead. Le potentiomètre forme ainsi un diviseur de tension réglable : tourner le bouton fait varier la tension présentée à l'entrée analogique entre zéro et 3,3 volts.</desc>
+  <defs>
+    <style>
+      .ttl{font:700 14px sans-serif;text-anchor:middle;fill:#2C2C2A;letter-spacing:.2px;}
+      .card{fill:#DDDBD3;stroke:#BA7517;stroke-width:2.2;}
+      .cn{font:700 13px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .pin{font:700 11.5px sans-serif;fill:#854F0B;}
+      .lbl{font:400 11.5px sans-serif;text-anchor:middle;fill:#2C2C2A;}
+      .sub{font:400 10.5px sans-serif;text-anchor:middle;fill:#888780;}
+      .w{stroke:#BA7517;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .g{stroke:#888780;stroke-width:2.2;fill:none;stroke-linecap:round;}
+      .cmp{fill:none;stroke:#2C2C2A;stroke-width:2;}
+      .cur{fill:#2C2C2A;stroke:#2C2C2A;stroke-width:2;stroke-linejoin:round;}
+      .foot{font:italic 400 11.5px sans-serif;text-anchor:middle;fill:#888780;}
+      @media (prefers-color-scheme: dark){
+        .ttl{fill:#F1EFE8;} .card{fill:#4A4A48;stroke:#EF9F27;} .cn{fill:#F1EFE8;}
+        .pin{fill:#FAC775;} .lbl{fill:#F1EFE8;} .sub{fill:#BBBBBB;}
+        .w{stroke:#EF9F27;} .g{stroke:#BBBBBB;}
+        .cmp{stroke:#F1EFE8;} .cur{fill:#F1EFE8;stroke:#F1EFE8;} .foot{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="310" y="26" class="ttl">Un potentiomètre sur l'entrée analogique A0</text>
+
+  <rect x="34" y="60" width="140" height="130" rx="9" class="card"/>
+  <text x="104" y="96" class="cn">Teensy 4.x</text>
+  <text x="104" y="116" class="sub">ADC lu par analogRead</text>
+  <text x="180" y="88" class="pin">3.3V</text>
+  <text x="180" y="132" class="pin">A0</text>
+  <text x="180" y="176" class="pin">GND</text>
+
+  <line x1="174" y1="84" x2="392" y2="84" class="w"/>
+  <line x1="392" y1="84" x2="392" y2="96" class="w"/>
+
+  <rect x="356" y="96" width="72" height="76" rx="3" class="cmp"/>
+  <text x="392" y="196" class="lbl">potentiomètre</text>
+
+  <line x1="174" y1="128" x2="300" y2="128" class="w"/>
+  <line x1="300" y1="128" x2="332" y2="128" class="w"/>
+  <path d="M332,120 L356,128 L332,136 Z" class="cur"/>
+  <text x="268" y="116" class="sub">curseur</text>
+
+  <line x1="392" y1="172" x2="392" y2="184" class="g"/>
+  <line x1="392" y1="184" x2="480" y2="184" class="g"/>
+  <line x1="480" y1="184" x2="480" y2="216" class="g"/>
+  <line x1="480" y1="216" x2="174" y2="216" class="g"/>
+  <line x1="174" y1="216" x2="174" y2="172" class="g"/>
+
+  <text x="310" y="244" class="foot">Diviseur réglable : le curseur présente une tension comprise entre 0 et 3,3 V à l'entrée A0.</text>
+</svg>
