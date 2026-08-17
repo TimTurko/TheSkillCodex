@@ -45,16 +45,20 @@ void loop() {
 }
 ```
 
-`setup()` une fois, `loop()` en boucle : le modèle est identique. Les différences sont des **détails de plateforme**, pas de structure : `Serial` à 115200 par défaut, `analogRead` sur 12 bits, PWM par `ledcAttach` au lieu d'`analogWrite`, broches en 3,3 V — tous traités dans [[esp32-gpio|configurer les GPIO]] et [[esp32-serie|le moniteur série]].
+*Câblage : la LED sur GPIO16 avec sa résistance de 220 Ω — voir le montage de [[esp32-prise-en-main|la prise en main]].*
+
+`setup()` une fois, `loop()` en boucle : le modèle est identique. Les différences sont des **détails de plateforme**, pas de structure : un débit série usuel de 115200 (celui du journal de démarrage de la puce, quand les exemples AVR sont à 9600), `analogRead` sur 12 bits, PWM par `ledcAttach` au lieu d'`analogWrite`, broches en 3,3 V — tous traités dans [[esp32-gpio|configurer les GPIO]] et [[esp32-serie|le moniteur série]].
 
 ## Ce qui change sous le capot
 
 L'Arduino-core ESP32 n'est pas du « bare metal » comme l'Arduino AVR : il tourne **au-dessus de FreeRTOS**. Concrètement :
 
-- **`loop()` est une tâche FreeRTOS.** Le cœur crée une tâche (`loopTask`) qui appelle `setup()` puis répète `loop()`. Votre code partage donc le processeur avec les tâches système (pile Wi-Fi/BLE, etc.).
-- **Deux cœurs.** L'ESP32 d'origine a deux cœurs ; `loop()` s'exécute par défaut sur l'un d'eux. On peut créer ses propres tâches et les répartir — voir [[esp32-freertos|FreeRTOS]].
+- **`loop()` est une tâche FreeRTOS.** Le cœur crée une tâche (`loopTask`) qui appelle `setup()` puis répète `loop()`. Le code partage donc le processeur avec les tâches système (pile Wi-Fi/BLE, etc.).
+- **Deux cœurs.** L'ESP32 d'origine a deux cœurs ; `loop()` s'exécute par défaut sur l'un d'eux. On peut créer ses propres tâches et les répartir — voir [[esp32-freertos|FreeRTOS]]. Attention aux variantes : les C3, C6 et H2 sont **mono-cœur** (RISC-V), et `xPortGetCoreID()` y répond toujours `0`.
 - **Beaucoup plus de mémoire.** Des centaines de kilo-octets de RAM (contre quelques-uns sur un Uno) : les `String`, les buffers, les bibliothèques lourdes passent plus facilement.
 - **L'API native est accessible.** `esp_*`, les fonctions FreeRTOS (`xTaskCreate`, `vTaskDelay`) sont utilisables directement dans un sketch.
+
+![L'Arduino-core ESP32 en couches : le sketch repose sur l'Arduino-core, lui-même posé sur ESP-IDF et FreeRTOS puis sur le matériel ; à droite, loopTask partage l'ordonnanceur avec la pile Wi-Fi/BLE et les tâches système|640](/ressources/img/esp32-arduino-core/couches-arduino-core.svg)
 
 > [!tip]
 > **`loop()` doit rendre la main.** Comme `loop()` est une tâche partageant le CPU, une boucle qui ne « souffle » jamais (calcul intensif sans `delay` ni `vTaskDelay`) peut affamer les tâches système et déclencher le *task watchdog*. Un `delay()` (qui, sur ESP32, cède le processeur) ou une architecture non bloquante évitent le souci.
@@ -70,19 +74,23 @@ void setup() {
 }
 
 void loop() {
-  // API native ESP-IDF / FreeRTOS, appelees depuis un sketch Arduino
+  // API native ESP-IDF / FreeRTOS, appelées depuis un sketch Arduino
   Serial.print("loop() tourne sur le coeur ");
-  Serial.println(xPortGetCoreID());                 // 0 ou 1
+  Serial.println(xPortGetCoreID());                 // 0 ou 1 (toujours 0 sur les puces mono-coeur)
 
   Serial.print("Memoire libre : ");
   Serial.print(esp_get_free_heap_size());           // octets
+  Serial.println(" octets");
+
+  Serial.print("... la meme valeur, vue par la facade Arduino : ");
+  Serial.print(ESP.getFreeHeap());                  // equivalent Arduino
   Serial.println(" octets");
 
   delay(2000);
 }
 ```
 
-Au moniteur série, on lit le numéro de cœur et la mémoire libre — deux informations qui n'existent pas sur un Arduino AVR, obtenues sans quitter le confort du sketch. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant l'ESP-IDF sous la main**.
+Au moniteur série, on lit le numéro de cœur et la mémoire libre — deux informations qui n'existent pas sur un Arduino AVR, obtenues sans quitter le confort du sketch. Les deux lignes de mémoire affichent la **même valeur** par deux chemins : `esp_get_free_heap_size()` est la fonction native, `ESP.getFreeHeap()` la façade Arduino posée dessus. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant l'ESP-IDF sous la main**.
 
 Prendre capture d'écran de *le moniteur série affichant « loop() tourne sur le coeur X » et « Memoire libre : XXXXXX octets » répétés toutes les 2 secondes*.
 
@@ -90,7 +98,7 @@ Prendre capture d'écran de *le moniteur série affichant « loop() tourne sur l
 
 **Supposer les réflexes AVR.** Manipuler des registres AVR, compter sur des timings au cycle près, ou utiliser `<avr/...>` ne fonctionne pas : l'architecture est différente (Xtensa ou RISC-V). Passer par les API du cœur.
 
-**Boucle qui n'rend jamais la main.** Un `loop()` (ou une tâche) en calcul permanent sans `delay`/`vTaskDelay` déclenche le *task watchdog* (`Task watchdog got triggered`). Céder le processeur régulièrement.
+**Boucle qui ne rend jamais la main.** Un `loop()` (ou une tâche) en calcul permanent sans `delay`/`vTaskDelay` déclenche le *task watchdog* (`Task watchdog got triggered`). Céder le processeur régulièrement.
 
 **Bibliothèque Arduino incompatible ESP32.** Toutes les bibliothèques Arduino ne supportent pas l'ESP32 (certaines tapent dans des registres AVR). Vérifier la compatibilité ESP32 avant de dépendre d'une bibliothèque.
 
@@ -166,3 +174,4 @@ Comprendre que l'Arduino-core repose sur FreeRTOS — donc que `loop()` n'est pa
 - [[esp32-idf|Découvrir ESP-IDF]] — l'environnement natif, sous l'Arduino-core
 - [[esp32-freertos|FreeRTOS]] — le multitâche sur lequel repose `loop()`
 - [[cpp|C++]] — le langage commun aux deux environnements (transverse)
+- [[memoire|Mémoire]] — RAM, tas et pile du microcontrôleur (transverse)
