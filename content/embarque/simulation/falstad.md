@@ -88,10 +88,25 @@ Reste le geste complet : partir de rien. On monte un **filtre passe-haut** RC, e
 
 ![Menu Fichier déroulé, entrée Nouveau circuit vide en tête de liste.|520](/ressources/img/falstad/nouveau-circuit-vide.png)
 
-Les composants se posent depuis le menu **Dessiner** : on choisit le type, le pointeur devient une croix, et on trace le composant par un cliquer-glisser d'une borne à l'autre (les composants courants ont un raccourci clavier). Il faut ici une **source de tension alternative de 5 V**, un **condensateur de 10 µF** en série, une **résistance de 35 Ω** vers la masse, et la masse. La **sortie se lit aux bornes de la résistance** — c'est ce qui fait un passe-haut plutôt qu'un passe-bas.
+Tout se pose depuis le menu **Dessiner**, qui porte l'ensemble du catalogue. Trois entrées sont directement au premier niveau, parce que ce sont les plus employées :
+
+- **Ajouter fils** (`w`) — le fil droit, celui dont on se sert tout le temps ;
+- **Ajouter fils routé** (`W`) — la variante qui contourne toute seule ;
+- **Ajouter résistance** (`r`).
+
+Le reste est rangé en sous-menus : **Composants passifs** (condensateur, bobine, potentiomètre), **Entrées et générateurs** (sources continues et alternatives, générateurs de signaux, et la masse), **Sorties et étiquettes**, **Composants actifs** (diodes, transistors, amplificateurs opérationnels), **Blocs fonctionnels actifs**, puis toute la partie numérique (**Portes logiques**, **Circuits intégrés numériques**, **Circuits intégrés analogiques et hybrides**) et les **Sous-circuits**.
+
+Le geste est le même pour tous : on choisit le type dans le menu, le pointeur devient une croix, et on trace le composant par un cliquer-glisser d'une borne à l'autre. Deux dernières entrées du menu ne posent rien mais changent de **mode** — *Glisser* et *Sélectionner/déplacer* (`Espace`, ou `Maj` + glisser) : c'est par là qu'on revient au pointeur normal, ce qui débloque bien des situations où l'outil semble coincé à poser des composants à l'infini.
+
+Il faut ici une **source de tension alternative de 5 V** (*Entrées et générateurs*), un **condensateur de 10 µF** en série (*Composants passifs*), une **résistance de 35 Ω** vers la masse (`r`, au premier niveau) et la **masse** elle-même — *Entrées et générateurs → Ajouter terre*, raccourci `g`. C'est le potentiel de référence auquel se rapportent toutes les tensions affichées, et le gris du code couleur. La **sortie se lit aux bornes de la résistance** : c'est ce qui fait un passe-haut plutôt qu'un passe-bas.
+
+> [!note]
+> **Le menu dit « terre », on parle de « masse ».** Le symbole que pose *Ajouter terre* est celui de la **masse** — le nœud de référence à 0 V du montage. En électronique, la **terre** désigne autre chose : la liaison de protection vers le sol, celle du troisième fil d'une prise secteur. C'est un raccourci de traduction du logiciel (l'anglais *ground* recouvre les deux), à ne pas reprendre à son compte dans un compte rendu.
+
+![Construction complète du filtre passe-haut dans Falstad : les composants sont choisis dans le menu Dessiner et tracés un à un sur la page vide, reliés par des fils, puis chacun reçoit sa valeur par un double-clic.|640](/ressources/img/falstad/construire-passe-haut.gif)
 
 > [!warning]
-> **Le solveur refuse certaines mailles.** Une source court-circuitée, ou une boucle faite uniquement de condensateurs, déclenche un message d'erreur explicite. Ce n'est pas une erreur de physique mais une limite du calcul : Falstad ne sait pas résoudre une maille sans résistance. Ajouter la résistance manquante, même faible, débloque la simulation.
+> **Falstad ne vous arrêtera pas.** Court-circuitez une source de 5 V par un simple fil : aucun message, aucune alerte, la simulation continue — et le survol annonce tranquillement **I = 5 kA**. Cinq mille ampères. Le chiffre n'est pas une anomalie : dans le modèle, un fil « parfait » vaut environ **1 mΩ**, et 5 V sous 1 mΩ font exactement 5 000 A. Sur une table, ce même montage détruit l'alimentation en une fraction de seconde. C'est la limite la plus importante de l'outil : **il calcule ce qu'on lui demande, il ne juge pas si c'est réalisable**. Une valeur de courant aberrante n'est pas une découverte, c'est un signal.
 
 ### 2. Prédire, puis balayer la fréquence
 
@@ -113,15 +128,47 @@ Si la déformation défile trop vite pour être lue, c'est la *Vitesse de Simula
 ### 4. Garder le circuit
 
 > [!tip]
-> **Sans compte, l'export est la vraie sauvegarde.** Le menu *Fichier* propose *Exporter comme Texte…* — un fichier à ranger dans le dossier projet — et *Exporter avec Lien…*, qui encode le circuit entier dans une URL : c'est la façon d'envoyer un montage à un camarade ou à un encadrant, il n'y a rien à installer en face. *Importer depuis Texte…* fait le chemin inverse. Pour un compte rendu, *Exporter en SVG…* et *Exporter comme Image…* sortent le schéma proprement.
+> **Sans compte, l'export est la vraie sauvegarde.** Le menu *Fichier* propose *Exporter comme Texte…* — un fichier à ranger dans le dossier projet — et *Exporter avec Lien…*, qui encode le circuit entier dans une URL : c'est la façon d'envoyer un montage à un camarade ou à un encadrant, il n'y a rien à installer en face. Pour un compte rendu, *Exporter en SVG…* et *Exporter comme Image…* sortent le schéma proprement.
 
 ![Menu Fichier entièrement déroulé, montrant les entrées Enregistrer Sous, Exporter avec Lien, Exporter comme Texte, Exporter comme Image, Exporter en SVG et Récupérer l'enregistrement automatique.|440](/ressources/img/falstad/menu-fichier.png)
 
+
 On vient de vérifier une fréquence de coupure sur une courbe, et la tentation est immédiate : croire le filtre **dimensionné**. Il ne l'est pas — Falstad simule dans le temps et laisse changer la fréquence à la main ; il ne trace pas de réponse en fréquence. Le jour où il faut relever une coupure au point −3 dB sur un balayage automatique, ou tenir compte de composants réels, c'est [[ltspice|LTspice]] qu'il faut ouvrir.
+
+## Importer un circuit décrit en texte
+
+Les trois sections précédentes partent d'un geste à l'écran. Il existe une quatrième entrée, plus inattendue : **un circuit Falstad est un fichier texte**, et l'outil sait le relire. *Fichier → Importer depuis Texte…* ouvre une boîte où l'on colle la description d'un montage qu'on n'a pas dessiné.
+
+![Menu Fichier déroulé, entrée Importer depuis Texte mise en évidence.|520](/ressources/img/falstad/importer-depuis-texte.png)
+
+Voici la description d'un **pont diviseur** : une source continue de 5 V et deux résistances de 1 kΩ en série.
+
+```
+$ 1 0.000005 10.20027730826997 50 5 43 5e-11
+v 176 336 176 176 0 0 40 5 0 0 0.5
+w 176 176 368 176 0
+r 368 176 368 256 0 1000
+r 368 256 368 336 0 1000
+w 368 336 176 336 0
+g 176 336 176 368 0
+```
+
+Chaque ligne est un composant : sa **lettre** (`v` source de tension, `r` résistance, `w` fil, `g` masse), les **coordonnées de ses deux bornes**, puis ses valeurs — `5` volts pour la source, `1000` ohms pour chaque résistance. La première ligne, celle qui commence par `$`, ne décrit aucun composant : elle porte les réglages de simulation. Deux composants sont reliés dès qu'ils partagent des coordonnées — les deux résistances se rejoignent au point `368 256`, qui devient le point milieu du pont.
+
+![Boîte de dialogue Importer depuis Texte, avec la description du pont diviseur collée dans la zone de saisie.|380](/ressources/img/falstad/coller-la-description.png)
+
+Un clic sur *OK* et le montage apparaît, sous tension. Il reste à vérifier qu'il fait bien ce qu'on attendait : en haut du pont, le survol donne les **5 V** de la source ; au point milieu, **2,5 V** — la moitié, puisque les deux résistances sont égales.
+
+![Animation du pont diviseur importé : en déplaçant le pointeur le long du circuit, la tension lue passe de 5 V en haut du pont à 2,5 V au point milieu.|400](/ressources/img/falstad/pont-diviseur.gif)
+
+> [!tip]
+> **Faire décrire un circuit, puis le vérifier soi-même.** La description ci-dessus a été produite par une **intelligence artificielle** à qui l'on avait demandé un pont diviseur par deux. C'est un usage intéressant, à condition de bien voir où se trouve le travail : ce qui est produit n'est pas une réponse, c'est une **hypothèse** — et Falstad la met sous tension pour la rendre vérifiable. Le courant passe-t-il où on l'attend ? La tension au point milieu vaut-elle ce que le calcul annonce ? Un montage faux s'importe aussi bien qu'un bon : **c'est la simulation, et votre lecture du résultat, qui tranchent**. Employé ainsi, le procédé fait gagner le temps du dessin et le rend au raisonnement.
+
+Deux limites à connaître. Le format encode aussi les **positions** à l'écran, si bien qu'un circuit généré peut être électriquement juste et graphiquement de travers — les coordonnées se calent sur une grille, et un texte approximatif produit un schéma illisible. Et ce n'est pas une **netlist** au sens de la conception de cartes : une netlist ne décrit que les connexions entre broches, sans géométrie, et c'est celle-là qu'on rencontrera en passant du schéma au [[pcb|circuit imprimé]].
 
 ## Pièges
 
-**Prendre un modèle idéal pour la réalité.** Les composants de Falstad n'ont ni tolérance, ni résistance parasite, ni échauffement : l'outil donne le bon *comportement*, pas la valeur garantie d'un composant réel — les pièges généraux de la [[simulation-electronique#Pièges|simulation]] s'appliquent ici aussi.
+**Prendre un modèle idéal pour la réalité.** Les composants de Falstad n'ont ni tolérance, ni résistance parasite, ni échauffement, et rien ne signale qu'un courant est destructeur (voir le court-circuit à 5 kA plus haut) : l'outil donne le bon *comportement*, pas la valeur garantie d'un composant réel — les pièges généraux de la [[simulation-electronique#Pièges|simulation]] s'appliquent ici aussi.
 
 **Confondre les deux vitesses.** La *Vitesse d'Animation* n'affecte que le défilement des points ; seule la *Vitesse de Simulation* change l'écoulement du temps simulé. Conclure sur une durée après avoir touché le mauvais curseur donne une réponse fausse sur un écran qui semble avoir obéi.
 
