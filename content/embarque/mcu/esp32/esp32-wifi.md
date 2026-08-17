@@ -47,11 +47,19 @@ void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, motDePasse);            // mode station
   Serial.print("Connexion");
-  while (WiFi.status() != WL_CONNECTED) {  // attendre la connexion
+
+  int tentatives = 0;
+  while (WiFi.status() != WL_CONNECTED && tentatives < 20) {  // 20 x 500 ms = 10 s max
     delay(500);
     Serial.print(".");
+    tentatives++;
   }
   Serial.println();
+
+  if (WiFi.status() != WL_CONNECTED) {     // echec : on le signale, on ne fige pas
+    Serial.println("Echec de connexion - verifier SSID et mot de passe");
+    return;
+  }
   Serial.print("Connecte, IP = ");
   Serial.println(WiFi.localIP());          // adresse attribuée par la box
 }
@@ -59,12 +67,33 @@ void setup() {
 void loop() {}
 ```
 
+L'attente est **bornée** : au bout d'une dizaine de secondes, la carte renonce et le dit, au lieu de rester figée sur un SSID mal tapé. Les exemples suivants gardent la forme courte pour ne pas noyer leur sujet — en projet, reprendre ce motif borné.
+
+Pour le mode **point d'accès**, deux lignes suffisent : la carte crée le réseau au lieu de le rejoindre.
+
+```cpp
+#include <WiFi.h>
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.softAP("ESP32-Demo", "motdepasse");   // reseau cree par la carte
+  Serial.print("Point d'acces actif, IP = ");
+  Serial.println(WiFi.softAPIP());           // 192.168.4.1 par defaut
+}
+
+void loop() {}
+```
+
+On rejoint le réseau `ESP32-Demo` depuis un téléphone, puis on ouvre `192.168.4.1` — pratique en démonstration sur table, sans box ni routeur. Le mot de passe doit faire **au moins 8 caractères** : en dessous, `softAP()` échoue et le réseau n'apparaît pas.
+
 > [!warning]
 > **L'ESP32 (hors C5) est en 2,4 GHz seulement.** Il ne se connecte pas à un réseau diffusé uniquement en 5 GHz. Sur une box bi-bande, vérifier que le 2,4 GHz est actif et que le SSID visé est bien le réseau 2,4 GHz.
 
 ## Exemple — Piloter une LED depuis un navigateur
 
 L'usage le plus parlant : l'ESP32 rejoint le réseau, héberge une page web minimale, et pilote une LED selon le lien cliqué. Un téléphone sur le même réseau ouvre l'adresse IP et commande la carte.
+
+*Câblage : LED sur `GPIO16` — voir le montage de [[esp32-gpio|configurer les GPIO]].*
 
 ```cpp
 #include <WiFi.h>
@@ -100,7 +129,7 @@ void setup() {
   WiFi.begin(ssid, motDePasse);
   while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
   Serial.print("\nOuvrez http://");
-  Serial.println(WiFi.localIP());   // l'URL a taper dans le navigateur
+  Serial.println(WiFi.localIP());   // l'URL à taper dans le navigateur
 
   serveur.on("/", pageAccueil);     // associer chemins -> fonctions
   serveur.on("/on", allumer);
@@ -109,11 +138,11 @@ void setup() {
 }
 
 void loop() {
-  serveur.handleClient();           // traiter les requetes en continu
+  serveur.handleClient();           // traiter les requêtes en continu
 }
 ```
 
-Téléversez, ouvrez le moniteur série (115200) pour lire l'adresse IP affichée, puis tapez `http://<cette IP>` dans un navigateur du même réseau. La page propose deux liens qui allument et éteignent la LED. On a une **interface de pilotage sans écran ni application** en une cinquantaine de lignes.
+Téléversez, ouvrez le [[esp32-serie|moniteur série]] (115200) pour lire l'adresse IP affichée, puis tapez `http://<cette IP>` dans un navigateur du même réseau. La page propose deux liens qui allument et éteignent la LED. On a une **interface de pilotage sans écran ni application** en une cinquantaine de lignes.
 
 Prendre capture d'écran de *le navigateur affichant la page « ESP32 » avec les liens Allumer / Eteindre, et le moniteur série montrant l'adresse IP attribuée*.
 
@@ -175,7 +204,7 @@ Prendre capture d'écran de *le navigateur affichant la page « ESP32 » avec le
 > WebServer serveur(80);
 >
 > void pageAccueil() {
->   int valeur = analogRead(CAPTEUR);          // relu a chaque requete
+>   int valeur = analogRead(CAPTEUR);          // relu à chaque requête
 >   String html = "<h1>Capteur</h1><p>Valeur : ";
 >   html += valeur;
 >   html += " / 4095</p>";
@@ -184,7 +213,6 @@ Prendre capture d'écran de *le navigateur affichant la page « ESP32 » avec le
 >
 > void setup() {
 >   Serial.begin(115200);
->   analogSetAttenuation(ADC_11db);
 >   WiFi.begin(ssid, motDePasse);
 >   while (WiFi.status() != WL_CONNECTED) { delay(500); }
 >   Serial.println(WiFi.localIP());
@@ -210,9 +238,9 @@ void requete() {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     http.begin("http://exemple.com/api/mesure");  // URL en http simple
-    int code = http.GET();                         // > 0 = reponse recue
+    int code = http.GET();                         // > 0 = réponse reçue
     if (code > 0) {
-      Serial.println(http.getString());            // corps de la reponse
+      Serial.println(http.getString());            // corps de la réponse
     }
     http.end();
   }

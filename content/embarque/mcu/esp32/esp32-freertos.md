@@ -15,9 +15,9 @@ aa:
 draft: false
 ---
 
-**FreeRTOS** est le système temps réel au cœur de l'ESP32 : il permet de faire tourner plusieurs **tâches** « en parallèle », chacune écrite comme une petite boucle indépendante, que l'ordonnanceur (*scheduler*) entrelace sur le ou les processeurs. C'est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS natif. La `loop()` d'un sketch Arduino est elle-même une tâche FreeRTOS ; cette fiche montre comment **créer et coordonner ses propres tâches**. Le *pourquoi* d'un RTOS et sa place dans l'échelle des architectures sont traités dans [[firmware|firmware]] *(→ notion [[firmware]])*.
+**FreeRTOS** est le système temps réel au cœur de l'ESP32 : il permet de faire tourner plusieurs **tâches** « en parallèle », chacune écrite comme une petite boucle indépendante, que l'ordonnanceur (*scheduler*) entrelace sur le ou les processeurs. C'est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS natif. La `loop()` d'un sketch Arduino est elle-même une tâche FreeRTOS ; cette fiche montre comment **créer et coordonner ses propres tâches**. Le *pourquoi* d'un RTOS et sa place dans l'échelle des architectures sont traités dans [[firmware|firmware]].
 
-![Ordonnancement préemptif de deux tâches FreeRTOS](/ressources/img/esp32-freertos/ordonnancement.svg)
+![Ordonnancement préemptif : deux tâches FreeRTOS se partagent le processeur, l'ordonnanceur donnant la main à la tâche prête la plus prioritaire et interrompant celle en cours quand il le faut|640](/ressources/img/esp32-freertos/ordonnancement.svg)
 
 ## À quoi ça sert ?
 
@@ -46,23 +46,23 @@ void tacheClignote(void *param) {
   pinMode(LED_BUILTIN, OUTPUT);
   for (;;) {                                  // boucle infinie : ne retourne jamais
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-    vTaskDelay(pdMS_TO_TICKS(500));           // cede le CPU 500 ms
+    vTaskDelay(pdMS_TO_TICKS(500));           // cède le CPU 500 ms
   }
 }
 
 void setup() {
   xTaskCreatePinnedToCore(
-    tacheClignote,   // fonction de la tache
+    tacheClignote,   // fonction de la tâche
     "Clignote",      // nom (debug)
     2048,            // taille de pile en octets (ESP-IDF)
-    NULL,            // parametre passe a la tache
-    1,               // priorite
+    NULL,            // paramètre passé à la tâche
+    1,               // priorité
     NULL,            // handle (NULL si on n'en a pas besoin)
-    1                // coeur (0 ou 1)
+    1                // cœur (0 ou 1)
   );
 }
 
-void loop() {}       // loop() est elle-meme une tache, ici inutilisee
+void loop() {}       // loop() est elle-même une tâche, ici inutilisée
 ```
 
 > [!tip]
@@ -71,6 +71,8 @@ void loop() {}       // loop() est elle-meme une tache, ici inutilisee
 ## Exemple — Deux tâches indépendantes
 
 Deux activités à des rythmes différents, vraiment séparées : une tâche fait clignoter une LED toutes les 200 ms, l'autre lit un capteur et l'imprime toutes les secondes. Aucun compteur partagé, aucun entrelacement manuel.
+
+*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
 
 ```cpp
 const int LED = 16;
@@ -95,7 +97,6 @@ void tacheCapteur(void *param) {
 
 void setup() {
   Serial.begin(115200);
-  analogSetAttenuation(ADC_11db);
 
   xTaskCreatePinnedToCore(tacheLed,     "LED",     2048, NULL, 1, NULL, 1);
   xTaskCreatePinnedToCore(tacheCapteur, "Capteur", 2048, NULL, 1, NULL, 1);
@@ -121,7 +122,7 @@ QueueHandle_t file;
 void producteur(void *param) {
   for (;;) {
     int mesure = analogRead(34);
-    xQueueSend(file, &mesure, portMAX_DELAY);   // depose dans la file
+    xQueueSend(file, &mesure, portMAX_DELAY);   // dépose dans la file
     vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
@@ -160,10 +161,14 @@ void loop() {}
 
 **`delay()` vs `vTaskDelay()`.** Sur l'Arduino-core ESP32, `delay()` cède aussi le CPU (il appelle `vTaskDelay`), donc reste acceptable dans une tâche ; mais utiliser `vTaskDelay(pdMS_TO_TICKS(...))` explicite l'intention en contexte multitâche.
 
+**`volatile` n'est pas une protection.** Le mot-clé empêche le compilateur d'optimiser les lectures d'une variable ; il ne garantit **ni** l'atomicité, **ni** l'exclusion mutuelle. Entre deux tâches, seule une file ou un mutex protège réellement. `volatile` a sa place ailleurs : pour une variable partagée avec une **interruption** (voir [[arduino-interruptions|les interruptions]]), où il est nécessaire — et toujours pas suffisant si l'accès n'est pas atomique.
+
 ## Exercices
 
 > [!question] Exercice 1 — Une tâche par cœur
-> Lancez deux tâches qui impriment chacune le numéro de cœur sur lequel elles tournent, l'une épinglée au cœur 0, l'autre au cœur 1. Vérifiez au moniteur.
+> Lancez deux tâches qui impriment chacune le numéro de cœur sur lequel elles tournent, l'une épinglée au cœur 0, l'autre au cœur 1. Vérifiez au [[esp32-serie|moniteur série]].
+>
+> *Sur une variante **mono-cœur** (C3, C6, H2), l'épinglage au cœur 1 échoue : passer `tskNO_AFFINITY` à la place du numéro de cœur.*
 
 > [!success]- Corrigé
 > Le dernier argument de `xTaskCreatePinnedToCore` fixe le cœur ; `xPortGetCoreID()` le lit depuis la tâche.
@@ -178,8 +183,8 @@ void loop() {}
 >
 > void setup() {
 >   Serial.begin(115200);
->   xTaskCreatePinnedToCore(tache, "T0", 2048, NULL, 1, NULL, 0);  // coeur 0
->   xTaskCreatePinnedToCore(tache, "T1", 2048, NULL, 1, NULL, 1);  // coeur 1
+>   xTaskCreatePinnedToCore(tache, "T0", 2048, NULL, 1, NULL, 0);  // cœur 0
+>   xTaskCreatePinnedToCore(tache, "T1", 2048, NULL, 1, NULL, 1);  // cœur 1
 > }
 >
 > void loop() {}
@@ -197,10 +202,10 @@ void loop() {}
 >
 > void incremente(void *param) {
 >   for (;;) {
->     xSemaphoreTake(verrou, portMAX_DELAY);   // acces exclusif
+>     xSemaphoreTake(verrou, portMAX_DELAY);   // accès exclusif
 >     compteur++;
 >     int copie = compteur;
->     xSemaphoreGive(verrou);                   // libere
+>     xSemaphoreGive(verrou);                   // libère
 >     Serial.println(copie);
 >     vTaskDelay(pdMS_TO_TICKS(300));
 >   }

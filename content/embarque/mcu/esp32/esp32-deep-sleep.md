@@ -3,6 +3,7 @@ title: Deep sleep avec l'ESP32
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -15,9 +16,9 @@ aa:
 draft: false
 ---
 
-Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeur et la radio sont coupés, la consommation tombe d'une dizaine de **milliampères** à une dizaine de **microampères**, et la puce ne se réveille qu'à un événement choisi (un délai, un bouton, un toucher). C'est ce qui rend l'ESP32 viable sur batterie : un capteur qui se réveille, mesure, envoie, puis se rendort passe l'essentiel de sa vie à ne presque rien consommer. La notion générale de gestion d'énergie est traitée dans [[deep-sleep|deep sleep]] *(→ notion [[deep-sleep]])* ; cette fiche en donne l'incarnation ESP32.
+Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeur et la radio sont coupés, la consommation tombe d'une dizaine de **milliampères** à une dizaine de **microampères**, et la puce ne se réveille qu'à un événement choisi (un délai, un bouton, un toucher). C'est ce qui rend l'ESP32 viable sur batterie : un capteur qui se réveille, mesure, envoie, puis se rendort passe l'essentiel de sa vie à ne presque rien consommer. La notion générale de gestion d'énergie est traitée dans [[deep-sleep|deep sleep]] ; cette fiche en donne l'incarnation ESP32.
 
-![Cycle du deep sleep et ses sources de réveil](/ressources/img/esp32-deep-sleep/reveil.svg)
+![Cycle du deep sleep : la carte se réveille, travaille, arme une source de réveil puis s'endort ; le réveil suivant vient d'un timer, d'une broche externe ou d'un toucher, et redémarre la carte|640](/ressources/img/esp32-deep-sleep/reveil.svg)
 
 ## À quoi ça sert ?
 
@@ -38,7 +39,7 @@ Deux lignes : armer le timer, entrer en sommeil. Le délai est en **microseconde
 
 void setup() {
   Serial.begin(115200);
-  delay(100);                        // laisse le temps a l'USB de s'etablir
+  delay(100);                        // laisse le temps à l'USB de s'établir
 
   Serial.println("Reveil ! Je travaille...");
   // ... mesure, envoi ...
@@ -46,7 +47,7 @@ void setup() {
   esp_sleep_enable_timer_wakeup(10 * uS_PAR_S);  // dormir 10 s
   Serial.println("Je m'endors.");
   Serial.flush();                    // vide le port avant de couper
-  esp_deep_sleep_start();            // au-dela : plus rien ne s'execute
+  esp_deep_sleep_start();            // au-delà : plus rien ne s'exécute
 }
 
 void loop() {}                       // jamais atteint en deep sleep
@@ -64,7 +65,7 @@ RTC_DATA_ATTR int nombreReveils = 0;   // survit au deep sleep
 void setup() {
   Serial.begin(115200);
   delay(100);
-  nombreReveils++;                      // incremente a chaque reveil
+  nombreReveils++;                      // incrémente à chaque réveil
   Serial.print("Reveil n° ");
   Serial.println(nombreReveils);
 
@@ -86,12 +87,11 @@ Le motif type d'un capteur sur batterie : réveil toutes les 30 secondes, lectur
 const int CAPTEUR = 34;                 // ADC1
 const uint64_t PERIODE_S = 30;          // intervalle entre deux mesures
 
-RTC_DATA_ATTR int cycle = 0;            // conserve entre les reveils
+RTC_DATA_ATTR int cycle = 0;            // conservé entre les réveils
 
 void setup() {
   Serial.begin(115200);
   delay(100);
-  analogSetAttenuation(ADC_11db);
 
   cycle++;
   int mesure = analogRead(CAPTEUR);
@@ -109,7 +109,7 @@ void setup() {
 void loop() {}
 ```
 
-Au moniteur série, on voit une ligne apparaître toutes les 30 secondes, le numéro de cycle s'incrémentant. Entre deux, la carte est en deep sleep : sur un **module nu** (sans la carte de développement), la consommation y est de l'ordre du microampère.
+Au [[esp32-serie|moniteur série]], on voit une ligne apparaître toutes les 30 secondes, le numéro de cycle s'incrémentant. Entre deux, la carte est en deep sleep : sur un **module nu** (sans la carte de développement), la consommation y est de l'ordre du microampère.
 
 Prendre capture d'écran de *le moniteur série montrant les lignes « Cycle N — mesure = XXX » espacées de 30 secondes, le numéro de cycle croissant après plusieurs réveils*.
 
@@ -121,6 +121,8 @@ Au lieu (ou en plus) du timer, l'ESP32 peut se réveiller sur une **broche** :
 - `esp_sleep_enable_ext1_wakeup(masque, mode)` — réveil sur **plusieurs** broches à la fois.
 
 Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32-39`) — une broche ordinaire ne réveille pas la puce. Après le réveil, `esp_sleep_get_wakeup_cause()` indique *pourquoi* la carte s'est réveillée (timer, ext0, touch…), pour réagir différemment selon la source.
+
+![Câblage du réveil par bouton : bouton entre GPIO33 et GND, résistance externe de 10 kΩ tirant GPIO33 vers 3V3, les tirages internes n'étant pas garantis pendant le sommeil|600](/ressources/img/esp32-deep-sleep/montage-reveil-bouton.svg)
 
 ## Pièges
 
@@ -150,7 +152,7 @@ Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32
 >   Serial.begin(115200);
 >   delay(100);
 >
->   // pourquoi s'est-on reveille ?
+>   // pourquoi s'est-on réveillé ?
 >   esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
 >   switch (cause) {
 >     case ESP_SLEEP_WAKEUP_TIMER: Serial.println("Reveil : timer");   break;

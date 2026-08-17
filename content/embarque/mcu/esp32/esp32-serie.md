@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-Le **moniteur série** est l'outil d'observation universel d'un programme embarqué : il permet d'envoyer du texte depuis la carte vers l'ordinateur (et inversement) pendant l'exécution, via le câble USB. C'est le premier outil de débogage, avant l'oscilloscope ou les sondes — quand on veut savoir « qu'est-ce que mon programme fait, là, maintenant ? », on imprime au moniteur série. Sur ESP32, deux particularités le distinguent de l'Arduino : la **vitesse par défaut de 115200 bauds** (celle des messages de démarrage) et, sur les puces à **USB natif**, un réglage à connaître pour que la sortie apparaisse.
+Le **moniteur série** est l'outil d'observation universel d'un programme embarqué : il permet d'envoyer du texte depuis la carte vers l'ordinateur (et inversement) pendant l'exécution, via le câble USB. C'est le premier outil de débogage, avant l'oscilloscope ou les sondes — quand on veut savoir « qu'est-ce que mon programme fait, là, maintenant ? », on imprime au moniteur série. Sur ESP32, deux particularités le distinguent de l'Arduino : la **vitesse usuelle de 115200 bauds** (celle des messages de démarrage) et, sur les puces à **USB natif**, un réglage à connaître pour que la sortie apparaisse.
 
 ## À quoi ça sert ?
 
@@ -104,6 +104,8 @@ void loop() {
 
 Cas concret : la carte lit une commande envoyée depuis l'ordinateur (`ON`, `OFF`) et pilote une LED, tout en imprimant périodiquement une mesure analogique. On combine les deux sens de la liaison.
 
+*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
+
 ```cpp
 const int LED = 16;
 const int CAPTEUR = 34;        // ADC1
@@ -162,6 +164,8 @@ Prendre capture d'écran de *le moniteur série montrant l'alternance « capteur
 
 **`Serial.read()` ne lit qu'un octet.** Un appel unique ne lit qu'un caractère même si l'ordinateur a envoyé un mot. Pour une ligne, `readStringUntil('\n')` ; pour un nombre, `parseInt()`.
 
+**`parseInt()` attend une seconde, puis renvoie 0.** `Serial.parseInt()` bloque la boucle jusqu'à recevoir un entier complet — ou jusqu'à expiration de son délai d'attente, **une seconde par défaut**, auquel cas il renvoie `0`. Deux conséquences en TP : la boucle se fige brièvement à chaque commande, et une saisie mal terminée applique silencieusement la valeur 0 (LED éteinte, sans message). `Serial.setTimeout(50)` raccourcit l'attente ; lire la ligne avec `readStringUntil()` puis convertir explicitement évite le piège.
+
 ## Exercices
 
 > [!question] Exercice 1 — Consigne numérique
@@ -200,14 +204,13 @@ Prendre capture d'écran de *le moniteur série montrant l'alternance « capteur
 >
 > void setup() {
 >   Serial.begin(115200);
->   analogSetAttenuation(ADC_11db);
 >   t0 = millis();
 >   Serial.println("temps_ms\tbrut\tvolts");   // en-têtes
 > }
 >
 > void loop() {
 >   int brut = analogRead(CAPTEUR);
->   float volts = brut * 3.3 / 4095.0;
+>   float volts = analogReadMilliVolts(CAPTEUR) / 1000.0;   // tension calibrée
 >   Serial.print(millis() - t0);
 >   Serial.print("\t");
 >   Serial.print(brut);
@@ -220,13 +223,13 @@ Prendre capture d'écran de *le moniteur série montrant l'alternance « capteur
 
 ## Cas particulier — Plusieurs ports série et le traceur
 
-L'ESP32 dispose de **plusieurs UART matériels**. `Serial` (UART0) est réservé au moniteur et au journal de boot ; pour dialoguer avec un second appareil (module GPS, autre carte) sans perturber le moniteur, on utilise un autre port, dont on peut choisir les broches :
+L'ESP32 dispose de **plusieurs UART matériels**. `Serial` (UART0) est réservé au moniteur et au journal de boot ; pour dialoguer avec un second appareil (module GPS, autre carte) sans perturber le moniteur, on utilise un autre port, dont on peut choisir les broches — le sujet complet de [[esp32-uart|l'UART sur ESP32]] :
 
 ```cpp
 Serial2.begin(9600, SERIAL_8N1, 16, 17);  // RX=GPIO16, TX=GPIO17
 ```
 
-Le **traceur série** (*Outils → Traceur série*) est un mini-oscilloscope logiciel : il trace toute valeur numérique imprimée (une par ligne, ou plusieurs en tabulations → courbes superposées). Idéal pour caler des seuils, observer le bruit d'un capteur, comparer consigne et mesure. Limite : pas d'échelle de temps réglable, fenêtre courte — pour des analyses poussées, exporter vers un tableur.
+Le **traceur série** (*Outils → Traceur série*) est un [[oscilloscope|oscilloscope]] logiciel miniature : il trace toute valeur numérique imprimée (une par ligne, ou plusieurs en tabulations → courbes superposées). Idéal pour caler des seuils, observer le bruit d'un capteur, comparer consigne et mesure. Limite : pas d'échelle de temps réglable, fenêtre courte — pour des analyses poussées, exporter vers un tableur.
 
 ## Raccrochage projet
 
@@ -239,7 +242,7 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 ## Aller plus loin
 
 - [Référence de la classe Serial (Arduino)](https://www.arduino.cc/reference/en/language/functions/communication/serial/) — `peek`, `parseFloat`, `readBytes`…
-- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple).
+- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple) — traité côté Arduino, il se transpose tel quel sur ESP32.
 - Pour traiter la sortie en aval : un script Python avec `pyserial` lit le flux (graphique, log fichier, déclenchement d'actions).
 
 ## Voir aussi
@@ -247,5 +250,6 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 - [[esp32|ESP32]] — hub des tutoriels ESP32
 - [[esp32-prise-en-main|Prise en main de l'ESP32]] — prérequis (IDE + support + premier téléversement)
 - [[esp32-gpio|Configurer les GPIO]] — les broches lues et pilotées, observées via le moniteur
+- [[esp32-uart|UART sur l'ESP32]] — parler à un module série sur un second port, sans perturber le moniteur
 - [[cpp|C++]] — le langage utilisé dans les sketches
 - [[bus-de-communication|Bus de communication]] — l'UART, bus sous-jacent du moniteur série

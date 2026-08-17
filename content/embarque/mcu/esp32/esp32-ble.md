@@ -49,9 +49,9 @@ Un serveur GATT minimal : l'ESP32 expose une caractéristique dont la valeur s'i
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
-#include <BLE2902.h>     // descripteur necessaire aux notifications
+#include <BLE2902.h>     // descripteur nécessaire aux notifications
 
-// UUID librement choisis (generateur en ligne pour de vrais projets)
+// UUID librement choisis (générateur en ligne pour de vrais projets)
 const char* UUID_SERVICE        = "12345678-1234-1234-1234-1234567890ab";
 const char* UUID_CARACTERISTIQUE = "abcd1234-5678-90ab-cdef-1234567890ab";
 
@@ -83,8 +83,8 @@ void loop() {
   if (millis() - dernier >= 1000) {               // toutes les secondes
     dernier = millis();
     compteur++;
-    caracteristique->setValue(compteur);          // met a jour la valeur
-    caracteristique->notify();                     // pousse aux clients
+    caracteristique->setValue(String(compteur).c_str());  // en texte, lisible au téléphone
+    caracteristique->notify();                            // pousse aux clients
     Serial.print("Notifie : ");
     Serial.println(compteur);
   }
@@ -92,6 +92,9 @@ void loop() {
 ```
 
 Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` apparaît. Connectez-vous, dépliez le service, activez les notifications sur la caractéristique — la valeur s'incrémente en direct. La carte **pousse** la donnée sans que le téléphone ait à la redemander.
+
+> [!tip]
+> **Texte ou binaire ?** La valeur part ici **en texte**, pour qu'elle s'affiche telle quelle dans nRF Connect. Une caractéristique BLE transporte en réalité des **octets bruts** : `setValue(compteur)` avec un entier enverrait quatre octets, que l'application afficherait en hexadécimal (`01-00-00-00`). Les vrais projets préfèrent ce format binaire, plus compact — le texte est un confort de mise au point.
 
 Prendre capture d'écran de *l'application nRF Connect montrant le périphérique « ESP32-Capteur » connecté, le service déplié et la caractéristique dont la valeur s'incrémente*.
 
@@ -111,13 +114,15 @@ Prendre capture d'écran de *l'application nRF Connect montrant le périphériqu
 
 ## Exercices
 
+*Câblage : capteur sur `GPIO34` et LED sur `GPIO16` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
+
 > [!question] Exercice 1 — Notifier une vraie mesure
 > Remplacez le compteur par la lecture d'un capteur analogique sur `GPIO34` (ADC1), notifiée toutes les 500 ms. Qu'est-ce qui change ?
 
 > [!success]- Corrigé
 > Seule la source de la valeur change ; toute la structure BLE reste identique.
 > ```cpp
-> // ... (memes includes, UUID, setup BLE inchanges) ...
+> // ... (mêmes includes, UUID, setup BLE inchangés) ...
 > const int CAPTEUR = 34;   // ADC1
 >
 > void loop() {
@@ -130,7 +135,7 @@ Prendre capture d'écran de *l'application nRF Connect montrant le périphériqu
 >   }
 > }
 > ```
-> Penser à `analogSetAttenuation(ADC_11db);` dans `setup()` pour la pleine plage. La structure serveur/service/caractéristique est exactement la même — c'est l'intérêt du modèle GATT : un même squelette pour n'importe quelle donnée.
+> La structure serveur/service/caractéristique est exactement la même — c'est l'intérêt du modèle GATT : un même squelette pour n'importe quelle donnée.
 
 > [!question] Exercice 2 — Recevoir une commande (caractéristique en écriture)
 > Ajoutez une caractéristique en **écriture** : quand le client y écrit `1`, la carte allume une LED (`GPIO16`) ; `0`, elle l'éteint. Indice : un *callback* d'écriture.
@@ -149,7 +154,7 @@ Prendre capture d'écran de *l'application nRF Connect montrant le périphériqu
 >   }
 > };
 >
-> // dans setup(), apres createService(...) :
+> // dans setup(), après createService(...) :
 > //   pinMode(LED, OUTPUT);
 > //   BLECharacteristic* cmd = service->createCharacteristic(
 > //       UUID_CMD, BLECharacteristic::PROPERTY_WRITE);
@@ -169,8 +174,8 @@ void setup() {
   Serial.begin(115200);
   BLEDevice::init("");
   BLEScan* scan = BLEDevice::getScan();
-  BLEScanResults res = scan->start(5);      // scan de 5 secondes
-  Serial.print(res.getCount());
+  BLEScanResults* res = scan->start(5);     // scan de 5 secondes (cœur 3.x : pointeur)
+  Serial.print(res->getCount());
   Serial.println(" peripheriques BLE trouves.");
 }
 

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 640 396" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:16px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .mark { fill:#6E6E6E; }
+      .lblBox { font-size:13px; font-weight:600; fill:#2A2A2A; }
+      .lblSub { font-size:10.5px; fill:#5A5A5A; }
+      .lblPanel { font-size:12px; font-weight:600; fill:#3A3A3A; }
+      .branch { font-size:11px; font-weight:600; fill:#3A3A3A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .wire { stroke:#B0B0B0; }
+        .mark { fill:#B0B0B0; }
+        .lblBox { fill:#ECECEC; }
+        .lblSub { fill:#B0B0B0; }
+        .lblPanel { fill:#DADADA; }
+        .branch { fill:#DADADA; }
+        .nStrong { fill:#DADADA; }
+        .n { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="26" class="h1" text-anchor="middle">Arduino-core ou ESP-IDF ?</text>
+  <text x="320" y="46" class="sub" text-anchor="middle">On ne bascule pas par principe : on bascule quand un besoin précis l'exige</text>
+
+  <!-- Depart -->
+  <rect x="240" y="70" width="160" height="36" rx="6" class="boxN"/>
+  <text x="320" y="93" class="lblBox" text-anchor="middle">Projet ESP32</text>
+
+  <line x1="320" y1="106" x2="320" y2="124" class="wire"/>
+  <polygon points="315,124 325,124 320,130" class="mark"/>
+
+  <!-- Question -->
+  <rect x="120" y="130" width="400" height="118" rx="8" class="boxN"/>
+  <text x="140" y="156" class="lblPanel">Un de ces besoins est-il avéré ?</text>
+  <text x="140" y="180" class="lblSub">· Mises à jour à distance (OTA), démarrage sécurisé</text>
+  <text x="140" y="198" class="lblSub">· Contrôle fin de l'énergie ou échéances temps réel strictes</text>
+  <text x="140" y="216" class="lblSub">· Configuration système poussée (menuconfig, partitions)</text>
+  <text x="140" y="234" class="lblSub">· Silicium tout récent, pas encore couvert par l'Arduino-core</text>
+
+  <!-- Branches -->
+  <line x1="180" y1="248" x2="180" y2="284" class="wire"/>
+  <polygon points="175,284 185,284 180,290" class="mark"/>
+  <text x="172" y="270" class="branch" text-anchor="end">non</text>
+
+  <line x1="460" y1="248" x2="460" y2="284" class="wire"/>
+  <polygon points="455,284 465,284 460,290" class="mark"/>
+  <text x="472" y="270" class="branch" text-anchor="start">oui</text>
+
+  <!-- Issues -->
+  <rect x="60" y="290" width="240" height="56" rx="6" class="comp"/>
+  <text x="180" y="313" class="lblBox" text-anchor="middle">Arduino-core</text>
+  <text x="180" y="332" class="lblSub" text-anchor="middle">le défaut raisonnable — on avance vite</text>
+
+  <rect x="340" y="290" width="240" height="56" rx="6" class="boxN"/>
+  <text x="460" y="313" class="lblBox" text-anchor="middle">ESP-IDF</text>
+  <text x="460" y="332" class="lblSub" text-anchor="middle">le plein contrôle — courbe plus raide</text>
+
+  <!-- Note -->
+  <text x="60" y="370" class="nStrong">Bon à savoir</text>
+  <text x="60" y="388" class="n">Le choix n'est pas définitif : les bibliothèques Arduino restent utilisables comme composant d'un projet ESP-IDF.</text>
+</svg>

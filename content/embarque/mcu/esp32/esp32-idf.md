@@ -3,6 +3,7 @@ title: Découvrir ESP-IDF
 type: tuto
 phases:
   - preuve-de-concept
+  - dossier-technique
 tags:
   - eee
   - tuto
@@ -20,10 +21,12 @@ draft: false
 
 L'Arduino-core suffit à la grande majorité des projets pédagogiques. L'ESP-IDF prend son sens quand on bute sur un de ces besoins :
 
-- **Contrôle fin de l'énergie et du temps réel** — gestion précise des modes de veille, ordonnancement de tâches maîtrisé, échéances strictes.
+- **Contrôle fin de l'énergie et du temps réel** — gestion précise des [[esp32-deep-sleep|modes de veille]], ordonnancement de tâches maîtrisé, échéances strictes.
 - **Fonctions de production** — mises à jour à distance (OTA), démarrage sécurisé (secure boot), chiffrement de la Flash, partitions sur mesure.
 - **Configuration système** — activer/régler finement les composants (pile réseau, BLE, pilotes) via un menu de configuration dédié.
 - **Le silicium le plus récent, tout de suite** — une nouvelle puce Espressif est supportée par l'IDF dès sa sortie, parfois avant l'Arduino-core.
+
+![Arbre de décision Arduino-core ou ESP-IDF : si un besoin précis est avéré (OTA et démarrage sécurisé, contrôle fin de l'énergie ou du temps réel, configuration système poussée, silicium très récent) on passe à ESP-IDF, sinon on reste sur l'Arduino-core|640](/ressources/img/esp32-idf/arbre-de-decision.svg)
 
 > [!tip]
 > **Ne pas basculer trop tôt.** L'IDF a une courbe d'apprentissage plus raide. Le bon réflexe est de **rester sur l'Arduino-core** tant qu'aucun verrou précis ne le force — et de migrer la partie concernée seulement quand le besoin est avéré.
@@ -54,12 +57,12 @@ La structure minimale d'un programme IDF tient en une fonction :
 void app_main(void) {
     while (1) {
         printf("Bonjour depuis ESP-IDF\n");
-        vTaskDelay(pdMS_TO_TICKS(1000));   // FreeRTOS : ceder 1 s
+        vTaskDelay(pdMS_TO_TICKS(1000));   // FreeRTOS : céder 1 s
     }
 }
 ```
 
-Pas de `setup()`/`loop()` : `app_main()` est appelée une fois, et c'est à vous d'y créer la boucle ou les tâches. On retrouve immédiatement FreeRTOS (`vTaskDelay`).
+Pas de `setup()`/`loop()` : `app_main()` est appelée une fois, et on y crée soi-même la boucle ou les tâches. On retrouve immédiatement FreeRTOS (`vTaskDelay`).
 
 ## Le pont avec Arduino
 
@@ -76,7 +79,7 @@ Autrement dit, choisir l'IDF n'oblige pas à abandonner tout l'acquis Arduino �
 
 **Se noyer dans `menuconfig`.** Des centaines d'options : ne toucher que ce qu'un besoin identifié impose, laisser le reste par défaut.
 
-**Oublier que tout est FreeRTOS.** En IDF, il n'y a pas de boucle cachée : sans tâche ni boucle dans `app_main()`, rien ne tourne. Le multitâche est explicite dès le départ.
+**Oublier que tout est FreeRTOS.** En IDF, il n'y a pas de boucle cachée : sans tâche ni boucle dans `app_main()`, rien de ce qu'on a écrit ne tourne — la fonction retourne, sa tâche est supprimée, et il ne reste que les tâches système. Le multitâche est explicite dès le départ.
 
 ## Exercices
 
@@ -97,8 +100,8 @@ Autrement dit, choisir l'IDF n'oblige pas à abandonner tout l'acquis Arduino �
 > ```
 > idf.py set-target esp32      # cible (ou esp32c3, esp32s3...)
 > idf.py build                 # compilation
-> idf.py -p COM5 flash         # televersement
-> idf.py -p COM5 monitor       # moniteur serie (Ctrl+] pour quitter)
+> idf.py -p COM5 flash         # téléversement
+> idf.py -p COM5 monitor       # moniteur série (Ctrl+] pour quitter)
 > ```
 > On peut enchaîner flash et monitor : `idf.py -p COM5 flash monitor`. La logique (configurer la cible, compiler, flasher, observer) est la même que dans l'IDE Arduino, mais en commandes reproductibles — d'où l'intérêt en intégration continue.
 

@@ -3,6 +3,7 @@ title: Configurer les GPIO de l'ESP32
 type: tuto
 phases:
   - preuve-de-concept
+  - integration-et-tests
 tags:
   - eee
   - tuto
@@ -27,7 +28,7 @@ Sur l'ESP32, bien choisir et configurer ses broches conditionne trois choses :
 
 ## Les broches de l'ESP32
 
-L'ESP32 d'origine expose des GPIO numérotées (`GPIO0` à `GPIO39`). On les désigne **par leur numéro**, pas par une position de carte. Quelques catégories à connaître :
+L'ESP32 d'origine expose des GPIO numérotées (`GPIO0` à `GPIO39`, avec des trous — 20, 24 et 28 à 31 ne sortent pas du boîtier). On les désigne **par leur numéro**, pas par une position de carte. Quelques catégories à connaître :
 
 - **Broches polyvalentes** — la majorité : entrée, sortie, tirage interne, PWM. À privilégier.
 - **Broches d'entrée seule** — `GPIO34`, `35`, `36`, `39` : lecture uniquement, **pas de sortie, pas de résistance de tirage interne**. Parfaites pour un capteur analogique, à proscrire pour piloter quoi que ce soit ou pour un bouton sans tirage externe.
@@ -68,9 +69,9 @@ void loop() {
 
 ## Lire une entrée analogique
 
-`analogRead(broche)` renvoie la tension de la broche sur une échelle **12 bits : 0 à 4095** (et non 10 bits / 0-1023 comme l'Arduino Uno). Deux contraintes ESP32 majeures :
+`analogRead(broche)` renvoie la tension de la broche sur une échelle **12 bits : 0 à 4095** (et non 10 bits / 0-1023 comme l'Arduino Uno). Le principe de la conversion analogique-numérique est transverse — voir [[adc|ADC]]. Deux contraintes ESP32 majeures :
 
-- **Plage utile et atténuation.** Par défaut, la pleine échelle ne couvre pas tout le 0-3,3 V. Pour lire jusqu'à ~3,3 V, régler l'atténuation : `analogSetAttenuation(ADC_11db);` dans `setup()`.
+- **La conversion naïve ment en haut de plage.** L'atténuation vaut **déjà 11 dB par défaut** : la pleine plage 0-3,3 V est couverte sans rien régler. En revanche la réponse de l'ADC n'est pas linéaire près du haut de l'échelle, et un calcul `brut * 3.3 / 4095` en hérite. Pour une tension juste, utiliser `analogReadMilliVolts(broche)`, qui s'appuie sur les données de calibration gravées dans la puce. (`analogSetAttenuation()` sert à *réduire* la plage pour gagner en finesse sur un capteur de faible tension, pas à l'étendre.)
 - **Conflit ADC2 / Wi-Fi.** Les broches du convertisseur **ADC2** (`GPIO0, 2, 4, 12-15, 25-27`) sont **inutilisables dès que le Wi-Fi est actif**. Pour une mesure analogique sur un projet connecté, utiliser **ADC1** : `GPIO32` à `GPIO39`.
 
 ```cpp
@@ -78,16 +79,21 @@ const int POTAR = 34;  // ADC1, compatible Wi-Fi, entrée seule
 
 void setup() {
   Serial.begin(115200);
-  analogSetAttenuation(ADC_11db);  // plage ~0–3,3 V
 }
 
 void loop() {
-  int brut = analogRead(POTAR);          // 0..4095
-  float volts = brut * 3.3 / 4095.0;     // conversion en tension
-  Serial.println(volts, 2);
+  int brut = analogRead(POTAR);              // 0..4095, valeur crue
+  int mV = analogReadMilliVolts(POTAR);      // tension calibrée, en millivolts
+
+  Serial.print(brut);
+  Serial.print("  ->  ");
+  Serial.print(mV / 1000.0, 2);              // la même, en volts
+  Serial.println(" V");
   delay(200);
 }
 ```
+
+![Câblage du potentiomètre sur ESP32 : les deux extrémités entre 3V3 et GND, le curseur sur GPIO34|600](/ressources/img/esp32-gpio/montage-potentiometre.svg)
 
 ## Commander en PWM (intensité, vitesse)
 
@@ -107,6 +113,8 @@ void loop() {
   }
 }
 ```
+
+*Câblage : c'est la même LED sur `GPIO16` qu'à la section numérique — voir son montage plus haut.*
 
 > [!warning]
 > **L'API LEDC a changé au cœur 3.0.** Le code ci-dessus (`ledcAttach(broche, freq, bits)` + `ledcWrite(broche, duty)`) suppose un cœur **≥ 3.0**. Sur un cœur 2.x, l'API était `ledcSetup(canal, freq, bits)` + `ledcAttachPin(broche, canal)` + `ledcWrite(canal, duty)`. Si `ledcAttach` est introuvable, c'est une question de version (voir [[esp32-prise-en-main|prise en main]], étape 2).
@@ -161,7 +169,7 @@ Le concept de PWM lui-même (rapport cyclique, fréquence) est transverse — vo
 > On agit **à la transition** vers LOW (appui), pas en continu. C'est la même logique que pour toute entrée tout-ou-rien fiable.
 
 > [!question] Exercice 2 — Gradateur piloté au potentiomètre
-> Un potentiomètre sur `GPIO34` (ADC1) doit régler l'intensité d'une LED sur `GPIO16` en PWM. Reliez la lecture 0-4095 au rapport cyclique 0-255.
+> Un [[potentiometre|potentiomètre]] sur `GPIO34` (ADC1) doit régler l'intensité d'une LED sur `GPIO16` en PWM. Reliez la lecture 0-4095 au rapport cyclique 0-255.
 
 > [!success]- Corrigé
 > ```cpp
@@ -169,7 +177,6 @@ Le concept de PWM lui-même (rapport cyclique, fréquence) est transverse — vo
 > const int LED = 16;
 >
 > void setup() {
->   analogSetAttenuation(ADC_11db);
 >   ledcAttach(LED, 5000, 8);   // 8 bits → duty 0..255
 > }
 >
@@ -194,7 +201,7 @@ Fixer une fois pour toutes une carte de ses broches sûres (ADC1 pour les capteu
 - [[gpio|GPIO]] — le concept général d'entrée/sortie numérique (transverse).
 - [[pwm|PWM]] — la modulation de largeur d'impulsion en détail (transverse).
 - [Référence GPIO de l'Arduino-ESP32](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/gpio.html) — fonctions et contraintes par variante.
-- Sortie analogique vraie (DAC) sur `GPIO25`/`26` de l'ESP32 d'origine : `dacWrite(broche, valeur)` — absente des C3/S3.
+- Sortie analogique vraie ([[dac|DAC]]) sur `GPIO25`/`26` de l'ESP32 d'origine : `dacWrite(broche, valeur)` — absente des C3/S3.
 
 ## Voir aussi
 
