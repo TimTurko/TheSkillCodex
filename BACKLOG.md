@@ -5,6 +5,9 @@
 
 ## Récent (17/06) — idées émergées en relecture §7
 
+### 17/08 — relecture de fond §9 ESP32
+- [ ] **Fiche `esp32-programmation-non-bloquante` (candidate, C47)** — repérée 17/08 en relecture d'`esp32-prise-en-main` : le corrigé de l'Exercice 1 renvoie à `[[arduino-programmation-non-bloquante]]`, une fiche d'une **autre famille**, faute d'équivalent ESP32 et de notion transverse [T] sur le motif `millis()`. Le renvoi a été **glosé** (« traité côté Arduino, se transpose tel quel ») plutôt que retiré. Deux voies à trancher plus tard : créer le jumeau ESP32 (parcours autonome C47), ou extraire une **notion transverse** du motif non bloquant, que les deux familles référenceraient — à arbitrer quand le module ESP32 sera relu en entier. À recouper avec `[[esp32-freertos]]` (concurrence par tâches, réponse voisine mais distincte).
+
 ### 30/06 (suite) — relecture de fond §14 Raspberry Pi
 - [ ] **Bloc « Caméra → SBC » sur `architecture-bicephale.svg`** (enrichissement optionnel, faible priorité, proposé 30/06) : le fil rouge parle d'« un bras augmenté d'une caméra » et `raspberry-pi-projet` mentionne la vision, mais le schéma n'a pas de bloc caméra en **entrée** du SBC (la « Vision · détection de cible » est listée dans la boîte SBC). Ajouter un petit bloc *Caméra* fléché vers le Raspberry Pi compléterait le récit visuel. Non bloquant — Tim a clos la session sans le prendre.
 

@@ -9,7 +9,8 @@ tags:
   - esp32
 prerequis:
   - esp32
-aa: []
+aa:
+  - RA-PROJET-C03-3/PROJ/5
 draft: false
 ---
 
@@ -22,7 +23,7 @@ La prise en main valide en une fois toute la chaîne entre votre code et la cart
 Au-delà du premier programme, l'étape a deux rôles :
 
 - **Diagnostiquer plus tard.** Quand un sketch plus avancé refusera de fonctionner, on saura distinguer un problème de *code* d'un problème de *toolchain* — parce que le Blink, lui, fonctionne sur la même chaîne.
-- **Donner un repère de référence.** L'IDE, le menu *Outils → Type de carte / Port*, le bouton Téléverser, le moniteur série : ce sont les gestes mille fois répétés des tutoriels suivants. Les ancrer une fois sur du code trivial libère l'attention pour le reste.
+- **Donner un repère de référence.** L'IDE, le menu *Outils → Type de carte / Port*, le bouton Téléverser, le [[esp32-serie|moniteur série]] : ce sont les gestes mille fois répétés des tutoriels suivants. Les ancrer une fois sur du code trivial libère l'attention pour le reste.
 
 ## Procédure pas à pas
 
@@ -126,7 +127,9 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 
 **Pilote USB-série manquant (Windows).** Carte alimentée mais aucun port : pilote CP210x (CP2102) ou CH340 à installer. Les puces à USB natif (C3/S3/C6) n'ont pas ce souci.
 
-**`LED_BUILTIN` non défini ou faux.** Toutes les cartes ESP32 n'ont pas de LED utilisateur, et la broche varie (GPIO 2 sur beaucoup de DevKit, GPIO 8 sur certaines C3). Si rien ne clignote alors que le téléversement a réussi, remplacez `LED_BUILTIN` par le numéro de GPIO réel de votre carte.
+**`LED_BUILTIN` non défini ou faux.** Toutes les cartes ESP32 n'ont pas de LED utilisateur, et la broche varie (GPIO 2 sur beaucoup de DevKit classiques). Si rien ne clignote alors que le téléversement a réussi, remplacez `LED_BUILTIN` par le numéro de GPIO réel de votre carte.
+
+**LED intégrée RGB adressable (C3, S3, C6…).** Sur beaucoup de DevKit récents, la LED soudée n'est pas une LED simple mais une **WS2812 adressable** : elle se pilote par une trame de données, pas par un niveau logique. Un Blink au `digitalWrite` ne peut donc rien allumer, quelle que soit la broche indiquée — changer de numéro de GPIO ne résoudra rien. Le cœur 3.x expose pour ces cartes la constante `RGB_BUILTIN` et la fonction `neopixelWrite(RGB_BUILTIN, rouge, vert, bleu)`, illustrée par l'exemple officiel *BlinkRGB*. Vérifier le type de LED de sa carte avant de conclure qu'elle est morte.
 
 **Coupure d'alimentation (brown-out) sur USB faible.** L'ESP32 appelle des pointes de courant ; sur un port USB faible ou un câble médiocre, la tension chute et la carte redémarre en boucle (`Brownout detector was triggered`). Changer de port USB ou de câble, éviter les hubs non alimentés.
 
@@ -155,10 +158,12 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 >   }
 > }
 > ```
-> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[arduino-programmation-non-bloquante|la programmation non bloquante]].
+> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[arduino-programmation-non-bloquante|la programmation non bloquante]] — le motif y est traité côté Arduino, il se transpose tel quel sur ESP32.
 
 > [!question] Exercice 2 — LED externe
 > Câblez une LED externe (avec sa résistance de ~220 Ω en série) sur **GPIO 16** et faites-la clignoter, sans toucher à la LED intégrée. Quelle ligne change ?
+
+![Câblage de la LED externe sur ESP32 : GPIO16 vers une résistance de 220 Ω puis l'anode de la LED, cathode vers GND|600](/ressources/img/esp32-prise-en-main/montage-led-externe.svg)
 
 > [!success]- Corrigé
 > Une seule chose change : la broche pilotée. On la nomme explicitement plutôt que d'utiliser `LED_BUILTIN`.

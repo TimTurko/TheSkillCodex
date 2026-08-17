@@ -1,0 +1,71 @@
+<svg viewBox="0 0 640 316" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <defs>
+    <style>
+      .h1 { font-size:16px; font-weight:600; fill:#2A2A2A; }
+      .sub { font-size:11px; fill:#6E6E6E; }
+      .wire { fill:none; stroke:#6E6E6E; stroke-width:2; }
+      .boxN { fill:#FFFFFF; stroke:#B9B6AC; stroke-width:1.4; }
+      .comp { fill:#F7EBD6; stroke:#BA7517; stroke-width:1.6; }
+      .compLine { fill:none; stroke:#BA7517; stroke-width:2; }
+      .dot { fill:#6E6E6E; }
+      .lbl { font-size:12px; fill:#2A2A2A; }
+      .lblBox { font-size:14px; font-weight:600; fill:#3A3A3A; }
+      .lblPin { font-size:11px; font-weight:600; fill:#2A2A2A; }
+      .nStrong { font-size:11.5px; font-weight:600; fill:#3A3A3A; }
+      .n { font-size:11px; fill:#5A5A5A; }
+      @media (prefers-color-scheme: dark) {
+        .h1 { fill:#EDEDED; }
+        .sub { fill:#A8A8A8; }
+        .wire { stroke:#B0B0B0; }
+        .boxN { fill:#1F1F1F; stroke:#5A5A5A; }
+        .comp { fill:#3A2E19; stroke:#E0A24A; }
+        .compLine { stroke:#E0A24A; }
+        .dot { fill:#B0B0B0; }
+        .lbl { fill:#ECECEC; }
+        .lblBox { fill:#DADADA; }
+        .lblPin { fill:#ECECEC; }
+        .nStrong { fill:#DADADA; }
+        .n { fill:#B0B0B0; }
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="28" class="h1" text-anchor="middle">Câblage — LED externe sur ESP32</text>
+  <text x="320" y="48" class="sub" text-anchor="middle">Les noms de broches sont ceux du code : GPIO16, GND</text>
+
+  <!-- ESP32 -->
+  <rect x="44" y="90" width="150" height="150" rx="10" class="boxN"/>
+  <text x="119" y="116" class="lblBox" text-anchor="middle">ESP32</text>
+  <text x="186" y="144" class="lblPin" text-anchor="end">GPIO16</text>
+  <text x="186" y="214" class="lblPin" text-anchor="end">GND</text>
+
+  <!-- Branche LED -->
+  <circle cx="194" cy="140" r="3" class="dot"/>
+  <line x1="194" y1="140" x2="300" y2="140" class="wire"/>
+  <rect x="300" y="129" width="56" height="22" rx="2" class="comp"/>
+  <text x="328" y="122" class="lbl" text-anchor="middle">R 220 Ω</text>
+  <line x1="356" y1="140" x2="430" y2="140" class="wire"/>
+  <polygon points="430,130 430,150 456,140" class="comp"/>
+  <line x1="456" y1="130" x2="456" y2="150" class="compLine"/>
+  <line x1="446" y1="126" x2="456" y2="116" class="compLine"/>
+  <line x1="438" y1="128" x2="448" y2="118" class="compLine"/>
+  <text x="443" y="170" class="lbl" text-anchor="middle">LED</text>
+  <text x="416" y="186" class="n" text-anchor="middle">anode</text>
+  <text x="474" y="186" class="n" text-anchor="middle">cathode</text>
+  <line x1="456" y1="140" x2="560" y2="140" class="wire"/>
+
+  <!-- Rail GND -->
+  <line x1="194" y1="210" x2="560" y2="210" class="wire"/>
+  <line x1="560" y1="140" x2="560" y2="226" class="wire"/>
+  <circle cx="560" cy="140" r="3" class="dot"/>
+  <circle cx="560" cy="210" r="3" class="dot"/>
+  <line x1="548" y1="226" x2="572" y2="226" class="wire"/>
+  <line x1="552" y1="231" x2="568" y2="231" class="wire"/>
+  <line x1="556" y1="236" x2="564" y2="236" class="wire"/>
+  <text x="560" y="254" class="lbl" text-anchor="middle">GND</text>
+
+  <!-- Note -->
+  <text x="44" y="282" class="nStrong" text-anchor="start">Bon à savoir</text>
+  <text x="44" y="300" class="n" text-anchor="start">La LED a un sens : anode (patte longue) vers la résistance, cathode (patte courte, côté méplat) vers GND.</text>
+  <text x="44" y="314" class="n" text-anchor="start">La résistance de 220 Ω limite le courant — sans elle, la LED et la broche sont en danger.</text>
+</svg>
