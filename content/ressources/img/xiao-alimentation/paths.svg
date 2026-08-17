@@ -58,5 +58,5 @@
   <text x="464" y="227" text-anchor="middle" class="sm">+ périphériques</text>
 
   <text x="350" y="266" text-anchor="middle" class="foot">USB branché : recharge l'accu ET alimente la carte. Sur batterie seule : le 3V3 vient de l'accu, la broche 5V est éteinte.</text>
-  <text x="350" y="284" text-anchor="middle" class="foot">Charge : 50 mA (rapide) / 3,8 mA (entretien). Pour alimenter par la broche 5V, une diode en série (anode côté source).</text>
+  <text x="350" y="284" text-anchor="middle" class="foot">Charge de l'accu : 100 mA (valeur annoncée par Seeed). Pour alimenter par la broche 5V, une diode en série (anode côté source).</text>
 </svg>

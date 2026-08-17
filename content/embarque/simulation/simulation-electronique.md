@@ -17,7 +17,7 @@ draft: false
 
 **Simuler un système électronique**, c'est en calculer le comportement sur ordinateur — tensions, courants, formes d'onde — **avant de câbler quoi que ce soit**. On vérifie qu'une idée tient, on explore des variantes, on évite de griller un composant sur une fausse manœuvre — le tout sans fer à souder. Cette fiche est le **hub d'entrée** vers la simulation : elle pose la **méthode** commune à tous les outils et la façon d'en **lire les résultats**, puis oriente vers le simulateur adapté — des outils analogiques ([[falstad|Falstad]], [[ltspice|LTspice]]) aux simulateurs de cartes à microcontrôleur ([[wokwi|Wokwi]], [[tinkercad|Tinkercad]]).
 
-![Schéma du cycle de simulation : un schéma électronique saisi sur ordinateur alimente un moteur de calcul qui produit des courbes (tensions et courants), lesquelles sont confrontées au comportement attendu ; une flèche de retour indique qu'un écart renvoie à la modification du schéma, avant tout passage au câblage réel.](/ressources/img/simulation-electronique/cycle.svg)
+![Schéma du cycle de simulation : un schéma électronique saisi sur ordinateur alimente un moteur de calcul qui produit des courbes (tensions et courants), lesquelles sont confrontées au comportement attendu ; une flèche de retour indique qu'un écart renvoie à la modification du schéma, avant tout passage au câblage réel.|640](/ressources/img/simulation-electronique/cycle.svg)
 
 ## À quoi ça sert ?
 
@@ -62,7 +62,7 @@ C'est la moitié du travail, et la plus négligée : une simulation qui tourne n
 
 **Décider.** Trois issues possibles : la conception est **validée** (on passe au montage) ; elle est **à revoir** (une valeur ne convient pas, on itère) ; ou le résultat est **aberrant** — et un résultat aberrant trahit presque toujours une **erreur de saisie ou de modèle**, pas une découverte physique. Le réflexe devant l'invraisemblable n'est pas d'y croire, mais de relire le schéma.
 
-![Lecture d'une courbe transitoire : une tension qui monte de 0 vers un palier, avec repérés sur le graphe la valeur finale (palier), la constante de temps, et une ligne en pointillés marquant la valeur attendue par la théorie ; un encart compare « simulé » et « attendu » et conclut que le montage est validé.](/ressources/img/simulation-electronique/lecture-courbe.svg)
+![Lecture d'une courbe transitoire : une tension qui monte de 0 vers un palier, avec repérés sur le graphe la valeur finale (palier), la constante de temps, et une ligne en pointillés marquant la valeur attendue par la théorie ; un encart compare « simulé » et « attendu » et conclut que le montage est validé.|640](/ressources/img/simulation-electronique/lecture-courbe.svg)
 
 ## Choisir un simulateur
 
@@ -72,8 +72,8 @@ Les simulateurs se rangent en deux familles selon ce qu'on simule : l'**électro
 | --- | --- | --- | --- |
 | [[falstad\|Falstad]] | analogique | navigateur, sans compte, **visualise le courant qui circule** | comprendre et explorer vite, pédagogie |
 | [[ltspice\|LTspice]] | analogique *(SPICE)* | gratuit (Analog Devices), analyses complètes et précises | dimensionnement sérieux, alimentations, filtres |
-| [[wokwi\|Wokwi]] | microcontrôleur | navigateur, ESP32/Arduino + capteurs, **exécute le code** | valider un montage MCU + code avant le matériel |
-| [[tinkercad\|Tinkercad]] *([A])* | microcontrôleur | bac à sable Arduino + électronique simple, en ligne | premiers pas, prototypage débutant |
+| [[wokwi\|Wokwi]] | microcontrôleur | navigateur, ESP32/Arduino/Pico + capteurs, **exécute le code** (C++ ou [[micropython\|MicroPython]]) | valider un montage MCU + code avant le matériel |
+| [[tinkercad\|Tinkercad]] | microcontrôleur | bac à sable Arduino + électronique simple, en ligne | premiers pas, prototypage débutant |
 
 Deux repères pour s'orienter. Pour de l'**analogique** — un pont diviseur, un filtre, un étage de puissance — on reste sur Falstad (pour comprendre) ou LTspice (pour dimensionner). Pour un **montage à microcontrôleur** où le comportement dépend du programme, on prend Wokwi ou [[tinkercad|Tinkercad]], qui exécutent le [[cpp|code]] en même temps que le circuit.
 

@@ -23,27 +23,27 @@
   <text x="380" y="26" text-anchor="middle" class="ti">Récupérer une carte muette : le mode bootloader</text>
 
   <rect x="20" y="62" width="165" height="64" rx="5" class="obx"/>
-  <text x="102" y="90" text-anchor="middle" class="hd">① Maintiens</text>
+  <text x="102" y="90" text-anchor="middle" class="hd">① Maintenir</text>
   <text x="102" y="106" text-anchor="middle" class="hd">le bouton BOOT</text>
 
   <line x1="187" y1="94" x2="203" y2="94" class="wire" marker-end="url(#aw)"/>
 
   <rect x="205" y="62" width="165" height="64" rx="5" class="obx"/>
-  <text x="287" y="90" text-anchor="middle" class="hd">② Branche l'USB-C</text>
+  <text x="287" y="90" text-anchor="middle" class="hd">② Brancher l'USB-C</text>
   <text x="287" y="106" text-anchor="middle" class="hd">(BOOT toujours tenu)</text>
 
   <line x1="372" y1="94" x2="388" y2="94" class="wire" marker-end="url(#aw)"/>
 
   <rect x="390" y="62" width="165" height="64" rx="5" class="obx"/>
-  <text x="472" y="90" text-anchor="middle" class="hd">③ Relâche BOOT</text>
+  <text x="472" y="90" text-anchor="middle" class="hd">③ Relâcher BOOT</text>
   <text x="472" y="106" text-anchor="middle" class="hd">→ mode bootloader</text>
 
   <line x1="557" y1="94" x2="573" y2="94" class="wire" marker-end="url(#aw)"/>
 
   <rect x="575" y="62" width="165" height="64" rx="5" class="obx"/>
-  <text x="657" y="90" text-anchor="middle" class="hd">④ Téléverse,</text>
-  <text x="657" y="106" text-anchor="middle" class="hd">puis appuie Reset</text>
+  <text x="657" y="90" text-anchor="middle" class="hd">④ Téléverser,</text>
+  <text x="657" y="106" text-anchor="middle" class="hd">puis appuyer sur Reset</text>
 
   <text x="380" y="160" text-anchor="middle" class="foot">Symptôme : pas de port, ou port présent mais téléversement qui échoue.</text>
-  <text x="380" y="178" text-anchor="middle" class="foot">Variante : maintiens BOOT à la mise sous tension, puis appuie Reset une fois.</text>
+  <text x="380" y="178" text-anchor="middle" class="foot">Variante : maintenir BOOT à la mise sous tension, puis appuyer sur Reset une fois.</text>
 </svg>

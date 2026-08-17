@@ -4,6 +4,7 @@ type: notion
 tags:
   - eee
   - notion
+  - xiao
 prerequis:
   - microcontroleur
   - esp32
@@ -15,7 +16,7 @@ aliases:
   - xiao
 ---
 
-Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 17,5 mm) de **Seeed Studio**, bâtie autour de la puce [[esp32|ESP32]]-S3 : deux cœurs à 240 MHz, 8 Mo de PSRAM, Wi-Fi et BLE, le tout sur une carte USB-C qui tient sur un ongle. Cette fiche est le **hub-parcours** de la carte : pourquoi elle, quelle variante choisir, et comment l'utiliser dans un projet en s'appuyant sur les fiches existantes. XIAO est un **format**, pas une famille de puces — tout ce qui concerne le SoC, les radios et les chaînes d'outils est porté par le module [[esp32|ESP32]], et le choix entre familles de microcontrôleurs reste porté par [[microcontroleur|microcontrôleur]].
+Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 17,8 mm) de **Seeed Studio**, bâtie autour de la puce [[esp32|ESP32]]-S3 : deux cœurs à 240 MHz, 8 Mo de PSRAM, Wi-Fi et BLE, le tout sur une carte USB-C qui tient sur un ongle. Cette fiche est le **hub-parcours** de la carte : pourquoi elle, quelle variante choisir, et comment l'utiliser dans un projet en s'appuyant sur les fiches existantes. XIAO est un **format**, pas une famille de puces — tout ce qui concerne le SoC, les radios et les chaînes d'outils est porté par le module [[esp32|ESP32]], et le choix entre familles de microcontrôleurs reste porté par [[microcontroleur|microcontrôleur]].
 
 ![Carte XIAO ESP32-S3 et ses fonctions : USB-C, antenne U.FL, LED utilisateur sur GPIO21, boutons Boot et Reset, et les groupes alimentation, 11 GPIO, 9 ADC, I²C, SPI et UART.|640](/ressources/img/xiao-esp32-s3/brochage.svg)
 
@@ -23,7 +24,7 @@ Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 1
 
 On prend cette carte quand on veut la **connectivité et la puissance d'un ESP32 dans un encombrement minimal** :
 
-- **format timbre-poste** (≈ 21 × 17,5 mm, bords castellés montables en CMS) — idéal pour un objet porté ou un produit compact ;
+- **format timbre-poste** (≈ 21 × 17,8 mm, bords castellés montables en CMS) — idéal pour un objet porté ou un produit compact ;
 - **ESP32-S3** : deux cœurs Xtensa LX7 à 240 MHz, **8 Mo de PSRAM + 8 Mo de Flash**, instructions vectorielles pour l'IA embarquée ;
 - **Wi-Fi 4 (2,4 GHz) + BLE 5** intégrés, avec antenne céramique **et** connecteur d'antenne externe ;
 - **USB-C natif** — l'ESP32-S3 gère l'USB sans puce externe ;
@@ -61,6 +62,7 @@ Programmer cette carte mobilise les mêmes briques que tout microcontrôleur : e
 | économiser la batterie | [[deep-sleep\|deep sleep]] + [[esp32-deep-sleep\|ESP32 deep sleep]] |
 | faire du multitâche | [[esp32-freertos\|FreeRTOS]] |
 | structurer son code | [[firmware\|firmware]] |
+| essayer sans matériel | [[wokwi\|Wokwi]] — les XIAO C3, S3 et C6 y sont simulées |
 
 Trois fiches couvrent le **spécifique carte** : le premier flashage avec [[xiao-prise-en-main|prise en main]], l'alimentation et la recharge d'accu avec [[xiao-alimentation|alimentation]], et la version caméra/IA avec [[xiao-sense|XIAO Sense]].
 
@@ -119,5 +121,6 @@ Les **bords castellés** permettent de souder la XIAO directement sur son propre
 - [[xiao-sense|XIAO Sense]] — caméra, micro, microSD, IA embarquée
 - [[embarque/index|Colonne de réalisation]] — la démarche projet de bout en bout
 - [[choisir-le-materiel|Choisir le matériel]] — l'étape où le XIAO entre dans le projet
+- [[wokwi|Wokwi]] — simuler la carte et son code dans le navigateur, avant le matériel
 - [[i2c|I²C]] — le bus de l'extendeur d'E/S
 - [[deep-sleep|Deep sleep]] — le mode basse consommation sur batterie

@@ -110,5 +110,7 @@ Une demi-heure de simulation avant la première mise sous tension réduit nettem
 
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-prise-en-main|Prise en main de MicroPython]] — sur du matériel réel
+- [[wokwi|Wokwi]] — le tuto-outil du simulateur employé ici (côté Arduino et ESP32)
+- [[simulation-electronique|Simulation électronique]] — le hub : méthode et lecture des résultats
 - [[tinkercad|Tinkercad]] — l'équivalent pour Arduino (ne couvre pas le Pico)
 - [[microcontroleur|Microcontrôleur]] — panorama des familles MCU

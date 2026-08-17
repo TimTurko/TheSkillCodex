@@ -70,3 +70,4 @@ Le projet n'exige pas un instrument de laboratoire :
 - [[oscilloscope|Oscilloscope]] — le complément analogique : la *qualité* du signal, pas seulement ses états
 - [[uart|UART]] · [[i2c|I²C]] · [[spi|SPI]] — les protocoles que l'analyseur décode
 - [[chronogramme|Chronogramme]] — lire ce que l'analyseur affiche
+- [[wokwi|Wokwi]] — son analyseur logique virtuel, pour capturer un bus **simulé** avant de câbler
