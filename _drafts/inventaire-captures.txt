@@ -1,0 +1,101 @@
+﻿debugger-embarque.md|19|*Prendre capture d'écran d'une session de débogage dans un IDE : le code arrêté sur un point d'arrêt (ligne surlignée), le panneau des variables/watch affichant leurs valeurs courantes, et la pile d'appels (call stack).*
+debugger-embarque.md|62|*Prendre capture d'écran de la session : un point d'arrêt posé sur la ligne qui inverse l'état de la LED, et le panneau des variables montrant l'état courant.*
+ide.md|19|*Prendre capture d'écran de l'IDE Arduino annoté : zone d'édition du code, boutons Vérifier / Téléverser, sélecteur de carte et de port, moniteur série.*
+lire-une-datasheet.md|118|*Prendre capture d'écran des deux dessins de boîtier (Multiwatt15 et PowerSO-20) en première page de la datasheet.*
+lire-une-datasheet.md|128|*Prendre capture d'écran du brochage Multiwatt15 (figure « Pin configuration ») et du tableau « Pin function ».*
+lire-une-datasheet.md|139|*Prendre capture d'écran de la table « Values of bidirectional dc motor control » et du schéma d'application qui l'accompagne (figure 8).*
+lire-une-datasheet.md|180|*Prendre capture d'écran du tableau « Absolute maximum ratings » (table 1) de la datasheet.*
+arduino-alimentation.md|73|Prendre capture d'écran ou photo de *une carte Arduino Uno avec trois alimentations possibles visibles : câble USB type B, jack DC 9 V branché, et fil Vin/GND sur breadboard*.
+arduino-bibliotheques.md|51|Prendre capture d'écran de *le gestionnaire de bibliothèques de l'IDE Arduino 2.x ouvert, avec la recherche « Adafruit BMP280 » et plusieurs résultats visibles*.
+arduino-capteur-analogique.md|131|Prendre capture d'écran de *le traceur série de l'IDE Arduino affichant deux courbes superposées (le seuil constant réglé au potentiomètre et la lumière variable), la LED basculant quand l'une passe sous l'autre*.
+arduino-capteur-numerique.md|132|Prendre capture d'écran de *le moniteur série de l'IDE Arduino 2.x affichant une suite de mesures de distance en cm pendant qu'une main bouge devant le capteur*.
+arduino-debug.md|89|Prendre capture d'écran de *l'IDE Arduino 2.x en mode Debug, avec un breakpoint posé sur une ligne de code et le panneau des variables ouvert à droite*.
+arduino-deep-sleep.md|78|Prendre capture ou photo de *un multimètre en série avec l'alimentation du montage, affichant la chute du courant de plusieurs milliampères à quelques microampères quand la carte s'endort*.
+arduino-interruptions.md|39|Prendre capture d'écran de *le tableau des broches à interruption d'une carte Arduino Uno, mettant en évidence D2 et D3*.
+arduino-machine-a-etats.md|93|Prendre capture d'écran ou photo de *le carrefour en fonctionnement, LED voiture verte allumée et LED piéton rouge allumée*.
+arduino-memoire.md|72|Prendre capture d'écran de *le moniteur série affichant la RAM libre en octets, et sa diminution au fil des allocations*.
+arduino-pid.md|93|Prendre capture d'écran de *le traceur série de l'IDE affichant deux courbes : la consigne (constante) et la mesure qui converge vers elle après réglage des gains*.
+arduino-sortie-pwm.md|80|Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un signal PWM sur la broche D9, rapport cyclique ~50 %, fréquence ~490 Hz*.
+arduino-timers.md|76|Prendre capture d'écran de *le traceur série (Serial Plotter) de l'IDE Arduino affichant des échantillons régulièrement espacés dans le temps*.
+cpp-execution.md|89|Prendre capture d'écran de *la sortie du moniteur série : la ligne « === Demarrage : setup() execute === » affichée une fois, puis le compteur « Tour de loop n 1, 2, 3… » qui s'incrémente*.
+cpp-logs.md|50|Prendre capture d'écran de *le panneau d'erreur de l'IDE Arduino 2.x (en bas de la fenêtre) affichant un message « error: … » en rouge, avec le chemin fichier:ligne et la ligne de code fautive*.
+esp32-arduino-core.md|95|Prendre capture d'écran de *le moniteur série affichant « loop() tourne sur le coeur X » et « Memoire libre : XXXXXX octets » répétés toutes les 2 secondes*.
+esp32-ble.md|99|Prendre capture d'écran de *l'application nRF Connect montrant le périphérique « ESP32-Capteur » connecté, le service déplié et la caractéristique dont la valeur s'incrémente*.
+esp32-deep-sleep.md|114|Prendre capture d'écran de *le moniteur série montrant les lignes « Cycle N — mesure = XXX » espacées de 30 secondes, le numéro de cycle croissant après plusieurs réveils*.
+esp32-freertos.md|110|Prendre capture d'écran de *le moniteur série affichant les lignes « Capteur : XXX » une fois par seconde, pendant que la LED clignote visiblement plus vite sur la carte*.
+esp32-i2c.md|106|Prendre capture d'écran de *le moniteur série listant une ou plusieurs adresses I2C trouvées, par exemple « module a l'adresse 0x3C »*.
+esp32-prise-en-main.md|38|Prendre capture d'écran de *la page de téléchargement arduino.cc/en/software, avec les liens Windows / macOS / Linux visibles*.
+esp32-prise-en-main.md|48|Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL Espressif collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+esp32-prise-en-main.md|55|Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp32 », montrant le paquet Espressif Systems avec son numéro de version et le bouton Installer*.
+esp32-prise-en-main.md|69|Prendre capture d'écran de *l'IDE 2.x avec le menu Outils déroulé montrant « ESP32 Dev Module » sélectionné et le port actif*.
+esp32-prise-en-main.md|92|Prendre capture d'écran de *l'IDE 2.x avec le code Blink dans l'éditeur et la console affichant une compilation réussie*.
+esp32-prise-en-main.md|103|Prendre capture d'écran ou photo de *la carte ESP32 branchée, LED intégrée allumée*.
+esp32-serie.md|76|Prendre capture d'écran de *l'IDE 2.x avec le moniteur série ouvert en bas, montrant des lignes « Valeur du capteur : XXX » et le sélecteur de baud rate réglé sur 115200*.
+esp32-serie.md|149|Prendre capture d'écran de *le moniteur série montrant l'alternance « capteur = XXX » et les réponses « LED allumee » / « LED eteinte » après saisie des commandes*.
+esp32-spi.md|102|Prendre capture d'écran de *le moniteur série affichant « Ecrit. » puis le contenu relu du fichier mesures.csv*.
+esp32-uart.md|98|Prendre capture d'écran de *le moniteur série affichant les trames reçues du module sur UART2, avec le débit réglé sur 115200*.
+esp32-wifi.md|147|Prendre capture d'écran de *le navigateur affichant la page « ESP32 » avec les liens Allumer / Eteindre, et le moniteur série montrant l'adresse IP attribuée*.
+esp8266-arduino-core.md|88|Prendre capture d'écran de *le moniteur série affichant la progression de connexion puis l'adresse IP de la carte*.
+esp8266-prise-en-main.md|41|Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL ESP8266 collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+esp8266-prise-en-main.md|45|Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp8266 », montrant le paquet ESP8266 Community avec son bouton Installer*.
+esp8266-prise-en-main.md|55|Prendre capture d'écran de *l'IDE 2.x avec le menu Outils déroulé montrant « NodeMCU 1.0 (ESP-12E Module) » sélectionné et le port actif*.
+esp8266-prise-en-main.md|79|Prendre capture d'écran ou photo de *la carte NodeMCU branchée, LED intégrée allumée, avec la console de l'IDE affichant un téléversement réussi*.
+micropython-alimentation.md|63|Prendre capture d'écran ou photo de *un Pico alimenté de deux façons : par USB, et par une batterie reliée à VSYS/GND*.
+micropython-bibliotheques.md|44|Prendre capture d'écran de *la fenêtre « Gérer les paquets » de Thonny, recherche « ssd1306 », bouton Installer visible*.
+micropython-capteur-numerique.md|115|Prendre capture d'écran de *le Shell de Thonny affichant une suite de mesures de distance en cm pendant qu'une main bouge devant le capteur*.
+micropython-debug.md|91|Prendre capture d'écran de *Thonny en mode débogage d'un script MicroPython, exécution en pas-à-pas et valeurs des variables visibles*.
+micropython-deep-sleep.md|92|Prendre capture d'écran ou photo de *un multimètre en série avec l'alimentation du montage, affichant la chute du courant quand la carte s'endort*.
+micropython-memoire.md|73|Prendre capture d'écran de *le REPL affichant `gc.mem_free()` avant et après `gc.collect()`, montrant la mémoire récupérée*.
+micropython-pid.md|88|Prendre capture d'écran de *le traceur de Thonny affichant deux courbes : la consigne (constante) et la mesure qui converge vers elle après réglage des gains*.
+micropython-prise-en-main.md|36|Prendre capture d'écran de *la page de téléchargement thonny.org avec les liens par système*.
+micropython-prise-en-main.md|48|Prendre capture d'écran de *la boîte de dialogue « Installer MicroPython » de Thonny, variante Pico 2 sélectionnée*.
+micropython-prise-en-main.md|65|Prendre capture d'écran de *Thonny avec l'interpréteur réglé sur « MicroPython (Raspberry Pi Pico) » et le Shell affichant l'invite >>> et un print*.
+micropython-prise-en-main.md|97|Prendre capture d'écran de *Thonny avec le script Blink dans l'éditeur, le bouton Exécuter, et le Pico LED allumée*.
+micropython-prise-en-main.md|103|Prendre capture d'écran de *la boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, fichier nommé main.py*.
+micropython-repl.md|88|*Prendre capture d'écran de la vue Plotter de Thonny traçant une grandeur qui varie (la courbe ondule au fil des `print`).*
+micropython-shield.md|37|Prendre capture d'écran ou photo de *un Pico enfiché sur une carte porteuse (carrier board), bien aligné et à plat*.
+micropython-simulation.md|36|Prendre capture d'écran de *la page de création de projet Wokwi, avec « Raspberry Pi Pico » + « MicroPython » sélectionnés*.
+micropython-simulation.md|42|Prendre capture d'écran de *un plan Wokwi avec un Pico, une LED et un bouton câblés, le sélecteur de composants ouvert*.
+micropython-simulation.md|48|Prendre capture d'écran de *l'éditeur Wokwi avec un main.py MicroPython (blink) à gauche et le Pico simulé à droite*.
+micropython-simulation.md|54|Prendre capture d'écran de *une simulation Wokwi en cours, LED allumée et console série affichant un print*.
+micropython-simulation.md|77|Prendre capture d'écran de *la simulation Wokwi du circuit bouton + LED, bouton en cours d'appui et LED allumée*.
+micropython-sortie-pwm.md|78|Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un signal PWM, rapport cyclique ~50 %*.
+micropython-timers.md|65|Prendre capture d'écran de *le traceur de Thonny (Plotter) affichant des échantillons régulièrement espacés dans le temps*.
+micropython-watchdog.md|58|Prendre capture d'écran ou photo de *un multimètre ou le REPL montrant la carte qui redémarre seule après un blocage simulé (boucle qui ne nourrit plus le chien)*.
+raspberry-pi-prise-en-main.md|36|Prendre capture d'écran de *la fenêtre principale de Raspberry Pi Imager, avec les trois boutons « Choisir le modèle », « Choisir l'OS » et « Choisir le stockage »*.
+raspberry-pi-prise-en-main.md|47|Prendre capture d'écran de *l'onglet « Général » de la personnalisation OS d'Imager, avec les champs nom d'hôte, nom d'utilisateur/mot de passe et Wi-Fi renseignés*.
+raspberry-pi-prise-en-main.md|49|Prendre capture d'écran de *l'onglet « Services » de la personnalisation OS, case « Activer SSH » cochée*.
+raspberry-pi-prise-en-main.md|68|Prendre capture d'écran de *un terminal affichant la connexion SSH réussie, avec l'invite de commande du Pi (par exemple `monutilisateur@monpi:~ $`)*.
+stm32-arduino-core.md|38|Prendre capture d'écran de *la fenêtre Préférences de l'IDE Arduino avec l'URL STM32duino collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+stm32-arduino-core.md|45|Prendre capture d'écran de *le menu Outils de l'IDE Arduino montrant Type de carte « Nucleo-64 », Board part number et Upload method « STM32CubeProgrammer (SWD) »*.
+stm32-arduino-core.md|116|Prendre capture d'écran de *le moniteur série affichant « Frequence du coeur : XX MHz » et la ligne UID en hexadécimal*.
+stm32-cubemx.md|41|Prendre capture d'écran de *la vue Pinout & Configuration de CubeMX, avec quelques broches affectées en surbrillance (LD2 en GPIO_Output, PA2/PA3 en USART2)*.
+stm32-cubemx.md|49|Prendre capture d'écran de *l'onglet Clock Configuration de CubeMX, montrant l'arbre HSE → PLL → SYSCLK → prédiviseurs AHB/APB avec la fréquence cœur affichée*.
+stm32-cubemx.md|58|Prendre capture d'écran de *le panneau de configuration d'un USART dans CubeMX (Baud Rate 115200, Word Length 8 bits) avec l'onglet NVIC Settings visible*.
+stm32-cubemx.md|89|Prendre capture d'écran de *le moniteur série affichant « tic » répété chaque seconde, à côté de la carte avec LD2 allumée*.
+stm32-hal.md|120|Prendre capture d'écran de *le moniteur série renvoyant en écho les caractères tapés, pendant que la LED suit le bouton*.
+stm32-prise-en-main.md|38|Prendre capture d'écran de *la page de téléchargement de STM32CubeIDE sur st.com, avec les liens Windows / Linux / macOS*.
+stm32-prise-en-main.md|50|Prendre capture d'écran de *l'onglet Board Selector de STM32CubeIDE, NUCLEO-F411RE sélectionnée, avec le bouton Next*.
+stm32-prise-en-main.md|69|Prendre capture d'écran de *l'éditeur main.c avec le toggle de LD2 inséré entre USER CODE BEGIN 3 et USER CODE END 3*.
+stm32-prise-en-main.md|75|Prendre capture d'écran de *la console Build de CubeIDE affichant « Build Finished. 0 errors » et le récapitulatif de taille mémoire*.
+stm32-prise-en-main.md|86|Prendre capture d'écran ou photo de *la carte Nucleo branchée, LED utilisateur LD2 (verte) allumée*.
+stm32-prise-en-main.md|105|Prendre capture d'écran de *la perspective Debug de CubeIDE, point d'arrêt posé dans la boucle while et flèche d'exécution sur une ligne*.
+stm32-registres.md|68|Prendre capture d'écran de *la perspective Debug de CubeIDE, vue Registers ouverte sur GPIOA, montrant le bit 5 de ODR basculer à l'exécution pas à pas*.
+teensy-arduino-core.md|100|Prendre capture d'écran de *le moniteur série affichant « Coeur : 600 MHz » pendant que la LED clignote*.
+teensy-audio.md|42|Prendre capture d'écran de *l'Audio System Design Tool dans le navigateur, avec quelques objets posés (waveform, filter, i2s) et des cordons tracés entre eux*.
+teensy-audio.md|80|Prendre capture d'écran ou enregistrement de *l'Audio Shield branché sur le Teensy, casque connecté, jouant le 440 Hz*.
+teensy-prise-en-main.md|38|Prendre capture d'écran de *la page de téléchargement arduino.cc/en/software avec les liens Windows / macOS / Linux*.
+teensy-prise-en-main.md|48|Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL PJRC collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+teensy-prise-en-main.md|52|Prendre capture d'écran de *le gestionnaire de cartes filtré sur « teensy », montrant le paquet de Paul Stoffregen avec son bouton Installer*.
+teensy-prise-en-main.md|60|Prendre capture d'écran de *l'IDE 2.x avec le menu Outils déroulé montrant « Teensy 4.1 » sélectionné, le port actif et USB Type sur Serial*.
+teensy-prise-en-main.md|81|Prendre capture d'écran de *l'IDE 2.x avec le code Blink dans l'éditeur et la console affichant une compilation réussie*.
+teensy-prise-en-main.md|92|Prendre capture d'écran ou photo de *la carte Teensy branchée, LED intégrée (broche 13) allumée, avec la fenêtre du Teensy Loader*.
+teensy-usb.md|74|Prendre capture d'écran ou vidéo de *un éditeur de texte sur l'ordinateur recevant « Teensy! » à chaque appui sur le bouton câblé au Teensy*.
+analyseur-logique.md|19|*Prendre capture d'écran de PulseView avec une trame I²C capturée et décodée (adresse + octets lisibles au-dessus des impulsions).*
+multimetre.md|19|*Prendre capture d'écran d'un multimètre numérique avec ses éléments annotés : l'écran, le sélecteur rotatif (positions tension continue V⎓, tension alternative V∼, résistance Ω, courant A, continuité), et les trois bornes (COM, V/Ω, et la borne courant marquée 10 A).*
+multimetre.md|56|*Prendre capture d'écran de la mesure : pointe noire sur GND, pointe rouge sur la broche 5 V d'une carte Arduino, l'écran affichant une valeur proche de 5 V.*
+oscilloscope.md|19|*Prendre capture d'écran de la face avant d'un oscilloscope avec ses zones annotées : l'écran quadrillé, le bloc de réglage vertical (Volts/div), le bloc horizontal (Temps/div), et le bloc de déclenchement (Trigger : niveau et front).*
+oscilloscope.md|58|*Prendre capture d'écran de l'écran de l'oscilloscope montrant un signal carré PWM : niveau haut puis bas, avec la période repérée sur l'axe horizontal et le rapport cyclique (proportion du temps à l'état haut) visible.*
+kicad.md|18|Prendre capture d'écran de *la fenêtre de démarrage de KiCad et de ses deux éditeurs principaux côte à côte : l'éditeur de schéma (Eeschema) à gauche, l'éditeur de circuit imprimé (Pcbnew) à droite*.
+kicad.md|41|Prendre capture d'écran de *Pcbnew montrant une carte 2 couches en cours de routage : composants placés, pistes tracées en rouge (dessus) et vert (dessous), contour de carte visible*.
+kicad.md|50|Prendre capture d'écran du *schéma KiCad de la carte : le microcontrôleur au centre, le capteur relié en I²C (deux lignes SDA/SCL), le régulateur d'alimentation, et le connecteur, avec les valeurs annotées*.

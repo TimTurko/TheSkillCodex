@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: null,
     locale: "fr-FR",
     baseUrl: "timturko.github.io/TheSkillCodex",
-    ignorePatterns: ["private", "prof", ".obsidian"],
+    ignorePatterns: ["private", "prof", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

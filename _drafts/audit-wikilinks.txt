@@ -1,0 +1,89 @@
+﻿=== AUDIT DES WIKILINKS ===
+241 fiches lues, 258 cibles distinctes
+
+--- MORT (5) ---
+[[filtrage]]  8 occurrence(s)
+    embarque/mcu/arduino/arduino-capteur-analogique.md  x2
+        L143 : **Bruit sur les mesures.** Une mesure analogique brute a typiquement ┬▒1 ├á ┬▒3 LSB de bruit (~5-15 mV). Sur un capteur pr├®cis (LM35 0,01 V/┬░C ÔåÆ 1 LSB = ...
+    embarque/mcu/arduino/arduino-capteur-numerique.md  x2
+        L181 : **Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interf├®rences, mauvaise r├®flexion). Filtrer (m├®diane sur 3-5 ...
+    embarque/mcu/micropython/micropython-capteur-analogique.md  x2
+        L117 : **Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur pr├®cis, ├ºa compte : moyenner sur 10ÔÇô20 mesures (sur├®chantillonnag...
+    embarque/mcu/micropython/micropython-capteur-numerique.md  x2
+        L154 : **Valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes ÔÇö filtrer (m├®diane sur 3-5 mesures) avant d'asservir (voir [[filtrage|filt...
+[[bus-de-terrain]]  2 occurrence(s)
+    embarque/mcu/bus/bus-de-communication.md  x2
+        L51 : Au-del├á de ces trois protocoles, les **bus de terrain** ÔÇö le RS-485 (liaison s├®rie robuste, multi-n┼ôuds, des dizaines de m├¿tres) et surtout le **CAN**...
+[[raspberry-pi-pico]]  2 occurrence(s)
+    embarque/mcu/microcontroleur.md  x2
+        L41 : | [[raspberry-pi-pico\|Raspberry Pi Pico]] | RP2040, 2├ù Cortex-M0+ (Pico 2 : RP2350) | MicroPython (Thonny), C/C++ Pico SDK, Arduino-core | veille ~1 ...
+[[boucle-fermee]]  1 occurrence(s)
+    embarque/chaine-energie.md
+        L82 : - [[boucle-fermee|Boucle ouverte / boucle ferm├®e]] ÔÇö ce que devient le couplage quand la mesure revient ├á la commande *(├á cr├®er)*
+[[programmation-non-bloquante]]  1 occurrence(s)
+    embarque/realisation/programmer-l-embarque.md
+        L49 : Le langage d├®pend de la famille de la carte : **[[cpp|C++]]** dans l'├®cosyst├¿me Arduino (le plus r├®pandu sur microcontr├┤leur), **[[micropython-langage...
+
+--- GABARIT (8) ---
+[[<notion-associ├®e>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-concern├®e>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-suivante>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md  x2
+[[<phase>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-tuto.md  x2
+[[<r├®f├®rence>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<notion-centrale-1>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<notion-centrale-2>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<phase-precedente>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+
+--- ALIAS (7) ---
+[[FC]]  26 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md  x3
+    conduite/proj/concept.md  x4
+    conduite/proj/ecoconception.md  x2
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/securite-et-qualite.md
+    conduite/proj/specification-technique.md  x12
+[[FP]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/concept.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x6
+[[FS]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x7
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[xiao]]  1 occurrence(s)   -> alias de embarque/mcu/xiao/xiao-esp32-s3.md
+    embarque/mcu/microcontroleur.md
+
+=== BILAN ===
+  MORT    5 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   7 cible(s)
+  OK      238 cible(s)

@@ -40,7 +40,7 @@ La **façon de structurer** ci-dessus est la même partout. Ce qui change d'une 
 
 - **Arduino** (AVR / ARM) — API *Wiring*, super-loop, [[ide|IDE]] Arduino : l'entrée la plus douce ([[arduino|hub Arduino]]).
 - **ESP32** — soit l'**Arduino-core** (même API que l'Arduino, migration immédiate), soit l'**ESP-IDF**, le cadre natif d'Espressif bâti sur FreeRTOS ([[esp32|hub ESP32]]).
-- **STM32** — la bibliothèque HAL générée par CubeMX pour un contrôle fin, ou l'Arduino-core (STM32duino) pour rester en terrain connu.
+- **STM32** — la bibliothèque HAL générée par CubeMX pour un contrôle fin, ou l'Arduino-core (STM32duino) pour rester en terrain connu ([[stm32|hub STM32]]).
 - **MicroPython** — langage **interprété** et REPL : l'outillage change du tout au tout, mais les architectures sont les mêmes (`while True` = super-loop, le non-bloquant et les machines à états ont leurs jumeaux) — [[micropython|hub MicroPython]].
 
 La leçon transverse : **les concepts d'architecture ne dépendent pas de la carte** ; seuls l'environnement de développement et le nom des fonctions changent. Apprendre à structurer un firmware une fois sert sur toutes les familles. Les spécificités d'outillage sont traitées dans le hub de chaque famille.
@@ -65,5 +65,7 @@ La leçon transverse : **les concepts d'architecture ne dépendent pas de la car
 - [[fonction-informatique|Fonction]] — l'unité de découpage en modules
 - [[esp32|ESP32]] — Arduino-core vs ESP-IDF, et l'horizon FreeRTOS
 - [[arduino|Arduino]] — la super-loop et l'API Wiring
+- [[stm32|STM32]] — HAL générée par CubeMX ou Arduino-core
+- [[micropython|MicroPython]] — mêmes architectures, outillage interprété
 - [[arduino-watchdog|Watchdog]] — la robustesse face aux blocages
 - [[debugger-embarque|Déboguer un système embarqué]] — traquer un bug dans le firmware (messages ou débogage matériel)

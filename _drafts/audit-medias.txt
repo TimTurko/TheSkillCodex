@@ -1,0 +1,634 @@
+﻿=== AUDIT DES EMBEDS ===
+241 fiches lues, 296 embeds et liens ressources, 282 fichiers dans ressources/
+
+conduite/index.md
+  [OK] /ressources/img/conduite/cycle-v-projet.svg
+
+conduite/proj/bete-a-cornes.md
+  [OK] /ressources/img/bete-a-cornes/generique.svg
+  [OK] /ressources/img/bete-a-cornes/bras-mauvais.svg
+  [OK] /ressources/img/bete-a-cornes/bras-moyen.svg
+  [OK] /ressources/img/bete-a-cornes/bras-bon.svg
+
+conduite/proj/cahier-des-charges-fonctionnel.md
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+conduite/proj/decomposition-fonctionnelle.md
+  [OK] /ressources/img/decomposition-fonctionnelle/generique.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-mauvais.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-moyen.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-3-axes.svg
+
+conduite/proj/ecoconception.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/fast.md
+  [OK] /ressources/img/fast/generique.svg
+  [OK] /ressources/img/fast/bras-3-axes.svg
+
+conduite/proj/gantt.md
+  [OK] /ressources/img/gantt/generique.svg
+  [OK] /ressources/img/gantt/station-meteo.svg
+
+conduite/proj/gestion-de-projet.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/jalons.md
+  [OK] /ressources/img/jalons/generique.svg
+  [OK] /ressources/img/jalons/station-meteo.svg
+
+conduite/proj/matrice-de-decision.md
+  [OK] /ressources/img/matrice-de-decision/generique.svg
+  [OK] /ressources/img/matrice-de-decision/station-meteo.svg
+
+conduite/proj/matrice-de-risques.md
+  [OK] /ressources/img/matrice-de-risques/generique.svg
+  [OK] /ressources/img/matrice-de-risques/station-meteo.svg
+
+conduite/proj/mecatronique.md
+  [OK] /ressources/img/mecatronique/generique.svg
+
+conduite/proj/mind-map.md
+  [OK] /ressources/img/mind-map/generique.svg
+  [OK] /ressources/img/mind-map/bras-3-axes.svg
+
+conduite/proj/pieuvre.md
+  [OK] /ressources/img/pieuvre/generique.svg
+  [OK] /ressources/img/pieuvre/bras-3-axes.svg
+
+conduite/proj/retroplanning.md
+  [OK] /ressources/img/retroplanning/generique.svg
+  [OK] /ressources/img/retroplanning/station-meteo.svg
+
+conduite/proj/securite-et-qualite.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/specification-technique.md
+  [OK] /ressources/img/bete-a-cornes/generique.svg
+  [OK] /ressources/img/pieuvre/generique.svg
+  [OK] /ressources/img/pieuvre/bras-3-axes.svg
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+conduite/proj/wbs.md
+  [OK] /ressources/img/wbs/generique.svg
+  [OK] /ressources/img/wbs/station-meteo.svg
+
+embarque/algorithme/algorithme.md
+  [OK] /ressources/img/algorithme/quatre-regards.svg
+
+embarque/algorithme/chronogramme.md
+  [OK] /ressources/img/chronogramme/generique.svg
+  [OK] /ressources/img/chronogramme/pwm.svg
+
+embarque/algorithme/grafcet.md
+  [OK] /ressources/img/grafcet/generique.svg
+  [OK] /ressources/img/grafcet/percage.svg
+  [OK] /ressources/img/grafcet/divergences.svg
+
+embarque/algorithme/logigramme.md
+  [OK] /ressources/img/logigramme/generique.svg
+  [OK] /ressources/img/logigramme/thermostat-mauvais.svg
+  [OK] /ressources/img/logigramme/thermostat-moyen.svg
+  [OK] /ressources/img/logigramme/thermostat-bon.svg
+
+embarque/algorithme/machine-a-etats.md
+  [OK] /ressources/img/machine-a-etats/generique.svg
+  [OK] /ressources/img/machine-a-etats/portail-mauvais.svg
+  [OK] /ressources/img/machine-a-etats/portail-moyen.svg
+  [OK] /ressources/img/machine-a-etats/portail-bon.svg
+
+embarque/alimentation-electronique.md
+  [OK] /ressources/img/alimentation-electronique/regulation.svg
+  [OK] /ressources/img/alimentation-electronique/masses.svg
+  [OK] /ressources/img/alimentation-electronique/bras-3-axes.svg
+
+embarque/analyse-de-schema-electronique.md
+  [OK] /ressources/img/analyse-de-schema-electronique/generique.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/netlabels.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/exemple.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/zones.svg
+
+embarque/asservissement.md
+  [OK] /ressources/img/asservissement/boucle-fermee.svg
+
+embarque/chaine-energie.md
+  [OK] /ressources/img/chaine-energie/generique.svg
+  [OK] /ressources/img/chaine-energie/bras-3-axes.svg
+
+embarque/decouplage.md
+  [OK] /ressources/img/decouplage/generique.svg
+
+embarque/mcu/adc.md
+  [OK] /ressources/img/adc/quantification.svg
+
+embarque/mcu/arduino/arduino-afficheur.md
+  [OK] /ressources/img/arduino-afficheur/branchement-i2c.svg
+
+embarque/mcu/arduino/arduino-alimentation.md
+  [OK] /ressources/img/arduino-alimentation/alimentation-separee.svg
+
+embarque/mcu/arduino/arduino-bibliotheques.md
+  [OK] /ressources/img/arduino-bibliotheques/couches-abstraction.svg
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+
+embarque/mcu/arduino/arduino-capteur-analogique.md
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+
+embarque/mcu/arduino/arduino-capteur-numerique.md
+  [OK] /ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif
+  [OK] /ressources/img/arduino-capteur-numerique/branchement-hc-sr04.svg
+  [OK] /ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp
+  [OK] /ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg
+
+embarque/mcu/arduino/arduino-debug.md
+  [OK] /ressources/img/arduino-debug/ou-est-le-probleme.svg
+
+embarque/mcu/arduino/arduino-deep-sleep.md
+  [OK] /ressources/img/arduino-deep-sleep/profil-courant-veille.svg
+
+embarque/mcu/arduino/arduino-eeprom.md
+  [OK] /ressources/img/arduino-eeprom/carte-memoire-eeprom.svg
+
+embarque/mcu/arduino/arduino-entree-tor.md
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+  [OK] /ressources/img/arduino-entree-tor/rebond.svg
+
+embarque/mcu/arduino/arduino-gpio-boot.md
+  [OK] /ressources/img/arduino-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/arduino-gpio-boot/branchement-relais-pullup.svg
+
+embarque/mcu/arduino/arduino-gpio.md
+  [OK] /ressources/img/arduino/uno-pinout.webp
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+
+embarque/mcu/arduino/arduino-i2c.md
+  [OK] /ressources/img/arduino-i2c/branchement-i2c.svg
+
+embarque/mcu/arduino/arduino-interruptions.md
+  [OK] /ressources/img/arduino-interruptions/montage.svg
+  [OK] /ressources/img/arduino-interruptions/chronogramme-comptage.svg
+
+embarque/mcu/arduino/arduino-machine-a-etats.md
+  [OK] /ressources/img/arduino-machine-a-etats/montage.svg
+  [OK] /ressources/img/arduino-machine-a-etats/diagramme-etats.svg
+
+embarque/mcu/arduino/arduino-memoire.md
+  [OK] /ressources/img/arduino-memoire/carte-memoire-sram.svg
+
+embarque/mcu/arduino/arduino-module.md
+  [OK] /ressources/img/arduino-module/pullups-paralleles.svg
+  [OK] /ressources/img/arduino-module/branchement-dht11.svg
+
+embarque/mcu/arduino/arduino-moteur-cc.md
+  [OK] /ressources/img/arduino-moteur-cc/branchement-l298n.svg
+
+embarque/mcu/arduino/arduino-moteur-pas-a-pas.md
+  [OK] /ressources/img/arduino-moteur-pas-a-pas/branchement-28byj48.svg
+
+embarque/mcu/arduino/arduino-pid.md
+  [OK] /ressources/img/arduino-pid/boucle-fermee-pid.svg
+
+embarque/mcu/arduino/arduino-prise-en-main.md
+  [OK] /ressources/img/arduino-prise-en-main/telechargement.png
+  [OK] /ressources/img/arduino-prise-en-main/type-de-carte.png
+  [OK] /ressources/img/arduino-prise-en-main/port.png
+  [OK] /ressources/img/arduino-prise-en-main/ch340-driver.jpg
+  [OK] /ressources/img/arduino-prise-en-main/blink-compilation.png
+  [OK] /ressources/img/arduino-prise-en-main/led-blink.gif
+
+embarque/mcu/arduino/arduino-programmation-non-bloquante.md
+  [OK] /ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/arduino-programmation-non-bloquante/frise-3-taches.svg
+
+embarque/mcu/arduino/arduino-serie.md
+  [OK] /ressources/img/arduino-serie/moniteur-serie.jpg
+  [OK] /ressources/img/arduino-serie/traceur-serie.png
+
+embarque/mcu/arduino/arduino-servomoteur.md
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+  [OK] /ressources/img/arduino-servomoteur/retour-position.svg
+
+embarque/mcu/arduino/arduino-shield.md
+  [OK] /ressources/img/arduino-shield/empilage-shield.webp
+  [OK] /ressources/img/arduino-shield/montage-shield-l293d.webp
+
+embarque/mcu/arduino/arduino-sortie-pwm.md
+  [OK] /ressources/img/arduino-sortie-pwm/branchement-led-pwm.svg
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+
+embarque/mcu/arduino/arduino-sortie-tor.md
+  [OK] /ressources/img/arduino-sortie-tor/transistor-bas-cote.svg
+  [OK] /ressources/img/arduino-sortie-tor/montage.svg
+
+embarque/mcu/arduino/arduino-spi.md
+  [OK] /ressources/img/arduino-spi/branchement-sd.svg
+
+embarque/mcu/arduino/arduino-temporisation.md
+  [OK] /ressources/img/arduino-temporisation/delay-vs-millis.svg
+  [OK] /ressources/img/arduino-temporisation/cadences-paralleles.svg
+
+embarque/mcu/arduino/arduino-timers.md
+  [OK] /ressources/img/arduino-timers/cadence-millis-vs-timer.svg
+
+embarque/mcu/arduino/arduino-uart.md
+  [OK] /ressources/img/arduino-uart/cablage-croise.svg
+  [OK] /ressources/img/arduino-uart/pont-serie.svg
+
+embarque/mcu/arduino/arduino-watchdog.md
+  [OK] /ressources/img/arduino-watchdog/chronogramme-watchdog.svg
+
+embarque/mcu/arduino/arduino.md
+  [OK] /ressources/img/arduino/uno-photo.webp
+  [OK] /ressources/img/arduino/uno-pinout.webp
+
+embarque/mcu/arduino/tinkercad.md
+  [OK] /ressources/img/tinkercad/creer-circuit.png
+  [OK] /ressources/img/tinkercad/plan-de-travail.png
+  [OK] /ressources/img/tinkercad/editeur-code-texte.png
+  [OK] /ressources/img/tinkercad/simulation-en-cours.png
+
+embarque/mcu/ascii.md
+  [OK] /ressources/img/ascii/caractere-vers-code.svg
+  [OK] /ressources/img/ascii/tableau-ascii.webp
+
+embarque/mcu/bus/bus-de-communication.md
+  [OK] /ressources/img/bus-de-communication/topologies.svg
+
+embarque/mcu/bus/i2c.md
+  [OK] /ressources/img/i2c/branchement.svg
+  [OK] /ressources/img/i2c/chronogramme.svg
+
+embarque/mcu/bus/spi.md
+  [OK] /ressources/img/spi/branchement.svg
+  [OK] /ressources/img/spi/chronogramme.svg
+
+embarque/mcu/bus/uart.md
+  [OK] /ressources/img/uart/branchement.svg
+  [OK] /ressources/img/uart/chronogramme.svg
+
+embarque/mcu/cpp/cpp-execution.md
+  [OK] /ressources/img/cpp-execution/cycle.svg
+
+embarque/mcu/cpp/cpp-portee.md
+  [OK] /ressources/img/cpp-portee/locale-globale.svg
+
+embarque/mcu/debugger-embarque.md
+  [OK] /ressources/img/debugger-embarque/chaines.svg
+
+embarque/mcu/deep-sleep.md
+  [OK] /ressources/img/deep-sleep/profil.svg
+
+embarque/mcu/esp32/esp32-arduino-core.md
+  [OK] /ressources/img/esp32-arduino-core/couches-arduino-core.svg
+
+embarque/mcu/esp32/esp32-ble.md
+  [OK] /ressources/img/esp32-ble/roles-ble.svg
+
+embarque/mcu/esp32/esp32-deep-sleep.md
+  [OK] /ressources/img/esp32-deep-sleep/reveil.svg
+  [OK] /ressources/img/esp32-deep-sleep/montage-reveil-bouton.svg
+
+embarque/mcu/esp32/esp32-freertos.md
+  [OK] /ressources/img/esp32-freertos/ordonnancement.svg
+
+embarque/mcu/esp32/esp32-gpio.md
+  [OK] /ressources/img/esp32-gpio/brochage.svg
+  [OK] /ressources/img/esp32-gpio/montage-led-bouton.svg
+  [OK] /ressources/img/esp32-gpio/montage-potentiometre.svg
+
+embarque/mcu/esp32/esp32-i2c.md
+  [OK] /ressources/img/esp32-i2c/branchement-i2c.svg
+
+embarque/mcu/esp32/esp32-idf.md
+  [OK] /ressources/img/esp32-idf/arbre-de-decision.svg
+
+embarque/mcu/esp32/esp32-prise-en-main.md
+  [OK] /ressources/img/esp32-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/esp32/esp32-spi.md
+  [OK] /ressources/img/esp32-spi/branchement-spi.svg
+
+embarque/mcu/esp32/esp32-uart.md
+  [OK] /ressources/img/esp32-uart/branchement-uart.svg
+
+embarque/mcu/esp32/esp32-wifi.md
+  [OK] /ressources/img/esp32-wifi/sta-vs-ap.svg
+
+embarque/mcu/esp32/esp32.md
+  [OK] /ressources/img/esp32/positionnement-variantes.svg
+
+embarque/mcu/esp8266/esp8266-arduino-core.md
+  [OK] /ressources/img/esp8266-arduino-core/brochage-d1-gpio.svg
+
+embarque/mcu/esp8266/esp8266-prise-en-main.md
+  [OK] /ressources/img/esp8266-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/esp8266/esp8266.md
+  [OK] /ressources/img/esp8266/comparaison-esp32.svg
+
+embarque/mcu/firmware.md
+  [OK] /ressources/img/firmware/architectures.svg
+
+embarque/mcu/gpio.md
+  [OK] /ressources/img/gpio/modes.svg
+  [OK] /ressources/img/gpio/flottant.svg
+  [OK] /ressources/img/gpio/courant-max.svg
+
+embarque/mcu/interruption.md
+  [OK] /ressources/img/interruption/chronogramme.svg
+
+embarque/mcu/lire-une-datasheet.md
+  [OK] /ressources/img/lire-une-datasheet/generique.svg
+  [OK] /ressources/img/lire-une-datasheet/l298n.svg
+
+embarque/mcu/manipulation-de-bits.md
+  [OK] /ressources/img/manipulation-de-bits/masquage.svg
+
+embarque/mcu/microcontroleur.md
+  [OK] /ressources/img/microcontroleur/architecture.svg
+  [OK] /ressources/img/microcontroleur/positionnement.svg
+
+embarque/mcu/micropython/micropython-afficheur.md
+  [OK] /ressources/img/micropython-afficheur/branchement-oled.svg
+
+embarque/mcu/micropython/micropython-alimentation.md
+  [OK] /ressources/img/micropython-alimentation/alimentation-separee.svg
+
+embarque/mcu/micropython/micropython-bibliotheques.md
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+embarque/mcu/micropython/micropython-capteur-analogique.md
+  [OK] /ressources/img/micropython-capteur-analogique/montage-adc.svg
+
+embarque/mcu/micropython/micropython-capteur-numerique.md
+  [OK] /ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif
+  [OK] /ressources/img/micropython-capteur-numerique/montage-capteur.svg
+  [OK] /ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp
+  [OK] /ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg
+
+embarque/mcu/micropython/micropython-deep-sleep.md
+  [OK] /ressources/img/micropython-deep-sleep/profil-courant-veille.svg
+
+embarque/mcu/micropython/micropython-entree-tor.md
+  [OK] /ressources/img/micropython-entree-tor/montage-bouton.svg
+  [OK] /ressources/img/micropython-entree-tor/rebond.svg
+
+embarque/mcu/micropython/micropython-gpio-boot.md
+  [OK] /ressources/img/micropython-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/micropython-gpio-boot/branchement-relais-pullup.svg
+
+embarque/mcu/micropython/micropython-gpio.md
+  [OK] /ressources/img/micropython-gpio/brochage-pico.png
+  [OK] /ressources/img/micropython-gpio/montage-led-bouton.svg
+
+embarque/mcu/micropython/micropython-i2c.md
+  [OK] /ressources/img/micropython-i2c/branchement-i2c.svg
+  [OK] /ressources/img/micropython-i2c/pullups-paralleles.svg
+
+embarque/mcu/micropython/micropython-interruptions.md
+  [OK] /ressources/img/micropython-interruptions/montage.svg
+  [OK] /ressources/img/micropython-interruptions/chronogramme-comptage.svg
+
+embarque/mcu/micropython/micropython-machine-a-etats.md
+  [OK] /ressources/img/micropython-machine-a-etats/montage.svg
+  [OK] /ressources/img/micropython-machine-a-etats/diagramme-etats.svg
+
+embarque/mcu/micropython/micropython-memoire.md
+  [OK] /ressources/img/micropython-memoire/fragmentation-tas.svg
+
+embarque/mcu/micropython/micropython-module.md
+  [OK] /ressources/img/micropython-module/montage-module.svg
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+embarque/mcu/micropython/micropython-moteur-cc.md
+  [OK] /ressources/img/micropython-moteur-cc/branchement-pont-h.svg
+
+embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+  [OK] /ressources/img/micropython-moteur-pas-a-pas/branchement-stepper.svg
+
+embarque/mcu/micropython/micropython-pid.md
+  [OK] /ressources/img/micropython-pid/boucle-fermee-pid.svg
+
+embarque/mcu/micropython/micropython-programmation-non-bloquante.md
+  [OK] /ressources/img/micropython-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/micropython-programmation-non-bloquante/frise-taches.svg
+
+embarque/mcu/micropython/micropython-servomoteur.md
+  [OK] /ressources/img/micropython-servomoteur/branchement-servo.svg
+  [OK] /ressources/img/micropython-servomoteur/retour-position.svg
+
+embarque/mcu/micropython/micropython-sortie-pwm.md
+  [OK] /ressources/img/micropython-sortie-pwm/montage-led-pwm.svg
+
+embarque/mcu/micropython/micropython-sortie-tor.md
+  [OK] /ressources/img/micropython-sortie-tor/montage-relais.svg
+
+embarque/mcu/micropython/micropython-spi.md
+  [OK] /ressources/img/micropython-spi/branchement-spi.svg
+
+embarque/mcu/micropython/micropython-stockage.md
+  [OK] /ressources/img/micropython-stockage/persistance-fichier.svg
+
+embarque/mcu/micropython/micropython-temporisation.md
+  [OK] /ressources/img/micropython-temporisation/sleep-vs-ticks.svg
+  [OK] /ressources/img/micropython-temporisation/cadences-paralleles.svg
+
+embarque/mcu/micropython/micropython-timers.md
+  [OK] /ressources/img/micropython-timers/cadence-ticks-vs-timer.svg
+
+embarque/mcu/micropython/micropython-uart.md
+  [OK] /ressources/img/micropython-uart/branchement-uart.svg
+
+embarque/mcu/micropython/micropython-watchdog.md
+  [OK] /ressources/img/micropython-watchdog/chronogramme-watchdog.svg
+
+embarque/mcu/micropython/micropython.md
+  [OK] /ressources/img/micropython/modele-execution.svg
+
+embarque/mcu/niveaux-de-tension.md
+  [OK] /ressources/img/niveaux-de-tension/generique.svg
+  [OK] /ressources/img/niveaux-de-tension/adaptation.svg
+
+embarque/mcu/potentiometre.md
+  [OK] /ressources/img/potentiometre/how-potentiometer-works.webp
+
+embarque/mcu/pwm.md
+  [OK] /ressources/img/pwm/rapport-cyclique.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md
+  [OK] /ressources/img/raspberry-pi-gpio/pile.svg
+  [OK] /ressources/img/raspberry-pi-gpio/brochage-40-broches.svg
+  [OK] /ressources/img/raspberry-pi-gpio/montage-led-bouton.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md
+  [OK] /ressources/img/raspberry-pi-prise-en-main/topologie-headless.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md
+  [OK] /ressources/img/raspberry-pi-projet/architecture-bicephale.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi.md
+  [OK] /ressources/img/raspberry-pi/mcu-vs-sbc.svg
+
+embarque/mcu/sans-fil/techno-sans-fil.md
+  [OK] /ressources/img/techno-sans-fil/comparaison.svg
+
+embarque/mcu/stm32/stm32-arduino-core.md
+  [OK] /ressources/img/stm32-arduino-core/brochage-blue-pill.svg
+
+embarque/mcu/stm32/stm32-cubemx.md
+  [OK] /ressources/img/stm32-cubemx/flux.svg
+
+embarque/mcu/stm32/stm32-hal.md
+  [OK] /ressources/img/stm32-hal/trois-modes.svg
+
+embarque/mcu/stm32/stm32-prise-en-main.md
+  [OK] /ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg
+
+embarque/mcu/stm32/stm32-registres.md
+  [OK] /ressources/img/stm32-registres/registre-gpio.svg
+
+embarque/mcu/stm32/stm32.md
+  [OK] /ressources/img/stm32/abstraction-couches.svg
+
+embarque/mcu/teensy/teensy-arduino-core.md
+  [OK] /ressources/img/teensy-arduino-core/paliers-d-acces.svg
+
+embarque/mcu/teensy/teensy-audio.md
+  [OK] /ressources/img/teensy-audio/flux.svg
+  [OK] /ressources/img/teensy-audio/empilage-audio-shield.svg
+
+embarque/mcu/teensy/teensy-prise-en-main.md
+  [OK] /ressources/img/teensy-prise-en-main/brochage.png
+  [OK] /ressources/img/teensy-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/teensy/teensy-usb.md
+  [OK] /ressources/img/teensy-usb/personnalites.svg
+  [OK] /ressources/img/teensy-usb/montage-bouton.svg
+  [OK] /ressources/img/teensy-usb/montage-potentiometre.svg
+
+embarque/mcu/teensy/teensy.md
+  [OK] /ressources/img/teensy/comparaison-arduino.svg
+
+embarque/mcu/timer.md
+  [OK] /ressources/img/timer/compteur.svg
+
+embarque/mcu/xiao/xiao-alimentation.md
+  [OK] /ressources/img/xiao-alimentation/paths.svg
+
+embarque/mcu/xiao/xiao-esp32-s3.md
+  [OK] /ressources/img/xiao-esp32-s3/brochage.svg
+  [OK] /ressources/img/xiao-esp32-s3/variantes.svg
+  [OK] /ressources/img/xiao-esp32-s3/extendeur-i2c.svg
+  [OK] /ressources/img/xiao-esp32-s3/antenne.svg
+
+embarque/mcu/xiao/xiao-prise-en-main.md
+  [OK] /ressources/img/xiao-prise-en-main/bootloader.svg
+
+embarque/mcu/xiao/xiao-sense.md
+  [OK] /ressources/img/xiao-sense/peripheriques.svg
+
+embarque/mesure/analyseur-logique.md
+  [OK] /ressources/img/analyseur-logique/branchement.svg
+
+embarque/mesure/generateur-de-signaux.md
+  [OK] /ressources/img/generateur-de-signaux/injection.svg
+
+embarque/mesure/instruments-de-mesure.md
+  [OK] /ressources/img/instruments-de-mesure/confrontation.svg
+
+embarque/mesure/multimetre.md
+  [OK] /ressources/img/multimetre/serie-parallele.svg
+
+embarque/mesure/oscilloscope.md
+  [OK] /ressources/img/oscilloscope/branchement-sonde.svg
+
+embarque/mesure/precision-de-mesure.md
+  [OK] /ressources/img/precision-de-mesure/cibles.svg
+
+embarque/pcb/pcb.md
+  [OK] /ressources/img/pcb/flux.svg
+
+embarque/protection-electronique.md
+  [OK] /ressources/img/protection-electronique/generique.svg
+  [OK] /ressources/img/protection-electronique/fusible.svg
+  [OK] /ressources/img/protection-electronique/anti-inversion.svg
+  [OK] /ressources/img/protection-electronique/tvs.svg
+  [OK] /ressources/img/protection-electronique/roue-libre.svg
+  [OK] /ressources/img/protection-electronique/esd.svg
+
+embarque/realisation/concevoir-l-electronique.md
+  [OK] /ressources/img/concevoir-l-electronique/bras-3-axes.svg
+
+embarque/schema-bloc-fonctionnel.md
+  [OK] /ressources/img/schema-bloc-fonctionnel/generique.svg
+  [OK] /ressources/img/schema-bloc-fonctionnel/couveuse.svg
+
+embarque/simulation/falstad.md
+  [OK] /ressources/img/falstad/interface.png
+  [OK] /ressources/img/falstad/survol-mesure.png
+  [OK] /ressources/img/falstad/curseurs-vitesse.png
+  [OK] /ressources/img/falstad/ouvrir-un-circuit.png
+  [OK] /ressources/img/falstad/potentiometre-edition.png
+  [OK] /ressources/img/falstad/potentiometre.gif
+  [OK] /ressources/img/falstad/nouveau-circuit-vide.png
+  [OK] /ressources/img/falstad/construire-passe-haut.gif
+  [OK] /ressources/img/falstad/circuit-rc.gif
+  [OK] /ressources/img/falstad/menu-fichier.png
+  [OK] /ressources/img/falstad/importer-depuis-texte.png
+  [OK] /ressources/img/falstad/coller-la-description.png
+  [OK] /ressources/img/falstad/pont-diviseur.gif
+
+embarque/simulation/ltspice.md
+  [OK] /ressources/img/ltspice/interface.png
+  [OK] /ressources/img/ltspice/open-examples.png
+  [OK] /ressources/img/ltspice/exemple-opamp-asc-schematic.png
+  [OK] /ressources/img/ltspice/curseur-lecture.png
+  [OK] /ressources/img/ltspice/configure-analysis.png
+  [OK] /ressources/img/ltspice/run-simulation.png
+  [OK] /ressources/img/ltspice/low-pass-analyse.gif
+  [OK] /ressources/img/ltspice/view-update-and-view-netliste.png
+  [OK] /ressources/img/ltspice/spice-netlist.png
+
+embarque/simulation/simulation-electronique.md
+  [OK] /ressources/img/simulation-electronique/cycle.svg
+  [OK] /ressources/img/simulation-electronique/lecture-courbe.svg
+
+embarque/simulation/wokwi.md
+  [OK] /ressources/img/wokwi/choix-du-microcontroleur.png
+  [OK] /ressources/img/wokwi/selection-du-template.png
+  [OK] /ressources/img/wokwi/editeur-code-hello.png
+  [OK] /ressources/img/wokwi/editeur-schema-hello.png
+  [OK] /ressources/img/wokwi/compilation-en-cours.png
+  [OK] /ressources/img/wokwi/moniteur-serie-hello.png
+  [OK] /ressources/img/wokwi/ajouter-composant-blink.png
+  [OK] /ressources/img/wokwi/schema-blink.png
+  [OK] /ressources/img/wokwi/editeur-code-blink.png
+
+meca/comparateur.md
+  [OK] /ressources/img/comparateur/battement.svg
+
+meca/optimisation-mecanique.md
+  [OK] /ressources/img/optimisation-mecanique/generique.svg
+
+meca/pied-a-coulisse.md
+  [OK] /ressources/img/pied-a-coulisse/mesures.svg
+
+meca/schema-cinematique.md
+  [OK] /ressources/img/schema-cinematique/generique.svg
+  [OK] /ressources/img/schema-cinematique/bras-3-axes.svg
+
+=== ORPHELINS (jamais references, RIEN N EST SUPPRIME) ===
+  ressources/img/archive/cycle-v-projet-v1.svg (6 ko)
+  ressources/img/arduino-prise-en-main/ch340-gestionnaire.mp4 (3455 ko)
+
+=== BILAN ===
+  ABSENT        0
+  CASSE         0
+  HORS-GABARIT  0
+  EXTERNE       0
+  OK            296
+  ORPHELIN      2

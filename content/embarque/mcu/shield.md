@@ -14,7 +14,7 @@ Un **shield** est une carte d'extension qui s'enfiche directement sur les connec
 
 ## Le principe d'empilement
 
-Le shield reprend exactement l'implantation des connecteurs de la carte hôte : il se pose par-dessus, broche sur broche, et plusieurs shields peuvent parfois s'empiler. L'intérêt est la rapidité de prototypage : pas de fils volants, un montage mécaniquement solide, une fonction ajoutée en quelques secondes. C'est l'une des raisons du succès du format [[arduino|Arduino]], dont l'implantation de connecteurs est devenue un standard de fait repris par de nombreuses cartes. Côté logiciel, chaque shield s'accompagne de **sa [[bibliotheque|bibliothèque]] associée**, qui expose la fonction sans qu'on ait à connaître le câblage interne.
+Le shield reprend exactement l'implantation des connecteurs de la carte hôte : il se pose par-dessus, broche sur broche, et plusieurs shields peuvent parfois s'empiler. L'intérêt est la rapidité de prototypage : pas de fils volants, un montage mécaniquement solide, une fonction ajoutée en quelques secondes. C'est l'une des raisons du succès du format [[arduino|Arduino]], dont l'implantation de connecteurs est devenue un standard de fait repris par de nombreuses cartes. Côté logiciel, chaque shield s'accompagne de **sa [[bibliotheque|bibliothèque]] associée**, qui expose la fonction sans qu'on ait à connaître le câblage interne. La mise en œuvre : [[arduino-shield]] côté Arduino, [[micropython-shield]] côté MicroPython.
 
 *Prendre photo d'une carte Arduino Uno avec un shield enfiché par-dessus (vue de trois quarts montrant l'empilement broche sur broche), éventuellement un deuxième cliché carte et shield séparés côte à côte.*
 
@@ -28,4 +28,5 @@ Un shield occupe un jeu de broches imposé : empiler deux shields qui réclament
 - [[arduino|Arduino]] — format de référence des shields
 - [[bibliotheque|Bibliothèque]] — le pendant logiciel du shield
 - [[arduino-shield|Arduino — shield]] — la mise en œuvre en pratique
+- [[micropython-shield|MicroPython — shield]] — la même carte pilotée côté MicroPython
 - [[pcb|PCB]] — l'alternative intégrée hors prototypage

@@ -26,6 +26,8 @@ La PWM a **deux réglages indépendants** : le rapport cyclique (le dosage) et l
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui génère la PWM
+- [[arduino-sortie-pwm|Sortie PWM (Arduino)]] — la mise en œuvre concrète
+- [[micropython-sortie-pwm|Sortie PWM (MicroPython)]] — la même mécanique côté MicroPython
 - [[timer|Timer]] — c'est lui qui, dans le microcontrôleur, produit le signal PWM et en règle la fréquence
 - [[entree-sortie|Entrée/sortie]] — la famille de périphériques dont fait partie la PWM
 - [[adc|ADC]] — le pendant en entrée : lire une mesure plutôt que doser une commande

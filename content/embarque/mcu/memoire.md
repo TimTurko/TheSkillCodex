@@ -15,11 +15,12 @@ La **mémoire** d'un [[microcontroleur|microcontrôleur]] se répartit en deux r
 
 ## En pratique
 
-Les ordres de grandeur parlent d'eux-mêmes : une carte Uno offre 32 ko de Flash et **2 ko de RAM** ; un ESP32, 4 Mo et 520 ko. La RAM est la **ressource rare** de l'embarqué — c'est elle qui déborde en premier *(que faire quand elle manque : [[arduino-memoire]])*. Reste une troisième zone : pour qu'une **donnée** (compteur d'usage, calibration, réglage) survive à la coupure comme le programme, le microcontrôleur réserve une **EEPROM** ou une portion de Flash dédiée — voir [[arduino-eeprom]] côté Arduino, [[micropython-stockage]] côté MicroPython.
+Les ordres de grandeur parlent d'eux-mêmes : une carte Uno offre 32 ko de Flash et **2 ko de RAM** ; un ESP32, 4 Mo et 520 ko. La RAM est la **ressource rare** de l'embarqué — c'est elle qui déborde en premier *(que faire quand elle manque : [[arduino-memoire]] côté Arduino, [[micropython-memoire]] côté MicroPython)*. Reste une troisième zone : pour qu'une **donnée** (compteur d'usage, calibration, réglage) survive à la coupure comme le programme, le microcontrôleur réserve une **EEPROM** ou une portion de Flash dédiée — voir [[arduino-eeprom]] côté Arduino, [[micropython-stockage]] côté MicroPython.
 
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui intègre la mémoire
 - [[processeur|Processeur]] — l'unité qui lit le programme en Flash et travaille en RAM
 - [[arduino-memoire|Gérer la mémoire (Arduino)]] — quand la RAM vient à manquer
+- [[micropython-memoire|Gérer la mémoire (MicroPython)]] — la même contrainte côté MicroPython
 - [[arduino-eeprom|EEPROM (Arduino)]] et [[micropython-stockage|Stockage (MicroPython)]] — sauvegarder des données hors tension

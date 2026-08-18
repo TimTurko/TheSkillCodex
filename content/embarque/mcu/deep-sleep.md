@@ -34,7 +34,7 @@ Quatre idées structurent le mécanisme.
 
 C'est la surprise du premier essai, et elle dépend de la famille. Sur **ESP32**, sortir du deep sleep est un **reset** : le programme repart **du début** (la fonction d'initialisation s'exécute à nouveau), la RAM est perdue, et seules les données placées explicitement en **mémoire RTC** survivent ; une fonction dédiée permet de savoir *pourquoi* on s'est réveillé (minuterie ? broche ?). Sur **AVR** (Arduino classique), au contraire, le réveil **reprend l'exécution** à l'instruction qui suit la mise en sommeil, état intact.
 
-La conséquence est architecturale : un programme à deep sleep « façon ESP32 » ne s'écrit pas comme une boucle qui s'endort de temps en temps, mais comme un **cycle réveil → identifier la cause → agir → se rendormir**, où l'état persistant vit en mémoire RTC ou en [[memoire|stockage]] — une structuration de [[firmware|firmware]] à part entière.
+La conséquence est architecturale : un programme à deep sleep « façon ESP32 » ne s'écrit pas comme une boucle qui s'endort de temps en temps, mais comme un **cycle réveil → identifier la cause → agir → se rendormir**, où l'état persistant vit en mémoire RTC ou en [[memoire|stockage]] — une structuration de [[firmware|firmware]] à part entière. La mise en œuvre : [[esp32-deep-sleep]] côté ESP32, [[arduino-deep-sleep]] côté Arduino, [[micropython-deep-sleep]] côté MicroPython.
 
 ## Exemple — La sonde sur pile
 

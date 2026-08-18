@@ -25,4 +25,5 @@ La plupart des IDE intègrent un **gestionnaire de bibliothèques** qui les tél
 - [[ide|IDE]] — d'où l'on installe les bibliothèques
 - [[shield|Shield]] — la carte d'extension et sa bibliothèque associée
 - [[arduino-bibliotheques|Arduino — bibliothèques]] — installer et utiliser une bibliothèque en pratique
+- [[micropython-bibliotheques|MicroPython — bibliothèques]] — la même démarche côté MicroPython
 - [[microcontroleur|Microcontrôleur]] — la cible qui exécute le code

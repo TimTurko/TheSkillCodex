@@ -26,6 +26,8 @@ La conversion rapporte la tension lue à la **tension de référence** (la plein
 ## Voir aussi
 
 - [[microcontroleur|Microcontrôleur]] — le circuit qui intègre l'ADC
+- [[arduino-capteur-analogique|Capteur analogique (Arduino)]] — la lecture analogique en pratique
+- [[micropython-capteur-analogique|Capteur analogique (MicroPython)]] — la même mécanique côté MicroPython
 - [[entree-sortie|Entrée/sortie]] — la famille de périphériques dont fait partie l'ADC
 - [[dac|DAC]] — le convertisseur inverse : produire une vraie tension analogique
 - [[pwm|PWM]] — le pendant en sortie : doser une commande plutôt que lire une mesure
