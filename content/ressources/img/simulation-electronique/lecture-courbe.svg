@@ -40,14 +40,14 @@
   <line x1="92" y1="104" x2="640" y2="104" class="guide"/>
   <text x="468" y="98" class="lbl">valeur finale — le palier</text>
 
-  <!-- 63 % guides -->
-  <line x1="92" y1="176" x2="225" y2="176" class="exp"/>
-  <line x1="225" y1="300" x2="225" y2="176" class="exp"/>
+  <!-- 63 % guides — τ posé à x=202, où la courbe croise réellement y=176 -->
+  <line x1="92" y1="176" x2="202" y2="176" class="exp"/>
+  <line x1="202" y1="300" x2="202" y2="176" class="exp"/>
   <text x="100" y="170" class="sm">~63 % de la valeur finale</text>
-  <text x="214" y="318" class="lbla">τ</text>
+  <text x="191" y="318" class="lbla">τ</text>
 
-  <!-- courbe exponentielle montante -->
-  <path d="M92,300 C160,150 200,118 300,108 S470,104 640,104" class="curve"/>
+  <!-- courbe exponentielle montante : y = 104 + 196·exp(-(x-92)/109,6) — τ = 109,6 px, tracé sur 5τ -->
+  <path class="curve" d="M92,300 L102,282.9 L112,267.3 L122,253.1 L132,240.1 L142,228.2 L152,217.4 L162,207.5 L172,198.5 L182,190.2 L192,182.7 L202,176.1 L212,169.6 L222,163.9 L232,158.6 L242,153.9 L252,149.5 L272,141.9 L292,135.6 L312,130.3 L332,125.9 L352,122.3 L372,119.2 L392,116.7 L412,114.6 L432,112.8 L452,111.3 L472,110.1 L492,109.1 L512,108.3 L532,107.5 L552,106.9 L572,106.5 L592,106.0 L612,105.7 L640,105.3"/>
 
   <!-- encart simulé vs attendu -->
   <rect x="430" y="208" width="210" height="86" rx="10" class="card"/>
