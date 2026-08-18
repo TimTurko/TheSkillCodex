@@ -163,6 +163,8 @@ Un clic sur *OK* et le montage apparaît, sous tension. Il reste à vérifier qu
 
 > [!tip]
 > **Faire décrire un circuit, puis le vérifier soi-même.** La description ci-dessus a été produite par une **intelligence artificielle** à qui l'on avait demandé un pont diviseur par deux. C'est un usage intéressant, à condition de bien voir où se trouve le travail : ce qui est produit n'est pas une réponse, c'est une **hypothèse** — et Falstad la met sous tension pour la rendre vérifiable. Le courant passe-t-il où on l'attend ? La tension au point milieu vaut-elle ce que le calcul annonce ? Un montage faux s'importe aussi bien qu'un bon : **c'est la simulation, et votre lecture du résultat, qui tranchent**. Employé ainsi, le procédé fait gagner le temps du dessin et le rend au raisonnement.
+>
+> Le critère vaut au-delà de ce cas, et dans les deux sens : *l'affirmation produite est-elle vérifiable à l'écran ?* Un circuit proposé se met sous tension, une tension annoncée se relève au survol — ce sont des hypothèses. Une conclusion de dimensionnement, elle, ne se vérifie pas : elle se produit, et c'est le travail qui ne se délègue pas. Même règle du côté de [[ltspice|LTspice]], où c'est une netlist qu'on donne à lire.
 
 Deux limites à connaître. Le format encode aussi les **positions** à l'écran, si bien qu'un circuit généré peut être électriquement juste et graphiquement de travers — les coordonnées se calent sur une grille, et un texte approximatif produit un schéma illisible. Et ce n'est pas une **netlist** au sens de la conception de cartes : une netlist ne décrit que les connexions entre broches, sans géométrie, et c'est celle-là qu'on rencontrera en passant du schéma au [[pcb|circuit imprimé]].
 
