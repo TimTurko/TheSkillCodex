@@ -78,12 +78,12 @@
   <!-- Bande Wi-Fi -->
   <rect x="290" y="228" width="115" height="44" rx="22" class="pt-mcu"/>
   <text x="347" y="247" text-anchor="middle" class="pt-mcu-text">ESP8266</text>
-  <text x="347" y="262" text-anchor="middle" class="pt-mcu-sub">IoT économique</text>
+  <text x="347" y="262" text-anchor="middle" class="pt-mcu-sub">IoT Wi-Fi simple</text>
 
   <!-- Bande Wi-Fi + Bluetooth -->
   <rect x="295" y="138" width="112" height="44" rx="22" class="pt-mcu"/>
   <text x="351" y="157" text-anchor="middle" class="pt-mcu-text">Pico 2 W</text>
-  <text x="351" y="172" text-anchor="middle" class="pt-mcu-sub">très bas coût, PIO</text>
+  <text x="351" y="172" text-anchor="middle" class="pt-mcu-sub">MicroPython, PIO</text>
 
   <rect x="430" y="124" width="110" height="44" rx="22" class="pt-mcu"/>
   <text x="485" y="143" text-anchor="middle" class="pt-mcu-text">ESP32</text>

@@ -77,7 +77,7 @@ Le paramètre de `analogWrite()` est un entier de **0** (rapport cyclique 0 %, s
 
 À l'œil nu, la LED varie en intensité — c'est l'effet de moyenne perceptive (l'œil intègre les ~490 commutations par seconde du PWM Arduino sur D9). À l'**oscilloscope**, on voit la vraie nature du signal : créneau 0-5 V dont la proportion de temps à 5 V varie avec la valeur passée (chronogrammes idéalisés dans [[pwm]]).
 
-Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un signal PWM sur la broche D9, rapport cyclique ~50 %, fréquence ~490 Hz*.
+![Écran d'oscilloscope montrant un signal PWM : créneau 0-5 V, période repérée et rapport cyclique de 50 % coté.|600](/ressources/img/oscilloscope/ecran-pwm.svg)
 
 ## Exemple — Variateur de LED avec potentiomètre
 

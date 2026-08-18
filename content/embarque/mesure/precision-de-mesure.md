@@ -43,5 +43,6 @@ Conséquence directe pour les relevés : une mesure se rapporte toujours à un *
 
 - [[instruments-de-mesure|Instruments de mesure]] — le hub : méthode de mesure et interprétation
 - [[multimetre|Multimètre]] — là où la confusion résolution / précision se rencontre le plus
+- [[filtrage|Filtrer des mesures]] — le filtrage améliore la fidélité et ne corrige aucun biais
 - [[lire-une-datasheet|Lire une datasheet]] — les instruments aussi ont la leur
 - [[pied-a-coulisse|Pied à coulisse]] et [[comparateur|Comparateur]] — les mêmes notions, côté métrologie dimensionnelle

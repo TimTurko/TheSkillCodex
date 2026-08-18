@@ -90,8 +90,6 @@ Pour l'exemple ci-dessous : cinq LED (trois pour les voitures, deux pour les pi�
 
 Après téléversement, le cycle tourne seul ; un appui sur le bouton avance le passage au rouge pour laisser traverser.
 
-Prendre capture d'écran ou photo de *le carrefour en fonctionnement, LED voiture verte allumée et LED piéton rouge allumée*.
-
 ## Exemple — Feux tricolores avec passage piéton
 
 Un carrefour à un feu : les voitures ont le cycle vert → orange → rouge, les piétons disposent d'un feu rouge/vert et d'un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — exactement la garde-condition `[demande && minimum écoulé]` du diagramme.

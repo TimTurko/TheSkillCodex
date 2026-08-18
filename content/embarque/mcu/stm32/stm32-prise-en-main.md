@@ -35,7 +35,7 @@ Téléchargez **STM32CubeIDE** depuis le site de ST (`st.com`, rubrique outils d
 
 Sous Windows, le pilote ST-LINK est installé avec l'IDE. Sous Linux, ajoutez les règles `udev` fournies par ST pour accéder au ST-LINK sans `sudo`.
 
-Prendre capture d'écran de *la page de téléchargement de STM32CubeIDE sur st.com, avec les liens Windows / Linux / macOS*.
+![Page de téléchargement de STM32CubeIDE sur st.com, avec les liens Windows, Linux et macOS.|600](/ressources/img/stm32-prise-en-main/telechargement-cubeide.png)
 
 ### 2. Créer un projet à partir de la carte
 
@@ -47,7 +47,7 @@ Ces repères — LED LD2, bouton B1, connecteurs — sont communs à toute la ga
 
 ![Repères communs aux STM32 Nucleo-64 : connecteurs Arduino (analogique + alimentation, numérique) et Morpho, ST-LINK intégré, LED LD2 sur PA5 (D13 côté connecteur Arduino) et bouton B1 sur PC13 ; la fonction précise des broches dépend du MCU.|640](/ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg)
 
-Prendre capture d'écran de *l'onglet Board Selector de STM32CubeIDE, NUCLEO-F411RE sélectionnée, avec le bouton Next*.
+![Onglet Board Selector de STM32CubeIDE, la carte NUCLEO-F411RE sélectionnée et le bouton Next.|600](/ressources/img/stm32-prise-en-main/board-selector.png)
 
 L'IDE ouvre la vue de configuration `.ioc` (le brochage de la carte) et génère un squelette de projet. On reviendra sur cette vue dans [[stm32-cubemx|CubeMX]] ; pour l'instant, fermez-la, le projet est prêt.
 
@@ -66,7 +66,7 @@ HAL_Delay(500);
 
 `HAL_GPIO_TogglePin` inverse l'état de la broche à chaque passage ; `HAL_Delay(500)` attend 500 ms. `LD2_Pin` et `LD2_GPIO_Port` sont les noms générés pour la LED — pas besoin de connaître le numéro de broche, CubeMX les a définis.
 
-Prendre capture d'écran de *l'éditeur main.c avec le toggle de LD2 inséré entre USER CODE BEGIN 3 et USER CODE END 3*.
+![Éditeur main.c de CubeIDE, le basculement de LD2 inséré entre les marqueurs USER CODE BEGIN 3 et USER CODE END 3.|600](/ressources/img/stm32-prise-en-main/main-c-user-code.png)
 
 ### 4. Compiler
 
@@ -83,7 +83,7 @@ Branchez la Nucleo par son connecteur USB **côté ST-LINK** (un câble de **don
 
 La LED LD2 clignote au rythme d'une demi-seconde. **Le programme tourne — la prise en main est validée.**
 
-Prendre capture d'écran ou photo de *la carte Nucleo branchée, LED utilisateur LD2 (verte) allumée*.
+Si LD2 reste éteinte, reprenez la sélection de la carte au *Board Selector* (étape 2), puis voyez les *Pièges*.
 
 ## Exemple — Blink modifié et débogué
 
@@ -102,7 +102,7 @@ La LED fait maintenant un éclair court (100 ms) toutes les secondes. Ce **petit
 
 Profitez-en pour découvrir le débogage : cliquez sur l'icône **insecte** (*Debug*) au lieu de *Run*. Le programme s'arrête au début de `main`. Posez un point d'arrêt sur la ligne `HAL_Delay`, exécutez pas à pas (*Step Over*), et observez le programme franchir la boucle. C'est l'atout du ST-LINK : voir le code s'exécuter, ligne par ligne, ce qu'aucun Arduino nu ne permet sans matériel dédié.
 
-Prendre capture d'écran de *la perspective Debug de CubeIDE, point d'arrêt posé dans la boucle while et flèche d'exécution sur une ligne*.
+![Perspective Debug de CubeIDE : un point d'arrêt posé dans la boucle while et la flèche d'exécution sur une ligne.|640](/ressources/img/stm32-prise-en-main/perspective-debug.png)
 
 ## Pièges
 

@@ -33,19 +33,17 @@ Quatre étapes : créer un projet Pico/MicroPython, poser les composants, écrir
 
 Sur `wokwi.com`, créez un compte gratuit, puis un **nouveau projet** en choisissant **Raspberry Pi Pico** et le langage **MicroPython**. L'éditeur s'ouvre avec un `main.py` vierge et un Pico déjà posé sur le plan.
 
-Prendre capture d'écran de *la page de création de projet Wokwi, avec « Raspberry Pi Pico » + « MicroPython » sélectionnés*.
+![Page de création de projet Wokwi, avec « Raspberry Pi Pico » et le langage « MicroPython » sélectionnés.|600](/ressources/img/micropython-simulation/creation-projet-pico.png)
 
 ### 2. Poser et câbler les composants
 
 Le bouton **+** ajoute des composants (LED, bouton, résistance, capteurs, écran SSD1306…). On câble en **cliquant d'une broche à l'autre**. Le câblage se reflète dans un fichier `diagram.json` que l'on peut aussi éditer à la main.
 
-Prendre capture d'écran de *un plan Wokwi avec un Pico, une LED et un bouton câblés, le sélecteur de composants ouvert*.
+![Menu d'ajout de composant de Wokwi, catégorie Basic, listant LED, Pushbutton, Pushbutton 6mm et Resistor.|440](/ressources/img/wokwi/ajouter-composant-blink.png)
 
 ### 3. Écrire le `main.py`
 
 Dans l'éditeur de code, écrivez votre programme MicroPython exactement comme sur une vraie carte (mêmes modules `machine`, `time`…). C'est le même code que celui qui tournera sur le Pico physique.
-
-Prendre capture d'écran de *l'éditeur Wokwi avec un main.py MicroPython (blink) à gauche et le Pico simulé à droite*.
 
 ### 4. Lancer la simulation et observer
 
@@ -74,7 +72,7 @@ while True:
 
 Lancez la simulation et cliquez sur le bouton : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (bouton vers 3,3 V au lieu de GND), le comportement change — la simulation reproduit fidèlement l'erreur **sans rien casser**.
 
-Prendre capture d'écran de *la simulation Wokwi du circuit bouton + LED, bouton en cours d'appui et LED allumée*.
+![Simulation Wokwi du circuit bouton et LED : le bouton est en cours d'appui et la LED allumée.|560](/ressources/img/micropython-simulation/simulation-bouton-led.png)
 
 ## Pièges
 

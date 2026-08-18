@@ -39,7 +39,7 @@ Trois briques structurent toute chaîne audio :
 
 Plutôt que d'écrire à la main les déclarations d'objets et de cordons, on les **dessine** : l'**Audio System Design Tool** (sur `pjrc.com`) propose tous les objets en bibliothèque ; on les glisse sur le plan de travail, on tire les cordons, et un clic sur *Export* **génère le bloc de code** (déclarations + `AudioConnection`) à coller dans le sketch. Le même graphe que le SVG ci-dessus produit ainsi quelques lignes prêtes à l'emploi. C'est l'outil de référence pour concevoir une chaîne audio Teensy.
 
-Prendre capture d'écran de *l'Audio System Design Tool dans le navigateur, avec quelques objets posés (waveform, filter, i2s) et des cordons tracés entre eux*.
+![Audio System Design Tool ouvert dans le navigateur : quelques objets posés — générateur, filtre, sortie I2S — reliés par des cordons.|640](/ressources/img/teensy-audio/audio-design-tool.png)
 
 ## Le traitement tourne en tâche de fond
 
@@ -76,8 +76,6 @@ void loop() {
 ```
 
 Les déclarations d'objets et les deux `AudioConnection` sont **exactement** ce que l'Audio Design Tool génère. **Sans Audio Shield**, on reste autonome en remplaçant `AudioOutputI2S` par **`AudioOutputUSB`** et en réglant *USB Type* sur **Audio** (voir [[teensy-usb|le Teensy comme appareil USB]]) : le Teensy devient une carte son et joue le signal dans l'ordinateur.
-
-Prendre capture d'écran ou enregistrement de *l'Audio Shield branché sur le Teensy, casque connecté, jouant le 440 Hz*.
 
 ## Pièges
 

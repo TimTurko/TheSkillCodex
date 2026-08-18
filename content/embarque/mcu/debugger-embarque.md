@@ -16,7 +16,7 @@ draft: false
 
 **Déboguer un système embarqué**, c'est traquer la cause d'un comportement anormal d'un programme qui tourne sur un microcontrôleur — là où il n'y a ni écran, ni clavier, ni la console d'un PC. Deux grandes approches coexistent : le **débogage par messages** (afficher des valeurs via la liaison série) et le **débogage matériel** (une sonde qui met le programme en pause, pose des points d'arrêt et inspecte les variables en temps réel). Cette fiche transverse pose la **méthode** et compare les deux approches, agnostique de la famille ; pour la lecture des logs propres à une carte, voir [[cpp-logs|lire les logs d'erreur]] et [[firmware|firmware]].
 
-*Prendre capture d'écran d'une session de débogage dans un IDE : le code arrêté sur un point d'arrêt (ligne surlignée), le panneau des variables/watch affichant leurs valeurs courantes, et la pile d'appels (call stack).*
+![IDE Arduino 2.x en mode Debug : un point d'arrêt posé sur une ligne de code et le panneau des variables ouvert à droite.|640](/ressources/img/arduino-debug/session-debogage.png)
 
 ## À quoi ça sert ?
 
@@ -58,8 +58,6 @@ Déboguer n'est pas changer du code au hasard jusqu'à ce que « ça passe ». L
 ## Exemple — Une LED qui refuse de clignoter
 
 Une LED censée clignoter reste éteinte. Le câblage et l'alimentation sont vérifiés (au [[multimetre|multimètre]]) : le problème est logiciel.
-
-*Prendre capture d'écran de la session : un point d'arrêt posé sur la ligne qui inverse l'état de la LED, et le panneau des variables montrant l'état courant.*
 
 1. **Hypothèse 1** — « la ligne qui inverse la LED n'est jamais atteinte ». On y pose un **point d'arrêt** : s'il ne se déclenche jamais, le chemin d'exécution ne passe pas par là (une condition au-dessus est fausse).
 2. **Variante par messages** — sans sonde, on place `Serial.print` juste avant : l'absence de message confirme la même chose.

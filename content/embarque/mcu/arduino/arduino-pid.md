@@ -90,7 +90,7 @@ Le réglage est **empirique** et se fait dans cet ordre :
 
 Visualiser la mesure et la consigne dans le temps guide ce réglage bien mieux que le tâtonnement à l'aveugle.
 
-Prendre capture d'écran de *le traceur série de l'IDE affichant deux courbes : la consigne (constante) et la mesure qui converge vers elle après réglage des gains*.
+![Traceur série de l'IDE Arduino affichant deux courbes : la consigne, constante, et la mesure qui converge vers elle.|600](/ressources/img/arduino-pid/traceur-consigne-mesure.png)
 
 ## Exemple — Réguler la vitesse d'un moteur
 

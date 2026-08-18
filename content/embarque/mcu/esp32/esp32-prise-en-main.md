@@ -35,7 +35,7 @@ Téléchargez l'IDE depuis le site officiel `arduino.cc`, section *Software*. Pr
 
 Sous Linux, ajoutez votre utilisateur au groupe `dialout` pour accéder au port série sans `sudo`. Sous macOS, rien de plus.
 
-Prendre capture d'écran de *la page de téléchargement arduino.cc/en/software, avec les liens Windows / macOS / Linux visibles*.
+![Page de téléchargement de l'IDE Arduino sur arduino.cc, avec les liens Windows, macOS et Linux.|600](/ressources/img/esp32-prise-en-main/telechargement-ide.png)
 
 ### 2. Ajouter le support ESP32
 
@@ -45,14 +45,14 @@ C'est l'étape propre à l'ESP32, absente d'un démarrage Arduino classique. Ouv
 https://espressif.github.io/arduino-esp32/package_esp32_index.json
 ```
 
-Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL Espressif collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+![Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600](/ressources/img/esp32-prise-en-main/preferences-url-cartes.png)
 
 Ouvrez ensuite le **gestionnaire de cartes** (icône en barre latérale, ou *Outils → Type de carte → Gestionnaire de cartes*), cherchez `esp32`, et installez le paquet **« esp32 » par Espressif Systems**.
 
 > [!warning]
 > **Prenez la version 3.0 ou plus récente.** Le silicium récent (ESP32-C6, S3 récents…) n'est reconnu qu'à partir du cœur **3.0**, qui repose sur ESP-IDF 5.1. Sur une version antérieure, la définition de carte n'apparaît pas et la compilation échoue. En cas de doute, mettez le paquet à jour avant de continuer.
 
-Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp32 », montrant le paquet Espressif Systems avec son numéro de version et le bouton Installer*.
+![Gestionnaire de cartes de l'IDE Arduino filtré sur « esp32 », montrant le paquet Espressif Systems, son numéro de version et le bouton Installer.|600](/ressources/img/esp32-prise-en-main/gestionnaire-cartes-esp32.png)
 
 ### 3. Brancher la carte et sélectionner carte + port
 
@@ -66,7 +66,7 @@ La plupart des cartes de développement ESP32 (type DevKitC) embarquent une puce
 
 Dans l'IDE, *Outils → Type de carte → esp32* et choisissez votre modèle : **« ESP32 Dev Module »** convient à la majorité des DevKit génériques (sinon le modèle exact : *ESP32-C3 Dev Module*, *ESP32-S3 Dev Module*…). Puis *Outils → Port* : `COMx` sous Windows, `/dev/cu.usbserial-...` ou `/dev/cu.usbmodem...` sous macOS, `/dev/ttyUSB0` ou `/dev/ttyACM0` sous Linux.
 
-Prendre capture d'écran de *l'IDE 2.x avec le menu Outils déroulé montrant « ESP32 Dev Module » sélectionné et le port actif*.
+![Menu Outils de l'IDE Arduino 2.x déroulé, « ESP32 Dev Module » sélectionné et le port actif visible.|600](/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png)
 
 ### 4. Charger le Blink
 
@@ -89,7 +89,7 @@ Deux [[fonction-informatique|fonctions]] structurent tout programme : `setup()` 
 
 Cliquez sur **Vérifier** (icône coche) : c'est la *compilation*. Si tout est correct, la console affiche la taille du binaire, sans ligne rouge.
 
-Prendre capture d'écran de *l'IDE 2.x avec le code Blink dans l'éditeur et la console affichant une compilation réussie*.
+![IDE Arduino 2.x avec le code Blink dans l'éditeur et la console affichant une compilation réussie.|600](/ressources/img/esp32-prise-en-main/compilation-reussie.png)
 
 ### 5. Téléverser et observer
 
@@ -100,7 +100,7 @@ Cliquez sur **Téléverser** (icône flèche). L'IDE recompile et envoie le bina
 
 Une fois terminé, la LED clignote au rythme d'une seconde. **Le programme tourne — la prise en main est validée.**
 
-Prendre capture d'écran ou photo de *la carte ESP32 branchée, LED intégrée allumée*.
+![Carte ESP32 branchée en USB, sa LED intégrée allumée.|420](/ressources/img/esp32-prise-en-main/carte-led-allumee.jpg)
 
 ## Exemple — Blink modifié
 

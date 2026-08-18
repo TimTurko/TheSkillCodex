@@ -16,7 +16,7 @@ Un **shield** est une carte d'extension qui s'enfiche directement sur les connec
 
 Le shield reprend exactement l'implantation des connecteurs de la carte hôte : il se pose par-dessus, broche sur broche, et plusieurs shields peuvent parfois s'empiler. L'intérêt est la rapidité de prototypage : pas de fils volants, un montage mécaniquement solide, une fonction ajoutée en quelques secondes. C'est l'une des raisons du succès du format [[arduino|Arduino]], dont l'implantation de connecteurs est devenue un standard de fait repris par de nombreuses cartes. Côté logiciel, chaque shield s'accompagne de **sa [[bibliotheque|bibliothèque]] associée**, qui expose la fonction sans qu'on ait à connaître le câblage interne. La mise en œuvre : [[arduino-shield]] côté Arduino, [[micropython-shield]] côté MicroPython.
 
-*Prendre photo d'une carte Arduino Uno avec un shield enfiché par-dessus (vue de trois quarts montrant l'empilement broche sur broche), éventuellement un deuxième cliché carte et shield séparés côte à côte.*
+![Carte Arduino Uno vue de trois quarts avec un shield enfiché par-dessus : les deux rangées de connecteurs s'emboîtent broche sur broche.|480](/ressources/img/shield/empilement-uno-shield.jpg)
 
 ## Limites
 

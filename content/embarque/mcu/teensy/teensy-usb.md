@@ -71,8 +71,6 @@ void loop() {
 
 La **détection de front** (`appuye && !dejaAppuye`) garantit qu'on tape **une seule fois** par appui, pas en rafale — indispensable pour un périphérique qui agit sur l'ordinateur. Pour un **contrôleur MIDI**, le principe est le même avec `usbMIDI` : par exemple `usbMIDI.sendControlChange(7, valeur, 1)` envoie un volume MIDI depuis un potentiomètre.
 
-Prendre capture d'écran ou vidéo de *un éditeur de texte sur l'ordinateur recevant « Teensy! » à chaque appui sur le bouton câblé au Teensy*.
-
 ## Pièges
 
 **Oublier de régler le USB Type.** Si le code utilise `Keyboard` ou `usbMIDI` mais que *USB Type* est resté sur *Serial*, la compilation échoue (objet inconnu) ou le périphérique n'apparaît pas. Régler le type **avant** de compiler.

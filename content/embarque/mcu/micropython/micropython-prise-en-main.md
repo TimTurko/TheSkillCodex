@@ -33,7 +33,7 @@ Cinq étapes : installer Thonny, flasher le firmware, se connecter, écrire (au 
 
 Téléchargez **Thonny** depuis `thonny.org` et installez-le (Windows / macOS / Linux). C'est l'IDE débutant de référence pour MicroPython : il sait flasher le firmware, ouvre le REPL, et gère les fichiers de la carte.
 
-Prendre capture d'écran de *la page de téléchargement thonny.org avec les liens par système*.
+![Page de téléchargement de Thonny sur thonny.org, avec les liens par système d'exploitation.|600](/ressources/img/micropython-prise-en-main/telechargement-thonny.png)
 
 ### 2. Flasher le firmware MicroPython sur le Pico 2
 
@@ -45,7 +45,7 @@ C'est l'étape propre à MicroPython, à faire **une seule fois** par carte. Le 
 > [!tip]
 > **Méthode manuelle (sans Thonny).** Maintenez le bouton **BOOTSEL** du Pico **enfoncé en branchant l'USB** : la carte apparaît comme une **clé USB** nommée `RP2350` (ou `RPI-RP2`). Glissez-y le fichier `.uf2` du firmware Pico 2, téléchargé sur `micropython.org` (rubrique *Download*, carte Pico 2) ou `raspberrypi.com`. La carte redémarre en exécutant MicroPython.
 
-Prendre capture d'écran de *la boîte de dialogue « Installer MicroPython » de Thonny, variante Pico 2 sélectionnée*.
+![Boîte de dialogue « Installer MicroPython » de Thonny, avec la variante Raspberry Pi Pico 2 sélectionnée.|560](/ressources/img/micropython-prise-en-main/installer-micropython.png)
 
 ### 3. Se connecter à la carte (le REPL)
 
@@ -62,7 +62,7 @@ C'est l'interpréteur **qui tourne sur le Pico**. Tapez pour vérifier :
 Bonjour depuis le Pico
 ```
 
-Prendre capture d'écran de *Thonny avec l'interpréteur réglé sur « MicroPython (Raspberry Pi Pico) » et le Shell affichant l'invite >>> et un print*.
+![Thonny avec l'interpréteur réglé sur « MicroPython (Raspberry Pi Pico) » et le Shell affichant l'invite puis le résultat d'un print.|600](/ressources/img/micropython-prise-en-main/interpreteur-et-shell.png)
 
 ### 4. Allumer la LED… au REPL, puis en programme
 
@@ -94,13 +94,13 @@ Notez la différence avec Arduino : **pas de `setup()`/`loop()`**, mais du code 
 
 Cliquez sur **Exécuter** (le bouton vert) : Thonny envoie le script au Pico et le lance. La LED clignote. **Le programme tourne — la prise en main est validée.** Pour l'arrêter, le bouton **Stop** (rouge), ou `Ctrl-C` dans le Shell.
 
-Prendre capture d'écran de *Thonny avec le script Blink dans l'éditeur, le bouton Exécuter, et le Pico LED allumée*.
+Si rien ne clignote, reprenez le choix de l'interpréteur à l'étape 3, puis voyez les *Pièges*.
 
 ### 5. Rendre la carte autonome (`main.py`)
 
 Tant que le script est lancé depuis Thonny, il s'arrête si l'on débranche. Pour qu'il tourne **seul à la mise sous tension**, enregistrez-le **sur la carte** sous le nom **`main.py`** (*Fichier → Enregistrer sous… → Raspberry Pi Pico*). Débranchez/rebranchez : la LED clignote sans ordinateur.
 
-Prendre capture d'écran de *la boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, fichier nommé main.py*.
+![Boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, le fichier nommé main.py.|560](/ressources/img/micropython-prise-en-main/enregistrer-sur-pico.png)
 
 ## Exemple — Blink modifié
 

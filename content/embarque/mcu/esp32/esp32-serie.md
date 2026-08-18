@@ -73,7 +73,7 @@ Téléversez d'abord le code, puis ouvrez le **moniteur série** (icône dans la
 
 **Vérifiez le baud rate** dans le menu déroulant en bas à droite — il doit valoir `115200`. Sinon, le texte ressemble à des symboles cassés, y compris les messages de démarrage de la puce.
 
-Prendre capture d'écran de *l'IDE 2.x avec le moniteur série ouvert en bas, montrant des lignes « Valeur du capteur : XXX » et le sélecteur de baud rate réglé sur 115200*.
+![Moniteur série de l'IDE Arduino 2.x ouvert en bas de la fenêtre, affichant des lignes de mesure, avec le sélecteur de débit réglé sur 115200.|600](/ressources/img/esp32-serie/moniteur-serie-115200.png)
 
 > [!tip]
 > **Le téléversement (ou le bouton EN) redémarre la carte.** À chaque reset, le programme repart de zéro et l'ESP32 réémet ses messages de boot. Si rien ne s'affiche, vérifier dans l'ordre : le baud rate (115200), la présence de `Serial.begin()`, et — sur puce USB native — le réglage *USB CDC On Boot*.

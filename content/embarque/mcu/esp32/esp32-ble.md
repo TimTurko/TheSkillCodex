@@ -96,7 +96,7 @@ Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` a
 > [!tip]
 > **Texte ou binaire ?** La valeur part ici **en texte**, pour qu'elle s'affiche telle quelle dans nRF Connect. Une caractéristique BLE transporte en réalité des **octets bruts** : `setValue(compteur)` avec un entier enverrait quatre octets, que l'application afficherait en hexadécimal (`01-00-00-00`). Les vrais projets préfèrent ce format binaire, plus compact — le texte est un confort de mise au point.
 
-Prendre capture d'écran de *l'application nRF Connect montrant le périphérique « ESP32-Capteur » connecté, le service déplié et la caractéristique dont la valeur s'incrémente*.
+![Application nRF Connect sur mobile : le périphérique « ESP32-Capteur » connecté, son service déplié et la valeur de la caractéristique affichée.|400](/ressources/img/esp32-ble/nrf-connect.png)
 
 ## Pièges
 

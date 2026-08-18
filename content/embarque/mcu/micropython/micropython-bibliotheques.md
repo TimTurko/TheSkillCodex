@@ -41,7 +41,7 @@ Certaines bibliothèques sont **gelées dans le firmware** — rien à installer
 
 **Méthode A — gestionnaire de Thonny** (recommandé) : *Outils → Gérer les paquets…*, chercher le nom (`ssd1306`), *Installer*. Thonny l'enregistre **sur la carte**.
 
-Prendre capture d'écran de *la fenêtre « Gérer les paquets » de Thonny, recherche « ssd1306 », bouton Installer visible*.
+![Fenêtre « Gérer les paquets » de Thonny, recherche « ssd1306 » et bouton Installer visible.|600](/ressources/img/micropython-bibliotheques/gerer-les-paquets.png)
 
 **Méthode B — `mip`** (carte connectée au réseau, Pico 2 W / ESP32) :
 

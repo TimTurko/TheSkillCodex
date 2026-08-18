@@ -16,7 +16,7 @@ Un **IDE** (*Integrated Development Environment*, environnement de développemen
 
 Sans IDE, programmer une cible embarquée imposerait d'enchaîner à la main compilation, édition de liens, conversion et flashage. L'IDE masque cette chaîne derrière deux boutons (« Vérifier » / « Téléverser ») et gère la sélection de la carte, du port et des bibliothèques. Il intègre généralement un **gestionnaire de [[bibliotheque|bibliothèques]]** et un **gestionnaire de cartes** qui installe le support d'une nouvelle famille de microcontrôleurs.
 
-*Prendre capture d'écran de l'IDE Arduino annoté : zone d'édition du code, boutons Vérifier / Téléverser, sélecteur de carte et de port, moniteur série.*
+![Interface de l'IDE Arduino annotée : zone d'édition du code, boutons Vérifier et Téléverser, sélecteurs de carte et de port, moniteur série.|640](/ressources/img/ide/interface-annotee.png)
 
 ## Lesquels selon la cible
 

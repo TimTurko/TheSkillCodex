@@ -144,7 +144,7 @@ void loop() {
 
 Téléversez, ouvrez le [[esp32-serie|moniteur série]] (115200) pour lire l'adresse IP affichée, puis tapez `http://<cette IP>` dans un navigateur du même réseau. La page propose deux liens qui allument et éteignent la LED. On a une **interface de pilotage sans écran ni application** en une cinquantaine de lignes.
 
-Prendre capture d'écran de *le navigateur affichant la page « ESP32 » avec les liens Allumer / Eteindre, et le moniteur série montrant l'adresse IP attribuée*.
+![Navigateur affichant la page servie par l'ESP32, intitulée ESP32, avec les deux liens Allumer et Eteindre.|440](/ressources/img/esp32-wifi/page-servie.png)
 
 ## Pièges
 

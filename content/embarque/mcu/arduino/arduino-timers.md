@@ -73,7 +73,7 @@ Cette fonction est une **ISR** : elle obéit aux règles des [[interruption|inte
 
 L'ISR ne fait que le strict nécessaire — souvent **lever un drapeau** — et c'est `loop()` qui effectue le travail lourd (lire, calculer, afficher) quand elle voit le drapeau levé. Ainsi le `Serial`, interdit dans l'ISR, se fait au bon endroit.
 
-Prendre capture d'écran de *le traceur série (Serial Plotter) de l'IDE Arduino affichant des échantillons régulièrement espacés dans le temps*.
+![Traceur série de l'IDE Arduino affichant des échantillons régulièrement espacés dans le temps.|600](/ressources/img/arduino-timers/traceur-echantillons.png)
 
 ## Exemple — Échantillonner un capteur à 100 Hz
 

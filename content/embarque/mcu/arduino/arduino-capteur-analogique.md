@@ -128,7 +128,7 @@ void loop() {
 
 La sortie au [[arduino-serie|moniteur série]] (et au **traceur série**) permet de visualiser simultanément seuil et mesure — utile pour calibrer le seuil au pifomètre, puis le figer en constante.
 
-Prendre capture d'écran de *le traceur série de l'IDE Arduino affichant deux courbes superposées (le seuil constant réglé au potentiomètre et la lumière variable), la LED basculant quand l'une passe sous l'autre*.
+![Traceur série de l'IDE Arduino affichant deux courbes superposées : le seuil, constant, et la mesure de lumière qui varie.|600](/ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png)
 
 ## Pièges
 

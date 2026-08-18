@@ -16,7 +16,7 @@ draft: false
 
 **L'analyseur logique** observe **plusieurs lignes numériques en même temps** et n'en retient que les états logiques — 0 ou 1 — horodatés. Là où l'[[oscilloscope|oscilloscope]] montre la forme analogique d'une ou deux voies, l'analyseur en suit huit ou seize et sait **décoder les protocoles** : il transforme les impulsions d'un bus en octets lisibles. C'est l'instrument du débogage de [[bus-de-communication|bus de communication]]. Fiche tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
 
-*Prendre capture d'écran de PulseView avec une trame I²C capturée et décodée (adresse + octets lisibles au-dessus des impulsions).*
+![PulseView affichant une trame I²C capturée et décodée : l'adresse et les octets sont lisibles au-dessus des impulsions.|640](/ressources/img/analyseur-logique/pulseview-i2c-decode.png)
 
 ## À quoi ça sert ?
 

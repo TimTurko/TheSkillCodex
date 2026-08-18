@@ -75,7 +75,7 @@ while True:
 
 À l'œil, la LED varie en intensité (effet de moyenne perceptive). À l'**oscilloscope**, on voit la vraie nature : un créneau 0–3,3 V dont la proportion de temps haut varie. Pour libérer la broche, `led.deinit()`.
 
-Prendre capture d'écran ou photo de *l'écran d'un oscilloscope montrant un signal PWM, rapport cyclique ~50 %*.
+L'allure exacte de ce créneau à l'écran — période repérée, rapport cyclique coté — est détaillée dans [[oscilloscope|oscilloscope]].
 
 ## Exemple — Variateur de LED avec potentiomètre
 

@@ -38,11 +38,9 @@ Ouvrez *Fichier → Préférences*, et dans **URL de gestionnaire de cartes supp
 https://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 
-Prendre capture d'écran de *la fenêtre Préférences de l'IDE 2.x avec l'URL ESP8266 collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+![Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600](/ressources/img/esp32-prise-en-main/preferences-url-cartes.png)
 
 Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community** — prenez la **dernière version 3.x** proposée par le menu déroulant, qui est la branche stable actuelle du cœur. Les tutoriels de ce module s'y réfèrent.
-
-Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp8266 », montrant le paquet ESP8266 Community avec son bouton Installer*.
 
 ### 3. Installer le pilote USB-série
 
@@ -52,7 +50,7 @@ Contrairement à beaucoup de cartes récentes, les NodeMCU / D1 mini utilisent u
 
 Branchez la carte avec un **câble USB de données**. Dans l'IDE, *Outils → Type de carte → ESP8266* et choisissez **« NodeMCU 1.0 (ESP-12E Module) »** (ou votre modèle). Sélectionnez le **Port**, et laissez la vitesse de téléversement par défaut.
 
-Prendre capture d'écran de *l'IDE 2.x avec le menu Outils déroulé montrant « NodeMCU 1.0 (ESP-12E Module) » sélectionné et le port actif*.
+![Menu Outils de l'IDE Arduino 2.x déroulé, « NodeMCU 1.0 (ESP-12E Module) » sélectionné et le port actif visible.|600](/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png)
 
 ### 5. Charger le Blink — attention à la LED active à l'état bas
 
@@ -76,7 +74,7 @@ Cliquez sur **Téléverser** (icône flèche). Sur NodeMCU / D1 mini, l'**auto-r
 > [!tip]
 > **Si la LED semble « inversée ».** C'est normal et attendu : sur l'ESP8266, `LOW` allume. Si vous vouliez l'éteindre, écrivez `HIGH`. Beaucoup de débutants croient à un bug ici — c'est juste la logique inversée de la LED intégrée.
 
-Prendre capture d'écran ou photo de *la carte NodeMCU branchée, LED intégrée allumée, avec la console de l'IDE affichant un téléversement réussi*.
+![Carte NodeMCU branchée en USB, sa LED intégrée allumée, la console de l'IDE affichant un téléversement réussi.|420](/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg)
 
 ## Exemple — Blink modifié
 

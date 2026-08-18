@@ -33,8 +33,6 @@ Pour le système, **Raspberry Pi OS** est le choix par défaut, et il existe en 
 - **Raspberry Pi OS Lite** — sans interface graphique. C'est le bon choix pour un Pi embarqué piloté en SSH : plus léger, plus rapide à démarrer, moins de surface inutile.
 - **Raspberry Pi OS (with desktop)** — avec bureau graphique. Utile si on branche un écran, plus lourd pour un usage headless.
 
-Prendre capture d'écran de *la fenêtre principale de Raspberry Pi Imager, avec les trois boutons « Choisir le modèle », « Choisir l'OS » et « Choisir le stockage »*.
-
 ## 2. Préparer le démarrage headless — avant de flasher
 
 C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire la carte. Imager propose une **personnalisation de l'OS** (une fenêtre apparaît à la fin, ou via *Modifier les réglages* / `Ctrl+Maj+X`). On y configure tout ce qui, sinon, demanderait un écran au premier démarrage :
@@ -44,9 +42,9 @@ C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire l
 - **les identifiants Wi-Fi** (SSID + mot de passe) si le Pi se connecte sans câble — sinon, un câble Ethernet suffit ;
 - **activer SSH** (onglet *Services*) — indispensable pour la connexion à distance. Choisir l'authentification par mot de passe (simple) ou par clé (plus sûr).
 
-Prendre capture d'écran de *l'onglet « Général » de la personnalisation OS d'Imager, avec les champs nom d'hôte, nom d'utilisateur/mot de passe et Wi-Fi renseignés*.
+![Onglet « Général » de la personnalisation d'OS de Raspberry Pi Imager : champs nom d'hôte, nom d'utilisateur et mot de passe, réglages Wi-Fi.|560](/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png)
 
-Prendre capture d'écran de *l'onglet « Services » de la personnalisation OS, case « Activer SSH » cochée*.
+![Onglet « Services » de la personnalisation d'OS de Raspberry Pi Imager, la case « Activer SSH » cochée.|560](/ressources/img/raspberry-pi-prise-en-main/imager-onglet-services.png)
 
 Validez, puis lancez l'écriture. Imager écrit l'image, applique vos réglages, puis vérifie la carte — quelques minutes.
 

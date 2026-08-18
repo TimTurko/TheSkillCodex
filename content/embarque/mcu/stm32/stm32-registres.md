@@ -65,7 +65,7 @@ On reconnaît la grammaire de la [[manipulation-de-bits|manipulation de bits]] :
 
 ![Le registre MODER d'un port GPIO STM32 : 16 broches × 2 bits ; les 2 bits de la broche 5 à 01 configurent PA5 en sortie (00 entrée, 01 sortie, 10 fonction alternée, 11 analogique)|640](/ressources/img/stm32-registres/registre-gpio.svg)
 
-Prendre capture d'écran de *la perspective Debug de CubeIDE, vue Registers ouverte sur GPIOA, montrant le bit 5 de ODR basculer à l'exécution pas à pas*.
+![Perspective Debug de CubeIDE, vue Registers ouverte sur GPIOA : le bit 5 du registre ODR bascule à chaque pas d'exécution.|600](/ressources/img/stm32-registres/vue-registers-odr.gif)
 
 ## BSRR contre ODR — l'atomicité
 

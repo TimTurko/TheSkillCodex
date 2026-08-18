@@ -115,17 +115,17 @@ La méthode, maintenant, document sous les yeux. Le **L298N** est un *double pon
 
 La première page annonce deux boîtiers pour la même puce : le **Multiwatt15**, boîtier traversant à 15 pattes avec une semelle métallique percée — celle qui recevra le radiateur —, et le **PowerSO-20**, sa déclinaison **CMS**. Le tableau des codes de commande, en fin de document, révèle au passage que « L298N » est précisément le code du Multiwatt15 vertical : le « N » du nom courant vient de là.
 
-*Prendre capture d'écran des deux dessins de boîtier (Multiwatt15 et PowerSO-20) en première page de la datasheet.*
-
 - le **Multiwatt15** (traversant) se soude à la main : c'est la seule version montable dans nos conditions d'atelier ;
 - le **PowerSO-20** (CMS) demande un équipement de soudure en surface — hors de portée à l'école ;
 - le **module** du commerce, lui, n'apparaît nulle part dans la datasheet : c'est une petite carte construite *autour* du Multiwatt15, radiateur, borniers et diodes déjà montés (cf. le cas particulier en fin de fiche).
 
-*Prendre photo des trois objets côte à côte : composant nu Multiwatt15, composant CMS (ou sa vue datasheet), module L298N du commerce.*
+Le même composant existe donc sous trois formes. Avant de commander ou de câbler, on vérifie **laquelle on a en main** : c'est elle qui décide de ce qu'on peut souder et de ce qu'il reste à monter autour.
 
 ### Le brochage et la table de vérité
 
-*Prendre capture d'écran du brochage Multiwatt15 (figure « Pin configuration ») et du tableau « Pin function ».*
+![Extrait de la datasheet du L298 : brochage du boîtier Multiwatt15 et tableau des fonctions de chaque broche.|600](/ressources/img/lire-une-datasheet/brochage-multiwatt15.png)
+
+*Source : STMicroelectronics — datasheet L298, extrait non modifié.*
 
 Quinze broches, à trier en familles avant toute chose :
 
@@ -136,7 +136,7 @@ Quinze broches, à trier en familles avant toute chose :
 
 Vient ensuite la table de vérité du pilotage d'un moteur (« bidirectional DC motor control ») :
 
-*Prendre capture d'écran de la table « Values of bidirectional dc motor control » et du schéma d'application qui l'accompagne (figure 8).*
+Le schéma des deux mondes, plus haut, situe les entrées en jeu : `En` est l'entrée de validation d'un pont, `C` et `D` ses deux entrées de sens.
 
 | Entrées | Comportement |
 | --- | --- |
@@ -177,7 +177,9 @@ Pour passer de ce pseudocode au programme réel : la démarche générale est po
 
 ### Les Absolute Maximum Ratings, en vrai
 
-*Prendre capture d'écran du tableau « Absolute maximum ratings » (table 1) de la datasheet.*
+![Extrait de la datasheet du L298 : tableau des valeurs limites absolues, avec les tensions et courants à ne pas dépasser.|600](/ressources/img/lire-une-datasheet/absolute-maximum-ratings.png)
+
+*Source : STMicroelectronics — datasheet L298, extrait non modifié.*
 
 Lecture commentée des lignes qui engagent le montage :
 
@@ -197,8 +199,6 @@ Cette tension perdue ne disparaît pas : elle devient chaleur. Le tableau « The
 - **avec radiateur**, ce sont la résistance jonction-boîtier (3 °C/W) et celle du radiateur qui comptent : un radiateur ordinaire fait remonter le budget vers 8 à 10 W.
 
 Voilà pourquoi tous les modules L298N du commerce portent un radiateur : ce n'est pas un accessoire, c'est ce qui rend les « 2 A par pont » atteignables.
-
-*Prendre photo du module L298N du commerce, radiateur bien visible.*
 
 Conséquence de conception : le radiateur a un **gabarit** — une empreinte au sol, une hauteur, et de l'air à laisser autour. Il se réserve dès le placement des composants sur la carte, pas une fois le routage fini → [[pcb|concevoir un PCB]].
 

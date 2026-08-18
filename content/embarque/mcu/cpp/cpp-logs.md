@@ -47,7 +47,7 @@ On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`)
 - **commencer par la PREMIÈRE erreur.** Une faute en entraîne souvent d'autres en cascade ; corrigez la première, recompilez, et les suivantes disparaissent fréquemment ;
 - **aller voir la ligne indiquée** — en gardant en tête que certaines erreurs (comme un `;` manquant) sont signalées sur la ligne **suivante**.
 
-Prendre capture d'écran de *le panneau d'erreur de l'IDE Arduino 2.x (en bas de la fenêtre) affichant un message « error: … » en rouge, avec le chemin fichier:ligne et la ligne de code fautive*.
+![Panneau d'erreur de l'IDE Arduino 2.x affichant un message d'erreur en rouge, avec le chemin du fichier, le numéro de ligne et la ligne de code fautive.|560](/ressources/img/cpp-logs/panneau-erreur.png)
 
 ## Les erreurs de compilation les plus fréquentes
 

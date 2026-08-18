@@ -64,7 +64,7 @@ Quelques observations à tirer de cet exemple :
 - La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[arduino-pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
 - Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur — deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
-<!-- TODO: ajouter une photo de couveuse réelle annotée avec les blocs identifiés. -->
+![Photo d'une couveuse réelle, annotée des blocs fonctionnels identifiés : contrôleur, relais, résistance chauffante, capteur de température.|600](/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg)
 
 ## Pièges
 

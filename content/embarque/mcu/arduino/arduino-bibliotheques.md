@@ -48,7 +48,7 @@ Pour un composant nouveau, taper le nom du composant + « arduino library » dan
 2. Taper le nom dans le champ de recherche (`Servo`, `LiquidCrystal_I2C`, `Adafruit BMP280`).
 3. Choisir la bibliothèque et cliquer *Installer*.
 
-Prendre capture d'écran de *le gestionnaire de bibliothèques de l'IDE Arduino 2.x ouvert, avec la recherche « Adafruit BMP280 » et plusieurs résultats visibles*.
+![Gestionnaire de bibliothèques de l'IDE Arduino 2.x, recherche « Adafruit BMP280 » et plusieurs résultats visibles.|600](/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png)
 
 **Méthode B — installation depuis un fichier ZIP** (pour les bibliothèques absentes du gestionnaire) :
 
@@ -127,7 +127,7 @@ void loop() {
 
 Téléversez. Le servo balaye continûment.
 
-Intégrer un GIF ou une photo de *le servomoteur SG90, palette montée, qui balaye de 0° à 180° puis revient — le câblage des trois fils est donné par le schéma ci-dessus*.
+![Servomoteur SG90 avec sa palette montée, balayant de 0° à 180° puis revenant à sa position de départ.|420](/ressources/img/arduino-bibliotheques/servo-balayage.gif)
 
 Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer manuellement le signal PWM 50 Hz avec impulsion 1-2 ms. La bibliothèque encapsule tout ça — d'où son intérêt.
 

@@ -35,14 +35,14 @@ Comme pour l'ESP32, le STM32 n'est pas connu de l'IDE Arduino par défaut : il f
 https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
 ```
 
-Prendre capture d'écran de *la fenêtre Préférences de l'IDE Arduino avec l'URL STM32duino collée dans le champ « URL de gestionnaire de cartes supplémentaires »*.
+![Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600](/ressources/img/esp32-prise-en-main/preferences-url-cartes.png)
 
 Ouvrez le **gestionnaire de cartes**, cherchez `stm32`, et installez **« STM32 MCU based boards » par STMicroelectronics**. Dans *Outils → Type de carte → STM32 MCU based boards*, choisissez la **série** (par ex. *Nucleo-64*) puis, dans *Outils → Board part number*, la **référence exacte** de votre carte.
 
 > [!info]
 > **STM32duino flashe via STM32CubeProgrammer.** Installez l'outil **STM32CubeProgrammer** de ST (gratuit) : STM32duino l'utilise en sous-main pour le flashage. Dans *Outils → Upload method*, choisissez **« STM32CubeProgrammer (SWD) »** pour une Nucleo (le ST-LINK embarqué suffit). Une *Blue Pill*, qui n'a pas de ST-LINK, demande un autre mode (DFU par USB, port série, ou ST-LINK externe).
 
-Prendre capture d'écran de *le menu Outils de l'IDE Arduino montrant Type de carte « Nucleo-64 », Board part number et Upload method « STM32CubeProgrammer (SWD) »*.
+![Menu Outils de l'IDE Arduino montrant Type de carte « Nucleo-64 », le Board part number et Upload method « STM32CubeProgrammer (SWD) ».|600](/ressources/img/stm32-arduino-core/menu-outils-nucleo.png)
 
 ## Le même code qu'Arduino, presque
 

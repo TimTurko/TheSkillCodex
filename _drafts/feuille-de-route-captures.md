@@ -5,18 +5,29 @@
 > `_drafts/inventaire-captures.txt` (balayage complet du même jour).
 > Arbitrages Tim, session du 18/08. Regroupement **par session de prise de vue**
 > (une session = un logiciel ouvert une fois), pas par fiche.
+>
+> **Re-balayage à motif élargi, 19/08 — 242 fiches balayées sur 242 `.md` de
+> `content/`.** Le compte passe à **107 placeholders sur 60 fiches** : les 101 du
+> triage sont tous retrouvés à la ligne exacte, **+6 nets** qui commençaient par
+> une forme de « photo » (`Prendre photo de`, `Prendre une photo de`,
+> `Intégrer un GIF ou une photo de`), invisible au motif du 18/08. Un 108ᵉ item
+> hors compteur a été trouvé en commentaire HTML. Arbitrages Tim du 19/08 intégrés
+> ci-dessous, repérés **[19/08]**.
 
 ## Bilan du triage
 
-| Verdict | Placeholders |
-|---|---|
-| À shooter | 46 |
-| À shooter — reporté post-publication (KiCad) | 3 |
-| Réemploi cross-dossier (C76), aucune prise | 12 |
-| Converti en bloc de code ou tableau | 23 |
-| Converti en SVG | 6 |
-| Supprimé | 11 |
-| **Total** | **101** |
+| Verdict | 18/08 | **19/08** |
+|---|---|---|
+| À shooter | 46 | **49** |
+| À shooter — reporté post-publication (KiCad) | 3 | 3 |
+| Réemploi cross-dossier (C76), aucune prise | 12 | **9** |
+| Converti en bloc de code ou tableau | 23 | 23 |
+| Converti en SVG | 6 | **8** |
+| Supprimé | 11 | **16** |
+| **Total** | **101** | **108** |
+
+Le total 19/08 est de 108 et non 107 : le commentaire HTML de
+`schema-bloc-fonctionnel:67` entre au compteur en devenant un placeholder visible.
 
 **Critère de tri retenu (18/08)** : une capture gagne sa place quand
 **l'interface est opaque**, pas quand le sujet est trivial.
@@ -30,8 +41,8 @@ d'opacité n'est pas abrogé : il cède devant le trafic, et seulement là.
 
 | Rang | Périmètre | Prises restantes |
 |---|---|---|
-| 1 | Notions transverses `[T]` | 6 |
-| 1 | `arduino-*` | 5 |
+| 1 | Notions transverses `[T]` | **8** |
+| 1 | `arduino-*` | **6** |
 | 1 | `esp32-*` + `esp8266-*` | 12 |
 | 2 | `micropython-*` | 8 |
 | 3 | `stm32-*`, `teensy-*`, `raspberry-pi-*` | 12 |
@@ -40,6 +51,73 @@ d'opacité n'est pas abrogé : il cède devant le trafic, et seulement là.
 Les notions `[T]` sont en rang 1 **bien qu'elles n'appartiennent à aucun module** :
 C26 les fait pointer depuis tous les hubs de famille, donc à placeholder égal ce
 sont les images les plus rentables du wiki.
+
+---
+
+# À apporter par Tim — suivi
+
+> **Seule liste à tenir à jour pendant les prises de vue.** Tout le reste du
+> fichier est de la spécification ; ceci est le suivi. Cocher au fil de l'eau.
+
+## A. Prises de vue — 49 + 3 reportées
+
+Une ligne par session, détail des cadrages dans la partie *Sessions* ci-dessous.
+
+- [ ] **S1 · IDE Arduino** — 12 prises (la plus rentable : un quart de la dette)
+- [ ] **S2 · Thonny + Pico branché** — 8 prises (les 3 Plotter exigent un montage réel)
+- [ ] **S3 · STM32CubeIDE** — 7 prises (dont 1 candidat GIF : `stm32-registres:68`)
+- [ ] **S4 · Navigateur** — 4 prises (3 pages de téléchargement + la page servie par l'ESP32)
+- [ ] **S5 · Wokwi** — 2 prises
+- [ ] **S6 · Raspberry Pi Imager** — 2 prises (même dialogue, deux onglets)
+- [ ] **S7 · IDE Arduino + matériel (traceur série)** — 3 prises
+- [ ] **S8 · Cartes branchées** — 3 prises
+- [ ] **S9 · Datasheet L298N** — 2 extraits, **cadrés serré sur la figure utile**
+- [ ] **S10 · Prises isolées** — 3 (nRF Connect, PulseView, Audio Design Tool)
+- [ ] **S12 · Matériel sur la paillasse** — 3 prises **[19/08]**
+- [ ] *(reporté)* **S11 · KiCad** — 3 prises, post-publication (C90)
+
+## B. Valeurs à relever au banc — 8
+
+Les blocs de code de régime **(b)** sont écrits en forme neutre : ce que le **monde**
+produit ne s'invente pas. Chaque ligne ci-dessous est un trou à combler carte en main.
+
+- [ ] `arduino-memoire:72` — RAM libre en octets, et sa diminution au fil des allocations
+- [ ] `micropython-memoire:73` — `gc.mem_free()` **avant** et **après** `gc.collect()`
+- [ ] `teensy-arduino-core:100` — mémoire libre affichée à côté du « Coeur : 600 MHz »
+- [ ] `stm32-arduino-core:116` — fréquence cœur ; **UID masqué en `XXXX-XXXX-XXXX`**
+- [ ] `esp8266-arduino-core:88` — adresse IP attribuée (dépend de la box)
+- [ ] `stm32-prise-en-main:75` — récapitulatif de taille mémoire de la console Build
+- [ ] `arduino-deep-sleep:78` — tableau état / courant / autonomie, mesuré au multimètre
+- [ ] `micropython-deep-sleep:92` — idem, **sans chute en µA à écrire** : sur RP2040 `deepsleep` ≈ `lightsleep` (correction du 30/06)
+
+## C. À rédiger toi-même
+
+- [ ] **L'alt de tout média trop lourd pour être ouvert** côté Claude (> ~300 ko). Un
+  alt inventé sur un fichier illisible est une violation C81 — précédent
+  `interface.png` du 18/08. Soit une version allégée, soit l'alt vient de toi.
+- [ ] **Vérifier les alts des 61 embeds posés d'avance, au dépôt de chaque image.**
+  En (c-large) l'alt est écrit **contre la spécification du placeholder**, faute
+  d'image à ouvrir — c'est le prix assumé de l'arbitrage. Tant que la prise suit le
+  cadrage décrit, l'alt est juste ; **si un cadrage dévie, c'est l'alt qu'il faut
+  reprendre**, pas seulement l'image.
+- [ ] **La révision du PDF L298N** (S9), hors fiche : la numérotation des tables
+  change entre révisions et rendrait l'exercice faux sans que rien ne le signale.
+- [ ] **Trancher `Pin("LED")` au simulateur** (`micropython-simulation`) : la fiche
+  écrit que le raccourci « *peut* » ne pas être reconnu sur le Pico simulé. Le
+  « peut » est mou pour un piège — à vérifier à l'écran, pas de mémoire.
+
+## D. Décisions encore ouvertes
+
+- [ ] **Portée des embeds posés d'avance — TRANCHÉ le 19/08 : (c-large).** Embeds posés
+  sur les 12 réemplois **et** sur les 49 prises pivots, ~59 absents acceptés jusqu'à
+  la prise de vue. Nommage contractuel au **Manifeste des embeds** ci-dessous. Reste
+  à exécuter, session par session.
+- [ ] **`micropython-simulation:54` à reclasser.** Le lot `wokwi/` montre un **ESP32
+  avec `sketch.ino`** ; `moniteur-serie-hello.png` affiche le journal de boot ESP32
+  puis `Hello, ESP32!`. Le réemployer sous une phrase MicroPython/Pico reproduit
+  exactement le défaut qui a fait **supprimer** `:48` le 18/08. Mon avis : `:54` en
+  suppression, `:42` conservé en prise propre (le sélecteur de composants, lui, est
+  indépendant de la carte).
 
 ---
 
@@ -160,6 +238,17 @@ version de LTspice, jamais citée dans `ltspice`.
 | 45 | `analyseur-logique:19` | PulseView, trame I²C capturée **et décodée** (adresse + octets lisibles au-dessus des impulsions) |
 | 46 | `teensy-audio:42` | Audio System Design Tool dans le navigateur : objets posés (waveform, filter, i2s) et cordons tracés |
 
+## S12 · Matériel sur la paillasse — 3 prises **[19/08]**
+
+Les trois nouveaux à shooter issus du re-balayage. Rien d'un logiciel : de l'objet
+posé sur la table, photographié ou filmé.
+
+| # | Fiche:ligne | À montrer | Note |
+|---|---|---|---|
+| 47 | `arduino-bibliotheques:130` | Servo SG90, palette montée, balayage 0° → 180° puis retour | **GIF** — boucle courte, le mouvement *est* le message (C87). < 5 Mo, `fps=15`, sans audio, **intercepter avant commit** |
+| 48 | `shield:19` | Uno avec un shield enfiché, **vue de trois quarts** montrant l'empilement broche sur broche | **Pièce pivot** : c'est la cible du réemploi `micropython-shield:37`. Format Uno et non Teensy — la fiche fait de l'implantation Uno le standard de fait. Second cliché carte + shield séparés côte à côte : optionnel |
+| 49 | `schema-bloc-fonctionnel:67` | Couveuse réelle, annotée des blocs fonctionnels identifiés | Vient d'un **commentaire HTML** converti en placeholder C29 visible. L'annotation peut se poser après coup en SVG par-dessus la photo |
+
 ## S11 · KiCad — 3 prises, REPORTÉES
 
 Post-publication, arbitrage 18/08. Placeholders visibles assumés (C90).
@@ -242,6 +331,8 @@ IP, UID) ?
 | `oscilloscope/ecran-pwm.svg` | `oscilloscope:58` | Trace carrée 0-5 V, période T repérée, zone haute cotée — **valeurs de l'étape 5 de la fiche** : ≈ 490 Hz, `analogWrite(128)` → 50 % |
 | `arduino-alimentation/trois-sources.svg` | `arduino-alimentation:73` | Uno : USB type B, jack DC 9 V, Vin/GND — C78, le câblage se montre en schéma |
 | *(complément)* `micropython-alimentation/alimentation-separee.svg` | `micropython-alimentation:63` | **SVG existant à compléter** plutôt qu'à doubler : ajouter la branche USB à côté de VSYS/GND |
+| `generateur-de-signaux/face-avant.svg` **[19/08]** | `generateur-de-signaux:21` | Face avant de GBF en blocs fonctionnels : sélecteur de forme d'onde (sinus / carré / triangle), réglages fréquence / amplitude / offset, **sortie BNC**. **3ᵉ instrument du lot** — même argument que multimètre et oscilloscope |
+| `arduino-module/serigraphie-module-i2c.svg` **[19/08]** | `arduino-module:77` | Contour d'un module I²C type BMP280, **sérigraphie VCC / GND / SDA / SCL** lisible le long du peigne, plus le cavalier d'adresse. C80 : les broches portent les noms que le code emploie |
 
 **Pourquoi le SVG gagne sur les instruments alors qu'il perd sur les logiciels.**
 Une face avant photographiée, c'est *un* multimètre ; l'étudiant en trouvera un
@@ -273,6 +364,11 @@ existants portent la **topologie de branchement**, les nouveaux portent la
 | `lire-une-datasheet:118` | Dessins de boîtier → une phrase (« le même composant existe en deux boîtiers, vérifiez lequel vous avez ») |
 | `lire-une-datasheet:139` | Table de commande + figure 8 → renvoi au SVG de branchement L298N déjà en place |
 | `teensy-usb:74` | Éditeur recevant « Teensy! » — rang 3, à rouvrir sur demande d'un groupe étudiant |
+| `lire-une-datasheet:124` **[19/08]** | Trois objets côte à côte (composant nu / CMS / module) — même motif que `:118` : un montage de studio pour une idée qui tient en une phrase |
+| `lire-une-datasheet:201` **[19/08]** | Photo du module L298N, radiateur visible — tombe avec `:124`, le radiateur se mentionne dans la prose sur la dissipation |
+| `esp8266-prise-en-main:45` **[19/08]** | Gestionnaire de cartes — le pivot #3 est **filtré sur « esp32 » et montre Espressif Systems**, il contredirait la phrase qui dit d'installer « esp8266 » par ESP8266 Community. Non neutralisable : un gestionnaire sans filtre ne montre plus rien. La prose nomme déjà le paquet |
+| `teensy-prise-en-main:52` **[19/08]** | Idem, paquet de Paul Stoffregen. **La capture #3 reste sur l'ESP32 seul**, elle cesse d'être une prise pivot |
+| `micropython-shield:37` **[19/08]** | Pico sur carte porteuse — le pivot #48 montre un **Uno avec son shield**, format sans rapport avec le Pico. Même motif que le pivot #3. La prose décrit déjà le geste : aligner avant de pousser, respecter le sens, jamais sous tension |
 
 ## Phrases de contrôle en remplacement
 
@@ -295,16 +391,118 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 
 ---
 
+# Manifeste des embeds — c-large (19/08)
+
+> **Arbitrage Tim, 19/08 : c-large.** Les embeds sont posés **avant** les prises de
+> vue, sur les 49 pivots **et** les 12 réemplois. Le chemin devient la spécification :
+> **enregistre chaque prise sous le nom exact ci-dessous** et l'image apparaît sans
+> autre édition. ~59 absents attendus à `audit-medias.mjs` jusqu'à la prise de vue —
+> **c'est le régime nominal, pas une régression** ; le compteur retombe à zéro au fil
+> des dépôts. Les 3 KiCad restent en placeholder (reportées, C90).
+>
+> Descripteur = nom du média moins le préfixe de fiche (C73). Chemins absolus.
+> Extensions : capture d'UI → `.png`, photo → `.jpg`, animation → `.gif` (C74).
+
+## Pivots — 49
+
+| # | Fiche:ligne | Fichier | Largeur |
+|---|---|---|---|
+| 1 | `ide:19` | `/ressources/img/ide/interface-annotee.png` | 640 |
+| 2 | `esp32-prise-en-main:48` | `/ressources/img/esp32-prise-en-main/preferences-url-cartes.png` | 600 |
+| 3 | `esp32-prise-en-main:55` | `/ressources/img/esp32-prise-en-main/gestionnaire-cartes-esp32.png` | 600 |
+| 4 | `esp32-prise-en-main:69` | `/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png` | 600 |
+| 5 | `esp8266-prise-en-main:55` | `/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png` | 600 |
+| 6 | `teensy-prise-en-main:60` | `/ressources/img/teensy-prise-en-main/menu-outils-teensy41.png` | 600 |
+| 7 | `stm32-arduino-core:45` | `/ressources/img/stm32-arduino-core/menu-outils-nucleo.png` | 600 |
+| 8 | `esp32-prise-en-main:92` | `/ressources/img/esp32-prise-en-main/compilation-reussie.png` | 600 |
+| 9 | `arduino-bibliotheques:51` | `/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png` | 600 |
+| 10 | `esp32-serie:76` | `/ressources/img/esp32-serie/moniteur-serie-115200.png` | 600 |
+| 11 | `cpp-logs:50` | `/ressources/img/cpp-logs/panneau-erreur.png` | 560 |
+| 12 | `arduino-debug:89` | `/ressources/img/arduino-debug/session-debogage.png` | 640 |
+| 13 | `micropython-prise-en-main:48` | `/ressources/img/micropython-prise-en-main/installer-micropython.png` | 560 |
+| 14 | `micropython-prise-en-main:65` | `/ressources/img/micropython-prise-en-main/interpreteur-et-shell.png` | 600 |
+| 15 | `micropython-prise-en-main:103` | `/ressources/img/micropython-prise-en-main/enregistrer-sur-pico.png` | 560 |
+| 16 | `micropython-bibliotheques:44` | `/ressources/img/micropython-bibliotheques/gerer-les-paquets.png` | 600 |
+| 17 | `micropython-debug:91` | `/ressources/img/micropython-debug/thonny-pas-a-pas.png` | 640 |
+| 18 | `micropython-repl:88` | `/ressources/img/micropython-repl/plotter.png` | 600 |
+| 19 | `micropython-timers:65` | `/ressources/img/micropython-timers/plotter-echantillons.png` | 600 |
+| 20 | `micropython-pid:88` | `/ressources/img/micropython-pid/plotter-consigne-mesure.png` | 600 |
+| 21 | `stm32-prise-en-main:50` | `/ressources/img/stm32-prise-en-main/board-selector.png` | 600 |
+| 22 | `stm32-prise-en-main:69` | `/ressources/img/stm32-prise-en-main/main-c-user-code.png` | 600 |
+| 23 | `stm32-prise-en-main:105` | `/ressources/img/stm32-prise-en-main/perspective-debug.png` | 640 |
+| 24 | `stm32-registres:68` | `/ressources/img/stm32-registres/vue-registers-odr.gif` | 600 |
+| 25 | `stm32-cubemx:41` | `/ressources/img/stm32-cubemx/pinout-configuration.png` | 640 |
+| 26 | `stm32-cubemx:49` | `/ressources/img/stm32-cubemx/clock-configuration.png` | 640 |
+| 27 | `stm32-cubemx:58` | `/ressources/img/stm32-cubemx/usart-nvic.png` | 600 |
+| 28 | `esp32-prise-en-main:38` | `/ressources/img/esp32-prise-en-main/telechargement-ide.png` | 600 |
+| 29 | `micropython-prise-en-main:36` | `/ressources/img/micropython-prise-en-main/telechargement-thonny.png` | 600 |
+| 30 | `stm32-prise-en-main:38` | `/ressources/img/stm32-prise-en-main/telechargement-cubeide.png` | 600 |
+| 31 | `esp32-wifi:147` | `/ressources/img/esp32-wifi/page-servie.png` | 440 |
+| 32 | `micropython-simulation:36` | `/ressources/img/micropython-simulation/creation-projet-pico.png` | 600 |
+| 33 | `micropython-simulation:77` | `/ressources/img/micropython-simulation/simulation-bouton-led.png` | 560 |
+| 34 | `raspberry-pi-prise-en-main:47` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png` | 560 |
+| 35 | `raspberry-pi-prise-en-main:49` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-services.png` | 560 |
+| 36 | `arduino-capteur-analogique:131` | `/ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png` | 600 |
+| 37 | `arduino-pid:93` | `/ressources/img/arduino-pid/traceur-consigne-mesure.png` | 600 |
+| 38 | `arduino-timers:76` | `/ressources/img/arduino-timers/traceur-echantillons.png` | 600 |
+| 39 | `esp32-prise-en-main:103` | `/ressources/img/esp32-prise-en-main/carte-led-allumee.jpg` | 420 |
+| 40 | `esp8266-prise-en-main:79` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg` | 420 |
+| 41 | `teensy-prise-en-main:92` | `/ressources/img/teensy-prise-en-main/teensy-loader.png` | 480 |
+| 42 | `lire-une-datasheet:128` | `/ressources/img/lire-une-datasheet/brochage-multiwatt15.png` | 600 |
+| 43 | `lire-une-datasheet:180` | `/ressources/img/lire-une-datasheet/absolute-maximum-ratings.png` | 600 |
+| 44 | `esp32-ble:99` | `/ressources/img/esp32-ble/nrf-connect.png` | 400 |
+| 45 | `analyseur-logique:19` | `/ressources/img/analyseur-logique/pulseview-i2c-decode.png` | 640 |
+| 46 | `teensy-audio:42` | `/ressources/img/teensy-audio/audio-design-tool.png` | 640 |
+| 47 | `arduino-bibliotheques:130` | `/ressources/img/arduino-bibliotheques/servo-balayage.gif` | 420 |
+| 48 | `shield:19` | `/ressources/img/shield/empilement-uno-shield.jpg` | 480 |
+| 49 | `schema-bloc-fonctionnel:67` | `/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg` | 600 |
+
+**À légender en plus (C74-c, attribution)** : #42 et #43 —
+`*Source : STMicroelectronics — datasheet L298, extrait non modifié.*`
+
+## Réemplois cross-dossier — 12
+
+Aucun fichier à produire : le chemin pointe vers le dossier du pivot (C73/C76).
+Une retouche du pivot se propage à toutes ses consommatrices d'un coup.
+
+| Fiche:ligne | Pointe vers | État du fichier |
+|---|---|---|
+| `esp8266-prise-en-main:41` | #2 `esp32-prise-en-main/preferences-url-cartes.png` | à shooter |
+| `teensy-prise-en-main:48` | #2 | à shooter |
+| `stm32-arduino-core:38` | #2 | à shooter |
+| `esp8266-prise-en-main:45` | #3 `esp32-prise-en-main/gestionnaire-cartes-esp32.png` | **annulé le 19/08 — passé en suppression** |
+| `teensy-prise-en-main:52` | #3 | **annulé le 19/08 — passé en suppression** |
+| `teensy-prise-en-main:38` | #28 `esp32-prise-en-main/telechargement-ide.png` | à shooter |
+| `teensy-prise-en-main:81` | #8 `esp32-prise-en-main/compilation-reussie.png` | à shooter |
+| `debugger-embarque:19` | #12 `arduino-debug/session-debogage.png` | à shooter |
+| `micropython-shield:37` | #48 `shield/empilement-uno-shield.jpg` | **annulé le 19/08 — passé en suppression** |
+| `arduino-sortie-pwm:80` | `oscilloscope/ecran-pwm.svg` | **à produire, session C** |
+| `micropython-simulation:42` | `wokwi/ajouter-composant-blink.png` | **existe déjà** |
+| `micropython-simulation:54` | `wokwi/moniteur-serie-hello.png` | **existe, mais contesté** — voir *Décisions ouvertes* |
+
+**`micropython-simulation:54` est le seul des 61 que je ne pose pas** tant qu'il n'est
+pas reclassé : l'image montre un ESP32 en C++, la phrase parle d'un Pico en
+MicroPython. Poser l'embed, c'est publier la contradiction, pas un lien mort.
+
+---
+
 # Points ouverts
 
-- ⚠ **L'inventaire n'est pas exhaustif : 101 est un plancher.** Vérification du 18/08 — `shield.md` porte un placeholder que le balayage **n'a pas vu**, parce qu'il commence par « **Prendre photo de** » et non « Prendre capture ». Le motif du balayage attrapait bien « Prendre capture d'écran **ou photo** de » et les paragraphes tout en italique, mais pas cette forme-là. C'est le mode d'échec recensé le 18/08 : *l'opération réussit formellement, seule la quantité de travail réel est tronquée*. **À faire avant la première session de prise de vue** : re-balayer avec un motif élargi — `Prendre (capture|photo|vidéo)`, plus `Intégrer une vidéo` (C75) — et **vérifier le nombre de fiches balayées**, pas seulement le nombre de résultats.
+- ✅ **Résolu le 19/08 — le re-balayage a eu lieu, 242 fiches sur 242.** Motif élargi à `Prendre (capture|photo|vidéo)`, `Prendre une photo de`, `Intégrer un GIF ou une photo de`, `Intégrer une vidéo` (C75) et paragraphes intégralement en italique ; puis contrôle de second rideau sur les amorces `Ajouter / Illustrer / Montrer / Filmer / Enregistrer`, les italiques courts, et les 41 lignes résiduelles contenant un mot-média hors motif. **Résultat : 107 placeholders sur 60 fiches**, les 101 du triage retrouvés à la ligne exacte, +6 nets, tous en forme « photo ». Le compte de fiches balayées a été vérifié contre `search_files **/*.md` — c'est la grandeur mesurable, pas le code de retour. Historique de l'alerte ci-dessous.
+
+- ~~⚠ **L'inventaire n'est pas exhaustif : 101 est un plancher.**~~ Vérification du 18/08 — `shield.md` porte un placeholder que le balayage **n'a pas vu**, parce qu'il commence par « **Prendre photo de** » et non « Prendre capture ». Le motif du balayage attrapait bien « Prendre capture d'écran **ou photo** de » et les paragraphes tout en italique, mais pas cette forme-là. C'est le mode d'échec recensé le 18/08 : *l'opération réussit formellement, seule la quantité de travail réel est tronquée*. **À faire avant la première session de prise de vue** : re-balayer avec un motif élargi — `Prendre (capture|photo|vidéo)`, plus `Intégrer une vidéo` (C75) — et **vérifier le nombre de fiches balayées**, pas seulement le nombre de résultats.
 
 - **Format C29 non canonique, au-delà de `kicad`.** Les quatre placeholders de
   `multimetre` et `oscilloscope` sont en **paragraphe intégralement italique**,
   comme ceux corrigés sur `kicad` le 17/08. Ils disparaissent avec les SVG, mais le
   défaut n'était donc pas isolé — **contrôle de format à passer sur les fiches
-  antérieures au canon** (`debugger-embarque`, `ide`, `analyseur-logique`,
-  `lire-une-datasheet`, `micropython-repl` sont dans le même cas au balayage).
+  antérieures au canon**. **Chiffré le 19/08 : 17 occurrences sur 9 fiches**, et non
+  5 — `lire-une-datasheet` (6), `multimetre` (2), `oscilloscope` (2),
+  `debugger-embarque` (2), `ide`, `micropython-repl`, `shield`, `analyseur-logique`,
+  `generateur-de-signaux` (1 chacune). Onze d'entre elles tombent avec les SVG ou
+  les suppressions déjà arbitrés ; **les six qui restent à remettre au canon** sont
+  `ide:19`, `debugger-embarque:19`, `analyseur-logique:19`, `micropython-repl:88`,
+  `shield:19` et `lire-une-datasheet:128 / :180` (7 en comptant la paire).
 
 - **`micropython-simulation` — piège `Pin("LED")` à trancher au simulateur.**
   La fiche écrit que le raccourci « *peut* ne pas être reconnu » sur le Pico simulé.

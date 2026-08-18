@@ -34,8 +34,6 @@ Toute carte d'extension utilise des **GPxx précis**. Pour les connaître : la *
 
 Opération mécanique : aligner le Pico (ou la carte d'extension) sur le connecteur, pousser doucement jusqu'à l'assise. Points de vigilance : **aligner avant de pousser** (une broche tordue entre dans le mauvais trou) ; **respecter le sens** (repère USB / broche 1) ; **ne jamais enficher/retirer sous tension** (débrancher l'USB d'abord).
 
-Prendre capture d'écran ou photo de *un Pico enfiché sur une carte porteuse (carrier board), bien aligné et à plat*.
-
 ### 3. Alimenter l'ensemble
 
 - **Extension faible puissance** (écran, capteurs) — l'USB du Pico suffit.

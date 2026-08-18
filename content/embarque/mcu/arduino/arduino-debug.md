@@ -86,7 +86,7 @@ Procédure :
 5. Lancer le débogueur (icône en haut à droite de l'IDE 2.x).
 6. Le programme se met en pause au breakpoint — inspecter les variables dans le panneau de droite.
 
-Prendre capture d'écran de *l'IDE Arduino 2.x en mode Debug, avec un breakpoint posé sur une ligne de code et le panneau des variables ouvert à droite*.
+![IDE Arduino 2.x en mode Debug : un point d'arrêt posé sur une ligne de code et le panneau des variables ouvert à droite.|640](/ressources/img/arduino-debug/session-debogage.png)
 
 ## Comprendre où est le problème
 
