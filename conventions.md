@@ -239,6 +239,32 @@ Neuf conventions éprouvées sur l'ensemble des modules relus et appliquées en 
 
 *Deux règles de production associées, acquises en incident* : `write_file` écrit la chaîne **littéralement** — un SVG s'écrit avec de **vrais caractères UTF-8**, jamais en échappements, et se **relit après écriture**. Et un attribut de présentation posé en classe (`text-anchor`, `font-size`) **écrase** celui de l'élément : l'ancrage s'écrit sur chaque `<text>`.
 
+### Mentions de capture et frontière capture / SVG (C29 + C33, promues 18/08)
+
+Quand une fiche a besoin d'un média que seul l'auteur peut produire — écran d'un logiciel, photo de matériel —, Claude ne laisse pas un trou : il pose une **mention de capture** à l'endroit exact où le média ira, et la fiche reste publiable en l'état.
+
+**Format canon** : amorce en **romain**, description en *italique*.
+`Prendre capture d'écran de *le gestionnaire de cartes filtré sur « esp32 », montrant le paquet Espressif Systems et le bouton Installer*.`
+Jamais un paragraphe intégralement en italique. Variantes selon le média : « Prendre capture d'écran ou photo de… », « Intégrer une vidéo de… » (C75) ; le choix GIF / vidéo relève de C87.
+
+**Portée** : fiches-tuto de famille MCU, **notions [T]** (`ide`, `shield`) et fiches-outils (`kicad`, `falstad`, `ltspice`) — toute fiche dont le contenu est un écran ou un objet.
+
+**La mention est visible en production et assumée (C90)** : la dette de captures n'est pas un bloquant de publication. Elle se rédige donc **pour être lue par un étudiant** — pas de jargon interne, pas de numéro de convention, pas d'instruction de production dans la description.
+
+**Ce qui mérite une capture.** Une capture gagne sa place quand **l'interface est opaque** — un champ enfoui, une cascade de menus, un panneau qu'on ne pense pas à ouvrir —, pas quand le sujet est trivial ou déjà écrit dans la fiche. Trois conversions systématiques :
+
+- **sortie texte** (moniteur série, Shell, REPL, console de compilation, terminal) → **bloc de code** : plus léger, cherchable, lisible sur mobile. *Exception* : le **traceur / Plotter**, qui produit une courbe.
+- **tableau ou document affiché à l'écran** → tableau markdown ou prose.
+- **montage trivial** → trois lignes de prose, ou un schéma si le câblage compte.
+
+**Borne — la priorité au volume d'usage l'emporte sur l'opacité (arbitrage Tim, 18/08).** Sur les **familles de tête** (Arduino, ESP32, ESP8266) et les **notions [T]**, une image de confirmation — carte branchée, compilation réussie — garde une valeur d'accompagnement qu'elle perd sur une fiche de niche. Le critère d'opacité n'est pas abrogé : il cède devant le trafic, et seulement là. Corollaire de production : l'effort se répartit par **rang d'usage**, pas uniformément sur les neuf familles.
+
+**Le chiffre d'un bloc de code converti se dérive, ou se laisse en creux.** Ce que le **code** produit — chaînes littérales, compteurs, adresses I²C, échos — se recopie exactement depuis le bloc de la fiche. Ce que le **monde** produit — distance, RAM libre, fréquence, adresse IP, UID de puce — ne s'invente pas : forme neutre à combler au banc. Un UID se masque toujours (`XXXX-XXXX-XXXX`), un numéro de série recopié faisant croire à l'étudiant que c'est le sien. Même exigence que C82 sur les specs : on ne pose pas de mémoire une valeur qu'on n'a pas mesurée.
+
+**Frontière avec le SVG (ex-C33).** Le SVG tient le **concept** — chronogramme d'interruption, dent de scie d'un timer, boucle bloquante contre non bloquante, série/parallèle d'un multimètre, flux de conception PCB ; la capture tient le **câblage et l'interface**. Un SVG-concept peut **remplacer** une mention de capture quand il montre mieux et vieillit moins vite : une **face avant d'instrument** photographiée, c'est *un* multimètre, quand le schéma enseigne la grammaire commune à tous. L'inverse vaut aussi : une fiche dont tout le contenu est de l'écran reste en **territoire capture**, sans SVG (`ide`, `cpp-logs`, `falstad`, `ltspice`, `kicad`, `tinkercad`). Le verdict se rend fiche par fiche, conjointement avec C68.
+
+**Claude ne produit pas de SVG unilatéralement** sur une fiche en territoire capture. Et sur une **refonte**, c'est le scénario retenu qui détermine la liste des captures (C88, §8), décrites une par une avant toute prise de vue.
+
 ---
 
 ## 4. Cas d'illustration / fils rouges
@@ -714,7 +740,7 @@ formellement dans les templates une fois éprouvées.
 28. **Rouge danger #B23A2E dans les SVG de sécurité** — complément ponctuel à la palette ambre #BA7517 / gris #DDDBD3 (§ 3), réservé aux zones de **danger matériel** (destruction d'une entrée, dépassement de tension maximale) où l'ambre ne transmet pas l'alerte. Variante mode sombre `#E0705F`. Éprouvée 1/1 (`niveaux-de-tension-generique.svg`, 28/05 suite 4). À éprouver sur 1-2 SVG avant intégration § 3.
 
 ### Acquises 29/05 (à éprouver sur fiches arduino restantes + premier ESP32)
-29. **Format captures inline pour fiches-tuto MCU** — pour les fiches-tuto qui décrivent un câblage matériel ou une procédure UI (IDE, gestionnaire de bibliothèques, modules, brochage), Claude rédige le texte des étapes et **insère inline des phrases `Prendre capture d'écran de *info précise de l'image*`** (tout en italique entre étoiles). L'utilisateur prend les captures/photos plus tard, itération sur le texte après récolte. **Pas de SVG produits unilatéralement par Claude** pour ces fiches — SVG réservés aux notions structurelles et aux schémas conceptuels. Format option B retenu après cadrage 29/05 (vs option A : section *Captures* centralisée en fin de fiche). Éprouvé 1/N (~70 mentions inline réparties sur 21 fiches arduino-*). À confirmer sur les fiches arduino restantes (`arduino-machine-a-etats`, Niveau ingénieur) + premier ESP32.
+29. *Entrée vidée le 18/08 : **C29** (mentions de capture inline) fusionnée avec **C33** (exception SVG conceptuel) et promue au §3, section « Mentions de capture et frontière capture / SVG », augmentée du critère de tri « interface opaque », de la borne de priorité au volume d'usage et de la lisibilité étudiante imposée par C90. Critère de promotion retenu : l'usage effectif — C29 régissait 101 placeholders sur 57 fiches au balayage du 18/08, elle n'était plus en épreuve depuis longtemps.*
 30. **Préfixe MCP variable selon le poste** — `theskillcodex:*` sur PC pro (configuration MCP nommée d'après le projet) vs `filesystem:*` sur PC perso. Le prompt projet § 6 référence `filesystem:*` (rédigé depuis PC perso). Non bloquant en pratique (Claude détecte le préfixe disponible via `tool_search`), mais source possible de confusion en lecture de JOURNAL/TODO si l'on cite des outils MCP nommément. **Note de configuration** plutôt que convention éditoriale stricte. À généraliser dans le prompt projet à la prochaine refonte (formulation neutre : « MCP filesystem actif, préfixe variable selon le poste »).
 
 ### Acquises 29/05 (suite) (à éprouver sur les prochains triptyques)
@@ -722,7 +748,7 @@ formellement dans les templates une fois éprouvées.
 
 ### Acquises 02/06 (à éprouver)
 32. **Marqueur `*(→ notion [[x]])*` dans les hubs familles** — dans la section *Tutoriels* d'un hub famille, un tuto qui applique une **notion transverse** porte un marqueur `*(→ notion [[notion]])*` pointant vers elle (ex. `arduino-interruptions` → `[[interruption]]`, `arduino-timers` → `[[timer]]`, `arduino-deep-sleep` → `[[deep-sleep]]`, `arduino-memoire` → `[[memoire]]`, `arduino-machine-a-etats` → `[[machine-a-etats]]`). Rend visible le couple tuto-famille / notion-transverse — corollaire de C26 ([A]/[T]). Éprouvé 5× (02/06), confirmé sur ESP32. **Promue §6 le 10/06** (cluster *Modules MCU — conventions de famille*).
-33. **Exception SVG conceptuel à C29** — C29 réserve les captures inline aux fiches-tuto MCU et proscrit les SVG produits unilatéralement, MAIS un **schéma conceptuel** (pas un câblage) reste légitime : chronogramme d'interruption, sawtooth de timer, boucle bloquante/non-bloquante. Frontière : SVG pour le *concept* qui clarifie mieux que le texte, captures inline pour le *câblage/UI*. Éprouvé 3× (`interruption`/`timer`/`programmation-non-bloquante`, 02/06) ; les tutos sans dimension conceptuelle forte (deep-sleep/pid/memoire/watchdog) restent sans SVG. À fusionner dans C29 à la promotion.
+33. *Entrée vidée le 18/08 : **C33** fusionnée dans **C29** et promue au §3, section « Mentions de capture et frontière capture / SVG ». La fusion était prévue par l'entrée elle-même (« à fusionner dans C29 à la promotion ») ; elle emporte les extensions de C52 (SVG conceptuel sur fiches-outils, où il peut remplacer une mention de capture) et la borne des faces avant d'instruments, arbitrée au triage du 18/08.*
 
 ### Acquises 02/06 (suite) (avancées d'éprouvage)
 34. **C19 (fiche transverse multi-techno) — vrai test atteint sur `firmware`.** L'épreuve `lire-une-datasheet` (28/05 suite 3) était faible (mono-exemple) et `analyse-de-schema` ne stressait pas la divergence techno. `firmware` (02/06 suite) est le cas réel (Arduino / ESP32 / STM32). **Option (c) retenue** — procédure générique en prose (super-loop → coopératif → MAE → modules → RTOS) + section « selon la famille » actant la thèse : les concepts d'architecture sont agnostiques, seuls outillage et API changent (renvois aux hubs familles). Mûr pour reformulation/promotion § 4 ou § 6.
