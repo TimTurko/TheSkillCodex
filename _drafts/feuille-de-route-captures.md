@@ -190,7 +190,7 @@ d'une image pivot touche toutes ses fiches consommatrices d'un coup — dans le 
 | `micropython-simulation:42` | → lot `wokwi/` (sélecteur de composants) |
 | `micropython-simulation:54` | → lot `wokwi/` (console série) |
 | `arduino-sortie-pwm:80` | → SVG `oscilloscope/ecran-pwm.svg` |
-| `micropython-shield:37` | → photo d'empilage de `shield` `[T]` — ⚠ **voir Points ouverts** |
+| `micropython-shield:37` | → photo d'empilage de `shield` `[T]` — **cible confirmée le 18/08**, le placeholder existe bien dans `shield.md` |
 
 ---
 
@@ -297,13 +297,7 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 
 # Points ouverts
 
-- ⚠ **`micropython-shield:37` → réemploi de `shield` `[T]` : la cible n'existe peut-être pas.**
-  Le dashboard note pour `shield` (12/06) une « mention photo C29 [Arduino + shield
-  empilés] », mais le balayage du 18/08 ne trouve **aucun placeholder dans
-  `shield.md`**. Soit la mention n'a jamais été écrite, soit elle est dans un format
-  non canonique qui échappe au balayage (cas déjà rencontré sur `kicad`). À vérifier
-  avant de compter sur le réemploi ; sinon `micropython-shield:37` bascule en prise
-  propre ou en suppression.
+- ⚠ **L'inventaire n'est pas exhaustif : 101 est un plancher.** Vérification du 18/08 — `shield.md` porte un placeholder que le balayage **n'a pas vu**, parce qu'il commence par « **Prendre photo de** » et non « Prendre capture ». Le motif du balayage attrapait bien « Prendre capture d'écran **ou photo** de » et les paragraphes tout en italique, mais pas cette forme-là. C'est le mode d'échec recensé le 18/08 : *l'opération réussit formellement, seule la quantité de travail réel est tronquée*. **À faire avant la première session de prise de vue** : re-balayer avec un motif élargi — `Prendre (capture|photo|vidéo)`, plus `Intégrer une vidéo` (C75) — et **vérifier le nombre de fiches balayées**, pas seulement le nombre de résultats.
 
 - **Format C29 non canonique, au-delà de `kicad`.** Les quatre placeholders de
   `multimetre` et `oscilloscope` sont en **paragraphe intégralement italique**,
