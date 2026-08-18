@@ -54,6 +54,21 @@ d'une phase (étape 1, étape 2…). **« Phase »** est réservé aux 5 phases
 structurelles du cycle en V. Cette distinction évite la confusion fréquente
 en cours de rédaction.
 
+### Pas de prix ni de cadrage « achat » (C71, promue 18/08)
+
+L'école fournit le matériel : une fiche ne mentionne **ni prix, ni « à l'achat », ni « dans la boîte »**, ni en prose ni dans un SVG. L'aide au choix porte sur l'**adéquation technique** — capacités, périphériques, contraintes, disponibilité — jamais sur le coût. **Règle absolue**, y compris quand le coût est un critère d'ingénierie et non un prix d'achat : le coût unitaire en grande série se reformule (« peu cher à l'unité » → « disponible en très grand volume », adossé à la stabilité de la référence).
+
+**La question à se poser en relecture est « que reste-t-il quand je l'enlève ».** Quand l'argumentaire d'une fiche *repose* sur le prix (cas ESP8266, hub Teensy), un retrait mécanique laisse une fiche sans raison d'être — il faut **reconstruire** sur des angles d'adéquation technique. Quand le prix n'est mentionné qu'en passant (cas STM32, PIC), une simple reformulation suffit.
+
+### Registre d'adresse par type de fiche (C65, promue 18/08)
+
+- **Trames du V** : « on » / infinitif — registre de méthode, la fiche décrit *le projet*.
+- **Fiches de réalisation et hub-colonne d'action** (`embarque/index`) : « tu » — la fiche parle *à l'étudiant qui réalise*. Le contraste avec le V est volontaire.
+- **Hub-sommaire d'interface ou hub-parcours** (`meca/index`, `conduite/index`) : « on » — il recense ou décrit au lieu de guider un geste.
+- **Tutos** : le « vous » tient les **instructions de manipulation directe** (procédure pas à pas, énoncés d'exercice, dépannage) ; le « on » / infinitif tient la **prose explicative**. Les deux cohabitent dans une même fiche.
+
+**Ce qui est proscrit, c'est le tutoiement hors colonne de réalisation**, pas le « vous ». Ne jamais lire cette convention comme un dévoussage général — l'erreur a été commise deux fois, avec 20 conversions à annuler la première.
+
 ---
 
 ## 2. Mise en forme
@@ -133,6 +148,22 @@ Support graphique selon nature de la notion : SVG (outils graphiques comme bête
   Distinction structurante : notion autoportante → fiche-notion ;
   facette indissociable → alias (23/05 suite 2).
 
+### Échappement du pipe dans un wikilink en cellule de tableau (C62, promue 18/08)
+
+Un wikilink à libellé `[[slug|Libellé]]` placé **dans une cellule de tableau markdown** doit échapper sa barre : `[[slug\|Libellé]]`. Sinon le pipe non échappé est lu comme séparateur de colonne — le lien casse **et** la colonne se décale. Hors tableau, pas d'échappement.
+
+*Corollaire outillage* : un audit automatique de liens doit traiter les deux formes comme une seule cible, sinon tout tableau remonte en faux lien mort (cf. `tools/audit-wikilinks.mjs`).
+
+### Tableau « Références éprouvées », famille d'abord (C66, promue 18/08)
+
+Dans une fiche où l'étudiant doit choisir des composants, un callout `[!tip]` — ou un tableau à l'intérieur — donne des **familles d'abord**, des **références éprouvées en exemples** (7805 / AMS1117, A4988 / DRV8825, NEMA 17, SSD1306…), une **phrase de précaution** (disponibilité à vérifier, la datasheet fait foi) et, en format tableau, une colonne « Pour choisir » renvoyant à la fiche où le choix se travaille. Une référence est un exemple, jamais une prescription — et jamais un prix (C71).
+
+### Code commenté pour débutant (C77, promue 18/08)
+
+Dans les tutos de famille, tout bloc de code reçoit des **commentaires en ligne sur chaque ligne utile** — le rôle, pas une paraphrase. Ce volet est **sans exception**. Un **motif déjà vu** se commente plus légèrement, avec renvoi à sa première occurrence.
+
+L'encart **« Comment lire ce code »** qui suit un bloc difficile est, lui, **réservé aux idiomes embarqués** (amendement C85, encore en éprouvage §8). Critère de tri : *ce paragraphe serait-il identique dans une autre famille, voire dans un autre langage ?* Si oui, c'est un mécanisme de langage — il monte dans la fiche de lecture du langage et la fiche famille y renvoie. Si non, l'encart reste local.
+
 ---
 
 ## 3. Images & SVG
@@ -183,6 +214,30 @@ positionnements de textes proches des bords, lisibilité smartphone.
 ### Convention SVG pour fiches-trame
 - Schéma générique dans la trame elle-même.
 - Exemple bras 3 axes dans le callout `[!example]` correspondant.
+
+### Médias des fiches — cluster promu (C68 / C69 / C73 / C74 / C78 / C79 / C80 / C81 / C84, promues 18/08)
+
+Neuf conventions éprouvées sur l'ensemble des modules relus et appliquées en contrôle d'office à chaque session. Elles complètent la palette et le nommage ci-dessus par les règles de **production, de placement et d'audit** des médias.
+
+**C73 — un dossier par fiche.** Les médias d'une fiche vivent dans `content/ressources/img/<slug-fiche>/`, embeds en chemin absolu `/ressources/img/<slug-fiche>/<fichier>`. **Descripteur = nom du média moins le préfixe de fiche** (`analyse-de-schema-zones.svg` → `analyse-de-schema-electronique/zones.svg`). Un média **référencé par plusieurs fiches** vit dans le dossier de la fiche éponyme, les autres pointent en absolu cross-dossier ; un média **transverse sans fiche éponyme** va dans `commun/`. *Contrôle de fin d'ajout* : lister la racine `img/`, aucun fichier ne doit subsister à plat.
+
+**C74 — présentation.** (a) **Largeur par image** dans le markdown : `![alt|largeur](...)`, typiquement `|600` pour un montage et `|640` pour un schéma large. (b) **Centrage** images et vidéo par `custom.scss`. (c) **Légende italique centrée** réservée aux **figures autonomes** (panorama, schéma de référence) et aux **attributions** d'image tierce (`*Source : <détenteur> — <licence>, image non modifiée.*`) ; **pas de légende** sur une capture de procédure, le texte de l'étape la décrit. Formats : capture d'UI → WebP/PNG, photo → WebP/JPEG, animation → GIF ; viser 1200-1600 px de large et moins de 300-500 ko. **Un alt n'est pas un `<desc>`** : le `<desc>` décrit exhaustivement pour un lecteur d'écran, l'alt tient en **une phrase**.
+
+**C68 — au moins un schéma explicatif par fiche-outil ou notion technique**, selon trois angles : **branchement** (comment l'objet se raccorde), **utilisation** (la chaîne d'usage) ou **compréhension** (le concept rendu visible). Le verdict se rend fiche par fiche, pas mécaniquement : une fiche peut être **couverte par le SVG de son hub**, relève parfois du **territoire capture**, et un pointeur d'interface délégué n'en porte pas.
+
+**C79 — un montage, ou un schéma de principe, par bloc de code.** Un montage (câblage) pour du code qui pilote du matériel, un schéma de principe (chronogramme, diagramme d'états) pour du code purement logique. Si le câblage est **déjà montré plus haut** dans la fiche, un renvoi suffit — pas de duplication.
+
+**C78 — le câblage se montre en schéma, pas en photo.** Une photo de breadboard est peu lisible ; Claude **produit le schéma** au lieu de laisser un placeholder photo. Un raster schématique déjà fourni (capture de simulateur, broches visibles) satisfait aussi le critère — c'est la *photo de montage* qui est proscrite.
+
+**C80 — les broches portent les noms du code.** Tout schéma de câblage étiquette ses broches avec les **noms ou numéros que le code emploie** (`IN1 → D12`, `SDA → A4`), pour que schéma et sketch se lisent à l'identique. Corollaire rédactionnel : **nommer les broches par des constantes** plutôt que par des nombres en dur. C'est le pont qui manque le plus aux débutants entre le branchement physique et la ligne qui le pilote.
+
+**C81 — le média s'audite contre le code réel de sa fiche**, jamais contre une description générique : broches exactes, composants exacts, périmètre exact. À l'intégration, chaque média est confronté au code **avant** d'être posé — conforme, on insère ; divergent, on régénère. **Sens inverse quand les captures préexistent** : c'est alors le texte et le code de la fiche qui se calent sur l'écran, ce qui suppose d'**ouvrir les images avant de rédiger**. *Borne* : un média trop lourd pour être lu ne s'intègre pas avec un alt inventé — soit une version allégée, soit l'auteur écrit l'alt.
+
+**C84 — SVG-concept neuf quand celui du jumeau n'est pas transposable.** En module famille, un SVG du jumeau se copie localement tant que l'architecture illustrée est commune. Quand il **encode une architecture propre à l'autre famille**, on crée un **SVG-concept neuf adapté au modèle de la famille** plutôt que de plaquer un schéma faux. Quand une correction de fond retire une valeur chiffrée, le SVG correspondant s'étiquette **« principe »** (qualitatif) pour ne pas réintroduire le chiffre.
+
+**C69 — pointes de flèches toujours en classes.** Les `<path>` des `<marker>` ne portent **jamais** un `fill` codé en dur : le `<style>` du SVG s'applique au contenu des markers, et un fill en dur ne suit pas le mode sombre (flèches ternes sur fils éclaircis). Toute pointe reçoit une classe avec override sombre. À vérifier au peigne SVG (`marker` + `fill="#`).
+
+*Deux règles de production associées, acquises en incident* : `write_file` écrit la chaîne **littéralement** — un SVG s'écrit avec de **vrais caractères UTF-8**, jamais en échappements, et se **relit après écriture**. Et un attribut de présentation posé en classe (`text-anchor`, `font-size`) **écrase** celui de l'élément : l'ancrage s'écrit sur chaque `<text>`.
 
 ---
 
@@ -433,6 +488,16 @@ Six conventions éprouvées sur la couche des familles de microcontrôleurs (Ard
 
 **C57 — module « clone de curriculum ».** Une plateforme à **paradigme distinct mais transposable** (langage interprété, IDE propre — typiquement MicroPython) peut être traitée comme un **clone du curriculum Arduino** — mêmes paliers, même trame — en : (a) **substituant le hub langage** (parcours langage propre au lieu de `cpp`) ; (b) gardant les concepts agnostiques en **[T]** (non dupliqués) ; (c) transposant l'**API fiche à fiche** ; (d) **assumant les divergences de fond** là où matériel/langage l'imposent (signalées en clôture de fiche). Éprouvée sur les 3 vagues hands-on MicroPython (38 fiches) + fiches divergentes (machine à états, stockage, mémoire). **Contre-cas — borne de C57** : une plateforme à paradigme distinct **et non transposable** (un SBC sous Linux : on s'y sert d'un ordinateur, on n'y programme pas une puce nue) ne se clone **pas** — elle reçoit une **structure propre** (cf. `raspberry-pi`, paliers adaptés, ni les 4 paliers MCU ni un décalque).
 
+### Fiche-étape de réalisation (C64, promue 18/08)
+
+La fiche détaillée d'une étape de la colonne d'ingénierie (C63, §8) est une **fiche-trame adaptée** :
+
+- **registre « tu »** (point d'entrée étudiant — diverge des trames du V, cf. §1 *Registre d'adresse*) ;
+- **ossature de `concept.md` sans la section « Équipe »**, remplacée par **« Ce qui relève d'ailleurs »** : pilotage renvoyé au V, fabrication et sysadmin aux cours collègues, renvois transverses vers écoconception et sécurité-qualité ;
+- **fiche de méthode qui orchestre les fiches outils existantes**, pas un re-cours technique → `aa: []`, les critères vivant dans les fiches outils. L'exception envisagée (porter un critère instruments sur une étape) a été explicitement rejetée ;
+- le **livrable de chaque étape est un artefact technique** (tableau de composants, schéma validé, firmware et algorithme, protocole de tests, produit fini) qui *alimente* les livrables-jalons du V sans les cloner ;
+- tag `realisation`.
+
 ### Noms de fichiers
 **Kebab-case** : `cahier-des-charges-fonctionnel.md`,
 `schema-bloc-fonctionnel.md`. Pas d'accents, pas d'espaces, pas de
@@ -583,79 +648,17 @@ formellement dans les templates une fois éprouvées.
 ### Acquises 25/05 suite 4-5 (à éprouver sur preuve-de-concept et trames ultérieures)
 
 > **Conventions 10 et 12 : promues 26/05** vers § 2 et § 6 respectivement, après épreuve 3/3 réussie (cumul 12 contextes pour C10 sur concept + PoC + dossier-technique ; ratio stable 37-45 % pour C12). Voir § 2 *Convention matrice incarnée* et § 6 *Section Pièges fréquents nourrie a posteriori* pour la formulation définitive. Détail historique ci-dessous conservé pour traçabilité.
-10. **Matrice incarnée dans `[!example]`** des fiches-trame (objet structuré dans le callout exemple, valeurs chiffrées ou récapitulatives, décision/sortie tracée et ouverture vers la suite). Éprouvée sur **4 contextes au sein de concept** : (a) matrice de décision 3 solutions × 5 critères + scores pondérés en étape 2 ; (b) tableau de conflits 4 colonnes × 2 lignes en étape 3 ; (c) tableau de pré-dim 6 colonnes × 5 lignes en étape 4 (point de vigilance mobile) ; (d) TdM type + TdM instanciée 5 sections en étape 5. **Confirmée sur 4 contextes PoC supplémentaires (25/05 suite 7)** : liste à puces 3 sources étape 2, relevés 5 points 1000 cycles étape 3, tableau de statut + décision traçée étape 4, TdM type instanciée étape 5. Huit formes différentes du même pattern — indicateur de généralité très solide. **Confirmée épreuve 3/3 25/05 suite 8 sur dossier-technique** : 4 nouveaux contextes (ajustements PoC→dossier 3 familles étape 1, BOM 7 lignes 6 colonnes 213,20 € HT étape 3, 3 validateurs × 5 colonnes étape 4 PIVOT, 3 bons commande structurés étape 5). **Cumul 12 contextes total** sur 3 fiches-trame du V. **Promotion vers § 2 à acter à froid.** → § 2
 11. ~~**Structure des H4 par étape dans les fiches-trame des phases du V**~~ — **promue vers § 6 le 25/05 suite 7** après épreuve 2/2 sur concept + PoC. Voir § 6 *Rythme des H4 par étape*.
 12. **Nourrissage a posteriori de la section *Pièges fréquents*** — les pièges d'une fiche-trame peuvent émerger spontanément pendant la rédaction des étapes (warning/tip d'étape transformé en piège de fiche). Mode complémentaire à la relecture critique à froid (pattern spec-tech 23/05 suite 2). Éprouvé sur concept (3 pièges sur 8 = 37 %) et sur PoC (5 pièges sur 11 = 45 %, indicateur en croissance). **Confirmé 25/05 suite 8 sur dossier-technique (5/11 = 45 %, ratio aligné PoC). Épreuve 3/3 réussie. Promotion vers § 6 à acter à froid.** → § 6 (Structure des fiches-trame).
 
 ### Acquises 25/05 suite 7 (à éprouver sur dossier-technique)
 13. **Relire les sections amont de la fiche (Posture, Objectif) avant de rédiger une section avale**. Extension de la leçon ±2 phrases (25/05 suite 6). Le doublon « on a le matos, on monte, on verra ce que ça donne » détecté en round 2 sur PoC étape 1 a montré que le doublon peut remonter jusqu'aux sections amont rédigées en session antérieure (Posture, Objectif). Discipline : passe rapide en lecture sur sections amont avant de rédiger une nouvelle section H4. Coût 1 round 2 sur PoC. **Épreuve 2/2 réussie 25/05 suite 8 (dossier-technique) + 26/05 (integration-et-tests). Promue § 5 (Collaboration) le 26/05 fin session.** Entrée § 7 conservée pour traçabilité. → § 5
 
-### Acquises 25/05 suite 8 (à capitaliser)
-14. **Seuil pratique MCP write_file/edit_file ≈ 30 ko payload**. Tentative d'archivage 22-24/05 échouée silencieusement deux fois en suite 8 : edit_file timeout (~4 min, payload ~60 ko newText) et write_file inopérant (~50 ko content, fichier inchangé, prolongement de la leçon 25/05 suite 3). **Règle pragmatique** : tout edit_file ou write_file avec payload > 30 ko a une probabilité non négligeable d'échouer silencieusement (sans message d'erreur). Symptômes : tool call qui semble réussir mais `get_file_info` montre fichier inchangé. **Discipline** : (a) vérifier systématiquement `get_file_info` après tout write_file ou edit_file lourd, (b) pour les opérations massives (archivage, refonte, batch de patches inter-fichiers), préférer l'édition manuelle Obsidian + Git, ou un script Node CLI direct hors MCP. Épisode complet tracé dans JOURNAL session 25/05 suite 8.
+### Acquises 25/05 suite 8 — chaîne C14 (CONDENSÉE)
 
-**Complément 26/05 (integration-et-tests)** : deux modes d'échec supplémentaires identifiés sur les anchors de `edit_file`, indépendants de la taille de payload.
-- **NBSPs fines U+202F** : la typo française pose une NBSP fine devant `:` `;` `?` `!` `%` `»` `€` et autres. Un `oldText` reconstitué à partir d'une copie visuelle ne contient pas ces NBSPs invisibles → mismatch silencieux du matching exact. **Discipline** : (a) anchors courts privilégiés (1 phrase identifiante plutôt qu'un paragraphe entier), (b) coller `\u202f` explicite aux positions probables si l'anchor doit traverser une ponctuation typographique française, (c) en cas d'échec et avant de soupçonner un NBSP, vérifier d'abord les typos de transcription.
-- **Typos de transcription** : reconstituer un `oldText` de mémoire ou par copie partielle peut introduire des typos invisibles (« enchaîner » → « enchaâîner » par exemple, ou glissement d'un accent). Symptôme identique à NBSPs : mismatch silencieux. **Discipline** : recopier `oldText` directement depuis la sortie de lecture `view`/`read_text_file` plutôt que retranscrire. Le coût en tokens est minime, la robustesse gagnée est significative.
+14. **Seuil pratique MCP `write_file`/`edit_file` ≈ 30 ko de payload.** Au-delà, l'appel peut échouer **silencieusement** : le tool call semble réussir, le fichier est inchangé. Discipline : vérifier avec `get_file_info` après toute écriture lourde ; pour une opération massive (archivage, refonte, batch inter-fichiers), passer par un **script Node** plutôt que par MCP.
 
-**Complément 26/05 suite 2 (confirmation typos transcription)** : la leçon « recopier `oldText` depuis lecture MCP » confirmée en session de cartographie AA. Deux typos de transcription dans batch initial sur `couverture-en-cours.md` (espacement variable 2 vs 3 espaces avant `#` dans commentaires YAML selon fiche source). Symptôme : batch rejeté avec message d'erreur explicite (non silencieux dans ce cas, car anchor moyen et payload normal). Discipline confirmée 2/2 sur sessions 26/05 et 26/05 suite 2 : **toujours recopier `oldText` depuis lecture MCP, jamais retranscrire de mémoire**, même pour des anchors qui semblent simples. Une autre régression typique observée en session : 1 erreur de routage (2 edits sur 2 fichiers différents passés à un seul appel `edit_file` avec un seul path). Discipline complémentaire : **1 appel `edit_file` = 1 fichier**.
-
-**Complément 26/05 suite (archivage JOURNAL 22→24/05 réussi via MCP)** : deux acquis méthodo supplémentaires distincts du seuil 30 ko de payload, identifiés lors de la finalisation de l'archivage des sessions 22→24/05 (suite) (60 ko net à déplacer, au-dessus du seuil).
-
-- **Pattern MARKER + N segments** — stratégie méthodo qui rend faisables les déplacements de blocs > 30 ko via MCP malgré la limite C14. Procédure : (1) poser un marker temporaire (commentaire HTML unique, ex. `<!-- ARCHIVE_INSERT_MARKER -->`) à l'emplacement cible via un `edit_file` léger ; (2) insérer le bloc en N segments de < 25 ko chacun, chaque insertion remplaçant `MARKER` par `[segment]\nMARKER` (l'ordre d'insertion détermine l'ordre final — pour antichronologie, insérer du plus ancien au plus récent) ; (3) retirer le marker via un dernier `edit_file` léger. Symétriquement pour la suppression d'un gros bloc : segmenter en N suppressions indépendantes via anchors par session. **Épreuve réussie 26/05 suite** : 10 `edit_file` successifs (5 insertion + 5 trim), payload max 24 ko, antichronologie préservée, JOURNAL 156→96 ko / archive 60→119 ko. À capitaliser comme procédure standard pour les archivages JOURNAL ultérieurs ou tout déplacement de bloc lourd.
-
-- **Verrou Windows EPERM** — piège **distinct** du seuil de payload. Quand Obsidian a un fichier focus ouvert, MCP `edit_file` réussit l'écriture du `.tmp` mais échoue au rename final avec `EPERM: operation not permitted, rename '*.tmp' -> 'file.md'`. C'est un problème d'OS (verrou de fichier Windows), pas de payload — même un `edit_file` de 50 octets échouera si le verrou est actif. **Symptôme** : message d'erreur explicite EPERM dans le retour MCP (échec **non silencieux**, contrairement aux échecs C14 classiques). **Remède** : changer d'onglet dans Obsidian (libère le verrou de fichier ; pas besoin de fermer Obsidian, ni d'attendre). Reprendre immédiatement le même `edit_file`, il passera.
-
-**Complément 27/05 (solution infrastructure)** : NBSPs et CRLF identifiés comme causes récurrentes d'échec d'anchor sur les fichiers de pilotage. Mise en place d'un script de normalisation Node ESM (`tools/normalize-pilotage.js`) + hook pre-commit (`tools/git-hooks/pre-commit`). Voir § 6 *Hygiène des fichiers de pilotage* et `tools/README.md`. La discipline anchor court (recopie depuis `read_text_file` frais, anchor < 60 caractères, éviter de traverser `→` et `:` français) reste utile pour les fiches publiables (`content/**.md`) qui gardent la typo française pour le rendu Quartz.
-
-**Complément 27/05 suite 3 (multi-edits `edit_file` est atomique)** : `edit_file` avec plusieurs entrées dans `edits[]` est **atomique** — un seul anchor non trouvé annule **tout le batch**, même les edits dont l'anchor était correct. Épisode 27/05 suite 3 : batch de 4 edits TODO, le 4e (suppression section *Fait* en fin de fichier, ~3 ko de oldText avec trailing newlines incertains) a échoué et annulé les 3 premiers (anchors courts pourtant sûrs). Reprise en 3 appels séparés, multiplication des tool calls et de la durée MCP. **Règle pratique** : (a) multi-edits OK pour 2-3 anchors courts et sûrs sur le même fichier ; (b) tout edit ambitieux (oldText > 1 ko, ancrage fin de fichier, NBSPs ou trailing newlines suspects) **toujours en appel séparé** pour isoler le risque ; (c) si un edit anchor de fin de fichier est nécessaire, lire `tail` du fichier juste avant pour copier l'anchor exact (la lecture initiale d'une session peut tronquer ou normaliser différemment les newlines finaux). **Corollaire** : préférer N petits edits séparés à 1 gros batch dès qu'il y a doute sur un anchor, le coût en tool calls est compensé par l'absence de retry sur les edits perdus.
-
-**Complément 27/05 suite 5 (artefact U+FFFD sur `read_text_file head=N`
-tronqué)** : quand `read_text_file` est appelé avec `head=N` (ou
-`tail=N`), la troncature peut tomber au milieu d'une séquence UTF-8
-multi-byte. Le caractère partiel apparaît alors dans la sortie comme
-U+FFFD, le *replacement character*, rendu côté Claude comme « �� »
-ou « 不不 » selon la chaîne d'affichage. Exemples observés dans le
-JOURNAL : « ��preuve » au lieu de « épreuve », « délibér��ment » au
-lieu de « délibérément ». **Le caractère est intact dans le
-fichier — seul l'affichage de la sortie tronquée est cassé.**
-
-**Symptôme** : un mot accentué français apparaît avec des glyphes
-étranges au voisinage de la dernière ligne du `head` (ou de la
-première ligne du `tail`).
-
-**Piège** : si Claude copie un anchor depuis cette sortie tronquée et
-l'utilise dans `edit_file`, le `oldText` contiendra des U+FFFD qui ne
-matcheront jamais le contenu réel. Échec silencieux du matching,
-indistinguable à première vue d'un NBSP U+202F ou d'une typo de
-transcription jusqu'à investigation.
-
-**Discipline** : (a) si un anchor près du bord du head/tail échoue,
-soupçonner l'artefact U+FFFD *avant* NBSP ou typo ; (b) relire la
-zone via l'extrémité opposée (`tail` si la zone est en haut, `head`
-plus long si en bas) ou sans head/tail du tout pour récupérer le
-contenu intact ; (c) éviter de copier un anchor situé dans les 1-2
-dernières lignes du head demandé — privilégier une zone bien à
-l'intérieur du buffer.
-
-**Complément 28/05 (réfutation de l'attribution U+202F → Obsidian)** :
-l'hypothèse portée depuis 26/05 puis formalisée 27/05 suite 5 — « Obsidian
-(plugin Smart Typography ou typo française) injecte des U+202F fines dans
-les fichiers de pilotage » — a été **testée et réfutée** sur PC perso le
-28/05. (a) Aucun plugin typographique installé (Excalidraw / Git / Pandoc
-seuls), aucune option Editor n'insérant de NBSP. (b) Test isolé décisif :
-une ligne écrite par Claude via MCP avec `: ; ? ! % €` ressort `--check
-[ok]` → les écritures MCP de Claude n'injectent **aucun** invisible.
-(c) Save Obsidian également propre. (d) Les seuls NBSP reproduits dans la
-session étaient des **U+00A0** (saveur `&nbsp;`) issus d'un collage web
-délibéré — hors flux normal — et **zéro U+202F**. **Conclusion** : pas de
-source active de NBSP dans le flux de travail réel (l'utilisateur ne touche
-jamais ces fichiers ; l'unique écrivain, mes écritures MCP, est propre).
-Les échecs d'anchor historiquement attribués à U+202F relèvent plus
-vraisemblablement des autres causes déjà listées dans cette chaîne C14
-(CRLF de states passés, artefacts U+FFFD de troncature `head`/`tail`, typos
-de transcription). Le couple `normalize` + hook reste justifié comme filet
-de sécurité contre le rare collage web, pas comme remède à une injection
-systématique. PRIORITÉ 1 du 28/05 actée **non reproductible**.
+*Les cinq compléments 26/05 → 28/05 sont condensés ici ; détail complet au JOURNAL archivé.* Cinq modes d'échec d'anchor distincts ont été identifiés, tous à symptôme voisin (mismatch silencieux) : **typo de transcription** (d'où la règle de recopier `oldText` depuis une lecture fraîche, jamais de mémoire) ; **artefact U+FFFD** quand la troncature `head`/`tail` coupe une séquence UTF-8 — éviter d'ancrer sur les 1-2 dernières lignes du buffer ; **verrou Windows EPERM** quand Obsidian tient le fichier ouvert (erreur explicite, remède : changer d'onglet) ; **atomicité des multi-edits** — un anchor manquant annule tout le batch, donc appel séparé dès qu'un edit est ambitieux ; **NBSP U+202F**, dont l'attribution à Obsidian a été **testée et réfutée le 28/05** (aucune source active dans le flux réel ; `normalize-pilotage.js` + hook restent un filet contre le collage web, pas un remède à une injection systématique). Le **pattern MARKER + N segments** reste documenté pour un déplacement de bloc lourd via MCP, mais le script Node l'a supplanté en pratique.
 
 ### Acquises 26/05 suite 3 (à éprouver en fin de session prochaine)
 17. **Patcher la flèche « Prochaine session » du TODO après arbitrage utilisateur final, pas seulement après la suggestion initiale de Claude** — incident 26/05 suite 3 : le prompt de début de session rédigé par Claude pour la session suivante reflétait l'arbitrage utilisateur final (alternative 2 : clôture méthodologique), mais la flèche TODO reflétait encore la **suggestion initiale** de Claude (synthèse + reprise rédaction fiches phase 2). La nouvelle instance Claude lancée par l'utilisateur à la session suivante a lu la flèche TODO comme source de vérité selon § 8 du prompt projet et conclu que le prompt fourni était « obsolète » — critique de cohérence légitime. **Discipline** : (a) en fin de session, après arbitrage utilisateur sur la prochaine session, patcher la flèche TODO avant de proposer commit+push ; (b) le prompt de début de session et la flèche TODO doivent rester rigoureusement cohérents ; (c) si plusieurs alternatives ont été proposées, c'est l'arbitrage final qui figure dans le TODO, pas la recommandation initiale de Claude. **Épreuves 2-4/N réussies 26/05 suite 4, 26/05 suite 5, 27/05 suite 2, 27/05 suite 4** : patch flèche TODO effectué en fin de session selon l'arbitrage utilisateur sortant (suite 4 : de « clôture méthodologique » vers « reprise rédaction phase 2 » ; suite 5 : de « reprise rédaction phase 2 » vers « Phase 0 clôture phase 1 GP »). À éprouver sur 1-2 sessions supplémentaires avant promotion vers § 5 (Collaboration) ou § 8 *Workflow / Démarrage de session*.
@@ -780,15 +783,9 @@ Notes hygiène 07/06 (pas de convention numérotée) :
 - **Script CLI pour déplacement de bloc lourd** — l'archivage massif (~46 ko, avec un octet U+FFFD hérité) a été fait par un **script Node fail-safe** (`tools/archive-journal-0607.mjs` : `slice` sur deux ancres propres + écritures atomiques archive-d'abord, `process.exit(1)` si une ancre manque) plutôt qu'une séquence d'`edit_file` — le ré-assemblage manuel des séparateurs `---` est fragile, le matching d'un `oldText` contenant des octets corrompus est douteux, et un `edit_file` peut s'appliquer à moitié. Outille concrètement la mention « préférer un script CLI pour les opérations massives ».
 - **U+FFFD résiduels** — 2 occurrences héritées : `28/05 suite 2` (partie fidèlement en archive) et `06/06 suite 10` (reste au JOURNAL). **Hors** `normalize-pilotage.js` (qui ne cible que les invisibles) ; visibles, cosmétiques, fichiers non publiés → nettoyage manuel Obsidian si souhaité.
 
-### Acquises 07/06 (suite) — module SBC Raspberry Pi (hub + 3 fiches + 3 SVG)
+### Acquises 07/06 (suite) — module SBC Raspberry Pi (CONDENSÉ)
 
-Pas de nouvelle convention numérotée (reste à **57**). Le module Raspberry Pi est le **premier SBC** (ordinateur sous Linux, pas un microcontrôleur) et fournit le **contre-cas de C57** :
-
-- **Borne de C57 (clone) — le SBC ne se clone pas.** C57 autorise le clonage du curriculum Arduino pour une plateforme à *paradigme distinct mais transposable* (MicroPython). Un SBC est à paradigme distinct **et non transposable** (on apprend à se servir d'un ordinateur, pas à programmer une puce nue) : il reçoit une **structure propre** — paliers adaptés (*Prendre en main OS/headless/SSH → Piloter le matériel → Projet*), **ni les 4 paliers C25, ni un décalque C57**. Si une 2ᵉ plateforme-ordinateur apparaît un jour, candidate à numéroter (C58) ; sinon, borne de facto.
-- **C55 (borne de profondeur) étendue à l'OS/sysadmin.** 3ᵉ frontière de délégation après l'élec de puissance (suite 4) et le DSP Teensy (suite 7) : le wiki traite le **choix MCU/SBC** et le **pilotage matériel depuis Linux** (GPIO `gpiozero`, pas de temps réel dur), mais **délègue le sysadmin Linux pur** (paquets, services, sécurité OS) comme la méca/ACV — posé en aparté italique. Prise en main bornée : jusqu'au **shell headless + Python**, pas au-delà.
-- **C23 (fil rouge bras 3 axes) +1** sur `raspberry-pi-projet` (fiche d'intégration de phase concept) — conforte l'option (a) : le fil rouge cadre les concepts/architectures de phase concept.
-
-Réutilisations : **C18** (mini-hub, sous-dossier `eee/mcu/raspberry-pi/`, hub nommé `type: notion`) ; **C20** (multi-couverture : hub `EEE/2`, `-gpio`/`-projet` `PROJ/5` effleurés, **tally inchangé 79 %**) ; **C24** (`write_file`) ; **C29** (captures inline) ; **C33/C52** (3 SVG conceptuels, gabarit auto-contenu + dark) ; **C46** (catégoriel : SBC rangé sous `eee/mcu/` « par usage » malgré le paradigme distinct). **Exemples travaillés, pas d'exercices C49** (arbitrage Tim). Lien rouge `[[raspberry-pi]]` préexistant de `microcontroleur` **résolu par la seule création du hub** (aucun patch — comme stm32/esp8266). **Avec cette famille, le panorama `microcontroleur` n'a plus aucun lien-famille rouge.**
+*Aucune convention numérotée ; détail au JOURNAL archivé.* Le module Raspberry Pi est le **premier SBC** et fournit le **contre-cas de C57** (§6) : une plateforme à paradigme distinct **et non transposable** ne se clone pas, elle reçoit une structure propre. Il fournit aussi la **3ᵉ frontière de délégation C55** (sysadmin Linux pur délégué, prise en main bornée au shell headless + Python) et un **+1 à C23** (fil rouge bras 3 axes sur une fiche de phase concept). Le lien rouge `[[raspberry-pi]]` a été résolu par la seule création du hub — avec cette famille, le panorama `microcontroleur` n'avait plus aucun lien-famille rouge.
 
 ### Acquises 07/06 (suite 2) — arc liens rouges + 24 fiches pointeurs/notions
 
@@ -818,13 +815,12 @@ Notes 08/06 (pas de convention numérotée) :
 - **MCP pro déféré** : au démarrage PC pro post-reboot, les outils `theskillcodex:*` sont **différés** (≠ `filesystem:*` perso en direct) → `tool_search` requis pour charger chaque grappe avant appel ; « has not been loaded yet » = à charger (≠ « not found » = serveur absent).
 
 ### Acquises 09/06 — relecture trames du V
-62. **Échappement du pipe dans un wikilink en cellule de tableau** — un wikilink à libellé `[[slug|Libellé]]` placé **dans une cellule de tableau markdown** doit échapper sa barre : `[[slug\|Libellé]]`. Sinon le `|` non échappé est lu comme séparateur de colonne → le lien casse **et** la colonne se décale. Hors tableau, pas d'échappement nécessaire. Trouvé et corrigé en relecture sur `concept` (matrice écoconception) et `preuve-de-concept` (synthèse étape 4) ; les tables de `dossier-technique` étaient déjà correctement échappées. **La numérotation éprouvage atteint 62.**
+
+*Bloc vidé le 18/08 : **C62** (échappement du pipe dans un wikilink en cellule de tableau) promue au §2.*
 
 ### Acquises 09/06 (suite) — production colonne « Système embarqué » (hub + 5 fiches-étape)
 
 63. **Colonne d'ingénierie orthogonale au cycle en V** — un hub de branche peut être une **colonne de méthodologie de réalisation** (« où j'en suis / quoi faire ensuite ») à N étapes, **orthogonale au cycle en V** : le V porte la *gestion de projet* (axe temporel — revues, jalons, équipe, livrables-jalons), la colonne porte l'*ingénierie* (axe technique — réaliser le sous-système). Mêmes projet, deux lentilles. Frontière tenue par trois dispositifs : (a) un `[!info]` d'orthogonalité **en tête de hub** ; (b) un **aparté italique de mapping par étape** (« *Côté cycle en V : ce volet alimente la phase X* », lien vers la fiche du V) — pas un callout par étape (densité) ; (c) une **section de clôture** qui renvoie tout le pilotage au V. La colonne **enfile les fiches existantes dans l'ordre d'usage** et ne réécrit jamais le management. Hub sobre (calqué sur `hub/index`) : prose + grappe de liens + `[!livrable]` par étape, **sans** `[!example]` (le fil rouge incarné migre vers les fiches-étape, sinon dépassement du budget callouts ~10). Éprouvée sur `eee/index` (09/06). **La numérotation éprouvage atteint 63.**
-
-64. **Fiche-étape de réalisation** — la fiche détaillée d'une étape de colonne (C63) est une **fiche-trame adaptée** : (a) **registre « tu »** (point d'entrée étudiant — *diverge* des trames du V en « on »/infinitif, cf. point ouvert ci-dessous) ; (b) ossature `concept.md` **sans la section « Équipe »**, remplacée par **« Ce qui relève d'ailleurs »** (pilotage → V via `[[dossier-technique]]`/`[[concept]]` ; fabrication/sysadmin → cours collègues, délégation C55 ; renvois transverses `[[ecoconception]]`/`[[securite-et-qualite]]`) ; (c) **fiche de méthode** qui *orchestre* les fiches outils existantes (comme `concept.md` orchestre `matrice-de-decision`), pas un re-cours technique → `aa: []` (les critères vivent dans les fiches outils) ; (d) le **livrable** de chaque étape est un **artefact technique** (tableau de composants, schéma validé, firmware+algorithme, protocole de tests, produit fini) qui *alimente* les livrables-jalons du V sans les cloner — objet physique / rendu papier ou simu / algorithme ; (e) tag `realisation` (groupe la colonne, futur filtre Explorer). Éprouvée sur les 5 fiches `eee/realisation/` (09/06). **La numérotation éprouvage atteint 64.**
 
 Notes 09/06 (suite) (pas de convention numérotée) :
 - **C61 confirmée au rendu** — le lien dans le **mot-clé du callout `[!livrable]`** s'affiche correctement sur le rendu Quartz (validé Tim) ; le label « Livrable X/N » se place dans le titre, avant le lien.
@@ -832,27 +828,23 @@ Notes 09/06 (suite) (pas de convention numérotée) :
 
 ### Acquises 10/06 — relecture colonne « Système embarqué »
 
-65. **Registre d'adresse par type de trame** — les **trames du V** s'écrivent en **« on »/infinitif** (registre de méthode) ; les **fiches de réalisation (C64) et les hubs de branche** s'écrivent en **« tu »** (point d'entrée étudiant, adresse directe). Le contraste est **volontaire** — le V décrit *le projet*, la colonne parle *à l'étudiant qui réalise*. Arbitré par Tim le 10/06 (relecture de la colonne ; deux « on » résiduels du hub reconvertis dans la foulée). **La numérotation éprouvage atteint 65.**
-
 Notes 10/06 (pas de convention numérotée) :
 - **C64-c confirmée** — `aa: []` maintenu vide sur les 6 pages de la colonne (hub + 5 fiches-étape) ; l'exception envisagée (critère instruments sur `fiabiliser-et-deboguer`) est **rejetée** — les critères vivent dans les fiches outils.
 - **Wikilink `x/index` ne résout pas par slug** — `[[eee/index|…]]` produit un href `/eee/` → 404 (le slug réel d'un index de dossier est `fiches/eee`) ; forme correcte `[[fiches/eee/index|…]]` (chemin complet depuis `content/`). **Angle mort des audits** — le scan bash de la source ne voit pas cet échec de résolution, seul le clic-test au rendu le détecte (sweep des formes équivalentes → BACKLOG).
 - **SVG — les attributs de présentation se posent par élément** — une règle CSS de classe dans `<defs><style>` (`text-anchor`, `font-size`) **écrase** les attributs de présentation posés sur les éléments. Conséquence : ne jamais définir `text-anchor` en classe ; l'ancrage s'écrit sur chaque `<text>`.
 
-### Acquises 10/06 (suite) — réorganisation physique en 3 branches (révise C60)
+### Acquises 10/06 (suite) — réorganisation physique en 3 branches (CONDENSÉ)
 
-**C60 révisée — les 3 branches sont désormais des dossiers physiques.** Le « non-déplacement » de C60 (08/06) reposait sur des raisons devenues caduques avant publication (wikilinks résolus par slug, embeds déjà absolus, URL non publiées). Les fichiers ont été **déplacés** (`git mv`, côté Tim) pour que l'**Explorer Quartz reflète les 3 branches**. Structure retenue (**option B — la branche EST son hub**, arbitrée Tim) : `content/conduite/` (index = cycle en V, ex-`hub/index` ; sous-dossiers `proj`/`meo`/`ese` préservés → traçabilité AA) · `content/embarque/` (index = ex-`fiches/eee/index`, dossier `eee` dissous, sous-dossiers `mcu`/`realisation`… conservés) · `content/meca/` (ex-`fiches/mme/index`, `mme` dissous). Conséquences traitées : **32 wikilinks index repointés** (17 fichiers) en **forme chemin-complet-depuis-`content/`** (seule forme qui résout, cf. note `x/index` 10/06) — `[[hub/index]]`→`[[conduite/index]]` ×17, `[[fiches/<dom>/index]]`→`[[<branche>/index]]` ×15 ; `quartz.layout.ts` masque `ressources` (comme `templates`) ; `_drafts/relecture-ordre.md` réaligné ; wikilinks relatifs `[[../proj/…]]` (uniques, `schema-bloc-fonctionnel`) normalisés en slugs nus. **Pré-requis promotion C60 → §6** : build + clic-test confirmant la résolution des `[[<branche>/index]]`.
+*Aucune convention numérotée ; détail au JOURNAL archivé.* **C60 révisée** : les 3 branches sont devenues des **dossiers physiques** (`content/conduite/`, `content/embarque/`, `content/meca/`, option « la branche EST son hub »), le non-déplacement initial reposant sur des raisons caduques avant publication. Conséquences traitées à l'époque : 32 wikilinks d'index repointés en **forme chemin-complet-depuis-`content/`**, seule forme qui résout pour un `x/index` ; `quartz.layout.ts` masquant `ressources`. État courant du dépôt, plus une convention en épreuve.
 
 ### Acquises 11/06 (relecture §4 + production alimentation)
-66. **Tableau « Références éprouvées » (famille-first)** — dans les fiches EEE où l'étudiant doit choisir des composants, un callout `[!tip]` (ou un tableau dans le tip) donne des **familles d'abord**, des **références éprouvées en exemples** (7805/AMS1117, A4988/DRV8825, NEMA 17, SSD1306…), une **phrase de précaution** (disponibilité, datasheet faisant foi) et, en format tableau, une colonne « Pour choisir » renvoyant à la fiche où le choix se travaille (`choisir-le-materiel`, hubs familles, fiche d'architecture). Demande Tim explicite (« donner des références pour aider à choisir »). Éprouvée 5/N : régulateurs (`alimentation-electronique`), condensateurs (`decouplage`), organes (`protection-electronique`), composants par bloc (`chaine-energie`, pipes échappés C62) le 11/06 ; équipement analyseur logique (`analyseur-logique` : clone 8 voies / PulseView / Saleae) le 11/06 (suite 2). **La numérotation éprouvage atteint 66.**
 67. **Petit SVG de branchement par organe** — dans une fiche dont la section *Comment* énumère des organes câblables (protections, adaptations…), chaque organe reçoit un **petit SVG de branchement** (~560×200) : l'organe en ambre avec son vrai symbole de schéma, source/charge en blocs gris, la faute en rouge C28, note de pied. Extension de C33 (concept → SVG) vers le « branchement minimal ». Bornes posées : pas de SVG pour un organe que l'étudiant ne câble pas (protections intégrées — thermique, brown-out, BMS), ni pour un câblage trop subtil pour le format (MOSFET-P anti-inversion : note textuelle). Éprouvée 1/N (5 SVG sur `protection-electronique`, 11/06) ; **étendue de fait aux instruments** le 11/06 (suite 2) : injection GBF (`generateur-de-signaux`), sonde + terre (`oscilloscope`), dérivation sur bus (`analyseur-logique`) — le « branchement minimal » vaut aussi pour brancher un instrument, pas seulement un organe. **La numérotation éprouvage atteint 67.**
 
 ### Acquises 11/06 (suite 2) — relecture §4 fin + §5 algorithme
-68. **Un schéma explicatif par fiche-outil** — toute fiche outil ou notion technique porte **au moins un SVG explicatif**, choisi parmi trois angles : **branchement** (comment l'objet se raccorde — prolonge C67), **utilisation** (la chaîne d'usage — ex. stimulus→réponse du GBF) ou **compréhension** (le concept rendu visible — ex. les 4 cibles de `precision-de-mesure`, le quadriptyque du hub `algorithme`, les divergences ET/OU du grafcet). Consigne Tim 11/06 (« dans toutes les sous-fiches, des schémas explicatifs : branchement, utilisation ou compréhension »). Éprouvée sur le lot mesure (4 fiches) et les compléments §5 (quadriptyque, divergences). **La numérotation éprouvage atteint 68.**
+
+*Bloc vidé le 18/08 : **C68** (un schéma explicatif par fiche-outil) promue au §3.*
 
 ### Acquises 12/06 — relecture §6 socle MCU (complète, 37/37)
-69. **Pointes de flèches SVG toujours en classes** — les `<path>` des `<marker>` ne doivent **jamais** porter un `fill` codé en dur : le `<style>` du SVG s'applique au contenu des markers, et un fill en dur ne suit pas le mode sombre (flèches ternes sur fils éclaircis). Toute pointe de flèche reçoit une **classe avec override sombre** (classe dédiée `.aro`/`.ah`, ou réemploi d'une classe de fill existante). Récidive constatée ×4 en relecture du §6 (`gpio-courant-max`, `gpio-modes`, `bus-de-communication-topologies`, `techno-sans-fil-comparaison`) — tous corrigés ; les SVG produits depuis (deep-sleep, debugger, 6 SVG bus) naissent conformes. À intégrer au peigne SVG pré-publication (grep `marker` + `fill="#`). **La numérotation éprouvage atteint 69.**
-
 Notes 12/06 (pas de convention numérotée) :
 - **C68 éprouvée en grand sur le §6 (37 fiches)** avec une **typologie de verdicts** stabilisée : *SVG justifié* (adc, pwm, deep-sleep, debugger-embarque, trio bus gonflé à 2 SVG chacun — branchement + chronogramme) / *couvert par le SVG du hub* (processeur, memoire, systeme-d-exploitation, entree-sortie, les 5 filles sans-fil) / *territoire capture C29* (ide, cpp-logs) / *photo plutôt que schéma* (shield). Le verdict se rend fiche par fiche, pas mécaniquement.
 - **Extension C29 arbitrée** : les mentions de capture inline sont désormais admises sur les **notions [T]** (1ʳᵉˢ : `ide`, `shield`), pas seulement les tutos.
@@ -868,32 +860,12 @@ Notes 12/06 (suite) (pas de convention numérotée) :
 - **`x/index` n'est pas par défaut un stub.** Né du revert `mecatronique` : `conduite/index` **est** la fiche parcours complète (cycle en V), pas un hub de branche vide — vérifier le contenu d'un index avant d'y (re)pointer des liens. Complète C60.
 - **aa ajouté sur une fiche précédemment `aa:[]` = multi-couverture, tally inchangé.** 5 fiches ont reçu un aa cette session (`mind-map` PROJ/1, `matrice-de-decision` PROJ/6, `acv-simplifiee` ESE/1+2, `archivage-projet` MEO/6, `revue-de-code` MEO/3) ; tous les critères étaient déjà C ailleurs → **C20, statut dominant et tally 79 % inchangés**. Pushback aa validé : `amdec` reste `aa:[]` (aucun critère sûreté de fonctionnement au référentiel, vérif xlsx), `mecatronique` reste `aa:[]` (définitionnelle).
 
-### Acquises 13/06 — relecture branche Méca (confirmations + nuances)
+### Acquises 13/06 — relecture branches Méca et ESE (CONDENSÉ)
 
-Pas de nouvelle convention numérotée (reste à **70**) — session de confirmations et d'une nuance sur C65.
-
-- **C58 (pointeur d'interface léger) — motif mûr.** Réemployée à la lecture sur 6 pointeurs `meca/` (`optimisation-mecanique`, `impression-3d`, `usinage`, `soudure`, `pla` + délégations) sans accroc : popover → « Dans le projet » → aparté de délégation → *Voir aussi* fini par « Cours de X (collègues) ». **Candidate à promotion** vers §1-§7 + template (à arbitrer).
-- **C68 confirmée sur instruments de métrologie.** Les 2 SVG créés (`pied-a-coulisse-mesures`, `comparateur-battement`) sont du type *compréhension* (« comment fonctionne l'instrument », consigne Tim explicite). Le verdict « SVG justifié » tient pour un instrument de mesure dimensionnelle au même titre que pour un instrument électronique.
-- **C69 confirmée sans correction.** Les 3 SVG méca préexistants (schéma cinématique ×2, optimisation ×1) étaient déjà markers-en-classes + override sombre — première branche relue où le contrôle C69 ne lève aucune récidive.
-
-Notes 13/06 (pas de convention numérotée) :
-- **C65 nuancée — le « tu » marque l'adresse à l'étudiant qui réalise, pas tout hub de branche.** C65 disait « hubs de branche = tu » ; à l'épreuve, seul le **hub-colonne d'action** (`embarque/index`, réalisation) parle en « tu ». Un **hub-sommaire d'interface** (`meca/index`) ou un **hub-parcours** (`conduite/index`, le V) reste en **« on »** (registre de méthode / sommaire), parce qu'il *décrit* ou *recense* au lieu de guider un geste. Décision Tim (« tu/on, je te laisse choisir ») tranchée en ce sens.
-- **Pas de champ `type` sur un index/sommaire de branche ou domaine.** `meca/index` reste sans `type:`, aligné sur `proj/index` (`tags: [domaine, proj]`, sans type — vérifié ce jour) : un index navigationnel n'est ni notion ni trame ni tuto. Complète la note « index de domaine = sommaire par grappe » (12/06 suite).
-- **Réciproque inter-branches : vérifier l'existant avant d'ajouter (C14 appliqué aux liens).** Avant de poser une réciproque `A → B`, lire la *Voir aussi* de B : `chaine-energie` liait déjà `schema-cinematique`, doublon évité. Vaut pour tout ajout de lien réciproque en lecture groupée.
-- **Motif « porte famille manquante » (12/06) : n/a pour Méca** — pas de notion [T] à familles dans la branche (pointeurs d'interface, pas de modules). Contrôle d'office sans objet ici.
-
-### Acquises 13/06 (suite) — relecture branche ESE (confirmations)
-
-Pas de nouvelle convention numérotée (reste à **70**) — session de confirmations.
-
-- **C58 — base d'éprouvage complète.** Réemployée sans accroc sur les 8 pointeurs ESE (`marquage-ce`, `basse-tension`, `emc`, `iso-12100`, `epi`, `rohs`, `reach`, `deee`) : popover → « Dans le projet » → aparté de délégation → *Voir aussi* « Cours de X (collègues) » ; bonne adaptation `epi` (délégation responsables atelier/fablab). Les **deux branches d'interface (Méca + ESE) sont désormais relues** → motif **promotion-ready** (promotion vers §1-§7 + template à arbitrer ; escalade la « candidate à promotion » du bloc Méca ci-dessus).
-- **C65 tenu.** Registre « on » sur les 8 pointeurs et sur `conduite/ese/index` (sommaire d'interface, cohérent avec la nuance `meca/index` ci-dessus) — zéro « tu ».
-- **C62 / C68 / C69 / C70 sans objet pour la branche** : ni tableau, ni SVG (un pointeur C58 délégué n'en porte pas — verdict C68), ni ancre. Première branche relue où tous ces contrôles d'office sont à vide.
-- **« Vérifier l'existant avant réciproque » (C14 sur les liens) réaffirmé** : `securite-et-qualite` ↔ ESE était déjà réciproque (5 pointeurs dans sa *Voir aussi*), rien à rajouter de ce côté ; les réciproques posées l'ont été vers `caracteriser-une-exigence` (FC normative) et `protection-electronique`/`decouplage` (versant matériel EMC).
+*Aucune convention numérotée ; détail au JOURNAL archivé.* Les deux branches d'interface ont validé **C58** (pointeur d'interface léger) sur 14 fiches sans accroc — motif **promotion-ready**, à arbitrer. Deux acquis de portée générale en sont sortis. **Nuance de C65** : le « tu » marque l'adresse à l'étudiant **qui réalise**, pas tout hub de branche — un hub-sommaire d'interface ou un hub-parcours reste en « on », parce qu'il recense ou décrit au lieu de guider un geste. **Vérifier l'existant avant de poser une réciproque** : lire la *Voir aussi* de la fiche cible avant d'y ajouter un lien retour (C14 appliqué aux liens). Note de forme : un index navigationnel ne porte **pas de champ `type`**.
 
 ### Acquises 13/06 (suite 2) — production module XIAO ESP32-S3
 
-71. **Pas de prix ni de cadrage « achat » dans les fiches — l'école fournit le matériel.** Les étudiants ne paient ni leurs cartes ni leurs composants (fournis par l'école) : une fiche ne mentionne donc ni prix, ni « à l'achat », ni « dans la boîte ». L'aide au choix porte sur l'**adéquation technique** (capacités, périphériques, contraintes), jamais sur le coût. Demande Tim explicite (callout « À l'achat » retiré du hub XIAO). Éprouvée 1/N. **La numérotation éprouvage atteint 71.**
 72. **Un hub de famille assume un primo-découvreur.** Un hub de famille (MCU, etc.) peut être le **premier point de contact** d'un étudiant avec le sujet : sa prose ne présuppose jamais le parcours déjà lu. Proscrit : « ce hub enfile les fiches existantes », « comme tu l'as vu ». À la place, formuler les renvois en self-contained — « le tableau pointe chaque besoin vers la fiche qui l'explique ; si tu débutes, parcours-le de haut en bas ». Demande Tim (reformulation de l'intro « Mettre en œuvre » du hub XIAO). Éprouvée 1/N. **La numérotation éprouvage atteint 72.**
 
 Notes 13/06 (suite 2) (pas de convention numérotée) :
@@ -902,8 +874,6 @@ Notes 13/06 (suite 2) (pas de convention numérotée) :
 - **Specs vérifiées au pad en production** (wiki Seeed, pas de mémoire) : D6 = GPIO43, 9 ADC (D6/D7 et A11/A12 exclus malgré le nom), LED utilisateur GPIO21 active à l'état bas, charge LiPo 50 mA, deep sleep 14 µA, 3V3 <= 700 mA.
 
 ### Acquises 15/06 — relecture §7 Arduino (hub + prise-en-main) : images, vidéo, organisation des médias
-73. **Dossiers images par fiche.** Les médias d'une fiche vivent dans `content/ressources/img/<slug-fiche>/` (un dossier par fiche), embeds en chemin absolu `/ressources/img/<slug-fiche>/<fichier>`. Décidé 15/06 (l'arborescence à plat de `ressources/img/` devenait illisible) ; **migration de l'existant (~120 médias) en session dédiée** (mode b retenu). Quartz sert le sous-dossier tel quel (`Assets()` préserve l'arbo, Explorer masque `ressources`). **La numérotation éprouvage atteint 73.**
-74. **Présentation des images de contenu.** (a) **largeur d'affichage par image** dans le markdown : `![alt|largeur](...)` (syntaxe Obsidian-flavored, ex. `|600` / `|420`) ; (b) **centrage global** images + vidéo via `custom.scss` (`article img, video { display:block; margin-inline:auto; max-width:100% }`) ; (c) **légende italique centrée** réservée aux **figures autonomes** (panorama, schéma de référence) — paragraphe italique seul juste après l'image, centré par règle CSS `:has()` ; **pas de légende** sur les **captures de procédure** (le texte de l'étape décrit). Formats : capture d'UI → **WebP/PNG** (texte net), photo → **WebP/JPEG**, animation → **GIF** ; ~1200-1600 px de large, < 300-500 ko. Éprouvée sur le hub `arduino` (photo Uno + pinout, légendes) et `arduino-prise-en-main` (6 captures de procédure, sans légende). **La numérotation éprouvage atteint 74.**
 75. **Vidéo (première du wiki).** Intégration par **balise HTML5** `<video controls src="/ressources/img/<fiche>/x.mp4"></video>`, **hors callout** (le HTML brut rend mieux en bloc qu'en blockquote) ; centrage via la règle `article video` (C74-b). **Placeholder de production** analogue C29 : `Intégrer une vidéo de *<description>*`. Formats : **MP4 (H.264) / WebM** en local pour les courts clips ; **externe (`<iframe>`)** au-delà (GitHub Pages : 100 Mo/fichier, dépôt qui gonfle). Éprouvée 1/N (`arduino-prise-en-main`, install pilote CH340). **La numérotation éprouvage atteint 75.**
 
 Notes 15/06 (pas de convention numérotée) :
@@ -924,13 +894,9 @@ Notes 15/06 (pas de convention numérotée) :
 
 ### Acquises 16/06 (suite) — relecture §7 Arduino (code commenté débutant)
 
-77. **Code commenté pour débutant (tutos famille).** Dans les tutos de famille, tout bloc de code reçoit des **commentaires en ligne sur chaque ligne utile** (le rôle, pas une paraphrase) ; le **bloc conceptuellement difficile** est suivi d'un court encart **« Comment lire ce code »** en prose (langage clair, le *pourquoi* de la logique) ; un **motif déjà vu** est commenté plus légèrement avec un **renvoi à sa première occurrence** (« bloc identique à l'étape N »). Motivé par la 1ʳᵉ fiche dense en code pour un néophyte (`arduino-entree-tor` : déclarations + boucle anti-rebond commentées, encart sur les deux variables + `millis()`, exemple final allégé renvoyant à l'étape 3). Demande Tim. Appliquée en avant sur les tutos denses à venir (`arduino-sortie-pwm`, `-temporisation`, `-programmation-non-bloquante`, `-machine-a-etats`, `-pid`) ; rétro-action différée (candidat : l'exemple de `arduino-serie`). Éprouvée 1/N. **La numérotation éprouvage atteint 77.**
-
-78. **Montage/câblage → schéma SVG, pas photo.** Une photo de breadboard est peu lisible et n'aide guère à la compréhension ; le câblage d'une fiche se montre par un **schéma SVG** (branchement C67, étage électrique, ou carte d'interfaces broche → charge), pas par une photo. Amende la tolérance « capture/photo » de C29 pour le **câblage** : Claude **produit le schéma** au lieu de laisser un placeholder photo à shooter. Un schéma raster déjà fourni (ex. capture de simulateur `montage-bouton-led.webp`) satisfait aussi le critère — c'est la *photo de montage* qui est proscrite, pas le raster schématique. Demande Tim. Éprouvée sur `arduino-sortie-tor` (placeholder photo → `montage.svg` carte d'interfaces + zoom `transistor-bas-cote.svg`). **La numérotation éprouvage atteint 78.**
+*Bloc vidé le 18/08 : **C77** (code commenté pour débutant) promue au §2 et **C78** (câblage en schéma, pas en photo) au §3.*
 
 ### Acquises 17/06 — relecture §7 Arduino (capteur analogique, sortie PWM, notion potentiomètre)
-
-79. **Un montage (ou schéma de principe) par bloc de code.** Tout bloc de code d'une fiche s'accompagne d'un visuel qui l'illustre : un **montage** (câblage SVG, C78) pour du code qui pilote du matériel, un **schéma de principe** (chronogramme, organigramme, diagramme d'états) pour du code purement logique. Si le câblage concerné est **déjà montré plus haut** dans la fiche, un **renvoi** suffit — pas de duplication. Renforce C68 (« ≥ 1 schéma par fiche ») au niveau du bloc de code. Demande Tim (relecture `arduino-sortie-pwm` : l'Exemple potentiomètre + LED réclamait son montage, ressorti du SVG de branchement potentiomètre ; le code de fondu était couvert par le SVG LED de l'étape 2). Éprouvée 1/N. **Portée rétroactive** : les fiches déjà relues sont à repasser (BACKLOG). **La numérotation éprouvage atteint 79.**
 
 Notes 17/06 (pas de convention numérotée) :
 - **Vérification en source = filet anti-erreur (C14 élargi aux specs).** L'erreur ADC de l'Uno R4 (`arduino-capteur-analogique` annonçait « 12 bits par défaut » → en réalité **10 bits**, 12/14 sur option `analogReadResolution()`) a été prise en lisant les docs Arduino plutôt qu'en se fiant à la fiche. Idem `analogWrite()` (0-255 par défaut, y compris R4). **Specs hardware = source primaire, jamais la mémoire ni la fiche existante.**
@@ -939,36 +905,22 @@ Notes 17/06 (pas de convention numérotée) :
 
 ### Acquises 17/06 (suite) — relecture §7 Arduino (bus, actionneurs, afficheur, debug)
 
-80. **SVG de câblage = noms de broches du code.** Tout schéma de câblage étiquette ses broches avec les **noms ou numéros que le code emploie** (`IN1 → D12`, `ENA → D3`, `SDA → A4`), pour que le schéma et le sketch se lisent à l'identique — c'est le pont qui manque le plus aux débutants entre le branchement physique et la ligne de code qui le pilote. Corollaire rédactionnel : **nommer les broches par des constantes** (`const int LED_ROUGE = 8;`) plutôt que des nombres en dur. Motivé par un constat Tim (les élèves ont du mal à relier câblage et code, dans les deux sens ; section dédiée « Le code dit une chose, le câblage en dit une autre » ajoutée à `arduino-debug`, avec la méthode d'isolement carte / câblage / logique). Déjà respecté de fait par les SVG de câblage produits cette session (uart, i2c, spi, servomoteur, moteur-cc, moteur-pas-a-pas, afficheur). Éprouvée — rétroactive de fait. **La numérotation éprouvage atteint 80.**
-
 Note 17/06 (suite) (pas de convention numérotée) :
 - **`write_file` n'interprète pas les échappements `\u` — SVG en vrais caractères UTF-8.** Un fichier écrit via `filesystem:write_file` reçoit la chaîne **littéralement** : un `\u00e9` y atterrit en six caractères visibles, pas en « é » (contrairement à `edit_file`, dont le `newText` interprète bien les `\u`). Conséquence : les SVG créés par `write_file` s'écrivent avec de **vrais caractères** accentués / symboles (é, è, →, Ω…), jamais en `\u`. Contrôle : **relire le fichier juste après écriture**. Incident 17/06 (suite 2) — 6 SVG de la session (`ou-est-le-probleme`, `retour-position`, `branchement-i2c` afficheur+i2c, `branchement-sd`, `branchement-28byj48`) portaient des `\u` en clair dans leurs notes de pied ; corrigés (réécriture complète ou `edit_file` ciblant le littéral `\\u`). Les SVG déjà écrits en vrais caractères ou ASCII+entités (`cablage-croise`, `pont-serie`, `branchement-l298n`, `branchement-sg90`) étaient indemnes.
 
-### Acquises 17/06 (suite 3) — relecture §7 Arduino terminée (gpio-boot → watchdog) + notion asservissement
+### Acquises 17/06 (suite 3) — fin du §7 Arduino (CONDENSÉ)
 
-**Aucune convention numérotée nouvelle — la numérotation éprouvage reste à C80.**
-
-Notes 17/06 (suite 3) :
-- **Note de portabilité « familles MCU » (affinement de C47).** Quand une fiche Arduino traite un mécanisme dont l'**API est propre à l'AVR** (registres CTC, `avr/wdt.h`, modes de veille `LowPower`, `F()`/`PROGMEM`, EEPROM 1 Ko…) et qu'**aucune fiche cible famille n'existe encore**, on ajoute une **note de portabilité brève** — le principe reste le même, seule l'API (ou l'ordre de grandeur) change — close par un **renvoi `[[esp32]]`**, plutôt que de détailler les autres familles. C'est le pendant « sortant » de C47 (qui délègue quand une fiche cible existe) : ici on *signale sans détailler*. Systématisé cette session (`timers`, `eeprom`, `deep-sleep`, `memoire`, `watchdog`). À promouvoir comme corollaire de C47 si confirmé sur les modules famille à venir.
-- **Notion mère d'un tuto : la créer si elle manque, sinon s'appuyer sur le parent existant.** Le tuto `arduino-pid` n'avait pas de notion mère → **notion `asservissement` créée** (concept transverse majeur, réutilisable méca/automatique). À l'inverse, `arduino-watchdog` **n'a pas** de notion dédiée : le WDT étant un compteur dédié, la fiche s'appuie sur `[[timer]]` comme parent légitime. Critère : créer une notion mère seulement si le concept est **transverse et substantiel** ; sinon raccrocher au parent existant. (Décisions Tim 17/06 suite 3.)
-- **Emplacement des notions transverses systèmes/contrôle.** `asservissement` rangée à `content/embarque/` (racine), près de `schema-bloc-fonctionnel` et `chaine-energie` — notion automatique/contrôle, non spécifique MCU. Le wikilink `[[asservissement]]` résout quel que soit le dossier ; emplacement à confirmer par Tim.
+*Aucune convention numérotée ; détail au JOURNAL archivé.* Trois acquis retenus. **Note de portabilité « familles MCU »** (affinement de C47) : quand une fiche traite un mécanisme dont l'API est propre à l'AVR et qu'aucune fiche famille cible n'existe, on ajoute une note brève — le principe reste le même, seule l'API change — close par un renvoi, au lieu de détailler les autres familles. C'est le pendant « sortant » de C47, qui délègue quand la cible existe. **Créer une notion mère seulement si le concept est transverse et substantiel** : `asservissement` a été créée pour `arduino-pid`, alors que `arduino-watchdog` s'appuie légitimement sur `[[timer]]`. **Les notions transverses systèmes/contrôle** se rangent à la racine de `content/embarque/`, près de `schema-bloc-fonctionnel` et `chaine-energie`.
 
 ### Acquises 25/06 — intégration des médias familles MCU (audit SVG↔code)
-
-81. **Média de câblage produit et audité contre le code de la fiche cible (corollaire de C80).** Un schéma de câblage/montage se dessine à partir du **code réel de la fiche** qu'il illustre — broches exactes, composants exacts, périmètre exact — jamais d'une description générique (cartographie, brief). À l'intégration, **chaque SVG est confronté au code de sa fiche avant d'être posé** : conforme → embed inséré ; divergent → SVG régénéré, jamais inséré tel quel. Motivé par l'audit du dépôt média 25/06 : **6 SVG sur ~22** produits d'après la cartographie générique (broches « par défaut ») **contredisaient** le code de leur fiche (relais GP16 vs GP10, capteur générique vs HC-SR04, SPI GP18+ vs GP2+, L298N vs DRV8833, ULN2003 GP10-13 vs GP2-5, bouton GP27 vs GP2) — détectés fiche par fiche, non insérés. C80 fixe l'**étiquetage** des broches ; C81 fixe la **source** (le code) et l'**audit d'intégration**. Éprouvée 2/N (25/06 audit du dépôt → 6 SVG flaggés divergents, non insérés ; 27/06 régénération effective contre le code + rendu Tim validé). **La numérotation éprouvage atteint 81.**
 
 Notes 25/06 (pas de convention numérotée) :
 - **Méthode d'insertion des embeds familles MCU.** Les fiches portent un **placeholder inline** (« Prendre capture d'écran ou photo de *…* ») à l'endroit exact du visuel ; on le **remplace** par l'embed `![alt descriptif|largeur](/ressources/img/<slug>/<fichier>)` (largeur **600** montage, **640** schéma large), en assumant la substitution **photo → schéma SVG** (C78). Pour un **schéma de principe sans placeholder** (brochage, frise, registre, STA/AP), insertion **au point logique du raisonnement** + **flag « à confirmer au rendu »**. Alt sans backticks (texte brut).
 - **Vérification d'un dépôt média (réception).** Avant d'intégrer un lot déposé hors périmètre MCP (Bureau → dépôt) : contrôler **structure** (dossiers attendus présents), **encodage** (lecture d'un échantillon inter-familles — `≠`, `Ω`, `→`, accents — pour confirmer l'UTF-8 du Bloc-notes), **intégrité XML** (début `<svg>` / fin `</svg>`, non tronqué), **absence de `.svg.txt`** (étape « Tous les fichiers » respectée), **noms de dossiers/fichiers** (un typo `stm-32` vs `stm32` casse le slug ; une parenthèse dans un nom casse `![]()`).
 
-### Acquises 27/06 — relecture/correction des médias familles MCU (régénération SVG)
+### Acquises 27/06 — régénération des médias familles MCU (CONDENSÉ)
 
-**Aucune convention numérotée nouvelle — la numérotation éprouvage reste à C81.**
-
-- **C81 ré-éprouvée en régénération (2/N).** Les 6 SVG flaggés divergents le 25/06 ont été **régénérés à partir du code réel** de chaque fiche (lu juste avant l'écriture, `write_file` en vrais caractères UTF-8 + readback) puis insérés à la place de leur placeholder : `micropython-sortie-tor` (LED GP8 / buzzer-transistor GP9 / relais GP10), `-capteur-numerique` (HC-SR04 Trig GP9, Echo → pont diviseur → GP10), `-spi` (SCK GP2 / MOSI GP3 / MISO GP4 / CS GP5), `-moteur-cc` (DRV8833 AIN1 GP12 / AIN2 GP11), `-moteur-pas-a-pas` (ULN2003 IN1–IN4 = GP2–GP5), `raspberry-pi-gpio` (bouton GPIO2). Le cycle **audit (25/06) → régénération (27/06) → rendu validé** boucle la convention ; reste à confirmer sur une autre famille avant promotion.
-- **Replacement d'un SVG mal ciblé = `create_directory` + `move_file` + embed dans la bonne fiche.** `roles-ble.svg` (`esp32-wifi/` → `esp32-ble/`, section GATT) et `brochage-d1-gpio.svg` (`esp8266/` → `esp8266-arduino-core/`, section « Dxx ≠ GPIO ») : le SVG était correct, seule sa **destination** était fausse — on déplace le fichier vers le dossier-slug de la fiche réelle (C73) avant d'insérer l'embed, pas de régénération.
-- **Attribution d'une image officielle = légende italique sous l'embed (extension C74-c).** Image tierce sous licence → légende `*Source : <détenteur> — <licence>, image non modifiée.*` juste après l'embed : Pico (Raspberry Pi Ltd, CC BY-ND), Teensy (PJRC). Le cas « attribution » s'ajoute aux figures autonomes de C74-c. Candidate à intégrer formellement à C74 si réemployée.
-- **« Acceptable au rendu » ≠ « définitif ».** Rendu Tim : 12 pages acceptables, **3 réserves tracées BACKLOG** — 2 SVG fonctionnellement corrects mais à retravailler visuellement (`montage-relais`, `branchement-stepper` → peigne SVG), 1 image officielle à reprendre avant publication (`brochage-pico.png`). La réserve esthétique va au peigne, jamais en blocage d'intégration.
+*Aucune convention numérotée ; détail au JOURNAL archivé.* Session de bouclage de **C81** (§3) : les 6 SVG flaggés divergents le 25/06 ont été régénérés contre le code réel de leur fiche, puis validés au rendu. Trois acquis de forme en sont sortis. **Un SVG mal ciblé se déplace, il ne se régénère pas** — `create_directory` + `move_file` vers le dossier-slug de la vraie fiche (C73), puis embed. **Attribution d'une image tierce** = légende italique sous l'embed, `*Source : <détenteur> — <licence>, image non modifiée.*` (extension de C74-c). **« Acceptable au rendu » n'est pas « définitif »** : une réserve esthétique va au peigne SVG, jamais en blocage d'intégration.
 
 ### Acquises 29/06 — relecture de fond §13 MicroPython (registre, float, Pin LED, accents)
 
@@ -984,18 +936,14 @@ Notes 29/06 (pas de convention numérotée) :
 
 ### Acquises 30/06 — relecture de fond §13 MicroPython terminée (SVG non transposable, vérif specs RP2)
 
-84. **SVG-concept neuf quand le SVG du jumeau n'est pas transposable.** En module famille (clone de curriculum C57), un SVG du jumeau se **copie localement** (C47) tant que l'architecture illustrée est commune. Mais quand le SVG du jumeau **encode une architecture propre à l'autre famille** (carte 3-mémoires AVR, EEPROM adressée à l'octet, conso chiffrée en µA…), il n'est **pas transposable** : on crée alors un **SVG-concept neuf adapté au modèle de la famille**, plutôt que de plaquer un schéma faux. Pendant « créatif » de C47 (copie quand commun) et corollaire de C57 (parité de fond, pas de forme aveugle). Éprouvée 3/N cette session : `memoire` (`carte-memoire-sram` AVR → `fragmentation-tas` : tas troué + `MemoryError`), `stockage` (`carte-memoire-eeprom` octet → `persistance-fichier` : RAM vs fichier flash, pas d'EEPROM sur Pico), `deep-sleep` (profil µA chiffré → `profil-courant-veille` « principe » faible/élevé sans chiffre). **La numérotation éprouvage atteint 84.**
-
 Notes 30/06 (pas de convention numérotée) :
 - **Vérification source RP2 = filet (prolonge C82).** Trois specs corrigées en lisant doc/tracker MicroPython, jamais de mémoire : `machine.Timer` **virtuel** sur RP2 (`id=-1`) + callback **soft IRQ par défaut** / **hard IRQ via `hard=True`** (la règle « pas d'allocation » ne vaut que pour le hard) ; `lightsleep()` réveil-broche = **bug ouvert** (#7035/#16442) ; `deepsleep` ≈ `lightsleep` sur RP2040 (pas de µA). Confirme C82 au-delà des floats : *toute spec RP2 se vérifie en source avant correction*.
 - **Verdict C82 « clean ».** Une fiche bourrée de flottants peut être **C82-propre** si **aucun n'est affiché ni asserté en décimal** (`pid` : `print` de 2 entiers, gains en entrée, `dt` calculé live → le piège simple précision ne mord pas). C82 ne mord que sur une **décimale assertée**, pas sur la simple présence de floats.
 - **Divergence honnête étiquetée « principe ».** Quand une correction de fond retire une valeur chiffrée (`deepsleep` ne descend pas en µA sur RP2), le SVG-concept correspondant s'étiquette **« principe »** (faible/élevé qualitatif) pour ne pas réintroduire le chiffre faux — cohérence fiche↔visuel.
 
-### Acquises 30/06 (suite) — MAJ documentaire (archivage de masse du JOURNAL)
+### Acquises 30/06 (suite) — archivage de masse du JOURNAL (CONDENSÉ)
 
-**Aucune convention numérotée nouvelle — la numérotation éprouvage reste à C84.**
-
-- **Archivage/déplacement d'un bloc JOURNAL lourd → script Node fail-safe, jamais une séquence d'`edit_file`.** Déclencheur décisif : non pas seulement la **taille** (un bloc > ~30 ko dépasse le seuil pratique d'`edit_file`), mais surtout la présence d'**échappements littéraux** dans la prose — un antislash-u (code Unicode), un antislash-n (saut de ligne), un pipe échappé dans un wikilink, un antislash isolé — que le `newText` d'`edit_file` **interprète** (les transformant en accent, retour ligne, trait vertical) et qui corromprait silencieusement l'archive. Un script (`tools/archive-journal-0630.mjs`) fait un **slice de chaîne brut** (zéro interprétation), avec garde **fail-safe** (toute ancre ou tout remplacement manquant → `exit 1` sans rien écrire), écriture **archive d'abord**, sauvegardes `.bak` et report des tailles avant/après. Le côté JOURNAL tronqué pourrait se réécrire en `write_file` (~17 ko), mais le côté archive (~514 ko) impose le script. Motif déjà acquis le 07/06 (`archive-journal-0607.mjs`), ici fixé avec son **déclencheur** : échappements littéraux dans le bloc → script obligatoire.
+*Aucune convention numérotée ; détail au JOURNAL archivé.* **Déplacer un bloc lourd se fait par script Node fail-safe, jamais par une séquence d'`edit_file`.** Le déclencheur décisif n'est pas la taille mais la présence d'**échappements littéraux** dans la prose — antislash-u, antislash-n, pipe échappé de wikilink — que le `newText` d'`edit_file` **interprète**, corrompant silencieusement la cible. Le script fait une **découpe de chaîne brute** (zéro interprétation), avec garde fail-safe (ancre manquante → `exit 1` sans rien écrire), écriture de la destination d'abord, sauvegarde `.bak` et report des tailles. Motif éprouvé trois fois : `archive-journal-0607.mjs`, `archive-journal-0630.mjs`, puis `groom-todo.mjs` et `groom-conventions.mjs` le 18/08.
 
 ### Acquises 17/08 — relecture de fond §9 ESP32
 
@@ -1067,6 +1015,43 @@ Notes 18/08 :
 - **Un SVG « à l'œil » ment sur ses propres repères.** `lecture-courbe.svg` posait le niveau 63 % au bon endroit (y=176 sur 196 px d'amplitude, exact) mais traçait un Bézier arbitraire qui croisait ce niveau **64 px avant** les pointillés de τ — le schéma affirmait donc le contraire de ce que la fiche enseigne. Remplacé par une **exponentielle échantillonnée**, `y = 104 + 196·exp(-(x-92)/109,6)`, avec la formule en commentaire dans le fichier. **Règle** : dès qu'un SVG porte un repère chiffré, la courbe se **calcule**, elle ne se dessine pas — et l'échantillonnage se resserre sur les portions raides.
 - **Deux compteurs qui ne mesurent pas la même chose donnent une dette invisible.** Le « lot de 15 captures » ne suivait que les fiches-outils logiciels bloquant la relecture ; la ligne « captures C29 en attente (13) » ne couvrait que quelques placeholders Arduino et instruments. Le balayage complet de `content/` en donne **101, répartis sur 57 fiches**. Deux enseignements : **31 d'entre eux sont concentrés sur les six prise-en-main** et se ramènent à ~6 gestes répétés d'une famille à l'autre (page de téléchargement, Préférences avec URL, gestionnaire de cartes, menu Outils, compilation réussie, carte branchée) — dont **deux strictement identiques** (`esp32-prise-en-main:38` et `teensy-prise-en-main:38` demandent tous deux la page `arduino.cc/en/software`, une seule prise de vue, réemploi cross-dossier C76) ; et les faces avant d'instruments (`multimetre`, `oscilloscope`) sont des candidates **SVG** plutôt que photo, plus lisibles et indépendantes du modèle posé sur la paillasse. **Un inventaire périodique par balayage vaut mieux qu'un compteur tenu à la main.**
 - **Le calendrier appartient aux collègues — l'absence de marqueur temporel est un choix, pas un oubli (arbitrage Tim).** J'ai signalé l'absence de projection du cycle en V sur les 15 semaines comme le principal trou fonctionnel du wiki. **Tim a corrigé le diagnostic** : la chronologie est enseignée par le cours de gestion de projet des collègues, et le wiki est une **interface** vers leurs cours — y mettre un rétroplanning reviendrait à refaire leur travail, ce que le cadrage projet interdit explicitement. L'étudiant se réfère à la fiche dont il a besoin au moment où son cours le lui indique. **À retenir comme borne générale** : avant de qualifier un manque de « trou », vérifier qu'il ne relève pas d'une **délégation assumée** — même logique que les catégories HS-D de la cartographie AA.
+
+### Promues le 18/08 (trace)
+
+Seize conventions sorties du §8 vers les sections numérotées. Critère retenu : appartenance à la liste des **contrôles d'office** citée à chaque ouverture de session — une convention qu'on applique systématiquement n'est plus en épreuve. Le marqueur « Éprouvée x/N » s'est révélé peu fiable, n'étant mis à jour que quand on y pense (C71 portait encore « 1/N » après sept modules). L'historique d'épreuve de chacune reste au JOURNAL.
+
+- **C10** → §2 (déjà promue le 26/05 — entrée §8 en doublon)
+- **C62** → §2 Mise en forme
+- **C64** → §6 Publication / Quartz
+- **C65** → §1 Rédaction
+- **C66** → §2 Mise en forme
+- **C68** → §3 Images & SVG
+- **C69** → §3 Images & SVG
+- **C71** → §1 Rédaction
+- **C73** → §3 Images & SVG
+- **C74** → §3 Images & SVG
+- **C77** → §2 Mise en forme
+- **C78** → §3 Images & SVG
+- **C79** → §3 Images & SVG
+- **C80** → §3 Images & SVG
+- **C81** → §3 Images & SVG
+- **C84** → §3 Images & SVG
+
+### Acquises 18/08 (suite) — session dette technique (audits, outillage, groomings)
+
+**Aucune convention numérotée — la numérotation éprouvage reste à C90.**
+
+- **Un outil qui rapporte un succès sans avoir agi — troisième et quatrième occurrences le même jour, la règle est acquise.** Le motif : *l'opération réussit formellement, seule la quantité de travail réel est nulle ou tronquée*. Quatre cas désormais recensés. (a) **`create_file` sans préfixe** rend « File created successfully » avec le chemin Windows complet, en créant dans le conteneur Linux un fichier littéralement nommé `C:\Users\...` — confirme C24 et le §6 *Préfixe MCP exclusif* ; le contrôle est un **`list_directory` du dossier cible** après écriture. (b) **`move_file` sur un changement de casse seul** (17/08) rend « succès » sans rien changer. (c) **Un parseur d'audit** peut rétrécir silencieusement son périmètre : la regex `!\[[^\]]*\]` sautait tout embed dont l'alt contient des crochets, sans les compter ni les signaler. (d) **Une borne de coupe mal calculée** annonce N retraits en coupant un octet chacun. **Règle** : après toute opération en lot, vérifier une **grandeur mesurable** — nombre de fichiers, taille retirée, compteur d'éléments traités — jamais le code de retour. Corollaire : **tout script de découpe expose un `--dry`**, et le dry-run se lit pour ses *chiffres*, pas pour son absence d'erreur.
+
+- **Un garde-fou se pose des deux côtés.** `groom-conventions.mjs` refusait toute coupe au-delà de 9 ko et n'avait aucun plancher — or le mode d'échec réel (borne mal calculée) produit **toujours** une coupe trop petite. Je m'étais protégé du danger qui n'arrivait pas. **Avant d'écrire une garde, se demander dans quel sens l'erreur déraille.**
+
+- **Un outil d'audit doit connaître les conventions du dépôt qu'il audite.** Le premier rapport wikilinks annonçait 67 liens morts pour 5 réels : 61 étaient des **pipes échappés en cellule de tableau**, c'est-à-dire précisément la syntaxe que **C62 impose**. Un audit écrit sans relire les conventions produit du bruit à hauteur de ce qu'il ignore — et ce bruit coûte des arbitrages inutiles à l'auteur. Les deux scripts d'audit portent désormais la règle en commentaire, à côté du code qui l'applique.
+
+- **Promotion d'une convention : le critère fiable est externe, pas le compteur d'épreuve.** Le marqueur « Éprouvée x/N » du §8 n'est mis à jour que quand on y pense — C71 portait « 1/N » après sept modules, C77 après deux modules entiers. Un balayage mécanique du §8 ne trouvait que 7 candidates ; la **liste des contrôles d'office** recopiée dans chaque prompt de session en désignait **14**. Une convention qu'on applique systématiquement n'est plus en épreuve, quel que soit son compteur. **Critère à réemployer au prochain grooming** ; même leçon que les deux compteurs de captures démentis le 18/08 par le balayage — *un inventaire périodique vaut mieux qu'un compteur tenu à la main*.
+
+- **Promouvoir ne fait pas maigrir un fichier, condenser oui.** Déplacer 16 conventions du §8 vers les sections numérotées ne retire rien au total — c'est la **condensation** (8 blocs anciens réduits en pointeurs, dont un de 9,3 → 1,5 ko) qui rend les kilo-octets. Les deux gestes se distinguent : la promotion **range**, la condensation **allège**. Au passage, un bloc dont toutes les conventions partent devient un **titre vide** — y laisser une ligne de pointeur vers la destination, comme le précédent « 28/05 suite 2 — PROMUES (trace) ».
+
+- **Une vérification demandée sur un point trouve souvent le problème d'à côté.** La consigne était de vérifier en source les quatre versions d'actions GitHub avant de les bumper (bien vu : le « @v5 » du TODO était faux pour trois sur quatre). Mais le vrai risque était une ligne plus haut, jamais surveillée : `runs-on: ubuntu-22.04`, en dépréciation au 17/09/2026 avec des fenêtres d'échec volontaire. **Lire le fichier entier, pas seulement la ligne qu'on vient corriger.**
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

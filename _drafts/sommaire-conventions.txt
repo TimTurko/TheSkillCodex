@@ -1,0 +1,156 @@
+﻿=== 1. SECTIONS NUMEROTEES (destinations de promotion) ===
+  1. R├®daction                                     2.2 ko   4 entree(s)
+  2. Mise en forme                                 4.5 ko   8 entree(s)
+  3. Images & SVG                                  2.2 ko   7 entree(s)
+  4. Cas d'illustration / fils rouges              1.2 ko   4 entree(s)
+  5. Collaboration ÔÇö niveaux d'autonomie           3.2 ko   4 entree(s)
+  6. Publication / Quartz                         17.1 ko   15 entree(s)
+  7. R├®f├®rentiel AA                                4.2 ko   6 entree(s)
+  (┬º8 eprouvage)                                 127.2 ko
+  TOTAL                                          162.4 ko
+
+=== 2. BLOCS DU ┬º8 (un par session d'acquisition) ===
+     0.2 ko  0 conv, 0 notes   Acquises 25/05 suite 2 (├á ├®prouver sur 2-3 fiches-notion d'outils)
+     2.4 ko  2 conv, 0 notes   Acquises 25/05 suite 4-5 (├á ├®prouver sur preuve-de-concept et trames ult├®rieures)
+     0.7 ko  1 conv, 0 notes   Acquises 25/05 suite 7 (├á ├®prouver sur dossier-technique)
+     9.3 ko  1 conv, 4 notes   Acquises 25/05 suite 8 (├á capitaliser)
+     1.5 ko  1 conv, 0 notes   Acquises 26/05 suite 3 (├á ├®prouver en fin de session prochaine)
+     2.9 ko  2 conv, 0 notes   Acquises 26/05 suite 5 (├á ├®prouver Phase 0 + Phase 1 elec/info)
+     1.1 ko  1 conv, 0 notes   Acquises 27/05 suite (├á ├®prouver Phase 0)
+     1.7 ko  2 conv, 0 notes   Acquises 27/05 suite 3 (├á ├®prouver sur 2-3 prochaines entr├®es JOURNAL)
+     1.7 ko  1 conv, 0 notes   Acquises 27/05 suite 4 (├á ├®prouver Phase 0 reste)
+     1.2 ko  1 conv, 0 notes   Acquises 27/05 suite 5 (├á ├®prouver sur 2-3 cr├®ations de fichiers)
+     0.2 ko  0 conv, 0 notes   Acquises 28/05 suite 2 ÔÇö PROMUES (trace)
+     1.8 ko  2 conv, 0 notes   Acquises 28/05 suite 4 (├á ├®prouver)
+     1.5 ko  2 conv, 0 notes   Acquises 29/05 (├á ├®prouver sur fiches arduino restantes + premier ESP32)
+     1.2 ko  1 conv, 0 notes   Acquises 29/05 (suite) (├á ├®prouver sur les prochains triptyques)
+     1.2 ko  2 conv, 0 notes   Acquises 02/06 (├á ├®prouver)
+     1.5 ko  4 conv, 0 notes   Acquises 02/06 (suite) (avanc├®es d'├®prouvage)
+     2.5 ko  5 conv, 0 notes   Acquises 05/06 (├á ├®prouver sur prochains modules langage / MCU)
+     0.5 ko  0 conv, 1 notes   Acquise 05/06 ÔÇö r├¿gle CSS (capitalis├®e)
+     1.5 ko  2 conv, 0 notes   Acquises 05/06 (suite) (├á ├®prouver sur prochains tutos MCU / familles)
+     1.5 ko  2 conv, 0 notes   Acquises 06/06 (├á ├®prouver sur prochains hubs d'outils)
+     2.4 ko  3 conv, 0 notes   Acquises 06/06 (suite) ÔÇö module ESP32 (9 tutos enfants + hub)
+     2.0 ko  5 conv, 0 notes   Acquises 06/06 (suite 3) ÔÇö Phase 3 squelette pro (instruments / d├®bogage / PCB)
+     1.8 ko  1 conv, 0 notes   Acquises 06/06 (suite 4) ÔÇö fiche transverse `alimentation-electronique`
+     1.7 ko  0 conv, 4 notes   Acquises 06/06 suite 6 ÔåÆ suite 12 ÔÇö modules MCU (STM32 / Teensy / ESP8266 / MicroPython) ÔÇö CONDENS├ë
+     2.1 ko  1 conv, 2 notes   Acquises 06/07 ÔÇö promotion C57 + notes hygi├¿ne
+     2.2 ko  0 conv, 3 notes   Acquises 07/06 (suite) ÔÇö module SBC Raspberry Pi (hub + 3 fiches + 3 SVG)
+     2.0 ko  1 conv, 3 notes   Acquises 07/06 (suite 2) ÔÇö arc liens rouges + 24 fiches pointeurs/notions
+     2.0 ko  1 conv, 2 notes   Acquises 07/06 (suite 3) ÔÇö re-scan exhaustif liens rouges + hygi├¿ne d'annotation
+     2.3 ko  2 conv, 2 notes   Acquises 08/06 ÔÇö refonte architecture 3 branches + callout livrable
+     0.6 ko  1 conv, 0 notes   Acquises 09/06 ÔÇö relecture trames du V
+     2.9 ko  2 conv, 2 notes   Acquises 09/06 (suite) ÔÇö production colonne ┬½ Syst├¿me embarqu├® ┬╗ (hub + 5 fiches-├®tape)
+     1.5 ko  1 conv, 3 notes   Acquises 10/06 ÔÇö relecture colonne ┬½ Syst├¿me embarqu├® ┬╗
+     1.3 ko  0 conv, 0 notes   Acquises 10/06 (suite) ÔÇö r├®organisation physique en 3 branches (r├®vise C60)
+     1.9 ko  2 conv, 0 notes   Acquises 11/06 (relecture ┬º4 + production alimentation)
+     0.7 ko  1 conv, 0 notes   Acquises 11/06 (suite 2) ÔÇö relecture ┬º4 fin + ┬º5 algorithme
+     2.1 ko  1 conv, 4 notes   Acquises 12/06 ÔÇö relecture ┬º6 socle MCU (compl├¿te, 37/37)
+     2.6 ko  1 conv, 4 notes   Acquises 12/06 (suite) ÔÇö relecture branche Conduite de projet
+     2.4 ko  0 conv, 7 notes   Acquises 13/06 ÔÇö relecture branche M├®ca (confirmations + nuances)
+     1.4 ko  0 conv, 4 notes   Acquises 13/06 (suite) ÔÇö relecture branche ESE (confirmations)
+     2.3 ko  2 conv, 3 notes   Acquises 13/06 (suite 2) ÔÇö production module XIAO ESP32-S3
+     2.8 ko  3 conv, 3 notes   Acquises 15/06 ÔÇö relecture ┬º7 Arduino (hub + prise-en-main) : images, vid├®o, organisation des m├®dias
+     2.3 ko  1 conv, 0 notes   Acquises 16/06 ÔÇö migration m├®dias C73 (ex├®cution)
+     1.8 ko  2 conv, 0 notes   Acquises 16/06 (suite) ÔÇö relecture ┬º7 Arduino (code comment├® d├®butant)
+     1.9 ko  1 conv, 3 notes   Acquises 17/06 ÔÇö relecture ┬º7 Arduino (capteur analogique, sortie PWM, notion potentiom├¿tre)
+     2.0 ko  1 conv, 1 notes   Acquises 17/06 (suite) ÔÇö relecture ┬º7 Arduino (bus, actionneurs, afficheur, debug)
+     1.8 ko  0 conv, 3 notes   Acquises 17/06 (suite 3) ÔÇö relecture ┬º7 Arduino termin├®e (gpio-boot ÔåÆ watchdog) + notion asservissement
+     2.3 ko  1 conv, 2 notes   Acquises 25/06 ÔÇö int├®gration des m├®dias familles MCU (audit SVGÔåöcode)
+     2.0 ko  0 conv, 4 notes   Acquises 27/06 ÔÇö relecture/correction des m├®dias familles MCU (r├®g├®n├®ration SVG)
+     2.6 ko  2 conv, 4 notes   Acquises 29/06 ÔÇö relecture de fond ┬º13 MicroPython (registre, float, Pin LED, accents)
+     2.2 ko  1 conv, 3 notes   Acquises 30/06 ÔÇö relecture de fond ┬º13 MicroPython termin├®e (SVG non transposable, v├®rif specs RP2)
+     1.3 ko  0 conv, 1 notes   Acquises 30/06 (suite) ÔÇö MAJ documentaire (archivage de masse du JOURNAL)
+     3.7 ko  1 conv, 5 notes   Acquises 17/08 ÔÇö relecture de fond ┬º9 ESP32
+     4.1 ko  1 conv, 6 notes   Acquises 17/08 (suite) ÔÇö relecture ┬º9bis XIAO, ┬º8 simulation, ┬º10 ESP8266, ┬º11 STM32
+     5.0 ko  0 conv, 8 notes   Acquises 17/08 (suite 2) ÔÇö relecture ┬º12 Teensy, ┬º15 PIC, ┬º16 PCB : fin de la relecture de fond
+     6.0 ko  2 conv, 6 notes   Acquises 17/08 (suite 3) ÔÇö refonte p├®dagogique de `falstad` (fiche-outil sc├®naris├®e)
+    10.1 ko  2 conv, 10 notes   Acquises 18/08 ÔÇö refonte de `ltspice` (2ßÁë ├®preuve de C88) et arbitrages de publication
+     1.0 ko  0 conv, 5 notes   Autres en attente
+
+=== 3. CONVENTIONS DU ┬º8 ===
+   n  epreuve   bloc d'acquisition / intitule
+
+>>  10  sur **4 contextes 25/05 suite 4-5 (├á ├®prouver sur pr  Matrice incarn├®e dans `[!example]`
+    12  sur concept (3 pi├¿25/05 suite 4-5 (├á ├®prouver sur pr  Nourrissage a posteriori de la section *Pi├¿ges fr├®quents
+    13  ÔÇö                 25/05 suite 7 (├á ├®prouver sur doss  Relire les sections amont de la fiche (Posture, Objectif) avant de r├®diger une
+    14  ÔÇö                 25/05 suite 8 (├á capitaliser)       Seuil pratique MCP write_file/edit_file Ôëê 30 ko payload
+    17  ÔÇö                 26/05 suite 3 (├á ├®prouver en fin d  Patcher la fl├¿che ┬½ Prochaine session ┬╗ du TODO apr├¿s arbitrage utilisateur fi
+    18  ÔÇö                 26/05 suite 5 (├á ├®prouver Phase 0   Convention mini-hub imbriqu├®
+    19  ÔÇö                 26/05 suite 5 (├á ├®prouver Phase 0   Convention fiche transverse multi-techno
+    20  2/N : `decompositi27/05 suite (├á ├®prouver Phase 0)    Mapping AA pertinent en multi-couverture
+    21  ÔÇö                 27/05 suite 3 (├á ├®prouver sur 2-3   Format JOURNAL hybride
+    22  ÔÇö                 27/05 suite 3 (├á ├®prouver sur 2-3   Briques de r├®ponse A/B/C/D
+    23  2/N : `decompositi27/05 suite 4 (├á ├®prouver Phase 0   Convention candidate ÔÇö Fil rouge bras 3 axes pour fiches-tuto pivot phase 1
+    24  ÔÇö                 27/05 suite 5 (├á ├®prouver sur 2-3   Pr├®f├®rer `filesystem:write_file` ├á `filesystem:create_file`
+    27  2/2 (grappes `bus`28/05 suite 4 (├á ├®prouver)          Production par batch de grappe homog├¿ne
+    28  1/1 (`niveaux-de-t28/05 suite 4 (├á ├®prouver)          Rouge danger #B23A2E dans les SVG de s├®curit├®
+    29  1/N (~70 mentions 29/05 (├á ├®prouver sur fiches ardui  Format captures inline pour fiches-tuto MCU
+    30  ÔÇö                 29/05 (├á ├®prouver sur fiches ardui  Pr├®fixe MCP variable selon le poste
+    31  1/N le 29/05 suite29/05 (suite) (├á ├®prouver sur les   Le ┬½ mauvais ┬╗ d'un triptyque = sch├®ma proprement rendu mais fautif
+    32  5├ù (02/06), confir02/06 (├á ├®prouver)                  Marqueur `*(ÔåÆ notion [[x]])*` dans les hubs familles
+    33  3├ù (`interruption`02/06 (├á ├®prouver)                  Exception SVG conceptuel ├á C29
+    34  ÔÇö                 02/06 (suite) (avanc├®es d'├®prouvag  C19 (fiche transverse multi-techno) ÔÇö vrai test atteint sur `firmware`.
+    35  ÔÇö                 02/06 (suite) (avanc├®es d'├®prouvag  C25 (4 paliers) + C26 ([A]/[T]) ÔÇö ├®preuve 2/N sur `esp32`.
+    36  ÔÇö                 02/06 (suite) (avanc├®es d'├®prouvag  C32 (marqueur `*(ÔåÆ notion [[x]])*`) ÔÇö confirm├® sur ESP32.
+    37  ÔÇö                 02/06 (suite) (avanc├®es d'├®prouvag  C20 (mapping AA multi-couverture) ÔÇö +3 instances.
+    38  ÔÇö                 05/06 (├á ├®prouver sur prochains mo  Trame fiche-tuto langage
+    39  1/N (`cpp-boucles`05/06 (├á ├®prouver sur prochains mo  Structure de fiche multi-notions
+    40  ÔÇö                 05/06 (├á ├®prouver sur prochains mo  Callout corrig├® repliable = fr├¿re de l'├®nonc├®, jamais imbriqu├®
+    41  1/N (`cpp-structur05/06 (├á ├®prouver sur prochains mo  Banni├¿res de zones de code
+    42  ÔÇö                 05/06 (├á ├®prouver sur prochains mo  Factorisation transverse d'un langage
+    43  ÔÇö                 05/06 (suite) (├á ├®prouver sur proc  `const` partout pour les constantes de valeur, `#define` r├®serv├®
+    44  ÔÇö                 05/06 (suite) (├á ├®prouver sur proc  Anti-rebond par d├®tection de front (`etatStable`), pas de verrou temporel
+    45  1/N (module `simul06/06 (├á ├®prouver sur prochains hu  AA des tutos-outils d'un hub = `aa: []` (port├® par le hub)
+    46  ÔÇö                 06/06 (├á ├®prouver sur prochains hu  ┬½ Simuler Ôëá repr├®senter ┬╗ ÔÇö exclusion d'outils hors-cat├®gorie d'un hub
+    47  sur le module ESP306/06 (suite) ÔÇö module ESP32 (9 tu  Parcours MCU autonome / redites inter-familles assum├®es
+    48  sur le trio ESP32 06/06 (suite) ÔÇö module ESP32 (9 tu  C27 ÔÇö batch en deux r├®gimes
+    49  sur les 9 filles E06/06 (suite) ÔÇö module ESP32 (9 tu  Trame fiche-tuto MCU course-grade AVEC exercices
+    50  sur `simulation-el06/06 (suite 3) ÔÇö Phase 3 squelett  C45 (AA tutos-outils = `aa:[]` port├® par le hub) ÔÇö confirm├® 2ßÁë/3ßÁë hub.
+    51  ÔÇö                 06/06 (suite 3) ÔÇö Phase 3 squelett  C46 (┬½ simuler Ôëá repr├®senter ┬╗) ÔÇö g├®n├®ralis├® au placement de fiches.
+    52  ÔÇö                 06/06 (suite 3) ÔÇö Phase 3 squelett  C33 (SVG conceptuel) ÔÇö ├®tendu aux fiches-outils.
+    53  ÔÇö                 06/06 (suite 3) ÔÇö Phase 3 squelett  Sous-pattern ┬½ hub m├®thode + outils/instruments ┬╗ confirm├®.
+    54  ÔÇö                 06/06 (suite 3) ÔÇö Phase 3 squelett  C27 ÔÇö ┬½ cadrage group├® + triage ┬╗ tenu sur p├®rim├¿tre h├®t├®rog├¿ne (non-grappe).
+    55  ÔÇö                 06/06 (suite 4) ÔÇö fiche transverse  Borne de profondeur ┬½ R├®guler ┬╗ ÔÇö choisir/dimensionner Ôëá concevoir la topologi
+    57  sur les 3 vagues h06/07 ÔÇö promotion C57 + notes hygi  Module ┬½ clone de curriculum ┬╗ (plateforme ├á paradigme distinct ÔåÆ clone Arduin
+    58  en lot sur 13 poin07/06 (suite 2) ÔÇö arc liens rouges  Pointeur d'interface l├®ger (notion d├®l├®gu├®e)
+    59  ÔÇö                 07/06 (suite 3) ÔÇö re-scan exhausti  Hygi├¿ne d'annotation (cible TODO ÔåÆ existante)
+    60  ÔÇö                 08/06 ÔÇö refonte architecture 3 bra  Architecture par 3 branches m├®tier (couche d'orientation)
+    61  sur les 5 phases d08/06 ÔÇö refonte architecture 3 bra  Callout *Livrable* ├á lien int├®gr├® (fiches-trame du V)
+    62  ÔÇö                 09/06 ÔÇö relecture trames du V       ├ëchappement du pipe dans un wikilink en cellule de tableau
+    63  sur `eee/index` (009/06 (suite) ÔÇö production colonne  Colonne d'ing├®nierie orthogonale au cycle en V
+>>  64  sur les 5 fiches `09/06 (suite) ÔÇö production colonne  Fiche-├®tape de r├®alisation
+    65  ÔÇö                 10/06 ÔÇö relecture colonne ┬½ Syst├¿m  Registre d'adresse par type de trame
+>>  66  5/N : r├®gulateurs 11/06 (relecture ┬º4 + production a  Tableau ┬½ R├®f├®rences ├®prouv├®es ┬╗ (famille-first)
+    67  1/N (5 SVG sur `pr11/06 (relecture ┬º4 + production a  Petit SVG de branchement par organe
+>>  68  sur le lot mesure 11/06 (suite 2) ÔÇö relecture ┬º4 fin  Un sch├®ma explicatif par fiche-outil
+>>  69  en grand sur le ┬º612/06 ÔÇö relecture ┬º6 socle MCU (co  Pointes de fl├¿ches SVG toujours en classes
+    70  ÔÇö                 12/06 (suite) ÔÇö relecture branche   Ancre vers un titre contenant un deux-points ÔåÆ double tiret.
+    71  1/N               13/06 (suite 2) ÔÇö production modul  Pas de prix ni de cadrage ┬½ achat ┬╗ dans les fiches ÔÇö l'├®cole fournit le mat├®r
+    72  1/N               13/06 (suite 2) ÔÇö production modul  Un hub de famille assume un primo-d├®couvreur.
+    73  ÔÇö                 15/06 ÔÇö relecture ┬º7 Arduino (hub   Dossiers images par fiche.
+    74  sur le hub `arduin15/06 ÔÇö relecture ┬º7 Arduino (hub   Pr├®sentation des images de contenu.
+    75  1/N (`arduino-pris15/06 ÔÇö relecture ┬º7 Arduino (hub   Vid├®o (premi├¿re du wiki).
+    76  ÔÇö                 16/06 ÔÇö migration m├®dias C73 (ex├®c  Placement et nommage des SVG sous C73
+    77  1/N               16/06 (suite) ÔÇö relecture ┬º7 Ardui  Code comment├® pour d├®butant (tutos famille).
+    78  sur `arduino-sorti16/06 (suite) ÔÇö relecture ┬º7 Ardui  Montage/c├óblage ÔåÆ sch├®ma SVG, pas photo.
+    79  1/N               17/06 ÔÇö relecture ┬º7 Arduino (capt  Un montage (ou sch├®ma de principe) par bloc de code.
+    80  ÔÇö r├®troactive de f17/06 (suite) ÔÇö relecture ┬º7 Ardui  SVG de c├óblage = noms de broches du code.
+    81  2/N (25/06 audit d25/06 ÔÇö int├®gration des m├®dias fam  M├®dia de c├óblage produit et audit├® contre le code de la fiche cible (corollair
+    82  1/N               29/06 ÔÇö relecture de fond ┬º13 Micr  Float simple pr├®cision (MicroPython/RP2).
+    83  (hub, prise-en-mai29/06 ÔÇö relecture de fond ┬º13 Micr  `Pin("LED")` pour les exemples LED r├®el (MicroPython).
+>>  84  3/N cette session 30/06 ÔÇö relecture de fond ┬º13 Micr  SVG-concept neuf quand le SVG du jumeau n'est pas transposable.
+    85  ├á l'inventaire : l17/08 ÔÇö relecture de fond ┬º9 ESP32  L'encart ┬½ Comment lire ce code ┬╗ est r├®serv├® aux idiomes embarqu├®s ; les m├®ca
+    86  ÔÇö                 17/08 (suite) ÔÇö relecture ┬º9bis XI  Ne jamais d├®river l'├®tat d'une sortie en la relisant.
+>>  87  4/N (`falstad` : 317/08 (suite 3) ÔÇö refonte p├®dagogi  M├®dia anim├® : GIF pour la boucle courte, vid├®o pour la s├®quence longue.
+    88  1/N (`falstad`, 5,17/08 (suite 3) ÔÇö refonte p├®dagogi  Fiche-outil sc├®naris├®e : lire ÔåÆ modifier ÔåÆ construire, et le sc├®nario commande
+    89  2/N               18/08 ÔÇö refonte de `ltspice` (2ßÁë ├®  Assistant conversationnel : le crit├¿re est ┬½ l'affirmation est-elle v├®rifiable
+    90  ÔÇö                 18/08 ÔÇö refonte de `ltspice` (2ßÁë ├®  Un placeholder C29 visible en production est assum├® ÔÇö transparence p├®dagogique
+
+=== BILAN ===
+  conventions numerotees dans le ┬º8 : 75
+  candidates a la promotion (>= 3/N) : 7
+  blocs du ┬º8                        : 57
+
+  Les lignes prefixees >> sont eprouvees 3 fois ou plus.
+  L'anciennete se lit dans la colonne du bloc d'acquisition.

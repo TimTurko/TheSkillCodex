@@ -79,6 +79,6 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 - [[alimentation-electronique|Concevoir une alimentation électronique]] — l'ingénierie du bloc *alimenter / distribuer*
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — les **fonctions** et leurs flux ; vue complémentaire
 - [[schema-cinematique|Schéma cinématique]] — les **mouvements** du mécanisme mis en action par la chaîne d'énergie
-- [[asservissement|Boucle ouverte / boucle fermée]] — ce que devient le couplage quand la mesure revient à la commande
+- [[asservissement|Asservissement]] — ce que devient le couplage quand la mesure revient à la commande : la boucle fermée
 - [[microcontroleur|Microcontrôleur]] — le cœur de la chaîne d'information
 - [[concept|Concept]] — la phase où l'on pose ces chaînes pour répartir le projet
