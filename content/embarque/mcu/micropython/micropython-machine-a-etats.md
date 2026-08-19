@@ -132,6 +132,8 @@ while True:
 
 > [!info] Comment lire ce code
 > La transition clé est dans le bloc `VERT` : `if ticks_diff(ticks_ms(), t_debut) >= DUREE_VERT or (demande_pieton and ticks_diff(ticks_ms(), t_debut) >= DUREE_VERT_MIN)`. Elle se lit « **on passe au jaune si** le vert a duré son temps plein (`DUREE_VERT`) **ou bien** un piéton a appelé (`demande_pieton`) **et** que le minimum de vert est écoulé ». Le `or` ouvre deux chemins de sortie, le second protégé par un minimum pour ne pas couper un vert qui vient de démarrer. `demande_pieton` passe à `True` dès l'appui (testé en tête de boucle, à chaque tour) et revient à `False` en entrant dans `ROUGE`. À chaque changement d'état, `t_debut = ticks_ms()` redate l'entrée pour que les comparaisons repartent de zéro.
+>
+> La priorité de `and` sur `or`, qui commande cette lecture, est un mécanisme du langage et non un idiome embarqué : voir [[micropython-lire-un-programme|lire un programme MicroPython]].
 
 Le programme ne contient **aucun `sleep()`** : la boucle tourne en continu, lit le bouton à chaque tour, avance quand les conditions sont réunies. Ajouter un quatrième état revient à ajouter un `elif` — la structure encaisse sans réécriture.
 

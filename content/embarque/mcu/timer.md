@@ -24,9 +24,9 @@ Quatre usages en découlent :
 - **mesurer une durée** — combien de temps s'est écoulé entre deux événements (un chronomètre, le calcul d'une vitesse) ;
 - **cadencer** — déclencher une action à **intervalle parfaitement régulier** (échantillonner un capteur, rafraîchir un afficheur, faire tourner une boucle d'asservissement) ;
 - **générer un [[pwm|signal PWM]]** — un timer produit automatiquement le signal carré dont on règle le rapport cyclique ;
-- **surveiller un délai** — détecter qu'un événement attendu n'est pas arrivé à temps (principe du [[arduino-watchdog|chien de garde]]).
+- **surveiller un délai** — détecter qu'un événement attendu n'est pas arrivé à temps (principe du [[chien-de-garde|chien de garde]]).
 
-Le point qui surprend souvent : les fonctions `delay()` et `millis()` ne sont pas magiques, elles **reposent elles-mêmes sur un timer** qui tourne en arrière-plan (voir [[arduino-temporisation|delay() vs millis()]]).
+Le point qui surprend souvent : les fonctions `delay()` et `millis()` ne sont pas magiques, elles **reposent elles-mêmes sur un timer** qui tourne en arrière-plan (voir [[arduino-temporisation|delay() vs millis()]] sur Arduino, [[micropython-temporisation|sleep() vs ticks_ms()]] en MicroPython).
 
 ## Comment ça marche ?
 
@@ -70,6 +70,8 @@ Un microcontrôleur ne dispose que de **quelques timers** (trois sur une Arduino
 - [[micropython-timers|Timers en MicroPython]] — la même mécanique côté MicroPython
 - [[interruption|Interruption]] — ce qu'un débordement ou une comparaison déclenche pour exécuter une routine périodique
 - [[pwm|PWM]] — le signal généré par un timer, dont on règle le rapport cyclique
-- [[arduino-temporisation|delay() vs millis()]] — la temporisation logicielle, bâtie sur un timer
+- [[arduino-temporisation|delay() vs millis()]] — la temporisation logicielle sur Arduino, bâtie sur un timer
+- [[micropython-temporisation|sleep() vs ticks_ms()]] — la même temporisation logicielle côté MicroPython
+- [[chien-de-garde|Chien de garde]] — un compteur dédié à la surveillance d'un délai
 - [[deep-sleep|Deep sleep]] — un timer peut réveiller un microcontrôleur endormi à échéance
 - [[programmation-non-bloquante|Programmation non bloquante]] — la cadence logicielle, que le timer garantit là où la boucle coopérative dérive

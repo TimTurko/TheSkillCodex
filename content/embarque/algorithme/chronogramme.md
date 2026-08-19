@@ -74,5 +74,6 @@ Le chronogramme existe sous trois formes complémentaires. **Idéalisé**, c'est
 - [[oscilloscope|Oscilloscope]] — l'instrument qui affiche le chronogramme réel d'un signal
 - [[analyseur-logique|Analyseur logique]] — le chronogramme réel de plusieurs lignes numériques, trames décodées
 - [[lire-une-datasheet|Lire une datasheet]] — où l'on rencontre les chronogrammes normatifs des composants
-- [[arduino-sortie-pwm|Piloter une sortie PWM]] — générer un signal dont le rapport cyclique se lit en chronogramme
+- [[arduino-sortie-pwm|Piloter une sortie PWM (Arduino)]] — générer un signal dont le rapport cyclique se lit en chronogramme
+- [[micropython-sortie-pwm|Piloter une sortie PWM (MicroPython)]] — le même signal, côté MicroPython
 - [[uart|UART]] — la trame série dont le chronogramme fixe l'ordre des bits

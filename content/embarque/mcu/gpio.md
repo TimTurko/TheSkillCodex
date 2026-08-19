@@ -79,5 +79,5 @@ La parade ne se joue pas dans le code, justement parce que le code n'est pas enc
 - [[interruption|Interruption]] — réagir immédiatement à un changement d'état d'une broche, sans la surveiller en boucle
 - [[bus-de-communication|Bus de communication]] — où le drain ouvert prend tout son sens (I2C, lignes partagées)
 - [[arduino-gpio|Arduino — GPIO]] — la mise en pratique sur Arduino (bouton, LED, code et câblage)
-- [[arduino-gpio-boot|Arduino — GPIO au démarrage]] — l'état des broches au boot en pratique, tirages de sécurité
+- [[arduino-gpio-boot|Arduino — GPIO au démarrage]] · [[micropython-gpio-boot|MicroPython — GPIO au démarrage]] — l'état des broches au boot en pratique, tirages de sécurité
 - [[esp32-gpio|ESP32 — GPIO]] · [[micropython-gpio|MicroPython — GPIO]] · [[raspberry-pi-gpio|Raspberry Pi — GPIO]] — la même brique dans les autres familles

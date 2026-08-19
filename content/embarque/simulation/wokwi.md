@@ -129,7 +129,7 @@ L'apport de Wokwi : on valide ensemble le **code** ([[cpp|C++]]) et le **circuit
 - [[tinkercad|Tinkercad]] — l'équivalent côté Arduino débutant, sans ESP32
 - [[esp32|ESP32]] — la famille que Wokwi simule, sans-fil compris
 - [[xiao-esp32-s3|XIAO ESP32-S3]] — même SoC, simulée elle aussi (variantes C3, S3, C6)
-- [[esp32-gpio|Configurer les GPIO de l'ESP32]] — quelles broches sont libres, lesquelles éviter
+- [[esp32-gpio|Configurer les GPIO de l'ESP32]] — quelles broches sont libres, lesquelles éviter ; même question [[arduino-gpio|côté Arduino]] et [[micropython-gpio|côté MicroPython]]
 - [[micropython-simulation|Simuler un Pico en MicroPython]] — le même outil, côté MicroPython
 - [[analyseur-logique|Analyseur logique]] — le pendant matériel de l'analyseur virtuel de Wokwi
 - [[cpp|Le langage C++]] — écrire le code exécuté dans la simulation

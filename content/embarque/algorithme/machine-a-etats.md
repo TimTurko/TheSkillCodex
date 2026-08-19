@@ -69,7 +69,7 @@ Un portail coulissant motorisé piloté par un bouton, deux fins de course (haut
 
 **Confondre état et action.** « En train d'ouvrir » est un état (on attend la fin de course) ; « ouvrir » est une action. Nommer les états par des situations (Ouverture, Ouvert), pas par des verbes d'action en cours.
 
-**Oublier l'état initial.** Une machine à états doit dire d'où elle part au démarrage. Un état initial non défini, c'est un comportement aléatoire à la mise sous tension (à rapprocher de l'[[arduino-gpio-boot|état des GPIO au boot]]).
+**Oublier l'état initial.** Une machine à états doit dire d'où elle part au démarrage. Un état initial non défini, c'est un comportement aléatoire à la mise sous tension (à rapprocher de l'[[gpio|état des GPIO au boot]]).
 
 **Cas non couverts laissés au hasard.** Pour chaque état, se demander ce qui arrive si un événement *inattendu* survient. La règle saine : tout événement non prévu **laisse dans l'état courant**, il ne provoque pas de saut silencieux.
 

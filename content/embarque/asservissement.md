@@ -48,7 +48,7 @@ Régler un PID, c'est arbitrer entre **rapidité**, **stabilité** et **précisi
 
 **Monter les gains jusqu'à l'instabilité.** Un gain trop fort rend la boucle **oscillante**, voire divergente : le système poursuit la consigne en la dépassant de plus en plus. La stabilité prime sur la rapidité.
 
-**Négliger le capteur.** La régulation ne peut pas être meilleure que sa mesure : un capteur bruité fait trembler la commande, un capteur lent introduit un retard déstabilisant. Le maillon faible d'un asservissement est souvent le retour, pas le correcteur.
+**Négliger le capteur.** La régulation ne peut pas être meilleure que sa mesure : un capteur bruité fait trembler la commande, un capteur lent introduit un retard déstabilisant. Le maillon faible d'un asservissement est souvent le retour, pas le correcteur. Le [[filtrage|filtrage]] de la mesure atténue le bruit, mais ajoute un retard qui peut à son tour déstabiliser la boucle.
 
 **Oublier la saturation de l'actionneur.** Quand l'actionneur est « à fond » mais que la consigne reste inatteignable, le terme intégral continue d'accumuler dans le vide (*emballement*) : à l'inversion de l'erreur, la commande met longtemps à redescendre. On le corrige en **bornant l'intégrale** (anti-emballement).
 
@@ -58,8 +58,12 @@ Régler un PID, c'est arbitrer entre **rapidité**, **stabilité** et **précisi
 
 - [[boucle-ouverte|Boucle ouverte]] — la commande sans mesure, et les quatre conditions qui la rendent légitime
 - [[arduino-pid|Réguler avec un PID sur Arduino]] — la mise en œuvre concrète du correcteur PID
+- [[micropython-pid|Réguler avec un PID en MicroPython]] — la même boucle, écrite en MicroPython
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — le formalisme des blocs et flux dont la boucle fermée est un cas
 - [[pwm|PWM]] — la commande typique d'un actionneur depuis un microcontrôleur
-- [[arduino-moteur-cc|Moteur à courant continu]] — l'actionneur asservi le plus courant en projet
-- [[arduino-capteur-analogique|Lire un capteur analogique]] — le retour qui ferme la boucle
+- [[arduino-moteur-cc|Moteur à courant continu sur Arduino]] — l'actionneur asservi le plus courant en projet
+- [[micropython-moteur-cc|Moteur à courant continu en MicroPython]] — le même actionneur, piloté depuis MicroPython
+- [[arduino-capteur-analogique|Lire un capteur analogique sur Arduino]] — le retour qui ferme la boucle
+- [[micropython-capteur-analogique|Lire un capteur analogique en MicroPython]] — la même lecture, côté MicroPython
+- [[filtrage|Filtrer des mesures]] — nettoyer le retour sans lui ajouter un retard qui déstabilise
 - [[timer|Timer]] — la base de temps qui cadence le calcul à pas constant

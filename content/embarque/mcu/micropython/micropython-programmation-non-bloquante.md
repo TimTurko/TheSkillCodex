@@ -24,9 +24,9 @@ La **programmation non bloquante** est une **façon de structurer** un programme
 
 ## À quoi ça sert ?
 
-Un microcontrôleur ne fait **qu'une chose à la fois**, mais un système réel doit en mener plusieurs : clignoter, lire un capteur, écouter un bouton, communiquer — apparemment en même temps. `sleep()` rend cela impossible : pendant la pause, **tout** est figé. Tant qu'un programme ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, le blocage devient ingérable — le mur que tout débutant finit par heurter.
+`sleep()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `sleep(0.5)`, le Pico ne lit plus son bouton et manque ses mesures. Tant qu'un script ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, c'est le mur.
 
-La programmation non bloquante érige une **règle** : *aucune fonction ne doit bloquer, et la boucle doit toujours pouvoir reboucler*. La boucle devient un **distributeur** qui donne brièvement la parole à chaque tâche. Gain : un système **réactif** (il voit un événement au tour suivant, pas après une pause), **évolutif** (ajouter une activité = ajouter une tâche) et **lisible**. On la met en place dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
+La règle qui en découle tient en une phrase : *aucune fonction ne doit bloquer, et la boucle doit toujours pouvoir reboucler*. Pourquoi cette discipline vaut pour tout programme embarqué, ce qu'elle fait gagner et où elle s'arrête : voir la notion transverse [[programmation-non-bloquante|programmation non bloquante]]. Ici, on la met en œuvre en MicroPython — dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
 
 ## Procédure pas à pas
 

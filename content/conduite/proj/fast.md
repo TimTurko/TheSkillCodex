@@ -72,7 +72,7 @@ Reprenons le sous-système **mobilité articulaire** du bras 3 axes, déjà isol
 
 **Axe QUAND.** Les trois fonctions techniques sont empilées verticalement : il ne s'agit pas de les enchaîner dans le temps, mais de les assurer **ensemble**. Sans génération de couple *et* mesure *et* asservissement simultanés, l'articulation ne se positionne pas.
 
-**Ce que le FAST prépare.** Chaque feuille ouvre sa [[matrice-de-decision|matrice de décision]] : *générer un couple* confronte stepper / moteur CC / servomoteur, *mesurer la position* confronte encodeur / potentiomètre, *asservir* confronte boucle [[arduino-pid|PID]] / commande pas-à-pas. Le FAST a transformé une fonction abstraite en trois décisions techniques traçables — sept solutions candidates en lice — sans en trancher aucune.
+**Ce que le FAST prépare.** Chaque feuille ouvre sa [[matrice-de-decision|matrice de décision]] : *générer un couple* confronte stepper / moteur CC / servomoteur, *mesurer la position* confronte encodeur / potentiomètre, *asservir* confronte boucle [[asservissement|PID]] / commande pas-à-pas. Le FAST a transformé une fonction abstraite en trois décisions techniques traçables — sept solutions candidates en lice — sans en trancher aucune.
 
 ## Pièges
 

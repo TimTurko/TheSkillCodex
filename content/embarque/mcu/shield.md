@@ -10,7 +10,7 @@ aa: []
 draft: false
 ---
 
-Un **shield** est une carte d'extension qui s'enfiche directement sur les connecteurs d'une carte à [[microcontroleur|microcontrôleur]] (typiquement un Arduino) pour lui ajouter une fonction — pilotage de moteurs, écran, capteurs, communication — sans aucun câblage. À distinguer du **module** (*breakout*), qui rend le même genre de service mais se câble par fils → [[arduino-module]].
+Un **shield** est une carte d'extension qui s'enfiche directement sur les connecteurs d'une carte à [[microcontroleur|microcontrôleur]] (typiquement un Arduino) pour lui ajouter une fonction — pilotage de moteurs, écran, capteurs, communication — sans aucun câblage. À distinguer du **module** (*breakout*), qui rend le même genre de service mais se câble par fils → [[arduino-module]] côté Arduino, [[micropython-module]] côté MicroPython.
 
 ## Le principe d'empilement
 

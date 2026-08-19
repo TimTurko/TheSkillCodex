@@ -134,7 +134,7 @@ Beaucoup de systèmes mélangent les tensions : 5 V pour une logique ancienne ou
 - [[chaine-energie|Chaîne d'énergie]] — le modèle d'ensemble ; cette fiche en détaille le bloc *alimenter / distribuer*
 - [[decouplage|Découplage]] — l'approfondissement : pourquoi la pointe creuse la tension, valeurs et placement des condensateurs
 - [[protection-electronique|Protections électroniques]] — l'approfondissement : fusibles, anti-inversion, TVS et roue libre
-- [[arduino-alimentation|Alimenter une carte Arduino]] — la mise en œuvre concrète de ces principes sur une carte précise
+- [[arduino-alimentation|Alimenter une carte Arduino]] · [[micropython-alimentation|une carte sous MicroPython]] · [[xiao-alimentation|un XIAO ESP32-S3]] — la mise en œuvre concrète de ces principes sur une carte précise
 - [[niveaux-de-tension|Niveaux de tension]] — faire dialoguer des logiques 3,3 / 5 V (le signal, pas la puissance)
 - [[pcb|Concevoir une carte (PCB)]] — router proprement l'alimentation : largeurs de pistes, plans de masse, découplage
 - [[instruments-de-mesure|Instruments de mesure]] — vérifier que la tension tient en charge et débusquer l'ondulation

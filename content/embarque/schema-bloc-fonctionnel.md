@@ -61,7 +61,7 @@ Quelques observations à tirer de cet exemple :
 
 - L'utilisateur et l'air de la couveuse sont en dehors du système (hors de la frontière en pointillé). Ce sont des éléments d'environnement.
 - L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance ; la résistance la transforme en chaleur.
-- La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[arduino-pid|PID]] est généralement nécessaire pour atteindre une régulation stable).
+- La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[asservissement|PID]] est généralement nécessaire pour atteindre une régulation stable).
 - Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur — deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
 ![Photo d'une couveuse réelle, annotée des blocs fonctionnels identifiés : contrôleur, relais, résistance chauffante, capteur de température.|600](/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg)
@@ -74,7 +74,7 @@ Quelques observations à tirer de cet exemple :
 
 **Oublier les flux d'énergie.** Beaucoup d'étudiants ne tracent que les fils d'information (signaux logiques) et oublient les flux de puissance. Or l'alimentation d'un actionneur est souvent un point de défaillance critique : courant trop faible, masse mal câblée, isolation insuffisante.
 
-**Vouloir tout mettre.** Un schéma bloc fonctionnel n'est pas un schéma électrique. Pas de valeurs de résistances, pas de brochages, pas de références de composants. Si tu hésites à inclure un détail, c'est probablement qu'il appartient à un autre document (schéma électrique, nomenclature, dossier de fabrication).
+**Vouloir tout mettre.** Un schéma bloc fonctionnel n'est pas un schéma électrique. Pas de valeurs de résistances, pas de brochages, pas de références de composants. Si l'on hésite à inclure un détail, c'est probablement qu'il appartient à un autre document (schéma électrique, nomenclature, dossier de fabrication).
 
 **Confondre frontière du système et frontière du PCB.** Le système inclut souvent des éléments mécaniques (effecteurs), des liaisons (câbles, tuyaux), parfois un boîtier. La carte électronique n'est qu'une partie du système.
 

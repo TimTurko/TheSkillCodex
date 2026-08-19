@@ -120,6 +120,7 @@ Le chien de garde est la dernière ligne de défense d'un firmware robuste : il 
 - [[micropython-deep-sleep|Deep sleep]] — interaction veille / watchdog
 - [[micropython-programmation-non-bloquante|Programmation non bloquante]] — structurer le code pour nourrir le chien sans blocage
 - [[timer|Timer]] — le chien de garde est un compteur dédié
+- [[chien-de-garde|Chien de garde]] — la notion transverse : de quoi le chien est indépendant, ce qu'il ne détecte pas, et le redémarrage muet
 - [[interruption|Interruption]] — la notion voisine
 - [[firmware|Firmware]] — la robustesse du code embarqué (transverse)
 - [[micropython|MicroPython]] — hub du module

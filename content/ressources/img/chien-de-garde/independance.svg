@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="tcg dcg">
+  <title id="tcg">De quoi le chien de garde est-il indépendant ?</title>
+  <desc id="dcg">Comparaison de deux architectures d'horloge de chien de garde. À gauche, le cas AVR : un quartz alimente l'horloge système puis le cœur, tandis qu'un oscillateur RC séparé, propre au chien de garde, alimente son compteur. Les deux chaînes ne se touchent pas : si l'horloge système s'arrête, le chien continue de compter et finit par redémarrer la carte. En contrepartie, l'oscillateur RC est libre, donc le délai n'est qu'approximatif et s'allonge quand la tension d'alimentation baisse. À droite, le cas RP2040 : le même quartz alimente l'horloge système et, par l'horloge de référence, le tick du chien de garde. Le délai est donc précis, mais les deux chaînes partagent leur source : si l'horloge de référence tombe, le chien tombe avec elle. Conclusion inscrite en pied : le chien de garde n'est indépendant que de ce dont il est indépendant, et ce périmètre se lit dans la datasheet.</desc>
+  <defs>
+    <style>
+      .ti  { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .sti { font: 700 13px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .box { fill: none; stroke: #888780; stroke-width: 1.6; }
+      .boxa { fill: none; stroke: #BA7517; stroke-width: 2.2; }
+      .lb  { font: 600 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .lba { font: 700 12px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .wirea { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .sep { stroke: #888780; stroke-width: 1.1; stroke-dasharray: 5 4; }
+      .note { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .notea { font: italic 600 11px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .foot { font: italic 600 12px sans-serif; text-anchor: middle; fill: #888780; }
+      .mk  { fill: #888780; }
+      .mka { fill: #BA7517; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .sti, .lb { fill: #F1EFE8; }
+        .box, .wire, .sep { stroke: #BBBBBB; }
+        .note, .foot { fill: #BBBBBB; }
+        .mk { fill: #BBBBBB; }
+        .boxa, .wirea { stroke: #EF9F27; }
+        .lba, .notea { fill: #EF9F27; }
+        .mka { fill: #EF9F27; }
+      }
+    </style>
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mk"/></marker>
+    <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mka"/></marker>
+  </defs>
+
+  <text x="380" y="28" class="ti">De quoi le chien de garde est-il indépendant ?</text>
+
+  <line x1="380" y1="48" x2="380" y2="330" class="sep"/>
+
+  <!-- ================= LEFT : AVR ================= -->
+  <text x="190" y="62" class="sti">Cas AVR — deux horloges séparées</text>
+
+  <rect x="40" y="86" width="118" height="40" rx="5" class="box"/>
+  <text x="99" y="111" class="lb">Quartz</text>
+
+  <rect x="222" y="86" width="128" height="40" rx="5" class="box"/>
+  <text x="286" y="111" class="lb">Horloge système</text>
+
+  <line x1="158" y1="106" x2="216" y2="106" class="wire" marker-end="url(#mg)"/>
+
+  <rect x="222" y="150" width="128" height="40" rx="5" class="box"/>
+  <text x="286" y="175" class="lb">Cœur</text>
+  <line x1="286" y1="126" x2="286" y2="144" class="wire" marker-end="url(#mg)"/>
+
+  <rect x="40" y="216" width="118" height="46" rx="5" class="boxa"/>
+  <text x="99" y="235" class="lba">Oscillateur RC</text>
+  <text x="99" y="252" class="lba">propre au chien</text>
+
+  <rect x="222" y="216" width="128" height="46" rx="5" class="boxa"/>
+  <text x="286" y="235" class="lba">Compteur</text>
+  <text x="286" y="252" class="lba">du chien</text>
+
+  <line x1="158" y1="239" x2="216" y2="239" class="wirea" marker-end="url(#ma)"/>
+
+  <text x="190" y="286" class="notea">Le cœur s'arrête, le chien compte toujours</text>
+  <text x="190" y="304" class="note">Délai approximatif : donné à 5 V,</text>
+  <text x="190" y="320" class="note">il s'allonge quand la tension baisse</text>
+
+  <!-- ================= RIGHT : RP2040 ================= -->
+  <text x="570" y="62" class="sti">Cas RP2040 — une source partagée</text>
+
+  <rect x="420" y="86" width="118" height="40" rx="5" class="box"/>
+  <text x="479" y="111" class="lb">Quartz</text>
+
+  <rect x="602" y="86" width="128" height="40" rx="5" class="box"/>
+  <text x="666" y="111" class="lb">Horloge système</text>
+
+  <line x1="538" y1="106" x2="596" y2="106" class="wire" marker-end="url(#mg)"/>
+
+  <rect x="602" y="150" width="128" height="40" rx="5" class="box"/>
+  <text x="666" y="175" class="lb">Cœur</text>
+  <line x1="666" y1="126" x2="666" y2="144" class="wire" marker-end="url(#mg)"/>
+
+  <rect x="420" y="216" width="118" height="46" rx="5" class="boxa"/>
+  <text x="479" y="235" class="lba">Horloge de</text>
+  <text x="479" y="252" class="lba">référence</text>
+
+  <rect x="602" y="216" width="128" height="46" rx="5" class="boxa"/>
+  <text x="666" y="235" class="lba">Compteur</text>
+  <text x="666" y="252" class="lba">du chien</text>
+
+  <line x1="538" y1="239" x2="596" y2="239" class="wirea" marker-end="url(#ma)"/>
+
+  <!-- shared source : quartz feeds the reference clock too -->
+  <path d="M479,126 L479,210" class="wirea" marker-end="url(#ma)"/>
+
+  <text x="570" y="286" class="notea">Même source : le quartz tombe, tout tombe</text>
+  <text x="570" y="304" class="note">Délai précis, calé sur le quartz,</text>
+  <text x="570" y="320" class="note">plafonné à 8 388 ms</text>
+
+  <text x="380" y="362" class="foot">Un chien de garde n'est indépendant que de ce dont il est indépendant.</text>
+  <text x="380" y="382" class="foot">Ce périmètre change de famille en famille — il se lit dans la datasheet.</text>
+</svg>

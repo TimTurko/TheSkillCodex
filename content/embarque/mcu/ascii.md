@@ -59,6 +59,7 @@ L'ASCII d'origine ne couvre que 128 valeurs (7 bits) : ni `é`, ni `€`, ni les
 ## Voir aussi
 
 - [[arduino-serie|Moniteur série Arduino]] — là où le piège caractère/nombre se rencontre en premier (`Serial.read()`)
+- [[esp32-serie|Moniteur série ESP32]] — le même piège caractère/nombre côté ESP32
 - [[cpp-types|Les types en C++]] — le type `char`, entier 8 bits qui porte un code ASCII
 - [[manipulation-de-bits|Manipulation de bits]] — un caractère est un octet, manipulable bit à bit
 - [[cpp|C++]] — le langage où `'A'` et `65` sont interchangeables

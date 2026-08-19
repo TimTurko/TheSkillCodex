@@ -244,6 +244,6 @@ Quelques minutes de lecture en amont épargnent un composant grillé ou des heur
 
 - [[microcontroleur|Microcontrôleur]] — hub d'entrée ; la datasheet est la matière première de l'aide au choix
 - [[niveaux-de-tension|Niveaux de tension]] — interpréter et adapter les niveaux logiques lus (3,3 V / 5 V)
-- [[arduino-moteur-cc|Piloter un moteur CC (pont en H)]] — mettre en œuvre la table de fonctions en code
-- [[arduino-sortie-pwm|Piloter une sortie PWM]] — commande de vitesse via l'enable
+- [[arduino-moteur-cc|Piloter un moteur CC (pont en H)]] · [[micropython-moteur-cc|en MicroPython]] — mettre en œuvre la table de fonctions en code
+- [[arduino-sortie-pwm|Piloter une sortie PWM]] · [[micropython-sortie-pwm|en MicroPython]] — commande de vitesse via l'enable
 - [[analyse-de-schema-electronique|Analyse d'un schéma électronique]] — étudier un schéma de projet complet, au-delà du schéma d'application

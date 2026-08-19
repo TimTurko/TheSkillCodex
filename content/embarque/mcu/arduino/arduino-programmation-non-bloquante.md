@@ -23,9 +23,9 @@ La **programmation non bloquante** est une **façon de structurer** un programme
 
 ## À quoi ça sert ?
 
-Un microcontrôleur ne fait **qu'une chose à la fois**, mais un système réel doit en mener plusieurs : clignoter, lire un capteur, écouter un bouton, communiquer — apparemment en même temps. `delay()` rend cela impossible : pendant la pause, **tout** est figé. Tant qu'un programme ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, le blocage devient ingérable — c'est le mur que tout débutant finit par heurter.
+`delay()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `delay(500)`, la carte ne lit plus son bouton et manque ses mesures. Tant qu'un sketch ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, c'est le mur.
 
-La programmation non bloquante érige une **règle de conception** : *aucune fonction ne doit bloquer, et `loop()` doit toujours pouvoir reboucler*. La boucle devient un **distributeur** qui, à chaque tour, donne brièvement la parole à chaque tâche. Le gain : un système **réactif** (il voit un événement au tour suivant, pas après une pause), **évolutif** (ajouter une activité = ajouter une tâche), et **lisible** (chaque tâche est autonome). C'est l'architecture par défaut de tout programme embarqué qui fait plus d'une chose. On la met en place dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
+La règle de conception qui en découle tient en une phrase : *aucune fonction ne doit bloquer, et `loop()` doit toujours pouvoir reboucler*. Pourquoi cette discipline vaut pour tout programme embarqué, ce qu'elle fait gagner et où elle s'arrête : voir la notion transverse [[programmation-non-bloquante|programmation non bloquante]]. Ici, on la met en œuvre en C++ — dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
 
 ## Procédure pas à pas
 

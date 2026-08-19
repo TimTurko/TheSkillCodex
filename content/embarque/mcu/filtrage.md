@@ -85,7 +85,9 @@ C'est la seule raison qui rend le **passe-bas RC matériel** irremplaçable : po
 - [[arduino-capteur-analogique|Lire un capteur analogique (Arduino)]] — le bruit ADC en pratique
 - [[arduino-capteur-numerique|Lire un capteur numérique (Arduino)]] — les valeurs aberrantes de l'ultrason
 - [[micropython-capteur-analogique|Lire un capteur analogique (MicroPython)]] — la même mécanique côté MicroPython
+- [[micropython-capteur-numerique|Lire un capteur numérique (MicroPython)]] — les mêmes valeurs aberrantes, côté MicroPython
 - [[asservissement|Asservissement]] — pourquoi un filtre trop lourd déstabilise une régulation
 - [[timer|Timer]] — la cadence régulière que suppose tout filtrage sérieux
 - [[decouplage|Découplage]] — traiter le bruit d'alimentation à la source
-- [[arduino-entree-tor|Lire une entrée TOR]] — l'anti-rebond, qui n'est pas du filtrage
+- [[arduino-entree-tor|Lire une entrée TOR (Arduino)]] — l'anti-rebond, qui n'est pas du filtrage
+- [[micropython-entree-tor|Lire une entrée TOR (MicroPython)]] — le même anti-rebond, côté MicroPython

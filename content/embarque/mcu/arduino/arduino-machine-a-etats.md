@@ -172,6 +172,8 @@ void loop() {
 
 > [!info] Comment lire ce code
 > La transition clé est dans le `case VERT` : `if (millis() - tDebut >= DUREE_VERT || (demandePieton && millis() - tDebut >= DUREE_VERT_MIN))`. Elle se lit « **on passe au jaune si** le vert a duré son temps plein (`DUREE_VERT`) **ou bien** un piéton a appelé (`demandePieton`) **et** que le minimum de vert est déjà écoulé ». Le `||` ouvre deux chemins de sortie, le second protégé par un minimum pour ne pas couper un vert qui vient de démarrer. `demandePieton` passe à `true` dès l'appui (testé en tête de `loop()`, donc à chaque tour) et revient à `false` en entrant dans `ROUGE`, une fois la demande satisfaite. À chaque changement d'état, `tDebut = millis()` redate l'entrée pour que les comparaisons de durée repartent de zéro.
+>
+> La priorité de `&&` sur `||`, qui commande cette lecture, est un mécanisme du langage et non un idiome embarqué : voir [[cpp-lire-un-programme|lire un programme C++]].
 
 Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit le bouton à chaque tour et avance dans le cycle quand les conditions sont réunies. Ajouter un quatrième état (orange clignotant la nuit, par exemple) revient à ajouter un `case` — la structure encaisse sans réécriture.
 

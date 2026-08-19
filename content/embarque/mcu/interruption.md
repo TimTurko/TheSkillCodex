@@ -47,11 +47,11 @@ Une interruption ne vient pas que d'une broche : la plupart des périphériques 
 
 | Source | Déclencheur | Usage typique | En pratique |
 | --- | --- | --- | --- |
-| **Externe / broche** | front montant ou descendant sur une [[gpio|broche]] | bouton urgent, compteur d'impulsions, encodeur | [[arduino-interruptions|attachInterrupt]] |
-| **Timer** | débordement d'un compteur matériel | cadence régulière (échantillonnage, rafraîchissement) | [[arduino-timers|timers]] |
-| **Liaison série** | octet reçu sur l'[[uart|UART]] | recevoir sans surveiller le port | souvent gérée par la bibliothèque |
-| **Fin de conversion [[adc|ADC]]** | mesure analogique terminée | acquisition rapide en continu | mode avancé, rare en projet étudiant |
-| **Chien de garde** | délai de surveillance dépassé | détecter un programme bloqué | [[arduino-watchdog|watchdog]] |
+| **Externe / broche** | front montant ou descendant sur une [[gpio\|broche]] | bouton urgent, compteur d'impulsions, encodeur | [[arduino-interruptions\|Arduino]] · [[micropython-interruptions\|MicroPython]] |
+| **Timer** | débordement d'un compteur matériel | cadence régulière (échantillonnage, rafraîchissement) | [[arduino-timers\|Arduino]] · [[micropython-timers\|MicroPython]] |
+| **Liaison série** | octet reçu sur l'[[uart\|UART]] | recevoir sans surveiller le port | souvent gérée par la bibliothèque |
+| **Fin de conversion [[adc\|ADC]]** | mesure analogique terminée | acquisition rapide en continu | mode avancé, rare en projet étudiant |
+| **[[chien-de-garde\|Chien de garde]]** | délai de surveillance dépassé | détecter un programme bloqué | mode non exposé sur toutes les familles |
 
 Les deux sources les plus utilisées en projet — **externe** (réagir à un événement physique) et **timer** (imposer une cadence) — ont chacune leur fiche d'application. Les autres se rencontrent surtout dans des montages avancés, ou sont déjà prises en charge sans qu'on s'en occupe (le cas de la liaison série).
 
@@ -91,6 +91,8 @@ Quand un microcontrôleur est mis en sommeil pour économiser l'énergie (voir [
 - [[arduino-interruptions|Interruptions sur Arduino]] — la mise en œuvre concrète des interruptions externes (`attachInterrupt`, code et câblage)
 - [[micropython-interruptions|Interruptions en MicroPython]] — la même mécanique côté MicroPython
 - [[arduino-timers|Timers Arduino]] — les interruptions périodiques pour cadencer une tâche
+- [[micropython-timers|Timers en MicroPython]] — les mêmes interruptions périodiques côté MicroPython
+- [[chien-de-garde|Chien de garde]] — la surveillance de délai, qui peut elle aussi lever une interruption
 - [[gpio|GPIO]] — les broches d'entrée, source des interruptions externes
 - [[deep-sleep|Deep sleep]] — la veille, dont une interruption assure le réveil
 - [[programmation-non-bloquante|Programmation non bloquante]] — la boucle coopérative, et ce qu'elle ne peut pas attraper assez vite

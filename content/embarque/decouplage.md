@@ -63,4 +63,4 @@ Sur le bras du fil rouge, chaque **driver A4988** reçoit son condensateur rése
 - [[alimentation-electronique|Concevoir une alimentation électronique]] — la fiche d'architecture dont le découplage est l'un des gestes
 - [[pcb|Concevoir une carte (PCB)]] — le placement des condensateurs se joue au routage
 - [[oscilloscope|Oscilloscope]] — le seul instrument qui montre la pointe et le creux
-- [[arduino-alimentation|Alimenter une carte Arduino]] — les découplages déjà présents sur une carte du commerce
+- [[arduino-alimentation|Alimenter une carte Arduino]] · [[micropython-alimentation|une carte sous MicroPython]] · [[xiao-alimentation|un XIAO ESP32-S3]] — les découplages déjà présents sur une carte du commerce

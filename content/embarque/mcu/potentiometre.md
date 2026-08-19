@@ -37,7 +37,7 @@ La **course** peut être :
 
 **Extrémité non câblée = curseur flottant.** Si une seule extrémité est reliée, la sortie n'est plus un diviseur défini : la lecture dérive. Câbler les deux extrémités (VCC et GND).
 
-**Ce n'est pas un variateur de puissance.** Un potentiomètre divise une tension *à vide* (vers l'entrée haute impédance d'un ADC). Y faire passer le courant d'une charge échauffe et détruit la piste — pour piloter de la puissance, voir [[arduino-sortie-pwm|la PWM]] et un étage de sortie.
+**Ce n'est pas un variateur de puissance.** Un potentiomètre divise une tension *à vide* (vers l'entrée haute impédance d'un ADC). Y faire passer le courant d'une charge échauffe et détruit la piste — pour piloter de la puissance, voir [[pwm|la PWM]] et un étage de sortie.
 
 **Course log lue comme linéaire.** Un potentiomètre audio (A) donne une variation non proportionnelle à l'angle — surprise garantie si le code attend du linéaire. Choisir un modèle **linéaire (B)** pour une consigne.
 
@@ -45,9 +45,9 @@ La **course** peut être :
 
 ## Voir aussi
 
-- [[arduino-capteur-analogique|Lire un capteur analogique]] — le lire sur Arduino (câblage, conversion)
+- [[arduino-capteur-analogique|Lire un capteur analogique]] — le lire sur Arduino (câblage, conversion) ou [[micropython-capteur-analogique|en MicroPython]]
 - [[adc|Convertisseur analogique-numérique]] — ce qui transforme la tension du curseur en nombre
 - [[niveaux-de-tension|Niveaux de tension]] — le principe du pont diviseur
-- [[arduino-sortie-pwm|Piloter une sortie PWM]] — le potentiomètre comme consigne d'intensité ou de vitesse
-- [[arduino-servomoteur|Piloter un servomoteur]] — le potentiomètre comme consigne de vitesse / position
-- [[arduino-moteur-cc|Piloter un moteur CC]] — le potentiomètre comme consigne de vitesse
+- [[arduino-sortie-pwm|Piloter une sortie PWM]] — le potentiomètre comme consigne d'intensité ou de vitesse ([[micropython-sortie-pwm|version MicroPython]])
+- [[arduino-servomoteur|Piloter un servomoteur]] — le potentiomètre comme consigne de vitesse / position ([[micropython-servomoteur|version MicroPython]])
+- [[arduino-moteur-cc|Piloter un moteur CC]] — le potentiomètre comme consigne de vitesse ([[micropython-moteur-cc|version MicroPython]])

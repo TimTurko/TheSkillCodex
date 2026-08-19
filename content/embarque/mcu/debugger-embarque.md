@@ -61,7 +61,7 @@ Une LED censée clignoter reste éteinte. Le câblage et l'alimentation sont vé
 
 1. **Hypothèse 1** — « la ligne qui inverse la LED n'est jamais atteinte ». On y pose un **point d'arrêt** : s'il ne se déclenche jamais, le chemin d'exécution ne passe pas par là (une condition au-dessus est fausse).
 2. **Variante par messages** — sans sonde, on place `Serial.print` juste avant : l'absence de message confirme la même chose.
-3. **Remonter** — on déplace le point d'observation vers la condition qui garde ce bloc, on inspecte la variable testée : on découvre qu'elle ne change pas comme prévu (un `=` au lieu d'un `==`, un délai jamais écoulé à cause d'une comparaison de `millis()` mal posée — cf. [[arduino-temporisation]]).
+3. **Remonter** — on déplace le point d'observation vers la condition qui garde ce bloc, on inspecte la variable testée : on découvre qu'elle ne change pas comme prévu (un `=` au lieu d'un `==`, un délai jamais écoulé à cause d'une comparaison de dates mal posée — cf. [[arduino-temporisation|temporiser sur Arduino]] ou [[micropython-temporisation|en MicroPython]]).
 4. **Corriger** l'hypothèse validée, retirer l'instrumentation, vérifier que la LED clignote.
 
 L'enquête a localisé la cause sans toucher au reste du code — au lieu de modifier des lignes au hasard.
@@ -87,3 +87,4 @@ L'enquête a localisé la cause sans toucher au reste du code — au lieu de mod
 - [[instruments-de-mesure|Instruments de mesure]] — quand le bug est électrique et non logiciel
 - [[machine-a-etats|Machine à états]] — inspecter une variable d'état est un cas fréquent de débogage
 - [[microcontroleur|Microcontrôleur]] — les broches de débogage (JTAG/SWD) selon la famille
+- [[chien-de-garde|Chien de garde]] — un chien armé peut redémarrer la carte en pleine session de débogage

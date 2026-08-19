@@ -51,7 +51,7 @@ La leçon transverse : **les concepts d'architecture ne dépendent pas de la car
 
 **Des `delay()` partout.** Chaque `delay()` fige tout le système. Incompatible avec un firmware qui fait plusieurs choses — passer au non bloquant.
 
-**Aucune gestion de l'imprévu.** Pas de valeur par défaut, pas de [[arduino-watchdog|watchdog]] : à la première anomalie de terrain, le système se fige sans repartir. La robustesse se conçoit, elle ne s'ajoute pas après coup.
+**Aucune gestion de l'imprévu.** Pas de valeur par défaut, pas de [[chien-de-garde|chien de garde]] : à la première anomalie de terrain, le système se fige sans repartir. La robustesse se conçoit, elle ne s'ajoute pas après coup.
 
 **Sur-architecturer trop tôt.** Monter un RTOS pour clignoter deux LED ajoute de la complexité sans bénéfice. L'architecture suit le besoin, elle ne le précède pas.
 
@@ -67,5 +67,5 @@ La leçon transverse : **les concepts d'architecture ne dépendent pas de la car
 - [[arduino|Arduino]] — la super-loop et l'API Wiring
 - [[stm32|STM32]] — HAL générée par CubeMX ou Arduino-core
 - [[micropython|MicroPython]] — mêmes architectures, outillage interprété
-- [[arduino-watchdog|Watchdog]] — la robustesse face aux blocages
+- [[chien-de-garde|Chien de garde]] — la robustesse face aux blocages
 - [[debugger-embarque|Déboguer un système embarqué]] — traquer un bug dans le firmware (messages ou débogage matériel)
