@@ -38,6 +38,18 @@
  *   ide.md           apparie deux LANGAGES (Arduino / MicroPython), pas huit
  *                    familles de cartes.
  *
+ * EXCLUSIONS CIBLEES (19/08). Meme nature, mais posees sur le TRIPLET
+ * (fiche, concept, famille manquante) et non sur la paire : 3e borne de C94 vue
+ * du cote des cibles, le suffixe est partage, le sujet ne l est pas. Retirer la
+ * paire entiere masquerait un vrai jumeau absent sur la meme ligne.
+ *
+ *   wokwi -> gpio        Wokwi simule le Pico (microcontroleur), pas le SBC
+ *   / raspberry-pi       Raspberry Pi. wokwi cite deja arduino+esp32+micropython.
+ *
+ *   manipulation-de-bits Le Cas particulier de la fiche est explicitement AVR
+ *   -> timers            (TCCR1B, configurer un timer PAR SES REGISTRES) et
+ *   / micropython        machine.Timer n expose aucun registre.
+ *
  * Le script ne corrige rien : il rend une liste arbitrable. Il rapporte
  * TOUJOURS le nombre de fiches balayees, pas seulement le nombre de resultats
  * (acquis du 19/08 : le perimetre d'abord, le resultat ensuite).
@@ -157,6 +169,31 @@ for (const f of sources) {
 
 /* ---------- classement ---------- */
 
+// Exclusions ciblees : voir l en-tete. Une entree retire UNE famille du calcul
+// des manquants pour UNE paire (fiche, concept), pas la paire entiere.
+const EXCLUSIONS = [
+  {
+    fiche: 'embarque/simulation/wokwi.md',
+    concept: 'gpio',
+    famille: 'raspberry-pi',
+    motif: 'Wokwi simule le Pico, pas le SBC Raspberry Pi',
+  },
+  {
+    fiche: 'embarque/mcu/manipulation-de-bits.md',
+    concept: 'timers',
+    famille: 'micropython',
+    motif: 'Cas particulier AVR (registres) ; machine.Timer n expose aucun registre',
+  },
+];
+
+function exclusionCiblee(fiche, concept, famille) {
+  return (
+    EXCLUSIONS.find(
+      (e) => e.fiche === fiche && e.concept === concept && e.famille === famille
+    ) ?? null
+  );
+}
+
 function fauxPositif(fiche, concept) {
   if (fiche.includes('/cpp/')) return 'module cpp/ : le C++ est l ecosysteme Arduino';
   if (concept === 'arduino-core') return 'collision de suffixe arduino-core';
@@ -171,11 +208,20 @@ const exclus = [];
 for (const [fiche, parConcept] of cites) {
   for (const [concept, familles] of parConcept) {
     const dispo = concepts.get(concept) ?? new Set();
-    const manquants = [...dispo].filter((f) => !familles.has(f)).sort();
-    const ligne = { fiche, concept, cites: [...familles].sort(), manquants };
+    const bruts = [...dispo].filter((f) => !familles.has(f)).sort();
+    const retires = bruts.filter((f) => exclusionCiblee(fiche, concept, f));
+    const manquants = bruts.filter((f) => !retires.includes(f));
+    const ligne = { fiche, concept, cites: [...familles].sort(), manquants, retires };
 
     if (!manquants.length) {
-      legitimes.push(ligne);
+      if (retires.length) {
+        exclus.push({
+          ...ligne,
+          motif: exclusionCiblee(fiche, concept, retires[0]).motif,
+        });
+      } else {
+        legitimes.push(ligne);
+      }
       continue;
     }
     const motif = fauxPositif(fiche, concept);
@@ -208,7 +254,8 @@ console.log('');
 for (const c of candidats) {
   console.log(
     '  ' + c.fiche.padEnd(46) + c.concept.padEnd(28) +
-    'cite ' + c.cites.join('+').padEnd(20) + 'manque ' + c.manquants.join('+')
+    'cite ' + c.cites.join('+').padEnd(20) + 'manque ' + c.manquants.join('+') +
+    (c.retires.length ? '   [exclu : ' + c.retires.join('+') + ']' : '')
   );
 }
 console.log('');

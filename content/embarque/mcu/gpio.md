@@ -31,7 +31,7 @@ Une même broche peut servir d'entrée ou de sortie ; c'est le programme qui fix
 | Entrée haute impédance *(INPUT)* | entrée | lit le niveau sans charger le circuit | **flottant** (indéfini) | broche pilotée par un signal franc |
 | Entrée avec tirage *(INPUT_PULLUP)* | entrée | une résistance interne fixe le repos | « 1 » (pull-up) ou « 0 » (pull-down) | bouton, interrupteur |
 | Sortie push-pull *(OUTPUT)* | sortie | impose activement haut **et** bas | imposé par le programme | LED, signal de commande |
-| Sortie drain ouvert | sortie | ne tire que vers le bas | « 1 » si pull-up externe | bus partagé ([[i2c|I2C]]), ligne d'alarme commune |
+| Sortie drain ouvert | sortie | ne tire que vers le bas | « 1 » si pull-up externe | bus partagé ([[i2c\|I2C]]), ligne d'alarme commune |
 
 Les noms entre parenthèses (`INPUT`, `INPUT_PULLUP`, `OUTPUT`) sont les constantes que l'on retrouve côté Arduino : ce sont des étiquettes de vocabulaire, la mise en pratique du code est traitée dans [[arduino-gpio|le tuto Arduino GPIO]]. Les autres familles ont leur propre tutoriel — [[esp32-gpio|ESP32]], [[micropython-gpio|MicroPython]], [[raspberry-pi-gpio|Raspberry Pi]] — avec le même concept et une syntaxe différente.
 

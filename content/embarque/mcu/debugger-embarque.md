@@ -1,9 +1,9 @@
 ---
 title: Déboguer un système embarqué
-type: tuto
+type: notion
 tags:
   - eee
-  - tuto
+  - notion
 prerequis:
   - firmware
 aa:

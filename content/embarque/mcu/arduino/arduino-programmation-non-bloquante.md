@@ -176,7 +176,7 @@ Utile au-delà de quelques tâches ; en deçà, l'appel direct de l'étape 3 res
 
 ## Cas particulier — La limite : vers un RTOS
 
-La boucle coopérative repose sur la **bonne volonté** de chaque tâche : si l'une s'attarde, elle retarde toutes les autres. Tant que les tâches sont brèves, cela tient. Mais quand certaines doivent respecter des **échéances strictes** quoi qu'il arrive, on atteint la limite du coopératif. Un **système d'exploitation temps réel** (RTOS, comme FreeRTOS sur [[esp32|ESP32]]) franchit ce pas : il **préempte** une tâche pour en exécuter une plus prioritaire, garantissant les échéances. C'est le prolongement naturel de cette discipline, abordé côté ESP32 et dans [[firmware|firmware]].
+La boucle coopérative repose sur la **bonne volonté** de chaque tâche : elle ne garantit aucune **échéance stricte**. Quand le projet en exige une, on change d'outil pour un **système d'exploitation temps réel** (RTOS) : ce qu'il apporte et ce qu'il coûte sont traités par la notion transverse [[programmation-non-bloquante|programmation non bloquante]].
 
 ## Pièges
 
