@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-labelledby="t6 d6">
+  <title id="t6">Les trois façons d'alimenter une carte Arduino Uno</title>
+  <desc id="d6">Trois entrées d'alimentation possibles convergent vers une carte Arduino Uno. En haut, le câble USB apporte du 5 volts déjà régulé : ce chemin contourne le régulateur de la carte et rejoint directement le rail 5 volts. Au milieu, le jack d'alimentation reçoit un adaptateur 9 volts continu, dont la polarité doit être positive au centre ; sa tension entre dans le régulateur 5 volts de la carte. En bas, la broche Vin, référencée à GND, accepte de 7 à 12 volts et rejoint le même régulateur : c'est l'équivalent du jack, en plus compact. Les trois chemins aboutissent au même rail 5 volts, qui alimente le microcontrôleur et la broche 5 V. Il ne faut pas injecter du 5 volts par le jack ni par Vin : le régulateur a besoin d'au moins environ 7 volts en entrée pour sortir un 5 volts stable ; une source 5 volts déjà propre s'applique directement sur la broche 5 V.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .lbl  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .capl { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .wire { stroke:#888780; stroke-width:2.2; fill:none; }
+      .rail { stroke:#BA7517; stroke-width:2.8; fill:none; }
+      .comp { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .board{ fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .blk  { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .clbl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .note { font:italic 400 11px sans-serif; fill:#888780; }
+      .arwh { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .capl{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .wire{stroke:#BBBBBB;} .rail{stroke:#EF9F27;} .comp{fill:#4A4A48;stroke:#EF9F27;}
+        .board{stroke:#EF9F27;} .blk{fill:#4A4A48;stroke:#BBBBBB;} .clbl{fill:#F1EFE8;}
+        .note{fill:#BBBBBB;} .arwh{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="440" y="28" class="ttl">Trois entrées, un seul rail 5 V — et une seule d'entre elles saute le régulateur</text>
+
+  <!-- sources -->
+  <rect x="50" y="104" width="180" height="58" rx="6" class="comp"/>
+  <text x="140" y="128" class="clbl">USB — 5 V</text>
+  <text x="140" y="148" class="capl">câble de données, pas charge seule</text>
+
+  <rect x="50" y="184" width="180" height="58" rx="6" class="comp"/>
+  <text x="140" y="208" class="clbl">Jack DC — 9 V</text>
+  <text x="140" y="228" class="capl">polarité positive au centre</text>
+
+  <rect x="50" y="264" width="180" height="58" rx="6" class="comp"/>
+  <text x="140" y="288" class="clbl">Vin / GND — 7 à 12 V</text>
+  <text x="140" y="308" class="capl">le jack, en plus compact</text>
+
+  <!-- flèches vers la carte -->
+  <line x1="230" y1="133" x2="330" y2="133" class="wire"/>
+  <polygon points="344,133 330,127 330,139" class="arwh"/>
+  <line x1="230" y1="213" x2="330" y2="213" class="wire"/>
+  <polygon points="344,213 330,207 330,219" class="arwh"/>
+  <line x1="230" y1="293" x2="330" y2="293" class="wire"/>
+  <polygon points="344,293 330,287 330,299" class="arwh"/>
+
+  <!-- carte -->
+  <rect x="350" y="84" width="280" height="264" rx="12" class="board"/>
+  <text x="490" y="110" class="lbl">Arduino Uno</text>
+
+  <!-- régulateur -->
+  <rect x="400" y="188" width="180" height="52" rx="4" class="blk"/>
+  <text x="490" y="219" class="clbl">régulateur 5 V</text>
+
+  <!-- chemins internes -->
+  <path d="M350 213 H400" class="wire"/>
+  <path d="M350 293 H378 V226 H400" class="wire"/>
+  <path d="M580 214 H600 V133" class="rail"/>
+  <path d="M350 133 H600" class="rail"/>
+  <path d="M600 133 H700" class="rail"/>
+
+  <text x="404" y="170" class="note">le 5 V de l'USB ne passe pas par le régulateur</text>
+
+  <!-- sortie -->
+  <text x="708" y="128" class="note">vers le microcontrôleur</text>
+  <text x="708" y="144" class="note">et la broche 5 V</text>
+
+  <text x="440" y="382" class="cap">Le rail 5 V est commun : quelle que soit l'entrée, c'est lui qui fait vivre la carte.</text>
+  <text x="440" y="408" class="foot">Ne pas injecter du 5 V par le jack ou par Vin — le régulateur exige au moins ~7 V en entrée.</text>
+  <text x="440" y="426" class="cap">Une source 5 V déjà stable se branche sur la broche 5 V, pas en amont du régulateur.</text>
+</svg>

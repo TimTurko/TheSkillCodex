@@ -110,9 +110,18 @@ while True:
 
 **Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `Trig` une impulsion **propre** de 10 µs — le `low()` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `time_pulse_us(echo, 1, 30000)` met le programme **en attente** de l'impulsion sur `Echo` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Une valeur **négative** signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
 
-Approchez/éloignez la main — la distance s'affiche au [[micropython-repl|REPL]].
+Approchez/éloignez la main — la distance s'affiche au [[micropython-repl|REPL]] :
 
-Prendre capture d'écran de *le Shell de Thonny affichant une suite de mesures de distance en cm pendant qu'une main bouge devant le capteur*.
+```
+23.4 cm
+18.2 cm
+12.1 cm
+7.6 cm
+Hors plage
+8.9 cm
+```
+
+Une seule décimale ici, imposée par le format `"{:.1f}"` — le jumeau Arduino en affiche deux, par simple défaut de `Serial.print()`. Et `Hors plage` apparaît dès que la main sort du cône : c'est la valeur négative renvoyée par `time_pulse_us()` au bout des 30 ms.
 
 ## Exemple — Détecteur de seuil avec LED d'alerte
 

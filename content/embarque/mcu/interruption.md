@@ -93,3 +93,4 @@ Quand un microcontrôleur est mis en sommeil pour économiser l'énergie (voir [
 - [[arduino-timers|Timers Arduino]] — les interruptions périodiques pour cadencer une tâche
 - [[gpio|GPIO]] — les broches d'entrée, source des interruptions externes
 - [[deep-sleep|Deep sleep]] — la veille, dont une interruption assure le réveil
+- [[programmation-non-bloquante|Programmation non bloquante]] — la boucle coopérative, et ce qu'elle ne peut pas attraper assez vite

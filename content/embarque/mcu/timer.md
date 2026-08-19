@@ -72,3 +72,4 @@ Un microcontrôleur ne dispose que de **quelques timers** (trois sur une Arduino
 - [[pwm|PWM]] — le signal généré par un timer, dont on règle le rapport cyclique
 - [[arduino-temporisation|delay() vs millis()]] — la temporisation logicielle, bâtie sur un timer
 - [[deep-sleep|Deep sleep]] — un timer peut réveiller un microcontrôleur endormi à échéance
+- [[programmation-non-bloquante|Programmation non bloquante]] — la cadence logicielle, que le timer garantit là où la boucle coopérative dérive

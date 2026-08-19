@@ -45,7 +45,7 @@ L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène 
   - *Énergie* : puissance électrique, mécanique, hydraulique. Trait épais ou flèche double.
   - *Matière* : fluide, pièce manipulée, échantillon. Trait pointillé ou flèche pleine large.
 - **Frontière du système** : pointillé englobant les blocs qui appartiennent au système. Tout ce qui est dehors est environnement (utilisateur, objet à manipuler, conditions extérieures).
-- **Boucle ouverte vs fermée** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
+- **[[boucle-ouverte|Boucle ouverte]] vs fermée** : si le contrôleur reçoit un retour mesuré de l'effecteur via un capteur, c'est une boucle fermée (asservie). Sinon, boucle ouverte.
 
 ![Conventions du schéma bloc fonctionnel : blocs, frontière du système et types de flux](/ressources/img/schema-bloc-fonctionnel/generique.svg)
 

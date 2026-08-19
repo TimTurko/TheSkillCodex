@@ -169,6 +169,8 @@ void loop() {
 
 > [!info] Comment lire ce code
 > La `struct Tache` regroupe trois informations par tâche : **quelle** fonction appeler, **à quel intervalle**, et **quand** elle a tourné pour la dernière fois. Le champ `void (*fonction)()` est un *pointeur de fonction* — une case qui ne contient pas un nombre mais l'adresse d'une fonction à appeler (notion C++ avancée). Le tableau `taches[]` liste toutes les tâches ; la boucle `for (Tache &t : taches)` les parcourt une à une et, pour chacune, si l'intervalle est écoulé, note la date et appelle sa fonction. Ajouter une tâche revient alors à ajouter une ligne au tableau — plus aucun test à recopier.
+>
+> Ces trois mécanismes — la `struct`, le pointeur de fonction et le `for` à plage — ne sont pas propres à l'embarqué : ils se retrouvent dans n'importe quel programme C++, et sont repris comme indices de lecture dans [[cpp-lire-un-programme|lire un programme qu'on n'a pas écrit]].
 
 Utile au-delà de quelques tâches ; en deçà, l'appel direct de l'étape 3 reste plus simple à lire.
 
@@ -205,4 +207,6 @@ Adopter la discipline non bloquante au premier montage multi-fonctions évite la
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-interruptions|Interruptions]] — pour les événements que la boucle ne peut pas attraper assez vite
 - [[arduino-timers|Timers matériels]] — pour imposer une cadence précise à une tâche critique
+- [[programmation-non-bloquante|Programmation non bloquante]] — la notion transverse : le patron de temporisation, ses jumeaux d'une famille à l'autre, et la borne du RTOS
+- [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — les mécanismes C++ de l'ordonnanceur ci-dessus, sous l'angle de la lecture
 - [[firmware|Firmware]] — l'architecture du code embarqué et l'horizon RTOS (transverse)

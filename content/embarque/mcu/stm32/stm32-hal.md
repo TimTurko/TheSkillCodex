@@ -117,7 +117,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 La boucle principale reste libre pendant que les caractères sont reçus et renvoyés « en tâche de fond » par l'interruption. **C'est le passage du bloquant au réactif** — le geste qui distingue un firmware qui attend d'un firmware qui réagit.
 
-Prendre capture d'écran de *le moniteur série renvoyant en écho les caractères tapés, pendant que la LED suit le bouton*.
+Le programme ne dit rien de lui-même : il ne renvoie que ce qu'il reçoit. En tapant `bonjour` dans la zone de saisie du moniteur, la carte retourne :
+
+```
+bonjour
+```
+
+Caractère par caractère, en réalité — sept passages dans le *callback*. Et pendant ce temps la LED continue de suivre le bouton : c'est la preuve que la boucle n'a jamais attendu.
 
 ## Pièges
 

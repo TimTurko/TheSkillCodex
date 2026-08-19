@@ -70,7 +70,7 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 
 **Confondre convertir et transmettre.** Le moteur **convertit** l'énergie (électrique → mécanique) ; le réducteur la **transmet** en l'adaptant (couple, vitesse). Deux fonctions distinctes, souvent dans deux composants distincts.
 
-**Tracer une chaîne d'énergie sans retour.** Sans capteur qui mesure l'effet produit, le système est en boucle ouverte : il commande à l'aveugle. Beaucoup de défaillances viennent d'un retour oublié dès la conception.
+**Tracer une chaîne d'énergie sans retour.** Sans capteur qui mesure l'effet produit, le système est en [[boucle-ouverte|boucle ouverte]] : il commande à l'aveugle. Beaucoup de défaillances viennent d'un retour oublié dès la conception.
 
 **Ranger un composant dans la mauvaise chaîne.** Un capteur appartient à la chaîne d'**information** (il renseigne), même s'il est parcouru par un courant. Le critère : le composant transporte-t-il de la **puissance** (énergie) ou une **grandeur à connaître** (information) ?
 

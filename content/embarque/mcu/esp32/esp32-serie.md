@@ -146,7 +146,21 @@ void loop() {
 
 Au moniteur, on voit défiler la mesure toutes les demi-secondes ; taper `ON` ou `OFF` allume ou éteint la LED et renvoie une confirmation. Noter le **non-bloquant** : on n'utilise pas `delay()` pour cadencer l'envoi, mais une comparaison sur `millis()` — la lecture des commandes reste réactive en permanence.
 
-Prendre capture d'écran de *le moniteur série montrant l'alternance « capteur = XXX » et les réponses « LED allumee » / « LED eteinte » après saisie des commandes*.
+En tapant `ON` puis `OFF` en cours de défilement :
+
+```
+Commandes : ON / OFF
+capteur = 1832
+capteur = 1847
+capteur = 1795
+LED allumee
+capteur = 1811
+capteur = 1826
+LED eteinte
+capteur = 1804
+```
+
+La réponse à la commande **s'insère** dans le défilé sans l'interrompre : c'est le non-bloquant à l'œuvre.
 
 ## Pièges
 

@@ -72,7 +72,16 @@ HAL_Delay(500);
 
 Cliquez sur l'icône **marteau** (*Build*). La console affiche la taille du binaire (`text`, `data`, `bss`) et se termine par `Build Finished. 0 errors`. Une erreur ici est un problème de *code* ou de configuration, pas de matériel — la carte n'est pas encore sollicitée.
 
-Prendre capture d'écran de *la console Build de CubeIDE affichant « Build Finished. 0 errors » et le récapitulatif de taille mémoire*.
+La console se termine alors ainsi :
+
+```
+   text    data     bss     dec     hex  filename
+  XXXXX     XXX    XXXX   XXXXX    XXXX  Projet.elf
+
+Build Finished. 0 errors
+```
+
+Les trois premières colonnes sont le récapitulatif de taille à relever sur votre projet : `text` occupe la **flash** (le code et les constantes), `data` et `bss` occupent la **RAM**. C'est le seul endroit où l'on voit si un binaire tient encore dans la puce.
 
 ### 5. Flasher et observer
 

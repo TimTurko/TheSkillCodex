@@ -70,7 +70,7 @@ Pour la méthode générale de dimensionnement (bilan de puissance, choix de la 
 
 **5 V externe** : si on a déjà une alimentation 5 V stable (bus 5 V de l'installation), alimenter directement par la broche `5V`. **Ne pas alimenter en 5 V via le jack ou Vin** — le régulateur de la carte (NCP1117 sur l'Uno R3) a besoin d'au moins ~7 V en entrée pour fournir un 5 V stable.
 
-Prendre capture d'écran ou photo de *une carte Arduino Uno avec trois alimentations possibles visibles : câble USB type B, jack DC 9 V branché, et fil Vin/GND sur breadboard*.
+![Les trois entrées d'alimentation d'une carte Uno : l'USB en 5 V, qui rejoint directement le rail 5 V sans passer par le régulateur ; le jack DC 9 V, polarité positive au centre, et la broche Vin en 7 à 12 V, qui entrent tous deux dans le régulateur 5 V de la carte.|640](/ressources/img/arduino-alimentation/trois-sources.svg)
 
 ### 4. Vérifier la stabilité
 

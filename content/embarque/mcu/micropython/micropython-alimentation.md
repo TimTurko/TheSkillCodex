@@ -60,7 +60,7 @@ La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec l
 
 **Module 5 V** : l'alimenter depuis **VBUS** (5 V, USB présent), GND commun, et adapter ses signaux de sortie vers le Pico ([[niveaux-de-tension|niveaux de tension]]).
 
-Prendre capture d'écran ou photo de *un Pico alimenté de deux façons : par USB, et par une batterie reliée à VSYS/GND*.
+![Les deux entrées d'alimentation d'un Pico : l'USB en 5 V arrive sur VBUS et traverse une diode interne avant VSYS, qui vaut alors environ 4,7 V ; une source externe de 1,8 à 5,5 V se raccorde directement sur VSYS et GND, au travers d'une diode Schottky si l'USB peut être branché en même temps. Les deux chemins se rejoignent sur VSYS, qui alimente le régulateur 3,3 V et la broche 3V3(OUT).|640](/ressources/img/micropython-alimentation/deux-sources.svg)
 
 ### 4. Vérifier la stabilité
 

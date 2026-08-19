@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" role="img" aria-labelledby="t8 d8">
+  <title id="t8">Deux modules I²C, quatre mêmes fonctions, deux ordres de broches</title>
+  <desc id="d8">Deux modules I²C sont dessinés côte à côte, vus de dessus, chacun avec son peigne de quatre broches et la sérigraphie imprimée à côté. Le module de gauche porte, de la première à la quatrième broche, GND, VCC, SCL puis SDA. Le module de droite porte VCC, GND, SCL puis SDA : les deux premières broches sont inversées par rapport au module de gauche. Les quatre fonctions sont pourtant les mêmes, et les deux modules peuvent porter la même référence de composant : il n'existe pas d'ordre normalisé, chaque fabricant range les broches comme il veut. Sous les deux modules, un trait pointillé relie les broches qui ont changé de place et rappelle que recopier le câblage d'un tutoriel sans relire la sérigraphie revient à appliquer la tension d'alimentation sur la masse et inversement, ce qui détruit le module. Le module de droite montre en outre un cavalier de sélection d'adresse, à vérifier quand deux modules répondent à la même adresse sur le bus.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .lbl  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .pcb  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .chip { fill:none; stroke:#888780; stroke-width:1.8; }
+      .pad  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2; }
+      .serig{ font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .diff { font:700 12.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .note { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .clbl { font:700 11.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .swap { stroke:#BA7517; stroke-width:2.2; fill:none; stroke-dasharray:5 4; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .pcb{fill:#4A4A48;stroke:#EF9F27;} .chip{stroke:#BBBBBB;} .pad{fill:#4A4A48;stroke:#EF9F27;}
+        .serig{fill:#F1EFE8;} .diff{fill:#EF9F27;} .note{fill:#BBBBBB;} .clbl{fill:#F1EFE8;}
+        .swap{stroke:#EF9F27;}
+      }
+    </style>
+  </defs>
+
+  <text x="430" y="28" class="ttl">Deux modules I²C — mêmes quatre fonctions, deux ordres de broches</text>
+
+  <!-- ===== module de gauche ===== -->
+  <text x="215" y="66" class="lbl">Module A</text>
+  <rect x="90" y="84" width="250" height="150" rx="8" class="pcb"/>
+  <rect x="150" y="112" width="130" height="60" rx="4" class="chip"/>
+  <text x="215" y="147" class="clbl">composant</text>
+
+  <rect x="110" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="164" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="218" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="272" y="192" width="26" height="26" rx="3" class="pad"/>
+  <text x="123" y="252" class="diff">GND</text>
+  <text x="177" y="252" class="diff">VCC</text>
+  <text x="231" y="252" class="serig">SCL</text>
+  <text x="285" y="252" class="serig">SDA</text>
+
+  <!-- ===== module de droite ===== -->
+  <text x="645" y="66" class="lbl">Module B</text>
+  <rect x="520" y="84" width="250" height="150" rx="8" class="pcb"/>
+  <rect x="580" y="112" width="130" height="60" rx="4" class="chip"/>
+  <text x="645" y="147" class="clbl">composant</text>
+  <rect x="726" y="112" width="30" height="18" rx="3" class="pad"/>
+  <text x="741" y="146" class="note">ADDR</text>
+
+  <rect x="540" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="594" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="648" y="192" width="26" height="26" rx="3" class="pad"/>
+  <rect x="702" y="192" width="26" height="26" rx="3" class="pad"/>
+  <text x="553" y="252" class="diff">VCC</text>
+  <text x="607" y="252" class="diff">GND</text>
+  <text x="661" y="252" class="serig">SCL</text>
+  <text x="715" y="252" class="serig">SDA</text>
+
+  <!-- lien d'inversion -->
+  <path d="M150 268 C260 320, 440 320, 546 268" class="swap"/>
+  <path d="M204 268 C300 306, 420 306, 600 268" class="swap"/>
+  <text x="430" y="330" class="diff">les deux premières broches sont inversées</text>
+  <text x="430" y="350" class="cap">les deux dernières, elles, se suivent dans le même ordre — ce qui rend l'erreur d'autant plus facile</text>
+
+  <text x="430" y="386" class="foot">Il n'y a pas d'ordre normalisé : c'est le fabricant de la carte qui range les broches.</text>
+  <text x="430" y="406" class="cap">Le câblage se lit sur la sérigraphie du module qu'on a en main — jamais sur celle d'un tutoriel.</text>
+  <text x="430" y="422" class="cap">Le cavalier ADDR sert quand deux modules répondent à la même adresse sur le bus.</text>
+</svg>

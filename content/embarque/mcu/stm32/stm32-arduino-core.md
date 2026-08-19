@@ -113,7 +113,14 @@ void loop() {}
 
 Au moniteur série, on lit la fréquence réelle du cœur et l'identifiant unique — deux informations qui n'existent pas telles quelles sur un Arduino AVR, obtenues sans quitter le confort du sketch. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant la HAL et CMSIS sous la main**.
 
-Prendre capture d'écran de *le moniteur série affichant « Frequence du coeur : XX MHz » et la ligne UID en hexadécimal*.
+Au moniteur, deux lignes imprimées une fois dans `setup()` :
+
+```
+Frequence du coeur : XX MHz
+UID : XXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+La fréquence dépend de la carte et de la configuration d'horloge appliquée par le cœur — à relever sur la vôtre. L'UID, lui, est **propre à votre puce** : il est masqué ici, parce qu'un numéro de série recopié dans un tutoriel finit toujours par être pris pour le sien.
 
 ## Pièges
 

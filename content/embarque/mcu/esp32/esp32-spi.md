@@ -99,7 +99,15 @@ void loop() {}
 
 `SD.begin(CS)` initialise le bus VSPI et monte la carte ; `SD.open(..., FILE_WRITE)` ouvre le fichier en écriture. Le `close()` est **indispensable** : il vide le tampon et referme le fichier, sans quoi la dernière écriture peut être perdue. La relecture rouvre le fichier et renvoie son contenu au moniteur.
 
-Prendre capture d'écran de *le moniteur série affichant « Ecrit. » puis le contenu relu du fichier mesures.csv*.
+Au moniteur :
+
+```
+Ecrit.
+temps;valeur
+0;512
+```
+
+Les deux dernières lignes ne viennent pas d'un `println` du sketch : c'est le **contenu du fichier**, relu octet par octet et renvoyé par `Serial.write()`. La preuve que l'écriture a bien atteint la carte.
 
 ## Pièges
 

@@ -127,9 +127,18 @@ void loop() {
 
 **Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `TRIG` une impulsion **propre** de 10 µs — le `LOW` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `pulseIn(ECHO, HIGH, 30000UL)` met le programme **en attente** de l'impulsion sur `ECHO` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Un `0` signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
 
-Approchez et éloignez la main du capteur — la distance s'affiche au moniteur série.
+Approchez et éloignez la main du capteur — la distance s'affiche au moniteur série :
 
-Prendre capture d'écran de *le moniteur série de l'IDE Arduino 2.x affichant une suite de mesures de distance en cm pendant qu'une main bouge devant le capteur*.
+```
+23.45 cm
+18.22 cm
+12.07 cm
+7.65 cm
+Hors plage
+8.90 cm
+```
+
+Deux décimales, parce que `Serial.print()` en affiche deux par défaut sur un `float` — une précision que le capteur n'a pas. Et `Hors plage` apparaît dès que la main sort du cône de mesure : c'est le `0` renvoyé par `pulseIn()` au bout des 30 ms.
 
 ## Exemple — Détecteur de seuil avec LED d'alerte
 

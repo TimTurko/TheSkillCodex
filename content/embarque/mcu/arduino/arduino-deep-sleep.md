@@ -75,7 +75,15 @@ attachInterrupt(digitalPinToInterrupt(2), reveil, FALLING);
 LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
 ```
 
-Prendre capture ou photo de *un multimètre en série avec l'alimentation du montage, affichant la chute du courant de plusieurs milliampères à quelques microampères quand la carte s'endort*.
+Le gain se mesure au multimètre, en série avec l'alimentation du montage. Trois relevés suffisent à le cadrer :
+
+| État du montage | Courant relevé |
+|---|---|
+| Éveillé, mesure en cours | … |
+| AVR nu en `powerDown`, ADC et BOD coupés | … *(quelques µA attendus)* |
+| Carte Uno complète, microcontrôleur endormi | … *(plusieurs mA quoi qu'il arrive)* |
+
+L'écart entre les deux dernières lignes est tout le sujet : la veille ne rend ce qu'elle promet que sur un **AVR nu** ou une carte conçue basse consommation. Le calcul d'autonomie complet, du courant moyen à la durée de vie d'une pile, est déroulé sur [[deep-sleep|la notion]].
 
 ## Exemple — Capteur sur batterie réveillé périodiquement
 

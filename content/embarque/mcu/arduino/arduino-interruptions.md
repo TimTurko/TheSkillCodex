@@ -36,7 +36,14 @@ Quatre étapes : repérer une broche à interruption, écrire une ISR courte, l'
 
 Toutes les broches ne savent pas déclencher une interruption externe. Sur une **Uno / Nano**, seules **D2 et D3** le peuvent ; une **Mega** en offre six, une **Leonardo** cinq, un **ESP32** presque toutes. La fonction `digitalPinToInterrupt(broche)` traduit un numéro de broche en numéro d'interruption — on l'utilise toujours, plutôt que d'écrire le numéro d'interruption en dur, pour garder un code portable.
 
-Prendre capture d'écran de *le tableau des broches à interruption d'une carte Arduino Uno, mettant en évidence D2 et D3*.
+| Carte | Broches à interruption externe |
+|---|---|
+| **Uno, Nano, Mini** (ATmega328) | **D2**, **D3** |
+| Mega, Mega2560 | D2, D3, D18, D19, D20, D21 |
+| Leonardo, Micro | D0, D1, D2, D3, D7 |
+| ESP32 | presque toutes les GPIO |
+
+Deux pièges se lisent dans ce tableau. Sur une Mega, **D20 et D21 sont aussi les broches [[i2c|I2C]]** : elles ne sont plus disponibles en interruption dès qu'un bus I2C tourne. Et sur une Leonardo, **D0 et D1 sont le port série** — en pratique, il reste D2, D3 et D7.
 
 ### 2. Écrire l'ISR
 

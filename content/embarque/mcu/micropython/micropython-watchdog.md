@@ -55,8 +55,6 @@ Tant que la boucle tourne, le chien est nourri. Si une partie du code se bloque 
 
 Le délai doit être **plus long que le pire temps de boucle normal**, sinon le chien redémarre une carte qui fonctionnait. Mais pas inutilement long, sinon le système reste bloqué avant de se relancer. Sur le Pico, le plafond (~8,3 s) impose de nourrir le chien **au moins une fois par cycle** dans une boucle bien structurée.
 
-Prendre capture d'écran ou photo de *un multimètre ou le REPL montrant la carte qui redémarre seule après un blocage simulé (boucle qui ne nourrit plus le chien)*.
-
 ## Exemple — Fiabiliser un montage qui peut se bloquer
 
 Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre — figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
@@ -77,6 +75,20 @@ while True:
 ```
 
 En fonctionnement normal, la boucle nourrit le chien toutes les ~500 ms, bien sous les 8 s : rien ne se passe. Mais si la lecture se bloque, `feed()` n'est plus atteint, et au bout de 8 s la carte redémarre — réexécutant `main.py`, qui réaffiche « Demarrage ». Le système se **rétablit seul**. Le `sleep(0.5)` est ici inoffensif car bien inférieur au délai ; dans un programme [[micropython-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative (ou via `asyncio`).
+
+Le symptôme est visible au [[micropython-repl|REPL]] sans rien mesurer : les valeurs s'arrêtent, quelques secondes passent, et `Demarrage` réapparaît.
+
+```
+Demarrage
+34112
+33987
+34056
+34021
+Demarrage
+34098
+```
+
+Personne n'a touché à la carte entre les deux `Demarrage` — c'est le chien qui a rendu la main au système.
 
 ## Pièges
 

@@ -95,7 +95,18 @@ void loop() {
 
 Chaque `while` **vide la file** d'un côté avant de passer à l'autre, sans jamais bloquer : la boucle reste réactive dans les deux sens. Ouvrir le moniteur à 115200 (le débit du **PC**, indépendant des 9600 du module) : les trames du module défilent, et le texte tapé au clavier lui parvient.
 
-Prendre capture d'écran de *le moniteur série affichant les trames reçues du module sur UART2, avec le débit réglé sur 115200*.
+Au moniteur ouvert à 115200, avec un module qui répond aux commandes `AT` :
+
+```
+Pont serie : moniteur <-> module (UART2)
+AT
+OK
++DATA:23.4,48
++DATA:23.5,48
++DATA:23.5,47
+```
+
+Seule la première ligne vient du sketch. Les suivantes sont **relayées telles quelles** : `AT` est parti du clavier vers le module, tout le reste est ce que le module a répondu. Un module muet ne produit rien après la première ligne — c'est le symptôme à reconnaître.
 
 ## Pièges
 

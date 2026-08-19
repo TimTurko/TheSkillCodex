@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+<title id="t">Chaîne de commande en boucle ouverte</title>
+<desc id="d">La consigne traverse le correcteur, l'actionneur puis le procédé jusqu'à la grandeur obtenue. Une perturbation agit sur le procédé. Le chemin de retour qui ramènerait une mesure au comparateur est tracé en pointillés barrés : il n'existe pas, et l'écart entre la consigne et le résultat n'est donc jamais connu.</desc>
+<defs>
+<style>
+.lbl  { font: 400 12px system-ui, -apple-system, sans-serif; fill: #24292f; }
+.lbls { font: 400 10px system-ui, -apple-system, sans-serif; fill: #57606a; }
+.boite { fill: none; stroke: #BA7517; stroke-width: 2; }
+.axe { stroke: #57606a; stroke-width: 1.5; fill: none; }
+.absent { stroke: #57606a; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; opacity: 0.55; }
+.barre { stroke: #57606a; stroke-width: 2; fill: none; }
+.pointe { fill: #57606a; }
+.pointe-a { fill: #BA7517; }
+.fleche-p { stroke: #BA7517; stroke-width: 2; fill: none; }
+@media (prefers-color-scheme: dark) {
+  .lbl { fill: #d9dde1; }
+  .lbls { fill: #a6adb5; }
+  .boite { stroke: #E0A24A; }
+  .axe, .absent, .barre { stroke: #a6adb5; }
+  .pointe { fill: #a6adb5; }
+  .pointe-a { fill: #E0A24A; }
+  .fleche-p { stroke: #E0A24A; }
+}
+</style>
+<marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <path class="pointe" d="M 0 0 L 10 5 L 0 10 z"/>
+</marker>
+<marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <path class="pointe-a" d="M 0 0 L 10 5 L 0 10 z"/>
+</marker>
+</defs>
+
+<text class="lbls" x="18" y="82">consigne</text>
+<path class="axe" d="M 18 92 L 96 92" marker-end="url(#p)"/>
+
+<rect class="boite" x="102" y="72" width="104" height="40" rx="3"/>
+<text class="lbl" x="154" y="97" text-anchor="middle">Commande</text>
+<path class="axe" d="M 206 92 L 250 92" marker-end="url(#p)"/>
+
+<rect class="boite" x="256" y="72" width="104" height="40" rx="3"/>
+<text class="lbl" x="308" y="97" text-anchor="middle">Actionneur</text>
+<path class="axe" d="M 360 92 L 404 92" marker-end="url(#p)"/>
+
+<rect class="boite" x="410" y="72" width="104" height="40" rx="3"/>
+<text class="lbl" x="462" y="97" text-anchor="middle">Procédé</text>
+<path class="axe" d="M 514 92 L 566 92" marker-end="url(#p)"/>
+<text class="lbls" x="570" y="88">grandeur</text>
+<text class="lbls" x="570" y="100">obtenue</text>
+
+<text class="lbls" x="462" y="30" text-anchor="middle">perturbation</text>
+<path class="fleche-p" d="M 462 36 L 462 66" marker-end="url(#pa)"/>
+
+<path class="absent" d="M 540 122 L 540 165 L 154 165 L 154 122"/>
+<path class="barre" d="M 335 152 L 361 178"/>
+<path class="barre" d="M 361 152 L 335 178"/>
+<text class="lbls" x="375" y="196">aucune mesure ne revient : l'écart à la consigne n'est jamais connu</text>
+</svg>

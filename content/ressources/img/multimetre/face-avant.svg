@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Face avant d'un multimètre : écran, sélecteur rotatif et trois bornes</title>
+  <desc id="d1">Vue de face d'un multimètre numérique, en blocs fonctionnels. En haut, l'écran affiche une valeur et son unité, ici 5,02 volts en continu. Au centre, un sélecteur rotatif dont l'index pointe une position parmi six réparties autour du bouton : arrêt en haut, puis vers la droite tension continue V continu, tension alternative V alternatif et résistance oméga ; vers la gauche continuité, symbolisée par trois arcs de bip, et courant A. En bas, trois bornes alignées : COM à gauche, qui reçoit toujours le cordon noir ; V oméga au centre, pour la tension, la résistance et la continuité ; et 10 A à droite, réservée à la mesure de courant. La disposition des positions du sélecteur change d'un appareil à l'autre, mais le trio de bornes est constant.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .lbl  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 400 11.5px sans-serif; fill:#888780; }
+      .capc { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .cape { font:italic 400 11.5px sans-serif; text-anchor:end; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .wire { stroke:#888780; stroke-width:2; fill:none; }
+      .lead { stroke:#888780; stroke-width:1.4; fill:none; stroke-dasharray:4 3; }
+      .body { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .scr  { fill:none; stroke:#888780; stroke-width:1.8; }
+      .knob { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .ring { fill:none; stroke:#888780; stroke-width:1.6; stroke-dasharray:3 4; }
+      .idx  { stroke:#BA7517; stroke-width:4; stroke-linecap:round; }
+      .pos  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .val  { font:700 34px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .unit { font:700 16px sans-serif; text-anchor:start; fill:#BA7517; }
+      .born { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .blbl { font:700 12px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .capc{fill:#BBBBBB;} .cape{fill:#BBBBBB;}
+        .foot{fill:#EF9F27;} .wire{stroke:#BBBBBB;} .lead{stroke:#BBBBBB;}
+        .body{fill:#4A4A48;stroke:#EF9F27;} .scr{stroke:#BBBBBB;}
+        .knob{fill:#4A4A48;stroke:#EF9F27;} .ring{stroke:#BBBBBB;} .idx{stroke:#EF9F27;}
+        .pos{fill:#F1EFE8;} .val{fill:#F1EFE8;} .unit{fill:#EF9F27;}
+        .born{fill:#4A4A48;stroke:#EF9F27;} .blbl{fill:#F1EFE8;}
+      }
+    </style>
+  </defs>
+
+  <text x="380" y="28" class="ttl">Face avant d'un multimètre — la grammaire commune à tous les modèles</text>
+
+  <!-- corps de l'appareil -->
+  <rect x="230" y="56" width="300" height="404" rx="18" class="body"/>
+
+  <!-- écran -->
+  <rect x="256" y="80" width="248" height="72" rx="6" class="scr"/>
+  <text x="450" y="132" class="val">5.02</text>
+  <text x="458" y="132" class="unit">V⎓</text>
+
+  <!-- sélecteur -->
+  <circle cx="380" cy="270" r="92" class="ring"/>
+  <circle cx="380" cy="270" r="44" class="knob"/>
+  <line x1="380" y1="270" x2="411" y2="242" class="idx"/>
+
+  <text x="380" y="188" class="pos">OFF</text>
+  <text x="452" y="212" class="pos">V⎓</text>
+  <text x="474" y="278" class="pos">V∼</text>
+  <text x="446" y="342" class="pos">Ω</text>
+  <text x="314" y="342" class="pos">A</text>
+  <text x="288" y="278" class="pos">•)))</text>
+
+  <!-- bornes -->
+  <circle cx="288" cy="412" r="17" class="born"/>
+  <circle cx="380" cy="412" r="17" class="born"/>
+  <circle cx="472" cy="412" r="17" class="born"/>
+  <text x="288" y="446" class="blbl">COM</text>
+  <text x="380" y="446" class="blbl">V/Ω</text>
+  <text x="472" y="446" class="blbl">10 A</text>
+
+  <!-- annotations gauche -->
+  <line x1="150" y1="116" x2="252" y2="116" class="lead"/>
+  <text x="146" y="106" class="cape">Écran — la valeur</text>
+  <text x="146" y="121" class="cape">et son unité</text>
+
+  <line x1="150" y1="270" x2="284" y2="270" class="lead"/>
+  <text x="146" y="260" class="cape">Sélecteur — on choisit</text>
+  <text x="146" y="275" class="cape">la grandeur, et le calibre</text>
+  <text x="146" y="290" class="cape">sur un appareil manuel</text>
+
+  <!-- annotations droite -->
+  <line x1="508" y1="212" x2="600" y2="212" class="lead"/>
+  <text x="606" y="207" class="cap">Tension continue :</text>
+  <text x="606" y="222" class="cap">la position la plus utilisée</text>
+
+  <line x1="508" y1="330" x2="600" y2="330" class="lead"/>
+  <text x="606" y="325" class="cap">Continuité : le bip du</text>
+  <text x="606" y="340" class="cap">dépannage, hors tension</text>
+
+  <!-- annotations bornes -->
+  <line x1="288" y1="458" x2="288" y2="486" class="lead"/>
+  <line x1="380" y1="458" x2="380" y2="502" class="lead"/>
+  <line x1="472" y1="458" x2="472" y2="486" class="lead"/>
+  <text x="288" y="500" class="capc">le cordon noir,</text>
+  <text x="288" y="515" class="capc">toujours ici</text>
+  <text x="380" y="516" class="capc">tension, résistance,</text>
+  <text x="380" y="531" class="capc">continuité</text>
+  <text x="472" y="500" class="capc">courant —</text>
+  <text x="472" y="515" class="capc">et rien d'autre</text>
+
+  <text x="380" y="552" class="foot">Les positions changent d'un modèle à l'autre ; le trio de bornes, lui, ne change pas.</text>
+</svg>

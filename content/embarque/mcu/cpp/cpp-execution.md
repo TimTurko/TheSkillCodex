@@ -86,7 +86,15 @@ void loop() {
 }
 ```
 
-Prendre capture d'écran de *la sortie du moniteur série : la ligne « === Demarrage : setup() execute === » affichée une fois, puis le compteur « Tour de loop n 1, 2, 3… » qui s'incrémente*.
+La sortie ressemble à ceci :
+
+```
+=== Demarrage : setup() execute ===
+Tour de loop n 1
+Tour de loop n 2
+Tour de loop n 3
+Tour de loop n 4
+```
 
 Trois choses à remarquer en lisant la sortie :
 

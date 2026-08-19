@@ -25,7 +25,8 @@ Le **C++** est le langage dans lequel s'écrivent les programmes Arduino — un 
 4. [[cpp-portee|Variables locales et globales]] — la portée, et ce qui survit d'un tour de boucle au suivant ;
 5. [[cpp-conditions|Les conditions]] — `if` / `else`, `switch`, opérateurs de comparaison et logiques ;
 6. [[cpp-boucles|Les boucles]] — `for`, `while`, `do…while` : laquelle choisir ;
-7. [[cpp-logs|Lire et comprendre les erreurs]] — décoder les messages du compilateur pour se dépanner seul.
+7. [[cpp-logs|Lire et comprendre les erreurs]] — décoder les messages du compilateur pour se dépanner seul ;
+8. [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — entrer dans un code inconnu, et les mécanismes du langage qui reviennent d'un exemple à l'autre.
 
 Une fois ces briques acquises, l'enjeu devient *comment structurer* le code : voir [[arduino-programmation-non-bloquante|programmation non bloquante]], [[machine-a-etats|machines à états]] et la structuration d'ensemble du [[firmware|firmware]]. Et pour le parcours **MicroPython**, le même apprentissage du langage existe en jumeau : [[micropython-langage]].
 

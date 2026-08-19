@@ -89,7 +89,15 @@ machine.lightsleep()            # dort jusqu'a l'appui
 
 Avant un `deepsleep`, comme la puce redémarrera, **sauvegarder ce qui doit survivre** : un compteur de cycles, la dernière mesure, l'état d'une machine — dans un **fichier** sur la flash (voir [[micropython-stockage|stockage persistant]]), relu au démarrage. Avec `lightsleep`, rien à sauvegarder (l'exécution reprend).
 
-Prendre capture d'écran ou photo de *un multimètre en série avec l'alimentation du montage, affichant la chute du courant quand la carte s'endort*.
+La consommation se mesure au multimètre, en série avec l'alimentation du montage :
+
+| État du montage | Courant relevé |
+|---|---|
+| Éveillé, mesure en cours | … |
+| `lightsleep()` | … |
+| `deepsleep()` | … |
+
+N'attendez **pas** de chute en microampères sur la dernière ligne : sur RP2040, `deepsleep` est en pratique un `lightsleep`, et les deux se relèvent du même ordre de grandeur (voir les *Pièges*). C'est précisément ce que la mesure doit établir — et s'y ajoute la consommation permanente du régulateur et de l'USB de la carte, qui ne dort jamais.
 
 ## Exemple — Capteur sur batterie réveillé périodiquement
 

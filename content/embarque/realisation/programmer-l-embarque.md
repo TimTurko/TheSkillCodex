@@ -46,7 +46,7 @@ Avant la moindre ligne de code, décris **comment le système se comporte**, ind
 
 ### 2. Choisir le langage et structurer le firmware
 
-Le langage dépend de la famille de la carte : **[[cpp|C++]]** dans l'écosystème Arduino (le plus répandu sur microcontrôleur), **[[micropython-langage|MicroPython]]** sur les cartes qui le supportent, ou l'**environnement constructeur** de ta famille (STM32Cube pour [[stm32|STM32]], par exemple) quand elle l'impose. Une fois le langage choisi, structure le programme dès le départ : une partie **initialisation** (configuration des broches, des périphériques), une **boucle principale** qui exécute la machine à états, et des **modules** séparés pour les fonctions distinctes. C'est l'objet du [[firmware|firmware]] : organiser le programme embarqué pour qu'il reste lisible et évolutif. Dès ce stade, bannis les attentes bloquantes : la [[arduino-programmation-non-bloquante|programmation non bloquante]] est ce qui permet à la boucle de tout faire « en même temps ».
+Le langage dépend de la famille de la carte : **[[cpp|C++]]** dans l'écosystème Arduino (le plus répandu sur microcontrôleur), **[[micropython-langage|MicroPython]]** sur les cartes qui le supportent, ou l'**environnement constructeur** de ta famille (STM32Cube pour [[stm32|STM32]], par exemple) quand elle l'impose. Une fois le langage choisi, structure le programme dès le départ : une partie **initialisation** (configuration des broches, des périphériques), une **boucle principale** qui exécute la machine à états, et des **modules** séparés pour les fonctions distinctes. C'est l'objet du [[firmware|firmware]] : organiser le programme embarqué pour qu'il reste lisible et évolutif. Dès ce stade, bannis les attentes bloquantes : la [[programmation-non-bloquante|programmation non bloquante]] est ce qui permet à la boucle de tout faire « en même temps ».
 
 > [!tip] Astuce
 > **Structure le firmware avant de le remplir.** Poser d'emblée la séparation initialisation / boucle / modules coûte quelques minutes et évite le monolithe où tout se répond. Un firmware structuré se débogue et s'étend ; un firmware monolithique se réécrit.
@@ -134,4 +134,5 @@ Ton firmware est fonctionnel et documenté : l'algorithme est posé, le code str
 - [[cpp|C++]] ou [[micropython-langage|MicroPython]]
 - [[gpio|GPIO]], [[adc|convertisseur analogique-numérique]], [[pwm|sortie PWM]], [[manipulation-de-bits|manipulation de bits]]
 - [[firmware|Firmware]]
+- [[programmation-non-bloquante|Programmation non bloquante]]
 - [[dossier-technique|Dossier technique]] *(pilotage, cycle en V)*

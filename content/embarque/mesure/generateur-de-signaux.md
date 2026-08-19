@@ -18,7 +18,7 @@ draft: false
 
 **Le générateur de signaux** — souvent appelé **GBF**, générateur basse fréquence — est l'instrument *inverse* de la mesure : au lieu de relever ce que fait le circuit, il lui **injecte un signal calibré** (sinus, carré, triangle) dont on choisit la forme, la fréquence et l'amplitude. Il permet de tester un montage avec une entrée parfaitement connue, sans attendre que le vrai signal — capteur, microcontrôleur — soit disponible. Fiche tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
 
-*Prendre photo de la face avant d'un GBF du labo, avec ses éléments annotés : choix de la forme d'onde, réglages fréquence / amplitude / offset, et la sortie BNC.*
+![Face avant d'un générateur de signaux en blocs fonctionnels : l'afficheur qui récapitule forme, fréquence, amplitude et offset ; le bloc de choix de forme d'onde (sinus, carré, triangle) ; le bloc de sortie avec son connecteur BNC, la touche Output et le rappel du réglage de charge High-Z ou 50 Ω ; et les trois boutons fréquence, amplitude, offset.|640](/ressources/img/generateur-de-signaux/face-avant.svg)
 
 ## À quoi ça sert ?
 

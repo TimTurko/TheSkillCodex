@@ -74,7 +74,9 @@ Avec un seul module, tout va bien. Mais en brancher plusieurs sur le même bus r
 
 Un module qui « semble mort » a souvent juste un jumper mal placé : à inspecter avant de le croire défectueux.
 
-Prendre une photo de *un module I2C (typiquement BMP280 ou MPU6050) en gros plan, sérigraphie des broches (VCC/GND/SDA/SCL) bien lisible — l'objectif est d'apprendre à identifier les broches sur un vrai module*.
+![Deux modules I²C côte à côte : celui de gauche porte GND, VCC, SCL, SDA ; celui de droite VCC, GND, SCL, SDA. Mêmes quatre fonctions, deux premières broches inversées — il n'existe pas d'ordre normalisé. Le module de droite porte en plus un cavalier de sélection d'adresse.|600](/ressources/img/arduino-module/serigraphies-i2c.svg)
+
+**Il n'y a pas d'ordre de broches normalisé sur les modules I2C** — deux exemplaires de la même référence, achetés à six mois d'écart, peuvent avoir VCC et GND inversés. Recopier le câblage d'un tutoriel sans relire la sérigraphie du module qu'on a en main, c'est appliquer le 5 V sur la masse : le module ne s'en remet pas.
 
 ## Exemple — Câbler un module DHT11 (température + humidité)
 

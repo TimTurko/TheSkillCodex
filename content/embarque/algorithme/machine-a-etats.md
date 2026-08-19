@@ -89,3 +89,4 @@ Deux conventions coexistent selon **où** l'on attache les actions. Dans une mac
 - [[logigramme|Logigramme]] — l'alternative pour un enchaînement de décisions ponctuel, sans notion de mode
 - [[grafcet|Grafcet]] — la représentation à privilégier quand des séquences avancent en parallèle
 - [[preuve-de-concept|Preuve de concept]] — où la machine à états conçue est implémentée et testée
+- [[programmation-non-bloquante|Programmation non bloquante]] — l'architecture qui appelle ces machines à chaque tour sans jamais bloquer

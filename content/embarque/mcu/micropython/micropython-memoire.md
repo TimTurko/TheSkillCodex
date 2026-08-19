@@ -70,7 +70,18 @@ TAILLE_TAMPON = const(64)        # constante entiere, compilee efficacement
 
 Là où Arduino garde des textes en flash avec `F()`/`PROGMEM`, MicroPython **gèle des modules** dans le firmware (*frozen bytecode*, ou fichiers `.mpy`) : le code s'exécute alors depuis la flash sans être chargé en RAM, ce qui **économise beaucoup de RAM** pour les gros modules/bibliothèques (voir [[micropython-bibliotheques|bibliothèques]]). C'est le levier principal quand l'interpréteur + les bibliothèques saturent la mémoire.
 
-Prendre capture d'écran de *le REPL affichant `gc.mem_free()` avant et après `gc.collect()`, montrant la mémoire récupérée*.
+Au [[micropython-repl|REPL]], l'effet d'une collecte se voit directement :
+
+```
+>>> import gc
+>>> gc.mem_free()
+XXXXX
+>>> gc.collect()
+>>> gc.mem_free()
+XXXXX
+```
+
+La seconde valeur est **plus grande** que la première : ce sont les objets devenus inaccessibles qui viennent d'être rendus. L'écart entre les deux mesure ce que le programme laissait traîner — à relever sur votre carte, il dépend du firmware et des modules importés.
 
 ## Exemple — Diagnostiquer une `MemoryError` par accumulation
 

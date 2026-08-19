@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" role="img" aria-labelledby="t7 d7">
+  <title id="t7">Les deux façons d'alimenter un Raspberry Pi Pico</title>
+  <desc id="d7">Deux entrées d'alimentation possibles convergent vers un Raspberry Pi Pico. En haut, le câble USB apporte du 5 volts sur la broche VBUS ; ce 5 volts traverse une diode interne à la carte avant d'atteindre VSYS, qui se retrouve donc autour de 4,7 volts. En bas, une source externe — une cellule LiPo de 3,0 à 4,2 volts, ou un pack de deux à trois piles AA — se raccorde directement sur VSYS et GND, la plage admise allant de 1,8 à 5,5 volts. Si l'USB est susceptible d'être branché en même temps que la source externe, on intercale une diode Schottky sur la branche externe : la source la plus haute l'emporte alors sans conflit entre les deux. Les deux chemins aboutissent sur VSYS, qui alimente le régulateur de la carte, lequel fabrique le 3,3 volts distribué au microcontrôleur et sorti sur la broche 3V3 OUT. Cette sortie ne fournit que quelques centaines de milliampères, partagés avec le Pico lui-même : une charge importante, un servomoteur par exemple, s'alimente séparément.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .lbl  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .capl { font:italic 400 11px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .wire { stroke:#888780; stroke-width:2.2; fill:none; }
+      .rail { stroke:#BA7517; stroke-width:2.8; fill:none; }
+      .comp { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .board{ fill:none; stroke:#BA7517; stroke-width:2.6; }
+      .blk  { fill:#DDDBD3; stroke:#888780; stroke-width:1.8; }
+      .clbl { font:700 12.5px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .pin  { font:700 11.5px sans-serif; fill:#BA7517; }
+      .note { font:italic 400 11px sans-serif; fill:#888780; }
+      .dio  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2; }
+      .node { fill:#BA7517; }
+      .diob { stroke:#BA7517; stroke-width:2.4; }
+      .arwh { fill:#888780; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .capl{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .wire{stroke:#BBBBBB;} .rail{stroke:#EF9F27;} .comp{fill:#4A4A48;stroke:#EF9F27;}
+        .board{stroke:#EF9F27;} .blk{fill:#4A4A48;stroke:#BBBBBB;} .clbl{fill:#F1EFE8;}
+        .pin{fill:#EF9F27;} .note{fill:#BBBBBB;} .dio{fill:#4A4A48;stroke:#EF9F27;} .node{fill:#EF9F27;}
+        .diob{stroke:#EF9F27;} .arwh{fill:#BBBBBB;}
+      }
+    </style>
+  </defs>
+
+  <text x="440" y="28" class="ttl">Deux entrées, un seul nœud — tout se rejoint sur VSYS</text>
+
+  <!-- sources -->
+  <rect x="46" y="112" width="180" height="58" rx="6" class="comp"/>
+  <text x="136" y="136" class="clbl">USB — 5 V</text>
+  <text x="136" y="156" class="capl">arrive sur VBUS</text>
+
+  <rect x="46" y="238" width="180" height="58" rx="6" class="comp"/>
+  <text x="136" y="262" class="clbl">Batterie — 1,8 à 5,5 V</text>
+  <text x="136" y="282" class="capl">LiPo 1 cellule, ou 2-3 piles AA</text>
+
+  <line x1="226" y1="141" x2="326" y2="141" class="wire"/>
+  <polygon points="340,141 326,135 326,147" class="arwh"/>
+  <line x1="226" y1="267" x2="270" y2="267" class="wire"/>
+
+  <!-- diode Schottky optionnelle sur la branche externe -->
+  <polygon points="272,258 292,267 272,276" class="dio"/>
+  <line x1="292" y1="258" x2="292" y2="276" class="diob"/>
+  <line x1="292" y1="267" x2="326" y2="267" class="wire"/>
+  <polygon points="340,267 326,261 326,273" class="arwh"/>
+  <text x="282" y="304" class="note" text-anchor="middle">Schottky —</text>
+  <text x="282" y="319" class="note" text-anchor="middle">si l'USB peut être</text>
+  <text x="282" y="334" class="note" text-anchor="middle">branché en même temps</text>
+
+  <!-- carte -->
+  <rect x="346" y="90" width="280" height="230" rx="12" class="board"/>
+  <text x="486" y="116" class="lbl">Raspberry Pi Pico</text>
+
+  <text x="352" y="136" class="pin">VBUS</text>
+  <text x="352" y="262" class="pin">VSYS</text>
+
+  <!-- diode interne VBUS -> VSYS -->
+  <path d="M400 141 H424" class="rail"/>
+  <polygon points="426,132 446,141 426,150" class="dio"/>
+  <line x1="446" y1="132" x2="446" y2="150" class="diob"/>
+  <path d="M446 141 H470 V267" class="rail"/>
+  <text x="404" y="176" class="note">diode interne : VSYS ≈ 4,7 V</text>
+
+  <path d="M400 267 H470" class="rail"/>
+  <circle cx="470" cy="267" r="4" class="node"/>
+
+  <!-- régulateur -->
+  <rect x="490" y="216" width="120" height="52" rx="4" class="blk"/>
+  <text x="550" y="240" class="clbl">régulateur</text>
+  <text x="550" y="256" class="clbl">3,3 V</text>
+  <path d="M470 267 H490" class="rail"/>
+  <path d="M610 242 H700" class="rail"/>
+
+  <text x="708" y="238" class="note">3V3(OUT) — et le</text>
+  <text x="708" y="254" class="note">microcontrôleur</text>
+
+  <text x="440" y="374" class="cap">Le jumeau Arduino a trois entrées et un rail 5 V ; le Pico en a deux et un nœud VSYS.</text>
+  <text x="440" y="400" class="foot">3V3(OUT) ne fournit que quelques centaines de mA, partagés avec le Pico lui-même.</text>
+  <text x="440" y="418" class="cap">Une charge qui tire fort — servo, moteur, bandeau LED — s'alimente à part, masse commune.</text>
+</svg>

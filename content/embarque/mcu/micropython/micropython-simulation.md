@@ -49,8 +49,6 @@ Dans l'éditeur de code, écrivez votre programme MicroPython exactement comme s
 
 Cliquez sur **▶ (Play)**. Wokwi charge le firmware MicroPython simulé et exécute le `main.py`. Les LEDs s'allument, les afficheurs affichent. Une **console série** (panneau en bas) montre les `print()` et donne accès au REPL, comme sur le matériel. Le bouton **■ (Stop)** arrête ; on modifie à chaud puis on relance.
 
-Prendre capture d'écran de *une simulation Wokwi en cours, LED allumée et console série affichant un print*.
-
 ## Exemple — Bouton + LED simulés
 
 Le Blink, mais déclenché par un bouton — pour montrer une entrée numérique en plus d'une sortie.

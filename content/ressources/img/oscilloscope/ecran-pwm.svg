@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" role="img" aria-labelledby="t4 d4">
+  <title id="t4">Écran d'oscilloscope : un signal PWM, sa période et son rapport cyclique</title>
+  <desc id="d4">Écran d'oscilloscope quadrillé de dix divisions en largeur et huit en hauteur, réglé sur 1 volt par division en vertical et 0,5 milliseconde par division en horizontal. On y lit un signal carré qui alterne entre 0 volt et 5 volts, soit cinq divisions d'amplitude. Un repère horizontal placé entre deux fronts montants successifs mesure la période : elle vaut environ quatre divisions, soit 2,04 millisecondes, ce qui correspond à une fréquence d'environ 490 hertz. Un second repère, plus court, couvre la partie haute d'une période et indique un rapport cyclique de 50 pour cent : le signal passe autant de temps à 5 volts qu'à 0 volt. C'est ce que produit un analogWrite avec la valeur 128, la moitié de 255, sur une broche PWM d'une carte Uno.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .scr  { fill:none; stroke:#888780; stroke-width:1.8; }
+      .grid { stroke:#888780; stroke-width:.7; opacity:.55; }
+      .axis { stroke:#888780; stroke-width:1.6; stroke-dasharray:5 4; }
+      .trace{ fill:none; stroke:#BA7517; stroke-width:2.8; stroke-linejoin:round; }
+      .mark { stroke:#BA7517; stroke-width:1.8; fill:none; }
+      .mlbl { font:700 12.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .vlbl { font:700 12px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .rd   { font:700 12px sans-serif; text-anchor:start; fill:#2C2C2A; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .scr{stroke:#BBBBBB;} .grid{stroke:#BBBBBB;} .axis{stroke:#BBBBBB;}
+        .trace{stroke:#EF9F27;} .mark{stroke:#EF9F27;} .mlbl{fill:#EF9F27;}
+        .vlbl{fill:#F1EFE8;} .rd{fill:#F1EFE8;}
+      }
+    </style>
+  </defs>
+
+  <text x="320" y="28" class="ttl">Un signal PWM à l'écran — la période se lit, le rapport cyclique se compte</text>
+
+  <!-- écran : 10 x 8 divisions de 48 x 45 px -->
+  <rect x="90" y="56" width="480" height="360" rx="6" class="scr"/>
+  <g class="grid">
+    <line x1="138" y1="56" x2="138" y2="416"/><line x1="186" y1="56" x2="186" y2="416"/>
+    <line x1="234" y1="56" x2="234" y2="416"/><line x1="282" y1="56" x2="282" y2="416"/>
+    <line x1="330" y1="56" x2="330" y2="416"/><line x1="378" y1="56" x2="378" y2="416"/>
+    <line x1="426" y1="56" x2="426" y2="416"/><line x1="474" y1="56" x2="474" y2="416"/>
+    <line x1="522" y1="56" x2="522" y2="416"/>
+    <line x1="90" y1="101" x2="570" y2="101"/><line x1="90" y1="146" x2="570" y2="146"/>
+    <line x1="90" y1="191" x2="570" y2="191"/><line x1="90" y1="236" x2="570" y2="236"/>
+    <line x1="90" y1="281" x2="570" y2="281"/><line x1="90" y1="326" x2="570" y2="326"/>
+    <line x1="90" y1="371" x2="570" y2="371"/>
+  </g>
+
+  <!-- niveaux 0 V et 5 V -->
+  <line x1="90" y1="326" x2="570" y2="326" class="axis"/>
+  <line x1="90" y1="101" x2="570" y2="101" class="axis"/>
+  <text x="84" y="106" class="vlbl">5 V</text>
+  <text x="84" y="331" class="vlbl">0 V</text>
+
+  <!-- créneau : période 196 px = 4,08 divisions -->
+  <path d="M90 326 H114 V101 H212 V326 H310 V101 H408 V326 H506 V101 H570" class="trace"/>
+
+  <!-- repère de période, entre deux fronts montants -->
+  <line x1="114" y1="76" x2="310" y2="76" class="mark"/>
+  <line x1="114" y1="68" x2="114" y2="84" class="mark"/>
+  <line x1="310" y1="68" x2="310" y2="84" class="mark"/>
+  <text x="212" y="94" class="mlbl">T ≈ 4 div = 2,04 ms</text>
+
+  <!-- repère de rapport cyclique, sur la partie haute -->
+  <line x1="114" y1="134" x2="212" y2="134" class="mark"/>
+  <line x1="114" y1="126" x2="114" y2="142" class="mark"/>
+  <line x1="212" y1="126" x2="212" y2="142" class="mark"/>
+  <text x="163" y="160" class="mlbl">50 %</text>
+
+  <!-- réglages lus sur l'écran -->
+  <text x="96" y="404" class="rd">1 V/div</text>
+  <text x="496" y="404" class="rd">0,5 ms/div</text>
+
+  <text x="320" y="444" class="cap">Le haut occupe la moitié de la période : c'est ce que produit analogWrite(broche, 128).</text>
+  <text x="320" y="472" class="foot">f = 1 / T ≈ 490 Hz — la fréquence PWM par défaut de la plupart des broches d'un Uno.</text>
+  <text x="320" y="490" class="cap">Le multimètre, lui, n'aurait affiché qu'une tension moyenne de 2,5 V.</text>
+</svg>

@@ -69,7 +69,15 @@ Serial.print(F("RAM libre : "));
 Serial.println(freeMemory());
 ```
 
-Prendre capture d'écran de *le moniteur série affichant la RAM libre en octets, et sa diminution au fil des allocations*.
+Le moniteur affiche alors la marge restante, en octets. On relève trois fois — au démarrage, après les premières allocations, puis en régime établi :
+
+```
+RAM libre : XXXX
+RAM libre : XXXX
+RAM libre : XXXX
+```
+
+Ce qui compte n'est pas le chiffre mais sa **tendance** : une marge qui se stabilise est saine, une marge qui décroît tour après tour signale une fuite. Les valeurs sont à relever sur votre montage — elles dépendent du sketch et des bibliothèques chargées.
 
 ## Exemple — Diagnostiquer un plantage par saturation
 

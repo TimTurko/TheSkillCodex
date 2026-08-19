@@ -103,7 +103,17 @@ void loop() {
 
 `endTransmission()` renvoie `0` quand un esclave répond à l'adresse essayée : c'est l'accusé de réception (ACK) du protocole. On balaie de `1` à `126` (les adresses 7 bits), on affiche celles qui répondent en hexadécimal. Un SSD1306 apparaît en `0x3C`, un BME280 en `0x76`…
 
-Prendre capture d'écran de *le moniteur série listant une ou plusieurs adresses I2C trouvées, par exemple « module a l'adresse 0x3C »*.
+Avec un afficheur SSD1306 et un capteur BME280 sur le bus, le moniteur affiche :
+
+```
+Scan du bus I2C...
+  module a l'adresse 0x3C
+  module a l'adresse 0x76
+  module a l'adresse 0x3C
+  module a l'adresse 0x76
+```
+
+La liste se répète toutes les 3 secondes : débrancher un module en cours de scan le fait disparaître du balayage suivant.
 
 ## Pièges
 

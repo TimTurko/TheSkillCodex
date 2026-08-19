@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="t5 d5">
+  <title id="t5">Face avant d'un générateur de signaux : forme d'onde, réglages et sortie</title>
+  <desc id="d5">Vue de face d'un générateur basse fréquence, en blocs fonctionnels. En haut à gauche, l'afficheur récapitule le signal réglé : forme carrée, fréquence 1,000 kilohertz, amplitude 3,30 volts crête-à-crête, décalage continu de plus 1,65 volt. Sous l'afficheur, un bloc de choix de forme d'onde propose trois touches — sinus, carré et triangle — la touche carré étant sélectionnée. À droite en haut, le bloc de sortie réunit le connecteur BNC, la touche d'activation de la sortie, et le rappel que la charge de sortie se règle dans les menus sur haute impédance ou sur cinquante ohms. À droite en bas, le bloc des réglages aligne trois boutons : fréquence, amplitude et offset. L'amplitude affichée par l'appareil suppose une charge de cinquante ohms ; branché sur un montage électronique ordinaire, à haute impédance, le signal réellement délivré vaut le double. Il faut donc régler la sortie sur haute impédance et vérifier l'amplitude réelle à l'oscilloscope avant toute injection.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .body { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .scr  { fill:none; stroke:#888780; stroke-width:1.8; }
+      .blk  { fill:none; stroke:#888780; stroke-width:1.6; }
+      .blbl { font:700 12.5px sans-serif; fill:#BA7517; letter-spacing:.4px; }
+      .knob { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .sel  { fill:#DDDBD3; stroke:#BA7517; stroke-width:3.2; }
+      .idx  { stroke:#BA7517; stroke-width:3; stroke-linecap:round; }
+      .klbl { font:700 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .note { font:italic 400 11px sans-serif; fill:#888780; }
+      .rd   { font:700 13px sans-serif; fill:#2C2C2A; }
+      .rde  { font:700 13px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .big  { font:700 22px sans-serif; text-anchor:end; fill:#2C2C2A; }
+      .wf   { fill:none; stroke:#BA7517; stroke-width:2.4; stroke-linejoin:round; }
+      .bnc  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .body{fill:#4A4A48;stroke:#EF9F27;} .scr{stroke:#BBBBBB;} .blk{stroke:#BBBBBB;}
+        .blbl{fill:#EF9F27;} .knob{fill:#4A4A48;stroke:#EF9F27;} .sel{fill:#4A4A48;stroke:#EF9F27;}
+        .idx{stroke:#EF9F27;} .klbl{fill:#F1EFE8;} .note{fill:#BBBBBB;}
+        .rd{fill:#F1EFE8;} .rde{fill:#F1EFE8;} .big{fill:#F1EFE8;} .wf{stroke:#EF9F27;}
+        .bnc{fill:#4A4A48;stroke:#EF9F27;}
+      }
+    </style>
+  </defs>
+
+  <text x="400" y="28" class="ttl">Face avant d'un générateur de signaux — quatre réglages, et un piège de sortie</text>
+
+  <rect x="40" y="48" width="720" height="340" rx="16" class="body"/>
+
+  <!-- afficheur -->
+  <rect x="64" y="72" width="320" height="96" rx="6" class="scr"/>
+  <text x="80" y="104" class="rd">CARRÉ</text>
+  <text x="368" y="106" class="big">1,000 kHz</text>
+  <text x="80" y="146" class="rd">3,30 Vpp</text>
+  <text x="368" y="146" class="rde">offset +1,65 V</text>
+
+  <!-- bloc forme d'onde -->
+  <rect x="64" y="196" width="320" height="140" rx="8" class="blk"/>
+  <text x="78" y="218" class="blbl">FORME D'ONDE</text>
+  <rect x="76" y="236" width="88" height="56" rx="6" class="knob"/>
+  <path d="M88 264 C99 242, 109 242, 120 264 S141 286, 152 264" class="wf"/>
+  <rect x="180" y="236" width="88" height="56" rx="6" class="sel"/>
+  <path d="M190 280 V248 H212 V280 H234 V248 H258" class="wf"/>
+  <rect x="284" y="236" width="88" height="56" rx="6" class="knob"/>
+  <path d="M294 280 L310 248 L326 280 L342 248 L358 280" class="wf"/>
+  <text x="120" y="314" class="klbl">sinus</text>
+  <text x="224" y="314" class="klbl">carré</text>
+  <text x="328" y="314" class="klbl">triangle</text>
+
+  <!-- bloc sortie -->
+  <rect x="412" y="72" width="328" height="96" rx="8" class="blk"/>
+  <text x="426" y="94" class="blbl">SORTIE</text>
+  <circle cx="470" cy="126" r="20" class="bnc"/>
+  <circle cx="470" cy="126" r="6" class="bnc"/>
+  <text x="470" y="160" class="klbl">BNC</text>
+  <rect x="518" y="108" width="86" height="36" rx="6" class="knob"/>
+  <text x="561" y="131" class="klbl">Output</text>
+  <text x="561" y="160" class="klbl">on / off</text>
+  <text x="622" y="118" class="note">charge de sortie,</text>
+  <text x="622" y="133" class="note">dans les menus :</text>
+  <text x="622" y="148" class="note">High-Z ou 50 Ω</text>
+
+  <!-- bloc réglages -->
+  <rect x="412" y="196" width="328" height="140" rx="8" class="blk"/>
+  <text x="426" y="218" class="blbl">RÉGLAGES</text>
+  <circle cx="480" cy="264" r="26" class="knob"/><line x1="480" y1="264" x2="480" y2="243" class="idx"/>
+  <circle cx="576" cy="264" r="26" class="knob"/><line x1="576" y1="264" x2="592" y2="248" class="idx"/>
+  <circle cx="672" cy="264" r="26" class="knob"/><line x1="672" y1="264" x2="656" y2="278" class="idx"/>
+  <text x="480" y="314" class="klbl">Fréquence</text>
+  <text x="576" y="314" class="klbl">Amplitude</text>
+  <text x="672" y="314" class="klbl">Offset</text>
+
+  <text x="400" y="416" class="cap">L'offset n'est pas décoratif : sans lui, un carré de 3,30 Vpp descend à −1,65 V à chaque période.</text>
+  <text x="400" y="442" class="foot">L'amplitude affichée suppose 50 Ω. Sur un montage à haute impédance, le signal réel vaut le double.</text>
+  <text x="400" y="460" class="cap">Régler la sortie sur High-Z, et vérifier l'amplitude à l'oscilloscope avant d'injecter.</text>
+</svg>

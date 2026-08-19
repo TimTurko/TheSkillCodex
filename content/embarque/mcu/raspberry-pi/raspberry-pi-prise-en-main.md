@@ -63,7 +63,11 @@ ssh monutilisateur@monpi.local
 
 Le suffixe `.local` fonctionne grâce à la résolution de noms locale (mDNS) ; si elle échoue sur votre réseau, utilisez directement l'adresse IP du Pi (visible sur le tableau de bord de votre box, ou via un scan réseau). À la première connexion, SSH demande de confirmer l'empreinte de la machine (`yes`), puis le mot de passe défini dans Imager.
 
-Prendre capture d'écran de *un terminal affichant la connexion SSH réussie, avec l'invite de commande du Pi (par exemple `monutilisateur@monpi:~ $`)*.
+Une fois la connexion acceptée :
+
+```
+monutilisateur@monpi:~ $
+```
 
 L'invite change : vous êtes **dans** le Pi. Tout ce que vous tapez s'exécute sur la carte, à distance.
 

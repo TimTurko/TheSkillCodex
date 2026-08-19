@@ -111,7 +111,16 @@ void loop() {}
 
 Au [[esp32-serie|moniteur série]], on voit une ligne apparaître toutes les 30 secondes, le numéro de cycle s'incrémentant. Entre deux, la carte est en deep sleep : sur un **module nu** (sans la carte de développement), la consommation y est de l'ordre du microampère.
 
-Prendre capture d'écran de *le moniteur série montrant les lignes « Cycle N — mesure = XXX » espacées de 30 secondes, le numéro de cycle croissant après plusieurs réveils*.
+Chaque réveil étant un redémarrage, chaque ligne est précédée du journal de démarrage de la puce, omis ici :
+
+```
+Cycle 1 — mesure = 2043
+Cycle 2 — mesure = 2051
+Cycle 3 — mesure = 1998
+Cycle 4 — mesure = 2012
+```
+
+Le numéro **ne repart pas de 1** : c'est toute la démonstration de `RTC_DATA_ATTR`. Sans lui, les quatre lignes afficheraient `Cycle 1`.
 
 ## Réveil par un événement externe
 

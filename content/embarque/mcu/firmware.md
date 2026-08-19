@@ -27,7 +27,7 @@ Il existe une **progression** d'architectures, de la plus simple à la plus exig
 ![Escalier des cinq architectures de firmware, classées par complexité croissante : super-loop, boucle coopérative non bloquante, machines à états, découpage en modules, RTOS temps réel.](/ressources/img/firmware/architectures.svg)
 
 1. **La super-loop.** `setup()` règle, `loop()` répète : tout le programme dans la boucle. Suffisant pour un montage qui fait *une* chose. C'est le point de départ ([[cpp|langage C++]]).
-2. **La boucle coopérative non bloquante.** Dès que le système fait *plus d'une chose*, chaque activité devient une tâche brève appelée à chaque tour, sans jamais bloquer. C'est l'architecture par défaut de presque tout firmware réel ([[arduino-programmation-non-bloquante|programmation non bloquante]]).
+2. **La boucle coopérative non bloquante.** Dès que le système fait *plus d'une chose*, chaque activité devient une tâche brève appelée à chaque tour, sans jamais bloquer. C'est l'architecture par défaut de presque tout firmware réel ([[programmation-non-bloquante|programmation non bloquante]]).
 3. **Les machines à états.** Pour un comportement à **modes** (attente → en cours → terminé), on modélise chaque tâche comme une [[machine-a-etats|machine à états]] : c'est lisible et ça évite les cascades de drapeaux.
 4. **Le découpage en modules.** On sépare le code par **responsabilité** — acquisition capteurs, commande, communication — en [[fonction-informatique|fonctions]] et fichiers nommés. Chaque module se teste et se relit isolément.
 5. **Le système temps réel (RTOS).** Quand certaines tâches ont des **échéances strictes** à tenir quoi qu'il arrive, un RTOS (comme [[esp32-freertos|FreeRTOS]]) **préempte** pour garantir les priorités. Puissant mais lourd : à réserver aux cas qui l'exigent, surtout côté [[esp32|ESP32]].
@@ -60,7 +60,7 @@ La leçon transverse : **les concepts d'architecture ne dépendent pas de la car
 ## Voir aussi
 
 - [[cpp|Le langage C++]] — écrire le code ; le firmware, c'est l'organiser
-- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — la boucle coopérative, architecture par défaut
+- [[programmation-non-bloquante|Programmation non bloquante]] — la boucle coopérative, architecture par défaut
 - [[machine-a-etats|Machine à états]] — structurer un comportement à modes
 - [[fonction-informatique|Fonction]] — l'unité de découpage en modules
 - [[esp32|ESP32]] — Arduino-core vs ESP-IDF, et l'horizon FreeRTOS

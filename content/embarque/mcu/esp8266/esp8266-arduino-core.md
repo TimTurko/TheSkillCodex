@@ -85,7 +85,14 @@ void loop() {
 
 Au moniteur série, on voit la connexion progresser, puis l'adresse IP attribuée à la carte. À partir de là, le code est **identique** à celui d'un ESP32 : l'API `ESP8266WiFi` reflète celle de l'ESP32. Pour les concepts (mode station vs point d'accès, reconnexion, client/serveur), voir [[esp32-wifi|le Wi-Fi de l'ESP32]].
 
-Prendre capture d'écran de *le moniteur série affichant la progression de connexion puis l'adresse IP de la carte*.
+La sortie du moniteur raconte la connexion :
+
+```
+Connexion.....
+Connecte. IP : 192.168.X.X
+```
+
+Chaque point est un tour de la boucle d'attente, donc une demi-seconde : leur nombre mesure le temps qu'a pris l'association au réseau. L'adresse, elle, est **attribuée par la box** — celle de votre carte sera différente, et c'est elle qu'il faudra taper dans le navigateur pour joindre la carte.
 
 ## Pièges
 

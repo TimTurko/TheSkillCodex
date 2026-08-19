@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Face avant d'un oscilloscope : écran quadrillé et les trois blocs de réglage</title>
+  <desc id="d3">Vue de face d'un oscilloscope de paillasse, en blocs fonctionnels. À gauche occupe la plus grande place l'écran quadrillé, huit divisions en hauteur et dix en largeur, sur lequel est tracé un signal carré. Sous l'écran, deux connecteurs BNC nommés CH1 et CH2 reçoivent les sondes. À droite, trois blocs de réglage empilés. En haut le bloc vertical, avec un bouton Volts par division et un bouton de position : il règle l'axe des tensions. Au milieu le bloc horizontal, avec un bouton Temps par division et un bouton de position : il règle l'axe du temps. En bas le bloc de déclenchement, avec un bouton de niveau et un choix de front montant ou descendant : il décide de l'instant où l'appareil commence à tracer, et c'est lui qui rend l'image stable. La place exacte des boutons change d'un modèle à l'autre, mais les trois blocs se retrouvent toujours.</desc>
+  <defs>
+    <style>
+      .ttl  { font:700 14px sans-serif; text-anchor:middle; fill:#2C2C2A; letter-spacing:.2px; }
+      .lbl  { font:700 13px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .cap  { font:italic 400 11.5px sans-serif; text-anchor:middle; fill:#888780; }
+      .foot { font:italic 700 11.5px sans-serif; text-anchor:middle; fill:#BA7517; }
+      .body { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.4; }
+      .scr  { fill:none; stroke:#888780; stroke-width:1.8; }
+      .grid { stroke:#888780; stroke-width:.7; opacity:.55; }
+      .trace{ fill:none; stroke:#BA7517; stroke-width:2.6; stroke-linejoin:round; }
+      .blk  { fill:none; stroke:#888780; stroke-width:1.6; }
+      .knob { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      .idx  { stroke:#BA7517; stroke-width:3; stroke-linecap:round; }
+      .klbl { font:700 11px sans-serif; text-anchor:middle; fill:#2C2C2A; }
+      .blbl { font:700 12.5px sans-serif; fill:#BA7517; letter-spacing:.4px; }
+      .note { font:italic 400 11px sans-serif; fill:#888780; }
+      .bnc  { fill:#DDDBD3; stroke:#BA7517; stroke-width:2.2; }
+      @media (prefers-color-scheme: dark) {
+        .ttl{fill:#F1EFE8;} .lbl{fill:#F1EFE8;} .cap{fill:#BBBBBB;} .foot{fill:#EF9F27;}
+        .body{fill:#4A4A48;stroke:#EF9F27;} .scr{stroke:#BBBBBB;} .grid{stroke:#BBBBBB;}
+        .trace{stroke:#EF9F27;} .blk{stroke:#BBBBBB;} .knob{fill:#4A4A48;stroke:#EF9F27;}
+        .idx{stroke:#EF9F27;} .klbl{fill:#F1EFE8;} .blbl{fill:#EF9F27;} .note{fill:#BBBBBB;}
+        .bnc{fill:#4A4A48;stroke:#EF9F27;}
+      }
+    </style>
+  </defs>
+
+  <text x="400" y="28" class="ttl">Face avant d'un oscilloscope — un écran, et trois blocs qui le commandent</text>
+
+  <rect x="40" y="48" width="720" height="404" rx="16" class="body"/>
+
+  <!-- écran -->
+  <rect x="64" y="72" width="400" height="280" rx="6" class="scr"/>
+  <g class="grid">
+    <line x1="104" y1="72" x2="104" y2="352"/><line x1="144" y1="72" x2="144" y2="352"/>
+    <line x1="184" y1="72" x2="184" y2="352"/><line x1="224" y1="72" x2="224" y2="352"/>
+    <line x1="264" y1="72" x2="264" y2="352"/><line x1="304" y1="72" x2="304" y2="352"/>
+    <line x1="344" y1="72" x2="344" y2="352"/><line x1="384" y1="72" x2="384" y2="352"/>
+    <line x1="424" y1="72" x2="424" y2="352"/>
+    <line x1="64" y1="107" x2="464" y2="107"/><line x1="64" y1="142" x2="464" y2="142"/>
+    <line x1="64" y1="177" x2="464" y2="177"/><line x1="64" y1="212" x2="464" y2="212"/>
+    <line x1="64" y1="247" x2="464" y2="247"/><line x1="64" y1="282" x2="464" y2="282"/>
+    <line x1="64" y1="317" x2="464" y2="317"/>
+  </g>
+  <path d="M64 282 H104 V142 H184 V282 H264 V142 H344 V282 H424 V142 H464" class="trace"/>
+  <text x="264" y="372" class="cap">l'écran : la tension en ordonnée, le temps en abscisse</text>
+
+  <!-- entrées BNC -->
+  <circle cx="120" cy="410" r="16" class="bnc"/>
+  <circle cx="120" cy="410" r="5" class="bnc"/>
+  <circle cx="200" cy="410" r="16" class="bnc"/>
+  <circle cx="200" cy="410" r="5" class="bnc"/>
+  <text x="120" y="440" class="klbl">CH1</text>
+  <text x="200" y="440" class="klbl">CH2</text>
+  <text x="300" y="415" class="note">entrées de sonde</text>
+  <text x="300" y="430" class="note">— une voie par signal observé</text>
+
+  <!-- bloc VERTICAL -->
+  <rect x="492" y="72" width="244" height="112" rx="8" class="blk"/>
+  <text x="506" y="94" class="blbl">VERTICAL</text>
+  <circle cx="552" cy="136" r="24" class="knob"/><line x1="552" y1="136" x2="552" y2="118" class="idx"/>
+  <text x="552" y="174" class="klbl">Volts/div</text>
+  <circle cx="632" cy="136" r="18" class="knob"/><line x1="632" y1="136" x2="644" y2="126" class="idx"/>
+  <text x="632" y="174" class="klbl">Position</text>
+  <text x="676" y="140" class="note">l'axe des</text>
+  <text x="676" y="154" class="note">tensions</text>
+
+  <!-- bloc HORIZONTAL -->
+  <rect x="492" y="196" width="244" height="112" rx="8" class="blk"/>
+  <text x="506" y="218" class="blbl">HORIZONTAL</text>
+  <circle cx="552" cy="260" r="24" class="knob"/><line x1="552" y1="260" x2="566" y2="241" class="idx"/>
+  <text x="552" y="298" class="klbl">Temps/div</text>
+  <circle cx="632" cy="260" r="18" class="knob"/><line x1="632" y1="260" x2="620" y2="250" class="idx"/>
+  <text x="632" y="298" class="klbl">Position</text>
+  <text x="676" y="264" class="note">l'axe du</text>
+  <text x="676" y="278" class="note">temps</text>
+
+  <!-- bloc TRIGGER -->
+  <rect x="492" y="320" width="244" height="112" rx="8" class="blk"/>
+  <text x="506" y="342" class="blbl">TRIGGER</text>
+  <circle cx="552" cy="384" r="24" class="knob"/><line x1="552" y1="384" x2="538" y2="366" class="idx"/>
+  <text x="552" y="422" class="klbl">Niveau</text>
+  <path d="M610 396 V372 H652" class="idx" fill="none"/>
+  <text x="632" y="422" class="klbl">Front ↑ / ↓</text>
+  <text x="676" y="388" class="note">quand</text>
+  <text x="676" y="402" class="note">tracer</text>
+
+  <text x="400" y="474" class="foot">Les boutons changent de place d'un modèle à l'autre — les trois blocs, eux, sont toujours là.</text>
+  <text x="400" y="492" class="cap">Une image qui défile est presque toujours un problème de trigger, pas de signal.</text>
+</svg>

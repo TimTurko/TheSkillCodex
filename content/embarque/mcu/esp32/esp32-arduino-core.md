@@ -92,7 +92,15 @@ void loop() {
 
 Au moniteur série, on lit le numéro de cœur et la mémoire libre — deux informations qui n'existent pas sur un Arduino AVR, obtenues sans quitter le confort du sketch. Les deux lignes de mémoire affichent la **même valeur** par deux chemins : `esp_get_free_heap_size()` est la fonction native, `ESP.getFreeHeap()` la façade Arduino posée dessus. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant l'ESP-IDF sous la main**.
 
-Prendre capture d'écran de *le moniteur série affichant « loop() tourne sur le coeur X » et « Memoire libre : XXXXXX octets » répétés toutes les 2 secondes*.
+Au moniteur, un bloc de trois lignes toutes les 2 secondes :
+
+```
+loop() tourne sur le coeur 1
+Memoire libre : XXXXXX octets
+... la meme valeur, vue par la facade Arduino : XXXXXX octets
+```
+
+Les deux chiffres de mémoire sont **identiques** — c'est le point de la démonstration. Leur valeur, elle, dépend de la carte et des bibliothèques chargées : à relever sur votre montage.
 
 ## Pièges
 

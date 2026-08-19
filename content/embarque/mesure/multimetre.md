@@ -16,7 +16,7 @@ draft: false
 
 **Le multimètre** est l'instrument de mesure de base de tout électronicien : il mesure une **tension**, un **courant**, une **résistance**, et teste la **continuité** d'une connexion. Il donne une **valeur ponctuelle** — un nombre, pas une forme d'onde : pour observer un signal qui varie vite, c'est l'[[oscilloscope|oscilloscope]] qu'il faut. Robuste et peu coûteux, il répond à l'immense majorité des questions de diagnostic : « y a-t-il du 5 V ici ? », « cette piste est-elle coupée ? », « quelle est la valeur de cette résistance ? ». Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
 
-*Prendre capture d'écran d'un multimètre numérique avec ses éléments annotés : l'écran, le sélecteur rotatif (positions tension continue V⎓, tension alternative V∼, résistance Ω, courant A, continuité), et les trois bornes (COM, V/Ω, et la borne courant marquée 10 A).*
+![Face avant d'un multimètre en blocs fonctionnels : l'écran en haut, le sélecteur rotatif au centre avec ses positions V⎓, V∼, Ω, continuité et A, et les trois bornes en bas — COM pour le cordon noir, V/Ω pour tension, résistance et continuité, 10 A pour le courant seul.|600](/ressources/img/multimetre/face-avant.svg)
 
 ## À quoi ça sert ?
 
@@ -53,8 +53,6 @@ Pour les signaux qui **varient dans le temps** ([[pwm|PWM]], trame série, rebon
 
 Une carte à microcontrôleur ne démarre pas. Avant tout, on vérifie « est-ce que le courant arrive, et à la bonne tension ? ».
 
-*Prendre capture d'écran de la mesure : pointe noire sur GND, pointe rouge sur la broche 5 V d'une carte Arduino, l'écran affichant une valeur proche de 5 V.*
-
 1. **Alimentation** — sélecteur sur **V⎓**, COM sur la masse (GND) de la carte, pointe rouge sur la broche **5 V** : on attend ≈ 5 V. Une valeur très basse (3 V, 0 V) oriente vers une alimentation insuffisante, un câble USB *charge seule*, ou un court-circuit qui fait s'écrouler la tension.
 2. **Chute sur une LED** — pointes aux bornes d'une LED allumée : on lit sa tension directe (≈ 2 V pour une rouge, ≈ 3 V pour une bleue). Cela confirme qu'elle est bien polarisée et alimentée.
 3. **Continuité d'une piste** — montage **éteint**, mode continuité, une pointe à chaque extrémité d'une liaison suspecte : un bip confirme qu'elle passe, le silence révèle la coupure.
@@ -64,6 +62,8 @@ En trois mesures simples, on a localisé si le problème vient de l'alimentation
 ## Pièges
 
 **Ampèremètre laissé en position courant, rebranché en parallèle.** L'erreur classique : après une mesure de courant, on oublie de remettre le cordon rouge dans la borne V/Ω et de repasser le sélecteur en tension. La fois suivante, on pose les pointes en parallèle « pour mesurer une tension » — mais l'appareil est encore en ampèremètre : court-circuit, **fusible grillé** — le fusible interne est précisément un organe de [[protection-electronique|protection]] : il s'est sacrifié pour l'appareil. Réflexe : revenir en mesure de tension dès qu'on a fini une mesure de courant.
+
+![En trois temps, la chaîne qui grille le fusible : une mesure de courant correcte, cordon rouge en borne 10 A ; puis le sélecteur qui revient sur V⎓ pendant que le cordon reste, oublié, en 10 A ; puis les pointes posées en parallèle sur une source de 5 V, où l'appareil resté ampèremètre se comporte en simple fil — court-circuit, fusible fondu.|640](/ressources/img/multimetre/fusible-grille.svg)
 
 **Mesurer une résistance sous tension.** La fonction ohmmètre injecte son propre courant : appliquée à un circuit alimenté, elle donne n'importe quoi et peut endommager l'appareil. On mesure une résistance **hors tension**.
 

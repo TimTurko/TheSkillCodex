@@ -16,7 +16,7 @@ draft: false
 
 **L'oscilloscope** affiche la **tension en fonction du temps** : là où le [[multimetre|multimètre]] donne *une valeur*, l'oscilloscope montre *une forme d'onde* — l'évolution du signal, instant par instant. C'est l'instrument indispensable dès qu'un signal **varie vite** : visualiser un [[pwm|PWM]], mesurer une fréquence et un rapport cyclique, repérer le rebond d'un bouton, vérifier qu'une trame série ou un signal de [[bus-de-communication|bus]] a la bonne allure. Il ne donne sa pleine mesure qu'avec trois réglages bien compris — base de temps, calibre vertical et **déclenchement** (*trigger*). Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]] ; pour la lecture d'une forme d'onde en elle-même, voir [[chronogramme|chronogramme]].
 
-*Prendre capture d'écran de la face avant d'un oscilloscope avec ses zones annotées : l'écran quadrillé, le bloc de réglage vertical (Volts/div), le bloc horizontal (Temps/div), et le bloc de déclenchement (Trigger : niveau et front).*
+![Face avant d'un oscilloscope en blocs fonctionnels : à gauche l'écran quadrillé avec un signal carré et, dessous, les entrées de sonde CH1 et CH2 ; à droite trois blocs empilés — vertical (Volts/div), horizontal (Temps/div) et déclenchement (niveau et front).|640](/ressources/img/oscilloscope/face-avant.svg)
 
 ## À quoi ça sert ?
 
@@ -55,7 +55,7 @@ La sonde est le seul lien entre le circuit et l'écran — la brancher correctem
 
 On veut vérifier le signal produit par un `analogWrite()` sur une carte Arduino : sa forme, sa fréquence et son rapport cyclique.
 
-*Prendre capture d'écran de l'écran de l'oscilloscope montrant un signal carré PWM : niveau haut puis bas, avec la période repérée sur l'axe horizontal et le rapport cyclique (proportion du temps à l'état haut) visible.*
+![Écran d'oscilloscope réglé sur 1 V/div et 0,5 ms/div : un créneau 0-5 V, la période repérée entre deux fronts montants — environ 4 divisions, soit 2,04 ms, donc 490 Hz — et la partie haute cotée à 50 % de rapport cyclique.|600](/ressources/img/oscilloscope/ecran-pwm.svg)
 
 1. **Brancher** la pointe de sonde sur la broche PWM, la pince de masse sur la GND de la carte.
 2. **Régler** le calibre vertical autour de 1 à 2 V/div (signal 0–5 V) et la base de temps pour voir quelques périodes.

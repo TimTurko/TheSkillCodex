@@ -188,5 +188,6 @@ Adopter la discipline non bloquante au premier montage multi-fonctions évite la
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-interruptions|Interruptions]] — pour les événements que la boucle ne peut pas attraper assez vite
 - [[micropython-timers|Timers matériels]] — pour imposer une cadence précise à une tâche critique
+- [[programmation-non-bloquante|Programmation non bloquante]] — la notion transverse : le patron de temporisation, ses jumeaux d'une famille à l'autre, et la borne du RTOS
 - [[firmware|Firmware]] — l'architecture du code embarqué et l'horizon RTOS (transverse)
 - [[arduino-programmation-non-bloquante|Programmation non bloquante (Arduino)]] — l'équivalent C++ (`millis()`)

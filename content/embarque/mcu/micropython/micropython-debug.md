@@ -206,6 +206,7 @@ Le débug est moins un coup de génie qu'une **méthode** : observer, comparer, 
 - [[micropython|MicroPython]] — hub du module
 - [[micropython-repl|Le REPL]] — l'outil d'inspection en direct (prérequis)
 - [[micropython-langage|Le langage MicroPython]] — types, `/` vs `//` : la racine de beaucoup d'erreurs de base
+- [[micropython-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — l'étape d'avant : comprendre un code sans supposer de panne
 - [[micropython-gpio|Entrées-sorties (GPIO)]] — `Pin`, direction et tirage des broches
 - [[micropython-temporisation|Temporiser]] — cadencer les `print` sans surcharger
 - [[debugger-embarque|Déboguer un système embarqué]] — la vue transverse (méthode + JTAG/SWD)

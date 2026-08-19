@@ -107,7 +107,16 @@ void loop() {}
 
 La LED clignote à son rythme, les mesures défilent au leur, sans que l'un ne perturbe l'autre. Chaque tâche est une boucle simple, lisible isolément — c'est l'intérêt structurant du RTOS face à un `loop()` unique qui devrait jongler avec deux temporisations.
 
-Prendre capture d'écran de *le moniteur série affichant les lignes « Capteur : XXX » une fois par seconde, pendant que la LED clignote visiblement plus vite sur la carte*.
+Une ligne par seconde au moniteur, quand la LED, elle, bat cinq fois plus vite :
+
+```
+Capteur : 1874
+Capteur : 1902
+Capteur : 1866
+Capteur : 1889
+```
+
+Les deux rythmes sont **indépendants** : ralentir `tacheCapteur` à 5 secondes ne changerait rien au clignotement, et inversement. C'est ce découplage qu'un `loop()` unique oblige à fabriquer à la main.
 
 ## Communiquer entre tâches
 

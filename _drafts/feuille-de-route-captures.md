@@ -13,18 +13,33 @@
 > `Intégrer un GIF ou une photo de`), invisible au motif du 18/08. Un 108ᵉ item
 > hors compteur a été trouvé en commentaire HTML. Arbitrages Tim du 19/08 intégrés
 > ci-dessous, repérés **[19/08]**.
+>
+> **Contre-balayage de session B, 19/08 — à nouveau 242 fiches sur 242.** Motif
+> élargi + second rideau (paragraphes tout-italique, commentaires HTML, amorces
+> `Ajouter / Illustrer / Montrer / Filmer / Enregistrer`). **Il restait 35
+> placeholders sur 31 fiches, et non 31** : 23 conversions + 8 SVG + 3 KiCad
+> reportées + `micropython-simulation` non posé. Le 31 venait d'une soustraction
+> (108 − 16 − 60), pas d'un comptage. **Les 23 conversions sont faites** ; il
+> reste **12 placeholders**. Contrôles de grandeur mesurable : les **56 chemins de
+> médias distincts du manifeste sont tous présents** dans les fiches, et les 23
+> fiches converties portent **0** placeholder résiduel.
+>
+> **Session C, 19/08 — les 8 SVG sont produits et intégrés.** Avec la suppression de
+> `micropython-simulation:52`, il ne reste que **3 placeholders dans tout `content/`** :
+> les trois KiCad, reportés post-publication par décision (C90). La dette de captures
+> se réduit désormais aux **prises de vue** — plus aucune conversion en attente.
 
 ## Bilan du triage
 
-| Verdict | 18/08 | **19/08** |
-|---|---|---|
-| À shooter | 46 | **49** |
-| À shooter — reporté post-publication (KiCad) | 3 | 3 |
-| Réemploi cross-dossier (C76), aucune prise | 12 | **9** |
-| Converti en bloc de code ou tableau | 23 | 23 |
-| Converti en SVG | 6 | **8** |
-| Supprimé | 11 | **16** |
-| **Total** | **101** | **108** |
+| Verdict | 18/08 | **19/08** | État |
+|---|---|---|---|
+| À shooter | 46 | **49** | à faire |
+| À shooter — reporté post-publication (KiCad) | 3 | 3 | reporté |
+| Réemploi cross-dossier (C76), aucune prise | 12 | **9** | embeds posés ; **8** après la suppression de `micropython-simulation:52` |
+| Converti en bloc de code ou tableau | 23 | 23 | **fait le 19/08 (session B)** |
+| Converti en SVG | 6 | **8** | **fait le 19/08 (session C)** |
+| Supprimé | 11 | **16** | fait ; **17** avec `micropython-simulation:52` (19/08, session B) |
+| **Total** | **101** | **108** | |
 
 Le total 19/08 est de 108 et non 107 : le commentaire HTML de
 `schema-bloc-fonctionnel:67` entre au compteur en devenant un placeholder visible.
@@ -81,14 +96,21 @@ Une ligne par session, détail des cadrages dans la partie *Sessions* ci-dessous
 Les blocs de code de régime **(b)** sont écrits en forme neutre : ce que le **monde**
 produit ne s'invente pas. Chaque ligne ci-dessous est un trou à combler carte en main.
 
-- [ ] `arduino-memoire:72` — RAM libre en octets, et sa diminution au fil des allocations
-- [ ] `micropython-memoire:73` — `gc.mem_free()` **avant** et **après** `gc.collect()`
-- [ ] `teensy-arduino-core:100` — mémoire libre affichée à côté du « Coeur : 600 MHz »
-- [ ] `stm32-arduino-core:116` — fréquence cœur ; **UID masqué en `XXXX-XXXX-XXXX`**
-- [ ] `esp8266-arduino-core:88` — adresse IP attribuée (dépend de la box)
-- [ ] `stm32-prise-en-main:75` — récapitulatif de taille mémoire de la console Build
-- [ ] `arduino-deep-sleep:78` — tableau état / courant / autonomie, mesuré au multimètre
-- [ ] `micropython-deep-sleep:92` — idem, **sans chute en µA à écrire** : sur RP2040 `deepsleep` ≈ `lightsleep` (correction du 30/06)
+**Écrits le 19/08 (session B) — les lignes ci-dessous pointent désormais le bloc posé,
+plus le placeholder disparu.** Deux reclassements par rapport au triage du 18/08 :
+`teensy-arduino-core` **sort** de cette liste (son sketch n'imprime aucune mémoire
+libre — seulement `F_CPU`, une constante de compilation, donc régime (a)), et
+`esp32-arduino-core` **y entre** (il imprime `esp_get_free_heap_size()`, grandeur de
+carte, sœur exacte de la « RAM libre » d'`arduino-memoire`).
+
+- [ ] `arduino-memoire:75` — RAM libre en octets, trois relevés : la **tendance** compte plus que le chiffre
+- [ ] `micropython-memoire:77` — `gc.mem_free()` **avant** et **après** `gc.collect()`
+- [ ] `esp32-arduino-core:99` — mémoire libre ; **les deux lignes doivent afficher la même valeur**, c'est le point de la démonstration
+- [ ] `stm32-arduino-core:119` — fréquence cœur ; **UID laissé masqué**, ne pas le remplacer par le vôtre
+- [ ] `esp8266-arduino-core:92` — adresse IP attribuée (dépend de la box) ; masquée en `192.168.X.X`
+- [ ] `stm32-prise-en-main:79` — récapitulatif `text` / `data` / `bss` de la console Build
+- [ ] `arduino-deep-sleep:80` — tableau à trois états, courant relevé au multimètre
+- [ ] `micropython-deep-sleep:94` — idem, **sans chute en µA à écrire** : sur RP2040 `deepsleep` ≈ `lightsleep` (correction du 30/06)
 
 ## C. À rédiger toi-même
 
@@ -105,6 +127,7 @@ produit ne s'invente pas. Chaque ligne ci-dessous est un trou à combler carte e
 - [ ] **Trancher `Pin("LED")` au simulateur** (`micropython-simulation`) : la fiche
   écrit que le raccourci « *peut* » ne pas être reconnu sur le Pico simulé. Le
   « peut » est mou pour un piège — à vérifier à l'écran, pas de mémoire.
+- [x] **Arbitrer `micropython-simulation:52`** (ex-`:54`) — **tranché le 19/08 : suppression.**
 
 ## D. Décisions encore ouvertes
 
@@ -112,12 +135,14 @@ produit ne s'invente pas. Chaque ligne ci-dessous est un trou à combler carte e
   sur les 12 réemplois **et** sur les 49 prises pivots, ~59 absents acceptés jusqu'à
   la prise de vue. Nommage contractuel au **Manifeste des embeds** ci-dessous. Reste
   à exécuter, session par session.
-- [ ] **`micropython-simulation:54` à reclasser.** Le lot `wokwi/` montre un **ESP32
+- [x] **`micropython-simulation:52` — TRANCHÉ le 19/08 : suppression.** Le lot `wokwi/` montre un **ESP32
   avec `sketch.ino`** ; `moniteur-serie-hello.png` affiche le journal de boot ESP32
   puis `Hello, ESP32!`. Le réemployer sous une phrase MicroPython/Pico reproduit
-  exactement le défaut qui a fait **supprimer** `:48` le 18/08. Mon avis : `:54` en
-  suppression, `:42` conservé en prise propre (le sélecteur de composants, lui, est
-  indépendant de la carte).
+  exactement le défaut qui a fait **supprimer** `:48` le 18/08 — et C92 veut qu'un réemploi
+  non neutralisable se règle en prise propre ou en suppression, jamais en réemploi assumé.
+  **Placeholder retiré** : la prose de l'étape 4 décrit déjà Play, la console série et le REPL.
+  `:42` reste conservé en prise propre (le sélecteur de composants, lui, est
+  indépendant de la carte). **Les 61 embeds sont donc clos : 60 posés, 1 supprimé.**
 
 ---
 
@@ -133,8 +158,8 @@ La session la plus rentable : une seule ouverture règle un quart de la dette.
 | 2 | `esp32-prise-en-main:48` | Préférences, **champ « URL de gestionnaire de cartes supplémentaires » mis en évidence, sans URL lisible** | Prise **neutre** — l'image porte le *où*, chaque fiche porte son URL en bloc de code. Réemploi ×3 |
 | 3 | `esp32-prise-en-main:55` | Gestionnaire de cartes filtré sur « esp32 », paquet Espressif Systems + bouton Installer | Prise **pivot**. Réemploi ×2 |
 | 4 | `esp32-prise-en-main:69` | Outils déroulé : « ESP32 Dev Module » + port | |
-| 5 | `esp8266-prise-en-main:55` | Outils déroulé : « NodeMCU 1.0 (ESP-12E Module) » + port | |
-| 6 | `teensy-prise-en-main:60` | Outils déroulé : Teensy 4.1 + port + **USB Type sur Serial** | La ligne *USB Type* est le pivot de `teensy-usb` |
+| 5 | `esp8266-prise-en-main:53` | Outils déroulé : « NodeMCU 1.0 (ESP-12E Module) » + port | |
+| 6 | `teensy-prise-en-main:58` | Outils déroulé : Teensy 4.1 + port + **USB Type sur Serial** | La ligne *USB Type* est le pivot de `teensy-usb` |
 | 7 | `stm32-arduino-core:45` | Outils déroulé : Nucleo-64 + **Board part number** + **Upload method (STM32CubeProgrammer SWD)** | Deux sous-menus dont l'oubli fait échouer le flashage en silence |
 | 8 | `esp32-prise-en-main:92` | Code Blink + console de compilation réussie | Réemploi ×1 |
 | 9 | `arduino-bibliotheques:51` | Gestionnaire de **bibliothèques**, recherche « Adafruit BMP280 » | À ne pas confondre avec le gestionnaire de **cartes** (#3) |
@@ -163,7 +188,7 @@ Les trois Plotter (#18-20) exigent le Pico branché et un montage réel.
 |---|---|---|
 | 21 | `stm32-prise-en-main:50` | Onglet Board Selector, NUCLEO-F411RE sélectionnée, bouton Next |
 | 22 | `stm32-prise-en-main:69` | `main.c`, toggle LD2 inséré **entre USER CODE BEGIN 3 et USER CODE END 3** |
-| 23 | `stm32-prise-en-main:105` | Perspective Debug, point d'arrêt dans la boucle `while` |
+| 23 | `stm32-prise-en-main:114` | Perspective Debug, point d'arrêt dans la boucle `while` |
 | 24 | `stm32-registres:68` | Vue Registers sur GPIOA, **bit 5 d'ODR qui bascule** en pas-à-pas — **candidat GIF (C87)**, le mouvement est le message |
 | 25 | `stm32-cubemx:41` | Pinout & Configuration, broches affectées en surbrillance (LD2, PA2/PA3) |
 | 26 | `stm32-cubemx:49` | Clock Configuration, arbre HSE → PLL → SYSCLK → prédiviseurs |
@@ -183,14 +208,14 @@ Les trois Plotter (#18-20) exigent le Pico branché et un montage réel.
 | # | Fiche:ligne | À montrer |
 |---|---|---|
 | 32 | `micropython-simulation:36` | Page de création de projet, **« Raspberry Pi Pico » + « MicroPython »** sélectionnés — le seul écran du wiki où le choix du langage se fait |
-| 33 | `micropython-simulation:77` | Simulation du circuit bouton GP14 + LED GP15, bouton appuyé et LED allumée |
+| 33 | `micropython-simulation:75` | Simulation du circuit bouton GP14 + LED GP15, bouton appuyé et LED allumée |
 
 ## S6 · Raspberry Pi Imager — 2 prises
 
 | # | Fiche:ligne | À montrer |
 |---|---|---|
-| 34 | `raspberry-pi-prise-en-main:47` | Onglet **Général** de la personnalisation OS (derrière « Modifier les réglages ») : nom d'hôte, identifiants, Wi-Fi |
-| 35 | `raspberry-pi-prise-en-main:49` | Onglet **Services**, case « Activer SSH » cochée |
+| 34 | `raspberry-pi-prise-en-main:45` | Onglet **Général** de la personnalisation OS (derrière « Modifier les réglages ») : nom d'hôte, identifiants, Wi-Fi |
+| 35 | `raspberry-pi-prise-en-main:47` | Onglet **Services**, case « Activer SSH » cochée |
 
 Même dialogue, deux onglets — une seule ouverture.
 
@@ -210,14 +235,14 @@ il produit une courbe, pas du texte.
 | # | Fiche:ligne | À montrer | Note |
 |---|---|---|---|
 | 39 | `esp32-prise-en-main:103` | Carte ESP32 branchée, LED intégrée allumée | Conservé au titre de la priorité au trafic |
-| 40 | `esp8266-prise-en-main:79` | NodeMCU branchée, LED allumée + console de téléversement réussi | Idem |
-| 41 | `teensy-prise-en-main:92` | **Fenêtre du Teensy Loader** (recentrée dessus) | Application tierce qui surgit seule — le seul cas opaque du lot |
+| 40 | `esp8266-prise-en-main:77` | NodeMCU branchée, LED allumée + console de téléversement réussi | Idem |
+| 41 | `teensy-prise-en-main:90` | **Fenêtre du Teensy Loader** (recentrée dessus) | Application tierce qui surgit seule — le seul cas opaque du lot |
 
 ## S9 · Datasheet L298N — 2 prises
 
 | # | Fiche:ligne | À montrer |
 |---|---|---|
-| 42 | `lire-une-datasheet:128` | Brochage Multiwatt15 (figure « Pin configuration ») + table « Pin function » |
+| 42 | `lire-une-datasheet:126` | Brochage Multiwatt15 (figure « Pin configuration ») + table « Pin function » |
 | 43 | `lire-une-datasheet:180` | Table « Absolute maximum ratings » (table 1) |
 
 **Extraits cadrés serré sur la figure utile, pas la page entière.**
@@ -274,16 +299,23 @@ d'une image pivot touche toutes ses fiches consommatrices d'un coup — dans le 
 | `esp8266-prise-en-main:45` | → `esp32-prise-en-main` #3 (gestionnaire de cartes) |
 | `teensy-prise-en-main:52` | → #3 |
 | `teensy-prise-en-main:38` | → `esp32-prise-en-main` #28 (page arduino.cc) — **libellés identiques mot pour mot** |
-| `teensy-prise-en-main:81` | → `esp32-prise-en-main` #8 (compilation réussie) — **idem, identiques mot pour mot** |
+| `teensy-prise-en-main:79` | → `esp32-prise-en-main` #8 (compilation réussie) — **idem, identiques mot pour mot** |
 | `debugger-embarque:19` | → `arduino-debug` #12 (session de débogage) |
 | `micropython-simulation:42` | → lot `wokwi/` (sélecteur de composants) |
-| `micropython-simulation:54` | → lot `wokwi/` (console série) |
+| `micropython-simulation:52` | → lot `wokwi/` (console série) |
 | `arduino-sortie-pwm:80` | → SVG `oscilloscope/ecran-pwm.svg` |
 | `micropython-shield:37` | → photo d'empilage de `shield` `[T]` — **cible confirmée le 18/08**, le placeholder existe bien dans `shield.md` |
 
 ---
 
-# Conversions en bloc de code ou tableau — 23
+# Conversions en bloc de code ou tableau — 23 — **FAIT le 19/08 (session B)**
+
+Les 23 sont écrites, les placeholders retirés, **0 résiduel** dans les fiches concernées.
+Les lignes ci-dessous sont celles du **triage du 18/08** et ne servent plus qu'à l'historique :
+la seule à avoir bougé avant conversion était `raspberry-pi-prise-en-main:68` (devenue `:66`).
+Deux fiches ont changé de régime à la lecture du code réel — voir la section **B** ci-dessus.
+Convention de forme retenue : **fence nue** pour toute sortie console, comme `cpp-logs`
+et `micropython-debug`.
 
 ## Sorties série, Shell, REPL (17)
 
@@ -411,8 +443,8 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 2 | `esp32-prise-en-main:48` | `/ressources/img/esp32-prise-en-main/preferences-url-cartes.png` | 600 |
 | 3 | `esp32-prise-en-main:55` | `/ressources/img/esp32-prise-en-main/gestionnaire-cartes-esp32.png` | 600 |
 | 4 | `esp32-prise-en-main:69` | `/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png` | 600 |
-| 5 | `esp8266-prise-en-main:55` | `/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png` | 600 |
-| 6 | `teensy-prise-en-main:60` | `/ressources/img/teensy-prise-en-main/menu-outils-teensy41.png` | 600 |
+| 5 | `esp8266-prise-en-main:53` | `/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png` | 600 |
+| 6 | `teensy-prise-en-main:58` | `/ressources/img/teensy-prise-en-main/menu-outils-teensy41.png` | 600 |
 | 7 | `stm32-arduino-core:45` | `/ressources/img/stm32-arduino-core/menu-outils-nucleo.png` | 600 |
 | 8 | `esp32-prise-en-main:92` | `/ressources/img/esp32-prise-en-main/compilation-reussie.png` | 600 |
 | 9 | `arduino-bibliotheques:51` | `/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png` | 600 |
@@ -429,7 +461,7 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 20 | `micropython-pid:88` | `/ressources/img/micropython-pid/plotter-consigne-mesure.png` | 600 |
 | 21 | `stm32-prise-en-main:50` | `/ressources/img/stm32-prise-en-main/board-selector.png` | 600 |
 | 22 | `stm32-prise-en-main:69` | `/ressources/img/stm32-prise-en-main/main-c-user-code.png` | 600 |
-| 23 | `stm32-prise-en-main:105` | `/ressources/img/stm32-prise-en-main/perspective-debug.png` | 640 |
+| 23 | `stm32-prise-en-main:114` | `/ressources/img/stm32-prise-en-main/perspective-debug.png` | 640 |
 | 24 | `stm32-registres:68` | `/ressources/img/stm32-registres/vue-registers-odr.gif` | 600 |
 | 25 | `stm32-cubemx:41` | `/ressources/img/stm32-cubemx/pinout-configuration.png` | 640 |
 | 26 | `stm32-cubemx:49` | `/ressources/img/stm32-cubemx/clock-configuration.png` | 640 |
@@ -439,16 +471,16 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 30 | `stm32-prise-en-main:38` | `/ressources/img/stm32-prise-en-main/telechargement-cubeide.png` | 600 |
 | 31 | `esp32-wifi:147` | `/ressources/img/esp32-wifi/page-servie.png` | 440 |
 | 32 | `micropython-simulation:36` | `/ressources/img/micropython-simulation/creation-projet-pico.png` | 600 |
-| 33 | `micropython-simulation:77` | `/ressources/img/micropython-simulation/simulation-bouton-led.png` | 560 |
-| 34 | `raspberry-pi-prise-en-main:47` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png` | 560 |
-| 35 | `raspberry-pi-prise-en-main:49` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-services.png` | 560 |
+| 33 | `micropython-simulation:75` | `/ressources/img/micropython-simulation/simulation-bouton-led.png` | 560 |
+| 34 | `raspberry-pi-prise-en-main:45` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png` | 560 |
+| 35 | `raspberry-pi-prise-en-main:47` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-services.png` | 560 |
 | 36 | `arduino-capteur-analogique:131` | `/ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png` | 600 |
 | 37 | `arduino-pid:93` | `/ressources/img/arduino-pid/traceur-consigne-mesure.png` | 600 |
 | 38 | `arduino-timers:76` | `/ressources/img/arduino-timers/traceur-echantillons.png` | 600 |
 | 39 | `esp32-prise-en-main:103` | `/ressources/img/esp32-prise-en-main/carte-led-allumee.jpg` | 420 |
-| 40 | `esp8266-prise-en-main:79` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg` | 420 |
-| 41 | `teensy-prise-en-main:92` | `/ressources/img/teensy-prise-en-main/teensy-loader.png` | 480 |
-| 42 | `lire-une-datasheet:128` | `/ressources/img/lire-une-datasheet/brochage-multiwatt15.png` | 600 |
+| 40 | `esp8266-prise-en-main:77` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg` | 420 |
+| 41 | `teensy-prise-en-main:90` | `/ressources/img/teensy-prise-en-main/teensy-loader.png` | 480 |
+| 42 | `lire-une-datasheet:126` | `/ressources/img/lire-une-datasheet/brochage-multiwatt15.png` | 600 |
 | 43 | `lire-une-datasheet:180` | `/ressources/img/lire-une-datasheet/absolute-maximum-ratings.png` | 600 |
 | 44 | `esp32-ble:99` | `/ressources/img/esp32-ble/nrf-connect.png` | 400 |
 | 45 | `analyseur-logique:19` | `/ressources/img/analyseur-logique/pulseview-i2c-decode.png` | 640 |
@@ -473,16 +505,16 @@ Une retouche du pivot se propage à toutes ses consommatrices d'un coup.
 | `esp8266-prise-en-main:45` | #3 `esp32-prise-en-main/gestionnaire-cartes-esp32.png` | **annulé le 19/08 — passé en suppression** |
 | `teensy-prise-en-main:52` | #3 | **annulé le 19/08 — passé en suppression** |
 | `teensy-prise-en-main:38` | #28 `esp32-prise-en-main/telechargement-ide.png` | à shooter |
-| `teensy-prise-en-main:81` | #8 `esp32-prise-en-main/compilation-reussie.png` | à shooter |
+| `teensy-prise-en-main:79` | #8 `esp32-prise-en-main/compilation-reussie.png` | à shooter |
 | `debugger-embarque:19` | #12 `arduino-debug/session-debogage.png` | à shooter |
 | `micropython-shield:37` | #48 `shield/empilement-uno-shield.jpg` | **annulé le 19/08 — passé en suppression** |
-| `arduino-sortie-pwm:80` | `oscilloscope/ecran-pwm.svg` | **à produire, session C** |
+| `arduino-sortie-pwm:80` | `oscilloscope/ecran-pwm.svg` | **produit le 19/08 (session C)** |
 | `micropython-simulation:42` | `wokwi/ajouter-composant-blink.png` | **existe déjà** |
-| `micropython-simulation:54` | `wokwi/moniteur-serie-hello.png` | **existe, mais contesté** — voir *Décisions ouvertes* |
+| `micropython-simulation:52` | `wokwi/moniteur-serie-hello.png` | **supprimé le 19/08** — image ESP32/C++ sous une phrase Pico/MicroPython |
 
-**`micropython-simulation:54` est le seul des 61 que je ne pose pas** tant qu'il n'est
-pas reclassé : l'image montre un ESP32 en C++, la phrase parle d'un Pico en
-MicroPython. Poser l'embed, c'est publier la contradiction, pas un lien mort.
+**`micropython-simulation:52` était le seul des 61 non posé** ; il est **supprimé** depuis le
+19/08 (session B) : l'image montre un ESP32 en C++, la phrase parle d'un Pico en
+MicroPython. Poser l'embed, c'était publier la contradiction, pas un lien mort.
 
 ---
 

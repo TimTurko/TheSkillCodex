@@ -97,7 +97,13 @@ void loop() {
 
 Au moniteur série, on lit `Coeur : 600 MHz` — et la LED clignote **sans `delay`**, grâce à `elapsedMillis`, pendant que la boucle reste disponible. C'est l'illustration concrète du pont : **on programme « en Arduino », mais avec les outils et la vitesse du Teensy**.
 
-Prendre capture d'écran de *le moniteur série affichant « Coeur : 600 MHz » pendant que la LED clignote*.
+Au moniteur, une seule ligne — elle est imprimée dans `setup()`, donc une fois pour toutes :
+
+```
+Coeur : 600 MHz
+```
+
+Le chiffre ne se mesure pas : `F_CPU` est une **constante de compilation**, fixée par la vitesse de cœur choisie avant le téléversement. Descendre cette vitesse pour économiser du courant change donc cette ligne sans qu'on ait touché au code.
 
 ## Pièges
 

@@ -23,7 +23,8 @@ draft: false
 2. [[micropython-types|Variables et types]] — typage dynamique, `int` / `float` / `str` / `bool`, et les conteneurs `list` / `dict` ;
 3. [[micropython-controle|Conditions et boucles]] — `if` / `elif` / `else`, `while`, `for … in`, et le rôle structurant de l'indentation ;
 4. [[micropython-fonctions|Les fonctions]] — `def`, arguments, valeurs par défaut, `return` : factoriser et nommer ;
-5. [[micropython-modules|Modules et `import`]] — importer `machine`, `time`… et organiser son code en plusieurs fichiers.
+5. [[micropython-modules|Modules et `import`]] — importer `machine`, `time`… et organiser son code en plusieurs fichiers ;
+6. [[micropython-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — entrer dans un code inconnu, et les mécanismes du langage qui reviennent d'un exemple à l'autre.
 
 Une fois ces briques acquises, l'enjeu devient *comment piloter le matériel* (voir [[micropython-gpio|GPIO]], [[micropython-sortie-pwm|PWM]], [[micropython-capteur-analogique|ADC]]) puis *comment structurer* le code : [[micropython-programmation-non-bloquante|programmation non bloquante]], [[machine-a-etats|machines à états]], et l'ensemble du [[firmware|firmware]].
 

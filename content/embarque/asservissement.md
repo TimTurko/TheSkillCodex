@@ -17,7 +17,7 @@ Un **asservissement** est une commande **en boucle fermée** : au lieu de pilote
 
 ## À quoi ça sert ?
 
-En **boucle ouverte**, on applique une commande sans vérifier le résultat : mettre une tension fixe sur un moteur, c'est espérer une vitesse — mais en charge, il ralentit, et rien ne le rattrape. Dès qu'on vise une grandeur **précise** face à des aléas (charge, température, frottements, vieillissement), la boucle ouverte ne suffit plus.
+En **[[boucle-ouverte|boucle ouverte]]**, on applique une commande sans vérifier le résultat : mettre une tension fixe sur un moteur, c'est espérer une vitesse — mais en charge, il ralentit, et rien ne le rattrape. Dès qu'on vise une grandeur **précise** face à des aléas (charge, température, frottements, vieillissement), la boucle ouverte ne suffit plus.
 
 La boucle fermée renverse la logique : elle **observe** en continu l'écart à la consigne et agit pour le réduire. C'est ce qui permet de réguler une vitesse, une position, une température ou un niveau avec une précision qui ne dépend plus de la qualité du modèle, mais de la qualité de la **mesure** et de la **correction**. Le prix à payer : il faut un capteur, une cadence de calcul régulière, et un réglage soigné — un asservissement mal réglé **oscille** ou diverge là où la boucle ouverte se contentait d'être imprécise.
 
@@ -56,6 +56,7 @@ Régler un PID, c'est arbitrer entre **rapidité**, **stabilité** et **précisi
 
 ## Voir aussi
 
+- [[boucle-ouverte|Boucle ouverte]] — la commande sans mesure, et les quatre conditions qui la rendent légitime
 - [[arduino-pid|Réguler avec un PID sur Arduino]] — la mise en œuvre concrète du correcteur PID
 - [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — le formalisme des blocs et flux dont la boucle fermée est un cas
 - [[pwm|PWM]] — la commande typique d'un actionneur depuis un microcontrôleur

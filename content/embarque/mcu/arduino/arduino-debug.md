@@ -225,6 +225,7 @@ Le débug est moins un coup de génie qu'une **méthode** : observer, comparer, 
 - [[arduino|Arduino]] — hub des tutoriels Arduino
 - [[arduino-serie|Moniteur série]] — prérequis pour utiliser `Serial.print()`
 - [[cpp|C++ pour Arduino]] — types, portée, division entière : la racine de beaucoup d'erreurs de base
+- [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — l'étape d'avant : comprendre un code sans supposer de panne
 - [[arduino-gpio|Entrées-sorties (GPIO)]] — `pinMode`, pull-up et logique des broches
 - [[arduino-temporisation|Temporiser]] — pour cadencer les `print` sans surcharger
 - [[firmware|Firmware]] — organisation plus large du code embarqué

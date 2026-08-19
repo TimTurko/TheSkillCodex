@@ -122,6 +122,47 @@ Exit 1 si au moins un `MORT` ou un `CASSE` est trouvé.
 
 ---
 
+## audit-portes-famille.mjs
+
+Relève les liens émis par une fiche **non-famille** (trame, notion `[T]`, hub transverse) vers une fiche **de famille** (`arduino-*`, `micropython-*`, `esp32-*`, `esp8266-*`, `stm32-*`, `teensy-*`, `raspberry-pi-*`, `xiao-*`).
+
+### Origine du problème
+
+Une fiche transverse qui a besoin d'un concept mais n'a pas de notion `[T]` au-dessus **se rabat sur une famille**. Le lien fonctionne, aucun audit de liens morts ne le voit, et le parcours enseigne à un lecteur MicroPython un geste Arduino. Le motif a été repéré le 19/08 après deux occurrences ; le balayage complet en a rendu trente.
+
+### Les deux formes
+
+| Forme | Symptôme | Correction |
+|---|---|---|
+| **Créneau vide** | aucune notion `[T]` ne porte le concept | **créer** la notion |
+| **Porte borgne** | la notion `[T]` existe mais ne cite qu'une famille | **ajouter** le lien jumeau |
+
+Une porte est **légitime** quand la fiche cite *toutes* les familles qui portent le concept : renvoyer vers un module est le rôle du parcours, pas un défaut. C'est le seul critère mécanisable ; le partage créneau vide / porte borgne reste à l'arbitrage.
+
+### Faux positifs écartés
+
+Trois classes sont exclues par construction, chacune pour une raison structurelle et non de confort :
+
+- **`cpp/*`** — le C++ *est* l'écosystème Arduino ; réclamer un jumeau MicroPython à `cpp-boucles` n'a pas de sens.
+- **suffixe `arduino-core`** — `esp8266-arduino-core` et `stm32-arduino-core` partagent le suffixe sans partager le sujet.
+- **`ide.md`** — apparie deux *langages*, pas huit familles de cartes.
+
+Sans ces exclusions le script rend 45 résultats pour 30 réels. C'est la leçon du 18/08 : *un audit qui ignore une convention du dépôt produit du bruit à hauteur de ce qu'il ignore*, et ce bruit coûte des arbitrages inexistants.
+
+### Usage
+
+```bash
+# Candidats à arbitrer, faux positifs comptés par motif
+node tools/audit-portes-famille.mjs
+
+# Ajoute le détail des faux positifs et la liste des portes légitimes
+node tools/audit-portes-famille.mjs --tout
+```
+
+Le script rapporte toujours le **nombre de fiches balayées** avant le nombre de résultats. Exit 0 en toutes circonstances : aucun de ces constats ne bloque une publication.
+
+---
+
 ## git-hooks/pre-commit
 
 Hook pré-commit qui bloque tout commit introduisant des caractères invisibles dans les fichiers de pilotage.
