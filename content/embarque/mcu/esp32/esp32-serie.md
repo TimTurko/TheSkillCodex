@@ -69,11 +69,13 @@ Serial.println(mesure);
 
 ### 3. Ouvrir le moniteur série
 
-Téléversez d'abord le code, puis ouvrez le **moniteur série** (icône dans la barre latérale de l'IDE 2.x, ou *Outils → Moniteur série*). Une fenêtre s'ouvre en bas.
+Téléversez d'abord le code, puis ouvrez le **moniteur série** (icône en haut à droite de la barre d'outils, ou *Outils → Moniteur série*). Une fenêtre s'ouvre en bas.
 
-**Vérifiez le baud rate** dans le menu déroulant en bas à droite — il doit valoir `115200`. Sinon, le texte ressemble à des symboles cassés, y compris les messages de démarrage de la puce.
+**Vérifiez le baud rate** dans le menu déroulant à droite de la barre du moniteur — il doit valoir `115200`. Sinon, le texte ressemble à des symboles cassés, y compris les messages de démarrage de la puce.
 
-![Moniteur série de l'IDE Arduino 2.x ouvert en bas de la fenêtre, affichant des lignes de mesure, avec le sélecteur de débit réglé sur 115200.|600](/ressources/img/esp32-serie/moniteur-serie-115200.png)
+![Fenêtre de l'IDE Arduino 2.x : le sketch de mesure dans l'éditeur, l'icône du moniteur série annotée en rouge en haut à droite, et en bas le moniteur ouvert affichant les lignes « Valeur du capteur », avec le sélecteur de débit encadré sur 115200 baud.|600](/ressources/img/esp32-serie/moniteur-serie-115200.png)
+
+Sur cette capture, `GPIO34` n'est reliée à rien : la valeur reste à `0` ligne après ligne. Tout fonctionne pourtant — il n'y a simplement rien à mesurer. C'est l'écran que vous verrez en téléversant avant d'avoir câblé quoi que ce soit, et il ne signale aucune panne (voir *Pièges*).
 
 > [!tip]
 > **Le téléversement (ou le bouton EN) redémarre la carte.** À chaque reset, le programme repart de zéro et l'ESP32 réémet ses messages de boot. Si rien ne s'affiche, vérifier dans l'ordre : le baud rate (115200), la présence de `Serial.begin()`, et — sur puce USB native — le réglage *USB CDC On Boot*.
@@ -96,6 +98,16 @@ void loop() {
   }
 }
 ```
+
+Tapez `a`, validez : la sortie n'est pas celle qu'on attend.
+
+```
+Reçu : a
+
+Reçu : 
+```
+
+**Deux passages dans la boucle, pas un.** Le sélecteur de fin de ligne du moniteur — le menu à gauche du débit, réglé sur *New Line* — ajoute un caractère invisible derrière votre saisie. `Serial.read()` ne lisant qu'un octet, il prend d'abord le `a`, puis au tour suivant ce caractère de fin de ligne, qui s'imprime en ligne vide. Avec *Both NL & CR*, deux caractères sont ajoutés : **trois** passages.
 
 > [!warning]
 > **`Serial.read()` renvoie un caractère, pas un nombre.** Si vous tapez `42`, vous recevrez successivement `'4'` puis `'2'`, pas l'entier 42. Pour lire un nombre, `Serial.parseInt()` agrège les chiffres ; pour lire une ligne entière, `Serial.readStringUntil('\n')`.
@@ -170,6 +182,8 @@ La réponse à la commande **s'insère** dans le défilé sans l'interrompre : c
 
 **Oublier `Serial.begin()`.** Sans cette ligne, les `Serial.print()` n'envoient rien — moniteur ouvert, baud correct, mais sortie muette.
 
+**Entrée analogique non câblée : un plancher, pas du bruit.** Une broche d'entrée analogique laissée en l'air n'affiche pas des valeurs qui sautent dans tous les sens, mais un **plancher** : des `0`, parfois des `1`. Le réflexe est d'accuser le moniteur, le baud ou le code, alors que les trois vont bien. Pour vérifier la chaîne **avant** de câbler un capteur, relier brièvement la broche à `3V3` : la valeur doit bondir près de `4095`, puis retomber à `0` sur `GND`. Si elle suit, la mesure est opérationnelle et il ne manque que le capteur.
+
 **`print` partout, `println` nulle part.** Toute la sortie sur une ligne illisible. Réflexe : `println` à la fin de chaque ligne logique, `print` au milieu.
 
 **Inonder le port.** Imprimer chaque milliseconde sature la liaison et rend la sortie illisible. Limiter à ~10-50 Hz pour de l'observation humaine (cadencer sur `millis()`, pas figer la boucle avec `delay`).
@@ -177,6 +191,8 @@ La réponse à la commande **s'insère** dans le défilé sans l'interrompre : c
 **Moniteur ouvert ailleurs verrouille le port.** Si PlatformIO ou un terminal externe tient le port, l'IDE ne peut ni ouvrir son moniteur, ni téléverser. Fermer l'autre application.
 
 **`Serial.read()` ne lit qu'un octet.** Un appel unique ne lit qu'un caractère même si l'ordinateur a envoyé un mot. Pour une ligne, `readStringUntil('\n')` ; pour un nombre, `parseInt()`.
+
+**Le sélecteur de fin de ligne compte dans ce qui est reçu.** À gauche du débit, un menu déroulant choisit ce que le moniteur ajoute derrière votre saisie — rien, `\n`, `\r`, ou les deux. Ces caractères arrivent dans la file au même titre que votre texte. Deux conséquences : `Serial.read()` fait **un passage de boucle en trop par caractère ajouté** (voir l'étape 4), et `readStringUntil('\n')` ne trouve son `\n` que si le sélecteur en envoie un — sinon il attend l'expiration de son délai, **une seconde par défaut**, et la boucle se fige d'autant. C'est le même mécanisme que le piège `parseInt()` ci-dessous, déclenché cette fois par un réglage d'interface et non par le code. C'est aussi ce que nettoie le `cmd.trim()` de l'exemple.
 
 **`parseInt()` attend une seconde, puis renvoie 0.** `Serial.parseInt()` bloque la boucle jusqu'à recevoir un entier complet — ou jusqu'à expiration de son délai d'attente, **une seconde par défaut**, auquel cas il renvoie `0`. Deux conséquences en TP : la boucle se fige brièvement à chaque commande, et une saisie mal terminée applique silencieusement la valeur 0 (LED éteinte, sans message). `Serial.setTimeout(50)` raccourcit l'attente ; lire la ligne avec `readStringUntil()` puis convertir explicitement évite le piège.
 

@@ -37,23 +37,30 @@ Un message d'erreur de compilation a une forme régulière :
 
 ```
 sketch.ino: In function 'void loop()':
-sketch.ino:7:3: error: 'led' was not declared in this scope
-   digitalWrite(led, HIGH);
-   ^~~~~~~~~~~~
+sketch.ino:7:16: error: 'led' was not declared in this scope
+    7 |   digitalWrite(led, HIGH);
+      |                ^~~
 ```
 
-On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`), puis `fichier:ligne:colonne` (ici **ligne 7**), le mot **`error:`**, la **description**, et souvent la ligne de code fautive avec un `^` qui pointe l'endroit. Deux réflexes :
+On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`), puis `fichier:ligne:colonne` (ici **ligne 7, colonne 16**), le mot **`error:`**, la **description**, et la ligne de code fautive recopiée avec son numéro dans une gouttière — le `^` désigne le mot exact qui pose problème, ici `led` et non l'appel de fonction. Deux réflexes :
 
 - **commencer par la PREMIÈRE erreur.** Une faute en entraîne souvent d'autres en cascade ; corrigez la première, recompilez, et les suivantes disparaissent fréquemment ;
 - **aller voir la ligne indiquée** — en gardant en tête que certaines erreurs (comme un `;` manquant) sont signalées sur la ligne **suivante**.
 
-![Panneau d'erreur de l'IDE Arduino 2.x affichant un message d'erreur en rouge, avec le chemin du fichier, le numéro de ligne et la ligne de code fautive.|560](/ressources/img/cpp-logs/panneau-erreur.png)
+> [!tip]
+> **Ne recopiez pas le message à la main.** Quand la compilation échoue, l'IDE 2.x affiche une notification en bas à droite avec un bouton **COPY ERROR MESSAGES** : un clic met tout le message dans le presse-papier, prêt à coller dans un moteur de recherche ou dans une question à un camarade.
+>
+> Au passage, remarquez que le même message apparaît **trois fois** — détaillé dans le panneau *Output*, résumé sur sa dernière ligne, et repris dans la notification. C'est **une seule** erreur, pas trois.
+
+![Panneau Output de l'IDE Arduino 2.x en bas de la fenêtre, affichant en rouge une erreur de compilation détaillée sur plusieurs lignes, et en bas à droite une notification portant un bouton COPY ERROR MESSAGES.|640](/ressources/img/cpp-logs/panneau-erreur.png)
 
 ## Les erreurs de compilation les plus fréquentes
 
 **`expected ';' before ...`** — un point-virgule manque, presque toujours à la **ligne précédant** celle indiquée.
 
 **`'xxx' was not declared in this scope`** — un nom (variable, fonction) est utilisé sans avoir été déclaré : faute de frappe, `#include` oublié, variable déclarée plus bas, ou variable locale utilisée hors de sa portée (voir [[cpp-portee|variables locales et globales]]).
+
+**`fatal error: xxx.h: No such file or directory`** — un fichier d'en-tête est introuvable : bibliothèque non installée, nom mal orthographié, ou **dépendance manquante** d'une bibliothèque installée (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Le mot `fatal` signifie que la compilation **s'arrête immédiatement** : contrairement aux autres, cette erreur ne vient jamais en cascade — elle est seule, et c'est la seule à traiter.
 
 **`expected '}' at end of input`** — une accolade ouvrante n'a jamais été fermée. Vérifier l'équilibre des `{ }` (l'auto-indentation de l'IDE, *Ctrl+T*, aide à les repérer).
 
@@ -72,40 +79,90 @@ On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`)
 
 ## Messages à décoder
 
-Plutôt qu'un sketch à lire, voici deux **erreurs réelles** à diagnostiquer — le code, le message, la lecture.
+Plutôt qu'un sketch à lire, voici trois **erreurs réelles** à diagnostiquer — le code, le message tel que l'IDE l'affiche, la lecture.
 
-**Cas 1.** Le code :
+**Cas 1 — le point-virgule oublié.** Le code :
 
 ```cpp
 void setup() {
-  int x = 5            // ← rien ici
-  Serial.begin(9600);
+  pinMode(2, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(2, HIGH)
+  delay(1000);
+  digitalWrite(2, LOW);
+  delay(1000);
 }
 ```
 
 Le message :
 
 ```
-sketch.ino:3:3: error: expected ';' before 'Serial'
+Blink.ino: In function 'void loop()':
+Blink.ino:6:24: error: expected ';' before 'delay'
+    6 |   digitalWrite(2, HIGH)
+      |                        ^
+      |                        ;
+    7 |   delay(1000);
+      |   ~~~~~
+exit status 1
+
+Compilation error: expected ';' before 'delay'
 ```
 
-Lecture : l'erreur est signalée **ligne 3** (`Serial`), mais la cause est **ligne 2** — il manque le `;` après `int x = 5`. C'est le piège classique du point-virgule : la faute est sur la ligne *précédant* celle qu'indique le message.
+Lecture : l'erreur est signalée **ligne 6, colonne 24** — et la colonne 24, c'est le caractère qui suit immédiatement la parenthèse fermante. Le compilateur désigne **le vide**, là où il attendait quelque chose. Il va même jusqu'à dessiner le `;` manquant sur la ligne du dessous. Le `~~~~~` sous `delay` désigne le mot qui l'a fait trébucher : il a lu `digitalWrite(2, HIGH)` puis `delay`, sans le séparateur entre les deux. C'est le piège classique du point-virgule — **la faute est à la fin de la ligne précédente**, même quand le message désigne la suivante.
 
-**Cas 2.** Le code :
+**Cas 2 — la variable hors de sa portée.** Le code :
 
 ```cpp
+void setup() {
+int my_age = 18;
+Serial.begin(115200);
+
+}
 void loop() {
-  digitalWrite(led, HIGH);
+Serial.print(my_age);
 }
 ```
 
 Le message :
 
 ```
-sketch.ino:2:16: error: 'led' was not declared in this scope
+Blink.ino: In function 'void loop()':
+Blink.ino:7:14: error: 'my_age' was not declared in this scope
+    7 | Serial.print(my_age);
+      |              ^~~~~~
+exit status 1
+
+Compilation error: 'my_age' was not declared in this scope
 ```
 
-Lecture : `led` est utilisé mais jamais déclaré. Soit on a oublié `const int led = 13;` dans les déclarations globales, soit c'est une faute de frappe (`LED` au lieu de `led` ?). Correction : déclarer la variable, ou corriger le nom.
+Lecture : `my_age` **existe**, il est déclaré ligne 2 — et pourtant le compilateur dit qu'il n'existe pas. C'est le piège : il est déclaré **à l'intérieur de `setup()`**, donc il naît et meurt avec elle. Arrivé dans `loop()`, le compilateur ne le connaît plus. Le message ne ment pas : *dans cette portée*, le nom n'est pas déclaré. Correction : sortir `int my_age = 18;` des accolades, au-dessus de `setup()`, pour en faire une variable **globale** — voir [[cpp-portee|variables locales et globales]].
+
+C'est l'erreur à la lecture la plus trompeuse du lot, parce que la variable est sous vos yeux dans le fichier. Le réflexe : ne pas chercher *si* le nom existe, mais **dans quel bloc** il a été écrit.
+
+**Cas 3 — l'erreur qui n'est pas dans votre fichier.** Le code :
+
+```cpp
+#include <Adafruit_BMP280.h>
+void setup() {}
+void loop() {}
+```
+
+Le message :
+
+```
+In file included from Blink.ino:1:
+...\libraries\Adafruit_BMP280_Library/Adafruit_BMP280.h:26:10: fatal error: Adafruit_Sensor.h: No such file or directory
+   26 | #include <Adafruit_Sensor.h>
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+```
+
+Lecture : trois lignes de code, et le message désigne une **ligne 26** qui n'existe pas chez vous. Le `In file included from` est la clé — il déroule la chaîne : votre sketch inclut `Adafruit_BMP280.h`, qui à sa ligne 26 inclut `Adafruit_Sensor.h`, introuvable. La bibliothèque a bien été installée, mais **pas sa dépendance** (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Rien à corriger dans le sketch : il faut réinstaller la bibliothèque en acceptant *Install all*.
+
+La leçon dépasse ce cas : **le fichier nommé par une erreur n'est pas forcément le vôtre.** Avant de chercher une faute dans votre code, lisez le chemin.
 
 ## Pièges
 

@@ -48,7 +48,13 @@ Pour un composant nouveau, taper le nom du composant + « arduino library » dan
 2. Taper le nom dans le champ de recherche (`Servo`, `LiquidCrystal_I2C`, `Adafruit BMP280`).
 3. Choisir la bibliothèque et cliquer *Installer*.
 
-![Gestionnaire de bibliothèques de l'IDE Arduino 2.x, recherche « Adafruit BMP280 » et plusieurs résultats visibles.|600](/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png)
+![Gestionnaire de bibliothèques de l'IDE Arduino 2.x ouvert dans le panneau latéral, recherche « Adafruit BMP280 » — la bibliothèque d'Adafruit apparaît seule, avec son sélecteur de version et son bouton Install.|600](/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png)
+
+**Une bibliothèque en réclame souvent d'autres.** L'IDE peut alors ouvrir la boîte *Install library dependencies*, qui nomme ce qui manque. Cliquer **Install all** : la bibliothèque demandée seule ne suffirait pas à compiler.
+
+![Boîte de dialogue Install library dependencies de l'IDE Arduino, annonçant que la bibliothèque Adafruit BMP280 3.0.0 réclame Adafruit BusIO et Adafruit Unified Sensor, avec un bouton pour installer sans les dépendances et un autre pour tout installer.|600](/ressources/img/arduino-bibliotheques/installer-bibliotheques-dependances.png)
+
+*Install without dependencies* installe la bibliothèque demandée et rien d'autre. L'onglet *Output* annonce quand même une installation réussie — voir *Pièges*.
 
 **Méthode B — installation depuis un fichier ZIP** (pour les bibliothèques absentes du gestionnaire) :
 
@@ -134,6 +140,18 @@ Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer man
 ## Pièges
 
 **Bibliothèque non installée.** Le compilateur sort `fatal error: Servo.h: No such file or directory`. Vérifier l'installation, vérifier l'orthographe (sensibilité à la casse sur Linux/macOS).
+
+**Dépendances non installées.** Le même échec, avec un décor rassurant. Choisir *Install without dependencies* **réussit** — l'onglet *Output* se termine par `successfully installed`, et rien n'indique que le compte n'y est pas. La panne n'apparaît qu'à la compilation :
+
+```
+In file included from Blink.ino:1:
+...\libraries\Adafruit_BMP280_Library/Adafruit_BMP280.h:26:10: fatal error: Adafruit_Sensor.h: No such file or directory
+   26 | #include <Adafruit_Sensor.h>
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+```
+
+Le fichier fautif n'est pas celui du sketch : c'est l'en-tête de la bibliothèque qu'on vient d'installer, ligne 26, qui réclame `Adafruit_Sensor.h` — la dépendance refusée. Et le compilateur s'arrête à **la première** manquante : les installer une par une oblige à recompiler autant de fois. Rouvrir le gestionnaire, réinstaller, et accepter *Install all*.
 
 **Plusieurs bibliothèques de même nom.** Symptôme : compilation OK mais comportement incohérent. Arduino utilise la dernière installée. Désinstaller les doublons dans le gestionnaire.
 

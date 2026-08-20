@@ -80,8 +80,8 @@ Une ligne par session, détail des cadrages dans la partie *Sessions* ci-dessous
 
 - [ ] **S1 · IDE Arduino** — 12 prises (la plus rentable : un quart de la dette)
 - [ ] **S2 · Thonny + Pico branché** — 8 prises (les 3 Plotter exigent un montage réel)
-- [ ] **S3 · STM32CubeIDE** — 7 prises (dont 1 candidat GIF : `stm32-registres:68`)
-- [ ] **S4 · Navigateur** — 4 prises (3 pages de téléchargement + la page servie par l'ESP32)
+- [ ] **S3 · STM32CubeIDE** — 7 prises — **REPORTÉES post-rentrée (20/08)** (l'unique candidat GIF : `stm32-registres:68`)
+- [ ] **S4 · Navigateur** — **3 prises actives** sur 4 (#30 reportée avec STM32 ; 2 pages de téléchargement + la page servie par l'ESP32)
 - [ ] **S5 · Wokwi** — 2 prises
 - [ ] **S6 · Raspberry Pi Imager** — 2 prises (même dialogue, deux onglets)
 - [ ] **S7 · IDE Arduino + matériel (traceur série)** — 3 prises
@@ -182,7 +182,7 @@ La session la plus rentable : une seule ouverture règle un quart de la dette.
 
 Les trois Plotter (#18-20) exigent le Pico branché et un montage réel.
 
-## S3 · STM32CubeIDE — 7 prises
+## S3 · STM32CubeIDE — 7 prises — **REPORTÉES POST-RENTRÉE (20/08)**
 
 | # | Fiche:ligne | À montrer |
 |---|---|---|
@@ -489,7 +489,7 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 48 | `shield:19` | `/ressources/img/shield/empilement-uno-shield.jpg` | 480 |
 | 49 | `schema-bloc-fonctionnel:67` | `/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg` | 600 |
 | 50 | `ide` | `/ressources/img/ide/selecteur-carte-port.png` | 600 |
-| 51 | `ide` | `/ressources/img/ide/moniteur-serie.png` | 600 |
+| 51 | *(annulée le 20/08 — `moniteur-serie.png` ne sera jamais produite)* | — |
 | 52 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/selection-board.png` | 640 |
 | 53 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/selection-port-com.png` | 640 |
 | 54 | `esp8266-prise-en-main` | `/ressources/img/esp8266-prise-en-main/selection-board.png` | 640 |
@@ -498,21 +498,52 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 57 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/upload-in-progress.png` | 640 |
 | 58 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/done-uploading.png` | 640 |
 | 59 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/led-off.jpg` | 420 |
+| 60 | `arduino-bibliotheques` | `/ressources/img/arduino-bibliotheques/installer-bibliotheques-dependances.png` | 600 |
 
 ## Prises ouvertes en session de prise de vue — 20/08
 
-Quatre prises nées du découpage de #1 et de la réécriture de l'étape 3 d'`esp32-prise-en-main`.
+Onze prises nées du découpage de #1, de la réécriture de l'étape 3 d'`esp32-prise-en-main`,
+et d'une boîte de dialogue rencontrée en shootant #9.
 **#1 à #49 ne sont jamais renumérotées** ; celles-ci prennent la suite.
 
 | # | Origine | État |
 |---|---|---|
-| 50 | #1 scindée — le sélecteur de carte / port sort de l'interface annotée | à shooter, ligne d'embed à poser |
-| 51 | #1 scindée — le moniteur série sort de l'interface annotée | à shooter, ligne d'embed à poser ; **dépend de l'arbitrage « une seule capture de moniteur dans le wiki »** (a) retenu le 20/08 |
+| 50 | #1 scindée — le sélecteur de carte / port sort de l'interface annotée | **déposée et intégrée le 20/08 (suite)** — boîte *Select Other Board and Port*, cartes et ports côte à côte |
+| 51 | #1 scindée — le moniteur série sort de l'interface annotée | **ANNULÉE le 20/08 (suite)**, voir ci-dessous |
 | 52 | chemin manuel *Outils → Type de carte* | **déposée et intégrée le 20/08** |
 | 53 | chemin manuel *Outils → Port* + gestionnaire de périphériques | **déposée et intégrée le 20/08** |
 | 54 | pendant ESP8266 de #52 | **déposée et intégrée le 20/08** |
 | 55 | pendant ESP8266 de #53 | **déposée et intégrée le 20/08** |
 | 56 | gestionnaire de cartes filtré sur `esp8266`, étape 2 | **déposée et intégrée le 20/08** — **annule la suppression du 19/08** de `esp8266-prise-en-main:45` : le réemploi était rejeté faute d'image propre, la prise propre existe désormais |
+| 57 | console pendant le téléversement (`upload-in-progress`) | **déposée et intégrée le 20/08** — absorbe #8 |
+| 58 | console après téléversement (`done-uploading`) | **déposée et intégrée le 20/08** |
+| 59 | LED éteinte, pendant de #39 — remplace le GIF abandonné | **déposée et intégrée le 20/08** |
+| 60 | boîte *Install library dependencies*, rencontrée en shootant #9 | **déposée et intégrée le 20/08 (suite)** |
+
+**#51 est annulée (20/08, suite).** Elle avait été ouverte pour combler une promesse
+de l'alt de #1 — « sélecteurs de carte **et de port**, moniteur série » — que l'image
+ne tenait pas. Vérification faite image ouverte : `interface-annotee.png` **annote déjà
+le moniteur série** d'un encadré, d'une flèche et d'un libellé. Le *où* est donc livré
+dans `ide` ; le *ce qu'il affiche et comment le régler* est livré par #10. Une troisième
+capture n'avait plus de travail, et elle contredisait l'arbitrage « une seule capture de
+moniteur dans tout le wiki ». **L'alt de #1 a été recalé à la place** : il ne promet plus
+de sélecteur de port (l'IDE 2.x n'en a qu'un, combiné) et nomme les boutons *Verify* et
+*Upload* comme l'image les annote, avec la traduction entre parenthèses.
+
+**Le numéro 51 n'est pas réutilisé.**
+
+**Réserve tracée sur #50.** Le champ de recherche a bien été laissé vide, mais la liste
+est restée en haut de l'alphabet : les six cartes visibles s'appellent toutes *Arduino*.
+Le cadrage visait une liste multi-familles, argument perdu. Sans conséquence — `ide`
+illustre déjà la notion avec l'IDE Arduino (#1), il n'y a pas de contradiction. Un
+défilement jusqu'aux `E` la récupérerait sans reshoot complet, si l'occasion se présente.
+
+**Ce que #50 a livré à la place, et qui vaut mieux (C99).** La boîte porte sa propre
+phrase d'explication : une carte seule permet de **compiler**, un port est nécessaire pour
+**téléverser**. C'est la distinction des deux familles d'erreurs de `cpp-logs`, énoncée
+par l'IDE lui-même — qu'aucune des quatre captures carte/port existantes (#4, #5, #52,
+#53) ne porte. La phrase d'accompagnement dans `ide` a été écrite dessus, avec un lien
+neuf vers `cpp-execution` que la fiche n'avait pas.
 
 **#5 change de nom et de largeur** : `menu-outils-nodemcu.png` → `menu-outils-carte-port.png`,
 600 → 400, en miroir de #4. Le nom promettait une NodeMCU, l'écran montre
@@ -552,7 +583,45 @@ navigateur. Report demandé quand même, pour traiter Teensy d'un seul bloc.
 garde donc trois images malgré le report.
 
 **Conséquence sur le compte** : la session S1 · IDE Arduino passe de 15 à **14 prises**
-(#6 sort), et S10 · Prises isolées de 3 à **2** (#46 sort). #41 sortait déjà de S8.
+(#6 sort), puis à **13** avec le report de #7 ci-dessous, et
+S10 · Prises isolées de 3 à **2** (#46 sort). #41 sortait déjà de S8.
+
+## STM32 — REPORTÉ POST-RENTRÉE (arbitrage Tim, 20/08)
+
+Même motif que Teensy, même exécution : **neuf prises sortent du lot actif** et leurs
+embeds sont **reconvertis en placeholders C29**. L'arbitrage a été rendu et appliqué
+dans `content/` le 20/08 ; **cette section a été écrite après coup, le même jour** —
+le manifeste ne portait le report que côté Teensy, et présentait encore les neuf
+prises STM32 comme actives.
+
+| # | Fiche:ligne | Fichier attendu | État |
+|---|---|---|---|
+| 7 | `stm32-arduino-core:45` | `stm32-arduino-core/menu-outils-nucleo.png` | placeholder C29 rétabli |
+| 21 | `stm32-prise-en-main:50` | `stm32-prise-en-main/board-selector.png` | placeholder C29 rétabli |
+| 22 | `stm32-prise-en-main:69` | `stm32-prise-en-main/main-c-user-code.png` | placeholder C29 rétabli |
+| 23 | `stm32-prise-en-main:114` | `stm32-prise-en-main/perspective-debug.png` | placeholder C29 rétabli |
+| 24 | `stm32-registres:68` | `stm32-registres/vue-registers-odr.gif` | placeholder C29 rétabli |
+| 25 | `stm32-cubemx:41` | `stm32-cubemx/pinout-configuration.png` | placeholder C29 rétabli |
+| 26 | `stm32-cubemx:49` | `stm32-cubemx/clock-configuration.png` | placeholder C29 rétabli |
+| 27 | `stm32-cubemx:58` | `stm32-cubemx/usart-nvic.png` | placeholder C29 rétabli |
+| 30 | `stm32-prise-en-main:38` | `stm32-prise-en-main/telechargement-cubeide.png` | placeholder C29 rétabli |
+
+**#24 emporte l'unique candidat GIF logiciel du dépôt.** `vue-registers-odr.gif` était
+le seul GIF encore prévu au manifeste après l'abandon de celui d'`esp32-prise-en-main` ;
+les précautions C87 qui le visaient (< 5 Mo, `fps=15`, interception avant commit) n'ont
+plus d'objet tant que le report tient. Reste #47, le servo, qui est un GIF de paillasse.
+
+**#30 ne demandait aucune carte** — c'est une page de téléchargement sur `st.com`,
+shootable avec le lot navigateur. Reportée quand même, pour traiter STM32 d'un seul
+bloc : exactement le raisonnement appliqué à #46 côté Teensy.
+
+**Le réemploi `stm32-arduino-core:38` reste actif, et il est déjà allumé** : il pointe
+#2 (`esp32-prise-en-main/preferences-url-cartes.png`), déposée le 20/08. La fiche garde
+donc une image malgré le report — vérifié fiche ouverte.
+
+**Conséquence sur le compte** : S1 passe à **13** prises actives (#7 sort après #6),
+S3 tombe à **0**, S4 passe de 4 à **3** (#30 sort). Les trois réemplois Teensy et le
+réemploi STM32 restent hors de ce décompte, n'étant pas des prises.
 
 **#4 change de largeur : 600 → 400.** La capture déposée fait 372 px de large et ne
 peut pas être agrandie (menu déroulant natif). L'alt a été refait : ce n'est plus le

@@ -31,11 +31,11 @@ Cinq étapes : installer l'IDE, ajouter le support ESP32, brancher la carte, cha
 
 ### 1. Installer l'IDE Arduino
 
-Téléchargez l'IDE depuis le site officiel `arduino.cc`, section *Software*. Prenez l'**IDE 2.x** (récente, recommandée — autocomplétion, gestionnaire de cartes intégré). Les captures de cette fiche l'utilisent.
+Téléchargez l'IDE depuis le site officiel `arduino.cc`, par *Products → Arduino IDE*. Prenez l'**IDE 2.x** (récente, recommandée — autocomplétion, gestionnaire de cartes intégré). Les captures de cette fiche l'utilisent. Le menu déroulant propose plusieurs variantes par système : sous Windows l'installeur ordinaire convient, sous macOS **vérifiez Intel ou Apple Silicon**, sous Linux l'AppImage évite toute installation.
 
 Sous Linux, ajoutez votre utilisateur au groupe `dialout` pour accéder au port série sans `sudo`. Sous macOS, rien de plus.
 
-![Page de téléchargement de l'IDE Arduino sur arduino.cc, avec les liens Windows, macOS et Linux.|600](/ressources/img/esp32-prise-en-main/telechargement-ide.png)
+![Deux moments de la navigation sur arduino.cc réunis dans une seule image : en haut le menu Products ouvert, une flèche rouge désignant l'entrée Arduino IDE ; en bas la page de téléchargement en version 2.3.10, son menu déroulant listant les sept variantes Windows, Linux et macOS, et le bouton Download.|600](/ressources/img/esp32-prise-en-main/telechargement-ide.png)
 
 ### 2. Ajouter le support ESP32
 

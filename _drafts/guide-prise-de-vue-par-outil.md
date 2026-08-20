@@ -24,6 +24,39 @@ circulaient** dans les prompts de lancement précédents :
 
 **Total manifeste : 57 lignes = 49 pivots + 8 réemplois.**
 
+### Recomptage du 20/08 (suite) — après les reports Teensy et STM32
+
+C'est **ce tableau qui fait foi**. Celui d'ouverture, plus bas, décrit l'état d'avant
+les reports et d'avant l'ouverture de #50 à #59 ; il est conservé pour trace.
+
+| Grandeur | Compte |
+|---|---|
+| Numéros ouverts au manifeste | **#1 → #60** |
+| dont jamais à produire (#8 absorbée par #57, #51 annulée) | 2 |
+| dont reportées post-rentrée | **12** — 3 Teensy (#6, #41, #46) + 9 STM32 (#7, #21-27, #30) |
+| **Lot actif** | **46** (#60 ouverte, #51 annulée, le 20/08 suite) |
+| Déposées sur disque | **19** |
+| **Restant à shooter** | **27** |
+| *(hors manifeste)* KiCad, reporté post-publication (C90) | 3 |
+
+**Les 19 déposées** : #1, #2, #3, #4, #5, #9, #10, #11, #39, #50, #52, #53, #54, #55,
+#56, #57, #58, #59, #60.
+
+**Les 27 restantes, par lot** : IDE Arduino #12 (1) · traceur série
+#36-38 (3) · Thonny #13-20 (8) · navigateur #28, #29, #31 (3) ·
+Wokwi #32-33 (2) · Imager #34-35 (2) · carte branchée #40 (1) · datasheet #42-43 (2) ·
+prises isolées #44, #45 (2) · paillasse #47-49 (3).
+
+⚠ **Deux chiffres de plus étaient faux**, hérités du prompt de reprise. « Lot actif 44,
+12 déposées » — les deux sont décalés de 2 **en parallèle**, ce qui donne un reste juste
+par compensation et rend l'erreur invisible à la soustraction. Et « 4 Teensy reportées » :
+la quatrième ligne, `teensy-prise-en-main:79`, est un **réemploi**, pas une prise — le
+décompte 3 + 4 + 9 fait 16, là où le total annoncé était 15. Le motif du 20/08 tient :
+**un chiffre repris se remesure**, et un total qui tombe juste ne prouve rien sur ses
+termes.
+
+### Décomposition d'ouverture du 20/08 — avant les reports, pour trace
+
 | Catégorie | Nombre | Fichier à produire ? |
 |---|---|---|
 | Pivots — captures d'écran | **44** | oui |
@@ -53,6 +86,11 @@ Tout le reste est de l'écran, y compris #41 (fenêtre du Teensy Loader) et
 | **PulseView** | 1 | #45 | **oui**, analyseur logique + trafic I²C |
 | **nRF Connect (mobile)** | 1 | #44 | **oui**, ESP32 en BLE |
 | *(reporté)* **KiCad** | 3 | — | non — hors périmètre de ce guide |
+
+⚠ **Ce tableau par logiciel est celui d'ouverture.** Il ne tient compte ni des reports
+ni de #50-#59. Lignes périmées : **IDE Arduino** perd #6 et #7 (13 actives, plus #50 et
+#51 dans `ide`), **STM32CubeIDE tombe à 0**, **Navigateur** passe de 5 à 3 (#30 et #46
+sortent), **Teensy Loader** tombe à 0.
 
 ### B. Photos, par matériel à avoir sous la main — 5
 
@@ -86,16 +124,24 @@ dans la liste des prises.**
 
 ### Dossiers manquants sur disque — relevé du 20/08
 
-`content\ressources\img\` re-listé ce jour. **Huit dossiers de destination
+`content\ressources\img\` re-listé ce jour. **Sept dossiers de destination
 n'existent pas encore** et sont à créer avant dépôt :
 
-`ide` · `esp32-serie` · `cpp-logs` · `micropython-prise-en-main` ·
+`esp32-serie` · `cpp-logs` · `micropython-prise-en-main` ·
 `micropython-debug` · `micropython-repl` · `micropython-simulation` · `shield`
 
 ⚠ **La liste héritée du 19/08 en oubliait un** : `micropython-prise-en-main`,
 qui porte pourtant **quatre** prises (#13, #14, #15, #29).
 
 ⚠ `shield` n'est **pas** `arduino-shield`, qui existe déjà et contient autre chose.
+
+⚠ **`ide` a été créé le 20/08** et sort de la liste : sept, pas huit.
+
+**Un fichier orphelin trouvé et supprimé (20/08 suite).**
+`esp8266-prise-en-main\open-blink.png` (29,9 ko) était sur disque, absent du manifeste
+et référencé nulle part dans la fiche — dépôt accidentel pendant la session, supprimé
+par Tim. *Un dossier d'images se relit contre le manifeste, pas seulement contre les
+embeds de la fiche : un fichier en trop ne casse rien et ne se signale donc jamais.*
 
 ### Pièges connus
 
@@ -296,5 +342,93 @@ L'inverse exact de #2 : **assume pleinement l'ESP32**, réemployée nulle part.
 - **Micro-incohérence non bloquante** : le sous-menu *Board* liste déjà `esp32` et
   `esp8266` (cœurs installés) alors que le panneau affiche *INSTALL* et non *UPDATE*.
 - → voir **Specs à revoir — piège du mauvais paquet**, révélé par cette image.
+
+#### #9 — `arduino-bibliotheques:51` → `img\arduino-bibliotheques\gestionnaire-bibliotheques.png` — **DÉPOSÉE, ALT RECALÉ**
+
+- **État à l'écran** : panneau *Library Manager* du rail latéral, recherche `Adafruit BMP280`,
+  filtres *Type* et *Topic* sur *All*.
+- **Lisible dans l'image** : le champ de recherche encadré et annoté *Search*, l'icône du
+  gestionnaire encadrée dans le rail, le résultat **Adafruit BMP280 Library by Adafruit**
+  avec son sélecteur de version **3.0.0** et son bouton **INSTALL** fléché.
+- **Où ça atterrit** : étape 2, sous la liste numérotée de la *Méthode A*.
+- **Ne rien brancher.**
+- **Divergence traitée (arbitrage Tim, (a))** : l'alt posé d'avance promettait
+  « plusieurs résultats visibles », l'image en montre **un seul**. C'est la **première
+  déviation entre un cadrage et sa spécification** depuis que les embeds sont posés en
+  (c-large) — le cas que la case « vérifier les alts au dépôt » anticipait. **L'alt a
+  été réécrit sur l'image**, pas l'inverse.
+- **Réserve tracée, non bloquante** : **348 px de large** contre les 1200-1600 de C74/C100,
+  rendus à 600 — l'image sera molle. Contrairement à #4 (menu déroulant natif,
+  non agrandissable), **le panneau du gestionnaire est redimensionnable** : un reshoot
+  panneau élargi réglerait la largeur *et* rendrait plusieurs résultats visibles.
+  Tim a choisi de garder l'image ; l'occasion se représentera avant publication.
+- **Divergence texte/image laissée telle quelle (arbitrage Tim, (b))** : le cadre rouge
+  sur l'icône du rail enseigne un chemin d'accès que la prose ne nomme pas (elle n'écrit
+  que *Sketch → Inclure une bibliothèque → Gérer les bibliothèques*). Jumeau du décalage
+  *Vérifier/Téléverser* contre *Verify/Upload* relevé sur #1. L'encadré se comprend seul.
+
+#### #60 — `arduino-bibliotheques` → `img\arduino-bibliotheques\installer-bibliotheques-dependances.png` — **NÉE EN SESSION, DÉPOSÉE**
+
+Prise **non prévue**, ouverte par le point de vigilance posé avant de shooter #9.
+
+- **État à l'écran** : boîte *Install library dependencies* surgie après le clic sur
+  *INSTALL*, les deux dépendances nommées et les deux boutons visibles.
+- **Lisible dans l'image** : `Adafruit BMP280 Library:3.0.0`, `Adafruit BusIO`,
+  `Adafruit Unified Sensor`, *INSTALL WITHOUT DEPENDENCIES* et *INSTALL ALL*.
+  Version **cohérente avec #9** (3.0.0) — les deux images se lisent en séquence.
+- **Où ça atterrit** : étape 2, sous le paragraphe neuf « Une bibliothèque en réclame
+  souvent d'autres », avant la *Méthode B* (C93, volet placement).
+- **Largeur 600** pour ~625 px natifs : rendu quasi 1:1. Sous la cible C74, mais c'est
+  une **boîte de dialogue native non redimensionnable** — même traitement que #4.
+
+**Ce que la prise a révélé (C99) — la trouvaille de la séquence.** L'onglet *Output*
+rapporté par Tim ne liste **que** `Adafruit BMP280 Library@3.0.0`, alors que la boîte
+venait d'annoncer deux dépendances absentes : c'est donc *Install without dependencies*
+qui a été cliqué, et l'opération se termine par `successfully installed`. **Le geste qui
+casse la compilation produit un message de succès.** Symétrique exact du motif du 20/08
+(message alarmant sur installation saine) ; entrée *Pièges* écrite dans la fiche.
+
+⚠ **Reste à relever au banc** : le message de compilation obtenu **dans cet état**
+(dépendances absentes). Il n'est pas écrit dans la fiche, et il ne le sera pas de
+mémoire. La machine de Tim est actuellement **dans l'état qui le produit** — il suffit
+de compiler un sketch avec `#include <Adafruit_BMP280.h>`. Bonus : ce serait une **vraie
+erreur, non fabriquée**, donc le sujet naturel de **#11** (`cpp-logs:50`, panneau d'erreur).
+
+#### #11 — `cpp-logs:50` → `img\cpp-logs\panneau-erreur.png` — **DÉPOSÉE**
+
+Dossier `cpp-logs\` **créé en session**. Il en reste six sur la liste des manquants.
+
+- **État à l'écran** : panneau *Output* déplié, erreur `;` du Cas 1, notification en bas à droite.
+- **1198 px de large** — **première prise de la journée à atteindre la cible C74/C100**,
+  après les 348 de #9 et les 372 de #4. Largeur d'embed passée de 560 à **640**.
+- **Chemin personnel masqué par Tim à la prise**, aux deux occurrences. Première
+  application du candidat convention écrit le même jour — appliqué avant d'être rédigé.
+- **Un mauvais fichier déposé d'abord** (l'erreur bibliothèque au lieu du `;`), corrigé
+  au dépôt suivant. *C81 a servi à quelque chose : la relecture de l'image a détecté le
+  mauvais contenu sous le bon nom de fichier, ce qu'aucun audit de chemin n'aurait vu.*
+
+**Ce que la prise a révélé (C99), en deux temps.**
+
+La capture porte le `fichier:ligne:colonne` que la sortie collée par Tim avait perdu :
+**`Blink.ino:6:24`**. La colonne 24 désigne le caractère suivant la parenthèse fermante —
+**le compilateur pointe le vide**. Meilleur exemple possible pour une section qui enseigne
+à lire la colonne ; le Cas 1 a été réécrit dessus.
+
+La capture porte aussi le bouton **COPY ERROR MESSAGES** de la notification, et montre que
+le message apparaît **trois fois** (panneau détaillé, ligne de résumé, bulle). La fiche
+ouvrait en disant que l'étudiant va « recopier l'erreur dans un moteur de recherche »
+sans jamais mentionner le bouton qui le fait. Encart `[!tip]` ajouté.
+
+**Arbitrage de placement (Tim, (b))** : l'embed reste sous *Anatomie*, alt réécrit en
+registre **spatial** — il décrit le panneau, l'onglet et la notification, plus le contenu
+du message. Motif : l'encart `[!tip]` parle de la bulle et du triplement, et c'est cette
+image qui les prouve ; descendre l'embed au Cas 1 aurait gagné l'accord mot pour mot avec
+le bloc, mais éloigné l'encart de sa preuve. L'ancien alt promettait « le chemin du
+fichier » comme information à retenir : il est masqué, la promesse est retirée.
+
+**#61 annulée avant d'exister.** Une seconde photo de panneau (erreur bibliothèque)
+n'enseignait rien de plus ; son contenu vit en bloc de code au Cas 3 et dans les *Pièges*
+d'`arduino-bibliotheques`. Le numéro **n'est pas réutilisé** — la prochaine prise ouverte
+sera #61, celui-ci n'a jamais été inscrit au manifeste.
 
 *(suite à remplir au fil du dialogue)*

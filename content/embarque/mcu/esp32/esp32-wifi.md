@@ -144,7 +144,9 @@ void loop() {
 
 Téléversez, ouvrez le [[esp32-serie|moniteur série]] (115200) pour lire l'adresse IP affichée, puis tapez `http://<cette IP>` dans un navigateur du même réseau. La page propose deux liens qui allument et éteignent la LED. On a une **interface de pilotage sans écran ni application** en une cinquantaine de lignes.
 
-![Navigateur affichant la page servie par l'ESP32, intitulée ESP32, avec les deux liens Allumer et Eteindre.|440](/ressources/img/esp32-wifi/page-servie.png)
+![Trois moments de la même page servie par l'ESP32 réunis dans une seule image : en haut la page d'accueil à l'adresse 192.168.1.31, titrée ESP32, avec les liens Allumer et Eteindre ; en dessous, reliées par des flèches rouges, les deux pages atteintes par ces liens — /on qui répond LED allumee, /off qui répond LED eteinte — chaque barre d'adresse portant la mention Non sécurisé du navigateur.|500](/ressources/img/esp32-wifi/page-servie.png)
+
+Le navigateur affiche **Non sécurisé** à côté de l'adresse, sur les trois pages. C'est attendu : la page est servie en **HTTP simple**, sans chiffrement — l'ESP32 n'a pas de certificat, et le trafic ne quitte pas votre réseau local. Rien n'est cassé, rien n'est à corriger. L'avertissement devient un vrai sujet le jour où la carte est accessible depuis l'extérieur, ou transporte autre chose qu'un état de LED.
 
 ## Pièges
 
