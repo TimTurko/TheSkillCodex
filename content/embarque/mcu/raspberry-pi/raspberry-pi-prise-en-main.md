@@ -42,9 +42,9 @@ C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire l
 - **les identifiants Wi-Fi** (SSID + mot de passe) si le Pi se connecte sans câble — sinon, un câble Ethernet suffit ;
 - **activer SSH** (onglet *Services*) — indispensable pour la connexion à distance. Choisir l'authentification par mot de passe (simple) ou par clé (plus sûr).
 
-![Onglet « Général » de la personnalisation d'OS de Raspberry Pi Imager : champs nom d'hôte, nom d'utilisateur et mot de passe, réglages Wi-Fi.|560](/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png)
+Prendre capture d'écran de *l'onglet « Général » de la personnalisation d'OS de Raspberry Pi Imager, avec les champs nom d'hôte, nom d'utilisateur et mot de passe, et les réglages Wi-Fi*.
 
-![Onglet « Services » de la personnalisation d'OS de Raspberry Pi Imager, la case « Activer SSH » cochée.|560](/ressources/img/raspberry-pi-prise-en-main/imager-onglet-services.png)
+Prendre capture d'écran de *l'onglet « Services » de la personnalisation d'OS de Raspberry Pi Imager, la case « Activer SSH » cochée*.
 
 Validez, puis lancez l'écriture. Imager écrit l'image, applique vos réglages, puis vérifie la carte — quelques minutes.
 

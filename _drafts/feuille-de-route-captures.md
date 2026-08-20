@@ -79,11 +79,11 @@ sont les images les plus rentables du wiki.
 Une ligne par session, détail des cadrages dans la partie *Sessions* ci-dessous.
 
 - [ ] **S1 · IDE Arduino** — 12 prises (la plus rentable : un quart de la dette)
-- [ ] **S2 · Thonny + Pico branché** — 8 prises (les 3 Plotter exigent un montage réel)
+- [ ] **S2 · Thonny + Pico branché** — 8 prises — **REPORTÉES post-rentrée (20/08 suite)** (les 3 Plotter exigent un montage réel)
 - [ ] **S3 · STM32CubeIDE** — 7 prises — **REPORTÉES post-rentrée (20/08)** (l'unique candidat GIF : `stm32-registres:68`)
-- [ ] **S4 · Navigateur** — **3 prises actives** sur 4 (#30 reportée avec STM32 ; 2 pages de téléchargement + la page servie par l'ESP32)
-- [ ] **S5 · Wokwi** — 2 prises
-- [ ] **S6 · Raspberry Pi Imager** — 2 prises (même dialogue, deux onglets)
+- [ ] **S4 · Navigateur** — **2 prises actives sur 4, les deux déposées** (#30 reportée avec STM32, #29 avec MicroPython ; la page arduino.cc + la page servie par l'ESP32)
+- [ ] **S5 · Wokwi** — 2 prises — **REPORTÉES post-rentrée (20/08 suite, avec MicroPython)**
+- [ ] **S6 · Raspberry Pi Imager** — 2 prises — **REPORTÉES post-rentrée (20/08 suite)** (même dialogue, deux onglets)
 - [ ] **S7 · IDE Arduino + matériel (traceur série)** — 3 prises
 - [ ] **S8 · Cartes branchées** — 3 prises
 - [ ] **S9 · Datasheet L298N** — 2 extraits, **cadrés serré sur la figure utile**
@@ -469,7 +469,7 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 28 | `esp32-prise-en-main:38` | `/ressources/img/esp32-prise-en-main/telechargement-ide.png` | 600 |
 | 29 | `micropython-prise-en-main:36` | `/ressources/img/micropython-prise-en-main/telechargement-thonny.png` | 600 |
 | 30 | `stm32-prise-en-main:38` | `/ressources/img/stm32-prise-en-main/telechargement-cubeide.png` | 600 |
-| 31 | `esp32-wifi:147` | `/ressources/img/esp32-wifi/page-servie.png` | 440 |
+| 31 | `esp32-wifi:147` | `/ressources/img/esp32-wifi/page-servie.png` | 500 |
 | 32 | `micropython-simulation:36` | `/ressources/img/micropython-simulation/creation-projet-pico.png` | 600 |
 | 33 | `micropython-simulation:75` | `/ressources/img/micropython-simulation/simulation-bouton-led.png` | 560 |
 | 34 | `raspberry-pi-prise-en-main:45` | `/ressources/img/raspberry-pi-prise-en-main/imager-onglet-general.png` | 560 |
@@ -622,6 +622,45 @@ donc une image malgré le report — vérifié fiche ouverte.
 **Conséquence sur le compte** : S1 passe à **13** prises actives (#7 sort après #6),
 S3 tombe à **0**, S4 passe de 4 à **3** (#30 sort). Les trois réemplois Teensy et le
 réemploi STM32 restent hors de ce décompte, n'étant pas des prises.
+
+## MicroPython et Raspberry Pi — REPORTÉS POST-RENTRÉE (arbitrage Tim, 20/08 suite)
+
+Troisième et quatrième reports, même motif que Teensy et STM32 : **le matériel est à
+l'école**. **Treize prises sortent du lot actif**, embeds **reconvertis en placeholders
+C29** le jour même — *reporter, c'est reconvertir*.
+
+**MicroPython — onze prises**, sur six fiches :
+
+| # | Fiche | Fichier attendu |
+|---|---|---|
+| 13 | `micropython-prise-en-main` | `installer-micropython.png` |
+| 14 | `micropython-prise-en-main` | `interpreteur-et-shell.png` |
+| 15 | `micropython-prise-en-main` | `enregistrer-sur-pico.png` |
+| 16 | `micropython-bibliotheques` | `gerer-les-paquets.png` |
+| 17 | `micropython-debug` | `thonny-pas-a-pas.png` |
+| 18 | `micropython-repl` | `plotter.png` |
+| 19 | `micropython-timers` | `plotter-echantillons.png` |
+| 20 | `micropython-pid` | `plotter-consigne-mesure.png` |
+| 29 | `micropython-prise-en-main` | `telechargement-thonny.png` |
+| 32 | `micropython-simulation` | `creation-projet-pico.png` |
+| 33 | `micropython-simulation` | `simulation-bouton-led.png` |
+
+**Raspberry Pi — deux prises** : #34 et #35, les deux onglets de la personnalisation d'OS
+de Raspberry Pi Imager, sur `raspberry-pi-prise-en-main`.
+
+**#29 et #32-33 ne demandaient aucune carte** — page `thonny.org` et projet Wokwi dans un
+navigateur. Reportées quand même, pour traiter MicroPython d'un seul bloc : troisième
+application du raisonnement posé sur #46 (Teensy) et #30 (STM32). Tim l'a formulé
+explicitement — *les autres pages de téléchargement se shootent avec leurs familles
+respectives*, ce qui garantit qu'une famille reportée revient d'un bloc cohérent.
+
+**Le réemploi `micropython-simulation:42` reste actif et allumé** : il pointe le lot
+`wokwi/`, dont `ajouter-composant-blink.png` **existe déjà**. La fiche `micropython-simulation`
+garde donc une image malgré le report — vérifié fiche ouverte.
+
+**Conséquence sur le compte** : S2 tombe à **0**, S5 à **0**, S6 à **0**, et S4 à **2
+prises actives, toutes deux déposées**. **Le lot logiciel du wiki est vide** — les douze
+prises restantes demandent toutes du matériel ou un montage de paillasse.
 
 **#4 change de largeur : 600 → 400.** La capture déposée fait 372 px de large et ne
 peut pas être agrandie (menu déroulant natif). L'alt a été refait : ce n'est plus le

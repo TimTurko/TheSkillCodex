@@ -85,7 +85,7 @@ while True:
 
 Réglage **empirique**, dans l'ordre : partir de `Ki = Kd = 0`, **augmenter `Kp`** jusqu'à une réponse rapide qui commence à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'erreur résiduelle sans réintroduire d'oscillation lente ; **ajouter `Kd`** avec parcimonie pour amortir, en s'arrêtant dès que le bruit gêne. Visualiser mesure et consigne dans le temps guide bien mieux que le tâtonnement.
 
-![Traceur de Thonny affichant deux courbes : la consigne, constante, et la mesure qui converge vers elle.|600](/ressources/img/micropython-pid/plotter-consigne-mesure.png)
+Prendre capture d'écran du *traceur de Thonny affichant deux courbes, la consigne constante et la mesure qui converge vers elle*.
 
 ## Exemple — Réguler la vitesse d'un moteur
 

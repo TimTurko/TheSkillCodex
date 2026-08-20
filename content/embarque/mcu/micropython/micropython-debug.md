@@ -88,7 +88,7 @@ while True:
 
 Thonny propose un **débogueur pas-à-pas** pour MicroPython : *Exécuter → Déboguer le script actuel*, puis avancer ligne à ligne en observant les variables. Plus lent que `print()`, mais précieux pour suivre une logique fine.
 
-![Thonny en débogage pas-à-pas d'un script MicroPython, les valeurs des variables visibles.|640](/ressources/img/micropython-debug/thonny-pas-a-pas.png)
+Prendre capture d'écran de *Thonny en débogage pas-à-pas d'un script MicroPython, les valeurs des variables visibles*.
 
 ## Lire la traceback
 

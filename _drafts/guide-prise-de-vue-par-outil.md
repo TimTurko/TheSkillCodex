@@ -33,19 +33,18 @@ les reports et d'avant l'ouverture de #50 à #59 ; il est conservé pour trace.
 |---|---|
 | Numéros ouverts au manifeste | **#1 → #60** |
 | dont jamais à produire (#8 absorbée par #57, #51 annulée) | 2 |
-| dont reportées post-rentrée | **12** — 3 Teensy (#6, #41, #46) + 9 STM32 (#7, #21-27, #30) |
-| **Lot actif** | **46** (#60 ouverte, #51 annulée, le 20/08 suite) |
-| Déposées sur disque | **19** |
-| **Restant à shooter** | **27** |
+| dont reportées post-rentrée | **25** — 3 Teensy + 9 STM32 + 11 MicroPython + 2 Raspberry Pi |
+| **Lot actif** | **33** |
+| Déposées sur disque | **21** |
+| **Restant à shooter** | **12**, toutes bloquées sur du matériel |
 | *(hors manifeste)* KiCad, reporté post-publication (C90) | 3 |
 
-**Les 19 déposées** : #1, #2, #3, #4, #5, #9, #10, #11, #39, #50, #52, #53, #54, #55,
-#56, #57, #58, #59, #60.
+**Les 21 déposées** : #1, #2, #3, #4, #5, #9, #10, #11, #28, #31, #39, #50, #52, #53,
+#54, #55, #56, #57, #58, #59, #60.
 
-**Les 27 restantes, par lot** : IDE Arduino #12 (1) · traceur série
-#36-38 (3) · Thonny #13-20 (8) · navigateur #28, #29, #31 (3) ·
-Wokwi #32-33 (2) · Imager #34-35 (2) · carte branchée #40 (1) · datasheet #42-43 (2) ·
-prises isolées #44, #45 (2) · paillasse #47-49 (3).
+**Les 12 restantes — le lot logiciel est vide** : #12 (sonde JTAG) · traceur série
+#36-38 (montages réels) · #40 (NodeMCU) · datasheet L298 #42-43 · #44 (nRF Connect) ·
+#45 (analyseur logique) · paillasse #47-49. **Aucune ne se shoote devant un écran seul.**
 
 ⚠ **Deux chiffres de plus étaient faux**, hérités du prompt de reprise. « Lot actif 44,
 12 déposées » — les deux sont décalés de 2 **en parallèle**, ce qui donne un reste juste

@@ -85,7 +85,7 @@ while True:
     time.sleep_ms(50)            # ~20 Hz, lisible à l'œil
 ```
 
-![Vue Plotter de Thonny traçant une grandeur qui varie : la courbe ondule au fil des print.|600](/ressources/img/micropython-repl/plotter.png)
+Prendre capture d'écran de *la vue Plotter de Thonny traçant une grandeur qui varie, la courbe ondulant au fil des print*.
 
 Pour superposer plusieurs grandeurs — comparer une consigne et une mesure, par exemple —, on les imprime **sur la même ligne, séparées par un espace** :
 

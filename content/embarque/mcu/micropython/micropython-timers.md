@@ -62,7 +62,7 @@ while True:
         # ... travail cadence ...
 ```
 
-![Traceur de Thonny affichant des échantillons régulièrement espacés dans le temps.|600](/ressources/img/micropython-timers/plotter-echantillons.png)
+Prendre capture d'écran du *traceur de Thonny affichant des échantillons régulièrement espacés dans le temps*.
 
 ## Exemple — Échantillonner un capteur à 100 Hz
 

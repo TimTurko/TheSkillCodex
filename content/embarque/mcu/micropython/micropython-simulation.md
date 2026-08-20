@@ -33,7 +33,7 @@ Quatre étapes : créer un projet Pico/MicroPython, poser les composants, écrir
 
 Sur `wokwi.com`, créez un compte gratuit, puis un **nouveau projet** en choisissant **Raspberry Pi Pico** et le langage **MicroPython**. L'éditeur s'ouvre avec un `main.py` vierge et un Pico déjà posé sur le plan.
 
-![Page de création de projet Wokwi, avec « Raspberry Pi Pico » et le langage « MicroPython » sélectionnés.|600](/ressources/img/micropython-simulation/creation-projet-pico.png)
+Prendre capture d'écran de *la page de création de projet Wokwi, avec « Raspberry Pi Pico » et le langage « MicroPython » sélectionnés*.
 
 ### 2. Poser et câbler les composants
 
@@ -70,7 +70,7 @@ while True:
 
 Lancez la simulation et cliquez sur le bouton : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (bouton vers 3,3 V au lieu de GND), le comportement change — la simulation reproduit fidèlement l'erreur **sans rien casser**.
 
-![Simulation Wokwi du circuit bouton et LED : le bouton est en cours d'appui et la LED allumée.|560](/ressources/img/micropython-simulation/simulation-bouton-led.png)
+Prendre capture d'écran de *la simulation Wokwi du circuit bouton et LED, bouton en cours d'appui et LED allumée*.
 
 ## Pièges
 
