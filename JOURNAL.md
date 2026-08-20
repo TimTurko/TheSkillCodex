@@ -11,6 +11,85 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 20/08 - Session de prise de vue guidee, lot IDE Arduino (1/n)
+
+- **Perimetre** : premiere session de prise de vue reelle, Tim shoote, Claude cadre
+  et verifie. Guide par outil cree. Reports Teensy et STM32 arbitres en cours de route.
+- **Livrables** : `_drafts/guide-prise-de-vue-par-outil.md` (neuf) ; 9 images deposees
+  et integrees ; `esp32-prise-en-main` et `esp8266-prise-en-main` substantiellement
+  reecrites ; 13 embeds reconvertis en placeholders C29 ; manifeste a jour.
+- **Decisions** : bilinguisme FR/EN assume dans les captures - `esp8266-prise-en-main`
+  bascule sur « Generic ESP8266 Module » - Teensy et STM32 reportes post-rentree -
+  #1 scindee en trois - une seule capture de moniteur serie dans le wiki, maintenue.
+- **Conventions** : deux candidates en §8 (C99, C100).
+- **Tailles** : lot actif 44 prises apres reports, 12 deposees, 15 reportees.
+
+**Le comptage d'ouverture a corrige deux chiffres faux.** « 49 lignes dont 8 reemplois »
+etait faux ; la bonne lecture est « 49 pivots + 8 reemplois », deux ensembles disjoints.
+Et la liste des dossiers manquants heritee du 19/08 en oubliait un, `micropython-prise-en-main`,
+qui porte quatre prises. Un chiffre repris se reverifie : les deux erreurs venaient
+de soustractions, pas de comptages.
+
+**Le vrai apport de la session n'est pas les images, c'est ce qu'elles ont revele.**
+Sept defauts de fond ont ete trouves parce que Tim avait le materiel sous la main, et
+aucun n'aurait survecu a une relecture a froid : le paquet leurre « Arduino ESP32 Boards »
+place au-dessus du bon dans le gestionnaire ; le port marque `Unknown` sur tout pont
+USB-serie tiers (CH340 **comme** CP2102, la premiere redaction etait trop etroite) ;
+le reset propre d'esptool, qui invalide la manoeuvre BOOT en quatre temps que la fiche
+decrivait - correction apportee par Tim, pas par Claude ; `Wrong boot mode detected (0x13)`,
+message alarmant sur une installation saine ; `'LED_BUILTIN' was not declared in this scope`,
+rencontre par Tim au banc ; les liaisons serie Bluetooth qui expliquent les cinq `Unknown`
+de la capture ; et le fait que « Generic ESP8266 Module » ne definit pas `D0`-`D8`, ce qui
+cassait l'exercice 2. Les deux fiches de prise en main sortent nettement meilleures.
+
+**Trois retouches d'image ont ete rattrapees avant publication**, dont une acceptee.
+Une capture ESP8266 retouchee au lieu d'etre reprise gardait la colonne d'options du
+coeur ESP32 - *CPU Frequency 240MHz*, impossible sur une puce qui plafonne a 160 MHz.
+Tim a tranche : erreur visuelle acceptee, tracee au manifeste. Le principe reste que
+le nom d'une carte se retouche, la colonne d'options qui le suit, non.
+
+**Le poids des medias a coute plus de temps que les captures elles-memes.** Un GIF de
+7,2 Mo (git garde tout a jamais), puis des photos a 1,76 Mo, puis un passage en PNG qui
+a multiplie le poids par six. Sequence stabilisee : PNG pour ce qui sort d'un ecran,
+JPEG qualite 80 pour ce qui sort d'un appareil photo, 1200-1600 px. Le dossier
+`esp32-prise-en-main` est repasse sous le mega-octet. Le GIF a ete abandonne au profit
+d'une paire allumee/eteinte : le mouvement n'etait pas le message, l'etat l'etait.
+
+**Les reports Teensy et STM32 retirent 15 prises du lot** - un tiers. Consequence non
+evidente et traitee : leurs embeds etaient poses d'avance en (c-large), donc reporter
+sans rien faire aurait laisse des **images cassees** en production, seul cas que C90 ne
+couvre pas. Les 13 embeds concernes sont revenus en placeholders C29 canoniques.
+
+**Le rendement en prises nouvelles est eleve** : 11 ouvertes (#50 a #59, plus la scission
+de #1) pour 9 examinees. Tim l'assume - les humains ont besoin de plus de visuel que les
+IA. A surveiller pour le budget de sessions, pas pour la qualite.
+
+
+## 19/08 (suite 6) — Tutoiement de `lire-une-datasheet`, balayage C62, exclusions d'audit
+
+**Périmètre** — PC perso. Voie B du prompt (le tutoiement) faute de captures déposées, puis les **trois items courts** dans l'ordre C62 → exclusions du `.mjs` → § RTOS. Aucune fiche créée, aucun média. **Tous les items du prompt sont traités.**
+
+**Livrables** — **4 fiches éditées** (`lire-une-datasheet` 14 éditions, `arduino-programmation-non-bloquante` 2, `debugger-embarque` 1, `gpio` 1) et **1 script** (`tools/audit-portes-famille.mjs`, 4 éditions). **3 balayages exhaustifs** : C62 sur les 242 fiches publiées, C62 sur les 15 fichiers de `_drafts/`, et la logique de l'audit des portes de famille **rejouée en Python** sur le corpus mis en cache.
+
+**Décisions Tim** — conversion C65 **(a)** avec possessifs oppositionnels gardés en « votre » **(b)** et connivence neutralisée **(b)** ; `debugger-embarque` reclassée en `notion` ; correctif `gpio` appliqué **(a)**, `_drafts/` balayé **(a)**, **outillage C62 refusé (b)** ; exclusions du `.mjs` en liste dure **(a)**, écrites avant lancement **(b)** ; § RTOS réduit **(b)**, jumelle MicroPython intacte **(a)**.
+
+**Conventions** — **C96** (le `type` d'une fiche se lit à la présence de gestes, pas à sa longueur), **C97** (une exclusion d'audit se pose sur le tuple le plus étroit qui porte le motif), **C98** (une fiche écrite dans un seul registre se classe avant de se convertir) + 3 notes §8. **La numérotation atteint 98.**
+
+**Tailles** — `lire-une-datasheet` 22 371 o (éditions toutes intra-ligne, **zéro décalage de lignes** — les renvois `:126` et `:180` du manifeste des embeds restent valides) ; `debugger-embarque` 8 472 o, désormais dans la bande `notion` de C95.
+
+---
+
+Trois choses valent d'être écrites.
+
+**Le « chantier de conversion » n'existait pas.** Le prompt annonçait une quinzaine d'occurrences et demandait de vérifier si d'autres tutos de `mcu/` étaient dans le même cas. Front matter des **27 fiches à plat** lu un par un : **2 `type: tuto`** seulement, et `debugger-embarque` lue en entier ne porte **aucune marque** — ni « tu » ni « vous », prose intégralement en « on ». Le cas était donc isolé, et le décompte réel est **13 marques en 7 passages**, pas quinze. Le fait qui commandait tout : la fiche ne contenait **aucun « vous »**, donc rien à rectifier — un registre unique à choisir. C'est ce qui distingue cette conversion des deux dévoussages annulés que C65 met en garde : ici le classement instruction / prose a précédé la première conversion (→ C98).
+
+**Le balayage C62 a démenti la raison pour laquelle je l'avais ouvert.** J'avais recommandé de le passer en premier des trois items en pensant qu'un défaut invisible en source serait répandu. Résultat : **61 wikilinks correctement échappés contre 1 seul manqué**, sur 62 fiches à tableau et 522 lignes. La convention est appliquée ; l'incident d'`interruption` était un raté, pas un symptôme. J'ai donc argumenté **contre** l'outillage que je venais de recommander — le seul argument survivant étant le coût de détection, les deux occurrences connues ayant traversé une relecture humaine. Tim a tranché contre. **Le refus est écrit au TODO avec son motif chiffré**, pas seulement comme refus : sans le motif, un audit de septembre reproposera l'outil sans savoir pourquoi il avait été écarté. Le balayage de `_drafts/` a donné zéro, mais la raison est plus utile que le chiffre — ses 332 lignes de tableau ne portent **aucun wikilink**, le motif y est structurellement impossible.
+
+**Une recette s'est vérifiée sans lancer l'outil.** Le TODO imposait de contrôler la recette `242 / 135 / 19 / 2` **avant** d'éditer le `.mjs`, que je ne peux pas exécuter. La logique de l'audit a été réimplémentée en Python sur les 242 fiches déjà en cache : recette reproduite au chiffre près, et les deux candidats sortis avec leur concept et leur famille manquante exacts — sans quoi une exclusion posée sur le mauvais concept n'aurait rien filtré en revenant à chaque lancement. Prédiction publiée **avec sa décomposition** (19 historiques + 1 + 1 = 21, et 0 candidat) ; le lancement de Tim a rendu exactement ça, motif par motif. L'hypothèse « date du corpus », qui avait mordu deux fois, était écartée d'avance : j'avais compté 242 fiches une heure plus tôt.
+
+⚠ **Le dry-run a rattrapé un bloc §8 entièrement désaccentué** — écrit en ASCII par prudence d'encodage, il serait passé en production du fichier de conventions sans le rendu relu. Rappel que le dry-run se lit pour ce qu'il **écrit**, pas pour son absence d'erreur. Corollaire acquis : les apostrophes du dépôt sont **ASCII droites**, établi par bisection (deux dry-runs séparés, anchors avec et sans apostrophe) plutôt qu'en évitant indéfiniment le caractère — l'évitement avait déjà forcé trois anchors plus courts, donc plus fragiles.
+
+
 ## 19/08 (suite 5) — `chien-de-garde` écrite, `temporisation` refusée : le créneau qu'une session précédente avait rempli sans le savoir
 
 - **Périmètre** — PC perso. Deux temps stricts : application du critère C94 aux deux créneaux vides **avant** toute proposition de plan, puis rédaction et maillage. Le brief annonçait deux fiches ; il en sort une.

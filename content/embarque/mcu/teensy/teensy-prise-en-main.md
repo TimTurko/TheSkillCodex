@@ -55,7 +55,7 @@ Branchez le Teensy avec un **câble USB de données** (un câble « charge seule
 
 Laissez *Outils → USB Type* sur **Serial** pour ce premier programme (le réglage qui fait du Teensy un clavier, une manette, etc. est détaillé dans [[teensy-usb|le Teensy comme appareil USB]]).
 
-![Menu Outils de l'IDE Arduino 2.x déroulé, « Teensy 4.1 » sélectionné, le port actif et USB Type réglé sur Serial.|600](/ressources/img/teensy-prise-en-main/menu-outils-teensy41.png)
+Prendre capture d'écran du *menu Outils de l'IDE Arduino déroulé, montrant « Teensy 4.1 » comme type de carte, le port actif, et la ligne USB Type réglée sur Serial*.
 
 ### 4. Charger le Blink
 
@@ -76,7 +76,7 @@ void loop() {
 
 Le modèle est identique à un Arduino : `setup()` une fois, `loop()` en boucle. Cliquez sur **Vérifier** (icône coche) pour compiler : la console affiche la taille du binaire, sans ligne rouge.
 
-![IDE Arduino 2.x avec le code Blink dans l'éditeur et la console affichant une compilation réussie.|600](/ressources/img/esp32-prise-en-main/compilation-reussie.png)
+Prendre capture d'écran de *la console de l'IDE Arduino après une compilation réussie pour Teensy, montrant la taille du binaire sans ligne rouge*.
 
 ### 5. Téléverser et observer
 
@@ -87,7 +87,7 @@ Cliquez sur **Téléverser** (icône flèche). L'IDE compile, puis le **Teensy L
 
 La LED clignote au rythme d'une seconde. **Le programme tourne — la prise en main est validée.**
 
-![Fenêtre du Teensy Loader pendant la programmation de la carte, le Teensy branché et sa LED de la broche 13 allumée.|480](/ressources/img/teensy-prise-en-main/teensy-loader.png)
+Prendre capture d'écran de *la fenêtre du Teensy Loader pendant la programmation, avec le Teensy branché et la LED de la broche 13 allumée*.
 
 ## Exemple — Blink modifié
 

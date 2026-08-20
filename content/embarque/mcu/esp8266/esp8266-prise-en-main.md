@@ -42,15 +42,31 @@ https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community** — prenez la **dernière version 3.x** proposée par le menu déroulant, qui est la branche stable actuelle du cœur. Les tutoriels de ce module s'y réfèrent.
 
+![Gestionnaire de cartes de l'IDE Arduino filtré sur « esp8266 », montrant le paquet « esp8266 » par ESP8266 Community, son numéro de version et le bouton Installer.|600](/ressources/img/esp8266-prise-en-main/gestionnaire-cartes-esp8266.png)
+
 ### 3. Installer le pilote USB-série
 
 Contrairement à beaucoup de cartes récentes, les NodeMCU / D1 mini utilisent une puce USB-série (souvent **CH340**, parfois **CP2102**) qui **demande un pilote** sur Windows si la carte n'est pas reconnue. Installez le pilote correspondant à votre carte, puis rebranchez-la.
 
 ### 4. Brancher la carte et sélectionner carte + port
 
-Branchez la carte avec un **câble USB de données**. Dans l'IDE, *Outils → Type de carte → ESP8266* et choisissez **« NodeMCU 1.0 (ESP-12E Module) »** (ou votre modèle). Sélectionnez le **Port**, et laissez la vitesse de téléversement par défaut.
+Branchez la carte avec un **câble USB de données**. Deux chemins mènent ensuite à la sélection, selon que l'IDE reconnaît votre carte ou non.
 
-![Menu Outils de l'IDE Arduino 2.x déroulé, « NodeMCU 1.0 (ESP-12E Module) » sélectionné et le port actif visible.|600](/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png)
+**Cas courant — le sélecteur de la barre d'outils.** Déroulez le sélecteur en haut de la fenêtre : la carte détectée y apparaît avec son port.
+
+![Sélecteur de carte de l'IDE Arduino déroulé : « Generic ESP8266 Module » associé à son port en tête de liste, plusieurs ports « Unknown » en dessous, et l'entrée « Select other board and port… » tout en bas.|400](/ressources/img/esp8266-prise-en-main/menu-outils-carte-port.png)
+
+Sur une NodeMCU, dont le pont USB-série est une puce tierce, la carte s'affiche `Unknown` tant qu'elle n'a jamais été associée — c'est normal (voir *Pièges*). Passez alors par ***Select other board and port…***, choisissez la carte à gauche et votre port à droite : l'association est mémorisée.
+
+**Chemin manuel — les menus *Outils*.** Il fonctionne dans tous les cas. *Outils → Type de carte → esp8266*, puis **« Generic ESP8266 Module »** : cette définition convient à n'importe quelle carte ESP8266 et c'est celle qu'utilisent les captures de cette fiche. Si la vôtre a sa propre entrée dans la liste (*NodeMCU 1.0 (ESP-12E Module)*, *LOLIN(WEMOS) D1 mini*…), vous pouvez la choisir : elle prérègle la taille de flash et ajoute les étiquettes `D0`–`D8` de la sérigraphie — au prix d'un code qui ne se transpose plus tel quel d'une carte à l'autre.
+
+![Menu Outils de l'IDE Arduino déroulé sur Type de carte puis esp8266 : la liste des définitions de cartes, « Generic ESP8266 Module » en tête et encadré.|640](/ressources/img/esp8266-prise-en-main/selection-board.png)
+
+Puis *Outils → Port*, en laissant la vitesse de téléversement par défaut : `COMx` sous Windows, `/dev/ttyUSB0` sous Linux, `/dev/cu.usbserial-...` sous macOS.
+
+Reste à savoir **lequel de ces ports est le vôtre**. Sous Windows, le gestionnaire de périphériques le nomme explicitement : à la rubrique *Ports (COM et LPT)*, la carte apparaît sous le nom de sa puce d'interface — ici `Silicon Labs CP210x USB to UART Bridge (COM10)`. Les autres entrées sont le plus souvent des liaisons série Bluetooth, sans rapport avec la carte : ce sont elles qui remplissent le sélecteur de ports « Unknown ».
+
+![Menu Outils → Port de l'IDE Arduino déroulé à côté du gestionnaire de périphériques Windows : COM10 est encadré dans l'IDE, et une flèche le relie à l'entrée « Silicon Labs CP210x USB to UART Bridge (COM10) » sous Ports (COM et LPT).|640](/ressources/img/esp8266-prise-en-main/selection-port-com.png)
 
 ### 5. Charger le Blink — attention à la LED active à l'état bas
 
@@ -95,7 +111,11 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 
 **Support ESP8266 non installé.** Sans l'étape 2, aucune carte ESP8266 dans *Outils → Type de carte*. L'oubli le plus fréquent.
 
+**Étiquettes `D0`–`D8` inconnues du compilateur.** Elles sont sérigraphiées sur la carte, mais elles ne sont définies que par les **définitions de carte spécifiques** du gestionnaire (*NodeMCU 1.0*, *D1 mini*…). Sous « Generic ESP8266 Module », `const int LED = D5;` échoue à la compilation sur `'D5' was not declared in this scope`. Écrire le **numéro de GPIO** — `14` pour la broche sérigraphiée D5 — qui fonctionne dans tous les cas.
+
 **Pilote USB-série manquant.** Carte non détectée (pas de port) : installer le pilote CH340 / CP2102 correspondant (étape 3).
+
+**Port marqué *Unknown*.** Sur une carte à **pont USB-série tiers** — CH340 comme CP2102 — l'IDE affiche `Unknown` en face du port : le pont annonce son propre identifiant USB, pas celui d'une carte, et l'IDE n'a donc rien à quoi rattacher le port. Ce n'est **pas** un défaut de pilote — Windows, lui, affiche bien la puce sous *Ports (COM et LPT)*, par exemple `Silicon Labs CP210x USB to UART Bridge (COMx)`. Associer la carte au port une fois par *Select other board and port…* : l'association est mémorisée.
 
 **LED « à l'envers ».** La LED intégrée est active à l'état bas : `LOW` = allumée. Ce n'est pas un bug.
 
@@ -129,13 +149,13 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 > Le piège est la logique inversée : `HIGH` éteint, `LOW` allume. La boucle `for` factorise les cinq éclairs.
 
 > [!question] Exercice 2 — LED externe
-> Câblez une LED externe (avec sa résistance ~220 Ω) sur la broche **D5** et faites-la clignoter de façon « normale » (`HIGH` = allumée). Pourquoi la logique n'est-elle pas inversée cette fois ?
+> Câblez une LED externe (avec sa résistance ~220 Ω) sur la broche sérigraphiée **D5**, c'est-à-dire le **GPIO 14**, et faites-la clignoter de façon « normale » (`HIGH` = allumée). Pourquoi la logique n'est-elle pas inversée cette fois ?
 
 ![Câblage d'une LED externe sur une NodeMCU ESP8266 : la broche D5, qui vaut GPIO14, part vers une résistance de 220 ohms puis vers l'anode de la LED, dont la cathode revient à GND.|600](/ressources/img/esp8266-prise-en-main/montage-led-externe.svg)
 
 > [!success]- Corrigé
 > ```cpp
-> const int LED = D5;   // une broche libre (D5 = GPIO14 sur NodeMCU)
+> const int LED = 14;   // GPIO14, sérigraphié « D5 » sur la carte
 >
 > void setup() {
 >   pinMode(LED, OUTPUT);
@@ -148,7 +168,7 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 >   delay(500);
 > }
 > ```
-> La logique inversée ne concernait que la **LED intégrée** (câblée entre l'alimentation et la broche). Une LED externe câblée anode→broche s'allume normalement à `HIGH`. (On note au passage que l'étiquette **D5** de la carte vaut **GPIO14** — voir [[esp8266-arduino-core|l'Arduino-core]] sur ce décalage.)
+> La logique inversée ne concernait que la **LED intégrée** (câblée entre l'alimentation et la broche). Une LED externe câblée anode→broche s'allume normalement à `HIGH`. La broche est désignée par son **numéro de GPIO** et non par l'étiquette `D5` : celle-ci n'existe que sous les définitions de carte spécifiques (voir *Pièges*), alors que `14` compile partout. Ce décalage entre sérigraphie et numérotation est détaillé dans [[esp8266-arduino-core|l'Arduino-core]].
 
 ## Cas particulier — ESP-01, NodeMCU Lua, PlatformIO
 

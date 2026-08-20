@@ -39,7 +39,7 @@ Trois briques structurent toute chaîne audio :
 
 Plutôt que d'écrire à la main les déclarations d'objets et de cordons, on les **dessine** : l'**Audio System Design Tool** (sur `pjrc.com`) propose tous les objets en bibliothèque ; on les glisse sur le plan de travail, on tire les cordons, et un clic sur *Export* **génère le bloc de code** (déclarations + `AudioConnection`) à coller dans le sketch. Le même graphe que le SVG ci-dessus produit ainsi quelques lignes prêtes à l'emploi. C'est l'outil de référence pour concevoir une chaîne audio Teensy.
 
-![Audio System Design Tool ouvert dans le navigateur : quelques objets posés — générateur, filtre, sortie I2S — reliés par des cordons.|640](/ressources/img/teensy-audio/audio-design-tool.png)
+Prendre capture d'écran de *l'Audio System Design Tool ouvert dans le navigateur, avec quelques objets posés — un générateur, un filtre, une sortie I2S — reliés par des cordons*.
 
 ## Le traitement tourne en tâche de fond
 

@@ -38,7 +38,7 @@ Dans la vue **Pinout & Configuration**, chaque broche du boîtier est cliquable.
 
 Sur un projet créé depuis une carte Nucleo, le brochage est déjà partiellement rempli (LD2, bouton, port série du ST-LINK). On part de là et on ajoute ce qu'il faut.
 
-![Vue Pinout & Configuration de CubeMX, quelques broches affectées en surbrillance : LD2 en GPIO_Output, PA2 et PA3 en USART2.|640](/ressources/img/stm32-cubemx/pinout-configuration.png)
+Prendre capture d'écran de *la vue Pinout & Configuration de CubeMX, avec quelques broches affectées en surbrillance : LD2 en GPIO_Output, PA2 et PA3 en USART2*.
 
 ## Configurer l'arbre d'horloge
 
@@ -46,7 +46,7 @@ L'onglet **Clock Configuration** affiche l'**arbre d'horloge** : la source (osci
 
 On saisit la fréquence cible (souvent le maximum de la puce) dans la case SYSCLK ; CubeMX **résout les multiplicateurs et diviseurs** ou signale en rouge une combinaison impossible. C'est un panneau à comprendre : une horloge mal réglée donne des **vitesses fausses** partout en aval — un UART qui n'a pas le bon débit, un timer qui ne mesure pas la bonne durée.
 
-![Onglet Clock Configuration de CubeMX : l'arbre HSE vers PLL, SYSCLK et les prédiviseurs AHB et APB, avec la fréquence du cœur affichée.|640](/ressources/img/stm32-cubemx/clock-configuration.png)
+Prendre capture d'écran de *l'onglet Clock Configuration de CubeMX, montrant l'arbre HSE vers PLL, SYSCLK et les prédiviseurs AHB et APB, avec la fréquence du cœur affichée*.
 
 ## Configurer les périphériques
 
@@ -55,7 +55,7 @@ Chaque périphérique activé ouvre un panneau de **paramètres** : débit et fo
 - **NVIC** — pour **activer l'interruption** d'un périphérique. Sans cocher la ligne NVIC correspondante, le code en mode interruption ne sera jamais appelé (piège classique).
 - **DMA** — pour configurer un transfert par accès direct à la mémoire, qui décharge le cœur.
 
-![Panneau de configuration d'un USART dans CubeMX, réglé à 115200 bauds et 8 bits de données, avec l'onglet NVIC Settings visible.|600](/ressources/img/stm32-cubemx/usart-nvic.png)
+Prendre capture d'écran du *panneau de configuration d'un USART dans CubeMX, réglé à 115200 bauds et 8 bits de données, avec l'onglet NVIC Settings visible*.
 
 ## HAL ou LL, puis générer
 

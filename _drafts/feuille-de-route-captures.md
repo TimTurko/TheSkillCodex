@@ -442,11 +442,11 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 1 | `ide:19` | `/ressources/img/ide/interface-annotee.png` | 640 |
 | 2 | `esp32-prise-en-main:48` | `/ressources/img/esp32-prise-en-main/preferences-url-cartes.png` | 600 |
 | 3 | `esp32-prise-en-main:55` | `/ressources/img/esp32-prise-en-main/gestionnaire-cartes-esp32.png` | 600 |
-| 4 | `esp32-prise-en-main:69` | `/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png` | 600 |
-| 5 | `esp8266-prise-en-main:53` | `/ressources/img/esp8266-prise-en-main/menu-outils-nodemcu.png` | 600 |
+| 4 | `esp32-prise-en-main:69` | `/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png` | 400 |
+| 5 | `esp8266-prise-en-main:53` | `/ressources/img/esp8266-prise-en-main/menu-outils-carte-port.png` | 400 |
 | 6 | `teensy-prise-en-main:58` | `/ressources/img/teensy-prise-en-main/menu-outils-teensy41.png` | 600 |
 | 7 | `stm32-arduino-core:45` | `/ressources/img/stm32-arduino-core/menu-outils-nucleo.png` | 600 |
-| 8 | `esp32-prise-en-main:92` | `/ressources/img/esp32-prise-en-main/compilation-reussie.png` | 600 |
+| 8 | `esp32-prise-en-main:92` | *(absorbée par #57 — `compilation-reussie.png` ne sera jamais produite)* | — |
 | 9 | `arduino-bibliotheques:51` | `/ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png` | 600 |
 | 10 | `esp32-serie:76` | `/ressources/img/esp32-serie/moniteur-serie-115200.png` | 600 |
 | 11 | `cpp-logs:50` | `/ressources/img/cpp-logs/panneau-erreur.png` | 560 |
@@ -477,7 +477,7 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 36 | `arduino-capteur-analogique:131` | `/ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png` | 600 |
 | 37 | `arduino-pid:93` | `/ressources/img/arduino-pid/traceur-consigne-mesure.png` | 600 |
 | 38 | `arduino-timers:76` | `/ressources/img/arduino-timers/traceur-echantillons.png` | 600 |
-| 39 | `esp32-prise-en-main:103` | `/ressources/img/esp32-prise-en-main/carte-led-allumee.jpg` | 420 |
+| 39 | `esp32-prise-en-main:103` | `/ressources/img/esp32-prise-en-main/led-on.jpg` | 420 |
 | 40 | `esp8266-prise-en-main:77` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg` | 420 |
 | 41 | `teensy-prise-en-main:90` | `/ressources/img/teensy-prise-en-main/teensy-loader.png` | 480 |
 | 42 | `lire-une-datasheet:126` | `/ressources/img/lire-une-datasheet/brochage-multiwatt15.png` | 600 |
@@ -488,6 +488,76 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 47 | `arduino-bibliotheques:130` | `/ressources/img/arduino-bibliotheques/servo-balayage.gif` | 420 |
 | 48 | `shield:19` | `/ressources/img/shield/empilement-uno-shield.jpg` | 480 |
 | 49 | `schema-bloc-fonctionnel:67` | `/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg` | 600 |
+| 50 | `ide` | `/ressources/img/ide/selecteur-carte-port.png` | 600 |
+| 51 | `ide` | `/ressources/img/ide/moniteur-serie.png` | 600 |
+| 52 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/selection-board.png` | 640 |
+| 53 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/selection-port-com.png` | 640 |
+| 54 | `esp8266-prise-en-main` | `/ressources/img/esp8266-prise-en-main/selection-board.png` | 640 |
+| 55 | `esp8266-prise-en-main` | `/ressources/img/esp8266-prise-en-main/selection-port-com.png` | 640 |
+| 56 | `esp8266-prise-en-main` | `/ressources/img/esp8266-prise-en-main/gestionnaire-cartes-esp8266.png` | 600 |
+| 57 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/upload-in-progress.png` | 640 |
+| 58 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/done-uploading.png` | 640 |
+| 59 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/led-off.jpg` | 420 |
+
+## Prises ouvertes en session de prise de vue — 20/08
+
+Quatre prises nées du découpage de #1 et de la réécriture de l'étape 3 d'`esp32-prise-en-main`.
+**#1 à #49 ne sont jamais renumérotées** ; celles-ci prennent la suite.
+
+| # | Origine | État |
+|---|---|---|
+| 50 | #1 scindée — le sélecteur de carte / port sort de l'interface annotée | à shooter, ligne d'embed à poser |
+| 51 | #1 scindée — le moniteur série sort de l'interface annotée | à shooter, ligne d'embed à poser ; **dépend de l'arbitrage « une seule capture de moniteur dans le wiki »** (a) retenu le 20/08 |
+| 52 | chemin manuel *Outils → Type de carte* | **déposée et intégrée le 20/08** |
+| 53 | chemin manuel *Outils → Port* + gestionnaire de périphériques | **déposée et intégrée le 20/08** |
+| 54 | pendant ESP8266 de #52 | **déposée et intégrée le 20/08** |
+| 55 | pendant ESP8266 de #53 | **déposée et intégrée le 20/08** |
+| 56 | gestionnaire de cartes filtré sur `esp8266`, étape 2 | **déposée et intégrée le 20/08** — **annule la suppression du 19/08** de `esp8266-prise-en-main:45` : le réemploi était rejeté faute d'image propre, la prise propre existe désormais |
+
+**#5 change de nom et de largeur** : `menu-outils-nodemcu.png` → `menu-outils-carte-port.png`,
+600 → 400, en miroir de #4. Le nom promettait une NodeMCU, l'écran montre
+*Generic ESP8266 Module*.
+
+**`esp8266-prise-en-main` bascule sur « Generic ESP8266 Module »** (arbitrage Tim, 20/08) :
+les retouches multi-onglets rendaient le reshoot coûteux. Conséquences écrites dans la
+fiche — étape 4 en deux chemins, piège des étiquettes `D0`-`D8` retourné, exercice 2 et
+corrigé passés de `D5` à `14`. Le SVG de câblage portait déjà les deux désignations :
+inchangé.
+
+**Réserve tracée sur #55.** La colonne d'options du menu *Outils* y montre encore
+celles du cœur ESP32 (*USB CDC On Boot*, *CPU Frequency 240MHz (WiFi)* — impossible sur
+ESP8266, qui plafonne à 160 MHz). Erreur visuelle **acceptée par Tim le 20/08**.
+Un recadrage à la hauteur de #54 la supprimerait sans reshoot, si l'occasion se présente
+avant publication.
+
+## Teensy — REPORTÉ POST-RENTRÉE (arbitrage Tim, 20/08)
+
+Logiciel secondaire, rarement utilisé ; il est possible qu'aucun étudiant n'en ait
+besoin cette année. **Trois prises sortent du lot actif** et leurs embeds sont
+**reconvertis en placeholders C29** — et non laissés en place, un embed vers un fichier
+absent produisant une image cassée, seul cas que C90 ne couvre pas.
+
+| # | Fiche:ligne | Fichier attendu | État |
+|---|---|---|---|
+| 6 | `teensy-prise-en-main:58` | `teensy-prise-en-main/menu-outils-teensy41.png` | placeholder C29 rétabli |
+| 41 | `teensy-prise-en-main:90` | `teensy-prise-en-main/teensy-loader.png` | placeholder C29 rétabli |
+| 46 | `teensy-audio:42` | `teensy-audio/audio-design-tool.png` | placeholder C29 rétabli |
+| — | `teensy-prise-en-main:79` | *(réemploi de #8)* | placeholder C29 — réemploi coupé, #8 absorbée par #57 |
+
+**#46 ne demandait pourtant aucune carte** — c'est une page web, shootable avec le lot
+navigateur. Report demandé quand même, pour traiter Teensy d'un seul bloc.
+
+**Les trois réemplois de `teensy-prise-en-main` restent actifs** : `:38` → #28, `:48` → #2,
+`:79` → #8. Ils pointent des fichiers ESP32 et s'allumeront avec eux. La fiche Teensy
+garde donc trois images malgré le report.
+
+**Conséquence sur le compte** : la session S1 · IDE Arduino passe de 15 à **14 prises**
+(#6 sort), et S10 · Prises isolées de 3 à **2** (#46 sort). #41 sortait déjà de S8.
+
+**#4 change de largeur : 600 → 400.** La capture déposée fait 372 px de large et ne
+peut pas être agrandie (menu déroulant natif). L'alt a été refait : ce n'est plus le
+menu *Outils* mais **le sélecteur de la barre d'outils**, qui montre en prime les
+ports « Unknown » et l'entrée *Select other board and port…*.
 
 **À légender en plus (C74-c, attribution)** : #42 et #43 —
 `*Source : STMicroelectronics — datasheet L298, extrait non modifié.*`
@@ -505,7 +575,7 @@ Une retouche du pivot se propage à toutes ses consommatrices d'un coup.
 | `esp8266-prise-en-main:45` | #3 `esp32-prise-en-main/gestionnaire-cartes-esp32.png` | **annulé le 19/08 — passé en suppression** |
 | `teensy-prise-en-main:52` | #3 | **annulé le 19/08 — passé en suppression** |
 | `teensy-prise-en-main:38` | #28 `esp32-prise-en-main/telechargement-ide.png` | à shooter |
-| `teensy-prise-en-main:79` | #8 `esp32-prise-en-main/compilation-reussie.png` | à shooter |
+| `teensy-prise-en-main:79` | #8 `esp32-prise-en-main/compilation-reussie.png` | **coupé le 20/08 — placeholder C29** : #8 est absorbée par #57, dont la console affiche `esptool`, `COM9` et un binaire ESP32 |
 | `debugger-embarque:19` | #12 `arduino-debug/session-debogage.png` | à shooter |
 | `micropython-shield:37` | #48 `shield/empilement-uno-shield.jpg` | **annulé le 19/08 — passé en suppression** |
 | `arduino-sortie-pwm:80` | `oscilloscope/ecran-pwm.svg` | **produit le 19/08 (session C)** |
