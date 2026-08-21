@@ -39,6 +39,9 @@ const TARGETS = [
   '_drafts/feuille-de-route-captures.md',
   '_drafts/guide-prise-de-vue-par-outil.md',
   '_drafts/feuille-de-route-sessions.md',
+  // Ajoute le 21/08 (suite 2) : liste de captures easyeda, ancree par edit_file
+  // des la premiere seance de prise de vue.
+  '_drafts/captures-easyeda.md',
 ];
 
 const CHECK_ONLY = process.argv.includes('--check');

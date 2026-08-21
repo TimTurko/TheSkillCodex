@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" role="img" aria-labelledby="trh drh">
+  <title id="trh">Revenir en mode hors ligne à tout moment</title>
+  <desc id="drh">Suite d'étapes pour rebasculer le client de bureau EasyEDA en mode hors ligne sans le réinstaller. Étape un, vérifier la barre de titre en haut à gauche de la fenêtre : si la mention « Projects Offline mode » n'y figure pas, on travaille en ligne. Étape deux, ouvrir le menu Réglages. Étape trois, choisir Desktop edition setting. Étape quatre, choisir run mode setting, ce qui ouvre une nouvelle fenêtre. Étape cinq, sélectionner Projects Offline mode dans cette fenêtre, puis cliquer sur Apply. Une note en pied de figure indique que la barre de titre est ce qui confirme le changement, et qu'il n'y a pas d'autre signal.</desc>
+  <defs>
+    <style>
+      .ti  { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .box { fill: none; stroke: #888780; stroke-width: 1.6; }
+      .boxa { fill: none; stroke: #BA7517; stroke-width: 2.2; }
+      .num { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .numc { fill: none; stroke: #BA7517; stroke-width: 1.8; }
+      .lb  { font: 600 13px sans-serif; text-anchor: start; fill: #2C2C2A; }
+      .lba { font: 700 13px sans-serif; text-anchor: start; fill: #BA7517; }
+      .it  { font: 400 11.5px sans-serif; text-anchor: start; fill: #888780; }
+      .mono { font: 600 12px monospace; text-anchor: start; fill: #BA7517; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .foot { font: italic 600 12px sans-serif; text-anchor: middle; fill: #888780; }
+      .mk  { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lb { fill: #F1EFE8; }
+        .box, .wire { stroke: #BBBBBB; }
+        .it, .foot { fill: #BBBBBB; }
+        .mk { fill: #BBBBBB; }
+        .boxa, .numc { stroke: #E0A24A; }
+        .num, .lba, .mono { fill: #E0A24A; }
+      }
+    </style>
+    <marker id="mgr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mk"/></marker>
+  </defs>
+
+  <text x="280" y="28" class="ti">Revenir en hors ligne, sans réinstaller</text>
+
+  <!-- 1 -->
+  <circle cx="42" cy="72" r="14" class="numc"/>
+  <text x="42" y="77" class="num">1</text>
+  <rect x="70" y="52" width="452" height="42" rx="5" class="boxa"/>
+  <text x="86" y="70" class="lba">Lire la barre de titre</text>
+  <text x="86" y="87" class="it">sans « Projects Offline mode », on travaille en ligne</text>
+  <line x1="42" y1="94" x2="42" y2="120" class="wire" marker-end="url(#mgr)"/>
+
+  <!-- 2 -->
+  <circle cx="42" cy="142" r="14" class="numc"/>
+  <text x="42" y="147" class="num">2</text>
+  <rect x="70" y="126" width="452" height="34" rx="5" class="box"/>
+  <text x="86" y="148" class="mono">Réglages</text>
+  <line x1="42" y1="164" x2="42" y2="190" class="wire" marker-end="url(#mgr)"/>
+
+  <!-- 3 -->
+  <circle cx="42" cy="212" r="14" class="numc"/>
+  <text x="42" y="217" class="num">3</text>
+  <rect x="70" y="196" width="452" height="34" rx="5" class="box"/>
+  <text x="86" y="218" class="mono">Desktop edition setting</text>
+  <line x1="42" y1="234" x2="42" y2="260" class="wire" marker-end="url(#mgr)"/>
+
+  <!-- 4 -->
+  <circle cx="42" cy="282" r="14" class="numc"/>
+  <text x="42" y="287" class="num">4</text>
+  <rect x="70" y="262" width="452" height="42" rx="5" class="box"/>
+  <text x="86" y="281" class="mono">run mode setting</text>
+  <text x="86" y="298" class="it">une nouvelle fenêtre s'ouvre</text>
+  <line x1="42" y1="304" x2="42" y2="330" class="wire" marker-end="url(#mgr)"/>
+
+  <!-- 5 -->
+  <circle cx="42" cy="352" r="14" class="numc"/>
+  <text x="42" y="357" class="num">5</text>
+  <rect x="70" y="332" width="452" height="42" rx="5" class="boxa"/>
+  <text x="86" y="351" class="mono">Projects Offline mode</text>
+  <text x="86" y="368" class="it">puis cliquer sur Apply</text>
+
+  <text x="280" y="404" class="foot">Rien d'autre ne confirme le changement : c'est la barre de titre</text>
+  <text x="280" y="421" class="foot">qu'on relit pour vérifier qu'il a pris.</text>
+</svg>

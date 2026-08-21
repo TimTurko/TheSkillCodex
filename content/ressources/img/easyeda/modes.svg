@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="tmo dmo">
+  <title id="tmo">Les deux modes d'EasyEDA, et ce que chacun autorise</title>
+  <desc id="dmo">Comparaison des deux modes de fonctionnement du client de bureau EasyEDA. À gauche, le mode hors ligne : aucun compte n'est demandé, les projets vivent dans un dossier local, et la recherche de composants donne accès aux bibliothèques du système et à la bibliothèque User Contributed. C'est le mode attendu pour le travail en salle. À droite, le mode en ligne : le logiciel réclame une connexion, les projets vivent dans l'espace en ligne, et la classe User Contributed n'apparaît plus dans la fenêtre de recherche de composants. Au centre, deux flèches signalent les moments où l'on bascule sans le vouloir : le choix fait à l'installation, et l'entrée « Mettre à jour le PCB » du menu Design, qui réclame de passer en ligne. En pied de figure, le moyen de vérifier à tout instant dans quel mode on se trouve : le mode est écrit dans la barre de titre, en haut à gauche de la fenêtre.</desc>
+  <defs>
+    <style>
+      .ti  { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .sti { font: 700 13px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .box { fill: none; stroke: #888780; stroke-width: 1.6; }
+      .boxa { fill: none; stroke: #BA7517; stroke-width: 2.2; }
+      .boxf { fill: none; stroke: #B23A2E; stroke-width: 2.2; }
+      .lb  { font: 600 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .lba { font: 700 12px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .lbf { font: 700 12px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .it  { font: 400 11.5px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .wiref { stroke: #B23A2E; stroke-width: 2.2; fill: none; }
+      .sep { stroke: #888780; stroke-width: 1.1; stroke-dasharray: 5 4; }
+      .note { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .notef { font: italic 700 11.5px sans-serif; text-anchor: middle; fill: #B23A2E; }
+      .foot { font: italic 600 12px sans-serif; text-anchor: middle; fill: #888780; }
+      .bar { fill: none; stroke: #BA7517; stroke-width: 2; }
+      .bartxt { font: 600 12px monospace; text-anchor: middle; fill: #BA7517; }
+      .mk  { fill: #888780; }
+      .mkf { fill: #B23A2E; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .sti, .lb, .it { fill: #F1EFE8; }
+        .box, .wire, .sep { stroke: #BBBBBB; }
+        .note, .foot { fill: #BBBBBB; }
+        .mk { fill: #BBBBBB; }
+        .boxa { stroke: #E0A24A; }
+        .lba { fill: #E0A24A; }
+        .bar { stroke: #E0A24A; }
+        .bartxt { fill: #E0A24A; }
+        .boxf, .wiref { stroke: #E0705F; }
+        .lbf, .notef { fill: #E0705F; }
+        .mkf { fill: #E0705F; }
+      }
+    </style>
+    <marker id="mgm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mk"/></marker>
+    <marker id="mfm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mkf"/></marker>
+  </defs>
+
+  <text x="380" y="28" class="ti">Les deux modes, et ce que chacun autorise</text>
+
+  <line x1="380" y1="48" x2="380" y2="300" class="sep"/>
+
+  <!-- ============ LEFT : OFFLINE ============ -->
+  <rect x="34" y="52" width="300" height="30" rx="5" class="boxa"/>
+  <text x="184" y="72" class="lba">Projects Offline mode</text>
+
+  <rect x="34" y="100" width="300" height="42" rx="5" class="box"/>
+  <text x="184" y="118" class="lb">Aucun compte demandé</text>
+  <text x="184" y="134" class="it">on ouvre et on travaille</text>
+
+  <rect x="34" y="156" width="300" height="42" rx="5" class="box"/>
+  <text x="184" y="174" class="lb">Les projets vivent dans un dossier</text>
+  <text x="184" y="190" class="it">sur la machine, rien n'est envoyé</text>
+
+  <rect x="34" y="212" width="300" height="58" rx="5" class="boxa"/>
+  <text x="184" y="232" class="lba">Recherche de composants complète</text>
+  <text x="184" y="249" class="it">bibliothèques du système</text>
+  <text x="184" y="265" class="it">et User Contributed</text>
+
+  <!-- ============ RIGHT : ONLINE ============ -->
+  <rect x="426" y="52" width="300" height="30" rx="5" class="boxf"/>
+  <text x="576" y="72" class="lbf">Mode en ligne</text>
+
+  <rect x="426" y="100" width="300" height="42" rx="5" class="box"/>
+  <text x="576" y="118" class="lb">Connexion exigée</text>
+  <text x="576" y="134" class="it">il faut un compte pour continuer</text>
+
+  <rect x="426" y="156" width="300" height="42" rx="5" class="box"/>
+  <text x="576" y="174" class="lb">Les projets vivent en ligne</text>
+  <text x="576" y="190" class="it">dans l'espace de travail du compte</text>
+
+  <rect x="426" y="212" width="300" height="58" rx="5" class="boxf"/>
+  <text x="576" y="232" class="lbf">Une classe manque à la recherche</text>
+  <text x="576" y="249" class="it">User Contributed</text>
+  <text x="576" y="265" class="it">n'apparaît plus</text>
+
+  <!-- ============ THE TWO SLIPS ============ -->
+  <path d="M334,66 L420,66" class="wiref" marker-end="url(#mfm)"/>
+  <path d="M334,240 C368,240 368,300 420,300" class="wiref" fill="none" marker-end="url(#mfm)"/>
+
+  <text x="380" y="322" class="notef">On bascule sans le vouloir</text>
+  <text x="380" y="340" class="note">au choix fait à l'installation,</text>
+  <text x="380" y="356" class="note">et par « Mettre à jour le PCB », qui réclame de passer en ligne</text>
+
+  <!-- ============ THE SELF-TEST ============ -->
+  <rect x="196" y="376" width="368" height="26" rx="4" class="bar"/>
+  <text x="380" y="394" class="bartxt">EasyEDA(Standard) — Projects Offline mode</text>
+
+  <text x="380" y="420" class="foot">Le mode est écrit dans la barre de titre : un coup d'œil suffit à savoir où l'on est.</text>
+</svg>
