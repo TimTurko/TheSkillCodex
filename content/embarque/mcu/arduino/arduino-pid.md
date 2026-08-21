@@ -71,7 +71,7 @@ unsigned long tCalcul = 0;
 
 void loop() {
   if (millis() - tCalcul >= DT_MS) {
-    tCalcul = millis();
+    tCalcul += DT_MS;                              // on avance la date, on ne la relit pas
     double erreur = consigne - lireVitesse();
     double commande = calculerPID(erreur, DT_MS / 1000.0);
     commande = constrain(commande, 0, 255);        // borne PWM
@@ -90,7 +90,46 @@ Le réglage est **empirique** et se fait dans cet ordre :
 
 Visualiser la mesure et la consigne dans le temps guide ce réglage bien mieux que le tâtonnement à l'aveugle.
 
-![Traceur série de l'IDE Arduino affichant deux courbes : la consigne, constante, et la mesure qui converge vers elle.|600](/ressources/img/arduino-pid/traceur-consigne-mesure.png)
+![Traceur série de l'IDE Arduino affichant deux courbes issues d'un procédé simulé en logiciel, la consigne plate à 150 et la mesure qui bondit à 112 puis s'approche lentement de la consigne, à 146 au bord droit.|600](/ressources/img/arduino-pid/traceur-consigne-mesure.png)
+
+La courbe ci-dessus sort d'un **procédé simulé** — un modèle de moteur calculé dans le sketch lui-même, sans moteur ni capteur — et elle se lit en deux temps. La mesure **bondit** de 0 à plus de 110 tr/min en deux dixièmes de seconde, parce que l'erreur initiale sature la commande à 255, et c'est le terme P qui travaille. Puis elle **rampe** vers la consigne pendant une dizaine de secondes, et ce second temps est celui du terme I, qui comble l'erreur résiduelle d'autant plus lentement que `Ki` est faible. Un tracé qui semble stagner sous la consigne n'est donc pas une boucle en panne, c'est un `Ki` prudent.
+
+**Reproduire cette courbe sans moteur.** L'*Exemple* ci-dessous déclare `double lireVitesse();` sans jamais la définir : le capteur est supposé fourni, et le sketch ne se lie donc pas tel quel. Le bloc suivant la remplace par un **modèle de moteur** du premier ordre calculé en logiciel — la vitesse tend vers `GAIN_MOTEUR × commande` avec une constante de temps `TAU_S`. Une carte et un câble USB suffisent, il n'y a rien à câbler.
+
+```cpp
+// Procede simule : remplace la ligne `double lireVitesse();` de l'Exemple
+
+const double GAIN_MOTEUR = 1.5;   // tr/min par unite de PWM (255 donne 382 tr/min)
+const double TAU_S       = 0.30;  // constante de temps mecanique, en secondes
+double vitesseSimulee    = 0.0;   // etat du modele : la vitesse « reelle »
+
+double lireVitesse() {            // tient lieu de capteur : rend l'etat du modele
+  return vitesseSimulee;
+}
+
+void simulerMoteur(int commande, double dt) {   // fait avancer le modele d'un pas
+  vitesseSimulee += dt / TAU_S * (GAIN_MOTEUR * commande - vitesseSimulee);
+}
+```
+
+Deux insertions ensuite dans la boucle de l'*Exemple*. D'abord faire réagir le procédé à la commande, juste après `analogWrite` — sans cette ligne le modèle reste à l'arrêt et la mesure ne bouge jamais :
+
+```cpp
+    simulerMoteur((int)commande, dt);   // le procede reagit a la commande
+```
+
+Ensuite remplacer l'impression par la forme ci-dessous. Les libellés nomment les deux courbes dans la légende du traceur, et l'espacement est nécessaire : à 50 impressions par seconde, la fenêtre du traceur ne retient qu'une seconde d'historique, où la convergence est invisible.
+
+```cpp
+    static byte n = 0;
+    if (++n >= 10) {                    // une ligne sur dix, soit 5 points par seconde
+      n = 0;
+      Serial.print("consigne:"); Serial.print(consigne);
+      Serial.print(" mesure:");  Serial.println(mesure);
+    }
+```
+
+Le gain du modèle n'est pas arbitraire : l'intégrale étant bornée à 200, le terme I ne peut porter seul qu'une commande de `Ki × 200`, soit 120. Un moteur simulé trop peu efficace demanderait davantage en régime établi, et la boucle se stabiliserait **sous** la consigne — voir *Pièges*.
 
 ## Exemple — Réguler la vitesse d'un moteur
 
@@ -115,7 +154,7 @@ void setup() {
 
 void loop() {
   if (millis() - tCalcul >= DT_MS) {
-    tCalcul = millis();
+    tCalcul += DT_MS;                                // cadence strictement constante
     double dt = DT_MS / 1000.0;
 
     double mesure = lireVitesse();
@@ -145,6 +184,8 @@ Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sa
 **Calculer le PID à pas irrégulier.** Les termes I et D dépendent de `dt`. Un calcul appelé tantôt toutes les 5 ms, tantôt toutes les 50 ms, fausse l'intégrale et la dérivée. Cadencer le calcul à intervalle **fixe** ([[arduino-temporisation|`millis()`]] ou [[arduino-timers|timer]]) est non négociable.
 
 **Oublier l'anti-emballement.** Quand l'actionneur sature, l'intégrale continue d'accumuler dans le vide : à l'inversion de l'erreur, la commande reste « collée » trop longtemps. Borner l'intégrale (ou la commande) corrige ce défaut classique.
+
+**Croire que la borne de l'anti-emballement est sans effet en régime établi.** Une intégrale bornée à ±200 ne laisse le terme I porter qu'une commande de `Ki × 200`. Si le point de fonctionnement visé en demande davantage — moteur peu efficace, charge lourde —, l'intégrale colle à sa borne et la boucle se stabilise **avec une erreur résiduelle**, sans que rien ne le signale. La borne se dimensionne sur la commande réellement nécessaire, pas sur une valeur ronde.
 
 **Mettre trop de dérivé sur un signal bruité.** Le terme D amplifie le bruit de mesure : un capteur bruité + un `Kd` élevé donnent une commande qui tremble. Filtrer la mesure ou réduire `Kd`.
 

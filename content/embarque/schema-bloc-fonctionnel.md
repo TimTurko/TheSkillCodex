@@ -64,8 +64,6 @@ Quelques observations à tirer de cet exemple :
 - La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[asservissement|PID]] est généralement nécessaire pour atteindre une régulation stable).
 - Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur — deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
-![Photo d'une couveuse réelle, annotée des blocs fonctionnels identifiés : contrôleur, relais, résistance chauffante, capteur de température.|600](/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg)
-
 ## Pièges
 
 **Confondre actionneur et effecteur.** Le moteur (actionneur) convertit l'énergie électrique en énergie mécanique. La roue (effecteur) applique cette énergie à l'environnement. Les deux sont distincts même s'ils sont souvent regroupés mentalement. La distinction devient critique quand l'effecteur change (roue motrice vs chenille vs hélice) et que l'actionneur reste le même.

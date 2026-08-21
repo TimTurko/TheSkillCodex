@@ -90,7 +90,7 @@ Cliquez sur **Téléverser** (icône flèche). Sur NodeMCU / D1 mini, l'**auto-r
 > [!tip]
 > **Si la LED semble « inversée ».** C'est normal et attendu : sur l'ESP8266, `LOW` allume. Si vous vouliez l'éteindre, écrivez `HIGH`. Beaucoup de débutants croient à un bug ici — c'est juste la logique inversée de la LED intégrée.
 
-![Carte NodeMCU branchée en USB, sa LED intégrée allumée, la console de l'IDE affichant un téléversement réussi.|420](/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg)
+![Montage de deux images — la fenêtre de l'IDE Arduino avec le sketch Blink et la console terminée sur « Done uploading », et une photo de la carte NodeMCU dont la LED du module est allumée.|640](/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.png)
 
 ## Exemple — Blink modifié
 

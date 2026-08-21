@@ -241,7 +241,7 @@ il produit une courbe, pas du texte.
 | # | Fiche:ligne | À montrer | Note |
 |---|---|---|---|
 | 39 | `esp32-prise-en-main:103` | Carte ESP32 branchée, LED intégrée allumée | Conservé au titre de la priorité au trafic |
-| 40 | `esp8266-prise-en-main:77` | NodeMCU branchée, LED allumée + console de téléversement réussi | Idem |
+| 40 | `esp8266-prise-en-main:93` | NodeMCU branchée, LED allumée + console de téléversement réussi | Idem |
 | 41 | `teensy-prise-en-main:90` | **Fenêtre du Teensy Loader** (recentrée dessus) | Application tierce qui surgit seule — le seul cas opaque du lot |
 
 ## S9 · Datasheet L298N — 2 prises
@@ -276,9 +276,9 @@ posé sur la table, photographié ou filmé.
 
 | # | Fiche:ligne | À montrer | Note |
 |---|---|---|---|
-| 47 | `arduino-bibliotheques:130` | Servo SG90, palette montée, balayage 0° → 180° puis retour | **GIF** — boucle courte, le mouvement *est* le message (C87). < 5 Mo, `fps=15`, sans audio, **intercepter avant commit** |
+| 47 | `arduino-bibliotheques:136` | Servo SG90, palette montée, balayage 0° → 180° puis retour | **GIF** — boucle courte, le mouvement *est* le message (C87). < 5 Mo, `fps=15`, sans audio, **intercepter avant commit** |
 | 48 | `shield:19` | Uno avec un shield enfiché, **vue de trois quarts** montrant l'empilement broche sur broche | **Pièce pivot** : c'est la cible du réemploi `micropython-shield:37`. Format Uno et non Teensy — la fiche fait de l'implantation Uno le standard de fait. Second cliché carte + shield séparés côte à côte : optionnel |
-| 49 | `schema-bloc-fonctionnel:67` | Couveuse réelle, annotée des blocs fonctionnels identifiés | Vient d'un **commentaire HTML** converti en placeholder C29 visible. L'annotation peut se poser après coup en SVG par-dessus la photo |
+| 49 | *(supprimée le 21/08)* | Couveuse réelle annotée — **l'objet n'existe pas.** Tim ne possède aucune couveuse de cette architecture, et annoter quatre organes sur une photo trouvée en ligne reviendrait à présenter des suppositions comme des faits, indétectables à la relecture. La fiche est complète sans elle : `generique.svg` porte les conventions, `couveuse.svg` porte l'exemple, les quatre observations font l'explication. Prise issue d'un commentaire HTML exhumé le 19/08, jamais d'un manque identifié en rédaction. Embed retiré le jour même |
 
 ## S11 · KiCad — 3 prises, REPORTÉES
 
@@ -484,16 +484,16 @@ que sur Nucleo. À caler fiche ouverte sur la section *Pièges* réelle.
 | 37 | `arduino-pid:93` | `/ressources/img/arduino-pid/traceur-consigne-mesure.png` | 600 |
 | 38 | `arduino-timers:76` | `/ressources/img/arduino-timers/traceur-echantillons.png` | 600 |
 | 39 | `esp32-prise-en-main:103` | `/ressources/img/esp32-prise-en-main/led-on.jpg` | 420 |
-| 40 | `esp8266-prise-en-main:77` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.jpg` | 420 |
+| 40 | `esp8266-prise-en-main:93` | `/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.png` | 640 |
 | 41 | `teensy-prise-en-main:90` | `/ressources/img/teensy-prise-en-main/teensy-loader.png` | 480 |
 | 42 | `lire-une-datasheet:126` | `/ressources/img/lire-une-datasheet/brochage-multiwatt15.png` | 600 |
 | 43 | `lire-une-datasheet:180` | `/ressources/img/lire-une-datasheet/absolute-maximum-ratings.png` | 600 |
-| 44 | `esp32-ble:99` | `/ressources/img/esp32-ble/nrf-connect.png` | 400 |
+| 44 | `esp32-ble:99` | `/ressources/img/esp32-ble/nrf-connect.png` | 480 |
 | 45 | `analyseur-logique:19` | `/ressources/img/analyseur-logique/pulseview-i2c-decode.png` | 640 |
 | 46 | `teensy-audio:42` | `/ressources/img/teensy-audio/audio-design-tool.png` | 640 |
-| 47 | `arduino-bibliotheques:130` | `/ressources/img/arduino-bibliotheques/servo-balayage.gif` | 420 |
+| 47 | `arduino-bibliotheques:136` | `/ressources/img/arduino-bibliotheques/servo-balayage.gif` | 420 |
 | 48 | `shield:19` | `/ressources/img/shield/empilement-uno-shield.jpg` | 480 |
-| 49 | `schema-bloc-fonctionnel:67` | `/ressources/img/schema-bloc-fonctionnel/couveuse-annotee.jpg` | 600 |
+| 49 | *(supprimée le 21/08 — `couveuse-annotee.jpg` ne sera jamais produite)* | — |
 | 50 | `ide` | `/ressources/img/ide/selecteur-carte-port.png` | 600 |
 | 51 | *(annulée le 20/08 — `moniteur-serie.png` ne sera jamais produite)* | — |
 | 52 | `esp32-prise-en-main` | `/ressources/img/esp32-prise-en-main/selection-board.png` | 640 |
@@ -566,6 +566,17 @@ celles du cœur ESP32 (*USB CDC On Boot*, *CPU Frequency 240MHz (WiFi)* — impo
 ESP8266, qui plafonne à 160 MHz). Erreur visuelle **acceptée par Tim le 20/08**.
 Un recadrage à la hauteur de #54 la supprimerait sans reshoot, si l'occasion se présente
 avant publication.
+
+**Réserve tracée sur #40 (arbitrage Tim, 21/08).** Le montage réunit un sélecteur réglé sur
+*Generic ESP8266 Module* et un bloc console **produit sous la définition précédente**
+(*NodeMCU 1.0*) : seul le sélecteur a été changé avant la reprise, le téléversement n'a pas
+été rejoué — d'où des chiffres identiques à l'octet entre les deux versions (`265616 bytes`,
+`17.9 seconds`, `118.9 kbit/s`). **Sans conséquence sur le fond** : même cœur, même binaire,
+même comportement de la LED. Ce qui est accepté ici est la **forme** : une fenêtre d'IDE se
+lit comme un instant unique et n'a aucune couture visible, là où C102 n'admet le montage
+que lisible comme tel. **Le principe reste** — un panneau repris d'un autre moment se
+rejoue quand le rejeu coûte moins d'une minute. Aucun mécanisme ne détecte ce défaut :
+il n'a été vu que parce que la version précédente avait été lue.
 
 ## Teensy — REPORTÉ POST-RENTRÉE (arbitrage Tim, 20/08)
 
@@ -717,7 +728,7 @@ déclaration, l'image ment par omission — C102, quatrième cas (le montage se 
 de ce jour. Elle ne demande qu'un **ESP32** — matériel déjà servi à cinq prises — et
 l'application nRF Connect. Spécification vérifiée contre le code de la fiche : nom
 d'annonce `ESP32-Capteur`, caractéristique en `READ | NOTIFY`, valeur envoyée **en texte**
-(si elle apparaît en hexadécimal, le sketch n'est pas celui de la fiche) ; **activer les
+(⚠ **précaution corrigée le 21/08** — nRF Connect affiche **toujours** les octets bruts en hexadécimal et y **ajoute** la forme texte quand ils sont imprimables ; le test discriminant est donc que `(0x) 31-32` soit **suivi de** `"12"`, et non l'absence d'hexadécimal) ; **activer les
 notifications** avant de shooter, sinon la valeur ne bouge pas. ⚠ **C101 s'y applique
 fortement** : un scan BLE fait apparaître les appareils des personnes autour, souvent
 nommés. Cadrer sur le périphérique connecté seul, ou masquer la liste de scan.

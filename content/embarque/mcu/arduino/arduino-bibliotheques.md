@@ -133,7 +133,15 @@ void loop() {
 
 Téléversez. Le servo balaye continûment.
 
-![Servomoteur SG90 avec sa palette montée, balayant de 0° à 180° puis revenant à sa position de départ.|420](/ressources/img/arduino-bibliotheques/servo-balayage.gif)
+![Servomoteur SG90 avec sa palette montée, balayant sur environ 90° puis revenant à sa position de départ.|420](/ressources/img/arduino-bibliotheques/servo-balayage.gif)
+
+**L'amplitude réelle n'est pas garantie par le code.** `attach(9)` répartit les angles 0 à 180 sur une plage d'impulsions par défaut qui dépend de la **bibliothèque** — 544 à 2400 µs sur Arduino AVR, mais 1000 à 2000 µs seulement sur ESP32. Un même `write(180)` n'envoie donc pas la même impulsion selon la carte, et un SG90 piloté avec les défauts ESP32 ne parcourt qu'environ la **moitié** de sa course — c'est ce que montre le balayage ci-dessus, filmé sur ESP32. La forme à trois arguments reprend la main sur cette plage :
+
+```cpp
+monServo.attach(9, 500, 2500);   // broche, impulsion à 0°, impulsion à 180°
+```
+
+Sur ESP32, elle double la plage et rend la course complète. Sur AVR, où la plage par défaut est déjà large, elle ne gagne que quelques pour cent : un balayage qui y resterait court aurait une cause **mécanique**, qu'aucun réglage logiciel n'ouvrira.
 
 Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer manuellement le signal PWM 50 Hz avec impulsion 1-2 ms. La bibliothèque encapsule tout ça — d'où son intérêt.
 
