@@ -19,9 +19,20 @@
 //   - fiches indexees ......... 242   (mesure du 20/08 : 247 fichiers .md sous
 //                                      content/, moins les 5 de templates/)
 //   - couples (entree, cible) .  26   (13 cibles x 2 entrees, table ci-dessous)
-// Ces deux grandeurs sont mesurables et verifiables. Le nombre de liens, le
-// nombre de clics et les itineraires ne sont PAS predits : c'est ce que le
-// script est cense apprendre.
+//   - liens morts .............   1   (`microcontroleur -> xiao`)
+//   - culs-de-sac / orphelines / inatteignables ....  0 / 0 / 0
+// Le 0/0/0 date du 20/08 (suite 2) : le lancement de ce jour rendait 1/1/1, la meme
+// page a chaque fois — `ressources/index`, page d'atterrissage du dossier de medias,
+// desormais hors des compteurs de sante (voir PAGES_NON_FICHES). Un 1 qui reapparait
+// designe donc une VRAIE fiche isolee.
+// Le 1 est publie avec sa decomposition : le premier lancement du 20/08 (suite)
+// en a rendu 70, dont 69 etaient des FAUX POSITIFS d'alias (FC 26, FS 12, FP 12,
+// niveau 7, critere 6, flexibilite 6 - tous resolus par le front matter
+// `aliases:` de `fonction` et `caracteriser-une-exigence`). Le 70e est reel :
+// `[[xiao]]` n'a ni fichier ni alias, le hub de famille XIAO s'appelle
+// `xiao-esp32-s3`. Un ecart sur ce 1 s'impute d'abord au corpus, ensuite au code.
+// Le nombre de liens, le nombre de clics et les itineraires ne sont PAS predits :
+// c'est ce que le script est cense apprendre.
 //
 // CONVENTIONS DU DEPOT QUE CE SCRIPT CONNAIT (cf. 18/08 : un audit qui ignore
 // une convention produit du bruit a hauteur de ce qu'il ignore) :
@@ -31,7 +42,10 @@
 //   - Le contenu des blocs de code, du code en ligne et des commentaires HTML
 //     n'est pas rendu comme un lien : exclu. (Un placeholder dormait deja dans
 //     un commentaire HTML le 19/08 — invisible en production.)
-//   - Le front matter YAML n'est pas rendu : exclu.
+//   - Le front matter YAML n'est pas rendu comme du texte : exclu de l'extraction
+//     des liens. En revanche son champ `aliases:` EST une table de resolution :
+//     `[[FC]]` atteint `fonction`, `[[critere]]` atteint `caracteriser-une-exigence`.
+//     Ignorer les alias produit 69 faux positifs sur 70 (mesure du 20/08 suite).
 //   - `templates/` est depublie (19/08 suite 4) : exclu de l'index.
 //
 // CE QUE CE SCRIPT NE MESURE PAS — et qui reste la part de Tim au rendu :
@@ -77,7 +91,12 @@ const SCENARIOS = [
     id: 4,
     question: 'Mon code ne compile pas',
     entrees: ['index', 'embarque/index'],
-    cibles: ['embarque/mcu/cpp/cpp-logs', 'embarque/mcu/arduino/arduino-debug'],
+    // 2e cible corrigee le 20/08 (suite 2) : la table donnait `arduino-debug`, que la
+    // traversee a dementi — `cpp-logs` y renvoie en ecrivant « AU-DELA des erreurs de
+    // compilation, traquer les bugs d'execution ». `cpp-execution` est la bonne 2e
+    // reponse : c'est elle qui pose le partage compiler / televerser, donc les deux
+    // familles d'erreurs. Le compte de couples reste 26.
+    cibles: ['embarque/mcu/cpp/cpp-logs', 'embarque/mcu/cpp/cpp-execution'],
   },
   {
     id: 5,
@@ -123,6 +142,14 @@ const SCENARIOS = [
 
 const RACINE = process.env.SKILLCODEX_CONTENT || 'content';
 const EXCLUS = ['templates'];
+
+// Pages publiees qui ne sont pas des FICHES : page d'atterrissage d'un dossier de
+// medias, sans lien par construction. Elles restent INDEXEES (le compte de fiches ne
+// bouge pas) mais sortent des trois compteurs de sante, ou elles apparaissaient comme
+// cul-de-sac, orpheline et inatteignable sans rien signaler.
+// Exclusion posee sur le tuple le plus etroit (C97) : la fiche, pas le dossier
+// `ressources/` — sinon un vrai orphelin depose la un jour ne se verrait plus.
+const PAGES_NON_FICHES = ['ressources/index'];
 
 function listerMarkdown(racine) {
   const sortie = [];
@@ -186,16 +213,47 @@ function extraireLiens(rendu) {
   return liens;
 }
 
+// Extrait le champ `aliases:` du front matter. Deux formes YAML admises :
+//   aliases:            aliases: [FP, FS, FC]
+//     - FP
+//     - FS
+function extraireAlias(brut) {
+  const fm = brut.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fm) return [];
+  const bloc = fm[1];
+  const inline = bloc.match(/^aliases:\s*\[(.*)\]\s*$/m);
+  if (inline) {
+    return inline[1]
+      .split(',')
+      .map((a) => a.trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+  }
+  const liste = bloc.match(/^aliases:\s*$([\s\S]*?)(?=^\S|$(?![\r\n]))/m);
+  if (!liste) return [];
+  const sortie = [];
+  for (const ligne of liste[1].split(/\r?\n/)) {
+    const m = ligne.match(/^\s+-\s*(.+?)\s*$/);
+    if (m) sortie.push(m[1].replace(/^["']|["']$/g, ''));
+    else if (ligne.trim() !== '') break;
+  }
+  return sortie;
+}
+
 // Resolution facon Obsidian/Quartz : chemin exact d'abord, puis nom de fichier
-// unique. Un nom de fichier ambigu (plusieurs `index.md`) n'est PAS resolu au
-// hasard : il est signale.
-function construireResolveur(slugs) {
+// ou alias. Un nom ambigu (plusieurs `index.md`) n'est PAS resolu au hasard :
+// il est signale.
+function construireResolveur(slugs, alias) {
   const parSlug = new Set(slugs);
   const parNom = new Map();
   for (const s of slugs) {
     const n = s.split('/').pop();
     if (!parNom.has(n)) parNom.set(n, []);
     parNom.get(n).push(s);
+  }
+  for (const [a, s] of alias) {
+    if (parSlug.has(a)) continue; // un fichier reel prime sur un alias
+    if (!parNom.has(a)) parNom.set(a, []);
+    if (!parNom.get(a).includes(s)) parNom.get(a).push(s);
   }
   return function resoudre(cible) {
     const c = cible.replace(/^\//, '').replace(/\.md$/, '');
@@ -246,16 +304,27 @@ function itineraire(vus, cible) {
 
 const fichiers = listerMarkdown(RACINE);
 const slugs = fichiers.map(slugDe);
-const resoudre = construireResolveur(slugs);
+
+// Une seule lecture disque par fiche : le contenu sert a la fois a la table des
+// alias et a l'extraction des liens.
+const contenus = new Map();
+const alias = new Map();
+for (const fichier of fichiers) {
+  const brut = readFileSync(fichier, 'utf8');
+  const slug = slugDe(fichier);
+  contenus.set(slug, brut);
+  for (const a of extraireAlias(brut)) alias.set(a, slug);
+}
+
+const resoudre = construireResolveur(slugs, alias);
 
 const graphe = new Map();
 const liensMorts = [];
 const liensAmbigus = [];
 let nbLiens = 0;
 
-for (const fichier of fichiers) {
-  const source = slugDe(fichier);
-  const rendu = texteRendu(readFileSync(fichier, 'utf8'));
+for (const source of slugs) {
+  const rendu = texteRendu(contenus.get(source));
   const sorties = new Set();
   for (const brut of extraireLiens(rendu)) {
     const r = resoudre(brut);
@@ -276,12 +345,18 @@ for (const [, sorties] of graphe) {
   for (const s of sorties) entrants.set(s, (entrants.get(s) || 0) + 1);
 }
 
-const culsDeSac = slugs.filter((s) => (graphe.get(s) || []).length === 0);
-const orphelines = slugs.filter((s) => entrants.get(s) === 0 && s !== 'index');
+const culsDeSac = slugs.filter(
+  (s) => (graphe.get(s) || []).length === 0 && !PAGES_NON_FICHES.includes(s),
+);
+const orphelines = slugs.filter(
+  (s) => entrants.get(s) === 0 && s !== 'index' && !PAGES_NON_FICHES.includes(s),
+);
 
 // Atteignabilite depuis l'accueil
 const depuisAccueil = bfs(graphe, 'index');
-const inatteignables = slugs.filter((s) => !depuisAccueil.has(s));
+const inatteignables = slugs.filter(
+  (s) => !depuisAccueil.has(s) && !PAGES_NON_FICHES.includes(s),
+);
 
 // Couples (entree, cible)
 const cacheBfs = new Map();
@@ -341,7 +416,8 @@ console.log('');
 console.log('  fiches indexees ........... ' + slugs.length + '   (recette : 242)');
 console.log('  couples traites ........... ' + resultats.length + '    (recette : 26)');
 console.log('  liens sortants comptes .... ' + nbLiens);
-console.log('  liens morts ............... ' + liensMorts.length);
+console.log('  alias declares ............ ' + alias.size);
+console.log('  liens morts ............... ' + liensMorts.length + '     (recette : 1)');
 console.log('  liens ambigus ............. ' + liensAmbigus.length);
 console.log('');
 

@@ -169,7 +169,7 @@ Chaque appui fait avancer d'un quart de tour. Pratique pour des projets de posit
 
 **Réglage du courant A4988 incorrect.** Le [[potentiometre|potentiomètre]] du driver règle le courant limité par bobine. Trop bas → couple trop faible, perte de pas. Trop haut → driver et moteur surchauffent. Calibrer en mesurant Vref au multimètre selon la formule de la fiche du driver (Vref = 8 × R_SENSE × I_MAX, typiquement Vref ≈ 0,8 V pour 1 A sur A4988 avec R = 0,1 Ω).
 
-**Perte de pas sous charge.** Si on lui demande d'aller trop vite ou si la charge est trop importante, le moteur *saute* des pas — la position calculée par le programme ne correspond plus à la position réelle. Symptôme : décalage cumulatif au cours du temps. Solutions : réduire la vitesse, augmenter le couple (driver plus puissant, microstepping plus fin, ressort de rappel mécanique).
+**Perte de pas sous charge.** Si on lui demande d'aller trop vite ou si la charge est trop importante, le moteur *saute* des pas — la position calculée par le programme ne correspond plus à la position réelle. Symptôme : décalage cumulatif au cours du temps. Le couple d'un pas-à-pas **chute quand la fréquence de pas monte** — l'inductance des bobines empêche le courant de s'établir avant le pas suivant. Premier réflexe, donc : **ralentir**, et monter en vitesse par une rampe d'accélération plutôt que de démarrer à pleine cadence (`AccelStepper`). Ensuite seulement, chercher du couple : vérifier le **réglage du courant** (piège ci-dessus), prendre un moteur ou un driver mieux dimensionné, ou décharger l'axe mécaniquement (réduction, contrepoids, ressort de rappel). **Le microstepping n'est pas un remède au manque de couple** — il le diminue, voir *Cas particulier* ci-dessous. Et si le couple manque encore une fois ces leviers épuisés, le problème n'est plus électronique : **le calcul du couple nécessaire, du rapport de réduction et de l'inertie de la charge n'est pas traité ici**, il relève de la [[meca/index|mécanique]] et des cours des collègues.
 
 **Stockage de chaleur sur ULN2003.** Sous charge prolongée, le module ULN2003 chauffe (transistors Darlington, dissipation passive). Le 28BYJ-48 n'a pas de mode *libre* — il consomme en permanence ses ~150 mA même à l'arrêt. Pour réduire la dissipation à l'arrêt, couper l'alimentation par MOSFET ou utiliser un driver à mode sleep.
 
@@ -183,7 +183,7 @@ Les drivers A4988 / DRV8825 / TMC2209 supportent le **microstepping** : au lieu 
 
 Avantages : mouvement nettement plus lisse, bruit réduit, précision angulaire améliorée.
 
-Inconvénients : couple effectif réduit aux positions intermédiaires (le moteur passe plus de temps à tenir une position non-stable), et coordination du driver pour ramener au pas entier nécessite des bibliothèques avancées.
+Inconvénients : **couple effectif réduit** aux positions intermédiaires (le moteur passe plus de temps à tenir une position non-stable) — un microstepping plus fin ne compense donc jamais une perte de pas sous charge, il l'aggrave ; et la coordination du driver pour ramener au pas entier nécessite des bibliothèques avancées.
 
 Sur les imprimantes 3D modernes, drivers TMC2209 en microstepping 1/256 — quasi-silencieux.
 
@@ -203,3 +203,5 @@ Le pas-à-pas est l'actionneur typique des projets école qui visent un mouvemen
 - [[arduino-servomoteur|Piloter un servomoteur]] — alternative position angulaire 0-180°
 - [[arduino-alimentation|Alimenter la carte]] — dimensionnement PSU avec moteur de puissance
 - [[arduino-interruptions|Interruptions]] — pour la lecture de fin de course en parallèle du mouvement
+- [[chaine-energie|Chaîne d'énergie]] — où se place l'actionneur entre la source et la charge
+- [[meca/index|Méca]] — dimensionnement mécanique, réduction, liaisons *(interface vers les cours des collègues)*

@@ -89,7 +89,7 @@ Trois activités ne sont pas des phases mais des **fils continus** présents de 
 
 - **[[gestion-de-projet]]** : planning, suivi des tâches, gestion des risques, communication équipe, revues intermédiaires. Une équipe qui ne pilote pas son projet le subit.
 - **[[ecoconception]]** : analyse de cycle de vie, choix de matériaux, sobriété énergétique. Ne se décide pas en fin de projet — chaque choix de conception engage l'empreinte environnementale.
-- **[[securite-et-qualite]]** : analyse des risques produit et utilisateur, conformité aux normes, qualité des livrables. À considérer dès la spec, pas après le premier accident.
+- **[[securite-et-qualite]]** : analyse des risques produit et utilisateur ([[amdec|AMDEC]]), conformité aux normes, qualité des livrables. À considérer dès la spec, pas après le premier accident.
 
 Ces fils sont évalués transversalement : ils apparaissent dans les livrables de chaque phase, pas dans une phase dédiée.
 

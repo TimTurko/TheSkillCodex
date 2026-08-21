@@ -24,9 +24,28 @@ circulaient** dans les prompts de lancement précédents :
 
 **Total manifeste : 57 lignes = 49 pivots + 8 réemplois.**
 
+### Recomptage du 21/08 — c'est ce tableau qui fait foi
+
+| Grandeur | Compte |
+|---|---|
+| **Lot actif** | **29** (33 − 4 reports du 21/08) |
+| **Déposées sur disque** | **23** — les 21 du 20/08, plus #42 et #43 |
+| **Restant à shooter** | **6** — #37, #40, #44, #47, #48, #49 |
+| Reportées post-rentrée | **29** — 3 Teensy + 9 STM32 + 11 MicroPython + 2 Raspberry Pi + #12, #36, #38, #45 |
+| *(hors manifeste)* KiCad + EasyEDA | session dédiée **avant** la rentrée, volume non chiffré (C88) |
+
+⚠ **Le qualificatif du tableau précédent était faux.** « 12 restantes, **toutes bloquées
+sur du matériel** » — #42 et #43 ne demandaient qu'un lecteur PDF. Le TODO du 20/08 suite 2
+l'avait corrigé, ce tableau non. **Variante neuve du motif du chiffre repris** : non plus
+un chiffre faux, mais un **qualificatif faux resté accroché à un chiffre juste** — et donc
+invisible à tout contrôle arithmétique.
+
+**Les six restantes n'attendent plus l'école** — ESP32, NodeMCU, servo, shield, couveuse.
+Tout ce qui dépendait du matériel de l'établissement est parti en report.
+
 ### Recomptage du 20/08 (suite) — après les reports Teensy et STM32
 
-C'est **ce tableau qui fait foi**. Celui d'ouverture, plus bas, décrit l'état d'avant
+Ce tableau est **périmé depuis le 21/08**, conservé pour trace. Celui d'ouverture, plus bas, décrit l'état d'avant
 les reports et d'avant l'ouverture de #50 à #59 ; il est conservé pour trace.
 
 | Grandeur | Compte |
@@ -153,6 +172,8 @@ embeds de la fiche : un fichier en trop ne casse rien et ne se signale donc jama
   panier ou une page produit ouverte en arrière-plan.
 - **#42 / #43 — datasheet L298** : noter la révision du PDF hors fiche, la
   numérotation des tables change entre révisions. Attribution C74-c obligatoire.
+  **FAIT le 21/08 — édition de janvier 2000**, tables **non numérotées** (mise en page
+  ancienne de ST). Les deux attributions étaient déjà en place depuis la pose des embeds.
 
 ### Specs à revoir
 
@@ -429,5 +450,68 @@ fichier » comme information à retenir : il est masqué, la promesse est retir�
 n'enseignait rien de plus ; son contenu vit en bloc de code au Cas 3 et dans les *Pièges*
 d'`arduino-bibliotheques`. Le numéro **n'est pas réutilisé** — la prochaine prise ouverte
 sera #61, celui-ci n'a jamais été inscrit au manifeste.
+
+### Lecteur PDF (datasheet L298) — 2 prises — **LOT CLOS le 21/08**
+
+Les deux extraits vivent dans `lire-une-datasheet`, dossier `img\lire-une-datasheet\`
+déjà existant (il portait `generique.svg` et `l298n.svg`). **Embeds, alts et attributions
+C74-c étaient posés d'avance** : déposées sous leur nom exact, les images sont apparues
+sans autre édition. Les deux prises les plus propres du lot.
+
+**Révision du document, relevée hors fiche comme le demandait le §C** : **édition de
+janvier 2000**. Mise en page ancienne de ST — titres de section en capitales,
+**tables sans numéro**, identifiant de figure `D95IN240A`.
+
+#### #42 — `lire-une-datasheet:126` → `brochage-multiwatt15.png` — **DÉPOSÉE, ALT RECALÉ**
+
+- **À l'écran** : figure de brochage du Multiwatt15, recadrée seule dans le PDF.
+- **Lisible dans l'image** : les quinze broches numérotées avec leur nom en clair, et la
+  mention `TAB CONNECTED TO PIN 8`. **Tous les numéros que la prose cite se vérifient** —
+  Vs = 4, Vss = 9, GND = 8, Sense = 1 et 15, Enable A = 6, Enable B = 11.
+- **35,6 ko**, ~780 px de large, rendu à 600.
+- **Divergence traitée (arbitrage Tim, (a))** : l'alt promettait « brochage **et tableau
+  des fonctions de chaque broche** », l'image ne porte **que la figure**. Troisième
+  occurrence du motif de #1 et #9. **L'alt a été réécrit sur l'image.**
+- **Montage (b) proposé puis retiré par moi-même.** J'ai d'abord recommandé d'ajouter un
+  second panneau portant la table `PIN FUNCTIONS`. Deux raisons de l'écarter, la seconde
+  étant la vraie : quinze lignes dont une colonne de prose anglaise seraient **illisibles**
+  rendues à 600 px ; et surtout **la fiche fait déjà mieux que ce tableau** — elle trie les
+  broches en **quatre familles** là où ST les ordonne par numéro, ce qui est un index et
+  non une explication. L'ajouter aurait défait la consigne de l'étape 3 (« trier les
+  broches en familles ») que cette partie sert à démontrer.
+- **Ce que la table a quand même apporté**, lue à part sur demande de Tim : ST spécifie le
+  100 nF **non inductif** sur Vs, et **ne le précise pas** sur Vss. La fiche écrivait
+  « chacune des deux alimentations », ce qui aplatissait l'asymétrie — précision ajoutée.
+  *Une image écartée comme média peut rester une source.*
+- **Réserve tracée, non bloquante** : sous la cible 1200-1600 px de C74/C100. Tolérable sur
+  du trait et du texte vectoriel, très au-dessus de ce qu'une capture d'écran supporterait.
+
+#### #43 — `lire-une-datasheet:180` → `absolute-maximum-ratings.png` — **DÉPOSÉE, CONFORME**
+
+- **À l'écran** : table *ABSOLUTE MAXIMUM RATINGS* entière, avec le bandeau `L298`.
+- **Les quatre valeurs commentées sont lisibles** : `Vs = 50 V` ; `Io` sous ses trois
+  régimes (3 A non répétitif, 2,5 A répétitif, 2 A continu) ; `Vi, Ven −0.3 to 7 V` ; et
+  **`Ptot = 25 W` avec sa condition `(T_case = 75 °C)` dans la parenthèse** — le paragraphe
+  qui ordonne « lisez la condition entre parenthèses » a sa preuve.
+- **63,8 ko**, ~820 px, rendu à 600.
+- **Ce que la prise a révélé (C99)** : la ligne *Junction Operating Temperature −25 to 130*
+  porte le **130 °C** dont se sert la section *La chauffe*, deux paragraphes plus bas, pour
+  calculer les 3 W dissipables à l'air libre. Cette section **n'a aucune image** — elle est
+  désormais sourcée par celle de sa voisine.
+- **Ne pas élargir le cadrage** : la chute de tension (1,8 / 4,9 V) est dans les
+  caractéristiques électriques, les 35 °C/W dans *Thermal data* — deux autres tables, sans
+  embed et qui n'en demandent pas.
+
+**C101 et C102 satisfaites sur les deux** : recadrage pur, aucun chrome de lecteur, aucun
+chemin personnel, aucune superposition, aucune altération.
+
+**Le risque annoncé n'était pas le risque réel.** Le manifeste alertait depuis le 18/08 sur
+la **renumérotation des tables** entre révisions. Vérification faite fiche ouverte : la
+fiche **ne cite aucun numéro de table**, mais **onze valeurs**. Le « table 1 » vivait dans
+le cadrage du manifeste, pas en production. *Une alerte héritée se vérifie contre la fiche
+avant d'être exécutée — sinon on protège ce qui n'est pas exposé et on laisse découvert ce
+qui l'est.*
+
+---
 
 *(suite à remplir au fil du dialogue)*

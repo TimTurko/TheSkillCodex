@@ -4,6 +4,47 @@
 > des sessions B et C, sur une enveloppe estimée par Tim à **10-15 sessions**.
 > Complète `_drafts/feuille-de-route-captures.md`, qui reste la référence des médias.
 
+## ⚠ RECALAGE DU 21/08 — à lire avant le reste du fichier
+
+Ce fichier date du **19/08**. Sa séquence est en grande partie **consommée**, et son ordre
+a été rompu : le parcours étudiant (étape 9) a été mené le 20/08 **avant** son déclencheur
+annoncé (« le rang 1 des prises de vue déposé et intégré »), sur arbitrage de Tim.
+
+| Étape du fichier | État réel au 21/08 |
+|---|---|
+| 1 — notion `[T]` non bloquante | **faite** 19/08 suite 2 |
+| 2 — `boucle-ouverte` | **faite** 19/08 suite 2 |
+| 3 et 4 — fiches de lecture C85 | **faites** 19/08 suite 3 |
+| 5-8 — intégration des captures | **en cours** — 23 déposées sur 29 actives |
+| 9 — parcours étudiant | **fait** 20/08 suite 2, **hors ordre** |
+| 10 — clôture pré-publication | **à faire**, dans la semaine (arbitrage Tim 21/08) |
+| Marge 2-5 sessions | **libérée** — elle absorbait les retombées du parcours étudiant, qui n'a rendu **qu'un** item ouvert, clos le 21/08 en (a) |
+
+**Séquence réelle jusqu'à la rentrée** (ordre arbitré par Tim le 21/08) :
+
+1. **Séance de prise de vue** — les 6 restantes (#37, #40, #44, #47, #48, #49), puis leur
+   intégration.
+2. **Session `easyeda`** — fiche neuve, tutoriel scénarisé C88.
+3. **Session `kicad`** — refonte en tutoriel scénarisé. Les 3 placeholders reportés le
+   18/08 **reviennent dans le périmètre**.
+4. **Clôture pré-publication.**
+
+⚠ **Le calibrage de 2 et 3 n'est pas « une session chacune ».** `falstad` a produit
+13 médias et `ltspice` 8, chacune sur une session entière **plus** une séance de prise de
+vue **plus** des allers-retours d'intégration. J'ai plaidé pour ne faire que `kicad` avant
+la rentrée ; **Tim a tranché les deux**. Réserve tracée, pas rouverte.
+
+**Deux arbitrages de ce fichier sont tranchés** : `easyeda` → **(b) produire la fiche**
+(contre ma préférence (a), retirer la mention) ; profondeur du contrôle Phase 0 → **(a)
+contrôle léger**, conforme à ma préférence.
+
+**Deux items « hors séquence à Tim » sont clos** : la révision du PDF L298N (relevée le
+21/08, édition de janvier 2000) et les prises S9. Le piège `Pin("LED")` **bascule
+post-rentrée** avec le module MicroPython. **`cdcf-ecole-template.docx` reste le seul
+défaut visible du dépôt**, et reste une dépendance externe.
+
+---
+
 ## Où en est le wiki
 
 | Grandeur | État au 19/08 |

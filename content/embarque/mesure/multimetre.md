@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-**Le multimètre** est l'instrument de mesure de base de tout électronicien : il mesure une **tension**, un **courant**, une **résistance**, et teste la **continuité** d'une connexion. Il donne une **valeur ponctuelle** — un nombre, pas une forme d'onde : pour observer un signal qui varie vite, c'est l'[[oscilloscope|oscilloscope]] qu'il faut. Robuste et peu coûteux, il répond à l'immense majorité des questions de diagnostic : « y a-t-il du 5 V ici ? », « cette piste est-elle coupée ? », « quelle est la valeur de cette résistance ? ». Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
+**Le multimètre** est l'instrument de mesure de base de tout électronicien : il mesure une **tension**, un **courant**, une **résistance**, et teste la **continuité** d'une connexion. Il donne une **valeur ponctuelle** — un nombre, pas une forme d'onde : pour observer un signal qui varie vite, c'est l'[[oscilloscope|oscilloscope]] qu'il faut. Robuste et présent sur toutes les paillasses, il répond à l'immense majorité des questions de diagnostic : « y a-t-il du 5 V ici ? », « cette piste est-elle coupée ? », « quelle est la valeur de cette résistance ? ». Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
 
 ![Face avant d'un multimètre en blocs fonctionnels : l'écran en haut, le sélecteur rotatif au centre avec ses positions V⎓, V∼, Ω, continuité et A, et les trois bornes en bas — COM pour le cordon noir, V/Ω pour tension, résistance et continuité, 10 A pour le courant seul.|600](/ressources/img/multimetre/face-avant.svg)
 

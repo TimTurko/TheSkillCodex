@@ -37,7 +37,7 @@ Le paysage va du microcontrôleur 8 bits historique (AVR des premières cartes A
 | --- | --- | --- | --- | --- | --- |
 | [[arduino\|Arduino]] | AVR 8 bits (Uno R3) à ARM Cortex-M4 (Uno R4) | C++/Wiring, IDE Arduino | modérée, veille matérielle possible mais peu outillée par le framework | GPIO num./ana., pas de sans-fil natif (sauf R4 WiFi) | apprentissage, prototypage rapide |
 | [[esp32\|ESP32]] | Xtensa LX6/LX7 ou RISC-V, 32 bits | Arduino-core ou ESP-IDF | deep sleep ~µA, ~80–240 mA en Wi-Fi actif | Wi-Fi + Bluetooth intégrés, GPIO riche | objets connectés, projets sans-fil |
-| [[xiao\|XIAO (Seeed Studio)]] *(format mini — base ESP32)* | ESP32-C3 (RISC-V) ou ESP32-S3 (Xtensa), 32 bits | Arduino-core, MicroPython | deep sleep ~µA (base ESP32) | Wi-Fi + BLE, ~11 broches au format timbre-poste | projets compacts, objets portés, IoT miniature |
+| [[xiao-esp32-s3\|XIAO (Seeed Studio)]] *(format mini — base ESP32)* | ESP32-C3 (RISC-V) ou ESP32-S3 (Xtensa), 32 bits | Arduino-core, MicroPython | deep sleep ~µA (base ESP32) | Wi-Fi + BLE, ~11 broches au format timbre-poste | projets compacts, objets portés, IoT miniature |
 | Raspberry Pi Pico | RP2040, 2× Cortex-M0+ (Pico 2 : RP2350) | MicroPython (Thonny), C/C++ Pico SDK, Arduino-core | veille ~1 mA (carte) | 26 GPIO, PIO (E/S programmables), pas de sans-fil (Pico W : Wi-Fi + BT) | apprentissage MicroPython, E/S temps réel (PIO) |
 | [[raspberry-pi\|Raspberry Pi]] *(SBC — plateforme embarquée)* | ARM Cortex-A multicœur (SoC), sous Linux | Python ou tout langage | plusieurs W | USB/HDMI/Ethernet/Wi-Fi, GPIO | traitement lourd, vision, réseau, besoin d'un OS |
 | [[esp8266\|ESP8266]] | Xtensa 32 bits monocœur | Arduino-core | deep sleep ~20 µA | Wi-Fi intégré (pas de BT) | IoT Wi-Fi simple |

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // tools/normalize-pilotage.js
 //
-// Nettoyage des fichiers de pilotage TheSkillCodex (TODO / JOURNAL / conventions / BACKLOG / couverture).
+// Nettoyage des fichiers de pilotage TheSkillCodex
+// (TODO / JOURNAL / conventions / BACKLOG / couverture / feuilles de route de _drafts).
 // Retire les caracteres invisibles ambigus qui font echouer les anchors edit_file via MCP :
 //   - NBSP fin    U+202F  ->  espace normal
 //   - NBSP normal U+00A0  ->  espace normal
@@ -33,6 +34,11 @@ const TARGETS = [
   'JOURNAL-archive.md',
   'conventions.md',
   '_drafts/referentiel/couverture-en-cours.md',
+  // Ajoutes le 21/08 : fichiers de pilotage de _drafts, tres ancres par edit_file
+  // (le manifeste des captures l'est autant que le TODO) et jusqu'ici hors portee.
+  '_drafts/feuille-de-route-captures.md',
+  '_drafts/guide-prise-de-vue-par-outil.md',
+  '_drafts/feuille-de-route-sessions.md',
 ];
 
 const CHECK_ONLY = process.argv.includes('--check');

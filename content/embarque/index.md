@@ -73,7 +73,7 @@ Lis et produis le schéma de principe, traque les incompatibilités de tension (
 *Côté cycle en V : ces livrables nourrissent le [[dossier-technique|dossier technique]] (schémas, routage, simulations).*
 
 > [!livrable] Livrable 3/7 — [[concevoir-l-electronique|Le schéma électronique validé]]
-> Le schéma de principe vérifié et la simulation des parties incertaines (preuve de concept simulée). Rendu papier + simulation ; le circuit imprimé en est la version fabricable.
+> Le schéma de principe vérifié et la simulation des parties incertaines ([[preuve-de-concept|preuve de concept]] simulée). Rendu papier + simulation ; le circuit imprimé en est la version fabricable.
 
 ## 4. Programmer
 
@@ -103,13 +103,16 @@ Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux f
 *Côté cycle en V : les choix de communication figurent au [[dossier-technique|dossier technique]].*
 
 > [!livrable] Livrable 5/7 — [[faire-communiquer|Choix des technologies de communication (si le cahier des charges l'exige)]]
-> La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout — typiquement une preuve de concept sur breadboard.
+> La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout — typiquement une [[preuve-de-concept|preuve de concept]] sur breadboard.
 
 ## 6. Fiabiliser et déboguer
 
 Un montage qui marche au premier essai n'est pas fiable pour autant. Cette étape **durcit le système** : garantir le temps réel (interruptions, temporisateurs), survivre aux blocages (chien de garde), économiser l'énergie (veille), et surtout **trouver les bugs** avec les bons instruments.
 
 Mobilise les notions transverses de temps réel et de robustesse, puis les fiches du palier ingénieur de ta famille (chien de garde, PID, système temps réel…). Pour déboguer, l'oscilloscope et le multimètre voient ce que le code ne dit pas.
+
+> [!warning] Attention au mot « déboguer »
+> Cette étape traite les bugs d'**exécution** : le programme compile, se téléverse et tourne — mais mal. Une erreur qui **empêche la compilation ou le téléversement** ne se cherche pas ici : elle se lit dans le message du compilateur, à l'étape 4 — [[cpp-logs|lire et comprendre les erreurs]].
 
 - Temps réel et robustesse : [[interruption|interruptions]], [[timer|temporisateurs]], [[deep-sleep|veille]], [[memoire|gestion mémoire]]
 - [[instruments-de-mesure|Instruments de mesure]] — [[multimetre|multimètre]], [[oscilloscope|oscilloscope]]

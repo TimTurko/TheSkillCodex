@@ -70,6 +70,9 @@ Le firmware fonctionnel de l'[[programmer-l-embarque|étape 4]] doit maintenant 
 
 Quelque chose ne marche pas comme prévu : c'est inévitable. Débogue avec **méthode** plutôt qu'au hasard. **Reproduis** le défaut de façon fiable, **isole** la zone en cause (matériel ou logiciel ? quel module ?), puis **observe** avec le bon instrument. Le code ne dit pas tout : un [[multimetre|multimètre]] vérifie une tension, un [[oscilloscope|oscilloscope]] révèle un signal mal formé ou mal cadencé, un [[debugger-embarque|débogueur]] suit l'exécution pas à pas. La fiche [[instruments-de-mesure|instruments de mesure]] dit quel outil pour quel symptôme. Trace chaque défaut et sa correction : ce journal fait partie du livrable.
 
+> [!tip] Un défaut **intermittent** se cherche d'abord dans le matériel
+> « Ça marche une fois sur trois » oriente rarement vers le code : un programme déterministe se trompe de la même façon à chaque tour. Les trois causes à écarter en premier sont physiques — un **faux contact** ou un fil arraché par le mouvement ([[cable-management|câblage]]), une **tension qui s'effondre** quand un actionneur démarre et redémarre la carte ([[alimentation-electronique|alimentation]], [[decouplage|découplage]]), et les **contacts intermittents** d'une platine d'essai, que le passage au [[pcb|circuit imprimé]] supprime. Isole le matériel avant de relire une ligne de code.
+
 > [!tip] Astuce
 > **L'oscilloscope voit ce que le code ne dit pas.** Quand un signal numérique « devrait » être bon mais que le comportement cloche, l'instrument tranche en une mesure : le signal STEP est-il vraiment régulier ? la tension d'alimentation tient-elle sous charge ? Deviner fait perdre des heures ; mesurer fait gagner la réponse.
 
@@ -104,6 +107,8 @@ Ton système est durci et ta mise au point est outillée : protocole de tests é
 ## Ce qui relève d'ailleurs
 
 **La robustesse se prépare en amont et se valide en aval, dans le cycle en V.** Les incertitudes de fiabilité se lèvent dès la [[preuve-de-concept|preuve de concept]] ; les mesures de robustesse se consolident au [[dossier-technique|dossier technique]] — cette fiche en porte la mise en œuvre technique, le V l'inscrit dans le projet.
+
+**Une erreur de compilation n'est pas un bug.** Cette fiche traite ce qui tourne mal **pendant l'exécution** : le programme compile, se téléverse, et se comporte mal. Un programme qui **refuse de compiler ou de se téléverser** ne se débogue pas à l'instrument — il se lit dans le message du compilateur : [[cpp-logs|lire et comprendre les erreurs]].
 
 *La qualification finale* — recette au banc, mesure des écarts, conclusion — est l'[[integration-et-tests|étape 7]], c'est-à-dire la phase d'intégration du V. Ici tu prépares et tu mets au point ; là, tu prononces le verdict.
 

@@ -31,13 +31,13 @@ L'interprétation des trames décodées — qui parle, dans quel ordre, avec que
 
 ## S'équiper
 
-Le projet n'exige pas un instrument de laboratoire :
+Le projet n'exige pas un instrument de laboratoire. Ce tableau sert à **reconnaître celui qu'on a en main** et à savoir ce qu'il permet :
 
-| Référence éprouvée | Pourquoi celle-là |
+| Instrument | Ce qu'il permet |
 | --- | --- |
-| **Clone USB 8 voies** (type « 24 MHz, 8 CH », ~10 €) | largement suffisant pour l'UART, l'I²C et le SPI du projet ; reconnu par les logiciels libres |
-| **PulseView** (suite libre sigrok) | pilote les clones USB, décodeurs UART / I²C / SPI intégrés, gratuit |
-| **Saleae Logic 8** | la référence professionnelle, logiciel remarquable — à utiliser si le labo en possède un, pas à acheter pour le projet |
+| **Clone USB 8 voies** (type « 24 MHz, 8 CH ») | huit lignes échantillonnées jusqu'à 24 Méch/s, largement au-dessus de l'UART, de l'I²C et du SPI d'un projet ; reconnu nativement par les logiciels libres, donc sans pilote propriétaire à installer |
+| **PulseView** (suite libre sigrok) | pilote ces clones et embarque les décodeurs UART / I²C / SPI — c'est le logiciel décrit dans cette fiche |
+| **Saleae Logic 8** | la référence professionnelle : profondeur de capture supérieure et logiciel plus confortable. Quand le laboratoire en dispose, c'est celui-là qu'on prend |
 
 ## Brancher et capturer
 

@@ -105,7 +105,7 @@ Reste le cœur quantitatif de la datasheet :
 
 ## Lecture de la datasheet du L298N
 
-La méthode, maintenant, document sous les yeux. Le **L298N** est un *double pont en H* : un seul composant capable de piloter **deux moteurs à courant continu** indépendamment, chacun dans les deux sens de rotation. C'est un bon cas d'école, parce qu'il vit dans **deux mondes** à la fois. Ouvrez la datasheet trouvée à l'étape 1 — on la parcourt section par section ; les valeurs citées ci-dessous viennent de la révision 5 (octobre 2023) de la datasheet ST, votre version fait foi.
+La méthode, maintenant, document sous les yeux. Le **L298N** est un *double pont en H* : un seul composant capable de piloter **deux moteurs à courant continu** indépendamment, chacun dans les deux sens de rotation. C'est un bon cas d'école, parce qu'il vit dans **deux mondes** à la fois. Ouvrez la datasheet trouvée à l'étape 1 — on la parcourt section par section ; les extraits reproduits ci-dessous et les valeurs commentées viennent de l'édition de **janvier 2000** de la datasheet ST. Une révision plus récente renumérote les tables et change la mise en page — retrouvez les mêmes lignes dans **votre** exemplaire, c'est lui qui fait foi.
 
 ![Le L298N en deux mondes : à gauche le monde logique 5 V (entrées IN1 à IN4 pour le sens, ENA/ENB pour la marche et la vitesse en PWM, alimentation logique), commandé par le microcontrôleur ; à droite le monde puissance jusqu'à 46 V, où deux ponts en H pilotent chacun un moteur à courant continu dans des sens indépendants, avec échauffement et dissipateur à prévoir.](/ressources/img/lire-une-datasheet/l298n.svg)
 
@@ -123,13 +123,13 @@ Le même composant existe donc sous trois formes. Avant de commander ou de câbl
 
 ### Le brochage et la table de vérité
 
-![Extrait de la datasheet du L298 : brochage du boîtier Multiwatt15 et tableau des fonctions de chaque broche.|600](/ressources/img/lire-une-datasheet/brochage-multiwatt15.png)
+![Extrait de la datasheet du L298 : brochage du boîtier Multiwatt15, les quinze broches numérotées avec leur nom, et la mention indiquant que la semelle métallique est reliée à la broche 8.|600](/ressources/img/lire-une-datasheet/brochage-multiwatt15.png)
 
 *Source : STMicroelectronics — datasheet L298, extrait non modifié.*
 
 Quinze broches, à trier en familles avant toute chose :
 
-- **alimentation** — Vs (broche 4, la puissance moteur), Vss (broche 9, la logique 5 V) et GND (broche 8, reliée à la semelle métallique). La datasheet impose un condensateur de 100 nF au plus près de chacune des deux alimentations : c'est du [[decouplage|découplage]], et il n'est pas optionnel ;
+- **alimentation** — Vs (broche 4, la puissance moteur), Vss (broche 9, la logique 5 V) et GND (broche 8, reliée à la semelle métallique). La datasheet impose un condensateur de 100 nF au plus près de chacune des deux alimentations, et précise **non inductif** pour celle de puissance — pas pour la logique : c'est du [[decouplage|découplage]], et il n'est pas optionnel ;
 - **commande** — In1/In2 et Enable A pour le pont A, In3/In4 et Enable B pour le pont B : six signaux logiques venant du microcontrôleur ;
 - **puissance** — Out1/Out2 et Out3/Out4, vers les deux moteurs ;
 - deux broches **Sense** (1 et 15), prévues pour mesurer le courant de chaque pont à travers une résistance — à relier à la masse quand on ne s'en sert pas.
@@ -225,7 +225,7 @@ Le choix module / nu se lit donc en partie dans la datasheet (boîtier, élémen
 
 **Lire une valeur « typique » pour une valeur garantie.** Les colonnes min / typ / max ne disent pas la même chose. Dimensionner sur le pire cas, pas sur le typique.
 
-**Télécharger n'importe quel PDF.** Une révision ancienne, ou la fiche d'un clone documenté à part, peut donner des valeurs fausses. La datasheet du fabricant fait foi.
+**Télécharger n'importe quel PDF.** Le vrai risque n'est pas de lire une révision ancienne, c'est de **ne pas savoir laquelle on lit** — les tables se renumérotent d'une édition à l'autre, et un PDF de revendeur peut être tronqué ou décrire un clone documenté à part. Repérez la révision en pied de première page, ou la table *Revision history* en fin de document, avant de citer un chiffre.
 
 ## Cas particulier — Les modules sans datasheet propre
 

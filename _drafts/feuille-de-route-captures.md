@@ -86,7 +86,7 @@ Une ligne par session, détail des cadrages dans la partie *Sessions* ci-dessous
 - [ ] **S6 · Raspberry Pi Imager** — 2 prises — **REPORTÉES post-rentrée (20/08 suite)** (même dialogue, deux onglets)
 - [ ] **S7 · IDE Arduino + matériel (traceur série)** — 3 prises
 - [ ] **S8 · Cartes branchées** — 3 prises
-- [ ] **S9 · Datasheet L298N** — 2 extraits, **cadrés serré sur la figure utile**
+- [x] **S9 · Datasheet L298N** — **FAIT le 21/08.** #42 et #43 déposées et intégrées, révision relevée
 - [ ] **S10 · Prises isolées** — 3 (nRF Connect, PulseView, Audio Design Tool)
 - [ ] **S12 · Matériel sur la paillasse** — 3 prises **[19/08]**
 - [ ] *(reporté)* **S11 · KiCad** — 3 prises, post-publication (C90)
@@ -122,8 +122,14 @@ carte, sœur exacte de la « RAM libre » d'`arduino-memoire`).
   d'image à ouvrir — c'est le prix assumé de l'arbitrage. Tant que la prise suit le
   cadrage décrit, l'alt est juste ; **si un cadrage dévie, c'est l'alt qu'il faut
   reprendre**, pas seulement l'image.
-- [ ] **La révision du PDF L298N** (S9), hors fiche : la numérotation des tables
+- [x] **La révision du PDF L298N** (S9), hors fiche : la numérotation des tables
   change entre révisions et rendrait l'exercice faux sans que rien ne le signale.
+  **RELEVÉE le 21/08 — édition de janvier 2000**, mise en page ancienne de ST (sections
+  en capitales, tables **non numérotées**, identifiant de figure `D95IN240A`). Les quatre
+  valeurs commentées par la fiche sont vérifiées **identiques** sur cette édition. ⚠ La
+  fiche annonçait « révision 5 (octobre 2023) » — **chiffre jamais sourcé**, corrigé le
+  jour même. Le risque annoncé (renumérotation des tables) n'était **pas** le risque réel
+  — la fiche ne cite aucun numéro de table, mais onze valeurs.
 - [ ] **Trancher `Pin("LED")` au simulateur** (`micropython-simulation`) : la fiche
   écrit que le raccourci « *peut* » ne pas être reconnu sur le Pico simulé. Le
   « peut » est mou pour un piège — à vérifier à l'écran, pas de mémoire.
@@ -669,6 +675,80 @@ ports « Unknown » et l'entrée *Select other board and port…*.
 
 **À légender en plus (C74-c, attribution)** : #42 et #43 —
 `*Source : STMicroelectronics — datasheet L298, extrait non modifié.*`
+
+## Traceur, sonde et analyseur — REPORTÉS POST-RENTRÉE (arbitrage Tim, 21/08)
+
+Cinquième report, et le premier dont le motif n'est **pas une famille** — ce sont des
+accessoires de paillasse qui manquent, pas des cartes. **Quatre prises sortent du lot
+actif.** Aucun embed à reconvertir cette fois — les quatre vivent dans des fiches non
+reportées, leurs embeds étaient déjà posés en (c-large) et le restent.
+
+| # | Fiche | Motif |
+|---|---|---|
+| 12 | `arduino-debug` | sonde de débogage externe, disponible à l'école |
+| 36 | `arduino-capteur-analogique` | pas de potentiomètre avant la rentrée |
+| 38 | `arduino-timers` | idem, plus la bibliothèque TimerOne et une carte **AVR** (TimerOne ne tourne ni sur Uno R4 ni sur ESP32) |
+| 45 | `analyseur-logique` | analyseur disponible à l'école. Arbitrage Tim **contre** la voie « capture d'exemple PulseView », qui était ma préférence |
+
+⚠ **#45 garde sa spécification actuelle**, et elle est contraignante — l'alt promet
+*PulseView* et une trame **décodée**. Si l'instrument de l'école est piloté par un autre
+logiciel, c'est **l'alt qu'il faudra reprendre**, pas seulement l'image. Et l'embed vit
+dans `analyseur-logique`, pas dans `oscilloscope` — une photo d'écran d'oscilloscope ne
+le satisferait pas.
+
+⚠ **La spécification de #38 est fausse et devra être reprise avant le shoot.** L'alt
+promet « des échantillons régulièrement espacés **dans le temps** », or le traceur série
+trace en **index d'échantillon** — une cadence irrégulière produit exactement la même
+courbe. Ce qui se voit : tracer l'**intervalle mesuré** lui-même (`micros()` entre deux
+ticks), plat sous timer, baveux sous `millis()`. Cela suppose d'ajouter le sketch
+correspondant à la fiche. **À trancher au moment du shoot, pas maintenant.**
+
+**#37 reste active et change de nature (arbitrage Tim, 21/08 — option (a)).** Sa capture
+sera prise sur un **procédé simulé** : `lireVitesse()` remplacée par un premier ordre
+calculé en logiciel, le PID réel tournant sur la carte à pas constant. **Aucun matériel
+au-delà d'une carte et d'un câble USB** — c'est pourquoi elle ne suit pas #36 et #38 en
+report, alors que les trois formaient la même séance « traceur série ». Deux obligations
+viennent avec : le **sketch complet** doit être écrit dans `arduino-pid`, qui déclare
+aujourd'hui `double lireVitesse();` **sans jamais l'implémenter** et n'a donc aucun exemple
+exécutable ; et le texte **comme l'alt** doivent **déclarer le procédé simulé**. Sans cette
+déclaration, l'image ment par omission — C102, quatrième cas (le montage se déclare).
+
+**#44 est du BLE, pas de l'I²C.** Elle a été groupée à tort avec #45 dans les décomptes
+de ce jour. Elle ne demande qu'un **ESP32** — matériel déjà servi à cinq prises — et
+l'application nRF Connect. Spécification vérifiée contre le code de la fiche : nom
+d'annonce `ESP32-Capteur`, caractéristique en `READ | NOTIFY`, valeur envoyée **en texte**
+(si elle apparaît en hexadécimal, le sketch n'est pas celui de la fiche) ; **activer les
+notifications** avant de shooter, sinon la valeur ne bouge pas. ⚠ **C101 s'y applique
+fortement** : un scan BLE fait apparaître les appareils des personnes autour, souvent
+nommés. Cadrer sur le périphérique connecté seul, ou masquer la liste de scan.
+
+**KiCad revient dans le périmètre avant la rentrée** (arbitrage Tim, 21/08) : une session
+dédiée produira `easyeda` **et** reprendra `kicad` en tutoriel scénarisé. Les 3
+placeholders reportés le 18/08 ne sont donc plus reportés — mais **leur nombre n'est plus
+3** : C88 veut que le scénario détermine la liste des captures, et les deux précédents
+donnent l'ordre de grandeur (`falstad` 13 médias, `ltspice` 8). **Rien n'est inscrit ici
+tant que les scénarios ne sont pas arbitrés.**
+
+### Recomptage du 21/08 — c'est ce tableau qui fait foi
+
+| Grandeur | Compte |
+|---|---|
+| Lot actif du 20/08 (suite) | 33 |
+| − reports du 21/08 (#12, #36, #38, #45) | − 4 |
+| **Lot actif** | **29** |
+| **Déposées** | **23** — les 21 du 20/08, plus #42 et #43 |
+| **Restant à shooter** | **6** — #37, #40, #44, #47, #48, #49 |
+| Reportées post-rentrée | **29** — 3 Teensy + 9 STM32 + 11 MicroPython + 2 Raspberry Pi + 4 du 21/08 |
+| *(hors manifeste)* KiCad + EasyEDA | **non chiffré** — dépend des scénarios C88 |
+
+**Contrôle de cohérence** : lot actif 29 + reportées 29 = **58**, soit les numéros #1 à #60
+moins #8 (absorbée par #57) et #51 (annulée). Le total ferme.
+
+**Les six restantes sont toutes shootables à la prochaine séance** — une carte ESP32,
+une NodeMCU, un servo, un shield, la couveuse. Le lot ne contient plus rien qui dépende
+de l'école.
+
+---
 
 ## Réemplois cross-dossier — 12
 
