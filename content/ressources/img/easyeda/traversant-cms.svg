@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="ttc dtc">
+  <title id="ttc">Un symbole, deux empreintes : traversant et monté en surface</title>
+  <desc id="dtc">Schéma expliquant la différence entre symbole et empreinte. En haut, un unique symbole de résistance, celui qu'on pose sur le schéma : il est le même quelle que soit la technologie du composant réel. Une flèche se sépare en deux vers le bas. À gauche, la voie du composant traversant : vu de côté, le corps est posé au-dessus de la carte et ses deux fils passent à travers, la soudure se faisant sous la carte ; vue de dessus, l'empreinte est faite de deux pastilles percées, écartées de plusieurs millimètres. À droite, la voie du composant monté en surface : vu de côté, le corps repose directement sur le cuivre et la soudure se fait du même côté que le composant ; vue de dessus, l'empreinte est faite de deux pastilles rectangulaires pleines, sans trou, très rapprochées. En pied de figure, la conclusion : le symbole dit ce que le composant fait, l'empreinte dit la place qu'il occupe et la façon dont il se soude, et c'est l'empreinte qui doit correspondre au composant réellement en main.</desc>
+  <defs>
+    <style>
+      .ti  { font: 700 16px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .sti { font: 700 13px sans-serif; text-anchor: middle; fill: #BA7517; }
+      .lb  { font: 600 12px sans-serif; text-anchor: middle; fill: #2C2C2A; }
+      .note { font: italic 400 11px sans-serif; text-anchor: middle; fill: #888780; }
+      .foot { font: italic 600 12px sans-serif; text-anchor: middle; fill: #888780; }
+      .box { fill: none; stroke: #888780; stroke-width: 1.6; }
+      .boxa { fill: none; stroke: #BA7517; stroke-width: 2.2; }
+      .wire { stroke: #888780; stroke-width: 1.6; fill: none; }
+      .wirea { stroke: #BA7517; stroke-width: 2.2; fill: none; }
+      .sep { stroke: #888780; stroke-width: 1.1; stroke-dasharray: 5 4; }
+      .board { fill: none; stroke: #888780; stroke-width: 1.4; }
+      .cu { fill: #BA7517; stroke: none; }
+      .hole { fill: #FFFFFF; stroke: #888780; stroke-width: 1.2; }
+      .body { fill: none; stroke: #2C2C2A; stroke-width: 1.8; }
+      .mk  { fill: #888780; }
+      @media (prefers-color-scheme: dark) {
+        .ti, .lb { fill: #F1EFE8; }
+        .box, .wire, .sep, .board { stroke: #BBBBBB; }
+        .note, .foot { fill: #BBBBBB; }
+        .mk { fill: #BBBBBB; }
+        .sti { fill: #E0A24A; }
+        .boxa, .wirea { stroke: #E0A24A; }
+        .cu { fill: #E0A24A; }
+        .body { stroke: #F1EFE8; }
+        .hole { fill: #1E1E1C; stroke: #BBBBBB; }
+      }
+    </style>
+    <marker id="mgt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="mk"/></marker>
+  </defs>
+
+  <text x="340" y="26" class="ti">Un symbole, deux empreintes</text>
+
+  <!-- ===== THE SINGLE SYMBOL ===== -->
+  <rect x="250" y="44" width="180" height="56" rx="5" class="boxa"/>
+  <line x1="266" y1="72" x2="292" y2="72" class="wire"/>
+  <rect x="292" y="61" width="56" height="22" class="body"/>
+  <line x1="348" y1="72" x2="414" y2="72" class="wire"/>
+  <text x="340" y="116" class="lb">Le symbole du schéma</text>
+  <text x="340" y="132" class="note">le même dans les deux cas</text>
+
+  <path d="M300,140 C300,164 190,160 190,186" class="wire" marker-end="url(#mgt)"/>
+  <path d="M380,140 C380,164 490,160 490,186" class="wire" marker-end="url(#mgt)"/>
+
+  <line x1="340" y1="196" x2="340" y2="376" class="sep"/>
+
+  <!-- ===== LEFT : THROUGH HOLE ===== -->
+  <text x="190" y="212" class="sti">Traversant</text>
+
+  <text x="190" y="236" class="note">vu de côté</text>
+  <rect x="90" y="268" width="200" height="16" class="board"/>
+  <rect x="152" y="240" width="76" height="20" rx="9" class="body"/>
+  <path d="M152,250 L120,250 L120,296" class="wire"/>
+  <path d="M228,250 L260,250 L260,296" class="wire"/>
+  <circle cx="120" cy="296" r="5" class="cu"/>
+  <circle cx="260" cy="296" r="5" class="cu"/>
+  <text x="190" y="316" class="note">les fils traversent, la soudure est dessous</text>
+
+  <text x="190" y="342" class="note">vue de dessus — l'empreinte</text>
+  <circle cx="140" cy="368" r="14" class="cu"/>
+  <circle cx="140" cy="368" r="6" class="hole"/>
+  <circle cx="240" cy="368" r="14" class="cu"/>
+  <circle cx="240" cy="368" r="6" class="hole"/>
+  <line x1="140" y1="390" x2="240" y2="390" class="wirea"/>
+  <text x="190" y="406" class="lb">pastilles percées, largement écartées</text>
+
+  <!-- ===== RIGHT : SURFACE MOUNT ===== -->
+  <text x="490" y="212" class="sti">Monté en surface</text>
+
+  <text x="490" y="236" class="note">vu de côté</text>
+  <rect x="390" y="268" width="200" height="16" class="board"/>
+  <rect x="466" y="248" width="48" height="20" rx="3" class="body"/>
+  <rect x="458" y="262" width="16" height="8" class="cu"/>
+  <rect x="506" y="262" width="16" height="8" class="cu"/>
+  <text x="490" y="316" class="note">le corps pose dessus, la soudure est du même côté</text>
+
+  <text x="490" y="342" class="note">vue de dessus — l'empreinte</text>
+  <rect x="452" y="356" width="24" height="24" rx="2" class="cu"/>
+  <rect x="504" y="356" width="24" height="24" rx="2" class="cu"/>
+  <line x1="464" y1="390" x2="516" y2="390" class="wirea"/>
+  <text x="490" y="406" class="lb">pastilles pleines, sans trou, rapprochées</text>
+
+  <text x="340" y="430" class="foot">Le symbole dit ce que le composant fait ; l'empreinte dit la place qu'il prend et comment il se soude.</text>
+</svg>
