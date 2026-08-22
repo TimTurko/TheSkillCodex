@@ -1,7 +1,7 @@
 ---
 title: Mechanical
 tags: [branche, mme]
-draft: true
+draft: false
 source_fr: meca/index.md
 source_sha256: 0b2175a8e79dfc5a1abf74f66d6f2efbf934b4152333b9c15d9b63d8ba2d34d6
 ---

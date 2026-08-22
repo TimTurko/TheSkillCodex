@@ -71,6 +71,16 @@ const MARQUEUR = 'sha256';
 //           auto-generee sur /en/conduite/.
 const SUFFIXER_INDEX = false;
 
+// Valeur de draft ecrite dans la fiche EN generee. Arbitrage Tim du 22/08 (suite 2).
+//   'false' : la fiche EN est publiee des sa creation. Le wiki n'est connu que
+//             de son auteur, et le clic-test en ligne vaut mieux qu'un aller-retour
+//             build --serve a chaque fiche.
+//   'true'  : la fiche EN reste masquee jusqu'a la publication de son lot.
+// A rebasculer sur 'true' quand le corpus EN depasse la vingtaine de fiches :
+// au-dela, les doublons anglais commencent a peser sur la bande top-3 de la
+// recherche francaise et faussent la mesure d'indexation symptomatique.
+const DRAFT_EN = 'false';
+
 /* ================================================================ */
 
 const ROOT = process.cwd();
@@ -257,7 +267,7 @@ function transformerFrontMatter(bloc, relSource, empreinte, journal) {
     }
 
     if (/^draft:/.test(ligne)) {
-      sortie.push('draft: true');
+      sortie.push('draft: ' + DRAFT_EN);
       draftVu = true;
       continue;
     }
@@ -266,7 +276,7 @@ function transformerFrontMatter(bloc, relSource, empreinte, journal) {
   }
 
   if (!draftVu) {
-    sortie.push('draft: true');
+    sortie.push('draft: ' + DRAFT_EN);
     journal.draftInsere = true;
   }
   sortie.push('source_fr: ' + relSource);
@@ -352,7 +362,7 @@ function traiter(rel) {
   console.log('  embeds  : ' + avant.embeds + ' -> ' + apres.embeds + (avant.embeds === apres.embeds ? '  ok' : '  DIVERGE'));
   console.log('  code    : ' + avant.code + ' -> ' + apres.code + (avant.code === apres.code ? '  ok' : '  DIVERGE'));
   console.log('  prerequis suffixes : ' + journal.prerequisSuffixes);
-  if (journal.draftInsere) console.log('  draft: true insere (absent de la source)');
+  if (journal.draftInsere) console.log('  draft: ' + DRAFT_EN + ' insere (champ absent de la source)');
   if (journal.libellesAjoutes.length) {
     console.log('  libelles ajoutes (' + journal.libellesAjoutes.length + ') - a traduire :');
     for (const l of journal.libellesAjoutes) console.log('      ' + l);

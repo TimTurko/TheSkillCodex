@@ -12,7 +12,7 @@ phases:
   - preuve-de-concept
   - dossier-technique
   - integration-et-tests
-draft: true
+draft: false
 source_fr: conduite/index.md
 source_sha256: f3927441c3623fe0690dcb65ff088c8637b71739bb1ae4b2f9a08370afe35d12
 ---

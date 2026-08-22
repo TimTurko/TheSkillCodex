@@ -1,7 +1,7 @@
 ---
 title: TheSkillCodex
 tags: [accueil]
-draft: true
+draft: false
 source_fr: index.md
 source_sha256: ce9b30cec890b0c3608983e2c47ce0a57dc74daf41003e607336c30c15d75681
 ---

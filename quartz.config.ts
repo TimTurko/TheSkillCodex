@@ -71,7 +71,14 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    // RemoveDrafts est conditionnel : le build de publication l'applique toujours,
+    // mais un build local lance avec QUARTZ_DRAFTS=1 rend les fiches draft: true
+    // visibles sur localhost sans les publier. Sert au chantier bilingue, ou les
+    // fiches EN restent draft jusqu'a la publication de leur lot mais doivent
+    // pouvoir etre relues et clic-testees en local.
+    //   PowerShell : $env:QUARTZ_DRAFTS=1 ; npx quartz build --serve
+    //   puis        Remove-Item Env:\QUARTZ_DRAFTS   pour revenir au comportement normal
+    filters: process.env.QUARTZ_DRAFTS ? [] : [Plugin.RemoveDrafts()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),

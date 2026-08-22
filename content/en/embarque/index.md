@@ -6,7 +6,7 @@ tags:
   - eee
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: embarque/index.md
 source_sha256: 9cef6247b60a15f143fdb3cb46fd7e027e826300c622eddf44697cb7f37e256a
 ---
