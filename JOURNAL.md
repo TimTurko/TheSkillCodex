@@ -15,7 +15,7 @@
 
 - **Périmètre** : PC perso. Session de décisions et de vérifications, sans production de fiche. Les cinq points écrits de la clôture, puis étude de faisabilité d'une version anglaise, demandée en cours de session.
 - **Livrables** : `_drafts/traduction-en-regles.md` (neuf) ; `ressources/index` dépubliée ; auto-alias `filtrage` retiré. **2 fiches éditées, 0 créée.**
-- **Décisions (Tim)** : C109 en **(a)** global, **ponctuation seule, puces exclues** ; `ressources/index` **(a)** dépubliée ; canal recherche **(c)** non instrumenté ; alias **(c)** auto-alias seul retiré ; C71 logiciel **inchangé** ; traduction **wiki entier**, **fusionnée à C109 fiche par fiche**, images laissées en français ; menus logiciels **(b)** bilingues ; ordre des lots **entrée → modules → reste**.
+- **Décisions (Tim)** : C109 en **(a)** global, **ponctuation seule, puces exclues** ; `ressources/index` **(a)** dépubliée ; canal recherche **(c)** non instrumenté ; alias **(c)** auto-alias seul retiré ; C71 logiciel **inchangé** ; traduction **wiki entier**, **fusionnée à C109 fiche par fiche**, images laissées en français ; menus logiciels **(b)** bilingues ; ordre des lots **entrée → 53 fiches courtes → modules**.
 - **Conventions** : aucune numérotée, la numérotation reste à **C109**, mais C109 reçoit **deux amendements** (technique de résolution du tiret, extension à l'anglais) + notes §8.
 - **Tailles** : **243 fiches publiées** confirmées (248 `.md` sous `content/` moins 5 `templates/`), **242 après dépublication de `ressources/index`**. Corpus : **319 000 mots** à traduire, médiane 1 192 par fiche.
 
@@ -37,7 +37,7 @@
 
 **Le glossaire ne sera pas un dictionnaire.** Le relevé des chaînes structurelles donne le vrai gisement : **234 « Voir aussi », 164 « À quoi ça sert ? », 162 « Pièges », 107 « Raccrochage projet », 60 « Corrigé », 54 « Exemple : projet bras 3 axes »**. Ce sont ces chaînes-là qu'une dérive rendrait visibles, pas le vocabulaire rare. Troisième registre, contre-intuitif : **une liste de termes à ne pas traduire** — `bête à cornes`, `pieuvre`, `GRAFCET`, `CdCF`, que l'étudiant Erasmus entendra dans la bouche de ses coéquipiers ; les angliciser l'isolerait de son équipe.
 
-**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push. **Clic-test** : vérifier que `/ressources/` a bien disparu du graphe et de la recherche après build, et que `FolderPage()` n'émet pas de page de dossier auto-générée malgré le `draft: true`. **Prochaine session = outillage de traduction, puis lot 1 (parcours d'entrée).**
+**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push. ✅ **Fait le jour même, et le clic-test confirme que `/ressources/` a disparu du graphe et de la recherche** — `FolderPage()` ne réémet pas de page de dossier auto-générée, le `draft: true` sur le seul `index.md` suffit. **Précédent à retenir : pour dépublier un dossier porteur d'assets, `draft: true` sur son index, jamais `ignorePatterns`.** ✅ **Arbitrage 13 corrigé après clôture** : retour à la proposition de base, **entrée → 53 fiches courtes (16 000 mots) → modules**, le glossaire se rodant ainsi sur du volume faible plutôt que sur les 65 000 mots de `conduite/proj`. **Prochaine session = outillage de traduction, puis lot 1 (parcours d'entrée).**
 
 <!-- FIN 22/08 suite -->
 

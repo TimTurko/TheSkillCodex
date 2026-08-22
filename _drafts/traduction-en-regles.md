@@ -152,11 +152,11 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
 
 ## 7. Ordre des lots — arbitrage 13
 
-1. **Parcours d'entrée** : `index`, `conduite/index`, `embarque/index`, `meca/index`, les cinq trames du V. Une version EN partielle est déjà navigable.
-2. **Module par module**, dans l'ordre de `_drafts/relecture-ordre.md`.
-3. Le reste.
+1. **Parcours d'entrée** : `index`, `conduite/index`, `embarque/index`, `meca/index`, puis les cinq trames du V. Une version EN partielle est déjà navigable.
+2. **Les 53 fiches courtes** (< 600 mots, **16 000 mots au total**), toutes familles confondues. Le glossaire §5 se rode sur du volume faible, là où une dérive de vocabulaire se rattrape à bas coût.
+3. **Module par module**, dans l'ordre de `_drafts/relecture-ordre.md`.
 
-⚠ Réserve tracée : le glossaire se rode sur le module le plus lourd (`conduite/proj`, 65 000 mots) au lieu des 53 fiches courtes. Si une dérive de vocabulaire apparaît au lot 3, elle se rattrape sur du volume déjà écrit.
+Les fiches courtes étant dispersées dans tous les modules, le lot 2 laissera des `See also` pointant des cibles non encore créées. **Sans conséquence** : tout `content/en/` reste `draft: true` jusqu'à la fin (§3), donc aucun étudiant ne voit ces liens.
 
 ## 8. Procédé par fiche
 
