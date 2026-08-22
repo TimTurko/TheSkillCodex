@@ -9,12 +9,12 @@ aa: []
 draft: false
 ---
 
-Tu réalises la partie **électronique et informatique** d'un projet mécatronique : la carte, ses capteurs, ses actionneurs, et le programme qui les pilote. Cette page est ton **point d'entrée**. Elle déroule la réalisation du sous-système embarqué en **sept étapes**, du besoin technique jusqu'à la validation au banc — et te dit, à chaque étape, **ce que tu dois produire** (le livrable) et **où trouver la méthode** pour y arriver.
+Tu réalises la partie **électronique et informatique** d'un projet mécatronique : la carte, ses capteurs, ses actionneurs, et le programme qui les pilote. Cette page est ton **point d'entrée**. Elle déroule la réalisation du sous-système embarqué en **sept étapes**, du besoin technique jusqu'à la validation au banc. À chaque étape, elle te dit **ce que tu dois produire** (le livrable) et **où trouver la méthode** pour y arriver.
 
-Inutile de tout lire d'affilée : repère l'étape où tu en es, et suis les liens. Le fil rouge — un **bras robotisé 3 axes** — est le même projet que celui des phases du cycle en V, vu ici sous l'angle de son électronique. Deux regards, un seul projet.[^fusion]
+Inutile de tout lire d'affilée : repère l'étape où tu en es, et suis les liens. Le fil rouge est un **bras robotisé 3 axes**, le même projet que celui des phases du cycle en V, vu ici sous l'angle de son électronique. Deux regards, un seul projet.[^fusion]
 
 > [!info] Cette colonne est orthogonale au cycle en V
-> Le [[conduite/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles — ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
+> Le [[conduite/index|cycle en V]] est la colonne **gestion de projet** : l'axe temporel (revues, jalons, équipe, livrables). La présente page est la colonne **ingénierie embarquée** : l'axe technique (du choix du matériel jusqu'à la mise au point). Les deux décrivent le **même projet** sous deux angles : ici le « comment réaliser », là le « quand décider et valider ». Tout le pilotage (revue, nomenclature, jalon) reste porté par les phases du V : chaque étape ci-dessous renvoie à la phase qui la cadre, sans la réécrire.
 
 ## Les sept étapes
 
@@ -32,7 +32,7 @@ Chaque étape suppose la précédente sans interdire les allers-retours : tu rev
 
 Avant de choisir une carte, formule **ce que l'électronique et l'informatique doivent faire** : quelles fonctions techniques portent les exigences du cahier des charges. C'est la traduction du besoin en fonctions réalisables, côté embarqué.
 
-Pars de la décomposition fonctionnelle du système et isole les fonctions qui reviennent à l'élec/info : commander des actionneurs, acquérir des grandeurs, dialoguer, décider. Chacune devient une contrainte chiffrée — nombre d'entrées-sorties, résolution, cadence, latence — qui guidera tous les choix suivants.
+Pars de la décomposition fonctionnelle du système et isole les fonctions qui reviennent à l'élec/info : commander des actionneurs, acquérir des grandeurs, dialoguer, décider. Chacune devient une contrainte chiffrée qui guidera tous les choix suivants : nombre d'entrées-sorties, résolution, cadence, latence.
 
 - [[decomposition-fonctionnelle|Décomposition fonctionnelle]] — découper le système en fonctions
 - [[chaine-energie|Chaîne d'énergie et d'information]] — repérer ce qui relève de la commande et de la mesure
@@ -40,13 +40,13 @@ Pars de la décomposition fonctionnelle du système et isole les fonctions qui r
 *Côté cycle en V : ce cadrage s'inscrit dans la phase [[concept|concept]], qui arbitre l'architecture et en porte le livrable.*
 
 > [!livrable] Livrable 1/7 — [[schema-bloc-fonctionnel|Les fonctions embarquées, définies et chiffrées]]
-> Le **schéma bloc fonctionnel** du sous-système et son tableau « fonction → exigence embarquée ». Rendu papier — c'est le contrat d'entrée de toutes les étapes suivantes.
+> Le **schéma bloc fonctionnel** du sous-système et son tableau « fonction → exigence embarquée ». Rendu papier. C'est le contrat d'entrée de toutes les étapes suivantes.
 
 ## 2. Choisir le matériel
 
-La question : **quel matériel exécute le mieux les fonctions de l'étape 1 ?** Des capteurs et des actionneurs d'abord, puis la carte : microcontrôleur (réactif, temps réel, peu coûteux) ou ordinateur monocarte (puissant, sous Linux) ? Quelle famille ? Et comment alimenter l'ensemble ?
+La question : **quel matériel exécute le mieux les fonctions de l'étape 1 ?** Des capteurs et des actionneurs d'abord, puis la carte : microcontrôleur (réactif, temps réel, sobre en énergie) ou ordinateur monocarte (puissant, sous Linux) ? Quelle famille ? Et comment alimenter l'ensemble ?
 
-Le panorama des familles et l'aide au choix sont portés par le hub microcontrôleur — ne le réécris pas : va le consulter, et reviens avec une carte candidate. Pense l'alimentation dès ce stade : c'est elle qui conditionne l'autonomie et la stabilité.
+Le panorama des familles et l'aide au choix sont portés par le hub microcontrôleur. Ne le réécris pas : va le consulter, et reviens avec une carte candidate. Pense l'alimentation dès ce stade : c'est elle qui conditionne l'autonomie et la stabilité.
 
 - [[microcontroleur|Microcontrôleur]] — panorama des familles, microcontrôleur contre monocarte, aide au choix
 - Familles : [[arduino|Arduino]], [[esp32|ESP32]], [[esp8266|ESP8266]], [[stm32|STM32]], [[teensy|Teensy]], [[pic|PIC]]
@@ -57,11 +57,11 @@ Le panorama des familles et l'aide au choix sont portés par le hub microcontrô
 *Côté cycle en V : le choix d'architecture matérielle est arbitré en phase [[concept|concept]].*
 
 > [!livrable] Livrable 2/7 — [[choisir-le-materiel|Le matériel retenu : carte, capteurs, actionneurs]]
-> Une matrice de choix tranchée et le budget d'alimentation. Rendu papier (la note de choix) ; la commande du matériel suit.
+> Une matrice de choix tranchée et le budget d'alimentation. Rendu papier (la note de choix). La commande du matériel suit.
 
 ## 3. Concevoir l'électronique
 
-La carte choisie ne suffit pas : il faut **dessiner le circuit autour d'elle** — relier capteurs et actionneurs, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées. Puis vérifier le comportement avant de souder quoi que ce soit.
+La carte choisie ne suffit pas. Il faut **dessiner le circuit autour d'elle** : relier capteurs et actionneurs, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées. Puis vérifier le comportement avant de souder quoi que ce soit.
 
 Lis et produis le schéma de principe, traque les incompatibilités de tension (un capteur 5 V sur une entrée 3,3 V détruit l'entrée), et simule les parties incertaines. Le passage au circuit imprimé vient quand le schéma est stabilisé.
 
@@ -73,13 +73,13 @@ Lis et produis le schéma de principe, traque les incompatibilités de tension (
 *Côté cycle en V : ces livrables nourrissent le [[dossier-technique|dossier technique]] (schémas, routage, simulations).*
 
 > [!livrable] Livrable 3/7 — [[concevoir-l-electronique|Le schéma électronique validé]]
-> Le schéma de principe vérifié et la simulation des parties incertaines ([[preuve-de-concept|preuve de concept]] simulée). Rendu papier + simulation ; le circuit imprimé en est la version fabricable.
+> Le schéma de principe vérifié et la simulation des parties incertaines ([[preuve-de-concept|preuve de concept]] simulée). Rendu papier + simulation. Le circuit imprimé en est la version fabricable.
 
 ## 4. Programmer
 
-Deux temps : **concevoir l'algorithme** de commande (la logique, indépendante du code), puis **l'écrire** pour la carte. La logique se raconte d'abord en français, puis se décrit avec un logigramme, une machine à états ou un GRAFCET ; le code l'implémente en pilotant les périphériques — entrées-sorties, convertisseur analogique-numérique, sorties PWM.
+Deux temps : **concevoir l'algorithme** de commande (la logique, indépendante du code), puis **l'écrire** pour la carte. La logique se raconte d'abord en français, puis se décrit avec un logigramme, une machine à états ou un GRAFCET. Le code l'implémente ensuite en pilotant les périphériques : entrées-sorties, convertisseur analogique-numérique, sorties PWM.
 
-Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage selon la famille — C++ dans l'écosystème Arduino, MicroPython, ou l'environnement constructeur de ta famille. Le firmware est l'organisation d'ensemble du programme embarqué.
+Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage : C++ dans l'écosystème Arduino, MicroPython, ou l'environnement constructeur de ta famille. Le firmware est l'organisation d'ensemble du programme embarqué.
 
 - Concevoir la logique : [[algorithme|algorithme]] — [[logigramme|logigramme]], [[machine-a-etats|machine à états]], [[grafcet|GRAFCET]], [[chronogramme|chronogramme]]
 - Langage : [[cpp|C++]] (écosystème Arduino) ou [[micropython-langage|MicroPython]]
@@ -93,9 +93,9 @@ Choisis d'abord la forme d'algorithme adaptée à ton problème, puis le langage
 
 ## 5. Faire communiquer
 
-Cette étape ne concerne que les projets dont le **cahier des charges exige de dialoguer** — piloter à distance, superviser, transmettre des mesures. Si c'est ton cas, choisis **comment les composants dialoguent** : un bus filaire entre puces d'une même carte, une liaison sans fil ou câblée vers l'extérieur. Chaque liaison a ses contraintes — nombre de fils, débit, distance, nombre de participants.
+Cette étape ne concerne que les projets dont le **cahier des charges exige de dialoguer** : piloter à distance, superviser, transmettre des mesures. Si c'est ton cas, choisis **comment les composants dialoguent** : un bus filaire entre puces d'une même carte, une liaison sans fil ou câblée vers l'extérieur. Chaque liaison a ses contraintes : nombre de fils, débit, distance, nombre de participants.
 
-Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux fils, SPI pour la vitesse, UART pour une liaison simple ; Wi-Fi ou BLE pour le sans-fil.
+Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux fils, SPI pour la vitesse, UART pour une liaison simple. Pour le sans-fil, Wi-Fi ou BLE.
 
 - [[bus-de-communication|Bus de communication]] — [[uart|UART]], [[i2c|I²C]], [[spi|SPI]]
 - [[techno-sans-fil|Technologies sans fil]] — [[wifi|Wi-Fi]], [[ble|BLE]], [[zigbee|Zigbee]], [[lora|LoRa]]
@@ -103,7 +103,7 @@ Choisis le bus selon le besoin : I²C pour relier plusieurs capteurs avec deux f
 *Côté cycle en V : les choix de communication figurent au [[dossier-technique|dossier technique]].*
 
 > [!livrable] Livrable 5/7 — [[faire-communiquer|Choix des technologies de communication (si le cahier des charges l'exige)]]
-> La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout — typiquement une [[preuve-de-concept|preuve de concept]] sur breadboard.
+> La répartition des échanges (bus internes, liaison sans fil) et une liaison éprouvée de bout en bout, typiquement une [[preuve-de-concept|preuve de concept]] sur breadboard.
 
 ## 6. Fiabiliser et déboguer
 
@@ -112,7 +112,7 @@ Un montage qui marche au premier essai n'est pas fiable pour autant. Cette étap
 Mobilise les notions transverses de temps réel et de robustesse, puis les fiches du palier ingénieur de ta famille (chien de garde, PID, système temps réel…). Pour déboguer, l'oscilloscope et le multimètre voient ce que le code ne dit pas.
 
 > [!warning] Attention au mot « déboguer »
-> Cette étape traite les bugs d'**exécution** : le programme compile, se téléverse et tourne — mais mal. Une erreur qui **empêche la compilation ou le téléversement** ne se cherche pas ici : elle se lit dans le message du compilateur, à l'étape 4 — [[cpp-logs|lire et comprendre les erreurs]].
+> Cette étape traite les bugs d'**exécution** : le programme compile, se téléverse et tourne, mais mal. Une erreur qui **empêche la compilation ou le téléversement** ne se cherche pas ici : elle se lit dans le message du compilateur, à l'étape 4, avec [[cpp-logs|lire et comprendre les erreurs]].
 
 - Temps réel et robustesse : [[interruption|interruptions]], [[timer|temporisateurs]], [[deep-sleep|veille]], [[memoire|gestion mémoire]]
 - [[instruments-de-mesure|Instruments de mesure]] — [[multimetre|multimètre]], [[oscilloscope|oscilloscope]]
@@ -126,9 +126,9 @@ Mobilise les notions transverses de temps réel et de robustesse, puis les fiche
 
 ## 7. Intégrer et tester
 
-Le sous-système embarqué rejoint enfin **le reste du projet** — la mécanique, l'opérateur — et tu **vérifies au banc** que chaque fonction de l'étape 1 est tenue. C'est le moment de vérité : la spécification est-elle satisfaite ?
+Le sous-système embarqué rejoint enfin **le reste du projet**, la mécanique et l'opérateur. Tu **vérifies au banc** que chaque fonction de l'étape 1 est tenue. C'est le moment de vérité : la spécification est-elle satisfaite ?
 
-Le déroulé de l'intégration et de la qualification — pyramide de tests, plan de validation, écarts — est porté par la phase d'intégration du cycle en V. Ne le redécris pas : exécute-le sur ton sous-système.
+Le déroulé de l'intégration et de la qualification, de la pyramide de tests au relevé des écarts, est porté par la phase d'intégration du cycle en V. Ne le redécris pas : exécute-le sur ton sous-système.
 
 - [[integration-et-tests|Intégration et tests]] — assembler, qualifier, conclure (phase du V)
 
@@ -139,7 +139,7 @@ Le déroulé de l'intégration et de la qualification — pyramide de tests, pla
 
 ## Le management, c'est le cycle en V
 
-Cette colonne décrit l'ingénierie ; elle ne pilote pas le projet. Les revues, les jalons, la nomenclature, le suivi d'équipe et la validation des livrables sont décrits par la branche [[conduite/index|Conduite de projet]] :
+Cette colonne décrit l'ingénierie, elle ne pilote pas le projet. Les revues, les jalons, la nomenclature, le suivi d'équipe et la validation des livrables sont décrits par la branche [[conduite/index|Conduite de projet]] :
 
 - **Cadrer** (étapes 1-2) se décide en phase [[concept|concept]].
 - **Concevoir, programmer, communiquer, fiabiliser** (étapes 3-6) alimentent le [[dossier-technique|dossier technique]].

@@ -61,7 +61,7 @@ Avant d'engager toute la conception détaillée, l'équipe identifie les **incer
 Cette phase est l'occasion d'apprendre une compétence ingénieur essentielle : **lever les incertitudes en amont**. Plutôt que de tout concevoir puis tester, on teste tôt ce qui peut faire échouer le projet.
 
 > [!livrable] Livrable principal
-> Un ou plusieurs prototypes minimaux — la [[preuve-de-concept|preuve de concept]] proprement dite — démontrant que les incertitudes sont levées, accompagnés d'une mise à jour de la spec et du concept si besoin.
+> Un ou plusieurs prototypes minimaux, autrement dit la [[preuve-de-concept|preuve de concept]] proprement dite. Ils démontrent que les incertitudes sont levées, et s'accompagnent d'une mise à jour de la spec et du concept si besoin.
 
 ## 4. Dossier technique
 
@@ -81,7 +81,7 @@ L'équipe produit l'ensemble des documents permettant de réaliser le prototype 
 L'équipe fabrique, assemble et câble le prototype, puis exécute le plan de qualification : chaque fonction décrite dans la spec est testée, mesurée, validée ou identifiée comme écart. L'assemblage doit être sûr et présentable. La phase se conclut par la soutenance, le rapport final et le retour d'expérience (REX).
 
 > [!livrable] Livrable principal
-> Le résultat de l'[[integration-et-tests|intégration et des tests]] — prototype fonctionnel, dossier de qualification, soutenance et REX.
+> Le résultat de l'[[integration-et-tests|intégration et des tests]] : prototype fonctionnel, dossier de qualification, soutenance et REX.
 
 ## En parallèle de toutes les phases
 

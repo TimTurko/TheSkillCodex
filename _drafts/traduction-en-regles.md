@@ -10,6 +10,7 @@
 - **Un dépôt, une branche, un build.** Pas de branche `en`, pas de second dépôt.
 - Arborescence miroir sous `content/en/` : `content/embarque/mcu/gpio.md` → `content/en/embarque/mcu/gpio-en.md`.
 - **Tous les slugs EN portent le suffixe `-en`.** Motif : `markdownLinkResolution: "shortest"` résout un wikilink par son dernier segment de chemin ; deux fichiers `gpio.md` seraient ambigus et Quartz en choisirait un silencieusement. Le suffixe rend la cible unique **sans toucher à la configuration**, donc sans aucun risque pour le site français.
+- **Exception mesurée : les huit `index.md` ne sont pas suffixés** (arbitrage Tim du 22/08 suite 2). `content/en/conduite/index.md` garde son nom et sert donc l'URL `/en/conduite/`. Suffixer l'aurait fait servir par une `FolderPage()` auto-générée, comme sur `ressources/` le même jour. Sans risque d'ambiguïté : **aucun des 4 323 wikilinks du dépôt ne vise `[[index]]` en forme courte**, les 37 qui visent un index passent tous par le chemin complet.
 - **Les médias ne sont ni copiés ni traduits.** Les fiches EN pointent les mêmes chemins absolus `/ressources/img/<slug>/<fichier>`. Arbitrage Tim du 22/08 : les schémas restent en français, les étudiants Erasmus viennent aussi apprendre la langue.
 - **Coûts assumés** : la recherche `Ctrl+K` et le graphe mélangent les deux langues ; le `locale` de Quartz étant global, le chrome du site (« Rechercher », « Rétroliens », « Graphe ») reste français pour tout le monde.
 
@@ -28,6 +29,9 @@
 | Blocs de code | code inchangé, **commentaires traduits** (C77) |
 | Type de callout `[!warning]`, `[!tip]`… | inchangé |
 | Mentions de capture C29 | traduites, la description reste celle de l'écran français |
+| `[[fiche#Section]]` | ancre **conservée telle quelle et signalée**, à réécrire à la main (5 dans le dépôt) |
+| `[texte](#section)` intra-page | **non vu par le suffixage**, à réécrire après traduction des titres (14 dans le dépôt) |
+| `[texte](https://…)` | inchangé (43 liens externes) |
 
 **Contrôle mécanique de fin de fiche** : le fichier EN doit porter exactement le même nombre de wikilinks, d'embeds et de blocs de code que sa source FR. Trois compteurs, trois égalités.
 
@@ -170,6 +174,10 @@ Les fiches courtes étant dispersées dans tous les modules, le lot 2 laissera d
 
 ## 9. Outillage à écrire avant la fiche 1
 
-- `tools/creer-fiche-en.mjs` — génère le squelette EN depuis une fiche FR (§2).
-- `tools/derive-traduction.mjs` — liste les fiches EN dont la source FR a bougé depuis le hash consigné en front matter. **Le remède à la dérive n'est pas la synchronisation, c'est la détection.**
-- Ajouter ce fichier aux `TARGETS` de `tools/normalize-pilotage.js`.
+**Les trois sont faits (22/08 suite 2).**
+
+- `tools/creer-fiche-en.mjs` — génère le squelette EN depuis une fiche FR (§2). Le squelette n'est **pas** une traduction : c'est la fiche française avec les seules transformations structurelles appliquées, ce qui rend les trois compteurs égaux par construction et fait porter le contrôle de fin de fiche sur ce que la traduction a cassé, pas sur ce que le script aurait perdu. Recette mesurée sur les 243 fiches : **4 323 liens, 395 embeds, 376 blocs de code, 0 fiche divergente**. Options `--dry`, `--force`, `--recette`.
+- `tools/derive-traduction.mjs` — liste les fiches EN dont la source FR a bougé. **Le remède à la dérive n'est pas la synchronisation, c'est la détection.**
+- Ajouté aux `TARGETS` de `tools/normalize-pilotage.js`.
+
+**Le marqueur de source est un `source_sha256` du contenu FR, pas un hash de commit** (arbitrage Tim du 22/08 suite 2). Motif : la fiche EN se crée **après** la passe C109, donc sur un fichier FR pas encore committé. `git log -1` y rendrait le commit d'*avant* la passe, et la totalité du lot serait signalée comme dérivée dès le premier push — le piège que le §8 voulait éviter, refermé un cran plus loin. Une empreinte de contenu est en outre indifférente au rythme de commit.

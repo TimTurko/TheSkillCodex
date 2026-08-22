@@ -42,6 +42,9 @@ const TARGETS = [
   // Ajoute le 21/08 (suite 2) : liste de captures easyeda, ancree par edit_file
   // des la premiere seance de prise de vue.
   '_drafts/captures-easyeda.md',
+  // Ajoute le 22/08 (suite 2) : cadre du chantier bilingue, ancre par edit_file
+  // a chaque lot de traduction.
+  '_drafts/traduction-en-regles.md',
 ];
 
 const CHECK_ONLY = process.argv.includes('--check');

@@ -3,7 +3,7 @@ title: Méca
 tags: [branche, mme]
 ---
 
-**Branche matériaux & mécanique.** Volontairement **mince** : elle sert d'**interface** vers les cours de mécanique et de fabrication des collègues. On y trouve les notions utiles au projet mécatronique — le raisonnement à l'échelle système — le dimensionnement fin et la théorie complète restant traités en cours dédié.
+**Branche matériaux & mécanique.** Volontairement **mince** : elle sert d'**interface** vers les cours de mécanique et de fabrication des collègues. On y trouve les notions utiles au projet mécatronique, celles qui se raisonnent à l'échelle du système. Le dimensionnement fin et la théorie complète restent traités en cours dédié.
 
 ## Concevoir et décrire un mécanisme
 - [[schema-cinematique|Schéma cinématique]] — décrire les liaisons et compter les degrés de liberté
@@ -16,4 +16,4 @@ tags: [branche, mme]
 ## Mesurer et contrôler
 - [[pied-a-coulisse|Pied à coulisse]] · [[comparateur|Comparateur]] — métrologie dimensionnelle de base
 
-*La plupart des notions mécaniques approfondies restent déléguées aux cours collègues ; ces fiches font le pont avec le projet.*
+*La plupart des notions mécaniques approfondies restent déléguées aux cours des collègues. Ces fiches font le pont avec le projet.*
