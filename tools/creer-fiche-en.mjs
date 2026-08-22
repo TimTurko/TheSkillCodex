@@ -42,6 +42,7 @@
  *   node tools/creer-fiche-en.mjs conduite/proj/concept.md --force
  *   node tools/creer-fiche-en.mjs --recette          (compteurs sur tout content/, n'ecrit rien)
  *   node tools/creer-fiche-en.mjs --controle         (compare chaque fiche EN a sa source FR)
+ *   node tools/creer-fiche-en.mjs --recaler <fiche>  (reconsigne le marqueur SANS toucher la traduction)
  *
  * Exit 1 si un compteur diverge, si la cible existe deja sans --force,
  * ou si la source est introuvable.
@@ -81,6 +82,7 @@ const DRY = args.includes('--dry');
 const FORCE = args.includes('--force');
 const RECETTE = args.includes('--recette');
 const CONTROLE = args.includes('--controle');
+const RECALER = args.includes('--recaler');
 const cible = args.find((a) => !a.startsWith('--'));
 
 /* ---------- utilitaires ---------- */
@@ -496,16 +498,93 @@ function controle() {
   process.exit(divergentes ? 1 : 0);
 }
 
+/* ---------- recalage du marqueur apres relecture ---------- */
+
+// Quand une fiche FR deja traduite est retouchee, derive-traduction la signale.
+// Une fois la retouche reportee A LA MAIN dans la fiche EN, il faut reconsigner
+// le marqueur - or un sha256 ne s'ecrit pas a la main, et regenerer le squelette
+// ecraserait la traduction. D'ou cette commande, qui ne touche QUE la ligne
+// source_sha256 et laisse le reste du fichier a l'octet.
+//
+// A n'utiliser qu'apres avoir relu la fiche EN contre sa source : recaler sans
+// relire fait disparaitre la derive de l'ecran sans l'avoir traitee, ce qui est
+// pire que de la laisser affichee.
+function recaler(rel) {
+  const relEn = rel.startsWith('en/') ? rel : 'en/' + rel;
+  const absEn = join(CONTENT, relEn.split('/').join(sep));
+  if (!existsSync(absEn)) {
+    console.error('Fiche EN introuvable : content/' + relEn);
+    process.exit(1);
+  }
+
+  const texteEn = readFileSync(absEn, 'utf8');
+  const fm = frontMatter(texteEn);
+  const mSource = fm && fm.bloc.match(/^source_fr:\s*(.+?)\s*$/m);
+  if (!mSource) {
+    console.error('Pas de source_fr dans content/' + relEn);
+    process.exit(1);
+  }
+
+  const relFr = mSource[1];
+  const absFr = join(CONTENT, relFr.split('/').join(sep));
+  if (!existsSync(absFr)) {
+    console.error('Source FR introuvable : content/' + relFr);
+    process.exit(1);
+  }
+
+  const ancien = (fm.bloc.match(/^source_sha256:\s*(.+?)\s*$/m) || [, '(absent)'])[1];
+  const nouveau = empreinteDe(readFileSync(absFr, 'utf8'));
+
+  if (ancien === nouveau) {
+    console.log('Deja a jour : content/' + relEn);
+    return;
+  }
+
+  const fr = compter(readFileSync(absFr, 'utf8'));
+  const en = compter(texteEn);
+  if (fr.liens !== en.liens || fr.embeds !== en.embeds || fr.code !== en.code) {
+    console.error('Les trois compteurs divergent - la retouche FR n a pas ete reportee en EN :');
+    console.error('  liens  FR ' + fr.liens + ' / EN ' + en.liens);
+    console.error('  embeds FR ' + fr.embeds + ' / EN ' + en.embeds);
+    console.error('  code   FR ' + fr.code + ' / EN ' + en.code);
+    console.error('Recalage refuse.');
+    process.exit(1);
+  }
+
+  let sortie;
+  if (/^source_sha256:/m.test(fm.bloc)) {
+    sortie = texteEn.replace(/^source_sha256:.*$/m, 'source_sha256: ' + nouveau);
+  } else {
+    sortie = texteEn.replace(fm.entier, '---\n' + fm.bloc + '\nsource_sha256: ' + nouveau + '\n---\n');
+  }
+
+  if (DRY) {
+    console.log('[dry] ' + relEn + ' : ' + ancien.slice(0, 12) + ' -> ' + nouveau.slice(0, 12));
+    return;
+  }
+
+  writeFileSync(absEn, sortie, { encoding: 'utf8' });
+  console.log('Recale : content/' + relEn);
+  console.log('  ' + ancien.slice(0, 12) + ' -> ' + nouveau.slice(0, 12));
+}
+
 /* ---------- point d'entree ---------- */
 
 if (RECETTE) {
   recette();
 } else if (CONTROLE) {
   controle();
+} else if (RECALER) {
+  if (!cible) {
+    console.error('Usage : node tools/creer-fiche-en.mjs --recaler en/conduite/index.md');
+    process.exit(1);
+  }
+  recaler(cible.replace(/^content\//, '').split(sep).join('/'));
 } else if (!cible) {
   console.error('Usage : node tools/creer-fiche-en.mjs <chemin/relatif/a/content.md> [--dry] [--force]');
   console.error('        node tools/creer-fiche-en.mjs --recette');
   console.error('        node tools/creer-fiche-en.mjs --controle');
+  console.error('        node tools/creer-fiche-en.mjs --recaler <fiche EN>');
   process.exit(1);
 } else {
   traiter(cible.replace(/^content\//, '').split(sep).join('/'));
