@@ -5,7 +5,6 @@ tags:
   - eee
   - notion
 aliases:
-  - filtrage
   - filtre numérique
   - moyenne glissante
   - filtre médian
