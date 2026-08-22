@@ -57,12 +57,12 @@ Un logiciel d'EDA (*Electronic Design Automation*) couvre tout le flux, de la sa
 | Outil | Particularité | Cas d'usage |
 | --- | --- | --- |
 | [[kicad\|KiCad]] | libre, gratuit, complet, multiplateforme, standard | conception de carte sérieuse, projet et au-delà |
-| EasyEDA *(à venir)* | en ligne, intégré à un fabricant (JLCPCB) | prototypage rapide, commande directe |
+| [[easyeda\|EasyEDA]] | l'empreinte arrive avec le composant, mode hors ligne | l'outil de l'école, jusqu'à la gravure au labo |
 
-Pour un projet, [[kicad|KiCad]] est le choix par défaut : libre, sans limite, et largement documenté.
+Pour un projet destiné à un fabricant extérieur, [[kicad|KiCad]] est le choix par défaut : libre, sans limite, et largement documenté. Pour une carte gravée à l'école, c'est [[easyeda|EasyEDA]] qui est utilisé, et sa fiche va jusqu'au fichier remis à l'atelier.
 
 > [!note]
-> **Concevoir n'est pas fabriquer.** Le wiki couvre la **conception** — du schéma jusqu'aux fichiers Gerber. La **fabrication** physique de la carte (gravure du cuivre, perçage, métallisation des trous, sérigraphie) relève de l'atelier et du cours de fabrication. La frontière est le fichier Gerber : ce que produit le concepteur, ce que consomme le fabricant.
+> **Concevoir n'est pas fabriquer.** Le wiki couvre la **conception**, du schéma jusqu'aux fichiers remis à celui qui grave. La **fabrication** physique de la carte (gravure du cuivre, perçage, métallisation des trous, sérigraphie) relève de l'atelier et du cours de fabrication. La frontière est le **fichier de fabrication** : ce que produit le concepteur, ce que consomme le fabricant. Son format dépend de qui fabrique. Chez un fabricant extérieur, ce sont les **Gerber**. À l'école, l'atelier travaille à partir d'un **`.json` EasyEDA** accompagné du schéma (voir [[easyeda|EasyEDA]]).
 
 ## Pièges
 
@@ -74,17 +74,18 @@ Pour un projet, [[kicad|KiCad]] est le choix par défaut : libre, sans limite, e
 
 **Sous-dimensionner une piste de puissance.** Une piste trop fine pour le courant qu'elle transporte chauffe, voire fond. Les pistes d'alimentation et de puissance sont plus larges (voir les abaques de largeur de piste).
 
-**Commander sans relire le rendu.** Un visualiseur de Gerber montre la carte telle qu'elle sera gravée : une dernière relecture évite de payer une série de cartes fausses.
+**Commander sans relire le rendu.** Un visualiseur de Gerber montre la carte telle qu'elle sera gravée. Une dernière relecture évite d'engager toute une série de cartes fausses. À l'école, le même contrôle se fait en imprimant la carte à l'échelle 1:1 et en posant les composants dessus.
 
 ## Raccrochage projet
 
 - **Phase de [[preuve-de-concept|preuve de concept]]** — on **valide d'abord** le montage sur breadboard et en [[simulation-electronique|simulation]] ; le PCB vient *après*, pour figer la solution retenue.
 - **Phase de [[dossier-technique|dossier technique]]** — la conception de la carte (RA-PROJET-C03-3/EEE/5) y prend place : c'est ici qu'on **conçoit et réalise** la carte qui intègre [[microcontroleur|microcontrôleur]], capteurs et actionneurs (voir [[chaine-energie|chaîne d'énergie et d'information]]).
-- **Interface fabrication** — les fichiers Gerber sont le livrable transmis à l'atelier ou au fabricant, frontière avec le cours de fabrication.
+- **Interface fabrication** — le fichier de fabrication est le livrable transmis à l'atelier ou au fabricant, frontière avec le cours de fabrication. Gerber chez un fabricant extérieur, `.json` et schéma à l'atelier de l'école.
 
 ## Voir aussi
 
 - [[kicad|KiCad]] — l'outil libre pour concevoir une carte (tuto outil)
+- [[easyeda|EasyEDA]] — l'outil de l'école, du schéma jusqu'à la carte gravée au labo (tuto outil)
 - [[analyse-de-schema-electronique|Analyser un schéma électronique]] — le schéma qu'on saisit avant de router (prérequis)
 - [[simulation-electronique|Simulation électronique]] — valider le montage avant de tracer la carte
 - [[lire-une-datasheet|Lire une datasheet]] — d'où viennent empreintes et contraintes des composants
