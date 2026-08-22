@@ -11,6 +11,38 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 22/08 (suite) — Clôture pré-publication, et un chantier neuf : le wiki en anglais
+
+- **Périmètre** : PC perso. Session de décisions et de vérifications, sans production de fiche. Les cinq points écrits de la clôture, puis étude de faisabilité d'une version anglaise, demandée en cours de session.
+- **Livrables** : `_drafts/traduction-en-regles.md` (neuf) ; `ressources/index` dépubliée ; auto-alias `filtrage` retiré. **2 fiches éditées, 0 créée.**
+- **Décisions (Tim)** : C109 en **(a)** global, **ponctuation seule, puces exclues** ; `ressources/index` **(a)** dépubliée ; canal recherche **(c)** non instrumenté ; alias **(c)** auto-alias seul retiré ; C71 logiciel **inchangé** ; traduction **wiki entier**, **fusionnée à C109 fiche par fiche**, images laissées en français ; menus logiciels **(b)** bilingues ; ordre des lots **entrée → modules → reste**.
+- **Conventions** : aucune numérotée, la numérotation reste à **C109**, mais C109 reçoit **deux amendements** (technique de résolution du tiret, extension à l'anglais) + notes §8.
+- **Tailles** : **243 fiches publiées** confirmées (248 `.md` sous `content/` moins 5 `templates/`), **242 après dépublication de `ressources/index`**. Corpus : **319 000 mots** à traduire, médiane 1 192 par fiche.
+
+**Le chiffre le plus faux de l'état d'ouverture était celui qui rassurait.** Le prompt annonçait « 3 placeholders C29 résiduels, tous dans `kicad` ». Il y en a **29**, et la décomposition tombe juste : 3 (KiCad) + 13 reconvertis le 20/08 (Teensy 4, STM32 9) + 13 reconvertis le 20/08 suite (MicroPython 11, Raspberry Pi 2). Le « 3 » est le chiffre du 19/08, reporté tel quel à travers trois prompts. Rien n'est cassé — C90 assume la mention en production — mais une session de septembre aurait conclu que la dette de captures était close alors qu'elle porte 29 items.
+
+**J'ai publié un chiffre faux et je l'ai corrigé dans la même session.** La mesure C109 annonçait 3 045 occurrences de prose ; la valeur est **3 085**. Mon dictionnaire était clé par *nom de fichier* et non par chemin : les **huit `index.md`** du dépôt s'écrasaient mutuellement. Détecté par une incohérence de rendu — l'agrégation par module attribuait 30 puces à `ressources/index`, page de 158 caractères qui n'en porte aucune. *Le contrôle qui a mordu n'est pas une vérification de principe, c'est encore une fois un chiffre qui ne collait pas à un fait déjà connu.* Même motif sur l'inventaire d'alias : 14 annoncés d'abord, **25 en réalité**, le parseur perdant le premier item de chaque liste YAML.
+
+**L'inventaire d'alias retourne la question au lieu d'y répondre.** 25 alias sur 11 fiches, le chiffre du prompt est exact. Mais **18 des 25 ne résolvent aucun lien** : sur 4 322 wikilinks, seuls six alias sont employés comme cible (FP, FS, FC, critere, niveau, flexibilite), et un septième, `filtrage`, était **l'alias de son propre slug** — `AliasRedirects()` émettait une redirection de la page vers elle-même. Et **zéro cible non résolue** dans tout le dépôt. Donc, pour la seule fonction qu'un alias remplit réellement, **aucun ne manque** : la question « lesquels manquent » n'avait de réponse que sous le but fermé le 21/08.
+
+**Le balayage C71 a rendu 140 occurrences dont l'écrasante majorité est du bruit technique** — roue libre, broche libre, RAM libre, timer libre. Après tri : **25 mentions de gratuité logicielle sur 14 fiches**, toutes sur des fiches d'outil, là où le plancher annoncé était de deux. J'ai plaidé pour exclure le logiciel du périmètre de C71 — l'école fournit le matériel, mais l'étudiant installe le logiciel lui-même, et « gratuit, sans compte, sans bridage » répond à *puis-je l'avoir chez moi* et non à *combien ça coûte*. **Tim tranche : on ne touche à rien.**
+
+**Le mode d'emploi du tiret était incomplet dans C109, et c'est Tim qui l'a complété.** La convention ne prévoyait que le découpage en deux phrases ; il en existe une seconde voie, **la phrase longue à virgules et mots de liaison**, qui évite le hachis quand les deux idées sont réellement subordonnées. Et son arbitrage sur les puces retourne mon périmètre : *la liste est justement le lieu où l'écriture mécanique est légitime, c'est la prose continue qui doit être naturelle*. Le chantier passe de 4 721 emplacements à **3 085**.
+
+**Sur l'anglais, la décision de Tim a retourné mon architecture, et pour la bonne raison.** J'avais recommandé deux branches ou deux dépôts, parce qu'une version EN demandait deux jeux de médias — les 236 SVG sont des fichiers texte truffés de français, `<title>`, `<desc>` de 60 à 150 mots et 10 à 40 `<text>` chacun. En décidant de **laisser les images en français**, Tim supprime la duplication de médias, donc la nécessité de deux arborescences, donc les branches — le pire outil possible pour quelqu'un qui apprend git. **Un dépôt, une branche, un build, `content/en/` avec slugs suffixés `-en`.** Le suffixe est le prix à payer pour ne pas toucher à `markdownLinkResolution: "shortest"`, qui résoudrait deux `gpio.md` de façon ambiguë et silencieuse sur 4 322 liens.
+
+**Fusionner C109 et la traduction est l'idée de la session, et elle vient de Tim.** C109 force à décider quelle idée porte la phrase — c'est exactement le travail que traduire exige. Une seule passe par fiche paie une seule fois le coûteux, qui est de comprendre la fiche. Corollaire : la fiche EN se crée **après** la passe C109, sinon son marqueur de source pointe un commit périmé dès le premier jour.
+
+**Je me suis trompé sur l'em-dash anglais, et la correction de Tim est plus juste que ma règle.** J'avais écrit que C109 ne gouvernait pas l'anglais, le tiret d'incise y étant natif. C'est vrai de la **prose éditée** et faux de l'écrit courant, où personne ne tape ce caractère — observation de Tim sur les forums anglophones, vérifiée. S'y ajoute qu'il est devenu un marqueur reconnaissable de texte généré. **C109 s'applique donc aux deux langues, pour deux motifs distincts.** Et le « you » unique de l'anglais fait disparaître le contraste de registre C65 entre les trames du V et les fiches de réalisation : perte acceptée, traduction simplifiée.
+
+**Le glossaire ne sera pas un dictionnaire.** Le relevé des chaînes structurelles donne le vrai gisement : **234 « Voir aussi », 164 « À quoi ça sert ? », 162 « Pièges », 107 « Raccrochage projet », 60 « Corrigé », 54 « Exemple : projet bras 3 axes »**. Ce sont ces chaînes-là qu'une dérive rendrait visibles, pas le vocabulaire rare. Troisième registre, contre-intuitif : **une liste de termes à ne pas traduire** — `bête à cornes`, `pieuvre`, `GRAFCET`, `CdCF`, que l'étudiant Erasmus entendra dans la bouche de ses coéquipiers ; les angliciser l'isolerait de son équipe.
+
+**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push. **Clic-test** : vérifier que `/ressources/` a bien disparu du graphe et de la recherche après build, et que `FolderPage()` n'émet pas de page de dossier auto-générée malgré le `draft: true`. **Prochaine session = outillage de traduction, puis lot 1 (parcours d'entrée).**
+
+<!-- FIN 22/08 suite -->
+
+---
+
 ## 22/08 — `easyeda`, tutoriel scenarise C88 : la fiche la plus volumineuse du wiki
 
 - **Périmètre** : production intégrale de `easyeda` à partir du `Tuto_PCB.docx` de Tim, recalage de `pcb`, passe de style C109 sur toute la fiche. PC perso.
