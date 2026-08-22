@@ -11,6 +11,26 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 22/08 — `easyeda`, tutoriel scenarise C88 : la fiche la plus volumineuse du wiki
+
+- **Périmètre** : production intégrale de `easyeda` à partir du `Tuto_PCB.docx` de Tim, recalage de `pcb`, passe de style C109 sur toute la fiche. PC perso.
+- **Livrables** : `content/embarque/pcb/easyeda.md` (**62 049 o**, 21 sections, 53 médias) ; `content/ressources/img/easyeda/` (53 fichiers, dont **1 SVG produit** : `traversant-cms.svg`) ; `pcb.md` recalé sur 4 points ; `_drafts/archive-captures-easyeda.md`.
+- **Décisions** : arbitrage 1 **(b)** fiche assumée ICAM ; 3 **(a)** fiche unique sans plafond ; 4 **(c)** captures en mixte ; 5 **(b)** règle du 45° gardée, motif réécrit ; 6 **(b)** dix straps en objectif de qualité ; 9 **(b)** puis **(d)** version visible ; mode dégradé sur les photos de provenance web ; **`kicad` reporté post-rentrée**.
+- **Conventions** : **C109** (une phrase, une idée) + 7 notes §8. Numérotation à **109**.
+- **Tailles** : `easyeda.md` 62 049 o ; dossier médias 5,2 Mo ; `traversant-cms.svg` 5,45 ko.
+
+**La décision de la veille reposait sur une prémisse fausse, et c'est le document de Tim qui l'a montré.** J'avais recommandé la veille de retirer la mention EasyEDA du wiki, en raisonnant comme si la fabrication était externalisée, donc comme si `kicad` et `easyeda` visaient le même objet. L'école grave elle-même, à la Datron du Labo02, et le livrable n'est pas un Gerber mais un `.json` remis en main propre. Le contraste avec KiCad n'est donc ni le navigateur ni le catalogue LCSC : c'est **simple face, fraisée, soudée à la main**. Tout le reste en découle et rien n'y est arbitraire.
+
+**Les deux points d'échec étudiant se sont révélés être le même.** Tim a nommé le mode hors ligne comme première source d'échec, puis le choix d'un composant CMS comme seconde. Le test d'Alt+U, demandé en cours de session, a montré que **`Mettre à jour le PCB` n'est pas un piège de perte de données** — ce que nous avions annoncé tous les deux — mais **l'entonnoir vers l'erreur de mode** : DRC, puis demande de connexion et de bascule en ligne. L'étudiant qui obtempère perd la classe *Contributions des utilisateurs* et ne fera le lien qu'un quart d'heure plus tard. La fiche s'articule sur ce fil, et l'auto-test retenu est celui de Tim, plus simple que le mien : **le mode est écrit dans la barre de titre**.
+
+**Le mode d'erreur de la session était de déduire une conséquence d'une information partielle.** Tim m'apprend que la routine d'usinage écrase les diamètres de perçage ; j'en conclus que le champ ne sert à rien et je supprime la consigne. Faux : la valeur ne pilote pas la machine mais pilote ce que le logiciel montre et vérifie, et un trou dessiné trop petit cache une collision que le foret réalisera. La règle dégagée vaut au-delà du TP et figure dans la fiche : *le dessin doit dire la vérité sur la géométrie, même quand quelqu'un d'autre tient la fraise.*
+
+**Deux refus argumentés de Tim ont produit de meilleures règles que mes propositions.** Sur le lot photos, il refuse de trancher à l'aveugle et demande à juger au rendu : le filtre C29 ne doit précéder la prise de vue que pour les médias qui **coûtent une prise**, une photo déjà en main se filtre au peigne de relecture. Sur le SVG des deux modes, il le sort du tuto au motif qu'un étudiant décroche — j'ai gardé le diagnostic dans un piège replié, là où on le lit en panne.
+
+**La passe de style est la vraie trouvaille de fin de session.** Tim demande de supprimer tirets d'incise et points-virgules de milieu de phrase. Test sur une section, puis déploiement sur vingt-et-une. L'effet dépasse la ponctuation : le tiret servait à empiler deux pensées, et le supprimer force à décider laquelle porte l'idée. Trois bornes de sécurité accrochées en queue d'incise sont devenues des impératifs. Coût en volume : **trois octets**.
+
+<!-- FIN 22/08 -->
+
 ## 21/08 (suite) — Les six dernières : quatre déposées, une reportée, une qui n'existera jamais
 
 - **Périmètre** — PC perso. Séance de prise de vue guidée : Tim shoote, Claude cadre, lit chaque image (C81) et objecte avant intégration. **Le lot de prises de vue se ferme.**
