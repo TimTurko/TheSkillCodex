@@ -8,20 +8,20 @@ prerequis:
   - techno-sans-fil-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/sans-fil/lora.md
 source_sha256: 7d6d530ed310766b1dc71c6926da2f6cb47057b45e759aa01824fce4cb1eae90
 ---
 
-Le **LoRa** est une [[techno-sans-fil-en|technologie sans-fil]] de **très longue portée** (plusieurs kilomètres) et de **très basse consommation**, au prix d'un **débit très faible**. C'est la technologie des capteurs **distants** qui envoient peu de données, rarement.
+**LoRa** is a [[techno-sans-fil-en|wireless technology]] with a **very long range**, several kilometres, and **very low power draw**, at the price of a **very low data rate**. It is the technology of **distant** sensors that send little data, rarely.
 
-## Comment ça marche ?
+## How does it work?
 
-Elle vise les usages **LPWAN** (réseaux étendus basse consommation) : agriculture, ville connectée, suivi d'objets sur de grandes zones. Une distinction à connaître avant d'acheter : **LoRa** désigne la **modulation radio**, si bien que deux modules peuvent dialoguer **en direct, point-à-point**, le cas typique d'un projet école. **LoRaWAN** est le **protocole réseau** bâti par-dessus (passerelles, serveur, par exemple The Things Network) pour exploiter des flottes de capteurs. Le compromis est assumé. On échange le débit contre la distance et l'autonomie, qui peut atteindre plusieurs années sur une pile, le module et le contrôleur passant l'essentiel de leur vie en [[deep-sleep-en|deep sleep]]. Inutile d'y chercher du flux continu : LoRa transporte des relevés brefs, espacés.
+It aims at **LPWAN** uses, low-power wide-area networks: agriculture, the connected city, tracking objects across large areas. One distinction is worth knowing before buying anything: **LoRa** names the **radio modulation**, so two modules can talk **directly, point to point**, the typical case for a school project. **LoRaWAN** is the **network protocol** built on top of it (gateways and a server, The Things Network for instance) to run fleets of sensors. The trade-off is a deliberate one. Data rate is exchanged for range and for battery life, which can reach several years on a single cell, the module and the microcontroller spending most of their lives in [[deep-sleep-en|deep sleep]]. There is no point looking for a continuous stream here: LoRa carries short readings, spaced far apart.
 
-## Voir aussi
+## See also
 
-- [[techno-sans-fil-en|Technologies sans-fil]] — hub : situer le LoRa face aux autres
-- [[zigbee-en|Zigbee]] — alternative basse consommation pour la portée moyenne et le maillage
-- [[deep-sleep-en|Deep sleep]] — l'autre moitié des années d'autonomie
-- [[microcontroleur-en|Microcontrôleur]] — le contrôleur qui pilote le module LoRa
+- [[techno-sans-fil-en|Wireless technologies]] — hub: where LoRa sits among the others
+- [[zigbee-en|Zigbee]] — a low-power alternative for medium range and meshing
+- [[deep-sleep-en|Deep sleep]] — the other half of those years of battery life
+- [[microcontroleur-en|Microcontroller]] — the chip that drives the LoRa module

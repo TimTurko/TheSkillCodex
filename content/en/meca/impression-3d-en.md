@@ -6,7 +6,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/impression-3d.md
 source_sha256: 042608d9780d8d836ae204e90b8bfedfa8cc917faed9f6c378be8be771409751
 ---

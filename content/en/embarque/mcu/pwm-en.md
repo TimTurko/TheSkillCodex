@@ -8,7 +8,7 @@ prerequis:
   - microcontroleur-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/pwm.md
 source_sha256: 7859e74e13342d4f216df2229ae3329b0e5505ba1d5944f31caa2bbf40678e5f
 ---

@@ -8,19 +8,19 @@ prerequis:
   - techno-sans-fil-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/sans-fil/zigbee.md
 source_sha256: a5cd3cf3b2ef7661439dcf4a22d6b561048bf9b320bfe7a0ac829ee5eb8ae600
 ---
 
-Le **Zigbee** est une [[techno-sans-fil-en|technologie sans-fil]] **basse consommation** et **bas débit**, conçue pour les **réseaux de capteurs**. Sa force est le **maillage** (*mesh*) : chaque nœud relaie les messages des autres, ce qui étend la portée du réseau sans augmenter celle de chaque émetteur.
+**Zigbee** is a **low-power**, **low-rate** [[techno-sans-fil-en|wireless technology]] designed for **sensor networks**. Its strength is **meshing** (*mesh*): each node relays the messages of the others, which extends the reach of the network without extending the reach of any single transmitter.
 
-## Comment ça marche ?
+## How does it work?
 
-On le retrouve surtout en **domotique** et dans les réseaux d'objets nombreux. Le réseau ne s'auto-organise pas par magie : il lui faut un **coordinateur** (box domotique, dongle USB) qui le fonde et l'administre. Le maillage rend ensuite le réseau **robuste**. Si un nœud tombe, les messages le contournent. Cette robustesse se paie par une organisation plus complexe qu'une simple étoile. Le débit, volontairement bas, suffit à des capteurs et des commandes, et sert la basse consommation.
+It turns up mostly in **home automation** and in networks of numerous objects. The network does not organise itself by magic: it needs a **coordinator** (a home automation hub, a USB dongle) to found it and administer it. The mesh then makes the network **robust**. If a node goes down, messages route around it. That robustness is paid for by an organisation more complex than a plain star. The data rate, deliberately low, is enough for sensors and commands, and it serves the low power draw.
 
-## Voir aussi
+## See also
 
-- [[techno-sans-fil-en|Technologies sans-fil]] — hub : situer le Zigbee face aux autres
-- [[xbee-en|XBee]] — modules prêts à l'emploi implémentant souvent Zigbee
-- [[lora-en|LoRa]] — alternative pour la très longue portée
+- [[techno-sans-fil-en|Wireless technologies]] — hub: where Zigbee sits among the others
+- [[xbee-en|XBee]] — off-the-shelf modules, often implementing Zigbee
+- [[lora-en|LoRa]] — the alternative for very long range

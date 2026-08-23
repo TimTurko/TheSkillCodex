@@ -1,7 +1,7 @@
 ---
 title: Fiches PROJ — Démarche projet
 tags: [domaine, proj]
-draft: true
+draft: false
 source_fr: conduite/proj/index.md
 source_sha256: 9efc5099390bfe142c6f03fd90b46fb81100fdf42f8b49f29a2bf37c039f2766
 ---

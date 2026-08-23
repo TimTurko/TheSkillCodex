@@ -6,7 +6,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/pied-a-coulisse.md
 source_sha256: 00a46ccf84ff21f3630c68eb3fe6317b291b6acad588e41e8ec04f427d0b281f
 ---

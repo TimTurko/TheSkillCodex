@@ -8,7 +8,7 @@ prerequis:
   - bus-de-communication-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/bus/spi.md
 source_sha256: 7da64a78efb72fdb1249a5931e413af33569cf7bc33c3b49926302bcc8c8600c
 ---

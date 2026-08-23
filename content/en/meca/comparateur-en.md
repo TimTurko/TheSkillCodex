@@ -6,7 +6,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/comparateur.md
 source_sha256: ddfb8be9f0d1ca28b42e1adfb60dd22b8787ca190afde895a087fa2f8ad676dc
 ---

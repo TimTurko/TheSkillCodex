@@ -14,7 +14,7 @@ tags:
 prerequis: []
 aa:
   - RA-MEO-C08-6/MEO/3
-draft: true
+draft: false
 source_fr: conduite/meo/revue-de-code.md
 source_sha256: 9e9395845c617ae256baa114a073a8ab9879a79c2d1f9513bd65a7d6d9e38209
 ---

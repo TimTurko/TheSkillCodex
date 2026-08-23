@@ -10,34 +10,34 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 phases:
   - preuve-de-concept
-draft: true
+draft: false
 source_fr: embarque/mcu/cpp/cpp.md
 source_sha256: 58fce82ce9f6bba495391e3181323b7ad58c3737563fe51c57b1923c2e564285
 ---
 
-Le **C++** est le langage dans lequel s'écrivent les programmes Arduino, plus précisément un C++ « outillé » (dialecte *Wiring*) où deux [[fonction-informatique-en|fonctions]], `setup()` et `loop()`, encadrent tout le code. En maîtriser les briques sépare *recopier* un exemple d'*écrire* son propre programme. Cette fiche est le **hub d'apprentissage progressif** du langage côté embarqué : du premier programme qui compile jusqu'aux structures de contrôle, chaque sous-fiche s'accompagne de code à lire et d'exercices à faire. Le même langage programme l'[[esp32-en|ESP32]], la Teensy et les autres cartes du framework Arduino. Ce parcours leur sert donc à toutes.
+**C++** is the language Arduino programs are written in, or more precisely a C++ with scaffolding around it (the *Wiring* dialect), where two [[fonction-informatique-en|functions]], `setup()` and `loop()`, frame the whole of the code. Mastering its building blocks is what separates *copying* an example from *writing* your own program. This page is the **step-by-step learning hub** for the language on the embedded side: from the first program that compiles through to control structures, every sub-page comes with code to read and exercises to work through. The same language programs the [[esp32-en|ESP32]], the Teensy and the other boards of the Arduino framework. This path therefore serves them all.
 
-## Parcours d'apprentissage
+## Learning path
 
-À suivre dans l'ordre : chaque étape suppose la précédente.
+To be followed in order: each step assumes the one before it.
 
-1. [[cpp-execution-en|Comment s'exécute un programme]] — le cycle *compiler → téléverser → exécuter*, et le code minimal qui compile ;
-2. [[cpp-structure-en|La structure d'un programme]] — préprocesseur, `#include`, `#define`, variables globales, `setup()`, `loop()`, fonctions ;
-3. [[cpp-types-en|Le typage des variables]] — choisir le bon type, et ce qu'il coûte en mémoire ;
-4. [[cpp-portee-en|Variables locales et globales]] — la portée, et ce qui survit d'un tour de boucle au suivant ;
-5. [[cpp-conditions-en|Les conditions]] — `if` / `else`, `switch`, opérateurs de comparaison et logiques ;
-6. [[cpp-boucles-en|Les boucles]] — `for`, `while`, `do…while` : laquelle choisir ;
-7. [[cpp-logs-en|Lire et comprendre les erreurs]] — décoder les messages du compilateur pour se dépanner seul ;
-8. [[cpp-lire-un-programme-en|Lire un programme qu'on n'a pas écrit]] — entrer dans un code inconnu, et les mécanismes du langage qui reviennent d'un exemple à l'autre.
+1. [[cpp-execution-en|How a program runs]] — the *compile → upload → run* cycle, and the minimum code that compiles;
+2. [[cpp-structure-en|The structure of a program]] — preprocessor, `#include`, `#define`, global variables, `setup()`, `loop()`, functions;
+3. [[cpp-types-en|Typing variables]] — picking the right type, and what it costs in memory;
+4. [[cpp-portee-en|Local and global variables]] — scope, and what survives from one pass of the loop to the next;
+5. [[cpp-conditions-en|Conditions]] — `if` / `else`, `switch`, comparison and logical operators;
+6. [[cpp-boucles-en|Loops]] — `for`, `while`, `do…while`: which one to choose;
+7. [[cpp-logs-en|Reading and understanding errors]] — decoding the compiler's messages to get yourself unstuck;
+8. [[cpp-lire-un-programme-en|Reading a program you did not write]] — getting into unfamiliar code, and the language mechanisms that come back from one example to the next.
 
-Une fois ces briques acquises, l'enjeu devient *comment structurer* le code : voir [[arduino-programmation-non-bloquante-en|programmation non bloquante]], [[machine-a-etats-en|machines à états]] et la structuration d'ensemble du [[firmware-en|firmware]]. Et pour le parcours **MicroPython**, le même apprentissage du langage existe en jumeau : [[micropython-langage-en|Le langage MicroPython]].
+Once these blocks are in place, the question becomes *how to structure* the code: see [[arduino-programmation-non-bloquante-en|non-blocking programming]], [[machine-a-etats-en|state machines]] and the overall shaping of the [[firmware-en|firmware]]. And for the **MicroPython** path, the same apprenticeship in the language exists as a twin: [[micropython-langage-en|The MicroPython language]].
 
-## Voir aussi
+## See also
 
-- [[arduino-en|Arduino]] — hub du module
-- [[micropython-langage-en|MicroPython — le langage]] — le parcours jumeau côté MicroPython
-- [[arduino-prise-en-main-en|Prise en main]] — compiler et téléverser, le prérequis pratique pour essayer les exemples
-- [[fonction-informatique-en|Fonction]] — la notion de fonction en programmation
-- [[arduino-memoire-en|Gestion mémoire]] — types, `String`, pointeurs et allocation, sous l'angle ressource (transverse)
-- [[manipulation-de-bits-en|Manipulation de bits]] — opérateurs bit-à-bit et registres (transverse)
-- [[firmware-en|Firmware]] — structurer le code embarqué (transverse)
+- [[arduino-en|Arduino]] — the module hub
+- [[micropython-langage-en|MicroPython, the language]] — the twin path on the MicroPython side
+- [[arduino-prise-en-main-en|Getting started]] — compiling and uploading, the practical prerequisite for trying the examples
+- [[fonction-informatique-en|Function]] — the notion of a function in programming
+- [[arduino-memoire-en|Memory management]] — types, `String`, pointers and allocation, seen as a resource question (cross-cutting)
+- [[manipulation-de-bits-en|Bit manipulation]] — bitwise operators and registers (cross-cutting)
+- [[firmware-en|Firmware]] — structuring embedded code (cross-cutting)

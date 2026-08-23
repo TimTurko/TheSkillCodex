@@ -6,7 +6,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/usinage.md
 source_sha256: f7611a8fd053bc2697e5bbed2bb3c148f6e1f205fd8c9083dff6c9985142dca0
 ---

@@ -12,7 +12,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: conduite/meo/unite-si.md
 source_sha256: 2283fc1f2d30b3d6e6688bd044c7d17f04fbb790ddf575373c758905a2bb238f
 ---

@@ -9,7 +9,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: conduite/meo/cable-management.md
 source_sha256: 574b55be0833c99fe2ab9842e652696c01d037a33c199e29c1e2b14963a031ca
 ---

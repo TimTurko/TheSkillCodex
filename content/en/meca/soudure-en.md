@@ -7,7 +7,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/soudure.md
 source_sha256: 339504252b521fca542c912c9114557a29de31c50b7ee4d1f74ae966e2f348de
 ---

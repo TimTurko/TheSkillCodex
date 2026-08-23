@@ -12,7 +12,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: conduite/meo/relation-client.md
 source_sha256: cd5131759d6f8673d9f70bb58f92f3a94c52a290ba3647e1cd82ee7c4444404d
 ---

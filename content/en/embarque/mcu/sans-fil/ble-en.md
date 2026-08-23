@@ -8,21 +8,21 @@ prerequis:
   - techno-sans-fil-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/sans-fil/ble.md
 source_sha256: 477bdb4ab583fbce4c0743bb5f07d6eddcd74197e598a8a477d4c39203f2dcd3
 ---
 
-Le **BLE** (*Bluetooth Low Energy*) est une [[techno-sans-fil-en|technologie sans-fil]] de **courte portée** (une dizaine de mètres) et de **très basse consommation**, pensée pour les objets sur pile. C'est le lien privilégié entre un capteur et un **smartphone**. À ne pas confondre avec le Bluetooth « classique » des casques audio : le BLE **ne transporte pas de son**, il vise les données rares et brèves.
+**BLE** (*Bluetooth Low Energy*) is a [[techno-sans-fil-en|wireless technology]] with a **short range**, about ten metres, and **very low power draw**, designed for battery-powered objects. It is the go-to link between a sensor and a **smartphone**. Not to be confused with the "classic" Bluetooth of audio headsets: BLE **carries no sound**, it aims at sparse and brief data.
 
-## Comment ça marche ?
+## How does it work?
 
-Le débit reste modéré, assez pour des mesures et des commandes, pas pour un flux vidéo. Comme le [[wifi-en|Wi-Fi]], le BLE est souvent intégré au contrôleur, l'[[esp32-en|ESP32]] embarquant les deux. La mise en œuvre est traitée dans [[esp32-ble-en|Bluetooth LE avec l'ESP32]]. Pour un capteur autonome qui doit durer des mois, le couple BLE + [[deep-sleep-en|deep sleep]] est un classique : on ne se réveille que pour transmettre, brièvement.
+The data rate stays moderate, enough for readings and commands, not for a video stream. Like [[wifi-en|Wi-Fi]], BLE is often built into the microcontroller, the [[esp32-en|ESP32]] carrying both. Putting it to work is covered in [[esp32-ble-en|Bluetooth LE on the ESP32]]. For a standalone sensor that has to last for months, pairing BLE with [[deep-sleep-en|deep sleep]] is a classic: the device wakes only to transmit, and only briefly.
 
-## Voir aussi
+## See also
 
-- [[techno-sans-fil-en|Technologies sans-fil]] — hub : situer le BLE face aux autres
-- [[esp32-ble-en|BLE sur ESP32]] — la mise en œuvre concrète
-- [[wifi-en|Wi-Fi]] — alternative à haut débit, mais gourmande
-- [[deep-sleep-en|Deep sleep]] — mode basse consommation, complément naturel du BLE
-- [[esp32-en|ESP32]] — microcontrôleur à BLE (et Wi-Fi) intégré
+- [[techno-sans-fil-en|Wireless technologies]] — hub: where BLE sits among the others
+- [[esp32-ble-en|BLE on the ESP32]] — putting it to work
+- [[wifi-en|Wi-Fi]] — a high-rate alternative, but a hungry one
+- [[deep-sleep-en|Deep sleep]] — the low-power mode that pairs naturally with BLE
+- [[esp32-en|ESP32]] — a microcontroller with BLE (and Wi-Fi) built in

@@ -6,7 +6,7 @@ tags:
   - notion
 prerequis: []
 aa: []
-draft: true
+draft: false
 source_fr: meca/pla.md
 source_sha256: 0283e7330255a3fbb2553369019eaf692c50f2bdd787567a4ea3523e4fe22eb5
 ---

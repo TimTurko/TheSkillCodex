@@ -13,7 +13,7 @@ tags:
 prerequis: []
 aa:
   - RA-MEO-C10-3/MEO/6
-draft: true
+draft: false
 source_fr: conduite/meo/archivage-projet.md
 source_sha256: 08e186e509148548de86991a3ba9959b03afc0f519c9732699b883aa0c4c0ef8
 ---

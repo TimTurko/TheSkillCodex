@@ -1,7 +1,7 @@
 ---
 title: Fiches MEO — Méthodes, organisation, animation
 tags: [domaine, meo]
-draft: true
+draft: false
 source_fr: conduite/meo/index.md
 source_sha256: 66ff20fdd4ffc96a6477d645e501388e59156015f7a06e3996b95a5b632fee94
 ---

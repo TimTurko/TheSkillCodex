@@ -8,7 +8,7 @@ prerequis:
   - microcontroleur-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/memoire.md
 source_sha256: cadc21fa387b1ddacc431b8aa07d54d16d26a1cddcad4f91d52536a322e60099
 ---

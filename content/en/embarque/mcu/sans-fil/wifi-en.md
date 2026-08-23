@@ -8,22 +8,22 @@ prerequis:
   - techno-sans-fil-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/sans-fil/wifi.md
 source_sha256: 70b2ff73aaf945bbfb1e51fc2a81b666cdc4880a029d54be08da4667b68bf01d
 ---
 
-Le **Wi-Fi** est une [[techno-sans-fil-en|technologie sans-fil]] à **haut débit** et **courte portée** (l'échelle d'un bâtiment), qui relie un système à un réseau local et, au-delà, à **internet**. C'est le choix naturel dès qu'un objet doit envoyer ou recevoir des données depuis un serveur ou le *cloud*.
+**Wi-Fi** is a [[techno-sans-fil-en|wireless technology]] with a **high data rate** and **short range**, on the scale of a building, which connects a system to a local network and, beyond it, to the **internet**. It is the natural choice as soon as an object has to send or receive data from a server or from the cloud.
 
-## Comment ça marche ?
+## How does it work?
 
-Le Wi-Fi s'organise en **étoile** autour d'un point d'accès (box, routeur), qui assure la liaison vers le réseau. En contrepartie de son débit, il **consomme beaucoup**, ce qui le rend peu adapté à un objet sur pile censé durer des mois. Et pas seulement en moyenne. L'émission provoque des **pics de courant** de plusieurs centaines de mA en rafale. Une [[alimentation-electronique-en|alimentation]] sous-dimensionnée s'écroule alors, et le contrôleur redémarre sans message clair. Sur microcontrôleur, il est intégré nativement à certaines familles, l'[[esp32-en|ESP32]] en tête, ce qui évite un module radio séparé. La mise en œuvre est traitée dans [[esp32-wifi-en|Wi-Fi avec l'ESP32]]. Son prédécesseur l'[[esp8266-en|ESP8266]] ne sait faire que ça (pas de Bluetooth) et reste très répandu dans le matériel existant. Son API est si proche que le code se transpose presque tel quel, comme le montre [[esp8266-arduino-core-en|programmer l'ESP8266]].
+Wi-Fi organises itself in a **star** around an access point, a home router or gateway, which carries the link out to the network. In return for its data rate, it **draws a great deal of power**, which makes it a poor fit for a battery-powered object meant to last for months. And not only on average. Transmission causes **current spikes** of several hundred mA in bursts. An undersized [[alimentation-electronique-en|power supply]] then sags, and the microcontroller reboots with no clear message. On microcontrollers, Wi-Fi is built into some families natively, the [[esp32-en|ESP32]] first among them, which saves a separate radio module. Putting it to work is covered in [[esp32-wifi-en|Wi-Fi on the ESP32]]. Its predecessor the [[esp8266-en|ESP8266]] does nothing else (no Bluetooth) and remains very common in existing hardware. Its API is so close that code transposes almost as it stands, as [[esp8266-arduino-core-en|programming the ESP8266]] shows.
 
-## Voir aussi
+## See also
 
-- [[techno-sans-fil-en|Technologies sans-fil]] — hub : situer le Wi-Fi face aux autres
-- [[esp32-wifi-en|Wi-Fi sur ESP32]] — la mise en œuvre concrète
-- [[ble-en|BLE]] — alternative courte portée à très basse consommation
-- [[alimentation-electronique-en|Alimentation électronique]] — dimensionner pour les pics d'émission
-- [[esp32-en|ESP32]] — microcontrôleur à Wi-Fi (et BLE) intégré
-- [[esp8266-en|ESP8266]] — le prédécesseur à Wi-Fi seul, API quasi identique
+- [[techno-sans-fil-en|Wireless technologies]] — hub: where Wi-Fi sits among the others
+- [[esp32-wifi-en|Wi-Fi on the ESP32]] — putting it to work
+- [[ble-en|BLE]] — a short-range alternative at very low power
+- [[alimentation-electronique-en|Electronic power supply]] — sizing for transmission spikes
+- [[esp32-en|ESP32]] — a microcontroller with Wi-Fi (and BLE) built in
+- [[esp8266-en|ESP8266]] — the Wi-Fi-only predecessor, with a near-identical API

@@ -8,7 +8,7 @@ prerequis:
   - microcontroleur-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/adc.md
 source_sha256: 6a4f037bc8c9cf4f48add2c7086fa0dc731fef8e181ad89d49eed84754a88a5d
 ---

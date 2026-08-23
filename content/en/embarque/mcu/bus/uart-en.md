@@ -8,7 +8,7 @@ prerequis:
   - bus-de-communication-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/bus/uart.md
 source_sha256: 81bdb46b852601c57e8c3137df039ae1286984f1ad31a52c7febaf4f432436b6
 ---

@@ -8,7 +8,7 @@ prerequis:
   - bus-de-communication-en
 aa: []
 phases: []
-draft: true
+draft: false
 source_fr: embarque/mcu/bus/i2c.md
 source_sha256: 87d6d6286142da3a85616410b5a41036f54907e1f3a53d34e2325d5820fac1a7
 ---
