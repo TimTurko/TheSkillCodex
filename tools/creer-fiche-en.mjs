@@ -42,6 +42,9 @@
  *   node tools/creer-fiche-en.mjs conduite/proj/concept.md --force
  *   node tools/creer-fiche-en.mjs --recette          (compteurs sur tout content/, n'ecrit rien)
  *   node tools/creer-fiche-en.mjs --controle         (compare chaque fiche EN a sa source FR)
+ *       - les trois compteurs (liens, embeds, blocs de code)
+ *       - et les wikilinks NON SUFFIXES, qui pointent vers la fiche francaise
+ *         sans qu'aucun compteur ne s'en apercoive (defaut du 23/08)
  *   node tools/creer-fiche-en.mjs --recaler <fiche>  (reconsigne le marqueur SANS toucher la traduction)
  *
  * Exit 1 si un compteur diverge, si la cible existe deja sans --force,
@@ -160,14 +163,27 @@ for (const f of walk(CONTENT)) {
 // Renvoie une liste de segments { code: bool, texte }. Seuls les segments
 // non-code sont transformes. Les blocs clotures et le code inline sont rendus
 // tels quels, a l'octet.
+//
+// Le WIKILINK est segmente AVANT le code inline (defaut mesure le 23/08,
+// 29 occurrences sur 22 fiches). Sans cela, un libelle contenant du code
+// inline - [[cpp-variables|Les variables `int`]] - est coupe en trois, le
+// segment non-code ne porte plus que "[[cpp-variables|Les variables " sans
+// crochets fermants, et le lien ECHAPPE AU SUFFIXAGE. Aucun compteur ne le
+// voit : le lien reste present, bien forme, et sa cible francaise existe.
+//
+// Le cas symetrique reste correct sans traitement particulier : dans
+// `[[notion]]` (code inline contenant un wikilink), le backtick ouvre AVANT
+// le crochet, donc l'alternative de code inline gagne par position et protege
+// le lien du suffixage. C'est le cas de content/index.md.
 function segmenter(corps) {
   const segments = [];
-  const motif = /(^```[\s\S]*?^```[^\n]*$|`[^`\n]*`)/gm;
+  const motif = /(^```[\s\S]*?^```[^\n]*$)|((?<!!)\[\[[^\]]+\]\])|(`[^`\n]*`)/gm;
   let pos = 0;
   let m;
   while ((m = motif.exec(corps)) !== null) {
     if (m.index > pos) segments.push({ code: false, texte: corps.slice(pos, m.index) });
-    segments.push({ code: true, texte: m[0] });
+    // m[2] renseigne = wikilink : segment a transformer, donc code: false.
+    segments.push({ code: m[2] === undefined, texte: m[0] });
     pos = m.index + m[0].length;
   }
   if (pos < corps.length) segments.push({ code: false, texte: corps.slice(pos) });
@@ -306,6 +322,32 @@ function ancresIntraPage(corps) {
     .map((s) => s.texte)
     .join('');
   return hors.match(/(?<!!)\[[^\]]*\]\(#[^)]+\)/g) || [];
+}
+
+// Dans une fiche EN, toute cible de wikilink doit porter le suffixe -en, ou
+// etre un index (non suffixe par arbitrage du 22/08). Un lien nu n'est ni mort
+// ni mal forme et sa cible existe : il renvoie simplement le lecteur anglophone
+// vers la fiche FRANCAISE. Les trois compteurs le laissent donc passer, et
+// c'est exactement le defaut du 23/08. Ce controle-ci le rend mesurable.
+function liensNonSuffixes(texteEn) {
+  const corps = (frontMatter(texteEn) || { corps: texteEn }).corps;
+  const hors = segmenter(corps)
+    .filter((s) => !s.code)
+    .map((s) => s.texte)
+    .join('');
+  const nus = [];
+  for (const m of hors.matchAll(/(?<!!)\[\[([^\]]+)\]\]/g)) {
+    const cible = m[1]
+      .split(/\\\||\|/)[0]
+      .split('#')[0]
+      .replace(/\\+$/, '')
+      .trim();
+    if (!cible) continue; // [[#ancre]] purement interne
+    const dernier = cible.split('/').pop();
+    if (dernier.endsWith(SUFFIXE) || dernier === 'index') continue;
+    nus.push(m[1]);
+  }
+  return nus;
 }
 
 function empreinteDe(texte) {
@@ -470,6 +512,8 @@ function controle() {
   }
 
   let divergentes = 0;
+  let fichesNues = 0;
+  let liensNus = 0;
   console.log('=== CONTROLE DES TROIS COMPTEURS ===');
 
   for (const relEn of fichesEn.sort()) {
@@ -501,11 +545,20 @@ function controle() {
       console.log('       embeds FR ' + fr.embeds + ' / EN ' + en.embeds + (fr.embeds === en.embeds ? '' : '   DIVERGE'));
       console.log('       code   FR ' + fr.code + ' / EN ' + en.code + (fr.code === en.code ? '' : '   DIVERGE'));
     }
+
+    const nus = liensNonSuffixes(texteEn);
+    if (nus.length) {
+      fichesNues += 1;
+      liensNus += nus.length;
+      console.log('  [nu]  ' + relEn + '   ' + nus.length + ' lien(s) vers une fiche FR :');
+      for (const n of nus) console.log('       [[' + n + ']]');
+    }
   }
 
   console.log('');
   console.log(fichesEn.length + ' fiche(s) controlee(s), ' + divergentes + ' divergente(s).');
-  process.exit(divergentes ? 1 : 0);
+  console.log('Liens non suffixes : ' + liensNus + ' sur ' + fichesNues + ' fiche(s).');
+  process.exit(divergentes || liensNus ? 1 : 0);
 }
 
 /* ---------- recalage du marqueur apres relecture ---------- */

@@ -55,6 +55,8 @@ Restent licites, comme en français : le deux-points d'annonce, le point-virgule
 
 **Les puces ne sont pas reprises**, ni en FR ni en EN. La liste est le lieu où l'écriture mécanique est légitime ; c'est la prose continue qui doit être naturelle.
 
+**C112 s'applique aussi côté EN, et c'est là qu'elle se voit le plus.** Traduire mot lourd par mot lourd est le réflexe par défaut : *opposable* et *défendable* sont devenus **14 occurrences de *defensible*** dans le premier jet de `preuve-de-concept-en`. Une fois la source variée, l'anglais retombe seul sur *holds up*, *stand behind*, *verifiable*, *makes the proof stick*, *checkable by someone else*. Le test est le même que côté français, appliqué aux forums anglophones : *un développeur écrirait-il ça sur Stack Overflow, ou seulement dans un livrable ?* Corollaire identique : **le verbe survit, l'adjectif tombe** (*to defend a decision* reste, *a defensible decision* tombe).
+
 ## 5. Glossaire figé
 
 Le glossaire n'est **pas** un dictionnaire mot à mot. C'est une liste fermée de trois registres, là où une dérive serait visible ou nuisible.
@@ -215,6 +217,30 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | matrice de risques | risk matrix |
 | ACV / analyse du cycle de vie | LCA / life-cycle assessment |
 | DEEE | WEEE |
+| incertitude (objet de travail du projet) | unknown |
+| incertitude (métrologie, résiduelle) | uncertainty |
+| énoncé testable | testable statement |
+| critère de succès | success criterion |
+| banc (de test) | test bench |
+| répétabilité | repeatability |
+| encadrant | supervisor |
+| responsable projet | project coordinator |
+| équipier | teammate |
+| constater / statuer | to observe / to rule |
+| retour amont | upstream return |
+| chaîne amont / aval (du V) | descending / ascending branch |
+| fonction de service | service function |
+| cahier de bord | logbook |
+| revue à blanc | dry-run review |
+| tour de table | round-table |
+| masse étalonnée | calibrated mass |
+| bras de levier | lever arm |
+| platine d'ancrage | mounting plate |
+| matage (d'un logement) | crushing |
+
+**⚠ « Incertitude » désigne deux objets, comme « contrôleur » (23/08).** Dans les trames du V et les fiches de conduite de projet, le mot désigne **l'objet de travail** — la question ouverte que la preuve de concept doit fermer — et se rend par **unknown**, forme déjà en production dans `en/conduite/index`. En contexte de mesure, il désigne l'**incertitude métrologique** et se rend par *uncertainty* : « une marge calculée à 5 % sur une mesure dont la précision est de 10 %, c'est une incertitude résiduelle » donne *residual uncertainty*, jamais *residual unknown*. Le test est le contexte, pas le mot : **si l'incertitude figure dans une liste que le projet doit fermer, c'est un *unknown*.**
+
+**⚠ C112 est un contre-cas du glossaire, et le seul.** Le glossaire impose **une forme unique** là où une dérive serait visible. C112 impose l'inverse sur les mots de rapport : les 9 « opposable » de `preuve-de-concept` portaient quatre sens et ont reçu neuf formulations. **« Opposable » et « défendable » n'ont donc pas d'entrée ici, et ne doivent pas en recevoir** : figer *defensible* comme rendu unique reproduirait exactement le défaut que C112 corrige.
 
 **Les quatre entrées `dossier technique`, `soutenance`, `REX`, `écart` sont validées en bloc** (arbitrage Tim du 23/08, option a). Périmètres mesurés avant validation, hors `templates/` et hors `en/` : `dossier technique` 224 occurrences sur 50 fiches, `écart` 103 sur 39, `soutenance` 63 sur 13, `REX` et « retour d'expérience » 26 sur 5.
 
@@ -239,6 +265,8 @@ Trois formes dérivées figées à cette occasion, parce qu'elles ne se déduise
 **Typographie des listes.** Les listes numérotées gardent leur ponctuation mécanique (point-virgule de fin d'item, tiret de glose), C109 ne les visant pas. En revanche l'**espace insécable française disparaît** : en anglais le point-virgule et le deux-points se collent au mot. Ajustement de typographie, pas de ponctuation.
 
 **Les séparateurs décimaux basculent** : `4,7 kΩ` devient `4.7 kΩ`, `3,3 V` devient `3.3 V`, y compris dans les alt d'images.
+
+**Le pourcentage se colle, les unités gardent leur espace.** Le français met une insécable devant `%` ; l'anglais courant écrit `60%`, `5%`, `10%` sans espace. En revanche les unités SI conservent la leur des deux côtés : `2 h`, `60 °C`, `1.2 N·m`, `100 mm`, `1.22 kg`. Même motif que la règle précédente : ce qui disparaît, c'est la typographie française, pas la convention SI qui est internationale.
 
 **AMDEC est promue au §5.2** (arbitrage Tim du 23/08, option c), glose recalée en *the French acronym for FMEA*. 41 occurrences sur 6 fiches. Report fait dans `en/conduite/index`.
 

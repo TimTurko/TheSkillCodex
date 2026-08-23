@@ -11,6 +11,36 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-08-23 (suite) — Le lot 2a se ferme, l'accueil devient bilingue, le backtick tombe
+
+- **Périmètre** : PC perso. Les huit dernières fiches du lot 2a, l'encart d'accueil que ce lot débloquait, puis le correctif du suffixage.
+- **Mots traduits : 1 656** (8 fiches EN), règle C110. **Le lot 2a se ferme à 6 996 mots EN pour 6 515 mots FR.**
+- **Livrables** : 8 fiches sous `content/en/conduite/` ; encarts de langue sur les deux accueils ; `creer-fiche-en.mjs` corrigé et augmenté d'un contrôle ; `traduction-en-regles.md` recalé (18 entrées de glossaire, §5.2, §7) ; 3 items neufs au BACKLOG.
+- **Décisions (Tim)** : les trois arbitrages en **(a)** — `écodesign` conservé en français, ACV en *life-cycle assessment*, titres d'index en « MEO pages » ; sélecteur de langue en **lien markdown (a)** ; correctif du backtick **avant le lot 2b (a)**.
+- **Conventions** : **C111** (un sélecteur de langue est du chrome, pas du maillage). La numérotation atteint **111**.
+- **Tailles** : corpus EN **30 fiches, 9 944 mots**, `--controle` à **0 divergente, 0 lien non suffixé**. `--recette` inchangée : 243 / 4 323 / 395 / 376 / 0.
+
+**Le lien retour de l'encart n'avait aucune forme wikilink licite, et c'est une propriété d'un seul fichier du dépôt.** Le sens FR → EN ne posait rien, `[[en/index]]` étant un chemin complet. Le sens inverse butait sur ceci : le chemin complet de `content/index.md` **est** `index`, donc exactement la forme courte que le §1 des règles interdit sous `markdownLinkResolution: "shortest"`. **Chemin complet et forme courte s'y confondent**, ce qui n'arrive nulle part ailleurs, et le suffixage `-en` — qui protège tous les autres slugs de l'ambiguïté — ne pouvait pas l'atteindre puisque les huit `index.md` sont précisément ceux qu'il ne suffixe pas. D'où **C111**, et son argument principal qui n'est pas la commodité : une arête wikilink entre les deux racines relierait les corpus par le graphe local de l'accueil, l'inverse de l'arbitrage du 22/08. Effet de bord utile découvert en chemin : **les trois compteurs ne comptant que les wikilinks, un sélecteur en markdown est neutre par construction** et ne peut pas faire diverger une paire.
+
+**Un sélecteur par fiche a été écarté sur un chiffre, pas sur un principe.** Le corpus EN fait 30 fiches sur 242 : **212 liens FR pointeraient vers des jumelles inexistantes**, et `audit-wikilinks.mjs` ne lisant que les wikilinks, ce seraient des 404 que **rien ne mesure**, sur un corpus tenu à 0 lien mort. L'asymétrie est totale, le sens EN → FR étant toujours valide. La bonne réponse est un composant de layout Quartz qui déduit la jumelle du chemin et **se masque quand elle n'existe pas**, ce qui supprime le problème au lieu de le gérer. À rouvrir quand les 242 existeront, pas avant.
+
+**Un défaut du lot 1 est sorti d'une lecture faite pour autre chose.** En ouvrant `en/meca/index` pour y chercher la forme de référence d'un index de branche, `[[soudure-en|Welding]]` : la fiche cible s'intitule *Soldering* et traite la soudure à l'étain. **Le lien pointait juste et affichait faux.** C'est le **même angle mort que le backtick de la veille, sur l'autre axe** — là le slug échappait au suffixage, ici le libellé échappe au sens, et dans les deux cas le lien est présent, bien formé, sa cible existe, et **les trois compteurs restent verts**. *Les compteurs valident la structure, jamais la désignation.*
+
+**Le correctif du backtick n'est pas une meilleure lecture des backticks, c'est un ordre de segmentation.** `segmenter()` traitait le code inline comme un atome, si bien qu'un libellé en contenant coupait le wikilink en trois et laissait au segment transformable un `[[cible|Les variables ` sans crochets fermants. Le motif passe donc le **wikilink avant le code inline**. Le cas symétrique — un wikilink écrit *dans* du code inline, comme le `` `[[notion]]` `` de l'accueil, qu'il ne faut surtout pas suffixer — se règle **tout seul par la position d'ouverture**, le backtick ouvrant avant le crochet. Huit cas éprouvés en bac à sable avant écriture, et `--recette` rend des totaux identiques au chiffre près, ce qui était la prédiction : le patch change ce qui est transformé, jamais ce qui est compté.
+
+**Ma seconde prédiction était fausse, et c'est C106 que j'ai ratée le jour où je l'appliquais correctement ailleurs.** J'annonçais 1 à 3 liens non suffixés au premier lancement du contrôle neuf ; il en rend **0**. Motif : `micropython-langage-en` avait été corrigée à la main dans la session précédente, le JOURNAL l'écrivait au passé, et j'ai repris l'alerte héritée sans ouvrir le fichier. Le contraste avec le `Welding` est instructif : **les deux constats du jour portaient sur des liens, l'un venait d'un fichier et l'autre d'une phrase**, et c'est le second qui s'est cassé. Le zéro a été vérifié **par la couverture et non par le verdict** — 19 liens examinés pour 19 comptés sur la fiche réelle, et le détecteur mord dès qu'on remet l'item 5 dans son état d'avant correction. *Un contrôle neuf qui rend zéro le jour de sa naissance doit prouver qu'il regarde quelque chose.*
+
+**Le mot que sa traduction trahit se garde en français.** `écodesign` rejoint `bête à cornes` et `pieuvre` au §5.2, pour un motif inédit dans la liste : l'anglais *ecodesign* désigne ce que le wiki appelle **écoconception** — la directive européenne *Ecodesign* est officiellement la directive Écoconception en français — si bien que traduire le mot **inverserait le sens de la fiche qui enseigne précisément ce faux ami**. Les autres entrées du §5.2 s'y trouvent pour protéger l'étudiant du vocabulaire de son équipe ; celle-ci y est pour protéger la fiche d'elle-même.
+
+**Première mesure du foisonnement FR → EN : +7,4 %**, 6 996 mots EN pour 6 515 FR. Le chiffre ne vaut que pour des notions de 150 à 500 mots, où la glose des termes conservés pèse proportionnellement lourd. À remesurer au lot 2b avant de redimensionner les 288 050 mots restants.
+
+**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push — seul `tools/creer-fiche-en.mjs` est non committé. **Clic-test des deux accueils** et des trois index de branche EN. **Prochaine session = lot 2b, les cinq trames du V.**
+
+<!-- FIN 23/08 suite -->
+
+---
+
+
 ## 2026-08-23 — Lot 2a : les vingt-six passes C109, dix-huit fiches traduites
 
 - **Périmètre** : PC perso. Remesure d'ouverture sous C110, passe C109 sur les 26 fiches du lot, génération groupée des squelettes, traduction des 18 premières.

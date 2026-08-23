@@ -1400,6 +1400,83 @@ gérer. Voir BACKLOG.
   avant point-virgule subsistait dans `en/index`, issue du lot 1, là où le §5.3
   la proscrit explicitement. Candidat de balayage avant la fin du chantier.
 
+### C112 — Le mot se choisit à l'oreille de quelqu'un qui parle, pas de quelqu'un qui rédige un rapport
+
+*Acquise le 23/08 (suite 2), demande Tim, sur `preuve-de-concept`. La numérotation atteint **C112**.*
+
+**Un mot que personne ne dirait à voix haute n'a pas sa place dans la prose
+d'une fiche, même quand il est exact.** Le test opératoire est unique et se
+pose mot par mot : *est-ce qu'on trouverait cette phrase sur un forum
+technique — Reddit, Futura, OpenClassrooms — ou seulement dans un rapport ?*
+Si la seconde réponse est la bonne, le mot tombe.
+
+**Corollaire, et c'est lui qui rend la règle utilisable : le verbe survit,
+l'adjectif tombe.** « Défendre une décision en revue » décrit un geste réel,
+avec quelqu'un en face, et c'est du français parlé. « Une décision défendable »
+colle une **étiquette de qualité** sur un objet, ce que personne ne fait à
+l'oral. Le défaut n'est donc pas dans le radical mais dans la **nominalisation
+de la qualité**, ce qui explique qu'un balayage par racine rende des faux
+positifs : sur `preuve-de-concept`, 7 occurrences de `défend*` dont **3 formes
+verbales à garder** et 4 adjectifs à retirer.
+
+**Borne — la règle ne dit pas « simplifier tout ».** Un mot technique précis
+reste, même long : *caractériser*, *répétabilité*, *vérifiable*, *étalonné*
+passent le test parce qu'un ingénieur les emploie en parlant. Ce qui tombe,
+c'est le **doublet savant d'un mot courant** : « opposable » pour « qui tient »,
+« défendable » pour « qu'on peut assumer ». Un synonyme unique ne suffit pas
+non plus : les 9 « opposable » de la fiche portaient **quatre sens distincts**
+(tient à la contestation / engage celui qui décide / ne peut plus être réécrit /
+se remonte jusqu'à la source) et ont reçu neuf formulations différentes.
+
+**La règle vaut pour les deux langues**, comme C109 et pour le même motif :
+*defensible* côté anglais s'est retrouvé **14 fois** dans la traduction parce
+que j'avais mappé un mot lourd sur un mot lourd. Une fois la source variée,
+l'anglais retombe seul sur *holds up*, *stand behind*, *verifiable*,
+*makes the proof stick*, *checkable by someone else*.
+
+**Filiation avec C109.** Même mécanique : une contrainte de forme qui force
+une décision de fond. C109 retire la ponctuation de machine et oblige à
+choisir quelle idée porte la phrase ; C112 retire le vocabulaire de rapport
+et oblige à dire **lequel des sens** on voulait. Les deux passes se mènent
+ensemble sur une même fiche, la seconde ne coûtant presque rien une fois la
+première faite.
+
+*Périmètre mesuré, partiel.* Sur les cinq trames du V : **20 `opposab*` et
+16 `défend*`**, dont 13 retirés sur `preuve-de-concept`. `specification-technique`
+en porte 7 + 1. Les 237 autres fiches ne sont pas mesurées. **Éprouvée 1/N.**
+
+**Borne majeure, trouvée par la mesure et non par la relecture : un mot de
+registre soutenu qui est l'objet même de l'enseignement d'une fiche ne tombe
+pas.** Il se glose à sa première occurrence, comme un terme du §5.2 des règles
+de traduction. Le test devient alors **« l'étudiant le rencontrera-t-il
+ailleurs, et cette fiche est-elle l'endroit où il l'apprend ? »**. Sur
+`preuve-de-concept`, « opposable » *décorait* une idée que le français courant
+dit mieux. Sur `cahier-des-charges-fonctionnel`, il **est** l'idée : la fiche
+porte une puce intitulée « Document opposable » suivie de « cette opposabilité
+est exactement ce qui distingue un CdCF d'une simple note d'intention », et
+`concept` emploie **« Opposabilité CdCF » comme en-tête de colonne** d'un
+tableau d'arbitrage. Le test C71 tranche seul : *que reste-t-il quand je
+l'enlève ?* Là, rien. Même motif que le « stepper » du §1, pris une troisième
+fois : **on expose le vocabulaire du métier au lieu de le lisser.**
+
+*Périmètre mesuré sur tout le dépôt (23/08 suite 2).* Motif
+`opposab|défendabl|défendue?s?`, hors `en/` et hors `templates/` : **48
+occurrences sur 17 fiches**, dont **16 dans `conduite/proj/`** — le reste du
+wiki n'en porte **qu'une seule**, dans `choisir-le-materiel`. Ce n'est donc pas
+un chantier de corpus, c'est un chantier de branche. Quatre populations :
+
+| Population | Traitement | Occurrences | Fiches |
+|---|---|---:|---:|
+| **Objet enseigné** (CdCF, caractériser une exigence, spécification technique, critère « Opposabilité CdCF ») | reste, glosé une fois par fiche | 16 | 4 |
+| **Décoratif** (« livrable opposable », « choix défendables », « trace écrite défendable ») | tombe | 22 | 12 |
+| **Transitif concret** (« rendre le total opposable à l'enveloppe ») | reste ou devient « comparable à » | 5 | 3 |
+| **Formes verbales** | restent | 5 | 3 |
+
+*Le motif ne capte pas l'infinitif `défendre`, ce qui sous-estime les verbes
+sans conséquence puisqu'ils restent.* Les 13 emplacements de
+`preuve-de-concept` sont déjà traités et sortis de ce décompte. Les **22
+décoratifs sur 12 fiches** sont inscrits au TODO comme lot unique.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
