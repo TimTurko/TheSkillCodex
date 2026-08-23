@@ -191,6 +191,114 @@ git commit --no-verify
 
 ---
 
+## creer-fiche-en.mjs
+
+Outil central du chantier de version anglaise. Six modes. Aucun n'écrit hors
+de `content/en/`, sauf `--recaler` qui ne touche qu'une ligne de front matter.
+
+### Génération
+
+```bash
+node tools/creer-fiche-en.mjs conduite/proj/concept.md [--dry] [--force]
+```
+
+Produit le **squelette** EN : la fiche française avec les seules
+transformations structurelles appliquées (arborescence, suffixage `-en`,
+`prerequis`, `draft`, marqueur `source_sha256`). Ce n'est pas une traduction.
+Conséquence voulue : les trois compteurs sont égaux **par construction**, et
+le contrôle de fin de fiche porte donc sur ce que la traduction a cassé.
+
+### Contrôles
+
+```bash
+node tools/creer-fiche-en.mjs --recette     # compteurs sur tout content/, n'écrit rien
+node tools/creer-fiche-en.mjs --controle    # chaque fiche EN contre sa source FR
+node tools/creer-fiche-en.mjs --style       # typographie EN et ponctuation C109
+node tools/creer-fiche-en.mjs --libelles    # libellé de wikilink contre title: de la cible
+```
+
+`--controle` compare les trois compteurs (liens, embeds, blocs de code) et
+signale les **wikilinks non suffixés**, qui renvoient le lecteur anglophone
+vers la fiche française sans qu'aucun compteur ne bronche.
+
+`--style` prend zéro, une ou plusieurs fiches ; sans argument il lit tout
+`content/en/`. Il rend **deux verdicts et deux listes de candidats** :
+
+| Famille | Nature | Ce qui est signalé |
+|---|---|---|
+| typographie | verdict | espace française devant `; : ! ? %`, virgule décimale |
+| virgule ambiguë | candidat | `1,000`, séparateur de milliers anglais ou décimale française |
+| C109 créées en EN | verdict | la fiche EN porte plus d'occurrences que sa source FR |
+| C109 de prose | candidat | tiret d'incise et point-virgule, le verbe conjugué décide |
+
+Exemptions : blocs de code et code inline, titres de section et de callout,
+lignes de tableau, texte alternatif d'embed (pour C109 seulement, sa
+typographie reste contrôlée), premier tiret et point-virgule de fin d'item
+sur une puce, et l'encart de langue C111 des deux accueils, qui est du
+français délibéré.
+
+`--libelles` est **bruyant par construction** : une reformulation légitime le
+déclenche. Il rend une liste à lire, jamais un verdict. Les faux positifs de
+morphologie (*machined* / *Machining*) et de sigle (*PoC* / *Proof of
+concept*) sont écartés.
+
+### Recalage
+
+```powershell
+$p = "en/conduite/proj/concept-en.md"
+node tools/creer-fiche-en.mjs --recaler $p
+```
+
+Reconsigne le marqueur de source **sans toucher la traduction**, après qu'une
+retouche FR a été reportée à la main. Refusé si les trois compteurs divergent.
+Passer par une variable : un chemin long se coupe à l'affichage et PowerShell
+exécute le résidu comme une commande.
+
+---
+
+## derive-traduction.mjs
+
+```bash
+node tools/derive-traduction.mjs [--tout] [--manquantes]
+```
+
+Liste les fiches EN dont la source FR a bougé, en comparant le
+`source_sha256:` du front matter à l'empreinte du fichier source. Le remède à
+la dérive n'est pas la synchronisation, c'est la détection.
+
+---
+
+## compter-mots.mjs
+
+```bash
+node tools/compter-mots.mjs                # corpus FR publié, traduit / restant
+node tools/compter-mots.mjs --paires       # foisonnement FR → EN, fiche par fiche
+node tools/compter-mots.mjs --lot a.md b.md
+node tools/compter-mots.mjs --fiche conduite/proj/concept.md
+```
+
+**Tout chiffre de mots publié dans un prompt, un JOURNAL ou une clause de TODO
+sort d'ici**, et se cite par le nom du script.
+
+### Pourquoi un script plutôt qu'une phrase
+
+C110 impose qu'une mesure de volume se publie avec sa règle de comptage. La
+session du 23/08 (suite 4) a montré que la règle **écrite** ne suffit pas : deux
+implémentations conformes à la même phrase divergent de 0,5 à 1,6 % par fiche,
+soit **499 mots sur dix mesures** des trames du lot 2b, dont les fichiers
+n'avaient pas bougé. Un script est la seule forme de règle qui ne puisse pas
+diverger d'elle-même. Il réimprime la règle et son motif à chaque lancement,
+pour que la sortie soit citable telle quelle.
+
+### Périmètre par défaut
+
+Les fiches FR **publiées** : hors `en/`, hors `templates/`, et hors toute fiche
+en `draft: true` — c'est ce qui sort `ressources/index` depuis le 22/08. Le
+restant à traduire est un **comptage** des fiches sans jumelle EN, pas une
+soustraction : une somme se compense, un comptage non.
+
+---
+
 ## Notes Windows
 
 - Git for Windows fournit Git Bash, donc le hook `#!/bin/sh` fonctionne sur les deux PC (pro et perso).

@@ -17,7 +17,7 @@
  *                          [[conduite/index|x]]    -> [[en/conduite/index|x]]
  *                          [[a\|b]] (pipe echappe) -> echappement preserve
  *   - prerequis            slugs suffixes -en
- *   - draft                force a true (insere s'il est absent)
+ *   - draft                force a la valeur de DRAFT_EN (insere s'il est absent)
  *   - aliases              RETIRES (voir plus bas)
  *   - front matter         source_fr + marqueur de source ajoutes
  *
@@ -46,6 +46,14 @@
  *       - et les wikilinks NON SUFFIXES, qui pointent vers la fiche francaise
  *         sans qu'aucun compteur ne s'en apercoive (defaut du 23/08)
  *   node tools/creer-fiche-en.mjs --recaler <fiche>  (reconsigne le marqueur SANS toucher la traduction)
+ *   node tools/creer-fiche-en.mjs --style [fiche...]  (typographie EN + ponctuation C109 ; tout content/en/ si aucune cible)
+ *       - espace francaise devant ; : ! ? %, virgule decimale : VERDICT mecanique
+ *       - tiret d'incise et point-virgule de prose : CANDIDATS a lire, le
+ *         critere du verbe conjugue (amendement C109 du 23/08) ne se decide
+ *         qu'a la lecture
+ *       - C109 comparees FR / EN : une occurrence CREEE par la traduction
+ *         n'a jamais ete arbitree en francais
+ *   node tools/creer-fiche-en.mjs --libelles         (libelle de wikilink ne recoupant pas le title: de sa cible)
  *
  * Exit 1 si un compteur diverge, si la cible existe deja sans --force,
  * ou si la source est introuvable.
@@ -96,7 +104,10 @@ const FORCE = args.includes('--force');
 const RECETTE = args.includes('--recette');
 const CONTROLE = args.includes('--controle');
 const RECALER = args.includes('--recaler');
+const STYLE = args.includes('--style');
+const LIBELLES = args.includes('--libelles');
 const cible = args.find((a) => !a.startsWith('--'));
+const cibles = args.filter((a) => !a.startsWith('--'));
 
 /* ---------- utilitaires ---------- */
 
@@ -631,10 +642,336 @@ function recaler(rel) {
   console.log('  ' + ancien.slice(0, 12) + ' -> ' + nouveau.slice(0, 12));
 }
 
+/* ---------- masquage du code : blocs clotures et code inline ---------- */
+
+// Remplace le code par une sentinelle de MEME LONGUEUR, en preservant les
+// sauts de ligne. Les numeros de ligne et les colonnes restent donc exacts,
+// et le controle de style ne voit que de la prose.
+//
+// La sentinelle n'est PAS une espace : masquer avec des espaces faisait lire
+// `return`: comme une espace francaise devant deux-points, soit deux faux
+// positifs sur six au premier lancement.
+function masquerCode(corps) {
+  const motif = /(^```[\s\S]*?^```[^\n]*$)|(`[^`\n]*`)/gm;
+  return corps.replace(motif, (m) => m.replace(/[^\n]/g, '\u0001'));
+}
+
+/* ---------- exemption de glose de liste ---------- */
+
+// Une puce ou un item numerote porte legitimement UN tiret de glose et UN
+// point-virgule de fin d'item (C109, exemption des listes du 22/08 suite).
+//
+// Le motif precedent exigeait que la tete de la puce soit un wikilink ou un
+// gras INITIAL. Angle mort symetrique mesure le 23/08 (suite 3) : une puce
+// dont le gras n'est pas initial n'etait pas reconnue comme glose, d'ou un
+// faux positif signale sur integration-et-tests, et le meme defaut peut
+// masquer un tiret illicite ailleurs. Correctif : la tete n'a plus a etre
+// d'une forme particuliere. C'est la POSITION qui decide - le premier tiret
+// de la ligne est la glose, tous les suivants sont de la prose.
+//
+// Renvoie, pour une ligne donnee, les index de caracteres exemptes.
+function exemptions(ligne) {
+  const ex = new Set();
+  // Un blockquote se juge sur son contenu : on note le decalage du prefixe.
+  const mCite = ligne.match(/^(\s*(?:>\s?)+)/);
+  const prefixe = mCite ? mCite[1].length : 0;
+  const nu = ligne.slice(prefixe);
+
+  // Titre de section ou titre de callout : hors perimetre C109.
+  if (/^#{1,6}\s/.test(nu) || /^\[!\w+\]/.test(nu)) return { ex, hors: 'titre' };
+
+  // Ligne de tableau : le tiret de cellule est une glose de tableau.
+  if (/^\|/.test(nu)) return { ex, hors: 'tableau' };
+
+  const mPuce = nu.match(/^(\s*(?:[-*+]|\d+[.)])\s+)/);
+  if (!mPuce) return { ex, hors: null };
+
+  // Premier tiret de la ligne = separateur de glose, exempte.
+  const iTiret = nu.search(/[\u2014\u2013]/);
+  if (iTiret >= 0) ex.add(prefixe + iTiret);
+
+  // Point-virgule de FIN d'item = ponctuation mecanique de liste, exemptee.
+  const mPv = nu.match(/;\s*$/);
+  if (mPv) ex.add(prefixe + mPv.index);
+
+  return { ex, hors: null };
+}
+
+/* ---------- controle de style d'une fiche ---------- */
+
+// Deux familles rendent un verdict mecanique (typographie francaise dans un
+// jet EN), deux rendent des candidats a lire (virgule ambigue, C109 de prose,
+// ou le critere du verbe conjugue ne se decide qu'a la lecture).
+function styleFiche(rel, texte) {
+  const fm = frontMatter(texte);
+  const corps = fm ? fm.corps : texte;
+  const decalage = fm ? fm.entier.split('\n').length - 1 : 0;
+  const masque = masquerCode(corps);
+  const lignes = masque.split('\n');
+  const brutes = corps.split('\n');
+  const estEn = rel.startsWith('en/');
+
+  const trouve = [];
+  const pousser = (n, col, cat, detail) => {
+    const l = brutes[n];
+    const d = Math.max(0, col - 32);
+    trouve.push({
+      ligne: n + 1 + decalage,
+      cat,
+      detail,
+      extrait: (d ? '\u2026' : '') + l.slice(d, col + 34).trim() + (col + 34 < l.length ? '\u2026' : ''),
+    });
+  };
+
+  // L'encart C111 des deux accueils est du FRANCAIS delibere dans une fiche
+  // EN : sa typographie francaise y est correcte et ne doit pas etre
+  // signalee. Seul bloc du corpus dans ce cas, borne au callout qui le porte.
+  let citeFr = false;
+
+  lignes.forEach((ligne, n) => {
+    const estCite = /^\s*>/.test(ligne);
+    if (estCite && /\[!\w+\][^\n]*Version fran/.test(ligne)) citeFr = true;
+    else if (!estCite) citeFr = false;
+    if (citeFr) return;
+
+    const { ex, hors } = exemptions(ligne);
+
+    // Le texte alternatif d'un embed decrit une image : ce n'est pas de la
+    // prose de fiche et il sort du perimetre C109, comme les 8 alt classes au
+    // residu du lot 2a le 23/08. Sa typographie, elle, reste controlee : les
+    // separateurs decimaux y basculent aussi (paragraphe 5.3 des regles).
+    const zonesAlt = [];
+    for (const a of ligne.matchAll(/!\[[^\]]*\]/g)) zonesAlt.push([a.index, a.index + a[0].length]);
+    const dansAlt = (i) => zonesAlt.some(([d, f]) => i >= d && i < f);
+
+    if (estEn) {
+      // 1. Espace francaise devant une ponctuation haute, ou devant %.
+      for (const m of ligne.matchAll(/[ \u00A0\u202F\u2009]([;:!?%\u00BB])/g)) {
+        if (m[1] === '!' && ligne[m.index + 2] === '[') continue; // ![alt](...)
+        const nom = m[1] === '%' ? 'pourcent espace' : 'espace avant \u00ab ' + m[1] + ' \u00bb';
+        pousser(n, m.index, 'typographie', nom);
+      }
+      // 2. Virgule decimale.
+      for (const m of ligne.matchAll(/\d,\d/g)) {
+        // 1,000 est un separateur de milliers licite en anglais, 4,7 une
+        // virgule decimale francaise. Le motif ne les distingue pas : le
+        // premier sort du verdict mecanique et part en candidat a lire.
+        if (/^\d,\d{3}(\D|$)/.test(ligne.slice(m.index))) {
+          pousser(n, m.index, 'candidat', 'virgule : decimale francaise ou milliers anglais ?');
+        } else {
+          pousser(n, m.index, 'typographie', 'virgule decimale');
+        }
+      }
+    }
+
+    // 3. C109 : tirets d'incise et points-virgules de prose.
+    for (const m of ligne.matchAll(/[\u2014\u2013]/g)) {
+      if (ex.has(m.index)) continue;
+      if (dansAlt(m.index)) { pousser(n, m.index, 'hors-perimetre', 'tiret en alt d image'); continue; }
+      if (hors) { pousser(n, m.index, 'hors-perimetre', 'tiret en ' + hors); continue; }
+      pousser(n, m.index, 'C109', 'tiret d incise');
+    }
+    for (const m of ligne.matchAll(/;/g)) {
+      if (ex.has(m.index)) continue;
+      if (dansAlt(m.index)) { pousser(n, m.index, 'hors-perimetre', 'point-virgule en alt d image'); continue; }
+      if (hors) { pousser(n, m.index, 'hors-perimetre', 'point-virgule en ' + hors); continue; }
+      pousser(n, m.index, 'C109', 'point-virgule de prose');
+    }
+  });
+
+  return trouve;
+}
+
+function style(cibles) {
+  let typo = 0;
+  let cand = 0;
+  let creees = 0;
+  let c109 = 0;
+  let hors = 0;
+  let fichesTouchees = 0;
+
+  console.log('=== CONTROLE DE STYLE ===');
+  for (const rel of cibles) {
+    const abs = join(CONTENT, rel.split('/').join(sep));
+    if (!existsSync(abs)) {
+      console.error('Introuvable : content/' + rel);
+      process.exit(1);
+    }
+    const texte = readFileSync(abs, 'utf8');
+    const t = styleFiche(rel, texte);
+    const dur = t.filter((x) => x.cat !== 'hors-perimetre');
+
+    // Une occurrence C109 reportee du francais a deja ete arbitree ; une
+    // occurrence CREEE par la traduction ne l'a jamais ete. C'est le mode
+    // d'erreur neuf du 23/08 (suite 3), deux points-virgules apparus dans
+    // dossier-technique-en la ou le francais portait des virgules. Le seul
+    // controle qui le voie est la comparaison des deux jets.
+    const fmS = frontMatter(texte);
+    const mS = fmS && fmS.bloc.match(/^source_fr:\s*(.+?)\s*$/m);
+    if (mS) {
+      const absFr = join(CONTENT, mS[1].split('/').join(sep));
+      if (existsSync(absFr)) {
+        const nFr = styleFiche(mS[1], readFileSync(absFr, 'utf8')).filter((x) => x.cat === 'C109').length;
+        const nEn = t.filter((x) => x.cat === 'C109').length;
+        if (nEn > nFr) {
+          creees += nEn - nFr;
+          console.log('\n  ' + rel + '   C109 : FR ' + nFr + ' / EN ' + nEn + '   ' + (nEn - nFr) + ' CREEE(S) PAR LA TRADUCTION');
+        }
+      }
+    }
+
+    typo += t.filter((x) => x.cat === 'typographie').length;
+    cand += t.filter((x) => x.cat === 'candidat').length;
+    c109 += t.filter((x) => x.cat === 'C109').length;
+    hors += t.filter((x) => x.cat === 'hors-perimetre').length;
+    if (!dur.length) continue;
+    fichesTouchees += 1;
+    console.log('\n  ' + rel);
+    for (const x of dur) {
+      console.log('    ' + String(x.ligne).padStart(4) + '  [' + x.cat + '] ' + x.detail);
+      console.log('          ' + x.extrait);
+    }
+  }
+
+  console.log('');
+  console.log(cibles.length + ' fiche(s) lue(s), ' + fichesTouchees + ' a reprendre.');
+  console.log('  typographie francaise : ' + typo + '   (verdict mecanique)');
+  console.log('  virgule ambigue       : ' + cand + '   (candidat a lire)');
+  console.log('  C109 creees en EN     : ' + creees + '   (jamais arbitrees en francais)');
+  console.log('  C109 de prose         : ' + c109 + '   (candidats a lire : le verbe conjugue decide)');
+  console.log('  hors perimetre        : ' + hors + '   (titres, tableaux et alt, non comptes)');
+  process.exit(typo || creees ? 1 : 0);
+}
+
+/* ---------- heuristique de libelle : le lien pointe juste, affiche-t-il juste ? ---------- */
+
+// Les trois compteurs valident la structure, jamais la designation (23/08
+// suite). [[soudure-en|Welding]] pointait sur une fiche intitulee Soldering :
+// lien present, bien forme, cible existante, compteurs verts, libelle faux.
+//
+// Heuristique : un libelle qui ne partage AUCUN mot significatif avec le
+// title: de sa cible est un candidat. Bruyante par construction - une
+// reformulation legitime la declenche - donc elle rend une liste a lire et
+// pas un verdict.
+const VIDES = new Set(
+  ('the a an of on in and or for to with without from into at by as is are it its this that'
+   + ' le la les un une des du de et ou pour dans sur avec sans a au aux se son sa ses ce'
+   + ' cette qui que quoi est sont').split(' ')
+);
+
+function normaliser(s) {
+  return s
+    .replace(/\u00B2/g, '2') // I\u00b2C et I2C sont le meme sigle
+    .replace(/\u00B3/g, '3')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function motsUtiles(s) {
+  return new Set(normaliser(s).split(' ').filter((w) => w && !VIDES.has(w)));
+}
+
+// Deux mots de meme radical se recoupent : machined et machining, soldering
+// et solder. Comparer les formes exactes ferait remonter toute la morphologie
+// anglaise en faux positifs - cinq des douze du premier lancement.
+function memeRadical(a, b) {
+  if (a === b) return true;
+  if (Math.min(a.length, b.length) < 5) return false;
+  return a.slice(0, 5) === b.slice(0, 5);
+}
+
+// Un sigle est un libelle legitime de sa forme developpee : PoC pour Proof of
+// concept, ADC pour analog-to-digital converter.
+function estSigleDe(court, long) {
+  const lettres = normaliser(court).replace(/ /g, '');
+  if (!lettres || lettres.length > 6) return false;
+  const initiales = normaliser(long).split(' ').filter(Boolean).map((w) => w[0]).join('');
+  if (initiales.startsWith(lettres) || lettres.startsWith(initiales)) return true;
+  const ini2 = [...motsUtiles(long)].map((w) => w[0]).sort().join('');
+  return ini2 === [...lettres].sort().join('');
+}
+
+function libelles() {
+  // Index des titres EN, par chemin complet et par slug court.
+  const titreEnParChemin = new Map();
+  const titreEnParSlug = new Map();
+  const fichesEn = walk(join(CONTENT, 'en')).map(versWeb);
+  for (const rel of fichesEn) {
+    const sansExt = rel.replace(/\.md$/, '');
+    const titre = lireTitre(readFileSync(join(CONTENT, rel.split('/').join(sep)), 'utf8'));
+    if (!titre) continue;
+    titreEnParChemin.set(sansExt, titre);
+    const court = basename(sansExt);
+    if (!titreEnParSlug.has(court)) titreEnParSlug.set(court, titre);
+  }
+
+  let examines = 0;
+  let jugeables = 0;
+  let candidats = 0;
+  let sansCible = 0;
+  const sorties = [];
+
+  for (const rel of fichesEn.sort()) {
+    const texte = readFileSync(join(CONTENT, rel.split('/').join(sep)), 'utf8');
+    const corps = (frontMatter(texte) || { corps: texte }).corps;
+    const horsCode = segmenter(corps)
+      .filter((s) => !s.code)
+      .map((s) => s.texte)
+      .join('');
+
+    for (const m of horsCode.matchAll(/(?<!!)\[\[([^\]]+)\]\]/g)) {
+      const mPipe = m[1].match(/^(.*?)(?:\\\||\|)([\s\S]*)$/);
+      if (!mPipe) continue; // lien sans libelle : rien a juger
+      const cibleLien = mPipe[1].split('#')[0].replace(/\\+$/, '').trim();
+      const libelle = mPipe[2].trim();
+      if (!cibleLien || !libelle) continue;
+      examines += 1;
+
+      const titre =
+        titreEnParChemin.get(cibleLien) || titreEnParSlug.get(basename(cibleLien));
+      if (!titre) {
+        sansCible += 1;
+        continue;
+      }
+      jugeables += 1;
+
+      const a = motsUtiles(libelle);
+      const b = motsUtiles(titre);
+      if (!a.size || !b.size) continue;
+      let commun = false;
+      for (const w of a) for (const v of b) if (memeRadical(w, v)) commun = true;
+      if (commun) continue;
+      if (estSigleDe(libelle, titre) || estSigleDe(titre, libelle)) continue;
+      candidats += 1;
+      sorties.push('  ' + rel + '\n      [[' + cibleLien + '|' + libelle + ']]   cible intitulee : ' + titre);
+    }
+  }
+
+  console.log('=== HEURISTIQUE DE LIBELLES ===');
+  for (const l of sorties) console.log(l);
+  console.log('');
+  console.log('  wikilinks a libelle   : ' + examines);
+  console.log('  cible EN existante    : ' + jugeables + '   (le reste vise une fiche non encore traduite)');
+  console.log('  cible EN absente      : ' + sansCible);
+  console.log('  candidats a lire      : ' + candidats);
+  process.exit(0);
+}
+
 /* ---------- point d'entree ---------- */
 
 if (RECETTE) {
   recette();
+} else if (STYLE) {
+  style(
+    cibles.length
+      ? cibles.map((c) => c.replace(/^content\//, '').split(sep).join('/'))
+      : walk(join(CONTENT, 'en')).map(versWeb).sort()
+  );
+} else if (LIBELLES) {
+  libelles();
 } else if (CONTROLE) {
   controle();
 } else if (RECALER) {
@@ -648,6 +985,8 @@ if (RECETTE) {
   console.error('        node tools/creer-fiche-en.mjs --recette');
   console.error('        node tools/creer-fiche-en.mjs --controle');
   console.error('        node tools/creer-fiche-en.mjs --recaler <fiche EN>');
+  console.error('        node tools/creer-fiche-en.mjs --style [fiche...]');
+  console.error('        node tools/creer-fiche-en.mjs --libelles');
   process.exit(1);
 } else {
   traiter(cible.replace(/^content\//, '').split(sep).join('/'));

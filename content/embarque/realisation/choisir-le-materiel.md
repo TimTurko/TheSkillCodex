@@ -15,7 +15,7 @@ draft: false
 
 ## Posture attendue
 
-La tentation est de choisir la carte d'abord, par habitude ou par réputation (« on prendra un ESP32 »), puis de plier les besoins autour d'elle. Fais l'inverse : pars des fonctions, déduis ce qu'il faut mesurer et actionner, et choisis le matériel qui répond — pas celui que tu connais le mieux. Et ne choisis jamais un composant sur sa fiche commerciale : c'est la **datasheet** qui dit s'il est compatible. Un choix matériel se justifie par une **matrice**, pas par une intuition — c'est ce qui le rend défendable en revue.
+La tentation est de choisir la carte d'abord, par habitude ou par réputation (« on prendra un ESP32 »), puis de plier les besoins autour d'elle. Fais l'inverse : pars des fonctions, déduis ce qu'il faut mesurer et actionner, et choisis le matériel qui répond — pas celui que tu connais le mieux. Et ne choisis jamais un composant sur sa fiche commerciale : c'est la **datasheet** qui dit s'il est compatible. Un choix matériel se justifie par une **matrice**, pas par une intuition — c'est ce qui te permet de le défendre en revue.
 
 ## Objectif de l'étape
 

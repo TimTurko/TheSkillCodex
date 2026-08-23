@@ -21,7 +21,7 @@ L'**ACV simplifiée** (analyse de cycle de vie) est une évaluation de l'impact 
 
 En projet mécatronique, l'ACV simplifiée sert à **comparer des options structurantes** sous l'angle environnemental quand l'enjeu dépasse le seul élec/info (choix d'un matériau de structure, d'un procédé de fabrication). Côté [[ecoconception|écoconception]], on s'en sert pour éclairer un arbitrage et le tracer — pas pour produire une étude exhaustive. La distinction est nette : ce qui se chiffre côté électronique et informatique (consommation, durée de vie des composants, masse de cuivre) est porté en propre ; le reste (impact des matières premières, énergie de fabrication, fin de vie matériaux) **se délègue**.
 
-*La méthodologie complète (périmètre, unité fonctionnelle, inventaire, indicateurs, normes ISO 14040 / 14044) relève du **cours d'analyse de cycle de vie et de matériaux** ; le wiki en retient l'usage comme outil d'arbitrage à l'échelle projet et renvoie au cours pour toute ACV opposable.*
+*La méthodologie complète (périmètre, unité fonctionnelle, inventaire, indicateurs, normes ISO 14040 / 14044) relève du **cours d'analyse de cycle de vie et de matériaux** ; le wiki en retient l'usage comme outil d'arbitrage à l'échelle projet et renvoie au cours pour toute ACV menée dans les règles.*
 
 ## Voir aussi
 

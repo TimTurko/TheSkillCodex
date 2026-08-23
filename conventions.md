@@ -1477,6 +1477,41 @@ sans conséquence puisqu'ils restent.* Les 13 emplacements de
 `preuve-de-concept` sont déjà traités et sortis de ce décompte. Les **22
 décoratifs sur 12 fiches** sont inscrits au TODO comme lot unique.
 
+### Amendement à C109 (23/08 suite 3) — dans une énumération en ligne, c'est le verbe conjugué qui décide, pas le signe
+
+*Arbitrage Tim, option (a) : amendement à C109 et non convention nouvelle. La
+numérotation reste à **C112**.*
+
+L'exemption des listes, écrite le 22/08 (suite), ne suffit plus dès qu'une fiche
+empile des énumérations **à l'intérieur de sa prose**. Critère opératoire :
+**un segment à verbe conjugué est de la prose et tombe ; un segment nominal ou
+à l'infinitif est un item de liste et reste.**
+
+**Le critère tranche indépendamment du marqueur typographique, et il tranche
+même quand le marqueur plaide contre lui.** Sur `integration-et-tests`, les
+trois principes de la pyramide de tests portaient un `1/ 2/ 3/` et trois verbes
+conjugués : ils tombent, rendus en trois phrases numérotées. Trois autres
+énumérations numérotées de la même fiche restent, parce qu'elles sont
+nominales ou à l'infinitif. Sur `concept`, le FAST garde ses trois
+points-virgules (infinitifs) quand les trois arbitrages disciplinaires trois
+lignes plus bas deviennent trois phrases (verbes conjugués) — **deux
+traitements opposés à trois lignes d'écart, sans arbitrage humain.**
+
+**Éprouvée 3/N** : 146 occurrences sur `concept`, `dossier-technique` et
+`integration-et-tests`, **119 traitées, 27 exclues, zéro arbitrage remonté**.
+Répartition : 58 / 50 / 8, puis 34 / 27 / 7, puis 54 / 42 / 12.
+
+*Portée.* Vaut pour les 236 fiches du redéploiement C109, et c'est la raison
+d'être du critère : sans lui, soit on hache une énumération nominale en phrases
+illisibles, soit on laisse passer les points-virgules de prose qui sont la
+cible de C109.
+
+⚠ *Limite d'outil, pas de règle.* Le motif qui détecte la glose de liste rate
+les puces dont le libellé de tête contient du gras **non initial**. Le mode
+d'échec est symétrique : faux positif signalé sur `integration-et-tests` (un
+tiret licite remonté à tort), faux négatif possible ailleurs (un tiret illicite
+masqué). Ne se voit qu'en relisant la puce.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

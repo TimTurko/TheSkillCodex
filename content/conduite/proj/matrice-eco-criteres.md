@@ -24,7 +24,7 @@ Trois rôles :
 
 - **Forcer l'arbitrage environnemental.** Une évaluation éco posée *à côté* de la matrice de décision ne change aucun choix — on la regarde, on hoche la tête, on décide sur le coût. Intégrée *dans* la matrice comme un bloc de lignes pondérées, elle pèse mécaniquement sur le classement final.
 - **Rester sur des grandeurs chiffrables.** Les cinq critères portent sur ce que l'expertise élec et info embarquée sait mesurer (consommation, durée de vie, démontabilité, matière). Ce qui dépasse ce périmètre (impact des matières premières, [[acv-simplifiee|ACV]] complète) est cité et délégué aux cours dédiés, pas chiffré à la va-vite.
-- **Tracer l'arbitrage éco.** Le bloc éco-critères, daté et pondéré dans la matrice de décision, devient une trace écrite défendable en revue — pas un argumentaire reconstruit après coup.
+- **Tracer l'arbitrage éco.** Le bloc éco-critères, daté et pondéré dans la matrice de décision, devient une trace écrite qu'on ressort telle quelle en revue — pas un argumentaire reconstruit après coup.
 
 > [!warning] Attention
 > **Matrice éco-critères ≠ [[matrice-de-decision|matrice de décision]].** La matrice de décision est l'outil d'arbitrage **général** : toutes les solutions en colonnes, tous les critères pondérés en lignes (coût, performance, robustesse, environnement…). La matrice éco-critères n'est pas un second tableau concurrent — c'est le **bloc des cinq critères environnementaux** qui vient s'insérer dans la matrice de décision. Une matrice éco-critères qui vit dans son coin ne pèse rien ; les mêmes lignes intégrées à la matrice de décision pèsent exactement autant que les autres.

@@ -24,7 +24,7 @@ aa:
 draft: false
 ---
 
-Le **dossier technique** est la quatrième étape du projet [[mecatronique|mécatronique]] : on transforme l'architecture validée en [[concept|concept]] et confirmée par la [[preuve-de-concept|preuve de concept]] en **plans détaillés exécutables** — schémas électroniques finaux, routage PCB, plans mécaniques cotés, architecture logicielle détaillée, nomenclature complète. C'est aussi l'étape où l'on **engage le projet matériellement** : la BOM finale devient un ensemble de commandes émises. Après cette étape, l'argent est dépensé, les pièces arrivent.
+Le **dossier technique** est la quatrième étape du projet [[mecatronique|mécatronique]] : on transforme l'architecture validée en [[concept|concept]] et confirmée par la [[preuve-de-concept|preuve de concept]] en **plans détaillés exécutables** : schémas électroniques finaux, routage PCB, plans mécaniques cotés, architecture logicielle détaillée, nomenclature complète. C'est aussi l'étape où l'on **engage le projet matériellement** : la BOM finale devient un ensemble de commandes émises. Après cette étape, l'argent est dépensé, les pièces arrivent.
 
 ## Posture attendue
 
@@ -46,7 +46,7 @@ Et concrétise l'engagement matériel du projet : **commandes émises**.
 
 ### 1. Intégrer les retours de la preuve de concept
 
-Le dossier technique commence là où la [[preuve-de-concept|preuve de concept]] s'arrête. La fiche `preuve-de-concept` s'est conclue par une revue qui statue : *validée sans réserve* (rare), *validée sous conditions* (le plus fréquent — reprises locales à intégrer) ou *retour amont structurant* (une preuve a renvoyé l'équipe en [[concept|concept]] pour reprendre une décision d'architecture, qui revient maintenant remaniée dans le dossier technique). Dans les trois cas, le dossier technique **récupère un matériau qui n'est plus exactement celui du concept**.
+Le dossier technique commence là où la [[preuve-de-concept|preuve de concept]] s'arrête. La fiche `preuve-de-concept` s'est conclue par une revue qui statue : *validée sans réserve* (rare), *validée sous conditions* (le plus fréquent, avec des reprises locales à intégrer) ou *retour amont structurant* (une preuve a renvoyé l'équipe en [[concept|concept]] pour reprendre une décision d'architecture, qui revient maintenant remaniée dans le dossier technique). Dans les trois cas, le dossier technique **récupère un matériau qui n'est plus exactement celui du concept**.
 
 L'erreur la plus fréquente à ce stade est de rouvrir directement les outils de plans (CAO, schéma élec, IDE) et de **partir du concept tel qu'il était sorti à la fin de la phase concept**, comme si la preuve de concept n'avait pas eu lieu. Cette étape sert précisément à fermer cette porte : on prend trente minutes en équipe pour faire le tri entre *ce que la preuve a confirmé*, *ce qu'elle a fait basculer* et *ce qu'elle a fait rétroagir vers le concept*. Sans ce tri explicite, les enseignements de la preuve de concept s'évaporent.
 
@@ -65,13 +65,13 @@ Reprendre le rapport de preuve de concept et lister, point par point, ce qui cha
 
 Chaque ajustement de la sous-section précédente a presque toujours un effet sur **plus d'une discipline**. Un composant recalé en méca change la masse en bout, donc le couple à fournir par l'élec, donc la commande à programmer par l'info. Un protocole de mesure qui a révélé une dérive thermique impose une consigne logicielle de compensation et un dimensionnement électrique avec marge supplémentaire. La discipline qui propage les ajustements n'est pas forcément celle qui les a découverts en PoC.
 
-Pratiquement : pour chaque ajustement, identifier en équipe les disciplines impactées et noter l'effet attendu — *masse +30 %, couple à recalculer*, *lead time fournisseur +2 semaines, planning à recaler*, *bilan [[ecoconception|écoconception]] à reprendre sur nouvelle référence matière*. C'est ce travail de propagation qui ouvre proprement les étapes 2 (plans par discipline) et 3 (BOM + ACV + planning).
+Pratiquement : pour chaque ajustement, identifier en équipe les disciplines impactées et noter l'effet attendu : *masse +30 %, couple à recalculer*, *lead time fournisseur +2 semaines, planning à recaler*, *bilan [[ecoconception|écoconception]] à reprendre sur nouvelle référence matière*. C'est ce travail de propagation qui ouvre proprement les étapes 2 (plans par discipline) et 3 (BOM + ACV + planning).
 
 > [!warning] Attention
 > **Repartir des plans du concept revient à effacer la PoC.** Avant d'ouvrir un seul outil de production (CAO, schéma élec, IDE), figer en équipe la liste des ajustements à propager. Cinq lignes écrites évitent dix heures de retours arrière.
 
 > [!example] Exemple : projet bras 3 axes
-> La preuve de concept sur les articulations imprimées en PLA 60 % a montré que le jeu angulaire dépassait le critère de 0,5° dès ~500 cycles (matage du logement), bien avant les 1000 cycles visés — l'équipe a tranché en *retour amont structurant* (basculer vers articulations usinées en aluminium 6061). Le compromis offset court côté méca + lookup table côté info, lui, vient de l'arbitrage d'architecture initial du concept (conflit cinématique ↔ articulations) et reste en place. Trois familles d'ajustements à propager au dossier technique en sortie :
+> La preuve de concept sur les articulations imprimées en PLA 60 % a montré que le jeu angulaire dépassait le critère de 0,5° dès ~500 cycles (matage du logement), bien avant les 1000 cycles visés. L'équipe a tranché en *retour amont structurant* (basculer vers articulations usinées en aluminium 6061). Le compromis offset court côté méca + lookup table côté info, lui, vient de l'arbitrage d'architecture initial du concept (conflit cinématique ↔ articulations) et reste en place. Trois familles d'ajustements à propager au dossier technique en sortie :
 >
 > - **Composants confirmés** : steppers + drivers + [[microcontroleur|microcontrôleur]] + alim 12 V (matrice élec de l'étape 2 concept inchangée).
 > - **Composants recalés** : articulations imprimées [[pla|PLA]] → articulations [[usinage|usinées]] alu 6061. À tracer dans la BOM (ligne *filament PLA* supprimée, ligne *barre alu Ø20 mm + usinage sous-traité* ajoutée) et dans l'ACV (acier/cuivre des steppers déjà identifiés comme empreinte dominante en concept ; à confirmer ou réviser avec la nouvelle ligne alu).
@@ -84,7 +84,7 @@ Pratiquement : pour chaque ajustement, identifier en équipe les disciplines imp
 
 ### 2. Détailler les plans par discipline
 
-À l'entrée de cette étape, la synthèse des ajustements est figée et propagée aux trois disciplines. Le travail bascule alors **en parallèle** : chaque membre de l'équipe revient sur sa branche pour transformer le pré-dimensionnement du [[concept|concept]] (calculs d'ordre de grandeur, blocs et schémas de principe) en **plans exécutables** — schémas câblés, plans cotés, architecture logicielle détaillée. Le niveau de précision attendu est qualitativement différent de l'étape 2 du concept : ce qui s'écrivait alors en notations qualitatives (« stepper + driver », « articulation usinée », « commande synchrone ») doit ici se chiffrer, se coter, se spécifier au niveau du composant et de l'interface.
+À l'entrée de cette étape, la synthèse des ajustements est figée et propagée aux trois disciplines. Le travail bascule alors **en parallèle** : chaque membre de l'équipe revient sur sa branche pour transformer le pré-dimensionnement du [[concept|concept]] (calculs d'ordre de grandeur, blocs et schémas de principe) en **plans exécutables** : schémas câblés, plans cotés, architecture logicielle détaillée. Le niveau de précision attendu est qualitativement différent de l'étape 2 du concept : ce qui s'écrivait alors en notations qualitatives (« stepper + driver », « articulation usinée », « commande synchrone ») doit ici se chiffrer, se coter, se spécifier au niveau du composant et de l'interface.
 
 Le retour à la **grille disciplinaire** marque la différence avec la [[preuve-de-concept|preuve de concept]] (organisée *par incertitude*) : ici, on est sur du travail de fond par discipline. Pour autant, la fin de l'étape n'est pas la somme de trois dossiers indépendants : avant d'aller chercher les validateurs externes (étape 4), l'équipe procède à une **revue interne de cohérence inter-disciplines** qui peut révéler des conflits que les pré-dim du concept n'avaient pas vus.
 
@@ -109,15 +109,15 @@ Une fois les trois sorties disciplinaires posées, l'équipe se retrouve pour un
 2. **Interfaces électriques** — tensions et courants compatibles entre alim, drivers, [[microcontroleur|microcontrôleur]], capteurs ; connectique (calibre, type, polarité) ; protection contre courants de retour ou pics de commutation.
 3. **Interfaces logicielles** — timings respectés (échantillonnage capteurs, fréquence commande moteurs), protocoles de communication entre composants (série, I²C, SPI), format des données et unités cohérentes (degré vs radian, ms vs µs).
 
-Si la revue révèle un conflit qu'aucune renégociation locale ne résout (ex. : tension d'alim incompatible avec une exigence du [[cahier-des-charges-fonctionnel|CdCF]]), l'équipe rétrograde vers le [[concept|concept]] pour reprendre une [[matrice-de-decision|matrice de décision]]. Ce cas reste rare à ce stade, mais il existe — d'où la valeur de cette revue interne avant la multi-validation.
+Si la revue révèle un conflit qu'aucune renégociation locale ne résout (ex. : tension d'alim incompatible avec une exigence du [[cahier-des-charges-fonctionnel|CdCF]]), l'équipe rétrograde vers le [[concept|concept]] pour reprendre une [[matrice-de-decision|matrice de décision]]. Ce cas reste rare à ce stade, mais il existe. D'où la valeur de cette revue interne avant la multi-validation.
 
 > [!warning] Attention
-> **Une spécification d'interface n'est pas une spécification interne.** Les interfaces sont les seules choses qu'on doit pouvoir lire à plusieurs : tensions, signaux, perçages, protocoles, formats. La spécification interne de chaque discipline reste son affaire — c'est l'interface qui se documente pour les autres.
+> **Une spécification d'interface n'est pas une spécification interne.** Les interfaces sont les seules choses qu'on doit pouvoir lire à plusieurs : tensions, signaux, perçages, protocoles, formats. La spécification interne de chaque discipline reste son affaire. C'est l'interface qui se documente pour les autres.
 
 > [!example] Exemple : projet bras 3 axes
 > Élec : schéma de câblage finalisé (3 drivers + [[microcontroleur|microcontrôleur]] + alim 12 V régulée), nomenclature avec références ; [[pcb|PCB]] routé pour le module de commande (carte 5×7 cm, monoface, gravée en interne école sur machine de gravure mécanique / fraisage). Méca : plans cotés des 3 segments + des 3 articulations [[usinage|usinées]] alu 6061 (tolérances ISO 2768 m, finitions usinage spécifiées), nomenclature visserie M3 et M5. Info : architecture logicielle en 4 modules (cinématique inverse / commande synchrone des 3 axes / lookup table compensation offset / IHM série), spécification du protocole série PC↔microcontrôleur (format de trame, fréquence, gestion d'erreurs).
 >
-> Revue interne de cohérence inter-disciplines tenue en équipe avant rendez-vous validateurs : 2 conflits remontés et arbitrés sans rétroaction concept — (1) hauteur PCB sous le 2ᵉ segment méca incompatible avec connecteur droit, résolu par bascule sur connecteur coudé ; (2) protocole série à 9600 bauds initialement, jugé insuffisant pour la fréquence d'asservissement, porté à 115 200 bauds après vérification compatibilité microcontrôleur.
+> Revue interne de cohérence inter-disciplines tenue en équipe avant rendez-vous validateurs : 2 conflits remontés et arbitrés sans rétroaction concept : (1) hauteur PCB sous le 2ᵉ segment méca incompatible avec connecteur droit, résolu par bascule sur connecteur coudé ; (2) protocole série à 9600 bauds initialement, jugé insuffisant pour la fréquence d'asservissement, porté à 115 200 bauds après vérification compatibilité microcontrôleur.
 >
 > Revue tracée dans une page dédiée du dossier (date, participants, conflits identifiés, arbitrages). Cette page sera redemandée par les validateurs externes en étape 4.
 
@@ -133,7 +133,7 @@ Spécificité du projet école : la **BOM se construit sur un catalogue de fourn
 
 #### Consolider la BOM finale chiffrée
 
-Agréger les trois nomenclatures disciplinaires (élec, méca, info — bien que l'info ne consomme généralement pas de matériel propre au-delà du PC de développement) en une seule [[bom|BOM]], ligne par ligne : *désignation, référence catalogue partenaire, quantité, prix unitaire HT, prix total HT, lead time annoncé*. Le chiffrage est attendu **au centime près** : c'est ce niveau de précision qui rend le total opposable à l'enveloppe budget en H4-3. Toute ligne hors catalogue est marquée explicitement (drapeau *hors catalogue, achat à négocier*) avec son surcoût estimé.
+Agréger les trois nomenclatures disciplinaires (élec, méca, info, bien que l'info ne consomme généralement pas de matériel propre au-delà du PC de développement) en une seule [[bom|BOM]], ligne par ligne : *désignation, référence catalogue partenaire, quantité, prix unitaire HT, prix total HT, lead time annoncé*. Le chiffrage est attendu **au centime près** : c'est ce niveau de précision qui rend le total comparable à l'enveloppe budget lors de la consolidation budgétaire ci-dessous. Toute ligne hors catalogue est marquée explicitement (drapeau *hors catalogue, achat à négocier*) avec son surcoût estimé.
 
 > [!tip] Astuce
 > **Démarrer la BOM par les composants confirmés en étape 1.** Ces lignes sont stables et chiffrent vite. Garder les composants recalés pour la fin : ils peuvent demander un aller-retour avec le partenaire (disponibilité, lead time) ou impliquer une sous-traitance à chiffrer séparément.
@@ -142,7 +142,7 @@ Agréger les trois nomenclatures disciplinaires (élec, méca, info — bien que
 
 L'étape 3 est le **premier moment où l'[[ecoconception|écoconception]] devient quantitative**. En concept, les choix se sont faits sur des estimations qualitatives (« les composants élec dominent l'empreinte » plutôt que « 73 % de l'empreinte vient des steppers »). Avec la BOM réelle, on peut produire une [[acv-simplifiee|ACV simplifiée]] : empreinte par poste (élec / méca / fabrication / consommables), identification du ou des contributeurs dominants, comparaison à l'estimation qualitative du concept.
 
-L'ACV de cette étape n'a pas vocation à être normée (pas d'ISO 14040) — elle reste *simplifiée*, basée sur des facteurs d'émission documentés (bases de données type Base IMPACTS®, GHG Protocol, ou estimations encadrées). Sa valeur opératoire : objectiver les décisions d'écoconception et alimenter la conclusion qui sera lue par les validateurs en étape 4.
+L'ACV de cette étape n'a pas vocation à être normée (pas d'ISO 14040). Elle reste *simplifiée*, basée sur des facteurs d'émission documentés (bases de données type Base IMPACTS®, GHG Protocol, ou estimations encadrées). Sa valeur opératoire : objectiver les décisions d'écoconception et alimenter la conclusion qui sera lue par les validateurs en étape 4.
 
 #### Consolider le planning d'approvisionnement et le budget
 
@@ -173,7 +173,7 @@ En parallèle, le **budget consolidé** est comparé à l'enveloppe initiale du 
 >
 > ACV simplifiée : la nouvelle ligne *barre alu + usinage sous-traité* contribue à hauteur de ~28 % de l'empreinte totale (vs ~3 % pour l'ancienne ligne PLA imprimée), portée par l'aluminium primaire et l'énergie d'[[usinage|usinage]]. Les steppers restent toutefois le contributeur dominant (~52 %, acier + cuivre + électronique). Constat à reporter dans la conclusion d'écoconception : le retour amont structurant *[[pla|PLA]] → alu usiné* a un coût environnemental réel, partiellement compensable si l'alu est issu de recyclé (à creuser au partenaire matière).
 >
-> Rétroplanning d'appro : usinage sous-traité = 15 j de lead time → date butoir d'émission de commande fixée 3 semaines avant le début de l'[[integration-et-tests|intégration et tests]]. Budget consolidé 213,20 € HT, sous l'enveloppe initiale de 250 € — passage en étape 4 sans alerte.
+> Rétroplanning d'appro : usinage sous-traité = 15 j de lead time → date butoir d'émission de commande fixée 3 semaines avant le début de l'[[integration-et-tests|intégration et tests]]. Budget consolidé 213,20 € HT, sous l'enveloppe initiale de 250 €. Passage en étape 4 sans alerte.
 >
 > Synthèse posée en pages 2-4 du dossier technique (BOM + ACV + planning), prête pour la multi-validation de l'étape 4.
 
@@ -184,9 +184,9 @@ En parallèle, le **budget consolidé** est comparé à l'enveloppe initiale du 
 
 ### 4. Rédiger et faire valider le dossier agrégé
 
-Avec la BOM chiffrée, l'ACV quantifiée et le planning consolidé, les trois livrables structurants sont posés. Reste à les **assembler en un dossier unique cohérent** et à le faire valider — étape pivot de la phase, car c'est elle qui autorise les commandes (étape 5). La validation n'est pas unique : trois interlocuteurs distincts valident chacun leur périmètre, puis l'encadrant valide l'ensemble en revue globale.
+Avec la BOM chiffrée, l'ACV quantifiée et le planning consolidé, les trois livrables structurants sont posés. Reste à les **assembler en un dossier unique cohérent** et à le faire valider. C'est l'étape pivot de la phase, car c'est elle qui autorise les commandes (étape 5). La validation n'est pas unique : trois interlocuteurs distincts valident chacun leur périmètre, puis l'encadrant valide l'ensemble en revue globale.
 
-Cette **multi-validation à 3 + 1** est l'enseignement central de la phase. Elle reproduit en miniature le fonctionnement d'un projet industriel : un chef de projet ne valide pas seul un dossier qui engage l'élec, la méca, les achats et le planning — il s'appuie sur des validateurs disciplinaires distincts dont la responsabilité technique est segmentée. À l'école, cette segmentation est portée par trois figures : le prof élec (qui porte aussi l'info), le prof méca (qui porte aussi la fabrication) et le responsable projet (qui porte aussi le budget). Apprendre à coordonner cette pluralité est en soi un objectif pédagogique de la phase.
+Cette **multi-validation à 3 + 1** est l'enseignement central de la phase. Elle reproduit en miniature le fonctionnement d'un projet industriel : un chef de projet ne valide pas seul un dossier qui engage l'élec, la méca, les achats et le planning. Il s'appuie sur des validateurs disciplinaires distincts dont la responsabilité technique est segmentée. À l'école, cette segmentation est portée par trois figures : le prof élec (qui porte aussi l'info), le prof méca (qui porte aussi la fabrication) et le responsable projet (qui porte aussi le budget). Apprendre à coordonner cette pluralité est en soi un objectif pédagogique de la phase.
 
 #### Préparer la multi-validation
 
@@ -194,7 +194,7 @@ Avant chacun des trois rendez-vous, l'équipe **prépare un sous-dossier ciblé*
 
 Trois choses à figer avant la prise de rendez-vous :
 
-- **Le périmètre exact validé par chaque interlocuteur** — pas d'ambiguïté sur « qui valide quoi ». Un point validé deux fois est inutile ; un point non validé bloque le projet.
+- **Le périmètre exact validé par chaque interlocuteur** — pas d'ambiguïté sur « qui valide quoi ». Un point validé deux fois est inutile. Un point non validé bloque le projet.
 - **La liste des questions ouvertes** que l'équipe veut soulever à ce validateur (hypothèses de pré-dim non encore vérifiées, choix matériau à débattre, écart à l'estimation concept à expliquer).
 - **Le format du retour attendu** — validation directe, validation sous conditions (liste d'ajustements à intégrer), ou refus (avec motif et chemin de reprise).
 
@@ -202,11 +202,11 @@ Trois choses à figer avant la prise de rendez-vous :
 
 Les trois rendez-vous se tiennent **séparément**, sur 1-2 semaines selon les disponibilités. Ordre logique : commencer par le validateur dont les retours peuvent **rétroagir sur les autres dossiers** (typiquement le prof élec quand l'élec est structurante, ou le prof méca quand le procédé impacte les délais), garder le responsable projet en dernier (il consolide budget + planning, qui dépendent des ajustements précédents).
 
-Pendant chaque rendez-vous, l'équipe **prend des notes structurées** : qu'est-ce qui est validé d'emblée, qu'est-ce qui nécessite un ajustement, qu'est-ce qui n'est pas validé. À la sortie, soit le sous-dossier est validé, soit la liste d'ajustements est intégrée et le sous-dossier représenté en un second rendez-vous court. Le cas « refus avec retour amont » est rare à ce stade (une PoC bien menée et une revue interne consciencieuse l'évitent), mais existe — il s'agit alors de remonter en étape 3 (ajustement BOM/planning) voire en [[concept|concept]] (matrice à revoir).
+Pendant chaque rendez-vous, l'équipe **prend des notes structurées** : qu'est-ce qui est validé d'emblée, qu'est-ce qui nécessite un ajustement, qu'est-ce qui n'est pas validé. À la sortie, soit le sous-dossier est validé, soit la liste d'ajustements est intégrée et le sous-dossier représenté en un second rendez-vous court. Le cas « refus avec retour amont » est rare à ce stade (une PoC bien menée et une revue interne consciencieuse l'évitent), mais existe. Il s'agit alors de remonter en étape 3 (ajustement BOM/planning) voire en [[concept|concept]] (matrice à revoir).
 
 #### Faire valider l'ensemble en revue globale
 
-Une fois les trois validations disciplinaires obtenues, l'équipe organise une **revue globale avec l'encadrant**. Cette revue ne refait pas les validations techniques — elles sont actées. Elle vérifie trois choses : (1) la **cohérence inter-parties** du dossier agrégé (les retours des trois validateurs ne se contredisent pas ; les ajustements intégrés à l'un n'ont pas cassé un autre), (2) la **qualité d'argumentation** (un dossier technique ne se contente pas de poser des plans, il les motive — choix matériau, choix protocole, hiérarchie ACV), (3) la **lisibilité par un tiers** (un ingénieur extérieur au projet pourrait-il reprendre le dossier ?).
+Une fois les trois validations disciplinaires obtenues, l'équipe organise une **revue globale avec l'encadrant**. Cette revue ne refait pas les validations techniques. Elles sont actées. Elle vérifie trois choses : (1) la **cohérence inter-parties** du dossier agrégé (les retours des trois validateurs ne se contredisent pas, et les ajustements intégrés à l'un n'ont pas cassé un autre), (2) la **qualité d'argumentation** (un dossier technique ne se contente pas de poser des plans, il les motive : choix matériau, choix protocole, hiérarchie ACV), (3) la **lisibilité par un tiers** (un ingénieur extérieur au projet pourrait-il reprendre le dossier ?).
 
 C'est cette revue globale qui produit le **feu vert pour l'étape 5** : autorisation d'émettre les commandes. Sans elle, le dossier reste validé en parties mais non engageant matériellement.
 
@@ -235,7 +235,7 @@ C'est cette revue globale qui produit le **feu vert pour l'étape 5** : autorisa
 
 La validation d'ensemble obtenue, l'étape 5 s'ouvre. C'est l'étape **la plus courte** de la phase en temps actif, mais la **plus engageante** : à partir d'ici, l'argent est dépensé, les pièces arrivent, le projet bascule du papier vers le matériel. Toute reprise ultérieure (en cas de non-conformité découverte en intégration) se fera dans un cadre dégradé : recommander, payer une deuxième fois, perdre des semaines.
 
-Le rôle de l'équipe à cette étape n'est plus de décider — les choix sont actés — mais de **préparer les bons de commande avec le niveau de précision attendu par les fournisseurs partenaires**, et de **tracer** ce qui sort. L'émission matérielle elle-même est généralement portée par le responsable projet à l'école (signature, validation interne école, transmission au fournisseur), mais l'équipe a la responsabilité de la cohérence ligne à ligne entre BOM validée et bon de commande émis.
+Le rôle de l'équipe à cette étape n'est plus de décider, puisque les choix sont actés, mais de **préparer les bons de commande avec le niveau de précision attendu par les fournisseurs partenaires**, et de **tracer** ce qui sort. L'émission matérielle elle-même est généralement portée par le responsable projet à l'école (signature, validation interne école, transmission au fournisseur), mais l'équipe a la responsabilité de la cohérence ligne à ligne entre BOM validée et bon de commande émis.
 
 #### Préparer les bons de commande
 
@@ -255,7 +255,7 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 À réception, **vérifier la conformité** ligne à ligne avant d'ouvrir l'intégration : référence reçue = référence commandée, quantité reçue = quantité commandée, état apparent. Une non-conformité à la réception est mieux traitée à chaud (retour fournisseur) que découverte deux semaines plus tard pendant l'intégration.
 
 > [!warning] Attention
-> **Émettre avant la validation d'ensemble est un échec d'étape.** L'autorisation de commander vient de l'étape 4 (revue globale encadrant), pas de la satisfaction d'avoir un dossier visuellement complet. Toute commande émise sans cette autorisation est non-conforme processus école et difficilement réversible — le partenaire a livré, l'école a payé.
+> **Émettre avant la validation d'ensemble est un échec d'étape.** L'autorisation de commander vient de l'étape 4 (revue globale encadrant), pas de la satisfaction d'avoir un dossier visuellement complet. Toute commande émise sans cette autorisation est non-conforme processus école et difficilement réversible. Le partenaire a livré, l'école a payé.
 
 > [!tip] Astuce
 > **Suivi par tableau partagé : *commandé / livré annoncé / livré effectif / réception conforme*.** Quatre colonnes en regard de la BOM. Sans ce tableau, une ligne en retard passe inaperçue jusqu'à ce qu'elle bloque l'intégration.
@@ -263,7 +263,7 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 > [!example] Exemple : projet bras 3 axes
 > Trois bons de commande préparés en parallèle :
 >
-> - **Partenaire élec** — 3 steppers NEMA 17 (ELEC-MOT-N17), 3 drivers A4988 (ELEC-DRV-A49), 1 [[microcontroleur|microcontrôleur]] Arduino-compatible (ELEC-MCU-ARD), 1 alim 12 V / 5 A (ELEC-ALI-125), 3 condensateurs céramique 100 nF (ELEC-PAS-100N — ajustement étape 4 pour découplage drivers), connectique et passifs courants → ≈ 98 € HT. **[[pcb|PCB]] non commandé** : gravé en interne école sur machine de gravure mécanique / fraisage (monoface, carte 5×7 cm).
+> - **Partenaire élec** — 3 steppers NEMA 17 (ELEC-MOT-N17), 3 drivers A4988 (ELEC-DRV-A49), 1 [[microcontroleur|microcontrôleur]] Arduino-compatible (ELEC-MCU-ARD), 1 alim 12 V / 5 A (ELEC-ALI-125), 3 condensateurs céramique 100 nF (ELEC-PAS-100N, ajustement étape 4 pour découplage drivers), connectique et passifs courants → ≈ 98 € HT. **[[pcb|PCB]] non commandé** : gravé en interne école sur machine de gravure mécanique / fraisage (monoface, carte 5×7 cm).
 > - **Partenaire matière** — 1 barre alu 6061 Ø20 mm × 1 m (MAT-ALU-6061-20), visserie M3 + M5 lot (MAT-VIS-LOT) → ≈ 21 € HT.
 > - **Partenaire fablab/atelier** — sous-traitance [[usinage|usinage]] des 3 articulations (SST-USI-3PCS) avec spécif. tolérance ISO 2768 m + état de surface Ra ≤ 1,6 sur portées de roulement (ajustement étape 4) → ≈ 95 € HT.
 >
@@ -305,13 +305,13 @@ L'émission elle-même est portée par le responsable projet (signature, validat
 
 ## Pendant cette phase, côté équipe
 
-**Interfaces métiers.** Le dossier technique est la phase où les cours des collègues prennent une résonance opératoire forte. Côté mécanique, les apprentissages de cotation fonctionnelle, de choix matériaux et de procédés de fabrication ([[usinage|usinage]], [[impression-3d|impression 3D]], assemblage) deviennent des livrables à produire — plans cotés avec tolérances ISO, justification matière, spécifications de finition. Côté informatique, les notions d'architecture logicielle, de spécifications d'interfaces et de structures de données passent du niveau cours au niveau livrable validable. La fiche se contente de pointer ces apprentissages disciplinaires sans les refaire : elle articule ce qui relève de l'électronique et de l'informatique embarquée avec ce que les collègues portent dans leurs cours dédiés.
+**Interfaces métiers.** Le dossier technique est la phase où les cours des collègues prennent une résonance opératoire forte. Côté mécanique, les apprentissages de cotation fonctionnelle, de choix matériaux et de procédés de fabrication ([[usinage|usinage]], [[impression-3d|impression 3D]], assemblage) deviennent des livrables à produire : plans cotés avec tolérances ISO, justification matière, spécifications de finition. Côté informatique, les notions d'architecture logicielle, de spécifications d'interfaces et de structures de données passent du niveau cours au niveau livrable validable. La fiche se contente de pointer ces apprentissages disciplinaires sans les refaire : elle articule ce qui relève de l'électronique et de l'informatique embarquée avec ce que les collègues portent dans leurs cours dédiés.
 
 **Gestion de projet.** Le fil transverse [[gestion-de-projet|gestion de projet]] est particulièrement chargé sur cette phase. Trois chantiers s'imbriquent : le **rétroplanning d'approvisionnement** ([[retroplanning|rétroplanning]] sur lead times fournisseurs partenaires), le **budget consolidé** à piloter contre l'enveloppe initiale, et la **coordination de la multi-validation** (trois rendez-vous à caler, ajustements à intégrer entre eux, revue globale à organiser). Le chef de projet de l'équipe étudiante porte ces trois chantiers en parallèle, ce qui en fait la phase la plus exigeante du rôle.
 
-**Écoconception.** Le fil [[ecoconception|écoconception]] bascule du qualitatif au quantitatif : l'[[acv-simplifiee|ACV simplifiée]] sur BOM réelle est le premier livrable chiffré d'éco du projet. La hiérarchie des contributeurs (quels composants pèsent dans le bilan eqCO₂) alimente directement la conclusion d'écoconception et peut motiver un dernier arbitrage matière (alu primaire vs recyclé, par exemple) avant émission de la commande. C'est aussi le moment de signaler les points d'attention que le projet n'a pas pu lever — matière non recyclable en boucle école, fin de vie complexe — pour qu'un projet ultérieur puisse les reprendre.
+**Écoconception.** Le fil [[ecoconception|écoconception]] bascule du qualitatif au quantitatif : l'[[acv-simplifiee|ACV simplifiée]] sur BOM réelle est le premier livrable chiffré d'éco du projet. La hiérarchie des contributeurs (quels composants pèsent dans le bilan eqCO₂) alimente directement la conclusion d'écoconception et peut motiver un dernier arbitrage matière (alu primaire vs recyclé, par exemple) avant émission de la commande. C'est aussi le moment de signaler les points d'attention que le projet n'a pas pu lever, comme une matière non recyclable en boucle école ou une fin de vie complexe, pour qu'un projet ultérieur puisse les reprendre.
 
-**Sécurité et qualité.** Le fil [[securite-et-qualite|sécurité et qualité]] s'incarne en étape 2 (intégration des contraintes de sécurité aux plans : protections, sécurités d'arrêt, accessibilité des points de maintenance) et en étape 5 (conformité au processus d'achat école, traçabilité comptable). La discipline de la **traçabilité écrite** — page de synthèse PoC, page de revue interne, trace des ajustements validés, numéros de commande conservés — n'est pas un confort administratif : c'est ce qui permet à un tiers (validateur, suivant, auditeur) de reprendre le projet sans repartir de zéro.
+**Sécurité et qualité.** Le fil [[securite-et-qualite|sécurité et qualité]] s'incarne en étape 2 (intégration des contraintes de sécurité aux plans : protections, sécurités d'arrêt, accessibilité des points de maintenance) et en étape 5 (conformité au processus d'achat école, traçabilité comptable). La discipline de la **traçabilité écrite** (page de synthèse PoC, page de revue interne, trace des ajustements validés, numéros de commande conservés) n'est pas un confort administratif : c'est ce qui permet à un tiers (validateur, suivant, auditeur) de reprendre le projet sans repartir de zéro.
 
 ## Voir aussi
 

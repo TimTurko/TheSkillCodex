@@ -22,7 +22,7 @@ La matrice de décision force l'explicitation des critères de choix entre solut
 
 Trois rôles :
 
-- **Rendre les critères de choix explicites et pondérés.** Sans pondération écrite, chaque équipier raisonne avec ses propres priorités implicites, et la décision finale est celle de la voix la plus assurée — pas la plus défendable.
+- **Rendre les critères de choix explicites et pondérés.** Sans pondération écrite, chaque équipier raisonne avec ses propres priorités implicites, et la décision finale est celle de la voix la plus assurée — pas celle qui a le plus d'arguments.
 - **Intégrer l'[[ecoconception|écoconception]] comme critère pondéré**, au même titre que coût et performance. C'est la seule manière d'éviter qu'elle soit traitée comme un commentaire en marge ou une case à cocher en fin de matrice.
 - **Tracer la décision** pour la suite du projet. La matrice écrite reste consultable ; la mémoire d'équipe ne l'est pas. En cas de remise en cause de l'architecture en [[dossier-technique|dossier technique]], on rouvre la matrice et on voit ce qui avait été arbitré, sur quels critères, avec quels poids.
 

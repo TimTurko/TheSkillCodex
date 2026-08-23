@@ -109,6 +109,9 @@ Ce sont les plus répétées du wiki : une dérive s'y voit immédiatement. Comp
 | `[!info] Comment lire ce code` | 25 | `[!info] How to read this code` |
 | `[!livrable] Livrable N/X — <phase>` | — | `[!livrable] Deliverable N/X — <phase>` |
 | `[!question] Question centrale` | 5 | `[!question] The key question` |
+| `[!info] À retenir` | — | `[!info] Worth knowing` |
+
+**Le pluriel du callout `[!livrable]` se traduit.** `Livrables N/X` donne `Deliverables N/X`, `Livrable N/X` donne `Deliverable N/X` : la fiche alterne les deux selon le nombre d'items, et l'anglais suit. De même `Exemple : projet couveuse` donne `Example: incubator project`, sur le patron déjà figé du fil rouge.
 
 ### 5.2 Termes qui ne se traduisent pas
 
@@ -237,10 +240,53 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | bras de levier | lever arm |
 | platine d'ancrage | mounting plate |
 | matage (d'un logement) | crushing |
+| verrou technologique | technological barrier |
+| partie prenante | stakeholder |
+| note de cadrage | scoping note |
+| matière d'œuvre | object acted on |
+| milieux environnants (pieuvre) | surrounding media |
+| fonction principale / secondaire / contrainte | main / secondary / constraint function |
+| critère (triplet NF X50-151) | criterion |
+| niveau (triplet NF X50-151) | level |
+| flexibilité (triplet NF X50-151) | flexibility |
+| F0 / F1 / F2 / F3 | Mandatory / Barely negotiable / Negotiable / Very negotiable |
+| négociabilité | negotiability |
+| sur-spécification | over-specification |
+| probabilité x gravité (risque) | likelihood x severity |
+| parade (risque) | response |
+| revue de CdCF | CdCF review |
+| bon de commande | purchase order |
+| nomenclature (disciplinaire) | parts list |
+| BOM (agrégée) | BOM |
+| enveloppe budget | budget envelope |
+| hors catalogue | off catalogue |
+| HT / TTC | excl. VAT / incl. VAT |
+| lead time | lead time (inchangé) |
+| validateur | approver |
+| plans cotés | dimensioned drawings |
+| schéma câblé | wiring schematic |
+| routage PCB | PCB layout |
+| portée de roulement | bearing seat |
+| alésage d'axe | shaft bore |
+| visserie | fasteners |
+| gabarit (de vérification) | check jig |
+| essai à blanc d'assemblage | dry-fit assembly |
+| réception (livraison) | goods-in |
+| bon de livraison | delivery note |
+| non-conformité | non-conformity |
+| pyramide de tests | test pyramid |
+| butée logicielle | software limit |
+| à-coup | judder |
+| bilan (de clôture) | assessment |
+| soutenance, jury | final presentation, panel |
 
 **⚠ « Incertitude » désigne deux objets, comme « contrôleur » (23/08).** Dans les trames du V et les fiches de conduite de projet, le mot désigne **l'objet de travail** — la question ouverte que la preuve de concept doit fermer — et se rend par **unknown**, forme déjà en production dans `en/conduite/index`. En contexte de mesure, il désigne l'**incertitude métrologique** et se rend par *uncertainty* : « une marge calculée à 5 % sur une mesure dont la précision est de 10 %, c'est une incertitude résiduelle » donne *residual uncertainty*, jamais *residual unknown*. Le test est le contexte, pas le mot : **si l'incertitude figure dans une liste que le projet doit fermer, c'est un *unknown*.**
 
 **⚠ C112 est un contre-cas du glossaire, et le seul.** Le glossaire impose **une forme unique** là où une dérive serait visible. C112 impose l'inverse sur les mots de rapport : les 9 « opposable » de `preuve-de-concept` portaient quatre sens et ont reçu neuf formulations. **« Opposable » et « défendable » n'ont donc pas d'entrée ici, et ne doivent pas en recevoir** : figer *defensible* comme rendu unique reproduirait exactement le défaut que C112 corrige.
+
+**⚠ Corollaire trouvé le 23/08 (suite 3) sur `specification-technique` : quand « opposable » est l'objet enseigné, il faut le gloser en anglais, et la glose n'est pas facultative.** L'anglais *opposable* est un **faux ami complet** : il veut dire « préhensile », comme dans *opposable thumb*, et n'a aucun sens juridique. Le mot ne peut donc ni se traduire ni se laisser nu. Forme retenue à la première occurrence, *made quantifiable, measurable and opposable, that is, capable of being held against the supplier if it is not met*, puis déclinaison selon le sens exact de chaque emplacement (*a requirement that cannot be held against anyone*, *a document that holds up*). Conséquence de dimensionnement : **C112 retire de la glose côté FR et en crée côté EN**, ce qui ne se voyait pas quand la règle a été écrite. Vaut pour les 16 occurrences « objet enseigné » des 4 fiches concernées, dont `cahier-des-charges-fonctionnel` et `caracteriser-une-exigence` restent à traduire.
+
+**⚠ « Valider » désigne deux actes distincts, et l'anglais les sépare (23/08 suite 3).** Troisième mot français à deux objets du chantier, après « contrôleur » et « incertitude ». Dans `dossier-technique`, trois interlocuteurs **engagent leur responsabilité sur un périmètre** et l'encadrant **prononce un verdict de revue** : le français emploie le même verbe pour les deux. Rendus par **sign off** (l'acte de responsabilité segmentée, d'où *approver* pour le validateur et *sign-off round* pour la multi-validation) et par **approve** (le verdict de revue, cohérent avec *approved / approved with conditions* des cinq trames). Sans cette séparation, la phrase centrale de la phase, « signé en parties, approuvé en ensemble », devient une répétition.
 
 **Les quatre entrées `dossier technique`, `soutenance`, `REX`, `écart` sont validées en bloc** (arbitrage Tim du 23/08, option a). Périmètres mesurés avant validation, hors `templates/` et hors `en/` : `dossier technique` 224 occurrences sur 50 fiches, `écart` 103 sur 39, `soutenance` 63 sur 13, `REX` et « retour d'expérience » 26 sur 5.
 
@@ -286,7 +332,19 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
 
 1. **Lot 1 — les quatre index. FAIT le 22/08 (suite 2), 2 939 mots.**
 2. **Lot 2a — les 23 fiches courtes du front, 5 791 mots** (6 476 avec les trois index de branche, remesuré le 23/08 sous la règle C110 du §8 ; **6 515 après la passe C109**, qui a coûté 39 mots)**. FAIT — 26 fiches traduites, 6 996 mots EN, dont 5 340 le 23/08 et 1 656 le 23/08 (suite).** `i2c`, `spi`, `uart`, `adc`, `pwm`, `wifi`, `ble`, `lora`, `zigbee`, `memoire`, `cpp`, `micropython-langage`, les six `meca`, les cinq `conduite/meo`, `conduite/ese/index`, `conduite/proj/index`. **Meilleur rapport liens fermés par mot traduit de tout le chantier** : 23 liens fermés pour le prix d'une seule trame. Rode le glossaire à bas coût, comme le prévoyait le lot 2 d'origine.
-3. **Lot 2b — les cinq trames du V, ≈ 28 600 mots**, dans l'ordre réel de poids : `preuve-de-concept` (6 382 mots, **la plus lourde**), `specification-technique`, `concept`, `dossier-technique`, `integration-et-tests`. C'est là que se juge la compensation du registre C65 perdu (§4).
+3. **Lot 2b — les cinq trames du V. FAIT le 23/08 (suites 2 et 3). 28 684 mots FR → 30 318 mots EN, foisonnement mesuré +5,7 %.**
+
+    | Fiche | Mots FR | Mots EN | Foisonnement |
+    |---|---:|---:|---:|
+    | `preuve-de-concept` | 6 413 | 6 689 | +4,3 % |
+    | `specification-technique` | 6 081 | 6 529 | +7,3 % |
+    | `concept` | 5 817 | 6 259 | +7,6 % |
+    | `dossier-technique` | 5 329 | 5 669 | +6,4 % |
+    | `integration-et-tests` | 5 044 | 5 172 | +2,5 % |
+
+    Mots FR mesurés après passes C109 et C112, règle C110. C'est là que se jugeait la compensation du registre C65 perdu (§4) : elle tient.
+
+    ⚠ **Le foisonnement ne se prédit pas fiche par fiche. Seule la moyenne de lot est un instrument.** L'hypothèse de la densité de gloses, écrite le 23/08 (suite 3), **explique les extrêmes et pas le milieu** : `integration-et-tests` ne porte qu'une glose et sort au plancher à +2,5 %, mais `concept` et `preuve-de-concept` en portent deux chacune et sortent à +7,6 % et +4,3 %. Le +4,3 % du 23/08 (suite 2) était un plancher, le +7,6 % un plafond, et l'écart entre fiches d'un même lot atteint **un facteur trois**. **Pour dimensionner les 252 851 mots restants, compter +5,7 %**, moyenne mesurée sur les cinq trames. Décomposition : 288 050 après le lot 1, moins 6 515 (lot 2a), moins 28 684 (lot 2b).
 4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301).
 5. **Anneaux suivants**, recalculés depuis le front atteint.
 

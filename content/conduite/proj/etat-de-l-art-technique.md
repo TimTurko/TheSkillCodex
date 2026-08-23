@@ -73,7 +73,7 @@ Quatre disciplines d'écriture à tenir :
 
 - **Valeurs chiffrées avec unité** (`250 g`, `0,1 mm`, `180 €`). Pas de qualificatif vague (`bonne autonomie`, `faible coût`) qui réintroduirait le flou que l'EAT est censé lever.
 - **Pas de cellule vide.** Une donnée manquante se note `n.c.` (non communiqué) ou `?`. Son absence devient elle-même une information : un industriel qui ne publie pas la répétabilité de son bras envoie un signal.
-- **Source explicitée** pour chaque chiffre, en note ou ligne dédiée. Un chiffre non sourcé est non vérifiable et n'a pas sa place dans un livrable opposable.
+- **Source explicitée** pour chaque chiffre, en note ou ligne dédiée. Un chiffre non sourcé est non vérifiable et n'a pas sa place dans un livrable sur lequel quelqu'un va s'appuyer.
 - **Estimation marquée comme telle.** Si on dérive un chiffre par calcul (charge utile estimée à partir du couple moteur publié, par exemple), le mentionner explicitement : `~250 g (estimé)`.
 
 L'EAT **ne pondère pas** les critères et ne calcule pas de score agrégé. C'est la différence fondamentale avec la [[matrice-de-decision|matrice de décision]] : ici on cartographie l'existant, on n'arbitre pas. La pondération viendra en phase de [[concept|concept]], pour trancher entre solutions candidates **internes** au projet.
@@ -124,7 +124,7 @@ Ces trois ordres de grandeur deviennent les chiffres de référence à l'étape 
 
 **Cellule vide silencieuse.** Une donnée manquante laissée à blanc se confond visuellement avec une valeur faible ou nulle, et fausse la lecture du tableau. La discipline `n.c.` ou `?` rend visible ce qu'on ne sait pas — et l'absence devient elle-même une information à débattre en revue.
 
-**Chiffre non sourcé.** Un coût ou une performance reporté sans source n'est pas vérifiable et n'engage personne. La traçabilité des chiffres est ce qui transforme un tableau d'EAT en livrable opposable plutôt qu'en intuition d'équipe.
+**Chiffre non sourcé.** Un coût ou une performance reporté sans source n'est pas vérifiable et n'engage personne. La traçabilité des chiffres est ce qui transforme un tableau d'EAT en livrable qui engage plutôt qu'en intuition d'équipe.
 
 **Comparer des solutions non comparables.** Mettre un produit industriel à 50 000 € à côté d'un projet maker à 200 € dans le même tableau dilue l'analyse. Soit on les compare sur des critères qui les rendent cohérents (performance pure, en ignorant le coût), soit on les sépare en deux EAT distincts si le budget vise un seul des deux mondes.
 

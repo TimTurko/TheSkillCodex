@@ -39,7 +39,7 @@ Chaque fonction est **numérotée** dans son groupe : FP1, FP2…, FS1, FS2…, 
 
 **Citer une solution dans l'énoncé.** Si on peut citer une marque, un composant, une technologie ou un protocole, la fonction est mal formulée. *« Utiliser un Raspberry Pi pour piloter les moteurs »* est un choix d'implémentation, pas une fonction.
 
-**Confondre FP et FS.** La FP justifie l'existence du système — sans elle, le système n'a pas lieu d'être. Test : si on retire la fonction, le projet reste-t-il défendable ? Si oui, c'est probablement une FS.
+**Confondre FP et FS.** La FP justifie l'existence du système — sans elle, le système n'a pas lieu d'être. Test : si on retire la fonction, le projet tient-il encore debout ? Si oui, c'est probablement une FS.
 
 **Formuler une FC avec deux milieux.** Une FC ne relie le système qu'à *un seul* milieu. Si l'énoncé fait apparaître deux milieux, c'est probablement une FP ou FS mal classée.
 
