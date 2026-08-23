@@ -11,6 +11,39 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-08-23 — Lot 2a : les vingt-six passes C109, dix-huit fiches traduites
+
+- **Périmètre** : PC perso. Remesure d'ouverture sous C110, passe C109 sur les 26 fiches du lot, génération groupée des squelettes, traduction des 18 premières.
+- **Mots traduits : 5 340** (18 fiches EN). Règle C110 : hors front matter, hors blocs de code clôturés, code inline inclus.
+- **Livrables** : 26 passes C109 sur `content/` ; 18 fiches sous `content/en/` ; `tools/lot-2a.ps1` et `tools/draft-en.ps1` (neufs) ; `_drafts/traduction-en-regles.md` recalé sur cinq points.
+- **Décisions (Tim)** : AMDEC **(c)** promue au §5.2, glose *the French acronym for FMEA* ; les quatre entrées figées **(a)** validées en bloc ; maître / esclave **(b)** en *controller* / *peripheral* ; génération **(b)** groupée plutôt que fiche par fiche ; `draft: false` **conservé**, l'objection de recherche refermée.
+- **Conventions** : aucune numérotée, la numérotation reste à **C110**. Six entrées de glossaire et cinq notes §8.
+- **Tailles** : corpus EN **30 fiches**, toutes en `draft: false`. `tools/` +2 scripts PowerShell. Lot 2a : 6 515 mots FR, 265 liens, 10 embeds, **0 bloc de code**.
+
+**Deux chiffres hérités sur six étaient faux, et le plus gros était celui qui dimensionnait le chantier.** Les 242 fiches, les 4 EN, les 395 embeds, les 376 blocs de code et les 29 placeholders C29 se confirment au chiffre près. Mais le corpus fait **291 099 mots et non 319 000**, la médiane **1 088 et non 1 192**, et `easyeda` **9 775 et non 13 028**. Les trois étaient annoncés sans leur règle de comptage, ce que le §8 des règles signalait lui-même. C110 a donc rendu son premier service réel : le chiffre hérité n'a pas été recopié, il a été remesuré, et **le chantier restant tombe de 8,7 %**. Sous-produit : les wikilinks sortent à **4 322**, l'écart d'un avec la recette du script préexistait entre deux fichiers de pilotage.
+
+**Le lot 2a pèse un tiers de plus qu'annoncé, et son poids lourd n'est pas celui qu'on croyait.** 6 515 mots contre 5 000, dont 5 826 pour les 23 fiches courtes. Surtout, le prompt désignait `conduite/proj/index` comme la fiche susceptible de basculer au lot 2b faute de place : elle fait **405 mots et arrive quatrième**, derrière `i2c`, `spi` et `uart`. *Un chiffre qui désigne un candidat au report désigne aussi, implicitement, un classement — et celui-là était faux.*
+
+**La passe C109 a produit exactement ce que la convention promettait, et le résidu se classe sans reste.** 104 occurrences de prose traitées, **0 résiduelle**. Ce qui reste après la passe est entièrement hors périmètre : 26 items de liste numérotée, 8 alt d'images, 3 titres de branche. Coût en volume : **+39 mots sur 6 476**, le même ordre que les trois octets d'`easyeda`. Deux corrections de fond sont sorties de la passe sans être de la ponctuation : `relation-client` écrivait « annoncer un écart plutôt que de le découvrir au client », où le sujet est inversé, et `ese/index` employait « pattern » en prose française sans figurer dans les anglicismes admis du §1.
+
+**Le glossaire s'est rodé sur du volume faible, comme l'arbitrage du 22/08 le prévoyait, et il a rendu six entrées.** Trois arbitrées en ouverture, trois dégagées en traduisant. La plus coûteuse à manquer aurait été **« contrôleur »** : le mot désigne le maître de bus dans `i2c` et `spi`, et le microcontrôleur lui-même dans `wifi` et `lora`. Les deux traduits par *controller* auraient donné, dans une même branche, une phrase où « le contrôleur redémarre » se lit comme « le maître du bus redémarre ». Rendu par **microcontroller** là où il désigne la puce.
+
+**Une urgence que j'ai inventée, et que l'outil écrit une heure plus tôt démentait.** J'ai présenté deux fois la mesure C105 de référence comme non rattrapable, la fenêtre se refermant dès qu'une fiche EN repasse en `draft: false`. C'était vrai la veille. Ça ne l'était plus depuis que j'avais écrit `draft-en.ps1`, qui rend la bascule réversible en une commande dans les deux sens, `RemoveDrafts` étant conditionnel depuis le 22/08. **J'ai construit l'instrument qui annulait l'argument, puis j'ai continué à porter l'argument.** Tim a par ailleurs rappelé que le recouvrement de recherche entre les deux langues avait déjà été mesuré comme faible, et que travailler en `draft: false` ne pose pas de problème. Objection refermée, mesure déclassée en item ordinaire.
+
+**Une condition de course entre un script et mes écritures, créée par ma propre consigne.** J'ai dit à Tim de lancer `draft-en.ps1` « pendant que je traduis ». Le script est passé entre deux `write_file` : sa sortie annonçait trois bascules, **deux n'ont pas tenu**, mes écritures suivantes ayant réécrit les fichiers. Le défaut n'a été vu qu'en relisant les fiches, pas en lisant la sortie du script. *Une sortie d'outil dit ce qu'il a fait, pas ce que le fichier contient après coup.* Règle opératoire : aucune écriture pendant qu'un script tourne sur les mêmes fichiers, et le contrôle se fait sur le fichier, jamais sur le rapport.
+
+**Le script de génération a un angle mort que seule la relecture d'une fiche a montré.** Un wikilink dont le libellé contient du code inline **échappe au suffixage** : le backtick casse le parsing. `micropython-langage` avait cinq items suffixés et un sixième nu, au milieu de la même liste. Mesuré ensuite sur tout le corpus : **29 occurrences sur 22 fiches**, presque toutes dans les modules Arduino et MicroPython, donc dans le lot 2c. Ce n'est pas un lien mort, la cible française existant, mais côté anglais le lien renverrait vers une fiche française. **Aucun compteur ne l'aurait attrapé** : le lien est présent, bien formé, et l'égalité FR/EN reste vraie.
+
+**Deux outils PowerShell, parce que la ligne de commande répétée est aussi une dette.** `lot-2a.ps1` lance les 26 générations et le contrôle en une commande et rend un résumé recopiable ; `draft-en.ps1` bascule le flag `draft` de `content/en/` en écrivant en **UTF-8 sans BOM et en LF**, ce que `Set-Content` n'aurait pas fait. Les deux excluent par défaut les quatre index du lot 1. **Le contrôle des trois compteurs passe à 30 fiches, 0 divergente.**
+
+**Et une erreur de chemin de ma part**, signalée immédiatement : un `write_file` parti sur `content/en/memoire-en-PLACEHOLDER.md`, qui aurait été indexé par Quartz comme une fiche du wiki. Sorti de `content/` puis supprimé par Tim.
+
+**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push. **Clic-test** des 18 fiches EN, en particulier les trois bus qui se lisent à la suite. **Prochaine session = les 8 dernières du lot 2a**, puis l'encart d'accueil anglais que le lot débloque.
+
+<!-- FIN 23/08 -->
+
+---
+
 ## 2026-08-22 (suite 2) — Outillage du chantier bilingue, et le lot 1 traduit
 
 - **Périmètre** : PC perso. Deux temps stricts tenus — les outils d'abord, la première fiche ensuite.

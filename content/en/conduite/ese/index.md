@@ -1,28 +1,28 @@
 ---
-title: Fiches ESE — Normes, sécurité, réglementation
+title: ESE pages — Standards, safety, regulation
 tags: [domaine, ese]
 draft: false
 source_fr: conduite/ese/index.md
 source_sha256: 3006dc09fa7debcc4f1625a6ada2001b0c92b68b184e4db04592036d2d422756
 ---
 
-# ESE — Normes, sécurité, réglementation
+# ESE — Standards, safety, regulation
 
-Interface vers les cours collègues. Le domaine **ESE** regroupe les fiches normatives et réglementaires du projet : directives européennes, sécurité des machines, réglementations environnementales. Chacune suit le même schéma de délégation, qui consiste à situer la contrainte dans le projet et à la tracer, en renvoyant au **cours normatif** pour l'expertise complète. L'écoconception et l'ACV appliquées, elles, sont traitées côté démarche projet ([[ecoconception-en|écoconception]], [[acv-simplifiee-en|ACV simplifiée]]).
+An interface towards our colleagues' courses. The **ESE** domain gathers the standards and regulatory pages of the project: European directives, machinery safety, environmental regulations. Each one follows the same delegation pattern, which is to place the constraint within the project and record it, while pointing to the **standards course** for the full expertise. Applied eco-design and life-cycle assessment, for their part, are covered on the project method side ([[ecoconception-en|eco-design]], [[acv-simplifiee-en|simplified LCA]]).
 
-## Conformité et marquage
+## Compliance and marking
 
-- [[marquage-ce-en|Marquage CE]] — la déclaration de conformité aux directives européennes applicables
-- [[basse-tension-en|Directive basse tension]] — sécurité électrique de 50 à 1000 V (souvent hors champ en très basse tension)
-- [[emc-en|Compatibilité électromagnétique (EMC)]] — émission et immunité électromagnétiques
-- [[iso-12100-en|ISO 12100]] — appréciation et réduction des risques machines
+- [[marquage-ce-en|CE marking]] — the declaration of conformity with the applicable European directives
+- [[basse-tension-en|Low Voltage Directive]] — electrical safety from 50 to 1000 V (often out of scope at extra-low voltage)
+- [[emc-en|Electromagnetic compatibility (EMC)]] — electromagnetic emission and immunity
+- [[iso-12100-en|ISO 12100]] — machinery risk assessment and risk reduction
 
-## Réglementations environnementales
+## Environmental regulations
 
-- [[rohs-en|RoHS]] — restriction des substances dangereuses (à l'origine de la soudure sans plomb)
-- [[reach-en|REACH]] — encadrement des substances chimiques dans les produits
-- [[deee-en|DEEE]] — filière de fin de vie des équipements électriques et électroniques
+- [[rohs-en|RoHS]] — restriction of hazardous substances, the reason for lead-free solder
+- [[reach-en|REACH]] — the framework covering chemical substances in products
+- [[deee-en|WEEE]] — the end-of-life route for electrical and electronic equipment
 
-## Sécurité au poste
+## Safety at the bench
 
-- [[epi-en|EPI]] — équipements de protection individuelle en fabrication et atelier
+- [[epi-en|PPE]] — personal protective equipment in manufacturing and in the workshop

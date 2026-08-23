@@ -1,5 +1,5 @@
 ---
-title: Revue de code
+title: Code review
 type: notion
 phases:
   - specification
@@ -19,16 +19,16 @@ source_fr: conduite/meo/revue-de-code.md
 source_sha256: 9e9395845c617ae256baa114a073a8ab9879a79c2d1f9513bd65a7d6d9e38209
 ---
 
-La **revue de code** consiste à faire relire un morceau de code avant un jalon, par un équipier ou par soi-même à tête reposée, pour attraper les défauts qu'un regard extérieur repère immédiatement et que l'auteur, trop proche, ne voit plus.
+A **code review** means having a piece of code read by someone else before a milestone, by a teammate or by yourself with a fresh eye, so as to catch the defects an outside reader spots at once and the author, too close to the work, no longer sees.
 
-## Dans le projet
+## In the project
 
-La revue ne cherche pas la perfection. Elle cible les **défauts manifestes** et les **zones critiques** du [[firmware-en|firmware]] : gestion des [[interruption-en|interruptions]], [[machine-a-etats-en|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite-en|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres. Encore faut-il savoir entrer dans un programme qu'on n'a pas écrit, ce qui s'apprend ([[cpp-lire-un-programme-en|en C++]], [[micropython-lire-un-programme-en|en MicroPython]]).
+A review is not looking for perfection. It targets the **obvious defects** and the **critical areas** of the [[firmware-en|firmware]]: [[interruption-en|interrupt]] handling, the [[machine-a-etats-en|state machine]], safety functions. The practice that holds up on a project is a cross-review **at every milestone**, between teammates at the very least and with the supervisor ideally, short but regular, recorded as a quality step (see [[securite-et-qualite-en|safety and quality]]). It is also a powerful way to learn, since reading other people's code is how you get better. That still takes the ability to find your way into a program you did not write, which is itself something to learn ([[cpp-lire-un-programme-en|in C++]], [[micropython-lire-un-programme-en|in MicroPython]]).
 
-## Voir aussi
+## See also
 
-- [[securite-et-qualite-en|Sécurité et qualité]] — la revue de code comme pratique de qualité
-- [[firmware-en|Firmware]] — l'objet principal des revues
-- [[machine-a-etats-en|Machine à états]] — une zone de code à relire en priorité
-- [[cpp-lire-un-programme-en|Lire un programme C++]] — la méthode de lecture, prérequis de la revue
-- [[micropython-lire-un-programme-en|Lire un programme MicroPython]] — la même méthode côté MicroPython
+- [[securite-et-qualite-en|Safety and quality]] — code review as a quality practice
+- [[firmware-en|Firmware]] — what reviews mostly look at
+- [[machine-a-etats-en|State machine]] — an area of code to read first
+- [[cpp-lire-un-programme-en|Reading a C++ program]] — the reading method, a prerequisite for reviewing
+- [[micropython-lire-un-programme-en|Reading a MicroPython program]] — the same method on the MicroPython side

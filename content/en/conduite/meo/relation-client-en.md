@@ -1,5 +1,5 @@
 ---
-title: Relation client
+title: Client relationship
 type: notion
 phases:
   - specification
@@ -17,14 +17,14 @@ source_fr: conduite/meo/relation-client.md
 source_sha256: cd5131759d6f8673d9f70bb58f92f3a94c52a290ba3647e1cd82ee7c4444404d
 ---
 
-La **relation client** désigne la conduite de l'échange avec le commanditaire d'un projet : comprendre son besoin, le tenir informé de l'avancement, et faire **valider** les livrables aux jalons convenus plutôt que de disparaître jusqu'à la livraison finale.
+The **client relationship** is the way the exchange with the sponsor of a project is conducted: understanding the need, keeping the client informed of progress, and having the deliverables **approved** at the agreed milestones rather than disappearing until final delivery.
 
-## Dans le projet
+## In the project
 
-Même un projet pédagogique a un client : l'enseignant commanditaire, ou un **client fictif crédible** que l'équipe se donne (voir [[specification-technique-en|spécification technique]]). La pratique attendue : reformuler le besoin dans le [[cahier-des-charges-fonctionnel-en|cahier des charges]], **rendre compte régulièrement** (revues de phase, points d'étape), et gérer les attentes, ce qui veut dire annoncer tôt un écart ou un arbitrage plutôt que de laisser le client le découvrir à la soutenance. Cette posture est pilotée par la [[gestion-de-projet-en|gestion de projet]].
+Even a teaching project has a client: the teacher who commissions it, or a **credible fictional client** that the team gives itself (see [[specification-technique-en|technical specification]]). The expected practice is to restate the need in the [[cahier-des-charges-fonctionnel-en|cahier des charges]] (the French functional requirements specification), to **report regularly** through phase reviews and interim checkpoints, and to manage expectations, which means announcing a deviation or a trade-off early rather than letting the client discover it at the final presentation. All of this is steered by [[gestion-de-projet-en|project planning and tracking]].
 
-## Voir aussi
+## See also
 
-- [[specification-technique-en|Spécification technique]] — formaliser le besoin du client
-- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — le contrat avec le client
-- [[gestion-de-projet-en|Gestion de projet]] — cadence des revues et du reporting
+- [[specification-technique-en|Technical specification]] — putting the client's need into formal terms
+- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — the contract with the client
+- [[gestion-de-projet-en|Project planning and tracking]] — the cadence of reviews and reporting

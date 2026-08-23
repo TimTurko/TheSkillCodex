@@ -1,66 +1,66 @@
 ---
-title: Fiches PROJ — Démarche projet
+title: PROJ pages — Project method
 tags: [domaine, proj]
 draft: false
 source_fr: conduite/proj/index.md
 source_sha256: 9efc5099390bfe142c6f03fd90b46fb81100fdf42f8b49f29a2bf37c039f2766
 ---
 
-# PROJ — Démarche projet transversale
+# PROJ — The cross-cutting project method
 
-Cœur du hub. Le domaine **PROJ** porte la démarche projet de bout en bout : analyse fonctionnelle, planification, arbitrage de concept, réalisation et bilan. Pour le déroulé chronologique des cinq phases, voir le [[en/conduite/index|parcours projet]]. Cet index recense les fiches par famille d'outils.
+The core of the hub. The **PROJ** domain carries the project method from end to end: functional analysis, planning, concept trade-off, build and review. For the five phases in chronological order, see the [[en/conduite/index|project path]]. This index lists the pages by family of tools.
 
-## Les trames
+## The framework pages
 
-Les cinq phases du cycle en V, plus les trois fils transverses présents du début à la fin du projet.
+The five phases of the V-model, plus the three cross-cutting threads that run from the start of the project to the end.
 
-- [[specification-technique-en|Spécification technique]] — traduire un besoin en exigences mesurables
-- [[concept-en|Concept]] — choisir et pré-dimensionner une architecture
-- [[preuve-de-concept-en|Preuve de concept]] — lever les incertitudes techniques avant la conception détaillée
-- [[dossier-technique-en|Dossier technique]] — produire les documents permettant la fabrication
-- [[integration-et-tests-en|Intégration et tests]] — assembler, qualifier, conclure
-- [[gestion-de-projet-en|Gestion de projet]] *(transverse)* — planifier, suivre, animer l'équipe
-- [[ecoconception-en|Écoconception]] *(transverse)* — maîtriser l'empreinte environnementale au fil des choix
-- [[securite-et-qualite-en|Sécurité et qualité]] *(transverse)* — risques, conformité, qualité des livrables
+- [[specification-technique-en|Technical specification]] — turn a need into measurable requirements
+- [[concept-en|Concept]] — choose an architecture and size it roughly
+- [[preuve-de-concept-en|Proof of concept]] — resolve the technical unknowns before detailed design
+- [[dossier-technique-en|Technical design file]] — produce the documents that make manufacturing possible
+- [[integration-et-tests-en|Integration and testing]] — assemble, qualify, close the project
+- [[gestion-de-projet-en|Project planning and tracking]] *(cross-cutting)* — plan, track, lead the team
+- [[ecoconception-en|Eco-design]] *(cross-cutting)* — keep the environmental footprint under control through the choices made
+- [[securite-et-qualite-en|Safety and quality]] *(cross-cutting)* — risks, compliance, quality of deliverables
 
-## Analyse fonctionnelle
+## Functional analysis
 
-La chaîne d'expression du besoin, du brainstorming initial au cahier des charges.
+The chain that expresses the need, from the initial brainstorming to the cahier des charges, the French functional requirements specification.
 
-- [[mecatronique-en|Mécatronique]] — la boucle perception → décision → action qui définit le champ
-- [[mind-map-en|Mind map]] — recenser large les milieux et contraintes en amont
-- [[bete-a-cornes-en|Bête à cornes]] — cadrer le besoin (à qui, sur quoi, dans quel but)
-- [[pieuvre-en|Pieuvre]] — recenser les fonctions face aux milieux extérieurs
-- [[fonction-en|Fonction]] — la typologie FP / FS / FC
-- [[caracteriser-une-exigence-en|Caractériser une exigence]] — le triplet critère / niveau / flexibilité
-- [[etat-de-l-art-technique-en|État de l'art technique]] — cartographier les solutions existantes
-- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — le document qui formalise la spec
-- [[afnor-nfx50-151-en|Norme NF X50-151]] — le cadre normatif de l'analyse fonctionnelle
+- [[mecatronique-en|Mechatronics]] — the perception → decision → action loop that defines the field
+- [[mind-map-en|Mind map]] — cast a wide net over the surrounding environments and constraints, early on
+- [[bete-a-cornes-en|Bête à cornes]] — the French "horned beast" need-statement diagram: for whom, on what, to what end
+- [[pieuvre-en|Pieuvre]] — the French "octopus" diagram: list the functions against the surrounding environments
+- [[fonction-en|Function]] — the FP / FS / FC typology, for main, secondary and constraint functions
+- [[caracteriser-une-exigence-en|Characterising a requirement]] — the criterion / level / flexibility triplet
+- [[etat-de-l-art-technique-en|Technical state of the art]] — map the solutions that already exist
+- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — the document that formalises the spec
+- [[afnor-nfx50-151-en|NF X50-151 standard]] — the normative framework of functional analysis
 
-## Planification et pilotage
+## Planning and tracking
 
-Les outils qui ancrent le projet dans le temps et suivent ses risques.
+The tools that anchor the project in time and keep watch on its risks.
 
-- [[wbs-en|WBS]] — décomposer le travail en lots
-- [[jalons-en|Jalons]] — poser les points de contrôle du projet
-- [[retroplanning-en|Rétroplanning]] — planifier à rebours depuis la date butoir
-- [[gantt-en|Gantt]] — superposer les tâches dans le temps
-- [[matrice-de-risques-en|Matrice de risques]] — identifier et coter les aléas du projet
+- [[wbs-en|WBS]] — break the work down into work packages
+- [[jalons-en|Milestones]] — set the control points of the project
+- [[retroplanning-en|Backward planning]] — plan backwards from the deadline
+- [[gantt-en|Gantt]] — lay the tasks out over time
+- [[matrice-de-risques-en|Risk matrix]] — identify and rate the hazards of the project
 
-## Concept et arbitrage
+## Concept and trade-off
 
-Décomposer une fonction, explorer les solutions, trancher.
+Break a function down, explore the solutions, decide.
 
-- [[decomposition-fonctionnelle-en|Décomposition fonctionnelle]] — éclater le système en fonctions techniques
-- [[fast-en|FAST]] — relier fonctions et solutions par la chaîne pourquoi / comment
-- [[matrice-de-decision-en|Matrice de décision]] — comparer les candidates par critères pondérés
-- [[matrice-eco-criteres-en|Matrice éco-critères]] — intégrer l'environnement à l'arbitrage
-- [[ecodesign-en|Écodesign]] — distinguer écodesign et écoconception
+- [[decomposition-fonctionnelle-en|Functional breakdown]] — split the system into technical functions
+- [[fast-en|FAST]] — link functions and solutions through the why / how chain
+- [[matrice-de-decision-en|Decision matrix]] — compare the candidates against weighted criteria
+- [[matrice-eco-criteres-en|Eco-criteria matrix]] — bring the environment into the trade-off
+- [[ecodesign-en|Écodesign]] — the French design-discipline sense of the word, and how it differs from eco-design
 
-## Réalisation et bilan
+## Build and review
 
-Les artefacts qui matérialisent la conception et la sûreté de fonctionnement.
+The artefacts that give shape to the design and to its dependability.
 
-- [[bom-en|BOM (nomenclature)]] — consolider les composants et le budget
-- [[amdec-en|AMDEC]] — analyser les défaillances produit et leur criticité
-- [[acv-simplifiee-en|ACV simplifiée]] — évaluer l'impact environnemental sur le cycle de vie
+- [[bom-en|BOM (bill of materials)]] — consolidate the components and the budget
+- [[amdec-en|AMDEC]] — the French acronym for FMEA: analyse product failures and their criticality
+- [[acv-simplifiee-en|Simplified LCA]] — assess the environmental impact over the life cycle

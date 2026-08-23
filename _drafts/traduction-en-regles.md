@@ -89,6 +89,12 @@ Ce sont les plus répétées du wiki : une dérive s'y voit immédiatement. Comp
 | Objectif de l'étape | 5 | Goal of this step |
 | Objectif de la phase | 5 | Goal of this phase |
 | Ce qui relève d'ailleurs | 5 | What belongs elsewhere |
+| Sur le fil | 3 | On the wire |
+| En pratique | 3 | In practice |
+| La mise en œuvre est traitée dans X côté Y | — | Putting it to work is covered in X for Y |
+| *(→ notion [[x]])* (marqueur C32) | — | *(→ concept page [[x]])* |
+| *(transverse)* | — | *(cross-cutting)* |
+| Notions couvertes | — | Concepts covered |
 
 **Titres de callout** — mêmes contraintes, encore plus répétés.
 
@@ -114,6 +120,7 @@ Outils et documents de la tradition française d'ingénierie, que l'étudiant Er
 - **NF X50-151**, **AFNOR** — références normatives, inchangées
 - **FP / FS / FC** — inchangés, glosés une fois
 - **Datron**, **Labo02** — noms propres de l'école
+- **écodesign** — *the French design-discipline sense of the word*. **Terme français conservé** (arbitrage Tim du 23/08 suite, option a), parce que l'anglais *ecodesign* désigne ce que le wiki appelle **écoconception** : la directive européenne *Ecodesign* est officiellement la directive Écoconception en français, et la fiche `ecodesign` consacre une section à ce faux ami. Traduire le mot **inverserait le sens de la fiche qui l'enseigne**. Glose à la première occurrence, *eco-design* restant réservé à `ecoconception`.
 
 Même logique que la convention §1 qui conserve « stepper » pour exposer le vocabulaire fr/eng : ici on l'expose dans l'autre sens.
 
@@ -166,6 +173,48 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | ordinateur monocarte | single-board computer |
 | schéma de principe | schematic |
 | carte fabricable | manufacturable board |
+| contrôleur (= le microcontrôleur) | microcontroller |
+| comparateur | dial indicator |
+| pied à coulisse | vernier caliper |
+| battement (métrologie) | runout |
+| jeu (d'une articulation) | play |
+| étalonnage | calibration |
+| cote (dimension) | dimension |
+| usinage | machining |
+| brut | blank |
+| gammes d'usinage | process plans |
+| état de surface | surface finish |
+| EPI | PPE |
+| soudure (à l'étain) | soldering |
+| carte à pastilles | perfboard |
+| CMS | SMD |
+| impression 3D | 3D printing |
+| fabrication additive / soustractive | additive / subtractive manufacturing |
+| remplissage (impression) | infill |
+| s'écrouler (alimentation) | to sag |
+| sur pile | battery-powered |
+| débit (radio) | data rate |
+| rapport cyclique | duty cycle |
+| fréquence de hachage | switching frequency |
+| résolution / précision | resolution / accuracy |
+| précision, justesse, fidélité | accuracy, trueness, precision |
+| gestion de projet | project planning and tracking |
+| démarche projet | project method |
+| parcours projet | project path |
+| commanditaire | sponsor |
+| relation client | client relationship |
+| archivage projet | project archiving |
+| revue de code | code review |
+| unité SI | SI unit |
+| animation (domaine MEO) | facilitation |
+| entraxe | centre distance |
+| faisceau (câblage) | harness |
+| rétroplanning | backward planning |
+| lot (WBS) | work package |
+| état de l'art technique | technical state of the art |
+| matrice de risques | risk matrix |
+| ACV / analyse du cycle de vie | LCA / life-cycle assessment |
+| DEEE | WEEE |
 
 **Les quatre entrées `dossier technique`, `soutenance`, `REX`, `écart` sont validées en bloc** (arbitrage Tim du 23/08, option a). Périmètres mesurés avant validation, hors `templates/` et hors `en/` : `dossier technique` 224 occurrences sur 50 fiches, `écart` 103 sur 39, `soutenance` 63 sur 13, `REX` et « retour d'expérience » 26 sur 5.
 
@@ -180,6 +229,16 @@ Trois formes dérivées figées à cette occasion, parce qu'elles ne se déduise
 **« Maître » et « esclave » passent en *controller* et *peripheral*** (arbitrage Tim du 23/08, option b). 37 occurrences sur 9 fiches. Motif : les spécifications actuelles ont basculé, NXP disant *controller* et *target* pour l'I²C, la plupart des sources SPI *controller* et *peripheral*. Une paire unique est retenue pour les deux bus, parce que `i2c`, `spi` et `uart` sont des fiches sœurs lues à la suite depuis le même hub et qu'un lecteur n'a pas à apprendre deux vocabulaires pour un même concept.
 
 **Le terme historique se mentionne une fois par fiche**, parce que l'étudiant le rencontrera partout ailleurs : dans les datasheets, dans les noms de fonctions des bibliothèques Arduino et MicroPython, et dans les schémas français du wiki, qui gardent « maître ». Forme retenue : *the controller (historically called the master)*, à la première occurrence, puis *controller* seul.
+
+**⚠ « Contrôleur » ne se traduit pas toujours par *controller* (23/08).** Le mot français désigne **deux objets distincts** dans le corpus : le **maître du bus** dans `i2c` et `spi`, et le **microcontrôleur lui-même**, abrégé, dans `wifi`, `lora` et les hubs de famille. Traduire les deux par *controller* produit, dans une même branche du wiki, une phrase où « le contrôleur redémarre » se lit comme « le maître du bus redémarre ». **Rendre le second par *microcontroller*, systématiquement.**
+
+**Orthographe : anglais britannique par défaut** (*centimetres*, *organise*, *metres*), **sauf sur les termes techniques dont la forme américaine domine la littérature du domaine** — *analog* et non *analogue*, *caliper* et non *calliper*. Motif identique à celui du « stepper » du §1, pris dans l'autre sens : l'étudiant tape `analogRead()`, lit *analog input* sur ses datasheets et voit `ANALOG IN` sérigraphié sur sa carte. Écrire *analogue* créerait un décalage avec ce qu'il a sous les yeux.
+
+**La glose d'un sigle anglophone disparaît en traduction.** `adc` ouvre en français sur « *Analog-to-Digital Converter*, convertisseur analogique-numérique » : la seconde moitié n'a plus d'objet en anglais, où elle répéterait le sigle qu'elle explique. Vaut pour `adc`, `pwm`, `ble`, `led`, `gpio` et tous les sigles anglophones glosés en français. **Ne touche aucun compteur**, et un traducteur mécanique laisserait la redondance.
+
+**Typographie des listes.** Les listes numérotées gardent leur ponctuation mécanique (point-virgule de fin d'item, tiret de glose), C109 ne les visant pas. En revanche l'**espace insécable française disparaît** : en anglais le point-virgule et le deux-points se collent au mot. Ajustement de typographie, pas de ponctuation.
+
+**Les séparateurs décimaux basculent** : `4,7 kΩ` devient `4.7 kΩ`, `3,3 V` devient `3.3 V`, y compris dans les alt d'images.
 
 **AMDEC est promue au §5.2** (arbitrage Tim du 23/08, option c), glose recalée en *the French acronym for FMEA*. 41 occurrences sur 6 fiches. Report fait dans `en/conduite/index`.
 
@@ -198,7 +257,7 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
 ⚠ **Le premier anneau depuis les quatre index fait 79 fiches et 104 000 mots, soit le tiers du corpus.** « Aucun lien mort depuis l'accueil » n'est donc pas un petit lot connexe : c'est le prix réel de la navigabilité, mesuré avant engagement.
 
 1. **Lot 1 — les quatre index. FAIT le 22/08 (suite 2), 2 939 mots.**
-2. **Lot 2a — les 23 fiches courtes du front, 5 791 mots** (6 476 avec les trois index de branche, remesuré le 23/08 sous la règle C110 du §8)**.** `i2c`, `spi`, `uart`, `adc`, `pwm`, `wifi`, `ble`, `lora`, `zigbee`, `memoire`, `cpp`, `micropython-langage`, les six `meca`, les cinq `conduite/meo`, `conduite/ese/index`, `conduite/proj/index`. **Meilleur rapport liens fermés par mot traduit de tout le chantier** : 23 liens fermés pour le prix d'une seule trame. Rode le glossaire à bas coût, comme le prévoyait le lot 2 d'origine.
+2. **Lot 2a — les 23 fiches courtes du front, 5 791 mots** (6 476 avec les trois index de branche, remesuré le 23/08 sous la règle C110 du §8 ; **6 515 après la passe C109**, qui a coûté 39 mots)**. FAIT — 26 fiches traduites, 6 996 mots EN, dont 5 340 le 23/08 et 1 656 le 23/08 (suite).** `i2c`, `spi`, `uart`, `adc`, `pwm`, `wifi`, `ble`, `lora`, `zigbee`, `memoire`, `cpp`, `micropython-langage`, les six `meca`, les cinq `conduite/meo`, `conduite/ese/index`, `conduite/proj/index`. **Meilleur rapport liens fermés par mot traduit de tout le chantier** : 23 liens fermés pour le prix d'une seule trame. Rode le glossaire à bas coût, comme le prévoyait le lot 2 d'origine.
 3. **Lot 2b — les cinq trames du V, ≈ 28 600 mots**, dans l'ordre réel de poids : `preuve-de-concept` (6 382 mots, **la plus lourde**), `specification-technique`, `concept`, `dossier-technique`, `integration-et-tests`. C'est là que se juge la compensation du registre C65 perdu (§4).
 4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301).
 5. **Anneaux suivants**, recalculés depuis le front atteint.

@@ -90,7 +90,7 @@ The team manufactures, assembles and wires the prototype, then runs the qualific
 Three activities are not phases but **continuous threads**, present from the first week of the project to the last:
 
 - **[[gestion-de-projet-en|Project planning and tracking]]**: schedule, task tracking, risk management, team communication, interim reviews. A team that does not steer its project ends up being steered by it.
-- **[[ecoconception-en|Eco-design]]**: life-cycle analysis, material choices, energy frugality. It is not decided at the end of the project. Every design choice commits the environmental footprint.
+- **[[ecoconception-en|Eco-design]]**: life-cycle assessment, material choices, energy frugality. It is not decided at the end of the project. Every design choice commits the environmental footprint.
 - **[[securite-et-qualite-en|Safety and quality]]**: product and user risk analysis ([[amdec-en|AMDEC]], the French acronym for FMEA), compliance with standards, quality of deliverables. To be considered from the spec onwards, not after the first accident.
 
 These threads are assessed across the board: they appear in the deliverables of every phase, rather than in a phase of their own.

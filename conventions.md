@@ -1309,6 +1309,16 @@ Notes 22/08 (suite) :
 - **Le glossaire d'une traduction n'est pas un dictionnaire.** Le gisement réel est celui des **chaînes structurelles répétées** — 234 « Voir aussi », 164 « À quoi ça sert ? », 162 « Pièges », 107 « Raccrochage projet », 60 « Corrigé », 54 « Exemple : projet bras 3 axes ». Une dérive s'y voit immédiatement. Troisième registre, contre-intuitif : **la liste des termes à ne pas traduire** (`bête à cornes`, `pieuvre`, `GRAFCET`, `CdCF`), que l'étudiant Erasmus entendra dans la bouche de ses coéquipiers — les angliciser l'isolerait de son équipe. Même logique que le « stepper » du §1, prise dans l'autre sens.
 - **Le remède à la dérive de traduction n'est pas la synchronisation, c'est la détection.** Chaque fiche EN portera en front matter le hash du commit de sa source FR ; un script liste celles dont la source a bougé. La dérive devient une liste mesurable au lieu d'un risque invisible. ⚠ **Corrigé le 22/08 (suite 2) : ce sera un `source_sha256` de contenu, pas un hash de commit.** La fiche EN se crée après la passe C109, donc sur un fichier FR non committé : `git log -1` y rend le commit d'*avant* la passe, et tout le lot serait signalé dérivé au premier push. Une empreinte de contenu est indifférente au rythme de commit.
 
+### Acquises 23/08 — lot 2a, passes C109 et premières traductions
+
+*Aucune convention numérotée. La numérotation reste à **C110**.*
+
+- **Une sortie d'outil dit ce qu'il a fait, pas ce que le fichier contient après coup.** J'ai demandé à Tim de lancer `draft-en.ps1` « pendant que je traduis », créant une **condition de course** que rien ne signale : le script est passé entre deux `write_file`, sa sortie a annoncé trois bascules et **deux n'ont pas tenu**, mes écritures suivantes ayant réécrit les fichiers. Le défaut n'est apparu qu'en **relisant les fiches**, jamais en relisant le rapport. *Règle opératoire : aucune écriture pendant qu'un script tourne sur les mêmes fichiers, et le contrôle se fait sur le fichier.*
+- **Un outil qu'on vient d'écrire peut annuler l'argument qu'on continue de porter.** J'ai présenté deux fois la mesure C105 de référence comme **non rattrapable**, la fenêtre se refermant dès qu'une fiche EN repasse en `draft: false`. Vrai la veille, faux depuis `draft-en.ps1`, qui rend la bascule réversible dans les deux sens. **L'instrument invalidait l'urgence invoquée pour le justifier**, et c'est Tim qui a dû rouvrir le dossier. Variante du motif du chiffre hérité : ici ce n'est pas un chiffre qui n'a pas été remesuré, c'est **une contrainte qui n'a pas été revérifiée après avoir changé le monde**.
+- **Un compteur égal ne prouve pas qu'un lien pointe au bon endroit.** Un wikilink dont le **libellé contient du code inline** échappe au suffixage `-en` du script : le backtick casse le parsing. `micropython-langage` portait cinq items suffixés et un sixième nu **dans la même liste**. **29 occurrences sur 22 fiches**, presque toutes dans le lot 2c. Les trois compteurs restent égaux, le lien est bien formé, la cible existe : **aucun contrôle mécanique du dispositif ne pouvait l'attraper**, seule la lecture de la fiche l'a vu.
+- **Un mot français qui désigne deux objets se traduit par deux mots.** « Contrôleur » est le **maître du bus** dans `i2c` et `spi`, et le **microcontrôleur** dans `wifi` et `lora`. Le rendre uniformément par *controller* aurait donné, dans une même branche, « le contrôleur redémarre » là où le lecteur comprend « le maître du bus redémarre ». *Le glossaire se construit sur les emplois du corpus, pas sur les entrées d'un dictionnaire.*
+- **Une passe de ponctuation trouve des défauts qui n'en sont pas.** Les 26 passes C109 ont rendu **0 occurrence de prose résiduelle** pour **+39 mots** seulement, mais deux corrections de fond en sont sorties : `relation-client` écrivait « annoncer un écart plutôt que de le découvrir au client », sujet inversé, et `ese/index` employait « pattern » en prose française hors des anglicismes admis du §1. **Le tiret masquait la première**, en empilant deux propositions dont l'une n'avait pas de sujet propre.
+
 ### C110 — Une mesure de volume se publie avec sa règle de comptage
 
 *Acquise le 22/08 (suite 2), demande Tim. À confirmer avant documentation formelle.*
@@ -1339,6 +1349,56 @@ comme tel.
 *Portée.* Mots, octets, occurrences, fiches, liens, embeds. Le comptage en
 octets n'a pas besoin de règle — c'est précisément pourquoi il a tranché
 l'ordre des trames là où les mots ne pouvaient pas.
+
+### C111 — Un sélecteur de langue est du chrome, pas du maillage
+
+*Acquise le 23/08 (suite), arbitrage Tim (a). La numérotation atteint **C111**.*
+
+**Tout lien dont la fonction est de changer de langue s'écrit en lien markdown
+absolu, jamais en wikilink.** Trois motifs, dont un seul était prévu :
+
+- **Le graphe ne doit pas relier les deux corpus.** Une arête wikilink entre
+  les deux racines rendrait le graphe local de l'accueil bilingue pour tout le
+  monde, l'inverse de l'arbitrage du 22/08.
+- **`content/index.md` n'a aucune forme wikilink non ambiguë.** Son chemin
+  complet *est* `index`, c'est-à-dire la forme courte que le §1 des règles de
+  traduction interdit, huit `index.md` coexistant sous
+  `markdownLinkResolution: "shortest"`. **Seul fichier du dépôt où chemin
+  complet et forme courte se confondent**, donc seul fichier que le suffixage
+  `-en` n'a pas pu protéger.
+- **Neutralité par construction.** Les trois compteurs FR/EN ne comptant que
+  les wikilinks, un sélecteur en markdown ne peut pas faire diverger une paire,
+  quel que soit le nombre de sélecteurs posés. C'est la seule catégorie de lien
+  qui ait cette propriété.
+
+*Portée.* **Les deux pages d'accueil, et elles seules**, tant que le corpus EN
+est partiel. Un sélecteur par fiche produirait **212 liens FR vers des fiches
+EN inexistantes** (30 traduites sur 242), invisibles à `audit-wikilinks.mjs`
+qui ne lit que les wikilinks : des 404 que **rien ne mesure**, sur un corpus
+tenu à 0 lien mort à la dernière mesure du 20/08. L'asymétrie est en outre
+totale, le sens EN → FR étant toujours valide et le sens FR → EN presque
+jamais.
+
+*Réouverture.* Quand les 242 existeront, la question se repose **au niveau du
+layout Quartz** et pas du contenu : un composant déduit la jumelle du chemin et
+se masque quand elle n'existe pas, ce qui supprime les 404 au lieu de les
+gérer. Voir BACKLOG.
+
+### Acquises 23/08 (suite) — fin du lot 2a, encart d'accueil
+
+- **Les compteurs valident la structure, jamais la désignation.** `en/meca/index`
+  libellait `[[soudure-en|Welding]]` alors que la fiche cible s'intitule
+  *Soldering* et traite la soudure à l'étain : le lien pointait juste et
+  affichait faux. **Même angle mort que le backtick de la veille, sur l'autre
+  axe** — le slug échappait au suffixage, ici c'est le libellé qui échappe au
+  sens, et dans les deux cas les trois compteurs restent verts.
+- **Un mot dont la traduction anglaise désigne autre chose ne se traduit pas.**
+  `écodesign` promu au §5.2 : l'anglais *ecodesign* rend ce que le wiki appelle
+  **écoconception**, si bien que traduire le mot **inverserait le sens de la
+  fiche qui enseigne précisément ce faux ami**.
+- **Le français laisse des traces typographiques dans la prose EN.** Une espace
+  avant point-virgule subsistait dans `en/index`, issue du lot 1, là où le §5.3
+  la proscrit explicitement. Candidat de balayage avant la fin du chantier.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

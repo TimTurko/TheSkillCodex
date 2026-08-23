@@ -1,5 +1,5 @@
 ---
-title: Impression 3D
+title: 3D printing
 type: notion
 tags:
   - mme
@@ -11,17 +11,17 @@ source_fr: meca/impression-3d.md
 source_sha256: 042608d9780d8d836ae204e90b8bfedfa8cc917faed9f6c378be8be771409751
 ---
 
-L'**impression 3D** (fabrication **additive**) construit une pièce couche par couche à partir d'un fichier 3D, le plus souvent par dépôt de filament fondu (FDM). Elle permet de fabriquer en interne des formes complexes sans outillage, au prix d'une tenue mécanique et d'une précision moindres que l'[[usinage-en|usinage]].
+**3D printing**, or **additive** manufacturing, builds a part layer by layer from a 3D file, most often by depositing fused filament (FDM). It makes it possible to produce complex shapes in house without tooling, at the price of lower mechanical strength and lower accuracy than [[usinage-en|machining]].
 
-## Dans le projet
+## In the project
 
-C'est le procédé de prototypage rapide par excellence : on itère une pièce en quelques heures pour le coût du filament. Sur le fil rouge, les pièces de structure peu chargées (supports, carters, gabarits) sont imprimées, souvent en [[pla-en|PLA]]. Le flux pratique en école : l'équipe transmet des fichiers **STL** au responsable fablab qui prend en charge l'impression. D'où l'importance d'**anticiper le créneau** et de soigner l'orientation des pièces, la résistance dépendant du sens des couches.
+This is the rapid prototyping process par excellence: a part is iterated in a few hours for the cost of the filament. On the running example, the lightly loaded structural parts, such as brackets, housings and jigs, are printed, usually in [[pla-en|PLA]]. The practical flow at school is that the team hands **STL** files to the fablab manager, who takes charge of the printing. Hence the importance of **booking the slot early** and of paying attention to part orientation, since strength depends on the direction of the layers.
 
-*Le réglage fin des paramètres (température, remplissage, supports, vitesse), le choix du matériau selon la tenue visée et le diagnostic des défauts d'impression relèvent du **cours de fabrication** et du responsable fablab.*
+*Fine parameter tuning, covering temperature, infill, supports and speed, the choice of material to suit the strength required, and the diagnosis of printing defects, all belong to the **manufacturing course** and to the fablab manager.*
 
-## Voir aussi
+## See also
 
-- [[usinage-en|Usinage]] — le procédé soustractif complémentaire
-- [[pla-en|PLA]] — le matériau d'impression le plus courant
-- [[ecoconception-en|Écoconception]] — sobriété matière et fin de vie
-- **Cours de fabrication / matériaux** (collègues) — paramètres, choix matériau, défauts
+- [[usinage-en|Machining]] — the complementary subtractive process
+- [[pla-en|PLA]] — the most common printing material
+- [[ecoconception-en|Eco-design]] — material frugality and end of life
+- **Manufacturing and materials course** (colleagues) — parameters, material choice, defects

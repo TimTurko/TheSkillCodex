@@ -11,17 +11,17 @@ source_fr: meca/pla.md
 source_sha256: 0283e7330255a3fbb2553369019eaf692c50f2bdd787567a4ea3523e4fe22eb5
 ---
 
-Le **PLA** (acide polylactique) est le filament thermoplastique le plus courant en [[impression-3d-en|impression 3D]] FDM : facile à imprimer, peu coûteux et issu de ressources végétales, mais peu résistant à la chaleur et plutôt cassant.
+**PLA** (polylactic acid) is the most common thermoplastic filament in FDM [[impression-3d-en|3D printing]]: easy to print, cheap and derived from plant resources, but poorly resistant to heat and rather brittle.
 
-## Dans le projet
+## In the project
 
-Le PLA est le choix par défaut pour les pièces imprimées non critiques du fil rouge (supports, carters, gabarits) : il s'imprime sans difficulté et permet d'itérer vite. Ses **limites** orientent les arbitrages : il flue dès ~60 °C (à éviter près d'un moteur qui chauffe ou en plein soleil) et casse net sous choc. Pour une pièce sollicitée ou exposée, on lui préfère un PETG, un ABS ou une pièce [[usinage-en|usinée]]. C'est typiquement un critère de [[matrice-de-decision-en|matrice de décision]] matériau, pièce par pièce.
+PLA is the default choice for the non-critical printed parts of the running example, such as brackets, housings and jigs: it prints without difficulty and allows fast iteration. Its **limits** are what steer the trade-offs. It creeps from around 60 °C, so it is best kept away from a motor that heats up or from direct sunlight, and it snaps cleanly under impact. For a part that is loaded or exposed, a PETG, an ABS or a [[usinage-en|machined]] part is preferable. This is a textbook criterion for a materials [[matrice-de-decision-en|decision matrix]], part by part.
 
-*La comparaison fine des polymères (tenue mécanique, thermique, recyclabilité, bilan environnemental) relève du **cours de matériaux**. Le wiki se limite à situer le PLA comme choix de prototypage par défaut et ses limites d'emploi.*
+*The detailed comparison of polymers, covering mechanical and thermal strength, recyclability and environmental footprint, belongs to the **materials course**. The wiki confines itself to placing PLA as the default prototyping choice and to its limits of use.*
 
-## Voir aussi
+## See also
 
-- [[impression-3d-en|Impression 3D]] — le procédé qui met en œuvre le PLA
-- [[ecoconception-en|Écoconception]] — choix matière et fin de vie
-- [[matrice-de-decision-en|Matrice de décision]] — arbitrer le couple matériau / pièce
-- **Cours de matériaux** (collègues) — comparaison des polymères
+- [[impression-3d-en|3D printing]] — the process that puts PLA to work
+- [[ecoconception-en|Eco-design]] — material choice and end of life
+- [[matrice-de-decision-en|Decision matrix]] — arbitrating the material and part pairing
+- **Materials course** (colleagues) — comparison of polymers

@@ -1,5 +1,5 @@
 ---
-title: Pied à coulisse
+title: Vernier caliper
 type: notion
 tags:
   - mme
@@ -11,20 +11,20 @@ source_fr: meca/pied-a-coulisse.md
 source_sha256: 00a46ccf84ff21f3630c68eb3fe6317b291b6acad588e41e8ec04f427d0b281f
 ---
 
-Le **pied à coulisse** est l'instrument de mesure dimensionnelle de base de l'atelier : il donne une **cote absolue** (longueur, diamètre extérieur ou intérieur, profondeur) au dixième, voire au centième de millimètre pour les modèles numériques.
+The **vernier caliper** is the workshop's basic dimensional measuring instrument: it gives an **absolute dimension** (a length, an outside or inside diameter, a depth) to a tenth of a millimetre, or a hundredth on digital models.
 
-![Schéma d'un pied à coulisse : une règle graduée avec un mors fixe et un mors coulissant. Les becs vers le bas serrent une pièce (longueur ou diamètre extérieur), les becs vers le haut mesurent un diamètre intérieur, et une jauge sort à droite pour mesurer une profondeur — toujours une cote absolue.](/ressources/img/pied-a-coulisse/mesures.svg)
+![Diagram of a vernier caliper: a graduated beam with a fixed jaw and a sliding jaw. The lower jaws close on a part to read a length or an outside diameter, the upper jaws read an inside diameter, and a depth rod extends from the right to read a depth. Every one of them is an absolute dimension.](/ressources/img/pied-a-coulisse/mesures.svg)
 
-## Dans le projet
+## In the project
 
-C'est l'outil de premier recours pour vérifier qu'une pièce fabriquée est conforme à ses cotes : alésage d'axe, entraxe de fixation, épaisseur. Sur le fil rouge, il sert au contrôle dimensionnel des pièces en [[integration-et-tests-en|intégration et tests]] et à la traçabilité des montages. Bon réflexe : mesurer les **cotes critiques** identifiées au [[dossier-technique-en|dossier technique]] plutôt que tout mesurer, et remettre l'instrument à zéro avant chaque série.
+It is the first tool to reach for when checking that a manufactured part matches its dimensions: a shaft bore, a mounting hole spacing, a thickness. On the running example, it serves for the dimensional inspection of parts during [[integration-et-tests-en|integration and testing]], and for the traceability of the assemblies. A good habit is to measure the **critical dimensions** identified in the [[dossier-technique-en|technical design file]] rather than measuring everything, and to zero the instrument before each batch.
 
-*Les bonnes pratiques de mesure (pression de contact, lecture du vernier, sources d'incertitude) relèvent des travaux pratiques de métrologie. Le wiki situe l'usage de l'instrument dans le projet.*
+*Good measuring practice, including contact pressure, reading the vernier scale and the sources of uncertainty, belongs to the metrology lab sessions. The wiki places the instrument within the project.*
 
-## Voir aussi
+## See also
 
-- [[comparateur-en|Comparateur]] — pour mesurer un écart plutôt qu'une cote
-- [[integration-et-tests-en|Intégration et tests]] — contrôle dimensionnel des pièces fabriquées
-- [[dossier-technique-en|Dossier technique]] — où sont définies les cotes critiques
-- [[precision-de-mesure-en|Précision, justesse, fidélité]] — résolution ≠ précision (transverse à toute mesure)
-- **Cours de mécanique / métrologie** (collègues) — lecture, incertitudes
+- [[comparateur-en|Dial indicator]] — for measuring a variation rather than a dimension
+- [[integration-et-tests-en|Integration and testing]] — dimensional inspection of manufactured parts
+- [[dossier-technique-en|Technical design file]] — where the critical dimensions are defined
+- [[precision-de-mesure-en|Accuracy, trueness, precision]] — resolution is not accuracy (cross-cutting to any measurement)
+- **Mechanical engineering and metrology course** (colleagues) — reading, uncertainties

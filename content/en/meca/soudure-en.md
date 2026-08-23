@@ -1,5 +1,5 @@
 ---
-title: Soudure
+title: Soldering
 type: notion
 tags:
   - eee
@@ -12,17 +12,17 @@ source_fr: meca/soudure.md
 source_sha256: 339504252b521fca542c912c9114557a29de31c50b7ee4d1f74ae966e2f348de
 ---
 
-La **soudure** à l'étain est l'assemblage électrique permanent de composants et de fils sur un [[pcb-en|circuit imprimé]] ou une carte à pastilles, par fusion d'un alliage qui assure à la fois la liaison mécanique et le contact électrique.
+**Soldering** is the permanent electrical joining of components and wires onto a [[pcb-en|printed circuit board]] or a piece of perfboard, by melting an alloy that provides both the mechanical bond and the electrical contact.
 
-## Dans le projet
+## In the project
 
-C'est le geste de base de la réalisation électronique : monter les composants d'un PCB, raccorder une alimentation, fiabiliser une liaison qui ne doit pas bouger. Elle s'oppose à la **connectique** enfichable (JST, *headers*), qu'on privilégie pour tout ce qui doit rester démontable (voir [[ecoconception-en|écoconception]]). Côté sécurité projet, la soudure se pratique en poste ventilé, avec les [[epi-en|EPI]] adaptés et après formation, selon les règles d'atelier de [[securite-et-qualite-en|sécurité et qualité]].
+This is the basic gesture of building electronics: populating a PCB, wiring up a power supply, making a connection that must not move. It stands opposite **plug-in connectors** (JST, headers), which are preferred for anything that has to remain demountable (see [[ecoconception-en|eco-design]]). On the project safety side, soldering is done at a fume-extracted bench, with the right [[epi-en|PPE]] and after training, following the workshop rules under [[securite-et-qualite-en|safety and quality]].
 
-*Les techniques fines (soudure CMS, refusion, dessoudage, contrôle des joints) relèvent des travaux pratiques d'électronique et de l'**atelier dédié**. Le wiki situe la soudure dans le projet sans en détailler le geste.*
+*The finer techniques, covering SMD soldering, reflow, desoldering and joint inspection, belong to the electronics lab sessions and to the **dedicated workshop**. The wiki places soldering within the project without detailing the gesture itself.*
 
-## Voir aussi
+## See also
 
-- [[pcb-en|PCB]] — le support des composants soudés
-- [[epi-en|EPI]] et [[securite-et-qualite-en|Sécurité et qualité]] — protections et règles d'atelier
-- [[ecoconception-en|Écoconception]] — soudure vs connectique démontable
-- **Atelier / TP d'électronique** (collègues) — le geste de soudure
+- [[pcb-en|PCB]] — the substrate the components are soldered to
+- [[epi-en|PPE]] and [[securite-et-qualite-en|Safety and quality]] — protection and workshop rules
+- [[ecoconception-en|Eco-design]] — soldering against demountable connectors
+- **Electronics workshop and lab sessions** (colleagues) — the soldering gesture itself

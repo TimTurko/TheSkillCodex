@@ -13,7 +13,7 @@ source_sha256: 0b2175a8e79dfc5a1abf74f66d6f2efbf934b4152333b9c15d9b63d8ba2d34d6
 - [[optimisation-mecanique-en|Optimising a mechanical design]] — save weight, pick the right material and process pair, cut the number of parts
 
 ## Manufacturing
-- [[impression-3d-en|3D printing]] · [[usinage-en|Machining]] · [[soudure-en|Welding]] — the processes (see the manufacturing course)
+- [[impression-3d-en|3D printing]] · [[usinage-en|Machining]] · [[soudure-en|Soldering]] — the processes (see the manufacturing course)
 - [[pla-en|PLA]] — the everyday printing material
 
 ## Measuring and checking

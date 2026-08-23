@@ -5,6 +5,9 @@ tags: [accueil]
 
 # Bienvenue sur TheSkillCodex
 
+> [!info] English version
+> An English version of this wiki is under way: **[TheSkillCodex in English](/en/)**. Diagrams and screenshots stay in French.
+
 ## Comment utiliser ce site
 
 Ce site rassemble des **fiches courtes et autoportantes** (≈ 5 min de lecture), reliées entre elles : chaque fiche se lit seule et renvoie vers les notions voisines.
