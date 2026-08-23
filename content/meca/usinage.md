@@ -13,9 +13,9 @@ L'**usinage** est un procédé de fabrication **soustractif** : on retire de la 
 
 ## Dans le projet
 
-L'usinage produit les pièces métalliques exigeant précision et raideur — typiquement les articulations ou supports en aluminium du fil rouge, là où l'[[impression-3d|impression 3D]] ne suffit pas. Le travail relève de l'atelier : il impose une **formation préalable** à la machine et la présence d'un encadrant (voir les règles d'atelier de [[securite-et-qualite|sécurité et qualité]]). Côté projet, l'enjeu est d'**identifier tôt** quelles pièces seront usinées, leurs cotes critiques (à reporter au [[dossier-technique|dossier technique]]) et le délai atelier associé.
+L'usinage produit les pièces métalliques exigeant précision et raideur, typiquement les articulations ou supports en aluminium du fil rouge, là où l'[[impression-3d|impression 3D]] ne suffit pas. Le travail relève de l'atelier : il impose une **formation préalable** à la machine et la présence d'un encadrant (voir les règles d'atelier de [[securite-et-qualite|sécurité et qualité]]). Côté projet, l'enjeu est d'**identifier tôt** quelles pièces seront usinées, leurs cotes critiques (à reporter au [[dossier-technique|dossier technique]]) et le délai atelier associé.
 
-*Le choix des paramètres de coupe, les gammes d'usinage, les tolérances réellement atteignables et la programmation des machines à commande numérique relèvent du **cours de fabrication** et des responsables d'atelier — le wiki s'arrête à l'intégration de l'usinage dans la conduite du projet.*
+*Le choix des paramètres de coupe, les gammes d'usinage, les tolérances réellement atteignables et la programmation des machines à commande numérique relèvent du **cours de fabrication** et des responsables d'atelier. Le wiki s'arrête à l'intégration de l'usinage dans la conduite du projet.*
 
 ## Voir aussi
 

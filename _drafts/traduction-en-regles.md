@@ -35,9 +35,15 @@
 
 **Contrôle mécanique de fin de fiche** : le fichier EN doit porter exactement le même nombre de wikilinks, d'embeds et de blocs de code que sa source FR. Trois compteurs, trois égalités.
 
-## 3. Publication différée
+## 3. Publication — arbitrage révisé le 22/08 (suite 2)
 
-Les fiches EN sont créées en **`draft: true`** et le restent jusqu'à ce que les 243 existent. Motif : densité de 17,7 liens sortants par fiche — toute fiche EN publiée avant la fin serait truffée de liens rouges vers des cibles non encore créées. La convention « approche A » (le lien rouge sert de TODO list) vaut pour l'auteur, pas pour un étudiant qui n'a que cette version. Un balayage unique publie l'ensemble à la fin.
+**Les fiches EN sont créées en `draft: false` et publiées immédiatement.** Arbitrage Tim, contre ma recommandation. Motifs retenus : le wiki n'est connu que de son auteur, et un aller-retour `build --serve` par fiche coûte plus cher en rythme que ne coûtent quelques liens rouges. Le script porte la valeur dans sa constante `DRAFT_EN`.
+
+⚠ **À rebasculer sur `draft: true` quand le corpus EN dépasse la vingtaine de fiches.** Le coût de la publication anticipée n'est pas la réputation, c'est **l'index de recherche** : chaque fiche EN publiée y entre. À 4 fiches sur 246, rien ne bouge dans la bande top-3 ; à 100, taper `concept` remontera systématiquement le doublon anglais. Observation de Tim qui borne l'objection : le **vocabulaire général diverge** assez pour limiter les doublons (`project` ne rend aucune fiche FR), **mais le lexique technique se recouvre exactement** — `concept`, `interface`, `module`, `PID`, `GPIO`, `PWM`, `I2C`, `firmware`, `PCB`, `GRAFCET` — et c'est celui des requêtes réelles.
+
+**`RemoveDrafts` est désormais conditionnel** dans `quartz.config.ts` : un build lancé avec `QUARTZ_DRAFTS=1` rend les fiches `draft: true` visibles en local **sans les publier**, le build de publication les excluant toujours. Cela sépare « pas publié » de « pas constructible en local », et resservira à la rebascule.
+
+*Rédaction antérieure, conservée pour trace — les fiches EN devaient rester `draft: true` jusqu'à ce que les 243 existent, au motif d'une densité de 17,7 liens sortants par fiche.*
 
 ## 4. Style de la version anglaise
 
@@ -102,6 +108,7 @@ Outils et documents de la tradition française d'ingénierie, que l'étudiant Er
 
 - **bête à cornes** — *the "horned beast" diagram, the French need-statement tool*
 - **pieuvre** — *the "octopus" diagram, the French function-mapping tool*
+- **AMDEC** — *the French acronym for FMEA*. Même méthode, même tableau, sigle traduit terme à terme. **Ne pas gloser « the French FMEA »**, qui laisserait croire à une variante nationale là où il n'y a qu'un sigle traduit : un étudiant qui a déjà pratiqué la FMEA doit la reconnaître, pas croire à autre chose.
 - **GRAFCET** — sigle normalisé, inchangé
 - **CdCF** / **cahier des charges fonctionnel** — *functional requirements specification*
 - **NF X50-151**, **AFNOR** — références normatives, inchangées
@@ -136,6 +143,8 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | piste | track |
 | strap | wire link |
 | niveau de tension | logic level |
+| maître (bus) | controller |
+| esclave (bus) | peripheral |
 | tirage (pull-up / pull-down) | pull-up / pull-down |
 | boucle ouverte / fermée | open loop / closed loop |
 | machine à états | state machine |
@@ -145,6 +154,34 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | fraisage, gravure mécanique | milling |
 | simple face | single-sided |
 | moniteur série | serial monitor |
+| dossier technique | technical design file |
+| soutenance | final presentation |
+| REX / retour d'expérience | lessons learned |
+| écart (de qualification) | deviation |
+| décomposition fonctionnelle | functional breakdown |
+| schéma bloc fonctionnel | functional block diagram |
+| chaîne d'énergie / d'information | energy chain / information chain |
+| pré-dimensionnement | rough sizing |
+| plan de qualification | qualification plan |
+| ordinateur monocarte | single-board computer |
+| schéma de principe | schematic |
+| carte fabricable | manufacturable board |
+
+**Les quatre entrées `dossier technique`, `soutenance`, `REX`, `écart` sont validées en bloc** (arbitrage Tim du 23/08, option a). Périmètres mesurés avant validation, hors `templates/` et hors `en/` : `dossier technique` 224 occurrences sur 50 fiches, `écart` 103 sur 39, `soutenance` 63 sur 13, `REX` et « retour d'expérience » 26 sur 5.
+
+Trois formes dérivées figées à cette occasion, parce qu'elles ne se déduisent pas de l'entrée mère :
+
+| Forme dérivée | Anglais | Motif |
+|---|---|---|
+| dossier technique CE | CE technical file | *technical file* seul est le terme réglementaire du marquage CE, employé par `marquage-ce` ; c'est le qualificatif *design* de l'entrée mère qui évite la collision |
+| séance de REX | lessons learned review | déjà en production dans `en/conduite/index` |
+| soutenance finale | final presentation | le *final* ne se redouble pas |
+
+**« Maître » et « esclave » passent en *controller* et *peripheral*** (arbitrage Tim du 23/08, option b). 37 occurrences sur 9 fiches. Motif : les spécifications actuelles ont basculé, NXP disant *controller* et *target* pour l'I²C, la plupart des sources SPI *controller* et *peripheral*. Une paire unique est retenue pour les deux bus, parce que `i2c`, `spi` et `uart` sont des fiches sœurs lues à la suite depuis le même hub et qu'un lecteur n'a pas à apprendre deux vocabulaires pour un même concept.
+
+**Le terme historique se mentionne une fois par fiche**, parce que l'étudiant le rencontrera partout ailleurs : dans les datasheets, dans les noms de fonctions des bibliothèques Arduino et MicroPython, et dans les schémas français du wiki, qui gardent « maître ». Forme retenue : *the controller (historically called the master)*, à la première occurrence, puis *controller* seul.
+
+**AMDEC est promue au §5.2** (arbitrage Tim du 23/08, option c), glose recalée en *the French acronym for FMEA*. 41 occurrences sur 6 fiches. Report fait dans `en/conduite/index`.
 
 ## 6. Menus de logiciels — arbitrage 12 (b)
 
@@ -154,13 +191,19 @@ Les tutos d'outils citent des chemins d'interface en français, parce que le log
 
 Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école ; garder le français seul priverait l'étudiant de toute prise pour chercher de l'aide en ligne. Concerne principalement `falstad`, `easyeda`, `kicad`, les fiches `*-prise-en-main` et `ide`.
 
-## 7. Ordre des lots — arbitrage 13
+## 7. Ordre des lots — arbitrage révisé le 22/08 (suite 2)
 
-1. **Parcours d'entrée** : `index`, `conduite/index`, `embarque/index`, `meca/index`, puis les cinq trames du V. Une version EN partielle est déjà navigable.
-2. **Les 53 fiches courtes** (< 600 mots, **16 000 mots au total**), toutes familles confondues. Le glossaire §5 se rode sur du volume faible, là où une dérive de vocabulaire se rattrape à bas coût.
-3. **Module par module**, dans l'ordre de `_drafts/relecture-ordre.md`.
+**Progression par proximité de lien, plus module par module.** Arbitrage Tim. Le front de traduction reste connexe : un anglophone ne rencontre pas de lien mort tant qu'il ne quitte pas la zone traduite. Conséquence directe du passage en `draft: false` — les liens rouges sont désormais visibles.
 
-Les fiches courtes étant dispersées dans tous les modules, le lot 2 laissera des `See also` pointant des cibles non encore créées. **Sans conséquence** : tout `content/en/` reste `draft: true` jusqu'à la fin (§3), donc aucun étudiant ne voit ces liens.
+⚠ **Le premier anneau depuis les quatre index fait 79 fiches et 104 000 mots, soit le tiers du corpus.** « Aucun lien mort depuis l'accueil » n'est donc pas un petit lot connexe : c'est le prix réel de la navigabilité, mesuré avant engagement.
+
+1. **Lot 1 — les quatre index. FAIT le 22/08 (suite 2), 2 939 mots.**
+2. **Lot 2a — les 23 fiches courtes du front, 5 791 mots** (6 476 avec les trois index de branche, remesuré le 23/08 sous la règle C110 du §8)**.** `i2c`, `spi`, `uart`, `adc`, `pwm`, `wifi`, `ble`, `lora`, `zigbee`, `memoire`, `cpp`, `micropython-langage`, les six `meca`, les cinq `conduite/meo`, `conduite/ese/index`, `conduite/proj/index`. **Meilleur rapport liens fermés par mot traduit de tout le chantier** : 23 liens fermés pour le prix d'une seule trame. Rode le glossaire à bas coût, comme le prévoyait le lot 2 d'origine.
+3. **Lot 2b — les cinq trames du V, ≈ 28 600 mots**, dans l'ordre réel de poids : `preuve-de-concept` (6 382 mots, **la plus lourde**), `specification-technique`, `concept`, `dossier-technique`, `integration-et-tests`. C'est là que se juge la compensation du registre C65 perdu (§4).
+4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301).
+5. **Anneaux suivants**, recalculés depuis le front atteint.
+
+*Rédaction antérieure, conservée pour trace — l'ordre était : parcours d'entrée, puis les 53 fiches courtes du corpus entier (16 000 mots), puis module par module dans l'ordre de `_drafts/relecture-ordre.md`.*
 
 ## 8. Procédé par fiche
 
@@ -170,14 +213,30 @@ Les fiches courtes étant dispersées dans tous les modules, le lot 2 laissera d
 4. **Trois compteurs** : liens, embeds, blocs de code — égalité FR/EN.
 5. **Clic-test** en fin de lot.
 
-**Volumétrie** : 243 fiches, 319 000 mots (prose + alt), médiane 1 192 mots par fiche. Environ **40 à 50 sessions**. `easyeda` (13 028 mots) en vaut deux à elle seule.
+**Volumétrie, remesurée le 23/08.** Règle : mots hors front matter, hors blocs de code clôturés, code inline inclus, un mot étant une suite de caractères alphanumériques, apostrophes et traits d'union. Périmètre : les 242 fiches FR publiées, hors `templates/`, hors `en/`, hors `ressources/index` en `draft: true`.
+
+| Grandeur | Valeur | Chiffre hérité |
+|---|---:|---:|
+| Fiches FR publiées | 242 | 243 |
+| Mots FR | **291 099** | 319 000 |
+| Médiane par fiche | 1 088 | 1 192 |
+| Fiche la plus lourde (`easyeda`) | 9 775 | 13 028 |
+
+Les chiffres hérités étaient tous hauts de 8 à 25 %, l'écart venant de ce que leur règle n'était pas écrite. Reste à traduire après le lot 1 : **288 050 mots**. `easyeda` vaut toujours deux sessions à elle seule.
+
+**Rythme mesuré** : le nombre de mots traduits ouvre chaque entrée du JOURNAL depuis le 22/08 (suite 2). La trajectoire se lira d'elle-même au bout de trois sessions, plutôt que de se discuter.
 
 ## 9. Outillage à écrire avant la fiche 1
 
 **Les trois sont faits (22/08 suite 2).**
 
 - `tools/creer-fiche-en.mjs` — génère le squelette EN depuis une fiche FR (§2). Le squelette n'est **pas** une traduction : c'est la fiche française avec les seules transformations structurelles appliquées, ce qui rend les trois compteurs égaux par construction et fait porter le contrôle de fin de fiche sur ce que la traduction a cassé, pas sur ce que le script aurait perdu. Recette mesurée sur les 243 fiches : **4 323 liens, 395 embeds, 376 blocs de code, 0 fiche divergente**. Options `--dry`, `--force`, `--recette`.
-- `tools/derive-traduction.mjs` — liste les fiches EN dont la source FR a bougé. **Le remède à la dérive n'est pas la synchronisation, c'est la détection.**
+- `tools/derive-traduction.mjs` — liste les fiches EN dont la source FR a bougé. **Le remède à la dérive n'est pas la synchronisation, c'est la détection.** Options `--tout`, `--manquantes`.
 - Ajouté aux `TARGETS` de `tools/normalize-pilotage.js`.
+
+**Deux modes ajoutés en cours de lot 1, parce que le procédé du §8 n'était outillé nulle part.**
+
+- `--controle` compare chaque fiche EN à sa source sur les trois compteurs. À la génération l'égalité est vraie par construction : c'est **après la traduction** qu'un lien disparaît dans une reformulation, et c'était précisément le moment où rien ne regardait.
+- `--recaler <fiche EN>` reconsigne le marqueur **sans toucher à la traduction**, après qu'une retouche FR a été reportée à la main. Sans lui, la seule sortie était de régénérer le squelette, donc d'écraser la traduction — un sha256 ne s'écrit pas à la main. **Garde-fou : le recalage est refusé si les trois compteurs divergent**, sinon il ferait disparaître la dérive de l'écran sans l'avoir traitée.
 
 **Le marqueur de source est un `source_sha256` du contenu FR, pas un hash de commit** (arbitrage Tim du 22/08 suite 2). Motif : la fiche EN se crée **après** la passe C109, donc sur un fichier FR pas encore committé. `git log -1` y rendrait le commit d'*avant* la passe, et la totalité du lot serait signalée comme dérivée dès le premier push — le piège que le §8 voulait éviter, refermé un cran plus loin. Une empreinte de contenu est en outre indifférente au rythme de commit.

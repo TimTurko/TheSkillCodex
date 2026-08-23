@@ -14,9 +14,9 @@ La **soudure** à l'étain est l'assemblage électrique permanent de composants 
 
 ## Dans le projet
 
-C'est le geste de base de la réalisation électronique : monter les composants d'un PCB, raccorder une alimentation, fiabiliser une liaison qui ne doit pas bouger. Elle s'oppose à la **connectique** enfichable (JST, *headers*), qu'on privilégie pour tout ce qui doit rester démontable (voir [[ecoconception|écoconception]]). Côté sécurité projet, la soudure se pratique en poste ventilé, avec les [[epi|EPI]] adaptés et après formation — voir les règles d'atelier de [[securite-et-qualite|sécurité et qualité]].
+C'est le geste de base de la réalisation électronique : monter les composants d'un PCB, raccorder une alimentation, fiabiliser une liaison qui ne doit pas bouger. Elle s'oppose à la **connectique** enfichable (JST, *headers*), qu'on privilégie pour tout ce qui doit rester démontable (voir [[ecoconception|écoconception]]). Côté sécurité projet, la soudure se pratique en poste ventilé, avec les [[epi|EPI]] adaptés et après formation, selon les règles d'atelier de [[securite-et-qualite|sécurité et qualité]].
 
-*Les techniques fines (soudure CMS, refusion, dessoudage, contrôle des joints) relèvent des travaux pratiques d'électronique et de l'**atelier dédié** ; le wiki situe la soudure dans le projet sans en détailler le geste.*
+*Les techniques fines (soudure CMS, refusion, dessoudage, contrôle des joints) relèvent des travaux pratiques d'électronique et de l'**atelier dédié**. Le wiki situe la soudure dans le projet sans en détailler le geste.*
 
 ## Voir aussi
 

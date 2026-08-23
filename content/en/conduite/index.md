@@ -91,7 +91,7 @@ Three activities are not phases but **continuous threads**, present from the fir
 
 - **[[gestion-de-projet-en|Project planning and tracking]]**: schedule, task tracking, risk management, team communication, interim reviews. A team that does not steer its project ends up being steered by it.
 - **[[ecoconception-en|Eco-design]]**: life-cycle analysis, material choices, energy frugality. It is not decided at the end of the project. Every design choice commits the environmental footprint.
-- **[[securite-et-qualite-en|Safety and quality]]**: product and user risk analysis ([[amdec-en|AMDEC]], the French FMEA), compliance with standards, quality of deliverables. To be considered from the spec onwards, not after the first accident.
+- **[[securite-et-qualite-en|Safety and quality]]**: product and user risk analysis ([[amdec-en|AMDEC]], the French acronym for FMEA), compliance with standards, quality of deliverables. To be considered from the spec onwards, not after the first accident.
 
 These threads are assessed across the board: they appear in the deliverables of every phase, rather than in a phase of their own.
 
@@ -108,5 +108,5 @@ The tutorial has **three kinds of page**, which you can tell apart by the `type:
 Beyond the phases, project management draws on **organisational tools** and a **regulatory framework**:
 
 - **Methods and organisation** ([[en/conduite/meo/index|MEO]]): [[relation-client-en|client relationship]], [[archivage-projet-en|archiving and traceability]], [[revue-de-code-en|code review]], [[unite-si-en|SI units]], [[cable-management-en|cable management]].
-- **Standards, safety and eco-design** ([[en/conduite/ese/index|ESE]]): product safety and compliance in [[securite-et-qualite-en|safety and quality]] ; environmental footprint in [[ecoconception-en|eco-design]].
+- **Standards, safety and eco-design** ([[en/conduite/ese/index|ESE]]): product safety and compliance in [[securite-et-qualite-en|safety and quality]]; environmental footprint in [[ecoconception-en|eco-design]].
 - **Every project tool**: see the [[en/conduite/proj/index|PROJ]] index.

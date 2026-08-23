@@ -11,11 +11,11 @@ phases: []
 draft: false
 ---
 
-La **mémoire** d'un [[microcontroleur|microcontrôleur]] se répartit en deux rôles. La **Flash** conserve le **programme** même hors tension : c'est elle qu'on écrit au téléversement. La **RAM** est la mémoire de **travail**, rapide mais **volatile** — son contenu disparaît à la coupure. La taille de chacune borne ce qu'on peut écrire (Flash) et manipuler en cours d'exécution (RAM).
+La **mémoire** d'un [[microcontroleur|microcontrôleur]] se répartit en deux rôles. La **Flash** conserve le **programme** même hors tension : c'est elle qu'on écrit au téléversement. La **RAM** est la mémoire de **travail**, rapide mais **volatile**. Son contenu disparaît à la coupure. La taille de chacune borne ce qu'on peut écrire (Flash) et manipuler en cours d'exécution (RAM).
 
 ## En pratique
 
-Les ordres de grandeur parlent d'eux-mêmes : une carte Uno offre 32 ko de Flash et **2 ko de RAM** ; un ESP32, 4 Mo et 520 ko. La RAM est la **ressource rare** de l'embarqué — c'est elle qui déborde en premier *(que faire quand elle manque : [[arduino-memoire]] côté Arduino, [[micropython-memoire]] côté MicroPython)*. Reste une troisième zone : pour qu'une **donnée** (compteur d'usage, calibration, réglage) survive à la coupure comme le programme, le microcontrôleur réserve une **EEPROM** ou une portion de Flash dédiée — voir [[arduino-eeprom]] côté Arduino, [[micropython-stockage]] côté MicroPython.
+Les ordres de grandeur parlent d'eux-mêmes : une carte Uno offre 32 ko de Flash et **2 ko de RAM**, un ESP32 4 Mo et 520 ko. La RAM est la **ressource rare** de l'embarqué. C'est elle qui déborde en premier *(que faire quand elle manque : [[arduino-memoire]] côté Arduino, [[micropython-memoire]] côté MicroPython)*. Reste une troisième zone. Pour qu'une **donnée** (compteur d'usage, calibration, réglage) survive à la coupure comme le programme, le microcontrôleur réserve une **EEPROM** ou une portion de Flash dédiée, décrite dans [[arduino-eeprom]] côté Arduino et [[micropython-stockage]] côté MicroPython.
 
 ## Voir aussi
 

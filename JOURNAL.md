@@ -11,6 +11,34 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-08-22 (suite 2) — Outillage du chantier bilingue, et le lot 1 traduit
+
+- **Périmètre** : PC perso. Deux temps stricts tenus — les outils d'abord, la première fiche ensuite.
+- **Mots traduits : 2 939** (les quatre index). Première entrée portant ce compteur, cf. C110.
+- **Livrables** : `tools/creer-fiche-en.mjs` (16,5 ko, quatre modes), `tools/derive-traduction.mjs`, `content/en/` avec ses quatre index traduits et publiés, `quartz.config.ts` patché, `traduction-en-regles.md` recalé (§1, §2, §3, §9), `normalize-pilotage.js` étendu.
+- **Décisions** : marqueur de source en `source_sha256` et non en hash de commit (a) ; les huit `index.md` non suffixés (b) ; `draft: false` pendant le chantier, contre ma recommandation ; progression par proximité de lien et non module par module (b).
+- **Conventions** : C110. La numérotation atteint 110.
+- **Tailles** : `content/en/` 23,6 ko sur 4 fiches ; `tools/` 88,3 → 109,3 ko.
+
+**Les scripts ont été exécutés avant d'être livrés, pas seulement écrits.** Le prompt demandait de publier un test de recette avant exécution. Plutôt qu'une prédiction, le corpus a été reconstitué à l'identique dans le bac à sable — 243 fiches écrites sur disque depuis les lectures MCP — et les deux outils y ont tourné sur l'intégralité du corpus. La recette publiée (243 / 4 323 / 395 / 376 / 0 divergente) s'est ensuite vérifiée **au chiffre près** sur le dépôt réel. La détection de dérive a été éprouvée dans les deux sens : un octet ajouté à une source fait basculer la fiche en `DERIVE` avec sortie 1, le retour à l'identique la remet à jour. C'est reproductible pour tout script futur touchant à `content/`.
+
+**Le piège que le §9 des règles voulait éviter se refermait un cran plus loin que là où il le cherchait.** La règle disait : créer la fiche EN **après** la passe C109, sinon son marqueur pointe un commit périmé. Exact, mais insuffisant : la passe C109 n'est pas committée au moment où le squelette se génère, donc `git log -1` rend de toute façon le commit d'*avant*. Tout le lot aurait été signalé dérivé au premier push. Une empreinte de contenu est indifférente au rythme de commit, et supprime au passage toute dépendance à git dans le script.
+
+**Une mesure a suffi à trancher le seul point où le suffixage avait un effet de bord.** Suffixer les `index.md` coûtait les URL de dossier côté EN. Ne pas les suffixer risquait une ambiguïté de résolution. Le comptage a montré que la question ne se posait pas : **aucun des 4 323 wikilinks ne vise `[[index]]` en forme courte**, les 37 qui visent un index passent tous par le chemin complet — parce que huit `index.md` coexistent déjà côté français et que la forme courte y serait déjà ambiguë. L'architecture existante avait donc déjà résolu le problème.
+
+**Quatorze ancres intra-page auraient cassé en silence.** `[Spécification technique](#1-spécification-technique)` n'est pas un wikilink : le suffixage ne le voit pas, et le titre de section qu'il vise est traduit. Douze des quatorze sont dans le lot 1, sept dans `embarque/index` seul. Elles ne figuraient nulle part dans les règles, qui ne raisonnaient qu'en wikilinks et embeds. Le contrôle est désormais dans le script, fiche par fiche.
+
+**Deux chiffres hérités étaient faux, dont un d'une façon indépendante de toute règle de comptage.** L'ordre des cinq trames du prompt était trié décroissant puis réétiqueté dans l'ordre du V : `preuve-de-concept` pèse 46 574 o contre 44 154 pour `specification-technique`, elle est la plus lourde et non la troisième, ce que l'octet tranche sans discussion. Et le point-virgule de C109 ne se reproduit pas — 1 168 mesurés contre 798 annoncés, alors que le tiret tient. C'est de là que vient C110 : mes deux comptages des trames ont eux-mêmes divergé de 40 mots dans la même session, le premier excluant le code inline et pas le second. **Le motif ne s'éteindra pas en mesurant mieux, seulement en publiant la règle avec le chiffre.**
+
+**`draft: false` a été tranché contre ma recommandation, et une observation de Tim a réellement affaibli mon argument.** J'objectais la pollution de l'index de recherche. Tim a mesuré sur pièce : chercher `project` ne remonte aucune fiche française, le vocabulaire général diverge assez pour limiter les doublons. La frontière reste que le lexique **technique**, lui, se recouvre exactement — et c'est celui des requêtes réelles. D'où le seul geste vraiment non rattrapable de la semaine, inscrit au TODO : prendre la mesure C105 de référence tant que le corpus EN compte quatre fiches.
+
+**Le pari central de l'architecture est gagné.** L'embed du cycle en V s'affiche depuis `/en/conduite/` alors que le fichier image n'a pas bougé d'un octet. Les 395 embeds du corpus suivront sans travail supplémentaire, et c'est la décision du 22/08 sur les images en français qui rend ça vrai.
+
+**Le passage en (b) a un prix qu'il valait mieux mesurer avant de s'engager.** Le premier anneau depuis les quatre index fait **79 fiches et 104 000 mots, le tiers du corpus** : « aucun lien mort depuis l'accueil » n'est pas un petit lot connexe. Il se découpe en revanche très bien, et le meilleur rapport liens fermés par mot traduit de tout le chantier est le lot 2a — 23 fiches courtes, 5 000 mots, 23 liens fermés pour le prix d'une seule trame.
+
+**C71 a produit sa troisième récurrence.** « peu coûteux » dans `embarque/index`, le hub le plus fréquenté de la branche, qui avait traversé la relecture de fond **et** l'expurgation du 18/08. Comme pour `multimetre` et `analyseur-logique` le 21/08, le défaut a été trouvé en passant, en faisant autre chose. Une convention promue ne se vérifie pas par balayage unique.
+
+
 ## 22/08 (suite) — Clôture pré-publication, et un chantier neuf : le wiki en anglais
 
 - **Périmètre** : PC perso. Session de décisions et de vérifications, sans production de fiche. Les cinq points écrits de la clôture, puis étude de faisabilité d'une version anglaise, demandée en cours de session.

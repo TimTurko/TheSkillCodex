@@ -13,7 +13,7 @@ L'**impression 3D** (fabrication **additive**) construit une pièce couche par c
 
 ## Dans le projet
 
-C'est le procédé de prototypage rapide par excellence : on itère une pièce en quelques heures pour le coût du filament. Sur le fil rouge, les pièces de structure peu chargées (supports, carters, gabarits) sont imprimées, souvent en [[pla|PLA]]. Le flux pratique en école : l'équipe transmet des fichiers **STL** au responsable fablab qui prend en charge l'impression — d'où l'importance d'**anticiper le créneau** et de soigner l'orientation des pièces, la résistance dépendant du sens des couches.
+C'est le procédé de prototypage rapide par excellence : on itère une pièce en quelques heures pour le coût du filament. Sur le fil rouge, les pièces de structure peu chargées (supports, carters, gabarits) sont imprimées, souvent en [[pla|PLA]]. Le flux pratique en école : l'équipe transmet des fichiers **STL** au responsable fablab qui prend en charge l'impression. D'où l'importance d'**anticiper le créneau** et de soigner l'orientation des pièces, la résistance dépendant du sens des couches.
 
 *Le réglage fin des paramètres (température, remplissage, supports, vitesse), le choix du matériau selon la tenue visée et le diagnostic des défauts d'impression relèvent du **cours de fabrication** et du responsable fablab.*
 

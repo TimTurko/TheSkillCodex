@@ -17,7 +17,7 @@ L'**UART** (*Universal Asynchronous Receiver-Transmitter*) est un [[bus-de-commu
 
 ## Comment ça marche ?
 
-Chaque octet est encadré par un **bit de start** et un ou plusieurs **bits de stop** : c'est cette trame qui permet au récepteur de se caler sur le flux sans horloge partagée. La liaison est **point-à-point** — **deux équipements, pas plus**, par construction : un seul couple de composants par lien, sans adressage — ce qui la rend simple mais non extensible : pour parler à plusieurs périphériques, il faut autant de liaisons UART, ou un autre bus.
+Chaque octet est encadré par un **bit de start** et un ou plusieurs **bits de stop** : c'est cette trame qui permet au récepteur de se caler sur le flux sans horloge partagée. La liaison est **point-à-point**, soit **deux équipements et pas plus**, par construction : un seul couple de composants par lien, sans adressage. Cette simplicité se paie en extensibilité. Pour parler à plusieurs périphériques, il faut autant de liaisons UART, ou un autre bus.
 
 ## Sur le fil
 
@@ -29,7 +29,7 @@ C'est le bus de la **console de mise au point** (souvent via une passerelle USB-
 
 ## Pièges
 
-**Câbler TX sur TX.** Le classique du premier branchement : relier émission à émission et réception à réception. Rien ne grille, rien ne circule — et on cherche longtemps. TX parle, RX écoute : **les fils se croisent**.
+**Câbler TX sur TX.** Le classique du premier branchement : relier émission à émission et réception à réception. Rien ne grille, rien ne circule, et on cherche longtemps. TX parle, RX écoute : **les fils se croisent**.
 
 **Débit mal accordé.** Si les deux côtés ne sont pas réglés au même baud, les caractères reçus sont illisibles. Le débit se fixe identique des deux côtés avant tout échange.
 

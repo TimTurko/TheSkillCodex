@@ -11,7 +11,7 @@ phases: []
 draft: false
 ---
 
-La **PWM** (*Pulse Width Modulation*, modulation de largeur d'impulsion) est un signal **tout-ou-rien** dont on fait varier la proportion de temps à l'état haut — le **rapport cyclique** (*duty cycle*). En moyenne, ce hachage simule une tension réglable, sans aucun composant analogique.
+La **PWM** (*Pulse Width Modulation*, modulation de largeur d'impulsion) est un signal **tout-ou-rien** dont on fait varier la proportion de temps à l'état haut, appelée **rapport cyclique** (*duty cycle*). En moyenne, ce hachage simule une tension réglable, sans aucun composant analogique.
 
 ![Trois chronogrammes du même signal PWM à rapports cycliques 25, 50 et 75 % : le signal reste tout-ou-rien, la moyenne en pointillé ambre monte avec la proportion de temps à l'état haut.](/ressources/img/pwm/rapport-cyclique.svg)
 
@@ -21,7 +21,7 @@ C'est la façon courante, depuis un [[microcontroleur|microcontrôleur]], de ré
 
 ## En pratique
 
-La PWM a **deux réglages indépendants** : le rapport cyclique (le dosage) et la **fréquence de hachage** — à quelle vitesse le signal alterne. La fréquence se choisit selon la charge : trop lente, une LED **scintille** ; sous ≈ 20 kHz, un moteur **siffle** dans l'audible ; un servomoteur attend, lui, un signal à 50 Hz dont seule la largeur d'impulsion compte. Et si le besoin est une **vraie tension analogique** plutôt qu'une moyenne hachée, la PWM filtrée (un simple filtre RC) en tient lieu de [[dac|DAC]]. La mise en œuvre : [[arduino-sortie-pwm]] côté Arduino, [[micropython-sortie-pwm]] côté MicroPython.
+La PWM a **deux réglages indépendants** : le rapport cyclique, qui dose, et la **fréquence de hachage**, qui dit à quelle vitesse le signal alterne. La fréquence se choisit selon la charge. Trop lente, une LED **scintille**. Sous ≈ 20 kHz, un moteur **siffle** dans l'audible. Un servomoteur attend, lui, un signal à 50 Hz dont seule la largeur d'impulsion compte. Et si le besoin est une **vraie tension analogique** plutôt qu'une moyenne hachée, la PWM filtrée (un simple filtre RC) en tient lieu de [[dac|DAC]]. La mise en œuvre : [[arduino-sortie-pwm]] côté Arduino, [[micropython-sortie-pwm]] côté MicroPython.
 
 ## Voir aussi
 

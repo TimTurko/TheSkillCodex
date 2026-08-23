@@ -19,7 +19,7 @@ La **relation client** désigne la conduite de l'échange avec le commanditaire 
 
 ## Dans le projet
 
-Même un projet pédagogique a un client : l'enseignant commanditaire, ou un **client fictif crédible** que l'équipe se donne (voir [[specification-technique|spécification technique]]). La pratique attendue : reformuler le besoin dans le [[cahier-des-charges-fonctionnel|cahier des charges]], **rendre compte régulièrement** (revues de phase, points d'étape), et gérer les attentes — annoncer tôt un écart ou un arbitrage plutôt que de le découvrir au client à la soutenance. Cette posture est pilotée par la [[gestion-de-projet|gestion de projet]].
+Même un projet pédagogique a un client : l'enseignant commanditaire, ou un **client fictif crédible** que l'équipe se donne (voir [[specification-technique|spécification technique]]). La pratique attendue : reformuler le besoin dans le [[cahier-des-charges-fonctionnel|cahier des charges]], **rendre compte régulièrement** (revues de phase, points d'étape), et gérer les attentes, ce qui veut dire annoncer tôt un écart ou un arbitrage plutôt que de laisser le client le découvrir à la soutenance. Cette posture est pilotée par la [[gestion-de-projet|gestion de projet]].
 
 ## Voir aussi
 

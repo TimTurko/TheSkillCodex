@@ -13,7 +13,7 @@ phases:
 draft: false
 ---
 
-**MicroPython** est du **Python 3** qui s'exécute sur le microcontrôleur : un langage **interprété** (pas de compilation), au **typage dynamique** (on ne déclare pas le type des variables), où les blocs sont délimités par l'**indentation** plutôt que par des accolades. En maîtriser les briques sépare *recopier* un exemple d'*écrire* son propre programme. Cette fiche est le **hub d'apprentissage progressif** du langage côté embarqué : chaque sous-fiche s'accompagne de code à lire et d'exercices à faire. Le même langage programme l'[[esp32|ESP32]] et d'autres cartes — ce parcours leur sert à toutes. C'est l'équivalent MicroPython de la fiche [[cpp|C++]] du module Arduino.
+**MicroPython** est du **Python 3** qui s'exécute sur le microcontrôleur : un langage **interprété** (pas de compilation), au **typage dynamique** (on ne déclare pas le type des variables), où les blocs sont délimités par l'**indentation** plutôt que par des accolades. En maîtriser les briques sépare *recopier* un exemple d'*écrire* son propre programme. Cette fiche est le **hub d'apprentissage progressif** du langage côté embarqué : chaque sous-fiche s'accompagne de code à lire et d'exercices à faire. Le même langage programme l'[[esp32|ESP32]] et d'autres cartes. Ce parcours leur sert à toutes. C'est l'équivalent MicroPython de la fiche [[cpp|C++]] du module Arduino.
 
 ## Parcours d'apprentissage
 

@@ -17,11 +17,11 @@ aa:
 draft: false
 ---
 
-La **revue de code** consiste à faire relire un morceau de code — par un équipier, ou par soi-même à tête reposée — avant un jalon, pour attraper les défauts qu'un regard extérieur repère immédiatement et que l'auteur, trop proche, ne voit plus.
+La **revue de code** consiste à faire relire un morceau de code avant un jalon, par un équipier ou par soi-même à tête reposée, pour attraper les défauts qu'un regard extérieur repère immédiatement et que l'auteur, trop proche, ne voit plus.
 
 ## Dans le projet
 
-La revue ne cherche pas la perfection : elle cible les **défauts manifestes** et les **zones critiques** du [[firmware|firmware]] — gestion des [[interruption|interruptions]], [[machine-a-etats|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres — encore faut-il savoir entrer dans un programme qu'on n'a pas écrit, ce qui s'apprend ([[cpp-lire-un-programme|en C++]], [[micropython-lire-un-programme|en MicroPython]]).
+La revue ne cherche pas la perfection. Elle cible les **défauts manifestes** et les **zones critiques** du [[firmware|firmware]] : gestion des [[interruption|interruptions]], [[machine-a-etats|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres. Encore faut-il savoir entrer dans un programme qu'on n'a pas écrit, ce qui s'apprend ([[cpp-lire-un-programme|en C++]], [[micropython-lire-un-programme|en MicroPython]]).
 
 ## Voir aussi
 

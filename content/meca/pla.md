@@ -13,9 +13,9 @@ Le **PLA** (acide polylactique) est le filament thermoplastique le plus courant 
 
 ## Dans le projet
 
-Le PLA est le choix par défaut pour les pièces imprimées non critiques du fil rouge (supports, carters, gabarits) : il s'imprime sans difficulté et permet d'itérer vite. Ses **limites** orientent les arbitrages : il flue dès ~60 °C (à éviter près d'un moteur qui chauffe ou en plein soleil) et casse net sous choc — pour une pièce sollicitée ou exposée, on lui préfère un PETG, un ABS ou une pièce [[usinage|usinée]]. C'est typiquement un critère de [[matrice-de-decision|matrice de décision]] matériau, pièce par pièce.
+Le PLA est le choix par défaut pour les pièces imprimées non critiques du fil rouge (supports, carters, gabarits) : il s'imprime sans difficulté et permet d'itérer vite. Ses **limites** orientent les arbitrages : il flue dès ~60 °C (à éviter près d'un moteur qui chauffe ou en plein soleil) et casse net sous choc. Pour une pièce sollicitée ou exposée, on lui préfère un PETG, un ABS ou une pièce [[usinage|usinée]]. C'est typiquement un critère de [[matrice-de-decision|matrice de décision]] matériau, pièce par pièce.
 
-*La comparaison fine des polymères (tenue mécanique, thermique, recyclabilité, bilan environnemental) relève du **cours de matériaux** ; le wiki se limite à situer le PLA comme choix de prototypage par défaut et ses limites d'emploi.*
+*La comparaison fine des polymères (tenue mécanique, thermique, recyclabilité, bilan environnemental) relève du **cours de matériaux**. Le wiki se limite à situer le PLA comme choix de prototypage par défaut et ses limites d'emploi.*
 
 ## Voir aussi
 

@@ -1307,7 +1307,38 @@ Notes 22/08 (suite) :
 - **Les images de ce wiki ne sont pas des images.** Les 236 SVG sont des fichiers texte portant un `<title>`, un `<desc>` d'accessibilité de 60 à 150 mots et 10 à 40 éléments `<text>`, tous en français. Conséquence pour tout chantier de langue : « ne pas toucher aux images » ne veut pas dire « pas de texte à traiter », ça veut dire **décider si ce texte-là reste en français**.
 - **Une contrainte pédagogique peut simplifier l'architecture technique.** Laisser les schémas en français supprime la duplication des médias, donc la nécessité de deux arborescences, donc les branches git. **La décision éditoriale a tranché la question technique**, dans cet ordre et pas l'inverse.
 - **Le glossaire d'une traduction n'est pas un dictionnaire.** Le gisement réel est celui des **chaînes structurelles répétées** — 234 « Voir aussi », 164 « À quoi ça sert ? », 162 « Pièges », 107 « Raccrochage projet », 60 « Corrigé », 54 « Exemple : projet bras 3 axes ». Une dérive s'y voit immédiatement. Troisième registre, contre-intuitif : **la liste des termes à ne pas traduire** (`bête à cornes`, `pieuvre`, `GRAFCET`, `CdCF`), que l'étudiant Erasmus entendra dans la bouche de ses coéquipiers — les angliciser l'isolerait de son équipe. Même logique que le « stepper » du §1, prise dans l'autre sens.
-- **Le remède à la dérive de traduction n'est pas la synchronisation, c'est la détection.** Chaque fiche EN portera en front matter le hash du commit de sa source FR ; un script liste celles dont la source a bougé. La dérive devient une liste mesurable au lieu d'un risque invisible.
+- **Le remède à la dérive de traduction n'est pas la synchronisation, c'est la détection.** Chaque fiche EN portera en front matter le hash du commit de sa source FR ; un script liste celles dont la source a bougé. La dérive devient une liste mesurable au lieu d'un risque invisible. ⚠ **Corrigé le 22/08 (suite 2) : ce sera un `source_sha256` de contenu, pas un hash de commit.** La fiche EN se crée après la passe C109, donc sur un fichier FR non committé : `git log -1` y rend le commit d'*avant* la passe, et tout le lot serait signalé dérivé au premier push. Une empreinte de contenu est indifférente au rythme de commit.
+
+### C110 — Une mesure de volume se publie avec sa règle de comptage
+
+*Acquise le 22/08 (suite 2), demande Tim. À confirmer avant documentation formelle.*
+
+**Tout chiffre de volume publié dans un prompt, un JOURNAL ou une clause de
+TODO porte, dans la même phrase ou la ligne suivante, la règle qui l'a
+produit.** Sans elle, un chiffre n'est pas vérifiable, seulement répétable.
+
+**Règle de comptage des mots du dépôt, figée** : mots hors front matter,
+hors blocs de code cloturés, **code inline inclus**, un mot étant une suite
+de caractères alphanumériques, apostrophes et traits d'union.
+
+*Motif.* Le dépôt a produit **six chiffres faux hérités en un mois**, et le
+22/08 (suite 2) en a ajouté deux d'un coup : le point-virgule de C109 mesuré
+à 1 168 contre 798 annoncés, et l'ordre des cinq trames trié décroissant puis
+réétiqueté dans l'ordre du V. Surtout, **mes deux comptages des mêmes cinq
+trames ont divergé de 40 mots dans la même session** — le premier excluait le
+code inline, le second non. Aucun des deux n'était faux, et c'est exactement
+le problème : *deux chiffres justes sous deux règles différentes se lisent
+comme un chiffre juste et un chiffre faux.* Le motif ne s'éteint pas en
+mesurant mieux, seulement en publiant la règle avec le chiffre.
+
+*Corollaire.* Un chiffre hérité **sans sa règle** n'est pas à reprendre sur
+parole ni à recopier : il se remesure, et la règle s'écrit à ce moment-là.
+Un ordre de grandeur peut se citer sans règle à condition d'être annoncé
+comme tel.
+
+*Portée.* Mots, octets, occurrences, fiches, liens, embeds. Le comptage en
+octets n'a pas besoin de règle — c'est précisément pourquoi il a tranché
+l'ordre des trames là où les mots ne pouvaient pas.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

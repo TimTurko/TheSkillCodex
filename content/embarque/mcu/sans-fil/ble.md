@@ -15,7 +15,7 @@ Le **BLE** (*Bluetooth Low Energy*) est une [[techno-sans-fil|technologie sans-f
 
 ## Comment ça marche ?
 
-Le débit reste modéré — assez pour des mesures et des commandes, pas pour un flux vidéo. Comme le [[wifi|Wi-Fi]], le BLE est souvent intégré au contrôleur (l'[[esp32|ESP32]] embarque les deux) — la mise en œuvre est traitée dans [[esp32-ble]]. Pour un capteur autonome qui doit durer des mois, le couple BLE + [[deep-sleep|deep sleep]] est un classique : on ne se réveille que pour transmettre, brièvement.
+Le débit reste modéré, assez pour des mesures et des commandes, pas pour un flux vidéo. Comme le [[wifi|Wi-Fi]], le BLE est souvent intégré au contrôleur, l'[[esp32|ESP32]] embarquant les deux. La mise en œuvre est traitée dans [[esp32-ble]]. Pour un capteur autonome qui doit durer des mois, le couple BLE + [[deep-sleep|deep sleep]] est un classique : on ne se réveille que pour transmettre, brièvement.
 
 ## Voir aussi
 

@@ -13,7 +13,7 @@ phases:
 draft: false
 ---
 
-Le **C++** est le langage dans lequel s'écrivent les programmes Arduino — un C++ « outillé » (dialecte *Wiring*) où deux [[fonction-informatique|fonctions]], `setup()` et `loop()`, encadrent tout le code. En maîtriser les briques sépare *recopier* un exemple d'*écrire* son propre programme. Cette fiche est le **hub d'apprentissage progressif** du langage côté embarqué : du premier programme qui compile jusqu'aux structures de contrôle, chaque sous-fiche s'accompagne de code à lire et d'exercices à faire. Le même langage programme l'[[esp32|ESP32]], la Teensy et les autres cartes du framework Arduino — ce parcours leur sert donc à toutes.
+Le **C++** est le langage dans lequel s'écrivent les programmes Arduino, plus précisément un C++ « outillé » (dialecte *Wiring*) où deux [[fonction-informatique|fonctions]], `setup()` et `loop()`, encadrent tout le code. En maîtriser les briques sépare *recopier* un exemple d'*écrire* son propre programme. Cette fiche est le **hub d'apprentissage progressif** du langage côté embarqué : du premier programme qui compile jusqu'aux structures de contrôle, chaque sous-fiche s'accompagne de code à lire et d'exercices à faire. Le même langage programme l'[[esp32|ESP32]], la Teensy et les autres cartes du framework Arduino. Ce parcours leur sert donc à toutes.
 
 ## Parcours d'apprentissage
 

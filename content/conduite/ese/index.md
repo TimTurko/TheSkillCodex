@@ -5,7 +5,7 @@ tags: [domaine, ese]
 
 # ESE — Normes, sécurité, réglementation
 
-Interface vers les cours collègues. Le domaine **ESE** regroupe les fiches normatives et réglementaires du projet : directives européennes, sécurité des machines, réglementations environnementales. Chacune suit le même pattern de délégation — situer la contrainte dans le projet et la tracer, en renvoyant au **cours normatif** pour l'expertise complète. L'écoconception et l'ACV appliquées, elles, sont traitées côté démarche projet ([[ecoconception|écoconception]], [[acv-simplifiee|ACV simplifiée]]).
+Interface vers les cours collègues. Le domaine **ESE** regroupe les fiches normatives et réglementaires du projet : directives européennes, sécurité des machines, réglementations environnementales. Chacune suit le même schéma de délégation, qui consiste à situer la contrainte dans le projet et à la tracer, en renvoyant au **cours normatif** pour l'expertise complète. L'écoconception et l'ACV appliquées, elles, sont traitées côté démarche projet ([[ecoconception|écoconception]], [[acv-simplifiee|ACV simplifiée]]).
 
 ## Conformité et marquage
 

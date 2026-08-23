@@ -5,7 +5,7 @@ tags: [domaine, proj]
 
 # PROJ — Démarche projet transversale
 
-Cœur du hub. Le domaine **PROJ** porte la démarche projet de bout en bout : analyse fonctionnelle, planification, arbitrage de concept, réalisation et bilan. Pour le déroulé chronologique des cinq phases, voir le [[conduite/index|parcours projet]] ; cet index recense les fiches par famille d'outils.
+Cœur du hub. Le domaine **PROJ** porte la démarche projet de bout en bout : analyse fonctionnelle, planification, arbitrage de concept, réalisation et bilan. Pour le déroulé chronologique des cinq phases, voir le [[conduite/index|parcours projet]]. Cet index recense les fiches par famille d'outils.
 
 ## Les trames
 

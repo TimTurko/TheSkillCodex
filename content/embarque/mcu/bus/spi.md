@@ -11,19 +11,19 @@ phases: []
 draft: false
 ---
 
-Le **SPI** (*Serial Peripheral Interface*) est un [[bus-de-communication|bus de communication]] **synchrone** et rapide à quatre fils : **MOSI** et **MISO** (les données dans chaque sens), **SCK** (l'horloge) et **CS** (la sélection). Un composant **maître** échange en **full-duplex** — il émet et reçoit en même temps — avec un esclave à la fois, qu'il active en abaissant sa ligne **CS** dédiée.
+Le **SPI** (*Serial Peripheral Interface*) est un [[bus-de-communication|bus de communication]] **synchrone** et rapide à quatre fils : **MOSI** et **MISO** (les données dans chaque sens), **SCK** (l'horloge) et **CS** (la sélection). Un composant **maître** échange avec un esclave à la fois, qu'il active en abaissant sa ligne **CS** dédiée. L'échange est **full-duplex**, le maître émettant et recevant en même temps.
 
 ![Branchement SPI : un maître et deux esclaves — les trois fils MOSI, MISO et SCK sont partagés (faisceau unique), chaque esclave reçoit sa propre ligne CS, masses GND reliées.](/ressources/img/spi/branchement.svg)
 
 ## Comment ça marche ?
 
-Les trois fils MOSI, MISO et SCK sont **partagés** par tous les composants ; en revanche, chaque esclave a sa propre ligne **CS** : ajouter un composant, c'est ajouter un fil de sélection. Il n'y a donc pas d'adressage — le maître choisit son interlocuteur par la broche CS qu'il abaisse. **Combien d'esclaves, au maximum ?** Le protocole n'impose aucune limite : le plafond, c'est le **nombre de broches CS disponibles** sur le maître — le budget [[gpio|GPIO]] décide. En contrepartie de ce fil supplémentaire par esclave, le SPI offre un **débit élevé**, adapté aux écrans graphiques, aux cartes SD et aux convertisseurs, sur de **très courtes distances** — sans résistance de terminaison à cette échelle.
+Les trois fils MOSI, MISO et SCK sont **partagés** par tous les composants. Chaque esclave, en revanche, a sa propre ligne **CS** : ajouter un composant, c'est ajouter un fil de sélection. Il n'y a donc pas d'adressage. Le maître choisit son interlocuteur par la broche CS qu'il abaisse. **Combien d'esclaves, au maximum ?** Le protocole n'impose aucune limite, et le plafond est le **nombre de broches CS disponibles** sur le maître, autrement dit le budget [[gpio|GPIO]]. En contrepartie de ce fil supplémentaire par esclave, le SPI offre un **débit élevé**, adapté aux écrans graphiques, aux cartes SD et aux convertisseurs, sur de **très courtes distances**. À cette échelle, aucune résistance de terminaison n'est nécessaire.
 
 ## Sur le fil
 
 ![Chronogramme SPI : CS abaissé en premier, huit coups d'horloge SCK, et les octets MOSI et MISO qui circulent en même temps — full-duplex — avant la remontée de CS.](/ressources/img/spi/chronogramme.svg)
 
-Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d'horloge** sur SCK : à chaque coup, un bit part sur MOSI **et** un bit revient sur MISO — l'échange est simultané, c'est le full-duplex. CS remonte à la fin. Le moment exact où les bits sont échantillonnés dépend du **mode SPI** (polarité et phase d'horloge, numérotés 0 à 3). La mise en œuvre est traitée dans [[arduino-spi]] côté Arduino, [[esp32-spi]] côté ESP32 et [[micropython-spi]] côté MicroPython.
+Le maître abaisse d'abord le **CS** de l'esclave visé, puis bat **huit coups d'horloge** sur SCK : à chaque coup, un bit part sur MOSI **et** un bit revient sur MISO. L'échange est simultané, c'est le full-duplex. CS remonte à la fin. Le moment exact où les bits sont échantillonnés dépend du **mode SPI** (polarité et phase d'horloge, numérotés 0 à 3). La mise en œuvre est traitée dans [[arduino-spi]] côté Arduino, [[esp32-spi]] côté ESP32 et [[micropython-spi]] côté MicroPython.
 
 ## Pièges
 
