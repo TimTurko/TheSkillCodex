@@ -13,7 +13,7 @@ aa: []
 draft: false
 ---
 
-Les **conditions** (`if`) et les **boucles** (`while`, `for`) dirigent le déroulement d'un programme : agir selon une valeur, répéter une action. En MicroPython, une particularité structure tout le reste : les blocs sont délimités par l'**indentation** (le décalage à gauche), pas par des accolades. C'est propre et lisible — mais une indentation incohérente provoque une erreur. Cette fiche couvre les conditions, les boucles, et ce rôle central de l'indentation.
+Les **conditions** (`if`) et les **boucles** (`while`, `for`) dirigent le déroulement d'un programme : agir selon une valeur, répéter une action. En MicroPython, une particularité structure tout le reste : les blocs sont délimités par l'**indentation** (le décalage à gauche), pas par des accolades. C'est propre et lisible, mais une indentation incohérente provoque une erreur. Cette fiche couvre les conditions, les boucles, et ce rôle central de l'indentation.
 
 ## L'indentation délimite les blocs
 
@@ -50,7 +50,7 @@ if bouton.value() == 0 and not alarme_active:
 
 ## Les boucles : `while` et `for`
 
-La boucle `while` répète **tant qu'**une condition est vraie ; `while True:` est la boucle principale d'un programme embarqué :
+La boucle `while` répète **tant qu'**une condition est vraie. `while True:` est la boucle principale d'un programme embarqué :
 
 ```python
 while True:
@@ -58,7 +58,7 @@ while True:
     sleep(0.5)
 ```
 
-La boucle `for` parcourt une séquence — souvent `range(n)` pour répéter *n* fois :
+La boucle `for` parcourt une séquence, souvent `range(n)` pour répéter *n* fois :
 
 ```python
 for i in range(5):      # i prend 0, 1, 2, 3, 4
@@ -78,7 +78,7 @@ On peut aussi parcourir directement une [[micropython-types|liste]] : `for broch
 
 **`and`/`or`/`not`, pas `&&`/`||`/`!`.** Réflexe à corriger en venant du C : les opérateurs logiques sont des mots.
 
-**`=` n'est pas `==`.** `if x = 5` est une erreur ; la comparaison s'écrit `if x == 5`. (Contrairement au C, l'affectation dans une condition n'est pas permise — ce qui évite le bug classique.)
+**`=` n'est pas `==`.** `if x = 5` est une erreur. La comparaison s'écrit `if x == 5`. (Contrairement au C, l'affectation dans une condition n'est pas permise, ce qui évite le bug classique.)
 
 ## Exercices
 
@@ -95,7 +95,7 @@ On peut aussi parcourir directement une [[micropython-types|liste]] : `for broch
 > else:
 >     print("lumineux")
 > ```
-> `elif` enchaîne les cas : dès qu'une condition est vraie, les suivantes sont ignorées. L'ordre compte — on teste les seuils du plus bas au plus haut.
+> `elif` enchaîne les cas : dès qu'une condition est vraie, les suivantes sont ignorées. L'ordre compte : on teste les seuils du plus bas au plus haut.
 
 > [!question] Exercice 2 — Clignoter N fois
 > Faites clignoter la LED exactement **10 fois** (0,1 s allumée / 0,1 s éteinte), puis arrêtez. Quelle boucle, et pourquoi pas `while True` ?
@@ -112,7 +112,7 @@ On peut aussi parcourir directement une [[micropython-types|liste]] : `for broch
 >     led.off()
 >     sleep(0.1)
 > ```
-> `for ... in range(10)` répète un **nombre connu** de fois, ce qui convient ici ; `while True` répéterait sans fin. `range(10)` produit les valeurs 0 à 9, soit 10 tours.
+> `for ... in range(10)` répète un **nombre connu** de fois, ce qui convient ici. `while True` répéterait sans fin. `range(10)` produit les valeurs 0 à 9, soit 10 tours.
 
 ## Voir aussi
 

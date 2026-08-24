@@ -29,7 +29,7 @@ from machine import Pin        # importe juste Pin
 led = Pin("LED", Pin.OUT)
 ```
 
-La seconde forme est la plus courante dans les exemples. Les deux sont équivalentes ; elles diffèrent par la façon de **nommer** ensuite (`machine.Pin` vs `Pin`).
+La seconde forme est la plus courante dans les exemples. Les deux sont équivalentes. Elles diffèrent par la façon de **nommer** ensuite (`machine.Pin` vs `Pin`).
 
 ## Les modules intégrés utiles
 
@@ -40,7 +40,7 @@ MicroPython embarque un sous-ensemble de la bibliothèque Python, plus des modul
 - **`network`** — le Wi-Fi, sur les cartes qui en ont (Pico 2 W, ESP32) ;
 - **`math`**, **`random`**, **`json`**, **`os`** — calcul, aléa, sérialisation, système de fichiers.
 
-`dir(machine)` au [[micropython-repl|REPL]] liste ce qu'offre un module — le réflexe pour explorer sans documentation.
+`dir(machine)` au [[micropython-repl|REPL]] liste ce qu'offre un module : c'est le réflexe pour explorer sans documentation.
 
 ## Organiser son code en plusieurs fichiers
 
@@ -73,7 +73,7 @@ Détaillé dans [[micropython-bibliotheques|utiliser une bibliothèque]].
 
 ## Pièges
 
-**`import machine` ≠ `from machine import Pin`.** Avec le premier, on écrit `machine.Pin` ; avec le second, `Pin`. Mélanger les deux noms provoque une erreur de nom.
+**`import machine` ≠ `from machine import Pin`.** Avec le premier, on écrit `machine.Pin`. Avec le second, `Pin`. Mélanger les deux noms provoque une erreur de nom.
 
 **Le module doit être *sur la carte*.** `import outils` ne marche que si `outils.py` est enregistré sur le Pico, pas seulement ouvert dans Thonny. Vérifier qu'il est bien dans les fichiers de la carte.
 
@@ -113,7 +113,7 @@ Détaillé dans [[micropython-bibliotheques|utiliser une bibliothèque]].
 > import outils
 > print(outils.moyenne([512, 530, 528]))   # 523.33...
 > ```
-> `outils.py` devient un module importable parce qu'il est **sur la carte**. Découper ainsi un projet en fichiers le rend lisible et réutilisable — la base de l'organisation d'un [[firmware|firmware]] qui grandit.
+> `outils.py` devient un module importable parce qu'il est **sur la carte**. Découper ainsi un projet en fichiers le rend lisible et réutilisable : c'est la base de l'organisation d'un [[firmware|firmware]] qui grandit.
 
 ## Voir aussi
 

@@ -345,7 +345,7 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
     Mots FR mesurés après passes C109 et C112, règle C110. C'est là que se jugeait la compensation du registre C65 perdu (§4) : elle tient.
 
     ⚠ **Le foisonnement ne se prédit pas fiche par fiche. Seule la moyenne de lot est un instrument.** L'hypothèse de la densité de gloses, écrite le 23/08 (suite 3), **explique les extrêmes et pas le milieu** : `integration-et-tests` ne porte qu'une glose et sort au plancher à +2,5 %, mais `concept` et `preuve-de-concept` en portent deux chacune et sortent à +7,6 % et +4,3 %. Le +4,3 % du 23/08 (suite 2) était un plancher, le +7,6 % un plafond, et l'écart entre fiches d'un même lot atteint **un facteur trois**. **Pour dimensionner les 252 851 mots restants, compter +5,7 %**, moyenne mesurée sur les cinq trames. Décomposition : 288 050 après le lot 1, moins 6 515 (lot 2a), moins 28 684 (lot 2b).
-4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301).
+4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301). **Outillé le 23/08 (suite 4)** : `--style` relit le jet EN pour lui-même, `--libelles` relit les libellés de wikilink, `compter-mots.mjs --lot` dimensionne le lot avant de l'ouvrir. ⚠ **C'est le premier lot à porter des blocs de code**, donc le premier où le troisième compteur mord, et il concentre les **29 wikilinks à libellé en backticks** — le correctif de segmentation du 23/08 (suite) est à vérifier sur pièce avant de générer en série.
 5. **Anneaux suivants**, recalculés depuis le front atteint.
 
 *Rédaction antérieure, conservée pour trace — l'ordre était : parcours d'entrée, puis les 53 fiches courtes du corpus entier (16 000 mots), puis module par module dans l'ordre de `_drafts/relecture-ordre.md`.*
@@ -358,16 +358,17 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
 4. **Trois compteurs** : liens, embeds, blocs de code — égalité FR/EN.
 5. **Clic-test** en fin de lot.
 
-**Volumétrie, remesurée le 23/08.** Règle : mots hors front matter, hors blocs de code clôturés, code inline inclus, un mot étant une suite de caractères alphanumériques, apostrophes et traits d'union. Périmètre : les 242 fiches FR publiées, hors `templates/`, hors `en/`, hors `ressources/index` en `draft: true`.
+**Volumétrie — les chiffres ne s'écrivent plus ici, ils sortent de `tools/compter-mots.mjs`** (23/08 suite 4). La règle de comptage était publiée depuis le 22/08 et **elle n'a pas suffi** : deux implémentations conformes à la même phrase divergent de 0,5 à 1,6 % par fiche, soit −499 mots sur dix mesures des trames du lot 2b. **Amendement à C110** : le compteur se publie, pas sa description. Le script réimprime la règle à chaque lancement, et sa sortie se cite telle quelle.
 
-| Grandeur | Valeur | Chiffre hérité |
+| Grandeur | Valeur au 23/08 (suite 4) | Chiffre hérité |
 |---|---:|---:|
-| Fiches FR publiées | 242 | 243 |
-| Mots FR | **291 099** | 319 000 |
-| Médiane par fiche | 1 088 | 1 192 |
-| Fiche la plus lourde (`easyeda`) | 9 775 | 13 028 |
+| Fiches FR publiées | 242 | 242 |
+| Mots FR | **291 123** | 291 099 |
+| Médiane par fiche | 1 089 | 1 088 |
+| Fiche la plus lourde (`easyeda`) | 9 773 | 9 775 |
+| **Restant à traduire** | **253 245** sur 207 fiches | 252 851 |
 
-Les chiffres hérités étaient tous hauts de 8 à 25 %, l'écart venant de ce que leur règle n'était pas écrite. Reste à traduire après le lot 1 : **288 050 mots**. `easyeda` vaut toujours deux sessions à elle seule.
+⚠ **Le restant est un COMPTAGE des fiches sans jumelle EN, pas une soustraction.** Le 252 851 hérité valait 288 050 − 6 515 − 28 684 : juste dans sa forme, mais une somme se compense et un comptage non. `easyeda` vaut toujours deux sessions à elle seule.
 
 **Rythme mesuré** : le nombre de mots traduits ouvre chaque entrée du JOURNAL depuis le 22/08 (suite 2). La trajectoire se lira d'elle-même au bout de trois sessions, plutôt que de se discuter.
 
@@ -383,5 +384,12 @@ Les chiffres hérités étaient tous hauts de 8 à 25 %, l'écart venant de ce q
 
 - `--controle` compare chaque fiche EN à sa source sur les trois compteurs. À la génération l'égalité est vraie par construction : c'est **après la traduction** qu'un lien disparaît dans une reformulation, et c'était précisément le moment où rien ne regardait.
 - `--recaler <fiche EN>` reconsigne le marqueur **sans toucher à la traduction**, après qu'une retouche FR a été reportée à la main. Sans lui, la seule sortie était de régénérer le squelette, donc d'écraser la traduction — un sha256 ne s'écrit pas à la main. **Garde-fou : le recalage est refusé si les trois compteurs divergent**, sinon il ferait disparaître la dérive de l'écran sans l'avoir traitée.
+
+**Deux modes ajoutés le 23/08 (suite 4), avant le lot 2c.**
+
+- `--style [fiche...]` relit **le jet EN pour lui-même**, ce qu'aucun contrôle ne faisait. Deux verdicts mécaniques (typographie française, C109 créées par la traduction) et deux listes de candidats (virgule ambiguë, C109 de prose, où le critère du verbe conjugué ne se décide qu'à la lecture). Sans argument il lit tout `content/en/` ; sur une fiche FR, seul le volet C109 s'active, ce qui sert aux passes du lot 2c.
+- `--libelles` liste les libellés de wikilink qui ne recoupent **aucun mot significatif** du `title:` de leur cible, motif `Welding` du 23/08 (suite). Bruyant par construction, donc il rend une liste à lire et jamais un verdict.
+
+**Un quatrième outil, hors chantier anglais** : `tools/compter-mots.mjs`, où vit désormais la règle de comptage de C110. Voir le §8.
 
 **Le marqueur de source est un `source_sha256` du contenu FR, pas un hash de commit** (arbitrage Tim du 22/08 suite 2). Motif : la fiche EN se crée **après** la passe C109, donc sur un fichier FR pas encore committé. `git log -1` y rendrait le commit d'*avant* la passe, et la totalité du lot serait signalée comme dérivée dès le premier push — le piège que le §8 voulait éviter, refermé un cran plus loin. Une empreinte de contenu est en outre indifférente au rythme de commit.

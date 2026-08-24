@@ -24,7 +24,7 @@ def saluer():
 saluer()        # appel -> affiche le message
 ```
 
-`def` ouvre la définition ; le corps est **indenté** ; l'appel se fait par `nom()`. La définition doit être **exécutée avant** l'appel (donc écrite plus haut dans le fichier).
+`def` ouvre la définition. Le corps est **indenté**, et l'appel se fait par `nom()`. La définition doit être **exécutée avant** l'appel (donc écrite plus haut dans le fichier).
 
 ## Arguments et valeurs par défaut
 
@@ -64,7 +64,7 @@ Une fonction peut même renvoyer **plusieurs valeurs** d'un coup (sous forme de 
 
 **Oublier `return`.** Une fonction censée fournir une valeur mais sans `return` renvoie `None` : `v = lire_tension(capteur)` donnerait `None`, et le calcul suivant échouerait. Vérifier qu'on renvoie bien le résultat.
 
-**Appeler avant de définir.** La ligne `def` doit avoir été exécutée avant l'appel ; définir les fonctions **en haut** du fichier, les appeler ensuite.
+**Appeler avant de définir.** La ligne `def` doit avoir été exécutée avant l'appel. Définir les fonctions **en haut** du fichier, les appeler ensuite.
 
 **Variables internes invisibles dehors.** Une variable créée dans une fonction est **locale** : elle n'existe pas en dehors. Pour partager une valeur, la **renvoyer** (`return`) plutôt que de compter sur une variable globale (notion de portée, cf. [[cpp-portee|portée locale/globale]]).
 
@@ -86,7 +86,7 @@ Une fonction peut même renvoyer **plusieurs valeurs** d'un coup (sous forme de 
 >
 > clignote(led, 4)
 > ```
-> La fonction encapsule la boucle ; on la réutilise avec n'importe quel nombre. Ajouter `duree=0.2` en argument par défaut la rendrait encore plus souple.
+> La fonction encapsule la boucle. On la réutilise ensuite avec n'importe quel nombre. Ajouter `duree=0.2` en argument par défaut la rendrait encore plus souple.
 
 > [!question] Exercice 2 — Convertir une lecture ADC
 > Écrivez une fonction `en_volts(brut)` qui convertit une lecture brute (0–65535) en tension (référence 3,3 V) et **renvoie** le résultat. Testez-la avec `brut = 32768`.
@@ -98,7 +98,7 @@ Une fonction peut même renvoyer **plusieurs valeurs** d'un coup (sous forme de 
 >
 > print(en_volts(32768))    # ~1.65 V (moitié de l'échelle)
 > ```
-> `return` rend le résultat utilisable par l'appelant (affichage, comparaison…). Une demi-échelle (32768) donne bien ~1,65 V, soit la moitié de 3,3 V — un bon test de cohérence.
+> `return` rend le résultat utilisable par l'appelant (affichage, comparaison…). Une demi-échelle (32768) donne bien ~1,65 V, soit la moitié de 3,3 V : un bon test de cohérence.
 
 ## Voir aussi
 

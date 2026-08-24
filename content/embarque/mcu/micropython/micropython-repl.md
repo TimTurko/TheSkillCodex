@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Le **REPL** (*Read-Eval-Print Loop*, « boucle lire-évaluer-afficher ») est le **shell interactif** de MicroPython : un interpréteur qui tourne **sur la carte** et exécute chaque ligne dès qu'on la tape. C'est le panneau *Shell* de Thonny, avec son invite `>>>`. C'est l'atout majeur de l'approche scriptée : avant d'écrire un programme complet, on **teste une ligne** et on voit l'effet **immédiatement** — idéal pour explorer un capteur, vérifier un branchement, ou inspecter une valeur.
+Le **REPL** (*Read-Eval-Print Loop*, « boucle lire-évaluer-afficher ») est le **shell interactif** de MicroPython : un interpréteur qui tourne **sur la carte** et exécute chaque ligne dès qu'on la tape. C'est le panneau *Shell* de Thonny, avec son invite `>>>`. C'est l'atout majeur de l'approche scriptée : avant d'écrire un programme complet, on **teste une ligne** et on voit l'effet **immédiatement**, idéal pour explorer un capteur, vérifier un branchement, ou inspecter une valeur.
 
 ## Lire–évaluer–afficher
 
@@ -47,7 +47,7 @@ Et surtout, on **agit sur le matériel en direct** :
 
 ## Saisir plusieurs lignes
 
-Quand une ligne ouvre un bloc (elle se termine par `:`), le REPL passe à l'invite de continuation `...` et attend le corps **indenté** ; une ligne vide termine le bloc :
+Quand une ligne ouvre un bloc (elle se termine par `:`), le REPL passe à l'invite de continuation `...` et attend le corps **indenté**. Une ligne vide termine le bloc :
 
 ```python
 >>> for i in range(3):
@@ -62,7 +62,7 @@ tour 2
 
 Le REPL est aussi un outil de **découverte** et de **contrôle** :
 
-- `dir(machine)` liste ce qu'offre un module ; `help(Pin)` en donne l'aide ;
+- `dir(machine)` liste ce qu'offre un module, et `help(Pin)` en donne l'aide ;
 - **`Ctrl-C`** interrompt un programme en cours (par exemple une boucle `while True:` qui tourne) et rend la main ;
 - **`Ctrl-D`** fait un *soft reboot* : il redémarre l'interpréteur (et relance `main.py`) — pratique pour repartir propre, mais **les variables tapées au REPL sont alors effacées** ;
 - **`Ctrl-E`** ouvre le *mode collage*, pour coller un bloc de plusieurs lignes sans que l'indentation automatique ne gêne.
@@ -71,7 +71,7 @@ Le flux de travail typique : on **bricole au REPL** jusqu'à ce qu'une séquence
 
 ## Tracer une grandeur dans Thonny
 
-Thonny embarque un **traceur** (la vue *Plotter*, *View → Plotter*) qui porte sur un graphique les **nombres imprimés au Shell**, au fil du temps — l'équivalent du traceur série de l'IDE Arduino. Une valeur numérique par ligne, et la courbe se dessine : pratique pour observer un capteur qui évolue ou caler un seuil, sans rien câbler de plus.
+Thonny embarque un **traceur** (la vue *Plotter*, *View → Plotter*) qui porte sur un graphique les **nombres imprimés au Shell**, au fil du temps, l'équivalent du traceur série de l'IDE Arduino. Une valeur numérique par ligne, et la courbe se dessine : pratique pour observer un capteur qui évolue ou caler un seuil, sans rien câbler de plus.
 
 ```python
 from machine import ADC, Pin
@@ -87,7 +87,7 @@ while True:
 
 Prendre capture d'écran de *la vue Plotter de Thonny traçant une grandeur qui varie, la courbe ondulant au fil des print*.
 
-Pour superposer plusieurs grandeurs — comparer une consigne et une mesure, par exemple —, on les imprime **sur la même ligne, séparées par un espace** :
+Pour superposer plusieurs grandeurs, par exemple pour comparer une consigne et une mesure, on les imprime **sur la même ligne, séparées par un espace** :
 
 ```python
 print(consigne, mesure)          # deux nombres -> deux courbes
@@ -97,11 +97,11 @@ Le traceur attend des **nombres** : une ligne qui mêle texte et valeur (`print(
 
 ## Pièges
 
-**Une affectation n'affiche rien.** `x = 10` ne renvoie pas de valeur ; pour voir le contenu, taper `x`. C'est normal, pas un bug.
+**Une affectation n'affiche rien.** `x = 10` ne renvoie pas de valeur. Pour voir le contenu, taper `x`. C'est normal, pas un bug.
 
 **Une boucle infinie « bloque » le REPL.** Tant qu'un `while True:` tourne, l'invite ne revient pas : `Ctrl-C` pour reprendre la main.
 
-**Le *soft reboot* efface les variables.** Après `Ctrl-D` (ou un branchement/débranchement), les variables définies au REPL n'existent plus — il faut les redéfinir. Ce qui persiste, ce sont les **fichiers** enregistrés sur la carte.
+**Le *soft reboot* efface les variables.** Après `Ctrl-D` (ou un branchement/débranchement), les variables définies au REPL n'existent plus : il faut les redéfinir. Ce qui persiste, ce sont les **fichiers** enregistrés sur la carte.
 
 ## Exercices
 
@@ -120,7 +120,7 @@ Le traceur attend des **nombres** : une ligne qui mêle texte et valeur (`print(
 > 0
 > >>> led.toggle()   # bascule l'état
 > ```
-> `toggle()` inverse l'état courant — pratique pour un clignotement écrit en une ligne.
+> `toggle()` inverse l'état courant, pratique pour un clignotement écrit en une ligne.
 
 > [!question] Exercice 2 — Explorer un module
 > Sans documentation sous les yeux, découvrez au REPL ce que contient le module `time`. Quelle commande ? Repérez une fonction de pause.
@@ -132,7 +132,7 @@ Le traceur attend des **nombres** : une ligne qui mêle texte et valeur (`print(
 > [..., 'sleep', 'sleep_ms', 'sleep_us', 'ticks_ms', 'ticks_us', ...]
 > >>> help(time.sleep)
 > ```
-> `dir()` liste les noms d'un module ; `sleep` (en secondes) et `sleep_ms` (en millisecondes) sont les pauses. `dir()` + `help()` sont les deux réflexes pour explorer une bibliothèque inconnue directement sur la carte.
+> `dir()` liste les noms d'un module. `sleep` (en secondes) et `sleep_ms` (en millisecondes) sont les pauses. `dir()` + `help()` sont les deux réflexes pour explorer une bibliothèque inconnue directement sur la carte.
 
 ## Voir aussi
 
