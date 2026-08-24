@@ -11,11 +11,11 @@ aa: []
 draft: false
 ---
 
-**Concevoir l'électronique**, c'est la troisième étape de la [[embarque/index|réalisation du sous-système embarqué]]. Ta carte est choisie ([[choisir-le-materiel|étape 2]]) ; tu dois maintenant **dessiner le circuit qui l'entoure** — relier les capteurs et les actionneurs retenus à l'étape 2, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées — puis le **vérifier** par le calcul et la simulation avant de souder quoi que ce soit. Le livrable est un **schéma électronique validé**, prêt à passer au [[pcb|circuit imprimé]].
+**Concevoir l'électronique**, c'est la troisième étape de la [[embarque/index|réalisation du sous-système embarqué]]. Ta carte est choisie ([[choisir-le-materiel|étape 2]]). Tu dois maintenant **dessiner le circuit qui l'entoure** — relier les capteurs et les actionneurs retenus à l'étape 2, adapter les niveaux de tension, distribuer l'énergie, protéger les entrées — puis le **vérifier** par le calcul et la simulation avant de souder quoi que ce soit. Le livrable est un **schéma électronique validé**, prêt à passer au [[pcb|circuit imprimé]].
 
 ## Posture attendue
 
-La tentation est double : te précipiter vers la réalisation physique de la carte — le [[pcb|circuit imprimé]] — avant que le schéma ne soit juste, ou recopier un schéma de tutoriel sans vérifier qu'il tient avec *ta* carte et *tes* composants. Le schéma n'est pas un dessin, c'est un **raisonnement** : chaque liaison y est justifiée par une tension, un courant, une protection. Tu ne le figes qu'une fois chaque interface vérifiée — jamais avant. Le coût d'une erreur de schéma découverte après fabrication (une entrée grillée, un rail sous-dimensionné) se compte en cartes refaites ; la même erreur trouvée sur le papier se corrige en une minute.
+La tentation est double : te précipiter vers la réalisation physique de la carte (le [[pcb|circuit imprimé]]) avant que le schéma ne soit juste, ou recopier un schéma de tutoriel sans vérifier qu'il tient avec *ta* carte et *tes* composants. Le schéma n'est pas un dessin, c'est un **raisonnement** : chaque liaison y est justifiée par une tension, un courant, une protection. Tu ne le figes qu'une fois chaque interface vérifiée, jamais avant. Le coût d'une erreur de schéma découverte après fabrication (une entrée grillée, un rail sous-dimensionné) se compte en cartes refaites. La même erreur trouvée sur le papier se corrige en une minute.
 
 ## Objectif de l'étape
 
@@ -32,12 +32,12 @@ Produire un **schéma électronique validé** qui :
 
 ### 1. Inventorier les interfaces
 
-Avant de tracer le moindre fil, dresse la liste exhaustive de ce que ta carte doit relier. Tu croises deux entrées : la liste chiffrée des fonctions issue du [[decomposition-fonctionnelle|cadrage du besoin]] (combien de moteurs, de capteurs, de contacts, quelle interface opérateur) et le brochage de la carte choisie à l'[[choisir-le-materiel|étape 2]]. Pour chaque liaison, note la **nature du signal** (logique, analogique, puissance), sa **tension**, son **courant** et sa **fréquence**. La [[lire-une-datasheet|datasheet]] de chaque composant donne ces valeurs ; l'[[analyse-de-schema-electronique|analyse de schéma]] fournit les symboles et conventions.
+Avant de tracer le moindre fil, dresse la liste exhaustive de ce que ta carte doit relier. Tu croises deux entrées : la liste chiffrée des fonctions issue du [[decomposition-fonctionnelle|cadrage du besoin]] (combien de moteurs, de capteurs, de contacts, quelle interface opérateur) et le brochage de la carte choisie à l'[[choisir-le-materiel|étape 2]]. Pour chaque liaison, note la **nature du signal** (logique, analogique, puissance), sa **tension**, son **courant** et sa **fréquence**. La [[lire-une-datasheet|datasheet]] de chaque composant donne ces valeurs. L'[[analyse-de-schema-electronique|analyse de schéma]] fournit les symboles et conventions.
 
 Cet inventaire est ta carte des interfaces : il dit *quoi* relier avant de dire *comment*. Toute liaison oubliée ici devient un fil manquant sur le circuit imprimé.
 
 > [!example] Exemple : projet bras 3 axes
-> Le bras retient trois steppers pilotés par drivers, trois capteurs d'angle, six fins de course et une console série vers le PC — la liaison opérateur finale est en Wi-Fi : sans fil, elle n'ajoute aucune interface à câbler. Inventaire des interfaces autour de l'ESP32 (logique 3,3 V) :
+> Le bras retient trois steppers pilotés par drivers, trois capteurs d'angle, six fins de course et une console série vers le PC. La liaison opérateur finale est en Wi-Fi : sans fil, elle n'ajoute aucune interface à câbler. Inventaire des interfaces autour de l'ESP32 (logique 3,3 V) :
 >
 > | Liaison | Nature | Tension | Courant / fréquence |
 > |---|---|---|---|
@@ -54,13 +54,13 @@ Cet inventaire est ta carte des interfaces : il dit *quoi* relier avant de dire 
 
 ### 2. Adapter les niveaux de tension
 
-Chaque liaison de l'inventaire relie deux mondes qui n'ont pas forcément la même tension. Ton microcontrôleur raisonne le plus souvent en 3,3 V ; un capteur peut sortir du 5 V, un étage de puissance vit en 12 V. Pour chaque liaison, compare la tension côté microcontrôleur et côté périphérique, puis choisis l'adaptation quand elles diffèrent : liaison **directe** si les tensions coïncident, **pont diviseur** pour abaisser une sortie vers une entrée, **convertisseur de niveau** (*level-shifter*) pour une liaison bidirectionnelle ou rapide, **optocoupleur** pour isoler la puissance de la logique. Les [[niveaux-de-tension|niveaux de tension]] détaillent ces montages et leurs limites.
+Chaque liaison de l'inventaire relie deux mondes qui n'ont pas forcément la même tension. Ton microcontrôleur raisonne le plus souvent en 3,3 V. Un capteur peut sortir du 5 V, un étage de puissance vit en 12 V. Pour chaque liaison, compare la tension côté microcontrôleur et côté périphérique, puis choisis l'adaptation quand elles diffèrent : liaison **directe** si les tensions coïncident, **pont diviseur** pour abaisser une sortie vers une entrée, **convertisseur de niveau** (*level-shifter*) pour une liaison bidirectionnelle ou rapide, **optocoupleur** pour isoler la puissance de la logique. Les [[niveaux-de-tension|niveaux de tension]] détaillent ces montages et leurs limites.
 
 > [!warning] Attention
-> **Une entrée 3,3 V ne survit pas à un signal 5 V.** Appliquer à une entrée logique une tension supérieure à son alimentation fait conduire ses diodes de protection internes, puis détruit l'étage d'entrée — souvent en silence, le défaut n'apparaissant qu'à l'usage. Ramène tout signal entrant dans la plage de ton microcontrôleur *avant* qu'il n'atteigne la broche, jamais après.
+> **Une entrée 3,3 V ne survit pas à un signal 5 V.** Appliquer à une entrée logique une tension supérieure à son alimentation fait conduire ses diodes de protection internes, puis détruit l'étage d'entrée. La destruction est souvent silencieuse, le défaut n'apparaissant qu'à l'usage. Ramène tout signal entrant dans la plage de ton microcontrôleur *avant* qu'il n'atteigne la broche, jamais après.
 
 > [!tip] Astuce
-> **Tu as le droit de ne pas savoir — pas de ne pas tester.** Première rencontre avec un *level-shifter* ou un optocoupleur ? Monte-le seul sur platine d'essai et vérifie-le à la mesure avant de l'inscrire au schéma : c'est l'équivalent matériel d'un test unitaire. Et commence par la [[lire-une-datasheet|datasheet]] : elle fournit presque toujours le schéma de câblage de principe (*typical application*), point de départ plus sûr qu'un tutoriel.
+> **Tu as le droit de ne pas savoir, pas de ne pas tester.** Première rencontre avec un *level-shifter* ou un optocoupleur ? Monte-le seul sur platine d'essai et vérifie-le à la mesure avant de l'inscrire au schéma : c'est l'équivalent matériel d'un test unitaire. Et commence par la [[lire-une-datasheet|datasheet]] : elle fournit presque toujours le schéma de câblage de principe (*typical application*), point de départ plus sûr qu'un tutoriel.
 
 > [!example] Exemple : projet bras 3 axes
 > Les cinq familles de liaisons passées en revue : une seule demande une adaptation, et la puissance ne touche jamais le microcontrôleur.
@@ -73,14 +73,14 @@ Chaque liaison de l'inventaire relie deux mondes qui n'ont pas forcément la mê
 > | Console PC | UART 3,3 V (TX/RX) | pont USB-série de la carte de dev | directe (intégrée à la carte) |
 > | Bobines des steppers | — (jamais reliées au MCU) | 12 V | gérée par le driver |
 >
-> **Sortie** : aucune incompatibilité résiduelle dès lors que les fins de course sont tirées sur le 3,3 V — et non sur un 5 V, piège classique écarté par conception.
+> **Sortie** : aucune incompatibilité résiduelle dès lors que les fins de course sont tirées sur le 3,3 V, et non sur un 5 V, piège classique écarté par conception.
 
 > [!livrable] Livrable 2/5 — Tableau des niveaux de tension
 > - Le tableau d'adaptation des niveaux : pour chaque liaison, tension des deux côtés et montage d'adaptation retenu
 
 ### 3. Distribuer l'énergie
 
-Tes composants sont reliés et compatibles ; reste à les **alimenter**. Conçois l'arborescence d'alimentation, de la source aux composants : une **source** (batterie, bloc secteur), un ou plusieurs **rails régulés** (souvent 12 V pour la puissance, 5 V et 3,3 V pour la logique), le **découplage** (condensateurs au plus près de chaque circuit, pour absorber les appels de courant), et une **masse** pensée comme un réseau, pas comme un fil. Pour chaque rail, établis un **budget de courant** : la somme des consommations des composants alimentés, majorée d'une marge. La [[alimentation-electronique|conception d'une alimentation]] détaille régulation, dimensionnement et autonomie.
+Tes composants sont reliés et compatibles. Reste à les **alimenter**. Conçois l'arborescence d'alimentation, de la source aux composants : une **source** (batterie, bloc secteur), un ou plusieurs **rails régulés** (souvent 12 V pour la puissance, 5 V et 3,3 V pour la logique), le **découplage** (condensateurs au plus près de chaque circuit, pour absorber les appels de courant), et une **masse** pensée comme un réseau, pas comme un fil. Pour chaque rail, établis un **budget de courant** : la somme des consommations des composants alimentés, majorée d'une marge. La [[alimentation-electronique|conception d'une alimentation]] détaille régulation, dimensionnement et autonomie.
 
 > [!warning] Attention
 > **Le découplage oublié et la masse mal pensée sont les deux fautes d'alimentation les plus coûteuses.** Sans condensateur de découplage près d'un microcontrôleur, les appels de courant des commutations font chuter sa tension et provoquent des redémarrages erratiques, impossibles à diagnostiquer dans le code. Une masse partagée entre la puissance (moteurs) et la logique fait remonter le bruit des moteurs dans tes mesures analogiques : sépare les deux masses, réunis-les en un seul point (masse en étoile).
@@ -103,10 +103,10 @@ Tes composants sont reliés et compatibles ; reste à les **alimenter**. Conçoi
 
 ### 4. Protéger et fiabiliser le câblage
 
-Un schéma qui relie et alimente correctement peut encore détruire ses composants au premier incident. Ajoute les **protections** : une **diode de roue libre** (*flyback*) sur toute charge inductive commandée (relais, moteur à courant continu) pour absorber la surtension à la coupure — les drivers de stepper l'intègrent généralement, mais une bobine que tu pilotes directement l'exige ; des **résistances de tirage** (*pull-up* / *pull-down*) pour fixer le niveau des entrées flottantes (un bouton, une fin de course) ; une **limitation de courant** sur les sorties qui pilotent des LED ou des charges ; une **protection des entrées** exposées (résistance série et écrêtage) dès qu'un fil sort de la carte. Ces montages relèvent de l'[[analyse-de-schema-electronique|analyse de schéma]] et des [[niveaux-de-tension|niveaux de tension]].
+Un schéma qui relie et alimente correctement peut encore détruire ses composants au premier incident. Ajoute les **protections** : une **diode de roue libre** (*flyback*) sur toute charge inductive commandée (relais, moteur à courant continu) pour absorber la surtension à la coupure, généralement intégrée aux drivers de stepper mais exigée par une bobine que tu pilotes directement ; des **résistances de tirage** (*pull-up* / *pull-down*) pour fixer le niveau des entrées flottantes (un bouton, une fin de course) ; une **limitation de courant** sur les sorties qui pilotent des LED ou des charges ; une **protection des entrées** exposées (résistance série et écrêtage) dès qu'un fil sort de la carte. Ces montages relèvent de l'[[analyse-de-schema-electronique|analyse de schéma]] et des [[niveaux-de-tension|niveaux de tension]].
 
 > [!tip] Astuce
-> **Place tes protections sur le schéma, pas en rattrapage sur la carte finie.** Ajouter une diode de roue libre ou un tirage après coup, sur un circuit imprimé déjà routé, oblige à du fil volant peu fiable. Penser les protections au schéma coûte un symbole ; les ajouter après coûte une révision de carte.
+> **Place tes protections sur le schéma, pas en rattrapage sur la carte finie.** Ajouter une diode de roue libre ou un tirage après coup, sur un circuit imprimé déjà routé, oblige à du fil volant peu fiable. Penser les protections au schéma coûte un symbole. Les ajouter après coûte une révision de carte.
 
 > [!example] Exemple : projet bras 3 axes
 > Protections retenues pour le bras :
@@ -125,7 +125,7 @@ Un schéma qui relie et alimente correctement peut encore détruire ses composan
 
 ### 5. Vérifier, figer, passer au circuit imprimé
 
-Ton schéma est complet ; avant de le figer, **vérifie ses points incertains**. Tout ne se calcule pas de tête : un pont diviseur sous charge, un régulateur en limite de courant, un transitoire d'allumage se vérifient par la [[simulation-electronique|simulation]]. Ne simule pas tout — seulement ce dont tu n'es pas sûr. Une fois chaque incertitude levée, fige le schéma : c'est la version qui part au **routage**, le tracé des pistes. Le [[pcb|circuit imprimé]] traduit ce schéma figé en carte fabricable ; toute modification ultérieure du schéma t'oblige à reprendre le routage, d'où l'intérêt de ne figer qu'une fois sûr.
+Ton schéma est complet. Avant de le figer, **vérifie ses points incertains**. Tout ne se calcule pas de tête : un pont diviseur sous charge, un régulateur en limite de courant, un transitoire d'allumage se vérifient par la [[simulation-electronique|simulation]]. Ne simule pas tout, seulement ce dont tu n'es pas sûr. Une fois chaque incertitude levée, fige le schéma : c'est la version qui part au **routage**, le tracé des pistes. Le [[pcb|circuit imprimé]] traduit ce schéma figé en carte fabricable. Toute modification ultérieure du schéma t'oblige à reprendre le routage, d'où l'intérêt de ne figer qu'une fois sûr.
 
 > [!warning] Attention
 > **Router avant d'avoir figé le schéma fait perdre le routage.** Chaque correction du schéma après le début du tracé invalide une partie du routage. Fige le schéma d'abord, route ensuite. Et ne simule que l'incertain : simuler un montage évident fait perdre du temps, ne pas simuler un montage douteux fait perdre une carte.
@@ -157,17 +157,17 @@ Ton schéma est validé : interfaces inventoriées, niveaux adaptés, énergie d
 
 **Recopier un schéma de tutoriel sans vérifier les tensions.** Un montage trouvé en ligne suppose *ses* composants et *sa* carte. Confronte chaque liaison aux tensions réelles de ton inventaire avant de l'adopter.
 
-**Oublier le découplage.** Sans condensateur près des broches d'alimentation, les commutations font chuter la tension et provoquent des redémarrages erratiques — un défaut qui se cherche en vain dans le code.
+**Oublier le découplage.** Sans condensateur près des broches d'alimentation, les commutations font chuter la tension et provoquent des redémarrages erratiques, un défaut qui se cherche en vain dans le code.
 
 **Négliger la diode de roue libre sur une charge inductive.** Une bobine coupée brutalement génère une surtension qui détruit le composant de commande. Toute charge inductive pilotée directement exige sa roue libre.
 
 **Partager une seule masse entre puissance et logique.** Le bruit des moteurs remonte alors dans tes mesures analogiques. Sépare les masses puissance et logique, réunis-les en un point unique.
 
-**Tout simuler, ou ne rien simuler.** Simuler un montage évident fait perdre du temps ; ne pas simuler un montage douteux fait perdre une carte. Cible l'incertain, et seulement lui.
+**Tout simuler, ou ne rien simuler.** Simuler un montage évident fait perdre du temps. Ne pas simuler un montage douteux fait perdre une carte. Cible l'incertain, et seulement lui.
 
 ## Ce qui relève d'ailleurs
 
-**Le pilotage, c'est le cycle en V.** La revue du schéma, sa place dans la nomenclature (BOM), le planning de commande des composants relèvent du [[dossier-technique|dossier technique]] — cette fiche produit l'artefact, le V l'inscrit dans le projet.
+**Le pilotage, c'est le cycle en V.** La revue du schéma, sa place dans la nomenclature (BOM), le planning de commande des composants relèvent du [[dossier-technique|dossier technique]]. Cette fiche produit l'artefact, le V l'inscrit dans le projet.
 
 *La fabrication physique de la carte* — gravure ou commande du circuit imprimé, perçage, soudure, contrôle — n'est pas traitée ici : elle relève des travaux pratiques d'électronique et du cours de fabrication des collègues. Cette fiche s'arrête au schéma figé et au routage logique.
 

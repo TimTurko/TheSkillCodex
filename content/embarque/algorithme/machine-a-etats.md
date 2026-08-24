@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-Une **machine à états** (ou **automate fini**) est une représentation d'un [[algorithme]] où le système occupe, à chaque instant, un **état** parmi un nombre fini, et passe de l'un à l'autre par des **transitions** déclenchées par des événements. Elle décrit les comportements **séquentiels à modes** — un système qui réagit différemment selon là où il en est (un portail est fermé, en ouverture, ouvert ou en fermeture) — et se traduit presque directement en code (voir [[arduino-machine-a-etats|sa mise en œuvre sur Arduino]]).
+Une **machine à états** (ou **automate fini**) est une représentation d'un [[algorithme]] où le système occupe, à chaque instant, un **état** parmi un nombre fini, et passe de l'un à l'autre par des **transitions** déclenchées par des événements. Elle décrit les comportements **séquentiels à modes**, c'est-à-dire un système qui réagit différemment selon là où il en est (un portail est fermé, en ouverture, ouvert ou en fermeture). Elle se traduit presque directement en code (voir [[arduino-machine-a-etats|sa mise en œuvre sur Arduino]]).
 
 ![Schéma générique d'une machine à états : trois états reliés par des transitions orientées en cycle, chaque transition portant la syntaxe « événement [garde-condition] / action ».](/ressources/img/machine-a-etats/generique.svg)
 
@@ -33,9 +33,9 @@ C'est l'outil de prédilection dès qu'un comportement se décrit par « tant qu
 
 ## Comment construire une machine à états ?
 
-Quatre ingrédients suffisent. Le schéma générique ci-dessus les met en scène ; les voici un par un.
+Quatre ingrédients suffisent. Le schéma générique ci-dessus les met en scène. Les voici un par un.
 
-1. **Les états.** Ce sont les situations **stables** et **mutuellement exclusives** du système. Bien choisis, ils répondent à la question « dans quelle situation suis-je en train d'attendre la suite ? ». Un état n'est pas une action en cours mais une position d'attente d'un événement. L'**état initial** — celui où la machine démarre à la mise sous tension — se marque d'un **point plein** relié au premier état : sans lui, le comportement au démarrage n'est pas défini.
+1. **Les états.** Ce sont les situations **stables** et **mutuellement exclusives** du système. Bien choisis, ils répondent à la question « dans quelle situation suis-je en train d'attendre la suite ? ». Un état n'est pas une action en cours mais une position d'attente d'un événement. L'**état initial**, celui où la machine démarre à la mise sous tension, se marque d'un **point plein** relié au premier état : sans lui, le comportement au démarrage n'est pas défini.
 2. **Les transitions.** Ce sont les passages orientés d'un état vers un autre, **déclenchés par un événement** (appui sur un bouton, fin de course atteinte, temporisation écoulée, mesure dépassée). Sans événement, pas de changement d'état.
 3. **Les garde-conditions.** Une transition peut être soumise à une **condition booléenne** qui l'autorise ou non, notée entre crochets `[…]`. L'événement « fin de fermeture » ne referme vraiment que `[si aucun obstacle]`. La garde encode les règles de sécurité et les cas particuliers directement dans le schéma.
 4. **Les actions (ou sorties).** Ce que le système **fait** — démarrer un moteur, allumer une LED, envoyer une trame. L'action peut être attachée à la transition (notée `/ action`) ou produite tant qu'on est dans un état. Cette distinction porte un nom (voir *Cas particulier*).
@@ -49,33 +49,33 @@ Un portail coulissant motorisé piloté par un bouton, deux fins de course (haut
 > [!failure] Contre-exemple — schéma soigné, modélisation fautive
 > ![Quatre états propres — Fermé, Ouverture, Ouvert, Bloqué — aux coins d'un carré, avec trois fautes de modélisation signalées en ambre : aucun état initial sur Fermé, une transition de Fermé vers Ouverture sans événement, et un état Bloqué sans aucune transition de sortie ; le cycle ne revient jamais à Fermé.](/ressources/img/machine-a-etats/portail-mauvais.svg)
 >
-> **Pourquoi c'est mauvais.** Les états sont propres, le tracé est net — et la modélisation est trouée trois fois. **D'où part-on ?** Aucun état initial : le comportement à la mise sous tension n'est pas défini. **Qu'est-ce qui ouvre ?** La transition *Fermé → Ouverture* ne porte aucun événement : elle se franchit… quand ? Et surtout, **Bloqué est un puits** : aucune transition n'en sort, le cycle ne reboucle jamais. Comme pour le [[logigramme|logigramme]] : la propreté du dessin ne valide pas la logique.
+> **Pourquoi c'est mauvais.** Les états sont propres, le tracé est net. Et la modélisation est trouée trois fois. **D'où part-on ?** Aucun état initial : le comportement à la mise sous tension n'est pas défini. **Qu'est-ce qui ouvre ?** La transition *Fermé → Ouverture* ne porte aucun événement : elle se franchit… quand ? Et surtout, **Bloqué est un puits** : aucune transition n'en sort, le cycle ne reboucle jamais. Comme pour le [[logigramme|logigramme]] : la propreté du dessin ne valide pas la logique.
 >
-> **Coût réel.** Traduit tel quel, le programme démarre dans un état imprévisible et, au premier obstacle, le portail entre dans *Bloqué*… pour toujours. Seule issue : couper le courant. Le bug n'est pas dans le code — il était déjà dans le schéma.
+> **Coût réel.** Traduit tel quel, le programme démarre dans un état imprévisible et, au premier obstacle, le portail entre dans *Bloqué*… pour toujours. Seule issue : couper le courant. Le bug n'est pas dans le code. Il était déjà dans le schéma.
 
 > [!warning] Version moyenne — états nets, transitions creuses
 > ![Quatre états Fermé, Ouverture, Ouvert, Fermeture aux coins d'un carré, reliés par un cycle de transitions, chacune étiquetée d'un seul mot vague : bouton, capteur, minuterie, capteur.](/ressources/img/machine-a-etats/portail-moyen.svg)
 >
-> **Pourquoi c'est moyen.** Les quatre états sont propres et exclusifs, le cycle est clair — c'est déjà exploitable. Mais les transitions restent **sous-spécifiées** : « capteur » lequel ? aucune garde-condition, aucune action notée, et surtout **aucune gestion de l'obstacle**. Un portail qui ne sait pas réagir à un obstacle pendant la fermeture est dangereux. Le schéma est lisible mais incomplet pour passer au code.
+> **Pourquoi c'est moyen.** Les quatre états sont propres et exclusifs, le cycle est clair. C'est déjà exploitable. Mais les transitions restent **sous-spécifiées** : « capteur » lequel ? aucune garde-condition, aucune action notée, et surtout **aucune gestion de l'obstacle**. Un portail qui ne sait pas réagir à un obstacle pendant la fermeture est dangereux. Le schéma est lisible mais incomplet pour passer au code.
 
 > [!example] Version cible — machine à états complète
 > ![Les mêmes quatre états avec un point plein d'état initial relié à Fermé, des transitions complètes notées « événement [garde] / action », et une transition de sécurité en ambre de Fermeture vers Ouverture déclenchée par l'événement obstacle avec l'action inverser le moteur.](/ressources/img/machine-a-etats/portail-bon.svg)
 >
-> **Pourquoi c'est bon.** L'**état initial** est marqué (le point plein → *Fermé* : à la mise sous tension, le portail se considère fermé). Chaque transition porte les informations utiles : l'**événement** (`bouton`, `fin haut`, `tempo 5 s`, `obstacle`), la **garde-condition** quand il en faut une (`fin bas [aucun obstacle]` — le portail ne se déclare fermé que si rien ne gêne), et l'**action** associée (`/ moteur ↑`, `/ stop`, `/ inverser`). La transition de sécurité — *Fermeture → Ouverture* sur l'événement `obstacle` — met la **sécurité dans le schéma**, pas dans un patch ajouté après coup. Ce diagramme se transcrit ligne pour ligne en code (un `case` par état, voir le tuto Arduino).
+> **Pourquoi c'est bon.** L'**état initial** est marqué (le point plein → *Fermé* : à la mise sous tension, le portail se considère fermé). Chaque transition porte les informations utiles : l'**événement** (`bouton`, `fin haut`, `tempo 5 s`, `obstacle`), la **garde-condition** quand il en faut une (`fin bas [aucun obstacle]`, le portail ne se déclare fermé que si rien ne gêne), et l'**action** associée (`/ moteur ↑`, `/ stop`, `/ inverser`). La transition de sécurité, *Fermeture → Ouverture* sur l'événement `obstacle`, met la **sécurité dans le schéma**, pas dans un patch ajouté après coup. Ce diagramme se transcrit ligne pour ligne en code (un `case` par état, voir le tuto Arduino).
 
 ## Pièges
 
 **États qui se recouvrent.** Si l'on peut « être dans deux états à la fois », ce ne sont pas des états. Le test : à tout instant, un seul doit être vrai. Sinon, fusionner ou redécouper.
 
-**Confondre état et action.** « En train d'ouvrir » est un état (on attend la fin de course) ; « ouvrir » est une action. Nommer les états par des situations (Ouverture, Ouvert), pas par des verbes d'action en cours.
+**Confondre état et action.** « En train d'ouvrir » est un état (on attend la fin de course). « Ouvrir » est une action. Nommer les états par des situations (Ouverture, Ouvert), pas par des verbes d'action en cours.
 
 **Oublier l'état initial.** Une machine à états doit dire d'où elle part au démarrage. Un état initial non défini, c'est un comportement aléatoire à la mise sous tension (à rapprocher de l'[[gpio|état des GPIO au boot]]).
 
 **Cas non couverts laissés au hasard.** Pour chaque état, se demander ce qui arrive si un événement *inattendu* survient. La règle saine : tout événement non prévu **laisse dans l'état courant**, il ne provoque pas de saut silencieux.
 
-**Confondre événement et garde.** L'événement *déclenche* l'examen de la transition ; la garde *autorise* le passage. « Fin de course atteinte » est un événement ; « si aucun obstacle » est une garde. Les mélanger rend les transitions intestables.
+**Confondre événement et garde.** L'événement *déclenche* l'examen de la transition. La garde *autorise* le passage. « Fin de course atteinte » est un événement. « Si aucun obstacle » est une garde. Les mélanger rend les transitions intestables.
 
-**Explosion du nombre d'états.** Multiplier les états pour coder chaque combinaison de conditions fait exploser le schéma. Quand ça arrive, c'est souvent qu'une donnée devrait être une **variable** (un compteur, un mode) plutôt qu'un état — ou qu'il faut passer à un [[grafcet|grafcet]] pour gérer le parallélisme.
+**Explosion du nombre d'états.** Multiplier les états pour coder chaque combinaison de conditions fait exploser le schéma. Quand ça arrive, c'est souvent qu'une donnée devrait être une **variable** (un compteur, un mode) plutôt qu'un état, ou qu'il faut passer à un [[grafcet|grafcet]] pour gérer le parallélisme.
 
 ## Cas particulier — Moore et Mealy
 

@@ -29,7 +29,7 @@ Beaucoup de problèmes embarqués ne sont pas des problèmes de logique mais de 
 
 C'est la représentation à mobiliser dès qu'une **contrainte de temps** entre en jeu, en complément des autres : on décrit *quoi faire* avec une machine à états, et *quand* avec un chronogramme.
 
-**Un statut à part.** Le chronogramme n'est pas une quatrième façon de décrire la *logique* : c'est la seule des quatre représentations qui parle du **matériel**. Logigramme, machine à états et grafcet manipulent des abstractions — décisions, états, étapes — et se traduisent en code ; le chronogramme montre des **grandeurs physiques**, des tensions qui basculent dans le temps. C'est aussi le seul qu'on peut **mesurer** sur le système réel ([[oscilloscope|oscilloscope]], [[analyseur-logique|analyseur logique]]). Et plus on descend vers le bas niveau — bits d'un bus, timings d'une datasheet, PWM — plus la question cesse d'être « quelle logique ? » pour devenir « *quand, exactement ?* » : c'est là qu'il devient l'outil principal.
+**Un statut à part.** Le chronogramme n'est pas une quatrième façon de décrire la *logique* : c'est la seule des quatre représentations qui parle du **matériel**. Logigramme, machine à états et grafcet manipulent des abstractions — décisions, états, étapes — et se traduisent en code. Le chronogramme montre des **grandeurs physiques**, des tensions qui basculent dans le temps. C'est aussi le seul qu'on peut **mesurer** sur le système réel ([[oscilloscope|oscilloscope]], [[analyseur-logique|analyseur logique]]). Et plus on descend vers le bas niveau — bits d'un bus, timings d'une datasheet, PWM — plus la question cesse d'être « quelle logique ? » pour devenir « *quand, exactement ?* » : c'est là qu'il devient l'outil principal.
 
 ## Comment lire un chronogramme ?
 
@@ -48,7 +48,7 @@ Deux signaux courants en projet, lus sur le même axe.
 
 ![Chronogramme à deux signaux : en haut un PWM carré avec période et temps haut cotés, en bas une trame UART avec bit de start, huit bits de données et bit de stop repérés.](/ressources/img/chronogramme/pwm.svg)
 
-Le **PWM** (en haut) est un carré dont seul compte le **rapport cyclique** α = tₕ / T : à fréquence fixe, plus le temps haut est long, plus la puissance moyenne transmise est grande (vitesse d'un moteur, luminosité d'une LED — voir [[arduino-sortie-pwm|piloter une sortie PWM]]). La **trame UART** (en bas) illustre l'autre usage : la ligne au repos est haute, un **bit de start** (bas) annonce la trame, suivent les **8 bits de données**, puis un **bit de stop**. Sans chronogramme, impossible de vérifier qu'on échantillonne chaque bit au bon instant.
+Le **PWM** (en haut) est un carré dont seul compte le **rapport cyclique** α = tₕ / T : à fréquence fixe, plus le temps haut est long, plus la puissance moyenne transmise est grande (vitesse d'un moteur, luminosité d'une LED : voir [[arduino-sortie-pwm|piloter une sortie PWM]]). La **trame UART** (en bas) illustre l'autre usage : la ligne au repos est haute, un **bit de start** (bas) annonce la trame, suivent les **8 bits de données**, puis un **bit de stop**. Sans chronogramme, impossible de vérifier qu'on échantillonne chaque bit au bon instant.
 
 ## Pièges
 
@@ -58,19 +58,19 @@ Le **PWM** (en haut) est un carré dont seul compte le **rapport cyclique** α =
 
 **Échelle de temps absente.** Sans graduation ni durée de référence, on voit l'ordre des événements mais on ne peut rien **mesurer**. Indiquer au moins une durée ou une période.
 
-**Confondre logique et analogique.** Un chronogramme logique n'a que deux niveaux. Un signal qui varie continûment (une tension de capteur) est une **courbe** — son tracé relève plutôt de l'[[oscilloscope|oscilloscope]].
+**Confondre logique et analogique.** Un chronogramme logique n'a que deux niveaux. Un signal qui varie continûment (une tension de capteur) est une **courbe**. Son tracé relève plutôt de l'[[oscilloscope|oscilloscope]].
 
-**Confondre rapport cyclique et fréquence.** Le rapport cyclique (α = tₕ/T) dit *quelle fraction du temps* le signal est haut ; la fréquence (1/T) dit *à quelle cadence* il se répète. On peut changer l'un sans l'autre.
+**Confondre rapport cyclique et fréquence.** Le rapport cyclique (α = tₕ/T) dit *quelle fraction du temps* le signal est haut. La fréquence (1/T) dit *à quelle cadence* il se répète. On peut changer l'un sans l'autre.
 
 **Lire des relations sans aligner.** Estimer « A change avant B » sans tracer la verticale au bon endroit mène à des erreurs de causalité. Aligner verticalement avant de conclure.
 
 ## Cas particulier — Du chronogramme à l'oscilloscope
 
-Le chronogramme existe sous trois formes complémentaires. **Idéalisé**, c'est l'outil de conception (signaux parfaits, fronts verticaux). **Normatif**, c'est le diagramme de timing d'une [[lire-une-datasheet|datasheet]], qui fixe les durées minimales à respecter. **Réel**, c'est ce que trace l'[[oscilloscope|oscilloscope]] sur le montage — ou ce que capture un [[analyseur-logique|analyseur logique]] sur plusieurs lignes à la fois — avec ses imperfections (temps de montée non nul, bruit, rebonds). Savoir lire un chronogramme idéal est le prérequis pour interpréter les deux autres.
+Le chronogramme existe sous trois formes complémentaires. **Idéalisé**, c'est l'outil de conception (signaux parfaits, fronts verticaux). **Normatif**, c'est le diagramme de timing d'une [[lire-une-datasheet|datasheet]], qui fixe les durées minimales à respecter. **Réel**, c'est ce que trace l'[[oscilloscope|oscilloscope]] sur le montage, ou ce que capture un [[analyseur-logique|analyseur logique]] sur plusieurs lignes à la fois, avec ses imperfections (temps de montée non nul, bruit, rebonds). Savoir lire un chronogramme idéal est le prérequis pour interpréter les deux autres.
 
 ## Voir aussi
 
-- [[algorithme|Algorithme]] — la fiche mère ; le chronogramme y est la représentation du *temps*
+- [[algorithme|Algorithme]] — la fiche mère, où le chronogramme est la représentation du *temps*
 - [[oscilloscope|Oscilloscope]] — l'instrument qui affiche le chronogramme réel d'un signal
 - [[analyseur-logique|Analyseur logique]] — le chronogramme réel de plusieurs lignes numériques, trames décodées
 - [[lire-une-datasheet|Lire une datasheet]] — où l'on rencontre les chronogrammes normatifs des composants

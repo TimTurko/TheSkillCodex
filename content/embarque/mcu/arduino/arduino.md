@@ -16,7 +16,7 @@ draft: false
 
 ## Tutoriels
 
-Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première LED qui clignote jusqu'au niveau ingénieur. La plupart appliquent sur Arduino une notion transverse, définie une fois pour toutes les familles — les items marqués *(transverse)* sont ces fiches partagées du squelette, le reste est propre à Arduino.
+Les tutoriels du module Arduino, **dans l'ordre conseillé** : de la première LED qui clignote jusqu'au niveau ingénieur. La plupart appliquent sur Arduino une notion transverse, définie une fois pour toutes les familles. Les items marqués *(transverse)* sont ces fiches partagées du squelette, le reste est propre à Arduino.
 
 **Par où commencer ?** Par la [[arduino-prise-en-main|prise en main]] : installer l'IDE et faire clignoter une première LED sur du matériel réel. Le reste se suit dans l'ordre, ou se pioche au besoin du projet.
 
@@ -75,11 +75,11 @@ Arduino occupe une **niche d'accessibilité** plus qu'une niche de performance. 
 - une **tolérance 5 V** sur les entrées/sorties, compatible avec un grand parc de capteurs et de modules ;
 - une **courbe d'apprentissage douce**, idéale pour entrer dans l'embarqué.
 
-C'est donc le choix par défaut pour apprendre, prototyper vite et valider un principe. Ses limites se font sentir sur les cartes 8 bits (Uno R3, Mega, Nano) : 2 Ko de RAM sur l'Uno R3, pas d'unité de calcul flottant (les `float` sont émulés, donc lents) et pas d'USB natif. Quand le projet réclame du **sans-fil** (Wi-Fi, Bluetooth), de l'**autonomie sur batterie** ou de la **performance**, une autre famille s'impose souvent — la décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]]. À noter : hors Uno R4 WiFi, les cartes de ce panorama n'embarquent pas de radio ; pour un objet connecté, regarder du côté de l'[[esp32|ESP32]].
+C'est donc le choix par défaut pour apprendre, prototyper vite et valider un principe. Ses limites se font sentir sur les cartes 8 bits (Uno R3, Mega, Nano) : 2 Ko de RAM sur l'Uno R3, pas d'unité de calcul flottant (les `float` sont émulés, donc lents) et pas d'USB natif. Quand le projet réclame du **sans-fil** (Wi-Fi, Bluetooth), de l'**autonomie sur batterie** ou de la **performance**, une autre famille s'impose souvent. La décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]]. À noter : hors Uno R4 WiFi, les cartes de ce panorama n'embarquent pas de radio. Pour un objet connecté, regarder du côté de l'[[esp32|ESP32]].
 
 ## Panorama des cartes
 
-Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la gamme (Leonardo, Due, Giga, variantes Nano) se choisit au cas par cas.
+Trois cartes couvrent l'essentiel des besoins en projet école. Le reste de la gamme (Leonardo, Due, Giga, variantes Nano) se choisit au cas par cas.
 
 ![Carte Arduino Uno R3 vue de dessus|420](/ressources/img/arduino/uno-photo.webp)
 
@@ -95,13 +95,13 @@ Trois cartes couvrent l'essentiel des besoins en projet école ; le reste de la 
 | Mega 2560 | ATmega2560 (AVR 8 bits, 16 MHz) | 256 Ko / 8 Ko | 54 / 16 / 15 | grand nombre d'E/S | projets riches en E/S (ex. imprimantes 3D) |
 | Nano | ATmega328P (AVR 8 bits, 16 MHz) | 32 Ko / 2 Ko | 14 / 8 / 6 | format compact pour breadboard | intégration finale compacte |
 
-*Le passage de l'Uno R3 (8 bits) à l'Uno R4 (32 bits ARM) conserve le même format et la compatibilité 5 V des shields, tout en multipliant mémoire et puissance de calcul — un exemple net de montée en gamme sans rupture d'écosystème.*
+*Le passage de l'Uno R3 (8 bits) à l'Uno R4 (32 bits ARM) conserve le même format et la compatibilité 5 V des shields, tout en multipliant mémoire et puissance de calcul. C'est un exemple net de montée en gamme sans rupture d'écosystème.*
 
 ## Écosystème
 
-L'environnement de référence est l'**IDE Arduino**, qui reconnaît les cartes sans pilote supplémentaire ; pour des projets plus structurés, PlatformIO ou l'Arduino CLI offrent une chaîne de compilation plus puissante. Le langage est un **[[cpp|C++]] outillé** (dialecte Wiring), organisé autour de deux [[fonction-informatique|fonctions]] : `setup()`, exécutée une fois au démarrage, et `loop()`, répétée indéfiniment. Le gestionnaire de bibliothèques intégré donne accès en quelques clics à des milliers de pilotes de capteurs et de modules.
+L'environnement de référence est l'**IDE Arduino**, qui reconnaît les cartes sans pilote supplémentaire. Pour des projets plus structurés, PlatformIO ou l'Arduino CLI offrent une chaîne de compilation plus puissante. Le langage est un **[[cpp|C++]] outillé** (dialecte Wiring), organisé autour de deux [[fonction-informatique|fonctions]] : `setup()`, exécutée une fois au démarrage, et `loop()`, répétée indéfiniment. Le gestionnaire de bibliothèques intégré donne accès en quelques clics à des milliers de pilotes de capteurs et de modules.
 
-Cet écosystème déborde du seul matériel Arduino : le même cadre de développement programme aussi l'[[esp32|ESP32]] (via l'Arduino-core) et bien d'autres cartes. Frontière à garder en tête — ce bloc décrit l'**outillage** propre à Arduino, pas la façon de structurer le code embarqué, qui relève de [[firmware]].
+Cet écosystème déborde du seul matériel Arduino : le même cadre de développement programme aussi l'[[esp32|ESP32]] (via l'Arduino-core) et bien d'autres cartes. Frontière à garder en tête. Ce bloc décrit l'**outillage** propre à Arduino, pas la façon de structurer le code embarqué, qui relève de [[firmware]].
 
 ## Voir aussi
 

@@ -22,7 +22,7 @@ Les **technologies sans-fil** permettent à un système d'échanger des données
 
 Le sans-fil affranchit le système du câble : il rend un objet mobile, permet de relever des capteurs éloignés, ou connecte le projet à un téléphone et au réseau. C'est souvent ce qui transforme un montage isolé en **objet connecté**.
 
-Choisir une technologie, c'est arbitrer entre quelques paramètres — sachant qu'un fait domine : **portée et débit s'opposent largement** (plus on vise loin, moins on transmet vite), et que la **consommation** est décisive dès qu'un objet fonctionne sur pile :
+Choisir une technologie, c'est arbitrer entre quelques paramètres, sachant qu'un fait domine : **portée et débit s'opposent largement** (plus on vise loin, moins on transmet vite), et que la **consommation** est décisive dès qu'un objet fonctionne sur pile :
 
 - la **portée** utile (quelques mètres à plusieurs kilomètres) ;
 - le **débit** atteignable ;
@@ -44,7 +44,7 @@ Les cinq technologies courantes se rangent selon ces paramètres :
 | [[xbee\|XBee]] | moyenne à longue | bas | basse | point-à-point / maillage | liaison série sans-fil, télémétrie |
 | [[lora\|LoRa]] | très longue (km) | très bas | très basse | étoile longue portée | capteurs distants, agriculture, ville |
 
-Trois précisions de paysage. **XBee n'est pas un protocole** mais une gamme de **modules** (Digi) prêts à l'emploi, qui embarquent du Zigbee ou des variantes propriétaires — le détail vit dans la fiche fille. **Quatre des cinq technologies vivent dans la même bande 2,4 GHz** mondiale : elles peuvent interférer entre elles (et avec un four à micro-ondes). Le **LoRa émet en 868 MHz** en Europe : une fréquence plus basse porte plus loin — c'est une partie du secret de sa portée.
+Trois précisions de paysage. **XBee n'est pas un protocole** mais une gamme de **modules** (Digi) prêts à l'emploi, qui embarquent du Zigbee ou des variantes propriétaires. Le détail vit dans la fiche fille. **Quatre des cinq technologies vivent dans la même bande 2,4 GHz** mondiale : elles peuvent interférer entre elles (et avec un four à micro-ondes). Le **LoRa émet en 868 MHz** en Europe : une fréquence plus basse porte plus loin. C'est une partie du secret de sa portée.
 
 Trois réflexes pour trancher. Pour relier l'objet à **internet ou à un smartphone**, le Wi-Fi (débit, accès réseau) ou le BLE (basse conso, proximité du téléphone). Pour un **réseau de capteurs** nombreux et économes, le Zigbee ou les modules XBee, dont le maillage étend la portée. Pour quelques mesures envoyées **de très loin** et rarement, le LoRa, qui échange le débit contre la distance et l'autonomie.
 

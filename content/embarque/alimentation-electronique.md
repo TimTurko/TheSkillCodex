@@ -15,7 +15,7 @@ phases:
 draft: false
 ---
 
-**Concevoir une alimentation électronique**, c'est fournir à chaque partie d'un système la tension et le courant dont elle a besoin, **proprement et en sécurité** : choisir une source, la réguler à la bonne tension, absorber les pics de consommation, organiser les retours de masse et protéger l'ensemble des fautes de branchement. C'est l'ingénierie du bloc *alimenter / distribuer* de la [[chaine-energie|chaîne d'énergie]] — l'étage le plus sous-estimé d'un projet, ignoré quand tout marche, accusé à tort dès qu'un autre défaut survient.
+**Concevoir une alimentation électronique**, c'est fournir à chaque partie d'un système la tension et le courant dont elle a besoin, **proprement et en sécurité** : choisir une source, la réguler à la bonne tension, absorber les pics de consommation, organiser les retours de masse et protéger l'ensemble des fautes de branchement. C'est l'ingénierie du bloc *alimenter / distribuer* de la [[chaine-energie|chaîne d'énergie]], l'étage le plus sous-estimé d'un projet, ignoré quand tout marche, accusé à tort dès qu'un autre défaut survient.
 
 ## À quoi ça sert ?
 
@@ -26,7 +26,7 @@ Tant qu'un montage tient sur table, alimenté en USB, la question ne se pose pas
 - **isoler le bruit de puissance** du signal, en séparant ce qui transporte de l'énergie de ce qui transporte de l'information ;
 - **rendre les fautes non destructrices** : un court-circuit ou une inversion de polarité doivent couper, pas griller.
 
-La démarche relève de la conception du système ([[concept|phase de concept]], puis dimensionnement au [[dossier-technique|dossier technique]]). Sa mise en œuvre concrète sur une carte donnée — par exemple [[arduino-alimentation|alimenter une carte Arduino]] — applique ces principes à un matériel précis.
+La démarche relève de la conception du système ([[concept|phase de concept]], puis dimensionnement au [[dossier-technique|dossier technique]]). Sa mise en œuvre concrète sur une carte donnée, par exemple [[arduino-alimentation|alimenter une carte Arduino]], applique ces principes à un matériel précis.
 
 ## Choisir la source
 
@@ -45,11 +45,11 @@ Une source brute (une batterie qui se décharge de 8,4 à 6 V, un secteur redres
 
 ![Deux façons de produire 5 V à partir de 9 V. À gauche, un régulateur linéaire : un élément série laisse passer ce qu'il faut et dissipe le reste, soit (Vin moins Vout) multiplié par le courant, sous forme de chaleur. À droite, un régulateur à découpage : un interrupteur commute rapidement à travers une inductance et un condensateur, avec très peu de pertes mais un bruit de commutation.](/ressources/img/alimentation-electronique/regulation.svg)
 
-Le **régulateur linéaire** (un LDO, *low-dropout*) est simple, silencieux et bon marché : il se comporte comme une résistance pilotée qui absorbe l'écart entre l'entrée et la sortie. Le revers est mécanique : tout ce qu'il n'envoie pas en sortie part en **chaleur**, à hauteur de (Vin − Vout) × I. Produire 5 V à partir de 9 V sous 0,5 A dissipe (9 − 5) × 0,5 = 2 W — assez pour brûler les doigts sans dissipateur. On le réserve aux faibles écarts de tension et aux faibles courants, là où sa propreté électrique prime.
+Le **régulateur linéaire** (un LDO, *low-dropout*) est simple, silencieux et bon marché : il se comporte comme une résistance pilotée qui absorbe l'écart entre l'entrée et la sortie. Le revers est mécanique : tout ce qu'il n'envoie pas en sortie part en **chaleur**, à hauteur de (Vin − Vout) × I. Produire 5 V à partir de 9 V sous 0,5 A dissipe (9 − 5) × 0,5 = 2 W, assez pour brûler les doigts sans dissipateur. On le réserve aux faibles écarts de tension et aux faibles courants, là où sa propreté électrique prime.
 
 Le **régulateur à découpage** (*switching*) commute l'énergie par paquets à travers une inductance : il ne dissipe presque rien et atteint des rendements de 85 à 95 %, même avec un grand écart de tension. Le prix à payer est la complexité — plus de composants, un dessin de carte soigné — et un **bruit de commutation** qu'il faut parfois filtrer. C'est le choix par défaut dès que le courant ou l'écart de tension devient important, et sur batterie où chaque watt perdu raccourcit l'autonomie.
 
-*Le détail des topologies (abaisseur, élévateur, leurs équations) relève du cours d'électronique de puissance ; ce qui se décide au niveau du projet, c'est lequel choisir et comment le dimensionner.*
+*Le détail des topologies (abaisseur, élévateur, leurs équations) relève du cours d'électronique de puissance. Ce qui se décide au niveau du projet, c'est lequel choisir et comment le dimensionner.*
 
 > [!tip] Astuce
 > **Références éprouvées** — linéaires : 7805 (5 V, l'historique), AMS1117 (compact, 5 V ou 3,3 V), MCP1700 (LDO très basse consommation) ; découpage : modules abaisseurs LM2596 ou MP1584, élévateur MT3608. Des familles stables et courantes : partir d'elles, vérifier la disponibilité et lire la datasheet avant d'acheter.
@@ -58,9 +58,9 @@ Le **régulateur à découpage** (*switching*) commute l'énergie par paquets à
 
 Un régulateur réagit vite, mais pas instantanément. Quand un composant appelle une pointe de courant brève — un module radio qui émet, un moteur qui démarre, une sortie logique qui bascule —, la tension locale s'effondre le temps que la régulation rattrape. Un **condensateur de découplage** placé **au plus près** du composant joue le rôle de petit réservoir : il fournit la pointe localement, puis se recharge. *(→ notion [[decouplage|découplage]])*
 
-On combine deux types par étage : un **condensateur réservoir** (*bulk*, quelques dizaines à centaines de µF) qui encaisse les grosses variations, et un **condensateur céramique** (100 nF typique) collé à la broche d'alimentation, qui répond aux variations les plus rapides. La règle d'or tient en deux mots : **au plus près**. Un découplage à dix centimètres du composant, au bout d'une longue piste, ne sert presque à rien — l'inductance de la piste annule son effet.
+On combine deux types par étage : un **condensateur réservoir** (*bulk*, quelques dizaines à centaines de µF) qui encaisse les grosses variations, et un **condensateur céramique** (100 nF typique) collé à la broche d'alimentation, qui répond aux variations les plus rapides. La règle d'or tient en deux mots : **au plus près**. Un découplage à dix centimètres du composant, au bout d'une longue piste, ne sert presque à rien. L'inductance de la piste annule son effet.
 
-C'est l'absence de découplage qui explique une bonne part des comportements erratiques « inexpliqués » : un capteur qui donne des valeurs aberrantes pendant qu'un moteur tourne, un microcontrôleur qui plante par intermittence. La pointe est trop brève pour se voir au [[multimetre|multimètre]] — elle se débusque à l'[[oscilloscope|oscilloscope]].
+C'est l'absence de découplage qui explique une bonne part des comportements erratiques « inexpliqués » : un capteur qui donne des valeurs aberrantes pendant qu'un moteur tourne, un microcontrôleur qui plante par intermittence. La pointe est trop brève pour se voir au [[multimetre|multimètre]]. Elle se débusque à l'[[oscilloscope|oscilloscope]].
 
 ## Router les masses
 
@@ -70,7 +70,7 @@ La masse (le 0 V) n'est pas un fil neutre : c'est le **chemin de retour** de tou
 
 D'où la distinction entre **masse de puissance** (retours des actionneurs, gros courants, parfois bruyants) et **masse de signal** (retours de la logique et des capteurs, faibles courants à protéger). L'objectif est qu'elles ne partagent pas leurs chemins de retour, tout en restant **un seul et même potentiel de référence**. La technique de base est la **masse en étoile** : chaque retour rejoint un **point commun unique** plutôt que d'être chaîné aux autres. À l'inverse, des masses **en chaînage** (*daisy-chain*) font transiter les gros courants par les segments partagés et y injectent leur bruit.
 
-La masse en étoile est la technique du câblage filaire et de la breadboard. Sur un [[pcb|circuit imprimé]], elle se généralise en **plan de masse** : une couche entière dédiée au 0 V, qui offre à chaque retour un chemin court et de faible impédance — le réflexe à prendre dès la conception de la carte.
+La masse en étoile est la technique du câblage filaire et de la breadboard. Sur un [[pcb|circuit imprimé]], elle se généralise en **plan de masse** : une couche entière dédiée au 0 V, qui offre à chaque retour un chemin court et de faible impédance. C'est le réflexe à prendre dès la conception de la carte.
 
 Quand on dispose de deux alimentations distinctes — une pour la logique, une pour les moteurs —, la même règle impose une **masse commune** : sans référence partagée, les signaux logiques échangés entre les deux mondes n'ont aucun sens. C'est l'erreur classique du débutant qui alimente ses moteurs « à part » et oublie de relier les masses.
 
@@ -131,7 +131,7 @@ Beaucoup de systèmes mélangent les tensions : 5 V pour une logique ancienne ou
 
 ## Voir aussi
 
-- [[chaine-energie|Chaîne d'énergie]] — le modèle d'ensemble ; cette fiche en détaille le bloc *alimenter / distribuer*
+- [[chaine-energie|Chaîne d'énergie]] — le modèle d'ensemble, dont cette fiche détaille le bloc *alimenter / distribuer*
 - [[decouplage|Découplage]] — l'approfondissement : pourquoi la pointe creuse la tension, valeurs et placement des condensateurs
 - [[protection-electronique|Protections électroniques]] — l'approfondissement : fusibles, anti-inversion, TVS et roue libre
 - [[arduino-alimentation|Alimenter une carte Arduino]] · [[micropython-alimentation|une carte sous MicroPython]] · [[xiao-alimentation|un XIAO ESP32-S3]] — la mise en œuvre concrète de ces principes sur une carte précise

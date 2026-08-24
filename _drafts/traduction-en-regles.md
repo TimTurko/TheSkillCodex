@@ -279,6 +279,27 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | à-coup | judder |
 | bilan (de clôture) | assessment |
 | soutenance, jury | final presentation, panel |
+| matrice de décision | decision matrix |
+| grandeur dimensionnante | sizing figure |
+| marge de calcul | compute headroom |
+| entrées-sorties | I/O |
+| fin de course (le composant) | limit switch |
+| fin de course (la position) | travel limit |
+| entrée TOR / sortie TOR | on/off input / on/off output |
+| adaptation de niveau | level shifting |
+| porte (d'entrée d'un module, C56) | door |
+| Arduino-core | Arduino core |
+| noyau (d'un core de famille) | core |
+| base installée | installed base |
+| programmateur | programmer |
+| ordonnanceur | scheduler |
+| arbre d'horloge | clock tree |
+
+**⚠ La glose d'un sigle anglophone disparaît en traduction (23/08), et le cas symétrique existe aussi (25/08).** Sur `stm32`, le français écrit « repérées *FT*, pour *five-volt tolerant*, dans la datasheet » : la glose y est **déjà en anglais**, parce que le sigle l'est. En anglais elle redoublerait le sigle qu'elle explique, exactement comme la glose d'`adc`. Elle tombe donc, et l'italique de citation avec elle, le segment devenant une simple apposition : *marked FT, for five-volt tolerant*. Vaut pour tout sigle dont la source française donne déjà la forme développée anglaise.
+
+**⚠ Un terme de structure garde un rendu unique sur tous ses emplois, même quand la métaphore se ramifie (25/08).** « Porte » désigne un chemin de programmation dans les hubs de famille (marque C56 du lean-Bases) et non une image de passage. `esp8266` en porte un emploi isolé, `stm32` en porte trois articulés — *deux portes*, *porte de continuité*, *porte du métier* — et `teensy` reprend *porte unique*. Rendre les trois de `stm32` différemment aurait effacé le fait qu'il s'agit du même concept. Rendu retenu : **door**, sur tous les emplois du corpus.
+
+**⚠ Un mot lourd rendu par un mot lourd est le réflexe à surveiller, y compris hors du vocabulaire de rapport (25/08).** Deux cas du lot des hubs. « Une puce moins-disante », entre guillemets et commentée dans `esp8266`, ne devient pas *less capable* mais *asks for less and gives less* : la formulation est parlée et garde le geste de la mise entre guillemets. « Un C++ outillé », dans `stm32`, ne devient pas *a tooled C++*, qui ne se dit pas, mais *C++ with a layer of helpers on top*. C112 vaut pour ces mots-là comme pour *opposable*, et le test est le même : un développeur écrirait-il ça sur un forum ?
 
 **⚠ « Incertitude » désigne deux objets, comme « contrôleur » (23/08).** Dans les trames du V et les fiches de conduite de projet, le mot désigne **l'objet de travail** — la question ouverte que la preuve de concept doit fermer — et se rend par **unknown**, forme déjà en production dans `en/conduite/index`. En contexte de mesure, il désigne l'**incertitude métrologique** et se rend par *uncertainty* : « une marge calculée à 5 % sur une mesure dont la précision est de 10 %, c'est une incertitude résiduelle » donne *residual uncertainty*, jamais *residual unknown*. Le test est le contexte, pas le mot : **si l'incertitude figure dans une liste que le projet doit fermer, c'est un *unknown*.**
 
@@ -287,6 +308,8 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 **⚠ Corollaire trouvé le 23/08 (suite 3) sur `specification-technique` : quand « opposable » est l'objet enseigné, il faut le gloser en anglais, et la glose n'est pas facultative.** L'anglais *opposable* est un **faux ami complet** : il veut dire « préhensile », comme dans *opposable thumb*, et n'a aucun sens juridique. Le mot ne peut donc ni se traduire ni se laisser nu. Forme retenue à la première occurrence, *made quantifiable, measurable and opposable, that is, capable of being held against the supplier if it is not met*, puis déclinaison selon le sens exact de chaque emplacement (*a requirement that cannot be held against anyone*, *a document that holds up*). Conséquence de dimensionnement : **C112 retire de la glose côté FR et en crée côté EN**, ce qui ne se voyait pas quand la règle a été écrite. Vaut pour les 16 occurrences « objet enseigné » des 4 fiches concernées, dont `cahier-des-charges-fonctionnel` et `caracteriser-une-exigence` restent à traduire.
 
 **⚠ « Valider » désigne deux actes distincts, et l'anglais les sépare (23/08 suite 3).** Troisième mot français à deux objets du chantier, après « contrôleur » et « incertitude ». Dans `dossier-technique`, trois interlocuteurs **engagent leur responsabilité sur un périmètre** et l'encadrant **prononce un verdict de revue** : le français emploie le même verbe pour les deux. Rendus par **sign off** (l'acte de responsabilité segmentée, d'où *approver* pour le validateur et *sign-off round* pour la multi-validation) et par **approve** (le verdict de revue, cohérent avec *approved / approved with conditions* des cinq trames). Sans cette séparation, la phrase centrale de la phase, « signé en parties, approuvé en ensemble », devient une répétition.
+
+**⚠ « Fin de course » désigne deux objets, et c'est le quatrième mot du chantier dans ce cas (24/08).** Après « contrôleur », « incertitude » et « valider ». Le français emploie la même expression pour le **composant** qui détecte la butée et pour la **position** de butée elle-même. Rendus par **limit switch** quand c'est le contact qu'on câble et qu'on lit, et par **travel limit** quand c'est l'extrémité de course qu'on sécurise. Sur `choisir-le-materiel`, les trois emplacements se répartissent deux contre un. *End stop*, mon premier jet, couvre l'usage des imprimantes 3D mais pas l'anglais industriel, où *limit switch* est le terme du composant.
 
 **Les quatre entrées `dossier technique`, `soutenance`, `REX`, `écart` sont validées en bloc** (arbitrage Tim du 23/08, option a). Périmètres mesurés avant validation, hors `templates/` et hors `en/` : `dossier technique` 224 occurrences sur 50 fiches, `écart` 103 sur 39, `soutenance` 63 sur 13, `REX` et « retour d'expérience » 26 sur 5.
 
@@ -303,6 +326,12 @@ Trois formes dérivées figées à cette occasion, parce qu'elles ne se déduise
 **Le terme historique se mentionne une fois par fiche**, parce que l'étudiant le rencontrera partout ailleurs : dans les datasheets, dans les noms de fonctions des bibliothèques Arduino et MicroPython, et dans les schémas français du wiki, qui gardent « maître ». Forme retenue : *the controller (historically called the master)*, à la première occurrence, puis *controller* seul.
 
 **⚠ « Contrôleur » ne se traduit pas toujours par *controller* (23/08).** Le mot français désigne **deux objets distincts** dans le corpus : le **maître du bus** dans `i2c` et `spi`, et le **microcontrôleur lui-même**, abrégé, dans `wifi`, `lora` et les hubs de famille. Traduire les deux par *controller* produit, dans une même branche du wiki, une phrase où « le contrôleur redémarre » se lit comme « le maître du bus redémarre ». **Rendre le second par *microcontroller*, systématiquement.**
+
+**⚠ Les guillemets français deviennent des guillemets droits (24/08 suite 2).** « 0 » devient `"0"`, « écrire du code » devient `"write code"`. Même motif que l'espace insécable ci-dessus : **ce qui disparaît, c'est la typographie française**, et les chevrons n'ont pas cours dans l'écrit anglais courant. Motif technique en renfort : les chevrons français portent **deux insécables internes**, qui déclencheraient le verdict mécanique de typographie de `--style`.
+
+**⚠ Le séparateur de milliers ne se transpose pas, il se supprime ou s'écrit en toutes lettres (24/08 suite 2).** Le français écrit `65 535`, `2 000 mAh`, `7 200 heures` avec une espace fine. La forme anglaise attendue serait `65,535`, mais **une virgule entre deux chiffres est exactement le motif que traque le contrôle de virgule décimale** : elle y produirait un faux positif à chaque occurrence. Deux rendus retenus, selon le rôle du nombre. **Valeur technique → sans séparateur** : `65535`, `2000 mAh`, `7200 hours`, forme d'ailleurs courante dans l'écrit embarqué et déjà en production (`1024` dans `adc-en`). **Ordre de grandeur en prose → en toutes lettres** : « un rapport de l'ordre de 10 000 » donne *a ratio of the order of ten thousand*.
+
+**⚠ La glose française d'un terme anglophone tombe, comme celle d'un sigle (24/08 suite 2).** La règle écrite pour `adc` et `pwm` vaut pour **tout terme**, pas seulement pour les sigles : quand le français glose un mot anglais conservé, la glose **redouble en anglais le mot qu'elle explique**. Cinq occurrences sur le lot des notions transverses : *General Purpose Input/Output, entrée/sortie à usage général* (`gpio`), *Interrupt Service Routine* après « routine d'interruption » (`interruption`), « le prédiviseur (*prescaler*) » (`timer`), « le **deep sleep** (sommeil profond) » et « la **veille légère** (*light sleep*) » (`deep-sleep`). **Effet de mesure à connaître** : ces suppressions **font baisser le compte de mots EN sous le FR** et le décompte C109 avec elles quand la glose portait un tiret. Ce n'est ni une perte ni une création — le différentiel ne signale que les créations, il ne bronchera donc pas, mais une relecture ultérieure pourrait lire la baisse comme un oubli.
 
 **Orthographe : anglais britannique par défaut** (*centimetres*, *organise*, *metres*), **sauf sur les termes techniques dont la forme américaine domine la littérature du domaine** — *analog* et non *analogue*, *caliper* et non *calliper*. Motif identique à celui du « stepper » du §1, pris dans l'autre sens : l'étudiant tape `analogRead()`, lit *analog input* sur ses datasheets et voit `ANALOG IN` sérigraphié sur sa carte. Écrire *analogue* créerait un décalage avec ce qu'il a sous les yeux.
 
@@ -328,7 +357,7 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
 
 **Progression par proximité de lien, plus module par module.** Arbitrage Tim. Le front de traduction reste connexe : un anglophone ne rencontre pas de lien mort tant qu'il ne quitte pas la zone traduite. Conséquence directe du passage en `draft: false` — les liens rouges sont désormais visibles.
 
-⚠ **Le premier anneau depuis les quatre index fait 79 fiches et 104 000 mots, soit le tiers du corpus.** « Aucun lien mort depuis l'accueil » n'est donc pas un petit lot connexe : c'est le prix réel de la navigabilité, mesuré avant engagement.
+⚠ **Le premier anneau depuis les quatre index fait 82 fiches, mesuré par `--front` le 25/08.** Le « 79 » écrit ici le 22/08 et le « 78 » mesuré le 24/08 étaient l'un et l'autre faux, le second par construction — sa règle résolvait un wikilink par son dernier segment de chemin, ce qui écrase les huit `index.md` sur une cible unique. **Le chiffre se lit désormais dans l'outil**, avec sa règle de résolution réimprimée à chaque lancement. « Aucun lien mort depuis l'accueil » reste ce qu'il était : **le tiers du corpus**, mesuré avant engagement.
 
 1. **Lot 1 — les quatre index. FAIT le 22/08 (suite 2), 2 939 mots.**
 2. **Lot 2a — les 23 fiches courtes du front, 5 791 mots** (6 476 avec les trois index de branche, remesuré le 23/08 sous la règle C110 du §8 ; **6 515 après la passe C109**, qui a coûté 39 mots)**. FAIT — 26 fiches traduites, 6 996 mots EN, dont 5 340 le 23/08 et 1 656 le 23/08 (suite).** `i2c`, `spi`, `uart`, `adc`, `pwm`, `wifi`, `ble`, `lora`, `zigbee`, `memoire`, `cpp`, `micropython-langage`, les six `meca`, les cinq `conduite/meo`, `conduite/ese/index`, `conduite/proj/index`. **Meilleur rapport liens fermés par mot traduit de tout le chantier** : 23 liens fermés pour le prix d'une seule trame. Rode le glossaire à bas coût, comme le prévoyait le lot 2 d'origine.
@@ -345,7 +374,22 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
     Mots FR mesurés après passes C109 et C112, règle C110. C'est là que se jugeait la compensation du registre C65 perdu (§4) : elle tient.
 
     ⚠ **Le foisonnement ne se prédit pas fiche par fiche. Seule la moyenne de lot est un instrument.** L'hypothèse de la densité de gloses, écrite le 23/08 (suite 3), **explique les extrêmes et pas le milieu** : `integration-et-tests` ne porte qu'une glose et sort au plancher à +2,5 %, mais `concept` et `preuve-de-concept` en portent deux chacune et sortent à +7,6 % et +4,3 %. Le +4,3 % du 23/08 (suite 2) était un plancher, le +7,6 % un plafond, et l'écart entre fiches d'un même lot atteint **un facteur trois**. **Pour dimensionner les 252 851 mots restants, compter +5,7 %**, moyenne mesurée sur les cinq trames. Décomposition : 288 050 après le lot 1, moins 6 515 (lot 2a), moins 28 684 (lot 2b).
-4. **Lot 2c — le reste du front, ≈ 70 000 mots**, dominé par `securite-et-qualite` (4 080), `lire-une-datasheet` (3 308), `ecoconception` (3 301). **Outillé le 23/08 (suite 4)** : `--style` relit le jet EN pour lui-même, `--libelles` relit les libellés de wikilink, `compter-mots.mjs --lot` dimensionne le lot avant de l'ouvrir. ⚠ **C'est le premier lot à porter des blocs de code**, donc le premier où le troisième compteur mord, et il concentre les **29 wikilinks à libellé en backticks** — le correctif de segmentation du 23/08 (suite) est à vérifier sur pièce avant de générer en série.
+4. **Lot 2c — le reste de l'anneau 1.** **Outillé le 23/08 (suite 4)** : `--style` relit le jet EN pour lui-même, `--libelles` relit les libellés de wikilink, `compter-mots.mjs --lot` dimensionne le lot avant de l'ouvrir. **Augmenté le 25/08** de `--front`, qui **mesure le périmètre au lieu de le déduire** : le lot ne se cite plus par un chiffre hérité mais par la sortie du mode.
+
+    | Sous-lot | État | Reste |
+    |---|---|---:|
+    | `embarque/realisation/` (5) + les trois du callout | fait 24/08 (suite) | — |
+    | `embarque/algorithme/` (5) | fait 24/08 (suite) | — |
+    | **les 7 hubs de famille** | **fait 25/08** | — |
+    | **notions transverses — `gpio`, `timer`, `interruption`, `firmware`, `deep-sleep`** | **fait 24/08 (suite 2)** | — |
+    | notions transverses, les huit restantes (`manipulation-de-bits`, `niveaux-de-tension`, `debugger-embarque`, `microcontroleur`, `bus-de-communication`, `techno-sans-fil`, `lire-une-datasheet`, `cpp-logs`) | à faire | **≈ 11 000, dérivé** |
+    | `embarque/mesure/` (3) | à faire | — |
+    | les lourdes de `conduite/proj` (`securite-et-qualite` 4 051, `ecoconception` 3 284, `gestion-de-projet` 2 740…) | à faire | — |
+    | **anneau 1** | **82 cibles, 58 traduites** | **24 fiches, 36 885 mots** |
+
+    ⚠ **Le ≈ 11 000 des huit restantes est une soustraction, pas un comptage** (17 127 mesurés pour les treize, moins 6 127 pour les cinq faites), et il est cité comme ordre de grandeur au sens de C110. **`lire-une-datasheet` en porte à elle seule 3 263**, soit le double de la médiane du lot. Le chiffre ferme se lira dans `compter-mots.mjs --lot` à l'ouverture de la prochaine séance.
+
+    ⚠ **C'est le premier lot à porter des blocs de code**, donc le premier où le troisième compteur mord, et il concentre les **29 wikilinks à libellé en backticks** — le correctif de segmentation du 23/08 (suite) est éprouvé depuis le module MicroPython du 24/08.
 5. **Anneaux suivants**, recalculés depuis le front atteint.
 
 *Rédaction antérieure, conservée pour trace — l'ordre était : parcours d'entrée, puis les 53 fiches courtes du corpus entier (16 000 mots), puis module par module dans l'ordre de `_drafts/relecture-ordre.md`.*

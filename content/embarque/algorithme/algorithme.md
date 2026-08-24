@@ -13,7 +13,7 @@ phases:
 draft: false
 ---
 
-Un **algorithme** est une suite finie d'opérations non ambiguës qui transforme des entrées en sorties pour résoudre un problème — ici, piloter le comportement d'un système embarqué. Avant de l'écrire en code, on le **représente** : un schéma rend la logique visible, partageable en équipe et critiquable avant qu'une seule ligne ne soit tapée. Cette fiche est le **hub d'entrée** vers les quatre représentations les plus courantes en projet — le [[logigramme]], la [[machine-a-etats|machine à états]], le [[grafcet]] et le [[chronogramme]] — et donne la méthode pour choisir la bonne selon ce qu'on cherche à décrire.
+Un **algorithme** est une suite finie d'opérations non ambiguës qui transforme des entrées en sorties pour résoudre un problème, ici piloter le comportement d'un système embarqué. Avant de l'écrire en code, on le **représente** : un schéma rend la logique visible, partageable en équipe et critiquable avant qu'une seule ligne ne soit tapée. Cette fiche est le **hub d'entrée** vers les quatre représentations les plus courantes en projet — le [[logigramme]], la [[machine-a-etats|machine à états]], le [[grafcet]] et le [[chronogramme]] — et donne la méthode pour choisir la bonne selon ce qu'on cherche à décrire.
 
 ## À quoi ça sert ?
 
@@ -39,14 +39,14 @@ Les quatre représentations ne décrivent pas la même chose. Le choix dépend d
 | [[grafcet\|Grafcet]] | un procédé séquentiel, éventuellement avec étapes en parallèle | étapes et transitions normalisées (norme IEC 60848) | l'**automatisme industriel**, les séquences avec actions simultanées |
 | [[chronogramme\|Chronogramme]] | l'évolution de plusieurs signaux **dans le temps** | courbes/niveaux logiques sur un axe temporel commun | vérifier des **relations temporelles** (qui change avant quoi, durées, fronts) |
 
-Pour trancher. Si le comportement est une **cascade de décisions** ponctuelle, le logigramme suffit. Si le système **change de mode** et réagit différemment selon où il en est, c'est une machine à états — le cas le plus fréquent en projet mécatronique. Si plusieurs séquences avancent **en parallèle** (typique d'un automate), le grafcet est taillé pour ça. Et pour raisonner sur le **timing** (un signal doit-il monter avant l'autre, combien de temps dure une impulsion), aucun des trois ne remplace le chronogramme.
+Pour trancher. Si le comportement est une **cascade de décisions** ponctuelle, le logigramme suffit. Si le système **change de mode** et réagit différemment selon où il en est, c'est une machine à états, le cas le plus fréquent en projet mécatronique. Si plusieurs séquences avancent **en parallèle** (typique d'un automate), le grafcet est taillé pour ça. Et pour raisonner sur le **timing** (un signal doit-il monter avant l'autre, combien de temps dure une impulsion), aucun des trois ne remplace le chronogramme.
 
 Ces représentations ne s'excluent pas : on décrit souvent l'architecture générale en machine à états, puis le détail d'un traitement par un logigramme, et on vérifie une contrainte de timing par un chronogramme.
 
-**Et le pseudocode ?** L'algorithme se rédige aussi en texte — phrases courtes, impératives, hors de tout langage (cf. l'exemple du L298N dans [[lire-une-datasheet|lire une datasheet]]). C'est la représentation la plus rapide à écrire, idéale en brouillon ou pour spécifier une fonction isolée ; les schémas prennent le relais dès que les modes et les branchements se multiplient.
+**Et le pseudocode ?** L'algorithme se rédige aussi en texte — phrases courtes, impératives, hors de tout langage (cf. l'exemple du L298N dans [[lire-une-datasheet|lire une datasheet]]). C'est la représentation la plus rapide à écrire, idéale en brouillon ou pour spécifier une fonction isolée. Les schémas prennent le relais dès que les modes et les branchements se multiplient.
 
 > [!tip] Le test du récit
-> Un algorithme qu'on ne sait pas raconter en français simple n'est pas prêt à être codé : la verbalisation est le premier détecteur d'idées floues. Mais l'inverse ne suffit pas — le langage naturel tolère les ambiguïtés que le code refuse (« le portail s'ouvre quand quelqu'un arrive »… et s'il arrive quelqu'un *pendant* la fermeture ?). C'est le passage par une représentation qui les débusque. La chaîne saine : **raconter, représenter, coder**.
+> Un algorithme qu'on ne sait pas raconter en français simple n'est pas prêt à être codé : la verbalisation est le premier détecteur d'idées floues. Mais l'inverse ne suffit pas. Le langage naturel tolère les ambiguïtés que le code refuse (« le portail s'ouvre quand quelqu'un arrive »… et s'il arrive quelqu'un *pendant* la fermeture ?). C'est le passage par une représentation qui les débusque. La chaîne saine : **raconter, représenter, coder**.
 
 ## Voir aussi
 

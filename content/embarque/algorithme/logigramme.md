@@ -33,7 +33,7 @@ C'est l'outil naturel pour un **traitement séquentiel à embranchements** ponct
 
 Quatre symboles suffisent à la plupart des logigrammes, reliés par des **flèches** qui donnent le sens de lecture (de haut en bas par convention).
 
-- **Terminal** (forme de stade) — marque le **début** et la **fin**. Un logigramme commence par un seul début et se termine par au moins une fin — à une exception près, voulue : le programme embarqué qui tourne en permanence n'a pas de fin, sa boucle principale en tient lieu (cf. la version cible de l'exemple).
+- **Terminal** (forme de stade) — marque le **début** et la **fin**. Un logigramme commence par un seul début et se termine par au moins une fin. Il y a une exception, voulue : le programme embarqué qui tourne en permanence n'a pas de fin, sa boucle principale en tient lieu (cf. la version cible de l'exemple).
 - **Entrée / sortie** (parallélogramme) — une donnée qui entre (lire un capteur) ou sort (afficher, envoyer).
 - **Traitement** (rectangle) — une action ou un calcul (« incrémenter », « couper le chauffage »).
 - **Décision** (losange) — une **condition** à deux sorties **étiquetées** (`oui` / `non`). C'est le seul symbole à plusieurs sorties.
@@ -49,12 +49,12 @@ Le même thermostat « si la température dépasse la consigne, couper le chauff
 >
 > **Pourquoi c'est mauvais.** Le tracé est soigné — symboles corrects, flèches nettes — mais la **logique est trouée**. La décision n'a qu'une branche traitée : *que se passe-t-il si la température est sous la consigne ?* Rien n'est prévu. Et le flux s'arrête dans le vide, sans terminal de fin. Un schéma bien dessiné peut être tout aussi faux qu'un schéma brouillon : la propreté ne valide pas la logique.
 >
-> **Coût réel.** Traduit tel quel, le code ne fait rien dans la moitié des cas, et personne ne s'en aperçoit avant que le chauffage ne reste bloqué — le bug est dans la branche qu'on a oublié de dessiner.
+> **Coût réel.** Traduit tel quel, le code ne fait rien dans la moitié des cas, et personne ne s'en aperçoit avant que le chauffage ne reste bloqué. Le bug est dans la branche qu'on a oublié de dessiner.
 
 > [!warning] Version moyenne — correcte mais sans boucle
 > ![Logigramme de thermostat avec les deux branches traitées, oui vers couper et non vers allumer, se rejoignant vers un terminal de fin, sans aucune boucle.](/ressources/img/logigramme/thermostat-moyen.svg)
 >
-> **Pourquoi c'est moyen.** Les deux branches sont traitées et le flux se termine proprement : la logique est juste. Mais il **manque la boucle** — le programme lit la température *une seule fois*, agit, et s'arrête. Un thermostat doit réguler en continu. Le logigramme est correct pour un traitement ponctuel, incomplet pour une régulation.
+> **Pourquoi c'est moyen.** Les deux branches sont traitées et le flux se termine proprement : la logique est juste. Mais il **manque la boucle**. Le programme lit la température *une seule fois*, agit, et s'arrête. Un thermostat doit réguler en continu. Le logigramme est correct pour un traitement ponctuel, incomplet pour une régulation.
 
 > [!example] Version cible — logique complète et bouclée
 > ![Logigramme de thermostat complet : les deux branches sont traitées et une flèche reboucle vers la lecture de la température, assurant une régulation continue.](/ressources/img/logigramme/thermostat-bon.svg)
@@ -63,17 +63,17 @@ Le même thermostat « si la température dépasse la consigne, couper le chauff
 
 ## Pièges
 
-**Décision à une seule sortie.** Un losange a *toujours* deux sorties étiquetées. Oublier la branche « non » (ou « oui ») laisse un cas non traité — l'erreur la plus fréquente et la plus silencieuse.
+**Décision à une seule sortie.** Un losange a *toujours* deux sorties étiquetées. Oublier la branche « non » (ou « oui ») laisse un cas non traité, l'erreur la plus fréquente et la plus silencieuse.
 
 **Flux qui ne se termine pas.** Un trait qui s'arrête dans le vide n'est pas une fin. Tout chemin doit rejoindre un autre chemin ou un terminal de fin.
 
-**Boucle sans condition de sortie.** Une boucle qui reboucle sans qu'aucune décision ne permette d'en sortir est une boucle infinie. Une régulation continue est voulue ; une boucle bloquante ne l'est pas.
+**Boucle sans condition de sortie.** Une boucle qui reboucle sans qu'aucune décision ne permette d'en sortir est une boucle infinie. Une régulation continue est voulue. Une boucle bloquante ne l'est pas.
 
 **Flèches qui se croisent.** Quand les liaisons s'entrecroisent, le logigramme devient illisible. C'est souvent le signe qu'il faut réorganiser les blocs, ou que le comportement relève d'une [[machine-a-etats|machine à états]].
 
 **Trop de détail.** Un logigramme décrit une logique, pas chaque ligne de code. Y recopier les déclarations de variables ou la syntaxe exacte le noie. Rester au niveau des décisions et des actions.
 
-**Confondre avec un organigramme hiérarchique.** « Organigramme » désigne aussi l'arbre des fonctions ou des personnes d'une organisation. Ici, il s'agit du flux d'exécution d'un algorithme — rien à voir.
+**Confondre avec un organigramme hiérarchique.** « Organigramme » désigne aussi l'arbre des fonctions ou des personnes d'une organisation. Ici, il s'agit du flux d'exécution d'un algorithme, rien à voir.
 
 ## Voir aussi
 

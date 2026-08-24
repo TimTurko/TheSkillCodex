@@ -1512,6 +1512,147 @@ d'échec est symétrique : faux positif signalé sur `integration-et-tests` (un
 tiret licite remonté à tort), faux négatif possible ailleurs (un tiret illicite
 masqué). Ne se voit qu'en relisant la puce.
 
+### Précisions à C109 acquises le 25/08 (lot des sept hubs de famille)
+
+*Aucune convention neuve. La numérotation reste à **C114**. C109 reçoit deux précisions et une borne, toutes trois éprouvées sur les sept hubs.*
+
+**L'incise encadrée par deux tirets n'a pas besoin d'exception : le critère existant la tranche.** La question s'est posée sur trois cas et la règle du second tamis les a séparés sans arbitrage humain. Sur `raspberry-pi`, `un système d'exploitation complet — Linux — là où…` **tombe** et devient une parenthèse, parce que le segment **nomme** un seul objet ; `appliquer 5 V sur une broche d'entrée — un capteur alimenté en 5 V, un signal venu d'un Arduino — peut détruire…` **reste**, parce qu'il énumère deux exemples. Sur `teensy`, `les générations antérieures — Teensy LC, 3.2, 3.5 et 3.6 — sont arrêtées…` reste pour la même raison. *La forme encadrante n'est pas le critère, le contenu du segment l'est.* Noté parce que la règle a été appliquée trois fois avant d'être formulée, ce qui la rendait invisible à une session future.
+
+**Les parenthèses sont la troisième voie de résolution, et elles se spécialisent sur le renvoi.** Repérées le 24/08 sans être écrites, elles ont servi **huit fois** sur le lot, et presque toujours au même endroit : un renvoi de fin de segment, `— voir [[x]]`, que ni le découpage en phrases ni la virgule ne rendent bien. Sur `teensy`, quatre puces de la section Écosystème se règlent ainsi. Les deux autres voies restent celles du 22/08 : découpage en phrases, ou phrase longue à virgules et mots de liaison.
+
+**Borne — la forme `Libellé — apposition nominale` est une glose, pas une incise** (arbitrages Tim (c) puis (a) du 25/08). Le premier arbitrage a étendu le critère du verbe conjugué aux **légendes de figure** de C74, qui n'étaient ni dans le périmètre ni dans les exemptions ; le second a étendu la même lecture aux **chapôs de section** de même forme. Restent donc : `*Carte Arduino Uno R3 — la carte de référence du panorama.*`, `La **porte du métier** — l'apport distinctif du STM32…`, `La **signature du Teensy** — le son et le DSP temps réel…`. Tombe en revanche `*Situer les variantes… ; le tableau ci-dessus en donne le détail.*` d'`esp32`, dont le second segment porte un verbe conjugué — **deux légendes, deux traitements opposés**, ce qui éprouve que le critère est opératoire et non un laissez-passer. ⚠ La lecture stricte du second tamis (« un segment nominal qui commente tombe ») donnerait l'inverse sur ces trois emplacements : c'est **délibérément** que la forme libellé-glose l'emporte, au motif qu'elle est celle du tiret de glose de `Voir aussi`, licite au §4 des règles de traduction, et non celle d'une incise de prose.
+
+**⚠ Le périmètre des légendes C74 n'est toujours pas mesuré.** L'arbitrage vaut pour le corpus entier, et personne ne sait combien de légendes il couvre. À compter avant que le lot n'en rencontre en série.
+
+### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
+
+*Une convention neuve. La numérotation atteint **C114**.*
+
+### C114 — Les commandes d'une série se posent dans un script jetable, pas dans un message à recopier
+
+*Acquise le 24/08 (suite), demande Tim, arbitrage (b) sur l'emplacement. La numérotation atteint **C114**.*
+
+**Toute série de plus de deux commandes s'écrit dans `tools/seance.ps1`, réécrit à chaque
+série et non versionné.** Ce n'est pas un outil, c'est la recette du moment rendue
+exécutable au lieu d'être recopiée.
+
+*Motif principal, qui n'est pas celui invoqué à la demande.* Le gain de temps est
+réel, mais l'effet qui compte est ailleurs : **un script qui déclare ses propres
+variables ne peut pas hériter d'un état de fenêtre**. La classe d'échec des `$p` et
+`$q` perdus entre deux messages, qui avait produit un `--style` sur tout le corpus
+et deux `--lot` vides le 24/08, disparaît par construction.
+
+*Forme imposée, chaque élément payant une leçon antérieure.*
+
+- **Une bannière avant chaque commande, portant le nom des fichiers visés**, et le
+  code de sortie après. Sans elle, une zone de silence dans un flux agrégé ressemble
+  à un résultat à zéro : *une sortie sans périmètre n'est pas une sortie à zéro*.
+- **Le script ne s'arrête pas au premier échec.** Les sorties suivantes valent mieux
+  que la première seule.
+- **La sortie s'écrit dans `tools/seance-sortie.txt` en UTF-8 explicite**, que Claude
+  lit directement. Plus aucun copier-coller de sortie d'outil. ⚠ `Out-File` sans
+  `-Encoding utf8` écrit en UTF-16 sous PowerShell 5.1, et `node` écrivant en UTF-8,
+  la console doit être forcée (`[Console]::OutputEncoding`) faute de quoi les accents
+  des extraits français arrivent mutilés — **le défaut serait alors dans le transport
+  et non dans le dépôt**, motif du masquage par espaces du 23/08 (suite 4).
+- **ASCII strict dans le fichier.** PowerShell 5.1 lit un `.ps1` sans BOM en encodage
+  ANSI. Tout caractère non-ASCII se construit par son point de code.
+- **Les prédictions s'écrivent en fin de script**, pour que la sortie porte elle-même
+  ce qu'on attendait d'elle.
+
+*Deux défauts à la première exécution, tous deux instructifs.* **Le flux d'erreur des
+programmes natifs était avalé** : un `ErrorRecord` rend
+`System.Management.Automation.RemoteException` à l'affichage, et le message d'« erreur
+de la cible existe déjà » a failli être perdu. *Un script fait pour lire des sorties
+d'outil ne peut pas avaler les messages d'erreur de ces outils.* Et **la contrainte
+ASCII a été violée par son auteur** trois séries plus tard, avec pour conséquence un
+banc de réinjection rendant 0 au lieu de 1 : le caractère n'était jamais arrivé
+jusqu'au motif.
+
+*Portée.* Non versionné (arbitrage Tim (b), deux lignes au `.gitignore`) : chaque
+commit porterait sinon un diff sans valeur. **Éprouvée 1/N.**
+
+### Notes 24/08 (suite)
+
+- **Ce que le schéma affiche ne se traduit pas plus que ce que le programme désigne.**
+  C113 s'étend de la ligne de code à l'image. Sur `logigramme`, les étiquettes `oui` et
+  `non` des losanges sont **l'objet même de l'explication** et sont restées en français,
+  glosées à leur unique emplacement : écrire que la décision a « deux sorties étiquetées
+  yes et no » aurait contredit l'image sous les yeux du lecteur. Même logique que le §2,
+  où la description d'une capture C29 reste celle de l'écran français. **La décision du
+  22/08 de laisser les images en français contraint donc le texte anglais chaque fois
+  qu'il parle de ce qui est écrit dans l'image**, ce qui n'avait pas été anticipé.
+- **Mais un vocabulaire de travail répété se traduit, avec une mention unique**
+  (arbitrage Tim (b)). Les cinq noms d'états du portail apparaissent une vingtaine de
+  fois : les garder en français aurait rendu la prose pénible sans rien apprendre. La
+  borne entre les deux cas est **ce dont la fiche fait son objet** contre **ce qu'elle
+  emploie pour parler d'autre chose**. ⚠ **Conséquence de mesure non prévue** : le
+  paragraphe de correspondance ajouté compte dans le foisonnement, et **deux paires du
+  tableau des 54 ne sont donc pas interprétables** comme expansion de langue.
+- ⚠ **Une glose ajoutée par la traduction est le seul endroit où le report ne protège
+  pas.** Le cinquième contrôle de `--style` a mordu pour la première fois depuis son
+  écriture, sur **une phrase que le français ne contient pas**. Partout ailleurs, la
+  ponctuation anglaise hérite d'un arbitrage déjà rendu. *Toute phrase neuve du côté
+  anglais se relit comme du français neuf.*
+- ⚠ **Le compteur d'embeds sous-compte, et son égalité reste vraie.** Le motif s'arrête
+  au premier `]` du texte alternatif : un alt contenant un crochet rend l'embed
+  invisible. **2 pour 4 sur `machine-a-etats`**, écart de 4 sur tout `content/`, porté
+  par cette seule paire. **Le contrôle passe au vert en ne regardant que la moitié des
+  embeds de la fiche.** Contrainte induite : il a fallu **garder des crochets dans les
+  alt anglais** pour que la paire ne diverge pas — *un compteur défectueux impose sa
+  forme au texte*.
+- **Un contrôle se déplace de la plage vers la source, et ses faux positifs tombent
+  d'eux-mêmes.** Le balayage des caractères hors alphabet latin, né d'un idéogramme
+  glissé dans `pcb-en`, rendait deux faux positifs en listant une plage (l'ohm, les
+  emojis du corpus). Comparé à la **source**, il n'en rend aucun : présent des deux
+  côtés, le caractère est délibéré. **54 paires, 0 suspecte, zéro prouvé par
+  réinjection.** Même déplacement que le cinquième contrôle de `--style`, qui a cessé
+  de compter pour comparer. ⚠ **Ce contrôle ne vit que dans le script de séance, donc
+  nulle part** : à porter dans `creer-fiche-en.mjs`.
+- ⚠ **Un caractère étranger ne déclenche aucun des cinq contrôles existants.** Ni lien,
+  ni embed, ni bloc de code, ni typographie française, ni C109. **Seule la relecture du
+  texte l'a vu**, et rien ne garantissait qu'elle le voie.
+- **Le registre « tu » ne se traduit pas d'un bloc, et le §4 n'a pas eu à bouger.** La
+  méthode passe à l'impératif direct, le chapô et les blocs d'exemple restent
+  descriptifs. **Traduire une fiche de réalisation entièrement à l'impératif donnerait
+  des ordres là où elle raconte un cas.** C65 éprouvée sur sa moitié manquante.
+- **Une troisième voie de résolution de C109 a servi, et elle n'est pas écrite** : les
+  **parenthèses**, quand la double virgule créerait une ambiguïté de portée (`des
+  étapes (ce que le système fait) reliées par des transitions`). Après le découpage en
+  phrases et la phrase longue à virgules.
+- **La glose de `Voir aussi` attire la prose.** Deux points-virgules à verbe conjugué y
+  ont été trouvés, sur `alimentation-electronique` et `chronogramme`. Le §4 déclare
+  licite le **tiret** de glose, pas la ponctuation **à l'intérieur** de la glose. Remède
+  employé deux fois : une relative qui fond les deux propositions, une glose ne pouvant
+  pas devenir deux phrases sans cesser d'être une glose.
+- **Deux fiches à résidu C109 nul, les premières du chantier.** `machine-a-etats` et
+  `grafcet` procèdent par **appositions définitionnelles et parallélismes à verbe
+  conjugué**, deux formes que le second tamis ne protège pas. La prédiction de résidu y
+  devient falsifiable au sens strict : un candidat restant aurait accusé mon classement.
+- ⚠ **Le périmètre de l'anneau 1 a maintenant trois valeurs** — 82, 79, **78** — et **la
+  règle qui produit le 78 est fausse par construction** : la résolution par dernier
+  segment écrase tous les `index.md` sur une seule cible. C'est la clé par nom de
+  fichier du 22/08, sur un autre objet. `decouplage` étant hors anneau, **le lot 2c
+  passe de 48 à 49 fiches**.
+- ⚠ **`--libelles` devient bruyant en gagnant en couverture** : 3 candidats le 23/08,
+  **25 aujourd'hui**, dont quatorze du seul patron `step N`, qui désigne une position
+  dans le parcours et non un titre. *Un outil qui remonte des libellés délibérés apprend
+  à être ignoré.*
+- ⚠ **Le raccourci de lecture coûte précisément ce qu'il prétend économiser.** Avoir
+  sauté la lecture du squelette a produit un `source_sha256: PLACEHOLDER` — or
+  **l'empreinte est la seule partie du squelette qui ne se reconstitue pas depuis le
+  français**, les cibles suffixées s'en déduisant mécaniquement. Parade adoptée : lire
+  le **seul front matter** du squelette.
+- ⚠ **L'espace française devant `;` pour la troisième séance consécutive**, trois fois,
+  et toujours **dans un segment d'énumération transposé au lieu d'être réécrit**. Le
+  constat du 23/08 (suite 3) se confirme sur un troisième lot : ce n'est pas une
+  inattention aléatoire, c'est lié au geste de recopier une structure.
+- ⚠ **Deux mots français à deux objets repérés sans être figés** : **broche**
+  (*pin* électronique / *spindle* d'usinage, rencontré sur `grafcet`) et **trame**
+  (*packet* radio / *frame* série), rendus différemment selon les fiches **sans que la
+  règle soit écrite**. Cinquième et sixième du chantier, après contrôleur, incertitude,
+  valider et fin de course.
+
 ### Acquises 24/08 — module d'épreuve MicroPython, premières fiches à blocs de code
 
 *Une convention neuve. La numérotation atteint **C113**. C109 reçoit un amendement.*
@@ -1565,6 +1706,38 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 **C112, éprouvée 2/N — le lot mécanique confirme les quatre populations et la décomposition tombe juste.** Balayage complet, motif `opposab|défendabl|défendues?|inopposab` hors `en/` et `templates/` : **38 occurrences sur 16 fiches**, soit 16 objet enseigné + 15 décoratifs + 4 transitifs + 3 formes verbales. Les 15 décoratifs retirés, le contrôle sur les fichiers rend **23 restantes**, même décomposition moins les décoratifs. Coût : **+36 mots, +144 octets** sur quinze emplacements. **Le corollaire du verbe sert 4 fois sur 15**, et à chaque fois il rend la phrase plus concrète parce qu'il réintroduit quelqu'un en face. Les onze autres ont demandé de choisir **lequel des sens** le mot portait : *empêche de rester une intention*, *qui engage*, *tient encore debout*, *qu'on ressort telle quelle*. **Aucun synonyme unique n'aurait couvert les quinze**, ce qui éprouve la borne de C112 sur un second lot.
 
 **Note d'outillage** : le mode `--style` accepte n'importe quel chemin sous `content/`, mais les trois contrôles de typographie ne s'activent que sur `en/`. Un lancement sur une fiche FR ne rend donc que le volet C109, ce qui est utile pour les passes du lot 2c.
+
+### Acquises 24/08 (suite 2) — cinq notions transverses du lot 2c
+
+*Aucune convention neuve. La numérotation reste à **C114**. C109 reçoit un angle mort mesuré, le §5.3 des règles de traduction trois notes de rendu.*
+
+⚠ **L'exemption de glose de puce dépend d'une forme, alors qu'elle a été écrite pour n'en dépendre d'aucune.** La règle du 23/08 (suite 4) dit que **sur une puce, le premier tiret est la glose et tous les suivants sont de la prose**, et son mérite affiché était d'être **positionnelle** : la tête de puce n'a plus à avoir de forme particulière. Elle en suppose pourtant une — que **le libellé de tête ne contienne pas lui-même de tiret**. Sur `gpio`, trois puces de *Voir aussi* portent des libellés de wikilink de la forme `[[arduino-gpio|Arduino — GPIO]]` : le tiret de glose y est **le second**, parfois le troisième, et **six gloses licites remontent en candidats C109**. Le mode d'échec est **unilatéral** — faux positifs seulement, jamais de faux négatif — donc conforme au compromis choisi le 23/08, *ne jamais signaler une glose licite* étant précisément ce qui échoue ici. **Même mode d'erreur que le backtick du 23/08** : un séparateur compté comme structure alors qu'il appartient au libellé. ⚠ **Périmètre non mesuré** : le patron `Famille — Sujet` est celui des libellés de tuto de famille, donc probablement fréquent dans les *Voir aussi* du dossier `mcu/`, et personne ne sait sur combien de puces. À compter avant de coder quoi que ce soit.
+
+**Une prédiction de décomposition ne vaut que si la sortie la rend visible.** Les cinq décompositions du lot ont été publiées emplacement par emplacement avant lancement et vérifiées une par une, ce qui est la parade au motif du 25/08. Mais au premier tour, **le filtre de la série n'avait gardé que le bilan agrégé des trois fiches** : le total de 21 était mesuré quand le 11/5/5 ne l'était pas, et il a fallu le tour suivant pour l'observer. *Un filtre qui résume transforme une prédiction falsifiable en affirmation invisible — le filtre fait partie du dispositif de preuve, pas de la mise en forme.*
+
+**Un chiffre hérité peut avoir une heure.** Les mots FR des trois premières fiches ont été republiés comme « mesurés » à leur valeur d'avant les passes C109 de la même séance, alors que les passes venaient de les faire bouger de +5. **C110 ne parle pas d'ancienneté, elle parle de provenance** : une mesure prise avant une édition n'est pas une mesure du fichier édité, même prise le matin même.
+
+**Le foisonnement reçoit sa première cause identifiée, et elle n'est pas une hypothèse de plus.** Le lot sort à **+1,2 %**, le plus bas du chantier, `gpio` à **−1,4 %**. Les cinq fiches concentrent des **gloses de termes anglophones qui tombent en traduction** (§5.3), soit une trentaine de mots retirés sans contrepartie. Ce n'est **pas** une cinquième explication du phénomène — quatre sont tombées, et l'écart interne au lot va de −1,4 à +5,0 % — c'est un **effet local déjà écrit dans les règles**, dont on constate qu'il pèse quand une fiche en porte plusieurs. Seule la moyenne de corpus dimensionne : **4,4 % sur 66 paires**.
+
+### Acquises 24/08 (suite 3) — les huit notions transverses du lot 2c
+
+*Trois conventions neuves. **La numérotation atteint 117.***
+
+**115. La liste-en-paragraphes n'est pas une liste — elle tombe sous C109, et se résout par un point après le gras fermant.** La forme `**Libellé** — explication`, écrite en **paragraphes** et non en puces, est une liste de définitions par l'intention et de la prose par le balisage. L'exemption positionnelle de C109 ne la voit pas : elle ne regarde que le début de ligne, et ces lignes commencent par `**`. **Le critère du verbe conjugué s'applique donc normalement** — partie droite à verbe conjugué, le tiret tombe. ⚠ **La résolution n'est ni le deux-points ni le point à l'intérieur du gras**, et les deux ont été essayés avant d'être écartés sur pièce : sur les huit entrées de `cpp-logs`, **quatre explications portent déjà un deux-points interne** (`un fichier d'en-tête est introuvable : bibliothèque non installée, …`), donc le deux-points d'annonce en aurait mis deux dans la même phrase sur la moitié de la section ; et le point dans le gras est impossible dès que le libellé se termine par un accent grave, `` **`...`.** `` faisant lire le point comme une partie du code. **Forme retenue : le point après le gras fermant**, `` **`redefinition of 'xxx'`**. La même variable est déclarée deux fois. `` — même silhouette que le `**Titre.** Texte.` des sections *Pièges*, le point déplacé d'un caractère par nécessité typographique. **Borne** : la forme `**Cas 1 — le point-virgule oublié.**`, où le tiret vit **à l'intérieur** du gras et où la partie droite est **nominale**, est une glose et **reste** — 26 lignes sur 14 fiches. **Périmètre mesuré avant l'arbitrage** : 44 lignes sur 33 fiches, dont 8 sur `cpp-logs`, ce qui a fait de la décision une retouche et non une passe de corpus. ⚠ **Ma prédiction de forme était fausse** — j'annonçais « très répandue, peut-être des centaines », parce que je confondais cette forme avec le patron des *Pièges*, qui n'a pas de tiret. Arbitrage Tim **(a)**. Éprouvée 1/N (8 emplacements). **La numérotation éprouvage atteint 115.**
+
+**116. Un lot de traduction se conduit en trois lancements, et toute fiche dont le cadrage révèle un arbitrage sort du lot.** Le point de sérialisation dur du chantier est le `source_sha256` : la fiche anglaise ne peut pas s'écrire avant son squelette, et le squelette pas avant la passe C109. **Mais rien n'oblige à franchir ce point une fiche à la fois.** Le cycle se replie en trois lancements quel que soit N — **(1) cadrage** : `--style` FR et `compter-mots` sur les N fiches, décomposition publiée fiche par fiche ; **(2) génération** : après les N passes, résidus, mots, N générations gardées, trois compteurs ; **(3) contrôle** : style EN, compteurs structurels, dérive, foisonnement sur les N paires. **Taille arbitrée : quatre à six fiches** (Tim, **b**), pas huit d'emblée — un pas mesurable dit ce qui a tenu, un saut ne le dit pas. **Garde, qui est C27 transposée** : un cluster homogène à faible arbitrage se groupe, une fiche pivot se cadre seule. **Toute fiche dont le cadrage révèle une exemption à juger sort du lot** et reprend son tour de parole — en lot, un arbitrage sur la sixième bloque les cinq autres, ou pire, il se tranche seul. Éprouvé sur le lot des huit, où `niveaux-de-tension` et `debugger-embarque` étaient à **zéro exemption** (pure exécution, groupables sans réserve) quand `lire-une-datasheet` en portait **onze** et `cpp-logs` a demandé un arbitrage. ⚠ **Corollaire d'outillage, appris à l'usage** : la génération se **garde** — elle constate l'existence de la cible, sa taille et son horodatage avant d'appeler le script, ce qui rend un second lancement inoffensif au lieu de le faire ressembler à une panne. **Jamais de `--force` dans un script de séance** : il écraserait une traduction finie. **La numérotation éprouvage atteint 116.**
+
+**117. L'escalade se réserve aux six catégories du §8 ; le reste se décide et se consigne.** Le §8 du prompt projet nomme déjà les topics qui forcent l'argumentation et la validation : nouvelle convention, choix structurant sur le parcours, référentiel AA, pédagogie de fond, vocabulaire à proscrire, posture étudiante. **Le défaut observé le 24/08 (suite 3) n'est pas d'avoir trop peu escaladé, c'est d'avoir escaladé SOUS cette ligne** — l'ordre d'une fiche dans un lot et le périmètre d'un anglicisme ne relèvent d'aucune des six. **Sous la ligne** (vocabulaire dans une fiche, résolution d'un emplacement, exemption sous convention existante, libellés, alt, registre, traitement d'un faux positif d'instrument, ordre d'un lot) : décider, puis **consigner** en fin de séance dans une rubrique « décisions prises seules » du §7. La relecture de Tim reste entière, elle se déplace seulement en aval, et ces décisions sont **locales et réversibles par construction**. **Au-dessus de la ligne** : porter l'arbitrage, non par prudence de principe mais parce qu'une convention est la voix du wiki — le risque n'est pas de trancher mal une fois, c'est qu'une série de décisions chacune défendable fasse dériver le corpus d'un degré par séance sans que personne ne possède la direction. ⚠ **Motif écrit contre un argument séduisant et biaisé** : Tim a relevé **100 % d'accord** sur les arbitrages de la séance. Le taux porte sur un échantillon **que j'ai choisi** — il mesure la calibration de mon filtre d'escalade, pas la justesse de mes décisions, les centaines prises seules n'y figurant pas. **Corollaire de coût** : escalader du facile entraîne à valider vite et détruit la valeur du signal quand un vrai arbitrage arrive. Forme éprouvée sur `cpp-logs` — Tim tranche la direction (a), l'exécution bute sur quatre deux-points internes non anticipés, Claude résout autrement et le dit. **Tim décide de la direction, Claude gère l'exécution y compris ses surprises.** Demande Tim. Éprouvée 1/N. **La numérotation éprouvage atteint 117.**
+
+⚠ **UN SEUL ANGLE MORT D'INSTRUMENT, DEUX SYMPTÔMES QUE J'AVAIS CONSIGNÉS SÉPARÉMENT.** Le masquage ne franchit pas le **chevron de citation**. En aval : les deux `;` d'un bloc `cpp` logé dans un callout de `cpp-logs` remontent en candidats C109, en français comme en anglais puisque le code ne change pas — faux positifs permanents. En amont, trouvé quatre séries plus tard : **ce même bloc n'est pas compté** par le troisième compteur, qui rend **7 pour 8 présents**. *Deux observations, un défaut, un correctif — retirer le préfixe de citation avant de segmenter règle les deux à la fois.*
+
+⚠ **UN CHIFFRE DE FAMILLE SE PUBLIE AVEC SON EFFECTIF.** À mi-séance, sept notions transverses de `mcu/` donnaient **+0,4 %** de foisonnement contre +5,7 % pour les trames du V, et j'en ai fait un repère de dimensionnement. Les **treize** maintenant appariées donnent **+1,2 %** : huit dixièmes de point pour un échantillon doublé. La distinction entre familles tient, le chiffre non. *C110 prise un cran plus haut — une moyenne sans son n se lit comme une constante.*
+
+⚠ **UNE CAUSE IDENTIFIÉE APRÈS COUP N'AUTORISE PAS LA PRÉDICTION SUIVANTE.** Le §7 des règles de traduction interdit depuis le 23/08 de prédire le foisonnement fiche par fiche. Prédit deux fois quand même, démenti deux fois, **du même côté**. Entre les deux, la contraction lexicale des périphrases verbales (`mettre à 1` → `set`, `mettre à 0` → `clear`, mesurée à −12 mots sur trois emplacements de `manipulation-de-bits`) expliquait la première — et cette explication m'a servi de permis pour recommencer. **Sur ~90 prédictions de la séance, les cinq démenties portaient toutes sur une grandeur non mesurée** ; aucune de celles qui se déduisaient d'un texte lu n'a échoué.
+
+⚠ **REMPLIR LE LIBELLÉ D'UN LIEN NU GONFLE LE COMPTE EN, ET C110 NE LE DIT PAS.** `[[processeur]]` fait un jeton, `[[processeur-en|processor]]` en fait deux. Sur `microcontroleur` et ses **onze liens nus** (maximum du lot), le remplissage pèse **+19 mots sur +72** — un quart du foisonnement affiché n'est pas du texte. Le corpus porte **175 liens sans libellé**. *Un foisonnement de fiche ne se lit pas sans son compte de liens nus.*
+
+**Note d'outillage** : `--libelles` ignore l'argument de chemin et relit tout le corpus EN. Première mesure de couverture au passage — **1 655 liens à libellé, 922 visant une fiche EN existante, 733 injugeables**, 18 candidats à lire. Le mode gagne en portée à mesure que le corpus se densifie.
 
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

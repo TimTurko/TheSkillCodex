@@ -20,7 +20,7 @@ Quand un programme refuse de compiler ou de se téléverser, l'IDE affiche un **
 
 ## À quoi ça sert ?
 
-Bloquer sur une erreur fait perdre un temps fou quand on ne sait pas la lire — et en débloquer une, c'est presque toujours la même poignée de causes. Savoir **où** regarder (le numéro de ligne), **par quoi** commencer (la première erreur, pas la dernière) et **à quoi** correspondent les messages courants transforme un mur en simple checklist.
+Bloquer sur une erreur fait perdre un temps fou quand on ne sait pas la lire, et en débloquer une, c'est presque toujours la même poignée de causes. Savoir **où** regarder (le numéro de ligne), **par quoi** commencer (la première erreur, pas la dernière) et **à quoi** correspondent les messages courants transforme un mur en simple checklist.
 
 ## Compilation ou téléversement : deux familles
 
@@ -42,9 +42,9 @@ sketch.ino:7:16: error: 'led' was not declared in this scope
       |                ^~~
 ```
 
-On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`), puis `fichier:ligne:colonne` (ici **ligne 7, colonne 16**), le mot **`error:`**, la **description**, et la ligne de code fautive recopiée avec son numéro dans une gouttière — le `^` désigne le mot exact qui pose problème, ici `led` et non l'appel de fonction. Deux réflexes :
+On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`), puis `fichier:ligne:colonne` (ici **ligne 7, colonne 16**), le mot **`error:`**, la **description**, et la ligne de code fautive recopiée avec son numéro dans une gouttière. Le `^` désigne le mot exact qui pose problème, ici `led` et non l'appel de fonction. Deux réflexes :
 
-- **commencer par la PREMIÈRE erreur.** Une faute en entraîne souvent d'autres en cascade ; corrigez la première, recompilez, et les suivantes disparaissent fréquemment ;
+- **commencer par la PREMIÈRE erreur.** Une faute en entraîne souvent d'autres en cascade. Corrigez la première, recompilez, et les suivantes disparaissent fréquemment ;
 - **aller voir la ligne indiquée** — en gardant en tête que certaines erreurs (comme un `;` manquant) sont signalées sur la ligne **suivante**.
 
 > [!tip]
@@ -56,26 +56,26 @@ On y lit, dans l'ordre : le **fichier** et la **fonction** concernés (`loop()`)
 
 ## Les erreurs de compilation les plus fréquentes
 
-**`expected ';' before ...`** — un point-virgule manque, presque toujours à la **ligne précédant** celle indiquée.
+**`expected ';' before ...`**. Un point-virgule manque, presque toujours à la **ligne précédant** celle indiquée.
 
-**`'xxx' was not declared in this scope`** — un nom (variable, fonction) est utilisé sans avoir été déclaré : faute de frappe, `#include` oublié, variable déclarée plus bas, ou variable locale utilisée hors de sa portée (voir [[cpp-portee|variables locales et globales]]).
+**`'xxx' was not declared in this scope`**. Un nom (variable, fonction) est utilisé sans avoir été déclaré : faute de frappe, `#include` oublié, variable déclarée plus bas, ou variable locale utilisée hors de sa portée (voir [[cpp-portee|variables locales et globales]]).
 
-**`fatal error: xxx.h: No such file or directory`** — un fichier d'en-tête est introuvable : bibliothèque non installée, nom mal orthographié, ou **dépendance manquante** d'une bibliothèque installée (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Le mot `fatal` signifie que la compilation **s'arrête immédiatement** : contrairement aux autres, cette erreur ne vient jamais en cascade — elle est seule, et c'est la seule à traiter.
+**`fatal error: xxx.h: No such file or directory`**. Un fichier d'en-tête est introuvable : bibliothèque non installée, nom mal orthographié, ou **dépendance manquante** d'une bibliothèque installée (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Le mot `fatal` signifie que la compilation **s'arrête immédiatement** : contrairement aux autres, cette erreur ne vient jamais en cascade. Elle est seule, et c'est la seule à traiter.
 
-**`expected '}' at end of input`** — une accolade ouvrante n'a jamais été fermée. Vérifier l'équilibre des `{ }` (l'auto-indentation de l'IDE, *Ctrl+T*, aide à les repérer).
+**`expected '}' at end of input`**. Une accolade ouvrante n'a jamais été fermée. Vérifier l'équilibre des `{ }` (l'auto-indentation de l'IDE, *Ctrl+T*, aide à les repérer).
 
-**`redefinition of 'xxx'`** — la même variable est déclarée deux fois dans la même portée.
+**`redefinition of 'xxx'`**. La même variable est déclarée deux fois dans la même portée.
 
-**`invalid conversion from ... to ...`** — un type incompatible est passé là où un autre est attendu (voir [[cpp-types|le typage des variables]]).
+**`invalid conversion from ... to ...`**. Un type incompatible est passé là où un autre est attendu (voir [[cpp-types|le typage des variables]]).
 
 > [!tip]
 > **Warning ≠ error.** Le compilateur distingue les **avertissements** (`warning:`) des **erreurs** (`error:`). Un *warning* signale quelque chose de suspect mais **n'empêche pas** de compiler et téléverser (ex. une variable déclarée mais jamais utilisée). Une *error* bloque. Ne pas confondre les deux : on peut ignorer un warning le temps d'avancer, jamais une error.
 
 ## Les erreurs de téléversement fréquentes
 
-**`avrdude: stk500_recv(): programmer is not responding`** — la carte n'a pas répondu : mauvais **port** sélectionné, **câble** *charge only*, ou carte non reconnue. Voir le dépannage de la [[arduino-prise-en-main|prise en main]].
+**`avrdude: stk500_recv(): programmer is not responding`**. La carte n'a pas répondu : mauvais **port** sélectionné, **câble** *charge only*, ou carte non reconnue. Voir le dépannage de la [[arduino-prise-en-main|prise en main]].
 
-**Port occupé / verrouillé** — une autre application (un moniteur série resté ouvert ailleurs, PlatformIO) tient le port : fermer l'autre fenêtre et retenter.
+**Port occupé / verrouillé**. Une autre application (un moniteur série resté ouvert ailleurs, PlatformIO) tient le port : fermer l'autre fenêtre et retenter.
 
 ## Messages à décoder
 
@@ -111,7 +111,7 @@ exit status 1
 Compilation error: expected ';' before 'delay'
 ```
 
-Lecture : l'erreur est signalée **ligne 6, colonne 24** — et la colonne 24, c'est le caractère qui suit immédiatement la parenthèse fermante. Le compilateur désigne **le vide**, là où il attendait quelque chose. Il va même jusqu'à dessiner le `;` manquant sur la ligne du dessous. Le `~~~~~` sous `delay` désigne le mot qui l'a fait trébucher : il a lu `digitalWrite(2, HIGH)` puis `delay`, sans le séparateur entre les deux. C'est le piège classique du point-virgule — **la faute est à la fin de la ligne précédente**, même quand le message désigne la suivante.
+Lecture : l'erreur est signalée **ligne 6, colonne 24**, et la colonne 24, c'est le caractère qui suit immédiatement la parenthèse fermante. Le compilateur désigne **le vide**, là où il attendait quelque chose. Il va même jusqu'à dessiner le `;` manquant sur la ligne du dessous. Le `~~~~~` sous `delay` désigne le mot qui l'a fait trébucher : il a lu `digitalWrite(2, HIGH)` puis `delay`, sans le séparateur entre les deux. C'est le piège classique du point-virgule : **la faute est à la fin de la ligne précédente**, même quand le message désigne la suivante.
 
 **Cas 2 — la variable hors de sa portée.** Le code :
 
@@ -138,7 +138,7 @@ exit status 1
 Compilation error: 'my_age' was not declared in this scope
 ```
 
-Lecture : `my_age` **existe**, il est déclaré ligne 2 — et pourtant le compilateur dit qu'il n'existe pas. C'est le piège : il est déclaré **à l'intérieur de `setup()`**, donc il naît et meurt avec elle. Arrivé dans `loop()`, le compilateur ne le connaît plus. Le message ne ment pas : *dans cette portée*, le nom n'est pas déclaré. Correction : sortir `int my_age = 18;` des accolades, au-dessus de `setup()`, pour en faire une variable **globale** — voir [[cpp-portee|variables locales et globales]].
+Lecture : `my_age` **existe**, il est déclaré ligne 2, et pourtant le compilateur dit qu'il n'existe pas. C'est le piège : il est déclaré **à l'intérieur de `setup()`**, donc il naît et meurt avec elle. Arrivé dans `loop()`, le compilateur ne le connaît plus. Le message ne ment pas : *dans cette portée*, le nom n'est pas déclaré. Correction : sortir `int my_age = 18;` des accolades, au-dessus de `setup()`, pour en faire une variable **globale** (voir [[cpp-portee|variables locales et globales]]).
 
 C'est l'erreur à la lecture la plus trompeuse du lot, parce que la variable est sous vos yeux dans le fichier. Le réflexe : ne pas chercher *si* le nom existe, mais **dans quel bloc** il a été écrit.
 
@@ -160,7 +160,7 @@ In file included from Blink.ino:1:
 compilation terminated.
 ```
 
-Lecture : trois lignes de code, et le message désigne une **ligne 26** qui n'existe pas chez vous. Le `In file included from` est la clé — il déroule la chaîne : votre sketch inclut `Adafruit_BMP280.h`, qui à sa ligne 26 inclut `Adafruit_Sensor.h`, introuvable. La bibliothèque a bien été installée, mais **pas sa dépendance** (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Rien à corriger dans le sketch : il faut réinstaller la bibliothèque en acceptant *Install all*.
+Lecture : trois lignes de code, et le message désigne une **ligne 26** qui n'existe pas chez vous. Le `In file included from` est la clé. Il déroule la chaîne : votre sketch inclut `Adafruit_BMP280.h`, qui à sa ligne 26 inclut `Adafruit_Sensor.h`, introuvable. La bibliothèque a bien été installée, mais **pas sa dépendance** (voir [[arduino-bibliotheques|utiliser une bibliothèque]]). Rien à corriger dans le sketch : il faut réinstaller la bibliothèque en acceptant *Install all*.
 
 La leçon dépasse ce cas : **le fichier nommé par une erreur n'est pas forcément le vôtre.** Avant de chercher une faute dans votre code, lisez le chemin.
 
@@ -187,20 +187,20 @@ La leçon dépasse ce cas : **le fichier nommé par une erreur n'est pas forcém
 > ```
 
 > [!success]- Corrigé de l'exercice 1
-> Le message pointe la ligne 3 (`delay`), mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant — d'où le signalement une ligne plus bas. Correction : `int etat = digitalRead(2);`.
+> Le message pointe la ligne 3 (`delay`), mais la faute est à la **ligne 2** : il manque le `;` après `digitalRead(2)`. Le compilateur ne s'en aperçoit qu'en arrivant au token suivant, d'où le signalement une ligne plus bas. Correction : `int etat = digitalRead(2);`.
 
 > [!question] Exercice 2 — Le nom inconnu
 > Message : `error: 'tempo' was not declared in this scope`. Donnez **trois** causes possibles et la correction de chacune.
 
 > [!success]- Corrigé de l'exercice 2
 > 1. **Variable jamais déclarée** → l'ajouter, p. ex. `int tempo = 500;` dans les déclarations globales ou la fonction.
-> 2. **Faute de frappe** → on a déclaré `tempo` mais écrit `Tempo` (ou l'inverse) ; le C++ distingue les majuscules. Aligner l'orthographe.
+> 2. **Faute de frappe** → on a déclaré `tempo` mais écrit `Tempo` (ou l'inverse). Le C++ distingue les majuscules. Aligner l'orthographe.
 > 3. **Variable hors de sa portée** → `tempo` est une variable **locale** d'une autre fonction, utilisée ici où elle n'existe pas (voir [[cpp-portee|portée]]). La déclarer au bon niveau (globale si elle doit être partagée).
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier sketch un peu long, les erreurs de compilation sont inévitables ; savoir les lire est ce qui fait la différence entre avancer seul et rester bloqué.
-- **[[integration-et-tests|Phase d'intégration et tests]]** — quand les sous-ensembles s'assemblent, les erreurs se multiplient ; une lecture méthodique des messages fait gagner un temps considérable.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier sketch un peu long, les erreurs de compilation sont inévitables. Savoir les lire est ce qui fait la différence entre avancer seul et rester bloqué.
+- **[[integration-et-tests|Phase d'intégration et tests]]** — quand les sous-ensembles s'assemblent, les erreurs se multiplient. Une lecture méthodique des messages fait gagner un temps considérable.
 
 ## Voir aussi
 

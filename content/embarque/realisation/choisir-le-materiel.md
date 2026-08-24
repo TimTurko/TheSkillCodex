@@ -15,7 +15,7 @@ draft: false
 
 ## Posture attendue
 
-La tentation est de choisir la carte d'abord, par habitude ou par réputation (« on prendra un ESP32 »), puis de plier les besoins autour d'elle. Fais l'inverse : pars des fonctions, déduis ce qu'il faut mesurer et actionner, et choisis le matériel qui répond — pas celui que tu connais le mieux. Et ne choisis jamais un composant sur sa fiche commerciale : c'est la **datasheet** qui dit s'il est compatible. Un choix matériel se justifie par une **matrice**, pas par une intuition — c'est ce qui te permet de le défendre en revue.
+La tentation est de choisir la carte d'abord, par habitude ou par réputation (« on prendra un ESP32 »), puis de plier les besoins autour d'elle. Fais l'inverse : pars des fonctions, déduis ce qu'il faut mesurer et actionner, et choisis le matériel qui répond, pas celui que tu connais le mieux. Et ne choisis jamais un composant sur sa fiche commerciale : c'est la **datasheet** qui dit s'il est compatible. Un choix matériel se justifie par une **matrice**, pas par une intuition. C'est ce qui te permet de le défendre en revue.
 
 ## Objectif de l'étape
 
@@ -42,20 +42,20 @@ Reprends la liste chiffrée du [[decomposition-fonctionnelle|cadrage du besoin]]
 > | Sécuriser les fins de course | 6 contacts tout-ou-rien | détection < 5 ms |
 > | Dialoguer avec l'opérateur | 1 liaison de commande | quelques dizaines de kbit/s |
 >
-> **Sortie** : 3 actionneurs, 3 capteurs, 6 contacts, 1 liaison — chacun avec sa grandeur dimensionnante. C'est la commande du choix de composants.
+> **Sortie** : 3 actionneurs, 3 capteurs, 6 contacts, 1 liaison. Chacun porte sa grandeur dimensionnante. C'est la commande du choix de composants.
 
 > [!livrable] Livrable 1/4 — Besoins matériels par fonction
 > - Pour chaque fonction : ce qu'il faut mesurer, actionner ou calculer, et la grandeur dimensionnante
 
 ### 2. Choisir les capteurs et les actionneurs
 
-Pour chaque besoin, identifie un **type** de composant (capteur d'angle potentiométrique ou magnétique, moteur à courant continu ou stepper, relais ou transistor…), puis une **référence** candidate. C'est ici que tu lis les [[lire-une-datasheet|datasheets]] : tension d'alimentation, plage et résolution, courant consommé, interface de sortie (analogique, logique, bus). Le composant doit être compatible avec une carte raisonnable — inutile de choisir un capteur exotique qui imposera une électronique d'interface lourde.
+Pour chaque besoin, identifie un **type** de composant (capteur d'angle potentiométrique ou magnétique, moteur à courant continu ou stepper, relais ou transistor…), puis une **référence** candidate. C'est ici que tu lis les [[lire-une-datasheet|datasheets]] : tension d'alimentation, plage et résolution, courant consommé, interface de sortie (analogique, logique, bus). Le composant doit être compatible avec une carte raisonnable. Inutile de choisir un capteur exotique qui imposera une électronique d'interface lourde.
 
 > [!warning] Attention
-> **Un composant ne se choisit pas sur sa photo ni sur son prix.** Deux capteurs d'angle « identiques » peuvent différer sur la tension (3,3 V ou 5 V), l'interface (analogique ou I²C) ou la plage — détails qui décident de toute l'électronique d'interface. Lis la datasheet *avant* de retenir une référence, pas après l'avoir commandée.
+> **Un composant ne se choisit pas sur sa photo ni sur son prix.** Deux capteurs d'angle « identiques » peuvent différer sur la tension (3,3 V ou 5 V), l'interface (analogique ou I²C) ou la plage. Ces détails décident de toute l'électronique d'interface. Lis la datasheet *avant* de retenir une référence, pas après l'avoir commandée.
 
 > [!example] Exemple : projet bras 3 axes
-> Pour l'actionnement, deux types confrontés : moteur à courant continu + réducteur, ou stepper + driver. Le stepper l'emporte sur la précision en [[boucle-ouverte|boucle ouverte]] (pas besoin de capteur pour positionner finement) ; la référence retenue est un stepper NEMA 17 piloté par driver A4988. Pour la mesure d'angle — conservée malgré la boucle ouverte du stepper, pour le calibrage à la mise sous tension et la surveillance d'écart en fonctionnement — un capteur magnétique à sortie analogique 0–3,3 V, lu directement par le convertisseur de la carte. Les fins de course sont de simples contacts mécaniques.
+> Pour l'actionnement, deux types confrontés : moteur à courant continu + réducteur, ou stepper + driver. Le stepper l'emporte sur la précision en [[boucle-ouverte|boucle ouverte]] (pas besoin de capteur pour positionner finement). La référence retenue est un stepper NEMA 17 piloté par driver A4988. Pour la mesure d'angle, un capteur magnétique à sortie analogique 0–3,3 V, lu directement par le convertisseur de la carte. Cette mesure est conservée malgré la boucle ouverte du stepper, pour le calibrage à la mise sous tension et la surveillance d'écart en fonctionnement. Les fins de course sont de simples contacts mécaniques.
 >
 > **Sortie** : 3 steppers NEMA 17 + drivers A4988, 3 capteurs d'angle analogiques 3,3 V, 6 contacts. Toutes les tensions et interfaces sont relevées sur datasheet.
 
@@ -67,7 +67,7 @@ Pour chaque besoin, identifie un **type** de composant (capteur d'angle potentio
 Les capteurs et actionneurs fixent une grande partie du cahier des charges de la carte : combien d'entrées-sorties, quels périphériques (convertisseur analogique-numérique, sorties PWM), quelle connectivité. Décide d'abord du **type** : un **microcontrôleur** (réactif, temps réel, peu coûteux, suffisant pour piloter des moteurs et lire des capteurs) ou un **ordinateur monocarte** sous Linux (puissant, pour de la vision, du réseau, une interface riche). Puis choisis la **famille** à l'aide d'une [[matrice-de-decision|matrice de décision]]. Le panorama des familles et l'aide au choix sont portés par le hub [[microcontroleur|microcontrôleur]] et la fiche [[raspberry-pi|Raspberry Pi]] pour l'option monocarte.
 
 > [!tip] Astuce
-> **Ne refais pas le panorama des familles : sers-t'en.** Le hub [[microcontroleur|microcontrôleur]] compare déjà Arduino, ESP32, STM32, Teensy, PIC et l'option monocarte. Ton travail ici n'est pas de réécrire cette comparaison, mais de la *confronter à tes besoins* dans une matrice — c'est l'étape qui transforme un panorama générique en un choix justifié.
+> **Ne refais pas le panorama des familles : sers-t'en.** Le hub [[microcontroleur|microcontrôleur]] compare déjà Arduino, ESP32, STM32, Teensy, PIC et l'option monocarte. Ton travail ici n'est pas de réécrire cette comparaison, mais de la *confronter à tes besoins* dans une matrice. C'est l'étape qui transforme un panorama générique en un choix justifié.
 
 > [!example] Exemple : projet bras 3 axes
 > Trois candidats confrontés aux besoins (≈ 15 entrées-sorties, dont 3 voies analogiques et 3 sorties d'impulsions STEP en PWM/timer, plus une liaison opérateur) :
@@ -88,13 +88,13 @@ Les capteurs et actionneurs fixent une grande partie du cahier des charges de la
 
 ### 4. Vérifier l'adéquation et l'alimentation
 
-Avant de figer le choix, vérifie qu'il tient pour de bon. Compte les **entrées-sorties** réellement nécessaires et confronte-les à celles de la carte ; vérifie qu'elle porte les **périphériques** requis (assez de canaux PWM, de voies analogiques, d'entrées à interruption) ; garde une **marge de calcul**. Esquisse enfin le **besoin d'alimentation** — source, tensions, courant approximatif — pour t'assurer qu'il est réalisable ; le détail viendra à l'[[concevoir-l-electronique|étape 3]] avec la [[alimentation-electronique|conception de l'alimentation]]. Si un point ne passe pas, reviens au choix de plateforme : mieux vaut le corriger ici que sur une carte déjà commandée.
+Avant de figer le choix, vérifie qu'il tient pour de bon. Compte les **entrées-sorties** réellement nécessaires et confronte-les à celles de la carte. Vérifie qu'elle porte les **périphériques** requis (assez de canaux PWM, de voies analogiques, d'entrées à interruption). Garde une **marge de calcul**. Esquisse enfin le **besoin d'alimentation** — source, tensions, courant approximatif — pour t'assurer qu'il est réalisable. Le détail viendra à l'[[concevoir-l-electronique|étape 3]] avec la [[alimentation-electronique|conception de l'alimentation]]. Si un point ne passe pas, reviens au choix de plateforme : mieux vaut le corriger ici que sur une carte déjà commandée.
 
 > [!warning] Attention
-> **Sous-dimensionner les entrées-sorties ou oublier l'alimentation se paie par un re-choix tardif.** Une carte retenue sans compter les broches se révèle trop juste au câblage, quand la commande est déjà passée. Compte les entrées-sorties et pose le besoin d'énergie *avant* de figer — ce sont les deux oublis qui obligent à recommencer le choix.
+> **Sous-dimensionner les entrées-sorties ou oublier l'alimentation se paie par un re-choix tardif.** Une carte retenue sans compter les broches se révèle trop juste au câblage, quand la commande est déjà passée. Compte les entrées-sorties et pose le besoin d'énergie *avant* de figer. Ce sont les deux oublis qui obligent à recommencer le choix.
 
 > [!example] Exemple : projet bras 3 axes
-> Vérification de l'ESP32 : 3 × (STEP, DIR) = 6 sorties (3 impulsions STEP générées par PWM/timer, 3 directions en logique simple), 3 voies analogiques pour les capteurs d'angle, 6 entrées à interruption pour les fins de course — soit 15 broches utiles, dans les capacités de la carte. Périphériques : assez de canaux pour générer les signaux STEP, convertisseur analogique-numérique présent. Alimentation : une source 12 V pour les drivers, régulée en 5 V et 3,3 V pour la logique — réalisable, détail renvoyé à l'étape 3.
+> Vérification de l'ESP32 : 3 × (STEP, DIR) = 6 sorties (3 impulsions STEP générées par PWM/timer, 3 directions en logique simple), 3 voies analogiques pour les capteurs d'angle, 6 entrées à interruption pour les fins de course. Le total fait 15 broches utiles, dans les capacités de la carte. Périphériques : assez de canaux pour générer les signaux STEP, convertisseur analogique-numérique présent. Alimentation : une source 12 V pour les drivers, régulée en 5 V et 3,3 V pour la logique. C'est réalisable, le détail est renvoyé à l'étape 3.
 >
 > **Sortie** : entrées-sorties suffisantes, périphériques présents, alimentation faisable. Le choix matériel est figé.
 
@@ -117,15 +117,15 @@ Ton matériel est choisi et justifié : capteurs, actionneurs, carte, et vérifi
 
 **Oublier l'alimentation dans le choix.** Un matériel séduisant mais gourmand peut rendre l'alimentation impossible ou l'autonomie ridicule. Le besoin d'énergie fait partie du choix.
 
-**Confondre microcontrôleur et ordinateur monocarte.** Le premier est réactif et temps réel ; le second, puissant mais sous système d'exploitation. Piloter trois moteurs en temps réel n'a pas les mêmes besoins que faire de la vision.
+**Confondre microcontrôleur et ordinateur monocarte.** Le premier est réactif et temps réel. Le second est puissant, mais sous système d'exploitation. Piloter trois moteurs en temps réel n'a pas les mêmes besoins que faire de la vision.
 
 **Noter tout pareil dans la matrice.** Une matrice qui met 4/5 partout ne décide rien : le choix est alors fait à l'intuition et la matrice n'est qu'un habillage. Une vraie matrice fait émerger des écarts.
 
 ## Ce qui relève d'ailleurs
 
-**L'arbitrage, c'est le cycle en V.** Le choix matériel est validé en revue à la phase [[concept|concept]], inscrit à la nomenclature (BOM) et planifié pour commande — cette fiche donne la méthode technique, le V l'inscrit dans le projet.
+**L'arbitrage, c'est le cycle en V.** Le choix matériel est validé en revue à la phase [[concept|concept]], inscrit à la nomenclature (BOM) et planifié pour commande. Cette fiche donne la méthode technique, le V l'inscrit dans le projet.
 
-*L'outil de choix* — la [[matrice-de-decision|matrice de décision]] — est une notion de conduite de projet, partagée avec toutes les disciplines.
+*L'outil de choix*, la [[matrice-de-decision|matrice de décision]], est une notion de conduite de projet, partagée avec toutes les disciplines.
 
 *L'impact écoconception* du matériel (consommation, durée de vie, réparabilité, origine) entre dans la matrice comme critère pondéré : voir [[ecoconception|écoconception]].
 

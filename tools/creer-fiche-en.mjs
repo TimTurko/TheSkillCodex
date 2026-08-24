@@ -50,10 +50,15 @@
  *       - espace francaise devant ; : ! ? %, virgule decimale : VERDICT mecanique
  *       - tiret d'incise et point-virgule de prose : CANDIDATS a lire, le
  *         critere du verbe conjugue (amendement C109 du 23/08) ne se decide
- *         qu'a la lecture
+ *         qu'a la lecture ; le tiret demi-cadratin encadre de chiffres est un
+ *         intervalle numerique et sort en hors-perimetre (24/08)
  *       - C109 comparees FR / EN : une occurrence CREEE par la traduction
  *         n'a jamais ete arbitree en francais
  *   node tools/creer-fiche-en.mjs --libelles         (libelle de wikilink ne recoupant pas le title: de sa cible)
+ *   node tools/creer-fiche-en.mjs --front            (anneau 1 depuis les quatre index : perimetre et volume du lot)
+ *       - resolution par chemin complet puis par nom de fichier UNIQUE ; un
+ *         nom porte par plusieurs fiches sort en AMBIGU au lieu d etre ecrase
+ *         sur une cible unique (defaut de mesure du 24/08)
  *
  * Exit 1 si un compteur diverge, si la cible existe deja sans --force,
  * ou si la source est introuvable.
@@ -62,6 +67,10 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, sep, basename, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
+// Le comptage de mots vient du script ou vit la regle C110, jamais d'une
+// reimplementation locale : deux implementations justes sous la meme regle se
+// lisent comme un chiffre juste et un chiffre faux (amendement du 23/08 suite 4).
+import { compterMots } from './compter-mots.mjs';
 
 /* ==================== CONFIGURATION ARBITREE ====================
  * Les deux seuls choix reversibles du script, arbitres par Tim le 22/08.
@@ -106,6 +115,7 @@ const CONTROLE = args.includes('--controle');
 const RECALER = args.includes('--recaler');
 const STYLE = args.includes('--style');
 const LIBELLES = args.includes('--libelles');
+const FRONT = args.includes('--front');
 const cible = args.find((a) => !a.startsWith('--'));
 const cibles = args.filter((a) => !a.startsWith('--'));
 
@@ -204,6 +214,18 @@ function segmenter(corps) {
 /* ---------- transformation d'un wikilink ---------- */
 
 const WIKILINK = /(?<!!)\[\[([^\]]+)\]\]/g;
+
+// Un texte alternatif peut contenir des crochets, et c'est frequent : la
+// syntaxe d'une garde-condition de machine a etats s'ecrit « evenement
+// [garde] / action » et se decrit telle quelle dans l'alt. Le motif precedent,
+// [^\]]*, s'arretait au PREMIER crochet fermant, donc l'embed devenait
+// invisible. Mesure du 24/08 (suite) : 2 comptes pour 4 images sur
+// machine-a-etats, ecart de 4 sur tout content/, porte par cette seule paire.
+// Le defaut ne se voyait pas parce que l'EGALITE FR/EN restait vraie : le
+// controle passait au vert en ne regardant que la moitie des embeds de la
+// fiche. Un niveau d'imbrication suffit au corpus.
+const EMBED = /!\[(?:[^\[\]]|\[[^\[\]]*\])*\]\([^)]+\)/g;
+const EMBED_ALT = /!\[(?:[^\[\]]|\[[^\[\]]*\])*\]/g;
 
 function transformerLien(brut, journal) {
   // Separe cible et libelle, en preservant la forme d'echappement du pipe.
@@ -318,7 +340,7 @@ function compter(texte) {
   const sansFm = (frontMatter(texte) || { corps: texte }).corps;
   return {
     liens: (sansFm.match(/(?<!!)\[\[[^\]]+\]\]/g) || []).length,
-    embeds: (sansFm.match(/!\[[^\]]*\]\([^)]+\)/g) || []).length,
+    embeds: (sansFm.match(EMBED) || []).length,
     code: (sansFm.match(/^```/gm) || []).length / 2,
   };
 }
@@ -741,7 +763,7 @@ function styleFiche(rel, texte) {
     // residu du lot 2a le 23/08. Sa typographie, elle, reste controlee : les
     // separateurs decimaux y basculent aussi (paragraphe 5.3 des regles).
     const zonesAlt = [];
-    for (const a of ligne.matchAll(/!\[[^\]]*\]/g)) zonesAlt.push([a.index, a.index + a[0].length]);
+    for (const a of ligne.matchAll(EMBED_ALT)) zonesAlt.push([a.index, a.index + a[0].length]);
     const dansAlt = (i) => zonesAlt.some(([d, f]) => i >= d && i < f);
 
     if (estEn) {
@@ -767,6 +789,17 @@ function styleFiche(rel, texte) {
     // 3. C109 : tirets d'incise et points-virgules de prose.
     for (const m of ligne.matchAll(/[\u2014\u2013]/g)) {
       if (ex.has(m.index)) continue;
+      // Le tiret demi-cadratin ENCADRE DE CHIFFRES est un intervalle numerique
+      // (0-65535, 3,3-5 V), pas une incise. Faux positif revele le 24/08 par le
+      // premier lancement de --style sur du francais : le corpus EN n'avait
+      // jamais porte de plage chiffree. Arbitrage Tim (a) : le CADRATIN entre
+      // chiffres reste signale, c'est une faute de typographie a corriger.
+      // L'exemption sort en hors-perimetre et non en silence, comme les alt et
+      // les tableaux : elle reste comptee, donc mesurable.
+      if (m[0] === '\u2013' && /\d/.test(ligne[m.index - 1] || '') && /\d/.test(ligne[m.index + 1] || '')) {
+        pousser(n, m.index, 'hors-perimetre', 'tiret d intervalle numerique');
+        continue;
+      }
       if (dansAlt(m.index)) { pousser(n, m.index, 'hors-perimetre', 'tiret en alt d image'); continue; }
       if (hors) { pousser(n, m.index, 'hors-perimetre', 'tiret en ' + hors); continue; }
       pousser(n, m.index, 'C109', 'tiret d incise');
@@ -782,10 +815,45 @@ function styleFiche(rel, texte) {
   return trouve;
 }
 
+/* ---------- differentiel des caracteres hors alphabet latin ---------- */
+
+// Un ideogramme chinois s'est glisse dans pcb-en le 24/08 (suite), et AUCUN
+// des cinq controles existants ne l'a vu : ni lien, ni embed, ni bloc de code,
+// ni typographie francaise, ni C109. Seule la relecture du texte l'a attrape,
+// et rien ne garantissait qu'elle le voie.
+//
+// La premiere version listait une PLAGE de caracteres et rendait deux faux
+// positifs : l'ohm d'i2c et les emojis de preuve-de-concept, tous deux
+// deliberes. La seconde ne compare plus a une plage mais A LA SOURCE : present
+// des deux cotes, le caractere est voulu ; present du seul cote anglais, il a
+// ete introduit par la generation ou par la frappe. Zero faux positif par
+// construction, et aucune liste d'exemptions a tenir a jour.
+//
+// Meme deplacement que le cinquieme controle de --style, qui a cesse de
+// compter pour comparer.
+const LATIN = /[\u0000-\u024F]/;
+
+function horsLatin(texte) {
+  const par = new Map();
+  for (const ch of texte) {
+    if (LATIN.test(ch)) continue;
+    par.set(ch, (par.get(ch) || 0) + 1);
+  }
+  return par;
+}
+
+function extraitDe(texte, ch) {
+  const i = texte.indexOf(ch);
+  if (i < 0) return '';
+  const d = Math.max(0, i - 30);
+  return (d ? '\u2026' : '') + texte.slice(d, i + 31).replace(/\s+/g, ' ').trim() + '\u2026';
+}
+
 function style(cibles) {
   let typo = 0;
   let cand = 0;
   let creees = 0;
+  let etrangers = 0;
   let c109 = 0;
   let hors = 0;
   let fichesTouchees = 0;
@@ -811,11 +879,24 @@ function style(cibles) {
     if (mS) {
       const absFr = join(CONTENT, mS[1].split('/').join(sep));
       if (existsSync(absFr)) {
-        const nFr = styleFiche(mS[1], readFileSync(absFr, 'utf8')).filter((x) => x.cat === 'C109').length;
+        const texteFr = readFileSync(absFr, 'utf8');
+        const nFr = styleFiche(mS[1], texteFr).filter((x) => x.cat === 'C109').length;
         const nEn = t.filter((x) => x.cat === 'C109').length;
         if (nEn > nFr) {
           creees += nEn - nFr;
           console.log('\n  ' + rel + '   C109 : FR ' + nFr + ' / EN ' + nEn + '   ' + (nEn - nFr) + ' CREEE(S) PAR LA TRADUCTION');
+        }
+
+        const chFr = horsLatin(texteFr);
+        const intrus = [];
+        for (const [ch, n] of horsLatin(texte)) if (!chFr.has(ch)) intrus.push([ch, n]);
+        if (intrus.length) {
+          for (const [, n] of intrus) etrangers += n;
+          console.log('\n  ' + rel + '   CARACTERE(S) HORS ALPHABET LATIN ABSENT(S) DE LA SOURCE :');
+          for (const [ch, n] of intrus) {
+            const pt = 'U+' + ch.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+            console.log('      ' + pt + '  x' + n + '   ' + extraitDe(texte, ch));
+          }
         }
       }
     }
@@ -840,7 +921,8 @@ function style(cibles) {
   console.log('  C109 creees en EN     : ' + creees + '   (jamais arbitrees en francais)');
   console.log('  C109 de prose         : ' + c109 + '   (candidats a lire : le verbe conjugue decide)');
   console.log('  hors perimetre        : ' + hors + '   (titres, tableaux et alt, non comptes)');
-  process.exit(typo || creees ? 1 : 0);
+  console.log('  hors alphabet latin   : ' + etrangers + '   (verdict mecanique : absent de la source FR)');
+  process.exit(typo || creees || etrangers ? 1 : 0);
 }
 
 /* ---------- heuristique de libelle : le lien pointe juste, affiche-t-il juste ? ---------- */
@@ -911,6 +993,7 @@ function libelles() {
   let examines = 0;
   let jugeables = 0;
   let candidats = 0;
+  let positions = 0;
   let sansCible = 0;
   const sorties = [];
 
@@ -945,6 +1028,17 @@ function libelles() {
       for (const w of a) for (const v of b) if (memeRadical(w, v)) commun = true;
       if (commun) continue;
       if (estSigleDe(libelle, titre) || estSigleDe(titre, libelle)) continue;
+      // Un libelle du patron « step N » designe une POSITION dans le parcours
+      // de realisation, pas le titre de sa cible. Il ne peut par construction
+      // recouper aucun title:, donc l heuristique n a rien a en dire : elle ne
+      // le signale pas, elle le compte a part. Mesure du 25/08 : 16 des 25
+      // candidats, tous deliberes, tous dans embarque/realisation/.
+      // Exempte par le MOTIF et non par une liste de fiches - une liste
+      // vieillirait a chaque fiche ajoutee au parcours.
+      if (/^step\s+\d+$/i.test(libelle)) {
+        positions += 1;
+        continue;
+      }
       candidats += 1;
       sorties.push('  ' + rel + '\n      [[' + cibleLien + '|' + libelle + ']]   cible intitulee : ' + titre);
     }
@@ -957,7 +1051,138 @@ function libelles() {
   console.log('  cible EN existante    : ' + jugeables + '   (le reste vise une fiche non encore traduite)');
   console.log('  cible EN absente      : ' + sansCible);
   console.log('  candidats a lire      : ' + candidats);
+  console.log('  positions de parcours : ' + positions + '   (patron « step N », exempte : designe un rang, pas un titre)');
   process.exit(0);
+}
+
+/* ---------- perimetre du front de traduction ---------- */
+
+// Les quatre index du lot 1 sont les points d'entree du wiki. L'anneau 1 est
+// l'ensemble des fiches qu'ils atteignent EN UN LIEN : c'est le perimetre de
+// « aucun lien mort depuis l'accueil », donc celui des lots 2a a 2c.
+//
+// Ce chiffre a porte TROIS valeurs en trois sessions - 82, 79, 78 - et la
+// regle qui produisait la derniere etait FAUSSE PAR CONSTRUCTION : elle
+// resolvait un wikilink par son DERNIER SEGMENT de chemin, ce qui ecrase les
+// huit index.md du depot sur une cible unique. C'est la cle par nom de fichier
+// du 22/08, qui avait deja fausse la mesure C109 de 40 unites, sur un autre
+// objet. Tant que la regle n'etait pas ecrite dans un outil, le perimetre du
+// lot n'etait pas citable.
+//
+// Regle de resolution, et c'est elle qui rend le chiffre citable :
+//   1. cible contenant une barre -> chemin complet depuis content/, puis a
+//      defaut suffixe de chemin (mcu/gpio pour embarque/mcu/gpio) ;
+//   2. cible sans barre -> nom de fichier, A CONDITION QU'IL SOIT UNIQUE.
+//      Portee par plusieurs fiches, la cible sort en AMBIGU et n'est jamais
+//      rabattue sur l'une d'elles.
+const INDEX_FRONT = ['index.md', 'conduite/index.md', 'embarque/index.md', 'meca/index.md'];
+
+function front() {
+  const fiches = walk(CONTENT)
+    .map(versWeb)
+    .filter((w) => !w.startsWith('en/') && !w.startsWith('templates/'));
+
+  const parChemin = new Set(fiches.map((f) => f.replace(/\.md$/, '')));
+  const parNom = new Map();
+  for (const f of fiches) {
+    const sansExt = f.replace(/\.md$/, '');
+    const nom = basename(sansExt);
+    if (!parNom.has(nom)) parNom.set(nom, []);
+    parNom.get(nom).push(sansExt);
+  }
+
+  function resoudre(c) {
+    if (parChemin.has(c)) return { rel: c };
+    if (c.includes('/')) {
+      const fins = [...parChemin].filter((r) => r.endsWith('/' + c));
+      if (fins.length === 1) return { rel: fins[0] };
+      if (fins.length > 1) return { ambigu: fins };
+      return { absent: true };
+    }
+    const l = parNom.get(c) || [];
+    if (l.length === 1) return { rel: l[0] };
+    if (l.length > 1) return { ambigu: l };
+    return { absent: true };
+  }
+
+  function jumelle(rel) {
+    const segs = rel.split('/');
+    segs[segs.length - 1] = suffixer(segs[segs.length - 1]);
+    return 'en/' + segs.join('/') + '.md';
+  }
+
+  const cibles = new Map();
+  const ambigus = [];
+  const absents = [];
+
+  for (const relIdx of INDEX_FRONT) {
+    const abs = join(CONTENT, relIdx.split('/').join(sep));
+    if (!existsSync(abs)) {
+      console.error('Index de depart introuvable : content/' + relIdx);
+      process.exit(1);
+    }
+    const texte = readFileSync(abs, 'utf8');
+    const corps = (frontMatter(texte) || { corps: texte }).corps;
+    const hors = segmenter(corps)
+      .filter((s) => !s.code)
+      .map((s) => s.texte)
+      .join('');
+    for (const m of hors.matchAll(/(?<!!)\[\[([^\]]+)\]\]/g)) {
+      const c = m[1].split(/\\\||\|/)[0].split('#')[0].replace(/\\+$/, '').trim();
+      if (!c) continue;
+      const r = resoudre(c);
+      if (r.ambigu) {
+        ambigus.push('  ' + relIdx + '  ->  [[' + c + ']]   ' + r.ambigu.length + ' cibles : ' + r.ambigu.join(', '));
+        continue;
+      }
+      if (r.absent) {
+        absents.push('  ' + relIdx + '  ->  [[' + c + ']]');
+        continue;
+      }
+      if (!cibles.has(r.rel)) cibles.set(r.rel, new Set());
+      cibles.get(r.rel).add(relIdx);
+    }
+  }
+
+  const anneau = [...cibles.keys()].sort();
+  const faits = [];
+  const restants = [];
+  for (const rel of anneau) {
+    if (existsSync(join(CONTENT, jumelle(rel).split('/').join(sep)))) faits.push(rel);
+    else restants.push(rel);
+  }
+
+  let mots = 0;
+  console.log('=== FRONT DE TRADUCTION : ANNEAU 1 ===');
+  console.log('  Resolution : chemin complet, puis suffixe de chemin, puis nom de');
+  console.log('  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU');
+  console.log('  et n est jamais ecrase sur une cible unique.');
+  console.log('  Mots : regle C110, importee de tools/compter-mots.mjs.');
+  console.log('');
+  console.log('  index de depart              : ' + INDEX_FRONT.length);
+  console.log('  cibles distinctes (anneau 1) : ' + anneau.length);
+  console.log('    deja traduites             : ' + faits.length);
+  console.log('    RESTANT                    : ' + restants.length);
+  console.log('');
+  for (const rel of restants) {
+    const n = compterMots(readFileSync(join(CONTENT, rel.split('/').join(sep)) + '.md', 'utf8'));
+    mots += n;
+    console.log('  ' + rel.padEnd(56) + String(n).padStart(7));
+  }
+  console.log('  ' + '-'.repeat(63));
+  console.log('  ' + ('RESTANT DE L ANNEAU 1 (' + restants.length + ' fiches)').padEnd(56) + String(mots).padStart(7));
+
+  if (ambigus.length) {
+    console.log('');
+    console.log('  CIBLES AMBIGUES (' + ambigus.length + ') - non comptees, a lever a la main :');
+    for (const a of ambigus) console.log(a);
+  }
+  if (absents.length) {
+    console.log('');
+    console.log('  CIBLES SANS FICHE (' + absents.length + ') - liens rouges depuis un index :');
+    for (const a of absents) console.log(a);
+  }
+  process.exit(ambigus.length || absents.length ? 1 : 0);
 }
 
 /* ---------- point d'entree ---------- */
@@ -972,6 +1197,8 @@ if (RECETTE) {
   );
 } else if (LIBELLES) {
   libelles();
+} else if (FRONT) {
+  front();
 } else if (CONTROLE) {
   controle();
 } else if (RECALER) {

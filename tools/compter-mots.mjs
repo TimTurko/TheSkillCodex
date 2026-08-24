@@ -167,10 +167,18 @@ function lot(rels, titre) {
   }
 }
 
-const args = process.argv.slice(2);
-const chemins = args.filter((a) => !a.startsWith('--'));
+// Le compteur est aussi IMPORTE par creer-fiche-en.mjs --front, pour que le
+// volume d'un lot sorte de la meme regle que tous les autres chiffres du depot
+// (amendement a C110 du 23/08 suite 4 : la regle se publie sous forme d'outil).
+// Sans cette garde, un simple import declencherait le rapport de corpus.
+const APPELE_DIRECTEMENT = Boolean(process.argv[1] && process.argv[1].endsWith('compter-mots.mjs'));
 
-if (args.includes('--paires')) paires();
-else if (args.includes('--fiche')) lot(chemins, 'total');
-else if (args.includes('--lot')) lot(chemins, 'LOT');
-else corpus();
+if (APPELE_DIRECTEMENT) {
+  const args = process.argv.slice(2);
+  const chemins = args.filter((a) => !a.startsWith('--'));
+
+  if (args.includes('--paires')) paires();
+  else if (args.includes('--fiche')) lot(chemins, 'total');
+  else if (args.includes('--lot')) lot(chemins, 'LOT');
+  else corpus();
+}

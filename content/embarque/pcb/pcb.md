@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-**Un circuit imprimé** (PCB, *printed circuit board*) est le support qui remplace le câblage volant : une plaque isolante sur laquelle des **pistes de cuivre** relient des composants soudés à demeure. Concevoir un PCB, c'est transformer un [[analyse-de-schema-electronique|schéma]] fonctionnel en une **carte physique fabricable** — fiable, compacte et reproductible. Cette fiche est le **hub d'entrée** vers la conception de carte : elle pose le **flux** commun (du schéma aux fichiers de fabrication) et oriente vers l'outil de conception. La **fabrication** elle-même (gravure, perçage, métallisation) relève de l'atelier et du cours dédié — le wiki la pointe sans l'approfondir.
+**Un circuit imprimé** (PCB, *printed circuit board*) est le support qui remplace le câblage volant : une plaque isolante sur laquelle des **pistes de cuivre** relient des composants soudés à demeure. Concevoir un PCB, c'est transformer un [[analyse-de-schema-electronique|schéma]] fonctionnel en une **carte physique fabricable** — fiable, compacte et reproductible. Cette fiche est le **hub d'entrée** vers la conception de carte : elle pose le **flux** commun (du schéma aux fichiers de fabrication) et oriente vers l'outil de conception. La **fabrication** elle-même (gravure, perçage, métallisation) relève de l'atelier et du cours dédié. Le wiki la pointe sans l'approfondir.
 
 ## À quoi ça sert ?
 
@@ -78,7 +78,7 @@ Pour un projet destiné à un fabricant extérieur, [[kicad|KiCad]] est le choix
 
 ## Raccrochage projet
 
-- **Phase de [[preuve-de-concept|preuve de concept]]** — on **valide d'abord** le montage sur breadboard et en [[simulation-electronique|simulation]] ; le PCB vient *après*, pour figer la solution retenue.
+- **Phase de [[preuve-de-concept|preuve de concept]]** — on **valide d'abord** le montage sur breadboard et en [[simulation-electronique|simulation]], et le PCB vient *après*, pour figer la solution retenue.
 - **Phase de [[dossier-technique|dossier technique]]** — la conception de la carte (RA-PROJET-C03-3/EEE/5) y prend place : c'est ici qu'on **conçoit et réalise** la carte qui intègre [[microcontroleur|microcontrôleur]], capteurs et actionneurs (voir [[chaine-energie|chaîne d'énergie et d'information]]).
 - **Interface fabrication** — le fichier de fabrication est le livrable transmis à l'atelier ou au fabricant, frontière avec le cours de fabrication. Gerber chez un fabricant extérieur, `.json` et schéma à l'atelier de l'école.
 

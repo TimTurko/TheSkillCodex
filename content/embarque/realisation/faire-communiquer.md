@@ -32,27 +32,27 @@ Produire un **choix de communication** justifié qui :
 
 ### 1. Recenser les échanges
 
-Avant de choisir une technologie, liste **qui doit parler à qui**. Distingue les échanges **internes** (entre la carte et une puce périphérique : capteur sur bus, afficheur, mémoire) des échanges **externes** (vers un PC, un téléphone, un autre système, un réseau). Pour chacun, note la **donnée** échangée, le **débit** nécessaire, la **distance** et le nombre de **participants**. C'est cette carte des échanges qui dira de quels bus et de quelle liaison tu as réellement besoin — et, souvent, que tu en as moins que prévu.
+Avant de choisir une technologie, liste **qui doit parler à qui**. Distingue les échanges **internes** (entre la carte et une puce périphérique : capteur sur bus, afficheur, mémoire) des échanges **externes** (vers un PC, un téléphone, un autre système, un réseau). Pour chacun, note la **donnée** échangée, le **débit** nécessaire, la **distance** et le nombre de **participants**. C'est cette carte des échanges qui dira de quels bus et de quelle liaison tu as réellement besoin, et souvent que tu en as moins que prévu.
 
 > [!example] Exemple : projet bras 3 axes
 > Recensement des échanges du bras : les trois capteurs d'angle sont **analogiques** (lus en direct par le convertisseur, pas de bus), les trois drivers reçoivent des signaux **PWM et logiques** en direct, les fins de course sont des **entrées logiques**. Aucun échange entre puces : il n'y a donc **pas de bus interne** à choisir. Reste un seul échange : recevoir les consignes de l'opérateur et lui renvoyer l'état.
 >
-> **Sortie** : zéro bus interne, une liaison externe (opérateur). Pour ce projet, l'étape se concentre sur cette unique liaison — illustration directe du caractère optionnel des bus.
+> **Sortie** : zéro bus interne, une liaison externe (opérateur). Pour ce projet, l'étape se concentre sur cette unique liaison, illustration directe du caractère optionnel des bus.
 
 > [!livrable] Livrable 1/3 — Carte des échanges
 > - La liste des échanges internes et externes, avec donnée, débit, distance et nombre de participants
 
 ### 2. Choisir les bus internes
 
-Pour chaque échange **entre puces**, choisis le bus selon les critères recensés. L'**[[i2c|I²C]]** relie plusieurs composants avec deux fils, à débit modéré — idéal pour quelques capteurs et un afficheur. Le **[[spi|SPI]]** est plus rapide mais demande plus de fils — pour une mémoire ou un écran exigeant. L'**[[uart|UART]]** est une liaison série simple, point à point. La fiche [[bus-de-communication|bus de communication]] détaille leurs principes et leurs limites. Souvent, le bus t'est d'ailleurs **imposé par le composant** retenu au [[choisir-le-materiel|choix du matériel]] : un capteur vendu en I²C se câble en I²C — ton choix se réduit alors à vérifier la compatibilité et à organiser le partage du bus. S'il n'y a aucun échange entre puces, cette étape est vide — c'est un résultat valable, pas un oubli.
+Pour chaque échange **entre puces**, choisis le bus selon les critères recensés. L'**[[i2c|I²C]]** relie plusieurs composants avec deux fils, à débit modéré, idéal pour quelques capteurs et un afficheur. Le **[[spi|SPI]]** est plus rapide mais demande plus de fils, pour une mémoire ou un écran exigeant. L'**[[uart|UART]]** est une liaison série simple, point à point. La fiche [[bus-de-communication|bus de communication]] détaille leurs principes et leurs limites. Souvent, le bus t'est d'ailleurs **imposé par le composant** retenu au [[choisir-le-materiel|choix du matériel]] : un capteur vendu en I²C se câble en I²C. Ton choix se réduit alors à vérifier la compatibilité et à organiser le partage du bus. S'il n'y a aucun échange entre puces, cette étape est vide. C'est un résultat valable, pas un oubli.
 
 > [!warning] Attention
-> **Multiplier les bus ou en choisir un par réflexe complique le système sans le servir.** Un bus se justifie par un échange réel et par ses critères (participants, débit, distance) — pas par sa présence sur la carte. Trois capteurs analogiques lus en direct n'ont pas besoin d'un bus ; un afficheur ajouté plus tard ira, lui, naturellement sur l'I²C déjà disponible.
+> **Multiplier les bus ou en choisir un par réflexe complique le système sans le servir.** Un bus se justifie par un échange réel et par ses critères (participants, débit, distance), pas par sa présence sur la carte. Trois capteurs analogiques lus en direct n'ont pas besoin d'un bus. Un afficheur ajouté plus tard ira, lui, naturellement sur l'I²C déjà disponible.
 
 > [!example] Exemple : projet bras 3 axes
 > Le bras n'a aucun échange entre puces : pas de bus interne. À titre de contre-exemple, si tu lui ajoutais un **afficheur d'état** et un capteur de couple numérique, tous deux iraient sur un même bus **I²C** (deux fils partagés, débit suffisant) plutôt que de câbler chacun séparément.
 >
-> **Sortie** : aucun bus interne pour le bras tel quel ; l'I²C serait le choix par défaut en cas d'ajout de composants numériques.
+> **Sortie** : aucun bus interne pour le bras tel quel. L'I²C serait le choix par défaut en cas d'ajout de composants numériques.
 
 > [!livrable] Livrable 2/3 — Bus internes retenus
 > - Pour chaque échange entre puces, le bus retenu et sa justification (ou la mention explicite « aucun bus nécessaire »)
@@ -104,11 +104,11 @@ Tes communications sont arrêtées : les échanges sont recensés, les bus inter
 
 ## Ce qui relève d'ailleurs
 
-**Le pilotage, c'est le cycle en V.** Les choix de communication figurent au [[dossier-technique|dossier technique]] — cette fiche produit l'artefact, le V l'inscrit dans le projet.
+**Le pilotage, c'est le cycle en V.** Les choix de communication figurent au [[dossier-technique|dossier technique]]. Cette fiche produit l'artefact, le V l'inscrit dans le projet.
 
 *La sécurité des liaisons* (chiffrement, intégrité, authentification), dès que les données échangées sont sensibles, est une dimension de [[securite-et-qualite|sécurité et qualité]] arbitrée au niveau projet.
 
-*Le protocole applicatif* — le format des consignes et des états échangés au-dessus de la liaison — relève du firmware et du palier ingénieur de ta famille.
+*Le protocole applicatif*, le format des consignes et des états échangés au-dessus de la liaison, relève du firmware et du palier ingénieur de ta famille.
 
 ## Voir aussi
 

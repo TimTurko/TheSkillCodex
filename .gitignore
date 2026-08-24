@@ -45,3 +45,11 @@ replit.nix
 # ============================================================
 private/
 prof/
+
+# ============================================================
+# Brouillon de seance (C114) : script jetable des commandes
+# d'une session, reecrit a chaque serie. Ce n'est pas un outil,
+# il n'a pas d'historique a garder.
+# ============================================================
+tools/seance.ps1
+tools/seance-sortie.txt

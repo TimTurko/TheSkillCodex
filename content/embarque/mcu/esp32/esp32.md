@@ -22,11 +22,11 @@ Là où l'Arduino vise l'accessibilité, l'ESP32 vise la **connectivité et la p
 - **puissance** — un ou deux cœurs jusqu'à 240 MHz, beaucoup plus de RAM et de Flash, et un [[systeme-d-exploitation|RTOS]] (FreeRTOS) natif pour le multitâche ;
 - **autonomie** — un mode [[deep-sleep|deep sleep]] très économe, adapté au fonctionnement sur batterie.
 
-En contrepartie, l'ESP32 est **moins indulgent** : il fonctionne en **3,3 V** (voir l'alerte ci-dessous), demande une alimentation soignée (appels de courant en émission radio), et sa richesse le rend plus complexe à débuter. Le choix se tranche avec l'aide au choix du hub [[microcontroleur|microcontrôleur]] : pour apprendre ou prototyper simple sans connectivité, l'Arduino reste plus doux ; dès qu'il faut du **sans-fil**, de l'**autonomie** ou de la **puissance de calcul**, l'ESP32 s'impose.
+En contrepartie, l'ESP32 est **moins indulgent** : il fonctionne en **3,3 V** (voir l'alerte ci-dessous), demande une alimentation soignée (appels de courant en émission radio), et sa richesse le rend plus complexe à débuter. Le choix se tranche avec l'aide au choix du hub [[microcontroleur|microcontrôleur]] : pour apprendre ou prototyper simple sans connectivité, l'Arduino reste plus doux. Dès qu'il faut du **sans-fil**, de l'**autonomie** ou de la **puissance de calcul**, l'ESP32 s'impose.
 
 ## Panorama des variantes
 
-La famille s'est diversifiée ; quelques variantes couvrent l'essentiel des besoins.
+La famille s'est diversifiée, mais quelques variantes couvrent l'essentiel des besoins.
 
 | Variante | Cœur(s) | Radio | Particularité |
 | --- | --- | --- | --- |
@@ -41,11 +41,11 @@ La famille s'est diversifiée ; quelques variantes couvrent l'essentiel des beso
 
 On rencontre ces puces sur des **modules** (WROOM, WROVER) eux-mêmes montés sur des **cartes de développement** (DevKitC, et des variantes Feather, LOLIN…). Pour un projet, une carte de type DevKit ESP32 d'origine est le point d'entrée sûr.
 
-Tendance de fond : l'ESP32 d'origine et la série S reposent sur des cœurs **Xtensa**, tandis que les variantes récentes (séries C, H, P) passent au **RISC-V** — le S3 est le dernier grand Xtensa. Pour un nouveau projet, le RISC-V est la direction de l'écosystème.
+Tendance de fond : l'ESP32 d'origine et la série S reposent sur des cœurs **Xtensa**, tandis que les variantes récentes (séries C, H, P) passent au **RISC-V**. Le S3 est le dernier grand Xtensa. Pour un nouveau projet, le RISC-V est la direction de l'écosystème.
 
 ![Carte de positionnement des variantes ESP32 selon leur connectivité sans fil et leur puissance de calcul|640](/ressources/img/esp32/positionnement-variantes.svg)
 
-*Situer les variantes selon leur connectivité et leur puissance ; le tableau ci-dessus en donne le détail.*
+*Situer les variantes selon leur connectivité et leur puissance. Le tableau ci-dessus en donne le détail.*
 
 ## Écosystème
 
@@ -54,12 +54,12 @@ Deux chemins de programmation coexistent :
 - **Arduino-core pour ESP32** — la **même API que l'Arduino** (`setup()`, `loop()`, `digitalWrite`…), via l'[[esp32-arduino-core|core ESP32]] installé dans l'[[ide|IDE]] Arduino. C'est la migration la plus douce depuis l'Arduino, et le chemin recommandé pour débuter.
 - **[[esp32-idf|ESP-IDF]]** — le cadre **natif** d'Espressif, bâti sur **FreeRTOS**, qui donne le plein contrôle (multitâche, gestion fine de l'alimentation, pile réseau). Plus exigeant, il prend son sens sur les projets aboutis.
 
-PlatformIO gère les deux. La façon de **structurer** le code (boucle, tâches, états, RTOS) relève de [[firmware|firmware]] — indépendante du chemin choisi.
+PlatformIO gère les deux. La façon de **structurer** le code (boucle, tâches, états, RTOS) relève de [[firmware|firmware]], indépendamment du chemin choisi.
 
 ## Attention à la tension
 
 > [!warning]
-> **Les broches de l'ESP32 sont en 3,3 V et ne tolèrent pas le 5 V.** Brancher directement un capteur ou un module 5 V sur une entrée ESP32 peut **détruire la broche**. C'est la différence la plus piégeuse avec l'Arduino (tolérant 5 V). Toute interface avec un signal 5 V passe par une adaptation de niveau — voir [[niveaux-de-tension|niveaux de tension]].
+> **Les broches de l'ESP32 sont en 3,3 V et ne tolèrent pas le 5 V.** Brancher directement un capteur ou un module 5 V sur une entrée ESP32 peut **détruire la broche**. C'est la différence la plus piégeuse avec l'Arduino (tolérant 5 V). Toute interface avec un signal 5 V passe par une adaptation de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
 ## Tutoriels
 

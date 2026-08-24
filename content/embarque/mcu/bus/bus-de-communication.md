@@ -20,7 +20,7 @@ Un **bus de communication** est un ensemble de lignes et de règles qui permet �
 
 ## À quoi ça sert ?
 
-Un microcontrôleur travaille rarement seul : il lit des capteurs, écrit sur un écran, stocke sur une carte mémoire, parfois dialogue avec un autre contrôleur. Plutôt qu'un fil dédié par information, un bus **standardise** la façon dont les données circulent sur quelques fils — ce qui économise des broches et rend les composants interchangeables.
+Un microcontrôleur travaille rarement seul : il lit des capteurs, écrit sur un écran, stocke sur une carte mémoire, parfois dialogue avec un autre contrôleur. Plutôt qu'un fil dédié par information, un bus **standardise** la façon dont les données circulent sur quelques fils, ce qui économise des broches et rend les composants interchangeables.
 
 Choisir un bus, c'est arbitrer entre plusieurs paramètres :
 
@@ -34,7 +34,7 @@ Ce choix se fait en phase de [[concept|concept]] (au moment de définir l'archit
 
 ## Comment choisir un bus ?
 
-Quatre distinctions structurent le paysage. Un bus est **série** (les bits passent l'un après l'autre, sur peu de fils — le cas en embarqué) ou parallèle. Il est **synchrone** quand une ligne d'**horloge** cadence les échanges, **asynchrone** quand les deux côtés doivent s'accorder à l'avance sur un débit. Il est **point-à-point** (deux composants seulement) ou **multi-nœuds** (plusieurs composants sur les mêmes fils). Enfin, il échange dans un seul sens à la fois ou en **full-duplex** (les deux sens simultanément).
+Quatre distinctions structurent le paysage. Un bus est **série** (les bits passent l'un après l'autre, sur peu de fils, le cas en embarqué) ou parallèle. Il est **synchrone** quand une ligne d'**horloge** cadence les échanges, **asynchrone** quand les deux côtés doivent s'accorder à l'avance sur un débit. Il est **point-à-point** (deux composants seulement) ou **multi-nœuds** (plusieurs composants sur les mêmes fils). Enfin, il échange dans un seul sens à la fois ou en **full-duplex** (les deux sens simultanément).
 
 Les trois protocoles courants se rangent ainsi :
 

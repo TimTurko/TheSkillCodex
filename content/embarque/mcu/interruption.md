@@ -11,7 +11,7 @@ phases: []
 draft: false
 ---
 
-Une **interruption** est un mécanisme par lequel un [[microcontroleur|microcontrôleur]] **suspend le programme en cours** dès qu'un événement survient, exécute une petite fonction dédiée — la **routine d'interruption** (ISR, *Interrupt Service Routine*) — puis reprend le programme exactement là où il s'était arrêté. C'est la façon de **réagir immédiatement** à un événement sans avoir à le surveiller en boucle, et de ne **jamais manquer** un signal trop bref pour être attrapé au passage.
+Une **interruption** est un mécanisme par lequel un [[microcontroleur|microcontrôleur]] **suspend le programme en cours** dès qu'un événement survient, exécute une petite fonction dédiée, la **routine d'interruption** (ISR, *Interrupt Service Routine*), puis reprend le programme exactement là où il s'était arrêté. C'est la façon de **réagir immédiatement** à un événement sans avoir à le surveiller en boucle, et de ne **jamais manquer** un signal trop bref pour être attrapé au passage.
 
 ![Chronogramme à deux niveaux : le programme principal s'exécute le long de l'axe du temps, un événement le suspend, l'exécution saute vers la routine d'interruption (ISR) qui s'exécute brièvement, puis redescend et le programme principal reprend là où il s'était arrêté.](/ressources/img/interruption/chronogramme.svg)
 
@@ -37,13 +37,13 @@ Deux notions techniques accompagnent ce mécanisme et sont la source des bugs le
 
 **Le mot-clé `volatile`.** Une variable partagée entre l'ISR et le programme principal doit être déclarée `volatile`. Sans cela, le compilateur, croyant la variable inchangée, peut en garder une copie obsolète et ne jamais voir la mise à jour faite par l'ISR. `volatile` force une relecture en mémoire à chaque accès.
 
-**La lecture atomique.** Sur un microcontrôleur 8 bits, lire une variable de 16 ou 32 bits prend **plusieurs accès mémoire**. Si une interruption tombe au milieu de cette lecture et modifie la variable, le programme principal récupère une valeur **mi-ancienne mi-nouvelle**, incohérente. La parade est de lire la variable dans une **section critique** — en désactivant brièvement les interruptions le temps de la copie, puis en les réactivant.
+**La lecture atomique.** Sur un microcontrôleur 8 bits, lire une variable de 16 ou 32 bits prend **plusieurs accès mémoire**. Si une interruption tombe au milieu de cette lecture et modifie la variable, le programme principal récupère une valeur **mi-ancienne mi-nouvelle**, incohérente. La parade est de lire la variable dans une **section critique**, en désactivant brièvement les interruptions le temps de la copie, puis en les réactivant.
 
-Côté Arduino, ce mécanisme se manipule avec `attachInterrupt()` et le mot-clé `volatile` ; la mise en œuvre concrète est traitée dans [[arduino-interruptions|le tuto sur les interruptions Arduino]], et côté MicroPython dans [[micropython-interruptions]].
+Côté Arduino, ce mécanisme se manipule avec `attachInterrupt()` et le mot-clé `volatile`. La mise en œuvre concrète est traitée dans [[arduino-interruptions|le tuto sur les interruptions Arduino]], et côté MicroPython dans [[micropython-interruptions]].
 
 ## Les sources d'interruption
 
-Une interruption ne vient pas que d'une broche : la plupart des périphériques d'un microcontrôleur peuvent en déclencher une. Le **mécanisme reste le même** (vecteur → ISR → retour) ; seule change la façon de l'armer.
+Une interruption ne vient pas que d'une broche : la plupart des périphériques d'un microcontrôleur peuvent en déclencher une. Le **mécanisme reste le même** (vecteur → ISR → retour). Seule change la façon de l'armer.
 
 | Source | Déclencheur | Usage typique | En pratique |
 | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ Les deux sources les plus utilisées en projet — **externe** (réagir à un é
 
 Un système exécute une boucle qui met, disons, un dixième de seconde à faire un tour (calculs, affichage, communication). Un opérateur appuie sur le bouton d'arrêt d'urgence.
 
-**En polling**, le bouton n'est lu qu'une fois par tour de boucle. Dans le pire cas, l'appui survient juste après la lecture : il faut attendre la fin du tour pour qu'il soit pris en compte — un dixième de seconde de retard sur un arrêt d'urgence, c'est inacceptable. Pire, si l'appui est bref et que la boucle est longue, il peut passer **entre deux lectures** et n'être jamais vu.
+**En polling**, le bouton n'est lu qu'une fois par tour de boucle. Dans le pire cas, l'appui survient juste après la lecture : il faut attendre la fin du tour pour qu'il soit pris en compte. Un dixième de seconde de retard sur un arrêt d'urgence, c'est inacceptable. Pire, si l'appui est bref et que la boucle est longue, il peut passer **entre deux lectures** et n'être jamais vu.
 
-**En interruption**, le bouton est câblé sur une broche d'interruption. À l'instant de l'appui, le programme en cours est suspendu et l'ISR s'exécute : elle coupe la sortie de puissance et lève un drapeau. La réaction est **immédiate et garantie**, quel que soit ce que faisait la boucle. L'ISR se contente de couper et de signaler ; le programme principal, lui, gérera ensuite l'affichage du défaut et la procédure de redémarrage — le traitement long n'a pas sa place dans l'ISR.
+**En interruption**, le bouton est câblé sur une broche d'interruption. À l'instant de l'appui, le programme en cours est suspendu et l'ISR s'exécute : elle coupe la sortie de puissance et lève un drapeau. La réaction est **immédiate et garantie**, quel que soit ce que faisait la boucle. L'ISR se contente de couper et de signaler. Le programme principal, lui, gérera ensuite l'affichage du défaut et la procédure de redémarrage : le traitement long n'a pas sa place dans l'ISR.
 
-Ce cas résume la règle de choix : dès qu'un événement est **urgent** ou **fugace**, il appelle une interruption ; pour le reste, le polling suffit et reste plus simple.
+Ce cas résume la règle de choix : dès qu'un événement est **urgent** ou **fugace**, il appelle une interruption. Pour le reste, le polling suffit et reste plus simple.
 
 ## Pièges
 
@@ -75,7 +75,7 @@ Ce cas résume la règle de choix : dès qu'un événement est **urgent** ou **f
 
 **Appeler `delay()` ou écrire sur le port série dans l'ISR.** Ces fonctions reposent elles-mêmes sur des interruptions, désactivées pendant l'ISR : elles s'y comportent mal ou bloquent. On n'y fait ni temporisation, ni affichage.
 
-**Croire que le temps avance dans l'ISR.** Le compteur matériel, lui, tourne toujours — mais l'**horloge logicielle** (`millis()` et consorts) repose elle-même sur une interruption, bloquée pendant l'ISR : elle ne progresse plus. Mesurer ou attendre une durée depuis l'intérieur d'une ISR donne des résultats faux.
+**Croire que le temps avance dans l'ISR.** Le compteur matériel, lui, tourne toujours. Mais l'**horloge logicielle** (`millis()` et consorts) repose elle-même sur une interruption, bloquée pendant l'ISR : elle ne progresse plus. Mesurer ou attendre une durée depuis l'intérieur d'une ISR donne des résultats faux.
 
 **Oublier le rebond du bouton.** Un appui mécanique rebondit pendant quelques millisecondes : une broche d'interruption câblée sur un bouton déclenche **plusieurs ISR par appui**. Filtrer — ignorer les déclenchements trop rapprochés, ou lever un drapeau dans l'ISR et traiter l'anti-rebond dans le programme principal.
 

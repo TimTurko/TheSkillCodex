@@ -15,7 +15,7 @@ source_sha256: 7859e74e13342d4f216df2229ae3329b0e5505ba1d5944f31caa2bbf40678e5f
 
 **PWM** (*Pulse Width Modulation*) is a signal that is only ever **fully on or fully off**, and whose proportion of time spent high is what gets varied. That proportion is called the **duty cycle**. On average, this switching mimics an adjustable voltage without a single analog component.
 
-![Three timing diagrams of the same PWM signal at duty cycles of 25, 50 and 75 %: the signal stays fully on or fully off, while the amber dashed average rises with the proportion of time spent high.](/ressources/img/pwm/rapport-cyclique.svg)
+![Three timing diagrams of the same PWM signal at duty cycles of 25, 50 and 75%: the signal stays fully on or fully off, while the amber dashed average rises with the proportion of time spent high.](/ressources/img/pwm/rapport-cyclique.svg)
 
 ## What is it for?
 

@@ -16,7 +16,7 @@ La **manipulation de bits** consiste à lire et modifier les bits **individuels*
 
 ## À quoi ça sert ?
 
-En embarqué, une grande partie des réglages d'un microcontrôleur tient dans des **registres** : des octets où **chaque bit commande une fonction** distincte. Pour changer *un* réglage sans perturber les autres, il faut agir sur *son* bit seulement — c'est précisément ce que permet le masquage. Sans cette technique, on écrase un réglage en voulant en changer un autre.
+En embarqué, une grande partie des réglages d'un microcontrôleur tient dans des **registres** : des octets où **chaque bit commande une fonction** distincte. Pour changer *un* réglage sans perturber les autres, il faut agir sur *son* bit seulement. C'est précisément ce que permet le masquage. Sans cette technique, on écrase un réglage en voulant en changer un autre.
 
 Deux autres usages reviennent souvent :
 
@@ -27,7 +27,7 @@ On y touche en [[preuve-de-concept|preuve de concept]], dès qu'on configure un 
 
 ## Comment manipuler les bits
 
-**Le rappel binaire.** Un octet, ce sont 8 bits numérotés de 0 (poids faible, à droite) à 7. En [[cpp|C++]], le préfixe `0b` écrit un nombre en binaire (`0b00101101`). L'expression `1 << n` décale un `1` de `n` positions vers la gauche : elle fabrique un **masque** qui isole exactement le bit `n`. *Les mêmes opérateurs existent à l'identique en MicroPython — les idiomes ci-dessous s'y transposent mot pour mot.*
+**Le rappel binaire.** Un octet, ce sont 8 bits numérotés de 0 (poids faible, à droite) à 7. En [[cpp|C++]], le préfixe `0b` écrit un nombre en binaire (`0b00101101`). L'expression `1 << n` décale un `1` de `n` positions vers la gauche : elle fabrique un **masque** qui isole exactement le bit `n`. *Les mêmes opérateurs existent à l'identique en MicroPython, où les idiomes ci-dessous se transposent mot pour mot.*
 
 **Les opérateurs.** Chacun a un rôle dédié :
 
@@ -77,7 +77,7 @@ if (etats & (1 << ERREUR)) {   // une erreur est-elle levée ?
 }
 ```
 
-Le même octet porte huit informations indépendantes, chacune modifiable sans toucher aux autres. C'est le principe exact d'un registre matériel — à ceci près qu'ici, c'est nous qui décidons du sens de chaque bit.
+Le même octet porte huit informations indépendantes, chacune modifiable sans toucher aux autres. C'est le principe exact d'un registre matériel, à ceci près qu'ici, c'est nous qui décidons du sens de chaque bit.
 
 ## Cas particulier — Les registres d'un microcontrôleur
 
@@ -87,7 +87,7 @@ C'est l'usage le plus fréquent en projet. Chaque périphérique (timer, port d'
 TCCR1B |= (1 << WGM12);   // active le mode CTC du Timer1, sans toucher aux autres bits
 ```
 
-`WGM12` n'est qu'un **nom** donné à un numéro de bit (défini par les en-têtes de la puce). On écrit `|=` et non `=` pour ne modifier que ce bit : un simple `=` écraserait tous les autres réglages du registre. La correspondance *quel bit commande quelle fonction* se lit dans la [[lire-une-datasheet|datasheet]] du microcontrôleur. Cet exemple est **spécifique à l'AVR** (ATmega328P de l'Uno) ; un autre microcontrôleur a d'autres registres, mais la **technique est identique**. En projet, une bibliothèque suffit presque toujours (voir [[arduino-timers|timers sur Arduino]]) ; ce niveau ne sert qu'au réglage fin ou pour relire un code existant.
+`WGM12` n'est qu'un **nom** donné à un numéro de bit (défini par les en-têtes de la puce). On écrit `|=` et non `=` pour ne modifier que ce bit : un simple `=` écraserait tous les autres réglages du registre. La correspondance *quel bit commande quelle fonction* se lit dans la [[lire-une-datasheet|datasheet]] du microcontrôleur. Cet exemple est **spécifique à l'AVR** (ATmega328P de l'Uno). Un autre microcontrôleur a d'autres registres, mais la **technique est identique**. En projet, une bibliothèque suffit presque toujours (voir [[arduino-timers|timers sur Arduino]]). Ce niveau ne sert qu'au réglage fin ou pour relire un code existant.
 
 ## Pièges
 
@@ -95,7 +95,7 @@ TCCR1B |= (1 << WGM12);   // active le mode CTC du Timer1, sans toucher aux autr
 
 **Oublier les parenthèses.** Les opérateurs bit-à-bit ont une priorité plus basse que `==` : `x & 1 == 0` est interprété comme `x & (1 == 0)`. Toujours parenthéser : `(x & 1) == 0`.
 
-**Effacer un bit sans le `~`.** `r &= (1 << n)` n'efface pas le bit `n` — il efface **tous les autres**. Le masque d'effacement est l'inverse : `r &= ~(1 << n)`.
+**Effacer un bit sans le `~`.** `r &= (1 << n)` n'efface pas le bit `n`. Il efface **tous les autres**. Le masque d'effacement est l'inverse : `r &= ~(1 << n)`.
 
 **Écraser un registre avec `=`.** `TCCR1B = (1 << WGM12)` remet à zéro tous les autres bits du registre. Pour ne toucher qu'un bit, c'est `|=` (mettre à 1) ou `&= ~` (mettre à 0).
 
