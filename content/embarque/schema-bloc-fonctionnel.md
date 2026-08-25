@@ -35,7 +35,7 @@ Un schéma bloc se construit en partant du [[cahier-des-charges-fonctionnel|cahi
 4. Qui décide ? → identifier le ou les [[microcontroleur|contrôleurs]] (microcontrôleur, automate, logique câblée).
 5. Comment circule l'information ? → tracer les flèches entre les blocs avec le type de flux.
 
-L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène à dimensionner le système autour d'un composant plutôt qu'autour d'un besoin. *"Je connais bien les ESP32, je vais partir là-dessus"* — et l'on se retrouve à devoir caser l'usage dans les contraintes du composant.
+L'ordre compte : commencer par le contrôleur est un piège fréquent qui mène à dimensionner le système autour d'un composant plutôt qu'autour d'un besoin. *"Je connais bien les ESP32, je vais partir là-dessus"*, et l'on se retrouve à devoir caser l'usage dans les contraintes du composant.
 
 ### Conventions de représentation
 
@@ -60,9 +60,9 @@ On lit le schéma ainsi : l'utilisateur fixe une consigne, le contrôleur la com
 Quelques observations à tirer de cet exemple :
 
 - L'utilisateur et l'air de la couveuse sont en dehors du système (hors de la frontière en pointillé). Ce sont des éléments d'environnement.
-- L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance ; la résistance la transforme en chaleur.
+- L'effecteur (résistance chauffante) est distinct de l'actionneur (relais SSR). Le relais commute la puissance. La résistance la transforme en chaleur.
 - La boucle se ferme par le monde physique : la chaleur passe par l'air avant d'être mesurée. C'est typique des systèmes thermiques, et ça explique l'inertie longue caractéristique de ce type d'asservissement (un correcteur [[asservissement|PID]] est généralement nécessaire pour atteindre une régulation stable).
-- Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur — deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
+- Le flux d'énergie est tracé jusqu'à ses sources : le réseau 230 V alimente le relais, l'alimentation 5 V alimente le contrôleur, deux rails distincts qui franchissent la frontière. C'est l'oubli classique des schémas qui ne montrent que les signaux (voir Pièges).
 
 ## Pièges
 

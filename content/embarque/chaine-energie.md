@@ -12,7 +12,7 @@ phases:
 draft: false
 ---
 
-La **chaîne d'énergie** et la **chaîne d'information** sont deux suites de fonctions qui décrivent tout système mécatronique : l'une dit comment il **agit** sur le monde (la puissance), l'autre comment il se **pilote** (la commande). Les deux sont couplées — l'information commande l'énergie et mesure ses effets en retour. C'est le modèle le plus simple pour situer chaque composant d'un projet : côté puissance, ou côté commande.
+La **chaîne d'énergie** et la **chaîne d'information** sont deux suites de fonctions qui décrivent tout système mécatronique : l'une dit comment il **agit** sur le monde (la puissance), l'autre comment il se **pilote** (la commande). Les deux sont couplées. L'information commande l'énergie et mesure ses effets en retour. C'est le modèle le plus simple pour situer chaque composant d'un projet : côté puissance, ou côté commande.
 
 ![Modèle d'un système mécatronique en deux chaînes couplées : en bas la chaîne d'énergie (alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre) ; en haut la chaîne d'information (acquérir, traiter, communiquer). La chaîne d'information commande la chaîne d'énergie au niveau « distribuer » et reçoit en retour la mesure des capteurs.](/ressources/img/chaine-energie/generique.svg)
 
@@ -43,10 +43,10 @@ Au bout de la chaîne, le système **agit** sur la matière d'œuvre.
 2. **Traiter** — décider : comparer à la consigne, appliquer une loi de commande ([[microcontroleur|microcontrôleur]], [[firmware|firmware]]).
 3. **Communiquer** — restituer (afficheur, voyant, message réseau, retour à l'opérateur).
 
-**Le couplage** fait tout l'intérêt du modèle : la chaîne d'information **commande** la chaîne d'énergie — typiquement au niveau *distribuer* — et **acquiert** en retour la mesure de ses effets. Cette boucle mesure → décision → action est le cœur d'un système asservi.
+**Le couplage** fait tout l'intérêt du modèle : la chaîne d'information **commande** la chaîne d'énergie (typiquement au niveau *distribuer*) et **acquiert** en retour la mesure de ses effets. Cette boucle mesure → décision → action est le cœur d'un système asservi.
 
 > [!tip] Astuce
-> **Quels composants pour chaque bloc ?** Des familles stables et courantes en projet étudiant — à vérifier en disponibilité, la datasheet faisant foi.
+> **Quels composants pour chaque bloc ?** Des familles stables et courantes en projet étudiant. À vérifier en disponibilité, la datasheet faisant foi.
 >
 > | Bloc | Composants courants | Pour choisir |
 > |---|---|---|
@@ -66,9 +66,9 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 
 ## Pièges
 
-**Oublier l'étage *distribuer*.** On ne branche pas un moteur directement sur une sortie de microcontrôleur : il faut un **driver** (ou un pont en H) entre la commande et la puissance. Sauter cet étage, c'est griller une sortie — et c'est précisément l'étage que la chaîne fait apparaître.
+**Oublier l'étage *distribuer*.** On ne branche pas un moteur directement sur une sortie de microcontrôleur : il faut un **driver** (ou un pont en H) entre la commande et la puissance. Sauter cet étage, c'est griller une sortie, et c'est précisément l'étage que la chaîne fait apparaître.
 
-**Confondre convertir et transmettre.** Le moteur **convertit** l'énergie (électrique → mécanique) ; le réducteur la **transmet** en l'adaptant (couple, vitesse). Deux fonctions distinctes, souvent dans deux composants distincts.
+**Confondre convertir et transmettre.** Le moteur **convertit** l'énergie (électrique → mécanique). Le réducteur la **transmet** en l'adaptant (couple, vitesse). Deux fonctions distinctes, souvent dans deux composants distincts.
 
 **Tracer une chaîne d'énergie sans retour.** Sans capteur qui mesure l'effet produit, le système est en [[boucle-ouverte|boucle ouverte]] : il commande à l'aveugle. Beaucoup de défaillances viennent d'un retour oublié dès la conception.
 
@@ -77,7 +77,7 @@ Sur le bras du fil rouge, les deux chaînes se lisent membre par membre. Côté 
 ## Voir aussi
 
 - [[alimentation-electronique|Concevoir une alimentation électronique]] — l'ingénierie du bloc *alimenter / distribuer*
-- [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — les **fonctions** et leurs flux ; vue complémentaire
+- [[schema-bloc-fonctionnel|Schéma bloc fonctionnel]] — les **fonctions** et leurs flux, vue complémentaire
 - [[schema-cinematique|Schéma cinématique]] — les **mouvements** du mécanisme mis en action par la chaîne d'énergie
 - [[asservissement|Asservissement]] — ce que devient le couplage quand la mesure revient à la commande : la boucle fermée
 - [[microcontroleur|Microcontrôleur]] — le cœur de la chaîne d'information

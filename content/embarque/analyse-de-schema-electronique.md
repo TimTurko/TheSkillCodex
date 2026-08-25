@@ -42,7 +42,7 @@ Tout montage vit **entre deux potentiels** : l'alimentation (étiquetée VCC, VD
 
 ### 2. Découper en blocs fonctionnels
 
-Regrouper mentalement les composants par **fonction** : alimentation, traitement (le [[microcontroleur|MCU]]), entrées (capteurs), sorties (actionneurs). C'est le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] appliqué à un schéma réel — on retrouve les mêmes quatre fonctions, mais en composants concrets.
+Regrouper mentalement les composants par **fonction** : alimentation, traitement (le [[microcontroleur|MCU]]), entrées (capteurs), sorties (actionneurs). C'est le [[schema-bloc-fonctionnel|schéma bloc fonctionnel]] appliqué à un schéma réel. On retrouve les mêmes quatre fonctions, mais en composants concrets.
 
 ### 3. Identifier chaque composant
 
@@ -67,8 +67,8 @@ Appliquons la méthode à un petit montage : un capteur lu par un MCU qui pilote
 1. **Alimentation.** Deux rails : `+5 V` en haut, `GND` en bas. Tout le montage travaille en 5 V.
 2. **Blocs.** Trois fonctions se dessinent : un pont diviseur à gauche (entrée capteur), `U1` au centre (traitement), la LED à droite (sortie actionneur).
 3. **Composants.** `R1` (10 kΩ, fixe) et `R2` (capteur, résistance variable) ; `U1`, le MCU ; `R3` (220 Ω) ; `D1`, la LED.
-4. **Signaux.** Quand la résistance du capteur `R2` varie, la **tension du point milieu** change ; cette tension est lue par l'entrée analogique `A0` du MCU (une [[adc|conversion analogique-numérique]]). Le MCU décide (sa [[logigramme|logique]]) et active la sortie `D9`, qui commande la LED.
-5. **Cohérence.** `R3` limite le courant dans `D1` (sans elle, la LED grillerait), et le pont diviseur **transforme la variation de résistance du capteur en tension** — un MCU ne lit pas des ohms, il lit des volts sur `A0`. Le montage tient debout.
+4. **Signaux.** Quand la résistance du capteur `R2` varie, la **tension du point milieu** change. Cette tension est lue par l'entrée analogique `A0` du MCU (une [[adc|conversion analogique-numérique]]). Le MCU décide (sa [[logigramme|logique]]) et active la sortie `D9`, qui commande la LED.
+5. **Cohérence.** `R3` limite le courant dans `D1` (sans elle, la LED grillerait), et le pont diviseur **transforme la variation de résistance du capteur en tension**. Un MCU ne lit pas des ohms, il lit des volts sur `A0`. Le montage tient debout.
 
 Sur un schéma réel, plus fourni, le même découpage se pratique **au crayon** : encadrer les zones fonctionnelles (protection, alimentation, entrée, adaptation, traitement, sortie) transforme une page de symboles en carte lisible.
 
@@ -86,11 +86,11 @@ Sur un schéma réel, plus fourni, le même découpage se pratique **au crayon**
 
 **Oublier les composants « invisibles ».** Résistance de limitation d'une LED, pull-up d'un bouton ou d'un bus [[i2c|I2C]], découplage d'un IC : leur absence est une faute, pas un détail.
 
-**Confondre schéma et implantation.** Le schéma de principe décrit les **liaisons électriques** (qui est relié à quoi) ; il ne dit rien du **placement physique** des composants sur la carte. Ce sont deux vues distinctes du même montage.
+**Confondre schéma et implantation.** Le schéma de principe décrit les **liaisons électriques** (qui est relié à quoi). Il ne dit rien du **placement physique** des composants sur la carte. Ce sont deux vues distinctes du même montage.
 
 ## Cas particulier — Schémas multi-feuilles et circuit d'application
 
-Un schéma volumineux s'étale sur **plusieurs feuilles** reliées par des labels de net (ou connecteurs *off-page*) : aucun fil ne traverse les pages, c'est l'identité des noms qui assure la continuité. Par ailleurs, presque toute [[lire-une-datasheet|datasheet]] propose un **circuit d'application** (ou *typical application*) : un schéma prêt à lire qui montre le câblage recommandé du composant. Savoir le décoder, c'est déjà savoir se servir de la puce — la moitié du travail d'intégration.
+Un schéma volumineux s'étale sur **plusieurs feuilles** reliées par des labels de net (ou connecteurs *off-page*) : aucun fil ne traverse les pages, c'est l'identité des noms qui assure la continuité. Par ailleurs, presque toute [[lire-une-datasheet|datasheet]] propose un **circuit d'application** (ou *typical application*) : un schéma prêt à lire qui montre le câblage recommandé du composant. Savoir le décoder, c'est déjà savoir se servir de la puce, la moitié du travail d'intégration.
 
 ## Voir aussi
 

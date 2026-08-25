@@ -294,6 +294,37 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | programmateur | programmer |
 | ordonnanceur | scheduler |
 | arbre d'horloge | clock tree |
+| schéma cinématique | kinematic diagram |
+| liaison (mécanique) | joint |
+| liaison pivot | revolute joint |
+| liaison glissière | prismatic joint |
+| encastrement | fixed joint |
+| bâti | frame |
+| degré de liberté (ddl) | degree of freedom (DOF) |
+| calcul de mobilité | mobility calculation |
+| torseur cinématique | kinematic screw |
+| simulation électronique | circuit simulation |
+| point de fonctionnement | operating point |
+| analyse transitoire | transient analysis |
+| analyse fréquentielle | frequency analysis |
+| sonde (de simulation) | probe |
+| pont diviseur | voltage divider |
+| bande passante | bandwidth |
+| fréquence de coupure | cut-off frequency |
+| temps de montée | rise time |
+| constante de temps | time constant |
+| régime établi | steady state |
+| label de net | net label |
+| effecteur | end effector |
+| frontière du système | system boundary |
+| alléger (une géométrie) | to lighten |
+| nervure / nervurer | rib / to rib |
+| évider | to hollow out |
+| axe neutre | neutral axis |
+| raideur | stiffness |
+| flèche (flexion) | deflection |
+| entretoise | spacer |
+| équerre | bracket |
 
 **⚠ La glose d'un sigle anglophone disparaît en traduction (23/08), et le cas symétrique existe aussi (25/08).** Sur `stm32`, le français écrit « repérées *FT*, pour *five-volt tolerant*, dans la datasheet » : la glose y est **déjà en anglais**, parce que le sigle l'est. En anglais elle redoublerait le sigle qu'elle explique, exactement comme la glose d'`adc`. Elle tombe donc, et l'italique de citation avec elle, le segment devenant une simple apposition : *marked FT, for five-volt tolerant*. Vaut pour tout sigle dont la source française donne déjà la forme développée anglaise.
 
@@ -385,7 +416,9 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
     | notions transverses, les huit restantes (`manipulation-de-bits`, `niveaux-de-tension`, `debugger-embarque`, `microcontroleur`, `bus-de-communication`, `techno-sans-fil`, `lire-une-datasheet`, `cpp-logs`) | à faire | **≈ 11 000, dérivé** |
     | `embarque/mesure/` (3) | à faire | — |
     | les lourdes de `conduite/proj` (`securite-et-qualite` 4 051, `ecoconception` 3 284, `gestion-de-projet` 2 740…) | à faire | — |
-    | **anneau 1** | **82 cibles, 58 traduites** | **24 fiches, 36 885 mots** |
+    | **anneau 1** | **82 cibles, 75 traduites** | **7 fiches, 15 905 mots** |
+
+    **État au 25/08 (suite 2).** L'anneau 1 ne porte plus que **sept fiches**, et six d'entre elles sont dans `conduite/proj/` : `amdec` 1 741, `cahier-des-charges-fonctionnel` 1 323, `decomposition-fonctionnelle` 1 926, `ecoconception` 3 284, `gestion-de-projet` 2 740, `securite-et-qualite` 4 051, plus `kicad` 840. **Aucune ne se groupe sous la garde C27 sans cadrage individuel** : `cahier-des-charges-fonctionnel` est une fiche pivot à glose *opposable* obligatoire, `securite-et-qualite` est la deuxième tête de liste C109 du corpus (44 candidats, chiffre hérité à remesurer), `kicad` attend sa refonte C88 post-rentrée et **la traduire avant créerait une dérive certaine et non un risque**. Les lots précédents : `embarque/mesure/` (6 fiches, 25/08 suite), groupe schémas/simulation (6 fiches, 25/08 suite 2).
 
     ⚠ **Le ≈ 11 000 des huit restantes est une soustraction, pas un comptage** (17 127 mesurés pour les treize, moins 6 127 pour les cinq faites), et il est cité comme ordre de grandeur au sens de C110. **`lire-une-datasheet` en porte à elle seule 3 263**, soit le double de la médiane du lot. Le chiffre ferme se lira dans `compter-mots.mjs --lot` à l'ouverture de la prochaine séance.
 
