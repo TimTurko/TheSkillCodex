@@ -1899,6 +1899,38 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 
 ⚠ **L'espace française devant `;` pour la SIXIÈME séance consécutive**, deux occurrences, **toujours dans un segment d'énumération transposé au lieu d'être réécrit**. Retirées à la relecture, donc **le zéro de typographie du contrôle prouve que la relecture a tenu, pas que le geste a disparu** — distinction à connaître avant de lire ce verdict comme une guérison.
 
+### Acquises 26/08 — C119 arbitrée, le lot des six outils de pilotage, l'ouverture du module Arduino
+
+*Une convention neuve, arbitrée. **La numérotation atteint 119.** C116 passe à **10/N**, C117 à **10/N**. C115 reçoit une lecture en creux, le §5.3 des règles une entrée et une note.*
+
+**119. Un chiffre que l'outil sait rendre ne se dérive pas d'un autre chiffre : il se relance.**
+
+*Proposée le 25/08 (suite 6), **arbitrée Tim (a) le 26/08**, portée telle quelle.*
+
+**Dès qu'un outil du dépôt peut produire un chiffre, aucune publication de ce chiffre ne passe par une soustraction, une addition ou un report.** C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (suite 4) exige que la règle vive dans un script ; son corollaire du 24/08 exige qu'un décompte se lise dans une sortie. **Celle-ci ferme la dernière porte : le calcul sur des chiffres justes.**
+
+*Motif, entièrement empirique* — six échecs dans la seule séance du 25/08 (suite 6), tous de la même forme, **et le troisième est celui qui conclut** : le piège y était écrit dans la prédiction, le chiffre alternatif nommé, la phrase « si c'est 159 696 c'est moi qui me suis trompé de sens » publiée avant lancement. **Il est sorti à 159 696.** *Connaître la règle ne protège pas de l'opération ; ne pas faire l'opération protège.*
+
+*Portée et borne.* La convention vise les chiffres **que le dépôt sait produire** : mots, fiches, liens, cibles d'anneau, dette. Elle ne vise ni les **décompositions** ni les **prédictions**, qui restent la matière du dispositif de preuve — prédire *puis mesurer* reste la règle, **c'est publier sans mesurer qui tombe**.
+
+⚠ **Première application, et elle rend un chiffre JUSTE.** Le 3 558 mots hérité du prompt d'ouverture, obtenu par addition de six valeurs du 25/08, vaut exactement le 3 558 mesuré. **C'est le bon résultat et non le mauvais** : six échecs la veille et une réussite le lendemain **ne se distinguent pas avant la mesure**, et c'est précisément l'argument de la convention.
+
+⚠ **Une borne que l'arbitrage ne tranche pas, signalée plutôt qu'arrangée.** Le **pourcentage de foisonnement** n'est produit par aucun outil du dépôt : il se calcule à partir de deux valeurs mesurées, donc il tombe hors de la portée écrite. Règle d'usage adoptée en attendant : **le ratio se publie toujours flanqué de ses deux valeurs brutes**, pour rester vérifiable à l'œil. Question versée au BACKLOG. *Éprouvée 1/N.*
+
+**Lecture en creux de C115 : la forme `**Libellé** — explication` reste sur une puce, et le corpus Arduino en vit.** C115 déclare cette forme fautive **en paragraphes**, et son mérite affiché était précisément de distinguer la liste de la prose. Les tutos Arduino la portent en puces par dizaines. **Frontière retenue** : *sur une puce, la glose de tête reste ; un tiret de prose dans une puce dont la tête est une phrase entière tombe.* Conséquence de mesure immédiate : **onze emplacements d'angle mort sur le lot `conduite/proj/`, un seul sur le lot Arduino** à volume double. **Le résidu d'un lot de tutos est donc structurellement haut** — 13 exemptions contre 2 — et ce n'est pas du laxisme, c'est la forme des fiches.
+
+⚠ **LIRE LA PRODUCTION NE REND PLUS UN LIBELLÉ, ELLE EN REND UN CHAMP.** Jusqu'ici chaque cible avait un rendu unique et la lecture tranchait. Sur les 32 cibles du module Arduino, **une cible porte jusqu'à quatre libellés distincts**. La distribution est lisible : le **hub** porte la forme courte, qui désigne une **position dans un parcours** (même nature que le patron `step N` qu'exempte `--libelles`) ; les **fiches-notion sœurs** portent la forme qualifiée, qui désambiguïse la fiche Arduino de la notion générique. **Le titre se prend sur la forme qualifiée, qui coïncide avec la traduction du `title:` français.**
+
+⚠ **LE `dryRun` A MORDU DEUX FOIS SUR LE DÉFAUT QUE C115 DÉCRIT.** Deux résolutions en deux-points auraient produit **deux deux-points dans la même phrase**, sur des segments déjà précédés d'un deux-points d'annonce. C'est le cas de `cpp-logs` du 24/08, écrit dans la convention. **Les 41 passes du premier lot étaient passées sans une correction, les 66 du second en ont demandé deux.** *L'écart de méthode consigné le 25/08 (suite 4) aurait mis ces deux défauts en production.*
+
+**Le français de la fiche sœur tranche encore, et cette fois il a corrigé une exemption.** `specification-technique` réécrit les six outils de pilotage en condensé : quatre emplacements du lot y avaient déjà leur résolution, dont **une phrase que je classais exemptée** et que la sœur écrit avec un deux-points. Alignée, coût nul. ⚠ **Et une résolution de la sœur a été ÉCARTÉE** : elle perdait une comparaison que la fiche du jour porte et que la trame n'a pas. *La jurisprudence se lit, elle ne se recopie pas.*
+
+**Le foisonnement peut mesurer la langue, et il faut savoir quand.** Le lot des six outils sort **sans lien nu rempli, sans glose §5.2 autre que `CdCF` posée trois fois, sans glose française qui tombe** — les trois causes d'ininterprétabilité recensées depuis le 24/08 sont absentes en même temps, pour la première fois. **Écart interne d'un facteur 1,5** contre un facteur trois ailleurs. *La liste des causes d'exclusion sert donc aussi à repérer les lots où le chiffre vaut quelque chose.*
+
+⚠ **UN PÉRIMÈTRE OUVERT ET NON MESURÉ : LA GLOSE DE PUCE DE *Raccrochage projet*.** Sa forme `**Étape N de la [[x|phase]]** — <explication à verbe conjugué>` tombe sous la lecture stricte de C109 et reste invisible à l'outil sous la règle positionnelle. C'est une **glose de template**, présente dans toutes les fiches. **Rien décidé, périmètre non compté** (C118) : la réponse vaut pour 242 fiches, pas pour six.
+
+**Une entrée au §5.3 des règles**, et cinq titres qui n'en demandaient pas. `Milestones`, `Backward planning`, `WBS`, `Decision matrix`, `Risk matrix` se déduisent d'entrées déjà figées et ont été **lus en production** avant d'être écrits. Seul **`Gantt` → *Gantt chart*** est neuf : la production n'écrivait que `[[gantt-en|Gantt]]` suivi du mot *chart* **hors du lien**, donc il n'y avait aucun titre à lire. **`--libelles` n'a rendu aucun candidat neuf** après ce lot, alors que **103 liens sont passés d'injugeables à jugeables**.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

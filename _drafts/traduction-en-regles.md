@@ -238,6 +238,7 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | entraxe | centre distance |
 | faisceau (câblage) | harness |
 | rétroplanning | backward planning |
+| Gantt, diagramme de Gantt | Gantt chart |
 | lot (WBS) | work package |
 | état de l'art technique | technical state of the art |
 | matrice de risques | risk matrix |
@@ -389,6 +390,8 @@ Trois formes dérivées figées à cette occasion, parce qu'elles ne se déduise
 
 **⚠ La glose française d'un terme anglophone tombe, comme celle d'un sigle (24/08 suite 2).** La règle écrite pour `adc` et `pwm` vaut pour **tout terme**, pas seulement pour les sigles : quand le français glose un mot anglais conservé, la glose **redouble en anglais le mot qu'elle explique**. Cinq occurrences sur le lot des notions transverses : *General Purpose Input/Output, entrée/sortie à usage général* (`gpio`), *Interrupt Service Routine* après « routine d'interruption » (`interruption`), « le prédiviseur (*prescaler*) » (`timer`), « le **deep sleep** (sommeil profond) » et « la **veille légère** (*light sleep*) » (`deep-sleep`). **Effet de mesure à connaître** : ces suppressions **font baisser le compte de mots EN sous le FR** et le décompte C109 avec elles quand la glose portait un tiret. Ce n'est ni une perte ni une création — le différentiel ne signale que les créations, il ne bronchera donc pas, mais une relecture ultérieure pourrait lire la baisse comme un oubli.
 
+**⚠ Une cible peut porter PLUSIEURS libellés en production, et le titre se prend sur la forme qualifiée (26/08).** Jusqu'ici lire la production rendait un rendu unique et la lecture tranchait. Sur les 32 cibles du module Arduino, **une cible en porte jusqu'à quatre**. La distribution est lisible et non aléatoire : le **hub de famille** porte la forme **courte** (*Memory management*, *Hardware timers*, *Interrupts*), qui désigne une **position dans un parcours** — même nature que le patron `step N` qu'exempte `--libelles` ; les **fiches-notion sœurs** portent la forme **qualifiée** (*Managing memory on Arduino*, *timers on Arduino*, *I2C on Arduino*), qui désambiguïse la fiche Arduino de la notion générique. **Le `title:` se prend sur la forme qualifiée**, qui coïncide avec la traduction du `title:` français. ⚠ **Le cas non résolu est `arduino-temporisation`**, dont le titre français `Temporiser` est un infinitif nu que rien ne dicte et dont les trois libellés en production ne convergent pas.
+
 **Orthographe : anglais britannique par défaut** (*centimetres*, *organise*, *metres*), **sauf sur les termes techniques dont la forme américaine domine la littérature du domaine** — *analog* et non *analogue*, *caliper* et non *calliper*. Motif identique à celui du « stepper » du §1, pris dans l'autre sens : l'étudiant tape `analogRead()`, lit *analog input* sur ses datasheets et voit `ANALOG IN` sérigraphié sur sa carte. Écrire *analogue* créerait un décalage avec ce qu'il a sous les yeux.
 
 **La glose d'un sigle anglophone disparaît en traduction.** `adc` ouvre en français sur « *Analog-to-Digital Converter*, convertisseur analogique-numérique » : la seconde moitié n'a plus d'objet en anglais, où elle répéterait le sigle qu'elle explique. Vaut pour `adc`, `pwm`, `ble`, `led`, `gpio` et tous les sigles anglophones glosés en français. **Ne touche aucun compteur**, et un traducteur mécanique laisserait la redondance.
@@ -448,7 +451,26 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
     ⚠ **Le ≈ 11 000 des huit restantes est une soustraction, pas un comptage** (17 127 mesurés pour les treize, moins 6 127 pour les cinq faites), et il est cité comme ordre de grandeur au sens de C110. **`lire-une-datasheet` en porte à elle seule 3 263**, soit le double de la médiane du lot. Le chiffre ferme se lira dans `compter-mots.mjs --lot` à l'ouverture de la prochaine séance.
 
     ⚠ **C'est le premier lot à porter des blocs de code**, donc le premier où le troisième compteur mord, et il concentre les **29 wikilinks à libellé en backticks** — le correctif de segmentation du 23/08 (suite) est éprouvé depuis le module MicroPython du 24/08.
-5. **Anneaux suivants**, recalculés depuis le front atteint.
+5. **Anneau 2 — le dernier, et il se découpe MODULE PAR MODULE.** Mesuré le 25/08 (suite 6) : **145 cibles nettes**, dont **113 restantes / 154 886 mots** au 26/08. Le restant du corpus étant de 128 fiches, **il n'y aura pas de campagne d'anneau 3** : le wiki est profond de deux clics depuis l'accueil. **Effectifs par module mesurés le 26/08** (série 4, recoupement exact à 113 / 154 886) :
+
+    | Module | Fiches | Mots | Chevron |
+    |---|---:|---:|---:|
+    | `embarque/mcu/arduino/` | 32 | 45 047 | 0 |
+    | `embarque/mcu/micropython/` | 20 | 21 071 | 0 |
+    | `embarque/mcu/esp32/` | 12 | 17 691 | 44 |
+    | `conduite/proj/` | 13 | 13 678 | 0 |
+    | `embarque/pcb/` | 1 | 9 773 | 0 |
+    | `embarque/mcu/cpp/` | 7 | 9 356 | 32 |
+    | `embarque/simulation/` | 3 | 8 432 | 0 |
+    | `embarque/mcu/stm32/` | 5 | 8 245 | 8 |
+    | `embarque/mcu/` | 7 | 7 204 | 0 |
+    | `embarque/mcu/teensy/` | 4 | 5 539 | 16 |
+    | `embarque/` | 3 | 3 414 | 0 |
+    | `embarque/mcu/raspberry-pi/` | 3 | 3 291 | 0 |
+    | `embarque/mcu/xiao/` | 2 | 2 010 | 0 |
+    | `embarque/mcu/sans-fil/` | 1 | 135 | 0 |
+
+    **Ordre arbitré le 26/08, Tim (b) : `embarque/mcu/arduino/` en premier**, 32 fiches et six lots. ⚠ **La colonne chevron isole exactement quatre modules** — `cpp/`, `esp32/`, `stm32/`, `teensy/`, **80 484 mots** — dont les comptes de mots incluent le contenu des blocs en chevron sous une règle que C110 gèle. **L'arbitrage C110 est dû avant d'y entrer**, sans quoi leurs foisonnements ne mesureront rien. `arduino/` est à **zéro chevron**. ⚠ **`conduite/proj/` est le seul module qui ferme une branche** (`conduite/` entière) et il porte les six liens rouges du triplet NF X50-151, dont l'arbitrage se posera quand il reviendra. ⚠ **`easyeda` seule pèse 9 773 mots** : elle se planifie comme une séance à part, jamais comme la queue d'un lot.
 
 *Rédaction antérieure, conservée pour trace — l'ordre était : parcours d'entrée, puis les 53 fiches courtes du corpus entier (16 000 mots), puis module par module dans l'ordre de `_drafts/relecture-ordre.md`.*
 
