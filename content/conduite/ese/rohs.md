@@ -15,7 +15,7 @@ draft: false
 
 RoHS se rencontre directement à l'établi : l'étain de [[soudure|soudure]] utilisé en TP est sans plomb pour cette raison. Au niveau projet, la directive est surtout une **contrainte de choix de composants** (préférer des références conformes) et une ligne à **tracer** côté [[ecoconception|écoconception]] et [[securite-et-qualite|sécurité-qualité]], sans visée de certification.
 
-*Les listes de substances restreintes, seuils et exemptions relèvent du **cours normatif** et de la discipline ESE ; le wiki se limite à situer RoHS dans les choix techniques du projet.*
+*Les listes de substances restreintes, seuils et exemptions relèvent du **cours normatif** et de la discipline ESE. Le wiki se limite à situer RoHS dans les choix techniques du projet.*
 
 ## Voir aussi
 

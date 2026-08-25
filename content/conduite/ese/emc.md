@@ -15,7 +15,7 @@ La **compatibilité électromagnétique** (EMC, ou CEM) est l'aptitude d'un équ
 
 L'EMC se rencontre concrètement bien avant toute certification : un moteur qui parasite une mesure, un câble trop long qui capte du 50 Hz, un convertisseur à découpage qui brouille une liaison série. Les bonnes pratiques de câblage (masses propres, blindage, découplage) côté électronique en sont la première réponse. La **directive EMC** est, elle, l'une des directives sous [[marquage-ce|marquage CE]] — à identifier et tracer, pas à certifier en projet pédagogique.
 
-*La mesure normalisée (émission rayonnée et conduite, immunité, essais en chambre) et la conception EMC fine relèvent du **cours normatif** et de la discipline ESE ; le wiki se limite aux réflexes de câblage et au repérage de la directive.*
+*La mesure normalisée (émission rayonnée et conduite, immunité, essais en chambre) et la conception EMC fine relèvent du **cours normatif** et de la discipline ESE. Le wiki se limite aux réflexes de câblage et au repérage de la directive.*
 
 ## Voir aussi
 

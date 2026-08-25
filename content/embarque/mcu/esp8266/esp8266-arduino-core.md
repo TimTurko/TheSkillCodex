@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-L'**ESP8266 Arduino core** est la couche logicielle qui amène l'API Arduino (`setup()`, `loop()`, `digitalWrite`, `Serial`…) sur les cartes ESP8266, **avec le Wi-Fi en plus**. C'est la **porte unique** de l'ESP8266 : on reste « en Arduino », mais il faut composer avec quelques particularités de la puce — un **décalage entre les étiquettes des broches et leurs numéros GPIO**, des **broches de démarrage** à respecter, un **seul ADC**, et une **pile Wi-Fi qui tourne en tâche de fond** qu'il ne faut pas affamer. La structuration générale du firmware relève de [[firmware|firmware]] ; pour les concepts Wi-Fi, l'[[esp32-wifi|ESP32]] sert de référence (API quasi identique).
+L'**ESP8266 Arduino core** est la couche logicielle qui amène l'API Arduino (`setup()`, `loop()`, `digitalWrite`, `Serial`…) sur les cartes ESP8266, **avec le Wi-Fi en plus**. C'est la **porte unique** de l'ESP8266 : on reste « en Arduino », mais il faut composer avec quelques particularités de la puce — un **décalage entre les étiquettes des broches et leurs numéros GPIO**, des **broches de démarrage** à respecter, un **seul ADC**, et une **pile Wi-Fi qui tourne en tâche de fond** qu'il ne faut pas affamer. La structuration générale du firmware relève de [[firmware|firmware]]. Pour les concepts Wi-Fi, l'[[esp32-wifi|ESP32]] sert de référence (API quasi identique).
 
 ## À quoi ça sert ?
 
@@ -43,15 +43,15 @@ const int RELAIS = D1;   // = GPIO5, mais on raisonne avec l'étiquette de la ca
 
 ### Les broches de démarrage
 
-**GPIO0, GPIO2 et GPIO15** conditionnent le mode au reset (exécution normale vs flashage). Les utiliser en sortie de manière à forcer un mauvais état au démarrage **empêche la puce de booter**. En pratique : éviter d'y mettre une charge qui les tire au mauvais niveau, et préférer d'autres broches pour les sorties libres. **GPIO16** est particulier (pas d'interruption ; sert au réveil de *deep sleep* en le reliant à RST).
+**GPIO0, GPIO2 et GPIO15** conditionnent le mode au reset (exécution normale vs flashage). Les utiliser en sortie de manière à forcer un mauvais état au démarrage **empêche la puce de booter**. En pratique : éviter d'y mettre une charge qui les tire au mauvais niveau, et préférer d'autres broches pour les sorties libres. **GPIO16** est particulier (pas d'interruption, et sert au réveil de *deep sleep* en le reliant à RST).
 
 ### Un seul ADC
 
-L'ESP8266 n'a **qu'une entrée analogique** (**A0**), sur 10 bits. Sur la puce, elle lit **0–1 V** ; les cartes NodeMCU / D1 mini ajoutent un diviseur pour lire **0–3,3 V** à la broche. À vérifier selon la carte avant de brancher un capteur analogique.
+L'ESP8266 n'a **qu'une entrée analogique** (**A0**), sur 10 bits. Sur la puce, elle lit **0–1 V**. Les cartes NodeMCU / D1 mini ajoutent un diviseur pour lire **0–3,3 V** à la broche. À vérifier selon la carte avant de brancher un capteur analogique.
 
 ### La pile Wi-Fi tourne en tâche de fond
 
-Le Wi-Fi est géré en arrière-plan par la puce. Si `loop()` exécute un calcul **long sans rendre la main**, le **chien de garde** (*watchdog*) finit par **redémarrer la carte**. La règle : garder la boucle courte, et insérer `yield()` (ou un `delay()`) dans toute attente prolongée. C'est la contrepartie du Wi-Fi intégré — il faut **laisser respirer** la pile.
+Le Wi-Fi est géré en arrière-plan par la puce. Si `loop()` exécute un calcul **long sans rendre la main**, le **chien de garde** (*watchdog*) finit par **redémarrer la carte**. La règle : garder la boucle courte, et insérer `yield()` (ou un `delay()`) dans toute attente prolongée. C'est la contrepartie du Wi-Fi intégré. Il faut **laisser respirer** la pile.
 
 ## Exemple — Se connecter au Wi-Fi
 
@@ -92,7 +92,7 @@ Connexion.....
 Connecte. IP : 192.168.X.X
 ```
 
-Chaque point est un tour de la boucle d'attente, donc une demi-seconde : leur nombre mesure le temps qu'a pris l'association au réseau. L'adresse, elle, est **attribuée par la box** — celle de votre carte sera différente, et c'est elle qu'il faudra taper dans le navigateur pour joindre la carte.
+Chaque point est un tour de la boucle d'attente, donc une demi-seconde : leur nombre mesure le temps qu'a pris l'association au réseau. L'adresse, elle, est **attribuée par la box**. Celle de votre carte sera différente, et c'est elle qu'il faudra taper dans le navigateur pour joindre la carte.
 
 ## Pièges
 
@@ -106,7 +106,7 @@ Chaque point est un tour de la boucle d'attente, donc une demi-seconde : leur no
 
 **Appliquer 5 V.** L'ESP8266 n'est pas tolérant 5 V : adapter le niveau des signaux entrants.
 
-**Croire au Bluetooth.** L'ESP8266 **n'a pas** de Bluetooth ; si le projet en a besoin, c'est l'[[esp32|ESP32]].
+**Croire au Bluetooth.** L'ESP8266 **n'a pas** de Bluetooth. Si le projet en a besoin, c'est l'[[esp32|ESP32]].
 
 ## Exercices
 
@@ -147,17 +147,17 @@ Chaque point est un tour de la boucle d'attente, donc une demi-seconde : leur no
 > }
 > void loop() {}
 > ```
-> Le RSSI (typiquement entre −30 dBm tout près du routeur et −90 dBm en limite de portée) donne une idée de la **qualité de la liaison** — utile pour diagnostiquer des déconnexions. L'API est la même que sur ESP32.
+> Le RSSI (typiquement entre −30 dBm tout près du routeur et −90 dBm en limite de portée) donne une idée de la **qualité de la liaison**, utile pour diagnostiquer des déconnexions. L'API est la même que sur ESP32.
 
 ## Cas particulier — au-delà du premier Wi-Fi
 
-- **Serveur / client HTTP, MQTT** — l'ESP8266 héberge un petit serveur web ou publie en MQTT comme l'ESP32 ; les bibliothèques et la démarche sont communes (voir [[esp32-wifi|Wi-Fi ESP32]]).
-- **Deep sleep** — `ESP.deepSleep(µs)` met la puce en veille profonde ; le réveil passe par un reset, ce qui impose de **relier GPIO16 à RST**. Principe proche de l'[[esp32-deep-sleep|deep sleep ESP32]].
+- **Serveur / client HTTP, MQTT** — l'ESP8266 héberge un petit serveur web ou publie en MQTT comme l'ESP32. Les bibliothèques et la démarche sont communes (voir [[esp32-wifi|Wi-Fi ESP32]]).
+- **Deep sleep** — `ESP.deepSleep(µs)` met la puce en veille profonde. Le réveil passe par un reset, ce qui impose de **relier GPIO16 à RST**. Principe proche de l'[[esp32-deep-sleep|deep sleep ESP32]].
 
 ## Raccrochage projet
 
 - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — l'Arduino-core ESP8266 est l'environnement de la PoC d'un objet connecté Wi-Fi bâti sur une carte déjà disponible : on valide tôt la connexion réseau et la lecture capteur, en gardant à l'esprit les contraintes de broches.
-- **Choix de cible** — si la PoC révèle un besoin de Bluetooth, de plus de broches ou de puissance, c'est le signal de migrer vers l'[[esp32|ESP32]] ; le code Wi-Fi se reporte presque tel quel.
+- **Choix de cible** — si la PoC révèle un besoin de Bluetooth, de plus de broches ou de puissance, c'est le signal de migrer vers l'[[esp32|ESP32]]. Le code Wi-Fi se reporte presque tel quel.
 
 Connaître les quatre particularités (étiquettes, broches de boot, ADC unique, pile Wi-Fi à ménager) suffit à exploiter l'ESP8266 sereinement : le reste est de l'Arduino, et le Wi-Fi est celui de l'ESP32.
 

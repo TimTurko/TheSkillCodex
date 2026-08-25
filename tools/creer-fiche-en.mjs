@@ -62,6 +62,18 @@
  *       - resolution par chemin complet puis par nom de fichier UNIQUE ; un
  *         nom porte par plusieurs fiches sort en AMBIGU au lieu d etre ecrase
  *         sur une cible unique (defaut de mesure du 24/08)
+ *   node tools/creer-fiche-en.mjs --anneau <N>   (anneau de rang N, plus la DETTE du front courant)
+ *       - generalisation de --front, meme regle de resolution a la ligne pres.
+ *         --anneau 1 doit rendre le meme chiffre BRUT que --front : le banc de
+ *         non-regression du mode est la mesure deja publiee, pas un banc
+ *         reconstitue (25/08 suite 6)
+ *       - BRUT = cibles atteintes depuis l anneau precedent ; NET = BRUT moins
+ *         les anneaux 0..N-1. Le lot se dimensionne sur le NET
+ *       - la DETTE (liens rouges depuis les fiches DEJA TRADUITES) s imprime a
+ *         cote et ne s appelle jamais « anneau » : c est un etat, pas un
+ *         perimetre, et il grossit a chaque fiche traduite
+ *       - sortie 0 meme en presence de cibles absentes : cote anneau 2 les
+ *         liens rouges francais sont attendus et ne sont pas un echec de mode
  *
  * Exit 1 si un compteur diverge, si la cible existe deja sans --force,
  * ou si la source est introuvable.
@@ -119,6 +131,14 @@ const RECALER = args.includes('--recaler');
 const STYLE = args.includes('--style');
 const LIBELLES = args.includes('--libelles');
 const FRONT = args.includes('--front');
+const ANNEAU = args.includes('--anneau');
+// Rang demande. Defaut 1, qui reproduit --front : le banc de non-regression du
+// mode est le chiffre deja mesure, pas un banc reconstitue.
+const RANG = (() => {
+  const i = args.indexOf('--anneau');
+  const n = Number.parseInt(i >= 0 ? args[i + 1] : '', 10);
+  return Number.isFinite(n) && n >= 1 ? n : 1;
+})();
 const cible = args.find((a) => !a.startsWith('--'));
 const cibles = args.filter((a) => !a.startsWith('--'));
 
@@ -184,6 +204,36 @@ for (const f of walk(CONTENT)) {
 
 /* ---------- decoupage code / non-code ---------- */
 
+// UN BLOC CLOTURE PEUT VIVRE A L'INTERIEUR D'UN CHEVRON DE CITATION, et c'est
+// la derniere zone que le masquage ne franchissait pas, apres le backtick de
+// libelle (23/08) et le commentaire HTML (25/08 suite 5).
+//
+// Un seul defaut, DEUX symptomes que le chantier avait consignes separement
+// (24/08 suite 3, recoupes quatre series plus tard) :
+//   - EN AVAL, la ponctuation du code remonte en candidats C109, en francais
+//     comme en anglais puisque le code ne change pas - faux positifs permanents
+//     (les deux `;` du bloc cpp de cpp-logs) ;
+//   - EN AMONT, le bloc n'est pas compte par le troisieme compteur, qui rend
+//     SEPT pour huit sur cpp-logs. Un controle qui passe au vert en regardant
+//     sept blocs sur huit est pire qu'un faux positif : il ment.
+//
+// Le correctif est le meme geste pour les deux, et il ne retire rien du texte -
+// il rend le prefixe de citation FACULTATIF devant les deux clotures. Les
+// offsets sont donc intacts, ce qui compte pour --style qui rapporte des
+// numeros de ligne et des colonnes.
+//
+// Perimetre mesure AVANT d'ecrire cette ligne, comme le veut la lecon du 24/08
+// (suite 2) et C118 : 68 blocs, 136 clotures, 34 fiches, TOUTES dans
+// embarque/mcu/. L'anneau 2 en porte 54 sur 68 et 27 sur 34 (25/08 suite 6),
+// ce qui a rendu le correctif bloquant sur mesure et non sur anticipation.
+//
+// ATTENTION, DISCONTINUITE DE MESURE, comme les embeds 395 -> 397 du 25/08 :
+// toute valeur de BLOCS DE CODE anterieure a ce correctif est sous l'ancienne
+// regle et ne se compare pas. L'egalite FR/EN, elle, reste vraie - le compteur
+// compte mieux des DEUX cotes a la fois.
+const CITE = '[ \\t]*(?:>[ \\t]*)*';
+const BLOC_CLOTURE = '^' + CITE + '```[\\s\\S]*?^' + CITE + '```[^\\n]*$';
+
 // Renvoie une liste de segments { code: bool, texte }. Seuls les segments
 // non-code sont transformes. Les blocs clotures et le code inline sont rendus
 // tels quels, a l'octet.
@@ -201,7 +251,7 @@ for (const f of walk(CONTENT)) {
 // le lien du suffixage. C'est le cas de content/index.md.
 function segmenter(corps) {
   const segments = [];
-  const motif = /(^```[\s\S]*?^```[^\n]*$)|((?<!!)\[\[[^\]]+\]\])|(`[^`\n]*`)/gm;
+  const motif = new RegExp('(' + BLOC_CLOTURE + ')|((?<!!)\\[\\[[^\\]]+\\]\\])|(`[^`\\n]*`)', 'gm');
   let pos = 0;
   let m;
   while ((m = motif.exec(corps)) !== null) {
@@ -344,7 +394,9 @@ function compter(texte) {
   return {
     liens: (sansFm.match(/(?<!!)\[\[[^\]]+\]\]/g) || []).length,
     embeds: (sansFm.match(EMBED) || []).length,
-    code: (sansFm.match(/^```/gm) || []).length / 2,
+    // La cloture peut porter un prefixe de citation : sans le CITE, un bloc
+    // loge dans un callout n'est pas compte du tout (25/08 suite 6).
+    code: (sansFm.match(new RegExp('^' + CITE + '```', 'gm')) || []).length / 2,
   };
 }
 
@@ -685,6 +737,10 @@ function recaler(rel) {
 // identique : un separateur compte comme structure dans une zone que le
 // lecteur ne voit pas.
 //
+// LE CHEVRON EST TOMBE LE 25/08 (suite 6), et il n'a pas demande de quatrieme
+// alternative : il suffisait que BLOC_CLOTURE tolere un prefixe de citation
+// devant ses deux clotures. La liste des zones reste donc a trois.
+//
 // Le commentaire est en PREMIERE alternative, et ce n'est pas cosmetique : les
 // blocs NOTE des trames transverses contiennent du code inline (`fiche-trame.md`).
 // Place en second, l'alternative de code inline decouperait le commentaire et
@@ -702,8 +758,15 @@ function recaler(rel) {
 // de DOUZE faux positifs C109 sur trois fichiers francais - petit, permanent,
 // et il se serait redecode a chaque balayage futur.
 function masquerHorsProse(corps) {
-  const motif = /(<!--[\s\S]*?-->)|(^```[\s\S]*?^```[^\n]*$)|(`[^`\n]*`)/gm;
-  return corps.replace(motif, (m) => m.replace(/[^\n]/g, '\u0001'));
+  const motif = new RegExp('(<!--[\\s\\S]*?-->)|(' + BLOC_CLOTURE + ')|(`[^`\\n]*`)', 'gm');
+  // Le CHEVRON DE CITATION SURVIT AU MASQUAGE, et ce n'est pas cosmetique.
+  // La sentinelle remplace tout sauf le saut de ligne ET le « > » : sans cette
+  // exception, un bloc de code loge dans un callout perdrait ses prefixes de
+  // citation, styleFiche() lirait la ligne comme sortie du blockquote, et la
+  // garde de l'encart francais des deux accueils se refermerait au milieu d'un
+  // callout. Un « > » restant dans du code masque ne declenche aucun des
+  // controles, qui cherchent tous de la ponctuation haute ou un tiret.
+  return corps.replace(motif, (m) => m.replace(/[^\n>]/g, '\u0001'));
 }
 
 /* ---------- exemption de glose de liste ---------- */
@@ -1213,6 +1276,249 @@ function front() {
   process.exit(ambigus.length || absents.length ? 1 : 0);
 }
 
+/* ---------- anneaux successifs, et dette du front courant ---------- */
+
+// Arbitrage Tim du 25/08 (suite 6), option (c) : l'ANNEAU commande le lot, la
+// DETTE s'imprime a cote et ne s'appelle JAMAIS « anneau ». Les deux ne sont
+// pas emboitees, et c'est la raison de les sortir ensemble :
+//   - l'anneau part des cibles de l'anneau precedent, donc il contient le
+//     voisinage de kicad, que la dette ne voit pas puisque kicad n'est pas
+//     traduite ;
+//   - la dette part des fiches DEJA TRADUITES, donc elle contient le voisinage
+//     des fiches traduites hors anneau (module MicroPython, decouplage), que
+//     l'anneau ne contient pas.
+// Le 122 contre 82 du 24/08 n'etait donc pas « l'anneau 2 vu plus grand »,
+// c'etait un autre objet.
+//
+// BRUT contre NET. --front ne retranche rien : ses 82 comptent les cibles des
+// quatre index, index compris si un index en vise un autre. Le mode imprime
+// donc les deux colonnes, et --anneau 1 doit rendre le meme BRUT que --front.
+// L'ecart BRUT - NET au rang 1 est le nombre de liens index -> index ; il n'est
+// pas mesure a ce jour, donc pas predit (C118).
+//
+// La regle de resolution est celle de front(), a la ligne pres : c'est elle qui
+// a coute trois sessions et trois valeurs d'anneau 1 (82, 79, 78).
+
+function graphe() {
+  const fiches = walk(CONTENT)
+    .map(versWeb)
+    .filter((w) => !w.startsWith('en/') && !w.startsWith('templates/'));
+
+  const parChemin = new Set(fiches.map((f) => f.replace(/\.md$/, '')));
+  const parNom = new Map();
+  for (const f of fiches) {
+    const sansExt = f.replace(/\.md$/, '');
+    const nom = basename(sansExt);
+    if (!parNom.has(nom)) parNom.set(nom, []);
+    parNom.get(nom).push(sansExt);
+  }
+
+  function resoudre(c) {
+    if (parChemin.has(c)) return { rel: c };
+    if (c.includes('/')) {
+      const fins = [...parChemin].filter((r) => r.endsWith('/' + c));
+      if (fins.length === 1) return { rel: fins[0] };
+      if (fins.length > 1) return { ambigu: fins };
+      return { absent: true };
+    }
+    const l = parNom.get(c) || [];
+    if (l.length === 1) return { rel: l[0] };
+    if (l.length > 1) return { ambigu: l };
+    return { absent: true };
+  }
+
+  function jumelle(rel) {
+    const segs = rel.split('/');
+    segs[segs.length - 1] = suffixer(segs[segs.length - 1]);
+    return 'en/' + segs.join('/') + '.md';
+  }
+
+  const traduite = (rel) => existsSync(join(CONTENT, jumelle(rel).split('/').join(sep)));
+  const lire = (rel) => readFileSync(join(CONTENT, rel.split('/').join(sep)) + '.md', 'utf8');
+
+  // Liens SORTANTS d'une fiche, embeds exclus par le (?<!!) - un anneau se
+  // compte en clics vers l'avant, jamais en retroliens.
+  function liens(rel) {
+    const texte = lire(rel);
+    const corps = (frontMatter(texte) || { corps: texte }).corps;
+    const hors = segmenter(corps)
+      .filter((s) => !s.code)
+      .map((s) => s.texte)
+      .join('');
+    const cibles = new Set();
+    const ambigus = new Set();
+    const absents = new Set();
+    for (const m of hors.matchAll(/(?<!!)\[\[([^\]]+)\]\]/g)) {
+      const c = m[1].split(/\\\||\|/)[0].split('#')[0].replace(/\\+$/, '').trim();
+      if (!c) continue;
+      const r = resoudre(c);
+      if (r.ambigu) { ambigus.add(c); continue; }
+      if (r.absent) { absents.add(c); continue; }
+      cibles.add(r.rel);
+    }
+    return { cibles, ambigus, absents };
+  }
+
+  return { fiches, parChemin, resoudre, jumelle, traduite, lire, liens };
+}
+
+// Angle mort du masquage : un bloc de code CLOTURE A L'INTERIEUR d'un chevron
+// de citation. Deux symptomes pour un seul defaut (24/08 suite 3) : faux
+// positifs C109 en aval, et SOUS-COMPTAGE du troisieme compteur en amont.
+// Perimetre compte le 25/08 (suite) : 68 blocs, 34 fiches, toutes dans
+// embarque/mcu/. Ce compteur-ci rend des CLOTURES, pas des blocs : un total
+// impair signale une cloture orpheline et non un demi-bloc.
+function cloturesEnChevron(texte) {
+  let n = 0;
+  for (const ligne of texte.split(/\r?\n/)) {
+    if (/^\s{0,3}>/.test(ligne) && ligne.includes('```')) n += 1;
+  }
+  return n;
+}
+
+function anneau(rang) {
+  const g = graphe();
+  const zero = INDEX_FRONT.map((i) => i.replace(/\.md$/, ''));
+  for (const rel of zero) {
+    if (!existsSync(join(CONTENT, rel.split('/').join(sep)) + '.md')) {
+      console.error('Index de depart introuvable : content/' + rel + '.md');
+      process.exit(1);
+    }
+  }
+
+  const vus = new Set(zero);
+  let sources = zero;
+  let brut = [];
+  let net = [];
+  let parents = new Map();
+  const ambigus = new Set();
+  const absents = new Set();
+
+  for (let k = 1; k <= rang; k += 1) {
+    const b = new Set();
+    parents = new Map();
+    for (const src of sources) {
+      const l = g.liens(src);
+      for (const c of l.cibles) {
+        b.add(c);
+        if (!parents.has(c)) parents.set(c, new Set());
+        parents.get(c).add(src);
+      }
+      if (k === rang) {
+        for (const a of l.ambigus) ambigus.add(a);
+        for (const a of l.absents) absents.add(a);
+      }
+    }
+    brut = [...b].sort();
+    net = brut.filter((c) => !vus.has(c));
+    for (const c of net) vus.add(c);
+    sources = net;
+  }
+
+  const faits = net.filter((r) => g.traduite(r));
+  const restants = net.filter((r) => !g.traduite(r));
+
+  console.log('=== ANNEAU ' + rang + ' ===');
+  console.log('  Resolution : chemin complet, puis suffixe de chemin, puis nom de');
+  console.log('  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU');
+  console.log('  et n est jamais ecrase sur une cible unique.');
+  console.log('  Mots : regle C110, importee de tools/compter-mots.mjs.');
+  console.log('  Liens SORTANTS seuls, embeds exclus.');
+  console.log('');
+  console.log('  anneau 0 (index de depart)   : ' + zero.length);
+  console.log('  sources (anneau ' + (rang - 1) + ')          : ' + (rang === 1 ? zero.length : '(voir NET du rang precedent)'));
+  console.log('  cibles BRUTES               : ' + brut.length + '   (au rang 1, --front rend ce chiffre)');
+  console.log('  deja vues aux rangs 0..' + (rang - 1) + '     : ' + (brut.length - net.length));
+  console.log('  ANNEAU ' + rang + ' NET               : ' + net.length);
+  console.log('    deja traduites            : ' + faits.length);
+  console.log('    RESTANT                   : ' + restants.length);
+  console.log('');
+
+  let mots = 0;
+  let fichesChevron = 0;
+  let cloturesChevron = 0;
+  for (const rel of restants) {
+    const texte = g.lire(rel);
+    const n = compterMots(texte);
+    const ch = cloturesEnChevron(texte);
+    mots += n;
+    if (ch) {
+      fichesChevron += 1;
+      cloturesChevron += ch;
+    }
+    console.log('  ' + rel.padEnd(52) + String(n).padStart(7) + (ch ? '   chevron:' + ch : ''));
+  }
+  console.log('  ' + '-'.repeat(63));
+  console.log('  ' + ('RESTANT DE L ANNEAU ' + rang + ' (' + restants.length + ' fiches)').padEnd(52) + String(mots).padStart(7));
+
+  console.log('');
+  console.log('  ANGLE MORT DU CHEVRON sur le restant de cet anneau');
+  console.log('    fiches porteuses          : ' + fichesChevron);
+  console.log('    clotures en chevron       : ' + cloturesChevron + '   (deux clotures = un bloc)');
+  console.log('    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.');
+
+  // Une cible dont AUCUN parent n'est traduit est atteignable sur le papier et
+  // orpheline a l'ecran : la traduire n'ouvre aucun chemin depuis l'anglais.
+  const orphelines = restants.filter((r) => ![...(parents.get(r) || [])].some((p) => g.traduite(p)));
+  console.log('');
+  console.log('  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (' + orphelines.length + ')');
+  if (orphelines.length) {
+    for (const r of orphelines) {
+      console.log('    ' + r.padEnd(52) + 'via ' + [...(parents.get(r) || [])].join(', '));
+    }
+    console.log('    -> traduites, elles resteraient sans chemin depuis la zone anglaise.');
+  }
+
+  if (ambigus.size) {
+    console.log('');
+    console.log('  CIBLES AMBIGUES (' + ambigus.size + ') - non comptees, a lever a la main :');
+    for (const a of [...ambigus].sort()) console.log('    [[' + a + ']]');
+  }
+  if (absents.size) {
+    console.log('');
+    console.log('  CIBLES SANS FICHE (' + absents.size + ') - liens rouges cote francais :');
+    for (const a of [...absents].sort()) console.log('    [[' + a + ']]');
+  }
+
+  dette(g, vus, rang);
+  process.exit(0);
+}
+
+// LA DETTE N'EST PAS UN ANNEAU. C'est un ETAT : elle grossit a chaque fiche
+// traduite, puisque traduire ouvre les liens sortants de la fiche. Son chiffre
+// n'est vrai qu'a l'instant ou il est lu, et ne se reporte pas d'une seance a
+// l'autre sans etre remesure.
+function dette(g, vus, rang) {
+  const sources = g.fiches.map((f) => f.replace(/\.md$/, '')).filter((r) => g.traduite(r));
+  const cibles = new Set();
+  for (const src of sources) {
+    for (const c of g.liens(src).cibles) {
+      if (!g.traduite(c)) cibles.add(c);
+    }
+  }
+  const liste = [...cibles].sort();
+  let mots = 0;
+  for (const r of liste) mots += compterMots(g.lire(r));
+
+  const horsAnneaux = liste.filter((r) => !vus.has(r));
+
+  console.log('');
+  console.log('=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===');
+  console.log('  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles');
+  console.log('  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles');
+  console.log('  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).');
+  console.log('');
+  console.log('  fiches sources (traduites)   : ' + sources.length);
+  console.log('  cibles rouges distinctes     : ' + liste.length);
+  console.log('  mots                         : ' + mots);
+  console.log('  dont HORS anneaux 0..' + rang + '       : ' + horsAnneaux.length);
+  if (horsAnneaux.length) {
+    console.log('');
+    console.log('  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :');
+    for (const r of horsAnneaux) console.log('    ' + r);
+  }
+}
+
 /* ---------- point d'entree ---------- */
 
 if (RECETTE) {
@@ -1227,6 +1533,8 @@ if (RECETTE) {
   libelles();
 } else if (FRONT) {
   front();
+} else if (ANNEAU) {
+  anneau(RANG);
 } else if (CONTROLE) {
   controle();
 } else if (RECALER) {
@@ -1242,6 +1550,8 @@ if (RECETTE) {
   console.error('        node tools/creer-fiche-en.mjs --recaler <fiche EN>');
   console.error('        node tools/creer-fiche-en.mjs --style [fiche...]');
   console.error('        node tools/creer-fiche-en.mjs --libelles');
+  console.error('        node tools/creer-fiche-en.mjs --front');
+  console.error('        node tools/creer-fiche-en.mjs --anneau <N>   (N=1 reproduit --front)');
   process.exit(1);
 } else {
   traiter(cible.replace(/^content\//, '').split(sep).join('/'));

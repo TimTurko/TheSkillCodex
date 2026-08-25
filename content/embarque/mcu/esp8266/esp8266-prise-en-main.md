@@ -14,11 +14,11 @@ aa:
 draft: false
 ---
 
-La **prise en main de l'ESP8266** consiste à installer le **support des cartes ESP8266** dans l'IDE Arduino, à reconnaître la carte (une NodeMCU pour l'exemple), et à téléverser un premier programme. L'ESP8266 se programmant dans le cadre Arduino, l'essentiel des gestes est déjà connu — une étape s'ajoute (installer le core ESP8266), et un petit piège attend au premier blink : la LED intégrée est **active à l'état bas**. Le programme cible reste le **Blink**, l'équivalent embarqué du « Hello World ».
+La **prise en main de l'ESP8266** consiste à installer le **support des cartes ESP8266** dans l'IDE Arduino, à reconnaître la carte (une NodeMCU pour l'exemple), et à téléverser un premier programme. L'ESP8266 se programmant dans le cadre Arduino, l'essentiel des gestes est déjà connu. Une étape s'ajoute (installer le core ESP8266), et un petit piège attend au premier blink : la LED intégrée est **active à l'état bas**. Le programme cible reste le **Blink**, l'équivalent embarqué du « Hello World ».
 
 ## À quoi ça sert ?
 
-La prise en main valide d'un coup toute la chaîne : éditeur, compilateur, support ESP8266, USB-série, téléversement, liaison. Si un maillon est cassé, le Blink ne clignote pas — et on le sait tout de suite, sur du code trivial.
+La prise en main valide d'un coup toute la chaîne : éditeur, compilateur, support ESP8266, USB-série, téléversement, liaison. Si un maillon est cassé, le Blink ne clignote pas, et on le sait tout de suite, sur du code trivial.
 
 Au-delà du premier programme, l'étape sert à **ancrer les gestes** (sélection de carte, port, vitesse, téléversement, moniteur série) et à **rencontrer les particularités** de l'ESP8266 dès le départ : le pilote USB-série à installer, la LED active à l'état bas, le réflexe 3,3 V.
 
@@ -40,7 +40,7 @@ https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 ![Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600](/ressources/img/esp32-prise-en-main/preferences-url-cartes.png)
 
-Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community** — prenez la **dernière version 3.x** proposée par le menu déroulant, qui est la branche stable actuelle du cœur. Les tutoriels de ce module s'y réfèrent.
+Ouvrez le **gestionnaire de cartes**, cherchez `esp8266`, et installez le paquet **« esp8266 » par ESP8266 Community**. Prenez la **dernière version 3.x** proposée par le menu déroulant, qui est la branche stable actuelle du cœur. Les tutoriels de ce module s'y réfèrent.
 
 ![Gestionnaire de cartes de l'IDE Arduino filtré sur « esp8266 », montrant le paquet « esp8266 » par ESP8266 Community, son numéro de version et le bouton Installer.|600](/ressources/img/esp8266-prise-en-main/gestionnaire-cartes-esp8266.png)
 
@@ -56,21 +56,21 @@ Branchez la carte avec un **câble USB de données**. Deux chemins mènent ensui
 
 ![Sélecteur de carte de l'IDE Arduino déroulé : « Generic ESP8266 Module » associé à son port en tête de liste, plusieurs ports « Unknown » en dessous, et l'entrée « Select other board and port… » tout en bas.|400](/ressources/img/esp8266-prise-en-main/menu-outils-carte-port.png)
 
-Sur une NodeMCU, dont le pont USB-série est une puce tierce, la carte s'affiche `Unknown` tant qu'elle n'a jamais été associée — c'est normal (voir *Pièges*). Passez alors par ***Select other board and port…***, choisissez la carte à gauche et votre port à droite : l'association est mémorisée.
+Sur une NodeMCU, dont le pont USB-série est une puce tierce, la carte s'affiche `Unknown` tant qu'elle n'a jamais été associée, et c'est normal (voir *Pièges*). Passez alors par ***Select other board and port…***, choisissez la carte à gauche et votre port à droite : l'association est mémorisée.
 
-**Chemin manuel — les menus *Outils*.** Il fonctionne dans tous les cas. *Outils → Type de carte → esp8266*, puis **« Generic ESP8266 Module »** : cette définition convient à n'importe quelle carte ESP8266 et c'est celle qu'utilisent les captures de cette fiche. Si la vôtre a sa propre entrée dans la liste (*NodeMCU 1.0 (ESP-12E Module)*, *LOLIN(WEMOS) D1 mini*…), vous pouvez la choisir : elle prérègle la taille de flash et ajoute les étiquettes `D0`–`D8` de la sérigraphie — au prix d'un code qui ne se transpose plus tel quel d'une carte à l'autre.
+**Chemin manuel — les menus *Outils*.** Il fonctionne dans tous les cas. *Outils → Type de carte → esp8266*, puis **« Generic ESP8266 Module »** : cette définition convient à n'importe quelle carte ESP8266 et c'est celle qu'utilisent les captures de cette fiche. Si la vôtre a sa propre entrée dans la liste (*NodeMCU 1.0 (ESP-12E Module)*, *LOLIN(WEMOS) D1 mini*…), vous pouvez la choisir : elle prérègle la taille de flash et ajoute les étiquettes `D0`–`D8` de la sérigraphie, au prix d'un code qui ne se transpose plus tel quel d'une carte à l'autre.
 
 ![Menu Outils de l'IDE Arduino déroulé sur Type de carte puis esp8266 : la liste des définitions de cartes, « Generic ESP8266 Module » en tête et encadré.|640](/ressources/img/esp8266-prise-en-main/selection-board.png)
 
 Puis *Outils → Port*, en laissant la vitesse de téléversement par défaut : `COMx` sous Windows, `/dev/ttyUSB0` sous Linux, `/dev/cu.usbserial-...` sous macOS.
 
-Reste à savoir **lequel de ces ports est le vôtre**. Sous Windows, le gestionnaire de périphériques le nomme explicitement : à la rubrique *Ports (COM et LPT)*, la carte apparaît sous le nom de sa puce d'interface — ici `Silicon Labs CP210x USB to UART Bridge (COM10)`. Les autres entrées sont le plus souvent des liaisons série Bluetooth, sans rapport avec la carte : ce sont elles qui remplissent le sélecteur de ports « Unknown ».
+Reste à savoir **lequel de ces ports est le vôtre**. Sous Windows, le gestionnaire de périphériques le nomme explicitement : à la rubrique *Ports (COM et LPT)*, la carte apparaît sous le nom de sa puce d'interface, ici `Silicon Labs CP210x USB to UART Bridge (COM10)`. Les autres entrées sont le plus souvent des liaisons série Bluetooth, sans rapport avec la carte : ce sont elles qui remplissent le sélecteur de ports « Unknown ».
 
 ![Menu Outils → Port de l'IDE Arduino déroulé à côté du gestionnaire de périphériques Windows : COM10 est encadré dans l'IDE, et une flèche le relie à l'entrée « Silicon Labs CP210x USB to UART Bridge (COM10) » sous Ports (COM et LPT).|640](/ressources/img/esp8266-prise-en-main/selection-port-com.png)
 
 ### 5. Charger le Blink — attention à la LED active à l'état bas
 
-Saisissez ce sketch. **Particularité ESP8266** : la LED intégrée est **active à l'état bas** — elle s'allume à `LOW` et s'éteint à `HIGH`, l'inverse du réflexe Arduino :
+Saisissez ce sketch. **Particularité ESP8266** : la LED intégrée est **active à l'état bas**. Elle s'allume à `LOW` et s'éteint à `HIGH`, l'inverse du réflexe Arduino :
 
 ```cpp
 void setup() {
@@ -85,10 +85,10 @@ void loop() {
 }
 ```
 
-Cliquez sur **Téléverser** (icône flèche). Sur NodeMCU / D1 mini, l'**auto-reset** (lignes DTR/RTS) fait entrer la carte en mode programmation **sans appui** ; la console affiche la progression, puis la carte redémarre et la LED clignote.
+Cliquez sur **Téléverser** (icône flèche). Sur NodeMCU / D1 mini, l'**auto-reset** (lignes DTR/RTS) fait entrer la carte en mode programmation **sans appui**. La console affiche la progression, puis la carte redémarre et la LED clignote.
 
 > [!tip]
-> **Si la LED semble « inversée ».** C'est normal et attendu : sur l'ESP8266, `LOW` allume. Si vous vouliez l'éteindre, écrivez `HIGH`. Beaucoup de débutants croient à un bug ici — c'est juste la logique inversée de la LED intégrée.
+> **Si la LED semble « inversée ».** C'est normal et attendu : sur l'ESP8266, `LOW` allume. Si vous vouliez l'éteindre, écrivez `HIGH`. Beaucoup de débutants croient à un bug ici. C'est juste la logique inversée de la LED intégrée.
 
 ![Montage de deux images — la fenêtre de l'IDE Arduino avec le sketch Blink et la console terminée sur « Done uploading », et une photo de la carte NodeMCU dont la LED du module est allumée.|640](/ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.png)
 
@@ -111,11 +111,11 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 
 **Support ESP8266 non installé.** Sans l'étape 2, aucune carte ESP8266 dans *Outils → Type de carte*. L'oubli le plus fréquent.
 
-**Étiquettes `D0`–`D8` inconnues du compilateur.** Elles sont sérigraphiées sur la carte, mais elles ne sont définies que par les **définitions de carte spécifiques** du gestionnaire (*NodeMCU 1.0*, *D1 mini*…). Sous « Generic ESP8266 Module », `const int LED = D5;` échoue à la compilation sur `'D5' was not declared in this scope`. Écrire le **numéro de GPIO** — `14` pour la broche sérigraphiée D5 — qui fonctionne dans tous les cas.
+**Étiquettes `D0`–`D8` inconnues du compilateur.** Elles sont sérigraphiées sur la carte, mais elles ne sont définies que par les **définitions de carte spécifiques** du gestionnaire (*NodeMCU 1.0*, *D1 mini*…). Sous « Generic ESP8266 Module », `const int LED = D5;` échoue à la compilation sur `'D5' was not declared in this scope`. Écrire le **numéro de GPIO** (`14` pour la broche sérigraphiée D5), qui fonctionne dans tous les cas.
 
 **Pilote USB-série manquant.** Carte non détectée (pas de port) : installer le pilote CH340 / CP2102 correspondant (étape 3).
 
-**Port marqué *Unknown*.** Sur une carte à **pont USB-série tiers** — CH340 comme CP2102 — l'IDE affiche `Unknown` en face du port : le pont annonce son propre identifiant USB, pas celui d'une carte, et l'IDE n'a donc rien à quoi rattacher le port. Ce n'est **pas** un défaut de pilote — Windows, lui, affiche bien la puce sous *Ports (COM et LPT)*, par exemple `Silicon Labs CP210x USB to UART Bridge (COMx)`. Associer la carte au port une fois par *Select other board and port…* : l'association est mémorisée.
+**Port marqué *Unknown*.** Sur une carte à **pont USB-série tiers** — CH340 comme CP2102 — l'IDE affiche `Unknown` en face du port : le pont annonce son propre identifiant USB, pas celui d'une carte, et l'IDE n'a donc rien à quoi rattacher le port. Ce n'est **pas** un défaut de pilote. Windows, lui, affiche bien la puce sous *Ports (COM et LPT)*, par exemple `Silicon Labs CP210x USB to UART Bridge (COMx)`. Associer la carte au port une fois par *Select other board and port…* : l'association est mémorisée.
 
 **LED « à l'envers ».** La LED intégrée est active à l'état bas : `LOW` = allumée. Ce n'est pas un bug.
 
@@ -173,7 +173,7 @@ Téléversez à nouveau : un éclair court toutes les secondes. Ce petit pas —
 ## Cas particulier — ESP-01, NodeMCU Lua, PlatformIO
 
 - **ESP-01** — pas d'USB ni d'auto-reset : il faut un **adaptateur USB-série** et **forcer le mode programmation** (GPIO0 à la masse pendant le reset) avant de téléverser.
-- **NodeMCU (Lua) / MicroPython** — d'autres firmwares existent pour l'ESP8266 ; ce wiki s'en tient à l'Arduino core.
+- **NodeMCU (Lua) / MicroPython** — d'autres firmwares existent pour l'ESP8266. Ce wiki s'en tient à l'Arduino core.
 - **PlatformIO** — gère l'ESP8266 avec versionnage et multi-fichiers, pratique dès que le projet grossit.
 
 ## Raccrochage projet
