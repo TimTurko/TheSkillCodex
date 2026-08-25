@@ -51,7 +51,7 @@ Le projet n'exige pas un instrument de laboratoire. Ce tableau sert à **reconna
 
 ## Pièges
 
-**Y chercher de l'analogique.** L'analyseur tranche tout en 0 / 1 : un rebond de bouton, un front mou, un niveau dégradé par une piste trop longue lui sont invisibles — il affichera un beau signal carré là où l'[[oscilloscope|oscilloscope]] montrerait le problème. Au doute sur la *qualité* d'un signal, c'est l'oscilloscope.
+**Y chercher de l'analogique.** L'analyseur tranche tout en 0 / 1 : un rebond de bouton, un front mou, un niveau dégradé par une piste trop longue lui sont invisibles. Il affichera un beau signal carré là où l'[[oscilloscope|oscilloscope]] montrerait le problème. Au doute sur la *qualité* d'un signal, c'est l'oscilloscope.
 
 **Dépasser la tension d'entrée.** Les clones USB tolèrent 5 V, guère plus : pas de mesure sur un rail 12 V ou 24 V sans adaptation.
 

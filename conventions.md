@@ -1739,6 +1739,18 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 
 **Note d'outillage** : `--libelles` ignore l'argument de chemin et relit tout le corpus EN. Première mesure de couverture au passage — **1 655 liens à libellé, 922 visant une fiche EN existante, 733 injugeables**, 18 candidats à lire. Le mode gagne en portée à mesure que le corpus se densifie.
 
+### Acquises 25/08 (suite) — premier lot C116, `embarque/mesure/`
+
+*Aucune convention neuve. La numérotation reste à **117**. C116 passe à **2/N**, C117 à **2/N**, la borne de C115 sert une fois.*
+
+**C116, première épreuve complète : trois lancements pour six fiches, zéro arbitrage remonté, zéro fiche sortie.** Le cadrage a mesuré le périmètre avant engagement (`--front` + `compter-mots --lot`) et démenti le brief deux fois — six fiches et non trois dans le dossier, trois et non six dans l'anneau 1 ; aucune ligne de forme A dans les deux fiches annoncées porteuses, donc les candidates à sortie ne se sont jamais matérialisées. Les 60 candidats C109 se sont tous classés sous le jeu éprouvé, la décomposition des résidus (5/4/3/4/7/0) tenant deux fois : sur le FR après passes, puis sur l'EN au report un pour un. La garde de génération a rendu six « Cible absente » et les trois compteurs sont restés égaux de la génération au contrôle. ⚠ **Le protocole n'a pas rencontré son cas limite** : aucune fiche à arbitrage dans ce lot, la clause de sortie reste donc éprouvée sur le seul lot des huit. **La numérotation éprouvage C116 atteint 2/N.**
+
+**C117, deuxième épreuve : sept décisions sous la ligne, une seule escalade au-dessus, et la ligne a tenu dans les deux sens.** L'escalade unique — la composition du lot, trois fiches hors anneau — touchait un arbitrage Tim existant (la progression par proximité de lien, 22/08), donc le bon côté de la ligne. Les sept décisions prises seules sont consignées dans la rubrique dédiée du JOURNAL du 25/08 (suite) : gloses interrogatives en parenthèses, titres EN, GBF glosé, mention historique *slave*, *trame* → *frame*, repli du couple précision/exactitude sur *accuracy*, *loses accuracy*. **La numérotation éprouvage C117 atteint 2/N.**
+
+**La borne de C115 a servi sur pièce et a tenu** : `**Oublier la masse commune — court-circuit par la terre.**` (`oscilloscope`, *Pièges*) porte le tiret à l'intérieur du gras et une partie droite nominale — glose, elle reste, et son report EN n'a créé aucun candidat différentiel.
+
+**L'angle mort du chevron a son périmètre : 68 blocs (136 clôtures, total pair partout) sur 34 fiches, toutes dans `embarque/mcu/`.** Le comptage est fait et ne se refera pas ; le correctif — faire franchir le chevron au masquage et au compteur — vit au TODO, non bloquant tant qu'aucun lot ne traduit une fiche porteuse.
+
 ### Autres en attente
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =

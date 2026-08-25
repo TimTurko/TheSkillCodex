@@ -11,6 +11,30 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-08-25 (suite) — `embarque/mesure/` : le premier lot conduit sous C116, et il tient en trois lancements
+
+- **Périmètre** — PC perso. Premier lot du protocole C116 : cadrage des N fiches, génération des N, contrôle des N paires. Périmètre mesuré avant engagement (`--front`, `compter-mots --lot`), arbitrage **(a)** de Tim : le dossier entier, six fiches.
+- **Livrables** — **6 fiches EN** (`analyseur-logique`, `generateur-de-signaux`, `instruments-de-mesure`, `multimetre`, `oscilloscope`, `precision-de-mesure`), corpus **74 → 80**. **6 passes C109** côté FR : **60 candidats, 37 traités, 23 exemptés, coût 0 mot** — première passe du chantier à coût strictement nul, ponctuation seule.
+- **Décisions Tim** — **(a)** lot = le dossier entier (5 567 mots), dont trois fiches hors anneau 1 (1 916 mots), la cohérence de famille l'emportant sur un anneau d'écart.
+- **Conventions** — **aucune neuve, la numérotation reste à 117.** C116 éprouvée **2/N** (première épreuve complète), C117 éprouvée **2/N** (sept décisions consignées ci-dessous, une seule escalade : la composition du lot, qui touchait l'ordre arbitré du §7 des règles).
+- **Tailles** — recette **243 / 4 323 / 397 / 376 / 0** inchangée à l'ouverture comme à la clôture. **80 fiches EN, 0 divergente, 0 lien non suffixé, 80 empreintes à jour.** Verdicts mécaniques EN : typographie 0, C109 créées 0, hors alphabet latin 0. Foisonnement du lot **+0,1 % sur 6 paires** (5 567 → 5 572), corpus **3,7 % sur 80 paires** (91 820 → 95 242). Anneau 1 : **82 cibles, 69 traduites, 13 restantes, 22 219 mots**. Restant corpus : **162 fiches, 199 359 mots**.
+
+**Le brief était faux deux fois sur le périmètre, dans les deux sens, et c'est la mesure d'ouverture qui l'a montré.** Le dossier porte six fiches et non trois — mais l'anneau 1 n'en contient que trois, ce qui rend le vieux « (3) » du §7 des règles juste au sens de l'anneau et faux au sens du dossier. Et les deux porteuses de forme A annoncées (`multimetre`, `instruments-de-mesure`, deux lignes chacune) n'existent pas : aucune ligne `**Libellé** — explication` hors puce dans les six fiches. Les candidates à sortie C116 ne se sont jamais matérialisées. Le brief demandait de sortir le périmètre des outils avant de s'engager : il avait raison contre lui-même.
+
+**C116 tient sa première épreuve complète : trois lancements, zéro arbitrage remonté, zéro fiche sortie.** Le cadrage a classé les 60 candidats sous le jeu éprouvé (verbe conjugué, second tamis, parenthèse-renvoi, borne C115) sans qu'aucun emplacement n'exige de jugement neuf. Le seul emplacement limite — les deux gloses interrogatives de `precision-de-mesure`, verbe conjugué mais segment qui nomme l'objet enseigné — s'est résolu en parenthèses, décision sous la ligne. La garde de génération a rendu six « Cible absente », et les trois compteurs sont restés égaux de la génération au contrôle final.
+
+**L'angle mort du chevron a enfin son périmètre : 68 blocs de code en callout sur 34 fiches, toutes dans `mcu/`, total pair partout.** Aucune dans `mesure/`, donc aucun faux positif possible sur ce lot. Le correctif reste à coder ; le comptage, lui, est fait et ne se refera pas.
+
+**Le foisonnement du lot est le plus bas du chantier, et quatre paires sur six sont négatives.** +4,9 / +2,0 / −1,6 / −0,1 / −1,2 / −1,5, somme **+0,1 %** — publié avec son effectif, aucune hypothèse versée nulle part. Le corpus glisse de 4,0 à 3,7 %.
+
+**Les libellés ont été vérifiés en production avant d'être écrits, et c'est le contre-geste du motif `Welding`.** Le titre du hub, *Measuring instruments*, est celui que deux fiches EN existantes employaient déjà en libellé ; les titres des cibles (Timing diagram, Communication buses, Hardening and debugging, Integration and testing…) ont été lus dans les fichiers avant la première traduction. `--libelles` rend 30 candidats dont 6 sur le lot, tous légitimes à la lecture.
+
+**Aucune prédiction démentie sur la séance, décompositions comprises** : le classement fiche par fiche des résidus (5 / 4 / 3 / 4 / 7 / 0) a tenu deux fois, sur le FR après passes puis sur l'EN au report, et le coût en mots des passes est tombé exactement à zéro comme annoncé. Toutes les prédictions portaient sur du mesuré ou du texte lu ; aucune grandeur non mesurée n'a été prédite, foisonnement compris.
+
+**Décisions prises seules (C117, rubrique de consignation)** : (1) gloses interrogatives de `precision-de-mesure` résolues en parenthèses ; (2) titres EN — *Function generator* plutôt que *signal generator*, *Logic analyzer*, *Multimeter*, *Accuracy, trueness, precision* par le glossaire ; (3) **GBF** conservé et glosé une fois, employé tel quel ensuite (esprit du §5.2) ; (4) *the peripheral (historically the slave)*, mention historique unique sur `analyseur-logique` ; (5) *trame* rendu **frame** sur tout le lot (contexte bus exclusivement), le mot à deux objets restant non figé au glossaire ; (6) le couple précision-courante / exactitude du FR se replie sur le seul mot anglais **accuracy** (usage courant contre définition métrologique), le triplet *accuracy / trueness / precision* du §5.3 restant intact ; (7) « perd en précision » rendu *loses accuracy* par cohérence de glossaire.
+
+**Reste à Tim** : `node tools/normalize-pilotage.js`, puis commit/push. **Prochaine session = deuxième lot C116 dans les 13 restantes de l'anneau 1.**
+
 ## 2026-08-24 (suite 3) — Lot 2c : les huit notions transverses de `mcu/`
 
 - **Périmètre** — PC perso. Treize séries. Fermeture du lot arbitré en ouverture : `manipulation-de-bits`, `lire-une-datasheet`, `niveaux-de-tension`, `debugger-embarque`, `microcontroleur`, `bus-de-communication`, `techno-sans-fil`, `cpp-logs`. Puis état d'avancement sur les deux axes, à la demande de Tim.

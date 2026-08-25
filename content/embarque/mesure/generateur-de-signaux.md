@@ -16,13 +16,13 @@ phases:
 draft: false
 ---
 
-**Le générateur de signaux** — souvent appelé **GBF**, générateur basse fréquence — est l'instrument *inverse* de la mesure : au lieu de relever ce que fait le circuit, il lui **injecte un signal calibré** (sinus, carré, triangle) dont on choisit la forme, la fréquence et l'amplitude. Il permet de tester un montage avec une entrée parfaitement connue, sans attendre que le vrai signal — capteur, microcontrôleur — soit disponible. Fiche tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
+**Le générateur de signaux** (souvent appelé **GBF**, générateur basse fréquence) est l'instrument *inverse* de la mesure : au lieu de relever ce que fait le circuit, il lui **injecte un signal calibré** (sinus, carré, triangle) dont on choisit la forme, la fréquence et l'amplitude. Il permet de tester un montage avec une entrée parfaitement connue, sans attendre que le vrai signal — capteur, microcontrôleur — soit disponible. Fiche tuto-outil du hub [[instruments-de-mesure|instruments de mesure]].
 
 ![Face avant d'un générateur de signaux en blocs fonctionnels : l'afficheur qui récapitule forme, fréquence, amplitude et offset ; le bloc de choix de forme d'onde (sinus, carré, triangle) ; le bloc de sortie avec son connecteur BNC, la touche Output et le rappel du réglage de charge High-Z ou 50 Ω ; et les trois boutons fréquence, amplitude, offset.|640](/ressources/img/generateur-de-signaux/face-avant.svg)
 
 ## À quoi ça sert ?
 
-Tester un montage exige une entrée. Tant que le capteur n'est pas câblé ou que le programme n'est pas écrit, cette entrée n'existe pas — le GBF la fabrique :
+Tester un montage exige une entrée. Tant que le capteur n'est pas câblé ou que le programme n'est pas écrit, cette entrée n'existe pas. Le GBF la fabrique :
 
 - **stimuler** un sous-ensemble avec un signal maîtrisé : on connaît exactement ce qui entre, on observe ce qui sort à l'[[oscilloscope|oscilloscope]] — la réponse se compare à un attendu ;
 - **remplacer provisoirement** un élément absent : simuler la sortie d'un capteur analogique pour tester l'étage de conditionnement ou une entrée [[adc|ADC]] avant que le vrai capteur n'arrive ;
@@ -30,7 +30,7 @@ Tester un montage exige une entrée. Tant que le capteur n'est pas câblé ou qu
 
 ![Principe du générateur de signaux : le GBF injecte un stimulus maîtrisé dans le montage testé, l'oscilloscope observe la réponse, les trois appareils partagent une masse commune.](/ressources/img/generateur-de-signaux/injection.svg)
 
-Le GBF et l'oscilloscope forment un **binôme** : l'un injecte, l'autre observe. C'est la version paillasse du couple simulation / mesure — sauf qu'ici tout est réel.
+Le GBF et l'oscilloscope forment un **binôme** : l'un injecte, l'autre observe. C'est la version paillasse du couple simulation / mesure, sauf qu'ici tout est réel.
 
 ## Réglages essentiels
 
@@ -42,7 +42,7 @@ Quatre paramètres définissent le signal :
 - **l'offset** — le décalage continu du signal. C'est lui qui transforme un signal centré sur zéro en signal purement positif : pour une entrée logique 3,3 V, on règle un carré de 3,3 Vpp **avec un offset de +1,65 V** — jamais de tension négative sur une broche de microcontrôleur → [[niveaux-de-tension|niveaux de tension]].
 
 > [!warning] Le piège du genre : High-Z ou 50 Ω
-> Le générateur calcule l'amplitude affichée en supposant une charge de **50 Ω** à sa sortie. Branché sur une entrée à haute impédance — un montage électronique ordinaire —, le signal réel vaut **le double de l'affiché**. Avant toute injection : régler la sortie sur **High-Z** dans les menus (ou diviser mentalement par deux), et **vérifier l'amplitude réelle à l'oscilloscope**.
+> Le générateur calcule l'amplitude affichée en supposant une charge de **50 Ω** à sa sortie. Branché sur une entrée à haute impédance (un montage électronique ordinaire), le signal réel vaut **le double de l'affiché**. Avant toute injection : régler la sortie sur **High-Z** dans les menus (ou diviser mentalement par deux), et **vérifier l'amplitude réelle à l'oscilloscope**.
 
 ## Brancher et injecter
 
@@ -64,7 +64,7 @@ Quatre paramètres définissent le signal :
 ## Raccrochage projet
 
 - **Phase de [[preuve-de-concept|preuve de concept]]** — tester un étage de la chaîne sans attendre les autres : la chaîne de traitement se valide avec un signal de synthèse avant de brancher le vrai capteur.
-- **Phase d'[[integration-et-tests|intégration et tests]]** — produire des cas de test **reproductibles** : la même rampe, le même carré, à chaque essai — ce qu'un capteur réel ne garantit jamais.
+- **Phase d'[[integration-et-tests|intégration et tests]]** — produire des cas de test **reproductibles** : la même rampe, le même carré, à chaque essai, ce qu'un capteur réel ne garantit jamais.
 
 ## Voir aussi
 

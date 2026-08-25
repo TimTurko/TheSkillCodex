@@ -23,13 +23,13 @@ draft: false
 Les fonctions courantes d'un multimètre :
 
 - **tension continue (V⎓ / DC)** — vérifier une alimentation (5 V, 3,3 V, tension d'une pile), relever un niveau logique ;
-- **tension alternative (V∼ / AC)** — mesurer un signal alternatif (valeur **efficace**) — rare dans un projet qui vit en continu ; le secteur 230 V reste hors périmètre (cf. [[instruments-de-mesure|le hub]], *Périmètre de tension*) ;
+- **tension alternative (V∼ / AC)** — mesurer un signal alternatif (valeur **efficace**) — rare dans un projet qui vit en continu (le secteur 230 V reste hors périmètre, cf. [[instruments-de-mesure|le hub]], *Périmètre de tension*) ;
 - **résistance (Ω)** — lire la valeur d'une résistance, vérifier un capteur résistif (thermistance, photorésistance) ;
 - **continuité** — un bip quand la résistance est quasi nulle : tester en quelques secondes si une piste, une soudure ou un câble est bien connecté ;
 - **courant (A)** — mesurer le courant consommé par un montage (en série, voir plus bas) ;
 - souvent aussi **test de diode**, et parfois **capacité** ou **fréquence**.
 
-Pour les signaux qui **varient dans le temps** ([[pwm|PWM]], trame série, rebond de contact), le multimètre ne suffit pas — il affiche une moyenne ou une valeur instable : passer à l'[[oscilloscope|oscilloscope]].
+Pour les signaux qui **varient dans le temps** ([[pwm|PWM]], trame série, rebond de contact), le multimètre ne suffit pas. Il affiche une moyenne ou une valeur instable : passer à l'[[oscilloscope|oscilloscope]].
 
 ## Mesurer pas à pas
 
@@ -61,7 +61,7 @@ En trois mesures simples, on a localisé si le problème vient de l'alimentation
 
 ## Pièges
 
-**Ampèremètre laissé en position courant, rebranché en parallèle.** L'erreur classique : après une mesure de courant, on oublie de remettre le cordon rouge dans la borne V/Ω et de repasser le sélecteur en tension. La fois suivante, on pose les pointes en parallèle « pour mesurer une tension » — mais l'appareil est encore en ampèremètre : court-circuit, **fusible grillé** — le fusible interne est précisément un organe de [[protection-electronique|protection]] : il s'est sacrifié pour l'appareil. Réflexe : revenir en mesure de tension dès qu'on a fini une mesure de courant.
+**Ampèremètre laissé en position courant, rebranché en parallèle.** L'erreur classique : après une mesure de courant, on oublie de remettre le cordon rouge dans la borne V/Ω et de repasser le sélecteur en tension. La fois suivante, on pose les pointes en parallèle « pour mesurer une tension », mais l'appareil est encore en ampèremètre : court-circuit, **fusible grillé**. Le fusible interne est précisément un organe de [[protection-electronique|protection]] : il s'est sacrifié pour l'appareil. Réflexe : revenir en mesure de tension dès qu'on a fini une mesure de courant.
 
 ![En trois temps, la chaîne qui grille le fusible : une mesure de courant correcte, cordon rouge en borne 10 A ; puis le sélecteur qui revient sur V⎓ pendant que le cordon reste, oublié, en 10 A ; puis les pointes posées en parallèle sur une source de 5 V, où l'appareil resté ampèremètre se comporte en simple fil — court-circuit, fusible fondu.|640](/ressources/img/multimetre/fusible-grille.svg)
 

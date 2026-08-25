@@ -14,7 +14,7 @@ phases:
 draft: false
 ---
 
-**L'oscilloscope** affiche la **tension en fonction du temps** : là où le [[multimetre|multimètre]] donne *une valeur*, l'oscilloscope montre *une forme d'onde* — l'évolution du signal, instant par instant. C'est l'instrument indispensable dès qu'un signal **varie vite** : visualiser un [[pwm|PWM]], mesurer une fréquence et un rapport cyclique, repérer le rebond d'un bouton, vérifier qu'une trame série ou un signal de [[bus-de-communication|bus]] a la bonne allure. Il ne donne sa pleine mesure qu'avec trois réglages bien compris — base de temps, calibre vertical et **déclenchement** (*trigger*). Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]] ; pour la lecture d'une forme d'onde en elle-même, voir [[chronogramme|chronogramme]].
+**L'oscilloscope** affiche la **tension en fonction du temps** : là où le [[multimetre|multimètre]] donne *une valeur*, l'oscilloscope montre *une forme d'onde* — l'évolution du signal, instant par instant. C'est l'instrument indispensable dès qu'un signal **varie vite** : visualiser un [[pwm|PWM]], mesurer une fréquence et un rapport cyclique, repérer le rebond d'un bouton, vérifier qu'une trame série ou un signal de [[bus-de-communication|bus]] a la bonne allure. Il ne donne sa pleine mesure qu'avec trois réglages bien compris — base de temps, calibre vertical et **déclenchement** (*trigger*). Cette fiche est un tuto-outil du hub [[instruments-de-mesure|instruments de mesure]]. Pour la lecture d'une forme d'onde en elle-même, voir [[chronogramme|chronogramme]].
 
 ![Face avant d'un oscilloscope en blocs fonctionnels : à gauche l'écran quadrillé avec un signal carré et, dessous, les entrées de sonde CH1 et CH2 ; à droite trois blocs empilés — vertical (Volts/div), horizontal (Temps/div) et déclenchement (niveau et front).|640](/ressources/img/oscilloscope/face-avant.svg)
 
@@ -31,11 +31,11 @@ Pour une simple valeur continue — une tension d'alimentation, une résistance 
 
 ## Brancher la sonde
 
-La sonde est le seul lien entre le circuit et l'écran — la brancher correctement est la moitié du travail :
+La sonde est le seul lien entre le circuit et l'écran. La brancher correctement est la moitié du travail :
 
 1. **le câble de sonde se visse sur un canal** (CH1, CH2…) en face avant ;
 2. à l'autre bout, deux contacts : la **pointe**, qui va sur le point à observer, et la **pince crocodile de masse**, qui va sur la **masse du montage** — et nulle part ailleurs ;
-3. le pourquoi : par son cordon d'alimentation, la masse de l'oscilloscope est **reliée à la terre du secteur**. La pince *impose* donc la terre au point qu'elle touche — sur la masse du circuit, elle établit la référence commune ; sur tout autre point, elle crée un **court-circuit par la terre** (voir *Pièges*).
+3. le pourquoi : par son cordon d'alimentation, la masse de l'oscilloscope est **reliée à la terre du secteur**. La pince *impose* donc la terre au point qu'elle touche — sur la masse du circuit, elle établit la référence commune. Sur tout autre point, elle crée un **court-circuit par la terre** (voir *Pièges*).
 
 ![Branchement d'une sonde d'oscilloscope : le câble part du canal CH1, la pointe va sur la broche signal de la carte, la pince crocodile sur la masse GND ; le cordon d'alimentation relie la masse de l'oscilloscope à la terre du secteur, c'est pourquoi la pince ne se clippe que sur la masse du montage.](/ressources/img/oscilloscope/branchement-sonde.svg)
 
@@ -60,7 +60,7 @@ On veut vérifier le signal produit par un `analogWrite()` sur une carte Arduino
 1. **Brancher** la pointe de sonde sur la broche PWM, la pince de masse sur la GND de la carte.
 2. **Régler** le calibre vertical autour de 1 à 2 V/div (signal 0–5 V) et la base de temps pour voir quelques périodes.
 3. **Déclencher** sur le front montant, niveau ≈ 2,5 V : le signal carré se fige.
-4. **Lire la fréquence** : mesurer la période T sur l'axe horizontal ; la fréquence vaut 1/T (≈ 490 Hz sur la plupart des broches PWM Arduino par défaut).
+4. **Lire la fréquence** : mesurer la période T sur l'axe horizontal. La fréquence vaut 1/T (≈ 490 Hz sur la plupart des broches PWM Arduino par défaut).
 5. **Lire le rapport cyclique** : la proportion du temps passé à l'état haut sur une période. Une consigne `analogWrite(broche, 128)` (la moitié de 255) doit donner ≈ 50 %, une consigne 64 ≈ 25 %.
 
 On a confirmé non seulement *que* le signal sort, mais *à quelle fréquence* et *avec quel rapport cyclique* — une information que le multimètre, qui n'aurait montré qu'une tension moyenne, ne pouvait pas donner.
@@ -73,7 +73,7 @@ On a confirmé non seulement *que* le signal sort, mais *à quelle fréquence* e
 
 **Mauvais trigger.** Un niveau de déclenchement hors de la plage du signal, ou le mauvais front, laisse l'image défiler. Régler le niveau dans l'amplitude réelle du signal.
 
-**Base de temps inadaptée.** Trop rapide, on ne voit qu'un bout de période ; trop lente, le signal se tasse en un trait. L'ajuster pour quelques périodes à l'écran.
+**Base de temps inadaptée.** Trop rapide, on ne voit qu'un bout de période. Trop lente, le signal se tasse en un trait. L'ajuster pour quelques périodes à l'écran.
 
 **Confondre les amplitudes.** Crête, crête-à-crête (Vpp) et valeur efficace décrivent des grandeurs différentes : lire la bonne selon ce qu'on cherche (voir [[chronogramme|chronogramme]]).
 

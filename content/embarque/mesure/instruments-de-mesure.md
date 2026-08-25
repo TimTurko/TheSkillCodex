@@ -26,7 +26,7 @@ Un montage qui « devrait marcher » d'après le schéma et la simulation ne mar
 - **caractériser** — relever une valeur exploitable (tension d'alimentation réelle, fréquence d'un signal, rapport cyclique d'un [[pwm|PWM]]) pour un [[dossier-technique|dossier technique]] ou un rapport de test ;
 - **confronter au modèle** — comparer la trace réelle à la courbe [[simulation-electronique|simulée]] et à la [[lire-une-datasheet|datasheet]] : trois facettes d'un même signal.
 
-La mesure se mène surtout en [[preuve-de-concept|preuve de concept]] (valider un sous-ensemble réel avant de le monter) et en [[integration-et-tests|intégration et tests]] (qualifier le système assemblé). Elle ne remplace pas la simulation — elle la **vérifie**.
+La mesure se mène surtout en [[preuve-de-concept|preuve de concept]] (valider un sous-ensemble réel avant de le monter) et en [[integration-et-tests|intégration et tests]] (qualifier le système assemblé). Elle ne remplace pas la simulation. Elle la **vérifie**.
 
 ## Quel instrument pour quelle grandeur ?
 
@@ -39,7 +39,7 @@ Chaque instrument répond à une question différente. Le premier réflexe est d
 | [[analyseur-logique\|Analyseur logique]] | états logiques de plusieurs lignes numériques simultanées | « que disent ces lignes de [[bus-de-communication\|bus]] ? » |
 | [[generateur-de-signaux\|Générateur de signaux (GBF)]] | *injecte* un signal calibré (ce n'est pas une mesure) | « comment réagit le montage à *cette* entrée ? » |
 
-Le partage essentiel : le **multimètre donne une valeur** (un nombre, lentement), l'**oscilloscope montre une forme** (l'évolution dans le temps, vite). Vérifier une alimentation se fait au multimètre ; observer un signal PWM, un rebond de bouton ou une trame série demande un oscilloscope.
+Le partage essentiel : le **multimètre donne une valeur** (un nombre, lentement), l'**oscilloscope montre une forme** (l'évolution dans le temps, vite). Vérifier une alimentation se fait au multimètre. Observer un signal PWM, un rebond de bouton ou une trame série demande un oscilloscope.
 
 ## Méthode de mesure
 
@@ -52,7 +52,7 @@ Quel que soit l'instrument, une mesure suit le même enchaînement.
 5. **Confronter à l'attendu.** Une mesure ne vaut que rapportée à un ordre de grandeur attendu, comme en simulation — étape traitée juste en dessous.
 
 > [!warning] Périmètre de tension
-> Le projet se mène en **très basse tension** : piles, USB, alimentations de laboratoire. Le **secteur 230 V ne se mesure pas** dans le cadre du projet — c'est un autre univers de précautions, d'instruments et d'habilitations → [[basse-tension|basse tension]].
+> Le projet se mène en **très basse tension** : piles, USB, alimentations de laboratoire. Le **secteur 230 V ne se mesure pas** dans le cadre du projet. C'est un autre univers de précautions, d'instruments et d'habilitations → [[basse-tension|basse tension]].
 
 ## Interpréter une mesure
 
@@ -60,11 +60,11 @@ Relever un chiffre ne suffit pas : encore faut-il savoir ce qu'il vaut. Trois ge
 
 **Lire la grandeur.** Identifier l'unité, l'échelle et le calibre avant de conclure. « 2,5 » ne veut rien dire sans savoir si ce sont des volts, des millivolts ou des ampères, ni si le calibre est adapté. Sur un oscilloscope, vérifier le réglage de la sonde (×1 / ×10) avant de lire une amplitude.
 
-**Connaître la qualité de l'instrument.** Une mesure hérite des défauts de l'instrument : sa [[precision-de-mesure|précision]] réelle — affaire de **justesse** et de **fidélité** — se lit dans sa propre documentation, et le dernier chiffre affiché n'est pas une garantie (résolution n'est pas précision). À garder en tête avant de commenter un écart de quelques pour cent.
+**Connaître la qualité de l'instrument.** Une mesure hérite des défauts de l'instrument : sa [[precision-de-mesure|précision]] réelle (affaire de **justesse** et de **fidélité**) se lit dans sa propre documentation, et le dernier chiffre affiché n'est pas une garantie (résolution n'est pas précision). À garder en tête avant de commenter un écart de quelques pour cent.
 
-**Confronter à l'attendu.** Comparer la mesure à ce que prédit la théorie, la [[lire-une-datasheet|datasheet]] ou la [[simulation-electronique|simulation]]. Une alimentation régulée 5 V *doit* afficher entre 4,75 et 5,25 V : si le multimètre lit 3,2 V, l'alimentation s'écroule probablement sous charge ; s'il lit 0 V, un fil manque. **Une mesure se valide d'abord sur un point dont on connaît la réponse** (la tension d'une pile, une résistance marquée).
+**Confronter à l'attendu.** Comparer la mesure à ce que prédit la théorie, la [[lire-une-datasheet|datasheet]] ou la [[simulation-electronique|simulation]]. Une alimentation régulée 5 V *doit* afficher entre 4,75 et 5,25 V : si le multimètre lit 3,2 V, l'alimentation s'écroule probablement sous charge. S'il lit 0 V, un fil manque. **Une mesure se valide d'abord sur un point dont on connaît la réponse** (la tension d'une pile, une résistance marquée).
 
-**Décider.** Trois issues : le sous-ensemble est **validé** (on l'intègre) ; il est **à revoir** (une valeur ne convient pas, on corrige le montage) ; ou la mesure est **aberrante** — et une mesure aberrante trahit le plus souvent un **problème de branchement, de calibre ou de masse**, pas une physique exotique. Devant l'invraisemblable, on vérifie d'abord la mesure elle-même.
+**Décider.** Trois issues : le sous-ensemble est **validé** (on l'intègre). Il est **à revoir** (une valeur ne convient pas, on corrige le montage). Ou la mesure est **aberrante**, et une mesure aberrante trahit le plus souvent un **problème de branchement, de calibre ou de masse**, pas une physique exotique. Devant l'invraisemblable, on vérifie d'abord la mesure elle-même.
 
 > [!warning]
 > **La mesure n'est pas neutre.** Brancher un instrument modifie légèrement le circuit : un voltmètre y prélève un peu de courant, une sonde d'oscilloscope ajoute une capacité. Sur les montages courants l'effet est négligeable, mais sur un nœud à très haute impédance une mesure peut fausser ce qu'elle observe. Le réflexe : se demander si l'instrument est adapté au point mesuré.
@@ -73,7 +73,7 @@ Relever un chiffre ne suffit pas : encore faut-il savoir ce qu'il vaut. Trois ge
 
 ## Pièges
 
-**Ampèremètre en parallèle = court-circuit.** Un ampèremètre a une résistance quasi nulle ; le brancher en parallèle (comme un voltmètre) crée un court-circuit qui grille son fusible, voire le montage. Le courant se mesure **en série**, en ouvrant le circuit. C'est la première cause de fusible grillé (voir [[multimetre|multimètre]]).
+**Ampèremètre en parallèle = court-circuit.** Un ampèremètre a une résistance quasi nulle. Le brancher en parallèle (comme un voltmètre) crée un court-circuit qui grille son fusible, voire le montage. Le courant se mesure **en série**, en ouvrant le circuit. C'est la première cause de fusible grillé (voir [[multimetre|multimètre]]).
 
 **Dépasser le calibre.** Mesurer 230 V sur un calibre prévu pour 20 V, ou clipper une sonde sur une tension supérieure à sa limite, endommage l'instrument. Au doute, partir large.
 
