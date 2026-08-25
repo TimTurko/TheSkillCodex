@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-**Débugger un programme Arduino** consiste à comprendre pourquoi un sketch ne se comporte pas comme attendu, en observant son état interne au cours de l'exécution. À la différence du développement sur PC où l'on a des debuggers graphiques natifs, l'écosystème Arduino classique repose principalement sur des **`Serial.print()`** stratégiques. L'IDE 2.x et certaines cartes (Uno R4, Zero, MKR) ajoutent un vrai débogueur à breakpoints — mais le `print()` reste l'outil universel à connaître en premier.
+**Débugger un programme Arduino** consiste à comprendre pourquoi un sketch ne se comporte pas comme attendu, en observant son état interne au cours de l'exécution. À la différence du développement sur PC où l'on a des debuggers graphiques natifs, l'écosystème Arduino classique repose principalement sur des **`Serial.print()`** stratégiques. L'IDE 2.x et certaines cartes (Uno R4, Zero, MKR) ajoutent un vrai débogueur à breakpoints, mais le `print()` reste l'outil universel à connaître en premier.
 
 ## À quoi ça sert ?
 
@@ -25,7 +25,7 @@ Tout projet d'embarqué dépasse rapidement la complexité où l'on peut tout v�
 - **Un comportement aléatoire** (parfois OK, parfois KO) qu'on ne reproduit pas.
 - **Une fonction renvoie une valeur étrange** qu'on n'arrive pas à expliquer.
 
-La discipline de débug — observer avant de modifier — est ce qui sépare un dépannage rapide d'une nuit entière de modifications aveugles.
+La discipline de débug (observer avant de modifier) est ce qui sépare un dépannage rapide d'une nuit entière de modifications aveugles.
 
 ## Procédure pas à pas
 
@@ -54,7 +54,7 @@ void loop() {
 }
 ```
 
-À chaque étape de calcul, on imprime ce qu'on observe. Si la valeur est ce qu'on attend, on passe à la suite ; si elle est aberrante, on tient le bug.
+À chaque étape de calcul, on imprime ce qu'on observe. Si la valeur est ce qu'on attend, on passe à la suite. Si elle est aberrante, on tient le bug.
 
 Astuce : préfixer les prints avec un marqueur (`[DBG]`, `[ERR]`, nom de la fonction) pour les filtrer mentalement quand le moniteur défile.
 
@@ -66,7 +66,7 @@ Erreur classique : modifier le code et observer toujours le comportement de la v
 - Le moniteur série affiche-t-il bien les nouveaux `print()` qu'on a ajoutés ?
 - Le port COM est-il celui de la bonne carte (cas où on a plusieurs Arduino branchés) ?
 
-Quand on doute, écrire un `Serial.println("Version 23 - " __DATE__ " - " __TIME__);` dans le `setup()` — le compilateur substitue la date et l'heure de compilation, on voit immédiatement si c'est la dernière version.
+Quand on doute, écrire un `Serial.println("Version 23 - " __DATE__ " - " __TIME__);` dans le `setup()` : le compilateur substitue la date et l'heure de compilation, on voit immédiatement si c'est la dernière version.
 
 ### 3. Comparer ce qu'on observe à ce qu'on attend
 
@@ -76,7 +76,7 @@ C'est le principe de la **dichotomie de débug** : poser des marqueurs aux deux 
 
 ### 4. Utiliser un vrai débogueur (carte compatible)
 
-Sur cartes **Arduino Uno R4 Minima**, **Zero**, **MKR**, **Nano 33 IoT**, **Portenta**, l'IDE 2.x intègre un débogueur à breakpoints — fonctionnalité absente sur Uno R3 et clones AVR.
+Sur cartes **Arduino Uno R4 Minima**, **Zero**, **MKR**, **Nano 33 IoT**, **Portenta**, l'IDE 2.x intègre un débogueur à breakpoints, fonctionnalité absente sur Uno R3 et clones AVR.
 
 Procédure :
 1. Sélectionner la carte compatible (*Tools → Board*).
@@ -99,46 +99,46 @@ Un programme rate de deux façons bien distinctes, et la marche à suivre n'est 
 
 ## Quand ça ne compile pas — lire le message d'erreur
 
-Le compilateur est sévère mais honnête : il refuse tant qu'une faute de syntaxe subsiste, et il indique (presque) où elle est. Apprendre à lire ses messages fait gagner un temps considérable — c'est l'erreur la plus fréquente en début d'apprentissage.
+Le compilateur est sévère mais honnête : il refuse tant qu'une faute de syntaxe subsiste, et il indique (presque) où elle est. Apprendre à lire ses messages fait gagner un temps considérable : c'est l'erreur la plus fréquente en début d'apprentissage.
 
 - **Lire le *premier* message, pas les quarante suivants.** Une seule faute — une accolade, un `;` manquant — fait souvent dérailler le compilateur, qui crache ensuite des dizaines d'erreurs en cascade. Corriger la première, recompiler : la plupart des autres disparaissent.
-- **L'erreur est souvent à la ligne *au-dessus* de celle indiquée.** `expected ';' before ...` signalé ligne 12 signifie presque toujours qu'il manque un `;` à la fin de la ligne 11 — le compilateur ne détecte le manque qu'en arrivant au mot suivant.
+- **L'erreur est souvent à la ligne *au-dessus* de celle indiquée.** `expected ';' before ...` signalé ligne 12 signifie presque toujours qu'il manque un `;` à la fin de la ligne 11 : le compilateur ne détecte le manque qu'en arrivant au mot suivant.
 - **`'xxx' was not declared in this scope`** — le nom `xxx` est inconnu ici. Causes : faute de frappe ou de **casse** (`maLed` ≠ `maLED`), variable déclarée dans un autre bloc (portée → voir [[cpp]]), `#include` oublié, ou variable utilisée avant d'être déclarée.
-- **`expected '}' at end of input`** — une accolade ouvrante `{` n'a jamais été refermée. Réindenter le code fait ressortir le bloc bancal ; en cliquant à côté d'une accolade, l'IDE surligne celle qui lui correspond.
+- **`expected '}' at end of input`** — une accolade ouvrante `{` n'a jamais été refermée. Réindenter le code fait ressortir le bloc bancal. En cliquant à côté d'une accolade, l'IDE surligne celle qui lui correspond.
 - **`no matching function for call to '...'`** — la fonction existe mais on l'appelle avec le mauvais nombre ou type d'arguments (ex. `digitalWrite(13)` sans l'état `HIGH`/`LOW`). Vérifier sa signature.
 - **Caractères invisibles (`stray '\357'`, guillemets courbes).** Un copier-coller depuis le web glisse parfois des guillemets « courbes » (`“ ”`) au lieu des guillemets droits, ou un espace insécable. Retaper la ligne à la main lève le mystère.
 
 ## Quand ça compile mais ne fait pas ce qu'on veut
 
-C'est l'étape qui déroute le plus : **ça compile** veut seulement dire que la syntaxe est correcte — pas que le programme fait ce qu'on imagine. Ici, aucune erreur affichée : il faut **observer** (`Serial.print`, dichotomie — voir la *Procédure* ci-dessus) et connaître les pièges de logique les plus courants.
+C'est l'étape qui déroute le plus : **ça compile** veut seulement dire que la syntaxe est correcte, pas que le programme fait ce qu'on imagine. Ici, aucune erreur affichée : il faut **observer** (`Serial.print` et dichotomie, voir la *Procédure* ci-dessus) et connaître les pièges de logique les plus courants.
 
-- **`=` au lieu de `==` dans un test.** `if (etat = HIGH)` *affecte* `HIGH` à `etat` au lieu de le *comparer* — la condition est alors toujours vraie. Pour comparer, c'est toujours `==`.
+- **`=` au lieu de `==` dans un test.** `if (etat = HIGH)` *affecte* `HIGH` à `etat` au lieu de le *comparer* : la condition est alors toujours vraie. Pour comparer, c'est toujours `==`.
 - **`Serial.begin()` oublié.** Aucun `print` n'apparaît alors que le code semble correct. Vérifier que `Serial.begin(115200);` figure bien dans `setup()`.
-- **Débit du moniteur ≠ `Serial.begin()`.** Le moniteur affiche du charabia. Régler sa vitesse (sélecteur en bas à droite) sur la même valeur que `Serial.begin()` — voir [[arduino-serie]].
-- **`pinMode()` oublié.** Une broche non déclarée `OUTPUT` ne pilote rien ; une entrée sans `INPUT_PULLUP` flotte et lit n'importe quoi. Configurer chaque broche dans `setup()` — voir [[arduino-gpio]].
+- **Débit du moniteur ≠ `Serial.begin()`.** Le moniteur affiche du charabia. Régler sa vitesse (sélecteur en bas à droite) sur la même valeur que `Serial.begin()` (voir [[arduino-serie]]).
+- **`pinMode()` oublié.** Une broche non déclarée `OUTPUT` ne pilote rien. Une entrée sans `INPUT_PULLUP` flotte et lit n'importe quoi. Configurer chaque broche dans `setup()` — voir [[arduino-gpio]].
 - **`INPUT_PULLUP` et logique inversée.** Avec le tirage interne, la broche est à `HIGH` au repos et tombe à `LOW` à l'appui : on teste donc `== LOW`, pas `== HIGH`. C'est l'erreur de bouton la plus fréquente.
 - **Division entière.** `analogRead(A0) * 5 / 1023` calculé en entiers tombe souvent à 0 (`5 / 1023` vaut 0 dès qu'il est évalué entre entiers). Écrire `5.0` (un flottant) pour forcer le calcul réel. Voir [[cpp]].
-- **`millis()` rangé dans un `int`.** `millis()` renvoie un `unsigned long` qui dépasse 32 767 en 33 secondes ; le stocker dans un `int` provoque un débordement et des comparaisons de temps absurdes. Toujours `unsigned long` pour les durées.
+- **`millis()` rangé dans un `int`.** `millis()` renvoie un `unsigned long` qui dépasse 32 767 en 33 secondes. Le stocker dans un `int` provoque un débordement et des comparaisons de temps absurdes. Toujours `unsigned long` pour les durées.
 - **Comparer deux `float` avec `==`.** `if (tension == 2.5)` est presque toujours faux : les flottants traînent des erreurs d'arrondi. Tester un intervalle : `if (abs(tension - 2.5) < 0.01)`.
 - **`delay()` qui gèle tout.** Pendant `delay(1000)`, rien d'autre ne s'exécute — ni lecture de bouton, ni autre tâche. « Le bouton ne répond qu'une fois sur deux » est souvent un `delay` qui bloque. Voir [[arduino-temporisation]].
 - **Index de tableau hors borne.** `int t[4];` puis `t[4] = ...` écrit *au-delà* du tableau (les indices vont de 0 à 3). Symptôme déroutant : une *autre* variable change toute seule. Les indices vont de `0` à `taille - 1`.
 - **Variable non initialisée.** `int compteur;` puis `compteur++` part d'une valeur indéterminée. Toujours initialiser : `int compteur = 0;`.
-- **`setup` / `loop` mal orthographiés.** `void Setup()` (majuscule) ou un nom approchant compile comme une fonction *ordinaire* jamais appelée — le programme ne fait rien, sans la moindre erreur. Respecter exactement `setup()` et `loop()` en minuscules.
+- **`setup` / `loop` mal orthographiés.** `void Setup()` (majuscule) ou un nom approchant compile comme une fonction *ordinaire* jamais appelée : le programme ne fait rien, sans la moindre erreur. Respecter exactement `setup()` et `loop()` en minuscules.
 
 Aucune de ces erreurs ne produit de message : c'est précisément pourquoi la méthode — observer avec `Serial.print`, comparer attendu et observé, resserrer par dichotomie — est la seule porte de sortie.
 
 ## Le code dit une chose, le câblage en dit une autre
 
-Le programme peut être juste et le câblage faux ; le câblage peut être bon et le code faux. Les deux donnent souvent le **même symptôme** (« rien ne se passe »), et c'est l'un des blocages les plus fréquents en TP. La clé : **le numéro de broche dans le code *est* l'adresse physique du composant**. `digitalWrite(8, HIGH)` est une promesse qu'un fil part de D8 vers le composant — ni D7, ni D9. On perd ce lien parce que le code manipule des numéros abstraits tandis que la plaque d'essai est un champ de trous identiques.
+Le programme peut être juste et le câblage faux. Le câblage peut être bon et le code faux. Les deux donnent souvent le **même symptôme** (« rien ne se passe »), et c'est l'un des blocages les plus fréquents en TP. La clé : **le numéro de broche dans le code *est* l'adresse physique du composant**. `digitalWrite(8, HIGH)` est une promesse qu'un fil part de D8 vers le composant — ni D7, ni D9. On perd ce lien parce que le code manipule des numéros abstraits tandis que la plaque d'essai est un champ de trous identiques.
 
-La sortie est la dichotomie, appliquée à la frontière code / matériel — **isoler les deux moitiés** :
+La sortie est la dichotomie, appliquée à la frontière code / matériel. **Isoler les deux moitiés** :
 
-- **Prouver la carte et le téléversement** avec le clignotement de la LED intégrée (`LED_BUILTIN`), sans rien câbler. Si elle clignote, la chaîne IDE → carte fonctionne ; le problème est en aval.
+- **Prouver la carte et le téléversement** avec le clignotement de la LED intégrée (`LED_BUILTIN`), sans rien câbler. Si elle clignote, la chaîne IDE → carte fonctionne. Le problème est en aval.
 - **Prouver le câblage** avec un sketch minimal qui ne pilote (ou ne lit) que *la* broche suspecte — un `digitalWrite` qui clignote, un `analogRead` imprimé au moniteur. Si le composant réagit, le câblage est bon : le bug est dans la logique du programme principal.
 - **Tracer le fil** depuis la broche nommée dans le code jusqu'au composant : lire `const int LED = 8;`, poser le doigt sur D8, suivre le fil. Neuf fois sur dix, l'erreur saute aux yeux à cet instant.
 - **Vérifier le *rôle* et la *polarité*, pas seulement le numéro.** Une broche déclarée `OUTPUT` mais câblée à un capteur (une entrée), ou une LED reliée à `GND` alors que le code la croit active à l'état haut : le numéro est bon, mais le sens ne colle pas. Code et câblage doivent s'accorder sur le **numéro**, la **direction** (`INPUT`/`OUTPUT`) et la **polarité** (actif haut / actif bas).
 
-Deux disciplines gardent ce lien lisible : **nommer les broches par des constantes** (`const int LED_ROUGE = 8;` plutôt que `8` répété en dur — le code se lit alors comme le câblage), et **lire les schémas de câblage de ce wiki en regard du code** : leurs broches portent les mêmes noms que le sketch (`IN1 → D12`, `SDA → A4`). L'exemple ci-dessous applique exactement cette logique d'isolement, du capteur vers la sortie.
+Deux disciplines gardent ce lien lisible : **nommer les broches par des constantes** (`const int LED_ROUGE = 8;` plutôt que `8` répété en dur, le code se lit alors comme le câblage), et **lire les schémas de câblage de ce wiki en regard du code** : leurs broches portent les mêmes noms que le sketch (`IN1 → D12`, `SDA → A4`). L'exemple ci-dessous applique exactement cette logique d'isolement, du capteur vers la sortie.
 
 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie 0
 
@@ -181,7 +181,7 @@ Cette démarche en oignon (du capteur vers la sortie) isole rapidement le segmen
 
 **Print après ouverture immédiate du moniteur.** Le moniteur série de l'IDE prend ~1-2 secondes à s'ouvrir après le téléversement. Les `print()` du `setup()` peuvent passer inaperçus. Ajouter `delay(2000)` ou `while (!Serial);` (sur cartes avec USB natif) en tête de `setup()` pour attendre l'ouverture.
 
-**Variable observée hors de scope.** Imprimer une variable locale n'a de sens que dans le bloc où elle existe. Si on copie un `print` ailleurs, le compilateur sort une erreur — facile à corriger, mais frustrant à diagnostiquer si la variable a juste un nom proche.
+**Variable observée hors de scope.** Imprimer une variable locale n'a de sens que dans le bloc où elle existe. Si on copie un `print` ailleurs, le compilateur sort une erreur, facile à corriger, mais frustrant à diagnostiquer si la variable a juste un nom proche.
 
 **`Serial.print()` oublié en production.** Un build final qui parle constamment au PC consomme du CPU, dégrade la latence et est plus lent à démarrer. Discipline : tous les `print` de débug sont précédés d'une macro qu'on peut désactiver d'un coup :
 
@@ -196,7 +196,7 @@ Cette démarche en oignon (du capteur vers la sortie) isole rapidement le segmen
 #endif
 ```
 
-**Breakpoint qui ne déclenche jamais.** Sur les cartes compatibles débug, oublier de basculer en mode debug (`Optimize for Debugging`) compile une version *release* où les optimisations peuvent supprimer ou réordonner le code — le breakpoint pointe sur une instruction qui n'existe plus.
+**Breakpoint qui ne déclenche jamais.** Sur les cartes compatibles débug, oublier de basculer en mode debug (`Optimize for Debugging`) compile une version *release* où les optimisations peuvent supprimer ou réordonner le code : le breakpoint pointe sur une instruction qui n'existe plus.
 
 **Bug Heisenberg.** Le simple fait d'ajouter du `print` (ou de mettre un breakpoint) ralentit suffisamment le code pour faire disparaître le bug. C'est souvent le signe d'une *race condition* ou d'une dépendance temporelle. Diagnostic : observer sans `print` mais avec une LED toggle qui marque les passages dans une fonction.
 

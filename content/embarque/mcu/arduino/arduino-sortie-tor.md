@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor — toutes ces charges se pilotent par `digitalWrite()`. La fiche couvre les trois cas de figure rencontrés en projet école : pilotage direct sur petite charge (LED), pilotage via transistor pour charge moyenne (buzzer, ventilateur), pilotage via module relais pour charge secteur ou inductive importante.
+Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor : toutes ces charges se pilotent par `digitalWrite()`. La fiche couvre les trois cas de figure rencontrés en projet école : pilotage direct sur petite charge (LED), pilotage via transistor pour charge moyenne (buzzer, ventilateur), pilotage via module relais pour charge secteur ou inductive importante.
 
 ## À quoi ça sert ?
 
@@ -49,7 +49,7 @@ Pour la suite de la procédure, on prend les trois cas usuels : **LED** (broche 
 
 ### 3. Écrire le code
 
-Le code est identique quelle que soit l'interface — le `digitalWrite()` ne sait pas s'il pilote une LED ou un module relais.
+Le code est identique quelle que soit l'interface : le `digitalWrite()` ne sait pas s'il pilote une LED ou un module relais.
 
 ```cpp
 const int LED    = 8;          // LED sur D8 (broche directe)
@@ -75,7 +75,7 @@ void loop() {
 ```
 
 > [!warning]
-> **Logique du relais souvent inversée.** Beaucoup de modules relais 5 V bon marché (LU-5V, JQC-3FF) sont *actifs au niveau bas* : `digitalWrite(RELAIS, LOW)` colle le relais, `HIGH` le relâche. Vérifier sur le module ou par essai — la LED rouge du module s'allume quand le relais est collé.
+> **Logique du relais souvent inversée.** Beaucoup de modules relais 5 V bon marché (LU-5V, JQC-3FF) sont *actifs au niveau bas* : `digitalWrite(RELAIS, LOW)` colle le relais, `HIGH` le relâche. Vérifier sur le module ou par essai : la LED rouge du module s'allume quand le relais est collé.
 
 ### 4. Vérifier la consommation
 
@@ -114,7 +114,7 @@ void loop() {
 }
 ```
 
-Le code aurait la même structure pour piloter un module relais à la place du buzzer — seule l'interface matérielle change.
+Le code aurait la même structure pour piloter un module relais à la place du buzzer : seule l'interface matérielle change.
 
 ## Pièges
 
@@ -122,15 +122,15 @@ Le code aurait la même structure pour piloter un module relais à la place du b
 
 **LED sans résistance.** La LED grille, ou la broche s'abîme. Toujours 220 Ω à 1 kΩ en série pour une LED standard sur 5 V.
 
-**Buzzer actif vs buzzer passif.** Un *buzzer actif* (avec oscillateur intégré) sonne dès qu'on lui applique sa tension nominale — `digitalWrite(BUZZER, HIGH)` suffit. Un *buzzer passif* (transducteur piézo brut) ne sonne pas en TOR — il faut un signal carré (voir `tone()` ou [[arduino-sortie-pwm|PWM]]).
+**Buzzer actif vs buzzer passif.** Un *buzzer actif* (avec oscillateur intégré) sonne dès qu'on lui applique sa tension nominale : `digitalWrite(BUZZER, HIGH)` suffit. Un *buzzer passif* (transducteur piézo brut) ne sonne pas en TOR. Il faut un signal carré (voir `tone()` ou [[arduino-sortie-pwm|PWM]]).
 
 **Charge inductive sans diode de roue libre.** Bobine de relais, moteur, électrovanne : la coupure du courant produit une surtension qui peut détruire le transistor de commutation. Une **diode 1N4007 en inverse en parallèle de la bobine** absorbe cette surtension. Les modules relais commerciaux l'intègrent déjà.
 
 **Module relais alimenté sur 5 V Arduino + grosse charge.** Un module relais standard tire ~70 mA quand il colle. Plusieurs modules + Arduino + autres charges → on dépasse vite les 200 mA totaux. Alimentation externe pour le module dès qu'il y en a plus d'un.
 
-**Logique inversée du module relais oubliée.** Le code semble fonctionner à l'envers, le relais colle alors qu'on l'a mis à `LOW`. C'est volontaire — l'optocoupleur du module inverse la logique. Lire la doc du module ou tester.
+**Logique inversée du module relais oubliée.** Le code semble fonctionner à l'envers, le relais colle alors qu'on l'a mis à `LOW`. C'est volontaire : l'optocoupleur du module inverse la logique. Lire la doc du module ou tester.
 
-**Sortie TOR pour un moteur CC.** Un moteur veut un sens (avant/arrière) et une vitesse — il faut un pont H, pas une sortie TOR (voir [[arduino-moteur-cc|piloter un moteur CC]]). Une sortie TOR sur moteur ne fait qu'allumer le moteur à vitesse maximale dans un seul sens.
+**Sortie TOR pour un moteur CC.** Un moteur veut un sens (avant/arrière) et une vitesse : il faut un pont H, pas une sortie TOR (voir [[arduino-moteur-cc|piloter un moteur CC]]). Une sortie TOR sur moteur ne fait qu'allumer le moteur à vitesse maximale dans un seul sens.
 
 ## Cas particulier — Charges secteur 230 V
 
@@ -145,7 +145,7 @@ Le pilotage de charges secteur (lampe d'éclairage, électrovanne 230 V, pompe) 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque actionneur binaire (LED de signalisation, buzzer d'alarme, relais d'alimentation d'un sous-système) se valide en TOR avant d'être intégré à la boucle de commande.
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — validation pièce-par-pièce avant tests pyramidaux.
 
-Choisir l'interface (broche directe / transistor / module relais) en amont de la commande, sur les datasheets des composants — et pas après avoir grillé le premier — fait la différence entre une PoC qui converge et une qui s'éternise sur des bugs hybrides matériel/logiciel.
+Choisir l'interface (broche directe / transistor / module relais) en amont de la commande, sur les datasheets des composants (et pas après avoir grillé le premier) fait la différence entre une PoC qui converge et une qui s'éternise sur des bugs hybrides matériel/logiciel.
 
 ## Voir aussi
 

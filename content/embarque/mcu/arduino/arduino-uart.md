@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-**[[uart|UART]]** (*Universal Asynchronous Receiver-Transmitter*) est un bus série point-à-point à deux fils : `TX` (transmission) et `RX` (réception), traversants entre deux devices. C'est le bus sous-jacent du moniteur série de l'IDE (entre Arduino et PC via le chip USB) et aussi celui qu'on utilise pour faire dialoguer **deux Arduino entre eux**, ou un Arduino avec un module externe (GPS NEO-6M, Bluetooth HC-05, lecteur RFID PN532). Cette fiche se concentre sur la liaison UART vers un device externe — par opposition à la liaison vers le PC, déjà traitée dans [[arduino-serie|moniteur série]].
+**[[uart|UART]]** (*Universal Asynchronous Receiver-Transmitter*) est un bus série point-à-point à deux fils : `TX` (transmission) et `RX` (réception), traversants entre deux devices. C'est le bus sous-jacent du moniteur série de l'IDE (entre Arduino et PC via le chip USB) et aussi celui qu'on utilise pour faire dialoguer **deux Arduino entre eux**, ou un Arduino avec un module externe (GPS NEO-6M, Bluetooth HC-05, lecteur RFID PN532). Cette fiche se concentre sur la liaison UART vers un device externe, par opposition à la liaison vers le PC, déjà traitée dans [[arduino-serie|moniteur série]].
 
 ## À quoi ça sert ?
 
@@ -42,9 +42,9 @@ Quatre étapes : identifier les UART disponibles, câbler en croisant `TX`/`RX`,
 | ESP32 | 3 | configurables |
 
 > [!danger] Erreur classique : conflit UART/USB sur Uno R3
-> Sur Uno R3, l'unique UART matériel est **partagé avec l'USB**. Utiliser `Serial` pour parler à un module externe occupe les broches D0/D1 — les mêmes que le câble USB. Résultat très fréquent en projet étudiant : **le téléversement échoue** tant que le module reste branché sur D0/D1 (`avrdude: stk500_recv()`, *port not responding*…), et le message d'erreur ne désigne jamais la vraie cause — on perd du temps à chercher côté code ou côté port. Deux réflexes : débrancher le module de D0/D1 avant chaque téléversement, ou — bien mieux — utiliser **`SoftwareSerial`**, une bibliothèque qui émule un UART sur n'importe quelle paire de broches GPIO et laisse `Serial`/USB libre.
+> Sur Uno R3, l'unique UART matériel est **partagé avec l'USB**. Utiliser `Serial` pour parler à un module externe occupe les broches D0/D1, les mêmes que le câble USB. Résultat très fréquent en projet étudiant : **le téléversement échoue** tant que le module reste branché sur D0/D1 (`avrdude: stk500_recv()`, *port not responding*…), et le message d'erreur ne désigne jamais la vraie cause. On perd du temps à chercher côté code ou côté port. Deux réflexes : débrancher le module de D0/D1 avant chaque téléversement, ou (bien mieux) utiliser **`SoftwareSerial`**, une bibliothèque qui émule un UART sur n'importe quelle paire de broches GPIO et laisse `Serial`/USB libre.
 
-**Sur Uno R4, le problème disparaît** : `Serial` (USB) et `Serial1` (broches D0/D1) sont deux UART matériels **indépendants**. Un module externe se branche sur D0/D1 et se pilote avec `Serial1`, tout en gardant le moniteur série USB actif — `SoftwareSerial` n'est plus nécessaire pour un seul module.
+**Sur Uno R4, le problème disparaît** : `Serial` (USB) et `Serial1` (broches D0/D1) sont deux UART matériels **indépendants**. Un module externe se branche sur D0/D1 et se pilote avec `Serial1`, tout en gardant le moniteur série USB actif : `SoftwareSerial` n'est plus nécessaire pour un seul module.
 
 ### 2. Câbler en croisant TX/RX
 
@@ -64,7 +64,7 @@ GND commun **obligatoire**. La tension VCC du device est indépendante (alimenta
 
 Le **baud rate** (bits par seconde) doit être identique aux deux extrémités. Valeurs courantes : 9600, 19200, 38400, 57600, 115200 bauds. Le module externe a un baud rate par défaut documenté (HC-05 : 9600 ; GPS NEO-6M : 9600 ; ESP-01 mode AT : 115200 historiquement, 9600 sur certaines versions).
 
-**Format de trame** : `8N1` (8 bits de données, pas de parité, 1 bit de stop) est la convention quasi-universelle — pas besoin de la préciser sur Arduino, c'est le défaut.
+**Format de trame** : `8N1` (8 bits de données, pas de parité, 1 bit de stop) est la convention quasi-universelle. Pas besoin de la préciser sur Arduino, c'est le défaut.
 
 ### 4. Écrire le code
 
@@ -91,7 +91,7 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> La boucle `loop()` est un **pont bidirectionnel**. Le premier `if` demande à `Serial1` : « as-tu reçu un octet du module ? » (`available()` renvoie le nombre d'octets en attente) ; si oui, on le lit (`read()`) et on le recopie vers le PC (`Serial.print`). Le second `if` fait l'inverse, du PC vers le module. Rien ne bloque : à chaque tour de `loop()`, on transfère au plus un caractère dans chaque sens.
+> La boucle `loop()` est un **pont bidirectionnel**. Le premier `if` demande à `Serial1` : « as-tu reçu un octet du module ? » (`available()` renvoie le nombre d'octets en attente). Si oui, on le lit (`read()`) et on le recopie vers le PC (`Serial.print`). Le second `if` fait l'inverse, du PC vers le module. Rien ne bloque : à chaque tour de `loop()`, on transfère au plus un caractère dans chaque sens.
 
 **Cas b — `SoftwareSerial` sur Uno** :
 
@@ -119,13 +119,13 @@ void loop() {
 }
 ```
 
-La boucle `loop()` est identique à celle du Cas a — seul l'objet de communication change (`monSerie` au lieu de `Serial1`). Ce pattern *« pont série »* sert à observer ce que dit un module sur le moniteur, et à lui envoyer des commandes depuis le moniteur.
+La boucle `loop()` est identique à celle du Cas a : seul l'objet de communication change (`monSerie` au lieu de `Serial1`). Ce pattern *« pont série »* sert à observer ce que dit un module sur le moniteur, et à lui envoyer des commandes depuis le moniteur.
 
 ![Le « pont série » : l'Arduino relaie chaque octet entre le PC (USB, `Serial`) et le module externe (UART, `Serial1` ou `SoftwareSerial`), dans les deux sens|500](/ressources/img/arduino-uart/pont-serie.svg)
 
 ## Exemple — Communication entre deux Arduino
 
-Cas complet : un Arduino A envoie un compteur ; un Arduino B le reçoit, le décode, l'affiche au moniteur série.
+Cas complet : un Arduino A envoie un compteur. Un Arduino B le reçoit, le décode, l'affiche au moniteur série.
 
 **Câblage** *(même croisement TX↔RX qu'au schéma de l'étape 2)* :
 - Arduino A D11 (TX SoftwareSerial) → Arduino B D10 (RX SoftwareSerial)
@@ -175,7 +175,7 @@ void loop() {
 }
 ```
 
-Téléverser sur chaque Arduino, puis ouvrir un moniteur série pour chaque carte — deux fenêtres de l'IDE sur deux ports COM différents suffisent, chaque Arduino apparaissant sur son propre port. On voit le compteur émis d'un côté, reçu de l'autre.
+Téléverser sur chaque Arduino, puis ouvrir un moniteur série pour chaque carte : deux fenêtres de l'IDE sur deux ports COM différents suffisent, chaque Arduino apparaissant sur son propre port. On voit le compteur émis d'un côté, reçu de l'autre.
 
 ## Pièges
 
@@ -183,13 +183,13 @@ Téléverser sur chaque Arduino, puis ouvrir un moniteur série pour chaque cart
 
 **Baud rate désaccordé.** Les deux extrémités doivent avoir le même `.begin(N)`. Sinon, du texte en symboles incompréhensibles sort, comme avec le moniteur série mal réglé.
 
-**Pas de GND commun.** Une communication UART sans GND partagé ne fonctionne pas — les niveaux logiques n'ont pas de référence commune. Toujours relier GND, même si chaque carte a sa propre alimentation.
+**Pas de GND commun.** Une communication UART sans GND partagé ne fonctionne pas : les niveaux logiques n'ont pas de référence commune. Toujours relier GND, même si chaque carte a sa propre alimentation.
 
 **`SoftwareSerial` à haut débit instable.** La bibliothèque émule UART par bit-banging et atteint ses limites au-delà de 38400 bauds. Pour des débits élevés, préférer un UART matériel (Mega) ou un module Wi-Fi/Bluetooth qui négocie son débit en interne.
 
-**Conflit avec USB sur Uno R3.** Utiliser `Serial` (UART0) pour parler à un module externe sur D0/D1 occupe les mêmes broches que l'USB — le téléversement échoue jusqu'à ce qu'on débranche le module. Sur Uno, préférer `SoftwareSerial` pour les modules externes.
+**Conflit avec USB sur Uno R3.** Utiliser `Serial` (UART0) pour parler à un module externe sur D0/D1 occupe les mêmes broches que l'USB : le téléversement échoue jusqu'à ce qu'on débranche le module. Sur Uno, préférer `SoftwareSerial` pour les modules externes.
 
-**Niveaux logiques incompatibles.** Brancher le TX d'un module 3,3 V (ESP-01) sur le RX d'un Uno R3 (5 V) marche en général dans ce sens (l'Uno accepte 3,3 V comme `HIGH`). L'inverse — TX Uno 5 V sur RX ESP-01 3,3 V — peut abîmer l'ESP. Diviseur de tension ou convertisseur de niveau obligatoire. Voir [[niveaux-de-tension|niveaux de tension]].
+**Niveaux logiques incompatibles.** Brancher le TX d'un module 3,3 V (ESP-01) sur le RX d'un Uno R3 (5 V) marche en général dans ce sens (l'Uno accepte 3,3 V comme `HIGH`). L'inverse (TX Uno 5 V sur RX ESP-01 3,3 V) peut abîmer l'ESP. Diviseur de tension ou convertisseur de niveau obligatoire. Voir [[niveaux-de-tension|niveaux de tension]].
 
 **Trame mal délimitée.** Émettre `Serial.print(123)` côté A et lire `Serial.read()` côté B donne `'1'`, `'2'`, `'3'` séparés. Sans marqueur de fin de trame (newline `'\n'`, ou caractère spécifique), le récepteur ne sait pas où une valeur finit. Utiliser `readStringUntil('\n')` ou un protocole structuré.
 

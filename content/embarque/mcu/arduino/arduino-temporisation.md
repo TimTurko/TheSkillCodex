@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-**Temporiser** est l'art de mesurer ou de produire un délai dans un programme embarqué. Arduino propose deux outils opposés en philosophie : **`delay()`**, qui suspend tout le programme pendant une durée donnée, et **`millis()`**, qui donne le temps écoulé depuis le démarrage de la carte. La progression entre les deux — passer de `delay()` aux patterns à base de `millis()` — est le saut le plus structurant entre un sketch débutant et un programme embarqué digne du nom.
+**Temporiser** est l'art de mesurer ou de produire un délai dans un programme embarqué. Arduino propose deux outils opposés en philosophie : **`delay()`**, qui suspend tout le programme pendant une durée donnée, et **`millis()`**, qui donne le temps écoulé depuis le démarrage de la carte. La progression entre les deux (passer de `delay()` aux patterns à base de `millis()`) est le saut le plus structurant entre un sketch débutant et un programme embarqué digne du nom.
 
 ## À quoi ça sert ?
 
@@ -60,7 +60,7 @@ Si un bouton doit interrompre le clignotement, ce code ne le verra qu'avec jusqu
 
 ### 3. `millis()` — l'horloge non bloquante
 
-`millis()` renvoie le nombre de millisecondes écoulées depuis le démarrage de la carte. Le programme ne s'arrête pas — il consulte l'horloge.
+`millis()` renvoie le nombre de millisecondes écoulées depuis le démarrage de la carte. Le programme ne s'arrête pas : il consulte l'horloge.
 
 ```cpp
 unsigned long dernierToggle = 0;
@@ -83,7 +83,7 @@ void loop() {
 }
 ```
 
-Le `loop()` tourne à pleine vitesse (de l'ordre de 100 000 fois par seconde sur Uno R3, selon la charge de la boucle). À chaque tour, on vérifie si l'intervalle est écoulé — si oui, on agit ; sinon, on continue. Le pattern `if (millis() - last >= interval)` est l'incantation à mémoriser une fois pour toutes.
+Le `loop()` tourne à pleine vitesse (de l'ordre de 100 000 fois par seconde sur Uno R3, selon la charge de la boucle). À chaque tour, on vérifie si l'intervalle est écoulé : si oui on agit, sinon on continue. Le pattern `if (millis() - last >= interval)` est l'incantation à mémoriser une fois pour toutes.
 
 *Le contraste entre les deux philosophies se lit d'un coup d'œil sur un chronogramme :*
 
@@ -180,13 +180,13 @@ void loop() {
 **Comment lire ce code.** Le sketch fait tourner **deux mécanismes indépendants dans le même `loop()`**, sans qu'aucun ne bloque l'autre.
 
 - **Le clignotement** repose sur `millis()` : `t_LED` retient la date du dernier basculement, et `maintenant - t_LED >= intervalle` demande à chaque tour « assez de temps a-t-il passé ? ». Si oui, on rebascule la LED et on remet `t_LED` à `maintenant`. Changer `intervalle` (500 ↔ 100 ms) suffit à changer la cadence.
-- **Le bouton** combine anti-rebond et détection de front, exactement comme dans [[arduino-entree-tor|lire une entrée TOR]] : `dernierBouton` suit la lecture *brute*, `etatStable` l'état *confirmé* une fois le rebond passé (`DELAI_REBOND`). La condition `etatStable == LOW` ne se réalise qu'**une seule fois par appui** (au front descendant) — c'est ce qui évite de basculer la fréquence en boucle tant que le doigt reste posé.
+- **Le bouton** combine anti-rebond et détection de front, exactement comme dans [[arduino-entree-tor|lire une entrée TOR]] : `dernierBouton` suit la lecture *brute*, `etatStable` l'état *confirmé* une fois le rebond passé (`DELAI_REBOND`). La condition `etatStable == LOW` ne se réalise qu'**une seule fois par appui** (au front descendant). C'est ce qui évite de basculer la fréquence en boucle tant que le doigt reste posé.
 
-Les deux blocs s'exécutent à chaque tour : la LED clignote *pendant* qu'on surveille le bouton — précisément ce qu'un `delay()` interdirait.
+Les deux blocs s'exécutent à chaque tour : la LED clignote *pendant* qu'on surveille le bouton, précisément ce qu'un `delay()` interdirait.
 
-Le câblage n'a rien de nouveau : un bouton sur `INPUT_PULLUP` (une patte vers la broche, l'autre vers `GND`) et une LED sur sa broche — il est détaillé et illustré dans [[arduino-entree-tor|lire une entrée TOR]].
+Le câblage n'a rien de nouveau : un bouton sur `INPUT_PULLUP` (une patte vers la broche, l'autre vers `GND`) et une LED sur sa broche. Il est détaillé et illustré dans [[arduino-entree-tor|lire une entrée TOR]].
 
-Avec un seul `delay()` dans le code, ce comportement ne serait pas possible — c'est l'illustration directe de pourquoi `millis()` est le bon outil dès qu'il y a plus d'une chose à faire à la fois.
+Avec un seul `delay()` dans le code, ce comportement ne serait pas possible : c'est l'illustration directe de pourquoi `millis()` est le bon outil dès qu'il y a plus d'une chose à faire à la fois.
 
 ## Pièges
 
@@ -196,19 +196,19 @@ Avec un seul `delay()` dans le code, ce comportement ne serait pas possible — 
 
 **Variable de temps en `int` ou `long` signé.** Stocker un résultat de `millis()` dans un `int` (16 bits sur Uno R3) provoque un overflow toutes les 32 secondes. Toujours `unsigned long` pour les variables qui mémorisent un timestamp.
 
-*Sur Uno R4 (cœur Arm Cortex-M4 32 bits), un `int` fait 32 bits : le même bug ne déborde alors qu'après ~24,8 jours — plus rare, donc d'autant plus insidieux. La règle ne change pas : `unsigned long` pour tout timestamp.*
+*Sur Uno R4 (cœur Arm Cortex-M4 32 bits), un `int` fait 32 bits : le même bug ne déborde alors qu'après ~24,8 jours, plus rare, donc d'autant plus insidieux. La règle ne change pas : `unsigned long` pour tout timestamp.*
 
 **`delayMicroseconds(N)` au-delà de 16383.** La fonction n'est précise que pour des durées inférieures à ~16 ms (16383 µs sur Uno R3). Pour plus, utiliser `delay()` (en millisecondes) ou un compteur basé sur `micros()`.
 
 **`micros()` aussi déborde.** `micros()` (microsecondes depuis le démarrage) est aussi `unsigned long` et déborde après ~71 minutes. Pour des chronométrages courts, c'est sans impact. Pour des durées longues, préférer `millis()`.
 
-**Mélanger les unités.** `delay(1000)` = 1 seconde, `delayMicroseconds(1000)` = 1 milliseconde. Erreur classique : remplacer l'une par l'autre sans ajuster — la LED clignote 1000× trop vite ou trop lentement.
+**Mélanger les unités.** `delay(1000)` = 1 seconde, `delayMicroseconds(1000)` = 1 milliseconde. Erreur classique : remplacer l'une par l'autre sans ajuster. La LED clignote 1000× trop vite ou trop lentement.
 
 **Coller plusieurs `if (millis()…)` qui réinitialisent le même compteur.** Chaque cadence indépendante doit avoir sa propre variable `unsigned long`. Sinon les cadences se polluent et s'interrompent.
 
 ## Cas particulier — Cadences sub-milliseconde et temps réel
 
-Pour des asservissements rapides (PID à 1 kHz, lecture d'encodeur à 10 kHz, génération d'un signal précis), le couple `millis()` + `loop()` polling atteint sa limite — la latence devient incertaine selon ce que le reste du `loop()` est en train de faire. Trois pistes :
+Pour des asservissements rapides (PID à 1 kHz, lecture d'encodeur à 10 kHz, génération d'un signal précis), le couple `millis()` + `loop()` polling atteint sa limite : la latence devient incertaine selon ce que le reste du `loop()` est en train de faire. Trois pistes :
 
 - **`micros()`** pour le même pattern à finesse microseconde — gain limité par la durée du `loop()`.
 - **Timers matériels** + interruption périodique — voir [[arduino-timers|timers matériels]] et [[arduino-interruptions|interruptions]].
@@ -219,7 +219,7 @@ Pour des asservissements rapides (PID à 1 kHz, lecture d'encodeur à 10 kHz, g�
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — toute boucle de mesure-action (asservissement, échantillonnage capteur) repose sur une cadence précise, à structurer avec `millis()` dès le premier code.
 - **Toute la [[integration-et-tests|phase d'intégration et tests]]** — un test qui mesure le temps de réponse d'une fonction s'appuie sur `millis()` ou `micros()` pour les datations.
 
-Faire le pas `delay() → millis()` une fois pour toutes en début de PoC évite de devoir réécrire intégralement la structure du code quand le projet réclame deux choses en parallèle — ce qui arrive *toujours* en pratique.
+Faire le pas `delay() → millis()` une fois pour toutes en début de PoC évite de devoir réécrire intégralement la structure du code quand le projet réclame deux choses en parallèle, ce qui arrive *toujours* en pratique.
 
 ## Voir aussi
 

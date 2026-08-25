@@ -40,11 +40,11 @@ Quatre étapes : identifier les broches I2C, câbler avec pull-ups, scanner les 
 | Uno R4 | A4 (et SDA dédié) | A5 (et SCL dédié) |
 | ESP32 | GPIO 21 (défaut) | GPIO 22 (défaut), reconfigurable |
 
-Sur Uno R3, les broches SDA/SCL sont aussi *dupliquées* en haut de la carte (à côté de la broche AREF) sur les cartes plus récentes — équivalent fonctionnel.
+Sur Uno R3, les broches SDA/SCL sont aussi *dupliquées* en haut de la carte (à côté de la broche AREF) sur les cartes plus récentes, équivalent fonctionnel.
 
 ### 2. Câbler avec pull-ups
 
-I2C nécessite des résistances de **pull-up vers VCC** sur `SDA` et `SCL` (typiquement 4,7 kΩ pour 5 V, 2,2 kΩ pour 3,3 V). **La plupart des modules I2C du commerce les intègrent** — pas besoin de les ajouter manuellement pour un premier essai avec un seul module. À noter : aucune carte Uno (R3 comme R4) n'embarque de pull-ups I2C exploitables — sur R4, seules des pastilles à souder sont prévues —, on compte donc sur celles du module.
+I2C nécessite des résistances de **pull-up vers VCC** sur `SDA` et `SCL` (typiquement 4,7 kΩ pour 5 V, 2,2 kΩ pour 3,3 V). **La plupart des modules I2C du commerce les intègrent** : pas besoin de les ajouter manuellement pour un premier essai avec un seul module. À noter : aucune carte Uno (R3 comme R4) n'embarque de pull-ups I2C exploitables (sur R4, seules des pastilles à souder sont prévues), on compte donc sur celles du module.
 
 Câblage générique :
 
@@ -59,7 +59,7 @@ Câblage générique :
 
 ### 3. Scanner les adresses I2C présentes
 
-Avant tout code applicatif, vérifier que le module répond avec un **scanner I2C** — un sketch qui essaye chaque adresse de 1 à 127 et liste celles qui répondent.
+Avant tout code applicatif, vérifier que le module répond avec un **scanner I2C**, un sketch qui essaye chaque adresse de 1 à 127 et liste celles qui répondent.
 
 ```cpp
 #include <Wire.h>
@@ -88,7 +88,7 @@ void loop() {}
 ```
 
 > [!info] Comment lire ce code
-> Le scanner exploite une astuce : `beginTransmission(adresse)` prépare un message pour une adresse, et `endTransmission()` l'envoie réellement sur le bus. Si un device porte cette adresse, il répond par un **ACK** et `endTransmission()` renvoie `0` ; sinon, pas de réponse, le code est non nul. En balayant les adresses 1 à 126, on liste ainsi tout ce qui est branché — sans rien connaître des devices à l'avance. La ligne `if (adresse < 16) Serial.print("0")` ne sert qu'à l'affichage : elle complète `0x7` en `0x07` pour aligner les adresses sur deux chiffres.
+> Le scanner exploite une astuce : `beginTransmission(adresse)` prépare un message pour une adresse, et `endTransmission()` l'envoie réellement sur le bus. Si un device porte cette adresse, il répond par un **ACK** et `endTransmission()` renvoie `0`. Sinon, pas de réponse, le code est non nul. En balayant les adresses 1 à 126, on liste ainsi tout ce qui est branché, sans rien connaître des devices à l'avance. La ligne `if (adresse < 16) Serial.print("0")` ne sert qu'à l'affichage : elle complète `0x7` en `0x07` pour aligner les adresses sur deux chiffres.
 
 Téléverser, ouvrir le moniteur série, lire l'adresse. **Si le scanner ne trouve rien** : vérifier le câblage (SDA/SCL non inversés, pull-ups, alimentation du module).
 
@@ -96,13 +96,13 @@ Adresses typiques : OLED SSD1306 = `0x3C` ou `0x3D` ; BMP280 = `0x76` ou `0x77` 
 
 ### 4. Lire un device avec sa bibliothèque
 
-Une fois l'adresse confirmée, installer la bibliothèque du composant (voir [[arduino-bibliotheques|utiliser une bibliothèque]]), ouvrir un exemple, ajuster l'adresse, téléverser. La lecture est encapsulée par la bibliothèque — pas besoin de manipuler `Wire.h` directement dans 99 % des cas.
+Une fois l'adresse confirmée, installer la bibliothèque du composant (voir [[arduino-bibliotheques|utiliser une bibliothèque]]), ouvrir un exemple, ajuster l'adresse, téléverser. La lecture est encapsulée par la bibliothèque : pas besoin de manipuler `Wire.h` directement dans 99 % des cas.
 
 ## Exemple — Lecture d'un BMP280 (pression et température)
 
 Cas complet sur un module emblématique des projets école. *(Câblage : un module sur A4/A5, comme au schéma de l'étape 2.)*
 
-**Bibliothèque** : *Adafruit BMP280 Library* (gestionnaire de bibliothèques, taper « BMP280 »). Installe également `Adafruit BusIO` et `Adafruit Unified Sensor` en dépendances — accepter.
+**Bibliothèque** : *Adafruit BMP280 Library* (gestionnaire de bibliothèques, taper « BMP280 »). Installe également `Adafruit BusIO` et `Adafruit Unified Sensor` en dépendances. Accepter.
 
 **Code** :
 
@@ -140,9 +140,9 @@ Souffler sur le module : la température monte. Faire varier l'altitude (montée
 
 **Pull-ups manquantes ou en surnombre.** Sans pull-up, le bus reste flottant et rien ne marche. Avec trop de modules à pull-ups en parallèle, la résistance équivalente devient trop faible et le bus ne tient plus la montée du signal. Désactiver les pull-ups sur tous les modules sauf un (un jumper à dessouder).
 
-**Niveau VCC incompatible.** Un module 3,3 V alimenté en 5 V — destruction. Un module 5 V sur 3,3 V — fonctionne mal ou ne démarre pas. Vérifier la fiche du module. Pour des bus mixtes 3,3 V / 5 V, utiliser un convertisseur de niveau bidirectionnel I2C (PCA9306, ou montage MOSFET BSS138).
+**Niveau VCC incompatible.** Un module 3,3 V alimenté en 5 V : destruction. Un module 5 V sur 3,3 V fonctionne mal ou ne démarre pas. Vérifier la fiche du module. Pour des bus mixtes 3,3 V / 5 V, utiliser un convertisseur de niveau bidirectionnel I2C (PCA9306, ou montage MOSFET BSS138).
 
-**Conflit d'adresses entre devices.** Deux MPU6050 ont par défaut la même adresse `0x68`. La plupart des modules permettent de basculer un strap ou de tirer une broche pour passer à `0x69` — lire la fiche du module. Sans cela, les deux devices répondent en même temps, le bus est corrompu.
+**Conflit d'adresses entre devices.** Deux MPU6050 ont par défaut la même adresse `0x68`. La plupart des modules permettent de basculer un strap ou de tirer une broche pour passer à `0x69`. Lire la fiche du module. Sans cela, les deux devices répondent en même temps, le bus est corrompu.
 
 **SDA/SCL inversés.** Le scanner ne trouve rien. Vérifier que SDA est bien sur A4 et SCL sur A5 (sur Uno).
 
@@ -165,7 +165,7 @@ Pour deux devices à même adresse sur le même bus, alternative légère : util
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque capteur ou afficheur I2C se valide en deux temps : scanner pour confirmer l'adresse, exemple de bibliothèque pour confirmer la lecture.
 - **Étape 4 de la [[concept|phase de concept]]** — l'EAT favorise I2C dès qu'on a 2+ devices ou qu'on doit économiser les broches GPIO.
 
-Le scanner I2C est l'outil de diagnostic universel du bus — à garder dans un coin de l'environnement de travail, à téléverser à chaque nouveau câblage. Il sépare en 30 secondes les problèmes matériels (rien ne répond) des problèmes logiciels (le device répond mais la lecture ne marche pas).
+Le scanner I2C est l'outil de diagnostic universel du bus, à garder dans un coin de l'environnement de travail, à téléverser à chaque nouveau câblage. Il sépare en 30 secondes les problèmes matériels (rien ne répond) des problèmes logiciels (le device répond mais la lecture ne marche pas).
 
 ## Voir aussi
 

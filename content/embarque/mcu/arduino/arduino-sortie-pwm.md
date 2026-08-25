@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Le **PWM** (Pulse Width Modulation, modulation de largeur d'impulsion) émet un signal carré rapide dont on fait varier la proportion de temps passé à `HIGH` — le **rapport cyclique**. Sur Arduino, la fonction `analogWrite()` génère ce signal sur les broches marquées d'un tilde `~`. Du point de vue de la charge (LED, moteur, élément chauffant) lente devant la fréquence du PWM, l'effet est *équivalent à une tension moyenne* réglable de 0 à 5 V — sans qu'aucune vraie tension intermédiaire ne soit produite par la broche.
+Le **PWM** (Pulse Width Modulation, modulation de largeur d'impulsion) émet un signal carré rapide dont on fait varier la proportion de temps passé à `HIGH`, le **rapport cyclique**. Sur Arduino, la fonction `analogWrite()` génère ce signal sur les broches marquées d'un tilde `~`. Du point de vue de la charge (LED, moteur, élément chauffant) lente devant la fréquence du PWM, l'effet est *équivalent à une tension moyenne* réglable de 0 à 5 V, sans qu'aucune vraie tension intermédiaire ne soit produite par la broche.
 
 ## À quoi ça sert ?
 
@@ -40,11 +40,11 @@ Toutes les broches numériques ne génèrent pas du PWM. Sur Arduino Uno R3, six
 
 Pour **tout autre microcontrôleur** (ESP32, STM32, RP2040…), les broches PWM ne se devinent pas : se reporter au **schéma de brochage (*pinout*) du constructeur** ou à la **documentation technique** de la carte, qui indiquent les broches capables de PWM (souvent repérées `PWM`, `TIM` ou `~`).
 
-`analogWrite()` sur une broche non-PWM ne génère pas d'erreur — elle force juste `HIGH` (si valeur > 127) ou `LOW`. Symptôme : la LED reste allumée à pleine puissance ou éteinte, peu importe la valeur passée.
+`analogWrite()` sur une broche non-PWM ne génère pas d'erreur : elle force juste `HIGH` (si valeur > 127) ou `LOW`. Symptôme : la LED reste allumée à pleine puissance ou éteinte, peu importe la valeur passée.
 
 ### 2. Câbler une LED PWM
 
-LED anode (+) → résistance 220 Ω → broche **D9** (PWM) ; cathode (−) → GND. Identique au câblage d'une LED en TOR — c'est le code qui change.
+LED anode (+) → résistance 220 Ω → broche **D9** (PWM) ; cathode (−) → GND. Identique au câblage d'une LED en TOR. C'est le code qui change.
 
 ![Branchement d'une LED sur une sortie PWM : broche D9 (~) → résistance 220 Ω → anode de la LED, cathode → GND. Câblage identique à une LED en tout-ou-rien.|520](/ressources/img/arduino-sortie-pwm/branchement-led-pwm.svg)
 
@@ -71,11 +71,11 @@ void loop() {
 }
 ```
 
-Le paramètre de `analogWrite()` est un entier de **0** (rapport cyclique 0 %, sortie toujours basse) à **255** (rapport cyclique 100 %, sortie toujours haute). Cette plage 0-255 reste le défaut sur Uno R4 aussi ; une résolution supérieure n'est accessible qu'en option via `analogWriteResolution()`. La LED s'allume progressivement puis s'éteint progressivement en boucle.
+Le paramètre de `analogWrite()` est un entier de **0** (rapport cyclique 0 %, sortie toujours basse) à **255** (rapport cyclique 100 %, sortie toujours haute). Cette plage 0-255 reste le défaut sur Uno R4 aussi. Une résolution supérieure n'est accessible qu'en option via `analogWriteResolution()`. La LED s'allume progressivement puis s'éteint progressivement en boucle.
 
 ### 4. Observer
 
-À l'œil nu, la LED varie en intensité — c'est l'effet de moyenne perceptive (l'œil intègre les ~490 commutations par seconde du PWM Arduino sur D9). À l'**oscilloscope**, on voit la vraie nature du signal : créneau 0-5 V dont la proportion de temps à 5 V varie avec la valeur passée (chronogrammes idéalisés dans [[pwm]]).
+À l'œil nu, la LED varie en intensité : c'est l'effet de moyenne perceptive (l'œil intègre les ~490 commutations par seconde du PWM Arduino sur D9). À l'**oscilloscope**, on voit la vraie nature du signal : créneau 0-5 V dont la proportion de temps à 5 V varie avec la valeur passée (chronogrammes idéalisés dans [[pwm]]).
 
 ![Écran d'oscilloscope montrant un signal PWM : créneau 0-5 V, période repérée et rapport cyclique de 50 % coté.|600](/ressources/img/oscilloscope/ecran-pwm.svg)
 
@@ -103,27 +103,27 @@ void loop() {
 }
 ```
 
-Tournez le potentiomètre : la luminosité de la LED suit. Note : `analogRead()` renvoie 0-1023 sur Uno R3 (voir [[arduino-capteur-analogique|lire un capteur analogique]]), mais `analogWrite()` veut 0-255 — la conversion par division par 4 (ou la fonction `map()`) est obligatoire.
+Tournez le potentiomètre : la luminosité de la LED suit. Note : `analogRead()` renvoie 0-1023 sur Uno R3 (voir [[arduino-capteur-analogique|lire un capteur analogique]]), mais `analogWrite()` veut 0-255. La conversion par division par 4 (ou la fonction `map()`) est obligatoire.
 
 ## Pièges
 
-**Broche non PWM.** Le code compile, `analogWrite()` ne génère pas d'erreur — mais la sortie est binaire. Vérifier le `~` sur la sérigraphie de la carte ou la doc.
+**Broche non PWM.** Le code compile, `analogWrite()` ne génère pas d'erreur, mais la sortie est binaire. Vérifier le `~` sur la sérigraphie de la carte ou la doc.
 
-**Confondre `analogWrite()` et vraie sortie analogique.** `analogWrite()` ne sort pas une tension analogique — il sort un créneau 0/5 V à rapport cyclique variable. La tension *moyenne* est analogique pour une charge lente (LED, moteur), mais l'instantané reste binaire. Pour une vraie tension analogique, il faut un [[dac|DAC]] (Uno R4 a un DAC sur A0) ou un filtre RC passe-bas en sortie de PWM.
+**Confondre `analogWrite()` et vraie sortie analogique.** `analogWrite()` ne sort pas une tension analogique : il sort un créneau 0/5 V à rapport cyclique variable. La tension *moyenne* est analogique pour une charge lente (LED, moteur), mais l'instantané reste binaire. Pour une vraie tension analogique, il faut un [[dac|DAC]] (Uno R4 a un DAC sur A0) ou un filtre RC passe-bas en sortie de PWM.
 
 **Confondre 0-255 et 0-100.** Le paramètre de `analogWrite()` est 0-255 (8 bits), pas 0-100 ou 0-1023. Une valeur 100 = 39 % de rapport cyclique, pas 100 %.
 
-**Fréquence PWM par défaut inadaptée.** Sur Uno, les broches D5 et D6 sortent à ~980 Hz, les autres à ~490 Hz. Pour une LED ou un moteur lent c'est imperceptible ; pour un moteur rapide avec inertie faible, ou pour un buzzer piézo, la fréquence peut être audible ou produire des artefacts. Voir [[arduino-timers|timers matériels]] pour reconfigurer la fréquence.
+**Fréquence PWM par défaut inadaptée.** Sur Uno, les broches D5 et D6 sortent à ~980 Hz, les autres à ~490 Hz. Pour une LED ou un moteur lent c'est imperceptible. Pour un moteur rapide avec inertie faible, ou pour un buzzer piézo, la fréquence peut être audible ou produire des artefacts. Voir [[arduino-timers|timers matériels]] pour reconfigurer la fréquence.
 
 **Charge inductive (moteur, bobine) sans diode de roue libre.** Une bobine pilotée en PWM produit des surtensions à chaque commutation. Sans diode 1N4007 en parallèle inverse, le transistor de commutation (ou la broche directement, mais c'est dépassé en courant) meurt rapidement.
 
-**PWM sur grosse charge sans transistor.** Le rapport cyclique ne change pas le courant — pleine puissance = pleine puissance. Un moteur 1 A piloté en PWM tire toujours 1 A pendant les phases haut ; la broche Arduino (20 mA max) ne tient pas. Toujours un transistor (MOSFET pour les courants élevés) ou un pont H.
+**PWM sur grosse charge sans transistor.** Le rapport cyclique ne change pas le courant : pleine puissance = pleine puissance. Un moteur 1 A piloté en PWM tire toujours 1 A pendant les phases haut. La broche Arduino (20 mA max) ne tient pas. Toujours un transistor (MOSFET pour les courants élevés) ou un pont H.
 
 **Conflit avec bibliothèques** (`Servo.h`, `Tone.h`). Certaines bibliothèques utilisent les mêmes timers que `analogWrite()`. Inclure `Servo.h` désactive le PWM sur D9 et D10 sur Uno. Lire les notes de la bibliothèque utilisée.
 
 ## Cas particulier — Lissage par filtre RC pour vraie tension
 
-Pour transformer un PWM en vraie tension continue lissée (par exemple pour piloter une entrée analogique d'un autre appareil), un filtre RC passe-bas en sortie suffit. Constantes typiques : R = 10 kΩ, C = 1 µF, fréquence de coupure ~16 Hz — bien en dessous des 490 Hz du PWM Arduino, donc lissage efficace. Le compromis : temps de réponse de quelques dizaines de millisecondes.
+Pour transformer un PWM en vraie tension continue lissée (par exemple pour piloter une entrée analogique d'un autre appareil), un filtre RC passe-bas en sortie suffit. Constantes typiques : R = 10 kΩ, C = 1 µF, fréquence de coupure ~16 Hz (bien en dessous des 490 Hz du PWM Arduino, donc lissage efficace). Le compromis : temps de réponse de quelques dizaines de millisecondes.
 
 Pour des applications haute précision (DAC audio, modulation rapide), préférer un vrai DAC externe (MCP4725 en I2C, par exemple).
 

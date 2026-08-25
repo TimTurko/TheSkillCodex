@@ -15,11 +15,11 @@ aa:
 draft: false
 ---
 
-Un **capteur numérique** délivre une information codée en signal binaire — par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (capteur ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas — les bus I2C et SPI ont leurs propres tutoriels.
+Un **capteur numérique** délivre une information codée en signal binaire, par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (capteur ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas : les bus I2C et SPI ont leurs propres tutoriels.
 
 ## À quoi ça sert ?
 
-Les capteurs numériques sont les briques de mesure les plus utilisées en projet école : détecter une présence (PIR), mesurer une distance (HC-SR04 ultrason), repérer un passage (capteur infrarouge). Mesurer une **vitesse** de rotation (encodeur) est un cas voisin mais distinct — du comptage d'impulsions, traité par [[interruption|interruptions]] ou [[timer|timers]], pas par `digitalRead()` ni `pulseIn()`. Leur intérêt sur les capteurs analogiques : insensibilité au bruit du câble, valeur déjà conditionnée, lecture directe sans étalonnage électrique. Leur contrepartie : on dépend de la documentation du capteur (protocole, timing, bibliothèque).
+Les capteurs numériques sont les briques de mesure les plus utilisées en projet école : détecter une présence (PIR), mesurer une distance (HC-SR04 ultrason), repérer un passage (capteur infrarouge). Mesurer une **vitesse** de rotation (encodeur) est un cas voisin mais distinct : du comptage d'impulsions, traité par [[interruption|interruptions]] ou [[timer|timers]], pas par `digitalRead()` ni `pulseIn()`. Leur intérêt sur les capteurs analogiques : insensibilité au bruit du câble, valeur déjà conditionnée, lecture directe sans étalonnage électrique. Leur contrepartie : on dépend de la documentation du capteur (protocole, timing, bibliothèque).
 
 ## Procédure pas à pas
 
@@ -61,11 +61,11 @@ void loop() {
 }
 ```
 
-La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `LOW` quand un obstacle est détecté), d'où le test `== LOW` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[arduino-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi* ; pour mesurer la distance réelle, voir le cas suivant.
+La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `LOW` quand un obstacle est détecté), d'où le test `== LOW`, à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[arduino-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi*. Pour mesurer la distance réelle, voir le cas suivant.
 
 ### 3. Câbler le HC-SR04
 
-Cas plus riche : le **HC-SR04** (ultrason) *mesure* la distance au lieu de signaler un seuil — capteur emblématique du projet école, présent dans tous les kits :
+Cas plus riche : le **HC-SR04** (ultrason) *mesure* la distance au lieu de signaler un seuil (capteur emblématique du projet école, présent dans tous les kits) :
 
 - `VCC` du capteur → `+5 V` Arduino
 - `GND` du capteur → `GND` Arduino
@@ -76,7 +76,7 @@ Cas plus riche : le **HC-SR04** (ultrason) *mesure* la distance au lieu de signa
 
 ### 4. Lire le datasheet du HC-SR04
 
-Le HC-SR04 fonctionne au **temps de vol** (*time of flight*) : l'émetteur envoie une salve d'ultrasons, l'onde se propage, **rebondit sur l'objet**, puis revient vers le récepteur. En mesurant le **temps d'aller-retour** et connaissant la vitesse du son, on en déduit la distance. Ce temps est précisément ce que la broche `Echo` restitue — et que le code lira à l'étape suivante.
+Le HC-SR04 fonctionne au **temps de vol** (*time of flight*) : l'émetteur envoie une salve d'ultrasons, l'onde se propage, **rebondit sur l'objet**, puis revient vers le récepteur. En mesurant le **temps d'aller-retour** et connaissant la vitesse du son, on en déduit la distance. Ce temps est précisément ce que la broche `Echo` restitue, et que le code lira à l'étape suivante.
 
 ![Principe du capteur à ultrasons HC-SR04 : l'émetteur (Transmitter) envoie une onde sonore qui rebondit sur l'objet ; le récepteur (Receiver) capte l'onde réfléchie (écho). Le temps écoulé entre l'émission et la réception donne la distance.|520](/ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp)
 
@@ -125,9 +125,9 @@ void loop() {
 }
 ```
 
-**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `TRIG` une impulsion **propre** de 10 µs — le `LOW` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `pulseIn(ECHO, HIGH, 30000UL)` met le programme **en attente** de l'impulsion sur `ECHO` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Un `0` signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
+**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `TRIG` une impulsion **propre** de 10 µs. Le `LOW` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `pulseIn(ECHO, HIGH, 30000UL)` met le programme **en attente** de l'impulsion sur `ECHO` et renvoie sa **durée en microsecondes**, le temps d'aller-retour de l'onde. Un `0` signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
 
-Approchez et éloignez la main du capteur — la distance s'affiche au moniteur série :
+Approchez et éloignez la main du capteur. La distance s'affiche au moniteur série :
 
 ```
 23.45 cm
@@ -138,7 +138,7 @@ Hors plage
 8.90 cm
 ```
 
-Deux décimales, parce que `Serial.print()` en affiche deux par défaut sur un `float` — une précision que le capteur n'a pas. Et `Hors plage` apparaît dès que la main sort du cône de mesure : c'est le `0` renvoyé par `pulseIn()` au bout des 30 ms.
+Deux décimales, parce que `Serial.print()` en affiche deux par défaut sur un `float` (une précision que le capteur n'a pas). Et `Hors plage` apparaît dès que la main sort du cône de mesure : c'est le `0` renvoyé par `pulseIn()` au bout des 30 ms.
 
 ## Exemple — Détecteur de seuil avec LED d'alerte
 
@@ -179,19 +179,19 @@ void loop() {
 }
 ```
 
-La factorisation en fonction `mesurerDistance()` annonce la pratique d'organisation du code embarqué — voir [[firmware|firmware]] et [[arduino-debug|débugger un programme]].
+La factorisation en fonction `mesurerDistance()` annonce la pratique d'organisation du code embarqué (voir [[firmware|firmware]] et [[arduino-debug|débugger un programme]]).
 
 ## Pièges
 
-**Confondre numérique et analogique.** Un capteur de présence à niveau logique se lit par `digitalRead()`, pas par `analogRead()`. À l'inverse, un capteur de température LM35 est *analogique* malgré son nom techy — il sort une tension continue, à lire par `analogRead()` (voir [[arduino-capteur-analogique|lire un capteur analogique]]).
+**Confondre numérique et analogique.** Un capteur de présence à niveau logique se lit par `digitalRead()`, pas par `analogRead()`. À l'inverse, un capteur de température LM35 est *analogique* malgré son nom techy : il sort une tension continue, à lire par `analogRead()` (voir [[arduino-capteur-analogique|lire un capteur analogique]]).
 
 **Timeout de `pulseIn()` mal calibré.** Sans timeout explicite, `pulseIn()` bloque jusqu'à 1 s (son timeout par défaut) si aucun écho ne revient (cible trop loin, surface absorbante). Toujours passer un troisième argument (en microsecondes). Pour HC-SR04 en 4 m : ~23 ms d'aller-retour, donc timeout 30 ms.
 
-**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie — voir [[filtrage|filtrer des mesures]].
+**Ignorer les valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes (interférences, mauvaise réflexion). Filtrer (médiane sur 3-5 mesures, ou seuil de variation entre mesures consécutives) avant d'asservir un actionneur sur la sortie (voir [[filtrage|filtrer des mesures]]).
 
 **Niveau 5 V sur entrée ESP32.** Le HC-SR04 sort `Echo` à 5 V. Sur ESP32 (entrée tolérante 3,3 V), brancher directement endommage la broche. Diviseur de tension ou convertisseur de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
-**Bibliothèque cassée ou pas à jour pour DHT11/22.** Ces capteurs ont un timing strict et de multiples bibliothèques concurrentes. Vérifier que la bibliothèque utilisée est maintenue (commits récents) et compatible avec la carte cible (R3, R4, ESP32 — ce n'est pas la même chose).
+**Bibliothèque cassée ou pas à jour pour DHT11/22.** Ces capteurs ont un timing strict et de multiples bibliothèques concurrentes. Vérifier que la bibliothèque utilisée est maintenue (commits récents) et compatible avec la carte cible : R3, R4 et ESP32 ne sont pas la même chose.
 
 **Mesure trop fréquente.** Le HC-SR04 a un cycle de mesure d'environ 60 ms (le temps d'attendre la dissipation de l'écho). Mesurer plus vite (10 ms) donne des résultats incohérents. 10 Hz (toutes les 100 ms) est un bon rythme.
 
@@ -199,14 +199,14 @@ La factorisation en fonction `mesurerDistance()` annonce la pratique d'organisat
 
 ## Cas particulier — Capteurs sur bus I2C ou SPI
 
-Beaucoup de capteurs modernes (BMP280, MPU6050, MAX30102, VL53L0X) communiquent par bus — ils sont *numériques* mais d'une catégorie traitée à part. Voir [[arduino-i2c|I2C sur Arduino]] et [[arduino-spi|SPI sur Arduino]]. Le câblage et le code diffèrent radicalement de la lecture impulsionnelle ou par niveau logique.
+Beaucoup de capteurs modernes (BMP280, MPU6050, MAX30102, VL53L0X) communiquent par bus : ils sont *numériques* mais d'une catégorie traitée à part. Voir [[arduino-i2c|I2C sur Arduino]] et [[arduino-spi|SPI sur Arduino]]. Le câblage et le code diffèrent radicalement de la lecture impulsionnelle ou par niveau logique.
 
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque capteur du projet se valide isolément avant intégration : câblage, lecture brute, plage de mesure observée.
 - **Étape 1 de la [[integration-et-tests|phase d'intégration et tests]]** — chaque capteur est requalifié unitairement avant tests d'intégration.
 
-Brancher un capteur, lire sa documentation, en sortir une mesure crédible sur quelques minutes — c'est la boucle qui fait la PoC. Le faire vite et bien sur un capteur autonome, dans le bon ordre, est le geste à automatiser pour tous les capteurs du projet.
+Brancher un capteur, lire sa documentation, en sortir une mesure crédible sur quelques minutes : c'est la boucle qui fait la PoC. Le faire vite et bien sur un capteur autonome, dans le bon ordre, est le geste à automatiser pour tous les capteurs du projet.
 
 ## Voir aussi
 

@@ -25,7 +25,7 @@ Trois usages emblématiques en projet école :
 - **Piloter un écran graphique** — TFT 2,4″ ILI9341, écran e-paper Waveshare.
 - **Communiquer en radio** — modules NRF24L01 (2,4 GHz) pour télécommande à courte portée, LoRa pour longue portée.
 
-Là où I2C met en réseau plusieurs devices à 2 fils via adressage, SPI sélectionne explicitement *un* device à la fois par sa broche `SS` — chaque device additionnel coûte une broche GPIO de plus.
+Là où I2C met en réseau plusieurs devices à 2 fils via adressage, SPI sélectionne explicitement *un* device à la fois par sa broche `SS` : chaque device additionnel coûte une broche GPIO de plus.
 
 ## Procédure pas à pas
 
@@ -40,7 +40,7 @@ Quatre étapes : identifier les broches SPI, câbler avec un SS dédié, install
 | Uno R4 | D13 | D11 | D12 | D10 |
 | ESP32 (VSPI) | D18 | D23 | D19 | D5 |
 
-`SCK`, `MOSI`, `MISO` sont **fixes** (câblage matériel du contrôleur SPI), `SS` est par convention sur D10 mais peut être **n'importe quelle GPIO** — c'est le code applicatif qui choisit la broche à tirer à `LOW` pour adresser un device.
+`SCK`, `MOSI`, `MISO` sont **fixes** (câblage matériel du contrôleur SPI), `SS` est par convention sur D10 mais peut être **n'importe quelle GPIO** : c'est le code applicatif qui choisit la broche à tirer à `LOW` pour adresser un device.
 
 ### 2. Câbler avec un SS dédié
 
@@ -61,7 +61,7 @@ Si on a plusieurs devices SPI sur le même bus (SD + écran TFT, par exemple), `
 
 ### 3. Installer la bibliothèque
 
-Pour la carte SD : `SD.h` est **livrée avec l'IDE** — pas besoin d'installer. Pour d'autres devices : `Adafruit_GFX` + `Adafruit_ILI9341` pour les écrans TFT, `RF24` pour les NRF24L01, etc. Voir [[arduino-bibliotheques|utiliser une bibliothèque]].
+Pour la carte SD : `SD.h` est **livrée avec l'IDE**. Pas besoin d'installer. Pour d'autres devices : `Adafruit_GFX` + `Adafruit_ILI9341` pour les écrans TFT, `RF24` pour les NRF24L01, etc. Voir [[arduino-bibliotheques|utiliser une bibliothèque]].
 
 ### 4. Écrire le code (SD card)
 
@@ -104,7 +104,7 @@ void loop() {}
 ```
 
 > [!info] Comment lire ce code
-> L'écriture sur carte SD suit toujours le même cycle : `SD.open(nom, FILE_WRITE)` ouvre (ou crée) un fichier et renvoie un objet `File` ; on y écrit avec `print`/`println` comme sur le moniteur série ; **`close()` est obligatoire** — c'est lui qui force l'écriture réelle sur la carte (sans `close()`, le fichier peut rester vide). La relecture rouvre le fichier et le parcourt avec `while (f.available())` : tant qu'il reste des octets, on les lit un par un. Le test `if (f)` après chaque ouverture est indispensable — un `File` invalide ne lève pas d'erreur, il échoue en silence.
+> L'écriture sur carte SD suit toujours le même cycle : `SD.open(nom, FILE_WRITE)` ouvre (ou crée) un fichier et renvoie un objet `File`. On y écrit avec `print`/`println` comme sur le moniteur série. **`close()` est obligatoire** : c'est lui qui force l'écriture réelle sur la carte (sans `close()`, le fichier peut rester vide). La relecture rouvre le fichier et le parcourt avec `while (f.available())` : tant qu'il reste des octets, on les lit un par un. Le test `if (f)` après chaque ouverture est indispensable : un `File` invalide ne lève pas d'erreur, il échoue en silence.
 
 Insérer une carte microSD formatée en FAT16 ou FAT32 (capacité ≤ 32 Go pour FAT32), téléverser, observer le moniteur série. Retirer la carte, la lire sur un PC pour vérifier le fichier `test.txt`.
 
@@ -157,7 +157,7 @@ Laisser tourner quelques minutes, retirer la carte, ouvrir `data.csv` dans un ta
 
 **Niveaux logiques 5 V sur module SD 3,3 V.** Beaucoup de modules SD intègrent leur propre régulateur 3,3 V et un convertisseur de niveau sur les broches SPI — `MISO`, `MOSI`, `SCK`, `CS`. D'autres non, et brancher du 5 V sur les broches SPI grille la carte. Vérifier la fiche du module.
 
-**Mode SPI ou bit order mal réglé.** SPI a 4 modes (0 à 3) selon polarité et phase de l'horloge. Les bibliothèques officielles le gèrent ; pour le code direct via `SPI.beginTransaction()`, lire la datasheet du device. La carte SD utilise mode 0.
+**Mode SPI ou bit order mal réglé.** SPI a 4 modes (0 à 3) selon polarité et phase de l'horloge. Les bibliothèques officielles le gèrent. Pour le code direct via `SPI.beginTransaction()`, lire la datasheet du device. La carte SD utilise mode 0.
 
 **Bus partagé avec un shield Ethernet ou un module Wi-Fi.** Conflit de `CS` ou bibliothèques qui ne libèrent pas le bus proprement. Symptôme : tantôt la SD marche, tantôt l'Ethernet. Solution : encadrer chaque accès SPI par `SPI.beginTransaction()` et `SPI.endTransaction()` (la majorité des bibliothèques modernes le font automatiquement).
 

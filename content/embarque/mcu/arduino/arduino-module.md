@@ -15,11 +15,11 @@ aa:
 draft: false
 ---
 
-Un **module** est un petit PCB préfabriqué qui héberge un composant principal (capteur, driver, convertisseur) entouré de son circuit d'application minimal : alimentation, pull-ups, condensateurs de découplage, connecteur de mise en œuvre. Les modules économisent au concepteur tout le câblage *bas-niveau* du datasheet — il reste à brancher quatre fils Dupont et à appeler la bibliothèque. La fiche couvre le câblage générique d'un module : identification des broches, alimentation, signaux, et les pièges qui font qu'un module fraîchement reçu refuse de démarrer.
+Un **module** est un petit PCB préfabriqué qui héberge un composant principal (capteur, driver, convertisseur) entouré de son circuit d'application minimal : alimentation, pull-ups, condensateurs de découplage, connecteur de mise en œuvre. Les modules économisent au concepteur tout le câblage *bas-niveau* du datasheet : il reste à brancher quatre fils Dupont et à appeler la bibliothèque. La fiche couvre le câblage générique d'un module : identification des broches, alimentation, signaux, et les pièges qui font qu'un module fraîchement reçu refuse de démarrer.
 
 ## À quoi ça sert ?
 
-Un projet école typique embarque 5 à 15 modules : module capteur (DHT11, HC-SR04, BMP280, MPU6050), [[arduino-moteur-cc|module driver]] (L298N, DRV8833), [[arduino-afficheur|module afficheur]] (OLED I2C, LCD I2C), module communication (HC-05 Bluetooth, ESP-01 Wi-Fi), module alimentation (régulateur LM2596, convertisseur USB), module utilitaire (RTC DS3231, MicroSD). Tous suivent la même logique de câblage — la maîtriser une fois épargne des heures de tâtonnement.
+Un projet école typique embarque 5 à 15 modules : module capteur (DHT11, HC-SR04, BMP280, MPU6050), [[arduino-moteur-cc|module driver]] (L298N, DRV8833), [[arduino-afficheur|module afficheur]] (OLED I2C, LCD I2C), module communication (HC-05 Bluetooth, ESP-01 Wi-Fi), module alimentation (régulateur LM2596, convertisseur USB), module utilitaire (RTC DS3231, MicroSD). Tous suivent la même logique de câblage : la maîtriser une fois épargne des heures de tâtonnement.
 
 ## Procédure pas à pas
 
@@ -62,7 +62,7 @@ Beaucoup de modules I2C intègrent leur propre résistance pull-up sur `SDA` / `
 
 Avec un seul module, tout va bien. Mais en brancher plusieurs sur le même bus revient à **mettre toutes ces résistances pull-up en parallèle** : **si trop de modules sont connectés sur le bus I2C, le trop grand nombre de résistances en parallèle va faire s'effondrer le bus et il ne sera plus possible de communiquer dessus.**
 
-**Symptôme typique** : un module marche seul, mais deux modules ensemble ne répondent plus. **Solution** : ne garder qu'**une seule** pull-up active — retirer le petit jumper de pull-up (ou couper la piste prévue) sur tous les modules **sauf un**.
+**Symptôme typique** : un module marche seul, mais deux modules ensemble ne répondent plus. **Solution** : ne garder qu'**une seule** pull-up active. Retirer le petit jumper de pull-up (ou couper la piste prévue) sur tous les modules **sauf un**.
 
 ![Avant / après : avec un seul module, une seule résistance pull-up tire la ligne SDA vers le haut et un composant peut la tirer à 0 (le bus communique) ; avec plusieurs modules, leurs résistances pull-up en parallèle font s'effondrer le bus et on ne peut plus le tirer à 0. Repères : 4,7 kΩ seul, 2,35 kΩ à deux, 0,94 kΩ à cinq.|560](/ressources/img/arduino-module/pullups-paralleles.svg)
 
@@ -76,7 +76,7 @@ Un module qui « semble mort » a souvent juste un jumper mal placé : à inspec
 
 ![Deux modules I²C côte à côte : celui de gauche porte GND, VCC, SCL, SDA ; celui de droite VCC, GND, SCL, SDA. Mêmes quatre fonctions, deux premières broches inversées — il n'existe pas d'ordre normalisé. Le module de droite porte en plus un cavalier de sélection d'adresse.|600](/ressources/img/arduino-module/serigraphies-i2c.svg)
 
-**Il n'y a pas d'ordre de broches normalisé sur les modules I2C** — deux exemplaires de la même référence, achetés à six mois d'écart, peuvent avoir VCC et GND inversés. Recopier le câblage d'un tutoriel sans relire la sérigraphie du module qu'on a en main, c'est appliquer le 5 V sur la masse : le module ne s'en remet pas.
+**Il n'y a pas d'ordre de broches normalisé sur les modules I2C** : deux exemplaires de la même référence, achetés à six mois d'écart, peuvent avoir VCC et GND inversés. Recopier le câblage d'un tutoriel sans relire la sérigraphie du module qu'on a en main, c'est appliquer le 5 V sur la masse : le module ne s'en remet pas.
 
 ## Exemple — Câbler un module DHT11 (température + humidité)
 
@@ -94,7 +94,7 @@ Cas complet sur un module emblématique des kits Arduino.
 
 ![Branchement d'un module DHT11 : le + va au +5 V de l'Arduino, le − à GND, et la broche OUT (signal numérique 1-wire) à D2.|520](/ressources/img/arduino-module/branchement-dht11.svg)
 
-**Bibliothèque** : `DHT sensor library` (par Adafruit) — installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
+**Bibliothèque** : `DHT sensor library` (par Adafruit). Installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
 
 **Code** :
 
@@ -125,7 +125,7 @@ void loop() {
 }
 ```
 
-Téléversez, observez au moniteur série. Souffler sur le capteur — l'humidité monte rapidement.
+Téléversez, observez au moniteur série. Souffler sur le capteur : l'humidité monte rapidement.
 
 ## Pièges
 
@@ -133,11 +133,11 @@ Téléversez, observez au moniteur série. Souffler sur le capteur — l'humidit
 
 **GND manquant.** Module alimenté en VCC mais GND non relié à GND Arduino : symptôme typique, le module *semble* alimenté (sa LED s'allume) mais aucun signal ne passe. Toujours relier GND, dès qu'on connecte VCC.
 
-**Alimentation par broche Arduino sur un module gourmand.** Un module Wi-Fi ESP-01 tire des pointes à 300-400 mA pendant l'émission. La broche `+5 V` de l'Arduino ne tient pas — l'Arduino reboote en boucle. Alimentation externe stable pour les modules gourmands.
+**Alimentation par broche Arduino sur un module gourmand.** Un module Wi-Fi ESP-01 tire des pointes à 300-400 mA pendant l'émission. La broche `+5 V` de l'Arduino ne tient pas : l'Arduino reboote en boucle. Alimentation externe stable pour les modules gourmands.
 
-**Niveaux logiques incompatibles.** Brancher la sortie 5 V d'un HC-SR04 sur une entrée 3,3 V d'un ESP32 abîme la broche après quelques minutes. Vérifier la tolérance en entrée — voir [[niveaux-de-tension|niveaux de tension]].
+**Niveaux logiques incompatibles.** Brancher la sortie 5 V d'un HC-SR04 sur une entrée 3,3 V d'un ESP32 abîme la broche après quelques minutes. Vérifier la tolérance en entrée (voir [[niveaux-de-tension|niveaux de tension]]).
 
-**Multiples pull-ups I2C en parallèle.** Deux modules I2C dans le même bus, chacun avec sa pull-up intégrée 4,7 kΩ : résistance équivalente 2,35 kΩ. À 3 modules : 1,57 kΩ. À 5 modules : 940 Ω — souvent trop faible, le bus arrête de fonctionner. Désactiver les pull-ups sur tous les modules sauf un.
+**Multiples pull-ups I2C en parallèle.** Deux modules I2C dans le même bus, chacun avec sa pull-up intégrée 4,7 kΩ : résistance équivalente 2,35 kΩ. À 3 modules : 1,57 kΩ. À 5 modules : 940 Ω. Souvent trop faible, le bus arrête de fonctionner. Désactiver les pull-ups sur tous les modules sauf un.
 
 **Jumper de configuration mal positionné.** Un module qui semble mort peut simplement avoir son jumper d'adresse en position incorrecte (collision avec autre device I2C), ou son jumper VCC sur 3,3 V au lieu de 5 V. Inspecter la fiche du module pour identifier tous les straps.
 
@@ -158,7 +158,7 @@ Voir [[lire-une-datasheet|lire une datasheet]] pour la démarche d'identificatio
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque module du projet se valide isolément : alimentation, GND, signaux, premier exemple de bibliothèque. Avant intégration.
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — requalification de chaque module dans le système intégré (pull-ups multiples, partage d'alimentation, conflits de bus).
 
-Un module bien câblé en début de PoC est un sous-système qui ne sera plus à revisiter — investir le temps de la validation isolée évite que les problèmes matériels parasitent la mise au point du logiciel aval.
+Un module bien câblé en début de PoC est un sous-système qui ne sera plus à revisiter. Investir le temps de la validation isolée évite que les problèmes matériels parasitent la mise au point du logiciel aval.
 
 ## Voir aussi
 

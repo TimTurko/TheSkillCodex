@@ -78,7 +78,7 @@ int valeur = analogRead(A0);                 // 0 à 1023 (pleine échelle 10 bi
 float pourcentage = valeur * 100.0 / 1023.0; // règle de trois : 1023 → 100 %
 ```
 
-**LDR comme niveau de luminosité** : un pont diviseur LDR + résistance fixe donne une tension qui dépend de la lumière. Pas d'unité physique directe — souvent on garde la valeur brute ou on étalonne par seuils (`< 200` = sombre, `> 800` = lumineux).
+**LDR comme niveau de luminosité** : un pont diviseur LDR + résistance fixe donne une tension qui dépend de la lumière. Pas d'unité physique directe : souvent on garde la valeur brute ou on étalonne par seuils (`< 200` = sombre, `> 800` = lumineux).
 
 ![Montage en pont diviseur d'une LDR : la LDR et une résistance fixe en série entre +5 V et GND, le point milieu lu sur une entrée analogique ; deux flèches figurent la lumière incidente.|520](/ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg)
 
@@ -92,7 +92,7 @@ Serial.print(temperature_C);
 Serial.println(" °C");
 ```
 
-**Comment lire ce code.** La conversion se fait en deux temps : l'entier brut redevient d'abord une **tension** (`valeur × 5 / 1023`, où 5 V est la pleine échelle de l'ADC), puis cette tension devient une **grandeur physique** selon la loi du capteur (ici 10 mV par °C, d'où `× 100`). Tout l'art est de diviser par la **bonne pleine échelle** et d'appliquer la **bonne loi** — c'est le geste à refaire pour chaque capteur.
+**Comment lire ce code.** La conversion se fait en deux temps : l'entier brut redevient d'abord une **tension** (`valeur × 5 / 1023`, où 5 V est la pleine échelle de l'ADC), puis cette tension devient une **grandeur physique** selon la loi du capteur (ici 10 mV par °C, d'où `× 100`). Tout l'art est de diviser par la **bonne pleine échelle** et d'appliquer la **bonne loi** : c'est le geste à refaire pour chaque capteur.
 
 *Le TMP36, souvent cité avec le LM35, n'a pas la même loi : il ajoute un **offset de 0,5 V**, soit `temperature_C = (tension_V - 0.5) * 100`.*
 
@@ -126,23 +126,23 @@ void loop() {
 }
 ```
 
-La sortie au [[arduino-serie|moniteur série]] (et au **traceur série**) permet de visualiser simultanément seuil et mesure — utile pour calibrer le seuil au pifomètre, puis le figer en constante.
+La sortie au [[arduino-serie|moniteur série]] (et au **traceur série**) permet de visualiser simultanément seuil et mesure, utile pour calibrer le seuil au pifomètre, puis le figer en constante.
 
 ![Traceur série de l'IDE Arduino affichant deux courbes superposées : le seuil, constant, et la mesure de lumière qui varie.|600](/ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png)
 
 ## Pièges
 
-**Confondre `analogRead()` et `digitalRead()`.** `analogRead(A0)` renvoie un entier 0-1023, `digitalRead(A0)` renvoie `HIGH`/`LOW` selon le seuil logique. Un capteur analogique lu par `digitalRead()` donne 0 ou 1 en fonction du fait que la tension dépasse ~2,5 V — perte d'information massive.
+**Confondre `analogRead()` et `digitalRead()`.** `analogRead(A0)` renvoie un entier 0-1023, `digitalRead(A0)` renvoie `HIGH`/`LOW` selon le seuil logique. Un capteur analogique lu par `digitalRead()` donne 0 ou 1 en fonction du fait que la tension dépasse ~2,5 V, perte d'information massive.
 
-**Broche analogique inexistante.** Sur Uno, A0-A5 sont analogiques. Sur Nano, A0-A7 — mais **A6 et A7 ne fonctionnent qu'en analogique** (pas en GPIO digital). Sur ESP32, broches ADC1 et ADC2 — ADC2 indisponible quand le Wi-Fi est actif (piège classique).
+**Broche analogique inexistante.** Sur Uno, A0-A5 sont analogiques. Sur Nano, A0-A7, mais **A6 et A7 ne fonctionnent qu'en analogique** (pas en GPIO digital). Sur ESP32, broches ADC1 et ADC2 : ADC2 est indisponible quand le Wi-Fi est actif (piège classique).
 
-**Plage de l'ADC selon la résolution.** Par défaut, l'Uno R4 renvoie 0-1023 (10 bits) comme l'Uno R3 — un sketch R3 fonctionne tel quel. Mais en passant en haute résolution avec `analogReadResolution(12)` ou `(14)`, `analogRead()` renvoie 0-4095 ou 0-16383 : tout code qui divise par 1023 en dur devient faux. La parade : convertir en divisant par la **pleine échelle réelle**, jamais par une constante figée.
+**Plage de l'ADC selon la résolution.** Par défaut, l'Uno R4 renvoie 0-1023 (10 bits) comme l'Uno R3 : un sketch R3 fonctionne tel quel. Mais en passant en haute résolution avec `analogReadResolution(12)` ou `(14)`, `analogRead()` renvoie 0-4095 ou 0-16383 : tout code qui divise par 1023 en dur devient faux. La parade : convertir en divisant par la **pleine échelle réelle**, jamais par une constante figée.
 
-**Référence de tension non précisée.** Par défaut, l'ADC compare à la tension d'alimentation de la carte. Si l'Arduino est alimenté par USB d'un PC qui débite 4,8 V au lieu de 5 V, la plage pleine échelle est 4,8 V — toutes les mesures sont biaisées de 4 %. Pour des mesures précises, utiliser `analogReference(INTERNAL)` (1,1 V interne stable) ou une référence externe sur `AREF`.
+**Référence de tension non précisée.** Par défaut, l'ADC compare à la tension d'alimentation de la carte. Si l'Arduino est alimenté par USB d'un PC qui débite 4,8 V au lieu de 5 V, la plage pleine échelle est 4,8 V : toutes les mesures sont biaisées de 4 %. Pour des mesures précises, utiliser `analogReference(INTERNAL)` (1,1 V interne stable) ou une référence externe sur `AREF`.
 
 **Bruit sur les mesures.** Une mesure analogique brute a typiquement ±1 à ±3 LSB de bruit (~5-15 mV). Sur un capteur précis (LM35 0,01 V/°C → 1 LSB = 0,5 °C), ça compte. Filtrer : moyenne sur 10-20 mesures (oversampling), ou filtre passe-bas RC matériel (voir [[filtrage|filtrer des mesures]]).
 
-**Tension d'entrée hors plage.** Brancher une tension > 5 V sur une broche analogique d'Uno R3 abîme l'ADC. Vérifier la plage de sortie du capteur dans sa datasheet — voir [[lire-une-datasheet|lire une datasheet]].
+**Tension d'entrée hors plage.** Brancher une tension > 5 V sur une broche analogique d'Uno R3 abîme l'ADC. Vérifier la plage de sortie du capteur dans sa datasheet (voir [[lire-une-datasheet|lire une datasheet]]).
 
 **Câbles trop longs sans masse.** Un câble de capteur de plus de 30-50 cm avec GND mal référencé devient une antenne 50 Hz parfaite. Symptôme : la mesure oscille de ±20 LSB sans rien faire. Ramener GND, raccourcir, ou blinder.
 
@@ -159,7 +159,7 @@ Beaucoup de capteurs modernes (capteurs Adafruit, modules Grove) sortent 0-3,3 V
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque capteur analogique se valide en lecture brute + conversion en grandeur physique, idéalement comparée à un étalon (thermomètre du commerce pour le LM35, luxmètre pour la LDR, multimètre pour le potentiomètre).
 - **Étape 1 de la [[integration-et-tests|phase d'intégration et tests]]** — requalification de chaque capteur avant tests d'intégration : plage utile, résolution effective, bruit résiduel.
 
-Le pas-à-pas étalonnage est l'étape qui transforme un capteur « branché qui sort un nombre » en *instrument de mesure* — sans quoi tout asservissement aval est calibré sur du sable.
+Le pas-à-pas étalonnage est l'étape qui transforme un capteur « branché qui sort un nombre » en *instrument de mesure*, sans quoi tout asservissement aval est calibré sur du sable.
 
 ## Voir aussi
 

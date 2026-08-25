@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Entre l'instant où l'Arduino est alimenté et celui où `setup()` exécute la première instruction utile, il se passe quelques dizaines à centaines de millisecondes pendant lesquelles **l'état des GPIO n'est pas celui qu'on a codé**. Conséquence concrète : un relais peut coller brièvement, un moteur peut faire un soubresaut, une LED peut clignoter au démarrage. Cette fiche couvre les causes, les symptômes et les parades de ce comportement spécifique au boot — sujet souvent ignoré jusqu'au jour où il pose problème en démo.
+Entre l'instant où l'Arduino est alimenté et celui où `setup()` exécute la première instruction utile, il se passe quelques dizaines à centaines de millisecondes pendant lesquelles **l'état des GPIO n'est pas celui qu'on a codé**. Conséquence concrète : un relais peut coller brièvement, un moteur peut faire un soubresaut, une LED peut clignoter au démarrage. Cette fiche couvre les causes, les symptômes et les parades de ce comportement spécifique au boot, sujet souvent ignoré jusqu'au jour où il pose problème en démo.
 
 ## À quoi ça sert ?
 
@@ -42,7 +42,7 @@ Pendant les phases 1-2, **toute broche utilisée plus tard en `OUTPUT` flotte**.
 
 ![Chronogramme du démarrage d'un Arduino : reset, bootloader d'environ une seconde avec clignotement de la LED 13, puis setup() ; une broche de sortie flotte jusqu'à ce que le code la force à son état voulu|680](/ressources/img/arduino-gpio-boot/sequence-boot.svg)
 
-Sur ESP32, le démarrage est différent : certaines broches (dites *strapping*) sont lues par le ROM bootloader pour choisir le mode de boot, et leur niveau au démarrage influence le démarrage lui-même. Ces contraintes sont propres à la puce — voir [[esp32-gpio|GPIO de l'ESP32]].
+Sur ESP32, le démarrage est différent : certaines broches (dites *strapping*) sont lues par le ROM bootloader pour choisir le mode de boot, et leur niveau au démarrage influence le démarrage lui-même. Ces contraintes sont propres à la puce (voir [[esp32-gpio|GPIO de l'ESP32]]).
 
 ### 2. Identifier les broches problématiques de la carte
 
@@ -52,11 +52,11 @@ Sur ESP32, le démarrage est différent : certaines broches (dites *strapping*) 
 | Uno R3 | D0, D1 | utilisées par l'UART/USB — à éviter pour autre chose |
 | Uno R4 | D13 | clignote en **mode DFU** (double appui sur RESET), pas à chaque allumage |
 
-Sur l'Uno R3, la principale gêne est la **LED 13 qui clignote pendant la séquence bootloader** — si un actionneur (relais, moteur) est branché sur D13, il subit cette gigue. Solution simple : utiliser une autre broche pour l'actionneur.
+Sur l'Uno R3, la principale gêne est la **LED 13 qui clignote pendant la séquence bootloader** : si un actionneur (relais, moteur) est branché sur D13, il subit cette gigue. Solution simple : utiliser une autre broche pour l'actionneur.
 
-L'Uno R4 (Renesas RA4M1) n'utilise pas le même bootloader : il démarre le sketch directement à la mise sous tension. Sa LED ne clignote qu'en **mode DFU**, déclenché par un double appui sur le bouton RESET — pas à chaque allumage comme sur R3.
+L'Uno R4 (Renesas RA4M1) n'utilise pas le même bootloader : il démarre le sketch directement à la mise sous tension. Sa LED ne clignote qu'en **mode DFU**, déclenché par un double appui sur le bouton RESET, pas à chaque allumage comme sur R3.
 
-Sur ESP32, ce sont les broches *strapping* (GPIO 0, 2, 12, 15) qui sont sensibles au boot, avec des contraintes propres à la puce (jusqu'au refus de démarrer si elles sont mal câblées) — voir [[esp32-gpio|GPIO de l'ESP32]].
+Sur ESP32, ce sont les broches *strapping* (GPIO 0, 2, 12, 15) qui sont sensibles au boot, avec des contraintes propres à la puce (jusqu'au refus de démarrer si elles sont mal câblées). Voir [[esp32-gpio|GPIO de l'ESP32]].
 
 ### 3. Ajouter des pull-up ou pull-down externes selon le besoin
 
@@ -86,13 +86,13 @@ void setup() {
 }
 ```
 
-Pourquoi cet ordre ? Quand on appelle `pinMode(X, OUTPUT)`, la broche bascule en mode sortie avec une valeur par défaut (typiquement `LOW`). Si on écrit d'abord `digitalWrite(X, HIGH)` *avant* `pinMode(X, OUTPUT)`, on configure le **registre interne** PORT à `HIGH` — donc dès l'instant du `pinMode`, la sortie part directement à `HIGH` sans transit par `LOW`.
+Pourquoi cet ordre ? Quand on appelle `pinMode(X, OUTPUT)`, la broche bascule en mode sortie avec une valeur par défaut (typiquement `LOW`). Si on écrit d'abord `digitalWrite(X, HIGH)` *avant* `pinMode(X, OUTPUT)`, on configure le **registre interne** PORT à `HIGH` : donc dès l'instant du `pinMode`, la sortie part directement à `HIGH` sans transit par `LOW`.
 
 ## Exemple — Module relais qui claque au démarrage
 
 Symptôme : un projet de domotique avec un module relais 5 V qui pilote une lampe. À chaque démarrage de l'Arduino, on entend un *click* puis la lampe s'éteint. C'est gênant pour la fiabilité mécanique du relais et pour la perception du système.
 
-**Diagnostic** : pendant le bootloader, la broche de commande flotte. Le module relais (actif-LOW) interprète ce flou comme un `LOW` (suffisamment de bruit pour franchir le seuil), colle le relais. Puis le sketch démarre, configure proprement la broche en `OUTPUT` à `HIGH` — le relais relâche.
+**Diagnostic** : pendant le bootloader, la broche de commande flotte. Le module relais (actif-LOW) interprète ce flou comme un `LOW` (suffisamment de bruit pour franchir le seuil), colle le relais. Puis le sketch démarre, configure proprement la broche en `OUTPUT` à `HIGH` : le relais relâche.
 
 **Solution** :
 
@@ -119,17 +119,17 @@ Avec ces deux mesures (matérielle + logicielle), le démarrage est silencieux e
 
 **Croire que `pinMode(OUTPUT)` initialise à `LOW`.** C'est le comportement par défaut, mais à l'instant où la broche bascule, la sortie va effectivement à `LOW` (commute brièvement si elle était haute). Pour un actionneur actif-LOW (relais avec opto), cela suffit à le faire claquer. Écrire `digitalWrite(HIGH)` *avant* `pinMode(OUTPUT)`.
 
-**Confier la sécurité à `setup()` seul.** `setup()` ne s'exécute qu'après le bootloader (~1 s sur Uno R3). Pendant ces instants, les broches flottent — un actionneur sans pull-up/pull-down externe est dans un état indéterminé. La sécurité au boot ne peut être garantie que par le matériel (résistance, ou actionneur insensible).
+**Confier la sécurité à `setup()` seul.** `setup()` ne s'exécute qu'après le bootloader (~1 s sur Uno R3). Pendant ces instants, les broches flottent : un actionneur sans pull-up/pull-down externe est dans un état indéterminé. La sécurité au boot ne peut être garantie que par le matériel (résistance, ou actionneur insensible).
 
-**LED 13 d'Uno utilisée pour un actionneur.** Pendant le bootloader, le firmware fait clignoter D13 pour signaler son état — donc tout actionneur sur D13 subit ce clignotement. Préférer toute autre broche pour les actionneurs (D8, D9, etc.).
+**LED 13 d'Uno utilisée pour un actionneur.** Pendant le bootloader, le firmware fait clignoter D13 pour signaler son état : donc tout actionneur sur D13 subit ce clignotement. Préférer toute autre broche pour les actionneurs (D8, D9, etc.).
 
-**Tous les « resets » ne se valent pas.** Un reset matériel — mise sous tension, appui sur le bouton RESET, ou dépassement du *watchdog* — réinitialise les registres d'entrées-sorties : `DDRx` et `PORTx` reviennent à zéro, donc **toutes les broches repassent en `INPUT` flottant** (aucune sortie ne conserve sa valeur ; seule la RAM survit). Le chemin diffère ensuite : sur reset **externe** (bouton, mise sous tension), le bootloader attend ~1 s ; sur reset **watchdog**, il saute directement au sketch (fenêtre de flottement bien plus courte). À l'inverse, un saut logiciel à l'adresse 0 (`asm volatile("jmp 0")`) **ne réinitialise pas** les périphériques : les broches gardent leur mode et leur état (pas de flottement), mais le *watchdog* reste armé — d'où des redémarrages en boucle si on ne le désarme pas. Seule une parade **matérielle** (pull-up/pull-down externe) garantit l'état sûr à travers un vrai reset.
+**Tous les « resets » ne se valent pas.** Un reset matériel — mise sous tension, appui sur le bouton RESET, ou dépassement du *watchdog* — réinitialise les registres d'entrées-sorties : `DDRx` et `PORTx` reviennent à zéro, donc **toutes les broches repassent en `INPUT` flottant** (aucune sortie ne conserve sa valeur, seule la RAM survit). Le chemin diffère ensuite : sur reset **externe** (bouton, mise sous tension), le bootloader attend ~1 s. Sur reset **watchdog**, il saute directement au sketch (fenêtre de flottement bien plus courte). À l'inverse, un saut logiciel à l'adresse 0 (`asm volatile("jmp 0")`) **ne réinitialise pas** les périphériques : les broches gardent leur mode et leur état (pas de flottement), mais le *watchdog* reste armé, d'où des redémarrages en boucle si on ne le désarme pas. Seule une parade **matérielle** (pull-up/pull-down externe) garantit l'état sûr à travers un vrai reset.
 
-**Code qui dépend de l'état d'une entrée avant `setup()`.** Une broche `INPUT_PULLUP` n'est configurée qu'au moment du `pinMode()` correspondant — avant, elle flotte. Si un capteur est lu trop tôt (par exemple par une interruption qui s'active avant la fin de `setup()`), la lecture est fausse.
+**Code qui dépend de l'état d'une entrée avant `setup()`.** Une broche `INPUT_PULLUP` n'est configurée qu'au moment du `pinMode()` correspondant. Avant, elle flotte. Si un capteur est lu trop tôt (par exemple par une interruption qui s'active avant la fin de `setup()`), la lecture est fausse.
 
 ## Cas particulier — Modules actifs au niveau HIGH
 
-Tous les modules actifs ne sont pas actifs-LOW. Certains modules relais haut de gamme (sans opto) sont actifs au niveau HIGH — le boot avec flottement n'est *pas* un problème dans ce cas. Vérifier toujours dans la fiche du module : « *commande active : LOW ou HIGH ?* » avant de dimensionner le pull-up ou pull-down externe.
+Tous les modules actifs ne sont pas actifs-LOW. Certains modules relais haut de gamme (sans opto) sont actifs au niveau HIGH : le boot avec flottement n'est *pas* un problème dans ce cas. Vérifier toujours dans la fiche du module : « *commande active : LOW ou HIGH ?* » avant de dimensionner le pull-up ou pull-down externe.
 
 ## Raccrochage projet
 
@@ -137,7 +137,7 @@ Tous les modules actifs ne sont pas actifs-LOW. Certains modules relais haut de 
 - **Étape 4 de la [[concept|phase de concept]]** — l'EAT doit prendre en compte le comportement au démarrage pour les fonctions critiques (sécurité, énergie).
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — tester explicitement le power-on cyclique (10 démarrages consécutifs) pour repérer les actionneurs qui dérapent.
 
-L'état GPIO au boot est l'un de ces pièges *« qu'on découvre toujours en démo »*. Le traiter dès le premier branchement d'un relais ou d'un moteur — par un simple pull-up/pull-down externe — épargne le moment où l'on doit l'expliquer au jury.
+L'état GPIO au boot est l'un de ces pièges *« qu'on découvre toujours en démo »*. Le traiter dès le premier branchement d'un relais ou d'un moteur (par un simple pull-up/pull-down externe) épargne le moment où l'on doit l'expliquer au jury.
 
 ## Voir aussi
 
