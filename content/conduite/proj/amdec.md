@@ -21,12 +21,12 @@ L'AMDEC sert à **anticiper les défaillances d'un système avant qu'elles ne su
 
 Trois rôles :
 
-- **Recenser les modes de défaillance sans en oublier.** Le parcours systématique fonction par fonction (ou composant par composant) fait remonter des défaillances qu'un examen spontané manque — surtout celles qui sont graves mais rares, donc faciles à négliger.
-- **Hiérarchiser par la criticité.** La cotation **gravité × occurrence × détectabilité** classe les modes entre eux. Une défaillance grave, fréquente et indétectable concentre l'effort ; une défaillance bénigne, rare et visible peut être acceptée.
+- **Recenser les modes de défaillance sans en oublier.** Le parcours systématique fonction par fonction (ou composant par composant) fait remonter des défaillances qu'un examen spontané manque, surtout celles qui sont graves mais rares, donc faciles à négliger.
+- **Hiérarchiser par la criticité.** La cotation **gravité × occurrence × détectabilité** classe les modes entre eux. Une défaillance grave, fréquente et indétectable concentre l'effort. Une défaillance bénigne, rare et visible peut être acceptée.
 - **Orienter les parades et les tests.** Les modes les plus critiques deviennent les parades à intégrer dans l'architecture (en [[concept|concept]]) et les points à vérifier en priorité lors des tests de qualification (en [[integration-et-tests|intégration et tests]]).
 
 > [!warning] Attention
-> **AMDEC ≠ [[matrice-de-risques|matrice de risques]].** Les deux cotent des risques, mais ne portent ni sur le même objet ni avec les mêmes axes. La matrice de risques cote les **aléas du projet** (composant indisponible, panne d'imprimante, équipier absent) sur deux axes — probabilité × gravité — et se pilote en [[gestion-de-projet|gestion de projet]]. L'AMDEC cote les **modes de défaillance du produit** (un roulement qui grippe, un capteur qui dérive, un arrêt d'urgence qui ne coupe pas) sur trois axes — gravité × occurrence × détectabilité — et relève de la sûreté de fonctionnement. L'une protège le *déroulement du projet*, l'autre la *fiabilité et la sécurité du système livré*.
+> **AMDEC ≠ [[matrice-de-risques|matrice de risques]].** Les deux cotent des risques, mais ne portent ni sur le même objet ni avec les mêmes axes. La matrice de risques cote les **aléas du projet** (composant indisponible, panne d'imprimante, équipier absent) sur deux axes (probabilité × gravité) et se pilote en [[gestion-de-projet|gestion de projet]]. L'AMDEC cote les **modes de défaillance du produit** (un roulement qui grippe, un capteur qui dérive, un arrêt d'urgence qui ne coupe pas) sur trois axes (gravité × occurrence × détectabilité) et relève de la sûreté de fonctionnement. L'une protège le *déroulement du projet*, l'autre la *fiabilité et la sécurité du système livré*.
 
 ## Procédure pas à pas
 
@@ -36,7 +36,7 @@ L'AMDEC se mène en quatre temps : choisir la maille d'analyse, identifier les m
 
 Décider d'abord du **grain d'analyse** : on conduit une AMDEC soit **fonctionnelle** (sur les fonctions techniques issues de la [[decomposition-fonctionnelle|décomposition]] ou du [[fast|FAST]]), soit **matérielle** (sur les composants physiques). En projet école, l'AMDEC fonctionnelle se mène tôt (en [[concept|concept]], avant le choix des composants), l'AMDEC matérielle plus tard (en [[dossier-technique|dossier technique]], sur les références retenues).
 
-Lister ensuite les éléments à passer en revue. Ne pas viser l'exhaustivité du système entier : se concentrer sur les **fonctions critiques** — celles dont la défaillance touche la sécurité de l'utilisateur ou une exigence en flexibilité F0/F1 du [[cahier-des-charges-fonctionnel|CdCF]].
+Lister ensuite les éléments à passer en revue. Ne pas viser l'exhaustivité du système entier : se concentrer sur les **fonctions critiques**, celles dont la défaillance touche la sécurité de l'utilisateur ou une exigence en flexibilité F0/F1 du [[cahier-des-charges-fonctionnel|CdCF]].
 
 ### 2. Identifier modes, effets et causes
 
@@ -48,7 +48,7 @@ Pour chaque élément, répondre à trois questions distinctes, à ne pas confon
 
 ### 3. Coter la criticité G × O × D
 
-Attribuer à chaque mode trois notes sur une échelle définie à l'avance — typiquement de 1 à 4 en projet école (une échelle 1–10 existe en contexte industriel, mais le 1–4 suffit et discrimine mieux à cette échelle).
+Attribuer à chaque mode trois notes sur une échelle définie à l'avance, typiquement de 1 à 4 en projet école (une échelle 1–10 existe en contexte industriel, mais le 1–4 suffit et discrimine mieux à cette échelle).
 
 | Note | **G** — Gravité de l'effet | **O** — Occurrence (fréquence) | **D** — Non-détectabilité |
 |---|---|---|---|
@@ -60,7 +60,7 @@ Attribuer à chaque mode trois notes sur une échelle définie à l'avance — t
 La **criticité** est le produit **C = G × O × D** (de 1 à 64). Elle classe les modes entre eux. Attention au sens de l'axe **D** : on cote la *non*-détectabilité, car un mode grave mais indétectable est plus critique qu'un mode grave qu'on voit venir et qu'on peut arrêter à temps.
 
 > [!tip] Astuce
-> **Tout mode avec G = 4 mérite une action, quelle que soit sa criticité.** Un danger pour l'utilisateur ne se négocie pas contre une faible occurrence : même rare et détectable (C faible), un mode qui peut blesser appelle une parade. La criticité hiérarchise les modes ordinaires ; la gravité maximale court-circuite le calcul.
+> **Tout mode avec G = 4 mérite une action, quelle que soit sa criticité.** Un danger pour l'utilisateur ne se négocie pas contre une faible occurrence : même rare et détectable (C faible), un mode qui peut blesser appelle une parade. La criticité hiérarchise les modes ordinaires. La gravité maximale court-circuite le calcul.
 
 ### 4. Décider et tracer les actions
 
@@ -75,15 +75,15 @@ AMDEC fonctionnelle partielle du bras 3 axes, centrée sur les fonctions critiqu
 | Arrêt d'urgence | Ne coupe pas la puissance | Aucun moyen d'arrêter un mouvement dangereux | Coupure pilotée par le [[firmware]] (peut planter) | 4 | 2 | 3 | 24 | Câbler l'AU en coupure directe de l'alim, hors logiciel |
 | Articulation (butée) | Dépassement de l'angle max | Pincement opérateur, casse mécanique | Butée logicielle seule, non doublée | 4 | 2 | 2 | 16 | Ajouter une butée mécanique (fin de course) |
 | Stepper axe 1 | Perte de pas sous charge | Position erronée, précision hors F0 | Couple insuffisant en accélération | 2 | 3 | 3 | 18 | Marge de couple + détection d'écart par encodeur |
-| Alim 24 V | Surchauffe en service continu | Coupure intempestive, arrêt du bras | Marge courant trop serrée (+11 %) | 2 | 2 | 2 | 8 | Surveillance thermique, sinon acceptable en l'état |
+| Alim 24 V | Surchauffe en service continu | Coupure intempestive, arrêt du bras | Marge courant trop serrée (+8 %) | 2 | 2 | 2 | 8 | Surveillance thermique, sinon acceptable en l'état |
 
-**Lecture.** Les deux modes à **G = 4** (arrêt d'urgence, butée) appellent une action quelle que soit leur criticité — ce sont les parades de sécurité qui s'inscriront dans l'architecture en concept (arrêt d'urgence câblé hors firmware, butée mécanique doublant la butée logicielle), cohérentes avec la trame sécurité-qualité. La perte de pas (C = 18) rejoint l'incertitude *couple en accélération* déjà identifiée en concept — l'AMDEC et le pré-dimensionnement convergent. La surchauffe alim (C = 8) reste sous le seuil d'action prioritaire : surveillée, mais non bloquante.
+**Lecture.** Les deux modes à **G = 4** (arrêt d'urgence, butée) appellent une action quelle que soit leur criticité. Ce sont les parades de sécurité qui s'inscriront dans l'architecture en concept (arrêt d'urgence câblé hors firmware, butée mécanique doublant la butée logicielle), cohérentes avec la trame sécurité-qualité. La perte de pas (C = 18) rejoint l'incertitude *couple en accélération* déjà identifiée en concept. L'AMDEC et le pré-dimensionnement convergent. La surchauffe alim (C = 8) reste sous le seuil d'action prioritaire : surveillée, mais non bloquante.
 
 ## Pièges
 
 **Confondre AMDEC et [[matrice-de-risques|matrice de risques]].** L'AMDEC analyse les défaillances du *produit*, la matrice de risques les aléas du *projet*. Mélanger les deux dans un seul tableau produit un document qui n'éclaire ni la fiabilité du système ni le pilotage du projet.
 
-**Vouloir une AMDEC exhaustive.** Passer tout le système au crible noie l'analyse sous des dizaines de modes triviaux. L'AMDEC prend sa valeur sur les fonctions critiques (sécurité, exigences F0/F1) — le reste se traite en une ligne ou pas du tout.
+**Vouloir une AMDEC exhaustive.** Passer tout le système au crible noie l'analyse sous des dizaines de modes triviaux. L'AMDEC prend sa valeur sur les fonctions critiques (sécurité, exigences F0/F1). Le reste se traite en une ligne ou pas du tout.
 
 **Coter sans échelle définie à l'avance.** Des notes attribuées au feeling, sans grille commune G/O/D, ne sont pas comparables entre modes ni entre membres de l'équipe. L'échelle se fixe avant de coter, pas pendant.
 
@@ -108,7 +108,7 @@ L'allègement est légitime tant qu'il garde la discipline de fond — recenser,
 - **Étape d'arbitrage de la [[concept|phase de concept]]** — l'AMDEC fonctionnelle oriente les parades de sécurité à intégrer dans l'architecture (arrêt d'urgence, butées, isolations), au moment où l'architecture précise les organes mobiles et les niveaux d'énergie.
 - **[[dossier-technique|Dossier technique]]** — l'AMDEC s'affine sur les composants réels retenus (AMDEC matérielle), en cohérence avec la BOM et les plans détaillés.
 - **[[integration-et-tests|Intégration et tests]]** — la criticité hiérarchise les tests de sécurité du niveau 4 de qualification : on teste en priorité ce que l'AMDEC a désigné comme critique.
-- **Trame [[securite-et-qualite|sécurité et qualité]]** — l'AMDEC est l'outil d'analyse des risques produit du bloc *sécurité produit* ; la trame en porte l'intégration au cycle, la fiche en porte la méthode.
+- **Trame [[securite-et-qualite|sécurité et qualité]]** — l'AMDEC est l'outil d'analyse des risques produit du bloc *sécurité produit*. La trame en porte l'intégration au cycle, la fiche en porte la méthode.
 
 Une AMDEC menée tôt sur les fonctions critiques évite de découvrir un mode de défaillance dangereux en intégration, quand l'architecture est figée et la reprise coûteuse.
 

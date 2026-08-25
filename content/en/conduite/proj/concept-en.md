@@ -20,7 +20,7 @@ aa:
   - RA-ESE-C09-2/ESE/5
 draft: false
 source_fr: conduite/proj/concept.md
-source_sha256: 64ea82d9980866b9a366043d9474be33d397ff668141eaf718f30a21400b6d43
+source_sha256: c3e9c01fffa0be7fd260559363ccad90117896b097adb2c806b8a8b8e9270a37
 ---
 
 **Concept** is the second phase of a [[mecatronique-en|mechatronics]] project: the [[cahier-des-charges-fonctionnel-en|cahier des charges fonctionnel]] (CdCF), the French functional requirements specification, is turned from the *what* into a **preliminary technical architecture**, the *how*. The major options are chosen discipline by discipline, they are checked for compatibility with each other, and enough figures are put on them to identify the **unknowns** that will have to be resolved at [[preuve-de-concept-en|proof of concept]]. The final components come later, in the [[dossier-technique-en|technical design file]].
@@ -235,14 +235,14 @@ Each unknown is **written as a question** an experiment can answer, sorted into 
 > |---|---|---|---|---|---|
 > | Mechanics | Maximum torque on axis 1, nominal load 100 g | 1.2 N·m | 1.5 N·m (stepper) | +25% | OK |
 > | Mechanics | Deflection at the end of the arm, nominal load | 3 mm | 5 mm (F0) | +67% | OK |
-> | Electronics | Total current, 3 steppers in service | 4.6 A | 5 A (5 V/5 A supply) | +9% | **Tight margin** |
+> | Electronics | Current on the 24 V rail, 3 steppers in service | 1.85 A | 2 A (24 V/2 A supply) | +8% | **Tight margin** |
 > | Software | Control loop period, simplified model | 0.85 ms | 1 ms target | +18% | OK |
 > | Mechanics | Torque at maximum acceleration (transient) | model not trusted | — | — | **Unknown** |
 >
 > Two unknowns written as questions, tied to the [[cahier-des-charges-fonctionnel-en|CdCF]]:
 >
 > - **U1** — *Does the torque available from the steppers hold at real maximum acceleration, with the load at the end of the arm?* (category: poorly modelled transient; requirement at stake: F0 end-of-arm accuracy). To be resolved by a motor bench test under step acceleration.
-> - **U2** — *Does the power supply hold thermally in extended service with a current margin of +9%?* (category: tight margin plus a poorly modelled electrical-to-thermal coupling; requirement at stake: F1 continuous operating time). To be resolved by a continuous load test with temperature measurement.
+> - **U2** — *Does the power supply hold thermally in extended service with a current margin of +8%?* (category: tight margin plus a poorly modelled electrical-to-thermal coupling; requirement at stake: F1 continuous operating time). To be resolved by a continuous load test with temperature measurement.
 >
 > These two unknowns become the explicit order placed on the proof-of-concept phase.
 

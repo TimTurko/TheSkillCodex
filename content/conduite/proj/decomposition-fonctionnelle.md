@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-La **décomposition fonctionnelle** est une analyse descendante qui découpe un système en sous-systèmes cohérents, puis chaque sous-système en fonctions techniques internes, à partir des fonctions de service énoncées au [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. Elle ouvre la [[concept|phase de concept]] en faisant passer le projet d'une vue externe — *ce que le système rend comme service* — à une vue interne — *comment il s'organise pour le rendre*.
+La **décomposition fonctionnelle** est une analyse descendante qui découpe un système en sous-systèmes cohérents, puis chaque sous-système en fonctions techniques internes, à partir des fonctions de service énoncées au [[cahier-des-charges-fonctionnel|cahier des charges fonctionnel]]. Elle ouvre la [[concept|phase de concept]] en faisant passer le projet d'une vue externe (*ce que le système rend comme service*) à une vue interne (*comment il s'organise pour le rendre*).
 
 ## À quoi ça sert ?
 
@@ -57,13 +57,13 @@ La distinction conceptuelle est cruciale et souvent confondue :
 - Une **fonction de service** (issue de la [[pieuvre|pieuvre]]) dit *ce que le système rend* à l'extérieur. Elle est tournée vers l'usage.
 - Une **fonction technique** (issue de la décomposition) dit *comment le système s'y prend* en interne. Elle est tournée vers la réalisation.
 
-Une même fonction de service peut être réalisée par plusieurs combinaisons de fonctions techniques — c'est précisément ce qui ouvre l'espace de solutions exploré à l'étape suivante.
+Une même fonction de service peut être réalisée par plusieurs combinaisons de fonctions techniques. C'est précisément ce qui ouvre l'espace de solutions exploré à l'étape suivante.
 
 ### 3. Arrêter au bon niveau
 
 La règle pratique : **descendre tant que la fonction technique n'est pas directement adressable par une solution candidate, s'arrêter dès qu'elle l'est**. *« Mesurer la position angulaire »* est adressable (capteur de position, encodeur incrémental, potentiomètre…) → on s'arrête. *« Gérer le mouvement »* ne l'est pas (trop vague pour qu'on liste 2-5 solutions concrètes) → on raffine d'un niveau.
 
-En projet école, **2 à 3 niveaux suffisent** dans la majorité des cas : système → sous-systèmes → fonctions techniques. Descendre plus profond, c'est anticiper le [[dossier-technique|dossier technique]] et s'engager prématurément vers un composant — choix qui devrait être fait plus tard, après arbitrage en matrice de décision.
+En projet école, **2 à 3 niveaux suffisent** dans la majorité des cas : système → sous-systèmes → fonctions techniques. Descendre plus profond, c'est anticiper le [[dossier-technique|dossier technique]] et s'engager prématurément vers un composant. Ce choix devrait être fait plus tard, après arbitrage en matrice de décision.
 
 Le découpage se construit en **plusieurs passes**, pas en un jet unique. Premier découpage à haut niveau pour caler la structure générale, puis raffinement au fur et à mesure que l'exploration des solutions fait apparaître des fonctions techniques manquantes ou redondantes. Viser l'exhaustivité au premier coup fait perdre du temps et fige prématurément un découpage qui va de toute façon évoluer.
 
@@ -74,33 +74,33 @@ Reprenons le bras robotique pédagogique 3 axes, dont la fonction principale **F
 > [!failure] Mauvais
 > ![Décomposition fonctionnelle — mauvais exemple](/ressources/img/decomposition-fonctionnelle/bras-mauvais.svg)
 >
-> **Pourquoi c'est mauvais.** Le découpage **par discipline** (Élec / Méca / Info) reproduit l'organigramme de l'équipe, pas l'architecture du système. Il dit *qui travaille sur quoi*, pas *comment le système est organisé*. Les interfaces sont indéfinissables : la branche « Élec » ne porte aucune fonction technique tant qu'on ne sait pas quel sous-système elle alimente. Pire, ce découpage **interdit la suite** : impossible de construire une matrice de décision sur « la partie élec » — la matrice opère par fonction technique, pas par discipline.
+> **Pourquoi c'est mauvais.** Le découpage **par discipline** (Élec / Méca / Info) reproduit l'organigramme de l'équipe, pas l'architecture du système. Il dit *qui travaille sur quoi*, pas *comment le système est organisé*. Les interfaces sont indéfinissables : la branche « Élec » ne porte aucune fonction technique tant qu'on ne sait pas quel sous-système elle alimente. Pire, ce découpage **interdit la suite** : impossible de construire une matrice de décision sur « la partie élec ». La matrice opère par fonction technique, pas par discipline.
 >
 > **Coût réel de cette erreur.** Sur ce projet, l'équipe a travaillé six semaines en silos disciplinaires en croyant suivre la méthode. Au moment de confronter les solutions disciplinaires, personne n'avait défini où passait la limite entre le contrôleur (info) et son alimentation (élec), ni qui spécifiait les engrenages côté méca/élec. Trois semaines supplémentaires pour redécomposer correctement et reprendre les arbitrages de l'étape 2.
 
 > [!warning] Moyen
 > ![Décomposition fonctionnelle — exemple moyen](/ressources/img/decomposition-fonctionnelle/bras-moyen.svg)
 >
-> **Pourquoi c'est moyen.** Les sous-systèmes sont bien fonctionnels (*Articulations*, *Pilotage*, *Énergie*) et chacun mobilise plusieurs disciplines — ce qui constitue déjà un net progrès sur la version disciplinaire. Mais le découpage souffre de deux faiblesses persistantes. **Déséquilibre de taille** : *Articulations* concentre l'essentiel de la matière technique (génération du couple, mesure de position, asservissement, synchronisation des trois axes), tandis qu'*Énergie* se réduit à *« fournir l'alimentation »*. **Interfaces incomplètement décrites** : la frontière entre *Articulations* et *Pilotage* n'est pas tranchée — la boucle d'asservissement traverse les deux blocs, qui en porte la responsabilité ? Tant que la frontière n'est pas explicitée, deux étudiants travaillant en parallèle sur ces deux sous-systèmes ne peuvent pas avancer indépendamment.
+> **Pourquoi c'est moyen.** Les sous-systèmes sont bien fonctionnels (*Articulations*, *Pilotage*, *Énergie*) et chacun mobilise plusieurs disciplines, ce qui constitue déjà un net progrès sur la version disciplinaire. Mais le découpage souffre de deux faiblesses persistantes. **Déséquilibre de taille** : *Articulations* concentre l'essentiel de la matière technique (génération du couple, mesure de position, asservissement, synchronisation des trois axes), tandis qu'*Énergie* se réduit à *« fournir l'alimentation »*. **Interfaces incomplètement décrites** : la frontière entre *Articulations* et *Pilotage* n'est pas tranchée. La boucle d'asservissement traverse les deux blocs, qui en porte la responsabilité ? Tant que la frontière n'est pas explicitée, deux étudiants travaillant en parallèle sur ces deux sous-systèmes ne peuvent pas avancer indépendamment.
 
 > [!example] Bon
 > ![Décomposition fonctionnelle — bon exemple](/ressources/img/decomposition-fonctionnelle/bras-3-axes.svg)
 >
-> **Pourquoi c'est bon.** Le découpage en **mobilité articulaire / interface utilisateur / alimentation et sécurité** respecte les trois critères du bon découpage. Tailles comparables : chaque sous-système porte 3 à 4 fonctions techniques internes d'effort similaire. Interfaces nettes : *mobilité articulaire* reçoit une consigne de position depuis *interface utilisateur* et une puissance régulée depuis *alimentation et sécurité*, et renvoie une position mesurée. Chacun mobilise élec, méca et info — il n'y a pas de bloc mono-disciplinaire. Les fonctions techniques sont chacune directement adressables par une solution candidate : *« générer un couple sur chaque axe »* appelle 2-5 candidats (servomoteur, moteur pas-à-pas, moteur DC + réducteur…) confrontables en [[matrice-de-decision|matrice de décision]]. Le découpage prépare directement l'étape 2 du concept.
+> **Pourquoi c'est bon.** Le découpage en **mobilité articulaire / interface utilisateur / alimentation et sécurité** respecte les trois critères du bon découpage. Tailles comparables : chaque sous-système porte 3 à 4 fonctions techniques internes d'effort similaire. Interfaces nettes : *mobilité articulaire* reçoit une consigne de position depuis *interface utilisateur* et une puissance régulée depuis *alimentation et sécurité*, et renvoie une position mesurée. Chacun mobilise élec, méca et info. Il n'y a pas de bloc mono-disciplinaire. Les fonctions techniques sont chacune directement adressables par une solution candidate : *« générer un couple sur chaque axe »* appelle 2-5 candidats (servomoteur, moteur pas-à-pas, moteur DC + réducteur…) confrontables en [[matrice-de-decision|matrice de décision]]. Le découpage prépare directement l'étape 2 du concept.
 
 ## Pièges
 
-**Découper par discipline.** Le piège le plus fréquent en projet école : reproduire les compétences de l'équipe (méca / élec / info) au lieu de la fonction du système. Reformuler les blocs en fonctions du système (*« mettre en mouvement »*, *« réguler l'énergie »*) — chacun mobilisera plusieurs disciplines, c'est précisément ce qu'on attend d'un sous-système mécatronique.
+**Découper par discipline.** Le piège le plus fréquent en projet école : reproduire les compétences de l'équipe (méca / élec / info) au lieu de la fonction du système. Reformuler les blocs en fonctions du système (*« mettre en mouvement »*, *« réguler l'énergie »*). Chacun mobilisera plusieurs disciplines, c'est précisément ce qu'on attend d'un sous-système mécatronique.
 
-**Sauter directement aux composants.** Écrire *« moteur pas-à-pas »* ou *« ESP32 »* dans l'arborescence est une erreur de niveau d'abstraction. À ce stade, on ne décide ni des solutions, ni des composants — on identifie *quelles fonctions* doivent être réalisées. Les composants viendront en [[dossier-technique|dossier technique]] après arbitrage par [[matrice-de-decision|matrice de décision]].
+**Sauter directement aux composants.** Écrire *« moteur pas-à-pas »* ou *« ESP32 »* dans l'arborescence est une erreur de niveau d'abstraction. À ce stade, on ne décide ni des solutions, ni des composants. On identifie *quelles fonctions* doivent être réalisées. Les composants viendront en [[dossier-technique|dossier technique]] après arbitrage par [[matrice-de-decision|matrice de décision]].
 
-**Confondre fonction de service et fonction technique.** Réécrire dans l'arborescence les FP/FS du [[cahier-des-charges-fonctionnel|CdCF]] revient à n'avoir rien décomposé. Test rapide : *cette fonction est-elle tournée vers l'extérieur (service rendu) ou vers l'intérieur (réalisation interne) ?* Si elle pourrait apparaître dans la [[pieuvre|pieuvre]], c'est une fonction de service — la décomposition doit produire autre chose.
+**Confondre fonction de service et fonction technique.** Réécrire dans l'arborescence les FP/FS du [[cahier-des-charges-fonctionnel|CdCF]] revient à n'avoir rien décomposé. Test rapide : *cette fonction est-elle tournée vers l'extérieur (service rendu) ou vers l'intérieur (réalisation interne) ?* Si elle pourrait apparaître dans la [[pieuvre|pieuvre]], c'est une fonction de service. La décomposition doit produire autre chose.
 
-**Descendre trop profond.** Une arborescence à 5-6 niveaux est généralement le signe qu'on a anticipé le dossier technique. Si la dernière feuille ressemble à un sous-composant déterminé (*« choisir le condensateur de filtrage »*), on a dépassé la cible. Remonter à un niveau où la feuille est *« filtrer la tension d'alimentation »* — adressable, mais pas verrouillée sur une solution.
+**Descendre trop profond.** Une arborescence à 5-6 niveaux est généralement le signe qu'on a anticipé le dossier technique. Si la dernière feuille ressemble à un sous-composant déterminé (*« choisir le condensateur de filtrage »*), on a dépassé la cible. Remonter à un niveau où la feuille est *« filtrer la tension d'alimentation »*, adressable, mais pas verrouillée sur une solution.
 
 **Déséquilibre de taille toléré.** Un sous-système qui concentre la majeure partie de la matière technique mérite d'être scindé. Le déséquilibre est un signal de relecture, pas une fatalité : soit le bloc a été défini trop large, soit les autres ont été sous-décomposés. Dans les deux cas, reprendre.
 
-**Décomposer une seule fois et figer.** Le découpage évolue avec l'exploration des solutions. Une fonction technique qui paraissait isolée peut se révéler indispensable à deux sous-systèmes ; deux fonctions distinctes peuvent partager la même solution candidate. Reprendre la décomposition à chaque révélation, plutôt qu'empiler des correctifs en marge.
+**Décomposer une seule fois et figer.** Le découpage évolue avec l'exploration des solutions. Une fonction technique qui paraissait isolée peut se révéler indispensable à deux sous-systèmes. Deux fonctions distinctes peuvent partager la même solution candidate. Reprendre la décomposition à chaque révélation, plutôt qu'empiler des correctifs en marge.
 
 ## Cas particulier — reconception et reverse engineering
 
@@ -109,7 +109,7 @@ Quand le projet est une **reconception** d'un système existant (refonte d'un d�
 L'exercice reste utile, avec deux précautions :
 
 - **Ne pas confondre composants observables et fonctions techniques.** Un servomoteur visible dans l'objet ne *fait* pas la décomposition : il *réalise* une fonction technique qu'il faut nommer explicitement (*« générer un couple sur l'axe »*). Le passage par la formulation verbe + complément reste impératif, même quand le composant est sous les yeux.
-- **Comparer la décomposition obtenue au CdCF cible.** Si le projet est une reconception, le CdCF cible peut différer du CdCF de l'objet d'origine. La décomposition fonctionnelle de l'existant sert alors de point de départ, pas de référence à reproduire à l'identique — l'arbitrage des écarts est précisément ce que la nouvelle phase de concept doit trancher.
+- **Comparer la décomposition obtenue au CdCF cible.** Si le projet est une reconception, le CdCF cible peut différer du CdCF de l'objet d'origine. La décomposition fonctionnelle de l'existant sert alors de point de départ, pas de référence à reproduire à l'identique. L'arbitrage des écarts est précisément ce que la nouvelle phase de concept doit trancher.
 
 ## Raccrochage projet
 

@@ -91,6 +91,12 @@ Ce sont les plus répétées du wiki : une dérive s'y voit immédiatement. Comp
 | Objectif de l'étape | 5 | Goal of this step |
 | Objectif de la phase | 5 | Goal of this phase |
 | Ce qui relève d'ailleurs | 5 | What belongs elsewhere |
+| Continu (sous-liste de `[!livrable]` transverse) | — | Ongoing |
+| Jalonné (sous-liste de `[!livrable]` transverse) | — | At milestones |
+| fil transverse (substantif) | — | cross-cutting thread |
+| *(transverse)* (marqueur d'index) | — | *(cross-cutting)* |
+| *(fil transverse)* (glose de *Voir aussi*) | — | *(cross-cutting thread)* |
+| `[!failure] Mauvais` / `[!warning] Moyen` / `[!example] Bon` | 3 | `[!failure] Poor` / `[!warning] Fair` / `[!example] Good` |
 | Sur le fil | 3 | On the wire |
 | En pratique | 3 | In practice |
 | La mise en œuvre est traitée dans X côté Y | — | Putting it to work is covered in X for Y |
@@ -135,6 +141,23 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 
 | Français | Anglais |
 |---|---|
+| sûreté de fonctionnement | dependability |
+| fonction technique | technical function |
+| parade (organe de sécurité) | safeguard |
+| sobriété énergétique | energy frugality |
+| sobriété logicielle | software frugality |
+| démontabilité | demountability |
+| durée de vie (composant) | service life |
+| matrice éco-critères | eco-criteria matrix |
+| plan de revues | review plan |
+| compte-rendu (de réunion, de revue) | minutes |
+| registre d'engagements | commitment log |
+| point hebdomadaire | weekly meeting |
+| revue de phase | phase review |
+| carter | guard |
+| butée mécanique | mechanical hard stop |
+| arrêt d'urgence | emergency stop |
+| sérigraphie (PCB) | silkscreen |
 | jalon | milestone |
 | livrable | deliverable |
 | preuve de concept | proof of concept |
@@ -336,7 +359,9 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 
 **⚠ C112 est un contre-cas du glossaire, et le seul.** Le glossaire impose **une forme unique** là où une dérive serait visible. C112 impose l'inverse sur les mots de rapport : les 9 « opposable » de `preuve-de-concept` portaient quatre sens et ont reçu neuf formulations. **« Opposable » et « défendable » n'ont donc pas d'entrée ici, et ne doivent pas en recevoir** : figer *defensible* comme rendu unique reproduirait exactement le défaut que C112 corrige.
 
-**⚠ Corollaire trouvé le 23/08 (suite 3) sur `specification-technique` : quand « opposable » est l'objet enseigné, il faut le gloser en anglais, et la glose n'est pas facultative.** L'anglais *opposable* est un **faux ami complet** : il veut dire « préhensile », comme dans *opposable thumb*, et n'a aucun sens juridique. Le mot ne peut donc ni se traduire ni se laisser nu. Forme retenue à la première occurrence, *made quantifiable, measurable and opposable, that is, capable of being held against the supplier if it is not met*, puis déclinaison selon le sens exact de chaque emplacement (*a requirement that cannot be held against anyone*, *a document that holds up*). Conséquence de dimensionnement : **C112 retire de la glose côté FR et en crée côté EN**, ce qui ne se voyait pas quand la règle a été écrite. Vaut pour les 16 occurrences « objet enseigné » des 4 fiches concernées, dont `cahier-des-charges-fonctionnel` et `caracteriser-une-exigence` restent à traduire.
+**⚠ Corollaire trouvé le 23/08 (suite 3) sur `specification-technique` : quand « opposable » est l'objet enseigné, il faut le gloser en anglais, et la glose n'est pas facultative.** L'anglais *opposable* est un **faux ami complet** : il veut dire « préhensile », comme dans *opposable thumb*, et n'a aucun sens juridique. Le mot ne peut donc ni se traduire ni se laisser nu. Forme retenue à la première occurrence, *made quantifiable, measurable and opposable, that is, capable of being held against the supplier if it is not met*, puis déclinaison selon le sens exact de chaque emplacement (*a requirement that cannot be held against anyone*, *a document that holds up*). Conséquence de dimensionnement : **C112 retire de la glose côté FR et en crée côté EN**, ce qui ne se voyait pas quand la règle a été écrite. Vaut pour les 16 occurrences « objet enseigné » des 4 fiches concernées.
+
+**⚠ La glose se DÉCLINE sur le sens de la fiche et ne se recopie pas d'une fiche à l'autre (25/08 suite 3).** `specification-technique-en` oppose le document **au fournisseur** — *capable of being held against the supplier if it is not met*. `cahier-des-charges-fonctionnel` écrit « chaque exigence chiffrée engage les deux parties », donc sa glose devient *capable of being held against **either party***. Recopier la première aurait rétréci l'idée de la seconde. **Et la nominalisation ne survit pas en prose** : *Opposability* existe en production, mais **uniquement en libellé** (en-tête de colonne *Opposability, CdCF* dans `concept-en`) ; en prose, on passe par le mécanisme — *being able to hold the document against someone*. Sur le CdCF, les deux occurrences vivent **dans la même puce**, à trois lignes l'une de l'autre, ce qui rend l'écart de traitement visible d'un coup d'œil. **État : `specification-technique`, `concept` et `cahier-des-charges-fonctionnel` sont faites ; seule `caracteriser-une-exigence` reste, et elle porte 6 des 16.**
 
 **⚠ « Valider » désigne deux actes distincts, et l'anglais les sépare (23/08 suite 3).** Troisième mot français à deux objets du chantier, après « contrôleur » et « incertitude ». Dans `dossier-technique`, trois interlocuteurs **engagent leur responsabilité sur un périmètre** et l'encadrant **prononce un verdict de revue** : le français emploie le même verbe pour les deux. Rendus par **sign off** (l'acte de responsabilité segmentée, d'où *approver* pour le validateur et *sign-off round* pour la multi-validation) et par **approve** (le verdict de revue, cohérent avec *approved / approved with conditions* des cinq trames). Sans cette séparation, la phrase centrale de la phase, « signé en parties, approuvé en ensemble », devient une répétition.
 
@@ -416,9 +441,9 @@ Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école
     | notions transverses, les huit restantes (`manipulation-de-bits`, `niveaux-de-tension`, `debugger-embarque`, `microcontroleur`, `bus-de-communication`, `techno-sans-fil`, `lire-une-datasheet`, `cpp-logs`) | à faire | **≈ 11 000, dérivé** |
     | `embarque/mesure/` (3) | à faire | — |
     | les lourdes de `conduite/proj` (`securite-et-qualite` 4 051, `ecoconception` 3 284, `gestion-de-projet` 2 740…) | à faire | — |
-    | **anneau 1** | **82 cibles, 75 traduites** | **7 fiches, 15 905 mots** |
+    | **anneau 1** | **82 cibles, 76 traduites** | **6 fiches, 14 582 mots** |
 
-    **État au 25/08 (suite 2).** L'anneau 1 ne porte plus que **sept fiches**, et six d'entre elles sont dans `conduite/proj/` : `amdec` 1 741, `cahier-des-charges-fonctionnel` 1 323, `decomposition-fonctionnelle` 1 926, `ecoconception` 3 284, `gestion-de-projet` 2 740, `securite-et-qualite` 4 051, plus `kicad` 840. **Aucune ne se groupe sous la garde C27 sans cadrage individuel** : `cahier-des-charges-fonctionnel` est une fiche pivot à glose *opposable* obligatoire, `securite-et-qualite` est la deuxième tête de liste C109 du corpus (44 candidats, chiffre hérité à remesurer), `kicad` attend sa refonte C88 post-rentrée et **la traduire avant créerait une dérive certaine et non un risque**. Les lots précédents : `embarque/mesure/` (6 fiches, 25/08 suite), groupe schémas/simulation (6 fiches, 25/08 suite 2).
+    **État au 25/08 (suite 3).** L'anneau 1 ne porte plus que **six fiches**, et **cinq sont dans `conduite/proj/`** : `amdec` 1 741, `decomposition-fonctionnelle` 1 926, `ecoconception` 3 284, `gestion-de-projet` 2 740, `securite-et-qualite` 4 051, plus `kicad` 840. `cahier-des-charges-fonctionnel` est faite (25/08 suite 3, fiche pivot traitée seule sous C116). **`securite-et-qualite` est la deuxième tête de liste C109 du corpus** (44 candidats, chiffre hérité à remesurer) et **`kicad` attend sa refonte C88 post-rentrée** — la traduire avant créerait une dérive certaine et non un risque. Les lots précédents : `embarque/mesure/` (6 fiches, 25/08 suite), groupe schémas/simulation (6 fiches, 25/08 suite 2), `cahier-des-charges-fonctionnel` (1 fiche, 25/08 suite 3).
 
     ⚠ **Le ≈ 11 000 des huit restantes est une soustraction, pas un comptage** (17 127 mesurés pour les treize, moins 6 127 pour les cinq faites), et il est cité comme ordre de grandeur au sens de C110. **`lire-une-datasheet` en porte à elle seule 3 263**, soit le double de la médiane du lot. Le chiffre ferme se lira dans `compter-mots.mjs --lot` à l'ouverture de la prochaine séance.
 

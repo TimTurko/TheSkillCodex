@@ -54,6 +54,9 @@
  *         intervalle numerique et sort en hors-perimetre (24/08)
  *       - C109 comparees FR / EN : une occurrence CREEE par la traduction
  *         n'a jamais ete arbitree en francais
+ *       - les COMMENTAIRES HTML sont masques comme le code (25/08 suite 5) :
+ *         leur ponctuation et leur typographie francaises ne sont pas de la
+ *         prose publiee, et les faire remonter rendait le verdict illisible
  *   node tools/creer-fiche-en.mjs --libelles         (libelle de wikilink ne recoupant pas le title: de sa cible)
  *   node tools/creer-fiche-en.mjs --front            (anneau 1 depuis les quatre index : perimetre et volume du lot)
  *       - resolution par chemin complet puis par nom de fichier UNIQUE ; un
@@ -664,17 +667,42 @@ function recaler(rel) {
   console.log('  ' + ancien.slice(0, 12) + ' -> ' + nouveau.slice(0, 12));
 }
 
-/* ---------- masquage du code : blocs clotures et code inline ---------- */
+/* ---------- masquage des zones que le lecteur ne voit pas ---------- */
 
-// Remplace le code par une sentinelle de MEME LONGUEUR, en preservant les
-// sauts de ligne. Les numeros de ligne et les colonnes restent donc exacts,
-// et le controle de style ne voit que de la prose.
+// Remplace par une sentinelle de MEME LONGUEUR, en preservant les sauts de
+// ligne. Les numeros de ligne et les colonnes restent donc exacts, et le
+// controle de style ne voit que de la prose publiee.
 //
 // La sentinelle n'est PAS une espace : masquer avec des espaces faisait lire
 // `return`: comme une espace francaise devant deux-points, soit deux faux
 // positifs sur six au premier lancement.
-function masquerCode(corps) {
-  const motif = /(^```[\s\S]*?^```[^\n]*$)|(`[^`\n]*`)/gm;
+//
+// TROIS zones, et la troisieme est arrivee la derniere. Les blocs clotures et
+// le code inline etaient la des l'origine. Le COMMENTAIRE HTML a ete ajoute le
+// 25/08 (suite 5), apres avoir ete consigne le 25/08 (suite 4) comme la
+// troisieme zone que le masquage ne franchissait pas, apres le backtick de
+// libelle (23/08) et le chevron de citation (24/08 suite 3). Motif toujours
+// identique : un separateur compte comme structure dans une zone que le
+// lecteur ne voit pas.
+//
+// Le commentaire est en PREMIERE alternative, et ce n'est pas cosmetique : les
+// blocs NOTE des trames transverses contiennent du code inline (`fiche-trame.md`).
+// Place en second, l'alternative de code inline decouperait le commentaire et
+// laisserait sa prose francaise au controle. Meme raisonnement de position que
+// le wikilink dans segmenter(), pour le meme genre de defaut.
+//
+// Un `<!--` LOGE DANS un bloc cloture reste protege : l'alternative de bloc
+// s'ouvre plus tot dans le texte, et le moteur retient la position la plus a
+// gauche avant l'ordre des alternatives.
+//
+// Perimetre mesure AVANT d'ecrire cette ligne (lecon du 24/08 suite 2) :
+// SIX fiches portent des commentaires, 37 blocs, 3446 mots enfermes. Trois
+// sont les trames transverses de conduite/proj/ (8 blocs, 696 mots), trois
+// sont les templates, depublies et jamais traduits. Le gain vivant est donc
+// de DOUZE faux positifs C109 sur trois fichiers francais - petit, permanent,
+// et il se serait redecode a chaque balayage futur.
+function masquerHorsProse(corps) {
+  const motif = /(<!--[\s\S]*?-->)|(^```[\s\S]*?^```[^\n]*$)|(`[^`\n]*`)/gm;
   return corps.replace(motif, (m) => m.replace(/[^\n]/g, '\u0001'));
 }
 
@@ -728,7 +756,7 @@ function styleFiche(rel, texte) {
   const fm = frontMatter(texte);
   const corps = fm ? fm.corps : texte;
   const decalage = fm ? fm.entier.split('\n').length - 1 : 0;
-  const masque = masquerCode(corps);
+  const masque = masquerHorsProse(corps);
   const lignes = masque.split('\n');
   const brutes = corps.split('\n');
   const estEn = rel.startsWith('en/');

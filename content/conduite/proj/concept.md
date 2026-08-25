@@ -233,14 +233,14 @@ Chaque incertitude est **formulée comme une question** à laquelle un essai exp
 > |---|---|---|---|---|---|
 > | Méca | Couple maximal axe 1, charge nominale 100 g | 1,2 N·m | 1,5 N·m (stepper) | +25 % | OK |
 > | Méca | Flèche en bout, charge nominale | 3 mm | 5 mm (F0) | +67 % | OK |
-> | Élec | Courant total 3 steppers en service | 4,6 A | 5 A (alim 5 V/5 A) | +9 % | **Marge serrée** |
+> | Élec | Courant sur le rail 24 V, 3 steppers en service | 1,85 A | 2 A (alim 24 V/2 A) | +8 % | **Marge serrée** |
 > | Info | Période boucle asservissement, modèle simplifié | 0,85 ms | 1 ms cible | +18 % | OK |
 > | Méca | Couple en accélération maximale (transitoire) | modèle non confiant | — | — | **Incertitude** |
 >
 > Deux incertitudes formulées en question, rattachées au [[cahier-des-charges-fonctionnel|CdCF]] :
 >
 > - **I1** — *Le couple disponible des steppers tient-il en accélération maximale réelle, charge en bout ?* (catégorie : phénomène transitoire mal modélisé ; exigence en jeu : F0 précision bout de bras). À lever par essai banc moteur en accélération échelon.
-> - **I2** — *L'alimentation tient-elle thermiquement en service prolongé avec une marge courant de +9 % ?* (catégorie : marge serrée + couplage élec↔thermique mal modélisé ; exigence en jeu : F1 durée d'utilisation continue). À lever par essai en charge continue avec mesure de température.
+> - **I2** — *L'alimentation tient-elle thermiquement en service prolongé avec une marge courant de +8 % ?* (catégorie : marge serrée + couplage élec↔thermique mal modélisé ; exigence en jeu : F1 durée d'utilisation continue). À lever par essai en charge continue avec mesure de température.
 >
 > Ces deux incertitudes deviennent la commande explicite de la phase preuve de concept.
 
