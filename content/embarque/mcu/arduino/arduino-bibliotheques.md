@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Une **bibliothèque** (ou *library* en anglais) est un module de code prêt à l'emploi qui encapsule la communication avec un composant ou un service : `Servo.h` pour les servomoteurs, `Wire.h` pour le bus I2C, `LiquidCrystal.h` pour les afficheurs LCD, `Adafruit_BMP280.h` pour le capteur de pression BMP280. Au lieu de réécrire à chaque projet le protocole d'un capteur ou le timing d'un actionneur, on inclut la bibliothèque et on utilise ses fonctions. L'écosystème Arduino compte des **milliers** de bibliothèques tierces — savoir en installer une, l'inclure, et lire sa documentation est un geste de base.
+Une **bibliothèque** (ou *library* en anglais) est un module de code prêt à l'emploi qui encapsule la communication avec un composant ou un service : `Servo.h` pour les servomoteurs, `Wire.h` pour le bus I2C, `LiquidCrystal.h` pour les afficheurs LCD, `Adafruit_BMP280.h` pour le capteur de pression BMP280. Au lieu de réécrire à chaque projet le protocole d'un capteur ou le timing d'un actionneur, on inclut la bibliothèque et on utilise ses fonctions. L'écosystème Arduino compte des **milliers** de bibliothèques tierces. Savoir en installer une, l'inclure, et lire sa documentation est un geste de base.
 
 ![Schéma en couches : ton sketch s'appuie sur une bibliothèque (par exemple Adafruit_BMP280), qui s'appuie elle-même sur une primitive de bus (Wire pour l'I2C), qui dialogue avec le composant. La bibliothèque encapsule le protocole et la conversion : tu appelles des fonctions simples au lieu d'écrire les trames.|460](/ressources/img/arduino-bibliotheques/couches-abstraction.svg)
 
@@ -24,7 +24,7 @@ Trois rôles complémentaires :
 
 - **Économiser du temps** — afficher un texte sur OLED SSD1306 sans bibliothèque représente plusieurs centaines de lignes de code I2C + bitmap polices. Avec `Adafruit_SSD1306`, c'est dix lignes.
 - **Bénéficier de l'expérience accumulée** — les bibliothèques maintenues ont essuyé les bugs subtils (timing, conditions limites, compatibilité multi-cartes) qu'on n'a pas envie de redécouvrir un par un.
-- **Faciliter le portage** — une même bibliothèque (`Adafruit_GFX` pour les écrans graphiques, par exemple) couvre plusieurs modèles de matériel ; changer de référence ne demande qu'un changement minimal de code.
+- **Faciliter le portage** — une même bibliothèque (`Adafruit_GFX` pour les écrans graphiques, par exemple) couvre plusieurs modèles de matériel. Changer de référence ne demande qu'un changement minimal de code.
 
 ## Procédure pas à pas
 
@@ -54,7 +54,7 @@ Pour un composant nouveau, taper le nom du composant + « arduino library » dan
 
 ![Boîte de dialogue Install library dependencies de l'IDE Arduino, annonçant que la bibliothèque Adafruit BMP280 3.0.0 réclame Adafruit BusIO et Adafruit Unified Sensor, avec un bouton pour installer sans les dépendances et un autre pour tout installer.|600](/ressources/img/arduino-bibliotheques/installer-bibliotheques-dependances.png)
 
-*Install without dependencies* installe la bibliothèque demandée et rien d'autre. L'onglet *Output* annonce quand même une installation réussie — voir *Pièges*.
+*Install without dependencies* installe la bibliothèque demandée et rien d'autre. L'onglet *Output* annonce quand même une installation réussie (voir *Pièges*).
 
 **Méthode B — installation depuis un fichier ZIP** (pour les bibliothèques absentes du gestionnaire) :
 
@@ -83,7 +83,7 @@ void loop() {
 }
 ```
 
-`#include <X.h>` (avec chevrons) cherche dans les répertoires standards de l'IDE — c'est la forme à utiliser pour les bibliothèques installées. `#include "X.h"` (avec guillemets) cherche d'abord dans le dossier du sketch — réservé aux fichiers locaux du projet.
+`#include <X.h>` (avec chevrons) cherche dans les répertoires standards de l'IDE. C'est la forme à utiliser pour les bibliothèques installées. `#include "X.h"` (avec guillemets) cherche d'abord dans le dossier du sketch, réservé aux fichiers locaux du projet.
 
 ### 4. Lire la documentation
 
@@ -99,7 +99,7 @@ L'erreur du débutant : essayer une bibliothèque sans regarder ses exemples. 80
 
 Cas complet : installer `Servo.h`, câbler un servo SG90, balayer un angle.
 
-**Installation** : `Servo.h` est livrée par défaut avec l'IDE Arduino — pas besoin d'installer, juste d'inclure.
+**Installation** : `Servo.h` est livrée par défaut avec l'IDE Arduino. Pas besoin d'installer, juste d'inclure.
 
 **Câblage** : servo SG90, fil rouge sur `+5 V`, fil marron (ou noir) sur `GND`, fil orange (ou jaune, signal) sur **D9**.
 
@@ -135,7 +135,7 @@ Téléversez. Le servo balaye continûment.
 
 ![Servomoteur SG90 avec sa palette montée, balayant sur environ 90° puis revenant à sa position de départ.|420](/ressources/img/arduino-bibliotheques/servo-balayage.gif)
 
-**L'amplitude réelle n'est pas garantie par le code.** `attach(9)` répartit les angles 0 à 180 sur une plage d'impulsions par défaut qui dépend de la **bibliothèque** — 544 à 2400 µs sur Arduino AVR, mais 1000 à 2000 µs seulement sur ESP32. Un même `write(180)` n'envoie donc pas la même impulsion selon la carte, et un SG90 piloté avec les défauts ESP32 ne parcourt qu'environ la **moitié** de sa course — c'est ce que montre le balayage ci-dessus, filmé sur ESP32. La forme à trois arguments reprend la main sur cette plage :
+**L'amplitude réelle n'est pas garantie par le code.** `attach(9)` répartit les angles 0 à 180 sur une plage d'impulsions par défaut qui dépend de la **bibliothèque** — 544 à 2400 µs sur Arduino AVR, mais 1000 à 2000 µs seulement sur ESP32. Un même `write(180)` n'envoie donc pas la même impulsion selon la carte, et un SG90 piloté avec les défauts ESP32 ne parcourt qu'environ la **moitié** de sa course. C'est ce que montre le balayage ci-dessus, filmé sur ESP32. La forme à trois arguments reprend la main sur cette plage :
 
 ```cpp
 monServo.attach(9, 500, 2500);   // broche, impulsion à 0°, impulsion à 180°
@@ -143,13 +143,13 @@ monServo.attach(9, 500, 2500);   // broche, impulsion à 0°, impulsion à 180°
 
 Sur ESP32, elle double la plage et rend la course complète. Sur AVR, où la plage par défaut est déjà large, elle ne gagne que quelques pour cent : un balayage qui y resterait court aurait une cause **mécanique**, qu'aucun réglage logiciel n'ouvrira.
 
-Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer manuellement le signal PWM 50 Hz avec impulsion 1-2 ms. La bibliothèque encapsule tout ça — d'où son intérêt.
+Note pédagogique : avant `Servo.h`, piloter un servo demandait de générer manuellement le signal PWM 50 Hz avec impulsion 1-2 ms. La bibliothèque encapsule tout ça, d'où son intérêt.
 
 ## Pièges
 
 **Bibliothèque non installée.** Le compilateur sort `fatal error: Servo.h: No such file or directory`. Vérifier l'installation, vérifier l'orthographe (sensibilité à la casse sur Linux/macOS).
 
-**Dépendances non installées.** Le même échec, avec un décor rassurant. Choisir *Install without dependencies* **réussit** — l'onglet *Output* se termine par `successfully installed`, et rien n'indique que le compte n'y est pas. La panne n'apparaît qu'à la compilation :
+**Dépendances non installées.** Le même échec, avec un décor rassurant. Choisir *Install without dependencies* **réussit**. L'onglet *Output* se termine par `successfully installed`, et rien n'indique que le compte n'y est pas. La panne n'apparaît qu'à la compilation :
 
 ```
 In file included from Blink.ino:1:
@@ -159,7 +159,7 @@ In file included from Blink.ino:1:
 compilation terminated.
 ```
 
-Le fichier fautif n'est pas celui du sketch : c'est l'en-tête de la bibliothèque qu'on vient d'installer, ligne 26, qui réclame `Adafruit_Sensor.h` — la dépendance refusée. Et le compilateur s'arrête à **la première** manquante : les installer une par une oblige à recompiler autant de fois. Rouvrir le gestionnaire, réinstaller, et accepter *Install all*.
+Le fichier fautif n'est pas celui du sketch : c'est l'en-tête de la bibliothèque qu'on vient d'installer, ligne 26, qui réclame `Adafruit_Sensor.h`, la dépendance refusée. Et le compilateur s'arrête à **la première** manquante : les installer une par une oblige à recompiler autant de fois. Rouvrir le gestionnaire, réinstaller, et accepter *Install all*.
 
 **Plusieurs bibliothèques de même nom.** Symptôme : compilation OK mais comportement incohérent. Arduino utilise la dernière installée. Désinstaller les doublons dans le gestionnaire.
 
@@ -167,7 +167,7 @@ Le fichier fautif n'est pas celui du sketch : c'est l'en-tête de la bibliothèq
 
 **Conflit de ressources.** `Servo.h` utilise le Timer1 sur Uno R3 et désactive le PWM sur D9 et D10. Inclure deux bibliothèques qui veulent le même timer génère un comportement imprévisible. Lire les notes de chaque bibliothèque.
 
-**Doublon de définitions.** Inclure deux fois la même bibliothèque dans plusieurs fichiers du projet sans garde `#ifndef` génère des erreurs *multiple definition of...*. Les bibliothèques sérieuses sont protégées ; les amateurs ne le sont pas toujours.
+**Doublon de définitions.** Inclure deux fois la même bibliothèque dans plusieurs fichiers du projet sans garde `#ifndef` génère des erreurs *multiple definition of...*. Les bibliothèques sérieuses sont protégées. Les amateurs ne le sont pas toujours.
 
 **API instable entre versions.** Une mise à jour de bibliothèque peut renommer des fonctions ou changer les paramètres. Si un code qui marchait casse après mise à jour, regarder le `CHANGELOG` du dépôt. Solution : pinner la version (PlatformIO le permet via `platformio.ini`).
 
@@ -175,7 +175,7 @@ Le fichier fautif n'est pas celui du sketch : c'est l'en-tête de la bibliothèq
 
 ## Cas particulier — Bibliothèques `Wire` et `SPI`
 
-`Wire.h` (I2C) et `SPI.h` sont **livrées avec l'IDE** — pas besoin d'installer. Elles fournissent les primitives bas niveau, sur lesquelles les bibliothèques de capteurs sur bus s'appuient. Voir [[arduino-i2c|I2C sur Arduino]] et [[arduino-spi|SPI sur Arduino]].
+`Wire.h` (I2C) et `SPI.h` sont **livrées avec l'IDE**, pas besoin d'installer. Elles fournissent les primitives bas niveau, sur lesquelles les bibliothèques de capteurs sur bus s'appuient. Voir [[arduino-i2c|I2C sur Arduino]] et [[arduino-spi|SPI sur Arduino]].
 
 Pareil pour `EEPROM.h` ([[arduino-eeprom|mémoire non volatile]]), `SoftwareSerial.h` ([[arduino-uart|UART logiciel]]), `Stepper.h` ([[arduino-moteur-pas-a-pas|moteur pas-à-pas]]) : livrées avec l'IDE.
 

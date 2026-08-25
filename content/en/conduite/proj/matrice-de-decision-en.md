@@ -1,5 +1,5 @@
 ---
-title: Matrice de décision
+title: Decision matrix
 type: notion
 phases:
   - concept
@@ -14,47 +14,47 @@ source_fr: conduite/proj/matrice-de-decision.md
 source_sha256: 21d5ff3bedf4b4b7a048298c7491a935634ee9aab54f5f3ee5fa4b37738a9481
 ---
 
-La **matrice de décision** est l'outil d'arbitrage argumenté entre solutions techniques candidates : on liste les solutions en colonnes, les critères de choix pondérés en lignes, on note chaque solution sur chaque critère et la somme pondérée donne un classement justifiable. Elle est l'outil canonique de la phase de [[concept-en|concept]] pour choisir, par sous-système, une solution technique sans tomber dans l'arbitraire ni dans la fausse intuition.
+The **decision matrix** is the tool for making an argued choice between candidate technical solutions: it crosses **candidate solutions in columns** with **weighted criteria in rows**, each solution is scored on each criterion, and the weighted sum gives a ranking that can be justified. It is the canonical tool of the [[concept-en|concept]] phase for choosing a technical solution subsystem by subsystem, without falling into either arbitrariness or false intuition.
 
-![Matrice de décision — tableau générique 3 solutions × 5 critères pondérés](/ressources/img/matrice-de-decision/generique.svg)
+![Decision matrix — generic table, 3 solutions × 5 weighted criteria](/ressources/img/matrice-de-decision/generique.svg)
 
-## À quoi ça sert ?
+## What is it for?
 
-La matrice de décision force l'explicitation des critères de choix entre solutions techniques. Sans elle, l'arbitrage *« on prend les steppers plutôt que les servomoteurs »* reste implicite. Un mois plus tard, personne dans l'équipe ne saurait justifier pourquoi, et la décision ne tient plus en revue.
+The decision matrix forces the criteria for choosing between technical solutions out into the open. Without it, the trade-off *"we'll take steppers rather than servomotors"* stays implicit. A month later nobody on the team can justify why, and the decision no longer holds up in review.
 
-Trois rôles :
+Three roles:
 
-- **Rendre les critères de choix explicites et pondérés.** Sans pondération écrite, chaque équipier raisonne avec ses propres priorités implicites, et la décision finale est celle de la voix la plus assurée, pas celle qui a le plus d'arguments.
-- **Intégrer l'[[ecoconception-en|écoconception]] comme critère pondéré**, au même titre que coût et performance. C'est la seule manière d'éviter qu'elle soit traitée comme un commentaire en marge ou une case à cocher en fin de matrice.
-- **Tracer la décision** pour la suite du projet. La matrice écrite reste consultable. La mémoire d'équipe ne l'est pas. En cas de remise en cause de l'architecture en [[dossier-technique-en|dossier technique]], on rouvre la matrice et on voit ce qui avait été arbitré, sur quels critères, avec quels poids.
+- **Making the choice criteria explicit and weighted.** With no written weighting, each teammate reasons from their own implicit priorities, and the final decision is the one made by the most confident voice, not the one with the most arguments.
+- **Building [[ecoconception-en|eco-design]] in as a weighted criterion**, on the same footing as cost and performance. It is the only way to stop it being treated as a marginal comment or a box ticked at the bottom of the matrix.
+- **Recording the decision** for the rest of the project. A written matrix stays available to consult. Team memory does not. If the architecture is called into question at [[dossier-technique-en|technical design file]] stage, the matrix is reopened and shows what was settled, on which criteria, with which weights.
 
-## Comment la construire ?
+## How do you build one?
 
-Quatre temps :
+Four steps:
 
-1. **Recenser les solutions candidates** pour chaque fonction technique feuille issue de la [[decomposition-fonctionnelle-en|décomposition]] et du [[fast-en|FAST]]. Trois à cinq solutions maximum. Au-delà, l'analyse se dilue et l'effort d'évaluation explose. Les solutions repérées dans l'[[etat-de-l-art-technique-en|état de l'art]] sont des candidates naturelles.
-2. **Lister les critères de choix** ancrés sur les exigences du [[cahier-des-charges-fonctionnel-en|CdCF]] : performance principale, coût, écoconception, robustesse, complexité d'intégration, ouverture, disponibilité. Cinq à huit critères suffisent.
-3. **Pondérer les critères** par poids relatifs (somme = 100, par exemple). La pondération doit refléter la hiérarchie réelle des enjeux du projet, pas un consensus mou. Si tout est pondéré à parts égales, la matrice n'arbitre rien.
-4. **Noter chaque solution sur chaque critère** sur une échelle simple (1 à 5 typiquement) et calculer la somme pondérée. La somme donne un **classement**, pas une décision automatique. Il reste à interpréter, à discuter les écarts faibles, et à conclure en justifiant le choix retenu en quelques lignes.
+1. **List the candidate solutions** for each leaf technical function coming out of the [[decomposition-fonctionnelle-en|functional breakdown]] and the [[fast-en|FAST]]. Three to five solutions at most. Beyond that the analysis dilutes and the evaluation effort explodes. The solutions spotted in the [[etat-de-l-art-technique-en|technical state of the art]] are natural candidates.
+2. **List the choice criteria**, anchored on the requirements of the [[cahier-des-charges-fonctionnel-en|CdCF]] (the French functional requirements specification): main performance, cost, eco-design, robustness, integration complexity, openness, availability. Five to eight criteria are enough.
+3. **Weight the criteria** by relative weights (summing to 100, for instance). The weighting has to reflect the real hierarchy of what is at stake on the project, not a soft consensus. If everything is weighted equally, the matrix settles nothing.
+4. **Score each solution on each criterion** on a simple scale (1 to 5 typically) and compute the weighted sum. The sum gives a **ranking**, not an automatic decision. It still has to be interpreted, the narrow gaps discussed, and the choice made explicit in a few lines of justification.
 
-*Illustration sur un cas concret : choix d'une stratégie d'alimentation pour une station météo connectée en déploiement extérieur.*
+*A worked case: choosing a power strategy for a connected weather station deployed outdoors.*
 
-![Matrice de décision — choix d'alimentation d'une station météo connectée](/ressources/img/matrice-de-decision/station-meteo.svg)
+![Decision matrix — choosing the power supply of a connected weather station](/ressources/img/matrice-de-decision/station-meteo.svg)
 
-## Pièges
+## Pitfalls
 
-**Pondération bricolée a posteriori.** Si l'équipe ajuste les poids jusqu'à obtenir le résultat espéré, la matrice ne sert à rien. Autant choisir directement et l'assumer. La pondération se pose **avant** d'évaluer les solutions, et on tient le résultat même quand il surprend.
+**Weighting patched up after the fact.** If the team adjusts the weights until the hoped-for result comes out, the matrix serves no purpose. Better to choose directly and own it. The weighting is set **before** the solutions are evaluated, and the result stands even when it comes as a surprise.
 
-**Critères non discriminants.** Un critère sur lequel toutes les solutions ont la même note n'apporte rien à l'arbitrage. Il alourdit la matrice sans la trancher. À retirer ou à reformuler pour qu'il discrimine vraiment les solutions.
+**Non-discriminating criteria.** A criterion on which every solution scores the same brings nothing to the trade-off. It weighs the matrix down without settling it. Remove it, or reword it so that it really does tell the solutions apart.
 
-**Écoconception en case isolée.** Traiter l'écoconception comme un critère séparé, non pondéré ou pondéré très bas, équivaut à ne pas la traiter. Pour qu'elle pèse réellement dans la décision, elle doit être pondérée comme les autres critères principaux, voire forcée dans le top 3 quand le contexte du projet le justifie.
+**Eco-design in an isolated box.** Treating eco-design as a separate criterion, unweighted or weighted very low, amounts to not treating it at all. For it to carry real weight in the decision it has to be weighted like the other main criteria, or even forced into the top 3 when the context of the project calls for it.
 
-## Voir aussi
+## See also
 
-- [[concept-en|Concept]] — phase où les matrices de décision sont construites (étape 2)
-- [[decomposition-fonctionnelle-en|Décomposition fonctionnelle]] — amont : produit les fonctions techniques feuilles à arbitrer
-- [[fast-en|FAST]] — amont : valide les chaînes dont chaque feuille ouvre une matrice
-- [[ecoconception-en|Écoconception]] — critère pondéré dans chaque matrice de décision
-- [[matrice-eco-criteres-en|Matrice éco-critères]] — bloc de critères environnementaux qui s'enchâsse dans cette matrice
-- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — source des exigences qui fondent les critères de choix
-- [[caracteriser-une-exigence-en|Caractériser une exigence]] — méthode amont qui chiffre les exigences mobilisables comme critères
+- [[concept-en|Concept]] — the phase where the decision matrices are built (step 2)
+- [[decomposition-fonctionnelle-en|Functional breakdown]] — upstream: produces the leaf technical functions to settle between
+- [[fast-en|FAST]] — upstream: validates the chains whose every leaf opens a matrix
+- [[ecoconception-en|Eco-design]] — a weighted criterion in every decision matrix
+- [[matrice-eco-criteres-en|Eco-criteria matrix]] — the block of environmental criteria that nests inside this matrix
+- [[cahier-des-charges-fonctionnel-en|Cahier des charges fonctionnel]] — source of the requirements the choice criteria are founded on
+- [[caracteriser-une-exigence-en|Characterising a requirement]] — the upstream method that puts figures on the requirements usable as criteria

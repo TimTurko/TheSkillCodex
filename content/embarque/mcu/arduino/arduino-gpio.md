@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Les **GPIO** (*General Purpose Input/Output*) d'une carte Arduino sont les broches numériques configurables en entrée ou en sortie pour lire ou émettre un signal binaire (0 V / 5 V sur Uno R3). Configurer correctement un GPIO est le geste de base de tout programme embarqué — oublier `pinMode()`, confondre les modes ou ignorer l'état flottant d'une entrée est la cause la plus fréquente des comportements imprévisibles en début de projet.
+Les **GPIO** (*General Purpose Input/Output*) d'une carte Arduino sont les broches numériques configurables en entrée ou en sortie pour lire ou émettre un signal binaire (0 V / 5 V sur Uno R3). Configurer correctement un GPIO est le geste de base de tout programme embarqué. Oublier `pinMode()`, confondre les modes ou ignorer l'état flottant d'une entrée est la cause la plus fréquente des comportements imprévisibles en début de projet.
 
 ## À quoi ça sert ?
 
@@ -26,9 +26,9 @@ Quatre étapes : identifier la broche, configurer le mode, lire ou écrire, vér
 
 ### 1. Identifier les broches numériques
 
-Sur Arduino Uno, les broches **D0 à D13** sont des GPIO numériques. D0 et D1 sont aussi utilisées par l'USB (TX/RX) — à éviter pour autre chose. Les broches **A0 à A5** peuvent aussi servir de GPIO numériques (référencées comme `A0`, `A1`, ..., ou comme `14`, `15`, ..., `19`).
+Sur Arduino Uno, les broches **D0 à D13** sont des GPIO numériques. D0 et D1 sont aussi utilisées par l'USB (TX/RX), à éviter pour autre chose. Les broches **A0 à A5** peuvent aussi servir de GPIO numériques (référencées comme `A0`, `A1`, ..., ou comme `14`, `15`, ..., `19`).
 
-Sur Mega 2560 : D0 à D53. Sur Nano : D0 à D13 + A0-A7 (D0/D1 partagées avec l'USB comme sur l'Uno ; A6/A7 ne fonctionnent qu'en entrée analogique).
+Sur Mega 2560 : D0 à D53. Sur Nano : D0 à D13 + A0-A7 (D0/D1 partagées avec l'USB comme sur l'Uno, A6/A7 ne fonctionnent qu'en entrée analogique).
 
 ![Brochage de l'Arduino Uno R3 : broches numériques D0–D13, analogiques A0–A5, alimentation et bus|600](/ressources/img/arduino/uno-pinout.webp)
 
@@ -47,7 +47,7 @@ void setup() {
 ```
 
 - **`OUTPUT`** — la broche pilote un signal vers l'extérieur (LED, relais, transistor).
-- **`INPUT`** — la broche lit un signal extérieur sans aucune polarisation interne. **Si rien n'est branché, la lecture est aléatoire** (bruit 50 Hz capté par l'antenne formée par le fil) — à n'utiliser que si une résistance externe maintient l'entrée à un niveau connu.
+- **`INPUT`** — la broche lit un signal extérieur sans aucune polarisation interne. **Si rien n'est branché, la lecture est aléatoire** (bruit 50 Hz capté par l'antenne formée par le fil). À n'utiliser que si une résistance externe maintient l'entrée à un niveau connu.
 - **`INPUT_PULLUP`** — la broche lit un signal mais une résistance interne d'environ 20 à 50 kΩ tire le potentiel vers `+5 V`. **Logique inversée** : la broche lit `HIGH` au repos, `LOW` quand on la connecte à GND (typiquement par un bouton).
 
 ### 3. Lire ou écrire dans `loop()`
@@ -100,21 +100,21 @@ void loop() {
 }
 ```
 
-Téléversez, appuyez sur le bouton — la LED s'allume. Relâchez — elle s'éteint. Si la LED reste allumée en permanence (comme si le bouton était toujours appuyé), c'est que la broche est reliée en continu à GND — souvent un **bouton tactile 4 pattes** câblé sur la mauvaise paire : deux de ses pattes sont déjà reliées entre elles à l'intérieur et relient la broche à GND en permanence. Le pull-up perd alors la bataille face à cette liaison franche.
+Téléversez, appuyez sur le bouton : la LED s'allume. Relâchez : elle s'éteint. Si la LED reste allumée en permanence (comme si le bouton était toujours appuyé), c'est que la broche est reliée en continu à GND, souvent un **bouton tactile 4 pattes** câblé sur la mauvaise paire : deux de ses pattes sont déjà reliées entre elles à l'intérieur et relient la broche à GND en permanence. Le pull-up perd alors la bataille face à cette liaison franche.
 
 ## Pièges
 
 **`pinMode()` oublié.** Une broche non configurée se comporte de manière indéfinie (état par défaut variable selon la carte). Symptôme : le code semble correct mais rien ne marche.
 
-**Confondre `INPUT` et `INPUT_PULLUP`.** En `INPUT` sans résistance externe, la broche flotte — lecture aléatoire qui peut sembler répondre au toucher de la main (le corps fait antenne 50 Hz). En `INPUT_PULLUP`, la broche est définie au repos — c'est presque toujours le bon choix pour un bouton.
+**Confondre `INPUT` et `INPUT_PULLUP`.** En `INPUT` sans résistance externe, la broche flotte, lecture aléatoire qui peut sembler répondre au toucher de la main (le corps fait antenne 50 Hz). En `INPUT_PULLUP`, la broche est définie au repos. C'est presque toujours le bon choix pour un bouton.
 
-**Logique inversée du pull-up.** Un bouton en `INPUT_PULLUP` lit `LOW` quand appuyé. Un test `if (digitalRead(BOUTON) == HIGH)` allumera la LED quand le bouton est **relâché** — inverse du comportement attendu.
+**Logique inversée du pull-up.** Un bouton en `INPUT_PULLUP` lit `LOW` quand appuyé. Un test `if (digitalRead(BOUTON) == HIGH)` allumera la LED quand le bouton est **relâché**, inverse du comportement attendu.
 
 **LED branchée sans résistance.** Une LED rouge consomme ~20 mA sous 2 V. Branchée directement entre 5 V et GND, elle tire un courant excessif qui la grille (ou abîme la broche). Toujours une résistance série, calculée pour la chute de tension de la LED (220 Ω à 1 kΩ pour une LED standard sur 5 V).
 
-**Courant max dépassé.** Chaque broche supporte 20 mA en régime nominal (40 mA en absolu — destruction au-delà). Le total sur toutes les broches d'un ATmega328P ne doit pas dépasser ~200 mA. Pour piloter plus (relais, moteur, bandeau LED), passer par un transistor ou un module dédié.
+**Courant max dépassé.** Chaque broche supporte 20 mA en régime nominal (40 mA en absolu, destruction au-delà). Le total sur toutes les broches d'un ATmega328P ne doit pas dépasser ~200 mA. Pour piloter plus (relais, moteur, bandeau LED), passer par un transistor ou un module dédié.
 
-**`digitalRead()` sur broche en `OUTPUT`.** Possible mais inutile — on lit l'état qu'on vient d'écrire. Probablement le signe d'un mode mal configuré.
+**`digitalRead()` sur broche en `OUTPUT`.** Possible mais inutile. On lit l'état qu'on vient d'écrire. Probablement le signe d'un mode mal configuré.
 
 **Broche flottante non utilisée.** Une broche déclarée `INPUT` sans rien branché capte du bruit. Si on la lit, on récupère aléatoire. Pour des broches inutilisées qu'on veut lire un jour, soit `INPUT_PULLUP`, soit broche externe tirée à un niveau défini.
 
@@ -126,14 +126,14 @@ Toutes les broches numériques ne sont pas équivalentes :
 - **ADC** — A0 à A5 sont les entrées analogiques (`analogRead`), avec un rôle GPIO en alternative.
 - **Bus** — D0/D1 (UART), A4/A5 (I2C), D10-D13 (SPI). Utiliser une broche en GPIO la rend indisponible pour son bus dédié.
 
-Le brochage officiel de votre carte est la référence — gardez-le à portée de main.
+Le brochage officiel de votre carte est la référence. Gardez-le à portée de main.
 
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — premiers essais individuels d'entrée et de sortie (bouton, LED, fin de course) avant d'assembler.
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — validation pièce-par-pièce des E/S avant tests pyramidaux.
 
-Maîtriser les trois modes GPIO sur un petit montage isolé est la fondation sur laquelle reposent presque tous les tutoriels Arduino suivants — pas la peine d'enchaîner sur les capteurs ou les actionneurs avant que ce socle ne soit ferme.
+Maîtriser les trois modes GPIO sur un petit montage isolé est la fondation sur laquelle reposent presque tous les tutoriels Arduino suivants. Pas la peine d'enchaîner sur les capteurs ou les actionneurs avant que ce socle ne soit ferme.
 
 ## Voir aussi
 

@@ -1,5 +1,5 @@
 ---
-title: Gantt
+title: Gantt chart
 type: tuto
 phases:
   - specification
@@ -17,48 +17,48 @@ source_fr: conduite/proj/gantt.md
 source_sha256: c7f6d4d657d5df75e7d2e7afa20ad384a1a810e6c1d7cd4d7d4eb7f94976d92f
 ---
 
-Le **Gantt** (ou diagramme de Gantt) est l'outil graphique qui matérialise un [[retroplanning-en|rétroplanning]] : tâches en lignes, calendrier en colonnes, barres horizontales qui montrent durées et chevauchements. Sa force pédagogique tient à ce qu'il fait apparaître visuellement les **dépendances** entre tâches et les **goulots** où plusieurs tâches se chevauchent dangereusement.
+The **Gantt chart** (or Gantt diagram) is the graphical tool that gives shape to a [[retroplanning-en|backward plan]]: tasks in rows, calendar in columns, horizontal bars showing durations and overlaps. Its teaching strength is that it brings out visually the **dependencies** between tasks and the **bottlenecks** where several tasks overlap dangerously.
 
-![Gantt — mini-diagramme générique : 4 tâches, 8 semaines, jalons et dépendance](/ressources/img/gantt/generique.svg)
+![Gantt chart — generic mini-diagram: 4 tasks, 8 weeks, milestones and a dependency](/ressources/img/gantt/generique.svg)
 
-## À quoi ça sert ?
+## What is it for?
 
-Le Gantt rend visible d'un coup d'œil l'enchaînement temporel d'un projet. Là où un [[wbs-en|WBS]] dit *quoi* et un [[retroplanning-en|rétroplanning]] dit *quand*, le Gantt **les superpose** sur un même support graphique. C'est ce qui permet de voir, au lieu de lire.
+The Gantt chart makes the time sequence of a project visible at a glance. Where a [[wbs-en|WBS]] says *what* and a [[retroplanning-en|backward plan]] says *when*, the Gantt chart **lays one over the other** on a single graphical support. That is what lets you see rather than read.
 
-Trois rôles :
+Three roles:
 
-- **Visualiser les dépendances critiques** entre tâches — telle tâche bloquée par une autre, telle livraison qui conditionne le démarrage d'une suivante. Les flèches de dépendance sont ce qui distingue un Gantt d'une simple liste plantée dans le temps.
-- **Repérer les goulots calendaires** où plusieurs tâches se chevauchent dangereusement. Si trois tâches critiques tombent la même semaine, on le voit avant que la semaine arrive.
-- **Servir de support de communication en revue.** Jalons et tâches sont lisibles par un lecteur extérieur (encadrant, client) sans contexte préalable, utile dès qu'il faut présenter l'état du projet.
+- **Making the critical dependencies visible** between tasks — this task blocked by that one, this delivery gating the start of the next. The dependency arrows are what tells a Gantt chart apart from a plain list dropped onto a timeline.
+- **Spotting the calendar bottlenecks** where several tasks overlap dangerously. If three critical tasks land in the same week, you see it before the week arrives.
+- **Acting as a communication support in review.** Milestones and tasks can be read by an outside reader (supervisor, client) with no prior context, useful as soon as the state of the project has to be presented.
 
-## Comment le construire ?
+## How do you build one?
 
-Cinq étapes :
+Five steps:
 
-1. **Reprendre la liste des tâches du [[wbs-en|WBS]]** et leur durée estimée.
-2. **Poser les [[jalons-en|jalons]] sur l'axe du temps en colonnes** comme points fixes.
-3. **Tracer une barre horizontale par tâche** entre sa date de début et sa date de fin.
-4. **Ajouter les dépendances** sous forme de flèches reliant les tâches qui s'enchaînent obligatoirement.
-5. **Actualiser à chaque revue de phase**. Sans cela, le Gantt ment dès la première dérive.
+1. **Take the task list from the [[wbs-en|WBS]]** and their estimated durations.
+2. **Put the [[jalons-en|milestones]] on the time axis in columns** as fixed points.
+3. **Draw one horizontal bar per task** between its start date and its end date.
+4. **Add the dependencies** as arrows linking the tasks that necessarily follow one another.
+5. **Update at every phase review**. Without that, the Gantt chart lies from the first slip onwards.
 
-Côté outils, trois options principales sont mobilisables : **Excel ou papier** (rapides à mettre en place, suffisants pour un Gantt simple), **GanttProject** (logiciel libre dédié, gère proprement les dépendances), **Trello** (suivi des tâches en kanban, complément utile au Gantt mais qui ne le remplace pas : la dimension temporelle continue se perd). Choisir un outil et s'y tenir. Éparpiller la planification entre trois supports désynchronisés est pire qu'un outil imparfait.
+On the tooling side, three main options are available: **Excel or paper** (quick to set up, enough for a simple Gantt chart), **GanttProject** (dedicated free software, handles dependencies cleanly), **Trello** (kanban task tracking, a useful complement to the Gantt chart but not a replacement for it: the continuous time dimension is lost). Choose one tool and stick to it. Scattering the planning across three unsynchronised supports is worse than one imperfect tool.
 
-*Illustration sur un cas concret : Gantt d'un projet de station météo connectée sur 15 semaines.*
+*A worked case: the Gantt chart of a connected weather station project over 15 weeks.*
 
-![Gantt d'un projet de station météo connectée](/ressources/img/gantt/station-meteo.svg)
+![Gantt chart of a connected weather station project](/ressources/img/gantt/station-meteo.svg)
 
-## Pièges
+## Pitfalls
 
-**Gantt figé après sa production.** Un Gantt produit en début de phase et jamais rouvert ment dès la première dérive. À l'inverse, un Gantt actualisé chaque semaine, même imparfait, devient un outil de pilotage puissant : il révèle les dérives tôt, quand on peut encore agir.
+**A Gantt chart frozen once produced.** A Gantt chart drawn at the start of a phase and never reopened lies from the first slip onwards. Conversely, a Gantt chart updated every week, however imperfect, becomes a powerful steering tool: it reveals the slips early, while there is still room to act.
 
-**Trop fin.** Un Gantt à la journée pour un projet de plusieurs mois devient illisible et démoralisant. Chaque retard de quelques jours apparaît comme une crise. Granularité à la semaine suffit en projet école.
+**Too fine-grained.** A day-by-day Gantt chart on a project running several months becomes unreadable and demoralising. Every delay of a few days shows up as a crisis. Weekly granularity is enough on a school project.
 
-**Pas de dépendances visibles.** Un Gantt sans flèches de dépendance est juste une liste de tâches plantées dans le temps. L'intérêt pédagogique tient précisément à ce qu'il montre **qui bloque qui**. Un retard sur la commande PCB peut décaler trois tâches d'intégration.
+**No visible dependencies.** A Gantt chart with no dependency arrows is just a list of tasks dropped onto a timeline. The teaching value lies precisely in showing **who blocks whom**. A delay on the PCB order can push three integration tasks back.
 
-## Voir aussi
+## See also
 
-- [[specification-technique-en|Spécification technique]] — étape 5 où le Gantt du projet est construit
-- [[retroplanning-en|Rétroplanning]] — planification temporelle que le Gantt matérialise
-- [[wbs-en|WBS]] — décomposition du travail dont les feuilles deviennent les barres du Gantt
-- [[jalons-en|Jalons]] — points fixes posés sur le Gantt avant les tâches
-- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient le Gantt vivant
+- [[specification-technique-en|Technical specification]] — step 5, where the project Gantt chart is built
+- [[retroplanning-en|Backward planning]] — the time plan the Gantt chart gives shape to
+- [[wbs-en|WBS]] — the work breakdown whose leaves become the bars of the Gantt chart
+- [[jalons-en|Milestones]] — fixed points put on the Gantt chart before the tasks
+- [[gestion-de-projet-en|Project planning and tracking]] — the cross-cutting thread that keeps the Gantt chart alive

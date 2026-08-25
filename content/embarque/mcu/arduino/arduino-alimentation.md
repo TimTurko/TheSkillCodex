@@ -20,7 +20,7 @@ draft: false
 
 ## À quoi ça sert ?
 
-Tant qu'un projet tient sur la breadboard, alimenté par le PC en USB, tout va bien. Dès qu'on ajoute des moteurs, des relais, des modules sans-fil ou un display TFT, le courant grimpe — et l'alimentation USB de l'Arduino (500 mA partagés sur un PC) atteint ses limites. La maîtrise des trois voies d'alimentation et de leurs contraintes permet de :
+Tant qu'un projet tient sur la breadboard, alimenté par le PC en USB, tout va bien. Dès qu'on ajoute des moteurs, des relais, des modules sans-fil ou un display TFT, le courant grimpe, et l'alimentation USB de l'Arduino (500 mA partagés sur un PC) atteint ses limites. La maîtrise des trois voies d'alimentation et de leurs contraintes permet de :
 
 - **Choisir l'alimentation (PSU) adaptée** à la consommation totale prévue (logique + actionneurs + accessoires).
 - **Séparer les alimentations** quand les actionneurs perturbent la logique (motors).
@@ -68,7 +68,7 @@ Pour la méthode générale de dimensionnement (bilan de puissance, choix de la 
 
 **Broche Vin** : alimenter par cette broche est l'équivalent du jack DC en moins encombrant. Toujours référencer GND.
 
-**5 V externe** : si on a déjà une alimentation 5 V stable (bus 5 V de l'installation), alimenter directement par la broche `5V`. **Ne pas alimenter en 5 V via le jack ou Vin** — le régulateur de la carte (NCP1117 sur l'Uno R3) a besoin d'au moins ~7 V en entrée pour fournir un 5 V stable.
+**5 V externe** : si on a déjà une alimentation 5 V stable (bus 5 V de l'installation), alimenter directement par la broche `5V`. **Ne pas alimenter en 5 V via le jack ou Vin** : le régulateur de la carte (NCP1117 sur l'Uno R3) a besoin d'au moins ~7 V en entrée pour fournir un 5 V stable.
 
 ![Les trois entrées d'alimentation d'une carte Uno : l'USB en 5 V, qui rejoint directement le rail 5 V sans passer par le régulateur ; le jack DC 9 V, polarité positive au centre, et la broche Vin en 7 à 12 V, qui entrent tous deux dans le régulateur 5 V de la carte.|640](/ressources/img/arduino-alimentation/trois-sources.svg)
 
@@ -119,13 +119,13 @@ void loop() {
 }
 ```
 
-Au premier essai, l'Arduino redémarre toutes les 5 secondes au moment où le servo bouge — la chute de tension sur le 5 V régulé est trop forte. **Solution** : alimenter le servo directement par la batterie 7,4 V via un régulateur 5 V externe dédié, en gardant GND commun avec l'Arduino. Ou réduire la vitesse de balayage du servo. Voir [[arduino-servomoteur|piloter un servomoteur]] pour les bonnes pratiques d'alimentation servo.
+Au premier essai, l'Arduino redémarre toutes les 5 secondes au moment où le servo bouge. La chute de tension sur le 5 V régulé est trop forte. **Solution** : alimenter le servo directement par la batterie 7,4 V via un régulateur 5 V externe dédié, en gardant GND commun avec l'Arduino. Ou réduire la vitesse de balayage du servo. Voir [[arduino-servomoteur|piloter un servomoteur]] pour les bonnes pratiques d'alimentation servo.
 
 ![Alimentation séparée du servo avec masse commune : la batterie 7,4 V alimente la logique de l'Arduino (jack) et alimente aussi un régulateur 5 V externe dédié au servo ; le signal vient de D9 ; toutes les masses (batterie, Arduino, régulateur, servo) sont reliées — GND commun.|560](/ressources/img/arduino-alimentation/alimentation-separee.svg)
 
 ## Pièges
 
-**Brancher 5 V sur Vin (ou jack).** Le régulateur de la carte a besoin de plus de 5 V à l'entrée : sur l'Uno R3, le LDO NCP1117 a une chute d'environ 1,2 V (on vise ~7 V mini) ; sur l'Uno R4, le convertisseur à découpage demande au moins 6 V. Brancher 5 V sur Vin ou le jack donne une sortie sous-régulée (~3,8 V sur R3), l'Arduino devient instable. Pour alimenter en 5 V, brancher sur la broche `5V` directement (en bypass du régulateur).
+**Brancher 5 V sur Vin (ou jack).** Le régulateur de la carte a besoin de plus de 5 V à l'entrée : sur l'Uno R3, le LDO NCP1117 a une chute d'environ 1,2 V (on vise ~7 V mini). Sur l'Uno R4, le convertisseur à découpage demande au moins 6 V. Brancher 5 V sur Vin ou le jack donne une sortie sous-régulée (~3,8 V sur R3), l'Arduino devient instable. Pour alimenter en 5 V, brancher sur la broche `5V` directement (en bypass du régulateur).
 
 **Brancher 12 V (ou plus) sur la broche 5 V.** Destruction immédiate du microcontrôleur (l'alimentation passe directement sur le rail 5 V, le régulateur ne protège pas). Trois fois plus que le maximum supporté.
 
@@ -137,7 +137,7 @@ Au premier essai, l'Arduino redémarre toutes les 5 secondes au moment où le se
 
 **GND non commun entre Arduino et charge externe.** Quand on a deux alimentations (une pour l'Arduino, une pour les moteurs), GND doit être *commun*. Sinon les signaux logiques n'ont pas la même référence, le système ne marche pas, et des courants peuvent passer là où ils ne devraient pas. Le schéma de l'exemple ci-dessus montre ce GND commun.
 
-**Régulateur Uno R3 qui chauffe.** Le régulateur linéaire (NCP1117, un LDO) dissipe (Vin − 5 V) × I_total. À 12 V en entrée et 500 mA en sortie : (12-5) × 0,5 = 3,5 W — assez pour chauffer fortement sans dissipateur. Symptôme : odeur, chaleur palpable. Réduire la tension d'entrée à 7-9 V (chute moindre, dissipation plus basse) ou alimenter en 5 V régulés via la broche 5 V. (L'Uno R4, dont le régulateur est à découpage, ne souffre pas de ce problème.)
+**Régulateur Uno R3 qui chauffe.** Le régulateur linéaire (NCP1117, un LDO) dissipe (Vin − 5 V) × I_total. À 12 V en entrée et 500 mA en sortie : (12-5) × 0,5 = 3,5 W, assez pour chauffer fortement sans dissipateur. Symptôme : odeur, chaleur palpable. Réduire la tension d'entrée à 7-9 V (chute moindre, dissipation plus basse) ou alimenter en 5 V régulés via la broche 5 V. (L'Uno R4, dont le régulateur est à découpage, ne souffre pas de ce problème.)
 
 ## Cas particulier — Alimentation par batterie pour projets autonomes
 

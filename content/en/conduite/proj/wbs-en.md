@@ -15,46 +15,46 @@ source_fr: conduite/proj/wbs.md
 source_sha256: 9a38d6fcb24d8aee82258af6d30ad2bda583f656c829d8a1818fe718b756b1c1
 ---
 
-Le **WBS** (*Work Breakdown Structure*) est l'outil de découpage d'un projet en éléments traçables, du livrable global vers les tâches élémentaires. Il sert de référence partagée pour répartir le travail dans l'équipe et garantir qu'aucune tâche structurante n'est oubliée. En projet école, **deux à trois niveaux de profondeur suffisent** : phase → sous-livrable → tâche concrète.
+The **WBS** (work breakdown structure) is the tool for splitting a project into traceable items, from the overall deliverable down to elementary tasks. It acts as a shared reference for splitting the work across the team and for making sure no structuring task has been forgotten. On a school project, **two or three levels of depth are enough**: phase, then sub-deliverable, then concrete task.
 
-![WBS — arbre de décomposition générique sur trois niveaux](/ressources/img/wbs/generique.svg)
+![WBS — generic breakdown tree over three levels](/ressources/img/wbs/generique.svg)
 
-## À quoi ça sert ?
+## What is it for?
 
-Le WBS rend exhaustif le périmètre du travail à faire avant de tenter de le planifier dans le temps. Sans cette décomposition explicite, l'équipe découvre des tâches en cours de route (*« on n'avait pas pensé qu'il faudrait souder les connecteurs, faire un câble d'alim sur mesure, écrire la doc d'utilisation »*), et le planning dérive d'autant.
+The WBS makes the scope of the work to be done exhaustive before any attempt to place it in time. Without that explicit breakdown, the team discovers tasks along the way (*"we hadn't thought we would have to solder the connectors, make a custom power cable, write the user documentation"*), and the schedule slips by as much.
 
-Il joue trois rôles :
+It plays three roles:
 
-- **Référence partagée pour la répartition du travail.** Chaque équipier sait quelle branche du WBS il prend en charge et où s'arrêtent ses responsabilités.
-- **Garde-fou contre les oublis structurants.** Le geste de descendre méthodiquement du livrable global aux tâches élémentaires fait apparaître les pièces qu'on n'avait pas vues à l'œil nu.
-- **Socle direct du [[retroplanning-en|rétroplanning]] et du [[gantt-en|Gantt]].** Les feuilles du WBS deviennent les barres du Gantt. Un Gantt sans WBS amont est un dessin sans contenu.
+- **A shared reference for splitting the work.** Each teammate knows which branch of the WBS they are taking on and where their responsibilities stop.
+- **A guard against structuring omissions.** The act of working methodically down from the overall deliverable to the elementary tasks brings out the pieces nobody had seen with the naked eye.
+- **The direct foundation of the [[retroplanning-en|backward plan]] and the [[gantt-en|Gantt]] chart.** The leaves of the WBS become the bars of the Gantt chart. A Gantt chart with no WBS upstream is a drawing with no content.
 
-## Comment le construire ?
+## How do you build one?
 
-Trois temps :
+Three steps:
 
-1. **Partir du livrable global** (ici, le projet mécatronique complet) et le décomposer en **phases du cycle en V** : spécification, concept, preuve de concept, dossier technique, intégration et tests.
-2. **Décomposer chaque phase en sous-livrables identifiables.** Pour la phase de spécification, on aura par exemple le [[cahier-des-charges-fonctionnel-en|CdCF]], l'[[etat-de-l-art-technique-en|état de l'art]], la [[matrice-de-risques-en|matrice de risques]], le Gantt. Chaque sous-livrable doit pouvoir être désigné par un nom sans ambiguïté.
-3. **Descendre d'un niveau supplémentaire si nécessaire** jusqu'aux tâches concrètes confiables à une personne sur une durée de l'ordre de quelques jours. S'arrêter à ce niveau. Un WBS qui descend plus fin bascule en gestion administrative et perd son utilité de pilotage.
+1. **Start from the overall deliverable** (here, the complete mechatronics project) and break it down into **phases of the V-model**: technical specification, concept, proof of concept, technical design file, integration and testing.
+2. **Break each phase down into identifiable sub-deliverables.** For the specification phase you will have, for instance, the [[cahier-des-charges-fonctionnel-en|CdCF]] (the French functional requirements specification), the [[etat-de-l-art-technique-en|technical state of the art]], the [[matrice-de-risques-en|risk matrix]] and the Gantt chart. Each sub-deliverable has to be nameable without ambiguity.
+3. **Go down one more level if needed**, as far as concrete tasks that can be entrusted to one person over a few days or so. Stop at that level. A WBS that goes finer tips over into administration and loses its steering value.
 
-Deux logiques de découpage coexistent — par **phases du V** (robuste pour les livrables transverses) ou par **sous-système** (lisible pour la répartition technique du travail). La méthode ci-dessus déroule la première. L'illustration ci-dessous montre la seconde.
+Two splitting logics coexist — by **phases of the V-model** (robust for the cross-cutting deliverables) or by **subsystem** (readable for splitting the technical work). The method above runs the first one. The illustration below shows the second.
 
-*Illustration sur un cas concret : WBS d'un projet de station météo connectée, découpé par sous-système plutôt que par discipline.*
+*A worked case: the WBS of a connected weather station project, split by subsystem rather than by discipline.*
 
-![WBS d'un projet de station météo connectée](/ressources/img/wbs/station-meteo.svg)
+![WBS of a connected weather station project](/ressources/img/wbs/station-meteo.svg)
 
-## Pièges
+## Pitfalls
 
-**Confondre WBS et organigramme d'équipe.** Le WBS décompose le **travail**, pas les personnes. *« Branche Antoine / Branche Salma / Branche Karim »* n'est pas un WBS, c'est une affectation, qui vient après la décomposition, pas avant.
+**Confusing the WBS with the team org chart.** The WBS breaks down the **work**, not the people. *"Antoine's branch / Salma's branch / Karim's branch"* is not a WBS, it is an allocation, which comes after the breakdown, not before.
 
-**Aller trop profond.** Deux à trois niveaux suffisent en projet école. À cinq ou six niveaux, le WBS devient ingérable, personne ne le rouvre, et l'équipe revient à un suivi informel. Autant ne pas en faire.
+**Going too deep.** Two or three levels are enough on a school project. At five or six levels the WBS becomes unmanageable, nobody reopens it, and the team falls back on informal tracking. Better not to have one at all.
 
-**Découpage par discipline plutôt que par livrable.** Un WBS *« Élec / Méca / Info »* à la racine est tentant mais masque les livrables transverses (le CdCF, le dossier de concept, le rapport final) qui n'appartiennent à aucune discipline en propre. Partir des phases du V est plus robuste. La répartition par discipline vient au niveau 2 ou 3.
+**Splitting by discipline rather than by deliverable.** A WBS reading *"Electronics / Mechanics / Software"* at the root is tempting, but it hides the cross-cutting deliverables (the CdCF, the concept file, the final report) that belong to no discipline in particular. Starting from the phases of the V-model is more robust. Splitting by discipline comes at level 2 or 3.
 
-## Voir aussi
+## See also
 
-- [[specification-technique-en|Spécification technique]] — étape 5 où le WBS du projet est construit
-- [[jalons-en|Jalons]] — points de validation qui structurent les niveaux supérieurs du WBS
-- [[retroplanning-en|Rétroplanning]] — étape suivante : caler les tâches du WBS dans le temps
-- [[gantt-en|Gantt]] — matérialisation visuelle des tâches du WBS sur le calendrier
-- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient le WBS vivant au fil des phases
+- [[specification-technique-en|Technical specification]] — step 5, where the project WBS is built
+- [[jalons-en|Milestones]] — approval points that structure the upper levels of the WBS
+- [[retroplanning-en|Backward planning]] — the next step: fitting the WBS tasks into time
+- [[gantt-en|Gantt]] — visual rendering of the WBS tasks on the calendar
+- [[gestion-de-projet-en|Project planning and tracking]] — the cross-cutting thread that keeps the WBS alive through the phases

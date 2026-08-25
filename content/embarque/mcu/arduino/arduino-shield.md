@@ -73,16 +73,16 @@ Pour un motor shield (L293D, L298P…) : un bornier d'alimentation moteur permet
 
 La plupart des shields ont leur bibliothèque dédiée. Voir [[arduino-bibliotheques|utiliser une bibliothèque]].
 
-Pour un shield moteur (en exemple ici), deux familles principales : le shield à base de **L293D** (le plus répandu, dit « v1 ») se pilote avec la bibliothèque `Adafruit Motor Shield library` (version 1.x) ; l'**Adafruit Motor Shield V2** (driver TB6612, commandé en I2C par une puce PWM dédiée) utilise la bibliothèque `Adafruit Motor Shield V2`. Installer via le gestionnaire, ouvrir un exemple fourni par la bibliothèque, téléverser.
+Pour un shield moteur (en exemple ici), deux familles principales : le shield à base de **L293D** (le plus répandu, dit « v1 ») se pilote avec la bibliothèque `Adafruit Motor Shield library` (version 1.x). L'**Adafruit Motor Shield V2** (driver TB6612, commandé en I2C par une puce PWM dédiée) utilise la bibliothèque `Adafruit Motor Shield V2`. Installer via le gestionnaire, ouvrir un exemple fourni par la bibliothèque, téléverser.
 
 ## Exemple — Motor shield (L293D) : faire tourner un moteur CC
 
-Le shield moteur à base de **L293D** (le plus répandu, dit « v1 ») s'empile sur l'Arduino et se pilote entièrement par sa bibliothèque — aucun câblage de broches, c'est tout l'intérêt du shield.
+Le shield moteur à base de **L293D** (le plus répandu, dit « v1 ») s'empile sur l'Arduino et se pilote entièrement par sa bibliothèque : aucun câblage de broches, c'est tout l'intérêt du shield.
 
 **Empilage** : shield directement sur l'Arduino Uno.
 **Moteur** : un moteur CC 6-9 V sur le bornier `M1` (deux fils).
 **Alimentation moteur** : pile 9 V ou alim de table sur le bornier d'alimentation du shield (séparée de l'USB qui alimente la logique).
-**Bibliothèque** : `Adafruit Motor Shield library` (version 1.x, pour les shields L293D) — installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
+**Bibliothèque** : `Adafruit Motor Shield library` (version 1.x, pour les shields L293D). Installer via le gestionnaire (voir [[arduino-bibliotheques|utiliser une bibliothèque]]).
 
 ![Montage de l'exemple : le shield moteur L293D empilé sur l'Uno, un moteur CC câblé sur le bornier M1, et l'alimentation 9 V sur le bornier d'alimentation moteur du shield.|520](/ressources/img/arduino-shield/montage-shield-l293d.webp)
 
@@ -109,17 +109,17 @@ void loop() {
 }
 ```
 
-On ne touche **aucune broche** directement : la bibliothèque sait quelles broches le shield occupe. Le détail du pilotage d'un moteur CC (pont en H, sens, vitesse) est traité par sa fiche dédiée — voir [[arduino-moteur-cc|piloter un moteur CC]].
+On ne touche **aucune broche** directement : la bibliothèque sait quelles broches le shield occupe. Le détail du pilotage d'un moteur CC (pont en H, sens, vitesse) est traité par sa fiche dédiée (voir [[arduino-moteur-cc|piloter un moteur CC]]).
 
 ## Pièges
 
 **Conflit de broches entre shields.** Empiler un ethernet shield (SPI sur D10-D13) et un motor shield qui utilise aussi D11/D12 : conflit, l'un des deux ne marche plus. Lire les notices avant d'empiler.
 
-**SPI partagé entre devices.** Un ethernet shield + un data logging shield empilés partagent le bus SPI (D11-D13) mais ont chacun leur propre broche `CS` (`SS`). Vérifier que les deux `CS` sont sur des broches différentes — sinon, les deux devices répondent en même temps et la communication est corrompue.
+**SPI partagé entre devices.** Un ethernet shield + un data logging shield empilés partagent le bus SPI (D11-D13) mais ont chacun leur propre broche `CS` (`SS`). Vérifier que les deux `CS` sont sur des broches différentes. Sinon, les deux devices répondent en même temps et la communication est corrompue.
 
-**Shield sous-alimenté.** L'USB d'un PC débite max 500 mA ; un shield ethernet en activité tire 150 mA, un motor shield à vide tire 20 mA mais sous charge jusqu'à 2 A — l'Arduino reboote. Passer à un bloc d'alimentation externe dès qu'un shield consomme.
+**Shield sous-alimenté.** L'USB d'un PC débite max 500 mA. Un shield ethernet en activité tire 150 mA, un motor shield à vide tire 20 mA mais sous charge jusqu'à 2 A. L'Arduino reboote. Passer à un bloc d'alimentation externe dès qu'un shield consomme.
 
-**Mauvais sens d'empilage.** L'orientation du shield est dictée par le brochage — il ne devrait pas être possible de l'empiler à l'envers sur Uno (les connecteurs sont positionnés asymétriquement), mais avec certains shields mal conçus c'est possible. Toujours vérifier l'orientation des labels avant de pousser.
+**Mauvais sens d'empilage.** L'orientation du shield est dictée par le brochage. Il ne devrait pas être possible de l'empiler à l'envers sur Uno (les connecteurs sont positionnés asymétriquement), mais avec certains shields mal conçus c'est possible. Toujours vérifier l'orientation des labels avant de pousser.
 
 **Brochage du shield non Uno-compatible.** Quelques shields supposent un brochage Uno strict (D0-D13, A0-A5). Empilés sur un Mega, ils marchent mais n'occupent pas toujours les bonnes broches (par exemple, les broches `SS / MOSI / MISO / SCK` sont sur D50-D53 sur Mega, pas sur D10-D13). Lire les notes de compatibilité.
 

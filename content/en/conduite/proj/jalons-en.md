@@ -1,5 +1,5 @@
 ---
-title: Jalons
+title: Milestones
 type: notion
 phases:
   - specification
@@ -15,44 +15,44 @@ source_fr: conduite/proj/jalons.md
 source_sha256: 4ac46141a3a19704293f68e4b76d16630bbb7b7522b77a6a6e482f376998c56a
 ---
 
-Les **jalons** sont les points de validation qui rythment un projet : ils marquent la transition entre deux phases et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante. Il décale tout l'aval.
+**Milestones** are the approval points that give a project its rhythm: they mark the transition between two phases and **gate the move** to the next one. A missed milestone is not something you catch up by working harder the following week. It pushes everything downstream.
 
-![Jalons — frise générique d'un projet en cycle en V](/ressources/img/jalons/generique.svg)
+![Milestones — generic timeline of a V-model project](/ressources/img/jalons/generique.svg)
 
-## À quoi ça sert ?
+## What is it for?
 
-Les jalons sortent l'avancement du projet de l'implicite. Plutôt que d'avancer en continu jusqu'à la soutenance (où on découvrirait tard qu'il manque telle ou telle pièce), ils imposent des **points d'arrêt explicites** où l'équipe vérifie qu'elle a bien produit ce qu'il fallait avant de passer à la suite.
+Milestones take the progress of a project out of the implicit. Rather than pushing on continuously until the final presentation (where a missing part would only come to light late), they impose **explicit stopping points** where the team checks that it has actually produced what was needed before moving on.
 
-Trois rôles indissociables :
+Three inseparable roles:
 
-- **Acter formellement la fin d'une phase** et autoriser le passage à la suivante. Un jalon validé engage le projet. Un jalon raté force soit le rattrapage, soit la renégociation du périmètre.
-- **Imposer un rendez-vous de validation** (revue de CdCF, revue de PoC, revue de qualification) qui résiste à la dérive du *« on continue, on verra »*.
-- **Servir d'ancres temporelles** au [[retroplanning-en|rétroplanning]] et au [[gantt-en|Gantt]] : le calendrier projet se construit autour des jalons, pas l'inverse.
+- **Formally closing a phase** and clearing the move to the next one. An approved milestone commits the project. A missed milestone forces either catching up or renegotiating the scope.
+- **Forcing an approval appointment** (CdCF review, PoC review, qualification review) that holds out against the drift of *"let's carry on, we'll see"*.
+- **Acting as time anchors** for the [[retroplanning-en|backward plan]] and the [[gantt-en|Gantt]] chart: the project calendar is built around the milestones, not the other way round.
 
-## Comment les poser ?
+## How do you set them?
 
-Trois temps :
+Three steps:
 
-1. **Identifier les transitions de phase du projet.** Pour un projet en cycle en V, les jalons naturels sont la revue de CdCF, le concept validé, le PoC concluant, le dossier technique validé, l'intégration livrée et la soutenance finale. C'est l'ossature minimale. On peut en ajouter de plus fins selon les enjeux du projet.
-2. **Caler les jalons sur le calendrier** par [[retroplanning-en|rétroplanning]] depuis la date butoir. Les jalons sont les points fixes. Les tâches du [[wbs-en|WBS]] s'inscrivent entre eux.
-3. **Associer à chaque jalon un livrable précis et un mode de validation** (revue d'équipe, démo, document soumis pour relecture). Le critère doit rendre le jalon binaire (passé / non-passé), pas un objectif flou qu'on évaluera à l'œil le jour venu.
+1. **Identify the phase transitions of the project.** On a V-model project the natural milestones are the CdCF review (*cahier des charges fonctionnel*, the French functional requirements specification), the concept approved, the PoC conclusive, the technical design file approved, integration delivered and the final presentation. That is the minimum skeleton. Finer ones can be added depending on what is at stake on the project.
+2. **Fit the milestones onto the calendar** by [[retroplanning-en|backward planning]] from the deadline. The milestones are the fixed points. The [[wbs-en|WBS]] tasks slot in between them.
+3. **Attach a precise deliverable and a mode of approval to each milestone** (team review, demo, document submitted for reading). The criterion has to make the milestone binary (passed / not passed), not a vague goal to be judged by eye on the day.
 
-*Illustration sur un cas concret : projet de station météo connectée sur 15 semaines.*
+*A worked case: a connected weather station project over 15 weeks.*
 
-![Jalons d'un projet de station météo connectée](/ressources/img/jalons/station-meteo.svg)
+![Milestones of a connected weather station project](/ressources/img/jalons/station-meteo.svg)
 
-## Pièges
+## Pitfalls
 
-**Jalon sans critère de validation explicite.** Un jalon *« PoC fait »* est inutilisable : qui en juge, sur quels critères ? Un jalon *« PoC démontrant la synchronisation des 3 axes en charge nominale »* est validable. Le critère se pose en même temps que le jalon, pas après.
+**A milestone with no explicit approval criterion.** A milestone reading *"PoC done"* cannot be used: who judges it, and against what? A milestone reading *"PoC demonstrating the three axes synchronised under nominal load"* can be approved. The criterion is set at the same time as the milestone, not afterwards.
 
-**Trop de jalons.** Une demi-douzaine de jalons majeurs suffit en projet école. Au-delà, le rituel s'use et perd son effet de seuil. Chaque jalon devient une étape parmi d'autres, plus un vrai point d'arrêt qui engage la suite.
+**Too many milestones.** Half a dozen major milestones is enough on a school project. Beyond that the ritual wears out and loses its threshold effect. Each milestone becomes one step among others rather than a real stopping point that commits what follows.
 
-**Confondre jalon et échéance interne.** La livraison d'une sous-tâche par un équipier à un autre n'est pas un jalon, c'est une dépendance interne. Un jalon engage la **bascule de phase du projet entier**, avec validation extérieure (encadrant, client).
+**Confusing a milestone with an internal deadline.** One teammate delivering a subtask to another is not a milestone, it is an internal dependency. A milestone commits the **phase change of the whole project**, with outside approval (supervisor, client).
 
-## Voir aussi
+## See also
 
-- [[specification-technique-en|Spécification technique]] — étape 5 où les jalons du projet sont posés
-- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient les jalons vivants tout au long du projet
-- [[retroplanning-en|Rétroplanning]] — planification à rebours qui s'appuie sur les jalons comme ancres temporelles
-- [[gantt-en|Gantt]] — outil graphique qui matérialise les jalons sur le calendrier
-- [[wbs-en|WBS]] — décomposition du projet en tâches positionnées entre les jalons
+- [[specification-technique-en|Technical specification]] — step 5, where the project milestones are set
+- [[gestion-de-projet-en|Project planning and tracking]] — the cross-cutting thread that keeps the milestones alive throughout the project
+- [[retroplanning-en|Backward planning]] — planning back from the end, using the milestones as time anchors
+- [[gantt-en|Gantt]] — the graphical tool that puts the milestones on the calendar
+- [[wbs-en|WBS]] — breakdown of the project into tasks positioned between the milestones
