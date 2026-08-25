@@ -1,8 +1,6 @@
 ---
 title: WBS
 type: notion
-aliases:
-  - work-breakdown-structure
 phases:
   - specification
 tags:
@@ -13,6 +11,8 @@ prerequis: []
 aa:
   - RA-PROJET-C07-1/PROJ/2
 draft: false
+source_fr: conduite/proj/wbs.md
+source_sha256: 9a38d6fcb24d8aee82258af6d30ad2bda583f656c829d8a1818fe718b756b1c1
 ---
 
 Le **WBS** (*Work Breakdown Structure*) est l'outil de découpage d'un projet en éléments traçables, du livrable global vers les tâches élémentaires. Il sert de référence partagée pour répartir le travail dans l'équipe et garantir qu'aucune tâche structurante n'est oubliée. En projet école, **deux à trois niveaux de profondeur suffisent** : phase → sous-livrable → tâche concrète.
@@ -27,14 +27,14 @@ Il joue trois rôles :
 
 - **Référence partagée pour la répartition du travail.** Chaque équipier sait quelle branche du WBS il prend en charge et où s'arrêtent ses responsabilités.
 - **Garde-fou contre les oublis structurants.** Le geste de descendre méthodiquement du livrable global aux tâches élémentaires fait apparaître les pièces qu'on n'avait pas vues à l'œil nu.
-- **Socle direct du [[retroplanning|rétroplanning]] et du [[gantt|Gantt]].** Les feuilles du WBS deviennent les barres du Gantt. Un Gantt sans WBS amont est un dessin sans contenu.
+- **Socle direct du [[retroplanning-en|rétroplanning]] et du [[gantt-en|Gantt]].** Les feuilles du WBS deviennent les barres du Gantt. Un Gantt sans WBS amont est un dessin sans contenu.
 
 ## Comment le construire ?
 
 Trois temps :
 
 1. **Partir du livrable global** (ici, le projet mécatronique complet) et le décomposer en **phases du cycle en V** : spécification, concept, preuve de concept, dossier technique, intégration et tests.
-2. **Décomposer chaque phase en sous-livrables identifiables.** Pour la phase de spécification, on aura par exemple le [[cahier-des-charges-fonctionnel|CdCF]], l'[[etat-de-l-art-technique|état de l'art]], la [[matrice-de-risques|matrice de risques]], le Gantt. Chaque sous-livrable doit pouvoir être désigné par un nom sans ambiguïté.
+2. **Décomposer chaque phase en sous-livrables identifiables.** Pour la phase de spécification, on aura par exemple le [[cahier-des-charges-fonctionnel-en|CdCF]], l'[[etat-de-l-art-technique-en|état de l'art]], la [[matrice-de-risques-en|matrice de risques]], le Gantt. Chaque sous-livrable doit pouvoir être désigné par un nom sans ambiguïté.
 3. **Descendre d'un niveau supplémentaire si nécessaire** jusqu'aux tâches concrètes confiables à une personne sur une durée de l'ordre de quelques jours. S'arrêter à ce niveau. Un WBS qui descend plus fin bascule en gestion administrative et perd son utilité de pilotage.
 
 Deux logiques de découpage coexistent — par **phases du V** (robuste pour les livrables transverses) ou par **sous-système** (lisible pour la répartition technique du travail). La méthode ci-dessus déroule la première. L'illustration ci-dessous montre la seconde.
@@ -53,8 +53,8 @@ Deux logiques de découpage coexistent — par **phases du V** (robuste pour les
 
 ## Voir aussi
 
-- [[specification-technique|Spécification technique]] — étape 5 où le WBS du projet est construit
-- [[jalons|Jalons]] — points de validation qui structurent les niveaux supérieurs du WBS
-- [[retroplanning|Rétroplanning]] — étape suivante : caler les tâches du WBS dans le temps
-- [[gantt|Gantt]] — matérialisation visuelle des tâches du WBS sur le calendrier
-- [[gestion-de-projet|Gestion de projet]] — fil transverse qui maintient le WBS vivant au fil des phases
+- [[specification-technique-en|Spécification technique]] — étape 5 où le WBS du projet est construit
+- [[jalons-en|Jalons]] — points de validation qui structurent les niveaux supérieurs du WBS
+- [[retroplanning-en|Rétroplanning]] — étape suivante : caler les tâches du WBS dans le temps
+- [[gantt-en|Gantt]] — matérialisation visuelle des tâches du WBS sur le calendrier
+- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient le WBS vivant au fil des phases

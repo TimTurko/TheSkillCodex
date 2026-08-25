@@ -8,13 +8,15 @@ tags:
   - tuto
   - planification
 prerequis:
-  - jalons
+  - jalons-en
 aa:
   - RA-PROJET-C07-1/PROJ/2
 draft: false
+source_fr: conduite/proj/retroplanning.md
+source_sha256: 3329eb4e1e57815d38879ce03202101c04b0f57bce331417331b868d2a4608bd
 ---
 
-Le **rétroplanning** est la technique de planification à rebours : on part de la date butoir (soutenance, livraison finale) et on remonte le temps en posant d'abord les [[jalons|jalons]] de fin de phase, puis en inscrivant les tâches du [[wbs|WBS]] entre ces jalons. C'est la méthode adaptée aux projets à **date de fin imposée**, typiquement les projets école, où le calendrier scolaire fixe la soutenance.
+Le **rétroplanning** est la technique de planification à rebours : on part de la date butoir (soutenance, livraison finale) et on remonte le temps en posant d'abord les [[jalons-en|jalons]] de fin de phase, puis en inscrivant les tâches du [[wbs-en|WBS]] entre ces jalons. C'est la méthode adaptée aux projets à **date de fin imposée**, typiquement les projets école, où le calendrier scolaire fixe la soutenance.
 
 ![Rétroplanning — construire à rebours depuis la date butoir](/ressources/img/retroplanning/generique.svg)
 
@@ -34,9 +36,9 @@ Cinq étapes, dans l'ordre :
 
 1. **Poser la date butoir** (soutenance, livraison finale) comme point d'ancrage.
 2. **Réserver une marge tampon avant la butoir**, dédiée à la finalisation du rapport et à la répétition de la soutenance. Cette marge est non négociable. Elle n'absorbe pas du travail technique, elle absorbe les imprévus.
-3. **Poser les [[jalons|jalons]] de fin de phase à rebours**, en allouant à chaque phase une durée plausible compte tenu du calendrier scolaire.
-4. **Inscrire les tâches du [[wbs|WBS]] entre les jalons**, en repérant les dépendances (telle tâche en attend une autre) et les goulots (telle semaine concentre trop de travail en parallèle).
-5. **Confronter au calendrier réel** : vacances, examens, indisponibilité fablab en période de partiels, stages. Ces contraintes ne sont pas négociables : les intégrer dès la pose du rétroplanning, pas après. Matérialiser ensuite l'ensemble en [[gantt|Gantt]].
+3. **Poser les [[jalons-en|jalons]] de fin de phase à rebours**, en allouant à chaque phase une durée plausible compte tenu du calendrier scolaire.
+4. **Inscrire les tâches du [[wbs-en|WBS]] entre les jalons**, en repérant les dépendances (telle tâche en attend une autre) et les goulots (telle semaine concentre trop de travail en parallèle).
+5. **Confronter au calendrier réel** : vacances, examens, indisponibilité fablab en période de partiels, stages. Ces contraintes ne sont pas négociables : les intégrer dès la pose du rétroplanning, pas après. Matérialiser ensuite l'ensemble en [[gantt-en|Gantt]].
 
 *Illustration sur un cas concret : rétroplanning d'un projet de station météo connectée sur 15 semaines.*
 
@@ -52,8 +54,8 @@ Cinq étapes, dans l'ordre :
 
 ## Voir aussi
 
-- [[specification-technique|Spécification technique]] — étape 5 où le rétroplanning du projet est construit
-- [[jalons|Jalons]] — points d'ancrage du rétroplanning (à poser en premier)
-- [[wbs|WBS]] — tâches à inscrire entre les jalons
-- [[gantt|Gantt]] — outil graphique qui matérialise le rétroplanning
-- [[gestion-de-projet|Gestion de projet]] — fil transverse qui actualise le rétroplanning au fil du projet
+- [[specification-technique-en|Spécification technique]] — étape 5 où le rétroplanning du projet est construit
+- [[jalons-en|Jalons]] — points d'ancrage du rétroplanning (à poser en premier)
+- [[wbs-en|WBS]] — tâches à inscrire entre les jalons
+- [[gantt-en|Gantt]] — outil graphique qui matérialise le rétroplanning
+- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui actualise le rétroplanning au fil du projet

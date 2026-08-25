@@ -11,6 +11,8 @@ prerequis: []
 aa:
   - RA-PROJET-C07-1/PROJ/1
 draft: false
+source_fr: conduite/proj/matrice-de-risques.md
+source_sha256: 0e40435c56c21e9767cef61b6157a71e22d37bf5213c0726e14f6f3165a63fde
 ---
 
 La **matrice de risques** est l'outil d'anticipation des aléas du projet : on identifie les principaux risques, on les **cote selon leur probabilité et leur gravité**, et on définit pour chacun une parade (prévention, atténuation, plan B). En projet école, 5 à 10 risques majeurs suffisent. Ce qui compte n'est pas l'exhaustivité initiale mais **l'actualisation régulière** à chaque revue de phase.
@@ -49,9 +51,9 @@ Trois temps :
 
 ## Voir aussi
 
-- [[specification-technique|Spécification technique]] — étape 5 où la matrice de risques initiale est construite
-- [[gestion-de-projet|Gestion de projet]] — fil transverse qui maintient la matrice vivante au fil du projet
-- [[ecoconception|Écoconception]] — risques environnementaux et réglementaires intégrés à la matrice
-- [[securite-et-qualite|Sécurité et qualité]] — risques de sécurité et de conformité qui s'y croisent
-- [[amdec|AMDEC]] — analyse des défaillances **produit**, complémentaire de la matrice de risques **projet**
-- [[jalons|Jalons]] — rendez-vous d'actualisation de la matrice
+- [[specification-technique-en|Spécification technique]] — étape 5 où la matrice de risques initiale est construite
+- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient la matrice vivante au fil du projet
+- [[ecoconception-en|Écoconception]] — risques environnementaux et réglementaires intégrés à la matrice
+- [[securite-et-qualite-en|Sécurité et qualité]] — risques de sécurité et de conformité qui s'y croisent
+- [[amdec-en|AMDEC]] — analyse des défaillances **produit**, complémentaire de la matrice de risques **projet**
+- [[jalons-en|Jalons]] — rendez-vous d'actualisation de la matrice

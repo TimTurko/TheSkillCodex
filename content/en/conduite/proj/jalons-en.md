@@ -11,6 +11,8 @@ prerequis: []
 aa:
   - RA-PROJET-C07-1/PROJ/2
 draft: false
+source_fr: conduite/proj/jalons.md
+source_sha256: 4ac46141a3a19704293f68e4b76d16630bbb7b7522b77a6a6e482f376998c56a
 ---
 
 Les **jalons** sont les points de validation qui rythment un projet : ils marquent la transition entre deux phases et **conditionnent le passage** à la suite. Un jalon raté ne se rattrape pas en travaillant plus la semaine suivante. Il décale tout l'aval.
@@ -25,14 +27,14 @@ Trois rôles indissociables :
 
 - **Acter formellement la fin d'une phase** et autoriser le passage à la suivante. Un jalon validé engage le projet. Un jalon raté force soit le rattrapage, soit la renégociation du périmètre.
 - **Imposer un rendez-vous de validation** (revue de CdCF, revue de PoC, revue de qualification) qui résiste à la dérive du *« on continue, on verra »*.
-- **Servir d'ancres temporelles** au [[retroplanning|rétroplanning]] et au [[gantt|Gantt]] : le calendrier projet se construit autour des jalons, pas l'inverse.
+- **Servir d'ancres temporelles** au [[retroplanning-en|rétroplanning]] et au [[gantt-en|Gantt]] : le calendrier projet se construit autour des jalons, pas l'inverse.
 
 ## Comment les poser ?
 
 Trois temps :
 
 1. **Identifier les transitions de phase du projet.** Pour un projet en cycle en V, les jalons naturels sont la revue de CdCF, le concept validé, le PoC concluant, le dossier technique validé, l'intégration livrée et la soutenance finale. C'est l'ossature minimale. On peut en ajouter de plus fins selon les enjeux du projet.
-2. **Caler les jalons sur le calendrier** par [[retroplanning|rétroplanning]] depuis la date butoir. Les jalons sont les points fixes. Les tâches du [[wbs|WBS]] s'inscrivent entre eux.
+2. **Caler les jalons sur le calendrier** par [[retroplanning-en|rétroplanning]] depuis la date butoir. Les jalons sont les points fixes. Les tâches du [[wbs-en|WBS]] s'inscrivent entre eux.
 3. **Associer à chaque jalon un livrable précis et un mode de validation** (revue d'équipe, démo, document soumis pour relecture). Le critère doit rendre le jalon binaire (passé / non-passé), pas un objectif flou qu'on évaluera à l'œil le jour venu.
 
 *Illustration sur un cas concret : projet de station météo connectée sur 15 semaines.*
@@ -49,8 +51,8 @@ Trois temps :
 
 ## Voir aussi
 
-- [[specification-technique|Spécification technique]] — étape 5 où les jalons du projet sont posés
-- [[gestion-de-projet|Gestion de projet]] — fil transverse qui maintient les jalons vivants tout au long du projet
-- [[retroplanning|Rétroplanning]] — planification à rebours qui s'appuie sur les jalons comme ancres temporelles
-- [[gantt|Gantt]] — outil graphique qui matérialise les jalons sur le calendrier
-- [[wbs|WBS]] — décomposition du projet en tâches positionnées entre les jalons
+- [[specification-technique-en|Spécification technique]] — étape 5 où les jalons du projet sont posés
+- [[gestion-de-projet-en|Gestion de projet]] — fil transverse qui maintient les jalons vivants tout au long du projet
+- [[retroplanning-en|Rétroplanning]] — planification à rebours qui s'appuie sur les jalons comme ancres temporelles
+- [[gantt-en|Gantt]] — outil graphique qui matérialise les jalons sur le calendrier
+- [[wbs-en|WBS]] — décomposition du projet en tâches positionnées entre les jalons
