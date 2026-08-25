@@ -10,7 +10,7 @@ aa: []
 draft: false
 ---
 
-Une **bibliothèque** (*library*) est un ensemble de code déjà écrit et empaqueté, qu'on ajoute à son projet pour piloter un composant ou un protocole à travers une interface simple — sans réécrire soi-même le code de bas niveau.
+Une **bibliothèque** (*library*) est un ensemble de code déjà écrit et empaqueté, qu'on ajoute à son projet pour piloter un composant ou un protocole à travers une interface simple, sans réécrire soi-même le code de bas niveau.
 
 ## À quoi ça sert
 
@@ -18,7 +18,7 @@ Faire parler un capteur [[i2c|I²C]], afficher du texte sur un écran OLED ou co
 
 ## Installer et choisir
 
-La plupart des IDE intègrent un **gestionnaire de bibliothèques** qui les télécharge et les met à jour en quelques clics (voir [[ide|IDE]]). Trois réflexes de prudence : vérifier que la bibliothèque est **maintenue** (commits récents) et **compatible avec la carte cible** — une bibliothèque écrite pour Arduino Uno ne fonctionne pas toujours sur ESP32 — et **figer sa version** sur un projet d'équipe pour éviter qu'une mise à jour change le comportement en cours de route. La mise en œuvre pas à pas : [[arduino-bibliotheques]] côté Arduino, [[micropython-bibliotheques]] côté MicroPython.
+La plupart des IDE intègrent un **gestionnaire de bibliothèques** qui les télécharge et les met à jour en quelques clics (voir [[ide|IDE]]). Trois réflexes de prudence : vérifier que la bibliothèque est **maintenue** (commits récents) et **compatible avec la carte cible** (une bibliothèque écrite pour Arduino Uno ne fonctionne pas toujours sur ESP32), et **figer sa version** sur un projet d'équipe pour éviter qu'une mise à jour change le comportement en cours de route. La mise en œuvre pas à pas : [[arduino-bibliotheques]] côté Arduino, [[micropython-bibliotheques]] côté MicroPython.
 
 ## Voir aussi
 

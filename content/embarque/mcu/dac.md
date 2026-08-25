@@ -15,7 +15,7 @@ Un **DAC** (*Digital-to-Analog Converter*, convertisseur numérique-analogique) 
 
 ## En pratique
 
-Le DAC est rare sur les microcontrôleurs : beaucoup n'en ont pas (l'Uno classique), l'ESP32 d'origine en offre deux (8 bits). Pour la majorité des besoins de commande (vitesse, luminosité), on s'en passe : la [[pwm|PWM]] — directe ou filtrée — en tient lieu. Un vrai DAC ne s'impose que lorsque le signal lui-même doit être analogique (audio, signaux de test) ; si le DAC intégré ne suffit pas, un DAC externe se pilote par [[bus-de-communication|bus]] (I2C ou SPI).
+Le DAC est rare sur les microcontrôleurs : beaucoup n'en ont pas (l'Uno classique), l'ESP32 d'origine en offre deux (8 bits). Pour la majorité des besoins de commande (vitesse, luminosité), on s'en passe : la [[pwm|PWM]] — directe ou filtrée — en tient lieu. Un vrai DAC ne s'impose que lorsque le signal lui-même doit être analogique (audio, signaux de test). Si le DAC intégré ne suffit pas, un DAC externe se pilote par [[bus-de-communication|bus]] (I2C ou SPI).
 
 ## Voir aussi
 

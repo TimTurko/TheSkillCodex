@@ -20,7 +20,7 @@ Le shield reprend exactement l'implantation des connecteurs de la carte hôte : 
 
 ## Limites
 
-Un shield occupe un jeu de broches imposé : empiler deux shields qui réclament la même broche crée un **conflit** qu'aucun câblage ne résout. Au-delà du prototype, un shield reste plus encombrant et moins fiable qu'un [[pcb|circuit imprimé]] dédié intégrant la même fonction — c'est l'étape suivante naturelle quand l'architecture se fige.
+Un shield occupe un jeu de broches imposé : empiler deux shields qui réclament la même broche crée un **conflit** qu'aucun câblage ne résout. Au-delà du prototype, un shield reste plus encombrant et moins fiable qu'un [[pcb|circuit imprimé]] dédié intégrant la même fonction. C'est l'étape suivante naturelle quand l'architecture se fige.
 
 ## Voir aussi
 
