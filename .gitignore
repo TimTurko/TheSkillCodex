@@ -53,3 +53,8 @@ prof/
 # ============================================================
 tools/seance.ps1
 tools/seance-sortie.txt
+
+# Patches de seance : meme nature jetable. Le patch git est devenu
+# l'instrument de repli quand le serveur MCP ne repond pas (26/08
+# suite), et il se livre en clair dans la conversation, pas ici.
+tools/*.patch
