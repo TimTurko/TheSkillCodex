@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Un **moteur à courant continu** (moteur CC, ou DC motor) est l'actionneur de référence pour produire un mouvement rotatif continu avec vitesse et sens variables. À la différence du [[arduino-servomoteur|servomoteur]] qui se positionne sur un angle, le moteur CC tourne en continu — sa **vitesse** se règle par PWM, son **sens** par l'inversion de polarité aux bornes. L'inversion de polarité depuis un microcontrôleur impose le passage par un **pont en H** (driver L298N, TB6612FNG, DRV8833) — c'est sur ce circuit que se concentre la fiche.
+Un **moteur à courant continu** (moteur CC, ou DC motor) est l'actionneur de référence pour produire un mouvement rotatif continu avec vitesse et sens variables. À la différence du [[arduino-servomoteur|servomoteur]] qui se positionne sur un angle, le moteur CC tourne en continu : sa **vitesse** se règle par PWM, son **sens** par l'inversion de polarité aux bornes. L'inversion de polarité depuis un microcontrôleur impose le passage par un **pont en H** (driver L298N, TB6612FNG, DRV8833). C'est sur ce circuit que se concentre la fiche.
 
 ## À quoi ça sert ?
 
@@ -77,13 +77,13 @@ Pour un L298N pilotant un moteur CC (mêmes broches que dans la fiche [[arduino-
 
 ### 3. Alimenter
 
-**Alimentation moteur séparée obligatoire** dès que le moteur tire plus de ~50 mA — sinon le régulateur de l'Arduino chute, l'Arduino reboote. Source typique :
+**Alimentation moteur séparée obligatoire** dès que le moteur tire plus de ~50 mA. Sinon le régulateur de l'Arduino chute, l'Arduino reboote. Source typique :
 
 - **Pile 9 V** ou **bloc de piles AA** (6×1,5 V = 9 V) — démonstrations courtes, ~50-100 mAh dispo.
 - **Batterie LiPo 2 cellules** (7,4 V nominal, 5 000 mAh) — projets autonomes solides.
 - **Alimentation de table 9 V / 2 A** — banc d'essai stable.
 
-GND **commun** Arduino + alimentation moteur — sinon les signaux logiques n'ont pas de référence.
+GND **commun** Arduino + alimentation moteur : sinon les signaux logiques n'ont pas de référence.
 
 ### 4. Écrire le code
 
@@ -176,29 +176,29 @@ void loop() {
 > [!info] Comment lire ce code
 > L'anti-rebond non bloquant repose sur **deux variables** : `dernierBouton` mémorise la dernière lecture *brute* (pour repérer l'instant où le signal bouge et relancer le chronomètre), `etatStable` mémorise l'état *confirmé* (celui qu'on retient une fois le signal stable depuis `DELAI_REBOND`). On ne bascule le sens que sur un **front descendant** (`etatStable == LOW`) : avec `INPUT_PULLUP`, la broche est à `HIGH` au repos et tombe à `LOW` quand on appuie — un seul basculement par appui, sans rebond parasite. Tout est non bloquant : pas de `delay()`, le moteur reste piloté à chaque tour de `loop()`.
 
-Tourner le potentiomètre, presser le bouton — sens et vitesse changent en temps réel.
+Tourner le potentiomètre, presser le bouton : sens et vitesse changent en temps réel.
 
 ## Pièges
 
 **Arduino qui reboote au démarrage du moteur.** Pic de courant à l'allumage, chute de tension `+5 V`. Solution : alimentation séparée pour le moteur, condensateur 100 µF près des bornes moteur.
 
-**Pas de GND commun.** Signaux IN1/IN2 sans référence — le pont H bascule aléatoirement. Toujours GND commun.
+**Pas de GND commun.** Signaux IN1/IN2 sans référence : le pont H bascule aléatoirement. Toujours GND commun.
 
-**`IN1` et `IN2` à `HIGH` en même temps.** Frein actif (court-circuit interne du pont). Si maintenu trop longtemps, le pont chauffe — la sécurité thermique du L298N peut couper la sortie. À utiliser uniquement pour un freinage volontaire et bref.
+**`IN1` et `IN2` à `HIGH` en même temps.** Frein actif (court-circuit interne du pont). Si maintenu trop longtemps, le pont chauffe : la sécurité thermique du L298N peut couper la sortie. À utiliser uniquement pour un freinage volontaire et bref.
 
-**Inversion de polarité instantanée.** Faire passer `IN1`/`IN2` de `HIGH`/`LOW` à `LOW`/`HIGH` sans transit par `LOW`/`LOW` provoque un courant inverse violent — pic de courant qui peut détruire le driver. Bonne pratique : `arret()` + `delay(50)` avant l'inversion.
+**Inversion de polarité instantanée.** Faire passer `IN1`/`IN2` de `HIGH`/`LOW` à `LOW`/`HIGH` sans transit par `LOW`/`LOW` provoque un courant inverse violent, un pic de courant qui peut détruire le driver. Bonne pratique : `arret()` + `delay(50)` avant l'inversion.
 
-**Diodes de roue libre absentes.** Les modules L298N intègrent des diodes de protection — les drivers nus (transistors discrets) non. Sans diodes, l'inductance du moteur génère des surtensions destructrices à chaque coupure de courant. Vérifier sur la fiche du module.
+**Diodes de roue libre absentes.** Les modules L298N intègrent des diodes de protection, les drivers nus (transistors discrets) non. Sans diodes, l'inductance du moteur génère des surtensions destructrices à chaque coupure de courant. Vérifier sur la fiche du module.
 
-**Calage du moteur (rotor bloqué).** Le moteur consomme à fond (courant de blocage ~5-10× le courant nominal) sans tourner — il chauffe rapidement. Détecter par la mesure de courant ou par capteur de rotation, et couper.
+**Calage du moteur (rotor bloqué).** Le moteur consomme à fond (courant de blocage ~5-10× le courant nominal) sans tourner : il chauffe rapidement. Détecter par la mesure de courant ou par capteur de rotation, et couper.
 
 **Chute de tension dans le L298N.** Le L298N a une chute de ~2 V par sortie (technologie bipolaire). À 12 V d'entrée moteur, on n'a que ~10 V utiles aux bornes du moteur. Pour des projets sensibles au rendement, préférer le TB6612FNG (chute < 0,3 V).
 
-**PWM trop lent qui rend le moteur audible.** Sur Uno R3, `analogWrite(D3)` génère ~490 Hz — perceptible comme un sifflement. Pour piloter silencieusement, augmenter la fréquence PWM (voir [[arduino-timers|timers matériels]]) ou changer de broche (D5/D6 à 980 Hz).
+**PWM trop lent qui rend le moteur audible.** Sur Uno R3, `analogWrite(D3)` génère ~490 Hz, perceptible comme un sifflement. Pour piloter silencieusement, augmenter la fréquence PWM (voir [[arduino-timers|timers matériels]]) ou changer de broche (D5/D6 à 980 Hz).
 
 ## Cas particulier — Moteur avec encodeur pour boucle fermée
 
-Un moteur CC nu n'a aucun retour — on lui demande de tourner à `analogWrite(150)` mais sa vraie vitesse dépend de la tension d'alimentation, de la charge mécanique, de l'usure. Pour un asservissement précis :
+Un moteur CC nu n'a aucun retour. On lui demande de tourner à `analogWrite(150)` mais sa vraie vitesse dépend de la tension d'alimentation, de la charge mécanique, de l'usure. Pour un asservissement précis :
 
 - **Encodeur incrémental** (capteur Hall, optique) sur l'arbre du moteur → comptage des tours via [[arduino-interruptions|interruptions]].
 - Boucle de **régulation PID** sur la vitesse mesurée → voir [[arduino-pid|régulation PID]].
@@ -211,7 +211,7 @@ C'est l'évolution naturelle d'un robot CC qui doit avoir une trajectoire répé
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — intégration dans la chaîne mesure → décision → mouvement.
 - **Étape 4 de la [[concept|phase de concept]]** — arbitrage entre moteur CC, moteur pas-à-pas et servo selon les besoins de la fonction motrice.
 
-Un robot mobile à 2 roues + L298N + 2 moteurs CC est l'un des PoC école les plus pédagogiques — il met en pratique GPIO, PWM, alimentation séparée, et anti-rebond dans un même projet.
+Un robot mobile à 2 roues + L298N + 2 moteurs CC est l'un des PoC école les plus pédagogiques : il met en pratique GPIO, PWM, alimentation séparée, et anti-rebond dans un même projet.
 
 ## Voir aussi
 

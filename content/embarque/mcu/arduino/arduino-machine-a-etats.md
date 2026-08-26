@@ -24,7 +24,7 @@ Programmer une **machine à états** sur Arduino consiste à traduire un diagram
 Dès qu'un montage Arduino doit enchaîner des phases (« vert, puis orange, puis rouge », « ouvrir, attendre, fermer »), deux écueils guettent le débutant : empiler des `delay()` qui rendent la carte sourde au reste du monde pendant l'attente, ou multiplier les variables booléennes jusqu'à l'illisible. Le motif `switch(etat)` règle les deux :
 
 - il **structure** le code en un bloc clair par état, calqué sur le diagramme ;
-- il garde la boucle **réactive** — entre deux changements d'état, l'Arduino continue de lire ses entrées ;
+- il garde la boucle **réactive** : entre deux changements d'état, l'Arduino continue de lire ses entrées ;
 - il rend les **transitions explicites** et donc faciles à relire et à tester.
 
 C'est le squelette de presque tout programme de commande un peu vivant. Il se met en place en [[preuve-de-concept|preuve de concept]], au moment de coder le comportement d'une fonction.
@@ -35,7 +35,7 @@ Quatre étapes : énumérer les états, structurer la boucle, coder les transiti
 
 ### 1. Énumérer les états
 
-Un `enum` nomme les états et les rend lisibles dans tout le code. Une variable mémorise l'état courant ; on l'**initialise explicitement** (pas d'état indéfini au démarrage). Une variable de temps datera l'entrée dans l'état courant.
+Un `enum` nomme les états et les rend lisibles dans tout le code. Une variable mémorise l'état courant. On l'**initialise explicitement** (pas d'état indéfini au démarrage). Une variable de temps datera l'entrée dans l'état courant.
 
 ```cpp
 enum Etat { VERT, JAUNE, ROUGE };
@@ -48,7 +48,7 @@ unsigned long tDebut = 0;    // instant (ms) d'entrée dans l'état courant
 
 ### 2. Structurer la boucle avec `switch(etat)`
 
-Un `case` par état, chacun terminé par `break`. À chaque tour de `loop()`, un seul bloc s'exécute — celui de l'état courant.
+Un `case` par état, chacun terminé par `break`. À chaque tour de `loop()`, un seul bloc s'exécute, celui de l'état courant.
 
 ```cpp
 void loop() {
@@ -80,7 +80,7 @@ case VERT:
   break;
 ```
 
-`millis()` renvoie le nombre de millisecondes depuis le démarrage. La soustraction `millis() - tDebut` donne le temps passé dans l'état — la comparaison ne bloque rien, la boucle continue de tourner (voir [[arduino-temporisation|delay() vs millis()]]). Une **garde-condition** du diagramme devient un simple `if` combiné : `if (durée écoulée || (demandePieton && minimum écoulé))`.
+`millis()` renvoie le nombre de millisecondes depuis le démarrage. La soustraction `millis() - tDebut` donne le temps passé dans l'état : la comparaison ne bloque rien, la boucle continue de tourner (voir [[arduino-temporisation|delay() vs millis()]]). Une **garde-condition** du diagramme devient un simple `if` combiné : `if (durée écoulée || (demandePieton && minimum écoulé))`.
 
 ### 4. Câbler et téléverser
 
@@ -88,11 +88,11 @@ Pour l'exemple ci-dessous : cinq LED (trois pour les voitures, deux pour les pi�
 
 ![Montage du carrefour : LED voiture verte (D12), orange (D11), rouge (D10), LED piéton verte (D9) et rouge (D8), chacune avec sa résistance 220 Ω vers GND, et un bouton poussoir entre D2 et GND ; les broches portent les noms du code.|600](/ressources/img/arduino-machine-a-etats/montage.svg)
 
-Après téléversement, le cycle tourne seul ; un appui sur le bouton avance le passage au rouge pour laisser traverser.
+Après téléversement, le cycle tourne seul. Un appui sur le bouton avance le passage au rouge pour laisser traverser.
 
 ## Exemple — Feux tricolores avec passage piéton
 
-Un carrefour à un feu : les voitures ont le cycle vert → orange → rouge, les piétons disposent d'un feu rouge/vert et d'un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — exactement la garde-condition `[demande && minimum écoulé]` du diagramme.
+Un carrefour à un feu : les voitures ont le cycle vert → orange → rouge, les piétons disposent d'un feu rouge/vert et d'un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge, exactement la garde-condition `[demande && minimum écoulé]` du diagramme.
 
 ![Diagramme d'états du feu : VERT puis JAUNE puis ROUGE, puis retour à VERT. La transition VERT vers JAUNE part dès que la durée de vert est écoulée, ou qu'un piéton a appelé après le minimum de vert ; JAUNE vers ROUGE et ROUGE vers VERT se font sur durée écoulée. La boucle teste ces gardes à chaque tour, sans bloquer.|620](/ressources/img/arduino-machine-a-etats/diagramme-etats.svg)
 
@@ -175,9 +175,9 @@ void loop() {
 >
 > La priorité de `&&` sur `||`, qui commande cette lecture, est un mécanisme du langage et non un idiome embarqué : voir [[cpp-lire-un-programme|lire un programme C++]].
 
-Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit le bouton à chaque tour et avance dans le cycle quand les conditions sont réunies. Ajouter un quatrième état (orange clignotant la nuit, par exemple) revient à ajouter un `case` — la structure encaisse sans réécriture.
+Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit le bouton à chaque tour et avance dans le cycle quand les conditions sont réunies. Ajouter un quatrième état (orange clignotant la nuit, par exemple) revient à ajouter un `case` : la structure encaisse sans réécriture.
 
-*Pour rester lisible, l'exemple omet la phase « tout rouge » de dégagement entre le vert piéton et le vert voiture ; un vrai carrefour l'ajouterait — précisément comme un état de plus, au coût d'un `case` supplémentaire.*
+*Pour rester lisible, l'exemple omet la phase « tout rouge » de dégagement entre le vert piéton et le vert voiture. Un vrai carrefour l'ajouterait, précisément comme un état de plus, au coût d'un `case` supplémentaire.*
 
 ## Pièges
 
@@ -185,7 +185,7 @@ Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit 
 
 **Oublier le `break`.** Sans `break`, l'exécution « tombe » dans le `case` suivant (*fall-through*) et exécute plusieurs états d'affilée. Symptôme : le feu saute des étapes ou clignote n'importe comment.
 
-**État non initialisé.** Une variable `Etat etat;` sans valeur de départ démarre dans un état indéterminé. Toujours `Etat etat = VERT;` — l'état initial est une décision, pas un hasard.
+**État non initialisé.** Une variable `Etat etat;` sans valeur de départ démarre dans un état indéterminé. Toujours `Etat etat = VERT;`. L'état initial est une décision, pas un hasard.
 
 **Redater `tDebut` au mauvais moment.** `tDebut = millis()` se fait **uniquement** au moment de la transition, pas à chaque tour. Le remettre à chaque passage dans `loop()` réarme le chrono en permanence : le délai n'est jamais atteint, la machine se fige.
 
@@ -195,14 +195,14 @@ Le programme ne contient **aucun `delay()`** : la boucle tourne en continu, lit 
 
 ## Cas particulier — Plusieurs machines à états en parallèle
 
-Un montage peut faire tourner **plusieurs machines à états simultanément** (un feu *et* un afficheur clignotant, par exemple). Chacune a sa propre variable d'état et son propre `tDebut`, et toutes leurs `switch` s'exécutent à la suite dans le même `loop()`. C'est précisément parce qu'aucune n'utilise `delay()` qu'elles peuvent cohabiter sans se bloquer l'une l'autre — chacune avance à son rythme à chaque tour de boucle. C'est le cœur de la [[arduino-programmation-non-bloquante|programmation non bloquante]].
+Un montage peut faire tourner **plusieurs machines à états simultanément** (un feu *et* un afficheur clignotant, par exemple). Chacune a sa propre variable d'état et son propre `tDebut`, et toutes leurs `switch` s'exécutent à la suite dans le même `loop()`. C'est précisément parce qu'aucune n'utilise `delay()` qu'elles peuvent cohabiter sans se bloquer l'une l'autre : chacune avance à son rythme à chaque tour de boucle. C'est le cœur de la [[arduino-programmation-non-bloquante|programmation non bloquante]].
 
 ## Raccrochage projet
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — premier codage du comportement séquentiel d'une fonction (un cycle, un mode de marche) sur un montage isolé.
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — la logique de commande, validée fonction par fonction, est celle qui orchestre le système complet.
 
-Maîtriser le motif `switch(etat)` sur un cas simple comme les feux donne le squelette réutilisable de toute commande séquentielle du projet — il vaut mieux le roder ici qu'au moment d'asservir le système complet.
+Maîtriser le motif `switch(etat)` sur un cas simple comme les feux donne le squelette réutilisable de toute commande séquentielle du projet : il vaut mieux le roder ici qu'au moment d'asservir le système complet.
 
 ## Voir aussi
 

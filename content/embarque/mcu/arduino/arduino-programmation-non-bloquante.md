@@ -23,7 +23,7 @@ La **programmation non bloquante** est une **façon de structurer** un programme
 
 ## À quoi ça sert ?
 
-`delay()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `delay(500)`, la carte ne lit plus son bouton et manque ses mesures. Tant qu'un sketch ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, c'est le mur.
+`delay()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `delay(500)`, la carte ne lit plus son bouton et manque ses mesures. Tant qu'un sketch ne fait qu'une chose, on ne le remarque pas. Dès qu'il en fait deux, c'est le mur.
 
 La règle de conception qui en découle tient en une phrase : *aucune fonction ne doit bloquer, et `loop()` doit toujours pouvoir reboucler*. Pourquoi cette discipline vaut pour tout programme embarqué, ce qu'elle fait gagner et où elle s'arrête : voir la notion transverse [[programmation-non-bloquante|programmation non bloquante]]. Ici, on la met en œuvre en C++ — dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
 
@@ -46,7 +46,7 @@ Chaque tâche est ainsi un petit automate indépendant, qui sait où il en est s
 
 ### 3. Assembler les tâches dans `loop()`
 
-`loop()` se contente d'**appeler chaque tâche à chaque tour**. Elles cohabitent sans se gêner, parce qu'aucune ne s'attarde — c'est la *boucle coopérative* (ou *super-loop*).
+`loop()` se contente d'**appeler chaque tâche à chaque tour**. Elles cohabitent sans se gêner, parce qu'aucune ne s'attarde : c'est la *boucle coopérative* (ou *super-loop*).
 
 ```cpp
 void loop() {
@@ -83,7 +83,7 @@ void tacheLED() {
 }
 ```
 
-La règle de refactor : *chaque `delay()` cache un « attendre que tel temps soit écoulé » — on le réécrit en test sur `millis()`, et chaque « attendre qu'un événement arrive » devient un test sur une condition à chaque tour.*
+La règle de refactor : *chaque `delay()` cache un « attendre que tel temps soit écoulé ». On le réécrit en test sur `millis()`, et chaque « attendre qu'un événement arrive » devient un test sur une condition à chaque tour.*
 
 ## Exemple — Une station qui fait trois choses à la fois
 
@@ -140,7 +140,7 @@ void loop() {
 }
 ```
 
-Les trois tâches reprennent le même patron `millis()` qu'à l'étape 4. Le `loop()` tourne en continu et passe ses trois tâches en revue à chaque tour. La LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui** — parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité (piloter un afficheur, écouter le port série) revient à écrire une quatrième tâche et à l'appeler dans `loop()` : la structure encaisse sans réécriture. La même chose écrite avec des `delay()` serait infaisable.
+Les trois tâches reprennent le même patron `millis()` qu'à l'étape 4. Le `loop()` tourne en continu et passe ses trois tâches en revue à chaque tour. La LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui**, parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité (piloter un afficheur, écouter le port série) revient à écrire une quatrième tâche et à l'appeler dans `loop()` : la structure encaisse sans réécriture. La même chose écrite avec des `delay()` serait infaisable.
 
 ![Frise temporelle des trois tâches de la station : la LED bascule toutes les 500 ms, le capteur est lu toutes les 100 ms, le bouton est lu à chaque tour de boucle ; un appui est vu au tour suivant. Une seule boucle, trois rythmes, aucune attente.|680](/ressources/img/arduino-programmation-non-bloquante/frise-3-taches.svg)
 
@@ -168,11 +168,11 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> La `struct Tache` regroupe trois informations par tâche : **quelle** fonction appeler, **à quel intervalle**, et **quand** elle a tourné pour la dernière fois. Le champ `void (*fonction)()` est un *pointeur de fonction* — une case qui ne contient pas un nombre mais l'adresse d'une fonction à appeler (notion C++ avancée). Le tableau `taches[]` liste toutes les tâches ; la boucle `for (Tache &t : taches)` les parcourt une à une et, pour chacune, si l'intervalle est écoulé, note la date et appelle sa fonction. Ajouter une tâche revient alors à ajouter une ligne au tableau — plus aucun test à recopier.
+> La `struct Tache` regroupe trois informations par tâche : **quelle** fonction appeler, **à quel intervalle**, et **quand** elle a tourné pour la dernière fois. Le champ `void (*fonction)()` est un *pointeur de fonction*, une case qui ne contient pas un nombre mais l'adresse d'une fonction à appeler (notion C++ avancée). Le tableau `taches[]` liste toutes les tâches. La boucle `for (Tache &t : taches)` les parcourt une à une et, pour chacune, si l'intervalle est écoulé, note la date et appelle sa fonction. Ajouter une tâche revient alors à ajouter une ligne au tableau : plus aucun test à recopier.
 >
 > Ces trois mécanismes — la `struct`, le pointeur de fonction et le `for` à plage — ne sont pas propres à l'embarqué : ils se retrouvent dans n'importe quel programme C++, et sont repris comme indices de lecture dans [[cpp-lire-un-programme|lire un programme qu'on n'a pas écrit]].
 
-Utile au-delà de quelques tâches ; en deçà, l'appel direct de l'étape 3 reste plus simple à lire.
+Utile au-delà de quelques tâches. En deçà, l'appel direct de l'étape 3 reste plus simple à lire.
 
 ## Cas particulier — La limite : vers un RTOS
 
@@ -190,14 +190,14 @@ La boucle coopérative repose sur la **bonne volonté** de chaque tâche : elle 
 
 **Attendre une réponse en bloquant.** Guetter une trame ou une fin de mouvement par attente active fige la boucle. On transforme l'attente en **test à chaque tour** : « la réponse est-elle arrivée ? sinon, je repasse plus tard ».
 
-**Partager des variables entre tâches sans précaution.** Si une tâche modifie une variable qu'une autre lit, raisonner sur l'ordre des appels ; et si une [[interruption|interruption]] est dans la boucle, la variable partagée doit être `volatile`.
+**Partager des variables entre tâches sans précaution.** Si une tâche modifie une variable qu'une autre lit, raisonner sur l'ordre des appels. Et si une [[interruption|interruption]] est dans la boucle, la variable partagée doit être `volatile`.
 
 ## Raccrochage projet
 
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — dès que le montage fait plus d'une chose (mesurer *et* commander *et* signaler), structurer le code en tâches non bloquantes, plutôt que de découvrir le blocage à l'intégration.
 - **[[integration-et-tests|Phase d'intégration et tests]]** — le firmware du système complet est un ensemble de tâches coopératives (ou un RTOS) : chaque fonction validée seule y devient une tâche du programme d'ensemble.
 
-Adopter la discipline non bloquante au premier montage multi-fonctions évite la réécriture intégrale qui guette tout sketch bâti sur des `delay()` — réécriture qui arrive *toujours* dès que le projet réclame deux choses à la fois.
+Adopter la discipline non bloquante au premier montage multi-fonctions évite la réécriture intégrale qui guette tout sketch bâti sur des `delay()`, réécriture qui arrive *toujours* dès que le projet réclame deux choses à la fois.
 
 ## Voir aussi
 

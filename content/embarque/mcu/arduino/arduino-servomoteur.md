@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-Un **servomoteur** (ou *servo*) est un actionneur rotatif qui se positionne sur une **consigne d'angle** transmise par un signal codé en largeur d'impulsion. Sur un servo standard (SG90, MG996R), l'angle se situe entre 0° et 180°. La bibliothèque `Servo.h` livrée avec l'IDE Arduino encapsule la génération du signal — il suffit d'appeler `servo.write(angle)` pour positionner.
+Un **servomoteur** (ou *servo*) est un actionneur rotatif qui se positionne sur une **consigne d'angle** transmise par un signal codé en largeur d'impulsion. Sur un servo standard (SG90, MG996R), l'angle se situe entre 0° et 180°. La bibliothèque `Servo.h` livrée avec l'IDE Arduino encapsule la génération du signal : il suffit d'appeler `servo.write(angle)` pour positionner.
 
 ## À quoi ça sert ?
 
@@ -65,13 +65,13 @@ Un servomoteur a **3 fils** :
 
 ### 3. Installer `Servo.h`
 
-`Servo.h` est **livrée avec l'IDE Arduino** — pas besoin d'installer.
+`Servo.h` est **livrée avec l'IDE Arduino** : pas besoin d'installer.
 
 ```cpp
 #include <Servo.h>
 ```
 
-Sur cartes ESP32, la bibliothèque équivalente est `ESP32Servo` (à installer via le gestionnaire — `Servo.h` natif ne fonctionne pas).
+Sur cartes ESP32, la bibliothèque équivalente est `ESP32Servo` (à installer via le gestionnaire : `Servo.h` natif ne fonctionne pas).
 
 ### 4. Écrire le code
 
@@ -134,9 +134,9 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> Le balayage va-et-vient repose sur une variable `sens` qui vaut `+1` (on monte vers 180°) ou `-1` (on descend vers 0°). À chaque tour de `loop()`, on ajoute `sens * pas` à l'angle ; quand on atteint une butée, on **inverse `sens`** et le servo repart dans l'autre sens. Le `map(valPot, 0, 1023, 1, 10)` traduit la position du potentiomètre (0-1023) en un pas de 1° à 10° : plus le pas est grand, plus le balayage est rapide.
+> Le balayage va-et-vient repose sur une variable `sens` qui vaut `+1` (on monte vers 180°) ou `-1` (on descend vers 0°). À chaque tour de `loop()`, on ajoute `sens * pas` à l'angle. Quand on atteint une butée, on **inverse `sens`** et le servo repart dans l'autre sens. Le `map(valPot, 0, 1023, 1, 10)` traduit la position du potentiomètre (0-1023) en un pas de 1° à 10° : plus le pas est grand, plus le balayage est rapide.
 
-Tourner le potentiomètre — la vitesse de balayage varie. Pratique pour calibrer la vitesse en démo sans recompiler.
+Tourner le potentiomètre : la vitesse de balayage varie. Pratique pour calibrer la vitesse en démo sans recompiler.
 
 ## Pièges
 
@@ -147,21 +147,21 @@ Tourner le potentiomètre — la vitesse de balayage varie. Pratique pour calibr
 **Servo qui tressaute (jitter).** Plusieurs causes possibles :
 - Alimentation insuffisante (cf. ci-dessus).
 - Câbles de signal trop longs ou bruyants — raccourcir, blinder.
-- Conflit de timer avec une autre bibliothèque. Sur Uno R3, `Servo.h` utilise Timer1 — désactive le PWM sur D9 et D10. Autres bibliothèques qui utilisent Timer1 (`TimerOne`, `Wire` sur certaines forks) : conflit.
+- Conflit de timer avec une autre bibliothèque. Sur Uno R3, `Servo.h` utilise Timer1 et désactive le PWM sur D9 et D10. Autres bibliothèques qui utilisent Timer1 (`TimerOne`, `Wire` sur certaines forks) : conflit.
 
 **Plage `write()` inversée ou tronquée.** Certains servos bon marché ne couvrent pas exactement 0-180°. Si on commande 0° et que le servo bute mécaniquement, la consommation grimpe et le servo chauffe. Limiter la plage commandée à 10°-170° pour préserver le servo.
 
 **Confondre `write(angle)` et `writeMicroseconds(N)`.** `write(angle)` accepte 0-180° et convertit en interne. `writeMicroseconds(N)` accepte la largeur d'impulsion directe en µs (typiquement 1000-2000 µs, parfois étendue 500-2500). Sur un servo qui ne va pas aux extrêmes attendus, `writeMicroseconds()` permet la calibration fine.
 
-**`Servo.h` qui désactive PWM sur D9/D10.** Inclure `Servo.h` empêche `analogWrite(9)` ou `analogWrite(10)` de fonctionner — Timer1 est confisqué. Si on a besoin de PWM sur ces broches, soit changer de broche, soit utiliser une bibliothèque alternative.
+**`Servo.h` qui désactive PWM sur D9/D10.** Inclure `Servo.h` empêche `analogWrite(9)` ou `analogWrite(10)` de fonctionner : Timer1 est confisqué. Si on a besoin de PWM sur ces broches, soit changer de broche, soit utiliser une bibliothèque alternative.
 
 **Trop de servos sur Uno R3.** `Servo.h` supporte jusqu'à **12 servos sur Uno** (limite logicielle), mais la consommation cumulée dépasse vite la capacité du régulateur 5 V de la carte. Au-delà de 2 servos, alimentation externe obligatoire ; au-delà de 6 servos, considérer un driver dédié (PCA9685, 16 canaux PWM en I2C).
 
-**Servo qui hurle puis chauffe à l'arrêt.** Le servo essaie d'atteindre une position bloquée mécaniquement — il consomme à fond sans bouger. Symptôme : bourdonnement, chaleur. Diagnostic : la consigne est hors plage mécanique du servo (mal calibrée), ou l'obstacle vient de l'extérieur. Détacher le servo (`servo.detach()`) coupe le signal et le laisse passif.
+**Servo qui hurle puis chauffe à l'arrêt.** Le servo essaie d'atteindre une position bloquée mécaniquement. Il consomme à fond sans bouger. Symptôme : bourdonnement, chaleur. Diagnostic : la consigne est hors plage mécanique du servo (mal calibrée), ou l'obstacle vient de l'extérieur. Détacher le servo (`servo.detach()`) coupe le signal et le laisse passif.
 
 ## Cas particulier — Servos à rotation continue
 
-Un *servo à rotation continue* (parfois noté FS90R, MG995-360, ou modifié à partir d'un standard) ne se positionne pas en angle — il **tourne dans un sens ou l'autre à une vitesse proportionnelle à la consigne**. Convention courante :
+Un *servo à rotation continue* (parfois noté FS90R, MG995-360, ou modifié à partir d'un standard) ne se positionne pas en angle : il **tourne dans un sens ou l'autre à une vitesse proportionnelle à la consigne**. Convention courante :
 
 - `write(90)` → arrêt
 - `write(0)` → vitesse maximale dans un sens
@@ -171,7 +171,7 @@ Très utile pour les robots à roues légers, en remplacement d'un moteur CC + p
 
 ## Servos à retour de position
 
-Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `write(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
+Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `write(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré, précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
 
 Rappel utile : tout servo analogique se positionne déjà en **boucle fermée** grâce à un [[potentiometre|potentiomètre]] interne solidaire de l'axe (c'est lui qui permet au servo de « tenir » sa position). Un feedback servo ne fait que **sortir ce signal** vers une broche de l'Arduino.
 
@@ -212,7 +212,7 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> La consigne (`write`) et la mesure (`analogRead`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les valeurs `ADC_0` et `ADC_180` ne se devinent pas — elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève la valeur `analogRead` à chaque extrémité, et `map()` interpole entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
+> La consigne (`write`) et la mesure (`analogRead`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les valeurs `ADC_0` et `ADC_180` ne se devinent pas. Elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève la valeur `analogRead` à chaque extrémité, et `map()` interpole entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
 
 ### À quoi ça sert
 
@@ -222,10 +222,10 @@ void loop() {
 
 ### Variante — retour numérique (PWM)
 
-Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `pulseIn()` (ou une interruption), **pas** avec `analogRead` ; en contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ `analogRead` sur une broche A*) ou **PWM** (→ `pulseIn` sur une broche numérique).
+Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `pulseIn()` (ou une interruption), **pas** avec `analogRead`. En contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ `analogRead` sur une broche A*) ou **PWM** (→ `pulseIn` sur une broche numérique).
 
 > [!warning] Le retour n'est pas une métrologie
-> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable — voir [[arduino-pid|le réglage PID]].
+> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable (voir [[arduino-pid|le réglage PID]]).
 
 ## Raccrochage projet
 
@@ -233,7 +233,7 @@ Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — intégration servo dans la chaîne mesure → décision → mouvement (par exemple : capteur de présence → ouverture d'une trappe).
 - **Étape 4 de la [[concept|phase de concept]]** — l'arbitrage entre servo standard, servo continu, moteur CC + pont H, et moteur pas-à-pas se fait souvent au moment de l'EAT.
 
-Un servomoteur bien câblé (alimentation séparée + GND commun) est l'actionneur le plus *prévisible* à intégrer en projet école — chaque consigne donne le même résultat, à la précision près. C'est ce qui en fait l'outil idéal pour les premières démonstrations.
+Un servomoteur bien câblé (alimentation séparée + GND commun) est l'actionneur le plus *prévisible* à intégrer en projet école : chaque consigne donne le même résultat, à la précision près. C'est ce qui en fait l'outil idéal pour les premières démonstrations.
 
 ## Voir aussi
 

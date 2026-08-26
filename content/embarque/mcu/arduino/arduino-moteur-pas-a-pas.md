@@ -80,7 +80,7 @@ Pour un premier essai pédagogique, le 28BYJ-48 + ULN2003 est imbattable. Pour u
 | `GND` (puissance) | GND alimentation **+ GND Arduino** (commun) |
 | `1A, 1B, 2A, 2B` | 4 fils du moteur (2 par bobine) |
 
-**Important sur A4988** : un condensateur 100 µF entre `VMOT` et GND est *obligatoire* pour absorber les pics de courant — son absence détruit le driver.
+**Important sur A4988** : un condensateur 100 µF entre `VMOT` et GND est *obligatoire* pour absorber les pics de courant. Son absence détruit le driver.
 
 ![Branchement d'un 28BYJ-48 via un module ULN2003 : IN1-IN4 → D8-D11, alimentation + et −, le moteur s'enfiche sur le connecteur 5 broches du module|560](/ressources/img/arduino-moteur-pas-a-pas/branchement-28byj48.svg)
 
@@ -117,7 +117,7 @@ void loop() {
 }
 ```
 
-Téléverser. Le moteur tourne d'un tour, fait une pause, repart en sens inverse. L'ordre des broches `(8, 10, 9, 11)` correspond au séquencement des phases — ne pas inverser au hasard, sinon le moteur vibre sans tourner.
+Téléverser. Le moteur tourne d'un tour, fait une pause, repart en sens inverse. L'ordre des broches `(8, 10, 9, 11)` correspond au séquencement des phases : ne pas inverser au hasard, sinon le moteur vibre sans tourner.
 
 ## Exemple — Mouvement par bouton de pas
 
@@ -155,7 +155,7 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> L'anti-rebond non bloquant suit le même motif que pour le [[arduino-moteur-cc|moteur CC]] : `dernierEtat` repère l'instant où la lecture brute change (et relance le chronomètre), `etatStable` retient l'état confirmé après 30 ms ; le pas n'est déclenché que sur un **front descendant** (`INPUT_PULLUP` → appui = `LOW`). **Attention** : `monMoteur.step()` est **bloquant** — pendant le quart de tour, la `loop()` est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré (voir *Pièges*). Pour réagir en continu, il faut une bibliothèque non bloquante comme `AccelStepper`.
+> L'anti-rebond non bloquant suit le même motif que pour le [[arduino-moteur-cc|moteur CC]] : `dernierEtat` repère l'instant où la lecture brute change (et relance le chronomètre), `etatStable` retient l'état confirmé après 30 ms. Le pas n'est déclenché que sur un **front descendant** (`INPUT_PULLUP` → appui = `LOW`). **Attention** : `monMoteur.step()` est **bloquant**. Pendant le quart de tour, la `loop()` est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré (voir *Pièges*). Pour réagir en continu, il faut une bibliothèque non bloquante comme `AccelStepper`.
 
 Chaque appui fait avancer d'un quart de tour. Pratique pour des projets de positionnement séquentiel (distributeur, sélecteur multi-positions).
 
@@ -169,11 +169,11 @@ Chaque appui fait avancer d'un quart de tour. Pratique pour des projets de posit
 
 **Réglage du courant A4988 incorrect.** Le [[potentiometre|potentiomètre]] du driver règle le courant limité par bobine. Trop bas → couple trop faible, perte de pas. Trop haut → driver et moteur surchauffent. Calibrer en mesurant Vref au multimètre selon la formule de la fiche du driver (Vref = 8 × R_SENSE × I_MAX, typiquement Vref ≈ 0,8 V pour 1 A sur A4988 avec R = 0,1 Ω).
 
-**Perte de pas sous charge.** Si on lui demande d'aller trop vite ou si la charge est trop importante, le moteur *saute* des pas — la position calculée par le programme ne correspond plus à la position réelle. Symptôme : décalage cumulatif au cours du temps. Le couple d'un pas-à-pas **chute quand la fréquence de pas monte** — l'inductance des bobines empêche le courant de s'établir avant le pas suivant. Premier réflexe, donc : **ralentir**, et monter en vitesse par une rampe d'accélération plutôt que de démarrer à pleine cadence (`AccelStepper`). Ensuite seulement, chercher du couple : vérifier le **réglage du courant** (piège ci-dessus), prendre un moteur ou un driver mieux dimensionné, ou décharger l'axe mécaniquement (réduction, contrepoids, ressort de rappel). **Le microstepping n'est pas un remède au manque de couple** — il le diminue, voir *Cas particulier* ci-dessous. Et si le couple manque encore une fois ces leviers épuisés, le problème n'est plus électronique : **le calcul du couple nécessaire, du rapport de réduction et de l'inertie de la charge n'est pas traité ici**, il relève de la [[meca/index|mécanique]] et des cours des collègues.
+**Perte de pas sous charge.** Si on lui demande d'aller trop vite ou si la charge est trop importante, le moteur *saute* des pas : la position calculée par le programme ne correspond plus à la position réelle. Symptôme : décalage cumulatif au cours du temps. Le couple d'un pas-à-pas **chute quand la fréquence de pas monte**, l'inductance des bobines empêchant le courant de s'établir avant le pas suivant. Premier réflexe, donc : **ralentir**, et monter en vitesse par une rampe d'accélération plutôt que de démarrer à pleine cadence (`AccelStepper`). Ensuite seulement, chercher du couple : vérifier le **réglage du courant** (piège ci-dessus), prendre un moteur ou un driver mieux dimensionné, ou décharger l'axe mécaniquement (réduction, contrepoids, ressort de rappel). **Le microstepping n'est pas un remède au manque de couple**. Il le diminue, voir *Cas particulier* ci-dessous. Et si le couple manque encore une fois ces leviers épuisés, le problème n'est plus électronique : **le calcul du couple nécessaire, du rapport de réduction et de l'inertie de la charge n'est pas traité ici**, il relève de la [[meca/index|mécanique]] et des cours des collègues.
 
-**Stockage de chaleur sur ULN2003.** Sous charge prolongée, le module ULN2003 chauffe (transistors Darlington, dissipation passive). Le 28BYJ-48 n'a pas de mode *libre* — il consomme en permanence ses ~150 mA même à l'arrêt. Pour réduire la dissipation à l'arrêt, couper l'alimentation par MOSFET ou utiliser un driver à mode sleep.
+**Stockage de chaleur sur ULN2003.** Sous charge prolongée, le module ULN2003 chauffe (transistors Darlington, dissipation passive). Le 28BYJ-48 n'a pas de mode *libre* : il consomme en permanence ses ~150 mA même à l'arrêt. Pour réduire la dissipation à l'arrêt, couper l'alimentation par MOSFET ou utiliser un driver à mode sleep.
 
-**Bibliothèque `Stepper.h` bloquante.** `monMoteur.step(N)` est bloquant — pendant la commande, rien d'autre ne s'exécute. Pour des mouvements lisses + parallélisme, basculer sur `AccelStepper` (non bloquante avec `.run()` à appeler dans `loop()`).
+**Bibliothèque `Stepper.h` bloquante.** `monMoteur.step(N)` est bloquant : pendant la commande, rien d'autre ne s'exécute. Pour des mouvements lisses + parallélisme, basculer sur `AccelStepper` (non bloquante avec `.run()` à appeler dans `loop()`).
 
 **Sens A4988 fonction de DIR au moment du `STEP`.** Changer `DIR` pendant un `STEP` actif peut produire des pas erratiques. Bonne pratique : laisser `DIR` stable au moins 1 µs avant `STEP`, ce que toutes les bibliothèques sérieuses font.
 
@@ -183,9 +183,9 @@ Les drivers A4988 / DRV8825 / TMC2209 supportent le **microstepping** : au lieu 
 
 Avantages : mouvement nettement plus lisse, bruit réduit, précision angulaire améliorée.
 
-Inconvénients : **couple effectif réduit** aux positions intermédiaires (le moteur passe plus de temps à tenir une position non-stable) — un microstepping plus fin ne compense donc jamais une perte de pas sous charge, il l'aggrave ; et la coordination du driver pour ramener au pas entier nécessite des bibliothèques avancées.
+Inconvénients : **couple effectif réduit** aux positions intermédiaires (le moteur passe plus de temps à tenir une position non-stable). Un microstepping plus fin ne compense donc jamais une perte de pas sous charge, il l'aggrave. Et la coordination du driver pour ramener au pas entier nécessite des bibliothèques avancées.
 
-Sur les imprimantes 3D modernes, drivers TMC2209 en microstepping 1/256 — quasi-silencieux.
+Sur les imprimantes 3D modernes, drivers TMC2209 en microstepping 1/256, quasi-silencieux.
 
 ## Raccrochage projet
 
