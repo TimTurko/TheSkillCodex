@@ -8,13 +8,15 @@ tags:
   - tuto
   - micropython
 prerequis:
-  - micropython-prise-en-main
+  - micropython-prise-en-main-en
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
+source_fr: embarque/mcu/micropython/micropython-gpio.md
+source_sha256: 46bf1cdbd93ef7a5e316832e4e4bba0b0d58aefbf5bf6d7c7ce2247cfbb1e0d9
 ---
 
-Les **GPIO** (*General Purpose Input/Output*) du Pico sont les broches numériques configurables en entrée ou en sortie pour lire ou émettre un signal binaire (0 V / 3,3 V). En MicroPython, tout passe par la classe **`Pin`** du module [[micropython-modules|`machine`]]. Configurer correctement un GPIO est le geste de base de tout programme embarqué. Oublier le mode, confondre les tirages ou ignorer l'état flottant d'une entrée est la cause la plus fréquente des comportements imprévisibles en début de projet.
+Les **GPIO** (*General Purpose Input/Output*) du Pico sont les broches numériques configurables en entrée ou en sortie pour lire ou émettre un signal binaire (0 V / 3,3 V). En MicroPython, tout passe par la classe **`Pin`** du module [[micropython-modules-en|`machine`]]. Configurer correctement un GPIO est le geste de base de tout programme embarqué. Oublier le mode, confondre les tirages ou ignorer l'état flottant d'une entrée est la cause la plus fréquente des comportements imprévisibles en début de projet.
 
 ## À quoi ça sert ?
 
@@ -26,9 +28,9 @@ Quatre étapes : identifier la broche, créer l'objet `Pin` avec son mode, lire 
 
 ### 1. Identifier les broches
 
-Le Pico expose les broches **GP0 à GP28** (numérotation *GP*, à ne pas confondre avec la numérotation physique des pattes). Particularités : **GP26 / GP27 / GP28** font aussi office d'entrées analogiques ([[micropython-capteur-analogique|ADC]]). Certaines broches portent par défaut un bus (UART, I2C, SPI). La LED intégrée est sur **GP25** (raccourci `"LED"`).
+Le Pico expose les broches **GP0 à GP28** (numérotation *GP*, à ne pas confondre avec la numérotation physique des pattes). Particularités : **GP26 / GP27 / GP28** font aussi office d'entrées analogiques ([[micropython-capteur-analogique-en|ADC]]). Certaines broches portent par défaut un bus (UART, I2C, SPI). La LED intégrée est sur **GP25** (raccourci `"LED"`).
 
-Toutes les broches sont en **3,3 V** et **ne sont pas tolérantes 5 V** — voir [[niveaux-de-tension|niveaux de tension]].
+Toutes les broches sont en **3,3 V** et **ne sont pas tolérantes 5 V** — voir [[niveaux-de-tension-en|niveaux de tension]].
 
 ![Brochage officiel du Raspberry Pi Pico : les 40 broches avec les numéros GPxx utilisés dans le code, les entrées analogiques (ADC) et les broches de bus (UART, I2C, SPI) repérées.|640](/ressources/img/micropython-gpio/brochage-pico.png)
 
@@ -99,7 +101,7 @@ Lancez, appuyez sur le bouton, et la LED s'allume. Relâchez, et elle s'éteint.
 
 **LED sans résistance.** Une LED branchée directement tire un courant excessif qui la grille (ou abîme la broche). Toujours une résistance série (220 Ω à 1 kΩ pour une LED standard sur 3,3 V).
 
-**Courant max de broche dépassé.** Une broche du Pico délivre par défaut ~4 mA, **~12 mA au maximum** (force de sortie réglable). C'est **moins** qu'un Arduino (20 mA) : on passe par un transistor ou un module dédié encore plus tôt (voir [[micropython-sortie-tor|piloter une sortie TOR]]).
+**Courant max de broche dépassé.** Une broche du Pico délivre par défaut ~4 mA, **~12 mA au maximum** (force de sortie réglable). C'est **moins** qu'un Arduino (20 mA) : on passe par un transistor ou un module dédié encore plus tôt (voir [[micropython-sortie-tor-en|piloter une sortie TOR]]).
 
 **Réflexe 5 V.** Le Pico n'est **pas tolérant 5 V** : appliquer 5 V sur une entrée peut détruire la broche. Adapter le niveau d'un capteur 5 V (pont diviseur ou translateur).
 
@@ -107,24 +109,24 @@ Lancez, appuyez sur le bouton, et la LED s'allume. Relâchez, et elle s'éteint.
 
 Toutes les broches ne sont pas équivalentes :
 
-- **ADC** — **GP26 / GP27 / GP28** sont les entrées analogiques ([[micropython-capteur-analogique|`ADC`]]).
-- **PWM** — sur le Pico, **toutes** les broches GPIO peuvent générer un signal PWM (voir [[micropython-sortie-pwm|PWM]]) — pas de broches « `~` » dédiées comme sur Arduino.
-- **Bus** — des broches portent par défaut l'UART, l'I2C, le SPI (voir [[bus-de-communication|bus de communication]]). Utiliser une broche en GPIO la rend indisponible pour son bus.
+- **ADC** — **GP26 / GP27 / GP28** sont les entrées analogiques ([[micropython-capteur-analogique-en|`ADC`]]).
+- **PWM** — sur le Pico, **toutes** les broches GPIO peuvent générer un signal PWM (voir [[micropython-sortie-pwm-en|PWM]]) — pas de broches « `~` » dédiées comme sur Arduino.
+- **Bus** — des broches portent par défaut l'UART, l'I2C, le SPI (voir [[bus-de-communication-en|bus de communication]]). Utiliser une broche en GPIO la rend indisponible pour son bus.
 
 Le pinout officiel de la carte est la référence. Gardez-le à portée de main.
 
 ## Raccrochage projet
 
-- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — premiers essais individuels d'entrée et de sortie (bouton, LED, fin de course) avant d'assembler.
-- **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — validation pièce-par-pièce des E/S avant tests pyramidaux.
+- **Étape 2 de la [[preuve-de-concept-en|phase de preuve de concept]]** — premiers essais individuels d'entrée et de sortie (bouton, LED, fin de course) avant d'assembler.
+- **Étape 2 de la [[integration-et-tests-en|phase d'intégration et tests]]** — validation pièce-par-pièce des E/S avant tests pyramidaux.
 
 Maîtriser ces modes sur un petit montage isolé est la fondation sur laquelle reposent presque tous les tutoriels suivants — inutile d'enchaîner sur les capteurs ou les actionneurs avant que ce socle ne soit ferme.
 
 ## Voir aussi
 
-- [[micropython|MicroPython]] — hub du module
-- [[gpio|GPIO]] — notion transverse (modes, état au boot, GPIO sur autres familles)
-- [[micropython-entree-tor|Lire une entrée TOR]] — la suite naturelle (bouton avec anti-rebond)
-- [[micropython-sortie-tor|Piloter une sortie TOR]] — la sortie au-delà de la LED (relais)
-- [[arduino-gpio|Configurer les GPIO Arduino]] — l'équivalent en C++ (à comparer)
-- [[niveaux-de-tension|Niveaux de tension]] — 3,3 V, Pico non tolérant 5 V
+- [[micropython-en|MicroPython]] — hub du module
+- [[gpio-en|GPIO]] — notion transverse (modes, état au boot, GPIO sur autres familles)
+- [[micropython-entree-tor-en|Lire une entrée TOR]] — la suite naturelle (bouton avec anti-rebond)
+- [[micropython-sortie-tor-en|Piloter une sortie TOR]] — la sortie au-delà de la LED (relais)
+- [[arduino-gpio-en|Configurer les GPIO Arduino]] — l'équivalent en C++ (à comparer)
+- [[niveaux-de-tension-en|Niveaux de tension]] — 3,3 V, Pico non tolérant 5 V

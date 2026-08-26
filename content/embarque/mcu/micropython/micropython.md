@@ -16,7 +16,7 @@ draft: false
 
 ## Tutoriels
 
-Les tutoriels du module MicroPython, **dans l'ordre conseillé**. Les items marqués *(transverse)* sont des fiches partagées du squelette, valables pour toutes les familles ; le reste est propre à MicroPython. Le **langage** y remplace la fiche C++ : MicroPython a son propre parcours de langage.
+Les tutoriels du module MicroPython, **dans l'ordre conseillé**. Les items marqués *(transverse)* sont des fiches partagées du squelette, valables pour toutes les familles. Le reste est propre à MicroPython. Le **langage** y remplace la fiche C++ : MicroPython a son propre parcours de langage.
 
 **Par où commencer ?** Par la [[micropython-prise-en-main|prise en main]] : installer Thonny, flasher le firmware et lancer un premier programme sur la carte. Le reste se suit dans l'ordre, ou se pioche au besoin du projet.
 
@@ -71,12 +71,12 @@ D'autres tutos compléteront ces paliers au fil des projets. La structuration d'
 
 MicroPython occupe une **niche de lisibilité et d'itération rapide**, pas de performance brute. Ses atouts :
 
-- **Python, lisible et connu** — beaucoup d'élèves arrivent avec des bases de Python ; on les réinvestit directement sur le matériel ;
-- **pas de compilation** — on modifie un fichier, on le relance, on voit le résultat ; le cycle d'essai est quasi instantané ;
+- **Python, lisible et connu** — beaucoup d'élèves arrivent avec des bases de Python, réinvesties directement sur le matériel ;
+- **pas de compilation** — on modifie un fichier, on le relance, on voit le résultat, et le cycle d'essai est quasi instantané ;
 - **le REPL** — un shell interactif tourne *sur la carte* : on teste une ligne (`Pin("LED", Pin.OUT).on()`) et le résultat est immédiat, idéal pour explorer un capteur ou un module ;
 - **un code court** — typage dynamique, pas de déclarations verbeuses : un programme tient en quelques lignes.
 
-En contrepartie, MicroPython est **plus lent et moins déterministe** que du C++ compilé (l'interpréteur ajoute un surcoût ; le ramasse-miettes peut introduire des pauses), et offre **moins de mémoire utile**. C'est le bon choix pour **apprendre, prototyper, scripter** — moins pour du temps réel serré ou de la performance maximale, où l'on revient à l'[[arduino|Arduino]]/C++ ou au [[stm32|STM32]]. La décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]].
+En contrepartie, MicroPython est **plus lent et moins déterministe** que du C++ compilé (l'interpréteur ajoute un surcoût et le ramasse-miettes peut introduire des pauses), et offre **moins de mémoire utile**. C'est le bon choix pour **apprendre, prototyper, scripter** — moins pour du temps réel serré ou de la performance maximale, où l'on revient à l'[[arduino|Arduino]]/C++ ou au [[stm32|STM32]]. La décision se prend avec l'aide au choix du hub [[microcontroleur|microcontrôleur]].
 
 ## Panorama des cartes
 
@@ -91,13 +91,13 @@ La carte de référence ici est le **Raspberry Pi Pico 2**, mais le tableau rapp
 | Pico 2 W | RP2350 | idem | ajoute le **Wi-Fi / Bluetooth** (puce CYW43) | 
 | Pico / Pico W | RP2040 | 2× Cortex-M0+, 133 MHz | génération précédente, toujours répandue et compatible | 
 
-Toutes se programment **de la même façon en MicroPython** ; le choix se fait sur le Wi-Fi (variante *W*) et la puissance (RP2350 vs RP2040). La carte expose un connecteur USB pour l'alimentation et la programmation, et une rangée de broches **GPIO en 3,3 V**.
+Toutes se programment **de la même façon en MicroPython**. Le choix se fait sur le Wi-Fi (variante *W*) et la puissance (RP2350 vs RP2040). La carte expose un connecteur USB pour l'alimentation et la programmation, et une rangée de broches **GPIO en 3,3 V**.
 
 ## Écosystème
 
 - **Le firmware MicroPython** — un fichier `.uf2` à installer une fois sur la carte (voir [[micropython-prise-en-main|prise en main]]). Après cela, la carte *est* un interpréteur Python.
 - **Thonny** — l'IDE débutant de référence : il flashe le firmware, ouvre le REPL, et gère les fichiers `.py` sur la carte (dont `main.py`, lancé au démarrage).
-- **Le REPL et le système de fichiers** — on tape des commandes en direct, et on enregistre ses programmes comme fichiers sur la carte ; c'est le cœur du modèle MicroPython.
+- **Le REPL et le système de fichiers** — on tape des commandes en direct, et on enregistre ses programmes comme fichiers sur la carte. C'est le cœur du modèle MicroPython.
 - **Les modules** — `machine` (accès au matériel : `Pin`, `ADC`, `PWM`, `I2C`…), `time`, `network` (sur les cartes Wi-Fi)… plus l'installation de bibliothèques via `mip` (voir [[micropython-bibliotheques|bibliothèques]]).
 
 **MicroPython n'est pas lié au seul Pico** : le même langage et la même approche programment l'[[esp32|ESP32]], les cartes Pyboard, et plusieurs cartes Arduino récentes (Nano RP2040, Nano ESP32…). On ancre ce module sur le Pico 2 parce que c'est la carte utilisée en cours, mais le parcours se transpose. La façon de **structurer** le code embarqué relève de [[firmware|firmware]], indépendamment de la carte.

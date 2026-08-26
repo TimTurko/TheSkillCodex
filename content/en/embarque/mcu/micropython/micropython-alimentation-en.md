@@ -11,10 +11,12 @@ tags:
   - tuto
   - micropython
 prerequis:
-  - micropython-prise-en-main
+  - micropython-prise-en-main-en
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
+source_fr: embarque/mcu/micropython/micropython-alimentation.md
+source_sha256: 683b4dd4e1ec4d4f4500292a225f1d19822a2fcf0174f2e900a07d77e2aa0727
 ---
 
 **Alimenter un Pico** consiste à lui fournir la tension et le courant nécessaires pour démarrer, exécuter son programme, et alimenter les composants externes. Le schéma diffère d'un Arduino : pas de jack ni de régulateur linéaire 7805, mais trois broches clés — **VBUS** (5 V de l'USB), **VSYS** (entrée système 1,8–5,5 V) et **3V3(OUT)** (sortie 3,3 V régulée) — autour d'un régulateur *buck-boost* qui fabrique le 3,3 V interne. Choisir la bonne voie — et la dimensionner — est la première chose à vérifier quand un projet redémarre tout seul ou refuse de démarrer.
@@ -50,7 +52,7 @@ Sommer les consommations (estimées **haut**) :
 - **Wi-Fi (Pico 2 W) en émission** : pointes de plusieurs centaines de mA.
 - **Bandeau LED WS2812** : 3–5 A en blanc plein — alimentation dédiée obligatoire.
 
-La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec le Pico lui-même) : **ne pas y brancher de grosse charge**. Au-delà, alimenter la charge séparément (depuis VBUS/5 V ou une alimentation dédiée). Pour la méthode générale de dimensionnement (bilan de puissance, marges), voir [[alimentation-electronique|concevoir une alimentation]].
+La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec le Pico lui-même) : **ne pas y brancher de grosse charge**. Au-delà, alimenter la charge séparément (depuis VBUS/5 V ou une alimentation dédiée). Pour la méthode générale de dimensionnement (bilan de puissance, marges), voir [[alimentation-electronique-en|concevoir une alimentation]].
 
 ### 3. Câbler
 
@@ -58,7 +60,7 @@ La sortie **3V3(OUT)** ne fournit que quelques centaines de mA (partagés avec l
 
 **Batterie / source externe** : relier la source (1,8–5,5 V) à **VSYS** et sa masse à **GND**. Une cellule **LiPo** (3,0–4,2 V) ou un pack **2–3 piles AA** (3–4,5 V) entrent directement dans la plage VSYS. *Si l'USB peut aussi être branché en même temps, alimenter VSYS au travers d'une diode Schottky* (la source la plus haute l'emporte sans conflit) — voir la note « Powering Pico » de la datasheet.
 
-**Module 5 V** : l'alimenter depuis **VBUS** (5 V, USB présent), GND commun, et adapter ses signaux de sortie vers le Pico ([[niveaux-de-tension|niveaux de tension]]).
+**Module 5 V** : l'alimenter depuis **VBUS** (5 V, USB présent), GND commun, et adapter ses signaux de sortie vers le Pico ([[niveaux-de-tension-en|niveaux de tension]]).
 
 ![Les deux entrées d'alimentation d'un Pico : l'USB en 5 V arrive sur VBUS et traverse une diode interne avant VSYS, qui vaut alors environ 4,7 V ; une source externe de 1,8 à 5,5 V se raccorde directement sur VSYS et GND, au travers d'une diode Schottky si l'USB peut être branché en même temps. Les deux chemins se rejoignent sur VSYS, qui alimente le régulateur 3,3 V et la broche 3V3(OUT).|640](/ressources/img/micropython-alimentation/deux-sources.svg)
 
@@ -78,7 +80,7 @@ servo = PWM(Pin(15)); servo.freq(50)   # servo sur GP15, 50 Hz
 # ... lecture capteurs, affichage OLED, pilotage servo
 ```
 
-Au premier essai, alimenter aussi le servo par 3V3(OUT) fait rebooter le Pico quand il bouge. **Solution** : alimenter le servo par une source 5 V dédiée (ou VBUS si USB présent), **GND commun** avec le Pico. Voir [[micropython-servomoteur|servomoteur]] pour les bonnes pratiques d'alimentation servo.
+Au premier essai, alimenter aussi le servo par 3V3(OUT) fait rebooter le Pico quand il bouge. **Solution** : alimenter le servo par une source 5 V dédiée (ou VBUS si USB présent), **GND commun** avec le Pico. Voir [[micropython-servomoteur-en|servomoteur]] pour les bonnes pratiques d'alimentation servo.
 
 ![Alimentation séparée du servo avec masse commune : le servo est alimenté par une source 5 V dédiée (VBUS ou alim externe), seul le signal vient de GP15 du Pico, et toutes les masses (Pico, source, servo) sont reliées — GND commun.|560](/ressources/img/micropython-alimentation/alimentation-separee.svg)
 
@@ -100,24 +102,24 @@ Au premier essai, alimenter aussi le servo par 3V3(OUT) fait rebooter le Pico qu
 
 - **2–3 piles AA** (3–4,5 V) → directement sur VSYS, disponibles partout et remplaçables sans outil ;
 - **LiPo 1 cellule** (3,0–4,2 V) → directement sur VSYS, mais nécessite un chargeur dédié et des précautions (sur-décharge) ;
-- pour économiser sur batterie pendant les longues inactivités, voir [[deep-sleep|deep sleep]] et [[micropython-deep-sleep|deep sleep en MicroPython]].
+- pour économiser sur batterie pendant les longues inactivités, voir [[deep-sleep-en|deep sleep]] et [[micropython-deep-sleep-en|deep sleep en MicroPython]].
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[concept|phase de concept]]** — l'alimentation est un critère d'arbitrage (USB vs autonome, démo branchée vs mobile).
-- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — au premier actionneur de puissance, estimer la consommation et redimensionner.
-- **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — l'alimentation finale du démonstrateur (avec marge) fait partie du BOM.
-- **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — vérifier que le 3,3 V tient en charge sur le système intégré.
+- **Étape 4 de la [[concept-en|phase de concept]]** — l'alimentation est un critère d'arbitrage (USB vs autonome, démo branchée vs mobile).
+- **Étape 2 de la [[preuve-de-concept-en|phase de preuve de concept]]** — au premier actionneur de puissance, estimer la consommation et redimensionner.
+- **Étape 4 de la [[dossier-technique-en|phase de dossier technique]]** — l'alimentation finale du démonstrateur (avec marge) fait partie du BOM.
+- **Étape 2 de la [[integration-et-tests-en|phase d'intégration et tests]]** — vérifier que le 3,3 V tient en charge sur le système intégré.
 
 L'alimentation est l'élément le plus sous-estimé d'un projet débutant — ignoré quand tout va bien, accusé à tort quand un autre bug survient. Le mesurer au multimètre au premier symptôme suspect évite des heures d'errance.
 
 ## Voir aussi
 
-- [[micropython|MicroPython]] — hub du module
-- [[micropython-prise-en-main|Prise en main]] — où l'alimentation USB est vue en premier
-- [[micropython-deep-sleep|Deep sleep]] — réduire la consommation pour l'autonomie
-- [[micropython-shield|Carte d'extension]] — l'enfichage qui augmente la consommation
-- [[niveaux-de-tension|Niveaux de tension]] — cohabitation 3,3 / 5 V
-- [[alimentation-electronique|Concevoir une alimentation]] — les principes transverses appliqués ici
-- [[lire-une-datasheet|Lire une datasheet]] — repérer les courants nominaux des composants
-- [[arduino-alimentation|Alimenter la carte Arduino]] — l'équivalent (USB / jack / Vin)
+- [[micropython-en|MicroPython]] — hub du module
+- [[micropython-prise-en-main-en|Prise en main]] — où l'alimentation USB est vue en premier
+- [[micropython-deep-sleep-en|Deep sleep]] — réduire la consommation pour l'autonomie
+- [[micropython-shield-en|Carte d'extension]] — l'enfichage qui augmente la consommation
+- [[niveaux-de-tension-en|Niveaux de tension]] — cohabitation 3,3 / 5 V
+- [[alimentation-electronique-en|Concevoir une alimentation]] — les principes transverses appliqués ici
+- [[lire-une-datasheet-en|Lire une datasheet]] — repérer les courants nominaux des composants
+- [[arduino-alimentation-en|Alimenter la carte Arduino]] — l'équivalent (USB / jack / Vin)

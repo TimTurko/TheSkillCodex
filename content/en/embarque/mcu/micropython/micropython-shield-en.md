@@ -10,13 +10,15 @@ tags:
   - tuto
   - micropython
 prerequis:
-  - micropython-prise-en-main
+  - micropython-prise-en-main-en
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
+source_fr: embarque/mcu/micropython/micropython-shield.md
+source_sha256: d29aaea902375bf2912573a87fbddce223a0b1304b06a02e191c1390104966ac
 ---
 
-Sur Arduino, un **shield** est une carte d'extension qui s'empile par-dessus la carte mère en reprenant le format Uno. Le Pico **ne suit pas ce standard** : il a son propre brochage (40 broches), et son écosystème d'extension prend deux formes — des **cartes porteuses** (*carrier boards*) sur lesquelles on enfiche le Pico, et des **cartes d'extension / packs / HATs** conçus pour son brochage. La logique reste celle du shield : une carte dédiée à une fonction, qui **accapare un jeu de broches précis** qu'il faut connaître pour éviter les conflits. Là où un [[micropython-module|module]] se relie par fils Dupont, une carte d'extension se *clipse* — pas de câblage.
+Sur Arduino, un **shield** est une carte d'extension qui s'empile par-dessus la carte mère en reprenant le format Uno. Le Pico **ne suit pas ce standard** : il a son propre brochage (40 broches), et son écosystème d'extension prend deux formes — des **cartes porteuses** (*carrier boards*) sur lesquelles on enfiche le Pico, et des **cartes d'extension / packs / HATs** conçus pour son brochage. La logique reste celle du shield : une carte dédiée à une fonction, qui **accapare un jeu de broches précis** qu'il faut connaître pour éviter les conflits. Là où un [[micropython-module-en|module]] se relie par fils Dupont, une carte d'extension se *clipse* — pas de câblage.
 
 ## À quoi ça sert ?
 
@@ -37,11 +39,11 @@ Opération mécanique : aligner le Pico (ou la carte d'extension) sur le connect
 ### 3. Alimenter l'ensemble
 
 - **Extension faible puissance** (écran, capteurs) — l'USB du Pico suffit.
-- **Extension à actionneurs** (relais, moteurs) — **alimentation séparée pour la charge** (bornier de la carte porteuse), GND commun avec le Pico. Voir [[micropython-alimentation|alimenter la carte]].
+- **Extension à actionneurs** (relais, moteurs) — **alimentation séparée pour la charge** (bornier de la carte porteuse), GND commun avec le Pico. Voir [[micropython-alimentation-en|alimenter la carte]].
 
 ### 4. Installer la bibliothèque
 
-La plupart des cartes d'extension ont une bibliothèque dédiée (souvent fournie par le fabricant, ex. Pimoroni). Voir [[micropython-bibliotheques|utiliser une bibliothèque]]. Une fois sur la carte, on pilote chaque fonction par les **GPxx documentés** :
+La plupart des cartes d'extension ont une bibliothèque dédiée (souvent fournie par le fabricant, ex. Pimoroni). Voir [[micropython-bibliotheques-en|utiliser une bibliothèque]]. Une fois sur la carte, on pilote chaque fonction par les **GPxx documentés** :
 
 ```python
 from machine import Pin
@@ -58,7 +60,7 @@ buzzer.on()
 
 **Carte sous-alimentée.** Une extension à actionneurs qui tire son courant via l'USB fait rebooter le Pico. Alimentation externe dès qu'il y a de la puissance.
 
-**Brochage 3,3 V.** Une carte d'extension prévue pour une logique 5 V (rare, mais existe via adaptateurs Arduino) doit être compatible 3,3 V — sinon translateur de niveau ([[niveaux-de-tension|niveaux de tension]]).
+**Brochage 3,3 V.** Une carte d'extension prévue pour une logique 5 V (rare, mais existe via adaptateurs Arduino) doit être compatible 3,3 V — sinon translateur de niveau ([[niveaux-de-tension-en|niveaux de tension]]).
 
 **Enfichage à chaud.** Enficher/retirer sous tension peut détruire des broches par court-circuit transitoire. Toujours débrancher l'USB d'abord.
 
@@ -69,16 +71,16 @@ buzzer.on()
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[concept|phase de concept]]** — une carte porteuse/extension disponible peut être un accélérateur de PoC (« on prend cette carte, on gagne du temps »).
-- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — enfichage et test de l'extension isolée avant intégration.
-- **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — décision « carte porteuse » vs « PCB dédié » sur le critère robustesse / délai / reproductibilité.
+- **Étape 4 de la [[concept-en|phase de concept]]** — une carte porteuse/extension disponible peut être un accélérateur de PoC (« on prend cette carte, on gagne du temps »).
+- **Étape 2 de la [[preuve-de-concept-en|phase de preuve de concept]]** — enfichage et test de l'extension isolée avant intégration.
+- **Étape 4 de la [[dossier-technique-en|phase de dossier technique]]** — décision « carte porteuse » vs « PCB dédié » sur le critère robustesse / délai / reproductibilité.
 
 Une carte d'extension bien choisie est un gain net de temps de PoC et de robustesse. À l'inverse, accumuler des extensions aux brochages incompatibles est un piège qui se paye sur la durée.
 
 ## Voir aussi
 
-- [[micropython|MicroPython]] — hub du module
-- [[micropython-module|Câbler un module]] — l'alternative non-enfichée (fils Dupont)
-- [[micropython-alimentation|Alimenter la carte]] — dimensionner l'alimentation avec extension
-- [[shield|Shield]] — la notion transverse
-- [[arduino-shield|Utiliser un shield (Arduino)]] — le standard empilable Uno, à comparer
+- [[micropython-en|MicroPython]] — hub du module
+- [[micropython-module-en|Câbler un module]] — l'alternative non-enfichée (fils Dupont)
+- [[micropython-alimentation-en|Alimenter la carte]] — dimensionner l'alimentation avec extension
+- [[shield-en|Shield]] — la notion transverse
+- [[arduino-shield-en|Utiliser un shield (Arduino)]] — le standard empilable Uno, à comparer

@@ -9,14 +9,16 @@ tags:
   - tuto
   - micropython
 prerequis:
-  - micropython-gpio
-  - lire-une-datasheet
+  - micropython-gpio-en
+  - lire-une-datasheet-en
 aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
+source_fr: embarque/mcu/micropython/micropython-module.md
+source_sha256: 24363ea539fa26c0cc9614e48aa839e9f9df5d21d8d985b09487a6d362eb72d8
 ---
 
-Un **module** est un petit PCB préfabriqué qui héberge un composant principal (capteur, driver, convertisseur) entouré de son circuit d'application minimal : alimentation, pull-ups, découplage, connecteur. Les modules épargnent tout le câblage *bas-niveau* du datasheet. Il reste à brancher quatre fils Dupont et à appeler la [[micropython-bibliotheques|bibliothèque]]. La fiche couvre le câblage générique d'un module, et les pièges qui font qu'un module fraîchement reçu refuse de démarrer. La logique est la même quelle que soit la carte. Seuls les numéros de broches et la contrainte **3,3 V** du Pico changent.
+Un **module** est un petit PCB préfabriqué qui héberge un composant principal (capteur, driver, convertisseur) entouré de son circuit d'application minimal : alimentation, pull-ups, découplage, connecteur. Les modules épargnent tout le câblage *bas-niveau* du datasheet. Il reste à brancher quatre fils Dupont et à appeler la [[micropython-bibliotheques-en|bibliothèque]]. La fiche couvre le câblage générique d'un module, et les pièges qui font qu'un module fraîchement reçu refuse de démarrer. La logique est la même quelle que soit la carte. Seuls les numéros de broches et la contrainte **3,3 V** du Pico changent.
 
 ## À quoi ça sert ?
 
@@ -28,14 +30,14 @@ Quatre étapes : identifier les broches, vérifier la tension d'alimentation, c�
 
 ### 1. Identifier les broches du module
 
-Quatre familles récurrentes : **alimentation** (`VCC`/`VIN`/`+` et `GND`/`−`) ; **signaux logiques** (`SCL`/`SDA` pour [[micropython-i2c|I2C]], `SCK`/`MOSI`/`MISO`/`CS` pour [[micropython-spi|SPI]], `TX`/`RX` pour [[micropython-uart|UART]], ou GPIO simples) ; **configuration** (jumpers d'adresse, de tension, de pull-up) ; **bornier de puissance** (modules driver). Quand le brochage n'est pas évident, chercher la fiche du module ou *« module XXX pinout »*.
+Quatre familles récurrentes : **alimentation** (`VCC`/`VIN`/`+` et `GND`/`−`) ; **signaux logiques** (`SCL`/`SDA` pour [[micropython-i2c-en|I2C]], `SCK`/`MOSI`/`MISO`/`CS` pour [[micropython-spi-en|SPI]], `TX`/`RX` pour [[micropython-uart-en|UART]], ou GPIO simples) ; **configuration** (jumpers d'adresse, de tension, de pull-up) ; **bornier de puissance** (modules driver). Quand le brochage n'est pas évident, chercher la fiche du module ou *« module XXX pinout »*.
 
 ### 2. Vérifier la tension d'alimentation supportée
 
 Le Pico étant en 3,3 V, c'est le piège n°1 :
 
 - **Module 3,3–5 V** (majorité des modules modernes, I2C à régulateur) — tolérant, lire la sérigraphie ;
-- **Module 5 V uniquement** — l'alimenter en 5 V (VBUS), mais **ses signaux de sortie seront en 5 V** : adapter avant d'entrer sur une broche du Pico ([[niveaux-de-tension|niveaux de tension]]) ;
+- **Module 5 V uniquement** — l'alimenter en 5 V (VBUS), mais **ses signaux de sortie seront en 5 V** : adapter avant d'entrer sur une broche du Pico ([[niveaux-de-tension-en|niveaux de tension]]) ;
 - **Module 3,3 V uniquement** — l'alimenter en 3,3 V, jamais 5 V.
 
 Côté signaux, un module qui **sort** du 5 V vers une entrée du Pico impose un pont diviseur ou un translateur. Un module 3,3 V piloté **depuis** le Pico (3,3 V) est direct.
@@ -58,7 +60,7 @@ Beaucoup de modules I2C intègrent leurs pull-up sur `SDA`/`SCL` (≈ 4,7 kΩ). 
 
 ![Câblage du module DHT11 sur le Pico : broche + vers 3,3 V, broche − vers GND, broche OUT (données) vers GP2 ; la résistance de tirage est intégrée au module.|560](/ressources/img/micropython-bibliotheques/montage-dht11.svg)
 
-**Bibliothèque** : le module **`dht`** est intégré au firmware (voir [[micropython-bibliotheques|bibliothèques]]).
+**Bibliothèque** : le module **`dht`** est intégré au firmware (voir [[micropython-bibliotheques-en|bibliothèques]]).
 
 ```python
 from machine import Pin
@@ -73,7 +75,7 @@ while True:
     print("T =", capteur.temperature(), "°C   H =", capteur.humidity(), "%")
 ```
 
-Observer au [[micropython-repl|REPL]]. Souffler sur le capteur fait monter l'humidité.
+Observer au [[micropython-repl-en|REPL]]. Souffler sur le capteur fait monter l'humidité.
 
 ## Pièges
 
@@ -83,7 +85,7 @@ Observer au [[micropython-repl|REPL]]. Souffler sur le capteur fait monter l'hum
 
 **Alimentation par broche sur un module gourmand.** Un module Wi-Fi/GSM tire des pointes de plusieurs centaines de mA : la sortie 3,3 V du Pico (limitée) ne tient pas, la carte reboote. Alimentation externe stable pour les modules gourmands.
 
-**Niveaux logiques incompatibles.** Un module qui sort 5 V (HC-SR04) sur une entrée du Pico l'abîme. Vérifier la tolérance — [[niveaux-de-tension|niveaux de tension]].
+**Niveaux logiques incompatibles.** Un module qui sort 5 V (HC-SR04) sur une entrée du Pico l'abîme. Vérifier la tolérance — [[niveaux-de-tension-en|niveaux de tension]].
 
 **Multiples pull-ups I2C en parallèle.** 2 modules à 4,7 kΩ → 2,35 kΩ ; à 5 modules → ~940 Ω, souvent trop faible. Désactiver les pull-ups sur tous sauf un.
 
@@ -91,21 +93,21 @@ Observer au [[micropython-repl|REPL]]. Souffler sur le capteur fait monter l'hum
 
 ## Cas particulier — Module sans datasheet
 
-Modules génériques (`HW-XXX`, `KY-XXX`) sans fournisseur. Pistes : chercher la **référence du composant principal soudé** (sa datasheet existe), chercher `référence pinout` en image, ou identifier les broches au multimètre. Voir [[lire-une-datasheet|lire une datasheet]].
+Modules génériques (`HW-XXX`, `KY-XXX`) sans fournisseur. Pistes : chercher la **référence du composant principal soudé** (sa datasheet existe), chercher `référence pinout` en image, ou identifier les broches au multimètre. Voir [[lire-une-datasheet-en|lire une datasheet]].
 
 ## Raccrochage projet
 
-- **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque module se valide isolément (alimentation, GND, signaux, premier exemple) avant intégration.
-- **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — requalification dans le système intégré (pull-ups multiples, partage d'alim, conflits de bus).
+- **Étape 2 de la [[preuve-de-concept-en|phase de preuve de concept]]** — chaque module se valide isolément (alimentation, GND, signaux, premier exemple) avant intégration.
+- **Étape 2 de la [[integration-et-tests-en|phase d'intégration et tests]]** — requalification dans le système intégré (pull-ups multiples, partage d'alim, conflits de bus).
 
 Un module bien câblé en début de PoC est un sous-système qu'on ne revisite plus, et la validation isolée évite que les problèmes matériels parasitent la mise au point logicielle.
 
 ## Voir aussi
 
-- [[micropython|MicroPython]] — hub du module
-- [[micropython-shield|Utiliser un shield / carte d'extension]] — l'alternative empilée
-- [[micropython-bibliotheques|Utiliser une bibliothèque]] — pour piloter le module
-- [[micropython-i2c|I2C]] · [[micropython-spi|SPI]] · [[micropython-uart|UART]] — selon le bus du module
-- [[niveaux-de-tension|Niveaux de tension]] — compatibilité 3,3 / 5 V
-- [[lire-une-datasheet|Lire une datasheet]] — vérifier tension, courant, signaux
-- [[arduino-module|Câbler un module (Arduino)]] — l'équivalent C++
+- [[micropython-en|MicroPython]] — hub du module
+- [[micropython-shield-en|Utiliser un shield / carte d'extension]] — l'alternative empilée
+- [[micropython-bibliotheques-en|Utiliser une bibliothèque]] — pour piloter le module
+- [[micropython-i2c-en|I2C]] · [[micropython-spi-en|SPI]] · [[micropython-uart-en|UART]] — selon le bus du module
+- [[niveaux-de-tension-en|Niveaux de tension]] — compatibilité 3,3 / 5 V
+- [[lire-une-datasheet-en|Lire une datasheet]] — vérifier tension, courant, signaux
+- [[arduino-module-en|Câbler un module (Arduino)]] — l'équivalent C++
