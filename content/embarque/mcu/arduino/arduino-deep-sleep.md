@@ -19,9 +19,9 @@ Mettre un Arduino en **veille** (*deep sleep*) consiste à endormir le microcont
 
 ## À quoi ça sert ?
 
-Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile — il exécute sa boucle à pleine vitesse. Pour un montage alimenté en USB, peu importe ; pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, ne consommant presque rien, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort.
+Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile. Il exécute sa boucle à pleine vitesse. Pour un montage alimenté en USB, peu importe. Pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, ne consommant presque rien, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort.
 
-Le principe se résume à un cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**. Plus la part de sommeil est grande, plus l'autonomie s'allonge. On met cela en place tard dans le projet, en [[integration-et-tests|phase d'intégration]], comme **optimisation énergétique** d'un montage déjà fonctionnel — pas avant que la fonction marche.
+Le principe se résume à un cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**. Plus la part de sommeil est grande, plus l'autonomie s'allonge. On met cela en place tard dans le projet, en [[integration-et-tests|phase d'intégration]], comme **optimisation énergétique** d'un montage déjà fonctionnel, pas avant que la fonction marche.
 
 ![Profil du courant dans le temps : de longues plages à quelques µA pendant le sommeil, entrecoupées de brefs pics à quelques mA lors des réveils (mesure + envoi) ; la consommation moyenne reste à quelques dizaines de µA, très loin du niveau (~mA en continu) d'un microcontrôleur toujours éveillé.|680](/ressources/img/arduino-deep-sleep/profil-courant-veille.svg)
 
@@ -34,7 +34,7 @@ Quatre étapes : choisir un mode de veille, couper les périphériques, endormir
 Un AVR offre plusieurs niveaux de sommeil, du plus léger au plus profond. Plus on descend, moins on consomme, mais moins il reste de moyens de se réveiller :
 
 - **Idle** — le processeur s'arrête, mais les périphériques (timers, série) tournent ; réveil facile, gain modeste.
-- **Power-down** — presque tout s'éteint ; consommation minimale (quelques µA), mais seuls une **interruption externe** ou le **chien de garde** peuvent réveiller.
+- **Power-down** — presque tout s'éteint, consommation minimale (quelques µA), mais seuls une **interruption externe** ou le **chien de garde** peuvent réveiller.
 
 Pour l'autonomie, c'est **power-down** que l'on vise. La bibliothèque **LowPower** (à installer via le [[arduino-bibliotheques|gestionnaire de bibliothèques]]) masque les détails de registres et expose ces modes simplement.
 
@@ -113,32 +113,32 @@ void loop() {
 }
 ```
 
-Entre deux mesures, la carte ne consomme presque rien. `Serial.flush()` est important : sans lui, on peut s'endormir avant que l'envoi soit terminé. Sur la durée, le rapport « 32 s de sommeil pour une fraction de seconde d'éveil » transforme l'autonomie — c'est tout l'enjeu d'un objet sur pile.
+Entre deux mesures, la carte ne consomme presque rien. `Serial.flush()` est important : sans lui, on peut s'endormir avant que l'envoi soit terminé. Sur la durée, le rapport « 32 s de sommeil pour une fraction de seconde d'éveil » transforme l'autonomie. C'est tout l'enjeu d'un objet sur pile.
 
 ## Pièges
 
-**La carte Uno consomme trop pour que la veille serve à grand-chose.** Le régulateur de tension et la puce USB d'une Uno tirent plusieurs milliampères **en permanence**, microcontrôleur endormi ou non. Le vrai gain s'obtient sur un **AVR nu** ou une carte conçue basse consommation (sans USB ni régulateur gourmand) ; sur Uno, la mesure est surtout pédagogique.
+**La carte Uno consomme trop pour que la veille serve à grand-chose.** Le régulateur de tension et la puce USB d'une Uno tirent plusieurs milliampères **en permanence**, microcontrôleur endormi ou non. Le vrai gain s'obtient sur un **AVR nu** ou une carte conçue basse consommation (sans USB ni régulateur gourmand). Sur Uno, la mesure est surtout pédagogique.
 
 **Oublier de couper l'ADC et le brown-out.** Laissés actifs, ils maintiennent une consommation qui ruine l'économie. Toujours passer `ADC_OFF` et `BOD_OFF` (ou les couper soi-même) en sommeil profond.
 
 **S'endormir avant d'avoir fini d'émettre.** Le port série et les communications sont asynchrones : `Serial.flush()` (ou l'équivalent) garantit que l'envoi est terminé avant la mise en veille, sinon le message est tronqué.
 
-**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille** — il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.) Sur **ESP32**, c'est l'inverse : le deep sleep **redémarre** la puce au réveil et ré-exécute `setup()` (seule la *RTC memory* survit) — à connaître si l'on porte le code (API et sources de réveil propres à l'ESP32, voir [[esp32|ESP32]]).
+**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille**. Il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.) Sur **ESP32**, c'est l'inverse : le deep sleep **redémarre** la puce au réveil et ré-exécute `setup()` (seule la *RTC memory* survit), à connaître si l'on porte le code (API et sources de réveil propres à l'ESP32, voir [[esp32|ESP32]]).
 
 **Câbler une source de réveil sur une broche qui ne réveille pas.** En power-down, seules certaines broches d'interruption peuvent réveiller (D2/D3 sur Uno). Vérifier avant de compter dessus.
 
-**Durée de sommeil non multiple de 8 s.** Le helper `dormir(secondes)` boucle `secondes / 8` fois : la division entière **tronque**. `dormir(32)` donne bien 4 cycles (32 s), mais `dormir(30)` donne `30 / 8 = 3` cycles, soit 24 s — la carte dort moins que demandé, sans le moindre avertissement. Passer un multiple de 8 s, ou composer la durée avec les constantes plus fines (`SLEEP_4S`, `SLEEP_2S`, `SLEEP_1S`…).
+**Durée de sommeil non multiple de 8 s.** Le helper `dormir(secondes)` boucle `secondes / 8` fois : la division entière **tronque**. `dormir(32)` donne bien 4 cycles (32 s), mais `dormir(30)` donne `30 / 8 = 3` cycles, soit 24 s. La carte dort moins que demandé, sans le moindre avertissement. Passer un multiple de 8 s, ou composer la durée avec les constantes plus fines (`SLEEP_4S`, `SLEEP_2S`, `SLEEP_1S`…).
 
 ## Cas particulier — Réveil par chien de garde en mode interruption
 
-Le [[arduino-watchdog|chien de garde]] a deux usages opposés : en **mode reset**, il redémarre une carte bloquée ; en **mode interruption**, il déclenche une routine sans redémarrer — et c'est ce second mode qui sert de **réveil périodique** pour la veille. La bibliothèque LowPower s'en sert en interne pour ses durées `SLEEP_xS`. Comprendre que le même périphérique sert à la fois de filet de sécurité et de réveil aide à ne pas s'emmêler entre les deux rôles.
+Le [[arduino-watchdog|chien de garde]] a deux usages opposés. En **mode reset**, il redémarre une carte bloquée. En **mode interruption**, il déclenche une routine sans redémarrer, et c'est ce second mode qui sert de **réveil périodique** pour la veille. La bibliothèque LowPower s'en sert en interne pour ses durées `SLEEP_xS`. Comprendre que le même périphérique sert à la fois de filet de sécurité et de réveil aide à ne pas s'emmêler entre les deux rôles.
 
 ## Raccrochage projet
 
 - **[[integration-et-tests|Phase d'intégration et tests]]** — l'optimisation énergétique vient une fois la fonction validée : on mesure la consommation, puis on introduit la veille pour atteindre l'autonomie visée par le cahier des charges.
-- **Spécification** — l'autonomie cible (« tenir une saison sur deux piles AA ») est une exigence à poser tôt ; la veille est le moyen de la tenir, à dimensionner avec le budget énergétique du montage (voir [[arduino-alimentation|alimenter la carte]]).
+- **Spécification** — l'autonomie cible (« tenir une saison sur deux piles AA ») est une exigence à poser tôt. La veille est le moyen de la tenir, à dimensionner avec le budget énergétique du montage (voir [[arduino-alimentation|alimenter la carte]]).
 
-Sur un objet connecté autonome, la veille n'est pas un détail d'optimisation mais l'**architecture même** du programme — d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
+Sur un objet connecté autonome, la veille n'est pas un détail d'optimisation mais l'**architecture même** du programme, d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
 
 ## Voir aussi
 

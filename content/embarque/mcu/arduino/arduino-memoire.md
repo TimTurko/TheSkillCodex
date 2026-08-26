@@ -19,7 +19,7 @@ Gérer la **mémoire** sur Arduino, c'est composer avec une ressource rare : un 
 
 ## À quoi ça sert ?
 
-Sur un PC, la mémoire semble infinie ; sur un microcontrôleur, elle est comptée. Un sketch qui multiplie les variables, accumule des chaînes de caractères ou embarque de gros tableaux peut épuiser la SRAM — et le symptôme est traître : pas de message d'erreur, juste un programme qui **redémarre tout seul, se fige ou se comporte n'importe comment**. Savoir où va la mémoire et comment l'économiser est donc une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse le sketch d'exemple et commence à manquer de place.
+Sur un PC, la mémoire semble infinie. Sur un microcontrôleur, elle est comptée. Un sketch qui multiplie les variables, accumule des chaînes de caractères ou embarque de gros tableaux peut épuiser la SRAM, et le symptôme est traître : pas de message d'erreur, juste un programme qui **redémarre tout seul, se fige ou se comporte n'importe comment**. Savoir où va la mémoire et comment l'économiser est donc une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse le sketch d'exemple et commence à manquer de place.
 
 ## Procédure pas à pas
 
@@ -30,12 +30,12 @@ Quatre étapes : distinguer les trois mémoires, comprendre où vivent les varia
 Un AVR (ATmega328P de l'Uno) sépare trois espaces aux rôles distincts :
 
 - **Flash (32 Ko)** — la mémoire de **programme** : elle contient le code téléversé. Vaste, mais en lecture seule à l'exécution. On peut y ranger des **constantes**.
-- **SRAM (2 Ko)** — la mémoire **vive** : elle contient les variables manipulées pendant l'exécution. **Petite et précieuse** — c'est elle qui sature.
+- **SRAM (2 Ko)** — la mémoire **vive** : elle contient les variables manipulées pendant l'exécution. **Petite et précieuse**. C'est elle qui sature.
 - **EEPROM (1 Ko)** — la mémoire **persistante** : elle conserve quelques données après extinction (réglages, calibration), via [[arduino-eeprom|son tuto dédié]].
 
 La règle de fond : **la SRAM est la ressource critique**, et tout ce qui peut en sortir doit en sortir.
 
-Ces chiffres — et donc la pression sur la RAM — sont propres à l'**AVR**. Une **Uno R4** (32 Ko de SRAM) ou un **ESP32** (~520 Ko) desserrent énormément la contrainte : `F()` et `PROGMEM` y restent valides mais quasi sans gain, et la chasse aux octets n'a plus le même sens. Les bonnes habitudes (mesurer, éviter de fragmenter le tas) restent utiles partout — voir [[esp32|ESP32]].
+Ces chiffres (et donc la pression sur la RAM) sont propres à l'**AVR**. Une **Uno R4** (32 Ko de SRAM) ou un **ESP32** (~520 Ko) desserrent énormément la contrainte : `F()` et `PROGMEM` y restent valides mais quasi sans gain, et la chasse aux octets n'a plus le même sens. Les bonnes habitudes (mesurer, éviter de fragmenter le tas) restent utiles partout (voir [[esp32|ESP32]]).
 
 ### 2. Comprendre où vivent les variables en SRAM
 
@@ -45,7 +45,7 @@ La SRAM se partage en trois zones :
 - la **pile** (*stack*), qui grandit vers le bas, stocke les variables **locales** et les appels de fonctions ;
 - le **tas** (*heap*), qui grandit vers le haut, sert à l'allocation **dynamique** (les chaînes `String`, le `new`).
 
-Pile et tas grandissent **l'un vers l'autre** dans le même petit espace : s'ils se rejoignent, c'est le plantage. Les détails du langage (pointeurs, allocation) relèvent des bases du [[cpp|C++]] ; ici, l'essentiel est de savoir que **chaque variable a un coût** et que le tas est le plus risqué.
+Pile et tas grandissent **l'un vers l'autre** dans le même petit espace : s'ils se rejoignent, c'est le plantage. Les détails du langage (pointeurs, allocation) relèvent des bases du [[cpp|C++]]. Ici, l'essentiel est de savoir que **chaque variable a un coût** et que le tas est le plus risqué.
 
 ![Carte mémoire d'un Arduino : la Flash (32 Ko) contient le programme et, à droite, les constantes déportées par F() et PROGMEM ; la SRAM (2 Ko) est découpée en variables globales/statiques (fixe), tas qui grandit vers la droite, espace libre mesuré par freeMemory(), et pile qui grandit vers la gauche — si le tas et la pile se rejoignent, c'est le plantage.|680](/ressources/img/arduino-memoire/carte-memoire-sram.svg)
 
@@ -77,7 +77,7 @@ RAM libre : XXXX
 RAM libre : XXXX
 ```
 
-Ce qui compte n'est pas le chiffre mais sa **tendance** : une marge qui se stabilise est saine, une marge qui décroît tour après tour signale une fuite. Les valeurs sont à relever sur votre montage — elles dépendent du sketch et des bibliothèques chargées.
+Ce qui compte n'est pas le chiffre mais sa **tendance** : une marge qui se stabilise est saine, une marge qui décroît tour après tour signale une fuite. Les valeurs sont à relever sur votre montage. Elles dépendent du sketch et des bibliothèques chargées.
 
 ## Exemple — Diagnostiquer un plantage par saturation
 
@@ -104,7 +104,7 @@ void afficher(int n) {
 }
 ```
 
-La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de texte en SRAM. Sur un sketch qui affiche souvent, l'écart de RAM libre est spectaculaire — et le redémarrage mystérieux disparaît. La démarche générale : **mesurer** la RAM libre, repérer les `String` et les longs textes, les remplacer par `F()` et des `char[]`.
+La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de texte en SRAM. Sur un sketch qui affiche souvent, l'écart de RAM libre est spectaculaire, et le redémarrage mystérieux disparaît. La démarche générale : **mesurer** la RAM libre, repérer les `String` et les longs textes, les remplacer par `F()` et des `char[]`.
 
 ## Pièges
 
@@ -116,9 +116,9 @@ La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de 
 
 **La récursion ou les grosses variables locales.** La pile est minuscule : une fonction récursive profonde ou un gros tableau local peut la faire mordre sur le tas. Éviter la récursion non bornée sur AVR.
 
-**Variable de temps en `int` au lieu d'`unsigned long`.** Au-delà de la mémoire, un mauvais type provoque des débordements (voir [[arduino-temporisation|temporisation]]) — le bon dimensionnement des types fait aussi partie de la gestion mémoire.
+**Variable de temps en `int` au lieu d'`unsigned long`.** Au-delà de la mémoire, un mauvais type provoque des débordements (voir [[arduino-temporisation|temporisation]]) : le bon dimensionnement des types fait aussi partie de la gestion mémoire.
 
-**Confondre Flash pleine et SRAM pleine.** Le compilateur annonce deux chiffres : l'espace **programme** (Flash) et la **mémoire dynamique** (SRAM). Un programme peut tenir en Flash mais manquer de SRAM à l'exécution — c'est ce second chiffre qu'il faut surveiller.
+**Confondre Flash pleine et SRAM pleine.** Le compilateur annonce deux chiffres : l'espace **programme** (Flash) et la **mémoire dynamique** (SRAM). Un programme peut tenir en Flash mais manquer de SRAM à l'exécution. C'est ce second chiffre qu'il faut surveiller.
 
 ## Cas particulier — Lire le rapport de compilation
 
@@ -127,9 +127,9 @@ Après chaque téléversement, l'IDE affiche deux lignes : combien de Flash le p
 ## Raccrochage projet
 
 - **[[preuve-de-concept|Phase de preuve de concept]]** — dès que le code dépasse l'exemple (plusieurs capteurs, affichage, journalisation), surveiller la RAM et adopter `F()`/`PROGMEM` avant de heurter le mur de la SRAM.
-- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire ; un budget RAM tenu fonction par fonction évite les plantages qui n'apparaissent qu'une fois tout assemblé.
+- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire. Un budget RAM tenu fonction par fonction évite les plantages qui n'apparaissent qu'une fois tout assemblé.
 
-Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité, sans message — et qu'on traque pendant des heures faute d'avoir regardé la RAM libre.
+Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité, sans message, et qu'on traque pendant des heures faute d'avoir regardé la RAM libre.
 
 ## Voir aussi
 

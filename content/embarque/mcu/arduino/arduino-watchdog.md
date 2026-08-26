@@ -18,9 +18,9 @@ Le **chien de garde** (*watchdog*, WDT) est un [[timer|compteur]] indépendant q
 
 ## À quoi ça sert ?
 
-Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque — une bibliothèque qui attend une réponse qui ne vient pas, un capteur qui fige le code, une boucle qui ne sort jamais — il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne normalement, il « caresse » le chien à intervalle régulier ; s'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte, qui repart de zéro.
+Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque — une bibliothèque qui attend une réponse qui ne vient pas, un capteur qui fige le code, une boucle qui ne sort jamais — il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne normalement, il « caresse » le chien à intervalle régulier. S'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte, qui repart de zéro.
 
-C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel — pas pour masquer des bugs qu'on devrait corriger.
+C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel, pas pour masquer des bugs qu'on devrait corriger.
 
 ## Procédure pas à pas
 
@@ -38,9 +38,9 @@ void setup() {
 }
 ```
 
-(En interne, cette fonction configure un registre dédié ; les opérations bit-à-bit correspondantes sont décrites dans [[manipulation-de-bits|la manipulation de bits]], mais `avr/wdt.h` les masque entièrement.)
+(En interne, cette fonction configure un registre dédié, et les opérations bit-à-bit correspondantes sont décrites dans [[manipulation-de-bits|la manipulation de bits]], mais `avr/wdt.h` les masque entièrement.)
 
-`avr/wdt.h` est propre à l'**AVR** (Uno R3, Nano, Mega). Sur **Uno R4** (Renesas), le watchdog s'arme via la bibliothèque `WDT` (`WDT.begin()`, `WDT.refresh()`) ; sur **ESP32**, c'est le *task watchdog* (`esp_task_wdt`). Le principe — nourrir un compteur sous peine de reset — reste partout le même ; seule l'API change (voir [[esp32|ESP32]]).
+`avr/wdt.h` est propre à l'**AVR** (Uno R3, Nano, Mega). Sur **Uno R4** (Renesas), le watchdog s'arme via la bibliothèque `WDT` (`WDT.begin()`, `WDT.refresh()`). Sur **ESP32**, c'est le *task watchdog* (`esp_task_wdt`). Le principe (nourrir un compteur sous peine de reset) reste partout le même, seule l'API change (voir [[esp32|ESP32]]).
 
 ### 2. Nourrir le chien régulièrement
 
@@ -75,7 +75,7 @@ void setup() {
 
 ## Exemple — Fiabiliser un montage qui peut se bloquer
 
-Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre — figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
+Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre, figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
 
 ```cpp
 #include <avr/wdt.h>
@@ -96,11 +96,11 @@ void loop() {
 }
 ```
 
-En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sous les 4 s : rien ne se passe. Mais si `lireCapteur()` se bloque, `wdt_reset()` n'est plus atteint, et au bout de 4 s la carte redémarre — repassant par `setup()`, qui réaffiche « Demarrage ». Le système se **rétablit seul**, sans intervention. Noter que le `delay(500)` est ici inoffensif car bien inférieur au délai du chien ; dans un programme [[arduino-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative.
+En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sous les 4 s : rien ne se passe. Mais si `lireCapteur()` se bloque, `wdt_reset()` n'est plus atteint, et au bout de 4 s la carte redémarre, repassant par `setup()`, qui réaffiche « Demarrage ». Le système se **rétablit seul**, sans intervention. Noter que le `delay(500)` est ici inoffensif car bien inférieur au délai du chien. Dans un programme [[arduino-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative.
 
 ## Pièges
 
-**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le chien **reste actif avec un délai très court** et le bootloader ne le désarme pas : la carte se réinitialise avant même d'avoir pu re-nourrir le chien — redémarrage en boucle, inutilisable. La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
+**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le chien **reste actif avec un délai très court** et le bootloader ne le désarme pas : la carte se réinitialise avant même d'avoir pu re-nourrir le chien (redémarrage en boucle, inutilisable). La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
 
 **Un délai plus court que la boucle normale.** Si le pire temps de boucle dépasse le délai du chien, celui-ci redémarre une carte qui fonctionnait parfaitement. Toujours régler le délai **au-dessus** de la durée maximale légitime d'un tour, avec marge.
 
@@ -112,7 +112,7 @@ En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sou
 
 ## Cas particulier — Mode interruption et réveil de veille
 
-Le watchdog a un second mode : au lieu de **redémarrer**, il peut déclencher une **interruption** à l'échéance. Ce mode sert notamment de **réveil périodique** pour la [[arduino-deep-sleep|mise en veille]] — c'est lui qui ranime un capteur sur batterie toutes les N secondes. Le même périphérique remplit donc deux rôles opposés : **filet de sécurité** (mode reset) et **réveil** (mode interruption). Garder cette distinction à l'esprit évite de confondre un redémarrage subi et un réveil voulu.
+Le watchdog a un second mode : au lieu de **redémarrer**, il peut déclencher une **interruption** à l'échéance. Ce mode sert notamment de **réveil périodique** pour la [[arduino-deep-sleep|mise en veille]]. C'est lui qui ranime un capteur sur batterie toutes les N secondes. Le même périphérique remplit donc deux rôles opposés : **filet de sécurité** (mode reset) et **réveil** (mode interruption). Garder cette distinction à l'esprit évite de confondre un redémarrage subi et un réveil voulu.
 
 ## Raccrochage projet
 

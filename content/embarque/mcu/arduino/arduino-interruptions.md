@@ -16,13 +16,13 @@ aa:
 draft: false
 ---
 
-Programmer une **interruption externe** sur Arduino consiste à rattacher une fonction — la routine d'interruption ([[interruption|ISR]]) — à une broche, via **`attachInterrupt()`**, pour qu'elle s'exécute automatiquement à chaque front du signal, sans que la boucle `loop()` ait à surveiller la broche. C'est l'outil pour **compter des impulsions rapides** ou **réagir instantanément** à un événement, même quand la boucle est occupée ailleurs.
+Programmer une **interruption externe** sur Arduino consiste à rattacher une fonction, la routine d'interruption ([[interruption|ISR]]), à une broche, via **`attachInterrupt()`**, pour qu'elle s'exécute automatiquement à chaque front du signal, sans que la boucle `loop()` ait à surveiller la broche. C'est l'outil pour **compter des impulsions rapides** ou **réagir instantanément** à un événement, même quand la boucle est occupée ailleurs.
 
 ## À quoi ça sert ?
 
 Lire une broche avec `digitalRead()` dans `loop()` ne suffit pas quand le signal est trop bref ou la boucle trop chargée : l'impulsion passe entre deux tours et n'est jamais vue. Brancher la broche sur une interruption règle le problème :
 
-- l'impulsion est captée **par le matériel**, à l'instant exact où elle arrive — on n'en manque aucune ;
+- l'impulsion est captée **par le matériel**, à l'instant exact où elle arrive (on n'en manque aucune) ;
 - la réaction est **immédiate**, quoi que fasse la boucle au même moment ;
 - la boucle **reste libre** d'afficher, calculer ou communiquer entre deux impulsions.
 
@@ -34,7 +34,7 @@ Quatre étapes : repérer une broche à interruption, écrire une ISR courte, l'
 
 ### 1. Repérer une broche à interruption
 
-Toutes les broches ne savent pas déclencher une interruption externe. Sur une **Uno / Nano**, seules **D2 et D3** le peuvent ; une **Mega** en offre six, une **Leonardo** cinq, un **ESP32** presque toutes. La fonction `digitalPinToInterrupt(broche)` traduit un numéro de broche en numéro d'interruption — on l'utilise toujours, plutôt que d'écrire le numéro d'interruption en dur, pour garder un code portable.
+Toutes les broches ne savent pas déclencher une interruption externe. Sur une **Uno / Nano**, seules **D2 et D3** le peuvent. Une **Mega** en offre six, une **Leonardo** cinq, un **ESP32** presque toutes. La fonction `digitalPinToInterrupt(broche)` traduit un numéro de broche en numéro d'interruption : on l'utilise toujours, plutôt que d'écrire le numéro d'interruption en dur, pour garder un code portable.
 
 | Carte | Broches à interruption externe |
 |---|---|
@@ -43,7 +43,7 @@ Toutes les broches ne savent pas déclencher une interruption externe. Sur une *
 | Leonardo, Micro | D0, D1, D2, D3, D7 |
 | ESP32 | presque toutes les GPIO |
 
-Deux pièges se lisent dans ce tableau. Sur une Mega, **D20 et D21 sont aussi les broches [[i2c|I2C]]** : elles ne sont plus disponibles en interruption dès qu'un bus I2C tourne. Et sur une Leonardo, **D0 et D1 sont le port série** — en pratique, il reste D2, D3 et D7.
+Deux pièges se lisent dans ce tableau. Sur une Mega, **D20 et D21 sont aussi les broches [[i2c|I2C]]** : elles ne sont plus disponibles en interruption dès qu'un bus I2C tourne. Et sur une Leonardo, **D0 et D1 sont le port série**. En pratique, il reste D2, D3 et D7.
 
 ### 2. Écrire l'ISR
 
@@ -57,7 +57,7 @@ void compter() {                          // l'ISR : courte, sans delay ni Seria
 }
 ```
 
-Pas de `delay()`, pas de `Serial.print()` dans l'ISR : ces fonctions reposent sur des interruptions désactivées pendant son exécution. On compte, c'est tout — l'affichage se fera dans `loop()`.
+Pas de `delay()`, pas de `Serial.print()` dans l'ISR : ces fonctions reposent sur des interruptions désactivées pendant son exécution. On compte, c'est tout. L'affichage se fera dans `loop()`.
 
 ### 3. Attacher l'interruption
 
@@ -79,7 +79,7 @@ Le mode dit ce qui déclenche l'ISR : `RISING` (front montant), `FALLING` (front
 
 La boucle lit le compteur **sans rien bloquer**, à un rythme donné par `millis()` (pas de `delay()`). Une précaution s'impose : `impulsions` fait quatre octets, et sur une Uno (8 bits) le processeur la lit en **plusieurs accès successifs**. Si une impulsion arrive *entre* ces accès, l'ISR modifie la variable au milieu de la lecture et `loop()` récupère une valeur incohérente (moitié ancienne, moitié neuve).
 
-On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique** — tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
+On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique**, tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
 
 ```cpp
 unsigned long tAffichage = 0;
@@ -103,7 +103,7 @@ void loop() {
 
 ## Exemple — Compteur de vitesse à effet Hall
 
-Un capteur à effet Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées et trop courtes pour être lues de façon fiable dans `loop()` — c'est le cas d'école de l'interruption. On compte les impulsions par interruption, et la boucle calcule la vitesse de rotation chaque seconde.
+Un capteur à effet Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées et trop courtes pour être lues de façon fiable dans `loop()`. C'est le cas d'école de l'interruption. On compte les impulsions par interruption, et la boucle calcule la vitesse de rotation chaque seconde.
 
 ![Chronogramme du comptage : la broche D2 est au repos à HIGH et chute à LOW à chaque passage d'aimant ; chaque front descendant déclenche l'ISR qui fait impulsions++ (1, 2, 3, 4) ; une fois par seconde, loop() lit le compteur, calcule les tr/min et le remet à zéro.|640](/ressources/img/arduino-interruptions/chronogramme-comptage.svg)
 
@@ -141,9 +141,9 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> Une fois par seconde, `loop()` relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `noInterrupts()` / `interrupts()` (cf. étape 4) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** (impulsions par seconde) ; la dernière ligne la convertit en tours par minute (`× 60`).
+> Une fois par seconde, `loop()` relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `noInterrupts()` / `interrupts()` (cf. étape 4) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** (impulsions par seconde). La dernière ligne la convertit en tours par minute (`× 60`).
 
-L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR — les deux comptages cohabitent sans se gêner.
+L'ISR ne fait qu'incrémenter. Tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR : les deux comptages cohabitent sans se gêner.
 
 ## Pièges
 
@@ -155,9 +155,9 @@ L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute, 
 
 **Choisir une broche sans interruption.** Sur une Uno, attacher une interruption à autre chose que D2 ou D3 ne déclenche rien, silencieusement. Vérifier les broches de la carte avant de câbler.
 
-**Compter un bouton mécanique sans anti-rebond.** Un bouton rebondit : un seul appui peut générer plusieurs fronts, donc plusieurs déclenchements. Une interruption ne filtre pas le rebond — pour compter des appuis, il faut un [[arduino-entree-tor|anti-rebond]] (logiciel ou matériel) en plus.
+**Compter un bouton mécanique sans anti-rebond.** Un bouton rebondit : un seul appui peut générer plusieurs fronts, donc plusieurs déclenchements. Une interruption ne filtre pas le rebond. Pour compter des appuis, il faut un [[arduino-entree-tor|anti-rebond]] (logiciel ou matériel) en plus.
 
-**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter ou mémoriser, c'est souvent que le traitement appartient à `loop()`. L'ISR signale ; la boucle traite.
+**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter ou mémoriser, c'est souvent que le traitement appartient à `loop()`. L'ISR signale, la boucle traite.
 
 ## Cas particulier — Les interruptions sur ESP32
 

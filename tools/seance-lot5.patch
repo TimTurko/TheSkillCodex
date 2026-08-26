@@ -1,0 +1,458 @@
+diff --git a/content/embarque/mcu/arduino/arduino-deep-sleep.md b/content/embarque/mcu/arduino/arduino-deep-sleep.md
+index d88c6f6..7e2795f 100644
+--- a/content/embarque/mcu/arduino/arduino-deep-sleep.md
++++ b/content/embarque/mcu/arduino/arduino-deep-sleep.md
+@@ -19,9 +19,9 @@ Mettre un Arduino en **veille** (*deep sleep*) consiste à endormir le microcont
+ 
+ ## À quoi ça sert ?
+ 
+-Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile — il exécute sa boucle à pleine vitesse. Pour un montage alimenté en USB, peu importe ; pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, ne consommant presque rien, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort.
++Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile. Il exécute sa boucle à pleine vitesse. Pour un montage alimenté en USB, peu importe. Pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, ne consommant presque rien, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort.
+ 
+-Le principe se résume à un cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**. Plus la part de sommeil est grande, plus l'autonomie s'allonge. On met cela en place tard dans le projet, en [[integration-et-tests|phase d'intégration]], comme **optimisation énergétique** d'un montage déjà fonctionnel — pas avant que la fonction marche.
++Le principe se résume à un cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**. Plus la part de sommeil est grande, plus l'autonomie s'allonge. On met cela en place tard dans le projet, en [[integration-et-tests|phase d'intégration]], comme **optimisation énergétique** d'un montage déjà fonctionnel, pas avant que la fonction marche.
+ 
+ ![Profil du courant dans le temps : de longues plages à quelques µA pendant le sommeil, entrecoupées de brefs pics à quelques mA lors des réveils (mesure + envoi) ; la consommation moyenne reste à quelques dizaines de µA, très loin du niveau (~mA en continu) d'un microcontrôleur toujours éveillé.|680](/ressources/img/arduino-deep-sleep/profil-courant-veille.svg)
+ 
+@@ -34,7 +34,7 @@ Quatre étapes : choisir un mode de veille, couper les périphériques, endormir
+ Un AVR offre plusieurs niveaux de sommeil, du plus léger au plus profond. Plus on descend, moins on consomme, mais moins il reste de moyens de se réveiller :
+ 
+ - **Idle** — le processeur s'arrête, mais les périphériques (timers, série) tournent ; réveil facile, gain modeste.
+-- **Power-down** — presque tout s'éteint ; consommation minimale (quelques µA), mais seuls une **interruption externe** ou le **chien de garde** peuvent réveiller.
++- **Power-down** — presque tout s'éteint, consommation minimale (quelques µA), mais seuls une **interruption externe** ou le **chien de garde** peuvent réveiller.
+ 
+ Pour l'autonomie, c'est **power-down** que l'on vise. La bibliothèque **LowPower** (à installer via le [[arduino-bibliotheques|gestionnaire de bibliothèques]]) masque les détails de registres et expose ces modes simplement.
+ 
+@@ -113,32 +113,32 @@ void loop() {
+ }
+ ```
+ 
+-Entre deux mesures, la carte ne consomme presque rien. `Serial.flush()` est important : sans lui, on peut s'endormir avant que l'envoi soit terminé. Sur la durée, le rapport « 32 s de sommeil pour une fraction de seconde d'éveil » transforme l'autonomie — c'est tout l'enjeu d'un objet sur pile.
++Entre deux mesures, la carte ne consomme presque rien. `Serial.flush()` est important : sans lui, on peut s'endormir avant que l'envoi soit terminé. Sur la durée, le rapport « 32 s de sommeil pour une fraction de seconde d'éveil » transforme l'autonomie. C'est tout l'enjeu d'un objet sur pile.
+ 
+ ## Pièges
+ 
+-**La carte Uno consomme trop pour que la veille serve à grand-chose.** Le régulateur de tension et la puce USB d'une Uno tirent plusieurs milliampères **en permanence**, microcontrôleur endormi ou non. Le vrai gain s'obtient sur un **AVR nu** ou une carte conçue basse consommation (sans USB ni régulateur gourmand) ; sur Uno, la mesure est surtout pédagogique.
++**La carte Uno consomme trop pour que la veille serve à grand-chose.** Le régulateur de tension et la puce USB d'une Uno tirent plusieurs milliampères **en permanence**, microcontrôleur endormi ou non. Le vrai gain s'obtient sur un **AVR nu** ou une carte conçue basse consommation (sans USB ni régulateur gourmand). Sur Uno, la mesure est surtout pédagogique.
+ 
+ **Oublier de couper l'ADC et le brown-out.** Laissés actifs, ils maintiennent une consommation qui ruine l'économie. Toujours passer `ADC_OFF` et `BOD_OFF` (ou les couper soi-même) en sommeil profond.
+ 
+ **S'endormir avant d'avoir fini d'émettre.** Le port série et les communications sont asynchrones : `Serial.flush()` (ou l'équivalent) garantit que l'envoi est terminé avant la mise en veille, sinon le message est tronqué.
+ 
+-**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille** — il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.) Sur **ESP32**, c'est l'inverse : le deep sleep **redémarre** la puce au réveil et ré-exécute `setup()` (seule la *RTC memory* survit) — à connaître si l'on porte le code (API et sources de réveil propres à l'ESP32, voir [[esp32|ESP32]]).
++**Croire que le réveil reprend de zéro.** Au réveil depuis power-down, le programme **continue après la ligne de mise en veille**. Il ne redémarre pas comme après un reset. Les variables sont conservées. (À ne pas confondre avec un reset par [[arduino-watchdog|chien de garde]], qui, lui, repart de `setup()`.) Sur **ESP32**, c'est l'inverse : le deep sleep **redémarre** la puce au réveil et ré-exécute `setup()` (seule la *RTC memory* survit), à connaître si l'on porte le code (API et sources de réveil propres à l'ESP32, voir [[esp32|ESP32]]).
+ 
+ **Câbler une source de réveil sur une broche qui ne réveille pas.** En power-down, seules certaines broches d'interruption peuvent réveiller (D2/D3 sur Uno). Vérifier avant de compter dessus.
+ 
+-**Durée de sommeil non multiple de 8 s.** Le helper `dormir(secondes)` boucle `secondes / 8` fois : la division entière **tronque**. `dormir(32)` donne bien 4 cycles (32 s), mais `dormir(30)` donne `30 / 8 = 3` cycles, soit 24 s — la carte dort moins que demandé, sans le moindre avertissement. Passer un multiple de 8 s, ou composer la durée avec les constantes plus fines (`SLEEP_4S`, `SLEEP_2S`, `SLEEP_1S`…).
++**Durée de sommeil non multiple de 8 s.** Le helper `dormir(secondes)` boucle `secondes / 8` fois : la division entière **tronque**. `dormir(32)` donne bien 4 cycles (32 s), mais `dormir(30)` donne `30 / 8 = 3` cycles, soit 24 s. La carte dort moins que demandé, sans le moindre avertissement. Passer un multiple de 8 s, ou composer la durée avec les constantes plus fines (`SLEEP_4S`, `SLEEP_2S`, `SLEEP_1S`…).
+ 
+ ## Cas particulier — Réveil par chien de garde en mode interruption
+ 
+-Le [[arduino-watchdog|chien de garde]] a deux usages opposés : en **mode reset**, il redémarre une carte bloquée ; en **mode interruption**, il déclenche une routine sans redémarrer — et c'est ce second mode qui sert de **réveil périodique** pour la veille. La bibliothèque LowPower s'en sert en interne pour ses durées `SLEEP_xS`. Comprendre que le même périphérique sert à la fois de filet de sécurité et de réveil aide à ne pas s'emmêler entre les deux rôles.
++Le [[arduino-watchdog|chien de garde]] a deux usages opposés. En **mode reset**, il redémarre une carte bloquée. En **mode interruption**, il déclenche une routine sans redémarrer, et c'est ce second mode qui sert de **réveil périodique** pour la veille. La bibliothèque LowPower s'en sert en interne pour ses durées `SLEEP_xS`. Comprendre que le même périphérique sert à la fois de filet de sécurité et de réveil aide à ne pas s'emmêler entre les deux rôles.
+ 
+ ## Raccrochage projet
+ 
+ - **[[integration-et-tests|Phase d'intégration et tests]]** — l'optimisation énergétique vient une fois la fonction validée : on mesure la consommation, puis on introduit la veille pour atteindre l'autonomie visée par le cahier des charges.
+-- **Spécification** — l'autonomie cible (« tenir une saison sur deux piles AA ») est une exigence à poser tôt ; la veille est le moyen de la tenir, à dimensionner avec le budget énergétique du montage (voir [[arduino-alimentation|alimenter la carte]]).
++- **Spécification** — l'autonomie cible (« tenir une saison sur deux piles AA ») est une exigence à poser tôt. La veille est le moyen de la tenir, à dimensionner avec le budget énergétique du montage (voir [[arduino-alimentation|alimenter la carte]]).
+ 
+-Sur un objet connecté autonome, la veille n'est pas un détail d'optimisation mais l'**architecture même** du programme — d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
++Sur un objet connecté autonome, la veille n'est pas un détail d'optimisation mais l'**architecture même** du programme, d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
+ 
+ ## Voir aussi
+ 
+diff --git a/content/embarque/mcu/arduino/arduino-eeprom.md b/content/embarque/mcu/arduino/arduino-eeprom.md
+index 59f93ac..cd1f466 100644
+--- a/content/embarque/mcu/arduino/arduino-eeprom.md
++++ b/content/embarque/mcu/arduino/arduino-eeprom.md
+@@ -23,10 +23,10 @@ Cas d'usage en projet école :
+ 
+ - **Compteur d'événements persistant** — nombre de démarrages, nombre de cycles effectués, durée totale d'utilisation.
+ - **Paramètres de calibration** — offset capteur, seuils utilisateur, mode de fonctionnement.
+-- **Mémorisation de la dernière configuration** — dernier mode actif, dernière valeur de consigne — pour reprendre où on s'était arrêté.
++- **Mémorisation de la dernière configuration** — dernier mode actif, dernière valeur de consigne, pour reprendre où on s'était arrêté.
+ - **Petits logs** — quelques dernières valeurs d'un capteur conservées pour analyse post-démarrage.
+ 
+-**Limites importantes** : capacité réduite (1 ko = 1024 octets sur Uno R3), nombre de cycles d'écriture limité (~100 000 par cellule), pas de gestion de système de fichiers — c'est une mémoire brute adressée par numéro d'octet. Pour des volumes plus gros, voir la carte SD (voir [[arduino-spi|SPI sur Arduino]]).
++**Limites importantes** : capacité réduite (1 ko = 1024 octets sur Uno R3), nombre de cycles d'écriture limité (~100 000 par cellule), pas de gestion de système de fichiers. C'est une mémoire brute adressée par numéro d'octet. Pour des volumes plus gros, voir la carte SD (voir [[arduino-spi|SPI sur Arduino]]).
+ 
+ ## Procédure pas à pas
+ 
+@@ -41,7 +41,7 @@ Quatre étapes : connaître la capacité de la carte, lire la valeur initiale, 
+ | **Uno R4** | 8 ko émulés sur Data Flash (Renesas RA4M1) | **émulation** — effacement par page |
+ | ESP32 | aucune EEPROM matérielle — **émulée sur Flash** (taille déclarée à l'init) | émulation via `EEPROM.h` ou `Preferences.h` |
+ 
+-Sur **Uno R4**, l'EEPROM n'existe pas physiquement — le Renesas RA4M1 utilise sa **Data Flash** (8 ko) pour émuler le comportement. La bibliothèque `EEPROM.h` reste compatible, mais l'effacement se fait **par page de 1024 octets** : écrire un seul octet peut obliger à réécrire toute la page. Conséquence : l'usure grimpe bien plus vite qu'en EEPROM dédiée — **ne jamais faire de data logging via `EEPROM.h` sur R4** (et `update()` n'y apporte pas le même gain qu'en AVR). Pour des écritures fréquentes, passer par une carte SD.
++Sur **Uno R4**, l'EEPROM n'existe pas physiquement. Le Renesas RA4M1 utilise sa **Data Flash** (8 ko) pour émuler le comportement. La bibliothèque `EEPROM.h` reste compatible, mais l'effacement se fait **par page de 1024 octets** : écrire un seul octet peut obliger à réécrire toute la page. Conséquence : l'usure grimpe bien plus vite qu'en EEPROM dédiée, et surtout **ne jamais faire de data logging via `EEPROM.h` sur R4** (et `update()` n'y apporte pas le même gain qu'en AVR). Pour des écritures fréquentes, passer par une carte SD.
+ 
+ Sur **ESP32**, préférer `Preferences.h` (plus moderne) à `EEPROM.h` (héritage compatibilité).
+ 
+@@ -155,31 +155,31 @@ void loop() {}
+ ```
+ 
+ > [!info] Comment lire ce code
+-> `EEPROM.get(ADRESSE_COMPTEUR, compteur)` relit les 4 octets d'un `uint32_t` à l'adresse 0. Sur une carte **neuve**, ces octets valent tous `0xFF`, donc `compteur` vaut `0xFFFFFFFF` (soit 4294967295) : on teste ce cas pour repartir de 0 plutôt que d'un nombre aberrant. On incrémente, puis `EEPROM.put(...)` réécrit les 4 octets. `get`/`put` gèrent seuls la (dé)sérialisation du type — pas besoin de découper en octets à la main.
++> `EEPROM.get(ADRESSE_COMPTEUR, compteur)` relit les 4 octets d'un `uint32_t` à l'adresse 0. Sur une carte **neuve**, ces octets valent tous `0xFF`, donc `compteur` vaut `0xFFFFFFFF` (soit 4294967295) : on teste ce cas pour repartir de 0 plutôt que d'un nombre aberrant. On incrémente, puis `EEPROM.put(...)` réécrit les 4 octets. `get`/`put` gèrent seuls la (dé)sérialisation du type, pas besoin de découper en octets à la main.
+ 
+-Téléverser, observer la valeur (par exemple : `Demarrage n°1`). Débrancher l'Arduino, rebrancher — la valeur s'incrémente (`n°2`, `n°3`...). Elle persiste même après une déconnexion totale.
++Téléverser, observer la valeur (par exemple : `Demarrage n°1`). Débrancher l'Arduino, rebrancher : la valeur s'incrémente (`n°2`, `n°3`...). Elle persiste même après une déconnexion totale.
+ 
+ ## Pièges
+ 
+-**Détection de l'EEPROM neuve.** Une EEPROM vierge a tous ses octets à `0xFF` (255). Si on lit un `int` à l'adresse 0 sans avoir jamais écrit, on lit `0xFFFF` (soit -1 en signé, 65535 en non signé). **Toujours détecter ce cas** et initialiser à une valeur sensée — sinon, le programme part avec des paramètres aberrants. Variante : écrire une **signature** (octet de valeur connue à une adresse fixe) qu'on vérifie au démarrage.
++**Détection de l'EEPROM neuve.** Une EEPROM vierge a tous ses octets à `0xFF` (255). Si on lit un `int` à l'adresse 0 sans avoir jamais écrit, on lit `0xFFFF` (soit -1 en signé, 65535 en non signé). **Toujours détecter ce cas** et initialiser à une valeur sensée. Sinon, le programme part avec des paramètres aberrants. Variante : écrire une **signature** (octet de valeur connue à une adresse fixe) qu'on vérifie au démarrage.
+ 
+-**Pas d'`EEPROM.commit()` oublié sur ESP32.** Sur ESP32, l'`EEPROM.h` émulée nécessite un appel explicite à `EEPROM.commit()` après chaque modification pour que les données soient effectivement écrites en Flash. Sur Uno R3, ce n'est pas nécessaire — code écrit pour Uno qui passe sur ESP32 et perd ses données = oubli du `commit()`.
++**Pas d'`EEPROM.commit()` oublié sur ESP32.** Sur ESP32, l'`EEPROM.h` émulée nécessite un appel explicite à `EEPROM.commit()` après chaque modification pour que les données soient effectivement écrites en Flash. Sur Uno R3, ce n'est pas nécessaire : code écrit pour Uno qui passe sur ESP32 et perd ses données = oubli du `commit()`.
+ 
+-**Écriture en boucle.** Code comme `EEPROM.write(0, capteur);` dans `loop()` — chaque tour de `loop()` écrit, on dépasse les 100 000 cycles en quelques heures. Cellule grillée, valeurs erratiques. Utiliser `EEPROM.update()` ou n'écrire que sur événement (changement de mode, bouton).
++**Écriture en boucle.** Code comme `EEPROM.write(0, capteur);` dans `loop()` : chaque tour de `loop()` écrit, on dépasse les 100 000 cycles en quelques heures. Cellule grillée, valeurs erratiques. Utiliser `EEPROM.update()` ou n'écrire que sur événement (changement de mode, bouton).
+ 
+-**Adresses qui se chevauchent.** Stocker un `int` (2 octets) à l'adresse 0, puis un `float` (4 octets) à l'adresse 1 : le `float` écrase les octets 1, 2, 3, 4 — donc le second octet de l'`int` est corrompu. Toujours calculer les adresses : `ADR_FLOAT = ADR_INT + sizeof(int);`.
++**Adresses qui se chevauchent.** Stocker un `int` (2 octets) à l'adresse 0, puis un `float` (4 octets) à l'adresse 1 : le `float` écrase les octets 1, 2, 3, 4, donc le second octet de l'`int` est corrompu. Toujours calculer les adresses : `ADR_FLOAT = ADR_INT + sizeof(int);`.
+ 
+-**Casse de structure entre versions.** Modifier le `struct Config` (ajout d'un champ, changement d'un type) brise la compatibilité avec l'EEPROM existante — au démarrage, on lit des octets dans la mauvaise structure. Bonne pratique : numéroter la version dans la structure et migrer si la version diffère.
++**Casse de structure entre versions.** Modifier le `struct Config` (ajout d'un champ, changement d'un type) brise la compatibilité avec l'EEPROM existante. Au démarrage, on lit des octets dans la mauvaise structure. Bonne pratique : numéroter la version dans la structure et migrer si la version diffère.
+ 
+ **Corruption d'EEPROM par reset pendant l'écriture.** Une coupure d'alimentation pendant `EEPROM.write()` peut corrompre l'octet en cours d'écriture (~3 ms sur Uno R3). Pour des données critiques, utiliser un double-buffer (deux copies à adresses différentes, basculer entre les deux) ou un checksum.
+ 
+ **Mauvaise interprétation des types.** Relire en `float` (via `EEPROM.get(adr, monFloat)`) ce qui avait été écrit en `int` (via `EEPROM.put(adr, monInt)`) donne des valeurs aberrantes — pas d'erreur de compilation, juste de mauvais bits réinterprétés. `get`/`put` déduisent le type de la variable passée : la cohérence type-à-type entre l'écriture et la lecture est de la responsabilité du programmeur.
+ 
+-**Confondre Flash et EEPROM.** La mémoire **Flash** d'un Arduino contient le sketch — on ne peut pas l'écrire en cours d'exécution depuis le code utilisateur. La **EEPROM** est une zone séparée, dédiée aux données utilisateur. Sur Uno R4 et ESP32, la frontière s'estompe (émulation), mais le concept reste valide (voir [[memoire|les mémoires d'un microcontrôleur]]).
++**Confondre Flash et EEPROM.** La mémoire **Flash** d'un Arduino contient le sketch : on ne peut pas l'écrire en cours d'exécution depuis le code utilisateur. La **EEPROM** est une zone séparée, dédiée aux données utilisateur. Sur Uno R4 et ESP32, la frontière s'estompe (émulation), mais le concept reste valide (voir [[memoire|les mémoires d'un microcontrôleur]]).
+ 
+ ## Cas particulier — Stockage sur ESP32
+ 
+-Sur ESP32, l'`EEPROM.h` est seulement **émulée** (rétrocompatibilité Arduino, avec `commit()` obligatoire). L'API native recommandée est **`Preferences.h`** : des paires clé-valeur stockées en Flash (NVS), avec gestion automatique de l'espace et de l'usure — nettement plus robuste pour des paramètres persistants. Le détail de cette API relève du parcours ESP32 ; ici, retenir surtout que **le code EEPROM d'un Arduino ne se transpose pas tel quel** sur ESP32 (au minimum, ajouter `commit()`).
++Sur ESP32, l'`EEPROM.h` est seulement **émulée** (rétrocompatibilité Arduino, avec `commit()` obligatoire). L'API native recommandée est **`Preferences.h`** : des paires clé-valeur stockées en Flash (NVS), avec gestion automatique de l'espace et de l'usure, nettement plus robuste pour des paramètres persistants. Le détail de cette API relève du parcours ESP32. Ici, retenir surtout que **le code EEPROM d'un Arduino ne se transpose pas tel quel** sur ESP32 (au minimum, ajouter `commit()`).
+ 
+ ## Raccrochage projet
+ 
+@@ -187,7 +187,7 @@ Sur ESP32, l'`EEPROM.h` est seulement **émulée** (rétrocompatibilité Arduino
+ - **Étape 4 de la [[dossier-technique|phase de dossier technique]]** — la persistance des paramètres et compteurs fait partie des choix d'architecture du firmware.
+ - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — la calibration en condition réelle se sauvegarde en EEPROM pour ne pas être perdue à la coupure.
+ 
+-L'EEPROM est un petit outil simple mais souvent négligé en projet débutant — l'introduire au moment où apparaît le premier paramètre persistant transforme un sketch de démo en système qui *se souvient*, étape clé pour un démonstrateur crédible.
++L'EEPROM est un petit outil simple mais souvent négligé en projet débutant : l'introduire au moment où apparaît le premier paramètre persistant transforme un sketch de démo en système qui *se souvient*, étape clé pour un démonstrateur crédible.
+ 
+ ## Voir aussi
+ 
+diff --git a/content/embarque/mcu/arduino/arduino-interruptions.md b/content/embarque/mcu/arduino/arduino-interruptions.md
+index d24869b..9ba9d07 100644
+--- a/content/embarque/mcu/arduino/arduino-interruptions.md
++++ b/content/embarque/mcu/arduino/arduino-interruptions.md
+@@ -16,13 +16,13 @@ aa:
+ draft: false
+ ---
+ 
+-Programmer une **interruption externe** sur Arduino consiste à rattacher une fonction — la routine d'interruption ([[interruption|ISR]]) — à une broche, via **`attachInterrupt()`**, pour qu'elle s'exécute automatiquement à chaque front du signal, sans que la boucle `loop()` ait à surveiller la broche. C'est l'outil pour **compter des impulsions rapides** ou **réagir instantanément** à un événement, même quand la boucle est occupée ailleurs.
++Programmer une **interruption externe** sur Arduino consiste à rattacher une fonction, la routine d'interruption ([[interruption|ISR]]), à une broche, via **`attachInterrupt()`**, pour qu'elle s'exécute automatiquement à chaque front du signal, sans que la boucle `loop()` ait à surveiller la broche. C'est l'outil pour **compter des impulsions rapides** ou **réagir instantanément** à un événement, même quand la boucle est occupée ailleurs.
+ 
+ ## À quoi ça sert ?
+ 
+ Lire une broche avec `digitalRead()` dans `loop()` ne suffit pas quand le signal est trop bref ou la boucle trop chargée : l'impulsion passe entre deux tours et n'est jamais vue. Brancher la broche sur une interruption règle le problème :
+ 
+-- l'impulsion est captée **par le matériel**, à l'instant exact où elle arrive — on n'en manque aucune ;
++- l'impulsion est captée **par le matériel**, à l'instant exact où elle arrive (on n'en manque aucune) ;
+ - la réaction est **immédiate**, quoi que fasse la boucle au même moment ;
+ - la boucle **reste libre** d'afficher, calculer ou communiquer entre deux impulsions.
+ 
+@@ -34,7 +34,7 @@ Quatre étapes : repérer une broche à interruption, écrire une ISR courte, l'
+ 
+ ### 1. Repérer une broche à interruption
+ 
+-Toutes les broches ne savent pas déclencher une interruption externe. Sur une **Uno / Nano**, seules **D2 et D3** le peuvent ; une **Mega** en offre six, une **Leonardo** cinq, un **ESP32** presque toutes. La fonction `digitalPinToInterrupt(broche)` traduit un numéro de broche en numéro d'interruption — on l'utilise toujours, plutôt que d'écrire le numéro d'interruption en dur, pour garder un code portable.
++Toutes les broches ne savent pas déclencher une interruption externe. Sur une **Uno / Nano**, seules **D2 et D3** le peuvent. Une **Mega** en offre six, une **Leonardo** cinq, un **ESP32** presque toutes. La fonction `digitalPinToInterrupt(broche)` traduit un numéro de broche en numéro d'interruption : on l'utilise toujours, plutôt que d'écrire le numéro d'interruption en dur, pour garder un code portable.
+ 
+ | Carte | Broches à interruption externe |
+ |---|---|
+@@ -43,7 +43,7 @@ Toutes les broches ne savent pas déclencher une interruption externe. Sur une *
+ | Leonardo, Micro | D0, D1, D2, D3, D7 |
+ | ESP32 | presque toutes les GPIO |
+ 
+-Deux pièges se lisent dans ce tableau. Sur une Mega, **D20 et D21 sont aussi les broches [[i2c|I2C]]** : elles ne sont plus disponibles en interruption dès qu'un bus I2C tourne. Et sur une Leonardo, **D0 et D1 sont le port série** — en pratique, il reste D2, D3 et D7.
++Deux pièges se lisent dans ce tableau. Sur une Mega, **D20 et D21 sont aussi les broches [[i2c|I2C]]** : elles ne sont plus disponibles en interruption dès qu'un bus I2C tourne. Et sur une Leonardo, **D0 et D1 sont le port série**. En pratique, il reste D2, D3 et D7.
+ 
+ ### 2. Écrire l'ISR
+ 
+@@ -57,7 +57,7 @@ void compter() {                          // l'ISR : courte, sans delay ni Seria
+ }
+ ```
+ 
+-Pas de `delay()`, pas de `Serial.print()` dans l'ISR : ces fonctions reposent sur des interruptions désactivées pendant son exécution. On compte, c'est tout — l'affichage se fera dans `loop()`.
++Pas de `delay()`, pas de `Serial.print()` dans l'ISR : ces fonctions reposent sur des interruptions désactivées pendant son exécution. On compte, c'est tout. L'affichage se fera dans `loop()`.
+ 
+ ### 3. Attacher l'interruption
+ 
+@@ -79,7 +79,7 @@ Le mode dit ce qui déclenche l'ISR : `RISING` (front montant), `FALLING` (front
+ 
+ La boucle lit le compteur **sans rien bloquer**, à un rythme donné par `millis()` (pas de `delay()`). Une précaution s'impose : `impulsions` fait quatre octets, et sur une Uno (8 bits) le processeur la lit en **plusieurs accès successifs**. Si une impulsion arrive *entre* ces accès, l'ISR modifie la variable au milieu de la lecture et `loop()` récupère une valeur incohérente (moitié ancienne, moitié neuve).
+ 
+-On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique** — tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
++On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique**, tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
+ 
+ ```cpp
+ unsigned long tAffichage = 0;
+@@ -103,7 +103,7 @@ void loop() {
+ 
+ ## Exemple — Compteur de vitesse à effet Hall
+ 
+-Un capteur à effet Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées et trop courtes pour être lues de façon fiable dans `loop()` — c'est le cas d'école de l'interruption. On compte les impulsions par interruption, et la boucle calcule la vitesse de rotation chaque seconde.
++Un capteur à effet Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées et trop courtes pour être lues de façon fiable dans `loop()`. C'est le cas d'école de l'interruption. On compte les impulsions par interruption, et la boucle calcule la vitesse de rotation chaque seconde.
+ 
+ ![Chronogramme du comptage : la broche D2 est au repos à HIGH et chute à LOW à chaque passage d'aimant ; chaque front descendant déclenche l'ISR qui fait impulsions++ (1, 2, 3, 4) ; une fois par seconde, loop() lit le compteur, calcule les tr/min et le remet à zéro.|640](/ressources/img/arduino-interruptions/chronogramme-comptage.svg)
+ 
+@@ -141,9 +141,9 @@ void loop() {
+ ```
+ 
+ > [!info] Comment lire ce code
+-> Une fois par seconde, `loop()` relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `noInterrupts()` / `interrupts()` (cf. étape 4) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** (impulsions par seconde) ; la dernière ligne la convertit en tours par minute (`× 60`).
++> Une fois par seconde, `loop()` relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `noInterrupts()` / `interrupts()` (cf. étape 4) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** (impulsions par seconde). La dernière ligne la convertit en tours par minute (`× 60`).
+ 
+-L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR — les deux comptages cohabitent sans se gêner.
++L'ISR ne fait qu'incrémenter. Tout le calcul (conversion en tours par minute, affichage) se passe dans `loop()`, là où le `Serial.print()` est permis et où le temps de calcul ne gêne personne. La boucle reste réactive, et aucune impulsion n'est perdue, même à pleine vitesse. Brancher un second capteur sur D3 reviendrait à ajouter une seconde ISR : les deux comptages cohabitent sans se gêner.
+ 
+ ## Pièges
+ 
+@@ -155,9 +155,9 @@ L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tours par minute,
+ 
+ **Choisir une broche sans interruption.** Sur une Uno, attacher une interruption à autre chose que D2 ou D3 ne déclenche rien, silencieusement. Vérifier les broches de la carte avant de câbler.
+ 
+-**Compter un bouton mécanique sans anti-rebond.** Un bouton rebondit : un seul appui peut générer plusieurs fronts, donc plusieurs déclenchements. Une interruption ne filtre pas le rebond — pour compter des appuis, il faut un [[arduino-entree-tor|anti-rebond]] (logiciel ou matériel) en plus.
++**Compter un bouton mécanique sans anti-rebond.** Un bouton rebondit : un seul appui peut générer plusieurs fronts, donc plusieurs déclenchements. Une interruption ne filtre pas le rebond. Pour compter des appuis, il faut un [[arduino-entree-tor|anti-rebond]] (logiciel ou matériel) en plus.
+ 
+-**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter ou mémoriser, c'est souvent que le traitement appartient à `loop()`. L'ISR signale ; la boucle traite.
++**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter ou mémoriser, c'est souvent que le traitement appartient à `loop()`. L'ISR signale, la boucle traite.
+ 
+ ## Cas particulier — Les interruptions sur ESP32
+ 
+diff --git a/content/embarque/mcu/arduino/arduino-memoire.md b/content/embarque/mcu/arduino/arduino-memoire.md
+index 8cf331c..44edfaa 100644
+--- a/content/embarque/mcu/arduino/arduino-memoire.md
++++ b/content/embarque/mcu/arduino/arduino-memoire.md
+@@ -19,7 +19,7 @@ Gérer la **mémoire** sur Arduino, c'est composer avec une ressource rare : un
+ 
+ ## À quoi ça sert ?
+ 
+-Sur un PC, la mémoire semble infinie ; sur un microcontrôleur, elle est comptée. Un sketch qui multiplie les variables, accumule des chaînes de caractères ou embarque de gros tableaux peut épuiser la SRAM — et le symptôme est traître : pas de message d'erreur, juste un programme qui **redémarre tout seul, se fige ou se comporte n'importe comment**. Savoir où va la mémoire et comment l'économiser est donc une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse le sketch d'exemple et commence à manquer de place.
++Sur un PC, la mémoire semble infinie. Sur un microcontrôleur, elle est comptée. Un sketch qui multiplie les variables, accumule des chaînes de caractères ou embarque de gros tableaux peut épuiser la SRAM, et le symptôme est traître : pas de message d'erreur, juste un programme qui **redémarre tout seul, se fige ou se comporte n'importe comment**. Savoir où va la mémoire et comment l'économiser est donc une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse le sketch d'exemple et commence à manquer de place.
+ 
+ ## Procédure pas à pas
+ 
+@@ -30,12 +30,12 @@ Quatre étapes : distinguer les trois mémoires, comprendre où vivent les varia
+ Un AVR (ATmega328P de l'Uno) sépare trois espaces aux rôles distincts :
+ 
+ - **Flash (32 Ko)** — la mémoire de **programme** : elle contient le code téléversé. Vaste, mais en lecture seule à l'exécution. On peut y ranger des **constantes**.
+-- **SRAM (2 Ko)** — la mémoire **vive** : elle contient les variables manipulées pendant l'exécution. **Petite et précieuse** — c'est elle qui sature.
++- **SRAM (2 Ko)** — la mémoire **vive** : elle contient les variables manipulées pendant l'exécution. **Petite et précieuse**. C'est elle qui sature.
+ - **EEPROM (1 Ko)** — la mémoire **persistante** : elle conserve quelques données après extinction (réglages, calibration), via [[arduino-eeprom|son tuto dédié]].
+ 
+ La règle de fond : **la SRAM est la ressource critique**, et tout ce qui peut en sortir doit en sortir.
+ 
+-Ces chiffres — et donc la pression sur la RAM — sont propres à l'**AVR**. Une **Uno R4** (32 Ko de SRAM) ou un **ESP32** (~520 Ko) desserrent énormément la contrainte : `F()` et `PROGMEM` y restent valides mais quasi sans gain, et la chasse aux octets n'a plus le même sens. Les bonnes habitudes (mesurer, éviter de fragmenter le tas) restent utiles partout — voir [[esp32|ESP32]].
++Ces chiffres (et donc la pression sur la RAM) sont propres à l'**AVR**. Une **Uno R4** (32 Ko de SRAM) ou un **ESP32** (~520 Ko) desserrent énormément la contrainte : `F()` et `PROGMEM` y restent valides mais quasi sans gain, et la chasse aux octets n'a plus le même sens. Les bonnes habitudes (mesurer, éviter de fragmenter le tas) restent utiles partout (voir [[esp32|ESP32]]).
+ 
+ ### 2. Comprendre où vivent les variables en SRAM
+ 
+@@ -45,7 +45,7 @@ La SRAM se partage en trois zones :
+ - la **pile** (*stack*), qui grandit vers le bas, stocke les variables **locales** et les appels de fonctions ;
+ - le **tas** (*heap*), qui grandit vers le haut, sert à l'allocation **dynamique** (les chaînes `String`, le `new`).
+ 
+-Pile et tas grandissent **l'un vers l'autre** dans le même petit espace : s'ils se rejoignent, c'est le plantage. Les détails du langage (pointeurs, allocation) relèvent des bases du [[cpp|C++]] ; ici, l'essentiel est de savoir que **chaque variable a un coût** et que le tas est le plus risqué.
++Pile et tas grandissent **l'un vers l'autre** dans le même petit espace : s'ils se rejoignent, c'est le plantage. Les détails du langage (pointeurs, allocation) relèvent des bases du [[cpp|C++]]. Ici, l'essentiel est de savoir que **chaque variable a un coût** et que le tas est le plus risqué.
+ 
+ ![Carte mémoire d'un Arduino : la Flash (32 Ko) contient le programme et, à droite, les constantes déportées par F() et PROGMEM ; la SRAM (2 Ko) est découpée en variables globales/statiques (fixe), tas qui grandit vers la droite, espace libre mesuré par freeMemory(), et pile qui grandit vers la gauche — si le tas et la pile se rejoignent, c'est le plantage.|680](/ressources/img/arduino-memoire/carte-memoire-sram.svg)
+ 
+@@ -77,7 +77,7 @@ RAM libre : XXXX
+ RAM libre : XXXX
+ ```
+ 
+-Ce qui compte n'est pas le chiffre mais sa **tendance** : une marge qui se stabilise est saine, une marge qui décroît tour après tour signale une fuite. Les valeurs sont à relever sur votre montage — elles dépendent du sketch et des bibliothèques chargées.
++Ce qui compte n'est pas le chiffre mais sa **tendance** : une marge qui se stabilise est saine, une marge qui décroît tour après tour signale une fuite. Les valeurs sont à relever sur votre montage. Elles dépendent du sketch et des bibliothèques chargées.
+ 
+ ## Exemple — Diagnostiquer un plantage par saturation
+ 
+@@ -104,7 +104,7 @@ void afficher(int n) {
+ }
+ ```
+ 
+-La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de texte en SRAM. Sur un sketch qui affiche souvent, l'écart de RAM libre est spectaculaire — et le redémarrage mystérieux disparaît. La démarche générale : **mesurer** la RAM libre, repérer les `String` et les longs textes, les remplacer par `F()` et des `char[]`.
++La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de texte en SRAM. Sur un sketch qui affiche souvent, l'écart de RAM libre est spectaculaire, et le redémarrage mystérieux disparaît. La démarche générale : **mesurer** la RAM libre, repérer les `String` et les longs textes, les remplacer par `F()` et des `char[]`.
+ 
+ ## Pièges
+ 
+@@ -116,9 +116,9 @@ La seconde version ne touche pas au tas : aucune fragmentation, aucune copie de
+ 
+ **La récursion ou les grosses variables locales.** La pile est minuscule : une fonction récursive profonde ou un gros tableau local peut la faire mordre sur le tas. Éviter la récursion non bornée sur AVR.
+ 
+-**Variable de temps en `int` au lieu d'`unsigned long`.** Au-delà de la mémoire, un mauvais type provoque des débordements (voir [[arduino-temporisation|temporisation]]) — le bon dimensionnement des types fait aussi partie de la gestion mémoire.
++**Variable de temps en `int` au lieu d'`unsigned long`.** Au-delà de la mémoire, un mauvais type provoque des débordements (voir [[arduino-temporisation|temporisation]]) : le bon dimensionnement des types fait aussi partie de la gestion mémoire.
+ 
+-**Confondre Flash pleine et SRAM pleine.** Le compilateur annonce deux chiffres : l'espace **programme** (Flash) et la **mémoire dynamique** (SRAM). Un programme peut tenir en Flash mais manquer de SRAM à l'exécution — c'est ce second chiffre qu'il faut surveiller.
++**Confondre Flash pleine et SRAM pleine.** Le compilateur annonce deux chiffres : l'espace **programme** (Flash) et la **mémoire dynamique** (SRAM). Un programme peut tenir en Flash mais manquer de SRAM à l'exécution. C'est ce second chiffre qu'il faut surveiller.
+ 
+ ## Cas particulier — Lire le rapport de compilation
+ 
+@@ -127,9 +127,9 @@ Après chaque téléversement, l'IDE affiche deux lignes : combien de Flash le p
+ ## Raccrochage projet
+ 
+ - **[[preuve-de-concept|Phase de preuve de concept]]** — dès que le code dépasse l'exemple (plusieurs capteurs, affichage, journalisation), surveiller la RAM et adopter `F()`/`PROGMEM` avant de heurter le mur de la SRAM.
+-- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire ; un budget RAM tenu fonction par fonction évite les plantages qui n'apparaissent qu'une fois tout assemblé.
++- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire. Un budget RAM tenu fonction par fonction évite les plantages qui n'apparaissent qu'une fois tout assemblé.
+ 
+-Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité, sans message — et qu'on traque pendant des heures faute d'avoir regardé la RAM libre.
++Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité, sans message, et qu'on traque pendant des heures faute d'avoir regardé la RAM libre.
+ 
+ ## Voir aussi
+ 
+diff --git a/content/embarque/mcu/arduino/arduino-timers.md b/content/embarque/mcu/arduino/arduino-timers.md
+index a3f3d04..96a09b5 100644
+--- a/content/embarque/mcu/arduino/arduino-timers.md
++++ b/content/embarque/mcu/arduino/arduino-timers.md
+@@ -16,7 +16,7 @@ aa:
+ draft: false
+ ---
+ 
+-Utiliser un **timer matériel** sur Arduino consiste à configurer un compteur interne pour exécuter une action à **intervalle précis** — typiquement via une bibliothèque comme **TimerOne**, qui masque les registres. Le timer déclenche une [[interruption|interruption]] à la fréquence choisie, ce qui donne une cadence parfaitement régulière qu'une boucle `millis()` ne garantit pas, et permet aussi de régler la fréquence d'un [[pwm|signal PWM]].
++Utiliser un **timer matériel** sur Arduino consiste à configurer un compteur interne pour exécuter une action à **intervalle précis** (typiquement via une bibliothèque comme **TimerOne**, qui masque les registres). Le timer déclenche une [[interruption|interruption]] à la fréquence choisie, ce qui donne une cadence parfaitement régulière qu'une boucle `millis()` ne garantit pas, et permet aussi de régler la fréquence d'un [[pwm|signal PWM]].
+ 
+ ## À quoi ça sert ?
+ 
+@@ -26,7 +26,7 @@ Pour cadencer une tâche, le réflexe du débutant est `millis()` dans `loop()`.
+ - il libère `loop()` du rôle de chronomètre ;
+ - il sert aussi à **changer la fréquence d'un PWM** (vitesse de moteur, scintillement d'une LED).
+ 
+-On le met en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction réclame une base de temps fiable. Pour de la temporisation souple et non critique, [[arduino-temporisation|`millis()`]] reste plus simple — le timer matériel se réserve au **précis** et au **régulier**.
++On le met en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction réclame une base de temps fiable. Pour de la temporisation souple et non critique, [[arduino-temporisation|`millis()`]] reste plus simple : le timer matériel se réserve au **précis** et au **régulier**.
+ 
+ ## Procédure pas à pas
+ 
+@@ -48,9 +48,9 @@ void setup() {
+ }
+ ```
+ 
+-La bibliothèque calcule pour nous le prédiviseur et la valeur de comparaison correspondants — c'est exactement le travail décrit dans la notion [[timer|timer]], fait automatiquement.
++La bibliothèque calcule pour nous le prédiviseur et la valeur de comparaison correspondants : c'est exactement le travail décrit dans la notion [[timer|timer]], fait automatiquement.
+ 
+-TimerOne ne fonctionne que sur les cartes **AVR** (Uno R3, Nano, Mega). Sur une **Uno R4** (Renesas) ou un **ESP32**, l'architecture des timers diffère et l'on passe par d'autres bibliothèques (`FspTimer` sur R4, timers natifs `timerBegin()` sur [[esp32|ESP32]]) ; le principe — un compteur matériel qui déclenche une interruption périodique — reste identique.
++TimerOne ne fonctionne que sur les cartes **AVR** (Uno R3, Nano, Mega). Sur une **Uno R4** (Renesas) ou un **ESP32**, l'architecture des timers diffère et l'on passe par d'autres bibliothèques (`FspTimer` sur R4, timers natifs `timerBegin()` sur [[esp32|ESP32]]). Le principe (un compteur matériel qui déclenche une interruption périodique) reste identique.
+ 
+ ### 3. Attacher la fonction périodique
+ 
+@@ -71,13 +71,13 @@ Cette fonction est une **ISR** : elle obéit aux règles des [[interruption|inte
+ 
+ ### 4. Garder l'ISR minimale, traiter dans `loop()`
+ 
+-L'ISR ne fait que le strict nécessaire — souvent **lever un drapeau** — et c'est `loop()` qui effectue le travail lourd (lire, calculer, afficher) quand elle voit le drapeau levé. Ainsi le `Serial`, interdit dans l'ISR, se fait au bon endroit.
++L'ISR ne fait que le strict nécessaire (souvent **lever un drapeau**) et c'est `loop()` qui effectue le travail lourd (lire, calculer, afficher) quand elle voit le drapeau levé. Ainsi le `Serial`, interdit dans l'ISR, se fait au bon endroit.
+ 
+ ![Traceur série de l'IDE Arduino affichant des échantillons régulièrement espacés dans le temps.|600](/ressources/img/arduino-timers/traceur-echantillons.png)
+ 
+ ## Exemple — Échantillonner un capteur à 100 Hz
+ 
+-On lit une entrée analogique exactement cent fois par seconde, pour alimenter un filtrage ou une régulation à pas constant. Le timer cadence ; l'ISR lève un drapeau ; la boucle lit et envoie la mesure.
++On lit une entrée analogique exactement cent fois par seconde, pour alimenter un filtrage ou une régulation à pas constant. Le timer cadence, l'ISR lève un drapeau, la boucle lit et envoie la mesure.
+ 
+ ```cpp
+ #include <TimerOne.h>
+@@ -104,7 +104,7 @@ void loop() {
+ }
+ ```
+ 
+-L'échantillonnage tombe toutes les 10 ms **quelle que soit la charge de la boucle**, parce que c'est le matériel qui tient l'horloge. L'ISR se contente de signaler l'échéance ; toute la logique reste dans `loop()`. Comparée à une cadence en `millis()`, la régularité est sans dérive — ce qui change tout pour un traitement du signal.
++L'échantillonnage tombe toutes les 10 ms **quelle que soit la charge de la boucle**, parce que c'est le matériel qui tient l'horloge. L'ISR se contente de signaler l'échéance. Toute la logique reste dans `loop()`. Comparée à une cadence en `millis()`, la régularité est sans dérive, ce qui change tout pour un traitement du signal.
+ 
+ ![Chronogramme comparant deux cadences pour une même période visée de 10 ms : la cadence logicielle (millis) dérive — ses instants réels glissent vers la droite à mesure que la charge de loop() varie, le retard s'accumule ; la cadence matérielle (timer) tombe exactement sur la grille, intervalle constant sans dérive.|680](/ressources/img/arduino-timers/cadence-millis-vs-timer.svg)
+ 
+@@ -131,9 +131,9 @@ ISR(TIMER1_COMPA_vect) {       // la routine, déclenchée à chaque comparaison
+ ```
+ 
+ > [!info] Comment lire ce code
+-> Le bloc se lit en cinq temps. `cli()` **coupe les interruptions** le temps de configurer (sinon l'une d'elles pourrait tomber sur un timer à moitié réglé). On remet à zéro les registres de contrôle (`TCCR1A`/`TCCR1B`) et le compteur (`TCNT1`). `OCR1A` est la **valeur de comparaison** : le compteur monte jusqu'à elle, puis l'interruption part — c'est elle qui fixe la période. `WGM12` choisit le **mode CTC** (le compteur se remet à zéro à chaque comparaison) ; `CS11 | CS10` règlent le **prédiviseur à 64**. `OCIE1A` **autorise l'interruption** sur comparaison A. Enfin `sei()` **réactive les interruptions**. Dès lors, `ISR(TIMER1_COMPA_vect)` s'exécute toute seule à chaque comparaison.
++> Le bloc se lit en cinq temps. `cli()` **coupe les interruptions** le temps de configurer (sinon l'une d'elles pourrait tomber sur un timer à moitié réglé). On remet à zéro les registres de contrôle (`TCCR1A`/`TCCR1B`) et le compteur (`TCNT1`). `OCR1A` est la **valeur de comparaison** : le compteur monte jusqu'à elle, puis l'interruption part. C'est elle qui fixe la période. `WGM12` choisit le **mode CTC** (le compteur se remet à zéro à chaque comparaison). `CS11 | CS10` règlent le **prédiviseur à 64**. `OCIE1A` **autorise l'interruption** sur comparaison A. Enfin `sei()` **réactive les interruptions**. Dès lors, `ISR(TIMER1_COMPA_vect)` s'exécute toute seule à chaque comparaison.
+ 
+-La formule `f = 16 MHz / (prescaler × (OCR1A + 1))` est la traduction concrète du *fréquence ÷ (prédiviseur × valeur)* de la notion. En projet, la bibliothèque suffit presque toujours ; ce niveau ne sert que pour un réglage fin ou pour comprendre un code existant.
++La formule `f = 16 MHz / (prescaler × (OCR1A + 1))` est la traduction concrète du *fréquence ÷ (prédiviseur × valeur)* de la notion. En projet, la bibliothèque suffit presque toujours. Ce niveau ne sert que pour un réglage fin ou pour comprendre un code existant.
+ 
+ ## Cas particulier — Changer la fréquence d'un PWM
+ 
+@@ -143,7 +143,7 @@ La formule `f = 16 MHz / (prescaler × (OCR1A + 1))` est la traduction concrète
+ 
+ **Reconfigurer Timer0.** Il fait tourner `millis()` et `delay()` : le détourner casse toute la temporisation logicielle du programme. Sauf besoin précis, on le laisse tranquille.
+ 
+-**Oublier `volatile`.** Une variable partagée entre l'ISR du timer et `loop()` sans `volatile` peut être lue obsolète — le drapeau semble ne jamais se lever. Règle commune à toutes les [[interruption|interruptions]].
++**Oublier `volatile`.** Une variable partagée entre l'ISR du timer et `loop()` sans `volatile` peut être lue obsolète : le drapeau semble ne jamais se lever. Règle commune à toutes les [[interruption|interruptions]].
+ 
+ **Faire trop dans l'ISR du timer.** `Serial`, calculs lourds, `delay()` : interdits dans l'ISR. Elle signale, la boucle traite. Une ISR qui dépasse la période se fait rattraper par la suivante et le système décroche.
+ 
+@@ -158,7 +158,7 @@ La formule `f = 16 MHz / (prescaler × (OCR1A + 1))` est la traduction concrète
+ - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — échantillonner ou cadencer une fonction à pas constant sur un montage isolé, prérequis d'une mesure ou d'une régulation propre.
+ - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — la boucle de commande du système (une [[arduino-pid|régulation PID]], par exemple) tourne à période fixe imposée par un timer, condition de sa stabilité.
+ 
+-Disposer d'une base de temps matérielle fiable est ce qui sépare un montage qui « marche à peu près » d'un système dont le comportement temporel est maîtrisé — indispensable dès qu'on asservit.
++Disposer d'une base de temps matérielle fiable est ce qui sépare un montage qui « marche à peu près » d'un système dont le comportement temporel est maîtrisé, indispensable dès qu'on asservit.
+ 
+ ## Voir aussi
+ 
+diff --git a/content/embarque/mcu/arduino/arduino-watchdog.md b/content/embarque/mcu/arduino/arduino-watchdog.md
+index bcf3162..846f6f9 100644
+--- a/content/embarque/mcu/arduino/arduino-watchdog.md
++++ b/content/embarque/mcu/arduino/arduino-watchdog.md
+@@ -18,9 +18,9 @@ Le **chien de garde** (*watchdog*, WDT) est un [[timer|compteur]] indépendant q
+ 
+ ## À quoi ça sert ?
+ 
+-Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque — une bibliothèque qui attend une réponse qui ne vient pas, un capteur qui fige le code, une boucle qui ne sort jamais — il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne normalement, il « caresse » le chien à intervalle régulier ; s'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte, qui repart de zéro.
++Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque — une bibliothèque qui attend une réponse qui ne vient pas, un capteur qui fige le code, une boucle qui ne sort jamais — il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne normalement, il « caresse » le chien à intervalle régulier. S'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte, qui repart de zéro.
+ 
+-C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel — pas pour masquer des bugs qu'on devrait corriger.
++C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel, pas pour masquer des bugs qu'on devrait corriger.
+ 
+ ## Procédure pas à pas
+ 
+@@ -38,9 +38,9 @@ void setup() {
+ }
+ ```
+ 
+-(En interne, cette fonction configure un registre dédié ; les opérations bit-à-bit correspondantes sont décrites dans [[manipulation-de-bits|la manipulation de bits]], mais `avr/wdt.h` les masque entièrement.)
++(En interne, cette fonction configure un registre dédié, et les opérations bit-à-bit correspondantes sont décrites dans [[manipulation-de-bits|la manipulation de bits]], mais `avr/wdt.h` les masque entièrement.)
+ 
+-`avr/wdt.h` est propre à l'**AVR** (Uno R3, Nano, Mega). Sur **Uno R4** (Renesas), le watchdog s'arme via la bibliothèque `WDT` (`WDT.begin()`, `WDT.refresh()`) ; sur **ESP32**, c'est le *task watchdog* (`esp_task_wdt`). Le principe — nourrir un compteur sous peine de reset — reste partout le même ; seule l'API change (voir [[esp32|ESP32]]).
++`avr/wdt.h` est propre à l'**AVR** (Uno R3, Nano, Mega). Sur **Uno R4** (Renesas), le watchdog s'arme via la bibliothèque `WDT` (`WDT.begin()`, `WDT.refresh()`). Sur **ESP32**, c'est le *task watchdog* (`esp_task_wdt`). Le principe (nourrir un compteur sous peine de reset) reste partout le même, seule l'API change (voir [[esp32|ESP32]]).
+ 
+ ### 2. Nourrir le chien régulièrement
+ 
+@@ -75,7 +75,7 @@ void setup() {
+ 
+ ## Exemple — Fiabiliser un montage qui peut se bloquer
+ 
+-Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre — figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
++Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre, figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
+ 
+ ```cpp
+ #include <avr/wdt.h>
+@@ -96,11 +96,11 @@ void loop() {
+ }
+ ```
+ 
+-En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sous les 4 s : rien ne se passe. Mais si `lireCapteur()` se bloque, `wdt_reset()` n'est plus atteint, et au bout de 4 s la carte redémarre — repassant par `setup()`, qui réaffiche « Demarrage ». Le système se **rétablit seul**, sans intervention. Noter que le `delay(500)` est ici inoffensif car bien inférieur au délai du chien ; dans un programme [[arduino-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative.
++En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sous les 4 s : rien ne se passe. Mais si `lireCapteur()` se bloque, `wdt_reset()` n'est plus atteint, et au bout de 4 s la carte redémarre, repassant par `setup()`, qui réaffiche « Demarrage ». Le système se **rétablit seul**, sans intervention. Noter que le `delay(500)` est ici inoffensif car bien inférieur au délai du chien. Dans un programme [[arduino-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative.
+ 
+ ## Pièges
+ 
+-**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le chien **reste actif avec un délai très court** et le bootloader ne le désarme pas : la carte se réinitialise avant même d'avoir pu re-nourrir le chien — redémarrage en boucle, inutilisable. La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
++**La boucle de reboot infinie.** Sur certains anciens *bootloaders* Arduino, après un reset par watchdog, le chien **reste actif avec un délai très court** et le bootloader ne le désarme pas : la carte se réinitialise avant même d'avoir pu re-nourrir le chien (redémarrage en boucle, inutilisable). La parade est d'appeler `wdt_disable()` **tout au début de `setup()`**. Les cartes récentes (bootloader Optiboot) ne souffrent plus de ce défaut, mais le réflexe reste sain.
+ 
+ **Un délai plus court que la boucle normale.** Si le pire temps de boucle dépasse le délai du chien, celui-ci redémarre une carte qui fonctionnait parfaitement. Toujours régler le délai **au-dessus** de la durée maximale légitime d'un tour, avec marge.
+ 
+@@ -112,7 +112,7 @@ En fonctionnement normal, `loop()` nourrit le chien toutes les ~500 ms, bien sou
+ 
+ ## Cas particulier — Mode interruption et réveil de veille
+ 
+-Le watchdog a un second mode : au lieu de **redémarrer**, il peut déclencher une **interruption** à l'échéance. Ce mode sert notamment de **réveil périodique** pour la [[arduino-deep-sleep|mise en veille]] — c'est lui qui ranime un capteur sur batterie toutes les N secondes. Le même périphérique remplit donc deux rôles opposés : **filet de sécurité** (mode reset) et **réveil** (mode interruption). Garder cette distinction à l'esprit évite de confondre un redémarrage subi et un réveil voulu.
++Le watchdog a un second mode : au lieu de **redémarrer**, il peut déclencher une **interruption** à l'échéance. Ce mode sert notamment de **réveil périodique** pour la [[arduino-deep-sleep|mise en veille]]. C'est lui qui ranime un capteur sur batterie toutes les N secondes. Le même périphérique remplit donc deux rôles opposés : **filet de sécurité** (mode reset) et **réveil** (mode interruption). Garder cette distinction à l'esprit évite de confondre un redémarrage subi et un réveil voulu.
+ 
+ ## Raccrochage projet
+ 
