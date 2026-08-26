@@ -17,11 +17,11 @@ aa:
 draft: false
 ---
 
-Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] — réguler une vitesse, une température, une position — et sa mise en œuvre sur Arduino repose sur un calcul répété à **pas de temps constant**, donc sur une [[arduino-temporisation|cadence régulière]].
+Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] (réguler une vitesse, une température, une position) et sa mise en œuvre sur Arduino repose sur un calcul répété à **pas de temps constant**, donc sur une [[arduino-temporisation|cadence régulière]].
 
 ## À quoi ça sert ?
 
-Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une tension fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. Le principe de la **boucle fermée** est de **mesurer** le résultat, de le comparer à la consigne, et de **corriger** la commande en conséquence — sans cesse. Le PID est la loi de correction la plus répandue parce qu'elle combine trois comportements complémentaires :
+Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une tension fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. Le principe de la **boucle fermée** est de **mesurer** le résultat, de le comparer à la consigne, et de **corriger** la commande en conséquence, sans cesse. Le PID est la loi de correction la plus répandue parce qu'elle combine trois comportements complémentaires :
 
 - **P (proportionnel)** — corrige proportionnellement à l'erreur courante : réactif, mais laisse souvent une **erreur résiduelle** ;
 - **I (intégral)** — accumule l'erreur passée : **élimine** l'erreur résiduelle, au risque de s'**emballer** ;
@@ -29,7 +29,7 @@ Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise f
 
 ![Boucle fermée d'un asservissement de vitesse : la consigne entre dans un comparateur (erreur = consigne − mesure), le PID en déduit une commande envoyée en PWM au pont en H qui pilote le moteur ; un capteur (encodeur) mesure la vitesse réelle et la renvoie au comparateur, tandis qu'une perturbation (charge) agit sur le moteur.|680](/ressources/img/arduino-pid/boucle-fermee-pid.svg)
 
-On met un PID en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction doit tenir une consigne malgré les perturbations — typiquement un asservissement de vitesse ou de position.
+On met un PID en place en [[preuve-de-concept|preuve de concept]], dès qu'une fonction doit tenir une consigne malgré les perturbations, typiquement un asservissement de vitesse ou de position.
 
 ## Procédure pas à pas
 
@@ -92,9 +92,9 @@ Visualiser la mesure et la consigne dans le temps guide ce réglage bien mieux q
 
 ![Traceur série de l'IDE Arduino affichant deux courbes issues d'un procédé simulé en logiciel, la consigne plate à 150 et la mesure qui bondit à 112 puis s'approche lentement de la consigne, à 146 au bord droit.|600](/ressources/img/arduino-pid/traceur-consigne-mesure.png)
 
-La courbe ci-dessus sort d'un **procédé simulé** — un modèle de moteur calculé dans le sketch lui-même, sans moteur ni capteur — et elle se lit en deux temps. La mesure **bondit** de 0 à plus de 110 tr/min en deux dixièmes de seconde, parce que l'erreur initiale sature la commande à 255, et c'est le terme P qui travaille. Puis elle **rampe** vers la consigne pendant une dizaine de secondes, et ce second temps est celui du terme I, qui comble l'erreur résiduelle d'autant plus lentement que `Ki` est faible. Un tracé qui semble stagner sous la consigne n'est donc pas une boucle en panne, c'est un `Ki` prudent.
+La courbe ci-dessus sort d'un **procédé simulé** (un modèle de moteur calculé dans le sketch lui-même, sans moteur ni capteur) et elle se lit en deux temps. La mesure **bondit** de 0 à plus de 110 tr/min en deux dixièmes de seconde, parce que l'erreur initiale sature la commande à 255, et c'est le terme P qui travaille. Puis elle **rampe** vers la consigne pendant une dizaine de secondes, et ce second temps est celui du terme I, qui comble l'erreur résiduelle d'autant plus lentement que `Ki` est faible. Un tracé qui semble stagner sous la consigne n'est donc pas une boucle en panne, c'est un `Ki` prudent.
 
-**Reproduire cette courbe sans moteur.** L'*Exemple* ci-dessous déclare `double lireVitesse();` sans jamais la définir : le capteur est supposé fourni, et le sketch ne se lie donc pas tel quel. Le bloc suivant la remplace par un **modèle de moteur** du premier ordre calculé en logiciel — la vitesse tend vers `GAIN_MOTEUR × commande` avec une constante de temps `TAU_S`. Une carte et un câble USB suffisent, il n'y a rien à câbler.
+**Reproduire cette courbe sans moteur.** L'*Exemple* ci-dessous déclare `double lireVitesse();` sans jamais la définir : le capteur est supposé fourni, et le sketch ne se lie donc pas tel quel. Le bloc suivant la remplace par un **modèle de moteur** du premier ordre calculé en logiciel. La vitesse tend vers `GAIN_MOTEUR × commande` avec une constante de temps `TAU_S`. Une carte et un câble USB suffisent, il n'y a rien à câbler.
 
 ```cpp
 // Procede simule : remplace la ligne `double lireVitesse();` de l'Exemple
@@ -112,7 +112,7 @@ void simulerMoteur(int commande, double dt) {   // fait avancer le modele d'un p
 }
 ```
 
-Deux insertions ensuite dans la boucle de l'*Exemple*. D'abord faire réagir le procédé à la commande, juste après `analogWrite` — sans cette ligne le modèle reste à l'arrêt et la mesure ne bouge jamais :
+Deux insertions ensuite dans la boucle de l'*Exemple*. D'abord faire réagir le procédé à la commande, juste après `analogWrite` (sans cette ligne le modèle reste à l'arrêt et la mesure ne bouge jamais) :
 
 ```cpp
     simulerMoteur((int)commande, dt);   // le procede reagit a la commande
@@ -129,7 +129,7 @@ Ensuite remplacer l'impression par la forme ci-dessous. Les libellés nomment le
     }
 ```
 
-Le gain du modèle n'est pas arbitraire : l'intégrale étant bornée à 200, le terme I ne peut porter seul qu'une commande de `Ki × 200`, soit 120. Un moteur simulé trop peu efficace demanderait davantage en régime établi, et la boucle se stabiliserait **sous** la consigne — voir *Pièges*.
+Le gain du modèle n'est pas arbitraire : l'intégrale étant bornée à 200, le terme I ne peut porter seul qu'une commande de `Ki × 200`, soit 120. Un moteur simulé trop peu efficace demanderait davantage en régime établi, et la boucle se stabiliserait **sous** la consigne (voir *Pièges*).
 
 ## Exemple — Réguler la vitesse d'un moteur
 
@@ -175,7 +175,7 @@ void loop() {
 ```
 
 > [!info] Comment lire ce code
-> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `constrain` — c'est l'anti-emballement. `derivee = (erreur − erreurPrec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreurPrec` pour le pas suivant. La commande est la **somme pondérée** `Kp·erreur + Ki·integrale + Kd·derivee`, enfin `constrain(…, 0, 255)` la ramène dans la plage PWM avant `analogWrite`. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur série.
+> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `constrain`. C'est l'anti-emballement. `derivee = (erreur − erreurPrec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreurPrec` pour le pas suivant. La commande est la **somme pondérée** `Kp·erreur + Ki·integrale + Kd·derivee`, enfin `constrain(…, 0, 255)` la ramène dans la plage PWM avant `analogWrite`. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur série.
 
 Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sans lui, si le moteur sature (PWM déjà à 255 mais consigne inatteignable), l'intégrale gonfle indéfiniment et la commande met longtemps à « redescendre » quand l'erreur s'inverse. Borner l'intégrale évite ce dépassement. Le couple consigne/mesure imprimé alimente le traceur série pour régler les gains à l'œil.
 
@@ -185,7 +185,7 @@ Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sa
 
 **Oublier l'anti-emballement.** Quand l'actionneur sature, l'intégrale continue d'accumuler dans le vide : à l'inversion de l'erreur, la commande reste « collée » trop longtemps. Borner l'intégrale (ou la commande) corrige ce défaut classique.
 
-**Croire que la borne de l'anti-emballement est sans effet en régime établi.** Une intégrale bornée à ±200 ne laisse le terme I porter qu'une commande de `Ki × 200`. Si le point de fonctionnement visé en demande davantage — moteur peu efficace, charge lourde —, l'intégrale colle à sa borne et la boucle se stabilise **avec une erreur résiduelle**, sans que rien ne le signale. La borne se dimensionne sur la commande réellement nécessaire, pas sur une valeur ronde.
+**Croire que la borne de l'anti-emballement est sans effet en régime établi.** Une intégrale bornée à ±200 ne laisse le terme I porter qu'une commande de `Ki × 200`. Si le point de fonctionnement visé en demande davantage (moteur peu efficace, charge lourde), l'intégrale colle à sa borne et la boucle se stabilise **avec une erreur résiduelle**, sans que rien ne le signale. La borne se dimensionne sur la commande réellement nécessaire, pas sur une valeur ronde.
 
 **Mettre trop de dérivé sur un signal bruité.** Le terme D amplifie le bruit de mesure : un capteur bruité + un `Kd` élevé donnent une commande qui tremble. Filtrer la mesure ou réduire `Kd`.
 
@@ -197,12 +197,12 @@ Le `constrain` sur l'intégrale est un **anti-emballement** (*anti-windup*) : sa
 
 ## Cas particulier — La bibliothèque `PID_v1`
 
-Plutôt que de coder le calcul à la main, la bibliothèque **PID** (Brett Beauregard, `PID_v1`) fournit un régulateur prêt à l'emploi, qui gère le pas de temps, l'anti-emballement et les bornes. On lui passe des références vers l'entrée, la sortie et la consigne, les gains, puis on appelle `Compute()` régulièrement. Elle calcule en outre la dérivée **sur la mesure** plutôt que sur l'erreur, ce qui évite le « coup de dérivée » (un pic brutal de commande) lorsqu'on change brusquement de consigne — un raffinement que le calcul manuel ci-dessus n'intègre pas. Pratique en production ; le calcul manuel reste préférable **pour comprendre** ce que la bibliothèque fait, avant de la laisser le faire.
+Plutôt que de coder le calcul à la main, la bibliothèque **PID** (Brett Beauregard, `PID_v1`) fournit un régulateur prêt à l'emploi, qui gère le pas de temps, l'anti-emballement et les bornes. On lui passe des références vers l'entrée, la sortie et la consigne, les gains, puis on appelle `Compute()` régulièrement. Elle calcule en outre la dérivée **sur la mesure** plutôt que sur l'erreur, ce qui évite le « coup de dérivée » (un pic brutal de commande) lorsqu'on change brusquement de consigne, un raffinement que le calcul manuel ci-dessus n'intègre pas. Pratique en production. Le calcul manuel reste préférable **pour comprendre** ce que la bibliothèque fait, avant de la laisser le faire.
 
 ## Raccrochage projet
 
 - **Étape 2-3 de la [[preuve-de-concept|phase de preuve de concept]]** — valider l'asservissement d'une fonction (vitesse, position, température) sur un montage isolé, capteur et actionneur réels, avant intégration.
-- **[[integration-et-tests|Phase d'intégration et tests]]** — la boucle de régulation tourne à pas constant imposé par un [[arduino-timers|timer]] ; ses gains, réglés en PoC, sont revérifiés sur le système complet et en charge.
+- **[[integration-et-tests|Phase d'intégration et tests]]** — la boucle de régulation tourne à pas constant imposé par un [[arduino-timers|timer]]. Ses gains, réglés en PoC, sont revérifiés sur le système complet et en charge.
 
 Un PID se conçoit autour d'une **mesure fiable** et d'une **cadence régulière** : ces deux prérequis (capteur, base de temps) comptent autant que les gains eux-mêmes.
 

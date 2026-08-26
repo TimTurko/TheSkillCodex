@@ -20,11 +20,11 @@ Tinkercad résout trois problèmes courants en projet étudiant :
 
 - **Démarrer sans matériel** — quand la carte n'est pas encore commandée, ou en attendant la séance de TP, on peut quand même écrire et tester son code.
 - **Tester un câblage risqué avant de l'assembler** — un mauvais câblage de moteur, de pont H ou d'alimentation peut détruire un composant en un instant. La simulation ne coûte rien.
-- **Partager facilement** — un projet Tinkercad est partageable par URL, sans envoyer de fichier — pratique pour montrer un montage à un encadrant, ou demander de l'aide à distance.
+- **Partager facilement** — un projet Tinkercad est partageable par URL, sans envoyer de fichier (pratique pour montrer un montage à un encadrant, ou demander de l'aide à distance).
 
-L'outil reste limité : tous les composants ne sont pas simulés, le timing n'est pas réaliste à la microseconde près, et certains modules (capteurs spécialisés, écrans complexes) sont absents. **Tinkercad ne remplace pas le montage réel — il accélère la phase d'idéation et fiabilise la première mise sous tension.**
+L'outil reste limité : tous les composants ne sont pas simulés, le timing n'est pas réaliste à la microseconde près, et certains modules (capteurs spécialisés, écrans complexes) sont absents. **Tinkercad ne remplace pas le montage réel. Il accélère la phase d'idéation et fiabilise la première mise sous tension.**
 
-La **méthode** générale de simulation — choisir l'analyse adaptée à la question, placer les sondes, confronter le résultat à un ordre de grandeur attendu — et le panorama des autres simulateurs sont portés par le hub [[simulation-electronique|simulation électronique]].
+La **méthode** générale de simulation (choisir l'analyse adaptée à la question, placer les sondes, confronter le résultat à un ordre de grandeur attendu) et le panorama des autres simulateurs sont portés par le hub [[simulation-electronique|simulation électronique]].
 
 ## Procédure pas à pas
 
@@ -48,24 +48,24 @@ Glissez-déposez les composants dans le plan de travail. Cliquez-droit pour fair
 
 Cliquez sur **Code** en haut à droite. Deux modes sont disponibles :
 
-- **Blocs** — programmation visuelle façon Scratch : on assemble des instructions à la souris, sans écrire de syntaxe. C'est adapté à la découverte au collège ou au lycée, mais **ce mode n'a pas cours dans le monde professionnel** — on ne l'utilise pas ici.
+- **Blocs** — programmation visuelle façon Scratch : on assemble des instructions à la souris, sans écrire de syntaxe. C'est adapté à la découverte au collège ou au lycée, mais **ce mode n'a pas cours dans le monde professionnel**. On ne l'utilise pas ici.
 - **Texte** — éditeur [[cpp|C++]] Arduino classique. **C'est le mode à utiliser dès le départ** : c'est exactement le code qu'on retrouvera sur la vraie carte et dans l'industrie.
 
-Au-dessus de l'éditeur, un bouton permet de basculer entre les deux modes. Tinkercad génère le code C++ équivalent au montage en blocs quand on passe du graphique au texte — utile une fois pour voir la correspondance, mais on reste ensuite en mode Texte (revenir aux blocs efface le code édité, voir *Pièges*).
+Au-dessus de l'éditeur, un bouton permet de basculer entre les deux modes. Tinkercad génère le code C++ équivalent au montage en blocs quand on passe du graphique au texte, utile une fois pour voir la correspondance, mais on reste ensuite en mode Texte (revenir aux blocs efface le code édité, voir *Pièges*).
 
 ![Bascule du mode Blocs vers le mode Texte dans le volet Code de Tinkercad|600](/ressources/img/tinkercad/editeur-code-texte.png)
 
 ### 4. Lancer la simulation et observer
 
-Cliquez sur **Démarrer la simulation**. Tinkercad téléverse virtuellement le code dans l'Arduino simulé. Les LEDs s'allument, les moteurs tournent, les afficheurs affichent — selon le code et le câblage.
+Cliquez sur **Démarrer la simulation**. Tinkercad téléverse virtuellement le code dans l'Arduino simulé. Les LEDs s'allument, les moteurs tournent, les afficheurs affichent (selon le code et le câblage).
 
-Un bouton **Moniteur série** (en bas du volet code) permet de voir les `Serial.print()` au fil de l'exécution, comme dans l'IDE réel — voir [[arduino-serie|moniteur série]].
+Un bouton **Moniteur série** (en bas du volet code) permet de voir les `Serial.print()` au fil de l'exécution, comme dans l'IDE réel (voir [[arduino-serie|moniteur série]]).
 
 Pour arrêter, cliquez sur **Arrêter la simulation**. Vous pouvez modifier le code ou le câblage à chaud, puis relancer.
 
 ## Exemple — Blink simulé avec bouton
 
-Reprise du Blink mais déclenché par un bouton-poussoir externe — pour montrer comment Tinkercad gère une entrée numérique en plus d'une sortie.
+Reprise du Blink mais déclenché par un bouton-poussoir externe, pour montrer comment Tinkercad gère une entrée numérique en plus d'une sortie.
 
 **Câblage** : LED sur la broche 13 via résistance 220 Ω vers GND ; bouton entre la broche 2 et GND, configuration `INPUT_PULLUP` (pas besoin de résistance de tirage externe, la résistance interne suffit).
 
@@ -87,7 +87,7 @@ void loop() {
 }
 ```
 
-Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (ex. bouton entre 5 V et la broche au lieu de GND), la LED ne s'allume jamais, quel que soit l'appui — la broche reste tirée à HIGH par le pull-up, et la simulation reproduit fidèlement l'erreur sans rien casser.
+Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (ex. bouton entre 5 V et la broche au lieu de GND), la LED ne s'allume jamais, quel que soit l'appui. La broche reste tirée à HIGH par le pull-up, et la simulation reproduit fidèlement l'erreur sans rien casser.
 
 ![Simulation Tinkercad en cours d'exécution, LED allumée sur le plan de travail|600](/ressources/img/tinkercad/simulation-en-cours.png)
 
@@ -101,11 +101,11 @@ Démarrez la simulation, cliquez sur le bouton dans le plan de travail : la LED 
 
 **Pas de PWM réaliste.** L'`analogWrite()` est rendu graphiquement (la LED change d'intensité), mais l'oscilloscope virtuel et la mesure fine ne valent pas un vrai oscilloscope sur un signal carré modulé.
 
-**Bascule blocs → texte à sens unique.** Le passage des blocs au texte génère le C++ équivalent, mais l'inverse n'est pas vrai — une fois le code édité en texte, revenir au mode blocs **efface les modifications**. Passer en texte tôt, et ne plus revenir aux blocs.
+**Bascule blocs → texte à sens unique.** Le passage des blocs au texte génère le C++ équivalent, mais l'inverse n'est pas vrai. Une fois le code édité en texte, revenir au mode blocs **efface les modifications**. Passer en texte tôt, et ne plus revenir aux blocs.
 
 **Sauvegarde automatique avec latence.** Tinkercad sauvegarde en continu, mais après une perte de réseau ou de session, les dernières secondes peuvent être perdues. Pour un travail important, exporter le code régulièrement (*Code → Télécharger le code*).
 
-**Connexion internet requise.** L'outil est 100 % en ligne — sans réseau, pas de Tinkercad. Pour un usage hors-ligne, Wokwi (alternative web) ou un simulateur installé localement sont les options de repli.
+**Connexion internet requise.** L'outil est 100 % en ligne. Sans réseau, pas de Tinkercad. Pour un usage hors-ligne, Wokwi (alternative web) ou un simulateur installé localement sont les options de repli.
 
 ## Cas particulier — Wokwi pour ESP32 et microcontrôleurs avancés
 
@@ -117,7 +117,7 @@ Tinkercad gère bien Arduino Uno / Mega et quelques composants standards. Pour s
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — quand un capteur ou un module ne fonctionne pas en vrai, simuler à part le même câblage dans Tinkercad permet d'isoler un problème de logique d'un problème de matériel.
 - **Démonstration et support de cours** — la simulation, projetable et partageable par URL, est un excellent support pour expliquer une logique sans toucher de matériel.
 
-Une demi-heure de simulation avant la première mise sous tension du vrai circuit réduit drastiquement le risque de griller un composant par mauvais câblage initial — un compromis très favorable.
+Une demi-heure de simulation avant la première mise sous tension du vrai circuit réduit drastiquement le risque de griller un composant par mauvais câblage initial, un compromis très favorable.
 
 ## Aller plus loin
 

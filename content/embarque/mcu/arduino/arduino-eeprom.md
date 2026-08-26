@@ -41,7 +41,7 @@ Quatre étapes : connaître la capacité de la carte, lire la valeur initiale, �
 | **Uno R4** | 8 ko émulés sur Data Flash (Renesas RA4M1) | **émulation** — effacement par page |
 | ESP32 | aucune EEPROM matérielle — **émulée sur Flash** (taille déclarée à l'init) | émulation via `EEPROM.h` ou `Preferences.h` |
 
-Sur **Uno R4**, l'EEPROM n'existe pas physiquement. Le Renesas RA4M1 utilise sa **Data Flash** (8 ko) pour émuler le comportement. La bibliothèque `EEPROM.h` reste compatible, mais l'effacement se fait **par page de 1024 octets** : écrire un seul octet peut obliger à réécrire toute la page. Conséquence : l'usure grimpe bien plus vite qu'en EEPROM dédiée, et surtout **ne jamais faire de data logging via `EEPROM.h` sur R4** (et `update()` n'y apporte pas le même gain qu'en AVR). Pour des écritures fréquentes, passer par une carte SD.
+Sur **Uno R4**, l'EEPROM n'existe pas physiquement. Le Renesas RA4M1 utilise sa **Data Flash** (8 ko) pour émuler le comportement. La bibliothèque `EEPROM.h` reste compatible, mais l'effacement se fait **par page de 1024 octets** : écrire un seul octet peut obliger à réécrire toute la page. Conséquence : l'usure grimpe bien plus vite qu'en EEPROM dédiée, et `update()` n'y apporte pas le même gain qu'en AVR. **Ne jamais faire de data logging via `EEPROM.h` sur R4.** Pour des écritures fréquentes, passer par une carte SD.
 
 Sur **ESP32**, préférer `Preferences.h` (plus moderne) à `EEPROM.h` (héritage compatibilité).
 
@@ -163,7 +163,7 @@ Téléverser, observer la valeur (par exemple : `Demarrage n°1`). Débrancher l
 
 **Détection de l'EEPROM neuve.** Une EEPROM vierge a tous ses octets à `0xFF` (255). Si on lit un `int` à l'adresse 0 sans avoir jamais écrit, on lit `0xFFFF` (soit -1 en signé, 65535 en non signé). **Toujours détecter ce cas** et initialiser à une valeur sensée. Sinon, le programme part avec des paramètres aberrants. Variante : écrire une **signature** (octet de valeur connue à une adresse fixe) qu'on vérifie au démarrage.
 
-**Pas d'`EEPROM.commit()` oublié sur ESP32.** Sur ESP32, l'`EEPROM.h` émulée nécessite un appel explicite à `EEPROM.commit()` après chaque modification pour que les données soient effectivement écrites en Flash. Sur Uno R3, ce n'est pas nécessaire : code écrit pour Uno qui passe sur ESP32 et perd ses données = oubli du `commit()`.
+**Oublier `EEPROM.commit()` sur ESP32.** Sur ESP32, l'`EEPROM.h` émulée nécessite un appel explicite à `EEPROM.commit()` après chaque modification pour que les données soient effectivement écrites en Flash. Sur Uno R3, ce n'est pas nécessaire. Un code écrit pour Uno qui passe sur ESP32 et perd ses données, c'est l'oubli du `commit()`.
 
 **Écriture en boucle.** Code comme `EEPROM.write(0, capteur);` dans `loop()` : chaque tour de `loop()` écrit, on dépasse les 100 000 cycles en quelques heures. Cellule grillée, valeurs erratiques. Utiliser `EEPROM.update()` ou n'écrire que sur événement (changement de mode, bouton).
 

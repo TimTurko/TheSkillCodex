@@ -34,7 +34,7 @@ Quatre étapes : choisir un timer libre, le configurer via la bibliothèque, y a
 
 ### 1. Choisir un timer libre
 
-Une Uno a **trois timers** — Timer0, Timer1, Timer2 — mais ils ne sont pas tous disponibles : Timer0 fait tourner `millis()` et `delay()`, et plusieurs sont mobilisés par `analogWrite()` selon les broches. **Timer1** (16 bits) est le plus souvent libre et le plus pratique, à condition de ne pas utiliser la bibliothèque Servo, qui se l'approprie. Toucher à Timer0 dérègle `millis()` : à éviter (voir la notion [[timer|timer]], ressource partagée).
+Une Uno a **trois timers** — Timer0, Timer1, Timer2 — mais ils ne sont pas tous disponibles : Timer0 fait tourner `millis()` et `delay()`, et plusieurs sont mobilisés par `analogWrite()` selon les broches. **Timer1** (16 bits) est le plus souvent libre et le plus pratique, à condition de ne pas utiliser la bibliothèque Servo, qui se l'approprie. Toucher à Timer0 dérègle `millis()`, donc à éviter (voir la notion [[timer|timer]], ressource partagée).
 
 ### 2. Configurer le timer via la bibliothèque
 

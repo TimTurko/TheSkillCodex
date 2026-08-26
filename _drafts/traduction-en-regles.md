@@ -182,6 +182,15 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | esclave (bus) | peripheral |
 | tirage (pull-up / pull-down) | pull-up / pull-down |
 | boucle ouverte / fermée | open loop / closed loop |
+| asservissement | closed-loop control |
+| asservir (une grandeur) | to control in closed loop |
+| réguler, régulation | to control, control |
+| régulateur, correcteur | controller |
+| consigne | setpoint |
+| grandeur réglée | controlled variable |
+| erreur résiduelle | steady-state error |
+| emballement / anti-emballement | windup / anti-windup |
+| dépassement (asservissement) | overshoot |
 | machine à états | state machine |
 | logigramme | flowchart |
 | chronogramme | timing diagram |
@@ -350,6 +359,12 @@ Une seule forme admise dans tout le wiki. Liste à compléter au fil des lots, *
 | entretoise | spacer |
 | équerre | bracket |
 
+**⚠ *Controller* reçoit une TROISIÈME source française, et la collision est mesurée à zéro (26/08 suite 4).** Le mot rend déjà `maître (bus)` ; il rend désormais aussi **correcteur** et **régulateur**, qui sont le terme du domaine : *PID controller* n'a pas de synonyme utilisable, *compensator* désignant autre chose et *corrector* étant un gallicisme. **Balayage avant écriture : aucune fiche du corpus ne porte à la fois `correcteur` et `maître`.** Les six fiches à `correcteur` sont `asservissement`, `schema-bloc-fonctionnel`, `filtrage`, `arduino-pid`, `micropython-pid` et `programmer-l-embarque`, et aucune ne parle de bus. La collision est donc **inter-fiche et jamais intra-fiche**, ce qui la rend invisible au lecteur. ⚠ **À rejouer si une fiche de bus reçoit un jour une boucle fermée.**
+
+**Le rendu `closed-loop control` est LU, pas décidé.** `chaine-energie-en` écrit déjà `[[asservissement-en|Closed-loop control]]` dans son *See also*, et `arduino-moteur-cc-en` intitule une section *Special case - a motor with an encoder for closed-loop control*. Mon premier jet écrivait *feedback control* : il aurait créé un second libellé pour une cible qui n'existe pas encore, et divergé de l'entrée `boucle fermée → closed loop` déjà figée.
+
+**Périmètres mesurés avant écriture**, hors `en/` : `asservi*` **127 occurrences sur 47 fiches**, `consigne` **154 sur 37**, `boucle fermée` **25 sur 11**, `boucle ouverte` **25 sur 6**, `correcteur` **10 sur 6**, `emballement` **15 sur 4**. ⚠ **`réguler` n'a PAS de périmètre mesuré** : le motif de balayage employé fusionnait `réguler` / `régulation` / `régulateur` avec `régulier` / `régulièrement`, bien plus fréquent dans le corpus embarqué. Le chiffre obtenu ne mesurait pas ce qu'il prétendait, il n'est donc pas reporté (C118). Même réserve sur `dépassement`, qui compte l'*overshoot* et le dépassement de budget.
+
 **⚠ La glose d'un sigle anglophone disparaît en traduction (23/08), et le cas symétrique existe aussi (25/08).** Sur `stm32`, le français écrit « repérées *FT*, pour *five-volt tolerant*, dans la datasheet » : la glose y est **déjà en anglais**, parce que le sigle l'est. En anglais elle redoublerait le sigle qu'elle explique, exactement comme la glose d'`adc`. Elle tombe donc, et l'italique de citation avec elle, le segment devenant une simple apposition : *marked FT, for five-volt tolerant*. Vaut pour tout sigle dont la source française donne déjà la forme développée anglaise.
 
 **⚠ Un terme de structure garde un rendu unique sur tous ses emplois, même quand la métaphore se ramifie (25/08).** « Porte » désigne un chemin de programmation dans les hubs de famille (marque C56 du lean-Bases) et non une image de passage. `esp8266` en porte un emploi isolé, `stm32` en porte trois articulés — *deux portes*, *porte de continuité*, *porte du métier* — et `teensy` reprend *porte unique*. Rendre les trois de `stm32` différemment aurait effacé le fait qu'il s'agit du même concept. Rendu retenu : **door**, sur tous les emplois du corpus.
@@ -411,6 +426,8 @@ Les tutos d'outils citent des chemins d'interface en français, parce que le log
 > *Fichier → Nouveau circuit vide* (File → New Blank Circuit)
 
 Motif : traduire seul rendrait la fiche inutilisable devant l'écran de l'école ; garder le français seul priverait l'étudiant de toute prise pour chercher de l'aide en ligne. Concerne principalement `falstad`, `easyeda`, `kicad`, les fiches `*-prise-en-main` et `ide`.
+
+**Deuxième application, `tinkercad` (26/08 suite 4).** **Huit chemins glosés, un seul laissé nu** : le bouton `Code`, dont la forme anglaise coïncide à zéro caractère près, ce qui est exactement la borne textuelle du 25/08. Deux gloses vivaient **déjà dans une parenthèse** (`(*De base* / *Tous*)` et `(*Code → Télécharger le code*)`) et prennent la forme `..., that is ...` plutôt qu'une parenthèse dans une parenthèse, sur le précédent d'`esp8266` du 25/08 (suite 8). ⚠ **Les alt d'images ne sont pas concernés** : ils gardent le libellé français seul (C108), puisqu'ils décrivent un écran français - mais **leur typographie, elle, bascule**, et c'est là que le report un pour un a mordu le 26/08 (suite 4).
 
 ## 7. Ordre des lots — arbitrage révisé le 22/08 (suite 2)
 

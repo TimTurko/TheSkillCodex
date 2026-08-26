@@ -79,7 +79,7 @@ Le mode dit ce qui déclenche l'ISR : `RISING` (front montant), `FALLING` (front
 
 La boucle lit le compteur **sans rien bloquer**, à un rythme donné par `millis()` (pas de `delay()`). Une précaution s'impose : `impulsions` fait quatre octets, et sur une Uno (8 bits) le processeur la lit en **plusieurs accès successifs**. Si une impulsion arrive *entre* ces accès, l'ISR modifie la variable au milieu de la lecture et `loop()` récupère une valeur incohérente (moitié ancienne, moitié neuve).
 
-On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique**, tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible : interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
+On protège donc la lecture par une **section critique** : `noInterrupts()` **désactive** momentanément toutes les interruptions, on copie la valeur dans `n` (et on remet `impulsions` à 0), puis `interrupts()` les **réactive**. Pendant ces deux ou trois instructions, aucune ISR ne peut s'exécuter : la copie est **atomique**, tout ou rien, jamais à moitié. Cette parenthèse doit rester la plus courte possible. Interruptions coupées trop longtemps, on finirait justement par manquer une impulsion.
 
 ```cpp
 unsigned long tAffichage = 0;
