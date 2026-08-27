@@ -1,0 +1,191 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s1.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - date lue sur l horloge du poste (C119)
+==============================================================
+date du poste : 2026-08-27 21:09
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot 4, sources FR (P2)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-debug.md              1665
+  embarque/mcu/micropython/micropython-gpio-boot.md          1061
+  embarque/mcu/micropython/micropython-memoire.md            1097
+  embarque/mcu/micropython/micropython-stockage.md           1041
+  embarque/mcu/micropython/micropython-bibliotheques.md       788
+  ---------------------------------------------------------------
+  LOT (5 fiches)                                             5652
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - title: des cinq squelettes EN (P6)
+==============================================================
+micropython-debug-en.md  ->  title: Débugger un programme MicroPython
+micropython-gpio-boot-en.md  ->  title: État des GPIO à l'allumage
+micropython-memoire-en.md  ->  title: Gérer la mémoire en MicroPython
+micropython-stockage-en.md  ->  title: Stockage persistant (fichier, EEPROM)
+micropython-bibliotheques-en.md  ->  title: Utiliser une bibliothèque
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - title: des cinq jumelles Arduino, test 2 de C125 (P4)
+==============================================================
+arduino-debug-en.md  ->  title: Debugging an Arduino program
+arduino-gpio-boot-en.md  ->  title: GPIO state at power-up
+arduino-memoire-en.md  ->  title: Managing memory on Arduino
+arduino-eeprom-en.md  ->  title: EEPROM storage on Arduino
+arduino-bibliotheques-en.md  ->  title: Using a library
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - libelles en production vers les cinq cibles (P5)
+==============================================================
+
+--- micropython-debug-en
+  [libelle] debugger-embarque-en.md : debugging a MicroPython program
+  [libelle] debugger-embarque-en.md : Debugging in MicroPython
+  [libelle] micropython-en.md : Debugging a program
+  [libelle] micropython-lire-un-programme-en.md : debugging in MicroPython
+  [libelle] micropython-lire-un-programme-en.md : Debugging in MicroPython
+  [libelle] micropython-repl-en.md : Debugging a program
+  total libelles : 6   liens nus : 0
+
+--- micropython-gpio-boot-en
+  [libelle] gpio-en.md : MicroPython — GPIO at start-up
+  [libelle] micropython-en.md : GPIO states at power-up
+  total libelles : 2   liens nus : 0
+
+--- micropython-memoire-en
+  [libelle] memoire-en.md : Managing memory in MicroPython
+  [libelle] memoire-en.md : Managing memory (MicroPython)
+  [libelle] micropython-bibliotheques-en.md : gestion mémoire
+  [libelle] micropython-bibliotheques-en.md : gestion mémoire
+  [libelle] micropython-en.md : Memory management
+  total libelles : 5   liens nus : 0
+
+--- micropython-stockage-en
+  [libelle] memoire-en.md : Persistent storage, files and EEPROM
+  [libelle] memoire-en.md : Storage (MicroPython)
+  [libelle] micropython-deep-sleep-en.md : persistent storage
+  [libelle] micropython-deep-sleep-en.md : persistent storage
+  [libelle] micropython-deep-sleep-en.md : Persistent storage
+  [libelle] micropython-en.md : Persistent storage
+  [libelle] micropython-memoire-en.md : Stockage persistant
+  total libelles : 7   liens nus : 0
+
+--- micropython-bibliotheques-en
+  [libelle] bibliotheque-en.md : Using a library
+  [libelle] bibliotheque-en.md : MicroPython — libraries
+  [libelle] micropython-debug-en.md : bibliothèques
+  [libelle] micropython-en.md : Using a library
+  [libelle] micropython-en.md : libraries
+  [libelle] micropython-i2c-en.md : libraries
+  [libelle] micropython-i2c-en.md : libraries
+  [libelle] micropython-i2c-en.md : Using a library
+  [libelle] micropython-memoire-en.md : bibliothèques
+  [libelle] micropython-memoire-en.md : Utiliser une bibliothèque
+  [libelle] micropython-module-en.md : library
+  [libelle] micropython-module-en.md : libraries
+  [libelle] micropython-module-en.md : Using a library
+  [libelle] micropython-modules-en.md : using a library
+  [libelle] micropython-modules-en.md : Using a library
+  [libelle] micropython-shield-en.md : using a library
+  [libelle] micropython-spi-en.md : libraries
+  [libelle] micropython-spi-en.md : Using a library
+  total libelles : 18   liens nus : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - style C109 sur les cinq sources FR, decomposition etiquetee (P3)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-debug.md
+      66  [C109] tiret d incise
+          …vant de l'intégrer au programme — bien plus rapide que recharger t…
+      85  [C109] tiret d incise
+          …*trace** (type d'erreur, ligne) — l'équivalent du message d'un pla…
+     121  [C109] tiret d incise
+          …)`) au moment exact du plantage — l'avantage décisif de l'interpré…
+     125  [C109] tiret d incise
+          …observer** (`print`, dichotomie — voir la *Procédure*) et connaîtr…
+     138  [C109] tiret d incise
+          …part de GP15 vers le composant — ni GP14, ni GP16.
+     140  [C109] tiret d incise
+          …à la frontière code / matériel — **isoler les deux moitiés** :
+     177  [C109] tiret d incise
+          …pour faire *disparaître* le bug — souvent le signe d'une dépendanc…
+
+  embarque/mcu/micropython/micropython-gpio-boot.md
+      36  [C109] tiret d incise
+          …n niveau précis pour *démarrer* — pas de piège de boot bloquant.
+      42  [C109] tiret d incise
+          …pour son propre fonctionnement — **à ne pas utiliser** pour un us…
+      51  [C109] tiret d incise
+          …ns passent par la puce sans-fil — la LED notamment, d'où le raccou…
+      55  [C109] tiret d incise
+          …relais relâché pendant le boot — la parade générique au *« clic r…
+      55  [C109] point-virgule de prose
+          …e code n'a pas pris le contrôle ; **pull-up** (10 kΩ vers 3,3 V) p…
+      61  [C109] tiret d incise
+          …ès** la configuration en sortie — sans transit par 0 :
+      98  [C109] tiret d incise
+          …iter brièvement la sortie par 0 — suffisant pour faire claquer un…
+     102  [C109] tiret d incise
+          …e strapping qui empêche le boot — inutile de chercher l'équivalent…
+
+  embarque/mcu/micropython/micropython-memoire.md
+      33  [C109] point-virgule de prose
+          …ne la mémoire libre et utilisée ; `micropython.mem_info()` un rapp…
+     121  [C109] tiret d incise
+          …une chaîne crée un nouvel objet — cause n°1 de fragmentation. Trai…
+     127  [C109] tiret d incise
+          …le fait tourner depuis la flash — l'équivalent MicroPython de gard…
+     131  [C109] tiret d incise
+          …u de RAM sans fragmenter le tas — l'opposé de la création d'objets…
+
+  embarque/mcu/micropython/micropython-stockage.md
+      53  [C109] tiret d incise
+          …par défaut au premier démarrage — l'équivalent de la détection « E…
+      73  [C109] tiret d incise
+          …érialise un dictionnaire entier — bien plus simple que de calculer…
+     113  [C109] tiret d incise
+          …par défaut `{"demarrages": 0}` — l'équivalent propre de la détect…
+     127  [C109] tiret d incise
+          …continus) finit par la remplir — pour ça, utiliser une **carte SD…
+
+  embarque/mcu/micropython/micropython-bibliotheques.md
+      32  [C109] tiret d incise
+          …ont **gelées dans le firmware** — rien à installer, juste `import`…
+      42  [C109] tiret d incise
+          **Méthode A — gestionnaire de Thonny** (recomm…
+      46  [C109] tiret d incise
+          **Méthode B — `mip`** (carte connectée au rése…
+      53  [C109] tiret d incise
+          **Méthode C — copie manuelle** : télécharger l…
+      73  [C109] tiret d incise
+          …gelé dans le firmware** du Pico — aucune installation.
+     108  [C109] tiret d incise
+          …e code sur une carte contrainte — voir [[micropython-memoire|gesti…
+
+5 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 29   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 15   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

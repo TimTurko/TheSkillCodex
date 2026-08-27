@@ -1,0 +1,52 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s4.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - poids des neuf tutos de rang 3 de micropython (S1)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-afficheur.md           664
+  embarque/mcu/micropython/micropython-capteur-numerique.md   1237
+  embarque/mcu/micropython/micropython-entree-tor.md          933
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md    876
+  embarque/mcu/micropython/micropython-pid.md                1055
+  embarque/mcu/micropython/micropython-servomoteur.md        1375
+  embarque/mcu/micropython/micropython-simulation.md          950
+  embarque/mcu/micropython/micropython-sortie-tor.md          948
+  embarque/mcu/micropython/micropython-watchdog.md           1128
+  ---------------------------------------------------------------
+  LOT (9 fiches)                                             9166
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - occurrences de 28/08 dans les fichiers de pilotage (S2)
+==============================================================
+
+--- JOURNAL.md
+  l.58 : <!-- FIN 28/08 -->
+  occurrences : 1
+
+--- conventions.md
+  l.2192 : *Arbitrage Tim (b) du 28/08.* C114 impose de réécrire `tools/seance.ps1`
+  l.2196 : mesurés le 28/08 remontent à cette seule cause — la redirection shell
+  occurrences : 2
+
+--- TODO.md
+  l.8 : > **➤ MAJ 28/08** — **LE LOT 4 EST PASSÉ ET GÉNÉRÉ. C116 LANCEMENTS 1 ET 2 CONSOMMÉS. C126 NEUVE.** PC perso, 
+  occurrences : 1
+
+--- BACKLOG.md
+  l.8 : ### 28/08 — un canal accidentel entre postes, un prompt qui ne voyage pas, et un caractère de remplacement
+  l.10 : - [ ] **Le prompt de lancement ne voyage pas, et rien dans le §6 ne dit quoi faire quand il est périmé.** Celu
+  occurrences : 2
+--- code de sortie : 0

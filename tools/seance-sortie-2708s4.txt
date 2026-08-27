@@ -1,0 +1,204 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s3.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - style des cinq EN apres correction (R1)
+==============================================================
+      75  [C109] tiret d incise
+          …into the firmware** of the Pico — no installation at all.
+     110  [C109] tiret d incise
+          …f code onto a constrained board — see [[micropython-memoire-en|mem…
+
+5 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 29   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 15   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - foisonnement des cinq paires apres correction (R2)
+==============================================================
+  en/embarque/mcu/micropython/micropython-bibliotheques-en.md   788 ->   856   +8.6 %
+  en/embarque/mcu/micropython/micropython-debug-en.md   1665 ->  1803   +8.3 %
+  en/embarque/mcu/micropython/micropython-gpio-boot-en.md  1061 ->  1138   +7.3 %
+  en/embarque/mcu/micropython/micropython-memoire-en.md  1097 ->  1178   +7.4 %
+  en/embarque/mcu/micropython/micropython-stockage-en.md  1041 ->  1130   +8.5 %
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - corpus FR, traduit et restant (R9)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  fiches FR publiees   : 242
+  mots FR              : 291219
+  mediane par fiche    : 1089
+  fiche la plus lourde : embarque/pcb/easyeda.md  (9773)
+
+  deja traduites       : 169 fiches, 191017 mots FR
+  RESTANT A TRADUIRE   : 73 fiches, 100202 mots FR
+
+  Le restant est un COMPTAGE des fiches non traduites, pas une
+  soustraction : une somme se compense, un comptage non.
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - recette de generation (R8)
+==============================================================
+=== RECETTE (aucune ecriture) ===
+  fiches sources      : 243
+  wikilinks           : 4323
+  embeds              : 397
+  blocs de code       : 444
+  liens sans libelle  : 175  (libelle rempli par le titre FR)
+  ancres de wikilink  : 5
+  ancres intra-page   : 14
+  fiches a aliases    : 11
+  fiches divergentes  : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - audit des medias, mode court (R7)
+==============================================================
+=== AUDIT DES EMBEDS ===
+417 fiches lues, 619 embeds et liens ressources, 374 fichiers dans ressources/
+
+embarque/mcu/arduino/arduino-capteur-analogique.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-debug.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-timers.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+embarque/mcu/debugger-embarque.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/shield.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+embarque/mesure/analyseur-logique.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-debug-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-timers-en.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+en/embarque/mcu/debugger-embarque-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/shield-en.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+en/embarque/mesure/analyseur-logique-en.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+=== ORPHELINS (jamais references, RIEN N EST SUPPRIME) ===
+  ressources/img/archive/cycle-v-projet-v1.svg (6 ko)
+
+=== BILAN ===
+  ABSENT        12
+  CASSE         0
+  HORS-GABARIT  0
+  EXTERNE       0
+  OK            607
+  ORPHELIN      1
+--- code de sortie : 1
+
+==============================================================
+>>> 6 - audit des wikilinks, queue de rapport (R6)
+==============================================================
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+
+=== BILAN ===
+  MORT    77 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   6 cible(s)
+  OK      413 cible(s)
+--- code de sortie : 1
+
+==============================================================
+>>> 7 - anneau 2, dette et chevron (R3, R4, R5)
+==============================================================
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (61 fiches)                     88768
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 25
+    clotures en chevron       : 100   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 169
+  cibles rouges distinctes     : 71
+  mots                         : 98774
+  dont HORS anneaux 0..2       : 9
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/micropython/micropython-afficheur
+    embarque/mcu/micropython/micropython-capteur-numerique
+    embarque/mcu/micropython/micropython-entree-tor
+    embarque/mcu/micropython/micropython-moteur-pas-a-pas
+    embarque/mcu/micropython/micropython-pid
+    embarque/mcu/micropython/micropython-servomoteur
+    embarque/mcu/micropython/micropython-simulation
+    embarque/mcu/micropython/micropython-sortie-tor
+    embarque/mcu/micropython/micropython-watchdog
+--- code de sortie : 0

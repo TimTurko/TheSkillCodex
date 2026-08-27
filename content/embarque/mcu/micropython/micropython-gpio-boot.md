@@ -16,11 +16,11 @@ aa:
 draft: false
 ---
 
-Entre l'instant où le Pico est alimenté et celui où `main.py` exécute la première instruction utile, il se passe un court délai (firmware + lancement du script) pendant lequel **l'état des GPIO n'est pas celui que vous avez codé** : ils sont en **entrée haute impédance** (flottants). Conséquence concrète : un relais peut coller brièvement, un moteur faire un soubresaut, une LED clignoter au démarrage. Bonne nouvelle : le Pico est **plus simple que l'ESP** sur ce point — il n'a pas de broches de *strapping* qui changent le mode de boot selon leur niveau.
+Entre l'instant où le Pico est alimenté et celui où `main.py` exécute la première instruction utile, il se passe un court délai (firmware + lancement du script) pendant lequel **l'état des GPIO n'est pas celui que vous avez codé** : ils sont en **entrée haute impédance** (flottants). Conséquence concrète : un relais peut coller brièvement, un moteur faire un soubresaut, une LED clignoter au démarrage. Bonne nouvelle : le Pico est **plus simple que l'ESP** sur ce point. Il n'a pas de broches de *strapping* qui changent le mode de boot selon leur niveau.
 
 ## À quoi ça sert ?
 
-Trois cas où il faut comprendre l'état GPIO au boot : **actionneur qui s'active au démarrage** (relais qui claque, moteur qui tressaute) ; **broches réservées par la carte** (à ne pas utiliser) ; **état sûr après coupure/redémarrage** (revenir dans un état non dangereux).
+Trois cas où il faut comprendre l'état GPIO au boot : **actionneur qui s'active au démarrage** (relais qui claque, moteur qui tressaute), **broches réservées par la carte** (à ne pas utiliser), **état sûr après coupure/redémarrage** (revenir dans un état non dangereux).
 
 ## Procédure pas à pas
 
@@ -76,7 +76,7 @@ C'est plus propre que la séquence Arduino « écrire la valeur puis configurer 
 
 Symptôme : un relais actif-bas qui pilote une lampe *clique* à chaque démarrage du Pico.
 
-**Diagnostic** : pendant le boot du firmware, la broche flotte ; le module (actif-bas) l'interprète comme un niveau bas et colle le relais ; puis `main.py` démarre et met la broche à 1, le relais relâche.
+**Diagnostic** : pendant le boot du firmware, la broche flotte. Le module (actif-bas) l'interprète comme un niveau bas et colle le relais. Puis `main.py` démarre et met la broche à 1, le relais relâche.
 
 **Solution** (matérielle **+** logicielle) :
 
@@ -93,7 +93,7 @@ Démarrage silencieux et propre.
 
 ## Pièges
 
-**Compter sur `main.py` seul.** `main.py` ne s'exécute qu'après le démarrage du firmware ; pendant ce délai, les broches flottent. Seul un **tirage matériel** (ou un actionneur insensible) garantit l'état au boot.
+**Compter sur `main.py` seul.** `main.py` ne s'exécute qu'après le démarrage du firmware. Pendant ce délai, les broches flottent. Seul un **tirage matériel** (ou un actionneur insensible) garantit l'état au boot.
 
 **Oublier `value=` à la construction.** Créer `Pin(8, Pin.OUT)` puis écrire la valeur ensuite fait transiter brièvement la sortie par 0 — suffisant pour faire claquer un relais actif-bas. Passer `value=` directement au constructeur.
 
@@ -115,7 +115,7 @@ Pour un système qui doit revenir dans un état sûr après une coupure secteur,
 - **Étape 4 de la [[concept|phase de concept]]** — l'EAT prend en compte le comportement au démarrage pour les fonctions critiques.
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — tester le power-on cyclique (10 démarrages) pour repérer les actionneurs qui dérapent.
 
-L'état GPIO au boot est un piège *« qu'on découvre en démo »*. Le traiter dès le premier relais — par un tirage de quelques centimes + `value=` — épargne le moment où il faut l'expliquer au jury.
+L'état GPIO au boot est un piège *« qu'on découvre en démo »*. Le traiter dès le premier relais (par une simple résistance de tirage + `value=`) épargne le moment où il faut l'expliquer au jury.
 
 ## Voir aussi
 

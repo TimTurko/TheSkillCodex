@@ -1,0 +1,296 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s7-serie1.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-27   heure : 22:59
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - la regle de masquage, citee depuis la source et non deduite
+==============================================================
+  l.31 : const FRONT_MATTER = /^---\r?\n[\s\S]*?\r?\n---\r?\n/;
+  l.32 : const BLOC_CLOTURE = /^```[\s\S]*?^```[^\n]*$/gm;
+  l.33 : const MOT = /[0-9A-Za-z\u00C0-\u024F'\u2019-]+/g;
+  l.37 : const corps = texte.replace(FRONT_MATTER, '');
+  l.38 : const prose = corps.replace(BLOC_CLOTURE, ' ');
+  l.92 : const mots = new Map(fr.map((r) => [r, compterMots(lire(r))]));
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - poids des blocs en chevron, cpp/ puis esp32/
+==============================================================
+--- cpp/ : les 7 porteuses du restant
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 7   porteuses : 7
+
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (7 porteuses)                                   32 cl  16 bl   9356 tot   304 ded   9036 deh
+
+--- esp32/ : les 12 porteuses du restant
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 12   porteuses : 12
+
+  embarque/mcu/esp32/esp32-arduino-core.md             4 cl   2 bl   1285 tot    65 ded   1218 deh    5.1 %  ECART:2
+  embarque/mcu/esp32/esp32-ble.md                      4 cl   2 bl   1279 tot    90 ded   1187 deh    7.0 %  ECART:2
+  embarque/mcu/esp32/esp32-deep-sleep.md               2 cl   1 bl   1495 tot    93 ded   1401 deh    6.2 %  ECART:1
+  embarque/mcu/esp32/esp32-freertos.md                 4 cl   2 bl   1429 tot   104 ded   1323 deh    7.3 %  ECART:2
+  embarque/mcu/esp32/esp32-gpio.md                     4 cl   2 bl   1526 tot    96 ded   1428 deh    6.3 %  ECART:2
+  embarque/mcu/esp32/esp32-i2c.md                      4 cl   2 bl   1143 tot    89 ded   1052 deh    7.8 %  ECART:2
+  embarque/mcu/esp32/esp32-idf.md                      2 cl   1 bl   1066 tot    28 ded   1038 deh    2.6 %
+  embarque/mcu/esp32/esp32-prise-en-main.md            4 cl   2 bl   2564 tot    59 ded   2503 deh    2.3 %  ECART:2
+  embarque/mcu/esp32/esp32-serie.md                    4 cl   2 bl   2017 tot   110 ded   1905 deh    5.5 %  ECART:2
+  embarque/mcu/esp32/esp32-spi.md                      4 cl   2 bl   1150 tot   128 ded   1020 deh   11.1 %  ECART:2
+  embarque/mcu/esp32/esp32-uart.md                     4 cl   2 bl   1282 tot   105 ded   1175 deh    8.2 %  ECART:2
+  embarque/mcu/esp32/esp32-wifi.md                     4 cl   2 bl   1455 tot   135 ded   1318 deh    9.3 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (12 porteuses)                                  44 cl  22 bl  17691 tot  1102 ded  16568 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - nature des blocs de cpp/ : entete et premiere ligne de contenu
+==============================================================
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 7   porteuses : 7
+
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (7 porteuses)                                   32 cl  16 bl   9356 tot   304 ded   9036 deh
+
+  --- ENTETE DE CHAQUE BLOC (ouverture, puis premiere ligne de contenu)
+
+  embarque/mcu/cpp/cpp-boucles.md
+    l. 130  > ```cpp
+           11 lignes | void setup() {
+    l. 147  > ```cpp
+           4 lignes | // A
+
+  embarque/mcu/cpp/cpp-conditions.md
+    l. 168  > ```cpp
+           5 lignes | if (t >= 18 && t <= 25) {
+    l. 179  > ```cpp
+           4 lignes | switch (mode) {
+    l. 188  > ```cpp
+           4 lignes | switch (mode) {
+
+  embarque/mcu/cpp/cpp-execution.md
+    l. 131  > ```cpp
+           11 lignes | unsigned long n = 0;
+    l. 150  > ```cpp
+           9 lignes | void setup() {
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md
+    l. 161  > ```cpp
+           3 lignes | volatile unsigned long impulsions = 0;
+
+  embarque/mcu/cpp/cpp-portee.md
+    l. 131  > ```cpp
+           6 lignes | // Version A
+    l. 146  > ```cpp
+           8 lignes | void loop() {
+    l. 159  > ```cpp
+           6 lignes | // Solution 1 : variable globale
+    l. 167  > ```cpp
+           6 lignes | // Solution 2 : variable locale static (confinée à loop, mais persistante)
+
+  embarque/mcu/cpp/cpp-structure.md
+    l. 149  > ```cpp
+           6 lignes | void loop() {
+    l. 159  > ```cpp
+           10 lignes | void loop() {
+
+  embarque/mcu/cpp/cpp-types.md
+    l. 143  > ```cpp
+           3 lignes | int a = 20000;
+    l. 155  > ```cpp
+           3 lignes | long a = 20000;
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - les 4 blocs de cpp-portee en entier (la plus lourde porteuse)
+==============================================================
+=== MESURE DU CHEVRON - BLOCS EN ENTIER ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  embarque/mcu/cpp/cpp-portee.md - 4 blocs, 86 mots dedans
+
+  --- bloc ligne 131, 6 lignes de contenu
+      > ```cpp
+      | // Version A
+      | void loop() { int n = 0; n++; Serial.println(n); delay(500); }
+      | 
+      | // Version B
+      | int n = 0;
+      | void loop() { n++; Serial.println(n); delay(500); }
+
+  --- bloc ligne 146, 8 lignes de contenu
+      > ```cpp
+      | void loop() {
+      |   int depassements = 0;
+      |   if (analogRead(A0) > 500) {
+      |     depassements++;
+      |     Serial.println(depassements);
+      |   }
+      |   delay(100);
+      | }
+
+  --- bloc ligne 159, 6 lignes de contenu
+      > ```cpp
+      | // Solution 1 : variable globale
+      | int depassements = 0;
+      | void loop() {
+      |   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
+      |   delay(100);
+      | }
+
+  --- bloc ligne 167, 6 lignes de contenu
+      > ```cpp
+      | // Solution 2 : variable locale static (confinée à loop, mais persistante)
+      | void loop() {
+      |   static int depassements = 0;
+      |   if (analogRead(A0) > 500) { depassements++; Serial.println(depassements); }
+      |   delay(100);
+      | }
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - perimetre reel sur tout le depot, et appariement FR / EN
+==============================================================
+=== MESURE DU CHEVRON - TOUT LE DEPOT ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches balayees : 412   porteuses : 43
+
+  --- COTE FRANCAIS
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-logs.md                         2 cl   1 bl   1591 tot    11 ded   1579 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  embarque/mcu/esp32/esp32-arduino-core.md             4 cl   2 bl   1285 tot    65 ded   1218 deh    5.1 %  ECART:2
+  embarque/mcu/esp32/esp32-ble.md                      4 cl   2 bl   1279 tot    90 ded   1187 deh    7.0 %  ECART:2
+  embarque/mcu/esp32/esp32-deep-sleep.md               2 cl   1 bl   1495 tot    93 ded   1401 deh    6.2 %  ECART:1
+  embarque/mcu/esp32/esp32-freertos.md                 4 cl   2 bl   1429 tot   104 ded   1323 deh    7.3 %  ECART:2
+  embarque/mcu/esp32/esp32-gpio.md                     4 cl   2 bl   1526 tot    96 ded   1428 deh    6.3 %  ECART:2
+  embarque/mcu/esp32/esp32-i2c.md                      4 cl   2 bl   1143 tot    89 ded   1052 deh    7.8 %  ECART:2
+  embarque/mcu/esp32/esp32-idf.md                      2 cl   1 bl   1066 tot    28 ded   1038 deh    2.6 %
+  embarque/mcu/esp32/esp32-prise-en-main.md            4 cl   2 bl   2564 tot    59 ded   2503 deh    2.3 %  ECART:2
+  embarque/mcu/esp32/esp32-serie.md                    4 cl   2 bl   2017 tot   110 ded   1905 deh    5.5 %  ECART:2
+  embarque/mcu/esp32/esp32-spi.md                      4 cl   2 bl   1150 tot   128 ded   1020 deh   11.1 %  ECART:2
+  embarque/mcu/esp32/esp32-uart.md                     4 cl   2 bl   1282 tot   105 ded   1175 deh    8.2 %  ECART:2
+  embarque/mcu/esp32/esp32-wifi.md                     4 cl   2 bl   1455 tot   135 ded   1318 deh    9.3 %  ECART:2
+  embarque/mcu/esp8266/esp8266-arduino-core.md         4 cl   2 bl   1276 tot    75 ded   1199 deh    5.9 %  ECART:2
+  embarque/mcu/esp8266/esp8266-prise-en-main.md        4 cl   2 bl   1671 tot    69 ded   1600 deh    4.1 %  ECART:2
+  embarque/mcu/micropython/micropython-controle.md     4 cl   2 bl    491 tot    45 ded    444 deh    9.2 %  ECART:2
+  embarque/mcu/micropython/micropython-fonctions.md    4 cl   2 bl    469 tot    45 ded    422 deh    9.6 %  ECART:2
+  embarque/mcu/micropython/micropython-lire-un-programme.md   2 cl   1 bl   2644 tot    10 ded   2633 deh    0.4 %  ECART:1
+  embarque/mcu/micropython/micropython-modules.md      8 cl   4 bl    638 tot    48 ded    586 deh    7.5 %  ECART:4
+  embarque/mcu/micropython/micropython-repl.md         4 cl   2 bl    684 tot    39 ded    643 deh    5.7 %  ECART:2
+  embarque/mcu/micropython/micropython-types.md        4 cl   2 bl    537 tot    25 ded    510 deh    4.7 %  ECART:2
+  embarque/mcu/stm32/stm32-arduino-core.md             4 cl   2 bl   1709 tot    53 ded   1654 deh    3.1 %  ECART:2
+  embarque/mcu/stm32/stm32-prise-en-main.md            4 cl   2 bl   1810 tot   114 ded   1694 deh    6.3 %  ECART:2
+  embarque/mcu/teensy/teensy-arduino-core.md           4 cl   2 bl   1515 tot    47 ded   1466 deh    3.1 %  ECART:2
+  embarque/mcu/teensy/teensy-audio.md                  4 cl   2 bl   1378 tot    71 ded   1305 deh    5.2 %  ECART:2
+  embarque/mcu/teensy/teensy-prise-en-main.md          4 cl   2 bl   1474 tot    60 ded   1412 deh    4.1 %  ECART:2
+  embarque/mcu/teensy/teensy-usb.md                    4 cl   2 bl   1172 tot    57 ded   1113 deh    4.9 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  FR (34 porteuses)                                  136 cl  68 bl  46106 tot  2175 ded  43864 deh
+
+  --- COTE ANGLAIS
+  en/embarque/mcu/cpp/cpp-logs-en.md                   2 cl   1 bl   1668 tot    11 ded   1656 deh    0.7 %  ECART:1
+  en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   4 cl   2 bl   1336 tot    76 ded   1258 deh    5.7 %  ECART:2
+  en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   4 cl   2 bl   1737 tot    69 ded   1666 deh    4.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-controle-en.md   4 cl   2 bl    504 tot    45 ded    457 deh    8.9 %  ECART:2
+  en/embarque/mcu/micropython/micropython-fonctions-en.md   4 cl   2 bl    509 tot    46 ded    461 deh    9.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   2 cl   1 bl   2738 tot    10 ded   2727 deh    0.4 %  ECART:1
+  en/embarque/mcu/micropython/micropython-modules-en.md   8 cl   4 bl    669 tot    48 ded    617 deh    7.2 %  ECART:4
+  en/embarque/mcu/micropython/micropython-repl-en.md   4 cl   2 bl    714 tot    40 ded    672 deh    5.6 %  ECART:2
+  en/embarque/mcu/micropython/micropython-types-en.md   4 cl   2 bl    573 tot    25 ded    546 deh    4.4 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  EN (9 porteuses)                                    36 cl  18 bl  10448 tot   370 ded  10060 deh
+
+  --- APPARIEMENT FR / EN SUR LE NOMBRE DE BLOCS
+    embarque/mcu/cpp/cpp-logs.md                       FR 1 bl / EN 1 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 9   divergentes : 0
+--- code de sortie : 0

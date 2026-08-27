@@ -16,11 +16,11 @@ aa:
 draft: false
 ---
 
-Gérer la **mémoire** en MicroPython, c'est composer avec une ressource rare — un microcontrôleur a peu de [[memoire|RAM]] — **et** avec l'interpréteur Python, qui en consomme une part. Grande différence avec Arduino : MicroPython a un **ramasse-miettes** (*garbage collector*, module `gc`) qui libère automatiquement la mémoire inutilisée. On ne gère donc pas la mémoire à la main (pas de `F()`/`PROGMEM`), mais on surveille deux ennemis : la **fragmentation** du tas et les **pauses** du ramasse-miettes. Le module `gc` permet de mesurer et de reprendre la main.
+Gérer la **mémoire** en MicroPython, c'est composer avec une ressource rare (un microcontrôleur a peu de [[memoire|RAM]]) **et** avec l'interpréteur Python, qui en consomme une part. Grande différence avec Arduino : MicroPython a un **ramasse-miettes** (*garbage collector*, module `gc`) qui libère automatiquement la mémoire inutilisée. On ne gère donc pas la mémoire à la main (pas de `F()`/`PROGMEM`), mais on surveille deux ennemis : la **fragmentation** du tas et les **pauses** du ramasse-miettes. Le module `gc` permet de mesurer et de reprendre la main.
 
 ## À quoi ça sert ?
 
-Sur un PC, la mémoire semble infinie ; sur un microcontrôleur, elle est comptée — et en MicroPython, **l'interpréteur en occupe déjà une partie**, laissant moins de RAM utile que la taille brute de la puce. Un programme qui crée des objets en boucle (chaînes, listes) peut fragmenter le tas au point qu'une allocation échoue, alors qu'il « reste » de la mémoire en théorie. Le symptôme : une `MemoryError`, ou des **pauses** quand le ramasse-miettes se déclenche. Savoir mesurer et limiter les allocations est une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse l'exemple.
+Sur un PC, la mémoire semble infinie. Sur un microcontrôleur, elle est comptée. Et en MicroPython, **l'interpréteur en occupe déjà une partie**, laissant moins de RAM utile que la taille brute de la puce. Un programme qui crée des objets en boucle (chaînes, listes) peut fragmenter le tas au point qu'une allocation échoue, alors qu'il « reste » de la mémoire en théorie. Le symptôme : une `MemoryError`, ou des **pauses** quand le ramasse-miettes se déclenche. Savoir mesurer et limiter les allocations est une compétence de survie dès qu'un projet grossit. L'enjeu se pose en [[preuve-de-concept|preuve de concept]], quand le code dépasse l'exemple.
 
 ![Tas fragmenté : plusieurs petits blocs occupés séparés par des trous libres ; la somme des trous (220) est grande, mais le plus grand trou contigu ne fait que 55, donc un objet de 120 ne tient nulle part — l'allocation échoue (MemoryError) bien qu'il « reste » de la mémoire.|680](/ressources/img/micropython-memoire/fragmentation-tas.svg)
 
@@ -44,7 +44,7 @@ Imprimer `gc.mem_free()` à divers endroits révèle où la mémoire fond et rep
 
 ### 2. Comprendre le ramasse-miettes
 
-MicroPython libère automatiquement les objets qui ne sont plus référencés — mais à des moments **non choisis**, ce qui peut introduire une **pause** au mauvais moment (dans un asservissement, par exemple). On peut **forcer** une collecte à un instant maîtrisé :
+MicroPython libère automatiquement les objets qui ne sont plus référencés, mais à des moments **non choisis**, ce qui peut introduire une **pause** au mauvais moment (dans un asservissement, par exemple). On peut **forcer** une collecte à un instant maîtrisé :
 
 ```python
 gc.collect()        # libere maintenant, plutot que de subir une pause plus tard
@@ -56,7 +56,7 @@ Appeler `gc.collect()` à un point calme de la boucle (pas dans une [[micropytho
 
 Le tas se fragmente quand on crée beaucoup de petits objets éphémères. Deux réflexes :
 
-- **ne pas accumuler de chaînes/listes dans une boucle** — chaque `+=` sur une chaîne crée un nouvel objet ; traiter au fil, ou construire une fois (`",".join(...)`) ;
+- **ne pas accumuler de chaînes/listes dans une boucle** — chaque `+=` sur une chaîne crée un nouvel objet. Traiter au fil, ou construire une fois (`",".join(...)`) ;
 - **réutiliser des tampons pré-alloués** — un `bytearray` créé une fois et réécrit (avec `memoryview` pour des tranches) plutôt qu'un nouvel objet à chaque tour.
 
 Et pour les **constantes entières**, `const()` les stocke plus efficacement qu'une variable :
@@ -81,7 +81,7 @@ XXXXX
 XXXXX
 ```
 
-La seconde valeur est **plus grande** que la première : ce sont les objets devenus inaccessibles qui viennent d'être rendus. L'écart entre les deux mesure ce que le programme laissait traîner — à relever sur votre carte, il dépend du firmware et des modules importés.
+La seconde valeur est **plus grande** que la première : ce sont les objets devenus inaccessibles qui viennent d'être rendus. L'écart entre les deux mesure ce que le programme laissait traîner. À relever sur votre carte, il dépend du firmware et des modules importés.
 
 ## Exemple — Diagnostiquer une `MemoryError` par accumulation
 
@@ -110,7 +110,7 @@ def lire_rafale(capteur, n):
     return ",".join(str(v) for v in valeurs)
 ```
 
-La démarche générale : **mesurer** `gc.mem_free()`, repérer les créations d'objets dans les boucles, les supprimer ou les regrouper, et placer un `gc.collect()` à un point calme. Sur un programme qui tourne longtemps, l'écart est spectaculaire — et la `MemoryError` disparaît.
+La démarche générale : **mesurer** `gc.mem_free()`, repérer les créations d'objets dans les boucles, les supprimer ou les regrouper, et placer un `gc.collect()` à un point calme. Sur un programme qui tourne longtemps, l'écart est spectaculaire, et la `MemoryError` disparaît.
 
 ## Pièges
 
@@ -128,14 +128,14 @@ La démarche générale : **mesurer** `gc.mem_free()`, repérer les créations d
 
 ## Cas particulier — `bytearray` et `memoryview`
 
-Pour manipuler des blocs de données (trames, tampons capteur) sans réallouer, on crée **un `bytearray` une fois** et on le réécrit en place ; `memoryview` permet d'en prendre des **tranches sans copie**. C'est la technique pour traiter un flux (UART, SPI, audio) sur peu de RAM sans fragmenter le tas — l'opposé de la création d'objets jetables à chaque tour.
+Pour manipuler des blocs de données (trames, tampons capteur) sans réallouer, on crée **un `bytearray` une fois** et on le réécrit en place. `memoryview` permet d'en prendre des **tranches sans copie**. C'est la technique pour traiter un flux (UART, SPI, audio) sur peu de RAM sans fragmenter le tas — l'opposé de la création d'objets jetables à chaque tour.
 
 ## Raccrochage projet
 
 - **[[preuve-de-concept|Phase de preuve de concept]]** — dès que le code dépasse l'exemple (plusieurs capteurs, affichage, journalisation), surveiller `gc.mem_free()` et limiter les allocations avant de heurter le mur de la RAM.
-- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire ; un budget RAM tenu fonction par fonction évite les `MemoryError` qui n'apparaissent qu'une fois tout assemblé.
+- **[[integration-et-tests|Phase d'intégration et tests]]** — l'intégration de plusieurs fonctions cumule leurs besoins mémoire. Un budget RAM tenu fonction par fonction évite les `MemoryError` qui n'apparaissent qu'une fois tout assemblé.
 
-Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité — ici une `MemoryError` ou des pauses — et qu'on traque faute d'avoir regardé `gc.mem_free()`.
+Anticiper la mémoire évite la situation la plus pénible en embarqué : un programme qui marchait, qui plante après l'ajout d'une fonctionnalité (ici une `MemoryError` ou des pauses) et qu'on traque faute d'avoir regardé `gc.mem_free()`.
 
 ## Voir aussi
 

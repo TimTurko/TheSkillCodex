@@ -19,7 +19,7 @@ draft: false
 
 ## À quoi ça sert ?
 
-Tout projet dépasse vite la complexité où l'on vérifie tout à l'œil. Cas typiques : le programme **se bloque** sans qu'on sache où ; une **mesure capteur est aberrante** (lecture ? conversion ? affichage ?) ; un **comportement aléatoire** non reproductible ; une **fonction renvoie une valeur étrange**. La discipline de débug — *observer avant de modifier* — sépare un dépannage rapide d'une nuit de modifications aveugles.
+Tout projet dépasse vite la complexité où l'on vérifie tout à l'œil. Cas typiques : le programme **se bloque** sans qu'on sache où, une **mesure capteur est aberrante** (lecture ? conversion ? affichage ?), un **comportement aléatoire** non reproductible, une **fonction renvoie une valeur étrange**. La discipline de débug, *observer avant de modifier*, sépare un dépannage rapide d'une nuit de modifications aveugles.
 
 ## Procédure pas à pas
 
@@ -51,7 +51,7 @@ while True:
     sleep(0.5)
 ```
 
-À chaque étape de calcul, on imprime ce qu'on observe ; si la valeur colle à l'attendu, on passe à la suite ; sinon, on tient le bug. Préfixer (`[DBG]`, `[ERR]`) aide à filtrer le défilement.
+À chaque étape de calcul, on imprime ce qu'on observe. Si la valeur colle à l'attendu, on passe à la suite. Sinon, on tient le bug. Préfixer (`[DBG]`, `[ERR]`) aide à filtrer le défilement.
 
 ### 2. Exploiter le REPL
 
@@ -99,7 +99,7 @@ Un programme MicroPython rate de deux façons, et la marche à suivre diffère :
 
 Contrairement à l'Arduino, **rien ne « compile »** : MicroPython lit le fichier et l'exécute directement. Une faute de syntaxe n'est donc détectée **qu'au chargement** du fichier (ou de la ligne au REPL), pas avant.
 
-**On lit une traceback par le bas.** La **dernière ligne** donne le **type** d'erreur et son message ; juste au-dessus, le numéro de **ligne** fautive.
+**On lit une traceback par le bas.** La **dernière ligne** donne le **type** d'erreur et son message. Juste au-dessus, le numéro de **ligne** fautive.
 
 ```
 Traceback (most recent call last):
@@ -125,32 +125,32 @@ Quand un programme plante, on **retombe dans le REPL** : on inspecte alors l'ét
 Aucune traceback ici : la syntaxe est bonne, la **logique** ne l'est pas. Il faut **observer** (`print`, dichotomie — voir la *Procédure*) et connaître les pièges les plus courants en MicroPython :
 
 - **Indentation qui change le sens.** Un bloc mal indenté s'exécute au mauvais moment (hors de la boucle, hors du `if`). Python n'a pas d'accolades : **l'indentation EST la structure**. Style cohérent, 4 espaces.
-- **`/` donne toujours un flottant.** `5 / 2` vaut `2.5`, pas `2` ; pour l'entier, `//` (`5 // 2` = `2`). Et sur le Pico les flottants sont en **simple précision** : ne pas asséner de décimales exactes (voir [[micropython-types|types]]).
-- **`bytes` vs `str`.** Une lecture `uart`/fichier binaire renvoie des `bytes` (`b"..."`) ; les comparer ou les concaténer avec du texte échoue. Convertir par `.decode()` / `.encode()`.
+- **`/` donne toujours un flottant.** `5 / 2` vaut `2.5`, pas `2`. Pour l'entier, `//` (`5 // 2` = `2`). Et sur le Pico les flottants sont en **simple précision** : ne pas asséner de décimales exactes (voir [[micropython-types|types]]).
+- **`bytes` vs `str`.** Une lecture `uart`/fichier binaire renvoie des `bytes` (`b"..."`). Les comparer ou les concaténer avec du texte échoue. Convertir par `.decode()` / `.encode()`.
 - **Comparer deux flottants avec `==`.** `if tension == 3.3` est presque toujours faux (arrondis). Tester un intervalle : `if abs(tension - 3.3) < 0.01`.
 - **`global` oublié.** Modifier une variable de module dans une fonction sans `global` crée une variable **locale** silencieuse — la globale ne bouge pas (piège classique des compteurs d'[[micropython-interruptions|interruption]]).
-- **`Pin` sans direction.** `Pin(15)` ne pilote rien tant qu'on n'a pas précisé `Pin(15, Pin.OUT)` ; une entrée sans `Pin.PULL_UP` flotte et lit n'importe quoi.
+- **`Pin` sans direction.** `Pin(15)` ne pilote rien tant qu'on n'a pas précisé `Pin(15, Pin.OUT)`. Une entrée sans `Pin.PULL_UP` flotte et lit n'importe quoi.
 
-Aucune de ces erreurs ne lève d'exception : c'est pourquoi la méthode — observer, comparer, resserrer par dichotomie — est la seule porte de sortie.
+Aucune de ces erreurs ne lève d'exception : c'est pourquoi la méthode (observer, comparer, resserrer par dichotomie) est la seule porte de sortie.
 
 ## Le code dit une chose, le câblage en dit une autre
 
-Le programme peut être juste et le câblage faux ; le câblage peut être bon et le code faux. Les deux donnent souvent le **même symptôme** (« rien ne se passe »), et c'est l'un des blocages les plus fréquents en TP. La clé : **le numéro de broche dans le code *est* l'adresse physique du composant**. `Pin(15, Pin.OUT)` est une promesse qu'un fil part de GP15 vers le composant — ni GP14, ni GP16.
+Le programme peut être juste et le câblage faux. Le câblage peut être bon et le code faux. Les deux donnent souvent le **même symptôme** (« rien ne se passe »), et c'est l'un des blocages les plus fréquents en TP. La clé : **le numéro de broche dans le code *est* l'adresse physique du composant**. `Pin(15, Pin.OUT)` est une promesse qu'un fil part de GP15 vers le composant — ni GP14, ni GP16.
 
 La sortie est la dichotomie appliquée à la frontière code / matériel — **isoler les deux moitiés** :
 
-- **Prouver la carte** avec la LED embarquée (`Pin("LED")`), sans rien câbler. Si elle clignote, la chaîne Thonny → carte fonctionne ; le problème est en aval.
+- **Prouver la carte** avec la LED embarquée (`Pin("LED")`), sans rien câbler. Si elle clignote, la chaîne Thonny → carte fonctionne. Le problème est en aval.
 - **Prouver le câblage** avec quelques lignes au REPL qui ne pilotent (ou ne lisent) que *la* broche suspecte : `Pin(15, Pin.OUT).on()`, ou `ADC(Pin(26)).read_u16()`. Si le composant réagit, le câblage est bon : le bug est dans la logique du programme.
 - **Tracer le fil** depuis la broche nommée dans le code jusqu'au composant : lire `LED = Pin(15, Pin.OUT)`, poser le doigt sur GP15, suivre le fil. Neuf fois sur dix, l'erreur saute aux yeux.
 - **Vérifier le *rôle* et la *polarité*, pas seulement le numéro.** Une broche déclarée `Pin.OUT` mais câblée à un capteur, ou une LED reliée à GND alors que le code la croit active à l'état haut : le numéro est bon, le sens ne colle pas.
 
-Deux disciplines gardent ce lien lisible : **nommer les broches** (`LED = Pin(15, Pin.OUT)` plutôt que `15` répété en dur), et **lire les schémas de câblage de ce wiki en regard du code** — leurs broches portent les mêmes noms que le programme (`Trig → GP9`, `SDA → GP4`). L'exemple ci-dessous applique cette logique d'isolement, du capteur vers la sortie.
+Deux disciplines gardent ce lien lisible : **nommer les broches** (`LED = Pin(15, Pin.OUT)` plutôt que `15` répété en dur), et **lire les schémas de câblage de ce wiki en regard du code** : leurs broches portent les mêmes noms que le programme (`Trig → GP9`, `SDA → GP4`). L'exemple ci-dessous applique cette logique d'isolement, du capteur vers la sortie.
 
 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie -1
 
 On a câblé un HC-SR04, le code tourne, mais la distance est toujours `-1`. Démarche en oignon (du capteur vers la sortie) :
 
-**Étape 1 — l'écho arrive-t-il ?**
+**Étape 1 : l'écho arrive-t-il ?**
 
 ```python
 duree = time_pulse_us(echo, 1, 30000)
@@ -159,7 +159,7 @@ print("[DBG] duree =", duree)
 
 `duree < 0` → pas d'écho : `trig` mal câblé, capteur non alimenté, ou **niveau 5 V de `Echo`** sans pont diviseur (Pico non tolérant 5 V).
 
-**Étape 2 — le calcul est-il bon ?**
+**Étape 2 : le calcul est-il bon ?**
 
 ```python
 distance = duree * 0.0343 / 2
@@ -168,7 +168,7 @@ print("[DBG] distance =", distance)
 
 `duree` cohérent (~580 µs pour 10 cm) mais `distance` aberrante → erreur de formule.
 
-**Étape 3 — la valeur arrive-t-elle à l'aval ?** Vérifier la condition (signe, seuil) et le câblage de la sortie. Cette démarche isole vite le segment fautif.
+**Étape 3 : la valeur arrive-t-elle à l'aval ?** Vérifier la condition (signe, seuil) et le câblage de la sortie. Cette démarche isole vite le segment fautif.
 
 ## Pièges
 
@@ -191,7 +191,7 @@ def dbg(*a):
 
 ## Cas particulier — Débogage matériel (SWD)
 
-Le Pico peut être débogué au niveau matériel via **SWD** (un second Pico en *picoprobe* + OpenOCD + gdb), mais cette voie vise surtout le développement **en C**. En MicroPython, le trio `print()` + REPL + `try/except` couvre l'essentiel ; la vue transverse (méthode d'enquête, JTAG/SWD) est dans [[debugger-embarque|déboguer un système embarqué]].
+Le Pico peut être débogué au niveau matériel via **SWD** (un second Pico en *picoprobe* + OpenOCD + gdb), mais cette voie vise surtout le développement **en C**. En MicroPython, le trio `print()` + REPL + `try/except` couvre l'essentiel. La vue transverse (méthode d'enquête, JTAG/SWD) est dans [[debugger-embarque|déboguer un système embarqué]].
 
 ## Raccrochage projet
 

@@ -2187,7 +2187,96 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
 **FILTRER UN BLOC À LA SOURCE PLUTÔT QUE LE RELIRE.** Extension de la règle de dimensionnement du 26/08 (suite 3) : un bloc dont on n'a besoin que des dernières lignes se coupe au lancement (`Select-Object -Last`), un rapport dont seule la tête porte le verdict se coupe pareillement (`-First`). Deux verdicts perdus dans un milieu de 112 ko ont été récupérés pour vingt-deux lignes.
 
+### Acquises 27/08 (suite 6) — le module MicroPython fermé, la dette prédite juste, et une réfutation vieille de dix minutes
+
+*Aucune convention neuve. La numérotation reste à **126**. C116 **vingt-et-unième épreuve close**, C117 **21/N**, **C120 12/N**, **C121 7/N**, **C122 : cinq scripts, cinq autocontrôles à 0**, **C124 cinq sauvegardes**, **C126 première application et 5/5**, **C125 texte amendé première application**. C118 sert trois fois, C119 six fois, et **la sous-règle de C110 est enfreinte puis réparée dans la même séance**.*
+
+⚠ **UNE RÉFUTATION PEUT ÊTRE VIEILLE DE DIX MINUTES, ET C'EST LE CAS LE PLUS DIFFICILE À VOIR.** Les sept occurrences précédentes du motif — *la réfutation est dans ma source* — citaient un JOURNAL, un README ou une prédiction publiée plus tôt dans la séance. Celle-ci cite **la phrase par laquelle je venais de clore la série de rédaction** : j'y désignais la mention de capture de `bibliotheques` comme le seul site où le §6 et le §5.3 se rencontrent, et je ne l'ai pas corrigée. **Typographie 2** à la série suivante, sur les deux `»` de cette ligne. *Un texte qu'on vient d'écrire ne se relit pas comme une source ; il se relit comme une intention déjà accomplie.* **Parade** : ce qu'une phrase de clôture désigne comme site à risque se vérifie **dans le fichier** avant que la phrase ne soit écrite.
+
+⚠ **UN VERDICT DE TYPOGRAPHIE PEUT SIGNALER UN DÉFAUT DE RÈGLE, ET L'OUTIL NE VOIT QUE LA TYPOGRAPHIE.** La ligne fautive portait des chevrons **et** une description entièrement laissée en français, contre la décision (3) du lot 1 qui traduit la mention de capture C29 et ne garde en français que ses **libellés d'écran**. Le premier défaut est mécanique et sort au verdict ; le second est éditorial et **aucun compteur ne le voit**. *Aller lire la règle à l'endroit où un verdict mord rapporte souvent plus que le verdict.*
+
+✅ **UNE PRÉDICTION DE SOLDE DE DETTE TOMBE JUSTE POUR LA PREMIÈRE FOIS, ET CE QUI A CHANGÉ EST UN GESTE ET NON UN RAISONNEMENT.** **71 cibles, 9 hors anneaux, aucune entrée neuve**, après l'échec du 27/08 (suite) et celui du 27/08 (suite 4). La leçon de ce dernier — *énumérer les entrées QUI N'Y SONT PAS DÉJÀ* — a été appliquée en lisant les **liens sortants des fiches qu'on vient d'écrire** et en les confrontant à la liste de l'état de référence. Les trois cibles candidates y figuraient déjà. *La règle était écrite depuis une séance ; ce qui manquait était de savoir où lire les entrées.*
+
+**UNE SOUSTRACTION JUSTE NE PROUVE PAS LA PARTITION QUI LA PRODUIT ; LA REMESURER EN COMPTAGE, SI.** Les neuf tutos de rang 3 de `micropython/` pèsent **9 166 mots**, chiffre que le 27/08 (suite) avait obtenu en retranchant 5 774 de 14 940 et qui tombe **exact** au comptage direct. C'est le pendant de la règle du 27/08 (suite) : *un partage de répertoire est un bon instrument de partition et un mauvais instrument de reste à faire.* **Une soustraction se rejoue en comptage avant de fonder un arbitrage.**
+
+⚠ **UN MOTIF SE TESTE SUR LA FORME QU'ON CHERCHE, PAS SUR CELLE QU'ON CONNAÎT.** Le périmètre de relabellisation a été balayé sur `28/08` — en instruisant explicitement les deux pièges du 26/08 (suite 2) — alors que **le libellé à corriger s'écrit `2026-08-28`**. Les six occurrences rendues étaient justes et ne contenaient **pas le titre même de l'entrée**. C'est la troisième infraction à la sous-règle de C110 en quatre séances, après `régul-` et `micropython-en`, **et la première où le défaut n'est pas une fusion de populations mais un manque** : le motif ne captait pas trop, il captait trop peu. *Un balayage de date se lance sur toutes les formes de date en usage dans le corpus visé, étiquetées séparément.*
+
+**C119 VAUT AUSSI EN AVANCE, ET LA CAUSE EST LA MÊME.** Le libellé d'entrée fautif était cette fois **d'un jour trop tard dans le calendrier**, là où les six précédentes occurrences étaient en retard. *Le sens de l'écart ne dit rien de sa cause : dans les deux cas le libellé a été déduit du précédent au lieu d'être lu sur `Get-Date`.*
+
+**LE TEXTE AMENDÉ DE C125 REND QUATRE TITRES SUR CINQ AU TEST 2, ET LE TEST 3 NE SERT QUE FAUTE DE JUMELLE.** `stockage` descend au troisième test parce que `arduino-eeprom` couvre un périmètre **plus étroit** que `micropython-stockage` : deux fiches de familles différentes ne sont jumelles que si elles couvrent le même objet, et le slug suffit à le dire. ⚠ **Et le test 2 a fabriqué deux collisions de plus, comme sa clause l'annonce** — mais **les deux étaient déjà en français au mot près**, donc le chantier FR de nommage passe de cinq à sept paires. *Le chantier du 27/08 (suite 4) n'avait qualifié que les paires qu'il avait rencontrées ; il n'a jamais été exhaustif et ne se cite pas comme tel.*
+
+⚠ **DEUX MODULES DU MÊME CHANTIER APPLIQUENT DEUX RÈGLES OPPOSÉES À LA MÊME CLASSE D'OBJET, ET C'EST DÉLIBÉRÉ.** `arduino-debug-en` **garde ses chaînes affichées en français** ; les décisions (5) du lot 1 et (6) du lot 3 les **traduisent** côté MicroPython, le REPL du Pico n'ayant pas la contrainte du moniteur série Arduino. **Lire la production ne suffit donc pas à trancher une règle de code : il faut savoir si elle est de chantier ou de module.** *C'est le premier cas où la production du module voisin est un mauvais guide.* **Effet de bord à connaître** : une étiquette de `print` qui reprend le nom d'un identifiant français **diverge de lui** après traduction, et aucun des contrôles ne le voit.
+
+**C126 REND CINQ SUR CINQ À SA PREMIÈRE SÉANCE.** Cinq copies du modèle, **zéro ligne de plomberie réécrite**, cinq autocontrôles ASCII à 0, cinq sauvegardes C124 dont l'étiquette est **lue sur l'horloge** et non composée de mémoire. *La contrainte est bien passée d'un artefact à l'autre : le contenu est resté jetable et la structure a cessé de dépendre de ma mémoire.* **Éprouvée 1/N.**
+
+### Acquises 27/08 (suite 7) — l'angle mort du chevron pesé, C127 neuve, et trois prédictions réfutées par leur propre clause
+
+*C127 neuve. **La numérotation passe de 126 à 127.** **C125 amendée une seconde fois.** C116 en cours de **vingt-deuxième** épreuve, lancement 1 consommé au cadrage. C117 **22/N**, **C120 13/N** dont son cas (3) à la clôture, **C121 8/N**, **C122 : trois scripts, trois autocontrôles à 0**, **C124 trois sauvegardes**, **C126 3/3**. C118 sert deux fois, **C119 huit fois**.*
+
+⚠ **UN ANGLE MORT SIGNALÉ DEPUIS TROIS SEMAINES N'AVAIT JAMAIS ÉTÉ PESÉ, ET LE POIDS REQUALIFIE LE DÉFAUT.** Le masque de `compter-mots.mjs` est ancré en début de ligne, donc un bloc de code clôturé dans un callout lui échappe et son contenu est compté comme de la prose. Mesuré : **34 porteuses FR, 68 blocs, 2 175 mots**, soit **4,9 %** des fiches concernées et **0,77 %** du corpus. *Le défaut n'est pas un excès de comptage, c'est une **incohérence*** : le même objet — un bloc de code commenté — est exclu par C110 quand il est au fil du texte et compté quand il est dans un callout. ⚠ **Et le chiffre qui a tranché était dans le tableau anglais** : sur les 9 paires déjà traduites, le contenu des blocs va de **367 à 370 mots, +0,8 %**, quand les fiches qui les portent foisonnent de 3 à 6 %. **Le contenu de ces blocs est quasi inerte en traduction**, donc l'angle mort ne gonfle pas un volume : il **dilue le foisonnement vers le bas**.
+
+⚠ **UN TAUX DE CONVERSION S'ÉTALONNE SUR L'OBJET QU'ON VA COMPTER, PAS SUR CELUI QU'ON A SOUS LES YEUX.** La prédiction de poids publiait 55 mots par bloc, taux estimé sur un échantillon de la série précédente — qui était un `[!tip]` de **prose** et non un bloc de code. Le taux réel est de **19 mots par bloc dans `cpp/`** et **50 dans `esp32/`**, facteur 2,6 entre deux modules du même chantier. *Variante neuve de la sous-règle de C110 : elle visait les motifs à joker, elle vaut aussi pour les taux.* **Un taux publié avec une prédiction nomme désormais l'objet sur lequel il a été mesuré.**
+
+⚠ **UNE PARTITION EN DEUX SEAUX SUR UN OBJET À DÉLIMITEURS EN A TROIS.** La colonne de contrôle `tot − deh − ded` devait valoir 0 partout ; elle vaut **1 par bloc**. Le troisième terme est la **ligne de clôture elle-même**, dont l'ouvrante porte l'étiquette de langage (`cpp`), que `compterMots` compte comme un mot. Une seule fiche est à 0, celle dont l'ouvrante n'en porte pas. *La partition était juste sur son contenu et fausse sur son inventaire de termes* — et c'est la colonne de contrôle, prévue pour valoir zéro, qui l'a dit.
+
+⚠ **NOMMER OÙ L'ÉCHEC SE PRODUIRAIT NE VAUT QUE SI L'ENDROIT CONTIENT QUELQUE CHOSE.** La prédiction d'appariement FR/EN annonçait regarder en priorité **les paires du module Arduino**, les plus anciennes du chantier. Mesure : **`arduino/` ne porte aucun bloc en chevron**, zéro sur 33 fiches. Le lieu désigné était une **population vide**, comme les deux `ADC` du 26/08 (suite 5). *Trois séances de suite où nommer l'issue innocente a servi ; celle-ci ajoute sa condition d'emploi.* Verdict lui-même juste : **9 paires porteuses, 0 divergente**.
+
+⚠ **UNE CAUSE QUI N'EXPLIQUERAIT QU'UNE FICHE EST RÉFUTÉE DÈS QUE LES TROIS BOUGENT ENSEMBLE.** Charge C109 prédite à 70 ± 25 et mesurée à **51**, l'ordre de grandeur tenant pour la quatrième fois. Mais la décomposition sort **26 / 11 / 14** contre 35 / 16 / 19, et j'avais nommé d'avance la nature scénarisée de `cpp-lire-un-programme` comme explication d'un déficit sur elle seule. **Les trois fiches sont déficitaires du même facteur — 0,74 / 0,69 / 0,74.** *Ce qui a manqué est le niveau, pas la forme, et une issue innocente qui ne couvre qu'une branche ne couvre rien.* Densité **1,03 pour cent mots**, sous les 1,28–1,43 des lots récents ; quatrième point, et le repère retiré le 27/08 (suite 3) **ne ressuscite pas**.
+
+**L'HYPOTHÈSE ÉCONOME A TENU SUR LE TOUT ET CÉDÉ SUR SA SIGNATURE.** J'avais prédit les 7 fiches de `cpp/` toutes porteuses — 7/25 des porteuses pour 32/100 des clôtures, soit une répartition quasi proportionnelle — contre l'hypothèse concentrée, qui aurait demandé un facteur trois entre modules. **Les 7 sur 7 sont porteuses.** ⚠ **Mais la signature que j'avais donnée au cas concentré était fausse** : j'annonçais `cpp-lire-un-programme`, seule fiche scénarisée, comme la porteuse la plus lourde ; elle porte **2 clôtures**, le minimum, en étant la plus grosse fiche du répertoire. *J'avais confondu la longueur avec la densité d'encadrés.*
+
+**LA CLAUSE DE C125 EST NÉE D'UNE PRÉDICTION QUI L'AVAIT NOMMÉE PUIS PARIÉE CONTRE.** Ma prédiction disait que les trois fiches descendraient au test 3, faute de famille jumelle — `cpp/` étant le sous-parcours de langage d'Arduino — et sa clause ⚠ nommait la jumelle réelle : **MicroPython, déjà traduite**. C'est la clause qui avait raison. Deux des trois ont une jumelle titrée, et la troisième a montré que le test 2 supposait une condition non écrite. *Neuvième fois du chantier que la réfutation est dans ma source, et la première où elle est dans la clause de garde de la prédiction même.*
+
 ### Autres en attente
+- **C127 — Un lot qui contient une porteuse de chevron publie DEUX volumes.**
+  *Arbitrage Tim du 27/08 (suite 7), règle (3) sur trois candidates.* La règle
+  C110 **reste figée** et son chiffre `tot` reste celui de la continuité
+  historique ; `tools/mesure-chevron.mjs` rend `deh`, mots hors blocs en
+  chevron, et **c'est sur `deh` que se dimensionnent les lots et que se lit
+  le foisonnement**. Les deux chiffres se publient ensemble, jamais l'un sans
+  l'autre.
+
+  **Ce qui a écarté les deux autres candidates.** Corriger le masque (règle 1)
+  réparait 0,77 % de biais au prix de la comparabilité de vingt séances de
+  volumes publiés, et demandait **trois correctifs et non un** — trois
+  expressions régulières distinctes pour les trois symptômes. Déclarer la
+  borne sans instrument (règle 2) coûtait zéro mais laissait le biais
+  non mesuré lot après lot. **C127 est la règle 2 plus un instrument**, et
+  elle mesure ce que les deux autres se contentaient de réparer ou d'admettre.
+
+  ⚠ **Ce qu'elle ne règle pas.** Le **troisième compteur de `--controle`
+  sous-compte** toujours ces blocs : une jumelle EN peut en perdre un sans
+  qu'aucun contrôle ne le voie. Mesuré le 27/08 (suite 7) : **9 paires
+  porteuses, 0 divergente**, donc le symptôme est réel et **jamais encore
+  survenu**. `mesure-chevron.mjs --tout` le mesure à la demande ; à relancer
+  à chaque clôture de lot portant une porteuse. *Éprouvée 1/N.*
+- **C126 — L'ossature du script de séance se versionne, son contenu non.**
+  *Arbitrage Tim (b) du 27/08 (suite 5).* C114 impose de réécrire `tools/seance.ps1`
+  de zéro à chaque série et le `.gitignore` l'exclut du dépôt : le script
+  ne traverse donc jamais d'un poste à l'autre, chaque machine a sa propre
+  lignée, et **la plomberie régresse à chaque bascule**. Trois symptômes
+  mesurés le 27/08 (suite 5) remontent à cette seule cause — la redirection shell
+  obligatoire sur un poste et pas sur l'autre, la copie C124 manuelle d'un
+  côté et pliée dans le script de l'autre, et le **mojibake** des accents
+  de `node` dans les sorties d'un seul des deux postes.
+
+  **`tools/seance-modele.ps1` est versionné et porte l'ossature seule** :
+  encodage (`[Console]::OutputEncoding`), racine déduite de
+  `$PSScriptRoot`, fonctions `Dire` / `Etape`, autocontrôle ASCII de C122,
+  sauvegarde C124, écriture finale en UTF-8 par le script lui-même. Il ne
+  porte **aucune étape métier, aucune prédiction, aucun chemin de fiche**.
+
+  **C114 continue de s'appliquer au contenu.** On ne lance jamais le
+  modèle : on le copie en `tools/seance.ps1`, on écrit les prédictions et
+  les étapes à la place des marqueurs, on lance la copie. Le lancement
+  redevient **identique sur les deux postes** :
+  `powershell -ExecutionPolicy Bypass -File tools\seance.ps1`
+
+  *Motif.* C114 protégeait contre la réutilisation d'un script périmé, et
+  le prix payé était que le savoir-faire accumulé dans sa structure ne se
+  transmettait pas. **La contrainte passe d'un artefact à l'autre** : ce
+  qui doit rester jetable le reste, ce qui doit durer cesse de dépendre de
+  ma mémoire — même argument que la promotion de C122. *Éprouvée 0/N.*
 - **C122 — Le script de séance s'autocontrôle en ASCII.** C114 exige un
   `seance.ps1` ASCII strict ; la contrainte a été violée six fois par celui
   qui l'applique, toujours rattrapée par relecture. Le script balaie
@@ -2224,6 +2313,20 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
      mot près. La symétrie de famille s'appuie sur un `title:` en production,
      pas sur une lecture d'intention : c'est un arbitre plus dur que le
      contexte.
+
+     ⚠ **Clause du 27/08 (suite 7), arbitrage Tim : le test 2 ne vaut que si
+     les deux jumelles portent le MÊME `title:` français.** Il suppose sans le
+     dire que la paire est indistincte en français, ce qui est vrai des sept
+     paires du chantier FR et faux ailleurs. `micropython-types` s'intitule
+     *Variables et types*, `cpp-types` *Le typage des variables* : le corpus
+     français **distingue déjà** ces deux fiches par leur titre, et aligner
+     l'anglais sur la jumelle effacerait cette distinction. C'est l'inverse
+     exact du motif du 26/08, qui interdit d'inventer une asymétrie EN/FR
+     *pour masquer un défaut de source* — ici il n'y a aucun défaut à masquer,
+     il y a une distinction à reporter. **Quand les deux `title:` FR
+     diffèrent, la paire descend au test 3.** La clause ne retire aucune des
+     collisions déjà reportées ; elle empêche d'en fabriquer de neuves que la
+     source ne porte pas.
   3. **Sinon seulement**, lire les contextes — *en prose le libellé se plie à
      la phrase, dans un Voir aussi il vaut désignation* (26/08 suite). La
      hiérarchie d'origine descend au troisième rang, elle ne disparaît pas.

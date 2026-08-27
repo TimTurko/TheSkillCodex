@@ -1,0 +1,416 @@
+﻿
+==============================================================
+>>> D1 - style des six sources FR apres passes
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython.md
+      15  [C109] tiret d incise
+          …oche **scriptée** de l'embarqué — lisible et immédiate. Cette fich…
+      79  [C109] tiret d incise
+          …prendre, prototyper, scripter** — moins pour du temps réel serré o…
+     109  [C109] point-virgule de prose
+          …o]] — l'approche compilée (C++) ; même curriculum, paradigme oppos…
+
+  embarque/mcu/micropython/micropython-prise-en-main.md
+      17  [C109] tiret d incise
+          …ès quoi on lui envoie du Python — au clavier dans le [[micropython…
+     122  [C109] tiret d incise
+          …les secondes. Ce **petit pas** — modifier, relancer, observer — e…
+     122  [C109] tiret d incise
+          …— modifier, relancer, observer — est le geste de base de tous les…
+
+  embarque/mcu/micropython/micropython-gpio.md
+      31  [C109] tiret d incise
+          …**ne sont pas tolérantes 5 V** — voir [[niveaux-de-tension|niveau…
+      35  [C109] tiret d incise
+          *Source : Raspberry Pi Ltd — licence CC BY-ND, image non modi…
+      50  [C109] tiret d incise
+          …fre les deux tirages en interne — un atout par rapport à l'AVR de…
+      77  [C109] point-virgule de prose
+          …anode → résistance 220 Ω → GP15 ; cathode → GND. Bouton entre GP14…
+      96  [C109] tiret d incise
+          ….IN` sans tirage capte du bruit — lecture aléatoire qui peut sembl…
+      98  [C109] tiret d incise
+          …quand le bouton est **relâché** — inverse du comportement attendu.
+     111  [C109] tiret d incise
+          …[[micropython-sortie-pwm|PWM]]) — pas de broches « `~` » dédiées c…
+     121  [C109] tiret d incise
+          …que tous les tutoriels suivants — inutile d'enchaîner sur les capt…
+
+  embarque/mcu/micropython/micropython-alimentation.md
+      20  [C109] tiret d incise
+          …e 7805, mais trois broches clés — **VBUS** (5 V de l'USB), **VSYS*…
+      20  [C109] tiret d incise
+          …3(OUT)** (sortie 3,3 V régulée) — autour d'un régulateur *buck-boo…
+      20  [C109] tiret d incise
+          …interne. Choisir la bonne voie — et la dimensionner — est la prem…
+      20  [C109] tiret d incise
+          …bonne voie — et la dimensionner — est la première chose à vérifier…
+      39  [C109] point-virgule de prose
+          …base** : USB tant que ça suffit ; sinon, **VSYS** (1,8–5,5 V) pour…
+      51  [C109] tiret d incise
+          …WS2812** : 3–5 A en blanc plein — alimentation dédiée obligatoire.
+      59  [C109] tiret d incise
+          …s haute l'emporte sans conflit) — voir la note « Powering Pico » d…
+      67  [C109] tiret d incise
+          …chuter la tension sous le seuil — *brown-out* — la carte se réinit…
+      67  [C109] tiret d incise
+          …ion sous le seuil — *brown-out* — la carte se réinitialise puis re…
+      73  [C109] point-virgule de prose
+          …ellule (3,0–4,2 V) sur **VSYS** ; DHT11 et OLED alimentés par **3V…
+      73  [C109] point-virgule de prose
+          …3V3(OUT)** (≤ 30 mA chacun, OK) ; servo alimenté **séparément** (s…
+     112  [C109] tiret d incise
+          …ous-estimé d'un projet débutant — ignoré quand tout va bien, accus…
+
+  embarque/mcu/micropython/micropython-module.md
+      31  [C109] point-virgule de prose
+          …(`VCC`/`VIN`/`+` et `GND`/`−`) ; **signaux logiques** (`SCL`/`SDA…
+      31  [C109] point-virgule de prose
+          …n-uart|UART]], ou GPIO simples) ; **configuration** (jumpers d'adr…
+      31  [C109] point-virgule de prose
+          …dresse, de tension, de pull-up) ; **bornier de puissance** (module…
+      37  [C109] tiret d incise
+          …les modernes, I2C à régulateur) — tolérant, lire la sérigraphie ;
+      57  [C109] point-virgule de prose
+          **Câblage** : `+` → 3,3 V ; `−` → GND ; `OUT` → GP2.
+      57  [C109] point-virgule de prose
+          …age** : `+` → 3,3 V ; `−` → GND ; `OUT` → GP2.
+      86  [C109] tiret d incise
+          …l'abîme. Vérifier la tolérance — [[niveaux-de-tension|niveaux de…
+      88  [C109] point-virgule de prose
+          …** 2 modules à 4,7 kΩ → 2,35 kΩ ; à 5 modules → ~940 Ω, souvent tr…
+
+  embarque/mcu/micropython/micropython-shield.md
+      19  [C109] tiret d incise
+          …e d'extension prend deux formes — des **cartes porteuses** (*carri…
+      19  [C109] tiret d incise
+          …e carte d'extension se *clipse* — pas de câblage.
+      35  [C109] point-virgule de prose
+          …due entre dans le mauvais trou) ; **respecter le sens** (repère US…
+      35  [C109] point-virgule de prose
+          …sens** (repère USB / broche 1) ; **ne jamais enficher/retirer sou…
+      61  [C109] tiret d incise
+          …ino) doit être compatible 3,3 V — sinon translateur de niveau ([[n…
+
+6 fiche(s) lue(s), 6 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 39   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 27   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> D2 - volume du lot apres passes
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython.md                    1098
+  embarque/mcu/micropython/micropython-prise-en-main.md      1201
+  embarque/mcu/micropython/micropython-gpio.md               1023
+  embarque/mcu/micropython/micropython-alimentation.md       1272
+  embarque/mcu/micropython/micropython-module.md              924
+  embarque/mcu/micropython/micropython-shield.md              751
+  ---------------------------------------------------------------
+  LOT (6 fiches)                                             6269
+--- code de sortie : 0
+
+==============================================================
+>>> D3 - generation des six squelettes EN, garde Test-Path
+==============================================================
+[genere] embarque/mcu/micropython/micropython.md
+    === embarque/mcu/micropython/micropython.md -> content/en/embarque/mcu/micropython/micropython-en.md ===
+      liens   : 61 -> 61  ok
+      embeds  : 1 -> 1  ok
+      code    : 0 -> 0  ok
+      prerequis suffixes : 1
+      libelles ajoutes (5) - a traduire :
+          machine-a-etats -> Machine à états
+          interruption -> Interruption
+          timer -> Timer
+          deep-sleep -> Deep sleep
+          memoire -> Mémoire
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-en.md (9383 o)
+[genere] embarque/mcu/micropython/micropython-prise-en-main.md
+    === embarque/mcu/micropython/micropython-prise-en-main.md -> content/en/embarque/mcu/micropython/micropython-prise-en-main-en.md ===
+      liens   : 13 -> 13  ok
+      embeds  : 0 -> 0  ok
+      code    : 5 -> 5  ok
+      prerequis suffixes : 1
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-prise-en-main-en.md (9328 o)
+[genere] embarque/mcu/micropython/micropython-gpio.md
+    === embarque/mcu/micropython/micropython-gpio.md -> content/en/embarque/mcu/micropython/micropython-gpio-en.md ===
+      liens   : 15 -> 15  ok
+      embeds  : 2 -> 2  ok
+      code    : 3 -> 3  ok
+      prerequis suffixes : 1
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-gpio-en.md (7780 o)
+[genere] embarque/mcu/micropython/micropython-alimentation.md
+    === embarque/mcu/micropython/micropython-alimentation.md -> content/en/embarque/mcu/micropython/micropython-alimentation-en.md ===
+      liens   : 17 -> 17  ok
+      embeds  : 2 -> 2  ok
+      code    : 1 -> 1  ok
+      prerequis suffixes : 1
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-alimentation-en.md (9134 o)
+[genere] embarque/mcu/micropython/micropython-module.md
+    === embarque/mcu/micropython/micropython-module.md -> content/en/embarque/mcu/micropython/micropython-module-en.md ===
+      liens   : 20 -> 20  ok
+      embeds  : 2 -> 2  ok
+      code    : 1 -> 1  ok
+      prerequis suffixes : 2
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-module-en.md (7461 o)
+[genere] embarque/mcu/micropython/micropython-shield.md
+    === embarque/mcu/micropython/micropython-shield.md -> content/en/embarque/mcu/micropython/micropython-shield-en.md ===
+      liens   : 12 -> 12  ok
+      embeds  : 0 -> 0  ok
+      code    : 1 -> 1  ok
+      prerequis suffixes : 1
+    
+    Ecrit : content/en/embarque/mcu/micropython/micropython-shield-en.md (6016 o)
+--- code de sortie : 0
+
+==============================================================
+>>> D4 - controle EN, lignes [ok] filtrees
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+
+152 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0
+
+==============================================================
+>>> D5 - recoupement C4, balayage de content/ ENTIER
+==============================================================
+  FR  filtrage.md                             [[micropython-entree-tor|Lire une entrée TOR (MicroPython)]]
+  FR  micropython-capteur-numerique.md        [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-gpio.md                     [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-interruptions.md            [[micropython-entree-tor|anti-rebond]]
+  FR  micropython-interruptions.md            [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-machine-a-etats.md          [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-machine-a-etats.md          [[micropython-entree-tor|anti-rebond]]
+  FR  micropython-machine-a-etats.md          [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-simulation.md               [[micropython-entree-tor|anti-rebond logiciel]]
+  FR  micropython-sortie-tor.md               [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-temporisation.md            [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-temporisation.md            [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython.md                          [[micropython-entree-tor|Lire une entrée TOR]]
+  EN  firmware-en.md                          [[micropython-en|MicroPython hub]]
+  EN  firmware-en.md                          [[micropython-en|MicroPython]]
+  EN  microcontroleur-en.md                   [[micropython-en|MicroPython]]
+  EN  micropython-alimentation-en.md          [[micropython-en|MicroPython]]
+  EN  micropython-en.md                       [[micropython-entree-tor-en|Lire une entrée TOR]]
+  EN  micropython-gpio-en.md                  [[micropython-en|MicroPython]]
+  EN  micropython-gpio-en.md                  [[micropython-entree-tor-en|Lire une entrée TOR]]
+  EN  micropython-langage-en.md               [[micropython-en|MicroPython]]
+  EN  micropython-module-en.md                [[micropython-en|MicroPython]]
+  EN  micropython-prise-en-main-en.md         [[micropython-en|MicroPython]]
+  EN  micropython-shield-en.md                [[micropython-en|MicroPython]]
+  EN  raspberry-pi-en.md                      [[micropython-en|MicroPython]]
+  EN  raspberry-pi-en.md                      [[micropython-en|MicroPython]]
+  EN  raspberry-pi-en.md                      [[micropython-en|MicroPython]]
+  EN  simulation-electronique-en.md           [[micropython-en\|MicroPython]]
+
+TOTAL toutes formes : 28   (audit-wikilinks en lit 8)
+--- code de sortie : 0
+
+==============================================================
+>>> D6 - libelles de wikilink contre title: de la cible
+==============================================================
+=== HEURISTIQUE DE LIBELLES ===
+  en/conduite/meo/revue-de-code-en.md
+      [[micropython-lire-un-programme-en|in MicroPython]]   cible intitulee : Reading a program you did not write
+  en/conduite/proj/integration-et-tests-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/conduite/proj/integration-et-tests-en.md
+      [[en/conduite/index|hub of this wiki]]   cible intitulee : Project management
+  en/conduite/proj/securite-et-qualite-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/embarque/algorithme/machine-a-etats-en.md
+      [[gpio-en|state of the GPIOs at boot]]   cible intitulee : GPIO
+  en/embarque/alimentation-electronique-en.md
+      [[micropython-alimentation-en|a board running MicroPython]]   cible intitulee : Alimenter la carte
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[gpio-en|pull resistors]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[logigramme-en|logic]]   cible intitulee : Flowchart
+  en/embarque/decouplage-en.md
+      [[micropython-alimentation-en|a board running MicroPython]]   cible intitulee : Alimenter la carte
+  en/embarque/index.md
+      [[en/conduite/index|V-model]]   cible intitulee : Project management
+  en/embarque/index.md
+      [[programmer-l-embarque-en|Algorithm and documentation]]   cible intitulee : Programming
+  en/embarque/index.md
+      [[faire-communiquer-en|Choice of communication technologies (if the specification requires it)]]   cible intitulee : Getting things talking
+  en/embarque/index.md
+      [[integration-et-tests-en|Finished product]]   cible intitulee : Integration and testing
+  en/embarque/mcu/adc-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+      [[arduino-eeprom-en|non-volatile memory]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+      [[deep-sleep-en|the concept page]]   cible intitulee : Deep sleep
+  en/embarque/mcu/arduino/arduino-entree-tor-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-interruptions-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[arduino-eeprom-en|its own tutorial]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-module-en.md
+      [[arduino-moteur-cc-en|driver module]]   cible intitulee : Driving a DC motor
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-temporisation-en.md
+      [[arduino-entree-tor-en|button]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays
+  en/embarque/mcu/arduino/arduino-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/arduino/tinkercad-en.md
+      [[arduino-entree-tor-en|Software debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/bus/i2c-en.md
+      [[gpio-en|open collector or open drain]]   cible intitulee : GPIO
+  en/embarque/mcu/dac-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/debugger-embarque-en.md
+      [[uart-en|serial link]]   cible intitulee : UART
+  en/embarque/mcu/debugger-embarque-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/deep-sleep-en.md
+      [[memoire-en|storage]]   cible intitulee : Memory
+  en/embarque/mcu/entree-sortie-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/entree-sortie-en.md
+      [[adc-en|analog-to-digital]]   cible intitulee : ADC
+  en/embarque/mcu/esp32/esp32-en.md
+      [[systeme-d-exploitation-en|RTOS]]   cible intitulee : Operating system
+  en/embarque/mcu/esp8266/esp8266-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/firmware-en.md
+      [[cpp-en|language]]   cible intitulee : C++
+  en/embarque/mcu/interruption-en.md
+      [[gpio-en|pin]]   cible intitulee : GPIO
+  en/embarque/mcu/manipulation-de-bits-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[alimentation-electronique-en|concevoir une alimentation]]   cible intitulee : Designing a power supply
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[alimentation-electronique-en|Concevoir une alimentation]]   cible intitulee : Designing a power supply
+  en/embarque/mcu/micropython/micropython-controle-en.md
+      [[micropython-types-en|list]]   cible intitulee : Variables and types
+  en/embarque/mcu/micropython/micropython-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-langage-en.md
+      [[micropython-prise-en-main-en|Getting started]]   cible intitulee : Prise en main de MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[micropython-prise-en-main-en|Thonny]]   cible intitulee : Prise en main de MicroPython
+  en/embarque/mcu/micropython/micropython-module-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-module-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-module-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-prise-en-main-en.md
+      [[micropython-langage-en|le langage]]   cible intitulee : The MicroPython language
+  en/embarque/mcu/micropython/micropython-prise-en-main-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-prise-en-main-en.md
+      [[niveaux-de-tension-en|Niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/micropython/micropython-repl-en.md
+      [[micropython-prise-en-main-en|getting started]]   cible intitulee : Prise en main de MicroPython
+  en/embarque/mcu/micropython/micropython-repl-en.md
+      [[micropython-prise-en-main-en|Getting started]]   cible intitulee : Prise en main de MicroPython
+  en/embarque/mcu/micropython/micropython-shield-en.md
+      [[niveaux-de-tension-en|niveaux de tension]]   cible intitulee : Logic levels
+  en/embarque/mcu/niveaux-de-tension-en.md
+      [[gpio-en|pull-up resistor]]   cible intitulee : GPIO
+  en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/timer-en.md
+      [[arduino-timers-en|the dedicated tutorial]]   cible intitulee : Timers on Arduino
+  en/embarque/mesure/analyseur-logique-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/instruments-de-mesure-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/multimetre-en.md
+      [[instruments-de-mesure-en|the hub]]   cible intitulee : Measuring instruments
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|UART, I²C or SPI]]   cible intitulee : Communication buses
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|Scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/concevoir-l-electronique-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/faire-communiquer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cable-management-en|wiring]]   cible intitulee : Cable management
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 2991
+  cible EN existante    : 2529   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 462
+  candidats a lire      : 89
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+--- code de sortie : 0

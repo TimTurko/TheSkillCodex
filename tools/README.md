@@ -356,6 +356,57 @@ pas résolue.
 
 ---
 
+## mesure-chevron.mjs
+
+Pèse **l'angle mort du chevron** : les blocs de code clôturés à l'intérieur d'un callout, que le masquage de `compter-mots.mjs` ne voit pas.
+
+### Origine du problème
+
+Le masque de C110 est `/^```[\s\S]*?^```[^\n]*$/gm`, **ancré en début de ligne**. Une clôture préfixée par `> ` lui échappe, donc le contenu d'un bloc de code placé dans un callout est compté **comme de la prose**. `creer-fiche-en.mjs --anneau` signale les fiches concernées depuis le 25/08 (fonction `cloturesEnChevron`) mais ne pèse pas ce qu'elles contiennent. Ce script pèse.
+
+**Trois symptômes pour un seul défaut**, et **trois expressions régulières distinctes** — donc trois correctifs et non un :
+
+1. mots comptés en trop → volume de lot et foisonnement faussés ;
+2. le **troisième compteur de `--controle` sous-compte** ces blocs → une jumelle EN peut en perdre un sans qu'aucun contrôle ne le voie ;
+3. faux positifs C109 en aval dans `--style`.
+
+Ce script mesure le 1 et **instrumente le 2** par l'appariement FR / EN de `--tout`.
+
+### Ce qu'il ne réimplémente pas
+
+`compterMots` est **importé** de `compter-mots.mjs`, où vit la règle figée de C110 : deux implémentations justes sous la même phrase divergent (499 mots sur dix mesures, 23/08 suite 4). Et le prédicat de clôture est une **copie verbatim** de `cloturesEnChevron` — son compteur par fiche **doit** rendre les mêmes valeurs que le bloc `chevron:` de `--anneau`, et c'est son banc de non-régression. Une divergence est un défaut de la copie, jamais une mesure.
+
+### Colonnes
+
+| Colonne | Sens |
+|---|---|
+| `cl` | clôtures ; **deux clôtures = un bloc**, un total impair signale une clôture orpheline |
+| `tot` | mots C110 de la fiche, règle en vigueur, **inchangée** |
+| `ded` | mots **dans** les blocs, contenu strictement entre les deux clôtures |
+| `deh` | mots **hors** les blocs — **mesuré sur le texte privé des blocs, jamais soustrait** |
+| `ECART` | `tot − deh − ded`, qui vaut **1 par bloc** et non 0 |
+
+⚠ **`ECART` n'est pas un défaut.** Le troisième terme de la partition est la **ligne de clôture elle-même**, dont l'ouvrante porte l'étiquette de langage (`cpp`, `python`), que `compterMots` compte comme un mot. Une ouvrante sans étiquette rend 0. La contribution totale d'un bloc au `tot` vaut donc `ded + 1`.
+
+### Usage
+
+```bash
+node tools/mesure-chevron.mjs --lot <chemin> ...     # fiches nommées
+node tools/mesure-chevron.mjs --tout                 # tout content/, FR et EN, plus l appariement
+node tools/mesure-chevron.mjs --extraits --lot ...   # entête de chaque bloc
+node tools/mesure-chevron.mjs --montrer <chemin>     # les blocs en entier
+```
+
+`--tout` exclut `templates/`. **Le script n'écrit rien.**
+
+### Sous C127
+
+**Tout lot contenant une porteuse publie deux volumes** : `tot` pour la continuité historique, `deh` pour le dimensionnement et la lecture du foisonnement. Et `--tout` se relance **à chaque clôture de lot portant une porteuse**, pour que le symptôme 2 reste mesuré au lieu d'être supposé.
+
+**État au 27/08 (suite 7)** : 34 porteuses FR, 68 blocs, 2 175 mots — 4,9 % des fiches concernées, 0,77 % du corpus. Côté EN, 9 porteuses, 18 blocs, **0 divergente sur 9 paires**. Toutes les porteuses sont dans `embarque/mcu/`, et **`arduino/` n'en porte aucune**.
+
+---
+
 ## Notes Windows
 
 - Git for Windows fournit Git Bash, donc le hook `#!/bin/sh` fonctionne sur les deux PC (pro et perso).

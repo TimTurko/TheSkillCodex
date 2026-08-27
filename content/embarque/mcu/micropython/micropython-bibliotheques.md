@@ -15,11 +15,11 @@ aa:
 draft: false
 ---
 
-Une **bibliothèque** (ou *library*) est un module de code prêt à l'emploi qui encapsule la communication avec un composant : `ssd1306` pour un écran OLED, `dht` pour un capteur DHT11/22, un pilote de capteur sur [[micropython-i2c|I2C]]. Au lieu de réécrire le protocole d'un capteur à chaque projet, on **importe** la bibliothèque et on utilise ses fonctions. La logique diffère d'Arduino sur un point : il n'y a pas de gestionnaire d'`#include` à compiler — une bibliothèque MicroPython est un **fichier `.py`** (ou un module gelé dans le firmware) qu'on rend disponible sur la carte, puis qu'on `import`. Voir aussi [[micropython-modules|modules et import]].
+Une **bibliothèque** (ou *library*) est un module de code prêt à l'emploi qui encapsule la communication avec un composant : `ssd1306` pour un écran OLED, `dht` pour un capteur DHT11/22, un pilote de capteur sur [[micropython-i2c|I2C]]. Au lieu de réécrire le protocole d'un capteur à chaque projet, on **importe** la bibliothèque et on utilise ses fonctions. La logique diffère d'Arduino sur un point : il n'y a pas de gestionnaire d'`#include` à compiler. Une bibliothèque MicroPython est un **fichier `.py`** (ou un module gelé dans le firmware) qu'on rend disponible sur la carte, puis qu'on `import`. Voir aussi [[micropython-modules|modules et import]].
 
 ## À quoi ça sert ?
 
-- **Économiser du temps** — afficher un texte sur OLED SSD1306 sans bibliothèque demande des dizaines de lignes d'I2C + polices ; avec `ssd1306`, quelques lignes.
+- **Économiser du temps** — afficher un texte sur OLED SSD1306 sans bibliothèque demande des dizaines de lignes d'I2C + polices. Avec `ssd1306`, quelques lignes.
 - **Bénéficier de l'expérience accumulée** — les bibliothèques maintenues ont essuyé les bugs subtils (timing, conditions limites) qu'on n'a pas envie de redécouvrir.
 - **Faciliter le portage** — une même bibliothèque couvre souvent plusieurs cartes MicroPython.
 
@@ -66,7 +66,7 @@ ecran.text("Bonjour", 0, 0)            # écrit en haut à gauche (x=0, y=0)
 ecran.show()                           # transfère le tampon vers l'écran
 ```
 
-Sources de doc : le **README** du dépôt, les **exemples** fournis, et — pour les bibliothèques courtes — le **code source** lui-même (lisible, c'est du Python).
+Sources de doc : le **README** du dépôt, les **exemples** fournis, et, pour les bibliothèques courtes, le **code source** lui-même (lisible, c'est du Python).
 
 ## Exemple — Lire un DHT11 avec le module intégré `dht`
 
@@ -89,7 +89,7 @@ while True:
     print("T =", capteur.temperature(), "°C   H =", capteur.humidity(), "%")
 ```
 
-Souffler sur le capteur — l'humidité monte. Avant `dht`, lire ce capteur demandait de coder à la main son protocole 1-wire au timing strict — la bibliothèque encapsule tout ça.
+Souffler sur le capteur : l'humidité monte. Avant `dht`, lire ce capteur demandait de coder à la main son protocole 1-wire au timing strict. La bibliothèque encapsule tout ça.
 
 ## Pièges
 

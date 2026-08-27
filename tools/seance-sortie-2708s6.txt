@@ -1,0 +1,35 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s5.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - forme ISO du libelle d entree (T1)
+==============================================================
+
+### ISO   motif : 2026-08-28
+  JOURNAL.md l.14 : ## 2026-08-28 — Le lot 4 passé et généré, un brief de cinq séances de retard, et une différence entre postes q
+  total : 1
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - heures d horloge, collision de nature (T2)
+==============================================================
+
+### HEURE   motif : 28/08 a \d
+  total : 0
+
+### HEURE ACCENTUEE   motif : 28/08 . \d\d:\d\d
+  total : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - cible de remplacement, cycle (T3)
+==============================================================
+
+### CIBLE   motif : 27/08 \(suite 5\)
+  total : 0
+--- code de sortie : 0
