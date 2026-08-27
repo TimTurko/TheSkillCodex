@@ -1,5 +1,5 @@
 ---
-title: Prise en main de MicroPython
+title: Getting started with MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -16,68 +16,68 @@ source_fr: embarque/mcu/micropython/micropython-prise-en-main.md
 source_sha256: 79e3311fe6569535a1e98d8887acd4fd3b709b21365f4d02da78ef193fa124f7
 ---
 
-La **prise en main de MicroPython** consiste à installer l'éditeur **Thonny**, à déposer **une fois** le firmware MicroPython sur la carte (un Raspberry Pi Pico 2 ici), puis à exécuter un premier programme. La différence avec l'[[arduino-prise-en-main-en|Arduino]] est de fond : on ne compile pas un binaire à chaque fois, mais on installe un **interpréteur** sur la carte, après quoi on lui envoie du Python — au clavier dans le [[micropython-repl-en|REPL]], ou sous forme de fichiers `.py`. Le programme cible reste le **Blink**, l'équivalent embarqué du « Hello World ».
+**Getting started with MicroPython** means installing the **Thonny** editor, dropping the MicroPython firmware onto the board **once** (a Raspberry Pi Pico 2 here), then running a first program. The difference with [[arduino-prise-en-main-en|Arduino]] runs deep: you do not compile a binary every time, you install an **interpreter** on the board, after which you send it Python — from the keyboard in the [[micropython-repl-en|REPL]], or as `.py` files. The target program is still **Blink**, the embedded equivalent of "Hello World".
 
-## À quoi ça sert ?
+## What is it for?
 
-La prise en main valide toute la chaîne : éditeur, firmware sur la carte, liaison USB, REPL. Si un maillon manque, le Blink ne clignote pas, et on le sait tout de suite, sur du code trivial.
+Getting started validates the whole chain: editor, firmware on the board, USB link, REPL. If one link is missing, Blink does not blink, and you find out straight away, on trivial code.
 
-Au-delà du premier programme, elle installe deux réflexes propres à MicroPython :
+Beyond that first program, it installs two habits specific to MicroPython:
 
-- **Le REPL comme bac à sable.** Une fois le firmware en place, on peut taper une commande (`led.on()`) et voir l'effet **immédiatement**, sans téléverser quoi que ce soit. C'est l'atout majeur de l'approche scriptée pour explorer un capteur ou un module.
-- **Le modèle « fichiers sur la carte ».** Un programme MicroPython est un fichier `.py` enregistré sur la carte. Le fichier nommé `main.py` se lance **tout seul à la mise sous tension**. La carte devient autonome, sans ordinateur.
+- **The REPL as a sandbox.** Once the firmware is in place, you can type a command (`led.on()`) and see the effect **immediately**, without uploading anything. This is the main strength of the scripted approach when exploring a sensor or a module.
+- **The "files on the board" model.** A MicroPython program is a `.py` file saved on the board. The file named `main.py` runs **by itself at power-up**. The board becomes standalone, with no computer attached.
 
-## Procédure pas à pas
+## Step by step
 
-Cinq étapes : installer Thonny, flasher le firmware, se connecter, écrire (au REPL puis en fichier), rendre autonome.
+Five steps: install Thonny, flash the firmware, connect, write code (first in the REPL, then as a file), make it standalone.
 
-### 1. Installer Thonny
+### 1. Install Thonny
 
-Téléchargez **Thonny** depuis `thonny.org` et installez-le (Windows / macOS / Linux). C'est l'IDE débutant de référence pour MicroPython : il sait flasher le firmware, ouvre le REPL, et gère les fichiers de la carte.
+Download **Thonny** from `thonny.org` and install it (Windows / macOS / Linux). It is the reference beginner IDE for MicroPython: it can flash the firmware, it opens the REPL, and it manages the files on the board.
 
-Prendre capture d'écran de *la page de téléchargement de Thonny sur thonny.org, avec les liens par système d'exploitation*.
+Take a screenshot of *the Thonny download page on thonny.org, with the links per operating system*.
 
-### 2. Flasher le firmware MicroPython sur le Pico 2
+### 2. Flash the MicroPython firmware onto the Pico 2
 
-C'est l'étape propre à MicroPython, à faire **une seule fois** par carte. Le plus simple passe par Thonny :
+This is the step specific to MicroPython, and it is done **once** per board. The simplest route goes through Thonny:
 
-- branchez le Pico 2, puis, en bas à droite de Thonny, cliquez sur le sélecteur d'interpréteur → **« Installer MicroPython… »** (ou *Outils → Options → Interpréteur*) ;
-- choisissez la variante **Raspberry Pi Pico / Pico 2**, et suivez l'invite : Thonny demande de **maintenir le bouton BOOTSEL** en rebranchant la carte, puis installe le firmware.
+- plug in the Pico 2, then, at the bottom right of Thonny, click the interpreter selector → **"Installer MicroPython…"** (Install MicroPython…), or *Outils → Options → Interpréteur* (Tools → Options → Interpreter);
+- pick the **Raspberry Pi Pico / Pico 2** variant and follow the prompt: Thonny asks you to **hold the BOOTSEL button** while plugging the board back in, then installs the firmware.
 
 > [!tip]
-> **Méthode manuelle (sans Thonny).** Maintenez le bouton **BOOTSEL** du Pico **enfoncé en branchant l'USB** : la carte apparaît comme une **clé USB** nommée `RP2350` (ou `RPI-RP2`). Glissez-y le fichier `.uf2` du firmware Pico 2, téléchargé sur `micropython.org` (rubrique *Download*, carte Pico 2) ou `raspberrypi.com`. La carte redémarre en exécutant MicroPython.
+> **Manual method (without Thonny).** Hold the Pico's **BOOTSEL** button **down while plugging in the USB cable**: the board shows up as a **USB drive** named `RP2350` (or `RPI-RP2`). Drag the Pico 2 firmware `.uf2` file onto it, downloaded from `micropython.org` (*Download* section, Pico 2 board) or `raspberrypi.com`. The board reboots running MicroPython.
 
-Prendre capture d'écran de *la boîte de dialogue « Installer MicroPython » de Thonny, avec la variante Raspberry Pi Pico 2 sélectionnée*.
+Take a screenshot of *the "Installer MicroPython" dialog in Thonny, with the Raspberry Pi Pico 2 variant selected*.
 
-### 3. Se connecter à la carte (le REPL)
+### 3. Connect to the board (the REPL)
 
-Dans *Outils → Options → Interpréteur*, choisissez **« MicroPython (Raspberry Pi Pico) »** et le **port** de la carte. En bas de Thonny, le panneau **Shell** affiche l'invite du REPL :
+In *Outils → Options → Interpréteur* (Tools → Options → Interpreter), pick **MicroPython (Raspberry Pi Pico)** and the board's **port**. At the bottom of Thonny, the **Shell** panel shows the REPL prompt:
 
 ```
 >>>
 ```
 
-C'est l'interpréteur **qui tourne sur le Pico**. Tapez pour vérifier :
+This is the interpreter **running on the Pico**. Type this to check:
 
 ```python
->>> print("Bonjour depuis le Pico")
-Bonjour depuis le Pico
+>>> print("Hello from the Pico")
+Hello from the Pico
 ```
 
-Prendre capture d'écran de *Thonny avec l'interpréteur réglé sur « MicroPython (Raspberry Pi Pico) » et le Shell affichant l'invite puis le résultat d'un print*.
+Take a screenshot of *Thonny with the interpreter set to "MicroPython (Raspberry Pi Pico)" and the Shell showing the prompt and then the result of a print*.
 
-### 4. Allumer la LED… au REPL, puis en programme
+### 4. Turn the LED on… in the REPL, then as a program
 
-D'abord **en direct**, ligne à ligne. C'est là que l'approche scriptée brille :
+First **live**, one line at a time. This is where the scripted approach shines:
 
 ```python
 >>> from machine import Pin
->>> led = Pin("LED", Pin.OUT)   # LED intégrée (GP25 sur Pico 2 ; "LED" marche aussi sur Pico 2 W)
->>> led.on()                    # la LED s'allume IMMÉDIATEMENT
+>>> led = Pin("LED", Pin.OUT)   # on-board LED (GP25 on Pico 2; "LED" works on Pico 2 W too)
+>>> led.on()                    # the LED comes on IMMEDIATELY
 >>> led.off()
 ```
 
-Puis le **Blink** comme programme. Dans l'éditeur de Thonny, saisissez :
+Then **Blink** as a program. In the Thonny editor, type:
 
 ```python
 from machine import Pin
@@ -92,21 +92,21 @@ while True:
     sleep(1)
 ```
 
-Notez la différence avec Arduino : **pas de `setup()`/`loop()`**, mais du code qui s'exécute de haut en bas, et une boucle `while True:` pour répéter. Les blocs sont délimités par l'**indentation**, pas par des accolades (voir [[micropython-langage-en|le langage]]).
+Note the difference with Arduino: **no `setup()`/`loop()`**, just code that runs top to bottom, and a `while True:` loop to repeat. Blocks are delimited by **indentation**, not by braces (see [[micropython-langage-en|the language]]).
 
-Cliquez sur **Exécuter** (le bouton vert) : Thonny envoie le script au Pico et le lance. La LED clignote. **Le programme tourne. La prise en main est validée.** Pour l'arrêter, le bouton **Stop** (rouge), ou `Ctrl-C` dans le Shell.
+Click **Exécuter** (Run, the green button): Thonny sends the script to the Pico and starts it. The LED blinks. **The program is running. Getting started is validated.** To stop it, use the **Stop** button (red), or `Ctrl-C` in the Shell.
 
-Si rien ne clignote, reprenez le choix de l'interpréteur à l'étape 3, puis voyez les *Pièges*.
+If nothing blinks, go back over the interpreter choice in step 3, then see *Pitfalls*.
 
-### 5. Rendre la carte autonome (`main.py`)
+### 5. Make the board standalone (`main.py`)
 
-Tant que le script est lancé depuis Thonny, il s'arrête si l'on débranche. Pour qu'il tourne **seul à la mise sous tension**, enregistrez-le **sur la carte** sous le nom **`main.py`** (*Fichier → Enregistrer sous… → Raspberry Pi Pico*). Débranchez/rebranchez : la LED clignote sans ordinateur.
+As long as the script is launched from Thonny, it stops when you unplug. For it to run **on its own at power-up**, save it **on the board** under the name **`main.py`** (*Fichier → Enregistrer sous… → Raspberry Pi Pico*, that is File → Save as… → Raspberry Pi Pico). Unplug and plug back in: the LED blinks with no computer.
 
-Prendre capture d'écran de *la boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, le fichier nommé main.py*.
+Take a screenshot of *the "Enregistrer sous" dialog in Thonny offering "Raspberry Pi Pico" as a destination, with the file named main.py*.
 
-## Exemple — Blink modifié
+## Example — Blink, modified
 
-Pour vérifier qu'on contrôle réellement le comportement, changez le rythme :
+To check that you really control the behaviour, change the rhythm:
 
 ```python
 from machine import Pin
@@ -116,50 +116,50 @@ led = Pin("LED", Pin.OUT)
 
 while True:
     led.on()
-    sleep(0.1)    # éclair court
+    sleep(0.1)    # short flash
     led.off()
     sleep(0.9)
 ```
 
-Relancez : un éclair court toutes les secondes. Ce **petit pas** — modifier, relancer, observer — est le geste de base de tous les tutoriels suivants. (On peut aussi tester `led.toggle()` au REPL pour basculer l'état d'un coup.)
+Run it again: a short flash every second. That **small step** — edit, run again, observe — is the basic move of every tutorial that follows. (You can also try `led.toggle()` in the REPL to flip the state in one go.)
 
-## Pièges
+## Pitfalls
 
-**Interpréteur resté sur le PC.** Si Thonny pointe sur le *Python local* (et non « MicroPython (Raspberry Pi Pico) »), le code s'exécute sur l'ordinateur, pas sur la carte, et `from machine import Pin` échoue. Vérifier l'interpréteur en bas à droite.
+**Interpreter left on the PC.** If Thonny points at the *local Python* (and not at MicroPython (Raspberry Pi Pico)), the code runs on the computer instead of on the board, and `from machine import Pin` fails. Check the interpreter at the bottom right.
 
-**Firmware non installé.** Sans l'étape 2, la carte n'est pas un interpréteur MicroPython : Thonny ne s'y connecte pas. Le BOOTSEL ne sert qu'à **flasher le firmware**, pas à chaque exécution.
+**Firmware not installed.** Without step 2, the board is not a MicroPython interpreter: Thonny will not connect to it. BOOTSEL is only there to **flash the firmware**, not for every run.
 
-**Script lancé depuis Thonny ≠ autonome.** Un programme exécuté par Thonny s'arrête au débranchement. Pour l'autonomie, l'enregistrer **sur la carte** sous `main.py` (étape 5).
+**A script launched from Thonny is not standalone.** A program run by Thonny stops when you unplug. For it to stand alone, save it **on the board** as `main.py` (step 5).
 
-**Boucle infinie qui « bloque » la carte.** Un `while True:` occupe l'interpréteur : pour reprendre la main au REPL, **Stop** ou `Ctrl-C`. Si `main.py` boucle dès le démarrage et empêche toute connexion, rebrancher en **BOOTSEL** et re-flasher (ou supprimer `main.py`).
+**An infinite loop that "locks up" the board.** A `while True:` keeps the interpreter busy: to get the REPL back, use **Stop** or `Ctrl-C`. If `main.py` loops from boot and blocks any connection, plug back in with **BOOTSEL** held and re-flash (or delete `main.py`).
 
-**Réflexe 5 V.** Le Pico 2 est en **3,3 V, non tolérant 5 V** : ne pas appliquer 5 V sur une broche (voir [[niveaux-de-tension-en|niveaux de tension]]).
+**The 5 V reflex.** The Pico 2 runs at **3.3 V and is not 5 V tolerant**: do not apply 5 V to a pin (see [[niveaux-de-tension-en|logic levels]]).
 
-**Câble « charge seule ».** Carte alimentée mais aucun port : changer pour un câble de données.
+**A "charge only" cable.** Board powered but no port showing: swap it for a data cable.
 
-## Cas particulier — Autres éditeurs et autres cartes
+## Special case — Other editors and other boards
 
-- **Ligne de commande** — `mpremote` (officiel) et `rshell` pilotent la carte et copient des fichiers depuis un terminal, pratiques pour scripter ou pour l'intégration continue.
-- **VS Code** — l'extension *MicroPico* (ou *Pico-W-Go*) apporte REPL et envoi de fichiers dans VS Code, pour un projet plus structuré.
-- **Autres cartes** — le même Thonny + le firmware adapté programment un [[esp32-en|ESP32]] ou une Pyboard en MicroPython. Seuls le firmware et quelques broches changent.
+- **Command line** — `mpremote` (the official one) and `rshell` drive the board and copy files from a terminal, handy for scripting or for continuous integration.
+- **VS Code** — the *MicroPico* extension (or *Pico-W-Go*) brings the REPL and file transfer into VS Code, for a more structured project.
+- **Other boards** — the same Thonny plus the matching firmware will program an [[esp32-en|ESP32]] or a Pyboard in MicroPython. Only the firmware and a few pins change.
 
-## Raccrochage projet
+## Where it fits in the project
 
-- **Étape 4 de la [[preuve-de-concept-en|phase de preuve de concept]]** — flasher le firmware et lancer un premier programme est l'acte fondateur de la PoC logicielle en MicroPython. Tant que le Blink ne clignote pas, rien en aval n'est crédible.
-- **Tous les tutoriels MicroPython aval** — faites le Blink (et essayez le REPL) au moins une fois, sur le matériel cible, le plus tôt possible.
+- **Step 4 of the [[preuve-de-concept-en|proof of concept phase]]** — flashing the firmware and running a first program is the founding act of the software PoC in MicroPython. Until Blink blinks, nothing downstream is credible.
+- **Every MicroPython tutorial downstream** — do Blink (and try the REPL) at least once, on the target hardware, as early as you can.
 
-Le REPL change la façon de déboguer : avant d'écrire un programme complet, on **teste une ligne** sur la carte. Prendre ce réflexe dès la prise en main fait gagner un temps considérable sur tout le reste du module.
+The REPL changes the way you debug: before writing a whole program, you **test one line** on the board. Picking up that habit right from the start saves a great deal of time across the rest of the module.
 
-## Aller plus loin
+## Going further
 
-- [Documentation MicroPython pour le Pico (Raspberry Pi)](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) — installation, exemples.
-- [[micropython-langage-en|Le langage MicroPython]] — après le premier blink, les briques du langage.
-- [[micropython-simulation-en|Simuler avec Wokwi]] — essayer sans matériel.
+- [Documentation MicroPython pour le Pico (Raspberry Pi)](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) — installation, examples.
+- [[micropython-langage-en|The MicroPython language]] — after the first blink, the building blocks of the language.
+- [[micropython-simulation-en|Simulating with Wokwi]] — try it without hardware.
 
-## Voir aussi
+## See also
 
-- [[micropython-en|MicroPython]] — hub du module
-- [[micropython-langage-en|Le langage MicroPython]] — bases du langage, à suivre juste après
-- [[micropython-repl-en|Le REPL]] — le shell interactif découvert ici, en détail
-- [[arduino-prise-en-main-en|Prise en main d'Arduino]] — l'équivalent en C++ compilé (contraste)
-- [[niveaux-de-tension-en|Niveaux de tension]] — le Pico 2 est en 3,3 V, non tolérant 5 V
+- [[micropython-en|MicroPython]] — the module hub
+- [[micropython-langage-en|The MicroPython language]] — the basics of the language, to follow straight after
+- [[micropython-repl-en|The REPL]] — the interactive shell met here, in detail
+- [[arduino-prise-en-main-en|Getting started with Arduino]] — the compiled C++ equivalent (for contrast)
+- [[niveaux-de-tension-en|Logic levels]] — the Pico 2 runs at 3.3 V and is not 5 V tolerant

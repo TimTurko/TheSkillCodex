@@ -14,101 +14,101 @@ source_fr: embarque/mcu/micropython/micropython.md
 source_sha256: ad53ba765fd061a45cd4691c93878e1d055afdb9c1aa966206d22b6f1b9b8203
 ---
 
-**MicroPython** est une implémentation légère de **Python 3** qui tourne directement sur un microcontrôleur. Au lieu de compiler puis téléverser un binaire (comme en [[cpp-en|C++]]/[[arduino-en|Arduino]]), on installe **une fois** un *firmware* MicroPython sur la carte, qui exécute ensuite un **interpréteur Python** : on dialogue avec elle en direct au clavier (le [[micropython-repl-en|REPL]]) et on dépose des fichiers `.py` sur sa mémoire. C'est l'approche **scriptée** de l'embarqué — lisible et immédiate. Cette fiche est **le hub qui regroupe l'ensemble des tutoriels MicroPython**, organisés comme le module Arduino, de la première LED jusqu'au niveau ingénieur. La carte de référence de ce parcours est le **Raspberry Pi Pico 2**, mais MicroPython programme aussi bien d'autres cartes (voir plus bas). Le panorama des familles et l'aide au choix restent portés par [[microcontroleur-en|microcontrôleur]].
+**MicroPython** is a lightweight implementation of **Python 3** that runs directly on a microcontroller. Instead of compiling and then uploading a binary (as in [[cpp-en|C++]]/[[arduino-en|Arduino]]), you install a MicroPython *firmware* on the board **once**, and it then runs a **Python interpreter**: you talk to the board live from the keyboard (the [[micropython-repl-en|REPL]]) and drop `.py` files onto its memory. This is the **scripted** approach to embedded work — readable and immediate. This page is **the hub that gathers every MicroPython tutorial**, organised like the Arduino module, from the first LED up to engineer level. The reference board for this path is the **Raspberry Pi Pico 2**, but MicroPython programs plenty of other boards just as well (see below). The overview of the families and the help in choosing one stay with [[microcontroleur-en|microcontroller]].
 
-## Tutoriels
+## Tutorials
 
-Les tutoriels du module MicroPython, **dans l'ordre conseillé**. Les items marqués *(transverse)* sont des fiches partagées du squelette, valables pour toutes les familles. Le reste est propre à MicroPython. Le **langage** y remplace la fiche C++ : MicroPython a son propre parcours de langage.
+The tutorials of the MicroPython module, **in the recommended order**. Items marked *(cross-cutting)* are shared pages of the skeleton, valid for every family. The rest is specific to MicroPython. The **language** replaces the C++ page here: MicroPython has a learning path of its own.
 
-**Par où commencer ?** Par la [[micropython-prise-en-main-en|prise en main]] : installer Thonny, flasher le firmware et lancer un premier programme sur la carte. Le reste se suit dans l'ordre, ou se pioche au besoin du projet.
+**Where to start?** With [[micropython-prise-en-main-en|getting started]]: install Thonny, flash the firmware and run a first program on the board. The rest follows in order, or gets picked up as the project needs it.
 
-### Prendre en main
+### Getting started
 
-- [[micropython-prise-en-main-en|Prise en main de MicroPython]] — installer Thonny, flasher le firmware, écrire et lancer un premier programme ;
-- [[micropython-simulation-en|Simuler avec Wokwi]] — tester un montage Pico + MicroPython en ligne, avant le matériel.
+- [[micropython-prise-en-main-en|Getting started with MicroPython]] — install Thonny, flash the firmware, write and run a first program;
+- [[micropython-simulation-en|Simulating with Wokwi]] — test a Pico + MicroPython setup online, before touching hardware.
 
-### Apprendre les bases
+### Learning the basics
 
-- [[micropython-langage-en|Le langage MicroPython]] — Python sur microcontrôleur : un **hub d'apprentissage** (types, contrôle, fonctions, modules) ;
-- [[niveaux-de-tension-en|Niveaux de tension]] *(transverse)* — **3,3 V**, le Pico 2 n'est pas tolérant 5 V ;
-- [[micropython-gpio-en|Configurer les GPIO]] — `machine.Pin`, modes entrée / sortie / tirage ;
-- Communiquer : `print()` et le [[micropython-repl-en|REPL]] — l'équivalent du moniteur série (le shell interactif sert de console) ;
-- [[micropython-entree-tor-en|Lire une entrée TOR]] — bouton/interrupteur + anti-rebond ;
-- [[micropython-sortie-tor-en|Piloter une sortie TOR]] — LED, relais ;
-- [[micropython-capteur-numerique-en|Lire un capteur numérique]] ;
-- [[micropython-capteur-analogique-en|Lire un capteur analogique]] — via l'`ADC` ;
-- [[micropython-sortie-pwm-en|Piloter une sortie PWM]] ;
-- [[micropython-temporisation-en|Temporiser]] — `time.sleep()` vs `time.ticks_ms()` ;
-- [[micropython-bibliotheques-en|Utiliser une bibliothèque]] — `import`, modules, installation via `mip` ;
-- [[lire-une-datasheet-en|Lire une datasheet]] *(transverse)* — y trouver Vin, niveaux et courant max, au moment de câbler ;
-- [[micropython-module-en|Câbler un module]] · [[micropython-shield-en|Utiliser un shield]] ;
-- [[micropython-alimentation-en|Alimenter la carte]] — USB / VSYS, plage de tension, courant max.
+- [[micropython-langage-en|The MicroPython language]] — Python on a microcontroller: a **learning hub** (types, control flow, functions, modules);
+- [[niveaux-de-tension-en|Logic levels]] *(cross-cutting)* — **3.3 V**, the Pico 2 is not 5 V tolerant;
+- [[micropython-gpio-en|Configuring the GPIO]] — `machine.Pin`, input / output / pull modes;
+- Talking back: `print()` and the [[micropython-repl-en|REPL]] — the equivalent of the serial monitor (the interactive shell doubles as a console);
+- [[micropython-entree-tor-en|Reading an on/off input]] — button or switch, plus debouncing;
+- [[micropython-sortie-tor-en|Driving an on/off output]] — LED, relay;
+- [[micropython-capteur-numerique-en|Reading a digital sensor]];
+- [[micropython-capteur-analogique-en|Reading an analog sensor]] — through the `ADC`;
+- [[micropython-sortie-pwm-en|Driving a PWM output]];
+- [[micropython-temporisation-en|Timing delays]] — `time.sleep()` versus `time.ticks_ms()`;
+- [[micropython-bibliotheques-en|Using a library]] — `import`, modules, installing with `mip`;
+- [[lire-une-datasheet-en|Reading a datasheet]] *(cross-cutting)* — where to find Vin, logic levels and maximum current, at wiring time;
+- [[micropython-module-en|Wiring a module]] · [[micropython-shield-en|Using a shield]];
+- [[micropython-alimentation-en|Powering the board]] — USB / VSYS, voltage range, maximum current.
 
-### Notions avancées
+### Advanced topics
 
-- Communication, par protocole : [[micropython-uart-en|UART]] · [[micropython-i2c-en|I2C]] · [[micropython-spi-en|SPI]] *(notions transverses : [[bus-de-communication-en|bus de communication]])* ;
-- [[micropython-debug-en|Débugger un programme]] ;
-- [[micropython-gpio-boot-en|État des GPIO à l'allumage]] — niveaux par défaut, broches sensibles ;
-- Actionneurs : [[micropython-servomoteur-en|servomoteur]] · [[micropython-moteur-cc-en|moteur CC (pont en H)]] · [[micropython-moteur-pas-a-pas-en|moteur pas-à-pas]] ;
-- [[micropython-afficheur-en|Afficheur OLED]] ;
-- [[micropython-programmation-non-bloquante-en|Programmation non bloquante]] — sortir du `sleep()` bloquant, prérequis de la machine à états ;
-- [[micropython-machine-a-etats-en|Machine à états]] *(→ notion [[machine-a-etats-en|Machine à états]])* ;
-- [[micropython-stockage-en|Stockage persistant]] — fichiers sur la flash, ou EEPROM externe.
+- Communication, by protocol: [[micropython-uart-en|UART]] · [[micropython-i2c-en|I2C]] · [[micropython-spi-en|SPI]] *(cross-cutting concept pages: [[bus-de-communication-en|communication buses]])*;
+- [[micropython-debug-en|Debugging a program]];
+- [[micropython-gpio-boot-en|GPIO states at power-up]] — default levels, sensitive pins;
+- Actuators: [[micropython-servomoteur-en|servo]] · [[micropython-moteur-cc-en|DC motor (H-bridge)]] · [[micropython-moteur-pas-a-pas-en|stepper motor]];
+- [[micropython-afficheur-en|OLED display]];
+- [[micropython-programmation-non-bloquante-en|Non-blocking programming]] — getting out of the blocking `sleep()`, a prerequisite for the state machine;
+- [[micropython-machine-a-etats-en|State machine]] *(→ concept page [[machine-a-etats-en|State machine]])*;
+- [[micropython-stockage-en|Persistent storage]] — files on the flash, or an external EEPROM.
 
-### Niveau ingénieur
+### Engineer level
 
-- [[micropython-interruptions-en|Interruptions]] *(→ notion [[interruption-en|Interruption]])* ;
-- [[micropython-timers-en|Timers matériels]] *(→ notion [[timer-en|Timer]])* — `machine.Timer` ;
-- [[manipulation-de-bits-en|Manipulation de bits]] *(transverse)* — registres, masques, accès bas niveau ;
-- [[micropython-deep-sleep-en|Deep sleep]] *(→ notion [[deep-sleep-en|Deep sleep]])* — `machine.lightsleep` / `deepsleep` ;
-- [[micropython-pid-en|Régulation PID]] — boucle de commande ;
-- [[micropython-memoire-en|Gestion mémoire]] *(→ notion [[memoire-en|Mémoire]])* — RAM, ramasse-miettes (`gc`) ;
-- [[micropython-watchdog-en|Watchdog]] — `machine.WDT`, robustesse du firmware.
+- [[micropython-interruptions-en|Interrupts]] *(→ concept page [[interruption-en|Interrupt]])*;
+- [[micropython-timers-en|Hardware timers]] *(→ concept page [[timer-en|Timer]])* — `machine.Timer`;
+- [[manipulation-de-bits-en|Bit manipulation]] *(cross-cutting)* — registers, masks, low-level access;
+- [[micropython-deep-sleep-en|Deep sleep]] *(→ concept page [[deep-sleep-en|Deep sleep]])* — `machine.lightsleep` / `deepsleep`;
+- [[micropython-pid-en|PID control]] — the control loop;
+- [[micropython-memoire-en|Memory management]] *(→ concept page [[memoire-en|Memory]])* — RAM, garbage collector (`gc`);
+- [[micropython-watchdog-en|Watchdog]] — `machine.WDT`, firmware robustness.
 
-D'autres tutos compléteront ces paliers au fil des projets. La structuration d'ensemble du code embarqué reste traitée dans [[firmware-en|firmware]].
+More tutorials will fill in these levels as projects come along. How embedded code is structured overall stays with [[firmware-en|firmware]].
 
-## Pourquoi MicroPython ?
+## Why MicroPython?
 
-![Modèle d'exécution : approche compilée (C++/Arduino) vs approche scriptée (MicroPython)](/ressources/img/micropython/modele-execution.svg)
+![Execution model: compiled approach (C++/Arduino) versus scripted approach (MicroPython)](/ressources/img/micropython/modele-execution.svg)
 
-MicroPython occupe une **niche de lisibilité et d'itération rapide**, pas de performance brute. Ses atouts :
+MicroPython occupies a **niche of readability and fast iteration**, not one of raw performance. What it brings:
 
-- **Python, lisible et connu** — beaucoup d'élèves arrivent avec des bases de Python, réinvesties directement sur le matériel ;
-- **pas de compilation** — on modifie un fichier, on le relance, on voit le résultat, et le cycle d'essai est quasi instantané ;
-- **le REPL** — un shell interactif tourne *sur la carte* : on teste une ligne (`Pin("LED", Pin.OUT).on()`) et le résultat est immédiat, idéal pour explorer un capteur ou un module ;
-- **un code court** — typage dynamique, pas de déclarations verbeuses : un programme tient en quelques lignes.
+- **Python, readable and already familiar** — many students arrive with some Python behind them, and put it straight to work on hardware;
+- **no compilation** — edit a file, run it again, see the result, and the try-it cycle is close to instant;
+- **the REPL** — an interactive shell runs *on the board*: you try one line (`Pin("LED", Pin.OUT).on()`) and the result is immediate, ideal for exploring a sensor or a module;
+- **short code** — dynamic typing and no verbose declarations: a program fits in a handful of lines.
 
-En contrepartie, MicroPython est **plus lent et moins déterministe** que du C++ compilé (l'interpréteur ajoute un surcoût et le ramasse-miettes peut introduire des pauses), et offre **moins de mémoire utile**. C'est le bon choix pour **apprendre, prototyper, scripter** — moins pour du temps réel serré ou de la performance maximale, où l'on revient à l'[[arduino-en|Arduino]]/C++ ou au [[stm32-en|STM32]]. La décision se prend avec l'aide au choix du hub [[microcontroleur-en|microcontrôleur]].
+In exchange, MicroPython is **slower and less deterministic** than compiled C++ (the interpreter adds overhead and the garbage collector can introduce pauses), and it leaves **less usable memory**. It is the right choice for **learning, prototyping, scripting** — less so for tight real time or maximum performance, where you go back to [[arduino-en|Arduino]]/C++ or to the [[stm32-en|STM32]]. That decision is made with the help in choosing on the [[microcontroleur-en|microcontroller]] hub.
 
-## Panorama des cartes
+## Board overview
 
-La carte de référence ici est le **Raspberry Pi Pico 2**, mais le tableau rappelle l'essentiel de la gamme.
+The reference board here is the **Raspberry Pi Pico 2**, but the table sums up the essentials of the range.
 
 > [!info]
-> Tableau **repère pédagogique**, à confirmer sur `raspberrypi.com` avant de figer un choix (références et disponibilités évoluent).
+> This table is a **teaching reference**, to be confirmed on `raspberrypi.com` before locking in a choice (part numbers and availability change).
 
-| Carte | Puce | Cœur | Particularité | 
+| Board | Chip | Core | Notable feature |
 | --- | --- | --- | --- |
-| Pico 2 | RP2350 | 2× Cortex-M33 (ou 2× RISC-V), 150 MHz | la référence de ce module ; plus de RAM que le Pico 1 | 
-| Pico 2 W | RP2350 | idem | ajoute le **Wi-Fi / Bluetooth** (puce CYW43) | 
-| Pico / Pico W | RP2040 | 2× Cortex-M0+, 133 MHz | génération précédente, toujours répandue et compatible | 
+| Pico 2 | RP2350 | 2× Cortex-M33 (or 2× RISC-V), 150 MHz | the reference board of this module; more RAM than the Pico 1 |
+| Pico 2 W | RP2350 | same | adds **Wi-Fi / Bluetooth** (CYW43 chip) |
+| Pico / Pico W | RP2040 | 2× Cortex-M0+, 133 MHz | previous generation, still widespread and compatible |
 
-Toutes se programment **de la même façon en MicroPython**. Le choix se fait sur le Wi-Fi (variante *W*) et la puissance (RP2350 vs RP2040). La carte expose un connecteur USB pour l'alimentation et la programmation, et une rangée de broches **GPIO en 3,3 V**.
+All of them are programmed **the same way in MicroPython**. The choice comes down to Wi-Fi (the *W* variant) and to processing power (RP2350 versus RP2040). The board exposes a USB connector for power and programming, and a row of **3.3 V GPIO pins**.
 
-## Écosystème
+## Ecosystem
 
-- **Le firmware MicroPython** — un fichier `.uf2` à installer une fois sur la carte (voir [[micropython-prise-en-main-en|prise en main]]). Après cela, la carte *est* un interpréteur Python.
-- **Thonny** — l'IDE débutant de référence : il flashe le firmware, ouvre le REPL, et gère les fichiers `.py` sur la carte (dont `main.py`, lancé au démarrage).
-- **Le REPL et le système de fichiers** — on tape des commandes en direct, et on enregistre ses programmes comme fichiers sur la carte. C'est le cœur du modèle MicroPython.
-- **Les modules** — `machine` (accès au matériel : `Pin`, `ADC`, `PWM`, `I2C`…), `time`, `network` (sur les cartes Wi-Fi)… plus l'installation de bibliothèques via `mip` (voir [[micropython-bibliotheques-en|bibliothèques]]).
+- **The MicroPython firmware** — a `.uf2` file to install once on the board (see [[micropython-prise-en-main-en|getting started]]). After that, the board *is* a Python interpreter.
+- **Thonny** — the reference beginner IDE: it flashes the firmware, opens the REPL, and manages the `.py` files on the board (including `main.py`, which runs at start-up).
+- **The REPL and the file system** — you type commands live, and you save your programs as files on the board. This is the heart of the MicroPython model.
+- **The modules** — `machine` (hardware access: `Pin`, `ADC`, `PWM`, `I2C`…), `time`, `network` (on Wi-Fi boards)… plus library installation with `mip` (see [[micropython-bibliotheques-en|libraries]]).
 
-**MicroPython n'est pas lié au seul Pico** : le même langage et la même approche programment l'[[esp32-en|ESP32]], les cartes Pyboard, et plusieurs cartes Arduino récentes (Nano RP2040, Nano ESP32…). On ancre ce module sur le Pico 2 parce que c'est la carte utilisée en cours, mais le parcours se transpose. La façon de **structurer** le code embarqué relève de [[firmware-en|firmware]], indépendamment de la carte.
+**MicroPython is not tied to the Pico alone**: the same language and the same approach program the [[esp32-en|ESP32]], the Pyboard range, and several recent Arduino boards (Nano RP2040, Nano ESP32…). This module is anchored on the Pico 2 because that is the board used in class, but the path carries over. How to **structure** embedded code belongs to [[firmware-en|firmware]], whatever the board.
 
-## Voir aussi
+## See also
 
-- [[microcontroleur-en|Microcontrôleur]] — hub mère : panorama des familles et aide au choix
-- [[micropython-langage-en|Le langage MicroPython]] — le parcours d'apprentissage du langage
-- [[arduino-en|Arduino]] — l'approche compilée (C++) ; même curriculum, paradigme opposé
-- [[esp32-en|ESP32]] — une autre cible MicroPython courante (et Wi-Fi/BLE)
-- [[firmware-en|Firmware]] — structuration du code embarqué (transverse)
-- [[niveaux-de-tension-en|Niveaux de tension]] — la logique 3,3 V (Pico 2 non tolérant 5 V)
+- [[microcontroleur-en|Microcontroller]] — parent hub: overview of the families and help in choosing
+- [[micropython-langage-en|The MicroPython language]] — the learning path for the language itself
+- [[arduino-en|Arduino]] — the compiled approach (C++); same curriculum, opposite paradigm
+- [[esp32-en|ESP32]] — another common MicroPython target (and Wi-Fi/BLE)
+- [[firmware-en|Firmware]] — structuring embedded code (cross-cutting)
+- [[niveaux-de-tension-en|Logic levels]] — 3.3 V logic (the Pico 2 is not 5 V tolerant)

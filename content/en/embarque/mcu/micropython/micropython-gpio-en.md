@@ -1,5 +1,5 @@
 ---
-title: Configurer les GPIO en MicroPython
+title: Configuring MicroPython GPIO
 type: tuto
 phases:
   - preuve-de-concept
@@ -16,67 +16,67 @@ source_fr: embarque/mcu/micropython/micropython-gpio.md
 source_sha256: 46bf1cdbd93ef7a5e316832e4e4bba0b0d58aefbf5bf6d7c7ce2247cfbb1e0d9
 ---
 
-Les **GPIO** (*General Purpose Input/Output*) du Pico sont les broches numériques configurables en entrée ou en sortie pour lire ou émettre un signal binaire (0 V / 3,3 V). En MicroPython, tout passe par la classe **`Pin`** du module [[micropython-modules-en|`machine`]]. Configurer correctement un GPIO est le geste de base de tout programme embarqué. Oublier le mode, confondre les tirages ou ignorer l'état flottant d'une entrée est la cause la plus fréquente des comportements imprévisibles en début de projet.
+The **GPIO** (general purpose input/output) pins of the Pico are the digital pins that can be configured as an input or an output, to read or emit a binary signal (0 V / 3.3 V). In MicroPython, everything goes through the **`Pin`** class of the [[micropython-modules-en|`machine`]] module. Configuring a GPIO correctly is the basic move of any embedded program. Forgetting the mode, mixing up the pulls or ignoring the floating state of an input is the most frequent cause of unpredictable behaviour early in a project.
 
-## À quoi ça sert ?
+## What is it for?
 
-Tous les capteurs et actionneurs binaires (bouton, fin de course, LED, relais, buzzer, capteur de présence) passent par les GPIO. Trois configurations couvrent l'essentiel : **sortie** (`Pin.OUT`, qu'on pousse à 1 ou 0), **entrée tirée au haut** (`Pin.IN, Pin.PULL_UP`), **entrée tirée au bas** (`Pin.IN, Pin.PULL_DOWN`). Comprendre ces modes et le câblage qui va avec rend lisible la plupart des autres tutoriels.
+Every binary sensor and actuator (button, limit switch, LED, relay, buzzer, presence sensor) goes through the GPIO. Three configurations cover the essentials: **output** (`Pin.OUT`, driven to 1 or 0), **input pulled high** (`Pin.IN, Pin.PULL_UP`), **input pulled low** (`Pin.IN, Pin.PULL_DOWN`). Understanding these modes and the wiring that goes with them makes most of the other tutorials readable.
 
-## Procédure pas à pas
+## Step by step
 
-Quatre étapes : identifier la broche, créer l'objet `Pin` avec son mode, lire ou écrire, câbler proprement.
+Four steps: identify the pin, create the `Pin` object with its mode, read or write, wire it cleanly.
 
-### 1. Identifier les broches
+### 1. Identify the pins
 
-Le Pico expose les broches **GP0 à GP28** (numérotation *GP*, à ne pas confondre avec la numérotation physique des pattes). Particularités : **GP26 / GP27 / GP28** font aussi office d'entrées analogiques ([[micropython-capteur-analogique-en|ADC]]). Certaines broches portent par défaut un bus (UART, I2C, SPI). La LED intégrée est sur **GP25** (raccourci `"LED"`).
+The Pico exposes pins **GP0 to GP28** (the *GP* numbering, not to be confused with the physical pin numbering). Specifics: **GP26 / GP27 / GP28** double as analog inputs ([[micropython-capteur-analogique-en|ADC]]). Some pins carry a bus by default (UART, I2C, SPI). The on-board LED is on **GP25** (shorthand `"LED"`).
 
-Toutes les broches sont en **3,3 V** et **ne sont pas tolérantes 5 V** — voir [[niveaux-de-tension-en|niveaux de tension]].
+Every pin runs at **3.3 V** and is **not 5 V tolerant** — see [[niveaux-de-tension-en|logic levels]].
 
-![Brochage officiel du Raspberry Pi Pico : les 40 broches avec les numéros GPxx utilisés dans le code, les entrées analogiques (ADC) et les broches de bus (UART, I2C, SPI) repérées.|640](/ressources/img/micropython-gpio/brochage-pico.png)
+![Official Raspberry Pi Pico pinout: the 40 pins with the GPxx numbers used in code, the analog inputs (ADC) and the bus pins (UART, I2C, SPI) marked.|640](/ressources/img/micropython-gpio/brochage-pico.png)
 
-*Source : Raspberry Pi Ltd — licence CC BY-ND, image non modifiée.*
+*Source: Raspberry Pi Ltd — CC BY-ND licence, image unmodified.*
 
-### 2. Créer l'objet `Pin` avec son mode
+### 2. Create the `Pin` object with its mode
 
-Contrairement à Arduino (`pinMode` dans `setup()`), on crée un **objet** par broche, en général en début de programme :
+Unlike Arduino (`pinMode` inside `setup()`), you create one **object** per pin, usually at the top of the program:
 
 ```python
 from machine import Pin
 
-led = Pin(15, Pin.OUT)                 # sortie
-bouton = Pin(14, Pin.IN, Pin.PULL_UP)  # entrée, résistance interne vers 3,3 V
+led = Pin(15, Pin.OUT)                 # output
+bouton = Pin(14, Pin.IN, Pin.PULL_UP)  # input, internal resistor to 3.3 V
 ```
 
-- **`Pin.OUT`** — la broche pilote un signal vers l'extérieur (LED, relais, transistor).
-- **`Pin.IN, Pin.PULL_UP`** — entrée avec résistance interne vers `3,3 V`. **Logique inversée** : lit `1` au repos, `0` quand on la connecte à GND (typiquement par un bouton).
-- **`Pin.IN, Pin.PULL_DOWN`** — entrée avec résistance interne vers GND : lit `0` au repos, `1` quand on l'amène à 3,3 V. *(Le Pico offre les deux tirages en interne — un atout par rapport à l'AVR de l'Arduino, qui n'a qu'un pull-up.)*
-- **`Pin.IN`** seul — entrée **flottante**, sans polarisation : lecture aléatoire si rien n'est branché. À réserver aux cas avec résistance externe.
+- **`Pin.OUT`** — the pin drives a signal outwards (LED, relay, transistor).
+- **`Pin.IN, Pin.PULL_UP`** — input with an internal resistor to `3.3 V`. **Inverted logic**: reads `1` at rest, `0` when connected to GND (typically through a button).
+- **`Pin.IN, Pin.PULL_DOWN`** — input with an internal resistor to GND: reads `0` at rest, `1` when brought to 3.3 V. *(The Pico offers both pulls internally — an advantage over the Arduino's AVR, which only has a pull-up.)*
+- **`Pin.IN`** on its own — a **floating** input, with no bias: the reading is random if nothing is connected. Keep it for cases with an external resistor.
 
-### 3. Lire ou écrire
+### 3. Read or write
 
 ```python
 while True:
-    if bouton.value() == 0:    # bouton appuyé (pull-up : 0 = appuyé)
+    if bouton.value() == 0:    # button pressed (pull-up: 0 = pressed)
         led.on()
     else:
         led.off()
 ```
 
-`bouton.value()` renvoie `1` ou `0`. Côté sortie, `led.value(1)`/`led.value(0)`, ou les raccourcis `led.on()` / `led.off()` / `led.toggle()`.
+`bouton.value()` returns `1` or `0`. On the output side, `led.value(1)`/`led.value(0)`, or the shorthands `led.on()` / `led.off()` / `led.toggle()`.
 
-### 4. Câbler proprement
+### 4. Wire it cleanly
 
-- **Sortie sur LED** : résistance série de 220 Ω à 1 kΩ entre la broche et l'anode (+) de la LED, cathode (−) vers GND. **Sans résistance, la LED ou la broche s'abîme.**
-- **Entrée sur bouton, `PULL_UP`** : un côté du bouton sur la broche, l'autre côté sur GND. Rien d'autre.
-- **Entrée sur bouton, `Pin.IN` seul** : il faut une résistance externe (~10 kΩ vers 3,3 V ou GND) pour un état de repos défini.
+- **Output to a LED**: a series resistor of 220 Ω to 1 kΩ between the pin and the anode (+) of the LED, cathode (−) to GND. **Without a resistor, the LED or the pin gets damaged.**
+- **Input from a button, `PULL_UP`**: one side of the button to the pin, the other side to GND. Nothing else.
+- **Input from a button, `Pin.IN` alone**: an external resistor is needed (~10 kΩ to 3.3 V or to GND) to give a defined rest state.
 
-![Montage : LED + résistance sur GP15 et bouton entre GP14 et GND, sur un Raspberry Pi Pico|600](/ressources/img/micropython-gpio/montage-led-bouton.svg)
+![Setup: LED and resistor on GP15, button between GP14 and GND, on a Raspberry Pi Pico|600](/ressources/img/micropython-gpio/montage-led-bouton.svg)
 
-## Exemple — Bouton qui allume une LED
+## Example — A button that lights a LED
 
-Câblage et code complets pour valider `Pin.OUT` + `Pin.IN` + lecture/écriture.
+Complete wiring and code to validate `Pin.OUT` plus `Pin.IN` plus read and write.
 
-**Câblage** : LED anode → résistance 220 Ω → GP15 ; cathode → GND. Bouton entre GP14 et GND (`PULL_UP`, pas de résistance externe).
+**Wiring**: LED anode → 220 Ω resistor → GP15; cathode → GND. Button between GP14 and GND (`PULL_UP`, no external resistor).
 
 ```python
 from machine import Pin
@@ -91,42 +91,42 @@ while True:
         led.off()
 ```
 
-Lancez, appuyez sur le bouton, et la LED s'allume. Relâchez, et elle s'éteint. Si la LED reste allumée en permanence, vous avez probablement câblé un côté du bouton sur 3,3 V au lieu de GND.
+Run it, press the button, and the LED comes on. Release it, and the LED goes out. If the LED stays on permanently, you have probably wired one side of the button to 3.3 V instead of GND.
 
-## Pièges
+## Pitfalls
 
-**Broche flottante.** Une entrée en `Pin.IN` sans tirage capte du bruit — lecture aléatoire qui peut sembler répondre au passage de la main (effet antenne 50 Hz). Pour un bouton, presque toujours `PULL_UP` + bouton vers GND.
+**A floating pin.** An input left in `Pin.IN` with no pull picks up noise — a random reading that can look as if it responds to a hand passing nearby (a 50 Hz antenna effect). For a button, it is almost always `PULL_UP` plus a button to GND.
 
-**Logique inversée du pull-up.** Un bouton en `PULL_UP` lit `0` quand appuyé. Tester `if bouton.value() == 1` allumera la LED quand le bouton est **relâché** — inverse du comportement attendu.
+**The inverted logic of the pull-up.** A button on `PULL_UP` reads `0` when pressed. Testing `if bouton.value() == 1` will light the LED when the button is **released** — the opposite of what you expect.
 
-**LED sans résistance.** Une LED branchée directement tire un courant excessif qui la grille (ou abîme la broche). Toujours une résistance série (220 Ω à 1 kΩ pour une LED standard sur 3,3 V).
+**A LED with no resistor.** A LED connected directly draws an excessive current that burns it out (or damages the pin). Always a series resistor (220 Ω to 1 kΩ for a standard LED on 3.3 V).
 
-**Courant max de broche dépassé.** Une broche du Pico délivre par défaut ~4 mA, **~12 mA au maximum** (force de sortie réglable). C'est **moins** qu'un Arduino (20 mA) : on passe par un transistor ou un module dédié encore plus tôt (voir [[micropython-sortie-tor-en|piloter une sortie TOR]]).
+**Maximum pin current exceeded.** A Pico pin delivers about 4 mA by default, **about 12 mA at most** (the drive strength is adjustable). That is **less** than an Arduino (20 mA), so you reach for a transistor or a dedicated module even sooner (see [[micropython-sortie-tor-en|driving an on/off output]]).
 
-**Réflexe 5 V.** Le Pico n'est **pas tolérant 5 V** : appliquer 5 V sur une entrée peut détruire la broche. Adapter le niveau d'un capteur 5 V (pont diviseur ou translateur).
+**The 5 V reflex.** The Pico is **not 5 V tolerant**: applying 5 V to an input can destroy the pin. Shift the level of a 5 V sensor (voltage divider or level shifter).
 
-## Cas particulier — PWM, ADC et bus
+## Special case — PWM, ADC and buses
 
-Toutes les broches ne sont pas équivalentes :
+Not all pins are equivalent:
 
-- **ADC** — **GP26 / GP27 / GP28** sont les entrées analogiques ([[micropython-capteur-analogique-en|`ADC`]]).
-- **PWM** — sur le Pico, **toutes** les broches GPIO peuvent générer un signal PWM (voir [[micropython-sortie-pwm-en|PWM]]) — pas de broches « `~` » dédiées comme sur Arduino.
-- **Bus** — des broches portent par défaut l'UART, l'I2C, le SPI (voir [[bus-de-communication-en|bus de communication]]). Utiliser une broche en GPIO la rend indisponible pour son bus.
+- **ADC** — **GP26 / GP27 / GP28** are the analog inputs ([[micropython-capteur-analogique-en|`ADC`]]).
+- **PWM** — on the Pico, **every** GPIO pin can generate a PWM signal (see [[micropython-sortie-pwm-en|PWM]]) — no dedicated "`~`" pins as on Arduino.
+- **Buses** — some pins carry UART, I2C or SPI by default (see [[bus-de-communication-en|communication buses]]). Using a pin as GPIO makes it unavailable for its bus.
 
-Le pinout officiel de la carte est la référence. Gardez-le à portée de main.
+The board's official pinout is the reference. Keep it within reach.
 
-## Raccrochage projet
+## Where it fits in the project
 
-- **Étape 2 de la [[preuve-de-concept-en|phase de preuve de concept]]** — premiers essais individuels d'entrée et de sortie (bouton, LED, fin de course) avant d'assembler.
-- **Étape 2 de la [[integration-et-tests-en|phase d'intégration et tests]]** — validation pièce-par-pièce des E/S avant tests pyramidaux.
+- **Step 2 of the [[preuve-de-concept-en|proof of concept phase]]** — first individual input and output trials (button, LED, limit switch) before assembling anything.
+- **Step 2 of the [[integration-et-tests-en|integration and testing phase]]** — piece-by-piece validation of the I/O before the test pyramid.
 
-Maîtriser ces modes sur un petit montage isolé est la fondation sur laquelle reposent presque tous les tutoriels suivants — inutile d'enchaîner sur les capteurs ou les actionneurs avant que ce socle ne soit ferme.
+Mastering these modes on a small isolated setup is the foundation that almost every following tutorial rests on — no point moving on to sensors or actuators before that groundwork is firm.
 
-## Voir aussi
+## See also
 
-- [[micropython-en|MicroPython]] — hub du module
-- [[gpio-en|GPIO]] — notion transverse (modes, état au boot, GPIO sur autres familles)
-- [[micropython-entree-tor-en|Lire une entrée TOR]] — la suite naturelle (bouton avec anti-rebond)
-- [[micropython-sortie-tor-en|Piloter une sortie TOR]] — la sortie au-delà de la LED (relais)
-- [[arduino-gpio-en|Configurer les GPIO Arduino]] — l'équivalent en C++ (à comparer)
-- [[niveaux-de-tension-en|Niveaux de tension]] — 3,3 V, Pico non tolérant 5 V
+- [[micropython-en|MicroPython]] — the module hub
+- [[gpio-en|GPIO]] — cross-cutting concept page (modes, state at boot, GPIO on other families)
+- [[micropython-entree-tor-en|Reading an on/off input]] — the natural next step (a button with debouncing)
+- [[micropython-sortie-tor-en|Driving an on/off output]] — output beyond the LED (relays)
+- [[arduino-gpio-en|Configuring Arduino GPIO]] — the C++ equivalent, worth comparing
+- [[niveaux-de-tension-en|Logic levels]] — 3.3 V, the Pico is not 5 V tolerant
