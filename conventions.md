@@ -2147,7 +2147,99 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
 ⚠ **UN OUTIL DU DÉPÔT PEUT PORTER UN MODE COURT QU'ON N'A JAMAIS LU.** `audit-medias.mjs --quiet` rend six défauts en quinze lignes là où le rapport complet en écrit près de mille, et son bilan avait été perdu une fois dans un milieu non lu. *Le motif du 26/08 (suite 2) — lire l'outil coûte moins que le deviner — vaut aussi pour ses options, pas seulement pour ses arguments.* **Mode court adopté par défaut dans les séries de mesure.**
 
+### Acquises 27/08 (suite 3) — le lot 3 de MicroPython, C125 contredite à sa première application, et un traitement qui ne traite pas
+
+*Aucune convention neuve. La numérotation reste à **125**. C116 **vingtième épreuve close**, C117 **20/N**, **C120 9/N**, **C121 4/N**. **C122, C123, C124 et C125 reçoivent leur première application.** C119 reçoit deux opérations vérifiées et deux démenties d'une unité, C118 sert cinq fois, C71 deux fois.*
+
+⚠ **C125 EST CONTREDITE PAR SA PREMIÈRE APPLICATION, ET L'AMENDEMENT EST NOMMÉ.** Sa règle — *la forme qualifiée d'un Voir aussi prime sur une mention de prose* — donnait *Analog sensor (MicroPython)* et *PWM output (MicroPython)*. Or `adc-en` et `chronogramme-en` écrivent la même forme parenthésée pour les **jumelles Arduino**, dont les `title:` en production sont `Reading an analog sensor` et `Driving a PWM output`. **Le suffixe entre parenthèses est un libellé de désambiguïsation propre aux pages-notion qui listent deux familles côte à côte, jamais un titre.** Amendement à porter : *une forme qualifiée peut être un libellé et non un titre ; ce qui tranche alors est la jumelle déjà titrée, pas le contexte de la ligne.* **Éprouvée 1/N, et son texte est à corriger avant la deuxième.**
+
+⚠ **UN TRAITEMENT QUI NE TRAITE PAS EST UNE TROISIÈME CAUSE D'ÉCART SUR UN RÉSIDU.** Les deux issues nommées d'avance depuis le 27/08 — une édition qui en emporte une seconde, une exemption mal classée — ne couvraient pas le cas rencontré : une édition **censée** retirer une occurrence et qui ne la retire pas. `500 Hz – 20 kHz` rendu `500 Hz–20 kHz` reste signalé, parce que la frontière de l'outil est **lettre/chiffre** et non l'espacement. *À ajouter aux issues à nommer avant toute mesure de résidu.*
+
+⚠ **ABSENT D'UNE LISTE N'EST PAS NON DÉTECTÉ QUAND L'OUTIL EN PUBLIE PLUSIEURS.** Le correctif fait tomber C109 de 23 à 22 **et monter hors périmètre de 39 à 40** : l'occurrence change de seau au lieu de disparaître, les deux états sommant à 62. Corollaire immédiat : **l'étiquette du seau ment**, elle annonce « titres, tableaux et alt » et contient aussi des plages numériques. *Ne jamais conclure à la non-détection depuis l'absence dans une seule liste.*
+
+⚠ **C124 NE COUVRE QUE LA MOITIÉ DE CE QUE SON TEXTE ANNONCE.** L'étalonnage a tenu — `sortie-pwm` mesurée seule puis dans le lot, même lancement, huit candidats identiques au numéro de ligne près — mais **l'outil publie `hors perimetre` en total de série, jamais par fiche** : 6 pour la mesure seule, 40 pour la mesure en lot. Les deux ne se comparent pas sans soustraire, ce que C119 interdit. **Lever la borne demande une sortie `--style` par fiche.** *Éprouvée 1/N.*
+
+**Règle d'usage neuve sous C123 : traiter aussi à coût nul l'exemption qui porterait une typographie française en anglais.** Sept emplacements du lot — énumérations à point-virgule dans `i2c`, `uart`, `capteur-analogique`, `sortie-pwm`, `moteur-cc` — ont vu leurs point-virgules rendus par des virgules ou des points, là où la virgule est non ambiguë. **Verdict de virgule ambiguë resté à 0 des deux côtés.** Motif : chaque exemption à espace française reportée est une morsure potentielle du verdict de typographie, qui en est à quatorze.
+
+**C122 rend zéro quatre fois à sa première séance.** Quatre scripts écrits de zéro, quatre autocontrôles ASCII à 0, aucune violation à rattraper. *La contrainte laisse désormais une trace datée dans la sortie au lieu de dépendre d'une relecture* — c'est exactement ce que sa rédaction annonçait. **Éprouvée 1/N.**
+
+**C123 tranche 49 occurrences sur 71 sans une hésitation.** Les 22 exemptions restantes sont toutes nominales, adjectivales ou infinitives, et **le report un pour un les a toutes rendues intactes**, deuxième lot consécutif. **Éprouvée 1/N.**
+
+⚠ **L'ABSENCE DES SEPT CAUSES D'ININTERPRÉTABILITÉ NE BORNE PAS L'ÉCART INTERNE DU FOISONNEMENT.** Le lot est propre — aucune glose française qui tombe, aucune chaîne C113 gardée, aucun lien nu — et son écart interne vaut **3,5** quand le lot propre de référence du 25/08 (suite 7) sortait à 1,5. *La liste des causes dit qu'on a le droit de lire le chiffre, elle ne dit ni où il se placera ni de combien ses paires s'écarteront.*
+
+⚠ **UN CHIFFRE HÉRITÉ PEUT AVOIR UNE SÉANCE ENTIÈRE D'ÂGE.** Deux prédictions de volume manquent d'une unité dans le même sens, alors que les trois effectifs tombent justes : le 291 217 servant de terme datait du 27/08 (suite), donc d'avant les passes du lot 2 du 27/08 (suite 2), dont le coût en mots n'a jamais été publié. *Le motif du 24/08 (suite 2) portait sur des heures ; il porte aussi sur des séances.* **Corollaire de dispositif : le coût en mots de toute passe FR se publie au JOURNAL, sinon il devient un terme manquant trois séances plus tard.**
+
+**Un outil du dépôt n'est pas documenté au README** : `parcours-etudiant.mjs`, 17 ko, qui porte vraisemblablement anneau, dette et chevron. Le README couvre huit scripts et pas celui-là. À documenter avant de citer ses chiffres.
+
+### Acquises 27/08 (suite 4) — C125 amendée, deux instruments bornés, et une prédiction de solde qui ne savait pas ce qu'elle comptait
+
+*Aucune convention neuve. La numérotation reste à **125**, mais **C125 change de texte**. C116 en cours de **vingt-et-unième** épreuve, lancement 1 consommé au cadrage. C117 **21/N**, **C120 10/N**, **C121 5/N**, **C122 : trois scripts, trois autocontrôles à 0**. C118 sert cinq fois, C119 quatre fois dont une sur sa borne proposée.*
+
+⚠ **DEUX INSTRUMENTS RENDAIENT DES CHIFFRES FAUX, ET AUCUN CONTRÔLE DU DÉPÔT NE POUVAIT LE VOIR.** `--anneau` résout par chemin puis par nom de fichier unique, **sans lire `aliases:`** : ses six « cibles sans fiche » sont les six alias de `fonction` et `caracteriser-une-exigence`, cités en liens rouges à chaque clôture depuis l'ouverture du mode. `parcours-etudiant.mjs` **ne suit pas les liens de chemin absolu** : la bascule de langue lui est invisible, donc **le corpus EN entier sort inatteignable**, 164 fiches contre une recette de 0/0/0 datée d'avant l'existence de `content/en/`. *Deux fois le mécanisme du 18/08 — un audit qui ignore une convention produit du bruit à hauteur de ce qu'il ignore — et cette fois la convention ignorée est interne au dépôt.* **Règle d'usage adoptée** : la borne d'un outil s'écrit au README au moment où elle se mesure, même quand le correctif est reporté. Les deux y sont.
+
+⚠ **UNE PRÉDICTION DE SOLDE SUR DES CIBLES DISTINCTES NE S'ÉNUMÈRE PAS EN FLUX D'OCCURRENCES.** La dette prédite en hausse a baissé de douze, soit exactement les douze fiches traduites, **sans une seule entrée**. Les sept cibles nommées en entrée **étaient déjà dans la dette**, et le chiffre qui le disait — dix hors-anneaux — figurait dans l'état de référence de la prédiction elle-même. **La leçon du 27/08 (suite) est insuffisante d'un cran** : énumérer les deux sens du flux ne suffit pas, il faut énumérer **les entrées qui n'y sont pas déjà**, ce qui se lit dans la liste et ne se raisonne pas sur le mécanisme. Sixième fois du chantier que la réfutation est dans ma source.
+
+**LA BORNE PROPOSÉE À C119 SERT POUR LA PREMIÈRE FOIS, ET SUR UN CAS QUI N'EST PAS UNE DÉRIVATION.** 6 656 et 6 657 se contredisaient d'une unité ; **les deux sont justes à leur date**, les passes des trois dernières sources du lot 2 ayant coûté −1 mot jamais publié. J'avais posé la question comme un conflit entre deux mesures du même objet, alors que l'objet avait bougé entre elles. **Et le même terme referme la réconciliation du corpus FR** : 291 217 + 3 − 1 = 291 219. *Le corollaire du 27/08 (suite 3) — le coût en mots de toute passe FR se publie — a été enfreint deux séances après son écriture, et il a coûté un écart d'une unité par séance depuis.*
+
+**UNE GARDE D'UNICITÉ EST LA MESURE D'UN INVENTAIRE, PAS SEULEMENT UNE PROTECTION.** Le renommage portait vingt ancres dont **dix lues, trois citées au JOURNAL et deux déduites** ; la passe de vérification les a toutes confrontées **avant d'écrire quoi que ce soit**, et la prédiction nommait d'avance les deux déduites comme le lieu de l'échec probable. Les vingt sont tombées. *Écrire d'avance où l'échec se produirait vaut aussi quand il ne se produit pas* — troisième séance consécutive.
+
+**UN CHANTIER DE NOMMAGE FR MET SES JUMELLES EN DÉRIVE, ET LA DÉRIVE SE MESURE AVANT DE SE RÉPARER.** Changer un `title:` français change le sha256 de la source ; `--recaler` reconsigne le marqueur sans toucher la traduction. **Ordre imposé : renommer, mesurer la dérive, recaler, remesurer.** Mesurer après coup reviendrait à supposer le mécanisme au lieu de le voir. ⚠ **Et les trois compteurs de `--controle` sont aveugles à un `title:`** — ici c'est la bonne nouvelle, ailleurs ce serait un angle mort.
+
+**FILTRER UN BLOC À LA SOURCE PLUTÔT QUE LE RELIRE.** Extension de la règle de dimensionnement du 26/08 (suite 3) : un bloc dont on n'a besoin que des dernières lignes se coupe au lancement (`Select-Object -Last`), un rapport dont seule la tête porte le verdict se coupe pareillement (`-First`). Deux verdicts perdus dans un milieu de 112 ko ont été récupérés pour vingt-deux lignes.
+
 ### Autres en attente
+- **C122 — Le script de séance s'autocontrôle en ASCII.** C114 exige un
+  `seance.ps1` ASCII strict ; la contrainte a été violée six fois par celui
+  qui l'applique, toujours rattrapée par relecture. Le script balaie
+  désormais son propre source en étape 0 et publie le nombre de lignes non
+  ASCII. Une contrainte relue est une contrainte qui cède ; une contrainte
+  mesurée laisse une trace datée dans la sortie.
+- **C123 — L'exemption C109 exige l'absence de tout verbe conjugué.** Un
+  segment de droite n'est exempté que s'il est nominal, adjectival, infinitif
+  ou participial. Dès qu'un verbe conjugué apparaît, **y compris dans une
+  subordonnée**, on traite. Motif : chaque exemption gardée est un risque de
+  perte au report un pour un, et le différentiel ne voit pas les pertes.
+  Le doute se tranche donc vers le traitement.
+- **C124 — Un contrôle qui compare deux mesures conserve les deux sorties.**
+  Mesurer deux fois la même fiche sans édition entre les deux étalonne
+  l'instrument. Encore faut-il que la seconde série n'écrase pas la
+  première : `seance-sortie.txt` est écrasé à chaque lancement. Avant toute
+  série destinée à être comparée à une précédente, copier la sortie sous un
+  nom daté. Un contrôle dont le témoin a disparu ne prouve rien.
+- **C125 — Une forme concurrente est d'abord d'une espèce, ensuite d'un
+  contexte.** *Amendée le 27/08 (suite 4), après que sa première application
+  l'eut contredite.* Le titre EN se lit dans les libellés en production, ce
+  qui suppose une forme unique. Quand la production en porte plusieurs —
+  `sortie-pwm` en porte trois — le balayage rend un conflit, pas une réponse.
+  **Trois tests, dans cet ordre :**
+  1. La forme est-elle un **libellé de désambiguïsation** — suffixe
+     parenthésé du type `X (MicroPython)`, ou forme n'apparaissant que sur
+     des pages-notion qui listent deux familles côte à côte ? Si oui, elle
+     **sort du concours des titres** : elle sert à séparer deux fiches sur
+     une même ligne, elle n'a jamais été un titre. *Preuve du 27/08
+     (suite 3)* : `adc-en` et `chronogramme-en` écrivent la forme parenthésée
+     pour les jumelles Arduino, dont les `title:` en production sont
+     `Reading an analog sensor` et `Driving a PWM output`.
+  2. Existe-t-il une **jumelle déjà titrée** ? Si oui, elle donne le titre au
+     mot près. La symétrie de famille s'appuie sur un `title:` en production,
+     pas sur une lecture d'intention : c'est un arbitre plus dur que le
+     contexte.
+  3. **Sinon seulement**, lire les contextes — *en prose le libellé se plie à
+     la phrase, dans un Voir aussi il vaut désignation* (26/08 suite). La
+     hiérarchie d'origine descend au troisième rang, elle ne disparaît pas.
+
+  ⚠ **Le test 2 fabrique des collisions de titre, et c'est assumé.** Aligner
+  sur la jumelle donne deux fois le même `title:` ; les cinq collisions EN en
+  sont le produit direct. Le corpus français désambiguïse déjà par le libellé
+  et jamais par le titre — inventer une asymétrie EN/FR pour éviter la
+  collision masquerait un défaut de source au lieu de le rendre comptable
+  (motif du 26/08). **Le chantier FR de nommage du 27/08 (suite 4) les résout
+  à la source** en qualifiant les deux jumelles : le test 2 aligne alors la
+  *racine* du titre et le qualificatif de famille distingue. La clause
+  ci-dessus décrit donc ce qui arrive quand les jumelles ne sont **pas**
+  qualifiées, ce qui reste le cas par défaut hors des paires traitées.
+
+  *Éprouvée 1/N, dans son texte d'origine ; le texte amendé est à 0/N.*
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
   « articulation avec les autres transverses » (3 pratiques : intégrer dans

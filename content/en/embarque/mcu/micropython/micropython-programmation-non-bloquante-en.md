@@ -1,5 +1,5 @@
 ---
-title: Non-blocking programming
+title: Non-blocking programming in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -17,7 +17,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-programmation-non-bloquante.md
-source_sha256: 341bbeaf294fa08d15cc3b3c06a2739c1eb42c40d2d7eef125e51fcf9669c6f9
+source_sha256: c54cb8b4d61eaefa554ba0db3b867f4352216dccbaa7f650888e5b3672199751
 ---
 
 **Non-blocking programming** is a **way of structuring** an embedded program so that the main loop **never** stops. Instead of waiting with `sleep()`, each task moves forward a little on every pass through the loop and then hands back control: the system carries on **several activities at once** and stays responsive. It is not a function to call but a **discipline of architecture**, resting on [[micropython-temporisation-en|timing with `ticks_ms()`]] and on [[machine-a-etats-en|state machines]]. MicroPython adds a dedicated tool of its own, **`asyncio`**, which puts that cooperation on a formal footing.

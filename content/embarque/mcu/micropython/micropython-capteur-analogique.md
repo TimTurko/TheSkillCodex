@@ -1,5 +1,5 @@
 ---
-title: Lire un capteur analogique
+title: Lire un capteur analogique en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -39,7 +39,7 @@ Les entrées analogiques sont **GP26, GP27, GP28**. Un canal interne (`ADC(4)`) 
 
 ### 2. Câbler un potentiomètre
 
-[[potentiometre|Potentiomètre]] 10 kΩ : une extrême → `3,3 V` ; l'autre → `GND` ; curseur (milieu) → `GP26`. Le potentiomètre forme un pont diviseur variant de 0 V à 3,3 V.
+[[potentiometre|Potentiomètre]] 10 kΩ : une extrême → `3,3 V`, l'autre → `GND`, curseur (milieu) → `GP26`. Le potentiomètre forme un pont diviseur variant de 0 V à 3,3 V.
 
 ![Montage : potentiomètre 10 kΩ sur un Pico — extrémités vers 3,3 V et GND, curseur vers GP26 (ADC0)|600](/ressources/img/micropython-capteur-analogique/montage-adc.svg)
 
@@ -82,7 +82,7 @@ def temperature_c():
     return 27 - (v - 0.706) / 0.001721           # loi RP2040 : 0,706 V à 27 °C, -1,721 mV/°C
 ```
 
-**Comment lire ce code.** La conversion se fait en deux temps : la valeur brute (`read_u16()`, 0–65535) redevient d'abord une **tension** — on divise par la pleine échelle 65535 et on multiplie par la référence 3,3 V —, puis cette tension devient une **grandeur physique** selon la loi du capteur (ici la formule du capteur interne). Tout l'art est de diviser par la **bonne pleine échelle** (65535, pas 4095 — `read_u16()` met déjà la lecture 12 bits à l'échelle) et d'appliquer la **bonne loi** : c'est le geste à refaire pour chaque capteur.
+**Comment lire ce code.** La conversion se fait en deux temps : la valeur brute (`read_u16()`, 0–65535) redevient d'abord une **tension** (on divise par la pleine échelle 65535 et on multiplie par la référence 3,3 V), puis cette tension devient une **grandeur physique** selon la loi du capteur (ici la formule du capteur interne). Tout l'art est de diviser par la **bonne pleine échelle** (65535, pas 4095, `read_u16()` mettant déjà la lecture 12 bits à l'échelle) et d'appliquer la **bonne loi** : c'est le geste à refaire pour chaque capteur.
 
 ## Exemple — Potentiomètre comme variateur de seuil
 
@@ -108,11 +108,11 @@ La sortie au [[micropython-repl|REPL]] (et le traceur de Thonny) permet de visua
 
 ## Pièges
 
-**Confondre l'ADC et `Pin.value()`.** `pot.read_u16()` renvoie 0–65535 ; lire la même broche en numérique donnerait 0 ou 1 — perte d'information massive.
+**Confondre l'ADC et `Pin.value()`.** `pot.read_u16()` renvoie 0–65535. Lire la même broche en numérique donnerait 0 ou 1 — perte d'information massive.
 
 **Broche non-ADC.** Seules **GP26 / GP27 / GP28** sont des entrées analogiques sur le Pico. (Sur ESP32, ADC2 est indisponible quand le Wi-Fi tourne — piège classique.)
 
-**Croire à une référence réglable.** Sur le Pico la référence est fixe (3,3 V) ; on convertit toujours par rapport à 3,3 V. Une alimentation 3,3 V bruitée biaise toutes les mesures — découpler proprement.
+**Croire à une référence réglable.** Sur le Pico la référence est fixe (3,3 V). On convertit toujours par rapport à 3,3 V. Une alimentation 3,3 V bruitée biaise toutes les mesures — découpler proprement.
 
 **Bruit sur les mesures.** Une lecture brute a quelques LSB de bruit. Sur un capteur précis, ça compte : moyenner sur 10–20 mesures (suréchantillonnage), ou filtre RC matériel (voir [[filtrage|filtrer des mesures]]).
 
@@ -129,7 +129,7 @@ Un capteur qui sort 0–5 V dépasse la plage du Pico (3,3 V). Solutions : **pon
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque capteur analogique se valide en lecture brute + conversion, idéalement comparée à un étalon (thermomètre, luxmètre, multimètre).
 - **Étape 1 de la [[integration-et-tests|phase d'intégration et tests]]** — requalification : plage utile, résolution effective, bruit résiduel.
 
-L'étalonnage transforme un capteur « qui sort un nombre » en *instrument de mesure* — sans quoi tout asservissement aval est calibré sur du sable.
+L'étalonnage transforme un capteur « qui sort un nombre » en *instrument de mesure*, sans quoi tout asservissement aval est calibré sur du sable.
 
 ## Voir aussi
 

@@ -1,0 +1,292 @@
+﻿
+================================================================
+ETAPE : 0 - AUTOCONTROLE ASCII DU SCRIPT (C114)
+================================================================
+  lignes non ASCII : 0   (C114 exige 0)
+
+================================================================
+ETAPE : A - PREDICTIONS (ecrites avant lancement)
+================================================================
+S1. COMPOSITION REVISEE SUR MESURE, PAS SUR INTUITION. La serie 3
+    a refute ma composition sur TROIS des six : entree-tor,
+    sortie-tor et capteur-numerique ne sont PAS dans l anneau 2.
+    Mon critere s est retourne contre moi - je les avais choisies
+    PARCE QUE des fiches traduites les citent, et c est exactement
+    ce qui les place a un rang bas, donc hors de l anneau vise.
+    Le lot 3 est desormais : i2c, spi, uart, capteur-analogique,
+    sortie-pwm, moteur-cc.
+
+S2. VOLUME. PREDICTION 4 962, aux six valeurs
+    791 / 799 / 759 / 813 / 836 / 964. Ces six chiffres sont
+    RENDUS PAR L OUTIL en etape B de la serie 3 (bloc anneau 2),
+    et --lot va les reproduire ici. C est une prediction soumise
+    a verification, pas une derivation publiee : C119 interdit de
+    SERVIR un chiffre calcule quand l outil sait le produire, il
+    n interdit pas de l ANNONCER avant que l outil le rende.
+
+S3. CONTROLE DE REPRODUCTIBILITE, ET C EST GRATUIT.
+    capteur-analogique et sortie-pwm etaient DEJA dans le --style
+    de la serie 3, et rien n a ete edite dans ces deux fichiers
+    depuis. LEURS DEUX DECOMPOSITIONS DOIVENT DONC ETRE
+    IDENTIQUES, candidats comme hors perimetre. Si une seule
+    valeur bouge, ce n est pas la fiche qui a change : c est
+    l outil qui ne rend pas la meme mesure sur la meme entree,
+    et TOUTES les decompositions du chantier deviennent suspectes.
+    Aucune serie n avait encore mesure deux fois la meme fiche.
+
+S4. CHARGE C109 DU LOT : TOUJOURS AUCUNE PREDICTION DE NOMBRE.
+    Le repere rapporte au volume est abandonne depuis le 27/08
+    (suite), et la serie 3 vient de le reconfirmer PAR EXCES :
+    98 candidats pour environ 5 000 mots, quand le lot 2 en
+    donnait 85 pour 6 657. Du simple au double d un lot a
+    l autre. J attends une decomposition etiquetee, rien de plus.
+
+S5. LIBELLES EN PRODUCTION. Prediction de FAMILLE : les trois bus
+    portent des libelles, cites depuis le hub et depuis les
+    familles deja traduites ; capteur-analogique et sortie-pwm
+    en portent aussi ; moteur-cc peu ou pas. ATTENTION, un
+    libelle vers une cible non traduite est de la DETTE, jamais
+    un candidat --libelles.
+
+S6. NON MESURE, ET JE NE LE DEDUIRAI PAS (C118). Le statut de
+    perimetre d entree-tor, sortie-tor et capteur-numerique reste
+    inconnu. Le brief porte 20 anneau 2 + 3 dettes hors anneaux,
+    mais 10 restantes d anneau plus 3 ferait 13 et non les 11
+    attendues. IL Y A UN ECART A MESURER, pas a raisonner.
+
+================================================================
+ETAPE : B - VOLUME DU LOT 3
+================================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-i2c.md                 791
+  embarque/mcu/micropython/micropython-spi.md                 799
+  embarque/mcu/micropython/micropython-uart.md                759
+  embarque/mcu/micropython/micropython-capteur-analogique.md    813
+  embarque/mcu/micropython/micropython-sortie-pwm.md          836
+  embarque/mcu/micropython/micropython-moteur-cc.md           964
+  ---------------------------------------------------------------
+  LOT (6 fiches)                                             4962
+
+================================================================
+ETAPE : C - LIBELLES EN PRODUCTION DES SIX CIBLES
+================================================================
+Motif a contre-oblique optionnelle devant le pipe. Sous-regle
+C110 : le pipe est exige juste apres le slug, aucune fusion de
+population possible. LA LISTE FAIT FOI, PAS UN TOTAL.
+
+--- micropython-i2c-en
+    i2c-en.md l.30 : I2C in MicroPython
+    i2c-en.md l.41 : I2C in MicroPython
+    micropython-en.md l.49 : I2C
+    micropython-module-en.md l.33 : I2C
+    micropython-module-en.md l.110 : I2C
+
+--- micropython-spi-en
+    spi-en.md l.28 : SPI in MicroPython
+    spi-en.md l.41 : SPI in MicroPython
+    micropython-en.md l.49 : SPI
+    micropython-module-en.md l.33 : SPI
+    micropython-module-en.md l.110 : SPI
+
+--- micropython-uart-en
+    uart-en.md l.30 : UART in MicroPython
+    uart-en.md l.43 : UART in MicroPython
+    micropython-en.md l.49 : UART
+    micropython-module-en.md l.33 : UART
+    micropython-module-en.md l.110 : UART
+
+--- micropython-capteur-analogique-en
+    adc-en.md l.26 : Reading an analog sensor
+    adc-en.md l.32 : Analog sensor (MicroPython)
+    micropython-en.md l.39 : Reading an analog sensor
+    micropython-gpio-en.md l.31 : ADC
+    micropython-gpio-en.md l.112 : `ADC`
+    micropython-langage-en.md l.31 : ADC
+    micropython-types-en.md l.58 : ADC
+
+--- micropython-sortie-pwm-en
+    chronogramme-en.md l.80 : Driving a PWM output (MicroPython)
+    lire-une-datasheet-en.md l.250 : in MicroPython
+    pwm-en.md l.26 : Driving a PWM output
+    pwm-en.md l.32 : PWM output (MicroPython)
+    micropython-en.md l.40 : Driving a PWM output
+    micropython-gpio-en.md l.113 : PWM
+    micropython-langage-en.md l.31 : PWM
+
+--- micropython-moteur-cc-en
+    lire-une-datasheet-en.md l.249 : in MicroPython
+    micropython-en.md l.52 : DC motor (H-bridge)
+
+================================================================
+ETAPE : D - STYLE DES SIX SOURCES FR (decomposition etiquetee)
+================================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-i2c.md
+      19  [C109] tiret d incise
+          ÔÇªbus s├®rie synchrone ├á deux fils ÔÇö `SDA` (data) et `SCL` (clock) ÔÇöÔÇª
+      19  [C109] tiret d incise
+          ÔÇªÔÇö `SDA` (data) et `SCL` (clock) ÔÇö o├╣ plusieurs devices cohabitent,ÔÇª
+      19  [C109] tiret d incise
+          ÔÇªmicropython-modules|`machine`]] ÔÇö qui inclut un **scanner int├®gr├®*ÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªieux quand les GPIO sont rares) ; **connecter un afficheur** sansÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªun OLED I2C n'en demande que 2) ; **lire/├®crire des composants utiÔÇª
+      42  [C109] tiret d incise
+          ÔÇªart des modules les int├¿grent** ÔÇö rien ├á ajouter pour un premier eÔÇª
+      42  [C109] point-virgule de prose
+          ÔÇª** sur `SDA` et `SCL` (Ôëê 4,7 k╬® ; 2,2 k╬® en 3,3 V). **La plupart dÔÇª
+      53  [C109] tiret d incise
+          ÔÇªit par ne plus pouvoir remonter ÔÇö on ne garde alors qu'**une seuleÔÇª
+      59  [C109] tiret d incise
+          ÔÇªiste les adresses qui r├®pondent ÔÇö **pas besoin d'un sketch scannerÔÇª
+      67  [C109] point-virgule de prose
+          ÔÇªypiques : OLED SSD1306 = `0x3C` ; BMP280 = `0x76`/`0x77` ; DS3231/ÔÇª
+      67  [C109] point-virgule de prose
+          ÔÇª`0x3C` ; BMP280 = `0x76`/`0x77` ; DS3231/MPU6050 = `0x68`.
+      71  [C109] tiret d incise
+          ÔÇªi2c.readfrom_mem(addr, reg, n)` ÔÇö mais une biblioth├¿que encapsuleÔÇª
+      92  [C109] tiret d incise
+          Soufflez sur le module ÔÇö la temp├®rature monte. (L'API exaÔÇª
+      92  [C109] point-virgule de prose
+          ÔÇªexacte d├®pend du pilote choisi ; le `scan()` reste l'├®tape de diaÔÇª
+     106  [C109] point-virgule de prose
+          ÔÇªtandard avec pull-ups correctes ; au-del├á, trames corrompues. RaccÔÇª
+     117  [C109] tiret d incise
+          ÔÇªde diagnostic universel du bus ÔÇö il s├®pare en quelques secondes uÔÇª
+
+  embarque/mcu/micropython/micropython-spi.md
+      19  [C109] tiret d incise
+          ÔÇªun bus s├®rie synchrone ├á 4 fils ÔÇö `SCK` (horloge), `MOSI` (MasterÔÇª
+      19  [C109] tiret d incise
+          ÔÇª**3,3 V**, comme les cartes SD ÔÇö souvent **pas de translateur** nÔÇª
+      23  [C109] tiret d incise
+          ÔÇªn* ├á la fois par sa broche `CS` ÔÇö chaque device de plus co├╗te uneÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªr carte SD** (datalogger, logs) ; **piloter un ├®cran graphique** (ÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªcran graphique** (TFT, e-paper) ; **communiquer en radio** (NRF24LÔÇª
+      31  [C109] point-virgule de prose
+          ÔÇªont sur des broches compatibles ; **`CS` est une GPIO libre**, g├®rÔÇª
+      83  [C109] tiret d incise
+          ÔÇªerme tout seul** en fin de bloc ÔÇö l'├®criture est alors r├®ellementÔÇª
+     123  [C109] point-virgule de prose
+          ÔÇªchaque tour r├®├®crit le fichier ; pour un log, utiliser `"a"` (appÔÇª
+     127  [C109] point-virgule de prose
+          ÔÇªodes (polarit├®/phase d'horloge) ; les pilotes les g├¿rent, mais pouÔÇª
+     131  [C109] tiret d incise
+          ÔÇªrbitraires, ├á d├®bit plus faible ÔÇö utile pour isoler un device probÔÇª
+
+  embarque/mcu/micropython/micropython-uart.md
+      19  [C109] tiret d incise
+          ÔÇªonc **libres** pour les modules ÔÇö pas besoin de `SoftwareSerial`.
+      54  [C109] point-virgule de prose
+          ÔÇªd├®bit par d├®faut (HC-05 : 9600 ; GPS NEO-6M : 9600). Format de trÔÇª
+      72  [C109] tiret d incise
+          ÔÇªes`** (`b"..."`), pas des `str` ÔÇö convertir au besoin (`texte.encoÔÇª
+      72  [C109] point-virgule de prose
+          ÔÇªndique le nombre d'octets re├ºus ; `uart.read()` / `uart.readline()ÔÇª
+      72  [C109] point-virgule de prose
+          ÔÇªd()` / `uart.readline()` lisent ; `uart.write()` ├®met. **On manipuÔÇª
+      76  [C109] point-virgule de prose
+          Un Pico A envoie un compteur ; un Pico B le re├ºoit, le d├®code,ÔÇª
+      78  [C109] point-virgule de prose
+          ÔÇª* : A `GP0` (TX) ÔåÆ B `GP1` (RX) ; A `GP1` (RX) ÔåÉ B `GP0` (TX) ; GNÔÇª
+      78  [C109] point-virgule de prose
+          ÔÇª) ; A `GP1` (RX) ÔåÉ B `GP0` (TX) ; GND commun.
+     111  [C109] tiret d incise
+          ÔÇªe()` lit jusqu'au marqueur `\n` ÔÇö le r├®cepteur sait ainsi o├╣ finitÔÇª
+     127  [C109] point-virgule de prose
+          ÔÇª()` sans donn├®es renvoie `None` ; tester `uart.any()` (ou g├®rer `NÔÇª
+
+  embarque/mcu/micropython/micropython-capteur-analogique.md
+      42  [C109] point-virgule de prose
+          ÔÇª] 10 k╬® : une extr├¬me ÔåÆ `3,3 V` ; l'autre ÔåÆ `GND` ; curseur (milieÔÇª
+      42  [C109] point-virgule de prose
+          ÔÇª├¬me ÔåÆ `3,3 V` ; l'autre ÔåÆ `GND` ; curseur (milieu) ÔåÆ `GP26`. Le poÔÇª
+      85  [C109] tiret d incise
+          ÔÇªdevient d'abord une **tension** ÔÇö on divise par la pleine ├®chelleÔÇª
+      85  [C109] tiret d incise
+          ÔÇªultiplie par la r├®f├®rence 3,3 V ÔÇö, puis cette tension devient uneÔÇª
+      85  [C109] tiret d incise
+          ÔÇªeine ├®chelle** (65535, pas 4095 ÔÇö `read_u16()` met d├®j├á la lectureÔÇª
+     111  [C109] tiret d incise
+          ÔÇªe en num├®rique donnerait 0 ou 1 ÔÇö perte d'information massive.
+     111  [C109] point-virgule de prose
+          ÔÇªpot.read_u16()` renvoie 0ÔÇô65535 ; lire la m├¬me broche en num├®riqueÔÇª
+     113  [C109] tiret d incise
+          ÔÇªisponible quand le Wi-Fi tourne ÔÇö pi├¿ge classique.)
+     115  [C109] tiret d incise
+          ÔÇªuit├®e biaise toutes les mesures ÔÇö d├®coupler proprement.
+     115  [C109] point-virgule de prose
+          ÔÇªo la r├®f├®rence est fixe (3,3 V) ; on convertit toujours par rapporÔÇª
+     132  [C109] tiret d incise
+          ÔÇªbre ┬╗ en *instrument de mesure* ÔÇö sans quoi tout asservissement avÔÇª
+
+  embarque/mcu/micropython/micropython-sortie-pwm.md
+      18  [C109] tiret d incise
+          ÔÇªon de temps pass├® ├á l'├®tat haut ÔÇö le **rapport cyclique**. En MicrÔÇª
+      18  [C109] tiret d incise
+          ÔÇªmoyenne* r├®glable de 0 ├á 3,3 V ÔÇö sans qu'aucune vraie tension intÔÇª
+      50  [C109] tiret d incise
+          ÔÇªÔåÆ GND. Identique au c├óblage TOR ÔÇö c'est le code qui change.
+      50  [C109] point-virgule de prose
+          ÔÇª) ÔåÆ r├®sistance 220 ╬® ÔåÆ **GP15** ; cathode (ÔêÆ) ÔåÆ GND. Identique auÔÇª
+      78  [C109] tiret d incise
+          ÔÇªexacte de ce cr├®neau ├á l'├®cran ÔÇö p├®riode rep├®r├®e, rapport cycliquÔÇª
+      78  [C109] tiret d incise
+          ÔÇªrep├®r├®e, rapport cyclique cot├® ÔÇö est d├®taill├®e dans [[oscilloscopÔÇª
+     101  [C109] tiret d incise
+          ÔÇªuino. Passer `255` donne ~0,4 % ÔÇö quasi ├®teint. (`duty_u16()` estÔÇª
+     101  [C109] tiret d incise
+          ÔÇªeur d'impulsion en nanosecondes ÔÇö disponible sur le Pico ÔÇö, tandisÔÇª
+     101  [C109] tiret d incise
+          ÔÇªcondes ÔÇö disponible sur le Pico ÔÇö, tandis que l'ancien `duty()` 0ÔÇôÔÇª
+     101  [C109] point-virgule de prose
+          ÔÇªble** standard de `machine.PWM` ; certains ports offrent aussi `duÔÇª
+     103  [C109] point-virgule de prose
+          ÔÇªnalogique pour une charge lente ; l'instantan├® reste binaire. PourÔÇª
+     105  [C109] tiret d incise
+          ÔÇªselon la charge (souvent 500 Hz ÔÇô 20 kHz). Avantage Pico : la fr├®qÔÇª
+     105  [C109] point-virgule de prose
+          ÔÇªrop basse sur une LED scintille ; trop basse sur un moteur peut siÔÇª
+     107  [C109] tiret d incise
+          ÔÇªurtensions ├á chaque commutation ÔÇö diode 1N4007 en inverse en paralÔÇª
+     109  [C109] point-virgule de prose
+          ÔÇªe 1 A pendant les phases hautes ; la broche (~12 mA) ne tient pas.ÔÇª
+     123  [C109] tiret d incise
+          ÔÇªion de puissance par excellence ÔÇö peu co├╗teux, bien outill├®, suffiÔÇª
+
+  embarque/mcu/micropython/micropython-moteur-cc.md
+      19  [C109] tiret d incise
+          ÔÇªH** (DRV8833, TB6612FNG, L298N) ÔÇö c'est sur ce circuit que se concÔÇª
+      43  [C109] tiret d incise
+          ÔÇª5 V, peut mal interpr├®ter 3,3 V ÔÇö et perd ~2 V dans le pont. On prÔÇª
+      92  [C109] point-virgule de prose
+          ÔÇªin` de sens + 1 `PWM` sur `ENA` ; le principe est le m├¬me.)
+      98  [C109] point-virgule de prose
+          ÔÇªe** : DRV8833 comme ├á l'├®tape 2 ; [[potentiometre|potentiom├¿tre]]ÔÇª
+      98  [C109] point-virgule de prose
+          ÔÇªcropython-capteur-analogique]]) ; bouton entre GP14 et GND (`PULL_ÔÇª
+     131  [C109] tiret d incise
+          ÔÇªau repos et tombe ├á 0 ├á l'appui ÔÇö un seul basculement par appui. TÔÇª
+     143  [C109] point-virgule de prose
+          ÔÇª0 = frein/court-circuit interne ; n'en piloter qu'un ├á la fois (l'ÔÇª
+     147  [C109] point-virgule de prose
+          ÔÇªaudible fait siffler le moteur ; r├®gler `freq()` (souvent 1ÔÇô20 kHÔÇª
+
+6 fiche(s) lue(s), 6 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 71   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 39   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+
+=== FIN DE SERIE 4 ===

@@ -1,5 +1,5 @@
 ---
-title: Temporiser
+title: Temporiser en MicroPython
 type: tuto
 phases:
   - preuve-de-concept

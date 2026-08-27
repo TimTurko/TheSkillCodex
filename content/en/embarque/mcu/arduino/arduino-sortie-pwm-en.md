@@ -1,5 +1,5 @@
 ---
-title: Driving a PWM output
+title: Driving a PWM output on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-sortie-pwm.md
-source_sha256: e02e7dd7181f56e708a53bd68bdb7459759a3c89007edb865ae4369e8eec7ba2
+source_sha256: 42e74389f54f852f5ddd472a569ac67d0a12d08172d966b353e632b7a477f171
 ---
 
 **PWM** (Pulse Width Modulation) puts out a fast square wave whose proportion of time spent at `HIGH` you can vary, the **duty cycle**. On Arduino, the `analogWrite()` function generates that signal on the pins marked with a tilde `~`. From the point of view of a load (LED, motor, heating element) that is slow compared with the PWM frequency, the effect is *equivalent to an average voltage* adjustable from 0 to 5 V, without the pin ever producing any real intermediate voltage.

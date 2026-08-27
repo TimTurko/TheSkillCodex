@@ -5,6 +5,74 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➤ MAJ 27/08 (suite 4)** — **LES TROIS VERDICTS EN ATTENTE RÉCUPÉRÉS, C125 AMENDÉE, LE CHANTIER FR DE NOMMAGE EXÉCUTÉ, LE LOT 4 CADRÉ.** PC pro, **trois séries**. **0 fiche EN rédigée**, corpus **164**.
+>
+> ✅ **LES CINQ COLLISIONS DE TITRE SONT FERMÉES À LA SOURCE.** Arbitrage Tim **(b)** : le patron **« sur Arduino » / « en MicroPython »** existait déjà en français (`arduino-timers`, `micropython-timers`, `arduino-interruptions`, `micropython-interruptions`), donc (b) est une **mise en conformité** et non une règle neuve. **20 `title:` réécrits en une passe atomique**, 10 FR + 10 EN, **les vingt ancres tombant du premier coup**. **10 fiches EN mises en dérive puis recalées**, dérive **10 → 0, 164 à jour**. Le renommage **ne coûte aucun mot** : `title:` vit dans le front matter, hors règle C110.
+>
+> **C125 AMENDÉE — trois tests dans l'ordre : (1) la forme est-elle un libellé de désambiguïsation, (2) existe-t-il une jumelle déjà titrée, (3) sinon seulement, lire les contextes.** La hiérarchie d'origine descend au troisième rang.
+>
+> **ANNEAU 2 : 222 brutes, 77 vues, 145 net, 80 traduites, 65 restantes, 93 632 mots — 55,2 % d'avancement.** **DETTE 76 cibles, 104 426 mots, 10 hors anneaux.** **CHEVRON 25 / 100**, et **aucune fiche `micropython/` n'en porte** — l'arbitrage C110 reste non bloquant ici. **WIKILINKS 412 fiches, 504 cibles : 82 mortes, 0 cassée, 0 ambiguë, 8 gabarits, 6 alias, 408 ok.** **CONTRÔLE 164 / 0 / 0.** **`--libelles` 94 → 91.**
+>
+> ⚠ **LA DETTE BAISSE QUAND JE PRÉDISAIS QU'ELLE MONTE, ET LA RÉFUTATION ÉTAIT DANS MA PROPRE PRÉDICTION.** 88 → 76, soit exactement les douze fiches traduites, **aucune entrée**. Les sept cibles que je nommais en entrée **étaient déjà dans la dette** — les dix hors-anneaux que mon état de référence citait deux lignes plus haut. **La dette compte des cibles DISTINCTES : une cible déjà rouge ne re-rentre pas.**
+>
+> ⚠ **`--anneau` IGNORE LA TABLE D'ALIAS.** Ses **six « cibles sans fiche »** — `FC`, `FP`, `FS`, `critere`, `flexibilite`, `niveau` — sont les **six alias** de `fonction` et `caracteriser-une-exigence`, que `audit-wikilinks` résout correctement. **Six faux liens rouges cités à chaque clôture depuis l'ouverture du mode.** Documenté au README.
+>
+> ⚠ **`parcours-etudiant.mjs` : SES COMPTEURS DE SANTÉ NE SE CITENT PLUS.** 407 fiches indexées contre 242 en recette, **449 liens morts contre 1**, **164 inatteignables** — le corpus EN entier — et `en/index` orpheline. Cause dans sa propre sortie : la bascule de langue s'écrit en **chemin absolu** (`index -> /en/`), forme que sa résolution ne suit pas. **Les scénarios restent citables, les compteurs de santé non.** Outil documenté au README, avec `--front` et `--anneau`.
+>
+> ⚠ **6 656 ET 6 657 SONT JUSTES TOUS LES DEUX, ET C'EST LA DATE QUI LES SÉPARE.** `--lot` rend **6 656** ; l'anneau referme sur 6 657. Les passes des trois dernières sources du lot 2 ont coûté **−1 mot**, jamais publié. **La réconciliation du corpus FR se referme du même coup** : 291 217 + 3 − 1 = **291 219**, mesuré. *Corollaire du 27/08 (suite 3) enfreint deux séances après son écriture : le coût en mots de toute passe FR se publie.*
+>
+> **LOT 4 COMPOSÉ ET CADRÉ — IL CLÔT LE MODULE.** Cinq fiches, **5 652 mots** : `micropython-debug` 1665, `micropython-gpio-boot` 1061, `micropython-memoire` 1097, `micropython-stockage` 1041, `micropython-bibliotheques` 788. **85 CANDIDATS C109, DÉCOMPOSÉS ET ÉTIQUETÉS 27 / 16 / 16 / 14 / 12**, hors périmètre 15, typographie 0, virgule ambiguë 0, créées 0, hors latin 0. **Aucun arbitrage de composition : il ne reste rien à choisir dans le périmètre.**
+>
+> **TITRES EN LUS EN PRODUCTION POUR LE LOT 4** : `Debugging in MicroPython` (×2 en *See also*), `Using a library` (×5), `Persistent storage` (×3). ⚠ **`memoire` et `gpio-boot` portent des formes concurrentes** — `Managing memory in MicroPython` contre `Memory management`, `MicroPython - GPIO at start-up` contre `GPIO states at power-up` : **première application du texte amendé de C125**, jumelle Arduino à lire d'abord.
+>
+> ⚠ **NON MESURÉS (C118)** : l'identité des trois libellés qui tombent de 94 à 91 (le nombre est mesuré, pas l'attribution) ; l'effet du renommage sur les **libellés français**, qu'aucun outil ne confronte au `title:` FR ; la forme écrite de la bascule de langue et son rendu Quartz ; le total de foisonnement du lot 3.
+>
+> **PROCHAINE SESSION = LANCEMENT 1 DE C116 SUR LE LOT 4** — les 85 passes sous C123, puis génération et rédaction. **À la clôture du lot 4, rouvrir la question de périmètre** : les neuf tutos de rang 3 pesant 9 166 mots seront les seules non traduites du module.
+
+> **➤ MAJ 27/08 (suite 3)** — **LE LOT 3 DE `micropython/` EST RÉDIGÉ ET CONTRÔLÉ. C116 VINGTIÈME ÉPREUVE CLOSE.** PC pro, **quatre séries**, zéro arbitrage remonté. **6 FICHES EN RÉDIGÉES**, corpus **164**.
+>
+> ✅ **LE REPORT UN POUR UN N'A RIEN PERDU, DEUXIÈME LOT CONSÉCUTIF.** **RÉSIDU EN 22, AUX SIX VALEURS FR 3 / 4 / 2 / 3 / 7 / 3.** Les 22 exemptions ont été **relues une par une contre l'anglais avant que la prédiction ne soit écrite** — le différentiel ne compte que les créations, donc il serait sorti vert quoi qu'il arrive.
+>
+> **49 OCCURRENCES C109 TRAITÉES SUR 71, COÛT +2 MOTS.** Lot FR **4 962 → 4 965**. **2 CORRECTIONS C71** (prix de l'adaptateur USB-série d'`uart`, « peu coûteux » de `sortie-pwm`), sur l'arbitrage Tim (b) du 26/08 (suite 5). **STYLE EN : typographie 0, créées 0, virgule ambiguë 0, hors latin 0.** **CONTRÔLE 164 / 0 / 0.** **DÉRIVE 0 / 0 / 0, 164 À JOUR.** **MÉDIAS 12 ABSENTS.** **RECETTE 243 / 4 323 / 397 / 444 / 0.** **CORPUS FR 242 / 291 219, traduites 164 / 185 365, restant 78 / 105 854.** **FOISONNEMENT DU CORPUS 164 paires, +3,8 %.**
+>
+> ⚠ **C125 A ÉTÉ CONTREDITE PAR SA PREMIÈRE APPLICATION.** La forme parenthésée lue en *Voir aussi* est un **libellé de désambiguïsation**, pas un titre : les jumelles Arduino portent la même et sont titrées autrement. **Titres retenus : `Reading an analog sensor`, `Driving a PWM output`, `Driving a DC motor`** — et les trois **entrent en collision avec leur jumelle Arduino**. **Le chantier FR de nommage passe de deux à cinq cas.** **Amender le texte de C125 avant sa deuxième application.**
+>
+> ⚠ **UN TRAITEMENT QUI NE TRAITE PAS.** Résidu prédit 22, mesuré 23 : `500 Hz – 20 kHz` « résolu » en retirant les espaces ressort quand même, la frontière de l'outil étant **lettre/chiffre**. Corrigé en `0,5–20 kHz`. ⚠ **Et l'occurrence n'avait pas disparu, elle a changé de seau** : hors périmètre 39 → 40, les deux états sommant à 62.
+>
+> ⚠ **C124 A TENU ET A TROUVÉ SA BORNE.** `sortie-pwm` mesurée deux fois dans le même lancement, huit candidats identiques — **l'instrument est fiable, les 35 décompositions du lot 2 ne sont pas suspectes**. Mais `hors perimetre` ne se publie qu'en total de série, donc **la moitié du contrôle est hors d'atteinte sans une sortie `--style` par fiche**.
+>
+> ⚠ **NON LUS ET NON ÉCRASÉS — À LIRE EN OUVERTURE, AVANT TOUTE SÉRIE** : `parcours-etudiant.mjs` (anneau, dette, chevron) et `audit-wikilinks.mjs` ont tourné en série 8 et leurs verdicts sont dans `tools/seance-sortie.txt`. **Les relancer ou les lire, jamais les reporter.**
+>
+> ⚠ **`parcours-etudiant.mjs` N'EST PAS DOCUMENTÉ AU README**, qui couvre huit scripts. À documenter avant de citer ses chiffres.
+>
+> **PROCHAINE SESSION = LOT 4 DU MODULE `micropython/`**, après lecture des deux verdicts en attente.
+
+> **➤ MAJ 27/08 (suite 2)** — **LE LOT 2 DE `micropython/` EST RÉDIGÉ, CONTRÔLÉ ET CORRIGÉ. C116 DIX-NEUVIÈME ÉPREUVE CLOSE. LOT 3 CADRÉ.** PC pro, **quatre séries**, zéro arbitrage remonté. **6 FICHES EN RÉDIGÉES**, corpus **158**.
+>
+> ✅ **LE REPORT UN POUR UN N'A RIEN PERDU, ET C'EST LE FAIT DE LA SÉANCE.** **RÉSIDU EN 35, AUX SIX VALEURS FR 10 / 7 / 4 / 2 / 8 / 4**, au numéro de ligne près. Les **quatorze exemptions** désignées d'avance comme le risque du lot sont **toutes arrivées intactes** — premier lot de six sans une seule perte, après neuf au lot 1. Ce qui l'a permis est le correctif du 27/08 : **`--style` sur les sources FR au cadrage**, donc décomposition disponible avant traduction. Sans elle le différentiel serait sorti vert quoi qu'il arrive.
+>
+> **29 ÉDITIONS C109 SUR TROIS SOURCES FR, 30 OCCURRENCES RÉSOLUES, COÛT −1 MOT.** Volume FR **6 657 → 6 656**. **STYLE EN : typographie 1 puis 0, créées 0, hors latin 0, virgule ambiguë 0, hors périmètre 26 des deux côtés.** **DÉRIVE 0 / 0 / 0, 158 À JOUR.** **MÉDIAS 12 ABSENTS, 0 CASSÉ, 595 OK, 1 ORPHELIN.** **RECETTE 243 / 4 323 / 397 / 444 / 0**, inchangée — son périmètre est les sources FR, hors `en/`.
+>
+> **FOISONNEMENT 6 656 → 7 060, +6,07 %**, aux six paires 1026→1082, 1154→1205, 1229→1298, 1001→1078, 1089→1155, 1157→1242. ⚠ **Le plus haut du chantier** (bornes antérieures +5,1 %) **sort du lot le plus resserré** (écart interne 1,74).
+>
+> ⚠ **TREIZIÈME MORSURE DE TYPOGRAPHIE, HABITAT NEUF : LE POURCENT.** `99 % du temps` reporté tel quel dans `deep-sleep-en`. La prédiction annonçait un point-virgule résiduel. **Le README de `--style` liste `; : ! ? %` depuis toujours : j'ai balayé la famille connue au lieu de la liste appliquée.** Trois espaces devant `;` avaient par ailleurs été attrapées en relecture avant lancement. Corrigé.
+>
+> ⚠ **UN CONTRÔLE DE REPRODUCTIBILITÉ A ÉTÉ CONÇU PUIS RENDU À MOITIÉ INEXÉCUTABLE.** `capteur-analogique` et `sortie-pwm` ont été mesurées par deux `--style` successifs sans édition entre les deux ; leurs décompositions devaient sortir identiques, et une divergence aurait rendu suspectes **toutes** les décompositions du chantier. **La série 4 a écrasé la sortie de la série 3.** Le contrôle ne tient que sur les six occurrences de queue de `capteur-analogique` retranscrites — **identiques**. **`sortie-pwm` reste non étalonnée : à refaire sous C124.**
+>
+> **LOT 3 COMPOSÉ — PÉRIPHÉRIQUES ET BUS, 4 962 MOTS** : `micropython-i2c` 791, `micropython-spi` 799, `micropython-uart` 759, `micropython-capteur-analogique` 813, `micropython-sortie-pwm` 836, `micropython-moteur-cc` 964. **CADRAGE C109 FAIT : 71 CANDIDATS, hors périmètre 39, typographie 0.** ⚠ **La décomposition étiquetée est dans `seance-sortie.txt`, non écrasée — à relire en ouverture, PAS à relancer.**
+>
+> ⚠ **MA PREMIÈRE COMPOSITION DU LOT 3 A ÉTÉ RÉFUTÉE SUR TROIS DES SIX.** `entree-tor`, `sortie-tor`, `capteur-numerique` **ne sont pas dans l'anneau 2**. Je les avais choisies **parce que** des fiches traduites les citent — or c'est exactement ce qui les place à un rang bas, donc hors de l'anneau visé. **Le critère de la dette visible s'est retourné contre lui-même.**
+>
+> **ANNEAU 2 : 145 NET, 74 TRADUITES, 71 RESTANTES, 98 594 MOTS.** Restant micropython : `capteur-analogique` 813, `debug` 1665, `gpio-boot` 1061, `i2c` 791, `memoire` 1097, `moteur-cc` 964, `sortie-pwm` 836, `spi` 799, `stockage` 1041, `uart` 759. **CHEVRON sur le restant : 25 porteuses, 100 clôtures, 0 dans ce lot.**
+>
+> **TITRES EN ACQUIS** : *I2C in MicroPython*, *SPI in MicroPython*, *UART in MicroPython* (chacun lu deux fois en forme qualifiée). ⚠ **DEUX CIBLES PORTENT DES FORMES CONCURRENTES** : `capteur-analogique` en a deux, `sortie-pwm` **trois**. La règle du *Voir aussi* ne tranche pas seule — **première occurrence, voir C125.**
+>
+> ⚠ **ÉCART DE PÉRIMÈTRE NON MESURÉ (C118)** : le brief porte 20 anneau + 3 dettes, mais **10 restantes d'anneau + 3 ferait 13 et non les 11 attendues**. Statut d'`entree-tor`, `sortie-tor`, `capteur-numerique` **inconnu, à mesurer et non à raisonner**.
+>
+> ⚠ **NON MESURÉS (C118), À RELANCER** : style du corpus EN entier, **`--libelles`**, foisonnement de corpus, **anneau/dette/chevron d'ouverture**, **audit wikilinks**, **bilan du `--controle` de la série 2** (produit, non lu, écrasé depuis).
+>
+> **PROCHAINE SESSION = RÉDACTION DU LOT 3** (lancements 2 et 3 de C116), après relecture de la décomposition déjà mesurée et arbitrage des deux titres concurrents.
+
 > **➤ MAJ 27/08 (suite)** — **REMESURE D'OUVERTURE COMPLÈTE, PÉRIMÈTRE DU MODULE RECOMPTÉ, LOT 2 COMPOSÉ ET CADRÉ.** PC pro, **trois séries**, **zéro arbitrage remonté**. **0 fiche EN.** **19 éditions C109** sur trois sources FR, **20 occurrences résolues, coût 0 mot**.
 >
 > **✅ AVANCEMENT DEMANDÉ : ANNEAU 2 À 68 / 145, SOIT 46,9 %** (44,1 % au 26/08). **222 brutes, 77 vues, 145 net, 77 restantes, 105 251 mots.** Ajouter 6 aux 64 aurait été faux : le lot 1 mêlait **4 fiches d'anneau et 2 dettes hors anneaux**.

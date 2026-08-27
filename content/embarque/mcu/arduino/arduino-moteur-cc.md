@@ -1,5 +1,5 @@
 ---
-title: Piloter un moteur CC
+title: Piloter un moteur CC sur Arduino
 type: tuto
 phases:
   - concept

@@ -1,5 +1,5 @@
 ---
-title: Driving a DC motor
+title: Driving a DC motor on Arduino
 type: tuto
 phases:
   - concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-moteur-cc.md
-source_sha256: bb7fc05069a3a34f94a2a1a44d210b896a2c14d6680063a34b9bdeace1f0fcec
+source_sha256: 10670b7821f6c87a07cd42849dd34468dd0767223ff615e95d0c23e1c69f578a
 ---
 
 A **DC motor** is the reference actuator for producing continuous rotary motion with variable speed and direction. Unlike the [[arduino-servomoteur-en|servo]], which moves to an angle, a DC motor turns continuously: its **speed** is set by PWM, its **direction** by reversing the polarity across its terminals. Reversing polarity from a microcontroller means going through an **H-bridge** (an L298N, TB6612FNG or DRV8833 driver). That circuit is what this page is about.

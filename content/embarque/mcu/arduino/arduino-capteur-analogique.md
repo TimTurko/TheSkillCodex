@@ -1,5 +1,5 @@
 ---
-title: Lire un capteur analogique
+title: Lire un capteur analogique sur Arduino
 type: tuto
 phases:
   - preuve-de-concept

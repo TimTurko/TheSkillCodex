@@ -215,7 +215,26 @@ node tools/creer-fiche-en.mjs --recette     # compteurs sur tout content/, n'éc
 node tools/creer-fiche-en.mjs --controle    # chaque fiche EN contre sa source FR
 node tools/creer-fiche-en.mjs --style       # typographie EN et ponctuation C109
 node tools/creer-fiche-en.mjs --libelles    # libellé de wikilink contre title: de la cible
+node tools/creer-fiche-en.mjs --front       # anneau 1 depuis les quatre index
+node tools/creer-fiche-en.mjs --anneau 2    # anneau de rang N, plus la dette du front courant
 ```
+
+`--front` et `--anneau` dimensionnent le chantier de traduction. `--anneau N`
+généralise `--front` à la ligne près ; `--anneau 1` doit rendre le même chiffre
+**brut** que `--front`, et c'est son banc de non-régression. **Brut** = cibles
+atteintes depuis l'anneau précédent, **net** = brut moins les anneaux
+`0..N-1` : un lot se dimensionne sur le net. La **dette** s'imprime à côté et
+ne s'appelle jamais un anneau — c'est un état, pas un périmètre, et il grossit
+à chaque fiche traduite. Le bloc **chevron** et les **cibles sans fiche**
+sortent dans la même page.
+
+⚠ **`--anneau` ignore la table d'alias** (mesure du 27/08 suite 4). Sa
+résolution va du chemin complet au nom de fichier unique, sans lire le champ
+`aliases:` du front matter. Ses six « cibles sans fiche » — `FC`, `FP`, `FS`,
+`critere`, `flexibilite`, `niveau` — **ne sont pas des liens rouges** : ce sont
+les six alias que `audit-wikilinks.mjs` résout correctement. À déduire du
+bloc « cibles sans fiche » de l'anneau, que l'outil étiquette « liens rouges
+côté français » — le compteur de **dette**, lui, n'est pas touché.
 
 `--controle` compare les trois compteurs (liens, embeds, blocs de code) et
 signale les **wikilinks non suffixés**, qui renvoient le lecteur anglophone
@@ -296,6 +315,44 @@ Les fiches FR **publiées** : hors `en/`, hors `templates/`, et hors toute fiche
 en `draft: true` — c'est ce qui sort `ressources/index` depuis le 22/08. Le
 restant à traduire est un **comptage** des fiches sans jumelle EN, pas une
 soustraction : une somme se compense, un comptage non.
+
+---
+
+## parcours-etudiant.mjs
+
+Construit le graphe des wikilinks de `content/` et mesure, depuis un point
+d'entrée réaliste (l'accueil ou un hub de branche), **combien de clics**
+séparent l'étudiant de la fiche qui répond à sa question — et si le chemin
+existe. Douze scénarios sont tabulés ; **neuf ont une cible nommable** et sont
+mesurés, trois partent d'un symptôme et se traversent à la main.
+
+```bash
+node tools/parcours-etudiant.mjs              # rapport complet
+node tools/parcours-etudiant.mjs --scenarios  # scénarios seuls
+node tools/parcours-etudiant.mjs --json       # sortie machine
+```
+
+Il connaît C62 (pipe échappé en cellule de tableau), les alias de front
+matter, et exclut embeds, code, commentaires HTML et `templates/`.
+
+### ⚠ Ses compteurs de santé ne se citent plus (27/08 suite 4)
+
+La recette de référence — 242 fiches indexées, 1 lien mort, 0 cul-de-sac,
+0 orpheline, 0 inatteignable — date du **20/08**, avant l'existence de
+`content/en/`. Rien dans le script n'exclut la zone anglaise : la mesure du
+27/08 rend **407 fiches indexées, 449 liens morts, 164 inatteignables** et
+`en/index` **orpheline**.
+
+Ce n'est pas un défaut du corpus. La bascule de langue des deux accueils
+s'écrit en **chemin absolu** (`index -> /en/`, `en/index -> /`), forme que la
+résolution du script ne suit pas : la seule porte vers l'anglais lui est
+invisible, donc **tout le corpus EN sort isolé**. C'est le mécanisme des
+69 faux positifs sur 70 du 20/08, sur un autre outil.
+
+**Ce qui reste citable** : le bloc des scénarios, dont les entrées et les
+cibles sont françaises. **Ce qui ne l'est pas** : fiches indexées, liens
+morts, et les trois compteurs de santé, tant que la bascule de langue n'est
+pas résolue.
 
 ---
 

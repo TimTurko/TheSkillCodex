@@ -51,7 +51,7 @@ Règle inviolable : **TX d'un côté → RX de l'autre**. GND commun **obligatoi
 
 ### 3. Configurer le baud rate
 
-Le **baud rate** doit être identique aux deux bouts (9600, 115200…). Le module documente son débit par défaut (HC-05 : 9600 ; GPS NEO-6M : 9600). Format de trame : **`8N1`** par défaut (8 bits, sans parité, 1 stop).
+Le **baud rate** doit être identique aux deux bouts (9600, 115200…). Le module documente son débit par défaut (HC-05 : 9600, GPS NEO-6M : 9600). Format de trame : **`8N1`** par défaut (8 bits, sans parité, 1 stop).
 
 ### 4. Écrire le code
 
@@ -69,13 +69,13 @@ while True:
     sleep(1)
 ```
 
-`uart.any()` indique le nombre d'octets reçus ; `uart.read()` / `uart.readline()` lisent ; `uart.write()` émet. **On manipule des `bytes`** (`b"..."`), pas des `str` — convertir au besoin (`texte.encode()` / `data.decode()`).
+`uart.any()` indique le nombre d'octets reçus. `uart.read()` / `uart.readline()` lisent. `uart.write()` émet. **On manipule des `bytes`** (`b"..."`), pas des `str` — convertir au besoin (`texte.encode()` / `data.decode()`).
 
 ## Exemple — Communication entre deux Pico
 
-Un Pico A envoie un compteur ; un Pico B le reçoit, le décode, l'affiche.
+Un Pico A envoie un compteur. Un Pico B le reçoit, le décode, l'affiche.
 
-**Câblage** : A `GP0` (TX) → B `GP1` (RX) ; A `GP1` (RX) ← B `GP0` (TX) ; GND commun.
+**Câblage** : A `GP0` (TX) → B `GP1` (RX), A `GP1` (RX) ← B `GP0` (TX), GND commun.
 
 **Pico A (émetteur)** :
 
@@ -108,7 +108,7 @@ while True:
             print("Recu :", valeur)
 ```
 
-`readline()` lit jusqu'au marqueur `\n` — le récepteur sait ainsi où finit une valeur.
+`readline()` lit jusqu'au marqueur `\n` : le récepteur sait ainsi où finit une valeur.
 
 ## Pièges
 
@@ -124,11 +124,11 @@ while True:
 
 **Trame mal délimitée.** Sans marqueur de fin (`\n`), le récepteur ne sait pas où une valeur finit. Utiliser `readline()` ou un protocole structuré.
 
-**Lire sans vérifier `any()`.** `uart.read()` sans données renvoie `None` ; tester `uart.any()` (ou gérer `None`) évite une erreur.
+**Lire sans vérifier `any()`.** `uart.read()` sans données renvoie `None`. Tester `uart.any()` (ou gérer `None`) évite une erreur.
 
 ## Cas particulier — Adaptateur USB-série pour debug
 
-Un **adaptateur USB-série** (CH340, CP2102) relie le PC à un UART sans passer par le Pico : intercepter un bus, tester un module Bluetooth/Wi-Fi en mode AT en direct, programmer une puce sans USB. 2-5 €, très rentable pour le debug.
+Un **adaptateur USB-série** (CH340, CP2102) relie le PC à un UART sans passer par le Pico : intercepter un bus, tester un module Bluetooth/Wi-Fi en mode AT en direct, programmer une puce sans USB. Outil de paillasse très utile au debug.
 
 ## Raccrochage projet
 

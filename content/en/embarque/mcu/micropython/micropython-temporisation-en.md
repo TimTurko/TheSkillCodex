@@ -1,5 +1,5 @@
 ---
-title: Timing delays
+title: Timing delays in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-temporisation.md
-source_sha256: e4f5a4273435374492f44c107a009af740cf18a60fe44c453635974107f2af19
+source_sha256: fb4eef499ddc54b9235b101f6d9ba4c59b45a7835d8a7522cc762f02650ca784
 ---
 
 **Timing** is the art of measuring or producing a delay. MicroPython offers two tools that are opposites in philosophy: **`sleep()`** (and its variants), which suspends the whole program for a given length of time, and **`ticks_ms()`**, which gives the time elapsed since start-up. Moving from one to the other — going from `sleep()` to the patterns built on `ticks_ms()` — is the most structuring step between a beginner's script and an embedded program worthy of the name. It all comes from the [[micropython-modules-en|`time`]] module.

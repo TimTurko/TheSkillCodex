@@ -1,5 +1,5 @@
 ---
-title: Programmation non bloquante
+title: Programmation non bloquante en MicroPython
 type: tuto
 phases:
   - preuve-de-concept

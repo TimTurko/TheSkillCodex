@@ -1,5 +1,5 @@
 ---
-title: Piloter un moteur CC
+title: Piloter un moteur CC en MicroPython
 type: tuto
 phases:
   - concept
@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-Un **moteur à courant continu** (moteur CC) produit un mouvement rotatif continu à **vitesse** et **sens** variables. À la différence du [[micropython-servomoteur|servomoteur]] qui se positionne, le moteur CC tourne en continu : sa **vitesse** se règle par [[micropython-sortie-pwm|PWM]], son **sens** par l'inversion de polarité aux bornes. Cette inversion depuis un microcontrôleur impose un **pont en H** (DRV8833, TB6612FNG, L298N) — c'est sur ce circuit que se concentre la fiche. En MicroPython, deux `Pin` donnent le sens, un `PWM` la vitesse.
+Un **moteur à courant continu** (moteur CC) produit un mouvement rotatif continu à **vitesse** et **sens** variables. À la différence du [[micropython-servomoteur|servomoteur]] qui se positionne, le moteur CC tourne en continu : sa **vitesse** se règle par [[micropython-sortie-pwm|PWM]], son **sens** par l'inversion de polarité aux bornes. Cette inversion depuis un microcontrôleur impose un **pont en H** (DRV8833, TB6612FNG, L298N) : c'est sur ce circuit que se concentre la fiche. En MicroPython, deux `Pin` donnent le sens, un `PWM` la vitesse.
 
 ## À quoi ça sert ?
 
@@ -40,7 +40,7 @@ Quatre étapes : choisir le driver, câbler, alimenter, écrire le code.
 | **TB6612FNG** | 4,5–13,5 V | 1,2 A/canal | ✅ oui | MOSFET, bon rendement |
 | **L298N** | 5–35 V | 2 A/canal | ⚠️ entrées prévues 5 V | répandu, mais 3,3 V parfois marginal + grosse chute de tension |
 
-Sur le Pico (sorties **3,3 V**), **préférer DRV8833 ou TB6612FNG**, dont les entrées logiques acceptent 3,3 V. Le L298N, conçu pour des entrées 5 V, peut mal interpréter 3,3 V — et perd ~2 V dans le pont. On prend le **DRV8833** pour la suite.
+Sur le Pico (sorties **3,3 V**), **préférer DRV8833 ou TB6612FNG**, dont les entrées logiques acceptent 3,3 V. Le L298N, conçu pour des entrées 5 V, peut mal interpréter 3,3 V, et perd ~2 V dans le pont. On prend le **DRV8833** pour la suite.
 
 ### 2. Câbler (DRV8833, un moteur)
 
@@ -89,7 +89,7 @@ while True:
     arret();        sleep(0.5)
 ```
 
-Le moteur tourne dans un sens, s'arrête, repart dans l'autre. (Sur un L298N, on garderait plutôt 2 `Pin` de sens + 1 `PWM` sur `ENA` ; le principe est le même.)
+Le moteur tourne dans un sens, s'arrête, repart dans l'autre. (Sur un L298N, on garderait plutôt 2 `Pin` de sens + 1 `PWM` sur `ENA`. Le principe est le même.)
 
 ## Exemple — Vitesse au potentiomètre + bouton de sens
 
@@ -140,11 +140,11 @@ while True:
 
 **Inversion de sens instantanée.** Passer brutalement d'un sens à l'autre (sans `arret()` intermédiaire) provoque un courant inverse violent. Bonne pratique : `arret()` + courte pause avant l'inversion.
 
-**Deux PWM hauts en même temps.** Mettre `AIN1` **et** `AIN2` à une valeur > 0 = frein/court-circuit interne ; n'en piloter qu'un à la fois (l'autre à 0).
+**Deux PWM hauts en même temps.** Mettre `AIN1` **et** `AIN2` à une valeur > 0 = frein/court-circuit interne. N'en piloter qu'un à la fois (l'autre à 0).
 
 **Calage du moteur (rotor bloqué).** Le moteur consomme à fond (5–10× le nominal) sans tourner et chauffe. Détecter (mesure de courant, capteur de rotation) et couper.
 
-**PWM trop basse, moteur audible.** Une fréquence PWM dans la bande audible fait siffler le moteur ; régler `freq()` (souvent 1–20 kHz) selon le moteur.
+**PWM trop basse, moteur audible.** Une fréquence PWM dans la bande audible fait siffler le moteur. Régler `freq()` (souvent 1–20 kHz) selon le moteur.
 
 ## Cas particulier — Boucle fermée avec encodeur
 

@@ -1,5 +1,5 @@
 ---
-title: Reading an analog sensor
+title: Reading an analog sensor on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-capteur-analogique.md
-source_sha256: be6866938d83c24fb096a79930dd0acfa5d4656d59d432d7ccbf8271fbf5d009
+source_sha256: 5ebf78ecd7653aa588b5f576f19a50d603707039074f8324b90ca52a5f839b9d
 ---
 
 An **analog sensor** puts out a continuous voltage proportional to the quantity being measured. On Arduino, you read that voltage through the built-in **analog-to-digital converter** ([[adc-en|ADC]]), with the `analogRead()` function. Typical sensors: potentiometer (rotation), LDR (light level), LM35 / TMP36 (temperature), FSR force sensor, MQ-x gas sensor. This page covers the ADC reading, the calibration and the pitfalls specific to analog signals.

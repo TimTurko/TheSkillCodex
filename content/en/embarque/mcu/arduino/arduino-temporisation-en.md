@@ -1,5 +1,5 @@
 ---
-title: Timing delays
+title: Timing delays on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-temporisation.md
-source_sha256: 7782874cbbe67ee8d9d8f1f581ea48760655f309fd5e62a7eca11f41db17d27e
+source_sha256: 59b1c56334a8999338c588cdec59644413ce7ba127799e93101954c34a8d02fc
 ---
 
 **Timing delays** is the art of measuring or producing a delay in an embedded program. Arduino offers two tools with opposite philosophies: **`delay()`**, which suspends the whole program for a given time, and **`millis()`**, which gives the time elapsed since the board started. Moving from one to the other (going from `delay()` to patterns built on `millis()`) is the most structuring jump between a beginner's sketch and an embedded program worthy of the name.

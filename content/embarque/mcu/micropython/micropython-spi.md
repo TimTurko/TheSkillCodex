@@ -20,7 +20,7 @@ draft: false
 
 ## À quoi ça sert ?
 
-Trois usages : **stocker des données sur carte SD** (datalogger, logs) ; **piloter un écran graphique** (TFT, e-paper) ; **communiquer en radio** (NRF24L01, LoRa). Là où I2C adresse plusieurs devices à 2 fils, SPI en sélectionne *un* à la fois par sa broche `CS` — chaque device de plus coûte une GPIO.
+Trois usages : **stocker des données sur carte SD** (datalogger, logs) ; **piloter un écran graphique** (TFT, e-paper) ; **communiquer en radio** (NRF24L01, LoRa). Là où I2C adresse plusieurs devices à 2 fils, SPI en sélectionne *un* à la fois par sa broche `CS`. Chaque device de plus coûte une GPIO.
 
 ## Procédure pas à pas
 
@@ -28,7 +28,7 @@ Quatre étapes : créer l'objet SPI, câbler avec un CS dédié, installer la bi
 
 ### 1. Créer l'objet SPI
 
-Le Pico a deux contrôleurs (`SPI0`, `SPI1`). `SCK`/`MOSI`/`MISO` sont sur des broches compatibles ; **`CS` est une GPIO libre**, gérée par le code :
+Le Pico a deux contrôleurs (`SPI0`, `SPI1`). `SCK`/`MOSI`/`MISO` sont sur des broches compatibles. **`CS` est une GPIO libre**, gérée par le code :
 
 ```python
 from machine import SPI, Pin
@@ -80,7 +80,7 @@ os.umount("/sd")
 ```
 
 > [!info] Comment lire ce code
-> `os.mount(sd, "/sd")` greffe la carte SD dans le système de fichiers du Pico : à partir de là, `/sd/...` se manipule **exactement comme un fichier local**. Le bloc `with open(...) as f:` ouvre le fichier **et le referme tout seul** en fin de bloc — l'écriture est alors réellement enregistrée, sans `close()` à la main comme en Arduino. `os.umount("/sd")` détache proprement la carte avant de la retirer.
+> `os.mount(sd, "/sd")` greffe la carte SD dans le système de fichiers du Pico : à partir de là, `/sd/...` se manipule **exactement comme un fichier local**. Le bloc `with open(...) as f:` ouvre le fichier **et le referme tout seul** en fin de bloc. L'écriture est alors réellement enregistrée, sans `close()` à la main comme en Arduino. `os.umount("/sd")` détache proprement la carte avant de la retirer.
 
 Insérer une microSD formatée en FAT32, lancer, observer le REPL. Relire la carte sur un PC pour vérifier `test.txt`.
 
@@ -120,15 +120,15 @@ Laisser tourner, retirer la carte, ouvrir `data.csv` dans un tableur. Noter le m
 
 **Oublier `os.mount`.** Sans montage, `/sd/...` n'existe pas : `os.mount(sd, "/sd")` après avoir créé l'objet `SDCard`, et `umount` avant de retirer.
 
-**Écraser au lieu d'ajouter.** Ouvrir en `"w"` à chaque tour réécrit le fichier ; pour un log, utiliser `"a"` (append).
+**Écraser au lieu d'ajouter.** Ouvrir en `"w"` à chaque tour réécrit le fichier. Pour un log, utiliser `"a"` (append).
 
 **Câbles trop longs pour du SPI rapide.** À plusieurs MHz, les fils Dupont longs introduisent réflexions/diaphonie. Garder < 10 cm sur breadboard, baisser le `baudrate` si instable.
 
-**Mode SPI mal réglé.** SPI a 4 modes (polarité/phase d'horloge) ; les pilotes les gèrent, mais pour un accès brut, vérifier `polarity`/`phase` dans la datasheet du device.
+**Mode SPI mal réglé.** SPI a 4 modes (polarité/phase d'horloge). Les pilotes les gèrent, mais pour un accès brut, vérifier `polarity`/`phase` dans la datasheet du device.
 
 ## Cas particulier — SPI logiciel
 
-`SoftSPI` (du module `machine`) émule SPI sur des GPIO arbitraires, à débit plus faible — utile pour isoler un device problématique sur ses propres lignes, ou quand les broches matérielles sont prises.
+`SoftSPI` (du module `machine`) émule SPI sur des GPIO arbitraires, à débit plus faible : utile pour isoler un device problématique sur ses propres lignes, ou quand les broches matérielles sont prises.
 
 ## Raccrochage projet
 

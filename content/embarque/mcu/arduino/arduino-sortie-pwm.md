@@ -1,5 +1,5 @@
 ---
-title: Piloter une sortie PWM
+title: Piloter une sortie PWM sur Arduino
 type: tuto
 phases:
   - preuve-de-concept

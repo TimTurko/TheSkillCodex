@@ -1,5 +1,5 @@
 ---
-title: Non-blocking programming
+title: Non-blocking programming on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -16,7 +16,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-programmation-non-bloquante.md
-source_sha256: 11e7949aae5e523804d2cea16ff1a10f14f5940ecf35c17980d78aa79108ff8b
+source_sha256: 4b4e61db5ddbd01aee9715074242920c5743e78ec9c5e7d9d9be1962f4cd071e
 ---
 
 **Non-blocking programming** is a **way of structuring** an embedded program so that the main loop **never** stops. Instead of waiting with `delay()`, each task moves forward a little on every pass through `loop()` and then hands control back: the system can therefore carry out **several activities at once** and stay responsive. It is not a function to call but an **architectural discipline**, built on [[arduino-temporisation-en|timing with `millis()`]] and on [[machine-a-etats-en|state machines]].

@@ -1,5 +1,5 @@
 ---
-title: Piloter une sortie PWM
+title: Piloter une sortie PWM en MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Le **PWM** (Pulse Width Modulation, modulation de largeur d'impulsion) émet un signal carré rapide dont on fait varier la proportion de temps passé à l'état haut — le **rapport cyclique**. En MicroPython, la classe **`PWM`** du module [[micropython-modules|`machine`]] génère ce signal. Pour une charge lente devant la fréquence (LED, moteur, chauffage), l'effet est *équivalent à une tension moyenne* réglable de 0 à 3,3 V — sans qu'aucune vraie tension intermédiaire ne soit produite par la broche.
+Le **PWM** (Pulse Width Modulation, modulation de largeur d'impulsion) émet un signal carré rapide dont on fait varier la proportion de temps passé à l'état haut — le **rapport cyclique**. En MicroPython, la classe **`PWM`** du module [[micropython-modules|`machine`]] génère ce signal. Pour une charge lente devant la fréquence (LED, moteur, chauffage), l'effet est *équivalent à une tension moyenne* réglable de 0 à 3,3 V, sans qu'aucune vraie tension intermédiaire ne soit produite par la broche.
 
 ## À quoi ça sert ?
 
@@ -47,7 +47,7 @@ Deux réglages : **`freq()`** (la fréquence, librement choisie) et **`duty_u16(
 
 ### 2. Câbler une LED PWM
 
-LED anode (+) → résistance 220 Ω → **GP15** ; cathode (−) → GND. Identique au câblage TOR — c'est le code qui change.
+LED anode (+) → résistance 220 Ω → **GP15**, cathode (−) → GND. Identique au câblage TOR : c'est le code qui change.
 
 ![Montage : LED + résistance 220 Ω sur GP15 d'un Pico (câblage identique à une LED TOR, c'est le code qui change)|600](/ressources/img/micropython-sortie-pwm/montage-led-pwm.svg)
 
@@ -98,15 +98,15 @@ Tournez le potentiomètre : la luminosité suit.
 
 ## Pièges
 
-**`duty_u16()` est sur 16 bits, pas 0–255.** Le rapport cyclique va de 0 à **65535**, pas de 0 à 255 comme l'`analogWrite()` d'Arduino. Passer `255` donne ~0,4 % — quasi éteint. (`duty_u16()` est l'API **portable** standard de `machine.PWM` ; certains ports offrent aussi `duty_ns()` pour fixer la largeur d'impulsion en nanosecondes — disponible sur le Pico —, tandis que l'ancien `duty()` 0–1023 subsiste sur ESP8266/ESP32.)
+**`duty_u16()` est sur 16 bits, pas 0–255.** Le rapport cyclique va de 0 à **65535**, pas de 0 à 255 comme l'`analogWrite()` d'Arduino. Passer `255` donne ~0,4 % — quasi éteint. (`duty_u16()` est l'API **portable** standard de `machine.PWM`. Certains ports offrent aussi `duty_ns()` pour fixer la largeur d'impulsion en nanosecondes — disponible sur le Pico —, tandis que l'ancien `duty()` 0–1023 subsiste sur ESP8266/ESP32.)
 
-**Confondre PWM et vraie sortie analogique.** Le PWM sort un créneau 0/3,3 V à rapport cyclique variable, pas une tension. La *moyenne* est analogique pour une charge lente ; l'instantané reste binaire. Pour une vraie tension : DAC externe (MCP4725 en I2C) ou filtre RC.
+**Confondre PWM et vraie sortie analogique.** Le PWM sort un créneau 0/3,3 V à rapport cyclique variable, pas une tension. La *moyenne* est analogique pour une charge lente. L'instantané reste binaire. Pour une vraie tension : DAC externe (MCP4725 en I2C) ou filtre RC.
 
-**Fréquence inadaptée.** Une fréquence trop basse sur une LED scintille ; trop basse sur un moteur peut siffler. Régler `freq()` selon la charge (souvent 500 Hz – 20 kHz). Avantage Pico : la fréquence est libre, contrairement aux ~490 Hz fixes par défaut d'Arduino.
+**Fréquence inadaptée.** Une fréquence trop basse fait scintiller une LED, et siffler un moteur. Régler `freq()` selon la charge (souvent 0,5–20 kHz). Avantage Pico : la fréquence est libre, contrairement aux ~490 Hz fixes par défaut d'Arduino.
 
-**Charge inductive sans diode de roue libre.** Une bobine pilotée en PWM produit des surtensions à chaque commutation — diode 1N4007 en inverse en parallèle, sinon le transistor meurt.
+**Charge inductive sans diode de roue libre.** Une bobine pilotée en PWM produit des surtensions à chaque commutation : diode 1N4007 en inverse en parallèle, sinon le transistor meurt.
 
-**PWM sur grosse charge sans transistor.** Le rapport cyclique ne réduit pas le courant de pointe : un moteur 1 A tire 1 A pendant les phases hautes ; la broche (~12 mA) ne tient pas. Toujours un transistor (MOSFET) ou un pont H.
+**PWM sur grosse charge sans transistor.** Le rapport cyclique ne réduit pas le courant de pointe : un moteur 1 A tire 1 A pendant les phases hautes. La broche (~12 mA) ne tient pas. Toujours un transistor (MOSFET) ou un pont H.
 
 **Oublier `deinit()`.** Une broche restée en PWM n'est plus disponible en GPIO simple. `deinit()` la libère.
 
@@ -120,7 +120,7 @@ Pour transformer un PWM en vraie tension continue (piloter l'entrée analogique 
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — la commande aval d'une boucle de régulation passe souvent par du PWM (voir [[micropython-pid|régulation PID]]).
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — pilotage des actionneurs intégrés au système complet.
 
-Le PWM est l'outil de modulation de puissance par excellence — peu coûteux, bien outillé, suffisant pour l'essentiel des besoins de vitesse moteur et de luminosité.
+Le PWM est l'outil de modulation de puissance par excellence — natif sur toute broche du Pico, bien outillé, suffisant pour l'essentiel des besoins de vitesse moteur et de luminosité.
 
 ## Voir aussi
 

@@ -1,0 +1,484 @@
+﻿
+================================================================
+ETAPE : 0 - AUTOCONTROLE ASCII DU SCRIPT (C122)
+================================================================
+  lignes non ASCII : 0   (C114 exige 0)
+
+================================================================
+ETAPE : A - PREDICTIONS (ecrites avant lancement)
+================================================================
+Q1. WIKILINKS, VERDICTS DURS. PREDICTION FERME : 0 cassee,
+    0 ambigue, tenus depuis le 26/08 (suite 5). Ils ont ete
+    MESURES en serie 1 et non LUS - le defaut est de lecture,
+    pas de mesure, et le filtre le repare.
+
+Q2. PARCOURS, COMPTEURS DE SANTE. LA MOITIE DE P6 EST DEJA
+    TRANCHEE : la liste de paires de la serie 1 rend
+    en/index -> / , donc le script indexe bien content/en/ et
+    sa recette de 242 fiches indexees, datee du 20/08, est
+    PERIMEE. Reste les compteurs de sante, et LES DEUX
+    LECTURES SONT NOMMEES : NON NULS, et ce sont des fiches EN
+    isolees, donc un vrai defaut a instruire ; NULS, et le
+    corpus EN est aussi bien relie que le francais - alors
+    seul le compteur de fiches indexees est perime, pas la
+    recette de sante. JE NE PARIE PAS ENTRE LES DEUX : mon P6
+    annoncait non nuls SANS argument, la presence d un index
+    anglais rendant la reciproque tout aussi probable.
+
+Q3. VOLUME DU LOT 4. PREDICTION FERME SUR LES QUATRE FICHES
+    D ANNEAU : 4 864, somme des quatre lignes lues une a une
+    dans la sortie de --anneau - debug 1665, gpio-boot 1061,
+    memoire 1097, stockage 1041. AUCUN NOMBRE SUR LA
+    CINQUIEME : micropython-bibliotheques est une dette hors
+    anneaux, donc absente de la liste de l anneau, et son
+    volume n a jamais ete mesure (C118). Le total des cinq
+    vaut donc 4 864 plus un inconnu. SI LES QUATRE NE TOMBENT
+    PAS A 4 864, c est mon addition, pas l outil.
+
+Q4. VOLUME DU LOT 2, POUR TRANCHER 6 656 CONTRE 6 657. Le
+    bouclage de l anneau referme EXACTEMENT sur 6 657 :
+    105 251 moins 6 657 moins 4 962 vaut 93 632, mesure en
+    serie 1 ; avec 6 656 il manque une unite. PREDICTION
+    FERME 6 657. SI L OUTIL REND 6 656, alors l unite est
+    ailleurs - dans le 105 251 ou dans le 4 962 - et la
+    reconciliation change de fichier au lieu de se fermer.
+
+Q5. C109 DU LOT 4. LE REPERE AU VOLUME NE SE CITE PLUS : il a
+    echoue sur trois lots consecutifs de deux modules (27/08
+    suite). PREDICTION D ORDRE DE GRANDEUR, ANNONCEE COMME
+    TELLE ET NON COMME VERDICT : 50 a 90 candidats. PREDICTION
+    DE FAMILLE, elle : micropython-debug est la plus lourde
+    des cinq et une fiche de debogage porte des listes de
+    symptomes en puces a tete longue - c est l habitat de l
+    angle mort du 25/08 (suite 8), tete en phrase entiere
+    suivie d un tiret de prose que l exemption positionnelle
+    masque. Les angles morts se cherchent, ils ne se declarent
+    pas absents.
+
+Q6. LIBELLES EN PRODUCTION. MOTIF A JOKER TESTE SUR ECHANTILLON
+    AVANT DE COMPTER (sous-regle C110 du 27/08). Les cinq
+    slugs ont ete confrontes aux 39 noms du repertoire :
+    AUCUN N EST PREFIXE D UN AUTRE. Le piege existe pourtant
+    et il est nomme : micropython-gpio-boot-en et
+    micropython-gpio-en partagent le prefixe micropython-gpio,
+    donc un motif ecrit sur ce prefixe fusionnerait deux
+    populations, exactement le defaut du 26/08 (suite 5). Le
+    motif employe est ANCRE sur [[ et CLOS par le pipe, avec
+    contre-oblique optionnelle (C62), donc il ne peut pas
+    fusionner. PREDICTION DE FAMILLE : bibliotheques rend le
+    champ le plus large - 15 occurrences deja vues a l audit -
+    et gpio-boot le plus pauvre. LE CHIFFRE IMPRIME EST UN
+    COMPTE D OCCURRENCES, jamais un effectif de cibles.
+
+Q7. PATRON DE TITRE FRANCAIS, ET C EST LE POINT QUI DECIDE DE
+    LA FORME DU CHANTIER (b). L arbitrage retient le patron
+    deja en production : Deep sleep in MicroPython, Timers in
+    MicroPython, Interrupts in MicroPython, Deep sleep on
+    Arduino. CES QUATRE TITRES SONT ANGLAIS. La question non
+    mesuree est de savoir si leur title: FRANCAIS porte deja
+    le qualificatif de famille. SI OUI, (b) applique une regle
+    francaise existante aux cinq paires et le chantier est une
+    mise en conformite. SI NON, le patron n existe qu en
+    anglais, et (b) cree une regle de nommage francaise - ce
+    qui reste faisable mais change la nature de l arbitrage et
+    doit remonter a Tim avant execution. AUCUNE FORME N EST
+    ECRITE D AVANCE.
+
+================================================================
+ETAPE : B - WIKILINKS, QUEUE DU VERDICT
+================================================================
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x7
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+
+=== BILAN ===
+  MORT    82 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   6 cible(s)
+  OK      408 cible(s)
+
+================================================================
+ETAPE : C - PARCOURS ETUDIANT, TETE DU RAPPORT
+================================================================
+PARCOURS ETUDIANT ÔÇö graphe des wikilinks de `content`
+
+  fiches indexees ........... 407   (recette : 242)
+  couples traites ........... 26    (recette : 26)
+  liens sortants comptes .... 7501
+  alias declares ............ 24
+  liens morts ............... 449     (recette : 1)
+  liens ambigus ............. 0
+
+--- SANTE DU GRAPHE -------------------------------------------------
+
+Culs-de-sac (aucun lien sortant) : 0
+
+Fiches orphelines (aucun lien entrant) : 1
+    en/index
+
+Inatteignables depuis l'accueil : 164
+    en/conduite/ese/basse-tension-en
+    en/conduite/ese/deee-en
+    en/conduite/ese/emc-en
+    en/conduite/ese/epi-en
+    en/conduite/ese/index
+    en/conduite/ese/iso-12100-en
+    en/conduite/ese/marquage-ce-en
+    en/conduite/ese/reach-en
+    en/conduite/ese/rohs-en
+    en/conduite/index
+    en/conduite/meo/archivage-projet-en
+    en/conduite/meo/cable-management-en
+    en/conduite/meo/index
+    en/conduite/meo/relation-client-en
+    en/conduite/meo/revue-de-code-en
+    en/conduite/meo/unite-si-en
+    en/conduite/proj/amdec-en
+    en/conduite/proj/cahier-des-charges-fonctionnel-en
+    en/conduite/proj/concept-en
+    en/conduite/proj/decomposition-fonctionnelle-en
+    en/conduite/proj/dossier-technique-en
+    en/conduite/proj/ecoconception-en
+    en/conduite/proj/gantt-en
+
+================================================================
+ETAPE : D - VOLUME DU LOT 4 (cinq fiches)
+================================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-debug.md              1665
+  embarque/mcu/micropython/micropython-gpio-boot.md          1061
+  embarque/mcu/micropython/micropython-memoire.md            1097
+  embarque/mcu/micropython/micropython-stockage.md           1041
+  embarque/mcu/micropython/micropython-bibliotheques.md       788
+  ---------------------------------------------------------------
+  LOT (5 fiches)                                             5652
+
+================================================================
+ETAPE : E - VOLUME DU LOT 2 (arbitrage 6 656 contre 6 657)
+================================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-temporisation.md      1026
+  embarque/mcu/micropython/micropython-programmation-non-bloquante.md   1154
+  embarque/mcu/micropython/micropython-machine-a-etats.md    1229
+  embarque/mcu/micropython/micropython-timers.md             1001
+  embarque/mcu/micropython/micropython-interruptions.md      1089
+  embarque/mcu/micropython/micropython-deep-sleep.md         1157
+  ---------------------------------------------------------------
+  LOT (6 fiches)                                             6656
+
+================================================================
+ETAPE : F - TITRES FRANCAIS DU CHANTIER DE NOMMAGE (b)
+================================================================
+Les cinq paires en collision, puis les quatre fiches deja
+qualifiees en anglais, qui servent de temoin du patron.
+  embarque\mcu\arduino\arduino-temporisation.md   ->   title: Temporiser
+  embarque\mcu\micropython\micropython-temporisation.md   ->   title: Temporiser
+  embarque\mcu\arduino\arduino-programmation-non-bloquante.md   ->   title: Programmation non bloquante
+  embarque\mcu\micropython\micropython-programmation-non-bloquante.md   ->   title: Programmation non bloquante
+  embarque\mcu\programmation-non-bloquante.md   ->   title: Programmation non bloquante
+  embarque\mcu\arduino\arduino-capteur-analogique.md   ->   title: Lire un capteur analogique
+  embarque\mcu\micropython\micropython-capteur-analogique.md   ->   title: Lire un capteur analogique
+  embarque\mcu\arduino\arduino-sortie-pwm.md   ->   title: Piloter une sortie PWM
+  embarque\mcu\micropython\micropython-sortie-pwm.md   ->   title: Piloter une sortie PWM
+  embarque\mcu\arduino\arduino-moteur-cc.md   ->   title: Piloter un moteur CC
+  embarque\mcu\micropython\micropython-moteur-cc.md   ->   title: Piloter un moteur CC
+  embarque\mcu\arduino\arduino-deep-sleep.md   ->   title: Mettre un Arduino en veille (deep sleep)
+  embarque\mcu\micropython\micropython-deep-sleep.md   ->   title: Mettre un Pico en veille (deep sleep)
+  embarque\mcu\micropython\micropython-timers.md   ->   title: Utiliser un timer matériel en MicroPython
+  embarque\mcu\micropython\micropython-interruptions.md   ->   title: Programmer une interruption externe en MicroPython
+
+================================================================
+ETAPE : G - LIBELLES EN PRODUCTION DES CINQ CIBLES DU LOT 4
+================================================================
+
+--- micropython-debug-en ---
+    debugging a MicroPython program   [debugger-embarque-en.md]
+    Debugging in MicroPython   [debugger-embarque-en.md]
+    Debugging a program   [micropython-en.md]
+    debugging in MicroPython   [micropython-lire-un-programme-en.md]
+    Debugging in MicroPython   [micropython-lire-un-programme-en.md]
+    Debugging a program   [micropython-repl-en.md]
+    occurrences : 6   (occurrences, PAS cibles distinctes)
+
+--- micropython-gpio-boot-en ---
+    MicroPython - GPIO at start-up   [gpio-en.md]
+    GPIO states at power-up   [micropython-en.md]
+    occurrences : 2   (occurrences, PAS cibles distinctes)
+
+--- micropython-memoire-en ---
+    Managing memory in MicroPython   [memoire-en.md]
+    Managing memory (MicroPython)   [memoire-en.md]
+    Memory management   [micropython-en.md]
+    occurrences : 3   (occurrences, PAS cibles distinctes)
+
+--- micropython-stockage-en ---
+    Persistent storage, files and EEPROM   [memoire-en.md]
+    Storage (MicroPython)   [memoire-en.md]
+    persistent storage   [micropython-deep-sleep-en.md]
+    persistent storage   [micropython-deep-sleep-en.md]
+    Persistent storage   [micropython-deep-sleep-en.md]
+    Persistent storage   [micropython-en.md]
+    occurrences : 6   (occurrences, PAS cibles distinctes)
+
+--- micropython-bibliotheques-en ---
+    Using a library   [bibliotheque-en.md]
+    MicroPython - libraries   [bibliotheque-en.md]
+    Using a library   [micropython-en.md]
+    libraries   [micropython-en.md]
+    libraries   [micropython-i2c-en.md]
+    libraries   [micropython-i2c-en.md]
+    Using a library   [micropython-i2c-en.md]
+    library   [micropython-module-en.md]
+    libraries   [micropython-module-en.md]
+    Using a library   [micropython-module-en.md]
+    using a library   [micropython-modules-en.md]
+    Using a library   [micropython-modules-en.md]
+    using a library   [micropython-shield-en.md]
+    libraries   [micropython-spi-en.md]
+    Using a library   [micropython-spi-en.md]
+    occurrences : 15   (occurrences, PAS cibles distinctes)
+
+================================================================
+ETAPE : G2 - LES SIX CIBLES SANS FICHE DE --anneau SONT-ELLES DES ALIAS
+================================================================
+Hypothese a refuter : les six cibles sans fiche rendues par
+--anneau - FC, FP, FS, critere, flexibilite, niveau - ne sont pas
+des liens rouges mais les six ALIAS que audit-wikilinks compte a
+part. Si le front matter les porte, --anneau ignore la table d
+alias que les deux autres outils connaissent, et six fausses
+dettes sont citees a chaque cloture depuis l ouverture du mode.
+
+--- content\conduite\proj\fonction.md ---
+  aliases:
+    - FP
+    - FS
+    - FC
+  phases:
+
+--- content\conduite\proj\caracteriser-une-exigence.md ---
+  aliases:
+    - critere
+    - niveau
+    - flexibilite
+  phases:
+
+================================================================
+ETAPE : H - CADRAGE C109 DES CINQ SOURCES FR DU LOT 4 (bloc le plus verbeux)
+================================================================
+Lance AU CADRAGE et non apres redaction : correctif du 27/08,
+qui rend la decomposition etiquetee disponible avant traduction
+et fait du total un chiffre diagnostique.
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-debug.md
+      22  [C109] tiret d incise
+          ÔÇªrange**. La discipline de d├®bug ÔÇö *observer avant de modifier* ÔÇö sÔÇª
+      22  [C109] tiret d incise
+          ÔÇªÔÇö *observer avant de modifier* ÔÇö s├®pare un d├®pannage rapide d'uneÔÇª
+      22  [C109] point-virgule de prose
+          ÔÇªse bloque** sans qu'on sache o├╣ ; une **mesure capteur est aberranÔÇª
+      22  [C109] point-virgule de prose
+          ÔÇªure ? conversion ? affichage ?) ; un **comportement al├®atoire** noÔÇª
+      22  [C109] point-virgule de prose
+          ÔÇªt al├®atoire** non reproductible ; une **fonction renvoie une valeuÔÇª
+      54  [C109] point-virgule de prose
+          ÔÇªul, on imprime ce qu'on observe ; si la valeur colle ├á l'attendu,ÔÇª
+      54  [C109] point-virgule de prose
+          ÔÇªl'attendu, on passe ├á la suite ; sinon, on tient le bug. Pr├®fixerÔÇª
+      66  [C109] tiret d incise
+          ÔÇªvant de l'int├®grer au programme ÔÇö bien plus rapide que recharger tÔÇª
+      85  [C109] tiret d incise
+          ÔÇª*trace** (type d'erreur, ligne) ÔÇö l'├®quivalent du message d'un plaÔÇª
+     102  [C109] point-virgule de prose
+          ÔÇª*type** d'erreur et son message ; juste au-dessus, le num├®ro de **ÔÇª
+     121  [C109] tiret d incise
+          ÔÇª)`) au moment exact du plantage ÔÇö l'avantage d├®cisif de l'interpr├®ÔÇª
+     125  [C109] tiret d incise
+          ÔÇªobserver** (`print`, dichotomie ÔÇö voir la *Proc├®dure*) et conna├«trÔÇª
+     128  [C109] point-virgule de prose
+          ÔÇª.** `5 / 2` vaut `2.5`, pas `2` ; pour l'entier, `//` (`5 // 2` =ÔÇª
+     129  [C109] point-virgule de prose
+          ÔÇªrenvoie des `bytes` (`b"..."`) ; les comparer ou les concat├®ner aÔÇª
+     132  [C109] point-virgule de prose
+          ÔÇªpas pr├®cis├® `Pin(15, Pin.OUT)` ; une entr├®e sans `Pin.PULL_UP` flÔÇª
+     134  [C109] tiret d incise
+          ÔÇªion : c'est pourquoi la m├®thode ÔÇö observer, comparer, resserrer paÔÇª
+     134  [C109] tiret d incise
+          ÔÇªparer, resserrer par dichotomie ÔÇö est la seule porte de sortie.
+     138  [C109] tiret d incise
+          ÔÇªpart de GP15 vers le composant ÔÇö ni GP14, ni GP16.
+     138  [C109] point-virgule de prose
+          ÔÇªt ├¬tre juste et le c├óblage faux ; le c├óblage peut ├¬tre bon et le cÔÇª
+     140  [C109] tiret d incise
+          ÔÇª├á la fronti├¿re code / mat├®riel ÔÇö **isoler les deux moiti├®s** :
+     142  [C109] point-virgule de prose
+          ÔÇªha├«ne Thonny ÔåÆ carte fonctionne ; le probl├¿me est en aval.
+     147  [C109] tiret d incise
+          ÔÇªde ce wiki en regard du code** ÔÇö leurs broches portent les m├¬mesÔÇª
+     153  [C109] tiret d incise
+          **├ëtape 1 ÔÇö l'├®cho arrive-t-il ?**
+     162  [C109] tiret d incise
+          **├ëtape 2 ÔÇö le calcul est-il bon ?**
+     171  [C109] tiret d incise
+          **├ëtape 3 ÔÇö la valeur arrive-t-elle ├á l'avalÔÇª
+     177  [C109] tiret d incise
+          ÔÇªpour faire *dispara├«tre* le bug ÔÇö souvent le signe d'une d├®pendancÔÇª
+     194  [C109] point-virgule de prose
+          ÔÇª`try/except` couvre l'essentiel ; la vue transverse (m├®thode d'enqÔÇª
+
+  embarque/mcu/micropython/micropython-gpio-boot.md
+      19  [C109] tiret d incise
+          ÔÇªsimple que l'ESP** sur ce point ÔÇö il n'a pas de broches de *strappÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªi claque, moteur qui tressaute) ; **broches r├®serv├®es par la carteÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªla carte** (├á ne pas utiliser) ; **├®tat s├╗r apr├¿s coupure/red├®marÔÇª
+      36  [C109] tiret d incise
+          ÔÇªn niveau pr├®cis pour *d├®marrer* ÔÇö pas de pi├¿ge de boot bloquant.
+      42  [C109] tiret d incise
+          ÔÇªpour son propre fonctionnement ÔÇö **├á ne pas utiliser** pour un usÔÇª
+      51  [C109] tiret d incise
+          ÔÇªns passent par la puce sans-fil ÔÇö la LED notamment, d'o├╣ le raccouÔÇª
+      55  [C109] tiret d incise
+          ÔÇªrelais rel├óch├® pendant le boot ÔÇö la parade g├®n├®rique au *┬½ clic rÔÇª
+      55  [C109] point-virgule de prose
+          ÔÇªe code n'a pas pris le contr├┤le ; **pull-up** (10 k╬® vers 3,3 V) pÔÇª
+      61  [C109] tiret d incise
+          ÔÇª├¿s** la configuration en sortie ÔÇö sans transit par 0 :
+      79  [C109] point-virgule de prose
+          ÔÇªt du firmware, la broche flotte ; le module (actif-bas) l'interpr├¿ÔÇª
+      79  [C109] point-virgule de prose
+          ÔÇªn niveau bas et colle le relais ; puis `main.py` d├®marre et met laÔÇª
+      96  [C109] point-virgule de prose
+          ÔÇª'apr├¿s le d├®marrage du firmware ; pendant ce d├®lai, les broches flÔÇª
+      98  [C109] tiret d incise
+          ÔÇªiter bri├¿vement la sortie par 0 ÔÇö suffisant pour faire claquer unÔÇª
+     102  [C109] tiret d incise
+          ÔÇªe strapping qui emp├¬che le boot ÔÇö inutile de chercher l'├®quivalentÔÇª
+     118  [C109] tiret d incise
+          ÔÇªe traiter d├¿s le premier relais ÔÇö par un tirage de quelques centimÔÇª
+     118  [C109] tiret d incise
+          ÔÇªde quelques centimes + `value=` ÔÇö ├®pargne le moment o├╣ il faut l'eÔÇª
+
+  embarque/mcu/micropython/micropython-memoire.md
+      19  [C109] tiret d incise
+          ÔÇªomposer avec une ressource rare ÔÇö un microcontr├┤leur a peu de [[meÔÇª
+      19  [C109] tiret d incise
+          ÔÇªr├┤leur a peu de [[memoire|RAM]] ÔÇö **et** avec l'interpr├®teur PythoÔÇª
+      23  [C109] tiret d incise
+          ÔÇªcrocontr├┤leur, elle est compt├®e ÔÇö et en MicroPython, **l'interpr├®tÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªn PC, la m├®moire semble infinie ; sur un microcontr├┤leur, elle estÔÇª
+      33  [C109] point-virgule de prose
+          ÔÇªne la m├®moire libre et utilis├®e ; `micropython.mem_info()` un rappÔÇª
+      47  [C109] tiret d incise
+          ÔÇªets qui ne sont plus r├®f├®renc├®s ÔÇö mais ├á des moments **non choisisÔÇª
+      59  [C109] point-virgule de prose
+          ÔÇªune cha├«ne cr├®e un nouvel objet ; traiter au fil, ou construire unÔÇª
+      84  [C109] tiret d incise
+          ÔÇªe le programme laissait tra├«ner ÔÇö ├á relever sur votre carte, il d├®ÔÇª
+     113  [C109] tiret d incise
+          ÔÇªemps, l'├®cart est spectaculaire ÔÇö et la `MemoryError` dispara├«t.
+     121  [C109] tiret d incise
+          ÔÇªune cha├«ne cr├®e un nouvel objet ÔÇö cause n┬░1 de fragmentation. TraiÔÇª
+     127  [C109] tiret d incise
+          ÔÇªle fait tourner depuis la flash ÔÇö l'├®quivalent MicroPython de gardÔÇª
+     131  [C109] tiret d incise
+          ÔÇªu de RAM sans fragmenter le tas ÔÇö l'oppos├® de la cr├®ation d'objetsÔÇª
+     131  [C109] point-virgule de prose
+          ÔÇªois** et on le r├®├®crit en place ; `memoryview` permet d'en prendreÔÇª
+     136  [C109] point-virgule de prose
+          ÔÇªns cumule leurs besoins m├®moire ; un budget RAM tenu fonction parÔÇª
+     138  [C109] tiret d incise
+          ÔÇª├¿s l'ajout d'une fonctionnalit├® ÔÇö ici une `MemoryError` ou des pauÔÇª
+     138  [C109] tiret d incise
+          ÔÇªune `MemoryError` ou des pauses ÔÇö et qu'on traque faute d'avoir reÔÇª
+
+  embarque/mcu/micropython/micropython-stockage.md
+      19  [C109] tiret d incise
+          ÔÇªer ├®crit sur la m├®moire flash** ÔÇö c'est-├á-dire le **syst├¿me de ficÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªarrages, cycles, dur├®e d'usage) ; **param├¿tres de calibration** (oÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªration** (offset, seuils, mode) ; **derni├¿re configuration** (reprÔÇª
+      23  [C109] point-virgule de prose
+          ÔÇªreprendre o├╣ on s'├®tait arr├¬t├®) ; **petits logs**.
+      53  [C109] tiret d incise
+          ÔÇªpar d├®faut au premier d├®marrage ÔÇö l'├®quivalent de la d├®tection ┬½ EÔÇª
+      73  [C109] tiret d incise
+          ÔÇª├®rialise un dictionnaire entier ÔÇö bien plus simple que de calculerÔÇª
+     113  [C109] tiret d incise
+          ÔÇªpar d├®faut `{"demarrages": 0}` ÔÇö l'├®quivalent propre de la d├®tectÔÇª
+     115  [C109] tiret d incise
+          ÔÇªn┬░ 1`), d├®brancher, rebrancher ÔÇö la valeur s'incr├®mente (`n┬░ 2`,ÔÇª
+     115  [C109] point-virgule de prose
+          ÔÇª├®marrage, ce qui est acceptable ; pour des ├®critures fr├®quentes enÔÇª
+     119  [C109] tiret d incise
+          ÔÇªte` n'a pas d'├®quivalent direct ÔÇö on raisonne en fichiers.
+     127  [C109] tiret d incise
+          ÔÇªcontinus) finit par la remplir ÔÇö pour ├ºa, utiliser une **carte SDÔÇª
+     129  [C109] tiret d incise
+          ÔÇª(nombre, bool├®en, liste, dict) ÔÇö pr├®f├®rer JSON d├¿s qu'il y a plusÔÇª
+     135  [C109] point-virgule de prose
+          ÔÇªisoler les donn├®es du firmware ; pour la plupart des projets ├®colÔÇª
+     143  [C109] tiret d incise
+          ÔÇªmo en syst├¿me qui *se souvient* ÔÇö et la voie ┬½ fichier sur la flasÔÇª
+
+  embarque/mcu/micropython/micropython-bibliotheques.md
+      18  [C109] tiret d incise
+          ÔÇªonnaire d'`#include` ├á compiler ÔÇö une biblioth├¿que MicroPython estÔÇª
+      22  [C109] point-virgule de prose
+          ÔÇªaines de lignes d'I2C + polices ; avec `ssd1306`, quelques lignes.
+      32  [C109] tiret d incise
+          ÔÇªont **gel├®es dans le firmware** ÔÇö rien ├á installer, juste `import`ÔÇª
+      42  [C109] tiret d incise
+          **M├®thode A ÔÇö gestionnaire de Thonny** (recommÔÇª
+      46  [C109] tiret d incise
+          **M├®thode B ÔÇö `mip`** (carte connect├®e au r├®seÔÇª
+      53  [C109] tiret d incise
+          **M├®thode C ÔÇö copie manuelle** : t├®l├®charger lÔÇª
+      69  [C109] tiret d incise
+          ÔÇªt, les **exemples** fournis, et ÔÇö pour les biblioth├¿ques courtes ÔÇöÔÇª
+      69  [C109] tiret d incise
+          ÔÇªpour les biblioth├¿ques courtes ÔÇö le **code source** lui-m├¬me (lisÔÇª
+      73  [C109] tiret d incise
+          ÔÇªgel├® dans le firmware** du Pico ÔÇö aucune installation.
+      92  [C109] tiret d incise
+          Souffler sur le capteur ÔÇö l'humidit├® monte. Avant `dht`, lÔÇª
+      92  [C109] tiret d incise
+          ÔÇªotocole 1-wire au timing strict ÔÇö la biblioth├¿que encapsule tout ├ºÔÇª
+     108  [C109] tiret d incise
+          ÔÇªe code sur une carte contrainte ÔÇö voir [[micropython-memoire|gestiÔÇª
+
+5 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 85   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 15   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+
+=== FIN DE SERIE 2 ===
