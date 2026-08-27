@@ -58,7 +58,7 @@ Si un bouton doit interrompre le clignotement, ce code ne le verra qu'avec jusqu
 
 ### 3. `ticks_ms()` — l'horloge non bloquante
 
-`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage. Le programme ne s'arrête pas — il consulte l'horloge. **Différence cruciale avec Arduino** : on **ne soustrait pas** `ticks_ms()` directement (le compteur déborde et repart) ; on utilise **`ticks_diff(maintenant, depart)`**, conçu pour gérer ce débordement.
+`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage. Le programme ne s'arrête pas. Il consulte l'horloge. **Différence cruciale avec Arduino** : on **ne soustrait pas** `ticks_ms()` directement (le compteur déborde et repart). On utilise **`ticks_diff(maintenant, depart)`**, conçu pour gérer ce débordement.
 
 ```python
 from machine import Pin
@@ -79,7 +79,7 @@ while True:
     # (lire un bouton, mesurer un capteur...)
 ```
 
-À chaque tour, on vérifie si l'intervalle est écoulé — si oui, on agit ; sinon, on continue. Le pattern `if ticks_diff(ticks_ms(), dernier) >= intervalle:` est l'incantation à mémoriser.
+À chaque tour, on vérifie si l'intervalle est écoulé : si oui, on agit, sinon on continue. Le pattern `if ticks_diff(ticks_ms(), dernier) >= intervalle:` est l'incantation à mémoriser.
 
 ### 4. Plusieurs temps en parallèle
 
@@ -168,7 +168,7 @@ C'est l'illustration directe de pourquoi `ticks_ms()` est le bon outil dès qu'i
 
 ## Pièges
 
-**Soustraire `ticks_ms()` directement.** `maintenant - depart` peut devenir négatif au débordement du compteur. **Toujours `ticks_diff(maintenant, depart)`** — c'est la différence majeure avec le `millis()` d'Arduino, où la soustraction d'`unsigned` marchait.
+**Soustraire `ticks_ms()` directement.** `maintenant - depart` peut devenir négatif au débordement du compteur. **Toujours `ticks_diff(maintenant, depart)`** : c'est la différence majeure avec le `millis()` d'Arduino, où la soustraction d'`unsigned` marchait.
 
 **`sleep()` qui bloque tout.** Le piège n°1 : un `sleep(5)` planqué dans une boucle, et tout le reste attend 5 s. Repérer chaque `sleep()` et se demander : *« puis-je le remplacer par un `ticks_ms()` ? »*.
 
@@ -180,7 +180,7 @@ C'est l'illustration directe de pourquoi `ticks_ms()` est le bon outil dès qu'i
 
 ## Cas particulier — Cadences sub-milliseconde et temps réel
 
-Pour des asservissements rapides (PID à 1 kHz, lecture d'encodeur), le couple `ticks_ms()` + boucle de scrutation atteint sa limite — la latence dépend de ce que fait le reste de la boucle. Trois pistes : **`ticks_us()`** pour la même logique à finesse µs ; **timers matériels** + interruption périodique (voir [[micropython-timers|timers matériels]] et [[micropython-interruptions|interruptions]]) ; **programmation non bloquante** structurée (voir [[micropython-programmation-non-bloquante|programmation non bloquante]]).
+Pour des asservissements rapides (PID à 1 kHz, lecture d'encodeur), le couple `ticks_ms()` + boucle de scrutation atteint sa limite. La latence dépend de ce que fait le reste de la boucle. Trois pistes : **`ticks_us()`** pour la même logique à finesse µs ; **timers matériels** + interruption périodique (voir [[micropython-timers|timers matériels]] et [[micropython-interruptions|interruptions]]) ; **programmation non bloquante** structurée (voir [[micropython-programmation-non-bloquante|programmation non bloquante]]).
 
 ## Raccrochage projet
 

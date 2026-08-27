@@ -5,6 +5,54 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➤ MAJ 27/08 (suite)** — **REMESURE D'OUVERTURE COMPLÈTE, PÉRIMÈTRE DU MODULE RECOMPTÉ, LOT 2 COMPOSÉ ET CADRÉ.** PC pro, **trois séries**, **zéro arbitrage remonté**. **0 fiche EN.** **19 éditions C109** sur trois sources FR, **20 occurrences résolues, coût 0 mot**.
+>
+> **✅ AVANCEMENT DEMANDÉ : ANNEAU 2 À 68 / 145, SOIT 46,9 %** (44,1 % au 26/08). **222 brutes, 77 vues, 145 net, 77 restantes, 105 251 mots.** Ajouter 6 aux 64 aurait été faux : le lot 1 mêlait **4 fiches d'anneau et 2 dettes hors anneaux**.
+>
+> **CORPUS FR 242 / 291 217**, traduites **152 / 173 744**, restant **90 / 117 473**. **DETTE 88 CIBLES, 116 045 MOTS, 10 HORS ANNEAUX.** **CHEVRON 25 / 100, 0 ATTEIGNABLE PAR AUCUN PARENT, 6 CIBLES SANS FICHE.** **WIKILINKS 94 MORTES, 0 CASSÉE, 0 AMBIGUË, 8 GABARITS, 6 ALIAS, 396 OK** sur 400 fiches. **MÉDIAS 12 ABSENTS, 0 CASSÉ, 585 OK, 1 ORPHELIN.** **RECETTE 243 / 4 323 / 397 / 444 / 0.** **CONTRÔLE 152 FICHES, 0 DIVERGENTE, 0 LIEN NON SUFFIXÉ SUR 0.**
+>
+> ⚠ **LE « +71 % » QUI A FONDÉ LE PÉRIMÈTRE COMPTAIT SEPT FICHES DÉJÀ TRADUITES.** Le module pèse **38 480 mots sur 39 fiches**, et la partition se referme sur trois `--lot` mesurés : **13 traduites (12 043) + 16 d'anneau (16 483) + 10 de dette hors anneaux (9 954)**. Les sept du sous-parcours de langage pèsent **5 774 mots**, donc le reste à faire hors anneau vaut **9 166 mots, soit 43,5 %** et non 71 %.
+>
+> ⚠ **ET LA QUESTION DE PÉRIMÈTRE A CHANGÉ DE FORME.** Traduire le hub a fait entrer **les neuf tutos de rang 3 dans la dette** — hors anneaux **3 → 10**. Ils ne sont plus « atteignables au rang 3 seulement », ils sont **rouges à l'écran depuis la zone anglaise**. **Rien tranché** : le lot 2 tient dans le périmètre dans les deux lectures. À rouvrir quand les seize de l'anneau seront faites.
+>
+> **LOT 2 COMPOSÉ — LE TEMPS ET LE NON-BLOQUANT, 6 657 MOTS** : `micropython-temporisation`, `micropython-programmation-non-bloquante`, `micropython-machine-a-etats`, `micropython-timers`, `micropython-interruptions`, `micropython-deep-sleep`. Toutes de l'anneau, **et leurs six jumelles Arduino sont traduites** — jurisprudence disponible fiche par fiche.
+>
+> **CADRAGE C109 FAIT AUX SIX : 85 CANDIDATS, DÉCOMPOSÉS 16 / 11 / 14 / 13 / 16 / 15.** Passes appliquées sur **trois fiches**, **RÉSIDU 65 AUX SIX VALEURS PRÉDITES 10 / 7 / 4 / 13 / 16 / 15**, hors périmètre 26, typographie 0, créées 0, virgule ambiguë 0, hors latin 0. **Volume inchangé à 6 657, coût 0 mot.**
+>
+> ⚠ **À REPRENDRE EN OUVERTURE : LES 44 CANDIDATS DE `timers` (13), `interruptions` (16) ET `deep-sleep` (15)**, intacts, décomposition déjà mesurée. Arrêt sur contrainte de ressource, cas (3) de C120, à une frontière fiche par fiche.
+>
+> **TITRES EN LUS EN PRODUCTION, RÈGLE DU *Voir aussi*** : *Interrupts in MicroPython*, *Timers in MicroPython*, *Deep sleep in MicroPython*. ⚠ **`deep-sleep` portait QUATRE formes concurrentes.** ⚠ **Collision `Non-blocking programming` signalée et non tranchée** : le partenaire n'est pas la notion transverse (non traduite) mais `arduino-programmation-non-bloquante-en`, ce qui porterait le libellé à **trois destinations**.
+>
+> ✅ **`audit-medias.mjs` PORTE UN `--quiet`** : quinze lignes contre près de mille. **À employer par défaut dans toute série de mesure** — son bilan a été perdu une fois dans un milieu non lu faute de l'avoir su.
+>
+> ⚠ **NON MESURÉS (C118), À RELANCER** : **style du corpus EN entier**, **`--libelles`**, **foisonnement de corpus**.
+>
+> **À FAIRE** : bloc de commandes en fin d'entrée de JOURNAL (C121). **PROCHAINE SESSION = PASSES C109 SUR LES TROIS FICHES RESTANTES, PUIS GÉNÉRATION ET RÉDACTION DU LOT 2.**
+
+> **➤ MAJ 27/08** — **LE LOT 1 DE MicroPython EST RÉDIGÉ, CONTRÔLÉ, CORRIGÉ ET REVÉRIFIÉ. C116 DIX-HUITIÈME ÉPREUVE CLOSE.** PC pro, **trois séries**, **zéro arbitrage remonté**. **6 FICHES EN RÉDIGÉES**, corpus **152**. **9 EXEMPTIONS C109 RESTAURÉES** après mesure. **4 PAIRES DE CHEVRONS FRANÇAIS CORRIGÉES AVANT LANCEMENT.** Aucune édition FR, aucun correctif d'outil.
+>
+> ✅ **LE CONNECTEUR MCP EST RÉPARÉ** — `npx -y` remplacé par un appel direct à `node` sur une installation globale de `@modelcontextprotocol/server-filesystem`. Cause du blocage : `npx` interrogeait le registre npm pendant près de 4 minutes derrière le proxy, au-delà du délai client de 60 s. **Le désalignement `draft-07` / `2020-12` ne se réintroduit pas**, `edit_file` + `dryRun` redevient l'instrument, le patch git n'a pas servi.
+>
+> **RECETTE 243 / 4 323 / 397 / 444 / 0.** **CONTRÔLE 152 FICHES, 0 DIVERGENTE, 0 LIEN NON SUFFIXÉ SUR 0.** **DÉRIVE 0 / 0 / 0, 152 À JOUR.** **STYLE DES SIX APRÈS RESTAURATION : typographie 0, C109 créées 0, hors latin 0, virgule ambiguë 0, RÉSIDU 39 DÉCOMPOSÉ 3 / 3 / 8 / 12 / 8 / 5**, hors périmètre **27** décomposé **1 / 2 / 2 / 16 / 5 / 1**. **LOT 6 269 → 6 590 MOTS, +5,1 %.** **CORPUS FR 242 / 291 217**, traduites **152 / 173 744**, restant **90 / 117 473**. **`--libelles` 89 → 70**, sur **2 991 liens à libellé, 2 529 cibles existantes, 462 absentes, 16 positions de parcours**.
+>
+> ⚠ **NON MESURÉS (C118), À RELANCER EN OUVERTURE** : **anneau 2, dette, chevron, audit wikilinks, médias, style du corpus EN entier, effectifs réels de `micropython/`**. Les chiffres d'anneau et de dette du 26/08 (suite 5) sont **périmés par ce lot et ne se dérivent pas** (C119). ⚠ **Et le `--controle` de la série 3 a été produit mais non lu** — il est dans `seance-sortie.txt`, non écrasé.
+>
+> ⚠ **LE REPORT UN POUR UN A COPIÉ TROP PEU NEUF FOIS DANS UN SEUL LOT, ET C'EST LE FAIT DE LA SÉANCE.** Une occurrence le 26/08, une le 26/08 (suite 3), **neuf ici** — `gpio` 5, `alimentation` 2, `shield` 2. Toutes de la même forme : tiret d'incise à **segment de droite nominal**, exemption licite côté FR, rendue en anglais par une virgule, un point ou une coordination. **Le différentiel sortait VERT à 30 contre 39**, il ne compte que les créations. *Ce n'est pas un relâchement, c'est la langue d'arrivée qui pousse dans ce sens.*
+>
+> ✅ **CORRECTIF ACQUIS, ET IL EST GRATUIT : `--style` SUR LES SOURCES FR SE LANCE AU CADRAGE.** La décomposition `3 / 3 / 8 / 12 / 8 / 5` était publiée depuis le 26/08 (suite 5) **sans étiquette de fiche** ; une passe FR l'a étiquetée en une série et localisé les neuf. **Ce qui se lit avant la rédaction coûte une série, ce qui se lit après en coûte trois.** Même geste que le « lire les libellés au cadrage » du 26/08.
+>
+> **ARBITRAGE TIM (c) : l'item BACKLOG « tester tout motif générique sur un échantillon avant comptage » est FERMÉ EN SOUS-RÈGLE DE C110**, pas en convention neuve. **La numérotation reste à 121.**
+>
+> ⚠ **LA PRODUCTION DÉMENT LE PÉRIMÈTRE DU MODULE.** `micropython-modules` et `micropython-repl`, annoncées non traduites le 26/08 (suite 5), **existent en anglais et sont citées en production** par `micropython-langage-en`. Le répertoire EN porte **13 fichiers** : les 6 du lot et **7 du sous-parcours de langage** antérieurs. Si ces sept sont dans les « seize hors anneau » pesées à 14 940 mots, **le « +71 % » qui a fondé le périmètre de 23 fiches surestime le reste à faire**. **À REMESURER AVANT DE COMPOSER LE LOT 2.**
+>
+> ⚠ **QUATRIÈME RÉFUTATION ÉCRITE DANS MA PROPRE PRÉDICTION** : `ADC` ×2 annoncés candidats `--libelles` ne sortent pas, `micropython-capteur-analogique-en` n'existant pas — **un lien vers une cible absente est de la dette, pas un candidat**, phrase écrite mot pour mot au JOURNAL du 26/08. Un candidat non prédit sort : `[[micropython-modules-en\|`machine`]]`, libellé légitime, reporté un pour un.
+>
+> **FOISONNEMENT +5,1 %, ÉCART INTERNE DE FACTEUR QUATRE** (de +2,3 % sur `micropython` à +9,1 % sur `shield`), au-delà du facteur trois qui bornait le chantier. ⚠ **Et `shield`, seule fiche où une cause de BAISSE avait été nommée avant mesure, sort la plus HAUTE du lot** — troisième occurrence du motif.
+>
+> ⚠ **LA REDIRECTION `>` DE POWERSHELL 5.1 ÉCRIT EN UTF-16LE** : 50 ko pour 25 ko de texte, chaque caractère espacé à la lecture. **Forme retenue désormais** : `... 2>&1 | Out-File -Encoding utf8 tools\seance-sortie.txt`. Résidu connu et non traité : les accents de `node` sortent en mojibake (page de codes console), **sans effet sur les chiffres**.
+>
+> **À FAIRE** : voir le bloc de commandes en fin d'entrée de JOURNAL (C121). **PROCHAINE SESSION = REMESURE D'OUVERTURE COMPLÈTE**, puis **LOT 2 DU MODULE** sur les 17 fiches restantes du périmètre, **avec `--style` FR au cadrage** et **lecture des libellés au cadrage**.
+
 > **➤ MAJ 26/08 (suite 5)** — **LE MODULE MicroPython EST OUVERT, ET SON LOT 1 EST CADRÉ, PASSÉ ET GÉNÉRÉ.** PC perso, **trois séries**. **6 SQUELETTES EN**, corpus **146 → 152**. **30 SITES C109** sur six sources FR, coût **+8 mots**. **5 RÉÉCRITURES C71** sur trois sources. **AUCUNE RÉDACTION** — arrêt sur contrainte de ressource, cas (3) de C120, à une frontière propre de C116.
 >
 > **ARBITRAGE TIM (a) : `micropython/`**, contre `conduite/proj/`. Motif retenu : c'est le seul des deux qui **ne bute sur aucun arbitrage en attente** — zéro bloc en chevron, donc C110 y reste théorique, là où `conduite/proj/` porte les six liens rouges NF X50-151. **ARBITRAGE TIM (b) sur C71** : les cinq emplacements corrigés dans le lot plutôt que reportés un pour un.

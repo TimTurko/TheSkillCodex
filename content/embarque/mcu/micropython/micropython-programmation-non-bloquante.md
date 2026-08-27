@@ -24,7 +24,7 @@ La **programmation non bloquante** est une **façon de structurer** un programme
 
 ## À quoi ça sert ?
 
-`sleep()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `sleep(0.5)`, le Pico ne lit plus son bouton et manque ses mesures. Tant qu'un script ne fait qu'une chose, on ne le remarque pas ; dès qu'il en fait deux, c'est le mur.
+`sleep()` fige **tout** le programme, pas seulement la tâche qui attend : pendant un `sleep(0.5)`, le Pico ne lit plus son bouton et manque ses mesures. Tant qu'un script ne fait qu'une chose, on ne le remarque pas. Dès qu'il en fait deux, c'est le mur.
 
 La règle qui en découle tient en une phrase : *aucune fonction ne doit bloquer, et la boucle doit toujours pouvoir reboucler*. Pourquoi cette discipline vaut pour tout programme embarqué, ce qu'elle fait gagner et où elle s'arrête : voir la notion transverse [[programmation-non-bloquante|programmation non bloquante]]. Ici, on la met en œuvre en MicroPython — dès la [[preuve-de-concept|preuve de concept]], au premier montage qui combine plusieurs fonctions.
 
@@ -81,7 +81,7 @@ def tache_led():
         led.value(etat_led)
 ```
 
-Règle de refactor : *chaque `sleep()` cache un « attendre que tel temps soit écoulé » — on le réécrit en test sur `ticks_diff`, et chaque « attendre qu'un événement arrive » devient un test sur une condition à chaque tour.*
+Règle de refactor : *chaque `sleep()` cache un « attendre que tel temps soit écoulé ». On le réécrit en test sur `ticks_diff`, et chaque « attendre qu'un événement arrive » devient un test sur une condition à chaque tour.*
 
 ## Exemple — Une station qui fait trois choses à la fois
 
@@ -122,7 +122,7 @@ while True:
     tache_bouton()
 ```
 
-La boucle passe ses trois tâches en revue à chaque tour : la LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui** — parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité = écrire une quatrième tâche. La même chose en `sleep()` serait infaisable.
+La boucle passe ses trois tâches en revue à chaque tour : la LED clignote, le capteur est lu dix fois par seconde, le bouton est vu **dès l'appui**, parce que rien n'arrête jamais la boucle. Ajouter une quatrième activité = écrire une quatrième tâche. La même chose en `sleep()` serait infaisable.
 
 ## Cas particulier — `asyncio`, l'outil intégré de MicroPython
 
@@ -153,7 +153,7 @@ async def main():
 asyncio.run(main())
 ```
 
-`asyncio` est la forme idiomatique de la coopération en MicroPython dès que les tâches se multiplient. Le `await` est le moment où une tâche **rend la main** — un `sleep()` bloquant au milieu d'une coroutine casserait tout, comme dans la super-loop.
+`asyncio` est la forme idiomatique de la coopération en MicroPython dès que les tâches se multiplient. Le `await` est le moment où une tâche **rend la main** : un `sleep()` bloquant au milieu d'une coroutine casserait tout, comme dans la super-loop.
 
 ## Cas particulier — La limite : RTOS et second cœur
 

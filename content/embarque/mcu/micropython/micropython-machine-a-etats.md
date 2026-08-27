@@ -22,7 +22,7 @@ Programmer une **machine à états** en MicroPython consiste à traduire un diag
 
 ## À quoi ça sert ?
 
-Dès qu'un montage doit enchaîner des phases (« vert, puis orange, puis rouge »), deux écueils guettent : empiler des `sleep()` qui rendent la carte sourde pendant l'attente, ou multiplier les booléens jusqu'à l'illisible. Le motif machine à états règle les deux : il **structure** le code en un bloc clair par état, calqué sur le diagramme ; il garde la boucle **réactive** (entre deux changements d'état, le Pico continue de lire ses entrées) ; il rend les **transitions explicites**, faciles à relire et à tester. C'est le squelette de presque tout programme de commande, mis en place en [[preuve-de-concept|preuve de concept]].
+Dès qu'un montage doit enchaîner des phases (« vert, puis orange, puis rouge »), deux écueils guettent : empiler des `sleep()` qui rendent la carte sourde pendant l'attente, ou multiplier les booléens jusqu'à l'illisible. Le motif machine à états règle les deux : il **structure** le code en un bloc clair par état, calqué sur le diagramme. Il garde la boucle **réactive** (entre deux changements d'état, le Pico continue de lire ses entrées). Il rend les **transitions explicites**, faciles à relire et à tester. C'est le squelette de presque tout programme de commande, mis en place en [[preuve-de-concept|preuve de concept]].
 
 ## Procédure pas à pas
 
@@ -72,7 +72,7 @@ if etat == VERT:
         t_debut = ticks_ms()                            # on date l'entree dans le nouvel etat
 ```
 
-`ticks_diff(ticks_ms(), t_debut)` donne le temps passé dans l'état — la comparaison ne bloque rien (voir [[micropython-temporisation|temporisation]]). Une **garde-condition** du diagramme devient un `if` combiné : `if (duree ecoulee) or (demande_pieton and minimum ecoule)`.
+`ticks_diff(ticks_ms(), t_debut)` donne le temps passé dans l'état. La comparaison ne bloque rien (voir [[micropython-temporisation|temporisation]]). Une **garde-condition** du diagramme devient un `if` combiné : `if (duree ecoulee) or (demande_pieton and minimum ecoule)`.
 
 ### 4. Câbler et téléverser
 
@@ -82,7 +82,7 @@ Pour l'exemple : cinq LED (trois voitures, deux piétons) avec résistances sér
 
 ## Exemple — Feux tricolores avec passage piéton
 
-Les voitures suivent vert → orange → rouge ; les piétons ont un feu et un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — la garde-condition `[demande and minimum écoulé]` du diagramme.
+Les voitures suivent vert → orange → rouge. Les piétons ont un feu et un bouton d'appel. Le bouton **mémorise une demande** qui, une fois un minimum de vert écoulé, déclenche le passage au rouge — la garde-condition `[demande and minimum écoulé]` du diagramme.
 
 ![Diagramme d'états du feu : VERT puis JAUNE puis ROUGE, puis retour à VERT. La transition VERT vers JAUNE part dès que la durée de vert est écoulée, ou qu'un piéton a appelé après le minimum de vert ; JAUNE vers ROUGE et ROUGE vers VERT se font sur durée écoulée. La boucle teste ces gardes à chaque tour, sans bloquer.|620](/ressources/img/micropython-machine-a-etats/diagramme-etats.svg)
 
@@ -135,25 +135,25 @@ while True:
 >
 > La priorité de `and` sur `or`, qui commande cette lecture, est un mécanisme du langage et non un idiome embarqué : voir [[micropython-lire-un-programme|lire un programme MicroPython]].
 
-Le programme ne contient **aucun `sleep()`** : la boucle tourne en continu, lit le bouton à chaque tour, avance quand les conditions sont réunies. Ajouter un quatrième état revient à ajouter un `elif` — la structure encaisse sans réécriture.
+Le programme ne contient **aucun `sleep()`** : la boucle tourne en continu, lit le bouton à chaque tour, avance quand les conditions sont réunies. Ajouter un quatrième état revient à ajouter un `elif`. La structure encaisse sans réécriture.
 
 ## Pièges
 
 **Utiliser `sleep()` pour temporiser.** Pendant un `sleep(5)`, le Pico est sourd : il ne lit plus le bouton, ne réagit à rien. Erreur n°1. La temporisation se fait **toujours** avec `ticks_ms()`/`ticks_diff()`.
 
-**État non initialisé.** Une variable d'état sans valeur de départ démarre dans un état indéterminé. Toujours `etat = VERT` — l'état initial est une décision, pas un hasard.
+**État non initialisé.** Une variable d'état sans valeur de départ démarre dans un état indéterminé. Toujours `etat = VERT` : l'état initial est une décision, pas un hasard.
 
 **Redater `t_debut` au mauvais moment.** `t_debut = ticks_ms()` se fait **uniquement** au moment de la transition, pas à chaque tour. Le remettre à chaque passage réarme le chrono en permanence : le délai n'est jamais atteint, la machine se fige.
 
-**Indentation au lieu de `break`.** En C++ il faut un `break` à chaque `case` (sinon *fall-through*) ; en Python, `if/elif` ne « tombe » pas dans le bloc suivant — pas de risque de fall-through, mais **l'indentation doit être rigoureuse** : une ligne mal indentée sort du bloc d'état.
+**Indentation au lieu de `break`.** En C++ il faut un `break` à chaque `case` (sinon *fall-through*). En Python, `if/elif` ne « tombe » pas dans le bloc suivant, pas de risque de fall-through, mais **l'indentation doit être rigoureuse** : une ligne mal indentée sort du bloc d'état.
 
-**Tester l'entrée sans anti-rebond.** Un bouton lu brut peut enregistrer plusieurs appuis. Ici la mémorisation (`demande_pieton = True`) absorbe le problème ; pour compter des appuis ou détecter des fronts, l'[[micropython-entree-tor|anti-rebond]] devient nécessaire.
+**Tester l'entrée sans anti-rebond.** Un bouton lu brut peut enregistrer plusieurs appuis. Ici la mémorisation (`demande_pieton = True`) absorbe le problème. Pour compter des appuis ou détecter des fronts, l'[[micropython-entree-tor|anti-rebond]] devient nécessaire.
 
 **Bloc d'état trop chargé.** Si un bloc dépasse une dizaine de lignes, une sous-logique mérite sa propre fonction, ou un état devrait être scindé. Garder chaque bloc lisible d'un coup d'œil.
 
 ## Cas particulier — Dictionnaire d'états, et machines parallèles
 
-- **Forme pythonique** : remplacer la cascade `if/elif` par un **dictionnaire** qui associe à chaque état la fonction à exécuter (`etats = {VERT: faire_vert, JAUNE: faire_jaune, ...}` puis `etats[etat]()`). Plus élégant quand les états se multiplient ; la cascade `if/elif` reste plus lisible pour quelques états.
+- **Forme pythonique** : remplacer la cascade `if/elif` par un **dictionnaire** qui associe à chaque état la fonction à exécuter (`etats = {VERT: faire_vert, JAUNE: faire_jaune, ...}` puis `etats[etat]()`). Plus élégant quand les états se multiplient. La cascade `if/elif` reste plus lisible pour quelques états.
 - **Machines parallèles** : un montage peut faire tourner **plusieurs machines à états** simultanément (un feu *et* un afficheur clignotant), chacune avec sa variable d'état et son `t_debut`, toutes parcourues dans la même boucle — précisément parce qu'aucune n'utilise `sleep()`.
 
 ## Raccrochage projet

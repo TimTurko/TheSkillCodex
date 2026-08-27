@@ -20,7 +20,7 @@ Mettre un Pico en **veille** (*deep sleep*) consiste à endormir le microcontrô
 
 ## À quoi ça sert ?
 
-Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile. Pour un montage USB, peu importe ; pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort. Cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**.
+Un microcontrôleur éveillé consomme en continu, même quand il ne fait rien d'utile. Pour un montage USB, peu importe. Pour un capteur sur pile (station météo, balise, traceur), c'est l'autonomie qui s'effondre. La [[deep-sleep|veille]] renverse la logique : le système passe l'essentiel de son temps **endormi**, et ne se réveille que **brièvement** pour mesurer, transmettre, puis se rendort. Cycle : **dormir → se réveiller sur événement → agir vite → se rendormir**.
 
 ![Profil du courant illustrant le principe du deep sleep : de longues plages à courant faible pendant le sommeil, entrecoupées de brefs pics lors des réveils, qui tirent la consommation moyenne vers le bas — loin d'un courant élevé en continu.|680](/ressources/img/micropython-deep-sleep/profil-courant-veille.svg)
 
@@ -28,8 +28,8 @@ On met cela en place tard, en [[integration-et-tests|phase d'intégration]], com
 
 ## `lightsleep` vs `deepsleep` — la différence clé
 
-- **`machine.lightsleep(ms)`** — endort la puce ; au réveil, le programme **reprend juste après l'appel**, variables conservées. Consommation réduite mais pas minimale.
-- **`machine.deepsleep(ms)`** — sommeil plus profond ; au réveil, **la puce redémarre** comme après un reset : `main.py` repart du début. Les variables sont perdues — il faut **sauvegarder l'état** (dans un fichier, voir [[micropython-stockage|stockage persistant]]) avant de dormir, et le relire au démarrage. C'est le même comportement « réveil = redémarrage » que sur l'[[esp32-deep-sleep|ESP32]].
+- **`machine.lightsleep(ms)`** — endort la puce. Au réveil, le programme **reprend juste après l'appel**, variables conservées. Consommation réduite mais pas minimale.
+- **`machine.deepsleep(ms)`** — sommeil plus profond. Au réveil, **la puce redémarre** comme après un reset : `main.py` repart du début. Les variables sont perdues. Il faut **sauvegarder l'état** (dans un fichier, voir [[micropython-stockage|stockage persistant]]) avant de dormir, et le relire au démarrage. C'est le même comportement « réveil = redémarrage » que sur l'[[esp32-deep-sleep|ESP32]].
 
 ## Procédure pas à pas
 
@@ -37,7 +37,7 @@ Quatre étapes : faire le travail utile, choisir le mode, endormir, gérer le r�
 
 ### 1. Réveil périodique avec `deepsleep`
 
-Le cas le plus courant : un capteur qui relève une valeur à intervalle régulier. On mesure, puis on dort un temps donné — et au réveil, tout recommence.
+Le cas le plus courant : un capteur qui relève une valeur à intervalle régulier. On mesure, puis on dort un temps donné. Au réveil, tout recommence.
 
 ```python
 import machine
@@ -71,7 +71,7 @@ machine.lightsleep(5000)        # dort 5 s, puis REPREND ici (variables conserve
 
 ### 3. Réveil sur événement (broche)
 
-En principe, pour réveiller sur un bouton ou un détecteur plutôt qu'à échéance fixe, on attache une [[micropython-interruptions|interruption]] sur la broche avant d'endormir ; l'événement ranime alors la puce (sans argument de durée, le sommeil dure jusqu'à l'événement) :
+En principe, pour réveiller sur un bouton ou un détecteur plutôt qu'à échéance fixe, on attache une [[micropython-interruptions|interruption]] sur la broche avant d'endormir. L'événement ranime alors la puce (sans argument de durée, le sommeil dure jusqu'à l'événement) :
 
 ```python
 from machine import Pin
@@ -97,7 +97,7 @@ La consommation se mesure au multimètre, en série avec l'alimentation du monta
 | `lightsleep()` | … |
 | `deepsleep()` | … |
 
-N'attendez **pas** de chute en microampères sur la dernière ligne : sur RP2040, `deepsleep` est en pratique un `lightsleep`, et les deux se relèvent du même ordre de grandeur (voir les *Pièges*). C'est précisément ce que la mesure doit établir — et s'y ajoute la consommation permanente du régulateur et de l'USB de la carte, qui ne dort jamais.
+N'attendez **pas** de chute en microampères sur la dernière ligne : sur RP2040, `deepsleep` est en pratique un `lightsleep`, et les deux se relèvent du même ordre de grandeur (voir les *Pièges*). C'est précisément ce que la mesure doit établir, et s'y ajoute la consommation permanente du régulateur et de l'USB de la carte, qui ne dort jamais.
 
 ## Exemple — Capteur sur batterie réveillé périodiquement
 
@@ -131,7 +131,7 @@ Entre deux mesures, la puce dort. Le compteur survit grâce au fichier, puisque 
 
 **Croire que `deepsleep` reprend où il s'est arrêté.** Au réveil, `deepsleep` **redémarre** (`main.py` repart de zéro, variables perdues). Sauvegarder l'état dans un fichier avant de dormir, le relire au démarrage. (`lightsleep`, lui, reprend l'exécution.)
 
-**Sur RP2040, `deepsleep` n'économise presque rien.** Dans MicroPython, le `deepsleep` du RP2040 est en pratique un **synonyme de `lightsleep`** : il redémarre bien la puce au réveil, mais ne descend **pas** aux µA d'un vrai sommeil profond (de l'ordre de quelques **dizaines de mA** mesurés). À cela s'ajoute la conso permanente du régulateur et de l'USB de la carte Pico. Sur le Pico, le gain de `deepsleep` est donc **surtout pédagogique** ; pour une autonomie sérieuse sur batterie, on vise une famille où le deep sleep est réellement implémenté (l'[[esp32-deep-sleep|ESP32]]) ou un travail bas niveau (pico-extras). C'est une **divergence honnête** avec l'AVR, où le power-down atteint vraiment quelques µA sur puce nue.
+**Sur RP2040, `deepsleep` n'économise presque rien.** Dans MicroPython, le `deepsleep` du RP2040 est en pratique un **synonyme de `lightsleep`** : il redémarre bien la puce au réveil, mais ne descend **pas** aux µA d'un vrai sommeil profond (de l'ordre de quelques **dizaines de mA** mesurés). À cela s'ajoute la conso permanente du régulateur et de l'USB de la carte Pico. Sur le Pico, le gain de `deepsleep` est donc **surtout pédagogique**. Pour une autonomie sérieuse sur batterie, on vise une famille où le deep sleep est réellement implémenté (l'[[esp32-deep-sleep|ESP32]]) ou un travail bas niveau (pico-extras). C'est une **divergence honnête** avec l'AVR, où le power-down atteint vraiment quelques µA sur puce nue.
 
 **S'endormir avant d'avoir fini d'émettre.** Les communications sont asynchrones : s'assurer que l'envoi (Wi-Fi, UART…) est terminé avant d'appeler `deepsleep`, sinon le message est tronqué.
 
@@ -141,14 +141,14 @@ Entre deux mesures, la puce dort. Le compteur survit grâce au fichier, puisque 
 
 ## Cas particulier — Profondeur et sources de réveil
 
-`lightsleep` est plus simple (reprise immédiate, idéal pour des pauses courtes entre deux actions) ; `deepsleep` économise davantage mais impose le redémarrage et la sauvegarde d'état (idéal pour de longues pauses entre relevés espacés). Le choix se fait sur la **durée de sommeil** et le besoin de conserver ou non l'état en RAM. Pour une autonomie sérieuse, raisonner aussi sur le **budget énergétique** complet du montage (voir [[micropython-alimentation|alimenter la carte]]).
+`lightsleep` est plus simple (reprise immédiate, idéal pour des pauses courtes entre deux actions). `deepsleep` économise davantage mais impose le redémarrage et la sauvegarde d'état (idéal pour de longues pauses entre relevés espacés). Le choix se fait sur la **durée de sommeil** et le besoin de conserver ou non l'état en RAM. Pour une autonomie sérieuse, raisonner aussi sur le **budget énergétique** complet du montage (voir [[micropython-alimentation|alimenter la carte]]).
 
 ## Raccrochage projet
 
 - **[[integration-et-tests|Phase d'intégration et tests]]** — l'optimisation énergétique vient une fois la fonction validée : mesurer la consommation, puis introduire la veille pour atteindre l'autonomie visée.
-- **Spécification** — l'autonomie cible (« tenir une saison sur batterie ») est une exigence à poser tôt ; la veille est le moyen de la tenir, à dimensionner avec le budget énergétique.
+- **Spécification** — l'autonomie cible (« tenir une saison sur batterie ») est une exigence à poser tôt. La veille est le moyen de la tenir, à dimensionner avec le budget énergétique.
 
-Sur un objet connecté autonome, la veille n'est pas un détail mais l'**architecture même** du programme — d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
+Sur un objet connecté autonome, la veille n'est pas un détail mais l'**architecture même** du programme, d'où l'intérêt de la prévoir dès qu'une contrainte de batterie existe.
 
 ## Voir aussi
 

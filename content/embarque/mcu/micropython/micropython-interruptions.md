@@ -29,7 +29,7 @@ Quatre étapes : écrire une ISR courte, l'attacher avec `irq()`, lire son résu
 
 ### 1. Écrire l'ISR
 
-L'ISR est une fonction qui **reçoit la broche en argument** et reste minimale : ici, incrémenter un compteur. La variable partagée est un **global** (déclaré `global` dans la fonction). En Python, pas de mot-clé `volatile` : un global est toujours « volatile » de fait — mais une autre règle, propre à MicroPython, la remplace (étape 4).
+L'ISR est une fonction qui **reçoit la broche en argument** et reste minimale : ici, incrémenter un compteur. La variable partagée est un **global** (déclaré `global` dans la fonction). En Python, pas de mot-clé `volatile` : un global est toujours « volatile » de fait, mais une autre règle, propre à MicroPython, la remplace (étape 4).
 
 ```python
 import micropython
@@ -80,7 +80,7 @@ while True:
 
 ### 4. Respecter la règle d'allocation
 
-**Règle propre à MicroPython** : dans une ISR « dure », on **ne peut pas allouer de mémoire** — pas de création d'objet, pas de `print` formaté, pas de calcul flottant qui alloue. On se limite à modifier des variables déjà existantes (un compteur, un drapeau). Pour faire un vrai traitement, on **diffère** hors de l'ISR avec `micropython.schedule()` :
+**Règle propre à MicroPython** : dans une ISR « dure », on **ne peut pas allouer de mémoire**. Pas de création d'objet, pas de `print` formaté, pas de calcul flottant qui alloue. On se limite à modifier des variables déjà existantes (un compteur, un drapeau). Pour faire un vrai traitement, on **diffère** hors de l'ISR avec `micropython.schedule()` :
 
 ```python
 def afficher(arg):                 # contexte planifie : allocation autorisee
@@ -92,7 +92,7 @@ def isr(pin):
 
 ## Exemple — Compteur de vitesse à effet Hall
 
-Un capteur Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées pour être lues dans la boucle — cas d'école de l'interruption. On compte par interruption ; la boucle calcule la vitesse chaque seconde.
+Un capteur Hall détecte le passage d'un aimant fixé sur une roue : à chaque tour, une brève impulsion. À vitesse élevée, ces impulsions sont trop rapprochées pour être lues dans la boucle — cas d'école de l'interruption. On compte par interruption. La boucle calcule la vitesse chaque seconde.
 
 ![Chronogramme du comptage : la broche GP2 est au repos à HIGH et chute à LOW à chaque passage d'aimant ; chaque front descendant déclenche l'ISR qui fait impulsions += 1 (1, 2, 3, 4) ; une fois par seconde, la boucle lit le compteur, calcule les tr/min et le remet à zéro.|640](/ressources/img/micropython-interruptions/chronogramme-comptage.svg)
 
@@ -125,13 +125,13 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> Une fois par seconde, la boucle relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `disable_irq()` / `enable_irq()` (cf. étape 3) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence** ; la dernière ligne la convertit en tours par minute (× 60). Tout le calcul est dans la boucle — l'ISR ne fait qu'incrémenter, sans allocation.
+> Une fois par seconde, la boucle relève le compteur. La copie `n = impulsions` puis la remise `impulsions = 0` sont enfermées dans la section critique `disable_irq()` / `enable_irq()` (cf. étape 3) : on lit **et** on remet à zéro sans qu'une impulsion ne se glisse entre les deux. Compter sur une seconde puis repartir de zéro transforme un total en **fréquence**. La dernière ligne la convertit en tours par minute (× 60). Tout le calcul est dans la boucle : l'ISR ne fait qu'incrémenter, sans allocation.
 
-L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tr/min, affichage) se passe dans la boucle, là où l'allocation est permise et où le temps de calcul ne gêne personne. La boucle reste réactive, aucune impulsion n'est perdue.
+L'ISR ne fait qu'incrémenter. Tout le calcul (conversion en tr/min, affichage) se passe dans la boucle, là où l'allocation est permise et où le temps de calcul ne gêne personne. La boucle reste réactive, aucune impulsion n'est perdue.
 
 ## Pièges
 
-**Allouer dans l'ISR.** Créer un objet, faire un `print` formaté ou un calcul flottant dans une ISR dure lève une erreur (souvent silencieuse sans `alloc_emergency_exception_buf`). L'ISR ne touche qu'à des variables existantes ; le reste passe par `micropython.schedule()` ou la boucle.
+**Allouer dans l'ISR.** Créer un objet, faire un `print` formaté ou un calcul flottant dans une ISR dure lève une erreur (souvent silencieuse sans `alloc_emergency_exception_buf`). L'ISR ne touche qu'à des variables existantes. Le reste passe par `micropython.schedule()` ou la boucle.
 
 **Lire le compteur sans section critique.** Une lecture + remise à zéro n'est pas atomique : si l'interruption tombe entre les deux, on perd une impulsion. Encadrer par `disable_irq()`/`enable_irq()`.
 
@@ -139,7 +139,7 @@ L'ISR ne fait qu'incrémenter ; tout le calcul (conversion en tr/min, affichage)
 
 **Compter un bouton mécanique sans anti-rebond.** Un bouton rebondit : un appui peut générer plusieurs fronts. L'interruption ne filtre pas le rebond — pour compter des appuis, ajouter un [[micropython-entree-tor|anti-rebond]] (mémoriser `ticks_ms()` du dernier front et ignorer les suivants dans une courte fenêtre).
 
-**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter/mémoriser, le traitement appartient à la boucle. L'ISR signale ; la boucle traite.
+**Faire trop de travail à chaque impulsion.** Si l'ISR doit faire plus qu'incrémenter/mémoriser, le traitement appartient à la boucle. L'ISR signale, la boucle traite.
 
 **Ne pas réserver le tampon d'exception.** Sans `alloc_emergency_exception_buf(100)`, une erreur dans l'ISR échoue sans message — débogage très difficile.
 
