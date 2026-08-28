@@ -23,7 +23,7 @@ Tous les sketches que vous croiserez ont cette structure. La reconnaître, c'est
 - « Où déclarer une valeur utilisée partout ? » → dans les déclarations globales, avant `setup()` ;
 - « Mon `loop()` devient illisible, que faire ? » → en extraire des **fonctions** nommées.
 
-Distinguer surtout deux natures de lignes : ce qui est **déclaré** (variables, fonctions — on les *nomme*) et ce qui est **exécuté** (les actions — elles vivent *dans* `setup()` ou `loop()`). Mélanger les deux est la première cause d'erreurs de compilation chez le débutant.
+Distinguer surtout deux natures de lignes : ce qui est **déclaré** (variables, fonctions, que l'on *nomme*) et ce qui est **exécuté** (les actions, qui vivent *dans* `setup()` ou `loop()`). Mélanger les deux est la première cause d'erreurs de compilation chez le débutant.
 
 ## L'anatomie d'un sketch
 
@@ -67,11 +67,11 @@ int lireCapteur() {                 // type de retour, nom, (paramètres)
 ```
 
 > [!note]
-> **Où placer ses fonctions ?** En C++ pur, une fonction doit être déclarée avant d'être appelée. L'IDE Arduino **génère automatiquement les déclarations** pour vous, si bien qu'on peut écrire ses fonctions *après* `loop()` sans erreur. C'est une commodité du dialecte Wiring ; dans un projet plus structuré (fichiers `.h`/`.cpp`), on retrouvera l'ordre classique.
+> **Où placer ses fonctions ?** En C++ pur, une fonction doit être déclarée avant d'être appelée. L'IDE Arduino **génère automatiquement les déclarations** pour vous, si bien qu'on peut écrire ses fonctions *après* `loop()` sans erreur. C'est une commodité du dialecte Wiring. Dans un projet plus structuré (fichiers `.h`/`.cpp`), on retrouvera l'ordre classique.
 
 ## Code à lire
 
-Un sketch complet et **bien rangé** : il commande un servomoteur d'après un capteur, et allume une LED au-dessus d'un seuil. Les **bannières de commentaires** séparent visuellement les quatre zones — une habitude qui rend un programme long bien plus lisible.
+Un sketch complet et **bien rangé** : il commande un servomoteur d'après un capteur, et allume une LED au-dessus d'un seuil. Les **bannières de commentaires** séparent visuellement les quatre zones, une habitude qui rend un programme long bien plus lisible.
 
 ```cpp
 /* ============================================= */
@@ -117,7 +117,7 @@ void positionnerServo(int mesure) {       // agit selon la mesure
 }
 ```
 
-`loop()` reste **court et lisible** : il dit *quoi* faire (lire, positionner), pas *comment*. Le « comment » est rangé dans les fonctions de la zone 4. C'est exactement le bénéfice d'une bonne structure — et la base de tout ce qui suivra sur la [[firmware|structuration du firmware]].
+`loop()` reste **court et lisible** : il dit *quoi* faire (lire, positionner), pas *comment*. Le « comment » est rangé dans les fonctions de la zone 4. C'est exactement le bénéfice d'une bonne structure, et la base de tout ce qui suivra sur la [[firmware|structuration du firmware]].
 
 ## Pièges
 

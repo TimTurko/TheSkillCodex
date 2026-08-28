@@ -1,0 +1,171 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s7-serie3.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-28   heure : 22:46
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - residu C109 apres les 37 passes, predit 14 en 4 / 6 / 4
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md
+      25  [C109] tiret d incise
+          …pourquoi, c'est l'autre métier — voir [[arduino-debug|déboguer un…
+      80  [C109] tiret d incise
+          …t « A, **ou bien** B et que C » — et non « A ou B, et que C ».
+     119  [C109] tiret d incise
+          …majuscules donnent les réglages — six numéros de broches, quatre d…
+     123  [C109] tiret d incise
+          …inférieur à `DUREE_VERT` (6000) — faux. `demandePieton` est faux,…
+
+  embarque/mcu/cpp/cpp-structure.md
+      16  [C109] tiret d incise
+          …de lire n'importe quel exemple — et d'organiser son propre code a…
+      61  [C109] tiret d incise
+          …dans des **fonctions nommées** — `lireCapteur()`, `commanderMoteu…
+      61  [C109] tiret d incise
+          …Capteur()`, `commanderMoteur()` — qu'on définit une fois et qu'on…
+     142  [C109] tiret d incise
+          …/ `loop()`** : les **actions** — réglages une fois dans `setup()`…
+     145  [C109] tiret d incise
+          …en zone 2 parce qu'à ce niveau — **hors de toute fonction** — il…
+     145  [C109] tiret d incise
+          …au — **hors de toute fonction** — il n'existe aucun « moment » d'e…
+
+  embarque/mcu/cpp/cpp-types.md
+      30  [C109] tiret d incise
+          …(`int x;`, valeur indéterminée — à éviter) ou avec (`int x = 0;`,…
+      58  [C109] tiret d incise
+          …ur une carte et pas sur l'autre — la cause de bugs « impossibles à…
+      72  [C109] tiret d incise
+          …les**). Une suite de caractères — une chaîne — peut se ranger de d…
+      72  [C109] tiret d incise
+          …uite de caractères — une chaîne — peut se ranger de deux façons :
+
+3 fiche(s) lue(s), 3 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 14   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 8   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - volume apres passes, DEUX chiffres sous C127
+==============================================================
+--- tot : regle C110 en vigueur, inchangee
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md                  2481
+  embarque/mcu/cpp/cpp-structure.md                          1127
+  embarque/mcu/cpp/cpp-types.md                              1333
+  ---------------------------------------------------------------
+  LOT (3 fiches)                                             4941
+
+--- deh : hors blocs en chevron
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 3   porteuses : 3
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (3 porteuses)                                   10 cl   5 bl   4941 tot    97 ded   4839 deh
+
+--- corpus FR entier, terme de reconciliation
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  fiches FR publiees   : 242
+  mots FR              : 291219
+  mediane par fiche    : 1089
+  fiche la plus lourde : embarque/pcb/easyeda.md  (9773)
+
+  deja traduites       : 169 fiches, 191017 mots FR
+  RESTANT A TRADUIRE   : 73 fiches, 100202 mots FR
+
+  Le restant est un COMPTAGE des fiches non traduites, pas une
+  soustraction : une somme se compense, un comptage non.
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - generation des trois squelettes EN
+==============================================================
+--- embarque/mcu/cpp/cpp-lire-un-programme.md
+=== embarque/mcu/cpp/cpp-lire-un-programme.md -> content/en/embarque/mcu/cpp/cpp-lire-un-programme-en.md ===
+  liens   : 19 -> 19  ok
+  embeds  : 0 -> 0  ok
+  code    : 4 -> 4  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-lire-un-programme-en.md (17219 o)
+--- embarque/mcu/cpp/cpp-structure.md
+=== embarque/mcu/cpp/cpp-structure.md -> content/en/embarque/mcu/cpp/cpp-structure-en.md ===
+  liens   : 13 -> 13  ok
+  embeds  : 0 -> 0  ok
+  code    : 6 -> 6  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-structure-en.md (10897 o)
+--- embarque/mcu/cpp/cpp-types.md
+=== embarque/mcu/cpp/cpp-types.md -> content/en/embarque/mcu/cpp/cpp-types-en.md ===
+  liens   : 12 -> 12  ok
+  embeds  : 0 -> 0  ok
+  code    : 6 -> 6  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-types-en.md (10345 o)
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - inventaire du repertoire EN apres generation, 2 attendus -> 5
+==============================================================
+fichiers dans content/en/embarque/mcu/cpp : 5
+  cpp-en.md                         3 ko
+  cpp-lire-un-programme-en.md       16.8 ko
+  cpp-logs-en.md                    11.7 ko
+  cpp-structure-en.md               10.6 ko
+  cpp-types-en.md                   10.1 ko
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - controle des trois compteurs et derive, le plus verbeux en dernier
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+
+172 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+
+=== DERIVE DE TRADUCTION ===
+172 fiche(s) EN controlee(s)
+
+=== BILAN ===
+  DERIVE      0
+  SANS SOURCE 0
+  SANS MARQUE 0
+  A JOUR      172
+--- code de sortie : 0

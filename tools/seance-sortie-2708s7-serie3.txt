@@ -1,0 +1,420 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s7-serie2.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-27   heure : 23:04
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot 1, DEUX chiffres sous la regle (3)
+==============================================================
+--- tot : regle C110 en vigueur, inchangee
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md                  2481
+  embarque/mcu/cpp/cpp-structure.md                          1127
+  embarque/mcu/cpp/cpp-types.md                              1333
+  ---------------------------------------------------------------
+  LOT (3 fiches)                                             4941
+
+--- deh : hors blocs en chevron, chiffre de dimensionnement
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 3   porteuses : 3
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (3 porteuses)                                   10 cl   5 bl   4941 tot    97 ded   4839 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - libelles en production visant les trois cibles (materiau C125)
+==============================================================
+fichiers .md balayes : 417   (la serie 2 en a compte 412)
+
+### SLUG ENTIER : cpp-lire-un-programme
+  occurrences : 20
+  revue-de-code.md                  l.24 : La revue ne cherche pas la perfection. Elle cible les **défauts manifestes** et les **zones critiques** du [[firmware|firmware]] : gestion des [[interruption|interruptions]], [[machine-a-etats|machine à états]], fonctions de sécurité. La pratique qui tient en projet : une revue croisée **à chaque jalon** (entre équipiers au minimum, avec l'encadrant idéalement), courte mais régulière, tracée comme une étape de qualité (voir [[securite-et-qualite|sécurité et qualité]]). C'est aussi un puissant levier d'apprentissage : on progresse en lisant le code des autres. Encore faut-il savoir entrer dans un programme qu'on n'a pas écrit, ce qui s'apprend ([[cpp-lire-un-programme|en C++]], [[micropython-lire-un-programme|en MicroPython]]).
+  revue-de-code.md                  l.31 : - [[cpp-lire-un-programme|Lire un programme C++]] — la méthode de lecture, prérequis de la revue
+  arduino-debug.md                  l.228 : - [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — l'étape d'avant : comprendre un code sans supposer de panne
+  arduino-machine-a-etats.md        l.176 : > La priorité de `&&` sur `||`, qui commande cette lecture, est un mécanisme du langage et non un idiome embarqué : voir [[cpp-lire-un-programme|lire un programme C++]].
+  arduino-programmation-non-bloquante.mdl.173 : > Ces trois mécanismes — la `struct`, le pointeur de fonction et le `for` à plage — ne sont pas propres à l'embarqué : ils se retrouvent dans n'importe quel programme C++, et sont repris comme indices de lecture dans [[cpp-lire-un-programme|lire un programme qu'on n'a pas écrit]].
+  arduino-programmation-non-bloquante.mdl.211 : - [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — les mécanismes C++ de l'ordonnanceur ci-dessus, sous l'angle de la lecture
+  cpp.md                            l.29 : 8. [[cpp-lire-un-programme|Lire un programme qu'on n'a pas écrit]] — entrer dans un code inconnu, et les mécanismes du langage qui reviennent d'un exemple à l'autre.
+  micropython-lire-un-programme.md  l.74 : Le balayage vertical de la marge gauche donne donc la structure du programme en quelques secondes, avant tout examen du contenu. C'est exactement l'inverse du [[cpp-lire-un-programme|C++]], où seules les accolades font foi et où l'indentation peut mentir.
+  micropython-lire-un-programme.md  l.119 : Réflexe de lecture : **l'absence de `close()` après un `with` n'est pas un oubli**, c'est la forme normale. Chercher une fermeture manuelle serait une erreur d'importation d'habitudes venues du [[cpp-lire-un-programme|C++]], où la fermeture est justement à la charge du programmeur.
+  micropython-lire-un-programme.md  l.202 : - [[cpp-lire-un-programme|Lire un programme C++]] — la fiche jumelle côté Arduino
+  revue-de-code-en.md               l.26 : A review is not looking for perfection. It targets the **obvious defects** and the **critical areas** of the [[firmware-en|firmware]]: [[interruption-en|interrupt]] handling, the [[machine-a-etats-en|state machine]], safety functions. The practice that holds up on a project is a cross-review **at every milestone**, between teammates at the very least and with the supervisor ideally, short but regular, recorded as a quality step (see [[securite-et-qualite-en|safety and quality]]). It is also a powerful way to learn, since reading other people's code is how you get better. That still takes the ability to find your way into a program you did not write, which is itself something to learn ([[cpp-lire-un-programme-en|in C++]], [[micropython-lire-un-programme-en|in MicroPython]]).
+  revue-de-code-en.md               l.33 : - [[cpp-lire-un-programme-en|Reading a C++ program]] — the reading method, a prerequisite for reviewing
+  arduino-debug-en.md               l.230 : - [[cpp-lire-un-programme-en|Reading a program you did not write]] — the step before: understanding code without assuming a fault
+  arduino-machine-a-etats-en.md     l.178 : > The precedence of `&&` over `||`, which governs that reading, is a language mechanism rather than an embedded idiom: see [[cpp-lire-un-programme-en|reading a C++ program]].
+  arduino-programmation-non-bloquante-en.mdl.175 : > These three mechanisms — the `struct`, the function pointer and the range-based `for` — are not specific to embedded work: they turn up in any C++ program, and are picked up as reading cues in [[cpp-lire-un-programme-en|reading a program you did not write]].
+  arduino-programmation-non-bloquante-en.mdl.213 : - [[cpp-lire-un-programme-en|Reading a program you did not write]] — the C++ mechanisms of the scheduler above, seen from the reading angle
+  cpp-en.md                         l.31 : 8. [[cpp-lire-un-programme-en|Reading a program you did not write]] — getting into unfamiliar code, and the language mechanisms that come back from one example to the next.
+  micropython-lire-un-programme-en.mdl.76 : Scanning down the left margin therefore gives you the structure of the program in a few seconds, before any look at the content. It is exactly the opposite of [[cpp-lire-un-programme-en|C++]], where only the braces count and where the indentation can lie.
+  micropython-lire-un-programme-en.mdl.121 : Reading reflex: **the absence of a `close()` after a `with` is not an oversight**, it is the normal form. Looking for a manual close would be a mistake imported from [[cpp-lire-un-programme-en|C++]], where closing is precisely the programmer's job.
+  micropython-lire-un-programme-en.mdl.204 : - [[cpp-lire-un-programme-en|Reading a C++ program]] — the twin page on the Arduino side
+
+### SLUG ENTIER : cpp-structure
+  occurrences : 9
+  cpp-conditions.md                 l.105 : Vous l'avez déjà croisé dans le sketch de [[cpp-structure|la structure d'un programme]]. À réserver aux cas **simples et lisibles** (une affectation, un argument) : dès qu'il y a plusieurs actions ou qu'on serait tenté d'en imbriquer deux, revenir au `if`/`else` classique.
+  cpp-execution.md                  l.171 : - [[cpp-structure|La structure d'un programme]] — l'étape suivante : ce qu'on met *autour* de `setup()` et `loop()`
+  cpp-portee.md                     l.46 : Déclarée **hors** de toute fonction (en haut du sketch, dans les déclarations globales vues dans [[cpp-structure|la structure d'un programme]]), une variable est visible partout et **vit tout le programme** :
+  cpp-portee.md                     l.186 : - [[cpp-structure|La structure d'un programme]] — où se déclarent les variables globales
+  cpp-types.md                      l.10 : - cpp-structure
+  cpp-types.md                      l.88 : C'est la forme **préférée** au `#define` vu dans [[cpp-structure|la structure d'un programme]] : `const` est **typée** et respecte la portée, là où `#define` n'est qu'un remplacement de texte.
+  cpp-types.md                      l.170 : - [[cpp-structure|La structure d'un programme]] — l'étape amont : où déclarer ses variables
+  cpp.md                            l.23 : 2. [[cpp-structure|La structure d'un programme]] — préprocesseur, `#include`, `#define`, variables globales, `setup()`, `loop()`, fonctions ;
+  cpp-en.md                         l.25 : 2. [[cpp-structure-en|The structure of a program]] — preprocessor, `#include`, `#define`, global variables, `setup()`, `loop()`, functions;
+
+### SLUG ENTIER : cpp-types
+  occurrences : 11
+  ascii.md                          l.26 : - **Type `char`** — en [[cpp|C++]], un `char` *est* un entier sur 8 bits (voir [[cpp-types|les types]]) : `'A'` et `65` sont la même valeur, et `'A' + 1` vaut `'B'`.
+  ascii.md                          l.63 : - [[cpp-types|Les types en C++]] — le type `char`, entier 8 bits qui porte un code ASCII
+  cpp-logs.md                       l.69 : **`invalid conversion from ... to ...`**. Un type incompatible est passé là où un autre est attendu (voir [[cpp-types|le typage des variables]]).
+  cpp-portee.md                     l.10 : - cpp-types
+  cpp-portee.md                     l.184 : - [[cpp-types|Le typage des variables]] — l'étape amont : choisir le type d'une variable
+  cpp-structure.md                  l.182 : - [[cpp-types|Le typage des variables]] — l'étape suivante : bien choisir le type des déclarations
+  cpp.md                            l.24 : 3. [[cpp-types|Le typage des variables]] — choisir le bon type, et ce qu'il coûte en mémoire ;
+  micropython-types.md              l.118 : - [[cpp-types|Le typage en C++]] — l'approche statique, à comparer
+  cpp-en.md                         l.26 : 3. [[cpp-types-en|Typing variables]] — picking the right type, and what it costs in memory;
+  cpp-logs-en.md                    l.71 : **`invalid conversion from ... to ...`**. An incompatible type is passed where another is expected (see [[cpp-types-en|typing variables]]).
+  micropython-types-en.md           l.120 : - [[cpp-types-en|Typing in C++]] — the static approach, worth comparing
+
+### TITRES FR DES TROIS SOURCES
+  cpp-lire-un-programme.md          title: Lire un programme qu'on n'a pas écrit
+  cpp-structure.md                  title: La structure d'un programme
+  cpp-types.md                      title: Le typage des variables
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - etat du corpus EN avant ajout
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+  [ok] en/conduite/ese/basse-tension-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/deee-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/emc-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/epi-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/index.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/iso-12100-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/marquage-ce-en.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/reach-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/rohs-en.md   liens 8, embeds 0, code 0
+  [ok] en/conduite/index.md   liens 25, embeds 1, code 0
+  [ok] en/conduite/meo/archivage-projet-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/meo/cable-management-en.md   liens 4, embeds 0, code 0
+  [ok] en/conduite/meo/index.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/relation-client-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/revue-de-code-en.md   liens 11, embeds 0, code 0
+  [ok] en/conduite/meo/unite-si-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/proj/amdec-en.md   liens 27, embeds 0, code 0
+  [ok] en/conduite/proj/cahier-des-charges-fonctionnel-en.md   liens 34, embeds 0, code 0
+  [ok] en/conduite/proj/concept-en.md   liens 82, embeds 0, code 0
+  [ok] en/conduite/proj/decomposition-fonctionnelle-en.md   liens 24, embeds 4, code 0
+  [ok] en/conduite/proj/dossier-technique-en.md   liens 70, embeds 0, code 0
+  [ok] en/conduite/proj/ecoconception-en.md   liens 72, embeds 1, code 0
+  [ok] en/conduite/proj/gantt-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/gestion-de-projet-en.md   liens 38, embeds 1, code 0
+  [ok] en/conduite/proj/index.md   liens 31, embeds 0, code 0
+  [ok] en/conduite/proj/integration-et-tests-en.md   liens 75, embeds 0, code 0
+  [ok] en/conduite/proj/jalons-en.md   liens 9, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-decision-en.md   liens 14, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-risques-en.md   liens 6, embeds 2, code 0
+  [ok] en/conduite/proj/preuve-de-concept-en.md   liens 117, embeds 0, code 0
+  [ok] en/conduite/proj/retroplanning-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/securite-et-qualite-en.md   liens 73, embeds 1, code 0
+  [ok] en/conduite/proj/specification-technique-en.md   liens 97, embeds 3, code 0
+  [ok] en/conduite/proj/wbs-en.md   liens 10, embeds 2, code 0
+  [ok] en/embarque/algorithme/algorithme-en.md   liens 16, embeds 1, code 0
+  [ok] en/embarque/algorithme/chronogramme-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/algorithme/grafcet-en.md   liens 10, embeds 3, code 0
+  [ok] en/embarque/algorithme/logigramme-en.md   liens 11, embeds 4, code 0
+  [ok] en/embarque/algorithme/machine-a-etats-en.md   liens 14, embeds 4, code 0
+  [ok] en/embarque/alimentation-electronique-en.md   liens 24, embeds 3, code 0
+  [ok] en/embarque/analyse-de-schema-electronique-en.md   liens 21, embeds 4, code 0
+  [ok] en/embarque/chaine-energie-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/decouplage-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/index.md   liens 73, embeds 0, code 0
+  [ok] en/embarque/mcu/adc-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/arduino/arduino-afficheur-en.md   liens 8, embeds 1, code 3
+  [ok] en/embarque/mcu/arduino/arduino-alimentation-en.md   liens 16, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-bibliotheques-en.md   liens 14, embeds 5, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-analogique-en.md   liens 15, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-numerique-en.md   liens 20, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-debug-en.md   liens 17, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-deep-sleep-en.md   liens 20, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/arduino-eeprom-en.md   liens 12, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-en.md   liens 59, embeds 2, code 0
+  [ok] en/embarque/mcu/arduino/arduino-entree-tor-en.md   liens 9, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-gpio-en.md   liens 9, embeds 2, code 3
+  [ok] en/embarque/mcu/arduino/arduino-i2c-en.md   liens 13, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-interruptions-en.md   liens 13, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-machine-a-etats-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-memoire-en.md   liens 14, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-module-en.md   liens 21, embeds 3, code 1
+  [ok] en/embarque/mcu/arduino/arduino-moteur-cc-en.md   liens 18, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-pid-en.md   liens 20, embeds 2, code 7
+  [ok] en/embarque/mcu/arduino/arduino-prise-en-main-en.md   liens 9, embeds 6, code 2
+  [ok] en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md   liens 23, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-serie-en.md   liens 11, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-servomoteur-en.md   liens 17, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-shield-en.md   liens 13, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-sortie-pwm-en.md   liens 17, embeds 3, code 2
+  [ok] en/embarque/mcu/arduino/arduino-sortie-tor-en.md   liens 10, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-spi-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-temporisation-en.md   liens 15, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-timers-en.md   liens 24, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-uart-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-watchdog-en.md   liens 16, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/tinkercad-en.md   liens 15, embeds 4, code 1
+  [ok] en/embarque/mcu/bibliotheque-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/bus/bus-de-communication-en.md   liens 17, embeds 1, code 0
+  [ok] en/embarque/mcu/bus/i2c-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/spi-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/uart-en.md   liens 11, embeds 2, code 0
+  [ok] en/embarque/mcu/cpp/cpp-en.md   liens 21, embeds 0, code 0
+  [ok] en/embarque/mcu/cpp/cpp-logs-en.md   liens 15, embeds 1, code 8
+  [ok] en/embarque/mcu/dac-en.md   liens 7, embeds 0, code 0
+  [ok] en/embarque/mcu/debugger-embarque-en.md   liens 21, embeds 2, code 0
+  [ok] en/embarque/mcu/deep-sleep-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/entree-sortie-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/esp32/esp32-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   liens 17, embeds 1, code 5
+  [ok] en/embarque/mcu/esp8266/esp8266-en.md   liens 32, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   liens 9, embeds 7, code 5
+  [ok] en/embarque/mcu/firmware-en.md   liens 25, embeds 1, code 0
+  [ok] en/embarque/mcu/gpio-en.md   liens 27, embeds 3, code 0
+  [ok] en/embarque/mcu/interruption-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/lire-une-datasheet-en.md   liens 34, embeds 4, code 1
+  [ok] en/embarque/mcu/manipulation-de-bits-en.md   liens 14, embeds 1, code 4
+  [ok] en/embarque/mcu/memoire-en.md   liens 11, embeds 0, code 0
+  [ok] en/embarque/mcu/microcontroleur-en.md   liens 43, embeds 2, code 0
+  [ok] en/embarque/mcu/micropython/micropython-alimentation-en.md   liens 17, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-bibliotheques-en.md   liens 13, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-capteur-analogique-en.md   liens 15, embeds 1, code 5
+  [ok] en/embarque/mcu/micropython/micropython-controle-en.md   liens 7, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-debug-en.md   liens 18, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-deep-sleep-en.md   liens 19, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-en.md   liens 61, embeds 1, code 0
+  [ok] en/embarque/mcu/micropython/micropython-fonctions-en.md   liens 6, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/micropython/micropython-gpio-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-i2c-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-interruptions-en.md   liens 12, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-langage-en.md   liens 19, embeds 0, code 0
+  [ok] en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   liens 20, embeds 0, code 6
+  [ok] en/embarque/mcu/micropython/micropython-machine-a-etats-en.md   liens 16, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-memoire-en.md   liens 15, embeds 1, code 6
+  [ok] en/embarque/mcu/micropython/micropython-module-en.md   liens 20, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-modules-en.md   liens 8, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-moteur-cc-en.md   liens 17, embeds 1, code 2
+  [ok] en/embarque/mcu/micropython/micropython-prise-en-main-en.md   liens 13, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md   liens 21, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-repl-en.md   liens 5, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-shield-en.md   liens 12, embeds 0, code 1
+  [ok] en/embarque/mcu/micropython/micropython-sortie-pwm-en.md   liens 15, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-spi-en.md   liens 12, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-stockage-en.md   liens 13, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-temporisation-en.md   liens 14, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-timers-en.md   liens 16, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-types-en.md   liens 7, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-uart-en.md   liens 14, embeds 1, code 3
+  [ok] en/embarque/mcu/niveaux-de-tension-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/pic-en.md   liens 13, embeds 0, code 0
+  [ok] en/embarque/mcu/processeur-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/pwm-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/mcu/raspberry-pi/raspberry-pi-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/ble-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/lora-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/techno-sans-fil-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/wifi-en.md   liens 12, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/zigbee-en.md   liens 4, embeds 0, code 0
+  [ok] en/embarque/mcu/shield-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/stm32/stm32-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/systeme-d-exploitation-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/teensy/teensy-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/timer-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/mesure/analyseur-logique-en.md   liens 19, embeds 2, code 0
+  [ok] en/embarque/mesure/generateur-de-signaux-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/mesure/instruments-de-mesure-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mesure/multimetre-en.md   liens 13, embeds 3, code 0
+  [ok] en/embarque/mesure/oscilloscope-en.md   liens 16, embeds 3, code 0
+  [ok] en/embarque/mesure/precision-de-mesure-en.md   liens 8, embeds 1, code 0
+  [ok] en/embarque/pcb/pcb-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/realisation/choisir-le-materiel-en.md   liens 28, embeds 0, code 0
+  [ok] en/embarque/realisation/concevoir-l-electronique-en.md   liens 30, embeds 1, code 0
+  [ok] en/embarque/realisation/faire-communiquer-en.md   liens 32, embeds 0, code 0
+  [ok] en/embarque/realisation/fiabiliser-et-deboguer-en.md   liens 45, embeds 0, code 0
+  [ok] en/embarque/realisation/programmer-l-embarque-en.md   liens 39, embeds 0, code 0
+  [ok] en/embarque/schema-bloc-fonctionnel-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/simulation/simulation-electronique-en.md   liens 31, embeds 2, code 0
+  [ok] en/index.md   liens 4, embeds 0, code 0
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+169 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+
+=== DERIVE DE TRADUCTION ===
+169 fiche(s) EN controlee(s)
+
+=== BILAN ===
+  DERIVE      0
+  SANS SOURCE 0
+  SANS MARQUE 0
+  A JOUR      169
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - cadrage C109 sur les trois sources FR
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md
+      15  [C109] point-virgule de prose
+          …pier un exemple ne demande rien ; **le comprendre** est ce qui per…
+      25  [C109] tiret d incise
+          …pourquoi, c'est l'autre métier — voir [[arduino-debug|déboguer un…
+      35  [C109] point-virgule de prose
+          …comme ça », c'est dans `loop()` ; si vous cherchez « à quelle vite…
+      49  [C109] tiret d incise
+          …c'est avoir compris la logique — le reste du code n'est que du câ…
+      53  [C109] tiret d incise
+          …3 secondes depuis le démarrage — que vaut chaque variable, quelle…
+      60  [C109] tiret d incise
+          …t pas de la syntaxe à apprendre — elle est déjà au parcours — mais…
+      60  [C109] tiret d incise
+          …dre — elle est déjà au parcours — mais des **indices de lecture**…
+      76  [C109] point-virgule de prose
+          …nsigned long tDebut` est normal ; voir `int tDebut` sur une variab…
+      80  [C109] tiret d incise
+          …t « A, **ou bien** B et que C » — et non « A ou B, et que C ».
+      87  [C109] point-virgule de prose
+          …ours **deux chemins de sortie** ; les repérer, c'est comprendre la…
+      95  [C109] tiret d incise
+          …ce n'est pas un détail de style — sans `close()`, un fichier peut…
+      95  [C109] point-virgule de prose
+          …doit être refermé par `close()` ; une transmission ouverte par `be…
+     117  [C109] point-virgule de prose
+          …e six broches et date le départ ; `loop()` contient un `if` puis u…
+     119  [C109] tiret d incise
+          …majuscules donnent les réglages — six numéros de broches, quatre d…
+     121  [C109] tiret d incise
+          …es du `switch`, jamais ailleurs — c'est le cycle vert → jaune → ro…
+     121  [C109] tiret d incise
+          …e de `loop()`, hors du `switch` — donc l'appui est écouté **en per…
+     121  [C109] tiret d incise
+          …manence**, quel que soit l'état — et revient à `false` en entrant…
+     123  [C109] tiret d incise
+          …inférieur à `DUREE_VERT` (6000) — faux ; `demandePieton` est faux,…
+     123  [C109] point-virgule de prose
+          …ur à `DUREE_VERT` (6000) — faux ; `demandePieton` est faux, donc l…
+     125  [C109] tiret d incise
+          …e des majuscules dans le test** — il suffit de changer `DUREE_VERT…
+     133  [C109] tiret d incise
+          …nature. C'est **la conclusion** — le seul livrable de la lecture,…
+     133  [C109] point-virgule de prose
+          …t peut vous montrer où regarder ; décider que vous avez compris re…
+     141  [C109] tiret d incise
+          …. Seules les accolades font foi — et un `if` sans accolades est le…
+     143  [C109] point-virgule de prose
+          …nge jamais en cours d'exécution ; la confondre avec une variable d…
+     174  [C109] point-virgule de prose
+          …n exemple existant qu'on adapte ; la qualité de la lecture initial…
+     175  [C109] point-virgule de prose
+          …ppose d'abord de savoir le lire ; c'est le prérequis direct de la…
+
+  embarque/mcu/cpp/cpp-structure.md
+      16  [C109] tiret d incise
+          …de lire n'importe quel exemple — et d'organiser son propre code a…
+      26  [C109] tiret d incise
+          …déclaré** (variables, fonctions — on les *nomme*) et ce qui est **…
+      26  [C109] tiret d incise
+          …ui est **exécuté** (les actions — elles vivent *dans* `setup()` ou…
+      61  [C109] tiret d incise
+          …dans des **fonctions nommées** — `lireCapteur()`, `commanderMoteu…
+      61  [C109] tiret d incise
+          …Capteur()`, `commanderMoteur()` — qu'on définit une fois et qu'on…
+      70  [C109] point-virgule de prose
+          …ne commodité du dialecte Wiring ; dans un projet plus structuré (f…
+      74  [C109] tiret d incise
+          …t visuellement les quatre zones — une habitude qui rend un program…
+     120  [C109] tiret d incise
+          …bénéfice d'une bonne structure — et la base de tout ce qui suivra…
+     142  [C109] tiret d incise
+          …/ `loop()`** : les **actions** — réglages une fois dans `setup()`…
+     145  [C109] tiret d incise
+          …en zone 2 parce qu'à ce niveau — **hors de toute fonction** — il…
+     145  [C109] tiret d incise
+          …au — **hors de toute fonction** — il n'existe aucun « moment » d'e…
+
+  embarque/mcu/cpp/cpp-types.md
+      16  [C109] tiret d incise
+          …= 0;`. Le type fixe deux choses — ce que la variable peut **conten…
+      20  [C109] tiret d incise
+          …*aucune erreur de compilation** — le code part sur la carte et se…
+      30  [C109] tiret d incise
+          …(`int x;`, valeur indéterminée — à éviter) ou avec (`int x = 0;`,…
+      56  [C109] point-virgule de prose
+          …octets va de −32 768 à +32 767 ; un `unsigned int` va de 0 à 65 5…
+      58  [C109] tiret d incise
+          …ur une carte et pas sur l'autre — la cause de bugs « impossibles à…
+      72  [C109] tiret d incise
+          …les**). Une suite de caractères — une chaîne — peut se ranger de d…
+      72  [C109] tiret d incise
+          …uite de caractères — une chaîne — peut se ranger de deux façons :
+      81  [C109] tiret d incise
+          …e, un seuil) se déclare `const` — le compilateur empêche alors de…
+      92  [C109] tiret d incise
+          …**quatre types** à bon escient — observez pourquoi chacun est cho…
+     123  [C109] tiret d incise
+          …t` sur 4 octets) ne déborde pas — d'où des bugs qui n'apparaissent…
+     123  [C109] point-virgule de prose
+          …ur AVR, `int` plafonne à 32 767 ; au-delà il bascule dans le négat…
+     139  [C109] tiret d incise
+          …signed long` (0 à ~4 milliards) — ou au minimum `unsigned int` (0…
+     154  [C109] tiret d incise
+          > Correction — typer assez large pour la somme,…
+     164  [C109] point-virgule de prose
+          …hoisir les types à chaque étape ; c'est là que se logent débordeme…
+
+3 fiche(s) lue(s), 3 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 51   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 8   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

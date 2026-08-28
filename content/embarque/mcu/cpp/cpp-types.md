@@ -13,11 +13,11 @@ aa:
 draft: false
 ---
 
-Une variable se déclare en donnant son **type**, son **nom**, et souvent une valeur de départ : `int compteur = 0;`. Le type fixe deux choses — ce que la variable peut **contenir** (un entier, un caractère, un nombre à virgule) et la **place** qu'elle occupe en mémoire. En embarqué, où chaque octet compte et où certains calculs sont lents, ce choix n'est jamais neutre : un type mal choisi, et le programme déborde, tronque ou ralentit sans prévenir.
+Une variable se déclare en donnant son **type**, son **nom**, et souvent une valeur de départ : `int compteur = 0;`. Le type fixe deux choses, ce que la variable peut **contenir** (un entier, un caractère, un nombre à virgule) et la **place** qu'elle occupe en mémoire. En embarqué, où chaque octet compte et où certains calculs sont lents, ce choix n'est jamais neutre : un type mal choisi, et le programme déborde, tronque ou ralentit sans prévenir.
 
 ## À quoi ça sert ?
 
-Choisir le bon type, c'est éviter une famille entière de bugs parmi les plus déroutants, parce qu'ils ne produisent **aucune erreur de compilation** — le code part sur la carte et se comporte mal. Trois conséquences matérielles, invisibles sur un ordinateur, deviennent concrètes ici :
+Choisir le bon type, c'est éviter une famille entière de bugs parmi les plus déroutants, parce qu'ils ne produisent **aucune erreur de compilation**. Le code part sur la carte et se comporte mal. Trois conséquences matérielles, invisibles sur un ordinateur, deviennent concrètes ici :
 
 - un **type trop petit déborde** : passé sa valeur maximale, il « repart » brutalement (souvent dans le négatif) et fausse tout ;
 - un **`float` coûte cher** sur un microcontrôleur sans calcul flottant matériel — chaque opération est lente ;
@@ -53,7 +53,7 @@ Ce sont les plus courants. Ils diffèrent par leur **taille** (donc leur valeur 
 
 Deux points sensibles, source de la majorité des bugs de type :
 
-**Le préfixe `unsigned` retire le signe.** La variable ne stocke alors que des valeurs **positives**, mais en échange sa valeur maximale **double**. Un `int` sur 2 octets va de −32 768 à +32 767 ; un `unsigned int` va de 0 à 65 535.
+**Le préfixe `unsigned` retire le signe.** La variable ne stocke alors que des valeurs **positives**, mais en échange sa valeur maximale **double**. Un `int` sur 2 octets va de −32 768 à +32 767. Un `unsigned int` va de 0 à 65 535.
 
 **La taille de `int` change selon la carte.** Elle vaut **2 octets sur AVR** (Uno R3, Mega, Nano) et **4 octets sur ARM** (Uno R4, [[esp32|ESP32]], Teensy). Un même code peut donc déborder sur une carte et pas sur l'autre — la cause de bugs « impossibles à reproduire » la plus classique. En cas de doute sur l'amplitude, prendre `long` (toujours 4 octets).
 
@@ -78,7 +78,7 @@ Sur un microcontrôleur à faible RAM, l'usage intensif de `String` peut fragmen
 
 ## Fixer une valeur constante : `const`
 
-Une valeur qui ne change pas (une broche, un seuil) se déclare `const` — le compilateur empêche alors de la modifier par erreur, et le code se lit mieux :
+Une valeur qui ne change pas (une broche, un seuil) se déclare `const`. Le compilateur empêche alors de la modifier par erreur, et le code se lit mieux :
 
 ```cpp
 const int BROCHE_LED = 13;
@@ -89,7 +89,7 @@ C'est la forme **préférée** au `#define` vu dans [[cpp-structure|la structure
 
 ## Code à lire
 
-Ce sketch lit un capteur et affiche sa tension une fois par seconde. Il fait jouer **quatre types** à bon escient — observez pourquoi chacun est choisi.
+Ce sketch lit un capteur et affiche sa tension une fois par seconde. Il fait jouer **quatre types** à bon escient. Observez pourquoi chacun est choisi.
 
 ```cpp
 const int BROCHE = A0;                  // const int : une broche fixe
@@ -120,7 +120,7 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 
 ## Pièges
 
-**`int` qui déborde selon la carte.** Sur AVR, `int` plafonne à 32 767 ; au-delà il bascule dans le négatif. Le même code sur Uno R4 ou ESP32 (`int` sur 4 octets) ne déborde pas — d'où des bugs qui n'apparaissent que sur certaines cartes. En cas de doute, `long`.
+**`int` qui déborde selon la carte.** Sur AVR, `int` plafonne à 32 767. Au-delà il bascule dans le négatif. Le même code sur Uno R4 ou ESP32 (`int` sur 4 octets) ne déborde pas, d'où des bugs qui n'apparaissent que sur certaines cartes. En cas de doute, `long`.
 
 **`unsigned long` obligatoire pour le temps.** Une durée issue de `millis()` rangée dans un `int` déborde en une trentaine de secondes. Le temps se stocke **toujours** en `unsigned long` (voir [[arduino-temporisation|temporisation]]).
 
@@ -136,7 +136,7 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 > Un débitmètre renvoie un nombre de litres pouvant monter jusqu'à 50 000. Sur une **Uno R3**, dans quel type ranger cette valeur sans risque de débordement ? Et si la valeur pouvait être négative ?
 
 > [!success]- Corrigé de l'exercice 1
-> Sur Uno R3 (AVR), `int` plafonne à **32 767** : 50 000 le ferait **déborder**. Comme la valeur est positive, le plus juste est `unsigned long` (0 à ~4 milliards) — ou au minimum `unsigned int` (0 à 65 535), qui suffit tout juste mais laisse peu de marge. Si la valeur pouvait être **négative**, on prend `long` (signé, 4 octets), car `unsigned` interdit le négatif.
+> Sur Uno R3 (AVR), `int` plafonne à **32 767** : 50 000 le ferait **déborder**. Comme la valeur est positive, le plus juste est `unsigned long` (0 à ~4 milliards), ou au minimum `unsigned int` (0 à 65 535), qui suffit tout juste mais laisse peu de marge. Si la valeur pouvait être **négative**, on prend `long` (signé, 4 octets), car `unsigned` interdit le négatif.
 
 > [!question] Exercice 2 — Le calcul faux
 > Ce calcul de moyenne donne parfois un résultat aberrant. Trouvez les **deux** problèmes et corrigez-les.
@@ -151,7 +151,7 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 > 1. **Débordement** : `a + b = 38 000`, au-delà des 32 767 d'un `int` AVR → le résultat intermédiaire bascule dans le négatif avant même la division.
 > 2. **Division entière** : même sans débordement, `/ 2` tronque la partie décimale.
 >
-> Correction — typer assez large pour la somme, et garder un entier si la moyenne doit l'être :
+> Correction : typer assez large pour la somme, et garder un entier si la moyenne doit l'être.
 > ```cpp
 > long a = 20000;
 > long b = 18000;
@@ -161,7 +161,7 @@ Chaque type est choisi pour ce qu'il porte : `int` pour la valeur brute entière
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — convertir une mesure de capteur (valeur brute → grandeur physique) impose de choisir les types à chaque étape ; c'est là que se logent débordements et divisions entières.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — convertir une mesure de capteur (valeur brute → grandeur physique) impose de choisir les types à chaque étape. C'est là que se logent débordements et divisions entières.
 - **Critère *« Programmer ou paramétrer un contrôleur numérique »*** — un code bien typé produit des mesures justes et des calculs fiables, indépendamment de la carte retenue.
 
 ## Voir aussi

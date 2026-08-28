@@ -1,0 +1,186 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s2.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-28   heure : 22:54
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - style EN des trois fiches, residu predit 14 en 4 / 6 / 4
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md
+      27  [C109] tiret d incise
+          …for why, that is the other job — see [[arduino-debug-en|debugging…
+      82  [C109] tiret d incise
+          …s "A, **or else** B and that C" — and not "A or B, and that C".
+     121  [C109] tiret d incise
+          …The capitals give the settings — six pin numbers, four durations…
+     125  [C109] tiret d incise
+          …ch is below `DUREE_VERT` (6000) — false. `demandePieton` is false,…
+
+  en/embarque/mcu/cpp/cpp-structure-en.md
+      18  [C109] tiret d incise
+          …here* lets you read any example — and organise your own code inste…
+      63  [C109] tiret d incise
+          …logic into **named functions** — `lireCapteur()`, `commanderMoteu…
+      63  [C109] tiret d incise
+          …Capteur()`, `commanderMoteur()` — that you define once and call af…
+     144  [C109] tiret d incise
+          …` / `loop()`**: the **actions** — settings once in `setup()`, the…
+     147  [C109] tiret d incise
+          …in zone 2 because at that level — **outside any function** — there…
+     147  [C109] tiret d incise
+          …evel — **outside any function** — there is no "moment" of executio…
+
+  en/embarque/mcu/cpp/cpp-types-en.md
+      32  [C109] tiret d incise
+          …sing (`int x;`, undefined value — best avoided) or with (`int x =…
+      60  [C109] tiret d incise
+          …on one board and not on another — the most classic cause of "impos…
+      74  [C109] tiret d incise
+          …otes). A sequence of characters — a string — can be stored in two…
+      74  [C109] tiret d incise
+          …quence of characters — a string — can be stored in two ways:
+
+3 fiche(s) lue(s), 3 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 14   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 6   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - volumes des deux cotes, DEUX chiffres sous C127
+==============================================================
+--- FR tot
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md                  2481
+  embarque/mcu/cpp/cpp-structure.md                          1127
+  embarque/mcu/cpp/cpp-types.md                              1333
+  ---------------------------------------------------------------
+  LOT (3 fiches)                                             4941
+
+--- EN tot
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md            2565
+  en/embarque/mcu/cpp/cpp-structure-en.md                    1151
+  en/embarque/mcu/cpp/cpp-types-en.md                        1347
+  ---------------------------------------------------------------
+  LOT (3 fiches)                                             5063
+
+--- FR deh
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 3   porteuses : 3
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (3 porteuses)                                   10 cl   5 bl   4941 tot    97 ded   4839 deh
+
+--- EN deh
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 3   porteuses : 3
+
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md      2 cl   1 bl   2565 tot    18 ded   2546 deh    0.7 %  ECART:1
+  en/embarque/mcu/cpp/cpp-structure-en.md              4 cl   2 bl   1151 tot    51 ded   1098 deh    4.4 %  ECART:2
+  en/embarque/mcu/cpp/cpp-types-en.md                  4 cl   2 bl   1347 tot    29 ded   1316 deh    2.2 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (3 porteuses)                                   10 cl   5 bl   5063 tot    98 ded   4960 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - appariement FR / EN sous C127, 9 paires -> 12 attendues
+==============================================================
+  --- COTE ANGLAIS
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md      2 cl   1 bl   2565 tot    18 ded   2546 deh    0.7 %  ECART:1
+  en/embarque/mcu/cpp/cpp-logs-en.md                   2 cl   1 bl   1668 tot    11 ded   1656 deh    0.7 %  ECART:1
+  en/embarque/mcu/cpp/cpp-structure-en.md              4 cl   2 bl   1151 tot    51 ded   1098 deh    4.4 %  ECART:2
+  en/embarque/mcu/cpp/cpp-types-en.md                  4 cl   2 bl   1347 tot    29 ded   1316 deh    2.2 %  ECART:2
+  en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   4 cl   2 bl   1336 tot    76 ded   1258 deh    5.7 %  ECART:2
+  en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   4 cl   2 bl   1737 tot    69 ded   1666 deh    4.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-controle-en.md   4 cl   2 bl    504 tot    45 ded    457 deh    8.9 %  ECART:2
+  en/embarque/mcu/micropython/micropython-fonctions-en.md   4 cl   2 bl    509 tot    46 ded    461 deh    9.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   2 cl   1 bl   2738 tot    10 ded   2727 deh    0.4 %  ECART:1
+  en/embarque/mcu/micropython/micropython-modules-en.md   8 cl   4 bl    669 tot    48 ded    617 deh    7.2 %  ECART:4
+  en/embarque/mcu/micropython/micropython-repl-en.md   4 cl   2 bl    714 tot    40 ded    672 deh    5.6 %  ECART:2
+  en/embarque/mcu/micropython/micropython-types-en.md   4 cl   2 bl    573 tot    25 ded    546 deh    4.4 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  EN (12 porteuses)                                   46 cl  23 bl  15511 tot   468 ded  15020 deh
+
+  --- APPARIEMENT FR / EN SUR LE NOMBRE DE BLOCS
+    embarque/mcu/cpp/cpp-lire-un-programme.md          FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-logs.md                       FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-structure.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-types.md                      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 12   divergentes : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - trois compteurs et derive, le plus verbeux en dernier
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+
+172 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+
+=== DERIVE DE TRADUCTION ===
+172 fiche(s) EN controlee(s)
+
+=== BILAN ===
+  DERIVE      0
+  SANS SOURCE 0
+  SANS MARQUE 0
+  A JOUR      172
+--- code de sortie : 0

@@ -1,0 +1,265 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s3.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-28   heure : 22:56
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - corpus FR, traduit et restant
+==============================================================
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  fiches FR publiees   : 242
+  mots FR              : 291219
+  mediane par fiche    : 1089
+  fiche la plus lourde : embarque/pcb/easyeda.md  (9773)
+
+  deja traduites       : 172 fiches, 195958 mots FR
+  RESTANT A TRADUIRE   : 70 fiches, 95261 mots FR
+
+  Le restant est un COMPTAGE des fiches non traduites, pas une
+  soustraction : une somme se compense, un comptage non.
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - anneau 2, dette, et LA LISTE des cibles hors anneaux
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 87
+    RESTANT                   : 58
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/cpp/cpp-boucles                           1087   chevron:4
+  embarque/mcu/cpp/cpp-conditions                         902   chevron:6
+  embarque/mcu/cpp/cpp-execution                         1433   chevron:4
+  embarque/mcu/cpp/cpp-portee                             993   chevron:8
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-ble                           1279   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-gpio                          1526   chevron:4
+  embarque/mcu/esp32/esp32-i2c                           1143   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/esp32/esp32-prise-en-main                 2564   chevron:4
+  embarque/mcu/esp32/esp32-serie                         2017   chevron:4
+  embarque/mcu/esp32/esp32-spi                           1150   chevron:4
+  embarque/mcu/esp32/esp32-uart                          1282   chevron:4
+  embarque/mcu/esp32/esp32-wifi                          1455   chevron:4
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (58 fiches)                     83827
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 22
+    clotures en chevron       : 90   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 172
+  cibles rouges distinctes     : 68
+  mots                         : 93833
+  dont HORS anneaux 0..2       : 9
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/micropython/micropython-afficheur
+    embarque/mcu/micropython/micropython-capteur-numerique
+    embarque/mcu/micropython/micropython-entree-tor
+    embarque/mcu/micropython/micropython-moteur-pas-a-pas
+    embarque/mcu/micropython/micropython-pid
+    embarque/mcu/micropython/micropython-servomoteur
+    embarque/mcu/micropython/micropython-simulation
+    embarque/mcu/micropython/micropython-sortie-tor
+    embarque/mcu/micropython/micropython-watchdog
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - wikilinks, bilan seul
+==============================================================
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+
+=== BILAN ===
+  MORT    74 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   6 cible(s)
+  OK      416 cible(s)
+--- code de sortie : 1
+
+==============================================================
+>>> 5 - medias, mode court
+==============================================================
+=== AUDIT DES EMBEDS ===
+420 fiches lues, 619 embeds et liens ressources, 374 fichiers dans ressources/
+
+embarque/mcu/arduino/arduino-capteur-analogique.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-debug.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-timers.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+embarque/mcu/debugger-embarque.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/shield.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+embarque/mesure/analyseur-logique.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-debug-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-timers-en.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+en/embarque/mcu/debugger-embarque-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/shield-en.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+en/embarque/mesure/analyseur-logique-en.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+=== ORPHELINS (jamais references, RIEN N EST SUPPRIME) ===
+  ressources/img/archive/cycle-v-projet-v1.svg (6 ko)
+
+=== BILAN ===
+  ABSENT        12
+  CASSE         0
+  HORS-GABARIT  0
+  EXTERNE       0
+  OK            607
+  ORPHELIN      1
+--- code de sortie : 1
+
+==============================================================
+>>> 6 - recette
+==============================================================
+=== RECETTE (aucune ecriture) ===
+  fiches sources      : 243
+  wikilinks           : 4323
+  embeds              : 397
+  blocs de code       : 444
+  liens sans libelle  : 175  (libelle rempli par le titre FR)
+  ancres de wikilink  : 5
+  ancres intra-page   : 14
+  fiches a aliases    : 11
+  fiches divergentes  : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - libelles, le plus verbeux : totaux seuls
+==============================================================
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 3290
+  cible EN existante    : 2875   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 415
+  candidats a lire      : 100
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+--- code de sortie : 0

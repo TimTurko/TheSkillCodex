@@ -1,0 +1,46 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s1.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-28   heure : 22:48
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - title: en production des cibles EN du lot 1
+==============================================================
+fichiers .md sous content/en : 172
+
+  cpp-en                                  title: C++
+  cpp-logs-en                             title: Reading and understanding errors
+  cpp-execution-en                        ABSENTE (dette)
+  cpp-portee-en                           ABSENTE (dette)
+  cpp-structure-en                        title: La structure d'un programme
+  cpp-types-en                            title: Le typage des variables
+  fonction-informatique-en                ABSENTE (dette)
+  firmware-en                             title: Firmware
+  ascii-en                                ABSENTE (dette)
+  manipulation-de-bits-en                 title: Bit manipulation
+  arduino-bibliotheques-en                title: Using a library
+  arduino-memoire-en                      title: Managing memory on Arduino
+  arduino-temporisation-en                title: Timing delays on Arduino
+  arduino-debug-en                        title: Debugging an Arduino program
+  arduino-interruptions-en                title: Interrupts on Arduino
+  arduino-machine-a-etats-en              title: Programming a state machine on Arduino
+  arduino-programmation-non-bloquante-en  title: Non-blocking programming on Arduino
+  interruption-en                         title: Interrupt
+  micropython-lire-un-programme-en        title: Reading a program you did not write
+  simulation-electronique-en              title: Circuit simulation
+  revue-de-code-en                        title: Code review
+  esp32-en                                title: ESP32
+  preuve-de-concept-en                    title: Proof of concept
+  integration-et-tests-en                 title: Integration and testing
+
+cibles nommees : 24   absentes : 4   (predit 4)
+--- code de sortie : 0
