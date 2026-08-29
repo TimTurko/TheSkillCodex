@@ -58,6 +58,32 @@ fichier) ; outils node individuels : `compter-mots.mjs`,
 `tools/README.md` — mais *une phrase de README décrit une intention, seul
 le code décrit un comportement* (règle du 29/08).
 
+## Ce qui s'affiche, et ce qui ne s'affiche pas (C130)
+
+Le dépôt porte la trace intégrale : `predictions-AAMMJJ.md`, les copies
+C124, `JOURNAL.md`, `git diff`. Le site publié porte le résultat.
+**La réponse à l'écran ne porte que ce sur quoi Tim doit agir** — cinq
+classes : commandes à lancer ; arbitrages ; prompt et surface de la
+session suivante ; ⚠ anomalies et arrêts ; à chaque gate, un bilan de
+quelques lignes (fait / chiffres qui ont changé / ce qui suit).
+
+Ne s'affichent plus : le commentaire d'une édition conforme, la paraphrase
+d'un diff, la relecture d'une sortie d'outil déjà sauvegardée, le récit
+d'une lecture de fichier, l'annonce de ce qui va être fait, le récap de ce
+qui vient d'être dit.
+
+⚠ **Les prédictions ne se raccourcissent pas** : elles s'écrivent en
+entier dans leur fichier, avant leur bloc. Ce qui se raccourcit est le
+compte rendu, jamais ce qui décide ni ce qui garde.
+
+## Fin de session (C129)
+
+Toute séance se termine par : la clôture §7 proposée en diff, le bloc de
+livraison pour Tim, puis **le prompt de la session suivante et la surface
+où le coller**. Critère : un **lot de production** va en **onglet Code** ;
+un **bilan, arbitrage, convention ou question de pédagogie** va en **chat
+Desktop**. Une seule surface écrit sur le dépôt à la fois.
+
 ## Langue
 
 Travail, prédictions et livrables de pilotage en **français**. Fiches EN :

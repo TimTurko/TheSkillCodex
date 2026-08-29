@@ -2246,6 +2246,32 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **C130 — L'écran n'est pas le registre : la réponse ne porte que ce sur quoi Tim doit agir.**
+  *Demande Tim, arbitrée le 29/08 (suite 5), les deux surfaces.* Le dépôt
+  porte déjà la trace intégrale — `predictions-AAMMJJ.md` pour les
+  prédictions et leurs réfutations, les copies C124 pour les mesures,
+  `JOURNAL.md` pour le récit, `git diff` pour les éditions — et le site
+  publié porte le résultat. **Reproduire tout cela à l'écran ne prouve
+  rien de plus et coûte le contexte de la séance.** Ne s'affichent donc
+  que **cinq classes** : (1) les **commandes et scripts** à lancer, en
+  bloc prêt à coller ; (2) les **arbitrages**, options lettrées, dossier
+  court, recommandation ; (3) le **prompt de la session suivante** et sa
+  surface (C129) ; (4) les **⚠ anomalies et arrêts** — garde qui mord,
+  état inattendu, réfutation qui change une décision ou une règle ; (5) à
+  chaque gate, un **bilan tenu à quelques lignes** : ce qui a été fait,
+  les chiffres qui ont changé, ce qui suit.
+  **Ne s'affichent plus** : le commentaire d'une édition conforme, la
+  paraphrase d'un diff, la relecture d'une sortie d'outil déjà sauvegardée,
+  le récit d'une lecture de fichier, l'annonce de ce qui va être fait, le
+  récap de ce qui vient d'être dit.
+  ⚠ **Ce n'est PAS une règle de brièveté uniforme, et elle ne touche ni
+  aux gardes ni au §8.** Les prédictions continuent de s'écrire **en
+  entier** dans leur fichier, avant leur bloc ; les gates continuent de
+  s'arrêter ; les topics qui forcent la brique D — convention, référentiel
+  AA, pédagogie de fond, choix structurant — gardent leur prose
+  argumentée, **à l'écran comme au registre**. *Ce qui se raccourcit est le
+  compte rendu ; ce qui décide et ce qui garde ne se raccourcit pas.*
+  *Éprouvée 0/N.*
 - **C129 — Le passage en Claude Code se signale et se livre prêt à coller.**
   *Demande Tim, arbitrée le 29/08 (séance annexe).* Quand une tâche doit
   s'exécuter dans l'onglet Code (lancement d'exécution du pilote, passe
@@ -2256,8 +2282,20 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   séparés ; (3) rappelle la **règle d'écrivain unique** — la séance chat
   cesse d'écrire sur le dépôt tant que la session Code est ouverte.
   Symétrique de C121 : C121 livre les blocs shell, C129 livre les prompts
-  de surface. *Éprouvée 1/N à son écriture — première application : le
-  prompt du pilote lot 6, livré à la clôture de la séance qui l'a promue.*
+  de surface.
+
+  **Extension du 29/08 (suite 5) — la règle vaut dans les DEUX sens, et
+  toute séance se termine par sa relance.** À sa clôture, quelle que soit
+  la surface, Claude livre **le prompt de la session suivante ET la
+  surface où le coller** ; Tim n'a jamais à deviner où aller. **Critère
+  de surface** : un **lot de production** — passes, génération, rédaction,
+  mesures enchaînées — va en **onglet Code** ; un **bilan, un arbitrage,
+  une convention, une question de pédagogie ou de parcours** va en **chat
+  Desktop**, où vivent la mémoire de projet et le §8. *Un lot se conduit
+  là où les outils tournent ; une décision se prend là où le contexte du
+  projet est chargé.* **La règle d'écrivain unique tient en permanence** :
+  la surface qui n'a pas la main n'écrit pas sur le dépôt.
+  *Éprouvée 2/N.*
 - **Sous-règle de C116 — sous exécution directe, l'ordre prédiction → mesure passe du monde au protocole.**
   *Arbitrage Tim (c) du 29/08 (séance annexe) ; condition du pilote Claude Code
   sur le lot 6, sans effet sur le dispositif de collage.* Dans le dispositif
