@@ -31,7 +31,7 @@
 #   powershell -ExecutionPolicy Bypass -File tools\batterie.ps1 -Phase etat `
 #     -FichesEn en/embarque/mcu/micropython/micropython-pid-en.md -Chevron
 #
-#   -Phase garde    : horloge + HEAD git + dates d ecriture (peremption).
+#   -Phase garde    : horloge + HEAD git + version node + dates d ecriture.
 #                     A lancer au cadrage ET avant chaque passe : un ecart
 #                     avec le releve precedent = ARRET (incident du 29/08,
 #                     deux sessions sur le meme depot).
@@ -68,6 +68,22 @@ param(
 )
 
 $ErrorActionPreference = 'Continue'
+
+# Un lancement par -File passe une liste a virgules comme UNE SEULE
+# chaine (mesure du 29/08, seance annexe) : on eclate ici, pour que
+# -Fiches a.md,b.md marche dans tous les modes d appel.
+function Eclater($liste) {
+  $sortie = @()
+  foreach ($e in $liste) {
+    foreach ($m in ($e -split ',')) {
+      $t = $m.Trim()
+      if ($t -ne '') { $sortie += $t }
+    }
+  }
+  return ,$sortie
+}
+$Fiches = Eclater $Fiches
+$FichesEn = Eclater $FichesEn
 
 # Racine du depot deduite de l emplacement du script : aucune ligne
 # dependante de la machine.
@@ -134,27 +150,32 @@ Etape "1 - garde de peremption : horloge, HEAD git, dates d ecriture" {
   try { $tete = (& git log -1 --date=iso "--format=%h %cd" 2>$null) } catch { $tete = '' }
   if ($tete) {
     Write-Output ("HEAD git : " + $tete)
-    $sale = 0
-    try { $sale = ((& git status --porcelain 2>$null) | Measure-Object).Count } catch { $sale = -1 }
-    Write-Output ("fichiers modifies non commites : " + $sale)
+    $etatGit = @()
+    try { $etatGit = @(& git status --porcelain 2>$null) } catch { $etatGit = @() }
+    $sale = ($etatGit | Measure-Object).Count
+    $saleHors = ($etatGit | Where-Object { $_ -notmatch 'batterie-sortie' } | Measure-Object).Count
+    Write-Output ("fichiers modifies non commites : " + $sale + "   (hors sorties batterie : " + $saleHors + ")")
   } else {
     Write-Output "git indisponible ; lecture directe de .git\HEAD :"
     if (Test-Path '.git\HEAD') { Write-Output ("  " + (Get-Content '.git\HEAD' -First 1)) }
   }
+  $noeud = ''
+  try { $noeud = (& node --version 2>$null) } catch { $noeud = '' }
+  if ($noeud) { Write-Output ("node : " + $noeud) } else { Write-Output "node : INTROUVABLE" }
   Write-Output ""
   Write-Output "dates de derniere ecriture (peremption : tout ecart avec le"
   Write-Output "releve precedent = ARRET avant d ecrire) :"
   foreach ($p in @('JOURNAL.md', 'conventions.md', 'TODO.md')) {
     if (Test-Path $p) {
-      Write-Output ("  " + $p.PadRight(50) + (Get-Item $p).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss'))
+      Write-Output ("  " + $p.PadRight(50) + "  " + (Get-Item $p).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss'))
     }
   }
   foreach ($f in ($Fiches + $FichesEn)) {
     $chemin = 'content\' + ($f -replace '/', '\')
     if (Test-Path $chemin) {
-      Write-Output ("  " + $f.PadRight(50) + (Get-Item $chemin).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss'))
+      Write-Output ("  " + $f.PadRight(50) + "  " + (Get-Item $chemin).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss'))
     } else {
-      Write-Output ("  " + $f.PadRight(50) + "ABSENTE")
+      Write-Output ("  " + $f.PadRight(50) + "  ABSENTE")
     }
   }
 }
