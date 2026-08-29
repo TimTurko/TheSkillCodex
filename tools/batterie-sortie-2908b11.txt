@@ -1,0 +1,316 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b10.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 16:00:51
+
+HEAD git : e65192b 2026-08-29 15:32:56 +0200
+fichiers modifies non commites : 6   (hors artefacts de seance : 2)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 15:48:38
+  conventions.md                                      2026-08-29 15:07:47
+  TODO.md                                             2026-08-29 15:49:20
+  embarque/mcu/esp32/esp32-prise-en-main.md           2026-08-20 22:46:03
+  embarque/mcu/esp32/esp32-gpio.md                    2026-08-17 12:30:07
+  embarque/mcu/esp32/esp32-serie.md                   2026-08-20 22:27:59
+  embarque/mcu/esp32/esp32-arduino-core.md            2026-08-19 10:01:20
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/esp32/esp32-prise-en-main.md                  2564
+  embarque/mcu/esp32/esp32-gpio.md                           1526
+  embarque/mcu/esp32/esp32-serie.md                          2017
+  embarque/mcu/esp32/esp32-arduino-core.md                   1285
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             7392
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/esp32/esp32-prise-en-main.md
+      17  [C109] tiret d incise
+          …gramme cible reste le **Blink** — faire clignoter une LED — l'équi…
+      17  [C109] tiret d incise
+          …ink** — faire clignoter une LED — l'équivalent embarqué du « Hello…
+      21  [C109] tiret d incise
+          …cassé, le Blink ne clignote pas — et on le saura tout de suite, su…
+      34  [C109] tiret d incise
+          …IDE 2.x** (récente, recommandée — autocomplétion, gestionnaire de…
+      59  [C109] tiret d incise
+          …transmettent que l'alimentation — symptôme : la LED d'alimentation…
+      63  [C109] point-virgule de prose
+          …ilicon Labs) — la plus courante ; sous Windows ancien, installer l…
+      64  [C109] point-virgule de prose
+          …**CH340** — sur certains clones ; pilote *CH341SER* depuis `wch-ic…
+      69  [C109] tiret d incise
+          **Cas courant — le sélecteur de la barre d'outil…
+      73  [C109] tiret d incise
+          …qu'elle n'a jamais été associée — c'est normal (voir *Pièges*). Pa…
+      75  [C109] tiret d incise
+          **Chemin manuel — les menus *Outils*.** Il fonctio…
+      81  [C109] tiret d incise
+          …s le nom de sa puce d'interface — ici `USB-SERIAL CH340 (COM9)`. L…
+      87  [C109] tiret d incise
+          …evKit est câblée sur **GPIO 2** — c'est le numéro sérigraphié **D2…
+     118  [C109] tiret d incise
+          …ion.** Beaucoup de cartes ESP32 — surtout les clones à pont **CH34…
+     118  [C109] tiret d incise
+          …out les clones à pont **CH340** — n'ont pas le circuit d'auto-rese…
+     124  [C109] tiret d incise
+          …seconde. **Le programme tourne — la prise en main est validée.**
+     143  [C109] tiret d incise
+          …les secondes. Ce **petit pas** — modifier, téléverser, observer l…
+     143  [C109] tiret d incise
+          …observer le changement attendu — est le geste de base de tous les…
+     155  [C109] tiret d incise
+          …e n'annonce pas une carte morte — au contraire : pour l'émettre, l…
+     157  [C109] tiret d incise
+          …est **pas** un défaut de pilote — Windows, lui, affiche bien la pu…
+     161  [C109] tiret d incise
+          …z-la par le numéro de GPIO réel — **2** sur la plupart des DevKit,…
+     163  [C109] tiret d incise
+          …lle que soit la broche indiquée — changer de numéro de GPIO ne rés…
+     165  [C109] point-virgule de prose
+          …appelle des pointes de courant ; sur un port USB faible ou un câb…
+     194  [C109] tiret d incise
+          …a programmation non bloquante]] — le motif y est traité côté Ardui…
+     217  [C109] tiret d incise
+          …e typée) plutôt qu'en `#define` — voir [[esp32-gpio|configurer les…
+     221  [C109] tiret d incise
+          …chemin recommandé pour débuter — détaillé dans [[esp32-arduino-co…
+     221  [C109] tiret d incise
+          …-IDF**, son environnement natif — voir [[esp32-idf|découvrir ESP-I…
+
+  embarque/mcu/esp32/esp32-gpio.md
+      19  [C109] tiret d incise
+          …eraction avec le monde physique — lire un bouton, allumer une LED,…
+      19  [C109] point-virgule de prose
+          …e est traité dans [[gpio|GPIO]] ; cette fiche en donne l'incarnati…
+      26  [C109] point-virgule de prose
+          …et pour choisir le mode de boot ; un montage qui les force peut em…
+      31  [C109] tiret d incise
+          …IO0` à `GPIO39`, avec des trous — 20, 24 et 28 à 31 ne sortent pas…
+      36  [C109] point-virgule de prose
+          …[[esp32-serie|moniteur série]] ; les laisser libres tant qu'on l'…
+      42  [C109] tiret d incise
+          …se par une adaptation de niveau — voir [[niveaux-de-tension|niveau…
+      63  [C109] tiret d incise
+          …T`, `OUTPUT`, `INPUT_PULLUP` et — spécificité ESP32 absente de l'A…
+      63  [C109] tiret d incise
+          …ESP32 absente de l'Arduino AVR — `INPUT_PULLDOWN` (tirage interne…
+      63  [C109] tiret d incise
+          …9` n'ont aucun tirage interne** — un bouton sur l'une d'elles exig…
+      68  [C109] point-virgule de prose
+          …LED = 16;` est typé et lisible ; le compilateur vérifie l'usage.…
+      72  [C109] tiret d incise
+          …ogique-numérique est transverse — voir [[adc|ADC]]. Deux contraint…
+     117  [C109] tiret d incise
+          …IO16` qu'à la section numérique — voir son montage plus haut.*
+     122  [C109] tiret d incise
+          …ique, fréquence) est transverse — voir [[pwm|PWM]].
+     132  [C109] point-virgule de prose
+          …`GPIO0` à LOW = mode bootloader ; `GPIO12` à HIGH = mauvaise tensi…
+
+  embarque/mcu/esp32/esp32-serie.md
+      19  [C109] tiret d incise
+          …nt l'oscilloscope ou les sondes — quand on veut savoir « qu'est-ce…
+      25  [C109] tiret d incise
+          …eut pas observer de l'extérieur — sont accessibles d'une ligne `Se…
+      45  [C109] tiret d incise
+          …2, on prend `115200` par défaut — c'est la vitesse des messages de…
+      74  [C109] tiret d incise
+          …droite de la barre du moniteur — il doit valoir `115200`. Sinon,…
+      78  [C109] tiret d incise
+          …ligne. Tout fonctionne pourtant — il n'y a simplement rien à mesur…
+      81  [C109] tiret d incise
+          …résence de `Serial.begin()`, et — sur puce USB native — le réglage…
+      81  [C109] tiret d incise
+          …in()`, et — sur puce USB native — le réglage *USB CDC On Boot*.
+     110  [C109] tiret d incise
+          …eur de fin de ligne du moniteur — le menu à gauche du débit, réglé…
+     110  [C109] tiret d incise
+          …du débit, réglé sur *New Line* — ajoute un caractère invisible de…
+     113  [C109] point-virgule de prose
+          …parseInt()` agrège les chiffres ; pour lire une ligne entière, `Se…
+     119  [C109] tiret d incise
+          …GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpi…
+     159  [C109] tiret d incise
+          …une comparaison sur `millis()` — la lecture des commandes reste r…
+     159  [C109] point-virgule de prose
+          …mesure toutes les demi-secondes ; taper `ON` ou `OFF` allume ou ét…
+     183  [C109] tiret d incise
+          …Serial.print()` n'envoient rien — moniteur ouvert, baud correct, m…
+     193  [C109] point-virgule de prose
+          …ligne, `readStringUntil('\n')` ; pour un nombre, `parseInt()`.
+     195  [C109] tiret d incise
+          …ur ajoute derrière votre saisie — rien, `\n`, `\r`, ou les deux. C…
+     195  [C109] tiret d incise
+          …ue si le sélecteur en envoie un — sinon il attend l'expiration de…
+     197  [C109] tiret d incise
+          …qu'à recevoir un entier complet — ou jusqu'à expiration de son dél…
+     197  [C109] point-virgule de prose
+          …meout(50)` raccourcit l'attente ; lire la ligne avec `readStringUn…
+     256  [C109] tiret d incise
+          …ont on peut choisir les broches — le sujet complet de [[esp32-uart…
+     256  [C109] point-virgule de prose
+          …moniteur et au journal de boot ; pour dialoguer avec un second ap…
+     262  [C109] tiret d incise
+          …temps réglable, fenêtre courte — pour des analyses poussées, expo…
+     275  [C109] tiret d incise
+          …motif `millis()` de l'exemple) — traité côté Arduino, il se trans…
+
+  embarque/mcu/esp32/esp32-arduino-core.md
+      18  [C109] tiret d incise
+          …système temps réel **FreeRTOS** — ce qui change discrètement quelq…
+      48  [C109] tiret d incise
+          …O16 avec sa résistance de 220 Ω — voir le montage de [[esp32-prise…
+      50  [C109] tiret d incise
+          …`analogWrite`, broches en 3,3 V — tous traités dans [[esp32-gpio|c…
+      57  [C109] point-virgule de prose
+          …L'ESP32 d'origine a deux cœurs ; `loop()` s'exécute par défaut su…
+      93  [C109] tiret d incise
+          …éro de cœur et la mémoire libre — deux informations qui n'existent…
+     103  [C109] tiret d incise
+          …de mémoire sont **identiques** — c'est le point de la démonstrati…
+     113  [C109] tiret d incise
+          …pas garanti comme sur un AVR nu — pour des échéances strictes, str…
+     131  [C109] tiret d incise
+          …créer une tâche et l'y épingler — voir [[esp32-freertos|FreeRTOS]]…
+     155  [C109] point-virgule de prose
+          …ers d'octets passent sans souci ; sur un Uno (2 ko de RAM), la mêm…
+     169  [C109] tiret d incise
+          …rduino-core repose sur FreeRTOS — donc que `loop()` n'est pas seul…
+     169  [C109] tiret d incise
+          …loop()` n'est pas seul au monde — évite les pièges de watchdog et…
+
+4 fiche(s) lue(s), 4 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 74   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 17   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 91
+    RESTANT                   : 54
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-ble                           1279   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-gpio                          1526   chevron:4
+  embarque/mcu/esp32/esp32-i2c                           1143   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/esp32/esp32-prise-en-main                 2564   chevron:4
+  embarque/mcu/esp32/esp32-serie                         2017   chevron:4
+  embarque/mcu/esp32/esp32-spi                           1150   chevron:4
+  embarque/mcu/esp32/esp32-uart                          1282   chevron:4
+  embarque/mcu/esp32/esp32-wifi                          1455   chevron:4
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (54 fiches)                     79412
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 18
+    clotures en chevron       : 68   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 185
+  cibles rouges distinctes     : 55
+  mots                         : 80252
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

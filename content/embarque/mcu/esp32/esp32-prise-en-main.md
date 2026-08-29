@@ -14,11 +14,11 @@ aa:
 draft: false
 ---
 
-La **prise en main de l'ESP32** consiste à installer le support de la carte dans l'IDE Arduino, à reconnaître la carte sur l'ordinateur et à téléverser un premier programme. Par rapport à un Arduino, une étape s'ajoute : l'ESP32 n'est pas connu de l'IDE par défaut, il faut d'abord **installer son support** (le cœur Arduino pour ESP32). Le programme cible reste le **Blink** — faire clignoter une LED — l'équivalent embarqué du « Hello World ».
+La **prise en main de l'ESP32** consiste à installer le support de la carte dans l'IDE Arduino, à reconnaître la carte sur l'ordinateur et à téléverser un premier programme. Par rapport à un Arduino, une étape s'ajoute : l'ESP32 n'est pas connu de l'IDE par défaut, il faut d'abord **installer son support** (le cœur Arduino pour ESP32). Le programme cible reste le **Blink** (faire clignoter une LED), l'équivalent embarqué du « Hello World ».
 
 ## À quoi ça sert ?
 
-La prise en main valide en une fois toute la chaîne entre votre code et la carte : éditeur, compilateur, support ESP32, pilote USB, sélection de la carte, sélection du port, téléversement. Si l'un des maillons est cassé, le Blink ne clignote pas — et on le saura tout de suite, sur du code trivial, plutôt que noyé dans un sketch complexe.
+La prise en main valide en une fois toute la chaîne entre votre code et la carte : éditeur, compilateur, support ESP32, pilote USB, sélection de la carte, sélection du port, téléversement. Si l'un des maillons est cassé, le Blink ne clignote pas, et on le saura tout de suite, sur du code trivial, plutôt que noyé dans un sketch complexe.
 
 Au-delà du premier programme, l'étape a deux rôles :
 
@@ -56,11 +56,11 @@ Ouvrez ensuite le **gestionnaire de cartes** (icône en barre latérale, ou *Out
 
 ### 3. Brancher la carte et sélectionner carte + port
 
-Branchez la carte avec un **câble USB de données** (les câbles « charge only » de smartphone ne transmettent que l'alimentation — symptôme : la LED d'alimentation s'allume mais aucun port n'apparaît).
+Branchez la carte avec un **câble USB de données** (les câbles « charge only » de smartphone ne transmettent que l'alimentation, avec pour symptôme une LED d'alimentation qui s'allume sans qu'aucun port n'apparaisse).
 
 La plupart des cartes de développement ESP32 (type DevKitC) embarquent une puce d'interface USB-série :
 
-- **CP2102** (Silicon Labs) — la plus courante ; sous Windows ancien, installer le pilote *CP210x VCP* depuis le site Silicon Labs si le port n'apparaît pas.
+- **CP2102** (Silicon Labs) — la plus courante. Sous Windows ancien, installer le pilote *CP210x VCP* depuis le site Silicon Labs si le port n'apparaît pas.
 - **CH340** — sur certains clones ; pilote *CH341SER* depuis `wch-ic.com`.
 - **USB Serial/JTAG natif** — sur les puces récentes (C3, S3, C6…), la carte se présente directement comme un port USB, **sans puce bridge ni pilote** à installer.
 
@@ -70,7 +70,7 @@ Deux chemins mènent à la sélection, selon que l'IDE reconnaît votre carte ou
 
 ![Sélecteur de carte de l'IDE Arduino déroulé : « ESP32 Dev Module » associé au port COM9 en tête de liste, plusieurs ports « Unknown » en dessous, et l'entrée « Select other board and port… » tout en bas.|400](/ressources/img/esp32-prise-en-main/menu-outils-carte-port.png)
 
-Sur un DevKit à pont CH340, la carte s'affiche `Unknown` tant qu'elle n'a jamais été associée — c'est normal (voir *Pièges*). Passez alors par ***Select other board and port…***, choisissez **ESP32 Dev Module** à gauche et votre port à droite : l'association est mémorisée.
+Sur un DevKit à pont CH340, la carte s'affiche `Unknown` tant qu'elle n'a jamais été associée. C'est normal (voir *Pièges*). Passez alors par ***Select other board and port…***, choisissez **ESP32 Dev Module** à gauche et votre port à droite : l'association est mémorisée.
 
 **Chemin manuel — les menus *Outils*.** Il fonctionne dans tous les cas, y compris quand l'IDE ne reconnaît rien. *Outils → Type de carte → esp32*, puis votre modèle : **« ESP32 Dev Module »** convient à la majorité des DevKit génériques (sinon le modèle exact : *ESP32-C3 Dev Module*, *ESP32-S3 Dev Module*…).
 
@@ -78,13 +78,13 @@ Sur un DevKit à pont CH340, la carte s'affiche `Unknown` tant qu'elle n'a jamai
 
 Puis *Outils → Port* : `COMx` sous Windows, `/dev/cu.usbserial-...` ou `/dev/cu.usbmodem...` sous macOS, `/dev/ttyUSB0` ou `/dev/ttyACM0` sous Linux.
 
-Reste à savoir **lequel de ces ports est le vôtre**. Sous Windows, le gestionnaire de périphériques le nomme explicitement : à la rubrique *Ports (COM et LPT)*, la carte apparaît sous le nom de sa puce d'interface — ici `USB-SERIAL CH340 (COM9)`. Les autres entrées de la liste sont le plus souvent des liaisons série Bluetooth, sans rapport avec la carte : ce sont elles qui remplissent le sélecteur de ports « Unknown ».
+Reste à savoir **lequel de ces ports est le vôtre**. Sous Windows, le gestionnaire de périphériques le nomme explicitement : à la rubrique *Ports (COM et LPT)*, la carte apparaît sous le nom de sa puce d'interface, ici `USB-SERIAL CH340 (COM9)`. Les autres entrées de la liste sont le plus souvent des liaisons série Bluetooth, sans rapport avec la carte : ce sont elles qui remplissent le sélecteur de ports « Unknown ».
 
 ![Menu Outils → Port de l'IDE Arduino déroulé à côté du gestionnaire de périphériques Windows : COM9 est coché dans l'IDE, et une flèche le relie à l'entrée « USB-SERIAL CH340 (COM9) » sous Ports (COM et LPT).|640](/ressources/img/esp32-prise-en-main/selection-port-com.png)
 
 ### 4. Charger le Blink
 
-Saisissez (ou collez) ce sketch. La LED intégrée de la plupart des DevKit est câblée sur **GPIO 2** — c'est le numéro sérigraphié **D2** sur la carte :
+Saisissez (ou collez) ce sketch. La LED intégrée de la plupart des DevKit est câblée sur **GPIO 2**, le numéro sérigraphié **D2** sur la carte :
 
 ```cpp
 const int LED = 2;   // LED intégrée, sérigraphiée D2
@@ -115,13 +115,13 @@ Cliquez sur **Téléverser** (icône flèche). L'IDE recompile et envoie le bina
 ![Console de l'IDE Arduino pendant un téléversement : le récapitulatif de taille du binaire en flash et en mémoire vive, la version d'esptool, le port série, puis la ligne Connecting suivie de points ; deux fenêtres de progression Compiling sketch et Uploading sont visibles.|640](/ressources/img/esp32-prise-en-main/upload-in-progress.png)
 
 > [!tip]
-> **Si le téléversement n'entre pas en mode programmation.** Beaucoup de cartes ESP32 — surtout les clones à pont **CH340** — n'ont pas le circuit d'auto-reset qui les bascule seules en mode téléchargement. **Maintenez le bouton BOOT (parfois noté *IO0*) enfoncé pendant tout le téléversement**, du clic sur *Téléverser* jusqu'à la fin de l'écriture. L'outil de flashage effectue **son propre reset après le clic** : un appui relâché avant ce reset, ou fait avant de cliquer, reste sans effet.
+> **Si le téléversement n'entre pas en mode programmation.** Beaucoup de cartes ESP32 (surtout les clones à pont **CH340**) n'ont pas le circuit d'auto-reset qui les bascule seules en mode téléchargement. **Maintenez le bouton BOOT (parfois noté *IO0*) enfoncé pendant tout le téléversement**, du clic sur *Téléverser* jusqu'à la fin de l'écriture. L'outil de flashage effectue **son propre reset après le clic** : un appui relâché avant ce reset, ou fait avant de cliquer, reste sans effet.
 
 Une fois terminé, la console vérifie ce qu'elle a écrit (`Hash of data verified.`), redémarre la carte (`Hard resetting via RTS pin...`) et annonce **Done uploading**.
 
 ![Console de l'IDE Arduino en fin de téléversement : les lignes d'écriture à 100 %, la vérification du condensat, le redémarrage par la broche RTS, et la notification Done uploading encadrée en bas à droite.|640](/ressources/img/esp32-prise-en-main/done-uploading.png)
 
-La LED clignote alors au rythme d'une seconde. **Le programme tourne — la prise en main est validée.**
+La LED clignote alors au rythme d'une seconde. **Le programme tourne : la prise en main est validée.**
 
 ![Carte ESP32 DevKit branchée en USB, vue de dessus : la LED intégrée sérigraphiée D2 est allumée en bleu, à côté de la LED d'alimentation PWR allumée en rouge.|420](/ressources/img/esp32-prise-en-main/led-on.jpg)
 
@@ -152,17 +152,17 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 
 **Téléversement bloqué faute de mode programmation.** `Connecting....____` qui n'aboutit pas : la carte n'est pas entrée en bootloader. Maintenir **BOOT** pendant tout le téléversement (voir l'astuce ci-dessus).
 
-**`Wrong boot mode detected (0x13)`.** Ce message n'annonce pas une carte morte — au contraire : pour l'émettre, l'outil a **dialogué avec la puce**, donc le câble, le port et la carte fonctionnent. Il signale seulement que l'ESP32 a démarré en exécution normale au lieu du mode téléchargement, parce que **GPIO0 (BOOT)** n'était pas au niveau bas au moment du reset. Maintenir **BOOT** pendant tout le téléversement.
+**`Wrong boot mode detected (0x13)`.** Ce message n'annonce pas une carte morte, au contraire : pour l'émettre, l'outil a **dialogué avec la puce**, donc le câble, le port et la carte fonctionnent. Il signale seulement que l'ESP32 a démarré en exécution normale au lieu du mode téléchargement, parce que **GPIO0 (BOOT)** n'était pas au niveau bas au moment du reset. Maintenir **BOOT** pendant tout le téléversement.
 
-**Port marqué *Unknown*.** Sur une carte à pont **CH340**, l'IDE affiche `Unknown` en face du port : le pont annonce son propre identifiant USB, pas celui d'une carte, et l'IDE n'a donc rien à quoi rattacher le port. Ce n'est **pas** un défaut de pilote — Windows, lui, affiche bien la puce. Associer la carte au port une fois par *Select other board and port…* : l'association est mémorisée.
+**Port marqué *Unknown*.** Sur une carte à pont **CH340**, l'IDE affiche `Unknown` en face du port : le pont annonce son propre identifiant USB, pas celui d'une carte, et l'IDE n'a donc rien à quoi rattacher le port. Ce n'est **pas** un défaut de pilote : Windows, lui, affiche bien la puce. Associer la carte au port une fois par *Select other board and port…* : l'association est mémorisée.
 
 **Pilote USB-série manquant (Windows).** Carte alimentée mais aucun port : pilote CP210x (CP2102) ou CH340 à installer. Les puces à USB natif (C3/S3/C6) n'ont pas ce souci.
 
-**`'LED_BUILTIN' was not declared in this scope`.** L'exemple *Blink* fourni avec l'IDE utilise cette constante, héritée de l'Arduino Uno où la LED est sur la broche 13. Beaucoup de définitions de cartes ESP32 ne la définissent pas : la compilation s'arrête net. Remplacez-la par le numéro de GPIO réel — **2** sur la plupart des DevKit, sérigraphié **D2**. Sur les cartes où elle *est* définie, la redéfinir soi-même déclenche un avertissement de redéfinition : mieux vaut une constante à soi.
+**`'LED_BUILTIN' was not declared in this scope`.** L'exemple *Blink* fourni avec l'IDE utilise cette constante, héritée de l'Arduino Uno où la LED est sur la broche 13. Beaucoup de définitions de cartes ESP32 ne la définissent pas : la compilation s'arrête net. Remplacez-la par le numéro de GPIO réel, **2** sur la plupart des DevKit, sérigraphié **D2**. Sur les cartes où elle *est* définie, la redéfinir soi-même déclenche un avertissement de redéfinition : mieux vaut une constante à soi.
 
-**LED intégrée RGB adressable (C3, S3, C6…).** Sur beaucoup de DevKit récents, la LED soudée n'est pas une LED simple mais une **WS2812 adressable** : elle se pilote par une trame de données, pas par un niveau logique. Un Blink au `digitalWrite` ne peut donc rien allumer, quelle que soit la broche indiquée — changer de numéro de GPIO ne résoudra rien. Le cœur 3.x expose pour ces cartes la constante `RGB_BUILTIN` et la fonction `neopixelWrite(RGB_BUILTIN, rouge, vert, bleu)`, illustrée par l'exemple officiel *BlinkRGB*. Vérifier le type de LED de sa carte avant de conclure qu'elle est morte.
+**LED intégrée RGB adressable (C3, S3, C6…).** Sur beaucoup de DevKit récents, la LED soudée n'est pas une LED simple mais une **WS2812 adressable** : elle se pilote par une trame de données, pas par un niveau logique. Un Blink au `digitalWrite` ne peut donc rien allumer, quelle que soit la broche indiquée : changer de numéro de GPIO ne résoudra rien. Le cœur 3.x expose pour ces cartes la constante `RGB_BUILTIN` et la fonction `neopixelWrite(RGB_BUILTIN, rouge, vert, bleu)`, illustrée par l'exemple officiel *BlinkRGB*. Vérifier le type de LED de sa carte avant de conclure qu'elle est morte.
 
-**Coupure d'alimentation (brown-out) sur USB faible.** L'ESP32 appelle des pointes de courant ; sur un port USB faible ou un câble médiocre, la tension chute et la carte redémarre en boucle (`Brownout detector was triggered`). Changer de port USB ou de câble, éviter les hubs non alimentés.
+**Coupure d'alimentation (brown-out) sur USB faible.** L'ESP32 appelle des pointes de courant. Sur un port USB faible ou un câble médiocre, la tension chute et la carte redémarre en boucle (`Brownout detector was triggered`). Changer de port USB ou de câble, éviter les hubs non alimentés.
 
 ## Exercices
 
@@ -191,7 +191,7 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 >   }
 > }
 > ```
-> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[arduino-programmation-non-bloquante|la programmation non bloquante]] — le motif y est traité côté Arduino, il se transpose tel quel sur ESP32.
+> La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de « rythmes » sans `delay` bloquant dans [[arduino-programmation-non-bloquante|la programmation non bloquante]] : le motif y est traité côté Arduino, il se transpose tel quel sur ESP32.
 
 > [!question] Exercice 2 — LED externe
 > Câblez une LED externe (avec sa résistance de ~220 Ω en série) sur **GPIO 16** et faites-la clignoter, sans toucher à la LED intégrée. Quelle ligne change ?
@@ -214,11 +214,11 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 >   delay(500);
 > }
 > ```
-> La broche est déclarée en `const int` (constante typée) plutôt qu'en `#define` — voir [[esp32-gpio|configurer les GPIO]] pour le choix des broches sûres. Anode de la LED vers GPIO 16 via la résistance, cathode vers GND.
+> La broche est déclarée en `const int` (constante typée) plutôt qu'en `#define` (voir [[esp32-gpio|configurer les GPIO]] pour le choix des broches sûres). Anode de la LED vers GPIO 16 via la résistance, cathode vers GND.
 
 ## Cas particulier — Arduino-core, ESP-IDF, PlatformIO
 
-Cette fiche utilise l'**Arduino-core pour ESP32** : la même API que l'Arduino (`setup()`, `loop()`, `digitalWrite`…), c'est le chemin recommandé pour débuter — détaillé dans [[esp32-arduino-core|l'Arduino-core ESP32]]. Pour un contrôle natif plus poussé (multitâche fin, pile réseau bas niveau), Espressif fournit **ESP-IDF**, son environnement natif — voir [[esp32-idf|découvrir ESP-IDF]]. **PlatformIO** (extension VS Code) gère les deux et facilite le versionnage Git et le multi-fichiers.
+Cette fiche utilise l'**Arduino-core pour ESP32** : la même API que l'Arduino (`setup()`, `loop()`, `digitalWrite`…), c'est le chemin recommandé pour débuter (détaillé dans [[esp32-arduino-core|l'Arduino-core ESP32]]). Pour un contrôle natif plus poussé (multitâche fin, pile réseau bas niveau), Espressif fournit **ESP-IDF**, son environnement natif (voir [[esp32-idf|découvrir ESP-IDF]]). **PlatformIO** (extension VS Code) gère les deux et facilite le versionnage Git et le multi-fichiers.
 
 ## Raccrochage projet
 

@@ -16,30 +16,30 @@ aa:
 draft: false
 ---
 
-Configurer les **GPIO** (*General Purpose Input/Output*) de l'ESP32, c'est choisir quelles broches lire ou piloter, et comment. C'est le geste de base de toute interaction avec le monde physique — lire un bouton, allumer une LED, mesurer une tension, commander un actionneur. L'ESP32 offre beaucoup de broches, mais **toutes ne se valent pas** : certaines sont réservées, d'autres ont des contraintes au démarrage. Savoir lesquelles utiliser évite la majorité des montages qui « ne marchent pas sans raison ». Le concept général de broche d'entrée/sortie est traité dans [[gpio|GPIO]] ; cette fiche en donne l'incarnation ESP32.
+Configurer les **GPIO** (*General Purpose Input/Output*) de l'ESP32, c'est choisir quelles broches lire ou piloter, et comment. C'est le geste de base de toute interaction avec le monde physique — lire un bouton, allumer une LED, mesurer une tension, commander un actionneur. L'ESP32 offre beaucoup de broches, mais **toutes ne se valent pas** : certaines sont réservées, d'autres ont des contraintes au démarrage. Savoir lesquelles utiliser évite la majorité des montages qui « ne marchent pas sans raison ». Le concept général de broche d'entrée/sortie est traité dans [[gpio|GPIO]]. Cette fiche en donne l'incarnation ESP32.
 
 ## À quoi ça sert ?
 
 Sur l'ESP32, bien choisir et configurer ses broches conditionne trois choses :
 
 - **Que le montage fonctionne tout court.** Brancher un bouton sur une broche réservée à la Flash, ou attendre une résistance de tirage interne sur une broche qui n'en a pas, produit un comportement erratique impossible à déboguer au logiciel.
-- **Que la carte démarre.** Quelques broches (*strapping pins*) sont lues au reset pour choisir le mode de boot ; un montage qui les force peut empêcher le démarrage.
+- **Que la carte démarre.** Quelques broches (*strapping pins*) sont lues au reset pour choisir le mode de boot. Un montage qui les force peut empêcher le démarrage.
 - **Que la mesure soit lisible.** Les entrées analogiques ont des contraintes propres (plage, conflit avec le Wi-Fi) qu'il faut connaître avant de croire un relevé.
 
 ## Les broches de l'ESP32
 
-L'ESP32 d'origine expose des GPIO numérotées (`GPIO0` à `GPIO39`, avec des trous — 20, 24 et 28 à 31 ne sortent pas du boîtier). On les désigne **par leur numéro**, pas par une position de carte. Quelques catégories à connaître :
+L'ESP32 d'origine expose des GPIO numérotées (`GPIO0` à `GPIO39`, avec des trous : 20, 24 et 28 à 31 ne sortent pas du boîtier). On les désigne **par leur numéro**, pas par une position de carte. Quelques catégories à connaître :
 
 - **Broches polyvalentes** — la majorité : entrée, sortie, tirage interne, PWM. À privilégier.
 - **Broches d'entrée seule** — `GPIO34`, `35`, `36`, `39` : lecture uniquement, **pas de sortie, pas de résistance de tirage interne**. Parfaites pour un capteur analogique, à proscrire pour piloter quoi que ce soit ou pour un bouton sans tirage externe.
 - **Broches de la Flash** — `GPIO6` à `GPIO11` : utilisées par la mémoire Flash de la carte. **Ne pas y toucher**, sous peine de planter la puce.
-- **Broches série** — `GPIO1` (TX) et `GPIO3` (RX) : c'est l'UART0 du [[esp32-serie|moniteur série]] ; les laisser libres tant qu'on l'utilise.
+- **Broches série** — `GPIO1` (TX) et `GPIO3` (RX) : c'est l'UART0 du [[esp32-serie|moniteur série]]. Les laisser libres tant qu'on l'utilise.
 - **Strapping pins** — `GPIO0`, `2`, `5`, `12`, `15` : lues au reset pour le mode de boot. Utilisables, mais avec précaution (voir Pièges).
 
 ![Brochage de l'ESP32 par catégorie : broches polyvalentes, entrée seule (GPIO34/35/36/39), broches Flash (GPIO6-11), série (GPIO1/3) et strapping (GPIO0/2/5/12/15)|640](/ressources/img/esp32-gpio/brochage.svg)
 
 > [!warning]
-> **L'ESP32 est en 3,3 V et ne tolère pas le 5 V.** Appliquer 5 V sur une entrée peut **détruire la broche**. Tout signal 5 V (capteur, module) passe par une adaptation de niveau — voir [[niveaux-de-tension|niveaux de tension]]. C'est la différence la plus piégeuse avec l'Arduino.
+> **L'ESP32 est en 3,3 V et ne tolère pas le 5 V.** Appliquer 5 V sur une entrée peut **détruire la broche**. Tout signal 5 V (capteur, module) passe par une adaptation de niveau (voir [[niveaux-de-tension|niveaux de tension]]). C'est la différence la plus piégeuse avec l'Arduino.
 
 ## Configurer une broche numérique
 
@@ -60,16 +60,16 @@ void loop() {
 }
 ```
 
-`pinMode` accepte `INPUT`, `OUTPUT`, `INPUT_PULLUP` et — spécificité ESP32 absente de l'Arduino AVR — `INPUT_PULLDOWN` (tirage interne vers la masse). Le tirage interne évite l'entrée *flottante* : une broche en `INPUT` nu capte le bruit ambiant et lit n'importe quoi. **Rappel : les broches `GPIO34-39` n'ont aucun tirage interne** — un bouton sur l'une d'elles exige une résistance externe.
+`pinMode` accepte `INPUT`, `OUTPUT`, `INPUT_PULLUP` et, spécificité ESP32 absente de l'Arduino AVR, `INPUT_PULLDOWN` (tirage interne vers la masse). Le tirage interne évite l'entrée *flottante* : une broche en `INPUT` nu capte le bruit ambiant et lit n'importe quoi. **Rappel : les broches `GPIO34-39` n'ont aucun tirage interne.** Un bouton sur l'une d'elles exige une résistance externe.
 
 ![Câblage sur ESP32 : LED avec résistance 220 Ω sur GPIO16, bouton entre GPIO4 et GND lu en INPUT_PULLUP|600](/ressources/img/esp32-gpio/montage-led-bouton.svg)
 
 > [!tip]
-> **Constantes en `const`, pas en `#define`.** Déclarer `const int LED = 16;` est typé et lisible ; le compilateur vérifie l'usage. On réserve `#define` à ce que `const` ne sait pas faire (compilation conditionnelle, macros).
+> **Constantes en `const`, pas en `#define`.** Déclarer `const int LED = 16;` est typé et lisible. Le compilateur vérifie l'usage. On réserve `#define` à ce que `const` ne sait pas faire (compilation conditionnelle, macros).
 
 ## Lire une entrée analogique
 
-`analogRead(broche)` renvoie la tension de la broche sur une échelle **12 bits : 0 à 4095** (et non 10 bits / 0-1023 comme l'Arduino Uno). Le principe de la conversion analogique-numérique est transverse — voir [[adc|ADC]]. Deux contraintes ESP32 majeures :
+`analogRead(broche)` renvoie la tension de la broche sur une échelle **12 bits : 0 à 4095** (et non 10 bits / 0-1023 comme l'Arduino Uno). Le principe de la conversion analogique-numérique est transverse (voir [[adc|ADC]]). Deux contraintes ESP32 majeures :
 
 - **La conversion naïve ment en haut de plage.** L'atténuation vaut **déjà 11 dB par défaut** : la pleine plage 0-3,3 V est couverte sans rien régler. En revanche la réponse de l'ADC n'est pas linéaire près du haut de l'échelle, et un calcul `brut * 3.3 / 4095` en hérite. Pour une tension juste, utiliser `analogReadMilliVolts(broche)`, qui s'appuie sur les données de calibration gravées dans la puce. (`analogSetAttenuation()` sert à *réduire* la plage pour gagner en finesse sur un capteur de faible tension, pas à l'étendre.)
 - **Conflit ADC2 / Wi-Fi.** Les broches du convertisseur **ADC2** (`GPIO0, 2, 4, 12-15, 25-27`) sont **inutilisables dès que le Wi-Fi est actif**. Pour une mesure analogique sur un projet connecté, utiliser **ADC1** : `GPIO32` à `GPIO39`.
@@ -114,12 +114,12 @@ void loop() {
 }
 ```
 
-*Câblage : c'est la même LED sur `GPIO16` qu'à la section numérique — voir son montage plus haut.*
+*Câblage : c'est la même LED sur `GPIO16` qu'à la section numérique (voir son montage plus haut).*
 
 > [!warning]
 > **L'API LEDC a changé au cœur 3.0.** Le code ci-dessus (`ledcAttach(broche, freq, bits)` + `ledcWrite(broche, duty)`) suppose un cœur **≥ 3.0**. Sur un cœur 2.x, l'API était `ledcSetup(canal, freq, bits)` + `ledcAttachPin(broche, canal)` + `ledcWrite(canal, duty)`. Si `ledcAttach` est introuvable, c'est une question de version (voir [[esp32-prise-en-main|prise en main]], étape 2).
 
-Le concept de PWM lui-même (rapport cyclique, fréquence) est transverse — voir [[pwm|PWM]].
+Le concept de PWM lui-même (rapport cyclique, fréquence) est transverse (voir [[pwm|PWM]]).
 
 ## Pièges
 

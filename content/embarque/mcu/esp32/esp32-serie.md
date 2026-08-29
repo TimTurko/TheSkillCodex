@@ -16,13 +16,13 @@ aa:
 draft: false
 ---
 
-Le **moniteur série** est l'outil d'observation universel d'un programme embarqué : il permet d'envoyer du texte depuis la carte vers l'ordinateur (et inversement) pendant l'exécution, via le câble USB. C'est le premier outil de débogage, avant l'oscilloscope ou les sondes — quand on veut savoir « qu'est-ce que mon programme fait, là, maintenant ? », on imprime au moniteur série. Sur ESP32, deux particularités le distinguent de l'Arduino : la **vitesse usuelle de 115200 bauds** (celle des messages de démarrage) et, sur les puces à **USB natif**, un réglage à connaître pour que la sortie apparaisse.
+Le **moniteur série** est l'outil d'observation universel d'un programme embarqué : il permet d'envoyer du texte depuis la carte vers l'ordinateur (et inversement) pendant l'exécution, via le câble USB. C'est le premier outil de débogage, avant l'oscilloscope ou les sondes. Quand on veut savoir « qu'est-ce que mon programme fait, là, maintenant ? », on imprime au moniteur série. Sur ESP32, deux particularités le distinguent de l'Arduino : la **vitesse usuelle de 115200 bauds** (celle des messages de démarrage) et, sur les puces à **USB natif**, un réglage à connaître pour que la sortie apparaisse.
 
 ## À quoi ça sert ?
 
 Le moniteur série remplit trois rôles complémentaires en projet :
 
-- **Voir l'invisible.** L'état d'une variable, le résultat d'un capteur, le passage dans une branche conditionnelle — toutes choses qu'on ne peut pas observer de l'extérieur — sont accessibles d'une ligne `Serial.println()`.
+- **Voir l'invisible.** L'état d'une variable, le résultat d'un capteur, le passage dans une branche conditionnelle (toutes choses qu'on ne peut pas observer de l'extérieur) sont accessibles d'une ligne `Serial.println()`.
 - **Calibrer.** Avant d'asservir un actionneur sur une consigne, on imprime la valeur du capteur : on lit la plage de mesure, on ajuste les seuils, on chiffre les retards.
 - **Communiquer dans l'autre sens.** L'ordinateur peut envoyer des commandes à la carte (consigne, déclenchement), via `Serial.read()` et ses variantes. C'est le canal d'interaction le plus simple, sans interface graphique.
 
@@ -42,7 +42,7 @@ void setup() {
 }
 ```
 
-Le paramètre est la **vitesse de transmission** (baud rate). Sur ESP32, on prend `115200` par défaut — c'est la vitesse des messages de démarrage de la puce, et un débit confortable. Côté carte et côté moniteur, **la valeur doit être strictement identique**, sinon le texte s'affiche en caractères incompréhensibles.
+Le paramètre est la **vitesse de transmission** (baud rate). Sur ESP32, on prend `115200` par défaut : c'est la vitesse des messages de démarrage de la puce, et un débit confortable. Côté carte et côté moniteur, **la valeur doit être strictement identique**, sinon le texte s'affiche en caractères incompréhensibles.
 
 > [!warning]
 > **Puces à USB natif : activer « USB CDC On Boot ».** Sur les ESP32 dont le port USB est natif (C3, S3, C6…), `Serial` passe par l'USB Serial/JTAG. Pour que la sortie apparaisse dans le moniteur après un reset, activez *Outils → USB CDC On Boot → Enabled* avant de téléverser. Sur un ESP32 d'origine (puce bridge CP2102/CH340), ce réglage n'existe pas et `Serial` fonctionne directement.
@@ -71,14 +71,14 @@ Serial.println(mesure);
 
 Téléversez d'abord le code, puis ouvrez le **moniteur série** (icône en haut à droite de la barre d'outils, ou *Outils → Moniteur série*). Une fenêtre s'ouvre en bas.
 
-**Vérifiez le baud rate** dans le menu déroulant à droite de la barre du moniteur — il doit valoir `115200`. Sinon, le texte ressemble à des symboles cassés, y compris les messages de démarrage de la puce.
+**Vérifiez le baud rate** dans le menu déroulant à droite de la barre du moniteur : il doit valoir `115200`. Sinon, le texte ressemble à des symboles cassés, y compris les messages de démarrage de la puce.
 
 ![Fenêtre de l'IDE Arduino 2.x : le sketch de mesure dans l'éditeur, l'icône du moniteur série annotée en rouge en haut à droite, et en bas le moniteur ouvert affichant les lignes « Valeur du capteur », avec le sélecteur de débit encadré sur 115200 baud.|600](/ressources/img/esp32-serie/moniteur-serie-115200.png)
 
-Sur cette capture, `GPIO34` n'est reliée à rien : la valeur reste à `0` ligne après ligne. Tout fonctionne pourtant — il n'y a simplement rien à mesurer. C'est l'écran que vous verrez en téléversant avant d'avoir câblé quoi que ce soit, et il ne signale aucune panne (voir *Pièges*).
+Sur cette capture, `GPIO34` n'est reliée à rien : la valeur reste à `0` ligne après ligne. Tout fonctionne pourtant : il n'y a simplement rien à mesurer. C'est l'écran que vous verrez en téléversant avant d'avoir câblé quoi que ce soit, et il ne signale aucune panne (voir *Pièges*).
 
 > [!tip]
-> **Le téléversement (ou le bouton EN) redémarre la carte.** À chaque reset, le programme repart de zéro et l'ESP32 réémet ses messages de boot. Si rien ne s'affiche, vérifier dans l'ordre : le baud rate (115200), la présence de `Serial.begin()`, et — sur puce USB native — le réglage *USB CDC On Boot*.
+> **Le téléversement (ou le bouton EN) redémarre la carte.** À chaque reset, le programme repart de zéro et l'ESP32 réémet ses messages de boot. Si rien ne s'affiche, vérifier dans l'ordre : le baud rate (115200), la présence de `Serial.begin()`, et, sur puce USB native, le réglage *USB CDC On Boot*.
 
 ### 4. Lire une entrée depuis l'ordinateur
 
@@ -107,7 +107,7 @@ Reçu : a
 Reçu : 
 ```
 
-**Deux passages dans la boucle, pas un.** Le sélecteur de fin de ligne du moniteur — le menu à gauche du débit, réglé sur *New Line* — ajoute un caractère invisible derrière votre saisie. `Serial.read()` ne lisant qu'un octet, il prend d'abord le `a`, puis au tour suivant ce caractère de fin de ligne, qui s'imprime en ligne vide. Avec *Both NL & CR*, deux caractères sont ajoutés : **trois** passages.
+**Deux passages dans la boucle, pas un.** Le sélecteur de fin de ligne du moniteur (le menu à gauche du débit, réglé sur *New Line*) ajoute un caractère invisible derrière votre saisie. `Serial.read()` ne lisant qu'un octet, il prend d'abord le `a`, puis au tour suivant ce caractère de fin de ligne, qui s'imprime en ligne vide. Avec *Both NL & CR*, deux caractères sont ajoutés : **trois** passages.
 
 > [!warning]
 > **`Serial.read()` renvoie un caractère, pas un nombre.** Si vous tapez `42`, vous recevrez successivement `'4'` puis `'2'`, pas l'entier 42. Pour lire un nombre, `Serial.parseInt()` agrège les chiffres ; pour lire une ligne entière, `Serial.readStringUntil('\n')`.
@@ -116,7 +116,7 @@ Reçu :
 
 Cas concret : la carte lit une commande envoyée depuis l'ordinateur (`ON`, `OFF`) et pilote une LED, tout en imprimant périodiquement une mesure analogique. On combine les deux sens de la liaison.
 
-*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
+*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` (voir les montages de [[esp32-gpio|configurer les GPIO]]).*
 
 ```cpp
 const int LED = 16;
@@ -156,7 +156,7 @@ void loop() {
 }
 ```
 
-Au moniteur, on voit défiler la mesure toutes les demi-secondes ; taper `ON` ou `OFF` allume ou éteint la LED et renvoie une confirmation. Noter le **non-bloquant** : on n'utilise pas `delay()` pour cadencer l'envoi, mais une comparaison sur `millis()` — la lecture des commandes reste réactive en permanence.
+Au moniteur, on voit défiler la mesure toutes les demi-secondes. Taper `ON` ou `OFF` allume ou éteint la LED et renvoie une confirmation. Noter le **non-bloquant** : on n'utilise pas `delay()` pour cadencer l'envoi, mais une comparaison sur `millis()` : la lecture des commandes reste réactive en permanence.
 
 En tapant `ON` puis `OFF` en cours de défilement :
 
@@ -192,9 +192,9 @@ La réponse à la commande **s'insère** dans le défilé sans l'interrompre : c
 
 **`Serial.read()` ne lit qu'un octet.** Un appel unique ne lit qu'un caractère même si l'ordinateur a envoyé un mot. Pour une ligne, `readStringUntil('\n')` ; pour un nombre, `parseInt()`.
 
-**Le sélecteur de fin de ligne compte dans ce qui est reçu.** À gauche du débit, un menu déroulant choisit ce que le moniteur ajoute derrière votre saisie — rien, `\n`, `\r`, ou les deux. Ces caractères arrivent dans la file au même titre que votre texte. Deux conséquences : `Serial.read()` fait **un passage de boucle en trop par caractère ajouté** (voir l'étape 4), et `readStringUntil('\n')` ne trouve son `\n` que si le sélecteur en envoie un — sinon il attend l'expiration de son délai, **une seconde par défaut**, et la boucle se fige d'autant. C'est le même mécanisme que le piège `parseInt()` ci-dessous, déclenché cette fois par un réglage d'interface et non par le code. C'est aussi ce que nettoie le `cmd.trim()` de l'exemple.
+**Le sélecteur de fin de ligne compte dans ce qui est reçu.** À gauche du débit, un menu déroulant choisit ce que le moniteur ajoute derrière votre saisie — rien, `\n`, `\r`, ou les deux. Ces caractères arrivent dans la file au même titre que votre texte. Deux conséquences : `Serial.read()` fait **un passage de boucle en trop par caractère ajouté** (voir l'étape 4), et `readStringUntil('\n')` ne trouve son `\n` que si le sélecteur en envoie un, faute de quoi il attend l'expiration de son délai, **une seconde par défaut**, et la boucle se fige d'autant. C'est le même mécanisme que le piège `parseInt()` ci-dessous, déclenché cette fois par un réglage d'interface et non par le code. C'est aussi ce que nettoie le `cmd.trim()` de l'exemple.
 
-**`parseInt()` attend une seconde, puis renvoie 0.** `Serial.parseInt()` bloque la boucle jusqu'à recevoir un entier complet — ou jusqu'à expiration de son délai d'attente, **une seconde par défaut**, auquel cas il renvoie `0`. Deux conséquences en TP : la boucle se fige brièvement à chaque commande, et une saisie mal terminée applique silencieusement la valeur 0 (LED éteinte, sans message). `Serial.setTimeout(50)` raccourcit l'attente ; lire la ligne avec `readStringUntil()` puis convertir explicitement évite le piège.
+**`parseInt()` attend une seconde, puis renvoie 0.** `Serial.parseInt()` bloque la boucle jusqu'à recevoir un entier complet, ou jusqu'à expiration de son délai d'attente, **une seconde par défaut**, auquel cas il renvoie `0`. Deux conséquences en TP : la boucle se fige brièvement à chaque commande, et une saisie mal terminée applique silencieusement la valeur 0 (LED éteinte, sans message). `Serial.setTimeout(50)` raccourcit l'attente. Lire la ligne avec `readStringUntil()` puis convertir explicitement évite le piège.
 
 ## Exercices
 
@@ -253,7 +253,7 @@ La réponse à la commande **s'insère** dans le défilé sans l'interrompre : c
 
 ## Cas particulier — Plusieurs ports série et le traceur
 
-L'ESP32 dispose de **plusieurs UART matériels**. `Serial` (UART0) est réservé au moniteur et au journal de boot ; pour dialoguer avec un second appareil (module GPS, autre carte) sans perturber le moniteur, on utilise un autre port, dont on peut choisir les broches — le sujet complet de [[esp32-uart|l'UART sur ESP32]] :
+L'ESP32 dispose de **plusieurs UART matériels**. `Serial` (UART0) est réservé au moniteur et au journal de boot. Pour dialoguer avec un second appareil (module GPS, autre carte) sans perturber le moniteur, on utilise un autre port, dont on peut choisir les broches (le sujet complet de [[esp32-uart|l'UART sur ESP32]]) :
 
 ```cpp
 Serial2.begin(9600, SERIAL_8N1, 16, 17);  // RX=GPIO16, TX=GPIO17
@@ -272,7 +272,7 @@ Apprendre dès la prise en main à imprimer proprement (en-têtes, séparateurs 
 ## Aller plus loin
 
 - [Référence de la classe Serial (Arduino)](https://www.arduino.cc/reference/en/language/functions/communication/serial/) — `peek`, `parseFloat`, `readBytes`…
-- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple) — traité côté Arduino, il se transpose tel quel sur ESP32.
+- [[arduino-programmation-non-bloquante|Programmation non bloquante]] — cadencer les envois sans figer la boucle (le motif `millis()` de l'exemple). Traité côté Arduino, il se transpose tel quel sur ESP32.
 - Pour traiter la sortie en aval : un script Python avec `pyserial` lit le flux (graphique, log fichier, déclenchement d'actions).
 
 ## Voir aussi
