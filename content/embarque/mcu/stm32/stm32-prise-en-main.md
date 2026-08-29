@@ -14,11 +14,11 @@ aa:
 draft: false
 ---
 
-La **prise en main du STM32** consiste à installer l'environnement officiel **STM32CubeIDE**, à créer un projet pour sa carte Nucleo, et à flasher un premier programme via le débogueur **ST-LINK intégré**. Par rapport à un Arduino, l'approche diffère : on ne tape pas directement du code dans un éditeur, on **crée un projet à partir de sa carte**, ce qui pré-configure automatiquement le microcontrôleur. Le programme cible reste le **Blink** — faire clignoter la LED utilisateur — l'équivalent embarqué du « Hello World ». Cette fiche emprunte la **porte native** ; pour la porte Arduino, voir [[stm32-arduino-core|programmer avec l'Arduino-core]].
+La **prise en main du STM32** consiste à installer l'environnement officiel **STM32CubeIDE**, à créer un projet pour sa carte Nucleo, et à flasher un premier programme via le débogueur **ST-LINK intégré**. Par rapport à un Arduino, l'approche diffère : on ne tape pas directement du code dans un éditeur, on **crée un projet à partir de sa carte**, ce qui pré-configure automatiquement le microcontrôleur. Le programme cible reste le **Blink** (faire clignoter la LED utilisateur), l'équivalent embarqué du « Hello World ». Cette fiche emprunte la **porte native**. Pour la porte Arduino, voir [[stm32-arduino-core|programmer avec l'Arduino-core]].
 
 ## À quoi ça sert ?
 
-La prise en main valide en une fois toute la chaîne native : éditeur, générateur de configuration (CubeMX intégré), compilateur GCC, débogueur GDB, et liaison ST-LINK avec la carte. Si un maillon est cassé, le Blink ne clignote pas — et on le sait tout de suite, sur du code trivial, plutôt que noyé dans un projet complexe.
+La prise en main valide en une fois toute la chaîne native : éditeur, générateur de configuration (CubeMX intégré), compilateur GCC, débogueur GDB, et liaison ST-LINK avec la carte. Si un maillon est cassé, le Blink ne clignote pas, et on le sait tout de suite, sur du code trivial, plutôt que noyé dans un projet complexe.
 
 Au-delà du premier programme, l'étape a deux rôles :
 
@@ -41,7 +41,7 @@ Prendre capture d'écran de *la page de téléchargement de STM32CubeIDE sur st.
 
 C'est l'étape propre au STM32 natif : on part de la **carte**, pas d'un fichier vide. *File → New → STM32 Project*, puis l'onglet **Board Selector**. Cherchez votre Nucleo (par exemple **NUCLEO-F411RE** ou **NUCLEO-G431RB**), sélectionnez-la, *Next*, nommez le projet.
 
-À la question **« Initialize all peripherals with their default Mode? »**, répondez **Yes** : CubeMX configure alors automatiquement le microcontrôleur pour cette carte — notamment la **LED utilisateur LD2** (sur `PA5`, soit **D13** côté connecteur Arduino, sur la plupart des Nucleo-64) déjà déclarée en sortie, et l'horloge système réglée.
+À la question **« Initialize all peripherals with their default Mode? »**, répondez **Yes** : CubeMX configure alors automatiquement le microcontrôleur pour cette carte, notamment la **LED utilisateur LD2** (sur `PA5`, soit **D13** côté connecteur Arduino, sur la plupart des Nucleo-64) déjà déclarée en sortie, et l'horloge système réglée.
 
 Ces repères — LED LD2, bouton B1, connecteurs — sont communs à toute la gamme Nucleo-64 :
 
@@ -49,11 +49,11 @@ Ces repères — LED LD2, bouton B1, connecteurs — sont communs à toute la ga
 
 Prendre capture d'écran de *l'onglet Board Selector de STM32CubeIDE, la carte NUCLEO-F411RE sélectionnée et le bouton Next visible*.
 
-L'IDE ouvre la vue de configuration `.ioc` (le brochage de la carte) et génère un squelette de projet. On reviendra sur cette vue dans [[stm32-cubemx|CubeMX]] ; pour l'instant, fermez-la, le projet est prêt.
+L'IDE ouvre la vue de configuration `.ioc` (le brochage de la carte) et génère un squelette de projet. On reviendra sur cette vue dans [[stm32-cubemx|CubeMX]]. Pour l'instant, fermez-la, le projet est prêt.
 
 ### 3. Écrire le clignotement — dans la bonne zone
 
-Ouvrez `Core/Src/main.c`. Le code généré est jalonné de balises **`/* USER CODE BEGIN … */`** et **`/* USER CODE END … */`**. Tout ce que vous écrivez **entre** ces balises est conservé si la configuration est régénérée ; tout ce qui est écrit ailleurs est **écrasé**. C'est la règle d'or du STM32 natif.
+Ouvrez `Core/Src/main.c`. Le code généré est jalonné de balises **`/* USER CODE BEGIN … */`** et **`/* USER CODE END … */`**. Tout ce que vous écrivez **entre** ces balises est conservé si la configuration est régénérée. Tout ce qui est écrit ailleurs est **écrasé**. C'est la règle d'or du STM32 natif.
 
 Trouvez la boucle principale `while (1)` et complétez la zone `USER CODE BEGIN 3` :
 
@@ -64,13 +64,13 @@ HAL_Delay(500);
 /* USER CODE END 3 */
 ```
 
-`HAL_GPIO_TogglePin` inverse l'état de la broche à chaque passage ; `HAL_Delay(500)` attend 500 ms. `LD2_Pin` et `LD2_GPIO_Port` sont les noms générés pour la LED — pas besoin de connaître le numéro de broche, CubeMX les a définis.
+`HAL_GPIO_TogglePin` inverse l'état de la broche à chaque passage. `HAL_Delay(500)` attend 500 ms. `LD2_Pin` et `LD2_GPIO_Port` sont les noms générés pour la LED. Pas besoin de connaître le numéro de broche, CubeMX les a définis.
 
 Prendre capture d'écran de *l'éditeur main.c de CubeIDE, le basculement de LD2 inséré entre les marqueurs USER CODE BEGIN 3 et USER CODE END 3*.
 
 ### 4. Compiler
 
-Cliquez sur l'icône **marteau** (*Build*). La console affiche la taille du binaire (`text`, `data`, `bss`) et se termine par `Build Finished. 0 errors`. Une erreur ici est un problème de *code* ou de configuration, pas de matériel — la carte n'est pas encore sollicitée.
+Cliquez sur l'icône **marteau** (*Build*). La console affiche la taille du binaire (`text`, `data`, `bss`) et se termine par `Build Finished. 0 errors`. Une erreur ici est un problème de *code* ou de configuration, pas de matériel : la carte n'est pas encore sollicitée.
 
 La console se termine alors ainsi :
 
@@ -88,9 +88,9 @@ Les trois premières colonnes sont le récapitulatif de taille à relever sur vo
 Branchez la Nucleo par son connecteur USB **côté ST-LINK** (un câble de **données**, pas un câble « charge seule »). Cliquez sur la flèche verte **Run** : l'IDE compile, flashe le binaire via le ST-LINK, et lance le programme.
 
 > [!tip]
-> **À la première connexion, CubeIDE peut proposer une mise à jour du firmware du ST-LINK.** Acceptez-la : c'est rapide et cela évite des échecs de connexion ultérieurs. Contrairement à l'ESP32, **aucune manipulation de bouton n'est nécessaire** — le flashage par SWD est direct et fiable.
+> **À la première connexion, CubeIDE peut proposer une mise à jour du firmware du ST-LINK.** Acceptez-la : c'est rapide et cela évite des échecs de connexion ultérieurs. Contrairement à l'ESP32, **aucune manipulation de bouton n'est nécessaire** : le flashage par SWD est direct et fiable.
 
-La LED LD2 clignote au rythme d'une demi-seconde. **Le programme tourne — la prise en main est validée.**
+La LED LD2 clignote au rythme d'une demi-seconde. **Le programme tourne : la prise en main est validée.**
 
 Si LD2 reste éteinte, reprenez la sélection de la carte au *Board Selector* (étape 2), puis voyez les *Pièges*.
 
@@ -123,7 +123,7 @@ Prendre capture d'écran de *la perspective Debug de CubeIDE, avec un point d'ar
 
 **Confondre le câble ST-LINK avec une simple alimentation.** Le connecteur USB de la Nucleo porte trois fonctions (flashage, débogage, port série). Brancher la carte sur un chargeur l'alimente mais ne permet ni flashage ni débogage.
 
-**Oublier de lancer la bonne configuration d'exécution.** Au premier *Run*, CubeIDE demande parfois de choisir « STM32 C/C++ Application ». La sélectionner ; les fois suivantes, c'est automatique.
+**Oublier de lancer la bonne configuration d'exécution.** Au premier *Run*, CubeIDE demande parfois de choisir « STM32 C/C++ Application ». La sélectionner. Les fois suivantes, c'est automatique.
 
 ## Exercices
 
@@ -149,7 +149,7 @@ Prendre capture d'écran de *la perspective Debug de CubeIDE, avec un point d'ar
 > On passe de `Toggle` à `WritePin` pour piloter explicitement l'état (`GPIO_PIN_SET` / `GPIO_PIN_RESET`). La boucle `for` factorise les trois éclairs. On retrouvera ce besoin de rythmes sans `HAL_Delay` bloquant en [[firmware|structurant le firmware]].
 
 > [!question] Exercice 2 — Lire le bouton
-> La plupart des Nucleo-64 ont un bouton utilisateur **B1** sur `PC13`, déjà configuré en entrée par le projet de carte. Allumez la LED **tant que** le bouton est appuyé, éteignez-la sinon. (Indice : sur Nucleo, B1 est souvent câblé en logique inversée — appui = niveau bas.)
+> La plupart des Nucleo-64 ont un bouton utilisateur **B1** sur `PC13`, déjà configuré en entrée par le projet de carte. Allumez la LED **tant que** le bouton est appuyé, éteignez-la sinon. (Indice : sur Nucleo, B1 est souvent câblé en logique inversée. Appui = niveau bas.)
 
 > [!success]- Corrigé
 > ```c
@@ -161,7 +161,7 @@ Prendre capture d'écran de *la perspective Debug de CubeIDE, avec un point d'ar
 > }
 > /* USER CODE END 3 */
 > ```
-> `HAL_GPIO_ReadPin` lit l'état de la broche. Le bouton B1 de la Nucleo est relié à la masse à l'appui (résistance de tirage vers le haut au repos), donc l'appui correspond à `GPIO_PIN_RESET` — d'où le test inversé. La logique de tirage est détaillée dans [[gpio|les GPIO]].
+> `HAL_GPIO_ReadPin` lit l'état de la broche. Le bouton B1 de la Nucleo est relié à la masse à l'appui (résistance de tirage vers le haut au repos), donc l'appui correspond à `GPIO_PIN_RESET`, d'où le test inversé. La logique de tirage est détaillée dans [[gpio|les GPIO]].
 
 ## Cas particulier — STM32duino et PlatformIO
 
@@ -169,8 +169,8 @@ Cette fiche utilise l'**outillage natif** (CubeIDE), parce que c'est lui qui ouv
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — la première compilation et le premier flashage sur la carte cible sont l'acte fondateur de la PoC logicielle. Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
-- **Tous les tutoriels STM32 aval** — sans prise en main effective, lire les autres tutoriels sans pouvoir tester revient à lire du code sans l'exécuter. Faites le Blink au moins une fois, sur le matériel cible, le plus tôt possible.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** La première compilation et le premier flashage sur la carte cible sont l'acte fondateur de la PoC logicielle. Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
+- **Tous les tutoriels STM32 aval.** Sans prise en main effective, lire les autres tutoriels sans pouvoir tester revient à lire du code sans l'exécuter. Faites le Blink au moins une fois, sur le matériel cible, le plus tôt possible.
 
 Investir une demi-heure pour valider la chaîne native complète en début de PoC évite des heures de bugs hybrides plus tard, quand on ne saura plus distinguer un problème d'outillage d'un problème d'algorithme.
 

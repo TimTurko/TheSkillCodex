@@ -165,7 +165,7 @@ The figure is not measured: `F_CPU` is a **compile-time constant**, fixed by the
 - **PlatformIO** handles the Teensy with convenient versioning and multi-file support, useful as soon as the project grows.
 - **Dropping down to registers.** For an ultra-critical path, you can write the NXP registers directly from the sketch (or through the `CORE_PIN..._PORTSET` macros), without changing environment. Same approach as [[stm32-registres-en|on STM32]], while staying "in Arduino".
 
-## Project connection
+## Where it fits in the project
 
 - **Step 4 of the [[preuve-de-concept-en|proof of concept phase]].** The Teensy Arduino core is the environment for the software proof of concept: you move fast, while keeping performance and the signature libraries (audio, USB) within reach. Holding it in reserve means only dropping to the fast functions or the registers where a precise need calls for it.
 - **Reusing an Arduino prototype.** A circuit validated on an Arduino often carries over as is onto a Teensy through the core, gaining speed and peripherals.

@@ -15,15 +15,15 @@ aa:
 draft: false
 ---
 
-L'**Arduino-core pour STM32** — couramment appelé **STM32duino** — est la couche logicielle qui apporte l'API Arduino (`setup()`, `loop()`, `digitalWrite`…) sur les microcontrôleurs STM32. C'est la **porte de continuité** : on réutilise les réflexes appris sur l'[[arduino|Arduino]], mais avec la puissance, les périphériques et la gamme du STM32. Sous le capot, cette couche repose sur la **HAL** et **CMSIS** de STMicroelectronics — l'outillage natif que les tutoriels du palier ingénieur explorent directement. La façon de structurer un firmware, quelle que soit la porte, relève de [[firmware|firmware]].
+L'**Arduino-core pour STM32** (couramment appelé **STM32duino**) est la couche logicielle qui apporte l'API Arduino (`setup()`, `loop()`, `digitalWrite`…) sur les microcontrôleurs STM32. C'est la **porte de continuité** : on réutilise les réflexes appris sur l'[[arduino|Arduino]], mais avec la puissance, les périphériques et la gamme du STM32. Sous le capot, cette couche repose sur la **HAL** et **CMSIS** de STMicroelectronics, l'outillage natif que les tutoriels du palier ingénieur explorent directement. La façon de structurer un firmware, quelle que soit la porte, relève de [[firmware|firmware]].
 
 ## À quoi ça sert ?
 
 STM32duino remplit un rôle de pont :
 
 - **Réutiliser ce qu'on sait.** Tout le vocabulaire Arduino (`pinMode`, `analogRead`, `Serial`, bibliothèques `Wire`/`SPI`…) fonctionne tel quel. Un montage validé sur Arduino se reporte souvent immédiatement sur STM32.
-- **Accéder à la gamme STM32 simplement.** D'une *Blue Pill* à une grosse Nucleo, le même sketch s'adapte en changeant la carte sélectionnée — sans plonger dans l'outillage natif.
-- **Garder une porte vers le natif.** Depuis un sketch STM32duino, on peut appeler directement des fonctions **HAL** (`HAL_*`) ou lire des registres **CMSIS** quand on a besoin de finesse — sans tout réécrire.
+- **Accéder à la gamme STM32 simplement.** D'une *Blue Pill* à une grosse Nucleo, le même sketch s'adapte en changeant la carte sélectionnée, sans plonger dans l'outillage natif.
+- **Garder une porte vers le natif.** Depuis un sketch STM32duino, on peut appeler directement des fonctions **HAL** (`HAL_*`) ou lire des registres **CMSIS** quand on a besoin de finesse, sans tout réécrire.
 
 C'est un bon point d'entrée pour prototyper vite. Le passage à l'outillage natif complet ([[stm32-cubemx|CubeMX]] + [[stm32-hal|HAL]]) se justifie quand on veut configurer finement les périphériques, déboguer au pas, ou viser la performance.
 
@@ -66,12 +66,12 @@ void loop() {
 
 `setup()` une fois, `loop()` en boucle : le modèle est identique. Les différences sont des **détails de plateforme**, pas de structure :
 
-- **les broches se nomment par leur port** (`PA5`, `PB6`…) ; sur Nucleo, les alias Arduino `D0`–`D15` et `A0`–`A5` des connecteurs sont aussi acceptés ;
+- **les broches se nomment par leur port** (`PA5`, `PB6`…), et sur Nucleo les alias Arduino `D0`–`D15` et `A0`–`A5` des connecteurs sont aussi acceptés ;
 - **la logique est en 3,3 V** (broches *FT* tolérantes 5 V, voir [[niveaux-de-tension|niveaux de tension]]) ;
-- **l'ADC est un convertisseur 12 bits**, mais `analogRead()` renvoie **10 bits par défaut** — le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023 ; appeler `analogReadResolution(12)` dans `setup()` pour débrider la pleine échelle 0-4095 ;
+- **l'ADC est un convertisseur 12 bits**, mais `analogRead()` renvoie **10 bits par défaut**, car le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023. Appeler `analogReadResolution(12)` dans `setup()` pour débrider la pleine échelle 0-4095 ;
 - **`Serial`** part ici sur le **port série virtuel du ST-LINK** (USART2 sur les Nucleo) : on lit le moniteur sans adaptateur USB-série supplémentaire.
 
-Sur une *Blue Pill* (STM32F103), chaque broche porte son nom de port (PA9, PB6…) et plusieurs fonctions possibles — le brochage par fonction aide à choisir laquelle déclarer :
+Sur une *Blue Pill* (STM32F103), chaque broche porte son nom de port (PA9, PB6…) et plusieurs fonctions possibles. Le brochage par fonction aide à choisir laquelle déclarer :
 
 ![Brochage de la Blue Pill (STM32F103C8T6) organisé par fonction : alimentation, LED PC13, SWD (PA13/PA14), entrées analogiques, UART, I2C, SPI, PWM/timers, USB ; logique 3,3 V, certaines broches tolérantes 5 V.|640](/ressources/img/stm32-arduino-core/brochage-blue-pill.svg)
 
@@ -79,7 +79,7 @@ Sur une *Blue Pill* (STM32F103), chaque broche porte son nom de port (PA9, PB6�
 
 STM32duino n'est pas du « bare metal » écrit à la main : il s'appuie sur la **HAL** et **CMSIS** de ST. Concrètement :
 
-- **Le code repose sur la HAL.** `digitalWrite` appelle, sous le capot, l'équivalent d'un `HAL_GPIO_WritePin`. La même horloge et les mêmes périphériques que dans un projet CubeIDE sont utilisés — STM32duino les configure pour vous.
+- **Le code repose sur la HAL.** `digitalWrite` appelle, sous le capot, l'équivalent d'un `HAL_GPIO_WritePin`. La même horloge et les mêmes périphériques que dans un projet CubeIDE sont utilisés. STM32duino les configure pour vous.
 - **Les fonctions natives sont accessibles.** `HAL_*`, les définitions de registres CMSIS (`GPIOA->BSRR`…) sont utilisables **directement dans un sketch**, sans rien réécrire.
 - **Beaucoup plus de ressources qu'un Uno.** Selon la puce, des dizaines à des centaines de kilo-octets de Flash et de RAM : les bibliothèques lourdes, les buffers, les `String` passent bien plus facilement.
 - **Des périphériques plus riches.** Plusieurs UART, timers avancés, plusieurs ADC : exposés via l'API Arduino quand c'est possible, accessibles en HAL sinon.
@@ -111,7 +111,7 @@ void setup() {
 void loop() {}
 ```
 
-Au moniteur série, on lit la fréquence réelle du cœur et l'identifiant unique — deux informations qui n'existent pas telles quelles sur un Arduino AVR, obtenues sans quitter le confort du sketch. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant la HAL et CMSIS sous la main**.
+Au moniteur série, on lit la fréquence réelle du cœur et l'identifiant unique, deux informations qui n'existent pas telles quelles sur un Arduino AVR, obtenues sans quitter le confort du sketch. C'est l'illustration concrète du pont : **on programme « en Arduino » tout en ayant la HAL et CMSIS sous la main**.
 
 Au moniteur, deux lignes imprimées une fois dans `setup()` :
 
@@ -120,7 +120,7 @@ Frequence du coeur : XX MHz
 UID : XXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-La fréquence dépend de la carte et de la configuration d'horloge appliquée par le cœur — à relever sur la vôtre. L'UID, lui, est **propre à votre puce** : il est masqué ici, parce qu'un numéro de série recopié dans un tutoriel finit toujours par être pris pour le sien.
+La fréquence dépend de la carte et de la configuration d'horloge appliquée par le cœur, à relever sur la vôtre. L'UID, lui, est **propre à votre puce** : il est masqué ici, parce qu'un numéro de série recopié dans un tutoriel finit toujours par être pris pour le sien.
 
 ## Pièges
 
@@ -134,7 +134,7 @@ La fréquence dépend de la carte et de la configuration d'horloge appliquée pa
 
 **Relire une broche de sortie pour connaître son état.** L'écriture `digitalWrite(pin, !digitalRead(pin))` paraît élégante, mais elle demande au microcontrôleur de **relire ce qu'il vient d'écrire** : tous ne le permettent pas, le résultat dépend du mode de sortie configuré, et sur une sortie chargée la broche peut ne pas être au niveau qu'on croit. **Mémoriser l'état dans une variable** (ou piloter explicitement en `HIGH`/`LOW`) : le programme sait ce qu'il a demandé, il n'a pas à le deviner.
 
-**Confondre les noms de broches.** `PA5`, `D13` et `LED_BUILTIN` peuvent désigner la même broche sur une Nucleo — ou non, selon la carte. En cas de doute, se référer au brochage de la carte.
+**Confondre les noms de broches.** `PA5`, `D13` et `LED_BUILTIN` peuvent désigner la même broche sur une Nucleo, ou non, selon la carte. En cas de doute, se référer au brochage de la carte.
 
 ## Exercices
 
@@ -152,7 +152,7 @@ La fréquence dépend de la carte et de la configuration d'horloge appliquée pa
 > }
 > void loop() {}
 > ```
-> `SystemCoreClock` est une variable CMSIS tenue à jour par l'horloge système. STM32duino configure par défaut le cœur près de sa fréquence maximale (de l'ordre de 84–100 MHz sur une F411, 170 MHz sur une G431 — à vérifier sur la carte). C'est cet **arbre d'horloge** qu'on règle finement dans [[stm32-cubemx|CubeMX]].
+> `SystemCoreClock` est une variable CMSIS tenue à jour par l'horloge système. STM32duino configure par défaut le cœur près de sa fréquence maximale (de l'ordre de 84–100 MHz sur une F411, 170 MHz sur une G431, à vérifier sur la carte). C'est cet **arbre d'horloge** qu'on règle finement dans [[stm32-cubemx|CubeMX]].
 
 > [!question] Exercice 2 — Bouton et LED
 > Câblez (ou utilisez le bouton intégré B1, broche `PC13` sur Nucleo-64) : allumez la LED tant que le bouton est appuyé. Quelle ligne change par rapport à un Arduino ?
@@ -177,15 +177,15 @@ La fréquence dépend de la carte et de la configuration d'horloge appliquée pa
 
 Deux configurations dépassent l'IDE Arduino :
 
-- **PlatformIO** (extension VS Code) gère le framework Arduino *et* le framework natif (HAL/CMSIS) dans un même projet, avec gestion fine des bibliothèques et du versionnage Git — pratique dès que le projet grossit.
-- **Bascule progressive vers le natif** — STM32duino étant posé sur la HAL, on peut commencer en API Arduino, puis remplacer petit à petit les parties critiques par des appels HAL ou registres, sans tout réécrire. C'est un chemin de migration naturel vers [[stm32-cubemx|CubeMX]] et [[stm32-hal|la HAL]].
+- **PlatformIO** (extension VS Code) gère le framework Arduino *et* le framework natif (HAL/CMSIS) dans un même projet, avec gestion fine des bibliothèques et du versionnage Git, pratique dès que le projet grossit.
+- **Bascule progressive vers le natif.** STM32duino étant posé sur la HAL, on peut commencer en API Arduino, puis remplacer petit à petit les parties critiques par des appels HAL ou registres, sans tout réécrire. C'est un chemin de migration naturel vers [[stm32-cubemx|CubeMX]] et [[stm32-hal|la HAL]].
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — choisir STM32duino comme environnement de la PoC logicielle est un défaut raisonnable quand on vient de l'Arduino : on avance vite, on garde la porte du natif ouverte. Le réserver permet de ne basculer en outillage natif que si un besoin précis l'exige (débogage, performance, périphérique fin).
-- **Réutilisation d'un prototype Arduino** — un montage validé sur Arduino se reporte souvent tel quel sur STM32 via le core, en gagnant mémoire, périphériques et performance.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Choisir STM32duino comme environnement de la PoC logicielle est un défaut raisonnable quand on vient de l'Arduino : on avance vite, on garde la porte du natif ouverte. Le réserver permet de ne basculer en outillage natif que si un besoin précis l'exige (débogage, performance, périphérique fin).
+- **Réutilisation d'un prototype Arduino.** Un montage validé sur Arduino se reporte souvent tel quel sur STM32 via le core, en gagnant mémoire, périphériques et performance.
 
-Comprendre que STM32duino repose sur la HAL et CMSIS — le même socle que l'outillage natif — éclaire le passage ultérieur à [[stm32-cubemx|CubeMX]] : ce n'est pas un autre monde, c'est la couche du dessous.
+Comprendre que STM32duino repose sur la HAL et CMSIS (le même socle que l'outillage natif) éclaire le passage ultérieur à [[stm32-cubemx|CubeMX]] : ce n'est pas un autre monde, c'est la couche du dessous.
 
 ## Aller plus loin
 

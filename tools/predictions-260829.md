@@ -5845,3 +5845,1532 @@ pesant `36 / 30 / 26 / 20` lignes, soit **le `numstat` du bloc 16 doublé**, et
 l'écriture a repris **après** republication des prédictions que le commit
 invalidait. *Une garde qui ne mord jamais ne prouve rien ; celle-ci vient de
 prouver quelque chose.*
+
+---
+---
+
+# SÉANCE DU 29/08 (SUITE 10) — LOT 5 DU CHANTIER DE TRADUCTION
+
+> Même fichier de prédictions que les suites 6 à 9 : la date `AAMMJJ` est
+> toujours `260829`. La numérotation des blocs continue la série — le dernier
+> bloc de la suite 9 est le **21**, celui-ci est le **22**.
+>
+> Sous-règle C116 « exécution directe », amendée (points 6 à 9) ; C131 et son
+> amendement du 29/08 (suite 8) — **déclaration rejouée à chaque bloc, avec son
+> total** ; les deux règles d'usage neuves du 29/08 (suite 9) — *un motif qui
+> balaie les deux corpus s'éprouve sur un échantillon de chaque langue*, *une
+> soustraction entre deux totaux se fait sur deux états de même date*.
+>
+> Brief recoupé contre la ligne « Prochaine session » de l'entrée du 29/08
+> (suite 9) du JOURNAL (L53) : **concordance intégrale** — `teensy/` épuisé,
+> anneau 2 restant à 38 fiches / 56 182 mots / 2 porteuses, `stm32/` en tête
+> à 5 fiches, `stm32/` entier hors borne (`deh` 8 074 contre 6 657), découpage
+> sur `deh` au cadrage, C127 en plein, `mesure-chevron --tout` à la clôture,
+> référence **32 paires porteuses, 0 divergente**, troisième fiche
+> Arduino-core et test 2 de C125 sur famille qualifiée des deux côtés.
+
+⚠ **INCIDENT D'OUVERTURE N° 1 — TROIS COMMANDES LANCÉES AVANT LA PUBLICATION
+DES PRÉDICTIONS DU BLOC 22.** Consigné au titre de C116 (3).
+Ce qui a été lancé, dans l'ordre : (i) `ls` de la racine et de `tools/` plus
+`wc -l` sur `conventions.md` et `JOURNAL.md` — **listage de répertoire, même
+usage qu'à l'ouverture de la suite 6**, et c'est lui qui fonde la prédiction
+C124 du rang de copie ; (ii) `od -c` sur la queue du fichier de prédictions,
+pour savoir s'il finit par un saut de ligne ; (iii) ⚠ **`git log -1`**, qui
+**lit le HEAD que la garde doit mesurer**.
+**Conséquence tirée tout de suite** : la prédiction P22.5 (HEAD) est
+**publiée hors décompte** — elle n'est pas une prédiction, c'est une valeur
+déjà lue. Elle reste écrite pour que la garde ait un référent, mais elle ne
+compte ni en tenue ni en réfutée. **P22.8 et P22.9 restent au décompte** : la
+date du commit borne les dates d'écriture par le haut, elle ne les donne pas
+— une `mtime` n'est pas dérivable d'une date de commit.
+
+---
+
+## Bloc 22 — `batterie.ps1 -Phase garde` (garde de péremption d'ouverture)
+
+Commande prévue :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+### Déclaration C131 du bloc 22 (population, versements, total)
+
+**Population du compteur `fichiers modifies non commites`** : la sortie de
+`git status --porcelain` sur **tout le dépôt**, sans filtre ; le second terme
+est la même sortie moins les lignes contenant `batterie-sortie` ou
+`predictions-` (filtre lu dans le code de `batterie.ps1`, étape 1, pas dans
+son en-tête).
+
+**Artefacts que la séance a déjà versés dans cette population au moment où le
+bloc s'exécute**, nommément :
+1. `tools/predictions-260829.md` — **suivi par git**, modifié par l'appende de
+   l'en-tête de séance, de cette déclaration et des prédictions ci-dessous
+   ⇒ **1 ligne ` M`**.
+2. `tools/batterie-sortie-2908b44.txt` — créé par l'**étape 0 du lancement
+   courant** (copie C124), suivi par git puisque le `.gitignore` n'exclut que
+   `tools/batterie-sortie.txt` par chemin exact ⇒ **1 ligne `??`**.
+
+`tools/batterie-sortie.txt` est **ignoré** (chemin exact) et ne compte pas.
+
+**Total impliqué : 1 + 1 = 2.** Les deux lignes sont prises par le filtre.
+**Hors artefacts de séance : 0**, et le **chiffre se lit contre sa liste
+nominative** (C116 (9)) : *aucun fichier attendu* — le dépôt est propre depuis
+le commit de clôture des arbitrages, aucune fiche de `content/`, aucun outil
+de `tools/`, aucun fichier de pilotage n'a été écrit depuis.
+
+### Prédictions du bloc 22
+
+**Étape 0 — autocontrôle ASCII (C122) + sauvegarde C124**
+
+- **P22.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P22.2** — `sortie precedente copiee : tools\batterie-sortie-2908b44.txt`.
+  Rang lu au listage de `tools/` : `b1` à `b43` existent, premier rang libre
+  **44**.
+- **P22.3** — `--- code de sortie : 0`.
+
+**Étape 1 — garde de péremption**
+
+- **P22.4** — `phase demandee : garde   anneau : 2   chevron : False`.
+- **P22.5** *(hors décompte, cf. incident n° 1)* — `HEAD git : e20cd44
+  2026-08-29 22:39:55 +0200`, commit « arbitrages a et b rendus: clause de
+  perimetre C109, clause C125, S8 reduit ».
+- **P22.6** — `date ISO : 2026-08-29`, **heure ≥ 22:39:55** (postérieure au
+  commit de HEAD) et ≤ `23:59:59`.
+- **P22.7** — `fichiers modifies non commites : 2   (hors artefacts de
+  seance : 0)`, par la déclaration C131 ci-dessus, ses deux versements
+  nommés et son total.
+- **P22.8** — `node : v24.15.0`.
+- **P22.9** — `JOURNAL.md` : date `2026-08-29`, heure **strictement
+  postérieure à 22:28:55** (relevé de la garde `b44` de la suite 9) et
+  **antérieure à 22:39:55** (le bloc de clôture a écrit l'entrée avant le
+  commit).
+- **P22.10** — `conventions.md` : date `2026-08-29`, heure **strictement
+  postérieure à 21:45:41** (même relevé) et **antérieure à 22:39:55** — les
+  deux clauses documentées à la clôture y ont été écrites.
+- **P22.11** — `TODO.md` : **exactement `2026-08-29 21:48:08`**, inchangé —
+  la clôture des arbitrages n'a touché ni le TODO ni le BACKLOG.
+- **P22.12** — **aucune ligne de fiche** sous les trois fichiers de pilotage :
+  la phase `garde` est lancée sans `-Fiches` ni `-FichesEn`.
+- **P22.13** — `--- code de sortie : 0`.
+
+**Total : 13 prédictions publiées, dont 1 hors décompte (P22.5) ⇒ 12 au
+décompte.**
+
+### Bilan prédictions/constats du bloc 22
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P22.1 | `lignes non ASCII … : 0` | **0** | tenue |
+| P22.2 | copie `…-2908b44.txt` | **`tools\batterie-sortie-2908b44.txt`** | tenue |
+| P22.3 | code de sortie 0 (étape 0) | **0** | tenue |
+| P22.4 | `phase demandee : garde   anneau : 2   chevron : False` | idem | tenue |
+| P22.5 | HEAD `e20cd44 2026-08-29 22:39:55 +0200` | idem | **hors décompte** |
+| P22.6 | date `2026-08-29`, heure ≥ 22:39:55 | **22:43:07** | tenue |
+| P22.7 | `2   (hors artefacts de seance : 0)` | **2 / 0** | tenue |
+| P22.8 | `node : v24.15.0` | idem | tenue |
+| P22.9 | `JOURNAL.md` dans ]22:28:55 ; 22:39:55[ | **22:37:16** | tenue |
+| P22.10 | `conventions.md` dans ]21:45:41 ; 22:39:55[ | **22:35:46** | tenue |
+| P22.11 | `TODO.md` = `21:48:08` exactement | **21:48:08** | tenue |
+| P22.12 | aucune ligne de fiche | aucune | tenue |
+| P22.13 | code de sortie 0 (étape 1) | **0** | tenue |
+
+**12 prédictions au décompte, 12 tenues, 0 réfutée.** Aucun état inattendu :
+HEAD conforme au commit de clôture des arbitrages, `git status` juste sur ses
+deux termes et sur sa liste nominative vide, dates de pilotage antérieures au
+commit, `TODO.md` intact. **La garde ne mord pas ; on écrit.**
+
+---
+
+## Bloc 23 — cadrage du lot 5 (composition, volumes, candidats C109)
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/mcu/stm32/stm32-prise-en-main.md,embarque/mcu/stm32/stm32-arduino-core.md`
+2. `node tools/mesure-chevron.mjs --lot embarque/mcu/stm32/stm32-prise-en-main.md embarque/mcu/stm32/stm32-arduino-core.md > tools/chevron-lot5-avant.txt`
+
+### Décision C117 n° 1 — composition du lot, prise seule, avec son coût de revert
+
+**Le lot 5 est `stm32-prise-en-main` + `stm32-arduino-core`.** Le module se
+coupe en **2 + 3** et non en 4 + 1.
+
+*Le dossier, sur des chiffres tous mesurés le 29/08 (sortie `b43`, étape
+`--anneau` et `mesure-chevron --tout`) :*
+
+| fiche | `tot` | `ded` | `deh` | porteuse |
+|---|---|---|---|---|
+| `stm32-prise-en-main` | 1 810 | 114 | **1 694** | oui (4 cl / 2 bl) |
+| `stm32-arduino-core` | 1 709 | 53 | **1 654** | oui (4 cl / 2 bl) |
+| `stm32-cubemx` | 1 675 | 0 | **1 675** | non |
+| `stm32-hal` | 1 579 | 0 | **1 579** | non |
+| `stm32-registres` | 1 472 | 0 | **1 472** | non |
+| **module entier** | **8 245** | **167** | **8 074** | 2 |
+
+**La borne 6 657 admet plusieurs découpes ; elle ne tranche donc pas ici**,
+contrairement au lot 4 où elle était le seul critère. Les critères de rang
+inférieur, dans l'ordre où le registre les a déjà employés :
+
+1. **Pas de fiche orpheline.** Écarte les découpes 4 + 1 — dont la seule qui
+   passe, « tout sauf `stm32-registres` », sort à `deh` **6 602** pour
+   **55 de marge**, la plus étroite jamais retenue (lots 3 et 4 : 1 677 et
+   1 347).
+2. **Palier du hub.** `stm32.md` classe par difficulté : `stm32-prise-en-main`
+   au palier 1 (L73), `stm32-arduino-core` au palier 2 (L81), et
+   `stm32-cubemx` / `stm32-hal` / `stm32-registres` **ensemble au palier 3**
+   (L93-95). Les lots 2 et 3 d'`esp32/` se sont composés par palier.
+3. **Couture de la source.** L53 et L54 du hub sont les **deux portes** — la
+   *porte de continuité* (Arduino-core) et la *porte du métier* (outillage
+   natif ST) —, et L54 tient CubeMX, la HAL et le registre dans **une seule
+   phrase de chaîne**. Couper entre `arduino-core` et `cubemx` coupe entre
+   deux phrases ; couper à l'intérieur du palier 3 coupe dans une phrase.
+4. **Cohésion de vocabulaire, qui est le critère propre à un lot de
+   traduction.** Les deux fiches retenues partagent la langue de la prise en
+   main et du cadre Arduino ; les trois autres partagent celle de la
+   génération de code, de la HAL et du registre.
+5. **C127.** Les **deux porteuses du module — et les deux dernières de
+   l'anneau 2 — sont exactement les deux fiches retenues.** Le lot 5 porte
+   donc tout le chevron du module, et le lot 6 n'en portera aucun.
+
+⚠ **Ce que la décision coûte, écrit avant de la jouer.** Le lot n'utilise que
+**3 348 des 6 657** de la borne, soit la moitié : c'est le lot le plus léger de
+la série (lots 3 et 4 : 4 980 et 5 310). **Le nombre total de lots ne change
+pas** — le module se ferme en deux quoi qu'il arrive —, donc le coût est un
+lot 5 court et un lot 6 à 4 726 qui garde 1 931 de marge pour absorber des
+voisines de l'anneau. **Revert = coût nul avant le cadrage**, et
+`git checkout` de 2 fiches + 2 `--recaler` après.
+
+### Déclaration C131 du bloc 23 (population, versements, total)
+
+**Population** : `git status --porcelain` sur tout le dépôt ; second terme =
+la même sortie moins `batterie-sortie` et `predictions-`.
+
+**Versements de la séance présents au moment où l'étape 1 lit le compteur** :
+1. `tools/predictions-260829.md` — suivi, modifié, 1 ligne ` M` ;
+2. `tools/batterie-sortie-2908b44.txt` — créé par le **bloc 22**, 1 `??` ;
+3. `tools/batterie-sortie-2908b45.txt` — créé par l'**étape 0 du lancement
+   courant**, 1 `??`.
+
+**Total impliqué : 1 + 1 + 1 = 3**, les trois pris par le filtre, donc **hors
+artefacts : 0**, contre une **liste nominative vide** (aucune fiche de
+`content/`, aucun outil, aucun fichier de pilotage écrit depuis `e20cd44`).
+
+⚠ `tools/chevron-lot5-avant.txt` est créé par la **seconde** commande du bloc,
+donc **après** la lecture du compteur : il ne pèse pas ici et pèsera **1** au
+bloc suivant.
+
+### Prédictions du bloc 23
+
+**Batterie, étape 0**
+
+- **P23.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P23.2** — `sortie precedente copiee : tools\batterie-sortie-2908b45.txt`.
+- **P23.3** — `--- code de sortie : 0`.
+
+**Batterie, étape 1 — garde de péremption avant le cadrage**
+
+- **P23.4** — `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P23.5** — `HEAD git : e20cd44 2026-08-29 22:39:55 +0200`, **inchangé**
+  depuis le bloc 22.
+- **P23.6** — `date ISO : 2026-08-29`, heure **supérieure ou égale à
+  22:43:07**.
+- **P23.7** — `fichiers modifies non commites : 3   (hors artefacts de
+  seance : 0)`, par la déclaration C131 ci-dessus.
+- **P23.8** — `node : v24.15.0`.
+- **P23.9** — les trois fichiers de pilotage **inchangés à la seconde près** :
+  `JOURNAL.md 2026-08-29 22:37:16`, `conventions.md 2026-08-29 22:35:46`,
+  `TODO.md 2026-08-29 21:48:08`.
+- **P23.10** — deux lignes de fiche, dans l'ordre `-Fiches` :
+  `embarque/mcu/stm32/stm32-prise-en-main.md` puis
+  `embarque/mcu/stm32/stm32-arduino-core.md`, **aucune `ABSENTE`**.
+- **P23.11** *(terme décomposé, celui qui peut réfuter)* — leurs deux dates
+  sont **antérieures à `2026-08-29 22:14:08`** (l'écriture de la passe C109 du
+  lot 4, qui n'a touché que `teensy/`) **et égales entre elles**, les deux
+  fiches n'ayant pas été rouvertes depuis le chantier FR de nommage du 29/08.
+
+**Batterie, étape 2 — `compter-mots --lot`**
+
+- **P23.12** — `embarque/mcu/stm32/stm32-prise-en-main.md` **1810**.
+- **P23.13** — `embarque/mcu/stm32/stm32-arduino-core.md` **1709**.
+- **P23.14** — `LOT (2 fiches)` **3519**.
+
+**Batterie, étape 3 — `--style` sur les deux sources FR**
+
+- **P23.15** — `2 fiche(s) lue(s), 2 a reprendre.`
+- **P23.16** — les quatre compteurs à verdict mécanique ou hors sujet FR sont
+  **nuls** : `typographie francaise : 0`, `virgule ambigue : 0`,
+  `C109 creees en EN : 0`, `hors alphabet latin : 0`.
+- **P23.17** — `C109 de prose` : **entre 30 et 45**, point estimé **36**.
+  *Base : le lot 4 rend 57 pour 5 539 mots `tot`, soit 10,3 pour mille ; 3 519
+  mots à cette densité donnent 36.*
+- **P23.18** — `hors perimetre` : **entre 8 et 18**, point estimé **12**.
+  *Base : 19 pour 5 539 au lot 4, soit 3,4 pour mille.* ⚠ Le compteur porte
+  **quatre familles** dans le code (dont `tiret d intervalle numerique`) que sa
+  ligne de bilan ne nomme pas — C116 (7).
+- **P23.19** — `--- code de sortie : 0`.
+
+**Batterie, étape 4 — `--anneau 2`**
+
+- **P23.20** — `anneau 0 (index de depart) : 4`, `cibles BRUTES : 222`,
+  `deja vues aux rangs 0..1 : 77`, `ANNEAU 2 NET : 145`.
+- **P23.21** — `deja traduites : 107`, `RESTANT : 38`.
+- **P23.22** — `RESTANT DE L ANNEAU 2 (38 fiches)   56182`.
+- **P23.23** — `fiches porteuses : 2`, `clotures en chevron : 8`.
+- **P23.24** — `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)` et
+  `CIBLES SANS FICHE (6)` : `[[FC]] [[FP]] [[FS]] [[critere]] [[flexibilite]]
+  [[niveau]]`.
+- **P23.25** — dette : `fiches sources (traduites) : 201`,
+  `cibles rouges distinctes : 39`, `mots : 57022`,
+  `dont HORS anneaux 0..2 : 0`.
+
+**Commande 2 — `mesure-chevron --lot` (C127, deux volumes)**
+
+- **P23.26** — `fiches nommees : 2   porteuses : 2`.
+- **P23.27** — `stm32-prise-en-main.md` : `4 cl   2 bl   1810 tot   114 ded
+  1694 deh    2 etiq    6.3 %`.
+- **P23.28** — `stm32-arduino-core.md` : `4 cl   2 bl   1709 tot    53 ded
+  1654 deh    2 etiq    3.1 %`.
+- **P23.29** — `LOT (2 porteuses)` : `8 cl   4 bl   3519 tot   167 ded   3348
+  deh    4 etiq`.
+- **P23.30** — **aucune colonne `ECART`** n'est imprimée (elle ne sort que si
+  elle diffère d'`etiq`).
+
+**Verdict de borne, à publier au gate G1**
+
+- **P23.31** — le lot sort à **`tot` 3 519 / `deh` 3 348** (C127 : les deux
+  ensemble, jamais l'un sans l'autre), soit **3 309 de marge** sous la borne
+  6 657, et **3 348 + 4 726 = 8 074**, le `deh` du module entier — *la
+  décomposition se vérifie terme à terme, un total juste n'en est pas la
+  preuve.*
+
+**Total : 31 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 23 — gate G1 (fin de cadrage)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P23.1 | ASCII 0 | **0** | tenue |
+| P23.2 | copie `…-2908b45.txt` | idem | tenue |
+| P23.3 | code de sortie 0 | **0** | tenue |
+| P23.4 | `cadrage / 2 / False` | idem | tenue |
+| P23.5 | HEAD `e20cd44 … 22:39:55` inchangé | idem | tenue |
+| P23.6 | heure ≥ 22:43:07 | **22:48:47** | tenue |
+| P23.7 | `3   (hors artefacts : 0)` | **3 / 0** | tenue |
+| P23.8 | `node : v24.15.0` | idem | tenue |
+| P23.9 | pilotage inchangé à la seconde | **22:37:16 / 22:35:46 / 21:48:08** | tenue |
+| P23.10 | 2 lignes de fiche, dans l'ordre, aucune `ABSENTE` | idem | tenue |
+| P23.11 | dates < 22:14:08 **et égales entre elles** | **2026-08-20 16:39:12 et 16:34:23** | **RÉFUTÉE** |
+| P23.12 | `stm32-prise-en-main` 1810 | **1810** | tenue |
+| P23.13 | `stm32-arduino-core` 1709 | **1709** | tenue |
+| P23.14 | `LOT (2 fiches)` 3519 | **3519** | tenue |
+| P23.15 | `2 fiche(s) lue(s), 2 a reprendre.` | idem | tenue |
+| P23.16 | quatre compteurs nuls | **0 / 0 / 0 / 0** | tenue |
+| P23.17 | `C109 de prose` 30-45, point 36 | **34** | tenue |
+| P23.18 | `hors perimetre` 8-18, point 12 | **12** | tenue |
+| P23.19 | code de sortie 0 | **0** | tenue |
+| P23.20 | 4 / 222 / 77 / 145 | idem | tenue |
+| P23.21 | `deja traduites : 107`, `RESTANT : 38` | idem | tenue |
+| P23.22 | `RESTANT … (38 fiches)  56182` | idem | tenue |
+| P23.23 | porteuses 2, clôtures 8 | idem | tenue |
+| P23.24 | 0 atteignable, 6 cibles sans fiche nommées | idem | tenue |
+| P23.25 | 201 / 39 / 57022 / 0 | idem | tenue |
+| P23.26 | `fiches nommees : 2   porteuses : 2` | idem | tenue |
+| P23.27 | `4 cl 2 bl 1810 tot 114 ded 1694 deh 2 etiq 6.3 %` | idem | tenue |
+| P23.28 | `4 cl 2 bl 1709 tot 53 ded 1654 deh 2 etiq 3.1 %` | idem | tenue |
+| P23.29 | `LOT (2 porteuses) 8 cl 4 bl 3519 tot 167 ded 3348 deh 4 etiq` | idem | tenue |
+| P23.30 | aucune colonne `ECART` | aucune | tenue |
+| P23.31 | `tot` 3 519 / `deh` 3 348, marge 3 309, et 3 348 + 4 726 = 8 074 | idem | tenue |
+
+**31 prédictions, 30 tenues, 1 réfutée — taux 3,2 %.**
+
+⚠ **LA SEULE RÉFUTATION EST LE TERME QUI AVAIT ÉTÉ ÉCRIT POUR RÉFUTER, ET IL
+A RÉFUTÉ UNE HYPOTHÈSE NON MESURÉE.** P23.11 portait deux termes : une borne
+supérieure et une égalité. **La borne tient largement — les deux fiches datent
+du 2026-08-20, neuf jours avant la séance.** L'égalité, elle, supposait que le
+**chantier FR de nommage du 29/08 avait touché ces deux fiches** et les avait
+écrites dans la même passe. **Il ne les a pas touchées du tout** : leurs
+`mtime` sont celles de la relecture de fond d'août, et elles diffèrent de
+4 minutes 49. *L'hypothèse « ces fiches ont été réécrites récemment, donc
+ensemble » était une déduction sur une population que je n'avais pas relevée ;
+le terme décomposé l'a rendue réfutable au lieu de la laisser passer sous un
+verdict global « dates antérieures à la passe du lot 4 », qui aurait été juste
+et muet.* **Aucune conséquence sur le lot** : la garde de péremption ne
+cherchait qu'une écriture postérieure au dernier relevé, et il n'y en a pas.
+
+✅ **LE VERDICT DE BORNE EST RENDU, ET SA DÉCOMPOSITION TIENT TERME À TERME.**
+`tot` **3 519** / `deh` **3 348** (C127, les deux ensemble), **3 309 de marge**
+sous 6 657. La somme des deux lots du module, **3 348 + 4 726 = 8 074**, rend
+le `deh` du module entier mesuré à `b43` — *et c'est la vérification terme à
+terme, pas le total, qui prouve que la découpe ne perd ni ne double une fiche.*
+
+✅ **LES DEUX ESTIMATIONS DE DENSITÉ TOMBENT DANS LEUR FOURCHETTE, ET PRÈS DE
+LEUR POINT.** `C109 de prose` **34** pour 36 estimé (densité réelle 9,7 pour
+mille contre 10,3 au lot 4) ; `hors perimetre` **12** pour 12 estimé. *Deux
+lots suffisent à faire de la densité C109 un prédicteur utilisable — à
+surveiller, deux points ne font pas une loi.*
+
+---
+
+# GATE G1 — FIN DE CADRAGE (prédictions publiées, borne rendue)
+
+**Lot 5 = `stm32-prise-en-main` + `stm32-arduino-core`**, `tot` **3 519** /
+`deh` **3 348**, marge **3 309** sous 6 657, **2 porteuses sur 2** (C127 en
+plein). `--style` rend **34** candidats C109 de prose. Anneau 2 : **145 net,
+107 traduites, 38 restantes, 56 182 mots**. Dette **39 / 57 022**. Garde de
+péremption **au vert** aux deux blocs. **31 prédictions, 30 tenues.**
+
+---
+
+## Bloc 24 — éprouvage du motif des puces (C110, bilingue) et relevé du lot
+
+Bloc de **mesure seule** : aucune écriture dans `content/`.
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+   (garde avant passe, sous-règle C116 (5))
+2. le motif des puces sur les **quatre échantillons nommés**, FR et EN
+3. le motif des puces sur les **deux sources du lot 5**, en mode `--lister`
+
+### Le motif, publié avant son lancement
+
+Écrit en **node sur des points de code**, jamais en `grep` sur des octets
+(C110). Il vit dans le répertoire de travail de la séance, et **son texte est
+ici** :
+
+- **front matter** retiré, et **seulement s'il ouvre le fichier** ;
+- **blocs de code** masqués par bascule sur `/^\s{0,3}```/` **après retrait du
+  préfixe de citation** `/^(\s{0,3}>\s?)+/` — le masque C110 est ancré en début
+  de ligne et ne voit pas `> ```cpp` (angle mort du chevron, C127) ;
+- **section courante** lue sur `/^\s{0,3}(#{2,6})\s+(.*)$/`, normalisée en
+  bas de casse, ponctuation de queue retirée ;
+- **exclusion** si la section courante est l'une des **cinq** :
+  `voir aussi`, `aller plus loin`, `see also`, `going further`,
+  `further reading` ;
+- **puce** : `/^\s{0,6}[-*+]\s+/` sur la ligne déchevronnée ;
+- **retenue** si elle contient `—` (U+2014).
+
+⚠ `further reading` **reste dans la liste** bien que le correctif É1 du 29/08
+(suite 9) l'ait fait disparaître du corpus : l'y laisser rend le motif capable
+de le prouver.
+
+### Échantillons nommés, choisis pour contenir ce qui peut faire mordre à tort
+
+**Règle d'usage du 29/08 (suite 9) : un motif qui balaie les deux corpus
+s'éprouve sur un échantillon de CHAQUE langue.** Les quatre échantillons ont
+leur réponse **déjà publiée** au registre, et ils portent les pièges du motif :
+gloses licites des sections de liens (les deux titres FR **et** les trois EN),
+puces à l'intérieur de callouts, blocs de code chevronnés des corrigés
+d'exercice, tirets d'intervalle numérique (`D0`–`D15`), en-dash contre em-dash.
+
+### Déclaration C131 du bloc 24 (population, versements, total)
+
+**Population** : `git status --porcelain`, tout le dépôt ; second terme = la
+même sortie moins `batterie-sortie` et `predictions-`.
+
+**Versements présents quand l'étape 1 lit le compteur, nommément :**
+1. `tools/predictions-260829.md` — **1**, filtré ;
+2. `tools/batterie-sortie-2908b44.txt` (bloc 22) — **1**, filtré ;
+3. `tools/batterie-sortie-2908b45.txt` (bloc 23) — **1**, filtré ;
+4. `tools/batterie-sortie-2908b46.txt` (étape 0 du lancement courant) — **1**,
+   filtré ;
+5. ⚠ `tools/chevron-lot5-avant.txt` (seconde commande du bloc 23) — **1**,
+   **compté** : il ne porte ni `batterie-sortie` ni `predictions-`.
+
+**Total impliqué : 5. Hors artefacts de séance : 1**, et la **liste nominative
+du chiffre hors artefacts tient en un nom** : `tools/chevron-lot5-avant.txt`.
+Aucune fiche de `content/` n'a encore bougé.
+
+⚠ Le script du motif est écrit dans le **répertoire de travail hors dépôt** :
+il ne pèse pas au compteur. *C'est une commodité, pas une doctrine — sa trace
+est le texte publié ci-dessus.*
+
+### Prédictions du bloc 24
+
+**Garde**
+
+- **P24.1** — `sortie precedente copiee : tools\batterie-sortie-2908b46.txt`,
+  `lignes non ASCII : 0`.
+- **P24.2** — `HEAD git : e20cd44 2026-08-29 22:39:55 +0200`, inchangé.
+- **P24.3** — `fichiers modifies non commites : 5   (hors artefacts de
+  seance : 1)`, par la déclaration ci-dessus.
+- **P24.4** — les trois fichiers de pilotage **inchangés à la seconde** :
+  `22:37:16 / 22:35:46 / 21:48:08`.
+- **P24.5** — `node : v24.15.0`, codes de sortie **0**.
+
+**Épreuve C110 du motif — échantillon FR n° 1, lot 3 d'`esp32/`**
+
+- **P24.6** — `esp32-deep-sleep` **2**, `esp32-arduino-core` **2**,
+  `esp32-freertos` **4**, `esp32-idf` **4**, **TOTAL 12**.
+  *Réponse publiée : la suite 8 déclare « 20 tombent, 12 restent ».*
+
+**Épreuve C110 du motif — échantillon EN n° 1, lot 3 d'`esp32/`**
+
+- **P24.7** — `esp32-deep-sleep-en` **2**, `esp32-arduino-core-en` **1**,
+  `esp32-freertos-en` **4**, `esp32-idf-en` **4**, **TOTAL 11**.
+  ⚠ *La réponse publiée est **11 et non 12**, et l'asymétrie est nommée : la
+  puce de trop est `esp32-arduino-core` L26, dont la jumelle EN rend le tiret
+  par une virgule. Un motif juste doit rendre 11 ici — **prédire 12 serait
+  prédire la symétrie, pas la mesure**.*
+
+**Épreuve C110 du motif — échantillons FR et EN n° 2, lot 4 (`teensy/`)**
+
+- **P24.8** — FR : `teensy-arduino-core` **0**, `teensy-audio` **3**,
+  `teensy-prise-en-main` **0**, `teensy-usb` **7**, **TOTAL 10**.
+- **P24.9** — EN : **0 / 3 / 0 / 7**, **TOTAL 10**, décomposition identique
+  fiche par fiche.
+
+**Relevé du lot 5**
+
+- **P24.10** — `stm32-prise-en-main.md` : **2** puces à tiret hors sections de
+  liens, **les deux sous `## Raccrochage projet`**.
+- **P24.11** — `stm32-arduino-core.md` : **8**, réparties **2** sous
+  `## À quoi ça sert ?`, **1** sous `## Le même code qu'Arduino, presque`,
+  **1** sous `## Ce qui change sous le capot`, **2** sous
+  `## Cas particulier — PlatformIO et la bascule vers le natif`, **2** sous
+  `## Raccrochage projet`.
+- **P24.12** — **TOTAL lot 5 : 10**.
+- **P24.13** *(terme qui peut réfuter le masque, et non le compte)* — **aucune
+  ligne retenue ne vient d'un corrigé d'exercice** (bloc `cpp`/`c` chevronné),
+  **aucune de la liste `- **les broches se nomment par leur port**…`** qui
+  porte un **en-dash** `–` dans `D0`–`D15` et `A0`–`A5` et **non** un em-dash,
+  **aucune du front matter** (`tags`, `prerequis`, `aa`, `phases`).
+
+**Total : 13 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 24
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P24.1 | copie `…b46.txt`, 0 non ASCII | idem | tenue |
+| P24.2 | HEAD `e20cd44 … 22:39:55` | idem | tenue |
+| P24.3 | `5   (hors artefacts : 1)` | **5 / 1** | tenue |
+| P24.4 | pilotage `22:37:16 / 22:35:46 / 21:48:08` | idem | tenue |
+| P24.5 | `node : v24.15.0`, codes 0 | idem | tenue |
+| P24.6 | FR lot 3 : **2 / 2 / 4 / 4 = 12** | **2 / 2 / 4 / 4 = 12** | tenue |
+| P24.7 | EN lot 3 : **2 / 1 / 4 / 4 = 11** | **2 / 1 / 4 / 4 = 11** | tenue |
+| P24.8 | FR lot 4 : **0 / 3 / 0 / 7 = 10** | idem | tenue |
+| P24.9 | EN lot 4 : **0 / 3 / 0 / 7 = 10** | idem | tenue |
+| P24.10 | `stm32-prise-en-main` **2**, sous `Raccrochage projet` | **2**, L172 et L173 | tenue |
+| P24.11 | `stm32-arduino-core` **8**, décomposées 2 / 1 / 1 / 2 / 2 | L25 L26 / L71 / L82 / L180 L181 / L185 L186 | tenue |
+| P24.12 | **TOTAL 10** | **10** | tenue |
+| P24.13 | ni corrigé d'exercice, ni en-dash `D0`–`D15`, ni front matter | aucune des trois familles | tenue |
+
+**13 prédictions, 13 tenues, 0 réfutée.**
+
+✅ **LE MOTIF REPRODUIT LES QUATRE RÉPONSES PUBLIÉES, FICHE PAR FICHE ET DANS
+LES DEUX LANGUES.** C'est la première fois qu'un motif bilingue de ce chantier
+est éprouvé **sur un échantillon par langue avant d'être lancé** — la règle
+d'usage du 29/08 (suite 9), née de la réfutation où le même motif rendait
+**44 au lieu de 10** côté anglais. **Le terme qui prouve le plus est P24.7** :
+l'échantillon EN rend **11 et non 12**, et prédire 12 aurait été prédire la
+symétrie plutôt que la mesure. *Un motif qui rend l'asymétrie connue est un
+motif qui mesure ; un motif qui rend la symétrie attendue est un motif qui
+confirme ce qu'on croit.*
+
+---
+
+## Bloc 25 — passe C109 du lot 5 (33 remplacements sur 2 sources FR)
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. `node tools/remplacer-passe.mjs tools/passe-negatif-stm32-2908.tsv` *(test
+   négatif délibéré, sans `--ecrire`)*
+3. `node tools/remplacer-passe.mjs tools/passe-c109-stm32-2908.tsv` *(contrôle
+   seul)*
+4. `node tools/remplacer-passe.mjs tools/passe-c109-stm32-2908.tsv --ecrire`
+5. remesure immédiate : `git diff --numstat`, `compter-mots --lot`,
+   `mesure-chevron --lot`, `--style`, motif des puces, `git status`
+
+### Décision C117 n° 2 — la doctrine d'exemption de la suite 9 est reconduite
+
+**Elle n'est pas neuve** : elle a été publiée avant la passe du 29/08 (suite 9),
+appliquée à **87 jugements**, et la clôture rend **zéro réfutation sur un
+verdict**. Rappel de sa lettre : C123 est une condition **nécessaire**
+d'exemption, **jamais suffisante** ; les exemptions préexistantes sont **deux**
+— la **glose de tête** (`Libellé — segment sans sujet propre`, borne du 25/08,
+cas 2 de l'amendement) et l'**incise à deux tirets qui énumère au moins deux
+items** (précédent `raspberry-pi` du 25/08 : un seul objet nommé **tombe**,
+deux exemples **restent**) ; **hors de ces deux formes, un tiret de prose
+tombe, quelle que soit la nature du segment de droite**.
+
+⚠ **Elle mord ici sur trois cas où C123 seule aurait exempté**, et c'est le
+seul endroit du lot où elle décide : `stm32-arduino-core` L25
+(`— sans plonger dans l'outillage natif`), L26 (`— sans tout réécrire`) et
+L180 (`— pratique dès que le projet grossit`) portent un segment de droite
+**sans verbe conjugué**, mais en **milieu de prose de puce**, ni glose de tête
+ni incise encadrée. **Revert = 3 remplacements.**
+
+✅ **ET LE CAS L26 EST LITTÉRALEMENT CELUI QUE LA SUITE 9 A LAISSÉ OUVERT.**
+La réfutation P19.7 a mesuré un écart FR/EN sur `esp32-arduino-core` L26 —
+*« quand on a besoin de finesse — sans tout réécrire »* —, dont **la jumelle
+anglaise rend déjà le tiret par une virgule**, et l'a versé à la file du
+chantier des puces. `stm32-arduino-core` L26 porte **la même phrase**, à
+`STM32duino` près : la traiter ici, c'est écrire la jumelle EN dans la forme
+que l'anglais a déjà choisie, au lieu de fabriquer une seconde asymétrie.
+*La famille Arduino-core répète ses phrases d'une fiche à l'autre ; une
+doctrine qui tranche différemment sur deux occurrences de la même phrase est
+une doctrine qui a un défaut.*
+
+### Verdict des 44 candidats — 37 traités, 6 exemptés, 1 hors périmètre
+
+| source | `--style` | dont traités | dont exemptés | dont hors périmètre | puces | dont traitées | **remplacements** |
+|---|---|---|---|---|---|---|---|
+| `stm32-prise-en-main` | 19 | 15 | 4 | 0 | 2 | 2 | **16** |
+| `stm32-arduino-core` | 15 | 12 | 2 | 1 | 8 | 8 | **17** |
+| **lot** | **34** | **27** | **6** | **1** | **10** | **10** | **33** |
+
+*Les remplacements (33) sont moins nombreux que les occurrences traitées (37)
+parce qu'une **incise à deux tirets** compte **deux** occurrences pour **une**
+édition — trois cas : `prise-en-main` L17, `arduino-core` L18 et L188 — et
+parce que `arduino-core` L71 porte un tiret de puce **et** un point-virgule que
+**une seule** réécriture de la puce résout.*
+
+**Les 6 exemptions, toutes de la même forme — l'incise à deux tirets qui
+énumère au moins deux items :**
+
+| fiche | l. | incise | items |
+|---|---|---|---|
+| `stm32-prise-en-main` | 46 | `Ces repères — LED LD2, bouton B1, connecteurs — sont communs…` | **3** noms |
+| `stm32-prise-en-main` | 110 | `Ce **petit pas** — modifier, flasher, observer le changement attendu — est le geste…` | **3** infinitifs |
+| `stm32-arduino-core` | 174 | `Le reste — \`pinMode\`, \`digitalRead\`, \`digitalWrite\` — est strictement le même vocabulaire…` | **3** noms de fonctions |
+
+⚠ **Et les deux incises encadrées qui TOMBENT le sont pour la même règle, prise
+par l'autre bout** : `arduino-core` L18 (`— couramment appelé **STM32duino** —`)
+et L188 (`— le même socle que l'outillage natif —`) **nomment un seul objet**,
+comme le `— Linux —` de `raspberry-pi` que le 25/08 a fait tomber. **Cinq
+incises encadrées dans le lot, trois restent, deux tombent, et le critère est
+le nombre d'items — jamais la forme encadrante.** *C'est la première fois que
+la borne du 25/08 est éprouvée sur ses deux faces dans un seul lot.*
+
+### ⚠ HORS PÉRIMÈRE — UN INTERVALLE D'ALIAS QUE LE GARDE-FOU DE `--style` NE VOIT PAS
+
+`stm32-arduino-core` L69 porte **deux demi-cadratins** `\`D0\`–\`D15\`` et
+`\`A0\`–\`A5\`` (U+2013, mesuré à l'octet : `342 200 223`). **Ce sont des
+intervalles, pas des incises** — exactement ce que l'exemption
+`tiret d intervalle numerique` du 24/08 (arbitrage Tim (a)) existe pour
+écarter. **Le code ne les écarte pas** : sa garde, lue là où elle
+s'incrémente (C116 (7)), exige un **chiffre nu** de part et d'autre —
+`/\d/.test(ligne[m.index - 1])` —, et ici les voisins sont des **accents
+graves de code inline**. Le premier des deux est malgré tout silencieux, mais
+**pour une autre raison** : `exemptions()` exempte le **premier tiret de toute
+ligne de puce** en tant que séparateur de glose. **Le second remonte donc en
+`C109 de prose`, et il y restera après la passe.**
+
+*Deux conséquences, et la seconde est la plus utile.* (1) Le chiffre résiduel
+de `--style` sera **7 et non 6** : six exemptions plus cet intervalle.
+(2) **La garde d'intervalle et la garde de glose de puce se recouvrent par
+accident** : sur une ligne de puce, le premier intervalle est masqué par une
+règle qui n'a rien à voir avec les intervalles. *Un faux négatif et un faux
+positif de la même famille sur la même ligne, dont un seul se voit.*
+**Versé à la file des arbitrages, non traité, non corrigé d'office.**
+
+### Déclaration C131 du bloc 25 (population, versements, total)
+
+**Population** : `git status --porcelain`, tout le dépôt ; second terme = la
+même sortie moins `batterie-sortie` et `predictions-`.
+
+**Versements présents quand l'étape 1 de la garde lit le compteur, nommément :**
+1. `tools/predictions-260829.md` — **1**, filtré ;
+2. `tools/batterie-sortie-2908b44.txt` — **1**, filtré ;
+3. `tools/batterie-sortie-2908b45.txt` — **1**, filtré ;
+4. `tools/batterie-sortie-2908b46.txt` — **1**, filtré ;
+5. `tools/batterie-sortie-2908b47.txt`, créé par l'étape 0 du lancement
+   courant — **1**, filtré ;
+6. `tools/chevron-lot5-avant.txt` (bloc 23) — **1**, **compté** ;
+7. `tools/puces-lot5-avant.txt` (bloc 24) — **1**, **compté** ;
+8. `tools/passe-c109-stm32-2908.tsv`, **écrit avant la garde** — **1**,
+   **compté** ;
+9. `tools/passe-negatif-stm32-2908.tsv`, **écrit avant la garde** — **1**,
+   **compté**.
+
+**Total impliqué : 9. Hors artefacts de séance : 4**, liste nominative :
+`chevron-lot5-avant.txt`, `puces-lot5-avant.txt`, `passe-c109-stm32-2908.tsv`,
+`passe-negatif-stm32-2908.tsv`. **Aucune fiche de `content/` n'a encore bougé
+au moment de la garde.**
+
+⚠ **Le compteur bouge DEUX fois à l'intérieur du bloc**, et la prédiction le
+dit : l'étape 4 fait passer les deux sources FR en ` M` (**+2**), et la
+remesure de l'étape 5 dépose `tools/chevron-lot5-apres.txt` et
+`tools/puces-lot5-apres.txt` (**+2**, comptés). **Fin de bloc attendue :
+13, hors artefacts 8.**
+
+### Prédictions du bloc 25
+
+**Garde**
+
+- **P25.1** — `sortie precedente copiee : tools\batterie-sortie-2908b47.txt`,
+  `lignes non ASCII : 0`, `node : v24.15.0`.
+- **P25.2** — `HEAD git : e20cd44 2026-08-29 22:39:55 +0200`, inchangé ; les
+  trois fichiers de pilotage à `22:37:16 / 22:35:46 / 21:48:08`.
+- **P25.3** — `fichiers modifies non commites : 9   (hors artefacts de
+  seance : 4)`.
+
+**Test négatif délibéré**
+
+- **P25.4** — l'ancre `si la configuration est regeneree ; tout ce qui est
+  écrit ailleurs` — *`régénérée` privée de ses trois accents* — rend
+  `L1 INTROUVABLE`, `ancres  0/ 1`, `ancres introuvables : 1`,
+  `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, **code de sortie 1**.
+- **P25.5** — `git diff --numstat -- content/` reste **vide** après le test
+  négatif : *le refus est prouvé par le diff, pas par le message.*
+
+**Contrôle seul du lot réel**
+
+- **P25.6** — `lignes de table : 33`, `fiches : 2`,
+  `remplacements prets : 33`.
+- **P25.7** — les **cinq seaux de défaut à 0** : `ancres introuvables`,
+  `ancres multiples`, `fichiers absents`, `sans front matter`,
+  `lignes mal formees`.
+- **P25.8** — `stm32-prise-en-main.md` : `ancres 16/16` ;
+  `stm32-arduino-core.md` : `ancres 17/17`.
+- **P25.9** — `INVARIANT D ACCENTS casse sur : 0 fiche(s)`, et **écart `+0` sur
+  chacune des deux** : aucune édition ne touche une lettre accentuée — les
+  seules lettres modifiées sont des **majuscules de début de phrase sur des
+  mots non accentués** (`la→La`, `sans→Sans`, `pour→Pour`, `tout→Tout`,
+  `pas→Pas`, `les→Les`, `appui→Appui`, `le→Le`, `choisir→Choisir`,
+  `un→Un`, `appeler→Appeler`).
+- **P25.10** *(décomposée, et c'est le terme qui peut réfuter)* — points de
+  code du corps : `stm32-prise-en-main` **−13**, `stm32-arduino-core` **−14**.
+  *Décompte : chaque ` — ` ou ` ; ` remplacé par `. ` ou `, ` rend −1 ; les
+  trois remplacés par ` : ` rendent 0 ; les deux mises en parenthèses rendent
+  −1 chacune sur leurs deux tirets, soit −2 ; l'ajout de `et ` en L69 rend +1
+  net après retrait d'une virgule ; l'ajout de `car ` en L71 rend +2 net.*
+- **P25.11** — `lignes N -> N` **inchangées** sur les deux fiches : aucune
+  édition ne coupe ni ne fusionne une ligne.
+- **P25.12** — `CONTROLE SEUL : 33 remplacement(s) prets, 0 fichier ecrit.`,
+  code **0**.
+
+**Écriture**
+
+- **P25.13** — `ECRIT  content/embarque/mcu/stm32/stm32-prise-en-main.md
+  (16 remplacement(s))` et `… stm32-arduino-core.md   (17 remplacement(s))`,
+  `fichiers ecrits : 2`, code **0**.
+
+**Remesure immédiate — l'invariant de corps se prouve par `numstat`**
+
+- **P25.14** — `git diff --numstat` : `14  14` sur `stm32-prise-en-main.md`,
+  `16  16` sur `stm32-arduino-core.md`. **Ajouts = suppressions** sur les
+  deux, et **rien d'autre dans `content/`**.
+  ⚠ *Le cumul depuis HEAD est ici égal au diff du bloc : aucun fichier de
+  `content/` n'avait bougé avant.*
+- **P25.15** — les **30 numéros de ligne** du diff sont **exactement** :
+  `stm32-prise-en-main` **17, 21, 44, 52, 56, 67, 73, 91, 93, 126, 152, 164,
+  172, 173** (14) ; `stm32-arduino-core` **18, 25, 26, 69, 71, 74, 82, 114,
+  123, 137, 155, 180, 181, 185, 186, 188** (16). **Aucune ligne de front
+  matter, aucune ligne de bloc de code.**
+- **P25.16** — `compter-mots --lot` : `stm32-prise-en-main` **1810**
+  (inchangé), `stm32-arduino-core` **1711** (+2 : `et` en L69, `car` en L71),
+  `LOT (2 fiches)` **3521**.
+- **P25.17** — `mesure-chevron --lot` : `ded` **inchangé à 167** (aucune
+  édition dans un bloc en chevron), `deh` **1694 + 1656 = 3350**,
+  `tot` **3521**, `4 cl / 2 bl` par fiche, `4 etiq`. **C127 : les deux
+  volumes ensemble, `tot` 3 521 / `deh` 3 350.**
+- **P25.18** — `--style` sur les deux sources : `C109 de prose` **34 → 7**
+  (les 6 exemptions plus l'intervalle `\`A0\`–\`A5\`` de L69),
+  `hors perimetre` **12, inchangé**, et les quatre verdicts mécaniques
+  toujours **0 / 0 / 0 / 0**.
+- **P25.19** — le motif des puces rend **0** sur chacune des deux sources
+  (**10 → 0**).
+- **P25.20** — `git status` de fin de bloc : **13   (hors artefacts de
+  seance : 8)**, la liste nominative hors artefacts étant les 4 fichiers de
+  la déclaration, plus `chevron-lot5-apres.txt`, `puces-lot5-apres.txt`, et
+  les **2 sources FR** passées en ` M`.
+
+**Total : 20 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 25 — gate G2 (fin de passe)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P25.1 | copie `…b47.txt`, 0 non ASCII, `v24.15.0` | idem | tenue |
+| P25.2 | HEAD `e20cd44`, pilotage inchangé | idem | tenue |
+| P25.3 | `9   (hors artefacts : 4)` | **9 / 4** | tenue |
+| P25.4 | test négatif : `INTROUVABLE`, `0/ 1`, `REFUS : 1`, exit **1** | idem, `ancres  0/ 1` | tenue |
+| P25.5 | `git diff --numstat -- content/` vide après le refus | **vide** | tenue |
+| P25.6 | table 33, fiches 2, prêts 33 | idem | tenue |
+| P25.7 | cinq seaux de défaut à 0 | **0 / 0 / 0 / 0 / 0** | tenue |
+| P25.8 | `16/16` et `17/17` | idem | tenue |
+| P25.9 | accents écart `+0` ×2, `casse sur : 0` | **269→269**, **223→223** | tenue |
+| P25.10 | pts de code **−13** et **−14** | **12189→12176**, **12812→12798** | tenue |
+| P25.11 | lignes inchangées | **175→175**, **188→188** | tenue |
+| P25.12 | `CONTROLE SEUL : 33 … 0 fichier ecrit.`, exit 0 | idem | tenue |
+| P25.13 | 16 et 17 remplacements, `fichiers ecrits : 2`, exit 0 | idem | tenue |
+| P25.14 | `numstat` **14 14** et **16 16**, rien d'autre | idem | tenue |
+| P25.15 | les **30 numéros de ligne**, nommés un par un | **les 30, dans l'ordre** | tenue |
+| P25.16 | `1810 / 1711 / LOT 3521` | idem | tenue |
+| P25.17 | `ded` 167, `deh` **1694 + 1656 = 3350**, `tot` 3521 | idem | tenue |
+| P25.18 | `--style` **34 → 7**, `hors perimetre` 12, mécaniques 0 | **7**, **12**, **0 / 0 / 0** | tenue |
+| P25.19 | puces **10 → 0** | **0 / 0** | tenue |
+| P25.20 | `git status` **13   (hors artefacts : 8)** | **13 / 8**, les 8 nommés | tenue |
+
+**20 prédictions, 20 tenues, 0 réfutée.**
+
+✅ **DEUX INVARIANTS INDÉPENDANTS TOMBENT JUSTES, ET C'EST LE SECOND QUI
+PROUVE.** L'invariant d'accents est **nul par construction** ici — aucune
+édition ne touchait une lettre accentuée, et je l'avais écrit avant la passe.
+**L'invariant de longueur, lui, était réfutable** : `−13` et `−14` sont la
+somme de dix-sept termes signés distincts, dont deux **positifs** (`et ` en L69,
+`car ` en L71) au milieu de quinze négatifs, et trois **nuls** (les trois
+deux-points, qui occupent la même largeur que le tiret entouré d'espaces). Le
+compteur rend **12189 → 12176** et **12812 → 12798**. *Un total juste ne
+valide pas une décomposition — sauf quand la décomposition a été publiée
+terme à terme avant la mesure, et c'est le cas ici.*
+
+✅ **ET LES 30 NUMÉROS DE LIGNE SONT LES 30 ANNONCÉS.** `git diff -U0` rend
+`18, 25, 26, 69, 71, 74, 82, 114, 123, 137, 155, 180, 181, 185, 186, 188` et
+`17, 21, 44, 52, 56, 67, 73, 91, 93, 126, 152, 164, 172, 173`. **Aucune ligne
+de front matter, aucune ligne de bloc de code, ajouts = suppressions sur les
+deux fiches.** *L'invariant de corps se prouve par l'instrument qui peut le
+réfuter, jamais par `compter-mots`.*
+
+⚠ **LE RÉSIDU DE `--style` EST 7 ET NON 6, ET LE SEPTIÈME EST L'INTERVALLE
+D'ALIAS DE L69.** Prédit et mesuré. Les six autres sont les trois incises
+encadrées gardées, à deux occurrences chacune. **Le lot ne laisse aucune
+puce à tiret : 10 → 0.**
+
+---
+
+# GATE G2 — FIN DE PASSE C109
+
+**33 remplacements sur 2 sources FR, 44 candidats jugés un par un** — 34 de
+`--style`, 10 puces que `--style` ne voit pas. **37 traités, 6 exemptés,
+1 hors périmètre.** Un test négatif délibéré, refusé avant écriture. Volumes
+**`tot` 3 519 → 3 521 / `deh` 3 348 → 3 350** ; `ded` **167 inchangé**.
+`--style` **34 → 7**, puces **10 → 0**. **20 prédictions, 20 tenues.**
+
+---
+
+## Bloc 26 — titres EN (C125) et génération des deux squelettes
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. `node tools/renommer-titres.mjs tools/table-titres-negatif-lot5-2908.tsv`
+   *(test négatif délibéré)*
+3. `node tools/creer-fiche-en.mjs embarque/mcu/stm32/stm32-prise-en-main.md`
+4. `node tools/creer-fiche-en.mjs embarque/mcu/stm32/stm32-arduino-core.md`
+5. `node tools/renommer-titres.mjs tools/table-titres-lot5-2908.tsv` puis
+   `… --ecrire`
+6. `node tools/derive-traduction.mjs` et `titres-doublons.mjs`
+
+⚠ **L'ordre passe C109 → génération est contraignant** (24/08) : un squelette
+généré avant la passe porte une empreinte périmée que **seul**
+`derive-traduction` verrait. La passe est close au bloc 25 ; la génération
+vient après, jamais l'inverse.
+
+### Les deux `title:` EN, arrêtés sous C125 — formes de production relevées
+
+**`stm32-prise-en-main-en`.** Test 1 : aucun libellé de désambiguïsation
+parenthésé. **Test 2 : la famille est titrée des deux côtés et qualifiée des
+deux côtés.**
+
+| fiche | `title:` FR | `title:` EN en production |
+|---|---|---|
+| `esp32-prise-en-main` | *Prise en main de l'ESP32* | **Getting started with the ESP32** |
+| `teensy-prise-en-main` | *Prise en main du Teensy* | **Getting started with the Teensy** |
+| `esp8266-prise-en-main` | *Prise en main de l'ESP8266* | **Getting started with the ESP8266** |
+| `stm32-prise-en-main` | *Prise en main du STM32* | → **Getting started with the STM32** |
+
+**`stm32-arduino-core-en`.** Même mécanique, et c'est le cas que le brief
+annonçait.
+
+| fiche | `title:` FR | `title:` EN en production |
+|---|---|---|
+| `esp32-arduino-core` | *Programmer l'ESP32 avec l'Arduino-core* | **Programming the ESP32 with the Arduino core** |
+| `teensy-arduino-core` | *Programmer le Teensy avec l'Arduino-core* | **Programming the Teensy with the Arduino core** |
+| `esp8266-arduino-core` | *Programmer l'ESP8266 avec l'Arduino-core* | ⚠ **Programming with the Arduino core** |
+| `stm32-arduino-core` | *Programmer le STM32 avec l'Arduino-core* | → **Programming the STM32 with the Arduino core** |
+
+**Ce que la clause du 27/08 (suite 7) fait ici, et pourquoi ce n'est pas une
+descente au test 3.** La clause dit que le test 2 ne vaut pas quand les deux
+`title:` FR **diffèrent**. Ils diffèrent — mais C125 nomme elle-même le cas :
+*« le chantier FR de nommage les résout à la source en qualifiant les deux
+jumelles : le test 2 aligne alors la **racine** du titre et le qualificatif de
+famille distingue »*. **Les quatre `title:` FR sont la même racine plus un
+qualificatif de famille, et les trois `title:` EN déjà en production le sont
+aussi.** Le test 2 rend donc la racine au mot près et le qualificatif suit la
+source. **C'est la première fois du chantier que le test 2 tourne sur une
+famille qualifiée des deux côtés**, ce que le brief annonçait ; et les deux
+titres retenus **existent déjà, verbatim, comme libellés de production** —
+`[[stm32-prise-en-main-en|Getting started with the STM32]]` (1) et
+`[[stm32-arduino-core-en|Programming the STM32 with the Arduino core]]` (1).
+
+⚠ **ET LE RELEVÉ TROUVE UN DÉFAUT HORS LOT, DANS LA MÊME FAMILLE.**
+`esp8266-arduino-core-en` porte `Programming with the Arduino core` quand son
+`title:` FR porte le qualificatif `l'ESP8266`. **L'anglais y efface une
+distinction que la source française porte** — c'est le motif du 26/08 pris
+dans le sens « effacement », exactement la faute que la règle d'usage de C125
+du 29/08 (suite 5) a diagnostiquée sur `shield`. **Trois fiches de la famille
+sur quatre seront qualifiées, la quatrième non.** *Hors lot, non traité :
+`esp8266/` n'est pas dans l'anneau 2 restant et le corriger toucherait une
+fiche EN publiée. **Versé à la file des arbitrages, avec son coût : 1 `title:`
+et un `--recaler`.***
+
+⚠ **Quatre formes de production concurrentes sur `stm32-arduino-core-en`**, et
+le test 2 les départage sans les lire : `Programming the STM32 with the
+Arduino core` (1), `Programming with the Arduino core` (1), `STM32duino` (1),
+`programming with the Arduino core` (1, bas de casse en prose). *La forme
+retenue est celle que le test 2 impose ; qu'elle soit aussi l'une des quatre
+est une confirmation, pas la raison.*
+
+### Déclaration C131 du bloc 26 (population, versements, total)
+
+**Versements présents quand l'étape 1 de la garde lit le compteur :**
+1. `tools/predictions-260829.md` — **1**, filtré ;
+2. `tools/batterie-sortie-2908b44|45|46|47.txt` — **4**, filtrés ;
+3. `tools/batterie-sortie-2908b48.txt`, créé par l'étape 0 du lancement
+   courant — **1**, filtré ;
+4. `tools/chevron-lot5-avant.txt`, `tools/chevron-lot5-apres.txt` — **2**,
+   comptés ;
+5. `tools/puces-lot5-avant.txt`, `tools/puces-lot5-apres.txt` — **2**,
+   comptés ;
+6. `tools/passe-c109-stm32-2908.tsv`,
+   `tools/passe-negatif-stm32-2908.tsv` — **2**, comptés ;
+7. `tools/table-titres-lot5-2908.tsv`,
+   `tools/table-titres-negatif-lot5-2908.tsv`, **écrites avant la garde** —
+   **2**, comptées ;
+8. les **2 sources FR** en ` M` depuis la passe du bloc 25 — **2**, comptées.
+
+**Total impliqué : 1 + 4 + 1 + 2 + 2 + 2 + 2 + 2 = 16. Hors artefacts de
+séance : 10**, liste nominative complète : les 4 sorties de mesure datées, les
+2 TSV de passe, les 2 tables de titres, les 2 sources FR.
+
+⚠ **Le compteur bouge dans le bloc** : la génération dépose **2 fiches EN**
+(`??`, comptées). **Fin de bloc attendue : 18, hors artefacts 12.**
+
+### Prédictions du bloc 26
+
+**Garde**
+
+- **P26.1** — copie `tools\batterie-sortie-2908b48.txt`, `0` non ASCII,
+  `node : v24.15.0`, `HEAD git : e20cd44 2026-08-29 22:39:55 +0200`.
+- **P26.2** — `fichiers modifies non commites : 16   (hors artefacts de
+  seance : 10)`.
+- **P26.3** — pilotage inchangé `22:37:16 / 22:35:46 / 21:48:08` ; les deux
+  sources FR portent désormais une `mtime` **du 2026-08-29, postérieure à
+  23:03:02** (la passe du bloc 25 les a réécrites), et **non plus** celle du
+  2026-08-20.
+
+**Test négatif délibéré sur `renommer-titres`**
+
+- **P26.4** — ancre `Prise en main du Stm32` — *une capitale de trop, le mode
+  d'échec du 29/08 (suite 8)* — sur une cible qui **n'existe pas encore**
+  (le squelette n'est pas généré) : la garde qui mord est donc
+  `L1 ABSENT    content/en/embarque/mcu/stm32/stm32-prise-en-main-en.md`,
+  `fichiers absents : 1`, `REFUS`, **exit 1**.
+  ⚠ *Le test négatif éprouve ici la garde d'existence et non la garde
+  d'unicité, parce qu'il est joué **avant** la génération. Il sera **rejoué
+  après** la génération pour éprouver l'ancre elle-même.*
+- **P26.5** — rejoué **après** génération : `L1 INTROUVABLE`,
+  `title: en place : Prise en main du STM32`, `ancres introuvables : 1`,
+  `REFUS`, **exit 1**, et **aucun `title:` modifié**.
+
+**Génération des deux squelettes**
+
+- **P26.6** — `=== embarque/mcu/stm32/stm32-prise-en-main.md ->
+  content/en/embarque/mcu/stm32/stm32-prise-en-main-en.md ===`, les **trois
+  compteurs `ok`** : `liens 13 -> 13`, `embeds 1 -> 1`, `code 5 -> 5`.
+- **P26.7** — `stm32-arduino-core` : les trois compteurs `ok`,
+  `liens 18 -> 18`, `embeds 2 -> 2`, `code 6 -> 6`.
+  *Décompte du `code` : le compteur divise par 2 des lignes de clôture
+  **préfixe de citation compris**. `prise-en-main` porte 3 blocs nus (`c`,
+  texte, `c`) et **2 blocs en chevron** — les 4 clôtures mesurées par
+  `mesure-chevron` —, soit 10 lignes ⇒ 5. `arduino-core` porte 4 blocs nus
+  (url, `cpp`, `cpp`, texte) et 2 en chevron, soit 12 lignes ⇒ 6.*
+- **P26.8** — `prerequis suffixes` : **1** pour `prise-en-main` (`stm32`),
+  **2** pour `arduino-core` (`stm32`, `stm32-prise-en-main`).
+- **P26.9** — aucune ligne `draft: … insere` : les deux sources portent déjà
+  `draft: false`.
+- **P26.10** — `Ecrit : content/en/embarque/mcu/stm32/…-en.md (N o)` sur les
+  deux, **aucune sortie `La cible existe deja`**, exit **0** ×2.
+
+**Renommage des deux `title:`**
+
+- **P26.11** — contrôle seul : `lignes de table : 2`,
+  `ancres uniques trouvees : 2`, **les cinq seaux de défaut à 0**, exit 0.
+- **P26.12** — écriture : les deux `title:` réécrits en
+  `Getting started with the STM32` et
+  `Programming the STM32 with the Arduino core`, **au mot près**.
+
+**Contrôles de fin de bloc**
+
+- **P26.13** — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 203` — le corpus EN passe de **201 à 203**, et les deux empreintes
+  neuves sont calculées **sur les sources d'après la passe C109**.
+- **P26.14** — `titres-doublons` : FR **242 fiches / 243 distincts /
+  0 groupe** *(inchangé : la passe n'a touché aucun `title:` français)* ;
+  EN **203 / 203 / 0 groupe** — les deux titres neufs sont uniques dans le
+  corpus anglais, `Getting started with the …` et `Programming the … with the
+  Arduino core` étant qualifiés par famille.
+- **P26.15** — `git status` de fin de bloc : **18   (hors artefacts de
+  seance : 12)** — les 10 nommés plus les 2 fiches EN.
+
+**Total : 15 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 26 — gate G3 (avant rédaction)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P26.1 | copie `…b48.txt`, 0 non ASCII, `v24.15.0`, HEAD `e20cd44` | idem | tenue |
+| P26.2 | `16   (hors artefacts : 10)` | **16 / 10** | tenue |
+| P26.3 | pilotage inchangé ; sources FR **du 29/08, après 23:03:02** | **23:03:17** ×2 | tenue |
+| P26.4 | test négatif avant génération : `ABSENT`, `fichiers absents : 1`, `REFUS`, exit 1 | idem | tenue |
+| P26.5 | rejoué après génération : `INTROUVABLE`, `title: en place : Prise en main du STM32`, exit 1 | idem | tenue |
+| P26.6 | `prise-en-main` : `liens 13`, `embeds 1`, `code 5`, trois `ok` | **13 / 1 / 5**, trois `ok` | tenue |
+| P26.7 | `arduino-core` : `liens 18`, `embeds 2`, `code 6` | **19** / 2 / 6 | ⚠ **RÉFUTÉE sur `liens`** |
+| P26.8 | `prerequis suffixes` **1** puis **2** | **1**, **2** | tenue |
+| P26.9 | aucune ligne `draft: … insere` | aucune | tenue |
+| P26.10 | `Ecrit :` ×2, aucune `cible existe deja`, exit 0 ×2 | **12848 o** et **13504 o** | tenue |
+| P26.11 | table 2, `ancres uniques trouvees : 2`, 5 seaux à 0, exit 0 | idem | tenue |
+| P26.12 | les deux `title:` réécrits au mot près | idem, relus sur disque | tenue |
+| P26.13 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 203` | idem, plus `SANS SOURCE 0`, `SANS MARQUE 0` | tenue |
+| P26.14 | FR 243 distincts / 0 groupe ; EN **203 / 203 / 0** | idem | tenue |
+| P26.15 | `18   (hors artefacts : 12)` | **18 / 12** | tenue |
+
+**15 prédictions, 14 tenues, 1 réfutée — taux 6,7 %.**
+
+⚠ **P26.7 : 19 WIKILINKS ET NON 18, ET L'ERREUR EST DANS MON ÉNUMÉRATION, PAS
+DANS LE CORPUS.** Le lien manquant est `stm32-arduino-core` L185,
+`[[preuve-de-concept|phase de preuve de concept]]`, sous `## Raccrochage
+projet`. **Je l'avais compté pour `stm32-prise-en-main` et oublié pour
+`stm32-arduino-core`, alors que les deux fiches portent la même puce de
+raccrochage** — et je venais de traiter cette puce **des deux côtés** à la
+passe C109 du bloc 25, sous les repères L172 et L185. *Une énumération faite
+fiche par fiche a sauté un élément que la fiche voisine rendait évident :
+c'est la famille du 27/08 (« un décompte d'occurrences se lit dans la sortie,
+il ne se recompte pas de tête »), et le terme décomposé a fait son travail —
+`embeds` et `code` étaient justes, seul `liens` était faux.*
+
+✅ **LE `code` PRÉDIT À 5 ET 6 EST LE TERME QUI VALIDE LA LECTURE DU CODE.**
+Le compteur divise par deux des lignes de clôture **préfixe de citation
+compris**, ce qui n'est pas lisible dans le README ; le décompte publié —
+3 blocs nus + 2 en chevron, puis 4 + 2 — a été construit sur `mesure-chevron`
+(4 clôtures = 2 blocs, par fiche) et sur le code de `compter()`. *C116 (7)
+sert deux fois : lire le compteur là où il s'incrémente, et non là où il
+s'affiche.*
+
+---
+
+# GATE G3 — AVANT RÉDACTION
+
+**Deux squelettes générés, deux `title:` EN arrêtés sous C125.** Corpus EN
+**201 → 203**, `A JOUR 203`, `MARQUE INVALIDE 0`, `DERIVE 0`. Collisions de
+titres **0 / 0** des deux côtés. **15 prédictions, 14 tenues.**
+
+---
+
+⚠ **INCIDENT N° 2 — LES DEUX FICHES EN ONT ÉTÉ RÉDIGÉES SANS PRÉDICTIONS
+PUBLIÉES.** Consigné au titre de C116 (3). Le bloc de rédaction du 29/08
+(suite 9) en portait **13** ; celui-ci en portait **zéro**, et le travail de
+traduction a été mené d'un trait entre le gate G3 et ce point. **Les
+prédictions du bloc de rédaction sont donc réputées absentes** et ne sont
+comptées ni en tenues ni en réfutées.
+
+**Ce que l'incident ne coûte pas, et ce qu'il coûte.** Il ne coûte aucune
+garde : la garde de péremption du bloc 26 était au vert, l'ordre passe → génération
+→ rédaction a été tenu, et **tous les contrôles de la rédaction restent à
+jouer** — ils sont l'objet des blocs 27 et 28, avec leurs prédictions. Il
+coûte exactement ce que la sous-règle protège : **il n'y aura pas de trace
+datée de ce que je croyais avant de mesurer** le foisonnement, les trois
+compteurs de `--controle`, les puces EN et le `--style` EN de ces deux fiches.
+*La sous-règle C116 existe parce que l'ordre prédiction → mesure ne tient pas
+tout seul sous exécution directe ; il vient de ne pas tenir sur le bloc le
+plus long de la séance.*
+
+**Décisions de rédaction prises seules (C117), consignées ici faute d'avoir
+été prédites :**
+1. **`## Where it fits in the project`, `## Step by step`** et les sept autres
+   titres de section pris **sur la forme majoritaire du corpus** (relevé
+   ci-dessous), et non sur la jumelle de famille la plus récente.
+2. **`> [!success]- Solution`** plutôt que `Answer to exercise N` — forme
+   exacte la plus fréquente (**22**) et choix du lot 4. Revert = 4 libellés.
+3. **`under the hood`** plutôt que `under the bonnet` — **5 contre 3** dans le
+   corpus, et forme du lot 4. Revert = 2 occurrences.
+4. **Commentaires de code traduits**, conformément à C77 et C113 (*« code
+   inchangé, commentaires traduits »*), **identifiants laissés en français**
+   (`allumee`), conformément au « registre mixte » assumé par C113.
+5. `Projet.elf` → **`Project.elf`** dans le bloc de sortie console : un nom de
+   projet que le lecteur choisit est **ce que le programme dit**, pas ce qu'il
+   désigne.
+
+## É1 — LE LOT 4 A INTRODUIT DEUX TITRES DE SECTION QUE LE CORPUS N'EMPLOIE PAS
+
+**Défaut trouvé par la mesure, en cherchant les formes de production pour
+mes propres titres.** C'est **exactement É1 du 29/08 (suite 9), un lot plus
+tard, sur d'autres titres** — et la clôture de cette séance-là écrivait
+*« aucun contrôle du dépôt ne l'aurait vue »*. Il ne l'a pas vue non plus.
+
+| forme écrite par le lot 4 | occurrences | forme de production | occurrences hors `teensy/` |
+|---|---|---|---|
+| `## Project connection` | **4** | `## Where it fits in the project` | **93** |
+| `## Step-by-step procedure` | **1** | `## Step by step` | **73** |
+
+**Les 4 occurrences de `## Project connection` sont exactement les 4 fiches EN
+du lot 4**, et aucune autre fiche du dépôt ne porte cette forme ; l'unique
+`## Step-by-step procedure` est `teensy-prise-en-main-en`. La source FR des
+cinq est `## Raccrochage projet` (108 fiches FR) et `## Procédure pas à pas`.
+
+**Traité comme É1 du lot 5**, par le même instrument et sous les mêmes
+invariants que le correctif de la suite 9 : **5 remplacements, 4 fiches**.
+⚠ *Différence avec la suite 9 : ces quatre fiches sont **déjà commitées**
+(`76d83cb`). Le correctif touche donc de l'anglais publié, et non des fiches
+écrites le soir même.* **Revert = `git checkout` de 4 fiches EN**, sans
+`--recaler` : le `source_sha256` porte sur la **source FR**, qu'un titre de
+section anglais ne touche pas.
+
+⚠ **ET LE MÊME RELEVÉ TROUVE UN TROISIÈME ÉCART, PLUS ANCIEN ET PLUS LARGE,
+QUI N'EST PAS TRAITÉ ICI.** **26 lignes de commentaire français subsistent
+dans des blocs de code EN, réparties sur 16 fiches** — `arduino/` (4),
+`cpp/` (2), `esp32/` (1), `micropython/` (6), `stm32/` (les 2 squelettes de ce
+soir, avant rédaction), `teensy/` (2). C77 dit *« code inchangé, commentaires
+traduits »* et C113 ne l'a jamais abrogé. **Ce n'est donc pas un défaut du lot
+4 mais une dette de tout le chantier**, et aucun des cinq instruments ne la
+mesure. **Versée à la file des arbitrages, non traitée.**
+
+---
+
+## Bloc 27 — correctif É1 (5 remplacements, 4 fiches EN du lot 4)
+
+Commandes prévues :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. `node tools/remplacer-passe.mjs tools/passe-negatif-sections-lot5-2908.tsv`
+   *(test négatif délibéré : `## Project Connection`, une capitale de trop)*
+3. `node tools/remplacer-passe.mjs tools/passe-sections-lot5-2908.tsv`
+4. `… --ecrire`
+5. remesure : `git diff --numstat`, `grep` des deux formes, `--controle`,
+   `derive-traduction`
+
+### Déclaration C131 du bloc 27 (population, versements, total)
+
+**Versements présents quand l'étape 1 de la garde lit le compteur :**
+1. `tools/predictions-260829.md` — **1**, filtré ;
+2. `tools/batterie-sortie-2908b44|45|46|47|48.txt` — **5**, filtrés ;
+3. `tools/batterie-sortie-2908b49.txt`, créé par l'étape 0 du lancement
+   courant — **1**, filtré ;
+4. `tools/chevron-lot5-avant.txt`, `tools/chevron-lot5-apres.txt`,
+   `tools/puces-lot5-avant.txt`, `tools/puces-lot5-apres.txt` — **4**,
+   comptés ;
+5. `tools/passe-c109-stm32-2908.tsv`,
+   `tools/passe-negatif-stm32-2908.tsv` — **2**, comptés ;
+6. `tools/table-titres-lot5-2908.tsv`,
+   `tools/table-titres-negatif-lot5-2908.tsv` — **2**, comptés ;
+7. `tools/passe-sections-lot5-2908.tsv`,
+   `tools/passe-negatif-sections-lot5-2908.tsv`, **écrites avant la garde** —
+   **2**, comptées ;
+8. les **2 sources FR** en ` M` — **2**, comptées ;
+9. les **2 fiches EN** du lot en `??` — **2**, comptées.
+
+**Total impliqué : 1 + 5 + 1 + 4 + 2 + 2 + 2 + 2 + 2 = 21. Hors artefacts de
+séance : 14.**
+
+⚠ **L'écriture du bloc fait passer les 4 fiches EN de `teensy/` en ` M`**,
+lignes qui **n'existaient pas** puisque ces fiches sont commitées.
+**Fin de bloc attendue : 25, hors artefacts 18.**
+
+### Prédictions du bloc 27
+
+- **P27.1** — garde : copie `tools\batterie-sortie-2908b49.txt`, `0` non
+  ASCII, `node : v24.15.0`, `HEAD git : e20cd44 2026-08-29 22:39:55 +0200`,
+  pilotage inchangé `22:37:16 / 22:35:46 / 21:48:08`.
+- **P27.2** — `fichiers modifies non commites : 21   (hors artefacts de
+  seance : 14)`.
+- **P27.3** — test négatif : `L1 INTROUVABLE`, `ancres  0/ 1`,
+  `ancres introuvables : 1`, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`,
+  exit **1**.
+- **P27.4** — contrôle seul : `lignes de table : 5`, `fiches : 4`,
+  `remplacements prets : 5`, **cinq seaux de défaut à 0**,
+  `INVARIANT D ACCENTS casse sur : 0 fiche(s)`.
+- **P27.5** — `ancres` par fiche : `teensy-arduino-core-en` **1/1**,
+  `teensy-audio-en` **1/1**, `teensy-prise-en-main-en` **2/2**,
+  `teensy-usb-en` **1/1**.
+- **P27.6** — accents **écart `+0` sur les quatre** : ni `Project
+  connection`, ni `Where it fits in the project`, ni `Step-by-step procedure`,
+  ni `Step by step` ne portent une lettre accentuée.
+- **P27.7** *(décomposée, terme réfutable)* — points de code :
+  **+10** sur `teensy-arduino-core-en`, `teensy-audio-en` et `teensy-usb-en`
+  (`## Project connection` = 21 caractères, `## Where it fits in the project`
+  = 31) ; **0** sur `teensy-prise-en-main-en` (**+10** puis **−10**,
+  `## Step-by-step procedure` = 25 caractères, `## Step by step` = 15).
+- **P27.8** — `lignes N -> N` inchangées sur les quatre.
+- **P27.9** — écriture : `1`, `1`, `2`, `1` remplacement(s),
+  `fichiers ecrits : 4`, exit **0**.
+- **P27.10** — `git diff --numstat` : **`1 1`** sur trois fiches, **`2 2`** sur
+  `teensy-prise-en-main-en`, **plus les `14 14` et `16 16` cumulés depuis HEAD
+  sur les deux sources FR** — ⚠ *le `numstat` compare à HEAD et cumule dans
+  une séance sans commit ; les deux fiches EN du lot, elles, ne s'y voient pas
+  puisqu'elles sont non suivies.*
+- **P27.11** — après écriture : `## Project connection` **0** dans tout
+  `content/`, `## Step-by-step procedure` **0**, `## Where it fits in the
+  project` **97 fiches** (93 + 4), `## Step by step` **74 fiches** (73 + 1).
+- **P27.12** — `--controle` : **203 fiches, 0 divergente** — un titre de
+  section n'est ni un lien, ni un embed, ni un bloc de code.
+- **P27.13** — `derive-traduction` : **`MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 203`** — l'empreinte porte sur la source FR, qu'aucune de ces cinq
+  éditions ne touche.
+- **P27.14** — `git status` de fin de bloc : **25   (hors artefacts de
+  seance : 18)**.
+
+**Total : 14 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 27
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P27.1 | copie `…b49.txt`, 0 non ASCII, `v24.15.0`, HEAD `e20cd44`, pilotage inchangé | idem | tenue |
+| P27.2 | `21   (hors artefacts : 14)` | **21 / 14** | tenue |
+| P27.3 | test négatif `INTROUVABLE`, `0/ 1`, `REFUS`, exit 1 | idem | tenue |
+| P27.4 | table 5, fiches 4, prêts 5, 5 seaux à 0, accents cassés 0 | idem | tenue |
+| P27.5 | ancres **1/1, 1/1, 2/2, 1/1** | idem | tenue |
+| P27.6 | accents écart `+0` ×4 | **10→10, 5→5, 2→2, 1→1** | tenue |
+| P27.7 | pts de code **+10, +10, 0, +10** | **11137→11147, 10097→10107, 9985→9985, 8632→8642** | tenue |
+| P27.8 | lignes inchangées ×4 | **171, 135, 187, 133** | tenue |
+| P27.9 | `1, 1, 2, 1`, `fichiers ecrits : 4`, exit 0 | idem | tenue |
+| P27.10 | `1 1` ×3, `2 2` ×1, plus `14 14` / `16 16` cumulés | idem, six lignes | tenue |
+| P27.11 | 0 / 0, puis **97** et **74 fiches** | 0 / 0, mais **99** et **75** | ⚠ **RÉFUTÉE sur ses deux totaux** |
+| P27.12 | `--controle` **203, 0 divergente**, `0 sur 0` | idem | tenue |
+| P27.13 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 203` | idem | tenue |
+| P27.14 | `25   (hors artefacts : 18)` | **25 / 18** | tenue |
+
+**14 prédictions, 13 tenues, 1 réfutée — taux 7,1 %.**
+
+⚠ **P27.11 EST LA FAMILLE C131, SUR UN COMPTEUR DONT JE N'AVAIS PAS DÉCLARÉ LA
+POPULATION.** J'ai écrit `93 + 4 = 97` et `73 + 1 = 74` ; la mesure rend **99**
+et **75**. **Les deux manquent de +2 et de +1, et c'est le même terme oublié :
+mes deux fiches EN, écrites entre le relevé et la prédiction.**
+`stm32-prise-en-main-en` porte `## Where it fits in the project` **et**
+`## Step by step` ; `stm32-arduino-core-en` porte le premier seul. **93 + 2 + 4
+= 99** et **73 + 1 + 1 = 75**, au caractère près.
+
+*C'est exactement ce que C131 dit : nommer les artefacts que **la séance
+elle-même vient de verser dans la population comptée**. Je l'ai fait
+scrupuleusement pour `git status` — cinq blocs, cinq chiffres justes sur leurs
+deux termes — et pas du tout pour un compteur de `grep` que je n'avais pas
+pensé comme un compteur.* **Le compteur qui rate n'est jamais celui qu'on
+surveille.** ⚠ *Et la déclaration manquante était la plus facile à écrire :
+les deux fiches versées sont l'objet même du lot.*
+
+✅ **LE CORRECTIF É1 EST PROUVÉ PAR TROIS INSTRUMENTS QUI NE MESURENT PAS LA
+MÊME CHOSE.** Les invariants de `remplacer-passe` (accents nuls, longueurs
+`+10 / +10 / 0 / +10` conformes au décompte publié, lignes inchangées), le
+`numstat` (`1 1`, `1 1`, `2 2`, `1 1`, ajouts = suppressions), et le `grep` des
+deux formes fautives, qui rend **0** dans tout `content/`. *Le troisième est
+le seul qui prouve que le défaut a disparu ; les deux premiers prouvent que
+rien d'autre n'a bougé.*
+
+---
+
+## Bloc 28 — clôture du lot (batterie `etat`, C127, titres, puces du corpus)
+
+Commandes prévues :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase etat -Fiches embarque/mcu/stm32/stm32-prise-en-main.md,embarque/mcu/stm32/stm32-arduino-core.md -FichesEn en/embarque/mcu/stm32/stm32-prise-en-main-en.md,en/embarque/mcu/stm32/stm32-arduino-core-en.md -Chevron`
+2. `node tools/titres-doublons.mjs`
+3. `node tools/creer-fiche-en.mjs --alt`
+4. le motif des puces sur **tout `content/`**, FR et EN, sortie datée
+   (corollaire opératoire de la clause de périmètre C109 : le compteur
+   `1 084 / 872` **se remesure**, il ne se reporte pas)
+
+### Déclaration C131 du bloc 28 (population, versements, total)
+
+**Versements présents quand l'étape 1 de la garde lit le compteur :**
+1. `tools/predictions-260829.md` — **1**, filtré ;
+2. `tools/batterie-sortie-2908b44|45|46|47|48|49.txt` — **6**, filtrés ;
+3. `tools/batterie-sortie-2908b50.txt`, créé par l'étape 0 du lancement
+   courant — **1**, filtré ;
+4. les **4 sorties de mesure datées** du lot (`chevron-lot5-avant/apres`,
+   `puces-lot5-avant/apres`) — **4**, comptées ;
+5. les **6 TSV** de la séance (2 de passe C109, 2 de titres, 2 de sections),
+   tests négatifs compris — **6**, comptés ;
+6. les **2 sources FR** en ` M` — **2**, comptées ;
+7. les **2 fiches EN du lot** en `??` — **2**, comptées ;
+8. les **4 fiches EN de `teensy/`** en ` M` (correctif É1) — **4**, comptées.
+
+**Total impliqué : 1 + 6 + 1 + 4 + 6 + 2 + 2 + 4 = 26. Hors artefacts de
+séance : 18**, liste nominative : 4 sorties datées, 6 TSV, 2 sources FR,
+2 fiches EN neuves, 4 fiches EN corrigées.
+
+⚠ **La sortie datée du compteur de puces du corpus est déposée en fin de
+bloc : fin de bloc attendue à 27, hors artefacts 19.**
+
+### Prédictions du bloc 28
+
+**Garde et volumes**
+
+- **P28.1** — copie `tools\batterie-sortie-2908b50.txt`, 0 non ASCII,
+  `HEAD e20cd44`, `node v24.15.0`, pilotage inchangé, les **4 chemins de
+  fiches** listés (2 FR, 2 EN), aucune `ABSENTE`.
+- **P28.2** — `fichiers modifies non commites : 26   (hors artefacts de
+  seance : 18)`.
+- **P28.3** — corpus FR publié : **291 241** (291 239 au relevé `b42`, **+2**
+  par la passe C109 du bloc 25). *Les deux termes sont du 29/08.*
+- **P28.4** — **traduites : 203 fiches, 236 310 mots FR.**
+  *Décomposition : 232 789 (relevé `b42`) + **3 521**, le `tot` du lot
+  **d'après** la passe — les deux fiches entrent dans les traduites avec le
+  poids qu'elles ont maintenant.*
+- **P28.5** — **restant : 39 fiches, 54 931 mots.**
+  *Décomposition : 58 450 (relevé `b42`) − **3 519**, le `tot` du lot
+  **d'avant** la passe — les fiches quittent le restant avec le poids qu'elles
+  avaient en y entrant.* ⚠ **C'est la règle d'usage du 29/08 (suite 9), qui a
+  coûté cinq réfutations : `3 521` et `3 519` ne sont pas interchangeables, et
+  le terme se choisit par l'état auquel on rapporte le total.**
+- **P28.6** *(contrôle de cohérence, publié avant la mesure)* —
+  **236 310 + 54 931 = 291 241**, exactement P28.3. *Si les trois ne se
+  recoupent pas, l'un des deux termes de soustraction est daté du mauvais
+  état.*
+
+**Contrôles**
+
+- **P28.7** — `--controle` : **203 fiches, 0 divergente**,
+  `Liens non suffixes : 0 sur 0`.
+- **P28.8** — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `SANS SOURCE 0`, `SANS MARQUE 0`, `A JOUR 203`.
+- **P28.9** — `--style` sur les **deux fiches EN** : `typographie francaise`
+  **0**, `hors alphabet latin` **0**, `C109 creees en EN` **0**, et
+  `C109 de prose` **6** — les **six exemptions FR reportées une pour une** :
+  `stm32-prise-en-main-en` les deux incises encadrées de trois items (LED LD2 /
+  bouton B1 / connecteurs, et modifier / flasher / observer), soit **4**, et
+  `stm32-arduino-core-en` l'incise `pinMode` / `digitalRead` / `digitalWrite`,
+  soit **2**. ⚠ **6 et non 7 : l'intervalle `\`A0\`–\`A5\`` de L69 n'existe pas
+  en anglais**, la phrase ayant été rendue sans le deuxième demi-cadratin en
+  position de prose — *à vérifier, c'est le terme le plus fragile du bloc.*
+- **P28.10** — motif des puces sur les **deux fiches EN** : **0**, comme leurs
+  sources.
+
+**Foisonnement (C127 en plein)**
+
+- **P28.11** — `compter-mots --paires` : **203 paires**. Le lot sort entre
+  **+0,5 % et +5,0 %**, point estimé **+1,5 %**, soit **3 521 → environ
+  3 574** ; par fiche, `prise-en-main` **1810 → 1 800-1 900** et
+  `arduino-core` **1711 → 1 700-1 800**.
+- **P28.12** — total EN du corpus : **241 742** (relevé `b42`) **+ le lot
+  + 17**, les **17 mots** venant du correctif É1 — `Project connection` (2
+  mots) → `Where it fits in the project` (6) sur **4** fiches, soit **+16**,
+  et `Step-by-step procedure` (2 mots sous le motif C110, le trait d'union
+  liant) → `Step by step` (3), soit **+1**.
+
+**Chevron, titres, libellés, dette**
+
+- **P28.13** — `mesure-chevron --tout` : **FR 34 porteuses** (inchangé),
+  **EN 32 → 34**, `paires porteuses des deux cotes : 34`,
+  `divergentes : 0`. *Référence de la clôture précédente : 32 paires,
+  0 divergente.* Les deux paires neuves sont `4 cl / 2 bl` des deux côtés.
+- **P28.14** — `titres-doublons` : FR **inchangé, 0 groupe** ; EN **203
+  fiches, 203 titres distincts, 0 groupe**.
+- **P28.15** — `--anneau 2` : **ANNEAU 2 NET 145** inchangé,
+  `deja traduites` **109**, `RESTANT` **36**,
+  `RESTANT DE L ANNEAU 2 (36 fiches)   52663`.
+  *Décomposition : 56 182 − **3 519**, poids d'avant la passe.*
+  **`fiches porteuses : 0`** et `clotures en chevron : 0` — les deux dernières
+  porteuses de l'anneau viennent d'être traduites.
+- **P28.16** — dette : `fiches sources (traduites)` **203**,
+  `cibles rouges distinctes` **37** (39 − 2 : `stm32-prise-en-main` et
+  `stm32-arduino-core` en sortent), `mots` **53 503** (57 022 − **3 519**,
+  poids d'avant la passe), `dont HORS anneaux 0..2` **0**.
+- **P28.17** — `--libelles` : `candidats a lire` **entre 106 et 112**.
+  ⚠ *Les deux `title:` retenus **englobent** leurs formes de production, donc
+  la clause C125 du 29/08 (suite 9) prédit **zéro candidat neuf de ce fait** ;
+  ce qui peut monter, ce sont les libellés des fiches neuves vers des cibles
+  non traduites.*
+- **P28.18** — `--alt` : **aucune ligne** sur les deux fiches du lot (les
+  trois embeds sont repris de leurs sources avec leur alt traduit),
+  `MOT FR` **14**, les quatorze préexistants.
+- **P28.19** — wikilinks : `cassées` **0**, `ambiguës` **0**.
+
+**Puces du corpus, remesurées (corollaire opératoire)**
+
+- **P28.20** — FR : **1 074**, soit **1 084 − 10**, les dix puces du lot 5.
+- **P28.21** — EN : ⚠ **entre 250 et 450**, et **non 872**. *Le chiffre 872 a
+  été produit par le motif **avant** son correctif du 29/08 (suite 9) : côté
+  anglais il n'excluait **aucune** section de liens, et le corpus porte
+  **194** `## See also` et **23** `## Going further`, dont les gloses sont
+  licites au §4. **Reporter 872 serait reporter un chiffre faux**, et c'est
+  précisément ce que le corollaire opératoire interdit.*
+- **P28.22** — `git status` de fin de bloc : **27   (hors artefacts de
+  seance : 19)**.
+
+**Total : 22 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 28 — gate G4 (clôture du lot)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P28.1 | copie `…b50.txt`, 0 non ASCII, HEAD `e20cd44`, 4 chemins, aucune `ABSENTE` | idem | tenue |
+| P28.2 | `26   (hors artefacts : 18)` | **26 / 18** | tenue |
+| P28.3 | corpus FR **291 241** | **291241** | tenue |
+| P28.4 | traduites **203 fiches, 236 310 mots** | **203, 236310** | tenue |
+| P28.5 | restant **39 fiches, 54 931 mots** | **39, 54931** | tenue |
+| P28.6 | 236 310 + 54 931 = **291 241** | **exact** | tenue |
+| P28.7 | `--controle` **203, 0 divergente**, `0 sur 0` | idem | tenue |
+| P28.8 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 203` | idem | tenue |
+| P28.9 | `--style` EN : 0 / 0 / 0 et **`C109 de prose` 6** | 0 / 0 / 0 et **7** | ⚠ **RÉFUTÉE sur le résidu** |
+| P28.10 | puces EN du lot **0 / 0** | **0 / 0** | tenue |
+| P28.11 | lot **+0,5 à +5,0 %** ; 1 800-1 900 et 1 700-1 800 | **1830 (+1,1 %)**, **1762 (+3,0 %)**, lot **+2,0 %** | tenue |
+| P28.12 | EN corpus **241 742 + lot + 17** | **245351** = 241 742 + 3 592 + 17 | tenue |
+| P28.13 | FR 34, EN **32 → 34**, **34 paires, 0 divergente** | idem, les 2 paires neuves `2 bl / 2 bl` | tenue |
+| P28.14 | FR 243 / 243 / 0 ; EN **203 / 203 / 0** | idem | tenue |
+| P28.15 | anneau 145 net, **109 traduites, 36 restantes, 52 663 mots**, **0 porteuse** | idem, `clotures en chevron : 0` | tenue |
+| P28.16 | dette **203 / 37 / 53 503 / 0** | idem | tenue |
+| P28.17 | `candidats a lire` **106-112** | **107** | tenue |
+| P28.18 | `--alt` : aucune ligne sur les 2 fiches, `MOT FR 14` | **0 ligne**, **MOT FR 14** | tenue |
+| P28.19 | wikilinks `CASSE 0`, `AMBIGU 0` | **0 / 0**, `MORT 37`, `OK 447` | tenue |
+| P28.20 | puces FR du corpus **1 074** | **1023** | ⚠ **RÉFUTÉE** |
+| P28.21 | puces EN du corpus **250-450** | **866** | ⚠ **RÉFUTÉE** |
+| P28.22 | `git status` **27   (hors artefacts : 19)** | **27 / 19** | tenue |
+
+**22 prédictions, 19 tenues, 3 réfutées — taux 13,6 %.**
+
+✅ **LES TROIS TERMES DE LA SOUSTRACTION DATÉE TOMBENT ENSEMBLE, ET C'ÉTAIT
+L'ENJEU DU BLOC.** La règle d'usage née des **cinq réfutations** du 29/08
+(suite 9) a été appliquée en publiant, avant la mesure, **quel `tot` va où** :
+`3 521` (d'après la passe) pour les **traduites**, `3 519` (d'avant) pour le
+**restant**, l'**anneau** et la **dette**. Les quatre compteurs tombent au mot
+près — **236 310**, **54 931**, **52 663**, **53 503** — et le contrôle de
+cohérence publié d'avance, `236 310 + 54 931 = 291 241`, referme la boucle.
+*La règle est éprouvée sur le cas exact qui l'avait fait naître.*
+
+✅ **ET LE FOISONNEMENT SE RECOUPE À L'UNITÉ AVEC UN TERME QUE JE NE POUVAIS
+PAS MESURER.** `245 351 = 241 742 + 3 592 + 17`, où **17** est le gain en mots
+du correctif É1, décomposé avant la passe : `Project connection` (2 mots) →
+`Where it fits in the project` (6) sur quatre fiches, plus
+`Step-by-step procedure` (**2** mots, le trait d'union liant sous le motif
+C110) → `Step by step` (3). *Le seul terme du corpus EN que la séance a produit
+en dehors du lot est aussi celui qui prouve que le reste n'a pas bougé.*
+
+⚠ **P28.9 : LE RÉSIDU EN EST 7 ET NON 6, ET LA RÉFUTATION VAUT MIEUX QUE LA
+PRÉDICTION.** J'avais écrit que l'intervalle `\`A0\`–\`A5\`` de L69 « n'existe
+pas en anglais » — *il existe*, parce que la jumelle reporte les alias
+`D0`–`D15` et `A0`–`A5` **verbatim**, ce que C113 impose (ce que le programme
+**désigne** ne se traduit pas). **Le résidu est donc FR 7 / EN 7, aux sept
+mêmes emplacements** : trois incises encadrées de trois items, à deux
+occurrences chacune, plus l'intervalle d'alias que la garde de `--style` ne
+sait pas écarter. *J'ai prédit une asymétrie en croyant prédire une propreté ;
+la mesure rend la symétrie, qui est le résultat que le chantier cherche.*
+
+⚠ **P28.20 ET P28.21 SONT LA MÊME FAUTE, ET C'EST UNE ARITHMÉTIQUE DÉRIVÉE
+SUR UN CHIFFRE D'UN AUTRE INSTRUMENT.** J'ai prédit `1 084 − 10 = 1 074` et
+« 872 divisé par le facteur du correctif ». La mesure rend **1 023 FR sur 170
+fiches** et **866 EN sur 140 fiches**.
+
+*Ce que les écarts disent, terme à terme.* Côté FR, l'écart au chiffre reporté
+est de **−61** quand les deux lots qui ont suivi sa publication n'ont traité
+que **20 + 10 = 30** puces : **31 de l'écart ne s'expliquent par aucun
+traitement**. Côté EN, l'écart est de **−6** quand j'annonçais une division par
+deux ou trois. **Les deux chiffres ne sont donc pas comparables : `1 084 / 872`
+sort d'un motif qui n'est plus celui-ci**, et le mien masque en plus les blocs
+de code **chevronnés**, angle mort que C127 a nommé et que le motif d'origine
+ne traitait pas.
+
+**C'est exactement ce que le corollaire opératoire de la clause de périmètre
+C109 dit — « le compteur se remesure à chaque clôture et n'est jamais un
+chiffre reporté » — et je l'ai cité en écrivant la prédiction avant de le
+violer dans la ligne suivante**, en fabriquant la prédiction *par soustraction
+sur le chiffre reporté*. **C118 et C119 le disent aussi : aucune arithmétique
+dérivée.** *Le chiffre de référence du chantier des puces est désormais
+`FR 1 023 / EN 866`, mesuré par le motif publié au bloc 24, sauvegardé dans
+`tools/puces-corpus-2908.txt` — et il ne se soustrait de rien.*
+
+⚠ **Défaut d'instrument constaté au passage** : le module du motif imprime son
+bilan CLI **à l'import**, donc le compteur de corpus sort précédé d'un
+`0 TOTAL (0 fiches)` parasite. *Sans effet sur les chiffres, à corriger si le
+motif devient un outil de `tools/`.*
+
+---
+
+# GATE G4 — CLÔTURE DU LOT 5
+
+**2 fiches EN rédigées, corpus 201 → 203.** Passe C109 : **33 remplacements**,
+44 candidats jugés. **Correctif É1 hors lot : 5 remplacements sur 4 fiches EN
+du lot 4.** Volumes : corpus FR **291 241**, traduites **203 / 236 310**,
+restant **39 / 54 931**. Foisonnement lot **+2,0 %**, corpus **3,8 %**.
+Chevron **34 paires porteuses des deux côtés, 0 divergente** (référence 32).
+Titres **0 / 0**. `--controle` **203 / 0**. Dérive **`A JOUR 203`**.
+**Anneau 2 : 36 restantes, 52 663 mots, 0 porteuse.**
+**22 prédictions, 19 tenues.**
+
+
+## Bloc 29 — clôture §7 (JOURNAL, conventions) et livraison
+
+Commandes prévues : `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`, puis `node tools/normalize-pilotage.js`, puis les éditions de clôture et `git diff --stat`.
+
+### Déclaration C131 du bloc 29 (population, versements, total)
+
+**Versements au moment de la garde** : `predictions-260829.md` (1, filtré) ; `batterie-sortie-2908b44|45|46|47|48|49|50.txt` (7, filtrés) ; `batterie-sortie-2908b51.txt` créé par l'étape 0 (1, filtré) ; les **5 sorties de mesure datées** — `chevron-lot5-avant/apres`, `puces-lot5-avant/apres`, `puces-corpus-2908.txt` (5, comptées) ; les **6 TSV** (6, comptés) ; les **2 sources FR** en ` M` (2, comptées) ; les **2 fiches EN du lot** en `??` (2, comptées) ; les **4 fiches EN de `teensy/`** en ` M` (4, comptées).
+**Total impliqué : 1 + 7 + 1 + 5 + 6 + 2 + 2 + 4 = 28. Hors artefacts : 19.**
+⚠ Les éditions du bloc font passer `JOURNAL.md` et `conventions.md` en ` M` : **fin de bloc attendue 30, hors artefacts 21.**
+
+### Prédictions du bloc 29
+
+- **P29.1** — garde : copie `tools\batterie-sortie-2908b51.txt`, 0 non ASCII, `HEAD e20cd44 2026-08-29 22:39:55 +0200`, `node v24.15.0`.
+- **P29.2** — `fichiers modifies non commites : 28   (hors artefacts de seance : 19)`.
+- **P29.3** — dates de pilotage **encore inchangées** au moment de la garde : `JOURNAL.md 22:37:16`, `conventions.md 22:35:46`, `TODO.md 21:48:08`.
+- **P29.4** — `normalize-pilotage` : **`0 caractere(s) a corriger, 0 fichier(s) modifie(s)`** — déjà lancé après le bloc 28 avec ce résultat, et aucune édition n'a eu lieu depuis.
+- **P29.5** — éditions de `conventions.md` : **4**, toutes en `§8 Autres en attente` ou dans l'amendement C109 — (a) *un motif qui balaie les deux corpus* passe de **0/N à 1/N**, (b) *une soustraction entre deux totaux* passe de **0/N à 1/N**, (c) la **clause de périmètre C109** passe de **2/N à 3/N**, (d) **une candidate neuve à 0/N** sur les titres de section EN.
+- **P29.6** — édition de `JOURNAL.md` : **1 entrée neuve** insérée après `<!-- INSERT_JOURNAL_HERE -->`, à cinq puces d'en-tête (C128), sans toucher l'entrée du 29/08 (suite 9).
+- **P29.7** — `git diff --numstat` sur les deux fichiers de pilotage : `JOURNAL.md` **N 0** (insertion pure, aucune ligne supprimée) et `conventions.md` **ajouts > suppressions**, avec **suppressions = 4** — les quatre lignes `Éprouvée` ou de bilan réécrites, une par édition. ⚠ *Prédiction décomposée : si les suppressions ne valent pas 4, une édition a mordu ailleurs que là où je la crois.*
+- **P29.8** — `git diff -- content/` **inchangé** par le bloc : **6 fichiers**, `14 14`, `16 16`, `1 1`, `1 1`, `2 2`, `1 1`.
+- **P29.9** — `git status` de fin de bloc : **30   (hors artefacts de seance : 21)**.
+- **P29.10** — tailles **relevées après les éditions** (règle de la suite 9 : une taille publiée à la clôture date de la fin de la séance) : `JOURNAL.md` **au-dessus de 545,1 ko**, `conventions.md` **au-dessus de 454,2 ko**, `TODO.md` **282,7 ko inchangé**, `BACKLOG.md` **206,0 ko inchangé**.
+
+**Total : 10 prédictions, toutes au décompte.**
+
+
+### Bilan prédictions/constats du bloc 29 — gate G5 (clôture de séance)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P29.1 | copie `…b51.txt`, 0 non ASCII, HEAD `e20cd44`, `v24.15.0` | idem | tenue |
+| P29.2 | `28   (hors artefacts : 19)` | **28 / 19** | tenue |
+| P29.3 | pilotage encore inchangé à la garde | **22:37:16 / 22:35:46 / 21:48:08** | tenue |
+| P29.4 | `normalize-pilotage` **0 / 0** | **0 / 0**, deux lancements | tenue |
+| P29.5 | **4 éditions** de `conventions.md`, (a) 1/N, (b) 1/N, (c) 3/N, (d) candidate neuve | les 4 | tenue |
+| P29.6 | 1 entrée JOURNAL, 5 puces, insertion pure | idem | tenue |
+| P29.7 | `JOURNAL.md` **N 0** ; `conventions.md` **suppressions = 4** | **40 0** ; **51 3** | ⚠ **RÉFUTÉE sur le terme décomposé** |
+| P29.8 | `content/` inchangé : 6 fichiers, `14 14 / 16 16 / 1 1 / 1 1 / 2 2 / 1 1` | idem | tenue |
+| P29.9 | `git status` **30   (hors artefacts : 21)** | **30 / 21** | tenue |
+| P29.10 | JOURNAL > 545,1 ko, conventions > 454,2 ko, TODO et BACKLOG inchangés | **558,4 / 457,4 / 282,7 / 206,0** | tenue |
+
+**10 prédictions, 9 tenues, 1 réfutée — taux 10,0 %.**
+
+⚠ **P29.7 : TROIS SUPPRESSIONS ET NON QUATRE, ET LE TERME DÉCOMPOSÉ A FAIT
+EXACTEMENT SON TRAVAIL.** J'avais écrit *« si les suppressions ne valent pas 4,
+une édition a mordu ailleurs que là où je la crois »*. Elles valent **3**, et
+aucune édition n'a mordu ailleurs : **la quatrième est une insertion pure**.
+La candidate neuve du §8 s'écrit **avant** la ligne
+`- **Une soustraction entre deux totaux…**`, que l'édition réémet à
+l'identique — git n'y voit donc **aucune ligne remplacée**. *Les trois autres
+réécrivent bien une ligne `Éprouvée` chacune.* **Le compte de suppressions
+était le bon instrument ; c'est ma typologie des quatre éditions qui mélangeait
+trois réécritures et une insertion.**
+
+---
+
+# BILAN GÉNÉRAL — 29/08 (SUITE 10), LOT 5
+
+**140 prédictions publiées avant leur bloc, 132 tenues, 8 réfutées — taux
+5,7 %.** **Huit blocs (22 à 29), cinq gates, zéro arrêt, zéro sollicitation de
+Tim.** ⚠ **Deux incidents C116 (3) consignés** : trois commandes avant les
+prédictions du bloc 22, dont un `git log -1` qui met P22.5 **hors décompte** ;
+et **le bloc de rédaction sans aucune prédiction**.
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 22 | garde d'ouverture | 12 | 12 | 0 |
+| 23 | cadrage, composition du lot | 31 | 30 | 1 |
+| 24 | épreuve bilingue du motif des puces | 13 | 13 | 0 |
+| 25 | passe C109, 33 remplacements | 20 | 20 | 0 |
+| 26 | titres EN et génération | 15 | 14 | 1 |
+| — | **rédaction des 2 fiches EN** | **0** | — | ⚠ **incident n° 2** |
+| 27 | correctif É1, 5 remplacements | 14 | 13 | 1 |
+| 28 | clôture du lot | 22 | 19 | 3 |
+| 29 | clôture de séance | 10 | 9 | 1 |
+
+✅ **ZÉRO RÉFUTATION SUR UN VERDICT.** Ni les **44 jugements C109** (37
+tombent, 6 exemptés, 1 hors périmètre), ni les **2 titres arrêtés sous C125**,
+ni la **composition du lot**, ni la **doctrine d'exemption**, ni le classement
+d'É1. **Les huit réfutations portent toutes sur un compteur**, et **cinq
+d'entre elles ont la même cause** : un chiffre construit par arithmétique sur
+un état ou un instrument qui n'était pas celui de la mesure — P26.7
+(énumération faite de tête), P27.11 (population non déclarée), P28.20 et
+P28.21 (soustraction sur un chiffre d'un autre motif), P29.7 (typologie
+d'éditions). *La famille C131 tient toujours sur `git status` — **huit gardes,
+huit chiffres justes sur leurs deux termes** — et elle mord partout ailleurs.*
+

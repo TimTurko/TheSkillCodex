@@ -129,7 +129,7 @@ void loop() {
 - **Combined types.** *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick* stack several identities. The useful habit during development is to **keep Serial**, so a peripheral that would otherwise expose no serial port can still be debugged.
 - **Raw HID** — for a **custom** protocol between the Teensy and in-house software, without going through the standard profiles. More advanced, but very flexible.
 
-## Project connection
+## Where it fits in the project
 
 - **Step 4 of the [[preuve-de-concept-en|proof of concept phase]].** For an interface project (control panel, controller, custom peripheral), checking early that the Teensy is **recognised** as the right USB device and **reacts** to a physical event determines all of the downstream ergonomics.
 - **Safe use.** An HID device acts on the computer. Making its actions conditional every time (edge detection, an arming button) prevents stray behaviour, and belongs in the [[dossier-technique-en|technical file]].

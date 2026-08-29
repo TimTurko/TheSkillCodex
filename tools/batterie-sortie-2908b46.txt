@@ -1,0 +1,212 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b45.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 22:48:47
+
+HEAD git : e20cd44 2026-08-29 22:39:55 +0200
+fichiers modifies non commites : 3   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 22:37:16
+  conventions.md                                      2026-08-29 22:35:46
+  TODO.md                                             2026-08-29 21:48:08
+  embarque/mcu/stm32/stm32-prise-en-main.md           2026-08-20 16:39:12
+  embarque/mcu/stm32/stm32-arduino-core.md            2026-08-20 16:34:23
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/stm32/stm32-prise-en-main.md                  1810
+  embarque/mcu/stm32/stm32-arduino-core.md                   1709
+  ---------------------------------------------------------------
+  LOT (2 fiches)                                             3519
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/stm32/stm32-prise-en-main.md
+      17  [C109] tiret d incise
+          …gramme cible reste le **Blink** — faire clignoter la LED utilisate…
+      17  [C109] tiret d incise
+          …re clignoter la LED utilisateur — l'équivalent embarqué du « Hello…
+      17  [C109] point-virgule de prose
+          …he emprunte la **porte native** ; pour la porte Arduino, voir [[st…
+      21  [C109] tiret d incise
+          …cassé, le Blink ne clignote pas — et on le sait tout de suite, sur…
+      44  [C109] tiret d incise
+          …icrocontrôleur pour cette carte — notamment la **LED utilisateur L…
+      46  [C109] tiret d incise
+          Ces repères — LED LD2, bouton B1, connecteurs…
+      46  [C109] tiret d incise
+          …LED LD2, bouton B1, connecteurs — sont communs à toute la gamme Nu…
+      52  [C109] point-virgule de prose
+          …ue dans [[stm32-cubemx|CubeMX]] ; pour l'instant, fermez-la, le pr…
+      56  [C109] point-virgule de prose
+          …la configuration est régénérée ; tout ce qui est écrit ailleurs e…
+      67  [C109] tiret d incise
+          …nt les noms générés pour la LED — pas besoin de connaître le numér…
+      67  [C109] point-virgule de prose
+          …t de la broche à chaque passage ; `HAL_Delay(500)` attend 500 ms.…
+      73  [C109] tiret d incise
+          …configuration, pas de matériel — la carte n'est pas encore sollic…
+      91  [C109] tiret d incise
+          …on de bouton n'est nécessaire** — le flashage par SWD est direct e…
+      93  [C109] tiret d incise
+          …-seconde. **Le programme tourne — la prise en main est validée.**
+     110  [C109] tiret d incise
+          …les secondes. Ce **petit pas** — modifier, flasher, observer le c…
+     110  [C109] tiret d incise
+          …observer le changement attendu — est le geste de base de tous les…
+     126  [C109] point-virgule de prose
+          …Application ». La sélectionner ; les fois suivantes, c'est automa…
+     152  [C109] tiret d incise
+          …uvent câblé en logique inversée — appui = niveau bas.)
+     164  [C109] tiret d incise
+          …i correspond à `GPIO_PIN_RESET` — d'où le test inversé. La logique…
+
+  embarque/mcu/stm32/stm32-arduino-core.md
+      18  [C109] tiret d incise
+          L'**Arduino-core pour STM32** — couramment appelé **STM32duino**…
+      18  [C109] tiret d incise
+          …ouramment appelé **STM32duino** — est la couche logicielle qui app…
+      18  [C109] tiret d incise
+          …**CMSIS** de STMicroelectronics — l'outillage natif que les tutori…
+      69  [C109] tiret d incise
+          …alias Arduino `D0`–`D15` et `A0`–`A5` des connecteurs sont aussi a…
+      69  [C109] point-virgule de prose
+          …par leur port** (`PA5`, `PB6`…) ; sur Nucleo, les alias Arduino `D…
+      71  [C109] point-virgule de prose
+          …liothèques qui attendent 0-1023 ; appeler `analogReadResolution(12…
+      74  [C109] tiret d incise
+          …t plusieurs fonctions possibles — le brochage par fonction aide à…
+     114  [C109] tiret d incise
+          …du cœur et l'identifiant unique — deux informations qui n'existent…
+     123  [C109] tiret d incise
+          …d'horloge appliquée par le cœur — à relever sur la vôtre. L'UID, l…
+     137  [C109] tiret d incise
+          …r la même broche sur une Nucleo — ou non, selon la carte. En cas d…
+     155  [C109] tiret d incise
+          …une F411, 170 MHz sur une G431 — à vérifier sur la carte). C'est…
+     174  [C109] tiret d incise
+          …ersée (appui = `LOW`). Le reste — `pinMode`, `digitalRead`, `digit…
+     174  [C109] tiret d incise
+          …, `digitalRead`, `digitalWrite` — est strictement le même vocabula…
+     188  [C109] tiret d incise
+          …uino repose sur la HAL et CMSIS — le même socle que l'outillage na…
+     188  [C109] tiret d incise
+          …ême socle que l'outillage natif — éclaire le passage ultérieur à […
+
+2 fiche(s) lue(s), 2 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 34   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 12   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 107
+    RESTANT                   : 38
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (38 fiches)                     56182
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 2
+    clotures en chevron       : 8   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 201
+  cibles rouges distinctes     : 39
+  mots                         : 57022
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

@@ -1619,7 +1619,21 @@ par fiche — FR 0 / 3 / 0 / 7, EN 0 / 3 / 0 / 7**. ⚠ **Le glossaire du menu
 `USB Type` de `teensy-usb` sort intact des deux côtés** — sept gloses de tête,
 cinq groupes nominaux, une relative, un groupe prépositionnel —, ce qui est le
 motif même de l'arbitrage (c) du 29/08 (suite 8).
-*Éprouvée 2/N.*
+
+**Troisième épreuve, 29/08 (suite 10), lot 5 (`stm32/`)** : **10 puces jugées,
+10 traitées, 0 gardée**, et c'est la première fois que le cas 2 ne garde
+**rien**. Motif mesuré, non supposé : les deux fiches du lot ne portent
+**aucune section de glossaire**, et leurs dix puces se répartissent en **sept
+propositions à sujet propre** (cas 2 et cas 3) et **trois segments de queue
+sans verbe conjugué en milieu de prose de puce**, que la doctrine d'exemption
+à deux formes fait tomber. ⚠ **L'une des trois est la phrase que la suite 9
+avait laissée ouverte** — *« quand on a besoin de finesse — sans tout
+réécrire »*, portée à l'identique par `esp32-arduino-core` L26 et
+`stm32-arduino-core` L26, et dont la jumelle EN de l'ESP32 rendait déjà le
+tiret par une virgule. *La famille Arduino-core répète ses phrases d'une fiche
+à l'autre : traiter la seconde dans la forme que l'anglais avait déjà choisie
+referme l'écart au lieu d'en fabriquer un second.*
+*Éprouvée 3/N.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -2406,7 +2420,33 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   corpus. **Aucun contrôle du dépôt ne l'aurait vue** — `--controle` compte
   les liens, les embeds et les blocs de code, `--style` lit la ponctuation,
   `titres-doublons` compare les `title:` de front matter. *Un motif de mesure
-  corrigé vaut parfois un contrôle qu'on n'a pas.* *Éprouvée 0/N.*
+  corrigé vaut parfois un contrôle qu'on n'a pas.*
+
+  **Première épreuve, 29/08 (suite 10)** : le motif des puces a été republié en
+  entier **avant son lancement**, puis éprouvé sur **quatre échantillons
+  nommés, deux par langue**, dont les réponses étaient publiées au registre —
+  lot 3 d'`esp32/` **FR 12 / EN 11**, lot 4 de `teensy/` **FR 10 / EN 10**.
+  **Les quatre tombent, fiche par fiche**, y compris l'asymétrie connue
+  `arduino-core` **2 FR / 1 EN**. ⚠ *Le terme qui prouve est celui-là :
+  prédire 12 côté anglais aurait été prédire la symétrie et non la mesure.*
+  *Éprouvée 1/N.*
+- **Un titre de section EN se relève dans le corpus avant d'être écrit, jamais
+  traduit de tête.**
+  *Née le 29/08 (suite 10), du même défaut qu'É1 de la suite 9, un lot plus
+  tard.* Le lot 4 a écrit **`## Project connection`** (4 fiches) et
+  **`## Step-by-step procedure`** (1) là où le corpus dit
+  **`## Where it fits in the project`** (93 fiches) et **`## Step by step`**
+  (73). Les cinq occurrences fautives **sont exactement les fiches du lot 4**,
+  et la clôture de cette séance-là écrivait déjà, pour `## Further reading`,
+  *« aucun contrôle du dépôt ne l'aurait vue »*. **Il ne l'a pas vue non
+  plus** : `--controle` compte des liens, des embeds et des blocs,
+  `titres-doublons` compare des `title:` de front matter, `--style` lit de la
+  ponctuation, `--libelles` compare un libellé au `title:` de sa cible.
+  **Deux lots d'affilée, deux défauts de la même famille, trouvés tous les deux
+  par accident en mesurant autre chose.** *Le geste qui l'évite tient en un
+  `grep` du corpus par titre de section, avant d'écrire la fiche ; l'instrument
+  qui l'attraperait n'existe pas.* Corrigé ici en **5 remplacements sur
+  4 fiches**, invariants d'accents nuls. *Éprouvée 0/N.*
 - **Une soustraction entre deux totaux se fait sur deux états de même date.**
   *Née le 29/08 (suite 9), cinq réfutations sur onze.* `RESTANT A TRADUIRE` et
   le restant de l'anneau 2 ont été prédits **faux de +14 tous les deux**, pour
@@ -2424,7 +2464,15 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   auquel on le rapportait l'était.* Et une correction écrite **en cours de
   rédaction** a porté sur l'unité (`deh` contre `tot`) sans voir la date —
   *la vigilance se trompe de dimension quand elle n'a qu'un terme à
-  surveiller.* *Éprouvée 0/N.*
+  surveiller.*
+
+  **Première épreuve, 29/08 (suite 10), sur le cas exact qui l'a fait naître.**
+  La clôture du lot 5 a publié **avant la mesure quel `tot` va où** : `3 521`,
+  d'**après** la passe C109, pour les **traduites** ; `3 519`, d'**avant**,
+  pour le **restant**, l'**anneau 2** et la **dette**. Les quatre compteurs
+  tombent au mot près — **236 310**, **54 931**, **52 663**, **53 503** —, et
+  le contrôle de cohérence publié d'avance, **236 310 + 54 931 = 291 241**,
+  referme la boucle sur le corpus FR mesuré. *Éprouvée 1/N.*
 - **Une déclaration C131 se termine par le total qu'elle implique.**
   *Née le 29/08 (suite 6), à la première application de C131 et contre elle.*
   La déclaration d'ouverture du bloc G énumérait correctement **deux**

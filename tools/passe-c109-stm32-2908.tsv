@@ -1,0 +1,33 @@
+embarque/mcu/stm32/stm32-prise-en-main.md	reste le **Blink** — faire clignoter la LED utilisateur — l'équivalent embarqué	reste le **Blink** (faire clignoter la LED utilisateur), l'équivalent embarqué
+embarque/mcu/stm32/stm32-prise-en-main.md	emprunte la **porte native** ; pour la porte Arduino, voir	emprunte la **porte native**. Pour la porte Arduino, voir
+embarque/mcu/stm32/stm32-prise-en-main.md	le Blink ne clignote pas — et on le sait tout de suite	le Blink ne clignote pas, et on le sait tout de suite
+embarque/mcu/stm32/stm32-prise-en-main.md	pour cette carte — notamment la **LED utilisateur LD2**	pour cette carte, notamment la **LED utilisateur LD2**
+embarque/mcu/stm32/stm32-prise-en-main.md	dans [[stm32-cubemx|CubeMX]] ; pour l'instant, fermez-la	dans [[stm32-cubemx|CubeMX]]. Pour l'instant, fermez-la
+embarque/mcu/stm32/stm32-prise-en-main.md	si la configuration est régénérée ; tout ce qui est écrit ailleurs	si la configuration est régénérée. Tout ce qui est écrit ailleurs
+embarque/mcu/stm32/stm32-prise-en-main.md	de la broche à chaque passage ; `HAL_Delay(500)` attend	de la broche à chaque passage. `HAL_Delay(500)` attend
+embarque/mcu/stm32/stm32-prise-en-main.md	les noms générés pour la LED — pas besoin de connaître	les noms générés pour la LED. Pas besoin de connaître
+embarque/mcu/stm32/stm32-prise-en-main.md	pas de matériel — la carte n'est pas encore sollicitée.	pas de matériel : la carte n'est pas encore sollicitée.
+embarque/mcu/stm32/stm32-prise-en-main.md	n'est nécessaire** — le flashage par SWD est direct	n'est nécessaire** : le flashage par SWD est direct
+embarque/mcu/stm32/stm32-prise-en-main.md	**Le programme tourne — la prise en main est validée.**	**Le programme tourne : la prise en main est validée.**
+embarque/mcu/stm32/stm32-prise-en-main.md	La sélectionner ; les fois suivantes, c'est automatique.	La sélectionner. Les fois suivantes, c'est automatique.
+embarque/mcu/stm32/stm32-prise-en-main.md	câblé en logique inversée — appui = niveau bas.)	câblé en logique inversée. Appui = niveau bas.)
+embarque/mcu/stm32/stm32-prise-en-main.md	correspond à `GPIO_PIN_RESET` — d'où le test inversé.	correspond à `GPIO_PIN_RESET`, d'où le test inversé.
+embarque/mcu/stm32/stm32-prise-en-main.md	phase de preuve de concept]]** — la première compilation	phase de preuve de concept]].** La première compilation
+embarque/mcu/stm32/stm32-prise-en-main.md	- **Tous les tutoriels STM32 aval** — sans prise en main effective	- **Tous les tutoriels STM32 aval.** Sans prise en main effective
+embarque/mcu/stm32/stm32-arduino-core.md	L'**Arduino-core pour STM32** — couramment appelé **STM32duino** — est la couche	L'**Arduino-core pour STM32** (couramment appelé **STM32duino**) est la couche
+embarque/mcu/stm32/stm32-arduino-core.md	de STMicroelectronics — l'outillage natif que les tutoriels	de STMicroelectronics, l'outillage natif que les tutoriels
+embarque/mcu/stm32/stm32-arduino-core.md	en changeant la carte sélectionnée — sans plonger dans l'outillage natif.	en changeant la carte sélectionnée, sans plonger dans l'outillage natif.
+embarque/mcu/stm32/stm32-arduino-core.md	quand on a besoin de finesse — sans tout réécrire.	quand on a besoin de finesse, sans tout réécrire.
+embarque/mcu/stm32/stm32-arduino-core.md	(`PA5`, `PB6`…) ; sur Nucleo, les alias Arduino	(`PA5`, `PB6`…), et sur Nucleo les alias Arduino
+embarque/mcu/stm32/stm32-arduino-core.md	renvoie **10 bits par défaut** — le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023 ; appeler `analogReadResolution(12)`	renvoie **10 bits par défaut**, car le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023. Appeler `analogReadResolution(12)`
+embarque/mcu/stm32/stm32-arduino-core.md	et plusieurs fonctions possibles — le brochage par fonction aide	et plusieurs fonctions possibles. Le brochage par fonction aide
+embarque/mcu/stm32/stm32-arduino-core.md	dans un projet CubeIDE sont utilisés — STM32duino les configure pour vous.	dans un projet CubeIDE sont utilisés. STM32duino les configure pour vous.
+embarque/mcu/stm32/stm32-arduino-core.md	du cœur et l'identifiant unique — deux informations qui n'existent pas	du cœur et l'identifiant unique, deux informations qui n'existent pas
+embarque/mcu/stm32/stm32-arduino-core.md	appliquée par le cœur — à relever sur la vôtre.	appliquée par le cœur, à relever sur la vôtre.
+embarque/mcu/stm32/stm32-arduino-core.md	la même broche sur une Nucleo — ou non, selon la carte.	la même broche sur une Nucleo, ou non, selon la carte.
+embarque/mcu/stm32/stm32-arduino-core.md	170 MHz sur une G431 — à vérifier sur la carte)	170 MHz sur une G431, à vérifier sur la carte)
+embarque/mcu/stm32/stm32-arduino-core.md	du versionnage Git — pratique dès que le projet grossit.	du versionnage Git, pratique dès que le projet grossit.
+embarque/mcu/stm32/stm32-arduino-core.md	- **Bascule progressive vers le natif** — STM32duino étant posé sur la HAL	- **Bascule progressive vers le natif.** STM32duino étant posé sur la HAL
+embarque/mcu/stm32/stm32-arduino-core.md	phase de preuve de concept]]** — choisir STM32duino comme environnement	phase de preuve de concept]].** Choisir STM32duino comme environnement
+embarque/mcu/stm32/stm32-arduino-core.md	- **Réutilisation d'un prototype Arduino** — un montage validé sur Arduino	- **Réutilisation d'un prototype Arduino.** Un montage validé sur Arduino
+embarque/mcu/stm32/stm32-arduino-core.md	repose sur la HAL et CMSIS — le même socle que l'outillage natif — éclaire le passage	repose sur la HAL et CMSIS (le même socle que l'outillage natif) éclaire le passage

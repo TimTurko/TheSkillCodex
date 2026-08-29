@@ -129,7 +129,7 @@ The object declarations and the two `AudioConnection` lines are **exactly** what
 - **USB audio.** With no extra hardware at all, *USB Type → Audio* turns the Teensy into a sound card (the `AudioInputUSB` and `AudioOutputUSB` objects). Ideal for experimenting (see [[teensy-usb-en|USB]]).
 - **MQS / external I2S.** On a Teensy 4.x without a shield, the MQS output (2 pins, moderate quality) or an external I2S codec provides analog output. There is no built-in DAC.
 
-## Project connection
+## Where it fits in the project
 
 - **Step 4 of the [[preuve-de-concept-en|proof of concept phase]].** For a project with a sound dimension (an instrument, audio feedback, sound analysis), the audio chain is prototyped early: checking that a signal comes out cleanly, without glitches, conditions everything else.
 - **Load kept under control.** Watching `AudioProcessorUsageMax()` from the proof of concept onwards gives a realistic compute margin before effects are stacked up.

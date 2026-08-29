@@ -1,0 +1,14 @@
+   2  content/embarque/mcu/stm32/stm32-prise-en-main.md
+      L172 : - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — la première compilation et le premier flashage sur la carte cible sont l'acte fondateur de la PoC logicielle. Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
+      L173 : - **Tous les tutoriels STM32 aval** — sans prise en main effective, lire les autres tutoriels sans pouvoir tester revient à lire du code sans l'exécuter. Faites le Blink au moins une fois, sur le matériel cible, le plus tôt possible.
+   8  content/embarque/mcu/stm32/stm32-arduino-core.md
+      L25 : - **Accéder à la gamme STM32 simplement.** D'une *Blue Pill* à une grosse Nucleo, le même sketch s'adapte en changeant la carte sélectionnée — sans plonger dans l'outillage natif.
+      L26 : - **Garder une porte vers le natif.** Depuis un sketch STM32duino, on peut appeler directement des fonctions **HAL** (`HAL_*`) ou lire des registres **CMSIS** quand on a besoin de finesse — sans tout réécrire.
+      L71 : - **l'ADC est un convertisseur 12 bits**, mais `analogRead()` renvoie **10 bits par défaut** — le cœur tronque la valeur pour imiter un Uno et ne pas casser les bibliothèques qui attendent 0-1023 ; appeler `analogReadResolution(12)` dans `setup()` pour débrider la pleine échelle 0-4095 ;
+      L82 : - **Le code repose sur la HAL.** `digitalWrite` appelle, sous le capot, l'équivalent d'un `HAL_GPIO_WritePin`. La même horloge et les mêmes périphériques que dans un projet CubeIDE sont utilisés — STM32duino les configure pour vous.
+      L180 : - **PlatformIO** (extension VS Code) gère le framework Arduino *et* le framework natif (HAL/CMSIS) dans un même projet, avec gestion fine des bibliothèques et du versionnage Git — pratique dès que le projet grossit.
+      L181 : - **Bascule progressive vers le natif** — STM32duino étant posé sur la HAL, on peut commencer en API Arduino, puis remplacer petit à petit les parties critiques par des appels HAL ou registres, sans tout réécrire. C'est un chemin de migration naturel vers [[stm32-cubemx|CubeMX]] et [[stm32-hal|la HAL]].
+      L185 : - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — choisir STM32duino comme environnement de la PoC logicielle est un défaut raisonnable quand on vient de l'Arduino : on avance vite, on garde la porte du natif ouverte. Le réserver permet de ne basculer en outillage natif que si un besoin précis l'exige (débogage, performance, périphérique fin).
+      L186 : - **Réutilisation d'un prototype Arduino** — un montage validé sur Arduino se reporte souvent tel quel sur STM32 via le core, en gagnant mémoire, périphériques et performance.
+----
+  10  TOTAL (2 fiches)

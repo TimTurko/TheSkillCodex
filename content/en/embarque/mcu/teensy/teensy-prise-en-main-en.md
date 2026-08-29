@@ -27,7 +27,7 @@ Beyond the first program, the step has two roles:
 - **Discovering the Teensy Loader.** Uploading to a Teensy goes through a small dedicated application that launches automatically. Understanding how it works (and the **physical button** on the board) saves you from getting stuck later.
 - **Anchoring the gestures.** Selecting the board, the port and the *USB Type*, the Upload button, the serial monitor: these are the gestures repeated in every following tutorial. Anchoring them once on something trivial frees up attention later.
 
-## Step-by-step procedure
+## Step by step
 
 Five steps: install the Arduino IDE, add Teensyduino, plug in and select the board, load Blink, upload.
 
@@ -181,7 +181,7 @@ Two variants go beyond the Arduino IDE 2.x:
 - **PlatformIO** (a VS Code extension) handles the Teensy with convenient Git versioning and multi-file support, which helps as soon as the project grows.
 - **The legacy Teensyduino installer.** For the older Arduino IDE 1.8.x, PJRC provides a separate add-on installer (instead of the boards manager). Keep it for cases where you have stayed on the 1.8.x IDE, and **only on Windows or 64-bit Linux**: since Teensyduino 1.60, PJRC has dropped support for the 1.8.x IDE on macOS. On a Mac, the 2.x IDE is the only way.
 
-## Project connection
+## Where it fits in the project
 
 - **Step 4 of the [[preuve-de-concept-en|proof of concept phase]].** The first compilation and the first upload onto the target board are the founding act of the software proof of concept. Until Blink flashes, no downstream measurement or control loop is credible.
 - **Every downstream Teensy tutorial.** Without having actually got started, reading the other tutorials with no way to test amounts to reading code without running it. Do Blink at least once, on the target hardware, as early as possible.

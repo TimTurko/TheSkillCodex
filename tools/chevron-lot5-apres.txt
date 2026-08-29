@@ -1,0 +1,25 @@
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+  etiq est MESURE sur les etiquettes de langage des ouvertures appariees.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  etiq = mots des etiquettes de langage des ouvertures,
+  % = part des mots comptes qui vient des blocs.
+  IDENTITE : tot - deh - ded = etiq. Les lignes d ouverture et de
+  cloture sont hors deh (bornes comprises) et hors ded (contenu pris
+  strictement entre elles) ; le masque C110 est ancre en debut de
+  ligne et ne voit pas "> ```cpp", donc l etiquette reste dans tot.
+  ECART ne s imprime QUE s il differe de etiq : cloture orpheline,
+  texte apres une cloture, ouverture qui n est pas un fence.
+
+  fiches nommees : 2   porteuses : 2
+
+  embarque/mcu/stm32/stm32-prise-en-main.md            4 cl   2 bl   1810 tot   114 ded   1694 deh    2 etiq    6.3 %
+  embarque/mcu/stm32/stm32-arduino-core.md             4 cl   2 bl   1711 tot    53 ded   1656 deh    2 etiq    3.1 %
+  ------------------------------------------------------------------------------------------------
+  LOT (2 porteuses)                                    8 cl   4 bl   3521 tot   167 ded   3350 deh    4 etiq
