@@ -1,0 +1,278 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+  ligne 58 : #   Les 3 et 5 sont les deux seuls termes pariés. Ils sortent du nombre de
+lignes non ASCII dans seance.ps1 : 1
+sortie precedente copiee : tools\seance-sortie-2908s11.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 10:51
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - dates d ecriture, garde contre un ecrivain actif (P1)
+==============================================================
+micropython-afficheur.md                  2026-08-29 10:09:28
+micropython-capteur-numerique.md          2026-08-29 10:15:24
+micropython-entree-tor.md                 2026-08-29 10:14:09
+micropython-moteur-pas-a-pas.md           2026-06-30 12:42:37
+micropython-pid.md                        2026-08-20 23:08:58
+micropython-servomoteur.md                2026-06-30 12:28:37
+micropython-simulation.md                 2026-08-29 10:09:46
+micropython-sortie-tor.md                 2026-08-29 10:13:53
+micropython-watchdog.md                   2026-08-19 15:09:46
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - diffs de entree-tor et capteur-numerique (P2)
+==============================================================
+=== entree-tor ===
+@@ -18 +18 @@ draft: false
+-Une **entrée TOR** (Tout Ou Rien) lit un signal binaire qui ne prend que deux états : appuyé ou relâché, présent ou absent. Bouton-poussoir, interrupteur, fin de course, capteur de présence numérique — tous se lisent par `Pin.value()`. La difficulté n'est pas la lecture elle-même mais le traitement du **rebond** : un contact mécanique génère plusieurs commutations parasites en quelques millisecondes, qu'il faut filtrer pour obtenir un signal propre.
++Une **entrée TOR** (Tout Ou Rien) lit un signal binaire qui ne prend que deux états : appuyé ou relâché, présent ou absent. Bouton-poussoir, interrupteur, fin de course, capteur de présence numérique : tous se lisent par `Pin.value()`. La difficulté n'est pas la lecture elle-même mais le traitement du **rebond** : un contact mécanique génère plusieurs commutations parasites en quelques millisecondes, qu'il faut filtrer pour obtenir un signal propre.
+@@ -30 +30 @@ Quatre étapes : câbler avec pull-up, lire, ajouter l'anti-rebond, détecter le
+-Un côté du bouton sur la broche (ici GP14), l'autre sur GND. Aucune résistance externe — le tirage interne (`Pin.PULL_UP`) maintient `3,3 V` au repos et tombe à GND à l'appui.
++Un côté du bouton sur la broche (ici GP14), l'autre sur GND. Aucune résistance externe : le tirage interne (`Pin.PULL_UP`) maintient `3,3 V` au repos et tombe à GND à l'appui.
+@@ -51 +51 @@ while True:
+-Lancez le script et appuyez : on voit `1, 1, 0, 0, 1...`. En regardant de près, quelques transitions parasites apparaissent au moment de l'appui (`0, 1, 0, 1`) — c'est le **rebond mécanique**, qui dure quelques millisecondes.
++Lancez le script et appuyez : on voit `1, 1, 0, 0, 1...`. En regardant de près, quelques transitions parasites apparaissent au moment de l'appui (`0, 1, 0, 1`) : c'est le **rebond mécanique**, qui dure quelques millisecondes.
+@@ -84 +84 @@ while True:
+-**Comment lire ce code.** L'astuce tient en **deux variables**. `dernier_etat` suit la valeur *brute* lue à l'instant (elle tremble pendant le rebond) ; `etat_stable` ne retient que l'état *confirmé*, le seul sur lequel on agit. À chaque tour de boucle :
++**Comment lire ce code.** L'astuce tient en **deux variables**. `dernier_etat` suit la valeur *brute* lue à l'instant (elle tremble pendant le rebond). `etat_stable` ne retient que l'état *confirmé*, le seul sur lequel on agit. À chaque tour de boucle :
+@@ -90 +90 @@ while True:
+-`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage ; `ticks_diff(maintenant, depart)` donne le temps écoulé *depuis le dernier tremblement* — en gérant le débordement du compteur, ce qu'une soustraction directe ne ferait pas. Le comparer à `DELAI_REBOND`, c'est demander : « le signal est-il calme depuis assez longtemps pour y croire ? »
++`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage. `ticks_diff(maintenant, depart)` donne le temps écoulé *depuis le dernier tremblement*, en gérant le débordement du compteur, ce qu'une soustraction directe ne ferait pas. Le comparer à `DELAI_REBOND`, c'est demander : « le signal est-il calme depuis assez longtemps pour y croire ? »
+@@ -145 +145 @@ Chaque appui incrémente un compteur et inverse la LED — comportement net, ins
+-**Entrée flottante.** Sans `PULL_UP` (ou résistance externe), la broche flotte — la LED bascule au moindre passage de main. Presque toujours `PULL_UP` + bouton vers GND.
++**Entrée flottante.** Sans `PULL_UP` (ou résistance externe), la broche flotte : la LED bascule au moindre passage de main. Presque toujours `PULL_UP` + bouton vers GND.
+@@ -151 +151 @@ Chaque appui incrémente un compteur et inverse la LED — comportement net, ins
+-**`sleep()` dans la boucle de lecture.** Un `sleep(0.5)` rate les appuis brefs. Le pattern anti-rebond ci-dessus n'utilise volontairement aucun `sleep` — il observe le temps via `ticks_ms()`.
++**`sleep()` dans la boucle de lecture.** Un `sleep(0.5)` rate les appuis brefs. Le pattern anti-rebond ci-dessus n'utilise volontairement aucun `sleep` : il observe le temps via `ticks_ms()`.
+@@ -165 +165 @@ Chaque appui incrémente un compteur et inverse la LED — comportement net, ins
+-Le pattern anti-rebond est à coller-modifier d'une fiche à l'autre une fois compris — 10 minutes ici évitent des heures de débogage où l'on cherche pourquoi le système compte les appuis de travers.
++Le pattern anti-rebond est à coller-modifier d'une fiche à l'autre une fois compris : 10 minutes ici évitent des heures de débogage où l'on cherche pourquoi le système compte les appuis de travers.
+
+=== capteur-numerique ===
+@@ -19 +19 @@ draft: false
+-Un **capteur numérique** délivre une information codée en signal binaire — par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas — les bus I2C et SPI ont leurs propres tutoriels.
++Un **capteur numérique** délivre une information codée en signal binaire, par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas : les bus I2C et SPI ont leurs propres tutoriels.
+@@ -33 +33 @@ D'abord identifier le type de signal, puis mettre la méthode en pratique sur de
+-- **Protocole propriétaire** — séquence binaire que seule une bibliothèque décode (DHT11/22 en 1-wire, DS18B20). MicroPython embarque par exemple le module **`dht`** ; voir [[micropython-bibliotheques|utiliser une bibliothèque]].
++- **Protocole propriétaire** — séquence binaire que seule une bibliothèque décode (DHT11/22 en 1-wire, DS18B20). MicroPython embarque par exemple le module **`dht`**. Voir [[micropython-bibliotheques|utiliser une bibliothèque]].
+@@ -59 +59 @@ while True:
+-La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `0` quand un obstacle est détecté), d'où le test `== 0` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[micropython-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi* ; pour mesurer la distance réelle, voir le cas suivant.
++La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `0` quand un obstacle est détecté), d'où le test `== 0` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[micropython-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi*. Pour mesurer la distance réelle, voir le cas suivant.
+@@ -63 +63 @@ La seule subtilité est le **niveau actif** : la plupart de ces modules sont **a
+-Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V**, or le Pico n'est pas tolérant 5 V — il faut un **pont diviseur** (ou un module 3,3 V) sur la ligne Echo.
++Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V**, or le Pico n'est pas tolérant 5 V. Il faut un **pont diviseur** (ou un module 3,3 V) sur la ligne Echo.
+@@ -65 +65 @@ Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V
+-- `VCC` → `+5 V` (VBUS) ; `GND` → `GND` ;
++- `VCC` → `+5 V` (VBUS), `GND` → `GND` ;
+@@ -73 +73 @@ Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V
+-Le HC-SR04 fonctionne au **temps de vol** : l'émetteur envoie une salve d'ultrasons, l'onde rebondit sur l'objet, puis revient au récepteur. Le **temps d'aller-retour**, connaissant la vitesse du son, donne la distance — c'est ce que la broche `Echo` restitue.
++Le HC-SR04 fonctionne au **temps de vol** : l'émetteur envoie une salve d'ultrasons, l'onde rebondit sur l'objet, puis revient au récepteur. Le **temps d'aller-retour**, connaissant la vitesse du son, donne la distance : c'est ce que la broche `Echo` restitue.
+@@ -77 +77 @@ Le HC-SR04 fonctionne au **temps de vol** : l'émetteur envoie une salve d'ultra
+-Impulsion de **10 µs sur `Trig`** pour déclencher ; `Echo` renvoie une impulsion proportionnelle à l'aller-retour de l'onde. Son ≈ 343 m/s à 20 °C → distance = durée × 343 / 2. Plage utile 2 cm – 4 m.
++Impulsion de **10 µs sur `Trig`** pour déclencher. `Echo` renvoie une impulsion proportionnelle à l'aller-retour de l'onde. Son ≈ 343 m/s à 20 °C → distance = durée × 343 / 2. Plage utile 2 cm – 4 m.
+@@ -111 +111 @@ while True:
+-**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `Trig` une impulsion **propre** de 10 µs — le `low()` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `time_pulse_us(echo, 1, 30000)` met le programme **en attente** de l'impulsion sur `Echo` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Une valeur **négative** signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
++**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `Trig` une impulsion **propre** de 10 µs. Le `low()` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `time_pulse_us(echo, 1, 30000)` met le programme **en attente** de l'impulsion sur `Echo` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Une valeur **négative** signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
+@@ -113 +113 @@ while True:
+-Approchez/éloignez la main — la distance s'affiche au [[micropython-repl|REPL]] :
++Approchez/éloignez la main. La distance s'affiche au [[micropython-repl|REPL]] :
+@@ -124 +124 @@ Hors plage
+-Une seule décimale ici, imposée par le format `"{:.1f}"` — le jumeau Arduino en affiche deux, par simple défaut de `Serial.print()`. Et `Hors plage` apparaît dès que la main sort du cône : c'est la valeur négative renvoyée par `time_pulse_us()` au bout des 30 ms.
++Une seule décimale ici, imposée par le format `"{:.1f}"` : le jumeau Arduino en affiche deux, par simple défaut de `Serial.print()`. Et `Hors plage` apparaît dès que la main sort du cône : c'est la valeur négative renvoyée par `time_pulse_us()` au bout des 30 ms.
+@@ -161 +161 @@ La factorisation en [[micropython-fonctions|fonction]] `mesurer_cm()` annonce l'
+-**Timeout de `time_pulse_us()` oublié.** Sans timeout, l'appel peut bloquer si aucun écho ne revient. Toujours passer le 3ᵉ argument (en µs) ; pour 4 m, ~23 ms → 30 ms.
++**Timeout de `time_pulse_us()` oublié.** Sans timeout, l'appel peut bloquer si aucun écho ne revient. Toujours passer le 3ᵉ argument (en µs). Pour 4 m, ~23 ms → 30 ms.
+@@ -165 +165 @@ La factorisation en [[micropython-fonctions|fonction]] `mesurer_cm()` annonce l'
+-**Mesure trop fréquente.** Cycle de mesure ≈ 60 ms ; mesurer plus vite donne des résultats incohérents. 10 Hz est un bon rythme.
++**Mesure trop fréquente.** Cycle de mesure ≈ 60 ms. Mesurer plus vite donne des résultats incohérents. 10 Hz est un bon rythme.
+@@ -167 +167 @@ La factorisation en [[micropython-fonctions|fonction]] `mesurer_cm()` annonce l'
+-**PIR pas stabilisé.** Un PIR demande 30–60 s de stabilisation après mise sous tension ; lire pendant ce temps donne du bruit.
++**PIR pas stabilisé.** Un PIR demande 30–60 s de stabilisation après mise sous tension. Lire pendant ce temps donne du bruit.
+@@ -178 +178 @@ Beaucoup de capteurs modernes (BMP280, MPU6050, VL53L0X) communiquent par bus 
+-Brancher un capteur, lire sa doc, en sortir une mesure crédible — c'est la boucle qui fait la PoC, à automatiser pour tous les capteurs du projet.
++Brancher un capteur, lire sa doc, en sortir une mesure crédible : c'est la boucle qui fait la PoC, à automatiser pour tous les capteurs du projet.
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - cadrage vivant : --style sur les neuf, total connu 72 (P3)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-afficheur.md
+      30  [C109] tiret d incise
+          …emier projet : **OLED SSD1306** — petit, lisible, graphique simple…
+      38  [C109] point-virgule de prose
+          …6 grand public accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL…
+      38  [C109] point-virgule de prose
+          …accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confi…
+      38  [C109] point-virgule de prose
+          …V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confirmer l'adresse…
+
+  embarque/mcu/micropython/micropython-capteur-numerique.md
+      59  [C109] tiret d incise
+          …t détecté), d'où le test `== 0` — à vérifier sur la fiche-produit.…
+      77  [C109] tiret d incise
+          …rée × 343 / 2. Plage utile 2 cm – 4 m.
+     111  [C109] tiret d incise
+          …e sa **durée en microsecondes** — le temps d'aller-retour de l'ond…
+     157  [C109] tiret d incise
+          …est *analogique* malgré son nom — voir [[micropython-capteur-analo…
+     163  [C109] tiret d incise
+          …arfois des mesures fantaisistes — filtrer (médiane sur 3-5 mesures…
+     171  [C109] tiret d incise
+          …, VL53L0X) communiquent par bus — numériques mais d'une catégorie…
+
+  embarque/mcu/micropython/micropython-entree-tor.md
+      96  [C109] tiret d incise
+          …détection de front descendant** — dans la branche stable :
+     137  [C109] tiret d incise
+          …e un compteur et inverse la LED — comportement net, insensible au…
+
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+      18  [C109] tiret d incise
+          …ruction* sans capteur de retour — d'où son intérêt pour le positio…
+      18  [C109] tiret d incise
+          …équence les bobines à la main** — ce qui montre exactement comment…
+      94  [C109] tiret d incise
+          …faux, il **vibre sans tourner** — voir *Pièges*.
+     147  [C109] tiret d incise
+          …on** : `pas()` est **bloquant** — pendant le quart de tour, la bou…
+     147  [C109] point-virgule de prose
+          …ent l'état confirmé après 30 ms ; le quart de tour n'est déclenché…
+     153  [C109] point-virgule de prose
+          …le 3,3 V du Pico fait rebooter ; alimentation séparée (au moins p…
+     157  [C109] point-virgule de prose
+          …4988.** Trop bas → perte de pas ; trop haut → surchauffe. Calibrer…
+     176  [C109] tiret d incise
+          …t répétable précis sans capteur — résultats spectaculaires en démo…
+
+  embarque/mcu/micropython/micropython-pid.md
+      21  [C109] tiret d incise
+          …asservissement|asservissement]] — réguler une vitesse, une tempéra…
+      21  [C109] point-virgule de prose
+          …lgorithme est le même qu'en C++ ; seule la syntaxe change.
+      25  [C109] point-virgule de prose
+          …isse une **erreur résiduelle**) ; **I** (accumule l'erreur passée…
+      25  [C109] point-virgule de prose
+          …l, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de…
+      86  [C109] point-virgule de prose
+          …à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'e…
+      86  [C109] point-virgule de prose
+          …éintroduire d'oscillation lente ; **ajouter `Kd`** avec parcimonie…
+     133  [C109] tiret d incise
+          …* par `borne(…, -50000, 50000)` — c'est l'anti-emballement. `deriv…
+     141  [C109] point-virgule de prose
+          …intégrale accumule dans le vide ; à l'inversion de l'erreur, la co…
+     154  [C109] point-virgule de prose
+          …bornes. Pratique en production ; le calcul manuel reste préférabl…
+     159  [C109] point-virgule de prose
+          …un [[micropython-timers|timer]] ; ses gains, réglés en PoC, sont r…
+
+  embarque/mcu/micropython/micropython-servomoteur.md
+      18  [C109] tiret d incise
+          …[micropython-sortie-pwm|PWM]]** — un signal à **50 Hz** dont on rè…
+      26  [C109] tiret d incise
+          …es varient d'un servo à l'autre — à calibrer). En `duty_u16` (0–65…
+      44  [C109] tiret d incise
+          …Le signal du Pico est en 3,3 V — accepté par la plupart des servo…
+      44  [C109] point-virgule de prose
+          …2 servos / un servo de couple) ; **marron/noir** → `GND` ; **oran…
+      44  [C109] point-virgule de prose
+          …uple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de…
+      78  [C109] tiret d incise
+          …_DUTY`/`MAX_DUTY` (calibration) — voir *Pièges*.
+     104  [C109] point-virgule de prose
+          …ue tour, on ajoute `sens * pas` ; en butée, on **inverse `sens`**…
+     106  [C109] tiret d incise
+          …t varier la vitesse de balayage — pratique pour calibrer en démo s…
+     120  [C109] point-virgule de prose
+          …limentation externe obligatoire ; pour beaucoup de servos, un driv…
+     125  [C109] point-virgule de prose
+          …t la conversion angle→impulsion ; le pilotage PWM direct ci-dessus…
+     129  [C109] tiret d incise
+          …l** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour…
+     166  [C109] tiret d incise
+          …et `ADC_180` ne se devinent pas — elles se **calibrent** : on comm…
+     176  [C109] point-virgule de prose
+          …ion), **pas** avec `read_u16()` ; en contrepartie, le capteur Hall…
+     179  [C109] tiret d incise
+          …ur capteur dédié est préférable — voir [[micropython-pid|le réglag…
+     187  [C109] tiret d incise
+          …le plus *prévisible* à intégrer — idéal pour les premières démonst…
+
+  embarque/mcu/micropython/micropython-simulation.md
+      54  [C109] tiret d incise
+          …k, mais déclenché par un bouton — pour montrer une entrée numériqu…
+      85  [C109] tiret d incise
+          …ise.** Wokwi est 100 % en ligne — sans réseau, pas de simulation.
+
+  embarque/mcu/micropython/micropython-sortie-tor.md
+      22  [C109] tiret d incise
+          …ommande binaire d'un actionneur — allumer un témoin, déclencher un…
+      22  [C109] tiret d incise
+          …mettre en route un ventilateur — passe par une sortie TOR. Le bon…
+      43  [C109] point-virgule de prose
+          …r NPN 2N2222** : émetteur → GND ; collecteur → buzzer (−) ; buzzer…
+      43  [C109] point-virgule de prose
+          …→ GND ; collecteur → buzzer (−) ; buzzer (+) → +5 V (ou +3,3 V) ;…
+      43  [C109] point-virgule de prose
+          …; buzzer (+) → +5 V (ou +3,3 V) ; base → résistance 1 kΩ → GP9.
+      73  [C109] tiret d incise
+          …presque toujours sous-alimenté — passer par une alimentation exte…
+      97  [C109] tiret d incise
+          …A par défaut, ~12 mA au maximum — **moins** qu'un Arduino. Au moin…
+     113  [C109] tiret d incise
+          …ne se fait jamais directement** — toujours par module relais ou co…
+     113  [C109] point-virgule de prose
+          …modules à optocoupleur `PC817`) ; **calibre du contact** (un relai…
+     113  [C109] point-virgule de prose
+          …is bas de gamme ≈ 10 A / 250 V) ; **sécurité électrique** (câblage…
+     120  [C109] tiret d incise
+          …s) en amont, sur les datasheets — et pas après avoir grillé le pre…
+     120  [C109] tiret d incise
+          …oir grillé le premier composant — fait la différence entre une PoC…
+
+  embarque/mcu/micropython/micropython-watchdog.md
+      18  [C109] tiret d incise
+          …blocages : un programme planté — boucle infinie, attente sans fin…
+      18  [C109] tiret d incise
+          …attente sans fin, capteur figé — se relance tout seul au lieu de…
+      22  [C109] tiret d incise
+          …che. Si son programme se bloque — une bibliothèque qui attend une…
+      22  [C109] tiret d incise
+          …le code, une boucle sans sortie — il reste inerte jusqu'à coupure…
+      22  [C109] tiret d incise
+          …ser un système déjà fonctionnel — pas pour masquer des bugs.
+      22  [C109] point-virgule de prose
+          …le chien à intervalle régulier ; s'il se bloque, le chien n'est p…
+      60  [C109] tiret d incise
+          …t, rarement, ne jamais répondre — figeant le programme. Le chien d…
+      77  [C109] tiret d incise
+          …bout de 8 s la carte redémarre — réexécutant `main.py`, qui réaff…
+      77  [C109] point-virgule de prose
+          …sif car bien inférieur au délai ; dans un programme [[micropython-…
+      91  [C109] tiret d incise
+          …arte entre les deux `Demarrage` — c'est le chien qui a rendu la ma…
+      95  [C109] tiret d incise
+          …que le délai** sans la nourrir — d'où l'intérêt d'un code [[micro…
+     109  [C109] point-virgule de prose
+          …te la dernière ligne de défense ; il ne se substitue pas à un code…
+     114  [C109] point-virgule de prose
+          …it concrètement par un watchdog ; à prévoir si le cahier des charg…
+
+9 fiche(s) lue(s), 9 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 72   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 54   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

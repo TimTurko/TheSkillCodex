@@ -1,0 +1,131 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s8.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 10:21
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - points de code de la ligne 18 de sortie-tor (P1)
+==============================================================
+lignes dans le fichier : 129
+ligne 18, 90 premiers caracteres :
+  Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou étein
+segment examine : [transistor : toutes se p]
+  U+0074   t
+  U+0072   r
+  U+0061   a
+  U+006E   n
+  U+0073   s
+  U+0069   i
+  U+0073   s
+  U+0074   t
+  U+006F   o
+  U+0072   r
+  U+0020    
+  U+003A   :
+  U+0020    
+  U+0074   t
+  U+006F   o
+  U+0075   u
+  U+0074   t
+  U+0065   e
+  U+0073   s
+  U+0020    
+  U+0073   s
+  U+0065   e
+  U+0020    
+  U+0070   p
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - volume apres passes, predit 660 et 952 (P2)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-afficheur.md           660
+  embarque/mcu/micropython/micropython-simulation.md          952
+  ---------------------------------------------------------------
+  LOT (2 fiches)                                             1612
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - residu C109 des deux fiches passees, predit 4 et 2 (P3)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-afficheur.md
+      30  [C109] tiret d incise
+          …emier projet : **OLED SSD1306** — petit, lisible, graphique simple…
+      38  [C109] point-virgule de prose
+          …6 grand public accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL…
+      38  [C109] point-virgule de prose
+          …accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confi…
+      38  [C109] point-virgule de prose
+          …V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confirmer l'adresse…
+
+  embarque/mcu/micropython/micropython-simulation.md
+      54  [C109] tiret d incise
+          …k, mais déclenché par un bouton — pour montrer une entrée numériqu…
+      85  [C109] tiret d incise
+          …ise.** Wokwi est 100 % en ligne — sans réseau, pas de simulation.
+
+2 fiche(s) lue(s), 2 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 6   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 6   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - re-mesure de sortie-tor, intouchee, predit 23 (P4)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-sortie-tor.md
+      22  [C109] tiret d incise
+          …ommande binaire d'un actionneur — allumer un témoin, déclencher un…
+      22  [C109] tiret d incise
+          …mettre en route un ventilateur — passe par une sortie TOR. Le bon…
+      43  [C109] point-virgule de prose
+          …r NPN 2N2222** : émetteur → GND ; collecteur → buzzer (−) ; buzzer…
+      43  [C109] point-virgule de prose
+          …→ GND ; collecteur → buzzer (−) ; buzzer (+) → +5 V (ou +3,3 V) ;…
+      43  [C109] point-virgule de prose
+          …; buzzer (+) → +5 V (ou +3,3 V) ; base → résistance 1 kΩ → GP9.
+      73  [C109] tiret d incise
+          …presque toujours sous-alimenté — passer par une alimentation exte…
+      97  [C109] tiret d incise
+          …A par défaut, ~12 mA au maximum — **moins** qu'un Arduino. Au moin…
+     113  [C109] tiret d incise
+          …ne se fait jamais directement** — toujours par module relais ou co…
+     113  [C109] point-virgule de prose
+          …modules à optocoupleur `PC817`) ; **calibre du contact** (un relai…
+     113  [C109] point-virgule de prose
+          …is bas de gamme ≈ 10 A / 250 V) ; **sécurité électrique** (câblage…
+     120  [C109] tiret d incise
+          …s) en amont, sur les datasheets — et pas après avoir grillé le pre…
+     120  [C109] tiret d incise
+          …oir grillé le premier composant — fait la différence entre une PoC…
+
+1 fiche(s) lue(s), 1 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 12   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 7   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

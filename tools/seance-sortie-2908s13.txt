@@ -1,0 +1,114 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+  ligne 28 : #   BRANCHE INNOCENTE : capteur-numerique l.19 rend "signal binaire — par
+  ligne 29 : #   opposition" par "signal binaire, par opposition" et l.63 rend "5 V — il
+lignes non ASCII dans seance.ps1 : 2
+sortie precedente copiee : tools\seance-sortie-2908s12.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge, et garde de concurrence sur les cinq sources
+==============================================================
+date ISO : 2026-08-29   heure : 10:55
+--- dates d ecriture attendues : 10:09 a 10:15, aucune plus recente
+  micropython-entree-tor.md                 10:14:09
+  micropython-sortie-tor.md                 10:13:53
+  micropython-capteur-numerique.md          10:15:24
+  micropython-afficheur.md                  10:09:28
+  micropython-simulation.md                 10:09:46
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot 5 apres passes, predit 4730 (P1)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-entree-tor.md          933
+  embarque/mcu/micropython/micropython-sortie-tor.md          948
+  embarque/mcu/micropython/micropython-capteur-numerique.md   1237
+  embarque/mcu/micropython/micropython-afficheur.md           660
+  embarque/mcu/micropython/micropython-simulation.md          952
+  ---------------------------------------------------------------
+  LOT (5 fiches)                                             4730
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - title: des jumelles EN candidates, C125 test 2 (P2)
+==============================================================
+arduino-entree-tor-en           title: Reading an on/off input
+arduino-sortie-tor-en           title: Driving an on/off output
+arduino-capteur-numerique-en    title: Reading a digital sensor
+arduino-afficheur-en            title: LCD / OLED display
+arduino-simulation-en           ABSENTE
+wokwi-en                        ABSENTE
+tinkercad-en                    title: Tinkercad
+simulation-electronique-en      title: Circuit simulation
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - GENERATION des cinq squelettes EN (P3)
+==============================================================
+--- embarque/mcu/micropython/micropython-entree-tor.md
+=== embarque/mcu/micropython/micropython-entree-tor.md -> content/en/embarque/mcu/micropython/micropython-entree-tor-en.md ===
+  liens   : 12 -> 12  ok
+  embeds  : 2 -> 2  ok
+  code    : 4 -> 4  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/micropython/micropython-entree-tor-en.md (9537 o)
+--- embarque/mcu/micropython/micropython-sortie-tor.md
+=== embarque/mcu/micropython/micropython-sortie-tor.md -> content/en/embarque/mcu/micropython/micropython-sortie-tor-en.md ===
+  liens   : 10 -> 10  ok
+  embeds  : 1 -> 1  ok
+  code    : 2 -> 2  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/micropython/micropython-sortie-tor-en.md (7922 o)
+--- embarque/mcu/micropython/micropython-capteur-numerique.md
+=== embarque/mcu/micropython/micropython-capteur-numerique.md -> content/en/embarque/mcu/micropython/micropython-capteur-numerique-en.md ===
+  liens   : 19 -> 19  ok
+  embeds  : 4 -> 4  ok
+  code    : 4 -> 4  ok
+  prerequis suffixes : 2
+
+Ecrit : content/en/embarque/mcu/micropython/micropython-capteur-numerique-en.md (11230 o)
+--- embarque/mcu/micropython/micropython-afficheur.md
+=== embarque/mcu/micropython/micropython-afficheur.md -> content/en/embarque/mcu/micropython/micropython-afficheur-en.md ===
+  liens   : 11 -> 11  ok
+  embeds  : 1 -> 1  ok
+  code    : 3 -> 3  ok
+  prerequis suffixes : 2
+
+Ecrit : content/en/embarque/mcu/micropython/micropython-afficheur-en.md (6253 o)
+--- embarque/mcu/micropython/micropython-simulation.md
+=== embarque/mcu/micropython/micropython-simulation.md -> content/en/embarque/mcu/micropython/micropython-simulation-en.md ===
+  liens   : 12 -> 12  ok
+  embeds  : 1 -> 1  ok
+  code    : 1 -> 1  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/micropython/micropython-simulation-en.md (7174 o)
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - controle du corpus, predit 181 / 0 / 0 (P4)
+==============================================================
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+181 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0

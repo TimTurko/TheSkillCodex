@@ -1,0 +1,95 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s14.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 11:01
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - epreuve du motif sur un cas dont la reponse est connue
+==============================================================
+motif : le slug, un suffixe -en OPTIONNEL, une barre, le libelle
+attendu : au moins une ligne de filtrage.md avec forme parenthesee,
+et au moins une ligne d un fichier sous en/ - la serie 9 n en
+rendait aucune.
+occurrences totales : 25
+dont sous en/         : 12
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - libelles de production, FR et EN, pour les cinq cibles (P1 a P3)
+==============================================================
+=== micropython-entree-tor
+  FR  filtrage.md                             l.92  [[micropython-entree-tor|Lire une entrée TOR (MicroPython)]]
+  FR  micropython-capteur-numerique.md        l.59  [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-gpio.md                     l.127  [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-interruptions.md            l.140  [[micropython-entree-tor|anti-rebond]]
+  FR  micropython-interruptions.md            l.162  [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-machine-a-etats.md          l.79  [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-machine-a-etats.md          l.150  [[micropython-entree-tor|anti-rebond]]
+  FR  micropython-machine-a-etats.md          l.172  [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-simulation.md               l.77  [[micropython-entree-tor|anti-rebond logiciel]]
+  FR  micropython-sortie-tor.md               l.126  [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython-temporisation.md            l.163  [[micropython-entree-tor|lire une entrée TOR]]
+  FR  micropython-temporisation.md            l.195  [[micropython-entree-tor|Lire une entrée TOR]]
+  FR  micropython.md                          l.34  [[micropython-entree-tor|Lire une entrée TOR]]
+  EN  micropython-capteur-numerique-en.md     l.61  [[micropython-entree-tor-en|lire une entrée TOR]]
+  EN  micropython-en.md                       l.36  [[micropython-entree-tor-en|Reading an on/off input]]
+  EN  micropython-gpio-en.md                  l.129  [[micropython-entree-tor-en|Reading an on/off input]]
+  EN  micropython-interruptions-en.md         l.142  [[micropython-entree-tor-en|debouncing]]
+  EN  micropython-interruptions-en.md         l.164  [[micropython-entree-tor-en|Reading a digital input]]
+  EN  micropython-machine-a-etats-en.md       l.81  [[micropython-entree-tor-en|reading a digital input]]
+  EN  micropython-machine-a-etats-en.md       l.152  [[micropython-entree-tor-en|debouncing]]
+  EN  micropython-machine-a-etats-en.md       l.174  [[micropython-entree-tor-en|Reading a digital input]]
+  EN  micropython-simulation-en.md            l.79  [[micropython-entree-tor-en|anti-rebond logiciel]]
+  EN  micropython-sortie-tor-en.md            l.128  [[micropython-entree-tor-en|Lire une entrée TOR]]
+  EN  micropython-temporisation-en.md         l.165  [[micropython-entree-tor-en|reading a digital input]]
+  EN  micropython-temporisation-en.md         l.197  [[micropython-entree-tor-en|Reading a digital input]]
+
+=== micropython-sortie-tor
+  FR  micropython-entree-tor.md               l.171  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  FR  micropython-gpio-boot.md                l.124  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  FR  micropython-gpio.md                     l.102  [[micropython-sortie-tor|piloter une sortie TOR]]
+  FR  micropython-gpio.md                     l.128  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  FR  micropython-machine-a-etats.md          l.173  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  FR  micropython-sortie-pwm.md               l.128  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  FR  micropython.md                          l.35  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  EN  micropython-en.md                       l.37  [[micropython-sortie-tor-en|Driving an on/off output]]
+  EN  micropython-entree-tor-en.md            l.173  [[micropython-sortie-tor-en|Piloter une sortie TOR]]
+  EN  micropython-gpio-boot-en.md             l.126  [[micropython-sortie-tor-en|Driving an on/off output]]
+  EN  micropython-gpio-en.md                  l.104  [[micropython-sortie-tor-en|driving an on/off output]]
+  EN  micropython-gpio-en.md                  l.130  [[micropython-sortie-tor-en|Driving an on/off output]]
+  EN  micropython-machine-a-etats-en.md       l.175  [[micropython-sortie-tor-en|Driving a digital output]]
+  EN  micropython-sortie-pwm-en.md            l.130  [[micropython-sortie-tor-en|Driving an on/off output]]
+
+=== micropython-capteur-numerique
+  FR  filtrage.md                             l.87  [[micropython-capteur-numerique|Lire un capteur numérique (MicroPython)]]
+  FR  micropython-capteur-analogique.md       l.137  [[micropython-capteur-numerique|Lire un capteur numérique]]
+  FR  micropython.md                          l.36  [[micropython-capteur-numerique|Lire un capteur numérique]]
+  EN  micropython-capteur-analogique-en.md    l.139  [[micropython-capteur-numerique-en|Reading a digital sensor]]
+  EN  micropython-en.md                       l.38  [[micropython-capteur-numerique-en|Reading a digital sensor]]
+
+=== micropython-afficheur
+  FR  micropython-bibliotheques.md            l.121  [[micropython-afficheur|Afficheur OLED]]
+  FR  micropython-i2c.md                      l.124  [[micropython-afficheur|Afficheur OLED]]
+  FR  micropython.md                          l.51  [[micropython-afficheur|Afficheur OLED]]
+  EN  micropython-bibliotheques-en.md         l.123  [[micropython-afficheur-en|OLED display]]
+  EN  micropython-en.md                       l.53  [[micropython-afficheur-en|OLED display]]
+  EN  micropython-i2c-en.md                   l.126  [[micropython-afficheur-en|OLED display]]
+
+=== micropython-simulation
+  FR  micropython-prise-en-main.md            l.155  [[micropython-simulation|Simuler avec Wokwi]]
+  FR  micropython.md                          l.26  [[micropython-simulation|Simuler avec Wokwi]]
+  FR  wokwi.md                                l.25  [[micropython-simulation|simuler un Pico]]
+  FR  wokwi.md                                l.133  [[micropython-simulation|Simuler un Pico en MicroPython]]
+  EN  micropython-en.md                       l.28  [[micropython-simulation-en|Simulating with Wokwi]]
+  EN  micropython-prise-en-main-en.md         l.157  [[micropython-simulation-en|Simulating with Wokwi]]
+
+--- code de sortie : 0

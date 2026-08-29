@@ -1,0 +1,460 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s4.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 09:02
+jour de la semaine : Saturday
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - DETTE D OUVERTURE : archivage de l entree 25/06 (P1)
+==============================================================
+OK - archivage de l entree 25/06 effectue.
+  Horloge lue      : 2026-08-29  09:02   (etiquette : 29/08)
+  Entrees deplacees: 1 (attendu : 1)
+  Bloc deplace     : 3.7 ko
+  JOURNAL.md       : 474.4 ko  ->  470.7 ko
+  JOURNAL-archive  : 514.2 ko  ->  518.0 ko
+  Sauvegardes      : JOURNAL.md.bak + JOURNAL-archive.md.bak
+  (supprimer les .bak une fois le rendu verifie.)
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - TODO.md en --dry, RIEN ECRIT, predit 52 a 54 fleches (P3)
+==============================================================
+=== GROOMING TODO.md ===
+  fleches trouvees   : 53
+  fleches gardees    : 3
+  fleches retirees   : 50
+
+  ...
+
+  taille avant       : 237.6 ko
+  taille apres       : 46.8 ko
+  retire             : 190.8 ko
+
+  --dry : RIEN N'A ETE ECRIT.
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - perimetre : front matter des neuf sources (P4)
+==============================================================
+--- content\embarque\mcu\micropython\micropython-afficheur.md
+    title: Afficheur OLED / LCD
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-capteur-numerique.md
+    title: Lire un capteur numérique
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-entree-tor.md
+    title: Lire une entrée TOR
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-moteur-pas-a-pas.md
+    title: Piloter un moteur pas-à-pas
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-pid.md
+    title: Réguler avec un PID en MicroPython
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-servomoteur.md
+    title: Piloter un servomoteur
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-simulation.md
+    title: Simuler avec Wokwi
+    type: tuto
+    phases:
+    tags:
+    aa: [RA-PROJET-C03-3/PROJ/5]
+    draft: false
+--- content\embarque\mcu\micropython\micropython-sortie-tor.md
+    title: Piloter une sortie TOR
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- content\embarque\mcu\micropython\micropython-watchdog.md
+    title: Utiliser le chien de garde (watchdog) en MicroPython
+    type: tuto
+    phases:
+    tags:
+    aa:
+    draft: false
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - chevron sur les neuf, predit 0 porteuse (P5)
+==============================================================
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 9   porteuses : 0
+
+  ------------------------------------------------------------------------------------------------
+  LOT (0 porteuses)                                    0 cl   0 bl      0 tot     0 ded      0 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - volume du lot, predit 9166 au total (P6)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-afficheur.md           664
+  embarque/mcu/micropython/micropython-capteur-numerique.md   1237
+  embarque/mcu/micropython/micropython-entree-tor.md          933
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md    876
+  embarque/mcu/micropython/micropython-pid.md                1055
+  embarque/mcu/micropython/micropython-servomoteur.md        1375
+  embarque/mcu/micropython/micropython-simulation.md          950
+  embarque/mcu/micropython/micropython-sortie-tor.md          948
+  embarque/mcu/micropython/micropython-watchdog.md           1128
+  ---------------------------------------------------------------
+  LOT (9 fiches)                                             9166
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - controle du corpus, predit 176 / 0 / 0 (P7)
+==============================================================
+  [ok] en/embarque/mcu/systeme-d-exploitation-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/teensy/teensy-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/timer-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/mesure/analyseur-logique-en.md   liens 19, embeds 2, code 0
+  [ok] en/embarque/mesure/generateur-de-signaux-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/mesure/instruments-de-mesure-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mesure/multimetre-en.md   liens 13, embeds 3, code 0
+  [ok] en/embarque/mesure/oscilloscope-en.md   liens 16, embeds 3, code 0
+  [ok] en/embarque/mesure/precision-de-mesure-en.md   liens 8, embeds 1, code 0
+  [ok] en/embarque/pcb/pcb-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/realisation/choisir-le-materiel-en.md   liens 28, embeds 0, code 0
+  [ok] en/embarque/realisation/concevoir-l-electronique-en.md   liens 30, embeds 1, code 0
+  [ok] en/embarque/realisation/faire-communiquer-en.md   liens 32, embeds 0, code 0
+  [ok] en/embarque/realisation/fiabiliser-et-deboguer-en.md   liens 45, embeds 0, code 0
+  [ok] en/embarque/realisation/programmer-l-embarque-en.md   liens 39, embeds 0, code 0
+  [ok] en/embarque/schema-bloc-fonctionnel-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/simulation/simulation-electronique-en.md   liens 31, embeds 2, code 0
+  [ok] en/index.md   liens 4, embeds 0, code 0
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+176 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0
+
+==============================================================
+>>> 8 - style C109 sur les neuf sources FR, predit 95 a 135 (P8)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-afficheur.md
+      19  [C109] tiret d incise
+          …eur version la plus pédagogique — en [[micropython-i2c|I2C]], qui…
+      30  [C109] tiret d incise
+          …emier projet : **OLED SSD1306** — petit, lisible, graphique simple…
+      38  [C109] point-virgule de prose
+          …6 grand public accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL…
+      38  [C109] point-virgule de prose
+          …accepte 3,3/5 V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confi…
+      38  [C109] point-virgule de prose
+          …V) ; `GND` → GND ; `SDA` → GP4 ; `SCL` → GP5. Confirmer l'adresse…
+      76  [C109] point-virgule de prose
+          …text` ne touchent que le tampon ; tant qu'on n'appelle pas `show()…
+     101  [C109] tiret d incise
+          Souffler sur le BMP280 — la température affichée monte. D…
+     107  [C109] point-virgule de prose
+          …e pilote dessine dans un tampon ; seul `show()` l'envoie au matéri…
+     128  [C109] tiret d incise
+          …u *« voir l'état directement »* — saut qualitatif en démonstration…
+
+  embarque/mcu/micropython/micropython-capteur-numerique.md
+      19  [C109] tiret d incise
+          …rmation codée en signal binaire — par opposition à un capteur anal…
+      19  [C109] tiret d incise
+          …he couvre les deux premiers cas — les bus I2C et SPI ont leurs pro…
+      33  [C109] point-virgule de prose
+          …par exemple le module **`dht`** ; voir [[micropython-bibliotheques…
+      59  [C109] tiret d incise
+          …t détecté), d'où le test `== 0` — à vérifier sur la fiche-produit.…
+      59  [C109] point-virgule de prose
+          …le seulement *un seuil franchi* ; pour mesurer la distance réelle,…
+      63  [C109] tiret d incise
+          …le Pico n'est pas tolérant 5 V — il faut un **pont diviseur** (ou…
+      65  [C109] point-virgule de prose
+          - `VCC` → `+5 V` (VBUS) ; `GND` → `GND` ;
+      73  [C109] tiret d incise
+          …tesse du son, donne la distance — c'est ce que la broche `Echo` re…
+      77  [C109] tiret d incise
+          …rée × 343 / 2. Plage utile 2 cm – 4 m.
+      77  [C109] point-virgule de prose
+          …µs sur `Trig`** pour déclencher ; `Echo` renvoie une impulsion pro…
+     111  [C109] tiret d incise
+          …e impulsion **propre** de 10 µs — le `low()` initial (2 µs) garant…
+     111  [C109] tiret d incise
+          …e sa **durée en microsecondes** — le temps d'aller-retour de l'ond…
+     113  [C109] tiret d incise
+          Approchez/éloignez la main — la distance s'affiche au [[micro…
+     124  [C109] tiret d incise
+          …mposée par le format `"{:.1f}"` — le jumeau Arduino en affiche deu…
+     157  [C109] tiret d incise
+          …est *analogique* malgré son nom — voir [[micropython-capteur-analo…
+     161  [C109] point-virgule de prose
+          …s passer le 3ᵉ argument (en µs) ; pour 4 m, ~23 ms → 30 ms.
+     163  [C109] tiret d incise
+          …arfois des mesures fantaisistes — filtrer (médiane sur 3-5 mesures…
+     165  [C109] point-virgule de prose
+          …ente.** Cycle de mesure ≈ 60 ms ; mesurer plus vite donne des résu…
+     167  [C109] point-virgule de prose
+          …isation après mise sous tension ; lire pendant ce temps donne du b…
+     171  [C109] tiret d incise
+          …, VL53L0X) communiquent par bus — numériques mais d'une catégorie…
+     178  [C109] tiret d incise
+          …, en sortir une mesure crédible — c'est la boucle qui fait la PoC,…
+
+  embarque/mcu/micropython/micropython-entree-tor.md
+      18  [C109] tiret d incise
+          …, capteur de présence numérique — tous se lisent par `Pin.value()`…
+      30  [C109] tiret d incise
+          …GND. Aucune résistance externe — le tirage interne (`Pin.PULL_UP`…
+      51  [C109] tiret d incise
+          …oment de l'appui (`0, 1, 0, 1`) — c'est le **rebond mécanique**, q…
+      84  [C109] point-virgule de prose
+          …elle tremble pendant le rebond) ; `etat_stable` ne retient que l'é…
+      90  [C109] tiret d incise
+          …*depuis le dernier tremblement* — en gérant le débordement du comp…
+      90  [C109] point-virgule de prose
+          …llisecondes depuis le démarrage ; `ticks_diff(maintenant, depart)`…
+      96  [C109] tiret d incise
+          …détection de front descendant** — dans la branche stable :
+     137  [C109] tiret d incise
+          …e un compteur et inverse la LED — comportement net, insensible au…
+     145  [C109] tiret d incise
+          …ance externe), la broche flotte — la LED bascule au moindre passag…
+     151  [C109] tiret d incise
+          …se volontairement aucun `sleep` — il observe le temps via `ticks_m…
+     165  [C109] tiret d incise
+          …iche à l'autre une fois compris — 10 minutes ici évitent des heure…
+
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+      18  [C109] tiret d incise
+          …ruction* sans capteur de retour — d'où son intérêt pour le positio…
+      18  [C109] tiret d incise
+          …équence les bobines à la main** — ce qui montre exactement comment…
+      94  [C109] tiret d incise
+          …faux, il **vibre sans tourner** — voir *Pièges*.
+     147  [C109] tiret d incise
+          …on** : `pas()` est **bloquant** — pendant le quart de tour, la bou…
+     147  [C109] point-virgule de prose
+          …ent l'état confirmé après 30 ms ; le quart de tour n'est déclenché…
+     153  [C109] point-virgule de prose
+          …le 3,3 V du Pico fait rebooter ; alimentation séparée (au moins p…
+     157  [C109] point-virgule de prose
+          …4988.** Trop bas → perte de pas ; trop haut → surchauffe. Calibrer…
+     176  [C109] tiret d incise
+          …t répétable précis sans capteur — résultats spectaculaires en démo…
+
+  embarque/mcu/micropython/micropython-pid.md
+      21  [C109] tiret d incise
+          …asservissement|asservissement]] — réguler une vitesse, une tempéra…
+      21  [C109] point-virgule de prose
+          …lgorithme est le même qu'en C++ ; seule la syntaxe change.
+      25  [C109] point-virgule de prose
+          …isse une **erreur résiduelle**) ; **I** (accumule l'erreur passée…
+      25  [C109] point-virgule de prose
+          …l, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de…
+      86  [C109] point-virgule de prose
+          …à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'e…
+      86  [C109] point-virgule de prose
+          …éintroduire d'oscillation lente ; **ajouter `Kd`** avec parcimonie…
+     133  [C109] tiret d incise
+          …* par `borne(…, -50000, 50000)` — c'est l'anti-emballement. `deriv…
+     141  [C109] point-virgule de prose
+          …intégrale accumule dans le vide ; à l'inversion de l'erreur, la co…
+     154  [C109] point-virgule de prose
+          …bornes. Pratique en production ; le calcul manuel reste préférabl…
+     159  [C109] point-virgule de prose
+          …un [[micropython-timers|timer]] ; ses gains, réglés en PoC, sont r…
+
+  embarque/mcu/micropython/micropython-servomoteur.md
+      18  [C109] tiret d incise
+          …[micropython-sortie-pwm|PWM]]** — un signal à **50 Hz** dont on rè…
+      26  [C109] tiret d incise
+          …es varient d'un servo à l'autre — à calibrer). En `duty_u16` (0–65…
+      44  [C109] tiret d incise
+          …Le signal du Pico est en 3,3 V — accepté par la plupart des servo…
+      44  [C109] point-virgule de prose
+          …2 servos / un servo de couple) ; **marron/noir** → `GND` ; **oran…
+      44  [C109] point-virgule de prose
+          …uple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de…
+      78  [C109] tiret d incise
+          …_DUTY`/`MAX_DUTY` (calibration) — voir *Pièges*.
+     104  [C109] point-virgule de prose
+          …ue tour, on ajoute `sens * pas` ; en butée, on **inverse `sens`**…
+     106  [C109] tiret d incise
+          …t varier la vitesse de balayage — pratique pour calibrer en démo s…
+     120  [C109] point-virgule de prose
+          …limentation externe obligatoire ; pour beaucoup de servos, un driv…
+     125  [C109] point-virgule de prose
+          …t la conversion angle→impulsion ; le pilotage PWM direct ci-dessus…
+     129  [C109] tiret d incise
+          …l** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour…
+     166  [C109] tiret d incise
+          …et `ADC_180` ne se devinent pas — elles se **calibrent** : on comm…
+     176  [C109] point-virgule de prose
+          …ion), **pas** avec `read_u16()` ; en contrepartie, le capteur Hall…
+     179  [C109] tiret d incise
+          …ur capteur dédié est préférable — voir [[micropython-pid|le réglag…
+     187  [C109] tiret d incise
+          …le plus *prévisible* à intégrer — idéal pour les premières démonst…
+
+  embarque/mcu/micropython/micropython-simulation.md
+      16  [C109] tiret d incise
+          …i couvre le Pico et MicroPython — c'est l'outil adapté à ce module…
+      23  [C109] point-virgule de prose
+          …tion peut détruire un composant ; la simulation ne coûte rien ;
+      26  [C109] tiret d incise
+          …ne remplace pas le montage réel — il accélère l'idéation et fiabil…
+      50  [C109] point-virgule de prose
+          …. Le bouton **■ (Stop)** arrête ; on modifie à chaud puis on relan…
+      54  [C109] tiret d incise
+          …k, mais déclenché par un bouton — pour montrer une entrée numériqu…
+      56  [C109] point-virgule de prose
+          …* via résistance 220 Ω vers GND ; bouton entre **GP14** et GND, en…
+      71  [C109] tiret d incise
+          …de GND), le comportement change — la simulation reproduit fidèleme…
+      83  [C109] point-virgule de prose
+          …), la LED intégrée est **GP25** ; le raccourci `Pin("LED")` des ca…
+      85  [C109] tiret d incise
+          …ise.** Wokwi est 100 % en ligne — sans réseau, pas de simulation.
+
+  embarque/mcu/micropython/micropython-sortie-tor.md
+      18  [C109] tiret d incise
+          …nce, ventilateur sur transistor — toutes se pilotent par `Pin.valu…
+      22  [C109] tiret d incise
+          …ommande binaire d'un actionneur — allumer un témoin, déclencher un…
+      22  [C109] tiret d incise
+          …mettre en route un ventilateur — passe par une sortie TOR. Le bon…
+      41  [C109] point-virgule de prose
+          …→ résistance 220 Ω à 1 kΩ → GP8 ; cathode (−) → GND.
+      43  [C109] point-virgule de prose
+          …r NPN 2N2222** : émetteur → GND ; collecteur → buzzer (−) ; buzzer…
+      43  [C109] point-virgule de prose
+          …→ GND ; collecteur → buzzer (−) ; buzzer (+) → +5 V (ou +3,3 V) ;…
+      43  [C109] point-virgule de prose
+          …; buzzer (+) → +5 V (ou +3,3 V) ; base → résistance 1 kΩ → GP9.
+      45  [C109] point-virgule de prose
+          …relais** : IN du module → GP10 ; VCC → +5 V (souvent depuis VBUS)…
+      45  [C109] point-virgule de prose
+          …CC → +5 V (souvent depuis VBUS) ; GND → GND. La charge secteur se…
+      51  [C109] tiret d incise
+          …que quelle que soit l'interface — `Pin.on()` ne sait pas s'il pilo…
+      69  [C109] tiret d incise
+          …fier sur le module ou par essai — la LED du module s'allume quand…
+      73  [C109] tiret d incise
+          …presque toujours sous-alimenté — passer par une alimentation exte…
+      93  [C109] tiret d incise
+          …ule relais à la place du buzzer — seule l'interface matérielle cha…
+      97  [C109] tiret d incise
+          …A par défaut, ~12 mA au maximum — **moins** qu'un Arduino. Au moin…
+     103  [C109] tiret d incise
+          …s qu'on lui applique sa tension — `on()` suffit. Un *buzzer passif…
+     103  [C109] tiret d incise
+          …zer passif* ne sonne pas en TOR — il lui faut un signal carré (voi…
+     107  [C109] tiret d incise
+          …e alors qu'on l'a mis à `off()` — c'est l'optocoupleur du module q…
+     109  [C109] tiret d incise
+          …eur veut un sens et une vitesse — il faut un pont H (voir [[microp…
+     113  [C109] tiret d incise
+          …ne se fait jamais directement** — toujours par module relais ou co…
+     113  [C109] point-virgule de prose
+          …modules à optocoupleur `PC817`) ; **calibre du contact** (un relai…
+     113  [C109] point-virgule de prose
+          …is bas de gamme ≈ 10 A / 250 V) ; **sécurité électrique** (câblage…
+     120  [C109] tiret d incise
+          …s) en amont, sur les datasheets — et pas après avoir grillé le pre…
+     120  [C109] tiret d incise
+          …oir grillé le premier composant — fait la différence entre une PoC…
+
+  embarque/mcu/micropython/micropython-watchdog.md
+      18  [C109] tiret d incise
+          …blocages : un programme planté — boucle infinie, attente sans fin…
+      18  [C109] tiret d incise
+          …attente sans fin, capteur figé — se relance tout seul au lieu de…
+      22  [C109] tiret d incise
+          …che. Si son programme se bloque — une bibliothèque qui attend une…
+      22  [C109] tiret d incise
+          …le code, une boucle sans sortie — il reste inerte jusqu'à coupure…
+      22  [C109] tiret d incise
+          …ser un système déjà fonctionnel — pas pour masquer des bugs.
+      22  [C109] point-virgule de prose
+          …le chien à intervalle régulier ; s'il se bloque, le chien n'est p…
+      60  [C109] tiret d incise
+          …t, rarement, ne jamais répondre — figeant le programme. Le chien d…
+      77  [C109] tiret d incise
+          …bout de 8 s la carte redémarre — réexécutant `main.py`, qui réaff…
+      77  [C109] point-virgule de prose
+          …sif car bien inférieur au délai ; dans un programme [[micropython-…
+      91  [C109] tiret d incise
+          …arte entre les deux `Demarrage` — c'est le chien qui a rendu la ma…
+      95  [C109] tiret d incise
+          …que le délai** sans la nourrir — d'où l'intérêt d'un code [[micro…
+     109  [C109] point-virgule de prose
+          …te la dernière ligne de défense ; il ne se substitue pas à un code…
+     114  [C109] point-virgule de prose
+          …it concrètement par un watchdog ; à prévoir si le cahier des charg…
+
+9 fiche(s) lue(s), 9 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 119   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 56   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

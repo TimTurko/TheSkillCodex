@@ -1,0 +1,100 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s13.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge, et garde de concurrence sur les cinq sources FR
+==============================================================
+date ISO : 2026-08-29   heure : 10:57
+--- attendu : aucune ecriture posterieure a 10:15:24
+  micropython-simulation.md                 10:09:46
+  micropython-entree-tor.md                 10:14:09
+  micropython-sortie-tor.md                 10:13:53
+  micropython-capteur-numerique.md          10:15:24
+  micropython-afficheur.md                  10:09:28
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - titres FRANCAIS des cinq paires, clause du test 2 (P1)
+==============================================================
+MicroPython : micropython-entree-tor
+      titre : Lire une entrée TOR
+    jumelle : arduino-entree-tor
+      titre : Lire une entrée TOR
+    VERDICT : titres FR IDENTIQUES - test 2 applicable
+
+MicroPython : micropython-sortie-tor
+      titre : Piloter une sortie TOR
+    jumelle : arduino-sortie-tor
+      titre : Piloter une sortie TOR
+    VERDICT : titres FR IDENTIQUES - test 2 applicable
+
+MicroPython : micropython-capteur-numerique
+      titre : Lire un capteur numérique
+    jumelle : arduino-capteur-numerique
+      titre : Lire un capteur numérique
+    VERDICT : titres FR IDENTIQUES - test 2 applicable
+
+MicroPython : micropython-afficheur
+      titre : Afficheur OLED / LCD
+    jumelle : arduino-afficheur
+      titre : Afficheur LCD / OLED
+    VERDICT : titres FR DIFFERENTS - descente au test 3
+
+MicroPython : micropython-simulation
+      titre : Simuler avec Wokwi
+    jumelle : tinkercad
+      titre : Tinkercad
+    VERDICT : titres FR DIFFERENTS - descente au test 3
+
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - libelles pointant vers micropython-simulation (P2)
+==============================================================
+  micropython-prise-en-main.md            l.155  [[micropython-simulation
+  micropython.md                          l.26  [[micropython-simulation
+  wokwi.md                                l.25  [[micropython-simulation
+  wokwi.md                                l.133  [[micropython-simulation
+  micropython-en.md                       l.28  [[micropython-simulation
+  micropython-prise-en-main-en.md         l.157  [[micropython-simulation
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - libelles pointant vers les quatre autres cibles (P3)
+==============================================================
+=== micropython-entree-tor
+  filtrage.md                             l.92  [[micropython-entree-tor|Lire une entrée TOR (MicroPython)]]
+  micropython-capteur-numerique.md        l.59  [[micropython-entree-tor|lire une entrée TOR]]
+  micropython-gpio.md                     l.127  [[micropython-entree-tor|Lire une entrée TOR]]
+  micropython-interruptions.md            l.140  [[micropython-entree-tor|anti-rebond]]
+  micropython-interruptions.md            l.162  [[micropython-entree-tor|Lire une entrée TOR]]
+  micropython-machine-a-etats.md          l.79  [[micropython-entree-tor|lire une entrée TOR]]
+  micropython-machine-a-etats.md          l.150  [[micropython-entree-tor|anti-rebond]]
+  micropython-machine-a-etats.md          l.172  [[micropython-entree-tor|Lire une entrée TOR]]
+  micropython-simulation.md               l.77  [[micropython-entree-tor|anti-rebond logiciel]]
+  micropython-sortie-tor.md               l.126  [[micropython-entree-tor|Lire une entrée TOR]]
+  micropython-temporisation.md            l.163  [[micropython-entree-tor|lire une entrée TOR]]
+  micropython-temporisation.md            l.195  [[micropython-entree-tor|Lire une entrée TOR]]
+  micropython.md                          l.34  [[micropython-entree-tor|Lire une entrée TOR]]
+=== micropython-sortie-tor
+  micropython-entree-tor.md               l.171  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  micropython-gpio-boot.md                l.124  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  micropython-gpio.md                     l.102  [[micropython-sortie-tor|piloter une sortie TOR]]
+  micropython-gpio.md                     l.128  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  micropython-machine-a-etats.md          l.173  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  micropython-sortie-pwm.md               l.128  [[micropython-sortie-tor|Piloter une sortie TOR]]
+  micropython.md                          l.35  [[micropython-sortie-tor|Piloter une sortie TOR]]
+=== micropython-capteur-numerique
+  filtrage.md                             l.87  [[micropython-capteur-numerique|Lire un capteur numérique (MicroPython)]]
+  micropython-capteur-analogique.md       l.137  [[micropython-capteur-numerique|Lire un capteur numérique]]
+  micropython.md                          l.36  [[micropython-capteur-numerique|Lire un capteur numérique]]
+=== micropython-afficheur
+  micropython-bibliotheques.md            l.121  [[micropython-afficheur|Afficheur OLED]]
+  micropython-i2c.md                      l.124  [[micropython-afficheur|Afficheur OLED]]
+  micropython.md                          l.51  [[micropython-afficheur|Afficheur OLED]]
+--- code de sortie : 0

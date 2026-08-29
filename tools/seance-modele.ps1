@@ -31,7 +31,10 @@
 #         nombre de lignes non ASCII. Une contrainte relue cede ; une
 #         contrainte mesuree laisse une trace datee dans la sortie.
 #   C124  La sortie precedente est copiee sous un nom date AVANT tout
-#         ecrasement. Renseigner $ETIQUETTE ci-dessous.
+#         ecrasement. Renseigner $ETIQUETTE ci-dessous. La copie REFUSE
+#         d ecraser un temoin existant : mesure du 29/08, un script relance
+#         copie sa PROPRE sortie sous l etiquette de la precedente, et le
+#         temoin ne disparait pas - il MENT sur sa date, ce qui est pire.
 #   C119  La sortie est ecrite en UTF-8 par le script lui-meme, jamais par
 #         une redirection shell : le > de PowerShell 5.1 ecrit en UTF-16LE.
 #         Le lancement est donc le meme sur tous les postes :
@@ -96,8 +99,15 @@ Etape "0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)" {
   Write-Output ("lignes non ASCII dans seance.ps1 : " + $n)
   if (Test-Path $SORTIE) {
     $copie = 'tools\seance-sortie-' + $ETIQUETTE + '.txt'
-    Copy-Item -Path $SORTIE -Destination $copie -Force
-    Write-Output ("sortie precedente copiee : " + $copie)
+    if (Test-Path $copie) {
+      Write-Output ("REFUS : " + $copie + " existe deja.")
+      Write-Output "  Temoin C124 NON ecrase. Cause la plus probable : RELANCE"
+      Write-Output "  du meme script. Verifier qu aucune etape ecrivante n a deja"
+      Write-Output "  tourne, puis changer ETIQUETTE si la copie est voulue."
+    } else {
+      Copy-Item -Path $SORTIE -Destination $copie
+      Write-Output ("sortie precedente copiee : " + $copie)
+    }
   } else {
     Write-Output "aucune sortie precedente a copier"
   }

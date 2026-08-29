@@ -16,16 +16,16 @@ aa:
 draft: false
 ---
 
-Un **afficheur** permet à un projet de présenter ses mesures, son état ou son menu **sans PC**. Deux familles cohabitent : **OLED graphiques** (128×64 pixels sur SSD1306, modernes) et **LCD à caractères** (16×2). Cette fiche couvre les deux via leur version la plus pédagogique — en [[micropython-i2c|I2C]], qui n'occupe que deux broches. En MicroPython, l'OLED SSD1306 se pilote avec le pilote **`ssd1306`**, qui dessine dans un **tampon** poussé à l'écran par `show()`.
+Un **afficheur** permet à un projet de présenter ses mesures, son état ou son menu **sans PC**. Deux familles cohabitent : **OLED graphiques** (128×64 pixels sur SSD1306, modernes) et **LCD à caractères** (16×2). Cette fiche couvre les deux via leur version la plus pédagogique : l'[[micropython-i2c|I2C]], qui n'occupe que deux broches. En MicroPython, l'OLED SSD1306 se pilote avec le pilote **`ssd1306`**, qui dessine dans un **tampon** poussé à l'écran par `show()`.
 
 ## À quoi ça sert ?
 
 L'afficheur intervient quand un projet quitte le banc PC pour devenir autonome : **démonstration** (mesures en direct sur le boîtier), **interface** (menu, mode), **indicateur d'état** (heure, batterie, erreur).
 
-| Type | Coût | Graphique | Consommation |
-|---|---|---|---|
-| OLED 0,96″ SSD1306 (128×64) I2C | 3–7 € | ✅ | ~20 mA |
-| LCD 16×2 I2C (via PCF8574) | 3–5 € | aucun | ~20–50 mA (rétroéclairage) |
+| Type | Graphique | Consommation |
+|---|---|---|
+| OLED 0,96″ SSD1306 (128×64) I2C | ✅ | ~20 mA |
+| LCD 16×2 I2C (via PCF8574) | aucun | ~20–50 mA (rétroéclairage) |
 
 Pour un premier projet : **OLED SSD1306** — petit, lisible, graphique simple.
 
@@ -73,7 +73,7 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> `oled.show()` est **obligatoire** : la bibliothèque dessine dans un **tampon** (en RAM) et seul cet appel l'envoie à l'écran. `fill`/`text` ne touchent que le tampon ; tant qu'on n'appelle pas `show()`, l'écran reste figé. Oublier `show()` = écran noir alors que le code « tourne ».
+> `oled.show()` est **obligatoire** : la bibliothèque dessine dans un **tampon** (en RAM) et seul cet appel l'envoie à l'écran. `fill`/`text` ne touchent que le tampon. Tant qu'on n'appelle pas `show()`, l'écran reste figé. Oublier `show()` = écran noir alors que le code « tourne ».
 
 ## Exemple — Thermomètre OLED (deux modules I2C sur un bus)
 
@@ -98,13 +98,13 @@ while True:
     sleep_ms(500)
 ```
 
-Souffler sur le BMP280 — la température affichée monte. Démo simple combinant deux modules I2C sur un même bus.
+Souffler sur le BMP280 : la température affichée monte. Démo simple combinant deux modules I2C sur un même bus.
 
 ## Pièges
 
 **Adresse I2C incorrecte.** Le SSD1306 est presque toujours en `0x3C`, parfois `0x3D`. Lancer `i2c.scan()` avant de fixer l'adresse.
 
-**Oublier `show()`.** Le pilote dessine dans un tampon ; seul `show()` l'envoie au matériel. Oubli = écran noir malgré un code correct.
+**Oublier `show()`.** Le pilote dessine dans un tampon. Seul `show()` l'envoie au matériel. Oubli = écran noir malgré un code correct.
 
 **Mauvais pilote (SSD1306 vs SH1106).** Certains modules « OLED » utilisent un contrôleur **SH1106** (décalage de quelques pixels avec le pilote SSD1306). Si l'image est décalée/coupée, prendre le pilote `sh1106`.
 
@@ -125,7 +125,7 @@ Pour des écrans **TFT couleur** (ST7789, ILI9341) ou **e-paper**, le bus est g�
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — premier affichage embarqué pour observer les mesures sans PC.
 - **Étape 3 de la [[integration-et-tests|phase d'intégration et tests]]** — l'afficheur intégré sert d'IHM pour les tests (mode courant, valeurs réelles).
 
-Un afficheur, même simple, fait passer un projet du *« regarder le REPL »* au *« voir l'état directement »* — saut qualitatif en démonstration qui justifie les ~5 € de matériel.
+Un afficheur, même simple, fait passer un projet du *« regarder le REPL »* au *« voir l'état directement »*. Un saut qualitatif en démonstration, pour deux broches et un pilote.
 
 ## Voir aussi
 

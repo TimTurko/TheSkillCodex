@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-Un **capteur numérique** délivre une information codée en signal binaire — par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas — les bus I2C et SPI ont leurs propres tutoriels.
+Un **capteur numérique** délivre une information codée en signal binaire, par opposition à un capteur analogique qui sort une tension continue. La codification varie : niveau logique simple (présence / absence), impulsion dont la largeur encode la mesure (ultrason), protocole propriétaire 1-wire (DHT11), ou trame I2C / SPI (BMP280, MPU6050). Cette fiche couvre les deux premiers cas : les bus I2C et SPI ont leurs propres tutoriels.
 
 ## À quoi ça sert ?
 
@@ -30,7 +30,7 @@ D'abord identifier le type de signal, puis mettre la méthode en pratique sur de
 
 - **Niveau logique** — sortie `1` ou `0` selon un événement (PIR, présence inductif, fin de course magnétique). **Lecture par `Pin.value()`.**
 - **Impulsion temporelle** — la **largeur** d'une impulsion code la mesure (ultrason HC-SR04). **Lecture par `machine.time_pulse_us()`.**
-- **Protocole propriétaire** — séquence binaire que seule une bibliothèque décode (DHT11/22 en 1-wire, DS18B20). MicroPython embarque par exemple le module **`dht`** ; voir [[micropython-bibliotheques|utiliser une bibliothèque]].
+- **Protocole propriétaire** — séquence binaire que seule une bibliothèque décode (DHT11/22 en 1-wire, DS18B20). MicroPython embarque par exemple le module **`dht`**. Voir [[micropython-bibliotheques|utiliser une bibliothèque]].
 
 La datasheet indique systématiquement à laquelle des trois familles le capteur appartient.
 
@@ -56,13 +56,13 @@ while True:
     sleep(0.2)
 ```
 
-La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `0` quand un obstacle est détecté), d'où le test `== 0` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[micropython-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi* ; pour mesurer la distance réelle, voir le cas suivant.
+La seule subtilité est le **niveau actif** : la plupart de ces modules sont **actifs-bas** (`OUT` tombe à `0` quand un obstacle est détecté), d'où le test `== 0` — à vérifier sur la fiche-produit. Pas d'anti-rebond : contrairement à un bouton (contact mécanique, voir [[micropython-entree-tor|lire une entrée TOR]]), la sortie est **électronique et déjà propre**. Ce capteur signale seulement *un seuil franchi*. Pour mesurer la distance réelle, voir le cas suivant.
 
 ### 3. Câbler le HC-SR04
 
-Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V**, or le Pico n'est pas tolérant 5 V — il faut un **pont diviseur** (ou un module 3,3 V) sur la ligne Echo.
+Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V**, or le Pico n'est pas tolérant 5 V. Il faut un **pont diviseur** (ou un module 3,3 V) sur la ligne Echo.
 
-- `VCC` → `+5 V` (VBUS) ; `GND` → `GND` ;
+- `VCC` → `+5 V` (VBUS), `GND` → `GND` ;
 - `Trig` → GP9 (sortie) ;
 - `Echo` → **pont diviseur** → GP10 (entrée).
 
@@ -70,11 +70,11 @@ Capteur emblématique du projet école. **Attention** : son `Echo` sort en **5 V
 
 ### 4. Lire le datasheet du HC-SR04
 
-Le HC-SR04 fonctionne au **temps de vol** : l'émetteur envoie une salve d'ultrasons, l'onde rebondit sur l'objet, puis revient au récepteur. Le **temps d'aller-retour**, connaissant la vitesse du son, donne la distance — c'est ce que la broche `Echo` restitue.
+Le HC-SR04 fonctionne au **temps de vol** : l'émetteur envoie une salve d'ultrasons, l'onde rebondit sur l'objet, puis revient au récepteur. Le **temps d'aller-retour**, connaissant la vitesse du son, donne la distance : c'est ce que la broche `Echo` restitue.
 
 ![Principe du capteur à ultrasons HC-SR04 : l'émetteur (Transmitter) envoie une onde sonore qui rebondit sur l'objet ; le récepteur (Receiver) capte l'onde réfléchie (écho). Le temps écoulé entre l'émission et la réception donne la distance.|520](/ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp)
 
-Impulsion de **10 µs sur `Trig`** pour déclencher ; `Echo` renvoie une impulsion proportionnelle à l'aller-retour de l'onde. Son ≈ 343 m/s à 20 °C → distance = durée × 343 / 2. Plage utile 2 cm – 4 m.
+Impulsion de **10 µs sur `Trig`** pour déclencher. `Echo` renvoie une impulsion proportionnelle à l'aller-retour de l'onde. Son ≈ 343 m/s à 20 °C → distance = durée × 343 / 2. Plage utile 2 cm – 4 m.
 
 ![Chronogramme Trig/Echo du HC-SR04 : impulsion de 10 µs sur Trig, puis impulsion sur Echo dont la largeur vaut le temps d'aller-retour de l'onde — la distance s'en déduit par la formule.|620](/ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg)
 
@@ -108,9 +108,9 @@ while True:
     sleep(0.1)                   # une mesure toutes les 100 ms (~10 Hz)
 ```
 
-**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `Trig` une impulsion **propre** de 10 µs — le `low()` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `time_pulse_us(echo, 1, 30000)` met le programme **en attente** de l'impulsion sur `Echo` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Une valeur **négative** signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
+**Comment lire ce code.** Deux gestes seulement. *Déclencher* : on impose sur `Trig` une impulsion **propre** de 10 µs. Le `low()` initial (2 µs) garantit un front montant net, et c'est cette durée de 10 µs que le capteur attend pour lancer un tir d'ultrasons. *Mesurer* : `time_pulse_us(echo, 1, 30000)` met le programme **en attente** de l'impulsion sur `Echo` et renvoie sa **durée en microsecondes** — le temps d'aller-retour de l'onde. Une valeur **négative** signifie qu'aucun écho n'est revenu avant le délai (30 ms), donc cible hors de portée. La conversion `× 0,0343 / 2` traduit cette durée en distance : `0,0343` cm/µs est la vitesse du son, et l'on divise par deux car l'onde fait l'aller **et** le retour.
 
-Approchez/éloignez la main — la distance s'affiche au [[micropython-repl|REPL]] :
+Approchez/éloignez la main. La distance s'affiche au [[micropython-repl|REPL]] :
 
 ```
 23.4 cm
@@ -121,7 +121,7 @@ Hors plage
 8.9 cm
 ```
 
-Une seule décimale ici, imposée par le format `"{:.1f}"` — le jumeau Arduino en affiche deux, par simple défaut de `Serial.print()`. Et `Hors plage` apparaît dès que la main sort du cône : c'est la valeur négative renvoyée par `time_pulse_us()` au bout des 30 ms.
+Une seule décimale ici, imposée par le format `"{:.1f}"` : le jumeau Arduino en affiche deux, par simple défaut de `Serial.print()`. Et `Hors plage` apparaît dès que la main sort du cône : c'est la valeur négative renvoyée par `time_pulse_us()` au bout des 30 ms.
 
 ## Exemple — Détecteur de seuil avec LED d'alerte
 
@@ -158,13 +158,13 @@ La factorisation en [[micropython-fonctions|fonction]] `mesurer_cm()` annonce l'
 
 **Echo 5 V branché directement sur le Pico.** Le HC-SR04 sort `Echo` à 5 V : sans pont diviseur, on endommage la broche (Pico non tolérant 5 V). Piège propre aux cartes 3,3 V.
 
-**Timeout de `time_pulse_us()` oublié.** Sans timeout, l'appel peut bloquer si aucun écho ne revient. Toujours passer le 3ᵉ argument (en µs) ; pour 4 m, ~23 ms → 30 ms.
+**Timeout de `time_pulse_us()` oublié.** Sans timeout, l'appel peut bloquer si aucun écho ne revient. Toujours passer le 3ᵉ argument (en µs). Pour 4 m, ~23 ms → 30 ms.
 
 **Valeurs aberrantes.** Le HC-SR04 renvoie parfois des mesures fantaisistes — filtrer (médiane sur 3-5 mesures) avant d'asservir (voir [[filtrage|filtrer des mesures]]).
 
-**Mesure trop fréquente.** Cycle de mesure ≈ 60 ms ; mesurer plus vite donne des résultats incohérents. 10 Hz est un bon rythme.
+**Mesure trop fréquente.** Cycle de mesure ≈ 60 ms. Mesurer plus vite donne des résultats incohérents. 10 Hz est un bon rythme.
 
-**PIR pas stabilisé.** Un PIR demande 30–60 s de stabilisation après mise sous tension ; lire pendant ce temps donne du bruit.
+**PIR pas stabilisé.** Un PIR demande 30–60 s de stabilisation après mise sous tension. Lire pendant ce temps donne du bruit.
 
 ## Cas particulier — Capteurs sur bus I2C ou SPI
 
@@ -175,7 +175,7 @@ Beaucoup de capteurs modernes (BMP280, MPU6050, VL53L0X) communiquent par bus �
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — chaque capteur se valide isolément avant intégration : câblage, lecture brute, plage observée.
 - **Étape 1 de la [[integration-et-tests|phase d'intégration et tests]]** — chaque capteur requalifié unitairement.
 
-Brancher un capteur, lire sa doc, en sortir une mesure crédible — c'est la boucle qui fait la PoC, à automatiser pour tous les capteurs du projet.
+Brancher un capteur, lire sa doc, en sortir une mesure crédible : c'est la boucle qui fait la PoC, à automatiser pour tous les capteurs du projet.
 
 ## Voir aussi
 

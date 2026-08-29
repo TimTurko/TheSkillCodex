@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Une **entrée TOR** (Tout Ou Rien) lit un signal binaire qui ne prend que deux états : appuyé ou relâché, présent ou absent. Bouton-poussoir, interrupteur, fin de course, capteur de présence numérique — tous se lisent par `Pin.value()`. La difficulté n'est pas la lecture elle-même mais le traitement du **rebond** : un contact mécanique génère plusieurs commutations parasites en quelques millisecondes, qu'il faut filtrer pour obtenir un signal propre.
+Une **entrée TOR** (Tout Ou Rien) lit un signal binaire qui ne prend que deux états : appuyé ou relâché, présent ou absent. Bouton-poussoir, interrupteur, fin de course, capteur de présence numérique : tous se lisent par `Pin.value()`. La difficulté n'est pas la lecture elle-même mais le traitement du **rebond** : un contact mécanique génère plusieurs commutations parasites en quelques millisecondes, qu'il faut filtrer pour obtenir un signal propre.
 
 ## À quoi ça sert ?
 
@@ -27,7 +27,7 @@ Quatre étapes : câbler avec pull-up, lire, ajouter l'anti-rebond, détecter le
 
 ### 1. Câbler le bouton avec `PULL_UP`
 
-Un côté du bouton sur la broche (ici GP14), l'autre sur GND. Aucune résistance externe — le tirage interne (`Pin.PULL_UP`) maintient `3,3 V` au repos et tombe à GND à l'appui.
+Un côté du bouton sur la broche (ici GP14), l'autre sur GND. Aucune résistance externe : le tirage interne (`Pin.PULL_UP`) maintient `3,3 V` au repos et tombe à GND à l'appui.
 
 **Logique inversée** : `bouton.value()` renvoie `1` au repos, `0` quand appuyé.
 
@@ -48,7 +48,7 @@ while True:
     sleep(0.01)                          # ~100 lectures par seconde
 ```
 
-Lancez le script et appuyez : on voit `1, 1, 0, 0, 1...`. En regardant de près, quelques transitions parasites apparaissent au moment de l'appui (`0, 1, 0, 1`) — c'est le **rebond mécanique**, qui dure quelques millisecondes.
+Lancez le script et appuyez : on voit `1, 1, 0, 0, 1...`. En regardant de près, quelques transitions parasites apparaissent au moment de l'appui (`0, 1, 0, 1`) : c'est le **rebond mécanique**, qui dure quelques millisecondes.
 
 ### 3. Anti-rebond logiciel
 
@@ -81,13 +81,13 @@ while True:
             print("Bouton :", "appuye" if etat_stable == 0 else "relache")
 ```
 
-**Comment lire ce code.** L'astuce tient en **deux variables**. `dernier_etat` suit la valeur *brute* lue à l'instant (elle tremble pendant le rebond) ; `etat_stable` ne retient que l'état *confirmé*, le seul sur lequel on agit. À chaque tour de boucle :
+**Comment lire ce code.** L'astuce tient en **deux variables**. `dernier_etat` suit la valeur *brute* lue à l'instant (elle tremble pendant le rebond). `etat_stable` ne retient que l'état *confirmé*, le seul sur lequel on agit. À chaque tour de boucle :
 
 - si la lecture **change**, on ne croit pas le bouton tout de suite : on note seulement *l'instant* du changement (`dernier_changement = ticks_ms()`) ;
 - tant qu'elle **rechange** (rebond), cet instant est repoussé encore et encore ;
 - dès qu'elle **reste identique pendant 30 ms**, le rebond est terminé : on valide `etat_stable`.
 
-`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage ; `ticks_diff(maintenant, depart)` donne le temps écoulé *depuis le dernier tremblement* — en gérant le débordement du compteur, ce qu'une soustraction directe ne ferait pas. Le comparer à `DELAI_REBOND`, c'est demander : « le signal est-il calme depuis assez longtemps pour y croire ? »
+`ticks_ms()` renvoie un compteur de millisecondes depuis le démarrage. `ticks_diff(maintenant, depart)` donne le temps écoulé *depuis le dernier tremblement*, en gérant le débordement du compteur, ce qu'une soustraction directe ne ferait pas. Le comparer à `DELAI_REBOND`, c'est demander : « le signal est-il calme depuis assez longtemps pour y croire ? »
 
 Maintenant chaque appui produit *exactement une* ligne, peu importe la qualité du bouton.
 
@@ -142,13 +142,13 @@ Chaque appui incrémente un compteur et inverse la LED — comportement net, ins
 
 **Soustraire `ticks_ms()` directement.** `ticks_ms()` déborde et repart à zéro : `ticks_ms() - depart` peut devenir négatif. **Toujours `ticks_diff(maintenant, depart)`**, conçu pour gérer le débordement.
 
-**Entrée flottante.** Sans `PULL_UP` (ou résistance externe), la broche flotte — la LED bascule au moindre passage de main. Presque toujours `PULL_UP` + bouton vers GND.
+**Entrée flottante.** Sans `PULL_UP` (ou résistance externe), la broche flotte : la LED bascule au moindre passage de main. Presque toujours `PULL_UP` + bouton vers GND.
 
 **Inverser la logique du pull-up.** `value() == 1` signifie *relâché*, pas *appuyé*.
 
 **Confondre maintien et appui.** Réagir à `value() == 0` agit tant que le bouton est maintenu (un compteur s'emballe). Pour un comportement *par appui*, détecter le **front**.
 
-**`sleep()` dans la boucle de lecture.** Un `sleep(0.5)` rate les appuis brefs. Le pattern anti-rebond ci-dessus n'utilise volontairement aucun `sleep` — il observe le temps via `ticks_ms()`.
+**`sleep()` dans la boucle de lecture.** Un `sleep(0.5)` rate les appuis brefs. Le pattern anti-rebond ci-dessus n'utilise volontairement aucun `sleep` : il observe le temps via `ticks_ms()`.
 
 **Bouton entre 3,3 V et la broche.** `PULL_UP` + bouton vers 3,3 V = lecture toujours `1`. Toujours bouton vers **GND**.
 
@@ -162,7 +162,7 @@ Chaque appui incrémente un compteur et inverse la LED — comportement net, ins
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — tout bouton de commande (Marche/Arrêt, validation) testé isolément avec anti-rebond avant intégration.
 - **Étape 2 de la [[integration-et-tests|phase d'intégration et tests]]** — chaque fin de course mécanique se valide comme une entrée TOR avec anti-rebond.
 
-Le pattern anti-rebond est à coller-modifier d'une fiche à l'autre une fois compris — 10 minutes ici évitent des heures de débogage où l'on cherche pourquoi le système compte les appuis de travers.
+Le pattern anti-rebond est à coller-modifier d'une fiche à l'autre une fois compris : 10 minutes ici évitent des heures de débogage où l'on cherche pourquoi le système compte les appuis de travers.
 
 ## Voir aussi
 

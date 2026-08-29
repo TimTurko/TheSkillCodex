@@ -1,0 +1,80 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+REFUS : tools\seance-sortie-2908s10.txt existe deja.
+  Temoin C124 NON ecrase.
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 10:48
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - dates d ecriture des neuf sources, et HEAD (P1, P4)
+==============================================================
+micropython-afficheur.md                  2026-08-29 10:09:28
+micropython-capteur-numerique.md          2026-08-29 10:15:24
+micropython-entree-tor.md                 2026-08-29 10:14:09
+micropython-moteur-pas-a-pas.md           2026-06-30 12:42:37
+micropython-pid.md                        2026-08-20 23:08:58
+micropython-servomoteur.md                2026-06-30 12:28:37
+micropython-simulation.md                 2026-08-29 10:09:46
+micropython-sortie-tor.md                 2026-08-29 10:13:53
+micropython-watchdog.md                   2026-08-19 15:09:46
+--- HEAD
+768b61a  2026-08-29T08:52:40+02:00  FR+EN: lot 2 cpp redige, module clos, mesure-inline neuf, TODO groome
+--- date du dernier commit touchant sortie-tor
+5ef0ed9  2026-06-30T12:03:05+02:00  vault backup: 2026-06-30 12:03:05
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - git diff --stat sur les neuf, chemins racine (P2)
+==============================================================
+ .../mcu/micropython/micropython-afficheur.md       | 18 +++++++-------
+ .../micropython/micropython-capteur-numerique.md   | 28 +++++++++++-----------
+ .../mcu/micropython/micropython-entree-tor.md      | 16 ++++++-------
+ .../mcu/micropython/micropython-simulation.md      | 14 +++++------
+ .../mcu/micropython/micropython-sortie-tor.md      | 18 +++++++-------
+ 5 files changed, 47 insertions(+), 47 deletions(-)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - git diff integral de sortie-tor (P2, P3)
+==============================================================
+lignes de diff : 31
+diff --git a/content/embarque/mcu/micropython/micropython-sortie-tor.md b/content/embarque/mcu/micropython/micropython-sortie-tor.md
+index a1c1719..b1fe243 100644
+--- a/content/embarque/mcu/micropython/micropython-sortie-tor.md
++++ b/content/embarque/mcu/micropython/micropython-sortie-tor.md
+@@ -18 +18 @@ draft: false
+-Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor — toutes se pilotent par `Pin.value()` (ou `on()`/`off()`). La fiche couvre les trois cas rencontrés en projet école : pilotage direct d'une petite charge (LED), via transistor pour une charge moyenne (buzzer, ventilateur), via module relais pour une charge secteur ou inductive importante. Une contrainte structure tout : le Pico est en **3,3 V** et délivre **moins de courant** qu'un Arduino.
++Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor : toutes se pilotent par `Pin.value()` (ou `on()`/`off()`). La fiche couvre les trois cas rencontrés en projet école : pilotage direct d'une petite charge (LED), via transistor pour une charge moyenne (buzzer, ventilateur), via module relais pour une charge secteur ou inductive importante. Une contrainte structure tout : le Pico est en **3,3 V** et délivre **moins de courant** qu'un Arduino.
+@@ -41 +41 @@ On prend les trois cas usuels : **LED** (broche directe), **buzzer** (transistor
+-**LED** : anode (+) → résistance 220 Ω à 1 kΩ → GP8 ; cathode (−) → GND.
++**LED** : anode (+) → résistance 220 Ω à 1 kΩ → GP8, cathode (−) → GND.
+@@ -45 +45 @@ On prend les trois cas usuels : **LED** (broche directe), **buzzer** (transistor
+-**Module relais** : IN du module → GP10 ; VCC → +5 V (souvent depuis VBUS) ; GND → GND. La charge secteur se branche **sur les bornes COM + NO du module**, le Pico n'y touche jamais.
++**Module relais** : IN du module → GP10, VCC → +5 V (souvent depuis VBUS), GND → GND. La charge secteur se branche **sur les bornes COM + NO du module**, le Pico n'y touche jamais.
+@@ -51 +51 @@ On prend les trois cas usuels : **LED** (broche directe), **buzzer** (transistor
+-Le code est identique quelle que soit l'interface — `Pin.on()` ne sait pas s'il pilote une LED ou un relais.
++Le code est identique quelle que soit l'interface : `Pin.on()` ne sait pas s'il pilote une LED ou un relais.
+@@ -69 +69 @@ while True:
+-> **Logique du relais souvent inversée.** Beaucoup de modules relais sont *actifs au niveau bas* : `relais.off()` (0) colle le relais, `on()` (1) le relâche. Vérifier sur le module ou par essai — la LED du module s'allume quand le relais colle.
++> **Logique du relais souvent inversée.** Beaucoup de modules relais sont *actifs au niveau bas* : `relais.off()` (0) colle le relais, `on()` (1) le relâche. Vérifier sur le module ou par essai : la LED du module s'allume quand le relais colle.
+@@ -93 +93 @@ while True:
+-Même structure pour piloter un module relais à la place du buzzer — seule l'interface matérielle change.
++Même structure pour piloter un module relais à la place du buzzer : seule l'interface matérielle change.
+@@ -103 +103 @@ Même structure pour piloter un module relais à la place du buzzer — seule l'
+-**Buzzer actif vs passif.** Un *buzzer actif* sonne dès qu'on lui applique sa tension — `on()` suffit. Un *buzzer passif* ne sonne pas en TOR — il lui faut un signal carré (voir [[micropython-sortie-pwm|PWM]]).
++**Buzzer actif vs passif.** Un *buzzer actif* sonne dès qu'on lui applique sa tension : `on()` suffit. Un *buzzer passif* ne sonne pas en TOR : il lui faut un signal carré (voir [[micropython-sortie-pwm|PWM]]).
+@@ -107 +107 @@ Même structure pour piloter un module relais à la place du buzzer — seule l'
+-**Logique inversée du relais oubliée.** Le relais colle alors qu'on l'a mis à `off()` — c'est l'optocoupleur du module qui inverse. Lire la doc ou tester.
++**Logique inversée du relais oubliée.** Le relais colle alors qu'on l'a mis à `off()` : c'est l'optocoupleur du module qui inverse. Lire la doc ou tester.
+@@ -109 +109 @@ Même structure pour piloter un module relais à la place du buzzer — seule l'
+-**Sortie TOR pour un moteur CC.** Un moteur veut un sens et une vitesse — il faut un pont H (voir [[micropython-moteur-cc|piloter un moteur CC]]), pas une sortie TOR.
++**Sortie TOR pour un moteur CC.** Un moteur veut un sens et une vitesse : il faut un pont H (voir [[micropython-moteur-cc|piloter un moteur CC]]), pas une sortie TOR.
+--- code de sortie : 0

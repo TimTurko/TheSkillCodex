@@ -1,0 +1,57 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s15.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge, et garde de concurrence sur les cinq squelettes EN
+==============================================================
+date ISO : 2026-08-29   heure : 11:11
+  micropython-entree-tor-en.md                10:55:29
+  micropython-sortie-tor-en.md                10:55:29
+  micropython-capteur-numerique-en.md         10:55:29
+  micropython-afficheur-en.md                 10:55:29
+  micropython-simulation-en.md                10:55:29
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - title: de toutes les cibles citees par le lot (P1 a P3)
+==============================================================
+cibles distinctes : 30
+
+            arduino-afficheur-en                  LCD / OLED display
+            arduino-capteur-numerique-en          Reading a digital sensor
+            arduino-en                            Arduino
+            arduino-entree-tor-en                 Reading an on/off input
+            arduino-sortie-tor-en                 Driving an on/off output
+  ABSENTE   filtrage-en
+            firmware-en                           Firmware
+            integration-et-tests-en               Integration and testing
+            lire-une-datasheet-en                 Reading a datasheet
+            microcontroleur-en                    Microcontroller
+            micropython-bibliotheques-en          Using a library
+            micropython-capteur-analogique-en     Reading an analog sensor in MicroPython
+            micropython-debug-en                  Debugging a MicroPython program
+            micropython-en                        MicroPython
+  FR        micropython-entree-tor-en             Lire une entrée TOR
+            micropython-fonctions-en              Functions
+            micropython-gpio-en                   Configuring MicroPython GPIO
+            micropython-i2c-en                    I2C in MicroPython
+            micropython-interruptions-en          Interrupts in MicroPython
+            micropython-moteur-cc-en              Driving a DC motor in MicroPython
+            micropython-prise-en-main-en          Getting started with MicroPython
+            micropython-repl-en                   The REPL
+            micropython-sortie-pwm-en             Driving a PWM output in MicroPython
+            micropython-sortie-tor-en             Piloter une sortie TOR
+            micropython-spi-en                    SPI in MicroPython
+            micropython-temporisation-en          Timing delays in MicroPython
+            preuve-de-concept-en                  Proof of concept
+            simulation-electronique-en            Circuit simulation
+            tinkercad-en                          Tinkercad
+  ABSENTE   wokwi-en
+
+absentes : 2   titres encore francais : 1
+--- code de sortie : 0

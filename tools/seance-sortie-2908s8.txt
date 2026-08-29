@@ -1,0 +1,113 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s7.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 10:06
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - COUPE DATEE AU 22/08, passe LIVE (P1, P2)
+==============================================================
+=== COUPE DATEE DU JOURNAL - seuil 2026-08-22 ===
+  Horloge lue : 2026-08-29  10:06   (etiquette : 29/08)
+
+  entrees dans JOURNAL.md   : 42
+  GARDEES (>= seuil)        : 34
+  DEPLACEES (< seuil)       : 8
+  plus ancienne gardee      : 2026-08-22
+  plus recente archivee     : 2026-08-17
+
+  --- LES 34 ENTREES GARDEES
+    + ## 2026-08-28 (suite) — Le lot 2 de `cpp/` rédigé et le module clos, une hypothèse mesurée puis écar
+    + ## 2026-08-28 — Le lot 1 de `cpp/` passé, généré et rédigé, une règle de module démentie par la prod
+    + ## 2026-08-27 (suite 7) — L'angle mort du chevron pesé pour la première fois, C127 neuve, et une pré
+    + ## 2026-08-27 (suite 6) — Le module MicroPython fermé, la dette prédite juste pour la première fois,
+    + ## 2026-08-27 (suite 5) — Le lot 4 passé et généré, un brief de cinq séances de retard, et une diffé
+    + ## 2026-08-27 (suite 4) — Les trois verdicts récupérés, C125 amendée, les cinq collisions fermées à 
+    + ## 2026-08-27 (suite 3) — Le lot 3 de MicroPython cadré, rédigé et contrôlé, et C125 qui rend un ver
+    + ## 2026-08-27 (suite) — La remesure d'ouverture, le périmètre du module démenti par la mesure, et le
+    + ## 2026-08-27 — Le lot 1 de MicroPython rédigé, le connecteur réparé, et neuf exemptions perdues dan
+    + ## 2026-08-26 (suite 5) — Le module MicroPython ouvert, le lot 1 cadré et généré, et un pipe échappé
+    + ## 2026-08-26 (suite 4) — Le module Arduino fermé, deux alt qui affirment ce que l'image ne porte pa
+    + ## 2026-08-26 (suite 3) — Le lot 5 rédigé, deux défauts de report en sens contraire, et une addition
+    + ## 2026-08-26 (suite 2) — La clôture retrouvée dans le dépôt, et trois jours de libellé à rendre
+    + ## 2026-08-26 (suite) — Le serveur MCP tombe, le lot 5 se cadre quand même, et l'instrument des pass
+    + ## 2026-08-26 — Le lot 4 du module Arduino, et une exemption perdue que seule sa prédiction a vue
+    + ## 2026-08-25 (suite 8) — Trois lots du module Arduino, dix-huit fiches, et l'autonomie élargie
+    + ## 2026-08-25 (suite 7) — C119 arbitrée, six outils de pilotage traduits, et le module Arduino ouver
+    + ## 2026-08-25 (suite 6) — L'anneau 2 mesuré, trois lots passés, et six erreurs qui n'en font qu'une
+    + ## 2026-08-25 (suite 5) — Les trois trames transverses, et un périmètre annoncé large qui se révèle 
+    + ## 2026-08-25 (suite 4) — Deux lots dans une séance, et une question de Tim qui inverse un diagnosti
+    + ## 2026-08-25 (suite 3) — La fiche pivot, et un fil rouge qui se contredisait entre deux fiches
+    + ## 2026-08-25 (suite 2) — Le groupe schémas/simulation, et une prédiction de lecture démentie pour l
+    + ## 2026-08-25 (suite) — `embarque/mesure/` : le premier lot conduit sous C116, et il tient en trois 
+    + ## 2026-08-24 (suite 3) — Lot 2c : les huit notions transverses de `mcu/`
+    + ## 2026-08-24 (suite 2) — Cinq notions transverses, et un lot qui foisonne à +1,2 %
+    + ## 2026-08-25 — Les sept hubs de famille, et quatre instruments réparés avant la première fiche
+    + ## 2026-08-24 (suite) — Treize fiches, deux sous-lots, et six défauts dont aucun n'a été vu par un c
+    + ## 2026-08-24 — Module d'épreuve MicroPython : les trois inconnues du lot 2c levées sur pièce
+    + ## 2026-08-23 (suite 4) — Trois outils avant le lot 2c, et la règle de comptage devient un script
+    + ## 2026-08-23 (suite 3) — Le lot 2b se ferme, et un critère mécanique remplace quatre arbitrages
+    + ## 2026-08-23 (suite 2) — La première trame du V passe en anglais, et un mot de rapport devient une 
+    + ## 2026-08-23 (suite) — Le lot 2a se ferme, l'accueil devient bilingue, le backtick tombe
+    + ## 2026-08-23 — Lot 2a : les vingt-six passes C109, dix-huit fiches traduites
+    + ## 2026-08-22 (suite 2) — Outillage du chantier bilingue, et le lot 1 traduit
+
+  --- LES 8 ENTREES DEPLACEES
+    - ## 2026-08-17 (suite 3) — Refonte pédagogique de `falstad` : d'une fiche descriptive à un tutoriel s
+    - ## 2026-08-17 (suite 2) — Relecture de fond terminée : §12 Teensy, §15 PIC, §16 PCB + rattrapage doc
+    - ## 2026-08-17 (suite) — Relecture de fond : §9bis XIAO clos, §8 simulation (3/4), §10 ESP8266 clos, 
+    - ## 2026-08-17 — Relecture de fond §9 ESP32 (11/12) + ouverture §9bis XIAO ; C85 (encart C77 amendé)
+    - ## 2026-06-30 (suite) — MAJ documentaire : archivage du JOURNAL (08→19/06) + relecture de fond §14 R
+    - ## 2026-06-30 — Relecture de fond §13 MicroPython terminée (28 fiches entree-tor→watchdog) + clôture
+    - ## 2026-06-29 — Relecture de fond §13 MicroPython (mode inversé) : 10 fiches hub→gpio + correction r
+    - ## 2026-06-27 — Relecture/correction des médias familles MCU : 6 SVG régénérés contre le code, 2 rep
+
+  bloc deplace : 47.5 ko
+
+  JOURNAL.md      : 470.7 ko  ->  423.4 ko
+  JOURNAL-archive : 518.0 ko  ->  565.6 ko
+
+OK - coupe datee effectuee. Sauvegardes : JOURNAL.md.bak + JOURNAL-archive.md.bak
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - etat des fichiers APRES la coupe (P2, P3)
+==============================================================
+JOURNAL.md              423.4 ko
+JOURNAL-archive.md      565.6 ko
+JOURNAL.md.bak          470.7 ko
+JOURNAL-archive.md.bak  518 ko
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - relecture des quatre notes reecrites et du marqueur (P3)
+==============================================================
+  J| # JOURNAL — TheSkillCodex
+  J| 
+  J| > Mémoire du projet. Ce qui a été fait, daté, avec les décisions prises et leur justification.
+  J| > Nouvelles entrées en HAUT (ordre antichronologique).
+  J| > Sessions antichronologiques antérieures au 22/08 archivées dans `JOURNAL-archive.md`
+  J| > (mise en place initiale du dépôt, trame projet cycle en V, squelettes du V,
+  J| > rédaction de `specification-technique.md`, trames transverses et fiches-notion,
+  J| > modules MCU complets — ESP32, STM32, Teensy, ESP8266, MicroPython, Raspberry Pi —,
+  J| > clôture MME, squelette pro EEE, sweep liens rouges pré-publication, relecture de fond des modules, prises de vue, ouverture du chantier de traduction ;
+  J| > dernière coupe : 29/08, sessions 27/06 → 2026-08-17).
+  J| 
+  J| <!-- INSERT_JOURNAL_HERE -->
+  ...
+  J| 
+  J| <!-- Sessions antérieures au 22/08 déplacées dans `JOURNAL-archive.md` lors des nettoyages documentaires successifs (détail des lots dans l'intro de l'archive et les marqueurs de groupe). Dernière passe : 29/08 — coupe datée au 22/08, sessions 27/06 → 2026-08-17 archivées en bloc. -->
+  ---
+  A| # JOURNAL — Archive (sessions du 2026-05-19 au 2026-08-17)
+  A| <!-- DÉBUT DES SESSIONS 27/06 → 2026-08-17 (archivées le 29/08, coupe datée au 2026-08-22 — ordre interne antichronologique). -->
+  A| <!-- DÉBUT DE LA SESSION 25/06 (archivée le 29/08, archivage 1-pour-1 — entrée unique). -->
+  A| <!-- DÉBUT DES SESSIONS 08/06 → 19/06 (archivées le 30/06 — MAJ documentaire ; ordre interne antichronologique). -->
+--- code de sortie : 0

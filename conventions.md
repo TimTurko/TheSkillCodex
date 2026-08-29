@@ -2246,6 +2246,62 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **Sous-règle de C116 — sous exécution directe, l'ordre prédiction → mesure passe du monde au protocole.**
+  *Arbitrage Tim (c) du 29/08 (séance annexe) ; condition du pilote Claude Code
+  sur le lot 6, sans effet sur le dispositif de collage.* Dans le dispositif
+  de collage, la prédiction précède la sortie **par construction** : la sortie
+  n'existe pas tant que Tim n'a pas lancé. Sous exécution directe, rien ne
+  l'impose ; le protocole s'en charge : (1) les prédictions s'**appendent à
+  `tools/predictions-AAMMJJ.md` avant chaque bloc d'exécution**, l'ordre des
+  appels dans la transcription faisant foi ; (2) une prédiction sans **nombre
+  ni forme exacte** est réputée absente ; (3) chaque gate se ferme sur un
+  **bilan prédictions/constats**, une prédiction manquante se consignant en
+  incident ; (4) le `dryRun` est porté par **remesure immédiate post-édition
+  plus `git diff` revu à chaque gate avant commit** — l'ancre validait
+  l'intention, le diff et la remesure valident l'effet, ce qui couvre le
+  « traitement qui ne traite pas » (27/08 suite 3) et la coupe hors borne
+  (28/08) ; (5) la garde de péremption (HEAD + dates d'écriture du périmètre,
+  `batterie.ps1 -Phase garde`) se relève au cadrage **et avant chaque passe**.
+  Toute garde non portable en séance ⇒ retour au dispositif de collage.
+  *Éprouvée 0/N.*
+- **Extension de C126 — les mesures répétitives se figent dans une batterie versionnée.**
+  *Arbitrage Tim (a)+(b) du 29/08 (séance annexe).* Le répertoire des mesures
+  d'une séance est fini ; le réécrire à chaque série coûtait un aller-retour
+  par mesure et a coûté deux lancements le 29/08, le script n'étant pas écrit
+  quand la commande tombait. `tools/batterie.ps1` (phases `garde` / `cadrage`
+  / `etat`) fige ces étapes, s'étiquette C124 **sur l'horloge et le
+  répertoire** (jamais de mémoire), et s'ignore par chemin exact comme
+  `seance-sortie.txt` ; ses copies datées voyagent entre postes. **C114 et
+  C126 restent pleins pour `seance.ps1`** : passes ad hoc, balayages, coupes.
+  La batterie ne porte ni prédiction ni édition. *Éprouvée 0/N.*
+- **C128 — Le JOURNAL se coupe à une frontière de chantier, jamais au kilo-octet.**
+  *Arbitrage Tim (b) du 29/08, sur trois candidates.* Le § 7 du prompt projet
+  posait une cible de **3-5 ko par entrée**, un seuil d'archivage à **~100 ko**,
+  et une **rotation 1-pour-1** pour les tenir. **Les trois termes sont mesurés
+  faux le même matin.** L'entrée archivée par la rotation pesait **3,7 ko**
+  quand les entrées du chantier en pèsent **12,4 ko de moyenne sur 34** : la
+  rotation fait **grossir** le fichier de près de 9 ko par séance, alors
+  qu'elle existe pour le contenir. Et la coupe datée qui l'a remplacée n'a
+  rendu que **47,5 ko sur 470,7**, les huit entrées antérieures au chantier
+  étant tout ce qu'il y avait à couper : *le volume n'est pas dans les vieilles
+  séances, il est dans les récentes, et aucune politique d'archivage ne
+  corrige un dépassement de format par entrée.*
+
+  **Ce que la règle devient.** (1) La rotation 1-pour-1 est **abandonnée**.
+  (2) La coupe se déclenche à **l'ouverture d'un chantier neuf** et emporte
+  tout ce qui précède, en une passe `--dry` lue puis une passe live : le
+  JOURNAL porte le chantier en cours et rien d'autre. (3) La cible par entrée
+  n'est plus un **plafond de taille** mais une **contrainte de forme** :
+  en-tête à cinq puces compact, corps narratif dimensionné par ce qu'il y a à
+  transmettre. Les 12,4 ko sont le prix des réfutations réutilisables trois
+  séances plus tard.
+
+  ⚠ **Ce qu'elle ne règle pas.** Sans plafond, la dérive ne se signale plus
+  toute seule. Le garde-fou est la ligne **Tailles** de chaque clôture, qui
+  publie déjà la taille du JOURNAL : une dérive se lit dans la **série** de
+  ces chiffres, pas dans un seuil franchi. *Éprouvée 0/N.*
+
+  **Patch du § 7 du prompt projet à porter côté Claude.ai** (C121).
 - **C127 — Un lot qui contient une porteuse de chevron publie DEUX volumes.**
   *Arbitrage Tim du 27/08 (suite 7), règle (3) sur trois candidates.* La règle
   C110 **reste figée** et son chiffre `tot` reste celui de la continuité

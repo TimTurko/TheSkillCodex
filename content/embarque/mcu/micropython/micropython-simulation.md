@@ -13,17 +13,17 @@ aa: [RA-PROJET-C03-3/PROJ/5]
 draft: false
 ---
 
-**Wokwi** est un simulateur de circuits accessible gratuitement dans le navigateur (`wokwi.com`) qui sait simuler le **Raspberry Pi Pico en MicroPython** : on câble un montage, on écrit le `main.py`, et on observe l'exécution **sans matériel physique**. C'est la rampe d'accès idéale avant d'avoir une carte, et le bac à sable sans risque pour valider un câblage avant de risquer un composant réel. (À la différence de [[tinkercad|Tinkercad]], centré Arduino, Wokwi couvre le Pico et MicroPython — c'est l'outil adapté à ce module.)
+**Wokwi** est un simulateur de circuits accessible gratuitement dans le navigateur (`wokwi.com`) qui sait simuler le **Raspberry Pi Pico en MicroPython** : on câble un montage, on écrit le `main.py`, et on observe l'exécution **sans matériel physique**. C'est la rampe d'accès idéale avant d'avoir une carte, et le bac à sable sans risque pour valider un câblage avant de risquer un composant réel. (À la différence de [[tinkercad|Tinkercad]], centré Arduino, Wokwi couvre le Pico et MicroPython : c'est l'outil adapté à ce module.)
 
 ## À quoi ça sert ?
 
 Wokwi résout trois problèmes courants en projet étudiant :
 
 - **Démarrer sans matériel** — quand la carte n'est pas encore là, on écrit et teste quand même son code MicroPython ;
-- **Tester un câblage risqué avant de l'assembler** — un mauvais branchement de moteur, de pont H ou d'alimentation peut détruire un composant ; la simulation ne coûte rien ;
+- **Tester un câblage risqué avant de l'assembler** — un mauvais branchement de moteur, de pont H ou d'alimentation peut détruire un composant, là où la simulation ne coûte rien ;
 - **Partager facilement** — un projet Wokwi se partage par URL, pratique pour montrer un montage à un encadrant ou demander de l'aide à distance.
 
-L'outil reste limité : tous les composants ne sont pas simulés, le timing n'est pas réaliste à la microseconde, et certains modules manquent. **Wokwi ne remplace pas le montage réel — il accélère l'idéation et fiabilise la première mise sous tension.**
+L'outil reste limité : tous les composants ne sont pas simulés, le timing n'est pas réaliste à la microseconde, et certains modules manquent. **Wokwi ne remplace pas le montage réel : il accélère l'idéation et fiabilise la première mise sous tension.**
 
 ## Procédure pas à pas
 
@@ -47,13 +47,13 @@ Dans l'éditeur de code, écrivez votre programme MicroPython exactement comme s
 
 ### 4. Lancer la simulation et observer
 
-Cliquez sur **▶ (Play)**. Wokwi charge le firmware MicroPython simulé et exécute le `main.py`. Les LEDs s'allument, les afficheurs affichent. Une **console série** (panneau en bas) montre les `print()` et donne accès au REPL, comme sur le matériel. Le bouton **■ (Stop)** arrête ; on modifie à chaud puis on relance.
+Cliquez sur **▶ (Play)**. Wokwi charge le firmware MicroPython simulé et exécute le `main.py`. Les LEDs s'allument, les afficheurs affichent. Une **console série** (panneau en bas) montre les `print()` et donne accès au REPL, comme sur le matériel. Le bouton **■ (Stop)** arrête. On modifie à chaud puis on relance.
 
 ## Exemple — Bouton + LED simulés
 
 Le Blink, mais déclenché par un bouton — pour montrer une entrée numérique en plus d'une sortie.
 
-**Câblage** : LED sur **GP15** via résistance 220 Ω vers GND ; bouton entre **GP14** et GND, en `PULL_UP` (la résistance interne suffit, pas de tirage externe).
+**Câblage** : LED sur **GP15** via résistance 220 Ω vers GND. Bouton entre **GP14** et GND, en `PULL_UP` (la résistance interne suffit, pas de tirage externe).
 
 ```python
 from machine import Pin
@@ -68,7 +68,7 @@ while True:
         led.off()
 ```
 
-Lancez la simulation et cliquez sur le bouton : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (bouton vers 3,3 V au lieu de GND), le comportement change — la simulation reproduit fidèlement l'erreur **sans rien casser**.
+Lancez la simulation et cliquez sur le bouton : la LED s'allume tant qu'il est maintenu. Si le câblage est faux (bouton vers 3,3 V au lieu de GND), le comportement change : la simulation reproduit fidèlement l'erreur **sans rien casser**.
 
 Prendre capture d'écran de *la simulation Wokwi du circuit bouton et LED, bouton en cours d'appui et LED allumée*.
 
@@ -80,7 +80,7 @@ Prendre capture d'écran de *la simulation Wokwi du circuit bouton et LED, bouto
 
 **Timing peu fidèle.** `time.ticks_ms()`/`ticks_us()` et le code temps-réel critique ne se comportent pas comme sur le matériel. Ne pas y caler une mesure de fréquence ou un asservissement chronométré sans valider en réel.
 
-**LED intégrée : GP25 en simulation.** Sur le Pico simulé (non-W), la LED intégrée est **GP25** ; le raccourci `Pin("LED")` des cartes Pico W peut ne pas être reconnu. En simulation, écrire `Pin(25, Pin.OUT)`.
+**LED intégrée : GP25 en simulation.** Sur le Pico simulé (non-W), la LED intégrée est **GP25**. Le raccourci `Pin("LED")` des cartes Pico W peut ne pas être reconnu. En simulation, écrire `Pin(25, Pin.OUT)`.
 
 **Connexion internet requise.** Wokwi est 100 % en ligne — sans réseau, pas de simulation.
 

@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor — toutes se pilotent par `Pin.value()` (ou `on()`/`off()`). La fiche couvre les trois cas rencontrés en projet école : pilotage direct d'une petite charge (LED), via transistor pour une charge moyenne (buzzer, ventilateur), via module relais pour une charge secteur ou inductive importante. Une contrainte structure tout : le Pico est en **3,3 V** et délivre **moins de courant** qu'un Arduino.
+Une **sortie TOR** (Tout Ou Rien) commute une charge entre deux états : alimentée ou éteinte. LED de signalisation, buzzer, relais de puissance, ventilateur sur transistor : toutes se pilotent par `Pin.value()` (ou `on()`/`off()`). La fiche couvre les trois cas rencontrés en projet école : pilotage direct d'une petite charge (LED), via transistor pour une charge moyenne (buzzer, ventilateur), via module relais pour une charge secteur ou inductive importante. Une contrainte structure tout : le Pico est en **3,3 V** et délivre **moins de courant** qu'un Arduino.
 
 ## À quoi ça sert ?
 
@@ -38,17 +38,17 @@ On prend les trois cas usuels : **LED** (broche directe), **buzzer** (transistor
 
 ### 2. Câbler
 
-**LED** : anode (+) → résistance 220 Ω à 1 kΩ → GP8 ; cathode (−) → GND.
+**LED** : anode (+) → résistance 220 Ω à 1 kΩ → GP8, cathode (−) → GND.
 
 **Buzzer via transistor NPN 2N2222** : émetteur → GND ; collecteur → buzzer (−) ; buzzer (+) → +5 V (ou +3,3 V) ; base → résistance 1 kΩ → GP9.
 
-**Module relais** : IN du module → GP10 ; VCC → +5 V (souvent depuis VBUS) ; GND → GND. La charge secteur se branche **sur les bornes COM + NO du module**, le Pico n'y touche jamais.
+**Module relais** : IN du module → GP10, VCC → +5 V (souvent depuis VBUS), GND → GND. La charge secteur se branche **sur les bornes COM + NO du module**, le Pico n'y touche jamais.
 
 ![Câblage des trois interfaces de sortie TOR sur le Pico : LED via résistance 220 Ω sur GP8, buzzer via transistor NPN 2N2222 (base sur GP9), module relais commandé par GP10 ; alimentation +5 V (VBUS) et masse communes.|640](/ressources/img/micropython-sortie-tor/montage-relais.svg)
 
 ### 3. Écrire le code
 
-Le code est identique quelle que soit l'interface — `Pin.on()` ne sait pas s'il pilote une LED ou un relais.
+Le code est identique quelle que soit l'interface : `Pin.on()` ne sait pas s'il pilote une LED ou un relais.
 
 ```python
 from machine import Pin
@@ -66,7 +66,7 @@ while True:
 ```
 
 > [!warning]
-> **Logique du relais souvent inversée.** Beaucoup de modules relais sont *actifs au niveau bas* : `relais.off()` (0) colle le relais, `on()` (1) le relâche. Vérifier sur le module ou par essai — la LED du module s'allume quand le relais colle.
+> **Logique du relais souvent inversée.** Beaucoup de modules relais sont *actifs au niveau bas* : `relais.off()` (0) colle le relais, `on()` (1) le relâche. Vérifier sur le module ou par essai : la LED du module s'allume quand le relais colle.
 
 ### 4. Vérifier la consommation
 
@@ -90,7 +90,7 @@ while True:
     sleep(3)                    # pause avant la prochaine salve
 ```
 
-Même structure pour piloter un module relais à la place du buzzer — seule l'interface matérielle change.
+Même structure pour piloter un module relais à la place du buzzer : seule l'interface matérielle change.
 
 ## Pièges
 
@@ -100,13 +100,13 @@ Même structure pour piloter un module relais à la place du buzzer — seule l'
 
 **LED sans résistance.** La LED grille, ou la broche s'abîme. Toujours 220 Ω à 1 kΩ en série.
 
-**Buzzer actif vs passif.** Un *buzzer actif* sonne dès qu'on lui applique sa tension — `on()` suffit. Un *buzzer passif* ne sonne pas en TOR — il lui faut un signal carré (voir [[micropython-sortie-pwm|PWM]]).
+**Buzzer actif vs passif.** Un *buzzer actif* sonne dès qu'on lui applique sa tension : `on()` suffit. Un *buzzer passif* ne sonne pas en TOR : il lui faut un signal carré (voir [[micropython-sortie-pwm|PWM]]).
 
 **Charge inductive sans diode de roue libre.** Bobine de relais, moteur, électrovanne : la coupure produit une surtension qui peut détruire le transistor. Une **diode 1N4007 en inverse en parallèle de la bobine** l'absorbe. Les modules relais commerciaux l'intègrent déjà.
 
-**Logique inversée du relais oubliée.** Le relais colle alors qu'on l'a mis à `off()` — c'est l'optocoupleur du module qui inverse. Lire la doc ou tester.
+**Logique inversée du relais oubliée.** Le relais colle alors qu'on l'a mis à `off()` : c'est l'optocoupleur du module qui inverse. Lire la doc ou tester.
 
-**Sortie TOR pour un moteur CC.** Un moteur veut un sens et une vitesse — il faut un pont H (voir [[micropython-moteur-cc|piloter un moteur CC]]), pas une sortie TOR.
+**Sortie TOR pour un moteur CC.** Un moteur veut un sens et une vitesse : il faut un pont H (voir [[micropython-moteur-cc|piloter un moteur CC]]), pas une sortie TOR.
 
 ## Cas particulier — Charges secteur 230 V
 
