@@ -1,0 +1,20 @@
+=== PUCES A TIRET DU CORPUS - REMESURE A LA CLOTURE DU LOT 6 ===
+Population FR declaree : tous les .md sous content/ hors content/en/ = 248 fichiers
+Population EN declaree : tous les .md sous content/en/ = 206 fichiers
+
+--- COTE FRANCAIS
+  templates/index.md                                           3
+  --------------------------------------------------------------
+  TOTAL (248 fiches)                                        1027
+  fiches porteuses : 173
+
+--- COTE ANGLAIS
+  en/meca/usinage-en.md                                        0
+  --------------------------------------------------------------
+  TOTAL (206 fiches)                                         870
+  fiches porteuses : 142
+
+--- SOUS-POPULATION : les trois branches seules (241 fichiers)
+  TOTAL 1009   porteuses 168
+  (les 7 fichiers hors branches - index.md, ressources/index.md, les
+   cinq templates/ - portent 18 puces sur 5 porteuses)

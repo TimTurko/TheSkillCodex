@@ -1,0 +1,35 @@
+  embarque/mcu/stm32/stm32-cubemx.md                           4
+      L  55  [configurer les périphériques]
+            - **NVIC** — pour **activer l'interruption** d'un périphérique. Sans cocher la ligne NVIC correspondante, le code en mode interruption ne sera jamais 
+      L  56  [configurer les périphériques]
+            - **DMA** — pour configurer un transfert par accès direct à la mémoire, qui décharge le cœur.
+      L 130  [raccrochage projet]
+            - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — CubeMX est l'outil qui transforme un choix de microcontrôleur (fait en [[concep
+      L 131  [raccrochage projet]
+            - **Traçabilité** — le fichier `.ioc` versionné documente la configuration matérielle du projet : un coéquipier retrouve d'un coup d'œil quelles broch
+  embarque/mcu/stm32/stm32-hal.md                              5
+      L  26  [à quoi ça sert]
+            - **Portabilité.** Le code écrit en HAL se transpose d'une puce STM32 à une autre avec peu de changements — un atout pour réutiliser une base de proje
+      L  77  [hal ou ll]
+            - **HAL** — portable, lisible, un peu de surcoût et de mémoire ; le défaut.
+      L  78  [hal ou ll]
+            - **LL** — proche du registre, rapide, compacte, **moins portable** ; pour les chemins critiques en performance ou les puces à très peu de mémoire.
+      L 158  [raccrochage projet]
+            - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — la HAL est l'outil d'écriture de la logique de la PoC une fois le microcontrôle
+      L 159  [raccrochage projet]
+            - **Lisibilité et reprise** — un code HAL se relit et se reprend plus facilement qu'un code registre, ce qui compte en projet d'équipe et dans le [[do
+  embarque/mcu/stm32/stm32-registres.md                        6
+      L  26  [à quoi ça sert]
+            - **Déterminisme.** Un accès registre a une durée connue et stable — précieux pour du temps réel fin.
+      L  27  [à quoi ça sert]
+            - **Empreinte mémoire.** Sans le code de la HAL, le binaire est plus petit — utile sur les puces à très peu de Flash.
+      L  74  [bsrr contre odr — l'atomicité]
+            - **Par `ODR`** : `GPIOA->ODR |= GPIO_ODR_OD5;` — c'est un **lire-modifier-écrire** (le `|=` lit le registre, modifie un bit, réécrit le tout). Si une
+      L  75  [bsrr contre odr — l'atomicité]
+            - **Par `BSRR`** : `GPIOA->BSRR = GPIO_BSRR_BS5;` — une **simple écriture**, atomique. Les 16 bits de poids faible *mettent à 1*, les 16 bits de poids
+      L 111  [raccrochage projet]
+            - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — descendre au registre est une optimisation **ciblée**, pas le point de départ :
+      L 112  [raccrochage projet]
+            - **Mélange assumé** — la pratique courante consiste à **configurer avec [[stm32-cubemx|CubeMX]] et la HAL**, puis à remplacer par des accès registre 
+  --------------------------------------------------------------
+  TOTAL (3 fiches)                                            15

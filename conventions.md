@@ -1633,7 +1633,25 @@ réécrire »*, portée à l'identique par `esp32-arduino-core` L26 et
 tiret par une virgule. *La famille Arduino-core répète ses phrases d'une fiche
 à l'autre : traiter la seconde dans la forme que l'anglais avait déjà choisie
 referme l'écart au lieu d'en fabriquer un second.*
-*Éprouvée 3/N.*
+
+**Quatrième épreuve, 29/08 (suite 11), lot 6 (`stm32/`, fermeture du
+module)** : **15 puces jugées, 11 traitées, 4 gardées**, report **symétrique
+fiche par fiche — FR 2 / 2 / 0, EN 2 / 2 / 0**. ⚠ **Les quatre gardées sont
+deux glossaires**, et c'est la première fois que le cas 2 en protège deux dans
+un même lot : les deux onglets transverses de `stm32-cubemx`
+(`- **NVIC** — pour…`, `- **DMA** — pour…`, deux groupes infinitifs) et la
+comparaison HAL / LL de `stm32-hal` (`- **HAL** — portable, lisible…`,
+`- **LL** — proche du registre…`, deux groupes adjectivaux). *Le taux
+d'exemption ne mesure pas la sévérité du jugement — la doctrine est reconduite
+mot pour mot depuis le lot 4 — mais la **densité de glossaires de la
+source** : le lot 5 n'en portait aucun et gardait 0 sur 10 ; celui-ci en porte
+deux et garde 4 sur 15.*
+⚠ **Et deux paires voisines du même module reçoivent des verdicts opposés** :
+`stm32-registres` L74/L75 (`- **Par `ODR`** : … — …`) **tombent** quand
+`stm32-hal` L77/L78 **restent**. *Ce qui les sépare n'est ni la forme de puce
+ni la nature du segment de droite, mais la **phrase complète à gauche du
+tiret** : leur tiret est un cas 3, pas un cas 2.*
+*Éprouvée 4/N.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -2446,7 +2464,44 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   par accident en mesurant autre chose.** *Le geste qui l'évite tient en un
   `grep` du corpus par titre de section, avant d'écrire la fiche ; l'instrument
   qui l'attraperait n'existe pas.* Corrigé ici en **5 remplacements sur
-  4 fiches**, invariants d'accents nuls. *Éprouvée 0/N.*
+  4 fiches**, invariants d'accents nuls.
+
+  **Première épreuve, 29/08 (suite 11), lot 6 — et c'est la première fois que
+  le relevé se fait À L'ENDROIT PRÉVU**, avant la rédaction et non en
+  correctif. Le `grep` du corpus rend les six formes génériques avec leur
+  poids — `## See also` **196**, `## What is it for?` **134**,
+  `## Pitfalls` **133**, `## Where it fits in the project` **99**,
+  `## Exercises` **34**, `## Going further` **25** — et écarte les
+  concurrentes chiffrées, `## In the project` **20** et
+  `## Common pitfalls` **15**.
+  ⚠ **Il prouve en passant que le correctif É1 de la suite 10 tient** :
+  `## Project connection` et `## Step-by-step procedure` sont retombés à
+  **0**, *et aucune autre mesure du dépôt ne peut le dire*. **Les trois
+  fiches du lot 6 n'ont introduit aucune forme générique neuve**, leurs
+  sections propres (`## The .ioc file`, `## The handles`, `## HAL or LL`,
+  `## BSRR versus ODR — atomicity`…) nommant le contenu de leur fiche.
+  *Éprouvée 1/N.*
+- **Un compteur qui se remesure d'une clôture à l'autre déclare sa population
+  DANS SA SORTIE, pas dans le message qui la commente.**
+  *Née le 29/08 (suite 11), deuxième clôture d'affilée où le compteur de puces
+  à tiret du corpus rend un chiffre non comparable à sa propre référence.*
+  Le corollaire opératoire de la clause de périmètre C109 dit que ce compteur
+  **se remesure et ne se reporte jamais** ; deux clôtures prouvent que
+  **remesurer ne suffit pas**. ⚠ **Le côté anglais se referme au caractère et
+  sur ses deux termes** — 866 + 4 = **870** puces, 140 + 2 = **142**
+  porteuses —, ce qui **prouve que le motif est identique** à celui du lot 5.
+  Côté français, la même mécanique devrait rendre 1 023 − 11 = **1 012** sur
+  **169** porteuses ; elle rend **1 027 sur 173**, soit **+15 puces et +4
+  porteuses**. *La cause est donc dans la population, et elle n'est pas
+  retrouvable : la sortie du lot 5 ne l'a pas déclarée.* Retirer les 7
+  fichiers hors branches (`index.md`, `ressources/index.md`, les cinq
+  `templates/`, qui portent **18 puces sur 5 porteuses**) donne **1 009 sur
+  168**, qui ne se referme pas davantage. **Nouvelle référence, publiée avec
+  sa population : FR 1 027 sur 173 porteuses (248 fichiers `content/` hors
+  `en/`), EN 870 sur 142 porteuses (206 fichiers `content/en/`).**
+  *C131 exige de déclarer la population d'un compteur qu'on **prédit** ; il y
+  manque de l'exiger du compteur qu'on **publie comme référence**.*
+  *Éprouvée 0/N.*
 - **Une soustraction entre deux totaux se fait sur deux états de même date.**
   *Née le 29/08 (suite 9), cinq réfutations sur onze.* `RESTANT A TRADUIRE` et
   le restant de l'anneau 2 ont été prédits **faux de +14 tous les deux**, pour
@@ -2893,7 +2948,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
   ⚠ **Ce que la clause ne dit pas.** Elle ne dispense pas de relever le compteur : la même clôture rend `candidats a lire` **105 → 106**, et le candidat neuf est `[[bus-de-communication-en|I2S]]` — un **sigle de bus** contre le titre `Communication buses`, que `estSigleDe` ne reconnaît pas. *Trois occurrences préexistantes de cette famille étaient déjà au compteur ; le report fidèle d'un libellé français en ajoute une quatrième, et cela n'a rien à voir avec le choix du titre.*
 
-  *Éprouvée 2/N dans son texte d'origine ; le texte amendé du 29/08 (suite 5) est à 1/N ; la clause ci-dessus est à 1/N.*
+  *Éprouvée 2/N dans son texte d'origine ; le texte amendé du 29/08 (suite 5) est à 1/N ; la clause ci-dessus est à **2/N**, sa deuxième épreuve étant le lot 6 du 29/08 (suite 11) : **trois `title:` qualifiés par la famille** — `Configuring the STM32 with CubeMX`, `Programming the STM32 with the HAL`, `Going down to the register on the STM32` —, qui **englobent** chacun leur forme de production (`Configuring with CubeMX` 4 occurrences, `Programming with the HAL` 3, `Going down to the register` 1), pour **zéro candidat `--libelles` créé** sur les vingt-deux libellés qui les visent. ⚠ *Les deux candidats qui apparaissent à cette clôture sont des **sigles** — `[[stm32-registres-en|CMSIS]]` et `[[bus-de-communication-en|I2C/SPI]]` —, la famille que la clause nomme déjà, et ils n'ont rien à voir avec le choix des titres.* **Première épreuve sur trois titres à la fois, et la seule où les trois formes de production effacent le qualificatif que la source porte** : les retenir aurait fabriqué en une séance trois fois le défaut d'`esp8266-arduino-core-en`.*
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
   « articulation avec les autres transverses » (3 pratiques : intégrer dans

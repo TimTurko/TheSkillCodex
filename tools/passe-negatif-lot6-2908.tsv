@@ -1,0 +1,51 @@
+embarque/mcu/stm32/stm32-cubemx.md	on **configure le microcontrôleur** — le code vient ensuite.	on **configure le microcontrôleur** : le code vient ensuite.
+embarque/mcu/stm32/stm32-cubemx.md	du matériel — il l'**outille**.	du matériel : il l'**outille**.
+embarque/mcu/stm32/stm32-cubemx.md	écrit l'initialisation ; modifier la configuration	écrit l'initialisation. Modifier la configuration
+embarque/mcu/stm32/stm32-cubemx.md	dont le projet a besoin ; CubeMX colore	dont le projet a besoin. CubeMX colore
+embarque/mcu/stm32/stm32-cubemx.md	partout en aval — un UART	partout en aval : un UART
+embarque/mcu/stm32/stm32-cubemx.md	la case SYSCLK ; CubeMX	la case SYSCLK. CubeMX
+embarque/mcu/stm32/stm32-cubemx.md	`LD2` est déjà en `GPIO_Output` ; vérifier	`LD2` est déjà en `GPIO_Output`. Vérifier
+embarque/mcu/stm32/stm32-cubemx.md	les fonctions HAL manipulent — détaillé dans [[stm32-hal|la HAL]].	les fonctions HAL manipulent (détaillé dans [[stm32-hal|la HAL]]).
+embarque/mcu/stm32/stm32-cubemx.md	qu'il faut rouvrir — pas le	qu'il faut rouvrir, pas le
+embarque/mcu/stm32/stm32-cubemx.md	se règle ensuite ; ici, l'essentiel	se règle ensuite. Ici, l'essentiel
+embarque/mcu/stm32/stm32-cubemx.md	phase de preuve de concept]]** — CubeMX est l'outil	phase de preuve de concept]].** CubeMX est l'outil
+embarque/mcu/stm32/stm32-cubemx.md	- **Tracabilité** — le fichier	- **Traçabilité.** Le fichier
+embarque/mcu/stm32/stm32-hal.md	Elle est **portable** — le même appel `HAL_UART_Transmit` fonctionne d'une F0 à une H7 — au prix	Elle est **portable** (le même appel `HAL_UART_Transmit` fonctionne d'une F0 à une H7), au prix
+embarque/mcu/stm32/stm32-hal.md	dans le bon ordre — fastidieux et peu portable.	dans le bon ordre. C'est fastidieux et peu portable.
+embarque/mcu/stm32/stm32-hal.md	dit ce qu'il fait ; la séquence	dit ce qu'il fait. La séquence
+embarque/mcu/stm32/stm32-hal.md	rend la main aussitôt ; quand l'opération	rend la main aussitôt. Quand l'opération
+embarque/mcu/stm32/stm32-hal.md	données **sans le cœur** ; un *callback*	données **sans le cœur**. Un *callback*
+embarque/mcu/stm32/stm32-hal.md	devient gênant — exactement la logique	devient gênant, exactement la logique
+embarque/mcu/stm32/stm32-hal.md	**exclusif pour un même périphérique** — un USART	**exclusif pour un même périphérique** : un USART
+embarque/mcu/stm32/stm32-hal.md	sur le port série — tout en HAL	sur le port série, tout en HAL
+embarque/mcu/stm32/stm32-hal.md	du bloquant au réactif** — le geste	du bloquant au réactif**, le geste
+embarque/mcu/stm32/stm32-hal.md	en réalité — sept passages	en réalité : sept passages
+embarque/mcu/stm32/stm32-hal.md	au début de `main` ; en code écrit	au début de `main`. En code écrit
+embarque/mcu/stm32/stm32-hal.md	attend indéfiniment ; si la liaison	attend indéfiniment. Si la liaison
+embarque/mcu/stm32/stm32-hal.md	**qu'un** *callback* ; sans le re-armer	**qu'un** *callback*. Sans le re-armer
+embarque/mcu/stm32/stm32-hal.md	dans une interruption — y faire le strict minimum.	dans une interruption : y faire le strict minimum.
+embarque/mcu/stm32/stm32-hal.md	l'interruption SysTick ; l'appeler	l'interruption SysTick. L'appeler
+embarque/mcu/stm32/stm32-hal.md	puis rend la main — le `HAL_Delay`	puis rend la main : le `HAL_Delay`
+embarque/mcu/stm32/stm32-hal.md	pour attraper l'octet ; pendant le	pour attraper l'octet. Pendant le
+embarque/mcu/stm32/stm32-hal.md	à fréquence stable — le rôle des	à fréquence stable, le rôle des
+embarque/mcu/stm32/stm32-hal.md	Comprendre les trois modes — et que CubeMX configure les handles que la HAL utilise — donne	Comprendre les trois modes (et que CubeMX configure les handles que la HAL utilise) donne
+embarque/mcu/stm32/stm32-hal.md	avec peu de changements — un atout	avec peu de changements, un atout
+embarque/mcu/stm32/stm32-hal.md	phase de preuve de concept]]** — la HAL est l'outil	phase de preuve de concept]].** La HAL est l'outil
+embarque/mcu/stm32/stm32-hal.md	- **Lisibilité et reprise** — un code HAL	- **Lisibilité et reprise.** Un code HAL
+embarque/mcu/stm32/stm32-registres.md	manipulation de bits]] — masques, décalages	manipulation de bits]] : masques, décalages
+embarque/mcu/stm32/stm32-registres.md	aide à déboguer ; et quand un réglage	aide à déboguer, et quand un réglage
+embarque/mcu/stm32/stm32-registres.md	c'est plus long — mais on voit	c'est plus long, mais on voit
+embarque/mcu/stm32/stm32-registres.md	un [[timer|timer]]) ; ici elle sert	un [[timer|timer]]). Ici elle sert
+embarque/mcu/stm32/stm32-registres.md	pas d'exécution* — sous forme de GIF	pas d'exécution*, sous forme de GIF
+embarque/mcu/stm32/stm32-registres.md	*remettent à 0* ; les bits non visés	*remettent à 0*. Les bits non visés
+embarque/mcu/stm32/stm32-registres.md	qu'on ouvre — souvent en parallèle	qu'on ouvre, souvent en parallèle
+embarque/mcu/stm32/stm32-registres.md	les macros CMSIS — c'est la leçon	les macros CMSIS : c'est la leçon
+embarque/mcu/stm32/stm32-registres.md	optimiser les accès — et le code	optimiser les accès, et le code
+embarque/mcu/stm32/stm32-registres.md	masque ce piège — d'où sa découverte	masque ce piège, d'où sa découverte
+embarque/mcu/stm32/stm32-registres.md	**`BSRR`** des deux côtés — `GPIOA->BSRR	**`BSRR`** des deux côtés : `GPIOA->BSRR
+embarque/mcu/stm32/stm32-registres.md	durée connue et stable — précieux	durée connue et stable, précieux
+embarque/mcu/stm32/stm32-registres.md	binaire est plus petit — utile sur	binaire est plus petit, utile sur
+embarque/mcu/stm32/stm32-registres.md	`GPIOA->ODR |= GPIO_ODR_OD5;` — c'est un	`GPIOA->ODR |= GPIO_ODR_OD5;`. C'est un
+embarque/mcu/stm32/stm32-registres.md	`GPIOA->BSRR = GPIO_BSRR_BS5;` — une **simple écriture**	`GPIOA->BSRR = GPIO_BSRR_BS5;`, une **simple écriture**
+embarque/mcu/stm32/stm32-registres.md	phase de preuve de concept]]** — descendre au registre	phase de preuve de concept]].** Descendre au registre
+embarque/mcu/stm32/stm32-registres.md	- **Mélange assumé** — la pratique courante	- **Mélange assumé.** La pratique courante

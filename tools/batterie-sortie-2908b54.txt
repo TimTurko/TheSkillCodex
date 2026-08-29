@@ -1,0 +1,246 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b53.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 23:32:00
+
+HEAD git : 1442a81 2026-08-29 23:24:26 +0200
+fichiers modifies non commites : 3   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 23:22:56
+  conventions.md                                      2026-08-29 23:20:06
+  TODO.md                                             2026-08-29 21:48:08
+  embarque/mcu/stm32/stm32-cubemx.md                  2026-08-20 16:34:40
+  embarque/mcu/stm32/stm32-hal.md                     2026-08-19 10:01:42
+  embarque/mcu/stm32/stm32-registres.md               2026-08-20 16:38:58
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/stm32/stm32-cubemx.md                         1675
+  embarque/mcu/stm32/stm32-hal.md                            1579
+  embarque/mcu/stm32/stm32-registres.md                      1472
+  ---------------------------------------------------------------
+  LOT (3 fiches)                                             4726
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/stm32/stm32-cubemx.md
+      19  [C109] tiret d incise
+          …*configure le microcontrôleur** — le code vient ensuite. CubeMX s'…
+      29  [C109] tiret d incise
+          …as la compréhension du matériel — il l'**outille**. Lire la datash…
+      33  [C109] point-virgule de prose
+          ….ioc` et écrit l'initialisation ; modifier la configuration et rég…
+      37  [C109] point-virgule de prose
+          …nctions dont le projet a besoin ; CubeMX colore les broches utilis…
+      47  [C109] tiret d incise
+          …esses fausses** partout en aval — un UART qui n'a pas le bon débit…
+      47  [C109] point-virgule de prose
+          …de la puce) dans la case SYSCLK ; CubeMX **résout les multiplicate…
+      62  [C109] tiret d incise
+          …rator** porte d'autres réglages — un fichier par périphérique, con…
+      62  [C109] tiret d incise
+          …onservation du code utilisateur — pas le choix du pilote.)*
+      72  [C109] point-virgule de prose
+          …`LD2` est déjà en `GPIO_Output` ; vérifier que `USART2` est activé…
+      87  [C109] tiret d incise
+          …ue les fonctions HAL manipulent — détaillé dans [[stm32-hal|la HAL…
+      98  [C109] tiret d incise
+          …re d'horloge qu'il faut rouvrir — pas le `HAL_Delay`.
+     126  [C109] point-virgule de prose
+          …timer|timers]] se règle ensuite ; ici, l'essentiel est le couple p…
+
+  embarque/mcu/stm32/stm32-hal.md
+      19  [C109] tiret d incise
+          …r défaut. Elle est **portable** — le même appel `HAL_UART_Transmit…
+      19  [C109] tiret d incise
+          …t` fonctionne d'une F0 à une H7 — au prix d'un peu de verbosité. A…
+      19  [C109] point-virgule de prose
+          …il du langage, voir [[cpp|C++]] ; pour structurer l'ensemble, [[fi…
+      23  [C109] tiret d incise
+          …ns registres, dans le bon ordre — fastidieux et peu portable. La H…
+      25  [C109] point-virgule de prose
+          …huart2, ...)` dit ce qu'il fait ; la séquence de registres équival…
+      53  [C109] point-virgule de prose
+          …ration et rend la main aussitôt ; quand l'opération est finie, la…
+      64  [C109] point-virgule de prose
+          …ce les données **sans le cœur** ; un *callback* signale la fin. Id…
+      71  [C109] tiret d incise
+          …quand le blocage devient gênant — exactement la logique de l'[[int…
+      77  [C109] point-virgule de prose
+          …un peu de surcoût et de mémoire ; le défaut.
+      78  [C109] point-virgule de prose
+          …e, compacte, **moins portable** ; pour les chemins critiques en pe…
+      80  [C109] tiret d incise
+          …sif pour un même périphérique** — un USART donné est généré en HAL…
+      84  [C109] tiret d incise
+          …ue changement sur le port série — tout en HAL, en scrutation :
+     118  [C109] tiret d incise
+          …assage du bloquant au réactif** — le geste qui distingue un firmwa…
+     126  [C109] tiret d incise
+          …ctère par caractère, en réalité — sept passages dans le *callback*…
+     130  [C109] point-virgule de prose
+          …MX les place au début de `main` ; en code écrit à la main, les ome…
+     132  [C109] point-virgule de prose
+          …MAX_DELAY)` attend indéfiniment ; si la liaison est muette, tout l…
+     136  [C109] point-virgule de prose
+          …déclenche **qu'un** *callback* ; sans le re-armer à l'intérieur,…
+     140  [C109] tiret d incise
+          …emporiser dans une interruption — y faire le strict minimum.
+     140  [C109] point-virgule de prose
+          …pose sur l'interruption SysTick ; l'appeler depuis un *callback* d…
+     148  [C109] tiret d incise
+          …e *callback*, puis rend la main — le `HAL_Delay` ne gêne pas la ré…
+     148  [C109] point-virgule de prose
+          …_Receive` pour attraper l'octet ; pendant le `HAL_Delay`, un carac…
+     154  [C109] tiret d incise
+          …ns le cœur*, à fréquence stable — le rôle des [[timer|timers]]. Rè…
+     154  [C109] point-virgule de prose
+          …ce, descendre en LL ou registre ; pour un signal périodique, confi…
+     161  [C109] tiret d incise
+          Comprendre les trois modes — et que CubeMX configure les hand…
+     161  [C109] tiret d incise
+          …les handles que la HAL utilise — donne la grammaire du STM32 nati…
+
+  embarque/mcu/stm32/stm32-registres.md
+      19  [C109] tiret d incise
+          …-de-bits|manipulation de bits]] — masques, décalages, `|=`, `&= ~`…
+      28  [C109] point-virgule de prose
+          …ellement la HAL aide à déboguer ; et quand un réglage matériel n'e…
+      36  [C109] tiret d incise
+          …des **macros de bits nommées** — `RCC_AHB1ENR_GPIOAEN`, `GPIO_MOD…
+      36  [C109] tiret d incise
+          …ODER_MODE5_0`, `GPIO_BSRR_BS5`… — qu'on utilise **à la place des n…
+      64  [C109] tiret d incise
+          …in)` de la HAL, c'est plus long — mais on voit **exactement** ce q…
+      64  [C109] point-virgule de prose
+          …'on utilise un [[timer|timer]]) ; ici elle sert juste à rendre le…
+      68  [C109] tiret d incise
+          …scule à chaque pas d'exécution* — sous forme de GIF, le mouvement…
+      75  [C109] point-virgule de prose
+          …s de poids fort *remettent à 0* ; les bits non visés ne sont pas t…
+      81  [C109] tiret d incise
+          …le Reference Manual qu'on ouvre — souvent en parallèle de l'en-têt…
+      89  [C109] tiret d incise
+          …oche. Utiliser les macros CMSIS — c'est la leçon de la [[manipulat…
+      91  [C109] tiret d incise
+          …compilateur optimiser les accès — et le code « marche en debug, pa…
+     101  [C109] tiret d incise
+          …_Init`), ce qui masque ce piège — d'où sa découverte douloureuse a…
+     107  [C109] tiret d incise
+          …liser **`BSRR`** des deux côtés — `GPIOA->BSRR = GPIO_BSRR_BS5` da…
+
+3 fiche(s) lue(s), 3 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 50   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 13   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 109
+    RESTANT                   : 36
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (36 fiches)                     52663
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 0
+    clotures en chevron       : 0   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 203
+  cibles rouges distinctes     : 37
+  mots                         : 53503
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-**STM32CubeMX** est l'outil graphique de configuration des microcontrôleurs STM32 : on y affecte les broches, on y règle l'**arbre d'horloge**, on y paramètre les périphériques, puis CubeMX **génère le code d'initialisation** correspondant. C'est le cœur de la porte native du STM32, et l'apport le plus distinctif de la famille : on ne *programme* pas d'abord, on **configure le microcontrôleur** — le code vient ensuite. CubeMX s'utilise seul ou intégré dans [[stm32-prise-en-main|STM32CubeIDE]] (la vue `.ioc` rencontrée à la prise en main). L'API que ce code emploie est détaillée dans [[stm32-hal|la HAL]].
+**STM32CubeMX** est l'outil graphique de configuration des microcontrôleurs STM32 : on y affecte les broches, on y règle l'**arbre d'horloge**, on y paramètre les périphériques, puis CubeMX **génère le code d'initialisation** correspondant. C'est le cœur de la porte native du STM32, et l'apport le plus distinctif de la famille : on ne *programme* pas d'abord, on **configure le microcontrôleur** : le code vient ensuite. CubeMX s'utilise seul ou intégré dans [[stm32-prise-en-main|STM32CubeIDE]] (la vue `.ioc` rencontrée à la prise en main). L'API que ce code emploie est détaillée dans [[stm32-hal|la HAL]].
 
 ## À quoi ça sert ?
 
@@ -26,15 +26,15 @@ Un STM32 a des dizaines de broches, plusieurs horloges, et des périphériques a
 - **Maîtriser l'horloge.** L'arbre d'horloge, panneau emblématique du STM32, permet de régler la fréquence du cœur et de chaque bus, en **calculant les diviseurs** et en alertant sur les valeurs invalides.
 - **Générer une base saine.** Le code d'initialisation produit est cohérent avec la configuration, et **préserve votre propre code** à chaque régénération.
 
-CubeMX ne remplace pas la compréhension du matériel — il l'**outille**. Lire la datasheet reste utile pour savoir *quoi* configurer (voir [[lire-une-datasheet|lire une datasheet]]).
+CubeMX ne remplace pas la compréhension du matériel : il l'**outille**. Lire la datasheet reste utile pour savoir *quoi* configurer (voir [[lire-une-datasheet|lire une datasheet]]).
 
 ## Le fichier .ioc
 
-Toute la configuration vit dans un fichier **`.ioc`** (un par projet). C'est un fichier **texte** : il se versionne dans Git au même titre que le code, et deux états de configuration se comparent. « Générer le code » lit le `.ioc` et écrit l'initialisation ; modifier la configuration et régénérer met le code à jour **sans toucher** à ce que vous avez écrit dans les zones réservées.
+Toute la configuration vit dans un fichier **`.ioc`** (un par projet). C'est un fichier **texte** : il se versionne dans Git au même titre que le code, et deux états de configuration se comparent. « Générer le code » lit le `.ioc` et écrit l'initialisation. Modifier la configuration et régénérer met le code à jour **sans toucher** à ce que vous avez écrit dans les zones réservées.
 
 ## Configurer le brochage
 
-Dans la vue **Pinout & Configuration**, chaque broche du boîtier est cliquable. Un clic propose ses fonctions possibles : `GPIO_Output`, `GPIO_Input`, `USART2_TX`, `TIM3_CH1`, `I2C1_SCL`… On affecte les fonctions dont le projet a besoin ; CubeMX colore les broches utilisées et **refuse une affectation en conflit**.
+Dans la vue **Pinout & Configuration**, chaque broche du boîtier est cliquable. Un clic propose ses fonctions possibles : `GPIO_Output`, `GPIO_Input`, `USART2_TX`, `TIM3_CH1`, `I2C1_SCL`… On affecte les fonctions dont le projet a besoin. CubeMX colore les broches utilisées et **refuse une affectation en conflit**.
 
 Sur un projet créé depuis une carte Nucleo, le brochage est déjà partiellement rempli (LD2, bouton, port série du ST-LINK). On part de là et on ajoute ce qu'il faut.
 
@@ -44,7 +44,7 @@ Prendre capture d'écran de *la vue Pinout & Configuration de CubeMX, avec quelq
 
 L'onglet **Clock Configuration** affiche l'**arbre d'horloge** : la source (oscillateur interne **HSI**, ou quartz externe **HSE**), la **PLL** qui multiplie la fréquence, l'horloge système **SYSCLK**, et les **prédiviseurs** qui alimentent les bus AHB et APB et, à travers eux, les périphériques.
 
-On saisit la fréquence cible (souvent le maximum de la puce) dans la case SYSCLK ; CubeMX **résout les multiplicateurs et diviseurs** ou signale en rouge une combinaison impossible. C'est un panneau à comprendre : une horloge mal réglée donne des **vitesses fausses** partout en aval — un UART qui n'a pas le bon débit, un timer qui ne mesure pas la bonne durée.
+On saisit la fréquence cible (souvent le maximum de la puce) dans la case SYSCLK. CubeMX **résout les multiplicateurs et diviseurs** ou signale en rouge une combinaison impossible. C'est un panneau à comprendre : une horloge mal réglée donne des **vitesses fausses** partout en aval : un UART qui n'a pas le bon débit, un timer qui ne mesure pas la bonne durée.
 
 Prendre capture d'écran de *l'onglet Clock Configuration de CubeMX, montrant l'arbre HSE vers PLL, SYSCLK et les prédiviseurs AHB et APB, avec la fréquence du cœur affichée*.
 
@@ -69,7 +69,7 @@ Avant de générer, le **Project Manager → Advanced Settings → Driver Select
 
 Sur une Nucleo, configurons de quoi clignoter *et* écrire sur le port série, en partant d'un projet de carte :
 
-1. **Brochage** — `LD2` est déjà en `GPIO_Output` ; vérifier que `USART2` est activé sur `PA2`/`PA3` (le port série du ST-LINK sur Nucleo-64).
+1. **Brochage** — `LD2` est déjà en `GPIO_Output`. Vérifier que `USART2` est activé sur `PA2`/`PA3` (le port série du ST-LINK sur Nucleo-64).
 2. **Horloge** — laisser la configuration par défaut de la carte (déjà proche du maximum).
 3. **USART2** — *Baud Rate* à `115200`, format `8N1`.
 4. **Générer** le code.
@@ -84,7 +84,7 @@ HAL_Delay(1000);                                       // attend une seconde
 /* USER CODE END 3 */
 ```
 
-La LED bat la seconde, et le moniteur série (115200) affiche `tic` chaque seconde. Le **handle** `huart2` est l'objet généré par CubeMX que les fonctions HAL manipulent — détaillé dans [[stm32-hal|la HAL]]. **On a configuré le microcontrôleur, puis seulement écrit la logique** : c'est tout l'esprit de la porte native.
+La LED bat la seconde, et le moniteur série (115200) affiche `tic` chaque seconde. Le **handle** `huart2` est l'objet généré par CubeMX que les fonctions HAL manipulent (détaillé dans [[stm32-hal|la HAL]]). **On a configuré le microcontrôleur, puis seulement écrit la logique** : c'est tout l'esprit de la porte native.
 
 Au moniteur réglé sur 115200 :
 
@@ -95,7 +95,7 @@ tic
 tic
 ```
 
-Si les lignes défilent trop vite ou trop lentement, c'est l'arbre d'horloge qu'il faut rouvrir — pas le `HAL_Delay`.
+Si les lignes défilent trop vite ou trop lentement, c'est l'arbre d'horloge qu'il faut rouvrir, pas le `HAL_Delay`.
 
 ## Pièges
 
@@ -123,12 +123,12 @@ Si les lignes défilent trop vite ou trop lentement, c'est l'arbre d'horloge qu'
 > Vous voulez faire clignoter la LED **sans** `HAL_Delay` bloquant, à l'aide d'un timer matériel. Dans CubeMX, quel réglage de **TIM** vise une période de 1 s, et quel onglet faut-il penser à activer si vous comptez utiliser son interruption ?
 
 > [!success]- Corrigé
-> On active un **TIMx** en *Internal Clock*, puis on règle son **prédiviseur** (*Prescaler*) et sa **période** (*Counter Period*) pour obtenir 1 s : par exemple, avec une horloge de timer à 84 MHz, un prescaler de `8400-1` ramène le compteur à 10 kHz, et une période de `10000-1` donne un débordement chaque seconde. Pour réagir à ce débordement, il faut **cocher la ligne du timer dans l'onglet NVIC** (sinon le rappel `HAL_TIM_PeriodElapsedCallback` ne sera jamais appelé). Le détail des valeurs et des [[timer|timers]] se règle ensuite ; ici, l'essentiel est le couple prescaler × période et l'activation NVIC.
+> On active un **TIMx** en *Internal Clock*, puis on règle son **prédiviseur** (*Prescaler*) et sa **période** (*Counter Period*) pour obtenir 1 s : par exemple, avec une horloge de timer à 84 MHz, un prescaler de `8400-1` ramène le compteur à 10 kHz, et une période de `10000-1` donne un débordement chaque seconde. Pour réagir à ce débordement, il faut **cocher la ligne du timer dans l'onglet NVIC** (sinon le rappel `HAL_TIM_PeriodElapsedCallback` ne sera jamais appelé). Le détail des valeurs et des [[timer|timers]] se règle ensuite. Ici, l'essentiel est le couple prescaler × période et l'activation NVIC.
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — CubeMX est l'outil qui transforme un choix de microcontrôleur (fait en [[concept|concept]]) en base logicielle prête à coder. Configurer proprement l'horloge et les périphériques en début de PoC évite des bugs de timing difficiles à diagnostiquer plus tard.
-- **Traçabilité** — le fichier `.ioc` versionné documente la configuration matérielle du projet : un coéquipier retrouve d'un coup d'œil quelles broches font quoi, ce qui nourrit le [[dossier-technique|dossier technique]].
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** CubeMX est l'outil qui transforme un choix de microcontrôleur (fait en [[concept|concept]]) en base logicielle prête à coder. Configurer proprement l'horloge et les périphériques en début de PoC évite des bugs de timing difficiles à diagnostiquer plus tard.
+- **Traçabilité.** Le fichier `.ioc` versionné documente la configuration matérielle du projet : un coéquipier retrouve d'un coup d'œil quelles broches font quoi, ce qui nourrit le [[dossier-technique|dossier technique]].
 
 Comprendre que CubeMX **configure** et que la **HAL** est l'API que le code généré utilise sépare clairement les deux gestes : on règle le microcontrôleur d'un côté, on écrit la logique de l'autre.
 

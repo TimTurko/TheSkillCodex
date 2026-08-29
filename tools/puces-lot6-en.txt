@@ -1,0 +1,5 @@
+  en/embarque/mcu/stm32/stm32-cubemx-en.md                     2
+  en/embarque/mcu/stm32/stm32-hal-en.md                        2
+  en/embarque/mcu/stm32/stm32-registres-en.md                  0
+  --------------------------------------------------------------
+  TOTAL (3 fiches)                                             4

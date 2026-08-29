@@ -7374,3 +7374,2009 @@ P28.21 (soustraction sur un chiffre d'un autre motif), P29.7 (typologie
 d'éditions). *La famille C131 tient toujours sur `git status` — **huit gardes,
 huit chiffres justes sur leurs deux termes** — et elle mord partout ailleurs.*
 
+---
+---
+
+# SÉANCE DU 29/08 (SUITE 11) — LOT 6 DU CHANTIER DE TRADUCTION, FERMETURE DE `stm32/`
+
+> Même fichier de prédictions que les suites 6 à 10 : la date `AAMMJJ` est
+> toujours `260829`. La numérotation des blocs continue la série — le dernier
+> bloc de la suite 10 est le **29**, celui-ci est le **30**.
+>
+> Régime : sous-règle C116 « exécution directe », amendée (points 6 à 9) ;
+> C131 et son amendement du 29/08 (suite 8) — **déclaration rejouée à chaque
+> bloc, avec son total** ; les règles d'usage du 29/08 (suites 9 et 10) —
+> *un motif qui balaie les deux corpus s'éprouve sur un échantillon de chaque
+> langue* ; *une soustraction entre deux totaux se fait sur deux états de même
+> date* ; *un titre de section EN se relève dans le corpus avant d'être écrit*
+> (candidate 0/N de la suite 10, que ce lot doit éprouver **avant** rédaction
+> et non après).
+
+## Recoupement du brief contre la ligne « Prochaine session » (JOURNAL L53)
+
+**Concordance intégrale**, terme à terme :
+
+| terme du brief | ligne « Prochaine session » du 29/08 (suite 10) |
+|---|---|
+| lot 6, onglet Code, exécution directe | idem |
+| ferme `stm32/`, trois fiches du palier 3 | idem |
+| `stm32-cubemx` `deh` 1 675 | idem |
+| `stm32-hal` `deh` 1 579 | idem |
+| `stm32-registres` `deh` 1 472 | idem |
+| `deh` 4 726 sous la borne 6 657, à remesurer au cadrage | idem |
+| aucune des trois porteuse de chevron, anneau 2 restant à 0 porteuse | idem |
+| C127 hors sujet pour la première fois depuis le lot 2 | idem |
+| `mesure-chevron --tout` ne sert qu'à confirmer 34 paires, 0 divergente | idem |
+| relevé des titres de section **avant** rédaction | idem |
+
+**Termes ajoutés par le prompt de lancement, tous lus à la ligne Tailles de la
+même entrée** : référence puces corpus **FR 1 023 / EN 866**, à remesurer
+(corollaire opératoire de la clause de périmètre C109) ; `titres-doublons`
+des deux côtés, référence **0 / 0** ; **anneau 2 après le lot : 33 fiches**
+(36 restantes − 3). *Aucun terme du prompt ne contredit le JOURNAL ; aucun
+terme du JOURNAL n'est omis par le prompt.*
+
+## ⚠ INCIDENT D'OUVERTURE N° 1 — HEAD ET `git status` SONT DANS MON CONTEXTE AVANT LA GARDE, SANS QUE JE LES AIE LANCÉS
+
+Consigné au titre de C116 (3), **famille de l'incident n° 1 de la suite 10**,
+avec une cause différente : là-bas j'avais **lancé** `git log -1` ; ici le
+harnais de la session **injecte** un bloc `gitStatus` en tête de contexte, qui
+porte la branche, `Status: (clean)` et les cinq derniers commits, dont
+**`1442a81 lot 5 stm32: 2 fiches EN, 33 remplacements C109, correctif E1 sur
+4 fiches teensy`**. *Je ne l'ai pas demandé et je ne peux pas le désapprendre.*
+
+**Conséquences tirées avant d'écrire les prédictions** :
+1. **P30.5 (HEAD) est publiée hors décompte** — ce n'est pas une prédiction,
+   c'est une valeur déjà lue. Elle reste écrite pour que la garde ait un
+   référent.
+2. **P30.7 (`git status`) reste au décompte, avec sa dépendance déclarée** :
+   son second terme (`hors artefacts de seance : 0`) repose sur un instantané
+   **antérieur à cette séance**, pas sur une mesure du jour ; ce que la garde
+   éprouve encore, c'est qu'**aucune écriture n'est survenue depuis**, ce
+   qu'un instantané de t0 ne peut pas dire de t1.
+3. Le bloc `gitStatus` **ne donne aucune date de commit ni aucune `mtime`** :
+   P30.6 et P30.9 à P30.11 restent pleinement au décompte.
+
+**Autres commandes lancées avant cette publication** : `wc -l` sur
+`conventions.md` et `JOURNAL.md`, `ls` de la racine et de `tools/`,
+`sed`/`head`/`grep` de lecture sur `conventions.md`, `JOURNAL.md`,
+`tools/predictions-260829.md` et `tools/batterie.ps1`, un `od -c` sur la queue
+du fichier de prédictions, un `ls tools/batterie-sortie-2908b*.txt`.
+**Les deux lectures d'ouverture sont prescrites par `CLAUDE.md`** ; le listage
+de `tools/` fonde la prédiction C124 du rang de copie, **même usage qu'aux
+ouvertures des suites 6 et 10**. Aucune de ces commandes ne touche l'horloge,
+le HEAD, `git status` ni les `mtime` des trois fichiers de pilotage.
+
+---
+
+## Bloc 30 — `batterie.ps1 -Phase garde` (garde de péremption d'ouverture)
+
+Commande prévue :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+### Déclaration C131 du bloc 30 (population, versements, total)
+
+**Population du compteur `fichiers modifies non commites`** : la sortie de
+`git status --porcelain` sur **tout le dépôt**, sans filtre ; le second terme
+est la même sortie moins les lignes contenant `batterie-sortie` ou
+`predictions-` (filtre lu dans le **code** de `batterie.ps1`, étape 1, clause
+`Where-Object` à deux `-notmatch`, pas dans son en-tête).
+
+**Artefacts que la séance a déjà versés dans cette population au moment où le
+bloc s'exécute**, nommément :
+1. `tools/predictions-260829.md` — **suivi par git** (il a été commité dans
+   `1442a81`, dont il porte les blocs 22 à 29), modifié par l'appende de
+   l'en-tête de séance, du recoupement, de l'incident n° 1, de cette
+   déclaration et des prédictions ci-dessous ⇒ **1 ligne ` M`**.
+2. `tools/batterie-sortie-2908b52.txt` — créé par l'**étape 0 du lancement
+   courant** (copie C124), suivi par git puisque le `.gitignore` n'exclut que
+   `tools/batterie-sortie.txt` par chemin exact ⇒ **1 ligne `??`**.
+
+`tools/batterie-sortie.txt` est **ignoré** (chemin exact) et ne compte pas.
+
+**Total impliqué : 1 + 1 = 2.** Les deux lignes sont prises par le filtre.
+**Hors artefacts de séance : 0**, et le chiffre **se lit contre sa liste
+nominative** (C116 (9)) : *aucun fichier attendu* — le dépôt est propre depuis
+`1442a81`, aucune fiche de `content/`, aucun outil de `tools/`, aucun fichier
+de pilotage n'a été écrit depuis ce commit.
+
+### Prédictions du bloc 30
+
+**Étape 0 — autocontrôle ASCII (C122) + sauvegarde C124**
+
+- **P30.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P30.2** — `sortie precedente copiee : tools\batterie-sortie-2908b52.txt`.
+  Rang lu au listage de `tools/` : `2908b1` à `2908b51` existent, premier rang
+  libre **52** ; `tools\batterie-sortie.txt` existe, donc la branche `Copy-Item`
+  est prise et non la branche `aucune sortie precedente a copier`.
+  ⚠ *L'étiquette `jjMM` sort de `Get-Date -Format 'ddMM'` : ce nom suppose que
+  l'horloge est encore au **29/08**. Si elle a basculé au 30/08, le nom attendu
+  devient `tools\batterie-sortie-3008b1.txt` et P30.2 comme P30.6 tombent
+  ensemble.*
+- **P30.3** — `--- code de sortie : 0`.
+
+**Étape 1 — garde de péremption**
+
+- **P30.4** — `phase demandee : garde   anneau : 2   chevron : False`.
+- **P30.5** *(hors décompte, cf. incident n° 1)* — `HEAD git : 1442a81` suivi
+  d'une date ISO ; commit « lot 5 stm32: 2 fiches EN, 33 remplacements C109,
+  correctif E1 sur 4 fiches teensy ». **L'heure du commit n'est pas dans mon
+  contexte** et n'est donc pas prédite.
+- **P30.6** — `date ISO : 2026-08-29`, **heure ≥ 23:20:00** (la clôture de la
+  suite 10 est datée « 23:2x » au JOURNAL et le commit lui est postérieur) et
+  ≤ `23:59:59`.
+- **P30.7** — `fichiers modifies non commites : 2   (hors artefacts de
+  seance : 0)`, par la déclaration C131 ci-dessus, ses deux versements nommés
+  et son total. *Second terme sous la dépendance déclarée à l'incident n° 1.*
+- **P30.8** — `node : v24.15.0`.
+- **P30.9** — `JOURNAL.md` : date `2026-08-29`, heure **strictement
+  postérieure à 22:37:16** (relevé de la garde `b44`, avant l'entrée de la
+  suite 10) et **antérieure ou égale à l'heure du commit `1442a81`** — le bloc
+  29 a écrit l'entrée de la suite 10 avant que Tim ne passe `livrer.ps1`.
+- **P30.10** — `conventions.md` : date `2026-08-29`, heure **strictement
+  postérieure à 22:35:46** (même relevé) et **antérieure ou égale à l'heure du
+  commit `1442a81`** — la troisième épreuve de la clause de périmètre C109 et
+  les candidates du §8 y ont été écrites à la clôture de la suite 10.
+- **P30.11** — `TODO.md` : **exactement `2026-08-29 21:48:08`**, inchangé — ni
+  la suite 9 ni la suite 10 n'y ont touché, et l'écart du TODO reste non
+  instruit.
+- **P30.12** — **aucune ligne de fiche** sous les trois fichiers de pilotage :
+  la phase `garde` est lancée sans `-Fiches` ni `-FichesEn`.
+- **P30.13** — `--- code de sortie : 0`.
+
+**Total : 13 prédictions publiées, dont 1 hors décompte (P30.5) ⇒ 12 au
+décompte.**
+
+### Bilan prédictions/constats du bloc 30
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P30.1 | `lignes non ASCII … : 0` | **0** | tenue |
+| P30.2 | copie `…-2908b52.txt` | **`tools\batterie-sortie-2908b52.txt`** | tenue |
+| P30.3 | code de sortie 0 (étape 0) | **0** | tenue |
+| P30.4 | `phase demandee : garde   anneau : 2   chevron : False` | idem | tenue |
+| P30.5 | HEAD `1442a81` | **`1442a81 2026-08-29 23:24:26 +0200`** | **hors décompte** |
+| P30.6 | `2026-08-29`, heure ∈ [23:20:00 ; 23:59:59] | **23:29:01** | tenue |
+| P30.7 | `2   (hors artefacts de seance : 0)` | **2 / 0** | tenue |
+| P30.8 | `node : v24.15.0` | idem | tenue |
+| P30.9 | `JOURNAL.md` ∈ ]22:37:16 ; 23:24:26] | **23:22:56** | tenue |
+| P30.10 | `conventions.md` ∈ ]22:35:46 ; 23:24:26] | **23:20:06** | tenue |
+| P30.11 | `TODO.md` = `2026-08-29 21:48:08` exactement | **21:48:08** | tenue |
+| P30.12 | aucune ligne de fiche | aucune | tenue |
+| P30.13 | code de sortie 0 (étape 1) | **0** | tenue |
+
+**12 prédictions au décompte, 12 tenues, 0 réfutée.**
+
+✅ **LA GARDE NE MORD PAS.** HEAD conforme au commit de livraison du lot 5,
+`git status` juste sur ses deux termes et sur sa **liste nominative vide**,
+les deux fichiers de pilotage écrits par la clôture de la suite 10 **entre**
+son relevé `b44` et le commit — 23:22:56 et 23:20:06 pour un commit à
+23:24:26, dans le bon ordre —, `TODO.md` intact à la seconde. **On écrit.**
+
+⚠ *Le seul terme que l'incident n° 1 avait rendu douteux est le second de
+P30.7, et il n'est resté juste que parce que rien n'a écrit entre l'instantané
+du harnais et 23:29:01. La garde ne l'a pas prouvé plus qu'elle ne le
+prouvait ; elle l'a re-mesuré, ce que l'instantané ne pouvait pas faire.*
+
+---
+
+## Bloc 31 — cadrage du lot 6 (composition, volumes, candidats C109, chevron)
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/mcu/stm32/stm32-cubemx.md,embarque/mcu/stm32/stm32-hal.md,embarque/mcu/stm32/stm32-registres.md`
+2. `node tools/mesure-chevron.mjs --lot embarque/mcu/stm32/stm32-cubemx.md embarque/mcu/stm32/stm32-hal.md embarque/mcu/stm32/stm32-registres.md > tools/chevron-lot6-2908.txt` — **écrit par redirection `bash`, pas par le `>` de PowerShell 5.1** (C119 : le `>` de PS 5.1 écrit en UTF-16LE ; `bash` écrit les octets de `node` tels quels, en UTF-8).
+
+### Composition du lot 6 — aucune décision à prendre, la source est le brief
+
+**Le lot 6 est `stm32-cubemx` + `stm32-hal` + `stm32-registres`**, et il
+**ferme `stm32/`**. Contrairement aux lots 4 et 5, **il n'y a pas de décision
+C117 de composition** : la découpe 2 + 3 a été tranchée au bloc 23 de la
+suite 10 sur cinq critères, et ce lot est le **complément** de ce choix. La
+ligne « Prochaine session » du JOURNAL et le prompt de lancement le nomment à
+l'identique.
+
+⚠ **Une décision reste néanmoins ouverte, et je la publie avant de mesurer** :
+le lot **garde 1 931 de marge** sous la borne, et le bloc 23 avait écrit que
+cette marge pouvait « absorber des voisines de l'anneau ». **Je n'en absorbe
+aucune.** *Trois motifs.* (1) Le brief est explicite — le lot **ferme le
+module**, et l'anneau 2 après le lot est annoncé à **33 fiches**, soit
+36 − 3 : absorber une voisine rendrait 32 et **contredirait le terme du brief
+que je viens de recouper**. (2) La cohésion de vocabulaire est le critère
+propre à un lot de traduction (critère 4 du bloc 23) : les trois fiches
+partagent la langue de la génération de code, de la HAL et du registre ;
+une voisine d'un autre module ne la partage pas. (3) Fermer un module **est**
+un résultat, et le lot 4 a été composé sur ce motif. **Revert = coût nul
+avant le cadrage.**
+
+### Déclaration C131 du bloc 31 (population, versements, total)
+
+**Population** : `git status --porcelain` sur tout le dépôt ; second terme =
+la même sortie moins les lignes contenant `batterie-sortie` ou `predictions-`
+(filtre lu dans le code de `batterie.ps1`, étape 1).
+
+**Versements de la séance présents au moment où l'étape 1 lit le compteur** :
+1. `tools/predictions-260829.md` — suivi, modifié par le bilan du bloc 30 et
+   par cette déclaration ⇒ **1 ligne ` M`** ;
+2. `tools/batterie-sortie-2908b52.txt` — créé par le **bloc 30** ⇒ **1 `??`** ;
+3. `tools/batterie-sortie-2908b53.txt` — créé par l'**étape 0 du lancement
+   courant** ⇒ **1 `??`**.
+
+**Total impliqué : 1 + 1 + 1 = 3**, les trois pris par le filtre, donc **hors
+artefacts de séance : 0**, contre une **liste nominative vide** — aucune fiche
+de `content/`, aucun outil de `tools/`, aucun fichier de pilotage écrit depuis
+`1442a81`.
+
+⚠ `tools/chevron-lot6-2908.txt` est créé par la **seconde** commande du bloc,
+donc **après** la lecture du compteur : il ne pèse pas ici et **pèsera 1 au
+bloc suivant**.
+
+### Prédictions du bloc 31
+
+**Batterie, étape 0**
+
+- **P31.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P31.2** — `sortie precedente copiee : tools\batterie-sortie-2908b53.txt`.
+- **P31.3** — `--- code de sortie : 0`.
+
+**Batterie, étape 1 — garde de péremption avant le cadrage**
+
+- **P31.4** — `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P31.5** — `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`, **inchangé**
+  depuis le bloc 30.
+- **P31.6** — `date ISO : 2026-08-29`, heure **≥ 23:29:01**.
+- **P31.7** — `fichiers modifies non commites : 3   (hors artefacts de
+  seance : 0)`, par la déclaration C131 ci-dessus.
+- **P31.8** — `node : v24.15.0`.
+- **P31.9** — les trois fichiers de pilotage **inchangés à la seconde près** :
+  `JOURNAL.md 2026-08-29 23:22:56`, `conventions.md 2026-08-29 23:20:06`,
+  `TODO.md 2026-08-29 21:48:08`.
+- **P31.10** — **trois** lignes de fiche, dans l'ordre `-Fiches` :
+  `embarque/mcu/stm32/stm32-cubemx.md`, puis `stm32-hal.md`, puis
+  `stm32-registres.md`, **aucune `ABSENTE`** — la liste à virgules est éclatée
+  par `Eclater`, donc trois lignes et non une.
+- **P31.11** *(terme décomposé, celui qui peut réfuter)* — deux termes.
+  (a) **Terme de garde** : les trois `mtime` sont **strictement antérieures à
+  `2026-08-29 00:00:00`** — aucune des trois n'est listée dans un seul des
+  TSV du 29/08 (`passe-c109-*.tsv`, `table-titres-*.tsv`), où elles
+  n'apparaissent que comme **cibles de wikilink** dans deux lignes portant
+  d'autres fiches ; les passes du jour ont touché `esp32/`, `teensy/` et les
+  deux fiches du lot 5, jamais celles-ci.
+  (b) **Point estimé, réfutable** : les trois datent du **`2026-08-20`**, dans
+  la tranche `16:0x`–`16:5x`, et sont **distinctes deux à deux** — leurs deux
+  sœurs de module mesurées au bloc 23 sortent à `2026-08-20 16:39:12` et
+  `16:34:23`, écart de 4 min 49, et la relecture de fond d'août a balayé le
+  module fiche par fiche.
+
+**Batterie, étape 2 — `compter-mots --lot` (trois sources)**
+
+- **P31.12** — `embarque/mcu/stm32/stm32-cubemx.md` **1675**.
+- **P31.13** — `embarque/mcu/stm32/stm32-hal.md` **1579**.
+- **P31.14** — `embarque/mcu/stm32/stm32-registres.md` **1472**.
+- **P31.15** — `LOT (3 fiches)` **4726**.
+
+*Base : table du bloc 23 de la suite 10, lue sur la sortie `b43` — les trois
+fiches n'ont pas été touchées depuis, ce que P31.11 (a) prédit par ailleurs.
+**Si P31.11 (a) tombe, ces quatre prédictions doivent tomber avec elle** : ce
+sont les mêmes fiches et le même état supposé.*
+
+**Batterie, étape 3 — `--style` sur les trois sources FR**
+
+- **P31.16** — `3 fiche(s) lue(s), 3 a reprendre.`
+- **P31.17** — les quatre compteurs à verdict mécanique ou hors sujet FR sont
+  **nuls** : `typographie francaise : 0`, `virgule ambigue : 0`,
+  `C109 creees en EN : 0`, `hors alphabet latin : 0`.
+- **P31.18** — `C109 de prose` : **entre 34 et 58**, point estimé **47**.
+  *Base : deux densités mesurées sur `tot`, lot 4 à 57/5 539 = 10,3 pour mille
+  et lot 5 à 34/3 519 = 9,7 ; 4 726 mots à 10,0 donnent 47. **Deux points ne
+  font pas une loi** (C119), d'où une fourchette large de part et d'autre.*
+- **P31.19** — `hors perimetre` : **entre 8 et 26**, point estimé **16**.
+  *Base : 3,4 pour mille aux deux lots (19/5 539 et 12/3 519), soit 16 pour
+  4 726.* ⚠ Le compteur porte **quatre familles dans le code** — dont
+  `tiret d intervalle numerique` — que sa ligne de bilan ne nomme pas
+  (C116 (7)).
+- **P31.20** — `--- code de sortie : 0`.
+
+**Batterie, étape 4 — `--anneau 2`**
+
+- **P31.21** — `anneau 0 (index de depart) : 4`, `cibles BRUTES : 222`,
+  `deja vues aux rangs 0..1 : 77`, `ANNEAU 2 NET : 145`.
+- **P31.22** — `deja traduites : 109`, `RESTANT : 36` (145 − 109 = 36).
+- **P31.23** — `RESTANT DE L ANNEAU 2 (36 fiches)   52663`.
+- **P31.24** — `fiches porteuses : 0` et `clotures en chevron : 0` — **c'est
+  le terme qui rend C127 hors sujet**, et il se mesure au lieu de se reporter.
+- **P31.25** — `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)` et
+  `CIBLES SANS FICHE (6)` : `[[FC]] [[FP]] [[FS]] [[critere]] [[flexibilite]]
+  [[niveau]]`.
+- **P31.26** — dette : `fiches sources (traduites) : 203`,
+  `cibles rouges distinctes : 37`, `mots : 53503`,
+  `dont HORS anneaux 0..2 : 0`.
+
+**Commande 2 — `mesure-chevron --lot` (confirmation de l'absence de porteuse)**
+
+- **P31.27** — `fiches nommees : 3   porteuses : 0`.
+- **P31.28** — **aucune ligne de rapport par fiche** : la boucle
+  `for (const r of rs)` ne tourne pas sur une liste vide.
+- **P31.29** — la ligne de total sort **quand même**, `total(rs, 'LOT')` étant
+  appelée sans garde : `LOT (0 porteuses)` avec **`0 cl   0 bl   0 tot
+  0 ded   0 deh   0 etiq`** — les six réductions sur un tableau vide rendent
+  l'initialiseur `0`. *Terme lu dans le code de `total()`, pas dans le README.*
+- **P31.30** — `code de sortie 0`, et le fichier
+  `tools/chevron-lot6-2908.txt` **existe et n'est pas vide**.
+
+**Verdict de borne, à publier au gate G1**
+
+- **P31.31** — le lot sort à **`tot` 4 726 / `deh` 4 726** — *les deux chiffres
+  ensemble (C127), et ils sont **égaux** parce que `ded` vaut 0 ; c'est la
+  première fois de la série que C127 publie deux fois le même nombre* —, soit
+  **1 931 de marge** sous la borne 6 657. **Recoupement terme à terme** :
+  3 348 (lot 5) + 4 726 (lot 6) = **8 074**, le `deh` du module entier mesuré
+  à `b43`, et 3 519 + 4 726 = **8 245**, son `tot`. *Un total juste ne prouve
+  pas la décomposition (§8) : ce sont les cinq `deh` fiche à fiche qui la
+  prouvent — 1 694 + 1 654 + 1 675 + 1 579 + 1 472 = 8 074.*
+
+**Total : 31 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 31 — gate G1 (fin de cadrage)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P31.1 | ASCII 0 | **0** | tenue |
+| P31.2 | copie `…-2908b53.txt` | idem | tenue |
+| P31.3 | code de sortie 0 | **0** | tenue |
+| P31.4 | `cadrage / 2 / False` | idem | tenue |
+| P31.5 | HEAD `1442a81 … 23:24:26` inchangé | idem | tenue |
+| P31.6 | heure ≥ 23:29:01 | **23:32:00** | tenue |
+| P31.7 | `3   (hors artefacts : 0)` | **3 / 0** | tenue |
+| P31.8 | `node : v24.15.0` | idem | tenue |
+| P31.9 | pilotage inchangé à la seconde | **23:22:56 / 23:20:06 / 21:48:08** | tenue |
+| P31.10 | 3 lignes de fiche, dans l'ordre, aucune `ABSENTE` | idem | tenue |
+| P31.11 | (a) `mtime` < 2026-08-29 ; (b) les trois au **2026-08-20**, tranche `16:xx`, distinctes | **(a) tenue** — 2026-08-20 16:34:40 / **2026-08-19 10:01:42** / 2026-08-20 16:38:58 ; **(b) tombe** | **RÉFUTÉE** |
+| P31.12 | `stm32-cubemx` 1675 | **1675** | tenue |
+| P31.13 | `stm32-hal` 1579 | **1579** | tenue |
+| P31.14 | `stm32-registres` 1472 | **1472** | tenue |
+| P31.15 | `LOT (3 fiches)` 4726 | **4726** | tenue |
+| P31.16 | `3 fiche(s) lue(s), 3 a reprendre.` | idem | tenue |
+| P31.17 | quatre compteurs nuls | **0 / 0 / 0 / 0** | tenue |
+| P31.18 | `C109 de prose` 34-58, point 47 | **50** | tenue |
+| P31.19 | `hors perimetre` 8-26, point 16 | **13** | tenue |
+| P31.20 | code de sortie 0 | **0** | tenue |
+| P31.21 | 4 / 222 / 77 / 145 | idem | tenue |
+| P31.22 | `deja traduites : 109`, `RESTANT : 36` | idem | tenue |
+| P31.23 | `RESTANT … (36 fiches)  52663` | idem | tenue |
+| P31.24 | `fiches porteuses : 0`, `clotures en chevron : 0` | **0 / 0** | tenue |
+| P31.25 | 0 atteignable, 6 cibles sans fiche nommées | idem | tenue |
+| P31.26 | 203 / 37 / 53503 / 0 | idem | tenue |
+| P31.27 | `fiches nommees : 3   porteuses : 0` | idem | tenue |
+| P31.28 | aucune ligne de rapport par fiche | aucune | tenue |
+| P31.29 | `LOT (0 porteuses)  0 cl 0 bl 0 tot 0 ded 0 deh 0 etiq` | idem, au caractère | tenue |
+| P31.30 | code 0, `chevron-lot6-2908.txt` non vide | **0**, 21 lignes | tenue |
+| P31.31 | `tot` 4 726 / `deh` 4 726, marge 1 931, et les cinq `deh` du module somment à 8 074 | idem | tenue |
+
+**31 prédictions, 30 tenues, 1 réfutée — taux 3,2 %.**
+
+⚠ **LA SEULE RÉFUTATION EST, POUR LA DEUXIÈME FOIS D'AFFILÉE, LE TERME ÉCRIT
+POUR RÉFUTER — ET IL RÉFUTE LA MÊME HYPOTHÈSE NON MESURÉE QU'AU LOT 5.**
+P31.11 (a), le terme de garde, tient largement : les trois `mtime` sont
+antérieures de **neuf et dix jours** à la séance. P31.11 (b) supposait que la
+relecture de fond d'août avait balayé le module **en une seule passe**, et
+plaçait les trois au `2026-08-20` dans la tranche `16:xx` sur la foi des deux
+sœurs mesurées au bloc 23. **`stm32-hal` sort au `2026-08-19 10:01:42`**, un
+jour plus tôt et à six heures et demie d'écart : le module a été relu en **au
+moins deux séances**. *Le lot 5 avait réfuté « ces deux fiches ont été
+réécrites ensemble » ; le lot 6 réfute « ce module a été relu d'un bloc ».
+Même famille, même cause — une population supposée homogène parce que je n'en
+avais relevé qu'une partie.* **Aucune conséquence sur le lot** : la garde ne
+cherche qu'une écriture postérieure au dernier relevé, et il n'y en a pas.
+
+⚠ **ET LA RÉFUTATION AURAIT PU EMPORTER QUATRE AUTRES PRÉDICTIONS, CE QUI
+ÉTAIT ÉCRIT.** P31.12 à P31.15 étaient publiées **sous condition explicite de
+P31.11 (a)** — « si (a) tombe, ces quatre doivent tomber avec elle ». (a) tient
+et les quatre volumes tombent au mot près : **1675 / 1579 / 1472 / 4726**.
+*C'est le bon découpage : la borne de garde portait les volumes, le point
+estimé ne portait rien.*
+
+✅ **LE VERDICT DE BORNE EST RENDU, ET C'EST LA PREMIÈRE FOIS QUE C127 PUBLIE
+DEUX FOIS LE MÊME NOMBRE.** `tot` **4 726** / `deh` **4 726** — les deux
+ensemble, comme l'exige C127, et **égaux parce que `ded` vaut 0**. Marge
+**1 931** sous 6 657. **Décomposition vérifiée terme à terme et non par son
+total** : les cinq `deh` du module somment à 1 694 + 1 654 + 1 675 + 1 579 +
+1 472 = **8 074**, et les deux lots à 3 348 + 4 726 = **8 074** ; côté `tot`,
+3 519 + 4 726 = **8 245**. *La découpe 2 + 3 ne perd ni ne double une fiche.*
+
+✅ **C127 EST HORS SUJET, ET C'EST MESURÉ PLUTÔT QUE REPORTÉ.** Trois
+instruments le disent indépendamment : `--anneau` rend `fiches porteuses : 0`
+et `clotures en chevron : 0` sur le restant ; `mesure-chevron --lot` rend
+`porteuses : 0` sur les trois nommées ; `compter-mots --lot` rend un `tot`
+égal au `deh` de la table du bloc 23. **Première fois depuis le lot 2.**
+⚠ *`mesure-chevron --tout` reste à lancer à la clôture — non pour ce lot, mais
+pour confirmer la référence corpus **34 paires porteuses, 0 divergente**, que
+ce lot ne doit pas faire bouger d'une unité.*
+
+⚠ **LA DENSITÉ C109 MONTE AU-DESSUS DE SES DEUX PRÉCÉDENTS, ET LE POINT ESTIMÉ
+EST SOUS LA MESURE.** `C109 de prose` **50** pour 47 estimé, soit **10,6 pour
+mille** contre 10,3 (lot 4) et 9,7 (lot 5). *Trois points ne font toujours pas
+une loi ; ils font une fourchette 9,7–10,6 qui contient les trois, et c'est
+tout ce que la densité vaut pour l'instant.* `hors perimetre` **13** pour 16
+estimé, densité **2,8** contre 3,4 aux deux lots.
+
+⚠ **LE LOT EST DÉSÉQUILIBRÉ ENTRE SES TROIS FICHES, ET C'EST `stm32-hal` QUI
+PORTE LA MOITIÉ DES CANDIDATS.** Décomposition du 50 : `stm32-cubemx` **12**
+(7,2 pour mille), `stm32-hal` **25** (15,8), `stm32-registres` **13** (8,8).
+*La fiche la plus dense du chantier à ce jour, et l'écart n'est pas un
+artefact de volume : les trois fiches pèsent 1 675 / 1 579 / 1 472, à 12 %
+près la même chose.* **Conséquence opératoire pour le bloc de passe** : le
+jugement C123 portera pour moitié sur une seule source.
+
+---
+
+# GATE G1 — FIN DE CADRAGE (prédictions publiées, borne rendue)
+
+**Lot 6 = `stm32-cubemx` + `stm32-hal` + `stm32-registres`**, et il **ferme
+`stm32/`**. `tot` **4 726** / `deh` **4 726** (C127 : les deux ensemble, égaux
+ici), marge **1 931** sous 6 657, **0 porteuse sur 3** — C127 hors sujet pour
+la première fois depuis le lot 2. `--style` rend **50** candidats C109 de
+prose, décomposés **12 / 25 / 13**, plus **13** hors périmètre. Anneau 2 :
+**145 net, 109 traduites, 36 restantes, 52 663 mots, 0 porteuse**. Dette
+**37 / 53 503** sur **203** sources traduites. Garde de péremption **au vert**
+aux deux blocs. **43 prédictions au décompte sur les blocs 30 et 31, 42
+tenues, 1 réfutée.**
+
+---
+
+## Bloc 32 — éprouvage du motif des puces (C110, bilingue) et relevé du lot 6
+
+Bloc de **mesure seule** : aucune écriture dans `content/`.
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+   (garde avant passe, sous-règle C116 (5))
+2. le motif des puces sur les **six échantillons nommés**, FR et EN
+3. le motif des puces sur les **trois sources du lot 6**, en mode `--lister`,
+   sortie sauvegardée sous `tools/puces-lot6-avant.txt` (C124)
+
+### Le motif, republié EN ENTIER avant son lancement
+
+*Règle d'usage du 29/08 (suite 9), tenue au lot 5 : un motif qui balaie les
+deux corpus se republie et s'éprouve sur un échantillon de **chaque** langue.
+Le script est réécrit dans le répertoire de travail hors dépôt ; son texte est
+donc ici, et c'est sa seule trace.*
+
+- **front matter** retiré, et **seulement s'il ouvre le fichier** ;
+- **blocs de code** masqués par bascule sur `/^\s{0,3}```/` **après retrait du
+  préfixe de citation** `/^(\s{0,3}>\s?)+/` — le masque C110 est ancré en début
+  de ligne et ne voit pas `> ```cpp` (angle mort du chevron, C127) ;
+- **section courante** lue sur `/^\s{0,3}(#{2,6})\s+(.*)$/`, normalisée en bas
+  de casse, ponctuation de queue retirée ;
+- **exclusion** si la section courante est l'une des **cinq** : `voir aussi`,
+  `aller plus loin`, `see also`, `going further`, `further reading` ;
+- **puce** : `/^\s{0,6}[-*+]\s+/` sur la ligne déchevronnée ;
+- **retenue** si elle contient `—` (U+2014).
+
+⚠ `further reading` **reste dans la liste** bien que le correctif É1 du 29/08
+(suite 9) l'ait fait disparaître du corpus : l'y laisser rend le motif capable
+de le prouver.
+
+⚠ **Ce motif ne porte aucune classe de caractères accentués**, et c'est
+délibéré : il ne teste que `U+2014`. *Le piège du bloc Latin-1 — `×` U+00D7 et
+`÷` U+00F7 logés au milieu des lettres — ne peut donc pas mordre ici, et le
+script le dit en commentaire à l'endroit où il se réécrirait (règle du 29/08 :
+une contrainte qui gouverne un geste mécanique se loge dans le code qui
+l'exécute).*
+
+### Échantillons nommés, choisis pour contenir ce qui peut faire mordre à tort
+
+Les six échantillons ont leur réponse **déjà publiée au registre**, et ils
+portent les pièges du motif : gloses licites des sections de liens (les deux
+titres FR **et** les trois EN), puces à l'intérieur de callouts, blocs de code
+**chevronnés** des corrigés d'exercice, tirets d'intervalle **en-dash**
+(`D0`–`D15`, `A0`–`A5`), asymétrie FR/EN connue.
+
+⚠ **Les échantillons 5 et 6 sont neufs, et leur réponse publiée est ZÉRO** :
+le lot 5 a traité **10 puces sur 10, 0 gardée**. *Un échantillon dont la
+réponse est zéro éprouve autre chose que les quatre autres : il éprouve que la
+passe de la séance précédente a bien mordu, et qu'un motif qui rendrait « 10 »
+sur ces deux fiches signalerait soit un motif faux, soit une passe défaite.*
+
+### Déclaration C131 du bloc 32 (population, versements, total)
+
+**Population** : `git status --porcelain`, tout le dépôt ; second terme = la
+même sortie moins les lignes contenant `batterie-sortie` ou `predictions-`.
+
+**Versements présents quand l'étape 1 lit le compteur, nommément :**
+1. `tools/predictions-260829.md` — **1 ` M`**, filtré ;
+2. `tools/batterie-sortie-2908b52.txt` (bloc 30) — **1 `??`**, filtré ;
+3. `tools/batterie-sortie-2908b53.txt` (bloc 31) — **1 `??`**, filtré ;
+4. `tools/batterie-sortie-2908b54.txt` (étape 0 du lancement courant) —
+   **1 `??`**, filtré ;
+5. ⚠ `tools/chevron-lot6-2908.txt` (seconde commande du bloc 31) — **1 `??`**,
+   **compté** : il ne porte ni `batterie-sortie` ni `predictions-`.
+
+**Total impliqué : 5. Hors artefacts de séance : 1**, et la **liste nominative
+du chiffre hors artefacts tient en un nom** : `tools/chevron-lot6-2908.txt`.
+Aucune fiche de `content/` n'a encore bougé.
+
+⚠ `tools/puces-lot6-avant.txt` est créé par la **troisième** commande du bloc,
+donc **après** la lecture du compteur : il ne pèse pas ici et **pèsera 1 au
+bloc suivant**, portant le hors-artefacts à **2**.
+
+### Prédictions du bloc 32
+
+**Garde (sous-règle C116 (5))**
+
+- **P32.1** — `lignes non ASCII dans batterie.ps1 : 0` et
+  `sortie precedente copiee : tools\batterie-sortie-2908b54.txt`.
+- **P32.2** — `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`, inchangé.
+- **P32.3** — `fichiers modifies non commites : 5   (hors artefacts de
+  seance : 1)`, par la déclaration C131 ci-dessus et sa liste nominative
+  à un nom.
+- **P32.4** — les trois fichiers de pilotage **inchangés à la seconde** :
+  `2026-08-29 23:22:56 / 23:20:06 / 21:48:08`.
+- **P32.5** — `node : v24.15.0`, `phase demandee : garde   anneau : 2
+  chevron : False`, codes de sortie **0**, **aucune ligne de fiche**.
+
+**Épreuve C110 — échantillon FR n° 1, lot 3 d'`esp32/`**
+
+- **P32.6** — `esp32-deep-sleep` **2**, `esp32-arduino-core` **2**,
+  `esp32-freertos` **4**, `esp32-idf` **4**, **TOTAL 12**.
+
+**Épreuve C110 — échantillon EN n° 1, lot 3 d'`esp32/`**
+
+- **P32.7** — `esp32-deep-sleep-en` **2**, `esp32-arduino-core-en` **1**,
+  `esp32-freertos-en` **4**, `esp32-idf-en` **4**, **TOTAL 11**.
+  ⚠ *Onze et non douze : la puce de trop est `esp32-arduino-core` L26, dont la
+  jumelle EN rend le tiret par une virgule. **Prédire 12 serait prédire la
+  symétrie, pas la mesure.***
+
+**Épreuve C110 — échantillons FR et EN n° 2, lot 4 (`teensy/`)**
+
+- **P32.8** — FR : `teensy-arduino-core` **0**, `teensy-audio` **3**,
+  `teensy-prise-en-main` **0**, `teensy-usb` **7**, **TOTAL 10**.
+- **P32.9** — EN : **0 / 3 / 0 / 7**, **TOTAL 10**, décomposition identique
+  fiche par fiche.
+
+**Épreuve C110 — échantillons FR et EN n° 3, lot 5 (`stm32/`), réponse ZÉRO**
+
+- **P32.10** — FR : `stm32-prise-en-main` **0**, `stm32-arduino-core` **0**,
+  **TOTAL 0**.
+- **P32.11** — EN : `stm32-prise-en-main-en` **0**,
+  `stm32-arduino-core-en` **0**, **TOTAL 0**.
+  ⚠ *Terme décisif de cet échantillon : la phrase « quand on a besoin de
+  finesse — sans tout réécrire », portée à l'identique par
+  `esp32-arduino-core` L26 et `stm32-arduino-core` L26, a été traitée côté
+  `stm32` au lot 5 et ne l'a jamais été côté `esp32`. **Le motif doit donc
+  rendre 1 sur `esp32-arduino-core` (P32.6, deux au total) et 0 sur
+  `stm32-arduino-core`** : deux fiches sœurs, même phrase, deux comptes
+  opposés, et c'est cette opposition qui prouve que le motif lit le disque et
+  non ma mémoire.*
+
+**Relevé du lot 6**
+
+- **P32.12** — **TOTAL lot 6 : entre 6 et 28**, point estimé **14**.
+  *Base : densité de puces à tiret par millier de mots `deh`, mesurée sur trois
+  lots — `esp32/` 32/4 983 = 6,4 ; `teensy/` 30/5 310 = 5,6 ; `stm32/` 10/3 348
+  = **3,0**. Le lot 6 est du **même module** que le lot 5 et du même auteur :
+  3,0 × 4 726 = 14. **La fourchette est large parce que trois points sur deux
+  modules ne font pas une loi** (C119) et que le lot 5 est le seul point du
+  module.*
+- **P32.13** *(terme décomposé, écrit pour réfuter)* — **aucune des trois
+  fiches ne rend 0**, et **`stm32-hal` n'est pas strictement la première des
+  trois** en nombre de puces retenues. *Motif : ses 25 candidats `--style`
+  sont majoritairement des **point-virgules de prose** (11) et des **tirets
+  d'incise en milieu de phrase** (14), formes du cas 3 et non du cas 2 ; rien
+  n'indique qu'elle porte plus de **puces** que ses deux sœurs, et la
+  supposer en tête serait transporter une densité mesurée sur un autre
+  compteur.*
+- **P32.14** — **chacune des trois** fiches rend **au moins une** puce retenue
+  sous une section dont le titre normalisé est **`raccrochage projet`**.
+  *Motif : convention de famille des fiches MCU, et les 2 puces de
+  `stm32-prise-en-main` relevées au lot 5 y étaient toutes les deux.*
+- **P32.15** *(terme qui réfute le masque, pas le compte)* — **aucune ligne
+  retenue** ne vient (a) d'un bloc de code, chevronné ou non, (b) du front
+  matter (`tags`, `prerequis`, `aa`, `phases`), (c) d'une section
+  `## Voir aussi` ou `## Aller plus loin`.
+- **P32.16** — `tools/puces-lot6-avant.txt` existe, n'est pas vide, et son
+  encodage est **UTF-8** (écriture par redirection `bash`, jamais par le `>`
+  de PowerShell 5.1 qui rendrait de l'UTF-16LE — C119).
+
+**Total : 16 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 32
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P32.1 | ASCII 0, copie `…-2908b54.txt` | idem | tenue |
+| P32.2 | HEAD `1442a81 … 23:24:26` inchangé | idem | tenue |
+| P32.3 | `5   (hors artefacts : 1)` | **5 / 1** | tenue |
+| P32.4 | pilotage `23:22:56 / 23:20:06 / 21:48:08` | idem | tenue |
+| P32.5 | `node v24.15.0`, `garde / 2 / False`, codes 0, aucune fiche | idem | tenue |
+| P32.6 | FR lot 3 : **2 / 2 / 4 / 4 = 12** | idem | tenue |
+| P32.7 | EN lot 3 : **2 / 1 / 4 / 4 = 11** | idem | tenue |
+| P32.8 | FR lot 4 : **0 / 3 / 0 / 7 = 10** | idem | tenue |
+| P32.9 | EN lot 4 : **0 / 3 / 0 / 7 = 10** | idem | tenue |
+| P32.10 | FR lot 5 : **0 / 0 = 0** | idem | tenue |
+| P32.11 | EN lot 5 : **0 / 0 = 0** | idem | tenue |
+| P32.12 | lot 6 : **6-28**, point 14 | **15** | tenue |
+| P32.13 | aucune fiche à 0, et `stm32-hal` pas strictement première | **4 / 5 / 6** — `stm32-registres` première | tenue |
+| P32.14 | ≥ 1 puce sous `raccrochage projet` **dans chacune** | **2 / 2 / 2** | tenue |
+| P32.15 | ni bloc de code, ni front matter, ni section de liens | cinq sections seulement : `configurer les périphériques`, `à quoi ça sert`, `hal ou ll`, `bsrr contre odr — l'atomicité`, `raccrochage projet` | tenue |
+| P32.16 | `puces-lot6-avant.txt` non vide, UTF-8 | **`Unicode text, UTF-8 text`** | tenue |
+
+**16 prédictions, 16 tenues, 0 réfutée.**
+
+✅ **LE MOTIF REPRODUIT SIX RÉPONSES PUBLIÉES, DANS LES DEUX LANGUES, DONT
+DEUX QUI VALENT ZÉRO.** Les quatre échantillons du lot 5 tombent à l'identique
+— l'asymétrie **12 / 11** du lot 3 comprise, qui est le terme qui prouve. Les
+deux échantillons neufs valent **0 des deux côtés** et éprouvent autre chose :
+que la passe de la suite 10 a mordu et tient. ⚠ **Le terme décisif de P32.11
+tombe comme écrit** : la phrase *« quand on a besoin de finesse — sans tout
+réécrire »* rend **1** sur `esp32-arduino-core` (non traitée) et **0** sur
+`stm32-arduino-core` (traitée au lot 5) — *deux fiches sœurs, la même phrase,
+deux comptes opposés, mesurés dans le même lancement.*
+
+✅ **LES DEUX TERMES ÉCRITS POUR RÉFUTER TIENNENT, ET LE SECOND RENVERSE LE
+CLASSEMENT ATTENDU.** `stm32-hal` porte **25 des 50** candidats `--style` mais
+seulement **5 des 15** puces, et c'est `stm32-registres` — **13 candidats
+`--style`, la moins dense des trois sur ce compteur** — qui porte **6** puces.
+*Transporter une densité mesurée sur un compteur vers un autre compteur aurait
+donné le classement inverse. Les deux compteurs ne mesurent pas la même chose
+et ne se déduisent pas l'un de l'autre.*
+
+⚠ **LA DENSITÉ DE PUCES DU MODULE `stm32/` EST LE DOUBLE DE CE QUE LE LOT 5
+LAISSAIT CROIRE.** 15 puces pour 4 726 mots `deh` = **3,2 pour mille**, contre
+3,0 mesuré au lot 5 — *le point estimé tombe donc juste par la bonne raison, et
+non par compensation.* Le module reste **la moitié moins dense** qu'`esp32/`
+(6,4) et `teensy/` (5,6). **Trois lots, trois densités, aucune loi** : la
+fourchette utile reste 3,0–6,4 pour mille et la prédiction se publie large.
+
+**Total du lot 6 avant jugement : 50 candidats `--style` + 15 puces à tiret =
+65 candidats à juger un par un sous C123.**
+
+---
+
+## Bloc 33 — passe C109 du lot 6 (51 remplacements sur 3 sources FR)
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. dépôt de la table réelle `tools/passe-c109-lot6-2908.tsv` et de la table
+   **négative** `tools/passe-negatif-lot6-2908.tsv`
+3. `node tools/remplacer-passe.mjs tools/passe-negatif-lot6-2908.tsv` — **test
+   négatif délibéré, attendu en refus**
+4. `node tools/remplacer-passe.mjs tools/passe-c109-lot6-2908.tsv` — contrôle
+   seul
+5. `node tools/remplacer-passe.mjs tools/passe-c109-lot6-2908.tsv --ecrire`
+6. remesure immédiate : `compter-mots --lot`, `--style`, motif des puces,
+   `git diff --numstat`
+
+### Décision C117 n° 1 — la doctrine d'exemption à deux formes est reconduite
+
+*Prise seule, publiée avant la passe pour être réfutable, comme aux lots 4
+et 5.* **C123 est une condition NÉCESSAIRE d'exemption, jamais suffisante.**
+Les **deux formes exemptées**, et elles seules :
+
+**(a) La glose de tête de puce** — `- **Libellé** — <groupe>` où le segment de
+droite est un **groupe** nominal, adjectival, infinitif ou participial,
+**subordonnée relative comprise** puisqu'elle vit *dans* le groupe (cas 2 de
+l'amendement du 29/08, suite 8).
+
+**(b) L'incise encadrée par DEUX tirets qui énumère au moins DEUX items**
+nominaux (borne du 25/08).
+
+**Hors de ces deux formes, un tiret de prose tombe, quelle que soit la nature
+du segment de droite** — y compris adjectival ou nominal, y compris en queue de
+prose de puce. **Pour les point-virgules**, c'est l'amendement du 23/08
+(suite 3) qui gouverne : *un segment à verbe conjugué est de la prose et
+tombe ; un segment nominal ou à l'infinitif est un item de liste et reste*,
+avec le second tamis du 24/08 — *un segment nominal qui énumère reste, un
+segment nominal qui commente tombe*.
+
+**Revert = 12 remplacements** (les 12 exemptions ci-dessous, si Tim les juge
+traitables) ou `git checkout` des 3 sources.
+
+### Verdict des 65 candidats — 53 traités, 12 exemptés
+
+**`stm32-cubemx.md` — 16 candidats (12 `--style` + 4 puces), 14 traités,
+2 exemptés**
+
+| ligne | forme | segment de droite | verdict |
+|---|---|---|---|
+| 19 | tiret prose | `le code vient ensuite` — sujet propre | traité `:` |
+| 29 | tiret prose | `il l'outille` — sujet propre | traité `:` |
+| 33 | point-virgule | `modifier … met le code à jour` — verbe conjugué | traité `.` |
+| 37 | point-virgule | `CubeMX colore` — sujet propre | traité `.` |
+| 47 | tiret prose | énumération de 2 items, **un seul tiret** | traité `:` |
+| 47 | point-virgule | `CubeMX résout` — sujet propre | traité `.` |
+| 62 | tiret ouvrant | incise à deux tirets, **2 items nominaux** | **exempté (b)** |
+| 62 | tiret fermant | même incise | **exempté (b)** |
+| 72 | point-virgule | `vérifier que USART2 **est** activé` — verbe conjugué en subordonnée, C123 | traité `.` |
+| 87 | tiret prose | `détaillé dans [[stm32-hal]]` — **renvoi de fin de segment**, cas 4 | traité parenthèses |
+| 98 | tiret prose | `pas le HAL_Delay` — nominal hors des deux formes | traité `,` |
+| 126 | point-virgule | `l'essentiel est` — sujet propre | traité `.` |
+| 55 | **puce** cas 2 | `pour activer l'interruption d'un périphérique` — groupe infinitif | **exempté (a)** |
+| 56 | **puce** cas 2 | `pour configurer un transfert…, qui décharge le cœur` — groupe infinitif + relative | **exempté (a)** |
+| 130 | **puce** cas 2 | `CubeMX est l'outil` — sujet propre | traité `.**` |
+| 131 | **puce** cas 2 | `le fichier .ioc … documente` — sujet propre | traité `.**` |
+
+⚠ **L62 est la seule incise du lot qui survive, et c'est la forme (b) en
+plein** : *un fichier par périphérique, conservation du code utilisateur* —
+deux items nominaux entre deux tirets. **Comparer à L19 de `stm32-hal`**, qui
+est aussi une incise à deux tirets mais **n'énumère qu'une proposition à verbe
+conjugué** et tombe : *la forme encadrante n'est pas le critère, le contenu du
+segment l'est* (borne du 25/08).
+
+**`stm32-hal.md` — 30 candidats (25 `--style` + 5 puces), 24 traités,
+6 exemptés**
+
+| ligne | forme | segment de droite | verdict |
+|---|---|---|---|
+| 19 | tirets ×2 | incise, **1 proposition à verbe conjugué** | traité parenthèses (2 candidats, 1 édition) |
+| 19 | point-virgule | `pour structurer l'ensemble, [[firmware]]` — **énumération elliptique sans verbe** | **exempté** |
+| 23 | tiret prose | `fastidieux et peu portable` — adjectival hors des deux formes | traité `. C'est` |
+| 25 | point-virgule | `la séquence …, non` — nominal qui **commente**, second tamis | traité `.` |
+| 53 | point-virgule | `la HAL appelle` — sujet propre | traité `.` |
+| 64 | point-virgule | `un callback signale` — sujet propre | traité `.` |
+| 71 | tiret prose | `exactement la logique de…` — nominal hors des deux formes | traité `,` |
+| 77 | point-virgule | `le défaut` — **item nominal d'un glossaire** | **exempté** |
+| 78 | point-virgule | `pour les chemins critiques…` — **item nominal d'un glossaire** | **exempté** |
+| 80 | tiret prose | `un USART donné est généré` — sujet propre | traité `:` |
+| 84 | tiret prose | `tout en HAL, en scrutation` — prépositionnel hors des deux formes | traité `,` |
+| 118 | tiret prose | `le geste qui distingue…` — nominal hors des deux formes | traité `,` |
+| 126 | tiret prose | `sept passages…` — nominal hors des deux formes | traité `:` |
+| 130 | point-virgule | `les omettre laisse` — verbe conjugué | traité `.` |
+| 132 | point-virgule | `tout le programme se fige` — sujet propre | traité `.` |
+| 136 | point-virgule | `on ne reçoit` — sujet propre | traité `.` |
+| 140 | tiret prose | `y faire le strict minimum` — infinitif hors des deux formes | traité `:` |
+| 140 | point-virgule | `l'appeler … peut bloquer` — verbe conjugué | traité `.` |
+| 148 | tiret prose | `le HAL_Delay ne gêne pas` — sujet propre | traité `:` |
+| 148 | point-virgule | `un caractère arrivé serait manqué` — sujet propre | traité `.` |
+| 154 | tiret prose | `le rôle des [[timer]]` — nominal hors des deux formes | traité `,` |
+| 154 | point-virgule | `pour un signal périodique, confier…` — **énumération de deux prescriptions à l'infinitif** | **exempté** |
+| 161 | tirets ×2 | incise, subordonnée à **verbe conjugué**, 1 item | traité parenthèses (2 candidats, 1 édition) |
+| 26 | **puce** cas 3 | `un atout pour réutiliser…` — queue de prose de puce, hors des deux formes | traité `,` |
+| 77 | **puce** cas 2 | `portable, lisible, un peu de surcoût…` — groupe adjectival/nominal | **exempté (a)** |
+| 78 | **puce** cas 2 | `proche du registre, rapide, compacte…` — groupe adjectival | **exempté (a)** |
+| 158 | **puce** cas 2 | `la HAL est l'outil` — sujet propre | traité `.**` |
+| 159 | **puce** cas 2 | `un code HAL se relit` — sujet propre | traité `.**` |
+
+⚠ **LES QUATRE EXEMPTIONS DES LIGNES 77 ET 78 SONT LE GLOSSAIRE HAL / LL, ET
+C'EST LE MOTIF MÊME DE L'ARBITRAGE (c) DU 29/08 (SUITE 8).** Deux puces de
+même forme — `- **Nom** — <adjectifs> ; <emploi>` —, **aucun verbe conjugué
+nulle part**, et l'amendement dit en toutes lettres que traiter sans frontière
+*« hacherait tous les glossaires du corpus »*. **Elles sortent intactes des
+deux côtés**, comme le menu `USB Type` de `teensy-usb` au lot 4.
+⚠ *Le doute a été réel* : C123 tranche vers le traitement, et le second tamis
+ferait tomber `le défaut` comme un nominal qui commente. **Ce qui décide est
+que ces deux lignes ne sont pas de la prose mais les deux entrées d'un
+glossaire comparatif**, et que l'exemption des listes du 22/08 joue au niveau
+supérieur. *Écrit ici pour être réfutable : si Tim juge que `; le défaut` est
+un commentaire et non un item, le revert est de 2 remplacements.*
+
+**`stm32-registres.md` — 19 candidats (13 `--style` + 6 puces), 17 traités,
+2 exemptés**
+
+| ligne | forme | segment de droite | verdict |
+|---|---|---|---|
+| 19 | tiret prose | `masques … **deviennent** ici concrets` — verbe conjugué | traité `:` |
+| 28 | point-virgule | `le registre reste` — sujet propre | traité `,` |
+| 36 | tiret ouvrant | incise à deux tirets, **3 macros nominales** | **exempté (b)** |
+| 36 | tiret fermant | même incise | **exempté (b)** |
+| 64 | tiret prose | `mais on voit` — sujet propre | traité `,` |
+| 64 | point-virgule | `elle sert` — sujet propre | traité `.` |
+| 68 | tiret prose | `sous forme de GIF, le mouvement étant…` — participial hors des deux formes | traité `,` |
+| 75 | point-virgule | `les bits non visés ne sont pas touchés` — sujet propre | traité `.` |
+| 81 | tiret prose | `souvent en parallèle…, qui en est…` — hors des deux formes | traité `,` |
+| 89 | tiret prose | `c'est la leçon` — sujet propre | traité `:` |
+| 91 | tiret prose | `et le code « marche »` — sujet propre | traité `,` |
+| 101 | tiret prose | `d'où sa découverte douloureuse` — **glose qui commente**, second tamis | traité `,` |
+| 107 | tiret prose | énumération de 2 items, **un seul tiret** | traité `:` |
+| 26 | **puce** cas 3 | `précieux pour du temps réel fin` — adjectival, queue de prose | traité `,` |
+| 27 | **puce** cas 3 | `utile sur les puces…` — adjectival, queue de prose | traité `,` |
+| 74 | **puce** cas 3 | `c'est un lire-modifier-écrire` — sujet propre | traité `.` |
+| 75 | **puce** cas 3 | `une simple écriture, atomique` — nominal, queue de prose | traité `,` |
+| 111 | **puce** cas 2 | `descendre au registre **est**…` — verbe conjugué | traité `.**` |
+| 112 | **puce** cas 2 | `la pratique courante consiste` — sujet propre | traité `.**` |
+
+⚠ **`stm32-registres` NE GARDE RIEN DE SES SIX PUCES**, comme `stm32/` au
+lot 5 : le module n'a aucune section de glossaire hors `stm32-hal`, et ses
+puces sont soit des propositions à sujet propre, soit des queues de prose que
+la doctrine à deux formes fait tomber. **Deux d'entre elles (L74, L75) sont la
+paire `ODR` / `BSRR`, de forme identique et de verdict identique** —
+contrairement à la paire L77/L78 de `stm32-hal`, exemptée. *Deux paires
+voisines du même module, deux verdicts opposés, et ce qui les sépare est la
+présence d'une phrase complète à gauche du tiret.*
+
+### Récapitulation du verdict
+
+| | `--style` | puces | total |
+|---|---|---|---|
+| candidats | 50 | 15 | **65** |
+| exemptés | 8 | 4 | **12** |
+| traités | 42 | 11 | **53** |
+| **éditions** (2 incises = 2 candidats, 1 édition) | 40 | 11 | **51** |
+
+Décomposition des 51 éditions : **`stm32-cubemx` 12**, **`stm32-hal` 22**,
+**`stm32-registres` 17**.
+
+### Déclaration C131 du bloc 33 (population, versements, total)
+
+**Population** : `git status --porcelain`, tout le dépôt ; second terme = la
+même sortie moins `batterie-sortie` et `predictions-`.
+
+**Versements présents quand l'étape 1 de la garde lit le compteur, nommément :**
+1. `tools/predictions-260829.md` — **1 ` M`**, filtré ;
+2. `tools/batterie-sortie-2908b52.txt` (bloc 30) — **1 `??`**, filtré ;
+3. `tools/batterie-sortie-2908b53.txt` (bloc 31) — **1 `??`**, filtré ;
+4. `tools/batterie-sortie-2908b54.txt` (bloc 32) — **1 `??`**, filtré ;
+5. `tools/batterie-sortie-2908b55.txt` (étape 0 du lancement courant) —
+   **1 `??`**, filtré ;
+6. `tools/chevron-lot6-2908.txt` (bloc 31) — **1 `??`**, **compté** ;
+7. `tools/puces-lot6-avant.txt` (bloc 32) — **1 `??`**, **compté**.
+
+**Total impliqué : 7. Hors artefacts de séance : 2**, et la **liste nominative
+tient en deux noms** : `tools/chevron-lot6-2908.txt` et
+`tools/puces-lot6-avant.txt`. Aucune fiche de `content/` n'a encore bougé.
+
+⚠ **Les deux TSV du bloc sont déposés APRÈS la garde** — ils ne pèsent pas ici
+et **pèseront 2 au bloc suivant**, portant le hors-artefacts à **4** avant même
+de compter les 3 sources modifiées. *C'est exactement la cause structurelle que
+l'amendement C131 du 29/08 (suite 8) nomme : les artefacts d'un bloc se
+décident dans le bloc.*
+
+### Prédictions du bloc 33
+
+**Garde**
+
+- **P33.1** — `lignes non ASCII : 0`, `sortie precedente copiee :
+  tools\batterie-sortie-2908b55.txt`.
+- **P33.2** — `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`, inchangé.
+- **P33.3** — `fichiers modifies non commites : 7   (hors artefacts de
+  seance : 2)`, par la déclaration C131 ci-dessus et sa liste nominative à
+  deux noms.
+- **P33.4** — les trois fichiers de pilotage **inchangés à la seconde** :
+  `2026-08-29 23:22:56 / 23:20:06 / 21:48:08`.
+- **P33.5** — `node : v24.15.0`, codes de sortie **0**.
+
+**Test négatif délibéré** — la table négative est la table réelle dont **une
+seule** ancre est privée de sa cédille : `- **Tracabilité** — le fichier` au
+lieu de `- **Traçabilité** — le fichier`. *Mode d'échec du 29/08 (suite 3),
+`à prevoir` sans accent, et du 29/08 (suite 9), `porte par le DMA`.*
+
+- **P33.6** — `L12 INTROUVABLE  content/embarque/mcu/stm32/stm32-cubemx.md`.
+- **P33.7** — la ligne de `stm32-cubemx` rend `ancres 11/12`, et les deux
+  autres fiches `ancres 22/22` et `ancres 17/17`.
+- **P33.8** — `remplacements prets : 50`, `ancres introuvables : 1`,
+  `ancres multiples : 0`, `INVARIANT D ACCENTS casse sur : 0 fiche(s)`.
+- **P33.9** — `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, **code de sortie 1**,
+  et **aucune ligne `ECRIT`**.
+- **P33.10** *(terme décomposé)* — dans ce lancement refusé, la variation de
+  points de code de `stm32-cubemx` vaut **−7** et non −8 : l'édition manquante
+  est celle qui vaut **−1**.
+
+**Contrôle seul sur la table réelle**
+
+- **P33.11** — `fiches : 3`, `remplacements prets : 51`, `ancres
+  introuvables : 0`, `ancres multiples : 0`, `fichiers absents : 0`,
+  `sans front matter : 0`, `lignes mal formees : 0`.
+- **P33.12** — `ancres 12/12`, `22/22`, `17/17`.
+- **P33.13** *(l'invariant qui peut refuser le lot)* — **`accents X -> X
+  (ecart +0)` sur les trois fiches.** *Aucune des 51 éditions n'ajoute ni ne
+  retire une lettre accentuée : les seuls changements de casse portent sur
+  `modifier`, `vérifier`, `ici`, `le`, `la`, `un`, `si`, `quand`, `sans`,
+  `pendant`, `en`, `descendre`, `c'est`, `l'appeler` — et `vérifier →
+  Vérifier` conserve son `é` en deuxième position.*
+- **P33.14** *(second invariant, décomposé par fiche)* — variation de points
+  de code : `stm32-cubemx` **−8**, `stm32-hal` **−13**,
+  `stm32-registres` **−14**, **total −35**. *Chaque ` ; ` → `. ` vaut −1,
+  chaque ` — ` → `, ` vaut −1, chaque ` — ` → ` : ` vaut 0, chaque
+  `** — X` → `.** X` vaut −1, les deux mises en parenthèses de `stm32-hal`
+  valent −1 et −2, la parenthèse de renvoi de `stm32-cubemx` vaut 0, et la
+  seule édition qui **allonge** est `— fastidieux` → `. C'est fastidieux`,
+  à **+5**.*
+- **P33.15** — `lignes N -> N` **identiques** sur les trois fiches : une passe
+  de ponctuation ne crée ni ne détruit de ligne.
+- **P33.16** — `CONTROLE SEUL : 51 remplacement(s) prets, 0 fichier ecrit.`,
+  code de sortie **0**.
+
+**Écriture**
+
+- **P33.17** — `ECRIT  content/embarque/mcu/stm32/stm32-cubemx.md   (12
+  remplacement(s))`, puis `stm32-hal.md   (22 …)`, puis `stm32-registres.md
+  (17 …)`, puis `fichiers ecrits : 3`, code **0**.
+
+**Remesure immédiate**
+
+- **P33.18** — `compter-mots --lot` : `stm32-cubemx` **1675** (inchangé),
+  `stm32-hal` **1580** (+1), `stm32-registres` **1472** (inchangé),
+  `LOT (3 fiches)` **4727**. *Le seul mot ajouté par tout le lot est le
+  `C'est` de `stm32-hal` L23 ; toutes les autres éditions échangent des signes
+  de ponctuation, que la règle C110 ne compte pas.*
+- **P33.19** — `--style` sur les trois sources : `C109 de prose` **8** (les
+  8 exemptions `--style` : 2 sur `cubemx` L62, 4 sur `hal` L19/L77/L78/L154,
+  2 sur `registres` L36), `hors perimetre` **13** (inchangé), et les quatre
+  compteurs mécaniques toujours **nuls**.
+- **P33.20** — motif des puces : `stm32-cubemx` **2**, `stm32-hal` **2**,
+  `stm32-registres` **0**, **TOTAL 4** — les quatre gloses de tête exemptées.
+- **P33.21** *(l'instrument qui peut réfuter l'invariant de corps)* —
+  `git diff --numstat` rend **ajouts = suppressions** sur chaque fiche :
+  `stm32-cubemx` **11 / 11**, `stm32-hal` **20 / 20**,
+  `stm32-registres` **15 / 15**, soit **46 / 46**. *Le compte de lignes est
+  inférieur au compte d'éditions parce que **cinq lignes portent deux
+  éditions** : `cubemx` L47, `hal` L140 et L148, `registres` L64 et L75.
+  51 − 5 = 46.*
+- **P33.22** — `git diff --numstat` ne porte **aucune autre fiche de
+  `content/`** que ces trois.
+
+**Total : 22 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 33 — gate G2 (fin de passe)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P33.1 | ASCII 0, copie `…-2908b55.txt` | idem | tenue |
+| P33.2 | HEAD `1442a81 … 23:24:26` | idem | tenue |
+| P33.3 | `7   (hors artefacts : 2)` | **7 / 2** | tenue |
+| P33.4 | pilotage `23:22:56 / 23:20:06 / 21:48:08` | idem | tenue |
+| P33.5 | `node v24.15.0`, codes 0 | idem, heure **23:43:35** | tenue |
+| P33.6 | `L12 INTROUVABLE … stm32-cubemx.md` | idem, ancre `- **Tracabilité** — le fichier` | tenue |
+| P33.7 | `ancres 11/12`, `22/22`, `17/17` | idem | tenue |
+| P33.8 | `50` / `1` / `0` / `0 fiche(s)` | idem | tenue |
+| P33.9 | `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, code 1, aucun `ECRIT` | idem | tenue |
+| P33.10 | pts de code `cubemx` **−7** dans le lancement refusé | **11555 → 11548** | tenue |
+| P33.11 | `3` / `51` / `0` / `0` / `0` / `0` / `0` | idem | tenue |
+| P33.12 | `12/12`, `22/22`, `17/17` | idem | tenue |
+| P33.13 | **écart d'accents +0 sur les trois** | **309→309, 276→276, 203→203** | tenue |
+| P33.14 | pts de code **−8 / −13 / −14**, total **−35** | **11555→11547, 11814→11801, 10348→10334** | tenue |
+| P33.15 | `lignes N -> N` identiques | **131→131, 160→160, 112→112** | tenue |
+| P33.16 | `CONTROLE SEUL : 51 … 0 fichier ecrit.`, code 0 | idem | tenue |
+| P33.17 | `ECRIT` 12 / 22 / 17, `fichiers ecrits : 3`, code 0 | idem | tenue |
+| P33.18 | `1675 / 1580 / 1472`, `LOT (3 fiches) 4727` | idem | tenue |
+| P33.19 | `C109 de prose : 8`, `hors perimetre : 13`, quatre compteurs nuls | idem | tenue |
+| P33.20 | puces `2 / 2 / 0`, **TOTAL 4** | idem | tenue |
+| P33.21 | numstat **11/11, 20/20, 15/15 = 46/46** | idem | tenue |
+| P33.22 | aucune autre fiche de `content/` | seule ligne hors lot : `tools/predictions-260829.md` | tenue |
+
+**22 prédictions, 22 tenues, 0 réfutée.**
+
+✅ **LE BLOC LE PLUS LOURD DE LA SÉANCE EST INTÉGRALEMENT TENU, ET C'EST LE
+DEUXIÈME LOT D'AFFILÉE.** 51 remplacements, un test négatif délibéré, trois
+invariants d'accents, trois `numstat` décomposés, un jugement de 65 candidats
+publié avant la passe : **22 prédictions, 22 constats**.
+
+✅ **LE TEST NÉGATIF REFUSE SUR LA CÉDILLE, ET SON TERME DÉCOMPOSÉ EST CE QUI
+LE DISTINGUE D'UN REFUS DE PRINCIPE.** `- **Tracabilité**` sans cédille rend
+**0 occurrence**, le lot entier est refusé, **aucun octet écrit**, et
+`stm32-cubemx` sort à **−7 points de code au lieu de −8** : l'édition manquante
+est exactement celle qui valait −1. *Un refus prouve qu'il refuse ; ce chiffre
+prouve **quoi** il a refusé.* **Quatrième test négatif de la série, quatrième
+refus, zéro fichier écrit.**
+
+✅ **LES DEUX INVARIANTS TIENNENT, ET LE SECOND EST PRÉDIT TERME À TERME AVANT
+LA MESURE.** Accents **309 / 276 / 203, écart nul partout**. Points de code
+**−8 / −13 / −14 = −35**, décomposés à l'avance par espèce d'édition : chaque
+` ; ` → `. ` et chaque ` — ` → `, ` valent −1, chaque ` — ` → ` : ` vaut 0, la
+seule édition allongeante est `— fastidieux` → `. C'est fastidieux`, à **+5**.
+*Un total juste ne prouve pas la décomposition (§8) — ici les trois termes sont
+justes séparément, et le −35 n'est que leur somme.*
+
+✅ **LE `numstat` REND 46 / 46 LÀ OÙ LA TABLE PORTE 51 ÉDITIONS, ET L'ÉCART
+ÉTAIT PRÉDIT AVEC SA CAUSE NOMINATIVE.** **Cinq lignes portent deux éditions
+chacune** — `cubemx` L47 (un tiret et un point-virgule dans la même phrase),
+`hal` L140 et L148 (idem), `registres` L64 et L75 (idem) — d'où 51 − 5 = 46.
+**Ajouts = suppressions sur les trois fiches** : aucune ligne créée, aucune
+détruite, aucun bloc de code touché, aucun front matter touché.
+
+⚠ **LE LOT 6 GARDE 12 EXEMPTIONS LÀ OÙ LE LOT 5 N'EN GARDAIT AUCUNE, ET LA
+CAUSE EST MESURÉE.** Le lot 5 traitait **10 puces sur 10** ; celui-ci en garde
+**4 sur 15** et **8 candidats `--style` sur 50**. *La cause n'est pas une
+doctrine plus lâche — c'est la même, reconduite mot pour mot — mais la
+**présence de deux glossaires** que le lot 5 n'avait pas* : les deux onglets
+transverses de `stm32-cubemx` (NVIC, DMA) et la comparaison HAL / LL de
+`stm32-hal`. **C'est exactement ce que le cas 2 de l'amendement du 29/08
+(suite 8) existe pour protéger**, et la suite 10 avait noté que son lot n'en
+portait aucun. *Le taux d'exemption ne mesure pas la sévérité du jugement, il
+mesure la densité de glossaires de la source.*
+
+⚠ **LES DEUX PAIRES DE PUCES VOISINES DU MODULE REÇOIVENT DES VERDICTS
+OPPOSÉS.** `stm32-hal` L77/L78 (`- **HAL** — …` / `- **LL** — …`) sortent
+**intactes** ; `stm32-registres` L74/L75 (`- **Par \`ODR\`** : … — …` /
+`- **Par \`BSRR\`** : … — …`) **tombent toutes deux**. *Ce qui les sépare n'est
+ni la forme de puce ni la nature du segment de droite, mais le fait que les
+secondes portent une **phrase complète à gauche du tiret** : leur tiret est un
+cas 3 (incise en milieu de prose de puce) et non un cas 2 (séparateur de
+glose).* **Deux paires, quatre lignes, deux verdicts, une seule frontière.**
+
+⚠ **UNE EXEMPTION EST ÉCRITE POUR ÊTRE RÉFUTÉE, ET LE DOUTE EST CONSIGNÉ.**
+Les point-virgules de `stm32-hal` L77 et L78 (`; le défaut`, `; pour les
+chemins critiques…`) sont gardés au motif que ces deux lignes sont **les deux
+entrées d'un glossaire comparatif** et non de la prose. ⚠ *Le second tamis du
+24/08 — un segment nominal qui **commente** tombe — plaide en sens inverse sur
+`le défaut`, et C123 tranche le doute vers le traitement.* **Ce qui a décidé
+est le niveau supérieur** : l'exemption des listes du 22/08, que l'amendement
+du 29/08 (suite 8) invoque en toutes lettres contre le hachage des glossaires.
+**Revert = 2 remplacements**, et l'arbitrage est versé à la file.
+
+---
+
+# GATE G2 — FIN DE PASSE C109 (diff et métriques)
+
+**51 remplacements sur 3 sources FR**, sous **65 candidats jugés un par un** —
+50 de `--style` et **15 puces à tiret**, que `--style` ne voit pas.
+**53 candidats traités, 12 exemptés.** Test négatif délibéré : **refus, 0
+fichier écrit**. Invariants d'accents **nuls sur les trois fiches**
+(309 / 276 / 203) ; points de code **−8 / −13 / −14** ; lignes **inchangées** ;
+`numstat` **46 / 46**, ajouts = suppressions. Remesure : lot `tot`
+**4 726 → 4 727** (+1 mot, le seul `C'est` ajouté), résidu `--style`
+**50 → 8**, résidu puces **15 → 4**, `hors perimetre` **13** inchangé.
+**Garde de péremption au vert. 22 prédictions, 22 tenues.**
+
+---
+
+## Bloc 34 — relevé des titres de section, `title:` EN (C125) et génération des trois squelettes
+
+Commandes prévues, dans cet ordre :
+
+1. dépôt de `tools/table-titres-lot6-2908.tsv` et
+   `tools/table-titres-negatif-lot6-2908.tsv` (**avant** la garde, donc
+   comptées par elle)
+2. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde -Fiches embarque/mcu/stm32/stm32-cubemx.md,embarque/mcu/stm32/stm32-hal.md,embarque/mcu/stm32/stm32-registres.md`
+3. `node tools/creer-fiche-en.mjs embarque/mcu/stm32/stm32-cubemx.md`, puis
+   `stm32-hal.md`, puis `stm32-registres.md`
+4. `node tools/renommer-titres.mjs tools/table-titres-negatif-lot6-2908.tsv`
+   *(test négatif délibéré, **après** la génération pour qu'il éprouve l'ancre
+   et non l'existence — la leçon de P26.4 du lot 5)*
+5. `node tools/renommer-titres.mjs tools/table-titres-lot6-2908.tsv` puis
+   `… --ecrire`
+6. `node tools/derive-traduction.mjs` et `node tools/titres-doublons.mjs`
+
+⚠ **L'ordre passe C109 → génération est contraignant** (24/08) : la passe est
+close au gate G2 ; la génération vient après.
+
+### ⚠ RELEVÉ DES TITRES DE SECTION — FAIT AVANT RÉDACTION, COMME LE BRIEF L'EXIGE
+
+*C'est la candidate 0/N de la suite 10 — **un titre de section EN se relève
+dans le corpus avant d'être écrit** — et c'est sa première épreuve* **à
+l'endroit prévu** : deux lots d'affilée l'ont découverte **après** coup, en
+correctif É1.
+
+**Mesures d'entrée, lues avant la rédaction de ce bloc** (comptage
+`grep -rhoP '^#{2,6} .*$' content/en | sort | uniq -c`). *Ces chiffres ne sont
+pas des prédictions : ce sont les données qui fondent la décision, exactement
+comme les tableaux de formes de production du bloc 26 du lot 5.*
+
+| section FR des trois sources | forme EN de production | occurrences |
+|---|---|---|
+| `## À quoi ça sert ?` | `## What is it for?` | **134** |
+| `## Pièges` | `## Pitfalls` | **133** |
+| `## Exercices` | `## Exercises` | **34** |
+| `## Raccrochage projet` | `## Where it fits in the project` | **99** |
+| `## Aller plus loin` | `## Going further` | **25** |
+| `## Voir aussi` | `## See also` | **196** |
+| `## Exemple — <cas>` | `## Example — <cas>` | ~**130**, dont `## Example — A sketch that mixes Arduino and the native HAL` chez la jumelle du lot 5 |
+
+⚠ **Les formes concurrentes sont mesurées et écartées, chiffres à l'appui** :
+`## In the project` (**20**) et `## Common pitfalls` (**15**) existent dans le
+corpus mais sont **minoritaires** contre 99 et 133 ; `## Project connection`
+(le fautif du lot 4) est **retombé à 0** après le correctif É1 de la suite 10,
+et `## Step-by-step procedure` aussi. *Le relevé confirme que le correctif a
+tenu, ce qu'aucun contrôle du dépôt ne mesure.*
+
+**Les sections propres aux trois fiches** — `## Le fichier .ioc`,
+`## Configurer le brochage`, `## Configurer l'arbre d'horloge`,
+`## Configurer les périphériques`, `## HAL ou LL, puis générer`,
+`## Les handles`, `## Les trois modes d'un périphérique`, `## HAL ou LL`,
+`## Les registres via CMSIS`, `## L'exemple canonique — le blink bare-metal`,
+`## BSRR contre ODR — l'atomicité`, `## Le Reference Manual, pas la datasheet`
+— **n'ont pas de forme de production** : elles nomment le contenu de leur
+fiche et se traduisent librement. *La candidate ne porte que sur les sections
+**génériques**, qui sont celles que les lots 4 et 5 ont ratées.*
+
+### Les trois `title:` EN, arrêtés sous C125
+
+**Formes de production relevées**, avec leur contexte (test 3 : *en prose le
+libellé se plie à la phrase, dans un Voir aussi il vaut désignation*) :
+
+| cible | libellés en production | contexte |
+|---|---|---|
+| `stm32-cubemx-en` | `CubeMX` (6) | prose |
+| | **`Configuring with CubeMX` (4)** | 4 désignations (`Going further`, `See also`, hub) |
+| `stm32-hal-en` | `the HAL`, `HAL`, `STM32 HAL`, `The STM32 HAL`, `HAL or LL` (1 ch.) | prose |
+| | **`Programming with the HAL` (3)** | 3 désignations |
+| `stm32-registres-en` | `on STM32`, `dropping down to registers on STM32`, `CMSIS` (1 ch.) | prose |
+| | **`Going down to the register` (1)** | 1 désignation, hub `stm32-en` L97 |
+
+**Test 1** — aucun libellé de désambiguïsation parenthésé sur les trois.
+**Test 2** — aucune jumelle de famille : ni CubeMX, ni la HAL, ni le registre
+STM32 n'ont d'équivalent chez `esp32/`, `teensy/` ou `esp8266/`. **Les trois
+descendent donc au test 3**, qui donne les trois formes en gras ci-dessus.
+
+⚠ **ET LES TROIS FORMES DE PRODUCTION EFFACENT LE QUALIFICATIF DE FAMILLE QUE
+LA SOURCE PORTE.** Les cinq `title:` FR du module :
+
+| fiche | `title:` FR | qualificatif |
+|---|---|---|
+| `stm32-prise-en-main` | *Prise en main du STM32* | **du STM32** |
+| `stm32-arduino-core` | *Programmer le STM32 avec l'Arduino-core* | **le STM32** |
+| `stm32-cubemx` | *Configurer un STM32 avec CubeMX* | **un STM32** |
+| `stm32-hal` | *Programmer un STM32 avec la HAL* | **un STM32** |
+| `stm32-registres` | *Descendre au registre sur STM32* | **sur STM32** |
+
+**Les cinq portent le qualificatif ; les deux `title:` EN déjà en production le
+portent aussi** (`Getting started with the STM32`, `Programming the STM32 with
+the Arduino core`). Retenir `Configuring with CubeMX` ferait à `stm32-cubemx`
+exactement ce qu'`esp8266-arduino-core-en` fait à sa source — **effacer une
+distinction que le français porte**, motif du 26/08 dans le sens de
+l'effacement, et le défaut versé à la file par la suite 10.
+
+**DÉCISION C117 n° 2 — les trois titres qualifient par la famille, en
+englobant leur forme de production :**
+
+| cible | `title:` retenu | forme de production englobée |
+|---|---|---|
+| `stm32-cubemx-en` | **Configuring the STM32 with CubeMX** | `Configuring with CubeMX` |
+| `stm32-hal-en` | **Programming the STM32 with the HAL** | `Programming with the HAL` |
+| `stm32-registres-en` | **Going down to the register on the STM32** | `Going down to the register` |
+
+**Ce que la clause C125 du 29/08 (suite 9) autorise ici, et son mécanisme lu
+dans le code.** *Un titre qui **englobe** une forme de production ne crée aucun
+candidat `--libelles`* : `memeRadical` compare des **préfixes de cinq
+lettres** (`if (Math.min(a.length, b.length) < 5) return false; return
+a.slice(0,5) === b.slice(0,5)`), et un titre qui contient la forme de
+production partage tous ses radicaux. **Qualifier par la famille est donc
+gratuit au regard de `--libelles`**, ce qui retire la seule objection mesurable
+au motif du 26/08. *Revert = 3 `title:` et 3 `--recaler`.*
+
+⚠ **Mais la clause dit aussi qu'elle ne dispense pas de relever le
+compteur.** `--libelles` ne tourne qu'à la clôture (bloc 36) ; la prédiction
+nominative y est publiée, et elle annonce **un candidat neuf** — `CMSIS`, lu
+dans le code de `memeRadical` et d'`estSigleDe` et non dans le README.
+
+### Déclaration C131 du bloc 34 (population, versements, total)
+
+**Versements présents quand l'étape 1 de la garde lit le compteur,
+nommément :**
+1. `tools/predictions-260829.md` — **1 ` M`**, filtré ;
+2. `tools/batterie-sortie-2908b52|53|54|55.txt` — **4 `??`**, filtrés ;
+3. `tools/batterie-sortie-2908b56.txt`, créé par l'étape 0 du lancement
+   courant — **1 `??`**, filtré ;
+4. `tools/chevron-lot6-2908.txt`, `tools/puces-lot6-avant.txt` — **2 `??`**,
+   **comptés** ;
+5. `tools/passe-c109-lot6-2908.tsv`,
+   `tools/passe-negatif-lot6-2908.tsv` — **2 `??`**, **comptés** ;
+6. `tools/table-titres-lot6-2908.tsv`,
+   `tools/table-titres-negatif-lot6-2908.tsv`, **déposées avant la garde** —
+   **2 `??`**, **comptées** ;
+7. les **3 sources FR** en ` M` depuis la passe du bloc 33 — **3**,
+   **comptées**.
+
+**Total impliqué : 1 + 4 + 1 + 2 + 2 + 2 + 3 = 15. Hors artefacts de séance :
+9**, liste nominative complète : les 2 sorties de mesure datées, les 2 TSV de
+passe, les 2 tables de titres, les 3 sources FR.
+
+⚠ **Le compteur bouge DANS le bloc** : la génération dépose **3 fiches EN**
+(`??`, comptées). **Fin de bloc attendue : 18, hors artefacts 12.**
+
+### Prédictions du bloc 34
+
+**Garde**
+
+- **P34.1** — copie `tools\batterie-sortie-2908b56.txt`, `0` non ASCII,
+  `node : v24.15.0`, `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`.
+- **P34.2** — `fichiers modifies non commites : 15   (hors artefacts de
+  seance : 9)`.
+- **P34.3** — pilotage inchangé `23:22:56 / 23:20:06 / 21:48:08` ; les **trois
+  sources FR** portent désormais une `mtime` du **2026-08-29 postérieure à
+  23:43:35** (la garde du bloc 33) et **non plus** celle des 19 et 20 août.
+  En-tête : `phase demandee : garde   anneau : 2   chevron : False`, et
+  **trois** lignes de fiche, aucune `ABSENTE`.
+
+**Génération des trois squelettes**
+
+- **P34.4** — `stm32-cubemx` : les **trois compteurs `ok`**,
+  `liens 21 -> 21`, `embeds 1 -> 1`, `code 2 -> 2`.
+  *Décompte du `code` : 4 lignes de clôture (` ```c ` L79, ` ``` ` L85,
+  ` ``` ` L91, ` ``` ` L96), divisées par 2. **Aucun bloc en chevron** — la
+  fiche est non porteuse, mesuré au bloc 31.*
+- **P34.5** — `stm32-hal` : trois `ok`, `liens 20 -> 20`, `embeds 1 -> 1`,
+  `code 7 -> 7`. *14 lignes de clôture, 7 blocs, tous nus.*
+- **P34.6** — `stm32-registres` : trois `ok`, `liens 19 -> 19`,
+  `embeds 1 -> 1`, `code 1 -> 1`. *Un seul bloc, le blink bare-metal.*
+- **P34.7** — `prerequis suffixes` : **2** (`stm32`, `stm32-prise-en-main`),
+  **2** (`stm32`, `stm32-cubemx`), **3** (`stm32`, `stm32-hal`,
+  `manipulation-de-bits`).
+- **P34.8** — **aucune ligne `draft: … insere`** : les trois sources portent
+  déjà `draft: false` ; `Ecrit :` ×3, **aucune sortie `La cible existe deja`**,
+  exit **0** ×3.
+
+**Test négatif délibéré sur `renommer-titres`, joué APRÈS la génération**
+
+- **P34.9** — ancre `Programmer un STM32 avec la Hal` — *une capitale de trop
+  sur un sigle, le mode d'échec du 29/08 (suite 8)* : `L2 INTROUVABLE
+  content/en/embarque/mcu/stm32/stm32-hal-en.md`,
+  `title: en place : Programmer un STM32 avec la HAL`,
+  `ancres introuvables : 1`, `REFUS`, **exit 1**, **aucun `title:` modifié**.
+  ⚠ *Contrairement à P26.4 du lot 5, ce test éprouve la garde d'**ancre** et
+  non la garde d'**existence**, parce qu'il est joué après la génération.*
+
+**Renommage des trois `title:`**
+
+- **P34.10** — contrôle seul : `lignes de table : 3`,
+  `ancres uniques trouvees : 3`, **les cinq seaux de défaut à 0**, exit 0.
+- **P34.11** — écriture : les trois `title:` réécrits en
+  `Configuring the STM32 with CubeMX`,
+  `Programming the STM32 with the HAL`,
+  `Going down to the register on the STM32`, **au mot près**,
+  `fichiers ecrits : 3`.
+
+**Contrôles de fin de bloc**
+
+- **P34.12** — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 206` — le corpus EN passe de **203 à 206**, et les trois empreintes
+  neuves sont calculées **sur les sources d'après la passe C109**.
+- **P34.13** — `titres-doublons` : FR **243 / 243 / 0 groupe** *(inchangé : la
+  passe C109 n'a touché aucun `title:` français)* ; EN **206 / 206 /
+  0 groupe** — les trois titres neufs sont uniques dans le corpus anglais.
+  ⚠ *`Programming the STM32 with the HAL` et `Programming the STM32 with the
+  Arduino core` partagent quatre mots sur six et **ne collisionnent pas** : ce
+  qui les distingue est le complément, exactement comme en français.*
+- **P34.14** — `git status` de fin de bloc : **18   (hors artefacts de
+  seance : 12)** — les 9 nommés plus les 3 fiches EN.
+
+**Total : 14 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 34 — gate G3 (avant rédaction)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P34.1 | copie `…b56.txt`, 0 non ASCII, `v24.15.0`, HEAD `1442a81 … 23:24:26` | idem, heure **23:50:12** | tenue |
+| P34.2 | `15   (hors artefacts : 9)` | **15 / 9** | tenue |
+| P34.3 | pilotage inchangé ; 3 sources FR du **29/08 après 23:43:35**, 3 lignes, aucune `ABSENTE` | **23:44:27** ×3 | tenue |
+| P34.4 | `cubemx` : `liens 21`, `embeds 1`, `code 2`, trois `ok` | idem | tenue |
+| P34.5 | `hal` : `liens 20`, `embeds 1`, `code 7`, trois `ok` | idem | tenue |
+| P34.6 | `registres` : `liens 19`, `embeds 1`, `code 1`, trois `ok` | idem | tenue |
+| P34.7 | `prerequis suffixes` **2 / 2 / 3** | idem | tenue |
+| P34.8 | aucun `draft: … insere`, `Ecrit :` ×3, aucune `cible existe deja`, exit 0 ×3 | idem — **12336 o**, **12535 o**, **11004 o** | tenue |
+| P34.9 | test négatif : `L2 INTROUVABLE`, `title: en place : Programmer un STM32 avec la HAL`, `introuvables 1`, `REFUS`, exit 1 | idem | tenue |
+| P34.10 | contrôle : `3` lignes, `ancres uniques trouvees : 3`, cinq seaux à 0, exit 0 | idem | tenue |
+| P34.11 | les trois `title:` réécrits au mot près, `fichiers ecrits : 3` | idem | tenue |
+| P34.12 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 206` | idem, plus `SANS SOURCE 0`, `SANS MARQUE 0` | tenue |
+| P34.13 | FR **243 / 243 / 0** ; EN **206 / 206 / 0** | idem | tenue |
+| P34.14 | `18   (hors artefacts : 12)` | **18 / 12** | tenue |
+
+**14 prédictions, 14 tenues, 0 réfutée.**
+
+✅ **LES TROIS DÉCOMPTES DE `code` SONT JUSTES, ET C'EST LE TERME QUI AVAIT
+RATÉ AU LOT 5.** Le compteur divise par 2 des lignes de clôture, et
+l'énumération à la main est ce qui avait produit la seule réfutation du bloc 26
+du lot 5 (`liens 19` prédit 18). **Ici les neuf compteurs des trois fiches
+tombent au premier coup** — `21 / 1 / 2`, `20 / 1 / 7`, `19 / 1 / 1` — et le
+plus exposé était `stm32-hal` à **7 blocs**, le plus gros décompte du lot.
+⚠ *Les trois fiches sont **non porteuses de chevron**, donc aucun bloc n'est
+préfixé : c'est la première génération de la série où le décompte de `code`
+n'a pas à distinguer les blocs nus des blocs chevronnés.*
+
+✅ **LE TEST NÉGATIF ÉPROUVE ENFIN LA GARDE D'ANCRE, ET NON LA GARDE
+D'EXISTENCE.** Au lot 5, il était joué **avant** la génération et mordait sur
+`fichiers absents : 1` — la clôture le notait comme une limite. **Joué ici
+après la génération**, il rend `L2 INTROUVABLE` avec les deux titres en regard
+— `Programmer un STM32 avec la Hal` attendu contre
+`Programmer un STM32 avec la HAL` en place — et **refuse le lot entier alors
+que 2 ancres sur 3 étaient bonnes**. *L'atomicité joue dans le bon sens : elle
+refuse au lieu d'appliquer 2 sur 3.* **Cinquième test négatif de la série,
+cinquième refus, zéro fichier écrit.**
+
+✅ **LE RELEVÉ DES TITRES DE SECTION EST FAIT AVANT RÉDACTION, ET IL PROUVE
+DEUX CHOSES QU'AUCUN CONTRÔLE DU DÉPÔT NE MESURE.** Première épreuve de la
+candidate 0/N de la suite 10, **à l'endroit prévu** et non en correctif. (1) Il
+donne les **six formes génériques** avec leur poids — 196 / 134 / 133 / 99 /
+34 / 25 — et écarte les concurrentes chiffrées, `## In the project` (20) et
+`## Common pitfalls` (15). (2) ⚠ **Il constate que `## Project connection` et
+`## Step-by-step procedure` sont retombés à 0** : *le correctif É1 de la suite
+10 tient, et c'est la seule mesure du dépôt qui puisse le dire.*
+
+✅ **LES TROIS `title:` QUALIFIENT PAR LA FAMILLE, ET LES CINQ DU MODULE SONT
+DÉSORMAIS HOMOGÈNES DES DEUX CÔTÉS.** `titres-doublons` reste à **0 / 0** :
+FR 243 / 243, EN **206 / 206**. ⚠ *`Programming the STM32 with the HAL` et
+`Programming the STM32 with the Arduino core` partagent quatre mots sur six et
+ne collisionnent pas — ce qui les distingue est le complément, exactement comme
+en français.* **Le module STM32 est le premier du corpus dont les cinq fiches
+portent le qualificatif de famille dans les deux langues.**
+
+⚠ **ET C'EST LA TROISIÈME FOIS QUE LE MOTIF DU 26/08 DÉCIDE CONTRE LA FORME DE
+PRODUCTION.** Les trois formes majoritaires — `Configuring with CubeMX` (4),
+`Programming with the HAL` (3), `Going down to the register` (1) — **effacent
+toutes les trois** le qualificatif que le français porte. Les retenir aurait
+fabriqué, en une séance, **trois fois le défaut d'`esp8266-arduino-core-en`**
+que la suite 10 venait de verser à la file. *La clause C125 de la suite 9 rend
+le choix gratuit au regard de `--libelles`, et son mécanisme se lit dans
+`memeRadical` : un titre qui **englobe** la forme de production partage tous
+ses radicaux.* **À vérifier à la clôture, pas à supposer.**
+
+---
+
+# GATE G3 — AVANT RÉDACTION
+
+**Trois squelettes générés**, corpus EN **203 → 206**, empreintes calculées
+**sur les sources d'après la passe C109** (`A JOUR 206`, `DERIVE 0`,
+`MARQUE INVALIDE 0`). **Trois `title:` arrêtés sous C125**, test négatif joué
+et refusé. **Titres : FR 243 / 243 / 0, EN 206 / 206 / 0.** Relevé des titres
+de section **fait avant d'écrire**, six formes génériques arrêtées sur leur
+poids en production. `git status` **18 / 12**. **14 prédictions, 14 tenues.**
+
+**Ce que la rédaction doit tenir** : les six formes de section génériques
+ci-dessus ; C113 (*ce que le programme dit se traduit, ce qu'il désigne ne se
+traduit pas*) ; C77 (code inchangé, commentaires traduits) ; le report **un
+pour un** des 12 exemptions C109 — **8 de `--style`** et **4 puces**, aux mêmes
+emplacements ; et **aucune C109 créée par la traduction**.
+
+---
+
+## Bloc 35 — rédaction des trois fiches EN
+
+⚠ *La suite 10 a consigné en incident n° 2 que **son bloc de rédaction ne
+portait aucune prédiction**, premier de la série. Celui-ci en porte, et elles
+sont écrites **avant** la première ligne d'anglais.*
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde -Fiches … -FichesEn …`
+2. rédaction des trois jumelles EN, **en partant du squelette sur disque**
+   (jamais en réécrivant le front matter de tête — règle du 29/08, suite 8)
+3. contrôles : `--controle`, `--style` sur les trois EN, motif des puces sur
+   les trois EN, `compter-mots --paires`, `derive-traduction`,
+   `titres-doublons`, `git status`
+
+### Ce que la rédaction doit tenir, publié avant d'écrire
+
+- **Les six formes de section génériques** relevées au bloc 34 :
+  `## What is it for?`, `## Pitfalls`, `## Exercises`,
+  `## Where it fits in the project`, `## Going further`, `## See also`, plus
+  `## Example — <cas>`.
+- **C113** — *ce que le programme dit se traduit, ce qu'il désigne ne se
+  traduit pas.* Les trois fiches portent **10 blocs de code** et des
+  identifiants ST (`HAL_UART_Transmit`, `GPIOA->BSRR`, `RCC_AHB1ENR_GPIOAEN`,
+  `LD2_GPIO_Port`) : **aucun ne se traduit**. Se traduisent les
+  **commentaires** (C77) et le bloc de **sortie attendue** de `stm32-cubemx`
+  (`tic` ×4) — ⚠ *qui ne se traduit pas non plus, `tic` étant une chaîne
+  affichée dont la répétition **est** la démonstration, cas `"Pico" * 2` de
+  C113.*
+- **Le report un pour un des 12 exemptions C109**, aux mêmes emplacements :
+  8 de `--style` (`cubemx` L62 ×2 ; `hal` L19 pv, L77 pv, L78 pv, L154 pv ;
+  `registres` L36 ×2) et **4 puces** (`cubemx` L55, L56 ; `hal` L77, L78).
+- **Aucune C109 créée par la traduction.**
+
+### Déclaration C131 du bloc 35 (population, versements, total)
+
+**Versements présents quand l'étape 1 de la garde lit le compteur,
+nommément :** `tools/predictions-260829.md` (**1**, filtré) ;
+`batterie-sortie-2908b52|53|54|55|56.txt` (**5**, filtrés) ;
+`batterie-sortie-2908b57.txt`, étape 0 du lancement courant (**1**, filtré) ;
+`chevron-lot6-2908.txt`, `puces-lot6-avant.txt` (**2**, comptés) ;
+`passe-c109-lot6-2908.tsv`, `passe-negatif-lot6-2908.tsv` (**2**, comptés) ;
+`table-titres-lot6-2908.tsv`, `table-titres-negatif-lot6-2908.tsv` (**2**,
+comptés) ; les **3 sources FR** en ` M` (**3**, comptées) ; les **3 fiches EN**
+générées au bloc 34, en `??` (**3**, comptées).
+
+**Total impliqué : 1 + 5 + 1 + 2 + 2 + 2 + 3 + 3 = 19. Hors artefacts de
+séance : 12**, liste nominative complète : 2 sorties de mesure, 2 TSV de
+passe, 2 tables de titres, 3 sources FR, 3 fiches EN.
+
+⚠ **Le compteur ne bouge pas dans le bloc** : la rédaction **réécrit** les
+trois fiches EN déjà comptées, elle n'en crée aucune. **Fin de bloc attendue :
+19, hors artefacts 12** — *inchangé, et c'est le premier bloc de la séance dont
+la déclaration d'ouverture vaut aussi pour sa clôture.* Le motif des puces
+déposera cependant `tools/puces-lot6-en.txt` (**+1**, compté) ⇒ **20, hors
+artefacts 13** après les contrôles.
+
+### Prédictions du bloc 35
+
+**Garde**
+
+- **P35.1** — copie `tools\batterie-sortie-2908b57.txt`, 0 non ASCII,
+  `node : v24.15.0`, `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`.
+- **P35.2** — `fichiers modifies non commites : 19   (hors artefacts de
+  seance : 12)`.
+- **P35.3** — pilotage inchangé `23:22:56 / 23:20:06 / 21:48:08` ; les 3
+  sources FR à **23:44:27** exactement ; les 3 fiches EN à une `mtime` du
+  **2026-08-29 postérieure à 23:50:12** (la garde du bloc 34) — elles ont été
+  générées puis réécrites par `renommer-titres` après cette heure. **Six
+  lignes de fiche, aucune `ABSENTE`.**
+
+**Contrôles d'après rédaction**
+
+- **P35.4** — `--controle` : **206 fiches**, **0 divergente**, **0 lien non
+  suffixé sur 0**. *Les trois compteurs de chaque jumelle rendent
+  `21 / 1 / 2`, `20 / 1 / 7`, `19 / 1 / 1` — les mêmes qu'à la génération, la
+  rédaction ne devant ni ajouter ni retirer un lien, un embed ou un bloc.*
+- **P35.5** — `--style` sur les trois EN : `C109 de prose` **8**, aux **huit
+  mêmes emplacements** qu'en français ; `C109 creees en EN` **0** ;
+  `typographie francaise` **0** ; `hors alphabet latin` **0**.
+  ⚠ *Le report un pour un se juge sur la **décomposition par fiche** :
+  `cubemx` **2**, `hal` **4**, `registres` **2**. Un total de 8 obtenu avec
+  une autre décomposition serait une asymétrie, pas un succès.*
+- **P35.6** — `hors perimetre` : **13**, comme en français.
+- **P35.7** — motif des puces sur les trois EN : `cubemx` **2**, `hal` **2**,
+  `registres` **0**, **TOTAL 4** — décomposition **identique fiche par fiche**
+  à celle du français après passe.
+- **P35.8** *(foisonnement, prédiction décomposée)* — `compter-mots --paires` :
+  `stm32-cubemx-en` **entre 1 692 et 1 751** (point 1 717, +2,5 %),
+  `stm32-hal-en` **entre 1 596 et 1 651** (point 1 620),
+  `stm32-registres-en` **entre 1 487 et 1 538** (point 1 509),
+  **total du lot entre 4 775 et 4 940**, point **4 846**.
+  *Base : le lot 5, même module, même auteur, est sorti à **+1,1 % et +3,0 %,
+  soit +2,0 %** ; la moyenne du corpus est **+3,8 %**. La fourchette couvre
+  +1,0 % à +4,5 %.* ⚠ *Un total dans la fourchette ne valide pas la
+  décomposition (§8) : les trois termes se vérifient séparément.*
+- **P35.9** — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 206`. *Les empreintes ont été posées au bloc 34 sur les sources
+  d'après la passe, et la rédaction ne touche pas au front matter.*
+- **P35.10** — `titres-doublons` : FR **243 / 243 / 0**, EN **206 / 206 / 0**,
+  inchangés.
+- **P35.11** — `git status` de fin de bloc : **20   (hors artefacts de
+  seance : 13)**, le fichier neuf étant `tools/puces-lot6-en.txt`.
+- **P35.12** *(terme qui peut réfuter la rédaction elle-même)* —
+  `git diff --numstat` ne porte, côté `content/`, que les **3 sources FR**
+  (46 / 46, inchangé depuis le bloc 33) ; les **3 fiches EN sont en `??`** et
+  n'y figurent pas.
+
+**Total : 12 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 35 — gate G4 (fin de rédaction)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P35.1 | copie `…b57.txt`, 0 non ASCII, `v24.15.0`, HEAD `1442a81` | idem, heure **23:53:14** | tenue |
+| P35.2 | `19   (hors artefacts : 12)` | **19 / 12** | tenue |
+| P35.3 | pilotage inchangé ; 3 FR à **23:44:27** ; 3 EN du 29/08 **après 23:50:12** ; 6 lignes, aucune `ABSENTE` | **23:50:27** ×3 | tenue |
+| P35.4 | `--controle` **206 / 0 divergente / 0 lien non suffixé sur 0** | idem | tenue |
+| P35.5 | `C109 de prose` **8**, décomposé **2 / 4 / 2**, `C109 creees en EN` 0, typographie 0, hors alphabet latin 0 | **8**, **2 / 4 / 2**, aux **huit mêmes emplacements** | tenue |
+| P35.6 | `hors perimetre` **13** | **13** | tenue |
+| P35.7 | puces EN **2 / 2 / 0 = 4** | idem | tenue |
+| P35.8 | `cubemx` 1 692-1 751 (pt 1 717) ; `hal` 1 596-1 651 (pt 1 620) ; `registres` **1 487-1 538** (pt 1 509) ; total 4 775-4 940 (pt 4 846) | **1 713** (+2,3 %) ; **1 602** (+1,4 %) ; ⚠ **1 485** (+0,9 %) ; total **4 800** | **RÉFUTÉE** sur `registres` |
+| P35.9 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 206` | idem — ⚠ **après correctif**, cf. incident n° 2 | tenue |
+| P35.10 | FR **243 / 243 / 0**, EN **206 / 206 / 0** | idem | tenue |
+| P35.11 | `git status` **20   (hors artefacts : 13)** | **20 / 13** | tenue |
+| P35.12 | `numstat -- content/` : les 3 sources FR seules, **46 / 46** ; les 3 EN en `??` | **11/11, 20/20, 15/15**, rien d'autre | tenue |
+
+**12 prédictions, 11 tenues, 1 réfutée — taux 8,3 %.**
+
+⚠ **LA SEULE RÉFUTATION EST LE CAS D'ÉCOLE DE LA RÈGLE DU §8 QUE LA PRÉDICTION
+CITAIT : LE TOTAL EST DANS LA FOURCHETTE ET UN TERME EST DEHORS.** Total du
+lot **4 800** pour 4 775-4 940 prédits — juste, et **juste en masquant** que
+`stm32-registres-en` sort à **+0,9 %**, sous le plancher de +1,0 % de la
+fourchette. *La prédiction portait la phrase « un total dans la fourchette ne
+valide pas la décomposition : les trois termes se vérifient séparément », et
+c'est exactement ce qui vient d'arriver.* **+0,9 % est le foisonnement le plus
+bas jamais mesuré du chantier** (précédent plancher : +0,7 %, `teensy-audio` au
+lot 4). ⚠ *Cause plausible, non mesurée et donc non promue : `stm32-registres`
+est la fiche la plus dense en **code inline** du lot — `GPIOA->BSRR`,
+`RCC_AHB1ENR_GPIOAEN`, `GPIO_MODER_MODE5_0` —, que C110 compte comme des mots
+et qui est **identique dans les deux langues**, donc dilue le foisonnement du
+texte alentour. C'est l'hypothèse du 24/08, toujours versée au BACKLOG et
+toujours non comptée.*
+
+✅ **LE REPORT UN POUR UN EST PARFAIT SUR LES QUATRE COMPTEURS, DÉCOMPOSITION
+COMPRISE.** `C109 de prose` **8 des deux côtés, 2 / 4 / 2 fiche par fiche, aux
+huit mêmes emplacements** ; `hors perimetre` **13 des deux côtés** ; puces
+**4 des deux côtés, 2 / 2 / 0 fiche par fiche** ; `C109 creees en EN` **0**.
+⚠ *Le terme qui prouve est la **décomposition** : un total de 8 obtenu en
+gardant trois exemptions sur `cubemx` et une sur `registres` aurait été une
+asymétrie déguisée en succès.* **Les 12 exemptions nommées au bloc 33 se
+retrouvent une pour une**, dont les deux entrées du glossaire HAL / LL et les
+deux gloses NVIC / DMA.
+
+✅ **LES TROIS SOUSTRACTIONS TOMBENT SUR DES ÉTATS DE MÊME DATE.**
+`compter-mots --paires` rend **241 037 mots FR** pour 206 paires, soit
+236 310 + **4 727** — le `tot` **d'après** la passe, comme la règle d'usage du
+29/08 (suite 9) l'exige pour les traduites. Et côté anglais,
+245 351 + **4 800** = **250 151**, au mot près : *le corpus EN n'a bougé que du
+lot, ce qui prouve qu'aucune fiche hors lot n'a été touchée.*
+
+⚠ **INCIDENT N° 2 — J'AI RÉÉCRIT LE FRONT MATTER DE `stm32-hal-en` DE TÊTE, ET
+`derive-traduction` L'A ATTRAPÉ.** La règle du 29/08 (suite 8) est écrite en
+toutes lettres dans `CLAUDE.md` — *« une fiche EN se rédige en partant de son
+squelette sur disque, jamais en réécrivant son front matter de tête »* — et
+elle a été **relue à l'ouverture de cette séance**. J'ai malgré tout réécrit le
+fichier entier en portant `source_sha256: PLACEHOLDER`. **`derive-traduction`
+rend `MARQUE INVALIDE 1`**, avec le marqueur lu en clair ; corrigé par
+`--recaler`, qui rend `PLACEHOLDER -> 8ead91bad69e`. **Coût : un lancement,
+zéro perte.**
+✅ *L'instrument neuf du 29/08 (suite 8) — la séparation `DERIVE` /
+`MARQUE INVALIDE` — a servi le jour même de sa deuxième séance, sur le mode
+d'échec exact pour lequel il a été écrit.* ⚠ *Et c'est **la troisième fois de
+la journée** qu'une règle relue le matin cède l'après-midi. Ce qui l'a rattrapée
+n'est pas la relecture, c'est un compteur.* **Les deux autres fiches ont été
+écrites avec leur front matter relu sur disque et recopié à l'octet.**
+
+⚠ **UNE ATTENTE ÉCRITE AVANT LE BLOC EST TOMBÉE À LA TABLE DE TRADUCTION, ET
+C113 A TRANCHÉ CONTRE ELLE.** Le bloc annonçait que le bloc de sortie
+`tic` ×4 de `stm32-cubemx` **ne se traduisait pas**, au motif du cas
+`"Pico" * 2` de C113. **C'est faux, et le motif était mal appliqué** : `"Pico"`
+est un **nom propre** dont la répétition est la démonstration ; `tic` est une
+**onomatopée**, c'est-à-dire ce que le programme **dit**, et C113 fait tomber
+les chaînes affichées **avec leur bloc de sortie attendue**. Traduit en
+`tick` des deux côtés.
+
+⚠ **ET LA TRADUCTION A FORCÉ TROIS ÉDITIONS DE CODE, CE QUE C77 SEMBLE
+INTERDIRE.** *« Code inchangé, commentaires traduits »* (C77) et *« ce que le
+programme dit se traduit »* (C113) se contredisent dès qu'une chaîne affichée
+est **couplée à un littéral numérique**. Trois cas dans ce lot :
+
+| fiche | français | anglais | ce qui force l'édition |
+|---|---|---|---|
+| `cubemx` | `"tic\r\n", 5` | `"tick\r\n", 6` | le commentaire enseigne *« 5 = octets à envoyer »* |
+| `hal` | `"Bonjour\r\n", 9` | `"Hello\r\n", 7` | même argument de longueur |
+| `hal` | `bonjour` → *« sept passages »* | `hello` → *« five trips »* | le compte de caractères **est** la démonstration |
+
+*Laisser `5` devant une chaîne de 6 octets aurait fait enseigner un mensonge à
+la fiche ; ne pas traduire aurait laissé un anglophone lire `tic` et `Bonjour`
+sur son moniteur.* **La frontière qui se dessine : un littéral qui **décrit**
+la chaîne affichée fait partie de la chaîne, pas du code qui la désigne.**
+⚠ *Versé à la file des arbitrages, non promu en convention : trois cas dans un
+seul lot ne font pas une règle, et C77 n'a jamais été amendée.*
+
+⚠ **QUATRE ESPACES FRANÇAISES DEVANT `:` ONT ÉTÉ ÉCRITES EN ANGLAIS, PUIS
+RETIRÉES AVANT TOUT CONTRÔLE.** Trois dans `cubemx-en`, une dans `hal-en`,
+toutes nées d'une traduction ligne à ligne d'un français où la passe C109
+venait justement de poser des `:`. `typographie francaise` sort à **0**, mais
+**il n'y serait pas resté sans relecture** : c'est un verdict *mécanique*, donc
+il aurait mordu. *Le mode d'échec est propre au lot 6 : c'est le premier dont
+la passe C109 produit autant de deux-points en français.*
+
+---
+
+# GATE G4 — FIN DE RÉDACTION
+
+**Trois fiches EN rédigées**, corpus **203 → 206**. `--controle` **206 fiches,
+0 divergente, 0 lien non suffixé sur 0**. Report un pour un **parfait sur les
+quatre compteurs et leur décomposition** : `C109 de prose` **8** (2 / 4 / 2),
+`hors perimetre` **13**, puces **4** (2 / 2 / 0), `C109 creees en EN` **0**.
+Foisonnement **+2,3 / +1,4 / +0,9 %**, lot **4 727 → 4 800**, corpus EN
+**245 351 → 250 151**. Dérive **`A JOUR 206`**. Titres **FR 243 / 243 / 0, EN
+206 / 206 / 0**. `git status` **20 / 13**. **12 prédictions, 11 tenues,
+1 réfutée** — et **un incident consigné**, front matter réécrit de tête,
+attrapé par `derive-traduction`.
+
+---
+
+## Bloc 36 — clôture du lot (batterie `etat`, C127, titres, puces du corpus)
+
+Commandes prévues, dans cet ordre :
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase etat -FichesEn en/embarque/mcu/stm32/stm32-cubemx-en.md,en/embarque/mcu/stm32/stm32-hal-en.md,en/embarque/mcu/stm32/stm32-registres-en.md -Chevron`
+2. `node tools/titres-doublons.mjs`
+3. le motif des puces sur **tout le corpus**, FR et EN (corollaire opératoire
+   de la clause de périmètre C109 : ce compteur **se remesure**, il ne se
+   reporte jamais), sortie sauvegardée sous `tools/puces-corpus-lot6-2908.txt`
+
+⚠ **`-Chevron` est lancé bien que C127 soit hors sujet.** Le lot ne porte
+aucune porteuse ; `mesure-chevron --tout` ne sert donc **qu'à confirmer que la
+référence corpus n'a pas bougé**, ce que le brief demande explicitement.
+
+### Déclaration C131 du bloc 36 (population, versements, total)
+
+**Versements présents quand l'étape 1 lit le compteur, nommément :**
+`tools/predictions-260829.md` (**1**, filtré) ;
+`batterie-sortie-2908b52|53|54|55|56|57.txt` (**6**, filtrés) ;
+⚠ `batterie-sortie-**3008b1**.txt`, étape 0 du lancement courant (**1**, filtré) ;
+`chevron-lot6-2908.txt`, `puces-lot6-avant.txt`, **`puces-lot6-en.txt`**
+(**3**, comptés — le troisième créé par les contrôles du bloc 35) ;
+`passe-c109-lot6-2908.tsv`, `passe-negatif-lot6-2908.tsv` (**2**, comptés) ;
+`table-titres-lot6-2908.tsv`, `table-titres-negatif-lot6-2908.tsv` (**2**,
+comptés) ; les **3 sources FR** en ` M` (**3**, comptées) ; les **3 fiches EN**
+en `??` (**3**, comptées).
+
+**Total impliqué : 1 + 6 + 1 + 3 + 2 + 2 + 3 + 3 = 21. Hors artefacts de
+séance : 13**, liste nominative complète : 3 sorties de mesure, 2 TSV de passe,
+2 tables de titres, 3 sources FR, 3 fiches EN.
+
+⚠ **Le compteur bouge dans le bloc** : la troisième commande dépose
+`tools/puces-corpus-lot6-2908.txt` (**+1**, compté). **Fin de bloc attendue :
+22, hors artefacts 14.**
+
+### Prédictions du bloc 36
+
+**Garde et corpus**
+
+⚠ **L'HORLOGE A FRANCHI MINUIT ENTRE LE BLOC 35 ET CELUI-CI.** La séance
+reste la **suite 11 du 29/08** et son fichier de prédictions reste
+`predictions-260829.md` — c'est la séance qui date le fichier, pas l'horloge —
+mais **l'étiquette C124 suit l'horloge**, `Get-Date -Format 'ddMM'` rendant
+désormais `3008`. *Le rang repart donc à 1, et c'est mesuré au listage : aucun
+`batterie-sortie-3008b*.txt` n'existe.* **P30.2 avait publié cette bascule
+comme condition explicite, six blocs plus tôt ; elle arrive au bloc 36.**
+
+
+- **P36.1** — copie `tools\batterie-sortie-3008b1.txt` — **et non `2908b58`** —, 0 non ASCII,
+  `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`, `node : v24.15.0`,
+  `date ISO : 2026-08-30`, `phase demandee : etat   anneau : 2   chevron : True`.
+- **P36.2** — `fichiers modifies non commites : 21   (hors artefacts de
+  seance : 13)`.
+- **P36.3** *(les trois soustractions, sur deux états de même date)* —
+  corpus FR **291 242** ; **traduites 206 fiches, 241 037 mots FR** (236 310 +
+  le `tot` **d'après** la passe, 4 727) ; **restant 36 → 33 fiches,
+  54 931 − 4 726 = 50 205 mots** (le `tot` **d'avant** la passe).
+  **Contrôle publié d'avance : 241 037 + 50 205 = 291 242.**
+- **P36.4** — `--controle` **206 fiches, 0 divergente, 0 lien non suffixé
+  sur 0**.
+- **P36.5** — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 206`.
+- **P36.6** — foisonnement : **206 paires, 241 037 → 250 151 mots EN**,
+  moyenne **3,8 %** ; lot **+2,3 / +1,4 / +0,9 %**.
+- **P36.7** — `--style` des trois EN : **8 / 13 / 0 / 0 / 0** comme au bloc 35.
+- **P36.8** — médias : **454 fiches**, **678 embeds** (451 + 3 et 675 + 3, un
+  embed par fiche neuve).
+
+**Anneau, dette, chevron**
+
+- **P36.9** — `ANNEAU 2 NET : 145`, `deja traduites : 112`, `RESTANT : 33`.
+- **P36.10** — `RESTANT DE L ANNEAU 2 (33 fiches)   47937` (52 663 − 4 726, le
+  `tot` d'avant la passe), et `fiches porteuses : 0`,
+  `clotures en chevron : 0` — inchangés, le restant n'en portait déjà aucune.
+- **P36.11** — dette : `fiches sources (traduites) : 206`,
+  `cibles rouges distinctes : 34` (37 − 3), `mots : 48777`
+  (53 503 − 4 726), `dont HORS anneaux 0..2 : 0`.
+  ⚠ *Terme décomposé : les trois cibles qui sortent de la dette sont
+  exactement `stm32-cubemx`, `stm32-hal`, `stm32-registres`, et les trois
+  fiches EN neuves **n'en ajoutent aucune** — toutes leurs cibles sont soit
+  déjà traduites, soit déjà comptées dans les 37.*
+- **P36.12** — `mesure-chevron --tout` : **FR 34 porteuses, EN 34,
+  paires porteuses des deux côtés 34, divergentes 0** — **inchangé**, le lot
+  n'ayant aucune porteuse. *C'est la seule chose que ce lancement a à dire.*
+- **P36.13** — wikilinks : **34 mortes** (37 − 3), `0 cassée`, `0 ambiguë`,
+  `8 gabarits`, `6 alias`, et `ok` **450** (447 + 3).
+- **P36.14** *(`--libelles`, prédiction décomposée et nominative)* —
+  `candidats a lire` **111**, contre **107** au lot 5, soit **+4**, décomposés
+  ainsi :
+  1. **+1** — `[[stm32-registres-en|CMSIS]]`, à `stm32-en.md` L56 : libellé
+     **préexistant** devenu jugeable parce que sa cible existe désormais.
+     *Lu dans le code : `memeRadical` exige un préfixe de **cinq** lettres
+     commun, et `cmsis` n'en partage aucun avec `going` / `down` / `register`
+     / `stm32` ; `estSigleDe` compare `cmsis` aux initiales `dgrs` et échoue.*
+  2. **+2** — les deux `[[adc-en|ADC]]` de `stm32-cubemx-en` (L55 et la ligne
+     de `See also`) : `adc` fait **3 lettres**, sous le seuil de `memeRadical`,
+     et n'est pas le sigle de `Reading an analog sensor`.
+  3. **+1** — `[[bus-de-communication-en|I2C/SPI]]` de `stm32-cubemx-en` L55 :
+     **sigle de bus contre `Communication buses`**, exactement la famille que
+     la clause C125 du 29/08 (suite 9) a nommée sur `I2S`.
+  ⚠ **Zéro candidat créé par les trois `title:` qualifiés** : les dix libellés
+  visant `stm32-cubemx-en`, les huit visant `stm32-hal-en` et les quatre
+  visant `stm32-registres-en` **partagent tous un radical** avec leur titre —
+  *c'est la clause C125 mise à l'épreuve, et elle prédit **0** ici.*
+  **Fourchette : 109 à 113.** `positions de parcours` **16**, inchangé.
+
+**Titres et puces du corpus**
+
+- **P36.15** — `titres-doublons` : FR **243 / 243 / 0**, EN **206 / 206 / 0**,
+  **des deux côtés**, référence tenue.
+- **P36.16** *(le compteur qui se remesure et ne se reporte jamais)* — puces à
+  tiret du corpus entier : **FR 1 023 − 11 = 1 012**, **EN 866 + 4 = 870**.
+  *Côté français, le lot a traité **11** de ses 15 puces ; côté anglais, les
+  trois fiches neuves versent leurs **4** exemptions dans un corpus qui n'en
+  portait aucune pour elles.* ⚠ *La référence FR 1 023 / EN 866 a été mesurée
+  à la clôture du lot 5 et **rien d'autre n'a touché le corpus depuis** : la
+  soustraction porte donc sur deux états séparés par le seul lot 6.*
+  **Fourchette : FR 1 008 à 1 016, EN 868 à 874.**
+- **P36.17** — `git status` de fin de bloc : **22   (hors artefacts de
+  seance : 14)**.
+
+**Total : 17 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 36 — gate G5 (clôture du lot)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P36.1 | copie **`3008b1`** et non `2908b58`, `date ISO : 2026-08-30`, `etat / 2 / True`, HEAD `1442a81`, `v24.15.0` | idem, heure **00:01:39** | tenue |
+| P36.2 | `21   (hors artefacts : 13)` | **21 / 13** | tenue |
+| P36.3 | corpus **291 242** ; traduites **206 / 241 037** ; restant **36 → 33 fiches, 50 205 mots** ; contrôle 241 037 + 50 205 = 291 242 | **291 242** ; **206 / 241 037** ; ⚠ **36 fiches**, 50 205 mots | **RÉFUTÉE** sur la population du restant |
+| P36.4 | `--controle` 206 / 0 / 0 sur 0 | idem | tenue |
+| P36.5 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 206` | idem | tenue |
+| P36.6 | **206 paires, 241 037 → 250 151**, moyenne 3,8 % | idem | tenue |
+| P36.7 | `--style` EN **8 / 13 / 0 / 0 / 0** | idem | tenue |
+| P36.8 | médias **454 fiches, 678 embeds** | idem | tenue |
+| P36.9 | `ANNEAU 2 NET 145`, `deja traduites 112`, `RESTANT 33` | idem | tenue |
+| P36.10 | `RESTANT DE L ANNEAU 2 (33 fiches)  47937`, porteuses 0, clôtures 0 | idem | tenue |
+| P36.11 | dette **206 / 34 / 48 777 / 0** | idem | tenue |
+| P36.12 | chevron `--tout` : **34 paires porteuses des deux côtés, 0 divergente** | idem, `fiches balayees 449   porteuses 68` = 34 + 34 | tenue |
+| P36.13 | wikilinks **34 mortes**, 0 cassée, 0 ambiguë, 8 gabarits, 6 alias, **450 ok** | **MORT 34 / CASSE 0 / AMBIGU 0 / GABARIT 8 / ALIAS 6 / OK 450** | tenue |
+| P36.14 | `candidats a lire` **111** (fourchette 109-113), décomposé **+1 CMSIS, +2 ADC, +1 I2C/SPI**, et **0 dû aux trois titres** | **109** — ⚠ **+2 seulement** : `CMSIS` et `I2C/SPI` ; **les deux `ADC` ne sont pas candidats** | **RÉFUTÉE** sur la décomposition |
+| P36.15 | titres FR **243 / 243 / 0**, EN **206 / 206 / 0** | idem | tenue |
+| P36.16 | puces corpus **FR 1 012** (1 008-1 016), **EN 870** (868-874) | ⚠ **FR 1 027** ; **EN 870** | **RÉFUTÉE** côté FR |
+| P36.17 | `git status` **22   (hors artefacts : 14)** | **22 / 14** | tenue |
+
+**17 prédictions, 14 tenues, 3 réfutées — taux 17,6 %.**
+
+⚠ **P36.3 — J'AI TRANSPORTÉ LA POPULATION DE L'ANNEAU SUR LE COMPTEUR DU
+CORPUS.** Le `RESTANT A TRADUIRE` du corpus était à **39** fiches à la clôture
+du lot 5 et passe à **36** ; j'ai écrit « 36 → 33 », qui est la trajectoire de
+l'**anneau 2**, publiée deux lignes plus bas en P36.9 et **juste**. *Les deux
+compteurs perdent les mêmes trois fiches et n'ont pas la même base : 39 pour le
+corpus, 36 pour l'anneau.* ✅ **Les mots, eux, sont exacts** — 50 205 —, et le
+contrôle publié d'avance tombe au caractère : **241 037 + 50 205 = 291 242**.
+*C'est la famille C131 par une porte de plus : ni l'unité (29/08 suite 9), ni
+la date (29/08 suite 9), mais la **population**. Le compteur était bon, la base
+qu'on lui prête ne l'était pas.*
+
+⚠ **P36.14 — J'AI LU LE CODE JUSTE ET LUI AI DONNÉ UN TITRE QUE JE N'AVAIS PAS
+MESURÉ.** La décomposition citait `memeRadical` et `estSigleDe` au caractère
+près, et concluait que `[[adc-en|ADC]]` serait candidat parce que le titre de
+sa cible serait *« Reading an analog sensor »*. **Le `title:` d'`adc-en` est
+`ADC`** — donc `a === b`, radical commun, aucun candidat. *La sortie le dit
+elle-même deux lignes plus haut : `[[adc-en|analog-to-digital]] cible
+intitulée : ADC`. « Reading an analog sensor » est le titre d'une **autre**
+fiche, `micropython-capteur-analogique-en`, qui elle rend bien cinq candidats
+`ADC`.* **C118 en plein : aucun chiffre sans mesure du jour — et un titre est
+un chiffre.** *La règle du 29/08 dit de lire le code plutôt que le README ;
+elle ne dispense pas de mesurer les données qu'on lui donne.*
+
+✅ **ET LE TERME QUI PORTAIT LA CLAUSE C125 TIENT EXACTEMENT.** **Zéro candidat
+créé par les trois `title:` qualifiés** : les vingt-deux libellés visant
+`stm32-cubemx-en`, `stm32-hal-en` et `stm32-registres-en` partagent tous un
+radical avec leur titre. **Quatrième épreuve de la clause du 29/08 (suite 9),
+et la première sur trois titres à la fois** — *qualifier un titre par sa
+famille reste gratuit au regard de `--libelles`.* Les deux candidats réellement
+apparus sont **des sigles**, `CMSIS` et `I2C/SPI`, la famille que la clause
+nomme déjà et qui n'a rien à voir avec le choix des titres.
+
+⚠ **P36.16 — LE COMPTEUR DE PUCES FR N'EST TOUJOURS PAS REPRODUCTIBLE, ET
+C'EST LA DEUXIÈME CLÔTURE D'AFFILÉE.** Le côté anglais **se referme au
+caractère et sur ses deux termes** : **866 + 4 = 870** puces, **140 + 2 = 142**
+porteuses — les deux fiches EN neuves qui gardent une glose, `cubemx-en` et
+`hal-en`, `registres-en` n'en gardant aucune. **Le motif est donc prouvé
+identique à celui du lot 5.** Côté français, la même mécanique devrait rendre
+**1 023 − 11 = 1 012** sur **169** porteuses (`stm32-registres` quitte
+l'ensemble en tombant à 0) ; elle rend **1 027 sur 173**. **Écart : +15 puces,
++4 porteuses.**
+
+**Ce que la réfutation permet d'affirmer, et ce qu'elle interdit.** *Le motif
+n'est pas en cause* — il vient de reproduire l'anglais sur ses deux termes. *La
+population l'est.* Ma population FR est déclarée : **tous les `.md` sous
+`content/` hors `content/en/` = 248 fichiers**, dont **7 hors des trois
+branches** (`index.md`, `ressources/index.md` et les cinq `templates/`) qui
+portent **18 puces sur 5 porteuses**. Les retirer donne **1 009 sur 168**, qui
+ne se referme pas davantage (−3, −1). **Aucune des deux populations ne
+reproduit 1 023 / 170**, et je ne sais pas laquelle le lot 5 a mesurée : sa
+sortie ne l'a pas déclarée.
+
+⚠ **CANDIDATE QUI EN SORT, VERSÉE AU §8 À 0/N** : *un compteur qui se remesure
+d'une clôture à l'autre déclare sa population **dans sa sortie**, pas dans le
+message qui la commente.* **Le corollaire opératoire de la clause de périmètre
+C109 dit que ce compteur ne se reporte jamais et se remesure ; deux clôtures
+prouvent que remesurer ne suffit pas** — la suite 10 avait déjà publié une
+soustraction fausse sur ce compteur, et le lot 6 ne peut pas dire pourquoi son
+propre chiffre diffère. *C131 exige de déclarer la population d'un compteur
+qu'on **prédit** ; il y manque de l'exiger du compteur qu'on **publie comme
+référence**.*
+
+**Nouvelle référence, avec sa population, à reporter telle quelle** :
+**FR 1 027 puces sur 173 porteuses, population = 248 fichiers `content/` hors
+`en/`** ; **EN 870 puces sur 142 porteuses, population = 206 fichiers
+`content/en/`**. Sauvegardée en `tools/puces-corpus-lot6-2908.txt`.
+
+✅ **C127 EST HORS SUJET, ET LE LANCEMENT LE PROUVE AU LIEU DE LE SUPPOSER.**
+`mesure-chevron --tout` rend **449 fiches balayées, 68 porteuses, 34 paires des
+deux côtés, 0 divergente** — **strictement la référence du lot 5**. *Le lot a
+ajouté trois fiches EN et n'a pas bougé le compteur d'une unité, ce qui est
+exactement ce que « aucune porteuse dans le lot » veut dire.* **Premier lot
+depuis le lot 2 où ce lancement ne sert qu'à confirmer une référence.**
+
+✅ **L'HORLOGE A FRANCHI MINUIT, ET L'ÉTIQUETTE C124 A SUIVI SANS QUE RIEN NE
+CASSE.** `Get-Date -Format 'ddMM'` rend `3008`, le rang repart à **1**, et la
+copie sort en `tools\batterie-sortie-3008b1.txt` — **prédit au bloc 36 et
+publié comme condition explicite dès P30.2, six blocs plus tôt.** ⚠ *Deux
+conventions de nommage cohabitent désormais dans `tools/` pour une seule
+séance : les sorties de batterie sont datées par **l'horloge** (C124 exige que
+l'étiquette soit lue et non composée de mémoire), les artefacts nommés à la
+main le sont par **la séance** — `puces-corpus-lot6-2908.txt`,
+`predictions-260829.md`. **C'est la séance qui date un livrable, l'horloge qui
+date une mesure.** Écrit ici parce que la prochaine séance après minuit
+retrouvera le cas.*
+
+---
+
+# GATE G5 — CLÔTURE DU LOT 6, `stm32/` FERMÉ
+
+**3 fiches EN rédigées, corpus 203 → 206.** **51 remplacements C109** sur 3
+sources FR, sous **65 candidats jugés un par un** (50 `--style` + 15 puces),
+**53 traités, 12 exemptés**. **Deux tests négatifs délibérés, deux refus, zéro
+fichier écrit.**
+
+**Tailles** (batterie `3008b1`) — Corpus FR **291 241 → 291 242**. Traduites
+**203 → 206 fiches, 236 310 → 241 037 mots FR** ; restant **39 → 36 fiches,
+54 931 → 50 205**. Foisonnement **206 paires : 241 037 → 250 151 mots EN**,
+moyenne **3,8 %** ; lot à **+2,3 / +1,4 / +0,9 %**. `--controle` **206 fiches,
+0 divergente, 0 lien non suffixé sur 0**. Dérive **`MARQUE INVALIDE 0`,
+`DERIVE 0`, `A JOUR 206`**. **Titres : FR 243 / 243 / 0 ; EN 206 / 206 / 0.**
+Chevron `--tout` : **449 balayées, 68 porteuses, 34 paires des deux côtés, 0
+divergente**, inchangé. **Anneau 2 : 145 net, 112 traduites, 33 restantes,
+47 937 mots, 0 porteuse.** **Dette 34 cibles, 48 777 mots.** **Wikilinks : 34
+mortes, 0 cassée, 0 ambiguë, 8 gabarits, 6 alias, 450 ok.** **Médias 454
+fiches, 678 embeds.** `--libelles` **3 775 / 3 486 / 289 / 109 / 16**.
+⚠ **Puces du corpus, remesurées AVEC LEUR POPULATION : FR 1 027 sur 173
+porteuses (248 fichiers), EN 870 sur 142 porteuses (206 fichiers).**
+
+**Cumul de la séance : 7 blocs (30 à 36), 5 gates, 124 prédictions au
+décompte, 119 tenues, 5 réfutées — taux 4,0 %.** Décompte bloc par bloc :
+**12/12/0, 31/30/1, 16/16/0, 22/22/0, 14/14/0, 12/11/1, 17/14/3.**
+**Zéro arrêt, zéro sollicitation de Tim, deux incidents consignés.**
+
+
+---
+
+## Bloc 37 — clôture §7 (JOURNAL, conventions) et livraison
+
+Commandes prévues :
+
+1. `node tools/normalize-pilotage.js` **avant** tout diff sur les fichiers de
+   pilotage (règle `CLAUDE.md`)
+2. écriture de l'entrée `JOURNAL.md` du 29/08 (suite 11) et des mises à jour
+   de `conventions.md` (compteurs d'épreuve, candidate neuve au §8)
+3. `git status` et `git diff --numstat` de clôture
+
+### Déclaration C131 du bloc 37 (population, versements, total)
+
+**Versements présents quand le `git status` de clôture lit le compteur,
+nommément :** `tools/predictions-260829.md` (**1** ` M`, filtré) ;
+`batterie-sortie-2908b52|53|54|55|56|57.txt` et `batterie-sortie-3008b1.txt`
+(**7**, filtrés) ; `chevron-lot6-2908.txt`, `puces-lot6-avant.txt`,
+`puces-lot6-en.txt`, **`puces-corpus-lot6-2908.txt`** (**4**, comptés) ;
+`passe-c109-lot6-2908.tsv`, `passe-negatif-lot6-2908.tsv` (**2**, comptés) ;
+`table-titres-lot6-2908.tsv`, `table-titres-negatif-lot6-2908.tsv` (**2**,
+comptés) ; les **3 sources FR** en ` M` (**3**) ; les **3 fiches EN** en `??`
+(**3**) ; ⚠ **`JOURNAL.md` et `conventions.md`**, que **ce bloc** fait passer
+en ` M` (**2**, comptés).
+
+**Total impliqué : 1 + 7 + 4 + 2 + 2 + 3 + 3 + 2 = 24. Hors artefacts de
+séance : 16**, liste nominative complète : 4 sorties de mesure, 2 TSV de
+passe, 2 tables de titres, 3 sources FR, 3 fiches EN, 2 fichiers de pilotage.
+
+⚠ *La déclaration du bloc 36 valait 22 / 14 ; ce bloc **s'ajoute lui-même**
+les deux fichiers de pilotage qu'il écrit. C'est l'amendement C131 du 29/08
+(suite 8) appliqué : les artefacts d'un bloc se décident dans le bloc.*
+
+### Prédictions du bloc 37
+
+- **P37.1** — `normalize-pilotage.js` : **aucune ligne modifiée** sur les
+  quatre fichiers de pilotage avant écriture, l'état étant celui laissé par la
+  clôture du lot 5, déjà normalisé.
+- **P37.2** — `git status` de clôture : **24   (hors artefacts de seance :
+  16)**.
+- **P37.3** — `git diff --numstat` côté `content/` : **inchangé depuis le
+  bloc 33**, `11 / 11`, `20 / 20`, `15 / 15`, **et rien d'autre** — la clôture
+  n'écrit que dans `JOURNAL.md` et `conventions.md`.
+- **P37.4** *(terme décomposé, celui qui peut réfuter)* — `git diff --numstat`
+  sur `conventions.md` rend des **suppressions strictement positives et
+  inférieures à 20** : les lignes `Éprouvée N/N` réécrites (clause de
+  périmètre C109 **3/N → 4/N**, clause C125 **1/N → 2/N**, C127 inchangée) et
+  la ligne de candidate neuve insérée au §8. *Une suppression nulle voudrait
+  dire qu'aucun compteur d'épreuve n'a été touché, donc que la documentation
+  n'a rien enregistré.*
+- **P37.5** — `JOURNAL.md` : **ajouts strictement positifs, suppressions
+  égales à 1** — l'entrée neuve s'insère sous le marqueur
+  `<!-- INSERT_JOURNAL_HERE -->`, qui est réécrit à l'identique, et **aucune
+  entrée existante n'est touchée** (C128 : la coupe se déclenche à l'ouverture
+  d'un chantier neuf, et le chantier de traduction est en cours).
+
+**Total : 5 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 37
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P37.1 | `normalize-pilotage` : aucune ligne modifiée | **0 caractère(s) à corriger, 0 fichier(s) modifié(s)**, deux lancements | tenue |
+| P37.2 | `git status` **24   (hors artefacts : 16)** | **24 / 16** | tenue |
+| P37.3 | `numstat -- content/` inchangé : 11/11, 20/20, 15/15, rien d'autre | idem | tenue |
+| P37.4 | `conventions.md` : suppressions **> 0 et < 20** | **58 ajouts, 3 suppressions** | tenue |
+| P37.5 | `JOURNAL.md` : ajouts > 0, **suppressions = 1** | **46 ajouts, 0 suppression** | **RÉFUTÉE** |
+
+**5 prédictions, 4 tenues, 1 réfutée.**
+
+⚠ **P37.5 — J'AI PRÉDIT UNE SUPPRESSION PARCE QUE J'IMAGINAIS UNE RÉÉCRITURE,
+ET L'INSERTION N'EN EST PAS UNE.** Le raisonnement : l'entrée s'insérant sous
+`<!-- INSERT_JOURNAL_HERE -->`, ce marqueur serait « réécrit à l'identique »,
+donc compté 1 supprimé / 1 ajouté. **Faux** : l'insertion se fait *après* le
+marqueur **et son saut de ligne**, donc aucune ligne existante ne change et
+`git diff` rend une **insertion pure**, 46 / 0. *Un diff ne compte pas les
+lignes réécrites à l'identique, il compte celles qui changent — et une
+insertion n'en change aucune.* ✅ **Le terme utile de la prédiction tient
+quand même** : **aucune entrée existante n'a été touchée**, ce que la
+suppression nulle prouve mieux qu'une suppression à 1.
+
+✅ **P37.4 A SERVI COMME ÉCRIT.** *« Une suppression nulle voudrait dire
+qu'aucun compteur d'épreuve n'a été touché, donc que la documentation n'a rien
+enregistré. »* Les **3** suppressions sont exactement les trois lignes
+`Éprouvée` réécrites — clause de périmètre C109 **3/N → 4/N**, clause C125
+**1/N → 2/N**, candidate des titres de section **0/N → 1/N** —, et les
+**58** ajouts portent les trois épreuves plus la candidate neuve.
+
+---
+
+## Bloc 38 — tailles de clôture (garde-fou de C128)
+
+⚠ *C128 abandonne le plafond par entrée et **remplace le seuil par la série
+des tailles publiées à chaque clôture** : « une dérive se lit dans la série de
+ces chiffres, pas dans un seuil franchi ». La suite 10 n'a pas publié cette
+ligne ; celle-ci la reprend.* **Mesures prises après la dernière écriture**,
+comme la suite 9 l'exige — *une taille publiée à la clôture doit dater de la
+fin de la séance, pas de son avant-dernier bloc.*
+
+**Mesure d'entrée, non prédictive** : le fichier d'entrée du JOURNAL pèse
+**N octets**, relevé avant insertion ; les prédictions ci-dessous en dérivent.
+
+### Prédictions du bloc 38
+
+- **P38.1** — `JOURNAL.md` : **entre 566 et 582 ko**, point **574**.
+  *Base : 545,1 ko à la suite 9, plus l'entrée de la suite 10 (12,4 ko de
+  moyenne sur 34 entrées du chantier), plus les 46 lignes de celle-ci.*
+- **P38.2** — `conventions.md` : **entre 458 et 466 ko**, point **462**.
+  *Base : 454,2 ko à la suite 9, plus les deux clauses de la suite 10, plus
+  les 58 lignes ajoutées ce soir.*
+- **P38.3** — `TODO.md` : **282,7 ko**, **inchangé** — aucun bloc de la séance
+  ne l'a ouvert, et sa `mtime` est restée à `2026-08-29 21:48:08` aux huit
+  gardes.
+- **P38.4** — `BACKLOG.md` : **206,0 ko**, **inchangé**, même motif.
+- **P38.5** — `tools/predictions-260829.md` : **au-dessus de 250 ko**, la
+  séance y ayant ajouté **1 885 lignes** — *le fichier de prédictions est
+  désormais le plus gros artefact de pilotage du dépôt après le JOURNAL.*
+
+**Total : 5 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 38
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P38.1 | `JOURNAL.md` 566-582 ko, point **574** | **574,7 ko** | tenue |
+| P38.2 | `conventions.md` 458-466 ko, point **462** | **462,0 ko** | tenue |
+| P38.3 | `TODO.md` **282,7 ko** inchangé | **282,7 ko** | tenue |
+| P38.4 | `BACKLOG.md` **206,0 ko** inchangé | **206,0 ko** | tenue |
+| P38.5 | `predictions-260829.md` > 250 ko, deuxième plus gros après le JOURNAL | **566,3 ko**, contre 574,7 au JOURNAL | tenue |
+
+**5 prédictions, 5 tenues, 0 réfutée** — les deux points estimés tombent à
+**0,7 ko** et **0,0 ko**.
+
+⚠ **CE QUE LA SÉRIE C128 DIT, MAINTENANT QU'ELLE A TROIS POINTS.** JOURNAL
+**545,1 → 574,7 ko** en trois séances, soit **+29,6 ko pour deux entrées**,
+**14,8 ko de moyenne** contre les 12,4 relevés sur les 34 entrées du chantier.
+`conventions.md` **454,2 → 462,0**, **+7,8 ko pour trois clauses et deux
+candidates**. ⚠ **Et le fichier de prédictions, à 566,3 ko, pèse désormais
+presque autant que le JOURNAL** : il a pris **1 885 lignes** dans la seule
+séance de ce soir. *C128 surveille la dérive du JOURNAL ; personne ne surveille
+celle de `predictions-AAMMJJ.md`, qui est pourtant l'artefact qui grossit le
+plus vite du dépôt et que C116 (9) et l'arbitrage Tim (f)(ii) ont
+délibérément laissé suivi par git.* **Versé à la file, non traité.**
+
+---
+
+# BILAN GÉNÉRAL — 29/08 (SUITE 11), LOT 6, FERMETURE DE `stm32/`
+
+**134 prédictions publiées avant leur bloc, 128 tenues, 6 réfutées — taux
+4,5 %.** **Neuf blocs (30 à 38), cinq gates, zéro arrêt, zéro sollicitation de
+Tim, deux incidents consignés.**
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 30 | garde d'ouverture | 12 | 12 | 0 |
+| 31 | cadrage, borne, chevron du lot | 31 | 30 | 1 |
+| 32 | motif des puces (6 échantillons) et relevé | 16 | 16 | 0 |
+| 33 | passe C109, 51 remplacements | 22 | 22 | 0 |
+| 34 | titres de section, `title:`, 3 squelettes | 14 | 14 | 0 |
+| 35 | rédaction des 3 fiches EN | 12 | 11 | 1 |
+| 36 | clôture du lot | 17 | 14 | 3 |
+| 37 | clôture §7 | 5 | 4 | 1 |
+| 38 | tailles de clôture | 5 | 5 | 0 |
+
+✅ **ZÉRO RÉFUTATION SUR UN VERDICT, SUR TOUTE LA SÉANCE** — ni les 65
+jugements C109, ni les 3 titres, ni la doctrine d'exemption, ni les 6 formes
+de section, ni la composition du lot. **Les six réfutations sont des
+compteurs**, et quatre d'entre elles ont la même racine : *un chiffre juste
+rapporté à une base qu'on n'a pas mesurée* — la date de `stm32-hal` (bloc 31),
+la population du restant (bloc 36), le `title:` d'`adc-en` (bloc 36), la
+population du compteur de puces (bloc 36).
+
+⚠ **ET C'EST LA PREMIÈRE SÉANCE OÙ UNE RÉFUTATION NE PEUT PAS ÊTRE EXPLIQUÉE.**
+Les cinq autres se lisent après coup ; celle du compteur de puces FR **reste
+ouverte** : le motif est prouvé identique par la réconciliation exacte du côté
+anglais, et aucune des deux populations testées ne reproduit la référence du
+lot 5. *La candidate versée au §8 ne corrige pas le passé — elle empêche le
+cas de se reproduire, en imposant que la population voyage avec le chiffre.*
