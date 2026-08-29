@@ -5599,3 +5599,249 @@ la mesure, est ce qui a manqué aux cinq soustractions du bloc 20.*
 blocs 18 et 20 : `ded` (243) et `candidats a lire` (105). *Elles sont fausses
 deux fois parce qu'elles ont été écrites deux fois — les compter une seule
 ramènerait le taux à 9,0 %, et ce serait se faire une remise.*
+
+---
+
+# BLOC 21 — LES DEUX ARBITRAGES RENDUS, DOCUMENTÉS ET CLÔTURÉS
+
+**Décision Tim, à la clôture du 29/08 (suite 9)** : *« je suis ok avec tes
+arbitrages, tu peux les documenter et les clôturer »*. **Les deux assomptions
+écrites sous C116 (8) cessent d'en être** — (a) le périmètre des puces à tiret
+dans un lot de traduction, (b) le `title:` de `teensy-arduino-core-en` en
+écart de la forme de production. **Aucun revert n'est à jouer** : les 65
+remplacements et les 4 `title:` restent tels qu'écrits.
+
+## Ce que la clôture écrit, et où
+
+⚠ **UNE ASSOMPTION RENDUE NE SE CLASSE PAS AU MÊME ENDROIT QU'UNE ASSOMPTION
+APPLIQUÉE.** (a) tranche une **contradiction entre deux textes en vigueur** —
+l'amendement C109 du 29/08 (suite 8) et la file d'arbitrages qui ouvre le
+chantier « sur le reste du corpus » : elle se loge donc **dans l'amendement
+qu'elle borne**, pas au §8. (b) est une **application de C125** qui contredit
+la contraposée publiée au §8 : elle se loge **dans C125**, et elle **discharge
+la troisième épreuve** que la candidate du §8 attendait.
+
+1. **`conventions.md`, amendement C109 du 29/08 (suite 8)** — clause de
+   périmètre : *un lot de traduction traite ses propres puces ; le chantier ne
+   porte que ce qu'aucun lot n'a traversé.* `Éprouvée 1/N` → **2/N**.
+2. **`conventions.md`, C125** — clause : *un titre qui **englobe** une forme de
+   production ne crée aucun candidat `--libelles`*, avec le mécanisme lu dans
+   le code (`memeRadical`, préfixe de cinq lettres) et non dans le README.
+   `Éprouvée 1/N … texte amendé 0/N` → **2/N … 1/N**.
+3. **`conventions.md`, §8** — la candidate *« un `title:` EN arrêté au test 3
+   ne crée aucun candidat `--libelles` »*, à **2/N** depuis la suite 8 avec
+   pour condition explicite *« à promouvoir en clause de C125 à la troisième
+   épreuve »*, est **retirée** : la troisième épreuve a eu lieu ce soir et
+   elle l'a **élargie** au lieu de la confirmer telle quelle. La clause de
+   C125 la remplace.
+4. **`conventions.md`, §8** — **deux candidates neuves à 0/N**, nées des
+   réfutations de la séance.
+5. **`JOURNAL.md`, entrée du 29/08 (suite 9)** — quatre reprises : la puce
+   *Décisions Tim*, la puce *Conventions*, un paragraphe de clôture, et la
+   ligne *Arbitrages en attente* dont les deux premiers items sortent.
+
+## Déclaration C131 — bloc 21
+
+**Population** : `git status --porcelain`. **État d'entrée mesuré : 20 entrées**
+(6 ` M`, 14 `??`), relevé après l'insertion de l'entrée JOURNAL.
+**Versements de ce bloc avant la lecture de la garde**, liste nominative :
+1. `tools/batterie-sortie-2908b43.txt` — `??`, créé par l'étape 0 de la garde,
+   rang **43**. **+1**, **filtré**.
+
+**Total à la garde : 21. Hors artefacts : 12.**
+*Recomptage nominatif du terme filtré : `predictions-260829.md` (1) +
+`batterie-sortie-2908b36` à `b43` (8) = **9 filtrés** ; `JOURNAL.md` (1) +
+4 sources FR + 4 fiches EN + 3 TSV = **12 comptés** ; 9 + 12 = 21.*
+
+**Après les éditions : 22 / 13** — `conventions.md` passe en ` M`, et il n'est
+filtré par aucun des deux motifs.
+
+## Prédictions — bloc 21
+
+**21a — garde**
+- **P21.1** — copie **b43**, `lignes non ASCII` **0**, `HEAD c25abf6`.
+- **P21.2** — `fichiers modifies non commites` : **21**, hors artefacts **12**.
+- **P21.3** — ⚠ **`JOURNAL.md` porte une date du jour postérieure à 22:20**,
+  et **ce n'est pas une péremption** : c'est l'entrée que ce bloc vient
+  d'insérer. `conventions.md` **inchangé à 21:45:41** — il n'a pas encore été
+  touché. `TODO.md` **inchangé à 21:48:08**.
+- **P21.4** — dates des 4 sources FR **inchangées à 22:14:08**.
+
+**21b — éditions**
+- **P21.5** — `conventions.md` : **4 éditions**, aux quatre emplacements
+  nommés ci-dessus.
+- **P21.6** — `git diff --numstat` sur `conventions.md` : **suppressions
+  exactement 20** — les **18 lignes** de la candidate du §8 retirée, plus les
+  **2 lignes `Éprouvée`** réécrites (une dans l'amendement C109, une dans
+  C125). Ajouts entre **40 et 60**.
+  ⚠ *Prédiction décomposée et non un total : si les suppressions ne valent pas
+  20, une édition a mordu ailleurs que là où je la crois.*
+- **P21.7** — `JOURNAL.md` : **4 éditions**, `numstat` cumulé depuis HEAD
+  passant de `40 0` à **`N 0` avec N entre 42 et 48** — l'entrée n'existe pas
+  au HEAD, donc **aucune suppression ne peut apparaître**. ⚠ *C'est le
+  corollaire C131 sur les diffs cumulés, pris dans le sens favorable : un
+  fichier dont le bloc précédent a ajouté des lignes non commitées ne rend que
+  des ajouts.*
+- **P21.8** — `node tools/normalize-pilotage.js` : **`0 caractere(s) a
+  corriger, 0 fichier(s) modifie(s)`**, avant comme après les éditions.
+- **P21.9** — `git status` après éditions : **22 / 13**.
+- **P21.10** — **aucun fichier de `content/` touché** : la clôture d'un
+  arbitrage documente, elle ne réédite pas. `git diff --numstat -- content/`
+  **inchangé à `18 18`, `15 15`, `13 13`, `10 10`**.
+- **P21.11** — `titres-doublons.mjs` après clôture : **FR 243 / 243 / 0,
+  EN 201 / 201 / 0**, inchangé — aucun `title:` n'est touché par (b) clôturé,
+  puisque (b) **confirme** le titre déjà écrit.
+- **P21.12** — `--libelles` `candidats a lire` : **106**, inchangé — même
+  motif.
+
+## ⚠ LA GARDE DU BLOC 21 A MORDU — HEAD A CHANGÉ ENTRE LE GATE G5 ET CE BLOC
+
+**Constat** : `HEAD c25abf6` → **`76d83cb 2026-08-29 22:31:11`**,
+`fichiers modifies non commites` **2 (hors artefacts 0)** là où j'avais prédit
+**21 / 12**. **Tim a passé `livrer.ps1` pendant la séance**, entre la clôture
+du lot 4 et l'ouverture de ce bloc.
+
+**Vérification avant toute écriture, comme la garde l'exige.** Le commit
+`76d83cb` porte **20 fichiers, 2 352 insertions, 56 suppressions** : les 4
+sources FR (36 / 30 / 26 / 20 lignes, **soit 18 + 15 + 13 + 10 doublées**, le
+`numstat` du bloc 16 au caractère près), les 4 fiches EN (188 / 152 / 203 /
+151), l'entrée JOURNAL (40), les 7 sorties de batterie, les 3 TSV et le
+fichier de prédictions (1 053). **Rien d'inattendu, rien de perdu, rien
+d'étranger au lot.** Les **2** fichiers restants sont
+`tools/predictions-260829.md` — l'append de ce bloc-ci, écrit **après** le
+commit — et `tools/batterie-sortie-2908b43.txt`, créé par cette garde.
+**Aucun arrêt : l'état est expliqué en entier.**
+
+⚠ **C'EST LA PREMIÈRE FOIS DE LA SÉRIE QUE LA GARDE ATTRAPE UN HEAD
+DIFFÉRENT, ET C'EST EXACTEMENT CE POUR QUOI ELLE EXISTE** — *« un écart avec le
+relevé précédent = ARRÊT (incident du 29/08, deux sessions sur le même
+dépôt) »*, en-tête de `batterie.ps1`. Les deux sessions, ce soir, sont **Tim et
+moi**. *La garde a été écrite pour un poste pro et un poste perso ; elle sert
+d'abord contre un commit passé au bon moment par la bonne personne.*
+
+### Prédictions du bloc 21 que le commit invalide, republiées avant écriture
+
+- **P21.1** — tenue sur `b43` et `0 non ASCII`, ⚠ **réfutée sur `HEAD
+  c25abf6`**.
+- **P21.2** — ⚠ **réfutée** : prédit 21 / 12, mesuré **2 / 0**.
+- **P21.3** — tenue : `JOURNAL.md` **22:28:55** (l'entrée que le bloc 20 a
+  insérée), `conventions.md` **21:45:41** inchangé, `TODO.md` **21:48:08**
+  inchangé.
+- **P21.4** — tenue : les 4 sources FR **inchangées à 22:14:08**. *Le commit
+  ne réécrit pas les fichiers, il ne change aucune date d'écriture — le même
+  constat qu'à P14.9, et cette fois il est prédit et non subi.*
+
+**Déclaration C131 refaite pour la suite du bloc.** Population : `git status
+--porcelain` sur un arbre dont **tout le lot 4 est commité**. Entrées
+actuelles : `tools/predictions-260829.md` ` M` (filtré),
+`tools/batterie-sortie-2908b43.txt` `??` (filtré). **2 / 0.**
+Versements des éditions à venir : `conventions.md` ` M` (**+1**, compté),
+`JOURNAL.md` ` M` (**+1**, compté). **Total après éditions : 4. Hors
+artefacts : 2.**
+
+- **P21.6 bis** — `conventions.md` : suppressions **exactement 20** (18 lignes
+  de la candidate §8 retirée + 2 lignes `Éprouvée` réécrites), ajouts entre
+  **40 et 60**. *Inchangé : `conventions.md` était propre au HEAD précédent
+  comme au nouveau.*
+- **P21.7 bis** — ⚠ **`JOURNAL.md` ne rendra plus `N 0` mais `N N`.** L'entrée
+  du 29/08 (suite 9) **est désormais dans HEAD** : le diff ne cumule plus
+  40 lignes d'ajout, il repart de zéro et ne montre que les **4 lignes
+  réécrites**. **Prédiction : `numstat` de `JOURNAL.md` entre `4 4` et
+  `8 8`, ajouts = suppressions.** *Le corollaire C131 sur les diffs cumulés
+  vaut dans les deux sens : un commit extérieur remet le cumul à zéro, et une
+  prédiction écrite avant ce commit devient fausse sans qu'aucune édition
+  n'ait bougé.*
+- **P21.9 bis** — `git status` après éditions : **4 / 2**.
+- **P21.10 bis** — ⚠ **`git diff --numstat -- content/` sera VIDE**, et non
+  `18 18 / 15 15 / 13 13 / 10 10` : tout `content/` est commité. **Le contrôle
+  que P21.10 voulait faire — « aucun fichier de `content/` touché par la
+  clôture » — se lit désormais dans un diff vide, ce qui est un test plus dur
+  que l'égalité à quatre couples.**
+- **P21.11 et P21.12** — inchangées : **FR 243 / 243 / 0, EN 201 / 201 / 0** ;
+  `candidats a lire` **106**.
+- **P21.13** (neuve) — ⚠ **un SECOND commit sera dû à Tim** : la clôture des
+  deux arbitrages tombe après la livraison du lot, et le bloc de livraison de
+  fin de séance en portera donc deux.
+
+## Bilan bloc 21 — 13 prédictions, 8 tenues, 5 réfutées
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P21.1 | b43, 0 non ASCII, **`HEAD c25abf6`** | b43, 0, **`76d83cb`** | ⚠ **réfutée sur HEAD** |
+| P21.2 | **21 / 12** | **2 / 0** | ⚠ **réfutée** |
+| P21.3 | JOURNAL daté du jour, conventions 21:45:41, TODO 21:48:08 | 22:28:55 / 21:45:41 / 21:48:08 | tenue |
+| P21.4 | 4 sources FR à 22:14:08 | inchangées | tenue |
+| P21.5 | **4 éditions** sur `conventions.md`, aux 4 emplacements | **3 éditions**, aux **4 emplacements** | ⚠ **réfutée sur le compte** |
+| P21.6 bis | suppressions **exactement 20**, ajouts 40-60 | suppressions **20**, ajouts **83** | ⚠ **réfutée sur les ajouts, tenue sur le terme décisif** |
+| P21.7 bis | `JOURNAL.md` entre `4 4` et `8 8`, ajouts = suppressions | **`8 6`** | ⚠ **réfutée** |
+| P21.8 | normalize `0 / 0` | `0 caractere(s), 0 fichier(s)` | tenue |
+| P21.9 bis | **4 / 2** | **4 / 2** | tenue |
+| P21.10 bis | `git diff -- content/` **vide** | **vide** | tenue |
+| P21.11 | FR 243 / 243 / 0, EN 201 / 201 / 0 | idem | tenue |
+| P21.12 | `candidats a lire` **106** | **106** | tenue |
+| P21.13 | un **second commit** dû à Tim | consigné au JOURNAL | tenue |
+
+⚠ **TROIS DES CINQ RÉFUTATIONS ONT UNE CAUSE EXTÉRIEURE, ET DEUX SEULEMENT
+SONT DE MOI.** P21.1 et P21.2 ont été publiées **avant** que le commit de Tim
+n'existe : elles ne sont pas fausses par raisonnement, elles sont **périmées
+par un événement**, et c'est précisément ce que la garde de péremption est là
+pour rendre visible. **P21.5, P21.6 et P21.7 bis ont été écrites en
+connaissance du commit** et sont miennes.
+
+⚠ **P21.7 BIS EST LA PLUS INSTRUCTIVE : J'AI CORRIGÉ LA PRÉDICTION POUR LE BON
+MOTIF ET JE L'AI QUAND MÊME MANQUÉE.** Voyant le commit, j'ai vu que
+`JOURNAL.md` cesserait de rendre `40 0` pour rendre `N N` — le cumul remis à
+zéro. **J'ai alors supposé `ajouts = suppressions`, ce qui suppose que les
+quatre reprises ne fassent que **remplacer** des lignes.** Or l'une d'elles
+transforme un paragraphe en **paragraphe plus bloc de commande** : `8 6`,
+**+2 lignes nettes**. *Le corollaire C131 sur les diffs a été appliqué
+correctement, et une hypothèse non écrite s'est glissée sous lui — « une
+réécriture conserve le nombre de lignes ».*
+
+✅ **LE TERME DÉCISIF DE P21.6 TIENT, ET C'ÉTAIT LE POINT.** J'avais écrit
+*« prédiction décomposée et non un total : si les suppressions ne valent pas
+20, une édition a mordu ailleurs que là où je la crois »*. **Suppressions =
+20** — les 18 lignes de la candidate du §8 retirée, plus les 2 lignes
+`Éprouvée` réécrites. *Les ajouts, eux, sont de la prose neuve dont je n'avais
+aucune raison de connaître le volume : la fourchette était le mauvais outil,
+et le compte de suppressions le bon.*
+
+✅ **AUCUN FICHIER DE `content/` N'A ÉTÉ TOUCHÉ PAR LA CLÔTURE.**
+`git diff --numstat -- content/` rend **vide**, et `titres-doublons` comme
+`--libelles` sont **inchangés** — 243 / 243 / 0, 201 / 201 / 0, 106.
+*Clôturer un arbitrage documente ; les deux arbitrages étant rendus **pour**,
+il n'y avait rien à rééditer, et la mesure le prouve au lieu de l'affirmer.*
+
+---
+
+# BILAN GÉNÉRAL RÉVISÉ — 29/08 (suite 9)
+
+**122 prédictions publiées avant leur bloc, 106 tenues, 16 réfutées — taux
+13,1 %.** **Huit blocs, six gates, zéro arrêt.** Une intervention de Tim : les
+**deux arbitrages rendus** à la clôture, plus le commit du lot passé en cours
+de séance.
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 14 | garde d'ouverture | 12 | 11 | 1 |
+| 15 | cadrage, composition du lot | 23 | 22 | 1 |
+| 16 | passe C109, 65 remplacements | 23 | 23 | 0 |
+| 17 | génération des 4 squelettes | 14 | 14 | 0 |
+| 18 | rédaction des 4 fiches EN | 13 | 10 | 3 |
+| 19 | correctif É1, titres de section | 10 | 9 | 1 |
+| 20 | clôture du lot | 14 | 9 | 5 |
+| 21 | clôture des deux arbitrages | 13 | 8 | 5 |
+
+✅ **ZÉRO RÉFUTATION SUR UN VERDICT, SUR TOUTE LA SÉANCE** — ni les 87
+jugements C109, ni les 4 titres, ni la doctrine d'exemption, ni la composition
+du lot, ni le classement des deux clauses documentées ce soir.
+
+⚠ **ET LA GARDE A SERVI POUR LA PREMIÈRE FOIS SUR CE POUR QUOI ELLE A ÉTÉ
+ÉCRITE.** Huit gardes en huit blocs ; les sept premières ont rendu le HEAD
+attendu et un `git status` juste sur ses deux termes. **La huitième a rendu un
+HEAD inconnu**, et la règle a fonctionné en entier : *ne rien écrire, vérifier,
+puis écrire* — le commit a été relu fichier par fichier, ses quatre sources FR
+pesant `36 / 30 / 26 / 20` lignes, soit **le `numstat` du bloc 16 doublé**, et
+l'écriture a repris **après** republication des prédictions que le commit
+invalidait. *Une garde qui ne mord jamais ne prouve rien ; celle-ci vient de
+prouver quelque chose.*

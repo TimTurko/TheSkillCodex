@@ -1588,7 +1588,38 @@ côtés, les deux exemptions connues. **Le tiret de puce n'a jamais été dans l
 compteur : il n'en sort donc pas**, et la seule trace mesurable de l'exécution
 est le `git diff`. *Corriger le motif de `--style` reste ouvert ; le faire
 d'office rouvrirait un périmètre que l'arbitrage du 22/08 a fermé.*
-*Éprouvée 1/N.*
+
+**Clause de périmètre (arbitrage Tim du 29/08, suite 9) — un lot de traduction
+traite ses propres puces, et le chantier ne porte que ce qu'aucun lot n'a
+traversé.** Deux textes en vigueur se contredisaient sur un lot : l'amendement
+ci-dessus met les tirets de puce dans C109 par quatre cas, et la file
+d'arbitrages ouvrait en parallèle *« le chantier des puces à tiret sur le reste
+du corpus, à cadrer et à découper »*. **Le « reste » est bien un reste** : le
+chiffre `1 084 FR / 872 EN` a été mesuré **après** que la suite 8 eut traité
+les 32 puces de ses quatre fiches, donc il désigne ce que les lots n'ont pas
+encore atteint, jamais le lot en cours.
+
+*Trois motifs, et le deuxième est le décisif.* (1) **Précédent** : la première
+épreuve de l'amendement portait déjà sur les puces du lot du jour. (2)
+**Coût d'attente** : les jumelles EN d'un lot s'écrivent dans la même séance
+que la passe FR — ne pas traiter, c'est verser **des fiches EN neuves** dans
+le chantier et payer la passe **deux fois, des deux côtés**. (3) **Symétrie** :
+une puce traitée d'un seul côté est exactement l'asymétrie que le chantier
+existe pour éviter, et **aucun contrôle du dépôt ne la voit** — `--controle`
+compte les liens, les embeds et les blocs de code, `--style` ne voit pas les
+tirets de puce.
+
+**Corollaire opératoire** : le compteur `1 084 / 872` **se remesure à chaque
+clôture de lot** et n'est jamais un chiffre reporté ; il descend de ce que le
+lot a traité.
+
+**Deuxième épreuve, 29/08 (suite 9), lot 4 (`teensy/`)** : **30 puces jugées,
+20 traitées, 10 gardées**, appliquées des deux côtés, **report symétrique fiche
+par fiche — FR 0 / 3 / 0 / 7, EN 0 / 3 / 0 / 7**. ⚠ **Le glossaire du menu
+`USB Type` de `teensy-usb` sort intact des deux côtés** — sept gloses de tête,
+cinq groupes nominaux, une relative, un groupe prépositionnel —, ce qui est le
+motif même de l'arbitrage (c) du 29/08 (suite 8).
+*Éprouvée 2/N.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -2350,24 +2381,50 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   restauré ; corpus réel **`MARQUE INVALIDE 0`, `A JOUR 197`, `exit 0`**.
   *Éprouvée 1/N — la règle de geste reste au §8, mais elle n'est plus seule à
   se garder.*
-- **Un `title:` EN arrêté au test 3 sur les formes de production ne crée aucun
-  candidat `--libelles`.**
-  *Née le 29/08 (suite 7), mesurée sur les quatre titres du lot 3.* Le test 3
-  de C125 ordonne de lire les formes que la production écrit déjà — donc
-  précisément les libellés qui désignent la cible. Choisir le titre parmi eux
-  fait tomber l'heuristique de `--libelles` **à zéro par construction** :
-  **84 libellés changent de statut** (59 écrits, 25 qui cessent de viser une
-  fiche absente) et `candidats a lire` **ne bouge pas d'une unité**, à 105.
-  **Contraposée utile** : si un titre neuf fait monter le compteur, la forme
-  retenue n'était pas celle de la production.
+- **Un motif qui balaie les deux corpus s'éprouve sur un échantillon de chaque
+  langue.**
+  *Née le 29/08 (suite 9), à la quatrième application de C110 et contre elle.*
+  Le motif des puces à tiret exclut les **sections de liens**, et il avait été
+  écrit avec les deux titres **français**. Éprouvé sous C110 sur un échantillon
+  nommé dont la réponse était publiée — les quatre fiches FR du lot 3
+  d'`esp32/`, **12** —, il rendait 12 sur 12 et paraissait juste. **Appliqué au
+  corpus anglais, il n'excluait plus rien** : les gloses licites du §4
+  remontaient comme des puces à traiter et le compteur sortait à **44 au lieu
+  de 10**.
 
-  **Seconde épreuve, 29/08 (suite 8), et sur le cas le plus défavorable** : les
-  trois titres des arbitrages (a) et (b) sont changés **après** que les libellés
-  qui les visent ont été écrits. **13 libellés `Driving an on/off output`** et
-  **15 libellés `FreeRTOS` / `Multitasking with FreeRTOS`** survivent au
-  changement par les radicaux `driving`, `output` et `freertos` :
-  `candidats a lire` **reste à 105**. *À promouvoir en clause de C125 à la
-  troisième épreuve.* *Éprouvée 2/N.*
+  *Cause, et elle est dans la lettre de C110 :* la règle exige que
+  l'échantillon **contienne ce qui pourrait faire mordre le motif à tort** ;
+  un échantillon monolingue ne portait **aucune** des formes que le motif
+  devait exclure de l'autre côté. **Un motif bilingue a besoin d'un
+  échantillon par langue, et sa liste d'exclusions se relève dans le corpus,
+  jamais de mémoire** — les sections de liens s'intitulent `Voir aussi` et
+  `Aller plus loin` en français, `See also` (**194**) et `Going further`
+  (**19**) en anglais, mesuré.
+
+  ⚠ **Le correctif a trouvé un défaut que le motif ne cherchait pas** : les
+  quatre fiches EN du lot portaient `## Further reading`, forme absente du
+  corpus. **Aucun contrôle du dépôt ne l'aurait vue** — `--controle` compte
+  les liens, les embeds et les blocs de code, `--style` lit la ponctuation,
+  `titres-doublons` compare les `title:` de front matter. *Un motif de mesure
+  corrigé vaut parfois un contrôle qu'on n'a pas.* *Éprouvée 0/N.*
+- **Une soustraction entre deux totaux se fait sur deux états de même date.**
+  *Née le 29/08 (suite 9), cinq réfutations sur onze.* `RESTANT A TRADUIRE` et
+  le restant de l'anneau 2 ont été prédits **faux de +14 tous les deux**, pour
+  la même raison : le `tot` du lot **d'après la passe C109** (5 553) soustrait
+  d'un total **d'avant la passe** (63 989 et 61 721). Le bon terme est le `tot`
+  **d'avant** (5 539), et les deux chiffres mesurés tombent alors au caractère
+  près. *Les fiches quittent le restant avec le poids qu'elles avaient en y
+  entrant ; les mots qu'une passe leur ajoute vont au corpus et aux traduites,
+  jamais au restant.*
+
+  **Place dans la famille C131.** C131 dit de déclarer la **population** d'un
+  compteur ; cette règle dit de déclarer l'**instant** auquel on la rapporte.
+  ⚠ *La séance a tenu `git status` **sept fois sur sept**, y compris à 19 / 11
+  recompté nominativement : le compteur n'était plus le problème, l'état
+  auquel on le rapportait l'était.* Et une correction écrite **en cours de
+  rédaction** a porté sur l'unité (`deh` contre `tot`) sans voir la date —
+  *la vigilance se trompe de dimension quand elle n'a qu'un terme à
+  surveiller.* *Éprouvée 0/N.*
 - **Une déclaration C131 se termine par le total qu'elle implique.**
   *Née le 29/08 (suite 6), à la première application de C131 et contre elle.*
   La déclaration d'ouverture du bloc G énumérait correctement **deux**
@@ -2782,7 +2839,13 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
   **Règle d'usage qui en sort** : après un lot, les groupes de collision se relèvent **des deux côtés** et se comparent. Un groupe présent d'un seul côté est un défaut de report, jamais une nuance de langue — soit la traduction a inventé une distinction, soit elle en a effacé une. Le contrôle ne coûte qu'un lancement de `titres-doublons.mjs`, et **aucun autre mode ne le rend** : `--controle` compare une fiche EN à sa source, `--libelles` un libellé au titre de sa cible, ni l'un ni l'autre deux `title:` entre eux.
 
-  *Éprouvée 1/N, dans son texte d'origine ; le texte amendé est à 0/N.*
+  ⚠ **Clause du 29/08 (suite 9), arbitrage Tim : un titre qui ENGLOBE une forme de production ne crée aucun candidat `--libelles`, et la contraposée du 29/08 (suite 7) ne s'applique pas à lui.** Cette clause remplace la règle d'usage *« un `title:` EN arrêté au test 3 ne crée aucun candidat »*, éprouvée 2/N au §8 et **élargie plutôt que confirmée** à sa troisième épreuve. Le cas : `teensy-arduino-core-en` **s'écarte** de la forme de production `Programming with the Arduino core` (2 occurrences) pour `Programming the Teensy with the Arduino core`, afin de ne pas effacer le qualificatif de famille que le `title:` français porte — motif de l'arbitrage (b) du 29/08 (suite 8), et la jumelle `esp32-arduino-core-en` portait déjà `Programming the ESP32 with the Arduino core`. La contraposée prédisait une **montée** de `candidats a lire` ; **le compteur n'a pas bougé de ce fait**.
+
+  **Le mécanisme se lit dans le code, pas dans le README** (règle du 29/08) : `--libelles` ne signale un libellé que si **aucun** de ses mots utiles ne partage un **préfixe de cinq lettres** avec un mot du `title:` de sa cible (`memeRadical`). Un titre qui **contient** la forme de production partage donc tous ses radicaux — ici `programming`, `arduino` et `core`. *La contraposée reste vraie pour un titre qui **remplace** la forme de production par une autre ; elle est fausse pour un titre qui l'**allonge**.* **Conséquence pratique : qualifier un titre par sa famille est gratuit au regard de `--libelles`**, ce qui retire la seule objection mesurable au motif du 26/08.
+
+  ⚠ **Ce que la clause ne dit pas.** Elle ne dispense pas de relever le compteur : la même clôture rend `candidats a lire` **105 → 106**, et le candidat neuf est `[[bus-de-communication-en|I2S]]` — un **sigle de bus** contre le titre `Communication buses`, que `estSigleDe` ne reconnaît pas. *Trois occurrences préexistantes de cette famille étaient déjà au compteur ; le report fidèle d'un libellé français en ajoute une quatrième, et cela n'a rien à voir avec le choix du titre.*
+
+  *Éprouvée 2/N dans son texte d'origine ; le texte amendé du 29/08 (suite 5) est à 1/N ; la clause ci-dessus est à 1/N.*
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
   « articulation avec les autres transverses » (3 pratiques : intégrer dans
