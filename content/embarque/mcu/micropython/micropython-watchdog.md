@@ -19,7 +19,7 @@ Le **chien de garde** (*watchdog*, WDT) est un [[timer|compteur]] indépendant q
 
 ## À quoi ça sert ?
 
-Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque — une bibliothèque qui attend une réponse, un capteur qui fige le code, une boucle sans sortie — il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne, il « caresse » le chien à intervalle régulier ; s'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte. C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel — pas pour masquer des bugs.
+Un système embarqué doit parfois fonctionner **sans personne pour appuyer sur reset** : une station isolée, un objet enfoui, une machine en marche. Si son programme se bloque (une bibliothèque qui attend une réponse, un capteur qui fige le code, une boucle sans sortie), il reste inerte jusqu'à coupure manuelle. Le chien de garde apporte une **robustesse** : tant que le programme tourne, il « caresse » le chien à intervalle régulier. S'il se bloque, le chien n'est plus nourri, et au bout de son délai il **réinitialise** la carte. C'est un mécanisme de **dernier recours**, à introduire en [[integration-et-tests|phase d'intégration]] pour fiabiliser un système déjà fonctionnel, pas pour masquer des bugs.
 
 ## Procédure pas à pas
 
@@ -57,7 +57,7 @@ Le délai doit être **plus long que le pire temps de boucle normal**, sinon le 
 
 ## Exemple — Fiabiliser un montage qui peut se bloquer
 
-Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre — figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
+Un montage interroge un capteur sur un bus qui peut, rarement, ne jamais répondre, figeant le programme. Le chien de garde garantit qu'en cas de blocage, la carte redémarre au lieu de rester muette.
 
 ```python
 from machine import WDT, Pin, ADC
@@ -74,7 +74,7 @@ while True:
     sleep(0.5)                    # (bien en deca des 8 s)
 ```
 
-En fonctionnement normal, la boucle nourrit le chien toutes les ~500 ms, bien sous les 8 s : rien ne se passe. Mais si la lecture se bloque, `feed()` n'est plus atteint, et au bout de 8 s la carte redémarre — réexécutant `main.py`, qui réaffiche « Demarrage ». Le système se **rétablit seul**. Le `sleep(0.5)` est ici inoffensif car bien inférieur au délai ; dans un programme [[micropython-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative (ou via `asyncio`).
+En fonctionnement normal, la boucle nourrit le chien toutes les ~500 ms, bien sous les 8 s : rien ne se passe. Mais si la lecture se bloque, `feed()` n'est plus atteint, et au bout de 8 s la carte redémarre, réexécutant `main.py`, qui réaffiche « Demarrage ». Le système se **rétablit seul**. Le `sleep(0.5)` est ici inoffensif car bien inférieur au délai. Dans un programme [[micropython-programmation-non-bloquante|non bloquant]], on nourrirait le chien dans la boucle coopérative (ou via `asyncio`).
 
 Le symptôme est visible au [[micropython-repl|REPL]] sans rien mesurer : les valeurs s'arrêtent, quelques secondes passent, et `Demarrage` réapparaît.
 
@@ -88,11 +88,11 @@ Demarrage
 34098
 ```
 
-Personne n'a touché à la carte entre les deux `Demarrage` — c'est le chien qui a rendu la main au système.
+Personne n'a touché à la carte entre les deux `Demarrage`. C'est le chien qui a rendu la main au système.
 
 ## Pièges
 
-**Croire qu'on pourra désarmer le chien.** Sur le Pico, `WDT` **ne se désactive pas** une fois armé. Conséquence : ne pas l'armer trop tôt (avant la fin de l'init), et **ne pas lancer ensuite une opération bloquante plus longue que le délai** sans la nourrir — d'où l'intérêt d'un code [[micropython-programmation-non-bloquante|non bloquant]].
+**Croire qu'on pourra désarmer le chien.** Sur le Pico, `WDT` **ne se désactive pas** une fois armé. Conséquence : ne pas l'armer trop tôt (avant la fin de l'init), et **ne pas lancer ensuite une opération bloquante plus longue que le délai** sans la nourrir, d'où l'intérêt d'un code [[micropython-programmation-non-bloquante|non bloquant]].
 
 **Un délai plus court que la boucle normale.** Si le pire temps de boucle dépasse le délai, le chien redémarre une carte qui fonctionnait. Régler le délai **au-dessus** de la durée maximale légitime d'un tour, avec marge (dans la limite des ~8,3 s).
 
@@ -106,12 +106,12 @@ Personne n'a touché à la carte entre les deux `Demarrage` — c'est le chien q
 
 ## Cas particulier — Au-delà du plafond de ~8,3 s
 
-Le délai matériel est plafonné (~8,3 s sur RP2040/RP2350). Pour surveiller un cycle plus long (un relevé toutes les minutes, par exemple), on ne peut pas régler un WDT de 60 s : on nourrit alors le chien **à l'intérieur** des étapes du cycle (plusieurs `feed()` répartis), ou l'on combine le watchdog matériel avec une logique de supervision logicielle. Le chien matériel reste la dernière ligne de défense ; il ne se substitue pas à un code structuré.
+Le délai matériel est plafonné (~8,3 s sur RP2040/RP2350). Pour surveiller un cycle plus long (un relevé toutes les minutes, par exemple), on ne peut pas régler un WDT de 60 s : on nourrit alors le chien **à l'intérieur** des étapes du cycle (plusieurs `feed()` répartis), ou l'on combine le watchdog matériel avec une logique de supervision logicielle. Le chien matériel reste la dernière ligne de défense. Il ne se substitue pas à un code structuré.
 
 ## Raccrochage projet
 
 - **[[integration-et-tests|Phase d'intégration et tests]]** — une fois le système fonctionnel, le chien de garde le fiabilise contre les blocages imprévus, surtout s'il doit tourner longtemps sans surveillance.
-- **Spécification** — une exigence de **disponibilité** (« le système doit se rétablir seul après un blocage ») se traduit concrètement par un watchdog ; à prévoir si le cahier des charges l'impose.
+- **Spécification** — une exigence de **disponibilité** (« le système doit se rétablir seul après un blocage ») se traduit concrètement par un watchdog, à prévoir si le cahier des charges l'impose.
 
 Le chien de garde est la dernière ligne de défense d'un firmware robuste : il ne remplace pas un code propre, mais il évite qu'un blocage imprévu ne fige durablement un système livré.
 

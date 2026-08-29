@@ -18,11 +18,11 @@ aa:
 draft: false
 ---
 
-Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] — réguler une vitesse, une température, une position. Sa mise en œuvre repose sur un calcul répété à **pas de temps constant**, donc sur une [[micropython-temporisation|cadence régulière]] via `ticks_ms()`. L'algorithme est le même qu'en C++ ; seule la syntaxe change.
+Un **PID** (Proportionnel-Intégral-Dérivé) est un régulateur qui ajuste en continu une commande pour amener une grandeur mesurée vers une **consigne** : il calcule l'**erreur** (consigne − mesure) et en déduit une commande combinant trois termes. C'est l'outil de référence de l'[[asservissement|asservissement]] — réguler une vitesse, une température, une position. Sa mise en œuvre repose sur un calcul répété à **pas de temps constant**, donc sur une [[micropython-temporisation|cadence régulière]] via `ticks_ms()`. L'algorithme est le même qu'en C++. Seule la syntaxe change.
 
 ## À quoi ça sert ?
 
-Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une PWM fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. La **boucle fermée** **mesure** le résultat, le compare à la consigne, et **corrige** sans cesse. Le PID combine trois comportements : **P** (proportionnel à l'erreur courante : réactif, mais laisse une **erreur résiduelle**) ; **I** (accumule l'erreur passée : **élimine** le résiduel, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de variation** : **amortit**, mais amplifie le bruit).
+Commander « en aveugle » ne suffit pas dès qu'on vise une grandeur précise face à des perturbations. Mettre une PWM fixe sur un moteur ne garantit pas sa vitesse : en charge, il ralentit. La **boucle fermée** **mesure** le résultat, le compare à la consigne, et **corrige** sans cesse. Le PID combine trois comportements : **P** est proportionnel à l'erreur courante : réactif, mais laisse une **erreur résiduelle**. **I** accumule l'erreur passée : **élimine** le résiduel, au risque de s'**emballer**. **D** réagit à la **vitesse de variation** : **amortit**, mais amplifie le bruit.
 
 ![Schéma-bloc de la boucle fermée : la consigne entre dans un comparateur (erreur = consigne − mesure), le PID en déduit une commande envoyée en PWM au pont en H qui pilote le moteur ; un capteur (encodeur) mesure la vitesse réelle et la renvoie au comparateur ; une perturbation (charge) agit sur le moteur.|680](/ressources/img/micropython-pid/boucle-fermee-pid.svg)
 
@@ -83,7 +83,7 @@ while True:
 
 ### 4. Régler les gains (Kp, Ki, Kd)
 
-Réglage **empirique**, dans l'ordre : partir de `Ki = Kd = 0`, **augmenter `Kp`** jusqu'à une réponse rapide qui commence à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'erreur résiduelle sans réintroduire d'oscillation lente ; **ajouter `Kd`** avec parcimonie pour amortir, en s'arrêtant dès que le bruit gêne. Visualiser mesure et consigne dans le temps guide bien mieux que le tâtonnement.
+Réglage **empirique**, dans l'ordre : partir de `Ki = Kd = 0`, **augmenter `Kp`** jusqu'à une réponse rapide qui commence à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'erreur résiduelle sans réintroduire d'oscillation lente. Enfin, **ajouter `Kd`** avec parcimonie pour amortir, en s'arrêtant dès que le bruit gêne. Visualiser mesure et consigne dans le temps guide bien mieux que le tâtonnement.
 
 Prendre capture d'écran du *traceur de Thonny affichant deux courbes, la consigne constante et la mesure qui converge vers elle*.
 
@@ -130,7 +130,7 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `borne(…, -50000, 50000)` — c'est l'anti-emballement. `derivee = (erreur − erreur_prec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreur_prec` pour le pas suivant. La commande est la **somme pondérée** `Kp*erreur + Ki*integrale + Kd*derivee`, enfin `borne(…, 0, 65535)` la ramène dans la plage `duty_u16` avant de piloter le moteur. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur.
+> À chaque pas (toutes les 20 ms), le bloc enchaîne les trois termes. `erreur = consigne − mesure` : l'écart à corriger. `integrale += erreur * dt` **accumule** l'erreur au fil du temps (terme I), aussitôt **bornée** par `borne(…, -50000, 50000)`. C'est l'anti-emballement. `derivee = (erreur − erreur_prec) / dt` mesure la **vitesse de variation** de l'erreur (terme D), puis on mémorise `erreur_prec` pour le pas suivant. La commande est la **somme pondérée** `Kp*erreur + Ki*integrale + Kd*derivee`, enfin `borne(…, 0, 65535)` la ramène dans la plage `duty_u16` avant de piloter le moteur. Les deux valeurs imprimées (consigne et mesure) servent à régler les gains à l'œil sur le traceur.
 
 Le `borne` sur l'intégrale est l'**anti-emballement** (*anti-windup*) : sans lui, si l'actionneur sature (PWM déjà au max mais consigne inatteignable), l'intégrale gonfle et la commande met longtemps à redescendre quand l'erreur s'inverse. Le couple consigne/mesure imprimé alimente le traceur pour régler les gains à l'œil.
 
@@ -138,7 +138,7 @@ Le `borne` sur l'intégrale est l'**anti-emballement** (*anti-windup*) : sans lu
 
 **Calculer le PID à pas irrégulier.** Les termes I et D dépendent de `dt`. Un calcul tantôt toutes les 5 ms, tantôt toutes les 50 ms, fausse l'intégrale et la dérivée. Cadencer à intervalle **fixe** ([[micropython-temporisation|`ticks_ms()`]] ou [[micropython-timers|timer]]) est non négociable.
 
-**Oublier l'anti-emballement.** Quand l'actionneur sature, l'intégrale accumule dans le vide ; à l'inversion de l'erreur, la commande reste « collée » trop longtemps. Borner l'intégrale (ou la commande).
+**Oublier l'anti-emballement.** Quand l'actionneur sature, l'intégrale accumule dans le vide. À l'inversion de l'erreur, la commande reste « collée » trop longtemps. Borner l'intégrale (ou la commande).
 
 **Trop de dérivé sur un signal bruité.** Le terme D amplifie le bruit : capteur bruité + `Kd` élevé = commande qui tremble. Filtrer la mesure (moyenne glissante) ou réduire `Kd`.
 
@@ -151,12 +151,12 @@ Le `borne` sur l'intégrale est l'**anti-emballement** (*anti-windup*) : sans lu
 ## Cas particulier — Une classe PID, ou une bibliothèque
 
 - **Encapsuler** le régulateur dans une **classe** (`gains, integrale, erreur_prec` en attributs, une méthode `calculer(mesure, dt)`) évite les `global` et permet plusieurs PID indépendants (un par axe).
-- Des **bibliothèques PID** MicroPython existent (installables via `mip`, voir [[micropython-bibliotheques|bibliothèques]]) et gèrent pas de temps, anti-emballement et bornes. Pratique en production ; le calcul manuel reste préférable **pour comprendre** avant de déléguer.
+- Des **bibliothèques PID** MicroPython existent (installables via `mip`, voir [[micropython-bibliotheques|bibliothèques]]) et gèrent pas de temps, anti-emballement et bornes. Pratique en production. Le calcul manuel reste préférable **pour comprendre** avant de déléguer.
 
 ## Raccrochage projet
 
 - **Étape 2-3 de la [[preuve-de-concept|phase de preuve de concept]]** — valider l'asservissement d'une fonction (vitesse, position, température) sur un montage isolé, capteur et actionneur réels.
-- **[[integration-et-tests|Phase d'intégration et tests]]** — la boucle de régulation tourne à pas constant imposé par un [[micropython-timers|timer]] ; ses gains, réglés en PoC, sont revérifiés sur le système complet et en charge.
+- **[[integration-et-tests|Phase d'intégration et tests]]** — la boucle de régulation tourne à pas constant imposé par un [[micropython-timers|timer]]. Ses gains, réglés en PoC, sont revérifiés sur le système complet et en charge.
 
 Un PID se conçoit autour d'une **mesure fiable** et d'une **cadence régulière** : ces deux prérequis comptent autant que les gains.
 

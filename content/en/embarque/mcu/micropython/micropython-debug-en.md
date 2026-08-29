@@ -90,7 +90,7 @@ while True:
 
 Thonny offers a **step-by-step debugger** for MicroPython: *Exécuter → Déboguer le script actuel* (Run → Debug current script), then step line by line while watching the variables. Slower than `print()`, but valuable for following fine-grained logic.
 
-Take a screenshot of *Thonny en débogage pas-à-pas d'un script MicroPython, les valeurs des variables visibles*.
+Take a screenshot of *Thonny stepping through a MicroPython script, with the variable values visible*.
 
 ## Reading a traceback
 

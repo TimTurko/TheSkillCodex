@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Un **servomoteur** (ou *servo*) est un actionneur rotatif qui se positionne sur une **consigne d'angle** transmise par un signal codé en largeur d'impulsion (0° à 180° sur un servo standard). À la différence d'Arduino (qui a la bibliothèque `Servo.h`), MicroPython n'embarque pas de classe servo : on pilote le servo **directement en [[micropython-sortie-pwm|PWM]]** — un signal à **50 Hz** dont on règle la **largeur d'impulsion** (typiquement 0,5 à 2,5 ms). C'est plus proche du métal, et ça montre exactement ce qu'est un signal servo.
+Un **servomoteur** (ou *servo*) est un actionneur rotatif qui se positionne sur une **consigne d'angle** transmise par un signal codé en largeur d'impulsion (0° à 180° sur un servo standard). À la différence d'Arduino (qui a la bibliothèque `Servo.h`), MicroPython n'embarque pas de classe servo : on pilote le servo **directement en [[micropython-sortie-pwm|PWM]]**, un signal à **50 Hz** dont on règle la **largeur d'impulsion** (typiquement 0,5 à 2,5 ms). C'est plus proche du métal, et ça montre exactement ce qu'est un signal servo.
 
 ## À quoi ça sert ?
 
@@ -23,7 +23,7 @@ Le servo est l'actionneur le plus simple pour un mouvement de **position** contr
 
 ## Le signal servo
 
-À **50 Hz** (période 20 ms), la position est codée par la **durée de l'impulsion haute** : ~0,5 ms = 0°, ~1,5 ms = 90° (milieu), ~2,5 ms = 180° (les bornes exactes varient d'un servo à l'autre — à calibrer). En `duty_u16` (0–65535 sur 20 ms) : 0,5 ms ≈ 1638, 1,5 ms ≈ 4915, 2,5 ms ≈ 8192.
+À **50 Hz** (période 20 ms), la position est codée par la **durée de l'impulsion haute** : ~0,5 ms = 0°, ~1,5 ms = 90° (milieu), ~2,5 ms = 180° (les bornes exactes varient d'un servo à l'autre, à calibrer). En `duty_u16` (0–65535 sur 20 ms) : 0,5 ms ≈ 1638, 1,5 ms ≈ 4915, 2,5 ms ≈ 8192.
 
 ## Procédure pas à pas
 
@@ -41,7 +41,7 @@ Pour un premier test, le **SG90** est le standard.
 
 ### 2. Câbler
 
-3 fils : **rouge** → `+5 V` (VBUS, ou alimentation externe dès 2 servos / un servo de couple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de signal (ex. **GP15**). Le signal du Pico est en 3,3 V — accepté par la plupart des servos. **GND commun** si alimentation séparée.
+3 fils : **rouge** → `+5 V` (VBUS, ou alimentation externe dès 2 servos / un servo de couple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de signal (ex. **GP15**). Le signal du Pico est en 3,3 V, accepté par la plupart des servos. **GND commun** si alimentation séparée.
 
 ![Câblage : servomoteur sur un Pico — signal sur GP15, fil rouge sur +5 V (VBUS), fil marron sur GND|600](/ressources/img/micropython-servomoteur/branchement-servo.svg)
 
@@ -75,7 +75,7 @@ while True:
     angle(180); sleep(1)
 ```
 
-Le servo va à trois positions. S'il tressaute sans atteindre les bornes, ajuster `MIN_DUTY`/`MAX_DUTY` (calibration) — voir *Pièges*.
+Le servo va à trois positions. S'il tressaute sans atteindre les bornes, ajuster `MIN_DUTY`/`MAX_DUTY` (calibration, voir *Pièges*).
 
 ## Exemple — Balayage à vitesse réglable par potentiomètre
 
@@ -101,9 +101,9 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> Le va-et-vient repose sur `sens`, qui vaut `+1` (on monte vers 180°) ou `-1` (on descend). À chaque tour, on ajoute `sens * pas` ; en butée, on **inverse `sens`** et le servo repart. Le `pas` est tiré du potentiomètre (`read_u16()` 0-65535 → 1 à 10°) : plus le pas est grand, plus le balayage est rapide.
+> Le va-et-vient repose sur `sens`, qui vaut `+1` (on monte vers 180°) ou `-1` (on descend). À chaque tour, on ajoute `sens * pas`. En butée, on **inverse `sens`** et le servo repart. Le `pas` est tiré du potentiomètre (`read_u16()` 0-65535 → 1 à 10°) : plus le pas est grand, plus le balayage est rapide.
 
-Tourner le potentiomètre fait varier la vitesse de balayage — pratique pour calibrer en démo sans recompiler.
+Tourner le potentiomètre fait varier la vitesse de balayage, pratique pour calibrer en démo sans recompiler.
 
 ## Pièges
 
@@ -117,16 +117,16 @@ Tourner le potentiomètre fait varier la vitesse de balayage — pratique pour c
 
 **Servo qui bourdonne à l'arrêt.** Il tente d'atteindre une position bloquée mécaniquement. `servo.deinit()` coupe le signal et le laisse passif.
 
-**Trop de servos.** Au-delà de 2 servos, alimentation externe obligatoire ; pour beaucoup de servos, un driver PWM dédié I2C (PCA9685, 16 canaux) décharge le Pico.
+**Trop de servos.** Au-delà de 2 servos, alimentation externe obligatoire. Pour beaucoup de servos, un driver PWM dédié I2C (PCA9685, 16 canaux) décharge le Pico.
 
 ## Cas particulier — Servos à rotation continue, et bibliothèques
 
 - Un *servo à rotation continue* (FS90R…) **tourne** à vitesse proportionnelle à l'impulsion : ~1,5 ms = arrêt, plus court/plus long = un sens ou l'autre. Utile pour un petit robot à roues, en remplacement d'un moteur CC + pont H. Pas de retour de position.
-- Des **bibliothèques servo** MicroPython existent (installables via `mip`, voir [[micropython-bibliotheques|bibliothèques]]) et encapsulent la conversion angle→impulsion ; le pilotage PWM direct ci-dessus reste le socle à comprendre.
+- Des **bibliothèques servo** MicroPython existent (installables via `mip`, voir [[micropython-bibliotheques|bibliothèques]]) et encapsulent la conversion angle→impulsion. Le pilotage PWM direct ci-dessus reste le socle à comprendre.
 
 ## Servos à retour de position
 
-Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `angle(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
+Un servo standard *commande* une position mais ne dit pas s'il l'a **réellement** atteinte : `angle(90)` envoie la consigne, sans garantie que l'axe soit bien à 90° (butée mécanique, surcharge, blocage extérieur). Un **servo à retour de position** (*feedback servo*) répond à ce besoin en exposant un **4ᵉ fil** qui rapporte l'angle mesuré, précieux sur un bras 3 axes pour savoir où sont *vraiment* les articulations, pas seulement où on leur a demandé d'aller.
 
 Rappel utile : tout servo analogique se positionne déjà en **boucle fermée** grâce à un [[potentiometre|potentiomètre]] interne solidaire de l'axe (c'est lui qui permet au servo de « tenir » sa position). Un feedback servo ne fait que **sortir ce signal** vers une broche du Pico.
 
@@ -163,7 +163,7 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> La consigne (`commande`) et la mesure (`angle_reel`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les bornes `ADC_0` et `ADC_180` ne se devinent pas — elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève `read_u16()` à chaque extrémité, et l'interpolation convertit entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
+> La consigne (`commande`) et la mesure (`angle_reel`) sont **deux choses indépendantes** : l'une dit au servo où aller, l'autre lit où il est *vraiment*. Les bornes `ADC_0` et `ADC_180` ne se devinent pas, elles se **calibrent** : on commande le servo à 0° puis à 180°, on relève `read_u16()` à chaque extrémité, et l'interpolation convertit entre les deux. Chaque servo a ses propres bornes (le potentiomètre n'est jamais parfaitement centré), d'où une calibration **par exemplaire**.
 
 ### À quoi ça sert
 
@@ -173,10 +173,10 @@ while True:
 
 ### Variante — retour numérique (PWM)
 
-Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `time_pulse_us()` (mesure de la durée de l'impulsion), **pas** avec `read_u16()` ; en contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ ADC) ou **PWM** (→ `time_pulse_us` sur une broche numérique).
+Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur à effet Hall**, et sortent la position sous forme d'un **signal PWM** (rapport cyclique proportionnel à l'angle) plutôt qu'une tension. Le **Parallax Feedback 360°** en est l'exemple courant : retour à 910 Hz, rapport cyclique de 2,7 % à 97,1 % sur un tour complet. Il se lit avec `time_pulse_us()` (mesure de la durée de l'impulsion), **pas** avec `read_u16()`. En contrepartie, le capteur Hall ne s'use pas et ne dérive pas comme un potentiomètre. À vérifier dans la datasheet du modèle avant de câbler : retour **analogique** (→ ADC) ou **PWM** (→ `time_pulse_us` sur une broche numérique).
 
 > [!warning] Le retour n'est pas une métrologie
-> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable — voir [[micropython-pid|le réglage PID]].
+> Un retour par potentiomètre **dérive** (usure de la piste, température) : il convient pour un contrôle *indicatif* (« le bras est-il à peu près arrivé ? »), pas pour une mesure de précision. Pour un positionnement fin et durable, un asservissement sur capteur dédié est préférable (voir [[micropython-pid|le réglage PID]]).
 
 ## Raccrochage projet
 
@@ -184,7 +184,7 @@ Certains feedback servos n'utilisent **pas** un potentiomètre mais un **capteur
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — servo dans la chaîne mesure → décision → mouvement (capteur → ouverture d'une trappe).
 - **Étape 4 de la [[concept|phase de concept]]** — arbitrage servo / servo continu / moteur CC / pas-à-pas au moment de l'EAT.
 
-Un servo bien câblé (alimentation séparée + GND commun) est l'actionneur le plus *prévisible* à intégrer — idéal pour les premières démonstrations.
+Un servo bien câblé (alimentation séparée + GND commun) est l'actionneur le plus *prévisible* à intégrer, idéal pour les premières démonstrations.
 
 ## Voir aussi
 

@@ -2275,7 +2275,45 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   (28/08) ; (5) la garde de péremption (HEAD + dates d'écriture du périmètre,
   `batterie.ps1 -Phase garde`) se relève au cadrage **et avant chaque passe**.
   Toute garde non portable en séance ⇒ retour au dispositif de collage.
-  *Éprouvée 0/N.*
+
+  **Amendements du 29/08 (suite 3), après la première épreuve** — pilote du
+  lot 6, **92 prédictions publiées avant leur bloc, 85 tenues, 7 réfutées,
+  aucune sur un verdict** ; 28 minutes, 5 gates, 1 intervention.
+  (6) **Le remplacement du `dryRun` a TROIS termes et non deux** : remesure
+  immédiate, `git diff` à chaque gate, et **contrôle d'unicité d'ancre avant
+  écriture**. Le troisième a servi seul : sur 38 éditions, `à prevoir` sans
+  accent a rendu 0 occurrence et le lot s'est arrêté **avant toute écriture**,
+  les 37 autres étant justes. *C'est le mode d'échec redouté le 28/08 — un lot
+  multi-édition est atomique — sauf que l'atomicité joue dans le bon sens :
+  elle refuse au lieu d'appliquer 37 sur 38.*
+  (7) **Tout compteur dont on publie une prédiction se lit dans le code qui
+  l'incrémente, jamais dans la ligne qui l'affiche.** Trois des sept
+  réfutations ont cette cause unique — le seau `hors perimetre` (prédit 10,
+  mesuré 30 : le code porte **quatre** familles dont `tiret d intervalle
+  numerique`, que la ligne de bilan ne nomme pas), la ligne `dette` (déclarée
+  inchangée alors qu'elle porte un compte de **mots**), le compteur `OK` des
+  wikilinks (**dérivé** par addition sur des **cibles distinctes**).
+  ⚠ *La première était écrite mot pour mot au 27/08 (suite 3), et la règle du
+  29/08 — une phrase de README décrit une intention, seul le code décrit un
+  comportement — avait été relue en ouverture de la même séance.*
+  (8) **Une escalade non rendue devient une assomption écrite avec son coût de
+  revert**, jamais un silence : les trois arbitrages remontés au gate G1 n'ont
+  reçu aucune réponse, et les trois assomptions figurent au fichier de
+  prédictions **avant** exécution, chacune avec ce qu'annulerait un revert.
+  (9) **Le chiffre « hors artefacts de séance » ne se lit jamais seul**, mais
+  contre la **liste nominative** des fichiers attendus. ⚠ *La sous-règle a
+  fabriqué sa propre branche innocente* : `predictions-AAMMJJ.md` est suivi par
+  git et pesait 1 dans le compteur pendant toute la séance — la garde a été
+  écrite le matin, l'artefact qu'elle devait ignorer l'après-midi. **Arbitrage
+  Tim (f)(ii) du 29/08 : le fichier reste suivi — il est la trace du protocole
+  et voyage entre postes comme les copies C124 — et c'est le filtre de
+  `batterie.ps1` qui l'écarte.**
+
+  ⚠ **Ce que l'épreuve ne dit pas.** Échantillon **1**, sur le lot le plus
+  facile du plan : quatre fiches, **zéro porteuse de chevron**, C127 hors
+  sujet. Et **la surface de revue de Tim a fondu** — une intervention, zéro
+  arbitrage rendu — ce qui est le prix annoncé et non un effet de bord.
+  `esp32/` est le vrai test. *Éprouvée 1/N.*
 - **Extension de C126 — les mesures répétitives se figent dans une batterie versionnée.**
   *Arbitrage Tim (a)+(b) du 29/08 (séance annexe).* Le répertoire des mesures
   d'une séance est fini ; le réécrire à chaque série coûtait un aller-retour
@@ -2285,7 +2323,10 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   répertoire** (jamais de mémoire), et s'ignore par chemin exact comme
   `seance-sortie.txt` ; ses copies datées voyagent entre postes. **C114 et
   C126 restent pleins pour `seance.ps1`** : passes ad hoc, balayages, coupes.
-  La batterie ne porte ni prédiction ni édition. *Éprouvée 0/N.*
+  La batterie ne porte ni prédiction ni édition. *Éprouvée 2/N — trois
+  lancements le 29/08 (séance annexe), cinq au pilote du lot 6, zéro défaut de
+  mesure ; les deux seuls défauts trouvés étaient de **transport** (listes non
+  éclatées en mode `-File`, auto-comptage des artefacts), corrigés.*
 - **C128 — Le JOURNAL se coupe à une frontière de chantier, jamais au kilo-octet.**
   *Arbitrage Tim (b) du 29/08, sur trois candidates.* Le § 7 du prompt projet
   posait une cible de **3-5 ko par entrée**, un seuil d'archivage à **~100 ko**,

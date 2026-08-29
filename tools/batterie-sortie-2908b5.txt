@@ -1,0 +1,266 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b4.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 14:19:36
+
+HEAD git : 5b0617f 2026-08-29 14:13:30 +0200
+fichiers modifies non commites : 3   (hors sorties batterie : 1)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 14:06:42
+  conventions.md                                      2026-08-29 14:06:54
+  TODO.md                                             2026-08-29 14:07:37
+  embarque/mcu/micropython/micropython-servomoteur.md  2026-06-30 12:28:37
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md  2026-06-30 12:42:37
+  embarque/mcu/micropython/micropython-pid.md         2026-08-20 23:08:58
+  embarque/mcu/micropython/micropython-watchdog.md    2026-08-19 15:09:46
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/micropython/micropython-servomoteur.md        1375
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md    876
+  embarque/mcu/micropython/micropython-pid.md                1055
+  embarque/mcu/micropython/micropython-watchdog.md           1128
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             4434
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/micropython/micropython-servomoteur.md
+      18  [C109] tiret d incise
+          …[micropython-sortie-pwm|PWM]]** — un signal à **50 Hz** dont on rè…
+      26  [C109] tiret d incise
+          …es varient d'un servo à l'autre — à calibrer). En `duty_u16` (0–65…
+      44  [C109] tiret d incise
+          …Le signal du Pico est en 3,3 V — accepté par la plupart des servo…
+      44  [C109] point-virgule de prose
+          …2 servos / un servo de couple) ; **marron/noir** → `GND` ; **oran…
+      44  [C109] point-virgule de prose
+          …uple) ; **marron/noir** → `GND` ; **orange/jaune** → la broche de…
+      78  [C109] tiret d incise
+          …_DUTY`/`MAX_DUTY` (calibration) — voir *Pièges*.
+     104  [C109] point-virgule de prose
+          …ue tour, on ajoute `sens * pas` ; en butée, on **inverse `sens`**…
+     106  [C109] tiret d incise
+          …t varier la vitesse de balayage — pratique pour calibrer en démo s…
+     120  [C109] point-virgule de prose
+          …limentation externe obligatoire ; pour beaucoup de servos, un driv…
+     125  [C109] point-virgule de prose
+          …t la conversion angle→impulsion ; le pilotage PWM direct ci-dessus…
+     129  [C109] tiret d incise
+          …l** qui rapporte l'angle mesuré — précieux sur un bras 3 axes pour…
+     166  [C109] tiret d incise
+          …et `ADC_180` ne se devinent pas — elles se **calibrent** : on comm…
+     176  [C109] point-virgule de prose
+          …ion), **pas** avec `read_u16()` ; en contrepartie, le capteur Hall…
+     179  [C109] tiret d incise
+          …ur capteur dédié est préférable — voir [[micropython-pid|le réglag…
+     187  [C109] tiret d incise
+          …le plus *prévisible* à intégrer — idéal pour les premières démonst…
+
+  embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+      18  [C109] tiret d incise
+          …ruction* sans capteur de retour — d'où son intérêt pour le positio…
+      18  [C109] tiret d incise
+          …équence les bobines à la main** — ce qui montre exactement comment…
+      94  [C109] tiret d incise
+          …faux, il **vibre sans tourner** — voir *Pièges*.
+     147  [C109] tiret d incise
+          …on** : `pas()` est **bloquant** — pendant le quart de tour, la bou…
+     147  [C109] point-virgule de prose
+          …ent l'état confirmé après 30 ms ; le quart de tour n'est déclenché…
+     153  [C109] point-virgule de prose
+          …le 3,3 V du Pico fait rebooter ; alimentation séparée (au moins p…
+     157  [C109] point-virgule de prose
+          …4988.** Trop bas → perte de pas ; trop haut → surchauffe. Calibrer…
+     176  [C109] tiret d incise
+          …t répétable précis sans capteur — résultats spectaculaires en démo…
+
+  embarque/mcu/micropython/micropython-pid.md
+      21  [C109] tiret d incise
+          …asservissement|asservissement]] — réguler une vitesse, une tempéra…
+      21  [C109] point-virgule de prose
+          …lgorithme est le même qu'en C++ ; seule la syntaxe change.
+      25  [C109] point-virgule de prose
+          …isse une **erreur résiduelle**) ; **I** (accumule l'erreur passée…
+      25  [C109] point-virgule de prose
+          …l, au risque de s'**emballer**) ; **D** (réagit à la **vitesse de…
+      86  [C109] point-virgule de prose
+          …à osciller, puis réduire un peu ; **monter `Ki`** pour effacer l'e…
+      86  [C109] point-virgule de prose
+          …éintroduire d'oscillation lente ; **ajouter `Kd`** avec parcimonie…
+     133  [C109] tiret d incise
+          …* par `borne(…, -50000, 50000)` — c'est l'anti-emballement. `deriv…
+     141  [C109] point-virgule de prose
+          …intégrale accumule dans le vide ; à l'inversion de l'erreur, la co…
+     154  [C109] point-virgule de prose
+          …bornes. Pratique en production ; le calcul manuel reste préférabl…
+     159  [C109] point-virgule de prose
+          …un [[micropython-timers|timer]] ; ses gains, réglés en PoC, sont r…
+
+  embarque/mcu/micropython/micropython-watchdog.md
+      18  [C109] tiret d incise
+          …blocages : un programme planté — boucle infinie, attente sans fin…
+      18  [C109] tiret d incise
+          …attente sans fin, capteur figé — se relance tout seul au lieu de…
+      22  [C109] tiret d incise
+          …che. Si son programme se bloque — une bibliothèque qui attend une…
+      22  [C109] tiret d incise
+          …le code, une boucle sans sortie — il reste inerte jusqu'à coupure…
+      22  [C109] tiret d incise
+          …ser un système déjà fonctionnel — pas pour masquer des bugs.
+      22  [C109] point-virgule de prose
+          …le chien à intervalle régulier ; s'il se bloque, le chien n'est p…
+      60  [C109] tiret d incise
+          …t, rarement, ne jamais répondre — figeant le programme. Le chien d…
+      77  [C109] tiret d incise
+          …bout de 8 s la carte redémarre — réexécutant `main.py`, qui réaff…
+      77  [C109] point-virgule de prose
+          …sif car bien inférieur au délai ; dans un programme [[micropython-…
+      91  [C109] tiret d incise
+          …arte entre les deux `Demarrage` — c'est le chien qui a rendu la ma…
+      95  [C109] tiret d incise
+          …que le délai** sans la nourrir — d'où l'intérêt d'un code [[micro…
+     109  [C109] point-virgule de prose
+          …te la dernière ligne de défense ; il ne se substitue pas à un code…
+     114  [C109] point-virgule de prose
+          …it concrètement par un watchdog ; à prévoir si le cahier des charg…
+
+4 fiche(s) lue(s), 4 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 46   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 30   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 91
+    RESTANT                   : 54
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-ble                           1279   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-gpio                          1526   chevron:4
+  embarque/mcu/esp32/esp32-i2c                           1143   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/esp32/esp32-prise-en-main                 2564   chevron:4
+  embarque/mcu/esp32/esp32-serie                         2017   chevron:4
+  embarque/mcu/esp32/esp32-spi                           1150   chevron:4
+  embarque/mcu/esp32/esp32-uart                          1282   chevron:4
+  embarque/mcu/esp32/esp32-wifi                          1455   chevron:4
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (54 fiches)                     79412
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 18
+    clotures en chevron       : 68   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 181
+  cibles rouges distinctes     : 59
+  mots                         : 84686
+  dont HORS anneaux 0..2       : 4
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/micropython/micropython-moteur-pas-a-pas
+    embarque/mcu/micropython/micropython-pid
+    embarque/mcu/micropython/micropython-servomoteur
+    embarque/mcu/micropython/micropython-watchdog
+--- code de sortie : 0

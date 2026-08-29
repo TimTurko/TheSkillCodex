@@ -53,6 +53,18 @@
 #   C124  la sortie precedente est copiee sous une etiquette AUTO, lue
 #         sur l horloge et le repertoire (jamais composee de memoire) :
 #         batterie-sortie-<jjMM>b<N>.txt, N = premier rang libre.
+#         Le compteur git publie DEUX chiffres : le total, et le total
+#         HORS ARTEFACTS DE SEANCE - sorties batterie datees et fichier
+#         de predictions de la sous-regle C116. Les deux sont suivis par
+#         git (le .gitignore n exclut que tools/batterie-sortie.txt et
+#         tools/seance-sortie.txt, chemins exacts), donc ils se comptent
+#         eux-memes : mesure du 29/08, ou le lancement fabriquait sa
+#         propre entree, puis pilote du lot 6, ou le fichier de
+#         predictions en fabriquait une seconde. Arbitrage Tim (f)(ii)
+#         du 29/08 : les deux restent suivis - la trace vaut plus que la
+#         commodite - et c est le FILTRE qui les ecarte.
+#         Le chiffre hors artefacts se lit CONTRE LA LISTE NOMINATIVE
+#         des fichiers attendus, jamais seul.
 #   C119  sortie ecrite en UTF-8 par le script lui-meme, jamais par une
 #         redirection shell (le > de PowerShell 5.1 ecrit en UTF-16LE).
 #   Le bloc le plus verbeux (--libelles) se place EN DERNIER.
@@ -153,8 +165,8 @@ Etape "1 - garde de peremption : horloge, HEAD git, dates d ecriture" {
     $etatGit = @()
     try { $etatGit = @(& git status --porcelain 2>$null) } catch { $etatGit = @() }
     $sale = ($etatGit | Measure-Object).Count
-    $saleHors = ($etatGit | Where-Object { $_ -notmatch 'batterie-sortie' } | Measure-Object).Count
-    Write-Output ("fichiers modifies non commites : " + $sale + "   (hors sorties batterie : " + $saleHors + ")")
+    $saleHors = ($etatGit | Where-Object { $_ -notmatch 'batterie-sortie' -and $_ -notmatch 'predictions-' } | Measure-Object).Count
+    Write-Output ("fichiers modifies non commites : " + $sale + "   (hors artefacts de seance : " + $saleHors + ")")
   } else {
     Write-Output "git indisponible ; lecture directe de .git\HEAD :"
     if (Test-Path '.git\HEAD') { Write-Output ("  " + (Get-Content '.git\HEAD' -First 1)) }

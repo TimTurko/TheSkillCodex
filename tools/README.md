@@ -53,6 +53,43 @@ Idempotent : relancer sans changement = 0 modification.
 
 ---
 
+## livrer.ps1
+
+Enchaîne en une instruction le bloc C121 de fin de séance : hygiène, `add`, `commit`, `push`.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\livrer.ps1 "mon message de commit"
+powershell -ExecutionPolicy Bypass -File tools\livrer.ps1 "message" -Oui        # sans confirmation
+powershell -ExecutionPolicy Bypass -File tools\livrer.ps1 "message" -SansPush   # commit local seul
+```
+
+### Ce qu'il ne fait pas
+
+**Il ne décide de rien.** C121 reste entier : Claude fournit la ligne, Tim la
+lance, lit la liste nominative de ce qui va être commité, et confirme. Le script
+ne remplace pas la revue, il supprime le collage de quatre commandes.
+
+### Gardes, dans l'ordre où elles s'appliquent
+
+| # | Garde | Effet si elle mord |
+|---|---|---|
+| 1 | répertoire = dépôt TheSkillCodex | arrêt |
+| 2 | message présent, ≥ 10 caractères, **ASCII strict** | arrêt |
+| 3 | `core.hooksPath` armé sur `tools/git-hooks` | avertissement seul |
+| 4 | `normalize-pilotage.js` rend 0 | arrêt **avant** le `add` |
+| 5 | confirmation après lecture de la liste | abandon sans commit |
+| 6 | arbre non propre | sortie 0, pas de commit vide |
+| 7 | `push` réussi | arrêt, en signalant que le commit est **local** |
+
+⚠ **L'ordre 4 avant 5 n'est pas cosmétique** : `normalize-pilotage` corrige des
+fichiers, donc il doit tourner **avant** `git add -A`, sinon ses corrections
+restent hors du commit. C'est l'ordre du bloc C121 d'origine, figé ici.
+
+⚠ **`-Oui` saute la revue**, et c'est la seule garde que le script laisse
+désarmer. À réserver à un contenu déjà relu dans la même minute.
+
+---
+
 ## audit-medias.mjs
 
 Audite les embeds de medias de `content/` contre le systeme de fichiers reel.

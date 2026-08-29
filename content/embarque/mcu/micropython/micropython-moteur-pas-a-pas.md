@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Un **moteur pas-à-pas** (*stepper*) tourne par **pas angulaires discrets** (souvent 200 pas/tour, 1,8°/pas) sous la commande séquentielle de plusieurs bobines. La position du rotor est donc *connue par construction* sans capteur de retour — d'où son intérêt pour le positionnement précis multi-tours (imprimantes 3D, CNC). Cette fiche couvre deux drivers : **28BYJ-48 + ULN2003** (pédagogique) et **NEMA17 + A4988** (industriel). En MicroPython, sans bibliothèque dédiée intégrée, on **séquence les bobines à la main** — ce qui montre exactement comment un pas-à-pas avance.
+Un **moteur pas-à-pas** (*stepper*) tourne par **pas angulaires discrets** (souvent 200 pas/tour, 1,8°/pas) sous la commande séquentielle de plusieurs bobines. La position du rotor est donc *connue par construction* sans capteur de retour, d'où son intérêt pour le positionnement précis multi-tours (imprimantes 3D, CNC). Cette fiche couvre deux drivers : **28BYJ-48 + ULN2003** (pédagogique) et **NEMA17 + A4988** (industriel). En MicroPython, sans bibliothèque dédiée intégrée, on **séquence les bobines à la main**, ce qui montre exactement comment un pas-à-pas avance.
 
 ## À quoi ça sert ?
 
@@ -33,7 +33,7 @@ Quatre étapes : choisir le couple moteur+driver, câbler, séquencer, piloter.
 
 ### 1. Choisir le moteur et le driver
 
-- **Pédagogique : 28BYJ-48 + ULN2003** — moteur 5 V, réducteur 1:64 (≈ 2048 pas/tour en pas entier, 4096 en demi-pas), module ULN2003 avec 4 LEDs qui suivent les phases. 3–5 € le couple.
+- **Pédagogique : 28BYJ-48 + ULN2003** — moteur 5 V, réducteur 1:64 (≈ 2048 pas/tour en pas entier, 4096 en demi-pas), module ULN2003 avec 4 LEDs qui suivent les phases.
 - **Industriel : NEMA17 + A4988** — moteur bipolaire 200 pas/tour, driver à 2 broches (`STEP`, `DIR`), microstepping. Utilisé en imprimante 3D / CNC.
 
 Pour un premier essai, le **28BYJ-48 + ULN2003**.
@@ -91,7 +91,7 @@ while True:
     sleep_ms(1000)
 ```
 
-Le moteur fait un tour, une pause, repart en sens inverse. Si l'ordre des broches est faux, il **vibre sans tourner** — voir *Pièges*.
+Le moteur fait un tour, une pause, repart en sens inverse. Si l'ordre des broches est faux, il **vibre sans tourner** (voir *Pièges*).
 
 ### Variante NEMA17 + A4988 (STEP/DIR)
 
@@ -144,7 +144,7 @@ while True:
 ```
 
 > [!info] Comment lire ce code
-> L'anti-rebond non bloquant suit le même motif que pour le [[micropython-moteur-cc|moteur CC]] : `dernier` repère l'instant où la lecture brute change (et relance le chronomètre), `etat_stable` retient l'état confirmé après 30 ms ; le quart de tour n'est déclenché que sur un **front descendant** (`PULL_UP` → appui = 0). **Attention** : `pas()` est **bloquant** — pendant le quart de tour, la boucle est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré. Pour réagir en continu, structurer en [[micropython-programmation-non-bloquante|non bloquant]].
+> L'anti-rebond non bloquant suit le même motif que pour le [[micropython-moteur-cc|moteur CC]] : `dernier` repère l'instant où la lecture brute change (et relance le chronomètre), `etat_stable` retient l'état confirmé après 30 ms. Le quart de tour n'est déclenché que sur un **front descendant** (`PULL_UP` → appui = 0). **Attention** : `pas()` est **bloquant**. Pendant le quart de tour, la boucle est gelée et le bouton n'est pas lu, donc un appui pendant le mouvement est ignoré. Pour réagir en continu, structurer en [[micropython-programmation-non-bloquante|non bloquant]].
 
 ## Pièges
 
@@ -171,9 +171,9 @@ while True:
 
 - **Étape 2 de la [[preuve-de-concept|phase de preuve de concept]]** — validation moteur + driver : tour complet dans les deux sens, vitesse max sans perte de pas.
 - **Étape 3 de la [[preuve-de-concept|phase de preuve de concept]]** — intégration dans une chaîne de mouvement précis (axe X, distributeur).
-- **Étape 4 de la [[concept|phase de concept]]** — arbitrage pas-à-pas / servo / moteur CC + encodeur selon précision + couple + budget.
+- **Étape 4 de la [[concept|phase de concept]]** — arbitrage pas-à-pas / servo / moteur CC + encodeur selon précision + couple + disponibilité.
 
-Le pas-à-pas est l'actionneur des projets qui visent un mouvement répétable précis sans capteur — résultats spectaculaires en démonstration.
+Le pas-à-pas est l'actionneur des projets qui visent un mouvement répétable précis sans capteur, résultats spectaculaires en démonstration.
 
 ## Voir aussi
 
