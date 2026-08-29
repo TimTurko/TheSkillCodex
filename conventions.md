@@ -2369,6 +2369,28 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 - **Convention de gras Pièges** (« **Piège court.** Phrase d'explication. »)
   → § 2. Figée dans le template `fiche-notion.md` mais pourrait constituer
   une « exception structurelle » à documenter dans un guide éditorial unifié.
+- **Une phrase de README décrit une intention, seul le script décrit un
+  comportement.** Trois cas le même matin : les fines insécables supposées
+  dans `content/**` (mesure : zéro, tout en U+0020), `audit-medias.mjs`
+  annoncé `--quiet` par défaut alors que QUIET est un drapeau, `--recette`
+  censée accepter des chemins nommés alors qu'elle rend un état global. Les
+  deux derniers ont coûté deux mesures noyées et une série de rattrapage.
+  **Avant de fonder une prédiction ou un lancement sur un comportement
+  d'outil, lire le code du drapeau concerné, pas sa ligne de README.**
+  *Éprouvée 0/N.*
+- **Un total dans la fourchette ne valide pas la décomposition.** `deh`
+  prédit 4 310-4 330 est sorti à 4 345 - juste - en masquant quatre erreurs
+  fiche par fiche dont **une de signe** (`cpp-execution` à -1,65 %). La cause
+  est de construire les valeurs individuelles **autour d'une moyenne de
+  module** au lieu de les tirer de chaque source. **Une prédiction décomposée
+  se vérifie terme à terme, et un total juste n'en est pas la preuve.**
+  *Éprouvée 0/N.*
+- **L'inertie mesurée par C127 est celle du code, pas celle du contenu des
+  blocs.** `ded` foisonne de **+1,45 %** sur le lot 2, parce qu'un bloc en
+  chevron porte des **commentaires** et parfois des chaînes affichées, qui se
+  traduisent comme de la prose. Le taux de +0,8 % du 27/08 (suite 7)
+  englobait cette part sans la nommer. **`ded` se prédit avec une marge, pas
+  comme une constante.** *Éprouvée 0/N.*
 
 ---
 

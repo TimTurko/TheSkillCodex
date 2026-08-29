@@ -17,7 +17,7 @@ Une **boucle** répète un bloc d'instructions, ce qui évite de copier-coller l
 
 ## À quoi ça sert ?
 
-Dès qu'une action se répète — configurer 8 broches, balayer un tableau de capteurs, faire défiler une LED sur une rampe — la boucle remplace une dizaine de lignes répétitives par trois. Et au-delà du gain d'écriture, c'est l'outil pour **parcourir des données** (un tableau de mesures) ou **attendre une condition**. Le bon choix de forme rend l'intention lisible : « je répète N fois » ne s'écrit pas comme « je répète tant que ».
+Dès qu'une action se répète (configurer 8 broches, balayer un tableau de capteurs, faire défiler une LED sur une rampe), la boucle remplace une dizaine de lignes répétitives par trois. Et au-delà du gain d'écriture, c'est l'outil pour **parcourir des données** (un tableau de mesures) ou **attendre une condition**. Le bon choix de forme rend l'intention lisible : « je répète N fois » ne s'écrit pas comme « je répète tant que ».
 
 ## `for` — un nombre connu de fois
 
@@ -30,7 +30,7 @@ for (int i = 0; i < 8; i++) {   // init ; condition ; incrément
 ```
 
 - **initialisation** (`int i = 0`) : exécutée une fois, au départ ;
-- **condition** (`i < 8`) : testée avant chaque tour ; tant qu'elle est vraie, on continue ;
+- **condition** (`i < 8`) : testée avant chaque tour, on continue tant qu'elle est vraie ;
 - **incrément** (`i++`) : exécuté à la fin de chaque tour.
 
 La variable `i` (le *compteur*) n'existe que dans la boucle (portée de bloc, voir [[cpp-portee|variables locales et globales]]). C'est la forme idéale pour parcourir un **tableau** par ses indices.
@@ -68,11 +68,11 @@ Utile quand l'action doit avoir lieu avant qu'on puisse tester son résultat (li
 | `while` | on répète **tant qu'**une condition tient, nombre inconnu | 0 ou plus (test au début) |
 | `do…while` | il faut exécuter **au moins une fois** avant de tester | 1 ou plus (test à la fin) |
 
-En pratique : `for` pour parcourir/compter, `while` pour attendre une condition, `do…while` dans le cas plus rare où la première exécution est inconditionnelle. Les trois sont interchangeables sur le papier — on choisit celle qui exprime le plus clairement l'intention.
+En pratique : `for` pour parcourir/compter, `while` pour attendre une condition, `do…while` dans le cas plus rare où la première exécution est inconditionnelle. Les trois sont interchangeables sur le papier. On choisit celle qui exprime le plus clairement l'intention.
 
 ## `break` et `continue`
 
-Deux mots-clés affinent le déroulement d'une boucle : `break` **interrompt** la boucle immédiatement ; `continue` **saute** au tour suivant sans finir le tour courant.
+Deux mots-clés affinent le déroulement d'une boucle : `break` **interrompt** la boucle immédiatement. `continue` **saute** au tour suivant sans finir le tour courant.
 
 ```cpp
 for (int i = 0; i < 100; i++) {
@@ -83,7 +83,7 @@ for (int i = 0; i < 100; i++) {
 ```
 
 > [!warning]
-> **La vraie « boucle infinie » d'un programme embarqué, c'est `loop()`.** On n'écrit donc presque jamais de `while (true)` à la main. Surtout, une boucle d'**attente** (`while (digitalRead(BOUTON) == HIGH) { }`) **fige tout le programme** tant qu'elle tourne : plus rien d'autre ne s'exécute, la carte semble bloquée. C'est acceptable pour une attente très brève, mais dès qu'un système doit faire plusieurs choses « en même temps », on n'attend pas dans une boucle — on passe à la [[arduino-programmation-non-bloquante|programmation non bloquante]].
+> **La vraie « boucle infinie » d'un programme embarqué, c'est `loop()`.** On n'écrit donc presque jamais de `while (true)` à la main. Surtout, une boucle d'**attente** (`while (digitalRead(BOUTON) == HIGH) { }`) **fige tout le programme** tant qu'elle tourne : plus rien d'autre ne s'exécute, la carte semble bloquée. C'est acceptable pour une attente très brève, mais dès qu'un système doit faire plusieurs choses « en même temps », on n'attend pas dans une boucle : on passe à la [[arduino-programmation-non-bloquante|programmation non bloquante]].
 
 ## Code à lire
 
@@ -117,7 +117,7 @@ Sans boucle, il aurait fallu écrire douze `digitalWrite` et autant de `delay`. 
 
 **Dépassement d'indice de tableau.** Avec un tableau de 6 cases (indices 0 à 5), `for (int i = 0; i <= 6; i++)` accède à la case `6`, qui **n'existe pas** : lecture mémoire hors limites, comportement imprévisible. La condition correcte est `i < 6` (ou `i < NB_LEDS`).
 
-**Le `;` fatal après le `for`.** `for (int i = 0; i < 10; i++);` — le point-virgule final fait une boucle **vide** : le vrai bloc qui suit ne s'exécute qu'une fois, après la boucle. Ne pas mettre de `;` juste après la parenthèse du `for`.
+**Le `;` fatal après le `for`.** `for (int i = 0; i < 10; i++);` : le point-virgule final fait une boucle **vide**. Le vrai bloc qui suit ne s'exécute qu'une fois, après la boucle. Ne pas mettre de `;` juste après la parenthèse du `for`.
 
 **Attendre dans une boucle bloquante.** Voir l'encart : un `while` d'attente fige tout. À réserver aux attentes très courtes ; sinon, programmation non bloquante.
 
@@ -152,8 +152,8 @@ Sans boucle, il aurait fallu écrire douze `digitalWrite` et autant de `delay`. 
 > ```
 
 > [!success]- Corrigé de l'exercice 2
-> - **A (`while`)** : la condition est testée **avant** ; comme le bouton est relâché (donc `== LOW` est faux), le bloc ne s'exécute **pas du tout** — `"A"` n'est jamais affiché.
-> - **B (`do…while`)** : le bloc s'exécute **une fois** avant le test ; `"B"` est affiché **une fois**, puis la condition fausse arrête la boucle.
+> - **A (`while`)** : la condition est testée **avant**. Comme le bouton est relâché (donc `== LOW` est faux), le bloc ne s'exécute **pas du tout** — `"A"` n'est jamais affiché.
+> - **B (`do…while`)** : le bloc s'exécute **une fois** avant le test. `"B"` est affiché **une fois**, puis la condition fausse arrête la boucle.
 >
 > C'est toute la différence : `do…while` garantit au moins un passage. (Et rappel : ces deux boucles d'attente figeraient le programme tant que le bouton resterait pressé.)
 

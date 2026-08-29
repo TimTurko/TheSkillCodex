@@ -1,0 +1,162 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s5.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-28   heure : 23:13
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - existence des quatre sources, avant toute mesure
+==============================================================
+  present : content/embarque/mcu/cpp/cpp-conditions.md
+  present : content/embarque/mcu/cpp/cpp-boucles.md
+  present : content/embarque/mcu/cpp/cpp-portee.md
+  present : content/embarque/mcu/cpp/cpp-execution.md
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - volume du lot, chiffre tot de C127 (regle C110 inchangee), predit 4415
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/cpp/cpp-conditions.md                          902
+  embarque/mcu/cpp/cpp-boucles.md                            1087
+  embarque/mcu/cpp/cpp-portee.md                              993
+  embarque/mcu/cpp/cpp-execution.md                          1433
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             4415
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - chevron du lot, chiffres ded et deh de C127, predit 22 cl / 11 bl
+==============================================================
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 4   porteuses : 4
+
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (4 porteuses)                                   22 cl  11 bl   4415 tot   207 ded   4197 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - charge C109 sur les quatre sources FR, predit 37 en 9 / 10 / 7 / 11
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/cpp/cpp-conditions.md
+      16  [C109] tiret d incise
+          …re les deux structures de choix — `if` / `else` et `switch` / `cas…
+      16  [C109] tiret d incise
+          …` / `else` et `switch` / `case` — et les **opérateurs** (comparais…
+      20  [C109] tiret d incise
+          …as, comme cela dans tel autre » — le cœur de la commande d'un méca…
+      44  [C109] point-virgule de prose
+          …des conditions vraies/fausses) ; `&` est l'opérateur **bit-à-bit*…
+      96  [C109] tiret d incise
+          Pour les tout petits choix — affecter une valeur ou une autre…
+      96  [C109] tiret d incise
+          …u une autre selon une condition — le C++ offre une forme condensée…
+     148  [C109] point-virgule de prose
+          …*intervalle** (zones de mesure) ; le `switch` gère des **valeurs d…
+     152  [C109] tiret d incise
+          …à `etat` au lieu de le comparer — et la condition est alors toujou…
+     152  [C109] point-virgule de prose
+          …. Le code compile sans broncher ; le comportement est faux. Relire…
+
+  embarque/mcu/cpp/cpp-boucles.md
+      20  [C109] tiret d incise
+          Dès qu'une action se répète — configurer 8 broches, balayer un…
+      20  [C109] tiret d incise
+          …e défiler une LED sur une rampe — la boucle remplace une dizaine d…
+      33  [C109] point-virgule de prose
+          …8`) : testée avant chaque tour ; tant qu'elle est vraie, on conti…
+      71  [C109] tiret d incise
+          …interchangeables sur le papier — on choisit celle qui exprime le…
+      75  [C109] point-virgule de prose
+          …rompt** la boucle immédiatement ; `continue` **saute** au tour sui…
+      86  [C109] tiret d incise
+          …on n'attend pas dans une boucle — on passe à la [[arduino-programm…
+      90  [C109] tiret d incise
+          …s, et un `for` pour les balayer — en parcourant un **tableau** d'i…
+     120  [C109] tiret d incise
+          …`for (int i = 0; i < 10; i++);` — le point-virgule final fait une…
+     122  [C109] point-virgule de prose
+          …erver aux attentes très courtes ; sinon, programmation non bloquan…
+     155  [C109] point-virgule de prose
+          …condition est testée **avant** ; comme le bouton est relâché (don…
+     156  [C109] point-virgule de prose
+          …cute **une fois** avant le test ; `"B"` est affiché **une fois**,…
+
+  embarque/mcu/cpp/cpp-portee.md
+      16  [C109] tiret d incise
+          …ans** une fonction est *locale* — elle naît à l'appel et meurt au…
+      16  [C109] tiret d incise
+          …te fonction, elle est *globale* — elle vit pendant tout le program…
+      61  [C109] point-virgule de prose
+          …part des variables sont locales ; on ne met en global que ce qui d…
+     123  [C109] point-virgule de prose
+          …initialisée vaut `0` par défaut ; une **locale** non initialisée c…
+     125  [C109] tiret d incise
+          …lle fonction peut tout modifier — les bugs deviennent difficiles à…
+     142  [C109] point-virgule de prose
+          …globale**, créée une seule fois ; elle conserve sa valeur et s'inc…
+     178  [C109] point-virgule de prose
+          …la portée devient déterminante ; un mauvais choix produit des bug…
+
+  embarque/mcu/cpp/cpp-execution.md
+      16  [C109] tiret d incise
+          …mme. Cette fiche suit ce chemin — *édition → compilation → téléver…
+      16  [C109] tiret d incise
+          …on → téléversement → exécution* — puis présente le **code minimal*…
+      20  [C109] tiret d incise
+          …nt compilé et été téléversé ? » — et on ne sait y répondre que si…
+      34  [C109] tiret d incise
+          …n et à chaque appui sur *Reset* — le microcontrôleur lit le progra…
+      51  [C109] tiret d incise
+          …de visible, mais il est valide — et il contient déjà tout le sque…
+      59  [C109] tiret d incise
+          …outillage » du dialecte Wiring — il vous épargne ce code répétiti…
+      67  [C109] tiret d incise
+          …a ni fin, ni retour au système — juste `loop()` qui tourne, encor…
+     111  [C109] point-virgule de prose
+          …e fonctions) vivent à ce niveau ; les **actions** vont à l'intérie…
+     115  [C109] tiret d incise
+          …erial.print()` n'affichent rien — le port n'a jamais été ouvert. S…
+     125  [C109] tiret d incise
+          …r la carte, **rien de visible** — aucune broche n'est pilotée, auc…
+     161  [C109] tiret d incise
+          …ivaut à une remise sous tension — `setup()` se rejoue intégralemen…
+
+4 fiche(s) lue(s), 4 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 38   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 12   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0

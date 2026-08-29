@@ -13,7 +13,7 @@ aa:
 draft: false
 ---
 
-Une **condition** fait choisir au programme un chemin plutôt qu'un autre selon une situation : *si* la température dépasse un seuil, *alors* allumer le ventilateur. Sans conditions, un programme ne ferait qu'une seule chose, toujours la même. Cette fiche couvre les deux structures de choix — `if` / `else` et `switch` / `case` — et les **opérateurs** (comparaison, logiques) qui forment le test lui-même.
+Une **condition** fait choisir au programme un chemin plutôt qu'un autre selon une situation : *si* la température dépasse un seuil, *alors* allumer le ventilateur. Sans conditions, un programme ne ferait qu'une seule chose, toujours la même. Cette fiche couvre les deux structures de choix (`if` / `else` et `switch` / `case`) et les **opérateurs** (comparaison, logiques) qui forment le test lui-même.
 
 ## À quoi ça sert ?
 
@@ -41,7 +41,7 @@ Pour combiner plusieurs conditions, trois opérateurs logiques :
 - `!` (**non**) — inverse une condition : `!enMarche`.
 
 > [!warning]
-> **`&&` n'est pas `&`.** `&&` est l'opérateur logique (combine des conditions vraies/fausses) ; `&` est l'opérateur **bit-à-bit** (agit sur les bits d'un nombre, voir [[manipulation-de-bits|manipulation de bits]]). Les confondre dans une condition donne un résultat faux mais silencieux. Idem pour `||` (logique) et `|` (bit-à-bit).
+> **`&&` n'est pas `&`.** `&&` est l'opérateur logique (combine des conditions vraies/fausses). `&` est l'opérateur **bit-à-bit** (agit sur les bits d'un nombre, voir [[manipulation-de-bits|manipulation de bits]]). Les confondre dans une condition donne un résultat faux mais silencieux. Idem pour `||` (logique) et `|` (bit-à-bit).
 
 ## `if` / `else if` / `else`
 
@@ -93,7 +93,7 @@ Chaque `case` se termine par `break`, qui **sort** du `switch`. Sans lui, l'exé
 
 ## L'opérateur ternaire
 
-Pour les tout petits choix — affecter une valeur ou une autre selon une condition — le C++ offre une forme condensée du `if`/`else` : l'**opérateur ternaire** `condition ? valeur_si_vrai : valeur_si_faux`.
+Pour les tout petits choix (affecter une valeur ou une autre selon une condition), le C++ offre une forme condensée du `if`/`else` : l'**opérateur ternaire** `condition ? valeur_si_vrai : valeur_si_faux`.
 
 ```cpp
 digitalWrite(LED, mesure > SEUIL ? HIGH : LOW);   // équivaut au if/else ci-dessous
@@ -145,11 +145,11 @@ void afficherMode(int mode) {
 }
 ```
 
-La cascade `if` gère un **intervalle** (zones de mesure) ; le `switch` gère des **valeurs discrètes** (numéros de mode). Choisir l'un ou l'autre selon la nature du test rend le code plus clair.
+La cascade `if` gère un **intervalle** (zones de mesure). Le `switch` gère des **valeurs discrètes** (numéros de mode). Choisir l'un ou l'autre selon la nature du test rend le code plus clair.
 
 ## Pièges
 
-**`=` au lieu de `==`.** `if (etat = HIGH)` *affecte* `HIGH` à `etat` au lieu de le comparer — et la condition est alors toujours vraie. Le code compile sans broncher ; le comportement est faux. Relire chaque test.
+**`=` au lieu de `==`.** `if (etat = HIGH)` *affecte* `HIGH` à `etat` au lieu de le comparer, et la condition est alors toujours vraie. Le code compile sans broncher. Le comportement est faux. Relire chaque test.
 
 **`break` oublié dans un `switch`.** Sans `break`, l'exécution continue dans le `case` suivant (effet « cascade » / *fall-through*) : on déclenche plusieurs cas au lieu d'un. Mettre un `break` à la fin de chaque `case`.
 

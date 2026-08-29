@@ -1,0 +1,326 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s7.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 07:50
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume apres passes, predit inchange : tot 4415, deh 4197, ded 207
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/cpp/cpp-conditions.md                          902
+  embarque/mcu/cpp/cpp-boucles.md                            1087
+  embarque/mcu/cpp/cpp-portee.md                              993
+  embarque/mcu/cpp/cpp-execution.md                          1433
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             4415
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 4   porteuses : 4
+
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (4 porteuses)                                   22 cl  11 bl   4415 tot   207 ded   4197 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - residu C109 apres 31 editions, predit 3 en 1 / 2 / 0 / 0
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/cpp/cpp-conditions.md
+      20  [C109] tiret d incise
+          …as, comme cela dans tel autre » — le cœur de la commande d'un méca…
+
+  embarque/mcu/cpp/cpp-boucles.md
+      90  [C109] tiret d incise
+          …s, et un `for` pour les balayer — en parcourant un **tableau** d'i…
+     122  [C109] point-virgule de prose
+          …erver aux attentes très courtes ; sinon, programmation non bloquan…
+
+4 fiche(s) lue(s), 2 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 3   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 12   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - inventaire du repertoire EN de cpp/ AVANT generation
+==============================================================
+fiches EN presentes : 5
+  cpp-en.md
+  cpp-lire-un-programme-en.md
+  cpp-logs-en.md
+  cpp-structure-en.md
+  cpp-types-en.md
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - generation des quatre squelettes EN
+==============================================================
+=== embarque/mcu/cpp/cpp-conditions.md -> content/en/embarque/mcu/cpp/cpp-conditions-en.md ===
+  liens   : 10 -> 10  ok
+  embeds  : 0 -> 0  ok
+  code    : 7 -> 7  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-conditions-en.md (8614 o)
+=== embarque/mcu/cpp/cpp-boucles.md -> content/en/embarque/mcu/cpp/cpp-boucles-en.md ===
+  liens   : 8 -> 8  ok
+  embeds  : 0 -> 0  ok
+  code    : 7 -> 7  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-boucles-en.md (8858 o)
+=== embarque/mcu/cpp/cpp-portee.md -> content/en/embarque/mcu/cpp/cpp-portee-en.md ===
+  liens   : 8 -> 8  ok
+  embeds  : 1 -> 1  ok
+  code    : 9 -> 9  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-portee-en.md (8598 o)
+=== embarque/mcu/cpp/cpp-execution.md -> content/en/embarque/mcu/cpp/cpp-execution-en.md ===
+  liens   : 10 -> 10  ok
+  embeds  : 1 -> 1  ok
+  code    : 5 -> 5  ok
+  prerequis suffixes : 1
+
+Ecrit : content/en/embarque/mcu/cpp/cpp-execution-en.md (10890 o)
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - controle des paires, predit 176 fiches / 0 divergente
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+  [ok] en/conduite/ese/basse-tension-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/deee-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/emc-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/epi-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/index.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/iso-12100-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/marquage-ce-en.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/reach-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/rohs-en.md   liens 8, embeds 0, code 0
+  [ok] en/conduite/index.md   liens 25, embeds 1, code 0
+  [ok] en/conduite/meo/archivage-projet-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/meo/cable-management-en.md   liens 4, embeds 0, code 0
+  [ok] en/conduite/meo/index.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/relation-client-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/revue-de-code-en.md   liens 11, embeds 0, code 0
+  [ok] en/conduite/meo/unite-si-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/proj/amdec-en.md   liens 27, embeds 0, code 0
+  [ok] en/conduite/proj/cahier-des-charges-fonctionnel-en.md   liens 34, embeds 0, code 0
+  [ok] en/conduite/proj/concept-en.md   liens 82, embeds 0, code 0
+  [ok] en/conduite/proj/decomposition-fonctionnelle-en.md   liens 24, embeds 4, code 0
+  [ok] en/conduite/proj/dossier-technique-en.md   liens 70, embeds 0, code 0
+  [ok] en/conduite/proj/ecoconception-en.md   liens 72, embeds 1, code 0
+  [ok] en/conduite/proj/gantt-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/gestion-de-projet-en.md   liens 38, embeds 1, code 0
+  [ok] en/conduite/proj/index.md   liens 31, embeds 0, code 0
+  [ok] en/conduite/proj/integration-et-tests-en.md   liens 75, embeds 0, code 0
+  [ok] en/conduite/proj/jalons-en.md   liens 9, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-decision-en.md   liens 14, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-risques-en.md   liens 6, embeds 2, code 0
+  [ok] en/conduite/proj/preuve-de-concept-en.md   liens 117, embeds 0, code 0
+  [ok] en/conduite/proj/retroplanning-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/securite-et-qualite-en.md   liens 73, embeds 1, code 0
+  [ok] en/conduite/proj/specification-technique-en.md   liens 97, embeds 3, code 0
+  [ok] en/conduite/proj/wbs-en.md   liens 10, embeds 2, code 0
+  [ok] en/embarque/algorithme/algorithme-en.md   liens 16, embeds 1, code 0
+  [ok] en/embarque/algorithme/chronogramme-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/algorithme/grafcet-en.md   liens 10, embeds 3, code 0
+  [ok] en/embarque/algorithme/logigramme-en.md   liens 11, embeds 4, code 0
+  [ok] en/embarque/algorithme/machine-a-etats-en.md   liens 14, embeds 4, code 0
+  [ok] en/embarque/alimentation-electronique-en.md   liens 24, embeds 3, code 0
+  [ok] en/embarque/analyse-de-schema-electronique-en.md   liens 21, embeds 4, code 0
+  [ok] en/embarque/chaine-energie-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/decouplage-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/index.md   liens 73, embeds 0, code 0
+  [ok] en/embarque/mcu/adc-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/arduino/arduino-afficheur-en.md   liens 8, embeds 1, code 3
+  [ok] en/embarque/mcu/arduino/arduino-alimentation-en.md   liens 16, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-bibliotheques-en.md   liens 14, embeds 5, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-analogique-en.md   liens 15, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-numerique-en.md   liens 20, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-debug-en.md   liens 17, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-deep-sleep-en.md   liens 20, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/arduino-eeprom-en.md   liens 12, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-en.md   liens 59, embeds 2, code 0
+  [ok] en/embarque/mcu/arduino/arduino-entree-tor-en.md   liens 9, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-gpio-en.md   liens 9, embeds 2, code 3
+  [ok] en/embarque/mcu/arduino/arduino-i2c-en.md   liens 13, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-interruptions-en.md   liens 13, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-machine-a-etats-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-memoire-en.md   liens 14, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-module-en.md   liens 21, embeds 3, code 1
+  [ok] en/embarque/mcu/arduino/arduino-moteur-cc-en.md   liens 18, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-pid-en.md   liens 20, embeds 2, code 7
+  [ok] en/embarque/mcu/arduino/arduino-prise-en-main-en.md   liens 9, embeds 6, code 2
+  [ok] en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md   liens 23, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-serie-en.md   liens 11, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-servomoteur-en.md   liens 17, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-shield-en.md   liens 13, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-sortie-pwm-en.md   liens 17, embeds 3, code 2
+  [ok] en/embarque/mcu/arduino/arduino-sortie-tor-en.md   liens 10, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-spi-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-temporisation-en.md   liens 15, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-timers-en.md   liens 24, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-uart-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-watchdog-en.md   liens 16, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/tinkercad-en.md   liens 15, embeds 4, code 1
+  [ok] en/embarque/mcu/bibliotheque-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/bus/bus-de-communication-en.md   liens 17, embeds 1, code 0
+  [ok] en/embarque/mcu/bus/i2c-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/spi-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/uart-en.md   liens 11, embeds 2, code 0
+  [ok] en/embarque/mcu/cpp/cpp-boucles-en.md   liens 8, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-conditions-en.md   liens 10, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-en.md   liens 21, embeds 0, code 0
+  [ok] en/embarque/mcu/cpp/cpp-execution-en.md   liens 10, embeds 1, code 5
+  [ok] en/embarque/mcu/cpp/cpp-lire-un-programme-en.md   liens 19, embeds 0, code 4
+  [ok] en/embarque/mcu/cpp/cpp-logs-en.md   liens 15, embeds 1, code 8
+  [ok] en/embarque/mcu/cpp/cpp-portee-en.md   liens 8, embeds 1, code 9
+  [ok] en/embarque/mcu/cpp/cpp-structure-en.md   liens 13, embeds 0, code 6
+  [ok] en/embarque/mcu/cpp/cpp-types-en.md   liens 12, embeds 0, code 6
+  [ok] en/embarque/mcu/dac-en.md   liens 7, embeds 0, code 0
+  [ok] en/embarque/mcu/debugger-embarque-en.md   liens 21, embeds 2, code 0
+  [ok] en/embarque/mcu/deep-sleep-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/entree-sortie-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/esp32/esp32-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   liens 17, embeds 1, code 5
+  [ok] en/embarque/mcu/esp8266/esp8266-en.md   liens 32, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   liens 9, embeds 7, code 5
+  [ok] en/embarque/mcu/firmware-en.md   liens 25, embeds 1, code 0
+  [ok] en/embarque/mcu/gpio-en.md   liens 27, embeds 3, code 0
+  [ok] en/embarque/mcu/interruption-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/lire-une-datasheet-en.md   liens 34, embeds 4, code 1
+  [ok] en/embarque/mcu/manipulation-de-bits-en.md   liens 14, embeds 1, code 4
+  [ok] en/embarque/mcu/memoire-en.md   liens 11, embeds 0, code 0
+  [ok] en/embarque/mcu/microcontroleur-en.md   liens 43, embeds 2, code 0
+  [ok] en/embarque/mcu/micropython/micropython-alimentation-en.md   liens 17, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-bibliotheques-en.md   liens 13, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-capteur-analogique-en.md   liens 15, embeds 1, code 5
+  [ok] en/embarque/mcu/micropython/micropython-controle-en.md   liens 7, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-debug-en.md   liens 18, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-deep-sleep-en.md   liens 19, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-en.md   liens 61, embeds 1, code 0
+  [ok] en/embarque/mcu/micropython/micropython-fonctions-en.md   liens 6, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/micropython/micropython-gpio-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-i2c-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-interruptions-en.md   liens 12, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-langage-en.md   liens 19, embeds 0, code 0
+  [ok] en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   liens 20, embeds 0, code 6
+  [ok] en/embarque/mcu/micropython/micropython-machine-a-etats-en.md   liens 16, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-memoire-en.md   liens 15, embeds 1, code 6
+  [ok] en/embarque/mcu/micropython/micropython-module-en.md   liens 20, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-modules-en.md   liens 8, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-moteur-cc-en.md   liens 17, embeds 1, code 2
+  [ok] en/embarque/mcu/micropython/micropython-prise-en-main-en.md   liens 13, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md   liens 21, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-repl-en.md   liens 5, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-shield-en.md   liens 12, embeds 0, code 1
+  [ok] en/embarque/mcu/micropython/micropython-sortie-pwm-en.md   liens 15, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-spi-en.md   liens 12, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-stockage-en.md   liens 13, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-temporisation-en.md   liens 14, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-timers-en.md   liens 16, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-types-en.md   liens 7, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-uart-en.md   liens 14, embeds 1, code 3
+  [ok] en/embarque/mcu/niveaux-de-tension-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/pic-en.md   liens 13, embeds 0, code 0
+  [ok] en/embarque/mcu/processeur-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/pwm-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/mcu/raspberry-pi/raspberry-pi-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/ble-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/lora-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/techno-sans-fil-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/wifi-en.md   liens 12, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/zigbee-en.md   liens 4, embeds 0, code 0
+  [ok] en/embarque/mcu/shield-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/stm32/stm32-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/systeme-d-exploitation-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/teensy/teensy-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/timer-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/mesure/analyseur-logique-en.md   liens 19, embeds 2, code 0
+  [ok] en/embarque/mesure/generateur-de-signaux-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/mesure/instruments-de-mesure-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mesure/multimetre-en.md   liens 13, embeds 3, code 0
+  [ok] en/embarque/mesure/oscilloscope-en.md   liens 16, embeds 3, code 0
+  [ok] en/embarque/mesure/precision-de-mesure-en.md   liens 8, embeds 1, code 0
+  [ok] en/embarque/pcb/pcb-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/realisation/choisir-le-materiel-en.md   liens 28, embeds 0, code 0
+  [ok] en/embarque/realisation/concevoir-l-electronique-en.md   liens 30, embeds 1, code 0
+  [ok] en/embarque/realisation/faire-communiquer-en.md   liens 32, embeds 0, code 0
+  [ok] en/embarque/realisation/fiabiliser-et-deboguer-en.md   liens 45, embeds 0, code 0
+  [ok] en/embarque/realisation/programmer-l-embarque-en.md   liens 39, embeds 0, code 0
+  [ok] en/embarque/schema-bloc-fonctionnel-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/simulation/simulation-electronique-en.md   liens 31, embeds 2, code 0
+  [ok] en/index.md   liens 4, embeds 0, code 0
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+176 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - title: EN des 16 cibles citees par les quatre sources (C125)
+==============================================================
+  cpp                                    title: C++
+  cpp-structure                          title: The structure of a program
+  cpp-types                              title: Typing variables
+  cpp-portee                             title: Variables locales et globales
+  cpp-conditions                         title: Les conditions
+  cpp-boucles                            title: Les boucles
+  cpp-logs                               title: Reading and understanding errors
+  cpp-lire-un-programme                  title: Reading a program you did not write
+  cpp-execution                          title: Exécution d'un programme
+  preuve-de-concept                      title: Proof of concept
+  machine-a-etats                        title: State machine
+  manipulation-de-bits                   title: Bit manipulation
+  arduino-programmation-non-bloquante    title: Non-blocking programming on Arduino
+  arduino-entree-tor                     title: Reading an on/off input
+  arduino-serie                          title: Arduino serial monitor
+  arduino-prise-en-main                  title: Getting started with Arduino
+  microcontroleur                        title: Microcontroller
+  firmware                               title: Firmware
+--- code de sortie : 0

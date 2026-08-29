@@ -1,0 +1,231 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s1.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 08:04
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume EN du lot, predit deh 4310 a 4330 et ded 207 ou 208
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  en/embarque/mcu/cpp/cpp-conditions-en.md                    952
+  en/embarque/mcu/cpp/cpp-boucles-en.md                      1147
+  en/embarque/mcu/cpp/cpp-portee-en.md                       1057
+  en/embarque/mcu/cpp/cpp-execution-en.md                    1410
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             4566
+=== MESURE DU CHEVRON - LOT NOMME ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches nommees : 4   porteuses : 4
+
+  en/embarque/mcu/cpp/cpp-conditions-en.md             6 cl   3 bl    952 tot    38 ded    911 deh    4.0 %  ECART:3
+  en/embarque/mcu/cpp/cpp-boucles-en.md                4 cl   2 bl   1147 tot    45 ded   1100 deh    3.9 %  ECART:2
+  en/embarque/mcu/cpp/cpp-portee-en.md                 8 cl   4 bl   1057 tot    88 ded    965 deh    8.3 %  ECART:4
+  en/embarque/mcu/cpp/cpp-execution-en.md              4 cl   2 bl   1410 tot    39 ded   1369 deh    2.8 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  LOT (4 porteuses)                                   22 cl  11 bl   4566 tot   210 ded   4345 deh
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - foisonnement du module sur 9 paires, trois bases (C127 + inline)
+==============================================================
+=== MESURE DU CODE INLINE - APPARIEMENT FR / EN SUR embarque/mcu/cpp ===
+  Span inline = 1 ou 2 apostrophes inversees, contenu sans saut de ligne,
+  fermeture symetrique. Cherche APRES retrait du front matter, des blocs de
+  code clotures (masque C110) et des blocs en chevron (C127) : ces trois
+  zones ne portent pas de code inline, elles SONT du code.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  net est MESURE sur le texte prive des spans, jamais soustrait.
+
+  bl = blocs en chevron, sp = spans inline, tot = mots C110,
+  deh = mots hors chevron, din = mots DANS les spans,
+  net = mots hors chevron ET hors spans, % = din / deh.
+  ECART non nul = defaut du motif, jamais une mesure.
+
+  embarque/mcu/cpp/cpp-boucles.md                tot  1087-> 1147    5.52 %   deh    5.67 %   net   947-> 1006    6.23 %
+  embarque/mcu/cpp/cpp-conditions.md             tot   902->  952    5.54 %   deh    5.81 %   net   765->  815    6.54 %
+  embarque/mcu/cpp/cpp-execution.md              tot  1433-> 1410   -1.61 %   deh   -1.65 %   net  1330-> 1307   -1.73 %
+  embarque/mcu/cpp/cpp-lire-un-programme.md      tot  2481-> 2565    3.39 %   deh    3.41 %   net  2331-> 2415    3.60 %
+  embarque/mcu/cpp/cpp-logs.md                   tot  1591-> 1668    4.84 %   deh    4.88 %   net  1477-> 1554    5.21 %
+  embarque/mcu/cpp/cpp-portee.md                 tot   993-> 1057    6.45 %   deh    6.87 %   net   865->  927    7.17 %
+  embarque/mcu/cpp/cpp-structure.md              tot  1127-> 1151    2.13 %   deh    2.23 %   net   995-> 1019    2.41 %
+  embarque/mcu/cpp/cpp-types.md                  tot  1333-> 1347    1.05 %   deh    1.00 %   net  1189-> 1203    1.18 %
+  embarque/mcu/cpp/cpp.md                        tot   342->  364    6.43 %   deh    6.43 %   net   328->  350    6.71 %
+  ----------------------------------------------------------------------------------------------------
+  TOTAUX FR : tot 11289  deh 10957  din 730  net 10227
+  TOTAUX EN : tot 11661  deh 11325  din 729  net 10596
+  foisonnement tot : 3.30 %
+  foisonnement deh : 3.36 %
+  foisonnement net : 3.61 %
+  foisonnement din : -0.14 %   (inerte si proche de 0)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - style des quatre fiches EN, predit 0 typographie et 0 C109 creee
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  en/embarque/mcu/cpp/cpp-boucles-en.md
+      92  [C109] tiret d incise
+          …ns, and one `for` to sweep them — going through an **array** of in…
+     124  [C109] point-virgule de prose
+          …ng. Keep it for very short waits; otherwise, non-blocking programm…
+
+4 fiche(s) lue(s), 1 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 2   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 12   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - recette des quatre fiches EN, predite conforme
+==============================================================
+=== RECETTE (aucune ecriture) ===
+  fiches sources      : 243
+  wikilinks           : 4323
+  embeds              : 397
+  blocs de code       : 444
+  liens sans libelle  : 175  (libelle rempli par le titre FR)
+  ancres de wikilink  : 5
+  ancres intra-page   : 14
+  fiches a aliases    : 11
+  fiches divergentes  : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - anneau 2, predit 54 restantes
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 91
+    RESTANT                   : 54
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-ble                           1279   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-gpio                          1526   chevron:4
+  embarque/mcu/esp32/esp32-i2c                           1143   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/esp32/esp32-prise-en-main                 2564   chevron:4
+  embarque/mcu/esp32/esp32-serie                         2017   chevron:4
+  embarque/mcu/esp32/esp32-spi                           1150   chevron:4
+  embarque/mcu/esp32/esp32-uart                          1282   chevron:4
+  embarque/mcu/esp32/esp32-wifi                          1455   chevron:4
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (54 fiches)                     79412
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 18
+    clotures en chevron       : 68   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 176
+  cibles rouges distinctes     : 64
+  mots                         : 89418
+  dont HORS anneaux 0..2       : 9
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/micropython/micropython-afficheur
+    embarque/mcu/micropython/micropython-capteur-numerique
+    embarque/mcu/micropython/micropython-entree-tor
+    embarque/mcu/micropython/micropython-moteur-pas-a-pas
+    embarque/mcu/micropython/micropython-pid
+    embarque/mcu/micropython/micropython-servomoteur
+    embarque/mcu/micropython/micropython-simulation
+    embarque/mcu/micropython/micropython-sortie-tor
+    embarque/mcu/micropython/micropython-watchdog
+--- code de sortie : 0

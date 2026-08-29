@@ -1,0 +1,160 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s6.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-28   heure : 23:20
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - typographie fine : quel caractere precede ; : ! ? % dans les sources
+==============================================================
+  content/embarque/mcu/cpp/cpp-conditions.md
+     U+0020 ordinaire : 35   U+202F fine insecable : 0   U+00A0 nbsp : 0   U+2009 fine : 0   autre (non espace) : 70
+  content/embarque/mcu/cpp/cpp-boucles.md
+     U+0020 ordinaire : 42   U+202F fine insecable : 0   U+00A0 nbsp : 0   U+2009 fine : 0   autre (non espace) : 51
+  content/embarque/mcu/cpp/cpp-portee.md
+     U+0020 ordinaire : 41   U+202F fine insecable : 0   U+00A0 nbsp : 0   U+2009 fine : 0   autre (non espace) : 56
+  content/embarque/mcu/cpp/cpp-execution.md
+     U+0020 ordinaire : 42   U+202F fine insecable : 0   U+00A0 nbsp : 0   U+2009 fine : 0   autre (non espace) : 33
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - typographie fine : ce qui entoure le tiret cadratin U+2014
+==============================================================
+  content/embarque/mcu/cpp/cpp-conditions.md
+     cadratins : 18   avant U+0020 : 18 / autre : 0   apres U+0020 : 18 / autre : 0
+  content/embarque/mcu/cpp/cpp-boucles.md
+     cadratins : 18   avant U+0020 : 18 / autre : 0   apres U+0020 : 18 / autre : 0
+  content/embarque/mcu/cpp/cpp-portee.md
+     cadratins : 12   avant U+0020 : 12 / autre : 0   apres U+0020 : 12 / autre : 0
+  content/embarque/mcu/cpp/cpp-execution.md
+     cadratins : 27   avant U+0020 : 27 / autre : 0   apres U+0020 : 27 / autre : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - motif de span teste sur un echantillon nomme : cpp-types, 40 premiers
+==============================================================
+=== MESURE DU CODE INLINE - SPANS EN ENTIER - ECHANTILLON NOMME ===
+  Span inline = 1 ou 2 apostrophes inversees, contenu sans saut de ligne,
+  fermeture symetrique. Cherche APRES retrait du front matter, des blocs de
+  code clotures (masque C110) et des blocs en chevron (C127) : ces trois
+  zones ne portent pas de code inline, elles SONT du code.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  net est MESURE sur le texte prive des spans, jamais soustrait.
+
+  bl = blocs en chevron, sp = spans inline, tot = mots C110,
+  deh = mots hors chevron, din = mots DANS les spans,
+  net = mots hors chevron ET hors spans, % = din / deh.
+  ECART non nul = defaut du motif, jamais une mesure.
+
+  embarque/mcu/cpp/cpp-types.md - 79 spans, 114 mots dedans
+
+       1  [int compteur = 0;]
+       2  [float]
+       3  [int]
+       4  [type nom = valeur;]
+       5  [int x;]
+       6  [int x = 0;]
+       7  [3.7]
+       8  [int]
+       9  [3]
+      10  [bool]
+      11  [true]
+      12  [false]
+      13  [char]
+      14  ['A']
+      15  [byte]
+      16  [uint8_t]
+      17  [int]
+      18  [unsigned int]
+      19  [long]
+      20  [unsigned long]
+      21  [millis()]
+      22  [unsigned]
+      23  [int]
+      24  [unsigned int]
+      25  [int]
+      26  [long]
+      27  [float]
+      28  [double]
+      29  [float]
+      30  [float]
+      31  [char]
+      32  ['A']
+      33  [char[]]
+      34  [String]
+      35  [+]
+      36  [String]
+      37  [const]
+      38  [const]
+      39  [#define]
+      40  [const]
+--- code de sortie : -1
+
+==============================================================
+>>> 5 - poids du code inline sur les neuf fiches de cpp/, banc deh en regard
+==============================================================
+=== MESURE DU CODE INLINE - LOT NOMME ===
+  Span inline = 1 ou 2 apostrophes inversees, contenu sans saut de ligne,
+  fermeture symetrique. Cherche APRES retrait du front matter, des blocs de
+  code clotures (masque C110) et des blocs en chevron (C127) : ces trois
+  zones ne portent pas de code inline, elles SONT du code.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  net est MESURE sur le texte prive des spans, jamais soustrait.
+
+  bl = blocs en chevron, sp = spans inline, tot = mots C110,
+  deh = mots hors chevron, din = mots DANS les spans,
+  net = mots hors chevron ET hors spans, % = din / deh.
+  ECART non nul = defaut du motif, jamais une mesure.
+
+  fiches nommees : 9
+
+  embarque/mcu/cpp/cpp.md                         0 bl   13 sp    342 tot    342 deh    14 din    328 net    4.1 %
+  embarque/mcu/cpp/cpp-execution.md               2 bl   54 sp   1433 tot   1392 deh    62 din   1330 net    4.5 %
+  embarque/mcu/cpp/cpp-structure.md               2 bl   64 sp   1127 tot   1074 deh    79 din    995 net    7.4 %
+  embarque/mcu/cpp/cpp-types.md                   2 bl   79 sp   1333 tot   1303 deh   114 din   1189 net    8.7 %
+  embarque/mcu/cpp/cpp-portee.md                  4 bl   33 sp    993 tot    903 deh    38 din    865 net    4.2 %
+  embarque/mcu/cpp/cpp-conditions.md              3 bl   92 sp    902 tot    861 deh    96 din    765 net   11.1 %
+  embarque/mcu/cpp/cpp-boucles.md                 2 bl   64 sp   1087 tot   1041 deh    94 din    947 net    9.0 %
+  embarque/mcu/cpp/cpp-logs.md                    1 bl   43 sp   1591 tot   1579 deh   102 din   1477 net    6.5 %
+  embarque/mcu/cpp/cpp-lire-un-programme.md       1 bl  100 sp   2481 tot   2462 deh   131 din   2331 net    5.3 %
+  ----------------------------------------------------------------------------------------------------
+  LOT (9 fiches)                                 17 bl  542 sp  11289 tot  10957 deh   730 din  10227 net
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - les cinq paires FR/EN de cpp/, trois foisonnements cote a cote
+==============================================================
+=== MESURE DU CODE INLINE - APPARIEMENT FR / EN SUR embarque/mcu/cpp ===
+  Span inline = 1 ou 2 apostrophes inversees, contenu sans saut de ligne,
+  fermeture symetrique. Cherche APRES retrait du front matter, des blocs de
+  code clotures (masque C110) et des blocs en chevron (C127) : ces trois
+  zones ne portent pas de code inline, elles SONT du code.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  net est MESURE sur le texte prive des spans, jamais soustrait.
+
+  bl = blocs en chevron, sp = spans inline, tot = mots C110,
+  deh = mots hors chevron, din = mots DANS les spans,
+  net = mots hors chevron ET hors spans, % = din / deh.
+  ECART non nul = defaut du motif, jamais une mesure.
+
+  embarque/mcu/cpp/cpp-lire-un-programme.md      tot  2481-> 2565    3.39 %   deh    3.41 %   net  2331-> 2415    3.60 %
+  embarque/mcu/cpp/cpp-logs.md                   tot  1591-> 1668    4.84 %   deh    4.88 %   net  1477-> 1554    5.21 %
+  embarque/mcu/cpp/cpp-structure.md              tot  1127-> 1151    2.13 %   deh    2.23 %   net   995-> 1019    2.41 %
+  embarque/mcu/cpp/cpp-types.md                  tot  1333-> 1347    1.05 %   deh    1.00 %   net  1189-> 1203    1.18 %
+  embarque/mcu/cpp/cpp.md                        tot   342->  364    6.43 %   deh    6.43 %   net   328->  350    6.71 %
+  ----------------------------------------------------------------------------------------------------
+  TOTAUX FR : tot 6874  deh 6760  din 440  net 6320
+  TOTAUX EN : tot 7095  deh 6980  din 439  net 6541
+  foisonnement tot : 3.22 %
+  foisonnement deh : 3.25 %
+  foisonnement net : 3.50 %
+  foisonnement din : -0.23 %   (inerte si proche de 0)
+--- code de sortie : 0

@@ -13,7 +13,7 @@ aa:
 draft: false
 ---
 
-La **portée** d'une variable décide de deux choses : *où* elle est visible dans le programme, et *combien de temps* elle vit. Une variable déclarée **dans** une fonction est *locale* — elle naît à l'appel et meurt au retour. Déclarée **hors** de toute fonction, elle est *globale* — elle vit pendant tout le programme. En embarqué, cette distinction est très concrète : c'est elle qui décide si une valeur **survit** d'un tour de `loop()` au suivant ou se réinitialise à chaque passage.
+La **portée** d'une variable décide de deux choses : *où* elle est visible dans le programme, et *combien de temps* elle vit. Une variable déclarée **dans** une fonction est *locale* : elle naît à l'appel et meurt au retour. Déclarée **hors** de toute fonction, elle est *globale* : elle vit pendant tout le programme. En embarqué, cette distinction est très concrète : c'est elle qui décide si une valeur **survit** d'un tour de `loop()` au suivant ou se réinitialise à chaque passage.
 
 ![Locale vs globale : sur trois tours de loop(), la globale garde sa valeur (1, 2, 3) tandis que la locale repart de 0 à chaque tour (1, 1, 1)](/ressources/img/cpp-portee/locale-globale.svg)
 
@@ -58,7 +58,7 @@ void loop() {
 Ici `compteur` n'est créée **qu'une fois**, au démarrage. Elle garde sa valeur d'un tour au suivant : l'affichage monte. C'est ce qu'il faut pour tout état qui doit persister.
 
 > [!tip]
-> **Le test mental.** « Est-ce que cette valeur doit survivre au prochain tour de `loop()` ? » Si oui → globale. Si non → locale. La plupart des variables sont locales ; on ne met en global que ce qui doit vraiment être partagé ou mémorisé.
+> **Le test mental.** « Est-ce que cette valeur doit survivre au prochain tour de `loop()` ? » Si oui → globale. Si non → locale. La plupart des variables sont locales. On ne met en global que ce qui doit vraiment être partagé ou mémorisé.
 
 ## Le compromis : `static`
 
@@ -120,9 +120,9 @@ void loop() {
 
 **Le masquage (*shadowing*).** Déclarer une variable locale du même nom qu'une globale « cache » la globale dans cette fonction : on croit modifier la globale, on ne touche qu'une copie locale. Éviter de réutiliser les mêmes noms.
 
-**Globale non initialisée.** Une variable globale non initialisée vaut `0` par défaut ; une **locale** non initialisée contient une valeur **indéterminée** (n'importe quoi). Toujours initialiser ses locales.
+**Globale non initialisée.** Une variable globale non initialisée vaut `0` par défaut. Une **locale** non initialisée contient une valeur **indéterminée** (n'importe quoi). Toujours initialiser ses locales.
 
-**Trop de variables globales.** Quand tout est global, n'importe quelle fonction peut tout modifier — les bugs deviennent difficiles à localiser. Garder le global au strict nécessaire (état partagé, persistance).
+**Trop de variables globales.** Quand tout est global, n'importe quelle fonction peut tout modifier : les bugs deviennent difficiles à localiser. Garder le global au strict nécessaire (état partagé, persistance).
 
 ## Exercices
 
@@ -139,7 +139,7 @@ void loop() {
 
 > [!success]- Corrigé de l'exercice 1
 > - **Version A** : `1`, `1`, `1`. `n` est **locale**, recréée et remise à 0 à chaque tour, donc toujours incrémentée de 0 à 1.
-> - **Version B** : `1`, `2`, `3`. `n` est **globale**, créée une seule fois ; elle conserve sa valeur et s'incrémente tour après tour.
+> - **Version B** : `1`, `2`, `3`. `n` est **globale**, créée une seule fois. Elle conserve sa valeur et s'incrémente tour après tour.
 
 > [!question] Exercice 2 — Le compteur qui ne compte pas
 > Ce programme doit compter combien de fois une mesure dépasse un seuil, mais il affiche toujours `1`. Corrigez-le de deux façons.
@@ -175,7 +175,7 @@ void loop() {
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — dès qu'un programme doit mémoriser un état (dernier mode, compteur, dernier instant), la portée devient déterminante ; un mauvais choix produit des bugs de « mémoire qui s'efface » difficiles à comprendre.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — dès qu'un programme doit mémoriser un état (dernier mode, compteur, dernier instant), la portée devient déterminante. Un mauvais choix produit des bugs de « mémoire qui s'efface » difficiles à comprendre.
 - **[[machine-a-etats|Machines à états]]** — l'état courant d'une machine à états est typiquement une variable **globale** persistante : la portée est le socle de ce mécanisme.
 
 ## Voir aussi

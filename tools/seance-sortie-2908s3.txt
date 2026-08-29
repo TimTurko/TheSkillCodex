@@ -1,0 +1,2336 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2908s2.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119, lue et non deduite)
+==============================================================
+date ISO : 2026-08-29   heure : 08:06
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - medias, predit 12 absents et 1 orphelin
+==============================================================
+=== AUDIT DES EMBEDS ===
+424 fiches lues, 621 embeds et liens ressources, 374 fichiers dans ressources/
+
+conduite/index.md
+  [OK] /ressources/img/conduite/cycle-v-projet.svg
+
+conduite/proj/bete-a-cornes.md
+  [OK] /ressources/img/bete-a-cornes/generique.svg
+  [OK] /ressources/img/bete-a-cornes/bras-mauvais.svg
+  [OK] /ressources/img/bete-a-cornes/bras-moyen.svg
+  [OK] /ressources/img/bete-a-cornes/bras-bon.svg
+
+conduite/proj/cahier-des-charges-fonctionnel.md
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+conduite/proj/decomposition-fonctionnelle.md
+  [OK] /ressources/img/decomposition-fonctionnelle/generique.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-mauvais.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-moyen.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-3-axes.svg
+
+conduite/proj/ecoconception.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/fast.md
+  [OK] /ressources/img/fast/generique.svg
+  [OK] /ressources/img/fast/bras-3-axes.svg
+
+conduite/proj/gantt.md
+  [OK] /ressources/img/gantt/generique.svg
+  [OK] /ressources/img/gantt/station-meteo.svg
+
+conduite/proj/gestion-de-projet.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/jalons.md
+  [OK] /ressources/img/jalons/generique.svg
+  [OK] /ressources/img/jalons/station-meteo.svg
+
+conduite/proj/matrice-de-decision.md
+  [OK] /ressources/img/matrice-de-decision/generique.svg
+  [OK] /ressources/img/matrice-de-decision/station-meteo.svg
+
+conduite/proj/matrice-de-risques.md
+  [OK] /ressources/img/matrice-de-risques/generique.svg
+  [OK] /ressources/img/matrice-de-risques/station-meteo.svg
+
+conduite/proj/mecatronique.md
+  [OK] /ressources/img/mecatronique/generique.svg
+
+conduite/proj/mind-map.md
+  [OK] /ressources/img/mind-map/generique.svg
+  [OK] /ressources/img/mind-map/bras-3-axes.svg
+
+conduite/proj/pieuvre.md
+  [OK] /ressources/img/pieuvre/generique.svg
+  [OK] /ressources/img/pieuvre/bras-3-axes.svg
+
+conduite/proj/retroplanning.md
+  [OK] /ressources/img/retroplanning/generique.svg
+  [OK] /ressources/img/retroplanning/station-meteo.svg
+
+conduite/proj/securite-et-qualite.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+conduite/proj/specification-technique.md
+  [OK] /ressources/img/bete-a-cornes/generique.svg
+  [OK] /ressources/img/pieuvre/generique.svg
+  [OK] /ressources/img/pieuvre/bras-3-axes.svg
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+conduite/proj/wbs.md
+  [OK] /ressources/img/wbs/generique.svg
+  [OK] /ressources/img/wbs/station-meteo.svg
+
+embarque/algorithme/algorithme.md
+  [OK] /ressources/img/algorithme/quatre-regards.svg
+
+embarque/algorithme/chronogramme.md
+  [OK] /ressources/img/chronogramme/generique.svg
+  [OK] /ressources/img/chronogramme/pwm.svg
+
+embarque/algorithme/grafcet.md
+  [OK] /ressources/img/grafcet/generique.svg
+  [OK] /ressources/img/grafcet/percage.svg
+  [OK] /ressources/img/grafcet/divergences.svg
+
+embarque/algorithme/logigramme.md
+  [OK] /ressources/img/logigramme/generique.svg
+  [OK] /ressources/img/logigramme/thermostat-mauvais.svg
+  [OK] /ressources/img/logigramme/thermostat-moyen.svg
+  [OK] /ressources/img/logigramme/thermostat-bon.svg
+
+embarque/algorithme/machine-a-etats.md
+  [OK] /ressources/img/machine-a-etats/generique.svg
+  [OK] /ressources/img/machine-a-etats/portail-mauvais.svg
+  [OK] /ressources/img/machine-a-etats/portail-moyen.svg
+  [OK] /ressources/img/machine-a-etats/portail-bon.svg
+
+embarque/alimentation-electronique.md
+  [OK] /ressources/img/alimentation-electronique/regulation.svg
+  [OK] /ressources/img/alimentation-electronique/masses.svg
+  [OK] /ressources/img/alimentation-electronique/bras-3-axes.svg
+
+embarque/analyse-de-schema-electronique.md
+  [OK] /ressources/img/analyse-de-schema-electronique/generique.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/netlabels.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/exemple.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/zones.svg
+
+embarque/asservissement.md
+  [OK] /ressources/img/asservissement/boucle-fermee.svg
+
+embarque/boucle-ouverte.md
+  [OK] /ressources/img/boucle-ouverte/chaine-sans-retour.svg
+
+embarque/chaine-energie.md
+  [OK] /ressources/img/chaine-energie/generique.svg
+  [OK] /ressources/img/chaine-energie/bras-3-axes.svg
+
+embarque/decouplage.md
+  [OK] /ressources/img/decouplage/generique.svg
+
+embarque/mcu/adc.md
+  [OK] /ressources/img/adc/quantification.svg
+
+embarque/mcu/arduino/arduino-afficheur.md
+  [OK] /ressources/img/arduino-afficheur/branchement-i2c.svg
+
+embarque/mcu/arduino/arduino-alimentation.md
+  [OK] /ressources/img/arduino-alimentation/trois-sources.svg
+  [OK] /ressources/img/arduino-alimentation/alimentation-separee.svg
+
+embarque/mcu/arduino/arduino-bibliotheques.md
+  [OK] /ressources/img/arduino-bibliotheques/couches-abstraction.svg
+  [OK] /ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png
+  [OK] /ressources/img/arduino-bibliotheques/installer-bibliotheques-dependances.png
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+  [OK] /ressources/img/arduino-bibliotheques/servo-balayage.gif
+
+embarque/mcu/arduino/arduino-capteur-analogique.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+
+embarque/mcu/arduino/arduino-capteur-numerique.md
+  [OK] /ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif
+  [OK] /ressources/img/arduino-capteur-numerique/branchement-hc-sr04.svg
+  [OK] /ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp
+  [OK] /ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg
+
+embarque/mcu/arduino/arduino-debug.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-debug/ou-est-le-probleme.svg
+
+embarque/mcu/arduino/arduino-deep-sleep.md
+  [OK] /ressources/img/arduino-deep-sleep/profil-courant-veille.svg
+
+embarque/mcu/arduino/arduino-eeprom.md
+  [OK] /ressources/img/arduino-eeprom/carte-memoire-eeprom.svg
+
+embarque/mcu/arduino/arduino-entree-tor.md
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+  [OK] /ressources/img/arduino-entree-tor/rebond.svg
+
+embarque/mcu/arduino/arduino-gpio-boot.md
+  [OK] /ressources/img/arduino-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/arduino-gpio-boot/branchement-relais-pullup.svg
+
+embarque/mcu/arduino/arduino-gpio.md
+  [OK] /ressources/img/arduino/uno-pinout.webp
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+
+embarque/mcu/arduino/arduino-i2c.md
+  [OK] /ressources/img/arduino-i2c/branchement-i2c.svg
+
+embarque/mcu/arduino/arduino-interruptions.md
+  [OK] /ressources/img/arduino-interruptions/montage.svg
+  [OK] /ressources/img/arduino-interruptions/chronogramme-comptage.svg
+
+embarque/mcu/arduino/arduino-machine-a-etats.md
+  [OK] /ressources/img/arduino-machine-a-etats/montage.svg
+  [OK] /ressources/img/arduino-machine-a-etats/diagramme-etats.svg
+
+embarque/mcu/arduino/arduino-memoire.md
+  [OK] /ressources/img/arduino-memoire/carte-memoire-sram.svg
+
+embarque/mcu/arduino/arduino-module.md
+  [OK] /ressources/img/arduino-module/pullups-paralleles.svg
+  [OK] /ressources/img/arduino-module/serigraphies-i2c.svg
+  [OK] /ressources/img/arduino-module/branchement-dht11.svg
+
+embarque/mcu/arduino/arduino-moteur-cc.md
+  [OK] /ressources/img/arduino-moteur-cc/branchement-l298n.svg
+
+embarque/mcu/arduino/arduino-moteur-pas-a-pas.md
+  [OK] /ressources/img/arduino-moteur-pas-a-pas/branchement-28byj48.svg
+
+embarque/mcu/arduino/arduino-pid.md
+  [OK] /ressources/img/arduino-pid/boucle-fermee-pid.svg
+  [OK] /ressources/img/arduino-pid/traceur-consigne-mesure.png
+
+embarque/mcu/arduino/arduino-prise-en-main.md
+  [OK] /ressources/img/arduino-prise-en-main/telechargement.png
+  [OK] /ressources/img/arduino-prise-en-main/type-de-carte.png
+  [OK] /ressources/img/arduino-prise-en-main/port.png
+  [OK] /ressources/img/arduino-prise-en-main/ch340-driver.jpg
+  [OK] /ressources/img/arduino-prise-en-main/blink-compilation.png
+  [OK] /ressources/img/arduino-prise-en-main/led-blink.gif
+
+embarque/mcu/arduino/arduino-programmation-non-bloquante.md
+  [OK] /ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/arduino-programmation-non-bloquante/frise-3-taches.svg
+
+embarque/mcu/arduino/arduino-serie.md
+  [OK] /ressources/img/arduino-serie/moniteur-serie.jpg
+  [OK] /ressources/img/arduino-serie/traceur-serie.png
+
+embarque/mcu/arduino/arduino-servomoteur.md
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+  [OK] /ressources/img/arduino-servomoteur/retour-position.svg
+
+embarque/mcu/arduino/arduino-shield.md
+  [OK] /ressources/img/arduino-shield/empilage-shield.webp
+  [OK] /ressources/img/arduino-shield/montage-shield-l293d.webp
+
+embarque/mcu/arduino/arduino-sortie-pwm.md
+  [OK] /ressources/img/arduino-sortie-pwm/branchement-led-pwm.svg
+  [OK] /ressources/img/oscilloscope/ecran-pwm.svg
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+
+embarque/mcu/arduino/arduino-sortie-tor.md
+  [OK] /ressources/img/arduino-sortie-tor/transistor-bas-cote.svg
+  [OK] /ressources/img/arduino-sortie-tor/montage.svg
+
+embarque/mcu/arduino/arduino-spi.md
+  [OK] /ressources/img/arduino-spi/branchement-sd.svg
+
+embarque/mcu/arduino/arduino-temporisation.md
+  [OK] /ressources/img/arduino-temporisation/delay-vs-millis.svg
+  [OK] /ressources/img/arduino-temporisation/cadences-paralleles.svg
+
+embarque/mcu/arduino/arduino-timers.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-timers/cadence-millis-vs-timer.svg
+
+embarque/mcu/arduino/arduino-uart.md
+  [OK] /ressources/img/arduino-uart/cablage-croise.svg
+  [OK] /ressources/img/arduino-uart/pont-serie.svg
+
+embarque/mcu/arduino/arduino-watchdog.md
+  [OK] /ressources/img/arduino-watchdog/chronogramme-watchdog.svg
+
+embarque/mcu/arduino/arduino.md
+  [OK] /ressources/img/arduino/uno-photo.webp
+  [OK] /ressources/img/arduino/uno-pinout.webp
+
+embarque/mcu/arduino/tinkercad.md
+  [OK] /ressources/img/tinkercad/creer-circuit.png
+  [OK] /ressources/img/tinkercad/plan-de-travail.png
+  [OK] /ressources/img/tinkercad/editeur-code-texte.png
+  [OK] /ressources/img/tinkercad/simulation-en-cours.png
+
+embarque/mcu/ascii.md
+  [OK] /ressources/img/ascii/caractere-vers-code.svg
+  [OK] /ressources/img/ascii/tableau-ascii.webp
+
+embarque/mcu/bus/bus-de-communication.md
+  [OK] /ressources/img/bus-de-communication/topologies.svg
+
+embarque/mcu/bus/i2c.md
+  [OK] /ressources/img/i2c/branchement.svg
+  [OK] /ressources/img/i2c/chronogramme.svg
+
+embarque/mcu/bus/spi.md
+  [OK] /ressources/img/spi/branchement.svg
+  [OK] /ressources/img/spi/chronogramme.svg
+
+embarque/mcu/bus/uart.md
+  [OK] /ressources/img/uart/branchement.svg
+  [OK] /ressources/img/uart/chronogramme.svg
+
+embarque/mcu/chien-de-garde.md
+  [OK] /ressources/img/chien-de-garde/independance.svg
+
+embarque/mcu/cpp/cpp-execution.md
+  [OK] /ressources/img/cpp-execution/cycle.svg
+
+embarque/mcu/cpp/cpp-logs.md
+  [OK] /ressources/img/cpp-logs/panneau-erreur.png
+
+embarque/mcu/cpp/cpp-portee.md
+  [OK] /ressources/img/cpp-portee/locale-globale.svg
+
+embarque/mcu/debugger-embarque.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+  [OK] /ressources/img/debugger-embarque/chaines.svg
+
+embarque/mcu/deep-sleep.md
+  [OK] /ressources/img/deep-sleep/profil.svg
+
+embarque/mcu/esp32/esp32-arduino-core.md
+  [OK] /ressources/img/esp32-arduino-core/couches-arduino-core.svg
+
+embarque/mcu/esp32/esp32-ble.md
+  [OK] /ressources/img/esp32-ble/roles-ble.svg
+  [OK] /ressources/img/esp32-ble/nrf-connect.png
+
+embarque/mcu/esp32/esp32-deep-sleep.md
+  [OK] /ressources/img/esp32-deep-sleep/reveil.svg
+  [OK] /ressources/img/esp32-deep-sleep/montage-reveil-bouton.svg
+
+embarque/mcu/esp32/esp32-freertos.md
+  [OK] /ressources/img/esp32-freertos/ordonnancement.svg
+
+embarque/mcu/esp32/esp32-gpio.md
+  [OK] /ressources/img/esp32-gpio/brochage.svg
+  [OK] /ressources/img/esp32-gpio/montage-led-bouton.svg
+  [OK] /ressources/img/esp32-gpio/montage-potentiometre.svg
+
+embarque/mcu/esp32/esp32-i2c.md
+  [OK] /ressources/img/esp32-i2c/branchement-i2c.svg
+
+embarque/mcu/esp32/esp32-idf.md
+  [OK] /ressources/img/esp32-idf/arbre-de-decision.svg
+
+embarque/mcu/esp32/esp32-prise-en-main.md
+  [OK] /ressources/img/esp32-prise-en-main/telechargement-ide.png
+  [OK] /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+  [OK] /ressources/img/esp32-prise-en-main/gestionnaire-cartes-esp32.png
+  [OK] /ressources/img/esp32-prise-en-main/menu-outils-carte-port.png
+  [OK] /ressources/img/esp32-prise-en-main/selection-board.png
+  [OK] /ressources/img/esp32-prise-en-main/selection-port-com.png
+  [OK] /ressources/img/esp32-prise-en-main/upload-in-progress.png
+  [OK] /ressources/img/esp32-prise-en-main/done-uploading.png
+  [OK] /ressources/img/esp32-prise-en-main/led-on.jpg
+  [OK] /ressources/img/esp32-prise-en-main/led-off.jpg
+  [OK] /ressources/img/esp32-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/esp32/esp32-serie.md
+  [OK] /ressources/img/esp32-serie/moniteur-serie-115200.png
+
+embarque/mcu/esp32/esp32-spi.md
+  [OK] /ressources/img/esp32-spi/branchement-spi.svg
+
+embarque/mcu/esp32/esp32-uart.md
+  [OK] /ressources/img/esp32-uart/branchement-uart.svg
+
+embarque/mcu/esp32/esp32-wifi.md
+  [OK] /ressources/img/esp32-wifi/sta-vs-ap.svg
+  [OK] /ressources/img/esp32-wifi/page-servie.png
+
+embarque/mcu/esp32/esp32.md
+  [OK] /ressources/img/esp32/positionnement-variantes.svg
+
+embarque/mcu/esp8266/esp8266-arduino-core.md
+  [OK] /ressources/img/esp8266-arduino-core/brochage-d1-gpio.svg
+
+embarque/mcu/esp8266/esp8266-prise-en-main.md
+  [OK] /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+  [OK] /ressources/img/esp8266-prise-en-main/gestionnaire-cartes-esp8266.png
+  [OK] /ressources/img/esp8266-prise-en-main/menu-outils-carte-port.png
+  [OK] /ressources/img/esp8266-prise-en-main/selection-board.png
+  [OK] /ressources/img/esp8266-prise-en-main/selection-port-com.png
+  [OK] /ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.png
+  [OK] /ressources/img/esp8266-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/esp8266/esp8266.md
+  [OK] /ressources/img/esp8266/comparaison-esp32.svg
+
+embarque/mcu/filtrage.md
+  [OK] /ressources/img/filtrage/bruit-et-retard.svg
+  [OK] /ressources/img/filtrage/trois-bruits.svg
+
+embarque/mcu/firmware.md
+  [OK] /ressources/img/firmware/architectures.svg
+
+embarque/mcu/gpio.md
+  [OK] /ressources/img/gpio/modes.svg
+  [OK] /ressources/img/gpio/flottant.svg
+  [OK] /ressources/img/gpio/courant-max.svg
+
+embarque/mcu/ide.md
+  [OK] /ressources/img/ide/interface-annotee.png
+  [OK] /ressources/img/ide/selecteur-carte-port.png
+
+embarque/mcu/interruption.md
+  [OK] /ressources/img/interruption/chronogramme.svg
+
+embarque/mcu/lire-une-datasheet.md
+  [OK] /ressources/img/lire-une-datasheet/generique.svg
+  [OK] /ressources/img/lire-une-datasheet/l298n.svg
+  [OK] /ressources/img/lire-une-datasheet/brochage-multiwatt15.png
+  [OK] /ressources/img/lire-une-datasheet/absolute-maximum-ratings.png
+
+embarque/mcu/manipulation-de-bits.md
+  [OK] /ressources/img/manipulation-de-bits/masquage.svg
+
+embarque/mcu/microcontroleur.md
+  [OK] /ressources/img/microcontroleur/architecture.svg
+  [OK] /ressources/img/microcontroleur/positionnement.svg
+
+embarque/mcu/micropython/micropython-afficheur.md
+  [OK] /ressources/img/micropython-afficheur/branchement-oled.svg
+
+embarque/mcu/micropython/micropython-alimentation.md
+  [OK] /ressources/img/micropython-alimentation/deux-sources.svg
+  [OK] /ressources/img/micropython-alimentation/alimentation-separee.svg
+
+embarque/mcu/micropython/micropython-bibliotheques.md
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+embarque/mcu/micropython/micropython-capteur-analogique.md
+  [OK] /ressources/img/micropython-capteur-analogique/montage-adc.svg
+
+embarque/mcu/micropython/micropython-capteur-numerique.md
+  [OK] /ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif
+  [OK] /ressources/img/micropython-capteur-numerique/montage-capteur.svg
+  [OK] /ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp
+  [OK] /ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg
+
+embarque/mcu/micropython/micropython-deep-sleep.md
+  [OK] /ressources/img/micropython-deep-sleep/profil-courant-veille.svg
+
+embarque/mcu/micropython/micropython-entree-tor.md
+  [OK] /ressources/img/micropython-entree-tor/montage-bouton.svg
+  [OK] /ressources/img/micropython-entree-tor/rebond.svg
+
+embarque/mcu/micropython/micropython-gpio-boot.md
+  [OK] /ressources/img/micropython-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/micropython-gpio-boot/branchement-relais-pullup.svg
+
+embarque/mcu/micropython/micropython-gpio.md
+  [OK] /ressources/img/micropython-gpio/brochage-pico.png
+  [OK] /ressources/img/micropython-gpio/montage-led-bouton.svg
+
+embarque/mcu/micropython/micropython-i2c.md
+  [OK] /ressources/img/micropython-i2c/branchement-i2c.svg
+  [OK] /ressources/img/micropython-i2c/pullups-paralleles.svg
+
+embarque/mcu/micropython/micropython-interruptions.md
+  [OK] /ressources/img/micropython-interruptions/montage.svg
+  [OK] /ressources/img/micropython-interruptions/chronogramme-comptage.svg
+
+embarque/mcu/micropython/micropython-machine-a-etats.md
+  [OK] /ressources/img/micropython-machine-a-etats/montage.svg
+  [OK] /ressources/img/micropython-machine-a-etats/diagramme-etats.svg
+
+embarque/mcu/micropython/micropython-memoire.md
+  [OK] /ressources/img/micropython-memoire/fragmentation-tas.svg
+
+embarque/mcu/micropython/micropython-module.md
+  [OK] /ressources/img/micropython-module/montage-module.svg
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+embarque/mcu/micropython/micropython-moteur-cc.md
+  [OK] /ressources/img/micropython-moteur-cc/branchement-pont-h.svg
+
+embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+  [OK] /ressources/img/micropython-moteur-pas-a-pas/branchement-stepper.svg
+
+embarque/mcu/micropython/micropython-pid.md
+  [OK] /ressources/img/micropython-pid/boucle-fermee-pid.svg
+
+embarque/mcu/micropython/micropython-programmation-non-bloquante.md
+  [OK] /ressources/img/micropython-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/micropython-programmation-non-bloquante/frise-taches.svg
+
+embarque/mcu/micropython/micropython-servomoteur.md
+  [OK] /ressources/img/micropython-servomoteur/branchement-servo.svg
+  [OK] /ressources/img/micropython-servomoteur/retour-position.svg
+
+embarque/mcu/micropython/micropython-simulation.md
+  [OK] /ressources/img/wokwi/ajouter-composant-blink.png
+
+embarque/mcu/micropython/micropython-sortie-pwm.md
+  [OK] /ressources/img/micropython-sortie-pwm/montage-led-pwm.svg
+
+embarque/mcu/micropython/micropython-sortie-tor.md
+  [OK] /ressources/img/micropython-sortie-tor/montage-relais.svg
+
+embarque/mcu/micropython/micropython-spi.md
+  [OK] /ressources/img/micropython-spi/branchement-spi.svg
+
+embarque/mcu/micropython/micropython-stockage.md
+  [OK] /ressources/img/micropython-stockage/persistance-fichier.svg
+
+embarque/mcu/micropython/micropython-temporisation.md
+  [OK] /ressources/img/micropython-temporisation/sleep-vs-ticks.svg
+  [OK] /ressources/img/micropython-temporisation/cadences-paralleles.svg
+
+embarque/mcu/micropython/micropython-timers.md
+  [OK] /ressources/img/micropython-timers/cadence-ticks-vs-timer.svg
+
+embarque/mcu/micropython/micropython-uart.md
+  [OK] /ressources/img/micropython-uart/branchement-uart.svg
+
+embarque/mcu/micropython/micropython-watchdog.md
+  [OK] /ressources/img/micropython-watchdog/chronogramme-watchdog.svg
+
+embarque/mcu/micropython/micropython.md
+  [OK] /ressources/img/micropython/modele-execution.svg
+
+embarque/mcu/niveaux-de-tension.md
+  [OK] /ressources/img/niveaux-de-tension/generique.svg
+  [OK] /ressources/img/niveaux-de-tension/adaptation.svg
+
+embarque/mcu/potentiometre.md
+  [OK] /ressources/img/potentiometre/how-potentiometer-works.webp
+
+embarque/mcu/programmation-non-bloquante.md
+  [OK] /ressources/img/programmation-non-bloquante/bloquant-vs-cooperatif.svg
+
+embarque/mcu/pwm.md
+  [OK] /ressources/img/pwm/rapport-cyclique.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md
+  [OK] /ressources/img/raspberry-pi-gpio/pile.svg
+  [OK] /ressources/img/raspberry-pi-gpio/brochage-40-broches.svg
+  [OK] /ressources/img/raspberry-pi-gpio/montage-led-bouton.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md
+  [OK] /ressources/img/raspberry-pi-prise-en-main/topologie-headless.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md
+  [OK] /ressources/img/raspberry-pi-projet/architecture-bicephale.svg
+
+embarque/mcu/raspberry-pi/raspberry-pi.md
+  [OK] /ressources/img/raspberry-pi/mcu-vs-sbc.svg
+
+embarque/mcu/sans-fil/techno-sans-fil.md
+  [OK] /ressources/img/techno-sans-fil/comparaison.svg
+
+embarque/mcu/shield.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+embarque/mcu/stm32/stm32-arduino-core.md
+  [OK] /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+  [OK] /ressources/img/stm32-arduino-core/brochage-blue-pill.svg
+
+embarque/mcu/stm32/stm32-cubemx.md
+  [OK] /ressources/img/stm32-cubemx/flux.svg
+
+embarque/mcu/stm32/stm32-hal.md
+  [OK] /ressources/img/stm32-hal/trois-modes.svg
+
+embarque/mcu/stm32/stm32-prise-en-main.md
+  [OK] /ressources/img/stm32-prise-en-main/brochage-nucleo-64.svg
+
+embarque/mcu/stm32/stm32-registres.md
+  [OK] /ressources/img/stm32-registres/registre-gpio.svg
+
+embarque/mcu/stm32/stm32.md
+  [OK] /ressources/img/stm32/abstraction-couches.svg
+
+embarque/mcu/teensy/teensy-arduino-core.md
+  [OK] /ressources/img/teensy-arduino-core/paliers-d-acces.svg
+
+embarque/mcu/teensy/teensy-audio.md
+  [OK] /ressources/img/teensy-audio/flux.svg
+  [OK] /ressources/img/teensy-audio/empilage-audio-shield.svg
+
+embarque/mcu/teensy/teensy-prise-en-main.md
+  [OK] /ressources/img/esp32-prise-en-main/telechargement-ide.png
+  [OK] /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+  [OK] /ressources/img/teensy-prise-en-main/brochage.png
+  [OK] /ressources/img/teensy-prise-en-main/montage-led-externe.svg
+
+embarque/mcu/teensy/teensy-usb.md
+  [OK] /ressources/img/teensy-usb/personnalites.svg
+  [OK] /ressources/img/teensy-usb/montage-bouton.svg
+  [OK] /ressources/img/teensy-usb/montage-potentiometre.svg
+
+embarque/mcu/teensy/teensy.md
+  [OK] /ressources/img/teensy/comparaison-arduino.svg
+
+embarque/mcu/timer.md
+  [OK] /ressources/img/timer/compteur.svg
+
+embarque/mcu/xiao/xiao-alimentation.md
+  [OK] /ressources/img/xiao-alimentation/paths.svg
+
+embarque/mcu/xiao/xiao-esp32-s3.md
+  [OK] /ressources/img/xiao-esp32-s3/brochage.svg
+  [OK] /ressources/img/xiao-esp32-s3/variantes.svg
+  [OK] /ressources/img/xiao-esp32-s3/extendeur-i2c.svg
+  [OK] /ressources/img/xiao-esp32-s3/antenne.svg
+
+embarque/mcu/xiao/xiao-prise-en-main.md
+  [OK] /ressources/img/xiao-prise-en-main/bootloader.svg
+
+embarque/mcu/xiao/xiao-sense.md
+  [OK] /ressources/img/xiao-sense/peripheriques.svg
+
+embarque/mesure/analyseur-logique.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+  [OK] /ressources/img/analyseur-logique/branchement.svg
+
+embarque/mesure/generateur-de-signaux.md
+  [OK] /ressources/img/generateur-de-signaux/face-avant.svg
+  [OK] /ressources/img/generateur-de-signaux/injection.svg
+
+embarque/mesure/instruments-de-mesure.md
+  [OK] /ressources/img/instruments-de-mesure/confrontation.svg
+
+embarque/mesure/multimetre.md
+  [OK] /ressources/img/multimetre/face-avant.svg
+  [OK] /ressources/img/multimetre/serie-parallele.svg
+  [OK] /ressources/img/multimetre/fusible-grille.svg
+
+embarque/mesure/oscilloscope.md
+  [OK] /ressources/img/oscilloscope/face-avant.svg
+  [OK] /ressources/img/oscilloscope/branchement-sonde.svg
+  [OK] /ressources/img/oscilloscope/ecran-pwm.svg
+
+embarque/mesure/precision-de-mesure.md
+  [OK] /ressources/img/precision-de-mesure/cibles.svg
+
+embarque/pcb/easyeda.md
+  [OK] /ressources/img/easyeda/download-website.jpg
+  [OK] /ressources/img/easyeda/select-offline-mode.png
+  [OK] /ressources/img/easyeda/verifier-changer-mode-offline.jpg
+  [OK] /ressources/img/easyeda/fichier-nouveau-projet.png
+  [OK] /ressources/img/easyeda/cartouche-projet.png
+  [OK] /ressources/img/easyeda/search-ne555.png
+  [OK] /ressources/img/easyeda/NE555-schema-footprint.png
+  [OK] /ressources/img/easyeda/traversant-cms.svg
+  [OK] /ressources/img/easyeda/differents-types-condensateurs.png
+  [OK] /ressources/img/easyeda/impact-footprint-sur-soudure.jpg
+  [OK] /ressources/img/easyeda/resistance-traversante-ok-cms-pas-ok.png
+  [OK] /ressources/img/easyeda/condensateur-traversant-ok-cms-pas-ok.jpg
+  [OK] /ressources/img/easyeda/outils-de-cablage.png
+  [OK] /ressources/img/easyeda/placement-des-composants-sur-sch.png
+  [OK] /ressources/img/easyeda/cabler-composant-sur-sch-avec-erreur.png
+  [OK] /ressources/img/easyeda/utiliser-netlabel-sur-sch.png
+  [OK] /ressources/img/easyeda/explication-fonctionnement-netlabel.png
+  [OK] /ressources/img/easyeda/sch-complet-sans-connecteurs.png
+  [OK] /ressources/img/easyeda/recherche-connecteurs.png
+  [OK] /ressources/img/easyeda/sch-complet-avec-connecteur.png
+  [OK] /ressources/img/easyeda/differents-types-connecteurs.jpg
+  [OK] /ressources/img/easyeda/convertir-sch-en-pcb.png
+  [OK] /ressources/img/easyeda/parametres-nouveau-pcb.png
+  [OK] /ressources/img/easyeda/chevelu.png
+  [OK] /ressources/img/easyeda/placement-premier-composant-bornier-a-droite.png
+  [OK] /ressources/img/easyeda/premiere-tentative-de-placement.png
+  [OK] /ressources/img/easyeda/reglage-regles-de-dessin.png
+  [OK] /ressources/img/easyeda/pad-composants-taille-de-base.png
+  [OK] /ressources/img/easyeda/pad-composants-avec-taille-recommandee.png
+  [OK] /ressources/img/easyeda/seconde-tentative-de-placement-avec-les-bonnes-tailles-de-pads.png
+  [OK] /ressources/img/easyeda/tracer-fils-cote-cuivre.png
+  [OK] /ressources/img/easyeda/deux-pads-non-alignes.png
+  [OK] /ressources/img/easyeda/correction-alignement-pads.png
+  [OK] /ressources/img/easyeda/premier-cable.png
+  [OK] /ressources/img/easyeda/changer-taille-premier-cable.png
+  [OK] /ressources/img/easyeda/piste-45-deg-ok-pas-ok.png
+  [OK] /ressources/img/easyeda/astuce-passer-sous-un-autre-composant.png
+  [OK] /ressources/img/easyeda/pad-pour-croisement.png
+  [OK] /ressources/img/easyeda/astuce-strap.png
+  [OK] /ressources/img/easyeda/astuce-strap-visualisation-realisation-pcb.png
+  [OK] /ressources/img/easyeda/reglage-taille-trous-de-percage.png
+  [OK] /ressources/img/easyeda/reglage-origine-machine-outil.png
+  [OK] /ressources/img/easyeda/masse-pas-connectee-preparation-plan-de-masse.png
+  [OK] /ressources/img/easyeda/creer-plan-de-masse.png
+  [OK] /ressources/img/easyeda/plan-de-masse-ok-pas-ok.png
+  [OK] /ressources/img/easyeda/check-drc.png
+  [OK] /ressources/img/easyeda/exemple-erreur-drc.png
+  [OK] /ressources/img/easyeda/export-pdf-menu.png
+  [OK] /ressources/img/easyeda/export-pdf-reglages.png
+  [OK] /ressources/img/easyeda/parametres-imprimante-pour-test-impression.png
+  [OK] /ressources/img/easyeda/verification-footprint-sur-impression.jpg
+  [OK] /ressources/img/easyeda/soudure-cote-cuivre-et-exemple-pcb-termine.jpg
+  [OK] /ressources/img/easyeda/derniere-etape-export-json.png
+
+embarque/pcb/pcb.md
+  [OK] /ressources/img/pcb/flux.svg
+
+embarque/protection-electronique.md
+  [OK] /ressources/img/protection-electronique/generique.svg
+  [OK] /ressources/img/protection-electronique/fusible.svg
+  [OK] /ressources/img/protection-electronique/anti-inversion.svg
+  [OK] /ressources/img/protection-electronique/tvs.svg
+  [OK] /ressources/img/protection-electronique/roue-libre.svg
+  [OK] /ressources/img/protection-electronique/esd.svg
+
+embarque/realisation/concevoir-l-electronique.md
+  [OK] /ressources/img/concevoir-l-electronique/bras-3-axes.svg
+
+embarque/schema-bloc-fonctionnel.md
+  [OK] /ressources/img/schema-bloc-fonctionnel/generique.svg
+  [OK] /ressources/img/schema-bloc-fonctionnel/couveuse.svg
+
+embarque/simulation/falstad.md
+  [OK] /ressources/img/falstad/interface.png
+  [OK] /ressources/img/falstad/survol-mesure.png
+  [OK] /ressources/img/falstad/curseurs-vitesse.png
+  [OK] /ressources/img/falstad/ouvrir-un-circuit.png
+  [OK] /ressources/img/falstad/potentiometre-edition.png
+  [OK] /ressources/img/falstad/potentiometre.gif
+  [OK] /ressources/img/falstad/nouveau-circuit-vide.png
+  [OK] /ressources/img/falstad/construire-passe-haut.gif
+  [OK] /ressources/img/falstad/circuit-rc.gif
+  [OK] /ressources/img/falstad/menu-fichier.png
+  [OK] /ressources/img/falstad/importer-depuis-texte.png
+  [OK] /ressources/img/falstad/coller-la-description.png
+  [OK] /ressources/img/falstad/pont-diviseur.gif
+
+embarque/simulation/ltspice.md
+  [OK] /ressources/img/ltspice/interface.png
+  [OK] /ressources/img/ltspice/open-examples.png
+  [OK] /ressources/img/ltspice/exemple-opamp-asc-schematic.png
+  [OK] /ressources/img/ltspice/curseur-lecture.png
+  [OK] /ressources/img/ltspice/configure-analysis.png
+  [OK] /ressources/img/ltspice/run-simulation.png
+  [OK] /ressources/img/ltspice/low-pass-analyse.gif
+  [OK] /ressources/img/ltspice/view-update-and-view-netliste.png
+  [OK] /ressources/img/ltspice/spice-netlist.png
+
+embarque/simulation/simulation-electronique.md
+  [OK] /ressources/img/simulation-electronique/cycle.svg
+  [OK] /ressources/img/simulation-electronique/lecture-courbe.svg
+
+embarque/simulation/wokwi.md
+  [OK] /ressources/img/wokwi/choix-du-microcontroleur.png
+  [OK] /ressources/img/wokwi/selection-du-template.png
+  [OK] /ressources/img/wokwi/editeur-code-hello.png
+  [OK] /ressources/img/wokwi/editeur-schema-hello.png
+  [OK] /ressources/img/wokwi/compilation-en-cours.png
+  [OK] /ressources/img/wokwi/moniteur-serie-hello.png
+  [OK] /ressources/img/wokwi/ajouter-composant-blink.png
+  [OK] /ressources/img/wokwi/schema-blink.png
+  [OK] /ressources/img/wokwi/editeur-code-blink.png
+
+en/conduite/index.md
+  [OK] /ressources/img/conduite/cycle-v-projet.svg
+
+en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+en/conduite/proj/decomposition-fonctionnelle-en.md
+  [OK] /ressources/img/decomposition-fonctionnelle/generique.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-mauvais.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-moyen.svg
+  [OK] /ressources/img/decomposition-fonctionnelle/bras-3-axes.svg
+
+en/conduite/proj/ecoconception-en.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+en/conduite/proj/gantt-en.md
+  [OK] /ressources/img/gantt/generique.svg
+  [OK] /ressources/img/gantt/station-meteo.svg
+
+en/conduite/proj/gestion-de-projet-en.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+en/conduite/proj/jalons-en.md
+  [OK] /ressources/img/jalons/generique.svg
+  [OK] /ressources/img/jalons/station-meteo.svg
+
+en/conduite/proj/matrice-de-decision-en.md
+  [OK] /ressources/img/matrice-de-decision/generique.svg
+  [OK] /ressources/img/matrice-de-decision/station-meteo.svg
+
+en/conduite/proj/matrice-de-risques-en.md
+  [OK] /ressources/img/matrice-de-risques/generique.svg
+  [OK] /ressources/img/matrice-de-risques/station-meteo.svg
+
+en/conduite/proj/retroplanning-en.md
+  [OK] /ressources/img/retroplanning/generique.svg
+  [OK] /ressources/img/retroplanning/station-meteo.svg
+
+en/conduite/proj/securite-et-qualite-en.md
+  [OK] /ressources/img/commun/fils-transverses-generique.svg
+
+en/conduite/proj/specification-technique-en.md
+  [OK] /ressources/img/bete-a-cornes/generique.svg
+  [OK] /ressources/img/pieuvre/generique.svg
+  [OK] /ressources/img/pieuvre/bras-3-axes.svg
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+  [OK] /ressources/templates/cdcf-ecole-template.docx
+
+en/conduite/proj/wbs-en.md
+  [OK] /ressources/img/wbs/generique.svg
+  [OK] /ressources/img/wbs/station-meteo.svg
+
+en/embarque/algorithme/algorithme-en.md
+  [OK] /ressources/img/algorithme/quatre-regards.svg
+
+en/embarque/algorithme/chronogramme-en.md
+  [OK] /ressources/img/chronogramme/generique.svg
+  [OK] /ressources/img/chronogramme/pwm.svg
+
+en/embarque/algorithme/grafcet-en.md
+  [OK] /ressources/img/grafcet/generique.svg
+  [OK] /ressources/img/grafcet/percage.svg
+  [OK] /ressources/img/grafcet/divergences.svg
+
+en/embarque/algorithme/logigramme-en.md
+  [OK] /ressources/img/logigramme/generique.svg
+  [OK] /ressources/img/logigramme/thermostat-mauvais.svg
+  [OK] /ressources/img/logigramme/thermostat-moyen.svg
+  [OK] /ressources/img/logigramme/thermostat-bon.svg
+
+en/embarque/algorithme/machine-a-etats-en.md
+  [OK] /ressources/img/machine-a-etats/generique.svg
+  [OK] /ressources/img/machine-a-etats/portail-mauvais.svg
+  [OK] /ressources/img/machine-a-etats/portail-moyen.svg
+  [OK] /ressources/img/machine-a-etats/portail-bon.svg
+
+en/embarque/alimentation-electronique-en.md
+  [OK] /ressources/img/alimentation-electronique/regulation.svg
+  [OK] /ressources/img/alimentation-electronique/masses.svg
+  [OK] /ressources/img/alimentation-electronique/bras-3-axes.svg
+
+en/embarque/analyse-de-schema-electronique-en.md
+  [OK] /ressources/img/analyse-de-schema-electronique/generique.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/netlabels.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/exemple.svg
+  [OK] /ressources/img/analyse-de-schema-electronique/zones.svg
+
+en/embarque/chaine-energie-en.md
+  [OK] /ressources/img/chaine-energie/generique.svg
+  [OK] /ressources/img/chaine-energie/bras-3-axes.svg
+
+en/embarque/decouplage-en.md
+  [OK] /ressources/img/decouplage/generique.svg
+
+en/embarque/mcu/adc-en.md
+  [OK] /ressources/img/adc/quantification.svg
+
+en/embarque/mcu/arduino/arduino-afficheur-en.md
+  [OK] /ressources/img/arduino-afficheur/branchement-i2c.svg
+
+en/embarque/mcu/arduino/arduino-alimentation-en.md
+  [OK] /ressources/img/arduino-alimentation/trois-sources.svg
+  [OK] /ressources/img/arduino-alimentation/alimentation-separee.svg
+
+en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+  [OK] /ressources/img/arduino-bibliotheques/couches-abstraction.svg
+  [OK] /ressources/img/arduino-bibliotheques/gestionnaire-bibliotheques.png
+  [OK] /ressources/img/arduino-bibliotheques/installer-bibliotheques-dependances.png
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+  [OK] /ressources/img/arduino-bibliotheques/servo-balayage.gif
+
+en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+  [OK] /ressources/img/arduino-capteur-analogique/pont-diviseur-ldr.svg
+
+en/embarque/mcu/arduino/arduino-capteur-numerique-en.md
+  [OK] /ressources/img/arduino-capteur-numerique/how-ir-sensor-works.gif
+  [OK] /ressources/img/arduino-capteur-numerique/branchement-hc-sr04.svg
+  [OK] /ressources/img/arduino-capteur-numerique/how-ultrasonic-sensor-works.webp
+  [OK] /ressources/img/arduino-capteur-numerique/chronogramme-trig-echo.svg
+
+en/embarque/mcu/arduino/arduino-debug-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-debug/ou-est-le-probleme.svg
+
+en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+  [OK] /ressources/img/arduino-deep-sleep/profil-courant-veille.svg
+
+en/embarque/mcu/arduino/arduino-eeprom-en.md
+  [OK] /ressources/img/arduino-eeprom/carte-memoire-eeprom.svg
+
+en/embarque/mcu/arduino/arduino-en.md
+  [OK] /ressources/img/arduino/uno-photo.webp
+  [OK] /ressources/img/arduino/uno-pinout.webp
+
+en/embarque/mcu/arduino/arduino-entree-tor-en.md
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+  [OK] /ressources/img/arduino-entree-tor/rebond.svg
+
+en/embarque/mcu/arduino/arduino-gpio-boot-en.md
+  [OK] /ressources/img/arduino-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/arduino-gpio-boot/branchement-relais-pullup.svg
+
+en/embarque/mcu/arduino/arduino-gpio-en.md
+  [OK] /ressources/img/arduino/uno-pinout.webp
+  [OK] /ressources/img/arduino-gpio/montage-bouton-led.webp
+
+en/embarque/mcu/arduino/arduino-i2c-en.md
+  [OK] /ressources/img/arduino-i2c/branchement-i2c.svg
+
+en/embarque/mcu/arduino/arduino-interruptions-en.md
+  [OK] /ressources/img/arduino-interruptions/montage.svg
+  [OK] /ressources/img/arduino-interruptions/chronogramme-comptage.svg
+
+en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+  [OK] /ressources/img/arduino-machine-a-etats/montage.svg
+  [OK] /ressources/img/arduino-machine-a-etats/diagramme-etats.svg
+
+en/embarque/mcu/arduino/arduino-memoire-en.md
+  [OK] /ressources/img/arduino-memoire/carte-memoire-sram.svg
+
+en/embarque/mcu/arduino/arduino-module-en.md
+  [OK] /ressources/img/arduino-module/pullups-paralleles.svg
+  [OK] /ressources/img/arduino-module/serigraphies-i2c.svg
+  [OK] /ressources/img/arduino-module/branchement-dht11.svg
+
+en/embarque/mcu/arduino/arduino-moteur-cc-en.md
+  [OK] /ressources/img/arduino-moteur-cc/branchement-l298n.svg
+
+en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md
+  [OK] /ressources/img/arduino-moteur-pas-a-pas/branchement-28byj48.svg
+
+en/embarque/mcu/arduino/arduino-pid-en.md
+  [OK] /ressources/img/arduino-pid/boucle-fermee-pid.svg
+  [OK] /ressources/img/arduino-pid/traceur-consigne-mesure.png
+
+en/embarque/mcu/arduino/arduino-prise-en-main-en.md
+  [OK] /ressources/img/arduino-prise-en-main/telechargement.png
+  [OK] /ressources/img/arduino-prise-en-main/type-de-carte.png
+  [OK] /ressources/img/arduino-prise-en-main/port.png
+  [OK] /ressources/img/arduino-prise-en-main/ch340-driver.jpg
+  [OK] /ressources/img/arduino-prise-en-main/blink-compilation.png
+  [OK] /ressources/img/arduino-prise-en-main/led-blink.gif
+
+en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+  [OK] /ressources/img/arduino-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/arduino-programmation-non-bloquante/frise-3-taches.svg
+
+en/embarque/mcu/arduino/arduino-serie-en.md
+  [OK] /ressources/img/arduino-serie/moniteur-serie.jpg
+  [OK] /ressources/img/arduino-serie/traceur-serie.png
+
+en/embarque/mcu/arduino/arduino-servomoteur-en.md
+  [OK] /ressources/img/arduino-servomoteur/branchement-sg90.svg
+  [OK] /ressources/img/arduino-servomoteur/retour-position.svg
+
+en/embarque/mcu/arduino/arduino-shield-en.md
+  [OK] /ressources/img/arduino-shield/empilage-shield.webp
+  [OK] /ressources/img/arduino-shield/montage-shield-l293d.webp
+
+en/embarque/mcu/arduino/arduino-sortie-pwm-en.md
+  [OK] /ressources/img/arduino-sortie-pwm/branchement-led-pwm.svg
+  [OK] /ressources/img/oscilloscope/ecran-pwm.svg
+  [OK] /ressources/img/arduino-capteur-analogique/branchement-potentiometre.svg
+
+en/embarque/mcu/arduino/arduino-sortie-tor-en.md
+  [OK] /ressources/img/arduino-sortie-tor/transistor-bas-cote.svg
+  [OK] /ressources/img/arduino-sortie-tor/montage.svg
+
+en/embarque/mcu/arduino/arduino-spi-en.md
+  [OK] /ressources/img/arduino-spi/branchement-sd.svg
+
+en/embarque/mcu/arduino/arduino-temporisation-en.md
+  [OK] /ressources/img/arduino-temporisation/delay-vs-millis.svg
+  [OK] /ressources/img/arduino-temporisation/cadences-paralleles.svg
+
+en/embarque/mcu/arduino/arduino-timers-en.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+  [OK] /ressources/img/arduino-timers/cadence-millis-vs-timer.svg
+
+en/embarque/mcu/arduino/arduino-uart-en.md
+  [OK] /ressources/img/arduino-uart/cablage-croise.svg
+  [OK] /ressources/img/arduino-uart/pont-serie.svg
+
+en/embarque/mcu/arduino/arduino-watchdog-en.md
+  [OK] /ressources/img/arduino-watchdog/chronogramme-watchdog.svg
+
+en/embarque/mcu/arduino/tinkercad-en.md
+  [OK] /ressources/img/tinkercad/creer-circuit.png
+  [OK] /ressources/img/tinkercad/plan-de-travail.png
+  [OK] /ressources/img/tinkercad/editeur-code-texte.png
+  [OK] /ressources/img/tinkercad/simulation-en-cours.png
+
+en/embarque/mcu/bus/bus-de-communication-en.md
+  [OK] /ressources/img/bus-de-communication/topologies.svg
+
+en/embarque/mcu/bus/i2c-en.md
+  [OK] /ressources/img/i2c/branchement.svg
+  [OK] /ressources/img/i2c/chronogramme.svg
+
+en/embarque/mcu/bus/spi-en.md
+  [OK] /ressources/img/spi/branchement.svg
+  [OK] /ressources/img/spi/chronogramme.svg
+
+en/embarque/mcu/bus/uart-en.md
+  [OK] /ressources/img/uart/branchement.svg
+  [OK] /ressources/img/uart/chronogramme.svg
+
+en/embarque/mcu/cpp/cpp-execution-en.md
+  [OK] /ressources/img/cpp-execution/cycle.svg
+
+en/embarque/mcu/cpp/cpp-logs-en.md
+  [OK] /ressources/img/cpp-logs/panneau-erreur.png
+
+en/embarque/mcu/cpp/cpp-portee-en.md
+  [OK] /ressources/img/cpp-portee/locale-globale.svg
+
+en/embarque/mcu/debugger-embarque-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+  [OK] /ressources/img/debugger-embarque/chaines.svg
+
+en/embarque/mcu/deep-sleep-en.md
+  [OK] /ressources/img/deep-sleep/profil.svg
+
+en/embarque/mcu/esp32/esp32-en.md
+  [OK] /ressources/img/esp32/positionnement-variantes.svg
+
+en/embarque/mcu/esp8266/esp8266-arduino-core-en.md
+  [OK] /ressources/img/esp8266-arduino-core/brochage-d1-gpio.svg
+
+en/embarque/mcu/esp8266/esp8266-en.md
+  [OK] /ressources/img/esp8266/comparaison-esp32.svg
+
+en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md
+  [OK] /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+  [OK] /ressources/img/esp8266-prise-en-main/gestionnaire-cartes-esp8266.png
+  [OK] /ressources/img/esp8266-prise-en-main/menu-outils-carte-port.png
+  [OK] /ressources/img/esp8266-prise-en-main/selection-board.png
+  [OK] /ressources/img/esp8266-prise-en-main/selection-port-com.png
+  [OK] /ressources/img/esp8266-prise-en-main/nodemcu-led-allumee.png
+  [OK] /ressources/img/esp8266-prise-en-main/montage-led-externe.svg
+
+en/embarque/mcu/firmware-en.md
+  [OK] /ressources/img/firmware/architectures.svg
+
+en/embarque/mcu/gpio-en.md
+  [OK] /ressources/img/gpio/modes.svg
+  [OK] /ressources/img/gpio/flottant.svg
+  [OK] /ressources/img/gpio/courant-max.svg
+
+en/embarque/mcu/interruption-en.md
+  [OK] /ressources/img/interruption/chronogramme.svg
+
+en/embarque/mcu/lire-une-datasheet-en.md
+  [OK] /ressources/img/lire-une-datasheet/generique.svg
+  [OK] /ressources/img/lire-une-datasheet/l298n.svg
+  [OK] /ressources/img/lire-une-datasheet/brochage-multiwatt15.png
+  [OK] /ressources/img/lire-une-datasheet/absolute-maximum-ratings.png
+
+en/embarque/mcu/manipulation-de-bits-en.md
+  [OK] /ressources/img/manipulation-de-bits/masquage.svg
+
+en/embarque/mcu/microcontroleur-en.md
+  [OK] /ressources/img/microcontroleur/architecture.svg
+  [OK] /ressources/img/microcontroleur/positionnement.svg
+
+en/embarque/mcu/micropython/micropython-alimentation-en.md
+  [OK] /ressources/img/micropython-alimentation/deux-sources.svg
+  [OK] /ressources/img/micropython-alimentation/alimentation-separee.svg
+
+en/embarque/mcu/micropython/micropython-bibliotheques-en.md
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+  [OK] /ressources/img/micropython-capteur-analogique/montage-adc.svg
+
+en/embarque/mcu/micropython/micropython-deep-sleep-en.md
+  [OK] /ressources/img/micropython-deep-sleep/profil-courant-veille.svg
+
+en/embarque/mcu/micropython/micropython-en.md
+  [OK] /ressources/img/micropython/modele-execution.svg
+
+en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+  [OK] /ressources/img/micropython-gpio-boot/sequence-boot.svg
+  [OK] /ressources/img/micropython-gpio-boot/branchement-relais-pullup.svg
+
+en/embarque/mcu/micropython/micropython-gpio-en.md
+  [OK] /ressources/img/micropython-gpio/brochage-pico.png
+  [OK] /ressources/img/micropython-gpio/montage-led-bouton.svg
+
+en/embarque/mcu/micropython/micropython-i2c-en.md
+  [OK] /ressources/img/micropython-i2c/branchement-i2c.svg
+  [OK] /ressources/img/micropython-i2c/pullups-paralleles.svg
+
+en/embarque/mcu/micropython/micropython-interruptions-en.md
+  [OK] /ressources/img/micropython-interruptions/montage.svg
+  [OK] /ressources/img/micropython-interruptions/chronogramme-comptage.svg
+
+en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+  [OK] /ressources/img/micropython-machine-a-etats/montage.svg
+  [OK] /ressources/img/micropython-machine-a-etats/diagramme-etats.svg
+
+en/embarque/mcu/micropython/micropython-memoire-en.md
+  [OK] /ressources/img/micropython-memoire/fragmentation-tas.svg
+
+en/embarque/mcu/micropython/micropython-module-en.md
+  [OK] /ressources/img/micropython-module/montage-module.svg
+  [OK] /ressources/img/micropython-bibliotheques/montage-dht11.svg
+
+en/embarque/mcu/micropython/micropython-moteur-cc-en.md
+  [OK] /ressources/img/micropython-moteur-cc/branchement-pont-h.svg
+
+en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+  [OK] /ressources/img/micropython-programmation-non-bloquante/bloquant-vs-non-bloquant.svg
+  [OK] /ressources/img/micropython-programmation-non-bloquante/frise-taches.svg
+
+en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+  [OK] /ressources/img/micropython-sortie-pwm/montage-led-pwm.svg
+
+en/embarque/mcu/micropython/micropython-spi-en.md
+  [OK] /ressources/img/micropython-spi/branchement-spi.svg
+
+en/embarque/mcu/micropython/micropython-stockage-en.md
+  [OK] /ressources/img/micropython-stockage/persistance-fichier.svg
+
+en/embarque/mcu/micropython/micropython-temporisation-en.md
+  [OK] /ressources/img/micropython-temporisation/sleep-vs-ticks.svg
+  [OK] /ressources/img/micropython-temporisation/cadences-paralleles.svg
+
+en/embarque/mcu/micropython/micropython-timers-en.md
+  [OK] /ressources/img/micropython-timers/cadence-ticks-vs-timer.svg
+
+en/embarque/mcu/micropython/micropython-uart-en.md
+  [OK] /ressources/img/micropython-uart/branchement-uart.svg
+
+en/embarque/mcu/niveaux-de-tension-en.md
+  [OK] /ressources/img/niveaux-de-tension/generique.svg
+  [OK] /ressources/img/niveaux-de-tension/adaptation.svg
+
+en/embarque/mcu/pwm-en.md
+  [OK] /ressources/img/pwm/rapport-cyclique.svg
+
+en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+  [OK] /ressources/img/raspberry-pi/mcu-vs-sbc.svg
+
+en/embarque/mcu/sans-fil/techno-sans-fil-en.md
+  [OK] /ressources/img/techno-sans-fil/comparaison.svg
+
+en/embarque/mcu/shield-en.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+en/embarque/mcu/stm32/stm32-en.md
+  [OK] /ressources/img/stm32/abstraction-couches.svg
+
+en/embarque/mcu/teensy/teensy-en.md
+  [OK] /ressources/img/teensy/comparaison-arduino.svg
+
+en/embarque/mcu/timer-en.md
+  [OK] /ressources/img/timer/compteur.svg
+
+en/embarque/mesure/analyseur-logique-en.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+  [OK] /ressources/img/analyseur-logique/branchement.svg
+
+en/embarque/mesure/generateur-de-signaux-en.md
+  [OK] /ressources/img/generateur-de-signaux/face-avant.svg
+  [OK] /ressources/img/generateur-de-signaux/injection.svg
+
+en/embarque/mesure/instruments-de-mesure-en.md
+  [OK] /ressources/img/instruments-de-mesure/confrontation.svg
+
+en/embarque/mesure/multimetre-en.md
+  [OK] /ressources/img/multimetre/face-avant.svg
+  [OK] /ressources/img/multimetre/serie-parallele.svg
+  [OK] /ressources/img/multimetre/fusible-grille.svg
+
+en/embarque/mesure/oscilloscope-en.md
+  [OK] /ressources/img/oscilloscope/face-avant.svg
+  [OK] /ressources/img/oscilloscope/branchement-sonde.svg
+  [OK] /ressources/img/oscilloscope/ecran-pwm.svg
+
+en/embarque/mesure/precision-de-mesure-en.md
+  [OK] /ressources/img/precision-de-mesure/cibles.svg
+
+en/embarque/pcb/pcb-en.md
+  [OK] /ressources/img/pcb/flux.svg
+
+en/embarque/realisation/concevoir-l-electronique-en.md
+  [OK] /ressources/img/concevoir-l-electronique/bras-3-axes.svg
+
+en/embarque/schema-bloc-fonctionnel-en.md
+  [OK] /ressources/img/schema-bloc-fonctionnel/generique.svg
+  [OK] /ressources/img/schema-bloc-fonctionnel/couveuse.svg
+
+en/embarque/simulation/simulation-electronique-en.md
+  [OK] /ressources/img/simulation-electronique/cycle.svg
+  [OK] /ressources/img/simulation-electronique/lecture-courbe.svg
+
+en/meca/comparateur-en.md
+  [OK] /ressources/img/comparateur/battement.svg
+
+en/meca/optimisation-mecanique-en.md
+  [OK] /ressources/img/optimisation-mecanique/generique.svg
+
+en/meca/pied-a-coulisse-en.md
+  [OK] /ressources/img/pied-a-coulisse/mesures.svg
+
+en/meca/schema-cinematique-en.md
+  [OK] /ressources/img/schema-cinematique/generique.svg
+  [OK] /ressources/img/schema-cinematique/bras-3-axes.svg
+
+meca/comparateur.md
+  [OK] /ressources/img/comparateur/battement.svg
+
+meca/optimisation-mecanique.md
+  [OK] /ressources/img/optimisation-mecanique/generique.svg
+
+meca/pied-a-coulisse.md
+  [OK] /ressources/img/pied-a-coulisse/mesures.svg
+
+meca/schema-cinematique.md
+  [OK] /ressources/img/schema-cinematique/generique.svg
+  [OK] /ressources/img/schema-cinematique/bras-3-axes.svg
+
+=== ORPHELINS (jamais references, RIEN N EST SUPPRIME) ===
+  ressources/img/archive/cycle-v-projet-v1.svg (6 ko)
+
+=== BILAN ===
+  ABSENT        12
+  CASSE         0
+  HORS-GABARIT  0
+  EXTERNE       0
+  OK            609
+  ORPHELIN      1
+--- code de sortie : 1
+
+==============================================================
+>>> 3 - volume du corpus, predit 176 traduites et 66 restantes
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  fiches FR publiees   : 242
+  mots FR              : 291219
+  mediane par fiche    : 1089
+  fiche la plus lourde : embarque/pcb/easyeda.md  (9773)
+
+  deja traduites       : 176 fiches, 200373 mots FR
+  RESTANT A TRADUIRE   : 66 fiches, 90846 mots FR
+
+  Le restant est un COMPTAGE des fiches non traduites, pas une
+  soustraction : une somme se compense, un comptage non.
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - wikilinks, predit 424 fiches et 64 a 70 mortes
+==============================================================
+=== AUDIT DES WIKILINKS ===
+424 fiches lues, 504 cibles distinctes
+
+--- MORT (70) ---
+[[FC-en]]  22 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x3
+        L44 : 3. **Checking coherence between sections**: a requirement quantified at step 4 has to be consistent with the order of magnitude retained at step 2, an...
+    en/conduite/proj/concept-en.md  x4
+        L61 : > **The breakdown can reveal a hole in the [[cahier-des-charges-fonctionnel-en|CdCF]].** A forgotten [[FC-en|FC]], a badly stated [[FP-en|FP]], a subs...
+    en/conduite/proj/ecoconception-en.md  x2
+        L79 : What this thread does **not** carry: the choice of materials ([[pla-en|PLA]], ABS, metals, composites, covered by the materials course), manufacturing...
+    en/conduite/proj/securite-et-qualite-en.md
+        L47 : **Identify the user risks from the technical specification onwards.** Every mechatronic system carries sources of risk: kinetic energy in the moving p...
+    en/conduite/proj/specification-technique-en.md  x12
+        L176 : The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The ...
+[[pieuvre-en]]  15 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x3
+        L38 : A CdCF is not written in one go. It **brings together** the material produced all the way through the [[specification-technique-en|technical specifica...
+    en/conduite/proj/concept-en.md  x2
+        L67 : The distinction is conceptual but crucial: a **service function** (from the [[pieuvre-en|pieuvre]] of the CdCF, the "octopus" diagram of the French fu...
+    en/conduite/proj/decomposition-fonctionnelle-en.md  x3
+        L25 : The [[cahier-des-charges-fonctionnel-en|CdCF]] settles the *what* of the project. The functional breakdown opens the *how* by looking, for the first t...
+    en/conduite/proj/ecoconception-en.md
+        L108 : > **Eco-design does not need a section of its own. It needs to be visible everywhere.** Rather than an "Eco-design" chapter added at the end of the re...
+    en/conduite/proj/index.md
+        L33 : - [[pieuvre-en|Pieuvre]] — the French "octopus" diagram: list the functions against the surrounding environments
+    en/conduite/proj/preuve-de-concept-en.md
+        L66 : The **success criterion** is numerical, and tied to the [[cahier-des-charges-fonctionnel-en|CdCF]] requirement that raised the unknown at concept. If ...
+    en/conduite/proj/securite-et-qualite-en.md
+        L47 : **Identify the user risks from the technical specification onwards.** Every mechatronic system carries sources of risk: kinetic energy in the moving p...
+    en/conduite/proj/specification-technique-en.md  x3
+        L176 : The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The ...
+[[etat-de-l-art-technique-en]]  14 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x2
+        L55 : 3. **Study of what exists** *(school addition)* — [[etat-de-l-art-technique-en|technical state of the art]], comparison table, synthesis *(material fr...
+    en/conduite/proj/concept-en.md
+        L96 : - The [[etat-de-l-art-technique-en|technical state of the art]] produced during the technical specification — the first reservoir, already calibrated ...
+    en/conduite/proj/ecoconception-en.md  x2
+        L51 : Assessing the environmental impact of a technical choice only means something **if the assessment can still steer that choice**. An assessment run aft...
+    en/conduite/proj/index.md
+        L36 : - [[etat-de-l-art-technique-en|Technical state of the art]] — map the solutions that already exist
+    en/conduite/proj/matrice-de-decision-en.md
+        L35 : 1. **List the candidate solutions** for each leaf technical function coming out of the [[decomposition-fonctionnelle-en|functional breakdown]] and the...
+    en/conduite/proj/specification-technique-en.md  x3
+        L36 : - rests on a [[etat-de-l-art-technique-en|technical state of the art]]
+    en/conduite/proj/wbs-en.md
+        L37 : 2. **Break each phase down into identifiable sub-deliverables.** For the specification phase you will have, for instance, the [[cahier-des-charges-fon...
+    en/embarque/mcu/arduino/arduino-alimentation-en.md
+        L156 : - **Step 4 of the [[concept-en|concept]] phase** — the [[etat-de-l-art-technique-en|technical state of the art]] and the arbitration between architect...
+    en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+        L187 : - **Step 4 of the [[concept-en|concept]] phase** — the [[etat-de-l-art-technique-en|technical state of the art]] often takes the availability of a lib...
+    en/embarque/mcu/arduino/arduino-shield-en.md
+        L145 : - **Step 4 of the [[concept-en|concept]] phase** — the [[etat-de-l-art-technique-en|technical state of the art]] often takes the available shields in ...
+[[acv-simplifiee-en]]  13 occurrence(s)
+    en/conduite/ese/index.md
+        L11 : An interface towards our colleagues' courses. The **ESE** domain gathers the standards and regulatory pages of the project: European directives, machi...
+    en/conduite/proj/dossier-technique-en.md  x4
+        L145 : Step 3 is the **first moment when [[ecoconception-en|eco-design]] becomes quantitative**. At concept, the choices were made on qualitative estimates (...
+    en/conduite/proj/ecoconception-en.md  x4
+        L38 : - an environmental **assessment** of the structuring choices ([[matrice-eco-criteres-en|eco-criteria matrix]], [[acv-simplifiee-en|simplified LCA]] wh...
+    en/conduite/proj/index.md
+        L66 : - [[acv-simplifiee-en|Simplified LCA]] — assess the environmental impact over the life cycle
+    en/conduite/proj/integration-et-tests-en.md  x3
+        L160 : **Technical assessment**: take the qualification table from step 3 and analyse it. For each deviation observed, put forward a **hypothesis about its c...
+[[programmation-non-bloquante-en]]  12 occurrence(s)
+    en/embarque/algorithme/machine-a-etats-en.md
+        L96 : - [[programmation-non-bloquante-en|Non-blocking programming]] — the architecture that calls these machines every pass without ever blocking
+    en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md  x3
+        L30 : The design rule that follows fits in one sentence: *no function may block, and          must always be able to come round again*. Why that discipline ...
+    en/embarque/mcu/firmware-en.md  x2
+        L32 : 2. **The non-blocking cooperative loop.** As soon as the system does *more than one thing*, each activity becomes a brief task called on every pass, n...
+    en/embarque/mcu/interruption-en.md
+        L100 : - [[programmation-non-bloquante-en|Non-blocking programming]] — the cooperative loop, and what it cannot catch fast enough
+    en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md  x2
+        L31 : The rule that follows fits in one sentence: *no function may block, and the loop must always be able to come round again*. Why that discipline holds f...
+    en/embarque/mcu/timer-en.md
+        L79 : - [[programmation-non-bloquante-en|Non-blocking programming]] — software pacing, which the timer guarantees where a cooperative loop drifts
+    en/embarque/realisation/programmer-l-embarque-en.md  x2
+        L51 : The language follows from the board's family: **[[cpp-en|C++]]** in the Arduino ecosystem (the most widespread on microcontrollers), **[[micropython-l...
+[[esp32-wifi-en]]  11 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md
+        L85 : - Connectivity: [[esp32-wifi-en|Wi-Fi]] · [[esp32-ble-en|Bluetooth LE]] — the heart of the family;
+    en/embarque/mcu/esp8266/esp8266-arduino-core-en.md  x5
+        L20 : The **ESP8266 Arduino core** is the software layer that brings the Arduino API (         ,         ,               ,         …) to ESP8266 boards, **w...
+    en/embarque/mcu/esp8266/esp8266-en.md  x3
+        L52 : - **Wi-Fi** — the               library, whose API is very close to the ESP32 one (see [[esp32-wifi-en|Wi-Fi on the ESP32]] for the concepts).
+    en/embarque/mcu/sans-fil/wifi-en.md  x2
+        L20 : Wi-Fi organises itself in a **star** around an access point, a home router or gateway, which carries the link out to the network. In return for its da...
+[[fonction-informatique-en]]  11 occurrence(s)
+    en/embarque/mcu/arduino/arduino-en.md
+        L104 : The reference environment is the **Arduino IDE**, which recognises the boards without any extra driver. For more structured projects, PlatformIO or th...
+    en/embarque/mcu/arduino/arduino-prise-en-main-en.md
+        L93 : Two [[fonction-informatique-en|functions]] structure every Arduino program:           runs once when the board starts,          then repeats indefinit...
+    en/embarque/mcu/cpp/cpp-en.md  x2
+        L18 : **C++** is the language Arduino programs are written in, or more precisely a C++ with scaffolding around it (the *Wiring* dialect), where two [[foncti...
+    en/embarque/mcu/cpp/cpp-structure-en.md  x2
+        L63 : So as not to stack everything into         , you group pieces of logic into **named functions** —                ,                     — that you defi...
+    en/embarque/mcu/firmware-en.md  x2
+        L34 : 4. **Breaking into modules.** You separate the code by **responsibility** — sensor acquisition, control, communication — into named [[fonction-informa...
+    en/embarque/mcu/micropython/micropython-fonctions-en.md  x2
+        L18 : A **function** groups a reusable block of instructions under a name. Rather than copying the same blink sequence ten times over, you write it once ins...
+    en/embarque/mcu/micropython/micropython-langage-en.md
+        L38 : - [[fonction-informatique-en|Function]] — the notion of a function in programming
+[[mecatronique-en]]  11 occurrence(s)
+    en/conduite/proj/amdec-en.md
+        L18 : **AMDEC** (*Analyse des Modes de Défaillance, de leurs Effets et de leur Criticité*), the French acronym for FMEA, is a method for analysing the **dep...
+    en/conduite/proj/concept-en.md
+        L26 : **Concept** is the second phase of a [[mecatronique-en|mechatronics]] project: the [[cahier-des-charges-fonctionnel-en|cahier des charges fonctionnel]...
+    en/conduite/proj/dossier-technique-en.md
+        L29 : The **technical design file** is the fourth phase of a [[mecatronique-en|mechatronics]] project: the architecture approved at [[concept-en|concept]] a...
+    en/conduite/proj/ecoconception-en.md
+        L26 : **Eco-design** is a **cross-cutting thread** that informs the technical choices made throughout the [[mecatronique-en|mechatronics]] project: assessin...
+    en/conduite/proj/gestion-de-projet-en.md
+        L30 : **Project planning and tracking** is a **cross-cutting thread** that runs for the whole length of the [[mecatronique-en|mechatronics]] project: settin...
+    en/conduite/proj/index.md
+        L30 : - [[mecatronique-en|Mechatronics]] — the perception → decision → action loop that defines the field
+    en/conduite/proj/integration-et-tests-en.md
+        L27 : **Integration and testing** is the fifth and last phase of a [[mecatronique-en|mechatronics]] project: the approved [[dossier-technique-en|technical d...
+    en/conduite/proj/preuve-de-concept-en.md
+        L24 : The **proof of concept** (PoC) is the third phase of a [[mecatronique-en|mechatronics]] project and the **pivot point** of the V-model: it is the mome...
+    en/conduite/proj/securite-et-qualite-en.md
+        L22 : **Safety and quality** is a **cross-cutting thread** that watches over two inseparable demands of the [[mecatronique-en|mechatronics]] project: protec...
+    en/conduite/proj/specification-technique-en.md
+        L23 : The **technical specification** is the first phase of a [[mecatronique-en|mechatronics]] project: it turns a need expressed in everyday language ("we ...
+    en/embarque/mcu/microcontroleur-en.md
+        L17 : A **microcontroller** (MCU, for *microcontroller unit*) is a programmable integrated circuit that brings together on a single chip a [[processeur-en|p...
+[[potentiometre-en]]  11 occurrence(s)
+    en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+        L44 : For this first example: a 10 kΩ **[[potentiometre-en|potentiometer]]**, three pins (the concept page covers how it works).
+    en/embarque/mcu/arduino/arduino-moteur-cc-en.md
+        L139 : **Wiring**: the L298N as in the step 2 diagram; a 10 kΩ [[potentiometre-en|potentiometer]] on A0 (as a divider, see [[arduino-capteur-analogique-en|re...
+    en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md
+        L172 : **Wrong A4988 current setting.** The driver's [[potentiometre-en|potentiometer]] sets the current limit per coil. Too low → not enough torque, lost st...
+    en/embarque/mcu/arduino/arduino-servomoteur-en.md  x3
+        L107 : **Wiring**: servo on D9 (as in the step 2 diagram), a 10 kΩ [[potentiometre-en|potentiometer]] on A0 (wired as a divider: see [[arduino-capteur-analog...
+    en/embarque/mcu/arduino/arduino-sortie-pwm-en.md
+        L88 : **Wiring**: a 10 kΩ [[potentiometre-en|potentiometer]] on      (wiper),       and       on the ends; LED plus 220 Ω on D9.
+    en/embarque/mcu/arduino/arduino-spi-en.md
+        L117 : **Wiring**: SD module on SPI (D10-D13, as in the diagram of step 2), [[potentiometre-en|potentiometer]] on A0 (wired as a divider: see [[arduino-capte...
+    en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+        L44 : A 10 kΩ [[potentiometre-en|potentiometer]]: one end →        , the other →      , wiper (middle) →       . The potentiometer forms a voltage divider v...
+    en/embarque/mcu/micropython/micropython-moteur-cc-en.md
+        L100 : **Wiring**: DRV8833 as in step 2; [[potentiometre-en|potentiometer]] on GP26 (→ [[micropython-capteur-analogique-en]]); button between GP14 and GND ( ...
+    en/embarque/mcu/niveaux-de-tension-en.md
+        L90 : - [[potentiometre-en|Potentiometer]] — an adjustable divider, a concrete application of the voltage divider
+[[bete-a-cornes-en]]  10 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x3
+        L38 : A CdCF is not written in one go. It **brings together** the material produced all the way through the [[specification-technique-en|technical specifica...
+    en/conduite/proj/index.md
+        L32 : - [[bete-a-cornes-en|Bête à cornes]] — the French "horned beast" need-statement diagram: for whom, on what, to what end
+    en/conduite/proj/specification-technique-en.md  x6
+        L66 : The [[bete-a-cornes-en|bête à cornes]] (the "horned beast" diagram, the French need-statement tool) is the canonical tool of [[afnor-nfx50-151-en|stan...
+[[chien-de-garde-en]]  10 occurrence(s)
+    en/embarque/mcu/arduino/arduino-watchdog-en.md
+        L131 : - [[chien-de-garde-en|Watchdog]] — the cross-cutting concept: what the dog is independent of, what it fails to detect, and the silent restart
+    en/embarque/mcu/debugger-embarque-en.md
+        L92 : - [[chien-de-garde-en|Watchdog]] — an armed watchdog can restart the board in the middle of a debug session
+    en/embarque/mcu/firmware-en.md  x2
+        L56 : **No handling of the unexpected.** No default value, no [[chien-de-garde-en|watchdog]]: at the first anomaly out in the field, the system locks up and...
+    en/embarque/mcu/interruption-en.md  x2
+        L56 : | **[[chien-de-garde-en\|Watchdog]]** | monitoring deadline passed | detecting a stuck program | mode not exposed on every family |
+    en/embarque/mcu/timer-en.md  x2
+        L29 : - **watching a deadline** — spotting that an expected event has not arrived in time (the principle behind the [[chien-de-garde-en|watchdog]]).
+    en/embarque/realisation/fiabiliser-et-deboguer-en.md  x2
+        L58 : The working firmware from [[programmer-l-embarque-en|step 4]] now has to hold up over time and in the face of the unexpected. Four levers: guarantee *...
+[[fast-en]]  10 occurrence(s)
+    en/conduite/proj/amdec-en.md
+        L39 : Decide first on the **grain of the analysis**: an AMDEC is run either **functionally** (on the technical functions coming out of the [[decomposition-f...
+    en/conduite/proj/concept-en.md  x4
+        L65 : The subsystem is defined. What remains is to identify **how it operates**: through which internal technical functions it delivers its share of the ser...
+    en/conduite/proj/decomposition-fonctionnelle-en.md
+        L131 : - [[fast-en|FAST]] — a deeper formalisation of one branch of the breakdown through a *WHY / HOW* logical chain
+    en/conduite/proj/index.md
+        L55 : - [[fast-en|FAST]] — link functions and solutions through the why / how chain
+    en/conduite/proj/matrice-de-decision-en.md  x2
+        L35 : 1. **List the candidate solutions** for each leaf technical function coming out of the [[decomposition-fonctionnelle-en|functional breakdown]] and the...
+    en/conduite/proj/specification-technique-en.md
+        L219 : The pieuvre gives the *what*. The *how*, meaning which technical functions the system will use to deliver those service functions, will be broken down...
+[[caracteriser-une-exigence-en]]  9 occurrence(s)
+    en/conduite/ese/basse-tension-en.md
+        L27 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — a regulatory constraint is written as a requirement (binary target, often F0)
+    en/conduite/ese/marquage-ce-en.md
+        L26 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — a regulatory constraint is written as a requirement (binary target, often F0)
+    en/conduite/ese/rohs-en.md
+        L27 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — a regulatory constraint is written as a requirement (binary target, often F0)
+    en/conduite/meo/unite-si-en.md
+        L30 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — the discipline of a number plus its unit in requirements
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x2
+        L76 : **Unquantified requirements.** *"The system must be accurate"*, *"the cost must be reasonable"*: with no value and no unit, the requirement can neithe...
+    en/conduite/proj/index.md
+        L35 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — the criterion / level / flexibility triplet
+    en/conduite/proj/matrice-de-decision-en.md
+        L60 : - [[caracteriser-une-exigence-en|Characterising a requirement]] — the upstream method that puts figures on the requirements usable as criteria
+    en/conduite/proj/specification-technique-en.md
+        L229 : Three questions to ask for each function. The method itself is covered in the [[caracteriser-une-exigence-en|characterising a requirement]] tutorial.
+[[esp32-deep-sleep-en]]  9 occurrence(s)
+    en/embarque/mcu/deep-sleep-en.md  x2
+        L39 : The consequence is architectural: a deep-sleep program written "ESP32 style" is not a loop that dozes off now and then, but a **cycle of wake up → ide...
+    en/embarque/mcu/esp32/esp32-en.md
+        L87 : - [[esp32-deep-sleep-en|Deep sleep]] *(→ concept page [[deep-sleep-en|Deep sleep]])* — battery-powered operation.
+    en/embarque/mcu/esp8266/esp8266-arduino-core-en.md
+        L157 : - **Deep sleep** —                     puts the chip into deep sleep. Waking up goes through a reset, which means **GPIO16 has to be wired to RST**. T...
+    en/embarque/mcu/esp8266/esp8266-en.md
+        L92 : - **Saving power** — the ESP8266 has a *deep sleep* (               , which needs GPIO16 wired to RST). The principle is close to the [[esp32-deep-sle...
+    en/embarque/mcu/micropython/micropython-deep-sleep-en.md  x4
+        L34 : - **                       ** — a deeper sleep. On waking, **the chip restarts** as though after a reset:           starts again from the top. Variabl...
+[[micropython-entree-tor-en]]  9 occurrence(s)
+    en/embarque/mcu/micropython/micropython-en.md
+        L36 : - [[micropython-entree-tor-en|Reading an on/off input]] — button or switch, plus debouncing;
+    en/embarque/mcu/micropython/micropython-gpio-en.md
+        L129 : - [[micropython-entree-tor-en|Reading an on/off input]] — the natural next step (a button with debouncing)
+    en/embarque/mcu/micropython/micropython-interruptions-en.md  x2
+        L142 : **Counting a mechanical button with no debouncing.** A button bounces: one press can generate several edges. An interrupt does not filter the bounce —...
+    en/embarque/mcu/micropython/micropython-machine-a-etats-en.md  x3
+        L81 : For the example: five LEDs (three for cars, two for pedestrians) with 220 Ω series resistors, and a button between a pin and GND in           (see [[m...
+    en/embarque/mcu/micropython/micropython-temporisation-en.md  x2
+        L165 : - **The button** combines debouncing and edge detection, exactly as in [[micropython-entree-tor-en|reading a digital input]]:               follows th...
+[[protection-electronique-en]]  9 occurrence(s)
+    en/conduite/ese/emc-en.md
+        L26 : - [[protection-electronique-en|Electronic protections]] — TVS and ESD protection, the hardware side of immunity
+    en/conduite/proj/securite-et-qualite-en.md
+        L49 : **Put safety into the architecture, not on top of it.** Once the risks are identified, the safeguards take shape in the technical choices: an **emerge...
+    en/embarque/alimentation-electronique-en.md  x2
+        L87 : A well-designed supply makes the common faults **non-destructive**. Three protections cover most projects. *(→ concept page [[protection-electronique-...
+    en/embarque/analyse-de-schema-electronique-en.md
+        L61 : A few common-sense checks close the read. Does every input have a source and every output a load? No direct VCC–GND connection (a short)? Are the [[gp...
+    en/embarque/mcu/lire-une-datasheet-en.md  x3
+        L150 : C and D are the two In inputs of the bridge used. Two readings not to miss: there are **two different stops** — the brake (both inputs at the same lev...
+    en/embarque/mesure/multimetre-en.md
+        L66 : **Ammeter left in current position, reconnected in parallel.** The classic mistake: after a current measurement, you forget to put the red lead back i...
+[[afnor-nfx50-151-en]]  8 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x2
+        L24 : The **cahier des charges fonctionnel** (CdCF), the French functional requirements specification, is the reference document of a project: it states una...
+    en/conduite/proj/index.md
+        L38 : - [[afnor-nfx50-151-en|NF X50-151 standard]] — the normative framework of functional analysis
+    en/conduite/proj/specification-technique-en.md  x5
+        L66 : The [[bete-a-cornes-en|bête à cornes]] (the "horned beast" diagram, the French need-statement tool) is the canonical tool of [[afnor-nfx50-151-en|stan...
+[[filtrage-en]]  8 occurrence(s)
+    en/embarque/mcu/adc-en.md
+        L34 : - [[filtrage-en|Filtering measurements]] — damping the noise on a converted reading, and what it costs in responsiveness
+    en/embarque/mcu/arduino/arduino-capteur-analogique-en.md  x2
+        L145 : **Noise on the measurements.** A raw analog reading typically carries ±1 to ±3 LSB of noise (~5-15 mV). On an accurate sensor (an LM35 at 0.01 V/°C → ...
+    en/embarque/mcu/arduino/arduino-capteur-numerique-en.md  x2
+        L192 : **Ignoring outliers.** The HC-SR04 sometimes returns nonsense readings (interference, a poor reflection). Filter them (a median over 3-5 readings, or ...
+    en/embarque/mcu/micropython/micropython-capteur-analogique-en.md  x2
+        L119 : **Noise on the measurements.** A raw reading carries a few LSB of noise. On an accurate sensor that counts: average over 10-20 readings (oversampling)...
+    en/embarque/mesure/precision-de-mesure-en.md
+        L43 : - [[filtrage-en|Filtering measurements]] — filtering improves precision and corrects no bias
+[[fonction-en]]  8 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md  x2
+        L56 : 4. **Functional analysis** *(core of NF X50-151)* — [[pieuvre-en|pieuvre]], table of characterised [[fonction-en|functions]] *(material from steps 3 a...
+    en/conduite/proj/decomposition-fonctionnelle-en.md  x3
+        L31 : - **Revealing the holes in the CdCF** — this is the first time the system is looked at from inside, and the [[fonction-en|service functions]] that wer...
+    en/conduite/proj/index.md
+        L34 : - [[fonction-en|Function]] — the FP / FS / FC typology, for main, secondary and constraint functions
+    en/conduite/proj/integration-et-tests-en.md  x2
+        L121 : Each main function ([[fonction-en|FP]]) and constraint function ([[fonction-en|FC]]) of the [[cahier-des-charges-fonctionnel-en|CdCF]] is tested on it...
+[[FP-en]]  8 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+        L66 : For the running example, a 3-axis teaching robot arm, the CdCF is organised in the 5 standard sections of the table of contents. Section 1 restates th...
+    en/conduite/proj/concept-en.md
+        L61 : > **The breakdown can reveal a hole in the [[cahier-des-charges-fonctionnel-en|CdCF]].** A forgotten [[FC-en|FC]], a badly stated [[FP-en|FP]], a subs...
+    en/conduite/proj/specification-technique-en.md  x6
+        L176 : The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The ...
+[[FS-en]]  8 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+        L66 : For the running example, a 3-axis teaching robot arm, the CdCF is organised in the 5 standard sections of the table of contents. Section 1 restates th...
+    en/conduite/proj/specification-technique-en.md  x7
+        L176 : The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The ...
+[[ide-en]]  7 occurrence(s)
+    en/embarque/mcu/arduino/arduino-en.md
+        L17 : **Arduino** is an open-source electronics prototyping platform: a family of microcontroller boards paired with a development environment ([[ide-en|IDE...
+    en/embarque/mcu/bibliotheque-en.md  x2
+        L23 : Most IDEs include a **library manager** that downloads them and keeps them up to date in a few clicks (see [[ide-en|IDE]]). Three habits of caution: c...
+    en/embarque/mcu/esp32/esp32-en.md
+        L56 : - **Arduino core for ESP32** — the **same API as the Arduino** (         ,         ,               …), through the [[esp32-arduino-core-en|ESP32 core]...
+    en/embarque/mcu/firmware-en.md
+        L43 : - **Arduino** (AVR / ARM) — the *Wiring* API, a super-loop, the Arduino [[ide-en|IDE]]: the gentlest way in ([[arduino-en|Arduino hub]]).
+    en/embarque/mcu/microcontroleur-en.md
+        L32 : - **setting up your bench** and reusing existing code → [[ide-en|IDE]], [[bibliotheque-en|library]].
+    en/embarque/mcu/stm32/stm32-en.md
+        L55 : - **STM32duino (Arduino core)** — the **same API as the Arduino** (         ,         ,               …), installed in the Arduino [[ide-en|IDE]]. Thi...
+[[matrice-eco-criteres-en]]  7 occurrence(s)
+    en/conduite/proj/ecoconception-en.md  x5
+        L38 : - an environmental **assessment** of the structuring choices ([[matrice-eco-criteres-en|eco-criteria matrix]], [[acv-simplifiee-en|simplified LCA]] wh...
+    en/conduite/proj/index.md
+        L57 : - [[matrice-eco-criteres-en|Eco-criteria matrix]] — bring the environment into the trade-off
+    en/conduite/proj/matrice-de-decision-en.md
+        L58 : - [[matrice-eco-criteres-en|Eco-criteria matrix]] — the block of environmental criteria that nests inside this matrix
+[[micropython-pid-en]]  7 occurrence(s)
+    en/embarque/mcu/micropython/micropython-en.md
+        L64 : - [[micropython-pid-en|PID control]] — the control loop;
+    en/embarque/mcu/micropython/micropython-moteur-cc-en.md  x2
+        L153 : A bare DC motor has no feedback: the real speed depends on the supply, the load, the wear. For accurate control: an **encoder** on the shaft (read thr...
+    en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+        L122 : - **Step 3 of the [[preuve-de-concept-en|proof of concept phase]]** — the downstream command of a control loop often goes through PWM (see [[micropyth...
+    en/embarque/mcu/micropython/micropython-timers-en.md  x3
+        L26 : To pace a task, the reflex is [[micropython-temporisation-en|            ]] inside the loop. That is enough for a blink, but the rate **drifts** as so...
+[[esp32-gpio-en]]  6 occurrence(s)
+    en/embarque/mcu/arduino/arduino-gpio-boot-en.md  x3
+        L47 : On the ESP32, start-up is different: some pins (called *strapping* pins) are read by the ROM bootloader to choose the boot mode, and their level at st...
+    en/embarque/mcu/esp32/esp32-en.md
+        L79 : - [[esp32-gpio-en|Configuring the GPIO]] — usable pins, pins to avoid at boot;
+    en/embarque/mcu/gpio-en.md  x2
+        L38 : The names in brackets (       ,               ,         ) are the constants you meet on the Arduino side: they are vocabulary labels, and the code its...
+[[micropython-servomoteur-en]]  6 occurrence(s)
+    en/embarque/mcu/micropython/micropython-alimentation-en.md
+        L83 : On the first attempt, powering the servo from 3V3(OUT) as well makes the Pico reboot whenever it moves. **Fix**: power the servo from a dedicated 5 V ...
+    en/embarque/mcu/micropython/micropython-en.md
+        L52 : - Actuators: [[micropython-servomoteur-en|servo]] · [[micropython-moteur-cc-en|DC motor (H-bridge)]] · [[micropython-moteur-pas-a-pas-en|stepper motor...
+    en/embarque/mcu/micropython/micropython-moteur-cc-en.md  x2
+        L21 : A **direct current motor** (DC motor) produces continuous rotary motion at variable **speed** and **direction**. Unlike the [[micropython-servomoteur-...
+    en/embarque/mcu/micropython/micropython-sortie-pwm-en.md  x2
+        L28 : - **Servo** — the position is encoded by the width of a pulse (see [[micropython-servomoteur-en|servo]]).
+[[micropython-sortie-tor-en]]  6 occurrence(s)
+    en/embarque/mcu/micropython/micropython-en.md
+        L37 : - [[micropython-sortie-tor-en|Driving an on/off output]] — LED, relay;
+    en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+        L126 : - [[micropython-sortie-tor-en|Driving an on/off output]] — for relays and binary actuators
+    en/embarque/mcu/micropython/micropython-gpio-en.md  x2
+        L104 : **Maximum pin current exceeded.** A Pico pin delivers about 4 mA by default, **about 12 mA at most** (the drive strength is adjustable). That is **les...
+    en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+        L175 : - [[micropython-sortie-tor-en|Driving a digital output]] — beyond the LED: relays, buzzers
+    en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+        L130 : - [[micropython-sortie-tor-en|Driving an on/off output]] — prerequisite (switching transistors)
+[[wokwi-en]]  6 occurrence(s)
+    en/embarque/mcu/arduino/tinkercad-en.md  x2
+        L114 : Tinkercad handles the Arduino Uno and Mega well, along with a few standard components. To simulate an [[esp32-en|ESP32]] (Wi-Fi, BLE, an SSD1306 displ...
+    en/embarque/mesure/analyseur-logique-en.md
+        L75 : - [[wokwi-en|Wokwi]] — its virtual logic analyzer, to capture a **simulated** bus before wiring anything
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[asservissement-en]]  5 occurrence(s)
+    en/conduite/proj/specification-technique-en.md
+        L86 : - **The students become their own client**: the service delivered is a set of targeted skills ("build a control loop, integrate a custom electronic bo...
+    en/embarque/chaine-energie-en.md
+        L86 : - [[asservissement-en|Closed-loop control]] — what the coupling becomes when the measurement comes back to the command: the closed loop
+    en/embarque/mcu/arduino/arduino-pid-en.md  x2
+        L22 : A **PID** (Proportional-Integral-Derivative) is a controller that continuously adjusts a command to bring a measured quantity to a **setpoint**: it co...
+    en/embarque/schema-bloc-fonctionnel-en.md
+        L66 : - The loop closes through the physical world: the heat travels through the air before it is measured. That is typical of thermal systems, and it expla...
+[[esp32-arduino-core-en]]  5 occurrence(s)
+    en/embarque/mcu/arduino/arduino-en.md
+        L111 : - [[esp32-en|ESP32]] — neighbouring family, programmable through the same Arduino framework ([[esp32-arduino-core-en|Programming the ESP32 with the Ar...
+    en/embarque/mcu/esp32/esp32-en.md  x4
+        L17 : The **ESP32** is a family of *system-on-chip* microcontrollers from Espressif, which integrate **Wi-Fi and Bluetooth** on the chip and offer far more ...
+[[esp32-freertos-en]]  5 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md
+        L91 : - [[esp32-freertos-en|Multitasking with FreeRTOS]] — the ESP32 speciality: several pre-emptive tasks;
+    en/embarque/mcu/firmware-en.md
+        L35 : 5. **The real-time system (RTOS).** When some tasks have **strict deadlines** to meet whatever happens, an RTOS such as [[esp32-freertos-en|FreeRTOS]]...
+    en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+        L162 : Cooperation rests on the **goodwill** of every task: if one of them lingers, it holds up the others. When some of them have to meet **strict deadlines...
+    en/embarque/mcu/systeme-d-exploitation-en.md  x2
+        L16 : An **operating system** (OS) is a software layer that manages the resources of a machine and orchestrates the execution of several tasks. Most [[micro...
+[[ascii-en]]  4 occurrence(s)
+    en/embarque/mcu/arduino/arduino-serie-en.md  x2
+        L101 : > **                returns a character, not a number.** If you type      into the monitor, you will get       ([[ascii-en|ASCII code]] 52) then      ...
+    en/embarque/mcu/cpp/cpp-types-en.md
+        L176 : - [[ascii-en|ASCII code]] — what a        holds: the numeric code of a character
+    en/embarque/mcu/manipulation-de-bits-en.md
+        L109 : - [[ascii-en|ASCII code]] — a character is a byte: its value is its code
+[[bom-en]]  4 occurrence(s)
+    en/conduite/proj/dossier-technique-en.md
+        L138 : Aggregate the three disciplinary parts lists (electronics, mechanics, software, though software rarely consumes hardware of its own beyond the develop...
+    en/conduite/proj/index.md
+        L64 : - [[bom-en|BOM (bill of materials)]] — consolidate the components and the budget
+    en/conduite/proj/specification-technique-en.md
+        L149 : - **Openness** — availability of the [[bom-en|BOM]], the firmware, the schematics (decisive if building blocks are to be reused)
+    en/embarque/mcu/lire-une-datasheet-en.md
+        L240 : - **[[dossier-technique-en|Technical design file]] phase** — the figures read freeze the sizing (supply, heatsink) and the [[bom-en|BOM]]. Room for th...
+[[critere-en]]  4 occurrence(s)
+    en/conduite/proj/specification-technique-en.md  x4
+        L34 : - puts figures on every requirement ([[critere-en|criterion]], [[niveau-en|level]], [[flexibilite-en|flexibility]])
+[[easyeda-en]]  4 occurrence(s)
+    en/embarque/pcb/pcb-en.md  x4
+        L62 : | [[easyeda-en\|EasyEDA]] | the footprint comes with the component, offline mode | the school's tool, right through to etching in the lab |
+[[ecodesign-en]]  4 occurrence(s)
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+        L80 : **Eco-design as an appendix.** An *"eco-design"* section added at the end of the CdCF, with nothing built into the other sections, does not hold up. [...
+    en/conduite/proj/ecoconception-en.md
+        L144 : - [[ecodesign-en|Écodesign]] *(sister concept page: the design approach against the engineering approach, the PROJ/5 criterion)*
+    en/conduite/proj/index.md
+        L58 : - [[ecodesign-en|Écodesign]] — the French design-discipline sense of the word, and how it differs from eco-design
+    en/conduite/proj/specification-technique-en.md
+        L375 : - **Working [[ecoconception-en|eco-design]] in.** Eco-design is not a section tacked on at the end. It is **woven through** every section: into the ne...
+[[flexibilite-en]]  4 occurrence(s)
+    en/conduite/proj/specification-technique-en.md  x4
+        L34 : - puts figures on every requirement ([[critere-en|criterion]], [[niveau-en|level]], [[flexibilite-en|flexibility]])
+[[kicad-en]]  4 occurrence(s)
+    en/embarque/index.md
+        L73 : - [[pcb-en|Printed circuit board]] — from schematic to manufacturable board, with [[kicad-en|KiCad]]
+    en/embarque/pcb/pcb-en.md  x3
+        L61 : | [[kicad-en\|KiCad]] | free, open source, complete, cross-platform, the standard | serious board design, for the project and beyond |
+[[micropython-watchdog-en]]  4 occurrence(s)
+    en/embarque/mcu/micropython/micropython-debug-en.md
+        L215 : - [[micropython-watchdog-en|Watchdog]] — for the silent hangs
+    en/embarque/mcu/micropython/micropython-en.md
+        L66 : - [[micropython-watchdog-en|Watchdog]] —              , firmware robustness.
+    en/embarque/mcu/micropython/micropython-gpio-boot-en.md  x2
+        L112 : For a system that has to come back to a safe state after a mains failure, combine a **hardware pull resistor** (a guaranteed state at boot), an **init...
+[[niveau-en]]  4 occurrence(s)
+    en/conduite/proj/specification-technique-en.md  x4
+        L34 : - puts figures on every requirement ([[critere-en|criterion]], [[niveau-en|level]], [[flexibilite-en|flexibility]])
+[[raspberry-pi-gpio-en]]  4 occurrence(s)
+    en/embarque/mcu/gpio-en.md  x2
+        L38 : The names in brackets (       ,               ,         ) are the constants you meet on the Arduino side: they are vocabulary labels, and the code its...
+    en/embarque/mcu/raspberry-pi/raspberry-pi-en.md  x2
+        L41 : The price of those capabilities: **several watts of consumption** (unthinkable on a battery meant to last), a **slow start-up** (the OS takes tens of ...
+[[stm32-arduino-core-en]]  4 occurrence(s)
+    en/embarque/mcu/stm32/stm32-en.md  x4
+        L17 : The **STM32** are a vast family of 32-bit microcontrollers from **STMicroelectronics**, built on **ARM Cortex-M** cores (from the frugal M0+ to the hi...
+[[xbee-en]]  4 occurrence(s)
+    en/embarque/mcu/sans-fil/techno-sans-fil-en.md  x3
+        L19 : **Wireless technologies** let a system exchange data over radio waves, with no wired link — to talk to a smartphone, to a server, or to other nodes of...
+    en/embarque/mcu/sans-fil/zigbee-en.md
+        L25 : - [[xbee-en|XBee]] — off-the-shelf modules, often implementing Zigbee
+[[boucle-ouverte-en]]  3 occurrence(s)
+    en/embarque/chaine-energie-en.md
+        L77 : **Drawing an energy chain with no feedback.** With no sensor measuring the effect produced, the system runs [[boucle-ouverte-en|open loop]]: it comman...
+    en/embarque/realisation/choisir-le-materiel-en.md
+        L60 : > For actuation, two types were compared: brushed DC motor + gearbox, or stepper + driver. The stepper wins on accuracy in [[boucle-ouverte-en|open lo...
+    en/embarque/schema-bloc-fonctionnel-en.md
+        L50 : - **[[boucle-ouverte-en|Open loop]] vs closed loop**: if the controller gets a measured feedback from the end effector through a sensor, the loop is c...
+[[esp32-ble-en]]  3 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md
+        L85 : - Connectivity: [[esp32-wifi-en|Wi-Fi]] · [[esp32-ble-en|Bluetooth LE]] — the heart of the family;
+    en/embarque/mcu/sans-fil/ble-en.md  x2
+        L20 : The data rate stays moderate, enough for readings and commands, not for a video stream. Like [[wifi-en|Wi-Fi]], BLE is often built into the microcontr...
+[[esp32-i2c-en]]  3 occurrence(s)
+    en/embarque/mcu/bus/i2c-en.md  x2
+        L30 : The controller opens with a **START** condition (SDA falls while SCL is high), sends the 7-bit **address** followed by the read/write bit, and the tar...
+    en/embarque/mcu/esp32/esp32-en.md
+        L86 : - Communication: [[esp32-uart-en|UART]] · [[esp32-i2c-en|I2C]] · [[esp32-spi-en|SPI]] *(cross-cutting concept page: [[bus-de-communication-en|communic...
+[[esp32-spi-en]]  3 occurrence(s)
+    en/embarque/mcu/bus/spi-en.md  x2
+        L28 : The controller first pulls the targeted peripheral's **CS** low, then beats out **eight clock pulses** on SCK: on each pulse a bit leaves on MOSI **an...
+    en/embarque/mcu/esp32/esp32-en.md
+        L86 : - Communication: [[esp32-uart-en|UART]] · [[esp32-i2c-en|I2C]] · [[esp32-spi-en|SPI]] *(cross-cutting concept page: [[bus-de-communication-en|communic...
+[[esp32-uart-en]]  3 occurrence(s)
+    en/embarque/mcu/bus/uart-en.md  x2
+        L30 : This is the bus of the **debug console**, often through a USB-to-serial bridge back to the PC, and of many standalone modules: GPS, Bluetooth, radio m...
+    en/embarque/mcu/esp32/esp32-en.md
+        L86 : - Communication: [[esp32-uart-en|UART]] · [[esp32-i2c-en|I2C]] · [[esp32-spi-en|SPI]] *(cross-cutting concept page: [[bus-de-communication-en|communic...
+[[falstad-en]]  3 occurrence(s)
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[ltspice-en]]  3 occurrence(s)
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[micropython-afficheur-en]]  3 occurrence(s)
+    en/embarque/mcu/micropython/micropython-bibliotheques-en.md
+        L123 : - [[micropython-afficheur-en|OLED display]] — an example of           in use
+    en/embarque/mcu/micropython/micropython-en.md
+        L53 : - [[micropython-afficheur-en|OLED display]];
+    en/embarque/mcu/micropython/micropython-i2c-en.md
+        L126 : - [[micropython-afficheur-en|OLED display]] — a typical use of I2C
+[[teensy-audio-en]]  3 occurrence(s)
+    en/embarque/mcu/teensy/teensy-en.md  x3
+        L24 : - **real-time audio** — the *Teensy Audio Library* and its *Audio System Design Tool* make the Teensy a reference platform for sound and DSP (synthesi...
+[[teensy-usb-en]]  3 occurrence(s)
+    en/embarque/mcu/teensy/teensy-en.md  x3
+        L25 : - **USB versatility** — the Teensy can *become* any USB device you like (keyboard, mouse, game controller, MIDI, audio…), chosen at compile time (see ...
+[[esp32-idf-en]]  2 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md  x2
+        L57 : - **[[esp32-idf-en|ESP-IDF]]** — Espressif's **native** framework, built on **FreeRTOS**, which gives full control (multitasking, fine-grained power m...
+[[micropython-capteur-numerique-en]]  2 occurrence(s)
+    en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+        L139 : - [[micropython-capteur-numerique-en|Reading a digital sensor]] — the on/off or pulse alternative
+    en/embarque/mcu/micropython/micropython-en.md
+        L38 : - [[micropython-capteur-numerique-en|Reading a digital sensor]];
+[[micropython-moteur-pas-a-pas-en]]  2 occurrence(s)
+    en/embarque/mcu/micropython/micropython-en.md
+        L52 : - Actuators: [[micropython-servomoteur-en|servo]] · [[micropython-moteur-cc-en|DC motor (H-bridge)]] · [[micropython-moteur-pas-a-pas-en|stepper motor...
+    en/embarque/mcu/micropython/micropython-moteur-cc-en.md
+        L167 : - [[micropython-servomoteur-en|Servo]] · [[micropython-moteur-pas-a-pas-en|Stepper motor]] — the alternatives
+[[micropython-simulation-en]]  2 occurrence(s)
+    en/embarque/mcu/micropython/micropython-en.md
+        L28 : - [[micropython-simulation-en|Simulating with Wokwi]] — test a Pico + MicroPython setup online, before touching hardware.
+    en/embarque/mcu/micropython/micropython-prise-en-main-en.md
+        L157 : - [[micropython-simulation-en|Simulating with Wokwi]] — try it without hardware.
+[[mind-map-en]]  2 occurrence(s)
+    en/conduite/proj/index.md
+        L31 : - [[mind-map-en|Mind map]] — cast a wide net over the surrounding environments and constraints, early on
+    en/conduite/proj/specification-technique-en.md
+        L182 : List every external element the system is in contact with: material, energy, information, people, physical environment. Method: build a [[mind-map-en|...
+[[raspberry-pi-projet-en]]  2 occurrence(s)
+    en/embarque/mcu/raspberry-pi/raspberry-pi-en.md  x2
+        L44 : > Very often the right answer is **not** "one or the other" but **both**: an SBC for the high level (vision, planning, networking) and a microcontroll...
+[[stm32-cubemx-en]]  2 occurrence(s)
+    en/embarque/mcu/stm32/stm32-en.md  x2
+        L56 : - **STM32CubeIDE + CubeMX + HAL/LL** — **ST's native tooling**, free and all in one. The microcontroller is configured **graphically** ([[stm32-cubemx...
+[[stm32-hal-en]]  2 occurrence(s)
+    en/embarque/mcu/stm32/stm32-en.md  x2
+        L56 : - **STM32CubeIDE + CubeMX + HAL/LL** — **ST's native tooling**, free and all in one. The microcontroller is configured **graphically** ([[stm32-cubemx...
+[[stm32-registres-en]]  2 occurrence(s)
+    en/embarque/mcu/stm32/stm32-en.md  x2
+        L56 : - **STM32CubeIDE + CubeMX + HAL/LL** — **ST's native tooling**, free and all in one. The microcontroller is configured **graphically** ([[stm32-cubemx...
+[[teensy-arduino-core-en]]  2 occurrence(s)
+    en/embarque/mcu/teensy/teensy-en.md  x2
+        L52 : - **Teensyduino** — an **add-on to the Arduino IDE** (and to PlatformIO), not a separate IDE: it adds the PJRC core and the Teensy libraries. This is ...
+[[xiao-alimentation-en]]  2 occurrence(s)
+    en/embarque/alimentation-electronique-en.md
+        L139 : - [[arduino-alimentation-en|Powering an Arduino board]] · [[micropython-alimentation-en|a board running MicroPython]] · [[xiao-alimentation-en|a XIAO ...
+    en/embarque/decouplage-en.md
+        L68 : - [[arduino-alimentation-en|Powering an Arduino board]] · [[micropython-alimentation-en|a board running MicroPython]] · [[xiao-alimentation-en|a XIAO ...
+[[esp32-prise-en-main-en]]  1 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md
+        L72 : - [[esp32-prise-en-main-en|Getting started with the ESP32]] — install the Arduino core, select the board, upload a first program;
+[[esp32-serie-en]]  1 occurrence(s)
+    en/embarque/mcu/esp32/esp32-en.md
+        L80 : - [[esp32-serie-en|Serial monitor]] — read from and write to the serial port;
+[[raspberry-pi-prise-en-main-en]]  1 occurrence(s)
+    en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+        L73 : - [[raspberry-pi-prise-en-main-en|Getting started with the Raspberry Pi]] — install Raspberry Pi OS, boot **without a screen** (headless) and connect ...
+[[stm32-prise-en-main-en]]  1 occurrence(s)
+    en/embarque/mcu/stm32/stm32-en.md
+        L75 : - [[stm32-prise-en-main-en|Getting started with the STM32]] — install CubeIDE, create a project for your Nucleo, flash a first blink through the ST-LI...
+[[teensy-prise-en-main-en]]  1 occurrence(s)
+    en/embarque/mcu/teensy/teensy-en.md
+        L70 : - [[teensy-prise-en-main-en|Getting started with the Teensy]] — install Teensyduino on the Arduino IDE, flash a first blink through the Teensy Loader;
+[[xiao-esp32-s3-en]]  1 occurrence(s)
+    en/embarque/mcu/microcontroleur-en.md
+        L42 : | [[xiao-esp32-s3-en\|XIAO (Seeed Studio)]] *(mini format — ESP32 based)* | ESP32-C3 (RISC-V) or ESP32-S3 (Xtensa), 32-bit | Arduino core, MicroPython...
+
+--- GABARIT (8) ---
+[[<notion-associée>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-concernée>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-suivante>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md  x2
+[[<phase>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-tuto.md  x2
+[[<référence>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<notion-centrale-1>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<notion-centrale-2>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<phase-precedente>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+
+--- ALIAS (6) ---
+[[FC]]  26 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md  x3
+    conduite/proj/concept.md  x4
+    conduite/proj/ecoconception.md  x2
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/securite-et-qualite.md
+    conduite/proj/specification-technique.md  x12
+[[FP]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/concept.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x6
+[[FS]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x7
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+
+=== BILAN ===
+  MORT    70 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   6 cible(s)
+  OK      420 cible(s)
+--- code de sortie : 1
+
+==============================================================
+>>> 5 - chevron sur tout le corpus (C127), predit 16 paires / 0 divergente
+==============================================================
+=== MESURE DU CHEVRON - TOUT LE DEPOT ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  % = part des mots comptes qui vient des blocs.
+  ECART non nul = tot - deh - ded ; il doit etre 0 partout.
+
+  fiches balayees : 419   porteuses : 50
+
+  --- COTE FRANCAIS
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    4.0 %  ECART:2
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    4.2 %  ECART:3
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2.7 %  ECART:2
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-logs.md                         2 cl   1 bl   1591 tot    11 ded   1579 deh    0.7 %  ECART:1
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    8.7 %  ECART:4
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    4.5 %  ECART:2
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2.1 %  ECART:2
+  embarque/mcu/esp32/esp32-arduino-core.md             4 cl   2 bl   1285 tot    65 ded   1218 deh    5.1 %  ECART:2
+  embarque/mcu/esp32/esp32-ble.md                      4 cl   2 bl   1279 tot    90 ded   1187 deh    7.0 %  ECART:2
+  embarque/mcu/esp32/esp32-deep-sleep.md               2 cl   1 bl   1495 tot    93 ded   1401 deh    6.2 %  ECART:1
+  embarque/mcu/esp32/esp32-freertos.md                 4 cl   2 bl   1429 tot   104 ded   1323 deh    7.3 %  ECART:2
+  embarque/mcu/esp32/esp32-gpio.md                     4 cl   2 bl   1526 tot    96 ded   1428 deh    6.3 %  ECART:2
+  embarque/mcu/esp32/esp32-i2c.md                      4 cl   2 bl   1143 tot    89 ded   1052 deh    7.8 %  ECART:2
+  embarque/mcu/esp32/esp32-idf.md                      2 cl   1 bl   1066 tot    28 ded   1038 deh    2.6 %
+  embarque/mcu/esp32/esp32-prise-en-main.md            4 cl   2 bl   2564 tot    59 ded   2503 deh    2.3 %  ECART:2
+  embarque/mcu/esp32/esp32-serie.md                    4 cl   2 bl   2017 tot   110 ded   1905 deh    5.5 %  ECART:2
+  embarque/mcu/esp32/esp32-spi.md                      4 cl   2 bl   1150 tot   128 ded   1020 deh   11.1 %  ECART:2
+  embarque/mcu/esp32/esp32-uart.md                     4 cl   2 bl   1282 tot   105 ded   1175 deh    8.2 %  ECART:2
+  embarque/mcu/esp32/esp32-wifi.md                     4 cl   2 bl   1455 tot   135 ded   1318 deh    9.3 %  ECART:2
+  embarque/mcu/esp8266/esp8266-arduino-core.md         4 cl   2 bl   1276 tot    75 ded   1199 deh    5.9 %  ECART:2
+  embarque/mcu/esp8266/esp8266-prise-en-main.md        4 cl   2 bl   1671 tot    69 ded   1600 deh    4.1 %  ECART:2
+  embarque/mcu/micropython/micropython-controle.md     4 cl   2 bl    491 tot    45 ded    444 deh    9.2 %  ECART:2
+  embarque/mcu/micropython/micropython-fonctions.md    4 cl   2 bl    469 tot    45 ded    422 deh    9.6 %  ECART:2
+  embarque/mcu/micropython/micropython-lire-un-programme.md   2 cl   1 bl   2644 tot    10 ded   2633 deh    0.4 %  ECART:1
+  embarque/mcu/micropython/micropython-modules.md      8 cl   4 bl    638 tot    48 ded    586 deh    7.5 %  ECART:4
+  embarque/mcu/micropython/micropython-repl.md         4 cl   2 bl    684 tot    39 ded    643 deh    5.7 %  ECART:2
+  embarque/mcu/micropython/micropython-types.md        4 cl   2 bl    537 tot    25 ded    510 deh    4.7 %  ECART:2
+  embarque/mcu/stm32/stm32-arduino-core.md             4 cl   2 bl   1709 tot    53 ded   1654 deh    3.1 %  ECART:2
+  embarque/mcu/stm32/stm32-prise-en-main.md            4 cl   2 bl   1810 tot   114 ded   1694 deh    6.3 %  ECART:2
+  embarque/mcu/teensy/teensy-arduino-core.md           4 cl   2 bl   1515 tot    47 ded   1466 deh    3.1 %  ECART:2
+  embarque/mcu/teensy/teensy-audio.md                  4 cl   2 bl   1378 tot    71 ded   1305 deh    5.2 %  ECART:2
+  embarque/mcu/teensy/teensy-prise-en-main.md          4 cl   2 bl   1474 tot    60 ded   1412 deh    4.1 %  ECART:2
+  embarque/mcu/teensy/teensy-usb.md                    4 cl   2 bl   1172 tot    57 ded   1113 deh    4.9 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  FR (34 porteuses)                                  136 cl  68 bl  46106 tot  2175 ded  43864 deh
+
+  --- COTE ANGLAIS
+  en/embarque/mcu/cpp/cpp-boucles-en.md                4 cl   2 bl   1147 tot    45 ded   1100 deh    3.9 %  ECART:2
+  en/embarque/mcu/cpp/cpp-conditions-en.md             6 cl   3 bl    952 tot    38 ded    911 deh    4.0 %  ECART:3
+  en/embarque/mcu/cpp/cpp-execution-en.md              4 cl   2 bl   1410 tot    39 ded   1369 deh    2.8 %  ECART:2
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md      2 cl   1 bl   2565 tot    18 ded   2546 deh    0.7 %  ECART:1
+  en/embarque/mcu/cpp/cpp-logs-en.md                   2 cl   1 bl   1668 tot    11 ded   1656 deh    0.7 %  ECART:1
+  en/embarque/mcu/cpp/cpp-portee-en.md                 8 cl   4 bl   1057 tot    88 ded    965 deh    8.3 %  ECART:4
+  en/embarque/mcu/cpp/cpp-structure-en.md              4 cl   2 bl   1151 tot    51 ded   1098 deh    4.4 %  ECART:2
+  en/embarque/mcu/cpp/cpp-types-en.md                  4 cl   2 bl   1347 tot    29 ded   1316 deh    2.2 %  ECART:2
+  en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   4 cl   2 bl   1336 tot    76 ded   1258 deh    5.7 %  ECART:2
+  en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   4 cl   2 bl   1737 tot    69 ded   1666 deh    4.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-controle-en.md   4 cl   2 bl    504 tot    45 ded    457 deh    8.9 %  ECART:2
+  en/embarque/mcu/micropython/micropython-fonctions-en.md   4 cl   2 bl    509 tot    46 ded    461 deh    9.0 %  ECART:2
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   2 cl   1 bl   2738 tot    10 ded   2727 deh    0.4 %  ECART:1
+  en/embarque/mcu/micropython/micropython-modules-en.md   8 cl   4 bl    669 tot    48 ded    617 deh    7.2 %  ECART:4
+  en/embarque/mcu/micropython/micropython-repl-en.md   4 cl   2 bl    714 tot    40 ded    672 deh    5.6 %  ECART:2
+  en/embarque/mcu/micropython/micropython-types-en.md   4 cl   2 bl    573 tot    25 ded    546 deh    4.4 %  ECART:2
+  ------------------------------------------------------------------------------------------------
+  EN (16 porteuses)                                   68 cl  34 bl  20077 tot   678 ded  19365 deh
+
+  --- APPARIEMENT FR / EN SUR LE NOMBRE DE BLOCS
+    embarque/mcu/cpp/cpp-boucles.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-conditions.md                 FR 3 bl / EN 3 bl   ok
+    embarque/mcu/cpp/cpp-execution.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-lire-un-programme.md          FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-logs.md                       FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-portee.md                     FR 4 bl / EN 4 bl   ok
+    embarque/mcu/cpp/cpp-structure.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-types.md                      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 16   divergentes : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - libelles, predit 106 a 114 et aucune des 4 fiches en cible
+==============================================================
+=== HEURISTIQUE DE LIBELLES ===
+  en/conduite/meo/revue-de-code-en.md
+      [[cpp-lire-un-programme-en|in C++]]   cible intitulee : Reading a program you did not write
+  en/conduite/meo/revue-de-code-en.md
+      [[micropython-lire-un-programme-en|in MicroPython]]   cible intitulee : Reading a program you did not write
+  en/conduite/proj/integration-et-tests-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/conduite/proj/integration-et-tests-en.md
+      [[en/conduite/index|hub of this wiki]]   cible intitulee : Project management
+  en/conduite/proj/securite-et-qualite-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/embarque/algorithme/machine-a-etats-en.md
+      [[gpio-en|state of the GPIOs at boot]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[gpio-en|pull resistors]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[logigramme-en|logic]]   cible intitulee : Flowchart
+  en/embarque/index.md
+      [[en/conduite/index|V-model]]   cible intitulee : Project management
+  en/embarque/index.md
+      [[programmer-l-embarque-en|Algorithm and documentation]]   cible intitulee : Programming
+  en/embarque/index.md
+      [[faire-communiquer-en|Choice of communication technologies (if the specification requires it)]]   cible intitulee : Getting things talking
+  en/embarque/index.md
+      [[integration-et-tests-en|Finished product]]   cible intitulee : Integration and testing
+  en/embarque/mcu/adc-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+      [[arduino-eeprom-en|non-volatile memory]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+      [[deep-sleep-en|the concept page]]   cible intitulee : Deep sleep
+  en/embarque/mcu/arduino/arduino-entree-tor-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-interruptions-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[arduino-eeprom-en|its own tutorial]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-module-en.md
+      [[arduino-moteur-cc-en|driver module]]   cible intitulee : Driving a DC motor on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-temporisation-en.md
+      [[arduino-entree-tor-en|button]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/arduino/tinkercad-en.md
+      [[arduino-entree-tor-en|Software debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/bus/i2c-en.md
+      [[gpio-en|open collector or open drain]]   cible intitulee : GPIO
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md
+      [[micropython-lire-un-programme-en|MicroPython]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md
+      [[micropython-lire-un-programme-en|MicroPython]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/cpp/cpp-logs-en.md
+      [[cpp-portee-en|scope]]   cible intitulee : Local and global variables
+  en/embarque/mcu/dac-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/debugger-embarque-en.md
+      [[uart-en|serial link]]   cible intitulee : UART
+  en/embarque/mcu/debugger-embarque-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/deep-sleep-en.md
+      [[memoire-en|storage]]   cible intitulee : Memory
+  en/embarque/mcu/entree-sortie-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/entree-sortie-en.md
+      [[adc-en|analog-to-digital]]   cible intitulee : ADC
+  en/embarque/mcu/esp32/esp32-en.md
+      [[systeme-d-exploitation-en|RTOS]]   cible intitulee : Operating system
+  en/embarque/mcu/esp8266/esp8266-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/firmware-en.md
+      [[cpp-en|language]]   cible intitulee : C++
+  en/embarque/mcu/interruption-en.md
+      [[gpio-en|pin]]   cible intitulee : GPIO
+  en/embarque/mcu/manipulation-de-bits-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[micropython-shield-en|Expansion board]]   cible intitulee : Using a shield
+  en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-controle-en.md
+      [[micropython-types-en|list]]   cible intitulee : Variables and types
+  en/embarque/mcu/micropython/micropython-debug-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-deep-sleep-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+      [[esp8266-arduino-core-en|ESP8266]]   cible intitulee : Programming with the Arduino core
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|`ADC`]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-i2c-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-langage-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[micropython-prise-en-main-en|Thonny]]   cible intitulee : Getting started with MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[cpp-lire-un-programme-en|C++]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[cpp-lire-un-programme-en|C++]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[memoire-en|RAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[micropython-interruptions-en|ISR]]   cible intitulee : Interrupts in MicroPython
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-spi-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-temporisation-en.md
+      [[micropython-modules-en|`time`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-types-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-uart-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/niveaux-de-tension-en.md
+      [[gpio-en|pull-up resistor]]   cible intitulee : GPIO
+  en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/timer-en.md
+      [[arduino-timers-en|the dedicated tutorial]]   cible intitulee : Timers on Arduino
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mesure/analyseur-logique-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/instruments-de-mesure-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/multimetre-en.md
+      [[instruments-de-mesure-en|the hub]]   cible intitulee : Measuring instruments
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|UART, I²C or SPI]]   cible intitulee : Communication buses
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|Scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/concevoir-l-electronique-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/faire-communiquer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cable-management-en|wiring]]   cible intitulee : Cable management
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 3326
+  cible EN existante    : 2934   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 392
+  candidats a lire      : 101
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - controle des paires, predit 176 / 0 divergente
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+  [ok] en/conduite/ese/basse-tension-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/deee-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/emc-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/epi-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/index.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/iso-12100-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/marquage-ce-en.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/reach-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/rohs-en.md   liens 8, embeds 0, code 0
+  [ok] en/conduite/index.md   liens 25, embeds 1, code 0
+  [ok] en/conduite/meo/archivage-projet-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/meo/cable-management-en.md   liens 4, embeds 0, code 0
+  [ok] en/conduite/meo/index.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/relation-client-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/revue-de-code-en.md   liens 11, embeds 0, code 0
+  [ok] en/conduite/meo/unite-si-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/proj/amdec-en.md   liens 27, embeds 0, code 0
+  [ok] en/conduite/proj/cahier-des-charges-fonctionnel-en.md   liens 34, embeds 0, code 0
+  [ok] en/conduite/proj/concept-en.md   liens 82, embeds 0, code 0
+  [ok] en/conduite/proj/decomposition-fonctionnelle-en.md   liens 24, embeds 4, code 0
+  [ok] en/conduite/proj/dossier-technique-en.md   liens 70, embeds 0, code 0
+  [ok] en/conduite/proj/ecoconception-en.md   liens 72, embeds 1, code 0
+  [ok] en/conduite/proj/gantt-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/gestion-de-projet-en.md   liens 38, embeds 1, code 0
+  [ok] en/conduite/proj/index.md   liens 31, embeds 0, code 0
+  [ok] en/conduite/proj/integration-et-tests-en.md   liens 75, embeds 0, code 0
+  [ok] en/conduite/proj/jalons-en.md   liens 9, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-decision-en.md   liens 14, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-risques-en.md   liens 6, embeds 2, code 0
+  [ok] en/conduite/proj/preuve-de-concept-en.md   liens 117, embeds 0, code 0
+  [ok] en/conduite/proj/retroplanning-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/securite-et-qualite-en.md   liens 73, embeds 1, code 0
+  [ok] en/conduite/proj/specification-technique-en.md   liens 97, embeds 3, code 0
+  [ok] en/conduite/proj/wbs-en.md   liens 10, embeds 2, code 0
+  [ok] en/embarque/algorithme/algorithme-en.md   liens 16, embeds 1, code 0
+  [ok] en/embarque/algorithme/chronogramme-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/algorithme/grafcet-en.md   liens 10, embeds 3, code 0
+  [ok] en/embarque/algorithme/logigramme-en.md   liens 11, embeds 4, code 0
+  [ok] en/embarque/algorithme/machine-a-etats-en.md   liens 14, embeds 4, code 0
+  [ok] en/embarque/alimentation-electronique-en.md   liens 24, embeds 3, code 0
+  [ok] en/embarque/analyse-de-schema-electronique-en.md   liens 21, embeds 4, code 0
+  [ok] en/embarque/chaine-energie-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/decouplage-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/index.md   liens 73, embeds 0, code 0
+  [ok] en/embarque/mcu/adc-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/arduino/arduino-afficheur-en.md   liens 8, embeds 1, code 3
+  [ok] en/embarque/mcu/arduino/arduino-alimentation-en.md   liens 16, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-bibliotheques-en.md   liens 14, embeds 5, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-analogique-en.md   liens 15, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-numerique-en.md   liens 20, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-debug-en.md   liens 17, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-deep-sleep-en.md   liens 20, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/arduino-eeprom-en.md   liens 12, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-en.md   liens 59, embeds 2, code 0
+  [ok] en/embarque/mcu/arduino/arduino-entree-tor-en.md   liens 9, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-gpio-en.md   liens 9, embeds 2, code 3
+  [ok] en/embarque/mcu/arduino/arduino-i2c-en.md   liens 13, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-interruptions-en.md   liens 13, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-machine-a-etats-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-memoire-en.md   liens 14, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-module-en.md   liens 21, embeds 3, code 1
+  [ok] en/embarque/mcu/arduino/arduino-moteur-cc-en.md   liens 18, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-pid-en.md   liens 20, embeds 2, code 7
+  [ok] en/embarque/mcu/arduino/arduino-prise-en-main-en.md   liens 9, embeds 6, code 2
+  [ok] en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md   liens 23, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-serie-en.md   liens 11, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-servomoteur-en.md   liens 17, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-shield-en.md   liens 13, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-sortie-pwm-en.md   liens 17, embeds 3, code 2
+  [ok] en/embarque/mcu/arduino/arduino-sortie-tor-en.md   liens 10, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-spi-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-temporisation-en.md   liens 15, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-timers-en.md   liens 24, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-uart-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-watchdog-en.md   liens 16, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/tinkercad-en.md   liens 15, embeds 4, code 1
+  [ok] en/embarque/mcu/bibliotheque-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/bus/bus-de-communication-en.md   liens 17, embeds 1, code 0
+  [ok] en/embarque/mcu/bus/i2c-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/spi-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/uart-en.md   liens 11, embeds 2, code 0
+  [ok] en/embarque/mcu/cpp/cpp-boucles-en.md   liens 8, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-conditions-en.md   liens 10, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-en.md   liens 21, embeds 0, code 0
+  [ok] en/embarque/mcu/cpp/cpp-execution-en.md   liens 10, embeds 1, code 5
+  [ok] en/embarque/mcu/cpp/cpp-lire-un-programme-en.md   liens 19, embeds 0, code 4
+  [ok] en/embarque/mcu/cpp/cpp-logs-en.md   liens 15, embeds 1, code 8
+  [ok] en/embarque/mcu/cpp/cpp-portee-en.md   liens 8, embeds 1, code 9
+  [ok] en/embarque/mcu/cpp/cpp-structure-en.md   liens 13, embeds 0, code 6
+  [ok] en/embarque/mcu/cpp/cpp-types-en.md   liens 12, embeds 0, code 6
+  [ok] en/embarque/mcu/dac-en.md   liens 7, embeds 0, code 0
+  [ok] en/embarque/mcu/debugger-embarque-en.md   liens 21, embeds 2, code 0
+  [ok] en/embarque/mcu/deep-sleep-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/entree-sortie-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/esp32/esp32-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   liens 17, embeds 1, code 5
+  [ok] en/embarque/mcu/esp8266/esp8266-en.md   liens 32, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   liens 9, embeds 7, code 5
+  [ok] en/embarque/mcu/firmware-en.md   liens 25, embeds 1, code 0
+  [ok] en/embarque/mcu/gpio-en.md   liens 27, embeds 3, code 0
+  [ok] en/embarque/mcu/interruption-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/lire-une-datasheet-en.md   liens 34, embeds 4, code 1
+  [ok] en/embarque/mcu/manipulation-de-bits-en.md   liens 14, embeds 1, code 4
+  [ok] en/embarque/mcu/memoire-en.md   liens 11, embeds 0, code 0
+  [ok] en/embarque/mcu/microcontroleur-en.md   liens 43, embeds 2, code 0
+  [ok] en/embarque/mcu/micropython/micropython-alimentation-en.md   liens 17, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-bibliotheques-en.md   liens 13, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-capteur-analogique-en.md   liens 15, embeds 1, code 5
+  [ok] en/embarque/mcu/micropython/micropython-controle-en.md   liens 7, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-debug-en.md   liens 18, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-deep-sleep-en.md   liens 19, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-en.md   liens 61, embeds 1, code 0
+  [ok] en/embarque/mcu/micropython/micropython-fonctions-en.md   liens 6, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/micropython/micropython-gpio-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-i2c-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-interruptions-en.md   liens 12, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-langage-en.md   liens 19, embeds 0, code 0
+  [ok] en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   liens 20, embeds 0, code 6
+  [ok] en/embarque/mcu/micropython/micropython-machine-a-etats-en.md   liens 16, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-memoire-en.md   liens 15, embeds 1, code 6
+  [ok] en/embarque/mcu/micropython/micropython-module-en.md   liens 20, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-modules-en.md   liens 8, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-moteur-cc-en.md   liens 17, embeds 1, code 2
+  [ok] en/embarque/mcu/micropython/micropython-prise-en-main-en.md   liens 13, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md   liens 21, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-repl-en.md   liens 5, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-shield-en.md   liens 12, embeds 0, code 1
+  [ok] en/embarque/mcu/micropython/micropython-sortie-pwm-en.md   liens 15, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-spi-en.md   liens 12, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-stockage-en.md   liens 13, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-temporisation-en.md   liens 14, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-timers-en.md   liens 16, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-types-en.md   liens 7, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-uart-en.md   liens 14, embeds 1, code 3
+  [ok] en/embarque/mcu/niveaux-de-tension-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/pic-en.md   liens 13, embeds 0, code 0
+  [ok] en/embarque/mcu/processeur-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/pwm-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/mcu/raspberry-pi/raspberry-pi-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/ble-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/lora-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/techno-sans-fil-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/wifi-en.md   liens 12, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/zigbee-en.md   liens 4, embeds 0, code 0
+  [ok] en/embarque/mcu/shield-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/stm32/stm32-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/systeme-d-exploitation-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/teensy/teensy-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/timer-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/mesure/analyseur-logique-en.md   liens 19, embeds 2, code 0
+  [ok] en/embarque/mesure/generateur-de-signaux-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/mesure/instruments-de-mesure-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mesure/multimetre-en.md   liens 13, embeds 3, code 0
+  [ok] en/embarque/mesure/oscilloscope-en.md   liens 16, embeds 3, code 0
+  [ok] en/embarque/mesure/precision-de-mesure-en.md   liens 8, embeds 1, code 0
+  [ok] en/embarque/pcb/pcb-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/realisation/choisir-le-materiel-en.md   liens 28, embeds 0, code 0
+  [ok] en/embarque/realisation/concevoir-l-electronique-en.md   liens 30, embeds 1, code 0
+  [ok] en/embarque/realisation/faire-communiquer-en.md   liens 32, embeds 0, code 0
+  [ok] en/embarque/realisation/fiabiliser-et-deboguer-en.md   liens 45, embeds 0, code 0
+  [ok] en/embarque/realisation/programmer-l-embarque-en.md   liens 39, embeds 0, code 0
+  [ok] en/embarque/schema-bloc-fonctionnel-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/simulation/simulation-electronique-en.md   liens 31, embeds 2, code 0
+  [ok] en/index.md   liens 4, embeds 0, code 0
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+176 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0

@@ -1,0 +1,63 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2808s4.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - horloge de la serie (C119)
+==============================================================
+date ISO : 2026-08-28   heure : 23:04
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - coupe des deux plus vieux blocs MAJ du TODO, avec garde
+==============================================================
+lignes avant : 559
+marqueur (suite 2) : 1   marqueur (suite) : 1
+lignes de tete de bloc MAJ : 150   (predit 8)
+region calculee : lignes 128 a 459   soit 332 lignes
+marqueur (suite) DANS la region : 1
+premiere ligne coupee : > **➤ MAJ 27/08 (suite 2)** — **LE LOT 2 DE `micropython/` EST RÉDIGÉ, CONTRÔLÉ ET CORRIGÉ
+derniere ligne coupee : 
+PREMIERE LIGNE CONSERVEE : ### 1. Cadrage pédagogique (suite)
+lignes apres : 227   retirees : 332
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - verification apres coupe
+==============================================================
+lignes de tete de bloc MAJ : 30   (predit 6)
+  l.8 : > **➤ MAJ 28/08** — **LE LOT 1 DE `cpp/` EST PASSÉ, GÉNÉRÉ E
+  l.18 : > **UNE SÉRIE ENTIÈRE DÉPENSÉE À LIRE LES `title:` EN PRODUC
+  l.20 : > **SIX SÉPARATEURS DE MILLIERS ANGLAIS RETIRÉS AVANT LANCEM
+  l.24 : > **PROCHAINE SESSION = LE LOT 2 DE `cpp/`** : `cpp-conditio
+  l.26 : > **➤ MAJ 27/08 (suite 7)** — **LE MODULE `embarque/mcu/cpp/
+  l.30 : > **DÉCISIONS TIM DE PLAN** — **(a)** les **neuf tutos de ra
+  l.32 : > **LOT 1 DE `cpp/` CADRÉ — 3 FICHES, `tot` 4 941 / `deh` 4 
+  l.34 : > **LES TROIS TITRES EN SONT ARRÊTÉS** : **`Reading a progra
+  l.36 : > **C125 AMENDÉE UNE SECONDE FOIS, CLAUSE VALIDÉE PAR TIM** 
+  l.46 : > **`tools/mesure-chevron.mjs` EST DOCUMENTÉ AU README dès s
+  l.48 : > **PROCHAINE SESSION** : les 51 passes C109 sous C123 sur l
+  l.50 : > **➤ MAJ 27/08 (suite 6)** — **LE MODULE `micropython/` EST
+  l.58 : > **LES CINQ TITRES SOUS C125 AMENDÉE, ET LE TEST 2 TRANCHE 
+  l.62 : > **C119 MORD SUR LE LIBELLÉ D'UNE ENTRÉE, SEPTIÈME OCCURREN
+  l.64 : > **PÉRIMÈTRE DU MODULE, LE CHIFFRE POUR L'ARBITRAGE : les n
+  l.68 : > **PROCHAINE SESSION** : trancher le périmètre du module su
+  l.70 : > **➤ MAJ 27/08 (suite 5)** — **LE LOT 4 EST PASSÉ ET GÉNÉRÉ
+  l.76 : > **C126 — L'OSSATURE DU SCRIPT DE SÉANCE SE VERSIONNE, SON 
+  l.84 : > **C123 L'EMPORTE SUR C115 QUAND LES DEUX VISENT LE MÊME EM
+  l.86 : > **➤ MAJ 27/08 (suite 4)** — **LES TROIS VERDICTS EN ATTENT
+  l.90 : > **C125 AMENDÉE — trois tests dans l'ordre : (1) la forme e
+  l.92 : > **ANNEAU 2 : 222 brutes, 77 vues, 145 net, 80 traduites, 6
+  l.102 : > **LOT 4 COMPOSÉ ET CADRÉ — IL CLÔT LE MODULE.** Cinq fiche
+  l.104 : > **TITRES EN LUS EN PRODUCTION POUR LE LOT 4** : `Debugging
+  l.108 : > **PROCHAINE SESSION = LANCEMENT 1 DE C116 SUR LE LOT 4** —
+  l.110 : > **➤ MAJ 27/08 (suite 3)** — **LE LOT 3 DE `micropython/` E
+  l.114 : > **49 OCCURRENCES C109 TRAITÉES SUR 71, COÛT +2 MOTS.** Lot
+  l.126 : > **PROCHAINE SESSION = LOT 4 DU MODULE `micropython/`**, ap
+  l.204 : > **Priorité tranchée le 18/08** : un placeholder est un **t
+  l.213 : > **Priorité tranchée le 18/08** : une seule chose presse, e
+--- code de sortie : 0
