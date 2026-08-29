@@ -1,0 +1,68 @@
+# Passe C109 du lot 4 (teensy/), 29/08 (suite 9). 65 remplacements.
+# 51 candidats --style traites + 20 puces a tiret ; 16 exemptions hors table.
+# Format : chemin<TAB>ancre exacte<TAB>remplacement. Chemin relatif a content/.
+embarque/mcu/teensy/teensy-arduino-core.md	L'**Arduino-core pour Teensy** — apporté par **Teensyduino** — est la couche logicielle	L'**Arduino-core pour Teensy** (apporté par **Teensyduino**) est la couche logicielle
+embarque/mcu/teensy/teensy-arduino-core.md	sans HAL fournisseur intermédiaire — contraste net avec la [[stm32-hal|HAL du STM32]].	sans HAL fournisseur intermédiaire, ce qui contraste nettement avec la [[stm32-hal|HAL du STM32]].
+embarque/mcu/teensy/teensy-arduino-core.md	tourne beaucoup plus vite ; des fonctions rapides	tourne beaucoup plus vite. Des fonctions rapides
+embarque/mcu/teensy/teensy-arduino-core.md	comme sur STM32 ; on descend simplement	comme sur STM32. On descend simplement
+embarque/mcu/teensy/teensy-arduino-core.md	des **détails de plateforme** — et des **gains** :	des **détails de plateforme**, et des **gains** :
+embarque/mcu/teensy/teensy-arduino-core.md	comme sur Arduino ; le Teensy en offre beaucoup	comme sur Arduino, et le Teensy en offre beaucoup
+embarque/mcu/teensy/teensy-arduino-core.md	**10 bits utiles** — au-delà, on numérise du bruit	**10 bits utiles** : au-delà, on numérise du bruit
+embarque/mcu/teensy/teensy-arduino-core.md	connue à la compilation — utiles pour générer un signal rapide.	connue à la compilation, ce qui les rend utiles pour générer un signal rapide.
+embarque/mcu/teensy/teensy-arduino-core.md	le registre de bascule du port — sans jamais relire la broche.	le registre de bascule du port, sans jamais relire la broche.
+embarque/mcu/teensy/teensy-arduino-core.md	pour les chemins critiques — la même logique que	pour les chemins critiques, selon la même logique que
+embarque/mcu/teensy/teensy-arduino-core.md	on lit `Coeur : 600 MHz` — et la LED clignote	on lit `Coeur : 600 MHz`, et la LED clignote
+embarque/mcu/teensy/teensy-arduino-core.md	une seule ligne — elle est imprimée dans	une seule ligne, imprimée dans
+embarque/mcu/teensy/teensy-arduino-core.md	pour exploiter la puissance disponible — voir [[firmware|firmware]].	pour exploiter la puissance disponible (voir [[firmware|firmware]]).
+embarque/mcu/teensy/teensy-arduino-core.md	et les anciennes générations ; se référer au plan de la carte exacte.	et les anciennes générations. Se référer au plan de la carte exacte.
+embarque/mcu/teensy/teensy-arduino-core.md	soit 600 MHz — environ **37 fois** la fréquence	soit 600 MHz, environ **37 fois** la fréquence
+embarque/mcu/teensy/teensy-arduino-core.md	laisse le processeur disponible — le point de départ d'un firmware réactif	laisse le processeur disponible : c'est le point de départ d'un firmware réactif
+embarque/mcu/teensy/teensy-arduino-core.md	s'incrémente tout seul ; on teste son dépassement	s'incrémente tout seul. On teste son dépassement
+embarque/mcu/teensy/teensy-arduino-core.md	- **Descente au registre** — pour un chemin ultra-critique	- **Descente au registre.** Pour un chemin ultra-critique
+embarque/mcu/teensy/teensy-arduino-core.md	phase de preuve de concept]]** — l'Arduino-core Teensy est l'environnement	phase de preuve de concept]].** L'Arduino-core Teensy est l'environnement
+embarque/mcu/teensy/teensy-arduino-core.md	- **Réutilisation d'un prototype Arduino** — un montage validé	- **Réutilisation d'un prototype Arduino.** Un montage validé
+embarque/mcu/teensy/teensy-arduino-core.md	posé sur les registres NXP — et non un HAL — éclaire pourquoi	posé sur les registres NXP (et non un HAL) éclaire pourquoi
+embarque/mcu/teensy/teensy-audio.md	et on les **relie** ; chaque objet encapsule	et on les **relie**. Chaque objet encapsule
+embarque/mcu/teensy/teensy-audio.md	porté par le DMA — la boucle	porté par le DMA : la boucle
+embarque/mcu/teensy/teensy-audio.md	- **la mémoire** — `AudioMemory(n)` réserve	- **la mémoire.** `AudioMemory(n)` réserve
+embarque/mcu/teensy/teensy-audio.md	partagés par la chaîne ; **à appeler dans `setup()`**	partagés par la chaîne. **À appeler dans `setup()`**
+embarque/mcu/teensy/teensy-audio.md	tous les objets en bibliothèque ; on les glisse	tous les objets en bibliothèque. On les glisse
+embarque/mcu/teensy/teensy-audio.md	d'un périphérique — le travail se fait en arrière-plan	d'un périphérique : le travail se fait en arrière-plan
+embarque/mcu/teensy/teensy-audio.md	avaient une broche DAC ; ce n'est plus le cas.	avaient une broche DAC. Ce n'est plus le cas.
+embarque/mcu/teensy/teensy-audio.md	est en tâche de fond ; `loop()` ne fait que régler	est en tâche de fond. `loop()` ne fait que régler
+embarque/mcu/teensy/teensy-audio.md	s'écrit dans `loop()` — qui **pilote les paramètres**	s'écrit dans `loop()`, qui **pilote les paramètres**
+embarque/mcu/teensy/teensy-audio.md	de l'objet ; la génération du signal continue	de l'objet. La génération du signal continue
+embarque/mcu/teensy/teensy-audio.md	d'un cours de traitement du signal ; ici on l'**assemble**	d'un cours de traitement du signal. Ici on l'**assemble**
+embarque/mcu/teensy/teensy-audio.md	- **USB audio** — sans aucun matériel :	- **USB audio.** Sans aucun matériel :
+embarque/mcu/teensy/teensy-audio.md	- **MQS / I2S externe** — sur Teensy 4.x sans shield,	- **MQS / I2S externe.** Sur Teensy 4.x sans shield,
+embarque/mcu/teensy/teensy-audio.md	permettent une sortie analogique ; il n'y a pas de DAC intégré.	permettent une sortie analogique. Il n'y a pas de DAC intégré.
+embarque/mcu/teensy/teensy-audio.md	phase de preuve de concept]]** — pour un projet à dimension sonore	phase de preuve de concept]].** Pour un projet à dimension sonore
+embarque/mcu/teensy/teensy-audio.md	- **Charge maîtrisée** — surveiller `AudioProcessorUsageMax()`	- **Charge maîtrisée.** Surveiller `AudioProcessorUsageMax()`
+embarque/mcu/teensy/teensy-audio.md	« quelle chaîne assembler » — c'est ce qui rend	« quelle chaîne assembler » : c'est ce qui rend
+embarque/mcu/teensy/teensy-prise-en-main.md	de qui a touché un Arduino — une étape s'ajoute :	de qui a touché un Arduino. Une étape s'ajoute :
+embarque/mcu/teensy/teensy-prise-en-main.md	le **Blink** — faire clignoter la LED intégrée — l'équivalent embarqué	le **Blink** (faire clignoter la LED intégrée), l'équivalent embarqué
+embarque/mcu/teensy/teensy-prise-en-main.md	le Blink ne clignote pas — et on le sait	le Blink ne clignote pas, et on le sait
+embarque/mcu/teensy/teensy-prise-en-main.md	qui se lance automatiquement ; comprendre son fonctionnement	qui se lance automatiquement. Comprendre son fonctionnement
+embarque/mcu/teensy/teensy-prise-en-main.md	C'est l'IDE recommandé ; Teensyduino s'y installe	C'est l'IDE recommandé. Teensyduino s'y installe
+embarque/mcu/teensy/teensy-prise-en-main.md	ce sketch — il clignote sur la LED intégrée	ce sketch, qui clignote sur la LED intégrée
+embarque/mcu/teensy/teensy-prise-en-main.md	du mode programmation — plus simple que la manœuvre BOOT	du mode programmation, plus simple que la manœuvre BOOT
+embarque/mcu/teensy/teensy-prise-en-main.md	**Le programme tourne — la prise en main est validée.**	**Le programme tourne : la prise en main est validée.**
+embarque/mcu/teensy/teensy-prise-en-main.md	de certains exemples ; sélectionner le modèle exact.	de certains exemples. Sélectionner le modèle exact.
+embarque/mcu/teensy/teensy-prise-en-main.md	(broche 13) — par exemple sur la broche 14 de l'exercice suivant — le brochage	(broche 13), par exemple sur la broche 14 de l'exercice suivant, le brochage
+embarque/mcu/teensy/teensy-prise-en-main.md	un multi-fichiers commodes — pratique dès que le projet grossit.	un multi-fichiers commodes, ce qui est pratique dès que le projet grossit.
+embarque/mcu/teensy/teensy-prise-en-main.md	- **Installeur Teensyduino historique** — pour l'ancien IDE	- **Installeur Teensyduino historique.** Pour l'ancien IDE
+embarque/mcu/teensy/teensy-prise-en-main.md	resté sur l'IDE 1.8.x — et **seulement sous Windows ou Linux 64 bits** :	resté sur l'IDE 1.8.x, et **seulement sous Windows ou Linux 64 bits** :
+embarque/mcu/teensy/teensy-prise-en-main.md	phase de preuve de concept]]** — la première compilation	phase de preuve de concept]].** La première compilation
+embarque/mcu/teensy/teensy-prise-en-main.md	- **Tous les tutoriels Teensy aval** — sans prise en main effective,	- **Tous les tutoriels Teensy aval.** Sans prise en main effective,
+embarque/mcu/teensy/teensy-usb.md	de la pile logicielle PJRC — pas une simple bibliothèque — et l'une des signatures	de la pile logicielle PJRC (pas une simple bibliothèque), et l'une des signatures
+embarque/mcu/teensy/teensy-usb.md	ou des raccourcis ; un Teensy *souris*	ou des raccourcis, un Teensy *souris*
+embarque/mcu/teensy/teensy-usb.md	déplace le curseur ; un Teensy *manette*	déplace le curseur, et un Teensy *manette*
+embarque/mcu/teensy/teensy-usb.md	à un logiciel audio — la base d'un contrôleur	à un logiciel audio, la base d'un contrôleur
+embarque/mcu/teensy/teensy-usb.md	pas en rafale — indispensable pour un périphérique	pas en rafale, ce qui est indispensable pour un périphérique
+embarque/mcu/teensy/teensy-usb.md	pour taper du texte ; un **raccourci** demande	pour taper du texte. Un **raccourci** demande
+embarque/mcu/teensy/teensy-usb.md	une lecture sur 10 bits ; avec `analogReadResolution(12)`,	une lecture sur 10 bits. Avec `analogReadResolution(12)`,
+embarque/mcu/teensy/teensy-usb.md	- **Types combinés** — *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick* : cumulent plusieurs identités.	- **Types combinés.** *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick* cumulent plusieurs identités.
+embarque/mcu/teensy/teensy-usb.md	phase de preuve de concept]]** — pour un projet d'interface	phase de preuve de concept]].** Pour un projet d'interface
+embarque/mcu/teensy/teensy-usb.md	- **Sécurité d'usage** — un périphérique HID agit	- **Sécurité d'usage.** Un périphérique HID agit
+embarque/mcu/teensy/teensy-usb.md	agit sur l'ordinateur ; conditionner systématiquement	agit sur l'ordinateur. Conditionner systématiquement
+embarque/mcu/teensy/teensy-usb.md	un **choix de compilation** — et que les actions HID doivent être déclenchées, jamais subies — donne la grammaire	un **choix de compilation**, et que les actions HID doivent être déclenchées, jamais subies, donne la grammaire

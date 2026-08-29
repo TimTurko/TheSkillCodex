@@ -1,0 +1,7 @@
+# Correctif E1 du 29/08 (suite 9) : le corpus EN dit « Going further » (19
+# occurrences), jamais « Further reading ». Report du titre de section
+# « Aller plus loin ». Une ancre par fiche, unique par construction.
+en/embarque/mcu/teensy/teensy-arduino-core-en.md	## Further reading	## Going further
+en/embarque/mcu/teensy/teensy-audio-en.md	## Further reading	## Going further
+en/embarque/mcu/teensy/teensy-prise-en-main-en.md	## Further reading	## Going further
+en/embarque/mcu/teensy/teensy-usb-en.md	## Further reading	## Going further

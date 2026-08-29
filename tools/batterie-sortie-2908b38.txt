@@ -1,0 +1,270 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b37.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 22:02:25
+
+HEAD git : c25abf6 2026-08-29 21:57:19 +0200
+fichiers modifies non commites : 3   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 21:47:22
+  conventions.md                                      2026-08-29 21:45:41
+  TODO.md                                             2026-08-29 21:48:08
+  embarque/mcu/teensy/teensy-arduino-core.md          2026-08-19 10:04:11
+  embarque/mcu/teensy/teensy-audio.md                 2026-08-20 16:32:34
+  embarque/mcu/teensy/teensy-prise-en-main.md         2026-08-20 18:08:22
+  embarque/mcu/teensy/teensy-usb.md                   2026-08-18 22:32:16
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/teensy/teensy-arduino-core.md                 1515
+  embarque/mcu/teensy/teensy-audio.md                        1378
+  embarque/mcu/teensy/teensy-prise-en-main.md                1474
+  embarque/mcu/teensy/teensy-usb.md                          1172
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             5539
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/teensy/teensy-arduino-core.md
+      18  [C109] tiret d incise
+          L'**Arduino-core pour Teensy** — apporté par **Teensyduino** — es…
+      18  [C109] tiret d incise
+          …* — apporté par **Teensyduino** — est la couche logicielle qui amè…
+      18  [C109] tiret d incise
+          …s HAL fournisseur intermédiaire — contraste net avec la [[stm32-ha…
+      25  [C109] point-virgule de prose
+          …ketch tourne beaucoup plus vite ; des fonctions rapides (`digitalW…
+      28  [C109] point-virgule de prose
+          …e environnement comme sur STM32 ; on descend simplement aux foncti…
+      50  [C109] tiret d incise
+          …t des **détails de plateforme** — et des **gains** :
+      52  [C109] point-virgule de prose
+          …* (0, 1, 2…), comme sur Arduino ; le Teensy en offre beaucoup, ave…
+      64  [C109] tiret d incise
+          …le registre de bascule du port — sans jamais relire la broche.
+      98  [C109] tiret d incise
+          …série, on lit `Coeur : 600 MHz` — et la LED clignote **sans `delay…
+     100  [C109] tiret d incise
+          Au moniteur, une seule ligne — elle est imprimée dans `setup()`…
+     114  [C109] tiret d incise
+          …ploiter la puissance disponible — voir [[firmware|firmware]].
+     120  [C109] point-virgule de prose
+          ….1 et les anciennes générations ; se référer au plan de la carte e…
+     138  [C109] tiret d incise
+          …sur un Teensy 4.x, soit 600 MHz — environ **37 fois** la fréquence…
+     159  [C109] tiret d incise
+          …laisse le processeur disponible — le point de départ d'un firmware…
+     159  [C109] point-virgule de prose
+          …dMillis` s'incrémente tout seul ; on teste son dépassement et on l…
+     171  [C109] tiret d incise
+          …misé posé sur les registres NXP — et non un HAL — éclaire pourquoi…
+     171  [C109] tiret d incise
+          …s registres NXP — et non un HAL — éclaire pourquoi le Teensy n'a q…
+
+  embarque/mcu/teensy/teensy-audio.md
+      24  [C109] point-virgule de prose
+          …un mixeur…) et on les **relie** ; chaque objet encapsule son trait…
+      34  [C109] point-virgule de prose
+          …ntillons partagés par la chaîne ; **à appeler dans `setup()`**, sa…
+      40  [C109] point-virgule de prose
+          …tous les objets en bibliothèque ; on les glisse sur le plan de tra…
+      42  [C109] tiret d incise
+          …eur, avec quelques objets posés — un générateur, un filtre, une so…
+      42  [C109] tiret d incise
+          …teur, un filtre, une sortie I2S — reliés par des cordons*.
+      46  [C109] tiret d incise
+          …s asynchrones d'un périphérique — le travail se fait en arrière-pl…
+      84  [C109] point-virgule de prose
+          …ensy 3.x avaient une broche DAC ; ce n'est plus le cas.
+      88  [C109] point-virgule de prose
+          …traitement est en tâche de fond ; `loop()` ne fait que régler les…
+      98  [C109] tiret d incise
+          …balayage s'écrit dans `loop()` — qui **pilote les paramètres** pe…
+     105  [C109] point-virgule de prose
+          …changer un réglage** de l'objet ; la génération du signal continue…
+     122  [C109] tiret d incise
+          …til. (La *conception* du filtre — type, pente, fréquence de coupur…
+     122  [C109] tiret d incise
+          …pe, pente, fréquence de coupure — relève d'un cours de traitement…
+     122  [C109] point-virgule de prose
+          …n cours de traitement du signal ; ici on l'**assemble** et on le *…
+     128  [C109] point-virgule de prose
+          …ermettent une sortie analogique ; il n'y a pas de DAC intégré.
+     135  [C109] tiret d incise
+          …le « quelle chaîne assembler » — c'est ce qui rend le DSP accessi…
+
+  embarque/mcu/teensy/teensy-prise-en-main.md
+      17  [C109] tiret d incise
+          …onnu de qui a touché un Arduino — une étape s'ajoute : installer T…
+      17  [C109] tiret d incise
+          …gramme cible reste le **Blink** — faire clignoter la LED intégrée…
+      17  [C109] tiret d incise
+          …faire clignoter la LED intégrée — l'équivalent embarqué du « Hello…
+      21  [C109] tiret d incise
+          …cassé, le Blink ne clignote pas — et on le sait tout de suite, sur…
+      25  [C109] point-virgule de prose
+          …ée qui se lance automatiquement ; comprendre son fonctionnement (e…
+      34  [C109] point-virgule de prose
+          …ftware*. C'est l'IDE recommandé ; Teensyduino s'y installe via le…
+      62  [C109] tiret d incise
+          Saisissez (ou collez) ce sketch — il clignote sur la LED intégrée…
+      86  [C109] tiret d incise
+          …nt Teensy du mode programmation — plus simple que la manœuvre BOOT…
+      88  [C109] tiret d incise
+          …seconde. **Le programme tourne — la prise en main est validée.**
+     105  [C109] tiret d incise
+          …les secondes. Ce **petit pas** — modifier, téléverser, observer l…
+     105  [C109] tiret d incise
+          …observer le changement attendu — est le geste de base de tous les…
+     117  [C109] point-virgule de prose
+          …e brochage de certains exemples ; sélectionner le modèle exact.
+     119  [C109] tiret d incise
+          …de la LED intégrée (broche 13) — par exemple sur la broche 14 de…
+     119  [C109] tiret d incise
+          …broche 14 de l'exercice suivant — le brochage de la carte est la r…
+     180  [C109] tiret d incise
+          …l'on est resté sur l'IDE 1.8.x — et **seulement sous Windows ou L…
+
+  embarque/mcu/teensy/teensy-usb.md
+      19  [C109] tiret d incise
+          …* et de la pile logicielle PJRC — pas une simple bibliothèque — et…
+      19  [C109] tiret d incise
+          …C — pas une simple bibliothèque — et l'une des signatures du Teens…
+      25  [C109] point-virgule de prose
+          …tape du texte ou des raccourcis ; un Teensy *souris* déplace le cu…
+      25  [C109] point-virgule de prose
+          …nsy *souris* déplace le curseur ; un Teensy *manette* (joystick) p…
+      72  [C109] tiret d incise
+          …fois** par appui, pas en rafale — indispensable pour un périphériq…
+     102  [C109] point-virgule de prose
+          …)` convient pour taper du texte ; un **raccourci** demande de main…
+     123  [C109] point-virgule de prose
+          …suppose une lecture sur 10 bits ; avec `analogReadResolution(12)`,…
+     133  [C109] point-virgule de prose
+          …rique HID agit sur l'ordinateur ; conditionner systématiquement se…
+     135  [C109] tiret d incise
+          …est un **choix de compilation** — et que les actions HID doivent ê…
+     135  [C109] tiret d incise
+          …être déclenchées, jamais subies — donne la grammaire du Teensy com…
+
+4 fiche(s) lue(s), 4 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 57   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 19   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 103
+    RESTANT                   : 42
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (42 fiches)                     61721
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 6
+    clotures en chevron       : 24   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 197
+  cibles rouges distinctes     : 43
+  mots                         : 62561
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

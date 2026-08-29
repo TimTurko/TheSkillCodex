@@ -4546,3 +4546,1056 @@ contrainte** de la prose vers le code. *Dans les deux cas, la règle ne change
 pas : c'est l'endroit où elle vit qui change.* **Et dans les deux cas, le motif
 est celui de C122, écrit le 27/08 pour l'ASCII : une contrainte relue est une
 contrainte qui cède, une contrainte mesurée laisse une trace datée.**
+
+---
+
+# SÉANCE DU 29/08 (suite 9) — LOT 4 DU CHANTIER DE TRADUCTION
+
+**Surface** : PC perso, onglet Code, Opus 5. **Cinquième lot en exécution
+directe**, cinquième épreuve de la sous-règle C116 amendée (points 6 à 9),
+**troisième séance sous C131** et première sous son amendement du 29/08
+(suite 8). Blocs numérotés à la suite de la suite 8 : **le premier bloc de
+cette séance est le bloc 14**.
+
+**Brief recoupé contre la ligne « Prochaine session »** des entrées du 29/08
+(suite 7) — JOURNAL l. 97 — et du 29/08 (suite 8) — JOURNAL l. 51. **Les deux
+concordent avec le prompt de lancement, terme à terme** : `esp32/` épuisé
+(13 fiches FR, 13 jumelles EN), le lot sort du module, anneau 2 restant à
+**42 fiches / 61 721 mots / 6 porteuses**, `stm32/` (5 fiches) et `teensy/`
+(4) en tête, découpage **sur `deh` sous la borne 6 657 à mesurer au cadrage**,
+C127 en plein, `mesure-chevron --tout` à la clôture, référence **28 paires
+porteuses, 0 divergente**. Aucun écart à signaler.
+
+## Déclaration C131 d'ouverture — bloc 14 (garde de péremption)
+
+**Compteur prédit** : `fichiers modifies non commites` de
+`batterie.ps1 -Phase garde`, étape 1, ligne
+`$sale` / `$saleHors`, lue dans le code qui l'incrémente
+(`git status --porcelain`, puis filtre `-notmatch 'batterie-sortie'` et
+`-notmatch 'predictions-'`).
+
+**Population** : tout fichier du dépôt modifié ou non suivi au moment où
+l'étape 1 lit `git status`. État de départ : arbre **propre** au HEAD
+`c25abf6` (relevé à l'ouverture de la session).
+
+**Artefacts que la séance verse dans cette population avant la lecture** —
+liste nominative, deux entrées :
+1. `tools/predictions-260829.md` — **suivi par git et déjà commité** en
+   `c25abf6` ; l'append qui porte ce texte le fait passer en ` M`. **+1**.
+2. `tools/batterie-sortie-2908b36.txt` — copie C124 créée par l'**étape 0 de
+   la garde elle-même**, donc **avant** que l'étape 1 ne lise `git status`.
+   Rang **36** : `b1` à `b35` occupés, premier rang libre `b36`. Non suivi,
+   sort en `??`. **+1**.
+
+**Total impliqué : 2.** **Hors artefacts de séance : 0** — les deux entrées
+tombent sous le filtre, la première sur `predictions-`, la seconde sur
+`batterie-sortie`.
+
+## Prédictions — bloc 14, garde de péremption
+
+Commande : `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+(sans `-Fiches` : la batterie ne se filtre jamais au lancement).
+
+- **P14.1** — étape 0, `lignes non ASCII dans batterie.ps1` : **0**.
+- **P14.2** — étape 0, `sortie precedente copiee` :
+  **`tools\batterie-sortie-2908b36.txt`** (forme exacte, rang 36).
+- **P14.3** — étape 1, `phase demandee` : **`garde   anneau : 2   chevron : False`**.
+- **P14.4** — étape 1, `date ISO` : **2026-08-29**, heure **postérieure à
+  21:48:15** (dernier relevé connu, b35).
+- **P14.5** — étape 1, `HEAD git` : **`c25abf6`**, date ISO **2026-08-29**,
+  heure **postérieure à 21:48:15** et **postérieure** à l'écriture des trois
+  fichiers de pilotage ci-dessous.
+- **P14.6** — étape 1, `fichiers modifies non commites` : **2**.
+- **P14.7** — étape 1, `(hors artefacts de seance : …)` : **0**.
+- **P14.8** — étape 1, `node` : **`v24.15.0`** (forme exacte, relevé b35).
+- **P14.9** — étape 1, dates d'écriture : les **trois** fichiers de pilotage
+  présents (`JOURNAL.md`, `conventions.md`, `TODO.md`), **aucun `ABSENTE`**,
+  les trois au **2026-08-29**, heures **≥ 21:45:41** — les trois ont été
+  réécrits en clôture de la suite 8, après le relevé b35.
+- **P14.10** — étape 1, aucune ligne de fiche : `-Fiches` et `-FichesEn`
+  vides, la boucle `foreach ($f in ($Fiches + $FichesEn))` n'itère pas.
+- **P14.11** — codes de sortie des deux étapes : **0** et **0**.
+- **P14.12** — verdict de péremption : **aucun écart** — pas de fichier modifié
+  inexpliqué, pas de date postérieure au dernier relevé qui ne s'explique pas
+  par la clôture de la suite 8. **La séance peut écrire.**
+
+⚠ **Ce qui déclencherait un ARRÊT** : un `fichiers modifies non commites`
+supérieur à 2, ou un `hors artefacts de seance` non nul (une autre session
+écrit sur le dépôt) ; un `HEAD git` différent de `c25abf6` (un commit est
+tombé depuis l'ouverture) ; une date d'écriture postérieure à l'heure de la
+garde elle-même.
+
+## Bilan bloc 14 — 12 prédictions, 11 tenues, 1 réfutée
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P14.1 | 0 | 0 | tenue |
+| P14.2 | `tools\batterie-sortie-2908b36.txt` | idem | tenue |
+| P14.3 | `garde   anneau : 2   chevron : False` | idem | tenue |
+| P14.4 | 2026-08-29, > 21:48:15 | 2026-08-29 21:59:42 | tenue |
+| P14.5 | `c25abf6`, 2026-08-29 | `c25abf6 2026-08-29 21:57:19 +0200` | tenue |
+| P14.6 | 2 | 2 | tenue |
+| P14.7 | 0 | 0 | tenue |
+| P14.8 | `v24.15.0` | `v24.15.0` | tenue |
+| P14.9 | 3 fichiers, 2026-08-29, ≥ 21:45:41, **réécrits après b35** | 21:47:22 / 21:45:41 / 21:48:08 — **identiques à b35** | ⚠ **réfutée sur son motif** |
+| P14.10 | aucune ligne de fiche | aucune | tenue |
+| P14.11 | 0 et 0 | 0 et 0 | tenue |
+| P14.12 | aucun écart | aucun écart | tenue |
+
+⚠ **P14.9 : les trois termes chiffrés tiennent, la raison qui les portait est
+fausse.** J'avais écrit « les trois ont été réécrits en clôture de la suite 8,
+**après** le relevé b35 » ; les trois horodatages sont **au caractère près ceux
+de b35**. La suite 8 avait donc fini d'écrire ses fichiers de pilotage
+**avant** son dernier lancement de batterie (21:48:15), et le commit `c25abf6`
+(21:57:19) n'a touché aucune date d'écriture — *un commit ne réécrit pas les
+fichiers*. **La borne `≥ 21:45:41` était juste par coïncidence d'égalité**, ce
+qui est le mode d'échec que C131 vise : le chiffre sort juste sur une
+population que le motif décrit mal. *Consignée comme réfutée, non comme tenue :
+une borne satisfaite par égalité stricte alors qu'on la croyait satisfaite par
+stricte postériorité n'a rien mesuré.*
+
+✅ **GARDE PASSÉE, AUCUN ÉCART.** HEAD `c25abf6` conforme, 2 fichiers modifiés
+tous deux nominés, 0 hors artefacts de séance, aucune date postérieure à
+l'horloge de la garde. **La séance peut écrire.**
+
+---
+
+## Composition du lot 4 — décision prise avant le cadrage, à mesurer par lui
+
+**Base lue** (état publié, `tools/batterie-sortie-2908b30.txt`, lignes 204-212
+pour l'anneau et 302-307 pour `mesure-chevron --tout`) — les neuf fiches
+`stm32/` + `teensy/` n'ont **pas été touchées depuis** : la passe (c) de la
+suite 8 portait sur les quatre sources du lot 3 `esp32/` et leurs jumelles.
+
+| fiche | `tot` | chevron | `ded` | `deh` |
+|---|---|---|---|---|
+| `stm32/stm32-arduino-core` | 1709 | 4 cl / 2 bl | 53 | 1654 |
+| `stm32/stm32-cubemx` | 1675 | — | 0 | 1675 |
+| `stm32/stm32-hal` | 1579 | — | 0 | 1579 |
+| `stm32/stm32-prise-en-main` | 1810 | 4 cl / 2 bl | 114 | 1694 |
+| `stm32/stm32-registres` | 1472 | — | 0 | 1472 |
+| `teensy/teensy-arduino-core` | 1515 | 4 cl / 2 bl | 47 | 1466 |
+| `teensy/teensy-audio` | 1378 | 4 cl / 2 bl | 71 | 1305 |
+| `teensy/teensy-prise-en-main` | 1474 | 4 cl / 2 bl | 60 | 1412 |
+| `teensy/teensy-usb` | 1172 | 4 cl / 2 bl | 57 | 1113 |
+
+⚠ **`stm32/` ENTIER NE PASSE PAS SOUS LA BORNE, `teensy/` ENTIER OUI.**
+`deh` prédit pour les cinq `stm32/` : **8 074**, soit **1 417 au-dessus de la
+borne 6 657** — le module se coupe donc en deux lots quoi qu'il arrive, et le
+prendre en tête laisserait **une fiche orpheline**. `deh` prédit pour les
+quatre `teensy/` : **5 296**, **1 361 de marge**, profil très proche du lot 3
+(`deh` 4 983, marge 1 674). **Et les quatre `teensy/` sont les quatre
+porteuses de leur module** : C127 s'applique en plein, comme demandé.
+
+**DÉCISION C117 — LOT 4 = `teensy/` ENTIER**, quatre fiches :
+`teensy-arduino-core`, `teensy-audio`, `teensy-prise-en-main`, `teensy-usb`.
+*Le brief nomme `stm32/` et `teensy/` « en tête » sans imposer l'ordre ; le
+seul critère qui les départage est la borne, et elle tranche.* **Le lot ferme
+un module au lieu d'en entamer un.** **Revert = changement de `-Fiches` avant
+toute écriture, coût nul tant que le cadrage n'a pas tourné.**
+⚠ **Les six porteuses de l'anneau 2 restant sont toutes dans ces neuf
+fiches** : les quatre du lot 4 et les deux de `stm32/`. Le lot 5 portera donc
+`stm32-arduino-core` et `stm32-prise-en-main`, et C127 y servira aussi.
+
+## Déclaration C131 — bloc 15 (cadrage)
+
+**Population** : identique au bloc 14. **Versements de la séance présents dans
+le compteur au moment où l'étape 1 du cadrage lit `git status`** — liste
+nominative, **trois** entrées :
+1. `tools/predictions-260829.md` — ` M`, déjà compté au bloc 14, **toujours
+   modifié** (deux appends de plus depuis). **+1**.
+2. `tools/batterie-sortie-2908b36.txt` — `??`, créé par l'**étape 0 du
+   bloc 14**, **persiste**. **+1**.
+3. `tools/batterie-sortie-2908b37.txt` — `??`, créé par l'**étape 0 de ce
+   bloc-ci**, avant la lecture de l'étape 1. Rang **37**, premier libre.
+   **+1**.
+
+**Total impliqué : 3.** **Hors artefacts de séance : 0** — les trois tombent
+sous le filtre (`predictions-` pour la première, `batterie-sortie` pour les
+deux autres).
+
+## Prédictions — bloc 15, cadrage
+
+Commande :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/mcu/teensy/teensy-arduino-core.md,embarque/mcu/teensy/teensy-audio.md,embarque/mcu/teensy/teensy-prise-en-main.md,embarque/mcu/teensy/teensy-usb.md`
+
+**Étape 0**
+- **P15.1** — `lignes non ASCII dans batterie.ps1` : **0**.
+- **P15.2** — `sortie precedente copiee` : **`tools\batterie-sortie-2908b37.txt`**.
+
+**Étape 1 — garde**
+- **P15.3** — `phase demandee` : **`cadrage   anneau : 2   chevron : False`**.
+- **P15.4** — `HEAD git` : **`c25abf6`**, inchangé.
+- **P15.5** — `fichiers modifies non commites` : **3**.
+- **P15.6** — `(hors artefacts de seance : …)` : **0**.
+- **P15.7** — `node` : **`v24.15.0`**.
+- **P15.8** — dates de pilotage **inchangées** : `JOURNAL.md` **21:47:22**,
+  `conventions.md` **21:45:41**, `TODO.md` **21:48:08**, toutes au 2026-08-29.
+- **P15.9** — **quatre lignes de fiche**, aucune `ABSENTE`, dates d'écriture
+  **antérieures au 2026-08-29 21:45:41** (les quatre sources sont intactes
+  depuis bien avant la journée).
+
+**Étape 2 — volume du lot (`compter-mots --lot`)**
+Décomposition terme à terme, tirée de chaque source dans l'anneau de b30 et
+**non d'une moyenne de module** :
+- **P15.10** — `teensy-arduino-core.md` : **1 515** mots.
+- **P15.11** — `teensy-audio.md` : **1 378**.
+- **P15.12** — `teensy-prise-en-main.md` : **1 474**.
+- **P15.13** — `teensy-usb.md` : **1 172**.
+- **P15.14** — total du lot : **5 539** mots (`tot`, C127 — le chiffre de
+  découpage est `deh`, prédit en P15.15).
+- **P15.15** — `deh` du lot, à confirmer par `mesure-chevron` à la clôture :
+  **5 296**, soit **1 361 de marge** sous la borne **6 657**. `ded` **235**.
+
+**Étape 3 — candidats C109 des sources FR (`--style`)**
+⚠ **La décomposition par fiche n'est PAS prédite, et c'est délibéré.** Je
+n'ai **aucune base par fiche** : le compteur C109 n'est publié pour ces quatre
+sources dans aucune sortie datée du dépôt. La seule décomposition que je
+pourrais écrire serait construite **autour d'une moyenne de module**, soit
+exactement le défaut consigné au §8 le 29/08 — *« un total dans la fourchette
+ne valide pas la décomposition »*. **Je publie donc un total en fourchette et
+une forme falsifiable, pas neuf chiffres inventés.**
+- **P15.16** — total `C109 de prose` sur les quatre sources : **entre 25 et
+  55**. *Ancrage : lot 3 `esp32/` 38 candidats sur 4 fiches, lot 6
+  `micropython/` 46 sur 4, lot 2 `cpp/` 51 sur 4 — trois lots de même taille,
+  aucun hors de cet intervalle.*
+- **P15.17** — **forme** : le classement des quatre fiches par nombre de
+  candidats suit celui des `deh` — `teensy-arduino-core` (1 466) ≥
+  `teensy-prise-en-main` (1 412) ≥ `teensy-audio` (1 305) ≥ `teensy-usb`
+  (1 113). *Prédiction d'ordre, réfutable par une seule inversion.*
+- **P15.18** — `C109 creees en EN` : **0** sur des sources FR (le compteur ne
+  vaut que pour les jumelles anglaises).
+- **P15.19** — ⚠ **`--style` ne verra AUCUN tiret de puce**, limite d'outil
+  mesurée à la suite 8 : les puces à tiret que ces quatre fiches portent ne
+  monteront dans **aucun** compteur.
+
+**Étape 4 — anneau, dette, chevron (`--anneau 2`)**
+- **P15.20** — anneau 2 : **145 net**, **42 restantes**, **61 721 mots**,
+  **6 porteuses** — **inchangé** depuis la clôture de la suite 7. *Motif : la
+  suite 8 n'a traduit aucune fiche ; sa passe (c) a touché quatre sources FR
+  du lot 3, toutes déjà traduites, donc hors du restant.*
+- **P15.21** — dette : **43 cibles, 62 561 mots**, **inchangée**, même motif.
+- **P15.22** — les quatre fiches du lot apparaissent dans le restant avec
+  `chevron:4` chacune, et les neuf lignes `stm32/`+`teensy/` sont **identiques
+  à celles de b30** (1709 / 1675 / 1579 / 1810 / 1472 / 1515 / 1378 / 1474 /
+  1172).
+
+**Codes de sortie**
+- **P15.23** — étapes 0, 1, 2, 3, 4 : **0** partout.
+
+## Bilan bloc 15 — 23 prédictions, 21 tenues, 1 réfutée, 1 en attente
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P15.1 | 0 | 0 | tenue |
+| P15.2 | `…b37.txt` | `…b37.txt` | tenue |
+| P15.3 | `cadrage   anneau : 2   chevron : False` | idem | tenue |
+| P15.4 | `c25abf6` | `c25abf6 2026-08-29 21:57:19` | tenue |
+| P15.5 | 3 | 3 | tenue |
+| P15.6 | 0 | 0 | tenue |
+| P15.7 | `v24.15.0` | `v24.15.0` | tenue |
+| P15.8 | 21:47:22 / 21:45:41 / 21:48:08 | idem | tenue |
+| P15.9 | 4 lignes, 0 `ABSENTE`, dates < 21:45:41 du jour | 19/08 10:04:11, 20/08 16:32:34, 20/08 18:08:22, 18/08 22:32:16 | tenue |
+| P15.10 | 1 515 | 1 515 | tenue |
+| P15.11 | 1 378 | 1 378 | tenue |
+| P15.12 | 1 474 | 1 474 | tenue |
+| P15.13 | 1 172 | 1 172 | tenue |
+| P15.14 | 5 539 | `LOT (4 fiches) 5539` | tenue |
+| P15.15 | `deh` 5 296, `ded` 235, marge 1 361 | *non mesuré à ce bloc* | **en attente** (clôture, `mesure-chevron --tout`) |
+| P15.16 | total C109 entre **25 et 55** | **57** | ⚠ **réfutée** |
+| P15.17 | ordre `arduino-core` ≥ `prise-en-main` ≥ `audio` ≥ `usb` | **17 / 15 / 15 / 10** | tenue, **mais par égalité sur la paire du milieu** |
+| P15.18 | `C109 creees en EN` 0 | 0 | tenue |
+| P15.19 | aucun tiret de puce dans aucun compteur | six seaux publiés, **aucun ne le nomme** | tenue |
+| P15.20 | anneau 2 : 145 net, 42 restantes, 61 721, 6 porteuses | 145 / 42 / 61 721 / 6 | tenue |
+| P15.21 | dette 43 cibles, 62 561 mots | 43 / 62 561 | tenue |
+| P15.22 | 9 lignes identiques à b30 | identiques | tenue |
+| P15.23 | codes de sortie 0 | 0 / 0 / 0 / 0 / 0 | tenue |
+
+⚠ **P15.16 : LA FOURCHETTE EST DÉPASSÉE DE DEUX, ET LE DÉFAUT EST DANS SA
+CONSTRUCTION, PAS DANS SON AMPLEUR.** Prédit 25-55, constaté **57**
+(`C109 de prose`, seau lu dans le code qui l'incrémente). Les trois lots
+d'ancrage — 38, 46, 51 — sont des lots de **4 fiches**, mais de **volumes
+différents** : le lot 3 `esp32/` pèse `tot` 5 278, le lot 4 `teensy/` **5 539**.
+*J'ai ancré sur un compte de fiches là où le candidat C109 est une densité de
+prose.* **La borne haute 51 rapportée au volume aurait donné ≈ 54, et
+l'intervalle aurait dû monter au-dessus de 57 dès qu'on admet une marge.**
+C'est le même défaut que P14.9 par une autre porte : **la population de
+l'ancrage n'était pas celle du compteur prédit** — quatre fiches contre
+5 539 mots.
+✅ *Ce qui a bien marché* : la **décomposition non prédite** l'a été pour un
+motif écrit, et elle n'a fabriqué aucun faux chiffre. **La prédiction d'ordre
+(P15.17) est le seul terme décomposé publié, et il tient.**
+
+⚠ **P15.17 tient sans avoir discriminé.** `teensy-prise-en-main` (`deh` 1 412)
+et `teensy-audio` (`deh` 1 305) sont séparés de **107 mots** et rendent
+**15 candidats chacun**. Le `≥` est satisfait par **égalité**, pas par la
+relation d'ordre prédite. *Consigné : sur la seule paire qui aurait pu réfuter
+la forme, la mesure n'a rien tranché.*
+
+---
+
+# GATE G1 — FIN DE CADRAGE
+
+**Lot 4 arrêté** : `teensy/` entier — `teensy-arduino-core`, `teensy-audio`,
+`teensy-prise-en-main`, `teensy-usb`. **4 fiches, 4 porteuses, `tot` 5 539
+mesuré, `deh` prédit 5 296 sous la borne 6 657 (marge 1 361), 57 candidats
+C109 à juger un par un.** Anneau 2 et dette **inchangés et confirmés** :
+145 net / 42 restantes / 61 721 mots / 6 porteuses ; dette 43 / 62 561.
+**Le lot ferme `teensy/` ; `stm32/` (`deh` prédit 8 074) se coupera en deux
+lots, et portera les deux dernières porteuses de l'anneau.**
+**35 prédictions publiées sur les deux blocs, 32 tenues, 2 réfutées, 1 en
+attente.**
+
+---
+
+## Décision C117 avant le bloc 16 — les puces à tiret du lot sont dans le périmètre
+
+⚠ **ARBITRAGE À RENDRE, TRAITÉ ENTRE-TEMPS COMME UNE ASSOMPTION ÉCRITE
+(C116 (8)).** L'amendement C109 du 29/08 (suite 8) met les tirets de puce dans
+C109 par quatre cas ; la file d'arbitrages ouvre en parallèle *« le chantier
+des puces à tiret sur le reste du corpus (1 084 FR / 872 EN), à cadrer et à
+découper »*. **Les deux lectures s'opposent sur un lot de traduction** : soit
+un lot traite ses propres puces, soit il les laisse au chantier à venir.
+
+**Assomption retenue : le lot traite ses propres puces.** Trois motifs.
+(1) **Précédent direct** : la suite 8 a traité les **32 puces des quatre fiches
+du lot 3**, et le chiffre `1 084 / 872` a été mesuré **après**, donc il désigne
+le **reste**, pas le lot. (2) **Coût d'attente** : les quatre jumelles EN vont
+être écrites ce soir ; ne pas traiter maintenant, c'est verser **quatre fiches
+EN neuves** dans les 872 et payer la passe **deux fois, des deux côtés**.
+(3) **Symétrie** : `--controle` compare les compteurs FR/EN, et une puce
+traitée d'un seul côté est exactement l'asymétrie que le chantier existe pour
+éviter.
+**Coût de revert** : `git checkout` des 4 sources FR **avant génération**
+(coût nul) ; **après** rédaction des jumelles, `git checkout` de 8 fiches plus
+4 `--recaler`.
+
+## Jugement des 87 candidats — C123, C109 amendée (4 cas), borne du 25/08
+
+**Motif des puces, éprouvé sous C110 sur un échantillon nommé dont la réponse
+était publiée** : les **quatre fiches du lot 3 d'`esp32/`**, où la suite 8
+déclare *« 20 tombent, 12 restent »*. Le motif rend **12** — `deep-sleep` 2,
+`arduino-core` 2, `freertos` 4, `idf` 4. **Ni faux positif** (aucune glose de
+`Voir aussi` / `Aller plus loin`, aucune ligne de bloc de code, aucune puce de
+front matter) **ni faux négatif** (les 12 gardées sont exactement les
+deux signatures, l'infinitif, le nominal, les quatre définitions de
+glossaire, les trois entrées nominales et l'adjectival que la suite 8
+énumère). *L'échantillon a été choisi parce qu'il porte les quatre pièges à la
+fois et que sa réponse était connue avant le lancement.*
+
+**Doctrine appliquée, écrite pour être réfutable.** C123 est une condition
+**nécessaire** d'exemption (« n'est exempté **que si** »), **jamais
+suffisante** : elle resserre une exemption préexistante, elle n'en crée
+aucune. Les exemptions préexistantes sont **deux** — la **glose de tête**
+(`Libellé — segment sans sujet propre`, borne du 25/08, cas 2 de
+l'amendement) et l'**incise à deux tirets qui énumère au moins deux items**
+(précédent `raspberry-pi` du 25/08 : un seul objet nommé **tombe**, deux
+exemples **restent**). **Hors de ces deux formes, un tiret de prose tombe,
+quelle que soit la nature du segment de droite.**
+
+**Verdict global : 71 tombent, 16 restent.**
+
+| fiche | `--style` traités | `--style` exemptés | puces traitées | puces exemptées | lignes de table |
+|---|---|---|---|---|---|
+| `teensy-arduino-core` | 17 | 0 | 6 | 0 | **21** |
+| `teensy-audio` | 11 | 4 | 6 | 3 | **17** |
+| `teensy-prise-en-main` | 13 | 2 | 4 | 0 | **15** |
+| `teensy-usb` | 10 | 0 | 4 | 7 | **12** |
+| **total** | **51** | **6** | **20** | **10** | **65** |
+
+**Les 16 exemptions, nommées une par une.**
+- `teensy-audio` L42 (×2) et L122 (×2) — **incises à deux tirets énumérant
+  trois items** (`un générateur, un filtre, une sortie I2S` ; `type, pente,
+  fréquence de coupure`). Précédent `raspberry-pi` du 25/08.
+- `teensy-prise-en-main` L105 (×2) — idem, **trois infinitifs** (`modifier,
+  téléverser, observer le changement attendu`).
+- `teensy-audio` L32, L33, L126 — **gloses de tête** : nominal
+  (`des blocs de traitement : …`), **relative sans sujet propre**
+  (`qui relient la sortie d'un objet…`), nominal
+  (`le compagnon de référence : …`).
+- `teensy-usb` L35, L36, L37, L38, L39, L40, L128 — **sept gloses de tête** du
+  menu *USB Type* : cinq groupes nominaux, une relative (`qui cumulent
+  plusieurs identités`), un groupe prépositionnel + infinitif (`pour un
+  protocole sur mesure…, sans passer par les profils standards`).
+  ⚠ **C'est le glossaire que l'arbitrage (c) existe pour ne pas hacher**, et
+  il sort intact.
+
+⚠ **DEUX TRAITEMENTS OPPOSÉS DANS LA MÊME LISTE DE TROIS, ET C'EST LE CRITÈRE
+QUI LES SÉPARE.** `teensy-audio` L32/L33/L34 : `- **les objets** — …` et
+`- **les cordons** — …` **gardent** leur tiret (nominal, relative), quand
+`- **la mémoire** — AudioMemory(n) **réserve**…` **tombe**, son segment de
+droite ayant `AudioMemory(n)` pour sujet propre. *Le parallélisme visuel de la
+liste en souffre ; la frontière du 29/08 (suite 8) dit expressément que c'est
+le sujet propre qui décide, pas la mise en page.*
+
+## Déclaration C131 — bloc 16 (garde + test négatif + passe C109)
+
+**Population** : `git status --porcelain` au moment où l'étape 1 de la garde
+le lit. **Versements de la séance, liste nominative, six entrées :**
+1. `tools/predictions-260829.md` — ` M`. **+1**
+2. `tools/batterie-sortie-2908b36.txt` — `??` (bloc 14). **+1**
+3. `tools/batterie-sortie-2908b37.txt` — `??` (bloc 15). **+1**
+4. `tools/batterie-sortie-2908b38.txt` — `??`, créé par l'**étape 0 de la
+   garde de ce bloc**, rang 38. **+1**
+5. `tools/passe-c109-teensy-2908.tsv` — `??`, **table du lot, écrite avant la
+   garde**. **+1**
+6. `tools/passe-negatif-teensy-2908.tsv` — `??`, **table du test négatif,
+   écrite avant la garde**. **+1**
+
+**Total impliqué : 6.** ⚠ **Hors artefacts de séance : 2** — le filtre de
+`batterie.ps1` n'écarte que `batterie-sortie` et `predictions-` ; **les deux
+TSV ne tombent sous aucun des deux motifs** et se comptent. *C'est la première
+fois de la séance que ce compteur est non nul, et il est non nul par
+construction, pas par surprise.*
+
+## Prédictions — bloc 16
+
+**16a — garde de péremption**
+- **P16.1** — `lignes non ASCII` : **0** ; copie : **b38**.
+- **P16.2** — `HEAD git` : **c25abf6**, inchangé.
+- **P16.3** — `fichiers modifies non commites` : **6**.
+- **P16.4** — `(hors artefacts de seance : …)` : **2**.
+- **P16.5** — dates de pilotage **inchangées** (21:47:22 / 21:45:41 / 21:48:08).
+- **P16.6** — dates des 4 sources **inchangées** : 2026-08-19 10:04:11,
+  2026-08-20 16:32:34, 2026-08-20 18:08:22, 2026-08-18 22:32:16.
+  ⚠ **Toute date du 2026-08-29 sur une de ces quatre lignes = ARRÊT** : la
+  passe n'a pas encore écrit.
+
+**16b — test négatif délibéré** (`passe-negatif-teensy-2908.tsv`, sans `--ecrire`)
+Ancre : `porte par le DMA` — **`porté` privé de son accent**, le mode d'échec
+exact du 29/08 (suite 3).
+- **P16.7** — `lignes de table : 1`, `ancres introuvables : 1`.
+- **P16.8** — `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, **code 1**.
+- **P16.9** — `git status` **inchangé à 6 / 2** après le test.
+
+**16c — passe de contrôle seul** (`passe-c109-teensy-2908.tsv`, sans `--ecrire`)
+- **P16.10** — `lignes de table` : **65**.
+- **P16.11** — `fiches` : **4**.
+- **P16.12** — `remplacements prets` : **65**.
+- **P16.13** — `ancres introuvables` : **0** ; `ancres multiples` : **0** ;
+  `fichiers absents` : **0** ; `sans front matter` : **0** ;
+  `lignes mal formees` : **0**.
+- **P16.14** — `INVARIANT D ACCENTS casse sur : 0 fiche(s)`, **écart `+0` sur
+  les quatre lignes**. *Aucun remplacement ne retire ni n'ajoute de lettre
+  accentuée : le seul cas limite est `; **à appeler` → `. **À appeler`, où
+  `à` U+00E0 devient `À` U+00C0 — **deux points de code de la classe**, donc
+  écart nul.*
+- **P16.15** — décomposition `ancres n/n` par fiche : **21/21**, **17/17**,
+  **15/15**, **12/12**.
+- **P16.16** — `CONTROLE SEUL : 65 remplacement(s) prets, 0 fichier ecrit.`,
+  **code 0**.
+- **P16.17** — **lignes du corps inchangées** sur les quatre fiches
+  (`lignes N -> N`) : aucune passe ne crée ni ne détruit de ligne.
+- **P16.18** — **points de code** : les quatre valeurs `apres` **diffèrent**
+  des valeurs `avant` (des tirets deviennent des virgules, des parenthèses
+  s'ouvrent et se ferment, des phrases se coupent). *Ce n'est pas un
+  invariant, et le prédire fixe serait le confondre avec celui des accents.*
+
+**16d — passe réelle** (`--ecrire`)
+- **P16.19** — `fichiers ecrits : 4`, avec **21 / 17 / 15 / 12
+  remplacement(s)**, **code 0**.
+- **P16.20** — `git diff --numstat` **cumulé depuis HEAD** (corollaire C131) :
+  **4 fiches de `content/`**, chacune à `N N` avec `N` = nombre de **lignes
+  distinctes** touchées, **pas** le nombre de remplacements — plusieurs
+  remplacements partagent une ligne.
+  Décompte ligne par ligne : `teensy-arduino-core` **18** (L18, 25, 28, 50,
+  52, 54, 64, 66, 98, 100, 114, 120, 138, 159, 164, 168, 169, 171),
+  `teensy-audio` **15** (L24, 25, 34, 40, 46, 84, 88, 98, 105, 122, 127, 128,
+  132, 133, 135), `teensy-prise-en-main` **13** (L17, 21, 25, 34, 62, 86, 88,
+  117, 119, 179, 180, 184, 185), `teensy-usb` **10** (L19, 25, 26, 72, 102,
+  123, 127, 132, 133, 135).
+  **Prédiction : `18 18`, `15 15`, `13 13`, `10 10`.**
+- **P16.21** — **aucune ligne du diff hors des lignes énumérées en P16.20**,
+  et **aucune ligne de front matter** : `remplacer-passe.mjs` recopie le bloc
+  à l'octet.
+- **P16.22** — `git status` après écriture : les quatre sources n'étaient
+  **pas** dans le compteur avant la passe et y entrent après, **+4** ⇒
+  **10 au total**, **hors artefacts : 6**.
+- **P16.23** — `compter-mots --lot` après la passe : le total **change** et ne
+  vaut plus 5 539. **Fourchette 5 535 - 5 570** — les découpages en phrases
+  n'ajoutent aucun mot, les liaisons ajoutées (`ce qui`, `et`, `selon`,
+  `qui`, `c'est`) en ajoutent quelques-uns, et aucune suppression de mot
+  n'est prévue. *Fourchette et non chiffre : je n'ai pas compté les mots
+  ajoutés terme à terme, et le dire vaut mieux que fabriquer un chiffre.*
+
+## Bilan bloc 16 — 23 prédictions, 23 tenues, 0 réfutée
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P16.1 | 0 non ASCII ; copie b38 | 0 ; `…b38.txt` | tenue |
+| P16.2 | `c25abf6` | `c25abf6` | tenue |
+| P16.3 | 6 | 6 | tenue |
+| P16.4 | **2** hors artefacts | **2** | tenue |
+| P16.5 | dates pilotage inchangées | 21:47:22 / 21:45:41 / 21:48:08 | tenue |
+| P16.6 | 4 dates sources inchangées | 19/08 10:04:11, 20/08 16:32:34, 20/08 18:08:22, 18/08 22:32:16 | tenue |
+| P16.7 | `lignes de table : 1`, `introuvables : 1` | 1 / 1 | tenue |
+| P16.8 | `REFUS : 1 defaut(s)`, code 1 | idem, `CODE=1` | tenue |
+| P16.9 | git status inchangé 6 / 2 | 6 / 2 | tenue |
+| P16.10 | 65 lignes de table | 65 | tenue |
+| P16.11 | 4 fiches | 4 | tenue |
+| P16.12 | 65 remplacements prêts | 65 | tenue |
+| P16.13 | 0 / 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 / 0 | tenue |
+| P16.14 | invariant d'accents cassé sur **0**, écart `+0` ×4 | 206→206, 191→191, 205→205, 148→148 | tenue |
+| P16.15 | 21/21, 17/17, 15/15, 12/12 | idem | tenue |
+| P16.16 | `CONTROLE SEUL : 65 … 0 fichier ecrit.`, code 0 | idem | tenue |
+| P16.17 | lignes du corps inchangées | 171→171, 135→135, 187→187, 133→133 | tenue |
+| P16.18 | points de code **différents** avant/après | 11406→11421, 10194→10180, 10262→10259, 8818→8817 | tenue |
+| P16.19 | 4 fichiers écrits, 21 / 17 / 15 / 12, code 0 | idem, `CODE=0` | tenue |
+| P16.20 | `18 18`, `15 15`, `13 13`, `10 10` | `18 18`, `15 15`, `13 13`, `10 10` | tenue |
+| P16.21 | aucune ligne hors des 56 énumérées, aucun front matter | 56 lignes, toutes dans les listes publiées, 0 ligne de front matter | tenue |
+| P16.22 | git status **10 / 6** après écriture | 10 / 6 | tenue |
+| P16.23 | `--lot` entre 5 535 et 5 570 | **5 553** (1 522 / 1 378 / 1 477 / 1 176) | tenue |
+
+✅ **BLOC ENTIÈREMENT TENU, ET LE TERME LE PLUS EXPOSÉ EST LE `numstat`.**
+P16.20 est la prédiction que la suite 8 avait ratée deux fois — un `numstat`
+cumulé depuis HEAD, et un compte de **lignes** confondu avec un compte de
+**remplacements**. Elle est publiée ici **ligne par ligne, fiche par fiche**,
+et les quatre couples sortent justes. *Le corollaire écrit dans C131 hier soir
+a servi le soir même.*
+
+✅ **L'INVARIANT DE CORPS EST PROUVÉ PAR L'INSTRUMENT QUI PEUT LE RÉFUTER.**
+`git diff --numstat` rend **18 / 15 / 13 / 10, ajouts = suppressions sur les
+quatre**, et les **56 numéros de ligne du diff sont exactement les 56
+énumérés avant la passe** — aucune ligne de front matter, aucune ligne de bloc
+de code. *`compter-mots` ne pouvait pas le rendre : il retire le front matter
+avant de compter, donc il ne peut pas voir ce qu'on lui demande de garder.*
+
+## Remesures immédiates (C116 (4))
+
+- **`--style` : `C109 de prose` 57 → 6.** Les six restants sont **exactement
+  les six exemptions publiées** — `teensy-audio` L42 (×2) et L122 (×2),
+  `teensy-prise-en-main` L105 (×2). *Le compteur descend au chiffre prédit
+  avant la passe, pas à un chiffre voisin.*
+- **Puces à tiret : 30 → 10**, décomposées **0 / 3 / 0 / 7**, soit **fiche par
+  fiche les dix exemptions nommées** : `teensy-audio` L32/L33/L126 et les sept
+  gloses du menu *USB Type*. ⚠ **Le glossaire de `teensy-usb` sort intact**,
+  ce qui est le motif même de l'arbitrage (c).
+- **`compter-mots --lot` : 5 539 → 5 553**, soit **+14 mots** pour 65
+  remplacements. *Les découpages en phrases n'ajoutent rien ; les +14 sont les
+  liaisons — `ce qui les rend`, `ce qui est` ×2, `selon`, `qui`, `c'est`,
+  `et` ×3, `Une`.*
+
+---
+
+# GATE G2 — FIN DE PASSE C109
+
+**65 remplacements écrits sur 4 fiches, zéro échec, zéro fichier écrit au test
+négatif.** 87 candidats jugés (57 `--style` + 30 puces), **71 traités, 16
+exemptés**, et les 16 se retrouvent **une par une** dans les deux remesures.
+**Chiffres qui ont changé** : `C109 de prose` **57 → 6** ; puces à tiret
+**30 → 10** ; `tot` du lot **5 539 → 5 553** ; `git status` **6 → 10**,
+hors artefacts **2 → 6**.
+**58 prédictions publiées sur trois blocs, 55 tenues, 2 réfutées, 1 en
+attente.**
+
+---
+
+## Déclaration C131 — bloc 17 (garde + génération des quatre squelettes EN)
+
+**Population** : `git status --porcelain` lu par l'étape 1 de la garde.
+**Versements de la séance, liste nominative, dix entrées :**
+1. `tools/predictions-260829.md` — ` M`. **+1**
+2-4. `tools/batterie-sortie-2908b36|37|38.txt` — `??`. **+3**
+5. `tools/batterie-sortie-2908b39.txt` — `??`, créé par l'**étape 0 de la
+   garde de ce bloc**, rang 39. **+1**
+6. `tools/passe-c109-teensy-2908.tsv` — `??`. **+1**
+7. `tools/passe-negatif-teensy-2908.tsv` — `??`. **+1**
+8-11. les **quatre sources FR** réécrites au bloc 16 — ` M`. **+4**
+
+**Total impliqué : 11.** **Hors artefacts de séance : 7** — les quatre sources,
+les deux TSV, et… ⚠ **rien d'autre : 4 + 2 = 6, pas 7.** *Recomptage
+nominatif : 1 (prédictions, filtré) + 4 (batterie, filtrées) + 2 (TSV, comptés)
++ 4 (sources, comptées) = **11 au total, 6 hors artefacts**.* **La première
+addition était fausse d'une unité et se corrige ici, avant la mesure.**
+
+**Total impliqué : 11. Hors artefacts de séance : 6.**
+
+## Prédictions — bloc 17
+
+**17a — garde**
+- **P17.1** — copie : **b39** ; `lignes non ASCII` : **0**.
+- **P17.2** — `HEAD git` : **c25abf6**.
+- **P17.3** — `fichiers modifies non commites` : **11**.
+- **P17.4** — `(hors artefacts de seance : …)` : **6**.
+- **P17.5** — dates de pilotage inchangées (21:47:22 / 21:45:41 / 21:48:08).
+- **P17.6** — dates des 4 sources FR : **2026-08-29**, heures **postérieures à
+  22:13:55** (heure de la garde du bloc 16) et **antérieures** à l'horloge de
+  cette garde-ci. ⚠ *C'est l'inverse du bloc 16 : là, une date du jour était un
+  ARRÊT ; ici, une date antérieure au 29/08 signifierait que la passe n'a pas
+  écrit.*
+
+**17b — génération des quatre squelettes** (`creer-fiche-en.mjs`, une fiche par
+lancement)
+- **P17.7** — **4 fichiers créés**, aux chemins
+  `content/en/embarque/mcu/teensy/teensy-arduino-core-en.md`,
+  `…/teensy-audio-en.md`, `…/teensy-prise-en-main-en.md`,
+  `…/teensy-usb-en.md`. **Aucun n'existe avant** : le module EN ne porte que
+  `teensy-en.md`, mesuré au cadrage.
+- **P17.8** — **codes de sortie 0** sur les quatre.
+- **P17.9** — **aliases signalés : 0** sur les quatre. *Motif : aucune des
+  quatre sources ne porte de champ `aliases` — lues en entier au bloc 15.*
+- **P17.10** — **ancres de wikilink signalées : 0** sur les quatre. *Motif :
+  aucun `[[fiche#Section]]` ni `[texte](#section)` dans les quatre sources.*
+- **P17.11** — chaque squelette porte un `source_sha256` **posé par le
+  générateur**. ⚠ **Règle d'usage É1/É4 : la rédaction part du squelette sur
+  disque et ne réécrit jamais ce champ.** `derive-traduction.mjs` rendra
+  `MARQUE INVALIDE 0` à la clôture, et c'est le contrôle qui l'atteste.
+- **P17.12** — `--controle` juste après génération : **201 fiches, 0
+  divergente, 0 lien non suffixé** — les trois compteurs sont **égaux par
+  construction** à la génération (en-tête du script), la prose restant
+  française. *197 + 4 = 201.*
+- **P17.13** — `git status` après génération : **11 + 4 = 15**, **hors
+  artefacts : 10**.
+- **P17.14** — `derive-traduction.mjs` juste après génération :
+  **`A JOUR 201`, `DERIVE 0`, `MARQUE INVALIDE 0`**, code 0.
+
+## Bilan bloc 17 — 14 prédictions, 14 tenues, 0 réfutée
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P17.1 | b39, 0 non ASCII | b39, 0 | tenue |
+| P17.2 | `c25abf6` | `c25abf6` | tenue |
+| P17.3 | 11 | 11 | tenue |
+| P17.4 | 6 | 6 | tenue |
+| P17.5 | dates pilotage inchangées | inchangées | tenue |
+| P17.6 | 4 sources au 2026-08-29, > 22:13:55 | **22:14:08** ×4 | tenue |
+| P17.7 | 4 fichiers créés aux 4 chemins | 12 098 / 10 818 / 10 870 / 9 421 o | tenue |
+| P17.8 | codes 0 | 0 / 0 / 0 / 0 | tenue |
+| P17.9 | 0 alias signalé | aucun | tenue |
+| P17.10 | 0 ancre signalée | aucune | tenue |
+| P17.11 | `source_sha256` posé par le générateur | posé | tenue |
+| P17.12 | `--controle` 201 / 0 / 0 sur 0 | **201 fiches, 0 divergente, 0 lien non suffixé sur 0** | tenue |
+| P17.13 | git status 15 / 10 | 15 / 10 | tenue |
+| P17.14 | `A JOUR 201`, `DERIVE 0`, `MARQUE INVALIDE 0` | idem, code 0 | tenue |
+
+✅ **LES TROIS COMPTEURS SONT ÉGAUX PAR CONSTRUCTION, ET C'EST CE QUI REND LE
+CONTRÔLE DE FIN DE FICHE OPPOSABLE.** 20/20, 1/1, 5/5 ; 11/11, 2/2, 3/3 ;
+11/11, 4/4, 5/5 ; 12/12, 3/3, 3/3. *Toute divergence relevée à la clôture sera
+donc imputable à la **traduction**, jamais au générateur — c'est l'argument
+écrit en tête de `creer-fiche-en.mjs`.*
+
+---
+
+# GATE G3 — AVANT RÉDACTION
+
+**4 squelettes EN générés, 44,0 ko.** Corpus EN **197 → 201**. `--controle`
+201 / 0, dérive **`A JOUR 201`, `DERIVE 0`, `MARQUE INVALIDE 0`**.
+`git status` **15 / 10**.
+**72 prédictions publiées sur quatre blocs, 69 tenues, 2 réfutées, 1 en
+attente.**
+
+---
+
+## Titres EN — C125, les trois tests appliqués fiche par fiche
+
+**Formes relevées en production** (balayage de `content/en/`, avant rédaction ;
+les libellés français listés ci-dessous vivent **dans les quatre squelettes
+eux-mêmes**, dont la prose est encore française par construction) :
+`The Teensy as a USB device` **3**, `Working with audio on the Teensy` **3**,
+`Programming with the Arduino core` **2** (dont une en bas de casse),
+`Getting started with the Teensy` **1**.
+
+- **`teensy-usb-en` → `The Teensy as a USB device`.** Test 1 : aucun libellé
+  de désambiguïsation. Test 2 : **aucune jumelle** (fiche USB unique du
+  corpus). Test 3 : **forme unique de la production, 3 occurrences**.
+- **`teensy-audio-en` → `Working with audio on the Teensy`.** Mêmes tests,
+  **3 occurrences**, et la forme **porte déjà le qualificatif de famille**.
+- **`teensy-prise-en-main-en` → `Getting started with the Teensy`.** Test 2 :
+  `esp32-prise-en-main-en` est titrée `Getting started with the ESP32`, mais
+  les deux `title:` FR **diffèrent** (`Prise en main de l'ESP32` /
+  `Prise en main du Teensy`) — **clause du 27/08 (suite 7), la paire descend
+  au test 3**. Test 3 : forme unique de la production, et elle **coïncide**
+  avec le patron de famille.
+- ⚠ **`teensy-arduino-core-en` → `Programming the Teensy with the Arduino
+  core`, ET CE N'EST PAS LA FORME DE PRODUCTION.** Test 2 : la jumelle
+  `esp32-arduino-core-en` porte `Programming the ESP32 with the Arduino core`,
+  mais les `title:` FR diffèrent (`Programmer l'ESP32 avec…` /
+  `Programmer le Teensy avec…`) — la clause fait descendre au test 3, qui
+  donnerait `Programming with the Arduino core`. **Je m'en écarte, sur le
+  motif exact de l'arbitrage (b) du 29/08 (suite 8)** : le `title:` FR
+  **porte** le qualificatif de famille, l'anglais non qualifié l'**effacerait**
+  — la faute que `shield` incarnait. Et `stm32-arduino-core` est **dans le lot
+  5**, ce qui fera **trois** fiches Arduino-core. *Qualifier maintenant coûte
+  un mot ; qualifier après coûte un chantier.*
+  ✅ **Le coût mesuré de cet écart est nul**, et c'est vérifiable dans le code
+  de `--libelles` plutôt que dans son README : l'heuristique ne signale un
+  libellé que si **aucun** de ses mots utiles ne partage un **préfixe de cinq
+  lettres** avec un mot du `title:` (`memeRadical`). `Programming with the
+  Arduino core` partage `programming`, `arduino` et `core` — **il ne devient
+  pas candidat.** **Revert = 1 `title:`.**
+
+## Déclaration C131 — bloc 18 (rédaction des quatre fiches EN)
+
+**Population** : `git status --porcelain`. **Versements, liste nominative,
+quinze entrées :** `predictions-260829.md` (1, filtré) ;
+`batterie-sortie-2908b36|37|38|39.txt` (4, filtrés) ;
+`batterie-sortie-2908b40.txt` créé par la garde de ce bloc (1, filtré) ;
+`passe-c109-teensy-2908.tsv` et `passe-negatif-teensy-2908.tsv` (2, comptés) ;
+les **4 sources FR** ` M` (4, comptées) ; les **4 squelettes EN** `??`
+(4, comptés). **Total impliqué : 16. Hors artefacts de séance : 10.**
+*La rédaction réécrit les quatre squelettes **déjà** non suivis : elle
+n'ajoute aucune entrée au compteur.*
+
+## Prédictions — bloc 18
+
+**18a — garde**
+- **P18.1** — copie **b40**, 0 non ASCII, `HEAD c25abf6`.
+- **P18.2** — `fichiers modifies non commites` : **16**, hors artefacts **10**.
+- **P18.3** — dates des 4 sources FR : **inchangées à 22:14:08**. ⚠ *La
+  rédaction ne touche pas au français ; toute date FR postérieure serait un
+  ARRÊT.*
+
+**18b — rédaction, puis contrôles**
+- **P18.4** — les quatre `title:` ci-dessus, **au mot près**.
+- **P18.5** — `--controle` : **201 fiches, 0 divergente, 0 lien non suffixé
+  sur 0**. *Les trois compteurs étaient égaux à la génération ; la rédaction
+  ne doit ni ajouter ni perdre un lien, un embed ou un bloc de code.*
+- **P18.6** — `derive-traduction` : **`MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 201`**, code 0. ⚠ *C'est le contrôle de la règle É1/É4 : je pars du
+  squelette sur disque et je ne réécris jamais le `source_sha256`. Un
+  `MARQUE INVALIDE 1` signifierait que j'ai réécrit une fiche de tête.*
+- **P18.7** — `--style` sur les **quatre fiches EN** : `typographie francaise`
+  **0**, `hors alphabet latin` **0**, `C109 creees en EN` **0**.
+  ⚠ *Le troisième est le compteur qui a attrapé É4 de la suite 7 : une
+  occurrence C109 **créée** par la traduction n'a jamais été arbitrée en
+  français.*
+- **P18.8** — `--style` sur les quatre fiches EN, `C109 de prose` : **6**,
+  soit **exactement les six exemptions** reportées une pour une depuis le
+  français (deux incises de `teensy-audio`, une de `teensy-prise-en-main`,
+  chacune comptant double).
+- **P18.9** — puces à tiret des quatre fiches EN : **10**, décomposées
+  **0 / 3 / 0 / 7** — le report exact du français.
+- **P18.10** — `--libelles` : `candidats a lire` **105, inchangé**. *Motif
+  lu dans le code : chaque libellé que les quatre fiches écriront partagera un
+  radical de cinq lettres avec le `title:` de sa cible.*
+- **P18.11** — foisonnement du lot : `tot` FR **5 553** → EN entre **5 600 et
+  5 900**, soit **+0,8 % à +6,2 %**. *Fourchette et non constante : la règle
+  du §8 dit que `ded` foisonne davantage que la prose, et les quatre fiches
+  portent **8 blocs en chevron**.*
+- **P18.12** — `mesure-chevron --tout` : **29 paires porteuses des deux côtés,
+  0 divergente**, contre la référence **28 / 0**. *Les quatre fiches EN sont
+  porteuses ; mais `teensy-audio`, `teensy-prise-en-main`, `teensy-usb` et
+  `teensy-arduino-core` **le sont déjà côté FR**, donc le nombre de paires
+  monte de **4**, pas de 1.* ⚠ **Prédiction corrigée avant mesure : 28 + 4 =
+  **32 paires porteuses, 0 divergente**.**
+- **P18.13** — `deh` du lot FR : **5 296 prédit au cadrage** ; la passe C109
+  ayant ajouté 14 mots **hors blocs en chevron**, `deh` doit valoir
+  **5 310**, `ded` **243** inchangé, `tot` **5 553**, **marge 1 347** sous la
+  borne 6 657. ⚠ *`ded` prédit **243** et non 235 : le cadrage prédisait 235
+  par soustraction, sans mesure — la valeur mesurée à la clôture arbitre.*
+
+## Bilan bloc 18 — 13 prédictions, 11 tenues, 2 réfutées
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P18.1 | b40, 0 non ASCII, `c25abf6` | idem | tenue |
+| P18.2 | 16 / 10 | 16 / 10 | tenue |
+| P18.3 | 4 sources FR à 22:14:08 | inchangées | tenue |
+| P18.4 | les quatre `title:` au mot près | écrits au mot près | tenue |
+| P18.5 | `--controle` 201 / 0 / 0 sur 0 | **201, 0 divergente, 0 sur 0** | tenue |
+| P18.6 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 201` | idem | tenue |
+| P18.7 | typographie FR **0**, hors alphabet latin **0**, C109 créées en EN **0** | 0 / 0 / 0 | tenue |
+| P18.8 | `C109 de prose` **6** côté EN | **6**, aux six mêmes emplacements | tenue |
+| P18.9 | puces EN **10**, décomposées 0 / 3 / 0 / 7 | **44** au premier lancement, **10** après correctif d'instrument | ⚠ **réfutée sur son instrument, pas sur son chiffre** |
+| P18.10 | `--libelles` `candidats a lire` 105 | *mesuré au bloc 20* | en attente |
+| P18.11 | foisonnement entre +0,8 % et +6,2 % | *mesuré au bloc 20* | en attente |
+| P18.12 | chevron **32 paires porteuses, 0 divergente** | *mesuré au bloc 20* | en attente |
+| P18.13 | `deh` 5 310, `ded` 243, marge 1 347 | *mesuré au bloc 20* | en attente |
+| — | `titres-doublons` FR **243 / 243 / 0**, EN **201 / 201 / 0** | idem, référence **0 / 0** tenue des deux côtés | tenue (hors prédiction publiée) |
+| — | `--alt` : aucune ligne sur les quatre fiches du lot | aucune ; `MOT FR 14`, les 14 préexistants | tenue (hors prédiction publiée) |
+
+⚠ **C110 M'A REPRIS SUR MON PROPRE MOTIF, ET L'ÉCHANTILLON ÉTAIT LE COUPABLE.**
+Le motif des puces exclut les **sections de liens**, et je l'avais écrit avec
+les deux titres **français** — `## Voir aussi`, `## Aller plus loin`. Éprouvé
+sous C110 sur un échantillon nommé **entièrement français**, il rendait 12 sur
+12 et paraissait juste. **Appliqué au corpus anglais, il n'exclut plus rien** :
+les gloses licites du §4 remontent comme des puces à traiter, et le compteur
+sort à **44 au lieu de 10**. *La règle C110 dit que l'échantillon se choisit
+pour contenir ce qui pourrait faire mordre le motif à tort ; j'ai choisi un
+échantillon qui ne pouvait pas le faire mordre du tout, parce qu'il ne portait
+aucune des formes que le motif devait exclure.* **Correctif : les titres de
+section de liens sont bilingues, et un motif de puces les connaît tous.**
+
+⚠ **ET LE CORRECTIF EN A DÉCOUVERT UN SECOND, DANS LE CORPUS CETTE FOIS.**
+Une fois `See also` et `Further reading` ajoutés, l'échantillon EN du lot 3
+d'`esp32/` rend **27**, quand son jumeau FR rend **12**. Lecture de
+`esp32-idf-en` : les quatre lignes de trop sont sous **`## Going further`**.
+**Le corpus anglais n'a jamais dit `Further reading` : il dit `Going further`,
+et c'est mesuré** — `## See also` **194**, `## Going further` **19**,
+`## Further reading` **4**, *et les quatre sont les fiches que je viens
+d'écrire*.
+
+## É1 — LES QUATRE FICHES DU LOT PORTENT UN TITRE DE SECTION QUE LE CORPUS N'EMPLOIE PAS
+
+**Défaut de report, trouvé par la mesure et non par la lecture.** `## Aller
+plus loin` se traduit `## Going further` dans les **19** fiches EN qui portent
+la section ; mes quatre l'ont rendu `## Further reading`. *Aucun contrôle ne
+l'aurait vu* : `--controle` compte les liens, les embeds et les blocs de code,
+pas les titres de section ; `--style` ne lit que la ponctuation ;
+`titres-doublons` ne compare que les `title:` de front matter. **C'est le
+motif des puces, corrigé pour une autre raison, qui l'a fait tomber.**
+**Correctif : 4 remplacements, un par fiche, par `remplacer-passe.mjs`.**
+
+## Déclaration C131 — bloc 19 (correctif É1)
+
+**Population** : `git status --porcelain`. **Versements, liste nominative :**
+`predictions-260829.md` (1, filtré) ; `batterie-sortie-2908b36|37|38|39|40.txt`
+(5, filtrés) ; `batterie-sortie-2908b41.txt` créé par la garde de ce bloc
+(1, filtré) ; `passe-c109-teensy-2908.tsv` et `passe-negatif-teensy-2908.tsv`
+(2, comptés) ; `passe-sections-teensy-2908.tsv`, **table du correctif écrite
+avant la garde** (1, compté) ; les 4 sources FR ` M` (4, comptées) ; les 4
+fiches EN `??` (4, comptées).
+**Total impliqué : 18. Hors artefacts de séance : 11.**
+
+## Prédictions — bloc 19
+
+- **P19.1** — garde : copie **b41**, 0 non ASCII, `HEAD c25abf6`,
+  **18 / 11**.
+- **P19.2** — dates FR **inchangées à 22:14:08** ; le correctif ne touche que
+  l'anglais.
+- **P19.3** — `remplacer-passe.mjs` en contrôle seul : `lignes de table` **4**,
+  `fiches` **4**, `remplacements prets` **4**, tous les seaux de défaut à
+  **0**, `ancres` **1/1** ×4.
+- **P19.4** — `INVARIANT D ACCENTS casse sur : 0` — `## Further reading` et
+  `## Going further` ne portent **aucune** lettre accentuée, écart `+0` sur
+  les quatre.
+- **P19.5** — `lignes N -> N` inchangées ×4 ; **points de code −2 par fiche**
+  (`Further reading` 15 caractères, `Going further` 13).
+- **P19.6** — écriture : **4 fichiers écrits, 1 remplacement chacun**, code 0.
+- **P19.7** — motif des puces corrigé (les **cinq** titres :
+  `Voir aussi`, `Aller plus loin`, `See also`, `Going further`,
+  `Further reading`) : échantillon FR du lot 3 **12**, échantillon EN du lot 3
+  **12**, lot 4 FR **10**, lot 4 EN **10**. ⚠ *`Further reading` reste dans le
+  motif : il ne doit plus exister après le correctif, et l'y laisser rend le
+  motif capable de le prouver.*
+- **P19.8** — `grep` des titres de section EN après correctif :
+  `## See also` **194**, `## Going further` **23**, `## Further reading` **0**.
+- **P19.9** — `--controle` toujours **201 / 0**, `derive` toujours
+  **`A JOUR 201`, `MARQUE INVALIDE 0`** : un titre de section n'est ni un
+  lien, ni un embed, ni un bloc de code, ni le front matter.
+- **P19.10** — `git status` après correctif : **18 / 11 inchangé** — les
+  quatre fiches EN sont **déjà** non suivies, les réécrire n'ajoute aucune
+  entrée.
+
+## Bilan bloc 19 — 10 prédictions, 9 tenues, 1 réfutée
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P19.1 | b41, 0 non ASCII, `c25abf6`, 18 / 11 | idem | tenue |
+| P19.2 | dates FR à 22:14:08 | inchangées | tenue |
+| P19.3 | table 4, fiches 4, prêts 4, 0 défaut, 1/1 ×4 | idem | tenue |
+| P19.4 | invariant d'accents cassé sur 0 | 10→10, 5→5, 2→2, 1→1 | tenue |
+| P19.5 | lignes inchangées, **−2 points de code par fiche** | 11139→11137, 10099→10097, 9987→9985, 8634→8632 | tenue |
+| P19.6 | 4 écrits, 1 remplacement chacun, code 0 | idem | tenue |
+| P19.7 | échantillon FR 12, **échantillon EN 12**, lot 4 FR 10, lot 4 EN 10 | 12, **11**, 10, 10 | ⚠ **réfutée sur son deuxième terme** |
+| P19.8 | `See also` 194, `Going further` 23, `Further reading` 0 | 194 / 23 / 0 | tenue |
+| P19.9 | `--controle` 201 / 0, `A JOUR 201` | *revérifié au bloc 20* | reporté |
+| P19.10 | git status 18 / 11 inchangé | 18 / 11 | tenue |
+
+⚠ **P19.7 : L'ÉCHANTILLON EN DU LOT 3 REND 11 QUAND SON JUMEAU FR REND 12, ET
+LA PAIRE EST NOMMÉE.** Décomposition : `deep-sleep` 2/2, **`arduino-core`
+2/1**, `freertos` 4/4, `idf` 4/4. La puce de trop est
+`esp32-arduino-core` L26 — *« quand on a besoin de finesse — sans tout
+réécrire »* — dont **la jumelle EN rend le tiret par une virgule** :
+*« when you need finer control, without rewriting everything »*. **Rien n'est
+perdu, et c'est l'anglais qui est propre** : le français porte une puce à
+tiret que la passe (c) de la suite 8 a laissée, l'anglais non.
+*C'est le premier écart FR/EN mesuré sur les puces à tiret, et il va dans le
+sens inoffensif — mais il montre que **le report un pour un des puces n'est
+pas garanti par les contrôles existants**, exactement comme la règle d'usage
+de C125 le dit des titres.* **Hors périmètre du lot 4 ; versé à la file du
+chantier des puces.**
+
+✅ **LE LOT 4 EST SYMÉTRIQUE, LUI, ET FICHE PAR FICHE** : FR **0 / 3 / 0 / 7**,
+EN **0 / 3 / 0 / 7**. *Les dix gloses gardées sont les mêmes des deux côtés,
+et le glossaire du menu `USB Type` sort intact dans les deux langues.*
+
+---
+
+# GATE G4 — FIN DE RÉDACTION ET DE CORRECTIF
+
+**4 fiches EN rédigées, un défaut de report trouvé et corrigé.** Corpus EN
+**197 → 201**. `--controle` **201 / 0 / 0 sur 0**, dérive **`MARQUE INVALIDE 0`,
+`DERIVE 0`, `A JOUR 201`**, `--style` EN **0 / 0 / 0** sur les trois verdicts
+mécaniques et **6** sur les candidats — les six exemptions reportées.
+`titres-doublons` **FR 243 / 243 / 0, EN 201 / 201 / 0**. `--alt` : **aucune
+ligne sur le lot**. `git status` **18 / 11**.
+**95 prédictions publiées sur six blocs, 89 tenues, 4 réfutées, 2 en attente.**
+
+## Déclaration C131 — bloc 20 (clôture, `-Phase etat -Chevron`)
+
+**Population** : `git status --porcelain`. **Versements, liste nominative :**
+`predictions-260829.md` (1, filtré) ; `batterie-sortie-2908b36` à `b41`
+(6, filtrés) ; `batterie-sortie-2908b42.txt` créé par l'étape 0 de ce bloc
+(1, filtré) ; **trois** TSV — `passe-c109-teensy-2908.tsv`,
+`passe-negatif-teensy-2908.tsv`, `passe-sections-teensy-2908.tsv` (3, comptés) ;
+4 sources FR ` M` (4, comptées) ; 4 fiches EN `??` (4, comptées).
+**Total impliqué : 19. Hors artefacts de séance : 11.**
+*Recomptage nominatif : 1 + 6 + 1 = 8 filtrés, 3 + 4 + 4 = 11 comptés,
+8 + 11 = 19.*
+
+## Prédictions — bloc 20, clôture
+
+- **P20.1** — garde : copie **b42**, `HEAD c25abf6`, **19 / 11**.
+- **P20.2** — corpus FR : **291 225 → 291 239** (+14, la passe C109 du bloc 16).
+- **P20.3** — traduites : **197 → 201 fiches**. Mots FR des traduites :
+  **227 236 → 232 789** (+5 553, le lot). Restant : **45 → 41 fiches**,
+  **63 989 → 58 436** mots.
+  ⚠ *Décomposé terme à terme : `227 236 + 5 553` et `63 989 − 5 553`. Le
+  restant se lit dans la mesure, pas dans ma soustraction — si les deux
+  divergent, c'est la mesure qui a raison et la décomposition qui est fausse.*
+- **P20.4** — `--controle` : **201 fiches, 0 divergente, 0 lien non suffixé
+  sur 0**.
+- **P20.5** — dérive : **`MARQUE INVALIDE 0`, `DERIVE 0`, `SANS SOURCE 0`,
+  `SANS MARQUE 0`, `A JOUR 201`**.
+- **P20.6** — foisonnement : **201 paires**, mots EN entre **240 900 et
+  241 300**. *Base : 236 115 mots EN à la clôture de la suite 8, plus les
+  quatre fiches neuves. Fourchette, parce que le foisonnement du lot est
+  précisément ce qui se mesure ici.*
+- **P20.7** — `--style` du lot EN : `typographie francaise` **0**,
+  `virgule ambigue` **0**, `C109 creees en EN` **0**, `C109 de prose` **6**,
+  `hors alphabet latin` **0**.
+- **P20.8** — médias : **449 fiches** (445 + 4), **embeds 672** (662 + 10 :
+  1 + 2 + 4 + 3 côté EN), **0 cassé**, **12 absents** inchangés,
+  **1 orphelin** inchangé.
+- **P20.9** — anneau 2 : **145 net**, **restant 38 fiches** (42 − 4),
+  **56 425 mots** (61 721 − 5 296 `deh`… ⚠ **non** : le restant se compte en
+  `tot`, donc **61 721 − 5 553 = 56 168**), **porteuses 2** (6 − 4).
+  *La correction est écrite avant la mesure : j'ai failli soustraire un `deh`
+  d'un total en `tot`.*
+- **P20.10** — dette : **43 → 39 cibles**. Mots : **en baisse**, fourchette
+  **56 000 - 58 000**. *Motif : les quatre fiches traduites cessent d'être des
+  cibles rouges vues depuis la zone anglaise — c'est la réfutation du 29/08
+  (suite 7), où la dette avait été prédite inchangée à tort.*
+- **P20.11** — chevron `--tout` : **FR 34 porteuses** inchangé,
+  **EN 28 → 32**, **paires des deux côtés 32**, **0 divergente**
+  (référence 28 / 0).
+- **P20.12** — lot : **`tot` 5 553**, **`deh` 5 310**, **`ded` 243**,
+  **marge 1 347** sous la borne 6 657.
+- **P20.13** — wikilinks : **mortes 43 → 39**, **0 cassée**, **0 ambiguë**,
+  **ok en hausse** (les quatre fiches EN écrivent des liens qui résolvent).
+- **P20.14** — `--libelles` : `candidats a lire` **105, inchangé**.
+  ⚠ *C'est la prédiction la plus exposée du bloc : le `title:`
+  `Programming the Teensy with the Arduino core` **s'écarte de la forme de
+  production**, et la contraposée du 29/08 (suite 7) dit qu'un tel écart fait
+  **monter** le compteur. Je prédis 105 quand même, sur la lecture du code :
+  `memeRadical` compare des **préfixes de cinq lettres**, et
+  `Programming with the Arduino core` en partage trois avec le titre retenu.
+  **Si le compteur monte, c'est ma lecture du code qui est fausse, pas la
+  contraposée.***
+
+## Bilan bloc 20 — 14 prédictions, 9 tenues, 5 réfutées
+
+| # | prédit | constaté | verdict |
+|---|---|---|---|
+| P20.1 | b42, `c25abf6`, 19 / 11 | idem | tenue |
+| P20.2 | corpus FR **291 239** | **291 239** | tenue |
+| P20.3 | 201 fiches, **232 789** mots ; restant 41 fiches, **58 436** | 201, **232 789** ; 41, **58 450** | ⚠ **réfutée sur le restant** |
+| P20.4 | 201 / 0 / 0 sur 0 | idem | tenue |
+| P20.5 | `MARQUE INVALIDE 0`, `DERIVE 0`, `SANS SOURCE 0`, `SANS MARQUE 0`, `A JOUR 201` | idem | tenue |
+| P20.6 | 201 paires, EN entre **240 900 et 241 300** | **241 742** | ⚠ **réfutée** |
+| P20.7 | 0 / 0 / 0 / **6** / 0 | 0 / 0 / 0 / **6** / 0 | tenue |
+| P20.8 | 449 fiches, 672 embeds, 0 cassé, 12 absents, 1 orphelin | 449 ; **OK 660 + ABSENT 12 = 672** ; 0 ; 12 ; 1 | tenue |
+| P20.9 | anneau 2 : 145 net, **38 fiches**, **56 168** mots, **2 porteuses** | 38 fiches, **56 182**, 2 porteuses | ⚠ **réfutée sur les mots** |
+| P20.10 | dette **39 cibles**, mots entre 56 000 et 58 000 | **39**, **57 022** | tenue |
+| P20.11 | FR 34, EN 32, **32 paires, 0 divergente** | FR 34, EN 32, **32 / 0** | tenue |
+| P20.12 | `tot` 5 553, `deh` **5 310**, `ded` **243**, marge **1 347** | 5 553, **5 310**, **235**, 1 347 | ⚠ **réfutée sur `ded`** |
+| P20.13 | mortes **39**, 0 cassée, 0 ambiguë, ok en hausse | 39, 0, 0, **445** (contre 441) | tenue |
+| P20.14 | `candidats a lire` **105** | **106** | ⚠ **réfutée** |
+
+⚠ **P20.3 ET P20.9 SONT LE MÊME DÉFAUT, DANS LE MÊME BLOC, ET IL VAUT
+EXACTEMENT +14 LES DEUX FOIS.** J'ai soustrait le `tot` **d'après la passe**
+(5 553) d'un total **d'avant la passe** (63 989 pour le restant, 61 721 pour
+l'anneau). Le bon terme est le `tot` **d'avant** (5 539) : `63 989 − 5 539 =
+58 450` et `61 721 − 5 539 = 56 182`, les deux chiffres mesurés au caractère
+près. *Les quatre fiches ont quitté le restant avec le poids qu'elles avaient
+en y entrant ; les 14 mots que la passe leur a ajoutés sont allés au corpus et
+aux traduites, jamais au restant.* **Et j'avais écrit, dans P20.9, une
+correction en cours de rédaction — sur la mauvaise moitié du problème** :
+j'ai vu qu'il ne fallait pas soustraire un `deh` d'un total en `tot`, et je
+n'ai pas vu qu'il ne fallait pas soustraire un `tot` post-passe d'un total
+pré-passe. *La vigilance a porté sur l'unité, pas sur la date.*
+
+⚠ **P20.12 : J'AI ÉCARTÉ UN CHIFFRE MESURÉ AU PROFIT D'UNE CORRECTION
+INVENTÉE.** Le cadrage avait publié `ded` **235**, lu dans la sortie chevron
+de `b30`. Au bloc 18 j'ai écrit *« `ded` prédit **243** et non 235 : le cadrage
+prédisait 235 par soustraction, sans mesure »*, et je l'ai republié en P20.12.
+**La mesure rend 235** — 47 + 71 + 60 + 57, inchangé, la passe C109 n'ayant
+touché aucun bloc en chevron. *Le cadrage ne « prédisait » pas 235 : il le
+**lisait** dans une sortie datée. J'ai pris une valeur mesurée pour une valeur
+dérivée et je l'ai « corrigée » vers une valeur, elle, réellement dérivée.*
+**C118 à l'envers.**
+
+⚠ **P20.6 : la fourchette est fausse par simple addition.** `236 115 + 5 627 =
+241 742`, et j'avais annoncé 240 900-241 300. *Le lot EN pèse 5 627 mots
+(1 539 + 1 388 + 1 505 + 1 195) ; ma fourchette supposait environ 5 000. Une
+fourchette n'excuse pas une base fausse.*
+
+✅ **P20.14 EST RÉFUTÉE D'UNE UNITÉ, ET LA PARTIE RISQUÉE DE LA PRÉDICTION
+TIENT.** Le candidat neuf est
+`en/embarque/mcu/teensy/teensy-audio-en.md → [[bus-de-communication-en|I2S]]`,
+cible intitulée `Communication buses` : un **sigle de bus** que
+`estSigleDe("I2S", "Communication buses")` ne peut pas reconnaître. **Le même
+libellé est déjà candidat depuis `teensy-en.md`, et `UART / I2C / SPI` l'est
+depuis `stm32-en.md` et `teensy-en.md`** — trois occurrences préexistantes de
+la même famille, et la mienne est le **report fidèle** du
+`[[bus-de-communication|I2S]]` français.
+**Le `title:` `Programming the Teensy with the Arduino core` n'a créé AUCUN
+candidat**, exactement comme la lecture du code l'annonçait : `Programming
+with the Arduino core` partage `programming`, `arduino` et `core` avec lui.
+*L'écart à la forme de production était le pari du bloc 18, et il est gagné ;
+la réfutation vient d'ailleurs.*
+
+---
+
+# BILAN GÉNÉRAL — 29/08 (suite 9), LOT 4 DU CHANTIER
+
+**109 prédictions publiées avant leur bloc, 98 tenues, 11 réfutées — taux
+10,1 %**, contre 5,1 % à la suite 8, 10,3 % à la suite 7, 20,4 % au lot 2.
+**Sept blocs, cinq gates, zéro arrêt, zéro intervention de Tim.**
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 14 | garde d'ouverture | 12 | 11 | 1 |
+| 15 | cadrage, composition du lot | 23 | 22 | 1 |
+| 16 | passe C109, 65 remplacements | 23 | 23 | 0 |
+| 17 | génération des 4 squelettes | 14 | 14 | 0 |
+| 18 | rédaction des 4 fiches EN | 13 | 10 | 3 |
+| 19 | correctif É1, titres de section | 10 | 9 | 1 |
+| 20 | clôture | 14 | 9 | 5 |
+
+⚠ **CINQ DES ONZE RÉFUTATIONS SONT UNE SOUSTRACTION FAITE SUR LE MAUVAIS
+ÉTAT, ET C'EST LA FAMILLE C131 PAR UNE PORTE NEUVE.** Jusqu'ici la famille
+mordait sur `git status` — un compteur amputé des artefacts de son propre
+bloc. **Cette séance ne l'a pas ratée une seule fois sur `git status` : sept
+gardes, sept chiffres justes sur leurs deux termes, dont un à 19 / 11 recompté
+nominativement.** Elle a mordu ailleurs : P20.3 et P20.9 soustraient un `tot`
+**post-passe** d'un total **pré-passe** (+14 les deux fois), P14.9 satisfait
+une borne **par égalité** en croyant la satisfaire par stricte postériorité,
+P15.16 ancre une fourchette sur un **compte de fiches** quand le compteur est
+une **densité de prose**, P20.6 pose une base fausse sous une fourchette.
+*Le compteur n'est plus le problème ; c'est **l'état auquel on le rapporte**.*
+
+⚠ **ET LA SIXIÈME EST L'INVERSE DE C118 : j'ai corrigé une mesure par un
+raisonnement.** `ded` valait 235, lu dans une sortie datée ; je l'ai republié
+à 243 en écrivant que 235 était « prédit par soustraction, sans mesure ».
+*C118 interdit un chiffre sans mesure du jour ; elle n'autorise pas à
+remplacer une mesure par une déduction.*
+
+✅ **ZÉRO RÉFUTATION SUR UN VERDICT.** Ni les **87 jugements C109** (71 tombent,
+16 restent), ni les **4 titres**, ni la **doctrine d'exemption** publiée avant
+la passe, ni la **composition du lot**. Les deux remesures immédiates rendent
+les 16 exemptions **une par une** — `C109 de prose` 57 → 6, puces 30 → 10 —
+et le report EN est **symétrique fiche par fiche** : 0 / 3 / 0 / 7 des deux
+côtés.
+
+✅ **LE BLOC LE PLUS LOURD EST LE SEUL ENTIÈREMENT TENU.** Le bloc 16 porte
+65 remplacements, un test négatif, quatre invariants d'accents, quatre
+`numstat` décomposés ligne par ligne et un `git status` à deux termes :
+**23 prédictions, 23 tenues.** *La décomposition terme à terme, publiée avant
+la mesure, est ce qui a manqué aux cinq soustractions du bloc 20.*
+
+⚠ **DEUX PRÉDICTIONS ONT ÉTÉ PUBLIÉES DEUX FOIS ET COMPTÉES DEUX FOIS**, aux
+blocs 18 et 20 : `ded` (243) et `candidats a lire` (105). *Elles sont fausses
+deux fois parce qu'elles ont été écrites deux fois — les compter une seule
+ramènerait le taux à 9,0 %, et ce serait se faire une remise.*

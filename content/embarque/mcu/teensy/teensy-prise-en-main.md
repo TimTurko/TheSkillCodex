@@ -14,15 +14,15 @@ aa:
 draft: false
 ---
 
-La **prise en main du Teensy** consiste à installer l'add-on **Teensyduino** dans l'IDE Arduino, à reconnaître la carte, et à téléverser un premier programme via le **Teensy Loader**. Le Teensy se programmant dans le cadre Arduino, l'essentiel des gestes est déjà connu de qui a touché un Arduino — une étape s'ajoute : installer Teensyduino (le support des cartes Teensy). Le programme cible reste le **Blink** — faire clignoter la LED intégrée — l'équivalent embarqué du « Hello World ».
+La **prise en main du Teensy** consiste à installer l'add-on **Teensyduino** dans l'IDE Arduino, à reconnaître la carte, et à téléverser un premier programme via le **Teensy Loader**. Le Teensy se programmant dans le cadre Arduino, l'essentiel des gestes est déjà connu de qui a touché un Arduino. Une étape s'ajoute : installer Teensyduino (le support des cartes Teensy). Le programme cible reste le **Blink** (faire clignoter la LED intégrée), l'équivalent embarqué du « Hello World ».
 
 ## À quoi ça sert ?
 
-La prise en main valide en une fois toute la chaîne : éditeur, compilateur, support Teensy, **Teensy Loader**, liaison USB. Si un maillon est cassé, le Blink ne clignote pas — et on le sait tout de suite, sur du code trivial, plutôt que noyé dans un projet complexe.
+La prise en main valide en une fois toute la chaîne : éditeur, compilateur, support Teensy, **Teensy Loader**, liaison USB. Si un maillon est cassé, le Blink ne clignote pas, et on le sait tout de suite, sur du code trivial, plutôt que noyé dans un projet complexe.
 
 Au-delà du premier programme, l'étape a deux rôles :
 
-- **Découvrir le Teensy Loader.** Le téléversement d'un Teensy passe par une petite application dédiée qui se lance automatiquement ; comprendre son fonctionnement (et le **bouton physique** de la carte) évite des blocages plus tard.
+- **Découvrir le Teensy Loader.** Le téléversement d'un Teensy passe par une petite application dédiée qui se lance automatiquement. Comprendre son fonctionnement (et le **bouton physique** de la carte) évite des blocages plus tard.
 - **Ancrer les gestes.** Sélection de la carte, du port, du *USB Type*, bouton Téléverser, moniteur série : les gestes répétés des tutoriels suivants. Les ancrer une fois sur du trivial libère l'attention.
 
 ## Procédure pas à pas
@@ -31,7 +31,7 @@ Cinq étapes : installer l'IDE Arduino, ajouter Teensyduino, brancher et sélect
 
 ### 1. Installer l'IDE Arduino
 
-Téléchargez l'**IDE Arduino 2.x** depuis `arduino.cc`, rubrique *Software*. C'est l'IDE recommandé ; Teensyduino s'y installe via le gestionnaire de cartes (étape 2). PJRC demande la version **2.0.4 au minimum**, et conseille une **2.3.10 ou plus récente** (recompilation nettement plus rapide).
+Téléchargez l'**IDE Arduino 2.x** depuis `arduino.cc`, rubrique *Software*. C'est l'IDE recommandé. Teensyduino s'y installe via le gestionnaire de cartes (étape 2). PJRC demande la version **2.0.4 au minimum**, et conseille une **2.3.10 ou plus récente** (recompilation nettement plus rapide).
 
 Sur Windows récent, **aucun pilote particulier** n'est nécessaire : le Teensy se programme par USB (HID) et expose un port série sans pilote tiers.
 
@@ -59,7 +59,7 @@ Prendre capture d'écran du *menu Outils de l'IDE Arduino déroulé, montrant «
 
 ### 4. Charger le Blink
 
-Saisissez (ou collez) ce sketch — il clignote sur la LED intégrée du Teensy (broche **13**) :
+Saisissez (ou collez) ce sketch, qui clignote sur la LED intégrée du Teensy (broche **13**) :
 
 ```cpp
 void setup() {
@@ -83,9 +83,9 @@ Prendre capture d'écran de *la console de l'IDE Arduino après une compilation 
 Cliquez sur **Téléverser** (icône flèche). L'IDE compile, puis le **Teensy Loader** se lance et programme la carte.
 
 > [!tip]
-> **Si rien ne se passe au téléversement.** Le Teensy Loader attend parfois que la carte entre en mode programmation : **appuyez une fois sur le bouton** présent sur le Teensy. Après un premier téléversement réussi, les suivants redémarrent la carte automatiquement, sans bouton. C'est l'équivalent Teensy du mode programmation — plus simple que la manœuvre BOOT de l'ESP32.
+> **Si rien ne se passe au téléversement.** Le Teensy Loader attend parfois que la carte entre en mode programmation : **appuyez une fois sur le bouton** présent sur le Teensy. Après un premier téléversement réussi, les suivants redémarrent la carte automatiquement, sans bouton. C'est l'équivalent Teensy du mode programmation, plus simple que la manœuvre BOOT de l'ESP32.
 
-La LED clignote au rythme d'une seconde. **Le programme tourne — la prise en main est validée.**
+La LED clignote au rythme d'une seconde. **Le programme tourne : la prise en main est validée.**
 
 Prendre capture d'écran de *la fenêtre du Teensy Loader pendant la programmation, avec le Teensy branché et la LED de la broche 13 allumée*.
 
@@ -114,9 +114,9 @@ Téléversez à nouveau : la LED fait maintenant un éclair court (100 ms) toute
 
 **Brancher en 5 V par réflexe Arduino.** Le Teensy 4.x est en **3,3 V, non tolérant 5 V** : ne pas y appliquer 5 V sur une broche (voir [[niveaux-de-tension|niveaux de tension]]).
 
-**Mauvais modèle sélectionné.** Choisir « Teensy 4.0 » pour une 4.1 (ou l'inverse) peut fausser le brochage de certains exemples ; sélectionner le modèle exact.
+**Mauvais modèle sélectionné.** Choisir « Teensy 4.0 » pour une 4.1 (ou l'inverse) peut fausser le brochage de certains exemples. Sélectionner le modèle exact.
 
-Pour câbler au-delà de la LED intégrée (broche 13) — par exemple sur la broche 14 de l'exercice suivant — le brochage de la carte est la référence à garder sous les yeux.
+Pour câbler au-delà de la LED intégrée (broche 13), par exemple sur la broche 14 de l'exercice suivant, le brochage de la carte est la référence à garder sous les yeux.
 
 ![Brochage officiel du Teensy : broches numériques, analogiques et fonctions spéciales, repérées par leur numéro utilisé dans le code.|640](/ressources/img/teensy-prise-en-main/brochage.png)
 
@@ -176,13 +176,13 @@ Pour câbler au-delà de la LED intégrée (broche 13) — par exemple sur la br
 
 Deux variantes dépassent l'IDE Arduino 2.x :
 
-- **PlatformIO** (extension VS Code) gère le Teensy avec un versionnage Git et un multi-fichiers commodes — pratique dès que le projet grossit.
-- **Installeur Teensyduino historique** — pour l'ancien IDE Arduino 1.8.x, PJRC fournit un installeur add-on séparé (plutôt que le gestionnaire de cartes). À réserver si l'on est resté sur l'IDE 1.8.x — et **seulement sous Windows ou Linux 64 bits** : depuis Teensyduino 1.60, PJRC a cessé de supporter l'IDE 1.8.x sous macOS. Sur Mac, l'IDE 2.x est la seule voie.
+- **PlatformIO** (extension VS Code) gère le Teensy avec un versionnage Git et un multi-fichiers commodes, ce qui est pratique dès que le projet grossit.
+- **Installeur Teensyduino historique.** Pour l'ancien IDE Arduino 1.8.x, PJRC fournit un installeur add-on séparé (plutôt que le gestionnaire de cartes). À réserver si l'on est resté sur l'IDE 1.8.x, et **seulement sous Windows ou Linux 64 bits** : depuis Teensyduino 1.60, PJRC a cessé de supporter l'IDE 1.8.x sous macOS. Sur Mac, l'IDE 2.x est la seule voie.
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — la première compilation et le premier téléversement sur la carte cible sont l'acte fondateur de la PoC logicielle. Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
-- **Tous les tutoriels Teensy aval** — sans prise en main effective, lire les autres tutoriels sans pouvoir tester revient à lire du code sans l'exécuter. Faites le Blink au moins une fois, sur le matériel cible, le plus tôt possible.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** La première compilation et le premier téléversement sur la carte cible sont l'acte fondateur de la PoC logicielle. Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
+- **Tous les tutoriels Teensy aval.** Sans prise en main effective, lire les autres tutoriels sans pouvoir tester revient à lire du code sans l'exécuter. Faites le Blink au moins une fois, sur le matériel cible, le plus tôt possible.
 
 Investir une demi-heure pour valider la chaîne complète en début de PoC évite des heures de bugs hybrides plus tard, quand on ne saura plus distinguer un problème d'outillage d'un problème d'algorithme.
 

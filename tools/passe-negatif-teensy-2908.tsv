@@ -1,0 +1,4 @@
+# Test negatif delibere avant le lot reel, C116 (6) amende.
+# L ancre prive "porte" de son accent aigu : mode d echec du 29/08 (suite 3).
+# Attendu : INTROUVABLE 1, REFUS, aucun fichier ecrit, code 1.
+embarque/mcu/teensy/teensy-audio.md	porte par le DMA — la boucle	porte par le DMA : la boucle

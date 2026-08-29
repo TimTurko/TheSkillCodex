@@ -16,14 +16,14 @@ aa:
 draft: false
 ---
 
-Le Teensy peut **s'énumérer comme presque n'importe quel appareil USB** : port série, clavier, souris, manette, instrument MIDI, carte audio… Le type est **choisi à la compilation**, dans le menu *Tools → USB Type*, et le Teensy apparaît auprès de l'ordinateur comme l'appareil sélectionné. C'est une capacité du **matériel USB** et de la pile logicielle PJRC — pas une simple bibliothèque — et l'une des signatures du Teensy : il devient une interface homme-machine ou un contrôleur musical en quelques lignes. La structuration générale du programme relève de [[firmware|firmware]].
+Le Teensy peut **s'énumérer comme presque n'importe quel appareil USB** : port série, clavier, souris, manette, instrument MIDI, carte audio… Le type est **choisi à la compilation**, dans le menu *Tools → USB Type*, et le Teensy apparaît auprès de l'ordinateur comme l'appareil sélectionné. C'est une capacité du **matériel USB** et de la pile logicielle PJRC (pas une simple bibliothèque), et l'une des signatures du Teensy : il devient une interface homme-machine ou un contrôleur musical en quelques lignes. La structuration générale du programme relève de [[firmware|firmware]].
 
 ## À quoi ça sert ?
 
 Transformer un montage en périphérique USB reconnu sans pilote ouvre des usages directs en projet :
 
-- **Interface homme-machine.** Un Teensy *clavier* tape du texte ou des raccourcis ; un Teensy *souris* déplace le curseur ; un Teensy *manette* (joystick) pilote un jeu ou une simulation.
-- **Contrôleur musical.** Un Teensy *MIDI* envoie des notes et des contrôles à un logiciel audio — la base d'un contrôleur ou d'un instrument.
+- **Interface homme-machine.** Un Teensy *clavier* tape du texte ou des raccourcis, un Teensy *souris* déplace le curseur, et un Teensy *manette* (joystick) pilote un jeu ou une simulation.
+- **Contrôleur musical.** Un Teensy *MIDI* envoie des notes et des contrôles à un logiciel audio, la base d'un contrôleur ou d'un instrument.
 - **Carte son.** Un Teensy *audio* échange du son avec l'ordinateur (voir [[teensy-audio|l'audio Teensy]]).
 
 Le tout **sans pilote** sur les systèmes courants : l'ordinateur reconnaît un périphérique USB standard.
@@ -69,7 +69,7 @@ void loop() {
 }
 ```
 
-La **détection de front** (`appuye && !dejaAppuye`) garantit qu'on tape **une seule fois** par appui, pas en rafale — indispensable pour un périphérique qui agit sur l'ordinateur. Pour un **contrôleur MIDI**, le principe est le même avec `usbMIDI` : par exemple `usbMIDI.sendControlChange(7, valeur, 1)` envoie un volume MIDI depuis un potentiomètre.
+La **détection de front** (`appuye && !dejaAppuye`) garantit qu'on tape **une seule fois** par appui, pas en rafale, ce qui est indispensable pour un périphérique qui agit sur l'ordinateur. Pour un **contrôleur MIDI**, le principe est le même avec `usbMIDI` : par exemple `usbMIDI.sendControlChange(7, valeur, 1)` envoie un volume MIDI depuis un potentiomètre.
 
 ## Pièges
 
@@ -99,7 +99,7 @@ La **détection de front** (`appuye && !dejaAppuye`) garantit qu'on tape **une s
 > }
 > dejaAppuye = appuye;
 > ```
-> `print()` convient pour taper du texte ; un **raccourci** demande de maintenir une combinaison, donc `press` + `release`. La détection de front reste indispensable pour ne pas spammer le raccourci.
+> `print()` convient pour taper du texte. Un **raccourci** demande de maintenir une combinaison, donc `press` + `release`. La détection de front reste indispensable pour ne pas spammer le raccourci.
 
 > [!question] Exercice 2 — Un potentiomètre MIDI
 > Transformez un potentiomètre (sur une entrée analogique) en **contrôleur MIDI** : envoyez un *Control Change* uniquement **quand la valeur change**, pour ne pas inonder la liaison. Quel *USB Type* faut-il ?
@@ -120,19 +120,19 @@ La **détection de front** (`appuye && !dejaAppuye`) garantit qu'on tape **une s
 >   usbMIDI.read();                        // bonne pratique : vider la file MIDI entrante
 > }
 > ```
-> N'émettre **qu'au changement** évite de saturer la liaison MIDI avec des messages identiques. (Le décalage `>> 3` suppose une lecture sur 10 bits ; avec `analogReadResolution(12)`, adapter la mise à l'échelle.)
+> N'émettre **qu'au changement** évite de saturer la liaison MIDI avec des messages identiques. (Le décalage `>> 3` suppose une lecture sur 10 bits. Avec `analogReadResolution(12)`, adapter la mise à l'échelle.)
 
 ## Cas particulier — Types combinés et Raw HID
 
-- **Types combinés** — *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick* : cumulent plusieurs identités. Le réflexe utile en développement est de **garder Serial** pour déboguer un périphérique qui, seul, n'exposerait pas de port série.
+- **Types combinés.** *Serial + MIDI*, *Serial + Keyboard + Mouse + Joystick* cumulent plusieurs identités. Le réflexe utile en développement est de **garder Serial** pour déboguer un périphérique qui, seul, n'exposerait pas de port série.
 - **Raw HID** — pour un protocole **sur mesure** entre le Teensy et un logiciel maison, sans passer par les profils standards. Plus avancé, mais très souple.
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — pour un projet d'interface (pupitre de commande, contrôleur, périphérique sur mesure), valider tôt que le Teensy est **reconnu** comme le bon appareil USB et **réagit** à un événement physique conditionne toute l'ergonomie aval.
-- **Sécurité d'usage** — un périphérique HID agit sur l'ordinateur ; conditionner systématiquement ses actions (détection de front, bouton d'armement) évite les comportements parasites, à documenter dans le [[dossier-technique|dossier technique]].
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Pour un projet d'interface (pupitre de commande, contrôleur, périphérique sur mesure), valider tôt que le Teensy est **reconnu** comme le bon appareil USB et **réagit** à un événement physique conditionne toute l'ergonomie aval.
+- **Sécurité d'usage.** Un périphérique HID agit sur l'ordinateur. Conditionner systématiquement ses actions (détection de front, bouton d'armement) évite les comportements parasites, à documenter dans le [[dossier-technique|dossier technique]].
 
-Comprendre que l'identité USB est un **choix de compilation** — et que les actions HID doivent être déclenchées, jamais subies — donne la grammaire du Teensy comme interface : un montage physique qui devient, au choix, clavier, manette ou instrument.
+Comprendre que l'identité USB est un **choix de compilation**, et que les actions HID doivent être déclenchées, jamais subies, donne la grammaire du Teensy comme interface : un montage physique qui devient, au choix, clavier, manette ou instrument.
 
 ## Aller plus loin
 
