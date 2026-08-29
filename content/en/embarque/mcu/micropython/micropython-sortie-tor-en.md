@@ -1,5 +1,5 @@
 ---
-title: Driving an on/off output in MicroPython
+title: Driving a digital output in MicroPython
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,0 +1,28 @@
+# Arbitrage Tim (c) du 29/08 (suite 8) : traiter les tirets de puce que
+# --style ne signale pas. Cote FR, lot 3 d esp32/.
+# 32 puces a tiret hors sections de liens ; 20 tombent, 12 restent.
+# Frontiere : glose de liste (Voir aussi / Aller plus loin) hors perimetre ;
+# separateur de glose en tete de puce garde si le segment de droite est un
+# GROUPE (nominal, adjectival, infinitif, participial), relative comprise ;
+# il tombe si le segment de droite est une PROPOSITION A SUJET PROPRE ;
+# tiret dans la prose d une puce = C123 en plein ; renvoi = parenthese.
+embarque/mcu/esp32/esp32-deep-sleep.md	mais sur celle du repos — passer de 20 mA	mais sur celle du repos : passer de 20 mA
+embarque/mcu/esp32/esp32-deep-sleep.md	un **toucher** (interaction) — la puce dort jusque-là.	un **toucher** (interaction), et la puce dort jusque-là.
+embarque/mcu/esp32/esp32-deep-sleep.md	phase de preuve de concept]]** — si le projet est alimenté	phase de preuve de concept]].** Si le projet est alimenté
+embarque/mcu/esp32/esp32-deep-sleep.md	- **Dimensionnement de l'alimentation** — l'estimation	- **Dimensionnement de l'alimentation.** L'estimation
+embarque/mcu/esp32/esp32-arduino-core.md	tâches et les répartir — voir [[esp32-freertos|FreeRTOS]].	tâches et les répartir (voir [[esp32-freertos|FreeRTOS]]).
+embarque/mcu/esp32/esp32-arduino-core.md	des bibliothèques et du versionnage — pratique dès que	des bibliothèques et du versionnage, pratique dès que
+embarque/mcu/esp32/esp32-arduino-core.md	phase de preuve de concept]]** — choisir l'Arduino-core	phase de preuve de concept]].** Choisir l'Arduino-core
+embarque/mcu/esp32/esp32-arduino-core.md	- **Réutilisation d'un prototype Arduino** — un montage validé	- **Réutilisation d'un prototype Arduino.** Un montage validé
+embarque/mcu/esp32/esp32-freertos.md	quand elle est prête — l'ordonnancement préemptif	quand elle est prête, et l'ordonnancement préemptif
+embarque/mcu/esp32/esp32-freertos.md	- **Scheduler préemptif** — il donne le processeur	- **Scheduler préemptif.** Il donne le processeur
+embarque/mcu/esp32/esp32-freertos.md	- **Deux cœurs** — sur l'ESP32 d'origine, on peut	- **Deux cœurs.** Sur l'ESP32 d'origine, on peut
+embarque/mcu/esp32/esp32-freertos.md	- **File (queue)** — une tâche *productrice*	- **File (queue).** Une tâche *productrice*
+embarque/mcu/esp32/esp32-freertos.md	phase de preuve de concept]]** — dès que le prototype	phase de preuve de concept]].** Dès que le prototype
+embarque/mcu/esp32/esp32-freertos.md	- **Régulation et échéances** — une tâche de régulation	- **Régulation et échéances.** Une tâche de régulation
+embarque/mcu/esp32/esp32-idf.md	- **Le silicium le plus récent, tout de suite** — une nouvelle puce	- **Le silicium le plus récent, tout de suite.** Une nouvelle puce
+embarque/mcu/esp32/esp32-idf.md	pas de boucle imposée — on crée explicitement	pas de boucle imposée : on crée explicitement
+embarque/mcu/esp32/esp32-idf.md	- **Arduino comme composant d'ESP-IDF** — on peut utiliser	- **Arduino comme composant d'ESP-IDF.** On peut utiliser
+embarque/mcu/esp32/esp32-idf.md	que l'IDF expose pleinement — c'est précisément	que l'IDF expose pleinement : c'est précisément
+embarque/mcu/esp32/esp32-idf.md	phase de preuve de concept]]** — la PoC se mène	phase de preuve de concept]].** La PoC se mène
+embarque/mcu/esp32/esp32-idf.md	- **Passage vers un livrable** — si le projet vise	- **Passage vers un livrable.** Si le projet vise

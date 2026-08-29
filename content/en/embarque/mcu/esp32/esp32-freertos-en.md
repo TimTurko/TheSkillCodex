@@ -1,5 +1,5 @@
 ---
-title: Multitasking with FreeRTOS
+title: Multitasking with FreeRTOS on the ESP32
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/esp32/esp32-freertos.md
-source_sha256: 0e7ee7c05f9f7f9ca231fdbfffceff9b4b07d93de3185343651b24ba811cb3b9
+source_sha256: ee3576c05eac0463e1764587e62c34e9cab507bcdcbb442590e9bff99c9beb01
 ---
 
 **FreeRTOS** is the real-time system at the heart of the ESP32: it lets several **tasks** run "in parallel", each written as a small independent loop, which the scheduler interleaves on one or both processors. This is the speciality of the family. The ESP32 has two cores and a native RTOS. The `loop()` of an Arduino sketch is itself a FreeRTOS task. This page shows how to **create and coordinate your own tasks**. The *why* of an RTOS, and its place on the scale of architectures, are covered in [[firmware-en|firmware]].
@@ -27,17 +27,17 @@ Multitasking answers a recurring need: doing **several things at different rates
 
 - **Separating activities.** Reading a sensor at 10 Hz, refreshing a display at 2 Hz, handling Wi-Fi in the background: each activity becomes a task of its own, instead of a single `loop()` juggling counters.
 - **Using both cores.** A heavy computation task can run on one core while the other handles communication, without either getting in the way.
-- **Meeting deadlines.** A high-priority task (control loop, safety) goes ahead of the others as soon as it is ready — preemptive scheduling guarantees its responsiveness.
+- **Meeting deadlines.** A high-priority task (control loop, safety) goes ahead of the others as soon as it is ready, and preemptive scheduling guarantees its responsiveness.
 
 It is the structured alternative to the cooperative non-blocking loop once the number of activities or the timing constraints grow (see the scale in [[firmware-en|firmware]]).
 
 ## The concepts
 
 - **Task** — a function that never ends (`for (;;) { ... }`), run as an independent activity.
-- **Preemptive scheduler** — it gives the processor to the **highest-priority ready task**. If a higher-priority task becomes ready, it **interrupts** (preempts) the running one.
+- **Preemptive scheduler.** It gives the processor to the **highest-priority ready task**. If a higher-priority task becomes ready, it **interrupts** (preempts) the running one.
 - **Priority** — an integer: the higher it is, the further ahead the task goes.
 - **`vTaskDelay()`** — the FreeRTOS equivalent of `delay()`, but one that **explicitly hands back control**: during the wait, the other tasks run. That is what makes coexistence possible.
-- **Two cores** — on the original ESP32 you can **pin** a task to a core (`xTaskCreatePinnedToCore`) or leave it free.
+- **Two cores.** On the original ESP32 you can **pin** a task to a core (`xTaskCreatePinnedToCore`) or leave it free.
 
 ## Creating a task
 
@@ -124,7 +124,7 @@ The two rates are **independent**: slowing `sensorTask` down to 5 seconds would 
 
 Two tasks must not share a variable without precautions (concurrent access means corrupted data). FreeRTOS provides two tools:
 
-- **Queue** — a *producer* task drops values into it, a *consumer* task takes them out, in order. This is the recommended channel for passing data.
+- **Queue.** A *producer* task drops values into it, a *consumer* task takes them out, in order. This is the recommended channel for passing data.
 - **Mutex (semaphore)** — a "token" a task takes before touching a shared resource and gives back afterwards, guaranteeing that only one touches it at a time.
 
 ```cpp
@@ -239,8 +239,8 @@ On the ESP32 Arduino core you are never "outside the RTOS": the core creates a `
 
 ## Where it fits in the project
 
-- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]]** — as soon as the prototype has to run several activities at different rates (acquisition, communication, HMI), structuring it into tasks removes the tangle of an overloaded `loop()` and clarifies the behaviour.
-- **Control loops and deadlines** — a high-priority control task, paced by `vTaskDelay`, guarantees a regular control period, isolated from the other processing.
+- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]].** As soon as the prototype has to run several activities at different rates (acquisition, communication, HMI), structuring it into tasks removes the tangle of an overloaded `loop()` and clarifies the behaviour.
+- **Control loops and deadlines.** A high-priority control task, paced by `vTaskDelay`, guarantees a regular control period, isolated from the other processing.
 
 Choosing between a non-blocking loop and an RTOS at the right moment (see [[firmware-en|firmware]]) avoids two traps: an unmanageable `loop()` full of counters, or an RTOS brought in prematurely where a simple cooperative loop would have been enough.
 

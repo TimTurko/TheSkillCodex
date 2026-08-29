@@ -1532,6 +1532,64 @@ masqué). Ne se voit qu'en relisant la puce.
 
 **⚠ Le périmètre des légendes C74 n'est toujours pas mesuré.** L'arbitrage vaut pour le corpus entier, et personne ne sait combien de légendes il couvre. À compter avant que le lot n'en rencontre en série.
 
+### Amendement à C109 (29/08 suite 8, arbitrage Tim (c)) — la frontière du tiret de puce, qui réconcilie la borne du 25/08 avec C123
+
+*Arbitrage Tim : **traiter**. La numérotation reste à **131**.* `--style` ne
+signale **aucun** tiret de puce : son motif les range en glose de liste, et la
+limite est consignée au §8 depuis le 23/08 (suite 3) comme « limite d'outil, pas
+de règle ». Traiter sans frontière **hacherait tous les glossaires du corpus** —
+`## Les concepts` d'`esp32-freertos` est une liste de définitions, et
+l'arbitrage du 22/08 a précisément abrogé le corollaire qui les visait.
+
+**Quatre cas, dans cet ordre.**
+
+1. **Tiret sous `## Voir aussi` et `## Aller plus loin`** — glose de liste,
+   **licite au §4** (1 314 gloses mesurées le 22/08). **Hors périmètre.**
+2. **Tiret en tête de puce, juste après le libellé** (`- **Libellé** — …`) —
+   **séparateur de glose**, borne du 25/08. Il **reste** si le segment de droite
+   est un **groupe** nominal, adjectival, infinitif ou participial, *subordonnée
+   relative comprise puisqu'elle vit **dans** le groupe*. Il **tombe** si le
+   segment de droite est une **proposition indépendante avec son propre sujet** :
+   ce n'est plus une glose, c'est une phrase, et elle se réécrit
+   `- **Libellé.** Phrase.` (convention de gras du §2).
+3. **Tiret à l'intérieur de la prose d'une puce**, après au moins une phrase
+   complète — **C123 en plein**, subordonnées comprises.
+4. **Renvoi de fin de segment** (`— voir [[x]]`) — troisième voie du 25/08,
+   **parenthèse**, en puce comme en prose.
+
+⚠ **LE CAS 2 EST CE QUI RÉCONCILIE DEUX RÈGLES QUI SE CONTREDISAIENT.** La
+borne du 25/08 garde `Libellé — apposition nominale` « délibérément, contre la
+lecture stricte du second tamis » ; C123 fait tomber « dès qu'un verbe conjugué
+apparaît, **y compris dans une subordonnée** ». Sur
+`- **Tâche** — une fonction **qui ne se termine jamais**`, les deux donnent des
+verdicts opposés. **La frontière est le sujet propre** : une relative appartient
+au groupe nominal qu'elle qualifie, une proposition à sujet propre n'y
+appartient pas. *C123 gouverne les incises, pas les séparateurs de glose — et un
+séparateur de glose cesse d'en être un dès que ce qu'il introduit a son propre
+sujet.*
+
+**Première épreuve, 29/08 (suite 8)** : sur les quatre fiches du lot 3
+d'`esp32/`, **32 puces à tiret hors sections de liens**, **20 tombent, 12
+restent**, appliquées **des deux côtés** (40 remplacements). Les 12 gardées sont
+deux signatures de fonction, un infinitif, un nominal, quatre définitions de
+glossaire, trois entrées nominales et un adjectival — **aucun glossaire haché,
+aucune proposition à sujet propre laissée derrière un tiret**.
+
+⚠ **CE QUE L'AMENDEMENT NE RÈGLE PAS, ET C'EST MESURÉ : 1 084 puces à tiret
+hors sections de liens côté FR, 872 côté EN**, corpus entier. Le taux observé
+sur l'échantillon de quatre fiches est de **20/32**, et **il ne s'extrapole
+pas** (C119) : le lot 3 est riche en sections `Raccrochage projet`, qui sont de
+la prose en puces, et pauvre en glossaires. **C'est un chantier à part entière,
+à cadrer.**
+
+⚠ **ET LA PASSE EST INVISIBLE À L'INSTRUMENT QUI DEVRAIT LA MESURER.**
+`--style` rend le même chiffre avant et après — `C109 de prose : 2` des deux
+côtés, les deux exemptions connues. **Le tiret de puce n'a jamais été dans le
+compteur : il n'en sort donc pas**, et la seule trace mesurable de l'exécution
+est le `git diff`. *Corriger le motif de `--style` reste ouvert ; le faire
+d'office rouvrirait un périmètre que l'arbitrage du 22/08 a fermé.*
+*Éprouvée 1/N.*
+
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
 *Une convention neuve. La numérotation atteint **C114**.*
@@ -2254,31 +2312,19 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
-- **Une déclaration C131 ne vaut que pour le bloc qui l'écrit.**
-  *Née le 29/08 (suite 7), de six réfutations de la même forme, et amendement
-  à la règle d'usage ci-dessous.* La déclaration d'ouverture nomme les artefacts
-  **connus au moment où elle s'écrit** ; les artefacts d'un bloc se décident
-  **dans** le bloc — un outil qu'on choisit d'écrire, une table qu'on dépose,
-  une sortie qu'on sauvegarde. **Six prédictions de `git status` sur dix
-  réfutations de la séance**, toutes amputées des fichiers que le bloc
-  lui-même venait de créer, et **le sous-compteur `content/` juste les six
-  fois** — c'est le total qui rate, jamais la part qui porte le sens.
-  **Parade appliquée à partir du bloc 4 : chaque bloc rejoue sa propre
-  déclaration C131, population, versements et total.** *Quatre gardes prédites
-  ainsi, quatre justes sur leurs deux termes, dont un **recomptage nominatif
-  explicite** au dernier bloc (45 fiches de `content/` + 9 fichiers de `tools/`
-  + 10 artefacts = 64).* *Éprouvée 1/N.*
-- **Une passe qui ne doit toucher qu'une ligne se fait par un outil à ancre
-  unique, tout ou rien, qui publie ses invariants avant d'écrire.**
-  *Née le 29/08 (suite 7), de deux outils écrits en séance et des deux lots
-  qu'ils ont refusés.* C116 (6) exige un contrôle d'unicité d'ancre avant
-  écriture ; il était tenu à la main. `tools/renommer-titres.mjs` (front matter)
-  et `tools/remplacer-passe.mjs` (corps) le portent, refusent le **lot entier**
-  sur une seule ancre absente, et publient par fiche ce qui doit rester
-  invariant. **Deux tests négatifs délibérés ont mordu** — `Cabler` sans
-  circonflexe, puis `Using a Shield` avec une capitale de trop — et **41 titres
-  plus 33 remplacements sont passés sans un échec**. L'ossature se versionne, la
-  **table vit dans un TSV daté et jetable** (C126). *Éprouvée 1/N.*
+
+> **Arbitrage (d) du 29/08 (suite 8) — aucune promotion à un numéro neuf ; la
+> numérotation reste à 131.** Quatre candidates étaient sur la table à la
+> clôture de la suite 7. **Deux sont des amendements à des règles déjà
+> numérotées et y sont retournées** : *une déclaration C131 ne vaut que pour le
+> bloc qui l'écrit* est passée dans le corps de **C131**, *une passe qui ne
+> touche qu'une ligne se fait par un outil à ancre unique* dans le terme (6) de
+> la **sous-règle C116**. Motif : leur donner un numéro **séparerait une règle
+> de son amendement**, ce que le motif de C131 lui-même proscrit — « loger la
+> règle sous la sous-règle C116 l'aurait rendue muette là où elle a déjà
+> mordu », et ici c'est l'inverse exact. **Les deux autres restent ci-dessous**,
+> l'une gardée par le code plutôt que par un numéro, l'autre en attente d'une
+> troisième épreuve avant de devenir une clause de C125.
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
   réécrivant son front matter de tête.**
   *Née le 29/08 (suite 7), récidive exacte de É4 du 29/08 (suite 6).* Réécrire
@@ -2288,8 +2334,22 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   écrit, réparé par `--recaler` après relecture immédiate ; les trois fiches
   suivantes ont recopié l'empreinte du squelette au caractère près, et
   `derive-traduction` rend `A JOUR 197` sans recalage sur celles-là.**
-  ⚠ *Aucun contrôle ne distingue une empreinte inventée d'une empreinte
-  périmée : les deux sortent en `DERIVE`.* *Éprouvée 1/N.*
+  ⚠ *Aucun contrôle ne distinguait une empreinte inventée d'une empreinte
+  périmée : les deux sortaient en `DERIVE`.*
+
+  ✅ **CORRIGÉ DANS LE CODE le 29/08 (suite 8)**, en application de la
+  résolution de second rang — *une règle qui contraint un geste mécanique se
+  loge dans le code qui exécute ce geste*. `derive-traduction.mjs` reçoit un
+  cinquième statut, **`MARQUE INVALIDE`**, pour tout `source_sha256` qui n'est
+  pas **64 hexadécimaux minuscules** ; il est **bloquant** et **imprimé en
+  premier**. *Une empreinte périmée se recale après relecture ; une empreinte
+  inventée signale que la fiche a été réécrite en entier et que **tout son
+  front matter est suspect** — deux causes, deux remèdes, et un seul statut les
+  confondait.* **Test négatif passé** : marqueur `PLACEHOLDER` posé sur
+  `en/meca/usinage-en.md`, sortie `MARQUE INVALIDE 1`, `exit 1`, fichier
+  restauré ; corpus réel **`MARQUE INVALIDE 0`, `A JOUR 197`, `exit 0`**.
+  *Éprouvée 1/N — la règle de geste reste au §8, mais elle n'est plus seule à
+  se garder.*
 - **Un `title:` EN arrêté au test 3 sur les formes de production ne crée aucun
   candidat `--libelles`.**
   *Née le 29/08 (suite 7), mesurée sur les quatre titres du lot 3.* Le test 3
@@ -2299,7 +2359,15 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   **84 libellés changent de statut** (59 écrits, 25 qui cessent de viser une
   fiche absente) et `candidats a lire` **ne bouge pas d'une unité**, à 105.
   **Contraposée utile** : si un titre neuf fait monter le compteur, la forme
-  retenue n'était pas celle de la production. *Éprouvée 1/N.*
+  retenue n'était pas celle de la production.
+
+  **Seconde épreuve, 29/08 (suite 8), et sur le cas le plus défavorable** : les
+  trois titres des arbitrages (a) et (b) sont changés **après** que les libellés
+  qui les visent ont été écrits. **13 libellés `Driving an on/off output`** et
+  **15 libellés `FreeRTOS` / `Multitasking with FreeRTOS`** survivent au
+  changement par les radicaux `driving`, `output` et `freertos` :
+  `candidats a lire` **reste à 105**. *À promouvoir en clause de C125 à la
+  troisième épreuve.* *Éprouvée 2/N.*
 - **Une déclaration C131 se termine par le total qu'elle implique.**
   *Née le 29/08 (suite 6), à la première application de C131 et contre elle.*
   La déclaration d'ouverture du bloc G énumérait correctement **deux**
@@ -2401,7 +2469,35 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   **Place dans la famille.** C116 (7) dit **où lire** un compteur — dans le code
   qui l'incrémente. C116 (9) dit **contre quoi recouper** son chiffre — la liste
   nominative. C131 dit **ce qu'il faut déclarer avant de prédire**.
-  *Éprouvée 0/N.*
+
+  **Amendement du 29/08 (suite 8) — une déclaration ne vaut que pour le bloc
+  qui l'écrit, et elle se termine par le total qu'elle implique.**
+  *Deux épreuves, deux prises en défaut, la seconde à sept occurrences.*
+  (1) La déclaration d'ouverture du 29/08 (suite 6) énumérait correctement deux
+  versements puis en chiffrait **un** : **C131 exige de nommer les artefacts,
+  elle n'a pas dispensé de les additionner.** (2) Le 29/08 (suite 7),
+  **sept prédictions de compteur sur onze réfutations** sont le même défaut :
+  `git status` prédit sans l'outil qu'on venait d'écrire, sans la table qu'on
+  venait de déposer, sans la sortie qu'on venait de sauvegarder, sans les
+  quatre sources que la passe précédente avait modifiées, et une fois sans
+  qu'un `numstat` cumulé depuis HEAD porte le titre changé au bloc d'avant.
+  **Le sous-compteur `content/` était juste les sept fois** — c'est le total qui
+  rate, jamais la part qui porte le sens.
+
+  *Cause, et elle est structurelle* : la déclaration d'ouverture nomme les
+  artefacts **connus au moment où elle s'écrit**, quand les artefacts d'un bloc
+  se décident **dans** le bloc — un outil qu'on choisit d'écrire, une table
+  qu'on dépose, une sortie qu'on sauvegarde. **Chaque bloc qui crée un fichier
+  rejoue donc sa propre déclaration : population, versements, et total.**
+  *Parade appliquée à partir du quatrième bloc du 29/08 (suite 7) : cinq gardes
+  prédites ainsi, cinq justes sur leurs deux termes, dont un **recomptage
+  nominatif explicite** (45 fiches de `content/` + 9 fichiers de `tools/` +
+  10 artefacts = 64).*
+
+  ⚠ **Corollaire sur les diffs** : `git diff --numstat` compare à **HEAD**, pas
+  à l'état d'avant le bloc. Dans une séance à plusieurs blocs sans commit, il
+  **cumule**, et une prédiction par bloc doit le dire.
+  *Éprouvée 2/N.*
 - **C130 — L'écran n'est pas le registre : la réponse ne porte que ce sur quoi Tim doit agir.**
   *Demande Tim, arbitrée le 29/08 (suite 5), les deux surfaces.* Le dépôt
   porte déjà la trace intégrale — `predictions-AAMMJJ.md` pour les
@@ -2480,6 +2576,25 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   les 37 autres étant justes. *C'est le mode d'échec redouté le 28/08 — un lot
   multi-édition est atomique — sauf que l'atomicité joue dans le bon sens :
   elle refuse au lieu d'appliquer 37 sur 38.*
+
+  **Amendement du 29/08 (suite 8) — le contrôle d'unicité d'ancre passe de la
+  main à l'outil, et il publie ses invariants.** Le terme (6) était tenu à la
+  main, donc tenu tant qu'on y pensait. Deux outils le portent désormais :
+  `tools/renommer-titres.mjs` (ancre dans le **front matter**) et
+  `tools/remplacer-passe.mjs` (ancre dans le **corps**). Tous deux exigent
+  l'ancre **exactement une fois**, valident **tout avant d'écrire le premier
+  octet**, et refusent le **lot entier** sur un seul défaut. La **table vit dans
+  un TSV daté et jetable**, l'ossature se versionne (C126).
+  `remplacer-passe.mjs` publie en plus, **par fiche et avant l'écriture**, les
+  caractères accentués, les points de code et les lignes du corps, et **refuse
+  si l'écart d'accents n'est pas nul** — la règle d'usage née de É2 du 29/08
+  (suite 6), 147 caractères accentués perdus sous cinq contrôles au vert.
+  **Un test négatif délibéré précède chaque lot réel** : trois lancés le
+  29/08 (suites 7 et 8) — `Cabler` sans circonflexe, `Using a Shield` avec une
+  capitale de trop, `PLACEHOLDER` en guise d'empreinte — **trois refus, zéro
+  fichier écrit**, puis **44 titres et 73 remplacements sans un échec**.
+  *La contrainte passe d'un artefact à l'autre, comme pour C126 : ce qui devait
+  être relu cesse de dépendre de ma mémoire.*
   (7) **Tout compteur dont on publie une prédiction se lit dans le code qui
   l'incrémente, jamais dans la ligne qui l'affiche.** Trois des sept
   réfutations ont cette cause unique — le seau `hors perimetre` (prédit 10,

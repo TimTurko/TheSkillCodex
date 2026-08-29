@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/esp32/esp32-arduino-core.md
-source_sha256: 1cc07695a1ec0fb0dfa9a5ecda1d50dba9705145e2a546dd683b94e14cb21991
+source_sha256: c48e3bc9c3cfde2bec7bfcdc030d2b894fc3c50b635e62897f24b1b1f13a00c8
 ---
 
 The **Arduino core for ESP32** is the software layer that brings the Arduino API (`setup()`, `loop()`, `digitalWrite`…) to ESP32 chips. It is the **recommended way in**: you reuse the same reflexes as on an Arduino, but with the processing power, the memory and the radios of the ESP32. Under the bonnet, that layer sits on **ESP-IDF** (Espressif's native environment) and its **FreeRTOS** real-time system, which quietly changes a few of the rules. How to structure a firmware, whichever route you take, is covered in [[firmware-en|firmware]].
@@ -56,7 +56,7 @@ void loop() {
 The ESP32 Arduino core is not "bare metal" the way the AVR Arduino is: it runs **on top of FreeRTOS**. In practice:
 
 - **`loop()` is a FreeRTOS task.** The core creates a task (`loopTask`) that calls `setup()` then repeats `loop()`. Your code therefore shares the processor with the system tasks (Wi-Fi/BLE stack, and so on).
-- **Two cores.** The original ESP32 has two cores, and `loop()` runs by default on one of them. You can create your own tasks and spread them out — see [[esp32-freertos-en|FreeRTOS]]. Watch out for the variants: the C3, C6 and H2 are **single-core** (RISC-V), and `xPortGetCoreID()` always answers `0` there.
+- **Two cores.** The original ESP32 has two cores, and `loop()` runs by default on one of them. You can create your own tasks and spread them out (see [[esp32-freertos-en|FreeRTOS]]). Watch out for the variants: the C3, C6 and H2 are **single-core** (RISC-V), and `xPortGetCoreID()` always answers `0` there.
 - **Far more memory.** Hundreds of kilobytes of RAM (against a few on an Uno): `String` objects, buffers and heavy libraries fit much more easily.
 - **The native API is within reach.** `esp_*` and the FreeRTOS functions (`xTaskCreate`, `vTaskDelay`) can be used directly inside a sketch.
 
@@ -160,13 +160,13 @@ The two memory figures are **identical**. That is the point of the demonstration
 
 Two set-ups go beyond the Arduino IDE:
 
-- **PlatformIO** (a VS Code extension) handles the Arduino core and ESP-IDF within a single project, with fine-grained library and version management — handy as soon as the project grows.
+- **PlatformIO** (a VS Code extension) handles the Arduino core and ESP-IDF within a single project, with fine-grained library and version management, handy as soon as the project grows.
 - **Arduino as an ESP-IDF component**: you can use the Arduino libraries *inside* a native ESP-IDF project. You keep the Arduino comfort for some parts while benefiting from the native environment — a bridge in the other direction.
 
 ## Where it fits in the project
 
-- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]]** — choosing the Arduino core as the environment of the software PoC is the sensible default: you move fast, and you keep the native door open. Holding it in reserve means you only switch to [[esp32-idf-en|ESP-IDF]] if a specific blocker demands it.
-- **Reusing an Arduino prototype** — a setup validated on Arduino often carries over as is to the ESP32 through the core, gaining connectivity and memory.
+- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]].** Choosing the Arduino core as the environment of the software PoC is the sensible default: you move fast, and you keep the native door open. Holding it in reserve means you only switch to [[esp32-idf-en|ESP-IDF]] if a specific blocker demands it.
+- **Reusing an Arduino prototype.** A setup validated on Arduino often carries over as is to the ESP32 through the core, gaining connectivity and memory.
 
 Understanding that the Arduino core sits on FreeRTOS (and therefore that `loop()` is not alone in the world) avoids the watchdog pitfalls and prepares the move to multitasking when the project calls for it.
 

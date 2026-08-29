@@ -14,7 +14,7 @@ prerequis:
 aa: []
 draft: false
 source_fr: embarque/mcu/esp32/esp32-idf.md
-source_sha256: b0f62cc26eee66f1462a1e93e08e5340d089817fee04640dddcde88fa230a2ed
+source_sha256: 517a903eb07bdccac0b9d03d6c046c45683aecc4086e0468806e8aea41eae36f
 ---
 
 **ESP-IDF** (*Espressif IoT Development Framework*) is the **native** development environment of the ESP32: C/C++ built directly on **FreeRTOS**, organised into components, finely configured. It is the alternative to the [[esp32-arduino-core-en|Arduino core]], for anyone who needs **full control** of the chip. This page is a **survey** (when the IDF is justified, what it brings, how to take a first step into it) rather than a full course: getting properly started goes through the Espressif documentation.
@@ -26,7 +26,7 @@ The Arduino core is enough for the vast majority of teaching projects. ESP-IDF c
 - **Fine control of power and real time** — precise handling of [[esp32-deep-sleep-en|sleep modes]], task scheduling under control, strict deadlines.
 - **Production features** — over-the-air updates (OTA), secure boot, Flash encryption, custom partitions.
 - **System configuration** — enabling and tuning components in detail (network stack, BLE, drivers) through a dedicated configuration menu.
-- **The newest silicon, straight away** — a new Espressif chip is supported by the IDF as soon as it ships, sometimes before the Arduino core.
+- **The newest silicon, straight away.** A new Espressif chip is supported by the IDF as soon as it ships, sometimes before the Arduino core.
 
 ![Arduino core or ESP-IDF decision tree: if a specific need is established (OTA and secure boot, fine control of power or real time, deep system configuration, very recent silicon) you move to ESP-IDF, otherwise you stay on the Arduino core|640](/ressources/img/esp32-idf/arbre-de-decision.svg)
 
@@ -35,7 +35,7 @@ The Arduino core is enough for the vast majority of teaching projects. ESP-IDF c
 
 ## What the IDF brings (and what it changes from Arduino habits)
 
-- **`app_main()` instead of `setup()`/`loop()`.** The entry point is an `app_main()` function. There is no loop imposed on you — you explicitly create your own FreeRTOS tasks (see [[esp32-freertos-en|FreeRTOS]]).
+- **`app_main()` instead of `setup()`/`loop()`.** The entry point is an `app_main()` function. There is no loop imposed on you: you explicitly create your own FreeRTOS tasks (see [[esp32-freertos-en|FreeRTOS]]).
 - **The `idf.py` command-line tool.** Creating, configuring, building, flashing and monitoring are all driven by commands (`idf.py build`, `idf.py flash monitor`), scriptable and reproducible.
 - **Configuration through `menuconfig`.** An interface (`idf.py menuconfig`) sets hundreds of options (CPU frequency, stack sizes, network options…), stored in an `sdkconfig` file.
 - **Component architecture.** The code is split into reusable components, each with its own `CMakeLists.txt` — close to the module-splitting logic of [[firmware-en|firmware]].
@@ -70,7 +70,7 @@ No `setup()`/`loop()`: `app_main()` is called once, and it is up to you to build
 
 The two worlds are not sealed off from each other:
 
-- **Arduino as an ESP-IDF component** — you can use the Arduino libraries *inside* an IDF project, to keep the Arduino comfort on some parts.
+- **Arduino as an ESP-IDF component.** You can use the Arduino libraries *inside* an IDF project, to keep the Arduino comfort on some parts.
 - **PlatformIO** handles both environments in a single project.
 
 In other words, choosing the IDF does not mean giving up everything learned with Arduino: you combine them.
@@ -90,7 +90,7 @@ In other words, choosing the IDF does not mean giving up everything learned with
 
 > [!success]- Answer to exercise 1
 > - **(a) Arduino core.** Simple need, standard connectivity: you move fast, and the IDF would bring nothing useful here.
-> - **(b) ESP-IDF.** Secure OTA and secure boot are production features that the IDF exposes fully — precisely one of its use cases.
+> - **(b) ESP-IDF.** Secure OTA and secure boot are production features that the IDF exposes fully: precisely one of its use cases.
 > - **(c) Arduino core.** Teaching prototype: the priority is iteration speed and reuse of what has already been learned with Arduino.
 >
 > The rule: Arduino core by default, IDF when a **specific need** (production, fine control) justifies it.
@@ -109,8 +109,8 @@ In other words, choosing the IDF does not mean giving up everything learned with
 
 ## Where it fits in the project
 
-- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]]** — the PoC is almost always carried out on the [[esp32-arduino-core-en|Arduino core]]. Identifying *whether* and *where* the IDF will become necessary (OTA, power, strict real time) is a decision worth raising early, without necessarily implementing it in the PoC.
-- **Moving towards a deliverable** — if the project aims at a product rather than a prototype, the production features of the IDF (OTA, security) belong in the technical design file.
+- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]].** The PoC is almost always carried out on the [[esp32-arduino-core-en|Arduino core]]. Identifying *whether* and *where* the IDF will become necessary (OTA, power, strict real time) is a decision worth raising early, without necessarily implementing it in the PoC.
+- **Moving towards a deliverable.** If the project aims at a product rather than a prototype, the production features of the IDF (OTA, security) belong in the technical design file.
 
 Knowing that the IDF exists and *when* to reach for it avoids two symmetrical mistakes: staying stuck on the Arduino core in the face of a need it does not cover, or making life difficult in the IDF with no necessity.
 

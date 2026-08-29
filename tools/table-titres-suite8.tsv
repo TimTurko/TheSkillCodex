@@ -1,0 +1,12 @@
+# Arbitrages Tim du 29/08 (suite 8), rendus sur la cloture de la suite 7.
+# (a) symetrie « digital » en anglais : entree-tor est passe a « digital input »
+#     le 29/08 (suite 5) contre la forme dominante ; sortie-tor suit.
+#     Le francais ne bouge pas : « entree TOR » / « sortie TOR » sont deja
+#     symetriques. Aucune source FR touchee, donc aucun --recaler du.
+# (b) le qualificatif de famille revient sur FreeRTOS : la forme de production
+#     etait un LIBELLE de designation, que le test 1 de C125 sort du concours
+#     des titres. FreeRTOS n est pas propre a l ESP32, et l anneau 2 restant
+#     porte 5 fiches stm32/ et 4 teensy/.
+en/embarque/mcu/arduino/arduino-sortie-tor-en.md	Driving an on/off output on Arduino	Driving a digital output on Arduino
+en/embarque/mcu/micropython/micropython-sortie-tor-en.md	Driving an on/off output in MicroPython	Driving a digital output in MicroPython
+en/embarque/mcu/esp32/esp32-freertos-en.md	Multitasking with FreeRTOS	Multitasking with FreeRTOS on the ESP32

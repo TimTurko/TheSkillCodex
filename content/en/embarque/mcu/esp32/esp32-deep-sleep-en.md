@@ -15,7 +15,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/esp32/esp32-deep-sleep.md
-source_sha256: 00715272a971b5555efc4b78fbdafb89f9ccf8d845c81bd51df518c8e6d6d629
+source_sha256: 39106c29f8aca2bdc1cbb065cfa1d8ac86bb0be596e46048ad5fd31e116c0afc
 ---
 
 **Deep sleep** is the very low power mode of the ESP32: the processor and the radio are switched off, consumption drops from around ten **milliamps** to around ten **microamps**, and the chip only wakes on a chosen event (a delay, a button, a touch). This is what makes the ESP32 viable on battery: a sensor that wakes, measures, transmits and goes back to sleep spends most of its life consuming almost nothing. Power management in general is covered in [[deep-sleep-en|deep sleep]]. This page gives the ESP32 incarnation of it.
@@ -26,8 +26,8 @@ source_sha256: 00715272a971b5555efc4b78fbdafb89f9ccf8d845c81bd51df518c8e6d6d629
 
 Deep sleep answers one precise need: **running for a long time on a small battery** when the system has nothing to do most of the time.
 
-- **Extending battery life by a huge factor.** A station measuring every 10 minutes can sleep 99.9% of the time. The gain is not on the active consumption but on the idle one — going from 20 mA to 10 µA at rest takes a coin cell from a few days to several months.
-- **Waking at the right moment.** The wake-up is triggered by a **timer** (periodic measurement), a **button or sensor** (event), or a **touch** (interaction) — the chip sleeps until then.
+- **Extending battery life by a huge factor.** A station measuring every 10 minutes can sleep 99.9% of the time. The gain is not on the active consumption but on the idle one: going from 20 mA to 10 µA at rest takes a coin cell from a few days to several months.
+- **Waking at the right moment.** The wake-up is triggered by a **timer** (periodic measurement), a **button or sensor** (event), or a **touch** (interaction), and the chip sleeps until then.
 
 > [!warning]
 > **Waking up is a RESET, not a resumption.** On wake-up the ESP32 restarts: `setup()` is replayed from the beginning, code placed *after* `esp_deep_sleep_start()` is never reached, and **every ordinary variable is reinitialised**. Only the RTC memory (see below) survives. This is misconception number one about deep sleep.
@@ -201,8 +201,8 @@ Between normal operation and deep sleep sits **light sleep**: the chip suspends 
 
 ## Where it fits in the project
 
-- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]]** — if the project runs on battery, validating a wake, measure, sleep cycle early and **measuring the real consumption** lifts the battery-life uncertainty, which is often a sizing constraint for a connected object.
-- **Sizing the power supply** — the estimate of average consumption (see exercise 2) drives the choice of battery and belongs in the technical design file.
+- **Step 4 of the [[preuve-de-concept-en|proof-of-concept phase]].** If the project runs on battery, validating a wake, measure, sleep cycle early and **measuring the real consumption** lifts the battery-life uncertainty, which is often a sizing constraint for a connected object.
+- **Sizing the power supply.** The estimate of average consumption (see exercise 2) drives the choice of battery and belongs in the technical design file.
 
 Thinking the system around the sleep and wake cycle from the design stage onwards (what to do on wake-up, what has to survive) avoids discovering too late that an "always on" architecture rules out the battery life you were aiming for.
 

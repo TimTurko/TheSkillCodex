@@ -19,6 +19,17 @@
  *               a relire contre sa source
  *   SANS SOURCE la source FR a ete renommee ou supprimee
  *   SANS MARQUE la fiche EN n'a pas de marqueur (creee a la main ?)
+ *   MARQUE INVALIDE  le champ source_sha256 existe mais n'est pas un sha256 :
+ *               64 caracteres hexadecimaux minuscules. C'est une empreinte
+ *               INVENTEE, pas une empreinte perimee, et les deux n'ont ni la
+ *               meme cause ni le meme remede. Une empreinte perimee se recale
+ *               apres relecture ; une empreinte inventee signale que la fiche
+ *               a ete REECRITE EN ENTIER, donc que tout son front matter est
+ *               suspect. Ajoute le 29/08 (suite 8), apres deux occurrences du
+ *               meme defaut - E4 du 29/08 (suite 6) et E1 du 29/08 (suite 7),
+ *               un « PLACEHOLDER » recopie a la main en reecrivant la fiche.
+ *               Sans ce statut, les deux sortaient en DERIVE et rien ne les
+ *               distinguait.
  *   ORPHELINE   une fiche FR n'a aucune fiche EN (avec --manquantes)
  *
  * Usage :
@@ -26,7 +37,7 @@
  *   node tools/derive-traduction.mjs --tout          ajoute les fiches a jour
  *   node tools/derive-traduction.mjs --manquantes    ajoute les FR sans EN
  *
- * Exit 1 si au moins une DERIVE, SANS SOURCE ou SANS MARQUE.
+ * Exit 1 si au moins une MARQUE INVALIDE, DERIVE, SANS SOURCE ou SANS MARQUE.
  */
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -80,7 +91,18 @@ if (!existsSync(RACINE_EN)) {
 
 const fichesEn = walk(RACINE_EN).map(versWeb);
 const sourcesCouvertes = new Set();
-const lots = { DERIVE: [], 'SANS SOURCE': [], 'SANS MARQUE': [], 'A JOUR': [] };
+// Un sha256 de contenu s'ecrit en 64 hexadecimaux minuscules. Toute autre
+// forme n'est pas une empreinte perimee : c'est une empreinte INVENTEE.
+const SHA256 = /^[0-9a-f]{64}$/;
+
+const lots = {
+  'MARQUE INVALIDE': [],
+  DERIVE: [],
+  'SANS SOURCE': [],
+  'SANS MARQUE': [],
+  'A JOUR': [],
+};
+const STATUTS = ['MARQUE INVALIDE', 'DERIVE', 'SANS SOURCE', 'SANS MARQUE', 'A JOUR'];
 
 for (const relEn of fichesEn) {
   const texteEn = readFileSync(join(CONTENT, relEn.split('/').join(sep)), 'utf8');
@@ -93,6 +115,11 @@ for (const relEn of fichesEn) {
     continue;
   }
   sourcesCouvertes.add(relFr);
+
+  if (!SHA256.test(attendu)) {
+    lots['MARQUE INVALIDE'].push([relEn, relFr + '   marqueur lu : ' + attendu]);
+    continue;
+  }
 
   const absFr = join(CONTENT, relFr.split('/').join(sep));
   if (!existsSync(absFr)) {
@@ -109,7 +136,7 @@ console.log('=== DERIVE DE TRADUCTION ===');
 console.log(fichesEn.length + ' fiche(s) EN controlee(s)');
 console.log('');
 
-for (const statut of ['DERIVE', 'SANS SOURCE', 'SANS MARQUE', 'A JOUR']) {
+for (const statut of STATUTS) {
   const lot = lots[statut];
   if (!lot.length) continue;
   if (statut === 'A JOUR' && !TOUT) continue;
@@ -131,9 +158,13 @@ if (MANQUANTES) {
 }
 
 console.log('=== BILAN ===');
-for (const statut of ['DERIVE', 'SANS SOURCE', 'SANS MARQUE', 'A JOUR']) {
-  console.log('  ' + statut.padEnd(12) + lots[statut].length);
+for (const statut of STATUTS) {
+  console.log('  ' + statut.padEnd(16) + lots[statut].length);
 }
 
-const bloquant = lots.DERIVE.length + lots['SANS SOURCE'].length + lots['SANS MARQUE'].length;
+const bloquant =
+  lots['MARQUE INVALIDE'].length +
+  lots.DERIVE.length +
+  lots['SANS SOURCE'].length +
+  lots['SANS MARQUE'].length;
 process.exit(bloquant ? 1 : 0);

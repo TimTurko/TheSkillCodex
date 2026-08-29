@@ -25,17 +25,17 @@ Le multitâche répond à un besoin récurrent : faire **plusieurs choses à des
 
 - **Séparer les activités.** Lire un capteur à 10 Hz, mettre à jour un afficheur à 2 Hz, gérer le Wi-Fi en arrière-plan : chaque activité devient une tâche autonome, au lieu d'un seul `loop()` qui jongle avec des compteurs.
 - **Exploiter les deux cœurs.** Une tâche de calcul lourd peut tourner sur un cœur pendant que l'autre gère la communication, sans se gêner.
-- **Tenir des échéances.** Une tâche prioritaire (régulation, sécurité) passe devant les autres quand elle est prête — l'ordonnancement préemptif garantit sa réactivité.
+- **Tenir des échéances.** Une tâche prioritaire (régulation, sécurité) passe devant les autres quand elle est prête, et l'ordonnancement préemptif garantit sa réactivité.
 
 C'est l'alternative structurée à la boucle coopérative non bloquante quand le nombre d'activités ou les contraintes de temps grandissent (cf. l'échelle de [[firmware|firmware]]).
 
 ## Les concepts
 
 - **Tâche** — une fonction qui ne se termine jamais (`for (;;) { ... }`), exécutée comme une activité indépendante.
-- **Scheduler préemptif** — il donne le processeur à la **tâche prête la plus prioritaire**. Si une tâche plus prioritaire devient prête, elle **interrompt** (préempte) celle en cours.
+- **Scheduler préemptif.** Il donne le processeur à la **tâche prête la plus prioritaire**. Si une tâche plus prioritaire devient prête, elle **interrompt** (préempte) celle en cours.
 - **Priorité** — un entier : plus il est élevé, plus la tâche passe devant.
 - **`vTaskDelay()`** — l'équivalent FreeRTOS de `delay()`, mais qui **rend explicitement la main** : pendant l'attente, les autres tâches s'exécutent. C'est ce qui permet la coexistence.
-- **Deux cœurs** — sur l'ESP32 d'origine, on peut **épingler** une tâche à un cœur (`xTaskCreatePinnedToCore`) ou la laisser libre.
+- **Deux cœurs.** Sur l'ESP32 d'origine, on peut **épingler** une tâche à un cœur (`xTaskCreatePinnedToCore`) ou la laisser libre.
 
 ## Créer une tâche
 
@@ -122,7 +122,7 @@ Les deux rythmes sont **indépendants** : ralentir `tacheCapteur` à 5 secondes 
 
 Deux tâches ne doivent pas se partager une variable sans précaution (accès concurrents = données corrompues). FreeRTOS fournit deux outils :
 
-- **File (queue)** — une tâche *productrice* y dépose des valeurs, une tâche *consommatrice* les retire, dans l'ordre. C'est le canal recommandé pour transmettre des données.
+- **File (queue).** Une tâche *productrice* y dépose des valeurs, une tâche *consommatrice* les retire, dans l'ordre. C'est le canal recommandé pour transmettre des données.
 - **Mutex (sémaphore)** — un « jeton » qu'une tâche prend avant d'accéder à une ressource partagée et rend après, garantissant qu'une seule y touche à la fois.
 
 ```cpp
@@ -237,8 +237,8 @@ Sur l'Arduino-core ESP32, on n'est jamais « hors RTOS » : le cœur crée une t
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — dès que le prototype doit mener plusieurs activités à des cadences différentes (acquisition + communication + IHM), structurer en tâches lève l'enchevêtrement d'un `loop()` surchargé et clarifie le comportement.
-- **Régulation et échéances** — une tâche de régulation prioritaire, cadencée par `vTaskDelay`, garantit une période d'asservissement régulière, isolée des autres traitements.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Dès que le prototype doit mener plusieurs activités à des cadences différentes (acquisition + communication + IHM), structurer en tâches lève l'enchevêtrement d'un `loop()` surchargé et clarifie le comportement.
+- **Régulation et échéances.** Une tâche de régulation prioritaire, cadencée par `vTaskDelay`, garantit une période d'asservissement régulière, isolée des autres traitements.
 
 Choisir entre boucle non bloquante et RTOS au bon moment (cf. [[firmware|firmware]]) évite deux écueils : un `loop()` ingérable de compteurs, ou un RTOS introduit prématurément là où une simple boucle coopérative aurait suffi.
 

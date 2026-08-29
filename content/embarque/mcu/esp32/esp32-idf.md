@@ -24,7 +24,7 @@ L'Arduino-core suffit à la grande majorité des projets pédagogiques. L'ESP-ID
 - **Contrôle fin de l'énergie et du temps réel** — gestion précise des [[esp32-deep-sleep|modes de veille]], ordonnancement de tâches maîtrisé, échéances strictes.
 - **Fonctions de production** — mises à jour à distance (OTA), démarrage sécurisé (secure boot), chiffrement de la Flash, partitions sur mesure.
 - **Configuration système** — activer/régler finement les composants (pile réseau, BLE, pilotes) via un menu de configuration dédié.
-- **Le silicium le plus récent, tout de suite** — une nouvelle puce Espressif est supportée par l'IDF dès sa sortie, parfois avant l'Arduino-core.
+- **Le silicium le plus récent, tout de suite.** Une nouvelle puce Espressif est supportée par l'IDF dès sa sortie, parfois avant l'Arduino-core.
 
 ![Arbre de décision Arduino-core ou ESP-IDF : si un besoin précis est avéré (OTA et démarrage sécurisé, contrôle fin de l'énergie ou du temps réel, configuration système poussée, silicium très récent) on passe à ESP-IDF, sinon on reste sur l'Arduino-core|640](/ressources/img/esp32-idf/arbre-de-decision.svg)
 
@@ -33,7 +33,7 @@ L'Arduino-core suffit à la grande majorité des projets pédagogiques. L'ESP-ID
 
 ## Ce que l'IDF apporte (et qui change des habitudes Arduino)
 
-- **`app_main()` au lieu de `setup()`/`loop()`.** Le point d'entrée est une fonction `app_main()`. Il n'y a pas de boucle imposée — on crée explicitement ses tâches FreeRTOS (voir [[esp32-freertos|FreeRTOS]]).
+- **`app_main()` au lieu de `setup()`/`loop()`.** Le point d'entrée est une fonction `app_main()`. Il n'y a pas de boucle imposée : on crée explicitement ses tâches FreeRTOS (voir [[esp32-freertos|FreeRTOS]]).
 - **Outil en ligne de commande `idf.py`.** Création, configuration, compilation, flash et moniteur se pilotent en commandes (`idf.py build`, `idf.py flash monitor`), scriptables et reproductibles.
 - **Configuration par `menuconfig`.** Une interface (`idf.py menuconfig`) règle des centaines d'options (fréquence CPU, taille des piles, options réseau…), enregistrées dans un fichier `sdkconfig`.
 - **Architecture en composants.** Le code est découpé en composants réutilisables, chacun avec son `CMakeLists.txt` — proche de la logique de découpage en modules de [[firmware|firmware]].
@@ -68,7 +68,7 @@ Pas de `setup()`/`loop()` : `app_main()` est appelée une fois, et on y crée so
 
 Les deux mondes ne sont pas étanches :
 
-- **Arduino comme composant d'ESP-IDF** — on peut utiliser les bibliothèques Arduino *dans* un projet IDF, pour garder le confort Arduino sur certaines parties.
+- **Arduino comme composant d'ESP-IDF.** On peut utiliser les bibliothèques Arduino *dans* un projet IDF, pour garder le confort Arduino sur certaines parties.
 - **PlatformIO** gère les deux environnements dans un même projet.
 
 Autrement dit, choisir l'IDF n'oblige pas à abandonner tout l'acquis Arduino : on compose.
@@ -88,7 +88,7 @@ Autrement dit, choisir l'IDF n'oblige pas à abandonner tout l'acquis Arduino : 
 
 > [!success]- Corrigé
 > - **(a) Arduino-core.** Besoin simple, connectivité standard : on avance vite, l'IDF n'apporterait rien d'utile ici.
-> - **(b) ESP-IDF.** L'OTA sécurisé et le secure boot sont des fonctions de production que l'IDF expose pleinement — c'est précisément un de ses cas d'usage.
+> - **(b) ESP-IDF.** L'OTA sécurisé et le secure boot sont des fonctions de production que l'IDF expose pleinement : c'est précisément un de ses cas d'usage.
 > - **(c) Arduino-core.** Prototypage pédagogique : la priorité est la vitesse d'itération et la réutilisation des acquis Arduino.
 >
 > La règle : Arduino-core par défaut, IDF quand un **besoin précis** (production, contrôle fin) le justifie.
@@ -107,8 +107,8 @@ Autrement dit, choisir l'IDF n'oblige pas à abandonner tout l'acquis Arduino : 
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — la PoC se mène presque toujours en [[esp32-arduino-core|Arduino-core]]. Identifier *si* et *où* l'IDF deviendra nécessaire (besoin OTA, énergie, temps réel strict) est un point d'arbitrage à poser tôt, sans forcément l'implémenter en PoC.
-- **Passage vers un livrable** — si le projet vise un produit (et pas un prototype), les fonctions de production de l'IDF (OTA, sécurité) entrent dans le dossier technique.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** La PoC se mène presque toujours en [[esp32-arduino-core|Arduino-core]]. Identifier *si* et *où* l'IDF deviendra nécessaire (besoin OTA, énergie, temps réel strict) est un point d'arbitrage à poser tôt, sans forcément l'implémenter en PoC.
+- **Passage vers un livrable.** Si le projet vise un produit (et pas un prototype), les fonctions de production de l'IDF (OTA, sécurité) entrent dans le dossier technique.
 
 Savoir que l'IDF existe et *quand* y recourir évite deux erreurs symétriques : rester bloqué sur l'Arduino-core face à un besoin qu'il ne couvre pas, ou se compliquer la vie en IDF sans nécessité.
 

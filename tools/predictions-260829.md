@@ -4104,3 +4104,445 @@ TOUT COMPTAGE.** `grep -o '[àâä…]'` rend **12** sur un échantillon nommé 
 porte **5** : `grep` apparie des **octets**. *C'est la cause des quatre
 réfutations 10-9, 10-12, 11-1 et 11-3 du 29/08 (suite 6), et C110 l'a attrapée
 cette fois **avant** la mesure au lieu d'après.*
+
+---
+
+# Prédictions — 2026-08-29 (suite 8), séance d'arbitrages rendus : résolution du conflit de séquence, (a) (b) (c) (d)
+
+> **Quatre arbitrages rendus par Tim** sur la clôture de la suite 7 : **(a) ok
+> pour le changement**, **(b) à résoudre par moi**, **(c) traiter**, **(d) à
+> choisir par moi**. Plus une demande d'ensemble : **résoudre le conflit entre
+> les anomalies, puis consigner le résultat dans la documentation.**
+>
+> HEAD a bougé : **`6a82030` du 2026-08-29 21:25:54**, le commit de clôture de
+> la suite 7. La garde de 21:30:17 rend **1 fichier non commité, hors artefacts
+> 0** — `tools/batterie-sortie-2908b31.txt`, la copie C124 du lancement
+> lui-même. **Arbre propre, aucun état inattendu.**
+
+## RÉSOLUTION DU CONFLIT — LA GARDE N'EST PAS UNE LECTURE, C'EST LE PREMIER BLOC D'EXÉCUTION
+
+**Le conflit, énoncé.** CLAUDE.md range la garde de péremption en **étape 3 de
+la « Lecture d'ouverture »**. La sous-règle C116 (1) exige que les prédictions
+s'appendent à `tools/predictions-AAMMJJ.md` **avant chaque bloc d'exécution**,
+l'ordre des appels faisant foi. **La garde écrit** — une copie C124 par
+lancement — **et mesure** — horloge, HEAD, compteurs git, dates d'écriture.
+C'est un bloc d'exécution rangé sous une rubrique dont il ne relève pas. Les
+deux règles se contredisent donc sur le **premier lancement de chaque séance**,
+et c'est **deux séances d'affilée que le premier bloc tombe hors décompte** pour
+cette seule raison.
+
+**Trois issues, et ce qui les départage.**
+
+1. **Exempter la garde de C116 (1).** *Rejetée.* La garde est précisément le
+   bloc dont les chiffres décident **si l'on écrit** ; l'exempter retire la
+   prédiction de l'endroit où elle garde le plus. Et une exemption motivée par
+   « ce n'est qu'une lecture » rouvre la porte à toutes les mesures, qui sont
+   toutes des lectures.
+2. **Ouvrir le fichier de prédictions avant les lectures d'ouverture.**
+   *Rejetée.* La déclaration C131 d'ouverture et les prédictions de la garde se
+   fondent sur le brief et sur l'état publié à la clôture précédente, qui se
+   lisent dans `JOURNAL.md` et `conventions.md`. **Prédire avant de lire, c'est
+   prédire de mémoire**, ce que C118 interdit.
+3. **RETENUE — la garde cesse d'être une lecture d'ouverture et devient le
+   premier bloc d'exécution.** CLAUDE.md passe de **trois lectures** à **deux
+   lectures, puis une ouverture de fichier de prédictions, puis un bloc**.
+   L'ordre des lectures ne change pas ; une étape s'intercale entre la dernière
+   lecture et le premier lancement.
+
+**Ce que la résolution coûte** : une étape de plus dans la liste d'ouverture,
+zéro temps de lecture supplémentaire. **Ce qu'elle rapporte** : le premier bloc
+de chaque séance rentre dans le décompte, et **la garde — le seul contrôle qui
+puisse arrêter une séance avant sa première écriture — est prédite au lieu
+d'être seulement lue**.
+
+## ET LE CONFLIT DE SECOND RANG, QUE LES ANOMALIES 2 ET 3 EXPOSENT
+
+Les lectures d'ouverture existent pour **charger les règles**. Or les deux
+défauts de fond de la suite 7 sont des **violations de règles lues le matin
+même** : la classe d'accents non trouée est proscrite en toutes lettres au §8 de
+`conventions.md`, dans un paragraphe relu en ouverture ; le `source_sha256`
+réécrit à la main est É4 du 29/08 (suite 6), consigné au JOURNAL relu en
+ouverture. **La lecture n'a rien empêché, deux fois, le même jour.**
+
+*C122 le dit déjà, pour l'ASCII : « une contrainte relue est une contrainte qui
+cède ; une contrainte mesurée laisse une trace datée ».* **Résolution
+symétrique, et c'est la même que celle du conflit de premier rang — déplacer la
+contrainte de la prose vers l'exécution : toute règle d'usage qui contraint un
+geste mécanique se loge dans le code qui exécute ce geste**, le §8 n'en gardant
+que le motif. **Appliqué deux fois ce soir** : le motif d'accents porte son
+intervalle troué **en commentaire à l'endroit exact où il se réécrirait**
+(fait en suite 7), et `derive-traduction.mjs` reçoit un verdict **`MARQUE
+INVALIDE`** qui distingue une empreinte **inventée** d'une empreinte **périmée**
+— la distinction dont l'absence a laissé passer É1.
+
+## DÉCLARATION C131 D'OUVERTURE — ET SON TOTAL
+
+**Entrée : 1 fichier** (`tools/batterie-sortie-2908b31.txt`, hors artefacts 0).
+**Versement de ce bloc : le présent texte**, appendu à
+`tools/predictions-260829.md`, **fichier suivi et déjà commité** — il repasse
+donc en `M`, **+1 au total, 0 hors artefacts**. **TOTAL IMPLIQUÉ AVANT LE
+BLOC 10 : 2, hors artefacts 0.** *Chaque bloc qui suit rejoue sa déclaration
+(amendement C131 de ce soir).*
+
+## Bloc 10 — ARBITRAGES (a) ET (b) : TROIS `title:` EN
+
+### (a) — LA SYMÉTRIE `digital` EN ANGLAIS, ARBITRÉE PAR TIM
+
+`entree-tor` est passé à `Reading a digital input` le 29/08 (suite 5), **contre
+la forme dominante de production** (`Reading an on/off input`, 14 libellés
+contre 7). Tim rend **« ok pour le changement »** : `sortie-tor` suit.
+**Corroboration lue en production** : `micropython-sortie-tor-en` porte déjà
+**un libellé `Driving a digital output`**, donc la forme existe et n'est pas
+inventée.
+
+| fiche | avant | après |
+|---|---|---|
+| `arduino-sortie-tor-en` | Driving an on/off output on Arduino | **Driving a digital output on Arduino** |
+| `micropython-sortie-tor-en` | Driving an on/off output in MicroPython | **Driving a digital output in MicroPython** |
+
+⚠ **Le français ne bouge pas, et c'est le point.** `Lire une entrée TOR sur
+Arduino` et `Piloter une sortie TOR sur Arduino` sont **déjà symétriques** ;
+c'est l'anglais qui ne l'était pas. **Aucune source FR ne change, donc aucun
+`--recaler` n'est dû** — ma clôture de la suite 7 chiffrait ce revert à « 2
+éditions + 2 `--recaler` », **et les deux recalages étaient de trop** :
+`source_sha256` porte sur la source française, qu'une passe de `title:` anglais
+ne touche pas.
+
+### (b) — LE CONFLIT DE `Multitasking with FreeRTOS`, RÉSOLU EN FAVEUR DU QUALIFICATIF
+
+**Ce qui s'opposait** : la forme de production (`Multitasking with FreeRTOS`,
+5 libellés) contre le patron de famille du module (`… on the ESP32`, porté par
+**6 `title:`** après le lot 3) et contre le `title:` FR
+(`Multitâche FreeRTOS sur l'ESP32`), qui porte le qualificatif.
+
+**Ce qui tranche, et je l'avais manqué : C125 test 1.** *La forme est-elle un
+libellé de désambiguïsation ? Si oui, elle sort du concours des titres.*
+Le corpus français **désigne** `esp32-freertos` par `FreeRTOS` (11 libellés) et
+l'**intitule** `Multitâche FreeRTOS sur l'ESP32` : label et titre y sont
+distincts. Le corpus anglais désigne par `FreeRTOS` (10) et
+`Multitasking with FreeRTOS` (5). **J'ai pris la désignation anglaise pour un
+titre**, ce que le test 1 interdit explicitement — et c'est l'erreur que C125
+a été amendée le 27/08 (suite 3) pour empêcher, sur `adc-en` et
+`chronogramme-en`.
+
+**Trois motifs de plus, tous vérifiables :**
+1. **FreeRTOS n'est pas propre à l'ESP32.** `ESP-IDF` nomme le fabricant, donc
+   `Discovering ESP-IDF` situe la fiche sans qualificatif. **FreeRTOS tourne sur
+   STM32, sur Teensy et ailleurs** : `Multitasking with FreeRTOS` ne dit pas de
+   quelle puce parle la fiche.
+2. **Une jumelle est plausible dans les deux lots qui viennent.** L'anneau 2
+   restant porte **5 fiches `stm32/` et 4 `teensy/`**, et c'est exactement la
+   situation — deux fiches de familles voisines sur un même sujet — qui a
+   produit le chantier de nommage de ce matin. **Qualifier maintenant coûte une
+   édition ; qualifier après coûte un chantier.**
+3. **Le motif du 26/08 joue dans l'autre sens.** Il interdit d'inventer une
+   asymétrie EN/FR *pour masquer un défaut de source*. Ici la source **porte**
+   le qualificatif et l'anglais le perdait : c'est une **distinction effacée**,
+   soit exactement la faute que `shield` incarnait ce matin et que le chantier
+   a réparée.
+
+| fiche | avant | après |
+|---|---|---|
+| `esp32-freertos-en` | Multitasking with FreeRTOS | **Multitasking with FreeRTOS on the ESP32** |
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 10-0 | garde : HEAD **`6a82030`**, `fichiers modifies non commites` = **4** (le `b31` déjà là, la copie `b32` du lancement, `predictions-260829.md` en `M`, `tools/table-titres-suite8.tsv`), `hors artefacts de seance` = **1** (le seul TSV) | | |
+| 10-1 | contrôle du TSV : **3 ancres uniques**, 0 introuvable, 0 multiple, exit **0**, 0 écrit | | |
+| 10-2 | `--ecrire` : **3 fichiers écrits** | | |
+| 10-3 | `git diff --numstat -- content/en/` : **3 lignes**, chacune **`1	1`**, et **0 ligne du diff hors `title:`** | | |
+| 10-4 | `derive-traduction` : **`DERIVE` 0, `A JOUR` 197** — **aucun recalage dû**, aucune source FR touchée | | |
+| 10-5 | `titres-doublons` : FR **243 / 243 / 0 / 0**, EN **197 / 197 / 0 / 0** — les trois formes neuves sont absentes du corpus, notamment `Driving a digital output …` contre `Driving a PWM output on Arduino` qui reste distinct | | |
+| 10-6 | `--libelles` : `candidats a lire` **105 inchangé**. Mécanisme : les **13 libellés `Driving an on/off output`** partagent `driving` et `output` avec le titre neuf ; les **15 libellés `FreeRTOS` / `Multitasking with FreeRTOS`** partagent `freertos`. **Aucun ne perd son recoupement**, et la règle d'usage du bloc 9 tient | | |
+| 10-7 | `compter-mots` corpus **291 223 inchangé** ; foisonnement **236 113 inchangé** — un `title:` vit hors règle C110 | | |
+
+**Ce qu'un écart déclencherait.** 10-4 réfuté (une dérive apparaît) = j'ai
+touché une source FR sans le vouloir ⇒ arrêt. 10-6 réfuté **à la hausse** =
+la contraposée de la règle d'usage du bloc 9 mord, et la forme retenue n'était
+pas celle de la production ⇒ à instruire avant de consigner la règle.
+
+### Constats du bloc 10 — **8 prédictions, 8 tenues, 0 réfutée**
+
+Horloge **21:34:20**, HEAD `6a82030`, **4 / 1**. Contrôle **3 / 3 ancres**, exit 0,
+0 écrit. `--ecrire` **3 fichiers**. `numstat` **trois lignes à `1	1`**, **0 ligne
+du diff hors `title:`**. Dérive **0, A JOUR 197** — **aucun recalage dû**.
+Titres **FR 243/243/0, EN 197/197/0**. `--libelles` **3629 / 3320 / 309 / 105 /
+16**, `candidats a lire` **inchangé**. Corpus **291 223**, foisonnement
+**236 113**.
+
+✅ **LES 13 LIBELLÉS `Driving an on/off output` ET LES 15 LIBELLÉS `FreeRTOS`
+SURVIVENT AU CHANGEMENT DE TITRE SANS DEVENIR CANDIDATS**, par les radicaux
+`driving`/`output` et `freertos`. **La règle d'usage du bloc 9 tient une
+deuxième fois**, et sur le cas le plus défavorable — un titre changé **après**
+que les libellés ont été écrits.
+
+⚠ **ET MA CLÔTURE DE LA SUITE 7 CHIFFRAIT CE REVERT À « 2 ÉDITIONS + 2
+`--recaler` » : LES DEUX RECALAGES ÉTAIENT DE TROP.** `source_sha256` porte sur
+la **source française**, qu'une passe de `title:` **anglais** ne touche pas.
+*Un coût de revert publié sous C116 (8) est une prédiction comme une autre, et
+celui-là était faux.* **Constat : 3 titres EN changés, `DERIVE 0`.**
+
+---
+
+## Bloc 11 — ARBITRAGE (c) : LES TIRETS DE PUCE, ET LA FRONTIÈRE QUI LES BORNE
+
+### LA FRONTIÈRE OPÉRATOIRE, ÉCRITE AVANT LA PASSE
+
+« Traiter » sans frontière hacherait **tous les glossaires du corpus** —
+`## Les concepts` de `esp32-freertos` est une liste de définitions, et
+l'arbitrage du 22/08 a précisément abrogé le corollaire qui les visait.
+**Quatre cas, dans cet ordre :**
+
+1. **Tiret sous `## Voir aussi` et `## Aller plus loin`** — glose de liste,
+   **licite au §4** (1 314 gloses mesurées le 22/08). **Hors périmètre.**
+2. **Tiret en tête de puce, juste après le libellé** (`- **Libellé** — …`) —
+   **séparateur de glose**, borne du 25/08. Il **reste** si le segment de droite
+   est un **groupe** nominal, adjectival, infinitif ou participial, *subordonnée
+   relative comprise* puisqu'elle vit **dans** le groupe. Il **tombe** si le
+   segment de droite est une **proposition indépendante avec son propre sujet**
+   : ce n'est plus une glose, c'est une phrase.
+3. **Tiret à l'intérieur de la prose d'une puce**, après au moins une phrase
+   complète — **C123 en plein**, subordonnées comprises.
+4. **Renvoi de fin de segment** (`— voir [[x]]`) — troisième voie du 25/08,
+   **parenthèse**, en puce comme en prose.
+
+⚠ **LE CAS 2 EST CE QUI RÉCONCILIE LA BORNE DU 25/08 AVEC C123, ET LES DEUX SE
+CONTREDISAIENT.** La borne garde `Libellé — apposition nominale` « délibérément,
+contre la lecture stricte du second tamis » ; C123 fait tomber « dès qu'un verbe
+conjugué apparaît, y compris dans une subordonnée ». Sur
+`- **Tâche** — une fonction **qui ne se termine jamais**`, les deux règles
+donnent des verdicts opposés. **La frontière est le sujet propre** : une
+relative appartient au groupe nominal qu'elle qualifie, une proposition à sujet
+propre n'y appartient pas. *C123 gouverne les incises, pas les séparateurs de
+glose — et un séparateur de glose cesse d'en être un quand ce qu'il introduit a
+son propre sujet.*
+
+### POPULATION MESURÉE, ET CE QUI SORT DU PÉRIMÈTRE DE CE BLOC
+
+**Sur les quatre fiches du lot 3 : 32 puces à tiret hors sections de liens**
+(6 / 6 / 10 / 10). **20 tombent, 12 restent.** Les 12 sont : les deux signatures
+`esp_sleep_enable_ext*` de `deep-sleep` (glose nominale), `— sans tout
+réécrire` et `— un pont dans l'autre sens` d'`arduino-core` (infinitif, nominal,
+**aucun verbe conjugué**), quatre définitions de `## Les concepts` et
+`Communiquer entre tâches` de `freertos`, et trois entrées de `À quoi ça sert ?`
+plus `— proche de la logique…` d'`idf` (nominal, nominal, infinitif, adjectival).
+
+⚠ **CORPUS ENTIER, MESURÉ ET NON TRAITÉ : 1 084 puces à tiret hors sections de
+liens côté FR, 872 côté EN.** Le taux de chute observé sur l'échantillon de
+quatre fiches est de **20/32**, mais **il ne s'extrapole pas** (C119) : le lot 3
+est riche en sections `Raccrochage projet`, qui sont de la prose en puces, et
+pauvre en glossaires. **C'est un chantier à part entière, à cadrer**, et ce bloc
+ne traite que les quatre fiches en main.
+
+### DÉCLARATION C131 DU BLOC 11
+
+**Entrée : 7** — `b31`, `b32`, `predictions-260829.md` (M),
+`table-titres-suite8.tsv`, et **3 fiches EN** du bloc 10. **Versements** : la
+copie `b33` (**+1**, artefact) et **deux TSV**, `passe-puces-fr-2908.tsv` et
+`passe-puces-en-2908.tsv` (**+2**, hors artefacts). **TOTAL IMPLIQUÉ À LA
+GARDE : 10, hors artefacts 6** — 3 fiches EN + 3 fichiers de `tools/` hors
+artefacts. *Les deux TSV sont écrits **avant** la garde, donc ils y sont.*
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 11-0 | garde : HEAD **`6a82030`**, **10 / 6**, copie `batterie-sortie-2908b33.txt` | | |
+| 11-1 | contrôle FR : **20 ancres uniques**, 0 introuvable, 0 multiple, exit 0, 0 écrit ; invariant d'accents **écart +0** sur les quatre | | |
+| 11-2 | contrôle EN : **20 ancres uniques**, mêmes verdicts | | |
+| 11-3 | `--ecrire` FR puis EN : **4 + 4 = 8 fichiers écrits**, **40 remplacements** | | |
+| 11-4 | `git diff --numstat` : FR **`4 4` / `4 4` / `6 6` / `6 6`** (deep-sleep, arduino-core, freertos, idf) ; EN **les mêmes quatre couples** | | |
+| 11-5 | `--style` des quatre sources FR : `C109 de prose` **2 inchangé** (les deux points-virgules exemptés de `deep-sleep` l. 189), `typographie francaise` **0**, `hors perimetre` **16** — **le tiret de puce n'a jamais été dans le compteur, il n'en sort donc pas** | | |
+| 11-6 | `--style` des quatre fiches EN : `C109 de prose` **2**, `C109 creees en EN` **0**, `typographie francaise` **0** | | |
+| 11-7 | `compter-mots --lot` FR : **5 280** (5 278 **+ 2**), les deux mots ajoutés étant les deux `et` de `deep-sleep` l. 28 et `freertos` l. 28 ; les 18 autres remplacements n'ajoutent aucun mot | | |
+| 11-8 | `mesure-chevron --lot` FR : `deh` **4 985**, `ded` **290 inchangé**, `cl` **12**, `bl` **6** | | |
+| 11-9 | `derive-traduction` **avant** recalage : `DERIVE` **4**, `A JOUR` **193** — les quatre sources FR ont bougé | | |
+| 11-10 | **4 `--recaler`**, puis `DERIVE` **0**, `A JOUR` **197**, exit 0 | | |
+| 11-11 | `--controle` : **197 fiches, 0 divergente, 0 lien non suffixé sur 0** — la passe ne touche ni lien, ni embed, ni bloc de code | | |
+| 11-12 | corpus FR **291 225** (291 223 **+ 2**) ; foisonnement **197 paires : 227 236 → 236 115** (**+2 des deux côtés**) | | |
+| 11-13 | `titres-doublons` **FR 243/243/0, EN 197/197/0** ; `--libelles` **candidats 105 inchangé** — aucune des 40 éditions ne touche un libellé | | |
+
+**Ce qu'un écart déclencherait.** 11-1 ou 11-2 réfutés sur l'invariant
+d'accents ⇒ arrêt avant écriture, la garde refusant d'elle-même. 11-4 réfuté
+⇒ une ligne a bougé hors ancre. 11-9 réfuté **à la baisse** ⇒ une source FR
+n'a pas été écrite. 11-13 réfuté **à la hausse** ⇒ une édition a mordu dans un
+libellé de wikilink.
+
+### Constats du bloc 11 — **14 prédictions, 13 tenues, 1 réfutée**
+
+| # | constat | verdict |
+|---|---|---|
+| 11-0 | horloge **21:40:19**, HEAD `6a82030`, **10 / 6** | tenue |
+| 11-1 | FR **4/4, 4/4, 6/6, 6/6**, accents **229 / 174 / 303 / 170, écart +0** partout, lignes inchangées | tenue |
+| 11-2 | EN **4/4, 4/4, 6/6, 6/6**, accents **0 → 0** sur les quatre | tenue |
+| 11-3 | **8 fichiers écrits, 40 remplacements** | tenue |
+| 11-4 | FR **`4 4` / `4 4` / `6 6` / `6 6`** ✓ ; EN `4 4` / `4 4` / **`7 7`** / `6 6` — prédit `6 6` sur `esp32-freertos-en` | **réfutée** |
+| 11-5 | `--style` FR : `C109 de prose` **2**, typographie **0**, hors périmètre **16** | tenue |
+| 11-6 | `--style` EN : `C109 de prose` **2**, `C109 creees en EN` **0**, typographie **0** | tenue |
+| 11-7 | `LOT (4 fiches)` **5 280** | tenue |
+| 11-8 | `deh` **4 985**, `ded` **290**, `cl` **12**, `bl` **6** | tenue |
+| 11-9 | avant recalage : `DERIVE` **4**, `A JOUR` **193** | tenue |
+| 11-10 | 4 `--recaler`, puis `DERIVE` **0**, `A JOUR` **197**, exit **0** | tenue |
+| 11-11 | `--controle` **197, 0 divergente, 0 lien non suffixé sur 0** | tenue |
+| 11-12 | corpus **291 225** ; **197 paires : 227 236 → 236 115 mots EN** | tenue |
+| 11-13 | titres **FR 243/243/0, EN 197/197/0** ; `--libelles` **3629 / 3320 / 309 / 105 / 16** | tenue |
+
+⚠ **RÉFUTATION 11-4 : `esp32-freertos-en` REND `7 7` PARCE QUE LE DIFF EST
+CUMULÉ DEPUIS HEAD, ET QUE LE BLOC 10 Y AVAIT DÉJÀ CHANGÉ LE `title:`.**
+6 lignes de puce + 1 ligne de titre. **Septième occurrence de la même forme** :
+un compteur lu sur une population qui contient les écritures d'un bloc
+antérieur. *Le `numstat` ne compare pas la fiche à son état d'avant le bloc,
+il la compare à HEAD* — et HEAD, ici, est le commit de clôture de la suite 7.
+**Aucun effet sur l'invariant** : les 7 lignes sont toutes des lignes de prose
+ou de titre attendues, et `--controle` reste à 0 divergente.
+
+✅ **LA FRONTIÈRE DU CAS 2 TIENT SUR SES DEUX FACES.** Les **12 puces gardées**
+sont exactement les 12 prédites — deux signatures de fonction, un infinitif, un
+nominal, quatre définitions de glossaire, trois entrées nominales et un
+adjectival — et les **20 traitées** exactement les 20 prédites. **Aucun
+glossaire haché, aucune proposition à sujet propre laissée derrière un tiret.**
+
+✅ **`--style` NE BOUGE NI AVANT NI APRÈS, ET C'EST LE POINT.** `C109 de prose`
+reste à **2** des deux côtés, les deux points-virgules exemptés de
+`deep-sleep` l. 189. **Le tiret de puce n'a jamais été dans le compteur : il
+n'en sort donc pas.** *La passe est invisible à l'instrument qui devrait la
+mesurer — c'est exactement le motif de l'arbitrage (c), et la seule trace
+mesurable de son exécution est le `git diff`.*
+
+---
+
+## Bloc 12 — RÉSOLUTION DU CONFLIT DE SECOND RANG : LE VERDICT `MARQUE INVALIDE`
+
+**Ce que É1 a montré.** Un `source_sha256: PLACEHOLDER` écrit à la main sort en
+**`DERIVE`**, exactement comme une empreinte simplement périmée. *Les deux
+défauts n'ont ni la même cause ni le même remède* : une empreinte périmée se
+recale après relecture, une empreinte **inventée** signale que la fiche a été
+réécrite en entier et que **tout son front matter est suspect**.
+
+**Ce que le bloc ajoute**, en application de la résolution de second rang — une
+règle qui contraint un geste mécanique se loge dans le code qui l'exécute :
+`derive-traduction.mjs` reçoit un **cinquième statut, `MARQUE INVALIDE`**, pour
+tout `source_sha256` qui n'est pas **64 caractères hexadécimaux minuscules**.
+Il est **bloquant** comme `DERIVE`, et il est **imprimé avant** les autres.
+
+### DÉCLARATION C131 DU BLOC 12
+
+**Entrée : 18** — 10 à la garde du bloc 11, plus **8 fiches** écrites par les
+deux passes. **Versement du bloc : `derive-traduction.mjs` modifié (+1)**, plus
+la copie `b34` si une garde est relancée. **TOTAL IMPLIQUÉ : 19, hors artefacts
+15** — 11 fiches de `content/` (3 EN du bloc 10 dont une recomptée, 4 FR + 4 EN
+du bloc 11) et 4 fichiers de `tools/` hors artefacts. **Recomptage nominatif :
+11 + 4 = 15.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 12-1 | **test négatif d'abord** : sur le dépôt en l'état, `derive-traduction --tout` rend **`MARQUE INVALIDE` 0**, `A JOUR` **197**, exit **0** — les 197 empreintes sont bien formées | | |
+| 12-2 | l'ordre d'impression du bilan devient **`MARQUE INVALIDE`, `DERIVE`, `SANS SOURCE`, `SANS MARQUE`, `A JOUR`**, cinq lignes | | |
+| 12-3 | `git diff --numstat -- tools/derive-traduction.mjs` : **un seul fichier**, et **aucune fiche de `content/` touchée** par ce bloc | | |
+| 12-4 | `--controle` **197 / 0 divergente** et `titres-doublons` **243/243/0, 197/197/0** inchangés : le bloc ne touche pas `content/` | | |
+
+## Bloc 13 — CONSIGNATION : `CLAUDE.md`, `conventions.md`, `tools/README.md`, JOURNAL, TODO
+
+**Arbitrage (d), rendu par moi : aucune promotion à un numéro neuf. La
+numérotation reste à 131.** Quatre candidates étaient sur la table ; **deux sont
+des amendements à des règles déjà numérotées** et y retournent, **deux restent
+au §8 à 1/N**.
+
+| candidate | sort | motif |
+|---|---|---|
+| *une déclaration C131 ne vaut que pour le bloc qui l'écrit* | **amendement à C131** | Même branche, six occurrences dans une seule séance. Lui donner un numéro **séparerait une règle de son amendement**, ce que le motif de C131 lui-même proscrit — « loger la règle sous la sous-règle C116 l'aurait rendue muette là où elle a déjà mordu » ; ici c'est l'inverse exact. |
+| *une passe qui ne touche qu'une ligne se fait par un outil à ancre unique publiant ses invariants* | **amendement à C116 (6)** | C116 (6) énonce déjà le contrôle d'unicité d'ancre ; ce qui manquait était **l'instrument**. Un numéro neuf dupliquerait la règle au lieu de l'outiller. |
+| *une fiche EN se rédige en partant de son squelette sur disque* | **reste au §8, 1/N** | Règle de geste, éprouvée une fois, et **désormais gardée par le code** (`MARQUE INVALIDE`). Un numéro serait prématuré ; le garde-fou compte plus que le numéro. |
+| *un `title:` EN arrêté au test 3 ne crée aucun candidat `--libelles`* | **reste au §8, 2/N** | Éprouvée **deux fois** en deux séances (4 titres du lot 3, puis 3 titres du bloc 10 **après** que les libellés ont été écrits). À promouvoir comme **clause de C125** quand une troisième épreuve la portera. |
+
+**Et la frontière du tiret de puce (arbitrage (c)) se consigne en amendement à
+C109**, au même endroit que la borne du 25/08 qu'elle réconcilie avec C123.
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 13-1 | `CLAUDE.md` : la « Lecture d'ouverture » passe de **3 à 4 étapes**, la garde devenant l'étape **4** et une étape **3 neuve** ouvrant `tools/predictions-AAMMJJ.md` ; **le mot « obligatoire, dans cet ordre » est conservé** | | |
+| 13-2 | `conventions.md` : **C131 amendée**, **C116 (6) amendée**, **C109 amendée** de la frontière du tiret de puce, **§8 mis à jour** sur les quatre candidates ; la numérotation **reste à 131**, aucun `C132` n'apparaît | | |
+| 13-3 | `node tools/normalize-pilotage.js` : **0 caractère à corriger, 0 fichier modifié** avant comme après | | |
+| 13-4 | `git diff --numstat` final : **exactement 4 fichiers de pilotage** touchés (`CLAUDE.md`, `conventions.md`, `JOURNAL.md`, `TODO.md`) plus `tools/README.md` et `tools/derive-traduction.mjs` | | |
+| 13-5 | garde finale : HEAD **`6a82030` inchangé**, aucune date d'écriture inattendue dans `content/` | | |
+
+### Constats des blocs 12 et 13 — **9 prédictions, 8 tenues, 1 réfutée**
+
+**Bloc 12 — 4 tenues sur 4.** `MARQUE INVALIDE` **0**, `A JOUR` **197**, exit
+**0** sur le dépôt réel. Bilan à **cinq lignes**, dans l'ordre
+`MARQUE INVALIDE / DERIVE / SANS SOURCE / SANS MARQUE / A JOUR`.
+`numstat` : **`tools/derive-traduction.mjs` seul**, aucune fiche de `content/`
+touchée. `--controle` **197 / 0** et titres **243/243/0, 197/197/0** inchangés.
+
+**TEST NÉGATIF, hors prédiction et consigné** : marqueur `PLACEHOLDER` posé sur
+`en/meca/usinage-en.md` — **fiche propre au HEAD, donc restaurable sans risque
+pour le travail de la séance**. Sortie
+`--- MARQUE INVALIDE (1) --- en/meca/usinage-en.md <- meca/usinage.md   marqueur
+lu : PLACEHOLDER`, **exit 1**. Fichier restauré par `git checkout`, arbre
+vérifié propre, contrôle relancé à **0 / 197 / exit 0**.
+⚠ **Un défaut d'alignement introduit au passage** : `padEnd(12)` sur une
+étiquette de **15** caractères rendait `MARQUE INVALIDE0`. Corrigé à
+`padEnd(16)` dans le même bloc. *Neuvième fois de la journée qu'une largeur, un
+seau ou une population est lu sur la mauvaise mesure — cette fois sans
+conséquence.*
+
+**Bloc 13 — 4 tenues sur 5.**
+`CLAUDE.md` : ouverture à **4 étapes**, garde en **étape 4**, étape 3 neuve
+ouvrant le fichier de prédictions ; **deux règles non négociables ajoutées** —
+*une règle qui contraint un geste mécanique se loge dans le code* et **C131**
+avec son amendement — plus l'amendement de C110 sur le choix de l'échantillon
+et l'ajout des deux outils d'écriture à la liste des outils de mesure.
+`conventions.md` : **C131 amendée**, **C116 (6) amendée**, **C109 amendée** de
+la frontière à quatre cas, **§8 réduit de deux candidates** promues en
+amendements et **deux mises à jour** (1/N et 2/N). **`grep -c C132` = 0 dans les
+deux fichiers** : la numérotation reste à **131**.
+`normalize-pilotage.js` : **0 caractère à corriger, 0 fichier modifié**.
+
+| # | constat | verdict |
+|---|---|---|
+| 13-4 | `git diff --numstat` : **4 fichiers de pilotage** (`CLAUDE.md`, `JOURNAL.md`, `TODO.md`, `conventions.md`) + `tools/derive-traduction.mjs` + `tools/predictions-260829.md`. **`tools/README.md` N'EST PAS dans le diff** — prédit qu'il le serait | **réfutée** |
+
+⚠ **RÉFUTATION 13-4, ET ELLE EST DU MÊME ORDRE QUE LES DEUX AUTRES.**
+`tools/README.md` documente déjà `renommer-titres.mjs` et
+`remplacer-passe.mjs` : **il a été écrit à la suite 7 et commité par Tim en
+`6a82030`**. Ma prédiction le rangeait parmi les fichiers que *cette* séance
+allait toucher. *Le README était à jour, donc absent du diff — la prédiction
+portait sur une population « fichiers de la documentation » quand le compteur
+mesure « fichiers modifiés depuis HEAD ».* **Rien n'est dû** : le seul ajout
+documentaire de ce soir, le statut `MARQUE INVALIDE`, est décrit **en tête de
+`derive-traduction.mjs`** et repris dans `CLAUDE.md`, et la section
+`derive-traduction.mjs` du README n'énumère pas les statuts.
+
+---
+
+# BILAN GÉNÉRAL — 29/08 (suite 8)
+
+**39 prédictions publiées avant leur bloc, 37 tenues, 2 réfutées — taux
+5,1 %**, contre 10,3 % à la suite 7, 20,4 % au lot 2, 7,6 % au lot 6.
+**Quatre blocs, quatre gates, zéro arrêt, zéro intervention.**
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 10 | arbitrages (a) et (b), 3 `title:` EN | 8 | 8 | 0 |
+| 11 | arbitrage (c), 40 remplacements | 14 | 13 | 1 |
+| 12 | statut `MARQUE INVALIDE` | 4 | 4 | 0 |
+| 13 | consignation, arbitrage (d) | 5 | 4 | 1 |
+
+✅ **PREMIER BLOC DE LA JOURNÉE ENTIÈREMENT PRÉDIT ET ENTIÈREMENT TENU SUR UN
+COMPTEUR `git status`.** Le bloc 11 déclare **10 / 6** en rejouant sa
+déclaration C131 — deux TSV écrits **avant** la garde, donc comptés — et la
+garde rend **10 / 6**. *L'amendement écrit ce soir se vérifie dans la séance qui
+l'écrit.*
+
+⚠ **LES DEUX RÉFUTATIONS SONT ENCORE DES POPULATIONS, ET LES DEUX SONT
+NOMMÉES.** `numstat` **cumulé depuis HEAD** — corollaire désormais écrit dans
+C131 — et « fichiers de la documentation » lu pour « fichiers modifiés depuis
+HEAD ». **Zéro réfutation sur un verdict** : ni les 32 jugements de puces, ni
+les 3 titres, ni la résolution de (b), ni celle de (d), ni la frontière à
+quatre cas.
+
+**CE QUE LA SÉANCE DÉPLACE, ET C'EST LA MÊME CHOSE DEUX FOIS.** Le conflit de
+premier rang se résout en **déplaçant la garde** d'une rubrique de lecture vers
+une rubrique d'exécution ; le conflit de second rang se résout en **déplaçant la
+contrainte** de la prose vers le code. *Dans les deux cas, la règle ne change
+pas : c'est l'endroit où elle vit qui change.* **Et dans les deux cas, le motif
+est celui de C122, écrit le 27/08 pour l'ASCII : une contrainte relue est une
+contrainte qui cède, une contrainte mesurée laisse une trace datée.**

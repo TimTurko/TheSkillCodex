@@ -1,5 +1,5 @@
 ---
-title: Driving an on/off output on Arduino
+title: Driving a digital output on Arduino
 type: tuto
 phases:
   - preuve-de-concept

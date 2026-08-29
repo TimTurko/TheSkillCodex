@@ -1,0 +1,22 @@
+# Arbitrage Tim (c) du 29/08 (suite 8), cote EN : miroir strict des 20
+# emplacements traites cote FR. Meme frontiere, meme voie de resolution.
+en/embarque/mcu/esp32/esp32-deep-sleep-en.md	but on the idle one — going from 20 mA	but on the idle one: going from 20 mA
+en/embarque/mcu/esp32/esp32-deep-sleep-en.md	a **touch** (interaction) — the chip sleeps until then.	a **touch** (interaction), and the chip sleeps until then.
+en/embarque/mcu/esp32/esp32-deep-sleep-en.md	proof-of-concept phase]]** — if the project runs on battery	proof-of-concept phase]].** If the project runs on battery
+en/embarque/mcu/esp32/esp32-deep-sleep-en.md	- **Sizing the power supply** — the estimate	- **Sizing the power supply.** The estimate
+en/embarque/mcu/esp32/esp32-arduino-core-en.md	tasks and spread them out — see [[esp32-freertos-en|FreeRTOS]].	tasks and spread them out (see [[esp32-freertos-en|FreeRTOS]]).
+en/embarque/mcu/esp32/esp32-arduino-core-en.md	library and version management — handy as soon as	library and version management, handy as soon as
+en/embarque/mcu/esp32/esp32-arduino-core-en.md	proof-of-concept phase]]** — choosing the Arduino core	proof-of-concept phase]].** Choosing the Arduino core
+en/embarque/mcu/esp32/esp32-arduino-core-en.md	- **Reusing an Arduino prototype** — a setup validated	- **Reusing an Arduino prototype.** A setup validated
+en/embarque/mcu/esp32/esp32-freertos-en.md	as soon as it is ready — preemptive scheduling	as soon as it is ready, and preemptive scheduling
+en/embarque/mcu/esp32/esp32-freertos-en.md	- **Preemptive scheduler** — it gives the processor	- **Preemptive scheduler.** It gives the processor
+en/embarque/mcu/esp32/esp32-freertos-en.md	- **Two cores** — on the original ESP32 you can	- **Two cores.** On the original ESP32 you can
+en/embarque/mcu/esp32/esp32-freertos-en.md	- **Queue** — a *producer* task drops	- **Queue.** A *producer* task drops
+en/embarque/mcu/esp32/esp32-freertos-en.md	proof-of-concept phase]]** — as soon as the prototype	proof-of-concept phase]].** As soon as the prototype
+en/embarque/mcu/esp32/esp32-freertos-en.md	- **Control loops and deadlines** — a high-priority control task	- **Control loops and deadlines.** A high-priority control task
+en/embarque/mcu/esp32/esp32-idf-en.md	- **The newest silicon, straight away** — a new Espressif chip	- **The newest silicon, straight away.** A new Espressif chip
+en/embarque/mcu/esp32/esp32-idf-en.md	no loop imposed on you — you explicitly create	no loop imposed on you: you explicitly create
+en/embarque/mcu/esp32/esp32-idf-en.md	- **Arduino as an ESP-IDF component** — you can use the Arduino libraries	- **Arduino as an ESP-IDF component.** You can use the Arduino libraries
+en/embarque/mcu/esp32/esp32-idf-en.md	that the IDF exposes fully — precisely one of its use cases.	that the IDF exposes fully: precisely one of its use cases.
+en/embarque/mcu/esp32/esp32-idf-en.md	proof-of-concept phase]]** — the PoC is almost always	proof-of-concept phase]].** The PoC is almost always
+en/embarque/mcu/esp32/esp32-idf-en.md	- **Moving towards a deliverable** — if the project aims	- **Moving towards a deliverable.** If the project aims

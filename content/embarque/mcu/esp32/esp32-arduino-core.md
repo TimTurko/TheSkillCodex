@@ -54,7 +54,7 @@ void loop() {
 L'Arduino-core ESP32 n'est pas du « bare metal » comme l'Arduino AVR : il tourne **au-dessus de FreeRTOS**. Concrètement :
 
 - **`loop()` est une tâche FreeRTOS.** Le cœur crée une tâche (`loopTask`) qui appelle `setup()` puis répète `loop()`. Le code partage donc le processeur avec les tâches système (pile Wi-Fi/BLE, etc.).
-- **Deux cœurs.** L'ESP32 d'origine a deux cœurs, et `loop()` s'exécute par défaut sur l'un d'eux. On peut créer ses propres tâches et les répartir — voir [[esp32-freertos|FreeRTOS]]. Attention aux variantes : les C3, C6 et H2 sont **mono-cœur** (RISC-V), et `xPortGetCoreID()` y répond toujours `0`.
+- **Deux cœurs.** L'ESP32 d'origine a deux cœurs, et `loop()` s'exécute par défaut sur l'un d'eux. On peut créer ses propres tâches et les répartir (voir [[esp32-freertos|FreeRTOS]]). Attention aux variantes : les C3, C6 et H2 sont **mono-cœur** (RISC-V), et `xPortGetCoreID()` y répond toujours `0`.
 - **Beaucoup plus de mémoire.** Des centaines de kilo-octets de RAM (contre quelques-uns sur un Uno) : les `String`, les buffers, les bibliothèques lourdes passent plus facilement.
 - **L'API native est accessible.** `esp_*`, les fonctions FreeRTOS (`xTaskCreate`, `vTaskDelay`) sont utilisables directement dans un sketch.
 
@@ -158,13 +158,13 @@ Les deux chiffres de mémoire sont **identiques**. C'est le point de la démonst
 
 Deux configurations dépassent l'IDE Arduino :
 
-- **PlatformIO** (extension VS Code) gère l'Arduino-core et l'ESP-IDF dans un même projet, avec gestion fine des bibliothèques et du versionnage — pratique dès que le projet grossit.
+- **PlatformIO** (extension VS Code) gère l'Arduino-core et l'ESP-IDF dans un même projet, avec gestion fine des bibliothèques et du versionnage, pratique dès que le projet grossit.
 - **Arduino comme composant d'ESP-IDF** : on peut utiliser les bibliothèques Arduino *à l'intérieur* d'un projet ESP-IDF natif. On garde le confort Arduino pour certaines parties tout en bénéficiant de l'environnement natif — un pont dans l'autre sens.
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — choisir l'Arduino-core comme environnement de la PoC logicielle est le défaut raisonnable : on avance vite, on garde la porte du natif ouverte. Le réserver permet de ne basculer en [[esp32-idf|ESP-IDF]] que si un verrou précis l'exige.
-- **Réutilisation d'un prototype Arduino** — un montage validé sur Arduino se reporte souvent tel quel sur ESP32 via le core, en gagnant connectivité et mémoire.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Choisir l'Arduino-core comme environnement de la PoC logicielle est le défaut raisonnable : on avance vite, on garde la porte du natif ouverte. Le réserver permet de ne basculer en [[esp32-idf|ESP-IDF]] que si un verrou précis l'exige.
+- **Réutilisation d'un prototype Arduino.** Un montage validé sur Arduino se reporte souvent tel quel sur ESP32 via le core, en gagnant connectivité et mémoire.
 
 Comprendre que l'Arduino-core repose sur FreeRTOS (donc que `loop()` n'est pas seul au monde) évite les pièges de watchdog et prépare le passage au multitâche quand le projet le demande.
 

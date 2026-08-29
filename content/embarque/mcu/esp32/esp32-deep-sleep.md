@@ -24,8 +24,8 @@ Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeu
 
 Le deep sleep répond à un besoin précis : **fonctionner longtemps sur une petite batterie** quand le système n'a rien à faire la plupart du temps.
 
-- **Allonger l'autonomie d'un facteur énorme.** Une station qui mesure toutes les 10 minutes peut dormir 99,9 % du temps. Le gain ne se joue pas sur la consommation active, mais sur celle du repos — passer de 20 mA à 10 µA au repos change l'autonomie d'une pile bouton de quelques jours à plusieurs mois.
-- **Se réveiller au bon moment.** Le réveil est déclenché par un **timer** (mesure périodique), un **bouton/capteur** (événement), ou un **toucher** (interaction) — la puce dort jusque-là.
+- **Allonger l'autonomie d'un facteur énorme.** Une station qui mesure toutes les 10 minutes peut dormir 99,9 % du temps. Le gain ne se joue pas sur la consommation active, mais sur celle du repos : passer de 20 mA à 10 µA au repos change l'autonomie d'une pile bouton de quelques jours à plusieurs mois.
+- **Se réveiller au bon moment.** Le réveil est déclenché par un **timer** (mesure périodique), un **bouton/capteur** (événement), ou un **toucher** (interaction), et la puce dort jusque-là.
 
 > [!warning]
 > **Le réveil est un RESET, pas une reprise.** Au réveil, l'ESP32 redémarre : `setup()` est rejoué depuis le début, le code placé *après* `esp_deep_sleep_start()` n'est jamais atteint, et **toutes les variables ordinaires sont réinitialisées**. Seule la mémoire RTC (voir plus bas) survit. C'est le contresens n°1 sur le deep sleep.
@@ -199,8 +199,8 @@ Entre le fonctionnement normal et le deep sleep existe le **light sleep** : la p
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — si le projet est alimenté sur batterie, valider tôt un cycle réveil → mesure → sommeil et **mesurer la consommation réelle** lève l'incertitude d'autonomie, souvent dimensionnante pour un objet connecté.
-- **Dimensionnement de l'alimentation** — l'estimation de consommation moyenne (cf. exercice 2) conditionne le choix de la batterie et entre dans le dossier technique.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Si le projet est alimenté sur batterie, valider tôt un cycle réveil → mesure → sommeil et **mesurer la consommation réelle** lève l'incertitude d'autonomie, souvent dimensionnante pour un objet connecté.
+- **Dimensionnement de l'alimentation.** L'estimation de consommation moyenne (cf. exercice 2) conditionne le choix de la batterie et entre dans le dossier technique.
 
 Penser le système autour du cycle veille/réveil dès la conception (que faire au réveil, qu'est-ce qui doit survivre) évite de découvrir trop tard qu'une architecture « toujours active » condamne l'autonomie visée.
 
