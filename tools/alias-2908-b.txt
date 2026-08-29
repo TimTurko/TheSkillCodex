@@ -1,0 +1,22 @@
+=== RELEVE DES ALIAS ET DE LEUR STOCK ===
+  fiches balayees : 431   FR 243   EN 188
+  entrees aliases: en FR : 24   distinctes : 24
+  entrees aliases: en EN : 0   sur 0 fiche(s)
+
+  --- COTE FRANCAIS : occurrences visant un ALIAS
+    FC                  26 occ   sur   7 fiche(s)   -> porteuse conduite/proj/fonction.md
+    FP                  12 occ   sur   5 fiche(s)   -> porteuse conduite/proj/fonction.md
+    FS                  12 occ   sur   4 fiche(s)   -> porteuse conduite/proj/fonction.md
+    niveau               7 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    critere              6 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    flexibilite          6 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    alias vises : 6   occurrences : 69
+
+  --- COTE ANGLAIS : stock deja ecrit, cible <alias>-en
+    cibles alias suffixees : 0   occurrences : 0   fiches EN concernees : 0
+
+  --- LES FICHES EN CONCERNEES
+
+  --- EXISTENCE DES CIBLES SUFFIXEES COMME FICHIER
+
+  --- PORTEUSES ET LEUR JUMELLE EN

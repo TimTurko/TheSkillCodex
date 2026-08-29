@@ -19,6 +19,28 @@
  *   3. faux positifs C109 en aval dans --style.
  * Ce script mesure 1 et instrumente 2 (colonne FR / EN du mode --tout).
  *
+ * QUATRIEME SYMPTOME, ET L IDENTITE QUE CE FICHIER DECLARAIT FAUSSE
+ * ----------------------------------------------------------------
+ * L en-tete a longtemps ecrit "ECART = tot - deh - ded ; il doit etre 0
+ * partout", et ECART etait non nul sur 49 porteuses sur 50 (mesure du 29/08
+ * suite 4). L en-tete avait tort, pas le corpus, et le code le disait en
+ * trois lignes :
+ *   - tot compte le texte ENTIER, et le masque C110 est ANCRE EN DEBUT DE
+ *     LIGNE : il ne voit pas "> ```cpp", donc l ETIQUETTE DE LANGAGE de
+ *     l ouverture est comptee comme de la prose ;
+ *   - deh retire les lignes du bloc BORNES COMPRISES, donc pas l etiquette ;
+ *   - ded prend l interieur STRICTEMENT, donc pas l etiquette non plus.
+ * L etiquette n est donc dans ni deh ni ded, et elle est dans tot :
+ *
+ *        tot - deh - ded  =  somme des mots d etiquette de langage
+ *
+ * Preuve par le cas negatif : esp32-idf.md ouvre sur "> ``` " sans etiquette
+ * et sort seule a 0. Arbitrage Tim (b) du 29/08 (suite 5) : l en-tete enonce
+ * cette identite, le script COMPTE les etiquettes dans la colonne etiq, et
+ * ECART ne s imprime QUE s il en differe. Un ECART imprime redevient alors
+ * ce qu il pretendait etre - une anomalie : cloture orpheline, texte apres
+ * une cloture, ou ouverture qui n est pas un fence.
+ *
  * LA REGLE DE COMPTAGE N EST PAS REIMPLEMENTEE
  * --------------------------------------------
  * compterMots est IMPORTE de compter-mots.mjs, ou vit la regle figee de C110.
@@ -56,12 +78,23 @@ const estCloture = (ligne) => /^\s{0,3}>/.test(ligne) && ligne.includes('```');
 // Prefixe de citation a retirer pour rendre au contenu sa forme de code.
 const PREFIXE = /^\s{0,3}>\s?/;
 
+// L ETIQUETTE DE LANGAGE d une ouverture : la ligne privee de son prefixe
+// de citation, puis du fence d apostrophes inversees. "> ```cpp" -> "cpp".
+// Ce qui ne commence pas par un fence n a pas d etiquette (chaine vide) :
+// le cas se signale alors de lui-meme par un ECART imprime.
+const etiquette = (ligne) => {
+  const nu = ligne.replace(PREFIXE, '');
+  const m = /^`{3,}(.*)$/.exec(nu);
+  return m ? m[1] : '';
+};
+
 const REGLE = [
   'Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois',
   'apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU',
   'est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.',
   'Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).',
   'dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.',
+  'etiq est MESURE sur les etiquettes de langage des ouvertures appariees.',
 ].join('\n  ');
 
 function walk(dir, acc = []) {
@@ -96,11 +129,13 @@ function analyse(rel) {
   const dansBloc = new Set();
   const contenu = [];
   const entetes = [];
+  const etiquettes = [];
   for (const [a, b] of paires) {
     for (let i = a; i <= b; i += 1) dansBloc.add(i);
     const corps = [];
     for (let i = a + 1; i < b; i += 1) corps.push(lignes[i].replace(PREFIXE, ''));
     contenu.push(...corps);
+    etiquettes.push(etiquette(lignes[a]));
     entetes.push({ ligne: a + 1, hauteur: b - a - 1, ouv: lignes[a].trim(), corps });
   }
 
@@ -114,6 +149,10 @@ function analyse(rel) {
     total: compterMots(texte),
     dedans: compterMots(contenu.join('\n')),
     dehors: compterMots(hors),
+    // Mesure INDEPENDANTE de tot - deh - ded : c est ce qui en fait un
+    // controle et non une reecriture de la meme soustraction.
+    etiq: compterMots(etiquettes.join('\n')),
+    etiquetes: etiquettes.filter((e) => e.trim() !== '').length,
     entetes,
   };
 }
@@ -128,9 +167,12 @@ function ligneRapport(r) {
     String(r.total).padStart(7) + ' tot' +
     String(r.dedans).padStart(6) + ' ded' +
     String(r.dehors).padStart(7) + ' deh' +
+    String(r.etiq).padStart(5) + ' etiq' +
     part.padStart(7) + ' %' +
     (r.orpheline ? '  ORPHELINE' : '') +
-    (ecart === 0 ? '' : '  ECART:' + ecart)
+    // ECART ne s imprime QUE s il s ecarte de l identite : il redevient un
+    // signal d anomalie au lieu d etre allume sur presque toutes les lignes.
+    (ecart === r.etiq ? '' : '  ECART:' + ecart + ' (etiq ' + r.etiq + ')')
   );
 }
 
@@ -140,8 +182,14 @@ function enTete(titre) {
   console.log('');
   console.log('  cl = clotures, bl = blocs, tot = mots C110 de la fiche,');
   console.log('  ded = mots DANS les blocs, deh = mots HORS les blocs,');
+  console.log('  etiq = mots des etiquettes de langage des ouvertures,');
   console.log('  % = part des mots comptes qui vient des blocs.');
-  console.log('  ECART non nul = tot - deh - ded ; il doit etre 0 partout.');
+  console.log('  IDENTITE : tot - deh - ded = etiq. Les lignes d ouverture et de');
+  console.log('  cloture sont hors deh (bornes comprises) et hors ded (contenu pris');
+  console.log('  strictement entre elles) ; le masque C110 est ancre en debut de');
+  console.log('  ligne et ne voit pas "> ```cpp", donc l etiquette reste dans tot.');
+  console.log('  ECART ne s imprime QUE s il differe de etiq : cloture orpheline,');
+  console.log('  texte apres une cloture, ouverture qui n est pas un fence.');
   console.log('');
 }
 
@@ -154,7 +202,8 @@ function total(rs, titre) {
     String(s((r) => r.blocs)).padStart(4) + ' bl' +
     String(s((r) => r.total)).padStart(7) + ' tot' +
     String(s((r) => r.dedans)).padStart(6) + ' ded' +
-    String(s((r) => r.dehors)).padStart(7) + ' deh'
+    String(s((r) => r.dehors)).padStart(7) + ' deh' +
+    String(s((r) => r.etiq)).padStart(5) + ' etiq'
   );
 }
 

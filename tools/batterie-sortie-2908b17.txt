@@ -1,0 +1,333 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b16.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 18:35:20
+
+HEAD git : 1846e6c 2026-08-29 17:37:55 +0200
+fichiers modifies non commites : 22   (hors artefacts de seance : 19)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 17:32:23
+  conventions.md                                      2026-08-29 17:33:51
+  TODO.md                                             2026-08-29 17:34:54
+  embarque/mcu/esp32/esp32-wifi.md                    2026-08-20 23:01:54
+  embarque/mcu/esp32/esp32-ble.md                     2026-08-21 12:54:57
+  embarque/mcu/esp32/esp32-uart.md                    2026-08-19 10:00:37
+  embarque/mcu/esp32/esp32-i2c.md                     2026-08-19 10:00:04
+  embarque/mcu/esp32/esp32-spi.md                     2026-08-19 10:00:24
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/esp32/esp32-wifi.md                           1455
+  embarque/mcu/esp32/esp32-ble.md                            1279
+  embarque/mcu/esp32/esp32-uart.md                           1282
+  embarque/mcu/esp32/esp32-i2c.md                            1143
+  embarque/mcu/esp32/esp32-spi.md                            1150
+  ---------------------------------------------------------------
+  LOT (5 fiches)                                             6309
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/esp32/esp32-wifi.md
+      18  [C109] tiret d incise
+          …ès**), puis échange des données — interroger une API, exposer une…
+      18  [C109] point-virgule de prose
+          …es sans fil]] et [[wifi|Wi-Fi]] ; cette fiche en donne l'incarnati…
+      24  [C109] point-virgule de prose
+          …éo, une consigne depuis une API ; envoyer des mesures vers un serv…
+      25  [C109] point-virgule de prose
+          …P32 héberge une petite page web ; on pilote le système et on lit s…
+      29  [C109] tiret d incise
+          …être sur **ADC1** (`GPIO32-39`) — voir [[esp32-gpio|configurer les…
+      70  [C109] tiret d incise
+          …te pour ne pas noyer leur sujet — en projet, reprendre ce motif bo…
+      87  [C109] tiret d incise
+          …ne, puis on ouvre `192.168.4.1` — pratique en démonstration sur ta…
+      96  [C109] tiret d incise
+          *Câblage : LED sur `GPIO16` — voir le montage de [[esp32-gpio|…
+     149  [C109] tiret d incise
+          …HTTP simple**, sans chiffrement — l'ESP32 n'a pas de certificat, e…
+     161  [C109] point-virgule de prose
+          …appelle des pointes de courant ; sur une alimentation USB faible,…
+     171  [C109] point-virgule de prose
+          …ie le nombre de réseaux trouvés ; on lit ensuite chaque entrée par…
+     252  [C109] tiret d incise
+          …gueur, le certificat du serveur — sujet plus avancé, à voir dans l…
+
+  embarque/mcu/esp32/esp32-ble.md
+      18  [C109] tiret d incise
+          …E vise le lien direct et frugal — capteur qui publie une mesure, t…
+      18  [C109] point-virgule de prose
+          …s fil]] et [[ble|Bluetooth LE]] ; cette fiche en donne l'incarnati…
+      24  [C109] tiret d incise
+          …e** — température, niveau, état — qu'une application mobile lit en…
+      29  [C109] tiret d incise
+          …*ESP32-S2 n'a aucun Bluetooth** — à vérifier selon la carte (voir…
+      29  [C109] point-virgule de prose
+          …données par *caractéristiques* ; le Bluetooth Classic (audio, por…
+      29  [C109] point-virgule de prose
+          …** possède le Bluetooth Classic ; toutes les autres variantes sont…
+      38  [C109] point-virgule de prose
+          …serveur **diffuse** sa présence ; le client le découvre lors d'un…
+      40  [C109] point-virgule de prose
+          …e contenant une caractéristique ; un téléphone scanne, se connecte…
+      94  [C109] tiret d incise
+          …ications sur la caractéristique — la valeur s'incrémente en direct…
+      97  [C109] tiret d incise
+          …ce format binaire, plus compact — le texte est un confort de mise…
+     103  [C109] tiret d incise
+          …l », c'est le Bluetooth Classic — uniquement sur l'ESP32 d'origine…
+     109  [C109] point-virgule de prose
+          …e client cherche un UUID précis ; un caractère faux côté serveur e…
+     111  [C109] point-virgule de prose
+          …tégrée occupe beaucoup de Flash ; un sketch BLE + Wi-Fi peut dépas…
+     117  [C109] tiret d incise
+          …ur `GPIO34` et LED sur `GPIO16` — voir les montages de [[esp32-gpi…
+     123  [C109] point-virgule de prose
+          …e la source de la valeur change ; toute la structure BLE reste ide…
+     138  [C109] tiret d incise
+          …ristique est exactement la même — c'est l'intérêt du modèle GATT :…
+     141  [C109] point-virgule de prose
+          …carte allume une LED (`GPIO16`) ; `0`, elle l'éteint. Indice : un…
+     163  [C109] tiret d incise
+          …a caractéristique pilote la LED — une télécommande sans applicatio…
+     185  [C109] point-virgule de prose
+          …anner intensif sans précautions ; pour les rôles mixtes, prévoir l…
+     192  [C109] tiret d incise
+          …ite de surdimensionner la radio — le BLE est plus frugal quand Int…
+     198  [C109] point-virgule de prose
+          …et en RAM que la pile intégrée ; recommandée dès que la place man…
+
+  embarque/mcu/esp32/esp32-uart.md
+      20  [C109] tiret d incise
+          …SP32 avec **un autre appareil** — module GPS, lecteur RFID, second…
+      20  [C109] tiret d incise
+          …PS, lecteur RFID, seconde carte — sur deux fils (TX et RX) plus un…
+      20  [C109] tiret d incise
+          …es broches sont **remappables** — inutile de recourir à `SoftwareS…
+      26  [C109] point-virgule de prose
+          …ache en continu des trames NMEA ; on les lit sur un port dédié pen…
+      38  [C109] tiret d incise
+          …moniteur et au journal de boot — on **ne s'en sert pas** pour un…
+      51  [C109] point-virgule de prose
+          …re **identique des deux côtés** ; il est imposé par la datasheet d…
+      60  [C109] tiret d incise
+          …rcaler une adaptation de niveau — voir [[niveaux-de-tension|niveau…
+      60  [C109] point-virgule de prose
+          …la tension de sortie du module ; au-delà de 3,3 V, intercaler une…
+      72  [C109] tiret d incise
+          …i répondre en tapant au clavier — idéal pour tester un module séri…
+     109  [C109] tiret d incise
+          …it rien après la première ligne — c'est le symptôme à reconnaître.
+     113  [C109] tiret d incise
+          …ne circule. TX émet, RX écoute — les deux fils se **croisent** (T…
+     156  [C109] tiret d incise
+          …s octets jusqu'au saut de ligne — plus pratique que `read()` octet…
+     175  [C109] point-virgule de prose
+          …es par défaut servent la Flash) ; on choisit deux GPIO libres.
+     181  [C109] tiret d incise
+          …T matériels disponibles diffère — se reporter au brochage de la ca…
+     188  [C109] point-virgule de prose
+          …grand classique de l'assemblage ; le pont de l'exemple sert à véri…
+
+  embarque/mcu/esp32/esp32-i2c.md
+      20  [C109] tiret d incise
+          …i relie plusieurs périphériques — capteurs, écrans OLED, horloges…
+      20  [C109] tiret d incise
+          …crans OLED, horloges temps réel — à l'ESP32, chacun repéré par une…
+      20  [C109] point-virgule de prose
+          …ote avec la bibliothèque `Wire` ; ses broches par défaut sont **GP…
+      38  [C109] tiret d incise
+          …des modules les intègrent déjà — inutile d'en ajouter si un seul…
+      43  [C109] tiret d incise
+          …ercaler un adaptateur de niveau — voir [[niveaux-de-tension|niveau…
+     120  [C109] point-virgule de prose
+          …le avec tirages intégrés suffit ; sinon, ajouter deux résistances…
+     122  [C109] tiret d incise
+          …ors à 5 V sur des broches 3,3 V — risque de destruction. Alimenter…
+     130  [C109] point-virgule de prose
+          …ité des fils déforme les fronts ; sur une liaison longue, redescen…
+     138  [C109] point-virgule de prose
+          …liothèque gère les échanges I2C ; on initialise l'écran à son adre…
+     180  [C109] point-virgule de prose
+          …rs I2C**. Le premier est `Wire` ; le second s'instancie via `TwoWi…
+     182  [C109] point-virgule de prose
+          …ient à des liaisons **courtes** ; sur des fils longs, rester à 100…
+     184  [C109] tiret d incise
+          …r défaut diffèrent de GPIO21/22 — vérifier le brochage via [[esp32…
+     188  [C109] point-virgule de prose
+          …e sans électronique d'interface ; le scanner confirme le câblage e…
+     189  [C109] point-virgule de prose
+          …âblage du sous-système embarqué ; l'écran I2C affiche l'état en di…
+
+  embarque/mcu/esp32/esp32-spi.md
+      20  [C109] tiret d incise
+          …2 à des périphériques exigeants — carte SD, écran TFT, capteurs à…
+      20  [C109] tiret d incise
+          …cran TFT, capteurs à haut débit — sur **quatre fils** : SCK (horlo…
+      20  [C109] tiret d incise
+          …, et elles sont **remappables** — au prix d'une vitesse plafonnée…
+      20  [C109] point-virgule de prose
+          …lisables (**VSPI** et **HSPI**) ; les broches VSPI par défaut sont…
+      26  [C109] point-virgule de prose
+          …enregistre mesures et journaux ; c'est l'usage le plus courant du…
+      38  [C109] tiret d incise
+          …hip Select) est propre à chacun — c'est lui qui désigne le module…
+      38  [C109] point-virgule de prose
+          …à tous les périphériques du bus ; seul le **CS** (Chip Select) est…
+      43  [C109] tiret d incise
+          …, soit passer par un adaptateur — voir [[niveaux-de-tension|niveau…
+      47  [C109] point-virgule de prose
+          …t souvent `begin()` elles-mêmes ; on leur passe surtout le **CS**…
+     100  [C109] point-virgule de prose
+          …e le bus VSPI et monte la carte ; `SD.open(..., FILE_WRITE)` ouvre…
+     114  [C109] tiret d incise
+          …sés.** Réflexe hérité de l'UART — mais le SPI **ne croise pas** :…
+     132  [C109] tiret d incise
+          …on écrit une ligne, on referme — à cadence non bloquante.
+     159  [C109] point-virgule de prose
+          …` écrit à la suite sans effacer ; refermer après chaque ligne gara…
+     165  [C109] point-virgule de prose
+          > Ils partagent SCK/MOSI/MISO ; chacun a **son** CS sur un GPIO…
+     179  [C109] point-virgule de prose
+          …ceau (SCK/MOSI/MISO) est commun ; c'est le CS, actif à l'état bas,…
+     190  [C109] point-virgule de prose
+          …es natives** (VSPI : 18/19/23/5 ; HSPI : 14/12/13/15) autorisent j…
+     190  [C109] point-virgule de prose
+          …3/15) autorisent jusqu'à 80 MHz ; des broches remappées plafonnent…
+     192  [C109] tiret d incise
+          …es broches par défaut diffèrent — se reporter au brochage via [[es…
+     196  [C109] point-virgule de prose
+          …ement, le SPI est le bus adapté ; l'exemple carte SD valide l'enre…
+     197  [C109] point-virgule de prose
+          …trace exploitable a posteriori ; l'écran TFT affiche l'état du sy…
+
+5 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 82   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 26   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 94
+    RESTANT                   : 51
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-ble                           1279   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-i2c                           1143   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/esp32/esp32-spi                           1150   chevron:4
+  embarque/mcu/esp32/esp32-uart                          1282   chevron:4
+  embarque/mcu/esp32/esp32-wifi                          1455   chevron:4
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (51 fiches)                     73305
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 15
+    clotures en chevron       : 56   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 188
+  cibles rouges distinctes     : 52
+  mots                         : 74145
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

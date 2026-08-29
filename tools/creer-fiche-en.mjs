@@ -58,6 +58,15 @@
  *         leur ponctuation et leur typographie francaises ne sont pas de la
  *         prose publiee, et les faire remonter rendait le verdict illisible
  *   node tools/creer-fiche-en.mjs --libelles         (libelle de wikilink ne recoupant pas le title: de sa cible)
+ *   node tools/creer-fiche-en.mjs --alt             (alt d embed EN compare a l alt FR de meme rang)
+ *       - QUATRIEME TAMIS. --style range l alt en hors-perimetre pour les
+ *         candidats C109 et n y fait mordre que la typographie francaise ;
+ *         audit-medias.mjs capture l alt mais n audite que le CHEMIN ;
+ *         --controle ne compare que des NOMBRES d embeds. Un alt francais
+ *         a typographie propre ne declenchait donc rien (29/08 suite 5).
+ *       - trois verdicts MECANIQUES : IDENTIQUE (alt EN = alt FR a l octet),
+ *         VIDE, MOT FR (lettre accentuee ou mot-outil d une liste nommee)
+ *       - exemptions NOMMEES, une par fiche, avec leur motif ecrit
  *   node tools/creer-fiche-en.mjs --front            (anneau 1 depuis les quatre index : perimetre et volume du lot)
  *       - resolution par chemin complet puis par nom de fichier UNIQUE ; un
  *         nom porte par plusieurs fiches sort en AMBIGU au lieu d etre ecrase
@@ -130,6 +139,7 @@ const CONTROLE = args.includes('--controle');
 const RECALER = args.includes('--recaler');
 const STYLE = args.includes('--style');
 const LIBELLES = args.includes('--libelles');
+const ALT = args.includes('--alt');
 const FRONT = args.includes('--front');
 const ANNEAU = args.includes('--anneau');
 // Rang demande. Defaut 1, qui reproduit --front : le banc de non-regression du
@@ -200,6 +210,52 @@ for (const f of walk(CONTENT)) {
   titreParChemin.set(sansExt, titre);
   const court = basename(sansExt);
   if (!titreParSlug.has(court)) titreParSlug.set(court, titre);
+}
+
+/* ---------- index des ALIAS FR -> fiche porteuse ---------- */
+
+// UN WIKILINK QUI VISE UN ALIAS NE PEUT PAS ETRE SUFFIXE VERS L ALIAS.
+// Les aliases sont RETIRES des fiches EN (voir transformerFrontMatter), au
+// motif d eviter une resolution croisee FR/EN. Consequence mesuree le 29/08
+// (suite 5) : [[FC]] devenait [[FC-en]], un slug qui n aura JAMAIS de fiche -
+// donc un lien rouge que la traduction de la cible ne repare pas. Six cibles
+// alias, 69 occurrences cote FR, 50 deja ecrites cote EN.
+// Arbitrage Tim (c) du 29/08 (suite 5) : le generateur suffixe vers la FICHE
+// PORTEUSE. [[FC]] rend [[fonction-en|FC]] - rouge aujourd hui, mais VERT le
+// jour ou fonction.md sera traduite.
+//
+// La lecture des aliases est une COPIE VERBATIM de readAliases
+// (audit-wikilinks.mjs l.64-89), l outil qui resout deja ces liens
+// correctement : deux implementations justes sous la meme phrase divergent.
+function lireAliases(texte) {
+  const fm = texte.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fm) return [];
+  const bloc = fm[1];
+  const inline = bloc.match(/^aliases:\s*\[(.*)\]\s*$/m);
+  if (inline) {
+    return inline[1].split(',').map((x) => x.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+  }
+  const liste = bloc.match(/^aliases:\s*\r?\n((?:\s*-\s*.+\r?\n?)+)/m);
+  if (liste) {
+    return liste[1]
+      .split(/\r?\n/)
+      .map((l) => l.replace(/^\s*-\s*/, '').trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+  }
+  return [];
+}
+
+const porteuseParAlias = new Map(); // alias -> slug court de la fiche porteuse
+
+for (const f of walk(CONTENT)) {
+  const web = versWeb(f);
+  if (web.startsWith('en/') || web.startsWith('templates/')) continue;
+  const court = basename(web.replace(/\.md$/, ''));
+  for (const a of lireAliases(readFileSync(f, 'utf8'))) {
+    // Un alias qui porte le nom d une fiche reelle n en est pas un ici : la
+    // fiche gagne, et le suffixage normal s applique.
+    if (!porteuseParAlias.has(a)) porteuseParAlias.set(a, court);
+  }
 }
 
 /* ---------- decoupage code / non-code ---------- */
@@ -294,13 +350,28 @@ function transformerLien(brut, journal) {
   const [chemin, ancre] = cibleBrute.split('#');
   if (!chemin) return '[[' + brut + ']]'; // [[#ancre]] purement interne
 
+  // ARBITRAGE (c) DU 29/08 (suite 5) : une cible qui est un ALIAS et non une
+  // fiche se suffixe vers sa PORTEUSE. La fiche gagne toujours sur l alias -
+  // titreParSlug ne porte que des fiches reelles.
+  let cheminCible = chemin;
+  let aliasVise = null;
+  if (
+    !chemin.includes('/') &&
+    !titreParSlug.has(chemin) &&
+    porteuseParAlias.has(chemin)
+  ) {
+    aliasVise = chemin;
+    cheminCible = porteuseParAlias.get(chemin);
+    journal.aliasResolus.push(chemin + ' -> ' + cheminCible);
+  }
+
   let nouveauChemin;
-  if (chemin.includes('/')) {
-    const segs = chemin.split('/');
+  if (cheminCible.includes('/')) {
+    const segs = cheminCible.split('/');
     segs[segs.length - 1] = suffixer(segs[segs.length - 1]);
     nouveauChemin = 'en/' + segs.join('/');
   } else {
-    nouveauChemin = suffixer(chemin);
+    nouveauChemin = suffixer(cheminCible);
   }
 
   if (ancre !== undefined) {
@@ -310,7 +381,14 @@ function transformerLien(brut, journal) {
 
   let nouveauLibelle = libelle;
   if (nouveauLibelle === null) {
-    const titre = titreParChemin.get(chemin) || titreParSlug.get(basename(chemin)) || chemin;
+    // Sur un alias, le libelle par defaut est L ALIAS et non le titre de la
+    // porteuse : le corpus ecrit [[FC]] parce que FC est la designation qui
+    // porte le sens a cet endroit. Y substituer "Fonction" perdrait ce que le
+    // lien disait, et C109 n a rien a arbitrer sur un sigle.
+    const titre = aliasVise
+      || titreParChemin.get(chemin)
+      || titreParSlug.get(basename(chemin))
+      || chemin;
     nouveauLibelle = titre;
     journal.libellesAjoutes.push(chemin + ' -> ' + titre);
   }
@@ -464,6 +542,7 @@ function traiter(rel) {
     ancres: [],
     libellesAjoutes: [],
     aliasesRetires: [],
+    aliasResolus: [],
     prerequisSuffixes: 0,
     draftInsere: false,
   };
@@ -504,6 +583,12 @@ function traiter(rel) {
   if (journal.ancresMd.length) {
     console.log('  ANCRES INTRA-PAGE A REECRIRE APRES TRADUCTION DES TITRES (' + journal.ancresMd.length + ') :');
     for (const a of journal.ancresMd) console.log('      ' + a);
+  }
+  if (journal.aliasResolus.length) {
+    console.log('  alias resolus vers leur porteuse (' + journal.aliasResolus.length + ') :');
+    const parAlias = new Map();
+    for (const a of journal.aliasResolus) parAlias.set(a, (parAlias.get(a) || 0) + 1);
+    for (const [a, n] of parAlias) console.log('      ' + a + '   x' + n);
   }
   if (journal.aliasesRetires.length) {
     console.log('  aliases retires (' + journal.aliasesRetires.length + ' ligne(s)) :');
@@ -550,7 +635,7 @@ function recette() {
     const source = readFileSync(join(CONTENT, rel.split('/').join(sep)), 'utf8');
     const fm = frontMatter(source);
     if (!fm) continue;
-    const journal = { ancres: [], libellesAjoutes: [], aliasesRetires: [], prerequisSuffixes: 0, draftInsere: false };
+    const journal = { ancres: [], libellesAjoutes: [], aliasesRetires: [], aliasResolus: [], prerequisSuffixes: 0, draftInsere: false };
     journal.ancresMd = ancresIntraPage(fm.corps);
     ancresMd += journal.ancresMd.length;
     const corpsEn = segmenter(fm.corps)
@@ -1519,6 +1604,191 @@ function dette(g, vus, rang) {
   }
 }
 
+/* ---------- mode --alt : le quatrieme tamis ---------- */
+
+// L ALT EST BALAYE PAR UN SEUL TAMIS SUR QUATRE (instruit le 29/08 suite 5).
+// --style range l alt en hors-perimetre pour les candidats C109 et n y fait
+// mordre que le verdict "typographie francaise" ; audit-medias.mjs capture
+// l alt dans LIEN_MD mais n audite que le CHEMIN ; --controle ne compare que
+// des NOMBRES d embeds. Un alt francais a typographie propre ne declenche
+// donc rien, et les deux seuls trouves l ont ete A LA MAIN, en deux seances
+// (26/08 suite 4, 29/08 suite 4).
+//
+// Ce mode compare l alt EN a l alt FR de MEME RANG dans la fiche source et
+// rend trois verdicts MECANIQUES. Il n ecrit rien.
+
+// EXEMPTION NOMMEE, une entree par fiche, motif ecrit a cote. Arbitrage Tim
+// du 29/08 (suite 5) sur tinkercad : la capture montre a l etudiant ce qui va
+// se passer au clic, et RIEN NE BOUGE, alt compris. Les formes francaises qui
+// subsistent cote EN - "Creer un nouveau Circuit", "Blocs", "Texte" - sont des
+// LIBELLES D INTERFACE INCRUSTES DANS L IMAGE, donc du C113 applique a la
+// capture : ce que le programme DESIGNE ne se traduit pas. Sans cette ligne le
+// mode remonterait la paire a chaque lancement.
+const EXEMPTIONS_ALT = new Map([
+  [
+    'en/embarque/mcu/arduino/tinkercad-en.md',
+    'arbitrage Tim 29/08 (suite 5) : libelles d interface incrustes dans les captures (C113)',
+  ],
+]);
+
+// Le suffixe de taille d Obsidian "|600" fait partie de l alt BRUT, donc du
+// test IDENTIQUE, et doit sortir des tests VIDE et MOT FR : sans cela un alt
+// reduit a "|600" passerait pour rempli.
+const TAILLE_ALT = /\|\s*\d+\s*$/;
+
+// (a) une lettre latine ACCENTUEE. Un alt anglais n en porte pas, sauf nom
+// propre ou libelle d interface - et le second est ce que l exemption couvre.
+// CORRECTIF E1 du 29/08 (suite 6). L intervalle A-y contient U+00D7 x et
+// U+00F7 /, deux SIGNES MATHEMATIQUES loges au milieu du bloc Latin-1 : il
+// criait sur deux alt anglais irreprochables ("3 solutions x 5 weighted
+// criteria"). L echantillon nomme ne les portait pas.
+const ACCENT_FR = /[À-ÖØ-öø-ÿŒœŸ]/u;
+
+// (b) une LISTE NOMMEE de mots-outils francais (C110 : le motif se teste sur
+// un echantillon nomme avant de compter). Elle est PURGEE DES HOMOGRAPHES
+// ANGLAIS : a, an, on, in, son, ton, plus, car, or, pas, no, aux, mode, note,
+// page, sale, train n y figurent pas, faute de quoi le motif crierait sur de
+// l anglais parfaitement correct.
+const MOTS_FR = [
+  'le', 'la', 'les', 'un', 'une', 'des', 'du', 'de', 'au', 'et', 'ou',
+  'dans', 'sur', 'sous', 'avec', 'sans', 'pour', 'vers', 'chez', 'entre',
+  'puis', 'donc', 'ainsi', 'alors', 'avant', 'apres', 'pendant', 'depuis',
+  'qui', 'que', 'dont', 'quand', 'comme', 'selon', 'lorsque', 'tandis',
+  'est', 'sont', 'etait', 'sera', 'ont', 'meme', 'memes',
+  'ce', 'cet', 'cette', 'ces', 'leur', 'leurs', 'notre', 'votre', 'nos',
+  'vos', 'ses', 'mes', 'tes', 'tout', 'tous', 'toute', 'toutes', 'autre',
+  'autres', 'deux', 'trois', 'quatre', 'gauche', 'droite', 'haut', 'bas',
+  'ecran', 'fenetre', 'bouton', 'carte', 'fil', 'fils', 'ligne', 'lignes',
+  'vue', 'branche', 'branchee', 'allumee', 'eteinte', 'affiche', 'montre',
+];
+const MOTIF_MOTS_FR = new RegExp(
+  '(^|[^\\p{L}])(' + MOTS_FR.join('|') + ')([^\\p{L}]|$)',
+  'iu'
+);
+
+// L alt et sa cible, dans l ordre du fichier. EMBED est le motif deja en
+// service pour le compteur d embeds de --controle : le mode ne reimplemente
+// pas ce qu il doit recouper.
+function embedsDe(texte) {
+  const corps = (frontMatter(texte) || { corps: texte }).corps;
+  const sortie = [];
+  for (const brut of corps.match(EMBED) || []) {
+    const m = /^!\[([\s\S]*)\]\(([^)]*)\)$/.exec(brut);
+    if (!m) continue;
+    const altBrut = m[1];
+    sortie.push({
+      brut: altBrut,
+      texte: altBrut.replace(TAILLE_ALT, '').trim(),
+      cible: m[2].trim(),
+    });
+  }
+  return sortie;
+}
+
+function motFrDe(txt) {
+  const acc = ACCENT_FR.exec(txt);
+  if (acc) return 'accent ' + acc[0];
+  const m = MOTIF_MOTS_FR.exec(txt);
+  return m ? 'mot ' + m[2] : null;
+}
+
+function alt() {
+  const fichesEn = walk(join(CONTENT, 'en')).map(versWeb).sort();
+
+  console.log('=== CONTROLE DES ALT (quatrieme tamis) ===');
+  console.log('  L alt EN est compare a l alt FR de MEME RANG dans la source.');
+  console.log('  IDENTIQUE : l alt EN reproduit l alt FR a l octet (non traduit).');
+  console.log('  VIDE      : l alt EN est vide une fois le suffixe |NNN retire.');
+  console.log('  MOT FR    : lettre accentuee, ou mot-outil d une liste nommee.');
+  console.log('  Le suffixe |NNN entre dans IDENTIQUE, sort des deux autres.');
+  console.log('  Exemptions nommees : ' + EXEMPTIONS_ALT.size + ' fiche(s).');
+  console.log('');
+
+  let porteuses = 0;
+  let embeds = 0;
+  let divergentes = 0;
+  let sansSource = 0;
+  let identiques = 0;
+  let vides = 0;
+  let motsFr = 0;
+  let exemptes = 0;
+  let exemptesQuiAuraientMordu = 0;
+
+  for (const relEn of fichesEn) {
+    const texteEn = readFileSync(join(CONTENT, relEn.split('/').join(sep)), 'utf8');
+    const en = embedsDe(texteEn);
+    if (!en.length) continue;
+    porteuses += 1;
+    embeds += en.length;
+
+    const fmEn = frontMatter(texteEn);
+    const mSource = fmEn && fmEn.bloc.match(/^source_fr:\s*(.+?)\s*$/m);
+    let fr = [];
+    if (!mSource) {
+      sansSource += 1;
+      console.log('  [?] ' + relEn + ' : pas de source_fr, comparaison impossible');
+    } else {
+      const absFr = join(CONTENT, mSource[1].split('/').join(sep));
+      if (existsSync(absFr)) {
+        fr = embedsDe(readFileSync(absFr, 'utf8'));
+      } else {
+        sansSource += 1;
+        console.log('  [?] ' + relEn + ' : source introuvable (' + mSource[1] + ')');
+      }
+    }
+
+    const exempt = EXEMPTIONS_ALT.get(relEn);
+    const lignes = [];
+    if (fr.length && fr.length !== en.length) {
+      divergentes += 1;
+      lignes.push('      DIVERGENCE de nombre : FR ' + fr.length + ' / EN ' + en.length);
+    }
+
+    for (let i = 0; i < en.length; i += 1) {
+      const a = en[i];
+      const b = fr[i];
+      const causes = [];
+      if (a.texte === '') causes.push('VIDE');
+      else if (b && a.brut === b.brut) causes.push('IDENTIQUE');
+      const mf = a.texte === '' ? null : motFrDe(a.texte);
+      if (mf) causes.push('MOT FR (' + mf + ')');
+      if (!causes.length) continue;
+
+      if (exempt) {
+        exemptesQuiAuraientMordu += 1;
+        continue;
+      }
+      for (const c of causes) {
+        if (c === 'VIDE') vides += 1;
+        else if (c === 'IDENTIQUE') identiques += 1;
+        else motsFr += 1;
+      }
+      lignes.push('      #' + (i + 1) + '  ' + causes.join(' + '));
+      lignes.push('          EN  ' + JSON.stringify(a.brut));
+      lignes.push('          FR  ' + (b ? JSON.stringify(b.brut) : '(pas de rang correspondant)'));
+      lignes.push('          ->  ' + a.cible);
+    }
+
+    if (exempt) {
+      exemptes += en.length;
+      console.log('  [exempte] ' + relEn + '   ' + en.length + ' embed(s) - ' + exempt);
+      continue;
+    }
+    if (lignes.length) {
+      console.log('  [!] ' + relEn);
+      for (const l of lignes) console.log(l);
+    }
+  }
+
+  const verdicts = identiques + vides + motsFr;
+  console.log('');
+  console.log('  fiches EN balayees : ' + fichesEn.length + '   porteuses d embed : ' + porteuses + '   embeds : ' + embeds);
+  console.log('  paires a nombre d embeds divergent : ' + divergentes + '   sans source exploitable : ' + sansSource);
+  console.log('  IDENTIQUE : ' + identiques + '   VIDE : ' + vides + '   MOT FR : ' + motsFr + '   (total ' + verdicts + ', hors exemptions)');
+  console.log('  exemptes : ' + exemptes + ' embed(s), dont ' + exemptesQuiAuraientMordu + ' auraient declenche');
+  process.exit(verdicts ? 1 : 0);
+}
+
 /* ---------- point d'entree ---------- */
 
 if (RECETTE) {
@@ -1531,6 +1801,8 @@ if (RECETTE) {
   );
 } else if (LIBELLES) {
   libelles();
+} else if (ALT) {
+  alt();
 } else if (FRONT) {
   front();
 } else if (ANNEAU) {
@@ -1550,6 +1822,7 @@ if (RECETTE) {
   console.error('        node tools/creer-fiche-en.mjs --recaler <fiche EN>');
   console.error('        node tools/creer-fiche-en.mjs --style [fiche...]');
   console.error('        node tools/creer-fiche-en.mjs --libelles');
+  console.error('        node tools/creer-fiche-en.mjs --alt');
   console.error('        node tools/creer-fiche-en.mjs --front');
   console.error('        node tools/creer-fiche-en.mjs --anneau <N>   (N=1 reproduit --front)');
   process.exit(1);

@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-Le **Bluetooth Low Energy (BLE)** est la seconde radio intégrée de l'ESP32 : une liaison courte portée, très économe, conçue pour échanger de **petites quantités de données** entre un objet et un téléphone ou un autre appareil. Là où le Wi-Fi vise le réseau et Internet, le BLE vise le lien direct et frugal — capteur qui publie une mesure, télécommande, configuration depuis une application mobile. C'est, comme le Wi-Fi, une capacité absente de l'Arduino classique. Le concept général est traité dans [[techno-sans-fil|technologies sans fil]] et [[ble|Bluetooth LE]] ; cette fiche en donne l'incarnation ESP32.
+Le **Bluetooth Low Energy (BLE)** est la seconde radio intégrée de l'ESP32 : une liaison courte portée, très économe, conçue pour échanger de **petites quantités de données** entre un objet et un téléphone ou un autre appareil. Là où le Wi-Fi vise le réseau et Internet, le BLE vise le lien direct et frugal : capteur qui publie une mesure, télécommande, configuration depuis une application mobile. C'est, comme le Wi-Fi, une capacité absente de l'Arduino classique. Le concept général est traité dans [[techno-sans-fil|technologies sans fil]] et [[ble|Bluetooth LE]]. Cette fiche en donne l'incarnation ESP32.
 
 ## À quoi ça sert ?
 
@@ -26,7 +26,7 @@ Le BLE de l'ESP32 sert quand il faut un lien **local, économe, sans infrastruct
 - **Économiser l'énergie** — le BLE consomme bien moins que le Wi-Fi, ce qui le rend adapté aux objets sur batterie qui n'ont pas besoin d'Internet.
 
 > [!warning]
-> **BLE n'est pas le Bluetooth « Classic ».** Le BLE échange de petites données par *caractéristiques* ; le Bluetooth Classic (audio, port série SPP) est un autre protocole. **Seul l'ESP32 d'origine** possède le Bluetooth Classic ; toutes les autres variantes sont **BLE uniquement**. Et l'**ESP32-S2 n'a aucun Bluetooth** — à vérifier selon la carte (voir le panorama du hub [[esp32|ESP32]]).
+> **BLE n'est pas le Bluetooth « Classic ».** Le BLE échange de petites données par *caractéristiques*. Le Bluetooth Classic (audio, port série SPP) est un autre protocole. **Seul l'ESP32 d'origine** possède le Bluetooth Classic. Toutes les autres variantes sont **BLE uniquement**. Et l'**ESP32-S2 n'a aucun Bluetooth**, à vérifier selon la carte (voir le panorama du hub [[esp32|ESP32]]).
 
 ## Le modèle GATT : services et caractéristiques
 
@@ -35,9 +35,9 @@ Le BLE organise les données selon le modèle **GATT**. Deux rôles et trois obj
 - **Rôles** — le *serveur* (l'ESP32, qui détient les données et les expose, aussi appelé périphérique) et le *client* (le téléphone, qui se connecte et lit/écrit, aussi appelé central).
 - **Service** — un regroupement logique de données, identifié par un **UUID** (identifiant unique).
 - **Caractéristique** — la donnée elle-même (une mesure, un état), dans un service. Elle a des **propriétés** : `READ` (le client peut lire), `WRITE` (le client peut écrire), `NOTIFY` (le serveur pousse la valeur sans demande).
-- **Advertising** — pour être trouvable, le serveur **diffuse** sa présence ; le client le découvre lors d'un *scan*.
+- **Advertising** — pour être trouvable, le serveur **diffuse** sa présence. Le client le découvre lors d'un *scan*.
 
-L'idée : l'ESP32 publie un service contenant une caractéristique ; un téléphone scanne, se connecte, lit la caractéristique (ou reçoit ses notifications).
+L'idée : l'ESP32 publie un service contenant une caractéristique. Un téléphone scanne, se connecte, lit la caractéristique (ou reçoit ses notifications).
 
 ![Les deux rôles BLE : l'ESP32 périphérique (serveur) expose un service et une caractéristique et diffuse sa présence ; le téléphone central (client) scanne, se connecte, puis lit ou s'abonne à la valeur.|640](/ressources/img/esp32-ble/roles-ble.svg)
 
@@ -91,36 +91,36 @@ void loop() {
 }
 ```
 
-Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` apparaît. Connectez-vous, dépliez le service, activez les notifications sur la caractéristique — la valeur s'incrémente en direct. La carte **pousse** la donnée sans que le téléphone ait à la redemander.
+Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` apparaît. Connectez-vous, dépliez le service, activez les notifications sur la caractéristique : la valeur s'incrémente en direct. La carte **pousse** la donnée sans que le téléphone ait à la redemander.
 
 > [!tip]
-> **Texte ou binaire ?** La valeur part ici **en texte**, pour qu'elle s'affiche telle quelle dans nRF Connect. Une caractéristique BLE transporte en réalité des **octets bruts** : `setValue(compteur)` avec un entier enverrait quatre octets, que l'application afficherait en hexadécimal (`01-00-00-00`). Les vrais projets préfèrent ce format binaire, plus compact — le texte est un confort de mise au point.
+> **Texte ou binaire ?** La valeur part ici **en texte**, pour qu'elle s'affiche telle quelle dans nRF Connect. Une caractéristique BLE transporte en réalité des **octets bruts** : `setValue(compteur)` avec un entier enverrait quatre octets, que l'application afficherait en hexadécimal (`01-00-00-00`). Les vrais projets préfèrent ce format binaire, plus compact. Le texte est un confort de mise au point.
 
 ![Montage de deux écrans de nRF Connect — le scan où apparaît « ESP32-Capteur » avec son bouton Connect encadré, puis la vue connectée où le service inconnu est déplié et où la caractéristique affiche sa valeur en hexadécimal et en texte.|480](/ressources/img/esp32-ble/nrf-connect.png)
 
 ## Pièges
 
-**Confondre BLE et Bluetooth Classic.** Chercher à brancher un casque audio ou un port série SPP en BLE ne marche pas : ce sont deux protocoles. Pour du « port série sans fil », c'est le Bluetooth Classic — uniquement sur l'ESP32 d'origine.
+**Confondre BLE et Bluetooth Classic.** Chercher à brancher un casque audio ou un port série SPP en BLE ne marche pas : ce sont deux protocoles. Pour du « port série sans fil », c'est le Bluetooth Classic, uniquement sur l'ESP32 d'origine.
 
 **Variante sans Bluetooth.** Sur un ESP32-S2, ce code ne compile/fonctionne pas : pas de radio Bluetooth. Vérifier la variante avant de viser le BLE.
 
 **Notifications sans descripteur.** Une caractéristique `NOTIFY` sans le descripteur `BLE2902` : le client ne peut pas s'abonner et ne reçoit rien. L'ajouter systématiquement pour les notifications.
 
-**UUID désaccordés.** Le client cherche un UUID précis ; un caractère faux côté serveur et il ne trouve pas la caractéristique. Copier-coller les UUID, ne pas les retaper.
+**UUID désaccordés.** Le client cherche un UUID précis. Un caractère faux côté serveur et il ne trouve pas la caractéristique. Copier-coller les UUID, ne pas les retaper.
 
-**Bibliothèque BLE volumineuse.** La pile BLE intégrée occupe beaucoup de Flash ; un sketch BLE + Wi-Fi peut dépasser la partition par défaut. Choisir un schéma de partition adapté (*Outils → Partition Scheme*) ou la pile allégée **NimBLE** (voir Aller plus loin).
+**Bibliothèque BLE volumineuse.** La pile BLE intégrée occupe beaucoup de Flash. Un sketch BLE + Wi-Fi peut dépasser la partition par défaut. Choisir un schéma de partition adapté (*Outils → Partition Scheme*) ou la pile allégée **NimBLE** (voir Aller plus loin).
 
 **Pas d'outil de test.** Sans application BLE sur le téléphone, impossible de vérifier le serveur. Installer nRF Connect (ou équivalent) avant de commencer.
 
 ## Exercices
 
-*Câblage : capteur sur `GPIO34` et LED sur `GPIO16` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
+*Câblage : capteur sur `GPIO34` et LED sur `GPIO16` (voir les montages de [[esp32-gpio|configurer les GPIO]]).*
 
 > [!question] Exercice 1 — Notifier une vraie mesure
 > Remplacez le compteur par la lecture d'un capteur analogique sur `GPIO34` (ADC1), notifiée toutes les 500 ms. Qu'est-ce qui change ?
 
 > [!success]- Corrigé
-> Seule la source de la valeur change ; toute la structure BLE reste identique.
+> Seule la source de la valeur change. Toute la structure BLE reste identique.
 > ```cpp
 > // ... (mêmes includes, UUID, setup BLE inchangés) ...
 > const int CAPTEUR = 34;   // ADC1
@@ -135,10 +135,10 @@ Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` a
 >   }
 > }
 > ```
-> La structure serveur/service/caractéristique est exactement la même — c'est l'intérêt du modèle GATT : un même squelette pour n'importe quelle donnée.
+> La structure serveur/service/caractéristique est exactement la même. C'est l'intérêt du modèle GATT : un même squelette pour n'importe quelle donnée.
 
 > [!question] Exercice 2 — Recevoir une commande (caractéristique en écriture)
-> Ajoutez une caractéristique en **écriture** : quand le client y écrit `1`, la carte allume une LED (`GPIO16`) ; `0`, elle l'éteint. Indice : un *callback* d'écriture.
+> Ajoutez une caractéristique en **écriture** : quand le client y écrit `1`, la carte allume une LED (`GPIO16`). Avec `0`, elle l'éteint. Indice : un *callback* d'écriture.
 
 > [!success]- Corrigé
 > On déclare la caractéristique avec `PROPERTY_WRITE` et on attache un callback qui réagit à chaque écriture.
@@ -160,7 +160,7 @@ Téléversez, ouvrez nRF Connect sur le téléphone, scannez : `ESP32-Capteur` a
 > //       UUID_CMD, BLECharacteristic::PROPERTY_WRITE);
 > //   cmd->setCallbacks(new CmdCallback());
 > ```
-> Le callback `onWrite` est appelé par la pile BLE à chaque écriture du client. Depuis nRF Connect, écrire la valeur `1` ou `0` sur la caractéristique pilote la LED — une télécommande sans application dédiée.
+> Le callback `onWrite` est appelé par la pile BLE à chaque écriture du client. Depuis nRF Connect, écrire la valeur `1` ou `0` sur la caractéristique pilote la LED : une télécommande sans application dédiée.
 
 ## Cas particulier — La carte comme client (scanner)
 
@@ -182,20 +182,20 @@ void setup() {
 void loop() {}
 ```
 
-Une carte ne peut pas être simultanément un serveur élaboré et un scanner intensif sans précautions ; pour les rôles mixtes, prévoir l'architecture (voir [[esp32-freertos|FreeRTOS]] pour le multitâche).
+Une carte ne peut pas être simultanément un serveur élaboré et un scanner intensif sans précautions. Pour les rôles mixtes, prévoir l'architecture (voir [[esp32-freertos|FreeRTOS]] pour le multitâche).
 
 ## Raccrochage projet
 
 - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — si le projet expose des données à un téléphone sans réseau (capteur portable, télécommande), valider tôt un serveur GATT lisible par nRF Connect lève l'incertitude de connectivité. Souvent suffisant là où le Wi-Fi serait surdimensionné.
 - **Interface de configuration mobile** — une caractéristique en écriture permet de régler des paramètres depuis un téléphone, sans IHM physique.
 
-Choisir entre Wi-Fi et BLE dès la PoC selon le besoin réel (Internet vs lien local, énergie disponible) évite de surdimensionner la radio — le BLE est plus frugal quand Internet n'est pas requis.
+Choisir entre Wi-Fi et BLE dès la PoC selon le besoin réel (Internet vs lien local, énergie disponible) évite de surdimensionner la radio : le BLE est plus frugal quand Internet n'est pas requis.
 
 ## Aller plus loin
 
 - [[techno-sans-fil|Technologies sans fil]] · [[ble|Bluetooth LE]] — le concept, comparé à Wi-Fi / Zigbee / LoRa (transverse).
 - [[esp32-wifi|Wi-Fi]] — l'autre radio, pour le réseau et Internet.
-- **NimBLE-Arduino** — pile BLE alternative, beaucoup plus légère en Flash et en RAM que la pile intégrée ; recommandée dès que la place manque.
+- **NimBLE-Arduino** — pile BLE alternative, beaucoup plus légère en Flash et en RAM que la pile intégrée, recommandée dès que la place manque.
 - [Documentation BLE de l'Arduino-ESP32](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ble.html) — serveur, client, sécurité, appairage.
 
 ## Voir aussi

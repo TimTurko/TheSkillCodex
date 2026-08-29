@@ -17,13 +17,13 @@ aa:
 draft: false
 ---
 
-L'**[[uart|UART]]** est la liaison série asynchrone point à point qui fait dialoguer l'ESP32 avec **un autre appareil** — module GPS, lecteur RFID, seconde carte — sur deux fils (TX et RX) plus une masse commune. À ne pas confondre avec le [[esp32-serie|moniteur série]] : celui-ci occupe l'UART0 pour parler au PC via l'USB, tandis qu'ici on utilise un **second port matériel** pour parler à un composant. L'ESP32 en possède trois (UART0, UART1, UART2) et, contrairement à l'Arduino, ses broches sont **remappables** — inutile de recourir à `SoftwareSerial`.
+L'**[[uart|UART]]** est la liaison série asynchrone point à point qui fait dialoguer l'ESP32 avec **un autre appareil** — module GPS, lecteur RFID, seconde carte — sur deux fils (TX et RX) plus une masse commune. À ne pas confondre avec le [[esp32-serie|moniteur série]] : celui-ci occupe l'UART0 pour parler au PC via l'USB, tandis qu'ici on utilise un **second port matériel** pour parler à un composant. L'ESP32 en possède trois (UART0, UART1, UART2) et, contrairement à l'Arduino, ses broches sont **remappables** : inutile de recourir à `SoftwareSerial`.
 
 ## À quoi ça sert ?
 
 Beaucoup de modules ne parlent qu'en série. L'UART matériel de l'ESP32 les prend en charge sans occuper le moniteur :
 
-- **Recevoir un flux.** Un module GPS crache en continu des trames NMEA ; on les lit sur un port dédié pendant que le moniteur reste libre pour le débogage.
+- **Recevoir un flux.** Un module GPS crache en continu des trames NMEA. On les lit sur un port dédié pendant que le moniteur reste libre pour le débogage.
 - **Piloter un module.** Un lecteur RFID, un modem, un afficheur série reçoivent leurs commandes par TX et répondent par RX.
 - **Relier deux cartes.** Deux ESP32 (ou un ESP32 et un Arduino) échangent des données par une liaison série directe, une fois les niveaux de tension adaptés.
 
@@ -35,7 +35,7 @@ Quatre temps : choisir un port libre, l'initialiser, câbler, échanger.
 
 ### 1. Choisir un port libre
 
-`Serial` (UART0) est réservé au moniteur et au journal de boot — on **ne s'en sert pas** pour un module, sinon les deux flux se mélangent. On prend donc `Serial2` (ou `Serial1`). Par défaut, `Serial2` est câblé sur **GPIO16 (RX2)** et **GPIO17 (TX2)**.
+`Serial` (UART0) est réservé au moniteur et au journal de boot : on **ne s'en sert pas** pour un module, sinon les deux flux se mélangent. On prend donc `Serial2` (ou `Serial1`). Par défaut, `Serial2` est câblé sur **GPIO16 (RX2)** et **GPIO17 (TX2)**.
 
 ### 2. Initialiser la liaison
 
@@ -48,7 +48,7 @@ const int TX2 = 17;   // l'ESP32 émet ici
 Serial2.begin(9600, SERIAL_8N1, RX2, TX2);
 ```
 
-Le débit (`9600`, `115200`…) doit être **identique des deux côtés** ; il est imposé par la datasheet du module. `SERIAL_8N1` est le format le plus courant (8 bits de données, pas de parité, 1 bit de stop).
+Le débit (`9600`, `115200`…) doit être **identique des deux côtés**. Il est imposé par la datasheet du module. `SERIAL_8N1` est le format le plus courant (8 bits de données, pas de parité, 1 bit de stop).
 
 ### 3. Câbler : TX vers RX, croisé
 
@@ -57,7 +57,7 @@ La règle d'or de l'UART : **ce qu'une carte émet (TX), l'autre le reçoit (RX)
 ![Branchement UART entre un ESP32 et un module série : TX2 (GPIO17) vers RX du module, RX2 (GPIO16) vers TX du module, masse commune|600](/ressources/img/esp32-uart/branchement-uart.svg)
 
 > [!warning]
-> **Les broches de l'ESP32 sont en 3,3 V.** Un module qui émet en 5 V sur la ligne RX de l'ESP32 peut **détruire la broche**. Vérifier la tension de sortie du module ; au-delà de 3,3 V, intercaler une adaptation de niveau — voir [[niveaux-de-tension|niveaux de tension]].
+> **Les broches de l'ESP32 sont en 3,3 V.** Un module qui émet en 5 V sur la ligne RX de l'ESP32 peut **détruire la broche**. Vérifier la tension de sortie du module. Au-delà de 3,3 V, intercaler une adaptation de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
 ### 4. Échanger
 
@@ -69,7 +69,7 @@ Les fonctions sont celles du moniteur, appliquées à `Serial2` :
 
 ## Exemple — Un pont entre le module et le moniteur
 
-Cas concret : on relaie dans les deux sens ce qui passe sur `Serial2` (le module) et sur `Serial` (le moniteur, donc le PC). On voit au moniteur ce que le module envoie, et on peut lui répondre en tapant au clavier — idéal pour tester un module série inconnu.
+Cas concret : on relaie dans les deux sens ce qui passe sur `Serial2` (le module) et sur `Serial` (le moniteur, donc le PC). On voit au moniteur ce que le module envoie, et on peut lui répondre en tapant au clavier : idéal pour tester un module série inconnu.
 
 ```cpp
 const int RX2 = 16;   // reçoit du module (relié au TX du module)
@@ -106,11 +106,11 @@ OK
 +DATA:23.5,47
 ```
 
-Seule la première ligne vient du sketch. Les suivantes sont **relayées telles quelles** : `AT` est parti du clavier vers le module, tout le reste est ce que le module a répondu. Un module muet ne produit rien après la première ligne — c'est le symptôme à reconnaître.
+Seule la première ligne vient du sketch. Les suivantes sont **relayées telles quelles** : `AT` est parti du clavier vers le module, tout le reste est ce que le module a répondu. Un module muet ne produit rien après la première ligne : c'est le symptôme à reconnaître.
 
 ## Pièges
 
-**TX branché sur TX.** Le piège n°1 : rien ne circule. TX émet, RX écoute — les deux fils se **croisent** (TX d'un côté sur RX de l'autre).
+**TX branché sur TX.** Le piège n°1 : rien ne circule. TX émet, RX écoute : les deux fils se **croisent** (TX d'un côté sur RX de l'autre).
 
 **Masse non reliée.** Sans masse commune, les niveaux logiques n'ont pas de référence : réception erratique ou nulle. Toujours relier les GND.
 
@@ -153,7 +153,7 @@ Seule la première ligne vient du sketch. Les suivantes sont **relayées telles 
 >   }
 > }
 > ```
-> `readStringUntil('\n')` agrège les octets jusqu'au saut de ligne — plus pratique que `read()` octet par octet pour du texte structuré.
+> `readStringUntil('\n')` agrège les octets jusqu'au saut de ligne, plus pratique que `read()` octet par octet pour du texte structuré.
 
 > [!question] Exercice 2 — Deux modules en même temps
 > Faites dialoguer l'ESP32 avec **deux** modules série simultanément (par exemple un GPS et un afficheur), chacun sur son propre UART, sans toucher au moniteur. Quelles broches choisir ?
@@ -172,20 +172,20 @@ Seule la première ligne vient du sketch. Les suivantes sont **relayées telles 
 >   while (Serial2.available()) Serial.write(Serial2.read());
 > }
 > ```
-> Les trois UART matériels de l'ESP32 travaillent en parallèle. `Serial1` **doit** être remappé (ses broches par défaut servent la Flash) ; on choisit deux GPIO libres.
+> Les trois UART matériels de l'ESP32 travaillent en parallèle. `Serial1` **doit** être remappé (ses broches par défaut servent la Flash). On choisit deux GPIO libres.
 
 ## Cas particulier — UART1 et les liaisons longues
 
 **UART1** est disponible mais ses broches par défaut sont câblées sur la Flash interne : il faut **toujours lui préciser des broches libres** (`Serial1.begin(baud, SERIAL_8N1, rx, tx)`).
 
-Sur les variantes à **USB natif** (C3, S3, C6…), `Serial` peut être l'USB Serial/JTAG, et le nombre d'UART matériels disponibles diffère — se reporter au brochage de la carte via [[esp32-gpio|configurer les GPIO]].
+Sur les variantes à **USB natif** (C3, S3, C6…), `Serial` peut être l'USB Serial/JTAG, et le nombre d'UART matériels disponibles diffère. Se reporter au brochage de la carte via [[esp32-gpio|configurer les GPIO]].
 
 Pour une liaison **longue ou en milieu bruité** (plusieurs mètres, moteurs à proximité), l'UART simple ne suffit plus : on passe à une couche différentielle type **RS-485**, dont le principe est évoqué dans [[bus-de-communication|bus de communication]].
 
 ## Raccrochage projet
 
 - **[[preuve-de-concept|Preuve de concept]]** — dès qu'un module série entre dans le projet (GPS, télémètre, modem), le port dédié le fait parler sans perturber le débogage.
-- **[[integration-et-tests|Intégration et tests]]** — relier deux sous-systèmes par une liaison série est un grand classique de l'assemblage ; le pont de l'exemple sert à vérifier chaque sens isolément.
+- **[[integration-et-tests|Intégration et tests]]** — relier deux sous-systèmes par une liaison série est un grand classique de l'assemblage. Le pont de l'exemple sert à vérifier chaque sens isolément.
 
 ## Voir aussi
 

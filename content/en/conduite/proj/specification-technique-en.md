@@ -31,7 +31,7 @@ The temptation at this stage is to jump straight to components: "we will need an
 Produce a functional requirements specification (CdCF) that:
 
 - states unambiguously **what the system must do** (and not how)
-- puts figures on every requirement ([[critere-en|criterion]], [[niveau-en|level]], [[flexibilite-en|flexibility]])
+- puts figures on every requirement ([[caracteriser-une-exigence-en|criterion]], [[caracteriser-une-exigence-en|level]], [[caracteriser-une-exigence-en|flexibility]])
 - builds in the [[ecoconception-en|eco-design]] constraints
 - rests on a [[etat-de-l-art-technique-en|technical state of the art]]
 - is approved by the client or the project sponsor
@@ -173,7 +173,7 @@ The table on its own is not enough. Conclude in a few lines: **what is being tak
 
 ### 3. Formalise the functions
 
-The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The canonical tool of [[afnor-nfx50-151-en|standard NF X50-151]] for that is the **[[pieuvre-en|pieuvre]]** (the "octopus" diagram, the French function-mapping tool). It forces you to identify first *what* the system interacts with (the surrounding media), then *which services* it must deliver, sorting the functions into three categories: main functions ([[FP-en|FP]]), secondary functions ([[FS-en|FS]]) and constraint functions ([[FC-en|FC]]).
+The need is understood and the existing solutions are mapped. What the system must do now has to be **formalised**, still without assuming *how*. The canonical tool of [[afnor-nfx50-151-en|standard NF X50-151]] for that is the **[[pieuvre-en|pieuvre]]** (the "octopus" diagram, the French function-mapping tool). It forces you to identify first *what* the system interacts with (the surrounding media), then *which services* it must deliver, sorting the functions into three categories: main functions ([[fonction-en|FP]]), secondary functions ([[fonction-en|FS]]) and constraint functions ([[fonction-en|FC]]).
 
 ![Pieuvre — generic diagram](/ressources/img/pieuvre/generique.svg)
 
@@ -193,9 +193,9 @@ A few families of media to work through systematically:
 
 Once the media are identified, draw the links of the diagram. Each link is a function, to be written as an **infinitive verb plus complement** and numbered so that it can be referred to later.
 
-- **[[FP-en|FP]] (main function)** — links **two media** through the system, and **justifies its existence**. It is the product's reason for being. Without an [[FP-en|FP]], the system has no purpose.
-- **[[FS-en|FS]] (secondary function)** — also links **two media** through the system, but answers a **desirable extra service**, not one essential to the mission. Without an [[FS-en|FS]], the system still does its job. With an [[FS-en|FS]], it does the job better.
-- **[[FC-en|FC]] (constraint function)** — links the system to **a single medium**. It expresses a **constraint of adaptation** ("withstand", "fit", "be compatible with"). Standards, eco-design and constraints of use often turn into [[FC-en|FC]].
+- **[[fonction-en|FP]] (main function)** — links **two media** through the system, and **justifies its existence**. It is the product's reason for being. Without an [[fonction-en|FP]], the system has no purpose.
+- **[[fonction-en|FS]] (secondary function)** — also links **two media** through the system, but answers a **desirable extra service**, not one essential to the mission. Without an [[fonction-en|FS]], the system still does its job. With an [[fonction-en|FS]], it does the job better.
+- **[[fonction-en|FC]] (constraint function)** — links the system to **a single medium**. It expresses a **constraint of adaptation** ("withstand", "fit", "be compatible with"). Standards, eco-design and constraints of use often turn into [[fonction-en|FC]].
 
 > [!warning] Watch out
 > **A function expresses a need, never a solution.** The classic trap is writing FP1 = "use a Raspberry Pi to drive the motors". That is not a function, it is a premature technical choice. The right wording would be: "command the actuators in response to the operator's instructions". Rule of thumb: **if a brand, a component or a technology can be named in the wording, something has gone wrong**.
@@ -214,17 +214,17 @@ Once the media are identified, draw the links of the diagram. Each link is a fun
 > - **FC1** — Fit the mains supply available (230 V through an adapter).
 > - **FC2** — Be demountable and reproducible with the means of a school fablab (3D printer, drill, screwdriver).
 
-Stating the functions says nothing about the **levels expected** or the **flexibilities**. At this stage, FP1 says that a light object has to be placed, not how much it weighs or to what accuracy. That is exactly what the next step is for: characterising each function through a [[critere-en|criterion]] / [[niveau-en|level]] / [[flexibilite-en|flexibility]] triplet.
+Stating the functions says nothing about the **levels expected** or the **flexibilities**. At this stage, FP1 says that a light object has to be placed, not how much it weighs or to what accuracy. That is exactly what the next step is for: characterising each function through a [[caracteriser-une-exigence-en|criterion]] / [[caracteriser-une-exigence-en|level]] / [[caracteriser-une-exigence-en|flexibility]] triplet.
 
 The pieuvre gives the *what*. The *how*, meaning which technical functions the system will use to deliver those service functions, will be broken down through [[fast-en|FAST]] in the next phase, [[concept-en|concept]], when the architecture is chosen.
 
 > [!livrable] Deliverables 3/6 — Technical specification
 > - Pieuvre diagram of the system (surrounding media plus the functions drawn in)
-> - Numbered list of the [[FP-en|FP]] / [[FS-en|FS]] / [[FC-en|FC]] functions (FP1…FPn, FS1…FSm, FC1…FCk), each written as a verb plus complement
+> - Numbered list of the [[fonction-en|FP]] / [[fonction-en|FS]] / [[fonction-en|FC]] functions (FP1…FPn, FS1…FSm, FC1…FCk), each written as a verb plus complement
 
 ### 4. Characterise the functions
 
-Stating a function is not enough. It still has to be made **quantifiable, measurable and opposable**, that is, capable of being held against the supplier if it is not met. This step turns each function ([[FP-en|FP]], [[FS-en|FS]], [[FC-en|FC]]) coming out of the pieuvre into a quantified requirement, by applying the [[critere-en|criterion]] / [[niveau-en|level]] / [[flexibilite-en|flexibility]] triplet of [[afnor-nfx50-151-en|standard NF X50-151]] systematically. It is the most structuring step of the phase: without quantified characterisation, the CdCF is only a statement of good intentions, and assessing the project at the end becomes impossible.
+Stating a function is not enough. It still has to be made **quantifiable, measurable and opposable**, that is, capable of being held against the supplier if it is not met. This step turns each function ([[fonction-en|FP]], [[fonction-en|FS]], [[fonction-en|FC]]) coming out of the pieuvre into a quantified requirement, by applying the [[caracteriser-une-exigence-en|criterion]] / [[caracteriser-une-exigence-en|level]] / [[caracteriser-une-exigence-en|flexibility]] triplet of [[afnor-nfx50-151-en|standard NF X50-151]] systematically. It is the most structuring step of the phase: without quantified characterisation, the CdCF is only a statement of good intentions, and assessing the project at the end becomes impossible.
 
 Three questions to ask for each function. The method itself is covered in the [[caracteriser-une-exigence-en|characterising a requirement]] tutorial.
 
@@ -283,7 +283,7 @@ What the `Fn` does in practice is say **how the trade-off will be made** in the 
 > Once the triplet is set down properly, assessment at the end of the project is simple: measure the real accuracy of the prototype, set it against the ± 5 mm target, and the documented deviation (measured, explained, ruled on) becomes material for the final report. It is not a failure, it is an engineering result.
 
 > [!livrable] Deliverable 4/6 — Technical specification
-> - Table of characterised functions: for each function from step 3 ([[FP-en|FP]], [[FS-en|FS]], [[FC-en|FC]]), the criterion / level / flexibility triplet documented line by line.
+> - Table of characterised functions: for each function from step 3 ([[fonction-en|FP]], [[fonction-en|FS]], [[fonction-en|FC]]), the criterion / level / flexibility triplet documented line by line.
 
 ### 5. Plan the project
 
@@ -371,8 +371,8 @@ A **pre-filled Word template** is provided in the repository to get the writing 
 The material of each section already exists. The work here is to bring it together into a single coherent document, taking care over three things:
 
 - **The layout.** Contents list, page numbers, running heads, numbered sections, clean tables, captioned diagrams. The substance has been validated by the previous steps. The form conveys how seriously the work was done, and makes reading in review easier.
-- **Coherence between sections.** A requirement quantified at step 4 has to be consistent with the order of magnitude retained in the state of the art at step 2. A risk identified at step 5 has to echo an [[FC-en|FC]] from the pieuvre or a barrier raised in the need analysis. Writing the CdCF is the moment to **reread the whole thing** and correct the leftover inconsistencies that the successive steps had not exposed.
-- **Working [[ecoconception-en|eco-design]] in.** Eco-design is not a section tacked on at the end. It is **woven through** every section: into the need analysis (stakeholders, including the environment), into the state of the art (the eco-design criterion of the comparison table), into the pieuvre (an [[FC-en|FC]] on materials or end of life), into the plan (eco-check milestones). Writing the CdCF is the moment to check that this really is present everywhere, and not as a cosmetic appendix. Not to be confused with [[ecodesign-en|écodesign]], the French design-discipline sense of the word, which is usually left to the design courses: the CdCF carries eco-design in the quantified engineering sense, not écodesign. Confusing the two means dealing with only half of the environmental question.
+- **Coherence between sections.** A requirement quantified at step 4 has to be consistent with the order of magnitude retained in the state of the art at step 2. A risk identified at step 5 has to echo an [[fonction-en|FC]] from the pieuvre or a barrier raised in the need analysis. Writing the CdCF is the moment to **reread the whole thing** and correct the leftover inconsistencies that the successive steps had not exposed.
+- **Working [[ecoconception-en|eco-design]] in.** Eco-design is not a section tacked on at the end. It is **woven through** every section: into the need analysis (stakeholders, including the environment), into the state of the art (the eco-design criterion of the comparison table), into the pieuvre (an [[fonction-en|FC]] on materials or end of life), into the plan (eco-check milestones). Writing the CdCF is the moment to check that this really is present everywhere, and not as a cosmetic appendix. Not to be confused with [[ecodesign-en|écodesign]], the French design-discipline sense of the word, which is usually left to the design courses: the CdCF carries eco-design in the quantified engineering sense, not écodesign. Confusing the two means dealing with only half of the environmental question.
 
 #### Get the CdCF approved in review
 
@@ -381,8 +381,8 @@ The finished document is presented at the **CdCF review**, the [[jalons-en|miles
 To prepare for it:
 
 - Do a **final systematic self-review**, putting yourself in the place of a reader discovering the document.
-- Check that **every requirement carries figures** (a measurable [[critere-en|criterion]], a [[niveau-en|level]] with a unit, an explicit [[flexibilite-en|flexibility]]). A requirement without figures is the first thing that will be questioned in review.
-- **Anticipate the questions**: why this level and not another? why this flexibility? what happens if an [[FC-en|FC]] is not met?
+- Check that **every requirement carries figures** (a measurable [[caracteriser-une-exigence-en|criterion]], a [[caracteriser-une-exigence-en|level]] with a unit, an explicit [[caracteriser-une-exigence-en|flexibility]]). A requirement without figures is the first thing that will be questioned in review.
+- **Anticipate the questions**: why this level and not another? why this flexibility? what happens if an [[fonction-en|FC]] is not met?
 
 Two outcomes are possible at the end of the review. **CdCF approved** clears the move to concept. **CdCF to be reworked** means corrections before it is presented again. Either way, the feedback from the review is recorded in writing (minutes of the meeting, or comments on the document) and **commits the project**: whatever was approved in review is not reopened afterwards. That is precisely what the milestone is for.
 
@@ -412,13 +412,13 @@ Two outcomes are possible at the end of the review. **CdCF approved** clears the
 
 ## During this phase, on the team side
 
-**Interfaces with other subjects: mechanics and manufacturing.** The technical specification happens on paper, but the manufacturing constraints have to be anticipated from now on. Talking early to the mechanics and manufacturing teachers makes it possible to set realistic [[FC-en|FC]] ("compatible with the means of the school fablab", "machinable on the CNC lathe available", "3D-printable in one piece under 200 mm") and avoids discovering during the [[dossier-technique-en|technical design file]] phase that the architecture roughly sized at [[concept-en|concept]] cannot be built. Without going as far as freezing the solution, the team has every interest in **checking the orders of magnitude** of the available materials and processes with the teachers concerned before the CdCF review.
+**Interfaces with other subjects: mechanics and manufacturing.** The technical specification happens on paper, but the manufacturing constraints have to be anticipated from now on. Talking early to the mechanics and manufacturing teachers makes it possible to set realistic [[fonction-en|FC]] ("compatible with the means of the school fablab", "machinable on the CNC lathe available", "3D-printable in one piece under 200 mm") and avoids discovering during the [[dossier-technique-en|technical design file]] phase that the architecture roughly sized at [[concept-en|concept]] cannot be built. Without going as far as freezing the solution, the team has every interest in **checking the orders of magnitude** of the available materials and processes with the teachers concerned before the CdCF review.
 
 **Project planning and tracking.** The end of this phase sets the whole steering machinery of the project in motion. Planning (step 5) is not just about producing a Gantt chart. It structures how the team works: who follows which sub-deliverable, who maintains the backward plan, who keeps the risk matrix current. The first weekly check-ins are set up at this point, in a light format (15 minutes, a round-table, blocking points) that will firm up as the project goes on. The [[gestion-de-projet-en|project planning and tracking]] page covers the cross-cutting practice.
 
-**Eco-design.** [[ecoconception-en|Eco-design]] is not a separate thread to be switched on later. It **takes root as early as the technical specification**, through seeds spread across the deliverables: an eco-design criterion in the comparison table of the state of the art, an [[FC-en|FC]] on materials or end of life in the pieuvre, risks tied to availability or durability in the risk matrix. A CdCF with no eco-design anchor at this stage produces a project that will not be able to make up for the omission later without reopening the CdCF itself. The [[ecoconception-en|eco-design]] page covers the cross-cutting method.
+**Eco-design.** [[ecoconception-en|Eco-design]] is not a separate thread to be switched on later. It **takes root as early as the technical specification**, through seeds spread across the deliverables: an eco-design criterion in the comparison table of the state of the art, an [[fonction-en|FC]] on materials or end of life in the pieuvre, risks tied to availability or durability in the risk matrix. A CdCF with no eco-design anchor at this stage produces a project that will not be able to make up for the omission later without reopening the CdCF itself. The [[ecoconception-en|eco-design]] page covers the cross-cutting method.
 
-**Safety and quality.** Safety and quality start in this phase with a **regulatory survey**: which standards apply to the system being considered (low voltage, machinery, exposure of the public, CE conformity)? Which safety thresholds cannot be avoided? These translate into [[FC-en|FC]] in the pieuvre at step 3, with flexibility F0 (mandatory) on everything that comes from regulation. Doing it in this phase saves the team from discovering at [[integration-et-tests-en|integration]] a blocking standard that should have steered the concept. The [[securite-et-qualite-en|safety and quality]] page covers the cross-cutting practice.
+**Safety and quality.** Safety and quality start in this phase with a **regulatory survey**: which standards apply to the system being considered (low voltage, machinery, exposure of the public, CE conformity)? Which safety thresholds cannot be avoided? These translate into [[fonction-en|FC]] in the pieuvre at step 3, with flexibility F0 (mandatory) on everything that comes from regulation. Doing it in this phase saves the team from discovering at [[integration-et-tests-en|integration]] a blocking standard that should have steered the concept. The [[securite-et-qualite-en|safety and quality]] page covers the cross-cutting practice.
 
 ## Wrap-up
 

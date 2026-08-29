@@ -1,0 +1,41 @@
+=== RELEVE DES ALIAS ET DE LEUR STOCK ===
+  fiches balayees : 431   FR 243   EN 188
+  entrees aliases: en FR : 24   distinctes : 24
+  entrees aliases: en EN : 0   sur 0 fiche(s)
+
+  --- COTE FRANCAIS : occurrences visant un ALIAS
+    FC                  26 occ   sur   7 fiche(s)   -> porteuse conduite/proj/fonction.md
+    FP                  12 occ   sur   5 fiche(s)   -> porteuse conduite/proj/fonction.md
+    FS                  12 occ   sur   4 fiche(s)   -> porteuse conduite/proj/fonction.md
+    niveau               7 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    critere              6 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    flexibilite          6 occ   sur   3 fiche(s)   -> porteuse conduite/proj/caracteriser-une-exigence.md
+    alias vises : 6   occurrences : 69
+
+  --- COTE ANGLAIS : stock deja ecrit, cible <alias>-en
+    FC-en               22 occ   sur   5 fiche(s)   -> a recrire en fonction-en
+    FP-en                8 occ   sur   3 fiche(s)   -> a recrire en fonction-en
+    FS-en                8 occ   sur   2 fiche(s)   -> a recrire en fonction-en
+    critere-en           4 occ   sur   1 fiche(s)   -> a recrire en caracteriser-une-exigence-en
+    niveau-en            4 occ   sur   1 fiche(s)   -> a recrire en caracteriser-une-exigence-en
+    flexibilite-en       4 occ   sur   1 fiche(s)   -> a recrire en caracteriser-une-exigence-en
+    cibles alias suffixees : 6   occurrences : 50   fiches EN concernees : 5
+
+  --- LES FICHES EN CONCERNEES
+    en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+    en/conduite/proj/concept-en.md
+    en/conduite/proj/ecoconception-en.md
+    en/conduite/proj/securite-et-qualite-en.md
+    en/conduite/proj/specification-technique-en.md
+
+  --- EXISTENCE DES CIBLES SUFFIXEES COMME FICHIER
+    FC-en             AUCUN FICHIER
+    FP-en             AUCUN FICHIER
+    FS-en             AUCUN FICHIER
+    critere-en        AUCUN FICHIER
+    flexibilite-en    AUCUN FICHIER
+    niveau-en         AUCUN FICHIER
+
+  --- PORTEUSES ET LEUR JUMELLE EN
+    conduite/proj/caracteriser-une-exigence.md    JUMELLE EN ABSENTE   en/conduite/proj/caracteriser-une-exigence-en.md
+    conduite/proj/fonction.md                     JUMELLE EN ABSENTE   en/conduite/proj/fonction-en.md

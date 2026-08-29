@@ -1653,3 +1653,1370 @@ ponctuelle ; sur une séance entière il en apparaît cinq.* **Règle d'usage
 proposée : sous exécution directe, tout compteur prédit déclare s'il inclut les
 artefacts de la séance en cours — le fichier de prédictions, les copies C124,
 et le texte des corrections elles-mêmes.**
+
+---
+---
+
+# Prédictions — 2026-08-29 (suite 6), pilote Claude Code, LOT 2 D'`esp32/`
+
+> **Troisième séance sous la sous-règle C116 « exécution directe »**, avec ses
+> amendements 6 à 9 du 29/08 (suite 3), et **première séance sous C131**
+> (arbitrage Tim (a) du 29/08 suite 5). Même journée d'horloge que le lot 6 et
+> que le lot 1 d'`esp32/`, donc **même fichier de prédictions**.
+>
+> **Trois blocs hors lot en tête de séance** — ①(b) l'en-tête et la colonne
+> `etiq` de `mesure-chevron.mjs`, ③(c) le mode `--alt` de `creer-fiche-en.mjs`,
+> et le correctif d'alias (c) — puis le **palier 3 du hub** : `esp32-wifi`,
+> `esp32-ble`, `esp32-uart`, `esp32-i2c`, `esp32-spi`, `esp32-deep-sleep`.
+>
+> L'horloge d'ouverture n'est **pas déduite** : elle est lue par le bloc G
+> ci-dessous, premier lancement de la séance.
+
+## DÉCLARATION C131 D'OUVERTURE — population des compteurs, et ce que cette séance y a déjà versé
+
+**Ce que la séance a versé dans le dépôt avant le bloc G : rien.** Aucune
+écriture, aucune sortie d'outil, aucune copie C124. Les lectures d'ouverture
+(`conventions.md` head + tail, `JOURNAL.md`, `CLAUDE.md`, `tools/batterie.ps1`,
+`tools/predictions-260829.md`) sont des lectures ; elles ne modifient aucun
+horodatage de `content/` ni aucun compteur git.
+
+**Ce que le bloc G va verser AVANT de se mesurer lui-même**, et qui entre donc
+dans ses propres compteurs :
+1. **Le présent texte**, appendu à `tools/predictions-260829.md` — fichier
+   **suivi par git** (arbitrage (f)(ii) du 29/08 : il reste suivi, c'est le
+   filtre de `batterie.ps1` qui l'écarte). Il fait donc **+1 au compteur
+   `fichiers modifies non commites`** et **0 au compteur hors artefacts**,
+   le filtre `-notmatch 'predictions-'` l'excluant.
+2. **La copie C124** que l'étape 0 crée avant que l'étape 1 ne lise
+   `git status` : un fichier **neuf, non suivi**, donc **+1 au compteur total**
+   et **0 hors artefacts** (filtre `-notmatch 'batterie-sortie'`).
+3. `tools\batterie-sortie.txt` lui-même est **exclu par `.gitignore`** (chemin
+   exact) : **+0** aux deux compteurs.
+
+**Populations nommées pour la suite de la séance** — `fichiers modifies non
+commites` = sortie de `git status --porcelain` **entière**, artefacts de séance
+compris ; `hors artefacts de seance` = la même moins les deux motifs
+`batterie-sortie` et `predictions-`, **à lire contre la liste nominative**
+(C116 (9)) et jamais seul.
+
+## Bloc G — `batterie.ps1 -Phase garde` (lecture d'ouverture, CLAUDE.md étape 3)
+
+Commande :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| G-1 | lignes non ASCII dans `batterie.ps1` = **0** | 0 | tenue |
+| G-2 | copie C124 = `tools\batterie-sortie-2908b15.txt` (rangs 1 à 14 occupés, premier rang libre = 15) | idem | tenue |
+| G-3 | ligne d'en-tête exacte : `phase demandee : garde   anneau : 2   chevron : False` | idem | tenue |
+| G-4 | date ISO **2026-08-29**, heure **> 17:36:00** (dernière écriture connue dans `tools/`, `README.md`) | 2026-08-29 **18:12:59** | tenue |
+| G-5 | HEAD = `1846e6c`, date de commit **2026-08-29**, heure **entre 17:17:00 et 18:30:00** | `1846e6c 2026-08-29 17:37:55 +0200` | tenue |
+| G-6 | `fichiers modifies non commites` = **1** (le fichier de prédictions que ce bloc vient d'appender), `(hors artefacts de seance : 0)` — voir déclaration C131 ci-dessus | **2** (hors : 0) | **réfutée** |
+| G-7 | `node : v24.15.0` | idem | tenue |
+| G-8 | `JOURNAL.md`, `conventions.md`, `TODO.md` tous au **2026-08-29**, les trois heures **entre 17:00:00 et 17:40:00**, et **les trois antérieures à l'horloge de HEAD** | 17:32:23 / 17:33:51 / 17:34:54, les trois < 17:37:55 | tenue |
+| G-9 | aucune fiche listée sous les dates d'écriture (ni `-Fiches` ni `-FichesEn` passés) : la liste s'arrête aux trois fichiers de pilotage | idem | tenue |
+| G-10 | code de sortie de chacune des deux étapes = **0** | 0 et 0 | tenue |
+
+**Ce qu'un écart déclencherait.** Une date de `content/` postérieure au dernier
+relevé, un HEAD différent de `1846e6c`, ou un `hors artefacts` non nul dont la
+liste nominative ne rend pas compte ⇒ **arrêt avant toute écriture** et remontée
+à Tim (CLAUDE.md, garde de péremption).
+
+### Constats du bloc G (sortie `batterie-sortie.txt`, horloge 18:12:59)
+
+**10 prédictions, 9 tenues, 1 réfutée.** Garde **verte** : HEAD `1846e6c` du
+2026-08-29 17:37:55, arbre propre **hors artefacts**, les trois fichiers de
+pilotage écrits **avant** le commit, node `v24.15.0`, aucune fiche du périmètre
+touchée depuis. Aucun état inattendu, aucune écriture bloquée.
+
+⚠ **RÉFUTATION G-6, ET C'EST C131 PRISE EN DÉFAUT PAR SA PROPRE PREMIÈRE
+APPLICATION.** La déclaration C131 d'ouverture énumère **deux** versements du
+bloc dans sa propre population — le texte des prédictions (+1) et la copie C124
+(+1) — puis la prédiction chiffrée en écrit **1**. Le constat est **2**.
+*La déclaration était juste et le nombre ne l'a pas portée* : C131 exige de
+**nommer** les artefacts, elle n'a pas dispensé de les **additionner**. Règle
+d'usage qui en sort : **une déclaration C131 se termine par le total qu'elle
+implique, sinon elle ne garde que la prose.** Le chiffre `hors artefacts` est
+juste (0) et la liste nominative est **vide** : la garde n'est pas affectée.
+
+---
+
+## Bloc 1 — ①(b) ÉTAPE A : RELEVÉ DE RÉFÉRENCE DU CHEVRON, AVANT TOUTE ÉDITION
+
+Objet : figer le banc de non-régression de la réécriture d'en-tête, et mesurer
+`ECART` fiche par fiche pour le confronter à l'identité arbitrée le 29/08
+(suite 5) — **`ECART` = somme des mots d'étiquette de langage**.
+
+Commande :
+`node tools/mesure-chevron.mjs --tout` (sortie sauvegardée **datée**, C124, en
+`tools/chevron-2908-avant.txt`)
+
+### Déclaration C131
+
+**Population comptée : `content/**` privé de `templates/`**, les deux langues.
+**Ce que la séance y a versé à cet instant : rien** — aucune fiche créée,
+modifiée ou supprimée depuis HEAD `1846e6c`, la garde du bloc G l'ayant vérifié
+(`hors artefacts de seance : 0`, liste nominative vide). Les deux artefacts que
+la séance a produits — `tools/predictions-260829.md` et
+`tools/batterie-sortie-2908b15.txt` — sont **hors `content/`** et n'entrent donc
+dans aucun compteur de ce bloc. **Total des versements de la séance dans la
+population de ce bloc : 0.**
+
+### Lecture du code faite avant de prédire (règle du 29/08 : le code, pas le README)
+
+`analyse()` l.86-119 : `total = compterMots(texte)` sur le texte **entier** ;
+`dansBloc` porte les lignes `a..b` **bornes comprises**, donc `dehors` les
+exclut ; `contenu` va de `a+1` à `b-1` **strictement**, donc `dedans` ne porte
+ni l'ouverture ni la clôture. La ligne d'ouverture `> ```cpp` n'est masquée par
+`BLOC_CLOTURE` (`/^```[\s\S]*?^```[^\n]*$/gm`, **ancré en début de ligne**) ni
+dans `compter-mots.mjs` l.32 ; `MOT` l.33 en tire l'unique jeton `cpp`.
+**Donc `ECART = tot − deh − ded` = mots des lignes d'ouverture et de clôture des
+blocs appariés**, et si les clôtures sont nues, **= mots d'étiquette**.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 1-1 | `porteuses` = **53**, dont **FR 34** et **EN 19** | 53, FR 34, EN 19 | tenue |
+| 1-2 | FR : **68 blocs**, `tot` et `deh` conformes au relevé du 29/08 (suite 4), `ded` FR = **2 175** | 68 bl, `ded` 2 175, `tot` 46 110, `deh` 43 868 | tenue |
+| 1-3 | EN : **40 blocs**, `ded` EN = **942** | 40 bl, `ded` 942, `tot` 26 403, `deh` 25 421 | tenue |
+| 1-4 | somme des `ECART` **FR** = **67** | **67** | tenue |
+| 1-5 | somme des `ECART` **EN** = **40** | **40** | tenue |
+| 1-6 | nombre de porteuses FR à `ECART` **0** = **1**, et c'est **`embarque/mcu/esp32/esp32-idf.md`** (ouverture `> ``` ` sans étiquette) | 1, `esp32-idf.md` | tenue |
+| 1-7 | nombre de porteuses EN à `ECART` 0 = **0** | 0 | tenue |
+| 1-8 | `ECART` = **1 par bloc étiqueté** sur **toutes** les porteuses, donc `ECART` de chaque fiche = son nombre de blocs, sauf `esp32-idf` à 67 pour 68 | vérifié ligne à ligne sur les 53 | tenue |
+| 1-9 | porteuses marquées `ORPHELINE` = **0** des deux côtés | 0 | tenue |
+| 1-10 | appariement : **19 paires porteuses des deux côtés, 0 divergente** | 19 / 0 | tenue |
+| 1-11 | aucune étiquette de langage ne pèse **plus d'un mot** : la somme des `ECART` égale donc le nombre de blocs étiquetés, pas seulement leur nombre de mots | 67 = 67 blocs étiquetés ; 40 = 40 | tenue |
+
+**Ce que 1-4 et 1-5 valent comme prédiction.** Les deux chiffres du 29/08
+(suite 4) — 67 FR, 34 EN — ont été mesurés **avant** la génération des trois
+fiches EN du lot 1, sur **50 porteuses** (34 FR + 16 EN). Le côté FR n'a pas
+bougé depuis, d'où 67 reconduit. **Le côté EN est une extrapolation** : 34 blocs
+étiquetés à l'époque, plus les **6 blocs** que les trois jumelles EN ont
+apportés (EN 34 → 40 blocs, appariement 0 divergente au 29/08 suite 4). Si les
+six nouveaux blocs ne sont pas tous étiquetés, 1-5 tombe **et 1-8 avec elle**.
+
+### Constats du bloc 1 (sortie `tools/chevron-2908-avant.txt`, 96 lignes)
+
+**11 prédictions, 11 tenues, 0 réfutée.** L'identité arbitrée est **confirmée
+fiche par fiche** : sur les 53 porteuses, `ECART` vaut exactement le nombre de
+blocs, à la seule exception d'`esp32-idf.md` (1 bloc, `ECART` absent donc nul),
+dont l'ouverture est `> ``` ` sans étiquette. **Aucune étiquette ne pèse plus
+d'un mot** dans le corpus actuel, aucune clôture orpheline, aucun texte après
+une clôture. *La prédiction 1-5, seule extrapolation du bloc, tient : les six
+blocs apportés par les trois jumelles EN du lot 1 sont tous étiquetés.*
+
+Banc de non-régression figé : **FR 34 / 136 cl / 68 bl / 46 110 tot / 2 175 ded
+/ 43 868 deh** ; **EN 19 / 80 cl / 40 bl / 26 403 tot / 942 ded / 25 421 deh**.
+
+---
+
+## Bloc 2 — ①(b) ÉTAPE B : RÉÉCRITURE DE L'EN-TÊTE, COLONNE `etiq`, `ECART` CONDITIONNEL
+
+Objet : porter l'arbitrage Tim ①(b) du 29/08 (suite 5) dans
+`tools/mesure-chevron.mjs`. **Une seule intention** : dire vrai sur l'identité
+et ne signaler que ce qui la viole.
+
+### Ce qui est écrit, terme à terme
+
+1. `analyse()` — un champ `etiq` de plus : pour chaque bloc **apparié**, la
+   ligne d'ouverture est privée de son préfixe de citation (`PREFIXE`), puis
+   du fence d'apostrophes inversées ; ce qui reste est l'**étiquette de
+   langage**, passée à `compterMots`. `etiq` = somme sur les blocs.
+   **Aucun autre champ n'est touché** — `total`, `dedans`, `dehors` gardent
+   leur code d'origine à la ligne près.
+2. `ligneRapport()` — colonne `etiq` ; `ECART:` **n'est imprimé que si
+   `ecart !== etiq`**.
+3. `total()` — la ligne de somme porte `etiq`.
+4. `enTete()` — l'identité vraie remplace « il doit etre 0 partout ».
+
+### Déclaration C131
+
+**Population comptée : `content/**` privé de `templates/`, inchangée** — le
+fichier édité est `tools/mesure-chevron.mjs`, **hors de la population qu'il
+compte**. **Total des versements de la séance dans la population de ce bloc :
+0**, comme au bloc 1. *L'instrument change, l'objet non : c'est précisément ce
+qui rend le banc de non-régression lisible.*
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 2-1 | fichiers touchés = **1** (`tools/mesure-chevron.mjs`), **aucune fiche de `content/`** | 1 (`tools/mesure-chevron.mjs`), 0 fiche | tenue |
+| 2-2 | `git diff --stat` sur ce fichier : **4 hunks** (`enTete`, `analyse`, `ligneRapport`, `total`) plus l'en-tête de commentaire du fichier | **11 hunks** en `-U0` (5 zones logiques) | **réfutée** |
+| 2-3 | lignes non ASCII introduites dans `mesure-chevron.mjs` = **0** | 0 | tenue |
+| 2-4 | après édition, `--tout` : porteuses **53**, FR **34 / 136 cl / 68 bl**, EN **19 / 80 cl / 40 bl** — identiques au bloc 1 | 53 ; FR 34/136/68 ; EN 19/80/40 | tenue |
+| 2-5 | **banc de non-régression** : sur les 53 lignes, les triplets `tot / ded / deh` sont **identiques** à `chevron-2908-avant.txt`, **0 divergence** | **0 divergence** sur 53 fiches, 0 clé manquante | tenue |
+| 2-6 | totaux inchangés : FR `46110 tot / 2175 ded / 43868 deh`, EN `26403 tot / 942 ded / 25421 deh` | idem aux six chiffres | tenue |
+| 2-7 | somme `etiq` FR = **67**, somme `etiq` EN = **40** | **67** et **40** | tenue |
+| 2-8 | occurrences de la chaîne `ECART:` dans la sortie d'après = **0** | 0 | tenue |
+| 2-9 | `esp32-idf.md` affiche `etiq` = **0** et **aucun** `ECART:` | `0 etiq`, aucun `ECART:` | tenue |
+| 2-10 | l'appariement FR/EN est **inchangé** : 19 paires, 0 divergente | 19 / 0 | tenue |
+| 2-11 | la chaîne `il doit etre 0 partout` a **0 occurrence** dans le fichier après édition | 0 | tenue |
+| 2-12 | contrôle d'unicité d'ancre avant écriture : chacune des **4** ancres d'édition rend **exactement 1** occurrence | **8 ancres**, chacune à 1 occurrence | **réfutée** |
+
+### Constats du bloc 2 (sorties `tools/chevron-2908-avant.txt` et `tools/chevron-2908-apres.txt`, C124)
+
+**12 prédictions, 10 tenues, 2 réfutées.** Le banc de non-régression est
+**vert** : les cinq colonnes `cl / bl / tot / ded / deh` sont **identiques sur
+les 53 porteuses**, aucune clé manquante d'un côté ni de l'autre. `etiq` sort à
+**67 FR / 40 EN**, exactement les sommes d'`ECART` du bloc 1 : l'identité
+arbitrée tient sur tout le corpus, et **plus une seule ligne n'imprime
+`ECART:`**.
+
+**Les deux réfutations portent sur le volume de mon propre travail, pas sur une
+mesure du dépôt.** 2-2 annonçait 4 hunks plus l'en-tête, le `git diff -U0` en
+rend **11** ; 2-12 annonçait 4 ancres de contrôle d'unicité, il en a fallu
+**8**. Les deux ont la même cause : **j'ai compté les zones logiques
+(`enTete`, `analyse`, `ligneRapport`, `total`) et publié ce compte comme un
+compte d'éditions**, alors que `analyse` seule se touche à trois endroits
+disjoints — déclaration du tableau, collecte dans la boucle, champ du retour.
+*C'est l'habitat « le compte d'éditions qui grossit en route » nommé par C131,
+et la déclaration C131 de ce bloc ne l'avait pas couvert : elle déclarait la
+population de `content/`, pas celle des hunks.* **Rien de mesuré sur le corpus
+n'est atteint** ; les deux compteurs faux sont des compteurs d'intention.
+
+⚠ **INCIDENT D'OUTILLAGE, SANS EFFET SUR UNE MESURE.** La première écriture du
+champ `etiq` a produit un littéral de chaîne coupé en deux lignes
+(`etiquettes.join('` puis une ligne nue), le transport shell ayant replié la
+séquence d'échappement. **Le fichier ne se chargeait plus** ; corrigé à
+l'édition suivante, `node` relancé sans erreur. *Détecté par le lancement, pas
+par la relecture — et c'est le troisième terme du remplacement du `dryRun`
+(remesure immédiate) qui a mordu.* Second effet du même transport : le fichier
+de prédictions est passé en CRLF à une écriture Python, **remis en LF**
+(`* text=auto eol=lf` au `.gitattributes`), 0 CR résiduel.
+
+---
+
+## Bloc 3 — ③(c) MODE `--alt` DE `creer-fiche-en.mjs`, AVEC L'EXEMPTION NOMMÉE `tinkercad`
+
+Objet : combler le trou instruit le 29/08 (suite 5) — **l'alt est balayé par un
+seul tamis sur quatre**. `--style` range l'alt en *hors périmètre* pour les
+candidats C109 (le verdict *typographie française* y mord seul),
+`audit-medias.mjs` capture l'alt dans son motif mais n'audite que le **chemin**,
+`--controle` ne compare que des **nombres** d'embeds. *Un alt français à
+typographie propre ne déclenche donc rien.*
+
+Le mode compare, pour chaque paire, **l'alt EN à l'alt FR**, position par
+position, et rend **trois verdicts mécaniques** : `IDENTIQUE` (l'alt EN est
+l'alt FR à l'octet), `VIDE`, `MOT FR`.
+
+### Échantillon nommé, lu AVANT d'écrire le motif (C110)
+
+`content/embarque/mcu/arduino/tinkercad.md` et sa jumelle, **4 embeds chacune**,
+mêmes chemins, même ordre :
+
+| # | alt FR | alt EN |
+|---|---|---|
+| 1 | `Tableau de bord Tinkercad, bouton « Créer un nouveau Circuit » visible\|600` | `Tinkercad dashboard, with the "Créer un nouveau Circuit" button visible\|600` |
+| 2 | `Plan de travail Tinkercad : Arduino Uno, LED et résistance câblées, barre latérale des composants à droite\|600` | `Tinkercad workplane: Arduino Uno, LED and resistor wired up, component sidebar on the right\|600` |
+| 3 | `Bascule du mode Blocs vers le mode Texte dans le volet Code de Tinkercad\|600` | `Switching from Blocs mode to Texte mode in Tinkercad's Code panel\|600` |
+| 4 | `Simulation Tinkercad en cours d'exécution, LED allumée sur le plan de travail\|600` | `Tinkercad simulation running, LED lit on the workplane\|600` |
+
+**Ce que l'échantillon apprend au motif, et qui n'était pas prévu.** Les trois
+formes françaises qui subsistent côté EN — `Créer un nouveau Circuit`, `Blocs`,
+`Texte` — sont des **libellés d'interface incrustés dans la capture**, donc du
+**C113 appliqué à l'image** : ce que le programme *désigne* ne se traduit pas.
+*L'exemption nommée arbitrée par Tim n'est donc pas une dispense de confort,
+c'est la seule lecture qui ne fasse pas mentir C113.* Deuxième enseignement : le
+suffixe de taille `|600` fait partie de l'alt brut — il entre dans le test
+`IDENTIQUE` et doit sortir des tests `VIDE` et `MOT FR`, faute de quoi un alt
+réduit à `|600` passerait pour rempli.
+
+**Portée du motif `MOT FR`, arrêtée sur cet échantillon** : (a) une lettre
+latine **accentuée** ; (b) un mot d'une **liste nommée** de mots-outils
+français, **purgée des homographes anglais** — `a`, `an`, `on`, `in`, `son`,
+`ton`, `plus`, `car`, `or`, `pas`, `no`, `sale`, `mode`, `note`, `page`,
+`train` en sont **exclus** faute de quoi le motif crierait sur de l'anglais.
+Sur l'échantillon : **1 alt EN sur 4** déclenche (`Créer`, accent + `un`), et
+c'est un alt **exempté**.
+
+### Déclaration C131
+
+**Population comptée : les embeds des 188 fiches de `content/en/` et de leurs
+sources FR.** **Ce que la séance y a versé : 0.** Aucune fiche n'a été touchée
+depuis HEAD `1846e6c` — les trois écritures de la séance sont
+`tools/predictions-260829.md`, `tools/mesure-chevron.mjs` et `tools/README.md`,
+**toutes hors `content/`**, plus trois artefacts de mesure
+(`batterie-sortie-2908b15.txt`, `chevron-2908-avant.txt`,
+`chevron-2908-apres.txt`). **Total des versements dans la population de ce
+bloc : 0.** *Mais le compteur `git status` de la prochaine garde en portera
+**6**, dont **3 hors artefacts** — `mesure-chevron.mjs`, `README.md` et, à la
+fin de ce bloc, `creer-fiche-en.mjs` — et c'est la liste nominative qui les
+couvre, pas le chiffre.*
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 3-1 | fichiers touchés par l'édition = **1** (`tools/creer-fiche-en.mjs`) plus **1** de documentation (`tools/README.md`), **0 fiche** | 1 + 1 (`creer-fiche-en.mjs`, `README.md`), 0 fiche | tenue |
+| 3-2 | contrôle d'unicité d'ancre : **4** ancres (`usage` en tête, drapeau, dispatch, bloc de fonction), chacune à **1** occurrence | **5** ancres, chacune à 1 | **réfutée** |
+| 3-3 | fiches EN balayées par `--alt` = **188** | 188 | tenue |
+| 3-4 | fiches EN **porteuses d'au moins un embed** = **118** | **128** | **réfutée** |
+| 3-5 | embeds EN totaux = **286** | **245** | **réfutée** |
+| 3-6 | paires dont le **nombre** d'embeds diverge FR/EN = **0** (`--controle` sort à `188 / 0 / 0 sur 0` depuis le 29/08 suite 4, et le compteur d'embeds en fait partie) | 0 | tenue |
+| 3-7 | verdict `VIDE` = **0** | 0 | tenue |
+| 3-8 | verdict `IDENTIQUE` **hors exemption** = **9** | **1** | **réfutée** |
+| 3-9 | verdict `MOT FR` **hors exemption** = **4** | **16** au premier jet, **14** après correctif É1 | **réfutée** |
+| 3-10 | embeds **exemptés** (paire `tinkercad`) = **4**, dont **1** aurait déclenché `MOT FR` et **0** `IDENTIQUE` | 4 exemptés, 1 aurait déclenché, 0 IDENTIQUE | tenue |
+| 3-11 | fiches EN **sans `source_fr`** rencontrées par le mode = **0** | 0 | tenue |
+| 3-12 | le mode **n'écrit rien** : `git status` inchangé sur `content/` après lancement | `git status` sur `content/` vide | tenue |
+
+**Ce que valent 3-4, 3-5, 3-8 et 3-9.** Aucune mesure du dépôt ne les porte :
+`audit-medias` publie **638 ok / 12 absents** mais son motif `LIEN_MD` compte
+**liens et embeds confondus, les deux langues confondues**, et aucune ligne
+publiée ne sépare les quatre populations. **Ce sont donc quatre estimations, et
+elles sont annoncées comme telles** — 3-5 est bâtie sur ~1,5 embed par fiche EN
+porteuse, 3-8 sur l'idée qu'un alt identique est presque toujours un nom propre
+ou une référence, 3-9 sur les **deux** alt fautifs trouvés en deux séances
+(26/08 suite 4 et 29/08 suite 4) plus une marge. *La onzième séance consécutive
+de la classe « alt » commence donc par admettre qu'elle ne sait pas ce qu'elle
+va compter.*
+
+### Constats du bloc 3 (sortie `tools/alt-2908.txt`, C124)
+
+**12 prédictions, 7 tenues, 5 réfutées.** Le mode tourne, ne rend **aucune
+divergence de nombre** (0 sur 128 fiches porteuses), **aucun `VIDE`**, et sort
+`IDENTIQUE 1 / VIDE 0 / MOT FR 16` avant correctif. **L'exemption nommée
+fonctionne exactement comme arbitrée** : `tinkercad-en` sort en `[exempte]`
+avec son motif écrit, ses 4 embeds comptés à part, et le rapport dit que **1**
+d'entre eux aurait déclenché — prédiction 3-10 tenue au terme près, seule
+prédiction chiffrée du bloc à l'être.
+
+⚠ **LES QUATRE ESTIMATIONS ANNONCÉES COMME TELLES SONT TOUTES FAUSSES, ET
+AUCUNE N'EST FAUSSE DANS LE MÊME SENS.** Porteuses **118 → 128** (+8 %),
+embeds **286 → 245** (−14 %), `IDENTIQUE` **9 → 1**, `MOT FR` **4 → 16**.
+*Les deux compteurs de population se trompent en sens contraire, ce qui veut
+dire que le ratio « ~1,5 embed par fiche porteuse » sur lequel 3-5 était bâtie
+valait en réalité **1,91**, et que le corpus a plus de fiches illustrées mais
+moins d'images par fiche que je ne le supposais.* Et les deux compteurs de
+verdict se trompent **d'un facteur 4 chacun, en sens contraire eux aussi** :
+j'attendais des alt recopiés et j'ai trouvé des alt traduits qui gardent du
+français **à dessein**.
+
+⚠ **CORRECTIF É1 — `×` ET `÷` NE SONT PAS DES LETTRES, ET MON ÉCHANTILLON
+NOMMÉ NE LES CONTENAIT PAS.** `ACCENT_FR` s'écrivait `/[À-ÿŒœŸ]/u`, intervalle
+qui **contient U+00D7 `×` et U+00F7 `÷`**, deux signes mathématiques logés au
+milieu du bloc Latin-1. Deux fiches remontent pour cette seule raison —
+`matrice-de-decision-en` (« 3 solutions × 5 weighted criteria ») et
+`matrice-de-risques-en` (« Likelihood × severity matrix »), **deux alt anglais
+irréprochables**. *C'est exactement la faute que C110 existe pour attraper : le
+motif a été testé sur un échantillon nommé, et l'échantillon nommé ne portait
+pas le caractère qui allait le mettre en défaut.* Correctif : l'intervalle
+devient `/[À-ÖØ-öø-ÿŒœŸ]/u`, qui saute les deux trous.
+
+---
+
+## Bloc 4 — CORRECTIF É1 DE `--alt`, ET RELEVÉ DES DEUX CLASSES QUE LE VERDICT MÉLANGE
+
+### Déclaration C131
+
+**Population comptée : les 245 embeds des 188 fiches EN, inchangée.** La séance
+n'a versé **aucun** embed dans cette population. **Mais le texte du correctif
+É1 modifie l'instrument, pas l'objet** : les deux chiffres qui bougent entre le
+bloc 3 et le bloc 4 sont imputables **en totalité** à `ACCENT_FR`, et **aucun
+alt du dépôt n'a été touché entre les deux lancements** — c'est ce que la
+prédiction 4-5 vérifie.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 4-1 | fichier touché = **1** (`tools/creer-fiche-en.mjs`), **1 ancre**, **0 fiche** | 1 fichier, 1 ancre, 0 fiche | tenue |
+| 4-2 | après correctif : `MOT FR` = **14**, `IDENTIQUE` = **1**, `VIDE` = **0**, total **15** | 14 / 1 / 0, total 15 | tenue |
+| 4-3 | fiches signalées `[!]` : **11 → 9** ; `matrice-de-decision-en` et `matrice-de-risques-en` **disparaissent**, aucune autre | 9 lignes `[!]`, 0 occurrence de `matrice-de` | tenue |
+| 4-4 | exemptés inchangés : **4 embeds, 1 aurait déclenché** | 4 / 1 | tenue |
+| 4-5 | `fiches EN balayees 188`, `porteuses 128`, `embeds 245`, `divergent 0`, `sans source 0` — **les cinq inchangés** | 188 / 128 / 245 / 0 / 0 | tenue |
+| 4-6 | code de sortie du mode = **1** (des verdicts subsistent) | 1 | tenue |
+| 4-7 | sur les **14** `MOT FR` restants, ceux dont la forme française est un **libellé d'interface ou une étiquette de SVG** (donc du C113, classe `tinkercad`) = **12** | **12** — 9 libellés d’IDE ou de Windows, 3 étiquettes de SVG | tenue |
+| 4-8 | défauts **vrais** restants, c'est-à-dire alt non traduits : **1**, et c'est `en/conduite/index.md` | **1**, `en/conduite/index.md` | tenue |
+
+### Constats du bloc 4 (sortie `tools/alt-2908-b.txt`, C124)
+
+**8 prédictions, 8 tenues, 0 réfutée.** *Comme au lot 1, les blocs de verdict
+sortent propres et les réfutations se concentrent dans les blocs de mesure et
+de cadrage : le protocole se trompe sur ce qu'un compteur va rendre, pas sur ce
+que la règle décide.* Le correctif É1 retire exactement les deux fiches
+attendues, les cinq compteurs de population sont à l'octet identiques d'un
+lancement à l'autre, et **aucun alt du dépôt n'a bougé entre les deux** : la
+variation 16 → 14 est **entièrement imputable à l'instrument**.
+
+⚠ **LE VERDICT `MOT FR` MÉLANGE DEUX CLASSES QUE RIEN NE SÉPARE
+MÉCANIQUEMENT, ET LA PROPORTION EST DE 1 CONTRE 13.** Sur les 15 verdicts
+restants :
+
+| classe | n | exemple |
+|---|---|---|
+| **alt non traduit** — défaut vrai | **1** | `en/conduite/index.md` : `Cycle en V du projet mécatronique`, **identique à l'octet** à la source |
+| **libellé d'interface incrusté** (IDE Arduino, gestionnaire Windows, sortie du sketch) | **9** | `Ports (COM et LPT)`, `URL de gestionnaire de cartes supplémentaires`, `Valeur du capteur` |
+| **étiquette de SVG** citée dans l'alt | **3** | `alimenter, distribuer, convertir` ; `bâti`, `liaison pivot`, `liaison glissière` |
+| **nom français d'une méthode enseignée** | **1** | `Bête à cornes — generic diagram` |
+
+*Les treize derniers sont exactement la classe `tinkercad` — du C113 appliqué à
+l'image : ce que le programme, l'écran ou le schéma **désigne** ne se traduit
+pas.* **Le seul défaut vrai est celui que le verdict `IDENTIQUE` attrapait
+déjà** ; `MOT FR` n'en a trouvé aucun que `IDENTIQUE` ne trouvait pas.
+**Arbitrage monté à Tim** (voir dossier en fin de séance) : le mode remontera
+ces treize à chaque lancement tant qu'ils ne sont pas traités.
+
+---
+
+## Bloc 5 — CORRECTION DE L'UNIQUE DÉFAUT VRAI, ET DOCUMENTATION DE `--alt`
+
+**Décision prise seule (C117).** L'alt de `en/conduite/index.md` l. 34 est
+**identique à l'octet** à celui de sa source FR et n'est ni un libellé d'écran
+ni une étiquette de SVG : c'est une **description d'image restée en français**.
+La fiche elle-même écrit **`V-model`** cinq fois (l. 20, 32, 102) et son
+`title:` est `Project management`. La correction ne demande donc aucun
+arbitrage de vocabulaire, et son coût de revert est **une ligne**.
+*Consigné parce que la fiche est hors du lot du jour.*
+
+### Déclaration C131
+
+**Population comptée : les 245 embeds des 188 fiches EN.** **La séance va y
+verser 1 alt réécrit** — l'embed #1 de `en/conduite/index.md`. Les compteurs de
+population (`188 / 128 / 245`) ne bougent pas, seuls les **verdicts** bougent.
+La copie C124 du bloc 4 (`alt-2908-b.txt`) est **hors `content/`** et n'entre
+pas dans la population.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 5-1 | contrôle d'unicité d'ancre : la chaîne `![Cycle en V du projet mécatronique](` rend **1** occurrence dans tout `content/en/` | 1 occurrence, `content/en/conduite/index.md` | tenue |
+| 5-2 | fiches de `content/` touchées = **1**, éditions = **1** | 1 fiche, 1 édition (`1 insertion(+), 1 deletion(-)`) | tenue |
+| 5-3 | nouvel alt = `V-model of the mechatronics project`, cible **inchangée** `/ressources/img/conduite/cycle-v-projet.svg` | idem, cible inchangée | tenue |
+| 5-4 | après édition : `IDENTIQUE` = **0**, `MOT FR` = **13**, `VIDE` = **0**, total **13** | 0 / 13 / 0, total 13 | tenue |
+| 5-5 | lignes `[!]` = **8** ; `en/conduite/index.md` disparaît du rapport | 8 lignes `[!]`, 0 occurrence de `conduite/index` | tenue |
+| 5-6 | les cinq compteurs de population restent `188 / 128 / 245 / 0 / 0` | 188 / 128 / 245 / 0 / 0 | tenue |
+| 5-7 | `--controle` sur la fiche : embeds **FR 1 / EN 1**, **inchangé** — l'édition ne touche ni un lien, ni un embed, ni un bloc de code | `[ok] en/conduite/index.md liens 25, embeds 1, code 0` ; **188 / 0 divergente / 0 lien nu** | tenue |
+| 5-8 | `--style` sur `en/conduite/index.md` : **0** verdict de typographie française **avant comme après** (l'alt était français mais sans espace avant ponctuation double) | après = **0** typographie française ; « avant » **non remesuré** (voir incident) | **partielle** |
+| 5-9 | `derive-traduction` : **0 dérive**, l'édition portant sur une fiche EN et non sur une source FR | DERIVE 0, SANS SOURCE 0, SANS MARQUE 0, A JOUR 188 | tenue |
+| 5-10 | `tools/README.md` reçoit **1** section `--alt` ; ancre unique | 1 section, ancre unique | tenue |
+
+### Constats du bloc 5 (sortie `tools/alt-2908-c.txt`, C124)
+
+**10 prédictions, 9 tenues, 1 partielle.** L'unique défaut vrai est corrigé :
+`IDENTIQUE` tombe de **1 à 0**, `MOT FR` de 14 à **13**, la fiche disparaît du
+rapport, et les **cinq compteurs de population sont inchangés à l'octet** —
+l'édition ne crée ni ne détruit d'embed. `--controle` reste à **188 / 0 / 0**,
+`derive-traduction` à **0 dérive / 188 à jour**, `--style` de la fiche à **0**
+typographie française. *La seule occurrence C109 que `--style` y trouve — un
+point-virgule de prose l. 111 — est **antérieure** à l'édition et sans rapport
+avec l'alt.*
+
+⚠ **INCIDENT SUR 5-8 : LA MOITIÉ « AVANT » D'UNE PRÉDICTION AVANT/APRÈS N'EST
+PLUS MESURABLE APRÈS L'ÉDITION.** La prédiction déclarait « 0 avant comme
+après » ; seul le terme *après* a été mesuré. Le terme *avant* n'est qu'une
+**lecture** — l'ancien alt `Cycle en V du projet mécatronique` ne porte aucune
+ponctuation double, donc aucun déclencheur du verdict de typographie — et sous
+C119 **une lecture n'est pas une mesure**. *Règle d'usage qui en sort : une
+prédiction avant/après doit lancer sa mesure « avant » **dans le bloc qui la
+publie**, pas après l'édition qui la rend inatteignable.* Sans effet sur le
+verdict : le compteur qui décide est celui d'après, et il est à 0.
+
+---
+
+## Bloc 6 — CORRECTIF D'ALIAS (c), ÉTAPE A : RELEVÉ CHIFFRÉ DE LA PASSE DE RATTRAPAGE
+
+Objet : chiffrer **avant de la lancer** la passe de rattrapage sur le stock EN
+déjà écrit. Rappel du dossier du 29/08 (suite 5) : `critere` / `niveau` /
+`flexibilite` sont des **aliases** de `caracteriser-une-exigence.md`, `FC` /
+`FP` / `FS` des aliases de `fonction.md` ; `creer-fiche-en.mjs` **retire les
+aliases** des fiches EN, si bien qu'un wikilink qui **vise** un alias est
+suffixé vers un slug qui n'aura **jamais** de fiche. *Traduire la cible ne
+répare rien* — c'est une classe, pas un retard.
+
+Commande : script de relevé jetable (C114), **aucune écriture**.
+
+### Déclaration C131
+
+**Deux populations, et elles ne se recouvrent pas.** (1) Les **occurrences de
+wikilink** de `content/**` hors `templates/` ; (2) les **entrées `aliases:`**
+des front matters FR. **Ce que la séance y a versé : 1 occurrence d'embed
+réécrite au bloc 5** — qui n'est **ni** un wikilink **ni** un alias, donc
+**0 versement** dans les deux populations de ce bloc. Les fichiers écrits par
+la séance (`creer-fiche-en.mjs`, `mesure-chevron.mjs`, `README.md`,
+`predictions-260829.md`, cinq sorties datées) sont **tous hors `content/`**.
+
+### Échantillon nommé (C110), lu avant tout comptage
+
+Le motif de wikilink compté est celui de `compter()` l. 395 :
+`/(?<!!)\[\[[^\]]+\]\]/g` — **négation d'embed en tête**, donc `![[x]]` ne
+compte pas. Une cible se lit **avant** le premier `|` **et** avant le premier
+`#`, et la forme de tableau échappe sa barre `\|` (C62). Les six cibles
+relevées côté EN sont donc exactement `critere-en`, `niveau-en`,
+`flexibilite-en`, `FC-en`, `FP-en`, `FS-en`, **casse comprise** — `FC` est en
+capitales dans le corpus.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 6-1 | entrées `aliases:` distinctes dans tout `content/` (FR) = **25** | **24** entrées, **24** distinctes | **réfutée** |
+| 6-2 | alias **effectivement visés** par au moins un wikilink FR = **6**, et ce sont les six du dossier | 6, et ce sont les six | tenue |
+| 6-3 | occurrences FR visant un alias = **69** (chiffre du 29/08 suite 5, à remesurer sous C119) | **69** (FC 26, FP 12, FS 12, niveau 7, critere 6, flexibilite 6) | tenue |
+| 6-4 | occurrences EN visant l'un des six slugs suffixés = **44** | **50** | **réfutée** |
+| 6-5 | fiches EN concernées = **17** | **5** | **réfutée** |
+| 6-6 | décomposition EN : `FP-en` **13**, `FS-en` **11**, `FC-en` **9**, `critere-en` **5**, `niveau-en` **4**, `flexibilite-en` **2** | `FC-en` **22**, `FP-en` **8**, `FS-en` **8**, `critere-en` **4**, `niveau-en` **4**, `flexibilite-en` **4** | **réfutée** |
+| 6-7 | ces occurrences sont **toutes** comptées dans les `58 mortes` d'`audit-wikilinks` (mesure du 29/08 suite 4), donc **44 des 58** | **6 cibles sur 58**, portant **50** occurrences — la ligne `MORT` compte des **cibles**, pas des occurrences | **réfutée** |
+| 6-8 | aucune de ces occurrences n'est signalée par `--controle` : `liens FR = liens EN` **par construction**, le suffixage ayant transformé un lien en un lien | `--controle` 188 / 0 divergente / 0 lien nu | tenue |
+| 6-9 | fiches EN portant une entrée `aliases:` = **0** (le générateur les retire) | 0 entrée, 0 fiche | tenue |
+| 6-10 | aucun des six slugs `critere-en` … `FS-en` n'existe comme **fichier** dans `content/en/` | les six : `AUCUN FICHIER` | tenue |
+
+**Ce que valent 6-4, 6-5 et 6-6.** Aucune mesure publiée ne les porte : le
+dossier du 29/08 (suite 5) a chiffré le **côté FR** (69 occurrences sur six
+cibles) et n'a pas descendu le côté EN. **Ce sont trois estimations**, bâties
+sur la part traduite du corpus — 188 fiches EN pour 242 FR, soit **78 %** — et
+sur l'idée que les six cibles sont concentrées dans les fiches d'analyse
+fonctionnelle, dont la quasi-totalité est traduite. *Le bloc 3 vient de rater
+ses quatre estimations de population dans deux sens opposés ; celles-ci sont
+publiées en sachant cela.*
+
+### Constats du bloc 6 (sorties `tools/alias-2908.txt` et `tools/wikilinks-2908.txt`, C124)
+
+**10 prédictions, 5 tenues, 5 réfutées.** Les cinq tenues sont des **verdicts**
+— quels alias sont visés, qu'aucune fiche EN ne porte d'`aliases:`, qu'aucune
+des six cibles n'existe comme fichier, que `--controle` ne voit rien. **Les
+cinq réfutées sont des compteurs**, sans exception. *Troisième bloc de suite
+où la coupure tombe exactement là.*
+
+⚠ **LES DEUX PORTEUSES N'ONT PAS DE JUMELLE EN, ET C'EST CE QUI DONNE SA
+VALEUR AU CORRECTIF.** `conduite/proj/fonction.md` et
+`conduite/proj/caracteriser-une-exigence.md` sont **non traduites**. Un lien
+réécrit vers `fonction-en` reste donc **rouge aujourd'hui** — mais il
+**deviendra vert le jour où la porteuse sera traduite**, alors que `FC-en` ne
+le serait **jamais**. *C'est exactement la phrase de l'arbitrage (c) : traduire
+la cible ne réparait rien ; après le correctif, traduire la cible répare tout.*
+Les deux cibles justes sont d'ailleurs **déjà** dans la liste des mortes —
+`fonction-en` à 8 occurrences, `caracteriser-une-exigence-en` à 9 — et la
+passe de rattrapage va les y grossir au lieu de créer six entrées orphelines.
+
+⚠ **RÉFUTATION 6-7 : `MORT 58` COMPTE DES CIBLES, PAS DES OCCURRENCES, ET
+`audit-wikilinks` L'ÉCRIT.** La ligne de bilan dit `MORT 58 cible(s)`, et
+chaque cible imprime son propre `N occurrence(s)`. J'ai prédit « 44 des 58 »
+en lisant 58 comme un nombre de liens. Les six alias suffixés sont **6 cibles
+sur 58**, et elles portent **50 occurrences**. *C'est l'amendement (7) de la
+sous-règle C116 — tout compteur dont on publie une prédiction se lit dans le
+code qui l'incrémente — pris en défaut pour la quatrième fois du chantier, et
+cette fois le mot juste était **imprimé sur la ligne même**.*
+
+⚠ **LA DÉCOMPOSITION 6-6 EST FAUSSE SUR SES SIX TERMES ET JUSQU'À SON ORDRE.**
+Prédit `FP 13 > FS 11 > FC 9 > critere 5 > niveau 4 > flexibilite 2` ; mesuré
+`FC 22 > FP 8 = FS 8 > critere 4 = niveau 4 = flexibilite 4`. **`FC` est le
+plus fréquent des trois sigles, pas le moins**, et les trois termes du triplet
+`critère / niveau / flexibilité` sont **strictement égaux**, ce qu'aucune
+répartition « naturelle » ne laissait attendre : ils viennent d'un **tableau
+répété**, pas d'une prose. *Le motif du 28/08 — un total dans la fourchette ne
+valide pas la décomposition — se lit ici à l'envers : une décomposition
+entièrement fausse sous un total (50) qui n'était lui-même faux que de 14 %.*
+
+⚠ **6-5 EST LA PLUS GROSSE ERREUR DE LA SÉANCE : 17 FICHES PRÉDITES, 5
+MESURÉES.** Les 50 occurrences sont concentrées sur **cinq fiches**, toutes
+dans `en/conduite/proj/` — `cahier-des-charges-fonctionnel-en`, `concept-en`,
+`ecoconception-en`, `securite-et-qualite-en`, `specification-technique-en`.
+*J'ai raisonné en part traduite du corpus (78 %) sur une population que je
+croyais diffuse ; elle est en réalité **locale à un dossier**, et une
+estimation par proportion ne dit rien d'une population concentrée.*
+
+---
+
+## Bloc 7 — CORRECTIF D'ALIAS (c), ÉTAPE B : LE GÉNÉRATEUR, PUIS LA PASSE DE RATTRAPAGE
+
+### Ce qui est écrit, terme à terme
+
+1. **Index d'alias FR** construit au chargement, à côté de `titreParSlug` :
+   `alias -> chemin de la fiche porteuse`. Lecture des `aliases:` par une
+   **copie verbatim** de `readAliases` d'`audit-wikilinks.mjs` — même motif que
+   l'outil qui résout ces liens correctement, donc pas de seconde
+   implémentation sous la même phrase.
+2. `transformerLien()` — avant le suffixage, une cible **sans barre oblique**,
+   **qui n'est pas elle-même une fiche FR** et **qui est un alias** est
+   remplacée par le **slug de sa porteuse**. Le suffixage s'applique ensuite
+   normalement.
+3. **Le libellé par défaut devient l'alias**, pas le titre de la porteuse :
+   `[[FC]]` rend `[[fonction-en|FC]]` et non `[[fonction-en|Fonction]]`.
+   *Le corpus écrit `FC` parce que c'est la désignation qui porte le sens à cet
+   endroit ; la remplacer par le titre de la porteuse perdrait ce que le lien
+   disait.*
+4. Journal de génération : une ligne `alias resolus` par occurrence.
+
+### La passe de rattrapage, chiffrée avant d'être lancée
+
+**50 occurrences, 5 fiches, 6 formes exactes**, toutes à libellé explicite —
+`[[FC-en\|FC]]` ×22, `[[FS-en\|FS]]` ×8, `[[FP-en\|FP]]` ×8,
+`[[niveau-en\|level]]` ×4, `[[flexibilite-en\|flexibility]]` ×4,
+`[[critere-en\|criterion]]` ×4. **Aucune forme sans libellé, aucune barre
+échappée** (donc aucune en cellule de tableau, C62), **aucune ancre `#`**.
+La réécriture ne touche que la **cible**, jamais le libellé.
+
+### Déclaration C131
+
+**Population comptée : les occurrences de wikilink de `content/**`.** **La
+séance va y verser 50 réécritures** — 50 occurrences changent de cible, **le
+nombre total d'occurrences ne bouge pas**, et c'est ce que la prédiction 7-9
+vérifie par `--controle`. Les deux cibles `fonction-en` et
+`caracteriser-une-exigence-en` **portent déjà 8 et 9 occurrences** avant la
+passe : *le compteur d'après n'est donc pas le compte de la passe, il est la
+somme de la passe et du stock antérieur*, et 7-7 le déclare terme à terme.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 7-1 | contrôle d'unicité d'ancre sur `creer-fiche-en.mjs` : **3** ancres, chacune à 1 occurrence | **6** ancres, chacune à 1 | **réfutée** |
+| 7-2 | `--dry` sur `conduite/proj/cahier-des-charges-fonctionnel.md` après correctif : les trois compteurs **ok**, et le journal imprime **26** alias résolus | trois compteurs **ok** (34/34, 0/0, 0/0) ; **5** alias résolus | **réfutée** |
+| 7-3 | dans la sortie `--dry`, **0** occurrence de la chaîne `FC-en`, `FP-en`, `FS-en`, `critere-en`, `niveau-en`, `flexibilite-en` | vérifié autrement : les **69** occurrences FR se résolvent, **10 fiches**, somme 5+5+2+3+9+1+37+4+3 = **69** | tenue |
+| 7-4 | passe de rattrapage : **5** fiches EN touchées, **50** occurrences réécrites, **0** libellé modifié | 5 fiches, **50** occurrences, 27 insertions / 27 suppressions (aucun libellé touché) | tenue |
+| 7-5 | contrôle d'unicité d'ancre de la passe : les **6** formes rendent respectivement **22 / 8 / 8 / 4 / 4 / 4**, total **50** | 22 / 8 / 8 / 4 / 4 / 4 = **50**, et **aucune autre forme** dans `content/en` | tenue |
+| 7-6 | après passe, `releve-alias` : `cibles alias suffixees : 0   occurrences : 0   fiches EN concernees : 0` | `cibles alias suffixees : 0   occurrences : 0   fiches EN concernees : 0` | tenue |
+| 7-7 | après passe, `audit-wikilinks` : `MORT` **58 → 52** cibles ; `fonction-en` **8 → 46** occurrences ; `caracteriser-une-exigence-en` **9 → 21** | MORT **52** ; `fonction-en` **46** ; `caracteriser-une-exigence-en` **21** | tenue |
+| 7-8 | `CASSE 0`, `AMBIGU 0`, `GABARIT 8`, `ALIAS 6`, `OK 432` — **les cinq inchangés** | 0 / 0 / 8 / 6 / 432 | tenue |
+| 7-9 | `--controle` après passe : **188 fiches, 0 divergente, 0 lien non suffixé** | 188 / 0 / 0 | tenue |
+| 7-10 | `derive-traduction` après passe : **0 dérive, 188 à jour** — la passe ne touche que des fiches EN | DERIVE 0, A JOUR 188 | tenue |
+| 7-11 | `compter-mots` : le corpus EN **ne change pas d'un mot** (la cible d'un wikilink n'est pas comptée, seul le libellé l'est, et aucun libellé ne bouge) | EN **224 071 → 224 070**, soit **−1 imputable au bloc 5** et **0 à la passe** | tenue |
+
+### Constats du bloc 7 (sorties `alias-2908-b.txt`, `wikilinks-2908-b.txt`, C124)
+
+**11 prédictions, 9 tenues, 2 réfutées.** *Quatrième bloc de suite où les
+réfutations sont des compteurs et où les verdicts sortent propres.*
+
+**Le correctif fait exactement ce que l'arbitrage (c) demandait, et les trois
+chiffres de sortie se recoupent sur trois instruments indépendants.**
+`releve-alias` tombe à **0 occurrence sur 0 fiche** ; `audit-wikilinks` passe de
+**58 à 52 cibles mortes** — les six cibles fantômes ont disparu, aucune autre
+n'est apparue — et les deux cibles justes absorbent le stock **au report exact**
+(`fonction-en` 8 + 38 = **46**, `caracteriser-une-exigence-en` 9 + 12 = **21**,
+et 38 + 12 = **50**). `CASSE`, `AMBIGU`, `GABARIT`, `ALIAS` et `OK` sont
+**inchangés aux cinq chiffres** : la passe n'a ni cassé ni créé un seul lien.
+
+⚠ **RÉFUTATION 7-2 : J'AI PRÉDIT SUR UNE FICHE LE TOTAL D'UN CORPUS.** 26 était
+le nombre d'occurrences de `FC` **sur les sept fiches FR** relevées au bloc 6 ;
+`cahier-des-charges-fonctionnel` en porte **5**. *Même faute de population que
+6-5, à trois blocs d'intervalle et dans le même dossier : un chiffre juste, lu
+sur la mauvaise population.*
+
+⚠ **ET LE RELEVÉ DU BLOC 6 SOUS-COMPTAIT SES PROPRES FICHES.** La vérification
+de 7-3 a demandé de lancer `--dry` fiche par fiche : les sept fiches trouvées
+par balayage textuel ne rendaient que **62** des 69 occurrences. Les **7**
+manquantes vivent dans **trois fiches de plus** — `etat-de-l-art-technique` (4),
+`fonction` (3), `integration-et-tests` (0) — que mon motif de balayage avait
+manquées, alors que `releve-alias.mjs`, lui, les comptait. **Dix fiches FR, pas
+sept.** *Le motif de grep et le motif de l'outil ne portaient pas la même
+population, et c'est l'outil qui avait raison — exactement ce que C110 demande
+de vérifier sur un échantillon nommé avant de compter.* Sans effet sur la
+passe, qui porte sur le **côté EN** et dont les six formes ont été comptées une
+à une.
+
+**Ce que le correctif change au fond, et qui n'est pas un chiffre.** Les deux
+porteuses `fonction.md` et `caracteriser-une-exigence.md` **ne sont pas encore
+traduites**, donc les 50 liens réécrits **restent rouges ce soir**. Mais ils
+sont désormais rouges **d'un rouge réparable** : le jour où les deux porteuses
+passent, les 50 virent au vert d'un coup. Avant la passe, `FC-en` n'aurait
+jamais viré, quoi qu'on traduise. *Une classe de liens rouges a cessé d'être une
+classe pour redevenir un retard.*
+
+⚠ **C131 : LE −1 MOT DU CORPUS EN EST À MOI, PAS À LA PASSE.** Le corpus EN
+passe de **224 071 à 224 070**. La passe d'alias y contribue pour **0** — `FC-en`
+et `fonction-en` pèsent **un jeton chacun** sous le motif de C110, qui garde les
+traits d'union. Le mot manquant vient du **bloc 5** : `Cycle en V du projet
+mécatronique` (6 jetons) rendu `V-model of the mechatronics project` (5).
+*Sans la déclaration, ce −1 aurait été porté au compte de la passe.*
+
+---
+
+## Bloc 8 — G1, CADRAGE DU LOT 2 D'`esp32/` (palier 3 du hub)
+
+Commande :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/mcu/esp32/esp32-wifi.md,embarque/mcu/esp32/esp32-ble.md,embarque/mcu/esp32/esp32-uart.md,embarque/mcu/esp32/esp32-i2c.md,embarque/mcu/esp32/esp32-spi.md`
+
+### Composition, et la règle de repli publiée AVANT la mesure
+
+Le palier 3 du hub (`esp32.md` l. 83-85) se lit dans cet ordre : **Connectivité**
+`esp32-wifi` · `esp32-ble` ; **Communication** `esp32-uart` · `esp32-i2c` ·
+`esp32-spi` ; puis **`esp32-deep-sleep`**, seule de sa ligne.
+
+**Le lot des six dépasse la borne, et le calcul est fait sur `deh` comme le
+brief l'exige.** Mesure du jour (bloc 1, sortie `chevron-2908-avant.txt`) :
+`deh` **1 318 + 1 187 + 1 175 + 1 052 + 1 020 + 1 401 = 7 153**, contre une
+borne de chantier à **6 657**. *Le `tot` publié par l'anneau — 7 804 — n'a
+jamais été le chiffre de dimensionnement depuis C127.*
+
+**Règle de repli, écrite avec son seuil et son ordre de retrait avant tout
+lancement** : on retire **la dernière fiche de l'ordre de lecture du hub**, soit
+**`esp32-deep-sleep`**, et le lot tombe à **`deh` 5 752**. Ce retrait tombe sur
+une **frontière de groupe** — la ligne 85 du hub ne porte qu'elle — donc les
+deux groupes *Connectivité* et *Communication* restent **entiers**. S'il avait
+fallu retirer davantage, le suivant aurait été `esp32-spi`, dernier de la ligne
+84. `esp32-deep-sleep` part au **lot 3** avec `esp32-arduino-core`,
+`esp32-freertos` et `esp32-idf`.
+
+### Déclaration C131 — la garde de ce bloc compte 22 fichiers, dont 19 « hors artefacts », et 19 est un chiffre que la séance a fabriqué
+
+`batterie.ps1` n'écarte que **deux motifs**, `batterie-sortie` et
+`predictions-` (l. 165 du script, lue et non déduite). **Les onze sorties de
+mesure que cette séance a créées sous `tools/` ne portent aucun de ces deux
+motifs** et comptent donc **dans le chiffre « hors artefacts »** — c'est
+exactement l'habitat que C116 (9) et C131 décrivent. **Liste nominative
+attendue, 19 entrées** :
+
+*Modifiées, 9* — les six fiches EN des blocs 5 et 7
+(`en/conduite/index.md`, `cahier-des-charges-fonctionnel-en`, `concept-en`,
+`ecoconception-en`, `securite-et-qualite-en`, `specification-technique-en`),
+plus `tools/creer-fiche-en.mjs`, `tools/mesure-chevron.mjs`,
+`tools/README.md`.
+
+*Non suivies, 10* — `tools/releve-alias.mjs` (outil de relevé du bloc 6) et
+neuf sorties datées : `alt-2908.txt`, `alt-2908-b.txt`, `alt-2908-c.txt`,
+`chevron-2908-avant.txt`, `chevron-2908-apres.txt`, `alias-2908.txt`,
+`alias-2908-b.txt`, `wikilinks-2908.txt`, `wikilinks-2908-b.txt`.
+
+*Écartées par le filtre, 3* — `tools/predictions-260829.md`,
+`tools/batterie-sortie-2908b15.txt`, et la copie `2908b16` que l'étape 0 va
+créer avant que l'étape 1 ne lise `git status`.
+
+**Population du lot, et ce que la séance y a versé : rien.** Les cinq sources
+FR n'ont été ni lues en écriture ni touchées depuis HEAD `1846e6c` ; leur date
+d'écriture doit être **antérieure au 29/08 17:37:55** et identique au relevé du
+bloc G.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 8-1 | copie C124 = `tools\batterie-sortie-2908b16.txt` | idem | tenue |
+| 8-2 | lignes non ASCII dans `batterie.ps1` = **0** | 0 | tenue |
+| 8-3 | HEAD **inchangé** `1846e6c 2026-08-29 17:37:55 +0200` ; JOURNAL / conventions / TODO **inchangés** à 17:32:23 / 17:33:51 / 17:34:54 | les quatre horodatages identiques au bloc G | tenue |
+| 8-4 | `fichiers modifies non commites` = **22**, `(hors artefacts de seance : 19)`, la liste nominative ci-dessus étant complète | **22   (hors artefacts de seance : 19)** | tenue |
+| 8-5 | les **cinq** sources FR listées sous les dates d'écriture, **aucune ABSENTE**, toutes datées **avant** le 29/08 17:37:55 | 5 listées, 0 ABSENTE, dates 20/08 23:01, 21/08 12:54, 19/08 10:00 ×3 | tenue |
+| 8-6 | `compter-mots --lot` : `tot` par fiche **1 455 / 1 279 / 1 282 / 1 143 / 1 150**, total **6 309** | 1 455 / 1 279 / 1 282 / 1 143 / 1 150, **LOT 6 309** | tenue |
+| 8-7 | `deh` du lot = **5 752**, `ded` = **547**, `etiq` = **10** sur **5 porteuses / 10 blocs** — sous la borne 6 657 avec **905** de marge | `20 cl  10 bl  6309 tot  547 ded  5752 deh  10 etiq` | tenue |
+| 8-8 | candidats C109 des cinq sources FR (`--style`) = **58** au total | **82** | **réfutée** |
+| 8-9 | verdict `typographie francaise` sur les cinq sources FR = **0** | 0 | tenue |
+| 8-10 | verdict `hors alphabet latin` = **0** ; `virgule ambigue` = **0** | 0 et 0 | tenue |
+| 8-11 | `--anneau 2` : **NET 145**, **94 traduites**, restant **51 / 73 305** — les quatre chiffres du 29/08 (suite 4), **inchangés**, aucune fiche EN n'ayant été créée depuis | NET 145, 94 traduites, RESTANT 51 / 73 305 | tenue |
+| 8-12 | dette : **188 sources, 52 cibles, 74 145 mots, 0 hors anneaux** — inchangée | 188 / 52 / 74 145 / 0 | tenue |
+| 8-13 | bloc `chevron` de `--anneau` : **15 porteuses / 56 clôtures**, inchangé | 15 porteuses / 56 clôtures | tenue |
+| 8-14 | `cibles sans fiche` de `--anneau` : les **six alias** y figurent **toujours** — `--anneau` ignore la table d'alias (README), et le correctif du bloc 7 porte sur le **générateur**, pas sur ce mode | les six y figurent | tenue |
+| 8-15 | code de sortie de chacune des quatre étapes = **0** | 0 / 0 / 0 / 0 | tenue |
+
+**Ce que 8-8 vaut.** Le lot 1 a rendu **63** candidats pour **6 107** mots `tot`
+sur trois fiches, soit **1,03 %**. Appliqué aux 6 309 mots du lot 2, cela donne
+**65**. **Je prédis 58**, plus bas : les cinq fiches du palier 3 sont des tutos
+courts et répétitifs de périphérique, là où le lot 1 portait
+`esp32-prise-en-main` (2 566 mots, la plus longue du module) dont la prose de
+procédure est riche en incises. *La prédiction est donc un écart assumé au taux
+observé, pas son report.*
+
+### Constats du bloc 8 (G1) — sorties `batterie-sortie.txt` et `chevron-lot2-avant.txt`
+
+**15 prédictions, 14 tenues, 1 réfutée.** Garde **verte** pour la deuxième fois
+de la séance : HEAD, JOURNAL, conventions et TODO **aux quatre mêmes
+horodatages** qu'au bloc G, cinq sources FR datées du 19 au 21/08 donc
+**antérieures au commit**, aucune ABSENTE.
+
+⚠ **LE CHIFFRE « HORS ARTEFACTS » SORT À 19 ET LA LISTE NOMINATIVE EN REND
+COMPTE ENTIÈREMENT — C'EST LA PREMIÈRE FOIS QUE LA DÉCLARATION C131 SERT À
+QUELQUE CHOSE.** `batterie.ps1` n'écarte que `batterie-sortie` et
+`predictions-` ; les **neuf sorties de mesure** que la séance a créées sous
+`tools/` (`alt-2908*`, `chevron-2908-*`, `alias-2908*`, `wikilinks-2908*`) et
+**l'outil de relevé `releve-alias.mjs`** ne portent aucun de ces motifs et
+gonflent donc le compteur qu'ils servent à alimenter. *Sans la liste nominative
+publiée avant le lancement, un 19 aurait été impossible à distinguer d'un
+19 anormal.* **La déclaration C131 du bloc, elle, est juste sur ses deux
+chiffres — leçon de la réfutation G-6 appliquée.**
+
+⚠ **RÉFUTATION 8-8, ET ELLE EST DU CÔTÉ OÙ JE NE L'ATTENDAIS PAS.** Prédit
+**58**, mesuré **82** — soit **1,30 %** du `tot` contre **1,03 %** au lot 1, et
+non 0,9 % comme je l'avais raisonné. **Mon argument était exactement à
+l'envers** : j'ai supposé que des tutos courts de périphérique porteraient
+moins d'incises qu'une longue fiche de procédure, alors qu'ils en portent
+**davantage**. La cause se lit dans la sortie : ces cinq fiches ouvrent chacune
+sur une **définition à apposition** (l. 18-20, deux à trois tirets d'incise sur
+la seule première phrase) et enchaînent des **paragraphes-pièges à
+point-virgule**. *La densité C109 suit la **forme** de la fiche, pas sa
+longueur, et le lot 1 ne pouvait pas l'apprendre puisqu'il ne portait qu'un
+seul genre.* **Décomposition** : `spi` 20, `ble` 21, `uart` 15, `i2c` 14,
+`wifi` 12 — et `spi`, la deuxième plus courte, est la plus dense.
+
+**Les deux volumes du lot, publiés ensemble comme C127 l'exige** :
+`tot` **6 309**, `deh` **5 752**. Le découpage s'est fait sur `deh`, la borne
+est **6 657**, la marge est de **905** — et `esp32-deep-sleep` (`deh` 1 401)
+part au lot 3. *La règle de repli était écrite avec son seuil et son ordre de
+retrait avant la mesure ; elle n'a demandé aucun arbitrage, pour la deuxième
+fois du chantier.*
+
+**`--anneau` reconduit les treize chiffres du 29/08 (suite 4) sans en bouger
+un** : NET 145, 94 traduites, restant 51 / 73 305, dette 188 / 52 / 74 145 / 0,
+chevron 15 / 56. **Et les six alias sont toujours en « cibles sans fiche »** —
+le correctif du bloc 7 porte sur le **générateur** et sur le **stock EN**, pas
+sur ce mode, qui ignore la table d'alias par construction (README). *Prédit et
+constaté : ce n'est pas une régression du correctif.*
+
+---
+
+## Bloc 9 — G2, PASSES C109 SUR LES CINQ SOURCES FR — ⚠ INCIDENT DE PROTOCOLE, BLOC HORS DÉCOMPTE
+
+⚠ **LES PRÉDICTIONS DE CE BLOC N'ONT PAS ÉTÉ APPENDUES AVANT SON EXÉCUTION.**
+Elles ont été **rédigées** avant la passe, dans un fichier de travail hors
+dépôt, et **le lancement qui devait les verser ici n'a jamais été fait** : la
+passe d'édition a suivi directement. La sous-règle C116 est explicite —
+*les prédictions s'appendent à `tools/predictions-AAMMJJ.md` avant chaque bloc
+d'exécution, **l'ordre des appels dans la transcription faisant foi***, et son
+point (3) prévoit qu'*une prédiction manquante se consigne en incident*.
+
+**Conséquence tenue, sans négociation : les 12 prédictions de ce bloc sont
+réputées ABSENTES et le bloc entier sort du décompte de la séance.** Elles sont
+reproduites ci-dessous **pour la valeur de leur contenu**, jamais pour un
+verdict : aucune ne compte comme tenue, aucune comme réfutée, et le bilan
+général les porte en ligne séparée.
+
+⚠ *Le mode de défaillance est neuf et mérite d'être nommé : ce n'est pas un
+oubli de rédaction — le texte existait — c'est **un appel d'outil manquant
+entre deux appels d'outil**. Les huit blocs précédents alternaient
+« j'écris les prédictions » / « je lance » ; ici la préparation de la passe
+d'édition, qui est elle-même un fichier à écrire, s'est intercalée et a pris la
+place de l'appel d'écriture des prédictions.* **Règle d'usage qui en sort :
+sous exécution directe, le versement des prédictions et le lancement du bloc
+doivent être **le même appel** ou deux appels **immédiatement consécutifs** ;
+tout appel intercalé est l'occasion de la perte.*
+
+### Ce qui avait été prédit (reproduit, HORS DÉCOMPTE)
+
+| # | prédiction rédigée avant la passe | constat | rapprochement |
+|---|---|---|---|
+| 9-1 | ancres de contrôle d'unicité = **66**, chacune à 1 | **71**, chacune à 1, et **1 défaut** au premier contrôle | écart |
+| 9-2 | lignes réécrites `wifi` 10 / `ble` 17 / `uart` 12 / `i2c` 12 / `spi` 15 = **66** | 10 / 17 / 12 / 12 / 15 = **66** | conforme |
+| 9-3 | occurrences traitées **72**, exemptions **10** | 72 et 10 | conforme |
+| 9-4 | `C109 de prose` après passe = **10**, et exactement les dix nommés | **10**, les dix nommés | conforme |
+| 9-5 | `typographie francaise` / `virgule ambigue` / `hors alphabet latin` = **0 / 0 / 0** | 0 / 0 / 0 | conforme |
+| 9-6 | `hors perimetre` = **26** | 26 | conforme |
+| 9-7 | `tot` 6 309 → **6 311** (+2) | 6 309 → **6 310** (+1) | écart |
+| 9-8 | `deh` 5 752 → **5 754** (+2), `ded` **547** | 5 752 → **5 753** (+1), `ded` 547 | écart sur `deh` |
+| 9-9 | `etiq` **10**, `20 cl / 10 bl / 5 porteuses` | idem | conforme |
+| 9-10 | `git diff --stat` : **5** fichiers, **66** insertions / **66** suppressions | idem | conforme |
+| 9-11 | aucune fiche EN touchée | aucune | conforme |
+| 9-12 | `--controle` **188 / 0 / 0** | 188 / 0 / 0 | conforme |
+
+### Les dix exemptions, et pourquoi ce sont celles-là
+
+C123 exige l'absence de **tout** verbe conjugué, subordonnée comprise, et tranche
+le doute vers le traitement. Le résidu est de **trois formes seulement** :
+
+| fiche | l. | forme | motif |
+|---|---|---|---|
+| `wifi` | 18 | `— interroger une API, exposer une page web, publier des mesures` | énumération de **trois infinitifs** |
+| `wifi` | 24 | `; envoyer des mesures vers un serveur` | énumération de **deux infinitifs**, sur puce |
+| `ble` | 24 | `— température, niveau, état —` | **incise encadrée qui énumère**, borne du 25/08 |
+| `uart` | 20 | `— module GPS, lecteur RFID, seconde carte —` | idem, **2** occurrences |
+| `i2c` | 20 | `— capteurs, écrans OLED, horloges temps réel —` | idem, **2** occurrences |
+| `spi` | 20 | `— carte SD, écran TFT, capteurs à haut débit —` | idem, **2** occurrences |
+| `spi` | 190 | `(VSPI : 18/19/23/5 ; HSPI : 14/12/13/15)` | **liste nominale en ligne** dans une parenthèse |
+
+⚠ **Trois candidats sont exemptés par la lettre de C123 et traités quand
+même** : `wifi` l. 70 (`— en projet, reprendre ce motif borné`), `ble` l. 185
+(`; pour les rôles mixtes, prévoir l'architecture`), `i2c` l. 120
+(`; sinon, ajouter deux résistances`). **Aucun n'est une énumération** — ce sont
+des injonctions de prose à l'infinitif, et l'exemption de C123 a été écrite pour
+les **items de liste**. *La lecture mécanique seule aurait rendu un résidu de 13
+au lieu de 10.*
+
+### Constats mesurés du bloc
+
+⚠ **LE CONTRÔLE D'UNICITÉ D'ANCRE A SERVI SEUL POUR LA DEUXIÈME FOIS DU
+CHANTIER, ET IL A REFUSÉ 71 ÉDITIONS POUR UNE.** `esp32-i2c` l. 184 : l'ancre
+écrivait `differents de GPIO21/22`, la fiche porte `diffèrent de GPIO21/22` —
+**un verbe conjugué recopié en adjectif**. La passe s'est arrêtée **avant toute
+écriture**, les 70 autres ancres étant justes. *C'est le mode d'échec redouté du
+28/08 — un lot multi-édition est atomique — et l'atomicité joue une seconde fois
+dans le bon sens : elle refuse au lieu d'appliquer 70 sur 71.* Corrigé,
+relancé : **71 / 71, 0 défaut.**
+
+⚠ **TROIS POPULATIONS EMBOÎTÉES, ET J'EN AVAIS PUBLIÉ UNE SOUS LE NOM D'UNE
+AUTRE** : **66 lignes** réécrites, **71 fragments** d'ancre, **72 occurrences**
+C109 retirées. Le décalage 71 → 72 a une cause nommable — `esp32-uart` l. 60
+porte **un point-virgule et un tiret dans la même phrase**, traités par **une
+seule** réécriture.
+
+⚠ **LE COÛT DE LA PASSE EST DE +1 MOT, ET LE MOT EST NOMMABLE.** Sur 72
+réécritures, **71 sont à coût nul** — un `;` devient un point, un tiret devient
+deux-points, virgule ou parenthèse, et aucune de ces voies n'ajoute de mot. Le
+seul mot ajouté est le `Avec` d'`esp32-ble` l. 141 : `allume une LED
+(`GPIO16`) ; `0`, elle l'éteint` ne devient grammatical que sous la forme
+`. Avec `0`, elle l'éteint`. *La décomposition écrite avant la passe portait
++1 ; c'est le **total** provisionné à +2 qui était faux — le motif du 28/08
+pris à l'envers.*
+
+**Les six renvois `— voir [[x]]` sont tous passés par la troisième voie**, les
+parenthèses (précision du 25/08) : `wifi` l. 29 et 96, `ble` l. 117, `uart`
+l. 60, `i2c` l. 43, `spi` l. 43.
+
+**Les deux volumes après passe, publiés ensemble (C127)** : `tot` **6 310**,
+`deh` **5 753**, `ded` **547 inchangé** — aucun bloc en chevron n'a été touché,
+ce que la stabilité de `ded` **mesure** au lieu de le supposer. `etiq` **10**,
+`20 cl / 10 bl`, inchangés. `--controle` **188 / 0 / 0**.
+
+---
+
+## Bloc 10 — G3, LES CINQ TITRES EN SOUS C125, PUIS LA GÉNÉRATION DES CINQ SQUELETTES
+
+### Les cinq titres, arrêtés AVANT la génération
+
+**Test 2 tombe sur les cinq, et pour la même raison qu'au lot 1.** La clause du
+27/08 (suite 7) exige des `title:` FR **identiques** entre jumelles ; le corpus
+français **distingue déjà** par le qualificatif de famille — `UART sur Arduino`
+contre `UART sur l'ESP32`. Les cinq paires descendent donc au **test 3**.
+
+**Test 3, et le corpus anglais a déjà tranché quatre fois sur cinq.** Les cibles
+sont **rouges mais nommées** : dix-neuf wikilinks EN les visent déjà.
+
+| cible | formes lues en production | titre arrêté |
+|---|---|---|
+| `esp32-wifi-en` | `Wi-Fi on the ESP32` **×10**, `Wi-Fi` ×1 | **Wi-Fi on the ESP32** |
+| `esp32-uart-en` | `UART on the ESP32` ×4, `UART` ×1 | **UART on the ESP32** |
+| `esp32-i2c-en` | `I2C on the ESP32` ×2, `I2C` ×1 | **I2C on the ESP32** |
+| `esp32-spi-en` | `SPI on the ESP32` ×2, `SPI` ×1 | **SPI on the ESP32** |
+| `esp32-ble-en` | `Bluetooth LE` ×1, `Bluetooth LE on the ESP32` ×1, `BLE on the ESP32` ×1 | **Bluetooth LE on the ESP32** |
+
+⚠ **`ble` porte trois formes concurrentes à une occurrence chacune, et c'est le
+motif du lot 1 qui tranche : un libellé en production n'est pas un titre en
+production.** La forme `BLE on the ESP32` vient du **Voir aussi** de `ble-en`
+l. 25 — et elle y **reporte fidèlement** le libellé français `[[esp32-ble|BLE
+sur ESP32]]`, qui **diffère déjà du `title:` FR** `Bluetooth LE avec l'ESP32`.
+*Le corpus français distingue son libellé de son titre à cet endroit précis ;
+prendre le libellé pour le titre importerait en anglais une distinction que la
+source range de l'autre côté.* La forme `Bluetooth LE on the ESP32`, lue en
+prose l. 20 de la même fiche, est le **report du `title:`** et gagne.
+
+**L'article défini est celui du lot 1.** `Getting started with the ESP32` et
+`Getting started with the ESP8266` l'ont établi — *l'article défini devant une
+famille à chiffres*. La famille Arduino, elle, écrit `UART on Arduino`,
+`I2C on Arduino`, `SPI on Arduino` **sans article**, et c'est cohérent : Arduino
+n'est pas une famille à chiffres. **Aucune collision de titre n'est créée** :
+`UART on Arduino` et `UART on the ESP32` sont deux formes distinctes, ce que
+`titres-doublons.mjs` vérifiera à la clôture.
+
+### Garde de génération
+
+Les cinq cibles doivent être **ABSENTES**. `--force` n'est **jamais** passé :
+une cible présente arrête le bloc.
+
+### Déclaration C131
+
+**Population comptée : le corpus EN, 188 fiches / 224 070 mots avant ce bloc.**
+**Ce que le bloc va y verser : 5 fiches et le texte FR de leurs squelettes**,
+soit `tot` **6 310 mots de source**, **plus** les libellés que le générateur
+ajoute aux wikilinks nus (`[[x]]` devient `[[x-en|Titre FR]]`). *Le corpus EN
+d'après n'est donc pas 224 070 + 6 310 : il porte en plus un nombre de mots que
+seul le journal de génération donne, et c'est ce que 10-9 tente de prédire.*
+⚠ **Le compteur `hors artefacts` de la prochaine garde passera de 24 à 29.**
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 10-1 | les **5** cibles `content/en/embarque/mcu/esp32/esp32-{wifi,ble,uart,i2c,spi}-en.md` sont **ABSENTES** avant génération | les cinq ABSENTES | tenue |
+| 10-2 | les trois compteurs sortent **ok** sur les cinq, **aucune divergence**, donc **aucun `--force`** | les trois compteurs ok sur les cinq, 0 `--force` | tenue |
+| 10-3 | `code` = **2** pour chacune des cinq (deux blocs en chevron, quatre clôtures), `embeds` = **0** pour les cinq | `code` **6 / 4 / 5 / 5 / 6** ; `embeds` **2 / 2 / 1 / 1 / 1** | **réfutée sur les deux termes** |
+| 10-4 | `alias resolus` = **0** sur les cinq : aucune de ces fiches ne vise `FC`/`FP`/`FS`/`critere`/`niveau`/`flexibilite` | 0 (aucune ligne `alias resolus`) | tenue |
+| 10-5 | `draft` inséré sur les cinq ; `prerequis suffixes` **≥ 1** sur chacune | `draft` **non inséré** (déjà au front matter des cinq) ; `prerequis suffixes` 2 / 2 / 3 / 3 / 3 | **réfutée** sur `draft`, tenue sur `prerequis` |
+| 10-6 | corpus après génération : **193 fiches EN** | 193 | tenue |
+| 10-7 | `--controle` : **193 / 0 divergente / 0 lien non suffixé** | 193 / 0 / 0 | tenue |
+| 10-8 | `derive-traduction` : **DERIVE 0 / SANS SOURCE 0 / SANS MARQUE 0 / A JOUR 193** | 0 / 0 / 0 / **193** | tenue |
+| 10-9 | `compter-mots --paires` : **193 paires**, FR **221 956** (215 646 + 6 310), EN **230 500** | 193 paires, FR **221 956**, EN **230 380** | **réfutée** sur EN (prédit 230 500) |
+| 10-10 | `mesure-chevron --tout` : EN **24 porteuses / 50 blocs**, `etiq` EN **50** ; FR **inchangé à 34 / 68 / 67** | EN **24 / 100 cl / 50 bl / 50 etiq** ; FR 34 / 68 / 67 | tenue |
+| 10-11 | appariement chevron : **24 paires porteuses, 0 divergente** | 24 paires, 0 divergente | tenue |
+| 10-12 | `audit-wikilinks` : `MORT` **52 → 49** — les cinq cibles du lot sortent de la liste, et les squelettes en font entrer de nouvelles | MORT **47** | **réfutée** |
+| 10-13 | `titres-doublons.mjs` : **aucun groupe neuf**, ni en FR ni en EN | 193 fiches lues, 184 titres distincts, **9 groupes / 18 fiches** — inchangé | tenue |
+
+### Constats du bloc 10 (G3) — sortie `tools/chevron-2908-postgen.txt`
+
+**13 prédictions, 9 tenues, 4 réfutées.** Génération **propre sur les cinq** :
+cibles absentes, trois compteurs `ok`, **aucun `--force`**, `--controle`
+**193 / 0 / 0**, `derive` **193 à jour**, appariement chevron **24 paires,
+0 divergente**.
+
+⚠ **RÉFUTATION 10-3 : J'AI PRÉDIT LE NOMBRE DE BLOCS EN CHEVRON À LA PLACE DU
+NOMBRE DE BLOCS DE CODE, ET ZÉRO EMBED SUR CINQ FICHES QUI EN PORTENT SEPT.**
+Le compteur `code` de `compter()` compte **toutes** les clôtures en début de
+ligne, préfixe de citation **compris** (l. 399, lue au bloc 1) : il porte donc
+les blocs normaux **plus** les blocs en chevron. Prédit **2**, mesuré
+**6 / 4 / 5 / 5 / 6**. *Cinquième réfutation de la séance dont la cause est
+« un compteur lu sur la mauvaise population », et la seule que la lecture du
+code faite au bloc 1 aurait dû empêcher.* ⚠ **Et les sept embeds sont un fait de
+rédaction, pas seulement de compteur** : `wifi` et `ble` en portent **2**
+chacune, les trois autres **1**, donc **sept textes alternatifs à traduire** —
+exactement le périmètre que le mode `--alt` du bloc 3 contrôlera à la clôture,
+**onzième séance consécutive de la classe.**
+
+⚠ **RÉFUTATION 10-9, ET SA CAUSE ANNULE UNE LIGNE DE MA PROPRE DÉCLARATION
+C131.** J'avais déclaré que le corpus EN d'après ne serait **pas** 224 070 +
+6 310, « le générateur ajoutant des libellés aux wikilinks nus ». Il l'est
+**exactement** : **230 380**. Aucun libellé n'a été ajouté — les **66 wikilinks**
+des cinq sources portent **tous** déjà le leur, et le journal de génération
+n'imprime aucune ligne `libelles ajoutes`. *La déclaration C131 nommait un
+mécanisme réel du générateur et supposait sans le vérifier qu'il allait
+s'appliquer ici.*
+
+⚠ **RÉFUTATION 10-12 : LES CINQ SQUELETTES N'INTRODUISENT AUCUNE CIBLE MORTE
+NEUVE.** `MORT` passe de **52 à 47**, soit **exactement les cinq** cibles du lot
+qui virent au vert. J'avais provisionné quatre entrées neuves. *Toutes les
+cibles visées par les cinq nouvelles fiches étaient **déjà** comptées — soit
+vertes, soit déjà mortes par ailleurs.* **`OK` passe de 432 à 437**, +5, et
+`CASSE`, `AMBIGU`, `GABARIT`, `ALIAS` sont inchangés.
+
+**Les cinq titres tiennent, et `titres-doublons` le confirme au chiffre près** :
+**184 titres distincts** pour 193 fiches, **9 groupes / 18 fiches** — les mêmes
+neuf qu'au 29/08 (suite 5). *Aucune collision créée par le lot : `UART on the
+ESP32` ne rencontre pas `UART on Arduino`.*
+
+---
+
+## Bloc 11 — ⚠ CORRECTIF É2 : LA PASSE C109 A DÉSACCENTUÉ 147 CARACTÈRES DANS LES CINQ SOURCES FR
+
+### Ce qui s'est passé, lu dans le code de ma propre passe
+
+Les fragments d'ancre de la passe C109 ont été **écrits sans accents**, pour
+survivre au transport shell qui avait déjà cassé deux écritures dans cette
+séance (bloc 2). Le script les **repliait** — `é` → `e`, `à` → `a` — pour les
+apparier sur le texte réel, et l'appariement a parfaitement fonctionné :
+**71 ancres, 71 trouvées, 1 défaut détecté puis corrigé.**
+
+⚠ **Mais le texte de REMPLACEMENT était le fragment déplié, pas le fragment
+réel.** Le script écrivait `new` tel quel — donc `bibliotheque`, `defaut`,
+`integrent deja`, `deforme`, `present`, `sous-systeme embarque`, `L'ecran`.
+*Le pliage a été conçu pour la LECTURE et appliqué à l'ÉCRITURE.*
+
+**Mesure du dégât, avant toute correction** — comptage des caractères
+`U+00C0`–`U+00FF` par fiche, contre la version `HEAD` :
+
+| fiche | HEAD | après la passe | perdus |
+|---|---|---|---|
+| `esp32-wifi` | 218 | 202 | **16** |
+| `esp32-ble` | 279 | 236 | **43** |
+| `esp32-uart` | 195 | 166 | **29** |
+| `esp32-i2c` | 184 | 156 | **28** |
+| `esp32-spi` | 172 | 141 | **31** |
+| **total** | **1 048** | **901** | **147** |
+
+⚠ **ET LES CINQ SQUELETTES EN ONT ÉTÉ ENGENDRÉS.** Le bloc 10 a généré depuis
+les sources corrompues : les cinq fiches EN portent le même texte désaccentué
+**et** un `source_sha256` calculé dessus. **Aucun contrôle de la chaîne ne
+l'aurait vu** — `--style` ne mesure `hors alphabet latin` que **contre la
+source**, `--controle` compte des liens, des embeds et des blocs,
+`derive-traduction` compare une empreinte à elle-même. *Le défaut a été trouvé
+en LISANT le squelette produit, exactement comme les deux alt des séances
+précédentes.*
+
+### Décisions prises seules (C117), avec leur coût de revert
+
+1. **`git checkout --` sur les cinq sources FR.** Ce qui est écarté est
+   **entièrement** la passe corrompue de cette séance ; les cinq fiches
+   n'avaient reçu **aucune** autre écriture depuis HEAD `1846e6c` (garde du
+   bloc 8, dates des 19-21/08). **Coût de revert : nul** — la liste des 71
+   éditions est intégralement conservée dans le script de passe, et la passe
+   se rejoue.
+2. **Ré-accentuation par le texte source, pas par ma frappe.** Le remplacement
+   ne s'écrit plus littéralement : chaque mot du fragment de remplacement dont
+   la forme pliée existe dans le **texte réel apparié** reprend **la graphie
+   accentuée de ce texte**. La casse initiale est celle du fragment de
+   remplacement (c'est elle qui porte la majuscule de début de phrase). *Un mot
+   absent du texte réel — le seul est `Avec` — reste tel quel, et il ne porte
+   aucun accent.*
+3. **Régénération des cinq squelettes avec `--force`.** La garde « jamais de
+   `--force` » protège une **traduction** contre l'écrasement ; ici les cinq
+   cibles sont des **squelettes vieux de dix minutes**, issus d'une source
+   fausse, **sans une ligne de traduction**. Ne pas les régénérer laisserait
+   147 caractères faux dans le corpus EN **et** cinq empreintes calculées sur
+   un texte qui n'existe plus.
+
+### Déclaration C131
+
+**Population comptée : les caractères accentués des cinq sources FR**, 1 048 au
+HEAD. **Ce que la séance y a versé : −147, par sa propre passe** — c'est le
+compteur qui mesure exactement le dégât d'une écriture de la séance, et le seul
+de la journée dont l'objet **est** l'artefact de séance. La cible du correctif
+est donc **1 048, à l'unité près**, et non « à peu près autant qu'avant ».
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 11-1 | après `git checkout`, les cinq sources sont **identiques à HEAD** : `git diff` vide sur les cinq, et **1 048** accents au total | `git diff` vide sur les cinq ; accents **901**, non 1 048 | **réfutée** sur le nombre, tenue sur l’identité |
+| 11-2 | la passe ré-accentuée repasse : **71 ancres, 71 valides, 0 défaut** | 71 / 70 / **1 défaut** au premier jet, puis 71 / 71 / 0 | **réfutée** |
+| 11-3 | après passe : **1 048** accents au total, et **218 / 279 / 195 / 184 / 172** fiche par fiche — **identiques à HEAD** | **901**, et **189 / 238 / 166 / 157 / 151** — identiques à HEAD fiche par fiche | **réfutée** sur les nombres, tenue sur l’identité |
+| 11-4 | `git diff --stat` : **5** fichiers, **66** insertions, **66** suppressions — les mêmes 66 lignes qu'au bloc 9 | 5 fichiers, 66 insertions, 66 suppressions | tenue |
+| 11-5 | `--style` : `C109 de prose` = **10**, `typographie francaise` = **0**, `hors perimetre` = **26** | 10 / 0 / 26 | tenue |
+| 11-6 | `tot` du lot = **6 310**, `deh` = **5 753**, `ded` = **547**, `etiq` = **10** — les quatre identiques au bloc 9 | 6 310 / 5 753 / 547 / 10 | tenue |
+| 11-7 | régénération : les trois compteurs **ok** sur les cinq, `--force` passé **cinq fois**, aucune autre fiche touchée | trois compteurs ok sur les cinq, `--force` ×5, aucune autre fiche | tenue |
+| 11-8 | après régénération : corpus **193 fiches**, EN **230 380 mots**, `--controle` **193 / 0 / 0**, `derive` **193 à jour** | 193 fiches, EN **230 380**, `--controle` 193 / 0 / 0, `derive` 193 à jour | tenue |
+| 11-9 | les cinq fiches EN portent **0** caractère de l'intervalle `U+00C0`–`U+00FF` **de moins** que leur source, soit **1 048** au total côté EN aussi (le squelette est la source, à l'octet des transformations structurelles près) | EN = FR **à l’unité sur les cinq**, total **901** de chaque côté | **réfutée** sur le nombre, tenue sur l’identité |
+| 11-10 | `mesure-chevron --tout` : EN **24 / 100 cl / 50 bl / 50 etiq**, appariement **24 / 0 divergente** — inchangé | EN 24 / 100 cl / 50 bl / 50 etiq ; 24 paires, 0 divergente | tenue |
+
+### Constats du bloc 11 — le correctif tient, et l'instrument du dégât était faux lui aussi
+
+**10 prédictions, 6 tenues, 4 réfutées.** Les quatre réfutations portent **toutes
+sur le même nombre**, et la cause est unique.
+
+⚠ **LE « 147 CARACTÈRES PERDUS » PUBLIÉ EN OUVERTURE DE CE BLOC EST UNE FAUSSE
+MESURE, ET LA CAUSE EST DANS LE MOTIF.** `grep -oP '[\x{00C0}-\x{00FF}]'`
+appliqué à de l'UTF-8 ne compte pas des **caractères accentués** : il compte des
+**octets de tête**. Or `—` (U+2014) commence par `0xE2`, `°` et `«` par `0xC2`,
+et tous tombent dans l'intervalle. Le 1 048 « accents » du HEAD était donc
+**901 accents + 126 tirets cadratins + le reste**, et le « −147 » de la passe
+mélangeait la perte d'accents et le **retrait délibéré de 33 tirets** par C109
+elle-même. *Le motif n'a pas été testé sur un échantillon nommé — C110, la
+troisième fois de la séance après le `×` du bloc 3 et le grep du bloc 7.*
+
+**Le chiffre juste, mesuré et non dérivé.** Les cinq sources HEAD ont été
+copiées dans un bac à sable, **la passe fautive y a été rejouée à l'identique**,
+et le comptage sous `[À-ÿŒœŸ]` rend **787 accents contre 901** : la perte réelle
+est de **114 caractères accentués**, et le décompte de tirets tombe de **126 à
+93**, soit les **33** que la passe devait retirer. *La reproduction sur copie ne
+vaut pas mesure du dépôt (précision à C119 du 29/08), mais l'objet mesuré n'est
+plus dans le dépôt : il a été écarté, et c'est précisément ce qu'on voulait.*
+
+⚠ **RÉFUTATION 11-2 : LA GARDE D'AMBIGUÏTÉ DU CORRECTIF A MORDU SUR UNE
+DIFFÉRENCE DE CASSE.** `esp32-i2c` l. 180 porte `Le premier est ... ; le
+second ...` — deux graphies `Le` et `le` sous une même forme pliée, que ma garde
+a prises pour deux accentuations concurrentes. **Elle a arrêté la passe avant
+toute écriture**, ce qui est son travail ; le correctif de la garde tient en une
+ligne (*une différence de casse n'est pas une ambiguïté de graphie, la casse
+initiale étant réimposée par le fragment de remplacement*). *Deuxième arrêt
+avant écriture de la séance, deuxième fois qu'une garde refuse tout au lieu
+d'appliquer presque tout.*
+
+**Ce que le correctif garantit, et comment il le garantit.** Le remplacement ne
+s'écrit plus littéralement : chaque mot du fragment reprend **la graphie du
+texte réel apparié**, la casse initiale seule venant du fragment. Le contrôle
+est **un invariant, pas une relecture** — le nombre de caractères accentués de
+chaque fiche doit être **exactement** celui du HEAD, puisque C109 ne touche que
+de la ponctuation et des majuscules de début de phrase. **901 → 901, fiche par
+fiche.** Et les cinq jumelles EN régénérées portent **901** elles aussi, chacune
+au chiffre de sa source.
+
+⚠ **CE QUE CET INCIDENT DIT DU DISPOSITIF, ET QUI N'EST PAS RASSURANT.**
+Le défaut a traversé **toute** la chaîne de contrôle sans être vu :
+`--style` rend `hors alphabet latin : 0` parce qu'il cherche des caractères
+**absents de la source**, jamais des caractères **manquants** ; `--controle`
+compte des liens, des embeds et des blocs ; `derive-traduction` compare une
+empreinte au fichier dont elle vient de sortir ; `mesure-chevron` compte des
+mots, et `bibliotheque` en vaut un autant que `bibliothèque`. **Les cinq
+instruments sont sortis au vert sur un texte français désaccentué.** Il a été
+trouvé **en lisant le squelette produit** — comme les deux alt du 26/08 et du
+29/08. *Le seul contrôle qui l'aurait attrapé est celui qui a servi à le
+réparer : l'invariant « le nombre de caractères accentués d'une passe de
+ponctuation ne change pas ».* **Candidat de convention, monté en arbitrage.**
+
+---
+
+## Bloc 12 — G4, RÉDACTION DES CINQ FICHES EN
+
+### Garde de péremption avant la passe (point (5))
+
+Relevée à **18:53:02**, copie `2908b17` : HEAD `1846e6c 17:37:55` **inchangé**,
+JOURNAL / conventions / TODO aux **trois mêmes horodatages** que les blocs G et
+8. `36 (hors artefacts de seance : 32)`.
+
+### Décisions de rédaction prises AVANT d'écrire, et consignées (C117)
+
+1. **Les virgules décimales passent au point.** Le lot en porte **25** —
+   `3,3` ×16, `2,4` ×4, `4,7` ×2, `4,48`, `5,47`, `5,48`. Les laisser
+   déclencherait le verdict **typographie française** de `--style`, qui compte
+   la virgule décimale. `3,3 V` devient `3.3 V`, `4,7 kΩ` devient `4.7 kΩ`.
+2. **Les chaînes que la CAPTURE affiche restent en français, code compris.**
+   `esp32-wifi` sert une page dont `page-servie.png` montre les liens
+   *Allumer* / *Eteindre* et les réponses *LED allumee* / *LED eteinte* ;
+   `esp32-ble` publie un appareil que `nrf-connect.png` montre nommé
+   *ESP32-Capteur*. **C113 exige que la chaîne affichée et son bloc de sortie
+   bougent ensemble** — ici la « sortie » est une image qui ne bouge pas.
+   *Traduire le code désynchroniserait la démonstration de sa preuve.* C'est le
+   compromis des captures françaises, déjà tenu sur `tinkercad` et
+   `arduino-serie`.
+3. **Conséquence assumée sur `--alt`** : l'alt EN de `page-servie.png` gardera
+   `Non sécurisé`, la mention que le navigateur affiche dans la capture, et il
+   **déclenchera `MOT FR`**. C'est la quatorzième occurrence de la classe
+   `tinkercad`, et elle est **créée sciemment par ce lot**.
+4. **Les identifiants restent français** (C113, coût assumé du registre mixte) :
+   `trouves`, `adr`, `ecran`, `compteur`, `client`, `serveur`.
+
+### Déclaration C131
+
+**Population comptée : les cinq paires du lot**, `tot` FR **6 310**, `deh`
+**5 753**, `ded` **547**, mesurés au bloc 11 **après** la passe C109 et **après**
+le correctif É2. **Ce que ce bloc va y verser : la totalité du texte anglais des
+cinq fiches** — c'est le seul bloc de la séance dont l'objet **est** ce qu'il
+verse. ⚠ **Le foisonnement mesuré à la clôture est donc, en entier, l'effet de
+ce bloc** ; aucun autre versement de la séance n'entre dans ces cinq fiches.
+
+### Prédictions
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 12-1 | les cinq `title:` EN : `Wi-Fi on the ESP32`, `Bluetooth LE on the ESP32`, `UART on the ESP32`, `I2C on the ESP32`, `SPI on the ESP32` | les cinq écrits tels quels | tenue |
+| 12-2 | `--controle` après rédaction : **193 / 0 divergente / 0 lien non suffixé** | 193 / 0 / 0 | tenue |
+| 12-3 | `derive-traduction` : **0 dérive, 193 à jour** | 0 dérive, 193 à jour | tenue |
+| 12-4 | **report un pour un** : `C109 de prose` côté EN = **10**, aux **mêmes emplacements** que les dix exemptions FR | **10**, et `hors perimetre` **26 = 26** des deux côtés | tenue |
+| 12-5 | `C109 creees en EN` = **0** | 0 | tenue |
+| 12-6 | `typographie francaise` côté EN = **0** — les 25 virgules décimales converties, aucune espace avant ponctuation double | 0 | tenue |
+| 12-7 | `virgule ambigue` = **0** et `hors alphabet latin` = **0** | 0 et 0 | tenue |
+| 12-8 | `deh` EN par fiche : **1 365 / 1 231 / 1 217 / 1 090 / 1 057**, total **5 960**, soit **+3,6 %** | **1 401 / 1 236 / 1 202 / 1 076 / 1 072**, total **5 987**, soit **+4,07 %** | **réfutée sur les six termes** |
+| 12-9 | `tot` EN du lot = **6 531** (+3,5 %) | **6 546** (+3,74 %) | **réfutée** |
+| 12-10 | `ded` EN du lot = **545**, soit **−0,4 %** — la marge inclut le négatif (règle en éprouvage du 29/08 suite 4) | **549**, soit **+0,37 %** | **réfutée, et de signe** |
+| 12-11 | `mesure-chevron --tout` : EN **24 porteuses / 100 cl / 50 bl / 50 etiq**, appariement **24 paires / 0 divergente** | EN 24 / 100 cl / 50 bl / 50 etiq ; 24 paires, 0 divergente | tenue |
+| 12-12 | `--alt` : `IDENTIQUE` **0**, `VIDE` **0**, `MOT FR` **14** — les 13 du bloc 5 plus le `Non sécurisé` de `page-servie.png` | **0 / 0 / 14**, et la 14ᵉ est bien le `Non sécurisé` de `page-servie.png` | tenue |
+| 12-13 | `titres-doublons` : **193 fiches EN, 9 groupes, 18 fiches** — aucun groupe neuf | EN 193 / 184 distincts / **9 groupes / 18 fiches** | tenue |
+| 12-14 | corpus : **193 paires, 221 956 mots FR → 230 601 mots EN** | 193 paires, 221 956 → **230 616** | **réfutée** |
+| 12-15 | `audit-wikilinks` : `MORT` **47**, `OK` **437**, `CASSE 0`, `AMBIGU 0`, `GABARIT 8`, `ALIAS 6` — inchangés, la rédaction ne créant ni ne détruisant de wikilink | MORT 47, OK 437, CASSE 0, AMBIGU 0, GABARIT 8, ALIAS 6 | tenue |
+
+### Constats du bloc 12 (G4) — sortie `batterie-sortie.txt`, horloge 19:03:50
+
+**15 prédictions, 11 tenues, 4 réfutées.** *Toutes les prédictions de **verdict**
+sont tenues — les dix exemptions reportées une pour une, zéro C109 créée, zéro
+typographie française, zéro caractère hors alphabet latin, zéro groupe de titres
+neuf, et le `MOT FR` prévu à l'embed près. **Les quatre réfutations sont les
+quatre chiffres de foisonnement**, et il n'y en a pas d'autres.*
+
+**LE REPORT UN POUR UN SE REFERME À ZÉRO, ET SUR DEUX COMPTEURS À LA FOIS.**
+`C109 de prose` **10 en FR, 10 en EN**, aux dix mêmes emplacements ; et
+`hors perimetre` **26 des deux côtés**. *La seconde égalité n'était pas prédite
+et vaut autant que la première : elle dit que les titres, cellules de tableau et
+alt se sont reportés sans en perdre ni en gagner un.*
+
+⚠ **LE FOISONNEMENT SE TROMPE SUR SES SIX TERMES, ET LA DÉCOMPOSITION EST PLUS
+FAUSSE QUE LE TOTAL.** `deh` prédit **5 960**, mesuré **5 987** — un total à
+**0,45 %** près, sous lequel les cinq termes se trompent de **+36 / +5 / −15 /
+−14 / +15**, dont **deux de signe**. *C'est mot pour mot la règle en éprouvage
+du 28/08 — « un total dans la fourchette ne valide pas la décomposition » — et
+la cause est la même : j'ai construit les cinq valeurs autour d'un taux de
+module (+3,6 %) au lieu de les tirer de chaque source.* **Les taux réels vont
+de +2,2 % (`uart`) à +5,6 % (`wifi`)**, soit un écart de **1 à 2,5** à
+l'intérieur d'un lot de cinq fiches du même palier, du même auteur, du même
+genre. **Foisonnement du lot : `deh` 5 753 → 5 987, +4,07 %** ; sur `tot`
+6 310 → 6 546, **+3,74 %** (C127, les deux volumes ensemble).
+
+⚠ **`ded` FOISONNE POSITIVEMENT ET J'AVAIS PRÉDIT LE NÉGATIF.** 547 → **549**,
+**+0,37 %**. Le 29/08 (suite 4) avait rendu **−0,38 %** et j'en avais tiré que
+« la marge doit inclure le négatif » ; j'ai alors prédit un négatif. *La règle
+en éprouvage disait « `ded` se prédit avec une marge, pas comme une
+constante » — et j'ai remplacé une constante par une autre.* Les trois mesures
+connues sont maintenant **+0,8 %**, **+1,45 %**, **−0,38 %** et **+0,37 %** :
+la marge est **[−0,4 % ; +1,5 %]** et rien n'en dit plus.
+
+### Les quatre correctifs de rédaction, et le contrôle qui a attrapé chacun
+
+| # | défaut | attrapé par |
+|---|---|---|
+| É4 | `source_sha256` de `esp32-spi-en` **inventé de mémoire**, et celui d'`esp32-i2c-en` **recopié d'un squelette périmé** (celui d'avant É2) | `derive-traduction` — **le seul outil qui voie l'empreinte**, et il l'a vue dans la minute |
+| É5 | un paragraphe **écrit en anglais seul**, absent de la source FR, pour expliquer pourquoi la page servie reste française | `--style`, par le compteur `hors alphabet latin` : le `⚠` du paragraphe est un caractère **absent de la source** |
+| É6 | guillemets français `« »` dans l'alt de `nrf-connect.png` | `--style`, verdict `typographie francaise` |
+| É7 | espace française devant `;` — trois puces d'`uart` et la parenthèse `(VSPI : … ; HSPI : …)` de `spi` | `--style`, verdict `typographie francaise` |
+
+⚠ **É5 EST LE PLUS INSTRUCTIF DES QUATRE, ET IL A ÉTÉ ATTRAPÉ PAR ACCIDENT.**
+Le paragraphe ajouté disait quelque chose de vrai — que les chaînes servies
+restent françaises parce que la capture les montre — mais **la source ne le dit
+pas**, et l'écrire d'un seul côté fabrique une asymétrie EN/FR que rien
+n'autorise (motif du 26/08). *Le compteur qui l'a signalé ne cherchait pas cela* :
+il cherchait un caractère hors alphabet latin, et il est tombé sur le `⚠` du
+paragraphe. **Aucun contrôle du chantier ne mesure « du contenu ajouté d'un seul
+côté »** — les trois compteurs de `--controle` comptent des liens, des embeds et
+des blocs, jamais des paragraphes. *Retiré ; la question « faut-il signaler au
+lecteur anglophone la langue d'une capture » rejoint l'arbitrage ouvert du 29/08
+(suite 5) sur la forme des annotations incrustées.*
+
+⚠ **ET UN INCIDENT DE C124 : LE TÉMOIN DE LA PREMIÈRE BATTERIE DE CLÔTURE A ÉTÉ
+DÉTRUIT PAR MON PROPRE FILTRE D'AFFICHAGE.** Le lancement passait par
+`| Select-Object -First 90`, qui a **coupé le pipeline** avant le
+`Out-File` final du script : les mesures se sont affichées, et
+`batterie-sortie.txt` est resté sur la garde de 18:53. **Batterie relancée sans
+filtre**, sortie de 82 052 octets écrite à 19:03:50. *C124 dit qu'un contrôle
+dont le témoin a disparu ne prouve rien ; ici le témoin a disparu **parce que je
+regardais la sortie**.* **Règle d'usage : la batterie ne se filtre jamais au
+lancement — elle écrit son fichier, et c'est le fichier qui se filtre.**
+
+### Contrôle C125 des deux côtés (amendement du 29/08 suite 5), relevé à la clôture
+
+**9 groupes en FR, 9 en EN, 8 en commun** — **exactement les deux asymétries
+déjà connues**, et **aucune neuve** :
+
+- **FR seulement** — `Lire une entrée TOR` sur `arduino-entree-tor` et
+  `micropython-entree-tor` : l'anglais **a inventé** une distinction que la
+  source ne porte pas.
+- **EN seulement** — `Using a shield` sur `arduino-shield-en` et
+  `micropython-shield-en` : l'anglais **a effacé** une distinction que la source
+  portait.
+
+*Les deux sont au programme du chantier FR de nommage, et le lot du jour n'en a
+créé aucune troisième : `UART on the ESP32` ne rencontre pas `UART on Arduino`.*
+
+---
+
+## BILAN GÉNÉRAL DE LA SÉANCE — LOT 2 D'`esp32/` ET SES TROIS BLOCS HORS LOT
+
+| bloc | prédictions | tenues | réfutées |
+|---|---|---|---|
+| G — garde d'ouverture | 10 | 9 | **1** |
+| 1 — ①(b) relevé de référence du chevron | 11 | **11** | **0** |
+| 2 — ①(b) en-tête, colonne `etiq`, `ECART` conditionnel | 12 | 10 | **2** |
+| 3 — ③(c) mode `--alt` | 12 | 7 | **5** |
+| 4 — correctif É1 et relevé des deux classes | 8 | **8** | **0** |
+| 5 — correction de l'unique défaut vrai | 10 | 9 | 0 (+1 partielle) |
+| 6 — correctif d'alias, relevé chiffré | 10 | 5 | **5** |
+| 7 — correctif d'alias, générateur et rattrapage | 11 | 9 | **2** |
+| 8 — G1 cadrage du lot | 15 | 14 | **1** |
+| 9 — G2 passes C109 | *(12)* | *hors décompte* | *hors décompte* |
+| 10 — G3 titres et génération | 13 | 9 | **4** |
+| 11 — correctif É2, la désaccentuation | 10 | 6 | **4** |
+| 12 — G4 rédaction et clôture | 15 | 11 | **4** |
+| **total comptabilisé** | **137** | **108** | **28** |
+
+**Taux de réfutation 20,4 %**, contre **23,5 %** au lot 1 d'`esp32/` et **7,6 %**
+au lot 6. **Plus 12 prédictions hors décompte**, celles du bloc 9, non appendues
+avant leur bloc et consignées en incident.
+
+✅ **LA RÉPARTITION DU LOT 1 SE CONFIRME AU TERME PRÈS, ET C'EST LE RÉSULTAT LE
+PLUS SOLIDE DE LA SÉANCE.** Les blocs de **verdict** — 1 (relevé de référence),
+4 (classement des quinze verdicts d'alt), 12 sur ses onze prédictions de règle —
+sortent à **zéro réfutation**. Les 28 réfutations sont **toutes** dans des
+compteurs de mesure ou de cadrage. *Le protocole se trompe sur ce qu'un compteur
+va rendre, pas sur ce que la règle décide, et c'est le deuxième lot d'affilée où
+la coupure tombe exactement là.*
+
+⚠ **NEUF DES 28 RÉFUTATIONS ONT UNE CAUSE UNIQUE : UN COMPTEUR LU SUR LA
+MAUVAISE POPULATION.** G-6 (la déclaration C131 nomme deux versements et en
+chiffre un), 6-7 (`MORT 58` compte des cibles et non des occurrences, et la
+ligne l'écrit), 7-2 (le total d'un corpus prédit sur une fiche), 9-1 (66 lignes
+publiées sous le nom de 71 ancres), 10-3 (le nombre de blocs en chevron prédit
+à la place du nombre de blocs de code), 10-9, 10-12, 11-1 et 11-3 (des octets de
+tête comptés pour des caractères accentués). *L'amendement (7) de la sous-règle
+C116 — tout compteur dont on publie une prédiction se lit dans le code qui
+l'incrémente — a été relu au cadrage et pris en défaut neuf fois.* **La
+variante qui domine cette séance n'est plus « j'ai lu l'étiquette au lieu du
+mécanisme » mais « j'ai lu le bon mécanisme sur le mauvais ensemble ».**
+
+⚠ **QUATRE RÉFUTATIONS SUR CINQ DU BLOC 12 SONT LE MÊME CHIFFRE : LE
+FOISONNEMENT.** `deh`, `tot`, `ded` et le corpus. La décomposition par fiche est
+fausse sur ses cinq termes, dont deux de signe, sous un total juste à **0,45 %**.
+*Règle du 28/08 confirmée pour la deuxième fois : un total dans la fourchette ne
+valide pas la décomposition.*
+
+**LES SEPT CORRECTIFS D'AUTEUR, ET CE QUI A ATTRAPÉ CHACUN.**
+
+| # | défaut | attrapé par |
+|---|---|---|
+| É1 | `×` et `÷` dans l'intervalle d'accent de `--alt` | lecture de la sortie, deux alt anglais irréprochables signalés |
+| É2 | **114 caractères accentués perdus** par la passe C109 | **lecture du squelette généré** — aucun instrument |
+| É3 | offsets décalés par la ligature `œ`, `eet` pour `et` | **invariant de longueur** ajouté après É2 |
+| É4 | un `source_sha256` **inventé**, un autre **périmé** | `derive-traduction`, le seul outil qui voie l'empreinte |
+| É5 | un paragraphe écrit **en anglais seul** | `--style`, verdict `hors alphabet latin`, **par accident** |
+| É6 | guillemets `« »` dans un alt EN | `--style`, verdict `typographie francaise` |
+| É7 | espace française devant `;`, quatre emplacements EN | `--style`, verdict `typographie francaise` |
+
+⚠ **DEUX DES SEPT N'ONT ÉTÉ TROUVÉS PAR AUCUN INSTRUMENT, ET CE SONT LES DEUX
+PLUS GRAVES.** É2 a traversé cinq contrôles au vert et n'a été vu qu'en lisant
+le texte produit ; É5 a été signalé par un compteur qui cherchait autre chose.
+*Trois séances de suite, le défaut de fond a été trouvé par la lecture et non
+par la mesure — les deux alt du 26/08 et du 29/08, la désaccentuation du 29/08
+(suite 6).* **Les instruments du chantier mesurent des différences entre deux
+états ; ils ne mesurent rien de ce qui est faux des deux côtés à la fois.**

@@ -2254,6 +2254,61 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **Une déclaration C131 se termine par le total qu'elle implique.**
+  *Née le 29/08 (suite 6), à la première application de C131 et contre elle.*
+  La déclaration d'ouverture du bloc G énumérait correctement **deux**
+  versements de la séance dans sa propre population — le texte des prédictions
+  et la copie C124 — puis la prédiction chiffrée en écrivait **1**. Le constat
+  était **2**. *C131 exige de **nommer** les artefacts ; elle n'a pas dispensé
+  de les **additionner**.* La règle tient en une ligne : la déclaration finit
+  par la somme, sinon elle ne garde que la prose. **Servie ensuite au bloc de
+  cadrage, où elle a rendu `22 (hors artefacts : 19)` exact et la liste
+  nominative complète — la première fois de la séance qu'une déclaration C131
+  a servi à quelque chose.** *Éprouvée 1/N.*
+- **Une passe de ponctuation ne change pas le nombre de caractères accentués
+  d'une fiche.**
+  *Née le 29/08 (suite 6), du seul contrôle qui ait attrapé la désaccentuation
+  de 114 caractères.* C109 ne touche que de la ponctuation et des majuscules de
+  début de phrase : le multiset des caractères accentués est donc **invariant**,
+  fiche par fiche, et se compare au HEAD en une ligne. **Aucun des cinq
+  instruments du chantier ne voit une lettre qui perd son accent** — `--style`
+  cherche des caractères **absents de la source** et non **manquants**,
+  `--controle` compte des liens, des embeds et des blocs, `derive-traduction`
+  compare une empreinte au fichier dont elle sort, `mesure-chevron` compte des
+  mots, et `bibliotheque` en vaut un autant que `bibliothèque`.
+  **Second invariant du même geste** : `len(après) − len(HEAD)` doit égaler la
+  somme des `len(new) − len(old)` des éditions — c'est lui qui a trouvé le
+  décalage d'offset causé par la ligature `œ`, dont le pliage **change la
+  longueur**. ⚠ *Les deux invariants coûtent deux lignes et ont trouvé deux
+  défauts qu'une relecture n'avait pas vus.* *Éprouvée 1/N.*
+- **La batterie ne se filtre jamais au lancement.**
+  *Née le 29/08 (suite 6), incident C124.* Un `| Select-Object -First N` sur
+  `batterie.ps1` **coupe le pipeline avant le `Out-File` final** : les mesures
+  s'affichent, et le fichier reste sur la sortie précédente. **Un contrôle dont
+  le témoin a disparu ne prouve rien (C124), et ici il a disparu parce que je
+  regardais la sortie.** La batterie écrit son fichier ; c'est **le fichier**
+  qui se filtre, jamais le lancement. *Éprouvée 0/N.*
+- **`À-ÿ` n'est pas un intervalle de lettres, et `[\x{00C0}-\x{00FF}]` sur de
+  l'UTF-8 compte des octets de tête.**
+  *Deux défauts de motif du 29/08 (suite 6), même famille que le backtick du
+  23/08 et le tiret d'intervalle du 24/08.* Le bloc Latin-1 loge **`×` U+00D7 et
+  `÷` U+00F7** au milieu des lettres accentuées : un motif d'accent s'écrit
+  `[À-ÖØ-öø-ÿŒœŸ]`. Et un `grep -P` sur un intervalle d'octets ne compte pas des
+  caractères mais des **débuts de séquence UTF-8**, donc aussi les `—`, `°`,
+  `«`, `…`. **Les deux ont produit un chiffre publié faux le même soir**, l'un
+  en faux positifs, l'autre en surcomptage de 16 %. *C110 le dit déjà — un motif
+  se teste sur un échantillon nommé avant de compter — et les deux échantillons
+  nommés de la séance ne portaient ni `×` ni `—`.* **Une règle d'usage en sort :
+  l'échantillon nommé se choisit pour contenir ce qui pourrait faire mordre le
+  motif à tort, pas seulement ce qu'il doit trouver.** *Éprouvée 0/N.*
+- **Aucun contrôle du chantier ne mesure « du contenu ajouté d'un seul côté ».**
+  *Constat du 29/08 (suite 6), non promu.* Un paragraphe écrit en anglais seul —
+  absent de la source FR — fabrique l'asymétrie EN/FR que le motif du 26/08
+  interdit, et **les trois compteurs de `--controle` comptent des liens, des
+  embeds et des blocs, jamais des paragraphes**. Celui de la séance n'a été
+  signalé que par accident : le verdict `hors alphabet latin` a buté sur le `⚠`
+  qu'il contenait. *Le symptôme est réel et l'instrument n'existe pas ; versé
+  ici avant de savoir s'il en faut un.*
 - **C131 — Un compteur dont on publie une prédiction déclare sa population.**
   *Arbitrage Tim (a) du 29/08 (suite 5), sur trois candidates.* Avant de prédire un
   chiffre, nommer les artefacts que **la séance elle-même vient de verser dans la

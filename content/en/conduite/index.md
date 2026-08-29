@@ -31,7 +31,7 @@ Each phase produces an identifiable deliverable and conditions the next one. No 
 
 ## The V-model
 
-![Cycle en V du projet mécatronique](/ressources/img/conduite/cycle-v-projet.svg)
+![V-model of the mechatronics project](/ressources/img/conduite/cycle-v-projet.svg)
 
 ## 1. Technical specification
 

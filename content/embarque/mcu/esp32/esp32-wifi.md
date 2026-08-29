@@ -15,18 +15,18 @@ aa:
 draft: false
 ---
 
-Le **Wi-Fi** est l'argument décisif de l'ESP32 : un objet connecté sans module radio externe. Avec quelques lignes, la carte rejoint un réseau (mode **station**) ou crée le sien (mode **point d'accès**), puis échange des données — interroger une API, exposer une page web de pilotage, publier des mesures. C'est une capacité que l'Arduino classique n'a pas, et le cœur de ce que la famille ESP32 apporte. Le concept général de liaison sans fil est traité dans [[techno-sans-fil|technologies sans fil]] et [[wifi|Wi-Fi]] ; cette fiche en donne l'incarnation ESP32.
+Le **Wi-Fi** est l'argument décisif de l'ESP32 : un objet connecté sans module radio externe. Avec quelques lignes, la carte rejoint un réseau (mode **station**) ou crée le sien (mode **point d'accès**), puis échange des données — interroger une API, exposer une page web de pilotage, publier des mesures. C'est une capacité que l'Arduino classique n'a pas, et le cœur de ce que la famille ESP32 apporte. Le concept général de liaison sans fil est traité dans [[techno-sans-fil|technologies sans fil]] et [[wifi|Wi-Fi]]. Cette fiche en donne l'incarnation ESP32.
 
 ## À quoi ça sert ?
 
 Le Wi-Fi de l'ESP32 ouvre trois usages typiques en projet :
 
 - **Relier le système à Internet** — récupérer l'heure, une météo, une consigne depuis une API ; envoyer des mesures vers un serveur ou un tableau de bord. La carte est *client*.
-- **Offrir une interface sans écran** — l'ESP32 héberge une petite page web ; on pilote le système et on lit son état depuis un navigateur, téléphone ou PC. La carte est *serveur*.
+- **Offrir une interface sans écran** — l'ESP32 héberge une petite page web. On pilote le système et on lit son état depuis un navigateur, téléphone ou PC. La carte est *serveur*.
 - **Se passer d'infrastructure** — en mode point d'accès, l'ESP32 crée son propre réseau auquel on se connecte directement, sans box ni routeur (configuration sur le terrain, démonstration).
 
 > [!warning]
-> **Wi-Fi actif = ADC2 indisponible.** Dès que le Wi-Fi tourne, les broches du convertisseur ADC2 ne lisent plus rien. Tout capteur analogique d'un projet connecté doit être sur **ADC1** (`GPIO32-39`) — voir [[esp32-gpio|configurer les GPIO]].
+> **Wi-Fi actif = ADC2 indisponible.** Dès que le Wi-Fi tourne, les broches du convertisseur ADC2 ne lisent plus rien. Tout capteur analogique d'un projet connecté doit être sur **ADC1** (`GPIO32-39`, voir [[esp32-gpio|configurer les GPIO]]).
 
 ## Deux modes : station et point d'accès
 
@@ -67,7 +67,7 @@ void setup() {
 void loop() {}
 ```
 
-L'attente est **bornée** : au bout d'une dizaine de secondes, la carte renonce et le dit, au lieu de rester figée sur un SSID mal tapé. Les exemples suivants gardent la forme courte pour ne pas noyer leur sujet — en projet, reprendre ce motif borné.
+L'attente est **bornée** : au bout d'une dizaine de secondes, la carte renonce et le dit, au lieu de rester figée sur un SSID mal tapé. Les exemples suivants gardent la forme courte pour ne pas noyer leur sujet. En projet, reprendre ce motif borné.
 
 Pour le mode **point d'accès**, deux lignes suffisent : la carte crée le réseau au lieu de le rejoindre.
 
@@ -84,7 +84,7 @@ void setup() {
 void loop() {}
 ```
 
-On rejoint le réseau `ESP32-Demo` depuis un téléphone, puis on ouvre `192.168.4.1` — pratique en démonstration sur table, sans box ni routeur. Le mot de passe doit faire **au moins 8 caractères** : en dessous, `softAP()` échoue et le réseau n'apparaît pas.
+On rejoint le réseau `ESP32-Demo` depuis un téléphone, puis on ouvre `192.168.4.1` (pratique en démonstration sur table, sans box ni routeur). Le mot de passe doit faire **au moins 8 caractères** : en dessous, `softAP()` échoue et le réseau n'apparaît pas.
 
 > [!warning]
 > **L'ESP32 (hors C5) est en 2,4 GHz seulement.** Il ne se connecte pas à un réseau diffusé uniquement en 5 GHz. Sur une box bi-bande, vérifier que le 2,4 GHz est actif et que le SSID visé est bien le réseau 2,4 GHz.
@@ -93,7 +93,7 @@ On rejoint le réseau `ESP32-Demo` depuis un téléphone, puis on ouvre `192.168
 
 L'usage le plus parlant : l'ESP32 rejoint le réseau, héberge une page web minimale, et pilote une LED selon le lien cliqué. Un téléphone sur le même réseau ouvre l'adresse IP et commande la carte.
 
-*Câblage : LED sur `GPIO16` — voir le montage de [[esp32-gpio|configurer les GPIO]].*
+*Câblage : LED sur `GPIO16` (voir le montage de [[esp32-gpio|configurer les GPIO]]).*
 
 ```cpp
 #include <WiFi.h>
@@ -146,7 +146,7 @@ Téléversez, ouvrez le [[esp32-serie|moniteur série]] (115200) pour lire l'adr
 
 ![Trois moments de la même page servie par l'ESP32 réunis dans une seule image : en haut la page d'accueil à l'adresse 192.168.1.31, titrée ESP32, avec les liens Allumer et Eteindre ; en dessous, reliées par des flèches rouges, les deux pages atteintes par ces liens — /on qui répond LED allumee, /off qui répond LED eteinte — chaque barre d'adresse portant la mention Non sécurisé du navigateur.|500](/ressources/img/esp32-wifi/page-servie.png)
 
-Le navigateur affiche **Non sécurisé** à côté de l'adresse, sur les trois pages. C'est attendu : la page est servie en **HTTP simple**, sans chiffrement — l'ESP32 n'a pas de certificat, et le trafic ne quitte pas votre réseau local. Rien n'est cassé, rien n'est à corriger. L'avertissement devient un vrai sujet le jour où la carte est accessible depuis l'extérieur, ou transporte autre chose qu'un état de LED.
+Le navigateur affiche **Non sécurisé** à côté de l'adresse, sur les trois pages. C'est attendu : la page est servie en **HTTP simple**, sans chiffrement : l'ESP32 n'a pas de certificat, et le trafic ne quitte pas votre réseau local. Rien n'est cassé, rien n'est à corriger. L'avertissement devient un vrai sujet le jour où la carte est accessible depuis l'extérieur, ou transporte autre chose qu'un état de LED.
 
 ## Pièges
 
@@ -158,7 +158,7 @@ Le navigateur affiche **Non sécurisé** à côté de l'adresse, sur les trois p
 
 **Identifiants en clair dans le code.** SSID et mot de passe écrits dans le sketch finissent dans le binaire et dans Git. Pour un livrable, les sortir du code (fichier de configuration non versionné, ou portail de configuration).
 
-**Brown-out à l'émission.** L'émission Wi-Fi appelle des pointes de courant ; sur une alimentation USB faible, la tension chute et la carte redémarre (`Brownout detector was triggered`). Alimentation et câble soignés.
+**Brown-out à l'émission.** L'émission Wi-Fi appelle des pointes de courant. Sur une alimentation USB faible, la tension chute et la carte redémarre (`Brownout detector was triggered`). Alimentation et câble soignés.
 
 **Page web qui ne répond plus.** Oublier `serveur.handleClient()` dans `loop()`, ou bloquer la boucle avec un `delay` long, gèle le serveur. La boucle doit tourner librement.
 
@@ -168,7 +168,7 @@ Le navigateur affiche **Non sécurisé** à côté de l'adresse, sur les trois p
 > Au démarrage, listez au moniteur série tous les réseaux Wi-Fi détectés, avec leur puissance de signal (RSSI). Quelle fonction de `WiFi.h` ?
 
 > [!success]- Corrigé
-> `WiFi.scanNetworks()` renvoie le nombre de réseaux trouvés ; on lit ensuite chaque entrée par index.
+> `WiFi.scanNetworks()` renvoie le nombre de réseaux trouvés. On lit ensuite chaque entrée par index.
 > ```cpp
 > #include <WiFi.h>
 >
@@ -249,7 +249,7 @@ void requete() {
 }
 ```
 
-Pour une URL **en HTTPS** (la majorité des API publiques aujourd'hui), il faut un client sécurisé (`WiFiClientSecure`) et, en toute rigueur, le certificat du serveur — sujet plus avancé, à voir dans la documentation Espressif. En interne (capteur vers serveur local), le HTTP simple suffit souvent.
+Pour une URL **en HTTPS** (la majorité des API publiques aujourd'hui), il faut un client sécurisé (`WiFiClientSecure`) et, en toute rigueur, le certificat du serveur (sujet plus avancé, à voir dans la documentation Espressif). En interne (capteur vers serveur local), le HTTP simple suffit souvent.
 
 ## Raccrochage projet
 

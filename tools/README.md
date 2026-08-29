@@ -266,7 +266,7 @@ git commit --no-verify
 
 ## creer-fiche-en.mjs
 
-Outil central du chantier de version anglaise. Six modes. Aucun n'écrit hors
+Outil central du chantier de version anglaise. Sept modes. Aucun n'écrit hors
 de `content/en/`, sauf `--recaler` qui ne touche qu'une ligne de front matter.
 
 ### Génération
@@ -288,6 +288,7 @@ node tools/creer-fiche-en.mjs --recette     # compteurs sur tout content/, n'éc
 node tools/creer-fiche-en.mjs --controle    # chaque fiche EN contre sa source FR
 node tools/creer-fiche-en.mjs --style       # typographie EN et ponctuation C109
 node tools/creer-fiche-en.mjs --libelles    # libellé de wikilink contre title: de la cible
+node tools/creer-fiche-en.mjs --alt         # alt d'embed EN contre alt FR de même rang
 node tools/creer-fiche-en.mjs --front       # anneau 1 depuis les quatre index
 node tools/creer-fiche-en.mjs --anneau 2    # anneau de rang N, plus la dette du front courant
 ```
@@ -328,6 +329,24 @@ lignes de tableau, texte alternatif d'embed (pour C109 seulement, sa
 typographie reste contrôlée), premier tiret et point-virgule de fin d'item
 sur une puce, et l'encart de langue C111 des deux accueils, qui est du
 français délibéré.
+
+`--alt` est le **quatrième tamis**, ouvert le 29/08 (suite 6) sur l'arbitrage Tim ③(c). Jusque-là l'alt d'un embed n'était balayé **que par un tamis sur quatre** : `--style` le range en *hors périmètre* pour les candidats C109 et n'y fait mordre que la typographie française, `audit-medias.mjs` le capture dans son motif mais n'audite que le **chemin**, `--controle` ne compare que des **nombres** d'embeds. **Un alt français à typographie propre ne déclenchait donc rien** — les deux seuls trouvés jusqu'au 29/08 l'ont été à la main, en deux séances.
+
+Le mode compare l'alt EN à l'alt FR de **même rang** dans la source et rend **trois verdicts mécaniques** :
+
+| Verdict | Ce qui est signalé |
+|---|---|
+| `IDENTIQUE` | l'alt EN reproduit l'alt FR **à l'octet** — alt non traduit |
+| `VIDE` | l'alt EN est vide une fois le suffixe de taille `\|NNN` retiré |
+| `MOT FR` | lettre latine **accentuée**, ou mot d'une **liste nommée** de mots-outils français |
+
+Le suffixe de taille `|600` fait partie de l'alt **brut**, donc du test `IDENTIQUE`, et sort des deux autres — sans quoi un alt réduit à `|600` passerait pour rempli. La liste `MOTS_FR` est **purgée des homographes anglais** (`a`, `an`, `on`, `in`, `son`, `ton`, `plus`, `car`, `or`, `pas`, `no`, `aux`, `mode`, `note`, `page`, `sale`, `train`), faute de quoi le motif crierait sur de l'anglais correct.
+
+⚠ **`À-ÿ` n'est pas un intervalle de lettres.** Le premier jet du motif d'accent s'écrivait `/[À-ÿŒœŸ]/u` ; l'intervalle **contient `×` U+00D7 et `÷` U+00F7**, deux signes mathématiques logés au milieu du bloc Latin-1, et il a crié sur deux alt anglais irréprochables (« 3 solutions × 5 weighted criteria »). Il s'écrit `/[À-ÖØ-öø-ÿŒœŸ]/u`.
+
+**Exemptions nommées.** `EXEMPTIONS_ALT` est une `Map` d'une entrée par fiche, **motif écrit à côté**. La première est `tinkercad-en` : les formes françaises qui y subsistent — `Créer un nouveau Circuit`, `Blocs`, `Texte` — sont des **libellés d'interface incrustés dans la capture**, donc du **C113 appliqué à l'image**, et l'arbitrage Tim du 29/08 (suite 5) est que rien ne bouge, alt compris. Sans l'entrée, le mode remonterait la paire à chaque lancement.
+
+⚠ **Ce que le mode ne sait pas séparer.** Mesure d'ouverture du 29/08 (suite 6), sur 188 fiches EN et 245 embeds : **1 `IDENTIQUE`, 0 `VIDE`, 14 `MOT FR`**. Sur les 15, **un seul est un défaut vrai** — et c'est celui que `IDENTIQUE` attrapait déjà. Les treize autres sont la classe `tinkercad` : neuf libellés d'IDE ou de Windows, trois étiquettes de SVG citées, un nom français de méthode. **`MOT FR` n'a trouvé aucun défaut que `IDENTIQUE` ne trouvait pas**, et il remontera ces treize à chaque lancement tant qu'ils ne sont pas exemptés nommément.
 
 `--libelles` est **bruyant par construction** : une reformulation légitime le
 déclenche. Il rend une liste à lire, jamais un verdict. Les faux positifs de
@@ -457,9 +476,18 @@ Ce script mesure le 1 et **instrumente le 2** par l'appariement FR / EN de `--to
 | `tot` | mots C110 de la fiche, règle en vigueur, **inchangée** |
 | `ded` | mots **dans** les blocs, contenu strictement entre les deux clôtures |
 | `deh` | mots **hors** les blocs — **mesuré sur le texte privé des blocs, jamais soustrait** |
-| `ECART` | `tot − deh − ded`, qui vaut **1 par bloc** et non 0 |
+| `etiq` | mots des **étiquettes de langage** des ouvertures appariées — mesurées sur les étiquettes elles-mêmes, pas déduites de `tot − deh − ded` |
+| `ECART` | `tot − deh − ded`. **Ne s'imprime que s'il diffère de `etiq`** ; il est alors suivi de `(etiq N)` |
 
 ⚠ **`ECART` n'est pas un défaut.** Le troisième terme de la partition est la **ligne de clôture elle-même**, dont l'ouvrante porte l'étiquette de langage (`cpp`, `python`), que `compterMots` compte comme un mot. Une ouvrante sans étiquette rend 0. La contribution totale d'un bloc au `tot` vaut donc `ded + 1`.
+
+**L'identité vraie, et ce que l'en-tête en dit depuis le 29/08 (suite 6)** — arbitrage Tim ①(b) du 29/08 (suite 5). L'en-tête écrivait « `ECART` doit être 0 partout » et `ECART` était non nul sur **49 porteuses sur 50** : c'était l'en-tête qui avait tort. Il énonce désormais
+
+```
+tot − deh − ded = etiq
+```
+
+et le script **compte** les étiquettes au lieu de les supposer. `ECART` n'apparaît donc plus que lorsqu'il s'écarte de `etiq` — clôture orpheline, texte après une clôture, ouverture qui n'est pas un fence. **Mesuré le 29/08 (suite 6)** sur les 53 porteuses : `etiq` **67 FR / 40 EN**, égal aux sommes d'`ECART` du relevé précédent, **zéro ligne signalée**, et `cl / bl / tot / ded / deh` **inchangées sur les 53** (banc de non-régression, sorties `chevron-2908-avant.txt` et `chevron-2908-apres.txt`).
 
 ### Usage
 

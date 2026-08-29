@@ -17,13 +17,13 @@ aa:
 draft: false
 ---
 
-Le **[[spi|SPI]]** est le bus série **synchrone et rapide** qui relie l'ESP32 à des périphériques exigeants — carte SD, écran TFT, capteurs à haut débit — sur **quatre fils** : SCK (horloge), MOSI (données sortantes), MISO (données entrantes) et un CS par périphérique. Sur ESP32, deux bus sont utilisables (**VSPI** et **HSPI**) ; les broches VSPI par défaut sont **SCK = GPIO18, MISO = GPIO19, MOSI = GPIO23, CS = GPIO5**, et elles sont **remappables** — au prix d'une vitesse plafonnée si l'on quitte les broches natives.
+Le **[[spi|SPI]]** est le bus série **synchrone et rapide** qui relie l'ESP32 à des périphériques exigeants — carte SD, écran TFT, capteurs à haut débit — sur **quatre fils** : SCK (horloge), MOSI (données sortantes), MISO (données entrantes) et un CS par périphérique. Sur ESP32, deux bus sont utilisables (**VSPI** et **HSPI**). Les broches VSPI par défaut sont **SCK = GPIO18, MISO = GPIO19, MOSI = GPIO23, CS = GPIO5**, et elles sont **remappables**, au prix d'une vitesse plafonnée si l'on quitte les broches natives.
 
 ## À quoi ça sert ?
 
 Là où l'I2C plafonne, le SPI transfère vite et en **full-duplex** (émission et réception simultanées) :
 
-- **Stocker.** Une carte microSD enregistre mesures et journaux ; c'est l'usage le plus courant du SPI en projet.
+- **Stocker.** Une carte microSD enregistre mesures et journaux. C'est l'usage le plus courant du SPI en projet.
 - **Afficher richement.** Les écrans TFT couleur rafraîchissent des images entières — impossible en I2C.
 - **Lire vite.** Certains ADC, capteurs de mouvement ou modules radio n'existent qu'en SPI pour leur débit.
 
@@ -35,16 +35,16 @@ Quatre temps : câbler le faisceau, initialiser, exploiter via une bibliothèque
 
 ### 1. Câbler : un faisceau partagé, un CS par module
 
-SCK, MOSI et MISO sont **communs** à tous les périphériques du bus ; seul le **CS** (Chip Select) est propre à chacun — c'est lui qui désigne le module actif. Contrairement à l'UART, **le SPI ne croise pas** : MOSI va sur MOSI, MISO sur MISO.
+SCK, MOSI et MISO sont **communs** à tous les périphériques du bus. Seul le **CS** (Chip Select) est propre à chacun : c'est lui qui désigne le module actif. Contrairement à l'UART, **le SPI ne croise pas** : MOSI va sur MOSI, MISO sur MISO.
 
 ![Branchement SPI entre un ESP32 et un module (carte SD) : SCK sur GPIO18, MOSI sur GPIO23, MISO sur GPIO19, CS sur GPIO5, alimentation 3,3 V, masse commune|640](/ressources/img/esp32-spi/branchement-spi.svg)
 
 > [!warning]
-> **Périphérique en 3,3 V.** L'ESP32 travaille en 3,3 V : un module SPI 5 V (certains lecteurs SD à régulateur) doit soit disposer d'une adaptation de niveau intégrée, soit passer par un adaptateur — voir [[niveaux-de-tension|niveaux de tension]].
+> **Périphérique en 3,3 V.** L'ESP32 travaille en 3,3 V : un module SPI 5 V (certains lecteurs SD à régulateur) doit soit disposer d'une adaptation de niveau intégrée, soit passer par un adaptateur (voir [[niveaux-de-tension|niveaux de tension]]).
 
 ### 2. Initialiser le bus
 
-`SPI.begin()` sans argument utilise **VSPI** (broches par défaut). Les bibliothèques (SD, TFT) appellent souvent `begin()` elles-mêmes ; on leur passe surtout le **CS** :
+`SPI.begin()` sans argument utilise **VSPI** (broches par défaut). Les bibliothèques (SD, TFT) appellent souvent `begin()` elles-mêmes. On leur passe surtout le **CS** :
 
 ```cpp
 #include <SPI.h>
@@ -97,7 +97,7 @@ void setup() {
 void loop() {}
 ```
 
-`SD.begin(CS)` initialise le bus VSPI et monte la carte ; `SD.open(..., FILE_WRITE)` ouvre le fichier en écriture. Le `close()` est **indispensable** : il vide le tampon et referme le fichier, sans quoi la dernière écriture peut être perdue. La relecture rouvre le fichier et renvoie son contenu au moniteur.
+`SD.begin(CS)` initialise le bus VSPI et monte la carte. `SD.open(..., FILE_WRITE)` ouvre le fichier en écriture. Le `close()` est **indispensable** : il vide le tampon et referme le fichier, sans quoi la dernière écriture peut être perdue. La relecture rouvre le fichier et renvoie son contenu au moniteur.
 
 Au moniteur :
 
@@ -111,7 +111,7 @@ Les deux dernières lignes ne viennent pas d'un `println` du sketch : c'est le *
 
 ## Pièges
 
-**MOSI et MISO croisés.** Réflexe hérité de l'UART — mais le SPI **ne croise pas** : MOSI sur MOSI, MISO sur MISO. Croiser donne un module muet.
+**MOSI et MISO croisés.** Réflexe hérité de l'UART, mais le SPI **ne croise pas** : MOSI sur MOSI, MISO sur MISO. Croiser donne un module muet.
 
 **CS oublié ou partagé.** Deux modules sur le même CS répondent ensemble et se brouillent. Chaque périphérique a **son** CS sur un GPIO distinct.
 
@@ -129,7 +129,7 @@ Les deux dernières lignes ne viennent pas d'un `println` du sketch : c'est le *
 > Reprenez la carte SD pour enregistrer une mesure **chaque seconde**, sans figer le programme. Indice : cadencer sur `millis()`, ouvrir/écrire/fermer à chaque relevé.
 
 > [!success]- Corrigé
-> On ouvre en mode ajout, on écrit une ligne, on referme — à cadence non bloquante.
+> On ouvre en mode ajout, on écrit une ligne, on referme, à cadence non bloquante.
 > ```cpp
 > #include <SPI.h>
 > #include <SD.h>
@@ -156,13 +156,13 @@ Les deux dernières lignes ne viennent pas d'un `println` du sketch : c'est le *
 >   }
 > }
 > ```
-> `FILE_APPEND` écrit à la suite sans effacer ; refermer après chaque ligne garantit que la donnée est sur la carte même en cas de coupure.
+> `FILE_APPEND` écrit à la suite sans effacer. Refermer après chaque ligne garantit que la donnée est sur la carte même en cas de coupure.
 
 > [!question] Exercice 2 — Deux périphériques sur le bus
 > Ajoutez un second module SPI (par exemple un écran) à côté de la carte SD. Que partagent-ils, qu'est-ce qui les distingue ?
 
 > [!success]- Corrigé
-> Ils partagent SCK/MOSI/MISO ; chacun a **son** CS sur un GPIO distinct.
+> Ils partagent SCK/MOSI/MISO. Chacun a **son** CS sur un GPIO distinct.
 > ```cpp
 > const int CS_SD  = 5;    // carte SD
 > const int CS_TFT = 15;   // écran, autre CS
@@ -176,7 +176,7 @@ Les deux dernières lignes ne viennent pas d'un `println` du sketch : c'est le *
 >   // chaque bibliothèque active son CS le temps de son échange
 > }
 > ```
-> Le faisceau (SCK/MOSI/MISO) est commun ; c'est le CS, actif à l'état bas, qui désigne le module qui écoute à un instant donné.
+> Le faisceau (SCK/MOSI/MISO) est commun. C'est le CS, actif à l'état bas, qui désigne le module qui écoute à un instant donné.
 
 ## Cas particulier — Le second bus et la vitesse
 
@@ -187,14 +187,14 @@ SPIClass hspi(HSPI);
 hspi.begin(14, 12, 13, 15);   // SCK, MISO, MOSI, CS
 ```
 
-La vitesse d'horloge se règle par `SPISettings` (souvent porté par la bibliothèque). Les **broches natives** (VSPI : 18/19/23/5 ; HSPI : 14/12/13/15) autorisent jusqu'à 80 MHz ; des broches remappées plafonnent plus bas.
+La vitesse d'horloge se règle par `SPISettings` (souvent porté par la bibliothèque). Les **broches natives** (VSPI : 18/19/23/5 ; HSPI : 14/12/13/15) autorisent jusqu'à 80 MHz. Des broches remappées plafonnent plus bas.
 
-Sur les variantes **C3 / S3**, l'organisation des bus SPI et les broches par défaut diffèrent — se reporter au brochage via [[esp32-gpio|configurer les GPIO]].
+Sur les variantes **C3 / S3**, l'organisation des bus SPI et les broches par défaut diffèrent. Se reporter au brochage via [[esp32-gpio|configurer les GPIO]].
 
 ## Raccrochage projet
 
-- **[[preuve-de-concept|Preuve de concept]]** — dès qu'il faut stocker des mesures (datalogger) ou afficher richement, le SPI est le bus adapté ; l'exemple carte SD valide l'enregistrement en quelques lignes.
-- **[[integration-et-tests|Intégration et tests]]** — journaliser sur SD pendant les essais donne une trace exploitable a posteriori ; l'écran TFT affiche l'état du système en autonomie.
+- **[[preuve-de-concept|Preuve de concept]]** — dès qu'il faut stocker des mesures (datalogger) ou afficher richement, le SPI est le bus adapté. L'exemple carte SD valide l'enregistrement en quelques lignes.
+- **[[integration-et-tests|Intégration et tests]]** — journaliser sur SD pendant les essais donne une trace exploitable a posteriori. L'écran TFT affiche l'état du système en autonomie.
 
 ## Voir aussi
 

@@ -1,0 +1,74 @@
+=== CONTROLE DES ALT (quatrieme tamis) ===
+  L alt EN est compare a l alt FR de MEME RANG dans la source.
+  IDENTIQUE : l alt EN reproduit l alt FR a l octet (non traduit).
+  VIDE      : l alt EN est vide une fois le suffixe |NNN retire.
+  MOT FR    : lettre accentuee, ou mot-outil d une liste nommee.
+  Le suffixe |NNN entre dans IDENTIQUE, sort des deux autres.
+  Exemptions nommees : 1 fiche(s).
+
+  [!] en/conduite/proj/specification-technique-en.md
+      #1  MOT FR (accent ê)
+          EN  "Bête à cornes — generic diagram"
+          FR  "Bête à cornes — schéma générique"
+          ->  /ressources/img/bete-a-cornes/generique.svg
+  [!] en/embarque/chaine-energie-en.md
+      #1  MOT FR (accent è)
+          EN  "Model of a mechatronic system as two coupled chains: at the bottom the energy chain (alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre); at the top the information chain (acquérir, traiter, communiquer). The information chain commands the energy chain at the \"distribuer\" stage and receives the sensor readings in return."
+          FR  "Modèle d'un système mécatronique en deux chaînes couplées : en bas la chaîne d'énergie (alimenter, distribuer, convertir, transmettre, agir sur la matière d'œuvre) ; en haut la chaîne d'information (acquérir, traiter, communiquer). La chaîne d'information commande la chaîne d'énergie au niveau « distribuer » et reçoit en retour la mesure des capteurs."
+          ->  /ressources/img/chaine-energie/generique.svg
+      #2  MOT FR (accent é)
+          EN  "The two chains applied to the 3-axis arm. Energy chain: battery or mains (alimenter), drivers (distribuer), motors (convertir), gearboxes and belts (transmettre), the arm in motion (agir). Information chain: encoders and limit switches (acquérir), microcontroller (traiter), operator interface (communiquer). The microcontroller commands the drivers and receives the measured position."
+          FR  "Les deux chaînes appliquées au bras 3 axes. Chaîne d'énergie : batterie ou secteur (alimenter), drivers (distribuer), moteurs (convertir), réducteurs et courroies (transmettre), bras en mouvement (agir). Chaîne d'information : codeurs et fins de course (acquérir), microcontrôleur (traiter), IHM opérateur (communiquer). Le microcontrôleur commande les drivers et reçoit la position mesurée."
+          ->  /ressources/img/chaine-energie/bras-3-axes.svg
+  [!] en/embarque/mcu/arduino/arduino-prise-en-main-en.md
+      #2  MOT FR (mot de)
+          EN  "Outils → Type de carte menu|600"
+          FR  "Menu Outils → Type de carte|600"
+          ->  /ressources/img/arduino-prise-en-main/type-de-carte.png
+  [!] en/embarque/mcu/arduino/arduino-serie-en.md
+      #1  MOT FR (mot du)
+          EN  "Serial monitor of the Arduino IDE 2.x: lines reading \"Valeur du capteur\" followed by a number, and the baud rate selector|600"
+          FR  "Moniteur série de l'IDE Arduino 2.x : lignes « Valeur du capteur : XXX » et sélecteur de baud rate|600"
+          ->  /ressources/img/arduino-serie/moniteur-serie.jpg
+  [exempte] en/embarque/mcu/arduino/tinkercad-en.md   4 embed(s) - arbitrage Tim 29/08 (suite 5) : libelles d interface incrustes dans les captures (C113)
+  [!] en/embarque/mcu/esp32/esp32-prise-en-main-en.md
+      #2  MOT FR (accent é)
+          EN  "Preferences window of the Arduino IDE 2.x, with the \"URL de gestionnaire de cartes supplémentaires\" field highlighted.|600"
+          FR  "Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600"
+          ->  /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+      #5  MOT FR (mot de)
+          EN  "Tools menu of the Arduino IDE opened on Type de carte then esp32: the long list of ESP32 models, among them \"ESP32 Dev Module\", ticked and boxed.|640"
+          FR  "Menu Outils de l'IDE Arduino déroulé sur Type de carte puis esp32 : la longue liste des modèles ESP32, dont « ESP32 Dev Module », coché et encadré.|640"
+          ->  /ressources/img/esp32-prise-en-main/selection-board.png
+      #6  MOT FR (mot et)
+          EN  "Tools → Port menu of the Arduino IDE opened next to the Windows device manager: COM9 is ticked in the IDE, and an arrow links it to the \"USB-SERIAL CH340 (COM9)\" entry under Ports (COM et LPT).|640"
+          FR  "Menu Outils → Port de l'IDE Arduino déroulé à côté du gestionnaire de périphériques Windows : COM9 est coché dans l'IDE, et une flèche le relie à l'entrée « USB-SERIAL CH340 (COM9) » sous Ports (COM et LPT).|640"
+          ->  /ressources/img/esp32-prise-en-main/selection-port-com.png
+  [!] en/embarque/mcu/esp32/esp32-serie-en.md
+      #1  MOT FR (mot du)
+          EN  "Arduino IDE 2.x window: the measurement sketch in the editor, the serial monitor icon annotated in red at the top right, and at the bottom the open monitor showing the \"Valeur du capteur\" lines, with the baud selector boxed on 115200 baud.|600"
+          FR  "Fenêtre de l'IDE Arduino 2.x : le sketch de mesure dans l'éditeur, l'icône du moniteur série annotée en rouge en haut à droite, et en bas le moniteur ouvert affichant les lignes « Valeur du capteur », avec le sélecteur de débit encadré sur 115200 baud.|600"
+          ->  /ressources/img/esp32-serie/moniteur-serie-115200.png
+  [!] en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md
+      #1  MOT FR (accent é)
+          EN  "Preferences window of the Arduino IDE 2.x, with the \"URL de gestionnaire de cartes supplémentaires\" field highlighted.|600"
+          FR  "Fenêtre Préférences de l'IDE Arduino 2.x, champ « URL de gestionnaire de cartes supplémentaires » mis en évidence.|600"
+          ->  /ressources/img/esp32-prise-en-main/preferences-url-cartes.png
+      #4  MOT FR (mot de)
+          EN  "Outils menu of the Arduino IDE pulled down on Type de carte then esp8266: the list of board definitions, \"Generic ESP8266 Module\" at the head and boxed.|640"
+          FR  "Menu Outils de l'IDE Arduino déroulé sur Type de carte puis esp8266 : la liste des définitions de cartes, « Generic ESP8266 Module » en tête et encadré.|640"
+          ->  /ressources/img/esp8266-prise-en-main/selection-board.png
+      #5  MOT FR (mot et)
+          EN  "Outils → Port menu of the Arduino IDE pulled down next to the Windows Device Manager: COM10 is boxed in the IDE, and an arrow links it to the \"Silicon Labs CP210x USB to UART Bridge (COM10)\" entry under Ports (COM et LPT).|640"
+          FR  "Menu Outils → Port de l'IDE Arduino déroulé à côté du gestionnaire de périphériques Windows : COM10 est encadré dans l'IDE, et une flèche le relie à l'entrée « Silicon Labs CP210x USB to UART Bridge (COM10) » sous Ports (COM et LPT).|640"
+          ->  /ressources/img/esp8266-prise-en-main/selection-port-com.png
+  [!] en/meca/schema-cinematique-en.md
+      #1  MOT FR (accent â)
+          EN  "Three basic symbols of the kinematic diagram: the frame or bâti (hatched line, fixed reference, 0 degrees of freedom), the revolute joint or liaison pivot (a circle between two bars, 1 rotation) and the prismatic joint or liaison glissière (a slider on a rail, 1 translation)."
+          FR  "Trois symboles de base du schéma cinématique : le bâti (ligne hachurée, référence fixe, 0 degré de liberté), la liaison pivot (cercle entre deux barres, 1 rotation) et la liaison glissière (patin sur un rail, 1 translation)."
+          ->  /ressources/img/schema-cinematique/generique.svg
+
+  fiches EN balayees : 188   porteuses d embed : 128   embeds : 245
+  paires a nombre d embeds divergent : 0   sans source exploitable : 0
+  IDENTIQUE : 0   VIDE : 0   MOT FR : 13   (total 13, hors exemptions)
+  exemptes : 4 embed(s), dont 1 auraient declenche

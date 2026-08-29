@@ -41,7 +41,7 @@ Writing the document itself (step 6 of the phase) means:
 
 1. **Bringing together** the five intermediate deliverables into the standard structure of the document (see the next section)
 2. **Laying it out**: contents list, page numbers, running heads, numbered sections, clean tables, captioned diagrams
-3. **Checking coherence between sections**: a requirement quantified at step 4 has to be consistent with the order of magnitude retained at step 2, and a risk identified at step 5 has to echo an [[FC-en|FC]] (constraint function) from the pieuvre
+3. **Checking coherence between sections**: a requirement quantified at step 4 has to be consistent with the order of magnitude retained at step 2, and a risk identified at step 5 has to echo an [[fonction-en|FC]] (constraint function) from the pieuvre
 4. **Getting it approved** at the *CdCF review*, the [[jalons-en|milestone]] closing the technical specification, run by the teaching staff (who play the role of the client in the school setting)
 
 A **pre-filled Word template** is provided in the repository: [cdcf-ecole-template.docx](/ressources/templates/cdcf-ecole-template.docx). The document is in French, like the diagrams of this wiki. It carries the five-section table of contents, with a cover page, an automatic contents list and the tables already laid out (bête à cornes, comparative state of the art, characterisation of the functions, risk matrix). Fill in the placeholders in square brackets and the CdCF takes shape.
@@ -63,7 +63,7 @@ The sections are **labelled explicitly**, "core of NF X50-151" on section 4 and 
 
 ## Example — 3-axis arm project
 
-For the running example, a 3-axis teaching robot arm, the CdCF is organised in the 5 standard sections of the table of contents. Section 1 restates the students-as-their-own-client position (sponsor = the mechatronics teacher, teaching goal made explicit). Section 4, the core of NF X50-151, gathers the pieuvre and the table of characterised functions: 1 [[FP-en|FP]] (main function), 1 [[FS-en|FS]] (secondary function) and 2 [[FC-en|FC]], all carrying figures (accuracy ± 5 mm at F1, programming from a computer at F2, 230 V supply at F0, fablab demountability at F0).
+For the running example, a 3-axis teaching robot arm, the CdCF is organised in the 5 standard sections of the table of contents. Section 1 restates the students-as-their-own-client position (sponsor = the mechatronics teacher, teaching goal made explicit). Section 4, the core of NF X50-151, gathers the pieuvre and the table of characterised functions: 1 [[fonction-en|FP]] (main function), 1 [[fonction-en|FS]] (secondary function) and 2 [[fonction-en|FC]], all carrying figures (accuracy ± 5 mm at F1, programming from a computer at F2, 230 V supply at F0, fablab demountability at F0).
 
 [[ecoconception-en|Eco-design]] is woven through the document: an "openness / repairability" criterion in the state-of-the-art table (section 3), FC2 on demountability in the pieuvre (section 4), the "fablab availability" risk in the risk matrix (section 5). There is no dedicated eco-design section. The environmental question runs through the whole document.
 
@@ -77,7 +77,7 @@ The full method of construction (the six steps of the phase, step by step) is in
 
 **Subjective criteria.** *"Ergonomic"*, *"pleasant"*, *"robust"* are not criteria but intentions. They are to be reworded systematically as measurable quantities (maximum actuation force, MTBF, learning time, allowable temperature range).
 
-**Eco-design as an appendix.** An *"eco-design"* section added at the end of the CdCF, with nothing built into the other sections, does not hold up. [[ecoconception-en|Eco-design]] has to be **woven through**: a criterion in the state of the art, an [[FC-en|FC]] in the pieuvre, a risk in the matrix. A dedicated framework page sets out the method. And not to be confused with [[ecodesign-en|écodesign]], the French design-discipline sense of the word: the CdCF carries eco-design in the quantified engineering sense, écodesign being usually left to the design courses.
+**Eco-design as an appendix.** An *"eco-design"* section added at the end of the CdCF, with nothing built into the other sections, does not hold up. [[ecoconception-en|Eco-design]] has to be **woven through**: a criterion in the state of the art, an [[fonction-en|FC]] in the pieuvre, a risk in the matrix. A dedicated framework page sets out the method. And not to be confused with [[ecodesign-en|écodesign]], the French design-discipline sense of the word: the CdCF carries eco-design in the quantified engineering sense, écodesign being usually left to the design courses.
 
 **Skipping the CdCF review.** Being reviewed by the teaching staff (or by the client in a professional setting) is not a formality: it is what **commits** the document. With no review, the CdCF stays a team draft. After review, it is a contract that is not casually reopened.
 

@@ -58,7 +58,7 @@ The direct representation is a **top-down tree** (overall system at the root, su
 The split produced here is not frozen for the whole phase. Exploring the solutions at step 2 can reveal that a block has to be divided (two very different control logics coexist in it) or merged (two blocks in fact share the same structure). Go back and fix it without hesitation.
 
 > [!warning] Watch out
-> **The breakdown can reveal a hole in the [[cahier-des-charges-fonctionnel-en|CdCF]].** A forgotten [[FC-en|FC]], a badly stated [[FP-en|FP]], a subsystem that maps to no service function: these signals nearly always surface during the breakdown, because it is the first time the system is looked at from inside. The temptation is to hide them so as not to reopen the approved CdCF review. Do the opposite: record the change, get it approved with the supervisor, then carry on. A CdCF corrected at the start of concept costs a few hours. The same hole found at integration costs weeks.
+> **The breakdown can reveal a hole in the [[cahier-des-charges-fonctionnel-en|CdCF]].** A forgotten [[fonction-en|FC]], a badly stated [[fonction-en|FP]], a subsystem that maps to no service function: these signals nearly always surface during the breakdown, because it is the first time the system is looked at from inside. The temptation is to hide them so as not to reopen the approved CdCF review. Do the opposite: record the change, get it approved with the supervisor, then carry on. A CdCF corrected at the start of concept costs a few hours. The same hole found at integration costs weeks.
 
 #### From subsystems to technical functions
 
@@ -76,7 +76,7 @@ On the depth of the FAST, the practical rule is simple: go down as long as the t
 >
 > [[fast-en|FAST]] of the *joint mobility* subsystem, first pass: **generate torque on each axis** → convert electrical energy into mechanical movement; **measure angular position** → sense the angle of each axis; **control the movement** → compare target and measured position, correct the command; **synchronise the three axes** → bring the joints to the target position in parallel. Each branch will go down one level at step 2, when candidate solutions are set against it.
 >
-> During this breakdown, the team finds that no service function of the [[cahier-des-charges-fonctionnel-en|CdCF]] explicitly covers **replacing a motor after a failure**. Demountability of the *joint mobility* subsystem was never stated. The signal goes up to the supervisor, the change is approved, and an **[[FC-en|FC]] on demountability** is added to the CdCF with its version number updated. The concept phase resumes without hiding the loop back.
+> During this breakdown, the team finds that no service function of the [[cahier-des-charges-fonctionnel-en|CdCF]] explicitly covers **replacing a motor after a failure**. Demountability of the *joint mobility* subsystem was never stated. The signal goes up to the supervisor, the change is approved, and an **[[fonction-en|FC]] on demountability** is added to the CdCF with its version number updated. The concept phase resumes without hiding the loop back.
 
 > [!livrable] Deliverable 1/5 — Concept
 > - Functional breakdown of the system (subsystems plus technical functions per block, set out as diagrams or a [[fast-en|FAST]], depending on the tool chosen)
@@ -107,7 +107,7 @@ The [[matrice-de-decision-en|decision matrix]] crosses **candidate solutions in 
 
 - **Performance** — torque, accuracy, throughput, battery life, depending on the technical function concerned
 - **Cost** — purchase, manufacture, maintenance
-- **Size and mass** — often carried by [[FC-en|FC]] in the [[pieuvre-en|pieuvre]] of the [[cahier-des-charges-fonctionnel-en|CdCF]]
+- **Size and mass** — often carried by [[fonction-en|FC]] in the [[pieuvre-en|pieuvre]] of the [[cahier-des-charges-fonctionnel-en|CdCF]]
 - **[[ecoconception-en|Eco-design]]** — consumption in service and in standby, service life, demountability, origin of the materials
 - **School feasibility** — supplier availability, lead times, skills the team can call on
 - **Technical risk** — maturity of the solution, lessons learned available
@@ -297,7 +297,7 @@ Three nominal outcomes, plus one that loops back. The review **approves without 
 > [!example] Example: 3-axis arm project
 > The concept file for the 3-axis arm follows the standard table of contents, instantiated:
 >
-> 1. **Introduction and context** — a reminder of the [[cahier-des-charges-fonctionnel-en|CdCF]], the scope of concept, the team, the concept review scheduled in week 5. Explicit documentation of a change made at step 1: an [[FC-en|FC]] on demountability added (CdCF loop back flagged and recorded during the phase).
+> 1. **Introduction and context** — a reminder of the [[cahier-des-charges-fonctionnel-en|CdCF]], the scope of concept, the team, the concept review scheduled in week 5. Explicit documentation of a change made at step 1: an [[fonction-en|FC]] on demountability added (CdCF loop back flagged and recorded during the phase).
 > 2. **Functional breakdown** — 3 subsystems (joint mobility, user interface, power and safety), a [[fast-en|FAST]] per subsystem with technical functions written as a verb plus complement.
 > 3. **Disciplinary choices** — one matrix per subsystem, [[ecoconception-en|eco-design]] included as a weighted criterion (not a box to tick), weighting justified against the F0/F1/F3 flexibilities of the CdCF.
 > 4. **Overall architecture** — [[schema-bloc-fonctionnel-en|block diagram]] annotated with the chosen solutions (3 steppers plus drivers, a single microcontroller, a PC interface, a 3D-printed structure with a short offset built in), table of the 2 cross-discipline conflicts settled (kinematics against joints, supply thermal).

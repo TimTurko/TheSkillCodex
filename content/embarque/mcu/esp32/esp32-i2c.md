@@ -17,7 +17,7 @@ aa:
 draft: false
 ---
 
-L'**[[i2c|I2C]]** est le bus à **deux fils** (SDA pour les données, SCL pour l'horloge) qui relie plusieurs périphériques — capteurs, écrans OLED, horloges temps réel — à l'ESP32, chacun repéré par une **adresse**. Sur ESP32, il se pilote avec la bibliothèque `Wire` ; ses broches par défaut sont **GPIO21 (SDA)** et **GPIO22 (SCL)**, mais elles sont **remappables**, et la puce dispose de **deux contrôleurs** (`Wire` et `Wire1`).
+L'**[[i2c|I2C]]** est le bus à **deux fils** (SDA pour les données, SCL pour l'horloge) qui relie plusieurs périphériques — capteurs, écrans OLED, horloges temps réel — à l'ESP32, chacun repéré par une **adresse**. Sur ESP32, il se pilote avec la bibliothèque `Wire`. Ses broches par défaut sont **GPIO21 (SDA)** et **GPIO22 (SCL)**, mais elles sont **remappables**, et la puce dispose de **deux contrôleurs** (`Wire` et `Wire1`).
 
 ## À quoi ça sert ?
 
@@ -35,12 +35,12 @@ Quatre temps : câbler, initialiser, scanner les adresses, exploiter via une bib
 
 ### 1. Câbler : deux fils, deux résistances de tirage
 
-SDA et SCL sont des lignes **à drain ouvert** : elles ont besoin de **résistances de tirage** (~4,7 kΩ) vers le 3,3 V pour remonter à l'état haut. La plupart des modules les intègrent déjà — inutile d'en ajouter si un seul module est présent.
+SDA et SCL sont des lignes **à drain ouvert** : elles ont besoin de **résistances de tirage** (~4,7 kΩ) vers le 3,3 V pour remonter à l'état haut. La plupart des modules les intègrent déjà : inutile d'en ajouter si un seul module est présent.
 
 ![Branchement I2C entre un ESP32 et un module : SDA sur GPIO21, SCL sur GPIO22, alimentation 3,3 V, masse commune, résistances de tirage vers 3,3 V|600](/ressources/img/esp32-i2c/branchement-i2c.svg)
 
 > [!warning]
-> **Tirer vers 3,3 V, pas vers 5 V.** Les lignes SDA/SCL d'un module alimenté en 5 V remontent à 5 V et peuvent **abîmer les broches** de l'ESP32. Alimenter le module en 3,3 V, ou intercaler un adaptateur de niveau — voir [[niveaux-de-tension|niveaux de tension]].
+> **Tirer vers 3,3 V, pas vers 5 V.** Les lignes SDA/SCL d'un module alimenté en 5 V remontent à 5 V et peuvent **abîmer les broches** de l'ESP32. Alimenter le module en 3,3 V, ou intercaler un adaptateur de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
 ### 2. Initialiser le bus
 
@@ -117,9 +117,9 @@ La liste se répète toutes les 3 secondes : débrancher un module en cours de s
 
 ## Pièges
 
-**Pas de résistances de tirage.** Le piège n°1 : le scanner ne trouve rien. Sans tirage vers 3,3 V, SDA/SCL restent bloquées à l'état bas et le bus est muet. Un module avec tirages intégrés suffit ; sinon, ajouter deux résistances ~4,7 kΩ.
+**Pas de résistances de tirage.** Le piège n°1 : le scanner ne trouve rien. Sans tirage vers 3,3 V, SDA/SCL restent bloquées à l'état bas et le bus est muet. Un module avec tirages intégrés suffit. Sinon, ajouter deux résistances ~4,7 kΩ.
 
-**Alimenter en 5 V.** Les lignes remontent alors à 5 V sur des broches 3,3 V — risque de destruction. Alimenter le module en 3,3 V.
+**Alimenter en 5 V.** Les lignes remontent alors à 5 V sur des broches 3,3 V : risque de destruction. Alimenter le module en 3,3 V.
 
 **Deux modules à la même adresse.** Ils répondent en même temps et se brouillent. Solution : un cavalier d'adresse sur l'un, ou le **second bus `Wire1`** (voir *Cas particulier*).
 
@@ -127,7 +127,7 @@ La liste se répète toutes les 3 secondes : débrancher un module en cours de s
 
 **Masse non reliée.** Comme tout bus, l'I2C a besoin d'une **masse commune** entre l'ESP32 et les modules.
 
-**Fils trop longs à 400 kHz.** La capacité des fils déforme les fronts ; sur une liaison longue, redescendre à 100 kHz (`Wire.setClock(100000)`).
+**Fils trop longs à 400 kHz.** La capacité des fils déforme les fronts. Sur une liaison longue, redescendre à 100 kHz (`Wire.setClock(100000)`).
 
 ## Exercices
 
@@ -135,7 +135,7 @@ La liste se répète toutes les 3 secondes : débrancher un module en cours de s
 > Branchez un écran OLED SSD1306 (I2C) et affichez « Bonjour ESP32 ». L'adresse usuelle est `0x3C`. Indice : utiliser une bibliothèque (Adafruit SSD1306 + GFX).
 
 > [!success]- Corrigé
-> La bibliothèque gère les échanges I2C ; on initialise l'écran à son adresse, on écrit, on rafraîchit avec `display()`.
+> La bibliothèque gère les échanges I2C. On initialise l'écran à son adresse, on écrit, on rafraîchit avec `display()`.
 > ```cpp
 > #include <Wire.h>
 > #include <Adafruit_GFX.h>
@@ -177,16 +177,16 @@ La liste se répète toutes les 3 secondes : débrancher un module en cours de s
 
 ## Cas particulier — Le second bus et la vitesse
 
-L'ESP32 possède **deux contrôleurs I2C**. Le premier est `Wire` ; le second s'instancie via `TwoWire(1)` (souvent nommé `Wire1`), sur les broches de son choix. Utile pour séparer deux modules de même adresse, ou isoler un capteur lent d'un bus rapide.
+L'ESP32 possède **deux contrôleurs I2C**. Le premier est `Wire`. Le second s'instancie via `TwoWire(1)` (souvent nommé `Wire1`), sur les broches de son choix. Utile pour séparer deux modules de même adresse, ou isoler un capteur lent d'un bus rapide.
 
-La vitesse se règle avec `Wire.setClock(100000)` (standard, 100 kHz) ou `400000` (rapide, 400 kHz). Le rapide convient à des liaisons **courtes** ; sur des fils longs, rester à 100 kHz.
+La vitesse se règle avec `Wire.setClock(100000)` (standard, 100 kHz) ou `400000` (rapide, 400 kHz). Le rapide convient à des liaisons **courtes**. Sur des fils longs, rester à 100 kHz.
 
-Sur les variantes **C3 / S3**, les broches par défaut diffèrent de GPIO21/22 — vérifier le brochage via [[esp32-gpio|configurer les GPIO]] et les préciser à `Wire.begin(sda, scl)`.
+Sur les variantes **C3 / S3**, les broches par défaut diffèrent de GPIO21/22. Vérifier le brochage via [[esp32-gpio|configurer les GPIO]] et les préciser à `Wire.begin(sda, scl)`.
 
 ## Raccrochage projet
 
-- **[[preuve-de-concept|Preuve de concept]]** — un capteur I2C (BME280, MPU6050) valide une mesure sans électronique d'interface ; le scanner confirme le câblage en une minute.
-- **[[integration-et-tests|Intégration et tests]]** — plusieurs modules sur un même bus réduisent le câblage du sous-système embarqué ; l'écran I2C affiche l'état en direct pendant les essais.
+- **[[preuve-de-concept|Preuve de concept]]** — un capteur I2C (BME280, MPU6050) valide une mesure sans électronique d'interface. Le scanner confirme le câblage en une minute.
+- **[[integration-et-tests|Intégration et tests]]** — plusieurs modules sur un même bus réduisent le câblage du sous-système embarqué. L'écran I2C affiche l'état en direct pendant les essais.
 
 ## Voir aussi
 
