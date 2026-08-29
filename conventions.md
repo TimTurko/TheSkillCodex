@@ -1651,7 +1651,13 @@ deux et garde 4 sur 15.*
 `stm32-hal` L77/L78 **restent**. *Ce qui les sépare n'est ni la forme de puce
 ni la nature du segment de droite, mais la **phrase complète à gauche du
 tiret** : leur tiret est un cas 3, pas un cas 2.*
-*Éprouvée 4/N.*
+✅ **L'exemption des deux point-virgules du glossaire HAL / LL a été remontée
+à Tim et CONFIRMÉE** (arbitrage du 30/08, *« ok avec ton jugement »*) :
+`; le défaut` et `; pour les chemins critiques…` **restent**, comme items d'un
+glossaire comparatif et non comme gloses de prose, alors que le second tamis
+du 24/08 les ferait tomber. **Aucun revert n'est joué.** *C'est la première
+fois qu'une exemption de cette clause est arbitrée plutôt que déduite.*
+*Éprouvée 4/N, la quatrième confirmée par arbitrage.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -1797,6 +1803,16 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 **Ne se traduit pas — ce que le programme désigne.** Identifiants, mots-clés, API, noms de fichiers, **et les chaînes qui désignent au lieu d'afficher** : `Pin("LED", Pin.OUT)` nomme une broche que le firmware attend littéralement, les clés de `dict` (`{"nom": "LDR", "broche": 26}`) sont reprises trois lignes plus bas par `capteur["broche"]`, `"mesures.csv"` est un nom de fichier, et `"Pico" * 2` est un nom propre dont la répétition **est** la démonstration.
 
 ⚠ **La borne n'est donc pas « chaîne vs identifiant »**, comme la convention avait failli s'écrire, **mais « dire vs désigner »**. Rencontrée cinq fois sur les six fiches, elle a tranché chaque fois. *Traduire une chaîne parce qu'elle est une chaîne casse le programme.*
+
+**Clause du 30/08 (arbitrage Tim) — le code ne s'édite JAMAIS entre les deux langues, et une chaîne couplée à un littéral ne se traduit pas.**
+*Rendue sur la question posée à la clôture du lot 6.* Le lot 6 a rencontré trois chaînes affichées **couplées à un littéral numérique** : `HAL_UART_Transmit(&huart2, (uint8_t *)"tic\r\n", 5, 100)`, où le commentaire enseigne *« 5 = octets à envoyer »*, et son équivalent `"Bonjour\r\n", 9`. **Traduire la chaîne obligeait à éditer le littéral**, et j'avais proposé qu'*un littéral qui décrit la chaîne affichée fasse partie de la chaîne*. **Arbitrage : rejeté.**
+
+**La règle est plus simple et plus dure : le code d'une fiche EN est identique À L'OCTET à celui de sa source FR.** Une chaîne affichée dont la traduction changerait la longueur **ne se traduit pas** : elle reste en français dans le tuto anglais, **au même titre que les identifiants et que les schémas laissés en français**. *Motif donné par Tim : « si un mot français apparaît dans le tuto anglais, aucun souci, comme pour les images ». C'est le régime des captures, déjà assumé, étendu au littéral de code.*
+
+⚠ **ET LA VOIE DE SORTIE DÉPLACE LE GESTE VERS LA SOURCE, PAS VERS LA JUMELLE.** Quand les deux langues admettent une forme **de même longueur**, ce n'est pas la fiche EN qui s'écarte, c'est **la source FR qui se neutralise**. Appliqué le 30/08 : `"tic\r\n", 5` devient `"tick\r\n", 6` **des deux côtés**, bloc de sortie attendue et prose compris, et le code redevient identique sans qu'aucun littéral n'ait été édité **entre** les langues. *La voie de sortie n'est pas générale : elle suppose une forme que le français accepte. `Bonjour` → `Hello` ne la remplit pas — les deux mots n'ont pas la même longueur et angliciser la source française serait un contresens —, donc `stm32-hal-en` porte `"Bonjour\r\n", 9` dans son bloc de code.*
+
+⚠ **CE QUE LA CLAUSE NE COUVRE PAS, ET LE CAS EST DANS LA MÊME FICHE.** Un mot **tapé par l'étudiant** au moniteur et reproduit par un bloc de sortie n'est porté par **aucun littéral du code source** : `HAL_UART_Transmit(&huart2, &rx, 1, 10)` transmet un octet, indépendamment du mot. *`bonjour` / « sept passages » se traduit donc en `hello` / « five trips » sans réserve.* **`stm32-hal-en` porte ainsi `"Bonjour\r\n"` dans un bloc de code et `hello` dans une saisie utilisateur, et c'est cohérent : le premier est du code, le second ne l'est pas.**
+*Éprouvée 1/N.*
 
 **Coût assumé : un registre mixte.** Les identifiants restent français, donc un anglophone lit `clignote(led, n=3, duree=0.2)` et `if bouton.value() == 0 and not alarme_active`. Motif de la borne : renommer désynchroniserait les SVG français qui montrent ces mêmes variables (`locale-globale.svg` de `cpp-portee`), et ce serait un diff sémantique et non typographique. *C'est le compromis des schémas laissés en français, pris un cran plus bas.* `micropython-fonctions` est la fiche où il se voit le plus, donc celle à relire en premier si la borne doit bouger.
 
@@ -2501,6 +2517,35 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `en/`), EN 870 sur 142 porteuses (206 fichiers `content/en/`).**
   *C131 exige de déclarer la population d'un compteur qu'on **prédit** ; il y
   manque de l'exiger du compteur qu'on **publie comme référence**.*
+  *Éprouvée 0/N.*
+- **Une ancre qui couvre N lignes identiques se prend EN BLOC, jamais ligne à
+  ligne.**
+  *Née le 30/08, garde mordue avant toute écriture.* Le correctif d'arbitrage
+  devait remplacer les **quatre lignes `tic`** d'un bloc de sortie attendue.
+  L'ancre `\ntic\n` **consomme le saut de ligne qui sert aussi de début à
+  l'occurrence suivante** : un `split` non chevauchant en trouve **2 sur 4**.
+  ⚠ *Le script portait en commentaire « occurrences NON CHEVAUCHANTES,
+  comptees comme le fera le remplacement », et j'ai prédit 4 à la ligne
+  suivante.* **Sans le compte exact déclaré à l'avance, le remplacement aurait
+  appliqué deux substitutions sur quatre et laissé un bloc de sortie
+  `tick / tic / tick / tic`** — une trace de moniteur incohérente dans une
+  fiche dont le propos est la démonstration. **L'ancre corrigée prend le bloc
+  entier, et la garde de compte redevient une garde d'unicité.**
+  *Corollaire outil* : `remplacer-passe.mjs` ne peut pas porter ce cas, son
+  TSV interdisant le saut de ligne dans une ancre ; un **script jetable à
+  compte exact** (C114) est la bonne réponse, pas une ancre choisie de force.
+  *Éprouvée 0/N.*
+- **`--recaler` est une ÉDITION : il compte au `numstat` et au `git status`.**
+  *Née le 30/08, deux réfutations d'un même bloc, racine unique.* Le recalage
+  d'empreinte était **prévu et prédit** ; ce qui ne l'était pas, c'est qu'il
+  **réécrit le front matter de la fiche EN**. Conséquence sur deux compteurs :
+  `git diff --numstat` porte une **troisième ligne** que je n'avais pas
+  annoncée, et `git status` rend **8 / 6** au lieu de 7 / 5.
+  *L'amendement C131 du 29/08 (suite 8) dit que les artefacts d'un bloc se
+  décident dans le bloc ; il le dit pour les fichiers **créés**, et celui-ci
+  est **modifié** par une commande figurant dans mon propre plan de bloc.*
+  **Toute commande qui touche un fichier suivi entre dans la déclaration
+  C131, y compris quand elle ne change qu'une ligne de front matter.**
   *Éprouvée 0/N.*
 - **Une soustraction entre deux totaux se fait sur deux états de même date.**
   *Née le 29/08 (suite 9), cinq réfutations sur onze.* `RESTANT A TRADUIRE` et

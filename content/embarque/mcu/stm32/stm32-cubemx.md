@@ -79,20 +79,20 @@ Dans `main.c`, CubeMX a produit `MX_GPIO_Init()` et `MX_USART2_UART_Init()`, et 
 ```c
 /* USER CODE BEGIN 3 */
 HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);            // inverse l'état de la LED
-HAL_UART_Transmit(&huart2, (uint8_t *)"tic\r\n", 5, 100);   // 5 = octets à envoyer, 100 = délai d'attente en ms
+HAL_UART_Transmit(&huart2, (uint8_t *)"tick\r\n", 6, 100);   // 6 = octets à envoyer, 100 = délai d'attente en ms
 HAL_Delay(1000);                                       // attend une seconde
 /* USER CODE END 3 */
 ```
 
-La LED bat la seconde, et le moniteur série (115200) affiche `tic` chaque seconde. Le **handle** `huart2` est l'objet généré par CubeMX que les fonctions HAL manipulent (détaillé dans [[stm32-hal|la HAL]]). **On a configuré le microcontrôleur, puis seulement écrit la logique** : c'est tout l'esprit de la porte native.
+La LED bat la seconde, et le moniteur série (115200) affiche `tick` chaque seconde. Le **handle** `huart2` est l'objet généré par CubeMX que les fonctions HAL manipulent (détaillé dans [[stm32-hal|la HAL]]). **On a configuré le microcontrôleur, puis seulement écrit la logique** : c'est tout l'esprit de la porte native.
 
 Au moniteur réglé sur 115200 :
 
 ```
-tic
-tic
-tic
-tic
+tick
+tick
+tick
+tick
 ```
 
 Si les lignes défilent trop vite ou trop lentement, c'est l'arbre d'horloge qu'il faut rouvrir, pas le `HAL_Delay`.

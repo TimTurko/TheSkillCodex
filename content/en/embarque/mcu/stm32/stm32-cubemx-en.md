@@ -15,7 +15,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/stm32/stm32-cubemx.md
-source_sha256: 5d1fb3713c2fb002e728e06977e83841356d659b35d3e9e6f483156edd84ca3f
+source_sha256: 4455673447543dc354bd4f679c2c1c2b67f46d2123e9e45c8fb0dfa3b181935b
 ---
 
 **STM32CubeMX** is the graphical configuration tool for STM32 microcontrollers: you assign the pins, set the **clock tree**, tune the peripherals, and CubeMX then **generates the matching initialisation code**. It is the heart of the STM32's native door, and the family's most distinctive contribution: you do not *program* first, you **configure the microcontroller**: the code comes afterwards. CubeMX can be used on its own or embedded in [[stm32-prise-en-main-en|STM32CubeIDE]] (the `.ioc` view met while getting started). The API that this code uses is covered in [[stm32-hal-en|the HAL]].

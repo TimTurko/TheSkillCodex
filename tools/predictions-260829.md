@@ -9380,3 +9380,496 @@ ouverte** : le motif est prouvé identique par la réconciliation exacte du côt
 anglais, et aucune des deux populations testées ne reproduit la référence du
 lot 5. *La candidate versée au §8 ne corrige pas le passé — elle empêche le
 cas de se reproduire, en imposant que la population voyage avec le chiffre.*
+---
+---
+
+# ARBITRAGES RENDUS PAR TIM — 30/08, APRÈS LE GATE G5, AVANT LA LIVRAISON
+
+*Les deux arbitrages remontés à la clôture du lot 6 sont rendus. La séance
+reste la **suite 11 du 29/08** ; la numérotation des blocs continue — le
+dernier bloc écrit est le **38**, celui-ci est le **39**.*
+
+## Arbitrage (a) — C77 est confirmée telle quelle : le code ne s'édite pas
+
+**Réponse de Tim, verbatim** : *« Je confirme la règle, pas d'édition dans le
+code. Si un mot français apparaît dans le tuto anglais, aucun souci (comme pour
+les images/screenshot). »* **Et une voie de sortie** : *« on peut utiliser
+"tick\r\n" en français et en anglais pour garder la même taille. »*
+
+**Ce que l'arbitrage tranche, et il tranche CONTRE ma frontière proposée.**
+J'avais proposé qu'*un littéral qui décrit la chaîne affichée fasse partie de
+la chaîne*. **Rejeté.** La règle est plus simple et plus dure : **le code d'une
+fiche EN est identique à l'octet à celui de sa source FR**, et une chaîne
+affichée couplée à un littéral **ne se traduit pas** — elle reste en français
+dans le tuto anglais, **au même titre que les identifiants (C113) et que les
+schémas laissés en français**. *Le motif est explicite dans la réponse : c'est
+le régime des images, déjà assumé.*
+
+**Et la voie de sortie déplace le geste de la traduction vers la source.**
+Quand les deux langues admettent une forme **de même longueur**, ce n'est pas
+la jumelle EN qui s'écarte, c'est la **source FR qui se neutralise** : `tic`
+devient `tick` **des deux côtés**, et le code redevient identique sans qu'aucun
+littéral n'ait été édité entre les langues. ⚠ *La voie de sortie n'est pas
+générale : elle suppose une forme que le français accepte. `Bonjour` → `Hello`
+ne la remplit pas, et angliciser la source française serait un contresens.*
+
+## Arbitrage (b) — l'exemption du glossaire HAL / LL est confirmée
+
+**Réponse de Tim** : *« ok avec ton jugement. »* Les deux point-virgules de
+`stm32-hal` L77 et L78 (`; le défaut`, `; pour les chemins critiques…`)
+**restent exemptés**, comme items d'un glossaire comparatif et non comme gloses
+de prose. **Aucun revert n'est joué**, et la clause de périmètre C109 garde ses
+**4 gardées sur 15** du lot 6.
+
+## Ce que les deux arbitrages coûtent en éditions
+
+| # | emplacement | état actuel | verdict | action |
+|---|---|---|---|---|
+| 1 | `stm32-cubemx` code, `"tic\r\n", 5` | FR `tic`/5, EN `tick`/6 | **voie de sortie** | ⚠ **la SOURCE FR s'aligne** sur `tick`/6 |
+| 2 | `stm32-cubemx` bloc de sortie, `tic` ×4 | FR `tic`, EN `tick` | idem | la source FR s'aligne |
+| 3 | `stm32-cubemx` prose, `` `tic` `` | idem | idem | la source FR s'aligne |
+| 4 | `stm32-hal-en` code, `"Hello\r\n", 7` | EN traduit, FR `"Bonjour\r\n", 9` | **pas d'édition de code** | ⚠ **l'EN revient à `"Bonjour\r\n", 9`** |
+| 5 | `stm32-hal-en` saisie/écho, `hello` / *five trips* | EN traduit | **conservé** | aucune |
+
+⚠ **LE CAS 5 N'EST PAS UN CAS DE L'ARBITRAGE, ET IL FAUT LE DIRE.** `bonjour`
+n'y est **pas dans le code** : c'est un mot **tapé par l'étudiant** au moniteur,
+reproduit par un bloc de sortie. **Aucun littéral du code source ne le porte** —
+`HAL_UART_Transmit(&huart2, &rx, 1, 10)` transmet **un** octet, indépendamment
+du mot. *La traduction en `hello` (5 caractères, « five trips ») ne force donc
+aucune édition de code et relève de C113 sans réserve.* **La fiche EN portera
+`"Bonjour\r\n"` dans un bloc de code et `hello` dans une saisie utilisateur, et
+c'est cohérent : le premier est du code, le second ne l'est pas.**
+
+---
+
+## Bloc 39 — correctif d'arbitrage (4 remplacements, 2 fiches)
+
+Commandes prévues, dans cet ordre :
+
+1. dépôt de `tools/passe-arbitrage-3008.tsv`,
+   `tools/passe-negatif-arbitrage-3008.tsv` et
+   `tools/correctif-bloc-sortie-3008.mjs` (**avant** la garde, donc comptés
+   par elle)
+2. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde -Fiches … -FichesEn …`
+3. `node tools/remplacer-passe.mjs tools/passe-negatif-arbitrage-3008.tsv`
+   *(test négatif délibéré)*
+4. `node tools/remplacer-passe.mjs tools/passe-arbitrage-3008.tsv` puis
+   `… --ecrire` — **passe A**, les 3 ancres uniques
+5. `node tools/correctif-bloc-sortie-3008.mjs` puis `… --ecrire` — **passe B**,
+   le bloc de sortie
+6. `node tools/derive-traduction.mjs`, puis
+   `node tools/creer-fiche-en.mjs --recaler en/embarque/mcu/stm32/stm32-cubemx-en.md`
+7. remesure : `compter-mots`, `compter-mots --lot`, `--paires`, `--style`,
+   `--controle`, `git diff --numstat`, `git status`
+
+⚠ **POURQUOI DEUX PASSES ET NON UNE.** `remplacer-passe.mjs` lit un TSV ligne
+par ligne : **une ancre ne peut pas contenir de saut de ligne**, et le bloc de
+sortie porte **quatre lignes identiques** dont aucune n'est unique. La garde
+d'unicité de l'outil est donc inapplicable là, et l'y forcer reviendrait à
+choisir une ancre fausse. **Passe B est un script jetable (C114) qui porte la
+garde adaptée au cas : un nombre d'occurrences EXACT, déclaré à l'avance**, et
+qui publie les mêmes trois invariants, refuse le lot entier sur tout écart, et
+valide tout avant d'écrire le premier octet. *Ce n'est pas un contournement de
+la garde, c'est la garde qui convient au motif — un compte exact vaut une
+unicité quand l'objet est un bloc de N lignes égales.*
+
+### Déclaration C131 du bloc 39 (population, versements, total)
+
+**Versements présents quand l'étape 1 lit le compteur, nommément :**
+`tools/predictions-260829.md` (**1** ` M`, filtré) ;
+`batterie-sortie-2908b52|53|54|55|56|57.txt`, `batterie-sortie-3008b1.txt` et
+`batterie-sortie-3008b2.txt` créé par l'étape 0 du lancement courant
+(**8**, filtrés) ; `chevron-lot6-2908.txt`, `puces-lot6-avant.txt`,
+`puces-lot6-en.txt`, `puces-corpus-lot6-2908.txt` (**4**, comptés) ;
+`passe-c109-lot6-2908.tsv`, `passe-negatif-lot6-2908.tsv` (**2**, comptés) ;
+`table-titres-lot6-2908.tsv`, `table-titres-negatif-lot6-2908.tsv` (**2**,
+comptés) ; les **3 sources FR** (**3**) ; les **3 fiches EN** (**3**) ;
+`JOURNAL.md` et `conventions.md` (**2**) ; ⚠ **les trois fichiers déposés par
+ce bloc avant la garde** — `passe-arbitrage-3008.tsv`,
+`passe-negatif-arbitrage-3008.tsv`, `correctif-bloc-sortie-3008.mjs`
+(**3**, comptés).
+
+**Total impliqué : 1 + 8 + 4 + 2 + 2 + 3 + 3 + 2 + 3 = 28. Hors artefacts de
+séance : 19** — les **16** de la clôture du bloc 37 plus les **3** fichiers
+déposés à l'instant.
+
+⚠ **Le compteur ne bouge plus dans le bloc** : les deux fiches éditées sont
+déjà comptées, l'une en ` M`, l'autre en `??`. **Fin de bloc attendue : 28,
+hors artefacts 19**, inchangé.
+
+### Prédictions du bloc 39
+
+**Garde**
+
+- **P39.1** — copie `tools\batterie-sortie-3008b2.txt`, 0 non ASCII,
+  `node : v24.15.0`, `HEAD git : 1442a81 2026-08-29 23:24:26 +0200`
+  **inchangé** (le lot n'est pas livré), `date ISO : 2026-08-30`,
+  `phase demandee : garde   anneau : 2   chevron : False`.
+- **P39.2** — `fichiers modifies non commites : 28   (hors artefacts de
+  seance : 19)`.
+- **P39.3** *(terme décomposé)* — `TODO.md` **`2026-08-29 21:48:08`** exactement
+  ; `JOURNAL.md` et `conventions.md` au **`2026-08-30`**, heure **≥ 00:01:39**
+  (la batterie du bloc 36) — *ils ont changé de jour, les trois autres non* ;
+  les **3 sources FR** à **`2026-08-29 23:44:27`** exactement ; les **3 fiches
+  EN** à **`23:55:26` / `23:57:00` / `23:57:46`** exactement, relevées à la
+  garde du bloc 36 et intouchées depuis.
+
+**Test négatif délibéré**
+
+- **P39.4** — ancre `` affiche `tic` chaque Seconde `` — *une capitale de trop,
+  le mode d'échec du 29/08 (suite 8)* : `INTROUVABLE`,
+  `ancres introuvables : 1`, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`,
+  **exit 1**.
+
+**Passe A — `remplacer-passe.mjs`, 3 ancres uniques**
+
+- **P39.5** — `lignes de table : 3`, `fiches : 2`, `remplacements prets : 3`,
+  **les six seaux de défaut à 0**, exit 0 en contrôle puis en écriture.
+- **P39.6** *(les deux invariants)* — écart d'accents **+0 sur les deux
+  fiches** ; `stm32-cubemx.md` **accents 309 → 309**,
+  **pts de code 11547 → 11549 (+2)** ; `stm32-hal-en.md` écart d'accents
+  **+0**, **pts de code +2** — *`tic` → `tick` vaut +1, `` `tic` `` → `` `tick` ``
+  vaut +1, `5` → `6` et `7` → `9` valent 0, `Hello` → `Bonjour` vaut +2.*
+  **Lignes inchangées sur les deux fiches.**
+- **P39.7** — `ECRIT  content/embarque/mcu/stm32/stm32-cubemx.md   (2
+  remplacement(s))` et
+  `ECRIT  content/en/embarque/mcu/stm32/stm32-hal-en.md   (1 remplacement(s))`,
+  `fichiers ecrits : 2`.
+
+**Passe B — script jetable, le bloc de sortie**
+
+- **P39.8** — `occurrences attendues : 4`, `trouvees : 4`, verdict conforme.
+- **P39.9** — invariants de la passe B sur `stm32-cubemx.md` : **accents
+  309 → 309 (écart +0)**, **pts de code 11549 → 11553 (+4)**, **lignes
+  inchangées** — *quatre `k` ajoutés, rien d'autre.*
+- **P39.10** — `4 remplacement(s)`, 1 fichier écrit, exit 0.
+
+**Dérive et recalage**
+
+- **P39.11** *(l'instrument doit voir la dérive AVANT qu'on la corrige)* —
+  `derive-traduction` **avant** recalage : **`DERIVE 1`** —
+  `en/embarque/mcu/stm32/stm32-cubemx-en.md` —, `MARQUE INVALIDE 0`,
+  **`A JOUR 205`**. ⚠ *`stm32-hal-en` n'y figure pas : c'est **sa jumelle EN**
+  qui a changé, pas sa source FR, et l'empreinte ne suit que la source.*
+- **P39.12** — après `--recaler` : `DERIVE 0`, `MARQUE INVALIDE 0`,
+  **`A JOUR 206`**.
+
+**Remesure**
+
+- **P39.13** — `compter-mots --lot` : **1675 / 1580 / 1472**, `LOT (3 fiches)`
+  **4727** — **inchangé**. *Les six éditions FR vivent dans des blocs de code
+  (hors C110) sauf une, et `tic` comme `tick` valent **un mot**.*
+- **P39.14** — `compter-mots` : corpus FR **291 242**, traduites
+  **206 / 241 037**, restant **36 / 50 205** — **tous inchangés**.
+- **P39.15** — `--paires` : `stm32-cubemx-en` **1713**, `stm32-hal-en`
+  **1602**, `stm32-registres-en` **1485**, corpus EN **250 151** —
+  **inchangés**. *`Hello` → `Bonjour` est dans un bloc de code.*
+- **P39.16** — `--style` : sur les 3 sources FR **8 / 13 / 0 / 0 / 0**, sur les
+  3 fiches EN **8 / 13 / 0 / 0 / 0** — inchangés des deux côtés, et
+  `hors alphabet latin` reste **0** côté EN, *`Bonjour` ne portant aucun
+  accent* ; `--controle` **206 fiches, 0 divergente, 0 lien non suffixé sur 0**.
+- **P39.17** *(l'instrument qui peut réfuter le compte d'éditions)* —
+  `git diff --numstat` : `stm32-cubemx.md` **17 / 17** (11 du bloc 33 + 2 de la
+  passe A + 4 de la passe B, cumul depuis HEAD), `stm32-hal.md` **20 / 20**
+  et `stm32-registres.md` **15 / 15** **inchangés**, et
+  **`stm32-hal-en.md` n'y figure pas** — il est en `??`, donc hors `git diff`.
+- **P39.18** — `git status` de fin de bloc : **28   (hors artefacts de
+  seance : 19)**, inchangé.
+
+**Total : 18 prédictions, toutes au décompte.**
+
+
+## ⚠ LA GARDE DU BLOC 39 A MORDU — HEAD A CHANGÉ ENTRE LE BLOC 38 ET CELUI-CI
+
+`HEAD git : 82aed69 2026-08-30 00:14:27 +0200`, commit *« lot 6 stm32:
+3 fiches EN, module ferme, 51 remplacements C109 »*. **Tim a passé
+`livrer.ps1` pendant que j'écrivais les prédictions de ce bloc.** *Deuxième
+HEAD différent attrapé de toute la série, et la deuxième fois que c'est le bon
+commit passé au bon moment par la bonne personne.*
+
+**Vérification avant toute écriture, comme au 29/08 (suite 9).** Le commit
+porte **24 fichiers, 3 203 insertions, 49 suppressions**. Les trois sources FR
+y pèsent **11 / 11, 20 / 20, 15 / 15** — *le `numstat` du bloc 33 au caractère
+près* —, les trois fiches EN **149, 178, 130** lignes, `JOURNAL.md` **46**,
+`conventions.md` **61** (= 58 + 3). ✅ **Contrôle de somme : 11 + 20 + 15 + 3 =
+49, le total des suppressions du commit.** *Aucune ligne supprimée ailleurs,
+donc aucun fichier touché hors de ce que la séance a produit.* **Rien
+d'inattendu ; on peut écrire.**
+
+## ⚠ SECONDE ANOMALIE DU MÊME BLOC — LES DEUX TSV SONT MAL FORMÉS
+
+Le contrôle de forme lancé sur `passe-arbitrage-3008.tsv` **avant** tout
+lancement d'outil rend **7 lignes de 2, 2, 1, 3, 2, 2, 1 champs** au lieu de
+**3 lignes de 3**. Cause lue au `cat -A` : la séquence `\r\n` que le markdown
+porte **en toutes lettres** (backslash, `r`, backslash, `n`) a été **résolue en
+un vrai CRLF** au moment d'écrire la table, qui s'est donc coupée en deux à
+chaque ancre de code. **Aucun outil n'a été lancé, aucun fichier de `content/`
+n'a bougé.**
+⚠ *`remplacer-passe.mjs` aurait refusé le lot — `lignes mal formees` compte les
+lignes à ≠ 3 colonnes —, mais il l'aurait refusé **pour la mauvaise raison** :
+la table cassée aurait rendu `L3 COLONNES attendu 3, lu 1` au lieu de désigner
+une ancre fausse. **La garde de l'outil protège le dépôt, elle ne diagnostique
+pas la table.*** Les deux tables sont réécrites par un script, hors de tout
+niveau d'échappement de shell, et le contrôle de forme est rejoué.
+
+### Prédictions du bloc 39 que le commit et l'anomalie invalident, republiées avant écriture
+
+- **P39.1 — RÉFUTÉE.** `HEAD git : 1442a81` prédit, **`82aed69 2026-08-30
+  00:14:27 +0200`** mesuré. Les cinq autres termes de la prédiction tiennent :
+  copie `3008b2`, 0 non ASCII, `v24.15.0`, `date ISO : 2026-08-30`,
+  `garde / 2 / False`.
+- **P39.2 — RÉFUTÉE.** `28   (hors artefacts : 19)` prédit, **`5   (hors
+  artefacts de seance : 3)`** mesuré. *Le commit a vidé la population : il ne
+  reste que ce qui a été écrit **après** lui.* **Recompte nominatif du chiffre
+  mesuré** : `tools/predictions-260829.md` (` M`, filtré),
+  `tools/batterie-sortie-3008b2.txt` (`??`, filtré), et les **trois fichiers
+  déposés par ce bloc** — `passe-arbitrage-3008.tsv`,
+  `passe-negatif-arbitrage-3008.tsv`, `correctif-bloc-sortie-3008.mjs` —,
+  comptés. **1 + 1 + 3 = 5, hors artefacts 3.** *Le chiffre mesuré est juste sur
+  ses deux termes ; c'est ma déclaration C131 qui datait d'avant le commit.*
+- **P39.3 — TENUE malgré le commit.** Un commit ne change aucune `mtime` :
+  `TODO.md 2026-08-29 21:48:08` ; `JOURNAL.md 2026-08-30 00:11:21` et
+  `conventions.md 2026-08-30 00:08:08`, tous deux **≥ 00:01:39** et **du 30/08**
+  quand les autres restent au 29 ; les 3 sources FR à **23:44:27** ; les 3
+  fiches EN à **23:55:26 / 23:57:00 / 23:57:46**. *Neuf termes, neuf justes.*
+- **P39.17 — REPUBLIÉE.** `git diff --numstat` compare désormais à **82aed69**,
+  qui **contient déjà** les 11 / 20 / 15 du bloc 33. Après les deux passes :
+  `stm32-cubemx.md` **6 / 6** (2 de la passe A + 4 de la passe B) ;
+  `stm32-hal.md` et `stm32-registres.md` **absents**, inchangés depuis HEAD ;
+  ⚠ **`stm32-hal-en.md` apparaît désormais avec 1 / 1** — *il est commité, donc
+  suivi, donc visible au `git diff` ; au bloc 39 d'origine il était en `??` et
+  je prédisais son absence.*
+- **P39.18 — REPUBLIÉE.** `git status` de fin de bloc : **7   (hors artefacts
+  de seance : 5)** — les 5 mesurés à la garde, plus les **deux fiches que ce
+  bloc édite**, `stm32-cubemx.md` et `stm32-hal-en.md`, toutes deux ` M`
+  puisque toutes deux commitées.
+- **P39.19 — NEUVE.** Après réécriture, `passe-arbitrage-3008.tsv` et
+  `passe-negatif-arbitrage-3008.tsv` portent **3 lignes de 3 champs chacune**,
+  et les ancres de code contiennent la séquence `\r\n` **en quatre
+  caractères**, non résolue.
+
+**Les prédictions P39.4 à P39.16 sont inchangées** : le commit ne touche ni le
+contenu des fichiers de travail, ni les compteurs de mots, ni les empreintes.
+
+**Décompte révisé du bloc 39 : 19 prédictions, dont 2 déjà réfutées.**
+
+## ⚠ LA GARDE DE LA PASSE B A MORDU — J'AI COMPTÉ DES OCCURRENCES QUI SE CHEVAUCHENT
+
+`occurrences attendues : 4   trouvees : 2   ECART DE COMPTE - la garde mord.`
+**Refus, exit 1, zéro fichier écrit — aux deux lancements, contrôle et
+écriture.**
+
+**P39.8 est RÉFUTÉE, et la cause est dans ma prédiction, pas dans le fichier.**
+L'ancre `\ntic\n` **consomme le saut de ligne qui sert aussi de début à
+l'occurrence suivante** : sur `\ntic\ntic\ntic\ntic\n`, un `split` non
+chevauchant en trouve **2**, pas 4. *Le commentaire du script le disait en
+toutes lettres — « occurrences NON CHEVAUCHANTES, comptees comme le fera le
+remplacement » — et je l'ai écrit puis prédit 4 à la ligne suivante.* ⚠ **Le
+code était juste ; c'est le chiffre publié qui était faux, et pour la troisième
+fois de la journée dans un outil écrit le jour même.**
+
+✅ **CE QUE LA GARDE A PROUVÉ, ET C'EST EXACTEMENT CE POUR QUOI ELLE A ÉTÉ
+ÉCRITE.** Sans compte exact déclaré à l'avance, le remplacement aurait appliqué
+**2 substitutions sur 4** et laissé un bloc de sortie **`tick` / `tic` /
+`tick` / `tic`** — une trace de moniteur incohérente, dans une fiche dont le
+propos est la démonstration. *L'atomicité joue dans le bon sens : elle refuse
+au lieu d'appliquer la moitié.* **Sixième test négatif de la série au sens
+large, et le premier qui ne soit pas délibéré.**
+
+### Prédictions de la passe B, republiées avant écriture
+
+- **P39.8 — RÉFUTÉE**, `4` prédit, **`2`** mesuré.
+- **P39.20 — NEUVE.** L'ancre devient le **bloc entier**,
+  `\ntic\ntic\ntic\ntic\n` → `\ntick\ntick\ntick\ntick\n`, avec
+  `occurrences attendues : 1`. *Une ancre qui décrit l'objet entier ne peut pas
+  se chevaucher avec elle-même, et la garde de compte redevient une garde
+  d'unicité.* Prédit : `attendues : 1   trouvees : 1`.
+- **P39.9 — INCHANGÉE ET MAINTENUE** : `accents 309 -> 309 (ecart +0)`,
+  `pts de code 11549 -> 11553`, `lignes 131 -> 131`. *Le nombre de `k` ajoutés
+  ne dépend pas du découpage de l'ancre : c'est **+4** dans les deux cas.*
+- **P39.10 — REPUBLIÉE** : `1 remplacement(s)` et non 4 — *le compteur du
+  script compte des **occurrences d'ancre**, pas des lignes changées ; les
+  quatre lignes du bloc tombent en une seule substitution.* ⚠ **Le `numstat`,
+  lui, comptera bien 4 lignes**, et P39.17 reste donc à `stm32-cubemx.md`
+  **6 / 6**.
+
+**Décompte révisé du bloc 39 : 20 prédictions, dont 3 déjà réfutées.**
+
+### Bilan prédictions/constats du bloc 39
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P39.1 | HEAD `1442a81` (+ 5 autres termes) | **`82aed69 2026-08-30 00:14:27 +0200`** ; les 5 autres termes justes | **RÉFUTÉE** |
+| P39.2 | `28   (hors artefacts : 19)` | **5 / 3**, recomptés nominativement | **RÉFUTÉE** |
+| P39.3 | 9 `mtime`, dont TODO au 29/08 et les 2 pilotages au 30/08 | **21:48:08 ; 00:11:21 ; 00:08:08 ; 23:44:27 ×3 ; 23:55:26 / 23:57:00 / 23:57:46** | tenue |
+| P39.4 | test négatif : `INTROUVABLE`, `REFUS`, exit 1 | idem, `ancres 1/2` sur `cubemx` | tenue |
+| P39.5 | table 3, fiches 2, **3 remplacements**, six seaux à 0 | idem, exit 0 ×2 | tenue |
+| P39.6 | accents **+0** ×2 ; `cubemx` **11547 → 11549** ; `hal-en` **+2** ; lignes inchangées | idem — `hal-en` **accents 0 → 0**, **11557 → 11559** | tenue |
+| P39.7 | `ECRIT` 2 puis 1, `fichiers ecrits : 2` | idem | tenue |
+| P39.8 | passe B : `attendues 4  trouvees 4` | ⚠ **`trouvees : 2`**, garde mordue, 0 fichier écrit | **RÉFUTÉE** |
+| P39.9 | accents **309 → 309**, pts de code **11549 → 11553**, lignes **131 → 131** | idem | tenue |
+| P39.10 *(republiée)* | `1 remplacement(s)`, 1 fichier écrit, exit 0 | idem | tenue |
+| P39.11 | `DERIVE 1` sur `cubemx-en`, `MARQUE INVALIDE 0`, `A JOUR 205` | **`DERIVE 1`** (`consigne 5d1fb3713c2f / reel 445567344754`), `MARQUE INVALIDE 0` ; ⚠ **`A JOUR` non relevé** | tenue sur les termes lus |
+| P39.12 | après recalage : `DERIVE 0`, `A JOUR 206` | idem | tenue |
+| P39.13 | `--lot` **1675 / 1580 / 1472**, LOT **4727** | idem | tenue |
+| P39.14 | corpus **291 242**, traduites **206 / 241 037**, restant **36 / 50 205** | idem | tenue |
+| P39.15 | `--paires` **1713 / 1602 / 1485**, EN **250 151** | idem | tenue |
+| P39.16 | `--style` **8 / 13 / 0 / 0 / 0** des deux côtés ; `--controle` **206 / 0 / 0 sur 0** | idem | tenue |
+| P39.17 *(republiée)* | numstat : `cubemx` **6 / 6**, `hal-en` **1 / 1**, `hal` et `registres` absents | **6 / 6** et **1 / 1** justes ; ⚠ **`stm32-cubemx-en.md` 1 / 1 en plus**, non prédit | **RÉFUTÉE** |
+| P39.18 *(republiée)* | `git status` **7   (hors artefacts : 5)** | **8 / 6** | **RÉFUTÉE** |
+| P39.19 | 2 TSV à **3 lignes de 3 champs**, `\r\n` en 4 caractères | **3 / 3 / 3** ×2, **0 CR réel, 4 séquences littérales** | tenue |
+| P39.20 | ancre du bloc entier, `attendues 1  trouvees 1` | idem | tenue |
+
+**20 prédictions, 15 tenues, 5 réfutées — taux 25,0 %.**
+
+⚠ **LES DEUX DERNIÈRES RÉFUTATIONS ONT UNE RACINE UNIQUE, ET C'EST C131 :
+`--recaler` EST UNE ÉDITION.** J'avais prédit le recalage (P39.12, tenue) et
+**oublié qu'il réécrit le front matter de la fiche EN**. Conséquence sur deux
+compteurs : `git diff --numstat` porte **une troisième ligne**,
+`stm32-cubemx-en.md 1 / 1`, et `git status` compte **8 / 6** au lieu de 7 / 5.
+*Les artefacts d'un bloc se décident dans le bloc — l'amendement C131 du 29/08
+(suite 8) le dit pour les fichiers **créés** ; celui-ci a été **modifié** par
+une commande que j'avais pourtant écrite dans mon propre plan.* **Le compteur
+mesuré est juste sur ses deux termes ; ma déclaration ne l'était pas.**
+
+⚠ **LA GARDE DE LA PASSE B A MORDU SUR MON PROPRE CHIFFRE, ET C'EST LA
+TROISIÈME FOIS DE LA JOURNÉE DANS UN OUTIL ÉCRIT LE JOUR MÊME.** Le script
+portait en commentaire *« occurrences NON CHEVAUCHANTES, comptees comme le
+fera le remplacement »* ; j'ai prédit **4** à la ligne suivante, sur une ancre
+`\ntic\n` qui **consomme le saut de ligne servant de début à la suivante**.
+✅ *Sans le compte exact déclaré à l'avance, le remplacement aurait appliqué
+**2 substitutions sur 4** et laissé un bloc de sortie `tick / tic / tick / tic`
+— une trace de moniteur incohérente dans une fiche dont le propos est la
+démonstration.* **L'ancre corrigée prend le bloc entier, et la garde de compte
+redevient une garde d'unicité.**
+
+⚠ **INCIDENT DE LECTURE — UN TERME DE P39.11 N'A PAS ÉTÉ RELEVÉ.** Le `grep`
+qui filtrait la sortie de `derive-traduction` **a coupé la ligne `A JOUR`**
+avant que je la lise, et le recalage l'a rendue non rejouable. *La règle du
+29/08 (suite 6) dit que la batterie ne se filtre jamais **au lancement** ; le
+cousin de ce défaut est un filtre de **lecture** qui coupe précisément la ligne
+qu'on voulait vérifier.* **Le terme est déclaré non relevé plutôt qu'affirmé**
+(C118) ; les deux autres termes de P39.11 sont lus et justes.
+
+✅ **LA GARDE DE PÉREMPTION A SERVI POUR LA DEUXIÈME FOIS DE LA SÉRIE, ET
+COMME ÉCRIT.** HEAD inconnu ⇒ arrêt, vérification, republication, puis
+écriture. Le commit relu porte **24 fichiers, 3 203 insertions, 49
+suppressions**, et **11 + 20 + 15 + 3 = 49** referme le total au caractère.
+*Une garde qui ne mord jamais ne prouve rien.*
+
+✅ **LE CORRECTIF EST NEUTRE SUR TOUS LES COMPTEURS DE VOLUME.** `LOT` **4727**,
+corpus FR **291 242**, corpus EN **250 151**, foisonnement **+2,3 / +1,4 /
++0,9 %**, `--style` **8 / 13** des deux côtés, `--controle` **206 / 0 / 0** :
+**aucun ne bouge d'une unité.** *Les six éditions vivent dans des blocs de code
+sauf une, et `tic` comme `tick` valent un mot.* **Le code des trois fiches EN
+est désormais identique à l'octet à celui de leurs sources.**
+
+---
+
+## Bloc 40 — documentation des deux arbitrages
+
+Commandes prévues : éditions de `conventions.md` et `JOURNAL.md`, puis
+`node tools/normalize-pilotage.js`, `git diff --numstat`, `git status`,
+tailles.
+
+**Déclaration C131 du bloc 40.** Population : `git status --porcelain`, second
+terme = la même sortie moins `batterie-sortie` et `predictions-`. Versements
+au moment du relevé de clôture : `predictions-260829.md` (**1**, filtré),
+`batterie-sortie-3008b2.txt` (**1**, filtré), `passe-arbitrage-3008.tsv`,
+`passe-negatif-arbitrage-3008.tsv`, `correctif-bloc-sortie-3008.mjs` (**3**),
+`stm32-cubemx.md`, `stm32-hal-en.md`, `stm32-cubemx-en.md` (**3**, dont la
+dernière **par le `--recaler`**), et ⚠ **`conventions.md` et `JOURNAL.md`, que
+ce bloc fait repasser en ` M`** (**2**). **Total 10, hors artefacts 8.**
+
+### Prédictions du bloc 40
+
+- **P40.1** — `normalize-pilotage.js` : **0 caractère(s) à corriger, 0
+  fichier(s) modifié(s)**.
+- **P40.2** — `numstat` `conventions.md` : ajouts **entre 40 et 90**,
+  suppressions **exactement 1** — *la seule ligne réécrite est
+  `*Éprouvée 4/N.*` de la clause de périmètre C109 ; les deux candidates du §8
+  et la clause de C113 sont des **insertions pures**.*
+- **P40.3** — `numstat` `JOURNAL.md` : suppressions **exactement 0** — *leçon
+  de P37.5 : une insertion sous `<!-- INSERT_JOURNAL_HERE -->` ne réécrit
+  aucune ligne* — et ajouts **entre 8 et 24**.
+- **P40.4** — `git status` de clôture : **10   (hors artefacts de seance : 8)**.
+- **P40.5** — tailles après la dernière écriture : `JOURNAL.md` **entre 578 et
+  590 ko** (574,7 + l'entrée neuve), `conventions.md` **entre 464 et 472 ko**
+  (462,0 + les trois éditions), `TODO.md` **282,7 ko** et `BACKLOG.md`
+  **206,0 ko** inchangés.
+
+**Total : 5 prédictions, toutes au décompte.**
+
+### Bilan prédictions/constats du bloc 40 — clôture des arbitrages
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P40.1 | `normalize-pilotage` : 0 à corriger, 0 modifié | idem | tenue |
+| P40.2 | `conventions.md` : ajouts 40-90, suppressions **exactement 1** | **46 / 1** | tenue |
+| P40.3 | `JOURNAL.md` : suppressions **exactement 0**, ajouts **8-24** | **34 / 0** — ⚠ ajouts hors fourchette | **RÉFUTÉE** |
+| P40.4 | `git status` **10   (hors artefacts : 8)** | **10 / 8** | tenue |
+| P40.5 | JOURNAL 578-590 ko, conventions 464-472 ko, TODO 282,7, BACKLOG 206,0 | **584,7 / 466,9 / 282,7 / 206,0** | tenue |
+
+**5 prédictions, 4 tenues, 1 réfutée.**
+
+✅ **P40.2 ET P40.3 PORTAIENT LE MÊME TERME DÉCISIF, ET IL TIENT DES DEUX
+CÔTÉS.** *Une suppression est une réécriture ; une insertion n'en est pas une.*
+`conventions.md` rend **exactement 1** suppression — la ligne
+`*Éprouvée 4/N.*` réécrite —, ce qui prouve que les deux candidates du §8 et la
+clause de C113 sont des **insertions pures** ; `JOURNAL.md` rend **exactement
+0**, ce qui prouve qu'**aucune entrée existante n'a été touchée**. *C'est la
+leçon de P37.5, apprise et rejouée dans les deux sens.*
+
+⚠ **CE QUI TOMBE EST LA FOURCHETTE D'AJOUTS DU JOURNAL, ET LA CAUSE EST QUE
+J'AI CHIFFRÉ UNE ENTRÉE « DE CORRECTIF » AVANT DE L'ÉCRIRE.** 8 à 24 lignes
+prédites, **34** mesurées. *Deux arbitrages rendus, deux arrêts de garde, deux
+réfutations à racine unique et un terme perdu ne tiennent pas dans une entrée
+de correctif : c'est une entrée de séance.* **Le terme utile de la prédiction
+— zéro suppression — était le bon ; le volume était une supposition sur du
+texte que je n'avais pas encore écrit.**
+
+---
+---
+
+# BILAN GÉNÉRAL RÉVISÉ — 29/08 (SUITE 11) + 30/08, LOT 6 ET SES ARBITRAGES
+
+**159 prédictions publiées avant leur bloc, 147 tenues, 12 réfutées — taux
+7,5 %.** **Onze blocs (30 à 40), cinq gates, DEUX arrêts, trois incidents
+consignés, deux arbitrages rendus.**
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| 30 | garde d'ouverture | 12 | 12 | 0 |
+| 31 | cadrage, borne, chevron du lot | 31 | 30 | 1 |
+| 32 | motif des puces, 6 échantillons | 16 | 16 | 0 |
+| 33 | passe C109, 51 remplacements | 22 | 22 | 0 |
+| 34 | titres de section, `title:`, 3 squelettes | 14 | 14 | 0 |
+| 35 | rédaction des 3 fiches EN | 12 | 11 | 1 |
+| 36 | clôture du lot | 17 | 14 | 3 |
+| 37 | clôture §7 | 5 | 4 | 1 |
+| 38 | tailles de clôture | 5 | 5 | 0 |
+| 39 | correctif d'arbitrage | 20 | 15 | 5 |
+| 40 | documentation des arbitrages | 5 | 4 | 1 |
+
+✅ **ZÉRO RÉFUTATION SUR UN VERDICT, SUR L'ENSEMBLE.** Ni les 65 jugements
+C109, ni les 3 titres, ni les 6 formes de section, ni la doctrine d'exemption,
+ni la composition du lot, ni les 4 remplacements du correctif. **Les douze
+réfutations sont toutes des compteurs**, et sept d'entre elles ont la même
+racine : *un chiffre juste rapporté à une base que je n'avais pas mesurée* — la
+date de `stm32-hal`, la population du restant, le `title:` d'`adc-en`, la
+population du compteur de puces, le HEAD et le `git status` après le commit de
+Tim, l'effet du `--recaler` sur le `numstat`.
+
+✅ **LES DEUX GARDES QUI ONT MORDU ONT MORDU JUSTE, ET AUCUNE N'A COÛTÉ UN
+OCTET.** La garde de péremption a trouvé un HEAD inconnu et le protocole s'est
+déroulé en entier ; la garde de compte du script jetable a refusé **2
+substitutions sur 4** avant toute écriture. *Une garde qui ne mord jamais ne
+prouve rien ; deux gardes ont mordu ce soir, et chacune sur ce pour quoi elle
+avait été écrite.*
+
+⚠ **ET LA SEULE PERTE DE LA SÉANCE EST UNE LIGNE DE SORTIE COUPÉE PAR UN
+`grep`.** Le terme `A JOUR 205` de P39.11 n'a pas été lu, et le recalage l'a
+rendu non rejouable. *La règle du 29/08 (suite 6) interdit de filtrer la
+batterie **au lancement** ; il manque son cousin — **ne jamais filtrer la
+lecture d'une sortie sur la ligne qu'on doit vérifier**.* Consigné plutôt
+qu'affirmé.

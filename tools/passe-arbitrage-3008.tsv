@@ -1,0 +1,3 @@
+embarque/mcu/stm32/stm32-cubemx.md	(uint8_t *)"tic\r\n", 5, 100);   // 5 = octets à envoyer	(uint8_t *)"tick\r\n", 6, 100);   // 6 = octets à envoyer
+embarque/mcu/stm32/stm32-cubemx.md	affiche `tic` chaque seconde	affiche `tick` chaque seconde
+en/embarque/mcu/stm32/stm32-hal-en.md	(uint8_t *)"Hello\r\n", 7, HAL_MAX_DELAY);	(uint8_t *)"Bonjour\r\n", 9, HAL_MAX_DELAY);
