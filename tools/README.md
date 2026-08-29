@@ -4,6 +4,42 @@ Scripts hors MCP, exécutés manuellement (ou via git hook) sur le poste de trav
 
 ---
 
+## titres-doublons.mjs
+
+Liste les `title:` portés par plus d'une fiche, **côté FR et côté EN séparément**.
+N'écrit rien.
+
+```bash
+node tools/titres-doublons.mjs
+```
+
+### Pourquoi il existe
+
+Le chantier de nommage s'arbitre sur les paires de fiches qui portent le même
+titre, et **aucun autre mode ne rend cette liste** : `--controle` compare une
+fiche EN à sa source, `--libelles` compare un libellé de wikilink au `title:` de
+sa cible. Ni l'un ni l'autre ne regarde deux `title:` entre eux. Le chiffre
+« dix paires » a voyagé trois séances sans instrument avant d'être mesuré à
+**neuf** le 29/08 (suite 5).
+
+### Comment le lire
+
+Le regroupement se fait sur une **forme normalisée** (accents retirés, casse
+repliée, ponctuation réduite à un blanc) ; les formes **brutes** s'affichent. Un
+groupe est un **candidat à lire**, jamais un verdict : deux fiches de familles
+différentes peuvent légitimement porter le même titre.
+
+⚠ **Le contrôle utile est la comparaison des deux côtés** (amendement C125 du
+29/08 suite 5). Un groupe présent **d'un seul côté** est un défaut de report :
+soit la traduction a inventé une distinction que la source ne porte pas, soit
+elle en a effacé une. L'égalité des deux totaux ne prouve rien — mesuré le
+29/08 : 9 groupes de chaque côté, **8 seulement en commun**.
+
+`templates/` est exclu. Les fiches sans `title:` sont comptées à part et jamais
+regroupées.
+
+---
+
 ## normalize-pilotage.js
 
 Nettoie les fichiers de pilotage privés (TODO, JOURNAL, conventions, BACKLOG, couverture) des caractères invisibles qui font échouer les anchors `edit_file` des outils MCP filesystem.

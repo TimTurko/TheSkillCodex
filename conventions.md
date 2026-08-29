@@ -60,6 +60,14 @@ L'école fournit le matériel : une fiche ne mentionne **ni prix, ni « à l'ach
 
 **La question à se poser en relecture est « que reste-t-il quand je l'enlève ».** Quand l'argumentaire d'une fiche *repose* sur le prix (cas ESP8266, hub Teensy), un retrait mécanique laisse une fiche sans raison d'être — il faut **reconstruire** sur des angles d'adéquation technique. Quand le prix n'est mentionné qu'en passant (cas STM32, PIC), une simple reformulation suffit.
 
+**Clause de périmètre (arbitrage Tim du 29/08, suite 5).** C71 proscrit le prix comme **cadrage d'acquisition** : ce que l'étudiant devrait se procurer — « à l'achat », « dans la boîte », prix d'un composant à commander. Elle **n'atteint pas le coût comme exigence chiffrée du système conçu** : critère de CdCF sous le triplet critère / niveau / flexibilité, ligne d'un tableau d'état de l'art, famille de critères économiques. Là, le chiffre reste chiffré et en euros. **Test** : le chiffre dit-il ce que l'étudiant doit dépenser, ou ce que le système doit tenir ?
+
+*Motif.* Les cas tranchés jusqu'au 29/08 — ESP8266, hub Teensy, `moteur-pas-à-pas`, STM32, PIC — sont des fiches technologiques où le prix orientait un choix de matériel que l'école fournit. `specification-technique` est le premier cas où le prix est **l'objet enseigné** : le coût y est une exigence portée par NF X50-151 au même rang que la masse, et la fiche enseigne par ailleurs que *niveau non chiffré = exigence non opposable*. Un retrait mécanique lui aurait fait contredire sa propre ligne.
+
+⚠ **L'exception survit à la clause (sous-arbitrage Tim (ii)).** La phrase ci-dessus sur le **coût unitaire en grande série** garde toute sa force : elle se reformule, y compris quand elle exprime une exigence du système conçu. Motif : l'argument d'ingénierie y est la **disponibilité en très grand volume**, dont le prix bas est la conséquence et non la substance — la reformulation ne perd donc rien. Rien de ce qui a été rendu sous C71 avant le 29/08 n'est défait.
+
+⚠ **Ce que la clause coûte.** C71 cesse d'être applicable mécaniquement en relecture : il faut désormais qualifier la nature de chaque occurrence, et c'est exactement la charge que « règle absolue » supprimait. *Éprouvée 0/N.*
+
 ### Registre d'adresse par type de fiche (C65, promue 18/08)
 
 - **Trames du V** : « on » / infinitif — registre de méthode, la fiche décrit *le projet*.
@@ -2246,6 +2254,28 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **C131 — Un compteur dont on publie une prédiction déclare sa population.**
+  *Arbitrage Tim (a) du 29/08 (suite 5), sur trois candidates.* Avant de prédire un
+  chiffre, nommer les artefacts que **la séance elle-même vient de verser dans la
+  population comptée** : fichier de prédictions, copies C124, sorties de batterie,
+  éditions que la passe s'ajoute en route, **et le texte des corrections
+  elles-mêmes**.
+
+  **Ce qui lui donne un numéro plutôt qu'un amendement.** Sept occurrences sur
+  trois séances et **deux surfaces** — la chaîne comptée dans le fichier de
+  prédictions où elle est publiée, la chaîne fausse qu'une correction venait de
+  réintroduire, le compte d'éditions qui grossit en route, la copie C124 créée
+  par le lancement qui la compte, la faute de typographie d'un alt écrit le jour
+  même, plus les deux cas de la séance annexe. Le 29/08 (suite 2) traitait la
+  branche comme **ponctuelle** ; elle ne l'est pas. Deux des sept habitats sont
+  **hors exécution directe**, donc loger la règle sous la sous-règle C116
+  l'aurait rendue muette là où elle a déjà mordu : *la condition n'est pas la
+  surface, c'est la coexistence du compteur et de son objet.*
+
+  **Place dans la famille.** C116 (7) dit **où lire** un compteur — dans le code
+  qui l'incrémente. C116 (9) dit **contre quoi recouper** son chiffre — la liste
+  nominative. C131 dit **ce qu'il faut déclarer avant de prédire**.
+  *Éprouvée 0/N.*
 - **C130 — L'écran n'est pas le registre : la réponse ne porte que ce sur quoi Tim doit agir.**
   *Demande Tim, arbitrée le 29/08 (suite 5), les deux surfaces.* Le dépôt
   porte déjà la trace intégrale — `predictions-AAMMJJ.md` pour les
@@ -2506,6 +2536,10 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   *racine* du titre et le qualificatif de famille distingue. La clause
   ci-dessus décrit donc ce qui arrive quand les jumelles ne sont **pas**
   qualifiées, ce qui reste le cas par défaut hors des paires traitées.
+
+  ⚠ **Amendement du 29/08 (suite 5) : un titre arrêté n'est pas un titre contrôlé.** Première mesure des collisions par `tools/titres-doublons.mjs` : **9 groupes en FR, 9 en EN, 8 seulement en commun**, et l'égalité des totaux est une coïncidence. Les deux paires qui manquent sont les deux fautes symétriques que C125 existe pour empêcher. `entree-tor` porte le **même** `title:` FR des deux côtés et **deux** titres EN — l'anglais a fabriqué une distinction que la source ne porte pas, ce que le test 2 interdit. `shield` porte **deux** `title:` FR (`Utiliser un shield` contre `Utiliser un shield / une carte d'extension`) et **un seul** titre EN — le test 3 a effacé une distinction que la source portait, alors que la clause du 27/08 fait précisément descendre cette paire au test 3 **pour la reporter**. *Le motif du 26/08 pris dans les deux sens à la fois, sur deux paires voisines du même module.*
+
+  **Règle d'usage qui en sort** : après un lot, les groupes de collision se relèvent **des deux côtés** et se comparent. Un groupe présent d'un seul côté est un défaut de report, jamais une nuance de langue — soit la traduction a inventé une distinction, soit elle en a effacé une. Le contrôle ne coûte qu'un lancement de `titres-doublons.mjs`, et **aucun autre mode ne le rend** : `--controle` compare une fiche EN à sa source, `--libelles` un libellé au titre de sa cible, ni l'un ni l'autre deux `title:` entre eux.
 
   *Éprouvée 1/N, dans son texte d'origine ; le texte amendé est à 0/N.*
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame

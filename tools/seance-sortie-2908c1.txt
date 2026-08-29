@@ -1,0 +1,423 @@
+﻿=== CONTROLE DES TROIS COMPTEURS ===
+  [ok] en/conduite/ese/basse-tension-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/deee-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/emc-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/epi-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/index.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/iso-12100-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/ese/marquage-ce-en.md   liens 10, embeds 0, code 0
+  [ok] en/conduite/ese/reach-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/ese/rohs-en.md   liens 8, embeds 0, code 0
+  [ok] en/conduite/index.md   liens 25, embeds 1, code 0
+  [ok] en/conduite/meo/archivage-projet-en.md   liens 5, embeds 0, code 0
+  [ok] en/conduite/meo/cable-management-en.md   liens 4, embeds 0, code 0
+  [ok] en/conduite/meo/index.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/relation-client-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/meo/revue-de-code-en.md   liens 11, embeds 0, code 0
+  [ok] en/conduite/meo/unite-si-en.md   liens 6, embeds 0, code 0
+  [ok] en/conduite/proj/amdec-en.md   liens 27, embeds 0, code 0
+  [ok] en/conduite/proj/cahier-des-charges-fonctionnel-en.md   liens 34, embeds 0, code 0
+  [ok] en/conduite/proj/concept-en.md   liens 82, embeds 0, code 0
+  [ok] en/conduite/proj/decomposition-fonctionnelle-en.md   liens 24, embeds 4, code 0
+  [ok] en/conduite/proj/dossier-technique-en.md   liens 70, embeds 0, code 0
+  [ok] en/conduite/proj/ecoconception-en.md   liens 72, embeds 1, code 0
+  [ok] en/conduite/proj/gantt-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/gestion-de-projet-en.md   liens 38, embeds 1, code 0
+  [ok] en/conduite/proj/index.md   liens 31, embeds 0, code 0
+  [ok] en/conduite/proj/integration-et-tests-en.md   liens 75, embeds 0, code 0
+  [ok] en/conduite/proj/jalons-en.md   liens 9, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-decision-en.md   liens 14, embeds 2, code 0
+  [ok] en/conduite/proj/matrice-de-risques-en.md   liens 6, embeds 2, code 0
+  [ok] en/conduite/proj/preuve-de-concept-en.md   liens 117, embeds 0, code 0
+  [ok] en/conduite/proj/retroplanning-en.md   liens 10, embeds 2, code 0
+  [ok] en/conduite/proj/securite-et-qualite-en.md   liens 73, embeds 1, code 0
+  [ok] en/conduite/proj/specification-technique-en.md   liens 97, embeds 3, code 0
+  [ok] en/conduite/proj/wbs-en.md   liens 10, embeds 2, code 0
+  [ok] en/embarque/algorithme/algorithme-en.md   liens 16, embeds 1, code 0
+  [ok] en/embarque/algorithme/chronogramme-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/algorithme/grafcet-en.md   liens 10, embeds 3, code 0
+  [ok] en/embarque/algorithme/logigramme-en.md   liens 11, embeds 4, code 0
+  [ok] en/embarque/algorithme/machine-a-etats-en.md   liens 14, embeds 4, code 0
+  [ok] en/embarque/alimentation-electronique-en.md   liens 24, embeds 3, code 0
+  [ok] en/embarque/analyse-de-schema-electronique-en.md   liens 21, embeds 4, code 0
+  [ok] en/embarque/chaine-energie-en.md   liens 20, embeds 2, code 0
+  [ok] en/embarque/decouplage-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/index.md   liens 73, embeds 0, code 0
+  [ok] en/embarque/mcu/adc-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/arduino/arduino-afficheur-en.md   liens 8, embeds 1, code 3
+  [ok] en/embarque/mcu/arduino/arduino-alimentation-en.md   liens 16, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-bibliotheques-en.md   liens 14, embeds 5, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-analogique-en.md   liens 15, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-capteur-numerique-en.md   liens 20, embeds 4, code 4
+  [ok] en/embarque/mcu/arduino/arduino-debug-en.md   liens 17, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-deep-sleep-en.md   liens 20, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/arduino-eeprom-en.md   liens 12, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-en.md   liens 59, embeds 2, code 0
+  [ok] en/embarque/mcu/arduino/arduino-entree-tor-en.md   liens 9, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-gpio-en.md   liens 9, embeds 2, code 3
+  [ok] en/embarque/mcu/arduino/arduino-i2c-en.md   liens 13, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-interruptions-en.md   liens 13, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-machine-a-etats-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-memoire-en.md   liens 14, embeds 1, code 5
+  [ok] en/embarque/mcu/arduino/arduino-module-en.md   liens 21, embeds 3, code 1
+  [ok] en/embarque/mcu/arduino/arduino-moteur-cc-en.md   liens 18, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-pid-en.md   liens 20, embeds 2, code 7
+  [ok] en/embarque/mcu/arduino/arduino-prise-en-main-en.md   liens 9, embeds 6, code 2
+  [ok] en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md   liens 23, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-serie-en.md   liens 11, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-servomoteur-en.md   liens 17, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-shield-en.md   liens 13, embeds 2, code 1
+  [ok] en/embarque/mcu/arduino/arduino-sortie-pwm-en.md   liens 17, embeds 3, code 2
+  [ok] en/embarque/mcu/arduino/arduino-sortie-tor-en.md   liens 10, embeds 2, code 2
+  [ok] en/embarque/mcu/arduino/arduino-spi-en.md   liens 14, embeds 1, code 2
+  [ok] en/embarque/mcu/arduino/arduino-temporisation-en.md   liens 15, embeds 2, code 5
+  [ok] en/embarque/mcu/arduino/arduino-timers-en.md   liens 24, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-uart-en.md   liens 15, embeds 2, code 4
+  [ok] en/embarque/mcu/arduino/arduino-watchdog-en.md   liens 16, embeds 1, code 4
+  [ok] en/embarque/mcu/arduino/tinkercad-en.md   liens 15, embeds 4, code 1
+  [ok] en/embarque/mcu/bibliotheque-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/bus/bus-de-communication-en.md   liens 17, embeds 1, code 0
+  [ok] en/embarque/mcu/bus/i2c-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/spi-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/bus/uart-en.md   liens 11, embeds 2, code 0
+  [ok] en/embarque/mcu/cpp/cpp-boucles-en.md   liens 8, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-conditions-en.md   liens 10, embeds 0, code 7
+  [ok] en/embarque/mcu/cpp/cpp-en.md   liens 21, embeds 0, code 0
+  [ok] en/embarque/mcu/cpp/cpp-execution-en.md   liens 10, embeds 1, code 5
+  [ok] en/embarque/mcu/cpp/cpp-lire-un-programme-en.md   liens 19, embeds 0, code 4
+  [ok] en/embarque/mcu/cpp/cpp-logs-en.md   liens 15, embeds 1, code 8
+  [ok] en/embarque/mcu/cpp/cpp-portee-en.md   liens 8, embeds 1, code 9
+  [ok] en/embarque/mcu/cpp/cpp-structure-en.md   liens 13, embeds 0, code 6
+  [ok] en/embarque/mcu/cpp/cpp-types-en.md   liens 12, embeds 0, code 6
+  [ok] en/embarque/mcu/dac-en.md   liens 7, embeds 0, code 0
+  [ok] en/embarque/mcu/debugger-embarque-en.md   liens 21, embeds 2, code 0
+  [ok] en/embarque/mcu/deep-sleep-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/entree-sortie-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/esp32/esp32-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mcu/esp32/esp32-gpio-en.md   liens 17, embeds 3, code 5
+  [ok] en/embarque/mcu/esp32/esp32-prise-en-main-en.md   liens 13, embeds 11, code 5
+  [ok] en/embarque/mcu/esp32/esp32-serie-en.md   liens 12, embeds 1, code 10
+  [ok] en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   liens 17, embeds 1, code 5
+  [ok] en/embarque/mcu/esp8266/esp8266-en.md   liens 32, embeds 1, code 0
+  [ok] en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   liens 9, embeds 7, code 5
+  [ok] en/embarque/mcu/firmware-en.md   liens 25, embeds 1, code 0
+  [ok] en/embarque/mcu/gpio-en.md   liens 27, embeds 3, code 0
+  [ok] en/embarque/mcu/interruption-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/lire-une-datasheet-en.md   liens 34, embeds 4, code 1
+  [ok] en/embarque/mcu/manipulation-de-bits-en.md   liens 14, embeds 1, code 4
+  [ok] en/embarque/mcu/memoire-en.md   liens 11, embeds 0, code 0
+  [ok] en/embarque/mcu/microcontroleur-en.md   liens 43, embeds 2, code 0
+  [ok] en/embarque/mcu/micropython/micropython-afficheur-en.md   liens 11, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-alimentation-en.md   liens 17, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-bibliotheques-en.md   liens 13, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-capteur-analogique-en.md   liens 15, embeds 1, code 5
+  [ok] en/embarque/mcu/micropython/micropython-capteur-numerique-en.md   liens 19, embeds 4, code 4
+  [ok] en/embarque/mcu/micropython/micropython-controle-en.md   liens 7, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-debug-en.md   liens 18, embeds 0, code 7
+  [ok] en/embarque/mcu/micropython/micropython-deep-sleep-en.md   liens 19, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-en.md   liens 61, embeds 1, code 0
+  [ok] en/embarque/mcu/micropython/micropython-entree-tor-en.md   liens 12, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-fonctions-en.md   liens 6, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-gpio-boot-en.md   liens 11, embeds 2, code 2
+  [ok] en/embarque/mcu/micropython/micropython-gpio-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-i2c-en.md   liens 15, embeds 2, code 3
+  [ok] en/embarque/mcu/micropython/micropython-interruptions-en.md   liens 12, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-langage-en.md   liens 19, embeds 0, code 0
+  [ok] en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   liens 20, embeds 0, code 6
+  [ok] en/embarque/mcu/micropython/micropython-machine-a-etats-en.md   liens 16, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-memoire-en.md   liens 15, embeds 1, code 6
+  [ok] en/embarque/mcu/micropython/micropython-module-en.md   liens 20, embeds 2, code 1
+  [ok] en/embarque/mcu/micropython/micropython-modules-en.md   liens 8, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-moteur-cc-en.md   liens 17, embeds 1, code 2
+  [ok] en/embarque/mcu/micropython/micropython-moteur-pas-a-pas-en.md   liens 15, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-pid-en.md   liens 21, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-prise-en-main-en.md   liens 13, embeds 0, code 5
+  [ok] en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md   liens 21, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-repl-en.md   liens 5, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-servomoteur-en.md   liens 20, embeds 2, code 4
+  [ok] en/embarque/mcu/micropython/micropython-shield-en.md   liens 12, embeds 0, code 1
+  [ok] en/embarque/mcu/micropython/micropython-simulation-en.md   liens 12, embeds 1, code 1
+  [ok] en/embarque/mcu/micropython/micropython-sortie-pwm-en.md   liens 15, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-sortie-tor-en.md   liens 10, embeds 1, code 2
+  [ok] en/embarque/mcu/micropython/micropython-spi-en.md   liens 12, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-stockage-en.md   liens 13, embeds 1, code 4
+  [ok] en/embarque/mcu/micropython/micropython-temporisation-en.md   liens 14, embeds 2, code 5
+  [ok] en/embarque/mcu/micropython/micropython-timers-en.md   liens 16, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-types-en.md   liens 7, embeds 0, code 8
+  [ok] en/embarque/mcu/micropython/micropython-uart-en.md   liens 14, embeds 1, code 3
+  [ok] en/embarque/mcu/micropython/micropython-watchdog-en.md   liens 16, embeds 1, code 4
+  [ok] en/embarque/mcu/niveaux-de-tension-en.md   liens 14, embeds 2, code 0
+  [ok] en/embarque/mcu/pic-en.md   liens 13, embeds 0, code 0
+  [ok] en/embarque/mcu/processeur-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/pwm-en.md   liens 12, embeds 1, code 0
+  [ok] en/embarque/mcu/raspberry-pi/raspberry-pi-en.md   liens 23, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/ble-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/lora-en.md   liens 6, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/techno-sans-fil-en.md   liens 21, embeds 1, code 0
+  [ok] en/embarque/mcu/sans-fil/wifi-en.md   liens 12, embeds 0, code 0
+  [ok] en/embarque/mcu/sans-fil/zigbee-en.md   liens 4, embeds 0, code 0
+  [ok] en/embarque/mcu/shield-en.md   liens 14, embeds 1, code 0
+  [ok] en/embarque/mcu/stm32/stm32-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/systeme-d-exploitation-en.md   liens 10, embeds 0, code 0
+  [ok] en/embarque/mcu/teensy/teensy-en.md   liens 38, embeds 1, code 0
+  [ok] en/embarque/mcu/timer-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/mesure/analyseur-logique-en.md   liens 19, embeds 2, code 0
+  [ok] en/embarque/mesure/generateur-de-signaux-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/mesure/instruments-de-mesure-en.md   liens 37, embeds 1, code 0
+  [ok] en/embarque/mesure/multimetre-en.md   liens 13, embeds 3, code 0
+  [ok] en/embarque/mesure/oscilloscope-en.md   liens 16, embeds 3, code 0
+  [ok] en/embarque/mesure/precision-de-mesure-en.md   liens 8, embeds 1, code 0
+  [ok] en/embarque/pcb/pcb-en.md   liens 22, embeds 1, code 0
+  [ok] en/embarque/realisation/choisir-le-materiel-en.md   liens 28, embeds 0, code 0
+  [ok] en/embarque/realisation/concevoir-l-electronique-en.md   liens 30, embeds 1, code 0
+  [ok] en/embarque/realisation/faire-communiquer-en.md   liens 32, embeds 0, code 0
+  [ok] en/embarque/realisation/fiabiliser-et-deboguer-en.md   liens 45, embeds 0, code 0
+  [ok] en/embarque/realisation/programmer-l-embarque-en.md   liens 39, embeds 0, code 0
+  [ok] en/embarque/schema-bloc-fonctionnel-en.md   liens 12, embeds 2, code 0
+  [ok] en/embarque/simulation/simulation-electronique-en.md   liens 31, embeds 2, code 0
+  [ok] en/index.md   liens 4, embeds 0, code 0
+  [ok] en/meca/comparateur-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/impression-3d-en.md   liens 5, embeds 0, code 0
+  [ok] en/meca/index.md   liens 8, embeds 0, code 0
+  [ok] en/meca/optimisation-mecanique-en.md   liens 11, embeds 1, code 0
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+188 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+=== HEURISTIQUE DE LIBELLES ===
+  en/conduite/meo/revue-de-code-en.md
+      [[cpp-lire-un-programme-en|in C++]]   cible intitulee : Reading a program you did not write
+  en/conduite/meo/revue-de-code-en.md
+      [[micropython-lire-un-programme-en|in MicroPython]]   cible intitulee : Reading a program you did not write
+  en/conduite/proj/integration-et-tests-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB ÔÇö printed circuit board
+  en/conduite/proj/integration-et-tests-en.md
+      [[en/conduite/index|hub of this wiki]]   cible intitulee : Project management
+  en/conduite/proj/securite-et-qualite-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB ÔÇö printed circuit board
+  en/embarque/algorithme/machine-a-etats-en.md
+      [[gpio-en|state of the GPIOs at boot]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[gpio-en|pull resistors]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[logigramme-en|logic]]   cible intitulee : Flowchart
+  en/embarque/index.md
+      [[en/conduite/index|V-model]]   cible intitulee : Project management
+  en/embarque/index.md
+      [[programmer-l-embarque-en|Algorithm and documentation]]   cible intitulee : Programming
+  en/embarque/index.md
+      [[faire-communiquer-en|Choice of communication technologies (if the specification requires it)]]   cible intitulee : Getting things talking
+  en/embarque/index.md
+      [[integration-et-tests-en|Finished product]]   cible intitulee : Integration and testing
+  en/embarque/mcu/adc-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+      [[arduino-eeprom-en|non-volatile memory]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+      [[deep-sleep-en|the concept page]]   cible intitulee : Deep sleep
+  en/embarque/mcu/arduino/arduino-entree-tor-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-interruptions-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[arduino-eeprom-en|its own tutorial]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-module-en.md
+      [[arduino-moteur-cc-en|driver module]]   cible intitulee : Driving a DC motor on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-temporisation-en.md
+      [[arduino-entree-tor-en|button]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/arduino/tinkercad-en.md
+      [[arduino-entree-tor-en|Software debouncing]]   cible intitulee : Reading an on/off input
+  en/embarque/mcu/bus/i2c-en.md
+      [[gpio-en|open collector or open drain]]   cible intitulee : GPIO
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md
+      [[micropython-lire-un-programme-en|MicroPython]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md
+      [[micropython-lire-un-programme-en|MicroPython]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/cpp/cpp-logs-en.md
+      [[cpp-portee-en|scope]]   cible intitulee : Local and global variables
+  en/embarque/mcu/dac-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/debugger-embarque-en.md
+      [[uart-en|serial link]]   cible intitulee : UART
+  en/embarque/mcu/debugger-embarque-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/deep-sleep-en.md
+      [[memoire-en|storage]]   cible intitulee : Memory
+  en/embarque/mcu/entree-sortie-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/entree-sortie-en.md
+      [[adc-en|analog-to-digital]]   cible intitulee : ADC
+  en/embarque/mcu/esp32/esp32-en.md
+      [[systeme-d-exploitation-en|RTOS]]   cible intitulee : Operating system
+  en/embarque/mcu/esp8266/esp8266-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/firmware-en.md
+      [[cpp-en|language]]   cible intitulee : C++
+  en/embarque/mcu/interruption-en.md
+      [[gpio-en|pin]]   cible intitulee : GPIO
+  en/embarque/mcu/manipulation-de-bits-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-alimentation-en.md
+      [[micropython-shield-en|Expansion board]]   cible intitulee : Using a shield
+  en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-controle-en.md
+      [[micropython-types-en|list]]   cible intitulee : Variables and types
+  en/embarque/mcu/micropython/micropython-debug-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-deep-sleep-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-entree-tor-en.md
+      [[micropython-temporisation-en|`ticks_ms()` and `ticks_diff()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+      [[esp8266-arduino-core-en|ESP8266]]   cible intitulee : Programming with the Arduino core
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|`ADC`]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-i2c-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-langage-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[micropython-prise-en-main-en|Thonny]]   cible intitulee : Getting started with MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[cpp-lire-un-programme-en|C++]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[cpp-lire-un-programme-en|C++]]   cible intitulee : Reading a program you did not write
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[memoire-en|RAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[micropython-interruptions-en|ISR]]   cible intitulee : Interrupts in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|steady rate]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-servomoteur-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-simulation-en.md
+      [[micropython-entree-tor-en|software debounce]]   cible intitulee : Reading a digital input
+  en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-spi-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-temporisation-en.md
+      [[micropython-modules-en|`time`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-types-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-uart-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[micropython-deep-sleep-en|`deepsleep`]]   cible intitulee : Deep sleep in MicroPython
+  en/embarque/mcu/niveaux-de-tension-en.md
+      [[gpio-en|pull-up resistor]]   cible intitulee : GPIO
+  en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/timer-en.md
+      [[arduino-timers-en|the dedicated tutorial]]   cible intitulee : Timers on Arduino
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mesure/analyseur-logique-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/instruments-de-mesure-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/multimetre-en.md
+      [[instruments-de-mesure-en|the hub]]   cible intitulee : Measuring instruments
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|UART, I┬▓C or SPI]]   cible intitulee : Communication buses
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|Scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/concevoir-l-electronique-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/faire-communiquer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cable-management-en|wiring]]   cible intitulee : Cable management
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 3504
+  cible EN existante    : 3147   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 357
+  candidats a lire      : 112
+  positions de parcours : 16   (patron ┬½ step N ┬╗, exempte : designe un rang, pas un titre)

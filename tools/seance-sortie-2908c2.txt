@@ -1,0 +1,94 @@
+﻿=== TITRES PORTES PAR PLUS D UNE FICHE ===
+  Regroupement sur forme normalisee (accents retires, casse repliee,
+  ponctuation reduite a un blanc). La forme BRUTE est affichee.
+  Un groupe est un CANDIDAT A LIRE, jamais un verdict : deux fiches
+  de familles differentes peuvent legitimement porter le meme titre.
+  templates/ exclu. FR et EN comptes separement.
+
+  --- COTE FRANCAIS
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-module.md                  C├óbler un module
+      embarque/mcu/micropython/micropython-module.md          C├óbler un module
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-gpio-boot.md               ├ëtat des GPIO ├á l'allumage
+      embarque/mcu/micropython/micropython-gpio-boot.md       ├ëtat des GPIO ├á l'allumage
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-capteur-numerique.md       Lire un capteur num├®rique
+      embarque/mcu/micropython/micropython-capteur-numerique.mdLire un capteur num├®rique
+
+    2 fiches portent ce titre :
+      embarque/mcu/cpp/cpp-lire-un-programme.md               Lire un programme qu'on n'a pas ├®crit
+      embarque/mcu/micropython/micropython-lire-un-programme.mdLire un programme qu'on n'a pas ├®crit
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-entree-tor.md              Lire une entr├®e TOR
+      embarque/mcu/micropython/micropython-entree-tor.md      Lire une entr├®e TOR
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-moteur-pas-a-pas.md        Piloter un moteur pas-├á-pas
+      embarque/mcu/micropython/micropython-moteur-pas-a-pas.mdPiloter un moteur pas-├á-pas
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-servomoteur.md             Piloter un servomoteur
+      embarque/mcu/micropython/micropython-servomoteur.md     Piloter un servomoteur
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-sortie-tor.md              Piloter une sortie TOR
+      embarque/mcu/micropython/micropython-sortie-tor.md      Piloter une sortie TOR
+
+    2 fiches portent ce titre :
+      embarque/mcu/arduino/arduino-bibliotheques.md           Utiliser une biblioth├¿que
+      embarque/mcu/micropython/micropython-bibliotheques.md   Utiliser une biblioth├¿que
+
+    fiches lues              : 243
+    sans title:              : 0
+    titres distincts         : 234
+    GROUPES EN COLLISION     : 9
+    fiches concernees        : 18
+
+  --- COTE ANGLAIS
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-servomoteur-en.md       Driving a servo
+      en/embarque/mcu/micropython/micropython-servomoteur-en.mdDriving a servo
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md  Driving a stepper motor
+      en/embarque/mcu/micropython/micropython-moteur-pas-a-pas-en.mdDriving a stepper motor
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-sortie-tor-en.md        Driving an on/off output
+      en/embarque/mcu/micropython/micropython-sortie-tor-en.mdDriving an on/off output
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-gpio-boot-en.md         GPIO state at power-up
+      en/embarque/mcu/micropython/micropython-gpio-boot-en.md GPIO state at power-up
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-capteur-numerique-en.md Reading a digital sensor
+      en/embarque/mcu/micropython/micropython-capteur-numerique-en.mdReading a digital sensor
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/cpp/cpp-lire-un-programme-en.md         Reading a program you did not write
+      en/embarque/mcu/micropython/micropython-lire-un-programme-en.mdReading a program you did not write
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-bibliotheques-en.md     Using a library
+      en/embarque/mcu/micropython/micropython-bibliotheques-en.mdUsing a library
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-shield-en.md            Using a shield
+      en/embarque/mcu/micropython/micropython-shield-en.md    Using a shield
+
+    2 fiches portent ce titre :
+      en/embarque/mcu/arduino/arduino-module-en.md            Wiring a module
+      en/embarque/mcu/micropython/micropython-module-en.md    Wiring a module
+
+    fiches lues              : 188
+    sans title:              : 0
+    titres distincts         : 179
+    GROUPES EN COLLISION     : 9
+    fiches concernees        : 18
