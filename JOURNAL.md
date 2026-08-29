@@ -11,6 +11,36 @@
 
 <!-- INSERT_JOURNAL_HERE -->
 
+## 2026-08-29 (suite) — Séance annexe : l'arbitrage du débit rendu, la batterie versionnée et éprouvée, et le premier contact Claude Code
+
+- **Périmètre** — **PC perso**, séance annexe **sans production** : 0 fiche, 0 passe. Modèle passé d'Opus 5 à **Fable 5**, conventions appliquées telles quelles. Arbitrage des cinq pistes de débit du brief, reconstruction de l'entrée du 29/08, création puis éprouvage de `tools/batterie.ps1`, essai à blanc de l'onglet Code. Horloges lues : 12:23 (serveur, ouverture), 13:20 / 13:47 / 13:51 (sorties batterie). ⚠ **Serveur MCP tombé deux fois 4 min en cours de lecture**, redémarré par Tim — le repli du 26/08 (suite) reste le bon.
+- **Livrables** — **`tools/batterie.ps1`** (phases `garde` / `cadrage` / `etat`, garde de péremption HEAD + node + mtimes, étiquette C124 lue sur l'horloge et le répertoire) **plus deux correctifs mesurés** ; **`CLAUDE.md`** ; **entrée du 29/08 reconstruite** puis annotée ; copie `2908s17` sauvée avant écrasement ; `.gitignore` étendu. **Prompt du pilote lot 6 livré (première application de C129).**
+- **Décisions Tim** — **(a)** ordre d'adoption : no-regret immédiat (batterie, garde de péremption, arbitrages groupés) → **pilote Claude Code sur le lot 6** → **Cowork et parallélisation différés** au BACKLOG avec conditions écrites ; **(b)** principe de la batterie ; **(c)** sous-règle C116 « exécution directe » en condition du pilote ; **(d)** entrée du 29/08 restée due (aucun pull sur le pro depuis) → reconstruction ; **surface du pilote : onglet Code du Desktop** (compte Max, onglet présent, essai concluant) ; **C129 demandée et posée**.
+- **Conventions** — **C129 neuve : la numérotation passe de 128 à 129.** Sous-règle de C116 et extension de C126 posées en éprouvage, 0/N chacune. **C119 : deux pages de prédictions publiées avant lancement et vérifiées** aux lancements 1 et 2 ; **trois branches innocentes non nommées, consignées** — arbre déjà commité (×1), auto-comptage de la copie C124 (×2, la seconde nommée par Tim depuis la session Code avant que ma propre prédiction ne la manque). C118 clôt le corpus FR et recoupe l'état (entrée absente, HEAD, copies `2908s*`).
+- **Tailles** — batterie `2908b2` (13:47) : **corpus FR 242 / 291 217** ✅ **soldé à la valeur attendue, l'alerte du brief est levée** ; traduites 181 / 205 103 ; **restant 61 / 86 114 au comptage**, sur la dérivation publiée d'avance. `--controle` 181 / 0 / 0 ; dérive 0, 181 à jour ; foisonnement 181 paires **+3,9 %** ; C109 du lot 5 : **25** (2 / 12 / 6 / 4 / 1), hors périmètre 24, typographie 0 ; médias 12 / 0 / 618 / 1 ; **anneau 2 : 54 / 79 412, 18 porteuses / 68 clôtures** ; **dette 59 / 84 686, 4 hors anneaux** ; **`--libelles` 105** (3 390 liens, 3 017 existantes, 373 absentes, 16 positions). ⚠ **BILAN wikilinks non relu dans la sortie batterie** — référence `2908s17` : 65 / 0 / 0 / 8 / 6 / 425, à cocher au cadrage du lot 6. JOURNAL **427,8 ko** (avant cette entrée), conventions **421,0 ko**, BACKLOG **198,4 ko**. ⚠ **TODO 246,3 ko** quand l'arbitrage `--garder 3` du 28/08 (suite) visait ~46 : **écart non instruit (C118)**, à regarder en ouverture d'une séance chat, lecture intégrale avant toute coupe.
+
+⚠ **L'INSTRUMENT S'EST FAIT PRENDRE DEUX FOIS PAR SON TRANSPORT, JAMAIS PAR UNE MESURE.** (1) Lancée par `-File`, PowerShell **ne découpe pas** une liste à virgules : `-FichesEn` est arrivée en une seule chaîne, visible à trois étapes de la même sortie — la date « ABSENTE » de l'étape 1, une seule ligne de lot sur cinq à l'étape 5, l'`Introuvable` de l'étape 6. *J'avais documenté l'usage sur le comportement du langage, pas sur celui du mode d'appel* — la règle du 29/08 appliquée à mon propre script. (2) **L'étape 1 comptait la copie C124 que l'étape 0 venait de créer** : l'instrument se mesurait lui-même, et le défaut a été nommé par Tim depuis la session Code avant que ma prédiction ne le manque une seconde fois. Correctifs vérifiés : `Eclater`, double compteur « hors sorties batterie », `node --version` dans la garde, séparateur de dates.
+
+**LE PREMIER CONTACT CLAUDE CODE TIENT LE PROTOCOLE.** Essai à blanc en lecture plus une commande : ASCII et accents propres, permissions fluides, **JOURNAL lu au bon endroit** — l'entrée reconstruite citée mot pour mot — et le compte-rendu de la session a attrapé **quatre défauts réels** : l'auto-comptage, le script en avance sur HEAD, l'entrée périmée sur le commit du lot 5, et la garde sans relevé de référence. Sur ce dernier point la règle d'emploi est arrêtée : *le relevé de cadrage (copie datée) est la référence ; chaque garde suivante se lit contre lui, par celui qui s'apprête à écrire.* Restent à couvrir par le pilote : node (désormais dans la garde) et **une édition avec diff**.
+
+**LA CHAÎNE C124 A TENU EN CONDITIONS RÉELLES.** Deux lancements enchaînés par deux surfaces différentes, et chaque témoin a sa copie datée — `b1` le lancement 1, `b2` le lancement 2, la sortie vivante portant la garde de l'essai. Rien ne s'est perdu, rien ne ment sur sa date.
+
+**Reste à Tim** (C121) :
+
+```powershell
+cd C:\Users\turko\Documents\TheSkillCodex
+node tools/normalize-pilotage.js
+git add -A
+git commit -m "seance annexe 29/08: cloture (JOURNAL, TODO, BACKLOG, C129), batterie corrigee"
+git push
+```
+
+Puis : ② le patch du §7 côté claude.ai (texte livré en séance) ; ③ **PC pro lundi : `git status` puis `git pull` avant toute séance**.
+
+**Arbitrages en attente** : C71 sur le tableau de coût de `specification-technique`, les six liens rouges du triplet NF X50-151, la capture de l'*Exemple* de `tinkercad`, le chantier FR de nommage à **dix paires**, le patch du §7 — à drainer **groupés** à l'ouverture d'une séance chat, dossiers montés. **Prochaine session = PILOTE CLAUDE CODE, LOT 6** (`servomoteur`, `moteur-pas-a-pas`, `pid`, `watchdog` — 4 434 mots / 46 candidats d'après le brief, **à remesurer au cadrage**, 0 porteuse), onglet Code, prompt livré en clôture ; critères pré-déclarés : gardes toutes tirées, interventions comptées contre la base de 6–15 lancements par lot, sorties au niveau des lots récents ; toute garde non portable ⇒ repli chat. Puis **bilan du pilote en séance chat** (sous-règle C116 : promouvoir ou amender), puis `esp32/` (12 porteuses / 22 blocs, C127 et C110 en plein).
+
+<!-- FIN 29/08 (suite) -->
+
 ## 2026-08-29 — Le lot 5 de `micropython/` rédigé, un cadrage périmé par une session parallèle, et C128 arbitrée — *entrée reconstruite*
 
 > ⚠ **Entrée reconstruite le 29/08 (séance annexe)** : la clôture du 29/08 n'a pas écrit son entrée. Sources : le brief de lancement rédigé à cette clôture (état mesuré), les copies C124 `seance-sortie-2908s1` → `s16` (`s4` manquant — trace probable d'un des deux lancements perdus) et `2908s17` (batterie de clôture de 11:52, restée non datée, sauvegardée en séance annexe). **Les décisions prises seules (C117) et le détail des instructions ne sont pas tous récupérables** ; rien n'est déduit au-delà des sources citées.
@@ -25,7 +55,7 @@
 
 ⚠ **CE QUE LES GARDES ONT ATTRAPÉ CE MATIN-LÀ** (décompte du brief de clôture) : un inventaire C109 **faux d'un facteur deux**, une **garde d'archivage** qui a mordu, **cinq espaces françaises**, et **un titre déduit d'un libellé**. Le détail d'instruction vit dans les copies `2908s5` → `s15` et n'est pas rejoué ici.
 
-**Reste à Tim** (C121) : ⚠ **le commit du lot 5 n'a pas été passé** — dernier commit local mesuré : « lot 2 cpp » — bloc fourni dans la séance annexe du 29/08, qui l'englobe.
+**Reste à Tim** (C121) : ⚠ **le commit du lot 5 n'a pas été passé** — dernier commit local mesuré : « lot 2 cpp » — bloc fourni dans la séance annexe du 29/08, qui l'englobe. **[Annoté en clôture de séance annexe : bloc passé le 29/08 à 13:19, HEAD `e8c5867` — point soldé.]**
 
 **Arbitrages en attente à cette clôture** : C71 sur le tableau de coût de `specification-technique`, les six liens rouges du triplet NF X50-151, la capture de l'*Exemple* de `tinkercad`, le chantier FR de nommage à dix paires, le patch du §7. **Prochaine session (arbitrée au brief) = séance annexe sur le débit de la chaîne**, puis **lot 6** (`servomoteur`, `moteur-pas-a-pas`, `pid`, `watchdog`, 4 434 mots, 46 candidats C109, aucune porteuse), puis `esp32/` (12 porteuses, 22 blocs, C127 en plein).
 

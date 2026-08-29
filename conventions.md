@@ -2246,6 +2246,18 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **C129 — Le passage en Claude Code se signale et se livre prêt à coller.**
+  *Demande Tim, arbitrée le 29/08 (séance annexe).* Quand une tâche doit
+  s'exécuter dans l'onglet Code (lancement d'exécution du pilote, passe
+  d'édition, batterie sous exécution directe), Claude côté chat : (1) le
+  **signale explicitement** — « ceci passe dans l'onglet Code » — au lieu
+  de le laisser déduire ; (2) livre le **prompt de session complet, prêt à
+  coller**, et les commandes que Tim passe lui-même, dans des blocs
+  séparés ; (3) rappelle la **règle d'écrivain unique** — la séance chat
+  cesse d'écrire sur le dépôt tant que la session Code est ouverte.
+  Symétrique de C121 : C121 livre les blocs shell, C129 livre les prompts
+  de surface. *Éprouvée 1/N à son écriture — première application : le
+  prompt du pilote lot 6, livré à la clôture de la séance qui l'a promue.*
 - **Sous-règle de C116 — sous exécution directe, l'ordre prédiction → mesure passe du monde au protocole.**
   *Arbitrage Tim (c) du 29/08 (séance annexe) ; condition du pilote Claude Code
   sur le lot 6, sans effet sur le dispositif de collage.* Dans le dispositif
