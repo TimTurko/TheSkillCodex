@@ -1,5 +1,5 @@
 ---
-title: Reading a digital sensor
+title: Reading a digital sensor on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-capteur-numerique.md
-source_sha256: e2c396027f83019ab854e907f20611783886fff4d67a1be109977fd44415ce7d
+source_sha256: cfb657a30916dd84f9abed4e6dfa737fe8620c4291df9c5783419ed08ad56c5b
 ---
 
 A **digital sensor** delivers information encoded as a binary signal, as opposed to an analog sensor putting out a continuous voltage. The encoding varies: a simple logic level (present / absent), a pulse whose width encodes the measurement (an ultrasonic sensor), a proprietary 1-wire protocol (DHT11), or an I2C / SPI frame (BMP280, MPU6050). This page covers the first two cases: the I2C and SPI buses have tutorials of their own.

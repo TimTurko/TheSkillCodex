@@ -1,5 +1,5 @@
 ---
-title: Lire une entrée TOR
+title: Lire une entrée TOR sur Arduino
 type: tuto
 phases:
   - preuve-de-concept

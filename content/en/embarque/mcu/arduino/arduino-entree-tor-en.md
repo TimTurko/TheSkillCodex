@@ -1,5 +1,5 @@
 ---
-title: Reading an on/off input
+title: Reading a digital input on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-entree-tor.md
-source_sha256: a859e5d6b6449cd8566e981ca41f65590d5c25caa8ec233eede07d04c9d24209
+source_sha256: 31f017c6e6170cada8ca22e8c178e0b25c76de0eb49f37cf3a1fe73578a9d3cf
 ---
 
 An **on/off input** reads a binary signal that only ever takes two states: high or low, pressed or released, present or absent. Push button, switch, limit switch, digital presence sensor: all of them are read with `digitalRead()`. The difficulty is not in the reading itself but in dealing with **bounce**: a mechanical contact produces several spurious switchings over a few milliseconds, and you have to filter them out to get a clean signal.

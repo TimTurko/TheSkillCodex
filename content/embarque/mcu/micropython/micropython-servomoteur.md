@@ -1,5 +1,5 @@
 ---
-title: Piloter un servomoteur
+title: Piloter un servomoteur en MicroPython
 type: tuto
 phases:
   - concept

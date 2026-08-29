@@ -1,5 +1,5 @@
 ---
-title: État des GPIO à l'allumage
+title: État des GPIO à l'allumage en MicroPython
 type: tuto
 phases:
   - concept

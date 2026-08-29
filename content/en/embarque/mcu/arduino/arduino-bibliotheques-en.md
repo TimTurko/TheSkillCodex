@@ -1,5 +1,5 @@
 ---
-title: Using a library
+title: Using a library on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-bibliotheques.md
-source_sha256: 0a97d26e834aa07dc8138d93806baec95112232ddade2d349bb3b6f1cfb6c2a0
+source_sha256: 4f9ce7efeb6f87ffe45797292da30aec47967c7b9527599dd849ef76d9efd45f
 ---
 
 A **library** is a ready-made block of code that wraps up the communication with a component or a service: `Servo.h` for servos, `Wire.h` for the I2C bus, `LiquidCrystal.h` for LCD displays, `Adafruit_BMP280.h` for the BMP280 pressure sensor. Instead of rewriting a sensor's protocol or an actuator's timing on every project, you include the library and use its functions. The Arduino ecosystem counts **thousands** of third-party libraries. Knowing how to install one, include it and read its documentation is a basic move.

@@ -1,5 +1,5 @@
 ---
-title: Reading a digital input
+title: Reading a digital input in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-entree-tor.md
-source_sha256: c75d28251c0690f9d300e71288859d0f612f5b3bb9328f73ddd7b5da8460c340
+source_sha256: 810ce2e35193ef2fbdaf60081ed3b17f0a40ea02f48d6aa6c6e7c543173be894
 ---
 
 A **digital input** reads a binary signal that takes only two states: pressed or released, present or absent. Pushbutton, switch, limit switch, digital presence sensor: all of them are read with `Pin.value()`. The difficulty is not the reading itself but dealing with **bounce**: a mechanical contact produces several spurious transitions within a few milliseconds, and they have to be filtered out to get a clean signal.

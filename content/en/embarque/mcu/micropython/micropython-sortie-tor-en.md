@@ -1,5 +1,5 @@
 ---
-title: Driving an on/off output
+title: Driving an on/off output in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-sortie-tor.md
-source_sha256: b662090fd094b626bf4b371c553f11f0479370a4307f928a49da8f1c84dc7748
+source_sha256: 9bca1001a80ad0af7910c3fb2eee9b2aa430f0339aa8e3438abfc75eae79fbfe
 ---
 
 An **on/off output** switches a load between two states: powered or off. Indicator LED, buzzer, power relay, fan on a transistor: all of them are driven with `Pin.value()` (or `on()`/`off()`). This page covers the three cases met in school projects: driving a small load directly (an LED), through a transistor for a medium load (buzzer, fan), through a relay board for a mains or heavily inductive load. One constraint shapes everything: the Pico runs at **3.3 V** and supplies **less current** than an Arduino.

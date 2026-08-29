@@ -1,5 +1,5 @@
 ---
-title: GPIO state at power-up
+title: GPIO state at power-up in MicroPython
 type: tuto
 phases:
   - concept
@@ -15,7 +15,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-gpio-boot.md
-source_sha256: 6c930beda7d76f2bc36dcf1ef2e0ef03b3ce5b3cc04312fad281f515edb2e553
+source_sha256: c3570070ae60c098684cbeeb3f0aa35e6d84fd482c92861d724b30e22bf70708
 ---
 
 Between the instant the Pico is powered and the instant `main.py` runs its first useful instruction, there is a short delay (firmware plus script launch) during which **the state of the GPIO is not the one you coded**: they sit as **high-impedance inputs** (floating). What that means in practice: a relay can pull in briefly, a motor can jerk, an LED can flash at start-up. The good news: the Pico is **simpler than the ESP** on this point. It has no *strapping* pins that change the boot mode according to their level.

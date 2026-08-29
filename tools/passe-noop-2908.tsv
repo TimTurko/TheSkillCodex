@@ -1,0 +1,8 @@
+# Table NO-OP : chaque ancre est remplacee par elle-meme. Sert uniquement a
+# faire publier les invariants (accents, points de code, lignes) des quatre
+# fiches du lot 3, apres correction de l intervalle d accents troue.
+# Ne JAMAIS lancer avec --ecrire : sans effet, mais sans objet non plus.
+embarque/mcu/esp32/esp32-deep-sleep.md	## Pièges	## Pièges
+embarque/mcu/esp32/esp32-arduino-core.md	## Pièges	## Pièges
+embarque/mcu/esp32/esp32-freertos.md	## Pièges	## Pièges
+embarque/mcu/esp32/esp32-idf.md	## Pièges	## Pièges

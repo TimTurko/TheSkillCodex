@@ -1,5 +1,5 @@
 ---
-title: Using a library
+title: Using a library in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-bibliotheques.md
-source_sha256: 973f6bb059b43afb4c72209d231ad3b42e09aef86526f96e6603e4d39c900bd0
+source_sha256: cab1cf2797e5948ce4f5fe6f8ce55c580920d16d0cc58f932c3d9a2a786b272e
 ---
 
 A **library** is a ready-made module of code that wraps up the communication with a component: `ssd1306` for an OLED display, `dht` for a DHT11 or DHT22 sensor, a sensor driver on [[micropython-i2c-en|I2C]]. Instead of rewriting the protocol of a sensor on every project, you **import** the library and use its functions. The logic differs from the Arduino on one point: there is no manager of `#include` directives to compile. A MicroPython library is a **`.py` file** (or a module frozen into the firmware) that you make available on the board, then `import`. See also [[micropython-modules-en|modules and import]].

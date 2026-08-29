@@ -4,6 +4,63 @@ Scripts hors MCP, exécutés manuellement (ou via git hook) sur le poste de trav
 
 ---
 
+## renommer-titres.mjs
+
+Réécrit des `title:` de **front matter**, en **tout ou rien**, sous garde
+d'unicité d'ancre (C116 (6)).
+
+```
+node tools/renommer-titres.mjs <table.tsv>            # contrôle seul, 0 écriture
+node tools/renommer-titres.mjs <table.tsv> --ecrire   # applique
+```
+
+La table est un **TSV daté et jetable** — `chemin<TAB>ancien title:<TAB>nouveau
+title:`, chemin relatif à `content/`, `#` en commentaire. L'ossature se
+versionne, le contenu de la passe non (C126).
+
+**Ce qu'il garantit** : l'ancre se cherche **dans le front matter seul** ; elle
+doit y apparaître **exactement une fois** ; tout est validé avant que le premier
+octet ne soit écrit, donc **une seule ancre absente arrête le lot entier** ;
+seule la ligne `title:` change.
+
+⚠ **La comparaison est sensible à la casse et aux accents**, là où
+`titres-doublons.mjs` replie l'une et retire les autres. C'est délibéré : deux
+tests négatifs du 29/08 (suite 7) — `Cabler` sans circonflexe, `Using a Shield`
+avec une capitale de trop — ont chacun refusé un lot complet.
+
+⚠ **Réécrire un `title:` FR met sa jumelle EN en dérive** (`source_sha256` porte
+sur le fichier entier, front matter compris) : `creer-fiche-en.mjs --recaler`
+fait partie du lot, faute de quoi la ligne « dérive 0 » ment.
+
+---
+
+## remplacer-passe.mjs
+
+Passe de remplacement ancrée dans le **corps** d'une fiche, tout ou rien, avec
+**invariants publiés avant écriture**. Écrit pour les passes C109.
+
+```
+node tools/remplacer-passe.mjs <table.tsv>            # contrôle seul
+node tools/remplacer-passe.mjs <table.tsv> --ecrire
+```
+
+Même format de table et même garde d'unicité que `renommer-titres.mjs`, mais le
+front matter est **recopié à l'octet** et n'est jamais fouillé.
+
+**Trois invariants par fiche, imprimés avant / après** : caractères accentués,
+points de code, lignes du corps. **L'invariant d'accents est un arrêt** : un
+écart non nul refuse le lot. *Motif : É2 du 29/08 (suite 6), 147 caractères
+accentués perdus par une passe C109, cinq contrôles au vert, trouvé par la
+seule lecture.*
+
+⚠ **Les accents se comptent en points de code sur un intervalle TROUÉ**,
+`[À-ÖØ-öø-ÿŒœŸĀ-ſ]` : le bloc Latin-1 loge `×` U+00D7 et `÷` U+00F7 au milieu
+des lettres. Un `grep` sur une classe de crochets compte des **octets** et rend
+le double. Les deux défauts ont produit un chiffre publié faux, le second dans
+la première version de ce fichier.
+
+---
+
 ## titres-doublons.mjs
 
 Liste les `title:` portés par plus d'une fiche, **côté FR et côté EN séparément**.

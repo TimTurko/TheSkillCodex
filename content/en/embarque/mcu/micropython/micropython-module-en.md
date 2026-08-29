@@ -1,5 +1,5 @@
 ---
-title: Wiring a module
+title: Wiring a module in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -15,7 +15,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-module.md
-source_sha256: 24363ea539fa26c0cc9614e48aa839e9f9df5d21d8d985b09487a6d362eb72d8
+source_sha256: 4992c1551cef856fa4fdb4a8c632c9db7670495afb1e847fd73dc22ff7a8c55c
 ---
 
 A **module** is a small prefabricated PCB carrying one main component (a sensor, a driver, a converter) surrounded by its minimal application circuit: power, pull-ups, decoupling, connector. Modules save you all the *low-level* wiring from the datasheet. What is left is plugging in four Dupont wires and calling the [[micropython-bibliotheques-en|library]]. This page covers the generic wiring of a module, and the pitfalls that make a freshly received module refuse to start. The logic is the same whatever the board. Only the pin numbers and the Pico's **3.3 V** constraint change.

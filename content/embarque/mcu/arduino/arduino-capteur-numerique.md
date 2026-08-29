@@ -1,5 +1,5 @@
 ---
-title: Lire un capteur numérique
+title: Lire un capteur numérique sur Arduino
 type: tuto
 phases:
   - preuve-de-concept

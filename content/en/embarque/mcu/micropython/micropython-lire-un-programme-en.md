@@ -1,5 +1,5 @@
 ---
-title: Reading a program you did not write
+title: Reading a MicroPython program you did not write
 type: tuto
 phases:
   - preuve-de-concept
@@ -12,7 +12,7 @@ prerequis:
 aa: []
 draft: false
 source_fr: embarque/mcu/micropython/micropython-lire-un-programme.md
-source_sha256: 2d620121474a1deff77a9a42d835aef35ee1339b5fdd02005e96cdc7bc62e914
+source_sha256: e47eeb88d4d9e66a3aec8a0243c755e696edde5027eeaf4c78f6343346b3948d
 ---
 
 Copying an example out takes nothing. **Understanding it** is what then lets you modify it, fix it and reuse it. And a program is not read like a piece of writing, from the first line to the last: you enter it through landmarks, in an order that is not the order it was written in. This page gives a **method for entering** an unfamiliar MicroPython program, the **language mechanisms** that come back from one example to the next, and a **worked reading** of a program from this wiki, taken exactly as it stands. It closes the [[micropython-langage-en|MicroPython]] path: the syntax is assumed to be in place, and what you learn here is how to use it to read.

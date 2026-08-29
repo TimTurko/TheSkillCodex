@@ -15,7 +15,7 @@ aa:
 draft: false
 ---
 
-**FreeRTOS** est le système temps réel au cœur de l'ESP32 : il permet de faire tourner plusieurs **tâches** « en parallèle », chacune écrite comme une petite boucle indépendante, que l'ordonnanceur (*scheduler*) entrelace sur le ou les processeurs. C'est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS natif. La `loop()` d'un sketch Arduino est elle-même une tâche FreeRTOS ; cette fiche montre comment **créer et coordonner ses propres tâches**. Le *pourquoi* d'un RTOS et sa place dans l'échelle des architectures sont traités dans [[firmware|firmware]].
+**FreeRTOS** est le système temps réel au cœur de l'ESP32 : il permet de faire tourner plusieurs **tâches** « en parallèle », chacune écrite comme une petite boucle indépendante, que l'ordonnanceur (*scheduler*) entrelace sur le ou les processeurs. C'est la spécialité de la famille. L'ESP32 a deux cœurs et un RTOS natif. La `loop()` d'un sketch Arduino est elle-même une tâche FreeRTOS. Cette fiche montre comment **créer et coordonner ses propres tâches**. Le *pourquoi* d'un RTOS et sa place dans l'échelle des architectures sont traités dans [[firmware|firmware]].
 
 ![Ordonnancement préemptif : deux tâches FreeRTOS se partagent le processeur, l'ordonnanceur donnant la main à la tâche prête la plus prioritaire et interrompant celle en cours quand il le faut|640](/ressources/img/esp32-freertos/ordonnancement.svg)
 
@@ -72,7 +72,7 @@ void loop() {}       // loop() est elle-même une tâche, ici inutilisée
 
 Deux activités à des rythmes différents, vraiment séparées : une tâche fait clignoter une LED toutes les 200 ms, l'autre lit un capteur et l'imprime toutes les secondes. Aucun compteur partagé, aucun entrelacement manuel.
 
-*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpio|configurer les GPIO]].*
+*Câblage : LED sur `GPIO16` et capteur sur `GPIO34` (voir les montages de [[esp32-gpio|configurer les GPIO]]).*
 
 ```cpp
 const int LED = 16;
@@ -105,7 +105,7 @@ void setup() {
 void loop() {}
 ```
 
-La LED clignote à son rythme, les mesures défilent au leur, sans que l'un ne perturbe l'autre. Chaque tâche est une boucle simple, lisible isolément — c'est l'intérêt structurant du RTOS face à un `loop()` unique qui devrait jongler avec deux temporisations.
+La LED clignote à son rythme, les mesures défilent au leur, sans que l'un ne perturbe l'autre. Chaque tâche est une boucle simple, lisible isolément. C'est l'intérêt structurant du RTOS face à un `loop()` unique qui devrait jongler avec deux temporisations.
 
 Une ligne par seconde au moniteur, quand la LED, elle, bat cinq fois plus vite :
 
@@ -168,9 +168,9 @@ void loop() {}
 
 **Confondre priorité et fréquence.** Une priorité élevée ne fait pas tourner la tâche « plus souvent » : elle la fait passer **devant** quand elle est prête. Le rythme, c'est le `vTaskDelay` qui le fixe.
 
-**`delay()` vs `vTaskDelay()`.** Sur l'Arduino-core ESP32, `delay()` cède aussi le CPU (il appelle `vTaskDelay`), donc reste acceptable dans une tâche ; mais utiliser `vTaskDelay(pdMS_TO_TICKS(...))` explicite l'intention en contexte multitâche.
+**`delay()` vs `vTaskDelay()`.** Sur l'Arduino-core ESP32, `delay()` cède aussi le CPU (il appelle `vTaskDelay`), donc reste acceptable dans une tâche. Mais utiliser `vTaskDelay(pdMS_TO_TICKS(...))` explicite l'intention en contexte multitâche.
 
-**`volatile` n'est pas une protection.** Le mot-clé empêche le compilateur d'optimiser les lectures d'une variable ; il ne garantit **ni** l'atomicité, **ni** l'exclusion mutuelle. Entre deux tâches, seule une file ou un mutex protège réellement. `volatile` a sa place ailleurs : pour une variable partagée avec une **interruption** (voir [[arduino-interruptions|les interruptions]]), où il est nécessaire — et toujours pas suffisant si l'accès n'est pas atomique.
+**`volatile` n'est pas une protection.** Le mot-clé empêche le compilateur d'optimiser les lectures d'une variable. Il ne garantit **ni** l'atomicité, **ni** l'exclusion mutuelle. Entre deux tâches, seule une file ou un mutex protège réellement. `volatile` a sa place ailleurs : pour une variable partagée avec une **interruption** (voir [[arduino-interruptions|les interruptions]]), où il est nécessaire, et toujours pas suffisant si l'accès n'est pas atomique.
 
 ## Exercices
 
@@ -180,7 +180,7 @@ void loop() {}
 > *Sur une variante **mono-cœur** (C3, C6, H2), l'épinglage au cœur 1 échoue : passer `tskNO_AFFINITY` à la place du numéro de cœur.*
 
 > [!success]- Corrigé
-> Le dernier argument de `xTaskCreatePinnedToCore` fixe le cœur ; `xPortGetCoreID()` le lit depuis la tâche.
+> Le dernier argument de `xTaskCreatePinnedToCore` fixe le cœur, et `xPortGetCoreID()` le lit depuis la tâche.
 > ```cpp
 > void tache(void *param) {
 >   for (;;) {
@@ -198,7 +198,7 @@ void loop() {}
 >
 > void loop() {}
 > ```
-> Les deux tâches partagent le même code mais affichent des numéros de cœur différents — la preuve que le travail est bien réparti sur les deux cœurs.
+> Les deux tâches partagent le même code mais affichent des numéros de cœur différents, la preuve que le travail est bien réparti sur les deux cœurs.
 
 > [!question] Exercice 2 — Protéger un compteur partagé
 > Deux tâches incrémentent un même compteur global, chacune à son rythme. Protégez l'accès par un mutex pour éviter les incohérences.

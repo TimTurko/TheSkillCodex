@@ -1,0 +1,236 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b26.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 19:47:49
+
+HEAD git : a5226ea 2026-08-29 19:30:08 +0200
+fichiers modifies non commites : 49   (hors artefacts de seance : 42)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 19:08:19
+  conventions.md                                      2026-08-29 19:09:34
+  TODO.md                                             2026-08-29 19:09:34
+  embarque/mcu/esp32/esp32-deep-sleep.md              2026-08-19 10:03:10
+  embarque/mcu/esp32/esp32-arduino-core.md            2026-08-19 10:01:20
+  embarque/mcu/esp32/esp32-freertos.md                2026-08-19 10:03:16
+  embarque/mcu/esp32/esp32-idf.md                     2026-08-17 12:24:29
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/mcu/esp32/esp32-deep-sleep.md                     1495
+  embarque/mcu/esp32/esp32-arduino-core.md                   1285
+  embarque/mcu/esp32/esp32-freertos.md                       1429
+  embarque/mcu/esp32/esp32-idf.md                            1066
+  ---------------------------------------------------------------
+  LOT (4 fiches)                                             5275
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/mcu/esp32/esp32-deep-sleep.md
+      19  [C109] point-virgule de prose
+          …dans [[deep-sleep|deep sleep]] ; cette fiche en donne l'incarnati…
+      56  [C109] point-virgule de prose
+          …ilisée dans un calcul de durée) ; pour des broches ou seuils, on p…
+     132  [C109] tiret d incise
+          …O0, 2, 4, 12-15, 25-27, 32-39`) — une broche ordinaire ne réveille…
+     142  [C109] tiret d incise
+          …ne broche ordinaire est ignorée — la carte ne se réveille jamais.
+     148  [C109] tiret d incise
+          …'alimentation et son régulateur — elle consomme bien plus que le m…
+     189  [C109] point-virgule de prose
+          > - Cycle = 600 s ; actif = 2 s à 80 mA ; sommeil =…
+     189  [C109] point-virgule de prose
+          …e = 600 s ; actif = 2 s à 80 mA ; sommeil = 598 s à 0,01 mA.
+     198  [C109] tiret d incise
+          …elle s'était arrêtée au réveil — sans RESET. La consommation est…
+
+  embarque/mcu/esp32/esp32-arduino-core.md
+      18  [C109] tiret d incise
+          …système temps réel **FreeRTOS** — ce qui change discrètement quelq…
+      48  [C109] tiret d incise
+          …O16 avec sa résistance de 220 Ω — voir le montage de [[esp32-prise…
+      50  [C109] tiret d incise
+          …`analogWrite`, broches en 3,3 V — tous traités dans [[esp32-gpio|c…
+      57  [C109] point-virgule de prose
+          …L'ESP32 d'origine a deux cœurs ; `loop()` s'exécute par défaut su…
+      93  [C109] tiret d incise
+          …éro de cœur et la mémoire libre — deux informations qui n'existent…
+     103  [C109] tiret d incise
+          …de mémoire sont **identiques** — c'est le point de la démonstrati…
+     113  [C109] tiret d incise
+          …pas garanti comme sur un AVR nu — pour des échéances strictes, str…
+     131  [C109] tiret d incise
+          …créer une tâche et l'y épingler — voir [[esp32-freertos|FreeRTOS]]…
+     155  [C109] point-virgule de prose
+          …ers d'octets passent sans souci ; sur un Uno (2 ko de RAM), la mêm…
+     169  [C109] tiret d incise
+          …rduino-core repose sur FreeRTOS — donc que `loop()` n'est pas seul…
+     169  [C109] tiret d incise
+          …loop()` n'est pas seul au monde — évite les pièges de watchdog et…
+
+  embarque/mcu/esp32/esp32-freertos.md
+      18  [C109] tiret d incise
+          …est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS…
+      18  [C109] point-virgule de prose
+          …st elle-même une tâche FreeRTOS ; cette fiche montre comment **cré…
+      75  [C109] tiret d incise
+          …GPIO16` et capteur sur `GPIO34` — voir les montages de [[esp32-gpi…
+     108  [C109] tiret d incise
+          …oucle simple, lisible isolément — c'est l'intérêt structurant du R…
+     171  [C109] point-virgule de prose
+          …reste acceptable dans une tâche ; mais utiliser `vTaskDelay(pdMS_T…
+     173  [C109] tiret d incise
+          …ptions]]), où il est nécessaire — et toujours pas suffisant si l'a…
+     173  [C109] point-virgule de prose
+          …ser les lectures d'une variable ; il ne garantit **ni** l'atomicit…
+     183  [C109] point-virgule de prose
+          …reatePinnedToCore` fixe le cœur ; `xPortGetCoreID()` le lit depuis…
+     201  [C109] tiret d incise
+          …des numéros de cœur différents — la preuve que le travail est bie…
+
+  embarque/mcu/esp32/esp32-idf.md
+      18  [C109] tiret d incise
+          …est une **mise en perspective** — quand l'IDF se justifie, ce qu'i…
+      18  [C109] tiret d incise
+          …omment y mettre un premier pied — et non un cours complet : la pri…
+      32  [C109] tiret d incise
+          …aucun verrou précis ne le force — et de migrer la partie concernée…
+      36  [C109] point-virgule de prose
+          …e est une fonction `app_main()` ; il n'y a pas de boucle imposée —…
+      74  [C109] tiret d incise
+          …bandonner tout l'acquis Arduino — on compose.
+      82  [C109] tiret d incise
+          …n de ce qu'on a écrit ne tourne — la fonction retourne, sa tâche e…
+      87  [C109] point-virgule de prose
+          …e une mesure toutes les minutes ; (b) un produit commercial nécess…
+      87  [C109] point-virgule de prose
+          …es à jour à distance sécurisées ; (c) un prototype de robot pour u…
+     106  [C109] tiret d incise
+          …ais en commandes reproductibles — d'où l'intérêt en intégration co…
+     110  [C109] point-virgule de prose
+          …p32-arduino-core|Arduino-core]] ; identifier *si* et *où* l'IDF de…
+
+4 fiche(s) lue(s), 4 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 38   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 16   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 99
+    RESTANT                   : 46
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/esp32/esp32-arduino-core                  1285   chevron:4
+  embarque/mcu/esp32/esp32-deep-sleep                    1495   chevron:2
+  embarque/mcu/esp32/esp32-freertos                      1429   chevron:4
+  embarque/mcu/esp32/esp32-idf                           1066   chevron:2
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio            1134
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main   1167
+  embarque/mcu/raspberry-pi/raspberry-pi-projet           990
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/mcu/stm32/stm32-arduino-core                  1709   chevron:4
+  embarque/mcu/stm32/stm32-cubemx                        1675
+  embarque/mcu/stm32/stm32-hal                           1579
+  embarque/mcu/stm32/stm32-prise-en-main                 1810   chevron:4
+  embarque/mcu/stm32/stm32-registres                     1472
+  embarque/mcu/teensy/teensy-arduino-core                1515   chevron:4
+  embarque/mcu/teensy/teensy-audio                       1378   chevron:4
+  embarque/mcu/teensy/teensy-prise-en-main               1474   chevron:4
+  embarque/mcu/teensy/teensy-usb                         1172   chevron:4
+  embarque/mcu/xiao/xiao-alimentation                     659
+  embarque/mcu/xiao/xiao-esp32-s3                        1351
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (46 fiches)                     66996
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 10
+    clotures en chevron       : 36   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 193
+  cibles rouges distinctes     : 47
+  mots                         : 67836
+  dont HORS anneaux 0..2       : 0
+--- code de sortie : 0

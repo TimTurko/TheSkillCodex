@@ -1,5 +1,5 @@
 ---
-title: Câbler un module
+title: Câbler un module sur Arduino
 type: tuto
 phases:
   - preuve-de-concept

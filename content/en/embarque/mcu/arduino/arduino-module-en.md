@@ -1,5 +1,5 @@
 ---
-title: Wiring a module
+title: Wiring a module on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-module.md
-source_sha256: 9e5abf35d8411ccbc260e6ed3ac0137726b1f2374323fe9a566673c2704c6933
+source_sha256: c5da7609b71fad2733044d31699eb8ec8c6750eb6ffdad3f0a5dfd3a2510164f
 ---
 
 A **module** is a small prefabricated PCB carrying a main component (a sensor, a driver, a converter) surrounded by its minimal application circuit: supply, pull-ups, decoupling capacitors, a connector to work with. Modules save the designer all the *low-level* wiring of the datasheet: what remains is to plug in four jumper leads and call the library. This page covers the generic wiring of a module: identifying the pins, the supply, the signals, and the pitfalls that make a freshly delivered module refuse to start.

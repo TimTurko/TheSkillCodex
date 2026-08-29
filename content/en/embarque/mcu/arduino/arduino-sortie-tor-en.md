@@ -1,5 +1,5 @@
 ---
-title: Driving an on/off output
+title: Driving an on/off output on Arduino
 type: tuto
 phases:
   - preuve-de-concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-sortie-tor.md
-source_sha256: d663430e9602eb1d7e2191d91a6ca8e444307a5dcb7520e9fbff303e915a8f69
+source_sha256: 3eb4b5876d72511fdf082469d21a92d4f118af5fe899c2c9bbe8f7d31f792b41
 ---
 
 An **on/off output** switches a load between two states: powered or off. Indicator LED, buzzer, power relay, fan on a transistor: all these loads are driven with `digitalWrite()`. This page covers the three cases met on a school project: driving a small load straight from the pin (LED), driving a medium load through a transistor (buzzer, fan), driving a mains or a large inductive load through a relay module.

@@ -1,0 +1,217 @@
+=== HEURISTIQUE DE LIBELLES ===
+  en/conduite/proj/integration-et-tests-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/conduite/proj/integration-et-tests-en.md
+      [[en/conduite/index|hub of this wiki]]   cible intitulee : Project management
+  en/conduite/proj/securite-et-qualite-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/embarque/algorithme/machine-a-etats-en.md
+      [[gpio-en|state of the GPIOs at boot]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[gpio-en|pull resistors]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[logigramme-en|logic]]   cible intitulee : Flowchart
+  en/embarque/index.md
+      [[en/conduite/index|V-model]]   cible intitulee : Project management
+  en/embarque/index.md
+      [[programmer-l-embarque-en|Algorithm and documentation]]   cible intitulee : Programming
+  en/embarque/index.md
+      [[faire-communiquer-en|Choice of communication technologies (if the specification requires it)]]   cible intitulee : Getting things talking
+  en/embarque/index.md
+      [[integration-et-tests-en|Finished product]]   cible intitulee : Integration and testing
+  en/embarque/mcu/adc-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+      [[arduino-eeprom-en|non-volatile memory]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+      [[deep-sleep-en|the concept page]]   cible intitulee : Deep sleep
+  en/embarque/mcu/arduino/arduino-entree-tor-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-interruptions-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[arduino-eeprom-en|its own tutorial]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-module-en.md
+      [[arduino-moteur-cc-en|driver module]]   cible intitulee : Driving a DC motor on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-temporisation-en.md
+      [[arduino-entree-tor-en|button]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/arduino/tinkercad-en.md
+      [[arduino-entree-tor-en|Software debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/bus/i2c-en.md
+      [[gpio-en|open collector or open drain]]   cible intitulee : GPIO
+  en/embarque/mcu/cpp/cpp-logs-en.md
+      [[cpp-portee-en|scope]]   cible intitulee : Local and global variables
+  en/embarque/mcu/dac-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/debugger-embarque-en.md
+      [[uart-en|serial link]]   cible intitulee : UART
+  en/embarque/mcu/debugger-embarque-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/deep-sleep-en.md
+      [[memoire-en|storage]]   cible intitulee : Memory
+  en/embarque/mcu/entree-sortie-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/entree-sortie-en.md
+      [[adc-en|analog-to-digital]]   cible intitulee : ADC
+  en/embarque/mcu/esp32/esp32-en.md
+      [[systeme-d-exploitation-en|RTOS]]   cible intitulee : Operating system
+  en/embarque/mcu/esp8266/esp8266-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/firmware-en.md
+      [[cpp-en|language]]   cible intitulee : C++
+  en/embarque/mcu/interruption-en.md
+      [[gpio-en|pin]]   cible intitulee : GPIO
+  en/embarque/mcu/manipulation-de-bits-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-controle-en.md
+      [[micropython-types-en|list]]   cible intitulee : Variables and types
+  en/embarque/mcu/micropython/micropython-debug-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-deep-sleep-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-entree-tor-en.md
+      [[micropython-temporisation-en|`ticks_ms()` and `ticks_diff()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+      [[esp8266-arduino-core-en|ESP8266]]   cible intitulee : Programming with the Arduino core
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|`ADC`]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-i2c-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-langage-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[micropython-prise-en-main-en|Thonny]]   cible intitulee : Getting started with MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[memoire-en|RAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[micropython-interruptions-en|ISR]]   cible intitulee : Interrupts in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|steady rate]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-servomoteur-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-simulation-en.md
+      [[micropython-entree-tor-en|software debounce]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-spi-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-temporisation-en.md
+      [[micropython-modules-en|`time`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-types-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-uart-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[micropython-deep-sleep-en|`deepsleep`]]   cible intitulee : Deep sleep in MicroPython
+  en/embarque/mcu/niveaux-de-tension-en.md
+      [[gpio-en|pull-up resistor]]   cible intitulee : GPIO
+  en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/timer-en.md
+      [[arduino-timers-en|the dedicated tutorial]]   cible intitulee : Timers on Arduino
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mesure/analyseur-logique-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/instruments-de-mesure-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/multimetre-en.md
+      [[instruments-de-mesure-en|the hub]]   cible intitulee : Measuring instruments
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|UART, I²C or SPI]]   cible intitulee : Communication buses
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|Scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/concevoir-l-electronique-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/faire-communiquer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cable-management-en|wiring]]   cible intitulee : Cable management
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 3570
+  cible EN existante    : 3236   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 334
+  candidats a lire      : 105
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)

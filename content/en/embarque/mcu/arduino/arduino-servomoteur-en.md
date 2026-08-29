@@ -1,5 +1,5 @@
 ---
-title: Driving a servo
+title: Driving a servo on Arduino
 type: tuto
 phases:
   - concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-servomoteur.md
-source_sha256: 21f50091a2e4fbf4b07094254d67c92e7c7b91a32dd3ca6dc8b6593c6e0b5073
+source_sha256: 0690ba6f1231047b440d30528800f193a97f6556b3f552824d0bd505c50209e9
 ---
 
 A **servo** (short for servomotor) is a rotary actuator that moves to an **angle command** carried by a pulse-width-coded signal. On a standard servo (SG90, MG996R), the angle ranges from 0° to 180°. The `Servo.h` library shipped with the Arduino IDE wraps the signal generation: calling `servo.write(angle)` is all it takes to move.

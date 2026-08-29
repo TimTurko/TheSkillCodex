@@ -1,5 +1,5 @@
 ---
-title: Lire un programme qu'on n'a pas écrit
+title: Lire un programme C++ qu'on n'a pas écrit
 type: tuto
 phases:
   - preuve-de-concept

@@ -2254,6 +2254,52 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **Une déclaration C131 ne vaut que pour le bloc qui l'écrit.**
+  *Née le 29/08 (suite 7), de six réfutations de la même forme, et amendement
+  à la règle d'usage ci-dessous.* La déclaration d'ouverture nomme les artefacts
+  **connus au moment où elle s'écrit** ; les artefacts d'un bloc se décident
+  **dans** le bloc — un outil qu'on choisit d'écrire, une table qu'on dépose,
+  une sortie qu'on sauvegarde. **Six prédictions de `git status` sur dix
+  réfutations de la séance**, toutes amputées des fichiers que le bloc
+  lui-même venait de créer, et **le sous-compteur `content/` juste les six
+  fois** — c'est le total qui rate, jamais la part qui porte le sens.
+  **Parade appliquée à partir du bloc 4 : chaque bloc rejoue sa propre
+  déclaration C131, population, versements et total.** *Quatre gardes prédites
+  ainsi, quatre justes sur leurs deux termes, dont un **recomptage nominatif
+  explicite** au dernier bloc (45 fiches de `content/` + 9 fichiers de `tools/`
+  + 10 artefacts = 64).* *Éprouvée 1/N.*
+- **Une passe qui ne doit toucher qu'une ligne se fait par un outil à ancre
+  unique, tout ou rien, qui publie ses invariants avant d'écrire.**
+  *Née le 29/08 (suite 7), de deux outils écrits en séance et des deux lots
+  qu'ils ont refusés.* C116 (6) exige un contrôle d'unicité d'ancre avant
+  écriture ; il était tenu à la main. `tools/renommer-titres.mjs` (front matter)
+  et `tools/remplacer-passe.mjs` (corps) le portent, refusent le **lot entier**
+  sur une seule ancre absente, et publient par fiche ce qui doit rester
+  invariant. **Deux tests négatifs délibérés ont mordu** — `Cabler` sans
+  circonflexe, puis `Using a Shield` avec une capitale de trop — et **41 titres
+  plus 33 remplacements sont passés sans un échec**. L'ossature se versionne, la
+  **table vit dans un TSV daté et jetable** (C126). *Éprouvée 1/N.*
+- **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
+  réécrivant son front matter de tête.**
+  *Née le 29/08 (suite 7), récidive exacte de É4 du 29/08 (suite 6).* Réécrire
+  une fiche EN **en entier** oblige à recopier un `source_sha256` de 64
+  hexadécimaux que le générateur venait de poser juste — et rien dans le geste
+  ne signale qu'on touche un marqueur cryptographique. **Un `PLACEHOLDER` a été
+  écrit, réparé par `--recaler` après relecture immédiate ; les trois fiches
+  suivantes ont recopié l'empreinte du squelette au caractère près, et
+  `derive-traduction` rend `A JOUR 197` sans recalage sur celles-là.**
+  ⚠ *Aucun contrôle ne distingue une empreinte inventée d'une empreinte
+  périmée : les deux sortent en `DERIVE`.* *Éprouvée 1/N.*
+- **Un `title:` EN arrêté au test 3 sur les formes de production ne crée aucun
+  candidat `--libelles`.**
+  *Née le 29/08 (suite 7), mesurée sur les quatre titres du lot 3.* Le test 3
+  de C125 ordonne de lire les formes que la production écrit déjà — donc
+  précisément les libellés qui désignent la cible. Choisir le titre parmi eux
+  fait tomber l'heuristique de `--libelles` **à zéro par construction** :
+  **84 libellés changent de statut** (59 écrits, 25 qui cessent de viser une
+  fiche absente) et `candidats a lire` **ne bouge pas d'une unité**, à 105.
+  **Contraposée utile** : si un titre neuf fait monter le compteur, la forme
+  retenue n'était pas celle de la production. *Éprouvée 1/N.*
 - **Une déclaration C131 se termine par le total qu'elle implique.**
   *Née le 29/08 (suite 6), à la première application de C131 et contre elle.*
   La déclaration d'ouverture du bloc G énumérait correctement **deux**
@@ -2264,7 +2310,9 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   par la somme, sinon elle ne garde que la prose. **Servie ensuite au bloc de
   cadrage, où elle a rendu `22 (hors artefacts : 19)` exact et la liste
   nominative complète — la première fois de la séance qu'une déclaration C131
-  a servi à quelque chose.** *Éprouvée 1/N.*
+  a servi à quelque chose.** ⚠ **Reprise en défaut six fois le 29/08 (suite 7)
+  parce que la déclaration y était écrite à l'ouverture pour toute la séance :
+  voir l'amendement en tête de cette section.** *Éprouvée 2/N.*
 - **Une passe de ponctuation ne change pas le nombre de caractères accentués
   d'une fiche.**
   *Née le 29/08 (suite 6), du seul contrôle qui ait attrapé la désaccentuation
@@ -2280,14 +2328,22 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   somme des `len(new) − len(old)` des éditions — c'est lui qui a trouvé le
   décalage d'offset causé par la ligature `œ`, dont le pliage **change la
   longueur**. ⚠ *Les deux invariants coûtent deux lignes et ont trouvé deux
-  défauts qu'une relecture n'avait pas vus.* *Éprouvée 1/N.*
+  défauts qu'une relecture n'avait pas vus.*
+  **Portée par un outil depuis le 29/08 (suite 7)** : `remplacer-passe.mjs`
+  publie les deux invariants **par fiche et avant d'écrire**, et **refuse le lot
+  entier** si l'écart d'accents n'est pas nul. Première épreuve sous outil :
+  **229 → 229, 174 → 174, 303 → 303, 170 → 170** sur les quatre sources du lot 3
+  d'`esp32/`, pour **33 remplacements**. *Éprouvée 2/N.*
 - **La batterie ne se filtre jamais au lancement.**
   *Née le 29/08 (suite 6), incident C124.* Un `| Select-Object -First N` sur
   `batterie.ps1` **coupe le pipeline avant le `Out-File` final** : les mesures
   s'affichent, et le fichier reste sur la sortie précédente. **Un contrôle dont
   le témoin a disparu ne prouve rien (C124), et ici il a disparu parce que je
   regardais la sortie.** La batterie écrit son fichier ; c'est **le fichier**
-  qui se filtre, jamais le lancement. *Éprouvée 0/N.*
+  qui se filtre, jamais le lancement. **Tenue le 29/08 (suite 7) : cinq
+  lancements de `batterie.ps1`, aucun filtré, `batterie-sortie.txt` écrit
+  entier à chaque fois et copié sous `b21` à `b29` — le filtrage a porté sur
+  la **lecture** de la sortie, jamais sur le pipeline.** *Éprouvée 1/N.*
 - **`À-ÿ` n'est pas un intervalle de lettres, et `[\x{00C0}-\x{00FF}]` sur de
   l'UTF-8 compte des octets de tête.**
   *Deux défauts de motif du 29/08 (suite 6), même famille que le backtick du
@@ -2300,7 +2356,22 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   se teste sur un échantillon nommé avant de compter — et les deux échantillons
   nommés de la séance ne portaient ni `×` ni `—`.* **Une règle d'usage en sort :
   l'échantillon nommé se choisit pour contenir ce qui pourrait faire mordre le
-  motif à tort, pas seulement ce qu'il doit trouver.** *Éprouvée 0/N.*
+  motif à tort, pas seulement ce qu'il doit trouver.**
+
+  ⚠ **REPRISE EN DÉFAUT LE 29/08 (SUITE 7), DANS UN OUTIL ÉCRIT LE JOUR MÊME,
+  APRÈS LECTURE D'OUVERTURE DE CE PARAGRAPHE.** La première version de
+  `remplacer-passe.mjs` portait `/[À-ÿŒœŸĀ-ſ]/` — l'intervalle **non troué** que
+  ce texte proscrit en toutes lettres — et a compté les **deux `×`** de
+  l'exercice 2 d'`esp32-deep-sleep` pour des lettres accentuées : **231 publié
+  là où le corpus en porte 229**. Corrigé en `[À-ÖØ-öø-ÿŒœŸĀ-ſ]` et remesuré.
+  *L'invariant, lui, tenait quand même* : l'écart d'un surensemble est nul si
+  l'écart du sous-ensemble l'est et que rien ne bouge entre les deux — vérifié,
+  **le diff des quatre fiches ne porte aucun `×` ni `÷`**. **Le verdict était
+  bon, le chiffre publié faux, et c'est la deuxième séance d'affilée.**
+  ⚠ *Une règle d'usage écrite en toutes lettres, relue le matin, n'empêche pas
+  de la violer l'après-midi dans du code neuf. Ce qui l'empêche est de la loger
+  dans le code — le motif corrigé porte désormais son motif en commentaire, à
+  l'endroit où il se réécrirait.* *Éprouvée 1/N, contre elle.*
 - **Aucun contrôle du chantier ne mesure « du contenu ajouté d'un seul côté ».**
   *Constat du 29/08 (suite 6), non promu.* Un paragraphe écrit en anglais seul —
   absent de la source FR — fabrique l'asymétrie EN/FR que le motif du 26/08

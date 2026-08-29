@@ -16,7 +16,7 @@ aa:
 draft: false
 ---
 
-Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeur et la radio sont coupés, la consommation tombe d'une dizaine de **milliampères** à une dizaine de **microampères**, et la puce ne se réveille qu'à un événement choisi (un délai, un bouton, un toucher). C'est ce qui rend l'ESP32 viable sur batterie : un capteur qui se réveille, mesure, envoie, puis se rendort passe l'essentiel de sa vie à ne presque rien consommer. La notion générale de gestion d'énergie est traitée dans [[deep-sleep|deep sleep]] ; cette fiche en donne l'incarnation ESP32.
+Le **deep sleep** est le mode très basse consommation de l'ESP32 : le processeur et la radio sont coupés, la consommation tombe d'une dizaine de **milliampères** à une dizaine de **microampères**, et la puce ne se réveille qu'à un événement choisi (un délai, un bouton, un toucher). C'est ce qui rend l'ESP32 viable sur batterie : un capteur qui se réveille, mesure, envoie, puis se rendort passe l'essentiel de sa vie à ne presque rien consommer. La notion générale de gestion d'énergie est traitée dans [[deep-sleep|deep sleep]]. Cette fiche en donne l'incarnation ESP32.
 
 ![Cycle du deep sleep : la carte se réveille, travaille, arme une source de réveil puis s'endort ; le réveil suivant vient d'un timer, d'une broche externe ou d'un toucher, et redémarre la carte|640](/ressources/img/esp32-deep-sleep/reveil.svg)
 
@@ -53,7 +53,7 @@ void setup() {
 void loop() {}                       // jamais atteint en deep sleep
 ```
 
-Tout le travail se fait dans `setup()` : à chaque réveil, la carte exécute `setup()`, fait sa tâche, se rendort. `loop()` reste vide. Ici, `#define` est légitime (constante d'échelle utilisée dans un calcul de durée) ; pour des broches ou seuils, on préférera `const`.
+Tout le travail se fait dans `setup()` : à chaque réveil, la carte exécute `setup()`, fait sa tâche, se rendort. `loop()` reste vide. Ici, `#define` est légitime (constante d'échelle utilisée dans un calcul de durée). Pour des broches ou seuils, on préférera `const`.
 
 ## Mémoire RTC : ce qui survit au sommeil
 
@@ -129,7 +129,7 @@ Au lieu (ou en plus) du timer, l'ESP32 peut se réveiller sur une **broche** :
 - `esp_sleep_enable_ext0_wakeup(GPIO_NUM_33, niveau)` — réveil sur **une** broche (un bouton), au niveau `0` (LOW) ou `1` (HIGH).
 - `esp_sleep_enable_ext1_wakeup(masque, mode)` — réveil sur **plusieurs** broches à la fois.
 
-Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32-39`) — une broche ordinaire ne réveille pas la puce. Après le réveil, `esp_sleep_get_wakeup_cause()` indique *pourquoi* la carte s'est réveillée (timer, ext0, touch…), pour réagir différemment selon la source.
+Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32-39`). Une broche ordinaire ne réveille pas la puce. Après le réveil, `esp_sleep_get_wakeup_cause()` indique *pourquoi* la carte s'est réveillée (timer, ext0, touch…), pour réagir différemment selon la source.
 
 ![Câblage du réveil par bouton : bouton entre GPIO33 et GND, résistance externe de 10 kΩ tirant GPIO33 vers 3V3, les tirages internes n'étant pas garantis pendant le sommeil|600](/ressources/img/esp32-deep-sleep/montage-reveil-bouton.svg)
 
@@ -139,13 +139,13 @@ Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32
 
 **Variable perdue entre deux réveils.** Un compteur ou un état déclaré normalement repart de zéro à chaque réveil. Le déclarer `RTC_DATA_ATTR` pour qu'il survive.
 
-**Broche non-RTC pour un réveil externe.** `ext0`/`ext1` n'acceptent que les broches RTC. Une broche ordinaire est ignorée — la carte ne se réveille jamais.
+**Broche non-RTC pour un réveil externe.** `ext0`/`ext1` n'acceptent que les broches RTC. Une broche ordinaire est ignorée, et la carte ne se réveille jamais.
 
 **Bouton flottant en sommeil.** Pendant le deep sleep, les résistances de tirage internes ne sont pas garanties. Un bouton de réveil exige une **résistance externe** (ou l'activation explicite du tirage RTC), sinon des réveils intempestifs sur du bruit.
 
 **`Serial` coupé trop tôt.** Sans `Serial.flush()` avant `esp_deep_sleep_start()`, les derniers messages peuvent ne pas partir. Et un `delay(100)` en début de `setup()` laisse le temps à l'USB de se rétablir avant d'imprimer.
 
-**Consommation décevante sur carte de développement.** La carte de dev (DevKit) garde sous tension sa puce USB-série, sa LED d'alimentation et son régulateur — elle consomme bien plus que le microampère annoncé. La très basse consommation se mesure sur le **module nu**, pas sur le kit de dev.
+**Consommation décevante sur carte de développement.** La carte de dev (DevKit) garde sous tension sa puce USB-série, sa LED d'alimentation et son régulateur. Elle consomme bien plus que le microampère annoncé. La très basse consommation se mesure sur le **module nu**, pas sur le kit de dev.
 
 ## Exercices
 
@@ -195,7 +195,7 @@ Ces réveils n'acceptent que les **broches RTC** (`GPIO0, 2, 4, 12-15, 25-27, 32
 
 ## Cas particulier — Light sleep
 
-Entre le fonctionnement normal et le deep sleep existe le **light sleep** : la puce suspend le processeur mais **conserve l'état** (RAM, périphériques), et reprend l'exécution là où elle s'était arrêtée au réveil — sans RESET. La consommation est intermédiaire (quelques centaines de µA à quelques mA). On le choisit quand on veut économiser **sans perdre le contexte** (latence de réveil faible), là où le deep sleep impose de tout reconstruire à chaque cycle.
+Entre le fonctionnement normal et le deep sleep existe le **light sleep** : la puce suspend le processeur mais **conserve l'état** (RAM, périphériques), et reprend l'exécution là où elle s'était arrêtée au réveil, sans RESET. La consommation est intermédiaire (quelques centaines de µA à quelques mA). On le choisit quand on veut économiser **sans perdre le contexte** (latence de réveil faible), là où le deep sleep impose de tout reconstruire à chaque cycle.
 
 ## Raccrochage projet
 

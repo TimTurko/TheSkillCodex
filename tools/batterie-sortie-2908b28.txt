@@ -1,0 +1,24 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-2908b27.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : garde   anneau : 2   chevron : False
+date ISO : 2026-08-29   heure : 19:54:41
+
+HEAD git : a5226ea 2026-08-29 19:30:08 +0200
+fichiers modifies non commites : 52   (hors artefacts de seance : 44)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-29 19:08:19
+  conventions.md                                      2026-08-29 19:09:34
+  TODO.md                                             2026-08-29 19:09:34
+--- code de sortie : 0

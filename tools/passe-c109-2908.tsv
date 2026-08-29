@@ -1,0 +1,37 @@
+# Passe C109 sous C123 - lot 3 d esp32/ - 29/08 (suite 7).
+# chemin<TAB>ancre exacte<TAB>remplacement
+# 38 candidats releves par --style, 36 traites, 2 exemptes (deep-sleep l.189,
+# puce d un corrige, segments nominaux sans verbe conjugue).
+embarque/mcu/esp32/esp32-deep-sleep.md	[[deep-sleep|deep sleep]] ; cette fiche en donne l'incarnation ESP32.	[[deep-sleep|deep sleep]]. Cette fiche en donne l'incarnation ESP32.
+embarque/mcu/esp32/esp32-deep-sleep.md	dans un calcul de durée) ; pour des broches ou seuils, on préférera	dans un calcul de durée). Pour des broches ou seuils, on préférera
+embarque/mcu/esp32/esp32-deep-sleep.md	32-39`) — une broche ordinaire ne réveille pas la puce.	32-39`). Une broche ordinaire ne réveille pas la puce.
+embarque/mcu/esp32/esp32-deep-sleep.md	Une broche ordinaire est ignorée — la carte ne se réveille jamais.	Une broche ordinaire est ignorée, et la carte ne se réveille jamais.
+embarque/mcu/esp32/esp32-deep-sleep.md	et son régulateur — elle consomme bien plus que	et son régulateur. Elle consomme bien plus que
+embarque/mcu/esp32/esp32-deep-sleep.md	s'était arrêtée au réveil — sans RESET.	s'était arrêtée au réveil, sans RESET.
+embarque/mcu/esp32/esp32-arduino-core.md	système temps réel **FreeRTOS** — ce qui change discrètement	système temps réel **FreeRTOS**, ce qui change discrètement
+embarque/mcu/esp32/esp32-arduino-core.md	sa résistance de 220 Ω — voir le montage de [[esp32-prise-en-main|la prise en main]].*	sa résistance de 220 Ω (voir le montage de [[esp32-prise-en-main|la prise en main]]).*
+embarque/mcu/esp32/esp32-arduino-core.md	broches en 3,3 V — tous traités dans [[esp32-gpio|configurer les GPIO]] et [[esp32-serie|le moniteur série]].	broches en 3,3 V (tous traités dans [[esp32-gpio|configurer les GPIO]] et [[esp32-serie|le moniteur série]]).
+embarque/mcu/esp32/esp32-arduino-core.md	a deux cœurs ; `loop()` s'exécute par défaut	a deux cœurs, et `loop()` s'exécute par défaut
+embarque/mcu/esp32/esp32-arduino-core.md	la mémoire libre — deux informations qui n'existent pas	la mémoire libre, deux informations qui n'existent pas
+embarque/mcu/esp32/esp32-arduino-core.md	sont **identiques** — c'est le point de la démonstration.	sont **identiques**. C'est le point de la démonstration.
+embarque/mcu/esp32/esp32-arduino-core.md	comme sur un AVR nu — pour des échéances strictes, structurer	comme sur un AVR nu. Pour des échéances strictes, structurer
+embarque/mcu/esp32/esp32-arduino-core.md	et l'y épingler — voir [[esp32-freertos|FreeRTOS]].	et l'y épingler (voir [[esp32-freertos|FreeRTOS]]).
+embarque/mcu/esp32/esp32-arduino-core.md	passent sans souci ; sur un Uno (2 ko de RAM), la même allocation	passent sans souci. Sur un Uno (2 ko de RAM), la même allocation
+embarque/mcu/esp32/esp32-arduino-core.md	repose sur FreeRTOS — donc que `loop()` n'est pas seul au monde — évite les pièges	repose sur FreeRTOS (donc que `loop()` n'est pas seul au monde) évite les pièges
+embarque/mcu/esp32/esp32-freertos.md	C'est la spécialité de la famille — l'ESP32 a deux cœurs et un RTOS natif.	C'est la spécialité de la famille. L'ESP32 a deux cœurs et un RTOS natif.
+embarque/mcu/esp32/esp32-freertos.md	une tâche FreeRTOS ; cette fiche montre comment	une tâche FreeRTOS. Cette fiche montre comment
+embarque/mcu/esp32/esp32-freertos.md	capteur sur `GPIO34` — voir les montages de [[esp32-gpio|configurer les GPIO]].*	capteur sur `GPIO34` (voir les montages de [[esp32-gpio|configurer les GPIO]]).*
+embarque/mcu/esp32/esp32-freertos.md	lisible isolément — c'est l'intérêt structurant	lisible isolément. C'est l'intérêt structurant
+embarque/mcu/esp32/esp32-freertos.md	acceptable dans une tâche ; mais utiliser	acceptable dans une tâche. Mais utiliser
+embarque/mcu/esp32/esp32-freertos.md	où il est nécessaire — et toujours pas suffisant si l'accès n'est pas atomique.	où il est nécessaire, et toujours pas suffisant si l'accès n'est pas atomique.
+embarque/mcu/esp32/esp32-freertos.md	les lectures d'une variable ; il ne garantit	les lectures d'une variable. Il ne garantit
+embarque/mcu/esp32/esp32-freertos.md	fixe le cœur ; `xPortGetCoreID()` le lit depuis la tâche.	fixe le cœur, et `xPortGetCoreID()` le lit depuis la tâche.
+embarque/mcu/esp32/esp32-freertos.md	numéros de cœur différents — la preuve que le travail est bien réparti	numéros de cœur différents, la preuve que le travail est bien réparti
+embarque/mcu/esp32/esp32-idf.md	**mise en perspective** — quand l'IDF se justifie, ce qu'il apporte, comment y mettre un premier pied — et non un cours complet	**mise en perspective** (quand l'IDF se justifie, ce qu'il apporte, comment y mettre un premier pied) et non un cours complet
+embarque/mcu/esp32/esp32-idf.md	ne le force — et de migrer la partie concernée	ne le force, et de migrer la partie concernée
+embarque/mcu/esp32/esp32-idf.md	une fonction `app_main()` ; il n'y a pas de boucle imposée	une fonction `app_main()`. Il n'y a pas de boucle imposée
+embarque/mcu/esp32/esp32-idf.md	tout l'acquis Arduino — on compose.	tout l'acquis Arduino : on compose.
+embarque/mcu/esp32/esp32-idf.md	ne tourne — la fonction retourne	ne tourne : la fonction retourne
+embarque/mcu/esp32/esp32-idf.md	toutes les minutes ; (b) un produit commercial nécessitant des mises à jour à distance sécurisées ; (c) un prototype de robot pour un cours.	toutes les minutes. (b) Un produit commercial nécessitant des mises à jour à distance sécurisées. (c) Un prototype de robot pour un cours.
+embarque/mcu/esp32/esp32-idf.md	en commandes reproductibles — d'où l'intérêt en intégration continue.	en commandes reproductibles, d'où l'intérêt en intégration continue.
+embarque/mcu/esp32/esp32-idf.md	[[esp32-arduino-core|Arduino-core]] ; identifier *si* et *où* l'IDF deviendra	[[esp32-arduino-core|Arduino-core]]. Identifier *si* et *où* l'IDF deviendra

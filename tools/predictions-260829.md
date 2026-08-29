@@ -3020,3 +3020,1087 @@ le texte produit ; É5 a été signalé par un compteur qui cherchait autre chos
 par la mesure — les deux alt du 26/08 et du 29/08, la désaccentuation du 29/08
 (suite 6).* **Les instruments du chantier mesurent des différences entre deux
 états ; ils ne mesurent rien de ce qui est faux des deux côtés à la fois.**
+
+---
+
+# Prédictions — 2026-08-29 (suite 7), pilote Claude Code, CHANTIER FR DE NOMMAGE
+
+> **Quatrième séance sous la sous-règle C116 « exécution directe »** avec ses
+> amendements 6 à 9, **deuxième séance sous C131**, et première séance sous les
+> **trois règles d'usage du 29/08 (suite 6)** — *une déclaration C131 se termine
+> par le total qu'elle implique*, *une passe de ponctuation ne change pas le
+> nombre de caractères accentués*, *la batterie ne se filtre jamais au
+> lancement*. Même journée d'horloge que les lots 6, 1 et 2 : **même fichier de
+> prédictions**.
+>
+> **Chantier** : table arbitrée le 29/08 (suite 5), **9 paires**, qualificatif
+> en queue sur les huit régulières, dérogation sur `lire-un-programme`,
+> `entree-tor` aligné sur `Reading a digital input` (arbitrage Tim contre ma
+> recommandation), `micropython-shield-en` → `Using a shield or expansion
+> board`. Puis **`--recaler` sur les 18 paires**. Puis **lot 3 d'`esp32/`**.
+
+## INCIDENT DE PROTOCOLE — LE BLOC G A ÉTÉ LANCÉ AVANT SES PRÉDICTIONS
+
+`batterie.ps1 -Phase garde` a été lancé au titre de **l'étape 3 de la lecture
+d'ouverture de CLAUDE.md**, donc **avant** que ce fichier ne reçoive quoi que ce
+soit. La sous-règle C116 (1) exige l'ordre inverse : les prédictions s'appendent
+**avant chaque bloc d'exécution**, l'ordre des appels dans la transcription
+faisant foi. **Le bloc G est donc hors décompte**, comme le bloc 9 du 29/08
+(suite 6), et ses constats se consignent sans verdict.
+
+*La cause est nommable et elle est structurelle* : CLAUDE.md ordonne la garde en
+**troisième lecture d'ouverture**, avant tout cadrage, quand C116 (1) exige un
+fichier de prédictions déjà ouvert. **Les deux instructions se contredisent sur
+le premier lancement de chaque séance**, et c'est la deuxième séance d'affilée
+que le premier bloc tombe hors décompte pour une raison de séquence.
+**Arbitrage à remonter** (voir clôture).
+
+### Constats du bloc G (sortie `batterie-sortie.txt`, horloge 19:30:56)
+
+Garde **verte**. `lignes non ASCII dans batterie.ps1` = **0** ; copie C124 =
+`tools\batterie-sortie-2908b21.txt` ; en-tête `phase demandee : garde   anneau :
+2   chevron : False` ; date **2026-08-29**, heure **19:30:56** ; HEAD
+**`a5226ea` 2026-08-29 19:30:08 +0200** ; `fichiers modifies non commites` = **1
+(hors artefacts de seance : 0)** ; `node : v24.15.0` ; dates d'écriture
+`JOURNAL.md` 19:08:19, `conventions.md` 19:09:34, `TODO.md` 19:09:34 — **les
+trois antérieures à l'horloge de HEAD**, donc committées. Aucune fiche de
+`content/` listée. **Aucun état inattendu.**
+
+**Liste nominative du compteur `fichiers modifies non commites` = 1** :
+`tools/batterie-sortie-2908b21.txt`, copie C124 créée par l'étape 0 du
+lancement lui-même. **Hors artefacts = 0**, la liste nominative est **vide**,
+la garde n'est pas affectée (C116 (9)).
+
+## DÉCLARATION C131 D'OUVERTURE — population des compteurs, ce que la séance y a déjà versé, ET LE TOTAL QUE CELA IMPLIQUE
+
+**Versé dans le dépôt avant le bloc 1** — deux fichiers, et je les additionne
+(règle d'usage du 29/08 suite 6, née de la réfutation G-6) :
+
+1. `tools/batterie-sortie-2908b21.txt` — copie C124 du bloc G, fichier **neuf,
+   non suivi** : **+1** au compteur total, **0** hors artefacts (filtre
+   `-notmatch 'batterie-sortie'`).
+2. **Le présent texte**, appendu à `tools/predictions-260829.md`, fichier
+   **suivi par git** (arbitrage (f)(ii) du 29/08) : **+1** au compteur total,
+   **0** hors artefacts (filtre `-notmatch 'predictions-'`).
+
+**TOTAL IMPLIQUÉ : `fichiers modifies non commites` = 2, `hors artefacts de
+seance` = 0**, à la prochaine garde et **avant toute édition de `content/`**.
+Chaque passe d'édition ajoutera ensuite ses fiches **au compteur hors
+artefacts**, et c'est là que se lira la liste nominative.
+
+**Populations nommées, pour toute la séance :**
+
+| compteur | population exacte, lue dans le code qui l'incrémente |
+|---|---|
+| `fiches lues` de `titres-doublons.mjs` **côté FR** | tout `.md` sous `content/` **hors `content/en/` et hors `templates/`**, portant un front matter avec `title:` |
+| `fiches lues` **côté EN** | tout `.md` sous `content/en/` |
+| `GROUPES EN COLLISION` | groupes de **forme normalisée** (accents retirés, casse repliée, ponctuation réduite à un blanc) portés par **2 fiches ou plus** du **même côté** |
+| `candidats a lire` de `--libelles` | wikilinks **à libellé** de `content/en/` **seul**, hors blocs de code, dont la cible EN existe, dont aucun radical de mot utile n'est commun au `title:` de la cible, sigles et patron `step N` exclus |
+| `mots FR` de `compter-mots.mjs` | mots C110 **hors front matter**, hors blocs de code clôturés, de toutes les fiches FR publiées |
+| `A JOUR` de `derive-traduction.mjs` | fiches EN dont le `source_sha256` égale le sha256 **du contenu entier** de la source FR, **front matter compris** |
+
+**DEUX CONSÉQUENCES DE CES DEUX DERNIÈRES LIGNES, ET ELLES TIRENT EN SENS
+CONTRAIRE.** `compter-mots` **retire le front matter avant de compter** : une
+passe de `title:` lui est **invisible par construction**, donc il ne peut pas
+réfuter l'invariant de corps — il peut seulement ne pas le contredire.
+`derive-traduction` prend au contraire le **fichier entier**, front matter
+compris : une passe de `title:` FR met **mécaniquement** ses jumelles en dérive.
+*C'est exactement ce que dit le brief — sans `--recaler`, la ligne « dérive 0 »
+ment plusieurs séances.*
+
+**L'instrument de l'invariant de corps n'est donc PAS `compter-mots`, c'est
+`git diff --numstat`** : une passe de titres doit rendre **`1  1`** sur chaque
+fiche touchée, et **toutes** les lignes du `git diff -U0` doivent commencer par
+`title:`. `compter-mots` se lance quand même — le brief l'ordonne, et un chiffre
+inchangé est une garde de plus — mais **c'est le diff qui prouve, pas lui**.
+
+## Bloc 1 — G1, CADRAGE DU CHANTIER : LES RELEVÉS D'ENTRÉE, AVANT TOUTE ÉCRITURE
+
+Commandes :
+
+    node tools/titres-doublons.mjs
+    node tools/creer-fiche-en.mjs --libelles
+    node tools/derive-traduction.mjs --tout
+    node tools/compter-mots.mjs
+    node tools/compter-mots.mjs --lot <les 18 sources FR>
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 1-1 | `titres-doublons` **FR** : `fiches lues` **243**, `sans title:` **0**, `titres distincts` **234**, `GROUPES EN COLLISION` **9**, `fiches concernees` **18** | | |
+| 1-2 | `titres-doublons` **EN** : `fiches lues` **193**, `sans title:` **0**, `titres distincts` **184**, `GROUPES EN COLLISION` **9**, `fiches concernees` **18** | | |
+| 1-3 | les **neuf** groupes FR sont exactement : `Câbler un module`, `État des GPIO à l'allumage`, `Lire un capteur numérique`, `Lire un programme qu'on n'a pas écrit`, `Lire une entrée TOR`, `Piloter un moteur pas-à-pas`, `Piloter un servomoteur`, `Piloter une sortie TOR`, `Utiliser une bibliothèque` — **2 fiches chacun**, aucun à 3 | | |
+| 1-4 | les **neuf** groupes EN sont exactement : `Driving a servo`, `Driving a stepper motor`, `Driving an on/off output`, `GPIO state at power-up`, `Reading a digital sensor`, `Reading a program you did not write`, `Using a library`, `Using a shield`, `Wiring a module` — **2 fiches chacun** | | |
+| 1-5 | **8 groupes communs** ; **FR seul** = `Lire une entrée TOR` ; **EN seul** = `Using a shield`. L'appariement se fait par **couple de fiches**, pas par forme traduite | | |
+| 1-6 | `--libelles` : `wikilinks a libelle` **3570**, `cible EN existante` **3236**, `cible EN absente` **334**, `candidats a lire` **112**, `positions de parcours` **16** | | |
+| 1-7 | `derive-traduction --tout` : `A JOUR` **193**, `DERIVE` **0**, `SANS SOURCE` **0**, `SANS MARQUE` **0**, **code de sortie 0** | | |
+| 1-8 | `compter-mots` (corpus) : `mots FR` **291220**, `deja traduites` **193 fiches / 221956 mots**, `RESTANT A TRADUIRE` **49 fiches / 69264 mots** | | |
+| 1-9 | `compter-mots --lot` sur les 18 sources FR rend **19 lignes** (18 fiches + 1 total). **La valeur du total n'est PAS prédite** : aucune mesure du jour ne la porte, et C118 interdit de la dériver. C'est un **relevé de référence**, comme le bloc 1 du 29/08 (suite 6) | | |
+| 1-10 | `git status --porcelain` : **2 fichiers**, `tools/batterie-sortie-2908b21.txt` et `tools/predictions-260829.md`, **0 dans `content/`** | | |
+
+**Ce qu'un écart déclencherait.** 1-1 à 1-5 réfutés = **la table arbitrée ne
+porte pas sur l'état mesuré du dépôt** = arrêt et remontée à Tim avant toute
+écriture. 1-7 réfuté (dérive non nulle à l'entrée) = le `--recaler` du lot
+masquerait une dérive préexistante = arrêt. 1-10 réfuté = garde de péremption.
+
+### FORMES EXACTES DE LA TABLE, ÉCRITES AVANT LA PASSE (C116 (2) : une prédiction sans forme exacte est réputée absente)
+
+**Côté FR — 18 fiches, 18 `title:` réécrits.** Patron `sur Arduino` /
+`en MicroPython`, **lu en production** sur 14 paires FR (`i2c`, `spi`, `uart`,
+`temporisation`, `timers`, `interruptions`, `machine-a-etats`, `memoire`,
+`moteur-cc`, `sortie-pwm`, `capteur-analogique`, `pid`, `watchdog`,
+`programmation-non-bloquante`) et **pas déduit**.
+
+| # | fiche | avant | après |
+|---|---|---|---|
+| F1 | `arduino-module` | Câbler un module | **Câbler un module sur Arduino** |
+| F2 | `micropython-module` | Câbler un module | **Câbler un module en MicroPython** |
+| F3 | `arduino-gpio-boot` | État des GPIO à l'allumage | **État des GPIO à l'allumage sur Arduino** |
+| F4 | `micropython-gpio-boot` | État des GPIO à l'allumage | **État des GPIO à l'allumage en MicroPython** |
+| F5 | `arduino-capteur-numerique` | Lire un capteur numérique | **Lire un capteur numérique sur Arduino** |
+| F6 | `micropython-capteur-numerique` | Lire un capteur numérique | **Lire un capteur numérique en MicroPython** |
+| F7 | `cpp-lire-un-programme` | Lire un programme qu'on n'a pas écrit | **Lire un programme C++ qu'on n'a pas écrit** *(dérogation)* |
+| F8 | `micropython-lire-un-programme` | Lire un programme qu'on n'a pas écrit | **Lire un programme MicroPython qu'on n'a pas écrit** *(dérogation)* |
+| F9 | `arduino-entree-tor` | Lire une entrée TOR | **Lire une entrée TOR sur Arduino** |
+| F10 | `micropython-entree-tor` | Lire une entrée TOR | **Lire une entrée TOR en MicroPython** |
+| F11 | `arduino-moteur-pas-a-pas` | Piloter un moteur pas-à-pas | **Piloter un moteur pas-à-pas sur Arduino** |
+| F12 | `micropython-moteur-pas-a-pas` | Piloter un moteur pas-à-pas | **Piloter un moteur pas-à-pas en MicroPython** |
+| F13 | `arduino-servomoteur` | Piloter un servomoteur | **Piloter un servomoteur sur Arduino** |
+| F14 | `micropython-servomoteur` | Piloter un servomoteur | **Piloter un servomoteur en MicroPython** |
+| F15 | `arduino-sortie-tor` | Piloter une sortie TOR | **Piloter une sortie TOR sur Arduino** |
+| F16 | `micropython-sortie-tor` | Piloter une sortie TOR | **Piloter une sortie TOR en MicroPython** |
+| F17 | `arduino-bibliotheques` | Utiliser une bibliothèque | **Utiliser une bibliothèque sur Arduino** |
+| F18 | `micropython-bibliotheques` | Utiliser une bibliothèque | **Utiliser une bibliothèque en MicroPython** |
+
+**Côté EN — 19 fiches, et le chiffre n'est pas 18.** Patron `on Arduino` /
+`in MicroPython`, **lu en production** sur 16 titres `on Arduino` et 15
+`in MicroPython`.
+
+| # | fiche | avant | après |
+|---|---|---|---|
+| E1 | `arduino-module-en` | Wiring a module | **Wiring a module on Arduino** |
+| E2 | `micropython-module-en` | Wiring a module | **Wiring a module in MicroPython** |
+| E3 | `arduino-gpio-boot-en` | GPIO state at power-up | **GPIO state at power-up on Arduino** |
+| E4 | `micropython-gpio-boot-en` | GPIO state at power-up | **GPIO state at power-up in MicroPython** |
+| E5 | `arduino-capteur-numerique-en` | Reading a digital sensor | **Reading a digital sensor on Arduino** |
+| E6 | `micropython-capteur-numerique-en` | Reading a digital sensor | **Reading a digital sensor in MicroPython** |
+| E7 | `cpp-lire-un-programme-en` | Reading a program you did not write | **Reading a C++ program you did not write** *(dérogation, miroir de F7)* |
+| E8 | `micropython-lire-un-programme-en` | Reading a program you did not write | **Reading a MicroPython program you did not write** *(dérogation, miroir de F8)* |
+| E9 | `arduino-entree-tor-en` | Reading an on/off input | **Reading a digital input on Arduino** |
+| E10 | `micropython-entree-tor-en` | Reading a digital input | **Reading a digital input in MicroPython** |
+| E11 | `arduino-moteur-pas-a-pas-en` | Driving a stepper motor | **Driving a stepper motor on Arduino** |
+| E12 | `micropython-moteur-pas-a-pas-en` | Driving a stepper motor | **Driving a stepper motor in MicroPython** |
+| E13 | `arduino-servomoteur-en` | Driving a servo | **Driving a servo on Arduino** |
+| E14 | `micropython-servomoteur-en` | Driving a servo | **Driving a servo in MicroPython** |
+| E15 | `arduino-sortie-tor-en` | Driving an on/off output | **Driving an on/off output on Arduino** |
+| E16 | `micropython-sortie-tor-en` | Driving an on/off output | **Driving an on/off output in MicroPython** |
+| E17 | `arduino-bibliotheques-en` | Using a library | **Using a library on Arduino** |
+| E18 | `micropython-bibliotheques-en` | Using a library | **Using a library in MicroPython** |
+| E19 | `micropython-shield-en` | Using a shield | **Using a shield or expansion board** |
+
+**`arduino-shield-en` NE BOUGE PAS** — il garde `Using a shield`, image du
+`title:` FR `Utiliser un shield` que la source porte déjà. C'est le sens de
+« `shield` se traite côté EN seul » : le FR distingue déjà, l'anglais rattrape.
+
+**LE « 18 EN » DU BRIEF EST UN COMPTE DE FICHES EN COLLISION, PAS UN COMPTE
+D'ÉDITIONS, ET LES DEUX DIFFÈRENT DE UN.** Les 18 fiches EN concernées sont les
+**9 groupes EN fois 2**. Le chantier en **retire** `arduino-shield-en`
+(inchangé, moins un) et y **ajoute** les deux fiches `entree-tor-en`, qui ne
+forment **aucun groupe EN** puisque leurs deux titres diffèrent déjà (plus
+deux). **18 moins 1 plus 2 = 19 éditions EN**, contre **18 éditions FR**. *Le
+nombre reporté au brief est juste sur sa propre population et faux sur celle des
+passes* — C131 exactement, et c'est la troisième fois de la semaine qu'un
+compteur du chantier de nommage est lu sur la mauvaise population.
+
+**`--recaler` porte bien sur 18 paires** — une par fiche FR touchée — et non 19 :
+E19 et E9 ne changent aucune source FR, et F9/F10 sont déjà comptées.
+
+### DÉCISIONS PRISES SEULES SOUS C117, AVEC LEUR COÛT DE REVERT (amendement C116 (8))
+
+1. **La forme anglaise de la dérogation** (E7/E8) : `Reading a C++ program you
+   did not write` / `Reading a MicroPython program you did not write`. Le
+   JOURNAL du 29/08 (suite 5) arbitre la dérogation **en français seulement** ;
+   l'anglais en est le miroir strict, qualificatif dans le groupe nominal parce
+   qu'aucune forme en queue ne se dit derrière la relative — le motif est le
+   même dans les deux langues. **Revert = 2 éditions de `title:` + 2
+   `--recaler`.**
+2. **`Driving an on/off output` reste `on/off` en anglais** (E15/E16) alors que
+   `Reading an on/off input` devient `digital` (E9). L'arbitrage Tim du 29/08
+   (suite 5) porte **nommément sur `entree-tor`** et sur lui seul ; l'étendre à
+   `sortie-tor` serait décider à la place de Tim. **Coût assumé : l'anglais
+   porte désormais `digital input` en lecture et `on/off output` en écriture,
+   là où le français porte `entrée TOR` / `sortie TOR` symétriques.**
+   **Revert = 2 éditions + 2 `--recaler`. Remonté en arbitrage à la clôture.**
+3. **Passe FR d'abord, passe EN ensuite, `--recaler` en dernier.** L'ordre
+   inverse recalerait sur une source FR pas encore réécrite et referait tomber
+   les 18 paires en dérive. **Revert : sans objet, l'ordre ne s'écrit pas.**
+
+### Constats du bloc 1 (G1) — **10 prédictions, 10 tenues, 0 réfutée**
+
+| # | constat |
+|---|---|
+| 1-1 | FR **243 / 0 / 234 / 9 / 18** — tenue au terme près |
+| 1-2 | EN **193 / 0 / 184 / 9 / 18** — tenue au terme près |
+| 1-3 | les neuf formes FR sont exactement les neuf prédites, **2 fiches chacune** |
+| 1-4 | les neuf formes EN sont exactement les neuf prédites, **2 fiches chacune** |
+| 1-5 | **8 communs**, FR seul `Lire une entrée TOR`, EN seul `Using a shield` |
+| 1-6 | `--libelles` **3570 / 3236 / 334 / 112 / 16** |
+| 1-7 | `A JOUR` **193**, DERIVE / SANS SOURCE / SANS MARQUE **0 / 0 / 0**, exit **0** |
+| 1-8 | corpus **242 fiches, 291220 mots**, traduites **193 / 221956**, restant **49 / 69264** |
+| 1-9 | `--lot` rend **19 lignes**. **Relevé de référence : LOT (18 fiches) = 24885 mots** |
+| 1-10 | `git status --porcelain` = **2**, `tools/predictions-260829.md` (M) et `tools/batterie-sortie-2908b21.txt` (??), **0 dans `content/`** |
+
+**Le cadrage est vert sur ses dix termes**, et la table arbitrée porte bien sur
+l'état mesuré du dépôt. **24885 mots FR** est la référence de l'invariant de
+corps ; **291220** celle du corpus.
+
+*Première fois de la semaine qu'un bloc de cadrage sort à zéro réfutation.* La
+cause est lisible : **neuf des dix prédictions sont des relevés d'état déjà
+mesurés le jour même** — b20 pour `--libelles`, la dérive et le corpus,
+`titres-2908.txt` pour les titres — et la seule qui ne l'était pas, 1-9, a été
+**déclarée non prédite** au lieu d'être dérivée. *Le taux de réfutation d'un
+bloc de cadrage mesure surtout la fraîcheur de ses sources.*
+
+---
+
+## Bloc 2 — G2, PASSE FR : LES 18 `title:`, OUTIL DE RENOMMAGE ATOMIQUE, ET L'INVARIANT DE CORPS
+
+Commandes :
+
+    powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde
+    node tools/renommer-titres.mjs tools/table-titres-2908.tsv            (contrôle seul)
+    node tools/renommer-titres.mjs tools/table-titres-2908.tsv --ecrire
+    git diff --numstat ; git diff -U0
+    node tools/compter-mots.mjs --lot <les 18>  ; node tools/compter-mots.mjs
+    node tools/titres-doublons.mjs ; node tools/derive-traduction.mjs --tout
+
+**Décision C117 (4), avec son coût de revert.** La passe s'écrit dans un **outil
+node neuf**, `tools/renommer-titres.mjs`, et non dans `tools/seance.ps1`.
+*Motif lu dans la contrainte et non choisi* : C122 impose à `seance.ps1` d'être
+**ASCII strict**, et les 18 titres FR portent `â`, `É`, `é`, `à`, `ê` — un
+`seance.ps1` conforme ne peut pas porter cette table en littéral. Le
+renommage du 27/08 (suite 4) avait déjà contourné la même contrainte.
+L'outil ne porte **aucune table** : elle vit dans un TSV daté,
+`tools/table-titres-2908.tsv`, ce qui satisfait C126 — l'ossature se versionne,
+le contenu de la passe est daté et jetable. **Revert = suppression de deux
+fichiers non suivis, aucune fiche touchée.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 2-0 | garde avant passe : HEAD **`a5226ea`** inchangé, `fichiers modifies non commites` = **3** (predictions M, `batterie-sortie-2908b21.txt` ??, `batterie-sortie-2908b22.txt` ?? créée par l'étape 0 du lancement lui-même), `hors artefacts de seance` = **0**, copie C124 = `tools\batterie-sortie-2908b22.txt` | | |
+| 2-1 | **contrôle d'unicité d'ancre, test négatif** : le TSV reçoit une **19ᵉ ligne délibérément fausse** (ancre `Cabler un module` sans circonflexe, celle-là même dont l'absence d'accent a fait échouer le lot 6 du 29/08) — le contrôle rend **18 ancres trouvées, 1 introuvable**, **exit 1**, et **0 fichier écrit** | | |
+| 2-2 | ligne fausse retirée : contrôle **18 / 18 ancres uniques**, exit **0**, **0 fichier écrit** (le mode par défaut n'écrit pas) | | |
+| 2-3 | `--ecrire` : **18 fichiers réécrits**, aucun refus | | |
+| 2-4 | `git diff --numstat` sur `content/` : **18 lignes**, chacune exactement **`1	1`** — une ligne ajoutée, une retirée, par fiche | | |
+| 2-5 | `git diff -U0 -- content/` : **36 lignes** de contenu (hors `+++`/`---`), **18 en `-title: `** et **18 en `+title: `**, **aucune** ne portant autre chose que `title:` | | |
+| 2-6 | `compter-mots --lot` sur les 18 : **24885**, **strictement inchangé**, et **chaque ligne fiche à fiche inchangée** — 1621 / 924 / 1520 / 1061 / 1526 / 1237 / 2481 / 2644 / 1019 / 933 / 1477 / 872 / 1732 / 1375 / 1140 / 948 / 1587 / 788 | | |
+| 2-7 | `compter-mots` corpus : **242 fiches, 291220 mots**, `mediane par fiche` **1089**, `fiche la plus lourde` `embarque/pcb/easyeda.md (9773)` — les quatre inchangés | | |
+| 2-8 | `titres-doublons` **FR** : `fiches lues` **243**, `titres distincts` **243**, `GROUPES EN COLLISION` **0**, `fiches concernees` **0** | | |
+| 2-9 | `titres-doublons` **EN** : **inchangé**, 193 / 184 / **9** / 18 — la passe FR ne touche aucun `title:` anglais | | |
+| 2-10 | `derive-traduction --tout` : `DERIVE` **18**, `A JOUR` **175**, `SANS SOURCE` **0**, `SANS MARQUE` **0**, **exit 1** ; les 18 dérivées sont exactement les jumelles EN des 18 fiches FR de la table | | |
+| 2-11 | `--libelles` : **112 candidats, inchangé** — le mode ne lit que `content/en/` (lu dans le code, `walk(join(CONTENT, 'en'))`), donc une passe FR lui est invisible | | |
+| 2-12 | `git status --porcelain` après passe : **21 fichiers**, dont **18 dans `content/`** ; `hors artefacts de seance` de la garde suivante = **18** | | |
+
+**Ce qu'un écart déclencherait.** 2-1 réfuté (le contrôle laisse passer une
+ancre absente) = **l'outil ne garde pas**, arrêt et réécriture avant tout
+`--ecrire`. 2-4 ou 2-5 réfuté = **le corps a bougé**, `git checkout` des 18 et
+arrêt. 2-10 réfuté à la baisse = des jumelles ne sont pas détectées dérivées,
+donc le `--recaler` du bloc 4 en manquerait.
+
+### Constats du bloc 2 (G2) — **13 prédictions, 11 tenues, 2 réfutées**
+
+| # | constat | verdict |
+|---|---|---|
+| 2-0 | HEAD **`a5226ea` inchangé**, horloge **19:39:37**, copie C124 `batterie-sortie-2908b22.txt`. **`fichiers modifies non commites` = 5, hors artefacts = 2** — prédit 3 / 0 | **réfutée** |
+| 2-1 | `L24 INTROUVABLE`, `ancre attendue : Cabler un module`, `title: en place : Câbler un module`, **18 trouvées / 1 introuvable**, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, exit **1** | tenue |
+| 2-2 | **18 / 18** ancres uniques, exit **0**, `CONTROLE SEUL : 18 renommage(s) prets, 0 fichier ecrit` | tenue |
+| 2-3 | `fichiers ecrits : 18`, exit 0, aucun refus | tenue |
+| 2-4 | `git diff --numstat -- content/` : **18 lignes, toutes `1	1`** | tenue |
+| 2-5 | **36 lignes** de contenu, **0** ne commençant pas par `title: ` | tenue |
+| 2-6 | `LOT (18 fiches) 24885`, **les 18 lignes fiche à fiche identiques au chiffre près** | tenue |
+| 2-7 | **242 / 291220 / 1089 / `easyeda.md` (9773)** — les quatre inchangés | tenue |
+| 2-8 | FR **243 lues, 243 distincts, 0 groupe, 0 fiche concernée** | tenue |
+| 2-9 | EN **193 / 184 / 9 / 18**, inchangé | tenue |
+| 2-10 | `DERIVE 18`, `A JOUR 175`, `SANS SOURCE 0`, `SANS MARQUE 0`, exit 1 ; les 18 sont exactement les jumelles EN des 18 sources FR | tenue |
+| 2-11 | `--libelles` **3570 / 3236 / 334 / 112 / 16**, inchangé | tenue |
+| 2-12 | `git status --porcelain` = **23**, dont **18 dans `content/`** — prédit 21 / 18 | **réfutée** |
+
+✅ **LES NEUF GROUPES FR SONT FERMÉS À LA SOURCE, ET L'INVARIANT DE CORPS TIENT
+À L'OCTET.** `titres distincts` passe de **234 à 243** sur **243 fiches lues** :
+le corpus français ne porte plus **aucun** titre en double. Les 18 ancres sont
+tombées **du premier coup**, comme les vingt du 27/08 (suite 4).
+
+✅ **L'INSTRUMENT DE L'INVARIANT ÉTAIT LE BON, ET LE BRIEF NOMMAIT L'AUTRE.**
+`git diff --numstat` rend **18 fois `1	1`** et le `git diff -U0` rend **36
+lignes dont zéro hors `title:`** : le corps n'a pas bougé d'un octet, et c'est
+**prouvé**. `compter-mots` rend bien 24885 des deux côtés — mais il aurait rendu
+24885 quelle que soit la réécriture du front matter, **puisqu'il le retire avant
+de compter**. *Les deux mesures disent la même chose et une seule la démontre.*
+
+⚠ **RÉFUTATIONS 2-0 ET 2-12 : C'EST LE MÊME DÉFAUT, DEUX FOIS, ET C'EST C131
+PRISE EN DÉFAUT DANS LE BLOC QUI LA CITE.** Les deux prédictions oublient les
+**deux fichiers que le bloc 2 crée lui-même** : `tools/renommer-titres.mjs` et
+`tools/table-titres-2908.tsv`. Écart de **+2** sur les deux compteurs, à chaque
+fois. **La décision C117 (4) qui crée ces deux fichiers est écrite trois
+paragraphes au-dessus de la prédiction 2-0**, dans le même bloc, de ma main.
+
+*La règle d'usage du 29/08 (suite 6) — « une déclaration C131 se termine par le
+total qu'elle implique » — a été **citée** en tête de séance et **appliquée**
+au bloc 1, où elle a tenu (1-10 juste à 2). Elle tombe au bloc 2 parce que la
+déclaration C131 est écrite **à l'ouverture de la séance**, une fois, alors que
+les versements se décident **bloc par bloc**.* **Ce que la séance en tire :
+une déclaration C131 d'ouverture ne suffit pas ; chaque bloc qui crée un
+fichier redéclare sa propre population avant de la chiffrer.** Candidate à
+promotion, éprouvée 0/N.
+
+⚠ **Ni l'une ni l'autre réfutation n'affecte la garde de péremption** : la liste
+nominative rend compte des cinq fichiers un par un, aucun n'est inattendu,
+aucun n'est dans `content/` avant la passe.
+
+**La liste nominative des 5 fichiers à la garde de 19:39:37** :
+`tools/predictions-260829.md` (M), `tools/batterie-sortie-2908b21.txt`,
+`tools/batterie-sortie-2908b22.txt`, `tools/renommer-titres.mjs`,
+`tools/table-titres-2908.tsv`.
+
+---
+
+## Bloc 3 — G3, PASSE EN : LES 19 `title:`, DEUXIÈME TEST NÉGATIF DE LA GARDE
+
+Commandes :
+
+    powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde
+    node tools/compter-mots.mjs --lot <les 19 fiches EN>          (relevé de référence)
+    node tools/renommer-titres.mjs tools/table-titres-en-2908.tsv            (contrôle)
+    node tools/renommer-titres.mjs tools/table-titres-en-2908.tsv --ecrire
+    git diff --numstat ; git diff -U0
+    node tools/titres-doublons.mjs ; node tools/derive-traduction.mjs
+    node tools/creer-fiche-en.mjs --libelles
+
+### DÉCLARATION C131 DU BLOC 3 — population, versements du bloc, ET LE TOTAL
+
+**État à l'entrée du bloc : 24 fichiers.** Les 5 de la garde précédente, plus
+les **18 fiches FR** de la passe 2, plus `tools/libelles-2908-avant.txt` (copie
+C124 de la sortie `--libelles` d'entrée, écrite en fin de bloc 2).
+
+**Ce que le bloc 3 verse avant de se mesurer** : la copie C124
+`batterie-sortie-2908b23.txt` (**+1**), puis — **après** la garde et donc hors
+de son compteur — `tools/table-titres-en-2908.tsv`, le présent texte étant déjà
+dans `predictions-260829.md` (déjà compté en M).
+
+**TOTAL IMPLIQUÉ À LA GARDE : `fichiers modifies non commites` = 25,
+`hors artefacts de seance` = 21** — soit 18 fiches de `content/`,
+`renommer-titres.mjs`, `table-titres-2908.tsv`, `libelles-2908-avant.txt`.
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 3-0 | garde : HEAD **`a5226ea`** inchangé, `fichiers modifies non commites` = **25**, `hors artefacts de seance` = **21**, copie C124 = `batterie-sortie-2908b23.txt`, `JOURNAL.md` / `conventions.md` / `TODO.md` **inchangés** aux trois horloges 19:08:19 / 19:09:34 / 19:09:34 | | |
+| 3-1 | `compter-mots --lot` sur les **19 fiches EN** rend **20 lignes**. **Valeur non prédite** — relevé de référence (C118) | | |
+| 3-2 | **deuxième test négatif, sur une garde non encore éprouvée : la CASSE.** Le TSV reçoit une 20ᵉ ligne d'ancre `Using a Shield` (S majuscule) sur `arduino-shield-en.md`. `titres-doublons` **replie la casse**, le renommeur **non** : le contrôle doit rendre **19 trouvées / 1 introuvable**, `title: en place : Using a shield`, exit **1**, **0 fichier écrit** | | |
+| 3-3 | ligne retirée : **19 / 19** ancres uniques, exit **0**, 0 fichier écrit | | |
+| 3-4 | `--ecrire` : **19 fichiers écrits** | | |
+| 3-5 | `git diff --numstat -- content/en/` : **19 lignes**, chacune **`1	1`** | | |
+| 3-6 | `git diff -U0 -- content/en/` : **38 lignes** de contenu, **0** hors `title: ` | | |
+| 3-7 | `compter-mots --lot` sur les 19 EN : **strictement identique** à 3-1, ligne à ligne | | |
+| 3-8 | `titres-doublons` **EN** : `fiches lues` **193**, `titres distincts` **193**, `GROUPES EN COLLISION` **0**, `fiches concernees` **0** | | |
+| 3-9 | `titres-doublons` **FR** : **inchangé**, 243 / 243 / **0** / 0 | | |
+| 3-10 | `derive-traduction` : **inchangé**, `DERIVE` **18**, `A JOUR` **175** — une passe EN ne touche aucune source FR, donc aucun `source_sha256` ne bouge | | |
+| 3-11 | `--libelles` : `wikilinks a libelle` **3570**, `cible EN existante` **3236**, `cible EN absente` **334**, `positions` **16** — **inchangés** ; `candidats a lire` **105**, soit **112 moins 7** | | |
+| 3-12 | les **7 candidats qui disparaissent** sont nommément : `[[cpp-lire-un-programme-en\|in C++]]`, `[[cpp-lire-un-programme-en\|C++]]` **×2**, `[[micropython-lire-un-programme-en\|in MicroPython]]`, `[[micropython-lire-un-programme-en\|MicroPython]]` **×2**, `[[micropython-shield-en\|Expansion board]]` | | |
+| 3-13 | les **7 candidats qui restent** sont nommément : `[[arduino-entree-tor-en\|debouncing]]` **×2**, `[[arduino-entree-tor-en\|button]]`, `[[arduino-entree-tor-en\|Software debouncing]]`, `[[micropython-entree-tor-en\|debouncing]]` **×2**, `[[micropython-entree-tor-en\|software debounce]]` | | |
+| 3-14 | `git status --porcelain` après passe : **45 fichiers** — 25 à la garde, plus `tools/table-titres-en-2908.tsv` (+1), plus les **19 fiches EN** (+19) — dont **37 dans `content/`** (18 FR + 19 EN) | | |
+
+**Le mécanisme de 3-11 à 3-13, lu dans le code et non deviné** (`motsUtiles`,
+`memeRadical`, `VIDES`, `normaliser`, l. 1114-1142 de `creer-fiche-en.mjs`) :
+`normaliser` réduit `C++` à `c`, `memeRadical` rend vrai sur égalité stricte
+avant le seuil de 5 caractères, et `in` est dans `VIDES`. **Le qualificatif en
+queue ne peut qu'ajouter des mots au titre**, donc il ne peut qu'**augmenter**
+les recoupements : `candidats a lire` ne peut pas monter. La seule soustraction
+de mot du lot est `on/off` sur `arduino-entree-tor-en`, et `input` y survit.
+
+**Ce qu'un écart déclencherait.** 3-2 réfuté = la garde ne voit pas la casse,
+donc elle ne garde pas ce qu'on croit ; consignation et arrêt. 3-5/3-6 réfutés
+= corps EN touché, `git checkout` des 19 et arrêt. 3-11 réfuté **à la hausse**
+= une hypothèse fausse sur `motsUtiles`, à instruire avant la clôture.
+
+### Constats du bloc 3 (G3) — **15 prédictions, 14 tenues, 1 réfutée**
+
+| # | constat | verdict |
+|---|---|---|
+| 3-0 | horloge **19:42:49**, HEAD **`a5226ea`**, **25 / 21**, copie `batterie-sortie-2908b23.txt`, trois fichiers de pilotage aux mêmes horloges | tenue |
+| 3-1 | **20 lignes**. Relevé de référence : **`LOT (19 fiches) 26779`** | tenue |
+| 3-2 | `L28 INTROUVABLE`, `ancre attendue : Using a Shield`, `title: en place : Using a shield`, **19 / 1**, exit **1**, 0 écrit | tenue |
+| 3-3 | **19 / 19**, exit **0**, `CONTROLE SEUL : 19 renommage(s) prets, 0 fichier ecrit` | tenue |
+| 3-4 | `fichiers ecrits : 19` | tenue |
+| 3-5 | `git diff --numstat -- content/en/` : **19 lignes**, **0** hors `1	1` | tenue |
+| 3-6 | **38 lignes** de contenu, **0** hors `title: ` | tenue |
+| 3-7 | `LOT (19 fiches) 26779`, **identique**, ligne à ligne | tenue |
+| 3-8 | EN **193 lues, 193 distincts, 0 groupe, 0 fiche** | tenue |
+| 3-9 | FR **243 / 243 / 0 / 0**, inchangé | tenue |
+| 3-10 | `DERIVE 18`, `A JOUR 175`, inchangé | tenue |
+| 3-11 | **3570 / 3236 / 334 / 16 inchangés, `candidats a lire` = 105** | tenue |
+| 3-12 | les 7 disparus sont **exactement** les 7 nommés | tenue |
+| 3-13 | les 7 restants sont **exactement** les 7 nommés, et le diff `avant/après` les montre reparaître **sous leur nouveau titre de cible** (`Reading a digital input on Arduino` / `in MicroPython`) | tenue |
+| 3-14 | `git status --porcelain` = **46**, dont **37 dans `content/`** — prédit **45 / 37** | **réfutée** |
+
+✅ **LES DEUX CORPUS SONT SANS AUCUN TITRE EN DOUBLE, ET LES TROIS COMPTEURS DU
+CONTRÔLE DE SORTIE TOMBENT À ZÉRO.** FR **243 fiches / 243 titres distincts /
+0 groupe**, EN **193 / 193 / 0**. L'état d'entrée était **9 / 9 / 8 communs**
+avec deux groupes asymétriques ; **les deux asymétries sont fermées** —
+`Lire une entrée TOR` par le qualificatif, `Using a shield` par
+`Using a shield or expansion board`. **La cible du brief est atteinte au-delà
+de sa lettre** : elle demandait que les groupes *FR seulement* et *EN seulement*
+tombent à 0, et ce sont **tous** les groupes qui tombent.
+
+✅ **LA PRÉDICTION 3-11 À 3-13 EST TENUE SUR SES TROIS TERMES, ET C'EST LA
+PREMIÈRE FOIS DE LA SEMAINE QU'UN COMPTEUR EST PRÉDIT PAR LECTURE DE SON
+MÉCANISME ET NON PAR REPORT.** 112 moins 7 égale **105**, et les **sept
+disparus sont nommément les sept prédits**, ni un de plus ni un de moins.
+*Le raisonnement était : `normaliser` réduit `C++` à `c`, `memeRadical` rend
+vrai sur égalité stricte avant son seuil de 5, `in` est dans `VIDES`, et un
+qualificatif en queue ne peut qu'ajouter des mots au titre donc qu'augmenter
+les recoupements.* **C'est exactement l'amendement C116 (7) appliqué à
+l'endroit — lire le code qui incrémente, pas la ligne qui affiche — et il rend
+un compteur juste au premier coup.**
+
+⚠ **UN EFFET NON PRÉDIT, VISIBLE SEULEMENT PAR LE DIFF DES DEUX SORTIES.** Les
+7 candidats qui restent **ne sont pas les mêmes lignes** : ils réapparaissent
+avec un **titre de cible différent**. `--libelles` publie un nombre ; **seule
+la comparaison des deux sorties datées montre que sept candidats ont changé
+d'énoncé sans changer de statut**. Sans C124 — `libelles-2908-avant.txt` et
+`libelles-2908-apres.txt` —, `105` aurait été indistinguable d'un `105` où
+d'autres candidats seraient tombés et d'autres apparus.
+
+⚠ **RÉFUTATION 3-14 : TROISIÈME OCCURRENCE DU MÊME DÉFAUT DANS LA MÊME SÉANCE,
+ET LA CAUSE NE VARIE PAS.** Prédit 45, mesuré 46. Le fichier manquant est
+`tools/libelles-2908-apres.txt`, **écrit par la commande qui précède
+immédiatement le `git status`**, dans le même bloc. Comme 2-0 (+2 :
+`renommer-titres.mjs`, `table-titres-2908.tsv`) et 2-12 (+2, les mêmes).
+**Trois réfutations sur 38 prédictions de la séance, et les trois sont le
+compteur `git status` lu sans les artefacts que le bloc lui-même vient de
+créer.** Le sous-compteur `content/` est juste **les trois fois** — 0, 18, 37.
+
+*Ce que cela dit de C131 :* la déclaration d'ouverture nomme les artefacts
+**connus au moment où elle s'écrit**. Les artefacts d'un bloc se décident
+**dans** le bloc. **La déclaration doit donc se rejouer à chaque bloc qui
+crée un fichier, ou le compteur `git status` doit cesser d'être prédit en
+valeur absolue et l'être en delta.** *Règle d'usage candidate, à arbitrer.*
+
+---
+
+## Bloc 4 — G4, `--recaler` SUR LES 18 PAIRES, ET LA LIGNE « DÉRIVE 0 » RENDUE VRAIE
+
+Commandes :
+
+    powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde
+    node tools/creer-fiche-en.mjs --recaler <chacune des 18 jumelles EN>
+    node tools/derive-traduction.mjs --tout
+    git diff --numstat ; git diff -U0
+
+### DÉCLARATION C131 DU BLOC 4 — et cette fois elle se rejoue
+
+**État à l'entrée : 46 fichiers.** **Versements du bloc avant sa propre
+mesure** : la copie C124 `batterie-sortie-2908b24.txt` (**+1**). Le bloc
+**n'écrit aucun fichier neuf** ensuite — `--recaler` ne touche qu'une ligne de
+front matter de fiches **déjà modifiées et déjà comptées**.
+**TOTAL IMPLIQUÉ À LA GARDE : 47, hors artefacts 42.** **TOTAL APRÈS LE BLOC :
+47 également**, `content/` restant à **37**.
+
+**Liste nominative des 42 hors artefacts** : 18 fiches FR + 19 fiches EN
+(= 37 dans `content/`), `tools/renommer-titres.mjs`,
+`tools/table-titres-2908.tsv`, `tools/table-titres-en-2908.tsv`,
+`tools/libelles-2908-avant.txt`, `tools/libelles-2908-apres.txt`.
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 4-0 | garde : HEAD **`a5226ea`**, **47** / **42**, copie `batterie-sortie-2908b24.txt`, trois fichiers de pilotage inchangés | | |
+| 4-1 | **18 `--recaler`**, chacun rendant deux lignes : `Recale : content/<fiche>` puis `  <12 hexa> -> <12 hexa>`. **0 `Deja a jour`, 0 refus** | | |
+| 4-2 | **aucun refus par le contrôle des trois compteurs** de `recaler` (`liens` / `embeds` / `code` FR contre EN) : une passe de `title:` ne touche ni wikilink, ni embed, ni bloc de code | | |
+| 4-3 | les 18 empreintes `-> ` sont exactement les **`reel`** listés par `derive-traduction` au bloc 2 : `c5da7609b71f` (`arduino-module-en`), `1abb34c94cd5`, `0690ba6f1231`, `3eb4b5876d72`, `cbac95e2f1a1`, `cab1cf2797e5`, `618ded195dcc`, `810ce2e35193`, `c3570070ae60`, `e47eeb88d4d9`, `4992c1551cef`, `71263551fb5a`, `99187a3e27fe`, `9bca1001a80a` — **et les 4 non listées au bloc 2** (`arduino-bibliotheques-en`, `arduino-capteur-numerique-en`, `arduino-entree-tor-en`, `arduino-gpio-boot-en`), dont la sortie du bloc 2 avait été coupée à 14 lignes | | |
+| 4-4 | `derive-traduction --tout` : **`DERIVE` 0, `A JOUR` 193, `SANS SOURCE` 0, `SANS MARQUE` 0, exit 0** | | |
+| 4-5 | `git diff --numstat -- content/en/` : **19 lignes**, dont **18 à `2	2`** et **1 à `1	1`** — `micropython-shield-en.md`, dont la source FR `micropython-shield.md` n'a pas bougé, n'était donc pas en dérive et n'est pas recalée | | |
+| 4-6 | `git diff --numstat -- content/` : **37 lignes**, **18 à `1	1`** (FR) + **18 à `2	2`** + **1 à `1	1`** (EN) ; total **55 ajouts / 55 retraits** | | |
+| 4-7 | `git diff -U0 -- content/` : **110 lignes** de contenu, décomposées en **74 lignes `title: `** (37 fiches × 2) et **36 lignes `source_sha256: `** (18 fiches × 2), et **0 ligne d'aucune autre nature** | | |
+| 4-8 | `git status --porcelain` : **47**, dont **37 dans `content/`** — inchangé par rapport à la garde de 4-0 | | |
+| 4-9 | `compter-mots` corpus : **242 fiches, 291220 mots**, inchangé ; `titres-doublons` : FR **243 / 243 / 0 / 0**, EN **193 / 193 / 0 / 0**, inchangés | | |
+
+**Ce qu'un écart déclencherait.** 4-2 réfuté (un refus par divergence des trois
+compteurs) = une passe de titres aurait touché autre chose que le front matter,
+ce que 2-5 et 3-6 démentent = incident à instruire avant tout commit. 4-4
+réfuté = la ligne « dérive 0 » resterait fausse, et c'est précisément
+l'avertissement du brief.
+
+### Constats du bloc 4 (G4) — **10 prédictions, 10 tenues, 0 réfutée**
+
+| # | constat | verdict |
+|---|---|---|
+| 4-0 | horloge **19:45:08**, HEAD `a5226ea`, **47 / 42**, copie `batterie-sortie-2908b24.txt` | tenue |
+| 4-1 | **18 `Recale :`**, deux lignes chacun, **0 `Deja a jour`**, **0 refus** | tenue |
+| 4-2 | **aucun refus** par le contrôle `liens` / `embeds` / `code` de `recaler` | tenue |
+| 4-3 | les **14 empreintes lisibles au bloc 2 sont retrouvées au caractère près** ; les **4 fiches non listées** sont bien celles nommées, et rendent `c5923884374b`, `cfb657a30916`, `31f017c6e617`, `4f9ce7efeb6f` | tenue |
+| 4-4 | **`DERIVE 0`, `A JOUR 193`**, `SANS SOURCE 0`, `SANS MARQUE 0`, **exit 0** | tenue |
+| 4-5 | `content/en/` : **18 fiches à `2	2`, 1 à `1	1`** | tenue |
+| 4-6 | `content/` : **37 lignes**, **55 ajouts / 55 retraits** | tenue |
+| 4-7 | **110 lignes** : **74 `title: `**, **36 `source_sha256: `**, **0 autre** | tenue |
+| 4-8 | `git status` **47**, dont **37 dans `content/`** — inchangé | tenue |
+| 4-9 | corpus **242 / 291220 / 1089 / easyeda 9773 / 193-221956 / 49-69264** ; titres FR **243/243/0/0**, EN **193/193/0/0** | tenue |
+
+✅ **LA LIGNE « DÉRIVE 0 » EST REDEVENUE VRAIE, ET C'EST LE POINT QUE LE BRIEF
+DÉSIGNAIT COMME LE PLUS COÛTEUX À MANQUER.** 18 paires cassées par la passe FR,
+18 recalées, `A JOUR 193` avec **exit 0**. Sans ce bloc, `derive-traduction`
+aurait publié `DERIVE 18` à chaque clôture jusqu'à ce que quelqu'un le lise —
+ou pire, aurait été recalé plus tard **sans relecture**, ce que le commentaire
+du code interdit nommément.
+
+✅ **LE CONTRÔLE DES TROIS COMPTEURS DE `recaler` N'A REFUSÉ AUCUNE DES 18, ET
+C'EST UNE CONFIRMATION INDÉPENDANTE DE L'INVARIANT DE CORPS.** `recaler` refuse
+si `liens`, `embeds` ou `code` divergent entre la source FR et la jumelle EN.
+**Trois compteurs, dix-huit paires, zéro divergence** — mesurés par un outil qui
+ne sait rien du chantier et qui compare les deux fiches entre elles, là où
+`git diff` compare chaque fiche à elle-même. *Deux instruments indépendants
+disent la même chose, et c'est le premier bloc de la semaine où l'invariant est
+attesté deux fois.*
+
+✅ **`--recaler` a rendu la décomposition `2	2` exactement où elle était
+prédite, et `1	1` sur la seule fiche qui devait rester à un.**
+`micropython-shield-en` change de `title:` sans que sa source FR bouge : elle
+n'entre donc pas dans la dérive et ne se recale pas. **C'est la trace mesurable
+de « `shield` se traite côté EN seul ».**
+
+---
+
+## Bloc 5 — G5, CLÔTURE DU CHANTIER : `batterie.ps1 -Phase etat`
+
+Commande :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase etat`
+
+**Sans `-FichesEn`** : le chantier ne produit **aucune fiche EN neuve**, donc
+l'étape 6 (`--style` du lot EN) n'a pas d'objet. **Sans `-Chevron`** : aucun
+corps n'a bougé, `mesure-chevron --tout` est réservé à la clôture du lot 3
+(C127). **La batterie n'est pas filtrée au lancement** (règle d'usage du 29/08
+suite 6) : les onze étapes sortent en entier.
+
+### DÉCLARATION C131 DU BLOC 5
+
+**Entrée : 47.** Versement du bloc : copie C124 `batterie-sortie-2908b25.txt`
+(**+1**). **TOTAL IMPLIQUÉ : 48, hors artefacts 42, `content/` 37.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 5-0 | garde : HEAD `a5226ea`, **48 / 42**, copie `batterie-sortie-2908b25.txt` | | |
+| 5-1 | corpus : **242 fiches, 291220 mots**, traduites **193 / 221956**, restant **49 / 69264** | | |
+| 5-2 | `--controle` : **`193 fiche(s) controlee(s), 0 divergente(s)`** | | |
+| 5-3 | `derive-traduction` : **`DERIVE 0`, `SANS SOURCE 0`, `SANS MARQUE 0`, `A JOUR 193`**, code de sortie **0** | | |
+| 5-4 | foisonnement : **`193 paire(s) : 221956 mots FR -> 230616 mots EN`** — inchangé, le front matter étant hors règle C110 | | |
+| 5-5 | étape 6 : **`aucune fiche EN passee (-FichesEn) : etape sautee.`** | | |
+| 5-6 | médias : **441 fiches lues, 657 embeds, 374 fichiers** ; bilan **ABSENT 12, CASSE 0, HORS-GABARIT 0, EXTERNE 0, OK 645, ORPHELIN 1**, code **1** | | |
+| 5-7 | anneau 2 : `cibles BRUTES` **222**, `deja vues` **77**, `ANNEAU 2 NET` **145**, `deja traduites` **99**, `RESTANT` **46**, `RESTANT DE L ANNEAU 2 (46 fiches)` **66996**, `fiches porteuses` **10** ; dette **47 cibles rouges distinctes, 67836 mots** | | |
+| 5-8 | wikilinks : **`MORT 47`, `CASSE 0`, `AMBIGU 0`, `GABARIT 8`, `ALIAS 6`, `OK 437`**, code **1** | | |
+| 5-9 | `--libelles` : **3570 / 3236 / 334 / 105 / 16** | | |
+| 5-10 | **aucun des onze compteurs ci-dessus n'est modifié par le chantier**, à la seule exception de `candidats a lire` (112 → 105). Les titres ne vivent ni dans le comptage C110, ni dans la résolution des wikilinks, ni dans l'audit des médias | | |
+
+## Bloc 6 — G6, CADRAGE DU LOT 3 D'`esp32/` (C127 EN PLEIN)
+
+Commandes :
+
+    powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage `
+      -Fiches embarque/mcu/esp32/esp32-deep-sleep.md,embarque/mcu/esp32/esp32-arduino-core.md,embarque/mcu/esp32/esp32-freertos.md,embarque/mcu/esp32/esp32-idf.md
+    node tools/mesure-chevron.mjs --lot <les quatre>
+
+### DÉCLARATION C131 DU BLOC 6
+
+**Entrée : 48.** Versement : copie C124 `batterie-sortie-2908b26.txt` (**+1**).
+**TOTAL IMPLIQUÉ : 49, hors artefacts 42, `content/` 37.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 6-0 | garde : HEAD `a5226ea`, **49 / 42** ; les **quatre sources FR** listées sous les dates d'écriture, **aucune écrite aujourd'hui après 19:30:08** | | |
+| 6-1 | `compter-mots --lot` (**`tot`**, C110) : `esp32-deep-sleep` **1495**, `esp32-arduino-core` **1285**, `esp32-freertos` **1429**, `esp32-idf` **1066**, `LOT (4 fiches)` **5275** — quatre valeurs **lues dans le bloc anneau de la sortie `2908b20`**, pas déduites | | |
+| 6-2 | `mesure-chevron --lot` (**`deh`**, C127) : **1401 / 1218 / 1323 / 1038**, total **4980** — chiffres **reportés du brief** et donc à **remesurer** ; en cas d'écart c'est le chiffre du jour qui fait foi (C118) | | |
+| 6-3 | `deh` du lot **strictement sous la borne 6657** : marge prédite **1677**, soit **25,2 %** de la borne | | |
+| 6-4 | nombre de **blocs en chevron** du lot : **2 + 4 + 4 + 2 = 12** — colonne `chevron:` du bloc anneau de `2908b20`. **Les quatre fiches sont porteuses**, donc **C127 s'applique en plein** et les deux volumes se publient ensemble | | |
+| 6-5 | `--style` : candidats C109 des quatre sources. **Valeurs non prédites** — relevé de référence (C118), aucune mesure du jour ne les porte | | |
+| 6-6 | anneau : bloc **identique** à 5-7 (222 / 77 / 145 / 99 / 46 / 66996 / 10), le cadrage n'écrivant rien | | |
+| 6-7 | les quatre fiches sont **dans l'anneau 2** et **dans le RESTANT de 46**, lu dans la sortie du jour et non supposé | | |
+
+### Constats des blocs 5 et 6 (G5, G6) — **18 prédictions, 17 tenues, 1 réfutée**
+
+**Bloc 5 — 11 tenues sur 11.** Horloge **19:47:41**, HEAD `a5226ea`, **48 / 42**.
+Corpus **242 / 291220**, traduites **193 / 221956**, restant **49 / 69264**.
+`--controle` **193 fiches, 0 divergente**. Dérive **0 / 0 / 0**, `A JOUR 193`,
+code **0**. Foisonnement **193 paires : 221956 → 230616**. Étape 6 sautée.
+Médias **441 / 657 / 374**, bilan **12 / 0 / 0 / 0 / 645 / 1**. Anneau 2
+**222 / 77 / 145 / 99 / 46 / 66996 / 10 porteuses**, dette **47 / 67836**.
+Wikilinks **47 / 0 / 0 / 8 / 6 / 437**. `--libelles` **3570 / 3236 / 334 /
+105 / 16**.
+
+**Bloc 6 — 6 tenues sur 7.** Horloge **19:47:49**, **49 / 42**. Les quatre
+sources FR datées **19/08 10:01-10:03** et **17/08 12:24**, toutes très
+antérieures à HEAD. `tot` **1495 / 1285 / 1429 / 1066**, `LOT` **5275**.
+`deh` **1401 / 1218 / 1323 / 1038**, `LOT` **4980**. `--style` **38 C109 de
+prose**, décomposés **8 / 11 / 9 / 10**, hors périmètre **16**, typographie
+**0**, virgule ambiguë **0**, créées **0**, hors latin **0**. Anneau identique
+au bloc 5. Les quatre fiches sont dans le RESTANT de 46, **lues dans la sortie
+du jour**.
+
+✅ **`deh` DU LOT 3 TOMBE À 4980, EXACTEMENT LE CHIFFRE REPORTÉ AU BRIEF, ET
+SUR SES QUATRE TERMES.** 1401 / 1218 / 1323 / 1038. *C'est la première fois de
+la semaine qu'une décomposition reportée d'une séance à l'autre se vérifie
+terme à terme* — la règle du 28/08 (« un total dans la fourchette ne valide pas
+la décomposition ») est satisfaite dans le bon sens. **Marge sous la borne
+6657 : 1677 mots, 25,2 %.**
+
+⚠ **RÉFUTATION 6-4, ET C'EST LE MÊME COMPTEUR QUE LA RÉFUTATION 10-3 DU 29/08
+(SUITE 6).** Prédit **12 blocs en chevron**, lus dans la colonne `chevron:` du
+bloc anneau (2 + 4 + 4 + 2). Mesuré : **12 clôtures, 6 blocs**. *La colonne
+`chevron:` de `--anneau` compte des **clôtures**, et `mesure-chevron` le dit en
+toutes lettres dans sa propre légende — « cl = clotures, bl = blocs », et
+« deux clotures = un bloc » figure même dans le bloc ANGLE MORT de la sortie
+que je venais de lire.* **Le chiffre 12 était juste, le nom qu'on lui donnait
+était faux**, et c'est la quatrième fois de la semaine — hors périmètre du lot
+6, dette du lot 6, blocs de code du lot 2, clôtures ici. **Aucun effet sur le
+lot** : le dimensionnement se fait sur `deh`, pas sur le nombre de blocs.
+
+**BILAN DU CHANTIER — 56 prédictions publiées, 52 tenues, 4 réfutées, taux
+7,1 %.** Aucune réfutation sur un **verdict** ; les quatre sont des compteurs —
+trois fois `git status` sans les artefacts du bloc courant, une fois une colonne
+lue sous le mauvais nom. **Quatrième séance d'affilée où la coupure tombe
+exactement là.**
+
+---
+
+## Bloc 7 — G7, PASSES C109 SOUS C123 SUR LES QUATRE SOURCES FR DU LOT 3
+
+Commandes :
+
+    powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde
+    node tools/remplacer-passe.mjs tools/passe-c109-2908.tsv          (contrôle)
+    node tools/remplacer-passe.mjs tools/passe-c109-2908.tsv --ecrire
+    git diff --numstat ; node tools/creer-fiche-en.mjs --style <les quatre>
+    node tools/compter-mots.mjs --lot <les quatre>
+    node tools/mesure-chevron.mjs --lot <les quatre>
+
+### ⚠ CONTRÔLE C110 DU MOTIF D'ACCENTS — RÉFUTÉ SUR SON ÉCHANTILLON NOMMÉ, AVANT TOUT COMPTAGE
+
+La règle d'usage du 29/08 (suite 6) — *une passe de ponctuation ne change pas le
+nombre de caractères accentués* — demande un compteur d'accents. Premier motif
+essayé, `grep -o '[àâäçéèêëîïôöùûüÿœæÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸŒÆ]'`, **testé sur
+l'échantillon nommé** `Câbler un module — État, cœur, très, à`, attendu **5**
+(â, É, œ, è, à) : **rendu 12.**
+
+*Cause lue et non supposée* : `grep` travaille ici en **octets**, pas en
+caractères. Chaque lettre accentuée pèse deux octets en UTF-8, et l'expression
+entre crochets apparie **chaque octet** du jeu. **C'est exactement la cause des
+réfutations 10-9, 10-12, 11-1 et 11-3 du 29/08 (suite 6)** — « des octets de
+tête comptés pour des caractères accentués » — et C110 vient de l'attraper
+**avant** le comptage au lieu d'après. **Le compteur d'accents se fait donc en
+node**, sur des points de code, et il est **embarqué dans l'outil de passe** :
+un invariant qui vit à côté de l'écriture ne peut pas être oublié.
+
+### Décision C117 (5), avec son coût de revert
+
+**`tools/remplacer-passe.mjs`** neuf : même garde d'unicité d'ancre que
+`renommer-titres.mjs` (exactement une occurrence, tout ou rien), mais sur le
+**corps** au lieu du front matter, et **publiant l'invariant d'accents et
+l'invariant de longueur** avant/après pour chaque fiche. *Motif : É2 du 29/08
+(suite 6) — 147 caractères accentués perdus par une passe C109, traversant cinq
+contrôles au vert, trouvés par la seule lecture. L'invariant existe depuis É3 ;
+il n'était porté par aucun outil.* La table vit dans un TSV daté, jetable.
+**Revert = suppression de deux fichiers non suivis + `git checkout` des quatre
+sources.**
+
+### LES 38 CANDIDATS, JUGÉS UN PAR UN SOUS C123, AVANT LA PASSE
+
+**Critère** : segment de droite nominal / adjectival / infinitif / participial =
+exempté ; **un verbe conjugué, y compris en subordonnée, fait tomber**.
+**Le doute se tranche vers le traitement.**
+
+**`esp32-deep-sleep.md` — 8 candidats, 6 traités, 2 exemptés, 6 éditions.**
+
+| l. | signe | verdict | voie |
+|---|---|---|---|
+| 19 | `;` | tombe (`cette fiche **en donne**`) | phrase |
+| 56 | `;` | tombe (`on **préférera**`) | phrase |
+| 132 | `—` | tombe (`une broche ordinaire **ne réveille** pas`) | phrase |
+| 142 | `—` | tombe (`la carte **ne se réveille** jamais`) | virgule + liaison |
+| 148 | `—` | tombe (`elle **consomme**`) | phrase |
+| 189 | `;` ×2 | **exemptés** — puce d'un corrigé, segments **nominaux** (`actif = 2 s`, `sommeil = 598 s`), aucun verbe conjugué | — |
+| 198 | `—` | tombe **par le doute** : `sans RESET` est nominal donc exempté à la lettre de C123, mais la forme n'est pas celle du libellé-glose du 25/08 | virgule |
+
+**`esp32-arduino-core.md` — 11 candidats, 11 traités, 10 éditions** (les deux
+tirets de l. 169 encadrent **une seule** incise et se résolvent d'un coup).
+
+| l. | signe | verdict | voie |
+|---|---|---|---|
+| 18 | `—` | tombe (`ce qui **change**`) | virgule |
+| 48 | `—` | tombe — **renvoi de fin de segment**, troisième voie du 25/08 | parenthèse |
+| 50 | `—` | tombe par le doute (`tous traités` est participial, mais c'est un renvoi) | parenthèse |
+| 57 | `;` | tombe (`\`loop()\` **s'exécute**`) | virgule + liaison |
+| 93 | `—` | tombe (`qui **n'existent** pas`, subordonnée) | virgule |
+| 103 | `—` | tombe (`**c'est** le point`) | phrase |
+| 113 | `—` | tombe par le doute (infinitifs, mais proposition entière) | phrase |
+| 131 | `—` | tombe — renvoi | parenthèse |
+| 155 | `;` | tombe (`la même allocation **planterait**`) | phrase |
+| 169 | `—` ×2 | tombe (`\`loop()\` **n'est** pas seul au monde`) | parenthèses encadrantes |
+
+**`esp32-freertos.md` — 9 candidats, 9 traités, 7 éditions** (l. 18 et l. 173
+portent chacune deux candidats résolus d'une seule édition).
+
+| l. | signe | verdict | voie |
+|---|---|---|---|
+| 18 | `—` | tombe (`l'ESP32 **a** deux cœurs`) | phrase |
+| 18 | `;` | tombe (`cette fiche **montre**`) | phrase |
+| 75 | `—` | tombe — renvoi | parenthèse |
+| 108 | `—` | tombe (`**c'est** l'intérêt`) | phrase |
+| 171 | `;` | tombe (`utiliser … **explicite** l'intention`) | phrase |
+| 173 | `—` | tombe (`si l'accès **n'est** pas atomique`, subordonnée) | virgule |
+| 173 | `;` | tombe (`il **ne garantit**`) | phrase |
+| 183 | `;` | tombe (`\`xPortGetCoreID()\` **le lit**`) | virgule + liaison |
+| 201 | `—` | tombe (`que le travail **est** bien réparti`, subordonnée) | virgule |
+
+**`esp32-idf.md` — 10 candidats, 10 traités, 8 éditions** (l. 18 ×2 = une
+incise encadrée ; l. 87 ×2 = une énumération résolue d'un coup).
+
+| l. | signe | verdict | voie |
+|---|---|---|---|
+| 18 | `—` ×2 | tombe (`quand l'IDF **se justifie**, ce qu'il **apporte**`) | parenthèses encadrantes |
+| 32 | `—` | tombe (`quand le besoin **est** avéré`, subordonnée) | virgule |
+| 36 | `;` | tombe (`il **n'y a** pas de boucle imposée`) — puce à verbe conjugué, donc prose (amendement du 23/08) | phrase |
+| 74 | `—` | tombe (`on **compose**`) | deux-points |
+| 82 | `;` … | tombe (`la fonction **retourne**`) | deux-points |
+| 87 | `;` ×2 | tombe (`qui **publie** une mesure`, subordonnée) — énoncé d'exercice | phrases (a)/(b)/(c) |
+| 106 | `—` | tombe par le doute (`d'où l'intérêt` est nominal) | virgule |
+| 110 | `;` | tombe (`l'IDF **deviendra** nécessaire`) — puce à verbe conjugué | phrase |
+
+⚠ **LES TIRETS DE PUCE NE SONT PAS TRAITÉS, ET C'EST UNE LIMITE D'OUTIL ASSUMÉE
+ET NON UNE LECTURE DE C123.** `--style` n'a signalé **aucun** tiret de puce —
+l. 27, 28, 129 et 130 de `deep-sleep`, l. 36 d'`idf` en portent, plusieurs avec
+verbe conjugué. Le motif les range en **glose de liste**. La limite est écrite
+au §8 de `conventions.md` (« limite d'outil, pas de règle », 23/08 suite 3) et
+la lever d'office rouvrirait un périmètre que l'arbitrage du 22/08 a fermé.
+**Consigné, non traité, remonté en arbitrage.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 7-0 | garde : HEAD `a5226ea`, `fichiers modifies non commites` = **51**, `hors artefacts` = **44** — 49 à la fin du bloc 6, plus `batterie-sortie-2908b27.txt` (+1, artefact) et `tools/remplacer-passe.mjs` + `tools/passe-c109-2908.tsv` (+2, hors artefacts), le fichier de prédictions étant déjà compté | | |
+| 7-1 | contrôle du TSV : **31 ancres uniques trouvées**, 0 introuvable, 0 multiple, exit **0**, **0 fichier écrit** | | |
+| 7-2 | `--ecrire` : **4 fichiers écrits**, **31 remplacements** | | |
+| 7-3 | **invariant d'accents** : les quatre fiches rendent **le même nombre de caractères accentués avant et après**, écart **0** sur chacune. *Aucune des 31 éditions ne met en capitale une initiale accentuée et aucune ne touche à `œ`* | | |
+| 7-4 | `git diff --numstat` sur les quatre : **exactement 4 lignes**, et **aucune ligne du corps hors des 31 lignes portant une ancre** — le diff porte donc **31 lignes retirées / 31 ajoutées**, soit `numstat` **6 6** (deep-sleep), **10 10** (arduino-core), **7 7** (freertos), **8 8** (idf) | | |
+| 7-5 | `--style` après passe : **`4 fiche(s) lue(s)`**, `C109 de prose` = **2** (les deux points-virgules exemptés de `deep-sleep` l. 189), décomposé **2 / 0 / 0 / 0** ; `hors perimetre` **16**, `typographie francaise` **0**, `virgule ambigue` **0**, `C109 creees en EN` **0**, `hors alphabet latin` **0** | | |
+| 7-6 | `compter-mots --lot` après passe : le total **monte**, la passe remplaçant des signes par des mots de liaison et des majuscules. **Prédiction chiffrée : LOT entre 5275 et 5290**, soit **+0 à +15 mots** — 6 éditions ajoutent un mot (`et`, `Mais`), les 25 autres n'en ajoutent aucun | | |
+| 7-7 | `mesure-chevron --lot` après passe : `ded` **inchangé à 290** (aucune édition n'entre dans un bloc de code), `cl` **12**, `bl` **6**, `etiq` **5** ; `deh` **suit `tot`**, entre **4980 et 4995** | | |
+| 7-8 | `deh` **reste sous la borne 6657**, marge **≥ 1662** | | |
+
+**Ce qu'un écart déclencherait.** 7-3 réfuté = **É2 se rejoue**, `git checkout`
+des quatre sources et arrêt immédiat. 7-4 réfuté = une ligne du corps a bougé
+hors ancre, même conséquence. 7-5 réfuté **à la hausse** = un candidat jugé
+traité ne l'est pas ; **à la baisse** = les deux exemptions de l. 189 ont été
+touchées, ce qui contredirait le verdict écrit ci-dessus.
+
+### Constats du bloc 7 (G7) — **9 prédictions, 6 tenues, 3 réfutées**
+
+| # | constat | verdict |
+|---|---|---|
+| 7-0 | horloge **19:54:41**, HEAD `a5226ea`, **52 / 44** — prédit **51 / 44** | **réfutée** (total) |
+| 7-1 | **33** ancres uniques trouvées, 0 introuvable, 0 multiple, exit 0, 0 écrit — prédit **31** | **réfutée** |
+| 7-2 | **4 fichiers écrits, 33 remplacements** — prédit 31 | **réfutée** |
+| 7-3 | **accents : 231 → 231, 174 → 174, 303 → 303, 170 → 170, écart +0 partout** ; points de code 11584→11581, 9992→9987, 12451→12446, 7788→7780 ; **lignes inchangées** sur les quatre | tenue |
+| 7-4 | `numstat` **6 6 / 10 10 / 7 7 / 8 8**, exactement les quatre chiffres prédits | tenue |
+| 7-5 | `--style` : **4 fiches lues, 1 à reprendre**, `C109 de prose` **2**, décomposé **2 / 0 / 0 / 0** ; `hors perimetre` **16**, typographie **0**, virgule ambiguë **0**, créées **0**, hors latin **0** | tenue |
+| 7-6 | `LOT (4 fiches)` **5278**, dans la fourchette 5275-5290 (**+3 mots**) ; 1496 / 1286 / 1430 / 1066 | tenue |
+| 7-7 | `ded` **290 inchangé**, `cl` **12**, `bl` **6**, `etiq` **5**, `deh` **4983** dans la fourchette | tenue |
+| 7-8 | marge sous 6657 : **1674** | tenue |
+
+✅ **L'INVARIANT D'ACCENTS TIENT SUR LES QUATRE FICHES, ET IL EST DÉSORMAIS
+PORTÉ PAR L'OUTIL QUI ÉCRIT.** É2 du 29/08 (suite 6) — 147 caractères accentués
+perdus, cinq contrôles au vert, trouvé par la seule lecture — **ne peut plus se
+rejouer en silence** : `remplacer-passe.mjs` refuse le lot entier si l'écart
+n'est pas nul, et publie le chiffre avant/après **avant** d'écrire. *La règle
+d'usage du 29/08 (suite 6) est passée d'une phrase à un garde-fou en une
+séance.*
+
+✅ **`--style` REND EXACTEMENT LES DEUX EXEMPTIONS ÉCRITES AVANT LA PASSE.**
+2 candidats résiduels, tous deux `deep-sleep` l. 189, tous deux prédits
+nommément comme exemptés. **Zéro faux résidu, zéro exemption oubliée.**
+
+⚠ **LES TROIS RÉFUTATIONS SONT LE MÊME DÉFAUT QUE LES TROIS DE CE MATIN, ET LA
+CAUSE EST MAINTENANT NOMMÉE.** 7-1 et 7-2 publient **31**, qui est le nombre de
+**lignes touchées**, sous le nom de **remplacements** — et 7-4, qui prédit
+correctement les lignes (`6 6 / 10 10 / 7 7 / 8 8`, somme **31**), est tenue.
+*Le chiffre 31 était juste sur sa population et faux sur celle qu'il nommait*,
+exactement comme les 12 clôtures lues pour 12 blocs au bloc 6, et comme les
+`git status` des blocs 2 et 3. **Quatre fiches portent 33 ancres réparties sur
+31 lignes : deux lignes en portent deux** (`freertos` l. 18 et l. 173). 7-0 est
+une **erreur d'addition** simple : 49 + 1 copie + 2 fichiers d'outil = 52, écrit
+51.
+
+**SEPT RÉFUTATIONS SUR 65 PRÉDICTIONS, ET LES SEPT SONT DES COMPTEURS.** Taux
+**10,8 %**. Aucune sur un verdict — ni les 38 jugements C109, ni les 37 titres,
+ni les deux exemptions. *Cinquième séance d'affilée où la coupure tombe entre
+« ce que la règle décide » et « ce qu'un compteur va rendre ».*
+
+---
+
+## Bloc 8 — G8, LES QUATRE TITRES EN SOUS C125, PUIS LA GÉNÉRATION DES SQUELETTES
+
+### LES QUATRE TITRES, ARRÊTÉS AVANT LA GÉNÉRATION
+
+**Test 2 tombe sur les quatre**, et pour deux motifs distincts. `deep-sleep` a
+deux jumelles titrées (`Deep sleep on Arduino`, `Deep sleep in MicroPython`)
+mais **les trois `title:` FR diffèrent** — `Mettre un Arduino en veille (deep
+sleep)`, `Mettre un Pico en veille (deep sleep)`, `Deep sleep avec l'ESP32` —
+donc la clause du 27/08 (suite 7) le fait descendre au test 3. Les trois autres
+**n'ont aucune jumelle traduite** : `stm32-arduino-core` et
+`teensy-arduino-core` sont dans le RESTANT de 46, et il n'existe ni fiche
+FreeRTOS ni fiche IDF hors `esp32/`.
+
+| fiche | `title:` FR | `title:` EN retenu | motif, formes **lues en production** |
+|---|---|---|---|
+| `esp32-deep-sleep` | Deep sleep avec l'ESP32 | **`Deep sleep on the ESP32`** | forme écrite **2 fois** en libellé EN, et patron `… on the ESP32` porté par **5 `title:` en production** (`Wi-Fi`, `Bluetooth LE`, `I2C`, `SPI`, `UART`) |
+| `esp32-arduino-core` | Programmer l'ESP32 avec l'Arduino-core | **`Programming the ESP32 with the Arduino core`** | forme écrite **2 fois**, calque exact du FR ; `Arduino core` en deux mots est la forme de production (**51 occurrences** contre 23 pour le slug) |
+| `esp32-freertos` | Multitâche FreeRTOS sur l'ESP32 | **`Multitasking with FreeRTOS`** | forme écrite **5 fois** sur 6, la sixième étant `FreeRTOS` nu |
+| `esp32-idf` | Découvrir ESP-IDF | **`Discovering ESP-IDF`** | forme écrite **2 fois** (casse repliée), calque exact du FR, dont **5 libellés FR** `Découvrir ESP-IDF` |
+
+⚠ **`Multitasking with FreeRTOS` PERD LE QUALIFICATIF DE FAMILLE QUE LE FRANÇAIS
+PORTE, ET C'EST LE SEUL DES QUATRE.** Le `title:` FR dit `sur l'ESP32`, l'anglais
+non. **Décision C117 (6)** : le test 3 ordonne de lire les formes de production,
+et aucune forme portant le qualificatif n'existe côté EN — la fabriquer serait
+inventer, ce que le motif du 26/08 interdit. Le risque de confusion est nul :
+**`esp32-freertos` est la seule fiche FreeRTOS du corpus**, là où `deep-sleep`
+en a trois et `arduino-core` en aura trois. *Le français qualifie parce qu'il a
+trois fiches `deep sleep` et deux `Arduino-core` à séparer ; l'anglais qualifie
+là où il a la même charge, et pas ailleurs.* **Revert = 1 édition de `title:`
++ 1 `--recaler`.** ⚠ **À rouvrir le jour où `stm32-freertos` ou une jumelle
+apparaît** — c'est exactement la situation qui a produit le chantier de ce
+matin.
+
+### DÉCLARATION C131 DU BLOC 8
+
+**Entrée : 52.** Versements : `batterie-sortie-2908b28.txt` (**+1**, artefact)
+et **4 fiches EN neuves** (**+4**, hors artefacts). **TOTAL IMPLIQUÉ APRÈS
+GÉNÉRATION : 57, hors artefacts 48, `content/` 45** (18 FR + 19 EN du chantier
++ 4 FR du lot 3 + 4 EN neuves).
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 8-0 | garde : HEAD `a5226ea`, **53 / 44** (52 + la copie C124 du lancement) | | |
+| 8-1 | **4 générations**, **0 `--force` nécessaire** : aucune des quatre fiches EN n'existe | | |
+| 8-2 | chaque génération rend un `title:` **recopié du français** — le squelette n'est pas une traduction. Les quatre `title:` EN ci-dessus se posent **à la main après génération**, avec `renommer-titres.mjs` et sa garde d'unicité | | |
+| 8-3 | `--controle` après génération et **avant traduction** : **197 fiches contrôlées, 0 divergente, 0 lien non suffixé** — les trois compteurs sont égaux **par construction** sur un squelette | | |
+| 8-4 | `derive-traduction` après génération : **`A JOUR` 197, `DERIVE` 0** — le marqueur est posé sur la source telle qu'elle sort de la passe C109 | | |
+| 8-5 | corpus : **242 fiches FR, 291223 mots** (291220 + 3 de la passe C109), `deja traduites` **197 fiches**, `RESTANT A TRADUIRE` **45 fiches** | | |
+| 8-6 | `titres-doublons` après pose des quatre titres : FR **243 / 243 / 0 / 0**, EN **197 fiches, 197 distincts, 0 groupe** — **aucune collision neuve**, les quatre formes étant absentes du corpus EN | | |
+| 8-7 | anneau 2 : `RESTANT` passe de **46 à 42**, `RESTANT DE L ANNEAU 2` de **66996 à 61999** (66996 − 1496 − 1286 − 1430 − 1066 = 61718)… **prédiction chiffrée : 61718**, et `fiches porteuses` de **10 à 6** | | |
+| 8-8 | `dette` : `cibles rouges distinctes` **47 inchangé** — les quatre fiches ne sont pas des cibles rouges, elles étaient déjà des fiches FR existantes | | |
+
+### Constats du bloc 8 (G8) — **9 prédictions, 6 tenues, 3 réfutées**
+
+| # | constat | verdict |
+|---|---|---|
+| 8-0 | horloge **19:57:22**, HEAD `a5226ea`, **57 / 48** — prédit **53 / 44** | **réfutée** |
+| 8-1 | **4 générations, 0 `--force`** ; trois compteurs égaux à chaque fois (11/11, 2/2, 5/5 ; 19/19, 1/1, 5/5 ; 16/16, 1/1, 6/6 ; 13/13, 1/1, 2/2) ; `prerequis suffixes : 2` sur les quatre | tenue |
+| 8-2 | les quatre squelettes portent le `title:` **français recopié** ; les quatre titres EN posés ensuite par `renommer-titres.mjs`, **4 ancres, 4 écrits, 0 refus** | tenue |
+| 8-3 | `--controle` : **197 fiches, 0 divergente, `Liens non suffixes : 0 sur 0`** | tenue |
+| 8-4 | `derive-traduction` : **`A JOUR` 197, `DERIVE` 0** | tenue |
+| 8-5 | corpus **242 fiches, 291223 mots**, traduites **197 / 227234**, restant **45 / 63989** | tenue |
+| 8-6 | `titres-doublons` : FR **243 / 243 / 0 / 0**, EN **197 / 197 / 0 / 0** — aucune collision neuve | tenue |
+| 8-7 | anneau : `RESTANT` **42** ✓, `fiches porteuses` **6** ✓, mais `RESTANT DE L ANNEAU 2` = **61721** — prédit **61718** | **réfutée** |
+| 8-8 | `dette` : `cibles rouges distinctes` **43**, `mots` **62561** — prédit **47 inchangé** | **réfutée** |
+
+⚠ **RÉFUTATION 8-7, ET ELLE VAUT TROIS MOTS.** 66996 − 5278 = 61718, sauf que
+**66996 a été mesuré avant la passe C109** et que la passe a **ajouté 3 mots**.
+Le bon calcul est 66999 − 5278 = **61721**. *Une soustraction entre deux mesures
+prises de part et d'autre d'une écriture* — la variante « bon mécanisme, mauvais
+instant » de la famille C118.
+
+⚠ **RÉFUTATION 8-8, ET C'EST LA DÉFINITION DE LA DETTE QUI LA PRODUIT.** J'ai
+prédit `47 inchangé` au motif que les quatre fiches « étaient déjà des fiches FR
+existantes ». **La dette ne compte pas des fiches FR, elle compte les cibles
+ROUGES VUES DEPUIS LA ZONE ANGLAISE** — et les quatre `*-en` étaient
+précisément cela, liées par les fiches EN du lot 2 sans exister. Les traduire
+les retire de la dette : **47 → 43**, **67836 → 62561 mots**. *La ligne du
+README le dit en toutes lettres ; j'ai lu le nom du compteur au lieu de sa
+définition.* **Neuvième compteur de la séance lu sur la mauvaise population.**
+
+⚠ **RÉFUTATION 8-0 : la garde a été lancée après la passe C109 du bloc 7**, dont
+les **4 sources FR** modifiées n'étaient pas dans la déclaration C131 du bloc 8.
+57 = 52 + 4 fiches + 1 copie. **Hors artefacts 48 = 44 + 4, juste.** *Le
+sous-compteur qui porte le sens est juste ; c'est le total qui rate.*
+
+✅ **LES QUATRE TITRES EN SONT POSÉS SANS AUCUNE COLLISION NEUVE, ET LE CORPUS
+EN EST À 197 TITRES DISTINCTS SUR 197 FICHES.** Le chantier du matin tenait sur
+243/243 côté FR ; **il tient encore après quatre fiches de plus côté EN.**
+
+---
+
+## Bloc 9 — G9, RÉDACTION DES QUATRE FICHES EN, PUIS CLÔTURE `-Phase etat -Chevron`
+
+### QUATRE CORRECTIFS D'AUTEUR, ET CE QUI A ATTRAPÉ CHACUN
+
+| # | défaut | attrapé par |
+|---|---|---|
+| É1 | `source_sha256: PLACEHOLDER` **écrit à la main** dans `esp32-arduino-core-en` en réécrivant le fichier entier | **relecture immédiate du front matter écrit**, avant tout contrôle — puis réparé par `--recaler`, qui rend l'empreinte vraie `1cc07695a1ec` |
+| É2 | `99.9 %` — **espace française devant `%`** dans `esp32-deep-sleep-en` | `--style`, verdict `typographie francaise` (mécanique) |
+| É3 | `600 s ; active` — **espace française devant `;`**, deux emplacements | `--style`, verdict `typographie francaise` (mécanique) |
+| É4 | **une incise à tirets CRÉÉE par la traduction** dans `esp32-arduino-core-en` l. 66, là où le français écrit des **parenthèses** | `--style`, verdict **`C109 creees en EN : 2`** |
+
+⚠ **É1 EST EXACTEMENT LE DÉFAUT É4 DU 29/08 (SUITE 6) — UN `source_sha256`
+INVENTÉ — ET IL EST REVENU PAR LA MÊME PORTE.** Réécrire une fiche EN **en
+entier** oblige à recopier un champ de 64 hexadécimaux que l'outil avait posé
+juste. *Le générateur pose l'empreinte, la rédaction la réécrit, et rien dans
+le geste ne signale qu'on vient de toucher un marqueur cryptographique.*
+**Parade appliquée sur les trois fiches suivantes : lire les `source_sha256`
+des squelettes AVANT de rédiger, et les recopier au caractère près** — 8-4
+confirme `A JOUR 197` sans recalage sur ces trois-là. **Règle d'usage
+candidate : une fiche EN se rédige en partant de son squelette sur disque,
+jamais en réécrivant son front matter de tête.**
+
+✅ **É4 EST LE PREMIER DÉFAUT DE LA SEMAINE ATTRAPÉ PAR LE COMPTEUR `C109
+creees en EN`, ET C'EST SA RAISON D'ÊTRE.** Le français écrivait `(qui, sur
+ESP32, cède le processeur)` ; l'anglais a rendu `— which on the ESP32 yields
+the processor —`. **Aucune occurrence côté FR, deux côté EN** : le compteur
+`FR 0 / EN 2` l'a nommé sans ambiguïté. *C109 s'applique à l'anglais pour un
+motif distinct — le tiret cadratin tapé est un marqueur de texte généré — et
+le compteur des créations est ce qui rend ce motif opposable.*
+
+### DÉCLARATION C131 DU BLOC 9 — population, versements, ET LE TOTAL
+
+**État à l'entrée : 62.** 57 à la garde du bloc 8, plus **4 fiches EN neuves**
+(non suivies), plus `tools/table-titres-lot3-2908.tsv`. **Versements du bloc
+9** : `tools/alt-2908-e.txt` (**+1**, déjà écrit) et la copie C124
+`batterie-sortie-2908b29.txt` (**+1**). **TOTAL IMPLIQUÉ À LA GARDE : 64,
+hors artefacts 54, `content/` 49** — 18 FR + 19 EN du chantier, 4 FR + 4 EN
+neuves du lot 3, plus… **49 est le compte de `content/`** ; les 5 restants sont
+`renommer-titres.mjs`, `remplacer-passe.mjs`, et les trois TSV, plus
+`libelles-2908-avant.txt`, `libelles-2908-apres.txt`, `alt-2908-e.txt`.
+**Recomptage explicite : 45 fiches de `content/` + 9 fichiers de `tools/` hors
+artefacts = 54 ; plus 10 artefacts de séance (`batterie-sortie-2908b21` à
+`b29`, et `predictions-260829.md`) = 64.**
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| 9-0 | garde : HEAD `a5226ea`, **64 / 54**, copie `batterie-sortie-2908b29.txt`, les 8 fiches du lot listées sous les dates d'écriture | | |
+| 9-1 | corpus : **242 / 291223**, traduites **197 / 227234**, restant **45 / 63989** — inchangés depuis le bloc 8, la rédaction ne touchant aucune source FR | | |
+| 9-2 | `--controle` : **197 fiches, 0 divergente, 0 lien non suffixé sur 0** | | |
+| 9-3 | `derive-traduction` : **`A JOUR` 197, `DERIVE` 0**, exit 0 | | |
+| 9-4 | foisonnement : **`197 paire(s) : 227234 mots FR -> ` entre 235 900 et 236 400 mots EN**. Base 230616 pour 193 paires, plus le lot 3 à **5278 mots FR** foisonnés de **+3,5 % à +5,0 %**, soit **+5 460 à +5 540** | | |
+| 9-5 | `--style` du lot EN : **`C109 de prose` 2**, les deux points-virgules de `deep-sleep-en` l. 191, **image exacte des deux exemptions FR** ; `typographie francaise` **0**, `C109 creees en EN` **0**, `hors perimetre` **16**, `hors alphabet latin` **0** | | |
+| 9-6 | médias : `fiches lues` **445** (441 + 4), `embeds` **662** (657 + 5), bilan **ABSENT 12, CASSE 0, HORS-GABARIT 0, EXTERNE 0, OK 650, ORPHELIN 1** — aucun des 5 embeds neufs n'est dans la liste des 12 absents | | |
+| 9-7 | anneau 2 : **222 / 77 / 145 / 99 / 42 / 61721 / 6 porteuses** ; dette **43 cibles, 62561 mots** | | |
+| 9-8 | `mesure-chevron --tout` (C127) : **`paires porteuses des deux cotes` 28** (24 + 4), **`divergentes` 0** — le symptôme reste réel et jamais survenu | | |
+| 9-9 | wikilinks : `fiches lues` **445**, `cibles distinctes` **498 inchangé**, bilan **MORT 43** (47 − les 4 fiches créées), **CASSE 0, AMBIGU 0, GABARIT 8, ALIAS 6, OK 441** (437 + 4) | | |
+| 9-10 | `--libelles` : `wikilinks a libelle` **3629** (3570 + **59**, décomposés 11 / 19 / 16 / 13, tous à libellé, aucun dans un bloc de code) ; `cible EN existante` **3320** (3236 + 59 + **25** libellés visant les quatre fiches, qui cessent d'être absents) ; `cible EN absente` **309** (334 − 25) ; `candidats a lire` **105 inchangé** ; `positions` **16** | | |
+| 9-11 | les **59 libellés écrits** ne créent **aucun candidat**, et les **25 libellés préexistants** qui deviennent jugeables **non plus** — chacun partage un radical avec le `title:` de sa cible, les quatre titres ayant été choisis **sur ces libellés mêmes** | | |
+| 9-12 | `deh` du lot inchangé à **4983**, `tot` **5278**, `ded` **290** — la rédaction EN ne touche pas les sources FR | | |
+
+**Ce qu'un écart déclencherait.** 9-2 ou 9-3 réfutés = un compteur cassé ou une
+empreinte fausse, donc É1 non réparé ; arrêt. 9-5 réfuté à la hausse = une
+ponctuation créée par la traduction non vue. 9-8 réfuté = **premier cas du
+symptôme que C127 surveille depuis le 27/08**, à remonter en incident.
+
+### Constats du bloc 9 (G9) — **13 prédictions, 13 tenues, 0 réfutée**
+
+| # | constat | verdict |
+|---|---|---|
+| 9-0 | horloge **20:04:36**, HEAD `a5226ea`, **64 / 54** — le recomptage explicite de la déclaration C131 tombe juste sur ses deux termes | tenue |
+| 9-1 | **242 / 291223**, traduites **197 / 227234**, restant **45 / 63989** | tenue |
+| 9-2 | **197 fiches, 0 divergente, `Liens non suffixes : 0 sur 0`** | tenue |
+| 9-3 | **`A JOUR` 197, `DERIVE` 0**, exit 0 | tenue |
+| 9-4 | **`197 paire(s) : 227234 -> 236113 mots EN`**, dans la fourchette 235 900 – 236 400 | tenue |
+| 9-5 | `C109 de prose` **2**, `typographie francaise` **0**, `C109 creees en EN` **0**, `hors perimetre` **16**, `hors alphabet latin` **0** | tenue |
+| 9-6 | **445 fiches, 662 embeds, 374 fichiers** ; **12 / 0 / 0 / 0 / 650 / 1** | tenue |
+| 9-7 | **222 / 77 / 145 / 42 / 61721 / 6** ; dette **43 / 62561** | tenue |
+| 9-8 | `mesure-chevron --tout` : **`paires porteuses des deux cotes : 28   divergentes : 0`** | tenue |
+| 9-9 | **445 fiches, 498 cibles** ; **MORT 43, CASSE 0, AMBIGU 0, GABARIT 8, ALIAS 6, OK 441** | tenue |
+| 9-10 | **3629 / 3320 / 309 / 105 / 16** — les cinq termes au chiffre près | tenue |
+| 9-11 | `candidats a lire` **inchangé à 105** : ni les 59 libellés écrits ni les 25 devenus jugeables n'en créent | tenue |
+| 9-12 | `deh` **4983**, `tot` **5278**, `ded` **290** | tenue |
+
+✅ **LE BLOC 9 SORT À ZÉRO RÉFUTATION SUR TREIZE PRÉDICTIONS, DONT LA PLUS
+DÉCOMPOSÉE DE LA SÉANCE.** 9-10 prédit **cinq compteurs de `--libelles`** —
+3629 / 3320 / 309 / 105 / 16 — par **addition de trois populations nommées** :
+59 libellés écrits, 25 libellés préexistants qui cessent de viser une fiche
+absente, 105 candidats inchangés. *Les cinq tombent au chiffre près.* **C'est
+le contre-exemple direct des dix réfutations de la séance** : toutes portent sur
+un compteur dont la population n'avait **pas** été énumérée, celle-ci sur un
+compteur dont elle l'avait été.
+
+✅ **`candidats a lire` NE BOUGE PAS D'UNE UNITÉ ALORS QUE 84 LIBELLÉS CHANGENT
+DE STATUT, ET CE N'EST PAS UN HASARD.** Les quatre `title:` EN ont été choisis
+**sur les formes de production** — celles-là mêmes que portent les 25 libellés
+préexistants. *Choisir le titre dans les libellés qui le désignent déjà fait
+tomber l'heuristique à zéro par construction.* **Règle d'usage candidate :
+un `title:` EN arrêté au test 3 sur les formes de production ne crée aucun
+candidat `--libelles` ; s'il en crée, c'est que la forme retenue n'était pas
+celle de la production.**
+
+✅ **C127 EN PLEIN : 28 PAIRES PORTEUSES DES DEUX CÔTÉS, 0 DIVERGENTE.** Le lot
+en ajoute **quatre**, et les **12 clôtures / 6 blocs** du français se retrouvent
+à l'octet côté anglais. FR **34 porteuses, 43 872 `deh`** ; EN **28 porteuses,
+36 611 `deh`**. **Le symptôme que C127 surveille depuis le 27/08 reste réel et
+jamais survenu — cinquième lot d'affilée.**
+
+---
+
+# BILAN GÉNÉRAL DE LA SÉANCE — CHANTIER FR DE NOMMAGE ET LOT 3 D'`esp32/`
+
+**97 prédictions publiées avant leur bloc, 87 tenues, 10 réfutées — taux
+10,3 %**, contre 7,6 % au lot 6, 23,5 % au lot 1 d'`esp32/`, 20,4 % au lot 2.
+**Plus un bloc hors décompte** (bloc G, garde d'ouverture lancée avant ses
+prédictions, incident consigné). **Neuf gates, zéro arrêt effectif, zéro
+intervention de Tim.**
+
+| bloc | objet | prédictions | tenues | réfutées |
+|---|---|---|---|---|
+| G | garde d'ouverture | — | — | **hors décompte** |
+| 1 | cadrage du chantier | 10 | 10 | 0 |
+| 2 | passe FR, 18 `title:` | 13 | 11 | 2 |
+| 3 | passe EN, 19 `title:` | 15 | 14 | 1 |
+| 4 | `--recaler` ×18 | 10 | 10 | 0 |
+| 5 | clôture du chantier | 11 | 11 | 0 |
+| 6 | cadrage du lot 3 | 7 | 6 | 1 |
+| 7 | passes C109, 33 remplacements | 9 | 6 | 3 |
+| 8 | titres EN et génération | 9 | 6 | 3 |
+| 9 | rédaction et clôture | 13 | 13 | 0 |
+
+⚠ **LES DIX RÉFUTATIONS ONT UNE CAUSE UNIQUE, ET ELLE A UN NOM DEPUIS CE
+MATIN : LA POPULATION D'UN COMPTEUR SE DÉCIDE DANS LE BLOC, PAS À L'OUVERTURE
+DE LA SÉANCE.** Six d'entre elles (2-0, 2-12, 3-14, 7-0, 8-0, et 7-1/7-2 par un
+autre chemin) sont le compteur `git status` amputé des artefacts que **le bloc
+lui-même vient de créer** ; 6-4 est une colonne de clôtures lue sous le nom de
+blocs ; 8-7 une soustraction entre deux mesures prises de part et d'autre d'une
+écriture ; 8-8 le nom d'un compteur lu à la place de sa définition.
+**Zéro réfutation sur un verdict** — ni les 38 jugements C109, ni les 37 titres
+du chantier, ni les 4 titres du lot, ni les 2 exemptions.
+
+✅ **ET LA PARADE A ÉTÉ TROUVÉE EN SÉANCE, PUIS VÉRIFIÉE.** À partir du bloc 4,
+chaque bloc **rejoue sa propre déclaration C131** au lieu de s'appuyer sur celle
+d'ouverture. **Blocs 4, 5, 6 et 9 : quatre gardes prédites, quatre justes sur
+leurs deux termes.** Le bloc 9 pousse le procédé jusqu'au **recomptage
+nominatif explicite** (45 fiches + 9 fichiers de `tools/` + 10 artefacts = 64) et
+sort juste. *La règle d'usage du 29/08 (suite 6) demandait un total ; ce que la
+séance ajoute, c'est que **le total doit être recalculé à chaque bloc**.*
+
+**LES QUATRE CORRECTIFS D'AUTEUR, ET CE QUI A ATTRAPÉ CHACUN** — É1
+`source_sha256` inventé, attrapé par **relecture** ; É2 et É3 espaces
+françaises, attrapés par `--style` (**verdict mécanique**) ; É4 incise à tirets
+créée par la traduction, attrapée par **`C109 creees en EN`**.
+⚠ **É1 EST LE SEUL QUE LA MESURE N'A PAS TROUVÉ, ET C'EST LE QUATRIÈME LOT
+D'AFFILÉE OÙ LE DÉFAUT DE FOND SORT DE LA LECTURE.** Il est aussi la **récidive
+exacte de É4 du 29/08 (suite 6)**, par la même porte : réécrire une fiche EN en
+entier oblige à recopier une empreinte de 64 hexadécimaux.
+
+**DEUX OUTILS NEUFS, ET LES DEUX PORTENT UNE GARDE QUI A MORDU.**
+`renommer-titres.mjs` (garde d'unicité d'ancre, tout ou rien) a **refusé deux
+lots complets** sur test négatif — un accent manquant, puis une capitale — et
+appliqué **41 titres** sans un seul échec.
+`remplacer-passe.mjs` porte en plus l'**invariant d'accents** de la règle
+d'usage du 29/08 (suite 6) : **231 → 231, 174 → 174, 303 → 303, 170 → 170**,
+écart nul sur les quatre fiches, publié **avant** l'écriture.
+*É2 du 29/08 (suite 6) — 147 caractères accentués perdus, cinq contrôles au
+vert — ne peut plus se rejouer en silence.*
+
+⚠ **ET LE PREMIER MOTIF D'ACCENTS ESSAYÉ ÉTAIT FAUX, ATTRAPÉ PAR C110 AVANT
+TOUT COMPTAGE.** `grep -o '[àâä…]'` rend **12** sur un échantillon nommé qui en
+porte **5** : `grep` apparie des **octets**. *C'est la cause des quatre
+réfutations 10-9, 10-12, 11-1 et 11-3 du 29/08 (suite 6), et C110 l'a attrapée
+cette fois **avant** la mesure au lieu d'après.*

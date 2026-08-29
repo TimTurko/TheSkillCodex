@@ -1,0 +1,27 @@
+# Chantier de nommage, cote EN - miroir de la table FR arbitree le 29/08 (suite 5).
+# chemin<TAB>ancien title:<TAB>nouveau title:
+# entree-tor : aligne sur "Reading a digital input" (arbitrage Tim contre ma
+#              recommandation "Reading an on/off input").
+# shield     : cote EN SEUL, le FR portant deja deux titres distincts.
+#              arduino-shield-en NE FIGURE PAS dans cette table : il garde
+#              "Using a shield", image du title: FR "Utiliser un shield".
+# Derniere ligne : ANCRE DELIBEREMENT FAUSSE PAR LA CASSE, second test negatif.
+en/embarque/mcu/arduino/arduino-module-en.md	Wiring a module	Wiring a module on Arduino
+en/embarque/mcu/micropython/micropython-module-en.md	Wiring a module	Wiring a module in MicroPython
+en/embarque/mcu/arduino/arduino-gpio-boot-en.md	GPIO state at power-up	GPIO state at power-up on Arduino
+en/embarque/mcu/micropython/micropython-gpio-boot-en.md	GPIO state at power-up	GPIO state at power-up in MicroPython
+en/embarque/mcu/arduino/arduino-capteur-numerique-en.md	Reading a digital sensor	Reading a digital sensor on Arduino
+en/embarque/mcu/micropython/micropython-capteur-numerique-en.md	Reading a digital sensor	Reading a digital sensor in MicroPython
+en/embarque/mcu/cpp/cpp-lire-un-programme-en.md	Reading a program you did not write	Reading a C++ program you did not write
+en/embarque/mcu/micropython/micropython-lire-un-programme-en.md	Reading a program you did not write	Reading a MicroPython program you did not write
+en/embarque/mcu/arduino/arduino-entree-tor-en.md	Reading an on/off input	Reading a digital input on Arduino
+en/embarque/mcu/micropython/micropython-entree-tor-en.md	Reading a digital input	Reading a digital input in MicroPython
+en/embarque/mcu/arduino/arduino-moteur-pas-a-pas-en.md	Driving a stepper motor	Driving a stepper motor on Arduino
+en/embarque/mcu/micropython/micropython-moteur-pas-a-pas-en.md	Driving a stepper motor	Driving a stepper motor in MicroPython
+en/embarque/mcu/arduino/arduino-servomoteur-en.md	Driving a servo	Driving a servo on Arduino
+en/embarque/mcu/micropython/micropython-servomoteur-en.md	Driving a servo	Driving a servo in MicroPython
+en/embarque/mcu/arduino/arduino-sortie-tor-en.md	Driving an on/off output	Driving an on/off output on Arduino
+en/embarque/mcu/micropython/micropython-sortie-tor-en.md	Driving an on/off output	Driving an on/off output in MicroPython
+en/embarque/mcu/arduino/arduino-bibliotheques-en.md	Using a library	Using a library on Arduino
+en/embarque/mcu/micropython/micropython-bibliotheques-en.md	Using a library	Using a library in MicroPython
+en/embarque/mcu/micropython/micropython-shield-en.md	Using a shield	Using a shield or expansion board

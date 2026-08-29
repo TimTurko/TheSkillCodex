@@ -1,5 +1,5 @@
 ---
-title: GPIO state at power-up
+title: GPIO state at power-up on Arduino
 type: tuto
 phases:
   - concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-gpio-boot.md
-source_sha256: 4b6c812f12968aaa2a97c95a256aa2e4ca8a7a82000a27e9dbb6c9cc349d5600
+source_sha256: c5923884374b703ea098cf32692fc40b5604dceac6cc47eece645bbb18f59ef7
 ---
 
 Between the moment the Arduino is powered and the moment `setup()` runs its first useful instruction, a few tens to a few hundred milliseconds go by during which **the state of the GPIO pins is not the one you coded**. The concrete consequence: a relay can pull in briefly, a motor can jerk, an LED can flash at start-up. This page covers the causes, the symptoms and the fixes for that behaviour specific to boot, a subject often ignored until the day it causes trouble.

@@ -1,5 +1,5 @@
 ---
-title: Reading a program you did not write
+title: Reading a C++ program you did not write
 type: tuto
 phases:
   - preuve-de-concept
@@ -11,7 +11,7 @@ prerequis:
 aa: []
 draft: false
 source_fr: embarque/mcu/cpp/cpp-lire-un-programme.md
-source_sha256: 948a144122ed95c8aecb3d1ef30dc9dcb04ba0351d432f8ba6b01bda956fbd73
+source_sha256: cbac95e2f1a1494bae9a1fddb18eb8aea3fa64cfbb69ec6781246d53c2e555da
 ---
 
 Copying an example out asks nothing of you. **Understanding it** is what lets you go on to modify it, correct it and reuse it. And a program is not read like a piece of prose, from the first line to the last: you get into it through landmarks, in an order that is not the one it was written in. This page gives a **way in** to an unfamiliar C++ program, the **language mechanisms** that come back from one example to the next, and a **commented reading** of a program from this wiki, taken as it stands. It closes the [[cpp-en|C++]] path: the syntax is assumed known, and what you learn here is how to use it to read.

@@ -1,5 +1,5 @@
 ---
-title: Driving a servo
+title: Driving a servo in MicroPython
 type: tuto
 phases:
   - concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-servomoteur.md
-source_sha256: e1996ee6921fdb7533d0f64a1a317f40c385132fdd01e6b081278224d1710d1f
+source_sha256: 99187a3e27fe38115f4d97e6f13faec47483befdc0341e8590a00899fa80d109
 ---
 
 A **servo** (short for *servomotor*) is a rotary actuator that moves to an **angle setpoint** carried by a pulse-width coded signal (0° to 180° on a standard servo). Unlike Arduino, which has the `Servo.h` library, MicroPython ships no servo class: you drive the servo **straight from [[micropython-sortie-pwm-en|PWM]]**, a **50 Hz** signal whose **pulse width** you set (typically 0.5 to 2.5 ms). It is closer to the metal, and it shows exactly what a servo signal is.

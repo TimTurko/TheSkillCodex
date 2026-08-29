@@ -1,5 +1,5 @@
 ---
-title: Reading a digital sensor
+title: Reading a digital sensor in MicroPython
 type: tuto
 phases:
   - preuve-de-concept
@@ -15,7 +15,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-capteur-numerique.md
-source_sha256: 278b8441a2bb1daf85b46c765145992ca35068cfdec002f2b35330554bdf3108
+source_sha256: 618ded195dccf50d0332bdab955781baf15f1399eb20c3f4686340dca778d0ee
 ---
 
 A **digital sensor** delivers its information coded as a binary signal, as opposed to an analog sensor, which outputs a continuous voltage. The coding varies: a plain logic level (present / absent), a pulse whose width encodes the measurement (ultrasonic), a proprietary 1-wire protocol (DHT11), or an I2C / SPI frame (BMP280, MPU6050). This page covers the first two cases: the I2C and SPI buses have tutorials of their own.

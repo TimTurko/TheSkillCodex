@@ -1,0 +1,6 @@
+# Lot 3 d esp32/ - les quatre title: EN arretes sous C125, test 3 sur les quatre.
+# chemin<TAB>ancien title: (recopie du FR par le generateur)<TAB>nouveau title:
+en/embarque/mcu/esp32/esp32-deep-sleep-en.md	Deep sleep avec l'ESP32	Deep sleep on the ESP32
+en/embarque/mcu/esp32/esp32-arduino-core-en.md	Programmer l'ESP32 avec l'Arduino-core	Programming the ESP32 with the Arduino core
+en/embarque/mcu/esp32/esp32-freertos-en.md	Multitâche FreeRTOS sur l'ESP32	Multitasking with FreeRTOS
+en/embarque/mcu/esp32/esp32-idf-en.md	Découvrir ESP-IDF	Discovering ESP-IDF

@@ -1,5 +1,5 @@
 ---
-title: Driving a stepper motor
+title: Driving a stepper motor in MicroPython
 type: tuto
 phases:
   - concept
@@ -14,7 +14,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
-source_sha256: a088200021dda4af028f874ddc5d4619cd1572df7a345e51c4882e83f91477e5
+source_sha256: 71263551fb5ad8eb53ede3fc056be3c37fb4665b21c0ba4a7c1cc9df872b9023
 ---
 
 A **stepper motor** turns in **discrete angular steps** (often 200 steps per turn, 1.8° per step) under the sequential drive of several coils. The rotor position is therefore *known by construction* with no feedback sensor, hence its appeal for precise multi-turn positioning (3D printers, CNC machines). This page covers two drivers: the **28BYJ-48 plus ULN2003** (for teaching) and the **NEMA17 plus A4988** (industrial). In MicroPython, with no dedicated library built in, you **sequence the coils by hand**, which shows exactly how a stepper advances.

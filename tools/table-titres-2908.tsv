@@ -1,0 +1,23 @@
+# Chantier FR de nommage - table arbitree par Tim le 29/08 (suite 5).
+# chemin<TAB>ancien title:<TAB>nouveau title:
+# Qualificatif en queue sur les huit paires regulieres ; derogation sur
+# lire-un-programme (le qualificatif entre dans le groupe nominal).
+# Ligne 19 : ANCRE DELIBEREMENT FAUSSE, test negatif de la garde C116 (6).
+embarque/mcu/arduino/arduino-module.md	Câbler un module	Câbler un module sur Arduino
+embarque/mcu/micropython/micropython-module.md	Câbler un module	Câbler un module en MicroPython
+embarque/mcu/arduino/arduino-gpio-boot.md	État des GPIO à l'allumage	État des GPIO à l'allumage sur Arduino
+embarque/mcu/micropython/micropython-gpio-boot.md	État des GPIO à l'allumage	État des GPIO à l'allumage en MicroPython
+embarque/mcu/arduino/arduino-capteur-numerique.md	Lire un capteur numérique	Lire un capteur numérique sur Arduino
+embarque/mcu/micropython/micropython-capteur-numerique.md	Lire un capteur numérique	Lire un capteur numérique en MicroPython
+embarque/mcu/cpp/cpp-lire-un-programme.md	Lire un programme qu'on n'a pas écrit	Lire un programme C++ qu'on n'a pas écrit
+embarque/mcu/micropython/micropython-lire-un-programme.md	Lire un programme qu'on n'a pas écrit	Lire un programme MicroPython qu'on n'a pas écrit
+embarque/mcu/arduino/arduino-entree-tor.md	Lire une entrée TOR	Lire une entrée TOR sur Arduino
+embarque/mcu/micropython/micropython-entree-tor.md	Lire une entrée TOR	Lire une entrée TOR en MicroPython
+embarque/mcu/arduino/arduino-moteur-pas-a-pas.md	Piloter un moteur pas-à-pas	Piloter un moteur pas-à-pas sur Arduino
+embarque/mcu/micropython/micropython-moteur-pas-a-pas.md	Piloter un moteur pas-à-pas	Piloter un moteur pas-à-pas en MicroPython
+embarque/mcu/arduino/arduino-servomoteur.md	Piloter un servomoteur	Piloter un servomoteur sur Arduino
+embarque/mcu/micropython/micropython-servomoteur.md	Piloter un servomoteur	Piloter un servomoteur en MicroPython
+embarque/mcu/arduino/arduino-sortie-tor.md	Piloter une sortie TOR	Piloter une sortie TOR sur Arduino
+embarque/mcu/micropython/micropython-sortie-tor.md	Piloter une sortie TOR	Piloter une sortie TOR en MicroPython
+embarque/mcu/arduino/arduino-bibliotheques.md	Utiliser une bibliothèque	Utiliser une bibliothèque sur Arduino
+embarque/mcu/micropython/micropython-bibliotheques.md	Utiliser une bibliothèque	Utiliser une bibliothèque en MicroPython

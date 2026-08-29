@@ -1,5 +1,5 @@
 ---
-title: Piloter un moteur pas-à-pas
+title: Piloter un moteur pas-à-pas sur Arduino
 type: tuto
 phases:
   - concept

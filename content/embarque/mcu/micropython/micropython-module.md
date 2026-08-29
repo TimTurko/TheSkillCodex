@@ -1,5 +1,5 @@
 ---
-title: Câbler un module
+title: Câbler un module en MicroPython
 type: tuto
 phases:
   - preuve-de-concept

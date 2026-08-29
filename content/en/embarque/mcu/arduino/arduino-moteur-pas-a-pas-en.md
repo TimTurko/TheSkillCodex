@@ -1,5 +1,5 @@
 ---
-title: Driving a stepper motor
+title: Driving a stepper motor on Arduino
 type: tuto
 phases:
   - concept
@@ -13,7 +13,7 @@ aa:
   - RA-PROJET-C03-3/PROJ/5
 draft: false
 source_fr: embarque/mcu/arduino/arduino-moteur-pas-a-pas.md
-source_sha256: 85f45e2db72ed78e4188c492833bf97b6ef59638fb42756f4c744f0ecb021518
+source_sha256: 1abb34c94cd5687b9ad1ad9054c62ccf423ea6627682a81472519ea6688c3466
 ---
 
 A **stepper motor** turns in **discrete angular steps** — typically 200 steps per turn (1.8° per step) — under the sequenced drive of several coils. The rotor position is therefore *known by construction* without any feedback sensor, which makes the stepper the actuator of choice for precise multi-turn positioning (3D printers, CNC machines, scanners). This page covers two emblematic drivers: **28BYJ-48 + ULN2003** for the teaching version, and **NEMA17 + A4988** for the industrial stepper.

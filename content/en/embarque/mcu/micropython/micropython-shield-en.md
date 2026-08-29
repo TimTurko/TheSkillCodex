@@ -1,5 +1,5 @@
 ---
-title: Using a shield
+title: Using a shield or expansion board
 type: tuto
 phases:
   - concept

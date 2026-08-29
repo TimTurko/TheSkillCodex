@@ -1,5 +1,5 @@
 ---
-title: Piloter un servomoteur
+title: Piloter un servomoteur sur Arduino
 type: tuto
 phases:
   - concept

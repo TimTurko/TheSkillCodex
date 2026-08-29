@@ -1,5 +1,5 @@
 ---
-title: État des GPIO à l'allumage
+title: État des GPIO à l'allumage sur Arduino
 type: tuto
 phases:
   - concept
