@@ -1,0 +1,3 @@
+# TEST NEGATIF DELIBERE : cadratin remplace par un trait d union ASCII.
+# Attendu : 0 occurrence, refus du lot entier, 0 fichier ecrit.
+embarque/pcb/kicad.md	sans bridage - le standard libre	sans bridage. C'est le standard libre

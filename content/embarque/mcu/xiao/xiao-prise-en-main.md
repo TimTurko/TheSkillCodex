@@ -14,7 +14,7 @@ aa:
 draft: false
 ---
 
-La **prise en main du XIAO ESP32-S3** consiste à installer le support de la carte dans l'IDE Arduino, à la faire reconnaître par l'ordinateur via l'**USB-C**, et à téléverser un premier programme. Comme la carte est un [[esp32|ESP32]]-S3, la procédure est celle de la [[esp32-prise-en-main|prise en main de l'ESP32]] — on l'adapte ici aux spécificités du format : barrettes à souder, antenne à clipser, **LED utilisateur active à l'état bas**, et surtout la **séquence de récupération** quand la carte « disparaît ».
+La **prise en main du XIAO ESP32-S3** consiste à installer le support de la carte dans l'IDE Arduino, à la faire reconnaître par l'ordinateur via l'**USB-C**, et à téléverser un premier programme. Comme la carte est un [[esp32|ESP32]]-S3, la procédure est celle de la [[esp32-prise-en-main|prise en main de l'ESP32]]. On l'adapte ici aux spécificités du format : barrettes à souder, antenne à clipser, **LED utilisateur active à l'état bas**, et surtout la **séquence de récupération** quand la carte « disparaît ».
 
 > [!note] Avant de commencer
 > La XIAO est livrée **sans barrettes** : souder les broches nécessaires (attention aux pâtés de soudure, la carte est minuscule). Pour le Wi-Fi/BLE, clipser l'antenne fournie sur le connecteur U.FL — un côté dans le bloc d'abord, puis presser l'autre ; ne jamais tirer sur le câble pour la retirer.
@@ -28,7 +28,7 @@ La **prise en main du XIAO ESP32-S3** consiste à installer le support de la car
 4. Sélectionner la carte **`XIAO_ESP32S3`** et le port (un `COM3` ou plus sous Windows ; un `usbmodem`/`usbserial` sous macOS — au doute, débrancher/rebrancher pour voir lequel disparaît).
 5. Ouvrir **Fichier → Exemples → 01.Basics → Blink** et téléverser : la LED orange se met à clignoter.
 
-La démarche complète (et l'alternative **ESP-IDF**) est détaillée dans [[esp32-prise-en-main|prise en main de l'ESP32]] et [[esp32-arduino-core|ESP32 Arduino-core]] ; ici on s'en tient au minimum pour valider la carte.
+La démarche complète (et l'alternative **ESP-IDF**) est détaillée dans [[esp32-prise-en-main|prise en main de l'ESP32]] et [[esp32-arduino-core|ESP32 Arduino-core]]. Ici, on s'en tient au minimum pour valider la carte.
 
 ## Premier programme : la LED qui clignote
 
@@ -49,7 +49,7 @@ void loop() {
 }
 ```
 
-Le même en **MicroPython** (une fois le firmware MicroPython flashé — voir [[micropython|MicroPython]]) :
+Le même en **MicroPython** (une fois le firmware MicroPython flashé, voir [[micropython|MicroPython]]) :
 
 ```python
 from machine import Pin
@@ -63,7 +63,7 @@ while True:
     sleep(0.5)
 ```
 
-Pour vérifier que les **radios** répondent, lancer ensuite un scan Wi-Fi ou BLE — voir [[esp32-wifi|Wi-Fi]] et [[esp32-ble|BLE]].
+Pour vérifier que les **radios** répondent, lancer ensuite un scan Wi-Fi ou BLE (voir [[esp32-wifi|Wi-Fi]] et [[esp32-ble|BLE]]).
 
 ## Récupérer une carte qui ne répond plus
 
@@ -78,8 +78,8 @@ Une fois en mode bootloader, téléverser un programme sain (le Blink fait l'aff
 
 ## Raccrochage projet
 
-- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]]** — le premier téléversement sur la carte cible valide d'un coup toute la chaîne (IDE, support ESP32, USB natif, sélection carte et port). Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
-- **Toutes les fiches XIAO et ESP32 aval** — la séquence bootloader et l'option *USB CDC On Boot* débloquent la majorité des séances qui s'enlisent. Les acquérir ici, sur du code trivial, évite de les redécouvrir dans l'urgence d'un projet.
+- **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Le premier téléversement sur la carte cible valide d'un coup toute la chaîne (IDE, support ESP32, USB natif, sélection carte et port). Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
+- **Toutes les fiches XIAO et ESP32 aval.** La séquence bootloader et l'option *USB CDC On Boot* débloquent la majorité des séances qui s'enlisent. Les acquérir ici, sur du code trivial, évite de les redécouvrir dans l'urgence d'un projet.
 
 Le format timbre-poste ajoute une contrainte propre : soudure et antenne se font **avant** le premier essai, et une carte mal soudée donne les mêmes symptômes qu'un problème logiciel. Valider la carte nue en début de PoC évite ce doute.
 

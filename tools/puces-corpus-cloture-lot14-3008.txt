@@ -1,0 +1,20 @@
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  FR - population : content/**/*.md HORS content/en/
+    fichiers   : 248
+    porteuses  : 166
+    PUCES      : 937
+
+  EN - population : content/en/**/*.md
+    fichiers   : 242
+    porteuses  : 158
+    PUCES      : 902
+

@@ -1,0 +1,133 @@
+=== MESURE DU CHEVRON - TOUT LE DEPOT ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+  etiq est MESURE sur les etiquettes de langage des ouvertures appariees.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  etiq = mots des etiquettes de langage des ouvertures,
+  % = part des mots comptes qui vient des blocs.
+  IDENTITE : tot - deh - ded = etiq. Les lignes d ouverture et de
+  cloture sont hors deh (bornes comprises) et hors ded (contenu pris
+  strictement entre elles) ; le masque C110 est ancre en debut de
+  ligne et ne voit pas "> ```cpp", donc l etiquette reste dans tot.
+  ECART ne s imprime QUE s il differe de etiq : cloture orpheline,
+  texte apres une cloture, ouverture qui n est pas un fence.
+
+  fiches balayees : 482   porteuses : 68
+
+  --- COTE FRANCAIS
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    2 etiq    4.0 %
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    3 etiq    4.2 %
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2 etiq    2.7 %
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    1 etiq    0.7 %
+  embarque/mcu/cpp/cpp-logs.md                         2 cl   1 bl   1591 tot    11 ded   1579 deh    1 etiq    0.7 %
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    4 etiq    8.7 %
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    2 etiq    4.5 %
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2 etiq    2.1 %
+  embarque/mcu/esp32/esp32-arduino-core.md             4 cl   2 bl   1286 tot    65 ded   1219 deh    2 etiq    5.1 %
+  embarque/mcu/esp32/esp32-ble.md                      4 cl   2 bl   1280 tot    90 ded   1188 deh    2 etiq    7.0 %
+  embarque/mcu/esp32/esp32-deep-sleep.md               2 cl   1 bl   1497 tot    93 ded   1403 deh    1 etiq    6.2 %
+  embarque/mcu/esp32/esp32-freertos.md                 4 cl   2 bl   1431 tot   104 ded   1325 deh    2 etiq    7.3 %
+  embarque/mcu/esp32/esp32-gpio.md                     4 cl   2 bl   1526 tot    96 ded   1428 deh    2 etiq    6.3 %
+  embarque/mcu/esp32/esp32-i2c.md                      4 cl   2 bl   1143 tot    89 ded   1052 deh    2 etiq    7.8 %
+  embarque/mcu/esp32/esp32-idf.md                      2 cl   1 bl   1066 tot    28 ded   1038 deh    0 etiq    2.6 %
+  embarque/mcu/esp32/esp32-prise-en-main.md            4 cl   2 bl   2566 tot    59 ded   2505 deh    2 etiq    2.3 %
+  embarque/mcu/esp32/esp32-serie.md                    4 cl   2 bl   2019 tot   110 ded   1907 deh    2 etiq    5.4 %
+  embarque/mcu/esp32/esp32-spi.md                      4 cl   2 bl   1150 tot   128 ded   1020 deh    2 etiq   11.1 %
+  embarque/mcu/esp32/esp32-uart.md                     4 cl   2 bl   1282 tot   105 ded   1175 deh    2 etiq    8.2 %
+  embarque/mcu/esp32/esp32-wifi.md                     4 cl   2 bl   1455 tot   135 ded   1318 deh    2 etiq    9.3 %
+  embarque/mcu/esp8266/esp8266-arduino-core.md         4 cl   2 bl   1276 tot    75 ded   1199 deh    2 etiq    5.9 %
+  embarque/mcu/esp8266/esp8266-prise-en-main.md        4 cl   2 bl   1671 tot    69 ded   1600 deh    2 etiq    4.1 %
+  embarque/mcu/micropython/micropython-controle.md     4 cl   2 bl    491 tot    45 ded    444 deh    2 etiq    9.2 %
+  embarque/mcu/micropython/micropython-fonctions.md    4 cl   2 bl    469 tot    45 ded    422 deh    2 etiq    9.6 %
+  embarque/mcu/micropython/micropython-lire-un-programme.md   2 cl   1 bl   2644 tot    10 ded   2633 deh    1 etiq    0.4 %
+  embarque/mcu/micropython/micropython-modules.md      8 cl   4 bl    638 tot    48 ded    586 deh    4 etiq    7.5 %
+  embarque/mcu/micropython/micropython-repl.md         4 cl   2 bl    684 tot    39 ded    643 deh    2 etiq    5.7 %
+  embarque/mcu/micropython/micropython-types.md        4 cl   2 bl    537 tot    25 ded    510 deh    2 etiq    4.7 %
+  embarque/mcu/stm32/stm32-arduino-core.md             4 cl   2 bl   1711 tot    53 ded   1656 deh    2 etiq    3.1 %
+  embarque/mcu/stm32/stm32-prise-en-main.md            4 cl   2 bl   1810 tot   114 ded   1694 deh    2 etiq    6.3 %
+  embarque/mcu/teensy/teensy-arduino-core.md           4 cl   2 bl   1522 tot    47 ded   1473 deh    2 etiq    3.1 %
+  embarque/mcu/teensy/teensy-audio.md                  4 cl   2 bl   1378 tot    71 ded   1305 deh    2 etiq    5.2 %
+  embarque/mcu/teensy/teensy-prise-en-main.md          4 cl   2 bl   1477 tot    60 ded   1415 deh    2 etiq    4.1 %
+  embarque/mcu/teensy/teensy-usb.md                    4 cl   2 bl   1176 tot    57 ded   1117 deh    2 etiq    4.8 %
+  ------------------------------------------------------------------------------------------------
+  FR (34 porteuses)                                  136 cl  68 bl  46132 tot  2175 ded  43890 deh   67 etiq
+
+  --- COTE ANGLAIS
+  en/embarque/mcu/cpp/cpp-boucles-en.md                4 cl   2 bl   1147 tot    45 ded   1100 deh    2 etiq    3.9 %
+  en/embarque/mcu/cpp/cpp-conditions-en.md             6 cl   3 bl    952 tot    38 ded    911 deh    3 etiq    4.0 %
+  en/embarque/mcu/cpp/cpp-execution-en.md              4 cl   2 bl   1410 tot    39 ded   1369 deh    2 etiq    2.8 %
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md      2 cl   1 bl   2565 tot    18 ded   2546 deh    1 etiq    0.7 %
+  en/embarque/mcu/cpp/cpp-logs-en.md                   2 cl   1 bl   1668 tot    11 ded   1656 deh    1 etiq    0.7 %
+  en/embarque/mcu/cpp/cpp-portee-en.md                 8 cl   4 bl   1057 tot    88 ded    965 deh    4 etiq    8.3 %
+  en/embarque/mcu/cpp/cpp-structure-en.md              4 cl   2 bl   1151 tot    51 ded   1098 deh    2 etiq    4.4 %
+  en/embarque/mcu/cpp/cpp-types-en.md                  4 cl   2 bl   1347 tot    29 ded   1316 deh    2 etiq    2.2 %
+  en/embarque/mcu/esp32/esp32-arduino-core-en.md       4 cl   2 bl   1364 tot    64 ded   1298 deh    2 etiq    4.7 %
+  en/embarque/mcu/esp32/esp32-ble-en.md                4 cl   2 bl   1328 tot    90 ded   1236 deh    2 etiq    6.8 %
+  en/embarque/mcu/esp32/esp32-deep-sleep-en.md         2 cl   1 bl   1535 tot    94 ded   1440 deh    1 etiq    6.1 %
+  en/embarque/mcu/esp32/esp32-freertos-en.md           4 cl   2 bl   1477 tot   103 ded   1372 deh    2 etiq    7.0 %
+  en/embarque/mcu/esp32/esp32-gpio-en.md               4 cl   2 bl   1550 tot    94 ded   1454 deh    2 etiq    6.1 %
+  en/embarque/mcu/esp32/esp32-i2c-en.md                4 cl   2 bl   1169 tot    91 ded   1076 deh    2 etiq    7.8 %
+  en/embarque/mcu/esp32/esp32-idf-en.md                2 cl   1 bl   1123 tot    28 ded   1095 deh    0 etiq    2.5 %
+  en/embarque/mcu/esp32/esp32-prise-en-main-en.md      4 cl   2 bl   2652 tot    59 ded   2591 deh    2 etiq    2.2 %
+  en/embarque/mcu/esp32/esp32-serie-en.md              4 cl   2 bl   2124 tot   111 ded   2011 deh    2 etiq    5.2 %
+  en/embarque/mcu/esp32/esp32-spi-en.md                4 cl   2 bl   1202 tot   128 ded   1072 deh    2 etiq   10.6 %
+  en/embarque/mcu/esp32/esp32-uart-en.md               4 cl   2 bl   1310 tot   106 ded   1202 deh    2 etiq    8.1 %
+  en/embarque/mcu/esp32/esp32-wifi-en.md               4 cl   2 bl   1537 tot   134 ded   1401 deh    2 etiq    8.7 %
+  en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   4 cl   2 bl   1336 tot    76 ded   1258 deh    2 etiq    5.7 %
+  en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   4 cl   2 bl   1737 tot    69 ded   1666 deh    2 etiq    4.0 %
+  en/embarque/mcu/micropython/micropython-controle-en.md   4 cl   2 bl    504 tot    45 ded    457 deh    2 etiq    8.9 %
+  en/embarque/mcu/micropython/micropython-fonctions-en.md   4 cl   2 bl    509 tot    46 ded    461 deh    2 etiq    9.0 %
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   2 cl   1 bl   2738 tot    10 ded   2727 deh    1 etiq    0.4 %
+  en/embarque/mcu/micropython/micropython-modules-en.md   8 cl   4 bl    669 tot    48 ded    617 deh    4 etiq    7.2 %
+  en/embarque/mcu/micropython/micropython-repl-en.md   4 cl   2 bl    714 tot    40 ded    672 deh    2 etiq    5.6 %
+  en/embarque/mcu/micropython/micropython-types-en.md   4 cl   2 bl    573 tot    25 ded    546 deh    2 etiq    4.4 %
+  en/embarque/mcu/stm32/stm32-arduino-core-en.md       4 cl   2 bl   1762 tot    54 ded   1706 deh    2 etiq    3.1 %
+  en/embarque/mcu/stm32/stm32-prise-en-main-en.md      4 cl   2 bl   1830 tot   114 ded   1714 deh    2 etiq    6.2 %
+  en/embarque/mcu/teensy/teensy-arduino-core-en.md     4 cl   2 bl   1543 tot    47 ded   1494 deh    2 etiq    3.0 %
+  en/embarque/mcu/teensy/teensy-audio-en.md            4 cl   2 bl   1392 tot    71 ded   1319 deh    2 etiq    5.1 %
+  en/embarque/mcu/teensy/teensy-prise-en-main-en.md    4 cl   2 bl   1510 tot    60 ded   1448 deh    2 etiq    4.0 %
+  en/embarque/mcu/teensy/teensy-usb-en.md              4 cl   2 bl   1199 tot    57 ded   1140 deh    2 etiq    4.8 %
+  ------------------------------------------------------------------------------------------------
+  EN (34 porteuses)                                  136 cl  68 bl  47684 tot  2183 ded  45434 deh   67 etiq
+
+  --- APPARIEMENT FR / EN SUR LE NOMBRE DE BLOCS
+    embarque/mcu/cpp/cpp-boucles.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-conditions.md                 FR 3 bl / EN 3 bl   ok
+    embarque/mcu/cpp/cpp-execution.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-lire-un-programme.md          FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-logs.md                       FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-portee.md                     FR 4 bl / EN 4 bl   ok
+    embarque/mcu/cpp/cpp-structure.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-types.md                      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-arduino-core.md           FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-ble.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-deep-sleep.md             FR 1 bl / EN 1 bl   ok
+    embarque/mcu/esp32/esp32-freertos.md               FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-gpio.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-i2c.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-idf.md                    FR 1 bl / EN 1 bl   ok
+    embarque/mcu/esp32/esp32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-serie.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-spi.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-uart.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-wifi.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-arduino-core.md           FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-arduino-core.md         FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-audio.md                FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-prise-en-main.md        FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-usb.md                  FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 34   divergentes : 0

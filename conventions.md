@@ -4257,6 +4257,130 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   traduisent comme de la prose. Le taux de +0,8 % du 27/08 (suite 7)
   englobait cette part sans la nommer. **`ded` se prédit avec une marge, pas
   comme une constante.** *Éprouvée 0/N.*
+- **« Porteuse de blocs de code » et « porteuse de chevron » sont deux
+  prédicats distincts, et le chantier ne les avait jamais séparés.**
+  *Née le 30/08 (séance 10), lot 14, sur la question que le brief posait.*
+  Le brief prédisait que `mesure-chevron --tout` rendrait **plus de 34
+  paires** parce que `xiao-prise-en-main` est une fiche de prise en main,
+  « espèce qui porte des blocs de code ». **Elle en porte deux — un `cpp` et
+  un `python`, dix lignes de contenu chacun — et `ded` vaut zéro.** La règle
+  lue dans le code (`estCloture`, constante `REGLE` de `mesure-chevron.mjs`)
+  exige qu'une clôture **commence par `>`** : l'outil mesure *du code
+  derrière un chevron*, pas *du code*. Les quatre fences de la fiche sont en
+  marge gauche.
+  ⚠ *Aucun lot des treize précédents n'avait porté l'un sans l'autre — les
+  neuf porteuses connues du chantier logent toutes leur code dans un
+  callout —, si bien que les deux prédicats étaient interchangeables en
+  pratique et que rien ne forçait à les distinguer.* **C116 (7) est ce qui a
+  rendu la réponse juste** : le prédicat se lit dans le code qui l'évalue,
+  jamais dans le nom de l'outil. **C127 se ferme donc hors sujet pour le
+  neuvième lot d'affilée, et le chantier de traduction s'achève sans que la
+  règle ait jamais eu à servir.** *Éprouvée 0/N.*
+- **C116 (7) reprise en défaut TROIS FOIS DANS LA MÊME SÉANCE, sur trois
+  outils différents, et chaque fois dans le même sens : j'ai prédit ce que la
+  ligne de bilan AFFICHE en croyant prédire ce que le code INCRÉMENTE.**
+  *Née le 30/08 (séance 10), lot 14.* (1) `--style` : `hors perimetre` prédit
+  **0**, mesuré **1** — le seau compte aussi les **titres de section**, et
+  `## Exemple — Une petite carte capteur` en portait un. (2)
+  `remplacer-passe.mjs` : `remplacements` prédit **19**, mesuré **18** — le
+  compteur compte des **ancres**, une par ligne de table, quand mon 19
+  comptait des **occurrences traitées** ; *les deux chiffres étaient écrits
+  dans le même bloc de prédictions, à quatre paragraphes d'écart.*
+  (3) `audit-medias` : **+2 fiches** prédites, **+3** mesurées — la ligne dit
+  `fiches lues`, pas `fiches porteuses d'embed`, et `kicad-en` ne porte aucun
+  embed.
+  ⚠ **Les trois sont des outils que le chantier a écrits lui-même**, et la
+  règle avait été relue le matin même dans l'ouverture de séance. *Ce qui
+  distingue les trois échecs des sept réussites de la même séance est
+  observable : **là où j'ai ouvert le fichier au bon numéro de ligne, la
+  prédiction tombe ; là où j'ai relu ma propre phrase, elle rate**. La
+  parade n'est pas de « penser à C116 (7) », c'est d'ouvrir le code à
+  l'endroit du `+= 1`.* *Éprouvée 0/N, trois fois contre elle.*
+- **Le REGISTRE d'une fiche ne prédit pas le SIGNE du foisonnement, et la
+  première sous-hypothèse a été MESURÉE FAUSSE au lieu d'être plaidée.**
+  *Née le 30/08 (séance 10), lot 14, sur la réfutation la plus large de la
+  séance.* Prédit **+2,9 %**, fourchette `[+0,5 %, +5 %]`, avec un terme écrit
+  pour réfuter — *« deux tutos et une notion définitionnelle, donc aucune des
+  trois ne devrait sortir négative »*. **Mesuré : `kicad-en` −2,1 %,
+  `xiao-sense-en` −1,7 %, `xiao-prise-en-main-en` +1,5 %, lot −0,9 %.** Deux
+  sur trois négatives, et ce sont **un tuto et la notion**, quand le seul
+  positif est **l'autre tuto**.
+  ✅ **Ce qui a été fait de bien est d'avoir mesuré la cause supposée.**
+  Hypothèse : les **libellés de wikilink**, plus courts en anglais.
+  Décomposition mesurée, `tools/decompo-foisonnement-lot14-3008.txt` : les
+  wikilinks pèsent **120 mots sur 2 270, soit 5,3 %**, et passent à **117**,
+  **−2,5 %** — soit **0,13 point** sur 3,8 points d'écart. **La prose hors
+  liens fait 2 150 → 2 132, −0,8 %**, c'est-à-dire tout l'écart.
+  ⚠ **La cause reste donc INCONNUE, et elle est portée comme telle.** *La
+  leçon du lot 13 était « verdict juste, motif faux » ; ici le motif est
+  **mesuré faux**, ce qui vaut mieux qu'un motif plausible et laisse le vrai
+  à trouver.* **Le registre garde sa valeur prédictive sur les compteurs de
+  DENSITÉ — puces, candidats C109, titres de section, tous justes ce
+  soir — et la perd sur le SIGNE du foisonnement.** *Éprouvée 0/N, contre
+  elle.*
+- **Un `title:` français qui EST déjà le titre anglais ne passe par aucun
+  outil d'écriture — et la conclusion se propage à toute sa classe, pas au
+  seul cas où on l'a vue.**
+  *Née le 30/08 (séance 10), lot 14, sur une prédiction réfutée d'une ligne.*
+  Le squelette de `creer-fiche-en.mjs` recopie le front matter français, donc
+  un nom de produit arrive déjà titré. J'avais **prédit** une table de
+  renommage à **deux** lignes en excluant `kicad-en` pour cette raison ; elle
+  en porte **une**, `xiao-sense-en` étant dans le même cas. ⚠ *Le tableau des
+  trois `title:` publié **trois paragraphes plus haut** écrivait déjà, de
+  `XIAO ESP32-S3 Sense`, « nom de produit, symétrique de `XIAO ESP32-S3`,
+  **inchangé lui aussi** » : la conclusion était au registre et n'a pas été
+  propagée au geste suivant.* **Règle : quand un raisonnement écarte un cas
+  d'une passe, il faut le rejouer sur chaque membre de la même classe avant
+  d'écrire la table**, pas seulement sur celui qui l'a suggéré.
+  *Éprouvée 0/N.*
+- **Un motif qui accepte le pipe échappé met la forme ÉCHAPPÉE EN PREMIER
+  dans l'alternance.**
+  *Née le 30/08 (séance 10), lot 14, en mettant en code la leçon P125.19 du
+  lot 13.* `(?:\\\||\|)` fonctionne, `(?:\||\\\|)` **ne fonctionne pas** :
+  une alternance regex est paresseuse de gauche à droite, et le pipe nu mord
+  sur l'antislash avant que la branche échappée ne soit essayée. *Le lot 13
+  avait constaté qu'un motif aveugle au pipe échappé rate les cibles citées
+  dans un tableau ; il n'avait pas dit comment l'écrire.*
+  ✅ **Épreuve C110 posée avec la règle** : l'échantillon nommé est
+  `pcb-en.md`, seule occurrence connue du corpus, et le motif y rend **4**
+  libellés `EasyEDA` là où un pipe nu en rend **0**. *Éprouvée 1/N.*
+- **Une valeur de référence republiée sans être remesurée est périmée du
+  nombre de lots qui la séparent de sa mesure.**
+  *Née le 30/08 (séance 10), lot 14, sur un terme d'arrêt corrigé en cours de
+  bloc.* Le terme écrit pour réfuter le relevé des titres de section disait
+  que `## In the project` devait « rester à **20** » ; le relevé rend **21**.
+  *Le 20 vient de la clôture du **lot 8** et n'avait pas été remesuré depuis
+  **six lots** — je l'ai republié comme une référence courante parce qu'il
+  était écrit dans un texte que je venais de relire.*
+  ⚠ **La branche est étroite et il faut la nommer** : les six formes de
+  production, elles, **sont** republiées du lot 13 et tombent justes, parce
+  que le lot 13 les a mesurées. **Ce qui périme une référence n'est pas son
+  âge, c'est le nombre de lots écrits depuis sa dernière mesure** — et une
+  référence dont la population a bougé entre-temps ne se republie pas, elle
+  se remesure. *Éprouvée 0/N.*
+- **Un fichier jetable dont le nom ne porte pas son LOT entre en collision
+  avec celui d'un autre lot — et sur Windows, la casse ne sépare rien.**
+  *Née le 30/08 (séance 10), lot 14, incident de la séance.* Le corps du test
+  négatif a été écrit dans `tools/corps-NEGATIF-3008.md` par un `>` de shell.
+  **Le fichier existait déjà en minuscules**, `tools/corps-negatif-3008.md`,
+  versionné au commit `4e73aa8` : il a été **écrasé sans être lu**, et il
+  portait le témoin du mode `--corps` lui-même — un `source_sha256` de
+  soixante-quatre zéros, bien formé et inventé. Restauré à l'octet par
+  `git checkout --`, corps du lot réécrit en `corps-lot14-negatif-3008.md`,
+  test rejoué, intégrité revérifiée.
+  ⚠ **Aucune des sept déclarations C131 de la séance ne pouvait le voir** :
+  elles comptent des **entrées** de `git status`, et le fichier en valait une
+  qu'il soit créé ou modifié. **C'est `git diff --numstat` qui l'a trouvé, et
+  lui seul distingue « créé » de « modifié ».** *Règle qui en sort : la
+  clôture lit le `numstat` **contre la liste nominative des fichiers
+  attendus**, pas seulement le compteur d'entrées ; une ligne `M` sur un
+  fichier qu'on croyait créer est un écrasement.*
+  ⚠ **Et la cause première est un nom** : `corps-negatif-3008` n'est daté que
+  du **jour**, quand le 30/08 porte **six lots**. *Les quatre fichiers de
+  corps réels du lot portaient chacun leur nom de fiche et n'ont pas pu
+  collisionner ; le seul qui n'en portait pas est le seul qui a collisionné.*
+  **Un artefact de séance se nomme par son LOT, jamais par sa seule date.**
+  *Éprouvée 0/N.*
 
 ---
 

@@ -17684,3 +17684,1634 @@ mesure** :
 modification du corpus français**, 2 relevés datés encadrant une passe qui n'a
 rien eu à passer, et **sept entrées de §8 dont deux réfutent une candidate de la
 veille**. *Le lot 14 fermera le corpus : 3 fiches, 2 268 mots.*
+
+---
+---
+
+# SÉANCE 10 DU 30/08 — LOT 14, LE DERNIER LOT DU CORPUS
+
+**Périmètre** — PC perso, onglet Code, Opus 5. **Quinzième lot en exécution
+directe**, quinzième épreuve de la sous-règle C116 amendée, **quatorzième
+séance sous C131**. Le lot prend les **trois dernières fiches du corpus** :
+`embarque/pcb/kicad`, `embarque/mcu/xiao/xiao-prise-en-main`,
+`embarque/mcu/xiao/xiao-sense` — **2 268 mots annoncés au brief**, toutes
+**hors anneau 2**, dont **deux hors anneaux 0..2**. Blocs numérotés à partir
+de **127**, la séance 9 ayant fermé sur le bloc 126.
+
+⚠ **Ce lot ferme le chantier de traduction** : après lui, `RESTANT A
+TRADUIRE` doit rendre **0 fiche, 0 mot**.
+
+**Ce que le brief impose et que je note avant d'exécuter** :
+1. **`ded` se MESURE, ne se suppose pas.** Les trois fiches n'ont jamais été
+   passées au chevron, et `xiao-prise-en-main` est une fiche de prise en main,
+   espèce qui porte des blocs de code. `mesure-chevron --tout` rendra **plus
+   de 34 paires** si l'une d'elles est porteuse, et **C127 pourrait redevenir
+   applicable après huit lots**.
+2. **Le taux C109 se prédit par DÉNOMBREMENT NOMINATIF** sur sources lues en
+   entier, jamais par un taux de registre — leçon du lot 13, où le taux
+   « fiche d'outil » donnait ≈ 117 et le dénombrement 1.
+3. **Tout motif cherchant un libellé de wikilink accepte le PIPE ÉCHAPPÉ**
+   `\|`, sans quoi il est aveugle aux cibles citées dans un tableau.
+4. **Un échantillon nommé sous C110 se recopie depuis la prédiction du
+   registre qui porte sa réponse**, jamais de mémoire.
+5. **La borne d'une date de fichier se pose sur le dernier relevé de CETTE
+   date, borne basse fermée.**
+6. **Le seau `C109 creees en EN` ne voit pas les C109 SUPPRIMÉES** par la
+   traduction — comparer les deux `--style` à la main.
+7. **Toute déclaration C131 d'un bloc qui lance la batterie verse d'office la
+   copie C124 du rang suivant.**
+
+---
+
+## BLOC 127 — GARDE DE PÉREMPTION D'OUVERTURE
+
+**Commande** :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde -Fiches embarque/pcb/kicad.md,embarque/mcu/xiao/xiao-prise-en-main.md,embarque/mcu/xiao/xiao-sense.md`
+
+### Déclaration C131 du bloc 127
+
+**Population du compteur `fichiers modifies non commites`** : les entrées de
+`git status --porcelain` sur **tout le dépôt**, une entrée par ligne — donc
+**une** ligne pour un répertoire entièrement non suivi, pas une par fichier.
+Le second chiffre, `hors artefacts de seance`, applique le filtre écrit dans
+`batterie.ps1` : sont écartées les lignes portant `batterie-sortie` **ou**
+`predictions-`.
+
+**État de départ** : `HEAD 08075d9`, arbre **propre** au lancement de la
+séance (lot 13 livré et commité par Tim).
+
+**Versements de la séance dans cette population, au moment où le bloc 127
+mesure** :
+1. `tools/predictions-260830.md` — **modifié** par le présent en-tête, la
+   présente déclaration et les prédictions ci-dessous. Fichier **suivi**,
+   donc **1 entrée**, **écartée** par le filtre `predictions-`.
+2. `tools/batterie-sortie-3008b61.txt` — copie C124 que l'étape 0 du bloc
+   crée **d'office** (rang 61, `3008b60` étant le dernier occupé). Fichier
+   **neuf et non suivi**, dans un répertoire **déjà suivi**, donc **1
+   entrée**, **écartée** par le filtre `batterie-sortie`.
+3. `tools/batterie-sortie.txt` — réécrit, mais **exclu par `.gitignore` au
+   chemin exact** : **0 entrée**.
+
+**TOTAL DÉCLARÉ : 2 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 127
+
+- **P127.1** — `lignes non ASCII dans batterie.ps1 : 0`. *Le script n'a pas
+  été touché depuis sa dernière mesure ; C122 s'autocontrôle.*
+- **P127.2** — `sortie precedente copiee : tools\batterie-sortie-3008b61.txt`.
+  *Rang 61, premier libre : les rangs 1 à 60 du `jjMM` `3008` sont occupés,
+  relevé au répertoire et non de mémoire.*
+- **P127.3** — `phase demandee : garde   anneau : 2   chevron : False`.
+- **P127.4** — `date ISO : 2026-08-30`, heure **postérieure à 21:08:25**,
+  horloge du commit `08075d9`. *Borne basse fermée sur le dernier événement
+  daté du dépôt.*
+- **P127.5** — `HEAD git : 08075d9 2026-08-30 21:08:25 +0200`, **au
+  caractère**.
+- **P127.6** — `fichiers modifies non commites : 2   (hors artefacts de
+  seance : 0)`, conformément à la déclaration C131 ci-dessus.
+- **P127.7** — `node : v24.15.0`.
+- **P127.8** — dates de dernière écriture des trois fichiers de pilotage :
+  - `JOURNAL.md` : **dans [2026-08-30 19:55:57, 2026-08-30 21:08:25]**,
+    bornes fermées. *Borne basse = horloge du **dernier relevé du 30/08**
+    (garde de la séance 9, qui lisait encore 19:19:32) ; borne haute =
+    horloge du commit, la clôture § 7 s'écrivant entre les deux.*
+  - `conventions.md` : **dans le même intervalle [19:55:57, 21:08:25]**,
+    bornes fermées, pour la même raison.
+  - `TODO.md` : **`2026-08-29 21:48:08` exactement**. *Égalité au dernier
+    relevé — le fichier est déclaré inchangé depuis six clôtures.*
+- **P127.9** — dates de dernière écriture des **trois sources FR du lot**,
+  toutes **strictement antérieures à `2026-08-29 00:00:00`**. *Aucun lot du
+  chantier ne les a touchées : la passe C109 n'écrit que sur les sources de
+  son propre lot, et ces trois-là n'ont jamais été dans un lot.*
+- **P127.10** — les trois lignes de sources rendent une **date** et non
+  `ABSENTE` : les trois chemins existent sous `content/`.
+- **P127.11** — `--- code de sortie : 0` sur les **deux** étapes (0 et 1), et
+  **aucune** étape 2 et suivantes, la phase `garde` s'arrêtant là.
+- **P127.12** — `Sortie ecrite dans tools\batterie-sortie.txt` en dernière
+  ligne.
+
+**Terme écrit pour réfuter** : tout écart sur `HEAD`, tout fichier modifié
+au-delà des deux déclarés, ou toute date de source **postérieure au 29/08**
+⇒ **ARRÊT**, rien n'est écrit.
+
+### Constats du bloc 127 — 12 prédictions, 12 tenues, garde AU VERT
+
+- **P127.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P127.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b61.txt`.
+- **P127.3 ✅** `phase demandee : garde   anneau : 2   chevron : False`.
+- **P127.4 ✅** `date ISO : 2026-08-30   heure : 21:13:03`, postérieure à
+  21:08:25.
+- **P127.5 ✅** `HEAD git : 08075d9 2026-08-30 21:08:25 +0200`, au caractère.
+- **P127.6 ✅** `fichiers modifies non commites : 2   (hors artefacts de
+  seance : 0)`. **Déclaration C131 juste sur ses deux termes.**
+- **P127.7 ✅** `node : v24.15.0`.
+- **P127.8 ✅** `JOURNAL.md` **2026-08-30 20:04:11** et `conventions.md`
+  **2026-08-30 20:02:19**, tous deux dans `[19:55:57, 21:08:25]` ;
+  `TODO.md` **2026-08-29 21:48:08**, égalité exacte.
+  ✅ *La borne posée sur le dernier relevé de la date tient pour la
+  troisième fois, et l'intervalle a servi : les deux valeurs mesurées sont
+  à **45 minutes** de la borne basse et à **une heure** de la borne haute —
+  une prédiction d'égalité au relevé de 19:19:32 aurait été réfutée.*
+- **P127.9 ✅** les trois sources datent du **2026-08-17** — `kicad.md`
+  15:31:43, `xiao-prise-en-main.md` 13:15:12, `xiao-sense.md` 13:17:32 —,
+  strictement antérieures au 29/08. *Elles portent la date de la relecture
+  de fond des modules ; aucun lot du chantier ne les a effleurées.*
+- **P127.10 ✅** trois dates, zéro `ABSENTE`.
+- **P127.11 ✅** deux étapes, `code de sortie : 0` sur les deux, aucune
+  étape 2.
+- **P127.12 ✅** `Sortie ecrite dans tools\batterie-sortie.txt`.
+
+**Aucun terme de réfutation ne mord : la garde est AU VERT, la séance peut
+écrire.**
+
+---
+
+## BLOC 128 — CADRAGE : VOLUME DU LOT, CANDIDATS C109 DES SOURCES, ANNEAU ET DETTE
+
+**Commande** :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/pcb/kicad.md,embarque/mcu/xiao/xiao-prise-en-main.md,embarque/mcu/xiao/xiao-sense.md`
+
+### Déclaration C131 du bloc 128
+
+**Population** : identique au bloc 127 — entrées de `git status --porcelain`,
+filtre `batterie-sortie` **ou** `predictions-` pour le second chiffre.
+
+**Versements de la séance au moment où le bloc 128 mesure** :
+1. `tools/predictions-260830.md` — **déjà** modifié au bloc 127, réécrit
+   depuis : **toujours 1 entrée**, écartée.
+2. `tools/batterie-sortie-3008b61.txt` — créé par le bloc 127 : **1 entrée**,
+   écartée.
+3. `tools/batterie-sortie-3008b62.txt` — copie C124 que l'étape 0 du présent
+   bloc crée **d'office**, rang 62 : **1 entrée**, écartée.
+4. `tools/batterie-sortie.txt` — `.gitignore` au chemin exact : **0 entrée**.
+
+**TOTAL DÉCLARÉ : 3 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 128 — étapes 0 et 1 (garde)
+
+- **P128.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P128.2** — `sortie precedente copiee : tools\batterie-sortie-3008b62.txt`.
+- **P128.3** — `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P128.4** — `date ISO : 2026-08-30`, heure **postérieure à 21:13:03**.
+- **P128.5** — `HEAD git : 08075d9 2026-08-30 21:08:25 +0200`, au caractère.
+- **P128.6** — `fichiers modifies non commites : 3   (hors artefacts de
+  seance : 0)`.
+- **P128.7** — les six dates sont des **égalités exactes** avec le bloc 127,
+  et l'égalité est ici légitime **parce que rien n'a été écrit entre les deux
+  blocs sur ces six fichiers** : `JOURNAL.md` **2026-08-30 20:04:11**,
+  `conventions.md` **2026-08-30 20:02:19**, `TODO.md` **2026-08-29
+  21:48:08**, `kicad.md` **2026-08-17 15:31:43**, `xiao-prise-en-main.md`
+  **2026-08-17 13:15:12**, `xiao-sense.md` **2026-08-17 13:17:32**.
+
+### Prédictions du bloc 128 — étape 2, volume du lot (`compter-mots --lot`)
+
+Les trois valeurs sont des **mesures republiées**, pas des estimations : le
+`--anneau` du lot 7 (30/08, séance 1) les a rendues fiche par fiche, et la
+garde du bloc 127 **vient de prouver que les trois sources n'ont pas bougé
+depuis le 17/08**. Une remesure qui les démentirait démentirait la garde.
+
+- **P128.8** — `embarque/pcb/kicad.md` **840**.
+- **P128.9** — `embarque/mcu/xiao/xiao-prise-en-main.md` **670**.
+- **P128.10** — `embarque/mcu/xiao/xiao-sense.md` **758**.
+- **P128.11** — `LOT (3 fiches)` **2 268**, égal au `mots` de la dette
+  publiée à la clôture du lot 13.
+
+⚠ **Contre-épreuve, écrite avant la mesure** : mon estimation **indépendante**,
+tirée de `wc -w` corrigé terme à terme (front matter retiré, blocs de code
+retirés, wikilinks et gras recomptés au motif C110), donnait **849 / 675 /
+762 = 2 286**, soit **+18** sur le total. *Les trois points republiés
+l'emportent parce qu'ils sont mesurés ; l'écart de +18 est la marge d'une
+estimation à la main sur 2 268 mots, soit 0,8 %, et il est écrit ici pour que
+la méthode d'estimation soit jugeable et pas seulement son résultat.*
+
+### Prédictions du bloc 128 — étape 3, candidats C109 des trois sources FR
+
+**Méthode : DÉNOMBREMENT NOMINATIF, ligne par ligne, sur les trois sources
+lues en entier**, en rejouant l'algorithme lu dans le code
+(`masquerHorsProse` l. 1018, `exemptions()` l. 1044-1069, famille 3
+l. 1138-1163) et **non** un taux de registre. *C'est la leçon du lot 13 : le
+taux « fiche d'outil » y prédisait environ 117 et le dénombrement rendait le 1
+exact.*
+
+- **P128.12 — `kicad.md` : 6 candidats**, aux lignes **30** (tiret d'incise,
+  « sans bridage — le standard libre »), **44** (tiret d'incise, dans le
+  callout `[!note]`, « coûteuses — une carte fausse »), **52** (**deux**
+  points-virgules de prose, item numéroté dont la ligne **ne finit pas** par
+  un point-virgule, donc l'exemption de fin d'item ne joue pas), **65**
+  (**deux** tirets d'incise, « toute prête — il faut » et « en mai 2026 —
+  plus de 17 000 »).
+  **Décomposition : 4 tirets d'incise, 2 points-virgules de prose.**
+- **P128.13 — `xiao-prise-en-main.md` : 8 candidats**, aux lignes **17**
+  (tiret), **20** (tiret **et** point-virgule, dans le callout `[!note]`),
+  **28** (point-virgule, item numéroté dont le **premier** tiret est
+  exempté), **31** (point-virgule), **52** (tiret), **66** (tiret), **93**
+  (tiret — ⚠ **le DEUXIÈME de la ligne** : la puce
+  `- [[xiao-alimentation|XIAO — alimentation]] — alimenter…` porte **deux**
+  cadratins et l'exemption de glose n'exempte que le **premier**, qui est
+  celui du **libellé**).
+  **Décomposition : 5 tirets d'incise, 3 points-virgules de prose.**
+- **P128.14 — `xiao-sense.md` : 14 candidats**, aux lignes **16** (deux
+  tirets + un point-virgule), **22** (tiret), **28** (tiret +
+  point-virgule), **40** (le **deuxième** tiret de la puce + un
+  point-virgule), **42** (tiret), **45** (tiret, callout `[!warning]`),
+  **49** (tiret), **51** (tiret — ⚠ **dans un titre d'ouvrage**, *XIAO: Big
+  Power, Small Board — Mastering Arduino and TinyML*), **56** et **59** (le
+  **deuxième** tiret de chaque puce de `## Voir aussi`, le premier étant
+  dans le libellé `[[xiao-alimentation|XIAO — alimentation]]` et
+  `[[xiao-prise-en-main|XIAO — prise en main]]`).
+  **Décomposition : 11 tirets d'incise, 3 points-virgules de prose.**
+- **P128.15 — bilan de l'étape 3** : `3 fiche(s) lue(s), 3 a reprendre.` ;
+  `typographie francaise : 0` (les deux familles de typographie ne mordent
+  que sur `en/`) ; `virgule ambigue : 0` (idem, alors que `xiao-sense` porte
+  `1,1`, `3,0` et `4,0`) ; `C109 creees en EN : 0` (aucun `source_fr:` dans
+  une source FR) ; **`C109 de prose : 28`** ; **`hors perimetre : 0`** ;
+  `hors alphabet latin : 0`.
+- **P128.16 — code de sortie de l'étape 3 : `0`.** *`typo`, `creees` et
+  `etrangers` sont tous nuls ; les 28 candidats sont « à lire », pas un
+  verdict mécanique.*
+
+⚠ **Terme écrit pour réfuter, et il est chiffré.** `hors perimetre` **non nul**
+signifierait qu'un tiret ou un point-virgule vit dans un titre, un tableau ou
+un `alt` que je n'ai pas vu — les trois sources portent **deux embeds**
+(`xiao-prise-en-main` l. 72, `xiao-sense` l. 20) et **aucun** ne contient de
+cadratin ni de point-virgule. Et **`C109 de prose` supérieur à 28**
+signifierait que j'ai lu une exemption de glose là où le premier tiret de la
+ligne n'en est pas une.
+
+### Prédictions du bloc 128 — étape 4, anneau et dette
+
+- **P128.17** — `=== ANNEAU 2 ===`, `ANNEAU 2 NET : 145`.
+- **P128.18** — `RESTANT DE L ANNEAU 2 (0 fiches)` **0**, et **aucune ligne
+  de fiche** au-dessus du filet. *L'anneau 2 est fermé depuis le lot 13.*
+- **P128.19** — `ANGLE MORT DU CHEVRON sur le restant de cet anneau` :
+  `fiches porteuses : 0`, `clotures en chevron : 0`. ⚠ *Le restant est vide,
+  donc les deux compteurs le sont **mécaniquement** : **cette ligne ne dit
+  rien du lot**, dont les trois fiches sont hors anneau 2. C'est
+  `mesure-chevron --tout` qui tranchera, au bloc 129.*
+- **P128.20** — `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)`.
+- **P128.21** — dette : `fiches sources (traduites) : 239` ;
+  `cibles rouges distinctes : 3` ; `mots : 2268` ;
+  `dont HORS anneaux 0..2 : 2`, les deux nommées étant
+  `embarque/mcu/xiao/xiao-prise-en-main` et `embarque/mcu/xiao/xiao-sense`.
+  ⚠ *`embarque/pcb/kicad` est la **troisième cible** et n'est **pas** parmi
+  les deux « hors anneaux ». Elle est entrée dans la dette au lot 13, par
+  `easyeda-en`, alors qu'elle n'était visée par aucune fiche traduite
+  jusque-là. **Je ne sais pas pourquoi le calcul d'anneau la range dedans
+  quand `ANNEAU 2 NET` ne la compte pas, et je l'écris avant la mesure au
+  lieu d'inventer une cause** — la faute du lot 13 était un verdict juste
+  assorti d'un motif faux.*
+- **P128.22** — `Sortie ecrite dans tools\batterie-sortie.txt`, et **aucune
+  étape 5 ni suivante** : la phase `cadrage` s'arrête à l'étape 4.
+
+### Constats du bloc 128 — 22 prédictions, 21 tenues, 1 RÉFUTÉE
+
+- **P128.1 à P128.7 ✅** — étapes 0 et 1 conformes au caractère :
+  `0` ligne non ASCII ; copie `tools\batterie-sortie-3008b62.txt` ;
+  `phase demandee : cadrage   anneau : 2   chevron : False` ;
+  `heure : 21:20:28` ; `HEAD git : 08075d9 2026-08-30 21:08:25 +0200` ;
+  `fichiers modifies non commites : 3   (hors artefacts de seance : 0)` —
+  **déclaration C131 juste sur ses deux termes, deuxième du jour** ; et les
+  **six dates égales au bloc 127**, à la seconde.
+- **P128.8 à P128.11 ✅✅** — **840 / 670 / 758, LOT (3 fiches) 2268**, les
+  quatre au mot. *Les trois valeurs republiées du lot 7 tiennent après
+  treize jours, et la garde du bloc 127 est ce qui autorisait à les
+  republier plutôt qu'à les réestimer.*
+  ⚠ **Ce que la contre-épreuve apprend** : mon estimation indépendante à la
+  main donnait **849 / 675 / 762**, soit **+9 / +5 / +4**, **toutes du même
+  signe**. *Le biais est systématique et non aléatoire — il vient de ce que
+  je surestime les mots gagnés par le motif C110 sur les wikilinks et les
+  gras collés. Une estimation à la main de volume C110 est donc **haute par
+  construction**, et le savoir vaut mieux que la marge de 0,8 %.*
+- **P128.12 ✅ `kicad.md` : 6 candidats, aux six lignes prédites** — 30, 44,
+  52, 52, 65, 65 —, **et la décomposition tombe : 4 tirets d'incise,
+  2 points-virgules de prose**.
+- **P128.13 ✅ `xiao-prise-en-main.md` : 8 candidats, aux huit lignes
+  prédites** — 17, 20, 20, 28, 31, 52, 66, 93 —, **5 tirets et
+  3 points-virgules**. ✅ *Le terme qui prouve est la **ligne 93** : l'extrait
+  rendu par l'outil est `…mentation|XIAO — alimentation]] — alimenter et
+  recharger la carte`, c'est-à-dire le **deuxième** cadratin de la ligne.
+  L'exemption de glose a bien consommé le premier, qui vit **dans le
+  libellé**.*
+- **P128.14 ✅ `xiao-sense.md` : 14 candidats, aux quatorze lignes prédites**
+  — 16, 16, 16, 22, 28, 28, 40, 40, 42, 45, 49, 51, 56, 59 —, **11 tirets et
+  3 points-virgules**. ✅ *Les lignes 56 et 59 confirment le même mécanisme
+  que la 93, et la ligne 51 rend bien le cadratin **du titre d'ouvrage**.*
+- ⚠ **P128.15 RÉFUTÉE SUR UN SEUL DE SES SIX TERMES** : `hors perimetre`
+  prédit **0**, mesuré **1**. Les cinq autres termes tombent — `3 fiche(s)
+  lue(s), 3 a reprendre`, `typographie francaise : 0`,
+  `virgule ambigue : 0`, `C109 creees en EN : 0`,
+  **`C109 de prose : 28`**, `hors alphabet latin : 0`.
+- **P128.16 ✅** code de sortie de l'étape 3 : `0`.
+- **P128.17 à P128.20 ✅** — `ANNEAU 2 NET : 145`, `deja traduites : 145`,
+  `RESTANT : 0`, `RESTANT DE L ANNEAU 2 (0 fiches) 0` sans aucune ligne de
+  fiche, `fiches porteuses : 0`, `clotures en chevron : 0`,
+  `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)`.
+- **P128.21 ✅** — `fiches sources (traduites) : 239`,
+  `cibles rouges distinctes : 3`, `mots : 2268`,
+  `dont HORS anneaux 0..2 : 2`, et **les deux nommées sont exactement**
+  `embarque/mcu/xiao/xiao-prise-en-main` et `embarque/mcu/xiao/xiao-sense`.
+  ⚠ *La question posée avant la mesure reste ouverte : `embarque/pcb/kicad`
+  est la troisième cible de la dette et n'est pas « hors anneaux 0..2 »,
+  alors que `ANNEAU 2 NET` ne la compte pas. **Je n'ai toujours pas la
+  cause et je continue de ne pas l'inventer.***
+- **P128.22 ✅** — `Sortie ecrite dans tools\batterie-sortie.txt`, aucune
+  étape au-delà de la 4.
+
+⚠ **Une sortie NON PRÉDITE, et il faut le dire** : `CIBLES SANS FICHE (6)` —
+`[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`, `[[flexibilite]]`,
+`[[niveau]]`. *C'est le faux positif sur les alias, arbitrage en attente
+depuis le 30/08 (séance 7). Je n'avais rien prédit dessus : ce n'est donc pas
+une prédiction tenue, c'est une prédiction **absente**, et elle se compte
+comme telle.*
+
+### Instruction de la réfutation P128.15 — prédiction avant vérification
+
+- **P128.23** — la seule occurrence `hors-perimetre` du lot est un **tiret en
+  titre**, et c'est la ligne **46 de `kicad.md`** :
+  `## Exemple — Une petite carte capteur`. *C'est le seul titre de section et
+  le seul titre de callout des trois sources qui porte un cadratin ; les
+  quatre autres titres de `kicad`, les cinq de `xiao-prise-en-main`, les cinq
+  de `xiao-sense` et les trois titres de callout du lot n'en portent aucun,
+  et aucun des deux `alt` d'embed ne porte ni cadratin ni point-virgule.*
+  **Forme exacte attendue de la vérification** : un balayage des lignes de
+  titre (`^#{1,6}\s`) et de titre de callout (`^\s*>\s*\[!`) des trois
+  sources cherchant `[—–;]` rend **exactement 1 ligne**, la 46 de
+  `kicad.md`.
+  ⚠ **Cause de la réfutation, écrite avant la vérification** : j'ai relu les
+  `alt`, les tableaux et les titres de callout en cherchant du hors-périmètre
+  — et **j'ai lu les titres de section pour leur FORME et non pour leur
+  ponctuation**. `## Exemple — Une petite carte capteur` est précisément la
+  famille `## Exemple — …` dont le chantier a relevé quatre variantes au
+  lot 8 : *je l'avais en tête comme un **motif de section à reporter**, ce
+  qui l'a rendu invisible comme **porteur de cadratin**.*
+
+- **P128.23 ✅ AU CHIFFRE ET À LA LIGNE** : le balayage rend **1** ligne, et
+  c'est `content/embarque/pcb/kicad.md  ligne 46  : ## Exemple — Une petite
+  carte capteur`. **La réfutation P128.15 est instruite : `hors perimetre : 1`
+  est un `tiret en titre`, et c'est le seul du lot.**
+  ⚠ *La cause écrite avant la vérification tient : j'ai lu ce titre comme un
+  **motif de section à reporter** — la famille `## Exemple — …`, quatre
+  variantes relevées au lot 8 — et pas comme un **porteur de cadratin**. Le
+  même texte, deux grilles de lecture, et celle qui comptait n'a pas servi.*
+  ✅ **Conséquence pour la rédaction : le titre EN de cette section portera un
+  cadratin lui aussi**, la famille de production `## Example — …` étant
+  relevée au corpus ; le hors-périmètre C109 n'est pas une dispense de
+  ponctuation, c'est une exclusion de la passe.
+
+---
+
+## BLOC 129 — RELEVÉS D'AVANT LA PASSE : PUCES À TIRET ET CHEVRON
+
+**Commandes** (aucune écriture dans `content/`) :
+1. `node tools/puces-tiret.mjs --fiches …` × **5**, un lancement par
+   échantillon nommé.
+2. `node tools/puces-tiret.mjs --corpus` — relevé du corpus **AVANT** la
+   passe C109, à sauvegarder daté.
+3. `node tools/mesure-chevron.mjs --tout` — **la mesure que le brief exige**,
+   à sauvegarder datée.
+
+### Déclaration C131 du bloc 129
+
+**Population** : inchangée. **Ce bloc crée deux fichiers**, et les deux
+**échappent au filtre** de `batterie.ps1` (ils ne portent ni
+`batterie-sortie` ni `predictions-`) : ils comptent donc **dans les deux
+chiffres**.
+
+1. `tools/predictions-260830.md` — 1 entrée, écartée.
+2. `tools/batterie-sortie-3008b61.txt` — 1 entrée, écartée.
+3. `tools/batterie-sortie-3008b62.txt` — 1 entrée, écartée.
+4. `tools/puces-corpus-avant-lot14-3008.txt` — **neuf**, 1 entrée,
+   **comptée hors artefacts**.
+5. `tools/chevron-tout-avant-lot14-3008.txt` — **neuf**, 1 entrée,
+   **comptée hors artefacts**.
+6. `tools/batterie-sortie.txt` — `.gitignore`, 0 entrée.
+
+**TOTAL DÉCLARÉ : 5 entrées, dont 2 hors artefacts de séance.**
+*Vérifiable au prochain lancement de batterie, qui portera en plus sa propre
+copie de rang 63 — soit 6 entrées dont 2 hors artefacts à ce moment-là.*
+
+### Prédictions du bloc 129 — épreuve C110 sur CINQ échantillons nommés
+
+⚠ **Les quatre premières réponses sont RECOPIÉES du registre**, prédictions
+P109.1 à P109.4 du 30/08 (séance 8), **et non écrites de mémoire** — c'est
+la règle d'usage née de l'incident du lot 13, où deux fiches sur quatre d'un
+échantillon nommé n'existaient pas. **La cinquième est un dénombrement
+nominatif** sur les trois sources du lot, lues en entier au bloc précédent.
+
+- **P129.1 — échantillon 1, FR lot 3 d'`esp32/`** :
+  `embarque/mcu/esp32/esp32-deep-sleep.md` **2**,
+  `embarque/mcu/esp32/esp32-arduino-core.md` **2**,
+  `embarque/mcu/esp32/esp32-freertos.md` **4**,
+  `embarque/mcu/esp32/esp32-idf.md` **4** — **TOTAL 12**.
+- **P129.2 — échantillon 2, EN lot 3 d'`esp32/`** :
+  `esp32-deep-sleep-en` **2**, `esp32-arduino-core-en` **1**,
+  `esp32-freertos-en` **4**, `esp32-idf-en` **4** — **TOTAL 11**.
+  ⚠ *Onze et non douze : l'asymétrie connue d'`esp32-arduino-core`,
+  arbitrage toujours en attente. **Prédire 12 serait prédire la symétrie et
+  non la mesure.***
+- **P129.3 — échantillon 3, FR lot 9** : `conduite/proj/mecatronique.md`
+  **0**, `mind-map.md` **0**, `bete-a-cornes.md` **0**, `pieuvre.md` **5**,
+  `fonction.md` **0**, `caracteriser-une-exigence.md` **11** —
+  **TOTAL 16**.
+- **P129.4 — échantillon 4, EN lot 7** : `raspberry-pi-gpio-en` **3**,
+  `raspberry-pi-prise-en-main-en` **3**, `raspberry-pi-projet-en` **0**,
+  `xiao-alimentation-en` **3**, `xiao-esp32-s3-en` **1** — **TOTAL 10**.
+- **P129.5 — échantillon 5, NEUF, FR lot 14** : `embarque/pcb/kicad.md`
+  **2** (lignes 26 et 28, les deux seules puces de `## À quoi ça sert ?` qui
+  portent `" — "` ; les trois autres n'en portent pas, et les **cinq** puces
+  de `## Voir aussi` en portent toutes une mais sont **exclues**),
+  `embarque/mcu/xiao/xiao-prise-en-main.md` **2** (lignes 81 et 82, les
+  **seules** puces hors `## Voir aussi` — les cinq items numérotés de
+  `## Installer le support…` ne sont **pas** des puces au motif `^\s*[-*]\s`),
+  `embarque/mcu/xiao/xiao-sense.md` **2** (lignes 39 et 40 ; les deux puces
+  de `## La caméra` ne portent **pas** `" — "`) — **TOTAL 6**.
+
+⚠ **Ce que l'échantillon 5 éprouve, et pourquoi il a été choisi ainsi.**
+(1) Les trois fiches portent un `## Voir aussi` fourni en gloses à tiret —
+**16 puces au total** — donc une exclusion défaillante ferait sauter le
+total de 6 à 22. (2) `xiao-prise-en-main` porte **deux blocs de code
+clôturés** : si `CLOTURE` ne basculait pas correctement, le compteur lirait
+les lignes de code. (3) `xiao-sense` ligne 40 porte **deux** `" — "` sur la
+**même** puce : l'unité étant la **ligne**, elle doit compter **1** et non 2
+— *c'est le terme qui distingue le compteur de référence d'un compteur
+d'occurrences*. (4) `xiao-prise-en-main` porte **cinq items numérotés**,
+qu'un motif de puce trop large compterait.
+
+- **P129.6 — terme écrit pour réfuter, et il est chiffré.** Sur les **22
+  fiches** des cinq échantillons, **un seul écart d'une unité arrête le
+  bloc** et interdit le relevé de corpus. Un total **supérieur** signale une
+  section hors périmètre non exclue ou un motif de puce trop large ; un total
+  **inférieur** signale un `" — "` trop strict (espace insécable, cadratin
+  collé) ou une exclusion trop gourmande.
+
+### Prédictions du bloc 129 — relevé du corpus, motif A, AVANT la passe
+
+Les six chiffres sont **republiés de la clôture du lot 13**, et rien n'a été
+écrit dans `content/` depuis — le `git status` du bloc 128 le prouve, ses
+trois entrées étant toutes dans `tools/`.
+
+- **P129.7 — FR** : `fichiers : 248`, `porteuses : 167`, `PUCES : 941`.
+- **P129.8 — EN** : `fichiers : 239`, `porteuses : 156`, `PUCES : 900`.
+- **P129.9** — la sortie porte **en tête** son motif, sa séquence `" — "`
+  avec ses trois points de code `U+0020 U+2014 U+0020`, la liste nominative
+  des quatre sections exclues (`## Voir aussi`, `## Aller plus loin`,
+  `## See also`, `## Going further`), la portée d'une section exclue et
+  l'unité comptée — **et la population de chaque langue au-dessus de ses
+  chiffres**.
+
+### Prédictions du bloc 129 — `mesure-chevron --tout` : LA MESURE QUE LE BRIEF EXIGE
+
+⚠ **Le brief pose la question ainsi : « `mesure-chevron --tout` rendra plus
+de 34 paires si l'une d'elles est porteuse, et C127 pourrait redevenir
+applicable après huit lots. » Je réponds AVANT la mesure, et par le code,
+pas par le registre.**
+
+**La règle du chevron, lue dans `mesure-chevron.mjs`** (constante `REGLE`,
+l. 90-97) : *« Clôture = ligne commençant par `>` (0 à 3 blancs) **ET**
+contenant trois apostrophes inversées. »* **Un bloc de code n'est une
+« porteuse de chevron » que s'il est DANS un blockquote ou un callout.**
+
+**Dénombrement nominatif sur les trois sources** : `kicad.md` ne porte
+**aucun** fence ; `xiao-sense.md` non plus ; `xiao-prise-en-main.md` en porte
+**quatre** — l'ouverture et la clôture d'un bloc `cpp` (l. 39 et 50) et
+celles d'un bloc `python` (l. 54 et 64) —, **et les quatre sont en marge
+gauche, sans préfixe `>`**.
+
+- **P129.10 — `ded` du lot 14 est ZÉRO, et il est MESURÉ et non supposé.**
+  Aucune des trois sources n'est porteuse de chevron. **`tot` = `deh` =
+  2 268**, les deux volumes de C127 coïncident, et **C127 reste hors sujet
+  pour le NEUVIÈME lot d'affilée**.
+  ⚠ *Mais la raison n'est pas celle que le brief anticipait.* Le brief
+  redoutait qu'une fiche de prise en main porte des blocs de code : **elle en
+  porte, deux**, et ils ne comptent pas — non parce qu'il n'y a pas de code,
+  **mais parce que le code n'est pas derrière un chevron**. *C'est la
+  première fois du chantier qu'une source de lot porte du code sans porter de
+  chevron, et l'écart entre les deux notions n'avait jamais eu à se dire.*
+- **P129.11** — `fiches balayees : 482   porteuses : 68`, inchangé.
+- **P129.12 — `--- COTE FRANCAIS`, ligne de total** :
+  `FR (34 porteuses)   136 cl  68 bl  46132 tot  2175 ded  43890 deh   67 etiq`,
+  **les six chiffres au caractère**.
+- **P129.13 — `--- COTE ANGLAIS`, ligne de total** :
+  `EN (34 porteuses)   136 cl  68 bl  47684 tot  2183 ded  45434 deh   67 etiq`,
+  **les six chiffres au caractère**.
+- **P129.14** — `paires porteuses des deux cotes : 34   divergentes : 0`.
+- **P129.15** — **aucune des trois sources du lot n'apparaît dans la liste
+  FR**, et **aucune ligne `[source non porteuse ou introuvable]`** n'apparaît
+  — la population EN n'a pas bougé depuis le lot 13.
+- **P129.16** — l'identité `tot − deh − ded = etiq` se referme des deux
+  côtés : **46 132 − 43 890 − 2 175 = 67** et
+  **47 684 − 45 434 − 2 183 = 67**. *Contrôle gratuit, publié avant la
+  mesure.*
+
+### Constats du bloc 129 — 16 prédictions, 16 tenues
+
+✅✅ **P129.1 à P129.5 — LES CINQ ÉCHANTILLONS SONT REPRODUITS FICHE PAR
+FICHE : 22 fiches, 22 valeurs, 5 totaux.** `12`, `11`, `16`, `10`, **`6`**.
+- ✅ *Le terme qui prouve pour les quatre premiers est l'**asymétrie**
+  d'`esp32-arduino-core` : FR **2** contre EN **1**. Un motif qui symétriserait
+  aurait rendu 12 / 12 et paru plus juste.*
+- ✅ *Le terme qui prouve pour le cinquième — **l'échantillon neuf** — est
+  triple, et les trois mordent en même temps : les **16 puces de
+  `## Voir aussi`** des trois fiches sont bien exclues (6 et non 22) ; les
+  **quatre lignes de fence** de `xiao-prise-en-main` n'ont fait entrer aucune
+  ligne de code ; et la **ligne 40 de `xiao-sense`**, qui porte **deux**
+  `" — "`, compte **1** — l'unité est la ligne.*
+- ✅ *Et le quatrième terme tient aussi : les **cinq items numérotés** de
+  `## Installer le support…` ne sont pas comptés, `^\s*[-*]\s` ne reconnaissant
+  pas `1. `.*
+- **P129.6 ✅ le terme d'arrêt ne mord pas** : aucun écart d'une unité sur les
+  22 fiches. Le relevé de corpus est autorisé.
+
+✅ **P129.7 à P129.9 — LE RELEVÉ D'AVANT LA PASSE TOMBE AU CHIFFRE SUR SES SIX
+TERMES** : **FR 941 puces / 167 porteuses / 248 fichiers**, **EN 900 / 156 /
+239**. La sortie porte bien, en tête et sans qu'on le lui demande, le motif,
+la séquence `" — "` avec ses trois points de code, les quatre sections
+exclues nommées, la portée d'une exclusion et l'unité comptée.
+*Sauvegardé daté : `tools/puces-corpus-avant-lot14-3008.txt` — c'est la
+condition pour que le delta du lot se **mesure** au lieu de se calculer, faute
+commise au lot 11 et réparée depuis.*
+
+✅✅ **P129.10 à P129.16 — `ded` EST MESURÉ, ET IL VAUT ZÉRO.**
+`fiches balayees : 482   porteuses : 68` ;
+`FR (34 porteuses) 136 cl 68 bl 46132 tot 2175 ded 43890 deh 67 etiq` ;
+`EN (34 porteuses) 136 cl 68 bl 47684 tot 2183 ded 45434 deh 67 etiq` ;
+`paires porteuses des deux cotes : 34   divergentes : 0` ; **aucune des trois
+sources du lot n'apparaît dans la sortie**, vérifié par comptage nominatif
+(`0` ligne portant `kicad`, `xiao-prise-en-main` ou `xiao-sense`) ; et
+l'identité se referme des deux côtés, **67 = 67**.
+*Sauvegardé daté : `tools/chevron-tout-avant-lot14-3008.txt`.*
+
+⚠⚠ **LA RÉPONSE À LA QUESTION DU BRIEF, ET ELLE N'EST PAS CELLE QUE LE BRIEF
+ATTENDAIT.** Le brief posait : *« `mesure-chevron --tout` rendra plus de 34
+paires si l'une d'elles est porteuse, et C127 pourrait redevenir applicable
+après huit lots. »* **Mesuré : 34 paires, inchangé. `ded` du lot = 0.
+`tot` = `deh` = 2 268. C127 reste hors sujet pour le NEUVIÈME lot
+d'affilée.**
+
+⚠ *Mais le motif du zéro n'est pas l'absence de code.* `xiao-prise-en-main`
+**porte bien deux blocs de code** — un `cpp` de onze lignes et un `python` de
+onze lignes —, exactement l'espèce que le brief redoutait. Ils ne comptent pas
+parce que la définition lue dans le code (`estCloture`, `REGLE` l. 90-97)
+exige qu'une clôture **commence par `>`** : **`mesure-chevron` ne mesure pas
+« du code », il mesure « du code derrière un chevron »**, et les quatre fences
+de la fiche sont en marge gauche.
+
+✅ **C'est C116 (7) qui a rendu la réponse juste** — lire le compteur dans le
+code qui l'incrémente, jamais dans la ligne qui l'affiche. *Une prédiction
+fondée sur « fiche de prise en main = blocs de code = porteuse » aurait été
+réfutée, et le raisonnement qui la portait est exactement celui du brief.*
+⚠ *Corollaire versé au §8 : **« porteuse de blocs de code » et « porteuse de
+chevron » sont deux prédicats distincts, et le chantier ne les avait jamais
+séparés parce qu'aucun lot n'avait encore porté l'un sans l'autre.***
+
+---
+
+## BLOC 130 — PASSE C109 : JUGEMENT DES 34 SIGNALEMENTS, TEST NÉGATIF, ÉCRITURE
+
+### Déclaration C131 du bloc 130
+
+**Population** : inchangée. **Ce bloc crée deux fichiers et en modifie
+trois** ; les cinq **échappent au filtre** de `batterie.ps1`.
+
+1. `tools/predictions-260830.md` — 1 entrée, **écartée**.
+2. `tools/batterie-sortie-3008b61.txt` — 1 entrée, **écartée**.
+3. `tools/batterie-sortie-3008b62.txt` — 1 entrée, **écartée**.
+4. `tools/puces-corpus-avant-lot14-3008.txt` — 1 entrée, comptée.
+5. `tools/chevron-tout-avant-lot14-3008.txt` — 1 entrée, comptée.
+6. `tools/passe-c109-lot14-3008-NEGATIF.tsv` — **neuf**, 1 entrée, comptée.
+7. `tools/passe-c109-lot14-3008.tsv` — **neuf**, 1 entrée, comptée.
+8. `content/embarque/pcb/kicad.md` — **modifié**, fichier **suivi**, 1 entrée,
+   comptée.
+9. `content/embarque/mcu/xiao/xiao-prise-en-main.md` — **modifié**, suivi,
+   1 entrée, comptée.
+10. `content/embarque/mcu/xiao/xiao-sense.md` — **modifié**, suivi, 1 entrée,
+    comptée.
+11. `tools/batterie-sortie.txt` — `.gitignore`, 0 entrée.
+
+**TOTAL DÉCLARÉ : 10 entrées, dont 7 hors artefacts de séance.**
+*Les trois sources vivent dans des répertoires **suivis**, donc elles comptent
+une par une — la règle « un répertoire entièrement non suivi vaut une entrée »
+ne s'applique pas ici.*
+
+### Le jugement, publié AVANT toute écriture — 34 signalements
+
+**Population des 34** : les **28** candidats de `--style` (bloc 128) **plus**
+les **6** lignes de puce à tiret du motif A (bloc 129). ⚠ **Les deux
+compteurs tombent sur UNE même ligne et pas plus** — `xiao-sense` l. 40, qui
+porte **deux** cadratins : `--style` a signalé le **second**, le compteur de
+puces compte la **ligne** pour son **premier**. *Les 34 occurrences restent
+donc distinctes caractère par caractère, et il faut le dire, parce que le
+lot 12 a publié « les deux compteurs ne se recouvrent pas » — vrai des
+compteurs, faux des lignes.*
+
+**Doctrine appliquée** : C109 + amendement du 23/08 (suite 3, le verbe
+conjugué décide) + précisions du 25/08 (incise encadrée, parenthèse de renvoi,
+borne libellé-glose) + C123 (exemption seulement si nominal, adjectival,
+infinitif ou participial, **subordonnée comprise**) + amendement du 29/08
+(suite 8) à quatre cas pour le tiret de puce.
+
+#### `kicad.md` — 6 + 2 = 8 signalements, 4 traités, 4 gardés
+
+| # | ligne | occurrence | verdict | motif |
+|---|---|---|---|---|
+| 1 | 30 | tiret, `sans bridage — le standard libre` | **TRAITER** | segment de droite portant `veut`, verbe conjugué en subordonnée (C123) |
+| 2 | 44 | tiret, `erreurs coûteuses — une carte fausse` | **TRAITER** | proposition indépendante à sujet propre |
+| 3 | 52 | point-virgule 1 | **GARDER** | énumération en ligne de trois **infinitifs** (`placer` / `relier` / `annoter et passer`) |
+| 4 | 52 | point-virgule 2 | **GARDER** | idem |
+| 5 | 65 | tiret 1, `toute prête — il faut alors` | **TRAITER** | proposition indépendante, `il faut` |
+| 6 | 65 | tiret 2, `en mai 2026 — plus de 17 000 composants` | **GARDER** | apposition **nominale** qui **énumère** trois objets plus une licence — précédent `raspberry-pi` du 25/08 |
+| 7 | 26 | puce, `la carte — placer les composants` | **GARDER** | cas 2, segment de droite **infinitif**, sans sujet propre |
+| 8 | 28 | puce, `pour la fabrication — KiCad sait` | **TRAITER** | cas 2, **proposition indépendante à sujet propre** (`KiCad`) |
+
+#### `xiao-prise-en-main.md` — 8 + 2 = 10 signalements, 6 traités, 4 gardés
+
+| # | ligne | occurrence | verdict | motif |
+|---|---|---|---|---|
+| 9 | 17 | tiret, `de l'ESP32]] — on l'adapte ici` | **TRAITER** | proposition indépendante, sujet `on` |
+| 10 | 20 | tiret, `U.FL — un côté dans le bloc d'abord` | **GARDER** | nominal + infinitif, **énumère deux gestes**, aucun verbe conjugué |
+| 11 | 20 | point-virgule, `presser l'autre ; ne jamais tirer` | **GARDER** | segment **infinitif** |
+| 12 | 28 | point-virgule, `sous Windows ; un usbmodem` | **GARDER** | deux **alternatives nominales** dans une parenthèse |
+| 13 | 31 | point-virgule, `Arduino-core]] ; ici on s'en tient` | **TRAITER** | proposition indépendante, sujet `on` |
+| 14 | 52 | tiret, `flashé — voir [[micropython]]` | **TRAITER** | **cas 4**, renvoi de fin de segment |
+| 15 | 66 | tiret, `ou BLE — voir [[esp32-wifi]]` | **TRAITER** | **cas 4**, renvoi de fin de segment |
+| 16 | 93 | tiret 2, `alimentation]] — alimenter et recharger` | **GARDER** | **cas 1** : puce de `## Voir aussi`, glose licite au §4 — `--style` ne l'a signalée que parce que l'exemption avait consommé le tiret **du libellé** |
+| 17 | 81 | puce, `de concept]]** — le premier téléversement` | **TRAITER** | cas 2, proposition à sujet propre |
+| 18 | 82 | puce, `ESP32 aval** — la séquence bootloader` | **TRAITER** | cas 2, proposition à sujet propre |
+
+#### `xiao-sense.md` — 14 + 2 = 16 signalements, 9 traités, 7 gardés
+
+| # | ligne | occurrence | verdict | motif |
+|---|---|---|---|---|
+| 19 | 16 | tiret 1, ouvrant l'incise | **GARDER** | incise encadrée **énumérant trois renvois** — précédent `teensy` du 25/08 |
+| 20 | 16 | tiret 2, fermant la même incise | **GARDER** | même incise, indissociable |
+| 21 | 16 | point-virgule, `s'y applique ; cette fiche ne couvre` | **TRAITER** | proposition indépendante à sujet propre |
+| 22 | 22 | tiret, `par défaut** — pour les récupérer` | **TRAITER** | `il faut`, verbe conjugué |
+| 23 | 28 | tiret, `(2048 × 1536) — l'OV2640 est arrêtée` | **TRAITER** | proposition indépendante, `est` |
+| 24 | 28 | point-virgule, `arrêtée ; le module OV5640 est` | **TRAITER** | proposition indépendante à sujet propre |
+| 25 | 40 | tiret 2, `(CS) — laquelle est GPIO21` | **TRAITER** | **cas 3**, C123 en plein : relative à verbe conjugué après une phrase complète |
+| 26 | 40 | point-virgule, `gérer les CS ; la carte d'extension a` | **TRAITER** | proposition indépendante à sujet propre |
+| 27 | 42 | tiret, `autre chose** — repérer quel périphérique occupe` | **TRAITER** | ⚠ tête **infinitive**, mais subordonnée interrogative portant `occupe` — **C123 traite, subordonnée comprise**, et le doute se tranche vers le traitement |
+| 28 | 45 | tiret, `sur l'autonomie — la même cellule qui tiendrait` | **TRAITER** | proposition indépendante à sujet propre |
+| 29 | 49 | tiret, `au **TinyML** — reconnaissance d'images` | **GARDER** | apposition **nominale** énumérant trois objets |
+| 30 | 51 | tiret, `Small Board — Mastering Arduino and TinyML` | **GARDER** | ⚠ **cadratin DANS UN TITRE D'OUVRAGE CITÉ** — décision nº 1 ci-dessous |
+| 31 | 56 | tiret 2 | **GARDER** | **cas 1**, puce de `## Voir aussi` |
+| 32 | 59 | tiret 2 | **GARDER** | **cas 1**, puce de `## Voir aussi` |
+| 33 | 39 | puce, `(PDM)** — horloge sur GPIO42` | **GARDER** | cas 2, segment de droite **nominal** |
+| 34 | 40 | puce, tiret 1, `FAT) — il **partage le bus` | **TRAITER** | cas 2, proposition à sujet propre (`il`) |
+
+**BILAN DU JUGEMENT : 34 signalements, 19 TRAITÉS, 15 GARDÉS.**
+Par fiche : `kicad` 4 / 4, `xiao-prise-en-main` 6 / 4, `xiao-sense` 9 / 7.
+Par famille : tirets vus par `--style` **12 traités / 8 gardés** ;
+points-virgules **3 traités / 5 gardés** ; puces **4 traités / 2 gardés**.
+
+### ⚠ DÉCISION PRISE SEULE nº 1 — le cadratin d'un titre d'ouvrage cité ne relève pas de C109
+
+**Cas** : `xiao-sense` l. 51, l'ebook *XIAO: Big Power, Small Board —
+Mastering Arduino and TinyML*.
+**Décision : GARDER**, et reporter le titre **à l'identique** en anglais.
+**Motif** : C109 vise la ponctuation **de l'auteur de la fiche**. Ce cadratin
+est **un caractère du titre publié par Seeed** ; le modifier falsifierait une
+référence bibliographique, comme C113 interdit de traduire ce qu'un programme
+**désigne**. *Aucune des familles de l'amendement du 29/08 ne couvre ce cas,
+ni aucun des quatre cas de tiret de puce : la famille est neuve et déclarée
+comme telle.*
+**Coût d'un revert** : une ancre, sur une fiche, des deux côtés.
+⚠ **Conséquence mesurable, écrite avant la mesure** : ce cadratin **restera
+dans la jumelle EN**, donc `--style` sur `xiao-sense-en` rendra **au moins 1**
+`C109 de prose`, **et c'est voulu**.
+
+### ⚠ DÉCISION PRISE SEULE nº 2 — l'item de liste traité garde sa place dans la liste
+
+**Cas** : `kicad` l. 28, dernier item d'une liste dont les quatre autres sont
+des fragments terminés par un point-virgule.
+**Décision** : appliquer la forme prescrite par l'amendement,
+`- **Libellé.** Phrase.`, **sans sortir la phrase de la liste** ni recomposer
+les quatre autres items.
+**Motif** : la liste est **déjà** hétérogène avant la passe — l'item 5 est le
+seul à ne pas finir par un point-virgule, parce qu'il ferme l'énumération.
+*Recomposer les cinq items serait une **mise en cohérence de liste**, geste
+que le lot 12 a déclaré trois fois ; ici il n'est pas nécessaire, et une passe
+C109 ne doit pas s'élargir en refonte de liste.*
+**Coût d'un revert** : une ancre.
+
+### Le test négatif délibéré, écrit avant le lot réel
+
+- **P130.1** — une table `tools/passe-c109-lot14-3008-NEGATIF.tsv` portant
+  **une** ligne dont l'ancre est `sans bridage - le standard libre` — cadratin
+  remplacé par un **trait d'union ASCII** — rend **`0 occurrence`** sur
+  `embarque/pcb/kicad.md`, **refuse le lot entier**, écrit **0 fichier**, et
+  sort en code **non nul**. *Famille de défaut du 29/08 (suite 7), où `Cabler`
+  sans circonflexe a arrêté un lot de 38 éditions avant toute écriture.*
+
+### La table réelle — 18 ancres pour 19 remplacements
+
+⚠ **Dix-huit et non dix-neuf** : la ligne 28 de `xiao-sense` porte **deux**
+traitements — le cadratin **et** le point-virgule — qu'**une seule ancre**
+prend en bloc. *Règle du 30/08 : une ancre qui couvre N occurrences se prend
+en bloc, jamais occurrence par occurrence.*
+
+- **P130.2** — `lignes de table : 18`, réparties **4 / 6 / 8**.
+- **P130.3** — **chaque ancre à 1 occurrence**, aucune à 0 ni à 2 : la garde
+  d'unicité passe sur les dix-huit.
+- **P130.4 — INVARIANT D'ACCENTS NUL sur les trois fiches.** Aucun des
+  dix-huit remplacements ne touche une lettre accentuée : les seules
+  différences sont ` — ` → `. `, ` ; ` → `. `, ` — ` → `, `, ` — ` → ` (`, et
+  des majuscules initiales posées sur des lettres **non accentuées** —
+  `C`, `U`, `I`, `K`, `O`, `L`, `P`, `R`, `M`, `H`, `A`. ⚠ *Le cas qui aurait
+  pu mordre est `repérer` → `Repérer` : seul le `r` initial change, le `é`
+  reste. **Terme d'arrêt : un écart d'accents non nul refuse le lot entier.***
+- **P130.5 — écart de longueur en points de code, par fiche.**
+  `kicad` **+2**, `xiao-prise-en-main` **−4**, `xiao-sense` **−6**.
+  *Détail publié pour être jugeable, ancre par ancre* :
+  `kicad` +5 / −1 / −1 / −1 ; `xiao-prise-en-main` −1 / 0 / −1 / 0 / −1 / −1 ;
+  `xiao-sense` −1 / −1 / −2 / −1 / +2 / −1 / −1 / −1.
+  *Les deux écarts positifs sont les deux seules reformulations du lot :*
+  `— le standard libre` → `. C'est le standard libre` **(+5)** *et*
+  `(CS) — laquelle est` → `(CS). Cette ligne est` **(+2)**. *Les deux
+  écarts nuls sont* `; ici on` → `. Ici, on` *(la virgule rend le caractère
+  que le point-virgule perd) et* `BLE — voir …]].` → `BLE (voir …]]).`
+  *(la parenthèse fermante rend le caractère que le cadratin perd).*
+  ⚠ **C'est le terme qui a le plus de chances de tomber, et il est écrit
+  quand même** : c'est le seul moyen de savoir si je comprends ce que j'écris
+  ou si je le recopie.
+- **P130.6** — `lignes du corps` **inchangées** sur les trois fiches.
+
+### Prédictions du bloc 130 — passe réelle en ÉCRITURE
+
+- **P130.7** — `--ecrire` rend **3 fichiers écrits**, **19 remplacements**,
+  code de sortie **0**.
+- **P130.8** — `git diff --numstat -- content` rend **exactement trois
+  lignes**, et **chacune porte autant d'ajouts que de suppressions** : une
+  passe de ponctuation ne change que des lignes existantes.
+  **`kicad` 4 / 4**, **`xiao-prise-en-main` 6 / 6**, **`xiao-sense` 6 / 6**.
+  ⚠ *Six et non huit pour `xiao-sense` : ses **huit ancres** tombent sur
+  **six** lignes distinctes — 16, 22, 28, 42, 45, et **trois ancres sur la
+  seule ligne 40**. Prédire 8 serait prédire les ancres et non les lignes.*
+- **P130.9 — remesure immédiate, `--style` sur les trois sources** :
+  `C109 de prose` **28 → 13**, décomposé `kicad` **3**,
+  `xiao-prise-en-main` **4**, `xiao-sense` **6** ; `hors perimetre` reste
+  **1** ; `typographie francaise` reste **0** ; `3 fiche(s) lue(s), 3 a
+  reprendre.`
+  ⚠ *Treize et non quinze : les deux gardés qui manquent sont des **puces**,
+  que `--style` n'a jamais vues — `kicad` l. 26 et `xiao-sense` l. 39.*
+- **P130.10 — remesure immédiate, `puces-tiret --fiches` sur l'échantillon 5** :
+  `kicad` **1**, `xiao-prise-en-main` **0**, `xiao-sense` **1**,
+  **TOTAL 2** contre 6.
+- **P130.11 — remesure du corpus, `puces-tiret --corpus`** :
+  FR **941 − 4 = 937 puces**, **167 − 1 = 166 porteuses**, **248 fichiers** ;
+  EN **900 / 156 / 239 inchangé**, aucune fiche EN n'ayant encore été écrite.
+  ⚠ *Le terme qui prouve est la **porteuse perdue** : `xiao-prise-en-main`
+  tombe de 2 puces à **0** et **sort** de la population des porteuses, quand
+  `kicad` et `xiao-sense` y restent avec **1** chacune. Prédire −3 porteuses
+  serait prédire les fiches traitées ; prédire **−1** est prédire la mesure.*
+- **P130.12 — volume, en mots C110.** Le découpage en phrases **ne crée aucun
+  mot** : ni le cadratin, ni le point-virgule, ni le point, ni la parenthèse
+  n'en sont un. **Seules les deux reformulations en créent** — `C'est` compte
+  pour **un** mot (l'apostrophe est dans la classe C110), et `laquelle` →
+  `Cette ligne` en ajoute **un**. **Prédiction : `kicad` 840 → 841,
+  `xiao-prise-en-main` 670 → 670, `xiao-sense` 758 → 759, `LOT (3 fiches)`
+  2 268 → 2 270, corpus FR 291 259 → 291 261, +2 mots.**
+  ⚠ *La passe n'est donc **pas** neutre en mots, et le +2 se propage — règle
+  du 30/08 — à **tous les compteurs qui contiennent les trois fiches APRÈS
+  l'édition** : le corpus et le restant. Il n'ira **pas** aux traduites, les
+  trois fiches n'ayant pas encore de jumelle ; et le restant les perdra ce
+  soir avec le poids qu'elles avaient en y **entrant**, soit **2 268** et non
+  2 270.*
+
+### Constats du bloc 130 — 12 prédictions, 11 tenues, 1 RÉFUTÉE
+
+- **P130.1 ✅ LE TEST NÉGATIF DÉLIBÉRÉ REFUSE**, et il refuse pour la bonne
+  raison : `L3 INTROUVABLE`, `ancre : sans bridage - le standard libre`,
+  `ancres introuvables : 1`, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`,
+  code de sortie **1**. *Quatrième test négatif du chantier, quatrième refus,
+  zéro octet écrit à tort.*
+- **P130.2 ✅** `lignes de table : 18`, réparties **4 / 6 / 8**.
+- **P130.3 ✅** `ancres 4/4`, `6/6`, `8/8` ; `ancres introuvables : 0`,
+  `ancres multiples : 0`. **La garde d'unicité passe sur les dix-huit.**
+- **P130.4 ✅ INVARIANT D'ACCENTS NUL SUR LES TROIS FICHES** :
+  **136 → 136**, **113 → 113**, **103 → 103**, `ecart +0` partout,
+  `INVARIANT D ACCENTS casse sur : 0 fiche(s)`.
+- **P130.5 ✅✅ LES TROIS ÉCARTS DE LONGUEUR TOMBENT AU POINT DE CODE** :
+  `kicad` **5802 → 5804 (+2)**, `xiao-prise-en-main` **5017 → 5013 (−4)**,
+  `xiao-sense` **4817 → 4811 (−6)** — les trois valeurs prédites, et
+  prédites **par sommation des dix-huit écarts individuels publiés d'avance**.
+  ✅ *C'est le terme dont j'avais écrit qu'il avait le plus de chances de
+  tomber. Il ne tombe pas, et ce qui l'a tenu est d'avoir calculé chaque
+  ancre séparément au lieu d'estimer un total : **les deux écarts positifs
+  (+5 et +2) sont exactement les deux reformulations**, les deux écarts nuls
+  exactement les deux substitutions à longueur conservée.*
+- **P130.6 ✅** `lignes 64 → 64`, `79 → 79`, `46 → 46`.
+- ⚠ **P130.7 RÉFUTÉE SUR UN TERME, ET LA CAUSE EST C116 (7).**
+  `3 fichiers écrits` ✅ et code de sortie `0` ✅, mais l'outil rend
+  **`remplacements prets : 18`** et `ECRIT … (4 / 6 / 8 remplacement(s))`,
+  soit **18** là où j'avais écrit **19**.
+  ⚠ *Cause : **le compteur `remplacements` de `remplacer-passe.mjs` compte des
+  ANCRES**, une par ligne de table, quand mon 19 comptait des **occurrences
+  traitées**. Les deux chiffres sont justes et ne mesurent pas la même chose —
+  et je les avais **tous les deux écrits dans le même bloc**, P130.2 disant
+  « 18 ancres pour 19 remplacements » et P130.7 « 19 remplacements ».*
+  ⚠ **La faute n'est donc pas d'ignorer le code, c'est d'avoir prédit le
+  chiffre AFFICHÉ par une ligne de bilan au lieu du chiffre INCRÉMENTÉ.**
+  C'est C116 (7) mot pour mot, sur un outil que le chantier a écrit lui-même,
+  et pour la deuxième fois du jour après le `hors perimetre` du bloc 128.
+  ✅ *Le jugement, lui, tient : **19 occurrences traitées, 15 gardées**, et
+  c'est ce chiffre-là qui va au JOURNAL.*
+- **P130.8 ✅** `git diff --numstat -- content` rend **exactement trois
+  lignes**, toutes **symétriques** : `xiao-prise-en-main` **6 / 6**,
+  `xiao-sense` **6 / 6**, `kicad` **4 / 4**.
+  ✅ *Le terme qui prouve est le **6** de `xiao-sense** : ses **huit** ancres
+  tombent sur **six** lignes, dont **trois sur la seule ligne 40**. Prédire 8
+  aurait été prédire les ancres et non les lignes — le même défaut de
+  population que P130.7, évité ici parce qu'il avait été écrit.*
+- **P130.9 ✅ SUR SES CINQ TERMES** : `C109 de prose` **28 → 13**, décomposé
+  par fiche **3 / 4 / 6** (mesuré fiche par fiche, trois lancements) ;
+  `hors perimetre` **1** ; `typographie francaise` **0** ;
+  `3 fiche(s) lue(s), 3 a reprendre.`
+- **P130.10 ✅** échantillon 5 après la passe : `kicad` **1**,
+  `xiao-prise-en-main` **0**, `xiao-sense` **1**, **TOTAL 2**.
+- **P130.11 ✅✅ SUR SES SIX TERMES** : FR **937 puces / 166 porteuses /
+  248 fichiers**, EN **900 / 156 / 239** inchangé.
+  ✅ *Le terme qui prouve est la **porteuse perdue** : `−4` puces mais `−1`
+  porteuse seulement, `xiao-prise-en-main` tombant de 2 à 0 quand les deux
+  autres gardent 1. **Un total juste sur 167 porteuses aurait été un total
+  juste sur une décomposition fausse** — la leçon du lot 8, appliquée en
+  avant.*
+  *Sauvegardé daté : `tools/puces-corpus-apres-passe-lot14-3008.txt`. **Le
+  delta du lot se MESURE** : deux relevés du même outil encadrant la passe,
+  jamais une soustraction (C119).*
+- **P130.12 ✅ SUR SES CINQ TERMES** : `kicad` **840 → 841**,
+  `xiao-prise-en-main` **670 → 670**, `xiao-sense` **758 → 759**,
+  `LOT (3 fiches)` **2 268 → 2 270**, corpus FR **291 259 → 291 261**.
+  ✅ *Les deux mots créés sont exactement les deux reformulations —* `C'est`
+  *et le passage de* `laquelle` *à* `Cette ligne` *. **La passe C109 de ce lot
+  n'est pas neutre en mots**, et le +2 est nominatif.*
+
+⚠ **Une lecture non prédite, notée pour la clôture** : `RESTANT A TRADUIRE`
+rend **3 fiches, 2 270 mots** — le `tot` d'**après** la passe. *C'est
+l'état intermédiaire, pas le terme de la soustraction de clôture : les trois
+fiches quitteront le restant avec le poids qu'elles avaient en y **entrant**,
+soit **2 268**, et le restant tombera donc à **0 fiche, 0 mot**. Écrit ici
+pour que la clôture n'ait pas à choisir entre deux chiffres tous les deux
+justes.*
+
+---
+
+## BLOC 131 — LES NEUF RELEVÉS D'AVANT RÉDACTION
+
+**Aucune écriture dans `content/`.** Le bloc lit le corpus pour que la
+rédaction **relève** ses formes au lieu de les inventer.
+
+### Déclaration C131 du bloc 131
+
+**Population** inchangée. **Ce bloc crée un fichier** :
+`tools/releves-avant-redaction-lot14-3008.txt`, neuf, non suivi, **hors
+filtre** — il compte dans les deux chiffres.
+
+État attendu au moment où le bloc mesure : les **10 entrées** du bloc 130,
+**plus** `tools/puces-corpus-apres-passe-lot14-3008.txt` (créé à la remesure
+du bloc 130, non déclaré dans sa déclaration — ⚠ **c'est un versement que la
+déclaration du bloc 130 a manqué, et il se déclare ici**), **plus** ce
+relevé-ci.
+
+**TOTAL DÉCLARÉ : 12 entrées, dont 9 hors artefacts de séance.**
+
+### Relevé 1 — les six formes de production EN
+
+- **P131.1** — `## See also` **231**, `## What is it for?` **163**,
+  `## Pitfalls` **161**, `## Where it fits in the project` **105**,
+  `## Exercises` **39**, `## Going further` **31**. *Republiés de la clôture
+  du lot 13 ; aucune fiche EN n'a été écrite depuis.*
+
+### Relevé 2 — les deux formes concurrentes chiffrées
+
+- **P131.2** — `## Step by step` **78**, `## Getting started` **2**.
+
+### Relevé 3 — les titres de callout du corpus EN
+
+- **P131.3** — `Watch out` **49**, `Tip` **46**, `Solution` **36**,
+  `Good` **3**, `Fair` **3**, `Poor` **3**, `Attention` **0**, `Astuce` **0**.
+  ⚠ *Le lot 8 a écrit `Attention` et `Astuce` avant de relever ; les deux
+  restent à **0** et doivent y rester.*
+
+### Relevé 4 — les quinze titres de section des trois sources
+
+**Dénombrement nominatif** : `kicad` **5**, `xiao-prise-en-main` **5**,
+`xiao-sense` **5**.
+
+- **P131.4 — cinq titres relèvent d'une famille générique déjà chiffrée** :
+  les **trois** `## Voir aussi` → `## See also` ; `## À quoi ça sert ?` →
+  `## What is it for?` ; `## Pièges` → `## Pitfalls`.
+- **P131.5 — un titre relève d'une famille chiffrée mais RARE**, et c'est
+  celui qui peut mordre : `## Prendre en main` (kicad). La forme
+  `## Getting started` pèse **2** contre **78** pour `## Step by step`.
+  ⚠ **Prédiction de forme, à trancher par le relevé du côté FR** : je relève
+  quelle section **française** donne les 2 `## Getting started` et laquelle
+  donne les 78 `## Step by step`. *Le lot 12 a rendu `## Getting started` sur
+  `wokwi`, fiche d'outil, ce qui est exactement le registre de `kicad`.*
+- **P131.6 — un titre relève de la famille `## Exemple — …`**, dont le
+  chantier a chiffré **quatre** variantes au lot 8 et **arbitré deux fois**
+  sur la casse :
+  `## Exemple — Une petite carte capteur` (kicad). ⚠ **Majuscule après le
+  cadratin côté français**, comme `## Exemple — Le bras 3 axes` qui donne
+  `## Example — The 3-axis arm`, et **contrairement** à
+  `## Exemple — le bras 3 axes` qui donne `## Example — the 3-axis arm`.
+  **Forme prédite : `## Example — A small sensor board`, cadratin conservé et
+  majuscule conservée.**
+  ⚠ *Et ce cadratin-là est celui du `hors perimetre : 1` du bloc 128 : il
+  survit à la traduction, C109 ne l'atteignant pas.*
+- **P131.7 — les HUIT autres titres n'ont aucune forme de production** et se
+  traduisent sans modèle. Ils sont **déclarés neufs avant d'être écrits** :
+  `## Installer le support et téléverser (Arduino)`,
+  `## Premier programme : la LED qui clignote`,
+  `## Récupérer une carte qui ne répond plus`,
+  `## Ce que la Sense ajoute`, `## La caméra`,
+  `## Le micro et la carte microSD`, `## Vision et IA embarquée (TinyML)`,
+  et `## Raccrochage projet` — ⚠ **non**, ce dernier **a** une forme de
+  production, `## Where it fits in the project`, **105 occurrences**.
+  **Rectification posée avant la mesure : SEPT titres sont neufs**, et
+  `## Raccrochage projet` rejoint le relevé 1, portant à **six** les titres
+  de famille générique.
+- **P131.8 — terme écrit pour réfuter** : **aucun** des sept titres neufs ne
+  doit prendre par accident une forme de production. À la clôture,
+  `## Step by step` doit rester à **78**, `## In the project` à **20**, et
+  les six formes du relevé 1 doivent monter **exactement** de ce que les
+  trois fiches leur apportent — soit `## See also` **+3**,
+  `## What is it for?` **+1**, `## Pitfalls` **+1**,
+  `## Where it fits in the project` **+1**, `## Exercises` **+0**,
+  `## Going further` **+0**.
+
+### Relevé 5 — les titres-doublons des deux côtés
+
+- **P131.9** — FR **243 / 243 / 0**, EN **239 / 239 / 0**. *Zéro groupe de
+  collision d'un seul côté.*
+
+### Relevé 6 — `--libelles`
+
+- **P131.10** — **4 284 / 4 272 / 12 / 146 / 16**, les cinq termes republiés
+  de la clôture du lot 13.
+
+### Relevé 7 — les libellés qui visent les trois cibles, PIPE ÉCHAPPÉ COMPRIS
+
+⚠ **Le motif accepte `(?:\\\||\|)`**, faute de quoi il est aveugle aux cibles
+citées dans une ligne de tableau — la réfutation P125.19 du lot 13.
+
+- **P131.11 — côté ANGLAIS, ce sont les trois cibles de la dette**, donc il
+  existe au moins un libellé `[[kicad-en|…]]`,
+  `[[xiao-prise-en-main-en|…]]` et `[[xiao-sense-en|…]]` déjà écrit dans
+  `content/en/`. **Prédiction chiffrée : entre 1 et 6 libellés par cible, au
+  moins 1 chacune, et le total dans `[3, 18]`.**
+  ⚠ *Fourchette large et assumée : je n'ai lu aucune des fiches EN qui les
+  portent. C'est un relevé, pas une vérification.*
+- **P131.12 — c'est ce relevé qui décide les trois `title:`** (C125, test 2
+  puis test 3), et non une traduction du titre français.
+
+### Relevé 8 — les `alt` des deux embeds
+
+- **P131.13** — les trois sources portent **2** embeds :
+  `xiao-prise-en-main` l. 72 et `xiao-sense` l. 20. Leurs `alt` se traduisent
+  et **ne portent ni cadratin ni point-virgule** — vérifié au bloc 128, où
+  `hors perimetre` n'a rendu qu'un **titre**.
+
+### Relevé 9 — les blocs de code de `xiao-prise-en-main`
+
+- **P131.14** — **deux** blocs, `cpp` et `python`, **10 et 10 lignes de
+  contenu**. Ils portent **4** lignes de commentaire en français :
+  `// LED_BUILTIN = GPIO21`, `// allumée (actif à l'état bas)`,
+  `// éteinte` côté `cpp`, et `# allumée`, `# éteinte` côté `python` —
+  ⚠ **soit 5 et non 4** : `cpp` en porte **3** (dont une sans accent) et
+  `python` **2**. **Rectification posée avant la mesure : 5 lignes de
+  commentaire, dont 4 portant un mot français accentué.**
+  ⚠ **C'est le dernier lot du corpus, donc la DERNIÈRE occasion de tester
+  l'assomption C113 sur les chaînes affichées libres** — non testable depuis
+  quatre lots. **Ces blocs ne portent aucune chaîne affichée** (`digitalWrite`
+  et `led.value` n'affichent rien) : **l'assomption C113 ne se testera pas, et
+  le chantier se ferme sans l'avoir éprouvée.** *À porter à la clôture comme
+  un arbitrage qui meurt faute d'objet, pas comme un arbitrage rendu.*
+- **P131.15** — les **34 lignes de commentaire français dans des blocs de
+  code EN**, arbitrage en attente, deviendront **34 + ce que ce lot ajoute**.
+  *Décision prise seule, alignée sur les treize lots précédents : les
+  commentaires se traduisent* (C113 : ce que le programme **dit** se traduit),
+  *donc ce lot n'ajoute rien au compteur et il reste à **34**.*
+
+### Constats du bloc 131 — 15 prédictions, 14 tenues, 1 RÉFUTÉE
+
+- **P131.1 ✅** les six formes de production sortent **231 / 163 / 161 / 105 /
+  39 / 31**, au chiffre.
+- **P131.2 ✅** `## Step by step` **78**, `## Getting started` **2**.
+- **P131.3 ✅ SUR SES HUIT TERMES** : `Watch out` **49**, `Tip` **46**,
+  `Solution` **36**, `Good` / `Fair` / `Poor` **3** chacun, `Attention` **0**,
+  `Astuce` **0**. ⚠ *Deux relevés en plus, non prédits et utiles :
+  `Before you start` **0** et `Note` **0** — le corpus anglais **ne pose
+  aucun titre nu sur un callout `[!note]`**, ce qui tranche par le corpus le
+  `> [!note] Avant de commencer` de `xiao-prise-en-main`.*
+- **P131.4 ✅** les cinq titres de famille générique sont bien là.
+- **P131.5 ✅✅ ET LE RELEVÉ ARBITRE AU LIEU DE CONFIRMER.**
+  `## Prendre en main` existe **trois fois** côté français —
+  `embarque/mesure/oscilloscope`, `embarque/simulation/wokwi`, et
+  `embarque/pcb/kicad`. **Les DEUX jumelles déjà traduites portent
+  `## Getting started`**, `oscilloscope-en` et `wokwi-en`. *La forme à
+  **2** occurrences est donc la bonne à **2 sur 2**, et les **78**
+  `## Step by step` traduisent une **autre** section française. Prendre la
+  forme majoritaire aurait été le défaut exact que le relevé du lot 8 avait
+  attrapé.* **`## Prendre en main` → `## Getting started`, troisième
+  occurrence du corpus.**
+- **P131.6 ✅ EN FORME, ET LA CASSE EST TRANCHÉE PAR LE RELEVÉ.**
+  `## Exemple — Une petite carte capteur` est **unique** côté français, et la
+  famille `## Exemple — <Majuscule>` donne systématiquement
+  `## Example — <Majuscule>` (`Le bras 3 axes` → `The 3-axis arm`,
+  `Blink modifié` → `Blink modified`), quand la forme minuscule française
+  donne la minuscule anglaise (`le bras 3 axes` → `the 3-axis arm`).
+  **Forme retenue : `## Example — A small sensor board`.**
+- ⚠ **P131.7 RÉFUTÉE PAR ELLE-MÊME, ET LA RECTIFICATION ÉTAIT ÉCRITE AVANT LA
+  MESURE** : `## Raccrochage projet` **a** une forme de production,
+  `## Where it fits in the project`, **105 occurrences**. **Sept titres neufs
+  et non huit**, six de famille générique et non cinq.
+  ⚠ **Et le relevé en retire un huitième** : `## Installer le support et
+  téléverser (Arduino)` **n'est pas neuf non plus**. Le corpus porte
+  **cinq** paires `## Installer <X>` → `## Installing <X>` —
+  `## Installer LTspice` → `## Installing LTspice`,
+  `## Installer le support STM32` → `## Installing STM32 support`,
+  `## Installer une bibliothèque` → `## Installing a library`,
+  `## Installer et choisir` → `## Installing and choosing`,
+  `## Installer et se mettre en mode hors ligne` →
+  `## Installing, and switching to offline mode`. **Le patron est stable à
+  5 sur 5**, et il donne
+  **`## Installing support and uploading (Arduino)`.**
+  **Bilan corrigé : SIX titres neufs, NEUF de famille ou de patron relevé.**
+- **P131.8 ⚠ TERME CORRIGÉ AVANT LA CLÔTURE** : j'avais écrit que
+  `## In the project` devait « rester à **20** ». **Le relevé rend 21.**
+  *Le 20 venait de la clôture du lot 8 et n'a jamais été remesuré depuis ;
+  je l'ai republié comme une référence courante alors que c'est une valeur
+  périmée de six lots.* **Terme d'arrêt corrigé : `## In the project` doit
+  rester à 21 et `## Step by step` à 78.**
+- **P131.9 ✅** titres-doublons FR **243 / 243 / 0**, EN **239 / 239 / 0**.
+- **P131.10 ✅** `--libelles` **4 284 / 4 272 / 12 / 146 / 16**, les cinq
+  termes.
+- **P131.11 ✅ ET LE TOTAL TOMBE À 12, BORNE INTERNE DE LA FOURCHETTE `[3, 18]`** :
+  `[[kicad-en|…]]` **6**, `[[xiao-prise-en-main-en|…]]` **3**,
+  `[[xiao-sense-en|…]]` **3**.
+  ✅✅ **ET LES DOUZE SONT EXACTEMENT LES `cible EN absente : 12`** du relevé 6.
+  *Le compteur du dépôt et le relevé nominatif se referment l'un sur l'autre,
+  et c'est gratuit : les trois dernières cibles du corpus sont les seules
+  cibles absentes qui restent.*
+  ✅ **L'ÉPREUVE C110 DU MOTIF PASSE AVANT LE COMPTAGE** : sur l'échantillon
+  nommé `pcb-en.md`, qui porte `| [[easyeda-en\|EasyEDA]] |` dans une **ligne
+  de tableau**, le motif rend **4** occurrences et quatre libellés `EasyEDA`.
+  *Un motif à pipe nu en aurait rendu **0**, et c'est la réfutation P125.19 du
+  lot 13 transformée en garde.* ⚠ *Détail qui vaut d'être écrit : l'alternance
+  met la forme **échappée en premier**, `(?:\\\||\|)` — en second, elle ne
+  serait jamais essayée, le pipe nu ayant déjà mordu sur l'antislash.*
+- **P131.12 ✅** le relevé décide les trois `title:` — voir ci-dessous.
+- **P131.13 ✅** deux embeds, aucun cadratin ni point-virgule dans leurs
+  `alt`.
+- **P131.14 ✅ après rectification écrite avant la mesure** : **cinq** lignes
+  de commentaire, **trois** en `cpp` et **deux** en `python`, dont **quatre**
+  portant un mot français accentué.
+  ⚠⚠ **ET L'ASSOMPTION C113 SUR LES CHAÎNES AFFICHÉES LIBRES MEURT FAUTE
+  D'OBJET.** Les deux blocs ne portent **aucune** chaîne affichée —
+  `digitalWrite` et `led.value` n'impriment rien, il n'y a ni `Serial.print`
+  ni `print`. **C'était la dernière occasion du chantier**, cinquième lot
+  d'affilée sans objet. *À porter à la clôture comme un arbitrage **qui meurt
+  faute d'objet**, jamais comme un arbitrage rendu.*
+- **P131.15 ✅ par décision** : les cinq commentaires **se traduisent**
+  (C113 : ce que le programme **dit** se traduit), donc le compteur des
+  **34 lignes de commentaire français dans des blocs de code EN** reste à
+  **34**. *Aligné sur les treize lots précédents, aucune décision neuve.*
+
+### Les trois `title:`, décidés par le relevé 7 et non par une traduction
+
+| fiche | `title:` FR | `title:` EN retenu | test C125 | preuve |
+|---|---|---|---|---|
+| `kicad` | `KiCad` | **`KiCad`** | test 3, mais sans concours | **6 libellés sur 6** écrivent `KiCad`, et le corpus laisse les noms de produit intacts — `EasyEDA`, `Wokwi`, `Oscilloscope` |
+| `xiao-prise-en-main` | `Prise en main du XIAO ESP32-S3` | **`Getting started with the XIAO ESP32-S3`** | **test 2**, jumelle de famille déjà titrée | `Prise en main du Raspberry Pi` → **`Getting started with the Raspberry Pi`**, même construction française, et `xiao-alimentation` → `Powering the XIAO ESP32-S3` fixe la forme du qualificatif de carte |
+| `xiao-sense` | `XIAO ESP32-S3 Sense` | **`XIAO ESP32-S3 Sense`** | test 3 | nom de produit, symétrique de `xiao-esp32-s3` → **`XIAO ESP32-S3`**, inchangé lui aussi |
+
+**Aucun arbitrage à remonter : les trois titres sortent d'un relevé, aucun
+d'une préférence.**
+
+⚠ **Prédiction de conséquence sur `--libelles`, écrite avant la rédaction et
+au titre de la clause C125 du 29/08 (suite 9)** — *un titre qui ENGLOBE une
+forme de production ne crée aucun candidat.*
+- `kicad-en` : les six libellés `KiCad` sont **identiques** au `title:` → **0
+  candidat**.
+- `xiao-prise-en-main-en` : les trois libellés — `XIAO — getting started`
+  ×2, `getting started` ×1 — partagent les radicaux `getting` et `XIAO` avec
+  `Getting started with the XIAO ESP32-S3`, qui les **englobe** → **0
+  candidat**. *Quatrième épreuve de la clause.*
+- `xiao-sense-en` : les trois libellés — `Sense`, `XIAO Sense` ×2 —
+  partagent `Sense` et `XIAO` avec `XIAO ESP32-S3 Sense` → **0 candidat**.
+**Les douze libellés préexistants deviennent comparables ce soir et aucun ne
+doit entrer au compteur.**
+
+---
+
+## BLOC 132 — LES TROIS SQUELETTES EN, ET LEURS `title:`
+
+### Déclaration C131 du bloc 132
+
+Entrées avant le bloc : **12, dont 9 hors artefacts** (les 10 du bloc 130,
+plus `puces-corpus-apres-passe-lot14-3008.txt` et
+`releves-avant-redaction-lot14-3008.txt`).
+
+**Ce bloc crée trois fiches EN et une table TSV de renommage**, plus sa table
+négative :
+- `content/en/embarque/pcb/kicad-en.md` — **1 entrée**. *Le répertoire
+  `content/en/embarque/pcb/` **existe et est suivi** (il porte `pcb-en.md` et
+  `easyeda-en.md`), donc la fiche compte pour elle-même.*
+- `content/en/embarque/mcu/xiao/xiao-prise-en-main-en.md` — **1 entrée**.
+- `content/en/embarque/mcu/xiao/xiao-sense-en.md` — **1 entrée**. *Le
+  répertoire `content/en/embarque/mcu/xiao/` **existe et est suivi** depuis le
+  lot 7 — il porte `xiao-alimentation-en.md` et `xiao-esp32-s3-en.md`. **Aucun
+  répertoire neuf, aucune condensation**, contrairement au lot 7 où ce même
+  répertoire était `??` et valait **une** entrée pour deux fiches.*
+- `tools/titres-lot14-3008.tsv` et `tools/titres-lot14-3008-NEGATIF.tsv` —
+  **2 entrées**.
+
+**TOTAL DÉCLARÉ : 17 entrées, dont 14 hors artefacts de séance.**
+
+### Prédictions du bloc 132
+
+- **P132.1** — `creer-fiche-en.mjs <source>` sur les trois sources crée
+  **3 fiches**, code de sortie **0** sur chacune, et **aucune** ne déclenche
+  la garde « cible existante » : aucune des trois jumelles n'existe.
+- **P132.2** — chaque squelette porte en front matter `source_fr:` et
+  `source_sha256:`, **écrits par le script**, jamais composés à la main.
+  ⚠ *C'est la garde née du 30/08 (séance 2) : une fiche EN se rédige en
+  partant de son squelette sur disque, et son empreinte ne s'invente pas.*
+- **P132.3** — `derive-traduction.mjs` rend, juste après création,
+  **`A JOUR 242`**, `DERIVE 0`, `MARQUE INVALIDE 0`. *242 et non 239 : les
+  trois fiches neuves entrent dans la population.*
+  ⚠ **Terme qui peut mordre** : la passe C109 a réécrit les trois sources
+  **avant** la création des squelettes, donc l'empreinte prise à la création
+  est celle du texte **post-passe**. Si l'ordre avait été inverse, les trois
+  sortiraient en `DERIVE` et il aurait fallu un `--recaler` — *lequel est une
+  **édition** qui compte au `numstat`, règle du 30/08.* **Zéro `--recaler`
+  attendu, sixième lot d'affilée.**
+- **P132.4 — test négatif délibéré du renommage** : une table
+  `tools/titres-lot14-3008-NEGATIF.tsv` portant l'ancien titre
+  `Prise en main du XIAO ESP32-S4` — **un chiffre faux** — doit rendre
+  **0 occurrence**, refuser le lot entier et n'écrire **aucun** fichier.
+- **P132.5 — la table réelle porte TROIS lignes** et pose :
+  `kicad-en` → **`KiCad`**, `xiao-prise-en-main-en` →
+  **`Getting started with the XIAO ESP32-S3`**, `xiao-sense-en` →
+  **`XIAO ESP32-S3 Sense`**.
+  ⚠ *`kicad-en` porte **déjà** `title: KiCad`, le squelette recopiant le
+  front matter français. **Son ancre existerait donc à l'identique des deux
+  côtés**, ce qu'un outil de renommage à ancre unique refuse ou rend
+  inopérant.* **Décision : `kicad-en` NE FIGURE PAS dans la table**, et la
+  table porte **DEUX** lignes, pas trois. *Le titre n'est pas « posé sans
+  arbitrage », il est **posé par le squelette** et vérifié.*
+- **P132.6** — après renommage, `titres-doublons.mjs` rend EN
+  **242 / 242 / 0** : **zéro collision**, aucun des trois titres n'existant
+  déjà côté anglais. FR reste **243 / 243 / 0**.
+  ⚠ *Le terme qui peut mordre est `KiCad` : si une fiche EN portait déjà ce
+  `title:`, le compteur rendrait 242 / 241 / 1. Il ne doit pas.*
+
+### Constats du bloc 132 — 6 prédictions, 5 tenues, 1 RÉFUTÉE
+
+- **P132.1 ✅** trois fiches écrites, code **0** sur les trois, aucune garde
+  « cible existante ». Les trois compteurs de `--controle` sont **ok** à la
+  création : liens **10 / 15 / 12**, embeds **0 / 1 / 1**, blocs de code
+  **0 / 2 / 0**.
+  ⚠ *Un chiffre de mon analyse était faux et il faut le dire : j'avais compté
+  **11** wikilinks dans `xiao-sense` en préparant la prédiction `--libelles`
+  du bloc 131 ; il y en a **12**. Le chiffre n'était pas publié comme
+  prédiction, mais il fondait une estimation, et une addition à la main
+  refaite trois fois n'est toujours pas une mesure.*
+- **P132.2 ✅** les trois squelettes portent `source_fr:` et `source_sha256:`
+  **écrits par le script**.
+- **P132.3 ✅** `derive-traduction` rend `MARQUE INVALIDE 0`, `DERIVE 0`,
+  `SANS SOURCE 0`, `SANS MARQUE 0`, **`A JOUR 242`**.
+  ✅ *Le terme qui prouve est l'**ordre des gestes** : la passe C109 a réécrit
+  les trois sources **avant** la création, donc l'empreinte prise à la
+  création est celle du texte définitif. **Zéro `--recaler`, sixième lot
+  d'affilée**, et le `numstat` n'en porte donc aucune ligne surprise.*
+- **P132.4 ✅ LE TEST NÉGATIF DU RENOMMAGE REFUSE**, et sa sortie **nomme les
+  deux termes** : `ancre attendue : Prise en main du XIAO ESP32-S4` contre
+  `title: en place : Prise en main du XIAO ESP32-S3`.
+  `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, code **1**.
+  *Cinquième test négatif du chantier, cinquième refus.*
+- ⚠ **P132.5 RÉFUTÉE D'UNE LIGNE, ET LA CAUSE VAUT D'ÊTRE ÉCRITE.** J'avais
+  prédit une table de **deux** lignes, `kicad-en` étant exclue parce que son
+  `title:` français **est déjà** le titre anglais. **La table en porte
+  UNE** : `xiao-sense-en` est dans le même cas — le squelette a recopié
+  `title: XIAO ESP32-S3 Sense`, qui **est** le titre anglais retenu.
+  ⚠ *J'ai appliqué le raisonnement à `kicad` et pas à `xiao-sense`, alors que
+  les deux sont des **noms de produit** et que je venais d'écrire, dans le
+  tableau des trois `title:`, que le second était « nom de produit,
+  symétrique de `XIAO ESP32-S3`, inchangé lui aussi ». **La conclusion était
+  au registre trois paragraphes plus haut et je ne l'ai pas propagée au geste
+  suivant.***
+  ✅ **Conséquence : DEUX des trois `title:` sont posés sans qu'aucun outil
+  d'écriture n'ait à tourner**, et le troisième est renommé sous garde
+  d'unicité — `1 renommage prêt`, `1 fichier écrit`,
+  `Prise en main du XIAO ESP32-S3 -> Getting started with the XIAO ESP32-S3`.
+- **P132.6 ✅** `titres-doublons` rend FR **243 / 243 / 0** et EN
+  **242 / 242 / 0**. ⚠ *Le terme qui pouvait mordre était `KiCad` : aucune
+  fiche EN ne portait déjà ce `title:`, et **la collision n'est pas
+  supposée absente, elle est mesurée**.*
+
+---
+
+## BLOC 133 — RÉDACTION DES TROIS CORPS
+
+### Déclaration C131 du bloc 133
+
+Entrées avant le bloc : **17, dont 14 hors artefacts**.
+**Ce bloc crée trois fichiers de corps** —
+`tools/corps-kicad-en-3008.md`, `tools/corps-xiao-prise-en-main-en-3008.md`,
+`tools/corps-xiao-sense-en-3008.md` — plus **un** corps négatif
+`tools/corps-NEGATIF-3008.md`. Les trois fiches EN sont **déjà** `??`, donc
+`--corps` **ne crée aucune entrée neuve** en les réécrivant.
+
+**TOTAL DÉCLARÉ : 21 entrées, dont 18 hors artefacts de séance.**
+
+### Les formes relevées, et non traduites
+
+**Titres de section** (9 relevés, 6 neufs) :
+`## À quoi ça sert ?` → `## What is it for?` · `## Prendre en main` →
+`## Getting started` · `## Exemple — Une petite carte capteur` →
+`## Example — A small sensor board` · `## Pièges` → `## Pitfalls` ·
+`## Raccrochage projet` → `## Where it fits in the project` ·
+`## Voir aussi` ×3 → `## See also` ·
+`## Installer le support et téléverser (Arduino)` →
+`## Installing support and uploading (Arduino)`.
+**Neufs, déclarés avant d'être écrits** :
+`## First program: the blinking LED`, `## Recovering a board that no longer
+responds`, `## What the Sense adds`, `## The camera`,
+`## The microphone and the microSD card`, `## Vision and embedded AI
+(TinyML)`.
+
+**Titres de callout** : les trois callouts du lot portent des titres
+**propres** — `Before you start`, `Serial monitor blank or erroring?`,
+`The Sense does not sleep like a bare XIAO` —, et le `[!note]` de `kicad`
+reste **nu**, comme sa source. *Le corpus anglais porte `Note` **0** fois :
+un `[!note]` sans titre est sa forme de production.*
+
+**Libellés de wikilink** : relevés dans la production, jamais traduits —
+`printed circuit board` (12), `Printed circuit board` (4), `datasheet` (20),
+`Reading a datasheet` (34), `Reading a schematic` (5), `Circuit simulation`
+(8), `Technical design file` (20), `ESP32` (69), `getting started with the
+ESP32` / `Getting started with the ESP32` (7), `ESP32 Arduino-core` (2),
+`MicroPython` (42), `Wi-Fi` (5), `BLE` (1), `serial monitor` (6) /
+`Serial monitor` (6), `proof of concept phase` (40), `XIAO ESP32-S3` (5),
+`SPI` (20), `I²C` (11).
+⚠ **`xiao-alimentation-en` est le seul cas à décider** : ses libellés en
+production sont **français** — `alimentation` (3), `XIAO — alimentation`
+(2) — contre `power` (1) et `XIAO — power` (1). **Décision prise seule :
+j'écris les formes ANGLAISES.** *Les libellés français en production dans
+`content/en/` sont un **arbitrage en attente**, c'est-à-dire un défaut
+recensé ; reproduire la forme majoritaire ferait grossir le défaut au motif
+qu'il est majoritaire.* **Coût d'un revert : deux libellés, deux fiches.**
+
+**Guillemets** : `"` droit, **2 572** occurrences dans `content/en/` contre
+**5** guillemets français et **1** courbe. Les quatre `« … »` du lot passent
+en `"…"`.
+
+**Séparateur décimal** : `1,1 / 3,0 / 4,0 mA` et `3,3 V` passent en
+`1.1 / 3.0 / 4.0 mA` et `3.3 V`. ⚠ *`--style` en fait un **verdict
+mécanique** sur `en/`, pas un candidat.*
+
+### Prédictions du bloc 133
+
+- **P133.1 — test négatif de `--corps`** : un fichier de corps qui **ouvre
+  par un front matter** est refusé, code **non nul**, **0 fichier écrit**.
+  *C'est la garde centrale du mode, née de l'incident du 30/08 (séance 2).*
+- **P133.2** — les trois `--corps` réels rendent **3 fichiers écrits**, code
+  **0**, et **le front matter est recopié à l'octet** : `title:`,
+  `source_fr:` et `source_sha256:` inchangés, donc `derive-traduction` reste
+  à **`A JOUR 242`, `DERIVE 0`, `MARQUE INVALIDE 0`** et **aucun `--recaler`**
+  n'est nécessaire.
+- **P133.3 — `--controle`** : **242 fiches**, **0 divergente**, `0 lien non
+  suffixé sur 0`. Les trois paires du lot rendent liens **10 / 15 / 12**,
+  embeds **0 / 1 / 1**, blocs de code **0 / 2 / 0**.
+- **P133.4 — `--style` sur les trois fiches EN** :
+  `typographie francaise` **0**, `virgule ambigue` **0**,
+  `C109 creees en EN` **0**, **`C109 de prose` 13**, décomposé
+  `kicad-en` **3**, `xiao-prise-en-main-en` **4**, `xiao-sense-en` **6**,
+  `hors perimetre` **1**, `hors alphabet latin` **0**.
+  ⚠ **Le 13 est le report un pour un des 13 gardés côté français**, et le
+  `hors perimetre : 1` est le cadratin de `## Example — A small sensor
+  board`, qui **survit à la traduction**.
+  ⚠ **`C109 creees en EN` ne voit PAS les C109 SUPPRIMÉES par la
+  traduction** (leçon du lot 13) : **je compare donc les deux `--style` à la
+  main**, fiche par fiche, et j'attends **3 = 3**, **4 = 4**, **6 = 6**.
+  *Un `0 a reprendre` côté EN n'est pas une réussite si le français en
+  portait plus.*
+- **P133.5 — foisonnement.** Point et fourchette, par fiche :
+  `kicad-en` **+3,5 %**, `[+1 %, +6 %]`, soit **871** mots pour 841 ;
+  `xiao-prise-en-main-en` **+2,5 %**, `[0 %, +5 %]`, soit **687** pour 670 ;
+  `xiao-sense-en` **+2,5 %**, `[0 %, +5 %]`, soit **778** pour 759.
+  **Lot : +2,9 %, `[+0,5 %, +5 %]`, soit 2 336 mots pour 2 270.**
+  ⚠ *Le registre gouverne (leçon du lot 11) : deux **tutos** et une
+  **notion définitionnelle**, aucune prose argumentative — donc **aucune des
+  trois ne devrait sortir négative**, ce qui est le terme écrit pour
+  réfuter.* *Moyenne du corpus après le lot : **3,5 %**, `[3,4 %, 3,6 %]`.*
+- **P133.6 — les huit titres de callout du corpus restent INCHANGÉS** :
+  `Watch out` **49**, `Tip` **46**, `Solution` **36**, `Good` / `Fair` /
+  `Poor` **3**, `Attention` **0**, `Astuce` **0**. *Les trois callouts du lot
+  portent des titres propres, et le quatrième reste nu.*
+- **P133.7 — les formes de section à la clôture** : `## See also`
+  **231 → 234**, `## What is it for?` **163 → 164**, `## Pitfalls`
+  **161 → 162**, `## Where it fits in the project` **105 → 106**,
+  `## Exercises` **39 inchangé**, `## Going further` **31 inchangé**,
+  **`## Getting started` 2 → 3**, `## Step by step` **78 inchangé**,
+  `## In the project` **21 inchangé**.
+  ⚠ **Terme écrit pour réfuter : aucun des six titres neufs ne doit prendre
+  par accident une forme de production.**
+- **P133.8 — puces à tiret, motif A, côté EN** : `kicad-en` **1**,
+  `xiao-prise-en-main-en` **0**, `xiao-sense-en` **1**.
+  Corpus : **900 → 902 puces**, **156 → 158 porteuses**, **239 → 242
+  fichiers**. Côté FR **937 / 166 / 248 inchangé**.
+  ⚠ *Le terme qui prouve est **+2 porteuses pour 3 fiches créées** :
+  `xiao-prise-en-main-en` n'en porte aucune. Prédire +3 serait prédire la
+  création et non la mesure — c'est la réfutation du lot 10 appliquée en
+  avant.*
+- **P133.9 — `--libelles`** : `wikilinks a libelle` **4 284 → 4 321**
+  (**+37**, les 10 + 15 + 12 liens des trois fiches, **tous** porteurs d'un
+  libellé) ; **`cible EN absente` 12 → 0** — *le corpus est fermé, il ne
+  reste plus une seule cible non traduite* ; `cible EN existante`
+  **4 272 → 4 321** ; `positions de parcours` **16 inchangé**.
+  **`candidats a lire` : `[146, 150]`, point 147.**
+  ⚠ *Le candidat nommé avant la mesure est `[[bus-de-communication-en|I²C]]`
+  dans `kicad-en` — un **sigle de bus** contre le `title:`
+  `Communication buses`, que `estSigleDe` ne reconnaît pas. **Exactement la
+  famille du `[[bus-de-communication-en|I2S]]` du lot 13.*** Les trois
+  `title:` posés ce soir, eux, **ne doivent en créer aucun** : quatrième
+  épreuve de la clause C125 du 29/08 (suite 9).
+- **P133.10 — anneau, dette, corpus** : `RESTANT DE L ANNEAU 2 (0 fiches) 0` ;
+  **dette `cibles rouges distinctes : 0`, `mots : 0`, `dont HORS anneaux
+  0..2 : 0`** ; `compter-mots` rend `deja traduites : 242 fiches, 291261
+  mots FR` et **`RESTANT A TRADUIRE : 0 fiches, 0 mots FR`**.
+  ⚠ **La soustraction se fait sur le `tot` d'AVANT la passe** : le restant
+  perd **2 268** et non 2 270, `2 268 − 2 268 = 0` ; les traduites gagnent le
+  `tot` d'**après**, **291 261 − 288 991 = 2 270**. *Les deux chiffres
+  referment sur le corpus : **288 991 + 2 270 = 291 261**, et
+  **291 261 + 0 = 291 261**.*
+- **P133.11 — `mesure-chevron --tout`** : **34 paires, 0 divergente**,
+  inchangé — aucune des trois fiches EN ne porte de bloc de code derrière un
+  chevron, les deux blocs de `xiao-prise-en-main-en` étant en marge gauche
+  comme dans la source.
+- **P133.12 — `audit-wikilinks`** : **`mortes : 0`** — les trois cibles
+  mortes du lot 13 étaient exactement `kicad-en`, `xiao-prise-en-main-en` et
+  `xiao-sense-en` —, `cassée 0`, `ambiguë 0`, `gabarits 8`, `alias 6`,
+  `ok` dans **`[483, 525]`**.
+- **P133.13 — `--alt`** : les deux `alt` neufs se comparent à leur source et
+  rendent **0 `IDENTIQUE`, 0 `VIDE`, 0 `MOT FR`** sur les deux paires
+  ajoutées. *Le total du corpus peut porter les exemptions nommées
+  préexistantes ; ce sont **les deux paires du lot** qui sont prédites.*
+- **P133.14 — `audit-medias`** : **`+2 embeds`** et **`+2` fiches
+  porteuses**, `ABSENT` inchangé à **12** — *tous préexistants, appariés six
+  à six, et ce lot n'en apporte aucun : les deux SVG visés existent déjà,
+  puisque les sources françaises les affichent.*
+
+### Constats du bloc 133 — 14 prédictions, 11 tenues, 3 RÉFUTÉES
+
+⚠ **Correction de la déclaration C131, faite par la mesure** : déclaré
+**21 entrées dont 18 hors artefacts**, mesuré **22 / 18**.
+✅ *Le sous-compteur est **juste**, c'est le **total** qui rate, et pour la
+cause que le brief nommait en toutes lettres : **le lancement de batterie de
+ce bloc verse d'office la copie C124 du rang suivant**, `3008b63`, que je
+n'avais pas comptée. **Quatre** artefacts filtrés et non trois —
+`predictions-260830.md`, `b61`, `b62`, `b63`.*
+✅ **Les 18 se récitent nominativement** : `puces-corpus-avant-lot14`,
+`chevron-tout-avant-lot14`, les **deux** TSV de passe, les **trois** sources
+FR, `puces-corpus-apres-passe-lot14`, `releves-avant-redaction-lot14`, les
+**trois** fiches EN, les **deux** TSV de titres, les **quatre** fichiers de
+corps (dont le négatif) — **18, et le chiffre se lit contre la liste, jamais
+seul.**
+
+- **P133.1 ✅ LE TEST NÉGATIF DE `--corps` REFUSE, ET SUR DEUX GARDES.**
+  `GARDE 3 le fichier de corps OUVRE PAR UN FRONT MATTER` **et**
+  `GARDE 5 les trois compteurs ne se reportent pas un pour un`
+  (`liens : 10 -> 0 DIVERGE`). `REFUS : 2 defaut(s). AUCUN FICHIER ECRIT.`,
+  code **1**. *Sixième test négatif du chantier, sixième refus.*
+- **P133.2 ✅** trois `--corps`, `front matter identique a l octet : oui` sur
+  les trois, `source_sha256` inchangé sur les trois, code **0**.
+  `derive-traduction` : **`A JOUR 242`, `DERIVE 0`, `MARQUE INVALIDE 0`,
+  `SANS SOURCE 0`, `SANS MARQUE 0`**. **Zéro `--recaler`, sixième lot
+  d'affilée.**
+- **P133.3 ✅** `--controle` : **242 fiches, 0 divergente**, `Liens non
+  suffixes : 0 sur 0`. Les trois paires rendent **10 / 15 / 12** liens,
+  **0 / 1 / 1** embeds, **0 / 2 / 0** blocs.
+- ⚠ **P133.4 RÉFUTÉE SUR UN TERME SUR SIX** : `virgule ambigue` prédit **0**,
+  mesuré **1**.
+  ⚠ *Cause, lue dans le code : `17,000 components` déclenche la branche
+  `/^\d,\d{3}(\D|$)/`, qui range le **séparateur de milliers anglais** en
+  **candidat à lire** et non en verdict mécanique. La forme est correcte —
+  c'est le français `17 000` reporté en anglais — et le compteur fait
+  exactement ce pour quoi il existe. **Ce que j'ai raté, c'est que la passe
+  d'anglicisation d'un nombre CRÉE un candidat**, et le chantier n'avait
+  jamais eu à écrire un nombre à quatre chiffres.*
+  ✅ **Les cinq autres termes tombent** : `typographie francaise` **0** —
+  aucune espace française devant une ponctuation haute, aucune virgule
+  décimale, les quatre `1,1 / 3,0 / 4,0 / 3,3` étant passés en points ;
+  `C109 creees en EN` **0** ; **`C109 de prose` 13** ; `hors perimetre`
+  **1** ; `hors alphabet latin` **0**.
+  ✅✅ **ET LE CONTRÔLE À LA MAIN DU SEAU ASYMÉTRIQUE TOMBE JUSTE** : la
+  comparaison fiche par fiche des deux `--style` rend **3 = 3**, **4 = 4**,
+  **6 = 6**. *`C109 creees en EN` ne voit que ce que la traduction **crée** ;
+  c'est le dénombrement des deux côtés qui prouve qu'elle n'a rien
+  **supprimé** non plus. Le correctif du seau symétrique reste à l'arbitrage,
+  mais le lot ne part pas avec l'asymétrie du lot 13.*
+- ⚠⚠ **P133.5 RÉFUTÉE, ET C'EST LA RÉFUTATION DE LA SÉANCE.**
+  Foisonnement mesuré : `kicad-en` **−2,1 %** (841 → 823),
+  `xiao-sense-en` **−1,7 %** (759 → 746),
+  `xiao-prise-en-main-en` **+1,5 %** (670 → 680).
+  **Lot : 2 270 → 2 249, soit −0,9 %**, contre **+2,9 %** prédit et une
+  fourchette `[+0,5 %, +5 %]` qui ne contient pas la mesure.
+  ⚠ **Le terme écrit pour réfuter mord de plein fouet** : *« deux tutos et
+  une notion définitionnelle, donc aucune des trois ne devrait sortir
+  négative »* — **deux sur trois le sont**, et ce sont précisément le tuto et
+  la notion, quand le **troisième tuto** est le seul positif.
+  ⚠ **UNE SOUS-HYPOTHÈSE A ÉTÉ MESURÉE, ET ELLE EST FAUSSE AUSSI.** J'ai
+  supposé que la cause était les **libellés de wikilink**, plus courts en
+  anglais. Décomposition mesurée
+  (`tools/decompo-foisonnement-lot14-3008.txt`) : les wikilinks pèsent
+  **120 mots sur 2 270, soit 5,3 %** du volume, et passent à **117**, soit
+  **−2,5 %** — ce qui ne rend que **0,13 point** des 3,8 points d'écart.
+  **La prose hors liens fait **2 150 → 2 132, −0,8 %**, c'est-à-dire
+  l'essentiel.**
+  ⚠ **Je ne connais donc pas la cause, et je ne l'invente pas.** *C'est la
+  leçon du lot 13, où le verdict était juste et le motif faux : le motif est
+  ici **mesuré faux**, ce qui est mieux qu'un motif plausible, et le vrai
+  reste à trouver.* **Porté à la clôture comme incertitude, pas comme
+  explication.**
+  ✅ **La moyenne du corpus, elle, est prédite juste : 3,5 %**, dans
+  `[3,4 %, 3,6 %]`. **242 paires, 291 261 → 301 333 mots.**
+- **P133.6 ✅ SUR SES HUIT TERMES** : `Watch out` **49**, `Tip` **46**,
+  `Solution` **36**, `Good` / `Fair` / `Poor` **3**, `Attention` **0**,
+  `Astuce` **0** — **les huit inchangés.** *Les trois callouts du lot portent
+  des titres propres, et le `[!note]` de `kicad-en` reste **nu**, ce que le
+  relevé `Note : 0` avait tranché.*
+- **P133.7 ✅✅ SUR SES NEUF TERMES** : `## See also` **234**,
+  `## What is it for?` **164**, `## Pitfalls` **162**,
+  `## Where it fits in the project` **106**, `## Exercises` **39**,
+  `## Going further` **31**, **`## Getting started` 3**,
+  `## Step by step` **78**, `## In the project` **21**.
+  ✅ **Le terme écrit pour réfuter ne mord pas : aucun des six titres neufs
+  n'a pris par accident une forme de production**, et le `+1` de
+  `## Getting started` est celui que le relevé avait arbitré contre une forme
+  trente-neuf fois plus fréquente.
+- **P133.8 ✅ SUR SES SIX TERMES** : EN **902 puces / 158 porteuses /
+  242 fichiers**, FR **937 / 166 / 248 inchangé**.
+  ✅ *Le terme qui prouve est **+2 porteuses pour 3 fiches créées** :
+  `xiao-prise-en-main-en` n'en porte aucune. **Prédire +3 aurait été prédire
+  la création et non la mesure**, et c'est la quatrième fois du chantier que
+  ce terme précis sépare les deux.*
+- **P133.9 ✅ SUR QUATRE TERMES SUR CINQ, ET LE CINQUIÈME EST DANS SA
+  FOURCHETTE** : `wikilinks a libelle` **4 321** (+37, au chiffre) ;
+  **`cible EN absente` 0** ; `cible EN existante` **4 321** ;
+  `positions de parcours` **16** ; `candidats a lire` **148**, dans
+  `[146, 150]` mais **au-dessus du point 147**.
+  ⚠ **Les deux candidats neufs sont nommés, et l'un était prédit** :
+  `[[bus-de-communication-en|I²C]]` dans `kicad-en` — **annoncé avant la
+  mesure**, sigle de bus contre `Communication buses` — et
+  `[[esp32-ble-en|BLE]]` dans `xiao-prise-en-main-en`, **non annoncé**,
+  sigle contre `Bluetooth LE on the ESP32`. *Même famille, même cause,
+  `estSigleDe` ne reconnaissant ni l'un ni l'autre ; j'en avais nommé un et
+  pas l'autre alors que les deux étaient lisibles dans le relevé des libellés
+  du bloc 131.*
+  ✅✅ **QUATRIÈME ÉPREUVE DE LA CLAUSE C125 DU 29/08 (SUITE 9), ET ELLE
+  PASSE** : les **douze** libellés préexistants qui visaient les trois cibles
+  sont devenus comparables ce soir, et **aucun n'entre au compteur**. Les
+  deux candidats sont des **sigles sortants** des fiches neuves, sans rapport
+  avec le choix des `title:`.
+- **P133.10 ✅ SUR SES SEPT TERMES, ET LE CORPUS SE FERME.**
+  `RESTANT DE L ANNEAU 2 (0 fiches) 0` ; dette **`cibles rouges distinctes :
+  0`, `mots : 0`, `dont HORS anneaux 0..2 : 0`** ;
+  `deja traduites : 242 fiches, 291261 mots FR` ;
+  **`RESTANT A TRADUIRE : 0 fiches, 0 mots FR`**.
+  ✅ *Les deux contrôles publiés d'avance referment : **288 991 + 2 270 =
+  291 261**, et **2 268 − 2 268 = 0**. La soustraction du restant s'est bien
+  faite sur le `tot` d'**avant** la passe, les traduites ont bien reçu celui
+  d'**après**.*
+- **P133.11 ✅** `mesure-chevron --tout` : **34 paires, 0 divergente**,
+  `FR (34 porteuses) 136 cl 68 bl 46132 tot 2175 ded 43890 deh 67 etiq`,
+  `EN (34 porteuses) 136 cl 68 bl 47684 tot 2183 ded 45434 deh 67 etiq`,
+  **les douze chiffres inchangés**. `fiches balayees : 485` (+3).
+  **C127 hors sujet pour le neuvième lot d'affilée, et le chantier se ferme
+  sans que la règle ait jamais eu à servir.**
+- **P133.12 ✅ SUR SES SIX TERMES** : `MORT 0`, `CASSE 0`, `AMBIGU 0`,
+  `GABARIT 8`, `ALIAS 6`, **`OK 486`**, dans `[483, 525]`.
+  ✅ *Les **trois** cibles mortes du lot 13 étaient exactement `kicad-en`,
+  `xiao-prise-en-main-en` et `xiao-sense-en` : **il n'y a plus une seule
+  cible morte dans le dépôt.***
+- **P133.13 ✅ sur son énoncé** : `--alt` ne rend **aucune ligne** pour
+  `xiao-prise-en-main-en` ni pour `xiao-sense-en` — **les deux `alt` neufs ne
+  déclenchent ni `IDENTIQUE`, ni `VIDE`, ni `MOT FR`**.
+  ⚠ *Le total du corpus est `MOT FR 41`, et **je n'avais pas de relevé
+  d'avant pour le comparer** : le chiffre est publié comme référence neuve,
+  pas comme un delta. C'est la faute de protocole du lot 11 — un compteur
+  qu'on ne relève pas avant ne rend qu'un calcul — évitée ici sur les puces
+  et commise ici sur les `alt`.*
+- ⚠ **P133.14 RÉFUTÉE SUR SES DEUX PREMIERS TERMES, TENUE SUR LE
+  TROISIÈME.** Prédit **+2 embeds** et **+2 fiches porteuses** ; mesuré
+  `490 fiches lues, 802 embeds` contre **487 / 800** au lot 13, soit
+  **+3 fiches** et **+2 embeds**.
+  ⚠ *Cause : `audit-medias` compte **les fiches lues**, pas **les fiches
+  porteuses d'embed** — le compteur balaie tout `content/`, et les **trois**
+  fiches neuves y entrent, dont `kicad-en` qui ne porte **aucun** embed.
+  C116 (7) une troisième fois dans la même séance, et sur le même geste :
+  j'ai prédit ce que la ligne **affiche** en croyant prédire ce que le code
+  **incrémente**.* ✅ **`ABSENT 12` tenu, tous préexistants et appariés six à
+  six ; ce lot n'en apporte aucun.** *`ORPHELIN 1`, préexistant.*
+
+---
+
+## ⚠ INCIDENT DE LA SÉANCE — UN FICHIER VERSIONNÉ ÉCRASÉ, TROUVÉ PAR LE `numstat` DE CLÔTURE
+
+**Ce qui s'est passé.** Le test négatif de `--corps` du bloc 133 a été écrit
+dans `tools/corps-NEGATIF-3008.md`. **Ce fichier existait déjà**, en
+minuscules — `tools/corps-negatif-3008.md`, versionné au commit `4e73aa8` du
+30/08 (séance 3) —, et **Windows ne distingue pas la casse d'un nom de
+fichier** : mon `>` l'a écrasé.
+
+**Ce qu'il portait, et que j'ai détruit sans l'avoir lu :** un corps fautif
+dont le front matter portait un `source_sha256` de **soixante-quatre zéros** —
+*« BIEN FORME et pourtant inventé, ce qui est exactement le cas que
+`MARQUE INVALIDE` ne sait pas distinguer d'une empreinte périmée »*. **C'est
+le témoin du mode `--corps` lui-même**, celui qui documente pourquoi la
+garde 3 existe.
+
+**Comment il a été trouvé.** Par le `git diff --numstat` de clôture, qui rend
+`2  7  tools/corps-negatif-3008.md` — **une ligne `M` là où j'attendais un
+`??`**. *Aucune des sept déclarations C131 de la séance ne pouvait le voir :
+elles comptent des **entrées**, et le fichier en valait une dans les deux
+cas.* **C'est le `numstat`, et lui seul, qui distingue « créé » de
+« modifié ».**
+
+**Ce qui a été fait.** `git checkout -- tools/corps-negatif-3008.md`, fichier
+**restauré à l'octet** ; le corps négatif du lot 14 réécrit sous
+`tools/corps-lot14-negatif-3008.md` ; **test négatif rejoué sous le bon nom**,
+`REFUS : 2 defaut(s). AUCUN FICHIER ECRIT.`, code **1** ; et **intégrité
+revérifiée** — `--controle` **242 fiches, 0 divergente**,
+`derive-traduction` **A JOUR 242, DERIVE 0, MARQUE INVALIDE 0**.
+
+**Trois règles violées, et la troisième est la seule qui aurait mordu.**
+1. *Jamais de coupe d'un fichier non lu en entier* (28/08) — je ne l'avais
+   pas lu.
+2. *Une écriture se fait par outil à ancre unique, tout ou rien* — un `>` de
+   shell n'a ni ancre ni garde.
+3. ⚠ **Et celle qui manque : un fichier jetable dont le nom ne porte pas son
+   lot entre en collision avec celui d'un autre lot.** `corps-negatif-3008`
+   n'est daté que du **jour**, et le 30/08 porte **six lots**. *Les quatre
+   fichiers de corps réels du lot portaient tous leur nom de fiche, donc
+   aucun n'a pu collisionner ; le seul qui n'en portait pas est celui qui a
+   collisionné.*
+
+**Ce que l'incident ne remet pas en cause.** Le test négatif du bloc 133 était
+**valide** : le corps utilisé ouvrait bien par un front matter, et les deux
+gardes ont mordu. *Ce qui était faux n'est pas le test, c'est le nom sous
+lequel je l'ai écrit.*
+
+**État final du dépôt, recompté après restauration** : `git status`
+**27 entrées, dont 22 hors artefacts de séance** ; `git diff --numstat` rend
+**six lignes** — `JOURNAL.md` 39/0, `conventions.md` 101/0,
+`predictions-260830.md` 1532/0, et les **trois sources FR** à 6/6, 6/6, 4/4.
+✅ **Plus aucune ligne `M` inattendue.**
+
+---
+
+# BILAN GÉNÉRAL — 30/08 (séance 10), LOT 14 : LE CORPUS EST FERMÉ
+
+**98 prédictions à décompte plein, 91 tenues, 7 réfutées — 92,9 %.**
+**Sept blocs (127 à 133), trois gardes au vert, `HEAD 08075d9` stable au
+caractère sur les trois, trois lancements de `batterie.ps1` copiés sous
+`3008b61` à `3008b63`, un quatrième figé à la main sous `3008b64`.**
+**Trois tests négatifs délibérés, trois refus, zéro fichier écrit à tort.**
+**Un incident, instruit et réparé.**
+
+**Les sept réfutations, et QUATRE ont la même cause :**
+1. **P128.15** — `hors perimetre` prédit 0, mesuré 1 : le seau compte aussi
+   les **titres de section** (`## Exemple — Une petite carte capteur`).
+   *C116 (7).*
+2. **P130.7** — `remplacements` prédit 19, mesuré 18 : le compteur compte des
+   **ancres**, pas des occurrences. *C116 (7), et les deux chiffres étaient
+   dans le même bloc de prédictions.*
+3. **P133.14** — `+2` fiches prédites, `+3` mesurées : la ligne dit `fiches
+   lues`, pas `fiches porteuses`. *C116 (7).*
+4. **P131.7** — `## Raccrochage projet` et `## Installer …` déclarés neufs
+   alors qu'ils ont chacun une forme de production. *Rectifiés avant la
+   mesure, l'un par moi, l'autre par le relevé.*
+5. **P132.5** — table de renommage prédite à deux lignes, mesurée à une :
+   la conclusion appliquée à `kicad` n'a pas été propagée à `xiao-sense`,
+   **membre de la même classe**, alors qu'elle était écrite trois
+   paragraphes plus haut.
+6. **P133.4** — `virgule ambigue` prédit 0, mesuré 1 : `17,000` est un
+   **séparateur de milliers anglais**, rangé en candidat à lire.
+7. ⚠ **P133.5** — **foisonnement prédit +2,9 %, mesuré −0,9 %**, la
+   fourchette ne contenant pas la mesure et le terme de réfutation mordant
+   de plein fouet. **Seule réfutation de la séance qui porte sur un modèle et
+   non sur un compteur**, et **la sous-hypothèse posée pour l'expliquer a été
+   MESURÉE FAUSSE** — les wikilinks ne rendent que 0,13 point sur 3,8.
+
+**Ce que la séance laisse au dépôt** : **3 fiches EN**, **19 remplacements
+C109** sur 34 signalements jugés, **7 entrées de §8**, **6 relevés datés**,
+un fichier versionné **restauré**, et un corpus de **242 paires, 291 261 mots
+FR, 301 333 mots EN, 100 % traduit**.
+
+⚠ *Le chantier ouvert le 22/08 se ferme le 30/08. **Quinze séances en
+exécution directe, quatorze lots**, et la dernière est celle où la règle la
+plus ancienne du protocole — lire un compteur dans le code qui l'incrémente —
+est tombée trois fois en une soirée.*

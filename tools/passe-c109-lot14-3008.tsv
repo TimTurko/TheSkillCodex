@@ -1,0 +1,20 @@
+# Passe C109 - LOT 14, dernier lot du corpus. 18 ancres, 19 remplacements.
+# Jugement publie au registre avant ecriture : 34 signalements, 19 traites, 15 gardes.
+embarque/pcb/kicad.md	sans bridage — le standard libre	sans bridage. C'est le standard libre
+embarque/pcb/kicad.md	erreurs coûteuses — une carte fausse	erreurs coûteuses. Une carte fausse
+embarque/pcb/kicad.md	toute prête — il faut alors	toute prête. Il faut alors
+embarque/pcb/kicad.md	pour la fabrication — KiCad sait	pour la fabrication. KiCad sait
+embarque/mcu/xiao/xiao-prise-en-main.md	de l'ESP32]] — on l'adapte ici	de l'ESP32]]. On l'adapte ici
+embarque/mcu/xiao/xiao-prise-en-main.md	Arduino-core]] ; ici on s'en tient	Arduino-core]]. Ici, on s'en tient
+embarque/mcu/xiao/xiao-prise-en-main.md	MicroPython flashé — voir [[micropython|MicroPython]])	MicroPython flashé, voir [[micropython|MicroPython]])
+embarque/mcu/xiao/xiao-prise-en-main.md	scan Wi-Fi ou BLE — voir [[esp32-wifi|Wi-Fi]] et [[esp32-ble|BLE]].	scan Wi-Fi ou BLE (voir [[esp32-wifi|Wi-Fi]] et [[esp32-ble|BLE]]).
+embarque/mcu/xiao/xiao-prise-en-main.md	de preuve de concept]]** — le premier téléversement	de preuve de concept]].** Le premier téléversement
+embarque/mcu/xiao/xiao-prise-en-main.md	ESP32 aval** — la séquence bootloader	ESP32 aval.** La séquence bootloader
+embarque/mcu/xiao/xiao-sense.md	s'y applique ; cette fiche ne couvre	s'y applique. Cette fiche ne couvre
+embarque/mcu/xiao/xiao-sense.md	au micro par défaut** — pour les récupérer	au micro par défaut**. Pour les récupérer
+embarque/mcu/xiao/xiao-sense.md	1536) — l'OV2640 est arrêtée ; le module	1536). L'OV2640 est arrêtée. Le module
+embarque/mcu/xiao/xiao-sense.md	FAT) — il **partage le bus	FAT). Il **partage le bus
+embarque/mcu/xiao/xiao-sense.md	(CS) — laquelle est **GPIO21**	(CS). Cette ligne est **GPIO21**
+embarque/mcu/xiao/xiao-sense.md	gérer les CS ; la carte d'extension	gérer les CS. La carte d'extension
+embarque/mcu/xiao/xiao-sense.md	SPI pour autre chose** — repérer quel	SPI pour autre chose**. Repérer quel
+embarque/mcu/xiao/xiao-sense.md	sur l'autonomie — la même cellule	sur l'autonomie. La même cellule

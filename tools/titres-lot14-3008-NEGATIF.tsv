@@ -1,0 +1,3 @@
+# TEST NEGATIF DELIBERE : un chiffre faux dans le titre-ancre (S4 au lieu de S3).
+# Attendu : 0 occurrence, refus du lot entier, 0 fichier ecrit.
+en/embarque/mcu/xiao/xiao-prise-en-main-en.md	Prise en main du XIAO ESP32-S4	Getting started with the XIAO ESP32-S3

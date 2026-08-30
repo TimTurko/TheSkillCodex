@@ -1,0 +1,9 @@
+fiche                             tot FR  tot EN   |  wikilinks FR  EN   |  hors wikilinks FR  EN
+kicad.md                             841     823   |           34  34   |                 807  789
+xiao-prise-en-main.md                670     680   |           52  51   |                 618  629
+xiao-sense.md                        759     746   |           34  32   |                 725  714
+
+  LOT    tot          : 2270 -> 2249   -0.9 %
+  LOT    wikilinks    : 120 -> 117   -2.5 %
+  LOT    hors liens   : 2150 -> 2132   -0.8 %
+  part des wikilinks dans le volume FR : 5.3 %

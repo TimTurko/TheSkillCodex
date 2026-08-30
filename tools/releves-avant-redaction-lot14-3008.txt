@@ -1,0 +1,365 @@
+=== RELEVE 1 : formes de production EN ===
+## See also                              231
+## What is it for?                       163
+## Pitfalls                              161
+## Where it fits in the project          105
+## Exercises                             39
+## Going further                         31
+## Step by step                          78
+## Getting started                       2
+## In the project                        21
+## Common pitfalls                       15
+
+=== RELEVE 3 : titres de callout EN ===
+Watch out            49
+Tip                  46
+Solution             36
+Good                 3
+Fair                 3
+Poor                 3
+Attention            0
+Astuce               0
+Before you start     0
+Note                 0
+
+=== RELEVE 4b : ce que rend '## Prendre en main' cote FR, et ses jumelles ===
+content/embarque/mesure/oscilloscope.md
+content/embarque/pcb/kicad.md
+content/embarque/simulation/wokwi.md
+--- fiches EN portant ## Getting started :
+content/en/embarque/mesure/oscilloscope-en.md
+content/en/embarque/simulation/wokwi-en.md
+--- fiches EN portant ## Step by step (5 premieres) :
+content/en/conduite/proj/amdec-en.md
+content/en/conduite/proj/bom-en.md
+content/en/conduite/proj/decomposition-fonctionnelle-en.md
+content/en/conduite/proj/etat-de-l-art-technique-en.md
+content/en/conduite/proj/fast-en.md
+
+=== RELEVE 4c : famille ## Exemple — cote FR, et ## Example — cote EN ===
+      9 ## Exemple — Bras 3 axes pédagogique
+      5 ## Exemple — Blink modifié
+      4 ## Exemple — Le bras 3 axes
+      2 ## Exemple — Échantillonner un capteur à 100 Hz
+      2 ## Exemple — projet bras 3 axes
+      2 ## Exemple — le bras 3 axes
+      2 ## Exemple — Variateur de LED avec potentiomètre
+      2 ## Exemple — Une station qui fait trois choses à la fois
+      2 ## Exemple — Réguler la vitesse d'un moteur
+      2 ## Exemple — Potentiomètre comme variateur de seuil
+      2 ## Exemple — Module relais qui claque au démarrage
+      2 ## Exemple — Lecture d'un BMP280 (pression et température)
+      2 ## Exemple — Fiabiliser un montage qui peut se bloquer
+      2 ## Exemple — Feux tricolores avec passage piéton
+      2 ## Exemple — Détecteur de seuil avec LED d'alerte
+      2 ## Exemple — Câbler un module DHT11 (température + humidité)
+      2 ## Exemple — Compteur de vitesse à effet Hall
+      2 ## Exemple — Compteur de démarrages persistant
+      2 ## Exemple — Compter les appuis et basculer une LED
+      2 ## Exemple — Capteur sur batterie réveillé périodiquement
+      2 ## Exemple — Buzzer alarme + LED clignotante
+      2 ## Exemple — Bouton qui allume une LED
+      2 ## Exemple — Blink non bloquant + bouton réactif
+      2 ## Exemple — <Nom court du cas>
+      1 ## Exemple — Échantillonner à intervalle précis
+      1 ## Exemple — le bras 3 axes, en boucle ouverte et pas tout à fait
+      1 ## Exemple — Vérifier l'alimentation d'une carte
+      1 ## Exemple — Vitesse au potentiomètre + bouton de sens
+      1 ## Exemple — Une petite carte capteur
+      1 ## Exemple — Une LED qui refuse de clignoter
+      1 ## Exemple — Un sketch qui mêle Arduino et HAL native
+      1 ## Exemple — Un sketch qui mêle Arduino et ESP-IDF
+      1 ## Exemple — Un sketch qui exploite le côté Teensy
+      1 ## Exemple — Un quart de tour par appui de bouton
+      1 ## Exemple — Un pont entre le module et le moniteur
+      1 ## Exemple — Un oscillateur vers l'Audio Shield
+      1 ## Exemple — Un bouton qui tape au clavier
+      1 ## Exemple — Trois activités, une seule boucle
+      1 ## Exemple — Thermostat
+      1 ## Exemple — Thermomètre OLED avec icône thermomètre
+      1 ## Exemple — Thermomètre OLED (deux modules I2C sur un bus)
+      1 ## Exemple — Surveiller consigne et mesure
+      1 ## Exemple — Station de mesure périodique
+      1 ## Exemple — Signal PWM et trame série
+      1 ## Exemple — Se connecter au Wi-Fi
+      1 ## Exemple — Scanner le bus et lire les adresses
+      1 ## Exemple — Publier un compteur en notification
+      1 ## Exemple — Projet sur batterie : Pico + 3 modules
+      1 ## Exemple — Projet sur batterie : Arduino + 3 modules
+      1 ## Exemple — Poste de perçage
+      1 ## Exemple — Portail automatique
+      1 ## Exemple — Piloter une LED par commande texte
+      1 ## Exemple — Piloter une LED depuis un navigateur
+      1 ## Exemple — Observer un signal PWM
+      1 ## Exemple — Mouvement par bouton de pas
+      1 ## Exemple — Motor shield (L293D) : faire tourner un moteur CC
+      1 ## Exemple — Lire un DHT11 avec le module intégré `dht`
+      1 ## Exemple — Le montage qui se croit vivant
+      1 ## Exemple — Le bouton d'arrêt d'urgence
+      1 ## Exemple — La sonde sur pile
+      1 ## Exemple — Journaliser sur carte microSD
+      1 ## Exemple — Huit drapeaux dans un octet
+      1 ## Exemple — Faire tourner un servomoteur avec Servo.h
+      1 ## Exemple — Faire clignoter une LED
+      1 ## Exemple — ESP32 et un capteur 5 V
+      1 ## Exemple — Diagnostiquer une `MemoryError` par accumulation
+      1 ## Exemple — Diagnostiquer un plantage par saturation
+      1 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie 0
+      1 ## Exemple — Diagnostiquer un capteur ultrason qui renvoie -1
+      1 ## Exemple — Deux tâches indépendantes
+      1 ## Exemple — Datalogger température sur SD card
+      1 ## Exemple — Datalogger sur carte SD
+      1 ## Exemple — Contrôle de moteur par potentiomètre + bouton de sens
+      1 ## Exemple — Configurer LED + port série, puis générer
+      1 ## Exemple — Communication entre deux Pico
+      1 ## Exemple — Communication entre deux Arduino
+      1 ## Exemple — Bras robotique pédagogique 6 axes
+      1 ## Exemple — Bouton, LED et port série en HAL
+      1 ## Exemple — Bouton + LED simulés
+      1 ## Exemple — Blink simulé avec bouton
+      1 ## Exemple — Blink modifié et débogué
+      1 ## Exemple — Balayage à vitesse réglable par potentiomètre
+      1 ## Exemple — Balayage continu avec contrôle de vitesse
+      1 ## Exemple commenté
+      1 ## Exemple
+---
+      9 ## Example — 3-axis teaching arm
+      4 ## Example — The 3-axis arm
+      2 ## Example — the 3-axis arm
+      2 ## Example — Threshold detector with a warning LED
+      2 ## Example — Sampling a sensor at 100 Hz
+      2 ## Example — Reading a BMP280 (pressure and temperature)
+      2 ## Example — Potentiometer as an adjustable threshold
+      2 ## Example — Non-blocking blink plus a responsive button
+      2 ## Example — Making a rig that can hang dependable
+      2 ## Example — LED dimmer with a potentiometer
+      2 ## Example — Blink, modified
+      2 ## Example — Blink modified
+      2 ## Example — A persistent start-up counter
+      2 ## Example — A battery sensor woken periodically
+      2 ## Example — A Hall effect speed counter
+      2 ## Example — 3-axis arm project
+      1 ## Example — traffic lights with a pedestrian crossing
+      1 ## Example — the ESP32 and a 5 V sensor
+      1 ## Example — the 3-axis arm, open loop and not quite
+      1 ## Example — motor control with a potentiometer and a direction button
+      1 ## Example — motion driven by a step button
+      1 ## Example — controlling the speed of a DC motor
+      1 ## Example — continuous sweep with speed control
+      1 ## Example — an OLED thermometer with a thermometer icon
+      1 ## Example — a station doing three things at once
+      1 ## Example — a simulated button and LED
+      1 ## Example — Wiring a DHT11 module (temperature plus humidity)
+      1 ## Example — Wiring a DHT11 module (temperature and humidity)
+      1 ## Example — Watching a setpoint against a measurement
+      1 ## Example — Watching a PWM signal
+      1 ## Example — Two independent tasks
+      1 ## Example — Traffic lights with a pedestrian crossing
+      1 ## Example — Three activities, one loop
+      1 ## Example — Thermostat
+      1 ## Example — The emergency stop button
+      1 ## Example — The build that thinks it is alive
+      1 ## Example — The battery-powered probe
+      1 ## Example — Temperature datalogger on an SD card
+      1 ## Example — Speed on a potentiometer plus a direction button
+      1 ## Example — Scanning the bus and reading the addresses
+      1 ## Example — Sampling at a precise interval
+      1 ## Example — Reading a DHT11 with the built-in `dht` module
+      1 ## Example — Publishing a counter by notification
+      1 ## Example — PWM signal and serial frame
+      1 ## Example — OLED thermometer (two I2C devices on one bus)
+      1 ## Example — Motor shield (L293D): running a DC motor
+      1 ## Example — Logging to a microSD card
+      1 ## Example — Eight flags in one byte
+      1 ## Example — Driving an LED with text commands
+      1 ## Example — Driving a servo with Servo.h
+      1 ## Example — Driving a LED from a browser
+      1 ## Example — Drilling station
+      1 ## Example — Diagnosing an ultrasonic sensor that returns 0
+      1 ## Example — Diagnosing an ultrasonic sensor that returns -1
+      1 ## Example — Diagnosing a crash caused by saturation
+      1 ## Example — Diagnosing a `MemoryError` caused by accumulation
+      1 ## Example — Datalogger on an SD card
+      1 ## Example — Counting presses and toggling an LED
+      1 ## Example — Count presses and toggle an LED
+      1 ## Example — Controlling the speed of a motor
+      1 ## Example — Connecting to Wi-Fi
+      1 ## Example — Configuring an LED and a serial port, then generating
+      1 ## Example — Communication between two Picos
+      1 ## Example — Communication between two Arduino boards
+      1 ## Example — Checking a board's power supply
+      1 ## Example — Buzzer alarm plus flashing LED
+      1 ## Example — Button, LED and serial port with the HAL
+      1 ## Example — Blinking an LED
+      1 ## Example — Blink, modified and debugged
+      1 ## Example — Blink simulated with a button
+      1 ## Example — Automatic gate
+      1 ## Example — An oscillator into the Audio Shield
+      1 ## Example — An LED that refuses to blink
+      1 ## Example — Alarm buzzer and blinking LED
+      1 ## Example — A sweep whose speed is set by a potentiometer
+      1 ## Example — A station doing three things at once
+      1 ## Example — A sketch that plays to the Teensy's strengths
+      1 ## Example — A sketch that mixes Arduino and the native HAL
+      1 ## Example — A sketch that mixes Arduino and ESP-IDF
+      1 ## Example — A relay module that clicks at start-up
+      1 ## Example — A relay module that clacks at start-up
+      1 ## Example — A quarter turn per button press
+      1 ## Example — A periodic measuring station
+      1 ## Example — A modified Blink
+      1 ## Example — A button that types on the keyboard
+      1 ## Example — A button that lights an LED
+      1 ## Example — A button that lights a LED
+      1 ## Example — A bridge between the module and the monitor
+      1 ## Example — A battery-powered project: Pico plus 3 modules
+      1 ## Example — A battery-powered project: Arduino plus three modules
+      1 ## Example — 6-axis teaching robot arm
+      1 ## Example
+=== RELEVE 5 : titres-doublons ===
+    titres distincts         : 243
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+  --- COTE ANGLAIS
+    (aucune collision)
+
+    fiches lues              : 239
+    sans title:              : 0
+    titres distincts         : 239
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+=== RELEVE 7 : libelles visant les trois cibles, PIPE ECHAPPE COMPRIS ===
+--- EN  content/en/
+[eval]:12
+    const re=new RegExp('\[\[('+c+')(?:\\||\|)([^\]]*?)\]\]','g');
+             ^
+
+SyntaxError: Invalid regular expression: /[[(kicad-en)(?:\|||)([^]]*?)]]/g: Unmatched ')'
+    at new RegExp (<anonymous>)
+    at [eval]:12:14
+    at runScriptInThisContext (node:internal/vm:219:10)
+    at node:internal/process/execution:451:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:449:60)
+    at evalFunction (node:internal/process/execution:283:30)
+    at evalTypeScript (node:internal/process/execution:295:3)
+    at node:internal/main/eval_string:71:3
+
+Node.js v24.15.0
+=== RELEVE 6 : --libelles ===
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 4284
+  cible EN existante    : 4272   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 12
+  candidats a lire      : 146
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+
+=== RELEVE 7 : libelles visant les trois cibles, PIPE ECHAPPE COMPRIS ===
+--- EPREUVE C110, echantillon nomme : pcb-en.md, pipe ECHAPPE dans un tableau
+    [[easyeda-en|...]] dans pcb-en.md : 4   libelles : ["EasyEDA","EasyEDA","EasyEDA","EasyEDA"]
+
+--- EN  (content/en/)
+  [[kicad-en|...]] : 6
+      en/embarque/index.md  ->  KiCad
+      en/embarque/pcb/easyeda-en.md  ->  KiCad
+      en/embarque/pcb/easyeda-en.md  ->  KiCad
+      en/embarque/pcb/pcb-en.md  ->  KiCad
+      en/embarque/pcb/pcb-en.md  ->  KiCad
+      en/embarque/pcb/pcb-en.md  ->  KiCad
+  [[xiao-prise-en-main-en|...]] : 3
+      en/embarque/mcu/xiao/xiao-alimentation-en.md  ->  XIAO — getting started
+      en/embarque/mcu/xiao/xiao-esp32-s3-en.md  ->  getting started
+      en/embarque/mcu/xiao/xiao-esp32-s3-en.md  ->  XIAO — getting started
+  [[xiao-sense-en|...]] : 3
+      en/embarque/mcu/xiao/xiao-alimentation-en.md  ->  Sense
+      en/embarque/mcu/xiao/xiao-esp32-s3-en.md  ->  XIAO Sense
+      en/embarque/mcu/xiao/xiao-esp32-s3-en.md  ->  XIAO Sense
+
+--- FR  (content/ hors en/)
+  [[kicad|...]] : 6
+      embarque/index.md  ->  KiCad
+      embarque/pcb/easyeda.md  ->  KiCad
+      embarque/pcb/easyeda.md  ->  KiCad
+      embarque/pcb/pcb.md  ->  KiCad
+      embarque/pcb/pcb.md  ->  KiCad
+      embarque/pcb/pcb.md  ->  KiCad
+  [[xiao-prise-en-main|...]] : 5
+      embarque/mcu/xiao/xiao-alimentation.md  ->  XIAO — prise en main
+      embarque/mcu/xiao/xiao-esp32-s3.md  ->  prise en main
+      embarque/mcu/xiao/xiao-esp32-s3.md  ->  XIAO — prise en main
+      embarque/mcu/xiao/xiao-sense.md  ->  prise en main
+      embarque/mcu/xiao/xiao-sense.md  ->  XIAO — prise en main
+  [[xiao-sense|...]] : 3
+      embarque/mcu/xiao/xiao-alimentation.md  ->  Sense
+      embarque/mcu/xiao/xiao-esp32-s3.md  ->  XIAO Sense
+      embarque/mcu/xiao/xiao-esp32-s3.md  ->  XIAO Sense
+
+=== RELEVE 4d : title: des jumelles de famille ===
+en/embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main-en.md  title: Getting started with the Raspberry Pi
+en/embarque/mcu/xiao/xiao-esp32-s3-en.md                       title: XIAO ESP32-S3
+en/embarque/mcu/xiao/xiao-alimentation-en.md                   title: Powering the XIAO ESP32-S3
+en/embarque/pcb/easyeda-en.md                                  title: EasyEDA
+en/embarque/pcb/pcb-en.md                                      title: PCB — printed circuit board
+en/embarque/simulation/wokwi-en.md                             title: Wokwi
+en/embarque/mesure/oscilloscope-en.md                          title: Oscilloscope
+--- sources FR correspondantes
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md        title: Prise en main du Raspberry Pi
+embarque/mcu/xiao/xiao-esp32-s3.md                             title: XIAO ESP32-S3
+embarque/mcu/xiao/xiao-alimentation.md                         title: Alimenter le XIAO ESP32-S3
+embarque/pcb/easyeda.md                                        title: EasyEDA
+embarque/pcb/pcb.md                                            title: PCB — circuit imprimé
+embarque/simulation/wokwi.md                                   title: Wokwi
+embarque/mesure/oscilloscope.md                                title: Oscilloscope
+
+=== RELEVE 4e : sections FR proches des sept titres neufs, et leurs jumelles ===
+--- FR '## Premier programme' :
+      1 ## Premier programme : la LED qui clignote
+--- EN '## First program' / '## A first program' :
+--- FR '## Récupérer' :
+--- FR '## Installer' :
+      1 ## Installer LTspice
+      1 ## Installer et choisir
+      1 ## Installer et se mettre en mode hors ligne
+      1 ## Installer le support STM32
+      1 ## Installer le support et téléverser (Arduino)
+      1 ## Installer une bibliothèque
+--- EN '## Installing' :
+      1 ## Installing LTspice
+      1 ## Installing STM32 support
+      1 ## Installing a library
+      1 ## Installing and choosing
+      1 ## Installing, and switching to offline mode
+--- EN sections commencant par '## What ' :
+    163 ## What is it for?
+      5 ## What belongs elsewhere
+      2 ## What changes under the hood
+      1 ## What the watchdog does not detect
+      1 ## What the board does at power-up
+      1 ## What the IDF brings (and what it changes from Arduino habits)
+      1 ## What the IDE takes care of
+      1 ## What it is, technically
+      1 ## What is the watchdog independent of?
+      1 ## What is it for
+      1 ## What forms does it take?
+      1 ## What comes next
+  pcb-en                              PCB (23) | printed circuit board (12) | Printed circuit board (4) | Designing a board (PCB) (3) | PCBs (2) | board (1) | designing a PCB (1)
+  lire-une-datasheet-en               Reading a datasheet (34) | datasheet (20) | reading a datasheet (12) | datasheets (2) | the L298N datasheet (1) | Lire une datasheet (1)
+  bus-de-communication-en             Communication buses (23) | communication buses (11) | bus (7) | communication bus (3) | Communication bus (3) | UART / I2C / SPI (3) | I2S (2)
+  analyse-de-schema-electronique-en   Reading a schematic (5) | schematic (4) | Analysing an electronic schematic (2) | Analysing a circuit schematic (2) | Reading an electronic schematic (1) | analysing a schematic (1) | Analyser un schéma électronique (1)
+  simulation-electronique-en          Circuit simulation (8) | simulation (8) | circuit simulation (5) | Electronic simulation (3) | simulated (2) | Simulation électronique (1)
+  dossier-technique-en                technical design file (63) | Technical design file (20) | technical design file phase (4) | technical file (3) | Dossier technique (1)
+  esp32-en                            ESP32 (69) | ESP32 hub (1)
+  esp32-prise-en-main-en              Getting started with the ESP32 (7) | getting started (2) | prise en main de l'ESP32 (2) | Prise en main de l'ESP32 (1)
+  esp32-arduino-core-en               Programming with the Arduino core (5) | Arduino core (3) | Programming the ESP32 with the Arduino core (2) | the ESP32 Arduino core (2) | ESP32 Arduino-core (2) | ESP32 core (1) | ESP32 Arduino core (1)
+  micropython-en                      MicroPython (42) | MicroPython hub (1)
+  esp32-wifi-en                       Wi-Fi on the ESP32 (10) | Wi-Fi (5) | ESP32 Wi-Fi (1)
+  esp32-ble-en                        Bluetooth LE (4) | Bluetooth LE on the ESP32 (1) | BLE on the ESP32 (1) | ESP32 BLE (1) | BLE (1)
+  esp32-serie-en                      serial monitor (6) | Serial monitor (6) | ESP32 serial monitor (1) | the serial monitor (1) | série / moniteur (1) | Série / moniteur (1)
+  preuve-de-concept-en                proof of concept (72) | proof of concept phase (40) | proof-of-concept phase (32) | Proof of concept (18) | PoC (1) | Proof-of-concept phase (1) | Proof of concept phase (1)
+  xiao-esp32-s3-en                    XIAO ESP32-S3 (5) | XIAO (Seeed Studio) (1) | XIAO (1)
+  xiao-alimentation-en                alimentation (3) | a XIAO ESP32-S3 (2) | XIAO — alimentation (2) | power (1) | XIAO — power (1)
+  i2c-en                              I2C (21) | I²C (11)
+  spi-en                              SPI (20)

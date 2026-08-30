@@ -1,0 +1,27 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-3008b61.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : garde   anneau : 2   chevron : False
+date ISO : 2026-08-30   heure : 21:13:03
+
+HEAD git : 08075d9 2026-08-30 21:08:25 +0200
+fichiers modifies non commites : 2   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-30 20:04:11
+  conventions.md                                      2026-08-30 20:02:19
+  TODO.md                                             2026-08-29 21:48:08
+  embarque/pcb/kicad.md                               2026-08-17 15:31:43
+  embarque/mcu/xiao/xiao-prise-en-main.md             2026-08-17 13:15:12
+  embarque/mcu/xiao/xiao-sense.md                     2026-08-17 13:17:32
+--- code de sortie : 0
