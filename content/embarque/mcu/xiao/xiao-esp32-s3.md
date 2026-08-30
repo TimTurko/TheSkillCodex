@@ -16,7 +16,7 @@ aliases:
   - xiao
 ---
 
-Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 17,8 mm) de **Seeed Studio**, bâtie autour de la puce [[esp32|ESP32]]-S3 : deux cœurs à 240 MHz, 8 Mo de PSRAM, Wi-Fi et BLE, le tout sur une carte USB-C qui tient sur un ongle. Cette fiche est le **hub-parcours** de la carte : pourquoi elle, quelle variante choisir, et comment l'utiliser dans un projet en s'appuyant sur les fiches existantes. XIAO est un **format**, pas une famille de puces — tout ce qui concerne le SoC, les radios et les chaînes d'outils est porté par le module [[esp32|ESP32]], et le choix entre familles de microcontrôleurs reste porté par [[microcontroleur|microcontrôleur]].
+Le **XIAO ESP32-S3** est une carte de développement *timbre-poste* (≈ 21 × 17,8 mm) de **Seeed Studio**, bâtie autour de la puce [[esp32|ESP32]]-S3 : deux cœurs à 240 MHz, 8 Mo de PSRAM, Wi-Fi et BLE, le tout sur une carte USB-C qui tient sur un ongle. Cette fiche est le **hub-parcours** de la carte : pourquoi elle, quelle variante choisir, et comment l'utiliser dans un projet en s'appuyant sur les fiches existantes. XIAO est un **format**, pas une famille de puces : tout ce qui concerne le SoC, les radios et les chaînes d'outils est porté par le module [[esp32|ESP32]], et le choix entre familles de microcontrôleurs reste porté par [[microcontroleur|microcontrôleur]].
 
 ![Carte XIAO ESP32-S3 et ses fonctions : USB-C, antenne U.FL, LED utilisateur sur GPIO21, boutons Boot et Reset, et les groupes alimentation, 11 GPIO, 9 ADC, I²C, SPI et UART.|640](/ressources/img/xiao-esp32-s3/brochage.svg)
 
@@ -27,10 +27,10 @@ On prend cette carte quand on veut la **connectivité et la puissance d'un ESP32
 - **format timbre-poste** (≈ 21 × 17,8 mm, bords castellés montables en CMS) — idéal pour un objet porté ou un produit compact ;
 - **ESP32-S3** : deux cœurs Xtensa LX7 à 240 MHz, **8 Mo de PSRAM + 8 Mo de Flash**, instructions vectorielles pour l'IA embarquée ;
 - **Wi-Fi 4 (2,4 GHz) + BLE 5** intégrés, avec antenne céramique **et** connecteur d'antenne externe ;
-- **USB-C natif** — l'ESP32-S3 gère l'USB sans puce externe ;
+- **USB-C natif** : l'ESP32-S3 gère l'USB sans puce externe ;
 - **charge LiPo embarquée** (pads batterie au dos) et mode [[deep-sleep|deep sleep]] très économe → fonctionnement sur batterie.
 
-La rançon de la miniaturisation : **onze broches seulement** sortent sur les bords (voir plus bas), et la carte fonctionne en **3,3 V** — les capteurs et modules en 5 V demandent une adaptation de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
+La rançon de la miniaturisation : **onze broches seulement** sortent sur les bords (voir plus bas), et la carte fonctionne en **3,3 V** : les capteurs et modules en 5 V demandent une adaptation de niveau (voir [[niveaux-de-tension|niveaux de tension]]).
 
 ## Choisir sa variante
 
@@ -87,14 +87,14 @@ Le SoC ESP32-S3 expose une quarantaine de GPIO, mais le format XIAO n'en sort qu
 Côté alimentation : **5V** (sortie de l'USB, ou entrée *via une diode* en série), **3V3** (sortie régulée, jusqu'à 700 mA), **GND**, et les pads **B+ / B−** de batterie au dos. Une **LED utilisateur** est câblée sur GPIO21, plus une LED de charge et les boutons Boot/Reset.
 
 > [!warning] Pièges de broches
-> - **La sérigraphie D0…D10 n'est pas le numéro GPIO.** En Arduino on peut écrire `D6`, mais ailleurs (MicroPython, beaucoup de bibliothèques) c'est le numéro **GPIO** qui est attendu — et `D6` vaut **GPIO43**, pas GPIO6.
+> - **La sérigraphie D0…D10 n'est pas le numéro GPIO.** En Arduino on peut écrire `D6`, mais ailleurs (MicroPython, beaucoup de bibliothèques) c'est le numéro **GPIO** qui est attendu, et `D6` vaut **GPIO43**, pas GPIO6.
 > - **Neuf pads ADC seulement** : D0–D5 et D8–D10. **D6/D7** sont réservés à l'UART (pas d'analogique), et sur la Sense **A11/A12 (GPIO41/42) ne font pas d'ADC** malgré leur nom.
 > - **Pas de DAC** sur l'ESP32-S3, contrairement à l'ESP32 classique : pour une vraie sortie analogique, un convertisseur externe ou de la PWM filtrée (voir [[dac|DAC]]).
-> - **Pins de strapping** : le bouton Boot est sur GPIO0, et **D2 (GPIO3)** est un pad de strapping — un niveau imposé au démarrage peut empêcher le boot ou le flashage. Le garder libre au reset si possible.
+> - **Pins de strapping** : le bouton Boot est sur GPIO0, et **D2 (GPIO3)** est un pad de strapping : un niveau imposé au démarrage peut empêcher le boot ou le flashage. Le garder libre au reset si possible.
 
 ## Étendre les entrées/sorties
 
-Onze broches, c'est vite court. La réponse standard est un **expandeur d'E/S sur le bus [[i2c|I²C]]** : deux fils (SDA sur D4, SCL sur D5) pilotent un circuit comme le **PCF8574** (8 E/S) ou le **MCP23017** (16 E/S), adressable — on en chaîne plusieurs sur le même bus.
+Onze broches, c'est vite court. La réponse standard est un **expandeur d'E/S sur le bus [[i2c|I²C]]** : deux fils (SDA sur D4, SCL sur D5) pilotent un circuit comme le **PCF8574** (8 E/S) ou le **MCP23017** (16 E/S), adressable : on en chaîne plusieurs sur le même bus.
 
 ![Branchement d'un expandeur d'E/S sur le bus I²C du XIAO : SDA sur D4, SCL sur D5, deux résistances de tirage vers 3V3, et 8 à 16 entrées-sorties en sortie de l'expandeur.|640](/ressources/img/xiao-esp32-s3/extendeur-i2c.svg)
 
@@ -106,7 +106,7 @@ La carte embarque une **antenne céramique** active par défaut, et un **connect
 
 ![Comparaison antenne interne et externe du XIAO : à gauche l'antenne céramique intégrée par défaut, à droite une antenne externe branchée sur le connecteur U.FL pour plus de portée.|640](/ressources/img/xiao-esp32-s3/antenne.svg)
 
-Deux précautions : le connecteur U.FL est **fragile** (à clipser et déclipser avec soin, en tenant le connecteur et non le câble), et le choix est **matériel** — pas de bascule logicielle.
+Deux précautions : le connecteur U.FL est **fragile** (à clipser et déclipser avec soin, en tenant le connecteur et non le câble), et le choix est **matériel**, pas de bascule logicielle.
 
 ## Format et montage
 

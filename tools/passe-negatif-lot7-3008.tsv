@@ -1,0 +1,45 @@
+# Passe C109 - lot 7 (raspberry-pi/ + xiao/), seance du 30/08.
+# 41 ancres pour 44 occurrences traitees : trois lignes portent deux editions
+# chacune (gpio L17, projet L23, projet L66). 30 candidats exemptes, hors table.
+# chemin<TAB>ancre exacte<TAB>remplacement
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	programme — en Python le plus souvent — alors qu'un	programme, en Python le plus souvent, alors qu'un
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	coupé du système mecatronique ; avec, il	coupé du système mécatronique. Avec, il
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	Python coexistent ; on n'en utilise	Python coexistent. On n'en utilise
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	précis l'exige — exactement la logique	précis l'exige. C'est exactement la logique
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	limite le courant ; le niveau de sortie	limite le courant. Le niveau de sortie
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	dans les clous ; au-delà, on passe	dans les clous. Au-delà, on passe
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	sur microcontrôleur — en plus concis, parce que l'anti-rebond	sur microcontrôleur, en plus concis : l'anti-rebond
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	au millième près — elle peut s'allonger	au millième près : elle peut s'allonger
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	travailler ensemble — voir [[raspberry-pi-projet|le SBC dans un projet]].	travailler ensemble (voir [[raspberry-pi-projet|le SBC dans un projet]]).
+embarque/mcu/raspberry-pi/raspberry-pi-gpio.md	tolérant 5 V ; un signal 5 V passe	tolérant 5 V. Un signal 5 V passe
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	vérifie la carte — quelques minutes.	vérifie la carte (quelques minutes).
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	locale (mDNS) ; si elle échoue	locale (mDNS). Si elle échoue
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	l'accès est validé — la prise en main est faite.	l'accès est validé : la prise en main est faite.
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	indique une sous-tension — à corriger en priorité.	indique une sous-tension, à corriger en priorité.
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	(la carte SD) ; débrancher sans arrêt propre	(la carte SD). Débrancher sans arrêt propre
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	par exemple `monpi` — il servira à joindre	par exemple `monpi`, qui servira à joindre
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	un mot de passe** — les versions récentes	un mot de passe** : les versions récentes
+embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md	se connecte sans câble — sinon, un câble Ethernet suffit	se connecte sans câble, sinon un câble Ethernet suffit
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	besoin des deux — par exemple « repérer un objet à la caméra **et** l'attraper avec un bras » — la bonne réponse	besoin des deux (par exemple « repérer un objet à la caméra **et** l'attraper avec un bras »), la bonne réponse
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	de vision par ordinateur ; un SBC seul	de vision par ordinateur. Un SBC seul
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	le plus simple — le microcontrôleur apparaît	le plus simple : le microcontrôleur apparaît
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	quelques lignes — ici une liaison série, le microcontrôleur étant vu comme un port :	quelques lignes (ici une liaison série, le microcontrôleur étant vu comme un port) :
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	et répond — un travail qui relève	et répond, un travail qui relève
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	Le principe est simple — on enregistre le programme comme une **tâche lancée au démarrage** — pour que	Le principe est simple : on enregistre le programme comme une **tâche lancée au démarrage**, pour que
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	de ce wiki — comme le reste du sysadmin	de ce wiki, comme le reste du sysadmin
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	font chuter la tension ; si le Pi partage	font chuter la tension. Si le Pi partage
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	sur sa carte SD ; débrancher brutalement	sur sa carte SD. Débrancher brutalement
+embarque/mcu/raspberry-pi/raspberry-pi-projet.md	autonome — à préparer en amont	autonome, à préparer en amont
+embarque/mcu/xiao/xiao-alimentation.md	pour les périphériques — au-delà, il faut	pour les périphériques. Au-delà, il faut
+embarque/mcu/xiao/xiao-alimentation.md	**LED rouge** renseigne — elle clignote	**LED rouge** renseigne : elle clignote
+embarque/mcu/xiao/xiao-alimentation.md	traînant toujours un peu — mieux vaut	traînant toujours un peu. Mieux vaut
+embarque/mcu/xiao/xiao-alimentation.md	que par salves — voir [[deep-sleep|deep sleep]] et sa mise en œuvre côté ESP32 dans [[esp32-deep-sleep|deep sleep de l'ESP32]].	que par salves (voir [[deep-sleep|deep sleep]] et sa mise en œuvre côté ESP32 dans [[esp32-deep-sleep|deep sleep de l'ESP32]]).
+embarque/mcu/xiao/xiao-alimentation.md	sur la batterie** — les onze GPIO	sur la batterie** : les onze GPIO
+embarque/mcu/xiao/xiao-alimentation.md	écraser un accu LiPo — risque d'emballement	écraser un accu LiPo : risque d'emballement
+embarque/mcu/xiao/xiao-esp32-s3.md	pas une famille de puces — tout ce qui concerne	pas une famille de puces : tout ce qui concerne
+embarque/mcu/xiao/xiao-esp32-s3.md	fonctionne en **3,3 V** — les capteurs et modules	fonctionne en **3,3 V** : les capteurs et modules
+embarque/mcu/xiao/xiao-esp32-s3.md	(16 E/S), adressable — on en chaîne	(16 E/S), adressable : on en chaîne
+embarque/mcu/xiao/xiao-esp32-s3.md	le choix est **matériel** — pas de bascule logicielle.	le choix est **matériel**, pas de bascule logicielle.
+embarque/mcu/xiao/xiao-esp32-s3.md	- **USB-C natif** — l'ESP32-S3 gère	- **USB-C natif** : l'ESP32-S3 gère
+embarque/mcu/xiao/xiao-esp32-s3.md	**GPIO** qui est attendu — et `D6` vaut	**GPIO** qui est attendu, et `D6` vaut
+embarque/mcu/xiao/xiao-esp32-s3.md	est un pad de strapping — un niveau imposé	est un pad de strapping : un niveau imposé

@@ -1,0 +1,43 @@
+  embarque/mcu/raspberry-pi/raspberry-pi-gpio.md              4
+      L  14  [les bibliothèques]
+        - **`gpiozero`** — la **bibliothèque de haut niveau recommandée**. Elle raisonne en objets (`LED`, `Button`, `Servo`, `DistanceSensor`…) plutôt qu'en 
+      L  15  [les bibliothèques]
+        - **`RPi.GPIO`** — l'ancienne bibliothèque historique, plus verbeuse (on configure chaque broche à la main). Très présente dans les anciens tutoriels,
+      L  16  [les bibliothèques]
+        - **`lgpio`** — une bibliothèque bas niveau moderne, compatible Pi 5, qu'on utilise directement quand on a besoin de finesse. C'est l'une des couches 
+      L  89  [pas de temps réel dur]
+        - la durée d'un `sleep()` n'est **pas** garantie au millième près — elle peut s'allonger si le système est occupé ;
+  embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main.md     6
+      L  18  [1. choisir et flasher le système]
+        - **Raspberry Pi OS Lite** — sans interface graphique. C'est le bon choix pour un Pi embarqué piloté en SSH : plus léger, plus rapide à démarrer, moin
+      L  19  [1. choisir et flasher le système]
+        - **Raspberry Pi OS (with desktop)** — avec bureau graphique. Utile si on branche un écran, plus lourd pour un usage headless.
+      L  25  [2. préparer le démarrage headless — avant de flasher]
+        - **le nom d'hôte** (*hostname*), par exemple `monpi` — il servira à joindre la carte sur le réseau ;
+      L  26  [2. préparer le démarrage headless — avant de flasher]
+        - **un nom d'utilisateur et un mot de passe** — les versions récentes de Raspberry Pi OS ne créent plus d'utilisateur `pi` par défaut, il faut donc le
+      L  27  [2. préparer le démarrage headless — avant de flasher]
+        - **les identifiants Wi-Fi** (SSID + mot de passe) si le Pi se connecte sans câble — sinon, un câble Ethernet suffit ;
+      L  28  [2. préparer le démarrage headless — avant de flasher]
+        - **activer SSH** (onglet *Services*) — indispensable pour la connexion à distance. Choisir l'authentification par mot de passe (simple) ou par clé (p
+  embarque/mcu/raspberry-pi/raspberry-pi-projet.md            0
+  embarque/mcu/xiao/xiao-alimentation.md                      4
+      L   8  [trois façons de l'alimenter]
+        - **USB-C (5 V)** — le cas normal : la carte est alimentée **et** l'accu se recharge en même temps.
+      L   9  [trois façons de l'alimenter]
+        - **Batterie LiPo 3,7 V** — soudée sur les pads **B+ / B−** au dos, pour l'autonomie. Attention : **sur batterie seule, la broche 5V est éteinte** (au
+      L  10  [trois façons de l'alimenter]
+        - **5 V externe** — possible sur la broche 5V, mais **via une diode** en série (Schottky de préférence), **anode côté source, cathode côté 5V** : elle
+      L  23  [recharger l'accu sans risque]
+        - Ne pas charger sans surveillance ni hors de la plage de température, et ne jamais percer ni écraser un accu LiPo — risque d'emballement thermique.
+  embarque/mcu/xiao/xiao-esp32-s3.md                          4
+      L  10  [pourquoi le xiao esp32-s3]
+        - **format timbre-poste** (≈ 21 × 17,8 mm, bords castellés montables en CMS) — idéal pour un objet porté ou un produit compact ;
+      L  13  [pourquoi le xiao esp32-s3]
+        - **USB-C natif** — l'ESP32-S3 gère l'USB sans puce externe ;
+      L  73  [les onze broches]
+        - **La sérigraphie D0…D10 n'est pas le numéro GPIO.** En Arduino on peut écrire `D6`, mais ailleurs (MicroPython, beaucoup de bibliothèques) c'est le 
+      L  76  [les onze broches]
+        - **Pins de strapping** : le bouton Boot est sur GPIO0, et **D2 (GPIO3)** est un pad de strapping — un niveau imposé au démarrage peut empêcher le boo
+  ---------------------------------------------------------------
+  TOTAL (5 fiches)                                           18

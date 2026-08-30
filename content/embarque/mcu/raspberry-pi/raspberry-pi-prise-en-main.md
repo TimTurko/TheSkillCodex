@@ -37,16 +37,16 @@ Pour le système, **Raspberry Pi OS** est le choix par défaut, et il existe en 
 
 C'est l'étape clé du mode sans écran, et elle se règle **avant** d'écrire la carte. Imager propose une **personnalisation de l'OS** (une fenêtre apparaît à la fin, ou via *Modifier les réglages* / `Ctrl+Maj+X`). On y configure tout ce qui, sinon, demanderait un écran au premier démarrage :
 
-- **le nom d'hôte** (*hostname*), par exemple `monpi` — il servira à joindre la carte sur le réseau ;
-- **un nom d'utilisateur et un mot de passe** — les versions récentes de Raspberry Pi OS ne créent plus d'utilisateur `pi` par défaut, il faut donc le définir ici ;
-- **les identifiants Wi-Fi** (SSID + mot de passe) si le Pi se connecte sans câble — sinon, un câble Ethernet suffit ;
+- **le nom d'hôte** (*hostname*), par exemple `monpi`, qui servira à joindre la carte sur le réseau ;
+- **un nom d'utilisateur et un mot de passe** : les versions récentes de Raspberry Pi OS ne créent plus d'utilisateur `pi` par défaut, il faut donc le définir ici ;
+- **les identifiants Wi-Fi** (SSID + mot de passe) si le Pi se connecte sans câble, sinon un câble Ethernet suffit ;
 - **activer SSH** (onglet *Services*) — indispensable pour la connexion à distance. Choisir l'authentification par mot de passe (simple) ou par clé (plus sûr).
 
 Prendre capture d'écran de *l'onglet « Général » de la personnalisation d'OS de Raspberry Pi Imager, avec les champs nom d'hôte, nom d'utilisateur et mot de passe, et les réglages Wi-Fi*.
 
 Prendre capture d'écran de *l'onglet « Services » de la personnalisation d'OS de Raspberry Pi Imager, la case « Activer SSH » cochée*.
 
-Validez, puis lancez l'écriture. Imager écrit l'image, applique vos réglages, puis vérifie la carte — quelques minutes.
+Validez, puis lancez l'écriture. Imager écrit l'image, applique vos réglages, puis vérifie la carte (quelques minutes).
 
 > [!warning]
 > **Sans cette préparation, un Pi headless est inaccessible.** Si vous flashez l'image sans activer SSH ni configurer le réseau, la carte démarrera bien mais vous n'aurez aucun moyen d'y entrer sans brancher un écran et un clavier. C'est l'erreur la plus fréquente du premier essai.
@@ -61,7 +61,7 @@ Depuis votre ordinateur, sur le **même réseau**, ouvrez un terminal et connect
 ssh monutilisateur@monpi.local
 ```
 
-Le suffixe `.local` fonctionne grâce à la résolution de noms locale (mDNS) ; si elle échoue sur votre réseau, utilisez directement l'adresse IP du Pi (visible sur le tableau de bord de votre box, ou via un scan réseau). À la première connexion, SSH demande de confirmer l'empreinte de la machine (`yes`), puis le mot de passe défini dans Imager.
+Le suffixe `.local` fonctionne grâce à la résolution de noms locale (mDNS). Si elle échoue sur votre réseau, utilisez directement l'adresse IP du Pi (visible sur le tableau de bord de votre box, ou via un scan réseau). À la première connexion, SSH demande de confirmer l'empreinte de la machine (`yes`), puis le mot de passe défini dans Imager.
 
 Une fois la connexion acceptée :
 
@@ -106,17 +106,17 @@ Enregistrez (`Ctrl+O`, *Entrée*), quittez (`Ctrl+X`), puis exécutez :
 python3 bonjour.py
 ```
 
-Le programme s'exécute sur le Pi et affiche son nom et son architecture. **Le système tourne, l'accès est validé — la prise en main est faite.** L'étape suivante est de faire dialoguer ce programme avec le monde physique : [[raspberry-pi-gpio|piloter les GPIO depuis Linux]].
+Le programme s'exécute sur le Pi et affiche son nom et son architecture. **Le système tourne, l'accès est validé : la prise en main est faite.** L'étape suivante est de faire dialoguer ce programme avec le monde physique : [[raspberry-pi-gpio|piloter les GPIO depuis Linux]].
 
 ## Pièges
 
-**Alimentation sous-dimensionnée.** C'est le piège n°1 du Pi. Un chargeur de téléphone faible provoque des **chutes de tension** : redémarrages intempestifs, carte SD corrompue, comportements erratiques. Un Pi 5 réclame une alimentation USB-C de forte intensité (~5 V / 5 A) ; un Pi 4, ~5 V / 3 A. Un éclair affiché à l'écran (ou signalé dans les journaux) indique une sous-tension — à corriger en priorité.
+**Alimentation sous-dimensionnée.** C'est le piège n°1 du Pi. Un chargeur de téléphone faible provoque des **chutes de tension** : redémarrages intempestifs, carte SD corrompue, comportements erratiques. Un Pi 5 réclame une alimentation USB-C de forte intensité (~5 V / 5 A) ; un Pi 4, ~5 V / 3 A. Un éclair affiché à l'écran (ou signalé dans les journaux) indique une sous-tension, à corriger en priorité.
 
 **SSH non activé / réseau non configuré.** Vu plus haut : sans préparation headless, pas d'accès. Reflasher la carte en cochant SSH est plus rapide que de chercher à contourner.
 
 **Carte microSD de mauvaise qualité.** Les cartes bas de gamme sont lentes et tombent en panne. Une corruption de carte se traduit par un système qui ne démarre plus. Privilégier une carte de marque, classe rapide, et faire des sauvegardes de l'image quand le système est configuré.
 
-**Couper l'alimentation brutalement.** Comme tout ordinateur, le Pi écrit sur son « disque » (la carte SD) ; débrancher sans arrêt propre (`sudo poweroff`) risque de corrompre le système. Toujours arrêter proprement avant de couper.
+**Couper l'alimentation brutalement.** Comme tout ordinateur, le Pi écrit sur son « disque » (la carte SD). Débrancher sans arrêt propre (`sudo poweroff`) risque de corrompre le système. Toujours arrêter proprement avant de couper.
 
 **Mauvais réseau.** SSH ne fonctionne que si votre ordinateur et le Pi sont sur le **même réseau**. Sur un réseau d'école cloisonné, `.local` peut être bloqué — passer par l'adresse IP, ou utiliser un câble Ethernet direct.
 

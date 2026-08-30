@@ -1657,7 +1657,31 @@ tiret** : leur tiret est un cas 3, pas un cas 2.*
 glossaire comparatif et non comme gloses de prose, alors que le second tamis
 du 24/08 les ferait tomber. **Aucun revert n'est joué.** *C'est la première
 fois qu'une exemption de cette clause est arbitrée plutôt que déduite.*
-*Éprouvée 4/N, la quatrième confirmée par arbitrage.*
+
+**Cinquième épreuve, 30/08, lot 7 (`raspberry-pi/` + `xiao/`)** : **18 puces
+jugées, 8 traitées, 10 gardées**, report **symétrique fiche par fiche —
+FR 3 / 3 / 0 / 3 / 1, EN 3 / 3 / 0 / 3 / 1**. ⚠ **Le taux d'exemption bascule
+pour la première fois au-dessus de la moitié**, et la cause reste celle du lot
+6 — la **densité de listes de spécification** de la source, pas une inflexion
+du jugement : les trois bibliothèques Python de `raspberry-pi-gpio`, les deux
+saveurs d'OS et le réglage `activer SSH` de `raspberry-pi-prise-en-main`, les
+trois modes d'alimentation de `xiao-alimentation`, le format timbre-poste de
+`xiao-esp32-s3`. **Dix segments de droite nominaux, adjectivaux ou
+participiaux, aucune proposition à sujet propre laissée derrière un tiret.**
+
+⚠ **Et le lot ajoute une PRÉCISION DE LECTURE au cas 2, qui décide seule sur
+quatre puces.** Le cas 2 dit *« il reste si le segment de droite est un groupe
+nominal »* sans dire **où ce segment s'arrête**. Ce lot rencontre des gloses
+longues dont la **tête** est nominale et qui se prolongent après un point ou
+un deux-points — `- **\`gpiozero\`** — la bibliothèque de haut niveau
+recommandée. Elle raisonne en objets…`. **Règle appliquée : le segment de
+droite se lit jusqu'à sa PREMIÈRE PONCTUATION FORTE — point ou deux-points.
+Si cette tête est nominale, adjectivale, infinitive ou participiale, le tiret
+reste ; si elle porte un sujet propre, il tombe.** *Sans cette borne, la même
+puce se lit comme une glose ou comme une phrase selon jusqu'où on lit, et le
+verdict cesse d'être reproductible.* **Quatre puces gardées par elle** :
+`raspberry-pi-gpio` L29-L31 et `xiao-alimentation` L22.
+*Éprouvée 5/N, la quatrième confirmée par arbitrage.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -1812,7 +1836,11 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 ⚠ **ET LA VOIE DE SORTIE DÉPLACE LE GESTE VERS LA SOURCE, PAS VERS LA JUMELLE.** Quand les deux langues admettent une forme **de même longueur**, ce n'est pas la fiche EN qui s'écarte, c'est **la source FR qui se neutralise**. Appliqué le 30/08 : `"tic\r\n", 5` devient `"tick\r\n", 6` **des deux côtés**, bloc de sortie attendue et prose compris, et le code redevient identique sans qu'aucun littéral n'ait été édité **entre** les langues. *La voie de sortie n'est pas générale : elle suppose une forme que le français accepte. `Bonjour` → `Hello` ne la remplit pas — les deux mots n'ont pas la même longueur et angliciser la source française serait un contresens —, donc `stm32-hal-en` porte `"Bonjour\r\n", 9` dans son bloc de code.*
 
 ⚠ **CE QUE LA CLAUSE NE COUVRE PAS, ET LE CAS EST DANS LA MÊME FICHE.** Un mot **tapé par l'étudiant** au moniteur et reproduit par un bloc de sortie n'est porté par **aucun littéral du code source** : `HAL_UART_Transmit(&huart2, &rx, 1, 10)` transmet un octet, indépendamment du mot. *`bonjour` / « sept passages » se traduit donc en `hello` / « five trips » sans réserve.* **`stm32-hal-en` porte ainsi `"Bonjour\r\n"` dans un bloc de code et `hello` dans une saisie utilisateur, et c'est cohérent : le premier est du code, le second ne l'est pas.**
-*Éprouvée 1/N.*
+
+⚠ **DEUXIÈME ÉPREUVE, 30/08, LOT 7 — ET ELLE PORTE HORS DE TOUT LITTÉRAL DE LONGUEUR, CE QUI EST NEUF.** Les cinq sources du lot ne portent **aucune** chaîne couplée à un littéral : le relevé d'avant rédaction rend **zéro** occurrence, sur onze blocs de code (`raspberry-pi-gpio` 3, `raspberry-pi-prise-en-main` 7, `raspberry-pi-projet` 1, les deux `xiao/` 0). **La question devient donc : une chaîne affichée LIBRE se traduit-elle encore ?** Le test opératoire retenu est celui que le ⚠ ci-dessus donne en creux — *le texte est-il porté par un littéral du code source ?* —, et il rend **oui** pour les trois cas du lot : `print("Appui")`, `print("Relâché")`, `print("Bonjour depuis le Pi !")` avec le bloc de sortie qui le reproduit. **Ils restent en français dans les fiches EN, comme les identifiants `bouton`, `led`, `mcu`, `envoyer_consigne` et le nom de fichier `bonjour.py`.** ✅ *Contrôle : le `diff` des blocs de code FR/EN est vide sur les trois fiches, aux **six commentaires** près, que C77 fait traduire.*
+
+⚠ **ASSOMPTION ÉCRITE SOUS C116 (8), NON ARBITRÉE.** La voie de sortie ne s'ouvre pas ici : `Appui` → `Press` et `Relâché` → `Release` ont pourtant **la même longueur** (5 / 5 et 7 / 7), mais `Press` et `Release` ne sont pas des mots français, et angliciser la source serait le contresens que la clause nomme déjà pour `Bonjour` → `Hello`. **Si Tim lit la phrase principale plus étroitement — le code reste identique *quand un littéral est couplé*, et les chaînes affichées libres se traduisent comme depuis le 24/08 —, trois fiches EN sont à reprendre. Coût du revert : 4 littéraux de code et 1 ligne de bloc de sortie, sur 2 fiches EN.**
+*Éprouvée 2/N.*
 
 **Coût assumé : un registre mixte.** Les identifiants restent français, donc un anglophone lit `clignote(led, n=3, duree=0.2)` et `if bouton.value() == 0 and not alarme_active`. Motif de la borne : renommer désynchroniserait les SVG français qui montrent ces mêmes variables (`locale-globale.svg` de `cpp-portee`), et ce serait un diff sémantique et non typographique. *C'est le compromis des schémas laissés en français, pris un cran plus bas.* `micropython-fonctions` est la fiche où il se voit le plus, donc celle à relire en premier si la borne doit bouger.
 
@@ -2496,7 +2524,26 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   fiches du lot 6 n'ont introduit aucune forme générique neuve**, leurs
   sections propres (`## The .ioc file`, `## The handles`, `## HAL or LL`,
   `## BSRR versus ODR — atomicity`…) nommant le contenu de leur fiche.
-  *Éprouvée 1/N.*
+
+  **Deuxième épreuve, 30/08, lot 7 — et c'est celle qui montre à quoi le
+  relevé sert vraiment.** Les six formes de production sortent **toutes à
+  +3** — `## See also` **199**, `## What is it for?` **137**,
+  `## Pitfalls` **136**, `## Where it fits in the project` **102**,
+  `## Exercises` **37**, `## Going further` **28** —, *ce qui dit en un
+  chiffre que les trois fiches du lot 6 portaient les six sections
+  génériques, toutes les six.* `## Project connection` et
+  `## Step-by-step procedure` restent à **0**, deuxième confirmation du
+  correctif É1.
+  ⚠ **Mais le lot 7 est le PREMIER HORS GABARIT, et le relevé le chiffre :
+  36 titres de section, dont 13 seulement d'une famille générique
+  (4 / 4 / 3 / 1 / 1) et 23 propres à leur fiche.** Les trois `raspberry-pi/`
+  sont des **tutos** et suivent l'ossature ; les deux `xiao/` sont des
+  **notions** et ne portent que `## Voir aussi`. *Le relevé cesse d'être une
+  formalité de confirmation : sur ce lot, il dit surtout **où il n'y a pas de
+  modèle**, et 23 titres se sont traduits sans en avoir un.* ✅ **Aucun des 23
+  n'a pris par accident une forme de production** — ni `## Step by step` (75),
+  ni `## In the project` (20) —, ce qui était le terme écrit pour réfuter.
+  *Éprouvée 2/N.*
 - **Un compteur qui se remesure d'une clôture à l'autre déclare sa population
   DANS SA SORTIE, pas dans le message qui la commente.**
   *Née le 29/08 (suite 11), deuxième clôture d'affilée où le compteur de puces
@@ -2517,6 +2564,48 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `en/`), EN 870 sur 142 porteuses (206 fichiers `content/en/`).**
   *C131 exige de déclarer la population d'un compteur qu'on **prédit** ; il y
   manque de l'exiger du compteur qu'on **publie comme référence**.*
+
+  **Première épreuve, 30/08, lot 7 — et le compteur se referme sur ses six
+  termes.** Le script de mesure **écrit sa population dans sa propre sortie**,
+  avant les chiffres : `POPULATION (fichiers balayes) : 248` côté FR,
+  `211` côté EN. Résultat : **FR 1 027 − 8 = 1 019 sur 173 porteuses**,
+  **EN 870 + 10 = 880 sur 142 + 4 = 146 porteuses**, les deux côtés
+  reproductibles **au caractère** contre la référence de la suite 11.
+  ⚠ *Le terme qui prouve est le côté français* : c'est celui qui avait
+  échoué deux clôtures de suite, et il tombe ici parce que la population est
+  la même — **248 fichiers, écrits par le script et non supposés par le
+  message**. **Un terme avait été écrit pour réfuter** — *un écart serait un
+  troisième défaut de comparabilité et non une épreuve* — et il ne mord pas.
+  *Éprouvée 1/N.*
+- **Un répertoire entièrement non suivi vaut UNE entrée de `git status`, pas
+  une par fichier.**
+  *Née le 30/08, lot 7, sur une prédiction de garde réfutée d'un point.*
+  La déclaration C131 du bloc de rédaction annonçait **22 / 14** en comptant
+  **cinq** fiches EN neuves ; la garde a rendu **21 / 13**. Cause lue dans la
+  sortie brute de `git status --porcelain` :
+  `?? content/en/embarque/mcu/xiao/` — **une** ligne pour **deux** fiches,
+  parce que le répertoire lui-même est neuf. *Les trois fiches
+  `raspberry-pi/` sont comptées une par une, leur répertoire étant déjà
+  suivi.* **Le lot 7 est le premier du chantier à créer un répertoire sous
+  `content/en/`**, et la déclaration comptait des **fichiers** là où le
+  compteur compte des **entrées**.
+  ⚠ *C'est C116 (7) à la lettre — lire un compteur dans le code qui
+  l'incrémente — appliqué à un code qui n'est pas le nôtre.* ✅ **La règle a
+  été écrite dans la déclaration du bloc suivant et le compteur y est tombé
+  juste : 24 / 15, prédits et mesurés.**
+  *Éprouvée 1/N.*
+- **Une soustraction se fait sur l'état d'APRÈS la passe, y compris quand le
+  compteur n'est pas celui qu'on vient d'éditer.**
+  *Née le 30/08, lot 7, sur une réfutation d'un mot.* La passe C109 retire
+  **1 mot** au corpus FR, dans `raspberry-pi-gpio`. J'ai appliqué ce −1 au
+  **restant du corpus** — `291 241`, juste — et **pas** au **restant de
+  l'anneau 2**, où la même fiche vit aussi : prédit **42 637**, mesuré
+  **42 636**. Le contrôle que j'avais publié, `42 637 + 5 300 = 47 937`,
+  referme sur l'état **d'avant** la passe.
+  ⚠ *La règle du prompt disait « une soustraction entre deux totaux se fait
+  sur deux états de même date, et sur la même population » ; ce cas montre
+  qu'il faut aussi **propager l'édition à TOUS les compteurs qui contiennent
+  la fiche éditée**, et pas seulement à celui qu'on regardait en l'éditant.*
   *Éprouvée 0/N.*
 - **Une ancre qui couvre N lignes identiques se prend EN BLOC, jamais ligne à
   ligne.**
@@ -2993,7 +3082,9 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
   ⚠ **Ce que la clause ne dit pas.** Elle ne dispense pas de relever le compteur : la même clôture rend `candidats a lire` **105 → 106**, et le candidat neuf est `[[bus-de-communication-en|I2S]]` — un **sigle de bus** contre le titre `Communication buses`, que `estSigleDe` ne reconnaît pas. *Trois occurrences préexistantes de cette famille étaient déjà au compteur ; le report fidèle d'un libellé français en ajoute une quatrième, et cela n'a rien à voir avec le choix du titre.*
 
-  *Éprouvée 2/N dans son texte d'origine ; le texte amendé du 29/08 (suite 5) est à 1/N ; la clause ci-dessus est à **2/N**, sa deuxième épreuve étant le lot 6 du 29/08 (suite 11) : **trois `title:` qualifiés par la famille** — `Configuring the STM32 with CubeMX`, `Programming the STM32 with the HAL`, `Going down to the register on the STM32` —, qui **englobent** chacun leur forme de production (`Configuring with CubeMX` 4 occurrences, `Programming with the HAL` 3, `Going down to the register` 1), pour **zéro candidat `--libelles` créé** sur les vingt-deux libellés qui les visent. ⚠ *Les deux candidats qui apparaissent à cette clôture sont des **sigles** — `[[stm32-registres-en|CMSIS]]` et `[[bus-de-communication-en|I2C/SPI]]` —, la famille que la clause nomme déjà, et ils n'ont rien à voir avec le choix des titres.* **Première épreuve sur trois titres à la fois, et la seule où les trois formes de production effacent le qualificatif que la source porte** : les retenir aurait fabriqué en une séance trois fois le défaut d'`esp8266-arduino-core-en`.*
+  ⚠ **Troisième épreuve, 30/08, lot 7 — et elle est PLUS FAIBLE que la deuxième, ce qui doit se dire.** Trois `title:` qualifiés par la famille — `Getting started with the Raspberry Pi`, `The SBC on a mechatronics project`, `Powering the XIAO ESP32-S3` — englobent chacun une forme de production plus courte (`Getting started`, `the SBC in a project`, `a XIAO ESP32-S3`). `candidats a lire` monte de **109 à 112**, et la prédiction publiée avant la mesure posait **[109, 112]**, la marge de +3 étant **réservée aux sigles** que la clause nomme déjà — `[[gpio-en|GPIO]]`, `[[dac-en|DAC]]`, `[[i2c-en|I²C]]`, `[[adc-en|ADC]]` figurent tous dans les cinq fiches neuves. **Le compteur tombe dans la fourchette, mais à sa borne haute** : *ce n'est pas le zéro du lot 6, et la fourchette était assez large pour absorber trois candidats de n'importe quelle cause. La clause n'est donc pas réfutée, elle est mal testée par ce lot.* ⚠ **La sortie `--libelles` nomme les candidats ; les rattacher un par un à leur cause reste à faire, et n'a pas été fait ici.**
+
+  *Éprouvée 2/N dans son texte d'origine ; le texte amendé du 29/08 (suite 5) est à 1/N ; la clause ci-dessus est à **3/N**, sa deuxième épreuve étant le lot 6 du 29/08 (suite 11) : **trois `title:` qualifiés par la famille** — `Configuring the STM32 with CubeMX`, `Programming the STM32 with the HAL`, `Going down to the register on the STM32` —, qui **englobent** chacun leur forme de production (`Configuring with CubeMX` 4 occurrences, `Programming with the HAL` 3, `Going down to the register` 1), pour **zéro candidat `--libelles` créé** sur les vingt-deux libellés qui les visent. ⚠ *Les deux candidats qui apparaissent à cette clôture sont des **sigles** — `[[stm32-registres-en|CMSIS]]` et `[[bus-de-communication-en|I2C/SPI]]` —, la famille que la clause nomme déjà, et ils n'ont rien à voir avec le choix des titres.* **Première épreuve sur trois titres à la fois, et la seule où les trois formes de production effacent le qualificatif que la source porte** : les retenir aurait fabriqué en une séance trois fois le défaut d'`esp8266-arduino-core-en`.*
 - **Section « Pendant cette phase, côté équipe »** pour fiches-trame
   transverses : titre conservé pour alignement template, sémantique réelle =
   « articulation avec les autres transverses » (3 pratiques : intégrer dans

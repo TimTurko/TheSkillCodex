@@ -1,0 +1,9 @@
+# Titres EN du lot 7 (raspberry-pi/ + xiao/), seance du 30/08.
+# C125 : test 1 (libelle de desambiguisation) ecarte 'Raspberry Pi' et
+# 'Raspberry Pi - GPIO' ; test 3 (contextes) tranche les cinq.
+# chemin<TAB>ancien titre<TAB>nouveau titre
+en/embarque/mcu/raspberry-pi/raspberry-pi-gpio-en.md	Piloter les GPIO depuis Linux	Driving the GPIO from Linux
+en/embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main-en.md	Prise en main du Raspberry Pi	Getting started with the Raspberry Pi
+en/embarque/mcu/raspberry-pi/raspberry-pi-projet-en.md	Le SBC dans un projet mécatronique	The SBC on a mechatronics project
+en/embarque/mcu/xiao/xiao-alimentation-en.md	Alimenter le XIAO ESP32-S3	Powering the XIAO ESP32-S3
+en/embarque/mcu/xiao/xiao-esp32-s3-en.md	XIAO ESP32-S3	XIAO ESP32-S3
