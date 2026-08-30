@@ -2460,6 +2460,127 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **Le taux de candidats C109 se rapporte au VOLUME DE PROSE, pas au nombre de
+  mots — et l'écart est le plus violent aux petites tailles.**
+  *Née le 30/08 (séance 5), lot 10, de deux réfutations à cause unique
+  (P77.8 dans sa décomposition, P77.9 sur son seau voisin).* Mesure du lot,
+  taux pour 100 mots : `etat-de-l-art-technique` **0,57**, `asservissement`
+  **0,76**, `boucle-ouverte` **1,36**, `protection-electronique` **2,16**,
+  `afnor-nfx50-151` **2,20** — **un facteur 3,9**, et la plus haute est la
+  **plus petite fiche du lot**. *Une fiche de 91 mots est presque intégralement
+  une phrase de définition dense, l'habitat exact du tiret d'incise ; une fiche
+  de 2 286 mots porte des tableaux, des callouts et des listes, qui diluent le
+  taux sans le produire.* ⚠ **Corollaire mesuré sur le seau voisin** :
+  `hors perimetre` compte titres, cellules et `alt`, c'est-à-dire exactement ce
+  que la prose n'est pas — il sort à **9** contre 20 et 20 aux deux lots
+  précédents, entièrement faits de fiches `conduite/proj/` à matrices.
+  ✅ **Règle de prédiction qui en sort** : la fourchette d'un lot se cale sur sa
+  **composition en types de fiches**, et ses deux bornes s'élargissent du côté
+  où la composition s'écarte de la référence — **jamais symétriquement par
+  prudence**. *Ma fourchette [10, 35] était ouverte de +75 % vers le haut et de
+  −50 % vers le bas, quand la seule variation probable était à la baisse.*
+  *Éprouvée 0/N.*
+- **La densité de puces à tiret ne se déduit pas de la densité de C109 : les
+  deux sont décorrélées, et sur ce lot elles sont inverses.**
+  *Née le 30/08 (séance 5), lot 10, réfutation P78.12b.* J'ai désigné la fiche
+  la plus fournie en puces d'après son nombre de candidats `--style`.
+  **Mesure : `protection-electronique` porte 30 candidats C109 et ZÉRO puce à
+  tiret ; `etat-de-l-art-technique` en porte 13 et 17 puces**, soit 85 % du
+  lot. *Cause lue dans les deux sorties : la première porte ses tirets dans des
+  **paragraphes de prose** et son énumération de références dans un **callout**,
+  qui n'est pas une puce ; la seconde porte **quatre listes à puces glosées**,
+  qui sont l'habitat du motif.* ✅ **Le raisonnement juste était disponible et
+  je ne l'ai pas fait : il fallait compter les LISTES À PUCES, pas les tirets.**
+  ⚠ *Le total, lui, est tombé sur le point estimé — **20** — ce qui est la
+  troisième fois de la séance qu'un total juste coexiste avec une décomposition
+  fausse.*
+  *Éprouvée 0/N.*
+- **`candidats a lire` de `--libelles` n'est comparable d'un lot à l'autre qu'à
+  POPULATION DE CIBLES CONSTANTE.**
+  *Née le 30/08 (séance 5), lot 10, réfutation P83.6 — prédit [132, 140],
+  mesuré **144**.* **Créer une fiche EN fait basculer tous les libellés qui la
+  visent du seau `cible EN absente` vers la comparaison** : ils n'étaient pas
+  des candidats faute de cible, ils le deviennent sans que leur texte ni le
+  titre choisi n'aient changé. **Mesure des cinq compteurs : 4 037 → 4 104
+  libellés, `cible EN absente` 158 → 105 (−53), candidats 132 → 144 (+12).**
+  ✅ **Les douze sont rattachés un par un à leur cause** — quatre alias français
+  traduits (`criterion`, `level`, `levels`, `flexibility`), sept libellés
+  **préexistants** rendus comparables par la création de leur cible
+  (`PID` ×3, `functional analysis`, `flyback diodes` ×2, `fuses`), un report
+  fidèle (`delay` → `Risk matrix`) — **et aucun ne vient du choix d'un titre**.
+  ✅ **Le compteur qui se prédit est donc `candidats a lire` MOINS les candidats
+  dont la cible vient d'être créée** : **144 − 8 = 136 à population constante**,
+  contre 132, soit **+4**, les quatre alias et rien d'autre.
+  ⚠ *Conséquence sur C125 : **la clause « un titre qui englobe » n'est pas
+  éprouvée par ce lot non plus** — elle reste à 3/N, deuxième lot d'affilée sans
+  objet à lui soumettre.*
+  *Éprouvée 0/N.*
+- **Le critère du PALIER DE HUB ne rend rien hors des hubs-recensement, et le
+  critère de repli est « fermer un niveau de répertoire entier ».**
+  *Née le 30/08 (séance 5), lot 10, à la composition.* Le critère qui a tranché
+  le lot 8 et confirmé le lot 9 a été balayé slug par slug sur
+  `embarque/index.md` : **0 occurrence sur les QUINZE candidates** de
+  `embarque/`. *Cause : `embarque/index.md` est un **parcours en sept étapes**,
+  pas un recensement — il nomme les fiches de première ligne et laisse les
+  notions de second rang se rejoindre entre fiches. `conduite/proj/index.md`,
+  lui, recense par famille d'outils et rend le palier au complet.*
+  ✅ **Repli mesuré et retenu** : `content/embarque/` porte **huit fiches hors
+  index**, **cinq ont leur jumelle EN**, et les **trois candidates sont
+  exactement les trois qui manquent** — la découpe vide la racine.
+  ⚠ **Ce que le repli coûte, et c'est écrit** : le lot **mélange deux branches**
+  pour la première fois du chantier. *L'hétérogénéité est **imposée par le
+  socle** — le résidu du palier ne pèse que 2 377 mots pour une borne de 6 657 —
+  et le seul lot homogène possible aurait fait **36 % de la borne**, le plus
+  léger du chantier.*
+  ⚠ **Deux hubs nommés de mémoire n'existaient pas** : `embarque/mcu/index.md`
+  et `embarque/simulation/index.md`. Les vrais sont `microcontroleur.md` et
+  `simulation-electronique.md`, deux **fiches-notion faisant office de hub**.
+  *Une prédiction qui refusait de chiffrer une structure non mesurée en a quand
+  même nommé les chemins.*
+  *Éprouvée 0/N.*
+- **Un bloc qui ne fait que LIRE passe quand même la garde de péremption.**
+  *Née le 30/08 (séance 4), bloc 74, d'une réfutation de compteur.* J'ai sauté
+  la garde au motif que « c'est une question, pas une passe », et Tim a livré le
+  lot **pendant** le bloc : `git status` prédit 37 / 25, mesuré **1 / 0**.
+  *La sous-règle C116 (5) dit « au cadrage **et avant chaque passe** », et un
+  bloc de lecture n'est pas une passe — **mais la garde ne mesure pas ce que le
+  bloc écrit, elle mesure ce que les autres ont écrit**.*
+  **Première épreuve, 30/08 (séance 5), lot 10** : **onze blocs, onze gardes**,
+  y compris les blocs de composition et de clôture qui n'écrivent pas dans
+  `content/`. **`HEAD` identique au caractère sur les onze.**
+  *Éprouvée 1/N.*
+- **Un ratio d'avancement se publie avec le NOM de sa population, pas seulement
+  avec ses deux valeurs brutes.**
+  *Née le 30/08 (séance 4), bloc 74, d'une question de Tim.* Le mot
+  « avancement » désigne **quatre** choses au registre — anneau 2 en fiches,
+  corpus en fiches, corpus en mots, dette — et **un seul des quatre portait une
+  étiquette**.
+  **Première épreuve, 30/08 (séance 5), lot 10** : les trois ratios sont publiés
+  nommés et flanqués de leurs valeurs brutes — **anneau 2 en fiches
+  `133 / 145 = 91,7 %`**, **corpus en fiches `227 / 242 = 93,8 %`**, **corpus en
+  mots `263 430 / 291 242 = 90,5 %`**, plus la **dette, 15 cibles rouges et
+  27 812 mots**, qui n'est pas un ratio.
+  *Éprouvée 1/N.*
+- **`git diff --numstat` compte le fichier de prédictions, et rien ne le
+  filtre.**
+  *Née le 30/08 (séance 5), lot 10, réfutation P79.11.* J'ai prédit **quatre**
+  lignes et lu **cinq** : la cinquième est `tools/predictions-260830.md`, suivi
+  par git depuis `542bb4f`. ✅ *Les quatre lignes de `content/` étaient exactes
+  au chiffre : c'est le **cadre** de la commande qui était faux.*
+  ⚠ **`batterie.ps1` filtre déjà `predictions-` et `batterie-sortie` pour
+  `git status` ; `git diff --numstat` n'est filtré par rien.** ✅ **Parade
+  appliquée dès le bloc suivant : la commande se borne à `-- content`**, et elle
+  est tombée juste deux fois.
+  *Éprouvée 1/N.*
+- **Une passe C109 peut être EXACTEMENT neutre en mots, et la règle de
+  soustraction devient alors inapplicable par construction.**
+  *Constat du 30/08 (séance 5), lot 10, non promu.* Les 45 remplacements du lot
+  sont tous de la ponctuation : `LOT (5 fiches) 5791` **avant et après**. *La
+  règle d'usage « état d'AVANT pour le restant, état d'APRÈS pour les
+  traduites » a donc ses deux membres égaux, et **ne peut ni tomber ni être
+  éprouvée**.* ⚠ *Premier lot du chantier dans ce cas : les neuf précédents ont
+  tous déplacé au moins un mot. **Le corpus FR sort inchangé à 291 242**, ce
+  qu'aucune clôture n'avait publié.*
 
 - **Un motif qui cherche une CIBLE de wikilink la borne aux deux bouts, et le
   corpus anglais vise `<slug>-en`.**
@@ -2481,7 +2602,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   piège : `fonction` est préfixe de `fonction-informatique` et sous-chaîne de
   deux autres slugs. **Le piège n'était pas dans la langue, il était dans le
   nom.***
-  *Éprouvée 0/N.*
+  **Première épreuve, 30/08 (séance 5), lot 10.** Le motif borné aux deux bouts
+  a servi au relevé 3 sur **cinq cibles**, dont `asservissement` — sous-chaîne du
+  libellé `asservissement` de dizaines de fiches — et `boucle-ouverte`, portée par
+  un **alias** que le générateur retire. **Aucune des cinq ne rend 0**, et aucune
+  ne sur-compte : `etat-de-l-art-technique-en` **18**, `afnor-nfx50-151-en` **17**,
+  `asservissement-en` **8**, `boucle-ouverte-en` **3**,
+  `protection-electronique-en` **9**. ⚠ *Le terme écrit pour réfuter était le
+  zéro : c'est le faux négatif exact que le premier correctif du lot 9 avait
+  produit, et il ne mord pas.*
+  *Éprouvée 1/N.*
 - **Un remplacement qui change le nombre de mots se compte en SOLDE, jamais en
   ajout — et l'invariant `pts de code` du contrôle seul est le témoin gratuit.**
   *Née le 30/08 (séance 3), lot 9, de deux réfutations à cause unique (P68.11 +
@@ -2496,7 +2626,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   un mot de cinq lettres ajouté net en aurait coûté six. *Le contrôle seul
   publie déjà de quoi vérifier la prédiction de volume ; il suffit de le lire
   pour ce qu'il dit.*
-  *Éprouvée 0/N.*
+  **Première épreuve, 30/08 (séance 5), lot 10 — et elle se joue en POINTS DE
+  CODE, pas en mots.** Le correctif du bloc 80 remplace `— ` par `(` et ajoute
+  un `)` avant le point : j'ai prédit **−1 point de code** en ne comptant que ce
+  qui sort, la mesure rend **0**. ⚠ *La règle était écrite pour les mots ; elle
+  vaut pour toute unité comptée, et c'est sa troisième morsure en trois séances.*
+  ✅ **La parade est dans la même journée** : le bloc 79 n'a prédit qu'une
+  **direction** (« en BAISSE ») sur quatre fiches, et les quatre sont tombées.
+  *Une direction se déduit sans compter les deux côtés ; une valeur exacte ne se
+  déduit pas — elle se compte, ou elle ne se prédit pas.*
+  *Éprouvée 1/N, contre elle.*
 - **Une liste d'artefacts se relit CONTRE les prédictions du même bloc — un
   test négatif a toujours sa propre table.**
   *Née le 30/08 (séance 3), lot 9, d'une réfutation de C131 dont la cause est
@@ -2511,7 +2650,15 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   accompagne »**.* ✅ **Signature constante de la famille, cinquième fois : le
   sous-compteur qui porte le sens est juste** (23 = 22 prévus + la table
   oubliée), **c'est le total qui rate.**
-  *Éprouvée 0/N.*
+  **Première épreuve, 30/08 (séance 5), lot 10 — et elle mord sur la PHRASE qui
+  commente la liste, pas sur la liste.** La déclaration du bloc 84 écrivait « le
+  bloc ne lance qu'UNE commande » quand trois de ses prédictions nommaient des
+  relevés que la batterie ne porte pas. ✅ **Amendement écrit AVANT exécution**,
+  et les deux compteurs sont restés justes — les trois relevés sont en lecture
+  seule. ⚠ *La liste des artefacts était exacte ; c'est son commentaire qui
+  mentait. **Une liste se relit contre ses prédictions, et la phrase qui la
+  résume se relit aussi.***
+  *Éprouvée 1/N.*
 - **Un lot publie ce qui RESTE par famille de motif, pas seulement ce qu'il a
   traité.**
   *Née le 30/08 (séance 3), lot 9, d'un chiffre exact que le dépôt ne pouvait
@@ -2528,7 +2675,14 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   ✅ **Parade : relancer le motif sur les sources du lot APRÈS la passe et
   publier la décomposition.** Appliquée au lot 9 dès sa naissance :
   `tools/puces-lot9-apres-3008.txt`, **16 restantes, `0 / 0 / 0 / 5 / 0 / 11`**.
-  *Éprouvée 1/N.*
+  **Deuxième épreuve, 30/08 (séance 5), lot 10 — et la règle fabrique le
+  matériau d'une AUTRE règle.** La décomposition d'après passe publiée par le
+  lot 9 (`0 / 0 / 0 / 5 / 0 / 11`, 16 restantes) est devenue l'**échantillon 3**
+  de l'éprouvage C110 du bloc 78 : un échantillon nommé, à réponse publiée, qui
+  n'existait pas avant que le trou du registre ne soit bouché. **Il tombe fiche
+  par fiche.** ✅ Le lot 10 publie à son tour : **16 restantes,
+  `13 / 0 / 3 / 0 / 0`**.
+  *Éprouvée 2/N.*
 - **Le seau `C109 creees en EN` a mordu pour la première fois, et il a mordu
   juste.** *30/08 (séance 3), lot 9.* Écrit le 23/08, il était sorti à **0** sur
   tous les lots. Sur `bete-a-cornes-en` il rend **2** : deux virgules françaises
@@ -2560,6 +2714,11 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   sixième compteur du chantier pris par cette cause.* **Correctif possible :
   lire les `aliases:` dans le résolveur ; il change un chiffre publié à toutes
   les clôtures depuis le 25/08.** *Porté à la file des arbitrages, non traité.*
+  **Huitième confirmation, 30/08 (séance 5), lot 10, et elle est mesurée SANS
+  être cherchée.** Le générateur a résolu **quatre alias vers leur porteuse** en
+  écrivant `etat-de-l-art-technique-en` — `niveau` ×2, `critere`,
+  `flexibilite` —, et `CIBLES SANS FICHE` sort à **6, inchangé**. *Deux
+  instruments, deux verdicts opposés sur les mêmes noms, dans le même bloc.*
   *Éprouvée 0/N.*
 
 > **Arbitrage (d) du 29/08 (suite 8) — aucune promotion à un numéro neuf ; la
@@ -2619,7 +2778,19 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   épreuve de la clause C125 « un titre qui englobe »**, qui parle de titres
   qualifiés par leur famille : aucun des cinq n'en est un, deux ne changent même
   pas. **La clause reste à 3/N.**
-  *Éprouvée 1/N.*
+  **Deuxième épreuve, 30/08 (séance 5), lot 10 — et le relevé décide QUATRE
+  titres sur cinq avant que C125 n'ait à parler.** `Technical state of the art`
+  (14 + 3 + 1), `Closed-loop control` (3 + 2, contre `PID` 3 qui est un sigle de
+  méthode), `Open loop` (2 + 1), `Electronic protections` (2 + 1, contre
+  `flyback diodes`, `fuses` et `protection diodes` qui nomment des objets de la
+  fiche). ⚠ **Le cinquième descend aux trois tests, et le test 3 est réfuté par
+  une symétrie que le relevé seul ne voit pas** : le corpus anglais écrit
+  `Standard NF X50-151` **six fois, toutes en `See also`**, mais **le français
+  porte le même écart** — `title: NF X50-151` nu contre **7** libellés
+  `Norme NF X50-151`. *Titrer `Standard NF X50-151` aurait fabriqué une asymétrie
+  EN/FR que la source ne porte pas (motif du 26/08).* **Décision :
+  `title: NF X50-151`, inchangé ; coût du revert 1 `title:`.**
+  *Éprouvée 2/N.*
 - **Un titre de callout se relève dans le corpus, exactement comme un titre de
   section.**
   *Née le 30/08 (séance 2), lot 8, d'un défaut attrapé par accident.* Les quatre
@@ -2635,7 +2806,14 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   des blocs, `--style` lit de la ponctuation, `titres-doublons` compare des
   `title:`, `--libelles` compare un libellé à un titre.* **Le geste qui l'évite
   est un cinquième relevé, et il tient en un `grep`.**
-  *Éprouvée 1/N.*
+  **Deuxième épreuve, 30/08 (séance 5), lot 10 — et cette fois le relevé ne
+  trouve RIEN à corriger, ce qui est aussi un résultat.** Les cinq sources FR
+  portent **deux `Attention` et deux `Astuce`** ; le corpus dit `Watch out`
+  **47** et `Tip` **44**, et les quatre callouts ont été écrits directement sous
+  la forme de production. **Clôture : `Watch out` 49, `Tip` 46, `Attention` 0,
+  `Astuce` 0.** *Le relevé cesse d'attraper un défaut le jour où il est fait
+  avant d'écrire — c'est exactement ce qu'on lui demande.*
+  *Éprouvée 2/N.*
 - **La liste des artefacts d'un bloc se FERME avant le bloc, et aucune commande
   du bloc n'écrit hors de cette liste.**
   *Née le 30/08 (séance 2), lot 8, de **trois** prises en défaut de C131 dans
@@ -2661,7 +2839,15 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   compteur est tombé juste. *C'est la différence que la règle vise : une liste
   qui s'ouvre **avant** le bloc est une prédiction corrigée, une liste qui
   s'ouvre **pendant** est une réfutation.*
-  *Éprouvée 2/N.*
+  **Troisième épreuve, 30/08 (séance 5), lot 10 — onze déclarations, onze
+  compteurs justes, DEUX amendements écrits avant exécution.** Les blocs 75 à 85
+  ont chacun rejoué leur déclaration ; **les deux instants sont tombés justes à
+  chaque fois**, y compris les configurations où le compteur **ne bouge pas** —
+  `--corps` sur cinq fiches déjà `??` (bloc 82), `renommer-titres` sur quatre
+  fiches déjà `??` (bloc 83), le correctif du bloc 80 sur une fiche déjà ` M`.
+  ⚠ *Ces trois-là sont les cas que le lot 8 appelait « un coup de chance, pas une
+  garde » ; ici ils sont **prédits avant**, avec leur raison.*
+  *Éprouvée 3/N.*
 - **`MARQUE INVALIDE` ne distingue pas une empreinte INVENTÉE BIEN FORMÉE d'une
   empreinte périmée.**
   *Née le 30/08 (séance 2), lot 8, récidive exacte d'É4 du 29/08 (suite 6).*
@@ -2714,7 +2900,18 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   être contourné** exactement comme la règle d'usage l'a été, en réécrivant le
   fichier à la main. *La différence est qu'il rend le geste correct **moins
   cher** que le geste fautif, ce qu'aucune phrase de convention ne fait.*
-  *Éprouvée 2/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
+  ⚠ **DEUXIÈME LOT RÉEL, 30/08 (séance 5) : cinq fiches, cinq front matters
+  recopiés à l'octet, `DERIVE 0`, `MARQUE INVALIDE 0`, `A JOUR 227`, et ZÉRO
+  `--recaler` pour le deuxième lot d'affilée.** ⚠ **Mais le mode laisse passer un
+  défaut de forme qu'il ne voit pas** : `FRONT_MATTER` capture `---\n…\n---\n`,
+  donc **la ligne blanche qui suit appartient au corps**. Un fichier de corps qui
+  ouvre par sa première phrase produit un fichier où le texte est **collé au
+  `---` de fermeture**, forme qu'aucune des 227 fiches du corpus ne porte.
+  *Attrapé en relisant le fichier écrit, corrigé sur les cinq avant toute
+  mesure ; **aucun contrôle du dépôt ne l'aurait vu** — ni `--controle`, ni
+  `derive-traduction`, ni `--style`.* **Candidate : `--corps` garantit la ligne
+  blanche, ou la refuse comme il refuse un front matter.**
+  *Éprouvée 3/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
   reste au §8 sans être seule à se garder.*
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
   réécrivant son front matter de tête.**
@@ -2796,7 +2993,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   échantillons 3 et 4 portent des fiches EN **écrites la nuit même**, ce qui en
   fait aussi un contrôle du report un pour un du lot 7 — **dix termes, dix
   justes**.*
-  *Éprouvée 3/N.*
+  **Quatrième épreuve, 30/08 (séance 5), lot 10 — quatre échantillons nommés,
+  deux par langue, et le troisième est d'une espèce neuve.** Lot 3 d'`esp32/`
+  **FR 12 / EN 11**, lot 7 **EN 10** (`3/3/0/3/1`), et **lot 9 FR APRÈS SA
+  PASSE**, `0/0/0/5/0/11 = 16` — un état publié à la clôture de la veille au
+  soir, qui n'existait comme échantillon que depuis que le lot 9 a bouché le trou
+  du registre. **Les quatre tombent fiche par fiche**, l'asymétrie connue
+  d'`esp32-arduino-core` comprise. ✅ **Et le contrôle hors éprouvage rend six
+  égalités de plus** : le report un pour un du lot 9 côté anglais,
+  `0/0/0/5/0/11` des deux côtés.
+  *Éprouvée 4/N.*
 - **Un titre de section EN se relève dans le corpus avant d'être écrit, jamais
   traduit de tête.**
   *Née le 29/08 (suite 10), du même défaut qu'É1 de la suite 9, un lot plus
@@ -2877,7 +3083,20 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `> [!tip] Astuce` avant de relever que le corpus dit `Watch out` **44** et
   `Tip` **41**. *Trois occurrences corrigées avant toute mesure ; **aucun
   contrôle du dépôt ne les aurait vues**.*
-  *Éprouvée 4/N.*
+  **Cinquième épreuve, 30/08 (séance 5), lot 10 — et le relevé arbitre une forme
+  que la fréquence aurait fait rater.** `## Exemple — le bras 3 axes`
+  (**minuscule**, 2 fiches FR) donne `## Example — the 3-axis arm` (**1** EN),
+  quand `## Exemple — Le bras 3 axes` (**majuscule**, 4 FR) donne
+  `## Example — The 3-axis arm` (**4** EN). *Prendre la forme majoritaire aurait
+  traduit une **autre** section française — le défaut exact que le relevé du
+  lot 8 avait attrapé sur `## Exemple — Bras 3 axes pédagogique`.* **Trois formes
+  neuves déclarées comme neuves avant d'être écrites** :
+  `## How do you protect?`, `## The four conditions`, `## The PID controller`,
+  et **aucune n'a pris par accident une forme de production**. Clôture :
+  `## See also` **219**, `## What is it for?` **153**, `## Pitfalls` **152**,
+  `## Where it fits in the project` **105**, `## Exercises` **37**,
+  `## Going further` **31**.
+  *Éprouvée 5/N.*
 - **Un compteur qui se remesure d'une clôture à l'autre déclare sa population
   DANS SA SORTIE, pas dans le message qui la commente.**
   *Née le 29/08 (suite 11), deuxième clôture d'affilée où le compteur de puces
@@ -2919,7 +3138,13 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `matrice-eco-criteres` tombe de 2 puces à 0 et sort de la population des
   porteuses, quand les trois autres fiches traitées y restent. **Un total juste
   sur 173 porteuses aurait été un total juste sur une décomposition fausse.***
-  *Éprouvée 3/N.*
+  **Quatrième épreuve, 30/08 (séance 5), lot 10.** **FR 999 − 4 = 995** sur
+  **172** porteuses, **248** fichiers ; **EN 901 + 16 = 917** sur **151 + 2 =
+  153** porteuses, **227** fichiers. ⚠ *Le terme qui prouve est le **+2 de
+  porteuses côté anglais** : cinq fiches EN sont créées et **deux seulement**
+  portent une puce à tiret. Prédire +5 aurait été prédire la création, pas la
+  mesure.*
+  *Éprouvée 4/N.*
 - **Un répertoire entièrement non suivi vaut UNE entrée de `git status`, pas
   une par fichier.**
   *Née le 30/08, lot 7, sur une prédiction de garde réfutée d'un point.*
@@ -2943,7 +3168,12 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   déjà et est suivi** : les cinq fiches EN neuves y comptent **5 entrées**, une
   par fiche, prédites et mesurées. *La condition n'est pas la nouveauté du
   fichier, c'est que le **répertoire entier** soit non suivi.*
-  *Éprouvée 2/N.*
+  **Troisième épreuve, 30/08 (séance 5), lot 10, et elle confirme la condition
+  par le cas le plus banal.** Les **cinq** fiches EN neuves comptent **cinq**
+  entrées : `content/en/conduite/proj/` et `content/en/embarque/` **existent et
+  sont suivis** — le second porte déjà six fiches. **Aucun répertoire neuf, aucune
+  condensation**, prédit avant la mesure.
+  *Éprouvée 3/N.*
 - **Une soustraction se fait sur l'état d'APRÈS la passe, y compris quand le
   compteur n'est pas celui qu'on vient d'éditer.**
   *Née le 30/08, lot 7, sur une réfutation d'un mot.* La passe C109 retire
@@ -3042,7 +3272,9 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   nominative complète — la première fois de la séance qu'une déclaration C131
   a servi à quelque chose.** ⚠ **Reprise en défaut six fois le 29/08 (suite 7)
   parce que la déclaration y était écrite à l'ouverture pour toute la séance :
-  voir l'amendement en tête de cette section.** *Éprouvée 2/N.*
+  voir l'amendement en tête de cette section.** **Onze déclarations au lot 10
+  du 30/08 (séance 5), onze totaux justes, dont trois où le total ne bouge pas
+  parce que les fichiers touchés sont déjà `??`.** *Éprouvée 3/N.*
 - **Une passe de ponctuation ne change pas le nombre de caractères accentués
   d'une fiche.**
   *Née le 29/08 (suite 6), du seul contrôle qui ait attrapé la désaccentuation
@@ -3073,7 +3305,10 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   qui se filtre, jamais le lancement. **Tenue le 29/08 (suite 7) : cinq
   lancements de `batterie.ps1`, aucun filtré, `batterie-sortie.txt` écrit
   entier à chaque fois et copié sous `b21` à `b29` — le filtrage a porté sur
-  la **lecture** de la sortie, jamais sur le pipeline.** *Éprouvée 1/N.*
+  la **lecture** de la sortie, jamais sur le pipeline.** **Tenue au lot 10 du
+  30/08 (séance 5) : onze lancements de `batterie.ps1`, aucun filtré,
+  `batterie-sortie.txt` écrit entier à chaque fois et copié sous `b30` à `b40`.**
+  *Éprouvée 2/N.*
 - **`À-ÿ` n'est pas un intervalle de lettres, et `[\x{00C0}-\x{00FF}]` sur de
   l'UTF-8 compte des octets de tête.**
   *Deux défauts de motif du 29/08 (suite 6), même famille que le backtick du

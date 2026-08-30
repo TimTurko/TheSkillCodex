@@ -1,0 +1,27 @@
+  conduite/proj/etat-de-l-art-technique.md                    17
+      L27  - **Calibrer les ordres de grandeur** réalistes pour les [[niveau|niveaux]] du [[cahier-des-charges-fonctionnel|CdCF]] — savoir qu'un bras pédagogique à 300 € existe et atteint 1 à 2 mm de répétabilité évite de fixer arbitrairement un niveau ± 0,1 mm hors d'atteinte sur ce budget.
+      L28  - **Identifier les briques techniques réutilisables** — schémas open source, choix de composants éprouvés, firmwares disponibles. Un projet école n'a pas à tout réinventer, et hériter de ce qui fonctionne libère du temps pour les vrais enjeux du projet.
+      L29  - **Repérer les marges de progrès** — ce que les solutions existantes ne font pas, font mal, ou seulement à coût prohibitif. C'est ce qui justifie l'existence du projet : sans marge identifiée, on reproduit l'existant sans rien apporter.
+      L46  - **Produits commerciaux** — catalogues fabricants, sites distributeurs, fiches techniques publiques.
+      L47  - **Projets open source** — GitHub, Hackaday, Thingiverse, Instructables, Open Hardware Repository.
+      L48  - **Publications académiques courtes** — papiers de conférence, mémoires de fin d'études, articles de vulgarisation technique.
+      L49  - **Projets école antérieurs** — archives de l'établissement, retours d'expérience disponibles auprès des enseignants.
+      L59  - **Coût** — d'achat, de fabrication, de maintenance. Presque toujours présent, surtout en projet école.
+      L60  - **Performance principale** — la grandeur cible du système (précision, débit, autonomie, charge utile, portée selon le projet).
+      L61  - **Contraintes d'usage** — encombrement, masse, consommation, robustesse, sécurité, niveau sonore.
+      L62  - **[[ecoconception|Écoconception]]** — origine et recyclabilité des matériaux, durabilité, démontabilité, réparabilité.
+      L63  - **Ouverture** — disponibilité du [[bom|BOM]], du firmware, des schémas, de la documentation. Déterminant pour réutiliser des briques.
+      L143  - **Fixer un timebox dès le départ** — une à deux journées dédiées à l'EAT, pas davantage. Sur un marché immature, le risque est de sur-investir l'exploration au détriment du reste du projet ; à l'inverse, ne pas faire d'EAT du tout sous prétexte d'absence de matière prive le projet de toute calibration externe.
+      L151  - **Étape 2 de la [[specification-technique|spécification technique]]** — phase principale où l'EAT est produit, sous forme de tableau + synthèse intégré au [[cahier-des-charges-fonctionnel|CdCF]] en section *Étude de l'existant* du document école.
+      L152  - **Étape 4 de la [[specification-technique|spécification technique]]** — les ordres de grandeur retenus dans la synthèse calibrent les **niveaux** des exigences. Sans EAT, les niveaux du CdCF sont fixés arbitrairement et risquent d'être soit hors d'atteinte, soit trop laxistes par rapport à ce qui se fait déjà.
+      L153  - **Étape 2 de la phase de [[concept|concept]]** — les critères choisis pour l'EAT deviennent souvent la base des critères de la [[matrice-de-decision|matrice de décision]] qui arbitre entre solutions candidates internes au projet, avec l'ajout central de la **pondération**, absente de l'EAT.
+      L154  - **[[dossier-technique|Dossier technique]]** — le pré-dimensionnement et le choix final des composants peuvent réutiliser des ordres de grandeur EAT (consommation, encombrement, contraintes thermiques) pour calibrer les premières simulations.
+  conduite/proj/afnor-nfx50-151.md                             0
+  embarque/asservissement.md                                   3
+      L39  - **P** — proportionnel à l'erreur courante : réactif, mais laisse souvent une **erreur résiduelle** ;
+      L40  - **I** — proportionnel à l'erreur **accumulée** : annule l'erreur résiduelle, au risque de **s'emballer** si l'actionneur sature ;
+      L41  - **D** — proportionnel à la **vitesse de variation** de l'erreur : amortit et anticipe les dépassements, mais **amplifie le bruit**.
+  embarque/boucle-ouverte.md                                   0
+  embarque/protection-electronique.md                          0
+  ----------------------------------------------------------   20
+  TOTAL (5 fiches) : 20

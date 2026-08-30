@@ -1,0 +1,137 @@
+=== RELEVE 1 - formes de production des titres de section EN (content/en, 30/08)
+    215 ## See also
+    149 ## What is it for?
+    148 ## Pitfalls
+    104 ## Where it fits in the project
+     77 ## Step by step
+     37 ## Exercises
+     31 ## Going further
+     21 ## In the project
+     15 ## Common pitfalls
+     13 ## Wrap-up
+     13 ## The right mindset
+     13 ## Method
+     10 ## How does it work?
+      9 ## How do you build one?
+
+  -- formes fautives du lot 4, controle :
+0
+0
+
+=== RELEVE 2 - titres de callout EN
+     54 > [!example] Example: 3-axis arm project
+     47 > [!warning] Watch out
+     44 > [!tip] Tip
+     25 > [!info] How to read this code
+      5 > [!question] The key question
+      5 > [!livrable] Main deliverable
+      3 > [!warning] Fair
+      3 > [!question] Exercise 1 — Two rhythms
+      3 > [!failure] Poor
+      3 > [!example] Good
+      2 > [!warning] Feedback is not metrology
+      2 > [!question] Exercise 2 — Three clues, three conclusions
+      2 > [!question] Exercise 2 — An external LED
+      2 > [!question] Exercise 1 — What frequency?
+      2 > [!info] Worth knowing
+      1 > [!warning] Waking on a pin: a limitation on the Pico
+      1 > [!warning] Voltage limits
+      1 > [!warning] The classic trap: High-Z or 50 Ω
+
+  -- controle des formes francaises residuelles :
+  Attention : 0
+  Astuce    : 0
+
+=== RELEVE 3 - libelles que le corpus ANGLAIS ecrit deja vers les cinq cibles
+  (motif borne aux deux bouts : cible = <slug>-en ou terminee par /<slug>-en)
+
+=== CIBLE etat-de-l-art-technique-en  -  18 libelle(s) sur 12 fiche(s) EN
+     14  technical state of the art
+      3  Technical state of the art
+      1  state of the art
+
+=== CIBLE afnor-nfx50-151-en  -  17 libelle(s) sur 7 fiche(s) EN
+      7  standard NF X50-151
+      6  Standard NF X50-151
+      2  NF X50-151
+      1  functional analysis
+      1  NF X50-151 standard
+
+=== CIBLE asservissement-en  -  8 libelle(s) sur 6 fiche(s) EN
+      3  Closed-loop control
+      3  PID
+      2  closed-loop control
+
+=== CIBLE boucle-ouverte-en  -  3 libelle(s) sur 3 fiche(s) EN
+      2  open loop
+      1  Open loop
+
+=== CIBLE protection-electronique-en  -  9 libelle(s) sur 6 fiche(s) EN
+      2  Electronic protections
+      2  flyback diodes
+      2  protection
+      1  electronic protections
+      1  fuses
+      1  protection diodes
+
+  -- controle : Norme NF X50-151 residuels cote francais
+7
+
+=== RELEVE 4 - titres de section des cinq sources FR
+  -- conduite/proj/etat-de-l-art-technique.md
+      21:## À quoi ça sert ?
+      36:## Procédure pas à pas
+      40:### 1. Recenser 3 à 6 solutions comparables
+      53:### 2. Définir 5 à 8 critères chiffrables
+      68:### 3. Chiffrer le tableau N × M
+      81:### 4. Synthétiser et conclure
+      94:## Exemple — Bras 3 axes pédagogique
+      119:## Pièges
+      135:## Cas particulier — marché immature ou projet de niche
+      147:## Raccrochage projet
+      158:## Voir aussi
+  -- conduite/proj/afnor-nfx50-151.md
+  -- embarque/asservissement.md
+      18:## À quoi ça sert ?
+      24:## Comment ça marche ?
+      35:## Le correcteur PID
+      45:## Pièges
+      57:## Voir aussi
+  -- embarque/boucle-ouverte.md
+      20:## À quoi ça sert ?
+      26:## Les quatre conditions
+      35:## Exemple — le bras 3 axes, en boucle ouverte et pas tout à fait
+      43:## Pièges
+      55:## Cas particulier — le pas perdu
+      63:## Voir aussi
+  -- embarque/protection-electronique.md
+      21:## À quoi ça sert ?
+      25:## Comment protéger ?
+      52:## Exemple — le bras 3 axes
+      56:## Pièges
+      70:## Voir aussi
+
+=== RELEVE 5 - titres-doublons
+    titres distincts         : 243
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+  --- COTE ANGLAIS
+    (aucune collision)
+
+    fiches lues              : 222
+    sans title:              : 0
+    titres distincts         : 222
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+=== RELEVE COMPLEMENTAIRE (bloc 82) - formes de titre de section a poser
+  ## Cas particulier -> ## Special case  (dominant, ~100 EN)
+99
+  ## Exemple - Le bras 3 axes (4 FR) -> ## Example - The 3-axis arm (4 EN)
+  ## Exemple - le bras 3 axes (2 FR) -> ## Example - the 3-axis arm (1 EN)
+  ## Exemple - Bras 3 axes pedagogique (9 FR) -> ## Example - 3-axis teaching arm (8 EN)
+  ## Comment ca marche ? (16 FR) -> ## How does it work? (10 EN)
+  ## Procedure pas a pas -> ## Step by step (77 EN)
+  ## Raccrochage projet -> ## Where it fits in the project (104 EN)
+  FORMES NEUVES declarees : ## How do you protect? / ## The four conditions / ## The PID controller

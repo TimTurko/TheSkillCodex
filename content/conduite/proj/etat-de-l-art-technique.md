@@ -20,18 +20,18 @@ L'**état de l'art technique** (EAT) est une comparaison chiffrée de solutions 
 
 ## À quoi ça sert ?
 
-L'EAT répond à une discipline d'ingénieur : avant de chiffrer ce qu'on va construire, on regarde **ce qui existe déjà**. Personne ne conçoit dans le vide — pour presque tout projet [[mecatronique|mécatronique]], des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà attaqué un besoin proche du projet à mener. Les étudier épargne du temps, calibre les attentes, et oriente les choix d'architecture qui suivront.
+L'EAT répond à une discipline d'ingénieur : avant de chiffrer ce qu'on va construire, on regarde **ce qui existe déjà**. Personne ne conçoit dans le vide : pour presque tout projet [[mecatronique|mécatronique]], des solutions commerciales, des projets open source ou des projets école antérieurs ont déjà attaqué un besoin proche du projet à mener. Les étudier épargne du temps, calibre les attentes, et oriente les choix d'architecture qui suivront.
 
 L'outil joue trois rôles indissociables :
 
-- **Calibrer les ordres de grandeur** réalistes pour les [[niveau|niveaux]] du [[cahier-des-charges-fonctionnel|CdCF]] — savoir qu'un bras pédagogique à 300 € existe et atteint 1 à 2 mm de répétabilité évite de fixer arbitrairement un niveau ± 0,1 mm hors d'atteinte sur ce budget.
+- **Calibrer les ordres de grandeur** réalistes pour les [[niveau|niveaux]] du [[cahier-des-charges-fonctionnel|CdCF]]. Savoir qu'un bras pédagogique à 300 € existe et atteint 1 à 2 mm de répétabilité évite de fixer arbitrairement un niveau ± 0,1 mm hors d'atteinte sur ce budget.
 - **Identifier les briques techniques réutilisables** — schémas open source, choix de composants éprouvés, firmwares disponibles. Un projet école n'a pas à tout réinventer, et hériter de ce qui fonctionne libère du temps pour les vrais enjeux du projet.
 - **Repérer les marges de progrès** — ce que les solutions existantes ne font pas, font mal, ou seulement à coût prohibitif. C'est ce qui justifie l'existence du projet : sans marge identifiée, on reproduit l'existant sans rien apporter.
 
-L'EAT n'est pas une décision technique — il **prépare** la décision. La pondération des critères et l'arbitrage entre solutions candidates internes au projet relèvent de la [[matrice-de-decision|matrice de décision]], en phase de [[concept|concept]]. Mélanger les deux outils fait faire deux fois le même travail à l'étudiant.
+L'EAT n'est pas une décision technique : il **prépare** la décision. La pondération des critères et l'arbitrage entre solutions candidates internes au projet relèvent de la [[matrice-de-decision|matrice de décision]], en phase de [[concept|concept]]. Mélanger les deux outils fait faire deux fois le même travail à l'étudiant.
 
 > [!warning] Attention
-> **EAT ≠ revue bibliographique.** La revue bibliographique consiste à lire (articles, [[lire-une-datasheet|datasheets]], normes, livres) et à produire des notes. L'EAT consiste à recenser ce qui existe et qui marche, et à produire une **comparaison chiffrée orientée décision**. Les deux se nourrissent — la biblio fournit la matière — mais ce n'est pas le même livrable. Un EAT qui n'est qu'une liste d'articles lus n'est pas un EAT.
+> **EAT ≠ revue bibliographique.** La revue bibliographique consiste à lire (articles, [[lire-une-datasheet|datasheets]], normes, livres) et à produire des notes. L'EAT consiste à recenser ce qui existe et qui marche, et à produire une **comparaison chiffrée orientée décision**. Les deux se nourrissent (la biblio fournit la matière), mais ce n'est pas le même livrable. Un EAT qui n'est qu'une liste d'articles lus n'est pas un EAT.
 
 ## Procédure pas à pas
 
@@ -63,11 +63,11 @@ Familles à parcourir systématiquement :
 - **Ouverture** — disponibilité du [[bom|BOM]], du firmware, des schémas, de la documentation. Déterminant pour réutiliser des briques.
 
 > [!tip] Astuce
-> **Les critères choisis ici préfigurent ceux que l'on chiffrera à l'étape 4 de la spécification technique.** Un EAT bien outillé en critères rend l'écriture du [[cahier-des-charges-fonctionnel|CdCF]] nettement plus simple — chaque critère discriminant du tableau donne un point d'ancrage pour [[caracteriser-une-exigence|caractériser une exigence]] avec un niveau réaliste plutôt qu'arbitraire.
+> **Les critères choisis ici préfigurent ceux que l'on chiffrera à l'étape 4 de la spécification technique.** Un EAT bien outillé en critères rend l'écriture du [[cahier-des-charges-fonctionnel|CdCF]] nettement plus simple : chaque critère discriminant du tableau donne un point d'ancrage pour [[caracteriser-une-exigence|caractériser une exigence]] avec un niveau réaliste plutôt qu'arbitraire.
 
 ### 3. Chiffrer le tableau N × M
 
-Croiser solutions et critères dans un tableau, **solutions en colonnes** et **critères en lignes** par convention de lisibilité — on lit plus facilement quatre colonnes étroites que six lignes longues.
+Croiser solutions et critères dans un tableau, **solutions en colonnes** et **critères en lignes** par convention de lisibilité : on lit plus facilement quatre colonnes étroites que six lignes longues.
 
 Quatre disciplines d'écriture à tenir :
 
@@ -89,11 +89,11 @@ Le tableau seul ne suffit pas. Conclure en quelques lignes : **qu'est-ce qu'on r
 La synthèse fait deux à quatre paragraphes. Au-delà, elle se transforme en récit qui dilue la décision. En deçà, elle reste vague et n'apporte rien au lecteur du CdCF.
 
 > [!warning] Attention
-> **Une synthèse qui dit *« tout est intéressant, à voir plus tard »* annule le travail amont.** L'EAT est censé éclairer la suite, pas reporter la décision. Si la synthèse n'engage pas, c'est généralement que les critères choisis à l'étape 2 ne discriminaient pas — il faut alors revenir à l'étape 2 et reprendre, pas continuer en bottant en touche.
+> **Une synthèse qui dit *« tout est intéressant, à voir plus tard »* annule le travail amont.** L'EAT est censé éclairer la suite, pas reporter la décision. Si la synthèse n'engage pas, c'est généralement que les critères choisis à l'étape 2 ne discriminaient pas : il faut alors revenir à l'étape 2 et reprendre, pas continuer en bottant en touche.
 
 ## Exemple — Bras 3 axes pédagogique
 
-Reprenons le projet fil rouge — un bras robotique pédagogique 3 axes. L'EAT mené pour calibrer le CdCF retient trois références issues de catalogues commerciaux et de communautés open source, comparées sur six critères discriminants.
+Reprenons le projet fil rouge, un bras robotique pédagogique 3 axes. L'EAT mené pour calibrer le CdCF retient trois références issues de catalogues commerciaux et de communautés open source, comparées sur six critères discriminants.
 
 | Critère | Niryo One | uArm Swift Pro | BCN3D Moveo |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Reprenons le projet fil rouge — un bras robotique pédagogique 3 axes. L'EAT m
 
 **Sources** : sites fabricants Niryo et UFactory pour les deux premières références, dépôt GitHub BCN3D Moveo et fil communautaire Reddit r/robotics pour la troisième.
 
-**Ce qu'on retient.** Le **Moveo** est la référence la plus inspirante pour le projet — il est ouvert, démontable, abordable, et sa structure imprimable 3D s'aligne avec les contraintes du fablab école. On en reprend la logique générale (architecture articulée, imprimable, pilotée par steppers) mais on simplifie de 5 axes à 3 axes pour rester dans un scope pédagogique d'un semestre. Le Niryo et l'uArm sont écartés : le premier par son coût hors budget projet école, le second par sa fermeture qui interdit toute exploration des choix d'architecture.
+**Ce qu'on retient.** Le **Moveo** est la référence la plus inspirante pour le projet : il est ouvert, démontable, abordable, et sa structure imprimable 3D s'aligne avec les contraintes du fablab école. On en reprend la logique générale (architecture articulée, imprimable, pilotée par steppers) mais on simplifie de 5 axes à 3 axes pour rester dans un scope pédagogique d'un semestre. Le Niryo et l'uArm sont écartés : le premier par son coût hors budget projet école, le second par sa fermeture qui interdit toute exploration des choix d'architecture.
 
 **Ordres de grandeur calibrés pour le CdCF :**
 
@@ -118,17 +118,17 @@ Ces trois ordres de grandeur deviennent les chiffres de référence à l'étape 
 
 ## Pièges
 
-**Confondre EAT et revue bibliographique.** Une liste d'articles lus n'est pas un EAT. L'EAT produit un tableau chiffré orienté décision ; la revue bibliographique produit des notes. La biblio **nourrit** l'EAT (elle fournit la matière), elle ne le remplace pas.
+**Confondre EAT et revue bibliographique.** Une liste d'articles lus n'est pas un EAT. L'EAT produit un tableau chiffré orienté décision. La revue bibliographique produit des notes. La biblio **nourrit** l'EAT (elle fournit la matière), elle ne le remplace pas.
 
 **Critères qui ne discriminent pas.** Un critère sur lequel toutes les références retenues ont la même valeur (toutes sont alimentées en 230 V, toutes pèsent autour de 5 kg) n'apporte rien au tableau. Retirer le critère, ou élargir l'échantillon pour faire émerger la discrimination.
 
-**Cellule vide silencieuse.** Une donnée manquante laissée à blanc se confond visuellement avec une valeur faible ou nulle, et fausse la lecture du tableau. La discipline `n.c.` ou `?` rend visible ce qu'on ne sait pas — et l'absence devient elle-même une information à débattre en revue.
+**Cellule vide silencieuse.** Une donnée manquante laissée à blanc se confond visuellement avec une valeur faible ou nulle, et fausse la lecture du tableau. La discipline `n.c.` ou `?` rend visible ce qu'on ne sait pas, et l'absence devient elle-même une information à débattre en revue.
 
 **Chiffre non sourcé.** Un coût ou une performance reporté sans source n'est pas vérifiable et n'engage personne. La traçabilité des chiffres est ce qui transforme un tableau d'EAT en livrable qui engage plutôt qu'en intuition d'équipe.
 
 **Comparer des solutions non comparables.** Mettre un produit industriel à 50 000 € à côté d'un projet maker à 200 € dans le même tableau dilue l'analyse. Soit on les compare sur des critères qui les rendent cohérents (performance pure, en ignorant le coût), soit on les sépare en deux EAT distincts si le budget vise un seul des deux mondes.
 
-**EAT qui dérive en exhaustivité.** 15 solutions × 12 critères devient un document qu'on ne lit plus, ni en revue, ni en équipe. La discipline 3 à 6 solutions × 5 à 8 critères n'est pas une norme arbitraire — c'est la fenêtre où l'analyse reste contraignante sans devenir un travail à plein temps.
+**EAT qui dérive en exhaustivité.** 15 solutions × 12 critères devient un document qu'on ne lit plus, ni en revue, ni en équipe. La discipline 3 à 6 solutions × 5 à 8 critères n'est pas une norme arbitraire : c'est la fenêtre où l'analyse reste contraignante sans devenir un travail à plein temps.
 
 **Synthèse en sourdine.** Un tableau livré sans synthèse, ou avec un paragraphe vague (*« on retient plusieurs solutions intéressantes »*), annule le travail amont. La synthèse est ce qui transforme la cartographie en décision préparée pour la suite du projet.
 
@@ -140,7 +140,7 @@ Trois ajustements rendent l'exercice utile malgré tout :
 
 - **Élargir les sources** au-delà des produits finis : brevets actifs, publications de recherche, prototypes universitaires non commercialisés, blogs techniques d'équipes en R&D.
 - **Comparer des briques plutôt que des produits.** Si aucun système complet ne ressemble au projet, des sous-systèmes (l'actuation, l'instrumentation, la commande) peuvent l'être. L'EAT devient alors un patchwork de comparaisons partielles, à expliciter comme telles dans la synthèse.
-- **Fixer un timebox dès le départ** — une à deux journées dédiées à l'EAT, pas davantage. Sur un marché immature, le risque est de sur-investir l'exploration au détriment du reste du projet ; à l'inverse, ne pas faire d'EAT du tout sous prétexte d'absence de matière prive le projet de toute calibration externe.
+- **Fixer un timebox dès le départ** — une à deux journées dédiées à l'EAT, pas davantage. Sur un marché immature, le risque est de sur-investir l'exploration au détriment du reste du projet. À l'inverse, ne pas faire d'EAT du tout sous prétexte d'absence de matière prive le projet de toute calibration externe.
 
 Dans tous les cas, l'EAT d'un projet de niche assume sa nature **exploratoire** plutôt qu'industrielle. La synthèse en tient compte : les ordres de grandeur retenus pour le CdCF sont alors moins calibrés par l'existant et plus calibrés par les contraintes propres du projet (budget, calendrier, moyens de fabrication accessibles).
 
@@ -149,9 +149,9 @@ Dans tous les cas, l'EAT d'un projet de niche assume sa nature **exploratoire** 
 L'EAT n'est pas un livrable isolé : il alimente plusieurs étapes ultérieures, parfois à plusieurs phases de distance.
 
 - **Étape 2 de la [[specification-technique|spécification technique]]** — phase principale où l'EAT est produit, sous forme de tableau + synthèse intégré au [[cahier-des-charges-fonctionnel|CdCF]] en section *Étude de l'existant* du document école.
-- **Étape 4 de la [[specification-technique|spécification technique]]** — les ordres de grandeur retenus dans la synthèse calibrent les **niveaux** des exigences. Sans EAT, les niveaux du CdCF sont fixés arbitrairement et risquent d'être soit hors d'atteinte, soit trop laxistes par rapport à ce qui se fait déjà.
-- **Étape 2 de la phase de [[concept|concept]]** — les critères choisis pour l'EAT deviennent souvent la base des critères de la [[matrice-de-decision|matrice de décision]] qui arbitre entre solutions candidates internes au projet, avec l'ajout central de la **pondération**, absente de l'EAT.
-- **[[dossier-technique|Dossier technique]]** — le pré-dimensionnement et le choix final des composants peuvent réutiliser des ordres de grandeur EAT (consommation, encombrement, contraintes thermiques) pour calibrer les premières simulations.
+- **Étape 4 de la [[specification-technique|spécification technique]].** Les ordres de grandeur retenus dans la synthèse calibrent les **niveaux** des exigences. Sans EAT, les niveaux du CdCF sont fixés arbitrairement et risquent d'être soit hors d'atteinte, soit trop laxistes par rapport à ce qui se fait déjà.
+- **Étape 2 de la phase de [[concept|concept]].** Les critères choisis pour l'EAT deviennent souvent la base des critères de la [[matrice-de-decision|matrice de décision]] qui arbitre entre solutions candidates internes au projet, avec l'ajout central de la **pondération**, absente de l'EAT.
+- **[[dossier-technique|Dossier technique]].** Le pré-dimensionnement et le choix final des composants peuvent réutiliser des ordres de grandeur EAT (consommation, encombrement, contraintes thermiques) pour calibrer les premières simulations.
 
 Ce raccrochage multi-phases est ce qui justifie l'investissement initial : un EAT solide à l'étape 2 de la spécification évite de revenir en arrière sur des hypothèses non calibrées à chacune des étapes suivantes.
 

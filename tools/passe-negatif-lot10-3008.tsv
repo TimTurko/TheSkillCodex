@@ -1,0 +1,46 @@
+# TEST NEGATIF - meme table, ancre 33 rendue introuvable (trait d union ASCII)
+# chemin<TAB>ancre exacte<TAB>remplacement - table jetable (C114), lot 10 du 30/08
+conduite/proj/etat-de-l-art-technique.md	dans le vide — pour presque tout projet	dans le vide : pour presque tout projet
+conduite/proj/etat-de-l-art-technique.md	décision technique — il **prépare** la décision	décision technique : il **prépare** la décision
+conduite/proj/etat-de-l-art-technique.md	Les deux se nourrissent — la biblio fournit la matière — mais	Les deux se nourrissent (la biblio fournit la matière), mais
+conduite/proj/etat-de-l-art-technique.md	nettement plus simple — chaque critère discriminant	nettement plus simple : chaque critère discriminant
+conduite/proj/etat-de-l-art-technique.md	convention de lisibilité — on lit plus facilement	convention de lisibilité : on lit plus facilement
+conduite/proj/etat-de-l-art-technique.md	ne discriminaient pas — il faut alors revenir	ne discriminaient pas : il faut alors revenir
+conduite/proj/etat-de-l-art-technique.md	le projet fil rouge — un bras robotique pédagogique 3 axes	le projet fil rouge, un bras robotique pédagogique 3 axes
+conduite/proj/etat-de-l-art-technique.md	la plus inspirante pour le projet — il est ouvert	la plus inspirante pour le projet : il est ouvert
+conduite/proj/etat-de-l-art-technique.md	orienté décision ; la revue bibliographique	orienté décision. La revue bibliographique
+conduite/proj/etat-de-l-art-technique.md	ce qu'on ne sait pas — et l'absence devient	ce qu'on ne sait pas, et l'absence devient
+conduite/proj/etat-de-l-art-technique.md	une norme arbitraire — c'est la fenêtre	une norme arbitraire : c'est la fenêtre
+conduite/proj/etat-de-l-art-technique.md	au détriment du reste du projet ; à l'inverse	au détriment du reste du projet. À l'inverse
+conduite/proj/etat-de-l-art-technique.md	CdCF]] — savoir qu'un bras pédagogique	CdCF]]. Savoir qu'un bras pédagogique
+conduite/proj/etat-de-l-art-technique.md	spécification technique]]** — les ordres de grandeur retenus	spécification technique]].** Les ordres de grandeur retenus
+conduite/proj/etat-de-l-art-technique.md	[[concept|concept]]** — les critères choisis	[[concept|concept]].** Les critères choisis
+conduite/proj/etat-de-l-art-technique.md	Dossier technique]]** — le pré-dimensionnement	Dossier technique]].** Le pré-dimensionnement
+embarque/asservissement.md	(consigne − mesure) — sans cesse	(consigne − mesure), sans cesse
+embarque/asservissement.md	c'est espérer une vitesse — mais en charge	c'est espérer une vitesse. Mais en charge
+embarque/asservissement.md	et un réglage soigné — un asservissement mal réglé	et un réglage soigné : un asservissement mal réglé
+embarque/asservissement.md	ou continue ; la plus répandue	ou continue. La plus répandue
+embarque/asservissement.md	le système oscille ; pas assez	le système oscille. Pas assez
+embarque/boucle-ouverte.md	grande majorité des systèmes — un chauffage sur minuterie, un stepper qu'on fait tourner d'un nombre de pas, une LED qu'on allume.	grande majorité des systèmes (un chauffage sur minuterie, un stepper qu'on fait tourner d'un nombre de pas, une LED qu'on allume).
+embarque/boucle-ouverte.md	Elle ne peut pas osciller — le défaut qui guette tout [[asservissement|asservissement]] mal réglé.	Elle ne peut pas osciller (le défaut qui guette tout [[asservissement|asservissement]] mal réglé).
+embarque/boucle-ouverte.md	d'un angle connu par pas ; une résistance chauffante	d'un angle connu par pas. Une résistance chauffante
+embarque/boucle-ouverte.md	Une commande relative — « avance de 30° » — ne vaut	Une commande relative (« avance de 30° ») ne vaut
+embarque/boucle-ouverte.md	examinées une à une — le comportement est prévisible	examinées une à une : le comportement est prévisible
+embarque/boucle-ouverte.md	ni un asservissement — il **mesure pour détecter**	ni un asservissement : il **mesure pour détecter**
+embarque/boucle-ouverte.md	depuis l'extinction — y compris à la main	depuis l'extinction, y compris à la main
+embarque/boucle-ouverte.md	**répétable** — revenir toujours au même endroit — et pourtant	**répétable** (revenir toujours au même endroit) et pourtant
+embarque/boucle-ouverte.md	des quatre conditions a cédé — souvent c'est la mécanique	des quatre conditions a cédé : souvent c'est la mécanique
+embarque/protection-electronique.md	mais *quand* — et ce que coûtera la faute	mais *quand*, et ce que coûtera la faute
+embarque/protection-electronique.md	quelques centimes et cinq minutes ; non protégée	quelques centimes et cinq minutes. Non protégée
+embarque/protection-electronique.md	au-delà de son calibre - choisi **au-dessus	au-delà de son calibre, choisi **au-dessus
+embarque/protection-electronique.md	en simple repli — c'est la protection à régler	en simple repli : c'est la protection à régler
+embarque/protection-electronique.md	branchement à l'envers — simple, mais elle chute	branchement à l'envers : simple, mais elle chute
+embarque/protection-electronique.md	physiquement impossible — à choisir dès la conception	physiquement impossible, à choisir dès la conception
+embarque/protection-electronique.md	charge inductive commandée — et souvent déjà intégrée	charge inductive commandée, et souvent déjà intégrée
+embarque/protection-electronique.md	accessible de l'extérieur — connecteur USB, bornier, boutons.	accessible de l'extérieur (connecteur USB, bornier, boutons).
+embarque/protection-electronique.md	galvaniquement les deux mondes — aucun chemin électrique	galvaniquement les deux mondes : aucun chemin électrique
+embarque/protection-electronique.md	intégrées aux drivers A4988 — un cas fréquent	intégrées aux drivers A4988, un cas fréquent
+embarque/protection-electronique.md	pas le défaut — c'est la prochaine pièce	pas le défaut : c'est la prochaine pièce
+embarque/protection-electronique.md	première ou centième — mais il meurt	première ou centième, mais il meurt
+embarque/protection-electronique.md	ne se sentent même pas — le composant, lui, les sent	ne se sentent même pas : le composant, lui, les sent
+embarque/protection-electronique.md	se protège localement — résistance série	se protège localement : résistance série

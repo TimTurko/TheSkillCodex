@@ -1,0 +1,6 @@
+# TEST NEGATIF - ancre 3 avec une capitale de trop (Boucle Ouverte)
+# chemin<TAB>ancien titre<TAB>nouveau titre - table jetable (C114), lot 10 du 30/08
+en/conduite/proj/etat-de-l-art-technique-en.md	État de l'art technique	Technical state of the art
+en/embarque/asservissement-en.md	Asservissement	Closed-loop control
+en/embarque/boucle-ouverte-en.md	Boucle Ouverte	Open loop
+en/embarque/protection-electronique-en.md	Protections électroniques	Electronic protections
