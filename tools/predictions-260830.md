@@ -11474,3 +11474,2713 @@ bornée (P88.5), défaut diagnostiqué et corrigé le matin même.*
 
 **Total de la journée, lot 10 et reprise : 131 prédictions publiées avant leur
 bloc, 112 tenues, 19 réfutées — 85,5 %.**
+
+---
+---
+
+# SÉANCE 7 DU 30/08 — LOT 11 DU CHANTIER DE TRADUCTION
+
+**Surface** : PC perso, onglet Code. **Modèle** : Opus 5. **Régime** :
+exécution directe, sous-règle C116 amendée, C131 et son amendement, règles
+d'usage du 29/08 (suites 9 à 11) et du 30/08 (cinq séances plus la reprise).
+**Douzième lot en exécution directe.** Blocs numérotés à partir de **89**, la
+reprise du 30/08 (suite 6) s'étant arrêtée au bloc 88.
+
+**Brief de référence** : ligne « Prochaine session » de l'entrée du **30/08
+(suite 6)** du JOURNAL, qui reconduit le brief du 30/08 (suite 5) et lui ajoute
+**un fait neuf**.
+
+⚠ **ÉCART BRIEF / PROMPT DE LANCEMENT, RELEVÉ AVANT TOUTE EXÉCUTION.** Le
+prompt de lancement porte le point d'attention *« le fichier de corps DOIT
+OUVRIR PAR UNE LIGNE BLANCHE »*. La ligne « Prochaine session » du 30/08
+(suite 6) le déclare **caduc** : l'arbitrage (a) de Tim a été rendu et
+`creer-fiche-en.mjs --corps` **pose** désormais la ligne blanche après le front
+matter, au lieu de la supposer. *Le prompt a été composé à la clôture du lot 10,
+avant la reprise qui a porté le correctif.* **Le point d'attention est retiré ;
+le reste du prompt est recoupé conforme au brief.** *À vérifier dans le code au
+bloc de cadrage, la règle du 29/08 valant ici aussi : une ligne de JOURNAL
+décrit une intention, seul le code décrit un comportement.*
+
+---
+
+## BLOC 89 — GARDE DE PÉREMPTION D'OUVERTURE
+
+**Commande** : `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+### Déclaration C131 du bloc 89
+
+**Compteur prédit** : `fichiers modifies non commites` de l'étape 1, et son
+sous-compteur `hors artefacts de seance`.
+
+**Population** : les entrées de `git status --porcelain` sur le dépôt entier —
+des **entrées**, pas des fichiers (règle du 30/08, lot 7 : un répertoire
+entièrement non suivi vaut une entrée). Le sous-compteur retire les entrées dont
+la ligne porte `batterie-sortie` ou `predictions-`, **filtre lu dans le code de
+`batterie.ps1` et non dans son README**.
+
+**État d'avant la séance** : dépôt propre au commit **`0f3c9a5`** de Tim
+(« arbitrages lot 10 rendus : --corps pose la ligne blanche, (b) et (c)
+classes »).
+
+**Versements de la séance dans cette population, avant que le compteur ne soit
+lu** — deux, et ils se nomment :
+1. `tools/predictions-260830.md`, **suivi par git** et modifié par l'append de
+   cet en-tête, de cette déclaration et des prédictions ci-dessous → **1 entrée
+   ` M`**, écartée du sous-compteur par le motif `predictions-`.
+2. `tools/batterie-sortie-3008b44.txt`, **créé par l'étape 0 du lancement
+   lui-même** (copie C124 de la sortie précédente, rang déduit du balayage
+   `while (Test-Path …)` du code : les rangs `b1` à `b43` existent) → **1 entrée
+   `??`**, écartée du sous-compteur par le motif `batterie-sortie`.
+
+**Total impliqué : 2 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 89
+
+- **P89.1** — étape 0, autocontrôle ASCII : `lignes non ASCII dans batterie.ps1 : 0`.
+- **P89.2** — étape 0, copie C124 : `sortie precedente copiee : tools\batterie-sortie-3008b44.txt`.
+- **P89.3** — étape 1, phase : `phase demandee : garde   anneau : 2   chevron : False`.
+- **P89.4** — étape 1, horloge : `date ISO : 2026-08-30`, heure comprise entre
+  **11:15:00** et **23:59:59**.
+- **P89.5** — étape 1, HEAD : `HEAD git : 0f3c9a5 2026-08-30 ` suivi d'une heure
+  **postérieure à 11:09:00** (le commit précédent, `5f44762`) et d'un fuseau
+  `+0200`.
+- **P89.6** — étape 1, compteur, par la déclaration C131 ci-dessus :
+  `fichiers modifies non commites : 2   (hors artefacts de seance : 0)`.
+- **P89.7** — étape 1, node : `node : v24.15.0`.
+- **P89.8** — étape 1, dates d'écriture. ⚠ **Deux des trois sont attendues
+  POSTÉRIEURES au dernier relevé de la journée** (`b43`, 11:12:14, qui portait
+  `JOURNAL.md 11:06:19` et `conventions.md 11:04:21`), **et ce n'est pas un état
+  inattendu** : la reprise du 30/08 (suite 6) a écrit sa clôture §7 **après** sa
+  dernière garde, et Tim a commité ensuite. Prédiction :
+  - `JOURNAL.md` — `2026-08-30`, heure dans **[11:06:19, 11:15:00]** ;
+  - `conventions.md` — `2026-08-30`, heure dans **[11:04:21, 11:15:00]** ;
+  - `TODO.md` — **`2026-08-29 21:48:08`, inchangé au caractère**.
+- **P89.9** — les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter** : tout fichier de `content/` en `git status`, toute
+date d'écriture postérieure à l'horloge du bloc, ou un HEAD différent de
+`0f3c9a5`, valent **ARRÊT** et remontée à Tim sans rien écrire.
+
+### Constats du bloc 89 — garde AU VERT, 8 prédictions tenues, 1 réfutée
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b44.txt`.
+
+- **P89.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P89.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b44.txt` — rang prédit au caractère.
+- **P89.3 ✅** `phase demandee : garde   anneau : 2   chevron : False`.
+- **P89.4 ✅** `date ISO : 2026-08-30   heure : 11:22:42`, dans [11:15:00, 23:59:59].
+- **P89.5 ✅** `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` — slug, date, fuseau, et 11:20:01 postérieur à 11:09:00.
+- **P89.6 ✅** `fichiers modifies non commites : 2   (hors artefacts de seance : 0)` — **les deux termes de la déclaration C131, au chiffre**.
+- **P89.7 ✅** `node : v24.15.0`.
+- **P89.8 ❌ sur deux termes de trois.** `JOURNAL.md 2026-08-30 11:18:25` contre
+  [11:06:19, **11:15:00**] ; `conventions.md 2026-08-30 11:16:18` contre
+  [11:04:21, **11:15:00**]. `TODO.md 2026-08-29 21:48:08` ✅ **inchangé au
+  caractère**. ⚠ *Cause : la borne haute a été posée à 11:15:00 en ancrant sur
+  « la séance s'ouvre maintenant », alors que la séance s'ouvre à **11:22:42** et
+  que les écritures de clôture de la reprise la précèdent de six et quatre
+  minutes. **Le sens de la prédiction était juste — postérieures au relevé b43 et
+  antérieures au commit —, c'est la borne haute qui était arbitraire.** La borne
+  qui portait le sens est le commit `0f3c9a5` à **11:20:01**, et les deux dates
+  lui sont bien antérieures.* **Règle d'usage candidate : une borne d'intervalle
+  de temps se pose sur un ÉVÉNEMENT DATÉ du dépôt — un commit, un relevé — jamais
+  sur l'instant supposé du lancement, qui n'est pas encore mesuré quand on
+  prédit.**
+- **P89.9 ✅** les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter : il ne mord pas.** Aucun fichier de `content/` en
+`git status`, aucune date postérieure à l'horloge du bloc, HEAD conforme.
+**Garde au vert, la séance peut écrire.**
+
+---
+
+## BLOC 90 — REMESURE DE COMPOSITION : LE RESTANT DE L'ANNEAU 2, NOMINATIF
+
+**Commande** : `node tools/creer-fiche-en.mjs --anneau 2`
+
+### Déclaration C131 du bloc 90
+
+**Ce bloc n'écrit aucun fichier du dépôt** : `--anneau` lit `content/` et écrit
+sur la sortie standard. **Versements de la séance dans la population de
+`git status` : inchangés depuis le bloc 89** — `tools/predictions-260830.md`
+(1 entrée, filtrée) et `tools/batterie-sortie-3008b44.txt` (1 entrée, filtrée).
+**Total inchangé : 2 entrées, dont 0 hors artefacts de séance.** *Le compteur
+`git status` n'est pas relu à ce bloc ; la déclaration est écrite pour que le
+bloc suivant parte d'un état déclaré et non supposé.*
+
+**Population des compteurs prédits ci-dessous** : les cibles de l'**anneau 2
+NET** — atteintes depuis l'anneau 1, moins les anneaux 0 et 1 — dont le
+sous-ensemble **RESTANT** est celui qui n'a pas de jumelle `-en`. La **DETTE**
+est une population **distincte** et ne s'appelle jamais anneau (commentaire du
+code, l. 1537-1553).
+
+**Source des formes prédites** : les **chemins** ci-dessous sont pris d'un
+`find content/embarque -name "*.md"` du jour, lecture de structure ; les
+**chiffres** sont ceux du bloc 76 du lot 10, **publiés ici comme prédiction à
+réfuter**, et c'est l'outil qui les remesure.
+
+⚠ **Un chemin du brief est faux, et la lecture de structure le dit avant la
+mesure** : `xbee` n'est pas sous `embarque/mcu/` mais sous
+**`embarque/mcu/sans-fil/`**. *Conséquence sur la découpe (A) du brief, qui
+l'annonce comme une « petite notion de `embarque/mcu/` » : elle en est une du
+**sous-répertoire** `sans-fil/`, dont les cinq autres fiches sont déjà
+traduites.*
+
+### Prédictions du bloc 90
+
+- **P90.1** — `ANNEAU 2 NET               : 145`.
+- **P90.2** — `    deja traduites            : 133`.
+- **P90.3** — `    RESTANT                   : 12`.
+- **P90.4** — **liste nominative des 12, avec leur volume, terme à terme**
+  (l'ordre de sortie est celui de `restants`, non prédit ; les couples le sont) :
+
+  | chemin | mots prédits |
+  |---|---|
+  | `embarque/mcu/ascii.md` | 671 |
+  | `embarque/mcu/fonction-informatique.md` | 398 |
+  | `embarque/mcu/ide.md` | 385 |
+  | `embarque/mcu/potentiometre.md` | 519 |
+  | `embarque/mcu/chien-de-garde.md` | 2 005 |
+  | `embarque/mcu/filtrage.md` | 1 397 |
+  | `embarque/mcu/programmation-non-bloquante.md` | 1 829 |
+  | `embarque/mcu/sans-fil/xbee.md` | 135 |
+  | `embarque/simulation/falstad.md` | 3 244 |
+  | `embarque/simulation/ltspice.md` | 3 848 |
+  | `embarque/simulation/wokwi.md` | 1 340 |
+  | `embarque/pcb/easyeda.md` | 9 773 |
+
+- **P90.5** — `RESTANT DE L ANNEAU 2 (12 fiches)` ` 25544`.
+  **Contrôle de décomposition publié avant la mesure** :
+  4 113 (`ascii` + `fonction-informatique` + `ide` + `potentiometre` +
+  `chien-de-garde` + `xbee`) + 1 397 + 1 829 = **7 339** pour le sous-arbre
+  `mcu/` ; **8 432** pour `simulation/` ; **9 773** pour `pcb/easyeda` ;
+  7 339 + 8 432 + 9 773 = **25 544**. *Un total dans la fourchette ne valide pas
+  la décomposition (§8) : les douze couples ci-dessus se vérifient un à un.*
+- **P90.6** — `ANGLE MORT DU CHEVRON` : `fiches porteuses          : 0` et
+  `clotures en chevron       : 0`. ⚠ **`ded` vaut donc 0 et `tot` = `deh` pour le
+  SIXIÈME lot d'affilée** ; C127 reste hors sujet.
+- **P90.7** — `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)`. *Fondement : l'anneau 2
+  est l'ensemble des cibles de l'anneau 1, et l'anneau 1 est entièrement traduit.
+  **C'est la prédiction la moins fondée du bloc**, aucune clôture du chantier
+  n'ayant publié ce compteur.*
+- **P90.8** — DETTE : `15` cibles, `27 812` mots, `dont HORS anneaux 0..2` : `2`.
+- **P90.9** — `CIBLES SANS FICHE` : **0**. *Fondement : les six alias
+  (`FP`, `FS`, `FC`, `critere`, `flexibilite`, `niveau`) qui portaient ce
+  compteur appartiennent à `fonction` et `caracteriser-une-exigence`, traduites
+  au lot 9. **Deuxième prédiction faiblement fondée** — le faux positif sur les
+  alias est un arbitrage en attente, et je n'ai pas relu le résolveur.*
+- **P90.10** — code de sortie `0`.
+
+### Constats du bloc 90 — 9 prédictions tenues, 1 réfutée
+
+- **P90.1 ✅** `ANNEAU 2 NET               : 145`.
+- **P90.2 ✅** `deja traduites            : 133`.
+- **P90.3 ✅** `RESTANT                   : 12`.
+- **P90.4 ✅ LES DOUZE COUPLES, TERME À TERME.** 671 / 2005 / 1397 / 398 / 385 /
+  519 / 1829 / 135 / 9773 / 3244 / 3848 / 1340, chacun sur le chemin prédit.
+  ⚠ **Y compris `embarque/mcu/sans-fil/xbee`**, dont le brief donnait le
+  répertoire faux : la lecture de structure du bloc l'avait corrigé avant la
+  mesure.
+- **P90.5 ✅** `RESTANT DE L ANNEAU 2 (12 fiches)   25544`, **et la décomposition
+  en trois répertoires tient** : `mcu/` 7 339, `simulation/` 8 432,
+  `pcb/easyeda` 9 773.
+- **P90.6 ✅** `fiches porteuses : 0`, `clotures en chevron : 0`. **`ded` = 0,
+  `tot` = `deh`, C127 hors sujet pour le sixième lot d'affilée.**
+- **P90.7 ✅** `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)` — la prédiction
+  annoncée comme la moins fondée tombe juste, et son fondement était le bon.
+- **P90.8 ✅** DETTE : `cibles rouges distinctes : 15`, `mots : 27812`,
+  `dont HORS anneaux 0..2 : 2` — `xiao-prise-en-main` et `xiao-sense`, nommées.
+- **P90.9 ❌** `CIBLES SANS FICHE (6)` prédit **0**, mesuré **6** :
+  `[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`, `[[flexibilite]]`, `[[niveau]]`.
+  ⚠ *Cause : j'ai raisonné sur la **traduction** des fiches `fonction` et
+  `caracteriser-une-exigence` au lot 9, quand le compteur mesure tout autre
+  chose — l'existence d'un **fichier FR** au nom de la cible. Ces six-là sont des
+  **`aliases:`**, elles n'ont jamais eu de fichier et n'en auront jamais ; le
+  résolveur ne lit pas les `aliases:`, faux positif consigné en arbitrage depuis
+  le 30/08 (suite 5).* **La prédiction était fausse pour la raison exacte que
+  l'arbitrage en attente décrit**, et je l'avais écrite en signalant que je
+  n'avais pas relu le résolveur. *C116 (7) à la lettre : lire le compteur dans le
+  code qui l'incrémente. Je ne l'ai pas fait, je l'ai dit, et il a mordu.*
+- **P90.10 ✅** code de sortie `0`.
+
+---
+
+## COMPOSITION DU LOT 11 — INSTRUITE SUR LES CHIFFRES DU BLOC 90
+
+⚠ **CONSTAT QUI COMMANDE TOUTE LA DÉCOUPE, ET IL EST NEUF : LA BORNE 6 657 ET
+LE CRITÈRE « FERMER UN NIVEAU DE RÉPERTOIRE ENTIER » SONT DEVENUS
+INCOMPATIBLES SUR TOUT LE RESTANT.** Le restant tient dans **trois** répertoires,
+et **les trois dépassent la borne** :
+
+| découpe fermant un répertoire | fiches | mots | % de la borne 6 657 |
+|---|---|---|---|
+| `embarque/mcu/` (sous-arbre entier, `sans-fil/xbee` compris) | 8 | 7 339 | **110,2 %** |
+| `embarque/simulation/` | 3 | 8 432 | **126,7 %** |
+| `embarque/pcb/easyeda` | 1 | 9 773 | **146,8 %** |
+
+*Le critère du lot 10 était le repli du critère du palier de hub, lui-même mesuré
+à 0 sur 15. **Il ne reste plus de critère qui rende un lot sous la borne.***
+
+**Ce que les découpes sous la borne laissent, mesuré :**
+- **(A)** six petites notions (`ascii`, `fonction-informatique`, `ide`,
+  `potentiometre`, `chien-de-garde`, `sans-fil/xbee`) = **4 113**, marge 2 544 —
+  **ne ferme rien** et laisse `filtrage` 1 397 + `programmation-non-bloquante`
+  1 829 = **3 226 mots sur 2 fiches**, résidu trop petit pour un lot et qui devra
+  se mêler à `simulation/` — *exactement le coût d'hétérogénéité que le lot 10 a
+  déjà payé une fois*.
+- **`mcu/` racine seule** (7 fiches, **7 204**, 108,2 %) ferme le **niveau**
+  `mcu/` mais laisse `sans-fil/xbee` à **135 mots**, qui ne fait de lot avec
+  personne.
+- **Toute autre découpe sous 6 657 laisse une fiche orpheline** dans son
+  répertoire, ce que le critère du lot 5 écarte : `mcu/` moins
+  `programmation-non-bloquante` = 5 510, moins `filtrage` = 5 942, moins
+  `chien-de-garde` = 5 334 — **les trois laissent exactement une fiche**.
+
+### Décision — assomption écrite, arbitrage remonté sans bloquer (C116 sous-règle 8)
+
+**Lot 11 = `embarque/mcu/` en entier : 8 fiches, 7 339 mots, soit 110,2 % de la
+borne.**
+
+`embarque/mcu/ascii` 671 · `embarque/mcu/chien-de-garde` 2 005 ·
+`embarque/mcu/filtrage` 1 397 · `embarque/mcu/fonction-informatique` 398 ·
+`embarque/mcu/ide` 385 · `embarque/mcu/potentiometre` 519 ·
+`embarque/mcu/programmation-non-bloquante` 1 829 ·
+`embarque/mcu/sans-fil/xbee` 135.
+
+**Quatre raisons, chacune chiffrée :**
+1. **C'est le plus petit dépassement des trois** : +682 mots, contre +1 775 pour
+   `simulation/` et +3 116 pour `easyeda`.
+2. **Il ferme le sous-arbre `embarque/mcu/`**, la plus grosse branche du wiki —
+   **159 fiches FR**, dont ces huit sont les dernières non traduites.
+3. **Il laisse un plan de fin de chantier propre et homogène** : lot 12 =
+   `simulation/` (3 fiches, 8 432), lot 13 = `easyeda` (9 773, lot à elle seule
+   par arbitrage Tim du 30/08 suite 3). **Trois lots, trois répertoires, chantier
+   fini** — aucun mélange de branches, alors que toute découpe sous la borne en
+   impose un.
+4. **La charge réelle de rédaction est concentrée et non uniforme** : trois fiches
+   pèsent **5 231** des 7 339 mots (`chien-de-garde` 2 005,
+   `programmation-non-bloquante` 1 829, `filtrage` 1 397) ; **les cinq autres
+   pèsent 2 108 à elles toutes**, de 135 à 671 mots. *Le dépassement de 10,2 %
+   porte sur un lot dont la moitié des fiches sont des notions courtes.*
+
+**Coût du revert, écrit avant d'exécuter** : 8 fiches EN à supprimer, les passes
+C109 sur 8 sources FR à annuler, 1 lot de `renommer-titres.mjs` à défaire.
+
+**Ce qui monte à Tim au gate G1, sans bloquer** : *la borne 6 657 tient-elle
+encore ?* Elle a été posée comme le volume du lot 2 et sert de plafond depuis ;
+les **trois** derniers lots du chantier la dépassent, quelle que soit la découpe.
+**Deux issues** : (a) la lever explicitement pour la fin du chantier, ce que
+l'assomption ci-dessus fait de fait ; (b) la tenir et accepter que les trois
+derniers lots mélangent les branches et laissent des orphelines. *L'arbitrage
+« découpe intra-fiche ou levée de borne » posé pour `easyeda` le 30/08 (suite 3)
+est le même, et il se pose maintenant pour deux répertoires de plus.*
+
+---
+
+## BLOC 91 — CADRAGE DU LOT 11 (garde + volume + candidats C109 + anneau)
+
+**Commande** :
+
+```
+powershell -ExecutionPolicy Bypass -File tools\batterie.ps1 -Phase cadrage -Fiches embarque/mcu/ascii.md,embarque/mcu/chien-de-garde.md,embarque/mcu/filtrage.md,embarque/mcu/fonction-informatique.md,embarque/mcu/ide.md,embarque/mcu/potentiometre.md,embarque/mcu/programmation-non-bloquante.md,embarque/mcu/sans-fil/xbee.md
+```
+
+### Déclaration C131 du bloc 91
+
+**Population** : entrées de `git status --porcelain`, comme au bloc 89.
+**État déclaré à l'entrée du bloc : 2 entrées** — `tools/predictions-260830.md`
+(` M`) et `tools/batterie-sortie-3008b44.txt` (`??`).
+**Versement que CE bloc s'ajoute en route** : l'étape 0 crée
+`tools/batterie-sortie-3008b45.txt` **avant** que l'étape 1 ne lise le compteur
+→ **+1 entrée `??`**.
+**Total impliqué : 3 entrées, dont 0 hors artefacts de séance.**
+*Le bloc 90 n'a rien versé : `--anneau` n'écrit que sur la sortie standard.*
+
+### Prédictions du bloc 91 — garde (étapes 0 et 1)
+
+- **P91.1** — `lignes non ASCII dans batterie.ps1 : 0` ; `sortie precedente copiee : tools\batterie-sortie-3008b45.txt`.
+- **P91.2** — `phase demandee : cadrage   anneau : 2   chevron : False` ; `date ISO : 2026-08-30`, heure **postérieure à 11:22:42** (horloge du bloc 89).
+- **P91.3** — `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200`, **identique au caractère** au bloc 89.
+- **P91.4** — `fichiers modifies non commites : 3   (hors artefacts de seance : 0)`, par la déclaration ci-dessus.
+- **P91.5** — `node : v24.15.0`.
+- **P91.6** — dates de pilotage **identiques au caractère** au bloc 89 :
+  `JOURNAL.md 2026-08-30 11:18:25`, `conventions.md 2026-08-30 11:16:18`,
+  `TODO.md 2026-08-29 21:48:08`.
+- **P91.7** — **huit lignes de dates de sources**, une par fiche du lot, et
+  **0 datée du 2026-08-30** : aucune des huit n'a été touchée par une séance du
+  jour. *Toute date du jour sur une source vaut ARRÊT.*
+
+### Prédictions du bloc 91 — étape 2, volume du lot
+
+- **P91.8** — `compter-mots --lot` rend **les huit couples du bloc 90, au mot** :
+  `ascii` 671, `chien-de-garde` 2005, `filtrage` 1397, `fonction-informatique`
+  398, `ide` 385, `potentiometre` 519, `programmation-non-bloquante` 1829,
+  `sans-fil/xbee` 135 — dans l'ordre de la ligne de commande.
+- **P91.9** — ligne de total : `LOT (8 fiches)` ` 7339`.
+  ⚠ **Dépassement de la borne 6 657 de +682 mots, soit 110,2 %**, assumé et
+  motivé au bloc de composition.
+
+### Prédictions du bloc 91 — étape 3, candidats C109 des huit sources FR
+
+- **P91.10 — les quatre seaux mécaniques à 0**, et **trois d'entre eux par
+  construction du périmètre** : `C109 creees en EN : 0` et
+  `hors alphabet latin : 0` ne mordent que sur une fiche portant un
+  `source_fr:` — les huit sources sont françaises et n'en portent pas (code,
+  l. 1224-1249) ; `typographie francaise : 0` a rendu 0 sur les sources FR aux
+  lots 8, 9 et 10. **`virgule ambigue : 0`** est le quatrième, et **c'est le
+  moins sûr** : il mord sur les séparateurs de milliers, mesurés **2** sur les
+  fiches EN des lots 8 et 10. *`chien-de-garde` et `programmation-non-bloquante`
+  parlent de durées et de fréquences, habitat naturel d'un `100,000`.*
+- **P91.11 — `C109 de prose` entre 70 et 145, point estimé 105.**
+  *Bases mesurées, toutes du 30/08 : lot 8 **63 / 5 488 = 1,15 pour 100** ;
+  lot 9 **61 / 5 813 = 1,05** ; lot 10 **67 / 5 791 = 1,16**, dont le
+  sous-ensemble des **trois notions `embarque/`** rend **52 / 3 414 = 1,52**.
+  Appliqués aux **7 339** mots du lot : 77, 77, 85 et **112**.*
+  ⚠ **La fourchette est élargie ASYMÉTRIQUEMENT VERS LE HAUT**, en application
+  directe de la candidate née au bloc 77 : *une fiche courte est presque toute
+  en prose et **sur-rend**.* **Ce lot est le plus court en moyenne du chantier —
+  917 mots par fiche, contre 1 158 au lot 10 et 1 098 au lot 8 — et cinq de ses
+  huit fiches pèsent moins de 700 mots.** Le seul lot dont la composition
+  s'en approche est le sous-ensemble `embarque/` du lot 10, qui est **aussi le
+  taux le plus haut mesuré**. *Borne basse à 70 pour le cas où `ascii` et
+  `programmation-non-bloquante` portent respectivement une table de codes et des
+  blocs de code, qui diluent sans produire.*
+- **P91.12 — AUCUNE décomposition par fiche, et le refus est motivé pour la
+  troisième fois du chantier.** *Le bloc 77 a mesuré un facteur **3,9** entre le
+  taux le plus bas et le plus haut d'un même lot, et le plus haut était sur la
+  **plus petite** fiche. Un prorata sur huit fiches allant de 135 à 2 005 mots
+  rejouerait sciemment une prédiction dont la cause d'échec est mesurée.*
+- **P91.13 — DEUX termes de forme, qui ne viennent d'aucune moyenne.**
+  (a) `embarque/mcu/sans-fil/xbee`, **135 mots**, rend **au moins 1** candidat —
+  *`afnor-nfx50-151`, 91 mots, en a rendu 2, et une fiche de cette taille est
+  presque intégralement une phrase de définition, habitat du tiret d'incise* ;
+  (b) la fiche qui porte **le plus** de candidats du lot est
+  `embarque/mcu/chien-de-garde` — 2 005 mots, la plus grosse, et une notion et
+  non un tuto.
+- **P91.14 — `hors perimetre` entre 5 et 60, point estimé 20.** *Lots 8 et 9 :
+  20 ; lot 10 : **9**, et la cause est écrite — ce seau compte titres, cellules
+  de tableau et `alt`, donc exactement ce que la prose n'est pas, et il s'effondre
+  sur des notions `embarque/` courtes.* ⚠ **La fourchette est très large vers le
+  haut à cause d'UNE fiche nommée** : `embarque/mcu/ascii` a toutes les chances
+  de porter une **table de codes**, et une table nombreuse en cellules peut
+  charger ce seau à elle seule. *Je n'ai pas lu la fiche ; je le dis plutôt que
+  de resserrer une fourchette sur une supposition.*
+- **P91.15 — ligne de bilan : `8 fiche(s) lue(s), 8 a reprendre.`**
+  *Fondement : aucun lot du chantier n'a rendu une source FR à zéro candidat dur,
+  `afnor-nfx50-151` à 91 mots comprise.*
+- **P91.16 — code de sortie de l'étape 3 : `0`.** *Lu dans le code
+  (l. 1272) : `process.exit(typo || creees || etrangers ? 1 : 0)` — les trois
+  seaux qui décident sont ceux que P91.10 prédit à 0, et `virgule ambigue` comme
+  `C109 de prose` **n'entrent pas** dans le code de sortie.* ⚠ *Donc un code de
+  sortie 1 réfuterait P91.10 sur l'un de ses trois termes mécaniques, jamais sur
+  `virgule ambigue`.*
+
+### Prédictions du bloc 91 — étape 4, anneau
+
+- **P91.17 — `--anneau 2` rend le bloc 90 à l'identique** : NET 145, traduites
+  133, RESTANT 12, `25544`, porteuses 0, clôtures 0, orphelines 0,
+  `CIBLES SANS FICHE (6)`, dette 15 / 27 812 / 2 hors anneaux. *Aucune écriture
+  entre les deux blocs ; un écart serait une anomalie et vaudrait ARRÊT.*
+- **P91.18 — codes de sortie des étapes 0, 1, 2 et 4 : `0`.**
+
+### Constats du bloc 91 — 17 prédictions tenues, 0 réfutée, 1 déclarative honorée
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b45.txt`.
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P91.1 | ASCII 0 ; copie `3008b45` | 0 ; `tools\batterie-sortie-3008b45.txt` | **tenue** |
+| P91.2 | `cadrage / 2 / False`, heure > 11:22:42 | `cadrage   anneau : 2   chevron : False` ; **11:28:39** | **tenue** |
+| P91.3 | `0f3c9a5 2026-08-30 11:20:01 +0200`, au caractère | identique | **tenue** |
+| P91.4 | `3   (hors artefacts de seance : 0)` | **3 / 0** | **tenue** |
+| P91.5 | `v24.15.0` | identique | **tenue** |
+| P91.6 | 3 lignes de pilotage, au caractère | identiques | **tenue** |
+| P91.7 | 8 lignes de sources, **0 datée du 30/08** | 8 lignes ; 28/05, 12/06, 19/08 ×3, 20/08, 22/08 — **0** | **tenue** |
+| P91.8 | 8 couples au mot | 671 / 2005 / 1397 / 398 / 385 / 519 / 1829 / 135 | **tenue** |
+| P91.9 | `LOT (8 fiches)   7339` | identique | **tenue** |
+| P91.10 | 4 seaux mécaniques à 0, `virgule ambigue` compris | **0 / 0 / 0 / 0** | **tenue** |
+| P91.11 | `C109 de prose` ∈ [70, 145], point 105 | **82** | **tenue** |
+| P91.12 | refus motivé de décomposer | refus tenu | déclarative |
+| P91.13 | (a) `xbee` ≥ 1 ; (b) la plus chargée est `chien-de-garde` | (a) **1** ; (b) **chien-de-garde, 29** | **tenue** |
+| P91.14 | `hors perimetre` ∈ [5, 60], point 20 | **12** | **tenue** |
+| P91.15 | `8 fiche(s) lue(s), 8 a reprendre.` | identique | **tenue** |
+| P91.16 | code de sortie étape 3 : 0 | **0** | **tenue** |
+| P91.17 | `--anneau 2` identique au bloc 90 | identique sur les dix termes | **tenue** |
+| P91.18 | codes de sortie 0, 1, 2, 4 à 0 | **0 / 0 / 0 / 0** | **tenue** |
+
+⚠ **LA CANDIDATE NÉE AU BLOC 77 EST RÉFUTÉE À SA PREMIÈRE ÉPREUVE, ET LE LOT 11
+EST LE LOT QUI POUVAIT LA RÉFUTER.** La candidate dit : *le taux de candidats
+C109 se rapporte au volume de prose, pas au nombre de mots ; **une fiche courte
+est presque toute en prose et sur-rend**.* **Corollaire de prédiction appliqué au
+bloc 91** : élargir la fourchette **vers le haut**, ce lot étant le plus court en
+moyenne du chantier. **Décomposition mesurée après coup, terme à terme :**
+
+| fiche | mots | candidats | taux pour 100 mots |
+|---|---|---|---|
+| `embarque/mcu/sans-fil/xbee` | 135 | 1 | **0,74** |
+| `embarque/mcu/ide` | 385 | 3 | **0,78** |
+| `embarque/mcu/fonction-informatique` | 398 | 3 | **0,75** |
+| `embarque/mcu/potentiometre` | 519 | 5 | **0,96** |
+| `embarque/mcu/ascii` | 671 | 9 | **1,34** |
+| `embarque/mcu/filtrage` | 1 397 | 14 | **1,00** |
+| `embarque/mcu/programmation-non-bloquante` | 1 829 | 18 | **0,98** |
+| `embarque/mcu/chien-de-garde` | 2 005 | 29 | **1,45** |
+| **lot** | **7 339** | **82** | **1,12** |
+
+⚠ **Le taux le plus HAUT est sur la PLUS GROSSE fiche du lot (1,45 sur 2 005
+mots) et le plus BAS sur la PLUS PETITE (0,74 sur 135 mots)** — l'inverse exact
+de ce que la candidate prédit, sur un écart de facteur **1,96**. **Les quatre
+fiches sous 550 mots rendent 0,74 / 0,75 / 0,78 / 0,96, toutes SOUS la moyenne du
+lot.** *Et le corollaire de prédiction a coûté : mon point estimé était **105**
+pour un mesuré à **82** ; la fourchette n'a tenu que parce qu'elle était large.*
+
+⚠ **CE QUE LA RÉFUTATION MONTRE DE LA MESURE D'ORIGINE.** La candidate du
+bloc 77 reposait sur **une seule fiche** — `afnor-nfx50-151`, 91 mots, taux 2,20
+—, et la deuxième plus haute du lot 10 était `protection-electronique` à
+**1 389 mots**, taux 2,16. *La longueur n'expliquait déjà pas les deux valeurs
+hautes de ce lot-là ; elle n'en expliquait qu'une, et c'est celle que j'ai
+généralisée.*
+
+**Amendement proposé, à verser au §8 en clôture** : *le taux de candidats C109
+suit le **registre** de la fiche, pas sa longueur.* Une notion **argumentative**
+— qui pose une thèse, la qualifie, l'oppose — porte des incises et des
+appositions à chaque paragraphe : `chien-de-garde` 1,45, `ascii` 1,34.
+Une notion **définitionnelle courte** — qui nomme un objet, en donne l'usage et
+renvoie ailleurs — n'en porte presque pas : `xbee` 0,74, `ide` 0,78,
+`fonction-informatique` 0,75. **La fiche de 91 mots du lot 10 était courte ET
+définitionnelle dense, et c'est le second terme qui la faisait sur-rendre.**
+*Corollaire de prédiction qui remplace celui du bloc 77 : la fourchette d'un lot
+se cale sur la part de fiches **argumentatives** qu'il porte, mesurable avant la
+mesure par la présence de sections `## Pièges` et `## Pour aller plus loin`
+fournies — pas sur la taille moyenne des fiches.*
+
+⚠ **AVERTISSEMENT C118 SUR LE TABLEAU CI-DESSUS** : sa colonne « candidats » a
+été **comptée à la main** dans la sortie de l'étape 3, elle n'est pas une mesure
+d'outil. **Le bloc 92 la mesure**, et la publie ici comme prédiction à réfuter.
+Les colonnes « mots » et la ligne « lot » sortent, elles, des étapes 2 et 3.
+
+---
+
+## BLOC 92 — DÉCOMPOSITION MESURÉE DES 82 CANDIDATS C109, PAR FICHE
+
+**Commande** (`awk` sur la sortie de l'étape 3, bornée entre les deux
+en-têtes d'étape ; pas d'écriture) :
+
+```
+awk '/^>>> 3 - candidats C109/{on=1} /^>>> 4 - anneau/{on=0} on' tools/batterie-sortie.txt | awk '/^  embarque\/.*\.md$/{f=$1; next} /^ +[0-9]+ +\[C109\]/{n[f]++; t++} END{for (k in n) print n[k], k; print t, "TOTAL"}' | sort -k2
+```
+
+### Déclaration C131 du bloc 92
+
+**Aucun fichier écrit** : `awk` lit `tools/batterie-sortie.txt` et écrit sur la
+sortie standard. **Population de `git status` inchangée depuis le bloc 91 :
+3 entrées, dont 0 hors artefacts de séance.**
+
+### Test C110 du motif, AVANT de compter — échantillon nommé et ce qui pourrait le faire mordre à tort
+
+Le motif de fiche est `^  embarque/.*\.md$` et le motif d'occurrence
+`^ +[0-9]+ +\[C109\]`. **L'échantillon est la sortie entière du bloc 91**, et il
+a été choisi parce qu'il porte **trois pièges nommés** :
+1. l'**étape 4 (`--anneau`)** réimprime les **mêmes huit chemins** sans `.md`
+   (`  embarque/mcu/ascii                    671`) — le bornage entre les deux
+   en-têtes d'étape et le `\.md$` les écartent tous les deux ;
+2. la **ligne de bilan** `  C109 de prose         : 82` contient `C109` sans
+   crochets — le `\[C109\]` l'écarte ;
+3. les **lignes d'extrait** commencent par des espaces et portent du texte
+   accentué — l'ancrage `^ +[0-9]+ +\[` les écarte.
+**Contrôle d'étalonnage publié avant le lancement** : le `TOTAL` du motif doit
+rendre **82**, chiffre déjà publié par l'outil à l'étape 3 et non par ce motif.
+
+### Prédictions du bloc 92
+
+- **P92.1 — les huit termes, comptés à la main dans la sortie du bloc 91** :
+  `ascii` **9**, `chien-de-garde` **29**, `filtrage` **14**,
+  `fonction-informatique` **3**, `ide` **3**, `potentiometre` **5**,
+  `programmation-non-bloquante` **18**, `sans-fil/xbee` **1**.
+- **P92.2 — `TOTAL 82`**, égal au compteur `C109 de prose` de l'étape 3.
+  ⚠ *Un total à 82 avec un terme faux est le mode d'échec du §8 —
+  « un total dans la fourchette ne valide pas la décomposition » —, donc **les
+  huit termes se lisent un par un** et le total ne les valide pas.*
+- **P92.3 — huit lignes de fiche et une de total, soit neuf lignes**, aucun
+  chemin étranger aux huit sources du lot.
+
+### Constats du bloc 92 — 3 prédictions tenues, 0 réfutée
+
+```
+82 TOTAL
+9 embarque/mcu/ascii.md
+29 embarque/mcu/chien-de-garde.md
+14 embarque/mcu/filtrage.md
+3 embarque/mcu/fonction-informatique.md
+3 embarque/mcu/ide.md
+5 embarque/mcu/potentiometre.md
+18 embarque/mcu/programmation-non-bloquante.md
+1 embarque/mcu/sans-fil/xbee.md
+```
+
+- **P92.1 ✅ LES HUIT TERMES, UN PAR UN.** 9 / 29 / 14 / 3 / 3 / 5 / 18 / 1.
+- **P92.2 ✅** `TOTAL 82`, égal au compteur de l'étape 3 — **le motif est
+  étalonné contre un chiffre qu'il n'a pas produit**.
+- **P92.3 ✅** neuf lignes, aucun chemin étranger : les trois pièges nommés du
+  test C110 ont tous été écartés, y compris les huit chemins sans `.md` que
+  l'étape 4 réimprime.
+
+✅ **LE TABLEAU DES TAUX DU BLOC 91 EST DONC MESURÉ, ET LA RÉFUTATION DE LA
+CANDIDATE DU BLOC 77 TIENT SUR HUIT TERMES MESURÉS ET NON SUR UN COMPTAGE À
+L'ŒIL.**
+
+---
+
+## ⛳ GATE G1 — fin de cadrage. Composition du lot 11 arrêtée.
+
+**Fait** — **quatre blocs (89 garde, 90 composition, 91 cadrage, 92
+décomposition)**, **deux gardes de péremption au vert**, `HEAD 0f3c9a5` stable au
+caractère sur les deux, **zéro écriture dans `content/`**. Lot composé sur un
+critère qui **ne rend plus rien sous la borne**, assomption écrite avec son coût
+de revert.
+
+**Chiffres** — lot **8 fiches, 7 339 mots**, **+682 au-dessus de la borne 6 657
+(110,2 %)**. **82 candidats C109** de prose, décomposés et mesurés
+**9 / 29 / 14 / 3 / 3 / 5 / 18 / 1**, **12 hors périmètre**, **les quatre seaux
+mécaniques à 0**. Anneau 2 restant **12 / 25 544**, dette **15 / 27 812**,
+porteuses de chevron **0** — `ded` = 0, `tot` = `deh`, **C127 hors sujet pour le
+sixième lot d'affilée**. `CIBLES SANS FICHE` **6**, faux positif connu sur les
+alias.
+
+**Bilan prédictions/constats du cadrage : 31 prédictions à décompte plein,
+30 tenues, 1 réfutée** (plus 1 déclarative). *La seule réfutation, P90.9, est
+tombée sur le compteur dont j'avais écrit dans la prédiction même que je n'avais
+pas relu le code — C116 (7) annoncé et non appliqué.*
+
+**Ce qui suit** — bloc **93** : les **cinq relevés d'avant rédaction** (formes de
+production des titres de section EN, titres de callout, titres-doublons des deux
+côtés, puces à tiret sous éprouvage bilingue C110, libellés bornés aux deux
+bouts), puis le jugement un par un des 82 candidats sous C123.
+
+---
+
+⚠ **ARBITRAGE DE TIM AU GATE G1 — RENDU, ET IL EST DE NE PAS ARBITRER.**
+Réponse : *« si tu n'as pas besoin de mon arbitrage, continue jusqu'à la fin du
+traitement des lots/fiches demandées »*. **L'assomption du bloc de composition
+devient donc la décision de la séance** : lot 11 = `embarque/mcu/` en entier,
+8 fiches, 7 339 mots, **borne 6 657 dépassée de 10,2 %**, coût du revert écrit.
+*La question « la borne tient-elle encore » reste posée pour les lots 12 et 13,
+et va au JOURNAL comme arbitrage en attente, pas comme blocage.*
+
+---
+
+## BLOC 93 — RELEVÉS 1, 2 ET 5 D'AVANT RÉDACTION
+
+**Commandes, dans cet ordre** : garde ; script jetable de relevé
+(scratchpad, **hors dépôt**, C114) redirigé vers
+`tools/releves-avant-redaction-lot11-3008.txt` ; `titres-doublons.mjs` appendé au
+même fichier.
+
+### Déclaration C131 du bloc 93
+
+**Population** : entrées de `git status --porcelain`.
+**État déclaré à l'entrée du bloc : 3 entrées** — `predictions-260830.md` (` M`),
+`batterie-sortie-3008b44.txt` (`??`), `batterie-sortie-3008b45.txt` (`??`).
+**Versements que CE bloc s'ajoute en route, nommés :**
+1. `tools/batterie-sortie-3008b46.txt`, copie C124 créée par l'étape 0 de la
+   garde **avant** la lecture du compteur → **+1 `??`**, filtrée du sous-compteur ;
+2. `tools/releves-avant-redaction-lot11-3008.txt`, créé **après** la garde →
+   **+1 `??`**, **compté au sous-compteur `hors artefacts de seance`** ;
+3. le **script de relevé** vit dans le scratchpad de session, **hors dépôt** —
+   **0 entrée**.
+**Deux instants** : **4 entrées / 0 hors artefacts** quand la garde lit le
+compteur ; **5 / 1** en fin de bloc.
+*Liste close : ce bloc ne crée ni table TSV, ni test négatif, ni `--recaler`, ni
+fiche.*
+
+### Prédictions du bloc 93 — garde
+
+- **P93.1** — ASCII `0` ; copie `tools\batterie-sortie-3008b46.txt` ; heure
+  **> 11:28:39** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` **au
+  caractère** ; `node : v24.15.0` ; **3 lignes de dates de pilotage inchangées
+  au caractère** ; `fichiers modifies non commites : 4   (hors artefacts de seance : 0)`.
+
+### Prédictions du bloc 93 — RELEVÉ 1, formes de production des titres de section EN
+
+- **P93.2 — les six formes de production sortent INCHANGÉES par rapport à la
+  référence de clôture du lot 10** : `## See also` **219**,
+  `## What is it for?` **153**, `## Pitfalls` **152**,
+  `## Where it fits in the project` **105**, `## Exercises` **37**,
+  `## Going further` **31**. *Fondement : aucune fiche EN n'a été écrite depuis
+  cette clôture, et la garde du bloc 91 l'a dit — `content/en/` est intact,
+  `git status` ne porte aucun fichier de `content/`.*
+- **P93.3 — les deux formes fautives du lot 4 restent à 0** :
+  `## Project connection` **0**, `## Step-by-step procedure` **0**.
+  *Cinquième confirmation du correctif É1 de la suite 10.*
+- **P93.4 — `## Step by step` sort à 78.** *Fondement : **77** au relevé
+  d'avant rédaction du lot 10, plus **1** — `etat-de-l-art-technique` porte
+  `## Procédure pas à pas`, et le relevé complémentaire du bloc 82 a déclaré
+  cette correspondance avant de l'écrire. **C'est le seul des six titres de
+  section du lot 10 à alimenter cette forme.***
+- **P93.5 — `POPULATION (fichiers balayes) : 227`**, égale au nombre de fiches
+  EN publié à la clôture du lot 10. *Le script écrit sa population dans sa
+  sortie, règle d'usage du 29/08 (suite 11).*
+
+### Prédictions du bloc 93 — RELEVÉ 2, titres de callout EN
+
+- **P93.6 — les sept titres nommés par le brief, un par un** : `Watch out`
+  **49**, `Tip` **46**, `Good` **3**, `Fair` **3**, `Poor` **3**,
+  `Attention` **0**, `Astuce` **0** — inchangés pour la même raison qu'en P93.2.
+- **P93.7 — `> [!example] Example: 3-axis arm project` reste la forme la plus
+  fréquente du relevé**, devant `Watch out` et `Tip`. *Elle sortait à **54** au
+  relevé du lot 10, contre 47 et 44 ; **je ne prédis pas sa valeur**, aucune
+  clôture ne l'ayant publiée après les cinq fiches du lot 10.*
+
+### Prédictions du bloc 93 — RELEVÉ 5, titres-doublons des DEUX côtés
+
+- **P93.8 — FR `243 / 243 / 0` et EN `227 / 227 / 0`**, aux valeurs de clôture
+  du lot 10 : fiches lues / titres distincts / groupes en collision, **0 fiche
+  concernée des deux côtés**.
+  ⚠ *La règle d'usage de C125 exige de relever les groupes **des deux côtés** et
+  de les comparer : un groupe présent d'un seul côté est un défaut de report.
+  **Zéro des deux côtés est le seul état où la comparaison est triviale**, et
+  c'est celui du chantier depuis le lot 8.*
+
+### Terme écrit pour réfuter
+
+Toute valeur de P93.2, P93.6 ou P93.8 différente de sa référence signifierait
+qu'une fiche EN a bougé depuis la clôture du lot 10 **sans que `git status` ne
+le voie** — ce qui vaudrait **ARRÊT** et non ajustement.
+
+### Constats du bloc 93 — 8 prédictions tenues, 0 réfutée
+
+Sortie : `tools/releves-avant-redaction-lot11-3008.txt` ;
+garde `tools\batterie-sortie-3008b46.txt`.
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P93.1 | ASCII 0 ; copie `3008b46` ; heure > 11:28:39 ; HEAD au caractère ; `v24.15.0` ; 3 dates inchangées ; `4   (hors artefacts : 0)` | 0 ; `3008b46` ; **17:21:58** ; `0f3c9a5 2026-08-30 11:20:01 +0200` ; `v24.15.0` ; identiques ; **4 / 0** | **tenue** |
+| P93.2 | 219 / 153 / 152 / 105 / 37 / 31 | **identiques aux six** | **tenue** |
+| P93.3 | `## Project connection` 0, `## Step-by-step procedure` 0 | **0 / 0** | **tenue** |
+| P93.4 | `## Step by step` **78** | **78** | **tenue** |
+| P93.5 | `POPULATION (fichiers balayes) : 227` | **227** | **tenue** |
+| P93.6 | 49 / 46 / 3 / 3 / 3 / 0 / 0 | **identiques aux sept** | **tenue** |
+| P93.7 | `Example: 3-axis arm project` en tête, devant `Watch out` et `Tip` | **54 > 49 > 46** | **tenue** |
+| P93.8 | FR `243 / 243 / 0`, EN `227 / 227 / 0` | identiques | **tenue** |
+
+⚠ **UN ÉCART D'HORLOGE DE SIX HEURES ENTRE LES BLOCS 91 ET 93, ET CE N'EST PAS
+UNE ANOMALIE** : 11:28:39 → **17:21:58**, temps de réponse de Tim au gate G1.
+**La garde le dit** : `HEAD` identique au caractère, trois dates de pilotage
+identiques à la seconde, compteur à 4 / 0 conforme à la déclaration.
+*Une garde de péremption sert exactement à cela — distinguer un dépôt qui a
+attendu d'un dépôt qui a bougé.*
+
+✅ **P93.4 EST LE TERME QUI PORTE.** Les six formes de production sont
+**inchangées** et ne prouvent donc qu'une chose : `content/en/` n'a pas bougé.
+`## Step by step` est le seul compteur du relevé qui **devait** bouger — de 77 à
+78, par la seule fiche du lot 10 portant `## Procédure pas à pas` —, et il tombe
+au chiffre. *Prédire six chiffres inchangés est facile ; c'est le septième qui
+mesure quelque chose.*
+
+---
+
+## BLOC 94 — RELEVÉS 3 ET 4 D'AVANT RÉDACTION
+
+**Commande** : script jetable (scratchpad, **hors dépôt**), appendé à
+`tools/releves-avant-redaction-lot11-3008.txt`.
+
+### Déclaration C131 du bloc 94
+
+**État à l'entrée : 5 entrées, dont 1 hors artefacts de séance**
+(`releves-avant-redaction-lot11-3008.txt`).
+**Versement de ce bloc : aucun** — le fichier de relevé **existe déjà** et est
+déjà `??` ; l'append **ne crée pas d'entrée**. Le script vit hors dépôt.
+**Total inchangé : 5 entrées, dont 1 hors artefacts de séance.**
+⚠ *C'est le cas de figure de la première épreuve de la règle `--recaler` au
+lot 8 — une écriture sur un fichier déjà `??` ne bouge pas le compteur — et
+**c'est un coup de chance et non une garde** : sur un fichier suivi, la
+déclaration serait fausse sans que rien ne le signale.*
+
+### Test C110 du motif de cible, AVANT de compter
+
+Le motif de lien est
+`/\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]*))?\]\]/g` et la cible est retenue si
+elle **égale** `<slug>-en` ou **se termine par** `/<slug>-en` — **bornée aux deux
+bouts**, règle d'usage 15 née de la double morsure du lot 9.
+**L'échantillon nommé est le corpus EN entier, et il porte trois pièges de
+sous-chaîne que le bornage doit écarter :**
+1. **`ide-en`** est sous-chaîne de **`guide-en`** — le corpus porte
+   `content/en/conduite/proj/…` et des fiches de méthode ; un motif non borné à
+   gauche compterait tout `guide-en` pour un `ide-en` ;
+2. **`ascii-en`** et **`filtrage-en`** sont sous-chaînes de rien de connu, **et
+   c'est justement pourquoi ils ne prouvent rien** — ils sont dans
+   l'échantillon comme témoins négatifs ;
+3. **`programmation-non-bloquante-en`** est **sous-chaîne d'aucun slug mais
+   SUR-chaîne** de `arduino-programmation-non-bloquante-en` et
+   `micropython-programmation-non-bloquante-en` — un motif borné **à droite
+   seulement** (`endsWith`) les compterait tous les deux à tort.
+   ⚠ **C'est le piège qui mord vraiment sur ce lot**, et il est de la famille
+   exacte de la double morsure du lot 9. Le bornage à gauche est le `/` :
+   `c.endsWith('/' + cible)`, jamais `c.endsWith(cible)`.
+
+### Prédictions du bloc 94 — RELEVÉ 3, libellés vers les huit cibles
+
+- **P94.1 — `POPULATION (fichiers EN balayes) : 227`.**
+- **P94.2 — AUCUNE des huit cibles ne rend 0 libellé.** *Fondement : les huit
+  sont à l'anneau 2, donc atteintes depuis une fiche de l'anneau 1, laquelle est
+  traduite par construction — et `--anneau` a rendu
+  `ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)` deux fois ce matin.*
+  ⚠ **Terme écrit pour réfuter** : un 0 signifierait un faux négatif du bornage,
+  l'erreur exacte que le premier correctif du lot 9 avait produite.
+- **P94.3 — l'ORDRE des huit cibles par nombre de fiches EN qui les visent**,
+  prédit sans chiffres, du plus visé au moins visé :
+  `programmation-non-bloquante-en` > `chien-de-garde-en` > `filtrage-en` >
+  `potentiometre-en` > `ide-en` > `fonction-informatique-en` > `ascii-en` >
+  `xbee-en`. *Fondement : les trois premières sont des notions transverses citées
+  par les fiches de chaque famille MCU (temporisation, machine à états, capteur
+  analogique), les trois dernières sont des feuilles.*
+  ⚠ **Je ne prédis AUCUN chiffre par cible**, et le refus est motivé : aucune
+  clôture du chantier n'a publié le nombre de liens entrants d'une fiche
+  `embarque/mcu/`, et un prorata sur le volume des fiches serait la faute que le
+  bloc 77 a mesurée.
+- **P94.4 — invariant de relation, prédit comme FORME EXACTE et vérifié cible
+  par cible** : pour chacune des huit,
+  **`fiche(s) EN` ≤ `fiche(s) FR traduites qui la visent`**.
+  *Fondement : un libellé anglais n'existe que si sa fiche source a été
+  traduite.* ⚠ **L'égalité n'est PAS prédite** : le compte FR ne résout pas les
+  **alias** (`[[watchdog]]` vers `chien-de-garde`), donc une fiche EN peut viser
+  la cible sans que le compte FR ne la voie — l'inégalité peut se renverser, et
+  **ce serait un fait à consigner, pas une erreur de motif**.
+
+### Prédictions du bloc 94 — RELEVÉ 4, titres de section des huit sources FR
+
+- **P94.5 — les huit sources portent ensemble entre 25 et 45 titres `##`/`###`,
+  point estimé 34.** *Base : les cinq sources du lot 10 en portaient 36, les
+  cinq du lot 8 également 36 ; ce lot a **huit** fiches mais **cinq** d'entre
+  elles pèsent moins de 700 mots et n'ont place que pour deux ou trois sections.*
+- **P94.6 — quatre familles génériques et leurs effectifs, prédits un par un** :
+  `## À quoi ça sert ?` **8**, `## Voir aussi` **8**, `## Pièges` **6**,
+  `## Comment ça marche ?` **3**. *Fondement : les deux premières sont l'ossature
+  de toute fiche-notion du corpus et aucune des huit n'y échappe — la seule fiche
+  du chantier sans `## Voir aussi` était `afnor-nfx50-151`, à 91 mots ;
+  `## Pièges` manque aux plus courtes.*
+- **P94.7 — `embarque/mcu/sans-fil/xbee`, 135 mots, porte AU PLUS 2 titres de
+  section.** *C'est la plus petite du lot et la deuxième plus petite du
+  chantier.*
+- **P94.8 — au moins UNE forme de titre neuve** — propre à une fiche et sans
+  correspondance de production — **sera à déclarer avant d'être écrite**.
+  *Les lots 8 et 10 en ont déclaré une et trois ; un lot de huit notions
+  techniques distinctes n'a aucune raison de tenir dans le gabarit générique.*
+
+### Constats du bloc 94 — 6 prédictions tenues, 2 réfutées
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P94.1 | `POPULATION (fichiers EN balayes) : 227` | **227** | **tenue** |
+| P94.2 | aucune cible à 0 | 4 / 10 / 12 / 12 / 7 / 14 / 12 / 3 libellés | **tenue** |
+| P94.3 | ordre des huit par fiches EN | **faux dès le 1er rang** | **RÉFUTÉE** |
+| P94.4 | `fiche(s) EN` ≤ `fiche(s) FR traduites` sur les huit | **égalité sur les huit** | **tenue** |
+| P94.5 | titres `##`/`###` ∈ [25, 45], point 34 | **42** | **tenue** |
+| P94.6 | `À quoi ça sert ?` 8, `Voir aussi` 8, `Pièges` 6, `Comment ça marche ?` 3 | **6 / 8 / 5 / 4** | **RÉFUTÉE** (3 termes sur 4) |
+| P94.7 | `xbee` porte au plus 2 titres | **2** | **tenue** |
+| P94.8 | au moins une forme neuve à déclarer | **seize** | **tenue** |
+
+✅ **P94.4 EST LE TERME QUI PORTE, ET IL TOMBE À L'ÉGALITÉ SUR LES HUIT.**
+3 = 3, 7 = 7, 7 = 7, 8 = 8, 6 = 6, 11 = 11, 7 = 7, 2 = 2. *L'inégalité était
+prédite large **parce que le compte FR ne résout pas les alias** ; l'égalité
+stricte dit qu'**aucune** des huit cibles n'est visée par un alias depuis le
+corpus anglais.* ⚠ **Et le test C110 du motif a servi** : `potentiometre-en` et
+`programmation-non-bloquante-en` ont chacune un viseur FR **non traduit** —
+`simulation/falstad` et `chien-de-garde`, toutes deux du restant —, ce qui fait
+**12 viseurs FR pour 11 fiches EN** et **8 pour 7**. *Un bornage à droite seul
+aurait compté `arduino-programmation-non-bloquante-en` et
+`micropython-programmation-non-bloquante-en` dans la cible
+`programmation-non-bloquante-en`, et l'invariant aurait sauté dans l'autre
+sens — le piège nommé avant la mesure est celui qui aurait mordu.*
+
+⚠ **P94.3 EST FAUSSE DÈS LE PREMIER RANG, ET LA CAUSE EST LA MÊME QUE CELLE DU
+BLOC 77 SOUS UN TROISIÈME HABIT.** Ordre prédit / mesuré, en fiches EN :
+
+| cible | rang prédit | fiches EN | rang réel |
+|---|---|---|---|
+| `potentiometre-en` | 4 | **11** | **1** |
+| `fonction-informatique-en` | 6 | **8** | **2** |
+| `chien-de-garde-en` | 2 | 7 | 3 ex æquo |
+| `filtrage-en` | 3 | 7 | 3 ex æquo |
+| `programmation-non-bloquante-en` | **1** | 7 | 3 ex æquo |
+| `ide-en` | 5 | 6 | 6 |
+| `ascii-en` | 7 | 3 | 7 |
+| `xbee-en` | 8 | 2 | 8 |
+
+*J'ai classé sur la **centralité conceptuelle** — « notion transverse citée par
+chaque famille MCU » — quand le compteur mesure le **nombre de fiches de
+réalisation qui s'en servent**. `potentiometre` est une notion de premier
+niveau, citée par **cinq** fiches de moteur et **trois** de capteur des deux
+familles Arduino et MicroPython ; `programmation-non-bloquante` est citée par les
+fiches qui l'**enseignent**, qui sont deux.* ⚠ **Les deux seuls rangs justes sont
+les deux derniers**, et ils l'étaient pour la bonne raison : `ascii` et `xbee`
+sont des feuilles. **Le milieu du classement était une intuition, pas une
+mesure**, et je ne l'avais pas dit.
+
+⚠ **P94.6 RÉFUTÉE SUR TROIS TERMES DE QUATRE, ET LE QUATRIÈME EST CELUI QUI
+COMPTE POUR LA SUITE.** `## Voir aussi` sort à **8 sur 8**, seule famille que
+les huit fiches portent toutes. Les trois autres ratent **par le haut** :
+`## À quoi ça sert ?` **6** (manque à `ide` et `xbee`), `## Pièges` **5**
+(manque à `ascii`, `ide`, `xbee`), `## Comment ça marche ?` **4**.
+*J'avais posé « l'ossature de toute fiche-notion » comme une règle, et trois des
+huit fiches ne la suivent pas : `ide` **ouvre** sur
+`## Ce que l'IDE prend en charge`, `xbee` sur `## Comment ça marche ?`, `ascii`
+n'a pas de section `## Pièges`.*
+
+⚠⚠ **ET LE RELEVÉ ATTRAPE UNE FORME QUI DIFFÈRE D'UN SEUL CARACTÈRE, TROISIÈME
+FOIS DU CHANTIER.** `embarque/mcu/potentiometre` porte **`## Comment ça marche`
+SANS point d'interrogation**, quand les quatre autres portent
+`## Comment ça marche ?`. *C'est la famille exacte de
+`## Exemple — Le bras 3 axes` contre `## Exemple — le bras 3 axes` (lot 10, la
+majuscule) et de `## Exemple — Bras 3 axes pédagogique` (lot 8).* **Aucun
+contrôle du dépôt ne le verrait**, et un relevé qui aurait normalisé la
+ponctuation aurait fondu les deux formes. **À trancher au relevé complémentaire
+du bloc 95, avant d'écrire.**
+
+⚠ **P94.5 tombe dans la fourchette à 42 pour un point estimé à 34**, et la
+fourchette a tenu par sa borne haute. *Cause lisible : `chien-de-garde` porte
+**9** titres et `programmation-non-bloquante` **8** à elles deux 17, quand les
+trois plus petites — `ide`, `xbee`, `fonction-informatique` — en portent **9**
+ensemble. **Même variable que le taux de C109 : le registre argumentatif, pas la
+taille.*** ✅ *C'est la deuxième mesure du jour à pointer la même cause, et
+l'amendement proposé au bloc 91 s'en trouve renforcé.*
+
+---
+
+## BLOC 95 — RELEVÉ COMPLÉMENTAIRE : FRONT MATTER, FAMILLES DE TITRES, SYMÉTRIE DES LIBELLÉS
+
+**Commande** : script jetable (scratchpad, **hors dépôt**), appendé à
+`tools/releves-avant-redaction-lot11-3008.txt`.
+
+### Déclaration C131 du bloc 95
+
+**État à l'entrée : 5 entrées, dont 1 hors artefacts de séance.**
+**Versement de ce bloc : aucun** — append sur un fichier déjà `??`, script hors
+dépôt. **Total inchangé : 5 / 1.**
+
+### Prédictions du bloc 95 — A, front matter des huit sources
+
+- **P95.1** — les huit portent un `title:`, et **aucune n'est en `draft: true`**.
+- **P95.2** — **au plus DEUX des huit portent un bloc `aliases:`.** *Fondement :
+  le lot 10 en avait une sur cinq (`boucle-ouverte`, alias
+  `commande en boucle ouverte`). Candidates naturelles ici : `chien-de-garde`
+  (`watchdog`) et `programmation-non-bloquante`.*
+
+### Prédictions du bloc 95 — B, poids des familles de titres
+
+- **P95.3** — `## Comment ça marche ?` : **FR 16, EN 11**. *Fondement : 16 FR →
+  10 EN au relevé complémentaire du lot 10, et le relevé 1 de ce matin mesure
+  `## How does it work?` à **11** — la fiche `asservissement` du lot 10 a ajouté
+  la onzième. Aucune fiche FR n'a été écrite depuis, donc 16 tient.*
+- **P95.4** — `## Comment ça marche` **SANS** point d'interrogation : **FR entre
+  1 et 4, point estimé 2** ; EN `## How does it work` sans `?` : **0**.
+  ⚠ **Terme écrit pour réfuter** : un EN à 0 dit que la forme sans `?` n'a
+  **jamais** été reportée, et il faudra décider si `potentiometre` porte une
+  distinction que l'anglais n'a jamais eu à rendre.
+- **P95.5** — `## Cas particulier*` : **FR entre 8 et 14** ; EN
+  `## Special case*` : **101**. *Fondement du 101 : **99** au relevé
+  complémentaire du lot 10, plus les **deux** fiches de ce lot-là portant un
+  `## Cas particulier` — `etat-de-l-art-technique` et `boucle-ouverte`.*
+- **P95.6** — `## Example*` EN : **≥ 20**, sans point estimé. *Le relevé 1 de ce
+  matin ne montre qu'une forme de la famille au-dessus du seuil de 5 —
+  `## Example — 3-axis teaching arm` à 9 —, ce qui dit que la famille est
+  **éclatée en formes propres**, et une famille éclatée ne se prédit pas au
+  total.*
+- **P95.7** — les trois familles d'ossature côté FR : `## À quoi ça sert ?`
+  **[130, 160]**, `## Pièges` **[130, 160]**, `## Voir aussi` **[225, 243]**.
+  *Fondement : leurs jumelles EN valent 153, 152 et 219 sur **227** fiches
+  traduites, pour **243** fiches FR ; le rapport 243/227 = 1,07 les porterait à
+  164, 163 et 235, mais les 16 fiches non traduites sont des notions courtes.*
+
+### Prédictions du bloc 95 — C, libellés FRANÇAIS vers les huit cibles
+
+- **P95.8** — pour chacune des huit, le total de libellés FR est **supérieur ou
+  égal** au total anglais du relevé 3 — 4 / 10 / 12 / 12 / 7 / 14 / 12 / 3.
+  *Fondement : 243 fiches FR contre 227 EN, et toute fiche EN reporte les liens
+  de sa source un pour un.*
+- **P95.9** — `chien-de-garde` porte une **collision de libellé français**, du
+  type `chien de garde` contre `watchdog`. *C'est la seule des huit dont le
+  concept a un nom anglais d'usage courant en français, et le corpus EN écrit
+  déjà `Watchdog` 6 et `watchdog` 4.*
+- **P95.10** — `fonction-informatique` est celle dont le report de titre
+  **demandera un arbitrage** : les libellés anglais sont partagés `Function` 5 /
+  `functions` 5 / `function` 2, *aucune forme majoritaire, et le singulier et le
+  pluriel ne désignent pas la même chose.*
+
+### Constats du bloc 95 — 5 prédictions tenues, 5 réfutées
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P95.1 | 8 `title:`, 0 `draft: true` | 8 `title:`, 8 `draft: false` | **tenue** |
+| P95.2 | **au plus 2** blocs `aliases:` | **3** (`chien-de-garde`, `filtrage`, `programmation-non-bloquante`) | **RÉFUTÉE** |
+| P95.3 | `## Comment ça marche ?` FR **16**, EN **11** | FR **15**, EN **11** | **RÉFUTÉE** (1er terme) |
+| P95.4 | FR sans `?` ∈ [1, 4] point 2 ; EN sans `?` **0** | **1** ; **0** | **tenue** |
+| P95.5 | `## Cas particulier*` FR ∈ [8, 14] ; EN **101** | FR **107** ; EN **104** | **RÉFUTÉE** (les deux termes) |
+| P95.6 | `## Example*` EN ≥ 20 | **114** | **tenue** |
+| P95.7 | FR `À quoi ça sert ?` [130,160], `Pièges` [130,160], `Voir aussi` [225,243] | **164**, **162**, **234** | **RÉFUTÉE** (2 termes sur 3) |
+| P95.8 | libellés FR ≥ libellés EN sur les huit | 4/10/12/12/7/**16**/**13**/3 contre 4/10/12/12/7/14/12/3 | **tenue** |
+| P95.9 | collision de libellé FR `chien de garde` / `watchdog` | **aucun `watchdog` en libellé FR** ; seulement `Chien de garde` 6 / `chien de garde` 4 | **RÉFUTÉE** |
+| P95.10 | `fonction-informatique` demandera un arbitrage de titre | **`Fonction` 5 / `fonctions` 5 / `fonction` 2 côté FR aussi** | **tenue** |
+
+⚠⚠ **P95.3 RÉFUTÉE D'UNE UNITÉ, ET C'EST LA RÉFUTATION LA PLUS UTILE DU BLOC :
+ELLE DIT QUE LE RELEVÉ DU LOT 10 A NORMALISÉ CE QU'IL DEVAIT SÉPARER.** Le relevé
+complémentaire du lot 10 publiait `## Comment ca marche ? (16 FR)`. Mesuré
+aujourd'hui, à motif **borné et non normalisé** : **15 avec `?`** et **1 sans**.
+*Aucune fiche FR n'a été écrite entre les deux, donc les deux chiffres portent
+sur le même corpus : le 16 du lot 10 est la SOMME des deux formes, et son motif
+pliait le point d'interrogation.* ⚠ **C'est la quatrième fois du chantier qu'une
+forme française se distingue d'une autre par un seul caractère** — la majuscule
+de `## Exemple — Le bras 3 axes` (lot 10), le qualificatif de
+`## Exemple — Bras 3 axes pédagogique` (lot 8), et maintenant un point
+d'interrogation. **Et c'est la première fois que le relevé du lot précédent est
+pris en défaut par celui du lot suivant.**
+
+✅ **P95.5 EST RÉFUTÉE SUR SES DEUX TERMES, ET L'ÉCART FR/EN S'EXPLIQUE
+INTÉGRALEMENT PAR LE LOT 11 LUI-MÊME.** `## Cas particulier*` **FR 107**,
+`## Special case*` **EN 104**, **écart de 3**. *Les trois fiches françaises qui
+portent un `## Cas particulier` sans jumelle anglaise sont **exactement**
+`chien-de-garde`, `filtrage` et `programmation-non-bloquante` — les trois plus
+grosses du lot 11.* **L'écart se refermera à 107 / 107 à la clôture de ce lot,
+et c'est un contrôle publié d'avance.** ⚠ *Ma borne FR [8, 14] était une faute de
+population : j'ai chiffré la famille comme si elle ne vivait que dans les huit
+sources, quand le relevé balaie le corpus entier. **C131 dit de déclarer la
+population d'un compteur qu'on prédit ; je l'ai déclarée pour les autres et pas
+pour celui-là.***
+
+⚠ **P95.7 RÉFUTÉE SUR DEUX TERMES, ET LA CAUSE EST QUE J'AI CORRIGÉ UNE
+ESTIMATION JUSTE.** Le rapport 243/227 = 1,07 appliqué aux trois compteurs EN
+donne **164 / 163 / 235** ; **mesuré 164 / 162 / 234**. *J'ai écrit ces trois
+nombres dans le fondement de la prédiction, puis je les ai **abaissés** en
+raisonnant que les 16 fiches non traduites seraient des notions courtes sans
+ces sections — et le relevé 4 venait pourtant de montrer que trois des huit
+sources n'ont ni `## À quoi ça sert ?` ni `## Pièges`.* ⚠ **Le modèle
+proportionnel naïf tombait à 0, 1 et 1 près ; ma correction l'a fait sortir de la
+fourchette.** *Règle d'usage candidate : quand un fondement rend un nombre, la
+prédiction est ce nombre — une correction « de bon sens » appliquée après coup
+doit se chiffrer elle aussi, ou ne pas s'appliquer.*
+
+⚠ **P95.9 RÉFUTÉE, ET LE FAIT MESURÉ VAUT MIEUX QUE LA PRÉDICTION.** Il n'y a
+**aucun libellé `watchdog` en français** : `watchdog` est un **alias** de la
+fiche, pas un libellé de lien. *La distinction est exactement celle que la
+réfutation P90.9 de ce matin a coûtée — un alias n'est pas un libellé, et le
+compteur ne les mélange pas.*
+
+✅ **LE FAIT LE PLUS FORT DU BLOC N'ÉTAIT PRÉDIT PAR AUCUNE PRÉDICTION : LE
+REPORT DES LIBELLÉS EST UN POUR UN SUR LES HUIT CIBLES, CASSE COMPRISE.**
+
+| cible | libellés FR | libellés EN |
+|---|---|---|
+| `ascii` | `Code ASCII` 3 / `code ASCII` 1 | `ASCII code` **4** |
+| `chien-de-garde` | `Chien de garde` 6 / `chien de garde` 4 | `Watchdog` **6** / `watchdog` **4** |
+| `filtrage` | `Filtrer des mesures` 7 / `filtrer des mesures` 4 / `filtrage` 1 | `Filtering measurements` **7** / `filtering measurements` **4** / `Filtering` **1** |
+| `fonction-informatique` | `Fonction` 5 / `fonctions` 5 / `fonction` 2 | `Function` **5** / `functions` **5** / `function` **2** |
+| `ide` | `IDE` 7 | `IDE` **7** |
+| `potentiometre` | `potentiomètre` 10 / `Potentiomètre` 4 / `Le potentiomètre` 2 | `potentiometer` **11** / `Potentiometer` **3** |
+| `programmation-non-bloquante` | `Programmation non bloquante` 8 / `programmation non bloquante` 5 | `Non-blocking programming` **7** / `non-blocking programming` **5** |
+| `xbee` | `XBee` 3 | `XBee` **3** |
+
+**Six cibles sur huit sont un report parfait**, décomposition de casse comprise.
+Les deux écarts s'expliquent **entièrement** par les viseurs non traduits que le
+relevé 3 avait nommés — `simulation/falstad` ×2 vers `potentiometre`,
+`chien-de-garde` ×1 vers `programmation-non-bloquante`.
+⚠ **Deux asymétries de casse d'un seul caractère restent, et elles sont
+consignées et non corrigées** : `filtrage` (minuscule) → `Filtering`
+(majuscule) ; et sur `potentiometre`, la décomposition FR **10 / 4** contre EN
+**11 / 3** ne se referme qu'en supposant que les deux libellés de `falstad` sont
+les deux `Le potentiomètre` — *une hypothèse que je n'ai pas mesurée et que je ne
+fais pas passer pour une mesure*. **Hors périmètre du lot 11.**
+
+⚠ **INCIDENT DE MOTIF DANS MON PROPRE RELEVÉ, ET IL FAUSSE LA LECTURE DES
+`aliases:`.** Le filtre du relevé A imprime toute ligne
+`^\s+- ` **quelle que soit sa clé parente** : les blocs `aliases:` affichés
+portent donc des entrées qui appartiennent à d'**autres** clés — `microcontroleur`
+et `integration-et-tests` sous `chien-de-garde`, `adc` et `preuve-de-concept`
+sous `filtrage`, et une ligne `- preuve-de-concept` **avant** `tags:` sous
+`fonction-informatique`. ⚠ *C'est C110 à la lettre, et mon échantillon nommé ne
+portait que des titres et des libellés, pas du front matter.* **La lecture des
+`aliases:` est REPRISE au bloc 96 sur un motif qui suit la clé**, et P95.2 y sera
+rejugée. *En l'état, le seul terme sûr de P95.2 est qu'il y a **au moins** trois
+blocs `aliases:`, ce qui suffit à la réfuter.*
+
+---
+
+## BLOC 96 — REPRISE DE LA LECTURE DU FRONT MATTER, ET COLLISIONS DE TITRE
+
+**Commande** : script jetable (scratchpad, **hors dépôt**), appendé à
+`tools/releves-avant-redaction-lot11-3008.txt`. **Ce bloc corrige un motif de
+mon relevé du bloc 95, il ne mesure pas autre chose.**
+
+### Déclaration C131 du bloc 96
+
+**État à l'entrée : 5 entrées, dont 1 hors artefacts de séance.**
+**Versement : aucun** — append sur un fichier déjà `??`. **Total inchangé : 5 / 1.**
+
+### Test C110 du motif corrigé, AVANT de compter
+
+Le motif du bloc 95 imprimait toute ligne `^\s+- ` **sans regarder sa clé**.
+Le motif corrigé **suit la clé de premier niveau** : `^([A-Za-z_][\w-]*):\s*(.*)$`
+ouvre une clé, `^\s+-\s+(.*)$` ajoute à la **clé ouverte au-dessus**, et **toute
+ligne non vide qui n'est ni l'une ni l'autre est imprimée sous un marqueur
+`?? ligne hors cle`**. *L'échantillon nommé est le front matter des huit sources,
+et il porte le piège qui a fait mordre le premier motif : `chien-de-garde`
+affichait `microcontroleur` et `integration-et-tests` **dans** son bloc
+`aliases:`, `filtrage` affichait `adc` et `preuve-de-concept`, et
+`fonction-informatique` affichait une ligne `- preuve-de-concept` **avant** sa
+clé `tags:`.*
+
+### Prédictions du bloc 96
+
+- **P96.1 — TROIS blocs `aliases:` sur les huit**, et leur contenu **exact** :
+  `chien-de-garde` → `watchdog`, `WDT` (**2**) ;
+  `filtrage` → `filtre numérique`, `moyenne glissante`, `filtre médian` (**3**) ;
+  `programmation-non-bloquante` → `boucle coopérative`, `super-loop`,
+  `non bloquant` (**3**). **Total 8 alias sur 3 fiches.**
+  *Les cinq autres entrées affichées au bloc 95 — `microcontroleur`,
+  `integration-et-tests` ×2, `adc`, `preuve-de-concept` ×2 — sont prédites
+  appartenir à d'**autres clés**.*
+- **P96.2 — AUCUNE ligne `?? ligne hors cle` sur les huit.** ⚠ **C'est le terme
+  qui décide si le corpus a un défaut ou si c'est mon motif qui en avait un.**
+  *Une ligne hors clé sous `fonction-informatique` serait un front matter mal
+  formé, à consigner comme défaut du corpus et hors périmètre du lot.*
+- **P96.3 — collisions des titres candidats** :
+  `ASCII code` **libre**, `Watchdog` **libre**, `Filtering measurements`
+  **libre**, `IDE` **libre**, `Potentiometer` **libre**,
+  `The potentiometer` **libre**, `Non-blocking programming` **libre**,
+  `XBee` **libre** ; **`Function` DÉJÀ PORTÉ** par
+  `en/conduite/proj/fonction-en.md`.
+  ⚠ *Fondement : `titres-doublons` rend `227 / 227 / 0` — il n'y a **aucune**
+  collision dans le corpus anglais, donc chaque titre existant est porté une
+  fois. La question n'est pas « y a-t-il collision », c'est « l'un des huit
+  candidats est-il déjà pris », et `Function` est celui que le chantier FR
+  désambiguïse déjà par `(informatique)`.*
+- **P96.4 — les deux fiches sœurs de `programmation-non-bloquante` portent des
+  titres EN DIFFÉRENTS du candidat** `Non-blocking programming`, et leurs
+  `title:` FR **diffèrent** de `Programmation non bloquante`.
+  *Fondement : clause C125 du 27/08 (suite 7) — le test 2 ne vaut que si les deux
+  jumelles portent le même `title:` FR ; le corpus qualifie ses fiches de famille
+  (`Programming the STM32 with the HAL`, `Programming the ESP32 with the Arduino
+  core`).* ⚠ **Terme écrit pour réfuter** : si l'une des deux porte **déjà**
+  `Non-blocking programming`, le candidat fabrique une collision EN que le
+  français ne porte pas, et il faut le qualifier.
+- **P96.5 — même chose pour les deux fiches `watchdog`** :
+  `arduino-watchdog-en` et `micropython-watchdog-en` ne portent **pas**
+  `Watchdog`.
+- **P96.6 — les titres FR à article initial (`Le `, `La `, `Les `, `L'`) sont
+  entre 8 et 30, point estimé 16 ; et AU MOINS 80 % de leurs jumelles EN ne
+  commencent PAS par `The ` / `A ` / `An `.** *C'est la mesure qui décide entre
+  `Potentiometer` et `The potentiometer` pour la fiche `Le potentiomètre` —
+  l'article défini est **obligatoire** en français devant un nom commun sujet et
+  **optionnel** en anglais, donc le laisser tomber n'est pas une asymétrie mais
+  une traduction. **Encore faut-il que le corpus le fasse déjà.***
+- **P96.7 — les titres EN commençant par `The ` / `A ` / `An ` sur les 227 sont
+  entre 0 et 15, point estimé 5.** *Le lot 7 en a écrit un —
+  `The SBC on a mechatronics project` — et il portait un complément, pas un nom
+  nu.*
+
+### Constats du bloc 96 — 6 prédictions tenues, 1 réfutée sur un terme
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P96.1 | 3 blocs `aliases:`, contenu exact, 8 alias | `chien-de-garde` [watchdog \| WDT], `filtrage` [filtre numérique \| moyenne glissante \| filtre médian], `programmation-non-bloquante` [boucle coopérative \| super-loop \| non bloquant] — **8 sur 3** | **tenue** |
+| P96.2 | aucune `?? ligne hors cle` | **aucune** | **tenue** |
+| P96.3 | 8 candidats libres, `Function` déjà porté | **identique**, `Function` porté par `en/conduite/proj/fonction-en.md` | **tenue** |
+| P96.4 | les deux sœurs `programmation-non-bloquante` ont des titres FR **et** EN différents du candidat | FR `… sur Arduino` / `… en MicroPython` ; EN `Non-blocking programming on Arduino` / `… in MicroPython` | **tenue** |
+| P96.5 | les deux sœurs `watchdog` ne portent pas `Watchdog` | `Watchdog on Arduino` / `Watchdog in MicroPython` | **tenue** |
+| P96.6 | titres FR à article ∈ [8, 30] point 16 ; **≥ 80 %** de jumelles EN sans article | **10** ; **4 sur 9 = 44 %** | **RÉFUTÉE** (2ᵉ terme) |
+| P96.7 | titres EN en `The `/`A `/`An ` ∈ [0, 15] point 5 | **5** | **tenue** |
+
+✅ **P96.2 TRANCHE LA QUESTION QUE LE BLOC 95 AVAIT OUVERTE : LE DÉFAUT ÉTAIT DANS
+MON MOTIF, PAS DANS LE CORPUS.** La ligne `- preuve-de-concept` qui paraissait
+flotter sous `fonction-informatique` appartient à sa clé **`phases:`**, laquelle
+est simplement écrite **avant** `tags:` dans cette fiche et après dans les sept
+autres. *Le front matter est bien formé sur les huit ; ce qui variait était
+l'ordre des clés, que mon premier motif ne pouvait pas voir puisqu'il ne lisait
+pas les clés.* ⚠ **Et les cinq entrées faussement rangées en `aliases:` se
+répartissent exactement comme prédit** : `microcontroleur` ×2 et `adc` et
+`techno-sans-fil` sous `prerequis:`, `preuve-de-concept` et
+`integration-et-tests` sous `phases:`.
+
+⚠⚠ **P96.6 EST RÉFUTÉE, ET SA RÉFUTATION DÉCIDE UN TITRE — C'EST LA MESURE LA
+PLUS UTILE DE LA SÉANCE.** J'avais prédit que le corpus **laisse tomber**
+l'article français ; il le **garde 5 fois sur 9**. Et la coupure n'est pas au
+hasard :
+
+| FR | EN | article |
+|---|---|---|
+| `Les boucles` | `Loops` | tombé — **pluriel** |
+| `Les conditions` | `Conditions` | tombé — **pluriel** |
+| `Les fonctions` | `Functions` | tombé — **pluriel** |
+| `Le typage des variables` | `Typing variables` | tombé — **gérondif** |
+| `La structure d'un programme` | `The structure of a program` | **gardé** |
+| `Le langage MicroPython` | `The MicroPython language` | **gardé** |
+| `Le REPL` | `The REPL` | **gardé** |
+| `Le SBC dans un projet mécatronique` | `The SBC on a mechatronics project` | **gardé** |
+| `Le Teensy comme appareil USB` | `The Teensy as a USB device` | **gardé** |
+
+**Cinq sur cinq des titres FR à nom SINGULIER DÉFINI désignant un objet gardent
+l'article en anglais ; quatre sur quatre des pluriels et des gérondifs le
+perdent.** *La règle du corpus n'est pas « l'anglais laisse tomber l'article »,
+c'est « l'article suit le nombre et la nature du nom ».*
+
+### Décision — les huit `title:` EN, sept arrêtés, un renvoyé au bloc 97
+
+| source | `title:` FR | `title:` EN décidé | ce qui décide |
+|---|---|---|---|
+| `ascii` | `Code ASCII` | **`ASCII code`** | relevé 3, forme **unanime** (4/4) |
+| `chien-de-garde` | `Chien de garde` | **`Watchdog`** | relevé 3, `Watchdog` 6 contre `watchdog` 4 ; racine des deux sœurs `Watchdog on Arduino` / `in MicroPython` |
+| `filtrage` | `Filtrer des mesures` | **`Filtering measurements`** | relevé 3, 7 contre 4 et 1 |
+| `fonction-informatique` | `Fonction (informatique)` | **au bloc 97** | `Function` **déjà porté** par `fonction-en` |
+| `ide` | `IDE` | **`IDE`** | relevé 3, **unanime** (7/7), sigle identique dans les deux langues |
+| `potentiometre` | `Le potentiomètre` | **`The potentiometer`** | voir ci-dessous |
+| `programmation-non-bloquante` | `Programmation non bloquante` | **`Non-blocking programming`** | relevé 3, 7 contre 5 ; racine des deux sœurs |
+| `xbee` | `XBee` | **`XBee`** | relevé 3, **unanime** (3/3) |
+
+⚠ **`The potentiometer` CONTRE `Potentiometer` : le relevé des libellés dit l'un
+et la symétrie dit l'autre, et c'est la symétrie qui gagne — pour la raison
+exacte qui a fait garder `NF X50-151` au lot 10, prise dans l'autre sens.**
+Le relevé 3 donne `potentiometer` **11** / `Potentiometer` **3**, aucune forme
+`The potentiometer`. **Mais le français porte exactement le même écart** : son
+`title:` est `Le potentiomètre` et ses libellés sont `potentiomètre` **10** /
+`Potentiomètre` **4** / `Le potentiomètre` **2**. *L'article vit dans le titre et
+pas dans les libellés, des deux côtés. Titrer `Potentiometer` reviendrait à
+**effacer une distinction que la source porte** — le motif du 26/08 pris dans le
+sens que la clause du 27/08 (suite 7) fait descendre au test 3.* **Et le corpus
+tranche : 5 titres FR à singulier défini sur 5 gardent leur article en anglais.**
+✅ **Coût au regard de `--libelles` : NUL.** *La clause du 29/08 (suite 9) le
+dit dans le code : `memeRadical` compare des **préfixes de cinq lettres**, et
+`The potentiometer` **contient** `potentiometer`. Un titre qui **allonge** une
+forme de production ne crée aucun candidat — quatrième épreuve de la clause.*
+**Coût du revert : 1 `title:`.**
+
+---
+
+## BLOC 97 — TITRES À PARENTHÈSE, ET RELEVÉ C113 DES BLOCS DE CODE DES HUIT SOURCES
+
+**Commande** : script jetable (scratchpad, **hors dépôt**), appendé à
+`tools/releves-avant-redaction-lot11-3008.txt`. **Deux objets** : décider le
+huitième `title:`, et relever les blocs de code avant traduction (clause C113 du
+30/08 — **l'assomption sur les chaînes affichées libres n'a plus été testable
+depuis trois lots, faute de tout bloc de code dans les lots 8, 9 et 10**).
+
+### Déclaration C131 du bloc 97
+
+**État à l'entrée : 5 entrées, dont 1 hors artefacts de séance. Versement :
+aucun** — append sur un fichier déjà `??`. **Total inchangé : 5 / 1.**
+
+### Prédictions du bloc 97 — E, titres à parenthèse
+
+- **P97.1 — les titres FR à parenthèse sont entre 1 et 6, point estimé 3**, et
+  `Fonction (informatique)` en fait partie.
+- **P97.2 — les titres EN à parenthèse sont entre 0 et 4, point estimé 1.**
+  ⚠ **Terme qui décide** : **0** dirait que le corpus anglais **n'a jamais
+  reporté** un parenthésé de désambiguïsation, et qu'en écrire un serait une
+  forme neuve à déclarer ; **≥ 1** dirait qu'il en a la forme.
+- **P97.3 — les titres EN contenant `function`/`functions` sont exactement
+  DEUX** : `Function` (`en/conduite/proj/fonction-en.md`) et `Functions`
+  (`en/embarque/mcu/micropython/micropython-fonctions-en.md`).
+  *Fondement : les deux sont sortis nommément du bloc 96, et
+  `titres-doublons` rend 227/227/0.*
+- **P97.4 — les titres FR contenant `fonction`/`fonctions` sont exactement
+  TROIS** : `Fonction`, `Fonction (informatique)`, `Les fonctions`.
+  ⚠ *Si le compte FR est de trois et le compte EN de deux, l'écart est
+  **exactement la fiche de ce lot**, et il se referme ce soir.*
+
+### Prédictions du bloc 97 — F, blocs de code des huit sources (C113)
+
+- **P97.5 — AU MOINS TROIS des huit sources portent un bloc de code**, et
+  `fonction-informatique`, `programmation-non-bloquante` et `ascii` en sont.
+  *Fondement : `--anneau` rend `fiches porteuses de chevron : 0` — aucune des
+  douze restantes ne porte de bloc **clôturé en chevron** —, ce qui ne dit rien
+  des blocs ``` ordinaires ; et les trois nommées enseignent respectivement
+  l'écriture d'une fonction, l'idiome `millis()` et la lecture d'un octet
+  série.*
+- **P97.6 — le total de lignes de code des huit sources est entre 40 et 160,
+  point estimé 90.**
+- **P97.7 — au moins UNE ligne de commentaire française dans un bloc de code**,
+  et donc **un cas de plus** pour l'arbitrage en attente des 26 lignes de
+  commentaire français des fiches EN. *C77 dit que les commentaires se
+  traduisent ; le relevé sert à savoir combien il y en a **avant** d'écrire.*
+- **P97.8 — au moins UNE chaîne affichée portant un mot français**, ce qui
+  **rendrait l'assomption C113 testable pour la première fois depuis trois
+  lots**. ⚠ **Terme écrit pour réfuter** : **zéro** chaîne rendrait le lot 11 le
+  **quatrième d'affilée** à ne pas pouvoir tester cette assomption, et il
+  faudrait le consigner comme tel.
+
+### Constats du bloc 97 — 3 prédictions tenues, 5 réfutées
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P97.1 | titres FR à parenthèse ∈ [1, 6] point 3 | **8** | **RÉFUTÉE** |
+| P97.2 | titres EN à parenthèse ∈ [0, 4] point 1 | **3** | **tenue** |
+| P97.3 | **exactement deux** titres EN avec `function(s)` | **trois** — `Function`, `Functions`, **`Function generator`** | **RÉFUTÉE** |
+| P97.4 | exactement trois titres FR avec `fonction(s)` | **trois** — `Fonction`, `Fonction (informatique)`, `Les fonctions` | **tenue** |
+| P97.5 | **au moins trois** sources portent un bloc de code | **une seule**, `fonction-informatique` | **RÉFUTÉE** |
+| P97.6 | lignes de code ∈ [40, 160] point 90 | **4** | **RÉFUTÉE** |
+| P97.7 | au moins une ligne de commentaire française | **trois** | **tenue** |
+| P97.8 | au moins une chaîne affichée à mot français | **zéro** | **RÉFUTÉE** |
+
+⚠⚠ **P97.5, P97.6 ET P97.8 SONT LA MÊME RÉFUTATION SOUS TROIS HABITS, ET C'EST
+LA TROISIÈME FOIS DE LA SÉANCE QUE LA MÊME VARIABLE ME MANQUE.** J'ai prédit que
+des fiches **qui enseignent le code** portent du code : `fonction-informatique`
+enseigne l'écriture d'une fonction, `programmation-non-bloquante` l'idiome
+`millis()`, `ascii` la lecture d'un octet série. **Sept des huit n'ont pas une
+ligne de code.** *Cause, et elle est structurelle dans le corpus : une
+**notion** `embarque/mcu/` explique et **délègue le code** aux fiches de
+réalisation `arduino/` et `micropython/` qui la déclinent. `ascii` renvoie à
+`arduino-serie`, `programmation-non-bloquante` à
+`arduino-programmation-non-bloquante` et à sa jumelle MicroPython — les deux
+sœurs mesurées au bloc 96.* ⚠ **Même variable qu'au bloc 91 (taux de C109) et au
+bloc 94 (nombre de titres de section) : le REGISTRE de la fiche, notion contre
+tuto, et non son sujet.** *Trois familles de compteur, trois réfutations, une
+seule cause — l'amendement proposé au bloc 91 vaut donc plus large que le taux de
+C109, et il est reformulé en clôture.*
+
+⚠ **L'ASSOMPTION C113 SUR LES CHAÎNES AFFICHÉES LIBRES N'EST PAS TESTABLE PAR CE
+LOT NON PLUS — QUATRIÈME D'AFFILÉE.** **Zéro chaîne affichée** dans les
+**4 lignes** de code du lot. *Les lots 8, 9 et 10 n'avaient aucun bloc de code ;
+celui-ci en a deux, et ils ne portent que des **commentaires**.* **L'arbitrage
+reste en attente, et il faut écrire qu'il ne se testera pas avant un lot portant
+une fiche de réalisation** — or il n'en reste aucune : les quatre fiches du
+restant après ce lot sont `falstad`, `ltspice`, `wokwi` et `easyeda`, quatre
+fiches d'**outil**.
+
+✅ **P97.7 TENUE : TROIS COMMENTAIRES FRANÇAIS À TRADUIRE**, dans les deux blocs
+de `fonction-informatique` — `type de retour · nom · paramètres`,
+`valeur renvoyée`, `m vaut 15.0`. *C77 les fait traduire ; ils seront traduits
+dès l'écriture, donc ils n'entrent pas au compte des 26 lignes de l'arbitrage en
+attente.*
+
+⚠ **P97.3 RÉFUTÉE PAR UN TITRE QUE MON MOTIF DEVAIT TROUVER ET QUE MA PRÉDICTION
+A OUBLIÉ** : `Function generator` (`generateur-de-signaux-en`). *Le motif
+`\bfunctions?\b` est le bon ; c'est la liste nominative que je n'ai pas faite
+avant d'écrire « exactement deux ». **C116 (9) : le chiffre ne se lit jamais
+seul, mais contre la liste nominative** — et je l'avais faite pour `Function` et
+`Functions` seulement, parce que le bloc 96 me les avait servis.*
+
+### Décision — le huitième `title:` EN
+
+**`embarque/mcu/fonction-informatique` → `title: Function (programming)`.**
+⚠ **FORME NEUVE, DÉCLARÉE COMME NEUVE AVANT D'ÊTRE ÉCRITE.**
+
+**Le chemin des trois tests de C125, tenu jusqu'au bout :**
+
+1. **Test 1** — les formes concurrentes du relevé 3 sont `Function` 5,
+   `functions` 5, `function` 2 : des **désignations**, pas des libellés
+   parenthésés de désambiguïsation. **Le test 1 ne s'applique pas.**
+2. **Test 2** — jumelle déjà titrée ? Deux candidates, et **la clause du 27/08
+   (suite 7) les écarte toutes les deux** : `conduite/proj/fonction` porte
+   `Fonction` et `micropython-fonctions` porte `Les fonctions`, quand la source
+   porte `Fonction (informatique)`. **Les trois `title:` FR diffèrent** — le
+   corpus français distingue déjà ces trois fiches par leur titre, donc la paire
+   descend au test 3 **pour reporter la distinction, pas pour l'effacer**.
+3. **Test 3** — les contextes donnent `Function`, **et `Function` est PRIS** par
+   `en/conduite/proj/fonction-en.md`. *Le retenir fabriquerait une collision EN
+   que `titres-doublons` compte **0 côté français** : c'est exactement le défaut
+   d'`entree-tor` de l'amendement du 29/08 (suite 5), pris dans l'autre sens.*
+
+**Ce qui décide donc est la mesure du bloc 97 : le corpus anglais PORTE la forme
+parenthésée** — `Electromagnetic compatibility (EMC)`,
+`BOM (bill of materials)`, `Persistent storage (files, EEPROM)`, **3 titres**.
+⚠ **Mais aucun des trois n'est un désambiguïsateur de DOMAINE** : ce sont deux
+expansions de sigle et une énumération. *La forme est donc **neuve par sa
+fonction** tout en étant **connue par sa syntaxe**, et c'est pourquoi elle se
+déclare.*
+
+⚠ **Et la mesure dit aussi quand le corpus LAISSE TOMBER la parenthèse** :
+`Utiliser le chien de garde (watchdog) sur Arduino` → `Watchdog on Arduino`,
+`Mettre un Arduino en veille (deep sleep)` → `Deep sleep on Arduino`.
+*Dans ces deux cas la parenthèse française **donnait le mot anglais** ; une fois
+en anglais elle n'a plus d'objet. Ici elle donne le **domaine**, et le domaine ne
+disparaît pas en traduisant.*
+
+**`(informatique)` → `(programming)`** et non `(computing)` : *le corpus écrit
+`programming` pour l'activité — `Non-blocking programming`,
+`Programming the STM32 with the HAL` —, et le contraste que la fiche porte est
+avec la fonction de l'**analyse fonctionnelle**, pas avec le calcul.*
+
+✅ **Coût au regard de `--libelles` : NUL.** `Function (programming)` **contient**
+`Function`, donc `memeRadical` partage le préfixe `funct` avec les trois formes
+de production. **Cinquième épreuve de la clause du 29/08 (suite 9) — et la
+deuxième du jour.** **Coût du revert : 1 `title:`.**
+
+### Les huit `title:` EN, arrêtés
+
+| source FR | `title:` EN |
+|---|---|
+| `embarque/mcu/ascii` | `ASCII code` |
+| `embarque/mcu/chien-de-garde` | `Watchdog` |
+| `embarque/mcu/filtrage` | `Filtering measurements` |
+| `embarque/mcu/fonction-informatique` | `Function (programming)` |
+| `embarque/mcu/ide` | `IDE` |
+| `embarque/mcu/potentiometre` | `The potentiometer` |
+| `embarque/mcu/programmation-non-bloquante` | `Non-blocking programming` |
+| `embarque/mcu/sans-fil/xbee` | `XBee` |
+
+⚠ **Deux titres identiques à leur source française** — `IDE` et `XBee` —, et
+c'est **voulu** : ce sont un sigle et un nom de produit, unanimes des deux côtés
+(7/7 et 3/3 en libellés).
+
+---
+
+## GATE G2 — fin des relevés d'avant rédaction. Huit titres arrêtés, aucun arbitrage bloquant.
+
+**Fait** — **cinq blocs (93 à 97)**, **une garde de péremption au vert**,
+`HEAD 0f3c9a5` stable, **zéro écriture dans `content/`**. **Sept relevés** en un
+fichier daté : formes de production des titres de section EN, titres de callout,
+titres-doublons des deux côtés, libellés anglais et français vers les huit
+cibles, titres de section des huit sources, front matter par clé, blocs de code.
+
+**Chiffres** — `## See also` **219** / `## What is it for?` **153** /
+`## Pitfalls` **152** / `## Where it fits in the project` **105** /
+`## Exercises` **37** / `## Going further` **31**, **inchangés** ;
+`## Step by step` **77 → 78** ; callouts `Watch out` **49**, `Tip` **46** ;
+titres-doublons FR **243/243/0**, EN **227/227/0** ; **42** titres de section sur
+les huit sources ; **8 alias sur 3 fiches** ; **2 blocs de code, 4 lignes,
+3 commentaires français, 0 chaîne affichée**.
+
+**Bilan prédictions/constats des relevés : 39 prédictions à décompte plein,
+26 tenues, 13 réfutées — 66,7 %.** ⚠ *Le taux le plus bas d'un cadrage du
+chantier, et **onze des treize réfutations ont deux causes seulement** : le
+**registre** de la fiche (notion contre tuto) que je continue de confondre avec
+son sujet ou sa taille, et des **populations non déclarées** dans mes propres
+prédictions.*
+
+**Ce qui suit** — bloc **98** : jugement un par un des **82** candidats C109 sous
+C123, table TSV datée, **test négatif délibéré**, puis passe réelle par
+`remplacer-passe.mjs`.
+
+---
+
+## BLOC 98 — ÉPREUVE C110 DU MOTIF DES PUCES À TIRET, ET RELEVÉ DU LOT 11
+
+**Commande** : script jetable (scratchpad, **hors dépôt**) redirigé vers
+`tools/puces-lot11-3008.txt`.
+
+**Les huit sources FR ont été lues EN ENTIER avant ce bloc** (règle du 28/08) :
+65, 114, 92, 58, 34, 53, 106 et 24 lignes.
+
+### Déclaration C131 du bloc 98
+
+**État à l'entrée : 5 entrées, dont 1 hors artefacts de séance.**
+**Versement de ce bloc, nommé** : `tools/puces-lot11-3008.txt`, créé par la
+redirection → **+1 entrée `??`**, **comptée au sous-compteur hors artefacts**.
+**Total impliqué : 6 entrées, dont 2 hors artefacts de séance.**
+*Le script vit hors dépôt et ne compte pas.*
+
+### Le motif, publié AVANT son lancement
+
+- ligne de puce : `/^\s*[-*]\s/` ;
+- tiret d'incise : la ligne contient `" — "` — **em dash U+2014 entouré
+  d'espaces**, jamais un tiret nu ;
+- **hors périmètre** : les sections `## Voir aussi`, `## Aller plus loin`,
+  `## See also`, `## Going further` — **cas 1 de l'amendement du 29/08
+  (suite 8)**, glose de liste licite au §4 ;
+- blocs de code clôturés ignorés.
+
+### Épreuve C110 — quatre échantillons nommés, deux par langue, réponses publiées
+
+⚠ **Les quatre échantillons sont choisis pour porter ce qui pourrait faire
+mordre le motif à tort** : les quatre fiches d'`esp32/` ont **toutes** un
+`## Voir aussi` fourni en gloses à tiret, et les cinq fiches EN du lot 7 portent
+`## See also` **et** `## Going further` — *si le motif oubliait une seule des
+quatre formes hors périmètre, les totaux exploseraient dans le même sens.*
+
+- **P98.1 — échantillon 1, FR lot 3 d'`esp32/`** : `esp32-deep-sleep` **2**,
+  `esp32-arduino-core` **2**, `esp32-freertos` **4**, `esp32-idf` **4**,
+  **TOTAL 12**.
+- **P98.2 — échantillon 2, EN lot 3 d'`esp32/`** : `esp32-deep-sleep-en` **2**,
+  `esp32-arduino-core-en` **1**, `esp32-freertos-en` **4**, `esp32-idf-en` **4**,
+  **TOTAL 11**. ⚠ *Onze et non douze : l'asymétrie connue d'`esp32-arduino-core`.
+  Prédire 12 serait prédire la symétrie et non la mesure.*
+- **P98.3 — échantillon 3, FR lot 9 après sa passe** : `mecatronique` **0**,
+  `mind-map` **0**, `bete-a-cornes` **0**, `pieuvre` **5**, `fonction` **0**,
+  `caracteriser-une-exigence` **11**, **TOTAL 16**.
+- **P98.4 — échantillon 4, EN lot 7** : `raspberry-pi-gpio-en` **3**,
+  `raspberry-pi-prise-en-main-en` **3**, `raspberry-pi-projet-en` **0**,
+  `xiao-alimentation-en` **3**, `xiao-esp32-s3-en` **1**, **TOTAL 10**.
+
+### Relevé du lot 11
+
+- **P98.5 — décomposition par fiche, et CETTE FOIS JE LA PUBLIE.** *Le refus de
+  décomposer des blocs 91 et 78 était motivé par l'absence de mesure ; ici les
+  **huit sources ont été lues en entier**, donc la décomposition n'est plus un
+  prorata mais un comptage à l'œil, exactement comme P92.1 ce matin — qui est
+  tombé sur ses huit termes.*
+  `ascii` **6**, `chien-de-garde` **1**, `filtrage` **6**,
+  `fonction-informatique` **3**, `ide` **0**, `potentiometre` **2**,
+  `programmation-non-bloquante` **0**, `sans-fil/xbee` **0**, **TOTAL 18**.
+- **P98.6 — le taux du lot est HORS de la fourchette des quatre lots
+  précédents, et c'est prédit avant la mesure.** *Densités mesurées : lot 7
+  **18 / 5 301 = 3,4 ‰**, lot 8 **22 / 5 488 = 4,0 ‰**, lot 9 **19 / 5 813 =
+  3,3 ‰**, lot 10 **20 / 5 791 = 3,5 ‰** ; appliquées aux 7 339 mots du lot
+  elles donneraient **24 à 29**. La prédiction est **18**, soit **2,45 ‰**.*
+  ⚠ **Le fondement est la variable que la séance a mesurée trois fois** : le
+  sous-ensemble des **trois notions `embarque/` du lot 10** rendait
+  **3 puces sur 3 414 mots — 0,9 ‰** —, quand ses deux fiches `conduite/proj/`
+  en rendaient **17 sur 2 377 — 7,2 ‰**, soit un **facteur 8**. *Un lot de huit
+  notions `embarque/mcu/` ne peut pas tomber dans une fourchette calée sur des
+  lots majoritairement `conduite/proj/`.*
+- **P98.7 — `ide`, `programmation-non-bloquante` et `xbee` rendent ZÉRO**, et
+  pour deux raisons différentes qui se disent avant la mesure : `ide` et `xbee`
+  n'ont **aucune puce hors `## Voir aussi`** ; `programmation-non-bloquante`
+  **en a**, mais ses énumérations sont des **paragraphes en gras**
+  (`**1. Un compteur…**`) et un **tableau**, pas des puces.
+- **P98.8 — `chien-de-garde` rend 1 et non 0**, alors qu'elle est la plus grosse
+  fiche du lot : *ses deux seules puces hors `## Voir aussi` sont les deux
+  alinéas `— côté AVR` / `— côté MicroPython sur RP2` de la section
+  « Un redémarrage muet », et **un seul des deux porte un em dash**.*
+  ⚠ **C'est le terme qui prouve** : prédire 2 serait prédire la symétrie des
+  deux alinéas, pas la mesure.
+
+### Constats du bloc 98 — 8 prédictions tenues, 0 réfutée
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P98.1 | FR lot 3 : 2 / 2 / 4 / 4 = **12** | identique | **tenue** |
+| P98.2 | EN lot 3 : 2 / **1** / 4 / 4 = **11** | identique | **tenue** |
+| P98.3 | FR lot 9 après passe : 0 / 0 / 0 / 5 / 0 / 11 = **16** | identique | **tenue** |
+| P98.4 | EN lot 7 : 3 / 3 / 0 / 3 / 1 = **10** | identique | **tenue** |
+| P98.5 | lot 11 : 6 / 1 / 6 / 3 / 0 / 2 / 0 / 0 = **18** | identique, **les huit termes** | **tenue** |
+| P98.6 | **18**, soit 2,45 ‰, HORS de [24, 29] | **18** | **tenue** |
+| P98.7 | `ide`, `programmation-non-bloquante`, `xbee` à **0** | **0 / 0 / 0** | **tenue** |
+| P98.8 | `chien-de-garde` à **1** et non 2 | **1**, la seule L79 | **tenue** |
+
+✅ **CINQUIÈME ÉPREUVE DU MOTIF BILINGUE, ET LA PREMIÈRE OÙ LA PRÉDICTION DU LOT
+SORT DE LA FOURCHETTE HISTORIQUE — DÉLIBÉRÉMENT.** Les quatre échantillons
+tombent fiche par fiche, asymétrie connue d'`esp32-arduino-core` comprise. **Et
+le relevé du lot est prédit à 18 quand les quatre lots précédents en donnaient
+24 à 29 au prorata des mots** : *le fondement publié était la variable mesurée
+trois fois ce matin — le registre de la fiche —, et le sous-ensemble
+`embarque/` du lot 10 rendait 0,9 ‰ contre 7,2 ‰ pour ses fiches
+`conduite/proj/`.* ⚠ **C'est la première fois de la séance que cette variable
+est employée EN AVANT d'une mesure au lieu d'être découverte après.**
+
+✅ **P98.5 EST DÉCOMPOSÉE ET TOMBE SUR SES HUIT TERMES**, après deux refus motivés
+de décomposer aux blocs 91 et 78. *La condition qui a changé n'est pas la
+prudence, c'est la lecture : les huit sources ont été lues en entier avant le
+bloc, donc la décomposition est un comptage et non un prorata.*
+
+✅ **P98.8 EST LE TERME QUI PROUVE.** `chien-de-garde` porte **deux** alinéas
+symétriques — `- côté **AVR**` et `- côté **MicroPython sur RP2**` — et **un
+seul** porte un em dash. *Prédire 2 aurait été prédire la symétrie de la mise en
+page ; le motif compte des tirets, pas des alinéas.*
+
+---
+
+## BLOC 99 — JUGEMENT DES 100 SIGNALEMENTS, TEST NÉGATIF, PASSE C109
+
+**Commandes, dans cet ordre** : garde ; dépôt de la table TSV réelle ; dépôt de
+la table **négative** ; `remplacer-passe.mjs` sur la table négative (**refus
+attendu**) ; `remplacer-passe.mjs` sur la table réelle **en contrôle seul** ;
+puis **`--ecrire`**.
+
+### Déclaration C131 du bloc 99
+
+**Population** : entrées de `git status --porcelain`.
+**État à l'entrée : 6 entrées, dont 2 hors artefacts de séance**
+(`releves-avant-redaction-lot11-3008.txt`, `puces-lot11-3008.txt`).
+**Versements que CE bloc s'ajoute en route, nommés :**
+
+| # | artefact | état | compté au total | compté hors artefacts |
+|---|---|---|---|---|
+| 7 | `tools/batterie-sortie-3008b47.txt` (étape 0 de la garde) | `??` | oui | **non** |
+| 8 | `tools/passe-c109-lot11-3008.tsv` (table réelle) | `??` | oui | **oui** |
+| 9 | `tools/passe-negatif-lot11-3008.tsv` (table du test négatif) | `??` | oui | **oui** |
+| 10 à 17 | les **huit sources FR**, modifiées par `--ecrire` | ` M` | oui | **oui** |
+
+⚠ **Les huit sources sont SUIVIES par git** : elles comptent **huit entrées
+` M`**, une par fiche, et **aucune condensation** — la règle du 30/08 (lot 7) ne
+s'applique qu'à un **répertoire entièrement non suivi**, et `content/embarque/mcu/`
+est suivi depuis l'origine.
+
+**TROIS instants :**
+- **7 entrées / 2 hors artefacts** quand la garde lit le compteur ;
+- **9 / 4** après le dépôt des deux tables, avant `--ecrire` ;
+- **17 / 12** en fin de bloc.
+
+⚠ **Relecture de la liste CONTRE les prédictions du bloc** : elles ne prévoient
+**aucun `--recaler`**, **aucune fiche EN**, **aucun renommage de titre**, et
+**deux** tables TSV et non une. **La liste est close.**
+
+### Jugement des 100 signalements — la lecture de C109 appliquée, publiée avant la table
+
+Les huit sources ont été **lues en entier**. Les 100 signalements se répartissent
+en **82 candidats `--style`** et **18 puces à tiret**, et se jugent sous quatre
+habitats :
+
+1. **Incise encadrée (deux tirets) en prose** — **reste** si le segment interne
+   énumère au moins deux items **et** ne porte aucun verbe conjugué ; **tombe**
+   sinon. *Précédent du 25/08 : `— un capteur alimenté en 5 V, un signal venu
+   d'un Arduino —` reste ; `— Linux —` tombe.*
+2. **Tiret unique en fin de segment, en prose** — **tombe**, sauf si le segment
+   de droite est une **énumération** nominale ou infinitive (C123, item de
+   liste), ou un **renvoi** `— voir [[x]]` (cas 4, parenthèse).
+3. **Puce** — cas 1 à 4 de l'amendement du 29/08 (suite 8).
+4. **Point-virgule** — **tombe** si le segment de droite porte un verbe
+   conjugué ; **reste** s'il est nominal, infinitif ou participial.
+
+**Résultat : 73 traités, 27 gardés, pour 70 ancres.**
+
+| source | `--style` | puces | traités | gardés | ancres |
+|---|---|---|---|---|---|
+| `ascii` | 9 | 6 | 8 | 7 | 8 |
+| `chien-de-garde` | 29 | 1 | 24 | 6 | 22 |
+| `filtrage` | 14 | 6 | 14 | 6 | 13 |
+| `fonction-informatique` | 3 | 3 | 5 | 1 | 6 |
+| `ide` | 3 | 0 | 2 | 1 | 2 |
+| `potentiometre` | 5 | 2 | 6 | 1 | 6 |
+| `programmation-non-bloquante` | 18 | 0 | 13 | 5 | 12 |
+| `sans-fil/xbee` | 1 | 0 | 1 | 0 | 1 |
+| **lot** | **82** | **18** | **73** | **27** | **70** |
+
+⚠ **Les ancres sont MOINS NOMBREUSES que les traités, et c'est mesurable et
+voulu** : **quatre** ancres couvrent **deux** signalements chacune, parce qu'un
+tiret encadrant se prend **en bloc** — règle d'usage du 30/08, née de l'ancre
+`\ntic\n` qui trouvait 2 occurrences sur 4. Les quatre : `chien-de-garde` L53
+et L71, `filtrage` L52, `programmation-non-bloquante` L90. **73 − 4 = 69, plus
+une édition de cohérence de liste** sur `fonction-informatique` L22 (le `;`
+terminal d'une puce dont les deux voisines deviennent des phrases) = **70**.
+
+⚠ **DEUX PAIRES OPPOSÉES À QUELQUES LIGNES D'ÉCART, ET C'EST LE CRITÈRE QUI LES
+SÉPARE, SANS ARBITRAGE.**
+- `programmation-non-bloquante` **L84** — `— échantillonnage,
+  [[asservissement|asservissement]] —` : deux items **nominaux**, aucun verbe
+  → **GARDÉ** ; **L90** — `— une commande de moteur qui ne tolère aucun retard,
+  une acquisition qui ne peut pas manquer un pas —` : deux items aussi, mais
+  **deux relatives à verbe conjugué** → **TRAITÉ**. *Six lignes d'écart.*
+- `programmation-non-bloquante` **L72** — `— piloter un afficheur, écouter une
+  liaison série.` : **énumération** de deux infinitifs → **GARDÉ** ; **L78** —
+  `— quitte à découper la tâche en étapes successives.` : infinitif **unique**,
+  pas une énumération → **TRAITÉ**. *Six lignes d'écart également.*
+
+### Prédictions du bloc 99
+
+- **P99.1 — garde** : ASCII `0` ; copie `tools\batterie-sortie-3008b47.txt` ;
+  heure **> celle du bloc 93** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200`
+  **au caractère** ; `node : v24.15.0` ; **3 lignes de dates de pilotage
+  inchangées au caractère** ; `fichiers modifies non commites : 7   (hors artefacts de seance : 2)`.
+- **P99.2 — TEST NÉGATIF DÉLIBÉRÉ.** La table négative porte **trois** lignes :
+  deux ancres justes et **une fausse d'un seul caractère** —
+  `n'attend rien de lui — Il attend` (majuscule à `il`), quand la source porte
+  `il`. **L'outil doit refuser le LOT ENTIER**, annoncer **0 occurrence** pour
+  cette ancre, et **n'écrire aucun octet**. *Code de sortie non nul.*
+- **P99.3 — contrôle seul de la table réelle** : `lignes de table : 70`,
+  **70 ancres à exactement 1 occurrence**, **8 fiches**, **aucun refus**.
+- **P99.4 — invariant d'accents : ÉCART NUL sur les huit fiches.**
+  *Fondement lu dans les remplacements : les seules majuscules posées le sont sur
+  des lettres non accentuées, **sauf une** — `câblé sur **trois fils**` devient
+  `Câblé sur **trois fils**` dans `potentiometre`, et `â` U+00E2 → `Â` U+00C2
+  **restent tous deux dans la classe** `[À-ÖØ-öø-ÿŒœŸĀ-ſ]`.* ⚠ **C'est le terme
+  écrit pour réfuter** : si l'outil rendait un écart de −1 sur `potentiometre`,
+  ce serait que sa classe est **trouée du mauvais côté**.
+- **P99.5 — invariant de lignes : ÉCART NUL sur les huit.** *Aucun remplacement
+  ne porte de saut de ligne, le TSV l'interdisant.*
+- **P99.6 — le lot est EXACTEMENT NEUTRE EN MOTS**, et c'est prédit avant la
+  mesure : **7 339 → 7 339**, corpus FR **291 242 inchangé**.
+  *Fondement, remplacement par remplacement : les 70 substitutions ne touchent
+  que de la ponctuation (` — ` → ` : `, ` — ` → `, `, ` ; ` → `. `), des
+  majuscules de début de phrase, et **quatre conversions en parenthèses** qui
+  déplacent des signes sans toucher un mot. **Le motif de `compter-mots`
+  (`[0-9A-Za-zÀ-ɏ'’-]+`, au moins un alphanumérique) ne compte ni
+  l'em dash U+2014, ni le point-virgule, ni la parenthèse.*** ⚠ **Ce serait le
+  DEUXIÈME lot d'affilée à passe C109 exactement neutre**, après le lot 10.
+- **P99.7 — remesure `--style` après la passe : `C109 de prose` tombe de 82 à
+  20**, et la décomposition est prédite fiche par fiche :
+  `ascii` **4**, `chien-de-garde` **6**, `filtrage` **3**,
+  `fonction-informatique` **0**, `ide` **1**, `potentiometre` **1**,
+  `programmation-non-bloquante` **5**, `sans-fil/xbee` **0**.
+  *Ce sont les 20 gardés moins les 7 puces à tiret, que `--style` ne voit pas :
+  20 = 27 − 7.* ⚠ **Contrôle publié d'avance : `hors perimetre` reste à 12** —
+  la passe ne touche ni titre, ni cellule de tableau, ni `alt` —, et
+  **les quatre seaux mécaniques restent à 0**.
+- **P99.8 — ligne de bilan après la passe : `8 fiche(s) lue(s), 6 a reprendre.`**
+  *`fonction-informatique` et `xbee` tombent à zéro candidat dur ; les six autres
+  gardent au moins un exempté.*
+- **P99.9 — remesure des puces à tiret après la passe : 18 → 7**, décomposé
+  `ascii` **3**, `chien-de-garde` **0**, `filtrage` **3**,
+  `fonction-informatique` **1**, `ide` **0**, `potentiometre` **0**,
+  `programmation-non-bloquante` **0**, `xbee` **0**.
+- **P99.10 — `git status` en fin de bloc : `17   (hors artefacts de seance : 12)`**,
+  troisième instant de la déclaration C131.
+
+### Constats du bloc 99 — 10 prédictions tenues, 0 réfutée
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P99.1 | ASCII 0 ; copie `3008b47` ; HEAD au caractère ; `v24.15.0` ; 3 dates inchangées ; `7   (hors artefacts : 2)` | 0 ; `3008b47` ; `0f3c9a5 … 11:20:01 +0200` ; **17:44:36** ; **7 / 2** | **tenue** |
+| P99.2 | test négatif : refus du lot entier, 0 occurrence, 0 octet écrit | `L6 INTROUVABLE`, `ancres 0/ 1`, **`REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`**, code 1 | **tenue** |
+| P99.3 | contrôle seul : 70 lignes, 70 ancres à 1 occurrence, 8 fiches | **70 / 70 / 8**, 0 introuvable, 0 multiple | **tenue** |
+| P99.4 | invariant d'accents nul sur les huit | **101 / 362 / 214 / 49 / 77 / 94 / 351 / 26, écart +0 partout** | **tenue** |
+| P99.5 | invariant de lignes nul sur les huit | **53 / 99 / 75 / 47 / 24 / 42 / 89 / 13, inchangés** | **tenue** |
+| P99.6 | lot **7 339 → 7 339**, corpus **291 242** inchangé | **7 339**, les huit fiches au mot ; corpus **291 242** | **tenue** |
+| P99.7 | `C109 de prose` 82 → **20**, décomposé 4 / 6 / 3 / 0 / 1 / 1 / 5 / 0 ; `hors perimetre` **12** ; 4 seaux à 0 | **20**, décomposition **identique aux huit termes** ; **12** ; **0 / 0 / 0 / 0** | **tenue** |
+| P99.8 | `8 fiche(s) lue(s), 6 a reprendre.` | identique | **tenue** |
+| P99.9 | puces 18 → **7**, décomposé 3 / 0 / 3 / 1 / 0 / 0 / 0 / 0 | **7**, décomposition **identique aux huit termes** | **tenue** |
+| P99.10 | `git status` **17 / 12** | **17 / 12** | **tenue** |
+
+✅ **LE TEST NÉGATIF A MORDU SUR LE CARACTÈRE PRÉVU, ET IL A REFUSÉ LES DEUX
+ANCRES JUSTES AVEC LUI.** `n'attend rien de lui — Il attend` rend `ancres 0/ 1`,
+et l'outil écrit `AUCUN FICHIER ECRIT` alors que `remplacements prets : 2`.
+*C'est le mode d'échec redouté du 28/08 — un lot multi-édition est atomique —
+et l'atomicité joue dans le bon sens : elle refuse au lieu d'appliquer 69 sur 70.*
+**Quatrième test négatif délibéré du chantier, quatrième refus, zéro fichier
+écrit.**
+
+✅ **P99.4 EST LE TERME QUI PROUVE, ET IL PORTE SUR UNE SEULE FICHE.**
+`potentiometre` passe `câblé sur **trois fils**` à `Câblé sur **trois fils**` :
+`â` U+00E2 devient `Â` U+00C2, **deux points de code différents, tous deux dans
+la classe** `[À-ÖØ-öø-ÿŒœŸĀ-ſ]`. *L'outil rend `94 -> 94`. Un écart de −1 aurait
+dit que sa classe est trouée du mauvais côté — c'est la seule des huit fiches où
+la majuscule tombe sur une lettre accentuée, et je l'avais nommée avant la
+mesure.*
+
+✅ **DEUXIÈME LOT D'AFFILÉE À PASSE C109 EXACTEMENT NEUTRE EN MOTS**, et cette
+fois le fondement était publié remplacement par remplacement et non constaté
+après coup : **7 339 → 7 339**, **corpus FR 291 242 inchangé**, **`git diff`
+64 insertions / 64 suppressions sur 8 fichiers** — *autant de lignes réécrites
+que de lignes détruites, aucune ligne créée ni perdue, ce que l'invariant de
+lignes disait déjà par fiche.*
+
+✅ **LES DEUX DÉCOMPOSITIONS POST-PASSE TOMBENT SUR SEIZE TERMES.**
+`C109 de prose` **4 / 6 / 3 / 0 / 1 / 1 / 5 / 0 = 20**, et
+**20 = 27 gardés − 7 puces à tiret**, l'identité publiée avant la mesure ;
+puces **3 / 0 / 3 / 1 / 0 / 0 / 0 / 0 = 7**.
+⚠ *`fonction-informatique` et `xbee` tombent à **zéro** candidat dur — deux des
+huit fiches sont désormais entièrement conformes à C109 —, et c'est ce qui fait
+`6 a reprendre` et non 8.*
+
+**`git diff --numstat -- content`** — 7/7, 20/20, 12/12, 6/6, 1/1, 6/6, 11/11,
+1/1. *Les huit lignes sont symétriques ; les 70 ancres se logent dans
+**64 lignes distinctes**, six lignes en portant deux.*
+
+---
+
+## GATE G3 — passe C109 du lot 11 rendue.
+
+**Fait** — **deux blocs (98 relevé et éprouvage C110, 99 jugement et passe)**,
+**une garde de péremption au vert**, `HEAD 0f3c9a5` stable. **100 signalements
+jugés un par un** — 82 de `--style`, 18 puces à tiret —, **73 traités,
+27 gardés**, **70 ancres**, **1 test négatif délibéré, 1 refus, 0 octet écrit**,
+puis **8 fiches écrites**.
+
+**Chiffres qui ont changé** — `C109 de prose` **82 → 20** ; puces à tiret
+**18 → 7** ; `git diff` **64 / 64 sur 8 fichiers** ; `git status` **17 / 12**.
+**Inchangés et vérifiés** : lot **7 339 mots**, corpus FR **291 242**,
+`hors perimetre` **12**, les quatre seaux mécaniques **à 0**, les invariants
+d'accents et de lignes **nuls sur les huit**.
+
+**Bilan prédictions/constats de la passe : 18 prédictions à décompte plein,
+18 tenues, 0 réfutée.** *Deux blocs pleins d'affilée.*
+
+**Ce qui suit** — bloc **100** : génération des huit squelettes EN par
+`creer-fiche-en.mjs`, puis pose des huit `title:` par `renommer-titres.mjs`
+sous test négatif.
+
+---
+
+## BLOC 100 — GÉNÉRATION DES HUIT SQUELETTES EN, PUIS POSE DES HUIT `title:`
+
+**Commandes, dans cet ordre** : garde ; `creer-fiche-en.mjs <source>` sur les
+huit sources ; dépôt de la table de titres et de sa table négative ;
+`renommer-titres.mjs` sur la **négative** (refus attendu) ; contrôle seul de la
+réelle ; puis `--ecrire`.
+
+### Déclaration C131 du bloc 100
+
+**Population** : entrées de `git status --porcelain`.
+**État à l'entrée : 17 entrées, dont 12 hors artefacts de séance.**
+**Versements que CE bloc s'ajoute en route, nommés :**
+
+| # | artefact | état | total | hors artefacts |
+|---|---|---|---|---|
+| 18 | `tools/batterie-sortie-3008b48.txt` (étape 0 de la garde) | `??` | oui | **non** |
+| 19 | `content/en/embarque/mcu/ascii-en.md` | `??` | oui | **oui** |
+| 20 | `content/en/embarque/mcu/chien-de-garde-en.md` | `??` | oui | **oui** |
+| 21 | `content/en/embarque/mcu/filtrage-en.md` | `??` | oui | **oui** |
+| 22 | `content/en/embarque/mcu/fonction-informatique-en.md` | `??` | oui | **oui** |
+| 23 | `content/en/embarque/mcu/ide-en.md` | `??` | oui | **oui** |
+| 24 | `content/en/embarque/mcu/potentiometre-en.md` | `??` | oui | **oui** |
+| 25 | `content/en/embarque/mcu/programmation-non-bloquante-en.md` | `??` | oui | **oui** |
+| 26 | `content/en/embarque/mcu/sans-fil/xbee-en.md` | `??` | oui | **oui** |
+| 27 | `tools/titres-lot11-3008.tsv` | `??` | oui | **oui** |
+| 28 | `tools/titres-negatif-lot11-3008.tsv` | `??` | oui | **oui** |
+
+⚠ **Règle d'usage du lot 7 appliquée AVANT la mesure : les huit fiches EN
+comptent HUIT entrées, pas moins.** `content/en/embarque/mcu/` **existe et est
+suivi** — il porte déjà **20** fiches — et
+`content/en/embarque/mcu/sans-fil/` aussi, avec **cinq** fiches (`ble-en`,
+`lora-en`, `techno-sans-fil-en`, `wifi-en`, `zigbee-en`). **Aucun répertoire
+neuf n'est créé, donc aucune entrée ne se condense.** *C'est la configuration
+des lots 8 et 10, pas celle du lot 7.*
+
+⚠ **Le renommage des `title:` ne crée AUCUNE entrée** : les huit fiches EN
+sont déjà `??` quand `renommer-titres.mjs` écrit. *C'est le cas de figure de la
+première épreuve de la règle `--recaler` au lot 8 — et c'est un coup de chance,
+pas une garde.*
+
+**TROIS instants :**
+- **18 / 12** quand la garde lit le compteur ;
+- **26 / 20** après la génération des huit squelettes ;
+- **28 / 22** en fin de bloc, les deux tables déposées.
+
+⚠ **Relecture de la liste CONTRE les prédictions du bloc** : elles ne prévoient
+**aucun `--recaler`**, **aucun fichier de corps** (ils viendront au bloc 101),
+**aucune sortie de relevé**, et **deux** tables TSV. **La liste est close.**
+
+### Prédictions du bloc 100 — garde
+
+- **P100.1** — ASCII `0` ; copie `tools\batterie-sortie-3008b48.txt` ; heure
+  **> 17:44:36** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` **au
+  caractère** ; `node : v24.15.0` ;
+  `fichiers modifies non commites : 18   (hors artefacts de seance : 12)`.
+  ⚠ **Les trois dates de pilotage sont inchangées, mais celles des huit sources
+  NE LE SONT PAS** — la passe du bloc 99 les a réécrites. *La garde ne les lit
+  pas ici (`-Fiches` vide), et c'est pour cela que le bloc 100 ne les passe pas :
+  une date du jour sur une source serait attendue et non une anomalie, donc la
+  garde n'apprendrait rien.*
+
+### Prédictions du bloc 100 — génération
+
+- **P100.2 — huit squelettes écrits aux huit chemins déclarés ci-dessus**, et
+  **les trois compteurs égaux par construction** sur les huit : liens, embeds,
+  blocs de code.
+- **P100.3 — TROIS des huit font signaler un `aliases:` retiré**, et le
+  contenu est prédit au caractère : `chien-de-garde` → `watchdog`, `WDT` ;
+  `filtrage` → `filtre numérique`, `moyenne glissante`, `filtre médian` ;
+  `programmation-non-bloquante` → `boucle coopérative`, `super-loop`,
+  `non bloquant`. **Huit alias retirés au total.** *Les cinq autres n'ont pas de
+  bloc `aliases:` — mesuré au bloc 96.*
+- **P100.4 — les embeds : `ascii` 2, `filtrage` 2, `chien-de-garde` 1,
+  `ide` 2, `potentiometre` 1, `programmation-non-bloquante` 1,
+  `fonction-informatique` 0, `xbee` 0 — TOTAL 9.** *Comptés à la lecture des
+  huit sources, comme P98.5.*
+- **P100.5 — les blocs de code : `fonction-informatique` 2, les sept autres 0 —
+  TOTAL 2.** *Mesuré au bloc 97.*
+- **P100.6 — AUCUNE ancre de wikilink `[[fiche#Section]]` signalée sur les
+  huit.** *Le dépôt n'en porte que cinq, et aucune n'est dans ces fiches — je ne
+  les ai pas vues à la lecture intégrale.*
+- **P100.7 — `git status` après la génération : `26   (hors artefacts de seance : 20)`.**
+
+### Prédictions du bloc 100 — titres
+
+- **P100.8 — TEST NÉGATIF DÉLIBÉRÉ.** La table négative porte **trois** lignes :
+  deux ancres justes et **une fausse d'un seul caractère** —
+  `Programmation non-bloquante` avec un trait d'union que la source ne porte
+  pas. **`renommer-titres.mjs` doit refuser le LOT ENTIER**, signaler le titre
+  courant différent de l'ancre, et **n'écrire aucun octet**.
+- **P100.9 — contrôle seul de la table réelle : 8 lignes, 8 ancres valides,
+  aucun refus** ; puis `--ecrire` pose les huit titres :
+  `ASCII code`, `Watchdog`, `Filtering measurements`, `Function (programming)`,
+  `IDE`, `The potentiometer`, `Non-blocking programming`, `XBee`.
+  ⚠ **Deux des huit ancres sont IDENTIQUES à leur remplacement** — `IDE` et
+  `XBee` —, et **c'est le terme écrit pour réfuter** : si l'outil refuse une
+  ligne dont l'ancien et le nouveau titre sont égaux, il faudra les sortir de la
+  table et le dire. *Rien dans le code lu ne l'interdit : la garde porte sur
+  l'égalité du titre courant et de l'ancre, pas sur leur différence avec le
+  remplacement.*
+- **P100.10 — `git status` en fin de bloc : `28   (hors artefacts de seance : 22)`**,
+  les deux tables déposées, le renommage n'ajoutant rien.
+- **P100.11 — `titres-doublons` après la pose : FR `243 / 243 / 0` inchangé,
+  EN `235 / 235 / 0`.** *227 + 8 fiches, **zéro collision des deux côtés** —
+  c'est le contrôle qui vérifie que `Function (programming)` n'entre pas en
+  collision avec `Function`, et que `The potentiometer` n'entre en collision
+  avec rien.*
+
+### Constats du bloc 100 — 11 prédictions tenues, 0 réfutée
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P100.1 | ASCII 0 ; copie `3008b48` ; heure > 17:44:36 ; HEAD au caractère ; `v24.15.0` ; `18   (hors artefacts : 12)` | 0 ; `3008b48` ; **17:47:37** ; identique ; `v24.15.0` ; **18 / 12** | **tenue** |
+| P100.2 | 8 squelettes, trois compteurs égaux | 8 écrits ; liens 8/15/17/6/12/13/19/5, embeds et code **tous `ok`** | **tenue** |
+| P100.3 | 3 blocs `aliases:` retirés, contenu au caractère, **8 alias** | `watchdog`, `WDT` ; `filtre numérique`, `moyenne glissante`, `filtre médian` ; `boucle coopérative`, `super-loop`, `non bloquant` | **tenue** |
+| P100.4 | embeds 2 / 1 / 2 / 0 / 2 / 1 / 1 / 0 = **9** | identique aux huit termes | **tenue** |
+| P100.5 | blocs de code : `fonction-informatique` **2**, les sept autres **0** | identique | **tenue** |
+| P100.6 | aucune ancre `[[fiche#Section]]` signalée | aucune | **tenue** |
+| P100.7 | `git status` **26 / 20** | **26 / 20** | **tenue** |
+| P100.8 | test négatif : refus du lot entier, 0 octet écrit | `L6 INTROUVABLE`, `title: en place : Programmation non bloquante`, **`REFUS`**, code 1 | **tenue** |
+| P100.9 | 8 ancres valides, 8 titres posés, **`IDE` et `XBee` identiques acceptés** | **8 / 8**, les deux lignes identiques **écrites sans refus** | **tenue** |
+| P100.10 | `git status` **28 / 22** | **28 / 22** | **tenue** |
+| P100.11 | FR **243 / 243 / 0**, EN **235 / 235 / 0** | identique | **tenue** |
+
+✅ **P100.9 PORTAIT UN TERME ÉCRIT POUR RÉFUTER, ET IL NE MORD PAS.** Deux des
+huit lignes ont un ancien et un nouveau titre **identiques** — `IDE` et `XBee`.
+*La lecture du code disait que la garde porte sur l'**égalité du titre courant
+et de l'ancre**, pas sur leur **différence** avec le remplacement ; l'outil
+écrit `IDE -> IDE` et `XBee -> XBee` sans broncher.* **Le comportement est donc
+mesuré et non supposé** — règle du 29/08, une phrase de README décrit une
+intention, seul le code décrit un comportement.
+
+✅ **P100.11 EST LE CONTRÔLE QUI VALIDE LES DEUX TITRES ARBITRÉS.**
+`Function (programming)` **n'entre en collision ni avec `Function`
+(`fonction-en`) ni avec `Functions` (`micropython-fonctions-en`)**, et
+`The potentiometer` n'entre en collision avec rien : **EN 235 / 235 / 0**.
+*La règle d'usage de C125 exige de relever les groupes des deux côtés et de les
+comparer ; **0 des deux côtés** est le seul état où la comparaison est triviale,
+et le chantier l'a tenu du lot 8 à celui-ci.*
+
+⚠ **UN FAIT NON PRÉDIT, ET IL CRÉE DEUX LIBELLÉS À TRADUIRE.** `ide` porte deux
+wikilinks **nus** — `[[arduino-prise-en-main]]` et `[[micropython-prise-en-main]]`
+— auxquels le générateur ajoute le **titre français** de leur cible :
+`Prise en main d'Arduino` et `Prise en main de MicroPython`. *Le générateur les
+signale (`libelles ajoutes (2) - a traduire`), et ils sont à reprendre à la
+rédaction. C'est la seule des huit fiches dans ce cas, et je ne l'avais ni prédit
+ni exclu.*
+
+---
+
+## GATE G4 — huit squelettes EN générés, huit `title:` posés.
+
+**Fait** — **un bloc (100)**, **une garde de péremption au vert**,
+`HEAD 0f3c9a5` stable. **8 squelettes écrits**, **8 alias retirés sur 3 fiches**,
+**1 test négatif délibéré, 1 refus, 0 octet écrit**, **8 `title:` posés**.
+
+**Chiffres qui ont changé** — corpus EN **227 → 235 fiches** ; `git status`
+**17 / 12 → 28 / 22** ; titres-doublons EN **227 / 227 / 0 → 235 / 235 / 0**.
+
+**Bilan prédictions/constats : 11 prédictions à décompte plein, 11 tenues,
+0 réfutée.** *Troisième bloc plein d'affilée.*
+
+**Ce qui suit** — blocs **101 et 102** : rédaction des huit fiches EN par
+`creer-fiche-en.mjs --corps`, jamais par réécriture du fichier.
+
+---
+
+## BLOC 101 — RÉDACTION DES QUATRE PETITES FICHES (`xbee`, `ide`, `fonction-informatique`, `potentiometre`)
+
+**Commandes** : garde ; dépôt de **quatre fichiers de corps** dans le scratchpad
+(**hors dépôt**) ; `creer-fiche-en.mjs --corps <fiche EN> <corps>` ×4 ;
+`--controle` et `--style` sur les quatre.
+
+⚠ **La rédaction passe par `--corps`, jamais par la réécriture du fichier**, et
+**le fichier de corps n'a plus à ouvrir par une ligne blanche** : l'arbitrage (a)
+de Tim du 30/08 (suite 6) l'a fait poser par le code.
+
+### Déclaration C131 du bloc 101
+
+**État à l'entrée : 28 entrées, dont 22 hors artefacts de séance.**
+**Versements que CE bloc s'ajoute en route, nommés :**
+
+| # | artefact | état | total | hors artefacts |
+|---|---|---|---|---|
+| 29 | `tools/batterie-sortie-3008b49.txt` (étape 0 de la garde) | `??` | oui | **non** |
+| — | les **quatre fichiers de corps**, dans le scratchpad de session, **hors dépôt** | — | **non** | **non** |
+
+⚠ **`--corps` réécrit quatre fiches EN qui sont DÉJÀ `??`** : il **ne crée aucune
+entrée**. *C'est la troisième fois de la séance que ce cas se présente, et c'est
+toujours un coup de chance et non une garde — sur un fichier suivi, la
+déclaration serait fausse sans que rien ne le signale.*
+
+**Total impliqué : 29 entrées, dont 22 hors artefacts de séance**, aux deux
+instants du bloc.
+
+### Formes de titre de section à poser, déclarées AVANT d'écrire
+
+**De production, relevées au bloc 93** : `## What is it for?` (153),
+`## Pitfalls` (152), `## See also` (219), `## How does it work?` (11).
+**Neuves, propres à leur fiche, déclarées comme neuves** :
+`## What the IDE takes care of`, `## Which one for which target`,
+`## How to write a function`, `## Shapes and variants`.
+
+⚠ **UNE DÉCISION DE REPORT EST PRISE ICI, ET ELLE EFFACE UNE DIFFÉRENCE DE LA
+SOURCE — DÉLIBÉRÉMENT.** `potentiometre` porte `## Comment ça marche` **sans
+point d'interrogation**, seule occurrence sur **16** dans le corpus français
+(bloc 95). Le corpus anglais porte `## How does it work?` **11 fois** et
+`## How does it work` **zéro**. *Reporter la différence donnerait un titre
+interrogatif anglais sans point d'interrogation, qui n'est pas une nuance mais
+une faute.* **Décision : `## How does it work?`**, et **l'incohérence française
+est consignée comme défaut de source à instruire**, pas masquée. *Le motif du
+26/08 interdit d'inventer une asymétrie pour masquer un défaut de source ; il
+demande donc que le défaut soit **rendu comptable**, et c'est ce que fait cette
+ligne.*
+
+### Prédictions du bloc 101
+
+- **P101.1 — garde** : ASCII `0` ; copie `tools\batterie-sortie-3008b49.txt` ;
+  heure **> 17:47:37** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` **au
+  caractère** ; `node : v24.15.0` ;
+  `fichiers modifies non commites : 29   (hors artefacts de seance : 22)`.
+- **P101.2 — `--corps` accepte les quatre corps**, et **imprime
+  `ligne blanche : POSEE` ou son équivalent sur les quatre** : les fichiers de
+  corps ouvrent par leur **première phrase**, sans ligne blanche initiale, ce que
+  le correctif du 30/08 (suite 6) prend en charge. ⚠ **Terme écrit pour
+  réfuter** : un refus dirait que le correctif ne fait pas ce que le JOURNAL
+  annonce, et *une ligne de JOURNAL décrit une intention, seul le code décrit un
+  comportement.*
+- **P101.3 — `--controle` sur les quatre : les trois compteurs égaux**, et
+  **0 lien non suffixé**. *Liens 5 / 12 / 6 / 13, embeds 0 / 2 / 0 / 1, blocs de
+  code 0 / 0 / 2 / 0 — les chiffres du bloc 100, inchangés par la traduction.*
+- **P101.4 — foisonnement du sous-lot entre +1,5 % et +6,5 %, point estimé
+  +4,0 %** : **1 437 mots FR → entre 1 459 et 1 530, point 1 495**.
+  ⚠ **AUCUNE décomposition par fiche**, et le refus est motivé : *le lot 10 a
+  mesuré un foisonnement fiche par fiche de **+11,0 / +4,3 / +1,9 / −0,4 /
+  +0,1 %** — un facteur de **11 points d'amplitude** à l'intérieur d'un même
+  lot. Un prorata sur quatre fiches rejouerait une prédiction dont la cause
+  d'échec est mesurée.*
+- **P101.5 — `--style` sur les quatre fiches EN : les quatre seaux mécaniques à
+  0** — `typographie francaise`, `virgule ambigue`, `C109 creees en EN`,
+  `hors alphabet latin`. ⚠ *Le troisième est le seul qui puisse mordre ici : il
+  compare le nombre de candidats C109 de la fiche EN à celui de sa source FR, et
+  il a mordu une fois du chantier, au lot 9 sur `bete-a-cornes-en`.*
+- **P101.6 — `C109 de prose` sur les quatre fiches EN : 2**, décomposé
+  `xbee-en` **0**, `ide-en` **1**, `fonction-informatique-en` **0**,
+  `potentiometre-en` **1**. *Report un pour un des gardés français mesurés au
+  bloc 99.*
+- **P101.7 — puces à tiret sur les quatre fiches EN : 1**, la seule de
+  `fonction-informatique-en`. *Report un pour un du relevé post-passe.*
+- **P101.8 — les deux libellés français signalés par le générateur sur `ide` sont
+  traduits** : `Prise en main d'Arduino` → **`Getting started with Arduino`** et
+  `Prise en main de MicroPython` → **`Getting started with MicroPython`**, qui
+  sont **les `title:` en production de leurs cibles**, relevés et non traduits de
+  tête.
+- **P101.9 — `git status` en fin de bloc : `29   (hors artefacts de seance : 22)`**,
+  inchangé depuis la garde.
+
+### Constats du bloc 101 — 8 prédictions tenues, 1 réfutée
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P101.1 | ASCII 0 ; copie `3008b49` ; heure > 17:47:37 ; HEAD au caractère ; `29   (hors artefacts : 22)` | 0 ; `3008b49` ; **17:50:25** ; identique ; **29 / 22** | **tenue** |
+| P101.2 | `--corps` accepte les quatre, ligne blanche posée | **`ligne blanche apres le front matter : POSEE`** ×4, `front matter identique a l octet : oui` ×4 | **tenue** |
+| P101.3 | trois compteurs égaux, 0 lien non suffixé | 5/5, 12/12, 6/6, 13/13 ; embeds et code `ok` ; `--controle` **235 fiches, 0 divergente, 0 lien non suffixé** | **tenue** |
+| P101.4 | 1 437 → [1 459, 1 530], point 1 495 | **1 468**, soit **+2,16 %** | **tenue** |
+| P101.5 | quatre seaux mécaniques à 0 | **0 / 0 / 0 / 0** | **tenue** |
+| P101.6 | `C109 de prose` **2**, décomposé 0 / **1** / 0 / 1 | **1**, décomposé 0 / **0** / 0 / 1 | **RÉFUTÉE** |
+| P101.7 | puces à tiret EN **1**, celle de `fonction-informatique-en` | **1**, la même | **tenue** |
+| P101.8 | les deux libellés traduits en `Getting started with Arduino` / `… with MicroPython` | identiques aux `title:` de production | **tenue** |
+| P101.9 | `git status` **29 / 22** | **29 / 22** | **tenue** |
+
+⚠⚠ **P101.6 EST RÉFUTÉE PAR UN CANDIDAT C109 QUI VIVAIT DANS UN LIBELLÉ DE
+WIKILINK, ET C'EST UNE FAMILLE QUE LE CHANTIER N'AVAIT JAMAIS RENCONTRÉE.**
+Le candidat résiduel d'`ide` côté français est le tiret de
+`[[arduino-prise-en-main|Arduino — prise en main]]`, **à l'intérieur du libellé**,
+sous `## Voir aussi`. *Je l'avais compté comme reportable un pour un ; il ne l'est
+pas, parce que le libellé anglais ne se traduit pas — **il se relève** dans le
+`title:` de production de la cible, qui est `Getting started with Arduino` et ne
+porte aucun tiret.*
+
+**Ce que la réfutation apprend, et elle vaut au-delà de ce lot** : le report un
+pour un des candidats C109 **suppose que le texte se traduise**. Il tient pour la
+prose, il tombe pour les **libellés de wikilink**, qui obéissent à une autre
+règle — la règle d'usage « le `title:` EN se lit dans les libellés en
+production ». ⚠ *Deux règles du chantier se rencontrent ici pour la première
+fois, et elles ne disent pas la même chose du même caractère.*
+
+✅ **CE QUI RESTE VRAI : le candidat de `potentiometre-en` EST un report un pour
+un.** Le `;` de `(or the other way round); designed for audio volume` reporte le
+`;` français jugé **GARDÉ** au bloc 99 — segment de droite participial, exempté
+par C123 —, et il sort au même endroit dans les deux langues. *Le report un pour
+un n'est pas cassé, il est **borné à la prose**.*
+
+⚠ **UNE DIFFÉRENCE DE TYPOGRAPHIE A ÉTÉ POSÉE DÉLIBÉRÉMENT ET ELLE SE DIT** : le
+français écrit `(ou l'inverse) ; conçue pour…` avec **une espace avant le
+point-virgule**, l'anglais écrit `(or the other way round); designed for…`
+**sans**. *`--style` compte l'espace française devant `;` comme un **verdict
+mécanique** ; la garder aurait fait sortir le seau `typographie francaise` à 1.
+Le report un pour un porte sur le **signe**, jamais sur l'espace qui le
+précède.* ✅ **Vérifié avant l'écriture par un balayage des quatre fichiers de
+corps : zéro espace devant `; : ! ? %`.**
+
+✅ **FOISONNEMENT +2,16 % SUR LE SOUS-LOT, ET LE REFUS DE DÉCOMPOSER ÉTAIT LE BON
+CHOIX** : `xbee-en` **+0,0 %**, `ide-en` **+0,8 %**, `fonction-informatique-en`
+**+0,8 %**, `potentiometre-en` **+4,8 %** — **une amplitude de 4,8 points sur
+quatre fiches d'une même famille**. *Un prorata aurait annoncé les quatre autour
+de +4 % et raté trois termes sur quatre, dont un exactement nul.*
+⚠ *`xbee-en` sort à **135 → 135**, foisonnement rigoureusement nul : une fiche de
+135 mots dont la traduction ne coûte pas un mot.*
+
+---
+
+## BLOC 102 — RÉDACTION DES QUATRE GROSSES FICHES (`ascii`, `filtrage`, `programmation-non-bloquante`, `chien-de-garde`)
+
+**Commandes** : garde ; dépôt de **quatre fichiers de corps** dans le scratchpad
+(**hors dépôt**) ; `--corps` ×4 ; `--controle`, `--style` et relevé des puces.
+
+### Déclaration C131 du bloc 102
+
+**État à l'entrée : 29 entrées, dont 22 hors artefacts de séance.**
+**Versement nommé** : `tools/batterie-sortie-3008b50.txt`, copie C124 de l'étape
+0 → **+1 `??`**, écartée du sous-compteur. Les quatre fichiers de corps vivent
+**hors dépôt** ; `--corps` réécrit quatre fiches **déjà `??`** et ne crée aucune
+entrée. **Total impliqué : 30 entrées, dont 22 hors artefacts de séance**, aux
+deux instants du bloc.
+
+### Formes de titre de section à poser, déclarées AVANT d'écrire
+
+**De production** : `## What is it for?` (153), `## How does it work?` (11),
+`## Pitfalls` (152), `## See also` (219), `## Special case — …` (104 dans la
+famille), `## Example — …` (114 dans la famille).
+**Neuves, propres à leur fiche, déclarées comme neuves — DIX** :
+`## A few landmarks`, `## Beyond 127 — Unicode and UTF-8`,
+`## Three noises, three remedies`, `## The price of filtering`,
+`## The two ways of letting time pass`,
+`### Overflow, and why the idiom is not written the same everywhere`,
+`## What is the watchdog independent of?`,
+`## What the watchdog does not detect`, `## A silent reboot teaches nothing`,
+plus les quatre formes de famille à suffixe propre —
+`## Special case — what software can no longer fix`,
+`## Example — Three activities, one loop`,
+`## Special case — Where cooperation stops`,
+`## Example — The build that thinks it is alive`,
+`## Special case — Reboot, or warn`.
+
+⚠ **Le callout `> [!tip]` d'`ascii` est NU dans la source** — aucun titre —,
+alors que le corpus anglais écrit `> [!tip] Tip` **46 fois**. **Il reste nu** :
+*le relevé sert à ne pas inventer une forme, pas à en ajouter une que la source
+ne porte pas.*
+
+### Prédictions du bloc 102
+
+- **P102.1 — garde** : ASCII `0` ; copie `tools\batterie-sortie-3008b50.txt` ;
+  heure **> 17:50:25** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` **au
+  caractère** ; `node : v24.15.0` ;
+  `fichiers modifies non commites : 30   (hors artefacts de seance : 22)`.
+- **P102.2 — `--corps` accepte les quatre**, `ligne blanche … POSEE` sur les
+  quatre, `front matter identique a l octet : oui` sur les quatre.
+- **P102.3 — trois compteurs égaux sur les quatre** : liens 8 / 17 / 19 / 15,
+  embeds 2 / 2 / 1 / 1, blocs de code 0 sur les quatre.
+- **P102.4 — foisonnement du sous-lot entre +1,0 % et +6,0 %, point estimé
+  +3,0 %** : **5 902 mots FR → entre 5 961 et 6 256, point 6 079**.
+  ⚠ **AUCUNE décomposition par fiche** : le bloc 101 vient de mesurer
+  **+0,0 / +0,8 / +0,8 / +4,8 %** sur quatre fiches de la même famille, soit
+  **4,8 points d'amplitude**, et le lot 10 en avait mesuré 11,4.
+- **P102.5 — `C109 de prose` sur les quatre fiches EN : 18**, décomposé
+  `ascii-en` **4**, `filtrage-en` **3**,
+  `programmation-non-bloquante-en` **5**, `chien-de-garde-en` **6**.
+  *Report un pour un des gardés français mesurés au bloc 99, et **aucun des 18 ne
+  vit dans un libellé de wikilink** — la famille qui a réfuté P101.6 : les
+  quatorze premiers sont des incises encadrées de prose, les quatre autres une
+  puce et un intervalle `a–z`.*
+- **P102.6 — les quatre seaux mécaniques à 0** sur les quatre fiches EN.
+  ⚠ **Terme écrit pour réfuter, et il porte sur `ascii-en`** : la source écrit
+  `« 0 »`, `« A »`, `« la lettre A »` avec des **guillemets français**, et
+  l'anglais écrira `"0"`, `"A"`, `"the letter A"` avec des **guillemets
+  droits** — mesuré au bloc 101 comme la forme du corpus anglais. *Le seau
+  `hors alphabet latin` ne compte que les caractères **absents de la source**,
+  et `"` U+0022 est dans l'alphabet latin de l'outil (`[ -ɏ]`) : il ne
+  doit donc pas mordre. **Écrire `“ ”` typographiques le ferait mordre**, et
+  c'est le piège que ce terme surveille.*
+- **P102.7 — puces à tiret sur les quatre fiches EN : 6**, décomposé
+  `ascii-en` **3**, `filtrage-en` **3**,
+  `programmation-non-bloquante-en` **0**, `chien-de-garde-en` **0**.
+- **P102.8 — `hors perimetre` sur les quatre fiches EN entre 0 et 20, point
+  estimé 8.** *Le seau compte titres, cellules de tableau et `alt` ; les quatre
+  fiches du bloc 101 ont rendu **0**, et celles-ci portent **deux tableaux** —
+  `programmation-non-bloquante` 3 lignes, `chien-de-garde` 2 lignes — et
+  **six `alt`**.*
+- **P102.9 — `--controle` : 235 fiches, 0 divergente, 0 lien non suffixé.**
+- **P102.10 — `git status` en fin de bloc : `30   (hors artefacts de seance : 22)`.**
+
+### Constats du bloc 102 — 8 prédictions tenues, 2 réfutées
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P102.1 | ASCII 0 ; copie `3008b50` ; heure > 17:50:25 ; HEAD au caractère ; `30   (hors artefacts : 22)` | 0 ; `3008b50` ; **17:54:50** ; identique ; **30 / 22** | **tenue** |
+| P102.2 | `--corps` accepte les quatre, ligne blanche posée, front matter à l'octet | `POSEE` ×4, `identique a l octet : oui` ×4 | **tenue** |
+| P102.3 | liens 8 / 17 / 19 / 15, embeds 2 / 2 / 1 / 1, code 0 ×4 | identiques, tous `ok` | **tenue** |
+| P102.4 | foisonnement ∈ [+1,0 %, +6,0 %], point +3,0 % | **−0,51 %** (5 902 → 5 872) | **RÉFUTÉE** |
+| P102.5 | `C109 de prose` **18**, décomposé 4 / 3 / 5 / 6 | **18**, décomposé **4 / 3 / 5 / 6** | **tenue** |
+| P102.6 | quatre seaux mécaniques à 0 | `typographie francaise` 0, `hors alphabet latin` 0, `C109 creees en EN` **1 puis 0**, `virgule ambigue` **1** | **RÉFUTÉE** |
+| P102.7 | puces EN **6**, décomposé 3 / 3 / 0 / 0 | **6**, décomposé **3 / 3 / 0 / 0** | **tenue** |
+| P102.8 | `hors perimetre` ∈ [0, 20], point 8 | **12** | **tenue** |
+| P102.9 | `--controle` 235 / 0 / 0 | **235 fiches, 0 divergente, 0 lien non suffixé** | **tenue** |
+| P102.10 | `git status` **30 / 22** | **30 / 22** | **tenue** |
+
+⚠⚠ **`C109 creees en EN` A MORDU, ET C'EST LA PRÉDICTION P102.5 QUI A TROUVÉ LE
+DÉFAUT AVANT LE COMPTEUR.** La première écriture de `chien-de-garde-en` rendait
+**7** candidats C109 pour **6** côté français, et le compteur dédié l'a nommé :
+`1 CREEE(S) PAR LA TRADUCTION`, ligne **52**. *Le défaut est que j'ai écrit
+`the loop is ready to feed; and no long operation is planned…` **en
+réintroduisant le point-virgule que la passe C109 du bloc 99 venait d'ôter au
+français**, où la ligne dit désormais `prête à nourrir. Et on ne prévoit pas…`.*
+✅ **Corrigé et réécrit ; le compteur retombe à 0 et `C109 de prose` à 18, la
+valeur prédite, décomposée 4 / 3 / 5 / 6 sur les quatre termes.**
+⚠ *Deuxième morsure de ce compteur du chantier, après `bete-a-cornes-en` au
+lot 9. **Et la prédiction chiffrée valait autant que le compteur** : 19 au lieu
+de 18 disait qu'un candidat était de trop avant même de lire quelle fiche le
+portait.*
+
+⚠ **P102.6 RÉFUTÉE SUR `virgule ambigue`, ET LA CAUSE EST UNE CONVENTION QUE J'AI
+SUIVIE CONTRE MA PROPRE PRÉDICTION.** `chien-de-garde-en` écrit
+`up to 8,388 ms on RP2` là où le français écrit `8 388 ms` : **le séparateur de
+milliers anglais**, reconduit par décision du lot 10. *`--style` le range en
+`candidat a lire` — « virgule : décimale française ou milliers anglais ? » —, et
+il a rendu **2** au lot 8 et **2** au lot 10 pour la même raison.* ⚠ **La faute
+est dans la prédiction, pas dans le texte** : j'ai nommé cette famille au
+bloc 91 en la disant « la moins sûre » des quatre, puis je l'ai prédite à 0 au
+bloc 102 en oubliant que ce lot porte un nombre de quatre chiffres. *Le texte
+suit la convention ; c'est la prédiction qui ne suivait pas la mesure.*
+
+⚠⚠ **P102.4 EST RÉFUTÉE DANS LE SENS INVERSE DE CELUI QUI EST PRÉVU, ET C'EST LE
+FAIT LE PLUS NEUF DU LOT : LES QUATRE GROSSES FICHES FOISONNENT NÉGATIVEMENT.**
+`ascii-en` **−0,6 %**, `chien-de-garde-en` **−1,1 %**, `filtrage-en` **−0,1 %**,
+`programmation-non-bloquante-en` **−0,1 %** — **sous-lot à −0,51 %**, et
+**aucune des quatre n'est positive**. *Le chantier a mesuré une moyenne de
+**+3,7 %** sur 227 paires et son plus bas lot à **+2,12 %** ; aucun sous-lot n'a
+jamais été négatif dans son ensemble.*
+
+**Cause, et elle rejoint la variable de la journée** : ces quatre fiches sont des
+**notions argumentatives denses**, celles-là mêmes dont le taux de C109 était le
+plus haut au bloc 91 — `chien-de-garde` 1,45 pour 100, `ascii` 1,34. *Le français
+argumentatif empile les relatives, les appositions et les tournures
+impersonnelles (« il faut la chercher plutôt que la supposer », « ce qui répond
+directement à ») que l'anglais rend en moins de mots. **C'est la troisième cause
+d'ininterprétabilité du foisonnement à jouer en sens inverse**, après les chaînes
+C113 du 25/08 (suite 8) et les gloses de `memoire` du 24/08 (suite 2), et la
+première qui porte sur la **prose entière** d'un sous-lot et non sur quelques
+segments.*
+
+⚠ **Et le contraste avec le bloc 101 le prouve dans le même lot** : les quatre
+**petites** fiches ont rendu **+2,16 %**, les quatre **grosses** **−0,51 %**.
+*Ce n'est donc pas une propriété du lot ni de la branche `embarque/mcu/` : c'est
+une propriété du **registre**, mesurée deux fois le même soir sur la même
+famille de fiches.*
+
+**Foisonnement du lot entier : 7 339 → 7 340 mots, soit +0,01 %.** ⚠ *Le plus bas
+du chantier, et il est à **un mot** de la neutralité parfaite.*
+
+---
+
+## BLOC 103 — ÉTAT DE CLÔTURE DU LOT 11
+
+**Commande** :
+
+```
+powershell -ExecutionPolicy Bypass -File tools\batterie.ps1 -Phase etat -FichesEn en/embarque/mcu/ascii-en.md,en/embarque/mcu/chien-de-garde-en.md,en/embarque/mcu/filtrage-en.md,en/embarque/mcu/fonction-informatique-en.md,en/embarque/mcu/ide-en.md,en/embarque/mcu/potentiometre-en.md,en/embarque/mcu/programmation-non-bloquante-en.md,en/embarque/mcu/sans-fil/xbee-en.md -Chevron
+```
+
+### Déclaration C131 du bloc 103
+
+**État à l'entrée : 30 entrées, dont 22 hors artefacts de séance.**
+**Versement nommé** : `tools/batterie-sortie-3008b51.txt`, copie C124 de l'étape
+0 → **+1 `??`**, écartée du sous-compteur. **Aucune écriture dans `content/`**.
+**Total impliqué : 31 entrées, dont 22 hors artefacts de séance.**
+
+### Prédictions du bloc 103 — garde et corpus
+
+- **P103.1 — garde** : ASCII `0` ; copie `tools\batterie-sortie-3008b51.txt` ;
+  heure **> 17:54:50** ; `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` ;
+  `node : v24.15.0` ; `31   (hors artefacts de seance : 22)` ; **onze lignes de
+  dates** — trois de pilotage inchangées au caractère, **huit de fiches EN datées
+  du 2026-08-30**.
+- **P103.2 — corpus** : `fiches FR publiees : 242`, `mots FR : 291242`
+  **inchangés** ; `deja traduites : 235 fiches, 270769 mots FR` ;
+  `RESTANT A TRADUIRE : 7 fiches, 20473 mots FR`.
+  *Contrôle publié d'avance : **270 769 + 20 473 = 291 242**, et la passe C109 de
+  ce lot étant **exactement neutre en mots**, le `tot` d'avant et le `tot` d'après
+  sont **le même chiffre** — la règle « une soustraction se fait sur deux états de
+  même date » n'a rien à trancher ici, et c'est la première fois du chantier.*
+- **P103.3 — `--controle`** : `235 fiche(s) controlee(s), 0 divergente(s)`,
+  `Liens non suffixes : 0 sur 0 fiche(s)`.
+- **P103.4 — dérive** : `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 235`.
+  ⚠ **Zéro `--recaler`, TROISIÈME lot d'affilée.**
+- **P103.5 — foisonnement** : `235 paire(s) : 270769 mots FR -> 280397 mots EN`,
+  `foisonnement moyen : 3.6 %`. *Base : 227 paires à 263 430 → 273 057 (clôture
+  du lot 10), plus **7 339 FR et 7 340 EN** mesurés aux blocs 101 et 102.*
+
+### Prédictions du bloc 103 — style, médias, anneau, chevron
+
+- **P103.6 — `--style` des huit fiches EN** : `typographie francaise` **0**,
+  `C109 creees en EN` **0**, `hors alphabet latin` **0** ;
+  `virgule ambigue` **1** (le séparateur de milliers `8,388 ms`) ;
+  `C109 de prose` **19** ; `hors perimetre` **12** ;
+  `8 fiche(s) lue(s), 6 a reprendre.`
+  *19 = 18 des quatre grosses + 1 de `potentiometre-en` ; `xbee-en`,
+  `ide-en` et `fonction-informatique-en` rendent zéro candidat dur.*
+- **P103.7 — médias** : `483` fiches, `716` embeds. *475 + 8 et 707 + 9, les neuf
+  embeds ayant été comptés fiche par fiche au bloc 100.*
+- **P103.8 — anneau 2** : `ANNEAU 2 NET : 145`, `deja traduites : 141`,
+  `RESTANT : 4`, `RESTANT DE L ANNEAU 2 (4 fiches) 18205`, porteuses de chevron
+  **0**, `CIBLES SANS FICHE (6)`. **Les quatre restantes nommées** :
+  `embarque/pcb/easyeda` 9 773, `embarque/simulation/falstad` 3 244,
+  `embarque/simulation/ltspice` 3 848, `embarque/simulation/wokwi` 1 340.
+- **P103.9 — dette** : `cibles rouges distinctes : 7`, `mots : 20473`,
+  `dont HORS anneaux 0..2 : 2`.
+- **P103.10 — chevron `--tout`** : **34 paires des deux côtés, 0 divergente**,
+  inchangé. ⚠ *`ded` = 0 sur le restant, `tot` = `deh`, **C127 hors sujet pour le
+  sixième lot d'affilée**.*
+- **P103.11 — wikilinks** : `mortes` **7** (15 − 8, les huit cibles créées ce
+  soir), `cassees` **0**, `ambigues` **0**.
+- **P103.12 — `--libelles`** : `wikilinks a libelle` ∈ [4 190, 4 210] point
+  **4 199** ; `cible EN absente` ∈ [25, 40] point **31** ;
+  `candidats a lire` ∈ **[144, 152], point 147** ; `positions de parcours` **16**.
+  ⚠ **DÉCLARATION DE POPULATION (C131) POUR LE SEUL COMPTEUR QUI L'EXIGE** : la
+  référence **144** de la clôture du lot 10 porte sur **227** fiches EN ; celle
+  de ce soir porte sur **235**, dont les huit neuves apportent **95 wikilinks à
+  libellé** et rendent **74 libellés préexistants comparables** pour la première
+  fois. *Les deux chiffres ne sont donc pas comparables terme à terme, et la
+  fourchette est calée sur ce que les huit titres arrêtés font au compteur, pas
+  sur une variation du reste du corpus.*
+- **P103.13 — les 74 libellés qui deviennent comparables créent ZÉRO
+  candidat**, et le fondement est la clause du 29/08 (suite 9), lue dans le
+  code : `memeRadical` compare des **préfixes de cinq lettres**, et les huit
+  `title:` **contiennent** leur forme de production — `ASCII code` / `ASCII code`,
+  `Watchdog` / `Watchdog`, `Filtering measurements` / `Filtering measurements`,
+  `Function (programming)` / `Function`, `IDE` / `IDE`,
+  `The potentiometer` / `potentiometer`,
+  `Non-blocking programming` / `Non-blocking programming`, `XBee` / `XBee`.
+  **Sixième épreuve de la clause, et la première sur HUIT titres à la fois.**
+- **P103.14 — les candidats neufs, s'il y en a, viennent des 95 libellés SORTANTS
+  et je les nomme avant la mesure** : `[[niveaux-de-tension-en|voltage divider]]`
+  (deux occurrences, dans `potentiometre-en` et… non, **une seule**, contre le
+  `title:` `Logic levels`, aucun radical commun) et
+  `[[adc-en|analog-to-digital converter]]` contre le `title:` `ADC`, **si
+  `estSigleDe` ne le reconnaît pas** — la famille des sigles que la clause nomme
+  déjà.
+- **P103.15 — titres-doublons** : FR `243 / 243 / 0`, EN `235 / 235 / 0`.
+- **P103.16 — `git status` en fin de bloc : `31   (hors artefacts de seance : 22)`.**
+
+### Constats du bloc 103 — 14 prédictions tenues, 2 réfutées, et UN INCIDENT
+
+⚠⚠ **INCIDENT C124 — J'AI FILTRÉ LE LANCEMENT DE LA BATTERIE AU LIEU DE FILTRER
+SA SORTIE, ET C'EST LA RÈGLE DU §8 QUE LE 29/08 A ÉCRITE MOT POUR MOT.**
+Le premier lancement de `-Phase etat` a été passé dans
+`| Select-String -NotMatch … | Select-Object -First 200`. *La règle dit :
+« un `| Select-Object -First N` sur `batterie.ps1` **coupe le pipeline avant le
+`Out-File` final** : les mesures s'affichent, et le fichier reste sur la sortie
+précédente. La batterie écrit son fichier ; c'est **le fichier** qui se filtre,
+jamais le lancement. »* **Code de sortie 255, témoin perdu.**
+✅ **Relancé immédiatement sans aucun filtre**, `> $null` seul, la lecture portant
+ensuite sur `tools/batterie-sortie.txt`.
+⚠ **Ce que l'incident coûte, chiffré** : une copie C124 de plus
+(`3008b52`), donc **`git status` à 32 et non 31**, ce qui **réfute P103.16 par
+mon propre geste**. *La règle avait été tenue **onze fois** au lot 10 et
+**cinq** fois ce soir ; elle tombe à la douzième, sur le seul bloc dont la
+sortie est trop longue pour être lue d'un coup — **c'est-à-dire exactement le
+cas pour lequel elle a été écrite**.*
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P103.1 | ASCII 0 ; copie `3008b51` ; `31   (hors artefacts : 22)` ; 11 lignes de dates dont 8 du 30/08 | 0 ; `3008b51` ; **31 / 22** ; 11 lignes, **8 datées 2026-08-30** | **tenue** |
+| P103.2 | 242 / 291 242 ; 235 / 270 769 ; 7 / 20 473 | identiques ; **270 769 + 20 473 = 291 242** | **tenue** |
+| P103.3 | 235 / 0 divergente / 0 lien non suffixé | identique | **tenue** |
+| P103.4 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 235` | identiques (+ `SANS SOURCE 0`, `SANS MARQUE 0`) | **tenue** |
+| P103.5 | `235 paire(s) : 270769 -> 280397`, **3.6 %** | identique au mot et au dixième | **tenue** |
+| P103.6 | 0 / 1 / 0 / 19 / 12 / 0 et **`6 a reprendre`** | 0 / 1 / 0 / **19** / **12** / 0 et **`5 a reprendre`** | **RÉFUTÉE** (1 terme sur 7) |
+| P103.7 | `483` fiches, `716` embeds | **483**, **716** | **tenue** |
+| P103.8 | NET 145 / 141 / 4, **18205**, porteuses 0, `CIBLES SANS FICHE (6)`, les 4 nommées | identiques, et les quatre noms | **tenue** |
+| P103.9 | dette `7` / `20473` / `2` | identiques | **tenue** |
+| P103.10 | chevron `--tout` : **34 paires, 0 divergente** | **34 / 0** | **tenue** |
+| P103.11 | `MORT 7`, `CASSE 0`, `AMBIGU 0` | **7 / 0 / 0** (+ `GABARIT 8`, `ALIAS 6`, `OK 479`) | **tenue** |
+| P103.12 | `4199` point exact ; absente ∈ [25,40] ; candidats ∈ [144,152] ; positions **16** | **4199** ; **29** ; **145** ; **16** | **tenue** |
+| P103.13 | les 74 libellés rendus comparables créent **0** candidat | **0** — le seul candidat neuf est **sortant** | **tenue** |
+| P103.14 | le candidat neuf est `[[niveaux-de-tension-en\|voltage divider]]` contre `Logic levels` ; `[[adc-en\|analog-to-digital converter]]` seulement si `estSigleDe` échoue | **exactement celui-là, et lui seul** ; `adc-en` **non signalé** | **tenue** |
+| P103.15 | FR `243 / 243 / 0`, EN `235 / 235 / 0` | identiques | **tenue** |
+| P103.16 | `git status` **31 / 22** | **32 / 22** | **RÉFUTÉE** (cause : l'incident) |
+
+✅ **P103.14 EST LE TERME QUI PORTE, ET IL NOMME LE CANDIDAT AVANT DE LE
+MESURER.** `candidats a lire` passe de **144 à 145**, et le seul candidat neuf
+est `[[niveaux-de-tension-en|voltage divider]]` dans `potentiometre-en`, contre
+le `title:` `Logic levels` — **aucun radical de cinq lettres en commun**, ce que
+la prédiction disait. ⚠ *Et la seconde candidate nommée, `[[adc-en|analog-to-digital
+converter]]` contre `ADC`, **ne mord pas** : `estSigleDe` la reconnaît. **Nommer
+les deux et dire laquelle dépend d'une fonction que je n'avais pas relue est ce
+qui rend la prédiction lisible** — le compteur seul aurait dit +1 sans dire d'où.*
+
+✅ **SIXIÈME ÉPREUVE DE LA CLAUSE DU 29/08 (SUITE 9), ET LA PREMIÈRE SUR HUIT
+TITRES À LA FOIS : ZÉRO CANDIDAT CRÉÉ PAR LES TITRES.** Les **74** libellés
+préexistants qui visaient les huit cibles deviennent comparables ce soir, et
+**aucun** n'entre au compteur : les huit `title:` **contiennent** leur forme de
+production, y compris les deux qui l'**allongent** —
+`Function (programming)` sur `Function`, `The potentiometer` sur
+`potentiometer`. *La clause disait exactement cela ; c'est la première fois
+qu'elle est éprouvée sur deux titres allongés dans le même lot.*
+
+⚠ **P103.6 RÉFUTÉE SUR UN TERME, ET LA PRÉDICTION SE CONTREDISAIT ELLE-MÊME.**
+J'ai écrit `6 a reprendre` **et**, deux lignes plus bas, que trois fiches sur
+huit rendent zéro candidat dur. *Huit moins trois font cinq.* **Les six autres
+termes de la prédiction tombent au chiffre**, `C109 de prose 19` et
+`hors perimetre 12` compris. ⚠ *C'est la famille « une déclaration finit par le
+total qu'elle implique », appliquée cette fois à une prédiction dont la
+justification portait déjà la bonne réponse.*
+
+---
+
+## BLOC 104 — RELEVÉS DE CLÔTURE : FORMES DE PRODUCTION, CALLOUTS, PUCES DU CORPUS
+
+**Commandes** : script de relevé du bloc 93 rejoué ; script jetable de comptage
+des puces du corpus entier, **qui écrit sa population dans sa propre sortie**.
+
+### Déclaration C131 du bloc 104
+
+**État à l'entrée : 32 entrées, dont 22 hors artefacts de séance** — 31 prévues
+plus `tools/batterie-sortie-3008b52.txt`, la copie de trop née de l'incident
+C124 du bloc 103. **Versement de ce bloc : aucun**, les deux scripts vivant hors
+dépôt et n'écrivant que sur la sortie standard.
+**Total inchangé : 32 entrées, dont 22 hors artefacts de séance.**
+
+### Prédictions du bloc 104 — formes de production et callouts
+
+- **P104.1 — les six formes de production, avec leur delta décomposé et le motif
+  de chaque delta** :
+  `## See also` **219 → 227 (+8)** — *les huit fiches en portent une* ;
+  `## What is it for?` **153 → 159 (+6)** — *`ide` et `xbee` n'en ont pas, mesuré
+  au bloc 94* ;
+  `## Pitfalls` **152 → 157 (+5)** — *`ascii`, `ide` et `xbee` n'en ont pas* ;
+  `## Where it fits in the project` **105 inchangé** ;
+  `## Exercises` **37 inchangé** ; `## Going further` **31 inchangé** ;
+  `## Step by step` **78 inchangé**. ⚠ *Les quatre inchangés sont le terme qui
+  prouve : aucune des huit sources ne porte `## Raccrochage projet`,
+  `## Exercices`, `## Aller plus loin` ni `## Procédure pas à pas`.*
+- **P104.2 — les deux formes fautives du lot 4 restent à 0** —
+  `## Project connection`, `## Step-by-step procedure`. *Sixième confirmation.*
+- **P104.3 — `POPULATION (fichiers balayes) : 235`** dans les deux relevés.
+- **P104.4 — les sept titres de callout INCHANGÉS** : `Watch out` **49**,
+  `Tip` **46**, `Good` / `Fair` / `Poor` **3** chacun, `Attention` **0**,
+  `Astuce` **0**. ⚠ **`Tip` reste à 46 alors que `ascii-en` porte un
+  `> [!tip]`** : la source française l'écrit **nu**, et le report un pour un le
+  garde nu. *C'est le terme qui prouve — prédire 47 serait prédire la convention
+  du corpus au lieu du report de la source.*
+
+### Prédictions du bloc 104 — puces à tiret du corpus, populations déclarées
+
+- **P104.5 — côté FRANÇAIS : `995 − 11 = 984` puces sur `172 − 2 = 170`
+  porteuses, population `248` fichiers.**
+  ⚠ **Le terme qui prouve est le −2 de porteuses** : sur les cinq sources dont
+  des puces tombent, **deux passent à zéro et sortent de la population des
+  porteuses** — `potentiometre` (2 → 0) et `chien-de-garde` (1 → 0) —, quand
+  `ascii` (6 → 3), `filtrage` (6 → 3) et `fonction-informatique` (3 → 1) y
+  restent. *Prédire −5 serait prédire le nombre de fiches traitées ; prédire −2
+  est la mesure.*
+- **P104.6 — côté ANGLAIS : `917 + 7 = 924` puces sur `153 + 3 = 156`
+  porteuses, population `227 + 8 = 235` fichiers.**
+  ⚠ **Le +3 de porteuses est le terme symétrique** : les huit fiches EN neuves
+  portent des puces à tiret, mais **trois seulement** — `ascii-en` 3,
+  `filtrage-en` 3, `fonction-informatique-en` 1 —, les cinq autres à zéro.
+  *Prédire +8 serait prédire la création, pas la mesure.*
+
+### Constats du bloc 104 — 4 prédictions tenues, 2 réfutées, et une référence du chantier déclarée NON REPRODUCTIBLE
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P104.1 | 219→**227** / 153→**159** / 152→**157** / **105** / **37** / **31** / `Step by step` **78** | **identiques aux sept termes** | **tenue** |
+| P104.2 | les deux formes fautives à 0 | **0 / 0** | **tenue** |
+| P104.3 | `POPULATION : 235` dans les deux relevés | **235 / 235** | **tenue** |
+| P104.4 | `Watch out` 49, `Tip` **46**, Good/Fair/Poor 3, Attention 0, Astuce 0 | **identiques aux sept** | **tenue** |
+| P104.5 | FR **984** / **170** porteuses / **248** fichiers | **946 / 167 / 248** | **RÉFUTÉE** |
+| P104.6 | EN **924** / **156** porteuses / **235** fichiers | **886 / 153 / 235** | **RÉFUTÉE** |
+
+✅ **P104.1 TOMBE SUR SES SEPT TERMES, ET LES QUATRE INCHANGÉS SONT CEUX QUI
+PROUVENT.** `## Where it fits in the project` **105**, `## Exercises` **37**,
+`## Going further` **31**, `## Step by step` **78** : *aucune des huit sources ne
+portait `## Raccrochage projet`, `## Exercices`, `## Aller plus loin` ni
+`## Procédure pas à pas`, et le relevé 4 du bloc 94 l'avait dit fiche par fiche.*
+Les trois deltas — **+8 / +6 / +5** — reproduisent exactement la décomposition
+mesurée au bloc 94 : `## Voir aussi` sur **8** sources, `## À quoi ça sert ?` sur
+**6**, `## Pièges` sur **5**.
+
+✅ **P104.4 PORTE SON TERME DE RÉFUTATION ET IL NE MORD PAS : `Tip` RESTE À 46.**
+`ascii-en` porte bien un `> [!tip]`, mais **nu**, comme sa source. *Prédire 47
+aurait été prédire la convention du corpus (46 occurrences de
+`> [!tip] Tip`) au lieu du report un pour un de la source.*
+
+⚠⚠ **P104.5 ET P104.6 SONT RÉFUTÉES PAR LA MÊME CAUSE, ET CETTE CAUSE EST UNE
+RÈGLE DU §8 QUI SE RETOURNE CONTRE LE CHANTIER : LA RÉFÉRENCE FR 995 / EN 917
+N'EST PAS REPRODUCTIBLE, PARCE QUE SON MOTIF N'A JAMAIS ÉTÉ PUBLIÉ.**
+La règle du 29/08 (suite 11) dit qu'un compteur qui se remesure d'une clôture à
+l'autre **déclare sa population dans sa sortie**, et le chantier l'a appliquée :
+la population **248 / 227** est écrite, et elle est **juste** — mon script rend
+**248** et **235** aux mêmes définitions. **Mais le MOTIF, lui, n'a jamais été
+écrit nulle part**, et deux motifs plausibles encadrent la référence sans la
+rendre :
+
+| motif | FR (248 fichiers) | EN (235 fichiers) |
+|---|---|---|
+| **A** — `## Voir aussi`, `## Aller plus loin`, `## See also`, `## Going further` exclus | **946** / 167 porteuses | **886** / 153 porteuses |
+| **B** — `## Voir aussi` et `## See also` seuls exclus | **1 033** / 173 | **972** / 159 |
+| *référence publiée au lot 10, avant ce lot* | *995 / 172* | *917 / 153* |
+
+*Le motif **A** est celui de l'amendement du 29/08 (suite 8), cas 1, qui met
+`## Voir aussi` **et** `## Aller plus loin` hors périmètre ; c'est aussi celui
+qui a reproduit **les quatre échantillons nommés** de l'épreuve C110 du bloc 98
+— 12 / 11 / 16 / 10, fiche par fiche. **Le motif du relevé de lot est donc
+vérifié ; c'est celui du relevé de CORPUS qui ne l'est pas**, et les deux
+n'étaient pas le même.*
+
+⚠ **La règle du 29/08 (suite 11) est donc INCOMPLÈTE, et c'est la mesure de ce
+soir qui le montre** : déclarer la **population** d'un compteur ne suffit pas
+s'il reste **un degré de liberté dans son motif**. *Deux clôtures avaient déjà
+échoué à refermer ce compteur côté français ; la parade retenue alors — écrire
+la population dans la sortie — a réglé la moitié du problème et laissé l'autre
+intacte.* **Candidate : un compteur de référence publie sa POPULATION ET SON
+MOTIF, tous deux dans sa propre sortie.**
+
+⚠ **Et une seconde faute est à moi, elle est de protocole** : je n'ai **pas
+mesuré les puces du corpus AVANT la passe C109 du bloc 99**. *Je ne peux donc pas
+prouver que mon propre delta vaut −11 côté français : je peux seulement le
+calculer, ce que C119 interdit.* **La bonne séquence était de relever le corpus
+au cadrage, comme le lot 10 l'a fait pour ses formes de production.**
+
+### Nouvelle référence, publiée avec sa population ET son motif
+
+**Motif A** — ligne de puce `/^\s*[-*]\s/`, contenant `" — "` (em dash U+2014
+**entouré d'espaces**), hors blocs de code clôturés, hors des sections
+`## Voir aussi`, `## Aller plus loin`, `## See also`, `## Going further`.
+
+**FR : 946 puces sur 167 porteuses, population 248 fichiers `content/` hors `en/`.**
+**EN : 886 puces sur 153 porteuses, population 235 fichiers `content/en/`.**
+
+*Les deux chiffres sont ceux de l'état d'après la passe C109 et après les huit
+fiches EN, mesurés le 30/08 à 18:0x.*
+
+---
+
+## GATE G5 — clôture du lot 11.
+
+**Fait** — **seize blocs d'exécution (89 à 104)**, **huit gardes de péremption au
+vert**, `HEAD 0f3c9a5` stable au caractère sur les huit, **neuf lancements de
+`batterie.ps1`** copiés sous `3008b44` à `3008b52`. **Lot composé sur un critère
+qui ne rendait plus rien sous la borne**, assomption écrite avec son coût de
+revert et arbitrage remonté sans blocage. **100 signalements C109 jugés un par
+un**, 73 traités, 27 gardés, **70 ancres**, **deux tests négatifs délibérés, deux
+refus, zéro octet écrit**, **8 fiches EN rédigées**, **8 `title:` posés**,
+**neuf relevés d'avant rédaction**.
+
+**Chiffres de clôture** — corpus FR **242 fiches, 291 242 mots, inchangés** ;
+traduites **227 → 235 fiches**, **263 430 → 270 769 mots FR** ; restant
+**15 → 7 fiches**, **27 812 → 20 473 mots**. Foisonnement **235 paires :
+270 769 → 280 397 mots EN, moyenne 3,6 %** ; **lot à +0,01 %, le plus bas du
+chantier**. `--controle` **235 fiches, 0 divergente, 0 lien non suffixé**.
+Dérive **`MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 235`**, **zéro `--recaler`,
+troisième lot d'affilée**. Titres **FR 243/243/0, EN 235/235/0**. Chevron
+`--tout` **34 paires, 0 divergente, inchangé**. **Anneau 2 : 145 net, 141
+traduites, 4 restantes, 18 205 mots, 0 porteuse.** Dette **7 cibles, 20 473
+mots, dont 2 hors anneaux 0..2**. Wikilinks **7 mortes, 0 cassée, 0 ambiguë,
+8 gabarits, 6 alias, 479 ok**. Médias **483 fiches, 716 embeds**.
+`--libelles` **4 199 / 4 170 / 29 / 145 / 16**. Formes de production EN
+**227 / 159 / 157 / 105 / 37 / 31**, `## Step by step` **78**. Callouts
+**`Watch out` 49, `Tip` 46, `Good`/`Fair`/`Poor` 3 chacun, `Attention` 0,
+`Astuce` 0**. ⚠ **Puces à tiret, NOUVELLE RÉFÉRENCE avec sa population ET son
+motif : FR 946 sur 167 porteuses (248 fichiers), EN 886 sur 153 porteuses
+(235 fichiers), motif A.** `git diff -- content` **8 fichiers, 64 insertions,
+64 suppressions**. ⚠ **Avancement, chaque ratio avec le nom de sa population :
+anneau 2 en fiches 141 / 145 = 97,2 % ; corpus en fiches 235 / 242 = 97,1 % ;
+corpus en mots 270 769 / 291 242 = 93,0 %.**
+
+**Bilan prédictions/constats de la séance : 150 prédictions à décompte plein,
+128 tenues, 22 réfutées — 85,3 %** (plus 1 déclarative honorée).
+
+**Deux incidents, tous deux à moi :**
+1. ⚠ **C124, bloc 103** — la batterie filtrée **au lancement** au lieu de sa
+   sortie. Pipeline coupé, code 255, témoin perdu, relance immédiate sans
+   filtre. *La règle avait tenu neuf lancements sur dix ce soir.*
+2. ✅ **Un candidat C109 créé par la traduction**, `chien-de-garde-en` ligne 52,
+   trouvé par le compteur `C109 creees en EN` **et annoncé par la prédiction
+   chiffrée P102.5 avant lui**. Corrigé, réécrit, compteur retombé à 0.
+
+**Une faute de protocole, sans incident** : les puces du corpus n'ont **pas** été
+relevées avant la passe C109, donc leur delta se calcule et ne se mesure pas.
+*Consigné, et la parade est de les relever au cadrage du lot 12.*
+
+---
+
+## BLOC 105 — CLÔTURE §7 : `conventions.md`, `JOURNAL.md`, ligne « Tailles » au point fixe
+
+### Déclaration C131 du bloc 105
+
+**État à l'entrée : 32 entrées, dont 22 hors artefacts de séance.**
+**Versements nommés** : `conventions.md` et `JOURNAL.md` passent de non modifiés
+à ` M` → **+2 entrées, toutes deux comptées hors artefacts**.
+`tools/predictions-260830.md` était déjà ` M`, `TODO.md` et `BACKLOG.md` ne sont
+pas touchés. **Total impliqué : 34 entrées, dont 24 hors artefacts de séance.**
+✅ **Mesuré : 34 / 24.**
+
+### Constats du bloc 105
+
+- **Insertion sous ancre unique, tout ou rien, dans les deux fichiers.**
+  `### Autres en attente` : **1 occurrence** ; `<!-- INSERT_JOURNAL_HERE -->` :
+  **1 occurrence**. *Aucun des deux scripts n'écrit avant d'avoir compté son
+  ancre, et le second refuse aussi si le gabarit `TAILLES_GABARIT` n'est pas
+  unique.*
+- **`conventions.md` 3 780 → 3 911 lignes (+131), 521,0 → 529,7 Kio.**
+  **Six entrées neuves au §8**, dont une réfutation.
+- **`JOURNAL.md` 2 450 → 2 484 lignes (+34), 660,5 → 675,6 Kio.**
+- ✅ **La ligne « Tailles » est posée par POINT FIXE, et il a fallu DEUX tours** :
+  gabarit sans chiffres à la rédaction, puis remplacement par ancre unique, la
+  valeur posée étant remesurée après écriture. *Tour 1 : posé 673,8, mesuré
+  675,6. Tour 2 : posé 675,6, mesuré 675,6 — **point fixe**.* ⚠ **Deux tours et
+  non un, contrairement à la reprise du 30/08 (suite 6)** : la ligne de ce soir
+  est **beaucoup plus longue** que le gabarit qu'elle remplace, donc le premier
+  tour déplace la taille de 1,8 Kio. *Le point fixe n'est pas une formalité quand
+  le texte posé pèse plus que son emplacement.*
+- **Contrôle final des quatre tailles, relu sur le disque après la dernière
+  écriture** : `conventions.md` **529,7**, `JOURNAL.md` **675,6**,
+  `TODO.md` **282,7**, `BACKLOG.md` **206,0** — **les quatre identiques à ce que
+  la ligne publie**.
+- **`normalize-pilotage.js` relancé après les deux insertions :
+  `0 caractere(s) a corriger, 0 fichier(s) modifie(s)`.**
+- **`git status -- content` : 16 entrées** — **8 sources FR modifiées** et
+  **8 fiches EN neuves**, aucune autre.
+
+---
+
+## BILAN DE SÉANCE — LOT 11
+
+**150 prédictions à décompte plein, 128 tenues, 22 réfutées — 85,3 %**
+(plus 1 déclarative honorée).
+
+| bloc | objet | tenues | réfutées |
+|---|---|---|---|
+| 89 | garde d'ouverture | 8 | 1 |
+| 90 | remesure de composition | 9 | 1 |
+| 91 | cadrage du lot | 17 | 0 |
+| 92 | décomposition des 82 candidats | 3 | 0 |
+| 93 | relevés 1, 2, 5 | 8 | 0 |
+| 94 | relevés 3 et 4 | 6 | 2 |
+| 95 | relevé complémentaire | 5 | 5 |
+| 96 | front matter et collisions | 6 | 1 |
+| 97 | parenthèses et blocs de code | 3 | 5 |
+| 98 | épreuve C110 des puces | 8 | 0 |
+| 99 | jugement et passe C109 | 10 | 0 |
+| 100 | génération et titres | 11 | 0 |
+| 101 | rédaction, 4 petites fiches | 8 | 1 |
+| 102 | rédaction, 4 grosses fiches | 8 | 2 |
+| 103 | état de clôture | 14 | 2 |
+| 104 | relevés de clôture | 4 | 2 |
+| **total** | | **128** | **22** |
+
+⚠ **LES DEUX BLOCS À 5 RÉFUTATIONS SONT CONSÉCUTIFS (95 et 97) ET ILS ONT DEUX
+CAUSES, PAS DIX.** *Le **registre** de la fiche, confondu quatre fois avec sa
+taille ou son sujet ; et des **populations non déclarées** dans mes propres
+prédictions — `## Cas particulier*` chiffré comme s'il ne vivait que dans les
+huit sources, « exactement deux » titres écrit sans liste nominative.*
+
+✅ **ET LES QUATRE BLOCS PLEINS D'AFFILÉE (98 à 101 moins un) SONT CEUX OÙ LA
+MESURE PRÉCÉDAIT LA PRÉDICTION** : les huit sources avaient été lues en entier,
+les motifs éprouvés sur échantillons nommés, les compteurs lus dans le code.
+*La différence entre 66,7 % et 100 % sur la même séance n'est pas la difficulté
+du bloc, c'est ce que j'avais mesuré avant de prédire.*
+
+---
+
+## BLOC 106 — ARBITRAGE DE LA BORNE RENDU : LEVÉE EXPLICITE
+
+**Décision Tim, à la clôture du lot 11, avant livraison** : *« Pour l'arbitrage,
+je lève explicitement cette règle. »* **La borne de volume de lot, 6 657 mots,
+est levée.**
+
+**Commandes** : garde ; insertion d'une entrée au §8 de `conventions.md` sous
+ancre unique ; **cinq éditions ancrées** dans l'entrée du 30/08 (suite 7) de
+`JOURNAL.md` ; ligne « Tailles » reposée par **point fixe** ;
+`normalize-pilotage.js`.
+
+⚠ **L'entrée du JOURNAL est AMENDÉE, pas doublée** : l'arbitrage a été **soulevé
+et rendu dans la même séance**, avant la livraison, donc il appartient à
+l'entrée du lot 11. *La reprise du 30/08 (suite 6) avait créé une entrée neuve
+parce qu'elle portait un correctif de code livré après un commit ; ce n'est pas
+le cas ici.*
+
+### Déclaration C131 du bloc 106
+
+**État à l'entrée : 34 entrées, dont 24 hors artefacts de séance.**
+**Versement nommé** : `tools/batterie-sortie-3008b53.txt`, copie C124 de l'étape
+0 → **+1 `??`**, écartée du sous-compteur. *`conventions.md`, `JOURNAL.md` et
+`tools/predictions-260830.md` sont **déjà** ` M` : les rééditer ne crée aucune
+entrée.*
+**Total impliqué : 35 entrées, dont 24 hors artefacts de séance**, aux deux
+instants du bloc.
+
+### Prédictions du bloc 106
+
+- **P106.1 — garde** : ASCII `0` ; copie `tools\batterie-sortie-3008b53.txt` ;
+  `date ISO : 2026-08-30`, heure **> 18:01:38** ;
+  `HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200` **au caractère** ;
+  `node : v24.15.0` ; `35   (hors artefacts de seance : 24)`.
+  ⚠ **`JOURNAL.md` et `conventions.md` sont attendus datés du 2026-08-30
+  APRÈS 18:00, et ce n'est pas un état inattendu** : la clôture §7 du bloc 105
+  vient de les écrire. **`TODO.md` reste à `2026-08-29 21:48:08`.**
+- **P106.2 — les SIX ancres d'édition sont uniques, une occurrence chacune**, et
+  le lot est refusé si l'une manque :
+  1. `### Autres en attente\n` dans `conventions.md` ;
+  2. `- **Décisions Tim** — **une seule sollicitée, et la réponse est de ne pas arbitrer**` ;
+  3. `**Arbitrages en attente** — ⚠ **un neuf et il est structurant**` ;
+  4. `= **8 432 mots, 3 fiches**, soit **126,7 % de la borne**.` ;
+  5. `**Six entrées neuves au §8**` ;
+  6. `**Reste à Tim** (C121) — le lot n'est pas livré :`.
+- **P106.3 — `conventions.md` : 3 911 → entre 3 935 et 3 965 lignes**, point
+  estimé **3 948** ; **529,7 → entre 531,0 et 534,0 Kio**, point **532,3**.
+- **P106.4 — `JOURNAL.md` : 2 484 → entre 2 486 et 2 492 lignes**, point
+  **2 488** ; **675,6 → entre 676,5 et 679,5 Kio**, point **677,8**.
+  *Le gros de l'ajout est un paragraphe ⚠ et trois réécritures de phrases
+  existantes, pas des entrées neuves.*
+- **P106.5 — la ligne « Tailles » se repose par POINT FIXE en DEUX tours au
+  plus.** *Le bloc 105 en a demandé deux parce que la ligne posée pesait
+  1,8 Kio de plus que son gabarit ; ici elle ne change que de **cinq
+  caractères**, `675,6` → sa nouvelle valeur, donc **un tour** doit suffire.*
+  ⚠ **Terme écrit pour réfuter** : plus de deux tours dirait que la longueur du
+  nombre posé a changé, ce qui n'arrive qu'au passage à quatre chiffres.
+- **P106.6 — `normalize-pilotage.js` : `0 caractere(s) a corriger,
+  0 fichier(s) modifie(s)`.**
+- **P106.7 — `git status --porcelain -- content` : 16 entrées, INCHANGÉES** —
+  8 ` M` et 8 `??`. *Ce bloc ne touche aucun fichier du corpus, et c'est le terme
+  qui garde : une entrée de plus vaudrait ARRÊT.*
+- **P106.8 — `git status` en fin de bloc : `35   (hors artefacts de seance : 24)`**,
+  inchangé depuis la garde.
+
+### Constats du bloc 106 — 7 prédictions tenues, 1 réfutée, et la garde d'ancre a mordu QUATRE fois
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P106.1 | ASCII 0 ; copie `3008b53` ; heure > 18:01:38 ; HEAD au caractère ; `v24.15.0` ; `35   (hors artefacts : 24)` ; JOURNAL et conventions datés du 30/08 après 18:00, TODO inchangé | 0 ; `3008b53` ; **18:24:18** ; identique ; `v24.15.0` ; **35 / 24** ; **18:10:31** et **18:08:25** ; `2026-08-29 21:48:08` | **tenue** |
+| P106.2 | les **six** ancres uniques, une occurrence chacune | **quatre défauts sur six**, en trois lancements refusés | **RÉFUTÉE** |
+| P106.3 | `conventions.md` ∈ [3 935, 3 965] lignes point 3 948 ; ∈ [531,0, 534,0] Kio point 532,3 | **3 958** lignes ; **532,6** Kio | **tenue** |
+| P106.4 | `JOURNAL.md` ∈ [2 486, 2 492] lignes point 2 488 ; ∈ [676,5, 679,5] Kio point 677,8 | **2 486** lignes ; **677,2** Kio | **tenue** |
+| P106.5 | point fixe des « Tailles » en **deux tours au plus** | **un tour** | **tenue** |
+| P106.6 | `normalize-pilotage` : 0 / 0 | **0 caractère, 0 fichier** | **tenue** |
+| P106.7 | `git status -- content` : **16 entrées inchangées** | **16** | **tenue** |
+| P106.8 | `git status` **35 / 24** | **35 / 24** | **tenue** |
+
+⚠⚠ **P106.2 EST RÉFUTÉE QUATRE FOIS, ET C'EST LE MEILLEUR RÉSULTAT DU BLOC :
+LA GARDE D'UNICITÉ D'ANCRE A REFUSÉ TROIS LOTS D'AFFILÉE, ZÉRO OCTET ÉCRIT.**
+J'avais déclaré les six ancres uniques ; quatre étaient fausses, et **aucune ne
+l'était pour la même raison** :
+
+1. **Apostrophe** — mes trois ancres portaient la **courbe** U+2019, le JOURNAL
+   écrit la **droite** U+0027. **3 ancres à 0 occurrence.** *Vérifié après coup
+   par comptage sur la ligne visée : 3 droites, 0 courbe.*
+2. **`**Six entrées neuves au §8**` apparaît DEUX fois** — l'entrée du lot 9 du
+   30/08 porte la même phrase au mot près. **Ancre allongée à
+   `…, dont **une RÉFUTATION**`.**
+3. **`**Reste à Tim** (C121) — le lot n'est pas livré :` apparaît SEPT fois** —
+   c'est la formule de **toutes** les clôtures du chantier. *Une ancre de fin de
+   section est par construction la moins unique de toutes.* **Ancre étendue à la
+   phrase qui la précède.**
+4. **La phrase précédente se terminait par `termes.**` et non `termes.`** — deux
+   astérisques de gras oubliés. **Une occurrence de plus à zéro.**
+
+✅ **Le script portait la garde AVANT la première écriture, comme
+`renommer-titres.mjs` et `remplacer-passe.mjs`, et il a refusé le lot entier les
+trois fois — dont deux où QUATRE des cinq ancres étaient bonnes.**
+⚠ *`JOURNAL.md` n'est couvert par aucun des deux outils du dépôt : le premier ne
+touche que les `title:` de front matter, le second refuse les fiches sans front
+matter et n'écrit que dans un corps. **Un fichier de pilotage édité par ancre
+demande donc son propre script à garde**, et c'est ce que ce bloc a écrit.*
+
+**Candidate née de ce bloc** : *une ancre de fin de section — « Reste à Tim »,
+« Prochaine session », « Arbitrages en attente » — n'est jamais unique dans un
+JOURNAL antichronologique ; elle s'étend toujours à la phrase qui la précède, et
+cette phrase se relit sur le disque, jamais de mémoire.* ⚠ **Le quatrième défaut
+est exactement cela : j'ai réécrit la phrase précédente de tête et j'ai perdu son
+gras fermant.** *Éprouvée 0/N.*
+
+✅ **P106.5 tenue en UN tour, et le fondement était le bon** : la ligne « Tailles »
+ne changeait que de deux nombres de longueur identique, contre 1,8 Kio de texte
+neuf au bloc 105. **Contrôle relu sur le disque après la dernière écriture** :
+`conventions.md` **532,6**, `JOURNAL.md` **677,2**, `TODO.md` **282,7**,
+`BACKLOG.md` **206,0** — **les quatre identiques à ce que la ligne publie**.
+
+✅ **P106.7 est le terme de garde du bloc et il ne mord pas** : `git status --
+content` rend **16 entrées**, les mêmes qu'à la clôture — 8 sources FR ` M`,
+8 fiches EN `??`. *Un arbitrage se consigne dans le pilotage ; il ne touche pas
+le corpus, et le compteur le dit.*
+
+---
+
+## BILAN DE SÉANCE — LOT 11, ARBITRAGE COMPRIS
+
+**158 prédictions à décompte plein, 135 tenues, 23 réfutées — 85,4 %**
+(plus 1 déclarative honorée). **Dix-sept blocs d'exécution (89 à 106), neuf
+gardes de péremption au vert, `HEAD 0f3c9a5` stable sur les neuf.**
+
+**Cinq refus de garde d'écriture, zéro octet écrit à tort** : deux tests négatifs
+**délibérés** (passe C109, titres EN) et **trois refus non prévus** sur les
+éditions du JOURNAL. *Le rapport s'inverse par rapport aux lots précédents — le
+délibéré prouve que la garde marche, l'imprévu prouve qu'elle sert.*

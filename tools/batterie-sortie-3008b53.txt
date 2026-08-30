@@ -1,0 +1,814 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-3008b52.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : etat   anneau : 2   chevron : True
+date ISO : 2026-08-30   heure : 18:01:54
+
+HEAD git : 0f3c9a5 2026-08-30 11:20:01 +0200
+fichiers modifies non commites : 32   (hors artefacts de seance : 22)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-30 11:18:25
+  conventions.md                                      2026-08-30 11:16:18
+  TODO.md                                             2026-08-29 21:48:08
+  en/embarque/mcu/ascii-en.md                         2026-08-30 17:58:23
+  en/embarque/mcu/chien-de-garde-en.md                2026-08-30 17:59:08
+  en/embarque/mcu/filtrage-en.md                      2026-08-30 17:58:23
+  en/embarque/mcu/fonction-informatique-en.md         2026-08-30 17:52:56
+  en/embarque/mcu/ide-en.md                           2026-08-30 17:52:56
+  en/embarque/mcu/potentiometre-en.md                 2026-08-30 17:52:56
+  en/embarque/mcu/programmation-non-bloquante-en.md   2026-08-30 17:58:23
+  en/embarque/mcu/sans-fil/xbee-en.md                 2026-08-30 17:52:55
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - corpus FR publie, traduit / restant (compter-mots)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  fiches FR publiees   : 242
+  mots FR              : 291242
+  mediane par fiche    : 1089
+  fiche la plus lourde : embarque/pcb/easyeda.md  (9773)
+
+  deja traduites       : 235 fiches, 270769 mots FR
+  RESTANT A TRADUIRE   : 7 fiches, 20473 mots FR
+
+  Le restant est un COMPTAGE des fiches non traduites, pas une
+  soustraction : une somme se compense, un comptage non.
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - controle des trois compteurs (--controle, seules les lignes hors [ok] et le bilan)
+==============================================================
+=== CONTROLE DES TROIS COMPTEURS ===
+
+235 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - derive des sources (derive-traduction)
+==============================================================
+=== DERIVE DE TRADUCTION ===
+235 fiche(s) EN controlee(s)
+
+=== BILAN ===
+  MARQUE INVALIDE 0
+  DERIVE          0
+  SANS SOURCE     0
+  SANS MARQUE     0
+  A JOUR          235
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - foisonnement (compter-mots --paires : paires du lot, puis resume)
+==============================================================
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md  1463 ->  1492   +2.0 %
+  en/embarque/mcu/ascii-en.md                            671 ->   667   -0.6 %
+  en/embarque/mcu/chien-de-garde-en.md                  2005 ->  1982   -1.1 %
+  en/embarque/mcu/filtrage-en.md                        1397 ->  1396   -0.1 %
+  en/embarque/mcu/fonction-informatique-en.md            398 ->   401   +0.8 %
+  en/embarque/mcu/ide-en.md                              385 ->   388   +0.8 %
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md  1154 ->  1205   +4.4 %
+  en/embarque/mcu/potentiometre-en.md                    519 ->   544   +4.8 %
+  en/embarque/mcu/programmation-non-bloquante-en.md     1829 ->  1827   -0.1 %
+  en/embarque/mcu/sans-fil/xbee-en.md                    135 ->   135   +0.0 %
+  ...
+
+  235 paire(s) : 270769 mots FR -> 280397 mots EN
+  foisonnement moyen : 3.6 %
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - style C109 du lot EN (--style)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  en/embarque/mcu/ascii-en.md
+      17  [C109] tiret d incise
+          …at maps every character of text — letters, digits, punctuation — t…
+      17  [C109] tiret d incise
+          …— letters, digits, punctuation — to a **number** between 0 and 12…
+      40  [C109] point-virgule de prose
+          …on-printable: tab, end of line…); **32 to 126** → **printable** ch…
+      59  [C109] tiret d incise
+          …more reason to stick to ASCII (a–z, 0–9, plain punctuation) in emb…
+
+  en/embarque/mcu/chien-de-garde-en.md
+      21  [C109] tiret d incise
+          …th nobody around to press reset — a remote station, a machine in s…
+      21  [C109] tiret d incise
+          …ine in service, a buried object — does not survive a lock-up. A li…
+      50  [candidat] virgule : decimale francaise ou milliers anglais ?
+          …ython | `WDT(timeout=…)`, up to 8,388 ms on RP2 | `feed()` | **no*…
+      87  [C109] tiret d incise
+          …o feed.** A long initialisation — waiting for a module, mounting a…
+      87  [C109] tiret d incise
+          …system, connecting to a network — can exceed the delay and cause a…
+     101  [C109] tiret d incise
+          …refore fills two contrary roles — a safety net and an alarm clock…
+     101  [C109] tiret d incise
+          …a safety net and an alarm clock — and that mode does not exist eve…
+
+  en/embarque/mcu/filtrage-en.md
+      18  [C109] tiret d incise
+          …ng. Filtering is the processing — in software or in hardware — tha…
+      18  [C109] tiret d incise
+          …ng — in software or in hardware — that makes such a reading usable…
+      40  [C109] tiret d incise
+          …or. Remedy: **the cause first** — redo the ground, shorten or shie…
+
+  en/embarque/mcu/potentiometre-en.md
+      31  [C109] point-virgule de prose
+          …quickly (or the other way round); designed for audio volume, model…
+
+  en/embarque/mcu/programmation-non-bloquante-en.md
+      52  [C109] tiret d incise
+          …A task that goes through modes — idle, running, done — remembers…
+      52  [C109] tiret d incise
+          …ugh modes — idle, running, done — remembers where it stands in its…
+      70  [C109] tiret d incise
+          …when a fourth activity is added — driving a display, listening to…
+      82  [C109] tiret d incise
+          …For a rigorously constant step — sampling, [[asservissement-en|cl…
+      82  [C109] tiret d incise
+          …sement-en|closed-loop control]] —, a hardware [[timer-en|timer]] i…
+
+8 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 1   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 19   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 12   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - medias (audit-medias --quiet)
+==============================================================
+=== AUDIT DES EMBEDS ===
+483 fiches lues, 716 embeds et liens ressources, 374 fichiers dans ressources/
+
+embarque/mcu/arduino/arduino-capteur-analogique.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-debug.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/arduino/arduino-timers.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+embarque/mcu/debugger-embarque.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+embarque/mcu/shield.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+embarque/mesure/analyseur-logique.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+  [ABSENT] /ressources/img/arduino-capteur-analogique/traceur-seuil-lumiere.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-debug-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/arduino/arduino-timers-en.md
+  [ABSENT] /ressources/img/arduino-timers/traceur-echantillons.png   -> aucun fichier correspondant
+
+en/embarque/mcu/debugger-embarque-en.md
+  [ABSENT] /ressources/img/arduino-debug/session-debogage.png   -> aucun fichier correspondant
+
+en/embarque/mcu/shield-en.md
+  [ABSENT] /ressources/img/shield/empilement-uno-shield.jpg   -> aucun fichier correspondant
+
+en/embarque/mesure/analyseur-logique-en.md
+  [ABSENT] /ressources/img/analyseur-logique/pulseview-i2c-decode.png   -> aucun fichier correspondant
+
+=== ORPHELINS (jamais references, RIEN N EST SUPPRIME) ===
+  ressources/img/archive/cycle-v-projet-v1.svg (6 ko)
+
+=== BILAN ===
+  ABSENT        12
+  CASSE         0
+  HORS-GABARIT  0
+  EXTERNE       0
+  OK            704
+  ORPHELIN      1
+--- code de sortie : 1
+
+==============================================================
+>>> 8 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 141
+    RESTANT                   : 4
+
+  embarque/pcb/easyeda                                   9773
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (4 fiches)                      18205
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 0
+    clotures en chevron       : 0   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 235
+  cibles rouges distinctes     : 7
+  mots                         : 20473
+  dont HORS anneaux 0..2       : 2
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/xiao/xiao-prise-en-main
+    embarque/mcu/xiao/xiao-sense
+--- code de sortie : 0
+
+==============================================================
+>>> 9 - appariement chevron FR/EN (mesure-chevron --tout, C127)
+==============================================================
+=== MESURE DU CHEVRON - TOUT LE DEPOT ===
+  Cloture = ligne commencant par > (0 a 3 blancs) ET contenant trois
+  apostrophes inversees. Deux clotures consecutives = un bloc. Le CONTENU
+  est ce qui est STRICTEMENT entre les deux, prefixe de citation retire.
+  Les mots sortent de compterMots, importe de compter-mots.mjs (regle C110).
+  dehors est MESURE sur le texte prive de ces blocs, jamais soustrait.
+  etiq est MESURE sur les etiquettes de langage des ouvertures appariees.
+
+  cl = clotures, bl = blocs, tot = mots C110 de la fiche,
+  ded = mots DANS les blocs, deh = mots HORS les blocs,
+  etiq = mots des etiquettes de langage des ouvertures,
+  % = part des mots comptes qui vient des blocs.
+  IDENTITE : tot - deh - ded = etiq. Les lignes d ouverture et de
+  cloture sont hors deh (bornes comprises) et hors ded (contenu pris
+  strictement entre elles) ; le masque C110 est ancre en debut de
+  ligne et ne voit pas "> ```cpp", donc l etiquette reste dans tot.
+  ECART ne s imprime QUE s il differe de etiq : cloture orpheline,
+  texte apres une cloture, ouverture qui n est pas un fence.
+
+  fiches balayees : 478   porteuses : 68
+
+  --- COTE FRANCAIS
+  embarque/mcu/cpp/cpp-boucles.md                      4 cl   2 bl   1087 tot    44 ded   1041 deh    2 etiq    4.0 %
+  embarque/mcu/cpp/cpp-conditions.md                   6 cl   3 bl    902 tot    38 ded    861 deh    3 etiq    4.2 %
+  embarque/mcu/cpp/cpp-execution.md                    4 cl   2 bl   1433 tot    39 ded   1392 deh    2 etiq    2.7 %
+  embarque/mcu/cpp/cpp-lire-un-programme.md            2 cl   1 bl   2481 tot    18 ded   2462 deh    1 etiq    0.7 %
+  embarque/mcu/cpp/cpp-logs.md                         2 cl   1 bl   1591 tot    11 ded   1579 deh    1 etiq    0.7 %
+  embarque/mcu/cpp/cpp-portee.md                       8 cl   4 bl    993 tot    86 ded    903 deh    4 etiq    8.7 %
+  embarque/mcu/cpp/cpp-structure.md                    4 cl   2 bl   1127 tot    51 ded   1074 deh    2 etiq    4.5 %
+  embarque/mcu/cpp/cpp-types.md                        4 cl   2 bl   1333 tot    28 ded   1303 deh    2 etiq    2.1 %
+  embarque/mcu/esp32/esp32-arduino-core.md             4 cl   2 bl   1286 tot    65 ded   1219 deh    2 etiq    5.1 %
+  embarque/mcu/esp32/esp32-ble.md                      4 cl   2 bl   1280 tot    90 ded   1188 deh    2 etiq    7.0 %
+  embarque/mcu/esp32/esp32-deep-sleep.md               2 cl   1 bl   1497 tot    93 ded   1403 deh    1 etiq    6.2 %
+  embarque/mcu/esp32/esp32-freertos.md                 4 cl   2 bl   1431 tot   104 ded   1325 deh    2 etiq    7.3 %
+  embarque/mcu/esp32/esp32-gpio.md                     4 cl   2 bl   1526 tot    96 ded   1428 deh    2 etiq    6.3 %
+  embarque/mcu/esp32/esp32-i2c.md                      4 cl   2 bl   1143 tot    89 ded   1052 deh    2 etiq    7.8 %
+  embarque/mcu/esp32/esp32-idf.md                      2 cl   1 bl   1066 tot    28 ded   1038 deh    0 etiq    2.6 %
+  embarque/mcu/esp32/esp32-prise-en-main.md            4 cl   2 bl   2566 tot    59 ded   2505 deh    2 etiq    2.3 %
+  embarque/mcu/esp32/esp32-serie.md                    4 cl   2 bl   2019 tot   110 ded   1907 deh    2 etiq    5.4 %
+  embarque/mcu/esp32/esp32-spi.md                      4 cl   2 bl   1150 tot   128 ded   1020 deh    2 etiq   11.1 %
+  embarque/mcu/esp32/esp32-uart.md                     4 cl   2 bl   1282 tot   105 ded   1175 deh    2 etiq    8.2 %
+  embarque/mcu/esp32/esp32-wifi.md                     4 cl   2 bl   1455 tot   135 ded   1318 deh    2 etiq    9.3 %
+  embarque/mcu/esp8266/esp8266-arduino-core.md         4 cl   2 bl   1276 tot    75 ded   1199 deh    2 etiq    5.9 %
+  embarque/mcu/esp8266/esp8266-prise-en-main.md        4 cl   2 bl   1671 tot    69 ded   1600 deh    2 etiq    4.1 %
+  embarque/mcu/micropython/micropython-controle.md     4 cl   2 bl    491 tot    45 ded    444 deh    2 etiq    9.2 %
+  embarque/mcu/micropython/micropython-fonctions.md    4 cl   2 bl    469 tot    45 ded    422 deh    2 etiq    9.6 %
+  embarque/mcu/micropython/micropython-lire-un-programme.md   2 cl   1 bl   2644 tot    10 ded   2633 deh    1 etiq    0.4 %
+  embarque/mcu/micropython/micropython-modules.md      8 cl   4 bl    638 tot    48 ded    586 deh    4 etiq    7.5 %
+  embarque/mcu/micropython/micropython-repl.md         4 cl   2 bl    684 tot    39 ded    643 deh    2 etiq    5.7 %
+  embarque/mcu/micropython/micropython-types.md        4 cl   2 bl    537 tot    25 ded    510 deh    2 etiq    4.7 %
+  embarque/mcu/stm32/stm32-arduino-core.md             4 cl   2 bl   1711 tot    53 ded   1656 deh    2 etiq    3.1 %
+  embarque/mcu/stm32/stm32-prise-en-main.md            4 cl   2 bl   1810 tot   114 ded   1694 deh    2 etiq    6.3 %
+  embarque/mcu/teensy/teensy-arduino-core.md           4 cl   2 bl   1522 tot    47 ded   1473 deh    2 etiq    3.1 %
+  embarque/mcu/teensy/teensy-audio.md                  4 cl   2 bl   1378 tot    71 ded   1305 deh    2 etiq    5.2 %
+  embarque/mcu/teensy/teensy-prise-en-main.md          4 cl   2 bl   1477 tot    60 ded   1415 deh    2 etiq    4.1 %
+  embarque/mcu/teensy/teensy-usb.md                    4 cl   2 bl   1176 tot    57 ded   1117 deh    2 etiq    4.8 %
+  ------------------------------------------------------------------------------------------------
+  FR (34 porteuses)                                  136 cl  68 bl  46132 tot  2175 ded  43890 deh   67 etiq
+
+  --- COTE ANGLAIS
+  en/embarque/mcu/cpp/cpp-boucles-en.md                4 cl   2 bl   1147 tot    45 ded   1100 deh    2 etiq    3.9 %
+  en/embarque/mcu/cpp/cpp-conditions-en.md             6 cl   3 bl    952 tot    38 ded    911 deh    3 etiq    4.0 %
+  en/embarque/mcu/cpp/cpp-execution-en.md              4 cl   2 bl   1410 tot    39 ded   1369 deh    2 etiq    2.8 %
+  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md      2 cl   1 bl   2565 tot    18 ded   2546 deh    1 etiq    0.7 %
+  en/embarque/mcu/cpp/cpp-logs-en.md                   2 cl   1 bl   1668 tot    11 ded   1656 deh    1 etiq    0.7 %
+  en/embarque/mcu/cpp/cpp-portee-en.md                 8 cl   4 bl   1057 tot    88 ded    965 deh    4 etiq    8.3 %
+  en/embarque/mcu/cpp/cpp-structure-en.md              4 cl   2 bl   1151 tot    51 ded   1098 deh    2 etiq    4.4 %
+  en/embarque/mcu/cpp/cpp-types-en.md                  4 cl   2 bl   1347 tot    29 ded   1316 deh    2 etiq    2.2 %
+  en/embarque/mcu/esp32/esp32-arduino-core-en.md       4 cl   2 bl   1364 tot    64 ded   1298 deh    2 etiq    4.7 %
+  en/embarque/mcu/esp32/esp32-ble-en.md                4 cl   2 bl   1328 tot    90 ded   1236 deh    2 etiq    6.8 %
+  en/embarque/mcu/esp32/esp32-deep-sleep-en.md         2 cl   1 bl   1535 tot    94 ded   1440 deh    1 etiq    6.1 %
+  en/embarque/mcu/esp32/esp32-freertos-en.md           4 cl   2 bl   1477 tot   103 ded   1372 deh    2 etiq    7.0 %
+  en/embarque/mcu/esp32/esp32-gpio-en.md               4 cl   2 bl   1550 tot    94 ded   1454 deh    2 etiq    6.1 %
+  en/embarque/mcu/esp32/esp32-i2c-en.md                4 cl   2 bl   1169 tot    91 ded   1076 deh    2 etiq    7.8 %
+  en/embarque/mcu/esp32/esp32-idf-en.md                2 cl   1 bl   1123 tot    28 ded   1095 deh    0 etiq    2.5 %
+  en/embarque/mcu/esp32/esp32-prise-en-main-en.md      4 cl   2 bl   2652 tot    59 ded   2591 deh    2 etiq    2.2 %
+  en/embarque/mcu/esp32/esp32-serie-en.md              4 cl   2 bl   2124 tot   111 ded   2011 deh    2 etiq    5.2 %
+  en/embarque/mcu/esp32/esp32-spi-en.md                4 cl   2 bl   1202 tot   128 ded   1072 deh    2 etiq   10.6 %
+  en/embarque/mcu/esp32/esp32-uart-en.md               4 cl   2 bl   1310 tot   106 ded   1202 deh    2 etiq    8.1 %
+  en/embarque/mcu/esp32/esp32-wifi-en.md               4 cl   2 bl   1537 tot   134 ded   1401 deh    2 etiq    8.7 %
+  en/embarque/mcu/esp8266/esp8266-arduino-core-en.md   4 cl   2 bl   1336 tot    76 ded   1258 deh    2 etiq    5.7 %
+  en/embarque/mcu/esp8266/esp8266-prise-en-main-en.md   4 cl   2 bl   1737 tot    69 ded   1666 deh    2 etiq    4.0 %
+  en/embarque/mcu/micropython/micropython-controle-en.md   4 cl   2 bl    504 tot    45 ded    457 deh    2 etiq    8.9 %
+  en/embarque/mcu/micropython/micropython-fonctions-en.md   4 cl   2 bl    509 tot    46 ded    461 deh    2 etiq    9.0 %
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md   2 cl   1 bl   2738 tot    10 ded   2727 deh    1 etiq    0.4 %
+  en/embarque/mcu/micropython/micropython-modules-en.md   8 cl   4 bl    669 tot    48 ded    617 deh    4 etiq    7.2 %
+  en/embarque/mcu/micropython/micropython-repl-en.md   4 cl   2 bl    714 tot    40 ded    672 deh    2 etiq    5.6 %
+  en/embarque/mcu/micropython/micropython-types-en.md   4 cl   2 bl    573 tot    25 ded    546 deh    2 etiq    4.4 %
+  en/embarque/mcu/stm32/stm32-arduino-core-en.md       4 cl   2 bl   1762 tot    54 ded   1706 deh    2 etiq    3.1 %
+  en/embarque/mcu/stm32/stm32-prise-en-main-en.md      4 cl   2 bl   1830 tot   114 ded   1714 deh    2 etiq    6.2 %
+  en/embarque/mcu/teensy/teensy-arduino-core-en.md     4 cl   2 bl   1543 tot    47 ded   1494 deh    2 etiq    3.0 %
+  en/embarque/mcu/teensy/teensy-audio-en.md            4 cl   2 bl   1392 tot    71 ded   1319 deh    2 etiq    5.1 %
+  en/embarque/mcu/teensy/teensy-prise-en-main-en.md    4 cl   2 bl   1510 tot    60 ded   1448 deh    2 etiq    4.0 %
+  en/embarque/mcu/teensy/teensy-usb-en.md              4 cl   2 bl   1199 tot    57 ded   1140 deh    2 etiq    4.8 %
+  ------------------------------------------------------------------------------------------------
+  EN (34 porteuses)                                  136 cl  68 bl  47684 tot  2183 ded  45434 deh   67 etiq
+
+  --- APPARIEMENT FR / EN SUR LE NOMBRE DE BLOCS
+    embarque/mcu/cpp/cpp-boucles.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-conditions.md                 FR 3 bl / EN 3 bl   ok
+    embarque/mcu/cpp/cpp-execution.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-lire-un-programme.md          FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-logs.md                       FR 1 bl / EN 1 bl   ok
+    embarque/mcu/cpp/cpp-portee.md                     FR 4 bl / EN 4 bl   ok
+    embarque/mcu/cpp/cpp-structure.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/cpp/cpp-types.md                      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-arduino-core.md           FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-ble.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-deep-sleep.md             FR 1 bl / EN 1 bl   ok
+    embarque/mcu/esp32/esp32-freertos.md               FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-gpio.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-i2c.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-idf.md                    FR 1 bl / EN 1 bl   ok
+    embarque/mcu/esp32/esp32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-serie.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-spi.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-uart.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-wifi.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-arduino-core.md           FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-arduino-core.md         FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-audio.md                FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-prise-en-main.md        FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-usb.md                  FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 34   divergentes : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 10 - wikilinks (audit-wikilinks)
+==============================================================
+=== AUDIT DES WIKILINKS ===
+483 fiches lues, 500 cibles distinctes
+
+--- MORT (7) ---
+[[wokwi-en]]  9 occurrence(s)
+    en/embarque/mcu/arduino/tinkercad-en.md  x2
+        L114 : Tinkercad handles the Arduino Uno and Mega well, along with a few standard components. To simulate an [[esp32-en|ESP32]] (Wi-Fi, BLE, an SSD1306 displ...
+    en/embarque/mcu/micropython/micropython-simulation-en.md
+        L111 : - [[wokwi-en|Wokwi]] — the tool tutorial for this simulator (Arduino and ESP32 side)
+    en/embarque/mcu/xiao/xiao-esp32-s3-en.md  x2
+        L65 : | trying it without hardware | [[wokwi-en\|Wokwi]] — the XIAO C3, S3 and C6 are simulated there |
+    en/embarque/mesure/analyseur-logique-en.md
+        L75 : - [[wokwi-en|Wokwi]] — its virtual logic analyzer, to capture a **simulated** bus before wiring anything
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[easyeda-en]]  4 occurrence(s)
+    en/embarque/pcb/pcb-en.md  x4
+        L62 : | [[easyeda-en\|EasyEDA]] | the footprint comes with the component, offline mode | the school's tool, right through to etching in the lab |
+[[kicad-en]]  4 occurrence(s)
+    en/embarque/index.md
+        L73 : - [[pcb-en|Printed circuit board]] — from schematic to manufacturable board, with [[kicad-en|KiCad]]
+    en/embarque/pcb/pcb-en.md  x3
+        L61 : | [[kicad-en\|KiCad]] | free, open source, complete, cross-platform, the standard | serious board design, for the project and beyond |
+[[falstad-en]]  3 occurrence(s)
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[ltspice-en]]  3 occurrence(s)
+    en/embarque/simulation/simulation-electronique-en.md  x3
+        L20 : **Simulating an electronic system** means computing how it behaves on a computer — voltages, currents, waveforms — **before wiring anything at all**. ...
+[[xiao-prise-en-main-en]]  3 occurrence(s)
+    en/embarque/mcu/xiao/xiao-alimentation-en.md
+        L68 : - [[xiao-prise-en-main-en|XIAO — getting started]] — flashing the board
+    en/embarque/mcu/xiao/xiao-esp32-s3-en.md  x2
+        L67 : Three pages cover what is **specific to the board**: the first flashing with [[xiao-prise-en-main-en|getting started]], powering and battery charging ...
+[[xiao-sense-en]]  3 occurrence(s)
+    en/embarque/mcu/xiao/xiao-alimentation-en.md
+        L55 : These figures are **theoretical** (they ignore the cell's self-discharge, the regulator's own consumption and ageing): take them as orders of magnitud...
+    en/embarque/mcu/xiao/xiao-esp32-s3-en.md  x2
+        L67 : Three pages cover what is **specific to the board**: the first flashing with [[xiao-prise-en-main-en|getting started]], powering and battery charging ...
+
+--- GABARIT (8) ---
+[[<notion-associée>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-concernée>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<phase-suivante>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md  x2
+[[<phase>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-tuto.md  x2
+[[<référence>]]  2 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-notion.md
+    templates/fiche-tuto.md
+[[<notion-centrale-1>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<notion-centrale-2>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+[[<phase-precedente>]]  1 occurrence(s)   -> placeholder de gabarit, non resolvable par nature
+    templates/fiche-trame.md
+
+--- ALIAS (6) ---
+[[FC]]  26 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md  x3
+    conduite/proj/concept.md  x4
+    conduite/proj/ecoconception.md  x2
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/securite-et-qualite.md
+    conduite/proj/specification-technique.md  x12
+[[FP]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/concept.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x6
+[[FS]]  12 occurrence(s)   -> alias de conduite/proj/fonction.md
+    conduite/proj/cahier-des-charges-fonctionnel.md
+    conduite/proj/mind-map.md
+    conduite/proj/pieuvre.md  x3
+    conduite/proj/specification-technique.md  x7
+[[niveau]]  7 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md  x2
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[critere]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+[[flexibilite]]  6 occurrence(s)   -> alias de conduite/proj/caracteriser-une-exigence.md
+    conduite/proj/etat-de-l-art-technique.md
+    conduite/proj/fonction.md
+    conduite/proj/specification-technique.md  x4
+
+=== BILAN ===
+  MORT    7 cible(s)
+  CASSE   0 cible(s)
+  AMBIGU  0 cible(s)
+  GABARIT 8 cible(s)
+  ALIAS   6 cible(s)
+  OK      479 cible(s)
+--- code de sortie : 1
+
+==============================================================
+>>> 11 - libelles a lire (--libelles) - bloc le plus verbeux, en dernier
+==============================================================
+=== HEURISTIQUE DE LIBELLES ===
+  en/conduite/proj/etat-de-l-art-technique-en.md
+      [[caracteriser-une-exigence-en|levels]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/etat-de-l-art-technique-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/etat-de-l-art-technique-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/etat-de-l-art-technique-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/fast-en.md
+      [[asservissement-en|PID]]   cible intitulee : Closed-loop control
+  en/conduite/proj/fonction-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/fonction-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/fonction-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/integration-et-tests-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/conduite/proj/integration-et-tests-en.md
+      [[en/conduite/index|hub of this wiki]]   cible intitulee : Project management
+  en/conduite/proj/pieuvre-en.md
+      [[afnor-nfx50-151-en|functional analysis]]   cible intitulee : NF X50-151
+  en/conduite/proj/pieuvre-en.md
+      [[fonction-en|main]]   cible intitulee : Function
+  en/conduite/proj/pieuvre-en.md
+      [[fonction-en|secondary]]   cible intitulee : Function
+  en/conduite/proj/pieuvre-en.md
+      [[fonction-en|constraint]]   cible intitulee : Function
+  en/conduite/proj/pieuvre-en.md
+      [[caracteriser-une-exigence-en|criterion / level / flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/pieuvre-en.md
+      [[caracteriser-une-exigence-en|criterion / level / flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/securite-et-qualite-en.md
+      [[protection-electronique-en|fuses]]   cible intitulee : Electronic protections
+  en/conduite/proj/securite-et-qualite-en.md
+      [[pcb-en|PCBs]]   cible intitulee : PCB — printed circuit board
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[asservissement-en|PID]]   cible intitulee : Closed-loop control
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|criterion]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|level]]   cible intitulee : Characterising a requirement
+  en/conduite/proj/specification-technique-en.md
+      [[caracteriser-une-exigence-en|flexibility]]   cible intitulee : Characterising a requirement
+  en/embarque/algorithme/machine-a-etats-en.md
+      [[gpio-en|state of the GPIOs at boot]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[gpio-en|pull resistors]]   cible intitulee : GPIO
+  en/embarque/analyse-de-schema-electronique-en.md
+      [[logigramme-en|logic]]   cible intitulee : Flowchart
+  en/embarque/index.md
+      [[en/conduite/index|V-model]]   cible intitulee : Project management
+  en/embarque/index.md
+      [[programmer-l-embarque-en|Algorithm and documentation]]   cible intitulee : Programming
+  en/embarque/index.md
+      [[faire-communiquer-en|Choice of communication technologies (if the specification requires it)]]   cible intitulee : Getting things talking
+  en/embarque/index.md
+      [[integration-et-tests-en|Finished product]]   cible intitulee : Integration and testing
+  en/embarque/mcu/adc-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/arduino/arduino-bibliotheques-en.md
+      [[arduino-eeprom-en|non-volatile memory]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-deep-sleep-en.md
+      [[deep-sleep-en|the concept page]]   cible intitulee : Deep sleep
+  en/embarque/mcu/arduino/arduino-entree-tor-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-interruptions-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-machine-a-etats-en.md
+      [[arduino-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/arduino/arduino-memoire-en.md
+      [[arduino-eeprom-en|its own tutorial]]   cible intitulee : EEPROM storage on Arduino
+  en/embarque/mcu/arduino/arduino-module-en.md
+      [[arduino-moteur-cc-en|driver module]]   cible intitulee : Driving a DC motor on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-pid-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-temporisation-en.md
+      [[arduino-entree-tor-en|button]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-timers-en.md
+      [[arduino-temporisation-en|`millis()`]]   cible intitulee : Timing delays on Arduino
+  en/embarque/mcu/arduino/arduino-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/arduino/tinkercad-en.md
+      [[arduino-entree-tor-en|Software debouncing]]   cible intitulee : Reading a digital input on Arduino
+  en/embarque/mcu/bus/i2c-en.md
+      [[gpio-en|open collector or open drain]]   cible intitulee : GPIO
+  en/embarque/mcu/cpp/cpp-logs-en.md
+      [[cpp-portee-en|scope]]   cible intitulee : Local and global variables
+  en/embarque/mcu/dac-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/debugger-embarque-en.md
+      [[uart-en|serial link]]   cible intitulee : UART
+  en/embarque/mcu/debugger-embarque-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/deep-sleep-en.md
+      [[memoire-en|storage]]   cible intitulee : Memory
+  en/embarque/mcu/entree-sortie-en.md
+      [[gpio-en|logic pins]]   cible intitulee : GPIO
+  en/embarque/mcu/entree-sortie-en.md
+      [[adc-en|analog-to-digital]]   cible intitulee : ADC
+  en/embarque/mcu/esp32/esp32-en.md
+      [[systeme-d-exploitation-en|RTOS]]   cible intitulee : Operating system
+  en/embarque/mcu/esp8266/esp8266-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/firmware-en.md
+      [[cpp-en|language]]   cible intitulee : C++
+  en/embarque/mcu/gpio-en.md
+      [[raspberry-pi-gpio-en|Raspberry Pi]]   cible intitulee : Driving the GPIO from Linux
+  en/embarque/mcu/interruption-en.md
+      [[gpio-en|pin]]   cible intitulee : GPIO
+  en/embarque/mcu/lire-une-datasheet-en.md
+      [[protection-electronique-en|flyback diodes]]   cible intitulee : Electronic protections
+  en/embarque/mcu/lire-une-datasheet-en.md
+      [[protection-electronique-en|flyback diodes]]   cible intitulee : Electronic protections
+  en/embarque/mcu/manipulation-de-bits-en.md
+      [[memoire-en|SRAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-controle-en.md
+      [[micropython-types-en|list]]   cible intitulee : Variables and types
+  en/embarque/mcu/micropython/micropython-debug-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-deep-sleep-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-entree-tor-en.md
+      [[micropython-temporisation-en|`ticks_ms()` and `ticks_diff()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-boot-en.md
+      [[esp8266-arduino-core-en|ESP8266]]   cible intitulee : Programming with the Arduino core
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-gpio-en.md
+      [[micropython-capteur-analogique-en|`ADC`]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-i2c-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-interruptions-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-langage-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md
+      [[micropython-prise-en-main-en|Thonny]]   cible intitulee : Getting started with MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-entree-tor-en|debouncing]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-machine-a-etats-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[memoire-en|RAM]]   cible intitulee : Memory
+  en/embarque/mcu/micropython/micropython-memoire-en.md
+      [[micropython-interruptions-en|ISR]]   cible intitulee : Interrupts in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|steady rate]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-pid-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-servomoteur-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-simulation-en.md
+      [[micropython-entree-tor-en|software debounce]]   cible intitulee : Reading a digital input in MicroPython
+  en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-spi-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-temporisation-en.md
+      [[micropython-modules-en|`time`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|`ticks_ms()`]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-timers-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/micropython/micropython-types-en.md
+      [[micropython-capteur-analogique-en|ADC]]   cible intitulee : Reading an analog sensor in MicroPython
+  en/embarque/mcu/micropython/micropython-uart-en.md
+      [[micropython-modules-en|`machine`]]   cible intitulee : Modules and import
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[timer-en|counter]]   cible intitulee : Timer
+  en/embarque/mcu/micropython/micropython-watchdog-en.md
+      [[micropython-deep-sleep-en|`deepsleep`]]   cible intitulee : Deep sleep in MicroPython
+  en/embarque/mcu/niveaux-de-tension-en.md
+      [[gpio-en|pull-up resistor]]   cible intitulee : GPIO
+  en/embarque/mcu/potentiometre-en.md
+      [[niveaux-de-tension-en|voltage divider]]   cible intitulee : Logic levels
+  en/embarque/mcu/raspberry-pi/raspberry-pi-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/raspberry-pi/raspberry-pi-gpio-en.md
+      [[entree-sortie-en|logic input]]   cible intitulee : I/O
+  en/embarque/mcu/raspberry-pi/raspberry-pi-projet-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-cubemx-en.md
+      [[bus-de-communication-en|I2C/SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-en.md
+      [[stm32-registres-en|CMSIS]]   cible intitulee : Going down to the register on the STM32
+  en/embarque/mcu/stm32/stm32-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/stm32/stm32-prise-en-main-en.md
+      [[gpio-en|the GPIOs]]   cible intitulee : GPIO
+  en/embarque/mcu/teensy/teensy-audio-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|I2S]]   cible intitulee : Communication buses
+  en/embarque/mcu/teensy/teensy-en.md
+      [[bus-de-communication-en|UART / I2C / SPI]]   cible intitulee : Communication buses
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mcu/timer-en.md
+      [[arduino-timers-en|the dedicated tutorial]]   cible intitulee : Timers on Arduino
+  en/embarque/mcu/timer-en.md
+      [[micropython-temporisation-en|sleep() vs ticks_ms()]]   cible intitulee : Timing delays in MicroPython
+  en/embarque/mesure/analyseur-logique-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/instruments-de-mesure-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/multimetre-en.md
+      [[instruments-de-mesure-en|the hub]]   cible intitulee : Measuring instruments
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|bus]]   cible intitulee : Communication buses
+  en/embarque/mesure/oscilloscope-en.md
+      [[bus-de-communication-en|UART, I²C or SPI]]   cible intitulee : Communication buses
+  en/embarque/protection-electronique-en.md
+      [[matrice-de-risques-en|delay]]   cible intitulee : Risk matrix
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/choisir-le-materiel-en.md
+      [[decomposition-fonctionnelle-en|Scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/concevoir-l-electronique-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/faire-communiquer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[decomposition-fonctionnelle-en|scoping the embedded need]]   cible intitulee : Functional breakdown
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/realisation/fiabiliser-et-deboguer-en.md
+      [[cable-management-en|wiring]]   cible intitulee : Cable management
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[microcontroleur-en|controllers]]   cible intitulee : Microcontroller
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[asservissement-en|PID]]   cible intitulee : Closed-loop control
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 4199
+  cible EN existante    : 4170   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 29
+  candidats a lire      : 145
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+--- code de sortie : 0

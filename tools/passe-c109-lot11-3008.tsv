@@ -1,0 +1,72 @@
+# PASSE C109 - lot 11 - 70 ancres, 8 sources FR, 73 signalements traites sur 100
+# chemin<TAB>ancre exacte<TAB>remplacement - table jetable (C114), lot 11 du 30/08
+embarque/mcu/ascii.md	de `Serial.read()` — recevoir	de `Serial.read()` : recevoir
+embarque/mcu/ascii.md	- **Liaison série** — chaque octet reçu	- **Liaison série.** Chaque octet reçu
+embarque/mcu/ascii.md	est un code ASCII ; lire un *nombre*	est un code ASCII. Lire un *nombre*
+embarque/mcu/ascii.md	- **Type `char`** — en [[cpp|C++]], un	- **Type `char`.** En [[cpp|C++]], un
+embarque/mcu/ascii.md	- **Conversion chiffre ↔ valeur** — le code	- **Conversion chiffre ↔ valeur.** Le code
+embarque/mcu/ascii.md	en hexadécimal ; les deux désignent	en hexadécimal. Les deux désignent
+embarque/mcu/ascii.md	`'A'` = 65 — et les minuscules	`'A'` = 65. Et les minuscules
+embarque/mcu/ascii.md	casse les accents — raison de plus	casse les accents : raison de plus
+embarque/mcu/chien-de-garde.md	n'attend rien de lui — il attend	n'attend rien de lui : il attend
+embarque/mcu/chien-de-garde.md	qu'il va mal ; c'est à lui	qu'il va mal. C'est à lui
+embarque/mcu/chien-de-garde.md	déjà fonctionnel — jamais pour masquer	déjà fonctionnel, jamais pour masquer
+embarque/mcu/chien-de-garde.md	d'une famille à l'autre — c'est la raison	d'une famille à l'autre : c'est la raison
+embarque/mcu/chien-de-garde.md	la bonne à 3,3 V — piège invisible	la bonne à 3,3 V : piège invisible
+embarque/mcu/chien-de-garde.md	paliers approximatifs — mais le chien partage	paliers approximatifs. Mais le chien partage
+embarque/mcu/chien-de-garde.md	est toujours la même — *d'où vient	est toujours la même : *d'où vient
+embarque/mcu/chien-de-garde.md	marge comprise — sinon le chien	marge comprise : sinon le chien
+embarque/mcu/chien-de-garde.md	sain mène** — c'est le choix décisif	sain mène** : c'est le choix décisif
+embarque/mcu/chien-de-garde.md	toutes cartes confondues — une fois démarré	toutes cartes confondues : une fois démarré
+embarque/mcu/chien-de-garde.md	au démarrage — certains anciens *bootloaders* laissaient le chien actif avec un délai très court après un reset, d'où un redémarrage en boucle — pas de licence architecturale.	au démarrage (certains anciens *bootloaders* laissaient le chien actif avec un délai très court après un reset, d'où un redémarrage en boucle), pas de licence architecturale.
+embarque/mcu/chien-de-garde.md	prête à nourrir ; et on ne prévoit pas	prête à nourrir. Et on ne prévoit pas
+embarque/mcu/chien-de-garde.md	ne s'exécute — celui qui le lit	ne s'exécute : celui qui le lit
+embarque/mcu/chien-de-garde.md	ne bloque pas — la boucle passe	ne bloque pas : la boucle passe
+embarque/mcu/chien-de-garde.md	depuis le dernier cycle — chaque tâche lève	depuis le dernier cycle : chaque tâche lève
+embarque/mcu/chien-de-garde.md	**sans redémarrer** — le redémarrage est	**sans redémarrer** : le redémarrage est
+embarque/mcu/chien-de-garde.md	une valeur d'erreur ; la boucle continuait	une valeur d'erreur. La boucle continuait
+embarque/mcu/chien-de-garde.md	Nourri sous condition — « les trois lectures du cycle ont réussi » — le même chien	Nourri sous condition (« les trois lectures du cycle ont réussi »), le même chien
+embarque/mcu/chien-de-garde.md	n'a jamais bronché — jusqu'à ce que	n'a jamais bronché, jusqu'à ce que
+embarque/mcu/chien-de-garde.md	masque la cause — d'autant mieux	masque la cause, d'autant mieux
+embarque/mcu/chien-de-garde.md	ne les réarment pas ensuite — de quoi croire	ne les réarment pas ensuite : de quoi croire
+embarque/mcu/chien-de-garde.md	consigner la panne — ce qui répond	consigner la panne, ce qui répond
+embarque/mcu/filtrage.md	un peu plus de 3 — et il en faut 100	un peu plus de 3, et il en faut 100
+embarque/mcu/filtrage.md	réactif et lisse peu ; proche de 0	réactif et lisse peu. Proche de 0
+embarque/mcu/filtrage.md	On garde `N` mesures — 3 ou 5 suffisent, en nombre impair — et on renvoie	On garde `N` mesures (3 ou 5 suffisent, en nombre impair) et on renvoie
+embarque/mcu/filtrage.md	`fc = 1/(2πRC)` — par exemple	`fc = 1/(2πRC)` : par exemple
+embarque/mcu/filtrage.md	étalé en rampe ; l'information	étalé en rampe. L'information
+embarque/mcu/filtrage.md	plus tard qu'en réalité — pour un détecteur	plus tard qu'en réalité : pour un détecteur
+embarque/mcu/filtrage.md	des mesures espacées — donc une cadence	des mesures espacées, donc une cadence
+embarque/mcu/filtrage.md	de 2 °C après filtrage — et le filtre	de 2 °C après filtrage, et le filtre
+embarque/mcu/filtrage.md	la **dispersion** ; il ne corrige	la **dispersion**. Il ne corrige
+embarque/mcu/filtrage.md	redonne ce palier — et la résolution	redonne ce palier, et la résolution
+embarque/mcu/filtrage.md	- **un seuil qui claque** — la mesure oscille autour de la valeur de déclenchement, et la sortie bascule dix fois par seconde ;	- **un seuil qui claque.** La mesure oscille autour de la valeur de déclenchement, et la sortie bascule dix fois par seconde.
+embarque/mcu/filtrage.md	- **un affichage illisible** — le dernier chiffre danse en permanence, alors qu'il est en dessous de ce que le capteur sait garantir ;	- **un affichage illisible.** Le dernier chiffre danse en permanence, alors qu'il est en dessous de ce que le capteur sait garantir.
+embarque/mcu/filtrage.md	- **un actionneur qui vibre** — une régulation	- **un actionneur qui vibre.** Une régulation
+embarque/mcu/fonction-informatique.md	**service rendu par le produit** — pas un bloc de code.	**service rendu par le produit**, pas un bloc de code.
+embarque/mcu/fonction-informatique.md	la valeur de sortie ; le type	la valeur de sortie. Le type
+embarque/mcu/fonction-informatique.md	ne l'exécute pas — tant qu'on	ne l'exécute pas : tant qu'on
+embarque/mcu/fonction-informatique.md	- **Nommer une intention** — `lireTemperature()` se lit mieux qu'une dizaine de lignes de conversion noyées dans la boucle ;	- **Nommer une intention.** `lireTemperature()` se lit mieux qu'une dizaine de lignes de conversion noyées dans la boucle.
+embarque/mcu/fonction-informatique.md	- **Isoler** — une fonction se teste	- **Isoler.** Une fonction se teste
+embarque/mcu/fonction-informatique.md	en cas de bug) ;	en cas de bug).
+embarque/mcu/ide.md	le programme dedans — voir [[cpp-execution|comment s'exécute un programme]].	le programme dedans (voir [[cpp-execution|comment s'exécute un programme]]).
+embarque/mcu/ide.md	suffit à compiler ; il faut	suffit à compiler. Il faut
+embarque/mcu/potentiometre.md	entre ses deux extrémités — autrement dit	entre ses deux extrémités, autrement dit
+embarque/mcu/potentiometre.md	(un rhéostat) ; câblé sur **trois fils**	(un rhéostat). Câblé sur **trois fils**
+embarque/mcu/potentiometre.md	détruit la piste — pour piloter de la puissance, voir [[pwm|la PWM]] et un étage de sortie.	détruit la piste (pour piloter de la puissance, voir [[pwm|la PWM]] et un étage de sortie).
+embarque/mcu/potentiometre.md	proportionnelle à l'angle — surprise garantie	proportionnelle à l'angle : surprise garantie
+embarque/mcu/potentiometre.md	- **linéaire (B)** — la tension suit	- **linéaire (B).** La tension suit
+embarque/mcu/potentiometre.md	- **logarithmique (A)** — la tension varie	- **logarithmique (A).** La tension varie
+embarque/mcu/programmation-non-bloquante.md	ne s'interrompt donc jamais — ce qui permet	ne s'interrompt donc jamais, ce qui permet
+embarque/mcu/programmation-non-bloquante.md	**tout** est figé — pas seulement	**tout** est figé, pas seulement
+embarque/mcu/programmation-non-bloquante.md	sont des attentes aussi — et une fonction	sont des attentes aussi, et une fonction
+embarque/mcu/programmation-non-bloquante.md	*boucle coopérative* — aucune tâche	*boucle coopérative* : aucune tâche
+embarque/mcu/programmation-non-bloquante.md	**49 jours** — et l'écart calculé	**49 jours**, et l'écart calculé
+embarque/mcu/programmation-non-bloquante.md	deux écritures — et la différence	deux écritures, et la différence
+embarque/mcu/programmation-non-bloquante.md	tous les 500 ms ; la deuxième	tous les 500 ms. La deuxième
+embarque/mcu/programmation-non-bloquante.md	toutes les 100 ms ; la troisième	toutes les 100 ms. La troisième
+embarque/mcu/programmation-non-bloquante.md	de chaque passage — quitte à découper	de chaque passage, quitte à découper
+embarque/mcu/programmation-non-bloquante.md	quoi qu'il arrive** — une commande de moteur qui ne tolère aucun retard, une acquisition qui ne peut pas manquer un pas —, la bonne volonté	quoi qu'il arrive** (une commande de moteur qui ne tolère aucun retard, une acquisition qui ne peut pas manquer un pas), la bonne volonté
+embarque/mcu/programmation-non-bloquante.md	Le prix est réel — davantage de mémoire	Le prix est réel : davantage de mémoire
+embarque/mcu/programmation-non-bloquante.md	les échéances l'exigent** — c'est l'escalier	les échéances l'exigent** : c'est l'escalier
+embarque/mcu/sans-fil/xbee.md	selon le modèle — de quelques dizaines	selon le modèle : de quelques dizaines

@@ -18,7 +18,7 @@ Sans IDE, programmer une cible embarquée imposerait d'enchaîner à la main com
 
 ![Interface de l'IDE Arduino 2.x annotée en rouge : les boutons Verify et Upload (vérifier et téléverser) en haut à gauche, le sélecteur de carte au centre, l'icône du moniteur série en haut à droite, et la zone d'édition du code au centre de la fenêtre.|640](/ressources/img/ide/interface-annotee.png)
 
-**Compiler et téléverser ne demandent pas la même chose.** Choisir une carte suffit à compiler ; il faut **en plus un port** pour envoyer le programme dedans — voir [[cpp-execution|comment s'exécute un programme]]. L'IDE le dit lui-même dans sa boîte de sélection, qui présente les cartes installées d'un côté et les ports détectés de l'autre.
+**Compiler et téléverser ne demandent pas la même chose.** Choisir une carte suffit à compiler. Il faut **en plus un port** pour envoyer le programme dedans (voir [[cpp-execution|comment s'exécute un programme]]). L'IDE le dit lui-même dans sa boîte de sélection, qui présente les cartes installées d'un côté et les ports détectés de l'autre.
 
 ![Boîte Select Other Board and Port de l'IDE Arduino 2.x : à gauche la liste des cartes installées avec son champ de recherche, à droite la liste des ports série détectés, et en haut la phrase rappelant qu'une carte seule permet de compiler mais pas de téléverser.|600](/ressources/img/ide/selecteur-carte-port.png)
 

@@ -2460,6 +2460,184 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **⚠ LA BORNE DE VOLUME DE LOT EST LEVÉE. Ce qui dimensionne un lot n'est plus
+  un plafond de mots, c'est une FRONTIÈRE DE STRUCTURE.**
+  *Arbitrage Tim du 30/08 (séance 7), rendu à la clôture du lot 11 et avant sa
+  livraison : « je lève explicitement cette règle ».* La borne **6 657** était le
+  **volume du lot 2**, promue plafond empirique par C119 le 23/08 et opposée
+  depuis à toute découpe : elle a écarté le palier « Analyse fonctionnelle »
+  entier (8 190) au lot 8, les deux fiches `xiao/` au lot 7 — `5 301 + 1 428 =
+  6 729 > 6 657`, **72 mots de trop** —, et elle a fait poser trois fois la
+  question « faut-il découper `easyeda` ».
+
+  **Ce qui l'a fait tomber est une mesure, pas une préférence.** Au lot 11, le
+  restant du chantier tient dans **trois** répertoires et **les trois dépassent
+  la borne** : `embarque/mcu/` **7 339** (110,2 %), `embarque/simulation/`
+  **8 432** (126,7 %), `embarque/pcb/easyeda` **9 773** (146,8 %). *Le critère du
+  palier de hub rendait déjà **0 sur 15** au lot 10 ; son repli — fermer un
+  niveau de répertoire entier — ne rend plus **aucune** découpe sous la borne.*
+  **Les deux règles étaient devenues incompatibles, et il fallait qu'une cède.**
+
+  **Ce qui reste pour dimensionner un lot**, dans cet ordre :
+  1. **Fermer un niveau de répertoire entier** — critère du lot 10, seul qui
+     parle encore ;
+  2. **Pas de fiche orpheline** — critère du lot 5, qui écarte « le répertoire
+     moins une fiche » ;
+  3. **Les fiches liées se prennent ensemble** — critère du lot 9 (`fonction` et
+     `caracteriser-une-exigence`).
+
+  ⚠ **CE QUE LA LEVÉE COÛTE, ET IL FAUT L'ÉCRIRE.** La borne ne servait pas à
+  faire joli : c'était le **seul garde-fou contre un lot qu'une séance ne finit
+  pas**. Sans elle, rien ne signale d'avance qu'une découpe est trop grosse, et
+  **un lot inachevé laisse le dépôt à mi-chemin** — sources FR passées à C109,
+  fiches EN à moitié écrites, `--controle` divergent. **Le garde-fou de
+  remplacement est la SÉRIE des volumes de lot publiés à chaque clôture**, comme
+  C128 a remplacé le plafond du JOURNAL par la série des tailles : une dérive se
+  lit dans la suite des chiffres, pas dans un seuil franchi.
+
+  ✅ **Et la capacité au-dessus de la borne est désormais mesurée, une fois** :
+  le lot 11 a rendu **7 339 mots, 8 fiches, 16 blocs d'exécution, 150 prédictions
+  et 100 signalements C109 jugés** en une séance, sans arrêt. *C'est un
+  échantillon de 1, à 110 % de l'ancienne borne ; il ne dit rien de 147 %.*
+
+  **Effet immédiat sur le plan de fin de chantier** : lot 12 =
+  `embarque/simulation/` **8 432 mots, 3 fiches** ; lot 13 =
+  `embarque/pcb/easyeda` **9 773 mots, 1 fiche**. ⚠ **L'arbitrage « découpe
+  intra-fiche ou levée de borne » posé pour `easyeda` le 30/08 (suite 3) est
+  résolu par la même décision, et il sort de la file** : `easyeda` **ne se
+  découpe pas**, elle fait un lot à elle seule comme prévu.
+  *Éprouvée 0/N.*
+- **⚠ LE TAUX DE C109 NE SUIT PAS LA LONGUEUR : IL SUIT LE REGISTRE. La
+  candidate du 30/08 (séance 5) est RÉFUTÉE à sa première épreuve, et sa cause
+  gouverne quatre familles de compteur.**
+  *Née réfutée le 30/08 (séance 7), lot 11, sur huit sources `embarque/mcu/`.*
+  La candidate disait : *une fiche courte est presque toute en prose et
+  **sur-rend** en candidats C109*. Son corollaire de prédiction faisait élargir
+  la fourchette **vers le haut** pour un lot court. **Mesuré, l'écart joue dans
+  l'autre sens** :
+
+  | fiche | mots | candidats | taux /100 |
+  |---|---|---|---|
+  | `sans-fil/xbee` | 135 | 1 | **0,74** |
+  | `fonction-informatique` | 398 | 3 | 0,75 |
+  | `ide` | 385 | 3 | 0,78 |
+  | `potentiometre` | 519 | 5 | 0,96 |
+  | `programmation-non-bloquante` | 1 829 | 18 | 0,98 |
+  | `filtrage` | 1 397 | 14 | 1,00 |
+  | `ascii` | 671 | 9 | 1,34 |
+  | `chien-de-garde` | 2 005 | 29 | **1,45** |
+
+  **Le taux le plus haut est sur la plus GROSSE fiche, le plus bas sur la plus
+  PETITE**, facteur 1,96. *La candidate reposait sur **une seule** fiche —
+  `afnor-nfx50-151`, 91 mots, taux 2,20 —, et la deuxième valeur haute du lot 10
+  était `protection-electronique` à **1 389** mots. La longueur n'expliquait
+  déjà qu'une des deux valeurs, et c'est celle-là que j'avais généralisée.*
+
+  **La variable est le REGISTRE de la fiche.** Une notion **argumentative** —
+  qui pose une thèse, la qualifie, l'oppose — empile incises et appositions ;
+  une notion **définitionnelle courte** — qui nomme un objet, en donne l'usage
+  et renvoie ailleurs — n'en porte presque pas. *La fiche de 91 mots du lot 10
+  était courte **et** définitionnelle dense, et c'est le second terme qui la
+  faisait sur-rendre.*
+
+  ⚠ **ET LA MÊME VARIABLE A RÉFUTÉ TROIS AUTRES PRÉDICTIONS DE LA MÊME SÉANCE,
+  ce qui est ce qui lui donne sa portée.**
+  (1) **Nombre de titres de section** : prédit 34, mesuré **42** —
+  `chien-de-garde` en porte 9 et `programmation-non-bloquante` 8, quand les trois
+  plus petites en portent 9 **à elles trois**.
+  (2) **Présence de blocs de code** : prédit « au moins trois des huit »,
+  mesuré **une seule** — *une notion `embarque/mcu/` **délègue** son code aux
+  fiches de réalisation `arduino/` et `micropython/` qui la déclinent.*
+  (3) **Foisonnement** : les quatre **grosses** fiches sortent à **−0,51 %** et
+  les quatre **petites** à **+2,16 %**, dans le même lot et la même branche.
+  ✅ **Et elle a servi EN AVANT une fois** : la densité de puces à tiret du lot
+  a été prédite à **18** — soit 2,45 ‰ — **hors** de la fourchette 24-29 que les
+  quatre lots précédents donnaient au prorata des mots, sur le seul fondement du
+  registre. **Mesuré 18, décomposé juste sur les huit termes.**
+
+  **Corollaire de prédiction qui remplace celui du 30/08 (séance 5)** : la
+  fourchette d'un lot se cale sur sa **part de fiches argumentatives**, mesurable
+  avant la mesure au nombre de sections propres qu'elles portent, **jamais sur
+  la taille moyenne des fiches**. *Éprouvée 1/N, pour elle.*
+- **Un compteur de RÉFÉRENCE publie sa POPULATION ET SON MOTIF, tous deux dans
+  sa propre sortie.**
+  *Née le 30/08 (séance 7), lot 11, sur la référence des puces à tiret du
+  corpus.* La règle du 29/08 (suite 11) exige qu'un compteur remesuré d'une
+  clôture à l'autre **déclare sa population dans sa sortie** ; le chantier l'a
+  appliquée et la population est **juste** — 248 fichiers FR, 227 puis 235 EN,
+  reproduits au fichier près. **Le motif, lui, n'a jamais été écrit**, et la
+  référence **FR 995 / 172 porteuses, EN 917 / 153** n'est reproductible par
+  aucun des deux motifs plausibles :
+
+  | motif | FR (248 fichiers) | EN (235 fichiers) |
+  |---|---|---|
+  | **A** — `Voir aussi`, `Aller plus loin`, `See also`, `Going further` exclus | **946** / 167 | **886** / 153 |
+  | **B** — `Voir aussi` et `See also` seuls exclus | 1 033 / 173 | 972 / 159 |
+  | *référence publiée au lot 10* | *995 / 172* | *917 / 153* |
+
+  ⚠ **Le motif A est celui de l'amendement C109 du 29/08 (suite 8), cas 1, et
+  c'est celui qui reproduit les QUATRE échantillons nommés de l'épreuve C110 —
+  12 / 11 / 16 / 10, fiche par fiche.** *Le motif du relevé **de lot** est donc
+  vérifié ; celui du relevé **de corpus** ne l'est pas, et les deux n'étaient pas
+  le même. Deux clôtures avaient déjà échoué à refermer ce compteur côté
+  français : la parade d'alors a réglé la moitié du problème.*
+
+  **Nouvelle référence, publiée avec sa population ET son motif** — motif A,
+  ligne `/^\s*[-*]\s/` contenant `" — "` (U+2014 entouré d'espaces), hors blocs
+  clôturés, hors les quatre sections nommées : **FR 946 sur 167 porteuses
+  (248 fichiers), EN 886 sur 153 porteuses (235 fichiers)**, état du 30/08 18:0x.
+  ⚠ **Faute de protocole à ne pas répéter** : les puces du corpus n'ont pas été
+  relevées **avant** la passe C109 du lot, donc le delta de ce lot se calcule et
+  ne se mesure pas (C119). *À relever au cadrage du lot 12.* *Éprouvée 0/N.*
+- **Le report un pour un des candidats C109 est borné à la PROSE : il tombe sur
+  les LIBELLÉS de wikilink, qui se relèvent au lieu de se traduire.**
+  *Née le 30/08 (séance 7), lot 11, d'une réfutation d'une unité.* Le candidat
+  résiduel d'`ide` côté français est le tiret de
+  `[[arduino-prise-en-main|Arduino — prise en main]]`, **à l'intérieur du
+  libellé**. Je l'avais compté comme reportable ; il ne l'est pas, parce que le
+  libellé anglais ne se **traduit** pas — il se **relève** dans le `title:` de
+  production de sa cible, ici `Getting started with Arduino`, qui ne porte aucun
+  tiret. ⚠ *Deux règles du chantier se rencontrent ici pour la première fois — le
+  report un pour un et « le `title:` EN se lit dans les libellés en production » —
+  et elles ne disent pas la même chose du même caractère.* ✅ **Le report reste
+  vrai pour la prose** : le `;` de `potentiometre` sort au même endroit dans les
+  deux langues, et les 18 candidats des quatre grosses fiches se reportent au
+  terme près. *Éprouvée 1/N.*
+- **Le foisonnement d'un sous-lot entier peut être NÉGATIF, et c'est le registre
+  argumentatif qui le rend tel.**
+  *Née le 30/08 (séance 7), lot 11.* Les quatre grosses notions du lot sortent
+  **toutes** en négatif — `ascii-en` −0,6 %, `chien-de-garde-en` −1,1 %,
+  `filtrage-en` −0,1 %, `programmation-non-bloquante-en` −0,1 % —, sous-lot à
+  **−0,51 %**, quand le chantier moyenne **+3,7 %** sur 235 paires et que son
+  plus bas lot était à **+2,12 %**. *Cause : le français argumentatif empile les
+  relatives, les appositions et les tournures impersonnelles que l'anglais rend
+  en moins de mots.* **Troisième cause d'ininterprétabilité à jouer en sens
+  inverse**, après les chaînes C113 du 25/08 (suite 8) et les gloses de `memoire`
+  du 24/08 (suite 2), et **la première qui porte sur la prose entière d'un
+  sous-lot**. ⚠ *Le contraste interne au lot le prouve : ses quatre petites
+  fiches sortent à **+2,16 %**, même branche, même soirée.* **Lot entier :
+  7 339 → 7 340 mots, +0,01 %, le plus bas du chantier.** *Éprouvée 0/N.*
+- **Une borne d'intervalle de temps se pose sur un ÉVÉNEMENT DATÉ du dépôt,
+  jamais sur l'instant supposé du lancement.**
+  *Née le 30/08 (séance 7), première réfutation de la séance.* La garde
+  d'ouverture prédisait les dates d'écriture de `JOURNAL.md` et `conventions.md`
+  dans `[11:06:19, 11:15:00]` ; mesuré **11:18:25** et **11:16:18**. *Le sens de
+  la prédiction était juste — postérieures au dernier relevé, antérieures au
+  commit — mais la borne haute était **l'instant où je croyais que la séance
+  s'ouvrait**, alors qu'elle s'est ouverte à 11:22:42.* **La borne qui portait le
+  sens est le commit `0f3c9a5` à 11:20:01**, et les deux dates lui sont bien
+  antérieures. *Éprouvée 0/N.*
+- **Quand un fondement rend un nombre, la prédiction EST ce nombre : une
+  correction « de bon sens » appliquée après coup doit se chiffrer elle aussi,
+  ou ne pas s'appliquer.**
+  *Née le 30/08 (séance 7), lot 11, sur deux termes réfutés de trois.* Le rapport
+  243/227 = 1,07 appliqué aux trois familles d'ossature EN donnait **164 / 163 /
+  235** ; mesuré **164 / 162 / 234**. *J'ai écrit ces trois nombres dans le
+  fondement de la prédiction, puis je les ai **abaissés** en raisonnant que les
+  fiches non traduites seraient des notions courtes sans ces sections — alors que
+  le relevé venait de montrer que trois des huit sources n'ont ni
+  `## À quoi ça sert ?` ni `## Pièges`.* **Le modèle naïf tombait à 0, 1 et 1
+  près ; ma correction l'a fait sortir de la fourchette.** *Éprouvée 0/N.*
 - **Deux arbitrages du lot 10 sont CLASSÉS SANS CHANGEMENT, et ce qu'ils
   laissent ouvert est écrit.** *Décisions Tim du 30/08, à la reprise.*
   **(b) `en/conduite/proj/index.md` écrit `NF X50-151 standard`** là où les six

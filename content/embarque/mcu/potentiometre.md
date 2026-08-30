@@ -11,7 +11,7 @@ phases:
 draft: false
 ---
 
-Un **potentiomètre** est une résistance à curseur : une piste résistive dont un contact mobile (le **curseur**) prélève une fraction réglable de la tension appliquée entre ses deux extrémités — autrement dit un **pont diviseur réglable**.
+Un **potentiomètre** est une résistance à curseur : une piste résistive dont un contact mobile (le **curseur**) prélève une fraction réglable de la tension appliquée entre ses deux extrémités, autrement dit un **pont diviseur réglable**.
 
 ![Un potentiomètre sous trois angles : à gauche le composant réel (broches 1 VCC, 2 OUT, 3 GND), au centre son symbole électrique (résistance avec curseur sur la sortie), à droite son schéma mécanique (piste résistive en arc et curseur mobile).|640](/ressources/img/potentiometre/how-potentiometer-works.webp)
 
@@ -25,21 +25,21 @@ Trois broches : les **deux extrémités** de la piste résistive (câblées entr
 
 La **course** peut être :
 
-- **linéaire (B)** — la tension suit proportionnellement la rotation. C'est le cas courant pour une consigne.
-- **logarithmique (A)** — la tension varie peu au début puis vite (ou l'inverse) ; conçue pour le volume audio, calquée sur la perception de l'oreille.
+- **linéaire (B).** La tension suit proportionnellement la rotation. C'est le cas courant pour une consigne.
+- **logarithmique (A).** La tension varie peu au début puis vite (ou l'inverse) ; conçue pour le volume audio, calquée sur la perception de l'oreille.
 
 ## Formes et variantes
 
 - **Rotatif** (bouton), **linéaire/slider** (glissière), **trimmer** (petit réglage ponctuel au tournevis, figé ensuite).
-- **Rhéostat vs potentiomètre** : câblé sur **deux fils** (une extrémité + le curseur), c'est une simple **résistance variable** (un rhéostat) ; câblé sur **trois fils**, c'est un **diviseur** qui sort une tension. Pour lire une consigne sur un ADC, on veut les trois fils.
+- **Rhéostat vs potentiomètre** : câblé sur **deux fils** (une extrémité + le curseur), c'est une simple **résistance variable** (un rhéostat). Câblé sur **trois fils**, c'est un **diviseur** qui sort une tension. Pour lire une consigne sur un ADC, on veut les trois fils.
 
 ## Pièges
 
 **Extrémité non câblée = curseur flottant.** Si une seule extrémité est reliée, la sortie n'est plus un diviseur défini : la lecture dérive. Câbler les deux extrémités (VCC et GND).
 
-**Ce n'est pas un variateur de puissance.** Un potentiomètre divise une tension *à vide* (vers l'entrée haute impédance d'un ADC). Y faire passer le courant d'une charge échauffe et détruit la piste — pour piloter de la puissance, voir [[pwm|la PWM]] et un étage de sortie.
+**Ce n'est pas un variateur de puissance.** Un potentiomètre divise une tension *à vide* (vers l'entrée haute impédance d'un ADC). Y faire passer le courant d'une charge échauffe et détruit la piste (pour piloter de la puissance, voir [[pwm|la PWM]] et un étage de sortie).
 
-**Course log lue comme linéaire.** Un potentiomètre audio (A) donne une variation non proportionnelle à l'angle — surprise garantie si le code attend du linéaire. Choisir un modèle **linéaire (B)** pour une consigne.
+**Course log lue comme linéaire.** Un potentiomètre audio (A) donne une variation non proportionnelle à l'angle : surprise garantie si le code attend du linéaire. Choisir un modèle **linéaire (B)** pour une consigne.
 
 **Contact usé.** Un vieux potentiomètre fait des **sauts de valeur** quand on le tourne (poussière, usure de la piste). Filtrer la lecture ou remplacer le composant.
 

@@ -1,0 +1,7 @@
+# TEST NEGATIF DELIBERE - lot 11 du 30/08.
+# Trois lignes : deux ancres JUSTES et une FAUSSE d un seul caractere,
+# « Il attend » avec une majuscule que la source ne porte pas.
+# L outil doit refuser le LOT ENTIER et n ecrire aucun octet.
+embarque/mcu/sans-fil/xbee.md	selon le modèle — de quelques dizaines	selon le modèle : de quelques dizaines
+embarque/mcu/chien-de-garde.md	n'attend rien de lui — Il attend	n'attend rien de lui : Il attend
+embarque/mcu/ide.md	suffit à compiler ; il faut	suffit à compiler. Il faut

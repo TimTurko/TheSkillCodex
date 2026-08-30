@@ -1,0 +1,7 @@
+# TEST NEGATIF DELIBERE des titres - lot 11 du 30/08.
+# Trois lignes : deux ancres JUSTES et une FAUSSE d un seul caractere,
+# « Programmation non-bloquante » avec un trait d union que la source ne porte pas.
+# L outil doit refuser le LOT ENTIER et n ecrire aucun octet.
+en/embarque/mcu/ascii-en.md	Code ASCII	ASCII code
+en/embarque/mcu/programmation-non-bloquante-en.md	Programmation non-bloquante	Non-blocking programming
+en/embarque/mcu/sans-fil/xbee-en.md	XBee	XBee

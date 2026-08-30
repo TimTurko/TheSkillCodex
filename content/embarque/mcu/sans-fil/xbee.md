@@ -15,7 +15,7 @@ Les modules **XBee** (de la marque Digi) sont des **modules radio prêts à l'em
 
 ## Comment ça marche ?
 
-On les emploie pour **remplacer un câble série** entre deux cartes distantes, ou pour de la **télémétrie**. La portée varie fortement selon le modèle — de quelques dizaines de mètres à plusieurs kilomètres en version longue portée. Côté contrôleur, ils se pilotent en [[uart|UART]], ce qui les rend simples à intégrer : pour le programme, c'est une liaison série comme une autre.
+On les emploie pour **remplacer un câble série** entre deux cartes distantes, ou pour de la **télémétrie**. La portée varie fortement selon le modèle : de quelques dizaines de mètres à plusieurs kilomètres en version longue portée. Côté contrôleur, ils se pilotent en [[uart|UART]], ce qui les rend simples à intégrer : pour le programme, c'est une liaison série comme une autre.
 
 ## Voir aussi
 

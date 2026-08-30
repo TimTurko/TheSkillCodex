@@ -1,0 +1,61 @@
+=== EPREUVE C110 DU MOTIF DES PUCES A TIRET - quatre echantillons nommes, deux par langue
+
+=== ECHANTILLON 1 - FR, lot 3 d esp32/ (reponse publiee : 12)
+  embarque/mcu/esp32/esp32-deep-sleep.md                           2
+  embarque/mcu/esp32/esp32-arduino-core.md                         2
+  embarque/mcu/esp32/esp32-freertos.md                             4
+  embarque/mcu/esp32/esp32-idf.md                                  4
+  --------------------------------------------------------------   12   TOTAL
+
+=== ECHANTILLON 2 - EN, lot 3 d esp32/ (reponse publiee : 11)
+  en/embarque/mcu/esp32/esp32-deep-sleep-en.md                     2
+  en/embarque/mcu/esp32/esp32-arduino-core-en.md                   1
+  en/embarque/mcu/esp32/esp32-freertos-en.md                       4
+  en/embarque/mcu/esp32/esp32-idf-en.md                            4
+  --------------------------------------------------------------   11   TOTAL
+
+=== ECHANTILLON 3 - FR, lot 9 APRES SA PASSE (reponse publiee : 16)
+  conduite/proj/mecatronique.md                                    0
+  conduite/proj/mind-map.md                                        0
+  conduite/proj/bete-a-cornes.md                                   0
+  conduite/proj/pieuvre.md                                         5
+  conduite/proj/fonction.md                                        0
+  conduite/proj/caracteriser-une-exigence.md                      11
+  --------------------------------------------------------------   16   TOTAL
+
+=== ECHANTILLON 4 - EN, lot 7 (reponse publiee : 10)
+  en/embarque/mcu/raspberry-pi/raspberry-pi-gpio-en.md             3
+  en/embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main-en.md    3
+  en/embarque/mcu/raspberry-pi/raspberry-pi-projet-en.md           0
+  en/embarque/mcu/xiao/xiao-alimentation-en.md                     3
+  en/embarque/mcu/xiao/xiao-esp32-s3-en.md                         1
+  --------------------------------------------------------------   10   TOTAL
+
+=== RELEVE DU LOT 11 - huit sources FR
+      L25  - **Liaison série** — chaque octet reçu est un code ASCII ; lire un *nombre* suppose de reconstituer les chiffres un à un (ou de laisser faire `Serial.parseInt()`).
+      L26  - **Type `char`** — en [[cpp|C++]], un `char` *est* un entier sur 8 bits (voir [[cpp-types|les types]]) : `'A'` et `65` sont la même valeur, et `'A' + 1` vaut `'B'`.
+      L27  - **Conversion chiffre ↔ valeur** — le code d'un chiffre se déduit par décalage : `'0'` valant 48, le chiffre `n` s'écrit `'0' + n`, et un caractère-chiffre se reconvertit en valeur par `c - '0'`.
+      L46  - **Decimal** — le code en base 10, le nombre 0-127 manipulé jusqu'ici (`'A'` = 65).
+      L47  - **Hex** — la **même valeur** écrite en base 16, notée `0x..` : c'est la forme qu'affichent les datasheets, les vidages mémoire et le moniteur série en mode HEX. `'A'` = 65 en décimal s'écrit `0x41` en hexadécimal ; les deux désignent le même octet, seule la base d'écriture change.
+      L48  - **Char** — le caractère lui-même, ou son **nom entre crochets** pour les codes 0 à 31, qui ne s'impriment pas (`[LINE FEED]` = `\n` = 10 = `0x0A`, `[CARRIAGE RETURN]` = `\r` = 13).
+  embarque/mcu/ascii.md                                            6
+      L79  - côté **AVR**, le drapeau existe bien dans un registre d'état, mais le *bootloader* des cartes Arduino l'efface souvent avant que le programme ne s'exécute — celui qui le lit dans son initialisation trouve zéro et conclut à tort que le chien n'a pas mordu ;
+  embarque/mcu/chien-de-garde.md                                   1
+      L28  - **un seuil qui claque** — la mesure oscille autour de la valeur de déclenchement, et la sortie bascule dix fois par seconde ;
+      L29  - **un affichage illisible** — le dernier chiffre danse en permanence, alors qu'il est en dessous de ce que le capteur sait garantir ;
+      L30  - **un actionneur qui vibre** — une régulation qui recopie le bruit de son capteur le transmet au moteur.
+      L40  - **Dispersion permanente** — bruit électronique, quantification de l'ADC, contacts imparfaits. Typiquement ±1 à ±3 pas de conversion. Remède : **moyenner**.
+      L41  - **Valeurs isolées absurdes** — une mesure ratée de temps en temps, sur fond de mesures correctes : un écho ultrason qui part de travers, une trame mal lue. Remède : **médiane**.
+      L42  - **Ondulation régulière** — une périodicité nette, souvent le secteur à 50 Hz capté par un câble long, ou l'alimentation polluée par un moteur. Remède : **la cause d'abord** — reprendre la masse, raccourcir ou blinder le câble, [[decouplage|découpler]] l'alimentation. Un filtre qui masque un défaut de câblage le laisse en place pour la suite du projet.
+  embarque/mcu/filtrage.md                                         6
+      L22  - **Factoriser** — écrire une fois ce qui sert plusieurs fois, au lieu de copier-coller (et de devoir corriger partout en cas de bug) ;
+      L23  - **Nommer une intention** — `lireTemperature()` se lit mieux qu'une dizaine de lignes de conversion noyées dans la boucle ;
+      L24  - **Isoler** — une fonction se teste et se débogue seule, ce qui est précieux quand le système devient gros.
+  embarque/mcu/fonction-informatique.md                            3
+  embarque/mcu/ide.md                                              0
+      L28  - **linéaire (B)** — la tension suit proportionnellement la rotation. C'est le cas courant pour une consigne.
+      L29  - **logarithmique (A)** — la tension varie peu au début puis vite (ou l'inverse) ; conçue pour le volume audio, calquée sur la perception de l'oreille.
+  embarque/mcu/potentiometre.md                                    2
+  embarque/mcu/programmation-non-bloquante.md                      0
+  embarque/mcu/sans-fil/xbee.md                                    0
+  --------------------------------------------------------------   18   TOTAL
