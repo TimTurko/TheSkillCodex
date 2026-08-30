@@ -1,0 +1,43 @@
+=== CONTROLE DE STYLE ===
+
+  en/embarque/pcb/kicad-en.md
+      54  [C109] point-virgule de prose
+          …the regulator and the connector; wire up the power, the ground an…
+      54  [C109] point-virgule de prose
+          …the ground and the two bus lines; annotate and run the ERC.
+      67  [candidat] virgule : decimale francaise ou milliers anglais ?
+          …ts own in May 2026 — more than 17,000 components, symbols and foot…
+      67  [C109] tiret d incise
+          …* published its own in May 2026 — more than 17,000 components, sym…
+
+  en/embarque/mcu/xiao/xiao-prise-en-main-en.md
+      22  [C109] tiret d incise
+          …antenna onto the U.FL connector — one side into the block first, t…
+      22  [C109] point-virgule de prose
+          …lock first, then press the other; never pull on the cable to remov…
+      30  [C109] point-virgule de prose
+          …t (a `COM3` or higher on Windows; a `usbmodem`/`usbserial` on macO…
+      95  [C109] tiret d incise
+          …-alimentation-en|XIAO — power]] — powering and charging the board
+
+  en/embarque/mcu/xiao/xiao-sense-en.md
+      18  [C109] tiret d incise
+          …hat holds for the XIAO ESP32-S3 — pinout, [[xiao-alimentation-en|p…
+      18  [C109] tiret d incise
+          …se-en-main-en|getting started]] — applies here. This page covers *…
+      51  [C109] tiret d incise
+          …a concrete way into **TinyML** — recognising images, sounds or ge…
+      53  [C109] tiret d incise
+          …k *XIAO: Big Power, Small Board — Mastering Arduino and TinyML* se…
+      58  [C109] tiret d incise
+          …-alimentation-en|XIAO — power]] — the camera is greedy, size accor…
+      61  [C109] tiret d incise
+          …ain-en|XIAO — getting started]] — flash the board before anything…
+
+4 fiche(s) lue(s), 3 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 1   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 13   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 3   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)

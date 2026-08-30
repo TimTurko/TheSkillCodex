@@ -1202,6 +1202,7 @@ function style(cibles) {
   let typo = 0;
   let cand = 0;
   let creees = 0;
+  let supprimees = 0;
   let etrangers = 0;
   let c109 = 0;
   let hors = 0;
@@ -1234,6 +1235,17 @@ function style(cibles) {
         if (nEn > nFr) {
           creees += nEn - nFr;
           console.log('\n  ' + rel + '   C109 : FR ' + nFr + ' / EN ' + nEn + '   ' + (nEn - nFr) + ' CREEE(S) PAR LA TRADUCTION');
+        }
+        // MOITIE SYMETRIQUE, ajoutee le 30/08 (seance 11), arbitrage 1/18.
+        // Le seau ci-dessus ne voit que ce que la traduction CREE. Le lot 13
+        // a trouve a la main l autre moitie : easyeda-en sort a 0 C109 quand
+        // sa source en porte 1, cadratin rendu par une virgule SANS decision,
+        // et --style affichait "0 a reprendre" comme une reussite.
+        // N ENTRE PAS dans le code de sortie : une suppression n est pas un
+        // defaut mecanique - le lot 13 a decide que la virgule restait.
+        if (nFr > nEn) {
+          supprimees += nFr - nEn;
+          console.log('\n  ' + rel + '   C109 : FR ' + nFr + ' / EN ' + nEn + '   ' + (nFr - nEn) + ' SUPPRIMEE(S) PAR LA TRADUCTION (a lire)');
         }
 
         const chFr = horsLatin(texteFr);
@@ -1268,6 +1280,7 @@ function style(cibles) {
   console.log('  typographie francaise : ' + typo + '   (verdict mecanique)');
   console.log('  virgule ambigue       : ' + cand + '   (candidat a lire)');
   console.log('  C109 creees en EN     : ' + creees + '   (jamais arbitrees en francais)');
+  console.log('  C109 supprimees en EN : ' + supprimees + '   (rendues sans decision : a lire)');
   console.log('  C109 de prose         : ' + c109 + '   (candidats a lire : le verbe conjugue decide)');
   console.log('  hors perimetre        : ' + hors + '   (titres, tableaux et alt, non comptes)');
   console.log('  hors alphabet latin   : ' + etrangers + '   (verdict mecanique : absent de la source FR)');

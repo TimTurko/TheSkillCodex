@@ -1,0 +1,59 @@
+=== LES PAIRES DONT LES CORPS N ONT PAS LE MEME NOMBRE DE LIGNES ===
+
+  POPULATION : les 242 paires du corpus ; sont listees celles dont
+  corpsC110(FR) et corpsC110(EN) n ont pas le meme nombre de lignes.
+  Comptage de mots : compterMots, importe.
+
+  paires desalignees : 9 sur 242
+
+  --- L ANGLAIS A MOINS DE LIGNES (5) ---
+
+    conduite/proj/securite-et-qualite.md
+      lignes  FR  185   EN  142   delta -43
+      mots    FR 4056   EN 4041   foisonnement -0.37 %
+      lignes par registre FR/EN : titre 10/10   callout 22/22   tableau 0/0   liste 40/35 (-5)   paragraphe 53/22 (-31)   vide 60/53 (-7)
+
+    conduite/proj/ecoconception.md
+      lignes  FR  167   EN  125   delta -42
+      mots    FR 3290   EN 3237   foisonnement -1.61 %
+      lignes par registre FR/EN : titre 10/10   callout 22/22   tableau 0/0   liste 22/20 (-2)   paragraphe 57/25 (-32)   vide 56/48 (-8)
+
+    conduite/proj/gestion-de-projet.md
+      lignes  FR  166   EN  129   delta -37
+      mots    FR 2741   EN 2573   foisonnement -6.13 %
+      lignes par registre FR/EN : titre 10/10   callout 22/22   tableau 0/0   liste 24/24   paragraphe 57/25 (-32)   vide 53/48 (-5)
+
+    embarque/mcu/cpp/cpp-lire-un-programme.md
+      lignes  FR  164   EN  160   delta -4
+      mots    FR 2481   EN 2565   foisonnement +3.39 %
+      lignes par registre FR/EN : titre 19/19   callout 21/21   tableau 0/0   liste 15/15   paragraphe 36/35 (-1)   vide 73/70 (-3)
+
+    embarque/mcu/micropython/micropython-lire-un-programme.md
+      lignes  FR  172   EN  171   delta -1
+      mots    FR 2644   EN 2738   foisonnement +3.56 %
+      lignes par registre FR/EN : titre 19/19   callout 19/19   tableau 0/0   liste 15/15   paragraphe 39/39   vide 80/79 (-1)
+
+  --- L ANGLAIS A PLUS DE LIGNES (4) ---
+
+    conduite/proj/decomposition-fonctionnelle.md
+      lignes  FR  113   EN  115   delta +2
+      mots    FR 1926   EN 2151   foisonnement +11.68 %
+      lignes par registre FR/EN : titre 10/10   callout 14/14   tableau 0/0   liste 19/19   paragraphe 25/26 (+1)   vide 45/46 (+1)
+
+    embarque/algorithme/grafcet.md
+      lignes  FR   62   EN   64   delta +2
+      mots    FR  926   EN 1015   foisonnement +9.61 %
+      lignes par registre FR/EN : titre 6/6   callout 0/0   tableau 0/0   liste 12/12   paragraphe 17/18 (+1)   vide 27/28 (+1)
+
+    embarque/algorithme/machine-a-etats.md
+      lignes  FR   78   EN   80   delta +2
+      mots    FR 1422   EN 1555   foisonnement +9.35 %
+      lignes par registre FR/EN : titre 6/6   callout 14/14   tableau 0/0   liste 15/15   paragraphe 15/16 (+1)   vide 28/29 (+1)
+
+    embarque/chaine-energie.md
+      lignes  FR   72   EN   74   delta +2
+      mots    FR  918   EN  984   foisonnement +7.19 %
+      lignes par registre FR/EN : titre 5/5   callout 12/12   tableau 0/0   liste 16/16   paragraphe 14/15 (+1)   vide 25/26 (+1)
+
+  foisonnement moyen, anglais plus court : -0.23 %
+  foisonnement moyen, anglais plus long  : +9.46 %

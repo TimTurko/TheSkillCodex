@@ -1,0 +1,166 @@
+=== LA DENSITE GENITIVE DE LA SOURCE PREDIT-ELLE LE FOISONNEMENT ? ===
+
+  POPULATION : 242 paires evaluees ; taux de seau estimes
+  sur les 233 paires a lignes appariees. Biais declare : taux estimes
+  et modele evalue sur le MEME corpus - borne haute, pas validation.
+
+  TAUX DE SEAU RECALCULES
+    0 genitif      60048 mots FR   foisonnement +6.89 %
+    0 < d <= 3     34251 mots FR   foisonnement +3.92 %
+    3 < d <= 6     79675 mots FR   foisonnement +3.49 %
+    6 < d <= 9     54191 mots FR   foisonnement +2.00 %
+    d > 9          42692 mots FR   foisonnement +0.63 %
+
+  Constante temoin (foisonnement du corpus) : +3.46 %
+
+  ERREUR ABSOLUE MOYENNE, en points de foisonnement
+    modele a cinq seaux : 2.74
+    modele constant     : 2.79
+    gain relatif        : 1.6 %
+
+  fiches a erreur de modele < 3 points : 158 / 242   (65.3 %)
+  meme mesure pour la constante        : 150 / 242   (62.0 %)
+
+  LES TROIS FICHES DU LOT 14
+    embarque/pcb/kicad.md                        reel -2.1 %   modele +2.9 %
+    embarque/mcu/xiao/xiao-prise-en-main.md      reel +1.5 %   modele +4.0 %
+    embarque/mcu/xiao/xiao-sense.md              reel -1.7 %   modele +3.4 %
+
+  PAR MODULE (prefixe de chemin), reel contre modele
+    conduite/proj/gestion-de-projet.md     1 fiches   reel   -6.13 %   modele   +2.82 %
+    embarque/mcu/entree-sortie.md          1 fiches   reel   -3.80 %   modele   +4.95 %
+    embarque/alimentation-electronique.md   1 fiches   reel   -2.74 %   modele   +2.69 %
+    embarque/mcu/processeur.md             1 fiches   reel   -2.38 %   modele   +3.12 %
+    meca/index.md                          1 fiches   reel   -2.21 %   modele   +2.24 %
+    embarque/pcb/kicad.md                  1 fiches   reel   -2.14 %   modele   +2.90 %
+    embarque/mesure/instruments-de-mesure.md   1 fiches   reel   -1.63 %   modele   +3.55 %
+    conduite/proj/ecoconception.md         1 fiches   reel   -1.61 %   modele   +2.82 %
+    embarque/mesure/precision-de-mesure.md   1 fiches   reel   -1.53 %   modele   +2.87 %
+    embarque/mcu/gpio.md                   1 fiches   reel   -1.35 %   modele   +3.75 %
+    embarque/mesure/oscilloscope.md        1 fiches   reel   -1.23 %   modele   +3.62 %
+    embarque/mcu/manipulation-de-bits.md   1 fiches   reel   -1.19 %   modele   +4.28 %
+    embarque/mcu/chien-de-garde.md         1 fiches   reel   -1.15 %   modele   +3.26 %
+    embarque/realisation/programmer-l-embarque.md   1 fiches   reel   -1.04 %   modele   +3.10 %
+    embarque/mcu/raspberry-pi              4 fiches   reel   -0.91 %   modele   +3.36 %
+    conduite/proj/matrice-eco-criteres.md   1 fiches   reel   -0.85 %   modele   +3.03 %
+    conduite/proj/mecatronique.md          1 fiches   reel   -0.76 %   modele   +2.50 %
+    conduite/ese/deee.md                   1 fiches   reel   -0.62 %   modele   +2.23 %
+    embarque/mcu/lire-une-datasheet.md     1 fiches   reel   -0.61 %   modele   +3.03 %
+    embarque/mcu/ascii.md                  1 fiches   reel   -0.60 %   modele   +4.59 %
+    embarque/mcu/debugger-embarque.md      1 fiches   reel   -0.52 %   modele   +3.79 %
+    conduite/ese/basse-tension.md          1 fiches   reel   -0.50 %   modele   +3.20 %
+    conduite/proj/securite-et-qualite.md   1 fiches   reel   -0.37 %   modele   +2.93 %
+    embarque/boucle-ouverte.md             1 fiches   reel   -0.36 %   modele   +3.44 %
+    embarque/mcu/programmation-non-bloquante.md   1 fiches   reel   -0.11 %   modele   +3.71 %
+    embarque/mesure/multimetre.md          1 fiches   reel   -0.09 %   modele   +4.19 %
+    embarque/mcu/filtrage.md               1 fiches   reel   -0.07 %   modele   +3.79 %
+    index.md                               1 fiches   reel   +0.00 %   modele   +4.63 %
+    embarque/protection-electronique.md    1 fiches   reel   +0.07 %   modele   +2.69 %
+    embarque/realisation/concevoir-l-electronique.md   1 fiches   reel   +0.09 %   modele   +2.57 %
+    embarque/mcu/interruption.md           1 fiches   reel   +0.27 %   modele   +4.08 %
+    embarque/mcu/niveaux-de-tension.md     1 fiches   reel   +0.30 %   modele   +3.17 %
+    meca/soudure.md                        1 fiches   reel   +0.55 %   modele   +3.15 %
+    embarque/mcu/timer.md                  1 fiches   reel   +0.70 %   modele   +3.89 %
+    embarque/mcu/xiao                      4 fiches   reel   +0.70 %   modele   +3.79 %
+    embarque/mcu/fonction-informatique.md   1 fiches   reel   +0.75 %   modele   +3.47 %
+    conduite/proj/mind-map.md              1 fiches   reel   +0.77 %   modele   +3.23 %
+    embarque/mcu/ide.md                    1 fiches   reel   +0.78 %   modele   +2.20 %
+    embarque/simulation/simulation-electronique.md   1 fiches   reel   +0.80 %   modele   +3.61 %
+    conduite/ese/iso-12100.md              1 fiches   reel   +1.08 %   modele   +2.25 %
+    embarque/realisation/fiabiliser-et-deboguer.md   1 fiches   reel   +1.27 %   modele   +2.94 %
+    embarque/pcb/easyeda.md                1 fiches   reel   +1.59 %   modele   +3.38 %
+    conduite/ese/epi.md                    1 fiches   reel   +1.70 %   modele   +2.64 %
+    conduite/ese/rohs.md                   1 fiches   reel   +1.75 %   modele   +2.82 %
+    embarque/mcu/stm32                     6 fiches   reel   +1.93 %   modele   +3.46 %
+    embarque/asservissement.md             1 fiches   reel   +1.95 %   modele   +4.15 %
+    embarque/mesure/generateur-de-signaux.md   1 fiches   reel   +2.00 %   modele   +3.00 %
+    embarque/simulation/wokwi.md           1 fiches   reel   +2.09 %   modele   +3.07 %
+    embarque/pcb/pcb.md                    1 fiches   reel   +2.25 %   modele   +2.51 %
+    embarque/mcu/teensy                    5 fiches   reel   +2.36 %   modele   +3.76 %
+    conduite/meo/index.md                  1 fiches   reel   +2.59 %   modele   +3.62 %
+    conduite/proj/integration-et-tests.md   1 fiches   reel   +2.59 %   modele   +2.95 %
+    embarque/simulation/ltspice.md         1 fiches   reel   +2.59 %   modele   +3.42 %
+    embarque/mcu/firmware.md               1 fiches   reel   +2.71 %   modele   +3.49 %
+    embarque/algorithme/logigramme.md      1 fiches   reel   +2.88 %   modele   +3.86 %
+    embarque/mcu/pic.md                    1 fiches   reel   +3.00 %   modele   +3.33 %
+    embarque/mcu/bibliotheque.md           1 fiches   reel   +3.09 %   modele   +4.16 %
+    conduite/proj/ecodesign.md             1 fiches   reel   +3.12 %   modele   +4.13 %
+    embarque/decouplage.md                 1 fiches   reel   +3.14 %   modele   +3.21 %
+    embarque/mcu/cpp                       9 fiches   reel   +3.30 %   modele   +3.96 %
+    embarque/analyse-de-schema-electronique.md   1 fiches   reel   +3.48 %   modele   +3.38 %
+    conduite/ese/index.md                  1 fiches   reel   +3.57 %   modele   +2.81 %
+    embarque/mcu/esp32                    13 fiches   reel   +3.61 %   modele   +4.00 %
+    embarque/mcu/bus                       4 fiches   reel   +3.63 %   modele   +3.39 %
+    embarque/mcu/arduino                  33 fiches   reel   +3.65 %   modele   +3.77 %
+    conduite/proj/bete-a-cornes.md         1 fiches   reel   +3.65 %   modele   +3.47 %
+    embarque/realisation/faire-communiquer.md   1 fiches   reel   +3.74 %   modele   +3.33 %
+    meca/optimisation-mecanique.md         1 fiches   reel   +3.81 %   modele   +3.13 %
+    conduite/proj/fast.md                  1 fiches   reel   +3.86 %   modele   +3.28 %
+    embarque/algorithme/algorithme.md      1 fiches   reel   +3.97 %   modele   +3.40 %
+    conduite/ese/emc.md                    1 fiches   reel   +4.04 %   modele   +3.91 %
+    embarque/mcu/systeme-d-exploitation.md   1 fiches   reel   +4.14 %   modele   +3.76 %
+    meca/usinage.md                        1 fiches   reel   +4.17 %   modele   +2.83 %
+    conduite/proj/pieuvre.md               1 fiches   reel   +4.23 %   modele   +3.36 %
+    conduite/proj/etat-de-l-art-technique.md   1 fiches   reel   +4.29 %   modele   +3.20 %
+    conduite/proj/preuve-de-concept.md     1 fiches   reel   +4.33 %   modele   +2.86 %
+    embarque/index.md                      1 fiches   reel   +4.38 %   modele   +3.23 %
+    embarque/schema-bloc-fonctionnel.md    1 fiches   reel   +4.59 %   modele   +3.17 %
+    embarque/mcu/esp8266                   3 fiches   reel   +4.65 %   modele   +3.33 %
+    meca/pla.md                            1 fiches   reel   +4.66 %   modele   +2.99 %
+    conduite/proj/bom.md                   1 fiches   reel   +4.73 %   modele   +3.61 %
+    embarque/mcu/potentiometre.md          1 fiches   reel   +4.82 %   modele   +3.53 %
+    conduite/proj/acv-simplifiee.md        1 fiches   reel   +4.91 %   modele   +2.11 %
+    embarque/mesure/analyseur-logique.md   1 fiches   reel   +4.94 %   modele   +3.42 %
+    embarque/mcu/sans-fil                  6 fiches   reel   +5.01 %   modele   +3.87 %
+    embarque/mcu/deep-sleep.md             1 fiches   reel   +5.04 %   modele   +3.05 %
+    conduite/proj/caracteriser-une-exigence.md   1 fiches   reel   +5.14 %   modele   +3.51 %
+    embarque/mcu/dac.md                    1 fiches   reel   +5.26 %   modele   +3.63 %
+    conduite/meo/cable-management.md       1 fiches   reel   +5.41 %   modele   +3.28 %
+    embarque/mcu/micropython              39 fiches   reel   +5.45 %   modele   +3.93 %
+    embarque/simulation/falstad.md         1 fiches   reel   +5.59 %   modele   +3.39 %
+    conduite/proj/jalons.md                1 fiches   reel   +5.73 %   modele   +2.98 %
+    conduite/meo/archivage-projet.md       1 fiches   reel   +5.73 %   modele   +3.96 %
+    embarque/realisation/choisir-le-materiel.md   1 fiches   reel   +5.79 %   modele   +3.47 %
+    embarque/mcu/microcontroleur.md        1 fiches   reel   +5.93 %   modele   +3.47 %
+    embarque/mcu/adc.md                    1 fiches   reel   +6.33 %   modele   +3.54 %
+    conduite/proj/dossier-technique.md     1 fiches   reel   +6.47 %   modele   +3.12 %
+    meca/schema-cinematique.md             1 fiches   reel   +6.70 %   modele   +2.60 %
+    conduite/proj/retroplanning.md         1 fiches   reel   +6.73 %   modele   +2.93 %
+    meca/impression-3d.md                  1 fiches   reel   +6.74 %   modele   +1.60 %
+    conduite/proj/fonction.md              1 fiches   reel   +6.77 %   modele   +4.27 %
+    conduite/proj/matrice-de-risques.md    1 fiches   reel   +6.77 %   modele   +2.86 %
+    conduite/proj/gantt.md                 1 fiches   reel   +6.98 %   modele   +3.30 %
+    embarque/mcu/pwm.md                    1 fiches   reel   +7.19 %   modele   +4.29 %
+    embarque/chaine-energie.md             1 fiches   reel   +7.19 %   modele   +4.26 %
+    conduite/proj/matrice-de-decision.md   1 fiches   reel   +7.37 %   modele   +3.80 %
+    conduite/proj/specification-technique.md   1 fiches   reel   +7.47 %   modele   +3.05 %
+    embarque/algorithme/chronogramme.md    1 fiches   reel   +7.57 %   modele   +3.25 %
+    conduite/index.md                      1 fiches   reel   +7.59 %   modele   +3.10 %
+    conduite/proj/concept.md               1 fiches   reel   +7.62 %   modele   +3.23 %
+    conduite/proj/amdec.md                 1 fiches   reel   +8.27 %   modele   +3.29 %
+    conduite/proj/wbs.md                   1 fiches   reel   +8.61 %   modele   +2.56 %
+    embarque/algorithme/machine-a-etats.md   1 fiches   reel   +9.35 %   modele   +3.93 %
+    embarque/algorithme/grafcet.md         1 fiches   reel   +9.61 %   modele   +3.49 %
+    meca/comparateur.md                    1 fiches   reel   +9.79 %   modele   +3.03 %
+    conduite/meo/unite-si.md               1 fiches   reel  +10.53 %   modele   +2.70 %
+    conduite/proj/afnor-nfx50-151.md       1 fiches   reel  +10.99 %   modele   +2.76 %
+    conduite/ese/reach.md                  1 fiches   reel  +11.11 %   modele   +4.57 %
+    conduite/meo/revue-de-code.md          1 fiches   reel  +11.22 %   modele   +3.21 %
+    conduite/meo/relation-client.md        1 fiches   reel  +11.49 %   modele   +2.69 %
+    meca/pied-a-coulisse.md                1 fiches   reel  +11.54 %   modele   +3.40 %
+    conduite/proj/cahier-des-charges-fonctionnel.md   1 fiches   reel  +11.66 %   modele   +2.50 %
+    conduite/proj/decomposition-fonctionnelle.md   1 fiches   reel  +11.68 %   modele   +2.98 %
+    conduite/ese/marquage-ce.md            1 fiches   reel  +12.11 %   modele   +2.74 %
+    embarque/mcu/shield.md                 1 fiches   reel  +12.28 %   modele   +2.61 %
+    conduite/proj/index.md                 1 fiches   reel  +16.09 %   modele   +3.85 %
+    embarque/mcu/memoire.md                1 fiches   reel  +18.23 %   modele   +4.17 %
+
+  LES HUIT FICHES QUE LE MODELE RATE LE PLUS
+    embarque/mcu/memoire.md                              reel +18.2 %   modele +4.2 %
+    conduite/proj/index.md                               reel +16.1 %   modele +3.8 %
+    embarque/mcu/shield.md                               reel +12.3 %   modele +2.6 %
+    conduite/ese/marquage-ce.md                          reel +12.1 %   modele +2.7 %
+    conduite/proj/cahier-des-charges-fonctionnel.md      reel +11.7 %   modele +2.5 %
+    conduite/proj/gestion-de-projet.md                   reel -6.1 %   modele +2.8 %
+    conduite/meo/relation-client.md                      reel +11.5 %   modele +2.7 %
+    embarque/mcu/entree-sortie.md                        reel -3.8 %   modele +5.0 %

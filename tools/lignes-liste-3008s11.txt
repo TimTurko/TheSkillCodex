@@ -1,0 +1,85 @@
+=== LIGNES DE REGISTRE LISTE, LOT 14, APPARIEES PAR RANG ===
+
+  POPULATION : les 3 paires du lot 14, lignes classees `liste`
+  par la meme regle que decompo-registre.mjs, dans l ordre du
+  fichier. Comptage de mots : MOTIF_MOT importe de
+  compter-mots.mjs, applique ligne a ligne.
+
+  embarque/pcb/kicad.md
+    lignes de liste  FR 20   EN 20   (egal)
+    mots de liste    FR 352   EN 350   delta -2
+  embarque/mcu/xiao/xiao-prise-en-main.md
+    lignes de liste  FR 13   EN 13   (egal)
+    mots de liste    FR 220   EN 211   delta -9
+  embarque/mcu/xiao/xiao-sense.md
+    lignes de liste  FR 9   EN 9   (egal)
+    mots de liste    FR 230   EN 210   delta -20
+
+  TOTAL lignes de liste : 802 -> 771   delta -31
+
+  lignes appariees : 42   perdantes 20   gagnantes 12   inchangees 10
+  cumul des 3 lignes les plus perdantes : -13
+
+  --- LES DIX LIGNES LES PLUS PERDANTES ---
+
+  [-5]  embarque/pcb/kicad.md  rang 6   (37 -> 32)
+    FR  2. **Saisir le schéma dans Eeschema** — placer les composants depuis les bibliothèques, les relier par des fils, **annoter** (numéroter les composants), puis lancer l'**ERC** (*Electrical Rules Check*) qui repère les broches non connectées et les incohérences.
+    EN  2. **Capture the schematic in Eeschema** — place components from the libraries, connect them with wires, **annotate** (number the components), then run the **ERC** (*Electrical Rules Check*), which spots unconnected pins and inconsistencies.
+
+  [-4]  embarque/mcu/xiao/xiao-prise-en-main.md  rang 5   (46 -> 42)
+    FR  - **Étape 4 de la [[preuve-de-concept|phase de preuve de concept]].** Le premier téléversement sur la carte cible valide d'un coup toute la chaîne (IDE, support ESP32, USB natif, sélection carte et port). Tant que le Blink ne clignote pas, aucune mesure ni asservissement aval n'est crédible.
+    EN  - **Step 4 of the [[preuve-de-concept-en|proof of concept phase]].** The first upload onto the target board validates the whole chain at once (IDE, ESP32 support, native USB, board and port selection). Until Blink blinks, no downstream measurement or control loop is credible.
+
+  [-4]  embarque/mcu/xiao/xiao-prise-en-main.md  rang 7   (13 -> 9)
+    FR  - [[xiao-esp32-s3|XIAO ESP32-S3]] — le hub de la carte (brochage, variantes, mise en œuvre)
+    EN  - [[xiao-esp32-s3-en|XIAO ESP32-S3]] — the board's hub (pinout, variants, use)
+
+  [-4]  embarque/mcu/xiao/xiao-sense.md  rang 3   (82 -> 78)
+    FR  - **Lecteur microSD** (jusqu'à 32 Go, FAT). Il **partage le bus [[spi|SPI]]** de la carte (SCK/MISO/MOSI = **D8 / D9 / D10**) avec une ligne de sélection (CS). Cette ligne est **GPIO21**, la broche de la **LED utilisateur** : sur une Sense, le Blink de la prise en main et le lecteur SD se disputent la même broche. Ajouter un autre périphérique SPI oblige à gérer les CS. La carte d'extension a même un pont (J3) pour basculer entre **SPI libre** et **carte SD**.
+    EN  - **microSD reader** (up to 32 GB, FAT). It **shares the board's [[spi-en|SPI]] bus** (SCK/MISO/MOSI = **D8 / D9 / D10**) with a chip select line (CS). That line is **GPIO21**, the pin of the **user LED**: on a Sense, the Blink from getting started and the SD reader fight over the same pin. Adding another SPI peripheral means managing the chip selects. The expansion board even has a jumper (J3) to switch between **free SPI** and **SD card**.
+
+  [-4]  embarque/mcu/xiao/xiao-sense.md  rang 4   (13 -> 9)
+    FR  - [[xiao-esp32-s3|XIAO ESP32-S3]] — le hub de la carte (brochage, variantes, mise en œuvre)
+    EN  - [[xiao-esp32-s3-en|XIAO ESP32-S3]] — the board's hub (pinout, variants, use)
+
+  [-3]  embarque/pcb/kicad.md  rang 4   (34 -> 31)
+    FR  - **exporter** les fichiers Gerber et de perçage pour la fabrication. KiCad sait aussi produire le format **IPC-2581**, qui rassemble tout le dossier de fabrication en un seul fichier, encore peu demandé par les fabricants.
+    EN  - **export** the Gerber and drill files for manufacturing. KiCad can also produce the **IPC-2581** format, which gathers the whole manufacturing package into a single file, still rarely asked for by fabricators.
+
+  [-3]  embarque/mcu/xiao/xiao-sense.md  rang 1   (31 -> 28)
+    FR  - **La PSRAM est obligatoire.** Une image de 2 Mpx ne tient pas dans la RAM interne : le **framebuffer** vit en PSRAM. Sans PSRAM activée dans l'IDE, l'initialisation de la caméra échoue.
+    EN  - **PSRAM is mandatory.** A 2 Mpx image does not fit in the internal RAM: the **framebuffer** lives in PSRAM. Without PSRAM enabled in the IDE, camera initialisation fails.
+
+  [-3]  embarque/mcu/xiao/xiao-sense.md  rang 2   (24 -> 21)
+    FR  - **Micro numérique (PDM)** — horloge sur **GPIO42**, données sur **GPIO41** (les D11/D12 du B2B). Parfait pour de la détection de son ou de mots-clés.
+    EN  - **Digital microphone (PDM)** — clock on **GPIO42**, data on **GPIO41** (the D11/D12 of the B2B). Ideal for sound or keyword detection.
+
+  [-3]  embarque/mcu/xiao/xiao-sense.md  rang 7   (11 -> 8)
+    FR  - [[i2c|I²C]] — le bus de réglage de la caméra (SCCB)
+    EN  - [[i2c-en|I²C]] — the camera's control bus (SCCB)
+
+  [-2]  embarque/pcb/kicad.md  rang 5   (20 -> 18)
+    FR  1. **Créer un projet** KiCad — il regroupe le schéma, le circuit imprimé et les fichiers associés sous un même nom.
+    EN  1. **Create a KiCad project** — it groups the schematic, the board and the associated files under one name.
+
+  --- LES CINQ LIGNES LES PLUS GAGNANTES ---
+
+  [+3]  embarque/pcb/kicad.md  rang 8   (28 -> 31)
+    FR  4. **Basculer dans Pcbnew** — importer la *netlist* du schéma, **placer** les composants sur la carte, définir le contour, puis **router** les pistes (manuellement ou avec l'aide du routeur).
+    EN  4. **Switch to Pcbnew** — import the *netlist* from the schematic, **place** the components on the board, define the outline, then **route** the tracks (by hand or with help from the router).
+
+  [+3]  embarque/mcu/xiao/xiao-prise-en-main.md  rang 3   (28 -> 31)
+    FR  4. Sélectionner la carte **`XIAO_ESP32S3`** et le port (un `COM3` ou plus sous Windows ; un `usbmodem`/`usbserial` sous macOS — au doute, débrancher/rebrancher pour voir lequel disparaît).
+    EN  4. Select the **`XIAO_ESP32S3`** board and the port (a `COM3` or higher on Windows; a `usbmodem`/`usbserial` on macOS — if in doubt, unplug and replug to see which one disappears).
+
+  [+2]  embarque/pcb/kicad.md  rang 11   (26 -> 28)
+    FR  1. **Schéma** — placer le microcontrôleur, le capteur, le régulateur et le connecteur ; relier l'alimentation, la masse et les deux lignes du bus ; annoter et passer l'ERC.
+    EN  1. **Schematic** — place the microcontroller, the sensor, the regulator and the connector; wire up the power, the ground and the two bus lines; annotate and run the ERC.
+
+  [+2]  embarque/pcb/kicad.md  rang 14   (14 -> 16)
+    FR  4. **DRC**, puis **export Gerber** — relire le rendu dans le visualiseur avant de transmettre.
+    EN  4. **DRC**, then **Gerber export** — read the result back in the viewer before handing it over.
+
+  [+2]  embarque/mcu/xiao/xiao-prise-en-main.md  rang 11   (6 -> 8)
+    FR  - [[micropython|MicroPython]] — l'autre voie de programmation
+    EN  - [[micropython-en|MicroPython]] — the other way to program it

@@ -1,0 +1,32 @@
+=== DECOMPOSITION DU FOISONNEMENT PAR REGISTRE ET PAR CONSTRUIT ===
+
+  POPULATION : 242 paire(s) FR/EN, appariees par le
+  champ source_fr du front matter EN, comme compter-mots --paires.
+  Etiquette du lancement : --tout
+  Regle de mot : celle de compter-mots.mjs, IMPORTEE (corpsC110,
+  MOTIF_MOT, EST_MOT). Aucune regex de C110 recopiee ici.
+  Les deux axes sont des PARTITIONS : chaque mot compte une fois
+  et une seule sur chacun.
+
+  AUTOCONTROLE DE PARTITION (484 fiches lues) : 0 ecart
+
+  TOTAL : 291261 mots FR -> 301333 mots EN   +3.5 %
+
+  AXE 1 - REGISTRE DE LIGNE
+    categorie               FR      EN   delta   part FR     ecart  contribution
+    titre                 7885    8417     532     2.7 %    +6.7 %      +0.18 pt
+    callout              38347   39663    1316    13.2 %    +3.4 %      +0.45 pt
+    tableau               4736    4838     102     1.6 %    +2.2 %      +0.04 pt
+    liste                59617   61796    2179    20.5 %    +3.7 %      +0.75 pt
+    paragraphe          180676  186619    5943    62.0 %    +3.3 %      +2.04 pt
+    SOMME               291261  301333   10072              +3.5 %      +3.46 pt
+
+  AXE 2 - CONSTRUIT DE TEXTE
+    categorie               FR      EN   delta   part FR     ecart  contribution
+    alt embed            14296   14348      52     4.9 %    +0.4 %      +0.02 pt
+    chemin embed          1985    1985       0     0.7 %    +0.0 %      +0.00 pt
+    cible wikilink        4371    4409      38     1.5 %    +0.9 %      +0.01 pt
+    libelle wikilink      8980    8970     -10     3.1 %    -0.1 %      -0.00 pt
+    code inline           6927    6914     -13     2.4 %    -0.2 %      -0.00 pt
+    prose nue           254702  264707   10005    87.4 %    +3.9 %      +3.44 pt
+    SOMME               291261  301333   10072              +3.5 %      +3.46 pt

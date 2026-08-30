@@ -33,9 +33,22 @@ const BLOC_CLOTURE = /^```[\s\S]*?^```[^\n]*$/gm;
 const MOT = /[0-9A-Za-z\u00C0-\u024F'\u2019-]+/g;
 const ALNUM = /[0-9A-Za-z\u00C0-\u024F]/;
 
+// Le CORPS sur lequel la regle compte : front matter retire, blocs clotures
+// remplaces par une espace. Exporte pour que decompo-registre.mjs decoupe
+// EXACTEMENT le meme texte au lieu de reimplementer les deux regex - defaut
+// du 23/08 (suite 4) : deux implementations conformes a la meme phrase
+// divergent de 0,5 a 1,6 % par fiche.
+export function corpsC110(texte) {
+  return texte.replace(FRONT_MATTER, '').replace(BLOC_CLOTURE, ' ');
+}
+
+// Le motif de mot et son filtre, exportes pour la meme raison : une
+// decomposition doit SITUER chaque mot, donc reappliquer le motif.
+export const MOTIF_MOT = MOT;
+export const EST_MOT = (m) => ALNUM.test(m);
+
 export function compterMots(texte) {
-  const corps = texte.replace(FRONT_MATTER, '');
-  const prose = corps.replace(BLOC_CLOTURE, ' ');
+  const prose = corpsC110(texte);
   return (prose.match(MOT) || []).filter((m) => ALNUM.test(m)).length;
 }
 

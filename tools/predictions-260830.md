@@ -19315,3 +19315,734 @@ FR, 301 333 mots EN, 100 % traduit**.
 exécution directe, quatorze lots**, et la dernière est celle où la règle la
 plus ancienne du protocole — lire un compteur dans le code qui l'incrémente —
 est tombée trois fois en une soirée.*
+
+---
+
+# SÉANCE 11 DU 30/08 — BILAN DE CHANTIER, FILE D'ARBITRAGES, SUITE DU DÉPÔT
+
+> **Ce n'est pas un lot.** Le corpus est fermé depuis la séance 10
+> (242 / 242 fiches, 291 261 / 291 261 mots, `RESTANT A TRADUIRE` 0, dette 0,
+> 0 cible morte). Première séance du dépôt qui n'est ni un lot de traduction
+> ni un correctif d'arbitrage de lot. **La numérotation des blocs se
+> poursuit : ce fichier reprend au bloc 134.**
+
+## En-tête de séance
+
+- **Séance** — 30/08, **onzième**, PC perso, modèle **Opus 5**.
+- **Objet** — les quatre points du brief de la ligne « Prochaine session » de
+  l'entrée du 30/08 (suite 10), dans son ordre : (1) **bilan du chantier**,
+  quatorze lots et quinze séances, ce que le protocole a produit comme règles
+  et ce qu'il a coûté, avec instruction de **C116 (7) tombée trois fois dans
+  la dernière soirée** — règle mal formulée ou mal outillée ; (2) la **file
+  d'arbitrages**, jamais drainée depuis le 29/08 (suite 5), **dix-huit
+  entrées**, à commencer par le **seau symétrique `C109 supprimees en EN`** ;
+  (3) la **cause du foisonnement négatif du lot 14** — mesure, pas décision ;
+  (4) **ce qui vient après la traduction**.
+- **Régime** — sous-règle C116 (« exécution directe ») et ses termes (1) à
+  (9), C118, C119, C120, C121, C124, C130, C131 et son amendement du 29/08
+  (suite 8).
+
+⚠ **POINT DE SURFACE, REMONTÉ ET NON TRANCHÉ SEUL.** Le brief C129 de la
+suite 10 envoie cette séance en **chat Desktop** et écrit que « la session
+Code cesse d'écrire sur le dépôt à sa clôture ». Le prompt de lancement
+reprend la règle d'écrivain unique **au passé** : « la session Code **a
+cessé** d'écrire ».
+**Lecture retenue, et elle est écrite avant d'agir** : la plume est *libre*,
+non *interdite*. La séance 10 l'a rendue à sa clôture — `HEAD a421335`
+commité et poussé, arbre propre —, aucun autre écrivain n'est actif, et les
+points (2) et (3) du brief demandent l'un des correctifs d'outil, l'autre une
+mesure : ni l'un ni l'autre n'est exécutable sans écrire.
+**Ce que la lecture engage** : cette séance écrit dans `tools/` (ce fichier,
+les copies C124, les correctifs d'outil proposés en diff) et **n'écrit rien
+dans `content/`**, ni dans `JOURNAL.md`, `conventions.md`, `TODO.md`,
+`BACKLOG.md`, avant réponse de Tim.
+**Coût de revert si la lecture est fausse** : les appends à ce fichier et les
+copies datées de la batterie. **Zéro octet dans `content/`.**
+
+## Déclaration C131 d'ouverture — bloc 134
+
+- **Population du compteur `fichiers modifies non commites`** : entrées de
+  `git status --porcelain` sur **tout le dépôt**, lues à l'**étape 1** de
+  `batterie.ps1`, donc **après** la copie C124 de l'étape 0. Le second
+  chiffre, `hors artefacts de seance`, retire les entrées dont la ligne porte
+  `batterie-sortie` **ou** `predictions-` (filtre lu dans le code, ligne
+  `$saleHors`, et non dans la ligne d'affichage).
+- **Artefacts déjà versés par cette séance au moment de la lecture — deux, et
+  ils sont nommés** :
+  1. `tools/predictions-260830.md`, **modifié** par le présent append —
+     entrée ` M`, filtrée par `predictions-` ;
+  2. `tools/batterie-sortie-3008b65.txt`, **créé** par l'étape 0 — entrée
+     `??`, filtrée par `batterie-sortie`.
+- **Total impliqué : 2 entrées au total, 0 hors artefacts de séance.**
+- **État de départ déclaré** : `HEAD a421335`, arbre **propre**.
+
+## Prédictions — bloc 134, garde de péremption
+
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+- **P134.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P134.2** — `sortie precedente copiee : tools\batterie-sortie-3008b65.txt`.
+  Rang **65**, premier libre : `3008b1` à `3008b64` sont occupés dans
+  `tools/`, et `tools/batterie-sortie.txt` existe donc la copie a lieu.
+- **P134.3** — `date ISO : 2026-08-30`. ⚠ **Branche déclarée** : si l'horloge
+  a passé minuit, la sortie rendra `2026-08-31`, **P134.2 devient
+  `tools\batterie-sortie-3108b1.txt`**, et ce fichier de prédictions n'est
+  plus le bon — il faudra ouvrir `tools/predictions-260831.md`. **L'heure
+  n'est pas prédite** : aucune mesure du jour ne la borne.
+- **P134.4** — `HEAD git : a421335` suivi d'une date ISO du **2026-08-30**.
+  Le hash court est lu dans l'instantané `git status` d'ouverture de session,
+  il n'est pas reporté d'une clôture.
+- **P134.5** — `fichiers modifies non commites : 2   (hors artefacts de
+  seance : 0)`, exactement les deux entrées nommées ci-dessus.
+- **P134.6** — `node : v24.15.0`.
+- **P134.7** — `JOURNAL.md` : date **2026-08-30**, heure **postérieure à
+  21:44:45**. Motif : le relevé `3008b64` a été figé à 21:44:45, **avant**
+  l'écriture de la clôture §7 de la séance 10 ; l'heure 20:04:11 qu'il porte
+  est donc périmée par construction et son dépassement **n'est pas une
+  anomalie**.
+- **P134.8** — `conventions.md` : date **2026-08-30**, heure **postérieure à
+  20:02:19**, même motif (sept entrées de §8 écrites après le relevé).
+- **P134.9** — `TODO.md` : **`2026-08-29 21:48:08`**, inchangé au caractère.
+- **P134.10** — **aucune ligne de fiche** : la phase `garde` est lancée sans
+  `-Fiches` ni `-FichesEn`, la boucle `foreach ($f in ($Fiches + $FichesEn))`
+  n'imprime rien.
+- **P134.11** — **exactement deux étapes** dans la sortie (0 et 1), chacune
+  fermée par `--- code de sortie : 0` ; les blocs `cadrage` et `etat` sont
+  gardés par `if ($Phase -eq ...)`.
+
+**Critère d'arrêt du bloc** : un `HEAD` autre que `a421335`, une entrée de
+`git status` autre que les deux nommées, ou une date d'écriture postérieure
+sur `TODO.md` ⇒ **arrêt, rien d'écrit, remontée à Tim**.
+
+### Bilan du bloc 134 — garde de péremption
+
+**11 prédictions, 11 tenues, 0 réfutée.** Constats : `lignes non ASCII 0` ;
+`copiee : tools\batterie-sortie-3008b65.txt` ; `date ISO 2026-08-30`, heure
+**22:34:18** (la branche minuit ne s'est pas ouverte, ce fichier reste le
+bon) ; `HEAD git : a421335 2026-08-30 22:29:20 +0200` ; `2   (hors artefacts
+de seance : 0)` ; `node v24.15.0` ; `JOURNAL.md 21:54:08` et
+`conventions.md 21:53:03`, tous deux postérieurs au relevé `3008b64` comme
+prédit ; `TODO.md 2026-08-29 21:48:08` inchangé au caractère ; aucune ligne
+de fiche ; deux étapes, deux `code de sortie : 0`.
+**Garde AU VERT, aucun état inattendu.**
+
+---
+
+## Prédictions — bloc 135, écriture de `tools/decompo-registre.mjs`
+
+**Objet (point 3 du brief)** : la cause du foisonnement négatif du lot 14 est
+déclarée **inconnue** au JOURNAL, après que l'hypothèse des libellés a été
+**mesurée fausse** (0,13 point sur 3,8). Le brief dit : mesure, pas décision.
+**Ce que l'outil mesure** : la décomposition du foisonnement FR→EN sur **deux
+axes orthogonaux**, chacun formant une **partition exacte** du total C110.
+1. **Registre de ligne** — `titre`, `tableau`, `callout` (ligne à chevron),
+   `liste`, `paragraphe`.
+2. **Construit de texte** — `alt d'embed`, `chemin d'embed`,
+   `cible de wikilink`, `libellé de wikilink`, `code inline`, `prose nue`.
+Chaque catégorie sort avec sa **contribution en points** au delta total, de
+sorte que la somme des contributions **soit** le foisonnement du lot.
+
+**Autocontrôle intégré, et c'est lui la garde C110** : le total de chaque
+partition est comparé fiche par fiche à `compterMots` de `compter-mots.mjs`,
+importé et non réimplémenté. Un écart non nul sur une seule fiche est un
+**défaut d'outil**, publié comme tel.
+
+**Échantillon C110 nommé, choisi pour ce qui peut faire mordre à tort** :
+`en/embarque/pcb/pcb-en.md` (wikilink à **pipe échappé** dans une ligne de
+tableau, le défaut du lot 13), `content/embarque/pcb/easyeda.md` (la plus
+grosse fiche, callouts, embeds, blocs clôturés en marge),
+`content/embarque/mcu/xiao/xiao-prise-en-main.md` (fences **en marge
+gauche**, cas `ded` du lot 14). L'autocontrôle de partition les couvre toutes
+les trois **et les 481 autres**.
+
+- **P135.1** — le fichier créé est `tools/decompo-registre.mjs`, **un seul**,
+  **aucun** fichier existant modifié ni écrasé. *Règle du 30/08 (séance 10) :
+  un nom d'artefact se vérifie contre l'existant avant écriture ; le nom est
+  neuf, `ls tools/` ne porte aucun `decompo-registre*`, et le seul
+  `decompo-*` du répertoire est `decompo-foisonnement-lot14-3008.txt`.*
+- **P135.2** — **0 ligne non ASCII** dans le source (C122).
+- **P135.3** — l'outil **n'écrit aucun fichier** : il imprime sur la sortie
+  standard, comme `compter-mots.mjs`.
+- **P135.4** — il **importe** `compterMots` depuis `./compter-mots.mjs` et ne
+  réécrit ni `FRONT_MATTER`, ni `BLOC_CLOTURE`, ni `MOT` — C119 sur du code :
+  deux implémentations d'une même règle divergent.
+
+### Déclaration C131 — bloc 135
+
+- **Population** : entrées de `git status --porcelain` sur tout le dépôt.
+- **Versements de cette séance après ce bloc, nommés** : (1)
+  `tools/predictions-260830.md` ` M`, filtré ; (2)
+  `tools/batterie-sortie-3008b65.txt` `??`, filtré ; (3)
+  `tools/decompo-registre.mjs` `??`, **non filtré**.
+- **Total impliqué : 3 entrées, dont 1 hors artefacts de séance.**
+
+**⚠ RÉVISION DE P135.1 ET P135.4, PUBLIÉE AVANT LE BLOC.** `compter-mots.mjs`
+n'exporte que `compterMots(texte)`, qui rend un **nombre** ; il n'exporte pas
+le **corps** sur lequel il compte (front matter et blocs clôturés retirés),
+et c'est ce corps qu'une décomposition doit découper. Deux issues :
+réimplémenter les deux regex dans l'outil neuf — ce que le défaut du 23/08
+(suite 4) interdit : deux implémentations conformes à la même phrase
+divergent —, ou **exporter le corps depuis le fichier qui porte la règle**.
+**Choix : l'export**, trois lignes, aucun changement de comportement, lisible
+en diff. La sortie de `compter-mots.mjs` doit être **identique au caractère**
+avant et après.
+- **P135.1 révisée** — **deux** fichiers touchés : `tools/decompo-registre.mjs`
+  créé, `tools/compter-mots.mjs` **modifié** d'un export nommé `corpsC110`.
+  Aucun autre.
+- **P135.4 révisée** — l'outil neuf importe **`corpsC110` et `compterMots`**
+  et ne porte **aucune** des trois regex `FRONT_MATTER`, `BLOC_CLOTURE`,
+  `MOT`... **sauf `MOT`**, qu'il doit réappliquer pour situer chaque mot :
+  il l'importe donc aussi, sous le nom `MOTIF_MOT`. **Zéro regex de la règle
+  C110 recopiée.**
+- **P135.5** — `node tools/compter-mots.mjs` rend **`RESTANT A TRADUIRE :
+  0 fiches, 0 mots`** et **291 261** mots FR après modification, inchangé.
+- **Déclaration C131 révisée — total impliqué : 4 entrées, dont 2 hors
+  artefacts de séance** (`decompo-registre.mjs` `??`, `compter-mots.mjs` ` M`).
+
+### Bilan du bloc 135 — écriture de l'outil
+
+**5 prédictions, 5 tenues, 0 réfutée** (P135.1 et P135.4 dans leur version
+révisée, publiée avant le bloc). Constats : `tools/decompo-registre.mjs`
+créé et `tools/compter-mots.mjs` modifié, **aucun autre fichier touché** ;
+**0 ligne non ASCII** ; l'outil n'écrit rien ; `corpsC110`, `MOTIF_MOT`,
+`EST_MOT` importés, **zéro regex C110 recopiée** ; `compter-mots.mjs` rend
+**291 261 mots FR** et **`RESTANT A TRADUIRE : 0 fiches, 0 mots`**, inchangé.
+**Déclaration C131 vérifiée au relevé : 4 entrées, 2 hors artefacts.**
+
+---
+
+## Prédictions — bloc 136, mesure de la cause du foisonnement
+
+`node tools/decompo-registre.mjs --lot embarque/pcb/kicad.md embarque/mcu/xiao/xiao-prise-en-main.md embarque/mcu/xiao/xiao-sense.md`
+puis `node tools/decompo-registre.mjs --tout`
+
+- **P136.1** — autocontrôle de partition : **`0 ecart`** sur les **6 fiches**
+  du lot et **`0 ecart`** sur les **484 fiches** du corpus.
+- **P136.2** — `--lot`, TOTAL : **`2270 mots FR -> 2249 mots EN   -0.9 %`**,
+  exactement les chiffres de `tools/decompo-foisonnement-lot14-3008.txt`
+  relevés le 30/08 (séance 10). *Deux outils écrits séparément, même objet,
+  même date : c'est un contrôle croisé, pas un report.*
+- **P136.3** — détail par fiche : `kicad.md` **841 -> 823**,
+  `xiao-prise-en-main.md` **670 -> 680**, `xiao-sense.md` **759 -> 746**.
+- **P136.4** — axe construit, lot : `cible wikilink` **+** `libelle
+  wikilink` = **120 -> 117**, la somme reproduisant la ligne `wikilinks` du
+  relevé du 30/08. ⚠ *Si les deux diffèrent, l'un des deux outils est faux et
+  c'est un défaut à instruire, jamais un ajustement.*
+- **P136.5** — axe construit, lot : `chemin embed`, **delta 0** — les fiches
+  EN citent les mêmes fichiers d'image que leurs sources.
+- **P136.6** — axe registre, lot : `paragraphe` à écart **positif**, au moins
+  **+1,0 %** ; et la plus forte contribution **négative** en points vient de
+  **`liste` ou de `tableau`**. *Modèle : l'anglais compose des noms là où le
+  français enchaîne des prépositions, et une ligne de liste ou de tableau est
+  presque entièrement nominale, quand un paragraphe porte des verbes.*
+- **P136.7** — `--tout` : **`242 paire(s)`**, TOTAL **`291261 mots FR ->
+  301333 mots EN   +3.5 %`**, identique à `compter-mots --paires` de la
+  clôture du lot 14.
+- **P136.8** — corpus, `paragraphe` : écart **≥ +4,0 %**.
+- **P136.9** — corpus, `tableau` : écart **≤ 0,0 %**.
+- **P136.10** — corpus, `chemin embed` : écart dans **[−1,0 %, +1,0 %]**.
+- **P136.11** — corpus, `code inline` : écart dans **[−1,0 %, +2,0 %]**.
+- **P136.12** — corpus, `alt embed` : écart **négatif**, dans
+  **[−5,0 %, 0,0 %]**. *Le lot 13 avait mesuré les 53 `alt` d'`easyeda` à
+  −1,3 % quand sa prose faisait +3,1 %.*
+- **P136.13** — corpus, `prose nue` : écart **≥ +4,0 %**.
+- **P136.14** — sur chaque axe, la ligne `SOMME` rend la **même
+  contribution totale** que le foisonnement du TOTAL, à **0,01 pt** près.
+
+### Déclaration C131 — bloc 136
+
+- **Population** : entrées de `git status --porcelain` sur tout le dépôt.
+- **Versements après ce bloc** : les quatre déjà nommés, plus **deux sorties
+  C124 datées et nommées PAR LEUR LOT** (règle du 30/08, séance 10) :
+  `tools/decompo-registre-3008s11-lot14.txt` et
+  `tools/decompo-registre-3008s11-tout.txt`. Aucun des deux n'existe :
+  `ls tools/decompo-*` ne rend que `decompo-foisonnement-lot14-3008.txt`.
+- **Total impliqué : 6 entrées, dont 4 hors artefacts de séance.**
+
+### Bilan du bloc 136 — décomposition du foisonnement
+
+**14 prédictions, 9 tenues, 5 réfutées.**
+**Tenues** : P136.1 (`0 ecart` sur 6 fiches **et** sur 484 — les deux
+partitions se referment), P136.2 (`2270 -> 2249  -0.9 %`, **au chiffre** du
+relevé du 30/08 écrit par un autre outil), P136.3 (841→823, 670→680,
+759→746), P136.4 (**37 + 83 = 120 → 37 + 80 = 117**, contrôle croisé fermé),
+P136.5 (`chemin embed` 10 → 10), P136.7 (`242 paire(s)`,
+`291261 -> 301333  +3.5 %`), P136.10 (`chemin embed` **+0,0 %**), P136.11
+(`code inline` **−0,2 %**), P136.14 (lot −0,93 pt pour −0,9 % ; corpus
++3,46 pt pour +3,5 %).
+**Réfutées, et les quatre dernières le sont dans le même sens** :
+- **P136.6** — `paragraphe` du lot prédit **≥ +1,0 %**, mesuré **+0,0 %**
+  (**1 162 → 1 162, au mot**). *Le second terme, lui, tient : la plus forte
+  contribution négative est bien `liste`, à −1,37 pt.*
+- **P136.8** — `paragraphe` du corpus prédit **≥ +4,0 %**, mesuré **+3,3 %**.
+- **P136.9** — `tableau` du corpus prédit **≤ 0,0 %**, mesuré **+2,2 %**.
+- **P136.12** — `alt embed` du corpus prédit **négatif**, mesuré **+0,4 %**.
+- **P136.13** — `prose nue` du corpus prédit **≥ +4,0 %**, mesuré **+3,9 %**.
+
+⚠ **CE QUE LES QUATRE RÉFUTATIONS DISENT ENSEMBLE, ET C'EST LA RÉPONSE AU
+POINT 3 DU BRIEF.** J'avais prédit un corpus **hétérogène** — des registres
+qui foisonnent fort et d'autres qui rétrécissent, le foisonnement d'un lot
+n'étant alors que son **mélange**. **Mesure : le corpus est homogène.** Les
+cinq registres tiennent dans une bande de **+2,2 % à +6,7 %**, les six
+construits de **−0,2 % à +0,9 %** hors `prose nue` à **+3,9 %** ; **aucune
+catégorie du corpus n'est structurellement négative**, `alt` compris —
+l'observation d'`easyeda` au lot 13 (−1,3 % sur 53 `alt`) était **locale à
+cette fiche** et ne se généralise pas.
+**Donc le lot 14 n'est pas un effet de mélange, et la cause est locale** :
+son registre `liste` sort à **−3,9 %** contre une norme de corpus à
+**+3,7 %**, soit **7,6 points d'écart**, sur une catégorie qui pèse **35,3 %
+du lot contre 20,5 % du corpus**. Les deux termes se composent, mais c'est
+le second qui décide : à mélange égal et lists au taux du corpus, le lot
+sortirait à **+2,0 %** environ, pas à −0,9 %.
+✅ **La cause est désormais localisée dans un objet fini et lisible : les
+802 mots de liste des trois fiches, qui en perdent 31.** ⚠ *Et une seconde
+anomalie sort du même relevé sans avoir été cherchée : le `paragraphe` du
+lot fait **+0,0 %** contre +3,3 % au corpus — 1 162 mots des deux côtés,
+au mot près.*
+
+### Déclaration C131 vérifiée — bloc 136
+
+Six entrées attendues, six relevées ; les deux sorties C124 sont écrites sous
+`decompo-registre-3008s11-lot14.txt` et `decompo-registre-3008s11-tout.txt`,
+**nommées par leur lot et leur séance**, conformément à la règle née de
+l'incident du 30/08 (séance 10).
+
+---
+
+## Prédictions — bloc 137, nommer la cause dans les 802 mots de liste
+
+Outil jetable (C114) `tools/lignes-liste-3008s11.mjs` : pour les trois
+paires, il extrait les **lignes de registre `liste`** dans l'ordre du
+fichier, avec la **même fonction de classement** que `decompo-registre.mjs`,
+et les apparie **par rang**.
+
+- **P137.1** — le **nombre de lignes de liste est égal en FR et en EN** dans
+  chacune des trois paires. *Le chantier reporte un pour un ; une inégalité
+  serait un défaut de traduction non détecté par les six contrôles de
+  clôture, donc à remonter.*
+- **P137.2** — la **somme des deltas par ligne vaut exactement −31**, le
+  delta du registre `liste` du bloc 136. *Contrôle de bouclage : si l'appariement
+  par rang est faux, la somme reste juste mais les lignes seront absurdes ;
+  si l'extraction est fausse, la somme rate.*
+- **P137.3** — les **trois lignes les plus perdantes cumulent au moins 15**
+  des 31 mots perdus, c'est-à-dire que la perte est **concentrée** et non
+  diffuse sur toutes les lignes.
+- **P137.4** — le fichier créé est le seul, et `ls tools/lignes-*` ne rend
+  **rien** avant le bloc. **Total C131 impliqué : 8 entrées, dont 6 hors
+  artefacts de séance** (le script, sa sortie datée `lignes-liste-3008s11.txt`,
+  plus les six déjà nommées moins les deux filtrées).
+
+### Bilan du bloc 137 — les 802 mots de liste, ligne à ligne
+
+**4 prédictions, 3 tenues, 1 réfutée.** P137.1 tenue (**20/20, 13/13, 9/9**,
+report un pour un vérifié) ; P137.2 tenue (**−31**, bouclage exact avec le
+registre `liste` du bloc 136) ; P137.4 tenue.
+**P137.3 réfutée** : les trois lignes les plus perdantes cumulent **−13** et
+non « au moins 15 ». ⚠ *Et la réfutation porte le fait : **la perte n'est pas
+concentrée**. Sur 42 lignes appariées, **20 perdent, 12 gagnent, 10 ne bougent
+pas** ; l'écart est un **régime diffus**, pas un accident local.*
+
+✅ **LA CAUSE EST NOMMÉE, ET ELLE EST LISIBLE SUR PIÈCE.** Les lignes
+perdantes sont des **gloses nominales**, et ce qu'elles perdent est toujours
+la même construction : **la chaîne génitive française rendue par un composé
+anglais ou un génitif saxon**.
+- `le hub de la carte` **4** → `the board's hub` **3** ; `mise en œuvre`
+  **3** → `use` **1** — la ligne passe de **13 à 9** mots, et elle sort deux
+  fois, dans deux fiches différentes.
+- `le bus de réglage de la caméra` **6** → `the camera's control bus` **4**.
+- `de la détection de son ou de mots-clés` **8** → `sound or keyword
+  detection` **4**.
+- `une ligne de sélection` **4** → `a chip select line` **4**, mais
+  `les CS` → `the chip selects`, etc.
+Et **les lignes gagnantes sont verbales** : `Basculer dans Pcbnew — importer
+la netlist…` **+3**, `Sélectionner la carte et le port…` **+3**.
+⚠ *Donc le registre n'est pas la vraie variable : **c'est la densité
+nominale de la ligne**. Le corpus a des listes qui foisonnent (+3,7 %) parce
+que ses items sont majoritairement des **phrases à verbe** ; le lot 14 a des
+listes qui rétrécissent parce que les siennes sont des **inventaires de
+périphériques et de menus**, presque entièrement nominaux.*
+
+---
+
+## Prédictions — bloc 138, du fait mesuré à une loi mesurable
+
+L'hypothèse sortie du bloc 137 est testable sur **tout le corpus** : si la
+cause est la chaîne génitive, alors **la densité de marqueurs de génitif dans
+la source FR doit prédire le foisonnement de sa jumelle**. Outil jetable
+`tools/genitif-3008s11.mjs`, 242 paires, un point par paire.
+
+**Motif, et son échantillon C110 nommé.** Marqueur de génitif = jeton égal à
+`de`, `du` ou `des` (variante **stricte**), ou commençant par `d'` / `d’`
+(variante **large**). ⚠ *Le jeton est celui de `MOTIF_MOT`, qui **inclut
+l'apostrophe** : `d'un` est **un** jeton, pas deux.* L'échantillon est
+`embarque/mcu/xiao/xiao-sense.md` (dense en gloses nominales) et
+`embarque/pcb/easyeda.md` (la plus grosse, prose de tutoriel), et **le script
+imprime les quinze formes en `d'` les plus fréquentes** pour que les **faux
+positifs adverbiaux** soient lisibles au lieu d'être supposés.
+
+- **P138.1** — corrélation de Pearson entre densité de génitif (stricte, pour
+  100 mots) et foisonnement, sur les 242 paires : **négative, r ≤ −0,30**.
+- **P138.2** — le **décile le plus dense** en génitifs a un foisonnement moyen
+  **inférieur d'au moins 2,0 points** à celui du **décile le moins dense**.
+- **P138.3** — les **trois fiches du lot 14 sont toutes au-dessus de la
+  médiane** de densité.
+- **P138.4** — le relevé des formes en `d'` contient **au moins un faux
+  positif adverbial nommé** — `d'abord` ou `d'ailleurs`.
+- **P138.5** — **Total C131 impliqué : 10 entrées, dont 8 hors artefacts de
+  séance** (le script et sa sortie `genitif-3008s11.txt` s'ajoutent aux huit).
+
+### Bilan du bloc 138 — l'hypothèse promue en loi de corpus est MESURÉE FAUSSE
+
+**5 prédictions, 2 tenues, 3 réfutées.**
+- **P138.1 réfutée, et largement** : r prédit **≤ −0,30**, mesuré **−0,029**
+  (variante stricte) et **+0,011** (variante large). *Il n'y a pas de
+  corrélation ; il n'y a pas non plus de corrélation faible ; il n'y a rien.*
+- **P138.2 réfutée** : décile le plus dense **+4,35 %**, décile le moins
+  dense **+5,02 %** — **0,67 point** d'écart, et la série des dix déciles
+  **n'est pas monotone** (5,02 / 3,71 / 3,97 / 3,77 / 3,60 / 3,49 / 3,75 /
+  4,74 / 2,51 / 4,35).
+- **P138.3 réfutée** : `xiao-prise-en-main` est **au-dessous** de la médiane
+  (densité 4,18, rang 61/242) et c'est pourtant la seule des trois à
+  foisonner **positivement**. *La fiche la plus dense du lot, `kicad` à 6,90,
+  est aussi la plus négative — mais `deee.md` à 8,75 rend −0,6 % quand
+  `impression-3d.md` à 9,84 rend +6,7 %.*
+- **P138.4 tenue** : les faux positifs adverbiaux sortent nommés et comptés —
+  `d'abord` **79**, `d'où` **51**, `d'autres` **42**, `d'être` **37**.
+- **P138.5 tenue** : 10 entrées relevées, 8 hors artefacts.
+
+⚠⚠ **CE QUE ÇA VEUT DIRE, ET C'EST À PORTER TEL QUEL.** Le mécanisme est
+**lisible sur pièce** au bloc 137 — six lignes montrent la chaîne génitive
+qui rétrécit — et **il n'explique rien à l'échelle de la fiche**. Les deux
+constats ne se contredisent pas : *un effet qui vit sur une construction se
+**dilue** dans un agrégat de 1 200 mots où tout le reste foisonne à +3,5 %.*
+✅ *Le motif du 30/08 (séance 10) se rejoue à l'identique et il faut le
+dire : **l'hypothèse a été mesurée fausse au lieu d'être plaidée**, pour la
+deuxième fois sur la même question.*
+
+---
+
+## Prédictions — bloc 139, le même test à l'échelle où l'effet vit
+
+Si l'effet vit sur la **ligne** et se dilue dans la **fiche**, alors le même
+test conduit **ligne à ligne** doit mordre. Outil jetable
+`tools/genitif-ligne-3008s11.mjs` : appariement des lignes **par rang** dans
+les paires dont les deux corps ont **le même nombre de lignes**, seaux de
+densité génitive, foisonnement **agrégé par seau** (pondéré par les mots, non
+par les lignes).
+
+- **P139.1** — **au moins 80 %** des 242 paires ont un nombre de lignes
+  **égal** FR/EN. *Le chantier reporte un pour un ; c'est la même prédiction
+  que P137.1, à l'échelle du corpus.*
+- **P139.2** — le seau **« 0 génitif »** foisonne **plus** que le seau
+  **« ≥ 9 pour 100 mots »**, d'au moins **3,0 points**.
+- **P139.3** — le seau le plus dense foisonne **négativement**.
+- **P139.4** — Pearson ligne à ligne (densité, écart relatif) sur les lignes
+  d'au moins **10 mots FR** : **négatif, r ≤ −0,10**.
+- **P139.5** — **Total C131 : 12 entrées, dont 10 hors artefacts.**
+
+### Bilan du bloc 139 — le test à l'échelle de la ligne, et il MORD
+
+**5 prédictions, 4 tenues, 1 réfutée.** P139.1 tenue (**233 paires alignées
+sur 242, 96,3 %**, les 9 écartées nommées) ; P139.2 tenue et **au double de
+la borne** (0 génitif **+6,89 %** contre **+0,63 %** au seau le plus dense,
+**6,26 points**) ; P139.4 tenue (**r = −0,188** sur **7 450** lignes d'au
+moins 10 mots) ; P139.5 tenue (12 entrées, 10 hors artefacts).
+**P139.3 réfutée** : le seau le plus dense rend **+0,63 %** et non un
+foisonnement négatif. *Même à densité génitive supérieure à 9 pour 100 mots,
+l'anglais gagne encore un demi-point : le génitif freine le foisonnement, il
+ne l'inverse pas à lui seul.*
+
+✅✅ **ET LA SÉRIE EST MONOTONE SUR LES CINQ SEAUX, CE QUI N'ÉTAIT PAS
+PRÉDIT** : **+6,89 / +3,92 / +3,49 / +2,00 / +0,63**, sur **270 857 mots FR**
+couverts. *L'effet que le bloc 138 ne trouvait pas à l'échelle de la fiche
+existe et il est fort — il était **dilué**, pas absent : la densité génitive
+d'une fiche tient dans une bande étroite (3,2 à 7,5 pour 100 mots) quand
+celle d'une ligne va de 0 à plus de 9.*
+
+⚠ **CE QUE ÇA RÈGLE, ET C'EST LA RÉPONSE COMPLÈTE AU POINT 3 DU BRIEF.**
+1. **Le lot 14 n'a rien d'anormal** : ses listes sont des **gloses
+   nominales** à forte densité génitive, donc à foisonnement quasi nul par
+   construction ; le lot pèse 35,3 % de son volume dans ce registre contre
+   20,5 % au corpus.
+2. **La cause n'est ni le registre ni le mélange de registres** — le corpus
+   est homogène par registre (+2,2 % à +6,7 %) — **c'est la densité génitive
+   de la LIGNE**, et elle est mesurable **avant** de traduire, sur la source
+   FR seule.
+3. **Les échecs répétés de prédiction du foisonnement s'expliquent** : lots
+   13 et 14 prédisaient à l'échelle de la fiche ou du registre, **où le signal
+   est dilué**. *Une prédiction de foisonnement se fait désormais sur la
+   distribution des lignes de la source, jamais sur un taux moyen de lot.*
+
+---
+
+## Prédictions — bloc 140, les chiffres du bilan de chantier (point 1)
+
+Outil jetable `tools/bilan-chantier-3008s11.mjs` : il mesure ce que les
+quinze séances ont **produit** et ce qu'elles ont **coûté**, en lisant le
+dépôt et son historique git, jamais un chiffre reporté.
+
+**Motif et échantillon C110.** Le rendement de prédiction se lit sur les
+lignes `**Bilan de prédiction**` du JOURNAL. Le script **imprime les lignes
+captées avec leur date** avant de sommer, pour que ce que le motif attrape
+soit lu et non supposé.
+
+- **P140.1** — le motif rend **entre 12 et 18** lignes de bilan de
+  prédiction dans `JOURNAL.md`.
+- **P140.2** — la somme des prédictions à décompte plein est **entre 900 et
+  1 500**, et le taux de tenue global est **entre 88 % et 95 %**.
+- **P140.3** — `git log` rend **entre 60 et 130** commits depuis l'ouverture
+  du chantier (premier commit du 22/08 portant `content/en/`).
+- **P140.4** — `conventions.md` pesait **moins de 300 Kio** à l'ouverture du
+  chantier et pèse **563,1 Kio** aujourd'hui, soit un facteur **supérieur à
+  1,8**.
+- **P140.5** — `tools/` porte aujourd'hui **plus de 200** fichiers et en
+  portait **moins de 40** à l'ouverture.
+- **P140.6** — la numérotation des conventions est passée de **C109** à
+  **C131**, soit **23** numéros, et **au moins 15** d'entre eux sont nés
+  pendant le chantier de traduction.
+- **P140.7** — **Total C131 : 14 entrées, dont 12 hors artefacts.**
+
+### Bilan du bloc 140 — les chiffres du chantier
+
+**7 prédictions, 4 tenues, 3 réfutées.**
+- **P140.1 réfutée, et c'est C110 qui mord** : le motif `Bilan de prédiction`
+  rend **3** lignes dans `JOURNAL.md`, pas 12 à 18. *Le JOURNAL ne porte le
+  décompte que sous des formes variables et parfois en toutes lettres
+  (« Trente-cinq prédictions publiées… trente-trois tenues »).* **Motif
+  corrigé en cours de bloc et déclaré dans l'en-tête du script** : la source
+  autorisée est le **fichier de la sous-règle C116**, pas le JOURNAL.
+- **P140.2 réfutée sur son volume, tenue sur son taux** : **2 833**
+  prédictions captées contre une fourchette de 900 à 1 500 ; **88,5 %** de
+  tenue, dans la fourchette [88 %, 95 %]. ⚠ **SUR-COMPTAGE CONNU ET DÉCLARÉ**
+  — le motif capte **toute** ligne de la forme, récapitulatifs de série
+  compris : le fichier du 29/08 porte **40 blocs pour 61 captures**. Le taux
+  résiste au sur-comptage (les récapitulatifs recopient les mêmes ratios) ;
+  **le volume, non**. *Le contrôle d'addition le dit tout seul : 2 507 + 310
+  = **2 817 pour 2 833**, l'écart de 16 étant les « partielles » et les
+  « réfutations annulées » que le motif ne compte pas.*
+- **P140.3 réfutée de peu** : **56** commits depuis l'ouverture, contre une
+  fourchette [60, 130]. *Le premier commit touchant `content/en/` est
+  `3ffbec0`, du **22/08**, et c'est la définition opérante de l'ouverture —
+  pas une date de mémoire.*
+- **P140.4 tenue** : `conventions.md` **231,0 → 563,1 Kio**, facteur
+  **2,44** ; `JOURNAL.md` **169,1 → 724,1 Kio**, facteur **4,28** ;
+  `TODO.md` ×3,56 ; `BACKLOG.md` ×1,90.
+- **P140.5 tenue** : `tools/` **14 fichiers suivis à l'ouverture → 312 à
+  HEAD**, 326 sur disque ; scripts **12 → 37** ; **161** sorties de séance
+  datées C124 ; les deux fichiers de prédictions pèsent **1 744,3 Kio**.
+- **P140.6 tenue, population corrigée** : le script compte les numéros
+  **cités** dans `conventions.md` et non les numéros **nés** — d'où `105` et
+  `108` dans sa liste, qui sont antérieurs. **Numéros nés pendant le
+  chantier : C110 à C131, soit 22**, au-dessus de la borne de 15.
+  Entrées de premier niveau au §8 : **196 → 298**, soit **+102**.
+- **P140.7 tenue** : **14 entrées, 12 hors artefacts**, relevé conforme.
+
+✅ **CE QUE LE BLOC ÉTABLIT** : le chantier a produit **242 fiches EN**
+(`content/en/` **4 → 242** fiches suivies), **22 conventions numérotées**,
+**+102 entrées de §8**, **25 scripts neufs**, et a laissé **1 744 Kio de
+prédictions** et **161 sorties de mesure datées** pour **56 commits**.
+⚠ *Le coût est lisible en un rapport : la trace de pilotage
+(`conventions.md` + `JOURNAL.md` + prédictions) a grossi de **887 Kio**
+pendant que le corpus publié gagnait **301 333 mots anglais**.*
+
+---
+
+## Prédictions — bloc 141, le seau symétrique `C109 supprimees en EN` (arbitrage 1/18)
+
+**Ce que le défaut est.** `--style` porte `if (nEn > nFr) { creees += … }` : il
+voit ce que la traduction **crée**, jamais ce qu'elle **supprime**. Trouvé au
+lot 13 sur `easyeda-en`, qui sort à **0** `C109 de prose` là où sa source en
+porte **1** — la fiche affichait `0 a reprendre` comme une réussite. Le lot
+14 a **contourné le défaut à la main**, par comparaison fiche à fiche des deux
+`--style` (3 = 3, 4 = 4, 6 = 6). **Correctif annoncé à deux lignes depuis le
+lot 13.**
+
+**Arbitrage pris seul, avec son coût de revert (C116 (8)).** Le compteur neuf
+**n'entre pas dans le code de sortie**. *Motif : une suppression n'est pas un
+défaut mécanique — le lot 13 a décidé que la virgule d'`easyeda-en` **restait**,
+C109 visant le cadratin **tapé en anglais** et l'occurrence française n'étant
+gardée qu'au titre de l'exemption C123. En faire un verdict mécanique
+changerait ce qu'un verdict mécanique veut dire, ce qui est au-dessus de la
+ligne C117.* **Coût de revert : ajouter `|| supprimees` dans l'expression de
+`process.exit`, une ligne.**
+
+**Ordre du bloc** : (1) `--style` sur **4 fiches EN** — les trois du lot 14
+plus `easyeda-en` — **avant** modification, sortie datée ; (2) édition ;
+(3) même lancement **après**, sortie datée ; (4) `git diff`.
+
+- **P141.1** — après modification, le seau neuf rend **1** suppression sur les
+  quatre fiches, et **`easyeda-en` est nommée** avec la forme `FR 1 / EN 0`.
+- **P141.2** — les **trois fiches du lot 14** rendent **0** suppression :
+  la comparaison à la main du 30/08 (séance 10) donnait **3 = 3, 4 = 4,
+  6 = 6**, et le correctif doit reproduire ce verdict **sans** intervention.
+- **P141.3** — le **code de sortie** de `--style` sur ces quatre fiches est
+  **identique avant et après** : le compteur neuf n'entre pas dans
+  `process.exit`.
+- **P141.4** — les **six lignes de bilan existantes** (`typographie
+  francaise`, `virgule ambigue`, `C109 creees en EN`, `C109 de prose`, `hors
+  perimetre`, `hors alphabet latin`) sont **inchangées au chiffre** entre les
+  deux lancements. *Contrôle avant/après sur le même objet et la même date,
+  seule forme qui ne tombe pas sous la borne de C119.*
+- **P141.5** — le `git diff` de `creer-fiche-en.mjs` ajoute **au plus
+  8 lignes** et n'en retire **aucune**.
+- **P141.6** — **Total C131 : 17 entrées, dont 15 hors artefacts** — les 14
+  déjà là, plus `creer-fiche-en.mjs` modifié et **deux** sorties datées
+  `style-4fiches-3008s11-avant.txt` et `-apres.txt`.
+
+### Bilan du bloc 141 — le seau symétrique
+
+**6 prédictions, 5 tenues, 1 réfutée.** P141.1 tenue (**1** suppression,
+`en/embarque/pcb/easyeda-en.md   C109 : FR 1 / EN 0   1 SUPPRIMEE(S) PAR LA
+TRADUCTION (a lire)`) ; P141.2 tenue (les trois fiches du lot 14 ne sortent
+pas — le correctif **reproduit sans intervention** le verdict que la séance 10
+avait obtenu à la main) ; P141.3 tenue (**code de sortie 0** avant et après) ;
+P141.4 tenue (**0 / 1 / 0 / 13 / 3 / 0** identiques aux six lignes d'avant) ;
+P141.6 tenue (**17 entrées, 15 hors artefacts**).
+**P141.5 réfutée** : **13 lignes ajoutées** et non « au plus 8 ». *Le
+correctif **est** de deux lignes de logique et une d'affichage ; les sept
+autres sont le commentaire qui dit pourquoi le compteur n'entre pas dans le
+code de sortie. La prédiction chiffrait le diff, pas le correctif.*
+
+⚠ **ARBITRAGE PRIS SEUL, À REMONTER (C116 (8))** : le seau neuf **n'entre pas
+dans `process.exit`**. **Coût de revert : une ligne** — ajouter
+`|| supprimees` à l'expression de sortie.
+
+---
+
+## Prédictions — bloc 142, du constat à un PRÉDICTEUR utilisable
+
+Le bloc 139 rend une échelle monotone sur cinq seaux. Deux entrées du
+`BACKLOG` attendent exactement ça : *« le foisonnement ne se classe plus par
+famille, et la question est entière »* et *« le déficit de foisonnement de
+`cpp/` est désormais SANS CAUSE »*. **Test** : le mélange de seaux de la
+**source FR seule** prédit-il le foisonnement de sa jumelle mieux qu'une
+constante ? Outil jetable `tools/predicteur-3008s11.mjs`.
+
+**Modèle** : mots FR de la fiche répartis dans les cinq seaux de densité
+génitive **de leurs lignes**, puis `EN prédit = Σ mots_seau × (1 + taux_seau)`
+avec les taux du corpus mesurés au bloc 139 **et recalculés par l'outil**, pas
+recopiés. **Comparé au modèle constant `+3,5 %`.**
+
+- **P142.1** — l'erreur absolue moyenne du modèle à cinq seaux est
+  **inférieure** à celle du modèle constant, d'au moins **15 % en relatif**.
+- **P142.2** — le modèle prédit **≤ +1,0 %** pour `kicad.md` **et** pour
+  `xiao-sense.md`.
+- **P142.3** — le module `cpp/` est prédit par le modèle **au-dessous** du
+  foisonnement moyen du corpus.
+- **P142.4** — au moins **60 %** des 242 fiches ont une **erreur de modèle
+  inférieure à 3 points**.
+- **P142.5** — **Total C131 : 19 entrées, dont 17 hors artefacts.**
+
+### Bilan du bloc 142 — le prédicteur ne prédit pas
+
+**5 prédictions, 2 tenues, 3 réfutées.**
+- **P142.1 réfutée, et lourdement** : gain relatif **1,6 %** contre « au
+  moins 15 % ». Erreur absolue moyenne **2,74 point** pour le modèle,
+  **2,79** pour la constante.
+- **P142.2 réfutée** : le modèle prédit **+2,9 %** pour `kicad` et **+3,4 %**
+  pour `xiao-sense`, quand le réel est **−2,1 %** et **−1,7 %**.
+- **P142.3 réfutée** : `cpp/` est prédit à **+3,96 %**, **au-dessus** de la
+  constante du corpus (+3,46 %), et sort en réel à **+3,30 %**.
+- **P142.4 tenue mais vide de sens** : 65,3 % des fiches sous 3 points
+  d'erreur — **la constante en fait 62,0 %**.
+- **P142.5 tenue** : 19 entrées, 17 hors artefacts.
+
+⚠⚠ **TROISIÈME HYPOTHÈSE MESURÉE FAUSSE SUR LA MÊME QUESTION, ET C'EST LE
+RÉSULTAT.** L'effet de ligne du bloc 139 est **réel** — échelle monotone sur
+270 857 mots — et **n'a presque aucun pouvoir prédictif à l'échelle de la
+fiche**. *La cause est visible dans les chiffres : le modèle ne sort jamais de
+la bande **+1,6 % à +5,0 %** quand le réel va de **−6,1 % à +18,2 %**. Le
+mélange de seaux **ne varie pas assez entre fiches** pour porter une variance
+qui, elle, est énorme.*
+**État exact de la question du foisonnement, à porter au BACKLOG tel quel :**
+1. ✅ **mécanisme établi à l'échelle de la ligne** (génitif → composé),
+2. ✅ **registre `liste` du lot 14 établi comme porteur de son écart**,
+3. ❌ **densité génitive de la fiche : sans effet** (r = −0,029),
+4. ❌ **mélange de seaux : sans pouvoir prédictif** (gain 1,6 %),
+5. ⚠ **la variance de fiche à fiche reste sans cause**, et elle est de
+   **24 points d'amplitude**.
+
+---
+
+## Prédictions — bloc 143, les neuf paires dont les corps n'ont pas le même nombre de lignes
+
+Le bloc 139 a écarté **9 paires sur 242** parce que leurs corps C110 ne
+portent pas le même nombre de lignes. **Trois d'entre elles perdent entre 37
+et 43 lignes en anglais** — c'est visible dans la sortie du bloc 139 et
+personne ne l'a instruit. Outil jetable `tools/desalignees-3008s11.mjs`.
+
+- **P143.1** — les paires dont l'**anglais a MOINS de lignes** que le
+  français ont toutes un foisonnement **inférieur à +2,0 %**, et celles dont
+  l'anglais en a **PLUS** sont toutes **au-dessus de +7,0 %**. *Lu dans la
+  sortie du bloc 142 : ecoconception −1,6 %, gestion-de-projet −6,1 %,
+  securite-et-qualite −0,4 %, cpp-lire-un-programme et
+  micropython-lire-un-programme dans leurs modules ; contre
+  decomposition-fonctionnelle +11,7 %, grafcet +9,6 %, machine-a-etats
+  +9,4 %, chaine-energie +7,2 %.*
+- **P143.2** — `conduite/proj/gestion-de-projet.md` perd **au moins 30
+  lignes** de corps et **au moins 5 %** de ses mots en anglais.
+- **P143.3** — pour les trois grosses perdantes, le registre qui perd le plus
+  de **lignes** est **`liste` ou `tableau`**, pas `paragraphe`.
+- **P143.4** — **Total C131 : 21 entrées, dont 19 hors artefacts.**
+
+### Bilan du bloc 143 — les neuf paires désalignées
+
+**4 prédictions, 2 tenues, 2 réfutées.**
+- **P143.1 réfutée sur sa moitié basse** : les deux fiches `lire-un-programme`
+  perdent **1 et 4** lignes et foisonnent à **+3,39 %** et **+3,56 %**, pas
+  « sous +2,0 % ». *La moitié haute tient : les quatre fiches dont l'anglais a
+  **plus** de lignes sont toutes au-dessus de +7,0 % — **+11,68 / +9,61 /
+  +9,35 / +7,19**, moyenne **+9,46 %** contre **−0,23 %** pour l'autre
+  groupe.*
+- **P143.2 tenue** : `gestion-de-projet.md` perd **37 lignes** et **6,13 %**
+  de ses mots.
+- **P143.3 réfutée, et le fait est meilleur que la prédiction** : le registre
+  qui perd n'est ni `liste` ni `tableau`, c'est **`paragraphe`, et il perd
+  −31, −32, −32 lignes** dans les trois fiches, **pendant que tous les autres
+  registres sont égaux au chiffre** — `titre` 10/10, `callout` 22/22,
+  `liste` 40/35, 22/20, 24/24.
+- **P143.4 tenue** : 21 entrées, 19 hors artefacts.
+
+⚠⚠ **ET CE N'EST PAS UNE PERTE DE CONTENU, C'EST UNE DIVERGENCE DE MISE EN
+LIGNE QUE RIEN N'AUDITE.** Trois fiches EN de `conduite/proj/` —
+`securite-et-qualite-en`, `ecoconception-en`, `gestion-de-projet-en` — ont
+leurs **paragraphes écrits en lignes longues** quand leurs sources sont
+**coupées à la main** : 57 lignes de paragraphe FR contre 22 à 25 en anglais,
+titres, callouts et listes **identiques au chiffre**. *Aucun contrôle du
+chantier ne peut le voir : `--controle` compare des nombres d'embeds et de
+liens, `derive-traduction` compare des empreintes de **source**,
+`compter-mots` somme des mots, et le nombre de lignes n'est lu nulle part.*
+⚠ **Reste un fait séparé et non expliqué** : `gestion-de-projet` sort à
+**−6,13 %**, le plus bas du corpus, quand ses deux voisines de même défaut de
+mise en ligne sortent à −0,37 % et −1,61 %. **C'est la première fiche à
+relire**, et le motif est chiffré.
+
+---
+
+# BILAN GÉNÉRAL — 30/08 (séance 11) : BILAN DE CHANTIER, ARBITRAGES, SUITE
+
+**66 prédictions, 47 tenues, 19 réfutées — 71,2 %**, sur **dix blocs (134 à
+143)**, **une garde de péremption au vert**, `HEAD a421335` stable,
+**zéro incident, zéro arrêt**, **zéro octet écrit dans `content/`**.
+
+⚠⚠ **LE FAIT DE LA SÉANCE EST DANS LA COUPE DU DÉCOMPTE, ET IL VAUT POUR
+TOUT LE CHANTIER.** Les 66 prédictions se coupent en deux populations que le
+protocole n'avait jamais séparées :
+- **prédictions d'INSTRUMENT** — ce qu'un outil va imprimer, ce qu'un
+  `git status` va porter, ce qu'un contrôle croisé va refermer : **35
+  prédictions, 34 tenues, 97,1 %**. L'unique réfutée (P141.5) porte sur la
+  **taille d'un diff**, pas sur un compteur.
+- **prédictions de MONDE** — ce que le corpus va se révéler être : **31
+  prédictions, 13 tenues, 41,9 %**.
+*C'est le même partage que la séance 10 avait entrevu sans le chiffrer — « le
+registre garde sa valeur sur les compteurs de DENSITÉ et la perd sur le SIGNE
+du foisonnement ». **Mesuré : le protocole est quasi parfait sur ses
+instruments et à peine mieux qu'un tirage sur son objet.** Et c'est
+exactement ce qu'on doit attendre de lui : un protocole de prédiction ne rend
+pas le monde prévisible, il rend **visible** l'endroit où on croyait savoir.*
+
+**Ce que la séance laisse au dépôt** : **1 correctif d'outil** (le seau
+symétrique, arbitrage 1 sur 18, **la prédiction du lot 13 tenue à deux lignes
+de logique**), **1 outil de mesure versionnable** (`decompo-registre.mjs`),
+**5 outils jetables**, **8 sorties datées**, **3 hypothèses mesurées fausses**
+et **1 loi établie à l'échelle de la ligne**.

@@ -1,0 +1,37 @@
+=== DECOMPOSITION DU FOISONNEMENT PAR REGISTRE ET PAR CONSTRUIT ===
+
+  POPULATION : 3 paire(s) FR/EN, appariees par le
+  champ source_fr du front matter EN, comme compter-mots --paires.
+  Etiquette du lancement : --lot (3 demandee(s))
+  Regle de mot : celle de compter-mots.mjs, IMPORTEE (corpsC110,
+  MOTIF_MOT, EST_MOT). Aucune regex de C110 recopiee ici.
+  Les deux axes sont des PARTITIONS : chaque mot compte une fois
+  et une seule sur chacun.
+
+  AUTOCONTROLE DE PARTITION (6 fiches lues) : 0 ecart
+
+  TOTAL : 2270 mots FR -> 2249 mots EN   -0.9 %
+
+  AXE 1 - REGISTRE DE LIGNE
+    categorie               FR      EN   delta   part FR     ecart  contribution
+    titre                   58      58       0     2.6 %    +0.0 %      +0.00 pt
+    callout                248     258      10    10.9 %    +4.0 %      +0.44 pt
+    tableau                  0       0       0     0.0 %         -      +0.00 pt
+    liste                  802     771     -31    35.3 %    -3.9 %      -1.37 pt
+    paragraphe            1162    1162       0    51.2 %    +0.0 %      +0.00 pt
+    SOMME                 2270    2249     -21              -0.9 %      -0.93 pt
+
+  AXE 2 - CONSTRUIT DE TEXTE
+    categorie               FR      EN   delta   part FR     ecart  contribution
+    alt embed               64      68       4     2.8 %    +6.3 %      +0.18 pt
+    chemin embed            10      10       0     0.4 %    +0.0 %      +0.00 pt
+    cible wikilink          37      37       0     1.6 %    +0.0 %      +0.00 pt
+    libelle wikilink        83      80      -3     3.7 %    -3.6 %      -0.13 pt
+    code inline             19      19       0     0.8 %    +0.0 %      +0.00 pt
+    prose nue             2057    2035     -22    90.6 %    -1.1 %      -0.97 pt
+    SOMME                 2270    2249     -21              -0.9 %      -0.93 pt
+
+  DETAIL PAR FICHE
+    embarque/pcb/kicad.md                             841 ->    823   -2.1 %
+    embarque/mcu/xiao/xiao-prise-en-main.md           670 ->    680   +1.5 %
+    embarque/mcu/xiao/xiao-sense.md                   759 ->    746   -1.7 %

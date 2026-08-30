@@ -1,0 +1,29 @@
+=== GENITIF ET FOISONNEMENT, A L ECHELLE DE LA LIGNE ===
+
+  POPULATION : paires FR/EN dont les deux corps C110 portent le MEME
+  nombre de lignes, appariees par rang.
+    paires alignees : 233
+    paires ecartees : 9   (96.3 % alignees)
+      ecartee : conduite/proj/decomposition-fonctionnelle.md  (113 / 115)
+      ecartee : conduite/proj/ecoconception.md  (167 / 125)
+      ecartee : conduite/proj/gestion-de-projet.md  (166 / 129)
+      ecartee : conduite/proj/securite-et-qualite.md  (185 / 142)
+      ecartee : embarque/algorithme/grafcet.md  (62 / 64)
+      ecartee : embarque/algorithme/machine-a-etats.md  (78 / 80)
+      ecartee : embarque/chaine-energie.md  (72 / 74)
+      ecartee : embarque/mcu/cpp/cpp-lire-un-programme.md  (164 / 160)
+      ecartee : embarque/mcu/micropython/micropython-lire-un-programme.md  (172 / 171)
+
+  Lignes portant au moins un mot FR, tous seaux : 11850
+  Mots couverts : 270857 FR -> 280474 EN   +3.55 %
+
+  SEAUX DE DENSITE GENITIVE DE LA LIGNE FR (de / du / des, pour 100 mots)
+    seau            lignes    mots FR    mots EN   foisonnement
+    0 genitif         5888      60048      64184        +6.89 %
+    0 < d <= 3         663      34251      35593        +3.92 %
+    3 < d <= 6        1857      79675      82458        +3.49 %
+    6 < d <= 9        1450      54191      55277        +2.00 %
+    d > 9             1992      42692      42962        +0.63 %
+
+  Pearson ligne a ligne (densite, ecart relatif), lignes de 10 mots FR
+  ou plus : n = 7450   r = -0.188

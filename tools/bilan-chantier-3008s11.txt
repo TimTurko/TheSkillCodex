@@ -1,0 +1,48 @@
+=== BILAN DU CHANTIER DE TRADUCTION - MESURES DU JOUR ===
+
+  Toutes les valeurs ci-dessous sont lues aujourd hui sur le depot
+  ou sur git. Aucune n est reprise d une cloture anterieure.
+
+  --- 1. RENDEMENT DE PREDICTION ---
+  Source : les fichiers de la sous-regle C116, ou chaque BLOC ferme
+  sur son bilan. Population = les blocs, pas les seances.
+
+    tools/predictions-260829.md       61 bilans de bloc    1128 predictions    1010 tenues    112 refutees
+    tools/predictions-260830.md       74 bilans de bloc    1705 predictions    1497 tenues    198 refutees
+
+  TOTAL : 135 bilans de bloc, 2833 predictions, 2507 tenues, 310 refutees
+  taux de tenue : 88.5 %   (controle d addition : 2817 pour 2833)
+
+  ECHANTILLON C110 - les cinq premieres captures, en clair :
+    12 prédictions, 7 tenues, 5 réfutées
+    25 prédictions, 19 tenues, 6 réfutées
+    26 prédictions, 18 tenues, 8 réfutées
+    8 prédictions, 8 tenues, 0 réfutée
+    13 prédictions, 10 tenues, 3 réfutées
+
+  --- 2. HISTORIQUE GIT DEPUIS L OUVERTURE DU CHANTIER ---
+  premier commit touchant content/en/ : 3ffbec0   2026-08-22
+  commits depuis (exclu) jusqu a HEAD : 56
+  HEAD : a421335 2026-08-30 22:29:20 +0200
+
+  --- 3. COUT : LA TRACE ECRITE ---
+    conventions.md       231.0 Kio  ->   563.1 Kio   facteur 2.44
+    JOURNAL.md           169.1 Kio  ->   724.1 Kio   facteur 4.28
+    TODO.md               79.4 Kio  ->   282.7 Kio   facteur 3.56
+    BACKLOG.md           108.6 Kio  ->   206.0 Kio   facteur 1.90
+
+    tools/ suivis a l ouverture : 14
+    tools/ suivis a HEAD        : 312
+    tools/ presents sur disque  : 326   (dont 14 non encore commites)
+    scripts (.mjs/.js/.ps1) : 12 -> 37
+    sorties de seance datees (C124) dans tools/ : 161
+
+  --- 4. CONVENTIONS ---
+    numeros C1xx cites dans conventions.md : 28   de C100 a C131
+    a l ouverture du chantier             : 4   jusqu a C109
+    numeros apparus pendant le chantier   : 24   [105, 108, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131]
+    entrees de premier niveau au SS 8     : 196 -> 298
+
+  --- 5. CE QUI A ETE PRODUIT ---
+    fiches suivies sous content/en/ : 4 -> 242
+    fichiers de predictions C116 : 2   (predictions-260829.md, predictions-260830.md)   1744.3 Kio

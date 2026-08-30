@@ -1,0 +1,72 @@
+=== DENSITE DE GENITIF FRANCAIS ET FOISONNEMENT ===
+
+  POPULATION : 242 paires FR/EN, appariees par source_fr.
+  Un point par paire. Densite = marqueurs pour 100 mots de la SOURCE FR,
+  mots comptes par la regle C110 importee de compter-mots.mjs.
+  STRICTE : jetons de / du / des.   LARGE : + jetons en d apostrophe.
+
+  Pearson r (densite STRICTE, foisonnement) : -0.029
+  Pearson r (densite LARGE  , foisonnement) : 0.011
+
+  DECILES DE DENSITE STRICTE (24 fiches par decile, 2 fiche(s) en reste, placee(s) dans le dernier)
+    decile   densite moy.   foisonnement moy.   mots FR
+         1           3.20             +5.02 %     20455
+         2           3.79             +3.71 %     23789
+         3           4.16             +3.97 %     27029
+         4           4.43             +3.77 %     26140
+         5           4.76             +3.60 %     41976
+         6           5.01             +3.49 %     27955
+         7           5.37             +3.75 %     33411
+         8           5.77             +4.74 %     40616
+         9           6.30             +2.51 %     35314
+        10           7.54             +4.35 %     14576
+
+  Mediane de densite stricte : 4.91 pour 100 mots
+
+  LES TROIS FICHES DU LOT 14
+    embarque/pcb/kicad.md                        densite 6.90   rang 222/242   AU-DESSUS de la mediane   foisonnement -2.1 %
+    embarque/mcu/xiao/xiao-prise-en-main.md      densite 4.18   rang 61/242   au-dessous de la mediane   foisonnement +1.5 %
+    embarque/mcu/xiao/xiao-sense.md              densite 5.14   rang 144/242   AU-DESSUS de la mediane   foisonnement -1.7 %
+
+  LES DIX FICHES LES PLUS DENSES EN GENITIF
+    meca/impression-3d.md                                 9.84     +6.7 %
+    conduite/proj/acv-simplifiee.md                       9.38     +4.9 %
+    conduite/ese/deee.md                                  8.75     -0.6 %
+    meca/usinage.md                                       8.33     +4.2 %
+    conduite/meo/relation-client.md                       8.11    +11.5 %
+    conduite/ese/iso-12100.md                             8.11     +1.1 %
+    conduite/ese/index.md                                 7.74     +3.6 %
+    embarque/pcb/pcb.md                                   7.58     +2.2 %
+    embarque/mcu/ide.md                                   7.53     +0.8 %
+    conduite/proj/cahier-des-charges-fonctionnel.md       7.49    +11.7 %
+
+  LES DIX FICHES LES MOINS DENSES EN GENITIF
+    embarque/mcu/esp32/esp32-spi.md                       2.43     +4.5 %
+    embarque/mcu/micropython/micropython-controle.md      2.65     +2.6 %
+    embarque/mcu/arduino/arduino-afficheur.md             2.66     +5.7 %
+    embarque/mcu/micropython/micropython-programmation-non-bloquante.md  2.77     +4.4 %
+    embarque/mcu/bus/spi.md                               3.01     +8.0 %
+    embarque/chaine-energie.md                            3.05     +7.2 %
+    embarque/mcu/micropython/micropython-repl.md          3.07     +4.4 %
+    embarque/mcu/pwm.md                                   3.13     +7.2 %
+    embarque/mcu/micropython/micropython-modules.md       3.13     +4.9 %
+    embarque/mcu/micropython/micropython-afficheur.md     3.18     +8.2 %
+
+  ECHANTILLON C110 - LES QUINZE FORMES EN D APOSTROPHE LES PLUS
+  FREQUENTES DU CORPUS FR. Ce qui suit se lit comme la liste des
+  faux positifs possibles de la variante LARGE :
+    d'un                   727
+    d'une                  361
+    d'alimentation          94
+    d'abord                 79
+    d'intégration           72
+    d'entrée                71
+    d'                      59
+    d'où                    51
+    d'usage                 46
+    d'autres                42
+    d'état                  42
+    d'être                  37
+    d'énergie               35
+    d'urgence               32
+    d'apprentissage         32
