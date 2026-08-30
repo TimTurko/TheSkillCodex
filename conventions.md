@@ -2473,6 +2473,21 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 > mordu », et ici c'est l'inverse exact. **Les deux autres restent ci-dessous**,
 > l'une gardée par le code plutôt que par un numéro, l'autre en attente d'une
 > troisième épreuve avant de devenir une clause de C125.
+- **La borne de lot cède devant une fiche qu'on ne coupe pas.**
+  *Arbitrage Tim du 30/08 (séance 2), sur `embarque/pcb/easyeda` :* « on ne
+  touche pas, la fiche est très bien comme ça. C'est assumé que ce tutoriel est
+  le plus lourd et c'est à conserver. » **La question posée offrait deux issues
+  — découpe intra-fiche ou levée de borne ; l'arbitrage prend la seconde et
+  ferme la première.** `easyeda` pèse **9 773 mots** contre une borne de
+  **6 657**, soit **1,47 fois**, et elle **fera un lot à elle seule**.
+  ⚠ *Conséquence de planification, écrite pour qu'aucun cadrage futur ne rejoue
+  la question : la borne dimensionne un lot **composé de plusieurs
+  fiches** ; elle ne s'oppose pas à une fiche unique, parce qu'il n'y a rien à
+  composer.*
+  **Ce que la clause coûte** : le lot `easyeda` sera le plus lourd du chantier
+  et **son foisonnement n'aura aucun terme de comparaison**, tous les lots
+  mesurés jusqu'ici tenant entre 3 348 et 5 668 mots.
+  *Éprouvée 0/N.*
 - **Un `title:` EN se lit d'abord dans les LIBELLÉS QUE LE CORPUS ANGLAIS
   ÉCRIT DÉJÀ vers la cible, avant les trois tests de C125.**
   *Née le 30/08 (séance 2), lot 8, contre ma propre prédiction.* J'avais prédit
@@ -2536,7 +2551,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   garde lit `git status`, 28 / 21 en fin de bloc), les deux justes.
   ⚠ *Signature constante des trois réfutations : **le sous-compteur qui porte le
   sens est juste à chaque fois**, c'est le total qui rate.*
-  *Éprouvée 1/N.*
+
+  **Deuxième épreuve, 30/08 (séance 2), bloc 62 — et elle se joue sur
+  l'AMENDEMENT, pas sur la liste initiale.** La déclaration nommait trois
+  versements ; la préparation des deux fichiers de corps a demandé **un script
+  jetable de plus**, décidé en cours de cadrage. ✅ **La liste a été amendée
+  PAR ÉCRIT ET AVANT TOUTE EXÉCUTION** — 6 / 4 au lieu de 5 / 3 —, et le
+  compteur est tombé juste. *C'est la différence que la règle vise : une liste
+  qui s'ouvre **avant** le bloc est une prédiction corrigée, une liste qui
+  s'ouvre **pendant** est une réfutation.*
+  *Éprouvée 2/N.*
 - **`MARQUE INVALIDE` ne distingue pas une empreinte INVENTÉE BIEN FORMÉE d'une
   empreinte périmée.**
   *Née le 30/08 (séance 2), lot 8, récidive exacte d'É4 du 29/08 (suite 6).*
@@ -2553,7 +2577,44 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   aucun autre écart. **Ce qui manque n'est pas un statut de plus, c'est que la
   règle de geste — se rédiger en partant du squelette **lu en entier** — n'est
   portée par aucun code.**
-  *Éprouvée 0/N.*
+
+  ✅ **CORRIGÉ DANS LE CODE le 30/08 (séance 2), arbitrage Tim délégué**
+  (*« je te laisse résoudre ce conflit »*), **en application de la résolution de
+  second rang du 29/08 (suite 8)**. ⚠ **Et le conflit ne se résout pas, il se
+  DISSOUT** : tant que la rédaction réécrit le fichier entier, aucun statut ne
+  dira jamais d'où vient une empreinte — **dès que le corps s'écrit sans le
+  front matter, la question ne se pose plus.** `creer-fiche-en.mjs` reçoit un
+  mode **`--corps <fiche EN> <fichier de corps>`** qui **remplace le corps et
+  recopie le front matter à l'octet**, sous **cinq gardes validées avant le
+  premier octet écrit** — fiche existante et pourvue d'un front matter,
+  `source_fr` présent, ⚠ **le fichier de corps ne porte PAS de front matter**
+  (garde centrale, elle refuse le geste fautif lui-même), source FR existante,
+  et **les trois compteurs égaux**, comme `--recaler`. Le mode **publie
+  `source_sha256` avant et après** et l'égalité du front matter à l'octet.
+  **Test négatif passé** : un corps ouvrant par un front matter — dont le
+  marqueur est **bien formé et inventé**, exactement le cas de l'incident —
+  sort `GARDE 3`, **et aussi `GARDE 5`** (les liens tombent de 27 à 0),
+  `REFUS : 2 defaut(s)`, `exit 1`, **zéro octet écrit**. **Test positif de
+  non-régression** : `bom-en` réécrit **avec son propre corps** rend un fichier
+  **identique à l'octet**, sha256 `45383a7ed129…` avant et après, et
+  **aucun fichier de `content/` n'apparaît au `git status`**.
+  ⚠ **Trois voies écartées, avec leur motif.** Un **journal d'empreintes**
+  versionné donnerait la distinction exacte mais **ne protège rien** : il affine
+  un diagnostic après coup, au prix d'un artefact qui peut mentir. **git en
+  second recours** — le sha consigné figure-t-il dans l'histoire de la source ?
+  — coûte zéro artefact mais **fabrique un faux positif sur le cas normal du
+  chantier**, une empreinte posée entre deux commits n'étant dans aucun blob :
+  *« un contrôle neuf se juge sur ses faux positifs avant d'être livré »*. Un
+  **contrôle du front matter entier** ne coûte rien et transforme
+  « tout le front matter est suspect » en mesure, mais **n'aurait pas attrapé ce
+  cas-ci**, les autres champs étant justes ; **il reste sur la table comme
+  filet**, non retenu tant que la trappe est fermée.
+  ⚠ **Ce que la correction ne règle pas, et qui est écrit** : `--corps` **peut
+  être contourné** exactement comme la règle d'usage l'a été, en réécrivant le
+  fichier à la main. *La différence est qu'il rend le geste correct **moins
+  cher** que le geste fautif, ce qu'aucune phrase de convention ne fait.*
+  *Éprouvée 1/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
+  reste au §8 sans être seule à se garder.*
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
   réécrivant son front matter de tête.**
   *Née le 29/08 (suite 7), récidive exacte de É4 du 29/08 (suite 6).* Réécrire
@@ -2579,6 +2640,18 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   restauré ; corpus réel **`MARQUE INVALIDE 0`, `A JOUR 197`, `exit 0`**.
   *Éprouvée 1/N — la règle de geste reste au §8, mais elle n'est plus seule à
   se garder.*
+
+  ⚠ **RÉCIDIVE LE 30/08 (SÉANCE 2), ET LE STATUT NEUF NE L'A PAS VUE.**
+  `bom-en` est la seule fiche du lot 8 dont j'aie lu **le seul corps** avant de
+  rédiger, le fichier étant long : son front matter a été réécrit de tête et son
+  `source_sha256` **composé**. **`MARQUE INVALIDE` rend 0** — il juge la
+  **forme** du marqueur, et 64 hexadécimaux minuscules en est une —, et c'est
+  **`DERIVE`**, le statut des empreintes **périmées**, qui a signalé.
+  ✅ **Second correctif dans le code, le jour même** : le mode **`--corps`**
+  (voir la candidate ci-dessus) **écrit le corps sans jamais toucher au front
+  matter**, ce qui retire au geste fautif son occasion. *Deuxième fois qu'une
+  règle de geste de ce chantier passe de la prose au code, et la deuxième fois
+  qu'elle y passe **après** avoir été violée une fois de plus.*
 - **Un motif qui balaie les deux corpus s'éprouve sur un échantillon de chaque
   langue.**
   *Née le 29/08 (suite 9), à la quatrième application de C110 et contre elle.*

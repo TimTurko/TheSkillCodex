@@ -5058,3 +5058,417 @@ négatifs refusés avant toute écriture** sur les **deux** outils à ancre, et
 dater de la clôture, pas de l'avant-dernier bloc) : `JOURNAL.md` **614,8 ko**,
 `conventions.md` **488,9 ko**, `TODO.md` **282,7 ko**, `BACKLOG.md`
 **206,0 ko**, `tools/predictions-260830.md` **281,1 ko** après ce bloc, mesuré.
+
+---
+---
+
+# REPRISE — 30/08 (séance 2), arbitrages du lot 8 rendus
+
+> **Trois arbitrages rendus par Tim à la clôture du lot 8.** La séance rouvre
+> pour les exécuter, comme le 30/08 (blocs 39-40) l'avait fait pour les
+> arbitrages du lot 6. **La numérotation des blocs se poursuit : bloc 61.**
+
+## Les trois arbitrages, au mot
+
+1. **`easyeda`** — *« on ne touche pas, la fiche est très bien comme ça. C'est
+   assumé que ce tutoriel est le plus lourd et c'est à conserver. »*
+   ⚠ **C'est une LEVÉE DE BORNE pour cette fiche, pas une découpe intra-fiche.**
+   J'avais posé deux issues ; Tim en prend une troisième, plus simple : la fiche
+   ne bouge pas et la borne cède devant elle. **Conséquence de planification, à
+   écrire pour que le prochain cadrage ne rejoue pas la question :
+   `embarque/pcb/easyeda` fera un lot À ELLE SEULE, à 9 773 mots, soit 1,47 fois
+   la borne 6 657.** *Aucune édition n'en découle ce soir.*
+2. **`title: Écodesign`** — *« ok avec ta proposition »*. **Confirmé, aucun
+   revert joué.** La décision C117 devient un arbitrage rendu, et la candidate
+   du §8 sur les `title:` lus dans les libellés garde son cas fondateur.
+3. **`MARQUE INVALIDE` incomplet** — *« je te laisse résoudre ce conflit »*.
+   **Délégué.** Dossier ci-dessous, décision et exécution dans cette reprise.
+
+---
+
+## Dossier — comment fermer l'écart entre empreinte inventée et empreinte périmée
+
+**Le défaut, rappelé en une ligne.** `derive-traduction.mjs` range en
+`MARQUE INVALIDE` toute empreinte qui n'est pas **64 hexadécimaux minuscules**,
+et en `DERIVE` tout le reste qui ne colle pas. Une empreinte **inventée mais
+bien formée** — celle que j'ai composée sur `bom-en` — tombe donc en `DERIVE`,
+c'est-à-dire dans le statut qui dit *« la source a bougé »* quand la vérité est
+*« la fiche a été réécrite et tout son front matter est suspect »*.
+
+### Quatre voies examinées
+
+| # | voie | ce qu'elle donne | ce qu'elle coûte |
+|---|---|---|---|
+| a | **journal d'empreintes** versionné, appendu par le générateur et par `--recaler` | distinction **exacte**, zéro faux positif | un artefact de plus, deux points d'écriture, un seed à justifier — **et il ne protège rien : il affine un diagnostic après coup** |
+| b | **git en second recours** : le sha consigné figure-t-il dans l'histoire de la source ? | zéro artefact | ⚠ **faux positif structurel** : une empreinte posée entre deux commits n'est dans aucun blob, et c'est le cas NORMAL du chantier (passe C109 puis génération, avant commit) |
+| c | **contrôle du front matter entier** : régénérer le front matter attendu et comparer champ par champ, `title:` exempté | zéro artefact, zéro faux positif, transforme *« tout le front matter est suspect »* d'inférence en mesure | ⚠ **n'aurait pas attrapé MON cas** : mes autres champs étaient justes |
+| d | **supprimer le geste** : un mode `--corps` qui remplace le corps d'une fiche EN **sans jamais toucher à son front matter** | le front matter cesse d'être réécrit, donc l'empreinte cesse de pouvoir être inventée | un mode de plus, et il faut l'employer |
+
+### Décision (C117, arbitrage délégué, consignée)
+
+**Voie (d), et le motif est la résolution de second rang du 29/08 (suite 8) :
+*une règle qui contraint un geste mécanique se loge dans le code qui exécute ce
+geste*.** Les voies (a) et (b) ne font qu'améliorer le **diagnostic** d'un
+défaut qu'elles laissent se produire ; (b) le fait en plus au prix d'un faux
+positif sur le cas normal, ce que le §8 proscrit explicitement — *« un contrôle
+neuf se juge sur ses faux positifs avant d'être livré, sinon il apprend à être
+ignoré »*.
+
+⚠ **Et le conflit ne se résout pas, il se DISSOUT.** Tant que la rédaction
+réécrit le fichier entier, aucun statut ne dira jamais avec certitude d'où vient
+une empreinte. **Dès que le corps s'écrit sans le front matter, la question ne
+se pose plus** : le seul chemin vers `source_sha256` reste le générateur, et le
+seul chemin vers sa modification reste `--recaler`, qui est déjà gardé (il
+refuse si les trois compteurs divergent).
+
+**Ce que la décision ne règle pas, et qui est écrit** : `--corps` **peut être
+contourné** exactement comme la règle d'usage l'a été — en réécrivant le fichier
+à la main. *La différence est qu'il rend le geste correct **moins cher** que le
+geste fautif, ce qu'aucune phrase de convention ne fait.* **La voie (c) reste
+sur la table** comme filet, non retenue ce soir : elle mesure ce que (d)
+empêche, et un filet sous une trappe fermée peut attendre une épreuve.
+
+*Coût du revert : le mode est **additif** — aucun mode existant n'est modifié,
+aucun fichier du corpus n'est touché par son écriture. Revenir en arrière, c'est
+supprimer une fonction et trois lignes de routage.*
+
+---
+
+## Déclaration C131 du bloc 61 — rejouée, liste fermée avant le bloc
+
+**Populations : inchangées.**
+
+⚠ **L'état de départ n'est pas connu, et c'est le point du bloc.** La clôture a
+laissé le dépôt à **30 / 23** et a remis à Tim la commande `livrer.ps1`.
+**Deux états sont possibles**, et la garde dira lequel.
+
+**Versements de ce bloc, énumérés par avance :**
+
+| # | artefact | état git | créé par |
+|---|---|---|---|
+| 1 | `tools/predictions-260830.md` (ce texte, appendu **avant** la garde) | ` M` | l'append |
+| 2 | `tools/batterie-sortie-3008b18.txt` | `??` | étape 0 de la batterie |
+
+**TOTAL selon la branche :** *(A)* Tim **n'a pas commité** → **31 entrées,
+23 hors artefacts** (30 + la copie C124, le fichier de prédictions étant déjà
+compté). *(B)* Tim **a commité** → **2 entrées, 0 hors artefacts**, tout le
+reste étant passé dans le commit.
+
+---
+
+## Bloc 61 — garde de péremption de reprise
+
+**Commande unique :**
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+### Prédictions
+
+**P61.1 — autocontrôle ASCII.** `lignes non ASCII dans batterie.ps1 : 0`.
+
+**P61.2 — copie C124.** `sortie precedente copiee :
+tools\batterie-sortie-3008b18.txt`. *`3008b1` à `3008b17` sont pris ; le premier
+rang libre est **18**.*
+
+**P61.3 — paramètres et date.** `phase demandee : garde   anneau : 2
+chevron : False`, `date ISO : 2026-08-30`, heure **strictement postérieure à
+`08:22:49`** (horloge du bloc 59).
+
+**P61.4 — HEAD, DEUX BRANCHES NOMMÉES.** *(A)* `542bb4f 2026-08-30 07:35:08
++0200`, inchangé — Tim n'a pas encore passé `livrer.ps1`. *(B)* un hash **neuf**,
+horodaté **du 30/08 et postérieur à `08:35`**. ⚠ **Dans les deux cas la garde
+est VERTE** : un HEAD qui change n'est un arrêt que si personne ne l'a annoncé,
+et celui-ci est la commande que la clôture a remise à Tim. **Un troisième cas
+serait un arrêt** : un HEAD neuf dont le message ne serait pas celui du lot 8.
+
+**P61.5 — compteurs git, appariés à la branche.** *(A)* `fichiers modifies non
+commites : 31   (hors artefacts de seance : 23)`. *(B)* `2   (0)`.
+⚠ *Le second chiffre est le terme qui porte le sens : **23** si rien n'est
+commité, **0** si tout l'est. Il n'y a pas d'état intermédiaire possible,
+`livrer.ps1` prenant tout.*
+
+**P61.6 — node.** `node : v24.15.0`.
+
+**P61.7 — dates d'écriture : 3 lignes, et deux d'entre elles ont bougé depuis
+le bloc 59.** `JOURNAL.md` et `conventions.md` portent l'horodatage du bloc 60,
+**du 30/08 et postérieur à `08:22:49`**, `conventions.md` **antérieur ou égal**
+à `JOURNAL.md` (ordre d'écriture du §7, tenu quatre fois dans la série).
+`TODO.md` **`2026-08-29 21:48:08`, inchangé au caractère** — cinquième garde
+consécutive.
+
+**P61.8 — codes de sortie.** **2** lignes `--- code de sortie :`, toutes à `0`,
+et la ligne finale `Sortie ecrite dans tools\batterie-sortie.txt`.
+
+**Total : 8 prédictions, toutes à décompte plein.**
+
+### Constats du bloc 61 — garde de reprise
+
+| # | prédit | mesuré | verdict |
+|---|---|---|---|
+| P61.1 | ASCII 0 | 0 | tenue |
+| P61.2 | copie `3008b18` | idem | tenue |
+| P61.3 | `garde / 2 / False`, 30/08, heure > `08:22:49` | `08:42:49` | tenue |
+| P61.4 | branche (A) HEAD inchangé **ou** (B) hash neuf du 30/08 > `08:35` | **(B)** `b4aa097 2026-08-30 08:36:33 +0200` | tenue |
+| P61.5 | (A) `31 (23)` **ou** (B) `2 (0)` | **(B)** `2   (0)` | tenue |
+| P61.6 | `v24.15.0` | idem | tenue |
+| P61.7 | JOURNAL et conventions du 30/08 > `08:22:49`, conventions ≤ JOURNAL, TODO inchangé au caractère | `08:29:20`, `08:27:43` ≤ `08:29:20`, `2026-08-29 21:48:08` | tenue |
+| P61.8 | 2 codes de sortie à 0, ligne finale | idem | tenue |
+
+**Bilan du bloc 61 : 8 prédictions à décompte plein, 8 tenues, 0 réfutée.**
+
+**GARDE DE PÉREMPTION : VERTE, BRANCHE (B).** Les deux branches étaient nommées
+avant la mesure et c'est la seconde qui sort. ✅ **Le troisième cas — celui qui
+aurait été un arrêt — est écarté par lecture du message** :
+`lot 8: conduite/proj ouvert, 5 fiches EN, 69 remplacements C109`, **au mot** ce
+que la clôture avait remis à Tim. Le commit porte **30 fichiers, 5 864
+insertions, 58 suppressions** ; les 58 suppressions sont **51 (passe C109) + 7
+(marques d'épreuve de `conventions.md`)**, et le total referme sur ce que la
+séance a produit — *aucun fichier touché hors de son périmètre*.
+
+---
+
+## Déclaration C131 du bloc 62 — rejouée, liste fermée avant le bloc
+
+**Populations : inchangées.** **État avant le bloc** — **2 / 0**.
+
+**Versements de ce bloc, énumérés exhaustivement et par avance :**
+
+| # | artefact | état git | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/creer-fiche-en.mjs`, **modifié** (mode `--corps` ajouté) | ` M` | **+1** | **+1** |
+| 2 | `tools/corps-negatif-3008.md` (corps de test portant un front matter) | `??` | **+1** | **+1** |
+| 3 | `tools/corps-bom-3008.md` (corps courant de `bom-en`, pour le test de non-régression) | `??` | **+1** | **+1** |
+
+⚠ **Aucun fichier de `content/` ne doit changer d'octet dans ce bloc**, et c'est
+un terme mesurable : le test positif réécrit `bom-en` **avec son propre corps**.
+
+**TOTAL attendu : 5 entrées, 3 hors artefacts de séance.**
+
+---
+
+## Bloc 62 — le mode `--corps`, et les deux tests qui le jugent
+
+**Ce que le mode fait**, écrit avant de l'écrire :
+`node tools/creer-fiche-en.mjs --corps <fiche EN> <fichier de corps>`
+remplace **le corps** d'une fiche EN et **recopie son front matter à l'octet**.
+
+**Cinq gardes, toutes validées avant le premier octet écrit :**
+1. la fiche EN existe et porte un **front matter** ;
+2. elle porte un **`source_fr`** — sinon ce n'est pas une fiche de traduction ;
+3. ⚠ **le fichier de corps ne porte PAS de front matter** — c'est la garde
+   centrale, celle qui refuse exactement le geste fautif : coller un fichier
+   entier là où on attend un corps ;
+4. la source FR existe ;
+5. les **trois compteurs** (liens, embeds, blocs de code) sont **égaux** entre
+   la source FR et le corps proposé — même garde que `--recaler`, refus sinon.
+
+**Ce que le mode publie avant d'écrire** : le `source_sha256` **avant et
+après**, qui doivent être **identiques** — l'invariant qui donne son sens au
+mode —, et les trois compteurs FR / EN.
+
+### Prédictions
+
+**P62.1 — test négatif : refus, zéro octet écrit.** Le fichier de corps
+`tools/corps-negatif-3008.md` **ouvre par un front matter**. Attendu : un refus
+nommant la garde 3, **exit 1**, et `content/en/conduite/proj/bom-en.md`
+**inchangé à l'octet**. ⚠ *C'est le **huitième** refus de la série, et le
+premier qui porte sur la **forme du fichier d'entrée** et non sur une ancre.*
+
+**P62.2 — test positif de non-régression : `bom-en` réécrit AVEC SON PROPRE
+CORPS est identique à l'octet.** Le sha256 du fichier **avant** et **après**
+l'écriture sont **égaux**, et `git status` ne le fait pas apparaître.
+*C'est le seul test qui prouve que le mode recopie le front matter sans le
+toucher : tout écart, fût-il d'un espace, casserait l'égalité.*
+
+**P62.3 — invariant publié : `source_sha256` avant = après**, et sa valeur est
+`5af58bdeaff73d66d4d65eb6b4ae561893062ec85c35e0e29d5e09be0f0c84bf`, celle que
+`--recaler` a posée au bloc 57.
+
+**P62.4 — les trois compteurs de `bom-en` : liens 27, embeds 0, code 0**, égaux
+à ceux de sa source. *Chiffres mesurés à la génération du bloc 56.*
+
+**P62.5 — `derive-traduction` après le bloc : `MARQUE INVALIDE 0`, `DERIVE 0`,
+`A JOUR 216`**, inchangé. *Si le front matter avait bougé d'un caractère, cette
+ligne le dirait.*
+
+**P62.6 — autocontrôle ASCII de l'outil modifié.** ⚠ *C122 vise `seance.ps1`,
+pas les `.mjs`, et `creer-fiche-en.mjs` **porte déjà des accents** dans ses
+commentaires. **Le code ajouté sera en ASCII strict comme le reste du
+fichier**, et ce terme est déclaré non mesurable par un outil : il se vérifie au
+`git diff`.*
+
+**P62.7 — `git status` en fin de bloc : 5 / 3.**
+
+**Total : 7 prédictions, dont P62.6 déclarative → 6 à décompte plein.**
+
+⚠ **AMENDEMENT À LA DÉCLARATION DU BLOC 62, ÉCRIT AVANT TOUTE EXÉCUTION.**
+La préparation des deux fichiers de corps demande de recopier le corps courant
+de `bom-en` **à l'octet**, ce qui ne se fait ni à la main ni par un `node -e`
+d'une ligne (écart de méthode consigné au lot 7). **Un script jetable de plus
+entre donc dans la liste** — `tools/preparer-corps-3008.mjs` (C114), `??`,
+**+1 / +1**.
+
+**TOTAL corrigé : 6 entrées, 4 hors artefacts de séance.** *P62.7 est corrigée
+en conséquence, **avant** la mesure : `git status` en fin de bloc rendra
+**6 / 4**.* ⚠ *C'est la parade de la candidate née ce soir, appliquée à chaud :
+la liste se ferme avant le bloc, et quand elle doit s'ouvrir, elle s'amende
+**avant** l'exécution et non après la réfutation.*
+
+### Constats du bloc 62 — le mode `--corps`
+
+| # | prédit | mesuré | verdict |
+|---|---|---|---|
+| P62.1 | test négatif : refus nommant la garde 3, `exit 1`, `bom-en` inchangé | `GARDE 3 le fichier de corps OUVRE PAR UN FRONT MATTER`, **`REFUS : 2 defaut(s)`**, exit 1, aucun octet écrit | tenue |
+| P62.2 | `bom-en` réécrit avec son propre corps : **identique à l'octet** | sha256 **`45383a7ed129…`** avant **et** après | tenue |
+| P62.3 | `source_sha256` avant = après = `5af58bdeaff73d66…` | idem, publié par l'outil | tenue |
+| P62.4 | liens **27**, embeds **0**, code **0** | 27 → 27, 0 → 0, 0 → 0 | tenue |
+| P62.5 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 216` | idem ; `--controle` **216, 0 divergente** | tenue |
+| P62.6 | code ajouté en ASCII strict | vérifiable au `git diff` | déclarative |
+| P62.7 | `git status` **6 / 4** (amendé avant exécution) | 6 / 4 | tenue |
+
+**Bilan du bloc 62 : 6 prédictions à décompte plein, 6 tenues, 0 réfutée.**
+
+✅ **LA GARDE TOUT-OU-RIEN DE MON PROPRE SCRIPT D'ÉDITION A MORDU AVANT
+D'ÉCRIRE.** La quatrième ancre portait **quatre espaces d'indentation au lieu de
+deux** : `ANCRE 0 occurrence(s)`, `REFUS : 1 defaut(s). AUCUNE ECRITURE.`
+*Cinq éditions étaient prêtes, aucune n'a été appliquée — c'est le mode d'échec
+du 28/08 (un lot multi-édition est atomique) qui joue dans le bon sens, pour la
+troisième fois de la série.*
+
+✅ **LE TEST NÉGATIF REFUSE SUR DEUX GARDES ET NON UNE, ET LA SECONDE EST UN
+BONUS QUE JE N'AVAIS PAS PRÉDIT.** La garde 3 voit le front matter en tête du
+corps ; **la garde 5 voit en plus que les liens tombent de 27 à 0**. *Le corps
+fautif ne portait aucun wikilink, donc le report un pour un le signalait déjà.
+**Deux gardes indépendantes sur le même défaut**, ce qui est la propriété qu'on
+veut d'un refus : il n'a pas besoin d'être exact pour être sûr.* **Huitième
+refus de la série, et le premier qui porte sur la FORME DU FICHIER D'ENTRÉE et
+non sur une ancre.**
+
+✅ **P62.2 EST LA PRÉDICTION QUI PROUVE, ET ELLE PROUVE PAR L'IDENTITÉ.**
+Réécrire `bom-en` **avec son propre corps** rend un fichier dont le sha256 est
+**inchangé au caractère** : `45383a7ed129fe246fa7aa02fe43d6f5c5034cbe0ee8bb5612f747541b7c9fa8`
+avant et après. *Un espace de plus, une fin de ligne convertie, un `---` recopié
+au lieu d'être conservé, et l'égalité tombait.* ⚠ **Et le terme qui garde n'est
+pas dans la sortie de l'outil, il est dans `git status` : aucun fichier de
+`content/` n'y figure après le bloc.**
+
+---
+
+## Déclaration C131 du bloc 63 — rejouée, liste fermée avant le bloc
+
+**Populations : inchangées.** **État avant le bloc** — **6 / 4**.
+
+**Versements de ce bloc, énumérés exhaustivement et par avance :**
+
+| # | artefact | état git | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `conventions.md`, modifié | ` M` | **+1** | **+1** |
+| 2 | `JOURNAL.md`, modifié | ` M` | **+1** | **+1** |
+
+⚠ **Aucun autre fichier n'est écrit, et aucune commande de mesure n'est lancée
+dans ce bloc.** *`normalize-pilotage.js` est passé **avant** l'ouverture du bloc.*
+**TOTAL attendu : 8 entrées, 6 hors artefacts.**
+
+---
+
+## Bloc 63 — reclôture §7 (arbitrages rendus)
+
+### Prédictions
+
+**P63.1 — `conventions.md` reçoit QUATRE éditions, et aucun numéro neuf — la
+numérotation reste à 131 :**
+- la candidate **« `MARQUE INVALIDE` ne distingue pas une empreinte inventée
+  bien formée »** reçoit un **✅ CORRIGÉ DANS LE CODE** et passe de `0/N` à
+  **`1/N`** ;
+- la règle **« une fiche EN se rédige en partant de son squelette sur disque »**
+  reçoit la mention du mode `--corps` — *deuxième fois qu'une règle de geste de
+  ce chantier passe de la prose au code, après `derive-traduction` le 29/08* ;
+- la candidate **« la liste des artefacts d'un bloc se ferme AVANT le bloc »**
+  passe de `1/N` à **`2/N`** ;
+- une **entrée neuve** consigne l'arbitrage sur la borne :
+  **« la borne de lot cède devant une fiche qu'on ne coupe pas »**, à `0/N`.
+
+**P63.2 — `git diff --numstat` : `conventions.md` entre 2 et 5 suppressions**
+(les deux marques réécrites, plus ce que git lira comme réécriture), et
+`JOURNAL.md` **exactement 0**.
+
+**P63.3 — insertions.** `conventions.md` entre **45 et 95** lignes ;
+`JOURNAL.md` entre **8 et 20**. ⚠ *Deux clôtures d'affilée ont sous-estimé
+`conventions.md` (95 contre [25, 60], puis 201 contre [70, 140]). **La cause
+nommée est que je compte des entrées quand il faut compter des paragraphes** :
+ici, **quatre éditions portant chacune un à trois paragraphes**, d'où une borne
+haute à 95 et non à 60.*
+
+**P63.4 — tailles.** `conventions.md` entre **492 et 500 ko** (488,9 avant) ;
+`JOURNAL.md` entre **616 et 620 ko** (614,8) ; `TODO.md` **282,7 inchangé** ;
+`BACKLOG.md` **206,0 inchangé**.
+
+**P63.5 — `git status` : 8 / 6.**
+
+**Total : 5 prédictions, toutes à décompte plein.**
+
+### Constats du bloc 63 — reclôture §7
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P63.1 | 4 éditions de `conventions.md`, numérotation à **131** | 4 éditions ✓, aucun numéro créé ✓ | tenue |
+| P63.2 | `conventions` **[2, 5]** suppressions, `JOURNAL` **0** | **2** et **0** | tenue |
+| P63.3 | `conventions` **[45, 95]** insertions, `JOURNAL` **[8, 20]** | **75** et **29** | **RÉFUTÉE** (JOURNAL) |
+| P63.4 | conventions [492, 500] ko, JOURNAL [616, 620], TODO 282,7, BACKLOG 206,0 | **494,1** / **622,6** / **282,7** / **206,0** | **RÉFUTÉE** (JOURNAL) |
+| P63.5 | `git status` **8 / 6** | 8 / 6 | tenue |
+
+**Bilan du bloc 63 : 5 prédictions à décompte plein, 3 tenues, 2 réfutées.**
+
+✅ **`conventions.md` TOMBE DANS SA FOURCHETTE POUR LA PREMIÈRE FOIS DE LA
+JOURNÉE — 75 sur [45, 95] —, ET LA CORRECTION DE MÉTHODE EST CE QUI L'A FAIT.**
+Les deux clôtures précédentes chiffraient des **entrées** (95 contre [25, 60],
+puis 201 contre [70, 140]) ; celle-ci a chiffré des **paragraphes**, quatre
+éditions en portant de un à trois. *La cause nommée au bloc 60 était la bonne,
+et la corriger a suffi.*
+
+⚠ **MAIS LE MÊME DÉFAUT S'EST DÉPLACÉ SUR LE JOURNAL, ET C'EST LA TROISIÈME
+FOIS D'AFFILÉE QU'UN TEXTE NON ÉCRIT EST SOUS-CHIFFRÉ.** **29 lignes contre
+[8, 20]**, soit +45 %. *J'ai chiffré « une entrée de reprise » comme celle du
+30/08 (blocs 39-40), qui tenait en une dizaine de lignes ; celle-ci porte **trois
+arbitrages rendus, un dossier à quatre voies et deux tests**.* ⚠ **Le report de
+la leçon a été partiel : je l'ai appliquée au fichier qui m'avait réfuté, pas à
+l'autre.**
+
+⚠ **ET J'AI ÉCRIT DEUX TAILLES DANS L'ENTRÉE AVANT DE LES MESURER.** La ligne
+« Tailles » annonçait `conventions.md` **496,4** et `JOURNAL.md` **618,x** ;
+la mesure rend **494,1** et **622,6**. **C118 en plein, dans le texte même de la
+clôture** — *un chiffre publié doit sortir d'une mesure du jour, y compris quand
+il décrit le fichier qu'on est en train d'écrire, dont la taille n'existe qu'une
+fois l'écriture faite.* ✅ **Les deux corrigés par édition ancrée**, plus la
+mention « le JOURNAL passe 618 ko » de la file d'arbitrages, portée à **622,6**.
+*La taille finale d'un fichier de clôture ne peut se publier qu'après sa
+dernière écriture, et la seule façon honnête est de la remesurer — ce que la
+clôture du 29/08 (suite 11) disait déjà en toutes lettres.*
+
+---
+---
+
+# BILAN GÉNÉRAL — 30/08 (séance 2), LOT 8 ET SES ARBITRAGES
+
+**153 prédictions publiées avant leur bloc, 141 tenues, 12 réfutées**
+(51 : 15/15 ; 52 : 24/24 ; 53 : 20/20 ; 54 : 13/14 ; 55 : 11/11 ; 56 : 12/16 ;
+57 : 9/10 ; 58 : 6/8 ; 59 : 17/17 ; 60 : 3/5 ; 61 : 8/8 ; 62 : 6/6 ; 63 : 3/5),
+plus **1 hors décompte** et **4 déclaratives**. **Taux de tenue : 92,2 %.**
+
+**Treize blocs, six gates, zéro arrêt, zéro sollicitation de Tim pendant le
+lot ; trois arbitrages remontés à la clôture, trois rendus, trois exécutés dans
+la foulée.**
+
+⚠ **LES DOUZE RÉFUTATIONS SE RANGENT EN CINQ CAUSES, ET QUATRE SONT DES
+RÉCIDIVES NOMMÉES.**
+1. **C131, liste d'artefacts non fermée** — 3 (P56.13, P56.17, P58.8). *Parade
+   écrite au bloc 59, éprouvée deux fois, dont une par amendement à chaud.*
+2. **Un texte chiffré avant d'être écrit** — 3 (P60.3, P60.4, P63.3 + P63.4).
+   *Corrigée sur `conventions.md`, non reportée sur le `JOURNAL`.*
+3. **Un relevé d'avant-rédaction servi comme état de clôture** — 2 (P56.2,
+   P58.6).
+4. **Trois isolées** : P54.13, P56.7, P57.7.
+
+✅ **CE QUI N'A PAS BOUGÉ** : `HEAD` suivi sur **sept** gardes, deux branches
+nommées avant la mesure quand il pouvait changer, **trois tests négatifs
+refusés avant toute écriture** sur **trois** outils différents, et **zéro
+fichier perdu** en treize blocs.

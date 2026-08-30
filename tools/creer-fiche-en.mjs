@@ -46,6 +46,13 @@
  *       - et les wikilinks NON SUFFIXES, qui pointent vers la fiche francaise
  *         sans qu'aucun compteur ne s'en apercoive (defaut du 23/08)
  *   node tools/creer-fiche-en.mjs --recaler <fiche>  (reconsigne le marqueur SANS toucher la traduction)
+ *   node tools/creer-fiche-en.mjs --corps <fiche EN> <fichier de corps>
+ *       - REMPLACE LE CORPS et recopie le front matter A L OCTET.
+ *       - Ne pas ecrire de front matter est la seule facon de ne pas en
+ *         inventer un (incident du 30/08 seance 2 : empreinte composee de
+ *         tete, bien formee, rangee en DERIVE au lieu d etre signalee).
+ *       - Garde centrale : un fichier de corps qui OUVRE PAR UN FRONT
+ *         MATTER est refuse - c est le geste fautif lui-meme.
  *   node tools/creer-fiche-en.mjs --style [fiche...]  (typographie EN + ponctuation C109 ; tout content/en/ si aucune cible)
  *       - espace francaise devant ; : ! ? %, virgule decimale : VERDICT mecanique
  *       - tiret d'incise et point-virgule de prose : CANDIDATS a lire, le
@@ -137,6 +144,7 @@ const FORCE = args.includes('--force');
 const RECETTE = args.includes('--recette');
 const CONTROLE = args.includes('--controle');
 const RECALER = args.includes('--recaler');
+const CORPS = args.includes('--corps');
 const STYLE = args.includes('--style');
 const LIBELLES = args.includes('--libelles');
 const ALT = args.includes('--alt');
@@ -802,6 +810,131 @@ function recaler(rel) {
   writeFileSync(absEn, sortie, { encoding: 'utf8' });
   console.log('Recale : content/' + relEn);
   console.log('  ' + ancien.slice(0, 12) + ' -> ' + nouveau.slice(0, 12));
+}
+
+// --corps : REMPLACE LE CORPS D UNE FICHE EN ET RECOPIE SON FRONT MATTER A
+// L OCTET.
+//
+// POURQUOI CE MODE EXISTE
+// -----------------------
+// Ne pas ecrire de front matter est la seule facon de ne pas en inventer un.
+// Le 30/08 (seance 2), la redaction de bom-en a reecrit le fichier ENTIER et y
+// a compose un source_sha256 de 64 hexadecimaux. derive-traduction l a range en
+// DERIVE - le statut des empreintes PERIMEES - parce que MARQUE INVALIDE ne
+// juge que la FORME du marqueur, et que la forme etait valide. AUCUN statut ne
+// distingue une empreinte inventee bien formee d une empreinte perimee.
+//
+// La question cesse de se poser des que le corps s ecrit sans le front matter :
+// le seul chemin vers source_sha256 reste la generation, et le seul chemin vers
+// sa modification reste --recaler, qui est deja garde. C est la resolution de
+// second rang du 29/08 (suite 8) - une regle qui contraint un geste mecanique
+// se loge dans le code qui execute ce geste - appliquee a la regle d usage du
+// 29/08 (suite 7), violee deux fois en deux semaines.
+//
+// CINQ GARDES, toutes validees AVANT le premier octet ecrit. La troisieme est
+// la garde centrale : un fichier de corps qui OUVRE PAR UN FRONT MATTER est le
+// geste fautif lui-meme, et il est refuse.
+function corpsSeul(rel, cheminCorps) {
+  const relEn = rel.startsWith('en/') ? rel : 'en/' + rel;
+  const absEn = join(CONTENT, relEn.split('/').join(sep));
+  const defauts = [];
+
+  console.log('=== REMPLACEMENT DE CORPS ' + (DRY ? '(CONTROLE SEUL)' : '(ECRITURE)') + ' ===');
+  console.log('  fiche EN : content/' + relEn);
+  console.log('  corps    : ' + cheminCorps);
+  console.log('');
+
+  // Garde 1 : la fiche EN existe et porte un front matter.
+  if (!existsSync(absEn)) {
+    console.log('  GARDE 1  fiche EN introuvable : content/' + relEn);
+    console.log('');
+    console.log('  REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.');
+    process.exit(1);
+  }
+  const texteEn = readFileSync(absEn, 'utf8');
+  const fm = frontMatter(texteEn);
+  if (!fm) {
+    console.log('  GARDE 1  la fiche EN ne porte pas de front matter');
+    defauts.push(1);
+  }
+
+  // Garde 2 : elle porte un source_fr - sinon ce n est pas une fiche traduite.
+  const mSource = fm && fm.bloc.match(/^source_fr:\s*(.+?)\s*$/m);
+  if (fm && !mSource) {
+    console.log('  GARDE 2  pas de source_fr : ce n est pas une fiche de traduction');
+    defauts.push(2);
+  }
+
+  // Garde 3 : LA GARDE CENTRALE. Un corps ne porte jamais de front matter.
+  if (!existsSync(cheminCorps)) {
+    console.log('  GARDE 3  fichier de corps introuvable : ' + cheminCorps);
+    defauts.push(3);
+  }
+  let nouveau = null;
+  if (existsSync(cheminCorps)) {
+    nouveau = readFileSync(cheminCorps, 'utf8');
+    if (/^---\r?\n/.test(nouveau)) {
+      console.log('  GARDE 3  le fichier de corps OUVRE PAR UN FRONT MATTER.');
+      console.log('           C est le geste que ce mode existe pour refuser :');
+      console.log('           un corps ne porte pas de front matter, sinon il en');
+      console.log('           reecrit un, et une empreinte s y invente.');
+      defauts.push(3);
+    }
+  }
+
+  // Garde 4 : la source FR existe.
+  const relFr = mSource ? mSource[1] : null;
+  const absFr = relFr ? join(CONTENT, relFr.split('/').join(sep)) : null;
+  if (relFr && !existsSync(absFr)) {
+    console.log('  GARDE 4  source FR introuvable : content/' + relFr);
+    defauts.push(4);
+  }
+
+  // Garde 5 : les trois compteurs, mesures sur le fichier ASSEMBLE.
+  let assemble = null;
+  if (fm && nouveau !== null && relFr && existsSync(absFr)) {
+    assemble = fm.entier + nouveau;
+    const fr = compter(readFileSync(absFr, 'utf8'));
+    const en = compter(assemble);
+    console.log('  liens   : ' + fr.liens + ' -> ' + en.liens + (fr.liens === en.liens ? '  ok' : '  DIVERGE'));
+    console.log('  embeds  : ' + fr.embeds + ' -> ' + en.embeds + (fr.embeds === en.embeds ? '  ok' : '  DIVERGE'));
+    console.log('  code    : ' + fr.code + ' -> ' + en.code + (fr.code === en.code ? '  ok' : '  DIVERGE'));
+    if (fr.liens !== en.liens || fr.embeds !== en.embeds || fr.code !== en.code) {
+      console.log('  GARDE 5  les trois compteurs ne se reportent pas un pour un');
+      defauts.push(5);
+    }
+  }
+
+  // L INVARIANT DU MODE, publie avant d ecrire : le front matter ne bouge pas,
+  // donc l empreinte non plus. Il se lit, il ne se suppose pas.
+  if (fm) {
+    const avant = (fm.bloc.match(/^source_sha256:\s*(.+?)\s*$/m) || [, '(absent)'])[1];
+    const fmApres = assemble ? frontMatter(assemble) : null;
+    const apres = fmApres
+      ? ((fmApres.bloc.match(/^source_sha256:\s*(.+?)\s*$/m) || [, '(absent)'])[1])
+      : avant;
+    console.log('');
+    console.log('  source_sha256 avant : ' + avant);
+    console.log('  source_sha256 apres : ' + apres);
+    console.log('  front matter identique a l octet : ' +
+      (fmApres && fmApres.entier === fm.entier ? 'oui' : (assemble ? 'NON' : '(non assemble)')));
+    if (assemble && (avant !== apres || fmApres.entier !== fm.entier)) {
+      console.log('  INVARIANT CASSE : le front matter a bouge');
+      defauts.push(0);
+    }
+  }
+
+  console.log('');
+  if (defauts.length) {
+    console.log('  REFUS : ' + defauts.length + ' defaut(s). AUCUN FICHIER ECRIT.');
+    process.exit(1);
+  }
+  if (DRY) {
+    console.log('  CONTROLE SEUL : corps pret, 0 fichier ecrit.');
+    return;
+  }
+  writeFileSync(absEn, assemble, { encoding: 'utf8' });
+  console.log('  ECRIT  content/' + relEn + '   (front matter recopie a l octet)');
 }
 
 /* ---------- masquage des zones que le lecteur ne voit pas ---------- */
@@ -1809,6 +1942,12 @@ if (RECETTE) {
   anneau(RANG);
 } else if (CONTROLE) {
   controle();
+} else if (CORPS) {
+  if (cibles.length !== 2) {
+    console.error('Usage : node tools/creer-fiche-en.mjs --corps <fiche EN> <fichier de corps>');
+    process.exit(1);
+  }
+  corpsSeul(cibles[0].replace(/^content\//, '').split(sep).join('/'), cibles[1]);
 } else if (RECALER) {
   if (!cible) {
     console.error('Usage : node tools/creer-fiche-en.mjs --recaler en/conduite/index.md');
@@ -1820,6 +1959,7 @@ if (RECETTE) {
   console.error('        node tools/creer-fiche-en.mjs --recette');
   console.error('        node tools/creer-fiche-en.mjs --controle');
   console.error('        node tools/creer-fiche-en.mjs --recaler <fiche EN>');
+  console.error('        node tools/creer-fiche-en.mjs --corps <fiche EN> <fichier de corps>');
   console.error('        node tools/creer-fiche-en.mjs --style [fiche...]');
   console.error('        node tools/creer-fiche-en.mjs --libelles');
   console.error('        node tools/creer-fiche-en.mjs --alt');
