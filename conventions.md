@@ -2460,6 +2460,19 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **Deux arbitrages du lot 10 sont CLASSÉS SANS CHANGEMENT, et ce qu'ils
+  laissent ouvert est écrit.** *Décisions Tim du 30/08, à la reprise.*
+  **(b) `en/conduite/proj/index.md` écrit `NF X50-151 standard`** là où les six
+  `See also` du corpus écrivent `Standard NF X50-151` — *« on laisse en l'état,
+  c'est compréhensible »*. ⚠ *Le corpus anglais porte donc **une variante de
+  libellé assumée**, une forme contre six ; un futur relevé de libellés la
+  retrouvera, et elle est classée, pas corrigée.*
+  **(c) `protection-electronique` L23 chiffre le coût d'une faute** (« un
+  fusible à quelques centimes ») — *« on laisse en l'état »*. ⚠ *Le cas n'entre
+  ni dans la lettre de C71 — ce n'est pas un cadrage d'acquisition — ni dans sa
+  clause de périmètre — ce n'est pas une exigence chiffrée du système conçu.
+  **Il reste sans doctrine, et la prochaine occurrence reposera la même
+  question.***
 - **Le taux de candidats C109 se rapporte au VOLUME DE PROSE, pas au nombre de
   mots — et l'écart est le plus violent aux petites tailles.**
   *Née le 30/08 (séance 5), lot 10, de deux réfutations à cause unique
@@ -2909,8 +2922,43 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `---` de fermeture**, forme qu'aucune des 227 fiches du corpus ne porte.
   *Attrapé en relisant le fichier écrit, corrigé sur les cinq avant toute
   mesure ; **aucun contrôle du dépôt ne l'aurait vu** — ni `--controle`, ni
-  `derive-traduction`, ni `--style`.* **Candidate : `--corps` garantit la ligne
-  blanche, ou la refuse comme il refuse un front matter.**
+  `derive-traduction`, ni `--style`.*
+
+  ✅ **CORRIGÉ DANS LE CODE le 30/08, arbitrage Tim rendu à la reprise :
+  *« oui pour (a), `--corps` doit poser la ligne blanche »*.** La question était
+  posée en deux voies — **poser** ou **refuser** — et l'arbitrage prend la
+  **plus permissive**. ⚠ *Troisième fois de ce chantier qu'une règle de geste
+  passe de la prose au code, et **PREMIÈRE fois qu'elle y passe par une
+  normalisation** : `MARQUE INVALIDE` et la garde 3 de `--corps` refusaient
+  toutes deux. **Refuser aurait fait du geste correct une contrainte de plus à
+  retenir ; poser la ligne rend le geste fautif impossible au lieu de le rendre
+  coûteux.***
+
+  **Le correctif tient en sept lignes de code et trente-trois de motif**, et il
+  est placé **après la garde 3** : posé avant, il préfixerait un saut de ligne
+  au `---` d'un corps fautif et **la garde centrale ne mordrait plus**. Il est
+  **idempotent** — un corps qui commence déjà par un saut de ligne n'est pas
+  touché —, et il **publie ce qu'il a fait** : `ligne blanche apres le front
+  matter : POSEE (le corps ouvrait par du texte)` ou `: deja presente`.
+
+  **Trois tests, et le deuxième est celui qui prouve.** (1) **Non-régression** :
+  `afnor-nfx50-151-en` réécrite avec son propre corps, `deja presente`, fichier
+  identique à l'octet. (2) **Comportement neuf** : le même corps **privé de son
+  saut de ligne initial**, `POSEE`, et le fichier revient **identique à
+  l'octet** — sha256 `548fefe9c2373812` aux trois instants. *Le correctif ne
+  « rajoute pas une ligne », il **restitue exactement l'octet** que le découpage
+  de `frontMatter()` avait laissé au corps ; l'égalité des sha256 est la seule
+  preuve qui ne dépende d'aucun œil.* (3) **Négatif** : un corps ouvrant par un
+  front matter sort `GARDE 3` **et** `GARDE 5`, `REFUS : 2 defaut(s)`, `exit 1`,
+  zéro octet écrit — **douzième refus de la série**.
+
+  ⚠ **ET LE TEST NÉGATIF A TROUVÉ UN DÉFAUT DU CORRECTIF LUI-MÊME.** Première
+  version : la normalisation s'appliquait **aussi** à un corps que la garde 3
+  venait de refuser, et le mode imprimait `POSEE` sur un fichier **qu'il
+  n'écrirait jamais**. *C'est la famille de défaut que le §8 poursuit depuis le
+  29/08 — une ligne qui dit le contraire de ce que le code fait —, cette fois
+  dans du code écrit dix minutes plus tôt.* ✅ **Conditionné à
+  `!defauts.includes(3)`, et les trois tests rejoués après.**
   *Éprouvée 3/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
   reste au §8 sans être seule à se garder.*
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en

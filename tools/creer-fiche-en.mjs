@@ -882,6 +882,46 @@ function corpsSeul(rel, cheminCorps) {
     }
   }
 
+  // NORMALISATION DE LA LIGNE BLANCHE - arbitrage Tim du 30/08, apres le lot 10.
+  //
+  // frontMatter() capture jusqu au `---` de fermeture ET son saut de ligne : la
+  // LIGNE BLANCHE qui separe le front matter du corps appartient donc au CORPS.
+  // Un fichier de corps qui ouvre par sa premiere phrase produit un fichier ou
+  // le texte est COLLE au `---`, forme qu aucune des 227 fiches du corpus ne
+  // porte. Defaut du lot 10, trouve en relisant le fichier ecrit : ni
+  // --controle (liens, embeds, blocs), ni derive-traduction (empreinte), ni
+  // --style (ponctuation) ne le voient.
+  //
+  // Le mode la POSE au lieu de la refuser. Question posee a Tim en deux voies -
+  // poser ou refuser - et tranchee : --corps doit poser la ligne blanche.
+  // Troisieme fois qu une regle de geste de ce chantier passe de la prose au
+  // code, et PREMIERE fois qu elle y passe par une normalisation : les deux
+  // precedentes (MARQUE INVALIDE, garde 3 ci-dessus) refusent.
+  //
+  // IDEMPOTENT, et c est ce qui garde le test de non-regression : un corps qui
+  // commence deja par un saut de ligne n est pas touche, donc reecrire une
+  // fiche avec son propre corps rend un fichier identique a l octet.
+  //
+  // PLACE APRES LA GARDE 3, et ce n est pas cosmetique : posee AVANT, elle
+  // prefixerait un saut de ligne au `---` d un corps fautif et la garde
+  // centrale ne mordrait plus. Le test negatif du bloc 87 est construit pour
+  // attraper exactement cette erreur de placement.
+  //
+  // ET ELLE NE S APPLIQUE PAS A UN CORPS DEJA REFUSE : normaliser ce qui ne
+  // sera jamais ecrit ferait imprimer une ligne qui dit le contraire de ce que
+  // le mode fait. Mesure du bloc 87 : sans ce test, le test negatif imprimait
+  // "ligne blanche POSEE" sur un corps que la garde 3 venait de refuser.
+  let lignePosee = false;
+  const corpsRecevable = nouveau !== null && !defauts.includes(3);
+  if (corpsRecevable && nouveau.length > 0 && !/^\r?\n/.test(nouveau)) {
+    nouveau = (texteEn.includes('\r\n') ? '\r\n' : '\n') + nouveau;
+    lignePosee = true;
+  }
+  if (corpsRecevable) {
+    console.log('  ligne blanche apres le front matter : ' +
+      (lignePosee ? 'POSEE (le corps ouvrait par du texte)' : 'deja presente'));
+  }
+
   // Garde 4 : la source FR existe.
   const relFr = mSource ? mSource[1] : null;
   const absFr = relFr ? join(CONTENT, relFr.split('/').join(sep)) : null;

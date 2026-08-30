@@ -11015,3 +11015,462 @@ fait — jusqu'ici il se vérifiait au lot suivant. Et la **remesure immédiate*
 (terme (4) de la sous-règle C116) a trouvé le seul défaut que rien d'autre ne
 pouvait voir : **une ancre absente de la table n'est pas une ancre fausse, et
 aucune garde d'écriture ne voit ce qui n'y est pas.**
+
+---
+
+## En-tête de reprise — arbitrages du lot 10 rendus
+
+- **Séance** — 30/08, **reprise dans le prolongement immédiat de la séance 5**,
+  **PC perso, onglet Code**, modèle **Opus 5**. Le lot 10 a été livré par Tim
+  entre les deux blocs.
+- **Objet** — **rendre l'arbitrage (a)** dans le code : *`--corps` doit poser la
+  ligne blanche après le front matter.* **(b) et (c) sont classés sans
+  changement**, sur décision de Tim.
+- **Blocs prévus** — **86** garde de péremption de reprise ; **87** correctif
+  `--corps`, sous test négatif et test positif de non-régression ; **88**
+  reclôture §7 (JOURNAL, conventions).
+
+### Les trois arbitrages, au mot
+
+| # | question posée à la clôture du lot 10 | décision de Tim |
+|---|---|---|
+| **(a)** | `--corps` doit-il **poser** la ligne blanche après le front matter, ou la **refuser** comme il refuse un front matter ? | *« oui pour (a), `--corps` doit poser la ligne blanche »* — **il la POSE** |
+| **(b)** | le hub `en/conduite/proj/index.md` écrit `NF X50-151 standard` contre six `Standard NF X50-151` ailleurs | *« on laisse en l'état, c'est compréhensible »* — **classé** |
+| **(c)** | `protection-electronique` L23 chiffre le coût d'une faute (« un fusible à quelques centimes ») | *« on laisse en l'état »* — **classé** |
+
+⚠ **L'arbitrage (a) tranche entre les deux voies que la candidate posait, et il
+prend la PLUS PERMISSIVE.** *Refuser aurait fait du geste correct une contrainte
+de plus à retenir ; poser la ligne rend le geste fautif **impossible** au lieu de
+le rendre coûteux.* **C'est la troisième fois du chantier qu'une règle de geste
+passe de la prose au code**, et **la première où elle y passe par une
+NORMALISATION et non par un refus** — les deux précédentes (`MARQUE INVALIDE`,
+garde 3 de `--corps`) refusaient.
+
+⚠ **Ce que (b) et (c) ferment, et ce qu'ils laissent ouvert.** (b) accepte une
+**forme de libellé unique contre six** dans un hub : *le corpus anglais porte
+donc désormais une variante assumée, et un futur relevé de libellés la
+retrouvera — elle est classée, pas corrigée.* (c) laisse **un prix de composant
+en prose** : *le cas « coût d'une faute » n'entre ni dans C71 ni dans sa clause
+de périmètre, et il reste sans doctrine — la prochaine occurrence se reposera la
+même question.*
+
+---
+
+## Déclaration C131 du bloc 86 — population des compteurs, artefacts versés, et TOTAL
+
+**Populations** — inchangées et redéclarées : `git status --porcelain` sur le
+dépôt entier moins les **deux chemins exacts** du `.gitignore` ; `hors artefacts
+de seance` = la même moins les lignes portant `batterie-sortie` ou
+`predictions-` (deux `-notmatch` du **code** de `batterie.ps1`).
+
+**État de départ** — ⚠ **AUCUN bloc `gitStatus` n'est injecté à ce tour** : le
+harnais n'en pose qu'à l'ouverture d'une session, et la reprise se fait dans la
+même. **Le hash de `HEAD`, son horodatage et le statut sont donc INCONNUS et à
+décompte plein**, pour la première fois de la journée.
+
+**Liste FERMÉE des artefacts au moment où l'étape 1 du bloc 86 lira
+`git status` :**
+
+| # | artefact | état git | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` (ce texte, appendu avant le bloc — fichier **suivi**, et **committé par Tim** il y a quelques minutes) | ` M` | **oui** | non |
+| 2 | `tools/batterie-sortie-3008b41.txt` (copie C124 créée par l'étape 0 **avant** la lecture) | `??` | **oui** | non |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non |
+
+**TOTAL impliqué : 1 + 1 = 2 au total, 0 + 0 = 0 hors artefacts de séance.**
+
+⚠ **Relecture CONTRE les prédictions du bloc** (règle d'usage 17) : le bloc
+lance **une seule commande**, qui écrit **deux** fichiers — l'un ignoré, l'autre
+listé. Aucun test négatif, aucune table, aucune édition. **La liste est close.**
+
+⚠ **Le rang de la copie C124 est prédit sur le répertoire** : le listing de
+`tools/` porte `3008b1` à **`3008b40`** sans trou — la clôture du lot 10 s'est
+arrêtée à `b40` —, le rang **41** est donc le premier libre.
+
+---
+
+## Bloc 86 — garde de péremption de reprise
+
+**Commande unique :**
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+**Base de comparaison** — la garde du **bloc 85**, `10:59` → `11:00:40`, et le
+commit que Tim a passé depuis.
+
+### Prédictions
+
+**P86.1 — autocontrôle et copie C124.** `lignes non ASCII dans batterie.ps1 :
+0` ; `sortie precedente copiee : tools\batterie-sortie-3008b41.txt`.
+
+⚠ **P86.2 — `HEAD` a CHANGÉ, et c'est la première prédiction de hash à décompte
+plein de la journée.** *Je ne prédis pas le hash — il est inconnaissable avant
+la mesure —, je prédis **trois formes** :*
+- le hash est **différent de `65365fa`** ;
+- l'horodatage porte **`2026-08-30`** et une heure **strictement postérieure à
+  `11:00:40`** (fin du bloc 85) ;
+- ⚠ **le message n'apparaît pas** dans la sortie de la garde, qui n'imprime que
+  `%h %cd`. *Terme écrit pour réfuter : si la ligne portait un message, je me
+  tromperais sur ce que la garde mesure.*
+
+⚠ **P86.3 — deux branches nommées AVANT la mesure.** (a) `HEAD` ≠ `65365fa`,
+horodatage postérieur à `11:00:40`, et statut ne portant **aucun** fichier de
+`content/` : **branche attendue**, le lot 10 est dans l'histoire, on poursuit ;
+(b) `HEAD` = `65365fa` **ou** un fichier de `content/` en attente : **ARRÊT**,
+le commit n'a pas emporté le lot, remontée à Tim, aucune écriture.
+
+**P86.4 — compteurs `git status` : `fichiers modifies non commites : 2   (hors
+artefacts de seance : 0)`**, par la liste fermée ci-dessus. ⚠ **Terme écrit pour
+réfuter** : le lot 10 laissait **31 / 19** à sa clôture ; si le compteur rendait
+autre chose que 2, c'est qu'une des 31 entrées n'est pas partie au commit.
+
+**P86.5 — dates de dernière écriture, exactement TROIS lignes** :
+- `JOURNAL.md` — **`2026-08-30`**, heure **strictement postérieure à
+  `11:00:40`** *(la clôture §7 du bloc 85 l'a réécrit, puis la correction
+  d'ancre des deux tailles)* ;
+- `conventions.md` — **`2026-08-30`**, heure **strictement postérieure à
+  `11:00:40`** et **antérieure à celle de `JOURNAL.md`** *(l'ordre du bloc 85
+  est `conventions.md` puis `JOURNAL.md`, et le JOURNAL a reçu une écriture de
+  plus)* ;
+- `TODO.md` — **`2026-08-29 21:48:08`**, **inchangé à la seconde** *(sixième
+  séance consécutive sans y toucher ; écart de 282,7 Kio toujours non
+  instruit)*.
+
+⚠ *Un commit ne déplace aucune de ces trois dates : les deux écarts viennent du
+bloc 85, pas d'une main tierce.*
+
+**P86.6 — invariants d'entête et de sortie.** `phase demandee : garde
+anneau : 2   chevron : False`, `date ISO : 2026-08-30`, heure **strictement
+postérieure à `11:00:40`**, `node : v24.15.0`, **2 étapes, 2 codes de sortie,
+tous `0`**.
+
+**P86.7 — ce que la sortie NE porte PAS** : aucune ligne de volume, de contrôle,
+de dérive, d'anneau, de wikilinks, de médias ni de libellés.
+
+### Constats du bloc 86 (sortie `tools/batterie-sortie.txt`, copie C124 `3008b41`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P86.1 | ASCII **0**, copie `tools\batterie-sortie-3008b41.txt` | 0 ; `3008b41` | **tenue** |
+| P86.2 | hash **≠ `65365fa`** ; date `2026-08-30`, heure **> `11:00:40`** ; **aucun message** dans la ligne | `HEAD git : 5f44762 2026-08-30 11:09:00 +0200`, sans message | **tenue** |
+| P86.3 | branche (a) attendue, (b) = arrêt | branche **(a)** | *[déclarative]* |
+| P86.4 | `2   (hors artefacts de seance : 0)` | **2 / 0** | **tenue** |
+| P86.5 | 3 lignes ; JOURNAL `2026-08-30` > `11:00:40` ; conventions même intervalle **et antérieure au JOURNAL** ; TODO `2026-08-29 21:48:08` à la seconde | 3 lignes ; **11:06:19** ; **11:04:21** (antérieure) ; **2026-08-29 21:48:08** | **tenue** |
+| P86.6 | `garde / 2 / False`, ISO `2026-08-30`, heure > `11:00:40`, `node : v24.15.0`, 2 codes à 0 | idem ; **11:10:43** ; `v24.15.0` ; 2 × 0 | **tenue** |
+| P86.7 | aucune ligne de volume / contrôle / dérive / anneau / wikilinks / médias / libellés | aucune | **tenue** |
+
+**Bilan du bloc 86 : 6 prédictions à décompte plein, 6 tenues, 0 réfutée**
+(plus 1 déclarative).
+
+✅ **PREMIÈRE PRÉDICTION DE `HEAD` À DÉCOMPTE PLEIN DE LA JOURNÉE, ET ELLE TOMBE
+SUR SES TROIS FORMES.** *Les quatre gardes d'ouverture précédentes avaient leur
+hash injecté par le harnais et le rangeaient hors décompte ; la reprise se fait
+dans la même session, donc sans injection.* **Prédire un hash est impossible ;
+prédire qu'il a changé, sa date, son heure minimale et **ce que la ligne ne
+porte pas** ne l'est pas.**
+
+✅ **LE COMMIT A TOUT EMPORTÉ** : **31** entrées à la clôture du lot 10, **2**
+ici, dont zéro hors artefacts. `5f44762` à **11:09:00**, entre la dernière
+écriture du bloc 85 (`11:06:19`) et cette garde (`11:10:43`).
+
+---
+
+## Déclaration C131 du bloc 87 — rejouée, liste FERMÉE avant le bloc, DEUX instants
+
+**Populations** — inchangées et redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 87 :**
+
+| # | artefact | état | total | hors artefacts | existe à la garde ? |
+|---|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | oui | non | **oui** |
+| 2 | `tools/batterie-sortie-3008b41.txt` (bloc 86) | `??` | oui | non | **oui** |
+| 3 | `tools/batterie-sortie-3008b42.txt` (étape 0 de ce bloc) | `??` | oui | non | **oui** |
+| 4 | `tools/creer-fiche-en.mjs` (le correctif) | ` M` | oui | **oui** | non |
+| — | les **trois fichiers de corps de test**, dans le répertoire temporaire, **hors dépôt** | — | non | non | — |
+| — | ⚠ `content/en/conduite/proj/afnor-nfx50-151-en.md` — **réécrite deux fois par les tests, et INCHANGÉE À L'OCTET à la fin** | **absente** | **non** | **non** | — |
+
+⚠ **Relecture CONTRE les prédictions du bloc** (règle d'usage 17) : un test
+négatif est prévu, et **il n'a pas de table** — le mode `--corps` n'a pas
+d'ancre, son entrée est un fichier de corps, qui vit hors dépôt. Aucune table
+TSV, aucun `--recaler`, aucun relevé sauvegardé.
+
+⚠ **Le terme le plus dur de cette déclaration est une ABSENCE** :
+`afnor-nfx50-151-en.md` est **écrite deux fois pendant le bloc** et ne doit
+**apparaître dans aucun des deux compteurs**, parce que les deux écritures la
+rendent **identique à l'octet** à sa version committée. *Si elle apparaît, c'est
+que le correctif ne restitue pas exactement ce qu'il normalise.*
+
+**DEUX instants :** **3 / 0** quand la garde lit `git status` ; **4 / 1** en fin
+de bloc.
+
+---
+
+## Bloc 87 — correctif (a) : `--corps` pose la ligne blanche
+
+**Le correctif, publié avant d'être écrit.** Dans `corpsSeul()`, **entre la
+garde 3 et la garde 5**, après lecture du fichier de corps et **avant tout
+assemblage** :
+
+- si `nouveau` est non vide **et** ne commence pas par un saut de ligne
+  (`/^\r?\n/`), on lui **préfixe un saut de ligne** ;
+- la fin de ligne est celle de la fiche EN elle-même (`\r\n` si le front matter
+  en porte, `\n` sinon) ;
+- le mode **publie ce qu'il a fait**, sur une ligne :
+  `ligne blanche apres le front matter : POSEE (le corps ouvrait par du texte)`
+  ou `: deja presente`.
+
+⚠ **Le correctif est IDEMPOTENT par construction**, et c'est ce qui garde le
+test de non-régression : un corps qui commence déjà par un saut de ligne n'est
+pas touché, donc réécrire une fiche avec son propre corps rend un fichier
+identique à l'octet, exactement comme avant le correctif.
+
+⚠ **Ce que le correctif NE FAIT PAS** : il ne touche ni à la garde 3, qui
+continue de refuser un corps ouvrant par un front matter, ni au reste des cinq
+gardes. *Le mode gagne une **normalisation**, pas une sixième garde — c'est
+l'arbitrage de Tim, et c'est la première fois du chantier qu'une règle de geste
+passe au code par la voie permissive.*
+
+**Commandes, dans cet ordre :** garde ; édition de `creer-fiche-en.mjs` ;
+extraction du corps d'`afnor-nfx50-151-en.md` ; **test positif de
+non-régression** ; **test du comportement neuf** ; **test négatif** ;
+`git status`.
+
+### Prédictions du bloc 87
+
+**P87.1 — garde.** ASCII **0** ; copie `tools\batterie-sortie-3008b42.txt` ;
+heure **> `11:10:43`** ; `HEAD git : 5f44762 2026-08-30 11:09:00 +0200` **au
+caractère** ; `node : v24.15.0` ; **3 lignes de dates inchangées au caractère**
+(`11:06:19` / `11:04:21` / `2026-08-29 21:48:08`) ;
+`fichiers modifies non commites : 3   (hors artefacts de seance : 0)`.
+
+**P87.2 — TEST POSITIF DE NON-RÉGRESSION : `afnor-nfx50-151-en.md` réécrite
+avec SON PROPRE corps rend un fichier IDENTIQUE À L'OCTET.** `sha256` **égal
+avant et après** ; `ligne blanche apres le front matter : deja presente` ;
+`front matter identique a l octet : oui` ; `liens 2 -> 2  ok` ; exit 0.
+
+**P87.3 — TEST DU COMPORTEMENT NEUF : le même corps, PRIVÉ de son saut de ligne
+initial, rend LE MÊME FICHIER, toujours identique à l'octet.**
+`ligne blanche apres le front matter : POSEE (le corps ouvrait par du texte)` ;
+`sha256` **égal à celui d'avant les deux tests** ; exit 0.
+⚠ **C'est le terme qui prouve, et il est plus fort qu'une inspection visuelle** :
+*le correctif ne « rajoute pas une ligne », il **restitue exactement** l'octet
+que le découpage `frontMatter()` avait laissé au corps. L'égalité des trois
+`sha256` — original, après test 2, après test 3 — est la seule preuve qui ne
+dépende d'aucun œil.*
+
+**P87.4 — TEST NÉGATIF : un corps ouvrant par un front matter est toujours
+refusé.** `GARDE 3  le fichier de corps OUVRE PAR UN FRONT MATTER.` ;
+`REFUS : … defaut(s). AUCUN FICHIER ECRIT.` ; **exit 1** ; **`sha256` de la
+fiche inchangé**. ⚠ *Douzième refus de la série, et il vérifie que le correctif
+**n'a pas déplacé la garde centrale** : la normalisation s'applique après elle,
+donc un front matter ne peut pas devenir licite en gagnant un saut de ligne.*
+⚠ **Terme écrit pour réfuter** : le corps du test négatif ouvre par `---`, donc
+**sans** saut de ligne initial ; si la normalisation était placée **avant** la
+garde 3, elle poserait un `\n` devant le `---` et **la garde ne mordrait plus**.
+*Le test est construit pour attraper exactement cette erreur de placement.*
+
+**P87.5 — `git diff --numstat -- tools/creer-fiche-en.mjs` : une seule ligne,
+entre 16 et 30 insertions, 0 ou 1 suppression.** *Le correctif est un bloc de
+commentaire de motif plus une dizaine de lignes de code, inséré sans rien
+retirer.*
+
+**P87.6 — compteurs `git status` en fin de bloc : 4 au total, 1 hors artefacts
+de séance**, ce seul `1` étant `tools/creer-fiche-en.mjs`. ⚠ **Et
+`content/en/conduite/proj/afnor-nfx50-151-en.md` n'apparaît PAS.**
+
+### Constats du bloc 87 (garde `3008b42`, trois tests sur `afnor-nfx50-151-en`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P87.1 | garde : ASCII 0, copie `3008b42`, heure > `11:10:43`, HEAD au caractère, 3 dates inchangées, `3   (hors artefacts : 0)` | `3008b42` ; **11:12:14** ; `5f44762 … 11:09:00 +0200` ; dates identiques ; **3 / 0** | **tenue** |
+| P87.2 | non-régression : `deja presente`, sha256 égal, front matter identique, `liens 2 -> 2 ok`, exit 0 | identique ; sha256 **`548fefe9c2373812`** avant et après | **tenue** |
+| P87.3 | comportement neuf : `POSEE (le corps ouvrait par du texte)`, **même sha256**, exit 0 | identique ; sha256 **`548fefe9c2373812`** | **tenue** |
+| P87.4 | négatif : `GARDE 3`, `REFUS`, **exit 1**, sha256 inchangé | `GARDE 3` **et** `GARDE 5`, `REFUS : 2 defaut(s). AUCUN FICHIER ECRIT.`, **EXIT=1**, sha256 inchangé | **tenue** |
+| P87.5 | `numstat` sur `creer-fiche-en.mjs` : **[16, 30]** insertions, 0 ou 1 suppression | **40 insertions, 0 suppression** | **RÉFUTÉE** |
+| P87.6 | fin de bloc **4 / 1**, le `1` étant `creer-fiche-en.mjs` ; ⚠ `afnor-nfx50-151-en.md` **absente** | **4 / 1** ; les quatre entrées nommées ; **`afnor-nfx50-151-en.md` absente** | **tenue** |
+
+**Bilan du bloc 87 : 6 prédictions à décompte plein, 5 tenues, 1 réfutée.**
+
+✅ **LES TROIS `sha256` SONT ÉGAUX, ET C'EST LA SEULE PREUVE QUI NE DÉPENDE
+D'AUCUN ŒIL.** `548fefe9c2373812` avant les tests, après le test de
+non-régression, après le test du comportement neuf, et après le test négatif.
+⚠ *Le terme qui porte est le **deuxième** : le corps privé de son saut de ligne
+initial rend un fichier **identique à l'octet** à l'original. Le correctif ne
+« rajoute pas une ligne », il **restitue exactement l'octet** que le découpage
+de `frontMatter()` avait laissé au corps.*
+
+✅ **DOUZIÈME REFUS DE LA SÉRIE, ET IL VÉRIFIE LE PLACEMENT DU CORRECTIF.** Le
+corps fautif ouvre par `---`, donc **sans** saut de ligne initial : si la
+normalisation avait été posée **avant** la garde 3, elle aurait préfixé un `\n`
+au `---` et **la garde centrale n'aurait plus mordu**. Elle mord, et
+`GARDE 5` mord avec elle — `liens 2 -> 0 DIVERGE`. *Deux gardes indépendantes
+sur le même défaut, comme au 30/08 (séance 3) : un refus n'a pas besoin d'être
+exact pour être sûr.*
+
+⚠ **LE TEST NÉGATIF A TROUVÉ UN DÉFAUT DU CORRECTIF LUI-MÊME, ET IL A ÉTÉ
+CORRIGÉ DANS LE BLOC.** Première version : la normalisation s'appliquait
+**aussi** à un corps que la garde 3 venait de refuser, et le mode imprimait
+`ligne blanche apres le front matter : POSEE` sur un fichier **qu'il n'écrirait
+jamais**. ⚠ *C'est exactement la famille de défaut que le §8 poursuit depuis le
+29/08 — « une ligne qui dit le contraire du code qui l'incrémente » —, cette
+fois dans du code écrit dix minutes plus tôt.* ✅ **Correctif : la normalisation
+est conditionnée à `!defauts.includes(3)`, et les trois tests ont été REJOUÉS
+après** — `deja presente` / `POSEE` / **plus aucune ligne de normalisation sur
+le corps refusé**, trois `sha256` égaux.
+
+⚠ **RÉFUTATION P87.5 — 40 INSERTIONS CONTRE [16, 30], ET C'EST LA MÊME CAUSE
+QUE P85.3 IL Y A DIX MINUTES : J'AI CHIFFRÉ LE CODE ET PAS SON COMMENTAIRE DE
+MOTIF.** Le bloc ajouté fait **40 lignes**, dont **7 de code** et **33 de
+commentaire** — pourquoi la ligne blanche appartient au corps, pourquoi le mode
+la pose au lieu de la refuser, pourquoi il est idempotent, pourquoi il est placé
+après la garde 3, et pourquoi il ne touche pas un corps refusé. *Cinq motifs,
+chacun né d'une mesure ou d'un arbitrage, et c'est **la seule forme sous laquelle
+ils survivent à la séance**.* ⚠ **Troisième réfutation de volume de la journée à
+cause identique** : bloc 77 (mots au lieu de prose), bloc 85 (entrées neuves au
+lieu de réécritures), bloc 87 (code au lieu de code + motif).
+
+✅ **ZÉRO LIGNE NON ASCII dans le bloc ajouté** (40 lignes), aligné sur le style
+du fichier ; deux jeux de guillemets français retirés en cours de bloc.
+
+---
+
+## Déclaration C131 du bloc 88 — rejouée, liste FERMÉE avant le bloc, DEUX instants
+
+**Populations** — inchangées et redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 88 :** les **4** entrées existantes, plus :
+
+| # | artefact | état | total | hors artefacts | existe à la garde ? |
+|---|---|---|---|---|---|
+| 5 | `tools/batterie-sortie-3008b43.txt` (étape 0 de la garde) | `??` | oui | non | **oui** |
+| 6 | `conventions.md` (§8 : le correctif, les deux arbitrages classés) | ` M` | oui | **oui** | non |
+| 7 | `JOURNAL.md` (entrée du 30/08 suite 6) | ` M` | oui | **oui** | non |
+
+⚠ **Relecture CONTRE les prédictions du bloc** (règle d'usage 17) : le bloc
+lance `normalize-pilotage`, qui **peut** toucher `TODO.md` et `BACKLOG.md` ;
+**P88.2 le prédit à zéro**, et s'il est réfuté le compteur monte de deux. Aucun
+test négatif, aucune table, aucune écriture dans `content/`. Le script d'édition
+vit **hors dépôt**.
+
+**DEUX instants :** **5 / 1** quand la garde lit `git status` ; **7 / 3** en fin
+de bloc.
+
+---
+
+## Bloc 88 — reclôture §7 (arbitrages rendus)
+
+### Prédictions du bloc 88
+
+**P88.1 — garde.** ASCII **0** ; copie `tools\batterie-sortie-3008b43.txt` ;
+heure **> `11:12:14`** ; `HEAD git : 5f44762 2026-08-30 11:09:00 +0200` **au
+caractère** ; `node : v24.15.0` ; **3 lignes de dates inchangées au caractère**
+(`11:06:19` / `11:04:21` / `2026-08-29 21:48:08`) ;
+`fichiers modifies non commites : 5   (hors artefacts de seance : 1)`.
+
+**P88.2 — `normalize-pilotage` : ZÉRO fichier modifié.** *Les quatre fichiers de
+pilotage ont été normalisés au bloc 85, il y a un quart d'heure.*
+
+⚠ **P88.3 — volume des deux éditions, chiffré EN COMPTANT LE COMMENTAIRE, et
+c'est le correctif explicite de trois réfutations de la journée.**
+`conventions.md` **entre 30 et 80 lignes insérées**, point estimé **52** ;
+`JOURNAL.md` **entre 12 et 28**, point estimé **18**.
+*Décomposition du point estimé de `conventions.md`, publiée pour être vérifiable
+terme à terme : **~30 lignes** pour le ✅ CORRIGÉ DANS LE CODE de la candidate
+`--corps` (cinq motifs de conception, trois tests, un défaut du correctif trouvé
+par le test négatif), **~14 lignes** pour l'entrée qui classe les arbitrages
+(b) et (c), **~8 lignes** pour les deux marques d'épreuve.*
+⚠ *Les blocs 77, 85 et 87 ont chacun réfuté une prédiction de volume pour avoir
+chiffré la substance sans son enveloppe — mots sans prose, entrées neuves sans
+réécritures, code sans motif. **Celle-ci chiffre les deux.***
+
+**P88.4 — tailles, mesurées APRÈS la dernière écriture, ET POSÉES EN DEUX
+TEMPS.** *Application immédiate de la candidate née au bloc 85 : l'entrée du
+JOURNAL s'écrit avec un **gabarit sans chiffres** à la place de la ligne
+« Tailles », et les chiffres y sont posés par une **ancre unique** une fois la
+dernière écriture faite.* Prédictions : `conventions.md` **entre 519 et 526
+Kio** (517,8 avant) ; `JOURNAL.md` **entre 653 et 656 Kio** (652,7 avant) ;
+`TODO.md` **282,7 inchangé** ; `BACKLOG.md` **206,0 inchangé**.
+
+**P88.5 — `git diff --numstat` : TROIS lignes** — `creer-fiche-en.mjs` **`40 0`,
+inchangé**, `conventions.md`, `JOURNAL.md`. ⚠ *Et **aucune ligne de
+`content/`** : les trois tests du bloc 87 ont rendu `afnor-nfx50-151-en.md`
+identique à l'octet, et le `numstat` est le second instrument qui le dit, après
+le `sha256`.*
+
+**P88.6 — compteurs `git status` en fin de bloc : 7 au total, 3 hors artefacts
+de séance** — `creer-fiche-en.mjs`, `conventions.md`, `JOURNAL.md`.
+
+### Constats du bloc 88 (garde `3008b43`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P88.1 | garde : ASCII 0, copie `3008b43`, heure > `11:12:14`, HEAD au caractère, 3 dates inchangées, `5   (hors artefacts : 1)` | `3008b43` ; **11:15:36** ; identiques ; **5 / 1** | **tenue** |
+| P88.2 | `normalize-pilotage` : **0** fichier modifié | `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).` | **tenue** |
+| P88.3 | `conventions.md` ∈ [30, 80] insertions, point **52** ; `JOURNAL.md` ∈ [12, 28], point **18** | **50** insertions / 2 suppressions ✅ ; **31** insertions | **RÉFUTÉE** (1 terme sur 2) |
+| P88.4 | `conventions.md` ∈ [519, 526] Kio ; `JOURNAL.md` ∈ [653, 656] ; `TODO.md` 282,7 ; `BACKLOG.md` 206,0 | **521,0** ✅ ; **660,5** ; **282,7** ✅ ; **206,0** ✅ | **RÉFUTÉE** (1 terme sur 4) |
+| P88.5 | `git diff --numstat` : **TROIS** lignes ; **aucune de `content/`** | **QUATRE** lignes ; **zéro de `content/`** ✅ | **RÉFUTÉE** (1 terme sur 2) |
+| P88.6 | fin de bloc **7 / 3** | **7 / 3**, les sept nommées | **tenue** |
+
+**Bilan du bloc 88 : 6 prédictions à décompte plein, 3 tenues, 3 réfutées.**
+
+⚠ **RÉFUTATION P88.5 — RÉCIDIVE EXACTE D'UN DÉFAUT QUE J'AI DIAGNOSTIQUÉ ET
+CORRIGÉ CE MATIN.** P79.11 était réfutée parce que `git diff --numstat` compte
+`tools/predictions-260830.md` ; j'en avais tiré une candidate et **la parade —
+borner la commande à `-- content`** —, appliquée deux fois avec succès aux
+blocs 80 et 85. **Ici j'ai réécrit la prédiction sur la commande NON BORNÉE et
+oublié le même fichier.** ⚠ *La parade est dans le code de la commande, pas dans
+la prédiction : **j'ai corrigé l'outil et pas le geste**, ce qui est l'inverse de
+la résolution de second rang.* ✅ **Le terme qui portait le sens tombe juste** :
+**zéro ligne de `content/`**, vérifié par `git diff --numstat -- content`, et
+c'est le second instrument après les trois `sha256` à dire que les tests du
+bloc 87 n'ont rien laissé derrière eux.
+
+⚠ **RÉFUTATIONS P88.3 ET P88.4 — UNE SEULE CAUSE, ET C'EST LA QUATRIÈME FOIS DE
+LA JOURNÉE.** L'entrée du JOURNAL est prédite à **18 lignes** et en fait **31** ;
+la taille en découle, prédite `[653, 656]` et mesurée **660,5 Kio**.
+*Cause : j'ai chiffré **le nombre de sujets** — un correctif, deux arbitrages
+classés, une parade appliquée — **et pas la densité de la prose qui les porte**.
+31 lignes à ~250 octets font 7,8 Kio, quand ma fourchette en autorisait 3,3.*
+⚠ **Bloc 77 (mots au lieu de prose), bloc 85 (entrées neuves au lieu de
+réécritures), bloc 87 (code au lieu de code + motif), bloc 88 (sujets au lieu de
+densité) : la même erreur sous quatre habits.** ✅ *Et elle a été **corrigée pour
+`conventions.md`** au même bloc — décomposition publiée avant la mesure, 50
+contre 52 prédites — **parce que c'est le seul des deux volumes pour lequel j'ai
+compté l'enveloppe.***
+
+✅ **LA PARADE DE LA CANDIDATE DU BLOC 85 A SERVI, ET ELLE A DEMANDÉ UN POINT
+FIXE.** La ligne « Tailles » a été écrite **en gabarit sans chiffres**, puis
+remplie par **ancre unique** après la dernière écriture. ⚠ *Difficulté propre au
+JOURNAL, et elle est réelle : **écrire sa propre taille change sa taille**. La
+pose s'est donc faite par **itération jusqu'au point fixe** — écrire la valeur,
+remesurer, recommencer tant que les deux diffèrent —, **atteint en une seule
+itération** parce que les chiffres posés ont la même longueur que le gabarit à
+un octet près.* **Mesure de contrôle : le fichier écrit porte `652,7 → 660,5
+Kio` et pèse `660,5 Kio`.** *Aucun autre fichier de pilotage n'a ce problème :
+`conventions.md` ne publie pas sa propre taille.*
+
+---
+
+## ⛳ GATE G6 — clôture de la reprise. Arbitrages du lot 10 rendus.
+
+**Fait** — **trois blocs (86 à 88)**, **trois gardes de péremption au vert**,
+`HEAD 5f44762` stable au caractère sur les trois. **Un correctif** dans
+`creer-fiche-en.mjs` (7 lignes de code, 33 de motif), **trois tests** — non
+régression, comportement neuf, négatif — et **un défaut du correctif trouvé par
+son propre test négatif**, corrigé dans le bloc, les trois tests rejoués.
+
+**Chiffres** — `conventions.md` **517,8 → 521,0 Kio** (+50 lignes / −2) ;
+`JOURNAL.md` **652,7 → 660,5 Kio** (+31) ; `TODO.md` **282,7** et `BACKLOG.md`
+**206,0** inchangés ; `creer-fiche-en.mjs` **+40 lignes** ; `git status`
+**7 / 3**. ⚠ **`git diff --numstat -- content` : ZÉRO ligne** — aucun fichier du
+corpus n'a changé d'un octet, et les trois `sha256` d'`afnor-nfx50-151-en` le
+disent aussi.
+
+**Bilan prédictions/constats de la reprise : 18 prédictions à décompte plein,
+14 tenues, 4 réfutées** (plus 1 déclarative). *Les quatre réfutations se rangent
+en **deux** causes : trois volumes chiffrés sans leur enveloppe (P88.3, P88.4 et,
+la veille au soir, P87.5), et une **récidive** de la commande `numstat` non
+bornée (P88.5), défaut diagnostiqué et corrigé le matin même.*
+
+**Total de la journée, lot 10 et reprise : 131 prédictions publiées avant leur
+bloc, 112 tenues, 19 réfutées — 85,5 %.**
