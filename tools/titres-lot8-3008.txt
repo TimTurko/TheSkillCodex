@@ -1,0 +1,50 @@
+
+=== RELEVE 2 - LES CINQ title: FR, ET LES FORMES DE PRODUCTION EN VOISINES ===
+  conduite/proj/acv-simplifiee.md        title: ACV simplifiée
+  conduite/proj/bom.md                   title: BOM (nomenclature)
+  conduite/proj/ecodesign.md             title: Écodesign
+  conduite/proj/fast.md                  title: FAST
+  conduite/proj/matrice-eco-criteres.md  title: Matrice éco-critères
+
+-- title: EN du corpus contenant matrix / LCA / BOM / ecodesign / FAST / life cycle --
+      1 title: Risk matrix
+      1 title: Decision matrix
+
+-- title: EN des voisines deja traduites de conduite/proj/ --
+  amdec-en.md                                    title: AMDEC
+  cahier-des-charges-fonctionnel-en.md           title: Cahier des charges fonctionnel
+  concept-en.md                                  title: Concept
+  decomposition-fonctionnelle-en.md              title: Functional breakdown
+  dossier-technique-en.md                        title: Technical design file
+  ecoconception-en.md                            title: Eco-design
+  gantt-en.md                                    title: Gantt chart
+  gestion-de-projet-en.md                        title: Project planning and tracking
+  index.md                                       title: PROJ pages — Project method
+  integration-et-tests-en.md                     title: Integration and testing
+  jalons-en.md                                   title: Milestones
+  matrice-de-decision-en.md                      title: Decision matrix
+  matrice-de-risques-en.md                       title: Risk matrix
+  preuve-de-concept-en.md                        title: Proof of concept
+  retroplanning-en.md                            title: Backward planning
+  securite-et-qualite-en.md                      title: Safety and quality
+  specification-technique-en.md                  title: Technical specification
+  wbs-en.md                                      title: WBS
+
+=== RELEVE 2b - LES SIGLES ET FORMES DEJA EN PRODUCTION POUR LES CINQ TITRES ===
+-- occurrences de LCA / life cycle assessment dans content/en/ --
+     21 LCA
+      9 simplified LCA
+      3 Simplified LCA
+-- libelles de wikilink visant acv-simplifiee, ecodesign, matrice-eco-criteres, bom, fast, cote EN --
+     10 [[fast-en|FAST]]
+      6 [[acv-simplifiee-en|simplified LCA]]
+      4 [[matrice-eco-criteres-en|eco-criteria matrix]]
+      4 [[acv-simplifiee-en|LCA]]
+      3 [[matrice-eco-criteres-en|Eco-criteria matrix]]
+      3 [[bom-en|BOM]]
+      2 [[ecodesign-en|écodesign]]
+      2 [[ecodesign-en|Écodesign]]
+      2 [[acv-simplifiee-en|Simplified LCA]]
+      1 [[bom-en|BOM (bill of materials)]]
+      1 [[acv-simplifiee-en\|simplified LCA]]
+-- et cote FR, pour comparaison --

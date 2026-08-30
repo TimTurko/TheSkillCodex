@@ -1,0 +1,15 @@
+=== PUCES A TIRET DU CORPUS - POPULATION DECLAREE DANS LA SORTIE ===
+  Motif : republie en entier au bloc 54 de tools/predictions-260830.md.
+  Sections exclues : voir aussi, aller plus loin, see also,
+                     going further, further reading.
+
+  FR (content/**.md hors en/)
+    POPULATION (fichiers balayes) : 248
+    fiches porteuses              : 172
+    PUCES A TIRET                 : 1002
+
+  EN (content/en/**.md)
+    POPULATION (fichiers balayes) : 216
+    fiches porteuses              : 149
+    PUCES A TIRET                 : 885
+

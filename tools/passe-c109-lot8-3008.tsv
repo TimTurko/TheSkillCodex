@@ -1,0 +1,79 @@
+# PASSE C109 - LOT 8 (conduite/proj : acv-simplifiee, bom, ecodesign, fast,
+# matrice-eco-criteres). Table JETABLE (C114), datee, non reutilisable.
+# 85 occurrences jugees, 16 gardees, 69 traitees, 64 ancres.
+# Jugement publie un par un dans tools/predictions-260830.md avant cette table.
+# chemin<TAB>ancre exacte<TAB>remplacement
+
+# --- acv-simplifiee : 3 occurrences, 3 ancres ---
+conduite/proj/acv-simplifiee.md	et le tracer — pas pour produire	et le tracer, pas pour produire
+conduite/proj/acv-simplifiee.md	est porté en propre ; le reste	est porté en propre. Le reste
+conduite/proj/acv-simplifiee.md	de matériaux** ; le wiki	de matériaux**. Le wiki
+
+# --- bom : 23 occurrences, 23 ancres ---
+conduite/proj/bom.md	des intentions ; une fois chiffrée	des intentions. Une fois chiffrée
+conduite/proj/bom.md	- **Chiffrer le coût réel du projet** — le total HT	- **Chiffrer le coût réel du projet.** Le total HT
+conduite/proj/bom.md	- **Servir de base d'achat** — chaque ligne	- **Servir de base d'achat.** Chaque ligne
+conduite/proj/bom.md	presque mécanique ; une BOM floue	presque mécanique. Une BOM floue
+conduite/proj/bom.md	- **Alimenter les livrables aval** — l'[[acv-simplifiee	- **Alimenter les livrables aval.** L'[[acv-simplifiee
+conduite/proj/bom.md	L'ordre compte — on ne chiffre	L'ordre compte. On ne chiffre
+conduite/proj/bom.md	et visserie ; l'électronique apporte	et visserie. L'électronique apporte
+conduite/proj/bom.md	connectique et carte ; l'informatique	connectique et carte. L'informatique
+conduite/proj/bom.md	est structurante — elle limite	est structurante. Elle limite
+conduite/proj/bom.md	**au centime près** — c'est ce niveau	**au centime près**. C'est ce niveau
+conduite/proj/bom.md	un total approximatif — méfiance.	un total approximatif. Méfiance.
+conduite/proj/bom.md	- **Versionnage** — une BOM est vivante.	- **Versionnage.** Une BOM est vivante.
+conduite/proj/bom.md	la modifie ; toute version	la modifie. Toute version
+conduite/proj/bom.md	fil rouge — un bras robotique	fil rouge, un bras robotique
+conduite/proj/bom.md	à l'étape 5 — un par partenaire.	à l'étape 5, un par partenaire.
+conduite/proj/bom.md	ancienne ligne PLA — coût environnemental	ancienne ligne PLA, coût environnemental
+conduite/proj/bom.md	fausse le total ; un total non chiffré	fausse le total. Un total non chiffré
+conduite/proj/bom.md	catalogue fermé ; le hors-catalogue	catalogue fermé. Le hors-catalogue
+conduite/proj/bom.md	nourrit la BOM ; il ne la remplace	nourrit la BOM. Il ne la remplace
+conduite/proj/bom.md	- **Étape 5 du dossier technique** — chaque ligne devient	- **Étape 5 du dossier technique.** Chaque ligne devient
+conduite/proj/bom.md	fournisseur partenaire ; la BOM est	fournisseur partenaire. La BOM est
+conduite/proj/bom.md	spécification technique]]** — la BOM apparaît	spécification technique]].** La BOM apparaît
+conduite/proj/bom.md	Intégration et tests]]** — la BOM sert	Intégration et tests]].** La BOM sert
+
+# --- ecodesign : 11 occurrences, 10 ancres (une incise encadree) ---
+conduite/proj/ecodesign.md	pour soutenance — c'est savoir	pour soutenance. C'est savoir
+conduite/proj/ecodesign.md	ou de démonter — la réparabilité existe	ou de démonter. La réparabilité existe
+conduite/proj/ecodesign.md	reste **poreuse** — les deux démarches se recouvrent en pratique — mais	reste **poreuse** (les deux démarches se recouvrent en pratique), mais
+conduite/proj/ecodesign.md	ergonomie, matériaux) ; le wiki	ergonomie, matériaux). Le wiki
+conduite/proj/ecodesign.md	visserie standard — la démontabilité est	visserie standard. La démontabilité est
+conduite/proj/ecodesign.md	au démontage — la démontabilité est	au démontage. La démontabilité est
+conduite/proj/ecodesign.md	est *faisable* ; l'écodesign garantit	est *faisable*. L'écodesign garantit
+conduite/proj/ecodesign.md	de l'habillage — la frontière exacte	de l'habillage, la frontière exacte
+conduite/proj/ecodesign.md	en français — elle porte sur	en français. Elle porte sur
+conduite/proj/ecodesign.md	appelle écoconception — ne pas se laisser piéger	appelle écoconception. Ne pas se laisser piéger
+
+# --- fast : 20 occurrences, 18 ancres (deux incises encadrees) ---
+conduite/proj/fast.md	- **Valider la chaîne causale** — toute chaîne FAST	- **Valider la chaîne causale.** Toute chaîne FAST
+conduite/proj/fast.md	la chaîne est fausse — un maillon manque	la chaîne est fausse. Un maillon manque
+conduite/proj/fast.md	du précédent ; de droite à gauche	du précédent. De droite à gauche
+conduite/proj/fast.md	- **Préparer le choix de solutions** — chaque fonction	- **Préparer le choix de solutions.** Chaque fonction
+conduite/proj/fast.md	- **Rendre visible la simultanéité** — l'axe vertical	- **Rendre visible la simultanéité.** L'axe vertical
+conduite/proj/fast.md	ne s'opposent pas — le FAST est l'outil	ne s'opposent pas. Le FAST est l'outil
+conduite/proj/fast.md	pour structurer ; on déroule ensuite	pour structurer. On déroule ensuite
+conduite/proj/fast.md	la chaîne est cassée — un niveau	la chaîne est cassée. Un niveau
+conduite/proj/fast.md	cale la structure ; les passes suivantes	cale la structure. Les passes suivantes
+conduite/proj/fast.md	terminale — la feuille la plus à droite de chaque chaîne — devient	terminale (la feuille la plus à droite de chaque chaîne) devient
+conduite/proj/fast.md	**n'arbitre pas** encore — on identifie	**n'arbitre pas** encore. On identifie
+conduite/proj/fast.md	dans les deux sens — elle est valide.	dans les deux sens. Elle est valide.
+conduite/proj/fast.md	traçables — sept solutions candidates en lice — sans en trancher	traçables (sept solutions candidates en lice) sans en trancher
+conduite/proj/fast.md	pas une formalité — c'est le contrôle	pas une formalité. C'est le contrôle
+conduite/proj/fast.md	à l'extérieur ; une fonction technique dit	à l'extérieur. Une fonction technique dit
+conduite/proj/fast.md	ou incertaines** — celles dont la réalisation	ou incertaines**, celles dont la réalisation
+conduite/proj/fast.md	spécification technique]]** — les fonctions de service	spécification technique]].** Les fonctions de service
+conduite/proj/fast.md	phase de concept]]** — chaque feuille du FAST	phase de concept]].** Chaque feuille du FAST
+
+# --- matrice-eco-criteres : 12 occurrences, 10 ancres (deux incises encadrees) ---
+conduite/proj/matrice-eco-criteres.md	ne change aucun choix — on la regarde	ne change aucun choix. On la regarde
+conduite/proj/matrice-eco-criteres.md	telle quelle en revue — pas un argumentaire	telle quelle en revue, et non un argumentaire
+conduite/proj/matrice-eco-criteres.md	tableau concurrent — c'est le	tableau concurrent. C'est le
+conduite/proj/matrice-eco-criteres.md	ne pèse rien ; les mêmes lignes	ne pèse rien. Les mêmes lignes
+conduite/proj/matrice-eco-criteres.md	réduite — sous réserve d'une transmission irréversible, nuance tracée dans [[ecoconception|la trame écoconception]] — et masse	réduite (sous réserve d'une transmission irréversible, nuance tracée dans [[ecoconception|la trame écoconception]]) et masse
+conduite/proj/matrice-eco-criteres.md	complète** — où la précision de positionnement en boucle ouverte et la simplicité de commande pèsent lourd — ce sont	complète** (où la précision de positionnement en boucle ouverte et la simplicité de commande pèsent lourd), ce sont
+conduite/proj/matrice-eco-criteres.md	vers les CC ; intégré, il a fait	vers les CC. Intégré, il a fait
+conduite/proj/matrice-eco-criteres.md	l'enchâssement — les lignes éco vivent	l'enchâssement. Les lignes éco vivent
+conduite/proj/matrice-eco-criteres.md	critères structurants — quitte à le forcer	critères structurants, quitte à le forcer
+conduite/proj/matrice-eco-criteres.md	mesurables ; le reste se cite	mesurables. Le reste se cite

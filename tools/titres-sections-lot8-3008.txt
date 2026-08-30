@@ -1,0 +1,335 @@
+=== RELEVE 1a - TITRES DE SECTION DES CINQ SOURCES FR (lot 8, 30/08 seance 2) ===
+--- conduite/proj/acv-simplifiee.md   (2 titres)
+20:## Dans le projet
+26:## Voir aussi
+--- conduite/proj/bom.md   (11 titres)
+20:## À quoi ça sert ?
+33:## Procédure pas à pas
+37:### 1. Recenser et regrouper les composants
+46:### 2. Sourcer sur le catalogue fournisseurs
+52:### 3. Chiffrer et structurer le tableau
+58:### 4. Contrôler et faire vivre la BOM
+66:## Exemple — Bras 3 axes pédagogique
+85:## Pièges
+99:## Cas particulier — projet sans catalogue fournisseur imposé
+105:## Raccrochage projet
+114:## Voir aussi
+--- conduite/proj/ecodesign.md   (6 titres)
+18:## À quoi ça sert ?
+29:## Comment les différencier ?
+44:## Exemple — Bras 3 axes pédagogique
+53:## Pièges
+63:## Cas particulier — le faux ami anglais
+67:## Voir aussi
+--- conduite/proj/fast.md   (12 titres)
+23:## À quoi ça sert ?
+36:## Procédure pas à pas
+40:### 1. Poser la fonction racine
+44:### 2. Dérouler le COMMENT vers la droite
+50:### 3. Valider par le POURQUOI et placer le QUAND
+59:### 4. Raccorder les feuilles aux solutions candidates
+63:## Exemple — Bras 3 axes pédagogique
+77:## Pièges
+91:## Cas particulier — FAST partiel sur les fonctions critiques
+97:## Raccrochage projet
+105:## Aller plus loin
+110:## Voir aussi
+--- conduite/proj/matrice-eco-criteres.md   (5 titres)
+19:## À quoi ça sert ?
+32:## Comment la construire ?
+48:## Exemple — Bras 3 axes pédagogique
+63:## Pièges
+73:## Voir aussi
+
+=== RELEVE 1b - FORMES DE PRODUCTION DANS content/en/ (grep du corpus, C110/regle d usage 29-08 s10) ===
+  ## See also                               204
+  ## What is it for?                        140
+  ## Pitfalls                               139
+  ## Where it fits in the project           102
+  ## Exercises                               37
+  ## Going further                           30
+  ## Step by step                            75
+  ## In the project                          20
+  ## Common pitfalls                         15
+  ## Project connection                       0
+  ## Step-by-step procedure                   0
+
+=== RELEVE 1c - QUATRE FAMILLES NEUVES (jamais chiffrees par le chantier) ===
+-- famille Example (titres de section EN commencant par '## Example') --
+      4 ## Example — The 3-axis arm
+      2 ## Example — Threshold detector with a warning LED
+      2 ## Example — Sampling a sensor at 100 Hz
+      2 ## Example — Reading a BMP280 (pressure and temperature)
+      2 ## Example — Potentiometer as an adjustable threshold
+      2 ## Example — Non-blocking blink plus a responsive button
+      2 ## Example — Making a rig that can hang dependable
+      2 ## Example — LED dimmer with a potentiometer
+      2 ## Example — Blink, modified
+      2 ## Example — Blink modified
+      2 ## Example — A persistent start-up counter
+      2 ## Example — A battery sensor woken periodically
+      2 ## Example — A Hall effect speed counter
+      2 ## Example — 3-axis teaching arm
+      1 ## Example — traffic lights with a pedestrian crossing
+      1 ## Example — the ESP32 and a 5 V sensor
+      1 ## Example — the 3-axis arm
+      1 ## Example — motor control with a potentiometer and a direction button
+      1 ## Example — motion driven by a step button
+      1 ## Example — controlling the speed of a DC motor
+      1 ## Example — continuous sweep with speed control
+      1 ## Example — an OLED thermometer with a thermometer icon
+      1 ## Example — a station doing three things at once
+      1 ## Example — a simulated button and LED
+      1 ## Example — Wiring a DHT11 module (temperature plus humidity)
+      1 ## Example — Wiring a DHT11 module (temperature and humidity)
+      1 ## Example — Watching a setpoint against a measurement
+      1 ## Example — Watching a PWM signal
+      1 ## Example — Two independent tasks
+      1 ## Example — Traffic lights with a pedestrian crossing
+      1 ## Example — Thermostat
+      1 ## Example — The emergency stop button
+      1 ## Example — The battery-powered probe
+      1 ## Example — Temperature datalogger on an SD card
+      1 ## Example — Speed on a potentiometer plus a direction button
+      1 ## Example — Scanning the bus and reading the addresses
+      1 ## Example — Sampling at a precise interval
+      1 ## Example — Reading a DHT11 with the built-in `dht` module
+      1 ## Example — Publishing a counter by notification
+      1 ## Example — PWM signal and serial frame
+      1 ## Example — OLED thermometer (two I2C devices on one bus)
+      1 ## Example — Motor shield (L293D): running a DC motor
+      1 ## Example — Logging to a microSD card
+      1 ## Example — Eight flags in one byte
+      1 ## Example — Driving an LED with text commands
+      1 ## Example — Driving a servo with Servo.h
+      1 ## Example — Driving a LED from a browser
+      1 ## Example — Drilling station
+      1 ## Example — Diagnosing an ultrasonic sensor that returns 0
+      1 ## Example — Diagnosing an ultrasonic sensor that returns -1
+      1 ## Example — Diagnosing a crash caused by saturation
+      1 ## Example — Diagnosing a `MemoryError` caused by accumulation
+      1 ## Example — Datalogger on an SD card
+      1 ## Example — Counting presses and toggling an LED
+      1 ## Example — Count presses and toggle an LED
+      1 ## Example — Controlling the speed of a motor
+      1 ## Example — Connecting to Wi-Fi
+      1 ## Example — Configuring an LED and a serial port, then generating
+      1 ## Example — Communication between two Picos
+      1 ## Example — Communication between two Arduino boards
+      1 ## Example — Checking a board's power supply
+      1 ## Example — Buzzer alarm plus flashing LED
+      1 ## Example — Button, LED and serial port with the HAL
+      1 ## Example — Blink, modified and debugged
+      1 ## Example — Blink simulated with a button
+      1 ## Example — Automatic gate
+      1 ## Example — An oscillator into the Audio Shield
+      1 ## Example — An LED that refuses to blink
+      1 ## Example — Alarm buzzer and blinking LED
+      1 ## Example — A sweep whose speed is set by a potentiometer
+      1 ## Example — A station doing three things at once
+      1 ## Example — A sketch that plays to the Teensy's strengths
+      1 ## Example — A sketch that mixes Arduino and the native HAL
+      1 ## Example — A sketch that mixes Arduino and ESP-IDF
+      1 ## Example — A relay module that clicks at start-up
+      1 ## Example — A relay module that clacks at start-up
+      1 ## Example — A quarter turn per button press
+      1 ## Example — A periodic measuring station
+      1 ## Example — A modified Blink
+      1 ## Example — A button that types on the keyboard
+      1 ## Example — A button that lights an LED
+      1 ## Example — A button that lights a LED
+      1 ## Example — A bridge between the module and the monitor
+      1 ## Example — A battery-powered project: Pico plus 3 modules
+      1 ## Example — A battery-powered project: Arduino plus three modules
+      1 ## Example — 3-axis arm project
+      1 ## Example
+-- famille How --
+     10 ## How does it work?
+      5 ## How do you build one?
+      1 ## How to work with bits
+      1 ## How to use this site
+      1 ## How to structure firmware
+      1 ## How to read this site
+      1 ## How to read one
+      1 ## How to read a timing diagram
+      1 ## How to read a flowchart
+      1 ## How to read a GRAFCET chart
+      1 ## How to optimise
+      1 ## How to get into an unfamiliar program
+      1 ## How to draw one
+      1 ## How to decouple
+      1 ## How to choose a representation
+      1 ## How to choose
+      1 ## How to build a state machine
+      1 ## How long does it last on battery?
+      1 ## How is it built?
+      1 ## How do you shift a level?
+      1 ## How do you set them?
+      1 ## How do you configure a pin?
+      1 ## How do you choose?
+      1 ## How do you choose a bus?
+-- famille Special case --
+      2 ## Special case — The second bus and the speed
+      2 ## Special case — Sub-millisecond rates and real time
+      2 ## Special case — A module with no datasheet
+      2 ## Special case — 230 V mains loads
+      1 ## Special case — the limit: towards an RTOS
+      1 ## Special case — the `PID_v1` library
+      1 ## Special case — several state machines in parallel
+      1 ## Special case — redesign and reverse engineering
+      1 ## Special case — microstepping and smoothing
+      1 ## Special case — custom fonts and accented characters
+      1 ## Special case — continuous-rotation servos
+      1 ## Special case — beyond the first Wi-Fi
+      1 ## Special case — a school project with no real client
+      1 ## Special case — a scaled-down AMDEC on a school project
+      1 ## Special case — a motor with an encoder for closed-loop control
+      1 ## Special case — a cooperative scheduler
+      1 ## Special case — `loop()` is already a task
+      1 ## Special case — `bytearray` and `memoryview`
+      1 ## Special case — `asyncio`, MicroPython's built-in tool
+      1 ## Special case — `ONE_SHOT` and several timers
+      1 ## Special case — `.mpy` files and frozen modules
+      1 ## Special case — Wokwi for the ESP32 and more advanced microcontrollers
+      1 ## Special case — Waking on a watchdog in interrupt mode
+      1 ## Special case — Waking from sleep
+      1 ## Special case — Under the hood: the registers
+      1 ## Special case — USB-to-serial adapter for debugging
+      1 ## Special case — UART1 and long links
+      1 ## Special case — Tinkercad and local simulation
+      1 ## Special case — The serial plotter for watching quantities
+      1 ## Special case — The limit: an RTOS and the second core
+      1 ## Special case — The board as a client (scanning)
+      1 ## Special case — The board as a client (querying an API)
+      1 ## Special case — The `Wire` and `SPI` libraries
+      1 ## Special case — Storage on ESP32
+      1 ## Special case — Spreading the work out with `micropython.schedule`
+      1 ## Special case — Software SPI against hardware SPI
+      1 ## Special case — Software SPI
+      1 ## Special case — Smoothing with an RC filter for a real voltage
+      1 ## Special case — Smoothing with an RC filter
+      1 ## Special case — Several voltages to supply
+      1 ## Special case — Several serial ports, and the plotter
+      1 ## Special case — Several buttons
+      1 ## Special case — Several buses, or the same address
+      1 ## Special case — Several I2C buses
+      1 ## Special case — Sensors on the I2C or SPI bus
+      1 ## Special case — Sensors on an I2C or SPI bus
+      1 ## Special case — Sensors on 3.3 V against 5 V
+      1 ## Special case — STM32duino and PlatformIO
+      1 ## Special case — SPI and e-paper screens
+      1 ## Special case — Reading the compilation report
+      1 ## Special case — Reacting fast, or many buttons
+      1 ## Special case — Proto shields and "do-it-yourself" shields
+      1 ## Special case — PlatformIO and the switch to native
+      1 ## Special case — PlatformIO and the legacy installer
+      1 ## Special case — PlatformIO and register access
+      1 ## Special case — PlatformIO and Arduino inside ESP-IDF
+      1 ## Special case — PWM, ADC and buses
+      1 ## Special case — PWM, ADC and bus pins
+      1 ## Special case — Other editors and other boards
+      1 ## Special case — Open-drain and I2C
+      1 ## Special case — Multi-sheet schematics and the application circuit
+      1 ## Special case — Moore and Mealy
+      1 ## Special case — Modules with no datasheet of their own
+      1 ## Special case — Modules active at the HIGH level
+      1 ## Special case — Light sleep
+      1 ## Special case — Libraries and microstepping
+      1 ## Special case — Interrupts on ESP32
+      1 ## Special case — Interrupt mode and waking from sleep
+      1 ## Special case — Hardware debugging (SWD)
+      1 ## Special case — From the timing diagram to the oscilloscope
+      1 ## Special case — ESP-01, NodeMCU Lua, PlatformIO
+      1 ## Special case — Depth and wake-up sources
+      1 ## Special case — Continuous rotation servos, and libraries
+      1 ## Special case — Combined types and Raw HID
+      1 ## Special case — Closed loop with an encoder
+      1 ## Special case — Changing the frequency of a PWM
+      1 ## Special case — Beyond the ~8.3 s ceiling
+      1 ## Special case — Battery power for standalone projects
+      1 ## Special case — Batteries for standalone projects
+      1 ## Special case — Audio Shield, USB audio, outputs without a codec
+      1 ## Special case — Arduino shields on a Pico, and a home-made carrier board
+      1 ## Special case — Arduino core, ESP-IDF, PlatformIO
+      1 ## Special case — An external I2C EEPROM (24LCxx)
+      1 ## Special case — Alternatives to the Arduino IDE
+      1 ## Special case — Advanced logging libraries
+      1 ## Special case — AND and OR divergences
+      1 ## Special case — A scarce, shared resource
+      1 ## Special case — A safe state after a power cut
+      1 ## Special case — A microcontroller's registers
+      1 ## Special case — A dictionary of states, and parallel machines
+      1 ## Special case — A USB-to-serial adapter for debugging
+      1 ## Special case — A PID class, or a library
+      1 ## Special case — 5 V sensors
+-- toutes les formes '## ...' du corpus EN, les 25 plus frequentes --
+    204 ## See also
+    140 ## What is it for?
+    139 ## Pitfalls
+    102 ## Where it fits in the project
+     75 ## Step by step
+     37 ## Exercises
+     30 ## Going further
+     20 ## In the project
+     15 ## Common pitfalls
+     13 ## Wrap-up
+     13 ## The right mindset
+     13 ## Method
+     10 ## How does it work?
+      8 ## During this phase, on the team side
+      7 ## Tutorials
+      6 ## Ecosystem
+      6 ## Code to read
+      5 ## What belongs elsewhere
+      5 ## How do you build one?
+      5 ## Goal of this step
+      5 ## Goal of this phase
+      5 ## Board overview
+      4 ## Watch the voltage
+      4 ## In practice
+      4 ## Example — The 3-axis arm
+
+=== RELEVE 1d - LE CONFLIT DE FORME SUR L EXEMPLE DU BRAS 3 AXES ===
+-- fiches FR portant '## Exemple — Bras 3 axes pédagogique' --
+content/conduite/proj/amdec.md
+content/conduite/proj/bom.md
+content/conduite/proj/caracteriser-une-exigence.md
+content/conduite/proj/decomposition-fonctionnelle.md
+content/conduite/proj/ecodesign.md
+content/conduite/proj/etat-de-l-art-technique.md
+content/conduite/proj/fast.md
+content/conduite/proj/matrice-eco-criteres.md
+content/conduite/proj/mind-map.md
+
+-- ce que leur jumelle EN ecrit --
+  conduite/proj/amdec.md                               -> ## Example — 3-axis teaching arm
+  conduite/proj/bom.md                                 -> (pas de jumelle EN)
+  conduite/proj/caracteriser-une-exigence.md           -> (pas de jumelle EN)
+  conduite/proj/decomposition-fonctionnelle.md         -> ## Example — 3-axis teaching arm
+  conduite/proj/ecodesign.md                           -> (pas de jumelle EN)
+  conduite/proj/etat-de-l-art-technique.md             -> (pas de jumelle EN)
+  conduite/proj/fast.md                                -> (pas de jumelle EN)
+  conduite/proj/matrice-eco-criteres.md                -> (pas de jumelle EN)
+  conduite/proj/mind-map.md                            -> (pas de jumelle EN)
+
+-- autres libelles FR d exemple bras 3 axes, et leurs jumelles --
+      9 ## Exemple — Bras 3 axes pédagogique
+      5 ## Exemple — Blink modifié
+      4 ## Exemple — Le bras 3 axes
+      2 ## Exemple — Échantillonner un capteur à 100 Hz
+      2 ## Exemple — projet bras 3 axes
+      2 ## Exemple — le bras 3 axes
+      2 ## Exemple — Variateur de LED avec potentiomètre
+      2 ## Exemple — Une station qui fait trois choses à la fois
+      2 ## Exemple — Réguler la vitesse d'un moteur
+      2 ## Exemple — Potentiomètre comme variateur de seuil
+      2 ## Exemple — Module relais qui claque au démarrage
+      2 ## Exemple — Lecture d'un BMP280 (pression et température)
+      2 ## Exemple — Fiabiliser un montage qui peut se bloquer
+      2 ## Exemple — Feux tricolores avec passage piéton
+      2 ## Exemple — Détecteur de seuil avec LED d'alerte
+      2 ## Exemple — Câbler un module DHT11 (température + humidité)
+      2 ## Exemple — Compteur de vitesse à effet Hall
+      2 ## Exemple — Compteur de démarrages persistant
+      2 ## Exemple — Compter les appuis et basculer une LED
+      2 ## Exemple — Capteur sur batterie réveillé périodiquement

@@ -1,0 +1,51 @@
+  conduite/proj/acv-simplifiee.md                            0
+  conduite/proj/bom.md                                      10
+      L  10  [à quoi ça sert]
+        - **Chiffrer le coût réel du projet** — le total HT au centime près se confronte à l'enveloppe budgétaire. C'est ce chiffre qui dit si le projet est f
+      L  11  [à quoi ça sert]
+        - **Servir de base d'achat** — chaque ligne de la BOM devient une ligne de bon de commande. Une BOM propre rend l'émission des commandes presque mécan
+      L  12  [à quoi ça sert]
+        - **Alimenter les livrables aval** — l'[[acv-simplifiee|ACV simplifiée]] se calcule sur la BOM réelle (empreinte environnementale par poste), et le [[
+      L  46  [4. contrôler et faire vivre la bom]
+        - **Cohérence budget** — comparer le total HT à l'enveloppe initiale. Trois sorties : dans l'enveloppe (on continue), dépassement marginal (arbitrage 
+      L  47  [4. contrôler et faire vivre la bom]
+        - **Lead time critique** — repérer la pièce la plus longue à arriver. C'est elle qui fixe la date butoir d'émission de commande et nourrit le [[retrop
+      L  48  [4. contrôler et faire vivre la bom]
+        - **Versionnage** — une BOM est vivante. Un composant recalé en [[integration-et-tests|intégration]] la modifie ; toute version doit être datée pour q
+      L  91  [raccrochage projet]
+        - **Étape 3 de la [[dossier-technique|phase de dossier technique]]** — phase principale où la BOM est consolidée, chiffrée et confrontée à l'enveloppe
+      L  92  [raccrochage projet]
+        - **Étape 5 du dossier technique** — chaque ligne devient une ligne de bon de commande, regroupée par fournisseur partenaire ; la BOM est la source un
+      L  93  [raccrochage projet]
+        - **Étape 2 de la [[specification-technique|spécification technique]]** — la BOM apparaît en amont comme *critère d'ouverture* dans l'[[etat-de-l-art-
+      L  94  [raccrochage projet]
+        - **[[integration-et-tests|Intégration et tests]]** — la BOM sert de checklist de réception : référence reçue = référence commandée, quantité reçue = 
+  conduite/proj/ecodesign.md                                 4
+      L  10  [à quoi ça sert]
+        - Une [[ecoconception|écoconception]] sans écodesign produit un système techniquement sobre mais que personne n'a envie de garder, de réparer ou de dé
+      L  11  [à quoi ça sert]
+        - Un écodesign sans écoconception produit un objet *qui a l'air* responsable — formes douces, matériaux affichés « verts » — sans aucune réduction d'i
+      L  34  [exemple — bras 3 axes pédagogique]
+        - **Par l'écoconception** (ingénierie) : connectique JST plutôt que soudures directes, carte modulaire, visserie standard — la démontabilité est *tech
+      L  35  [exemple — bras 3 axes pédagogique]
+        - **Par l'écodesign** (design d'usage) : un carter dont la forme **invite** à l'ouverture, une signalétique de tri sérigraphiée sur les pièces, une pr
+  conduite/proj/fast.md                                      6
+      L  12  [à quoi ça sert]
+        - **Valider la chaîne causale** — toute chaîne FAST doit se lire juste dans les deux sens. De gauche à droite, chaque maillon répond au « comment » du
+      L  13  [à quoi ça sert]
+        - **Préparer le choix de solutions** — chaque fonction technique terminale (la feuille de la chaîne) appelle 2 à 5 solutions candidates, confrontables
+      L  14  [à quoi ça sert]
+        - **Rendre visible la simultanéité** — l'axe vertical (QUAND) regroupe les fonctions techniques qui doivent être assurées **en même temps** pour qu'un
+      L  82  [raccrochage projet]
+        - **Étape 1 de la [[concept|phase de concept]]** — phase principale où le FAST est déroulé, en aval immédiat de la [[decomposition-fonctionnelle|décom
+      L  83  [raccrochage projet]
+        - **Sortie de la [[specification-technique|spécification technique]]** — les fonctions de service issues de la [[pieuvre|pieuvre]] alimentent les raci
+      L  84  [raccrochage projet]
+        - **Étape 2 de la [[concept|phase de concept]]** — chaque feuille du FAST ouvre une [[matrice-de-decision|matrice de décision]] confrontant 2 à 5 solu
+  conduite/proj/matrice-eco-criteres.md                      2
+      L  10  [à quoi ça sert]
+        - **Forcer l'arbitrage environnemental.** Une évaluation éco posée *à côté* de la matrice de décision ne change aucun choix — on la regarde, on hoche 
+      L  12  [à quoi ça sert]
+        - **Tracer l'arbitrage éco.** Le bloc éco-critères, daté et pondéré dans la matrice de décision, devient une trace écrite qu'on ressort telle quelle e
+  --------------------------------------------------------------
+  TOTAL (5 fichiers)                                        22

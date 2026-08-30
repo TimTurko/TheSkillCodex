@@ -1,0 +1,19 @@
+
+=== RELEVE 4 - CLAUSE C113 : BLOCS DE CODE ET CHAINES AFFICHEES DES CINQ SOURCES ===
+  conduite/proj/acv-simplifiee.md            clotures de bloc : 0
+  conduite/proj/bom.md                       clotures de bloc : 0
+  conduite/proj/ecodesign.md                 clotures de bloc : 0
+  conduite/proj/fast.md                      clotures de bloc : 0
+  conduite/proj/matrice-eco-criteres.md      clotures de bloc : 0
+
+-- code inline (entre accents graves) dans les cinq sources --
+      2 `n.c.`
+      1 `~95 € (devis fablab)`
+      1 `?`
+
+-- guillemets droits dans les cinq sources (chaine litterale eventuelle) --
+content/conduite/proj/acv-simplifiee.md:0
+content/conduite/proj/bom.md:0
+content/conduite/proj/ecodesign.md:0
+content/conduite/proj/fast.md:0
+content/conduite/proj/matrice-eco-criteres.md:0

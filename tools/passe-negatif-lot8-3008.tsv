@@ -1,0 +1,9 @@
+# TEST NEGATIF DELIBERE - lot 8, 30/08 (seance 2). Table JETABLE (C114).
+# L ancre ci-dessous est AMPUTEE DE SON POINT-VIRGULE : la fiche porte
+# "nourrit la BOM ; il ne la remplace" et la table demande
+# "nourrit la BOM, il ne la remplace". Attendu : 0 occurrence, refus du lot
+# entier, zero octet ecrit.
+# Les cinq refus precedents portaient sur un ACCENT ou une CAPITALE ; celui-ci
+# porte sur le SIGNE MEME que C109 traite, et ce mode d echec n avait jamais
+# ete eprouve.
+conduite/proj/bom.md	nourrit la BOM, il ne la remplace	nourrit la BOM. Il ne la remplace

@@ -1,0 +1,8 @@
+# TEST NEGATIF DELIBERE - titres EN du lot 8, 30/08 (seance 2).
+# L ancre est le titre reel PRIVE DE SES DEUX ACCENTS :
+#   reel   : Matrice eco-criteres  ->  avec accents sur le e de "eco" et de "criteres"
+#   ancre  : sans aucun accent
+# Attendu : 0 occurrence, refus du lot entier, zero octet ecrit.
+# Les refus precedents portaient sur UN accent, une capitale, un point-virgule ;
+# celui-ci porte sur DEUX accents dans un meme titre.
+en/conduite/proj/matrice-eco-criteres-en.md	Matrice eco-criteres	Eco-criteria matrix

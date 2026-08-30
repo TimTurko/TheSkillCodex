@@ -1681,7 +1681,32 @@ reste ; si elle porte un sujet propre, il tombe.** *Sans cette borne, la même
 puce se lit comme une glose ou comme une phrase selon jusqu'où on lit, et le
 verdict cesse d'être reproductible.* **Quatre puces gardées par elle** :
 `raspberry-pi-gpio` L29-L31 et `xiao-alimentation` L22.
-*Éprouvée 5/N, la quatrième confirmée par arbitrage.*
+**Sixième épreuve, 30/08 (séance 2), lot 8 (`conduite/proj/`)** : **22 puces
+jugées, 5 gardées, 17 traitées**, report **symétrique fiche par fiche —
+FR 0 / 3 / 1 / 1 / 0, EN 0 / 3 / 1 / 1 / 0**. ⚠ **Le taux d'exemption retombe à
+23 % après les 56 % du lot 7, et la cause reste la source.** Les cinq fiches ne
+portent **aucune liste de spécification** ; leurs puces vivent à **17 sur 22**
+dans deux sections stéréotypées — `## À quoi ça sert` (10) et
+`## Raccrochage projet` (7) —, où la forme `- **Libellé** — glose` sert de
+patron. *Le lot 7 gardait parce que ses puces **nommaient des objets** ; celui-ci
+traite parce que les siennes **énoncent des actions à sujet propre**.*
+⚠ **Et la précision de lecture du 30/08 décide seule sur trois puces, toutes
+dans `bom`** : L62 et L63 **gardées** parce que leur tête est un **infinitif**
+jusqu'au point (`comparer le total HT à l'enveloppe initiale.`, `repérer la
+pièce la plus longue à arriver.`) alors que la suite de la puce porte deux
+phrases à sujet propre ; L64 **traitée** parce que sa tête est `une BOM est
+vivante.`. *Deuxième épreuve de la précision, et la première où elle garde ET
+fait tomber **dans la même fiche**.*
+⚠ **Un cas que la doctrine ne nommait pas, tranché et consigné** : `bom` L107 et
+`fast` L99 sont **gardées** sur un groupe nominal suivi d'une relative
+(`phase principale où la BOM est consolidée…`), quand `fast` L93 est **traitée**
+sur une forme voisine (`celles dont la réalisation conditionne…`). *Ce qui les
+sépare n'est pas la forme du segment mais **la place du tiret** : les deux
+premières sont des **séparateurs de glose** en tête de puce (cas 2), la
+troisième est une **incise de prose** (C123). L'amendement du 29/08 le disait —
+« C123 gouverne les incises, pas les séparateurs de glose » — et c'est la
+première fois que les deux coexistent dans un même lot.*
+*Éprouvée 6/N, la quatrième confirmée par arbitrage.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -1840,6 +1865,22 @@ Le §2 des règles de traduction disait « code inchangé, commentaires traduits
 ⚠ **DEUXIÈME ÉPREUVE, 30/08, LOT 7 — ET ELLE PORTE HORS DE TOUT LITTÉRAL DE LONGUEUR, CE QUI EST NEUF.** Les cinq sources du lot ne portent **aucune** chaîne couplée à un littéral : le relevé d'avant rédaction rend **zéro** occurrence, sur onze blocs de code (`raspberry-pi-gpio` 3, `raspberry-pi-prise-en-main` 7, `raspberry-pi-projet` 1, les deux `xiao/` 0). **La question devient donc : une chaîne affichée LIBRE se traduit-elle encore ?** Le test opératoire retenu est celui que le ⚠ ci-dessus donne en creux — *le texte est-il porté par un littéral du code source ?* —, et il rend **oui** pour les trois cas du lot : `print("Appui")`, `print("Relâché")`, `print("Bonjour depuis le Pi !")` avec le bloc de sortie qui le reproduit. **Ils restent en français dans les fiches EN, comme les identifiants `bouton`, `led`, `mcu`, `envoyer_consigne` et le nom de fichier `bonjour.py`.** ✅ *Contrôle : le `diff` des blocs de code FR/EN est vide sur les trois fiches, aux **six commentaires** près, que C77 fait traduire.*
 
 ⚠ **ASSOMPTION ÉCRITE SOUS C116 (8), NON ARBITRÉE.** La voie de sortie ne s'ouvre pas ici : `Appui` → `Press` et `Relâché` → `Release` ont pourtant **la même longueur** (5 / 5 et 7 / 7), mais `Press` et `Release` ne sont pas des mots français, et angliciser la source serait le contresens que la clause nomme déjà pour `Bonjour` → `Hello`. **Si Tim lit la phrase principale plus étroitement — le code reste identique *quand un littéral est couplé*, et les chaînes affichées libres se traduisent comme depuis le 24/08 —, trois fiches EN sont à reprendre. Coût du revert : 4 littéraux de code et 1 ligne de bloc de sortie, sur 2 fiches EN.**
+
+⚠ **LE LOT 8 NE TESTE PAS CETTE CLAUSE, ET IL FAUT L'ÉCRIRE.** Les cinq sources
+de `conduite/proj/` portent **zéro bloc de code clôturé et zéro guillemet
+droit** : ni chaîne couplée à un littéral, ni chaîne libre, **aucun objet**.
+*L'assomption non arbitrée du lot 7 n'est donc **ni confirmée ni infirmée**, et
+la clause reste à **2/N** — la compter à 3/N ferait passer une absence d'objet
+pour une épreuve.* ⚠ **Mais le relevé a trouvé autre chose que ce qu'il
+cherchait** : quatre fragments de **code inline** — `` `n.c.` `` (2), `` `?` ``,
+`` `~95 € (devis fablab)` `` — qui ne sont **pas du code** mais des
+**conventions de notation de tableau** enseignées par `bom`. Le générateur ne
+touche pas au code inline, elles seraient donc arrivées en français dans la
+fiche anglaise. **Décision C117 : elles se traduisent** (`n/a`,
+`~95 € (fablab quote)`), *parce que C113 borne ce que le **programme** dit ou
+désigne, et qu'il n'y a ici aucun programme.* **Le troisième compteur de
+`--controle` ne les voit pas — il compte des blocs, et il y en a zéro des deux
+côtés : la seule trace de cette décision est le `git diff`.**
 *Éprouvée 2/N.*
 
 **Coût assumé : un registre mixte.** Les identifiants restent français, donc un anglophone lit `clignote(led, n=3, duree=0.2)` et `if bouton.value() == 0 and not alarme_active`. Motif de la borne : renommer désynchroniserait les SVG français qui montrent ces mêmes variables (`locale-globale.svg` de `cpp-portee`), et ce serait un diff sémantique et non typographique. *C'est le compromis des schémas laissés en français, pris un cran plus bas.* `micropython-fonctions` est la fiche où il se voit le plus, donc celle à relire en premier si la borne doit bouger.
@@ -2432,6 +2473,87 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 > mordu », et ici c'est l'inverse exact. **Les deux autres restent ci-dessous**,
 > l'une gardée par le code plutôt que par un numéro, l'autre en attente d'une
 > troisième épreuve avant de devenir une clause de C125.
+- **Un `title:` EN se lit d'abord dans les LIBELLÉS QUE LE CORPUS ANGLAIS
+  ÉCRIT DÉJÀ vers la cible, avant les trois tests de C125.**
+  *Née le 30/08 (séance 2), lot 8, contre ma propre prédiction.* J'avais prédit
+  que le **test 3** de C125 — lire les contextes — déciderait seul, ces cinq
+  fiches n'ayant ni libellé de désambiguïsation (test 1) ni jumelle de famille
+  (test 2). **Mesure : les cinq titres étaient déjà écrits dans le corpus
+  anglais**, sous forme de libellés visant des fiches qui n'existaient pas
+  encore — la **dette lue à l'endroit où elle est lisible** :
+  `simplified LCA` 6 + `Simplified LCA` 2 + `LCA` 4 → **`Simplified LCA`** ;
+  `BOM` 3 + `BOM (bill of materials)` 1 → **`BOM (bill of materials)`** ;
+  `FAST` 10 → **`FAST`** ; `eco-criteria matrix` 4 + `Eco-criteria matrix` 3 →
+  **`Eco-criteria matrix`**.
+  ⚠ **ET LE CINQUIÈME CAS EST CELUI QUI AURAIT MAL TOURNÉ SANS CE RELEVÉ.**
+  `ecoconception-en` porte déjà `title: Eco-design`, ce qui est **juste**,
+  puisque la fiche `ecodesign` enseigne elle-même qu'*« en anglais, ecodesign
+  traduit l'écoconception »*. **Titrer la fiche EN `Ecodesign` aurait fabriqué
+  le faux ami que la fiche existe pour dénoncer**, à une lettre et un tiret près
+  de sa voisine. *Le corpus avait tranché autrement, et en **gardant le mot
+  français** : les quatre libellés qui visent `ecodesign-en` portent l'accent.*
+  **Décision C117 : `title: Écodesign`**, précédents mesurés
+  `Cahier des charges fonctionnel` et `AMDEC`. *Coût du revert : 1 `title:` et
+  4 libellés.*
+  ✅ **Conséquence mesurable, et elle est neuve** : `candidats a lire` de
+  `--libelles` ne bouge **pas d'une unité** — **112 avant, 112 après** cinq
+  fiches et trois titres changés. *Choisir un titre sur les libellés que le
+  corpus écrit déjà rend ce compteur **invariant par construction**, le titre et
+  les libellés partageant alors tous leurs radicaux.* ⚠ **Ce zéro n'est PAS une
+  épreuve de la clause C125 « un titre qui englobe »**, qui parle de titres
+  qualifiés par leur famille : aucun des cinq n'en est un, deux ne changent même
+  pas. **La clause reste à 3/N.**
+  *Éprouvée 0/N.*
+- **Un titre de callout se relève dans le corpus, exactement comme un titre de
+  section.**
+  *Née le 30/08 (séance 2), lot 8, d'un défaut attrapé par accident.* Les quatre
+  relevés d'avant rédaction couvrent les titres de section, les `title:`, les
+  libellés et les chaînes affichées ; **aucun ne couvre les callouts**. J'ai
+  écrit `> [!warning] Attention` et `> [!tip] Astuce`, recopiés du français,
+  avant de relever que le corpus anglais dit **`> [!warning] Watch out` 44** et
+  **`> [!tip] Tip` 41**, contre **3** `Attention` résiduels. **Trois occurrences
+  corrigées avant toute mesure**, dans `fast-en` (2) et
+  `matrice-eco-criteres-en` (1). ⚠ *C'est la **troisième fois de la série**
+  qu'un défaut de cette famille est trouvé en mesurant autre chose, et **aucun
+  contrôle du dépôt ne le voit** : `--controle` compte des liens, des embeds et
+  des blocs, `--style` lit de la ponctuation, `titres-doublons` compare des
+  `title:`, `--libelles` compare un libellé à un titre.* **Le geste qui l'évite
+  est un cinquième relevé, et il tient en un `grep`.**
+  *Éprouvée 0/N.*
+- **La liste des artefacts d'un bloc se FERME avant le bloc, et aucune commande
+  du bloc n'écrit hors de cette liste.**
+  *Née le 30/08 (séance 2), lot 8, de **trois** prises en défaut de C131 dans
+  une seule séance.* Les blocs 56 et 58 ont chacun écrit **un ou deux fichiers
+  de sortie de plus** que leur déclaration n'en nommait — un relevé sauvegardé
+  au dernier moment, un `--libelles` redirigé vers un fichier daté —, et les
+  compteurs `git status` sont sortis à **18 / 12** au lieu de 16 / 10, **23 / 17**
+  au lieu de 21 / 15, **26 / 20** au lieu de 25 / 19. ⚠ *L'amendement du 29/08
+  (suite 8) dit déjà que « les artefacts d'un bloc se décident **dans** le
+  bloc » ; il en tire l'obligation de **rejouer** la déclaration, et cela ne
+  suffit pas — **on ne rejoue que ce qu'on a prévu**.* ✅ **La parade a été
+  écrite puis appliquée au bloc 59, et elle marche du premier coup** : liste
+  énumérée par avance, **deux instants prédits séparément** (27 / 20 quand la
+  garde lit `git status`, 28 / 21 en fin de bloc), les deux justes.
+  ⚠ *Signature constante des trois réfutations : **le sous-compteur qui porte le
+  sens est juste à chaque fois**, c'est le total qui rate.*
+  *Éprouvée 1/N.*
+- **`MARQUE INVALIDE` ne distingue pas une empreinte INVENTÉE BIEN FORMÉE d'une
+  empreinte périmée.**
+  *Née le 30/08 (séance 2), lot 8, récidive exacte d'É4 du 29/08 (suite 6).*
+  `bom-en` est la seule des cinq dont je n'ai lu **que le corps** avant de
+  rédiger, le fichier étant long ; j'ai réécrit son front matter de tête et **y
+  ai composé une empreinte de 64 hexadécimaux**. ⚠ **Le contrôle écrit pour ce
+  défaut ne l'a pas vu** : `MARQUE INVALIDE` rend **0**, son critère étant la
+  **forme** du marqueur — 64 hexadécimaux minuscules — et non sa provenance.
+  C'est **`DERIVE 1`** qui a signalé, c'est-à-dire le statut destiné aux
+  empreintes **périmées**. *La suite 8 du 29/08 a séparé les deux causes en deux
+  statuts ; ce cas montre que la séparation est **incomplète**, et qu'une
+  empreinte inventée bien formée se lit comme une simple péremption.* ✅ Réparé
+  par `--recaler` après relecture du **front matter entier**, qui n'a révélé
+  aucun autre écart. **Ce qui manque n'est pas un statut de plus, c'est que la
+  règle de geste — se rédiger en partant du squelette **lu en entier** — n'est
+  portée par aucun code.**
+  *Éprouvée 0/N.*
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
   réécrivant son front matter de tête.**
   *Née le 29/08 (suite 7), récidive exacte de É4 du 29/08 (suite 6).* Réécrire
@@ -2491,7 +2613,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   **Les quatre tombent, fiche par fiche**, y compris l'asymétrie connue
   `arduino-core` **2 FR / 1 EN**. ⚠ *Le terme qui prouve est celui-là :
   prédire 12 côté anglais aurait été prédire la symétrie et non la mesure.*
-  *Éprouvée 1/N.*
+
+  **Deuxième épreuve, 30/08 (séance 2), lot 8** : **quatre échantillons nommés,
+  deux par langue**, dont les réponses étaient publiées — lot 3 d'`esp32/`
+  **FR 12 / EN 11**, lot 7 **FR 10 / EN 10**, décomposé **3 / 3 / 0 / 3 / 1**
+  des deux côtés. **Les quatre tombent, fiche par fiche**, l'asymétrie connue
+  d'`esp32-arduino-core` (2 FR / 1 EN) comprise. ⚠ *Ce qui est neuf : les
+  échantillons 3 et 4 portent des fiches EN **écrites la nuit même**, ce qui en
+  fait aussi un contrôle du report un pour un du lot 7 — **dix termes, dix
+  justes**.*
+  *Éprouvée 2/N.*
 - **Un titre de section EN se relève dans le corpus avant d'être écrit, jamais
   traduit de tête.**
   *Née le 29/08 (suite 10), du même défaut qu'É1 de la suite 9, un lot plus
@@ -2543,7 +2674,36 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   modèle**, et 23 titres se sont traduits sans en avoir un.* ✅ **Aucun des 23
   n'a pris par accident une forme de production** — ni `## Step by step` (75),
   ni `## In the project` (20) —, ce qui était le terme écrit pour réfuter.
-  *Éprouvée 2/N.*
+
+  **Troisième épreuve, 30/08 (séance 2), lot 8 — et c'est celle où le relevé
+  ARBITRE au lieu de confirmer.** 36 titres de section, dont **10 familles
+  génériques** et **8 titres numérotés** propres à leur fiche. ⚠ **Le relevé
+  ouvre quatre familles que le chantier n'avait jamais chiffrées**, et l'une
+  d'elles ressemblait à un conflit : `## Example — The 3-axis arm` **4**,
+  `## Example — 3-axis teaching arm` **2**, `## Example — the 3-axis arm` **1**,
+  `## Example — 3-axis arm project` **1**. ✅ **La lecture côté français les
+  sépare une par une** : `## Exemple — Le bras 3 axes` (4 fiches FR) donne
+  `The 3-axis arm`, et `## Exemple — Bras 3 axes pédagogique` (**9** fiches FR)
+  donne **`## Example — 3-axis teaching arm`**, forme portée par les **deux
+  seules jumelles déjà traduites** du groupe. *Sans le relevé, la forme la plus
+  fréquente aurait été la tentation, et elle traduit une **autre** section
+  française.* ⚠ **Une seule des dix familles n'a aucune forme de production** —
+  `## Comment les différencier ?` —, et la forme neuve
+  `## How do you tell them apart?` est **déclarée comme neuve avant d'être
+  écrite**.
+  ⚠ **Deux réfutations sont venues du même relevé, et elles valent la règle.**
+  (1) Les six formes de production ont été prédites **inchangées** contre les
+  chiffres du lot 7 ; elles sortent à **204 / 140 / 139 / 102 / 37 / 30** contre
+  199 / 137 / 136 / 102 / 37 / 28. *Cause : les chiffres du lot 7 sont un relevé
+  d'**avant rédaction**, publié à sa clôture comme s'il était un état de
+  clôture ; les cinq fiches de ce lot-là ont été écrites après.* **Nouvelle
+  référence, publiée avec son instant : 204 / 140 / 139 / 102 / 37 / 30, état du
+  30/08 à 08:0x, AVANT les cinq fiches du lot 8.** (2) La règle **ne couvre pas
+  les titres de callout**, et j'ai écrit `> [!warning] Attention` et
+  `> [!tip] Astuce` avant de relever que le corpus dit `Watch out` **44** et
+  `Tip` **41**. *Trois occurrences corrigées avant toute mesure ; **aucun
+  contrôle du dépôt ne les aurait vues**.*
+  *Éprouvée 3/N.*
 - **Un compteur qui se remesure d'une clôture à l'autre déclare sa population
   DANS SA SORTIE, pas dans le message qui la commente.**
   *Née le 29/08 (suite 11), deuxième clôture d'affilée où le compteur de puces
@@ -2576,7 +2736,16 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   la même — **248 fichiers, écrits par le script et non supposés par le
   message**. **Un terme avait été écrit pour réfuter** — *un écart serait un
   troisième défaut de comparabilité et non une épreuve* — et il ne mord pas.
-  *Éprouvée 1/N.*
+
+  **Deuxième épreuve, 30/08 (séance 2), lot 8 — et le compteur se referme sur
+  ses SIX termes, décomposition publiée avant la mesure.**
+  **FR 1 019 − 17 = 1 002** sur **173 − 1 = 172** porteuses, **248 fichiers** ;
+  **EN 880 + 5 = 885** sur **146 + 3 = 149** porteuses, **211 + 5 = 216**
+  fichiers. ⚠ *Le terme qui prouve est la **porteuse française perdue** :
+  `matrice-eco-criteres` tombe de 2 puces à 0 et sort de la population des
+  porteuses, quand les trois autres fiches traitées y restent. **Un total juste
+  sur 173 porteuses aurait été un total juste sur une décomposition fausse.***
+  *Éprouvée 2/N.*
 - **Un répertoire entièrement non suivi vaut UNE entrée de `git status`, pas
   une par fichier.**
   *Née le 30/08, lot 7, sur une prédiction de garde réfutée d'un point.*
@@ -2593,7 +2762,14 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   l'incrémente — appliqué à un code qui n'est pas le nôtre.* ✅ **La règle a
   été écrite dans la déclaration du bloc suivant et le compteur y est tombé
   juste : 24 / 15, prédits et mesurés.**
-  *Éprouvée 1/N.*
+
+  **Deuxième épreuve, 30/08 (séance 2), lot 8 — et elle se joue DANS L'AUTRE
+  SENS, ce qui est la seule façon de montrer que la règle n'est pas
+  « une fiche neuve vaut une entrée ».** `content/en/conduite/proj/` **existe
+  déjà et est suivi** : les cinq fiches EN neuves y comptent **5 entrées**, une
+  par fiche, prédites et mesurées. *La condition n'est pas la nouveauté du
+  fichier, c'est que le **répertoire entier** soit non suivi.*
+  *Éprouvée 2/N.*
 - **Une soustraction se fait sur l'état d'APRÈS la passe, y compris quand le
   compteur n'est pas celui qu'on vient d'éditer.**
   *Née le 30/08, lot 7, sur une réfutation d'un mot.* La passe C109 retire
@@ -2606,7 +2782,18 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   sur deux états de même date, et sur la même population » ; ce cas montre
   qu'il faut aussi **propager l'édition à TOUS les compteurs qui contiennent
   la fiche éditée**, et pas seulement à celui qu'on regardait en l'éditant.*
-  *Éprouvée 0/N.*
+
+  **Première épreuve, 30/08 (séance 2), lot 8, et elle précise la règle.** La
+  passe C109 ajoute **1 mot** à `matrice-eco-criteres`. Publié **avant** la
+  mesure : le `tot` d'**après** (5 489) va au corpus (**291 242**) et aux
+  traduites (**251 826**) ; le `tot` d'**avant** (5 488) se retranche du restant
+  (**39 416**), de l'anneau 2 (**37 148**) et de la dette. **Les cinq compteurs
+  tombent au mot.** ⚠ *Et le +1 ne s'est **pas** propagé au restant de l'anneau,
+  contrairement à ce que le lot 7 pourrait laisser croire : la fiche **sort** du
+  restant le soir même, donc son mot n'y entre jamais. **La règle n'est pas
+  « toujours propager », c'est « propager à tous les compteurs qui CONTIENNENT
+  la fiche APRÈS l'édition ».***
+  *Éprouvée 1/N.*
 - **Une ancre qui couvre N lignes identiques se prend EN BLOC, jamais ligne à
   ligne.**
   *Née le 30/08, garde mordue avant toute écriture.* Le correctif d'arbitrage
@@ -2635,7 +2822,14 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   est **modifié** par une commande figurant dans mon propre plan de bloc.*
   **Toute commande qui touche un fichier suivi entre dans la déclaration
   C131, y compris quand elle ne change qu'une ligne de front matter.**
-  *Éprouvée 0/N.*
+
+  **Première épreuve, 30/08 (séance 2), lot 8 — et elle passe inaperçue au
+  compteur, ce qui est le vrai enseignement.** Un `--recaler` a dû être lancé
+  sur `bom-en` (voir la candidate sur l'empreinte inventée) ; il n'a **créé
+  aucune entrée**, la fiche étant déjà `??`. ⚠ *Le compteur ne bouge pas, et
+  c'est **un coup de chance, pas une garde** : sur un fichier **suivi**, la
+  déclaration C131 du bloc aurait été fausse sans que rien ne le signale.*
+  *Éprouvée 1/N.*
 - **Une soustraction entre deux totaux se fait sur deux états de même date.**
   *Née le 29/08 (suite 9), cinq réfutations sur onze.* `RESTANT A TRADUIRE` et
   le restant de l'anneau 2 ont été prédits **faux de +14 tous les deux**, pour

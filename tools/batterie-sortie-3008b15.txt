@@ -1,0 +1,276 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-3008b14.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-30   heure : 07:50:24
+
+HEAD git : 542bb4f 2026-08-30 07:35:08 +0200
+fichiers modifies non commites : 4   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-30 01:14:40
+  conventions.md                                      2026-08-30 01:12:50
+  TODO.md                                             2026-08-29 21:48:08
+  conduite/proj/acv-simplifiee.md                     2026-08-23 20:53:32
+  conduite/proj/bom.md                                2026-06-12 22:41:27
+  conduite/proj/ecodesign.md                          2026-05-28 09:46:32
+  conduite/proj/fast.md                               2026-08-19 12:26:01
+  conduite/proj/matrice-eco-criteres.md               2026-08-23 20:53:53
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  conduite/proj/acv-simplifiee.md                             224
+  conduite/proj/bom.md                                       1734
+  conduite/proj/ecodesign.md                                  801
+  conduite/proj/fast.md                                      1789
+  conduite/proj/matrice-eco-criteres.md                       940
+  ---------------------------------------------------------------
+  LOT (5 fiches)                                             5488
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  conduite/proj/acv-simplifiee.md
+      18  [C109] tiret d incise
+          …roduit sur l'ensemble de sa vie — extraction des matières, fabrica…
+      18  [C109] tiret d incise
+          …fabrication, usage, fin de vie — conduite de façon allégée pour *…
+      22  [C109] tiret d incise
+          …airer un arbitrage et le tracer — pas pour produire une étude exha…
+      22  [C109] point-virgule de prose
+          …de cuivre) est porté en propre ; le reste (impact des matières pr…
+      24  [C109] point-virgule de prose
+          …cycle de vie et de matériaux** ; le wiki en retient l'usage comme…
+
+  conduite/proj/bom.md
+      22  [C109] point-virgule de prose
+          …ciplines restent des intentions ; une fois chiffrée et validée, el…
+      27  [C109] point-virgule de prose
+          …des commandes presque mécanique ; une BOM floue la transforme en s…
+      35  [C109] tiret d incise
+          …et tenir à jour. L'ordre compte — on ne chiffre pas avant d'avoir…
+      39  [C109] point-virgule de prose
+          …es pièces, matières et visserie ; l'électronique apporte composant…
+      39  [C109] point-virgule de prose
+          …, passifs, connectique et carte ; l'informatique ne consomme en gé…
+      48  [C109] tiret d incise
+          …tte contrainte est structurante — elle limite les références acces…
+      54  [C109] tiret d incise
+          …'additionne **au centime près** — c'est ce niveau de précision qui…
+      56  [C109] tiret d incise
+          …toujours un total approximatif — méfiance.
+      64  [C109] point-virgule de prose
+          …-tests|intégration]] la modifie ; toute version doit être datée po…
+      68  [C109] tiret d incise
+          Reprenons le projet fil rouge — un bras robotique pédagogique 3…
+      81  [C109] tiret d incise
+          …e** qui seront émis à l'étape 5 — un par partenaire.
+      83  [C109] tiret d incise
+          …e 3 % pour l'ancienne ligne PLA — coût environnemental réel du ret…
+      87  [C109] point-virgule de prose
+          …valeur nulle et fausse le total ; un total non chiffré au centime…
+      89  [C109] point-virgule de prose
+          …se fait sur le catalogue fermé ; le hors-catalogue est l'exceptio…
+      97  [C109] point-virgule de prose
+          …enaire. Un devis nourrit la BOM ; il ne la remplace pas.
+     103  [C109] tiret d incise
+          La méthode ne change pas — recenser, sourcer, chiffrer, con…
+     103  [C109] tiret d incise
+          …r, sourcer, chiffrer, contrôler — mais la BOM gagne à grouper les…
+     108  [C109] point-virgule de prose
+          …upée par fournisseur partenaire ; la BOM est la source unique des…
+     112  [C109] tiret d incise
+          …le se paie au prix fort en aval — recommander, payer une deuxième…
+
+  conduite/proj/ecodesign.md
+      16  [C109] tiret d incise
+          …marche de design** d'un produit — sa forme, ses usages, son expéri…
+      20  [C109] tiret d incise
+          …de vocabulaire pour soutenance — c'est savoir **quel levier on ac…
+      25  [C109] tiret d incise
+          …s, matériaux affichés « verts » — sans aucune réduction d'impact m…
+      31  [C109] tiret d incise
+          …es axes. Elle reste **poreuse** — les deux démarches se recouvrent…
+      31  [C109] tiret d incise
+          …rches se recouvrent en pratique — mais les centres de gravité sont…
+      42  [C109] point-virgule de prose
+          …(design, ergonomie, matériaux) ; le wiki en explique la logique e…
+      51  [C109] point-virgule de prose
+          …démonter le bras est *faisable* ; l'écodesign garantit que l'utili…
+      57  [C109] tiret d incise
+          …effective, c'est de l'habillage — la frontière exacte du greenwash…
+      65  [C109] tiret d incise
+          …tive Écoconception* en français — elle porte sur l'efficacité éner…
+      65  [C109] tiret d incise
+          …e ce wiki appelle écoconception — ne pas se laisser piéger par la…
+
+  conduite/proj/fast.md
+      29  [C109] tiret d incise
+          …tion mère, la chaîne est fausse — un maillon manque ou un niveau a…
+      29  [C109] point-virgule de prose
+          …ond au « comment » du précédent ; de droite à gauche, chaque maill…
+      34  [C109] tiret d incise
+          …ons. Les deux ne s'opposent pas — le FAST est l'outil de précision…
+      34  [C109] point-virgule de prose
+          …compose d'abord pour structurer ; on déroule ensuite un FAST par s…
+      42  [C109] tiret d incise
+          …iagramme, la fonction de départ — souvent une fonction technique d…
+      42  [C109] tiret d incise
+          …re »*). Une racine mal formulée — un nom au lieu d'un verbe, un co…
+      42  [C109] tiret d incise
+          …omposant au lieu d'une fonction — fausse toute la chaîne qui en dé…
+      52  [C109] tiret d incise
+          …sur rien, la chaîne est cassée — un niveau a été sauté ou une fon…
+      57  [C109] point-virgule de prose
+          …à haut niveau cale la structure ; les passes suivantes ajoutent le…
+      61  [C109] tiret d incise
+          …ue fonction technique terminale — la feuille la plus à droite de c…
+      61  [C109] tiret d incise
+          …plus à droite de chaque chaîne — devient le point d'entrée d'un c…
+      61  [C109] tiret d incise
+          …de, on **n'arbitre pas** encore — on identifie le champ des possib…
+      71  [C109] tiret d incise
+          …se lit juste dans les deux sens — elle est valide.
+      75  [C109] tiret d incise
+          …décisions techniques traçables — sept solutions candidates en lic…
+      75  [C109] tiret d incise
+          …pt solutions candidates en lice — sans en trancher aucune.
+      81  [C109] tiret d incise
+          …onnelle n'est pas une formalité — c'est le contrôle qualité du dia…
+      85  [C109] point-virgule de prose
+          …e le système rend à l'extérieur ; une fonction technique dit comme…
+      93  [C109] tiret d incise
+          …ions critiques ou incertaines** — celles dont la réalisation condi…
+     103  [C109] tiret d incise
+          …plet et bien rattaché au besoin — aucune fonction technique orphel…
+
+  conduite/proj/matrice-eco-criteres.md
+      30  [C109] tiret d incise
+          …as un second tableau concurrent — c'est le **bloc des cinq critère…
+      30  [C109] point-virgule de prose
+          …vit dans son coin ne pèse rien ; les mêmes lignes intégrées à la…
+      61  [C109] tiret d incise
+          …consommation à l'arrêt réduite — sous réserve d'une transmission…
+      61  [C109] tiret d incise
+          …eption|la trame écoconception]] — et masse plus faible. Les steppe…
+      61  [C109] tiret d incise
+          …matrice de décision complète** — où la précision de positionnemen…
+      61  [C109] tiret d incise
+          …licité de commande pèsent lourd — ce sont les steppers qui ont été…
+      61  [C109] point-virgule de prose
+          …solé aurait orienté vers les CC ; intégré, il a fait partie d'un a…
+      65  [C109] tiret d incise
+          …ix. La règle est l'enchâssement — les lignes éco vivent *dans* la…
+      67  [C109] tiret d incise
+          …es autres critères structurants — quitte à le forcer dans le haut…
+      69  [C109] point-virgule de prose
+          …grandeurs élec/info mesurables ; le reste se cite et se délègue.
+
+5 fiche(s) lue(s), 5 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 63   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 11   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 117
+    RESTANT                   : 28
+
+  conduite/proj/acv-simplifiee                            224
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/bom                                      1734
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/ecodesign                                 801
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fast                                     1789
+  conduite/proj/fonction                                  384
+  conduite/proj/matrice-eco-criteres                      940
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (28 fiches)                     42636
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 0
+    clotures en chevron       : 0   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 211
+  cibles rouges distinctes     : 31
+  mots                         : 44904
+  dont HORS anneaux 0..2       : 2
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/xiao/xiao-prise-en-main
+    embarque/mcu/xiao/xiao-sense
+--- code de sortie : 0

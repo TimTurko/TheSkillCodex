@@ -17,18 +17,18 @@ L'**écodesign** (ou *éco-design*) est l'approche qui intègre l'enjeu environn
 
 ## À quoi ça sert ?
 
-Différencier les deux n'est pas un exercice de vocabulaire pour soutenance — c'est savoir **quel levier on actionne** quand on cherche à rendre un produit plus responsable. Les confondre conduit à croire qu'on a couvert l'enjeu environnemental alors qu'on n'en a traité qu'une moitié.
+Différencier les deux n'est pas un exercice de vocabulaire pour soutenance. C'est savoir **quel levier on actionne** quand on cherche à rendre un produit plus responsable. Les confondre conduit à croire qu'on a couvert l'enjeu environnemental alors qu'on n'en a traité qu'une moitié.
 
 Le point clé est leur **complémentarité** :
 
-- Une [[ecoconception|écoconception]] sans écodesign produit un système techniquement sobre mais que personne n'a envie de garder, de réparer ou de démonter — la réparabilité existe sur le papier, mais l'usage ne la mobilise jamais. L'impact réel n'est pas réduit.
+- Une [[ecoconception|écoconception]] sans écodesign produit un système techniquement sobre mais que personne n'a envie de garder, de réparer ou de démonter. La réparabilité existe sur le papier, mais l'usage ne la mobilise jamais. L'impact réel n'est pas réduit.
 - Un écodesign sans écoconception produit un objet *qui a l'air* responsable — formes douces, matériaux affichés « verts » — sans aucune réduction d'impact mesurée. C'est la porte ouverte au **greenwashing**.
 
 Un produit réellement responsable mobilise les deux : la rigueur d'ingénierie qui chiffre et réduit, et le design d'usage qui fait que cette réduction est effectivement vécue par l'utilisateur.
 
 ## Comment les différencier ?
 
-La distinction se lit sur quelques axes. Elle reste **poreuse** — les deux démarches se recouvrent en pratique — mais les centres de gravité sont nets.
+La distinction se lit sur quelques axes. Elle reste **poreuse** (les deux démarches se recouvrent en pratique), mais les centres de gravité sont nets.
 
 | Axe | Écoconception | Écodesign |
 | --- | --- | --- |
@@ -39,22 +39,22 @@ La distinction se lit sur quelques axes. Elle reste **poreuse** — les deux dé
 | **Livrables** | matrices, ACV, annexe d'arbitrages | concepts, maquettes, scénarios d'usage |
 | **Dans ce wiki** | trame [[ecoconception\|écoconception]] (portée en propre) | déléguée en partie aux cours de design |
 
-En projet [[mecatronique|mécatronique]] élec et info embarquée, l'**écoconception est le terrain porté en propre** : c'est elle que la trame dédiée détaille (sobriété énergétique, durée de vie composants, démontabilité [[pcb|PCB]], sobriété logicielle). L'**écodesign penche vers les disciplines voisines** (design, ergonomie, matériaux) ; le wiki en explique la logique et l'articulation, mais en délègue la pratique aux cours concernés.
+En projet [[mecatronique|mécatronique]] élec et info embarquée, l'**écoconception est le terrain porté en propre** : c'est elle que la trame dédiée détaille (sobriété énergétique, durée de vie composants, démontabilité [[pcb|PCB]], sobriété logicielle). L'**écodesign penche vers les disciplines voisines** (design, ergonomie, matériaux). Le wiki en explique la logique et l'articulation, mais en délègue la pratique aux cours concernés.
 
 ## Exemple — Bras 3 axes pédagogique
 
 Le même objet, regardé par les deux lentilles, sur un point commun : la **démontabilité**.
 
-- **Par l'écoconception** (ingénierie) : connectique JST plutôt que soudures directes, carte modulaire, visserie standard — la démontabilité est *techniquement possible et chiffrable* (temps de démontage, nombre d'outils, taux de pièces récupérables).
-- **Par l'écodesign** (design d'usage) : un carter dont la forme **invite** à l'ouverture, une signalétique de tri sérigraphiée sur les pièces, une préhension qui évite la casse au démontage — la démontabilité est *effectivement utilisée* parce que l'objet la rend évidente et désirable.
+- **Par l'écoconception** (ingénierie) : connectique JST plutôt que soudures directes, carte modulaire, visserie standard. La démontabilité est *techniquement possible et chiffrable* (temps de démontage, nombre d'outils, taux de pièces récupérables).
+- **Par l'écodesign** (design d'usage) : un carter dont la forme **invite** à l'ouverture, une signalétique de tri sérigraphiée sur les pièces, une préhension qui évite la casse au démontage. La démontabilité est *effectivement utilisée* parce que l'objet la rend évidente et désirable.
 
-Les deux servent le même but. L'écoconception garantit que démonter le bras est *faisable* ; l'écodesign garantit que l'utilisateur *le fera* plutôt que de jeter l'ensemble. Une réparabilité technique que le design rend dissuasive (vis cachées, forme close) est une réparabilité morte.
+Les deux servent le même but. L'écoconception garantit que démonter le bras est *faisable*. L'écodesign garantit que l'utilisateur *le fera* plutôt que de jeter l'ensemble. Une réparabilité technique que le design rend dissuasive (vis cachées, forme close) est une réparabilité morte.
 
 ## Pièges
 
 **Croire que les deux s'opposent.** Ce ne sont pas deux écoles rivales mais deux leviers complémentaires. Le projet responsable les mobilise ensemble, chacun couvrant l'angle mort de l'autre.
 
-**Réduire l'écodesign à « faire vert ou joli ».** Un objet aux formes organiques et aux couleurs naturelles n'est pas écodesigné s'il ne réduit aucun impact réel. Sans ancrage dans l'usage et la durabilité effective, c'est de l'habillage — la frontière exacte du greenwashing.
+**Réduire l'écodesign à « faire vert ou joli ».** Un objet aux formes organiques et aux couleurs naturelles n'est pas écodesigné s'il ne réduit aucun impact réel. Sans ancrage dans l'usage et la durabilité effective, c'est de l'habillage, la frontière exacte du greenwashing.
 
 **Croire que l'écoconception technique suffit.** Un système optimisé en consommation et en réparabilité mais dont l'usage réel n'a pas été pensé (personne ne sait qu'il est réparable, ou ne veut le garder) rate son objectif environnemental. La sobriété technique ne se transforme en impact réduit que si l'usage suit.
 
@@ -62,7 +62,7 @@ Les deux servent le même but. L'écoconception garantit que démonter le bras e
 
 ## Cas particulier — le faux ami anglais
 
-Attention en lisant des sources anglophones : en anglais, **ecodesign traduit l'écoconception**, pas l'écodesign au sens français. La **directive européenne *Ecodesign*** est officiellement la *directive Écoconception* en français — elle porte sur l'efficacité énergétique et l'impact cycle de vie des produits, pur registre d'ingénierie. Le terme français *écodesign*, lui, garde sa connotation **design-discipline**. Un texte anglo-saxon qui parle d'*ecodesign* parle donc presque toujours de ce que ce wiki appelle écoconception — ne pas se laisser piéger par la ressemblance.
+Attention en lisant des sources anglophones : en anglais, **ecodesign traduit l'écoconception**, pas l'écodesign au sens français. La **directive européenne *Ecodesign*** est officiellement la *directive Écoconception* en français. Elle porte sur l'efficacité énergétique et l'impact cycle de vie des produits, pur registre d'ingénierie. Le terme français *écodesign*, lui, garde sa connotation **design-discipline**. Un texte anglo-saxon qui parle d'*ecodesign* parle donc presque toujours de ce que ce wiki appelle écoconception. Ne pas se laisser piéger par la ressemblance.
 
 ## Voir aussi
 

@@ -1,0 +1,17 @@
+# Titres EN du lot 8 (conduite/proj), seance 2 du 30/08.
+# C125 : ni le test 1 (libelle de desambiguisation), ni le test 2 (jumelle de
+# famille), ni le test 3 (contextes) ne decident. Ce sont les LIBELLES QUE LE
+# CORPUS ANGLAIS ECRIT DEJA vers ces cinq cibles, mesures au bloc 56 :
+#   acv-simplifiee-en        : simplified LCA 6, Simplified LCA 2, LCA 4
+#   bom-en                   : BOM 3, BOM (bill of materials) 1
+#   ecodesign-en             : ecodesign 2, Ecodesign 2 (accentues, en francais)
+#   fast-en                  : FAST 10
+#   matrice-eco-criteres-en  : eco-criteria matrix 4, Eco-criteria matrix 3
+# Deux lignes ne changent rien (Ecodesign, FAST) et figurent quand meme :
+# une ancre qui vaut son remplacement prouve que le titre a ete RELU.
+# chemin<TAB>ancien titre<TAB>nouveau titre
+en/conduite/proj/acv-simplifiee-en.md	ACV simplifiée	Simplified LCA
+en/conduite/proj/bom-en.md	BOM (nomenclature)	BOM (bill of materials)
+en/conduite/proj/ecodesign-en.md	Écodesign	Écodesign
+en/conduite/proj/fast-en.md	FAST	FAST
+en/conduite/proj/matrice-eco-criteres-en.md	Matrice éco-critères	Eco-criteria matrix
