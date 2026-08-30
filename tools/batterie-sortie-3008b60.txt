@@ -1,0 +1,107 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-3008b59.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-30   heure : 19:36:54
+
+HEAD git : 5625b4a 2026-08-30 19:23:03 +0200
+fichiers modifies non commites : 3   (hors artefacts de seance : 0)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-30 19:19:32
+  conventions.md                                      2026-08-30 19:16:57
+  TODO.md                                             2026-08-29 21:48:08
+  embarque/pcb/easyeda.md                             2026-08-22 11:32:49
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  embarque/pcb/easyeda.md                                    9773
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  embarque/pcb/easyeda.md
+      46  [C109] tiret d incise
+          …est écrit pour la *Std Edition* — celle de la colonne encadrée en…
+
+1 fiche(s) lue(s), 1 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 1   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 7   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 144
+    RESTANT                   : 1
+
+  embarque/pcb/easyeda                                   9773
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (1 fiches)                       9773
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 0
+    clotures en chevron       : 0   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 238
+  cibles rouges distinctes     : 4
+  mots                         : 12041
+  dont HORS anneaux 0..2       : 2
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/xiao/xiao-prise-en-main
+    embarque/mcu/xiao/xiao-sense
+--- code de sortie : 0

@@ -1,0 +1,13 @@
+=== CONTROLE DE STYLE ===
+
+  embarque/pcb/easyeda.md
+      46  [C109] tiret d incise
+          …est écrit pour la *Std Edition* — celle de la colonne encadrée en…
+
+1 fiche(s) lue(s), 1 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 1   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 7   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)

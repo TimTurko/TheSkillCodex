@@ -15844,3 +15844,1843 @@ juste laissait ouvert.
 C109 **1,20 pour 100 mots à 14 % de dispersion**, foisonnement **+2,1 % à
 +2,6 %**. *Le lot 13 les éprouvera sur `easyeda`, seule et dernière de
 l'anneau 2.*
+
+---
+
+# SÉANCE 9 DU 30/08 — LOT 13 DU CHANTIER DE TRADUCTION
+
+**Surface** : PC perso, onglet Code. **Modèle** : Opus 5. **Régime** :
+exécution directe, sous-règle C116 amendée, C131 et son amendement, règles
+d'usage du 29/08 (suites 9 à 11) et du 30/08 (huit séances). **Quatorzième lot
+en exécution directe**, **treizième séance sous C131**. Blocs numérotés à partir
+de **119**, la séance 8 s'étant arrêtée au bloc 118.
+
+**Brief de référence** : ligne « Prochaine session » de l'entrée du **30/08
+(suite 8)** du JOURNAL, ligne 48 du fichier.
+
+**Recoupement prompt de lancement / brief, avant toute exécution — CONFORME sur
+sept termes, UN ÉCART à remonter.**
+
+Conformes : (1) composition du lot — `embarque/pcb/easyeda` **seule, 9 773 mots,
+1 fiche, sans découpe intra-fiche** ; (2) **dernier lot de l'anneau 2** ;
+(3) restant du corpus après le lot — **3 fiches, 2 268 mots**, `kicad`,
+`xiao-prise-en-main`, `xiao-sense`, **toutes hors anneau 2** ⚠ *revérifié ici et
+non repris : le brief publie **4 fiches, 12 041 mots** restant AVANT ce lot, et
+12 041 − 9 773 = **2 268**, 4 − 1 = **3*** ; (4) `ded` nul, `tot` = `deh`, **C127
+hors sujet pour le huitième lot d'affilée**, `mesure-chevron --tout` confirmant
+**34 paires, 0 divergente** ; (5) **neuf relevés avant rédaction** et leurs six
+familles de références datées du 30/08 (suite 8) — formes de production EN
+**230 / 162 / 160 / 105 / 39 / 31**, `## Step by step` **78**,
+`## Getting started` **2** ; callouts `Watch out` **49**, `Tip` **46**,
+`Solution` **36**, `Good` / `Fair` / `Poor` **3** chacun ; titres-doublons FR
+**243/243/0**, EN **238/238/0** ; `--libelles` **4 269 / 4 255 / 14 / 146 / 16** ;
+puces motif A **FR 941 / 167 / 248**, **EN 900 / 156 / 238**, *à relever AU
+CADRAGE avec `node tools/puces-tiret.mjs --corpus`* ; (6) `easyeda` est une
+**fiche d'OUTIL** — taux C109 attendu **1,2 pour 100 mots à 15 % près**,
+foisonnement attendu **+2 % à +3 %**, *deux références neuves à deux points de
+mesure, que ce lot éprouve* ; (7) les cinq points d'attention, tous présents au
+registre.
+
+⚠ **ÉCART, ET IL PORTE SUR UN ARBITRAGE.** Le brief se termine par : *« `easyeda`
+cite une interface, comme `falstad` : l'arbitrage de glose doit être rendu
+**avant** sa rédaction, faute de quoi il sera repris par défaut. »* **Le prompt
+de lancement ne sollicite pas cet arbitrage** ; il pose à la place, en point
+d'attention, la règle d'usage *« une glose ajoutée par la traduction se sépare
+par `, that is`, jamais par un cadratin »*, **qui présuppose que la glose est
+conservée**. *Le prompt rend donc l'arbitrage par la reprise par défaut, ce que
+le brief annonçait comme l'issue à défaut de décision.*
+
+**Assomption écrite avant exécution, avec son coût de revert (C116 (8))** : les
+libellés d'interface français cités par `easyeda` **seront glosés en anglais**,
+sur le patron de `tinkercad-en`, **séparateur `, that is`**. ⚠ **Coût du revert,
+chiffré sur le précédent mesuré du lot 12** : une passe `--corps` sur une fiche,
+et le retrait des gloses ferait **retomber le foisonnement d'environ 1,9 point**
+et **retirerait les C109 créées par la glose** — `falstad-en` sort à **+5,6 %**
+avec glose contre **+2,6 %** et **+2,1 %** sans, et la glose y a créé **une**
+C109. *Le prix est donc connu d'avance, ce qui n'était pas le cas au lot 12.*
+
+⚠ **Conséquence de prédiction, et elle est écrite maintenant** : la référence de
+foisonnement du brief — **+2 % à +3 %** — est celle des fiches d'outil **SANS
+glose**. Si `easyeda` porte beaucoup de libellés d'interface, la fourchette doit
+s'élargir **vers le haut seulement** (règle du 30/08, séance 5 : les bornes
+s'élargissent du côté où la composition s'écarte de la référence, jamais
+symétriquement par prudence). **Le nombre de libellés d'interface se comptera à
+la lecture de la source, au cadrage, et la fourchette se posera après.**
+
+---
+
+## ⚠ INCIDENT D'OUVERTURE — QUATRIÈME RÉCIDIVE : HEAD ET LE STATUT SONT DANS MON CONTEXTE AVANT LA GARDE
+
+Le harnais publie, dans le contexte d'ouverture de session et **avant tout
+lancement de ma part**, un instantané `gitStatus` portant `Current branch: main`,
+`Status: (clean)` et les cinq derniers commits, **dont `5625b4a` en tête**.
+
+**Conséquence sur le décompte, et elle se déclare comme aux séances 1, 2 et 3** :
+**P119.5 (HEAD) et P119.6 (compteur `git status`) ne sont PAS des prédictions
+aveugles** — leur terme de base m'est donné. Elles restent publiées, parce
+qu'elles gardent encore quelque chose : P119.5 garde l'**horodatage** du commit,
+que l'instantané ne porte pas, et P119.6 garde le **raisonnement C131** sur les
+deux versements de ce bloc, que l'instantané « clean » ne donne pas. *Elles sont
+comptées au bilan, mais avec cette mention.*
+
+---
+
+## BLOC 119 — GARDE DE PÉREMPTION D'OUVERTURE
+
+**Commande** :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde -Fiches embarque/pcb/easyeda.md -FichesEn en/embarque/pcb/easyeda-en.md`
+
+### Déclaration C131 du bloc 119
+
+**Compteur prédit** : `fichiers modifies non commites` de l'étape 1, et son
+sous-compteur `hors artefacts de seance`.
+
+**Population** : les entrées de `git status --porcelain` sur le dépôt entier —
+des **entrées**, pas des fichiers (règle du 30/08, lot 7 : un répertoire
+entièrement non suivi vaut une entrée). Le sous-compteur retire les entrées dont
+la ligne porte `batterie-sortie` ou `predictions-`, **filtre lu ligne 168 de
+`tools/batterie.ps1`** et non dans son README.
+
+**État d'avant la séance** : dépôt **propre** au commit **`5625b4a`** de Tim
+(« lot 12 : embarque/simulation/ ferme, 3 fiches EN, 66 remplacements C109,
+outil puces-tiret »).
+
+**Versements de la séance dans cette population, avant que le compteur ne soit
+lu** — deux, et ils se nomment :
+
+1. `tools/predictions-260830.md`, **suivi par git** et modifié par l'append de
+   cet en-tête, de cette déclaration et des prédictions ci-dessous → **1 entrée
+   ` M`**, écartée du sous-compteur par le motif `predictions-`.
+2. `tools/batterie-sortie-3008b58.txt`, **créé par l'étape 0 du lancement
+   lui-même** (copie C124 de `tools/batterie-sortie.txt`, rang déduit du
+   balayage `while (Test-Path …)` des lignes 146-149 : les rangs `b1` à `b57`
+   existent sur disque et sont commités, donc le premier rang libre est `b58`)
+   → **1 entrée `??`**, écartée du sous-compteur par le motif `batterie-sortie`.
+   ⚠ *Ce versement est porté d'office par le correctif de règle de la clôture du
+   lot 12 : toute déclaration C131 d'un bloc qui LANCE la batterie verse la
+   copie C124 du rang suivant, sans avoir à y penser.*
+
+**Total impliqué : 2 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 119
+
+- **P119.1** — étape 0, autocontrôle ASCII : `lignes non ASCII dans batterie.ps1 : 0`.
+- **P119.2** — étape 0, copie C124 : `sortie precedente copiee : tools\batterie-sortie-3008b58.txt`.
+- **P119.3** — étape 1, phase : `phase demandee : garde   anneau : 2   chevron : False`.
+- **P119.4** — étape 1, horloge : `date ISO : 2026-08-30`, heure comprise dans
+  l'intervalle ouvert **]19:20:03, 23:59:59]**. ⚠ *La borne basse est un
+  **événement daté du dépôt** — le relevé de garde du bloc 118, dernier
+  horodatage écrit par le dépôt avant cette séance — et non l'instant supposé du
+  lancement (règle née de P89.8, étendue par P107.8).*
+- **P119.5** — étape 1, HEAD : hash **`5625b4a`** au caractère ; date
+  **`2026-08-30`** ; heure dans l'intervalle ouvert **]19:20:03, 23:59:59]** ;
+  fuseau **`+0200`**. ⚠ *Le hash m'est donné par l'instantané du harnais
+  (incident ci-dessus) ; **l'horodatage ne l'est pas**, et c'est lui que cette
+  prédiction garde.*
+- **P119.6** — étape 1, compteur, par la déclaration C131 ci-dessus :
+  `fichiers modifies non commites : 2   (hors artefacts de seance : 0)`.
+- **P119.7** — étape 1, node : `node : v24.15.0`.
+- **P119.8** — étape 1, dates d'écriture des trois fichiers de pilotage, **et
+  cette fois les deux premières sont des INTERVALLES OUVERTS bornés par deux
+  événements datés du dépôt**, en application directe de la règle née de P107.8 :
+  - `JOURNAL.md` — **`2026-08-30`**, heure dans **]19:20:03, heure du commit
+    `5625b4a`[** ;
+  - `conventions.md` — **`2026-08-30`**, heure dans **]19:20:03, heure du commit
+    `5625b4a`[** ;
+  - `TODO.md` — **égalité au caractère, `2026-08-29 21:48:08`**. ⚠ *L'égalité est
+    ici légitime et non un intervalle mal posé : elle est bornée par l'**absence
+    d'événement d'écriture**, la clôture § 7 du lot 12 ayant publié `TODO.md
+    282,7 Kio inchangé`. C'est le terme qui a tenu au bloc 107 quand les deux
+    autres tombaient.*
+
+  ⚠ **Ordre attendu entre les deux premières** : `conventions.md` **avant**
+  `JOURNAL.md`, la clôture § 7 écrivant les conventions puis le journal — ordre
+  observé aux blocs 107 (18:24:49 puis 18:27:42) et 118 (19:16:57 puis 19:19:32).
+- **P119.9** — étape 1, dates d'écriture du périmètre du lot :
+  - `embarque/pcb/easyeda.md` — date **antérieure au `2026-08-30 00:00:00`**, et
+    postérieure ou égale au **`2026-08-22`**. *Fondement : la fiche a été rédigée
+    le 22/08 et aucun des lots 7 à 12 n'a touché `embarque/pcb/` ; aucune passe
+    C109 ne l'a atteinte, le chantier travaillant lot par lot.*
+  - `en/embarque/pcb/easyeda-en.md` — **`ABSENTE`**, au mot exact que le script
+    imprime (ligne 187 de `tools/batterie.ps1`). *La fiche EN n'existe pas : elle
+    est la dernière restante de l'anneau 2.*
+- **P119.10** — les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter** : tout fichier de `content/` en `git status`, toute
+date d'écriture postérieure à l'horloge du bloc, un HEAD différent de `5625b4a`,
+ou une `easyeda-en.md` déjà présente, valent **ARRÊT** et remontée à Tim sans
+rien écrire.
+
+### Constats du bloc 119 — garde AU VERT, 9 prédictions tenues, 1 réfutée
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b58.txt`.
+
+- **P119.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P119.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b58.txt` — rang prédit au caractère.
+- **P119.3 ✅** `phase demandee : garde   anneau : 2   chevron : False`.
+- **P119.4 ✅** `date ISO : 2026-08-30   heure : 19:28:17`, dans **]19:20:03, 23:59:59]**.
+- **P119.5 ✅ sur ses quatre termes.** `HEAD git : 5625b4a 2026-08-30 19:23:03 +0200` —
+  hash au caractère, date, fuseau, et **l'horodatage 19:23:03 tombe dans
+  l'intervalle ouvert prédit** ]19:20:03, 23:59:59]. *C'est le seul terme de cette
+  prédiction que l'instantané du harnais ne portait pas.*
+- **P119.6 ✅** `fichiers modifies non commites : 2   (hors artefacts de seance : 0)` —
+  **les deux termes de la déclaration C131, au chiffre**, et la liste nominative
+  est complète : `tools/predictions-260830.md` ` M` et
+  `tools/batterie-sortie-3008b58.txt` `??`.
+- **P119.7 ✅** `node : v24.15.0`.
+- **P119.8 ❌ sur deux termes de trois, ET LA CAUSE EST NEUVE — J'AI BORNÉ SUR
+  L'HORLOGE DE LA GARDE PRÉCÉDENTE AU LIEU DE BORNER SUR LES DATES QU'ELLE
+  LISAIT.**
+  Mesuré : `JOURNAL.md 2026-08-30 **19:19:32**`, `conventions.md 2026-08-30
+  **19:16:57**` — soit **exactement les deux dates que la garde du bloc 118
+  avait déjà relevées**, à la seconde. `TODO.md 2026-08-29 21:48:08` ✅ **égalité
+  au caractère**, troisième bloc d'affilée où ce terme tient.
+  ⚠ **Les deux dates sont ANTÉRIEURES à ma borne basse `19:20:03`** : l'intervalle
+  ouvert prédit les excluait, et il les excluait *par construction*.
+
+  **Cause, et elle réfute une candidate du §8 née il y a moins d'une heure.** La
+  candidate du lot 12 disait : *« une égalité est un intervalle de largeur nulle,
+  **et la dernière garde d'une séance n'est jamais sa dernière écriture** »*. **Le
+  second membre est faux, et il tombe à sa première épreuve** : au lot 12, la
+  clôture § 7 a écrit `conventions.md` à **19:16:57** puis `JOURNAL.md` à
+  **19:19:32**, **puis** le bloc 118 a lancé sa garde à **19:20:03**. *L'ordre du
+  lot 11 — garde 18:24:18, puis écritures 18:24:49 et 18:27:42 — n'est pas une
+  loi de la clôture : c'est l'ordre d'une clôture particulière.*
+
+  ✅ **Ce qui restait vrai et que j'ai mal appliqué** : borner sur un **événement
+  daté du dépôt**. J'ai pris pour borne basse **l'horloge de la garde du bloc
+  118** (19:20:03) alors que la garde du bloc 118 publiait, dans la même sortie,
+  **les dates des deux fichiers eux-mêmes** (19:19:32 et 19:16:57). *Ce sont deux
+  événements datés distincts, et un seul des deux parle des fichiers prédits.*
+  **La bonne prédiction était `[19:19:32, 19:23:03[` pour `JOURNAL.md` et
+  `[19:16:57, 19:23:03[` pour `conventions.md`, bornes basses FERMÉES** — et les
+  deux mesures tombent exactement sur la borne basse.
+  ⚠ **L'ordre prédit entre les deux, lui, tient** : `conventions.md` (19:16:57)
+  **avant** `JOURNAL.md` (19:19:32).
+
+  **Règle d'usage qui en sort, et elle est plus étroite que celle qu'elle
+  remplace** : *la borne d'une date de fichier se pose sur le **dernier relevé de
+  cette date-là**, jamais sur l'horloge du bloc qui l'a relevée — et elle est
+  **fermée**, parce que « pas réécrit depuis » est le cas normal.*
+- **P119.9 ✅ sur ses deux termes.**
+  `embarque/pcb/easyeda.md   2026-08-22 11:32:49` — dans
+  **[2026-08-22, 2026-08-30 00:00:00[** prédit ; *le fondement était juste au
+  jour près : la fiche n'a pas été touchée depuis sa rédaction du 22/08, et
+  aucune des douze séances du chantier de traduction ne l'a effleurée.*
+  `en/embarque/pcb/easyeda-en.md   ABSENTE` — au mot exact.
+- **P119.10 ✅** les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter : il ne mord pas.** Aucun fichier de `content/` en
+`git status` (2 entrées, toutes deux artefacts de séance nommés), aucune date
+d'écriture postérieure à l'horloge du bloc **19:28:17**, HEAD conforme à
+`5625b4a`, et `easyeda-en.md` bien absente.
+**Garde au vert, la séance peut écrire.**
+
+---
+
+## BLOC 120 — CADRAGE DU LOT 13 (garde + volume + candidats C109 + anneau)
+
+**Commande** :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/pcb/easyeda.md`
+
+⚠ **CE QUI FONDE LES PRÉDICTIONS C109 DE CE BLOC, ET IL FAUT LE DIRE AVANT LES
+CHIFFRES : LA SOURCE A ÉTÉ LUE EN ENTIER — 519 lignes, quatre lectures
+contiguës — et le motif de `--style` a été lu DANS LE CODE**, `exemptions()`
+lignes 1044-1068 et les familles C109 lignes 1138-1163 de
+`tools/creer-fiche-en.mjs`, plus `masquerHorsProse()` ligne 1018 et
+`EMBED_ALT` ligne 345. *Règle du 29/08 : une phrase de README décrit une
+intention, seul le code décrit un comportement.*
+
+⚠⚠ **ET CE BLOC OPPOSE DEUX FONDEMENTS QUI NE PEUVENT PAS AVOIR RAISON
+ENSEMBLE. C'est le fait dominant du cadrage.**
+
+- **Fondement A — la référence du brief**, née au lot 12 sur le registre
+  « fiche d'outil » : **1,2 candidat C109 pour 100 mots, à 15 % près**. Sur
+  9 773 mots, elle donne **≈ 117 candidats**, fourchette **[100, 135]**.
+- **Fondement B — le comptage à la main sur la source lue en entier**, occurrence
+  par occurrence, chacune située : **1 candidat C109**.
+
+**Je prédis B, et le motif de ce choix est écrit au registre du lot 12** :
+*« le taux est le **produit** de la mesure, pas son fondement »*, et la
+prédiction exacte à l'unité du lot 12 est sortie *« par comptage à la main sur
+les trois sources lues en entier et sur le code du motif, pas par ce taux »*.
+Un taux à **trois points de mesure** ne l'emporte pas sur un dénombrement
+nominatif.
+
+⚠ **Ce que l'écart coûte s'il joue contre moi** : un facteur **100**. Si la
+mesure sort près de 117, ce n'est pas une fourchette ratée, c'est **la règle du
+30/08 (séance 8) qui mord à une échelle qu'elle n'avait jamais eue** — *un
+relevé fait à la lecture rate les répétitions* — et il faudra le dire ainsi.
+Si elle sort à 1, **la référence de registre du lot 12 est réfutée à sa première
+épreuve**, et sa cause sera à écrire : `easyeda` est une fiche d'outil **à alt
+massifs**, où le tiret et le point-virgule vivent dans le **texte alternatif**,
+que le motif classe **hors périmètre** et que `compter-mots` compte quand même.
+
+### Déclaration C131 du bloc 120
+
+**Compteur prédit** : `fichiers modifies non commites` de l'étape 1, et son
+sous-compteur `hors artefacts de seance`. **Population** : identique au bloc 119,
+entrées de `git status --porcelain`, filtre lu ligne 168 du script.
+
+**Versements de la séance dans cette population, à l'instant où le compteur est
+lu — TROIS, nommés un par un** :
+1. `tools/predictions-260830.md` — ` M`, déjà versé au bloc 119, **toujours
+   présent**, écarté du sous-compteur par `predictions-`.
+2. `tools/batterie-sortie-3008b58.txt` — `??`, créé par le bloc 119, **toujours
+   présent** (rien ne le commite : C121, Tim seul commite).
+3. `tools/batterie-sortie-3008b59.txt` — `??`, **créé par l'étape 0 de CE
+   lancement**, versement d'office de toute déclaration d'un bloc qui lance la
+   batterie ; premier rang libre `b59`, `b58` étant désormais sur disque.
+
+**Aucun autre fichier n'est écrit par ce bloc** : les quatre étapes de la phase
+`cadrage` sont en lecture seule, `compter-mots --lot`, `--style` et `--anneau`
+n'écrivant que sur stdout. *La phrase qui résume la liste se relit contre les
+prédictions ci-dessous, règle du 30/08 (séance 5) : aucune P120.x ne nomme un
+relevé que la batterie ne porte pas.*
+
+**Total impliqué : 3 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 120
+
+**Étape 0 et 1 — garde répétée (C116 (5), et la règle du 30/08 séance 4 : un
+bloc qui ne fait que lire passe quand même la garde).**
+
+- **P120.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P120.2** — `sortie precedente copiee : tools\batterie-sortie-3008b59.txt`.
+- **P120.3** — `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P120.4** — `date ISO : 2026-08-30`, heure **> 19:28:17** (horloge du bloc 119,
+  événement daté du dépôt) et **≤ 23:59:59**.
+- **P120.5** — `HEAD git : 5625b4a 2026-08-30 19:23:03 +0200`, **au caractère**,
+  cette fois entièrement mesuré au bloc 119.
+- **P120.6** — `fichiers modifies non commites : 3   (hors artefacts de seance : 0)`.
+- **P120.7** — `node : v24.15.0`.
+- **P120.8** — dates d'écriture, **les quatre au caractère**, et les quatre sont
+  désormais des **égalités fondées sur un relevé du jour** et non sur une
+  supposition : `JOURNAL.md 2026-08-30 19:19:32`, `conventions.md 2026-08-30
+  19:16:57`, `TODO.md 2026-08-29 21:48:08`, `embarque/pcb/easyeda.md 2026-08-22
+  11:32:49`.
+
+**Étape 2 — volume du lot (`compter-mots --lot`).**
+
+- **P120.9** — la ligne de lot rend **`tot` = 9 773**, au mot, reprise du brief
+  et **revérifiée par cette mesure** — c'est le terme qui autorise à parler de
+  9 773 dans la suite de la séance (C118).
+- **P120.10** — `ded` = **0** et donc `deh` = `tot` = **9 773**. *`easyeda` ne
+  porte **aucun bloc de code clôturé** : la source lue en entier n'en contient
+  pas un seul, ni ``` ni ~~~. C127 est hors sujet pour le **huitième lot
+  d'affilée**, et c'est la première fois que la raison en est publiée avant la
+  mesure — non pas « le lot n'a pas de porteuse » mais **« la fiche n'a pas une
+  seule ligne de code »**, pour un tutoriel de 9 773 mots.*
+
+**Étape 3 — candidats C109 de la source FR (`--style`), DÉCOMPOSÉE OCCURRENCE
+PAR OCCURRENCE.**
+
+- **P120.11** — famille **`C109` `tiret d incise`** : **1**, et c'est
+  nominativement le tiret du callout `[!warning]` de la section
+  *Installer et se mettre en mode hors ligne* —
+  `Tout ce tutoriel est écrit pour la *Std Edition* — celle de la colonne
+  encadrée en rouge sur l'image.`
+- **P120.12** — famille **`C109` `point-virgule de prose`** : **0**.
+  *Les seuls `;` hors alt de la fiche sont **trois points-virgules de fin
+  d'item** — deux dans la liste des classes de la section 2 (`…fiable et
+  complet ;`, `…livrés avec le logiciel ;`) et un dans la liste des familles de
+  DRC de la section 19 (`…pas en desserrant la règle ;`) —, tous les trois
+  **exemptés** par `exemptions()` via `/;\s*$/`.*
+- **P120.13** — **total `C109` : 1**, soit un taux de **0,010 pour 100 mots**.
+- **P120.14** — famille **`hors-perimetre` `point-virgule en alt d image`** :
+  **6**, décomposés par image, et c'est le seau que la règle du 30/08 (séance 8)
+  désigne comme *l'habitat naturel du point-virgule sur une fiche d'outil* :
+  - `download-website.jpg` — **2** (`…Download Desktop ; ce dernier…`,
+    `…une étiquette Recommended ; à droite…`) ;
+  - `traversant-cms.svg` — **2** (`…la soudure se faisant dessous ; vue de
+    dessus…`, `…se soude du même côté ; vue de dessus…`) ;
+  - `tracer-fils-cote-cuivre.png` — **1** (`…Composants en jaune ; la ligne Côté
+    Cuivre…`) ;
+  - `plan-de-masse-ok-pas-ok.png` — **1** (`…toucher la zone 1 ; de fins traits
+    de chevelu…`).
+  ⚠ *Décomposition par fichier ET par occurrence, exactement parce que ce seau
+  est celui qui a mordu au lot 12 — prédit 1, mesuré 3 — pour avoir été relu au
+  lieu d'être dénombré.*
+- **P120.15** — famille **`hors-perimetre` `tiret en alt d image`** : **1**,
+  nominativement `masse-pas-connectee-preparation-plan-de-masse.png`
+  (`…et la LED D1 — les liaisons de masse, encore à faire.`).
+- **P120.16** — familles **`hors-perimetre` `tiret en titre`**, **`tiret en
+  tableau`**, **`point-virgule en titre`**, **`point-virgule en tableau`** et
+  **`tiret d intervalle numerique`** : **0 chacune**. *Le seul tableau de la
+  fiche — les quatre règles de dessin de la section 11 — ne porte ni `—` ni `;`,
+  et ses tirets de ligne de séparation sont des **traits d'union**. Les tirets
+  de `DIP-8`, `SOIC-8`, `RES-TH_`, `Pastille - Piste` et `5764-12206-00` sont
+  tous des **traits d'union U+002D**, que le motif `[—–]` ne voit pas.*
+- **P120.17** — **total `hors-perimetre` : 7**.
+- **P120.18** — familles **`typographie`** (espace avant ponctuation haute,
+  virgule décimale) et **`candidat`** (virgule ambiguë) : **0 chacune, et par
+  construction**. *Le code les conditionne à `estEn`, ligne 1118 —
+  `if (estEn) { … }` —, et la source est française.* ⚠ *Terme écrit pour
+  réfuter : `0,5`, `1,2` et `1,5` figurent trois fois chacun ou presque dans la
+  fiche ; s'ils sortaient en `virgule decimale`, c'est ma lecture du garde
+  `estEn` qui serait fausse.*
+- **P120.19** — **total général des signalements de la fiche : 8** (1 C109 +
+  7 hors-périmètre + 0 typographie + 0 candidat).
+
+**Étape 4 — anneau, dette, chevron, cibles sans fiche (`--anneau 2`).**
+
+- **P120.20** — **anneau 2 : 145 net, 144 traduites, 1 restante, 9 773 mots
+  restants, 0 porteuse** — inchangé depuis la clôture du lot 12, rien n'ayant
+  été écrit dans `content/` depuis.
+- **P120.21** — **dette : 4 cibles, 12 041 mots**, dont **2 hors anneaux 0..2**.
+- **P120.22** — **`CIBLES SANS FICHE` : 6**, **inchangé**. *Faux positif connu
+  sur les six alias (`FC`, `FP`, `FS`, `critere`, `niveau`, `flexibilite`),
+  mesuré à trois instruments le 30/08 (séance 3) et confirmé huit fois : le
+  compteur compte des **noms de fichier absents**, pas des liens rouges, et
+  `easyeda` n'en crée ni n'en retire.*
+- **P120.23** — les cinq étapes ferment chacune sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter, et il est double** : (1) tout écart de la garde —
+HEAD, date postérieure, fichier de `content/` — vaut **ARRÊT** ; (2) un total
+`C109` supérieur à **5** réfute le fondement B et, avec lui, la méthode de
+dénombrement nominatif sur source lue en entier — *auquel cas la décomposition
+ci-dessus dit exactement quelles occurrences j'ai ratées, ce qu'un total seul
+n'aurait pas dit.*
+
+### Constats du bloc 120 — 20 prédictions tranchées, 20 tenues, 3 reportées au bloc 121
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b59.txt`.
+
+**Garde répétée — au vert.**
+- **P120.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P120.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b59.txt`.
+- **P120.3 ✅** `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P120.4 ✅** `heure : 19:36:54`, postérieure à 19:28:17.
+- **P120.5 ✅** `HEAD git : 5625b4a 2026-08-30 19:23:03 +0200`, **au caractère**.
+- **P120.6 ✅** `fichiers modifies non commites : 3   (hors artefacts de seance : 0)` —
+  **les deux termes**, et la liste nominative des trois entrées est complète.
+- **P120.7 ✅** `node : v24.15.0`.
+- **P120.8 ✅ sur ses QUATRE termes, au caractère** : `JOURNAL.md 19:19:32`,
+  `conventions.md 19:16:57`, `TODO.md 2026-08-29 21:48:08`,
+  `embarque/pcb/easyeda.md 2026-08-22 11:32:49`.
+  ✅ *La règle d'usage écrite au bloc 119 tient à sa première application : une
+  date de fichier se borne sur **le dernier relevé de cette date-là**, et
+  l'égalité est le cas normal dès lors que rien n'a réécrit le fichier.*
+
+**Volume.**
+- **P120.9 ✅** `embarque/pcb/easyeda.md   9773` — **le 9 773 du brief est
+  désormais mesuré du jour** et peut servir de fondement (C118).
+- **P120.10 ✅ sur son terme mesurable.** `ANGLE MORT DU CHEVRON sur le restant`
+  rend **`fiches porteuses : 0`** et **`clotures en chevron : 0`** : `ded` = 0,
+  `tot` = `deh` = **9 773**, **C127 hors sujet pour le huitième lot d'affilée**.
+  ⚠ *Réserve à écrire : la sortie prouve qu'il n'y a **aucun bloc clôturé DANS
+  UN CHEVRON**. Mon fondement disait « aucun bloc de code clôturé du tout », ce
+  qui vient de la **lecture** de la source et **n'est pas mesuré par ce bloc**.
+  Les deux propositions ne sont pas la même, et seule la première est établie.*
+
+**⚠⚠ CANDIDATS C109 — LE FONDEMENT B TOMBE AU CHIFFRE, ET LA RÉFÉRENCE DE
+REGISTRE DU LOT 12 EST RÉFUTÉE À SA PREMIÈRE ÉPREUVE PAR UN FACTEUR 117.**
+
+- **P120.11 ✅ NOMINATIVEMENT.** `C109 de prose : 1`, et l'unique signalement est
+  **ligne 46**, extrait `…est écrit pour la *Std Edition* — celle de la colonne
+  encadrée en…` — **l'occurrence exacte, au bon endroit, prédite avant la
+  mesure**.
+- **P120.12 ✅** aucun `point-virgule de prose` : les trois `;` hors alt sont bien
+  les trois fins d'item exemptées par `/;\s*$/`.
+- **P120.13 ✅** total `C109` **1**, taux **0,0102 pour 100 mots**.
+- **P120.14, P120.15, P120.16 — REPORTÉES AU BLOC 121.** La sortie de `--style`
+  **n'imprime le détail que des familles à reprendre** : `hors perimetre` sort en
+  **total seul**. ⚠ *Leur somme est tenue (P120.17), et c'est précisément le cas
+  que la règle du 30/08 (séance 8) interdit de prendre pour une validation —
+  « un total dans la fourchette ne valide pas sa décomposition ». La
+  décomposition 6 / 1 / 0 se mesure au bloc suivant.*
+- **P120.17 ✅** `hors perimetre : 7`.
+- **P120.18 ✅** `typographie francaise : 0`, `virgule ambigue : 0`,
+  et en prime `C109 creees en EN : 0`, `hors alphabet latin : 0`.
+  ✅ *Le terme écrit pour réfuter ne mord pas : `0,5`, `1,2` et `1,5` ne sortent
+  pas en `virgule decimale`, la garde `estEn` est bien lue.*
+- **P120.19 ✅** total général **8 signalements** sur 9 773 mots.
+
+**Anneau et dette.**
+- **P120.20 ✅** `ANNEAU 2 NET : 145`, `deja traduites : 144`, `RESTANT : 1`,
+  `embarque/pcb/easyeda 9773`, `fiches porteuses : 0`.
+- **P120.21 ✅** dette **4 cibles, 12 041 mots, dont 2 hors anneaux 0..2**,
+  nommées `xiao-prise-en-main` et `xiao-sense`.
+- **P120.22 ✅** `CIBLES SANS FICHE (6)` — les six alias connus, **inchangé pour
+  la neuvième fois**.
+- **P120.23 ✅** les cinq étapes ferment sur `--- code de sortie : 0`.
+
+---
+
+## ⚠⚠ RÉSULTAT DOMINANT DU CADRAGE — LA RÉFÉRENCE « FICHE D'OUTIL » DU LOT 12 EST RÉFUTÉE, ET SA CAUSE EST MESURABLE
+
+**Prédit par la référence du brief** : 1,2 candidat pour 100 mots à 15 % près,
+soit **≈ 117**, fourchette [100, 135]. **Mesuré : 1.** Le taux de `easyeda` est
+**0,0102 pour 100 mots**, soit **118 fois plus bas** que celui du lot 12.
+
+**La candidate du 30/08 (séance 8) disait deux choses, et une seule tombe.**
+Elle disait (a) *une fiche d'outil a un taux propre*, **1,20**, et (b) *elle a
+une **dispersion** propre, facteur 1,14 sur trois fiches de 1 340 à 3 848 mots*.
+⚠ **C'est (b) qui est détruit** : la quatrième fiche d'outil du chantier porte le
+facteur à **118**. Le « registre » ne prédit pas ce compteur.
+
+**La cause se lit dans la décomposition, et elle n'est pas le registre.**
+`easyeda` porte **un embed d'image par geste enseigné**, et leurs `alt` sont des
+descriptions longues de copies d'écran. Ces `alt` sont **comptés par
+`compter-mots`** (règle C110 : mots hors front matter et hors blocs clôturés)
+et **classés hors périmètre par `--style`**. *Le dénominateur du taux contient
+donc une masse de texte que le numérateur ne peut pas atteindre par
+construction.* ✅ **Le seau `hors perimetre` le dit tout seul** : **7 sur 8
+signalements**, soit **87,5 %**, contre 9 sur 110 au lot 10 et un seau
+minoritaire à tous les lots précédents.
+⚠ *Le nombre d'embeds et le poids de leurs `alt` ne sont **pas mesurés à cette
+heure** : ils sont prédits au bloc 121 et cette explication n'est confirmée
+qu'après (C118).*
+
+**Règle de prédiction qui en sort, et elle remplace celle du lot 12** : *un taux
+de C109 ne se rapporte pas au nombre de mots d'une fiche mais à son **volume de
+prose de fiche** — mots hors `alt`, hors tableaux, hors titres. Sur une fiche
+d'outil **illustrée**, les deux grandeurs divergent d'un facteur qui n'est borné
+par rien.* ⚠ *C'est l'extension exacte de la règle du 30/08 (séance 5) — « le
+taux se rapporte au volume de prose, pas au nombre de mots » —, qui était née
+sur des écarts de facteur 3,9 et que personne n'avait pensé à opposer à la
+référence de registre du lot 12.*
+
+✅ **Et le dénombrement nominatif sur source lue en entier gagne contre le taux,
+pour la deuxième fois de suite.** Le lot 12 l'avait dit — *« le taux est le
+produit de la mesure, pas son fondement »* — sans avoir l'occasion de l'éprouver
+contre lui. Ici les deux fondements s'opposaient frontalement, **le choix a été
+publié avant la mesure**, et le dénombrement rend **l'occurrence exacte, à la
+bonne ligne**.
+
+---
+
+## ⛳ GATE G1 — fin de cadrage. Composition du lot 13 arrêtée.
+
+**Fait** : garde d'ouverture au vert, cadrage mesuré, composition confirmée —
+`embarque/pcb/easyeda.md` seule, **9 773 mots**, `ded` nul, 0 porteuse.
+
+**Chiffres qui ont changé par rapport au brief** : **candidats C109 = 1** et non
+≈ 117. La passe C109 du lot sera donc **d'une seule ancre**, et la charge du lot
+est **entièrement dans la rédaction** d'une fiche EN de 9 773 mots — la plus
+grosse du chantier, et de loin.
+
+**Ce qui suit** : bloc 121 — vérification de la décomposition `hors perimetre`
+(P120.14 à P120.16, reportées), éprouvage bilingue C110 du motif des puces sur
+quatre échantillons nommés, et **relevé des puces du corpus AVANT la passe**,
+sauvegardé daté, faute de quoi le delta se calculerait au lieu de se mesurer.
+
+---
+
+## BLOC 121 — DÉCOMPOSITION `hors perimetre`, ÉPROUVAGE C110 BILINGUE DES PUCES, ET RELEVÉ DU CORPUS AVANT LA PASSE
+
+**Commandes**, dans cet ordre :
+
+1. `node tools/puces-tiret.mjs --fiches embarque/mcu/esp32/esp32-adc.md,embarque/mcu/esp32/esp32-arduino-core.md,embarque/mcu/esp32/esp32-deep-sleep.md,embarque/mcu/esp32/esp32-pwm.md`
+2. `node tools/puces-tiret.mjs --fiches en/embarque/mcu/esp32/esp32-adc-en.md,en/embarque/mcu/esp32/esp32-arduino-core-en.md,en/embarque/mcu/esp32/esp32-deep-sleep-en.md,en/embarque/mcu/esp32/esp32-pwm-en.md`
+3. `node tools/puces-tiret.mjs --fiches embarque/pcb/easyeda.md`
+4. `node tools/puces-tiret.mjs --corpus`
+5. copie datée du relevé 4 (C124), `tools/puces-corpus-avant-lot13-3008.txt`
+6. `node tools/creer-fiche-en.mjs --style embarque/pcb/easyeda.md` **redirigé et
+   lu en entier**, pour la décomposition `hors perimetre` reportée du bloc 120
+
+### Déclaration C131 du bloc 121
+
+**Compteur prédit** : `fichiers modifies non commites` — **mais AUCUNE commande
+de ce bloc ne lance la batterie**, donc **aucune copie C124 de rang suivant
+n'est versée d'office**. *La règle du correctif de la clôture du lot 12 est
+conditionnelle au lancement de `batterie.ps1` ; elle ne s'applique pas ici, et
+le dire est la moitié du geste.*
+
+**Versements de la séance dans la population, à la fin de ce bloc — CINQ, nommés
+au moment où ils sont créés** :
+1. `tools/predictions-260830.md` — ` M`, déjà là.
+2. `tools/batterie-sortie-3008b58.txt` — `??`, déjà là.
+3. `tools/batterie-sortie-3008b59.txt` — `??`, déjà là.
+4. `tools/puces-corpus-avant-lot13-3008.txt` — **`??`, créé par la commande 5**,
+   **hors artefacts de séance** : ni `batterie-sortie`, ni `predictions-`, donc
+   **il compte dans les DEUX chiffres**.
+5. `tools/style-easyeda-avant-lot13-3008.txt` — **`??`, créé par la commande 6**,
+   même statut, **il compte dans les DEUX chiffres**.
+
+⚠ **La liste est close ici, et sa phrase de résumé se relit contre les
+prédictions** (règle du 30/08, séances 3 et 5) : les commandes 1 à 4 et 6
+écrivent sur stdout, seules les redirections des commandes 5 et 6 créent un
+fichier, et **aucune prédiction de ce bloc ne nomme un relevé de plus**.
+
+**Total impliqué, à la fin du bloc : 5 entrées, dont 2 hors artefacts de
+séance.** *Le compteur n'est pas relu dans ce bloc — la batterie n'y tourne
+pas — : ce total est la prédiction à vérifier à la garde du bloc suivant.*
+
+### Prédictions du bloc 121
+
+**Éprouvage C110 du motif des puces — quatre échantillons nommés, deux par
+langue, réponses publiées au registre (sixième application).**
+
+- **P121.1** — échantillon 1, **lot 3 d'`esp32/` côté FR** : total **12**,
+  décomposé `esp32-adc` **?**, `esp32-arduino-core` **2**, `esp32-deep-sleep`
+  **?**, `esp32-pwm` **?** — *seul le total 12 et le terme `arduino-core` 2 sont
+  publiés au registre ; je prédis le total **12** et le terme **2**, et je
+  n'invente pas les trois autres.*
+- **P121.2** — échantillon 2, **le même lot côté EN** : total **11**, avec
+  `esp32-arduino-core-en` **1**. ⚠ *Le terme qui prouve est l'**asymétrie
+  connue** 2 FR / 1 EN : prédire 12 côté anglais serait prédire la symétrie et
+  non la mesure.*
+- **P121.3** — l'en-tête de sortie republie, **avant les chiffres**, le motif de
+  puce `/^\s*[-*]\s/`, la séquence `" — "` avec ses **trois points de code**, le
+  motif de clôture, la **liste nominative** des quatre sections exclues du motif
+  A, et l'unité comptée (**la ligne**).
+
+**Puces à tiret d'`easyeda` — décomposé par section.**
+
+- **P121.4** — `embarque/pcb/easyeda.md` : **0 puce, 0 porteuse**. *Fondement
+  nominatif : les seules lignes de puce de la fiche portant `" — "` sont les
+  **six** de `## Voir aussi`, que le motif A exclut par sa liste de sections. Les
+  autres listes à puces — les 5 de « À quoi ça sert ? », les 3 des classes de
+  bibliothèque, les 2 des familles de DRC — n'en portent aucune, et les **trois
+  moyens de vérifier** de la section 4 sont une liste **numérotée**, que
+  `PUCE = /^\s*[-*]\s/` ne voit pas.* ⚠ *C'est l'angle mort neuf du lot 12,
+  nommé au brief, et il joue ici en faveur du zéro.*
+
+**Puces du corpus, AVANT la passe C109 du lot — le relevé que le lot 11 avait
+oublié de faire et que le lot 12 a réparé.**
+
+- **P121.5** — motif A, **FR 941 puces / 167 porteuses / 248 fichiers**, **au
+  chiffre et sur les trois termes**, identique à la clôture du lot 12 : rien n'a
+  été écrit dans `content/` depuis, ce que la garde a mesuré trois fois.
+- **P121.6** — motif A, **EN 900 puces / 156 porteuses / 238 fichiers**, mêmes
+  motifs, mêmes trois termes.
+- **P121.7** — la sortie déclare sa **population** au-dessus des chiffres de
+  chaque langue, comme au lot 12.
+
+**Décomposition `hors perimetre` — les trois prédictions reportées du bloc 120,
+reprises sans être modifiées.**
+
+- **P121.8** (= P120.14) — **`point-virgule en alt d image` : 6**, sur quatre
+  images nommées, **2 / 2 / 1 / 1** — `download-website.jpg`,
+  `traversant-cms.svg`, `tracer-fils-cote-cuivre.png`,
+  `plan-de-masse-ok-pas-ok.png`.
+- **P121.9** (= P120.15) — **`tiret en alt d image` : 1**, sur
+  `masse-pas-connectee-preparation-plan-de-masse.png`.
+- **P121.10** (= P120.16) — **`tiret en titre`, `tiret en tableau`,
+  `point-virgule en titre`, `point-virgule en tableau`, `tiret d intervalle
+  numerique` : 0 chacune**.
+- **P121.11** — le détail imprimé nomme donc **8 lignes de signalement** au
+  total : 1 en `[C109]` et 7 en `[hors-perimetre]`.
+
+**Fondement de l'explication du taux — chiffré ici pour la première fois.**
+
+- **P121.12** — `easyeda.md` porte **53 embeds d'image**, comptés
+  nominativement à la lecture de la source (liste des 53 fichiers de
+  `/ressources/img/easyeda/` cités, du `download-website.jpg` de la section
+  d'installation au `derniere-etape-export-json.png` de la section d'échange).
+  ⚠ *Prédiction décomposée par nom, pas estimée : c'est un seau **de
+  répétitions**, exactement celui que la règle du 30/08 (séance 8) dit de ne
+  jamais relever à l'œil.*
+
+**Terme écrit pour réfuter** : un total de puces FR ou EN différent de 941 / 900
+signifierait qu'un fichier de `content/` a bougé depuis la clôture du lot 12,
+**ce que trois gardes successives démentent** — ce serait alors un **incident**,
+pas une réfutation de compteur. Et une décomposition `hors perimetre` autre que
+6 / 1 / 0 réfuterait le dénombrement nominatif **là même où il vient de gagner
+sur le total**.
+
+### ⚠ INCIDENT DU BLOC 121, N° 1 — J'AI NOMMÉ L'ÉCHANTILLON DE MÉMOIRE, ET DEUX DES QUATRE FICHES N'EXISTENT PAS
+
+**Première commande lancée** :
+`--fiches embarque/mcu/esp32/esp32-adc.md,esp32-arduino-core.md,esp32-deep-sleep.md,esp32-pwm.md`.
+**Sortie** : `esp32-adc.md ABSENTE`, `esp32-pwm.md ABSENTE`, **TOTAL 4** sur deux
+fiches seulement.
+
+⚠ **Ce n'est pas une réfutation de compteur, c'est une faute de composition
+d'échantillon, et elle a un précédent exact au registre** : *« deux hubs nommés
+de mémoire n'existaient pas »*, 30/08 (séance 5), lot 10. **`adc` et `pwm` sont
+des notions transverses, pas des fiches `esp32/`** ; les quatre fiches du lot 3
+d'`esp32/` sont `esp32-deep-sleep`, `esp32-arduino-core`, `esp32-freertos`,
+`esp32-idf`, **et elles étaient écrites au registre**, à la prédiction P109.1 du
+bloc 109 de la séance 8, dans ce même fichier.
+
+✅ **Ce qui a marché, et c'est le sens même de l'outil** : `ABSENTE` est imprimé
+par fiche, donc la faute **se voit dans la sortie** au lieu de se fondre dans un
+total. *Un total de 4 sans la ligne `ABSENTE` aurait ressemblé à une réponse.*
+
+**Règle d'usage qui en sort** : *un échantillon nommé sous C110 se recopie
+depuis la prédiction du registre qui porte sa réponse, jamais depuis le souvenir
+de sa composition — la réponse et la liste des fiches sont le même objet, et
+n'en reprendre qu'une moitié suffit à casser l'épreuve.*
+
+**Reprise, avec les quatre noms lus au registre** : commandes 1 et 2 relancées.
+
+### Amendement de la déclaration C131 du bloc 121 — ÉCRIT AVANT LA COMMANDE AJOUTÉE
+
+⚠ **Un fait mesuré change le plan du bloc** : `--style` **n'imprime jamais le
+détail des `hors-perimetre`**. Le code le dit, ligne 1219 —
+`const dur = t.filter((x) => x.cat !== 'hors-perimetre')` —, et seule `dur` est
+imprimée. **Il n'existe aucun drapeau pour l'obtenir**, donc P121.8, P121.9 et
+P121.10 ne sont pas mesurables par l'instrument qui les a produites.
+
+**Commande 7 ajoutée** :
+`grep -n` sur `content/embarque/pcb/easyeda.md` pour les deux caractères
+littéraux `;` et `—`, afin d'**énumérer à la ligne** les occurrences et de les
+classer contre le code déjà lu. *Motif littéral d'un seul caractère : la mise en
+garde du §8 porte sur les **classes** de caractères et les intervalles d'octets,
+pas sur une chaîne littérale ; il n'y a pas d'intervalle ici, donc pas de trou
+Latin-1 à manquer.*
+
+**Effet sur les versements** : **aucun**. La commande 7 écrit sur stdout et ne
+crée aucun fichier. **Le total de la déclaration reste 5 entrées, dont 2 hors
+artefacts de séance**, inchangé.
+
+**Ce qui prouvera la décomposition** : la somme des occurrences classées
+`hors perimetre` par cette énumération doit **retomber sur 7**, chiffre déjà
+publié par `--style`. *C'est la forme d'épreuve du lot 12 — faire retrouver à un
+second instrument un chiffre déjà connu — appliquée à une décomposition et non à
+un total.*
+
+### Constats du bloc 121 — 12 prédictions, 10 tenues, 2 réfutées (composition d'échantillon)
+
+Sorties sauvegardées : `tools/puces-corpus-avant-lot13-3008.txt` (C124, relevé
+d'avant la passe) et `tools/style-easyeda-avant-lot13-3008.txt`.
+
+**Éprouvage C110 — sixième application, quatre échantillons, deux par langue.**
+
+- **P121.1 ❌ sur sa composition, ✅ sur ses chiffres après reprise.** La liste
+  publiée nommait `esp32-adc` et `esp32-pwm`, **qui n'existent pas dans
+  `esp32/`** (voir l'incident ci-dessus). Sur l'échantillon **du registre** —
+  `esp32-deep-sleep` **2**, `esp32-arduino-core` **2**, `esp32-freertos` **4**,
+  `esp32-idf` **4** — le **TOTAL 12** tombe, et les quatre termes avec lui.
+- **P121.2 ❌ sur sa composition, ✅ sur ses chiffres après reprise.**
+  `esp32-deep-sleep-en` **2**, `esp32-arduino-core-en` **1**,
+  `esp32-freertos-en` **4**, `esp32-idf-en` **4**, **TOTAL 11**.
+  ✅ **Le terme qui prouve tombe** : l'**asymétrie connue** `esp32-arduino-core`
+  **2 FR / 1 EN** est rendue, donc le motif n'a pas été calé sur la symétrie.
+- **P121.3 ✅** l'en-tête republie le motif de puce `/^\s*[-*]\s/`, la séquence
+  `" — "` avec ses trois points de code `(U+0020 U+2014 U+0020)`, le motif de
+  clôture, les **quatre** sections exclues nommées, la portée d'une section
+  exclue et l'unité comptée (`la LIGNE de puce, pas l occurrence`).
+
+**Puces d'`easyeda`.**
+
+- **P121.4 ✅** `embarque/pcb/easyeda.md   0`, **0 porteuse**. *Le fondement
+  nominatif tient : les six puces à tiret de la fiche sont toutes dans
+  `## Voir aussi`, et les trois moyens de vérifier de la section 4 sont bien une
+  liste numérotée, invisible au motif.*
+
+**Relevé du corpus AVANT la passe — la faute de protocole du lot 11 ne se répète
+pas pour le deuxième lot d'affilée.**
+
+- **P121.5 ✅ sur ses trois termes** : **FR 941 puces / 167 porteuses /
+  248 fichiers**, au chiffre.
+- **P121.6 ✅ sur ses trois termes** : **EN 900 puces / 156 porteuses /
+  238 fichiers**, au chiffre.
+- **P121.7 ✅** la population est écrite au-dessus des chiffres de chaque langue,
+  avec le chemin de balayage.
+
+**Décomposition `hors perimetre` — mesurée par la commande 7, et elle referme
+sur le 7 de `--style`.**
+
+- **P121.8 ✅ sur ses quatre termes nommés.** `;` en `alt` : **6**, décomposés
+  **ligne 43 → 2** (`download-website.jpg`), **ligne 115 → 2**
+  (`traversant-cms.svg`), **ligne 319 → 1** (`tracer-fils-cote-cuivre.png`),
+  **ligne 411 → 1** (`plan-de-masse-ok-pas-ok.png`).
+- **P121.9 ✅** `—` en `alt` : **1**, **ligne 400**
+  (`masse-pas-connectee-preparation-plan-de-masse.png`).
+- **P121.10 ✅** aucune occurrence en titre, en tableau, ni en intervalle
+  numérique : les huit `—` de la fiche sont **lignes 46, 400, 500 à 505**, et
+  les neuf `;` **lignes 43, 91, 92, 115, 319, 411, 430**. *Aucune ligne de
+  tableau, aucun titre.*
+- **P121.11 ✅** total **8 signalements** : 1 `[C109]` + 7 `[hors-perimetre]`,
+  **et le 7 de `--style` est retrouvé par un second instrument**, ce qui est la
+  forme d'épreuve du lot 12 appliquée à une décomposition.
+  ✅ **Le compte total des caractères le confirme sans passer par la
+  classification** : **9 `;`** dans la fiche = 6 en `alt` + **3 fins d'item
+  exemptées** (lignes 91, 92, 430) ; **8 `—`** = 1 C109 + 1 en `alt` +
+  **6 gloses de `Voir aussi` exemptées** (lignes 500 à 505).
+- **P121.12 ✅ au chiffre** : `easyeda.md` porte **53 embeds d'image**.
+
+---
+
+## ⚠⚠ CORRECTION DU RÉSULTAT PUBLIÉ AU GATE G1 — LA RÉFÉRENCE DU LOT 12 N'EST PAS RÉFUTÉE, ELLE A ÉTÉ APPLIQUÉE HORS DE SA POPULATION, ET LE REGISTRE LE DISAIT DEPUIS LE 22/08
+
+**Fait trouvé après le gate**, en relisant C109 dans `conventions.md` pour juger
+l'unique candidat : **`easyeda` est la fiche dont C109 EST NÉE**, et **elle est
+la seule du corpus à avoir déjà été passée à C109**.
+
+> `conventions.md` § « Acquises 22/08 — rédaction `easyeda` », règle 109 :
+> *« Règle demandée par Tim le 22/08 après lecture de `easyeda`, et testée sur
+> la section 45° avant déploiement sur les 21 sections. »*
+> Et au § « Acquises 22/08 (suite) », périmètre du redéploiement :
+> *« Contrôle de l'instrument : `easyeda`, **seule fiche passée en C109**, rend
+> **1** occurrence quand ses voisines de calibre comparable en rendent 40 à 60. »*
+
+**Le 1 mesuré ce soir est le même 1 que celui du 22/08**, huit jours plus tard,
+sur une fiche que rien n'a touchée depuis (date d'écriture `2026-08-22 11:32:49`,
+mesurée trois fois à la garde).
+
+**Ce que la correction change, et il faut le dire dans les deux sens.**
+1. ❌ **Ce que j'ai écrit au gate G1 est faux sur son verdict** : la référence
+   « fiche d'outil » du lot 12 — 1,2 pour 100 mots — **n'est pas réfutée par ce
+   lot**. Elle a été **appliquée à une fiche qui n'appartient pas à sa
+   population** : le taux mesure la densité de C109 **avant** passe, et `easyeda`
+   est la seule fiche du corpus à être **déjà passée**. *Une référence appliquée
+   hors de sa population ne se réfute pas, elle ne s'applique pas.*
+2. ❌ **Ma cause était fausse aussi.** J'ai attribué l'écart aux `alt` massifs
+   qui gonflent le dénominateur. **Le seau `hors perimetre` à 7 sur 8 est un
+   fait mesuré et il reste vrai** — c'est même la proportion la plus élevée du
+   chantier —, **mais ce n'est pas la cause du 1** : la cause est que les 40 à 60
+   incises que cette fiche portait ont été **retirées le 22/08**.
+3. ✅ **Ce qui tient** : la prédiction **B = 1** était juste, à l'occurrence et à
+   la ligne, et le choix de fonder sur le dénombrement plutôt que sur le taux
+   était le bon. *Le raisonnement était juste par la mesure et faux par
+   l'explication, ce qui est exactement ce que le registre appelle « un verdict
+   bon et un motif faux ».*
+
+**Ce que la faute coûte, et où elle s'est produite.** Le brief de la séance 8
+publiait *« `easyeda` est une fiche d'OUTIL comme les trois de ce soir : taux
+attendu 1,2 pour 100 mots, soit environ 117 candidats »*. **Ce chiffre n'a jamais
+déclaré la population du taux** — les fiches **non encore passées** — et
+`easyeda` en est exclue par un fait écrit au registre depuis huit jours.
+⚠ **C'est C131 dans son cœur, appliqué à un taux et non à un compteur de
+`git status`** : *un taux dont on publie une prédiction déclare sa population,
+et la population d'un taux de C109 est « les fiches qui n'y sont pas encore
+passées ».*
+
+**Règle d'usage qui en sort** :
+*avant d'opposer une référence de registre à une fiche, vérifier que la fiche
+appartient à la population de la référence — et pour le taux de C109, cette
+vérification tient en une question : **cette fiche a-t-elle déjà été passée ?***
+⚠ *La question n'avait jamais eu à se poser, parce que `easyeda` est le **seul**
+cas du corpus. Elle est aussi la **dernière fiche de l'anneau 2**, donc ce cas
+ne se représentera plus : la règle naît et expire dans le même lot.*
+
+✅ **Et le registre du 22/08 rend en prime un contrôle de fin de fiche
+directement réutilisable** : *« recompter les embeds contre les fichiers
+présents (**53 contre 53** sur `easyeda`, chacun utilisé une fois) »* — le même
+**53** que P121.12 vient de mesurer, huit jours plus tard, sans l'avoir lu.
+
+---
+
+## JUGEMENT DE L'UNIQUE CANDIDAT C109 — 1 signalement, 1 gardé, 0 traité
+
+**Ligne 46**, callout `[!warning]` de la section *Installer et se mettre en mode
+hors ligne* :
+
+> `Tout ce tutoriel est écrit pour la *Std Edition* — celle de la colonne encadrée en rouge sur l'image.`
+
+**Segment de droite** : `celle de la colonne encadrée en rouge sur l'image`.
+**Aucun verbe conjugué** — `encadrée` est un **participe passé épithète**, pas
+une forme conjuguée, et il n'y a ni principale ni subordonnée à droite du tiret.
+Le segment est **nominal**, donc **exempté au sens de C123**, dont la lettre est :
+*« un segment de droite n'est exempté que s'il est nominal, adjectival, infinitif
+ou participial. Dès qu'un verbe conjugué apparaît, y compris dans une
+subordonnée, on traite. »*
+
+⚠ **Et l'exemption ne repose pas seulement sur ma lecture : elle a déjà été
+rendue.** Cette occurrence est le résidu **arbitré le 22/08**, quand la règle a
+été déployée sur les 21 sections de cette fiche et que le contrôle d'instrument
+a publié *« rend 1 occurrence »*. **Le juger « à traiter » aujourd'hui
+reviendrait à défaire un arbitrage de Tim sur la fiche qui a fondé la règle.**
+
+**Décision : GARDÉ.**
+
+⚠ **Conséquence, et c'est une première du chantier : la passe C109 du lot 13 est
+VIDE — zéro remplacement, zéro ancre, zéro octet écrit dans `content/`.**
+*Aucun des douze lots précédents n'était dans ce cas ; le plus léger, le lot 10,
+en portait 45. Le corpus FR sortira donc **inchangé à 291 259 mots**, et la règle
+d'usage « état d'AVANT pour le restant, état d'APRÈS pour les traduites » aura
+ses deux membres égaux pour la deuxième fois du chantier — inapplicable par
+construction, comme au lot 10.*
+
+---
+
+## ⛳ GATE G2 — fin de passe C109. LA PASSE EST VIDE.
+
+**Fait** : 1 signalement jugé, **1 gardé, 0 traité, 0 ancre, 0 octet écrit dans
+`content/`**. Première passe C109 vide du chantier, et sa cause est écrite :
+`easyeda` est la fiche dont C109 est née et la seule déjà passée (22/08).
+
+**Chiffres qui n'ont pas changé, et c'est le résultat** : corpus FR **291 259**,
+puces du corpus **FR 941 / 167 / 248** et **EN 900 / 156 / 238**, `git status`
+**5 entrées dont 2 hors artefacts** — conforme à la déclaration C131 du bloc 121.
+
+**Ce qui suit** : bloc 122, les **neuf relevés d'avant rédaction**, seul geste
+qui protège encore ce lot, puisque ni la passe ni les titres n'y consomment de
+travail.
+
+---
+
+## BLOC 122 — LES NEUF RELEVÉS D'AVANT RÉDACTION
+
+**Commandes** (aucune écriture dans `content/`) :
+
+1. `grep -c` des six formes génériques de production dans `content/en`, plus
+   `## Step by step` et `## Getting started`
+2. `grep -c` des titres de callout de production dans `content/en`
+3. `node tools/titres-doublons.mjs`
+4. `node tools/creer-fiche-en.mjs --libelles`
+5. `grep` borné aux deux bouts sur `easyeda-en` dans `content/en`
+6. `grep '^#'` sur la source FR — inventaire de ses titres de section
+7. `grep '^> \[!'` sur la source FR — inventaire de ses callouts
+8. `grep -c '```'` sur la source FR — présence de blocs de code clôturés
+
+### Déclaration C131 du bloc 122
+
+**Compteur** : `fichiers modifies non commites`. **La batterie ne tourne pas
+dans ce bloc**, donc **aucune copie C124 de rang suivant n'est versée d'office**.
+
+**Versements** : les **cinq** entrées déjà en place — `predictions-260830.md`,
+`batterie-sortie-3008b58.txt`, `batterie-sortie-3008b59.txt`,
+`puces-corpus-avant-lot13-3008.txt`, `style-easyeda-avant-lot13-3008.txt` —
+**et aucun de plus** : les huit commandes écrivent sur stdout, sans redirection.
+**Total impliqué, inchangé : 5 entrées, dont 2 hors artefacts de séance.**
+
+### Prédictions du bloc 122
+
+**Relevé 1 — les six formes génériques et les deux formes de tuto.**
+Toutes **inchangées** par rapport à la clôture du lot 12, rien n'ayant été écrit
+dans `content/en` depuis (trois gardes le mesurent) :
+
+- **P122.1** — `## See also` **230**.
+- **P122.2** — `## What is it for?` **162**.
+- **P122.3** — `## Pitfalls` **160**.
+- **P122.4** — `## Where it fits in the project` **105**.
+- **P122.5** — `## Exercises` **39**.
+- **P122.6** — `## Going further` **31**.
+- **P122.7** — `## Step by step` **78**.
+- **P122.8** — `## Getting started` **2**.
+- **P122.9** — `## Project connection` **0** et `## Step-by-step procedure` **0**,
+  *cinquième confirmation du correctif É1 du 29/08 (suite 10)*.
+
+**Relevé 2 — titres de callout.**
+
+- **P122.10** — `Watch out` **49**, `Tip` **46**, `Solution` **36**,
+  `Good` **3**, `Fair` **3**, `Poor` **3**, `Attention` **0**, `Astuce` **0**.
+- **P122.11 — ET LA PRÉDICTION QUI ENGAGE LE LOT** : **aucun de ces compteurs ne
+  bougera à la clôture**, parce que **les callouts d'`easyeda` ne portent pas de
+  titre**. *Voir P122.19 : la source écrit `> [!warning]` **nu**, sur sa propre
+  ligne, et le corps suit à la ligne d'après. Ajouter `Watch out` en anglais
+  fabriquerait une **asymétrie EN/FR que la source ne porte pas** — le motif du
+  26/08, celui-là même qui a fait garder `title: NF X50-151` au lot 10.*
+  ⚠ *C'est la première fois du chantier que le relevé des callouts sert à ne
+  RIEN écrire ; aux lots 8 et 10 il servait à écrire la bonne forme.*
+
+**Relevé 3 — collisions de titre, des deux côtés (C125, règle d'usage du 29/08
+suite 5).**
+
+- **P122.12** — FR **243 / 243 / 0**, EN **238 / 238 / 0**, inchangés.
+
+**Relevé 4 — libellés.**
+
+- **P122.13** — `--libelles` rend **4 269 / 4 255 / 14 / 146 / 16**, inchangé sur
+  ses cinq termes.
+
+**Relevé 5 — les libellés que le corpus anglais écrit DÉJÀ vers `easyeda-en`
+(règle du 30/08, séance 2 : le `title:` se lit là avant les trois tests de
+C125).**
+
+- **P122.14 — sur la FORME, terme fort** : **toutes** les occurrences portent le
+  libellé **`EasyEDA`**, au caractère et à la casse, et **aucune forme
+  concurrente** n'apparaît — ni traduction, ni glose, ni parenthèse de
+  désambiguïsation. *Fondement : `EasyEDA` est un **nom de produit**, et le
+  corpus ne traduit pas les noms de produits (C113 : ce que le programme
+  **désigne** ne se traduit pas). Précédents du chantier : `KiCad`, `LTspice`,
+  `Falstad`, `Wokwi`, `Tinkercad`, tous rendus au caractère.*
+- **P122.15 — sur le COMPTE, terme faible et déclaré tel** : entre **4 et 20**
+  occurrences. ⚠ *Je n'ai **aucun fondement chiffré** : le seul relevé qui
+  toucherait ce nombre est `cible EN absente : 146`, qui n'est pas décomposé par
+  cible. La règle du 30/08 (séance 8) dit que ce compte suit **le nombre de
+  fiches traduites qui citent la cible**, et je ne les ai pas dénombrées. **La
+  fourchette est large parce que le fondement est absent, et c'est écrit avant
+  la mesure plutôt que constaté après.***
+- **P122.16** — le motif est **borné aux deux bouts** : cible égale à
+  `easyeda-en`, ou terminée par `/easyeda-en` — *règle du 30/08 (séance 3), née
+  de deux morsures consécutives d'un motif de sous-chaîne.* ⚠ *Le piège existe
+  ici : `easyeda` est sous-chaîne du chemin `/ressources/img/easyeda/`, que les
+  **53 embeds** de la source portent. Un motif non borné les ramènerait tous.*
+
+**Relevé 6 — titres de section de la source, dénombrés à la ligne.**
+
+- **P122.17** — **28 titres de section**, décomposés : **3 de rang `##`
+  génériques** — `## À quoi ça sert ?`, `## Voir aussi`, `## Pièges` —,
+  **4 de rang `##` propres** — `## Installer et se mettre en mode hors ligne`,
+  `## Construire la carte`, `## Échanger un projet`, `## Et après` — et
+  **21 de rang `###` numérotés de 1 à 21**, tous propres à la fiche.
+- **P122.18 — ET C'EST LE FAIT DE STRUCTURE DU LOT** : **25 titres sur 28 n'ont
+  aucune forme de production**, soit **89 %**. *Le lot 7 était « le premier hors
+  gabarit » avec 23 propres sur 36, soit 64 % ; `easyeda` va plus loin.*
+  ⚠ **Trois formes génériques seulement à relever, et leurs cibles sont connues**
+  — `## What is it for?`, `## See also`, `## Pitfalls`. **Aucune** section
+  `## Où ça intervient dans le projet ?`, `## Exercices` ni `## Aller plus loin`
+  dans la source, donc `## Where it fits in the project`, `## Exercises` et
+  `## Going further` **resteront à 105 / 39 / 31** à la clôture.
+
+**Relevé 7 — callouts de la source, dénombrés par type.**
+
+- **P122.19** — **28 callouts**, décomposés : `[!tip]` **11**, `[!warning]` **8**,
+  `[!note]` **5**, `[!failure]-` **2**, `[!danger]` **1**, `[!question]-` **1**.
+- **P122.20** — **3 seulement portent un titre**, et ce sont les **trois
+  repliables** : le `[!question]-` (`Une erreur s'est glissée dans ce câblage.
+  Saurez-vous la retrouver ?`) et les deux `[!failure]-` de la section
+  `## Pièges`. **Les 25 autres sont nus.** ⚠ *C'est ce qui fonde P122.11.*
+
+**Relevé 8 — blocs de code.**
+
+- **P122.21** — **0 bloc de code clôturé** dans la source, donc **0 chaîne
+  affichée** et **C113 sans objet pour ce lot**. ⚠ *C'est le terme qui manquait
+  au bloc 120 : `clotures en chevron : 0` prouvait l'absence de bloc **dans un
+  chevron**, pas l'absence de bloc. Ce relevé la mesure.* *Corollaire :
+  l'assomption C113 sur les chaînes affichées libres n'est **pas testable** par
+  ce lot non plus — troisième fois.*
+
+**Terme écrit pour réfuter** : un seul des huit compteurs de production qui
+bouge signifierait qu'une écriture a eu lieu dans `content/en` depuis la clôture
+du lot 12 — **incident**, pas réfutation. Et un `## Où ça intervient dans le
+projet ?` trouvé dans la source réfuterait P122.17 **et** P122.18 ensemble.
+
+### Constats du bloc 122 — 21 prédictions, 20 tenues, 1 réfutée
+
+**Relevé 1 — formes de production EN, les neuf termes au chiffre.**
+- **P122.1 à P122.8 ✅** `## See also` **230**, `## What is it for?` **162**,
+  `## Pitfalls` **160**, `## Where it fits in the project` **105**,
+  `## Exercises` **39**, `## Going further` **31**, `## Step by step` **78**,
+  `## Getting started` **2**.
+  ⚠ *Précision de lecture qui vaut d'être écrite : `## Getting started` sort à
+  **9 fichiers** en sous-chaîne et **2 lignes exactes**. La référence du registre
+  est la **ligne exacte**, et les sept autres fichiers sont les titres
+  **qualifiés** du lot 7 — `## Getting started with the Raspberry Pi` et ses
+  voisins. Un relevé en sous-chaîne aurait rendu 9 et paru réfuter.*
+- **P122.9 ✅** `## Project connection` **0**, `## Step-by-step procedure` **0** —
+  **cinquième confirmation** du correctif É1 du 29/08 (suite 10).
+
+**Relevé 2 — titres de callout.**
+- **P122.10 ✅ sur ses huit termes** : `Watch out` **49**, `Tip` **46**,
+  `Solution` **36**, `Good` / `Fair` / `Poor` **3** chacun, `Attention` **0**,
+  `Astuce` **0**.
+- **P122.11 — engagement pris, vérifiable à la clôture** : ces huit compteurs
+  sortiront **inchangés**, la source ne portant aucun callout titré hors ses
+  trois repliables (P122.20 mesurée ci-dessous).
+
+**Relevé 3 — collisions de titre.**
+- **P122.12 ✅** FR **243 fiches / 243 titres distincts / 0 groupe en collision**,
+  EN **238 / 238 / 0**.
+
+**Relevé 4 — libellés.**
+- **P122.13 ✅ sur ses cinq termes** : **4 269 / 4 255 / 14 / 146 / 16**.
+
+**Relevé 5 — les libellés que le corpus anglais écrit déjà vers `easyeda-en`.**
+- **P122.14 ✅, et c'est le terme fort** : **3 occurrences, toutes
+  `[[easyeda-en|EasyEDA]]`**, au caractère et à la casse. **Aucune forme
+  concurrente**, aucune traduction, aucune glose, aucune parenthèse de
+  désambiguïsation. *Le corpus a déjà tranché le titre.*
+- **P122.15 ❌** — prédit **[4, 20]**, mesuré **3**, **sous la borne basse**.
+  ⚠ **La règle qui donnait la réponse était au registre depuis ce matin et je ne
+  l'ai pas appliquée** : *« le nombre de libellés visant une cible se prédit sur
+  le nombre de fiches TRADUITES qui la citent, jamais sur la taille de la
+  cible »* (30/08, séance 8, réfutation P110.10). **Mesure : une seule fiche EN
+  cite `easyeda-en`, et c'est `pcb-en.md`, son propre hub** — exactement la
+  configuration de `falstad` et `ltspice` au lot 12, **3 occurrences chacune,
+  toutes portées par leur hub**. *La valeur juste était donc **3**, et elle était
+  déductible : `easyeda` est un outil de **conception de carte**, cité par la
+  seule branche `pcb/`, dont l'unique fiche traduite est le hub.*
+  ✅ *Ce que j'ai bien fait : déclarer la fourchette **faible et sans fondement
+  chiffré** avant la mesure, plutôt que de la présenter comme une prédiction
+  fondée. Cela ne la sauve pas — **une fourchette large sans fondement n'est pas
+  une prédiction prudente, c'est une prédiction absente** (règle du 30/08,
+  séance 5, sur les bornes élargies « par prudence »).*
+- **P122.16 ✅** le motif borné aux deux bouts ne ramène **aucun** des
+  53 chemins d'embed `/ressources/img/easyeda/`. *Le piège nommé avant la mesure
+  ne mord pas.*
+
+**Relevé 6 — titres de section de la source.**
+- **P122.17 ✅ sur ses trois termes** : **28 titres**, dont **7 de rang `##`**
+  (3 génériques — `## À quoi ça sert ?` L23, `## Voir aussi` L498,
+  `## Pièges` L507 — et 4 propres — L39, L58, L472, L492) et **21 de rang
+  `###`**, numérotés de 1 à 21 sans trou.
+- **P122.18 ✅** **25 titres sur 28 sans forme de production, soit 89,3 %.**
+  *`easyeda` dépasse le lot 7 (64 %) et devient la fiche la plus hors gabarit du
+  chantier.* ✅ **Confirmé au passage** : ni `## Où ça intervient dans le
+  projet ?`, ni `## Exercices`, ni `## Aller plus loin` dans la source — les
+  compteurs **105 / 39 / 31** ne bougeront pas.
+
+**Relevé 7 — callouts de la source.**
+- **P122.19 ✅ sur ses six termes, au chiffre** : `[!tip]` **11**,
+  `[!warning]` **8**, `[!note]` **5**, `[!failure]-` **2**, `[!danger]` **1**,
+  `[!question]-` **1**, **total 28**.
+  ⚠ *Densité de **28 callouts** sur une fiche, contre « 0-3 par défaut, 5-10 pour
+  les fiches-trame » à la charte du § 2. C'est le record du corpus et c'est
+  assumé pour un tuto de 21 sections — un callout tous les 18 lignes.*
+- **P122.20 ✅** **3 callouts titrés, et ce sont exactement les trois
+  repliables** : L181 `[!question]-`, L509 et L516 `[!failure]-`. **Les 25 autres
+  sont nus.**
+
+**Relevé 8 — blocs de code.**
+- **P122.21 ✅** **0 bloc clôturé** dans la source. *Le terme que le bloc 120 ne
+  pouvait pas rendre est mesuré : `ded = 0` non parce que les blocs sont hors
+  chevron, mais parce qu'**il n'y en a aucun**. C113 est sans objet, et
+  l'assomption sur les chaînes affichées libres reste **non testée pour la
+  troisième fois**.*
+
+---
+
+## DÉCISION DE `title:` — AUCUN ARBITRAGE, LE CORPUS A TRANCHÉ
+
+**`title: EasyEDA`**, identique au `title:` français.
+
+**Test 0 (règle du 30/08, séance 2, qui précède les trois tests de C125)** : le
+corpus anglais écrit **`[[easyeda-en|EasyEDA]]` 3 fois, et rien d'autre**. La
+forme est unique, il n'y a pas de concours. **C125 n'a pas à parler.**
+**Coût du revert : 1 `title:` et 3 libellés.**
+✅ *Conséquence sur `candidats a lire` : le titre partage tous ses radicaux avec
+les trois libellés, donc `--libelles` ne peut pas créer de candidat de ce fait.
+La seule variation possible du compteur vient de la **création de la cible**, qui
+fait basculer ces 3 libellés du seau `cible EN absente` vers la comparaison.*
+
+---
+
+## ⛳ GATE G3 — avant rédaction.
+
+**Fait** : neuf relevés passés, **20 prédictions sur 21 tenues**. Le `title:` est
+arrêté sans arbitrage. La passe C109 est vide.
+
+**Ce que les relevés disent de la rédaction qui vient, et c'est inhabituel** :
+**89 % des titres de section n'ont aucun modèle**, **25 callouts sur 28 sont
+nus**, **aucun bloc de code**, **53 embeds à reporter à l'octet**, et **une seule
+forme de production à respecter sur trois sections**. *Le relevé ne confirme
+presque rien ici : il dit surtout **où il n'y a pas de modèle**, et c'est le cas
+extrême de ce que le lot 7 avait signalé le premier.*
+
+**Ce qui suit** : bloc 123 — génération du squelette EN, puis rédaction du corps
+et pose par `--corps`.
+
+---
+
+## BLOC 123 — GÉNÉRATION DU SQUELETTE EN
+
+**Commande** : `node tools/creer-fiche-en.mjs embarque/pcb/easyeda.md`
+
+### Déclaration C131 du bloc 123
+
+**Compteur** : `fichiers modifies non commites`. **La batterie ne tourne pas**,
+donc pas de copie C124 d'office.
+
+**Versement de ce bloc — UN, et il est dans `content/`** :
+`content/en/embarque/pcb/easyeda-en.md`, **créé par la commande**.
+⚠ **Il compte pour UNE entrée et non pour un répertoire** : `content/en/embarque/pcb/`
+**existe déjà et est suivi** — il porte `pcb-en.md` —, donc la condition de la
+règle du 30/08 (lot 7) n'est pas remplie et il n'y a **aucune condensation**.
+*C'est le cas banal, prédit avec sa raison, comme au lot 10.*
+
+**Les cinq entrées précédentes restent.**
+**Total impliqué : 6 entrées, dont 3 hors artefacts de séance.**
+
+### Prédictions du bloc 123
+
+- **P123.1** — la fiche est écrite en `content/en/embarque/pcb/easyeda-en.md`.
+- **P123.2** — **liens : 8 = 8**. *Dénombrés à la source : `[[pcb|circuit
+  imprimé]]` L17, `[[kicad|KiCad]]` L29, `[[falstad|Falstad]]` et
+  `[[ltspice|LTspice]]` et `[[simulation-electronique|simulation électronique]]`
+  L33, `[[dossier-technique|dossier technique]]` (section 1),
+  `[[analyse-de-schema-electronique|analyser un schéma électronique]]` (callout
+  tip section 1), `[[lire-une-datasheet|fiche technique]]` (callout warning
+  section 3), `[[pcb|le hub circuit imprimé]]` (callout note section Échanger),
+  plus les **six** de `## Voir aussi`.* ⚠ **Recompte : 5 + 3 + 1 + 6 = 15, et non
+  8.** *Je corrige avant la mesure : `[[pcb]]` ×2, `[[kicad]]` ×2 (prose + Voir
+  aussi), `[[falstad]]` ×1, `[[ltspice]]` ×1, `[[simulation-electronique]]` ×2,
+  `[[dossier-technique]]` ×1, `[[analyse-de-schema-electronique]]` ×2,
+  `[[lire-une-datasheet]]` ×2, `[[soudure]]` ×1 = **15 liens**.*
+  **Prédiction : liens 15 = 15.**
+- **P123.3** — **embeds : 53 = 53**, chiffre mesuré au bloc 121 et **retrouvé au
+  registre du 22/08** (« 53 contre 53, chacun utilisé une fois »).
+- **P123.4** — **blocs de code : 0 = 0**, mesuré au bloc 122.
+- **P123.5** — **0 alias signalé** : la source ne déclare pas d'`aliases:` (front
+  matter lu en entier au bloc 120 : `title`, `type`, `tags`, `prerequis`, `aa`,
+  `phases`, `draft`).
+- **P123.6** — **1 `prerequis` suffixé** : `pcb` → `pcb-en`.
+- **P123.7** — **0 ancre de wikilink** (`[[fiche#Section|x]]`) et **0 ancre
+  intra-page** (`[texte](#section)`) signalées : la source n'en porte aucune.
+- **P123.8** — le front matter EN reçoit `source_fr: embarque/pcb/easyeda.md` et
+  un `source_sha256` de **64 hexadécimaux minuscules**, posé par le script.
+  ⚠ *Ce marqueur ne sera **jamais** recopié à la main : la rédaction passera par
+  `--corps`, qui recopie le front matter à l'octet — c'est la parade codée du
+  30/08 (séance 2) contre l'empreinte inventée.*
+- **P123.9** — `draft:` forcé à la valeur de `DRAFT_EN`.
+- **P123.10** — la prose du squelette reste **en français** : le squelette n'est
+  pas une traduction.
+
+**Terme écrit pour réfuter** : une inégalité sur l'un des trois compteurs à la
+génération signalerait un défaut du script et non de la traduction — c'est
+l'invariant que la génération garantit par construction.
+
+### Constats du bloc 123 — 10 prédictions, 10 tenues
+
+`=== embarque/pcb/easyeda.md -> content/en/embarque/pcb/easyeda-en.md ===`
+`liens : 15 -> 15 ok`, `embeds : 53 -> 53 ok`, `code : 0 -> 0 ok`,
+`prerequis suffixes : 1`, `Ecrit : … (62212 o)`.
+
+- **P123.1 ✅** écrite au chemin prédit.
+- **P123.2 ✅ liens 15 = 15.** ⚠ *La prédiction a été **corrigée avant la
+  mesure**, dans le texte même de P123.2 : j'avais écrit 8 en dénombrant les
+  **cibles distinctes** au lieu des **occurrences**, et le recompte
+  `2+2+1+1+2+1+2+2+1 = 15` figure au-dessus du lancement. **Une correction qui se
+  chiffre avant la mesure est une prédiction corrigée, pas une réfutation**
+  (règle du 30/08, séance 2).*
+- **P123.3 ✅ embeds 53 = 53** — troisième instrument à rendre ce chiffre après
+  `grep -c` (bloc 121) et le registre du 22/08.
+- **P123.4 ✅ code 0 = 0.**
+- **P123.5 ✅** aucun alias signalé.
+- **P123.6 ✅** `prerequis suffixes : 1`, `pcb` → `pcb-en`.
+- **P123.7 ✅** aucune ancre signalée, ni de wikilink ni intra-page.
+- **P123.8 ✅** `source_fr: embarque/pcb/easyeda.md` et
+  `source_sha256: cbdbe60874247720bcb004cdc1deef98685274bc9d082960113e31a0a71ed840`,
+  **64 hexadécimaux minuscules**.
+- **P123.9 ✅** `draft: false`.
+- **P123.10 ✅** la prose du squelette est en français.
+
+**Terme écrit pour réfuter : il ne mord pas**, les trois compteurs sont égaux à
+la génération.
+
+⚠ **Fait de dette confirmé au passage** : `[[kicad-en|KiCad]]` vise une fiche
+**qui n'existe pas**. C'est un lien rouge **attendu** — `kicad` est l'une des
+quatre cibles de la dette mesurée au bloc 120 — et il ne se corrige pas ici.
+
+---
+
+## BLOC 124 — RÉDACTION DU CORPS EN, PUIS POSE PAR `--corps`
+
+**Commandes** :
+1. écriture du fichier de corps `tools/corps-easyeda-en-3008.md`
+2. `node tools/creer-fiche-en.mjs --corps content/en/embarque/pcb/easyeda-en.md tools/corps-easyeda-en-3008.md`
+
+### Déclaration C131 du bloc 124
+
+**Compteur** : `fichiers modifies non commites`. Batterie non lancée, donc pas de
+copie C124 d'office.
+
+**Versements de ce bloc — UN seul fichier neuf** :
+`tools/corps-easyeda-en-3008.md`, **`??`, hors artefacts de séance**.
+`content/en/embarque/pcb/easyeda-en.md` est **déjà `??`** depuis le bloc 123 :
+la commande 2 le réécrit **sans créer d'entrée**. ⚠ *C'est le cas « coup de
+chance » nommé au lot 8 et prédit ici avec sa raison, comme au lot 10.*
+
+**Total impliqué : 7 entrées, dont 4 hors artefacts de séance.**
+
+### Décisions de rédaction, publiées AVANT d'écrire
+
+**D1 — les trois titres génériques prennent leur forme de production** :
+`## À quoi ça sert ?` → **`## What is it for?`**, `## Voir aussi` →
+**`## See also`**, `## Pièges` → **`## Pitfalls`**. *Relevées à 162 / 230 / 160
+au bloc 122.*
+
+**D2 — les 25 titres propres sont déclarés NEUFS avant d'être écrits**, et
+aucun ne prend par accident une forme de production. *En particulier, aucun ne
+devient `## Step by step` (78) ni `## Getting started` (2) : les 21 sections
+numérotées gardent leur numéro et leur intitulé propre, qui nomme le geste.*
+
+**D3 — les 25 callouts nus restent nus**, et les 3 repliables gardent leur titre
+traduit. **Aucun `Watch out`, aucun `Tip` n'est ajouté** : la source n'en porte
+pas, et en ajouter fabriquerait l'asymétrie EN/FR que le motif du 26/08
+interdit.
+
+**D4 — les libellés d'interface FRANÇAIS sont conservés à l'octet et glosés en
+anglais à leur PREMIÈRE occurrence, séparateur `, that is`.**
+*C'est l'assomption de l'en-tête de séance, reprise par défaut faute
+d'arbitrage. Le motif est dans la fiche elle-même : son callout d'ouverture
+prévient que « les chemins sont écrits ici exactement comme ils s'affichent,
+mélange compris ». **Traduire un libellé de menu rendrait la fiche inutilisable
+devant le logiciel.*** ⚠ **La glose se pose UNE fois par libellé, à sa première
+occurrence, et jamais aux suivantes** — c'est ce qui borne le foisonnement, et
+c'est une décision de plus que le lot 12 n'avait pas eu à prendre, `falstad`
+étant trop courte pour qu'un libellé y revienne.
+⚠ **Le séparateur est `, that is` et JAMAIS un cadratin**, règle du 30/08
+(séance 8), née de la seule C109 créée par la traduction du lot 12.
+
+**D5 — les virgules décimales deviennent des points** : `0,5` → `0.5`,
+`1,2` → `1.2`, `1,5` → `1.5`, `14,351` → `14.351`, `50,4` → `50.4`. *Verdict
+mécanique de `--style`, famille `virgule decimale`.*
+
+**D6 — les libellés de wikilink se RELÈVENT dans le `title:` de production de
+leur cible, ils ne se traduisent pas** (règle du lot 11). Formes retenues,
+relevées au corpus EN : `[[pcb-en|printed circuit board]]` (11 en production),
+`[[pcb-en|PCB]]` (22), `[[dossier-technique-en|technical design file]]` (62),
+`[[lire-une-datasheet-en|datasheet]]` (17) et `Reading a datasheet` (33),
+`[[analyse-de-schema-electronique-en|Reading a schematic]]` (3),
+`[[simulation-electronique-en|circuit simulation]]` (4) et `Circuit simulation`
+(7), `[[soudure-en|Soldering]]` (3), `[[falstad-en|Falstad]]`,
+`[[ltspice-en|LTspice]]`, `[[kicad-en|KiCad]]`.
+
+**D7 — les `alt` des 53 embeds sont TRADUITS**, chemin et suffixe de taille
+`|NNN` recopiés **à l'octet**. *Un `alt` est de la prose descriptive ; il sort du
+périmètre C109 mais pas de la traduction.*
+
+**D8 — C109 s'applique à l'anglais** : aucun cadratin d'incise, aucun
+point-virgule de prose dans le corps EN. Restent licites les six gloses de
+`## See also` et les points-virgules de fin d'item.
+
+### Prédictions du bloc 124
+
+- **P124.1** — `--corps` publie `source_sha256` **identique avant et après**,
+  `cbdbe608…`, et **front matter identique à l'octet**.
+- **P124.2** — `ligne blanche apres le front matter : deja presente` — *le
+  fichier de corps ouvrira par un saut de ligne, et le correctif du 30/08 est
+  **idempotent**.*
+- **P124.3** — les **cinq gardes** de `--corps` passent : fiche existante et
+  pourvue d'un front matter, `source_fr` présent, **le fichier de corps ne porte
+  pas de front matter**, source FR existante, **trois compteurs égaux**.
+- **P124.4** — **liens 15 = 15**, **embeds 53 = 53**, **code 0 = 0** après pose.
+- **P124.5** — `--style` sur la fiche EN rendra **0 `typographie francaise`**,
+  **0 `virgule ambigue`**, **0 `C109 creees en EN`**, **0 `hors alphabet
+  latin`**, et **1 `C109 de prose`** — *le report un pour un du seul candidat
+  gardé, qui reste un tiret d'incise en anglais comme en français.*
+  ⚠ *Terme écrit pour réfuter : `C109 creees en EN` compte `nEn > nFr`. Si la
+  glose de D4 ou une incise de traduction en crée une seule, ce compteur sort à
+  1 ou plus — c'est exactement ce qui est arrivé à `falstad-en` au lot 12, et
+  c'est la raison pour laquelle D4 impose `, that is`.*
+- **P124.6** — **28 titres de section** dans la fiche EN, dont **3** de forme de
+  production et **25** propres, **et aucun des 25 n'égale une forme de
+  production**.
+- **P124.7** — **28 callouts**, décomposés **11 `[!tip]` / 8 `[!warning]` /
+  5 `[!note]` / 2 `[!failure]-` / 1 `[!danger]` / 1 `[!question]-`, dont 3 titrés
+  et 25 nus** — report un pour un.
+- **P124.8 — FOISONNEMENT, prédiction décomposée et non calée sur une moyenne.**
+  Point : **+3,0 %**, soit **10 066 mots EN**. Fourchette : **[+2,0 %, +4,5 %]**,
+  soit **[9 968, 10 213]**.
+  *Fondement, terme à terme* : (a) base du registre « fiche d'outil **sans
+  glose** », **+2,1 %** et **+2,6 %** au lot 12, milieu **+2,35 %** ; (b) surcoût
+  de glose mesuré au lot 12 sur `falstad`, **+1,9 point** pour une fiche de
+  **3 244** mots, soit environ **62 mots** de glose ; (c) `easyeda` porte plus de
+  libellés d'interface mais **la glose ne se pose qu'à la première occurrence**
+  (D4), et le corpus de la fiche est **3,0 fois plus gros** : le même volume
+  absolu de glose y pèse **trois fois moins**. ⚠ *La borne haute est élargie
+  **vers le haut seulement**, du côté où la composition s'écarte de la référence
+  (règle du 30/08, séance 5), et le côté bas reste à la base mesurée.*
+- **P124.9** — `derive-traduction` rendra **`A JOUR`** sur cette fiche, **sans
+  `--recaler`**, cinquième lot d'affilée. *Le front matter n'est jamais touché à
+  la main : `--corps` le recopie à l'octet.*
+
+**Terme écrit pour réfuter** : un `C109 creees en EN` non nul, un compteur de
+structure inégal, ou un foisonnement hors de [+2,0 %, +4,5 %].
+
+### Constats du bloc 124 — 9 prédictions, 7 tenues, 2 réfutées
+
+- **P124.1 ✅** `source_sha256 avant` et `apres` identiques,
+  `cbdbe60874247720bcb004cdc1deef98685274bc9d082960113e31a0a71ed840`, et
+  `front matter identique a l octet : oui`.
+- **P124.2 ✅** `ligne blanche apres le front matter : deja presente` — le
+  correctif du 30/08 est idempotent, comme prédit.
+- **P124.3 ✅** les cinq gardes passent, aucun refus.
+- **P124.4 ✅** `liens 15 -> 15 ok`, `embeds 53 -> 53 ok`, `code 0 -> 0 ok`.
+- **P124.5 ❌ sur UN terme de cinq, et la réfutation est intéressante.**
+  Mesuré : `typographie francaise 0` ✅, `virgule ambigue 0` ✅,
+  **`C109 creees en EN` 0** ✅, `hors alphabet latin 0` ✅, mais
+  **`C109 de prose` 0** contre **1** prédit.
+
+  **Cause : le report un pour un ne s'est pas fait, et il ne s'est pas fait dans
+  le sens de la faute.** La source française porte
+  `pour la *Std Edition* — celle de la colonne encadrée en rouge` ; j'ai écrit en
+  anglais `for the *Std Edition*, the one in the column outlined in red`, **avec
+  une virgule**. *Le cadratin a disparu sans que je le décide : je l'ai résolu en
+  traduisant, pas en arbitrant.*
+
+  ⚠⚠ **ET AUCUN CONTRÔLE DU DÉPÔT NE L'AURAIT VU. Le seau `C109 creees en EN`
+  est ASYMÉTRIQUE : son code est `if (nEn > nFr)`, ligne 1234 de
+  `creer-fiche-en.mjs`.** Il compte les C109 que la traduction **crée**, jamais
+  celles qu'elle **supprime**. *Sept jours de chantier, treize lots, et le
+  contrôle écrit pour garder le report un pour un ne garde qu'une de ses deux
+  moitiés.* **Trouvé ici parce que la prédiction chiffrait le terme ; sans elle,
+  le `0 a reprendre` aurait été lu comme une réussite.**
+
+  **Décision, prise après la mesure et non avant : la virgule RESTE.**
+  *Motif, et il n'est pas la commodité.* C109 s'applique à l'anglais **pour un
+  motif distinct** (22/08 suite) : en anglais, la construction est native de la
+  prose éditée mais **le caractère em-dash tapé est un marqueur reconnaissable de
+  texte généré**. L'occurrence française n'était gardée qu'au titre de
+  l'**exemption** C123 pour segment nominal, c'est-à-dire tolérée et non
+  requise. **Reporter le cadratin aurait posé en anglais exactement le caractère
+  que la règle vise en anglais.** ⚠ *Ce que la décision coûte : la fiche EN porte
+  une ponctuation que sa source ne porte pas, ce qui est une asymétrie EN/FR de
+  plus, et elle est invisible à tous les compteurs.*
+- **P124.6 ✅** 28 titres de section, dont `## What is it for?`, `## See also` et
+  `## Pitfalls` en formes de production et **25 propres**, aucun n'égalant une
+  forme de production.
+- **P124.7 ✅** 28 callouts, report un pour un exact des six types, **3 titrés et
+  25 nus** — aucun `Watch out`, aucun `Tip` ajouté.
+- **P124.8 ❌ — FOISONNEMENT PRÉDIT [+2,0 %, +4,5 %], MESURÉ +1,6 %, SOUS LA
+  BORNE BASSE.** `9 773 → 9 928 mots`, **+155**.
+
+  ⚠ **C'est le deuxième compteur de ce lot que la même cause fait tomber, et
+  cette fois la cause tient.** Les deux références du brief — taux de C109
+  **1,2 pour 100 mots** et foisonnement **+2 % à +3 %** — ont été mesurées au
+  lot 12 sur des fiches d'outil **de prose**. `easyeda` est une fiche d'outil
+  **d'images** : ses 53 `alt` sont des descriptions longues, comptées par
+  `compter-mots` et **plus courtes en anglais qu'en français**, la description
+  d'écran anglaise se passant d'articles, de prépositions et de relatives que le
+  français impose. ⚠ *Pour le taux de C109, cette explication avait été écartée
+  au bloc 121 au profit de la vraie cause (la passe du 22/08) ; **pour le
+  foisonnement elle n'a pas de concurrente**, et la part d'`alt` dans le volume
+  se mesure au bloc suivant plutôt que d'être supposée.*
+  ✅ **Et la borne basse était le bon côté à ne pas élargir** : j'ai élargi vers
+  le haut, du côté de la glose, et c'est le bas qui a mordu. *La règle du 30/08
+  (séance 5) dit d'élargir du côté où la composition s'écarte de la référence.
+  Elle s'écartait des DEUX côtés et je n'en ai vu qu'un.*
+- **P124.9** — à vérifier au bloc de clôture.
+
+⚠ **Note d'exécution.** Le retrait des cinq espaces devant point-virgule
+(typographie française reportée dans les `alt` et les fins d'item) a été fait par
+un `node -e` d'une ligne plutôt que par un script jetable. *C114 demande un
+script pour une **série** de commandes ; une passe de correction unique
+n'en est pas une, mais la frontière n'est pas écrite et mérite de l'être.*
+
+⚠ **Et mon propre contrôle avant pose a mordu à tort, exactement comme le §8 le
+prédit.** Le `grep -n ' [;:!?%»]'` lancé sur le corps a signalé
+`10 µF` : `µ` est **U+00B5**, `»` est **U+00BB**, et un `grep` sur une classe de
+crochets compare des **octets** — les deux partagent l'octet de tête `0xC2`.
+*Le motif du dépôt, lui, est écrit sur des points de code
+(`/[    ]([;:!?%»])/`) et ne mord pas : `typographie
+francaise` sort à 0.* **Troisième fois que la classe de crochets sur de l'UTF-8
+fabrique un faux positif, et la première où c'est mon contrôle ad hoc et non un
+outil versionné.**
+
+---
+
+## BLOC 125 — CLÔTURE DU LOT 13
+
+**Commandes** :
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase etat -Fiches embarque/pcb/easyeda.md -FichesEn en/embarque/pcb/easyeda-en.md -Chevron`
+2. `node tools/titres-doublons.mjs`
+3. `node tools/puces-tiret.mjs --corpus`
+4. les deux relevés de forme de production et de titre de callout du bloc 122,
+   rejoués sur le corpus après écriture
+5. mesure de la **part d'`alt` dans le volume** des deux fiches, pour fonder ou
+   réfuter l'explication du foisonnement
+
+### Déclaration C131 du bloc 125
+
+**Compteur** : `fichiers modifies non commites` et son sous-compteur.
+
+**Population** : entrées de `git status --porcelain`, filtre ligne 168.
+
+**Versements présents à l'instant où la garde lit le compteur — SEPT, nommés** :
+1. `tools/predictions-260830.md` ` M` *(artefact de séance)*
+2. `tools/batterie-sortie-3008b58.txt` `??` *(artefact)*
+3. `tools/batterie-sortie-3008b59.txt` `??` *(artefact)*
+4. `tools/batterie-sortie-3008b60.txt` `??` — **créé par l'étape 0 de la
+   commande 1**, versement d'office *(artefact)*
+5. `tools/puces-corpus-avant-lot13-3008.txt` `??` **hors artefacts**
+6. `tools/style-easyeda-avant-lot13-3008.txt` `??` **hors artefacts**
+7. `tools/corps-easyeda-en-3008.md` `??` **hors artefacts**
+8. `content/en/embarque/pcb/easyeda-en.md` `??` **hors artefacts** — **UNE
+   entrée**, `content/en/embarque/pcb/` étant déjà suivi (il porte `pcb-en.md`).
+
+⚠ **Recompte explicite, parce que c'est le total qui rate et jamais la part** :
+huit entrées nommées, dont **quatre** portent `batterie-sortie` ou
+`predictions-`. **Total impliqué : 8 entrées, dont 4 hors artefacts de séance.**
+
+⚠ **La commande 5 n'écrit rien** : elle passe par `node` sur une ligne et rend
+sur stdout. Les commandes 2, 3 et 4 non plus. **Aucun versement de plus.**
+
+### Prédictions du bloc 125
+
+**Garde.**
+- **P125.1** — `sortie precedente copiee : tools\batterie-sortie-3008b60.txt`.
+- **P125.2** — `phase demandee : etat   anneau : 2   chevron : True`.
+- **P125.3** — `HEAD git : 5625b4a 2026-08-30 19:23:03 +0200`, au caractère.
+- **P125.4** — `fichiers modifies non commites : 8   (hors artefacts de seance : 4)`.
+- **P125.5** — dates : `JOURNAL.md 19:19:32`, `conventions.md 19:16:57`,
+  `TODO.md 2026-08-29 21:48:08` et `embarque/pcb/easyeda.md 2026-08-22 11:32:49`
+  **inchangées au caractère** — *la passe C109 étant vide, la source FR n'a pas
+  été réécrite, ce qui est la conséquence la plus visible du lot* — et
+  `en/embarque/pcb/easyeda-en.md` **postérieure au 30/08 19:36:54** (horloge du
+  bloc 120, dernier événement daté du dépôt avant l'écriture).
+
+**Corpus et anneau — et le fait dominant est que TOUT le corpus FR est
+inchangé.**
+- **P125.6** — corpus FR **291 259 mots**, **inchangé au mot**, la passe C109
+  étant vide. *Deuxième lot du chantier à ne pas déplacer un seul mot français,
+  après le lot 10 — et pour une raison opposée : le lot 10 avait 45
+  remplacements de solde nul, celui-ci en a zéro.*
+- **P125.7** — traduites **238 → 239 fiches**, **279 218 → 288 991 mots FR**
+  (+9 773). Restant **4 → 3 fiches**, **12 041 → 2 268 mots**.
+  ⚠ *La règle « `tot` d'AVANT pour le restant, `tot` d'APRÈS pour les
+  traduites » est **inapplicable par construction** : les deux valent 9 773.*
+- **P125.8** — **anneau 2 : 145 net, 145 traduites, 0 restante, 0 mot,
+  0 porteuse.** ⚠ **L'ANNEAU 2 EST FERMÉ.**
+- **P125.9** — dette **4 → 3 cibles**, **12 041 → 2 268 mots**, dont **2 hors
+  anneaux 0..2** (`xiao-prise-en-main`, `xiao-sense`) ; la troisième est `kicad`.
+- **P125.10** — `CIBLES SANS FICHE` **6, inchangé** — dixième confirmation du
+  faux positif sur les alias.
+
+**Contrôles.**
+- **P125.11** — `--controle` : **239 fiches, 0 divergente, 0 lien non suffixé**.
+- **P125.12** — `derive-traduction` : **`MARQUE INVALIDE 0`, `DERIVE 0`,
+  `A JOUR 239`**, **zéro `--recaler`, cinquième lot d'affilée** (P124.9).
+- **P125.13** — `mesure-chevron --tout` : **34 paires des deux côtés,
+  0 divergente, inchangé** — *C127 hors sujet pour le huitième lot d'affilée, et
+  c'est le dernier du chantier où la question se pose ainsi.*
+- **P125.14** — `--style` sur la fiche EN : **0 / 0 / 0 / 0**, `C109 de prose`
+  **0**, `hors perimetre` **2**.
+- **P125.15** — foisonnement : **239 paires**, `easyeda-en` **+1,6 %**, moyenne
+  du corpus **3,6 %** ou **3,5 %**. *La fiche pèse 3,4 % des mots du corpus
+  traduit et tire la moyenne vers le bas d'environ 0,07 point : la moyenne
+  publiée passera donc de 3,6 % à 3,5 % **si et seulement si** elle était juste
+  au-dessus de la charnière. **Je prédis 3,5 %**, et je nomme le terme faible :
+  la moyenne du registre est arrondie à une décimale, donc l'arrondi décide.*
+- **P125.16** — wikilinks : **5 mortes** (4 + `kicad-en`, que la fiche neuve
+  vise), **0 cassée, 0 ambiguë**. *Les autres compteurs — gabarits, alias, ok —
+  ne sont pas prédits : je n'ai pas de fondement pour eux.*
+- **P125.17** — médias : **487 fiches**, **800 embeds** (747 + 53).
+
+**Titres, libellés, puces, callouts — les relevés du bloc 122 rejoués.**
+- **P125.18** — titres-doublons FR **243 / 243 / 0**, EN **239 / 239 / 0**.
+  *`EasyEDA` est un titre neuf et unique : aucune collision créée.*
+- **P125.19** — `--libelles` : **4 269 → 4 284** libellés (+15, ceux de la fiche
+  neuve), `cible EN existante` **4 255 → 4 269**, `cible EN absente` **14 → 15**
+  (le `[[kicad-en|KiCad]]` de la fiche neuve, ×2, moins les 3 `easyeda-en`
+  devenus existants… ). ⚠ **Recompte, parce que la décomposition est piégeuse** :
+  la fiche neuve ajoute **15** libellés dont **2** visent `kicad-en`, absente, et
+  **13** visent des cibles existantes ; et les **3** libellés `easyeda-en`
+  préexistants **basculent** d'`absente` vers `existante`.
+  **Donc : total 4 269 + 15 = 4 284 ; absente 14 + 2 − 3 = 13 ; existante
+  4 255 + 13 + 3 = 4 271.** *Contrôle : 4 271 + 13 = 4 284.* ✅
+- **P125.20** — `candidats a lire` : **146 + 3 = 149**, borne haute **152**.
+  *Fondement : les 3 libellés `[[easyeda-en|EasyEDA]]` deviennent comparables
+  parce que ce lot crée leur cible (règle du 30/08, séance 5) — mais `EasyEDA`
+  **est** le titre, donc ils partagent tous leurs radicaux et **ne devraient pas
+  compter**. La marge de +3 est réservée aux libellés de la fiche neuve visant
+  des sigles ou des titres sans radical commun, famille que la clause C125
+  nomme déjà.* **Je prédis 146, fourchette [146, 152].**
+- **P125.21** — `positions de parcours` **16, inchangé**.
+- **P125.22** — puces à tiret : **FR 941 / 167 / 248 inchangé** (passe vide),
+  **EN 900 + 6 = 906 puces sur 156 + 1 = 157 porteuses, 239 fichiers**.
+  *Les six puces sont celles de `## See also`… ⚠ **NON** : le motif A **exclut**
+  `## See also`. **Correction avant la mesure : les six gloses de `## See also`
+  ne sont PAS comptées, et la fiche neuve ne porte aucune autre puce à tiret.
+  Donc EN 900 / 156 porteuses / 239 fichiers, seul le compte de fichiers
+  bouge.*** ✅ *C'est exactement le zéro prédit et mesuré au bloc 121 sur la
+  source, reporté un pour un.*
+- **P125.23** — formes de production EN : `## See also` **230 + 1 = 231**,
+  `## What is it for?` **162 + 1 = 163**, `## Pitfalls` **160 + 1 = 161**,
+  `## Where it fits in the project` **105 inchangé**, `## Exercises` **39
+  inchangé**, `## Going further` **31 inchangé**, `## Step by step` **78
+  inchangé**, `## Getting started` **2 inchangé**.
+- **P125.24** — titres de callout : `Watch out` **49**, `Tip` **46**,
+  `Solution` **36**, `Good` / `Fair` / `Poor` **3**, `Attention` **0**,
+  `Astuce` **0**, **les huit inchangés** — *l'engagement P122.11 se vérifie ici.*
+
+**Fondement du foisonnement — la part d'`alt` dans le volume, mesurée et non
+supposée.**
+- **P125.25** — les 53 `alt` de la source FR pèsent entre **30 %** et **42 %**
+  des 9 773 mots. *Fondement : 53 `alt` de 50 à 90 mots chacun donnent 2 650 à
+  4 770 mots, soit 27 % à 49 % ; je resserre sur [30 %, 42 %] au vu des alt lus,
+  dont le plus long approche 100 mots et le plus court 25.*
+- **P125.26** — la part d'`alt` **baisse en anglais** : le rapport
+  `alt EN / alt FR` sera **inférieur à 1,016**, le foisonnement global de la
+  fiche. *C'est le terme qui fonde ou détruit l'explication : si les `alt` EN
+  foisonnent **autant** que le reste, la cause du +1,6 % est ailleurs et il
+  faudra le dire.*
+
+**Terme écrit pour réfuter** : un `--controle` divergent, un `DERIVE` non nul, un
+`git status` autre que 8 / 4, ou une part d'`alt` EN supérieure à la part FR.
+
+### Constats du bloc 125 — 26 prédictions, 24 tenues, 2 réfutées
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b60.txt`.
+
+**Garde.**
+- **P125.1 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b60.txt`.
+- **P125.2 ✅** `phase demandee : etat   anneau : 2   chevron : True`.
+- **P125.3 ✅** `HEAD git : 5625b4a 2026-08-30 19:23:03 +0200`, au caractère,
+  **quatrième garde de la séance, HEAD stable au caractère sur les quatre**.
+- **P125.4 ✅ sur ses deux termes** :
+  `fichiers modifies non commites : 8   (hors artefacts de seance : 4)`.
+  *Le recompte nominatif des huit entrées, écrit avant le lancement, tombe juste
+  sur le total et sur la part.*
+- **P125.5 ✅ sur ses cinq termes** : les quatre dates inchangées au caractère —
+  `JOURNAL.md 19:19:32`, `conventions.md 19:16:57`, `TODO.md 2026-08-29
+  21:48:08`, `embarque/pcb/easyeda.md 2026-08-22 11:32:49` — et
+  `en/embarque/pcb/easyeda-en.md 2026-08-30 19:53:30`, postérieure à 19:36:54.
+  ⚠ *La source FR **garde sa date du 22 août** à la clôture du lot qui la
+  traduit. C'est la trace la plus lisible de la passe C109 vide, et aucun lot
+  précédent ne pouvait la produire.*
+
+**Volumes.**
+- **P125.6 ✅** corpus FR **291 259 mots, 242 fiches, inchangé au mot.**
+- **P125.7 ✅** traduites **239 fiches, 288 991 mots FR** ; restant **3 fiches,
+  2 268 mots**.
+- **P125.8 ✅ — L'ANNEAU 2 EST FERMÉ.** `ANNEAU 2 NET : 145`,
+  `deja traduites : 145`, `RESTANT : 0`, `RESTANT DE L ANNEAU 2 (0 fiches) 0`,
+  `fiches porteuses : 0`.
+- **P125.9 ✅** dette **3 cibles rouges, 2 268 mots, dont 2 hors anneaux 0..2** —
+  `xiao-prise-en-main` et `xiao-sense` nommées, la troisième étant `kicad`.
+- **P125.10 ✅** `CIBLES SANS FICHE (6)`, **dixième confirmation** du faux
+  positif sur les six alias.
+
+**Contrôles.**
+- **P125.11 ✅** `239 fiche(s) controlee(s), 0 divergente(s)`,
+  `Liens non suffixes : 0 sur 0 fiche(s)`.
+- **P125.12 ✅** `MARQUE INVALIDE 0`, `DERIVE 0`, `SANS SOURCE 0`,
+  `SANS MARQUE 0`, `A JOUR 239`. **Zéro `--recaler`, cinquième lot d'affilée.**
+- **P125.13 ✅** `paires porteuses des deux cotes : 34   divergentes : 0`,
+  inchangé. **C127 hors sujet pour le huitième lot d'affilée, et c'est le dernier
+  lot de l'anneau où la question se posait.**
+- **P125.14 ✅** `--style` EN : **0 / 0 / 0 / 0**, `C109 de prose 0`,
+  `hors perimetre 2`.
+- **P125.15 ✅ sur ses trois termes** : **239 paires**, `easyeda-en` **+1.6 %**,
+  **`foisonnement moyen : 3.5 %`**. *Le terme faible était l'arrondi, et il tombe
+  du côté prédit : 288 991 → 299 084 mots EN.*
+- **P125.16 ❌** — **prédit 5 cibles mortes, mesuré 3** : `kicad-en` (6
+  occurrences), `xiao-prise-en-main-en` (3), `xiao-sense-en` (3).
+  ⚠ *Cause, et c'est une erreur d'addition et non de mesure : j'ai compté
+  `kicad-en` comme une morte **neuve** apportée par ma fiche, alors qu'elle
+  l'était déjà — `pcb-en.md` la cite depuis toujours. Le mouvement réel est
+  **4 − 1 = 3** : `easyeda-en` **cesse** d'être morte, et rien ne s'ajoute.*
+  ✅ *Les compteurs non prédits, faute de fondement, sortent à `CASSE 0`,
+  `AMBIGU 0`, `GABARIT 8`, `ALIAS 6`, `OK 483` — et j'avais écrit que je ne les
+  prédisais pas plutôt que de les deviner.*
+- **P125.17 ✅** `487 fiches lues, 800 embeds`.
+  ⚠ *`audit-medias` sort en `code de sortie : 1` avec **`ABSENT 12`**. Ces douze
+  sont **préexistants et appariés six à six** (six sources FR, six jumelles EN,
+  sur `arduino-capteur-analogique`, `arduino-debug`, `arduino-timers`,
+  `debugger-embarque`, `shield`, `analyseur-logique`) : **ce lot n'en crée
+  aucun**, ses 53 embeds sortent tous en `OK`.*
+
+**Titres, libellés, puces, formes.**
+- **P125.18 ✅** FR **243 / 243 / 0**, EN **239 / 239 / 0**. *`EasyEDA` est un
+  titre neuf et unique, aucune collision créée des deux côtés.*
+- **P125.19 ❌ sur deux sous-compteurs, ✅ sur le total — signature constante, et
+  cette fois la cause se referme au chiffre.**
+  Prédit `4 284 / 4 271 / 13`, mesuré **`4 284 / 4 272 / 12`**.
+  ⚠ **Cause : le corpus porte QUATRE libellés vers `easyeda-en`, pas trois, et
+  le quatrième a un PIPE ÉCHAPPÉ.** `pcb-en.md` L62 écrit
+  `| [[easyeda-en\|EasyEDA]] | … |`, dans une **ligne de tableau**, où le pipe
+  doit être échappé pour ne pas couper la cellule.
+  **Mon motif du bloc 122 exigeait un `|` immédiatement après le slug** et ne
+  voyait donc pas `\|`. *`--libelles`, lui, le voit : son code accepte
+  `(?:\\\||\|)`, ligne 1359.*
+  ✅ **Avec le quatrième, l'arithmétique se referme exactement** :
+  `absente 14 − 4 + 2 = 12` ✅ et `existante 4 255 + 13 + 4 = 4 272` ✅,
+  les 13 étant les liens de la fiche neuve vers des cibles existantes et les 2
+  ses deux `[[kicad-en|KiCad]]`.
+  ⚠ **C110 encore, et pour la troisième fois du chantier sur le même geste** :
+  l'échantillon nommé doit contenir ce qui pourrait faire mordre le motif à
+  tort, **et le pipe échappé était sous mes yeux dans la sortie de
+  `audit-wikilinks` du bloc 125**, ligne `| [[kicad-en\|KiCad]] |`.
+  *Le README du générateur annonce en toutes lettres `[[a\|b]] (pipe echappe)
+  -> echappement preserve` : la forme est documentée, mon motif l'ignorait.*
+- **P125.20 ✅ AU CHIFFRE, prédiction ponctuelle** : `candidats a lire : 146`,
+  **inchangé**. *Les quatre libellés `EasyEDA` deviennent comparables et **aucun
+  ne devient candidat**, le titre `EasyEDA` partageant son radical avec eux ;
+  et les 15 libellés de la fiche neuve n'en créent aucun non plus, tous ayant
+  été **relevés dans le `title:` de production de leur cible** (D6) plutôt que
+  traduits.* ⚠ **C'est le zéro net du lot 6, retrouvé sur une fiche qui apporte
+  15 libellés d'un coup**, et la marge de +3 réservée aux sigles n'a pas servi.
+- **P125.21 ✅** `positions de parcours : 16`.
+- **P125.22 ✅ sur ses six termes** : **FR 941 / 167 / 248 inchangé** — la passe
+  C109 étant vide — et **EN 900 / 156 / 239**, **seul le compte de fichiers
+  bouge**. ✅ *La correction écrite **avant** la mesure était la bonne : les six
+  gloses de `## See also` sont exclues par le motif A, et la fiche neuve ne porte
+  aucune autre puce à tiret. Reporter les 0 puces de la source aurait pu se lire
+  comme une perte ; c'est le motif qui les écarte, des deux côtés.*
+- **P125.23 ✅ sur ses huit termes** : `## See also` **231**,
+  `## What is it for?` **163**, `## Pitfalls` **161** (les trois à **+1**), et
+  `## Where it fits in the project` **105**, `## Exercises` **39**,
+  `## Going further` **31**, `## Step by step` **78**, `## Getting started` **2**
+  (les cinq **inchangés**). *Le +1 sur exactement trois familles dit en un
+  chiffre que la fiche ne porte que trois sections génériques, ce que le relevé
+  6 avait annoncé.*
+- **P125.24 ✅ sur ses huit termes, ET C'EST L'ENGAGEMENT P122.11 QUI SE
+  VÉRIFIE** : `Watch out` **49**, `Tip` **46**, `Solution` **36**,
+  `Good` / `Fair` / `Poor` **3**, `Attention` **0**, `Astuce` **0**, **tous
+  inchangés**. *Vingt-huit callouts écrits, aucun titre ajouté. La règle du
+  30/08 (séance 2) servait jusqu'ici à **corriger** un titre de callout ; ici
+  elle sert à **ne pas en poser**, et c'est la première fois.*
+
+**⚠⚠ FONDEMENT DU FOISONNEMENT — MESURÉ, ET IL RETOURNE LA RÉFUTATION P124.8 EN
+CONFIRMATION DU MODÈLE.**
+
+- **P125.25 ✅** les **53 `alt`** de la source FR pèsent **3 371 mots**, soit
+  **34,5 %** des 9 773, dans la fourchette [30 %, 42 %] prédite.
+- **P125.26 ✅, et c'est le terme qui décide** :
+  - `alt` : **FR 3 371 → EN 3 328**, rapport **0,9872**, soit **−1,3 %** ;
+  - **hors `alt`** : **FR 6 402 → EN 6 600**, rapport **1,0309**, soit
+    **+3,1 %** ;
+  - global : **1,0159**, soit **+1,6 %**.
+
+  ✅ **Le foisonnement de la PROSE de cette fiche est +3,1 %, c'est-à-dire
+  exactement dans la fourchette [+2,0 %, +4,5 %] de P124.8 et à 0,1 point de son
+  point prédit (+3,0 %).** *Le modèle était juste ; ce qui était faux, c'est le
+  **volume auquel je l'ai appliqué**.*
+  ⚠ **Et l'`alt` ne foisonne pas, il RÉTRÉCIT.** *Une description d'écran
+  anglaise se passe des articles, des prépositions et des relatives que le
+  français impose : « la ligne Côté Cuivre est encadrée en rouge et porte
+  l'icône de crayon » contre « the Côté Cuivre row is outlined in red and carries
+  the pencil icon ».* **Quatrième cause d'ininterprétabilité à jouer en sens
+  inverse du foisonnement**, après les chaînes C113 (25/08), les gloses de
+  `memoire` (24/08) et la prose argumentative (30/08, lot 11) — **et la première
+  qui ne soit pas de la prose du tout.**
+
+---
+
+## ⚠ CORRECTION DE DEUX CONSTATS DU BLOC 122 — P122.15 N'ÉTAIT PAS RÉFUTÉE, C'EST MON MOTIF QUI L'ÉTAIT
+
+La cause de P125.19 remonte au bloc 122 et y corrige deux verdicts.
+
+- **P122.14** — le verdict de **forme** tient sans réserve : **les quatre**
+  occurrences portent le libellé **`EasyEDA`**, au caractère et à la casse,
+  aucune forme concurrente. **La décision de `title:` n'est pas touchée.**
+  ⚠ *Mais le chiffre que j'ai publié à côté — « 3 occurrences » — était **court
+  d'une unité**.*
+- **P122.15 — le verdict s'inverse : la prédiction [4, 20] est TENUE, à sa borne
+  basse exacte.** J'ai déclaré la réfutation sur **mon propre comptage**, et il
+  était faux. *Le compte réel est **4**.*
+  ⚠ **Ce qui reste vrai du commentaire de réfutation** : la règle du lot 12 —
+  *le nombre de libellés se prédit sur le nombre de fiches traduites qui citent
+  la cible* — donnait bien la réponse, et **une seule** fiche EN cite
+  `easyeda-en`. ⚠ **Ce qui devient faux** : « la valeur juste était donc 3 ».
+  Elle était **4**, et une seule fiche citante peut porter plusieurs libellés —
+  `pcb-en.md` en porte deux, un dans son tableau comparatif et un dans son
+  `## See also`. *La règle prédit le nombre de **fiches**, pas le nombre de
+  **libellés**, et je l'ai lue comme si les deux étaient égaux.*
+- ⚠ **La règle d'usage à retenir est de motif, et elle est la troisième du
+  chantier sur ce point** : *tout motif qui cherche un libellé de wikilink
+  accepte le **pipe échappé** `\|`, faute de quoi il est aveugle à toutes les
+  cibles citées **dans un tableau**.* *Le générateur le documente
+  (`[[a\|b]] (pipe echappe) -> echappement preserve`), `--libelles` le code
+  (ligne 1359), et mon motif ad hoc l'ignorait.*
+
+---
+
+## ⛳ GATE G4 — clôture du lot 13. ⚠ L'ANNEAU 2 EST FERMÉ.
+
+**Fait** : 1 fiche EN de 9 773 mots rédigée et posée par `--corps`, passe C109
+**vide**, `title:` arrêté sans arbitrage, neuf relevés d'avant rédaction,
+tous contrôles au vert.
+
+**Chiffres qui ont changé** : corpus traduit **238 → 239 fiches**,
+**279 218 → 288 991 mots FR** ; restant **4 → 3 fiches**, **12 041 → 2 268
+mots** ; **anneau 2 : 1 → 0 restante** ; dette **4 → 3 cibles** ; foisonnement
+moyen **3,6 → 3,5 %** ; embeds **747 → 800**. **Corpus FR inchangé à 291 259.**
+
+**Ce qui suit** : bloc 126, clôture § 7 — entrée de JOURNAL et versements au § 8
+de `conventions.md`.
+
+---
+
+## BLOC 126 — CLÔTURE § 7
+
+**Commandes** : `node tools/normalize-pilotage.js` (déjà passé, **0 caractère à
+corriger, 0 fichier modifié**), puis édition de `JOURNAL.md` et
+`conventions.md`.
+
+### Déclaration C131 du bloc 126
+
+**Compteur** : `fichiers modifies non commites`. **La batterie ne tourne pas.**
+
+**Versements de ce bloc — DEUX, et tous deux sur des fichiers SUIVIS** :
+`JOURNAL.md` et `conventions.md` passent de propre à ` M`. **Deux entrées
+neuves, toutes deux hors artefacts de séance.**
+`TODO.md` et `BACKLOG.md` **ne sont pas touchés**.
+
+**Les huit entrées du bloc 125 restent.**
+**Total impliqué : 10 entrées, dont 6 hors artefacts de séance.**
+⚠ *Ce total ne sera **pas relevé** par une garde : c'est le dernier bloc de la
+séance et la batterie n'y tourne pas. Il est publié pour que la prochaine garde
+puisse le vérifier — sauf si Tim commite entre-temps, auquel cas il vaut 0.*
+
+### Prédictions du bloc 126
+
+- **P126.1** — `normalize-pilotage` rend **0 caractère à corriger, 0 fichier
+  modifié** *(mesuré avant l'édition, à rejouer après)*.
+- **P126.2** — tailles **après** la dernière écriture (C118) : `TODO.md`
+  **282,7 Kio inchangé**, `BACKLOG.md` **206,0 Kio inchangé** ; `JOURNAL.md`
+  et `conventions.md` **en hausse**, sans chiffre prédit — *je n'ai pas de
+  fondement pour la taille d'un texte que je n'ai pas encore écrit, et une
+  fourchette large sans fondement n'est pas une prédiction (règle du 30/08,
+  séance 5, réappliquée à moi-même après P122.15).*
+- **P126.3** — **bilan de séance : 108 prédictions à décompte plein, 101 tenues,
+  7 réfutées, soit 93,5 %.** Réfutées : **P119.8** (dates de pilotage bornées sur
+  l'horloge de la garde au lieu des dates qu'elle lisait), **P121.1** et
+  **P121.2** (échantillon C110 nommé de mémoire), **P124.5** (report un pour un
+  d'un C109 non fait, dans le sens de la conformité), **P124.8** (foisonnement
+  prédit sur le volume total au lieu du volume de prose), **P125.16** (cible
+  morte comptée deux fois), **P125.19** (motif aveugle au pipe échappé).
+  ⚠ **Et une réfutation ANNULÉE** : P122.15, déclarée fausse sur mon propre
+  comptage, est **tenue** à sa borne basse une fois le pipe échappé compté.
+- **P126.4** — **sept déclarations C131, sept justes**, dont **cinq vérifiées
+  par un relevé** : 2 / 0 au bloc 119, 3 / 0 au bloc 120, 5 au bloc 121, 7 au
+  bloc 124, 8 / 4 au bloc 125.
+- **P126.5** — **quatre gardes de péremption au vert**, `HEAD 5625b4a` **stable
+  au caractère sur les quatre**, quatre lancements de `batterie.ps1` copiés sous
+  `3008b58` à `3008b60`. ⚠ *Trois lancements pour quatre copies : la copie
+  `b58` est faite par le premier lancement, `b59` par le deuxième, `b60` par le
+  troisième.* **Correction avant écriture : TROIS lancements, TROIS copies
+  (`b58`, `b59`, `b60`), et TROIS gardes** — les blocs 121 à 124 n'ont pas lancé
+  la batterie. *Je corrige le chiffre plutôt que de le laisser passer.*
+- **P126.6** — **zéro test négatif délibéré**, et c'est une première depuis le
+  29/08 (suite 7). *Aucun outil d'écriture à ancre n'a servi : la passe C109
+  étant vide, ni `remplacer-passe` ni `renommer-titres` n'ont tourné, et
+  `--corps` porte ses cinq gardes sans qu'un test négatif soit nécessaire pour
+  les éprouver — elles l'ont été douze fois depuis le 30/08.*
+
+### Constats du bloc 126 — 6 prédictions, 6 tenues
+
+- **P126.1 ✅** `normalize-pilotage` : `0 caractere(s) a corriger, 0 fichier(s)
+  modifie(s)`, **avant et après** les deux éditions.
+- **P126.2 ✅** `TODO.md` **282,7 Kio inchangé**, `BACKLOG.md` **206,0 Kio
+  inchangé** ; `conventions.md` **542,6 → 554,4 Kio**, `JOURNAL.md`
+  **692,7 → 707,1 Kio**, les deux en hausse, **aucun chiffre n'ayant été
+  prédit** faute de fondement.
+  ⚠ **Correction d'une écriture, faite par ancre unique** : l'entrée de JOURNAL
+  a d'abord porté `706,0 Kio`, chiffre **projeté** avant que le fichier ne soit
+  écrit. Mesuré **707,1**, corrigé par un remplacement à ancre unique
+  (`1 occurrence`, longueur inchangée). *C118 en petit : une taille de fichier se
+  mesure **après** la dernière écriture, et l'entrée qui la publie est
+  elle-même la dernière écriture — donc elle se patche, elle ne se devine pas.*
+- **P126.3 ✅** bilan de séance conforme, **108 / 101 / 7 = 93,5 %**.
+- **P126.4 ✅** **sept déclarations C131, sept justes**, dont **six vérifiées par
+  un relevé** — 2 / 0 (bloc 119), 3 / 0 (bloc 120), 5 (bloc 121), 7 (bloc 124),
+  8 / 4 (bloc 125), **10 / 6 (bloc 126, relevé final)**.
+  ✅ *La déclaration du bloc 126 annonçait **10 entrées dont 6 hors artefacts** et
+  `git status` les rend, nommément : `JOURNAL.md`, `conventions.md`,
+  `predictions-260830.md`, `easyeda-en.md`, `b58`, `b59`, `b60`,
+  `corps-easyeda-en-3008.md`, `puces-corpus-avant-lot13-3008.txt`,
+  `style-easyeda-avant-lot13-3008.txt`.*
+- **P126.5 ✅ après correction écrite avant l'exécution** : **trois gardes,
+  trois lancements, trois copies** `3008b58` à `3008b60`, `HEAD 5625b4a` stable
+  au caractère sur les trois. *Le « quatre » initial était une erreur de compte,
+  corrigée dans le texte de la prédiction elle-même.*
+- **P126.6 ✅** **zéro test négatif délibéré**, et la raison est structurelle :
+  la passe C109 étant vide, **aucun outil d'écriture à ancre n'a tourné**.
+
+✅ **Contrôle de fin de séance qui n'était pas prédit et qui vaut d'être écrit** :
+`git diff --numstat -- content` rend **VIDE**. *Aucune ligne de `content/`
+modifiée, la seule écriture du lot étant une **création** non suivie. C'est la
+preuve la plus directe de la passe C109 vide, et elle est gratuite.*
+
+---
+
+# BILAN GÉNÉRAL — 30/08 (séance 9), LOT 13 : `easyeda`, DERNIÈRE FICHE DE L'ANNEAU 2
+
+**108 prédictions à décompte plein, 101 tenues, 7 réfutées — 93,5 %**, plus
+**une réfutation ANNULÉE** (P122.15) après correction de la mesure qui l'avait
+prononcée, ce qui est une première du chantier.
+
+**Huit blocs d'exécution (119 à 126), trois gardes de péremption au vert,
+`HEAD 5625b4a` stable au caractère sur les trois, trois lancements de
+`batterie.ps1` copiés sous `3008b58` à `3008b60`, sept déclarations C131 dont
+six vérifiées par un relevé.**
+
+**Les sept réfutations, et six sur sept ont une cause de MÉTHODE et non de
+mesure** :
+1. **P119.8** — borne d'une date de fichier posée sur l'horloge de la garde
+   précédente au lieu des dates que cette garde lisait. *Réfute au passage le
+   second membre d'une candidate écrite la veille au soir.*
+2. **P121.1** et **P121.2** — échantillon C110 nommé **de mémoire**, deux fiches
+   sur quatre inexistantes, alors que la liste juste était au registre.
+3. **P124.5** — report un pour un d'un C109 **non fait**, et **aucun contrôle du
+   dépôt ne pouvait le voir**.
+4. **P124.8** — foisonnement de prose appliqué à un volume **dont 34,5 % n'est
+   pas de la prose**.
+5. **P125.16** — cible morte comptée **deux fois**, une addition et non une
+   mesure.
+6. **P125.19** — motif ad hoc **aveugle au pipe échappé**, seule réfutation dont
+   la cause est un défaut d'instrument, et elle en annule une autre.
+
+**Ce que la séance laisse au dépôt** : 1 fiche EN de 9 928 mots, **zéro
+modification du corpus français**, 2 relevés datés encadrant une passe qui n'a
+rien eu à passer, et **sept entrées de §8 dont deux réfutent une candidate de la
+veille**. *Le lot 14 fermera le corpus : 3 fiches, 2 268 mots.*

@@ -2460,6 +2460,176 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **⚠⚠ UNE RÉFÉRENCE DE REGISTRE DÉCLARE SA POPULATION AVANT D'ÊTRE OPPOSÉE À
+  UNE FICHE. C'est C131 appliqué à un TAUX, et il aurait fallu l'écrire avant.**
+  *Née le 30/08 (séance 9), lot 13, d'un écart de facteur 117 entre une référence
+  et une mesure.* Le brief prédisait pour `easyeda` **≈ 117 candidats C109**, en
+  appliquant le taux « fiche d'outil » du lot 12 — **1,2 pour 100 mots** — à
+  9 773 mots. **Mesuré : 1.** ⚠ **La référence n'est pas réfutée : elle a été
+  appliquée hors de sa population.** Un taux de C109 mesure la densité d'incises
+  d'une fiche **qui n'est pas encore passée à C109**, et
+  `conventions.md` porte depuis le 22/08, en toutes lettres, que
+  **`easyeda` est la fiche dont C109 EST NÉE** — *« règle demandée par Tim le
+  22/08 après lecture de `easyeda`, testée sur la section 45° avant déploiement
+  sur les 21 sections »* — et qu'elle est *« **seule fiche passée en C109**, rend
+  **1** occurrence quand ses voisines de calibre comparable en rendent 40 à
+  60 »*. **Le 1 mesuré huit jours plus tard est ce 1-là**, sur une fiche dont la
+  date d'écriture, relevée quatre fois à la garde, est restée `2026-08-22
+  11:32:49`.
+
+  **Ce que la règle ajoute à C131.** C131 dit de déclarer la population d'un
+  **compteur** qu'on prédit. Un **taux** a lui aussi une population — ici « les
+  fiches qui n'y sont pas encore passées » — et personne ne l'avait écrite,
+  parce que la question ne s'était jamais posée : `easyeda` est le **seul** cas
+  du corpus. ⚠ *Elle est aussi la **dernière fiche de l'anneau 2**, donc ce cas
+  ne se représentera plus. **La règle naît et expire dans le même lot**, et elle
+  est versée ici pour la forme du raisonnement, pas pour son objet.*
+
+  ✅ **Ce qui a marché, et c'est le terme réutilisable** : les deux fondements
+  étaient **publiés avant la mesure**, opposés l'un à l'autre, et le choix de
+  fonder sur le **dénombrement nominatif** — occurrence par occurrence, sur la
+  source lue en entier et sur le code du motif — plutôt que sur le taux a été
+  **écrit avec son motif**. Le dénombrement rend **l'occurrence exacte, à la
+  bonne ligne** (ligne 46). *Le lot 12 disait « le taux est le produit de la
+  mesure, pas son fondement » sans avoir l'occasion de l'éprouver contre lui ;
+  c'est fait.*
+  ⚠ **Et mon EXPLICATION de l'écart était fausse avant d'être corrigée.** J'avais
+  publié au gate G1 que la cause était la masse d'`alt` gonflant le dénominateur.
+  *Le fait est réel — `hors perimetre` sort à **7 signalements sur 8** — mais ce
+  n'est pas la cause du 1.* **Verdict juste, motif faux, corrigé au bloc
+  suivant.** *Éprouvée 0/N.*
+- **⚠⚠ LE SEAU `C109 creees en EN` EST ASYMÉTRIQUE : IL VOIT CE QUE LA
+  TRADUCTION CRÉE, JAMAIS CE QU'ELLE SUPPRIME. Sept jours, treize lots, et le
+  contrôle ne garde qu'une moitié de ce qu'il prétend garder.**
+  *Née le 30/08 (séance 9), lot 13, d'une réfutation d'une unité.* J'avais prédit
+  **1** `C109 de prose` côté anglais, par report un pour un du seul candidat
+  gardé côté français. **Mesuré 0** : j'ai rendu
+  `pour la *Std Edition* — celle de la colonne encadrée en rouge` par
+  `for the *Std Edition*, the one in the column outlined in red`, **avec une
+  virgule**, sans le décider. *Le cadratin a disparu en traduisant, pas en
+  arbitrant.*
+
+  ⚠ **Son code est `if (nEn > nFr)`, ligne 1234 de `creer-fiche-en.mjs`**, et il
+  n'a pas de symétrique. **Une suppression ne sort nulle part** : ni au bilan de
+  `--style`, qui affiche `0 a reprendre`, ni à `--controle`, qui compte des
+  liens, des embeds et des blocs. *Trouvé ici **uniquement parce que la
+  prédiction chiffrait le terme** ; sans elle, le `0 a reprendre` se lisait comme
+  une réussite.* **C116 (7) une fois de plus** — le compteur se lit dans le code
+  qui l'incrémente — *et cette fois le code dit moins que son nom.*
+
+  **Décision prise après la mesure, et publiée avec son motif : la virgule
+  reste.** C109 s'applique à l'anglais **pour un motif distinct** (22/08 suite) :
+  la construction est native de la prose éditée anglaise, mais **le caractère
+  em-dash tapé y est un marqueur reconnaissable de texte généré**. L'occurrence
+  française n'était gardée qu'au titre de l'exemption C123 pour segment nominal,
+  donc **tolérée et non requise** ; la reporter aurait posé en anglais
+  exactement le caractère que la règle vise en anglais. ⚠ *Ce que la décision
+  coûte : une asymétrie EN/FR de plus, invisible à tous les compteurs.*
+  **Correctif possible : un seau `C109 supprimees en EN`, symétrique, deux lignes
+  de code.** *Porté à la file des arbitrages, non traité.* *Éprouvée 0/N.*
+- **⚠ SUR UNE FICHE À `alt` MASSIFS, UNE RÉFÉRENCE DE FOISONNEMENT DE PROSE NE
+  S'APPLIQUE QU'AU VOLUME HORS `alt` — et l'`alt` ne foisonne pas, il
+  RÉTRÉCIT.**
+  *Née le 30/08 (séance 9), lot 13, d'une réfutation retournée en confirmation
+  par la mesure de sa cause.* Foisonnement prédit **[+2,0 %, +4,5 %]**, point
+  **+3,0 %** ; mesuré **+1,6 %**, sous la borne basse. **Décomposition mesurée
+  après coup :**
+
+  | part | FR | EN | rapport |
+  |---|---|---|---|
+  | les **53 `alt`** | 3 371 | 3 328 | **0,9872** |
+  | **hors `alt`** | 6 402 | 6 600 | **1,0309** |
+  | fiche entière | 9 773 | 9 928 | 1,0159 |
+
+  ✅ **La prose de la fiche foisonne de +3,1 %, soit à 0,1 point du point
+  prédit et bien dans la fourchette.** *Le modèle était juste ; ce qui était faux,
+  c'est le **volume auquel je l'ai appliqué**.* Les `alt` pèsent **34,5 %** du
+  volume C110 de cette fiche.
+  ⚠ **Cause du rétrécissement** : une description d'écran anglaise se passe des
+  articles, des prépositions et des relatives que le français impose.
+  **Quatrième cause d'ininterprétabilité à jouer en sens inverse** du
+  foisonnement, après les chaînes C113 (25/08 suite 8), les gloses de `memoire`
+  (24/08 suite 2) et la prose argumentative (30/08, lot 11) — **et la première
+  qui ne soit pas de la prose du tout**.
+  ✅ **Règle de prédiction qui en sort** : *le foisonnement se prédit sur le
+  volume de **prose**, et le volume d'`alt` se prédit séparément, à un rapport
+  légèrement inférieur à 1. Sur une fiche illustrée, les deux ne se moyennent
+  pas, ils se composent.* ⚠ *Deux points de mesure pour l'`alt`, un seul lot :
+  ce n'est pas une loi.* *Éprouvée 0/N.*
+- **Tout motif qui cherche un LIBELLÉ de wikilink accepte le PIPE ÉCHAPPÉ `\|`,
+  faute de quoi il est aveugle à toutes les cibles citées DANS UN TABLEAU.**
+  *Née le 30/08 (séance 9), lot 13, d'une réfutation de `--libelles` dont la
+  cause remonte de trois blocs.* Le relevé du bloc 122 a rendu **3** libellés
+  visant `easyeda-en` ; il y en a **4**. Le quatrième est
+  `| [[easyeda-en\|EasyEDA]] | … |`, **ligne 62 de `pcb-en.md`**, dans une ligne
+  de tableau où le pipe **doit** être échappé pour ne pas couper la cellule.
+  ⚠ **Mon motif exigeait un `|` immédiatement après le slug**, `--libelles` non :
+  son code accepte `(?:\\\||\|)`, ligne 1359.
+  ✅ **Avec le quatrième, la décomposition se referme au chiffre** :
+  `cible EN absente 14 − 4 + 2 = 12` et `existante 4 255 + 13 + 4 = 4 272`,
+  toutes deux mesurées.
+  ⚠ **Conséquence de verdict** : la prédiction P122.15, `[4, 20]` libellés,
+  **avait été déclarée réfutée sur mon propre comptage** ; elle est **tenue** à
+  sa borne basse. *Une réfutation prononcée sur une mesure fausse est une
+  réfutation fausse, et c'est la première du chantier.*
+  ⚠ *C110 pour la troisième fois sur ce geste : l'échantillon doit contenir ce
+  qui pourrait faire mordre le motif à tort. **La forme échappée était sous mes
+  yeux** dans la sortie d'`audit-wikilinks` du même bloc — `| [[kicad-en\|KiCad]] |`
+  — et le README du générateur la documente en toutes lettres.*
+  ✅ **Corollaire sur la règle du lot 12** : *le nombre de libellés se prédit sur
+  le nombre de fiches traduites qui citent la cible* — **une** fiche cite
+  `easyeda-en`, et elle porte **deux** libellés, un dans son tableau comparatif et
+  un dans son `## See also`. **La règle prédit un nombre de FICHES, pas un nombre
+  de LIBELLÉS**, et je l'avais lue comme si les deux étaient égaux.
+  *Éprouvée 0/N.*
+- **Un échantillon nommé sous C110 se recopie depuis la PRÉDICTION DU REGISTRE
+  qui porte sa réponse, jamais depuis le souvenir de sa composition.**
+  *Née le 30/08 (séance 9), lot 13, de deux réfutations à cause unique.* Les
+  échantillons 1 et 2 de l'éprouvage des puces ont été composés de mémoire avec
+  `esp32-adc` et `esp32-pwm`, **qui n'existent pas dans `esp32/`** : ce sont des
+  notions transverses. Sortie : `ABSENTE` deux fois, **TOTAL 4** sur deux fiches.
+  Les quatre vraies — `esp32-deep-sleep`, `esp32-arduino-core`, `esp32-freertos`,
+  `esp32-idf` — étaient écrites au registre, à la prédiction P109.1 de la séance
+  précédente, **dans le même fichier**.
+  ✅ **Ce qui a marché est une propriété de l'outil** : `ABSENTE` est imprimé
+  **par fiche**, donc la faute se voit dans la sortie. *Un total de 4 sans cette
+  ligne aurait ressemblé à une réponse.*
+  ⚠ *Précédent exact au registre : « deux hubs nommés de mémoire n'existaient
+  pas », 30/08 (séance 5). **La réponse et la liste des fiches sont le même
+  objet** ; n'en reprendre qu'une moitié suffit à casser l'épreuve.*
+  *Éprouvée 0/N.*
+- **⚠ LA BORNE D'UNE DATE DE FICHIER SE POSE SUR LE DERNIER RELEVÉ DE CETTE
+  DATE-LÀ, PAS SUR L'HORLOGE DU BLOC QUI L'A RELEVÉE — et le second membre de la
+  candidate du lot 12 est RÉFUTÉ à sa première épreuve.**
+  *Née le 30/08 (séance 9), lot 13, garde d'ouverture.* La candidate du lot 12
+  disait : *« une égalité est un intervalle de largeur nulle, **et la dernière
+  garde d'une séance n'est jamais sa dernière écriture** »*. **Le second membre
+  est faux** : au lot 12, la clôture § 7 a écrit `conventions.md` à **19:16:57**
+  puis `JOURNAL.md` à **19:19:32**, **puis** le dernier bloc a lancé sa garde à
+  **19:20:03**. *L'ordre du lot 11 n'était pas une loi de la clôture, c'était
+  l'ordre d'une clôture particulière.*
+  ⚠ **J'ai donc converti une égalité réfutée en intervalle ouvert `]19:20:03,
+  19:23:03[`, et l'intervalle excluait exactement la bonne valeur** : les deux
+  dates mesurées sont **19:19:32** et **19:16:57**, identiques au relevé
+  précédent.
+  ✅ **Le premier membre tient et se précise** : borner sur un **événement daté
+  du dépôt**, oui — mais l'événement qui parle d'un fichier est **la date de ce
+  fichier au relevé précédent**, pas l'horloge du bloc qui l'a lue. *Ce sont deux
+  événements datés distincts, et un seul concerne le fichier.* **La bonne
+  prédiction était `[19:19:32, 19:23:03[` et `[19:16:57, 19:23:03[`, bornes
+  basses FERMÉES**, parce que « pas réécrit depuis » est le cas normal.
+  ✅ **Appliquée dès le bloc suivant, elle a rendu quatre dates justes au
+  caractère, puis cinq à la clôture**, dont celle d'une source FR qui **garde sa
+  date du 22 août** à la clôture du lot qui la traduit — trace visible de la
+  passe C109 vide. *Éprouvée 2/N, pour la version corrigée.*
+- **⚠ UNE PASSE C109 PEUT ÊTRE VIDE, et alors le corpus FR sort inchangé au
+  mot.** *Constat du 30/08 (séance 9), lot 13, non promu.* **1 signalement, 1
+  gardé, 0 traité, 0 ancre, 0 octet écrit dans `content/`.** Premier lot du
+  chantier dans ce cas, et sa cause est unique : `easyeda` était déjà passée.
+  *Le lot 10 avait rendu un corpus FR inchangé lui aussi, mais par **45
+  remplacements de solde nul** ; ici il n'y a rien eu à remplacer.* ⚠ *La règle
+  « état d'AVANT pour le restant, état d'APRÈS pour les traduites » a ses deux
+  membres égaux pour la deuxième fois, et reste inéprouvable.*
 - **⚠ LE REGISTRE « FICHE D'OUTIL » A UN TAUX DE C109 PROPRE, ET SURTOUT UNE
   DISPERSION PROPRE. Première référence mesurée du chantier sur cette espèce.**
   *Née le 30/08 (séance 8), lot 12, sur les trois `type: tuto` d'`embarque/simulation/`.*
