@@ -1,0 +1,80 @@
+
+############ CORPUS MOTIF A - APRES PASSE C109 DU LOT 12 ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  FR - population : content/**/*.md HORS content/en/
+    fichiers   : 248
+    porteuses  : 167
+    PUCES      : 941
+
+  EN - population : content/en/**/*.md
+    fichiers   : 235
+    porteuses  : 153
+    PUCES      : 886
+
+############ LOT - APRES PASSE ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  POPULATION : echantillon nomme de 3 fiche(s), passees en argument.
+
+  embarque/simulation/falstad.md                                 5
+  embarque/simulation/ltspice.md                                 8
+  embarque/simulation/wokwi.md                                   1
+  ----------------------------------------------------------------
+  TOTAL (3 fiches)                                              14
+
+############ CORPUS MOTIF A - CLOTURE DU LOT 12 (apres redaction) ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  FR - population : content/**/*.md HORS content/en/
+    fichiers   : 248
+    porteuses  : 167
+    PUCES      : 941
+
+  EN - population : content/en/**/*.md
+    fichiers   : 238
+    porteuses  : 156
+    PUCES      : 900
+
+############ LOT EN ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  POPULATION : echantillon nomme de 3 fiche(s), passees en argument.
+
+  en/embarque/simulation/falstad-en.md                           5
+  en/embarque/simulation/ltspice-en.md                           8
+  en/embarque/simulation/wokwi-en.md                             1
+  ----------------------------------------------------------------
+  TOTAL (3 fiches)                                              14

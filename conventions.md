@@ -2460,6 +2460,149 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 ⚠ **UNE GARDE QUI TESTE L'INCLUSION NE TESTE PAS L'EXTENSION.** Le script de la série 5 calculait une région à couper et vérifiait qu'elle **contient** le second marqueur ; elle le contenait, et s'étendait **trois cents lignes au-delà**. **332 lignes de TODO supprimées sur 541**, récupérées par `git checkout`. ⚠ **Et ces 332 lignes sont exactement les 331 jamais lues** — lecture en tête à 150, en queue à 60. *La zone qu'on ne lit pas est celle qu'on détruit, parce que c'est la seule dont on ne peut pas borner le traitement.* **Deux règles d'usage** : la fin d'un bloc cité se prend sur la **dernière ligne préfixée `>` qui suit son propre marqueur**, jamais sur la première ligne non citée du fichier ; et **un fichier ne se coupe pas sans avoir été lu en entier**. *Le `dryRun` de C116 couvre l'édition par ancre ; il ne couvre pas une coupe calculée par un script de séance, qui doit donc porter sa propre garde — et une garde d'inclusion n'en est pas une.*
 
 ### Autres en attente
+- **⚠ LE REGISTRE « FICHE D'OUTIL » A UN TAUX DE C109 PROPRE, ET SURTOUT UNE
+  DISPERSION PROPRE. Première référence mesurée du chantier sur cette espèce.**
+  *Née le 30/08 (séance 8), lot 12, sur les trois `type: tuto` d'`embarque/simulation/`.*
+  Le lot 11 avait établi que le taux suit le **registre** et non la longueur ;
+  il ne disait rien de la **dispersion**. Mesure du lot 12, taux pour 100 mots :
+  `ltspice` **1,117** (3 848 mots), `falstad` **1,264** (3 244),
+  `wokwi` **1,269** (1 340) — **lot 1,198**.
+
+  | registre | lot | taux | facteur haut / bas |
+  |---|---|---|---|
+  | **fiche d'outil** (`type: tuto`) | **12** | **1,20** | **1,14** |
+  | notions `embarque/mcu/` | 11 | 0,74 à 1,45 | 1,96 |
+  | fiches `conduite/proj/` mêlées | 10 | 0,57 à 2,20 | 3,9 |
+
+  ⚠ **Trois fiches de 1 340, 3 244 et 3 848 mots rendent le même taux à 13 %
+  près**, quand huit notions de la même branche s'étalaient sur un facteur 2.
+  *Cause lisible : une fiche d'outil est un enchaînement de gestes, et la
+  densité d'incises y est celle de la consigne, pas celle de l'argumentation —
+  elle ne dépend donc ni du sujet ni de la taille.*
+  ✅ **La prédiction du lot 12 en est sortie exacte à l'unité sur ses quatre
+  termes** — 41 / 43 / 17 / 101 —, **sans qu'aucune fourchette ne serve**, mais
+  ⚠ *par comptage à la main sur les trois sources lues en entier et sur le code
+  du motif, pas par ce taux : le taux est le **produit** de la mesure, pas son
+  fondement.* *Éprouvée 0/N comme instrument de prédiction.*
+- **Un compteur de RÉFÉRENCE publie sa population ET son motif — ÉPROUVÉE 1/N,
+  et l'épreuve a une forme réutilisable : reproduire AUSSI le motif qu'on sait
+  faux.**
+  *Éprouvée le 30/08 (séance 8), lot 12, par `tools/puces-tiret.mjs`.* La
+  candidate née au lot 11 est mise en code : l'outil imprime en tête de sortie
+  le motif de puce, la séquence `" — "` **avec ses trois points de code**, le
+  motif de clôture de bloc, la **liste nominative** des sections exclues, la
+  portée d'une section exclue et l'**unité comptée**, puis la population de
+  chaque langue au-dessus de ses chiffres.
+
+  **Ce qui fait l'épreuve, et c'est transposable à tout compteur de référence.**
+  Reproduire le motif A sur les quatre échantillons nommés de C110 — **12 / 11 /
+  16 / 10, dix-neuf fiches, dix-neuf valeurs** — prouve seulement que le total
+  tombe juste ; il pouvait tomber juste par une autre combinaison d'exclusions.
+  **Reproduire EN PLUS le motif B — celui dont on sait qu'il est faux, FR 1 033
+  / 173 et EN 972 / 159 — ferme le degré de liberté** : la différence
+  946 → 1 033 est exactement la contribution des sections `## Aller plus loin`
+  et `## Going further`, au fichier près et sur les deux langues.
+  *⚠ Le test négatif change de nature ici : au lieu de faire **refuser** un
+  outil d'écriture, il fait **produire** à un outil de mesure un chiffre connu
+  et faux. C'est la première fois du chantier qu'un test négatif prend cette
+  forme.*
+
+  ⚠ **Ce que l'outil ne répare pas** : la référence publiée aux lots 8 à 10 —
+  FR 995 / 172, EN 917 / 153 — reste irreproductible, et sa cause est perdue
+  avec le script jetable qui l'a produite. **Elle n'est pas corrigée, elle est
+  remplacée.** *Éprouvée 1/N.*
+- **⚠ UN RELEVÉ FAIT À LA LECTURE RATE LES RÉPÉTITIONS, JAMAIS LES SINGULARITÉS.**
+  *Née le 30/08 (séance 8), lot 12, de deux réfutations à cause unique et sur
+  deux compteurs sans rapport.* (1) `point-virgule en alt d image` prédit **1**,
+  mesuré **3** : j'avais relu les `alt` **en cherchant des cadratins**, et le
+  seul point-virgule vu est celui que j'avais déjà en tête ; les deux autres
+  `alt` de `ltspice` en portaient un aussi. (2) Lignes de commentaire français
+  dans les blocs de code prédites **7**, mesurées **8** : le bloc « blink » de
+  `wokwi` porte **deux fois** `// attend une seconde`, et je n'en ai compté
+  qu'une.
+
+  **Le mode d'échec est le même et il est structurel** : l'œil enregistre une
+  **forme**, pas un **compte**. Une occurrence unique se retient ; la deuxième
+  occurrence d'une forme déjà vue ne s'ajoute pas toute seule.
+  ✅ **Corollaire opératoire** : tout seau prédit par relecture se décompose
+  **par fichier et par ligne**, ou se mesure. *Sur ce lot, les deux seaux
+  décomposés à la ligne — les 101 candidats C109 et les 19 puces — sont sortis
+  exacts ; les deux seaux estimés à l'œil sont les deux qui tombent.*
+  ⚠ *Et un `alt` de capture d'écran est l'habitat naturel du point-virgule
+  — c'est une énumération de ce qu'on voit —, donc ce seau est **plus dense sur
+  une fiche d'outil** que sur une notion.* *Éprouvée 0/N.*
+- **Le nombre de libellés visant une cible se prédit sur le nombre de fiches
+  TRADUITES qui la citent, jamais sur la taille de la cible.**
+  *Née le 30/08 (séance 8), lot 12, réfutation P110.10 sur deux termes de trois.*
+  J'ai classé `falstad`, `ltspice` et `wokwi` par la **taille de leur source** —
+  3 244, 3 848 et 1 340 — et prédit 8, 7 et 6 libellés entrants. **Mesuré 3, 3
+  et 9.** *Cause : `wokwi` est un simulateur de **microcontrôleur**, et toute la
+  branche `embarque/mcu/` déjà traduite le cite — cinq fiches ; `falstad` et
+  `ltspice` sont des simulateurs **analogiques**, et la seule fiche EN qui les
+  cite est leur propre hub, trois fois chacune et symétriquement.*
+  ⚠ **Le total est « tenu » à sa borne basse exacte — 15 dans [15, 26] — et
+  c'est précisément le cas que la règle du 30/08 (séance 5) interdit de prendre
+  pour une validation.** *Éprouvée 0/N.*
+- **Une glose ajoutée par la traduction se sépare par une VIRGULE ET UN MOT DE
+  LIAISON, jamais par un cadratin.**
+  *Née le 30/08 (séance 8), lot 12, de la seule C109 créée par la traduction du
+  lot.* La décision de gloser les libellés d'interface français de `falstad` a
+  produit `**Circuits intégrés analogiques et hybrides** — logic gates, digital
+  chips, analog and hybrid chips`, que `C109 creees en EN` a nommée aussitôt.
+  ✅ **La parade était dans le corpus, comme la décision elle-même** :
+  `tinkercad-en` écrit `(*Code → Télécharger le code*, that is Code → Download
+  Code)` — **`, that is`**, pas un cadratin. *Une glose est exactement le lieu
+  où la main veut poser un tiret, et c'est exactement ce que C109 retire.*
+  ⚠ **Le prix de la décision de glose est désormais mesuré et non plus supposé** :
+  **une** C109 créée, et **+1,9 point de foisonnement** — `falstad-en` sort à
+  **+5,6 %** quand les deux fiches sans glose sortent à **+2,6 %** et
+  **+2,1 %**. *Arbitrage remonté à Tim avec ces chiffres.* *Éprouvée 0/N.*
+- **Une ÉGALITÉ est un intervalle de largeur nulle : elle tombe sous la règle
+  des bornes datées, et la dernière garde d'une séance n'est jamais sa dernière
+  écriture.**
+  *Née le 30/08 (séance 8), extension de la règle née de P89.8 sept heures plus
+  tôt.* La garde d'ouverture prédisait les dates d'écriture de `JOURNAL.md` et
+  `conventions.md` **égales** au dernier relevé du lot 11 (18:24:18) ; mesuré
+  **18:27:42** et **18:24:49**. *La clôture § 7 écrit **après** la dernière
+  garde — c'est sa définition —, puis Tim commite : la bonne prédiction était
+  l'intervalle ouvert `]18:24:18, 18:29:02[`, borné par deux **événements datés
+  du dépôt**, le relevé et le commit.*
+  ⚠ **La règle de P89.8 avait été appliquée à la borne basse de l'horloge du
+  même bloc et pas à celle-ci**, parce qu'une égalité ne se lit pas comme un
+  intervalle. **Elle en est un.** *Éprouvée 0/N.*
+- **La borne de volume de lot levée — ÉPROUVÉE 1/N à 127 % de l'ancienne
+  borne.** *Épreuve du 30/08 (séance 8), lot 12.* La levée du 30/08 (séance 7)
+  n'avait qu'un point de mesure, **110 %**. Le lot 12 rend **8 449 mots, 3
+  fiches, 11 blocs d'exécution, 120 signalements C109 jugés un par un et 69
+  ancres** en une séance, sans arrêt, soit **126,9 %** de l'ancienne borne.
+  ⚠ *Ce n'est **pas** le test dur : trois fiches valent moins de gestes que huit,
+  et le lot 13 — `easyeda` seule, **9 773 mots, 146,8 %** — reste devant.*
+  ✅ **La série des volumes publiés, garde-fou de remplacement, s'écrit** :
+  lot 9 **4 102**, lot 10 **2 377**, lot 11 **7 339**, lot 12 **8 449**.
+  *Éprouvée 1/N.*
+- **⚠ L'AMENDEMENT C131 EST PRIS EN DÉFAUT UNE FOIS DE PLUS, ET TOUJOURS SUR LE
+  MÊME GESTE : UN BLOC QUI CRÉE PLUSIEURS FICHIERS N'EN DÉCLARE QU'UNE PARTIE.**
+  *Constat du 30/08 (séance 8), lot 12.* Le bloc 112 a créé **trois** fichiers —
+  les deux tables TSV et la copie datée du relevé de puces d'après passe — et sa
+  déclaration n'en nommait que **deux**. Le troisième a voyagé hors décompte
+  jusqu'à la clôture, où `fichiers modifies non commites` sort à **16 / 12**
+  contre **15 / 11** prédits. *La règle est écrite, elle est relue, et elle
+  tombe sur le bloc qui crée le plus de fichiers de la séance — comme la garde
+  de C124 était tombée au lot 11 sur le seul bloc dont la sortie était trop
+  longue à lire.* ✅ **Ce qui a marché : la liste NOMINATIVE.** Le chiffre seul
+  n'aurait rien dit ; c'est en récitant les seize noms que le fichier manquant
+  s'est désigné. **Corollaire : un bloc déclare ses versements en les NOMMANT
+  au moment où il les crée, pas en les recomptant à la fin.** *Éprouvée 0/N.*
+- **Le foisonnement d'une fiche d'outil est SOUS la moyenne du corpus.**
+  *Née le 30/08 (séance 8), lot 12, sur deux points de mesure propres.*
+  `ltspice-en` **+2,6 %** et `wokwi-en` **+2,1 %**, contre **+3,7 %** de moyenne
+  sur 238 paires. *Cause : la prose procédurale est plus courte en anglais —
+  impératifs, moins d'articles et de prépositions — là où la prose
+  argumentative du lot 11 sortait carrément négative et la prose de notion au-
+  dessus de la moyenne.* ⚠ **Le troisième point du lot ne compte pas pour
+  l'espèce** : `falstad-en` sort à **+5,6 %** à cause de la décision de glose,
+  qui est une décision éditoriale et non une propriété du registre.
+  **Deux points, pas une loi.** *Éprouvée 0/N.*
 - **⚠ LA BORNE DE VOLUME DE LOT EST LEVÉE. Ce qui dimensionne un lot n'est plus
   un plafond de mots, c'est une FRONTIÈRE DE STRUCTURE.**
   *Arbitrage Tim du 30/08 (séance 7), rendu à la clôture du lot 11 et avant sa

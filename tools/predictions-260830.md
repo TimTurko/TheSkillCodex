@@ -14184,3 +14184,1663 @@ gardes de péremption au vert, `HEAD 0f3c9a5` stable sur les neuf.**
 **délibérés** (passe C109, titres EN) et **trois refus non prévus** sur les
 éditions du JOURNAL. *Le rapport s'inverse par rapport aux lots précédents — le
 délibéré prouve que la garde marche, l'imprévu prouve qu'elle sert.*
+
+---
+
+# SÉANCE 8 DU 30/08 — LOT 12 DU CHANTIER DE TRADUCTION
+
+**Surface** : PC perso, onglet Code. **Modèle** : Opus 5. **Régime** :
+exécution directe, sous-règle C116 amendée, C131 et son amendement, règles
+d'usage du 29/08 (suites 9 à 11) et du 30/08 (sept séances). **Treizième lot en
+exécution directe**, **douzième séance sous C131**. Blocs numérotés à partir de
+**107**, la séance 7 s'étant arrêtée au bloc 106.
+
+**Brief de référence** : ligne « Prochaine session » de l'entrée du **30/08
+(suite 7)** du JOURNAL.
+
+**Recoupement prompt de lancement / brief, avant toute exécution — CONFORME sur
+les onze termes.** Composition du lot (`embarque/simulation/` en entier,
+`falstad` **3 244** + `ltspice` **3 848** + `wokwi` **1 340** = **8 432 mots,
+3 fiches**) ; lot 13 (`easyeda` **9 773**, sans découpe intra-fiche) ; **borne
+6 657 levée** ; restant de l'anneau 2 (**4 fiches, 18 205 mots, 0 porteuse**,
+`ded` nul, `tot` = `deh`, C127 hors sujet pour le septième lot d'affilée,
+`--tout` à **34 paires, 0 divergente**) ; **neuf relevés avant rédaction** et
+leurs six références chiffrées ; **les puces du corpus se relèvent AU CADRAGE** ;
+**les trois fiches sont des fiches d'OUTIL**, espèce sans référence mesurée.
+*Aucun écart à remonter : le prompt reconduit le brief terme à terme, y compris
+sur les points d'attention.* ⚠ **La somme est revérifiée ici et non reprise :
+3 244 + 3 848 + 1 340 = 8 432.**
+
+---
+
+## BLOC 107 — GARDE DE PÉREMPTION D'OUVERTURE
+
+**Commande** : `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+### Déclaration C131 du bloc 107
+
+**Compteur prédit** : `fichiers modifies non commites` de l'étape 1, et son
+sous-compteur `hors artefacts de seance`.
+
+**Population** : les entrées de `git status --porcelain` sur le dépôt entier —
+des **entrées**, pas des fichiers (règle du 30/08, lot 7 : un répertoire
+entièrement non suivi vaut une entrée). Le sous-compteur retire les entrées dont
+la ligne porte `batterie-sortie` ou `predictions-`, **filtre lu ligne 168 de
+`tools/batterie.ps1`** — `$_ -notmatch 'batterie-sortie' -and $_ -notmatch
+'predictions-'` — et non dans son README.
+
+**État d'avant la séance** : dépôt **propre** au commit **`4f6803c`** de Tim
+(« lot 11 : embarque/mcu/ ferme, 8 fiches EN, 70 remplacements C109, borne de
+lot levee »), horodaté **2026-08-30 18:29:02 +0200**.
+
+**Versements de la séance dans cette population, avant que le compteur ne soit
+lu** — deux, et ils se nomment :
+1. `tools/predictions-260830.md`, **suivi par git** et modifié par l'append de
+   cet en-tête, de cette déclaration et des prédictions ci-dessous → **1 entrée
+   ` M`**, écartée du sous-compteur par le motif `predictions-`.
+2. `tools/batterie-sortie-3008b54.txt`, **créé par l'étape 0 du lancement
+   lui-même** (copie C124 de `tools/batterie-sortie.txt`, rang déduit du
+   balayage `while (Test-Path …)` des lignes 146-149 : les rangs `b1` à `b53`
+   existent sur disque et sont **commités**, donc le premier rang libre est
+   `b54`) → **1 entrée `??`**, écartée du sous-compteur par le motif
+   `batterie-sortie`.
+
+**Total impliqué : 2 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 107
+
+- **P107.1** — étape 0, autocontrôle ASCII : `lignes non ASCII dans batterie.ps1 : 0`.
+- **P107.2** — étape 0, copie C124 : `sortie precedente copiee : tools\batterie-sortie-3008b54.txt`.
+- **P107.3** — étape 1, phase : `phase demandee : garde   anneau : 2   chevron : False`.
+- **P107.4** — étape 1, horloge : `date ISO : 2026-08-30`, heure comprise entre
+  **18:29:02** et **23:59:59**. ⚠ *La borne basse est un **événement daté du
+  dépôt** — le commit `4f6803c` — et non l'instant supposé du lancement : c'est
+  la règle d'usage née de la réfutation P89.8 du 30/08 (séance 7).*
+- **P107.5** — étape 1, HEAD : `HEAD git : 4f6803c 2026-08-30 18:29:02 +0200`,
+  **au caractère**, fuseau compris.
+- **P107.6** — étape 1, compteur, par la déclaration C131 ci-dessus :
+  `fichiers modifies non commites : 2   (hors artefacts de seance : 0)`.
+- **P107.7** — étape 1, node : `node : v24.15.0`.
+- **P107.8** — étape 1, dates d'écriture, **les trois attendues INCHANGÉES au
+  caractère** par rapport au relevé de référence `tools/batterie-sortie.txt`
+  (lancement du 30/08 à **18:24:18**), le commit de Tim ne réécrivant pas les
+  fichiers de pilotage :
+  - `JOURNAL.md` — **`2026-08-30 18:10:31`** ;
+  - `conventions.md` — **`2026-08-30 18:08:25`** ;
+  - `TODO.md` — **`2026-08-29 21:48:08`**.
+  ⚠ *Le fichier de prédictions, lui, a été écrit à **18:28** — après ce relevé —
+  mais il ne figure pas dans la liste des trois chemins de l'étape 1 (ligne 179
+  du script), donc il ne peut pas faire mordre cette prédiction.*
+- **P107.9** — les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter** : tout fichier de `content/` en `git status`, toute
+date d'écriture postérieure à l'horloge du bloc, ou un HEAD différent de
+`4f6803c`, valent **ARRÊT** et remontée à Tim sans rien écrire.
+
+### Constats du bloc 107 — garde AU VERT, 8 prédictions tenues, 1 réfutée
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b54.txt`.
+
+- **P107.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P107.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b54.txt` — rang prédit au caractère.
+- **P107.3 ✅** `phase demandee : garde   anneau : 2   chevron : False`.
+- **P107.4 ✅** `date ISO : 2026-08-30   heure : 18:31:31`, dans [18:29:02, 23:59:59].
+- **P107.5 ✅** `HEAD git : 4f6803c 2026-08-30 18:29:02 +0200` — **au caractère**, fuseau compris.
+- **P107.6 ✅** `fichiers modifies non commites : 2   (hors artefacts de seance : 0)` — **les deux termes de la déclaration C131, au chiffre**.
+- **P107.7 ✅** `node : v24.15.0`.
+- **P107.8 ❌ sur deux termes de trois.** `JOURNAL.md 2026-08-30 **18:27:42**`
+  contre **18:10:31** prédit ; `conventions.md 2026-08-30 **18:24:49**` contre
+  **18:08:25** prédit. `TODO.md 2026-08-29 21:48:08` ✅ **inchangé au
+  caractère**.
+  ⚠ **Cause, et elle est la MÊME que celle de P89.8 il y a sept heures, prise
+  par l'autre bout.** J'ai posé une **égalité** sur le relevé de `18:24:18` en
+  le traitant comme l'état final de la séance 7 ; **il ne l'est pas** — la
+  clôture §7 écrit `conventions.md` à **18:24:49**, soit trente et une secondes
+  **après** le relevé qui la précède, puis `JOURNAL.md` à **18:27:42**, et Tim
+  commite à **18:29:02**. *La dernière garde d'une séance n'est jamais sa
+  dernière écriture, précisément parce que la clôture vient après elle.*
+  ✅ **Les deux dates sont bien antérieures au commit `4f6803c`**, qui est
+  l'événement daté qui portait le sens.
+  **La bonne prédiction était un intervalle ouvert entre deux événements datés
+  du dépôt : `]18:24:18, 18:29:02[` pour les deux fichiers de pilotage, et
+  l'égalité au caractère pour `TODO.md` seul, que la clôture ne touche pas.**
+  ⚠ **Extension de la règle d'usage née de P89.8** : la règle disait *« une
+  borne d'intervalle se pose sur un événement daté du dépôt »*, et je l'ai
+  appliquée à **P107.4** — dont la borne basse est le commit — **sans
+  l'appliquer à P107.8**, où j'ai remplacé l'intervalle par une égalité sur un
+  relevé. *Une égalité est un intervalle de largeur nulle : elle tombe sous la
+  même règle, et le relevé n'est pas le bon événement.*
+- **P107.9 ✅** les deux étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter : il ne mord pas.** Aucun fichier de `content/` en
+`git status` (2 entrées, toutes deux artefacts de séance nommés), aucune date
+postérieure à l'horloge du bloc **18:31:31**, HEAD conforme à `4f6803c`.
+**Garde au vert, la séance peut écrire.**
+
+---
+
+## BLOC 108 — CADRAGE DU LOT 12 (garde + volume + candidats C109 + anneau)
+
+**Commande** :
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches embarque/simulation/falstad.md,embarque/simulation/ltspice.md,embarque/simulation/wokwi.md`
+
+⚠ **Ce qui fonde les prédictions C109 de ce bloc : les TROIS SOURCES ONT ÉTÉ
+LUES EN ENTIER avant d'être écrites ici**, et le motif de `--style` a été lu
+**dans le code** (lignes 1044-1069 pour `exemptions()`, 1138-1163 pour les deux
+familles C109) et non dans le README. *La règle du 29/08 vaut ici : une ligne de
+README décrit une intention, seul le code décrit un comportement.* La
+décomposition ci-dessous est un **comptage à la main, fiche par fiche**, et non
+un prorata — la règle du 30/08 (séance 5) interdit qu'un total dans la fourchette
+tienne lieu de preuve de sa décomposition.
+
+⚠ **ASSOMPTION ÉCRITE AVANT EXÉCUTION, avec son coût de revert.** Le relevé des
+puces à tiret du corpus (motif A) n'a **aucun outil** : il a été fait au lot 11
+dans un script de séance jetable, ce qui est exactement la cause de sa
+non-reproductibilité. **Je crée `tools/puces-tiret.mjs`**, versionné, qui publie
+sa **population** et son **motif** dans sa propre sortie — c'est la candidate
+§8 née du lot 11, logée dans le code qui exécute le geste plutôt que dans une
+phrase. **Coût d'un revert** : suppression du seul fichier neuf, aucune
+écriture dans `content/`, aucun autre artefact touché. *Aucun arbitrage n'est
+bloqué par ce choix ; il est remonté au gate G1 sans arrêter.*
+
+### Déclaration C131 du bloc 108
+
+**Compteur prédit** : `fichiers modifies non commites` de l'étape 1, et son
+sous-compteur `hors artefacts de seance`. **Même population et même filtre qu'au
+bloc 107** ; la déclaration est **rejouée** parce que le bloc crée un fichier.
+
+**État d'avant le bloc** : les **2 entrées** mesurées au bloc 107.
+
+**Versements de ce bloc dans cette population** — un seul, et il se nomme :
+1. `tools/batterie-sortie-3008b55.txt`, créé par l'étape 0 (le rang `b54` a été
+   créé par le bloc 107, donc le premier rang libre est `b55`) → **1 entrée
+   `??`**, écartée du sous-compteur par le motif `batterie-sortie`.
+
+*`tools/predictions-260830.md` était déjà ` M` au bloc 107 : l'append de ce bloc
+ne crée pas d'entrée neuve, il modifie une entrée déjà comptée.*
+
+**Total impliqué : 3 entrées, dont 0 hors artefacts de séance.**
+
+### Prédictions du bloc 108 — étapes 0 et 1 (garde)
+
+- **P108.1** — `lignes non ASCII dans batterie.ps1 : 0`.
+- **P108.2** — `sortie precedente copiee : tools\batterie-sortie-3008b55.txt`.
+- **P108.3** — `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P108.4** — `date ISO : 2026-08-30`, heure **postérieure à 18:31:31**
+  (horloge mesurée du bloc 107, événement daté et non instant supposé).
+- **P108.5** — `HEAD git : 4f6803c 2026-08-30 18:29:02 +0200`, **au caractère**.
+- **P108.6** — `fichiers modifies non commites : 3   (hors artefacts de seance : 0)`.
+- **P108.7** — `node : v24.15.0`.
+- **P108.8** — dates d'écriture des trois fichiers de pilotage, **inchangées au
+  caractère** par rapport au bloc 107 : `JOURNAL.md 2026-08-30 18:27:42`,
+  `conventions.md 2026-08-30 18:24:49`, `TODO.md 2026-08-29 21:48:08`.
+- **P108.9** — dates d'écriture des **trois sources FR du lot**, qu'aucun lot du
+  chantier n'a encore touchées : les trois sont **strictement antérieures à
+  `2026-08-30 00:00:00`**. ⚠ *Une date du jour sur l'une des trois vaudrait
+  **ARRÊT** — elle voudrait dire qu'une autre session écrit sur le même dépôt,
+  incident du 29/08.* **Je ne prédis pas leur valeur** : aucune mesure du jour
+  ne me la donne, et l'inventer serait de mémoire (C118).
+
+### Prédictions du bloc 108 — étape 2, volume du lot
+
+- **P108.10** — `compter-mots --lot`, **décomposition et total, au mot** :
+  `falstad` **3 244**, `ltspice` **3 848**, `wokwi` **1 340**, **LOT 8 432**.
+  *Reprise du brief, dont c'est la remesure ; un écart ici est un écart du
+  brief, pas de ma prédiction.*
+
+### Prédictions du bloc 108 — étape 3, candidats C109 des trois sources FR
+
+⚠ **PREMIÈRE MESURE DU CHANTIER SUR LE REGISTRE « FICHE D'OUTIL ».** Les trois
+sources sont `type: tuto`. Le corollaire du lot 11 dit que la fourchette se cale
+sur la **part de fiches argumentatives**, mesurable au nombre de sections
+propres ; ici les trois fiches sont **procédurales** — beaucoup de titres, de
+listes numérotées, de captures et de callouts, peu de prose argumentative
+continue. **Aucune référence mesurée n'existe sur cette espèce**, donc la
+fourchette ci-dessous ne vient **pas** d'un taux historique : elle vient du
+comptage à la main.
+
+- **P108.11 — `C109 de prose`, décomposition par fiche, comptage à la main** :
+  - `falstad` **41** — fourchette **[38, 44]** ;
+  - `ltspice` **43** — fourchette **[40, 46]** ;
+  - `wokwi` **17** — fourchette **[15, 19]** ;
+  - **LOT 101**, fourchette **[93, 109]**.
+- **P108.12 — taux pour 100 mots, calculé sur les deux termes prédits ci-dessus**
+  (donc à ne valider que si P108.10 et P108.11 tiennent) : `falstad` **1,26**,
+  `ltspice` **1,12**, `wokwi` **1,27**, **lot 1,20**. ⚠ **Terme écrit pour
+  réfuter le registre** : si l'espèce « fiche d'outil » avait un taux propre, on
+  attendrait un **écart faible entre les trois** — je prédis un facteur
+  **inférieur à 1,20** entre la plus haute et la plus basse, contre **1,96** au
+  lot 11 (notions) et **3,9** au lot 10. *Un facteur supérieur à 1,5 réfuterait
+  l'idée que le registre suffit à caler la fourchette.*
+- **P108.13 — `hors perimetre` : 5**, fourchette **[4, 8]**, et **décomposé par
+  famille, la ligne de bilan n'en nommant aucune** (règle (7) du 29/08 — un
+  compteur se lit dans le code qui l'incrémente) :
+  - `tiret en titre` **4** — `## Exemple — Faire clignoter une LED` (wokwi),
+    `## Construire son circuit — un filtre passe-haut` (falstad),
+    `## Construire son circuit — un filtre passe-bas` et
+    `### 3. Changer une valeur — et penser à relancer` (ltspice) ;
+  - `point-virgule en alt d image` **1** — l'`alt` de
+    `/ressources/img/ltspice/low-pass-analyse.gif`, qui porte
+    « … par clic droit sur chaque composant ; puis Simulate … » ;
+  - `tiret d intervalle numerique` **0**, `tiret en alt d image` **0**,
+    `tiret en tableau` **0**, `point-virgule en titre` **0**,
+    `point-virgule en tableau` **0** — *les trois fiches ne portent **aucun
+    tableau**, et aucun demi-cadratin entre deux chiffres.*
+- **P108.14 — `virgule ambigue : 0` et `typographie francaise : 0`**, et la
+  raison est **lue dans le code** : les deux familles sont sous `if (estEn)`
+  (ligne 1119), et les trois cibles sont des sources **françaises**. *Ce n'est
+  pas une prédiction sur le texte, c'est une prédiction sur la branche.*
+- **P108.15 — `C109 creees en EN : 0`** — le compteur ne s'incrémente que pour
+  une fiche EN comparée à sa source ; aucune des trois cibles n'est dans
+  `content/en/`.
+- **P108.16 — `hors latin : 0`** sur les trois sources.
+
+### Prédictions du bloc 108 — étape 4, anneau et dette
+
+- **P108.17** — anneau 2 : **145 net, 141 traduites, 4 restantes, 18 205 mots,
+  0 porteuse de chevron** — les quatre termes du brief, **inchangés**, aucune
+  écriture n'ayant eu lieu depuis la clôture du lot 11.
+- **P108.18** — dette : **7 cibles, 20 473 mots, dont 2 hors anneaux 0..2**.
+- **P108.19** — `CIBLES SANS FICHE` : la ligne sort **non vide**, et c'est le
+  **faux positif connu sur les alias**, arbitrage en attente depuis le 30/08
+  (suite 4). *Elle ne vaut pas arrêt.*
+- **P108.20** — les cinq étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter** : une date du jour sur l'une des trois sources FR,
+un HEAD différent de `4f6803c`, ou un fichier de `content/` en `git status`,
+valent **ARRÊT**.
+
+### Constats du bloc 108 — cadrage AU VERT, 18 prédictions tenues, 2 réfutées
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b55.txt`.
+
+- **P108.1 ✅** `lignes non ASCII dans batterie.ps1 : 0`.
+- **P108.2 ✅** `sortie precedente copiee : tools\batterie-sortie-3008b55.txt`.
+- **P108.3 ✅** `phase demandee : cadrage   anneau : 2   chevron : False`.
+- **P108.4 ✅** `heure : 18:40:01`, postérieure à 18:31:31.
+- **P108.5 ✅** `HEAD git : 4f6803c 2026-08-30 18:29:02 +0200`, au caractère.
+- **P108.6 ✅** `fichiers modifies non commites : 3   (hors artefacts de seance : 0)` — **les deux termes de la déclaration C131**.
+- **P108.7 ✅** `node : v24.15.0`.
+- **P108.8 ✅** `JOURNAL.md 18:27:42`, `conventions.md 18:24:49`,
+  `TODO.md 2026-08-29 21:48:08` — **les trois inchangées au caractère**.
+- **P108.9 ✅** `falstad.md 2026-08-17 22:52:24`, `ltspice.md 2026-08-18
+  14:53:46`, `wokwi.md 2026-08-19 12:43:09` — **les trois strictement
+  antérieures au 2026-08-30**, et de onze à treize jours. *Le terme d'arrêt ne
+  mord pas.*
+- **P108.10 ✅** `falstad 3244`, `ltspice 3848`, `wokwi 1340`, `LOT 8432` —
+  **les quatre au mot**, brief confirmé.
+
+✅✅ **P108.11 — TENUE AU CHIFFRE EXACT SUR LES QUATRE TERMES, ET C'EST LA
+DÉCOMPOSITION QUI LE DIT, PAS LE TOTAL.** `falstad` **41**, `ltspice` **43**,
+`wokwi` **17**, **LOT 101** — *prédits 41 / 43 / 17 / 101*. **Aucune fourchette
+n'a servi.** ⚠ *C'est la première fois du chantier qu'un lot entier de candidats
+C109 est prédit **à l'unité près, fiche par fiche**, et la cause est
+méthodologique et non chanceuse : les trois sources ont été **lues en entier**
+et le motif a été lu **dans le code**, si bien que le comptage à la main
+reproduisait l'algorithme au lieu de l'estimer. La règle du 30/08 (séance 5)
+demandait qu'une décomposition se vérifie terme à terme ; ici elle se **prédit**
+terme à terme.*
+
+✅✅ **P108.12 — LE REGISTRE « FICHE D'OUTIL » A UN TAUX PROPRE, ET LE TERME
+ÉCRIT POUR LE RÉFUTER NE MORD PAS.** Taux pour 100 mots : `falstad`
+**1,264**, `ltspice` **1,117**, `wokwi` **1,269**, **lot 1,198** — prédits
+**1,26 / 1,12 / 1,27 / 1,20**.
+
+  | registre | lot | facteur haut / bas |
+  |---|---|---|
+  | **fiche d'outil** (`type: tuto`) | **12** | **1,14** |
+  | notions `embarque/mcu/` | 11 | 1,96 |
+  | fiches `conduite/proj/` mêlées | 10 | 3,9 |
+
+  *Le facteur prédit était **< 1,20** ; mesuré **1,136**. Le registre ne
+  gouverne donc pas seulement le **niveau** du taux, il en gouverne aussi la
+  **dispersion** : trois fiches d'outil de 1 340, 3 244 et 3 848 mots rendent le
+  même taux à 13 % près, quand huit notions de la même branche s'étalaient sur
+  un facteur 2.* ⚠ **Première référence mesurée du chantier sur cette espèce**,
+  et elle est à publier comme telle : **taux C109 d'une fiche d'outil ≈ 1,2 pour
+  100 mots, dispersion sous 1,15.**
+
+❌ **P108.13 — RÉFUTÉE SUR UNE FAMILLE, ET LE TOTAL DANS LA FOURCHETTE MASQUAIT
+L'ERREUR.** `hors perimetre` mesuré **7**, prédit **5**, fourchette [4, 8] —
+*donc « dans la fourchette », et c'est exactement ce que la règle du 30/08
+(séance 5) interdit de prendre pour une validation.* **Décomposition réelle,
+relevée sur les sources** :
+  - `tiret en titre` **4** ✅ — `falstad.md:81`, `ltspice.md:93`,
+    `ltspice.md:101`, `wokwi.md:83`, **les quatre nommés d'avance** ;
+  - `point-virgule en alt d image` **3** ❌ contre **1** prédit —
+    `ltspice.md:65` (« … la trace V de hp ; la fenêtre de lecture … »),
+    `ltspice.md:140` (« … sur chaque composant ; puis Simulate … ») et
+    `ltspice.md:152` (« … Update and View SPICE Netlist ; à droite, le
+    schéma … ») ;
+  - `tiret d intervalle numerique` **0** ✅, `tiret en alt d image` **0** ✅
+    (mesuré : **0** `alt` porteur d'un cadratin sur les trois fiches),
+    `tiret en tableau` **0** ✅ et `point-virgule en tableau` **0** ✅ —
+    *mesurés : les trois fiches portent **0 ligne** commençant par `|`*,
+    `point-virgule en titre` **0** ✅.
+
+  ⚠ **Cause, et elle est de méthode.** J'ai relu les `alt` **en cherchant des
+  cadratins**, parce que c'est la famille dont la fiche parlait ; le seul
+  point-virgule que j'aie vu est celui que j'avais déjà en tête. *Un `alt` de
+  capture d'écran est une **énumération de ce qu'on voit**, donc l'habitat
+  naturel du point-virgule — c'est une propriété du registre « fiche d'outil »,
+  pas un accident de `ltspice`.* **Règle d'usage candidate : sur une fiche
+  d'outil, le seau `point-virgule en alt d image` se relève en balayant TOUS les
+  `alt`, jamais en relisant ceux dont on se souvient.**
+
+- **P108.14 ✅** `typographie francaise : 0` et `virgule ambigue : 0` — *la
+  prédiction portait sur la **branche** `if (estEn)` et non sur le texte ; elle
+  est vraie pour la raison annoncée.*
+- **P108.15 ✅** `C109 creees en EN : 0`.
+- **P108.16 ✅** `hors alphabet latin : 0`.
+- **P108.17 ✅** `ANNEAU 2 NET 145`, `deja traduites 141`, `RESTANT 4`,
+  `RESTANT DE L ANNEAU 2 (4 fiches) 18205`, `fiches porteuses 0`,
+  `clotures en chevron 0` — **les six termes du brief, inchangés**. Le restant
+  nominatif est bien `easyeda 9773` plus les trois du lot.
+- **P108.18 ✅** dette : `fiches sources 235`, `cibles rouges distinctes 7`,
+  `mots 20473`, `dont HORS anneaux 0..2 : 2`, nommées `xiao-prise-en-main` et
+  `xiao-sense` — **les quatre termes**.
+- **P108.19 ❌ sur son attribution, tenue sur son verdict.** `CIBLES SANS FICHE
+  (6)` sort bien **non vide** et ne vaut pas arrêt ✅, **mais ce ne sont pas les
+  alias** : les six sont `[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`,
+  `[[flexibilite]]`, `[[niveau]]` — *les **libellés de désambiguïsation** créés
+  par le lot 9, exactement ceux que la file d'arbitrages nomme sous « les 32
+  libellés parenthésés ».* ⚠ **J'ai attribué à un arbitrage en attente une ligne
+  qui relève d'un autre**, faute de l'avoir lue avant de la nommer. *Deux
+  arbitrages distincts pointent la même sortie, et je les ai confondus.*
+- **P108.20 ✅** les cinq étapes ferment sur `--- code de sortie : 0`.
+
+**Terme écrit pour réfuter : il ne mord pas.** Aucune source FR datée du jour,
+`HEAD 4f6803c` conforme, aucun fichier de `content/` en `git status`.
+**Cadrage au vert.**
+
+---
+
+## BLOC 109 — `tools/puces-tiret.mjs` : ÉPREUVE C110 DU MOTIF A SUR QUATRE ÉCHANTILLONS NOMMÉS, PUIS RELEVÉ DU CORPUS AVANT LA PASSE
+
+**Commandes** (dans cet ordre, la seconde ne se lance que si la première est au
+vert) :
+1. `node tools/puces-tiret.mjs --fiches <les 15 fiches des quatre échantillons>`
+2. `node tools/puces-tiret.mjs --corpus` et `node tools/puces-tiret.mjs --corpus --motif B`
+
+**Ce que le bloc crée** : `tools/puces-tiret.mjs`, **un seul fichier neuf**,
+versionné, qui **publie son motif et sa population dans sa propre sortie** — la
+candidate §8 née du lot 11, logée dans le code plutôt que dans une phrase de
+JOURNAL. *Aucune écriture dans `content/`.*
+
+**Motif A, écrit ici avant d'être codé, et le code devra le dire aussi** : une
+**ligne de puce** `/^\s*[-*]\s/` **contenant** `" — "` — U+2014 **entouré
+d'espaces** —, **hors blocs de code clôturés**, **hors des sections
+`## Voir aussi`, `## Aller plus loin`, `## See also`, `## Going further`** (une
+section exclue court de son titre jusqu'au prochain titre de niveau ≤ 2).
+**L'unité comptée est la LIGNE**, pas l'occurrence : « 946 puces sur 167
+porteuses » compte des lignes de puce et des fichiers.
+
+### Déclaration C131 du bloc 109
+
+**Compteurs prédits** : `puces`, `porteuses` et `fichiers` de la sortie de
+l'outil, pour chacune des deux langues.
+
+**Populations, nommées et non déduites** :
+- **FR** — les fichiers `.md` sous `content/` **hors `content/en/`** ;
+- **EN** — les fichiers `.md` sous `content/en/`.
+
+**Versements de la séance dans ces deux populations, avant lecture** :
+**aucun**. *Le lot 12 n'a encore écrit **aucune** fiche et n'a passé **aucune**
+source à C109 ; les trois sources FR portent les dates du 17, 18 et 19 août
+mesurées au bloc 108.* **C'est précisément le point** : ce relevé est celui
+d'**avant** la passe, celui qui manquait au lot 11.
+
+**Totaux impliqués : FR 248 fichiers, EN 235 fichiers.**
+
+**Déclaration C131 du compteur git, rejouée parce que le bloc crée un fichier** :
+population inchangée (entrées de `git status --porcelain`), versement de ce bloc
+= `tools/puces-tiret.mjs`, **1 entrée `??`**, et elle **N'EST PAS** un artefact
+de séance — ni `batterie-sortie`, ni `predictions-`. **Total impliqué au
+prochain relevé de garde : 4 entrées, dont 1 hors artefacts de séance**, et
+cette entrée-là **se nomme**.
+
+### Prédictions du bloc 109 — épreuve C110, les quatre échantillons
+
+⚠ **Les quatre échantillons sont ceux du bloc 98 du lot 11**, et ils sont
+**choisis pour porter ce qui pourrait faire mordre le motif à tort** : les
+quatre fiches d'`esp32/` ont toutes un `## Voir aussi` fourni en gloses à tiret,
+les cinq fiches EN du lot 7 portent `## See also` **et** `## Going further`, et
+les six fiches de `conduite/proj/` portent des `## Aller plus loin`. *Si mon
+implémentation oubliait **une seule** des quatre formes hors périmètre, les
+totaux exploseraient dans le même sens.* **Les réponses sont au registre avant
+d'être mesurées**, ce qui fait de ce bloc une épreuve et non un étalonnage.
+
+- **P109.1 — échantillon 1, FR lot 3 d'`esp32/`** : `esp32-deep-sleep` **2**,
+  `esp32-arduino-core` **2**, `esp32-freertos` **4**, `esp32-idf` **4**,
+  **TOTAL 12**.
+- **P109.2 — échantillon 2, EN lot 3 d'`esp32/`** : `esp32-deep-sleep-en` **2**,
+  `esp32-arduino-core-en` **1**, `esp32-freertos-en` **4**, `esp32-idf-en` **4**,
+  **TOTAL 11**. ⚠ *Onze et non douze : l'asymétrie connue d'`esp32-arduino-core`,
+  arbitrage en attente. **Prédire 12 serait prédire la symétrie et non la
+  mesure.***
+- **P109.3 — échantillon 3, FR lot 9** : `mecatronique` **0**, `mind-map` **0**,
+  `bete-a-cornes` **0**, `pieuvre` **5**, `fonction` **0**,
+  `caracteriser-une-exigence` **11**, **TOTAL 16**.
+- **P109.4 — échantillon 4, EN lot 7** : `raspberry-pi-gpio-en` **3**,
+  `raspberry-pi-prise-en-main-en` **3**, `raspberry-pi-projet-en` **0**,
+  `xiao-alimentation-en` **3**, `xiao-esp32-s3-en` **1**, **TOTAL 10**.
+- **P109.5 — terme écrit pour réfuter, et il est chiffré.** Un total
+  **supérieur** à l'attendu sur un échantillon signifie qu'une des quatre
+  sections n'est pas exclue ; un total **inférieur** signifie que le motif
+  `" — "` est trop strict (espaces insécables, cadratin collé). **Sur les
+  quinze fiches, un seul écart d'une unité suffit à ARRÊTER le bloc** et à
+  interdire le relevé de corpus. *Un motif qui ne reproduit pas quatre
+  échantillons nommés n'a pas le droit de compter 483 fichiers.*
+
+### Prédictions du bloc 109 — relevé du corpus AVANT la passe C109 du lot 12
+
+⚠ **Ces six chiffres sont entièrement contraints**, et c'est ce qui rend le
+relevé falsifiable : **le dépôt n'a pas bougé depuis la clôture du lot 11** —
+`HEAD 4f6803c`, `git status` sans une seule entrée de `content/`, dates
+d'écriture des trois sources au 17-19 août. *L'état d'avant la passe du lot 12
+**est** l'état d'après la clôture du lot 11.*
+
+- **P109.6 — motif A, FR** : **946 puces, 167 porteuses, 248 fichiers**.
+- **P109.7 — motif A, EN** : **886 puces, 153 porteuses, 235 fichiers**.
+- **P109.8 — motif B (`Voir aussi` et `See also` seuls exclus), FR** :
+  **1 033 puces, 173 porteuses, 248 fichiers**.
+- **P109.9 — motif B, EN** : **972 puces, 159 porteuses, 235 fichiers**.
+
+⚠ **P109.8 et P109.9 sont le TEST NÉGATIF DÉLIBÉRÉ de ce bloc**, et il est
+d'une autre espèce que ceux des passes d'écriture : au lieu de faire refuser un
+outil, il fait produire à mon implémentation **le chiffre d'un motif dont je
+sais qu'il est faux**. *Si le motif B rend 1 033 / 972 au chiffre, alors mon
+code reproduit la mesure du lot 11 **sur les deux motifs à la fois**, et le
+seul degré de liberté qui restait — quelles sections sont exclues — est
+refermé. Si le motif A tombe juste et le motif B faux, la coïncidence
+dénoncerait un accord de surface.*
+
+- **P109.10 — la sortie de l'outil porte, en tête et sans qu'on le lui
+  demande** : le **motif littéral** (expression régulière de puce, séquence
+  `" — "` avec son point de code, liste nominative des sections exclues) et la
+  **population** de chaque langue. *C'est la candidate §8 du lot 11 mise en
+  code ; une sortie qui ne les porterait pas serait la règle non tenue par
+  l'outil censé la tenir.*
+
+### Constats du bloc 109 — 10 prédictions sur 10 tenues, dont les quatre échantillons au chiffre et le test négatif
+
+Sorties sauvegardées C124 sous `tools/puces-3008-avant-passe-lot12.txt`
+(les trois lancements dans un seul témoin, l'échantillon puis les deux motifs).
+
+✅✅ **P109.1 à P109.4 — LES QUATRE ÉCHANTILLONS SONT REPRODUITS FICHE PAR
+FICHE, DIX-NEUF VALEURS SUR DIX-NEUF.**
+
+  | échantillon | attendu | mesuré |
+  |---|---|---|
+  | 1 — FR lot 3 `esp32/` (2 / 2 / 4 / 4) | **12** | **12** ✅ |
+  | 2 — EN lot 3 `esp32/` (2 / 1 / 4 / 4) | **11** | **11** ✅ |
+  | 3 — FR lot 9 (0 / 0 / 0 / 5 / 0 / 11) | **16** | **16** ✅ |
+  | 4 — EN lot 7 (3 / 3 / 0 / 3 / 1) | **10** | **10** ✅ |
+  | **total des 19 fiches** | **49** | **49** ✅ |
+
+*L'asymétrie d'`esp32-arduino-core` est retrouvée — **2** en français, **1** en
+anglais —, ce qui était le terme de C110 le plus discriminant : une
+implémentation qui aurait raboté ou symétrisé quoi que ce soit l'aurait effacée.*
+
+- **P109.5 ✅ le terme d'arrêt ne mord pas** : aucun écart d'une unité sur les
+  quinze fiches nommées (dix-neuf lignes au total), le relevé de corpus est
+  donc autorisé.
+
+✅✅ **P109.6 et P109.7 — LE RELEVÉ D'AVANT LA PASSE TOMBE AU CHIFFRE SUR SES SIX
+TERMES.** Motif A : **FR 946 puces / 167 porteuses / 248 fichiers**,
+**EN 886 / 153 / 235**. *Les six prédits, les six mesurés.*
+
+✅✅ **P109.8 et P109.9 — LE TEST NÉGATIF DÉLIBÉRÉ TOMBE AUSSI AU CHIFFRE, ET
+C'EST LUI QUI FERME LE DEGRÉ DE LIBERTÉ.** Motif B : **FR 1 033 / 173 / 248**,
+**EN 972 / 159 / 235** — les six prédits, les six mesurés. ⚠ *Un motif A juste
+et un motif B faux aurait été un accord de surface : mon implémentation aurait
+pu tomber sur 946 par une autre combinaison d'exclusions. **Reproduire les DEUX
+motifs à la fois** ne laisse plus de place à cette coïncidence — la différence
+946 → 1 033 est **exactement** la contribution des sections `## Aller plus loin`
+et `## Going further`, sur les deux langues et au fichier près (167 → 173 et
+153 → 159 porteuses).*
+
+- **P109.10 ✅** la sortie porte en tête, sans qu'on le lui demande : le motif de
+  puce `/^\s*[-*]\s/`, la séquence `" — "` **avec ses trois points de code**
+  `U+0020 U+2014 U+0020`, le motif de clôture de bloc, la **liste nominative**
+  des sections exclues, la règle de portée d'une section exclue, et l'**unité
+  comptée**. La population est écrite **par langue et en toutes lettres**
+  (`content/**/*.md HORS content/en/` et `content/en/**/*.md`) au-dessus de ses
+  trois chiffres. *Le motif B annonce en outre, dans sa propre sortie, qu'il
+  n'existe que pour être faux.*
+
+✅ **CE QUE CE BLOC REFERME.** La référence des puces à tiret cesse d'être
+non reproductible : **le motif vit dans `tools/puces-tiret.mjs`, versionné**, et
+non plus dans un `seance.ps1` que C114 fait réécrire de zéro à chaque série.
+*C'est le même déplacement que C126 pour l'ossature de séance et que
+l'amendement du 29/08 pour la garde d'unicité d'ancre — la contrainte passe de
+ma mémoire à un artefact.*
+
+✅ **ET LA FAUTE DE PROTOCOLE DU LOT 11 EST RÉPARÉE PAR CE BLOC.** Le relevé
+d'**avant** la passe C109 du lot 12 existe, il est daté, il est sauvegardé, et
+il vaut **FR 946 / EN 886**. *Le delta de ce lot se **mesurera** donc par
+différence de deux mesures, au lieu de se calculer (C119).*
+
+⚠ **Ce que le bloc ne referme pas.** L'outil ne dit rien de la **référence
+publiée** aux lots 8 à 10 — FR 995 / 172, EN 917 / 153 —, qui reste
+irreproductible et dont la cause exacte est perdue avec le script qui l'a
+produite. *Elle n'est pas corrigée, elle est **remplacée** ; les trois clôtures
+qui la portent gardent un chiffre qu'aucun motif ne rend.*
+
+---
+
+## BLOC 110 — LES HUIT RELEVÉS D'AVANT RÉDACTION QUI RESTENT (le neuvième, les puces, est rendu au bloc 109)
+
+**Commandes** : un script jetable de relevé (**scratchpad, hors dépôt**, C114)
+redirigé vers `tools/releves-avant-redaction-lot12-3008.txt`, puis
+`titres-doublons.mjs`, `creer-fiche-en.mjs --libelles` et
+`mesure-chevron.mjs --tout` appendés au même fichier.
+
+### Déclaration C131 du bloc 110
+
+**Population** : entrées de `git status --porcelain`.
+**État déclaré à l'entrée du bloc : 5 entrées, dont 2 hors artefacts de
+séance** — `tools/predictions-260830.md` (` M`),
+`tools/batterie-sortie-3008b54.txt` (`??`),
+`tools/batterie-sortie-3008b55.txt` (`??`), **`tools/puces-tiret.mjs` (`??`)**
+et **`tools/puces-3008-avant-passe-lot12.txt` (`??`)**, ces deux derniers
+créés au bloc 109 et **échappant tous deux au filtre**, qui ne connaît que
+`batterie-sortie` et `predictions-`.
+**Versement de ce bloc** : `tools/releves-avant-redaction-lot12-3008.txt`,
+**1 entrée `??`**, hors artefacts de séance elle aussi.
+**Total impliqué : 6 entrées, dont 3 hors artefacts de séance**, et les trois
+se nomment. *Le script de relevé vit hors dépôt et ne verse rien.*
+
+### RELEVÉ 1 — formes de production des titres de section EN
+
+- **P110.1 — les six formes sortent INCHANGÉES par rapport à la référence de
+  clôture du lot 11** : `## See also` **227**, `## What is it for?` **159**,
+  `## Pitfalls` **157**, `## Where it fits in the project` **105**,
+  `## Exercises` **37**, `## Going further` **31**. *Fondement : aucune fiche EN
+  n'a été écrite depuis, et les deux gardes des blocs 107 et 108 le disent —
+  `git status` ne porte aucun fichier de `content/`.*
+- **P110.2 — `## Step by step` : 78**, inchangé. ⚠ *Contrairement au lot 11, où
+  ce compteur était le seul qui **devait** bouger, **aucun** des huit compteurs
+  de ce relevé ne doit bouger ici : le lot 12 n'a encore rien écrit. Le relevé
+  ne mesure donc qu'une chose — que l'état d'avant rédaction est bien celui de
+  la clôture précédente.*
+- **P110.3 — les deux formes fautives du lot 4 restent à 0** :
+  `## Project connection` **0**, `## Step-by-step procedure` **0**. *Sixième
+  confirmation du correctif É1 du 29/08 (suite 10).*
+- **P110.4 — `POPULATION (fichiers balayes) : 235`**, égale au nombre de fiches
+  EN de la clôture du lot 11. *Le script écrit sa population dans sa sortie.*
+
+### RELEVÉ 2 — titres de callout EN
+
+- **P110.5 — les sept titres nommés par le brief** : `Watch out` **49**,
+  `Tip` **46**, `Good` **3**, `Fair` **3**, `Poor` **3**, `Attention` **0**,
+  `Astuce` **0**.
+- **P110.6 — `Example: 3-axis arm project` reste en tête du relevé**, devant
+  `Watch out` **49** et `Tip` **46**. ⚠ *Sa valeur au relevé d'avant rédaction du
+  lot 11 était **54**, et **aucune clôture ne l'a republiée après les huit
+  fiches de ce lot**. Je prédis donc une **fourchette et non un point** :
+  **[54, 58]**, la borne basse étant le relevé du lot 11 (le compteur ne peut
+  pas décroître, rien n'ayant été supprimé) et la borne haute supposant qu'au
+  plus quatre des huit notions `embarque/mcu/` portent l'exemple du bras.*
+
+### RELEVÉ 3 — titres-doublons, des DEUX côtés
+
+- **P110.7 — FR `243 / 243 / 0` et EN `235 / 235 / 0`** : fiches lues / titres
+  distincts / groupes en collision, **0 fiche concernée des deux côtés**.
+  ⚠ *La règle d'usage de C125 exige la comparaison **des deux côtés** ; zéro des
+  deux côtés est le seul état où elle est triviale, et c'est celui du chantier
+  depuis le lot 8.*
+
+### RELEVÉ 4 — heuristique des libellés
+
+- **P110.8 — les cinq compteurs de `--libelles`, INCHANGÉS** :
+  `wikilinks a libelle` **4 199**, `cible EN existante` **4 170**,
+  `cible EN absente` **29**, `candidats a lire` **145**,
+  `positions de parcours` **16**.
+
+### RELEVÉ 5 — les libellés EN qui visent les trois cibles du lot (C125, test 1)
+
+⚠ **C'est le relevé qui décidera des trois `title:`**, et la règle du 30/08
+(lot 11) dit qu'un libellé en production n'est **pas** un titre en production :
+il donne la forme employée, pas le titre à poser.
+
+- **P110.9 — la somme des trois est BORNÉE PAR 29**, le compteur
+  `cible EN absente` de P110.8, qui compte exactement les wikilinks à libellé du
+  corpus EN visant une fiche non traduite. *Les sept cibles rouges de la dette
+  se partagent ces 29.*
+- **P110.10 — décomposition prédite** : `falstad-en` visée **8 fois**
+  (fourchette **[5, 12]**), `ltspice-en` **7** (**[4, 11]**), `wokwi-en` **6**
+  (**[3, 10]**), **total 21** (**[15, 26]**). *Fondement : les trois fiches sont
+  citées par le hub `simulation-electronique-en`, par les `## See also` du
+  module `esp32/` et par `micropython-simulation-en` ; aucune mesure n'existe,
+  la fourchette est donc large et **déclarée telle**.*
+- **P110.11 — le reste des 29 se répartit sur `easyeda`, `xiao-prise-en-main`,
+  `xiao-sense` et la septième cible rouge** : **8** (**[3, 14]**).
+  *Terme écrit pour que la décomposition soit vérifiable en somme et pas
+  seulement en parties.*
+
+### RELEVÉ 6 — les `title:` EN des cibles visées PAR les trois sources
+
+⚠ *Règle du lot 4, reprise au lot 11 : **une série entière se dépense à lire les
+`title:` des cibles avant rédaction**, parce qu'un libellé de `## See also` ne
+donne pas le `title:` de production de sa cible.*
+
+- **P110.12 — nombre de cibles DISTINCTES visées par les trois sources : 30**,
+  fourchette **[27, 33]**. *Décomposition : `wokwi` en vise **21**, `falstad`
+  en ajoute **6**, `ltspice` **3**.*
+- **P110.13 — parmi elles, exactement 2 sont SANS jumelle EN** : `falstad` et
+  `ltspice`, **qui se citent l'une l'autre**. ⚠ *`wokwi` n'en cite aucune des
+  deux — c'est un fait de structure : elle renvoie au hub et au module `esp32/`,
+  jamais aux deux simulateurs analogiques.* **Aucune autre cible absente n'est
+  attendue** : un troisième `ABSENTE` signifierait une cible hors anneaux 0..2
+  non repérée par la dette.
+
+### RELEVÉ 7 — appariement des blocs en chevron (C127)
+
+- **P110.14 — `mesure-chevron --tout` : 34 paires des deux côtés,
+  0 divergente**, inchangé. *`ded` vaut 0 sur le restant, `tot` = `deh`, et
+  **C127 est hors sujet pour le septième lot d'affilée** ; ce lancement ne sert
+  qu'à confirmer que l'angle mort ne s'est pas ouvert.*
+
+### RELEVÉ 8 — blocs de code et C113 sur les trois sources
+
+⚠ **PREMIER LOT DEPUIS TROIS À PORTER DES BLOCS DE CODE**, donc le premier qui
+puisse tester l'assomption C113 sur les chaînes affichées libres, en file
+d'arbitrage depuis le 25/08.
+
+- **P110.15 — blocs clôturés : 3 au total, 2 porteuses** — `wokwi` **2**
+  (deux `cpp`), `falstad` **1** (un bloc **sans langue**, la description texte
+  d'un circuit), `ltspice` **0**. ⚠ *Une fiche d'outil de 3 848 mots sans un
+  seul bloc de code : c'est le registre qui parle, `ltspice` n'enseignant que
+  des gestes d'interface.*
+- **P110.16 — lignes de commentaire FRANÇAIS dans ces blocs : 7**, toutes dans
+  `wokwi` — **3** dans le bloc « Hello » et **4** dans le bloc « blink » ;
+  `falstad` **0**, son bloc étant une netlist sans commentaire.
+  *C'est la famille de l'arbitrage en attente des « 26 lignes de commentaire
+  français dans des blocs de code EN ».*
+- **P110.17 — chaînes affichées libres : 1**, `"Hello, ESP32!"` dans
+  `wokwi`. *C'est le cas d'espèce de l'assomption C113, et il est **unique** sur
+  tout le lot.*
+
+### Terme écrit pour réfuter
+
+Toute valeur de P110.1, P110.5, P110.7 ou P110.8 différente de sa référence de
+clôture signifierait qu'une fiche a bougé depuis le lot 11 **sans que
+`git status` ne le voie** — **ARRÊT**, et non ajustement.
+
+### Constats du bloc 110 — 15 prédictions tenues, 2 réfutées
+
+Sortie : `tools/releves-avant-redaction-lot12-3008.txt`.
+
+- **P110.1 ✅** `## See also` **227**, `## What is it for?` **159**,
+  `## Pitfalls` **157**, `## Where it fits in the project` **105**,
+  `## Exercises` **37**, `## Going further` **31** — **les six au chiffre**.
+- **P110.2 ✅** `## Step by step` **78**.
+- **P110.3 ✅** `## Project connection` **0**, `## Step-by-step procedure` **0**.
+- **P110.4 ✅** `POPULATION (fichiers balayes) : 235`.
+- **P110.5 ✅** `Watch out` **49**, `Tip` **46**, `Good` **3**, `Fair` **3**,
+  `Poor` **3**, `Attention` **0**, `Astuce` **0** — **les sept au chiffre**.
+- **P110.6 ✅** `Example: 3-axis arm project` **54**, dans [54, 58] **et à sa
+  borne basse**, toujours en tête devant `Watch out` 49 et `Tip` 46.
+  ⚠ *Le compteur n'a pas bougé des huit fiches du lot 11 : **aucune** des huit
+  notions `embarque/mcu/` ne porte l'exemple du bras. C'est encore le registre —
+  une notion de branche embarquée illustre par du code, pas par le fil rouge de
+  projet.* **Le relevé rend aussi le classement complet** : `Solution` **32**,
+  `How to read this code` **25**, `Answer to exercise 1` **20**,
+  `Answer to exercise 2` **20**, `The key question` **5**.
+- **P110.7 ✅** FR **243 / 243 / 0** et EN **235 / 235 / 0**, `sans title: 0`
+  des deux côtés. *La comparaison exigée par C125 est triviale, sixième lot
+  d'affilée.*
+- **P110.8 ✅** `4 199 / 4 170 / 29 / 145 / 16` — **les cinq au chiffre**.
+- **P110.9 ✅** la somme des libellés vers cible absente vaut **exactement 29**,
+  et elle recoupe le compteur `cible EN absente` de `--libelles` **au chiffre**.
+  *Deux instruments indépendants, le même nombre.*
+
+❌ **P110.10 — RÉFUTÉE SUR DEUX TERMES DE TROIS, ET LE TOTAL EST « TENU » À SA
+BORNE, CE QUI NE VAUT PAS VALIDATION.** Mesuré : `wokwi-en` **9** ✅ (dans
+[3, 10]), `falstad-en` **3** ❌ (contre 8, hors de [5, 12]), `ltspice-en` **3**
+❌ (contre 7, hors de [4, 11]), **total 15** — la **borne basse exacte** de la
+fourchette [15, 26].
+
+  | cible | prédit | mesuré | citée par |
+  |---|---|---|---|
+  | `wokwi-en` | 6 | **9** | `tinkercad-en` ×2, `micropython-simulation-en`, `xiao-esp32-s3-en` ×2, `analyseur-logique-en`, `simulation-electronique-en` ×3 — **5 fiches** |
+  | `falstad-en` | 8 | **3** | `simulation-electronique-en` ×3 — **1 fiche** |
+  | `ltspice-en` | 7 | **3** | `simulation-electronique-en` ×3 — **1 fiche** |
+
+  ⚠ **Cause, et c'est encore une variable de structure que j'ai remplacée par
+  une intuition de volume.** J'ai classé les trois cibles par la **taille de
+  leur fiche source** — `ltspice` 3 848 et `falstad` 3 244 devant `wokwi`
+  1 340 — alors que ce qui compte est **le nombre de fiches EN déjà traduites
+  qui les citent**. *`wokwi` est un simulateur de **microcontrôleur** : toute la
+  branche `embarque/mcu/` déjà traduite le cite. `falstad` et `ltspice` sont des
+  simulateurs **analogiques**, et la seule fiche EN qui les cite est leur propre
+  hub — trois fois chacune, symétriquement.* **Règle d'usage candidate : le
+  nombre de libellés visant une cible se prédit sur le nombre de fiches
+  TRADUITES de sa branche citante, jamais sur la taille de la cible.**
+
+  ✅ **Et ce que la mesure donne pour la rédaction est net** : les trois cibles
+  sont citées **sous leur nom propre et lui seul** — `Wokwi` 9 fois sur 9,
+  `Falstad` 3 sur 3, `LTspice` 3 sur 3. **Aucune forme concurrente, aucun
+  libellé de désambiguïsation** : C125 se referme au test 1 sans descendre aux
+  tests 2 et 3.
+
+- **P110.11 ✅** le reste des 29 vaut **14**, dans [3, 14] et **à sa borne
+  haute** : `kicad-en` **4**, `easyeda-en` **4**, `xiao-sense-en` **3**,
+  `xiao-prise-en-main-en` **3**. ⚠ *Relevé au passage et non prédit : les
+  libellés de `xiao-prise-en-main-en` s'écrivent `XIAO — getting started`, **avec
+  un cadratin dans le libellé**. C'est exactement la classe que le lot 11 a
+  découverte sur `ide` — un tiret dans un libellé n'est pas de la prose et ne se
+  reporte pas —, et elle est ici **déjà écrite dans le corpus anglais**.*
+- **P110.12 ✅** `CIBLES DISTINCTES : 29`, dans [27, 33] — prédit 30, mesuré 29.
+- **P110.13 ✅** `SANS JUMELLE EN : 2`, et ce sont bien **`falstad` et
+  `ltspice`**, qui se citent l'une l'autre ; **`wokwi` n'en cite aucune des
+  deux**, comme annoncé. *Aucune troisième cible absente : la dette ne cache
+  rien sur ce lot.*
+- **P110.14 ✅** `paires porteuses des deux cotes : 34   divergentes : 0`.
+  **C127 hors sujet pour le septième lot d'affilée.**
+- **P110.15 ✅** blocs clôturés : `falstad` **1** (bloc sans langue, la
+  description texte d'un circuit), `ltspice` **0**, `wokwi` **2** (deux `cpp`) —
+  **3 blocs, 2 porteuses**, la décomposition juste sur ses trois termes.
+  ⚠ *Une fiche d'outil de 3 848 mots sans un seul bloc de code, et c'est le
+  registre : `ltspice` n'enseigne que des gestes d'interface.*
+
+❌ **P110.16 — RÉFUTÉE D'UNE UNITÉ, par un doublon que j'ai lu sans le
+compter.** Lignes de commentaire français dans les blocs : **8** et non 7,
+toutes dans `wokwi` — **3** dans le bloc « Hello » et **5** dans le bloc
+« blink », `falstad` **0** ✅. *Le cinquième du bloc « blink » est le **second**
+`// attend une seconde` : la ligne apparaît **deux fois** dans le même bloc, et
+je n'en ai compté qu'une en relisant.* ⚠ **Même mode d'échec qu'à P108.13
+quatre-vingt-dix minutes plus tôt** — un relevé fait à la lecture rate les
+**répétitions**, jamais les singularités. *Deux réfutations de la séance ont
+cette cause unique, et elles sont sur deux compteurs sans rapport.*
+
+- **P110.17 ✅** chaînes affichées libres : **1**, `"Hello, ESP32!"` dans
+  `wokwi`, et **elle est unique sur tout le lot**. *C'est le cas d'espèce de
+  l'assomption C113, en file d'arbitrage depuis le 25/08 et non testable depuis
+  trois lots faute de bloc de code.*
+
+**Terme écrit pour réfuter : il ne mord pas.** Les quatre compteurs de
+référence — formes de production, titres de callout, titres-doublons,
+`--libelles` — sortent **identiques** à la clôture du lot 11, sur **dix-huit
+valeurs**. *Aucune fiche n'a bougé hors du regard de `git status`.*
+
+---
+
+## BLOC 111 — RELEVÉ DES PUCES À TIRET DES TROIS SOURCES (ce que `--style` NE VOIT PAS)
+
+**Commande** :
+`node tools/puces-tiret.mjs --fiches embarque/simulation/falstad.md,embarque/simulation/ltspice.md,embarque/simulation/wokwi.md`
+
+⚠ **Pourquoi ce relevé est nécessaire alors que le bloc 108 a déjà compté 101
+candidats.** L'amendement C109 du 29/08 (suite 8) met les **tirets de puce**
+dans le périmètre par quatre cas, et le §8 dit noir sur blanc que **`--style` ne
+les voit pas** : son `exemptions()` range le **premier** tiret d'une ligne de
+puce en glose et sort sans le compter (ligne 1061 du code). *Le compteur du bloc
+108 est donc structurellement aveugle à cette famille, et la passe serait
+incomplète de tout ce que ce bloc va nommer.* **Le lot 11 avait jugé 100
+signalements dont 18 de cette provenance ; le lot 12 en aura une part
+comparable.**
+
+### Déclaration C131 du bloc 111
+
+**Compteur prédit** : le compte fiche par fiche de `puces-tiret.mjs --fiches`.
+**Population** : les trois sources FR du lot, **passées en argument et nommées
+dans la sortie**. **Versement de la séance dans cette population : aucun** —
+aucune des trois n'a été écrite, dates du 17, 18 et 19 août au bloc 108.
+**Total impliqué : 3 fiches.** *Le bloc ne crée aucun fichier ; le compteur git
+reste à 6 entrées dont 3 hors artefacts de séance.*
+
+### Prédictions du bloc 111
+
+- **P111.1 — décomposition, comptage à la main sur les trois sources lues en
+  entier** : `falstad` **6**, `ltspice` **9**, `wokwi` **4**, **TOTAL 19**.
+- **P111.2 — décomposition de la décomposition, section par section**, pour que
+  la prédiction soit vérifiable ailleurs que sur son total :
+  - `falstad` : `## À quoi ça sert ?` **3**, « Lire un circuit qui tourne » **1**
+    (`**Le survol, c'est la mesure**`, les deux autres puces de la section
+    n'ayant **pas** de cadratin), « Page blanche et placement » **2**
+    (`Ajouter fils` et `Ajouter fils routé`, la troisième puce
+    `**Ajouter résistance** (r).` n'en portant pas) ;
+  - `ltspice` : `## À quoi ça sert ?` **3** (la quatrième puce,
+    `**produire des valeurs citables** … : une coupure relevée…`, sépare au
+    **deux-points** et non au tiret), « Trois choses sont à lire » **3**,
+    la liste des directives `.op` / `.tran` / `.ac` **3** ;
+  - `wokwi` : `## À quoi ça sert ?` **4**, et **rien ailleurs**.
+- **P111.3 — les listes NUMÉROTÉES ne sont pas comptées, et c'est le motif qui
+  le dit** : `PUCE = /^\s*[-*]\s/` ne reconnaît ni `1.` ni `2)`. *Les quatre
+  gestes numérotés de `wokwi` (« Ajouter les composants », « Câbler »,
+  « Coder », « Lancer et confronter ») portent des cadratins et **ne sont pas**
+  dans ce relevé ; ils sont **déjà** dans les 101 de `--style`, où leur premier
+  tiret est exempté et les suivants comptés.* ⚠ **Ces deux compteurs ne se
+  recouvrent donc pas, et leur somme est le nombre de signalements à juger.**
+- **P111.4 — total des signalements à juger au lot 12 : 101 + 19 = 120**,
+  contre **100** au lot 11 pour 8 fiches et 7 339 mots. *Densité : **14,2 pour
+  1 000 mots** contre 13,6 au lot 11 — je prédis donc un lot **plus dense en
+  signalements par mot** malgré trois fiches contre huit, et c'est encore le
+  registre : une fiche d'outil énumère.*
+- **P111.5 — densité des puces à tiret du lot : 19 / 8 432 = 2,25 ‰**,
+  fourchette **[2,0 ; 2,5]**. *Référence : le lot 11 a rendu **18 puces pour
+  7 339 mots**, soit **2,45 ‰**, et sa prédiction avait été calée sur le
+  registre contre le prorata des mots. **Ici les deux méthodes concordent**, ce
+  qui rend ce terme peu discriminant — je l'écris quand même pour que la série
+  existe.*
+
+---
+
+## BLOC 112 — JUGEMENT DES 120 SIGNALEMENTS, TEST NÉGATIF DÉLIBÉRÉ, PASSE C109
+
+**Commandes, dans cet ordre** :
+1. `node tools/remplacer-passe.mjs tools/passe-c109-lot12-3008-NEGATIF.tsv` — **doit REFUSER** ;
+2. `node tools/remplacer-passe.mjs tools/passe-c109-lot12-3008.tsv` — contrôle seul ;
+3. `node tools/remplacer-passe.mjs tools/passe-c109-lot12-3008.tsv --ecrire`.
+
+### La liste est FERMÉE avant le bloc
+
+**120 signalements jugés un par un** — **101** de `--style` (bloc 108) et **19**
+puces à tiret (bloc 111), **et les deux compteurs ne se recouvrent pas**, la
+démonstration étant au bloc 111. **Verdict : 71 traités, 49 gardés.**
+
+| fiche | signalements | traités | gardés | ancres |
+|---|---|---|---|---|
+| `falstad` | 41 + 6 = **47** | **29** | **18** | **24** |
+| `ltspice` | 43 + 9 = **52** | **29** | **23** | **31** |
+| `wokwi` | 17 + 4 = **21** | **13** | **8** | **14** |
+| **lot** | **120** | **71** | **49** | **69** |
+
+*Les ancres sont moins nombreuses que les traitements quand deux signalements
+vivent sur la même ligne (une incise encadrée = 2 signalements, 1 ancre), et
+plus nombreuses quand une même ligne porte deux traitements disjoints
+(`ltspice` L16 et L161).*
+
+**Les 49 gardés, et le motif de chaque garde** :
+- **enumération encadrée par deux tirets** (borne du 25/08 : elle **reste** quand
+  elle énumère) — `falstad` L16a et L51, `ltspice` L16b-c, L107a-b, L150a-b,
+  `wokwi` L17a-b, L114a-b : **11** ;
+- **apposition nominale sans verbe conjugué** (C123) — `falstad` L32, L79, L99,
+  L101, L104, L124a, L156a, `ltspice` L63b, L121, L138, L146, L158, L176, L198a,
+  `wokwi` L81, L122 : **16** ;
+- **libellé de glose `Libellé — groupe`, cas 2 de l'amendement du 29/08** —
+  `falstad` L24, L25, L26, L93, L94, `ltspice` L25, L26, L55, L56, L57, L78,
+  L79, L80, `wokwi` L23 : **14** ;
+- **titre d'exercice `Exercice N — Titre`, infinitif ou nominal** — `falstad`
+  L184a, L184b, L190, `ltspice` L183, L193 : **5** ;
+- **segment infinitif ou adjectival** — `falstad` L16b, `wokwi` L132 (glose de
+  `## Voir aussi`, **cas 1 : hors périmètre**) : **2** ;
+- **`falstad` L16a** est comptée deux fois ci-dessus par erreur d'énumération
+  et ne l'est qu'une au total : **le décompte qui fait foi est 18 + 23 + 8 = 49**.
+
+⚠ **TROIS MISES EN COHÉRENCE DE LISTE, DÉCLARÉES ET HORS DÉCOMPTE C109.**
+Quand une puce d'une liste **chaînée par points-virgules** tombe sous le cas 2
+et devient `- **Libellé.** Phrase.`, la liste ne peut plus chaîner autour d'une
+puce qui est une phrase complète : **la liste entière perd son chaînage et
+chaque puce se termine par un point**. Cela touche **3 puces qui ne sont pas
+elles-mêmes des candidats C109** — `ltspice` L25 et L26, `wokwi` L23 —, et
+c'est **déclaré ici avant d'être fait**, avec son motif : laisser le mélange
+`; ; . .` fabriquerait exactement l'impression de ponctuation machinale que
+C109 existe pour retirer. *Ces 3 ancres portent le total de la table à **69**
+alors que les traitements C109 en comptent **66**.*
+
+⚠ **UN ANGLE MORT NOMMÉ, ET IL N'EST DANS AUCUN DES DEUX COMPTEURS.**
+`wokwi` L112 est une puce **numérotée** (`4. **Lancer et confronter…**`) dont le
+premier tiret arrive **après une phrase complète** : c'est le **cas 3** de
+l'amendement, donc dans le périmètre. Or `--style` l'exempte mécaniquement
+(premier tiret d'une ligne de puce, ligne 1061) **et** `puces-tiret.mjs` ne le
+voit pas non plus, son motif `/^\s*[-*]\s/` ne reconnaissant ni `1.` ni `2)`.
+✅ *Jugé quand même : segment de droite nominal (« numéro de broche, sens de la
+LED ou masse oubliée »), donc **gardé** sous C123 — le trou ne coûte rien ce
+soir, mais il existe et il est écrit.*
+
+### Déclaration C131 du bloc 112
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 6
+entrées, dont 3 hors artefacts de séance.** **Versements de ce bloc** : la table
+réelle `tools/passe-c109-lot12-3008.tsv` et la table négative
+`tools/passe-c109-lot12-3008-NEGATIF.tsv`, **2 entrées `??` hors artefacts**,
+plus **3 entrées ` M`** sur les sources FR à l'écriture.
+**Total impliqué après écriture : 11 entrées, dont 8 hors artefacts de séance**
+— et les huit se nomment : `puces-tiret.mjs`, `puces-3008-avant-passe-lot12.txt`,
+`releves-avant-redaction-lot12-3008.txt`, les deux tables TSV, et les trois
+sources FR.
+
+### Prédictions du bloc 112 — test négatif délibéré
+
+- **P112.1 — la table négative porte DEUX défauts d'espèces différentes, et
+  l'outil doit refuser sur les deux** : une ancre à **zéro** occurrence
+  (`la méthode générale ; on apprend ici` cherchée dans `wokwi.md`, qui ne la
+  porte pas) et une ancre à **occurrences multiples** (`Falstad` dans
+  `ltspice.md`). **Refus du lot entier, zéro octet écrit**, et la sortie nomme
+  les deux lignes fautives avec leur compte — **0** pour la première, **au moins
+  6** pour la seconde.
+- **P112.2 — `git status` reste à 8 entrées après le test négatif**, dont
+  **aucune** source de `content/`. *C'est le terme qui prouve le « tout ou
+  rien » : une garde qui refuse sans écrire, et non qui écrit puis annule.*
+
+### Prédictions du bloc 112 — passe réelle
+
+- **P112.3 — la table est acceptée : 69 ancres, 69 trouvées exactement une
+  fois**, sur **3** fiches.
+- **P112.4 — invariant d'accents : écart NUL sur les trois fiches.** *Chaque
+  remplacement a été composé pour n'ajouter ni ne retirer un seul caractère
+  accentué : les connecteurs introduits sont `et`, `mais`, `car`, `soit`,
+  `non`, `On y lit`, `Ce sont`, `puisqu'` — **tous sans accent**, choisis pour
+  cela.* ⚠ **C'est un ARRÊT si l'écart n'est pas nul**, et la règle vient d'É2
+  du 29/08, 147 caractères perdus sous cinq contrôles au vert.
+- **P112.5 — invariant de lignes du corps : écart NUL sur les trois fiches.**
+  *Aucun remplacement ne porte de retour à la ligne.*
+- **P112.6 — volume après passe, décomposé et prédit au mot** :
+  `falstad` **3 244 → 3 253** (**+9**), `ltspice` **3 848 → 3 855** (**+7**),
+  `wokwi` **1 340 → 1 341** (**+1**), **LOT 8 432 → 8 449** (**+17**, soit
+  **+0,20 %**).
+  ⚠ **CE LOT NE SERA PAS NEUTRE EN MOTS, ET C'EST PRÉVU AVANT LA MESURE.** Les
+  deux lots précédents l'ont été à un mot près ; ici **six remplacements
+  ajoutent un connecteur** (`et` ×4, `mais`, `car`), **un ajoute `et non` contre
+  `pas`**, **un ajoute `Ce sont`**, **un ajoute `On y lit`**, et **un recompose
+  une phrase à `soit`** (+2). *La cause est le registre, encore : une fiche
+  d'outil enchaîne des gestes, et un tiret qui sépare deux gestes se rend par un
+  connecteur, là où une notion argumentative se coupe en deux phrases sans rien
+  ajouter.*
+- **P112.7 — `--style` après passe, décomposé** : `C109 de prose`
+  `falstad` **13**, `ltspice` **15**, `wokwi` **7**, **LOT 35** — soit
+  exactement les 35 gardés de `--style` (les 14 autres gardés étant des puces,
+  invisibles à ce compteur). `hors perimetre` **7 inchangé**,
+  `typographie francaise` **0**, `virgule ambigue` **0**,
+  `C109 creees en EN` **0**, `hors alphabet latin` **0**.
+- **P112.8 — `puces-tiret.mjs --fiches` après passe** : `falstad` **5**
+  (6 − 1), `ltspice` **8** (9 − 1), `wokwi` **1** (4 − 3), **TOTAL 14**.
+- **P112.9 — `puces-tiret.mjs --corpus` après passe, motif A** :
+  **FR 946 → 941**, porteuses **167 inchangé**, fichiers **248 inchangé** ;
+  **EN 886 / 153 / 235 inchangés**, aucune fiche EN n'ayant encore été écrite.
+  ⚠ **C'EST LE TERME QUE LE LOT 11 N'A PAS PU RENDRE** : le delta de −5 se
+  **mesurera** par différence de deux relevés datés du même outil, au lieu de se
+  calculer (C119).
+- **P112.10 — les trois `## Voir aussi` sont INTACTS** : aucune de leurs gloses
+  n'est dans la table, cas 1 de l'amendement. *Terme écrit pour réfuter : une
+  ligne de `## Voir aussi` modifiée au `git diff` serait une faute de périmètre.*
+
+### Constats du bloc 112 — 10 prédictions sur 10 tenues, dont SIX au chiffre exact sur leur décomposition
+
+- **P112.1 ✅ le test négatif est refusé sur ses DEUX défauts, et il les nomme** :
+  `L2 INTROUVABLE … ancre : la méthode générale ; on apprend ici` (**0**
+  occurrence dans `wokwi.md`) et `L3 MULTIPLE … (18 occurrences)` pour `Falstad`
+  dans `ltspice.md` — prédit « au moins 6 », mesuré **18**. Bilan :
+  `REFUS : 2 defaut(s). AUCUN FICHIER ECRIT.`, code de sortie **1**.
+- **P112.2 ✅** `git status` rend **8 entrées** après le refus, **aucune** de
+  `content/`. *La garde refuse sans écrire : c'est le tout-ou-rien vérifié, pas
+  supposé.*
+- **P112.3 ✅** `ancres 24/24`, `31/31`, `14/14`, **69 remplacements prêts sur 3
+  fiches**, `0 introuvable`, `0 multiple`.
+- **P112.4 ✅** **invariant d'accents à écart NUL sur les trois fiches** :
+  `457 -> 457`, `545 -> 545`, `160 -> 160`. *Les soixante-neuf remplacements ont
+  été composés pour cela — tous les connecteurs introduits (`et`, `mais`, `car`,
+  `soit`, `non`, `On y lit`, `Ce sont`, `puisqu'`) sont sans accent, et c'est un
+  choix d'écriture, pas une chance.*
+- **P112.5 ✅** lignes du corps `191 -> 191`, `195 -> 195`, `122 -> 122`.
+  Points de code : `20 887 -> 20 889`, `24 135 -> 24 135`, `9 457 -> 9 444`.
+  ⚠ *`ltspice` rend **exactement** le même nombre de points de code pour 31
+  remplacements : les caractères ajoutés par les connecteurs compensent au
+  caractère près ceux que les tirets et leurs espaces retirent. Coïncidence
+  arithmétique, notée parce qu'elle pourrait passer pour une passe sans effet —
+  le `git diff` compte **28 lignes** modifiées.*
+
+✅✅ **P112.6 — VOLUME APRÈS PASSE TENU AU MOT SUR SES QUATRE TERMES.**
+`falstad` **3 244 → 3 253** (+9), `ltspice` **3 848 → 3 855** (+7), `wokwi`
+**1 340 → 1 341** (+1), **LOT 8 432 → 8 449** (+17, **+0,20 %**).
+⚠ **LA SÉRIE DES PASSES EXACTEMENT NEUTRES S'ARRÊTE À DEUX, ET C'ÉTAIT ÉCRIT
+AVANT LA MESURE.** *La cause est le registre : une fiche d'outil enchaîne des
+gestes, et un tiret qui sépare deux gestes se rend par un **connecteur** — six
+`et`, un `mais`, un `car`, un `et non`, un `Ce sont`, un `On y lit`, un `soit` —
+là où une notion argumentative se coupe en deux phrases sans rien ajouter.*
+**Le +17 se décompose terme à terme et chaque unité a son ancre.**
+
+✅✅ **P112.7 — RÉSIDU `--style` TENU AU CHIFFRE, DÉCOMPOSITION COMPRISE.**
+`C109 de prose` **35** — `falstad` **13**, `ltspice` **15**, `wokwi` **7**,
+soit **exactement** les 35 gardés de provenance `--style` annoncés au jugement.
+`hors perimetre` **7 inchangé**, `typographie francaise` **0**,
+`virgule ambigue` **0**, `C109 creees en EN` **0**, `hors alphabet latin` **0**.
+*Le résidu n'est pas un reste : c'est la liste fermée avant le bloc, retrouvée
+à l'unité.*
+
+✅ **P112.8** `puces-tiret --fiches` : `falstad` **5**, `ltspice` **8**,
+`wokwi` **1**, **TOTAL 14** — les quatre termes.
+
+✅✅ **P112.9 — ET C'EST LE TERME QUE LE LOT 11 N'A PAS PU RENDRE.**
+Corpus motif A, **FR 946 → 941**, porteuses **167 inchangé**, fichiers
+**248 inchangé** ; **EN 886 / 153 / 235 inchangés**. **Le delta de −5 est
+MESURÉ**, par différence de deux relevés du même outil versionné, l'un daté
+d'avant la passe (`tools/puces-3008-avant-passe-lot12.txt`) et l'autre d'après.
+*C119 est tenue : rien n'est calculé.* ⚠ *Les porteuses ne bougent pas — les
+cinq puces traitées viennent de trois fiches qui en gardent chacune au moins
+une.*
+
+✅ **P112.10** aucune ligne de `## Voir aussi` au `git diff` : `git diff -U0`
+filtré sur les lignes de puce à wikilink rend **zéro** ligne. *Le cas 1 de
+l'amendement du 29/08 est tenu par construction — aucune glose de section de
+liens n'est entrée dans la table.*
+
+**Diff : 24 / 28 / 11 lignes modifiées**, pour 24 / 31 / 14 ancres. *L'écart
+vient des lignes qui portent deux ancres disjointes — `ltspice` L16 et L161,
+`wokwi` L17, L32 et L48.*
+
+---
+
+## BLOC 113 — GÉNÉRATION DES TROIS SQUELETTES EN, ET LES TROIS `title:`
+
+**Commandes** : `node tools/creer-fiche-en.mjs embarque/simulation/falstad.md`,
+puis `ltspice.md`, puis `wokwi.md`.
+
+### Les trois `title:` sont décidés AVANT la génération, et C125 se referme au test 1
+
+⚠ **PREMIER LOT DU CHANTIER SANS AUCUN ARBITRAGE DE TITRE, ET LA RAISON EST DE
+STRUCTURE.** Les trois cibles sont des **noms propres de logiciels**, et le
+relevé 5 du bloc 110 le montre sans appel : le corpus anglais les cite
+**exclusivement** sous leur nom propre — `Wokwi` 9 fois sur 9, `Falstad` 3 sur
+3, `LTspice` 3 sur 3, **aucune forme concurrente, aucun libellé de
+désambiguïsation**. *Le test 1 de C125 tranche seul ; les tests 2 et 3 ne sont
+pas atteints.*
+
+- **P113.1 — les trois `title:` EN sont IDENTIQUES aux `title:` FR** :
+  `Falstad`, `LTspice`, `Wokwi`. **Aucun lancement de `renommer-titres.mjs`
+  n'est nécessaire**, le générateur recopiant le `title:` de la source.
+  ⚠ *Terme écrit pour réfuter : si le générateur écrivait autre chose que le
+  `title:` français, la prédiction tombe et il faudra `renommer-titres.mjs`.*
+- **P113.2 — `titres-doublons` restera à `0 groupe en collision` côté EN**
+  après ces trois titres : ni `Falstad`, ni `LTspice`, ni `Wokwi` n'est déjà
+  porté par une fiche EN. *Contrôle à la clôture ; ce n'est pas une prédiction
+  de ce bloc.*
+
+### Déclaration C131 du bloc 113
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 11
+entrées, dont 8 hors artefacts de séance.** **Versements de ce bloc** : trois
+fiches EN neuves, **3 entrées `??`**, toutes hors artefacts de séance.
+**Total impliqué : 14 entrées, dont 11 hors artefacts de séance.**
+
+### Prédictions du bloc 113
+
+- **P113.3 — trois fiches créées**, aux chemins
+  `content/en/embarque/simulation/falstad-en.md`, `ltspice-en.md`,
+  `wokwi-en.md`. *Le répertoire `content/en/embarque/simulation/` existe déjà —
+  il porte `simulation-electronique-en.md` —, donc **aucun répertoire neuf**, et
+  la règle du 30/08 « un répertoire non suivi vaut une entrée » ne s'applique
+  pas : les trois fiches comptent **trois** entrées.*
+- **P113.4 — embeds, décomposés et prédits au chiffre** : `falstad` **13**,
+  `ltspice` **9**, `wokwi` **9**, **total 31**.
+- **P113.5 — blocs de code clôturés** : `falstad` **1**, `ltspice` **0**,
+  `wokwi` **2**, **total 3** — les trois termes déjà mesurés au relevé 8 du
+  bloc 110, donc ce n'est pas une prédiction neuve mais un **contrôle croisé
+  d'instrument** : le compteur du générateur et mon script de relevé doivent
+  rendre le même chiffre.
+- **P113.6 — ancres de wikilink `[[fiche#Section|x]]` signalées : 2**, et elles
+  se nomment — `falstad` `[[simulation-electronique#Pièges|simulation]]` et
+  `ltspice` `[[simulation-electronique#Les trois familles d'analyse|trois
+  familles d'analyse]]`. ⚠ **Les deux visent des sections du hub dont le titre
+  anglais est déjà en production** : `## Pitfalls` et
+  `## The three families of analysis`. *Elles sont donc réécrites à la main à la
+  rédaction, et le générateur ne peut pas le faire.*
+- **P113.7 — aliases retirés : 0** sur les trois fiches (aucun `aliases:` dans
+  les trois front matters).
+- **P113.8 — wikilinks sortants, décomposés** : `falstad` **17**,
+  `ltspice` **14**, `wokwi` **28**, **total 59**. ⚠ *Fourchette **[±2 par
+  fiche]** : ce sont les seuls chiffres de ce bloc que je n'ai pas comptés à la
+  main sur le fichier mais estimés en relisant, et je le dis plutôt que de
+  donner un point faussement ferme.*
+
+### Constats du bloc 113 — 7 prédictions tenues, 1 réfutée sur deux de ses trois termes
+
+- **P113.1 ✅** les trois `title:` EN sont **`Falstad`, `LTspice`, `Wokwi`**,
+  identiques aux `title:` FR au caractère. **`renommer-titres.mjs` n'est pas
+  lancé de la séance** — premier lot du chantier dans ce cas, et la cause est
+  que les trois cibles sont des **noms propres de logiciels**.
+- **P113.3 ✅** trois fiches écrites : `falstad-en.md` (21 802 o),
+  `ltspice-en.md` (25 182 o), `wokwi-en.md` (10 058 o).
+- **P113.4 ✅** embeds **13 / 9 / 9 = 31**, reportés `13 -> 13`, `9 -> 9`,
+  `9 -> 9` sans perte.
+- **P113.5 ✅** blocs de code **1 / 0 / 2 = 3** — **le compteur du générateur et
+  mon script de relevé du bloc 110 rendent le même chiffre sur les trois
+  fiches**. *Contrôle croisé d'instrument, et il passe.*
+- **P113.6 ✅** **2 ancres de wikilink signalées, exactement les deux nommées** :
+  `[[simulation-electronique#Pièges]]` sur `falstad` et
+  `[[simulation-electronique#Les trois familles d'analyse]]` sur `ltspice`.
+  *Elles visent `## Pitfalls` et `## The three families of analysis`, déjà en
+  production dans le hub EN ; le générateur ne peut pas les réécrire, la
+  rédaction le fera.*
+- **P113.7 ✅** aucun alias signalé sur les trois.
+- **P113.2 ✅ (contrôlé par anticipation)** aucune fiche EN ne portait déjà
+  `Falstad`, `LTspice` ou `Wokwi` : `titres-doublons` restera à 0.
+
+❌ **P113.8 — RÉFUTÉE SUR DEUX TERMES DE TROIS.** Wikilinks sortants :
+`falstad` **17** ✅ (prédit 17), `ltspice` **22** ❌ (prédit 14 ± 2),
+`wokwi` **31** ❌ (prédit 28 ± 2), **total 70** contre 59.
+⚠ *La prédiction disait elle-même qu'elle était **estimée en relisant** et non
+comptée sur le fichier, et c'est exactement le terme qui tombe : le seul des
+trois que j'avais compté ligne à ligne — `falstad` — est juste au lien près,
+les deux estimés sont faux de **8** et de **3**.* **Le fait de déclarer qu'un
+chiffre est estimé ne le rapproche pas de la mesure ; il rend seulement la
+réfutation lisible.**
+
+---
+
+## BLOC 114 — RÉDACTION DES TROIS FICHES EN, PAR `--corps`
+
+**Commandes** : trois fichiers de corps écrits dans le scratchpad (**hors
+dépôt**, C114), puis
+`node tools/creer-fiche-en.mjs --corps en/embarque/simulation/<fiche>-en.md <corps>`,
+en `--dry` puis en écriture.
+
+### Déclaration C131 du bloc 114
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 14
+entrées, dont 11 hors artefacts de séance.** **Versements de ce bloc : AUCUN** —
+les trois fiches EN sont **déjà** `??` depuis le bloc 113, et `--corps` les
+**modifie** sans créer d'entrée ; les fichiers de corps vivent hors dépôt.
+**Total impliqué : 14 entrées, inchangé, dont 11 hors artefacts de séance.**
+
+### Les correspondances de forme, arrêtées AVANT d'écrire
+
+⚠ **LE CORPUS TRANCHE TROIS FOIS, ET AUCUNE DES TROIS FORMES N'EST INVENTÉE.**
+- `## Prendre en main` → **`## Getting started`** : la forme existe **une** fois
+  en production, sur `oscilloscope-en`, dont la source porte exactement
+  `## Prendre en main`. *Trois fiches FR portent cette section ; une seule est
+  traduite, et c'est elle qui donne la forme.*
+- `## Exemple — Faire clignoter une LED` → **`## Example — Blinking an LED`** :
+  la même `oscilloscope-en` rend `## Exemple — Observer un signal PWM` par
+  `## Example — Watching a PWM signal` — **gérondif, et capitale après le
+  cadratin**. *Le corpus porte 9 `## Example — 3-axis teaching arm` et 4
+  `## Example — The 3-axis arm`, donc la forme est établie ; c'est la
+  **capitalisation après le tiret** que la jumelle d'`oscilloscope` tranche.*
+- `> [!success]- Corrigé` → **`> [!success]- Solution`** : **64** `Corrigé` nus
+  en FR contre **32** `Solution` en EN, et les 19 `Corrigé de l'exercice N`
+  rendent les 40 `Answer to exercise N`. *Nos quatre callouts sont des `Corrigé`
+  **nus** : ils vont sur `Solution`.*
+  ⚠ *Les **4** `> [!success]- Corrigé` que le relevé trouve **dans**
+  `content/en/` sont mes squelettes de ce soir, non encore traduits — pas un
+  défaut du corpus.*
+
+### Prédictions du bloc 114 — compteurs de forme après rédaction
+
+- **P114.1 — formes de production** : `## See also` **227 → 230**,
+  `## What is it for?` **159 → 162**, `## Pitfalls` **157 → 160**,
+  `## Exercises` **37 → 39** (`falstad` et `ltspice` seules, `wokwi` n'en
+  portant pas), `## Getting started` **1 → 2**,
+  `## Where it fits in the project` **105 inchangé**, `## Going further`
+  **31 inchangé**, `## Step by step` **78 inchangé**.
+  ⚠ *Terme écrit pour réfuter : un `## Step by step` qui bougerait signalerait
+  que j'ai rendu `## Prendre en main` par la forme du pas-à-pas, contre
+  l'arbitrage du corpus ci-dessus.*
+- **P114.2 — titres de callout** : `Solution` **32 → 36**, `Corrigé` dans
+  `content/en/` **4 → 0**, `Watch out` **49 inchangé** — *les quinze callouts
+  `[!warning]` / `[!note]` / `[!tip]` / `[!question]` des trois sources sont
+  **nus**, sans titre, et le restent.*
+- **P114.3 — corpus EN : 235 → 238 fiches.**
+
+### Prédictions du bloc 114 — foisonnement
+
+⚠ **AUCUNE RÉFÉRENCE MESURÉE N'EXISTE SUR LE REGISTRE « FICHE D'OUTIL »**, et le
+lot 11 a montré que le registre gouverne le foisonnement au point de le rendre
+**négatif** sur des notions argumentatives. Deux forces opposées ici : l'anglais
+procédural est **plus court** que le français (impératifs, moins d'articles et
+de prépositions), mais la décision de glose ci-dessous **ajoute** des mots sur
+`falstad` seule.
+
+- **P114.4 — foisonnement, décomposé** : `falstad` **3 253 → 3 370**
+  (**+3,6 %**, fourchette **[3 300, 3 430]**), `ltspice` **3 855 → 3 970**
+  (**+3,0 %**, **[3 900, 4 020]**), `wokwi` **1 341 → 1 380** (**+2,9 %**,
+  **[1 350, 1 410]**), **LOT 8 449 → 8 720** (**+3,2 %**, **[8 550, 8 860]**).
+  *`falstad` est prédite la plus haute des trois **à cause de la décision de
+  glose**, pas de sa prose — c'est un effet de ma décision et non du texte
+  source, et il faut que ce soit écrit avant la mesure pour que la mesure
+  puisse le réfuter.*
+
+### ASSOMPTION ÉCRITE AVANT EXÉCUTION — LES LIBELLÉS D'INTERFACE DE `falstad`
+
+**Le problème.** `falstad` cite **une trentaine de libellés de menus en
+français** — *Fichier*, *Dessiner*, *Les Bases*, *Vitesse de Simulation*,
+*Ajouter fils*… — parce que Falstad suit la langue du navigateur et que les
+captures ont été prises en français. **Un lecteur anglophone verra l'interface
+en anglais**, et une fiche EN qui lui fait chercher *Ajouter fils* est
+inutilisable. À l'inverse, remplacer les libellés par des chaînes anglaises que
+je ne peux **pas** vérifier depuis le dépôt serait une invention, et les
+captures — partagées entre les deux langues, `audit-medias` le vérifie —
+montreraient autre chose que le texte.
+
+**Ce que fait le corpus, et c'est lui qui tranche.** `tinkercad-en` écrit
+`click *Créer* → *Circuit* (Create → Circuit)` et
+`(*Code → Télécharger le code*, that is Code → Download Code)` : **le libellé
+tel qu'il est à l'écran, glosé en anglais entre parenthèses**. *Deux occurrences
+seulement, mais c'est une forme en production et elle répond exactement à ce
+cas.*
+
+**Décision : le patron `tinkercad-en`, glosé à la PREMIÈRE occurrence de chaque
+libellé** et non à chaque occurrence, plus **une note** en tête de fiche disant
+une fois que Falstad suit la langue du navigateur et que les captures sont en
+français. **Coût d'un revert** : réécrire le corps de `falstad-en` par
+`--corps`, **aucune autre fiche touchée**, aucun front matter modifié — le mode
+`--corps` existe exactement pour rendre ce revert d'un seul geste.
+⚠ **Arbitrage remonté à Tim sans bloquer.** `ltspice` ne pose pas la question,
+son interface étant anglaise dans les deux langues.
+
+### SECONDE ASSOMPTION — LE CALLOUT « L'interface est en anglais » DE `ltspice`
+
+Ce callout **ne dit rien à un lecteur anglophone** : il explique pourquoi une
+prose française cite des menus anglais. **Décision : le callout est CONSERVÉ
+mais RECOMPOSÉ** — il dira que LTspice n'est **pas localisé**, donc que les
+mêmes libellés se retrouvent dans la documentation d'Analog Devices et dans les
+tutoriels, ce qui est l'autre moitié du contenu du callout français et reste
+vrai en anglais. **Ce qui est écarté** : le supprimer. *Motif : la structure de
+la fiche se reporte, et un callout retiré est invisible aux trois compteurs de
+`--controle`.* **Coût d'un revert** : une passe `--corps` sur `ltspice-en`.
+
+### Constats du bloc 114 — 4 prédictions sur 5 tenues, 1 réfutée de TROIS MOTS
+
+- **P114.5 (non numérotée, contrôle de `--corps`) ✅** les trois passes rendent
+  `front matter identique a l octet : oui`, `ligne blanche apres le front
+  matter : POSEE`, et les trois compteurs **au chiffre contre la source FR** :
+  `liens 17 -> 17`, `22 -> 22`, `31 -> 31` ; `embeds 13 -> 13`, `9 -> 9`,
+  `9 -> 9` ; `code 1 -> 1`, `0 -> 0`, `2 -> 2`. *Les `source_sha256` sont
+  identiques avant et après sur les trois : aucune empreinte n'a pu être
+  inventée, ce pour quoi le mode existe.*
+
+❌ **P114.4 — RÉFUTÉE SUR UN TERME DE QUATRE, ET DE TROIS MOTS.**
+
+  | fiche | prédit | fourchette | mesuré | verdict |
+  |---|---|---|---|---|
+  | `falstad-en` | 3 370 | [3 300, **3 430**] | **3 433** (+5,5 %) | ❌ **de 3 mots** |
+  | `ltspice-en` | 3 970 | [3 900, 4 020] | **3 955** (+2,6 %) | ✅ |
+  | `wokwi-en` | 1 380 | [1 350, 1 410] | **1 369** (+2,1 %) | ✅ |
+  | **lot** | 8 720 | [8 550, 8 860] | **8 757** (**+3,65 %**) | ✅ |
+
+  ✅ **Le SENS de la prédiction est confirmé et il portait tout le contenu** :
+  `falstad` sort **la plus haute des trois**, et pour la cause annoncée — la
+  décision de glose, qui ajoute une parenthèse anglaise à chaque premier emploi
+  d'un libellé de menu français. *Les deux fiches sans glose sortent à +2,6 % et
+  +2,1 %, **sous** la moyenne du corpus, ce qui est le comportement attendu d'une
+  prose procédurale rendue en anglais.*
+  ❌ **La MAGNITUDE est sous-estimée** : +5,5 % contre +3,6 % prédit. *J'ai
+  compté les libellés à gloser et non les **mots** de chaque glose : une glose
+  comme « (logic gates, digital chips, analog and hybrid chips) » en pèse six à
+  elle seule.* **La borne haute est franchie de trois mots, et c'est une
+  réfutation entière — une fourchette n'a pas de marge de courtoisie.**
+  ⚠ **Première mesure du chantier sur le registre « fiche d'outil » : +2,1 % et
+  +2,6 % hors glose, contre +3,7 % de moyenne de corpus.** *Deux points, pas une
+  loi ; et le troisième point est pollué par ma propre décision éditoriale, donc
+  il ne compte pas pour l'espèce.*
+
+---
+
+## BLOC 115 — CLÔTURE : L'ÉTAT COMPLET APRÈS LES TROIS FICHES
+
+**Commandes** : `batterie.ps1 -Phase etat` avec les trois sources et les trois
+jumelles, `-Chevron` ; puis `titres-doublons.mjs`, `puces-tiret.mjs --corpus`,
+et le script de relevé des formes de production et des titres de callout.
+
+### Déclaration C131 du bloc 115
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 14
+entrées, dont 11 hors artefacts de séance.** **Versements de ce bloc** : la copie
+C124 `tools/batterie-sortie-3008b56.txt` (**1 entrée `??`**, écartée du
+sous-compteur) et `tools/puces-3008-apres-passe-lot12.txt`, **déjà créé** au
+bloc 112 et donc **déjà compté**. **Total impliqué : 15 entrées, dont 11 hors
+artefacts de séance.**
+
+### Prédictions du bloc 115 — volumes et avancement
+
+- **P115.1 — corpus FR : 291 242 → 291 259 mots** (+17, exactement le delta
+  mesuré de la passe C109), **243 fiches inchangé**.
+- **P115.2 — traduites : 235 → 238 fiches, 270 769 → 279 218 mots FR**
+  (270 769 + 8 449).
+- **P115.3 — restant : 7 → 4 fiches, 20 473 → 12 041 mots** — et les quatre se
+  nomment : `easyeda`, `kicad`, `xiao-prise-en-main`, `xiao-sense`.
+- **P115.4 — anneau 2 : 145 net, 141 → 144 traduites, 4 → 1 restante**,
+  **18 205 → 9 773 mots**, `easyeda` **seule**, **0 porteuse de chevron**.
+  ⚠ *Le lot 13 est donc le **dernier** de l'anneau 2.*
+- **P115.5 — avancement, chaque ratio avec le NOM de sa population** : anneau 2
+  en fiches **144 / 145 = 99,3 %** ; corpus en fiches **238 / 242 = 98,3 %** ;
+  corpus en mots **279 218 / 291 259 = 95,9 %**.
+
+### Prédictions du bloc 115 — contrôles
+
+- **P115.6 — `--controle` : 238 fiches, 0 divergente, 0 lien non suffixé sur 0.**
+- **P115.7 — dérive : `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 238`**, et
+  **zéro `--recaler`, quatrième lot d'affilée**.
+- **P115.8 — foisonnement : 238 paires, 279 218 → 289 154 mots EN, moyenne
+  3,6 %** (inchangée : trois paires à 3,4 % de moyenne versées dans 235 paires
+  à 3,6 %).
+- **P115.9 — `--style` sur les trois fiches EN : `typographie francaise 0`,
+  `virgule ambigue 0`, `C109 creees en EN 0`, `hors alphabet latin 0`.**
+  ⚠ **`C109 de prose` sur les trois EN : je prédis 35, soit le RÉSIDU FR au
+  chiffre**, le report un pour un étant borné à la prose (règle du lot 11) et
+  aucune des 35 exemptions gardées ne tombant sur un libellé de wikilink.
+  *Terme écrit pour réfuter : `C109 creees en EN` non nul nommerait une
+  occurrence que la traduction aurait fabriquée, comme `chien-de-garde-en` au
+  lot 11.*
+- **P115.10 — titres-doublons : FR 243 / 243 / 0, EN 238 / 238 / 0.**
+- **P115.11 — chevron `--tout` : 34 paires des deux côtés, 0 divergente**,
+  inchangé. **C127 hors sujet pour le septième lot d'affilée.**
+- **P115.12 — médias : 483 → 486 fiches, 716 → 747 embeds** (+31, les trois
+  fiches EN reprenant les chemins d'embed à l'octet).
+
+### Prédictions du bloc 115 — compteurs de forme
+
+- **P115.13 — formes de production EN** : `## See also` **230**,
+  `## What is it for?` **162**, `## Pitfalls` **160**, `## Exercises` **39**,
+  `## Getting started` **2**, `## Where it fits in the project` **105**,
+  `## Going further` **31**, `## Step by step` **78**.
+- **P115.14 — titres de callout** : `Solution` **36**, `Corrigé` **0** dans
+  `content/en/`, `Watch out` **49**, `Tip` **46**, `Good` / `Fair` / `Poor`
+  **3** chacun, `Attention` **0**, `Astuce` **0**.
+  ⚠ *Correction d'un chiffre publié à tort dans les prédictions du bloc 114 :
+  les trois sources portent **27** callouts et non quinze — `falstad` **12**,
+  `ltspice` **15**, `wokwi` **0** —, dont **4 titrés** (`Corrigé`) et **23
+  nus**. Le chiffre faux était une estimation, pas une mesure, et il est
+  remplacé ici avant que la mesure ne le contredise.*
+- **P115.15 — puces à tiret, motif A, décomposé et prédit au chiffre** :
+  **FR 941 / 167 porteuses / 248 fichiers** (inchangé depuis le bloc 112) ;
+  **EN 886 → 900 / 153 → 156 porteuses / 235 → 238 fichiers**.
+  **Décomposition du +14** : `falstad-en` **5**, `ltspice-en` **8**,
+  `wokwi-en` **1** — *les mêmes chiffres que leurs sources FR après la passe,
+  puce par puce, ce qui est le report un pour un vérifié sur cette famille.*
+- **P115.16 — `--libelles`** : `cible EN absente` **29 → 14**, *les 15 libellés
+  qui visaient `falstad-en`, `ltspice-en` et `wokwi-en` cessant d'être absents
+  d'un coup*. Les quatre autres compteurs montent sans que je puisse les
+  prédire au point : `wikilinks a libelle` **[4 250, 4 290]**,
+  `cible EN existante` **[4 235, 4 275]**, `candidats a lire` **[145, 152]**,
+  `positions de parcours` **16 inchangé**.
+  ⚠ *La borne haute de `candidats a lire` réserve **7** unités : la clause C125
+  du 29/08 (suite 9) ne s'applique pas ici — **aucun** des trois `title:` n'a été
+  choisi, ils sont les noms propres des logiciels —, mais **70 libellés neufs**
+  entrent au compteur d'un coup, dont des sigles (`I²C`, `UART`, `PWM`, `ADC`,
+  `GPIO`) que `estSigleDe` peut ou non reconnaître.*
+- **P115.17 — wikilinks : `0 cassée`, `0 ambiguë`**, `mortes` **[4, 7]**.
+  *Je ne prédis pas ce compteur au point : le brief le donne à 7 à la clôture du
+  lot 11 sans nommer sa population, et la règle du 29/08 (suite 11) veut qu'un
+  compteur sans population déclarée ne se prédise pas au chiffre.*
+
+### Constats du bloc 115 — 15 prédictions tenues, 2 réfutées, dont une PAR SON PROPRE TERME D'ARRÊT
+
+Sortie : `tools/batterie-sortie.txt`, copie C124 `tools\batterie-sortie-3008b56.txt`.
+Garde : horloge **19:12:13**, `HEAD 4f6803c 2026-08-30 18:29:02 +0200` inchangé
+au caractère, `JOURNAL.md 18:27:42`, `conventions.md 18:24:49`,
+`TODO.md 2026-08-29 21:48:08` — **les trois inchangées**. Les six fiches du lot
+portent des dates du soir (**18:59:15** ×3 pour les sources, **19:10:40/41** ×3
+pour les jumelles), **postérieures au dernier relevé et antérieures à l'horloge
+du bloc** : c'est l'état attendu d'une séance qui écrit, pas une péremption.
+
+❌ **DÉCLARATION C131 RÉFUTÉE D'UNE ENTRÉE, SUR LES DEUX TERMES.**
+`fichiers modifies non commites : 16   (hors artefacts de seance : 12)`, prédit
+**15 / 11**. ⚠ **Cause nommée : `tools/puces-3008-apres-passe-lot12.txt`.** Il a
+été **créé au bloc 112**, dont la déclaration C131 ne nommait que les deux
+tables TSV, et il a donc voyagé hors décompte jusqu'ici. *L'amendement C131 dit
+que **chaque bloc qui crée un fichier rejoue sa déclaration** ; le bloc 112 en a
+créé **trois** et n'en a déclaré que deux.* **La liste nominative des 16, et
+c'est elle qui fait foi** : `predictions-260830.md`, `batterie-sortie-3008b54`,
+`b55`, `b56` (**4 artefacts de séance**), puis `puces-tiret.mjs`,
+`puces-3008-avant-passe-lot12.txt`, `puces-3008-apres-passe-lot12.txt`,
+`releves-avant-redaction-lot12-3008.txt`, `passe-c109-lot12-3008.tsv`,
+`passe-c109-lot12-3008-NEGATIF.tsv`, les **3 sources FR** et les **3 fiches EN**
+(**12 hors artefacts**).
+
+- **P115.1 ✅** `fiches FR publiees : 242`, `mots FR : 291259` — **+17 au mot**,
+  exactement le delta de la passe C109.
+- **P115.2 ✅** `deja traduites : 238 fiches, 279218 mots FR` — les deux termes.
+- **P115.3 ✅** `RESTANT A TRADUIRE : 4 fiches, 12041 mots FR` — les deux termes.
+- **P115.4 ✅** `ANNEAU 2 NET 145`, `deja traduites 144`, `RESTANT 1`,
+  `embarque/pcb/easyeda 9773`, `fiches porteuses 0`. ⚠ **Le lot 13 est le
+  DERNIER de l'anneau 2, et il tient en une fiche.**
+- **P115.5 ✅** anneau 2 en fiches **144 / 145 = 99,3 %** ; corpus en fiches
+  **238 / 242 = 98,3 %** ; corpus en mots **279 218 / 291 259 = 95,9 %**.
+- **P115.6 ✅** `238 fiche(s) controlee(s), 0 divergente(s)`,
+  `Liens non suffixes : 0 sur 0`.
+- **P115.7 ✅** `MARQUE INVALIDE 0`, `DERIVE 0`, `SANS SOURCE 0`,
+  `SANS MARQUE 0`, `A JOUR 238` — **zéro `--recaler`, quatrième lot d'affilée**.
+- **P115.8 ✅** `238 paire(s) : 279218 mots FR -> 289154 mots EN`,
+  `foisonnement moyen : 3.6 %` — **les trois termes au chiffre**.
+
+❌ **P115.9 — RÉFUTÉE SUR UN TERME DE SIX, ET C'EST LE TERME QUE J'AVAIS ÉCRIT
+POUR RÉFUTER.** `C109 de prose : 35` ✅ — **le résidu FR retrouvé au chiffre,
+donc le report un pour un vérifié une fois de plus** ; `hors perimetre 7` ✅ ;
+`typographie francaise 0` ✅ ; `virgule ambigue 0` ✅ ; `hors alphabet latin 0` ✅.
+Mais **`C109 creees en EN : 1`**, et le compteur la nomme :
+`en/embarque/simulation/falstad-en.md   C109 : FR 13 / EN 14`.
+⚠ **L'occurrence est à MOI, et elle sort de la décision de glose** : la ligne
+99 écrit `**Circuits intégrés analogiques et hybrides** — logic gates, digital
+chips, analog and hybrid chips`, où le cadratin sépare la liste des libellés
+français de leur rendu anglais. *C'est le **prix de l'assomption déclarée au
+bloc 114**, et il se paie sur le seul compteur que la traduction peut salir.*
+✅ **La parade est dans le corpus, comme la décision elle-même** :
+`tinkercad-en` écrit `(*Code → Télécharger le code*, that is Code → Download
+Code)` — **`, that is` et non un cadratin**. Corrigé au bloc 116.
+- **P115.10** — voir bloc 117.
+- **P115.11 ✅** `paires porteuses des deux cotes : 34   divergentes : 0`.
+  **C127 hors sujet pour le septième lot d'affilée.**
+- **P115.12 ✅** `486 fiches lues, 747 embeds` — **les deux termes au chiffre**
+  (483 → 486, 716 → 747, soit **+31**, le compte exact des embeds des trois
+  fiches). `CASSE 0`, `HORS-GABARIT 0`, `EXTERNE 0` ; `ABSENT 12` et
+  `ORPHELIN 1` inchangés, **aucun des deux ne vient du lot**.
+- **P115.17 ✅** `MORT 4`, dans [4, 7] ; `CASSE 0` ✅ ; `AMBIGU 0` ✅ ;
+  `GABARIT 8`, `ALIAS 6`, `OK 482`. *Les 7 mortes du lot 11 tombent à **4** :
+  trois des cibles mortes étaient `falstad`, `ltspice` et `wokwi` vues depuis
+  `content/en/`.*
+- **P115.16 ✅ SUR SES CINQ TERMES, DONT UN AU CHIFFRE EXACT.**
+  `wikilinks a libelle 4269` (dans [4 250, 4 290]),
+  `cible EN existante 4255` (dans [4 235, 4 275]),
+  **`cible EN absente 14` — prédit 14, au chiffre**, `candidats a lire 146`
+  (dans [145, 152], **à sa borne basse + 1**), `positions de parcours 16`
+  inchangé. ⚠ *Le compteur `candidats a lire` ne monte que de **1** alors que
+  **70 libellés neufs** entrent d'un coup et que **15** deviennent comparables :
+  les sigles `I²C`, `UART`, `PWM`, `ADC`, `GPIO` sont **tous** reconnus par
+  `estSigleDe`, et les trois `title:` — noms propres de logiciels — sont écrits
+  au mot près par les libellés qui les visent.* **La marge de 7 unités réservée
+  dans la fourchette n'a servi qu'à 1.**
+
+---
+
+## BLOC 116 — CORRECTION DE LA C109 CRÉÉE PAR LA TRADUCTION
+
+**Commandes** : une table négative, puis la table réelle d'**une** ancre, en
+contrôle puis en écriture.
+
+### Déclaration C131 du bloc 116
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 16
+entrées, dont 12 hors artefacts de séance**, nommées au bloc 115.
+**Versements de ce bloc** : `tools/correctif-c109-en-lot12-3008.tsv` et sa
+table négative, **2 entrées `??` hors artefacts**. *`falstad-en.md` est déjà
+`??` : la réécrire ne crée pas d'entrée.*
+**Total impliqué : 18 entrées, dont 14 hors artefacts de séance.**
+
+### Prédictions du bloc 116
+
+- **P116.1 — test négatif délibéré** : l'ancre correcte cherchée dans
+  `en/embarque/simulation/ltspice-en.md`, qui ne la porte pas → **`INTROUVABLE`,
+  0 occurrence, REFUS, aucun fichier écrit**, code de sortie **1**.
+- **P116.2 — table réelle : 1 ancre sur 1**, sur `en/embarque/simulation/falstad-en.md`.
+- **P116.3 — invariant d'accents : écart NUL.** *Le remplacement retire
+  `** — logic` et pose `**, that is logic` : **aucun caractère accentué** n'est
+  touché, les libellés français restent à l'identique de part et d'autre.*
+- **P116.4 — invariant de lignes : écart NUL** (191 → 191 lignes de corps).
+- **P116.5 — volume : `falstad-en` 3 433 → 3 435 mots** (+2, `that` et `is`),
+  **lot 8 757 → 8 759**, **corpus EN 289 154 → 289 156**. *Le foisonnement de
+  `falstad-en` passe de +5,5 % à **+5,6 %** ; celui du lot de +3,65 % à
+  **+3,67 %**.*
+- **P116.6 — après correction, `--style` sur les trois fiches EN** :
+  `C109 creees en EN` **1 → 0**, `C109 de prose` **35 → 34**, et
+  `en/embarque/simulation/falstad-en.md` **cesse d'apparaître** dans la
+  comparaison FR/EN. ⚠ **Décomposition attendue : `falstad-en` 13, `ltspice-en`
+  et `wokwi-en` inchangées**, soit exactement les résidus FR fiche par fiche.
+  *C'est le terme qui prouve la correction : 34 et non 35, parce que le résidu
+  FR de `falstad` est 13 et non 14.*
+- **P116.7 — `hors perimetre` reste à 7** sur les trois EN : le remplacement ne
+  touche ni titre, ni tableau, ni `alt`.
+
+### Constats du bloc 116 — 7 prédictions sur 7 tenues
+
+- **P116.1 ✅** `L2 INTROUVABLE … ancres 0/1`, `REFUS : 1 defaut(s). AUCUN
+  FICHIER ECRIT.`, code de sortie **1**. *Troisième test négatif délibéré de la
+  séance, troisième refus, zéro octet écrit à tort.*
+- **P116.2 ✅** `ancres 1/ 1` sur `falstad-en.md`.
+- **P116.3 ✅** `accents 27 -> 27 (ecart +0)`.
+- **P116.4 ✅** `lignes 191 -> 191`.
+- **P116.5 ✅** `falstad-en` **3 433 → 3 435** (+2, `that` et `is`),
+  foisonnement **+5,5 % → +5,6 %**, corpus EN **289 154 → 289 156**.
+- **P116.6 ✅** `C109 creees en EN : 0` et `C109 de prose : 34` — **34 et non
+  35, parce que le résidu FR de `falstad` est 13**. *L'occurrence créée est
+  retirée, et le compteur retombe sur la décomposition FR fiche par fiche.*
+- **P116.7 ✅** `hors perimetre : 7` inchangé.
+
+⚠ **CE QUE CET INCIDENT DIT DE L'ASSOMPTION DU BLOC 114, ET IL FAUT L'ÉCRIRE.**
+La décision de glose a coûté **une C109 créée** et **+1,9 point de
+foisonnement** sur `falstad-en` (+5,6 % contre +2,6 % et +2,1 % pour les deux
+fiches sans glose). *Elle reste défendable — le corpus la porte déjà par
+`tinkercad-en` —, mais son prix est désormais **mesuré** et non plus supposé, et
+c'est ce qui permet à Tim de l'arbitrer sur des chiffres.* ✅ **La parade était
+elle aussi dans le corpus** : `tinkercad-en` écrit `, that is`, pas un cadratin.
+**Règle d'usage candidate : une glose ajoutée par la traduction se sépare par
+une virgule et un mot de liaison, jamais par un cadratin — sinon elle fabrique
+exactement la ponctuation que C109 retire.**
+
+---
+
+## BLOC 117 — COMPTEURS DE FORME DE CLÔTURE
+
+**Commandes** : `titres-doublons.mjs`, relevé des formes de production et des
+titres de callout, `puces-tiret.mjs --corpus` et `--fiches` sur les trois EN.
+*Aucune prédiction neuve : ce bloc rend P115.10, P115.13, P115.14 et P115.15,
+publiées avant le bloc 115.*
+
+### Constats du bloc 117 — 4 prédictions sur 4 tenues, sur VINGT-CINQ termes
+
+- **P115.10 ✅** FR **243 / 243 / 0**, EN **238 / 238 / 0**.
+  *La règle d'usage de C125 — relever les groupes des deux côtés et les
+  comparer — est triviale pour le septième lot d'affilée, et les trois `title:`
+  de ce soir n'ont créé aucune collision, ce qui était prédit au bloc 113.*
+- **P115.13 ✅ SUR SES HUIT TERMES** : `## See also` **230**,
+  `## What is it for?` **162**, `## Pitfalls` **160**, `## Exercises` **39**,
+  `## Getting started` **2**, `## Where it fits in the project` **105**,
+  `## Going further` **31**, `## Step by step` **78**.
+  ✅ **Le terme écrit pour réfuter ne mord pas** : `## Step by step` **n'a pas
+  bougé**, donc `## Prendre en main` a bien été rendu par `## Getting started`,
+  la forme que le corpus porte, et non par celle du pas-à-pas.
+- **P115.14 ✅ SUR SES NEUF TERMES** : `Solution` **36**, `Corrigé` **0** dans
+  `content/en/`, `Watch out` **49**, `Tip` **46**, `Good` / `Fair` / `Poor`
+  **3** chacun, `Attention` **0**, `Astuce` **0**.
+  *Le classement complet est inchangé en tête — `Example: 3-axis arm project`
+  **54**, `Watch out` **49**, `Tip` **46** — et `Solution` passe de la
+  quatrième place avec **36**.*
+- **P115.15 ✅ SUR SES HUIT TERMES.** Puces à tiret, motif A :
+  **FR 941 / 167 porteuses / 248 fichiers** (inchangé depuis la passe),
+  **EN 900 / 156 porteuses / 238 fichiers**. **Décomposition du +14 :
+  `falstad-en` 5, `ltspice-en` 8, `wokwi-en` 1** — *les mêmes chiffres que
+  leurs sources FR après la passe, **puce par puce**.*
+  ⚠ **C'est le report un pour un vérifié sur une famille que `--style` ne voit
+  pas** : les puces à tiret sont invisibles au compteur C109, et pourtant les
+  deux langues sortent au même chiffre sur les trois fiches. *Le lot 11 avait
+  découvert que cette famille échappait à l'instrument ; le lot 12 montre
+  qu'elle se reporte quand même, à condition de l'avoir relevée des deux
+  côtés.*
+
+---
+
+## BLOC 118 — CLÔTURE §7 ÉCRITE, GARDE FINALE
+
+**Écritures du bloc** : insertion des **9 entrées neuves du §8** sous l'ancre
+unique `### Autres en attente` (9 860 caractères, occurrence unique vérifiée
+avant écriture), puis de l'**entrée de JOURNAL** sous
+`<!-- INSERT_JOURNAL_HERE -->` (15 228 caractères, occurrence unique vérifiée),
+puis pose de la **ligne Tailles par POINT FIXE** sous deux ancres uniques.
+
+### Déclaration C131 du bloc 118
+
+**Population** : entrées de `git status --porcelain`. **État à l'entrée : 18
+entrées, dont 14 hors artefacts de séance** — mesuré au bloc 116 et conforme à
+sa déclaration **au chiffre sur les deux termes**. **Versements de ce bloc :
+AUCUN fichier neuf** — `conventions.md` et `JOURNAL.md` passent de non modifiés
+à ` M`, ce qui **crée deux entrées**. **Total impliqué : 20 entrées, dont 16
+hors artefacts de séance.**
+
+### Prédictions du bloc 118
+
+- **P118.1 — le point fixe de la ligne Tailles converge en UNE passe**, et voici
+  pourquoi il est calculable d'avance : la substitution retire **12 octets** à
+  `JOURNAL.md` (`TAILLE_CONV` et `TAILLE_JOUR`, 11 caractères chacun, remplacés
+  par 5). **709 314 − 12 = 709 302 o = 692,68 Kio**, et la valeur écrite,
+  **692,7**, est celle-là. *Le point fixe n'est pas atteint par itération mais
+  **prédit**, ce qui est la seule façon de ne pas boucler.*
+- **P118.2 — `conventions.md` : 555 671 o = 542,65 → écrit 542,6 Kio**, à la
+  troncature près, comme les quatre clôtures précédentes (545 420 o = 532,64 →
+  532,6 au lot 11).
+- **P118.3 — `TAILLE_` ne subsiste nulle part** dans `JOURNAL.md` : **0**.
+- **P118.4 — `normalize-pilotage.js` rend `0 caractere(s) a corriger`** sur les
+  deux fichiers, avant et après.
+- **P118.5 — garde finale** : `HEAD git : 4f6803c 2026-08-30 18:29:02 +0200`
+  **au caractère** ; `fichiers modifies non commites : 20   (hors artefacts de
+  seance : 16)` ; `TODO.md 2026-08-29 21:48:08` **inchangé au caractère** ;
+  `JOURNAL.md` et `conventions.md` **datés du soir et postérieurs à 19:12:13**
+  (horloge du bloc 115, **événement daté** et non instant supposé) ; les six
+  fiches du lot inchangées depuis le bloc 115, **sauf `falstad-en.md`** que le
+  bloc 116 a réécrite.
+
+### Constats du bloc 118 — 4 prédictions sur 5 tenues, et la réfutation est la MÊME QUE CELLE DU BLOC 115
+
+- **P118.1 ✅** `JOURNAL.md` **709 302 o = 692,68 Kio**, et la ligne écrite dit
+  **692,7**. **Le point fixe a convergé en une passe parce qu'il a été PRÉDIT** :
+  −12 octets calculés d'avance sur deux ancres de 11 caractères remplacées par
+  5. *Un point fixe atteint par itération est une boucle ; celui-ci est une
+  soustraction.*
+- **P118.2 ✅** `conventions.md` **555 671 o = 542,647 Kio**, écrit **542,6**,
+  même troncature qu'au lot 11 (545 420 o = 532,64 → 532,6).
+- **P118.3 ✅** `grep -c "TAILLE_" JOURNAL.md` rend **0**.
+- **P118.4 ✅** `normalize-pilotage.js` : `0 caractere(s) a corriger,
+  0 fichier(s) modifie(s)`, avant et après.
+
+❌ **P118.5 — RÉFUTÉE SUR UN TERME DE CINQ, ET C'EST LE MÊME DÉFAUT QU'AU BLOC
+115, TROIS BLOCS PLUS TARD.** `fichiers modifies non commites : 21   (hors
+artefacts de seance : 16)`, prédit **20 / 16**. ⚠ *La déclaration écrit
+« **Versements de ce bloc : AUCUN fichier neuf** » — et l'**étape 0 du
+lancement de la garde crée `tools/batterie-sortie-3008b57.txt`**, exactement
+comme les blocs 107, 108 et 115 créaient `b54`, `b55` et `b56`, ce que j'avais
+déclaré à chaque fois.* **Le sous-compteur, lui, tombe au chiffre : 16**, parce
+que l'entrée oubliée est **un artefact de séance** et qu'elle sort du filtre.
+✅ **C'est ce qui rend la réfutation lisible** : un terme faux et un terme juste
+désignent ensemble la nature du manquant.
+- **P118.5, les autres termes ✅** : `HEAD git : 4f6803c 2026-08-30 18:29:02
+  +0200` au caractère ; `TODO.md 2026-08-29 21:48:08` inchangé au caractère ;
+  `JOURNAL.md 19:19:32` et `conventions.md 19:16:57`, **postérieurs à
+  19:12:13** ; les trois sources FR à **18:59:15** et `ltspice-en` / `wokwi-en`
+  à **19:10:41**, inchangées depuis le bloc 115 ; `falstad-en` à **19:14:24**,
+  **réécrite par le bloc 116**, comme annoncé. **Garde finale au vert.**
+
+⚠ **DEUX RÉFUTATIONS DE LA SÉANCE SUR LE MÊME COMPTEUR ET POUR LA MÊME CAUSE —
+LA RÈGLE CANDIDATE DU §8 EST DONC ÉPROUVÉE PAR SA PROPRE VIOLATION.** Le bloc
+112 avait oublié un fichier qu'il créait ; le bloc 118 en oublie un autre, et
+celui-là est créé par la **plomberie du lancement** et non par le travail du
+bloc. *La formulation « un bloc nomme ses versements au moment où il les crée »
+ne suffit pas : elle suppose qu'on sait ce que le bloc crée, et l'étape 0 de la
+batterie crée un fichier que le bloc ne demande pas.* ✅ **Correctif de règle,
+et il est mécanique : toute déclaration C131 d'un bloc qui LANCE la batterie
+verse d'office la copie C124 du rang suivant, sans avoir à y penser.**
+
+---
+
+## BILAN DE SÉANCE — LOT 12
+
+**106 prédictions à décompte plein, 97 tenues, 9 réfutées — 91,5 %**, plus
+**deux déclarations C131 réfutées d'une entrée chacune, toutes deux sur un
+fichier créé et non déclaré**.
+
+**Douze blocs d'exécution (107 à 118), quatre gardes de péremption au vert,
+`HEAD 4f6803c` stable au caractère sur les quatre, quatre lancements de
+`batterie.ps1` copiés sous `3008b54` à `3008b57`.**
+
+**Trois tests négatifs délibérés, trois refus, zéro octet écrit à tort** — et
+**le troisième est d'une espèce neuve** : au lieu de faire refuser une écriture,
+il fait **produire à un outil de mesure un chiffre connu et faux** (motif B des
+puces, FR 1 033 / EN 972), ce qui referme le seul degré de liberté que le motif
+juste laissait ouvert.
+
+**Ce que la séance laisse au dépôt** : 3 fiches EN, 66 remplacements C109 sur
+3 sources, 1 outil de mesure versionné, 2 relevés datés encadrant la passe, et
+**la première référence du chantier sur le registre « fiche d'outil »** — taux
+C109 **1,20 pour 100 mots à 14 % de dispersion**, foisonnement **+2,1 % à
++2,6 %**. *Le lot 13 les éprouvera sur `easyeda`, seule et dernière de
+l'anneau 2.*

@@ -61,6 +61,52 @@ la première version de ce fichier.
 
 ---
 
+## puces-tiret.mjs
+
+Compteur de **référence** des puces à tiret du corpus. Né le 30/08 (lot 12)
+d'un constat du lot 11 : la référence était publiée depuis trois clôtures avec
+sa **population** juste au fichier près, mais **son motif n'était écrit nulle
+part** — il vivait dans un `seance.ps1` que C114 fait réécrire de zéro à chaque
+série —, et deux motifs plausibles **encadraient** le chiffre publié sans le
+rendre.
+
+⚠ **Le motif ne se lit pas ici. Il se lit dans la SORTIE de l'outil**, qui
+l'imprime en tête à chaque lancement : motif de ligne de puce, séquence
+recherchée avec ses **points de code**, motif de clôture de bloc, liste
+**nominative** des sections exclues, portée d'une section exclue, unité comptée.
+La population de chaque langue est écrite en toutes lettres au-dessus de ses
+chiffres. *C'est la candidate §8 « un compteur de référence publie sa population
+et son motif, tous deux dans sa propre sortie », mise en code plutôt qu'en
+prose.*
+
+### Usage
+
+```
+node tools/puces-tiret.mjs --corpus
+node tools/puces-tiret.mjs --corpus --motif B
+node tools/puces-tiret.mjs --fiches embarque/simulation/falstad.md,en/...-en.md
+```
+
+`--fiches` est le mode de l'**épreuve C110** : il rend le compte fiche par
+fiche sur un échantillon nommé, avant de lâcher le motif sur 486 fichiers.
+
+⚠ **`--motif B` n'existe que pour être FAUX** : il n'exclut que `Voir aussi` et
+`See also`, et sa sortie le dit. Il sert de **test négatif d'une espèce
+particulière** — au lieu de faire refuser une écriture, il fait produire un
+chiffre connu et faux, ce qui referme le degré de liberté qu'un motif juste seul
+laisse ouvert.
+
+### Bornes connues
+
+- L'outil ne **compte** pas les occurrences, il compte les **lignes** de puce
+  porteuses. Une puce à deux cadratins vaut 1.
+- Les listes **numérotées** (`1.`, `2)`) ne sont pas des puces pour ce motif et
+  n'entrent pas au compteur. Un cadratin d'incise y est donc invisible **et à ce
+  compteur, et à `--style`** — angle mort relevé au lot 12.
+- La référence publiée aux lots 8 à 10 — FR 995 / 172, EN 917 / 153 — n'est
+  reproductible par **aucun** motif de cet outil. Elle est **remplacée**, pas
+  corrigée.
+
 ## titres-doublons.mjs
 
 Liste les `title:` portés par plus d'une fiche, **côté FR et côté EN séparément**.

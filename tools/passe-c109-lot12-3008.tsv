@@ -1,0 +1,72 @@
+# Passe C109 - LOT 12 (embarque/simulation/), 30/08 seance 8.
+# chemin<TAB>ancre exacte<TAB>remplacement
+# 63 ancres : 60 traitements C109 + 3 mises en coherence de liste (declarees).
+embarque/simulation/falstad.md	la méthode générale ; on apprend ici	la méthode générale. On apprend ici
+embarque/simulation/falstad.md	les points rampent conduit peu ; une branche figée	les points rampent conduit peu. Une branche figée
+embarque/simulation/falstad.md	tourne en continu ; **RUN/stop**	tourne en continu. **RUN/stop**
+embarque/simulation/falstad.md	l'écoulement du **temps simulé** — c'est elle qu'on ajuste	l'écoulement du **temps simulé**. C'est elle qu'on ajuste
+embarque/simulation/falstad.md	**en bas à droite** — sa nature, le courant	**en bas à droite**. On y lit sa nature, le courant
+embarque/simulation/falstad.md	ouvre ses paramètres — c'est le geste d'édition	ouvre ses paramètres. C'est le geste d'édition
+embarque/simulation/falstad.md	dans la colonne de droite** — son libellé est	dans la colonne de droite**. Son libellé est
+embarque/simulation/falstad.md	le rapport explose — 100 Ω	le rapport explose. 100 Ω
+embarque/simulation/falstad.md	la simulation continue — et le survol annonce	la simulation continue, et le survol annonce
+embarque/simulation/falstad.md	et un sur la sortie — le menu **Oscilloscopes** et le clic droit sur un composant les gèrent — puis faire varier	et un sur la sortie (le menu **Oscilloscopes** et le clic droit sur un composant les gèrent), puis faire varier
+embarque/simulation/falstad.md	le filtre coupe ; au-dessus, il laisse passer.	le filtre coupe. Au-dessus, il laisse passer.
+embarque/simulation/falstad.md	**tombe sur la valeur attendue** — et c'est cette confrontation	**tombe sur la valeur attendue**, et c'est cette confrontation
+embarque/simulation/falstad.md	qu'il faut ralentir — pas la *Vitesse d'Animation*	qu'il faut ralentir, et non la *Vitesse d'Animation*
+embarque/simulation/falstad.md	*Exporter comme Texte…* — un fichier à ranger dans le dossier projet — et *Exporter avec Lien…*	*Exporter comme Texte…* (un fichier à ranger dans le dossier projet) et *Exporter avec Lien…*
+embarque/simulation/falstad.md	Il ne l'est pas — Falstad simule dans le temps et laisse changer la fréquence à la main ; il ne trace pas	Il ne l'est pas. Falstad simule dans le temps et laisse changer la fréquence à la main, mais il ne trace pas
+embarque/simulation/falstad.md	partagent des coordonnées — les deux résistances	partagent des coordonnées, et les deux résistances
+embarque/simulation/falstad.md	les **5 V** de la source ; au point milieu, **2,5 V** — la moitié, puisque	les **5 V** de la source, et **2,5 V** au point milieu, soit la moitié, puisque
+embarque/simulation/falstad.md	c'est une **hypothèse** — et Falstad la met sous tension	c'est une **hypothèse**, et Falstad la met sous tension
+embarque/simulation/falstad.md	se relève au survol — ce sont des hypothèses.	se relève au survol. Ce sont des hypothèses.
+embarque/simulation/falstad.md	graphiquement de travers — les coordonnées se calent	graphiquement de travers. Les coordonnées se calent
+embarque/simulation/falstad.md	d'un composant réel — les pièges généraux	d'un composant réel, et les pièges généraux
+embarque/simulation/falstad.md	que le défilement des points ; seule la *Vitesse de Simulation*	que le défilement des points. Seule la *Vitesse de Simulation*
+embarque/simulation/falstad.md	de basses fréquences — ce qui est bien le comportement	de basses fréquences, ce qui est bien le comportement
+embarque/simulation/falstad.md	**entrée à haute impédance** — celle d'un [[adc|convertisseur analogique-numérique]], par exemple — qui ne consomme	**entrée à haute impédance** (celle d'un [[adc|convertisseur analogique-numérique]], par exemple) qui ne consomme
+embarque/simulation/ltspice.md	annonce en clôture — celui qu'on ouvre	annonce en clôture, celui qu'on ouvre
+embarque/simulation/ltspice.md	la méthode générale ; on apprend ici	la méthode générale. On apprend ici
+embarque/simulation/ltspice.md	de taille de circuit — il n'existe pas de version bridée	de taille de circuit, et il n'existe pas de version bridée
+embarque/simulation/ltspice.md	pourtant pas de rien — l'outil embarque	pourtant pas de rien. L'outil embarque
+embarque/simulation/ltspice.md	du balayage vaut 1 — deux informations qu'aucun	du balayage vaut 1. Ce sont deux informations qu'aucun
+embarque/simulation/ltspice.md	et la phase (*Phase*) ; sur une analyse transitoire	et la phase (*Phase*). Sur une analyse transitoire
+embarque/simulation/ltspice.md	affiche la directive générée — c'est le meilleur endroit	affiche la directive générée. C'est le meilleur endroit
+embarque/simulation/ltspice.md	une autre, relancer — le **même circuit** répond	une autre, relancer. Le **même circuit** répond
+embarque/simulation/ltspice.md	ouvre ses paramètres ; on saisit une nouvelle valeur	ouvre ses paramètres. On saisit une nouvelle valeur
+embarque/simulation/ltspice.md	sa fréquence de coupure — la mesure que [[falstad|Falstad]]	sa fréquence de coupure, la mesure que [[falstad|Falstad]]
+embarque/simulation/ltspice.md	et leur raccourci clavier ; tout le reste	et leur raccourci clavier. Tout le reste
+embarque/simulation/ltspice.md	**aux bornes du condensateur** — c'est ce qui fait un passe-bas	**aux bornes du condensateur**, et c'est ce qui fait un passe-bas
+embarque/simulation/ltspice.md	lisible d'un coup d'œil — et la description textuelle	lisible d'un coup d'œil, et la description textuelle
+embarque/simulation/ltspice.md	(`SINE`, `PULSE`…), et — dans une section à part — l'**amplitude	(`SINE`, `PULSE`…), et, dans une section à part, l'**amplitude
+embarque/simulation/ltspice.md	les trois champs suivants — la ligne se compose	les trois champs suivants. La ligne se compose
+embarque/simulation/ltspice.md	**à cette fréquence précise** — car ce chiffre-là	**à cette fréquence précise** ? Car ce chiffre-là
+embarque/simulation/ltspice.md	exactement **−3,01 dB** — c'est la définition même	exactement **−3,01 dB**. C'est la définition même
+embarque/simulation/ltspice.md	est une valeur **citable** — elle peut entrer	est une valeur **citable**, et elle peut entrer
+embarque/simulation/ltspice.md	ne relève aucune coupure — l'outil simule dans le temps	ne relève aucune coupure, car l'outil simule dans le temps
+embarque/simulation/ltspice.md	porte le numéro `0` — c'est la convention SPICE	porte le numéro `0`. C'est la convention SPICE
+embarque/simulation/ltspice.md	se sélectionne et se copie — c'est celle que lit le simulateur	se sélectionne et se copie. C'est celle que lit le simulateur
+embarque/simulation/ltspice.md	au [[pcb|circuit imprimé]] — elle ne décrit que les connexions	au [[pcb|circuit imprimé]], et elle ne décrit que les connexions
+embarque/simulation/ltspice.md	c'est une **hypothèse** — et le critère tient	c'est une **hypothèse**, et le critère tient
+embarque/simulation/ltspice.md	Réflexe à prendre — toute modification	Réflexe à prendre. Toute modification
+embarque/simulation/ltspice.md	une information juste — mais elle ne concerne	une information juste, mais elle ne concerne
+embarque/simulation/ltspice.md	pour un chiffre — et aucun décibel	pour un chiffre, et aucun décibel
+embarque/simulation/ltspice.md	seule ne donne pas — elle vient de la [[lire-une-datasheet|fiche technique]]	seule ne donne pas, puisqu'elle vient de la [[lire-une-datasheet|fiche technique]]
+embarque/simulation/wokwi.md	en composants et en cartes — notamment l'[[esp32|ESP32]]	en composants et en cartes, notamment l'[[esp32|ESP32]]
+embarque/simulation/wokwi.md	se transpose tel quel — seul le brochage change.	se transpose tel quel, et seul le brochage change.
+embarque/simulation/wokwi.md	un premier projet complet — un ESP32 qui dit bonjour sur la liaison série — pour installer	un premier projet complet (un ESP32 qui dit bonjour sur la liaison série) pour installer
+embarque/simulation/wokwi.md	cartes toutes faites — dont la **XIAO ESP32-C3**	cartes toutes faites, dont la **XIAO ESP32-C3**
+embarque/simulation/wokwi.md	ouvre `sketch.ino` — le même fichier qu'un sketch [[arduino|Arduino]] — avec, à côté	ouvre `sketch.ino` (le même fichier qu'un sketch [[arduino|Arduino]]) avec, à côté
+embarque/simulation/wokwi.md	ou elle échoue — et le message indique	ou elle échoue, et le message indique
+embarque/simulation/wokwi.md	Le message apparaît — précédé du **journal de démarrage	Le message apparaît, précédé du **journal de démarrage
+embarque/simulation/wokwi.md	ou masse oubliée ; si le rythme	ou masse oubliée. Si le rythme
+embarque/simulation/ltspice.md	pas un ordre de grandeur ;	pas un ordre de grandeur.
+embarque/simulation/ltspice.md	changer la fréquence à la main ;	changer la fréquence à la main.
+embarque/simulation/ltspice.md	- **simuler des composants existants** — le catalogue embarqué contient	- **simuler des composants existants.** Le catalogue embarqué contient
+embarque/simulation/ltspice.md	rassemble celles d'autres fabricants ;	rassemble celles d'autres fabricants.
+embarque/simulation/wokwi.md	ni risquer un composant ;	ni risquer un composant.
+embarque/simulation/wokwi.md	- **prototyper de l'ESP32 et du sans-fil** — Wokwi simule	- **prototyper de l'ESP32 et du sans-fil.** Wokwi simule
+embarque/simulation/wokwi.md	hors de portée de Tinkercad ;	hors de portée de Tinkercad.
+embarque/simulation/wokwi.md	- **simuler en [[micropython|MicroPython]]** — le Pico et l'ESP32 s'y programment	- **simuler en [[micropython|MicroPython]].** Le Pico et l'ESP32 s'y programment
+embarque/simulation/wokwi.md	voir [[micropython-simulation|simuler un Pico]] ;	voir [[micropython-simulation|simuler un Pico]].
+embarque/simulation/wokwi.md	- **partager en un lien** — un projet Wokwi s'envoie	- **partager en un lien.** Un projet Wokwi s'envoie

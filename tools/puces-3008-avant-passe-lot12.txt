@@ -1,0 +1,77 @@
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  POPULATION : echantillon nomme de 19 fiche(s), passees en argument.
+
+  embarque/mcu/esp32/esp32-deep-sleep.md                         2
+  embarque/mcu/esp32/esp32-arduino-core.md                       2
+  embarque/mcu/esp32/esp32-freertos.md                           4
+  embarque/mcu/esp32/esp32-idf.md                                4
+  en/embarque/mcu/esp32/esp32-deep-sleep-en.md                   2
+  en/embarque/mcu/esp32/esp32-arduino-core-en.md                 1
+  en/embarque/mcu/esp32/esp32-freertos-en.md                     4
+  en/embarque/mcu/esp32/esp32-idf-en.md                          4
+  conduite/proj/mecatronique.md                                  0
+  conduite/proj/mind-map.md                                      0
+  conduite/proj/bete-a-cornes.md                                 0
+  conduite/proj/pieuvre.md                                       5
+  conduite/proj/fonction.md                                      0
+  conduite/proj/caracteriser-une-exigence.md                    11
+  en/embarque/mcu/raspberry-pi/raspberry-pi-gpio-en.md           3
+  en/embarque/mcu/raspberry-pi/raspberry-pi-prise-en-main-en.md     3
+  en/embarque/mcu/raspberry-pi/raspberry-pi-projet-en.md         0
+  en/embarque/mcu/xiao/xiao-alimentation-en.md                   3
+  en/embarque/mcu/xiao/xiao-esp32-s3-en.md                       1
+  ----------------------------------------------------------------
+  TOTAL (19 fiches)                                             49
+
+############ CORPUS MOTIF A ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF A, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## Aller plus loin, ## See also, ## Going further
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+
+  FR - population : content/**/*.md HORS content/en/
+    fichiers   : 248
+    porteuses  : 167
+    PUCES      : 946
+
+  EN - population : content/en/**/*.md
+    fichiers   : 235
+    porteuses  : 153
+    PUCES      : 886
+
+############ CORPUS MOTIF B - TEST NEGATIF ############
+=== PUCES A TIRET - COMPTEUR DE REFERENCE ===
+
+  MOTIF B, ecrit ici et nulle part ailleurs :
+    ligne de puce            : /^\s*[-*]\s/
+    doit contenir            : " — "  (U+0020 U+2014 U+0020)
+    hors blocs clotures      : /^\s*(```|~~~)/
+    hors sections            : ## Voir aussi, ## See also
+    une section exclue court de son titre au prochain titre de rang <= le sien
+    unite comptee            : la LIGNE de puce, pas l occurrence
+    /!\ LE MOTIF B N EXISTE QUE POUR ETRE FAUX : test negatif du motif A.
+
+  FR - population : content/**/*.md HORS content/en/
+    fichiers   : 248
+    porteuses  : 173
+    PUCES      : 1033
+
+  EN - population : content/en/**/*.md
+    fichiers   : 235
+    porteuses  : 159
+    PUCES      : 972
+

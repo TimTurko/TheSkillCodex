@@ -1,0 +1,208 @@
+=== RELEVES D AVANT REDACTION - LOT 12 (embarque/simulation/) ===
+
+--- RELEVE 1 : formes de production des titres de section EN
+  POPULATION (fichiers balayes) : 235
+  ## See also                           227
+  ## What is it for?                    159
+  ## Pitfalls                           157
+  ## Where it fits in the project       105
+  ## Exercises                           37
+  ## Going further                       31
+  ## Step by step                        78
+  ## Project connection                   0
+  ## Step-by-step procedure               0
+
+--- RELEVE 2 : titres de callout EN
+  POPULATION (fichiers balayes) : 235
+  Watch out                              49
+  Tip                                    46
+  Good                                    3
+  Fair                                    3
+  Poor                                    3
+  Attention                               0
+  Astuce                                  0
+  --- les 8 plus frequents, tous titres confondus :
+    Example: 3-axis arm project                      54
+    Watch out                                        49
+    Tip                                              46
+    Solution                                         32
+    How to read this code                            25
+    Answer to exercise 1                             20
+    Answer to exercise 2                             20
+    The key question                                  5
+
+--- RELEVE 5 : libelles EN visant une cible SANS jumelle EN
+  wokwi-en   (9)
+      Wokwi   <- en\embarque\mcu\arduino\tinkercad-en.md
+      Wokwi   <- en\embarque\mcu\arduino\tinkercad-en.md
+      Wokwi   <- en\embarque\mcu\micropython\micropython-simulation-en.md
+      Wokwi   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+      Wokwi   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+      Wokwi   <- en\embarque\mesure\analyseur-logique-en.md
+      Wokwi   <- en\embarque\simulation\simulation-electronique-en.md
+      Wokwi   <- en\embarque\simulation\simulation-electronique-en.md
+      Wokwi   <- en\embarque\simulation\simulation-electronique-en.md
+  kicad-en   (4)
+      KiCad   <- en\embarque\index.md
+      KiCad   <- en\embarque\pcb\pcb-en.md
+      KiCad   <- en\embarque\pcb\pcb-en.md
+      KiCad   <- en\embarque\pcb\pcb-en.md
+  easyeda-en   (4)
+      EasyEDA   <- en\embarque\pcb\pcb-en.md
+      EasyEDA   <- en\embarque\pcb\pcb-en.md
+      EasyEDA   <- en\embarque\pcb\pcb-en.md
+      EasyEDA   <- en\embarque\pcb\pcb-en.md
+  xiao-sense-en   (3)
+      Sense   <- en\embarque\mcu\xiao\xiao-alimentation-en.md
+      XIAO Sense   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+      XIAO Sense   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+  xiao-prise-en-main-en   (3)
+      XIAO — getting started   <- en\embarque\mcu\xiao\xiao-alimentation-en.md
+      getting started   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+      XIAO — getting started   <- en\embarque\mcu\xiao\xiao-esp32-s3-en.md
+  falstad-en   (3)
+      Falstad   <- en\embarque\simulation\simulation-electronique-en.md
+      Falstad   <- en\embarque\simulation\simulation-electronique-en.md
+      Falstad   <- en\embarque\simulation\simulation-electronique-en.md
+  ltspice-en   (3)
+      LTspice   <- en\embarque\simulation\simulation-electronique-en.md
+      LTspice   <- en\embarque\simulation\simulation-electronique-en.md
+      LTspice   <- en\embarque\simulation\simulation-electronique-en.md
+  TOTAL libelles vers cible absente : 29
+
+--- RELEVE 6 : title: EN des cibles visees par les trois sources FR
+  adc                               ADC                                             [falstad]
+      libelles FR : convertisseur analogique-numérique
+  analyse-de-schema-electronique    Reading a schematic                             [falstad,ltspice]
+      libelles FR : Analyser un schéma électronique | schéma électronique
+  analyseur-logique                 Logic analyzer                                  [wokwi]
+      libelles FR : analyseur logique | Analyseur logique
+  arduino                           Arduino                                         [wokwi]
+      libelles FR : Arduino
+  arduino-gpio                      Configuring Arduino GPIO                        [wokwi]
+      libelles FR : côté Arduino
+  bibliotheque                      Library                                         [wokwi]
+      libelles FR : bibliothèques
+  chronogramme                      Timing diagram                                  [falstad]
+      libelles FR : Chronogramme
+  cpp                               C++                                             [wokwi]
+      libelles FR : C++ | Le langage C++
+  cpp-logs                          Reading and understanding errors                [wokwi]
+      libelles FR : lire les erreurs du compilateur
+  dossier-technique                 Technical design file                           [ltspice]
+      libelles FR : dossier technique | Dossier technique
+  esp32                             ESP32                                           [wokwi]
+      libelles FR : ESP32
+  esp32-arduino-core                Programming the ESP32 with the Arduino core     [wokwi]
+      libelles FR : l'Arduino-core ESP32
+  esp32-gpio                        Configuring ESP32 GPIO                          [wokwi]
+      libelles FR : configurer les GPIO | Configurer les GPIO de l'ESP32
+  falstad                           *** SANS JUMELLE EN ***                         [ltspice]
+      libelles FR : Falstad
+  i2c                               I2C                                             [wokwi]
+      libelles FR : I²C
+  lire-une-datasheet                Reading a datasheet                             [ltspice]
+      libelles FR : fiche technique | Lire une datasheet
+  ltspice                           *** SANS JUMELLE EN ***                         [falstad]
+      libelles FR : LTspice
+  micropython                       MicroPython                                     [wokwi]
+      libelles FR : MicroPython
+  micropython-gpio                  Configuring MicroPython GPIO                    [wokwi]
+      libelles FR : côté MicroPython
+  micropython-simulation            Simulating with Wokwi                           [wokwi]
+      libelles FR : simuler un Pico | Simuler un Pico en MicroPython
+  niveaux-de-tension                Logic levels                                    [falstad,ltspice,wokwi]
+      libelles FR : niveaux de tension | Niveaux de tension
+  pcb                               PCB — printed circuit board                     [falstad,ltspice]
+      libelles FR : circuit imprimé | Circuit imprimé
+  potentiometre                     The potentiometer                               [falstad]
+      libelles FR : Le potentiomètre
+  preuve-de-concept                 Proof of concept                                [wokwi]
+      libelles FR : preuve de concept
+  pwm                               PWM                                             [wokwi]
+      libelles FR : PWM
+  simulation-electronique           Circuit simulation                              [falstad,ltspice,wokwi]
+      libelles FR : simulation électronique | simulation | Simulation électronique | trois familles d'analyse
+  tinkercad                         Tinkercad                                       [wokwi]
+      libelles FR : Tinkercad
+  uart                              UART                                            [wokwi]
+      libelles FR : UART
+  xiao-esp32-s3                     XIAO ESP32-S3                                   [wokwi]
+      libelles FR : XIAO | XIAO ESP32-S3
+  CIBLES DISTINCTES : 29   SANS JUMELLE EN : 2
+
+--- RELEVE 8 : blocs de code clotures et C113 sur les trois sources
+  embarque/simulation/falstad.md        blocs 1   comm 0   chaines 0
+  embarque/simulation/ltspice.md        blocs 0   comm 0   chaines 0
+  embarque/simulation/wokwi.md          blocs 2   comm 8   chaines 1
+      comm : ouvre la liaison série à 115 200 bauds
+      comm : envoie le message une fois, au démarrage
+      chaine : "Hello, ESP32!"
+      comm : rien à faire ici : la pause allège la simulation
+      comm : la broche 23 devient une sortie
+      comm : allume la LED
+      comm : attend une seconde
+      comm : éteint la LED
+      comm : attend une seconde
+
+--- RELEVE 3 : titres-doublons, les deux cotes
+=== TITRES PORTES PAR PLUS D UNE FICHE ===
+  Regroupement sur forme normalisee (accents retires, casse repliee,
+  ponctuation reduite a un blanc). La forme BRUTE est affichee.
+  Un groupe est un CANDIDAT A LIRE, jamais un verdict : deux fiches
+  de familles differentes peuvent legitimement porter le meme titre.
+  templates/ exclu. FR et EN comptes separement.
+
+  --- COTE FRANCAIS
+    (aucune collision)
+
+    fiches lues              : 243
+    sans title:              : 0
+    titres distincts         : 243
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+  --- COTE ANGLAIS
+    (aucune collision)
+
+    fiches lues              : 235
+    sans title:              : 0
+    titres distincts         : 235
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+--- RELEVE 4 : heuristique des libelles
+  en/embarque/schema-bloc-fonctionnel-en.md
+      [[cahier-des-charges-fonctionnel-en|Functional requirements specification]]   cible intitulee : Cahier des charges fonctionnel
+  en/embarque/simulation/simulation-electronique-en.md
+      [[chronogramme-en|waveform]]   cible intitulee : Timing diagram
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 4199
+  cible EN existante    : 4170   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 29
+  candidats a lire      : 145
+  positions de parcours : 16   (patron « step N », exempte : designe un rang, pas un titre)
+
+--- RELEVE 7 : appariement chevron (C127)
+    embarque/mcu/esp32/esp32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-serie.md                  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-spi.md                    FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-uart.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp32/esp32-wifi.md                   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-arduino-core.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/esp8266/esp8266-prise-en-main.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-controle.md   FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-fonctions.md  FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-lire-un-programme.md FR 1 bl / EN 1 bl   ok
+    embarque/mcu/micropython/micropython-modules.md    FR 4 bl / EN 4 bl   ok
+    embarque/mcu/micropython/micropython-repl.md       FR 2 bl / EN 2 bl   ok
+    embarque/mcu/micropython/micropython-types.md      FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-arduino-core.md           FR 2 bl / EN 2 bl   ok
+    embarque/mcu/stm32/stm32-prise-en-main.md          FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-arduino-core.md         FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-audio.md                FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-prise-en-main.md        FR 2 bl / EN 2 bl   ok
+    embarque/mcu/teensy/teensy-usb.md                  FR 2 bl / EN 2 bl   ok
+    paires porteuses des deux cotes : 34   divergentes : 0
