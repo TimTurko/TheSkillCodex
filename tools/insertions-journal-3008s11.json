@@ -1,0 +1,9 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "apres",
+    "libelle": "entree SS7 du 30/08 (suite 11)",
+    "ancre": "<!-- INSERT_JOURNAL_HERE -->",
+    "fragment": "tools/frag-journal-3008s11.md"
+  }
+]

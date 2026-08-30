@@ -20046,3 +20046,256 @@ symétrique, arbitrage 1 sur 18, **la prédiction du lot 13 tenue à deux lignes
 de logique**), **1 outil de mesure versionnable** (`decompo-registre.mjs`),
 **5 outils jetables**, **8 sorties datées**, **3 hypothèses mesurées fausses**
 et **1 loi établie à l'échelle de la ligne**.
+
+---
+
+## ARBITRAGE (a) RENDU PAR TIM — 30/08, séance 11, après le bilan général
+
+**« Ok pour amender le terme (2). »** La sous-règle C116, terme (2), passe de
+« une prédiction sans nombre ni forme exacte est réputée absente » à sa
+version amendée : **une prédiction de COMPTEUR se publie sous la forme de la
+LIGNE EXACTE attendue**, telle que l'outil l'imprimera, et non sous la forme
+d'un nombre isolé.
+
+*Motif retenu, et il est mesuré ce soir : on ne peut pas écrire la ligne
+attendue sans avoir ouvert le code ou une sortie précédente. Le geste que
+C116 (7) demandait comme un rappel devient une **condition d'écriture de la
+prédiction**. Bloc 134 : 11 lignes littérales prédites, 11 tenues. Séance
+entière : 35 prédictions d'instrument, 34 tenues, 97,1 %.*
+
+**Éprouvée 1/N.** ⚠ **L'amendement n'est pas encore écrit dans
+`conventions.md`** : cette séance s'est interdit d'écrire dans les fichiers de
+pilotage tant que la règle d'écrivain unique n'est pas confirmée. Il fait
+partie des trois écritures en attente, avec l'entrée §7 du JOURNAL et la mise
+à jour du BACKLOG.
+
+**Arbitrage (b) — non rendu à ce point** : le seau `C109 supprimees en EN`
+reste hors du code de sortie, coût de revert une ligne.
+
+---
+
+## Prédictions — bloc 144, garde de péremption avant écriture sur le pilotage
+
+**Première application du terme (2) amendé** (arbitrage (a) rendu ce soir) :
+les prédictions de compteur ci-dessous sont écrites **comme les lignes que
+l'outil imprimera**, pas comme des nombres.
+
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+**Motif de la garde** : `HEAD` a bougé sous la séance — le commit de Tim est
+passé pendant l'échange, `a421335` → `6dcb912` —, et C116 (5) veut une garde
+**avant chaque passe**. Celle-ci précède la première écriture sur les
+fichiers de pilotage.
+
+- **P144.1** — `lignes non ASCII dans batterie.ps1 : 0`
+- **P144.2** — `sortie precedente copiee : tools\batterie-sortie-3008b66.txt`
+  *(rang 66 : `3008b65` a été écrit au bloc 134)*
+- **P144.3** — `date ISO : 2026-08-30   heure : 23:xx:xx`. ⚠ **Branche
+  déclarée** : si l'horloge passe minuit, `2026-08-31`, et alors P144.2
+  devient `tools\batterie-sortie-3108b1.txt`.
+- **P144.4** — `HEAD git : 6dcb912 2026-08-30 23:11:12 +0200`
+- **P144.5** — `fichiers modifies non commites : 2   (hors artefacts de seance : 0)`
+- **P144.6** — `node : v24.15.0`
+- **P144.7** — `  JOURNAL.md` … `2026-08-30 21:54:08`, **inchangé au
+  caractère** depuis le bloc 134.
+- **P144.8** — `  conventions.md` … `2026-08-30 21:53:03`, inchangé.
+- **P144.9** — `  TODO.md` … `2026-08-29 21:48:08`, inchangé.
+- **P144.10** — deux étapes exactement, chacune fermée par
+  `--- code de sortie : 0`.
+
+**Critère d'arrêt** : une date d'écriture postérieure sur l'un des trois
+fichiers de pilotage ⇒ un autre écrivain a touché le dépôt ⇒ **arrêt**.
+
+### Déclaration C131 — bloc 144
+
+Population : entrées de `git status --porcelain`. Versements de la séance
+encore non commités : `tools/predictions-260830.md` ` M` (filtré) et
+`tools/batterie-sortie-3008b66.txt` `??` (filtré). **Total impliqué : 2
+entrées, 0 hors artefacts.** *Les dix-neuf artefacts hors filtre des blocs
+134 à 143 sont partis dans le commit `6dcb912`.*
+
+### Bilan du bloc 144 — garde
+
+**10 prédictions, 10 tenues, 0 réfutée.** `HEAD git : 6dcb912 2026-08-30
+23:11:12 +0200`, `2   (hors artefacts de seance : 0)`, horloge **23:13:58**,
+les trois fichiers de pilotage **inchangés au caractère** depuis le bloc 134.
+**Garde AU VERT : aucun autre écrivain n'a touché le dépôt.**
+
+---
+
+## Prédictions — bloc 145, normalisation du pilotage avant tout diff
+
+`node tools/normalize-pilotage.js --check`
+
+Ligne de bilan lue **dans le code** (ligne 116 du script), pas dans une
+sortie de mémoire :
+
+- **P145.1** — `Mode : CHECK (rapport sans modifier)`
+- **P145.2** — `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).`
+- **P145.3** — **code de sortie 0**. *Le script sort 1 s'il trouve quoi que
+  ce soit ; les dix séances précédentes ont toutes normalisé avant d'écrire,
+  donc il ne doit rien rester.*
+- **P145.4** — aucune écriture : `git status --porcelain` reste à **2
+  entrées**, dont **0 hors artefacts de séance**.
+
+⚠ Si P145.2 est réfutée, **la normalisation réelle passe avant les trois
+écritures** et les dates de péremption du bloc 144 sont périmées de son fait
+— ce qui est attendu et non un incident.
+
+### Bilan du bloc 145 — normalisation
+
+**4 prédictions, 4 tenues, 0 réfutée.** `Mode : CHECK (rapport sans
+modifier)`, `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).`,
+code de sortie **0**, `git status` inchangé à **2 entrées, 0 hors artefacts**.
+**Aucune normalisation réelle n'est requise : les dates de péremption du bloc
+144 restent valides.**
+
+---
+
+## Prédictions — bloc 146, les quatre fragments d'écriture
+
+Les textes à insérer sont écrits dans des **fragments datés et nommés par
+leur séance** (règle du 30/08, séance 10 : *un artefact de séance se nomme
+par son LOT*), et **aucun fichier de pilotage n'est touché par ce bloc**.
+Le fragment porte le français accentué ; l'outil d'insertion, lui, restera
+ASCII (C122).
+
+- **P146.1** — **quatre** fichiers créés, aucun modifié :
+  `tools/frag-journal-3008s11.md`, `tools/frag-conventions-c116-3008s11.md`,
+  `tools/frag-conventions-s8-3008s11.md`, `tools/frag-backlog-3008s11.md`.
+  *Vérification préalable du nom contre l'existant (incident du lot 14) :
+  `ls tools/frag-*` ne rend rien.*
+- **P146.2** — `git status --porcelain` rend **6 entrées**, dont **4 hors
+  artefacts de séance**.
+- **P146.3** — les quatre fichiers de pilotage gardent leurs dates
+  d'écriture du bloc 144 : `JOURNAL.md 2026-08-30 21:54:08`,
+  `conventions.md 2026-08-30 21:53:03`, `TODO.md 2026-08-29 21:48:08`.
+- **P146.4** — tailles **avant** insertion, mesurées ce soir :
+  `conventions.md 563.1 Kio`, `JOURNAL.md 724.1 Kio`, `TODO.md 282.7 Kio`,
+  `BACKLOG.md 206.0 Kio`. *C'est l'état de référence contre lequel le bloc
+  147 mesurera l'effet des écritures.*
+
+**⚠ RÉVISION DE P146.1 ET P146.2, PUBLIÉE AVANT LA MESURE DU BLOC.** Le
+fragment du JOURNAL doit porter la ligne **Tailles**, et C118 exige qu'elle
+soit **mesurée après la dernière écriture**. L'écrire maintenant obligerait à
+publier les tailles d'avant en les présentant comme celles d'après, ou à
+patcher l'entrée après coup — les deux sont exactement ce que la borne de
+C119 proscrit. **Les écritures se font donc en deux passes** : conventions et
+BACKLOG au bloc 147, **remesure**, puis le fragment du JOURNAL écrit avec les
+tailles mesurées et inséré au bloc 148.
+- **P146.1 révisée** — **trois** fichiers créés :
+  `tools/frag-conventions-c116-3008s11.md`,
+  `tools/frag-conventions-s8-3008s11.md`, `tools/frag-backlog-3008s11.md`.
+- **P146.2 révisée** — `git status --porcelain` rend **5 entrées**, dont
+  **3 hors artefacts de séance**.
+
+### Bilan du bloc 146 — les fragments
+
+**4 prédictions, 4 tenues, 0 réfutée** (P146.1 et P146.2 dans leur version
+révisée) : trois fragments créés, **5 entrées / 3 hors artefacts**, les quatre
+fichiers de pilotage **inchangés à la seconde**, tailles de référence relevées.
+
+---
+
+## ⚠ INCIDENT DE PROTOCOLE — bloc 147, prédictions manquantes
+
+**Le terme (3) de la sous-règle C116 demande qu'une prédiction manquante se
+consigne en incident. En voici une.** L'écriture de `tools/inserer-pilotage.mjs`,
+de la table `tools/insertions-3008s11.json` et **le lancement du test négatif
+délibéré** ont été faits **sans que les prédictions du bloc 147 soient
+publiées d'abord**. *Cause : le geste a été enchaîné à la suite du bloc 146
+comme s'il en faisait partie, alors qu'il écrit deux fichiers neufs et lance
+un outil.*
+✅ **Ce que le test négatif a rendu, consigné après coup et sans être
+prédit** : `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, code de sortie **1**,
+l'ancre altérée de la première entrée rendant `ancre trouvee 0 fois` **et les
+quatre autres entrées restant valides** — ce qui est exactement le mode
+tout-ou-rien voulu : le lot tombe sur un seul défaut.
+⚠ **Ce résultat ne compte pas au décompte** (il n'a pas été prédit) et le
+bloc reprend ci-dessous, prédictions publiées avant exécution.
+
+## Prédictions — bloc 147 (reprise), écriture de conventions et du BACKLOG
+
+- **P147.1** — essai à blanc : `Essai a blanc concluant : 5 entree(s), 0 defaut.`
+  puis `AUCUN FICHIER ECRIT. Relancer avec --faire.`, **code de sortie 0**.
+- **P147.2** — écriture : `ECRIT : 5 entree(s) dans 2 fichier(s).`, **code de
+  sortie 0**, et deux lignes `ecrit` — `conventions.md` et `BACKLOG.md`.
+- **P147.3** — tailles **après** : `conventions.md` **569,6 Kio**
+  (+6 612 octets) et `BACKLOG.md` **210,3 Kio** (+4 365 octets, soit
+  642 + 585 + 3 138) ; `TODO.md` **282,7** et `JOURNAL.md` **724,1**
+  **inchangés**.
+- **P147.4** — `git status --porcelain` rend **9 entrées**, dont **7 hors
+  artefacts de séance** : les trois fragments, `inserer-pilotage.mjs`,
+  `insertions-3008s11.json`, `conventions.md` ` M` et `BACKLOG.md` ` M`.
+- **P147.5** — `node tools/normalize-pilotage.js --check` rend encore
+  `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).` après
+  insertion — les fragments n'introduisent ni NBSP, ni ZWSP, ni CRLF.
+
+### Bilan du bloc 147 — écriture de `conventions.md` et de `BACKLOG.md`
+
+**5 prédictions, 4 tenues, 1 réfutée.** P147.1, P147.2, P147.4 (**9 entrées,
+7 hors artefacts**) et P147.5 tenues au caractère.
+**P147.3 réfutée** : `conventions.md` mesure **571,2 Kio** (584 945 o) et non
+569,6 ; `BACKLOG.md` **210,4** et non 210,3. ⚠ *Cause nommée : ma prédiction
+n'a compté que le **+6 612** de la deuxième entrée et a **oublié le +1 437**
+de la première, l'amendement C116 — alors que les deux étaient dans la même
+table. C'est **le défaut du lot 14 rejoué** (« le compteur compte des ancres,
+mon 19 comptait des occurrences, et les deux chiffres étaient dans le même
+bloc de prédictions »). ✅ **Et l'essai à blanc l'avait affiché avant
+l'écriture** : `+1437 octets` était à l'écran, ligne 1 de sa sortie.*
+✅ **Le test négatif délibéré et le tout-ou-rien ont fonctionné** : une ancre
+altérée, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, les quatre autres
+entrées valides et pourtant non appliquées.
+
+---
+
+## Prédictions — bloc 148, l'entrée §7 du JOURNAL
+
+- **P148.1** — un seul fichier de fragment créé,
+  `tools/frag-journal-3008s11.md` ; `ls tools/frag-journal*` ne rend rien
+  avant le bloc.
+- **P148.2** — table `tools/insertions-journal-3008s11.json`, **une** entrée,
+  ancre `<!-- INSERT_JOURNAL_HERE -->`, mode `apres`, **1 occurrence** dans
+  `JOURNAL.md`.
+- **P148.3** — test négatif délibéré : `REFUS : 1 defaut(s). AUCUN FICHIER
+  ECRIT.`, **code de sortie 1**.
+- **P148.4** — essai à blanc : `Essai a blanc concluant : 1 entree(s), 0 defaut.`,
+  **code de sortie 0**.
+- **P148.5** — écriture : `ECRIT : 1 entree(s) dans 1 fichier(s).`, **code de
+  sortie 0**.
+- **P148.6** — `git status --porcelain` rend **12 entrées**, dont **10 hors
+  artefacts de séance**.
+- **P148.7** — `node tools/normalize-pilotage.js --check` rend encore
+  `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).`
+
+### Bilan du bloc 148 — l'entrée §7 du JOURNAL
+
+**7 prédictions, 7 tenues, 0 réfutée.** Test négatif délibéré :
+`ancre trouvee 0 fois`, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, code 1.
+Essai à blanc `0 defaut`, écriture `ECRIT : 1 entree(s) dans 1 fichier(s).`,
+`JOURNAL.md 754887 octets`, normalisation encore à `0 caractere(s) a
+corriger`, `git status` à **12 entrées, 10 hors artefacts**.
+**Tailles finales, mesurées après la dernière écriture (C118)** :
+`conventions.md` **571,2 Kio**, `JOURNAL.md` **724,1 → 737,2 Kio**
+(+12 924 o), `TODO.md` **282,7 inchangé**, `BACKLOG.md` **210,4 Kio**.
+Structure vérifiée à l'octet : ancre, titre, ligne blanche, puces — et ligne
+blanche avant l'entrée de la suite 10, comme la suite 10 la posait.
+
+---
+
+# TOTAL DE LA SÉANCE 11 — après les trois écritures de pilotage
+
+**96 prédictions à décompte plein, 76 tenues, 20 réfutées — 79,2 %**, sur
+**quinze blocs (134 à 148)**, **deux gardes au vert**, **deux tests négatifs
+délibérés, deux refus, zéro fichier écrit à tort**, **un incident de
+protocole consigné**, **zéro octet dans `content/`**.
+
+**La coupe, portée jusqu'au bout** :
+- **prédictions d'INSTRUMENT : 65, dont 63 tenues — 96,9 %.** Les deux
+  réfutées portent sur des **tailles de diff** (P141.5, P147.3), jamais sur
+  un compteur.
+- **prédictions de MONDE : 31, dont 13 tenues — 41,9 %.**
+
+*Dix-huit des vingt réfutations sont des prédictions de monde. C'est le taux
+le plus bas depuis le lot 4, et c'est le résultat attendu d'une séance qui
+n'a produit aucune fiche et n'a fait qu'interroger le corpus.*
