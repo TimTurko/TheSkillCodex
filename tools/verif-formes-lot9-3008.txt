@@ -1,0 +1,49 @@
+=== VERIFICATION D APRES REDACTION - LOT 9 (30/08, seance 3) ===
+Population : content/en/ (222 fiches) pour les formes EN ; content/ hors en/ pour le FR.
+
+--- Les six formes de production EN ---
+  ## See also                        : 215
+  ## What is it for?                 : 149
+  ## Pitfalls                        : 148
+  ## Where it fits in the project    : 104
+  ## Exercises                       : 37
+  ## Going further                   : 31
+--- Les deux formes fautives du lot 4, et les deux concurrentes ---
+  ## Project connection              : 0
+  ## Step-by-step procedure          : 0
+  ## Step by step                    : 77
+  ## In the project                  : 21
+--- Les familles du lot et les trois formes neuves ---
+  ## How do you build one?                                 : 9
+  ## Example — 3-axis teaching arm                       : 8
+  ## Example — 3-axis arm project                        : 2
+  ## Special case — a school project with no real client : 2
+  ## Special case — binary and regulatory requirements   : 1
+  ## Example — 6-axis teaching robot arm                 : 1
+  ## Running example                                       : 1
+  ## How do you characterise a requirement?                : 1
+  ## Statement format                                      : 1
+  ## Three disciplines, one system                         : 1
+
+--- Titres de callout ---
+  > [!warning] Watch out       : 47
+  > [!tip] Tip                 : 44
+  > [!example] Good            : 3
+  > [!warning] Fair            : 3
+  > [!failure] Poor            : 3
+  Attention (residuel)         : 0
+  Astuce (residuel)            : 0
+
+--- titres-doublons ---
+    titres distincts         : 243
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0
+
+  --- COTE ANGLAIS
+    (aucune collision)
+
+    fiches lues              : 222
+    sans title:              : 0
+    titres distincts         : 222
+    GROUPES EN COLLISION     : 0
+    fiches concernees        : 0

@@ -1,0 +1,6 @@
+# PASSE C109 - LOT 9 : TEST NEGATIF DELIBERE (sous-regle C116 (6)).
+# Une seule regle, dont l ancre porte un TRAIT D UNION ASCII la ou le corps
+# porte un tiret cadratin. Attendu : ANCRE INTROUVABLE, REFUS, zero octet.
+# chemin<TAB>ancre exacte<TAB>remplacement
+
+conduite/proj/caracteriser-une-exigence.md	est **indissociable** - chaque composant	est **indissociable** : chaque composant

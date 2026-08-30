@@ -1,0 +1,588 @@
+=== RELEVES D AVANT REDACTION - LOT 9 (30/08, seance 3) ===
+Population : content/en/ pour les formes EN, les 6 sources FR du lot pour le reste.
+
+--- RELEVE 1a : formes de production EN (titres de section, corpus content/en) ---
+    209 ## See also
+    144 ## What is it for?
+    143 ## Pitfalls
+    104 ## Where it fits in the project
+     77 ## Step by step
+     37 ## Exercises
+     31 ## Going further
+     21 ## In the project
+     15 ## Common pitfalls
+     13 ## Wrap-up
+     13 ## The right mindset
+     13 ## Method
+     10 ## How does it work?
+      8 ## During this phase, on the team side
+      7 ## Tutorials
+      6 ## How do you build one?
+      6 ## Example — 3-axis teaching arm
+      6 ## Ecosystem
+      6 ## Code to read
+      5 ## What belongs elsewhere
+      5 ## Goal of this step
+      5 ## Goal of this phase
+      5 ## Board overview
+      4 ## Watch the voltage
+      4 ## In practice
+
+--- RELEVE 1b : les deux formes fautives du lot 4 ---
+  ## Project connection      : 0
+  ## Step-by-step procedure  : 0
+
+--- RELEVE 1c : titres de section FR des 6 sources du lot 9 ---
+  conduite/proj/mecatronique.md
+      23:## Trois disciplines, un système
+      29:## Fil rouge
+      33:## Voir aussi
+  conduite/proj/mind-map.md
+      20:## À quoi ça sert ?
+      32:## Comment la construire ?
+      42:## Exemple — Bras 3 axes pédagogique
+      52:## Pièges
+      64:## Voir aussi
+  conduite/proj/bete-a-cornes.md
+      18:## À quoi ça sert ?
+      28:## Comment la construire ?
+      42:### Méthode de remplissage
+      49:## Exemple — Bras robotique pédagogique 6 axes
+      70:## Pièges
+      82:## Cas particulier — projet école sans client réel
+      86:## Voir aussi
+  conduite/proj/pieuvre.md
+      23:## À quoi ça sert ?
+      33:## Comment la construire ?
+      41:### Familles de milieux à parcourir systématiquement
+      53:### Topologie du diagramme
+      57:## Exemple — projet bras 3 axes
+      75:## Pièges
+      87:## Voir aussi
+  conduite/proj/fonction.md
+      22:## À quoi ça sert ?
+      26:## Format d'énoncé
+      38:## Pièges
+      46:## Voir aussi
+  conduite/proj/caracteriser-une-exigence.md
+      25:## À quoi ça sert ?
+      37:## Comment caractériser une exigence ?
+      49:### Le critère
+      62:### Le niveau
+      78:### La flexibilité
+      95:## Exemple — Bras 3 axes pédagogique
+      133:## Pièges
+      147:## Cas particulier — exigences binaires et réglementaires
+      165:## Voir aussi
+  TOTAL titres de section FR : 35
+
+--- RELEVE 1d : formes EN candidates pour les familles du lot (corpus) ---
+  How do you build one         : 6
+  Example —                  : 106
+  Special case                 : 100
+  Red thread                   : 0
+  Running example              : 0
+  Statement format             : 0
+  Wrap-up                      : 13
+  -- toutes les formes '## Example —' du corpus EN --
+      6 ## Example — 3-axis teaching arm
+      4 ## Example — The 3-axis arm
+      2 ## Example — Threshold detector with a warning LED
+      2 ## Example — Sampling a sensor at 100 Hz
+      2 ## Example — Reading a BMP280 (pressure and temperature)
+      2 ## Example — Potentiometer as an adjustable threshold
+      2 ## Example — Non-blocking blink plus a responsive button
+      2 ## Example — Making a rig that can hang dependable
+      2 ## Example — LED dimmer with a potentiometer
+      2 ## Example — Blink, modified
+      2 ## Example — Blink modified
+      2 ## Example — A persistent start-up counter
+      2 ## Example — A battery sensor woken periodically
+      2 ## Example — A Hall effect speed counter
+      1 ## Example — traffic lights with a pedestrian crossing
+      1 ## Example — the ESP32 and a 5 V sensor
+      1 ## Example — the 3-axis arm
+      1 ## Example — motor control with a potentiometer and a direction button
+      1 ## Example — motion driven by a step button
+      1 ## Example — controlling the speed of a DC motor
+      1 ## Example — continuous sweep with speed control
+      1 ## Example — an OLED thermometer with a thermometer icon
+      1 ## Example — a station doing three things at once
+      1 ## Example — a simulated button and LED
+      1 ## Example — Wiring a DHT11 module (temperature plus humidity)
+      1 ## Example — Wiring a DHT11 module (temperature and humidity)
+      1 ## Example — Watching a setpoint against a measurement
+      1 ## Example — Watching a PWM signal
+      1 ## Example — Two independent tasks
+      1 ## Example — Traffic lights with a pedestrian crossing
+      1 ## Example — Thermostat
+      1 ## Example — The emergency stop button
+      1 ## Example — The battery-powered probe
+      1 ## Example — Temperature datalogger on an SD card
+      1 ## Example — Speed on a potentiometer plus a direction button
+      1 ## Example — Scanning the bus and reading the addresses
+      1 ## Example — Sampling at a precise interval
+      1 ## Example — Reading a DHT11 with the built-in `dht` module
+      1 ## Example — Publishing a counter by notification
+      1 ## Example — PWM signal and serial frame
+      1 ## Example — OLED thermometer (two I2C devices on one bus)
+      1 ## Example — Motor shield (L293D): running a DC motor
+      1 ## Example — Logging to a microSD card
+      1 ## Example — Eight flags in one byte
+      1 ## Example — Driving an LED with text commands
+      1 ## Example — Driving a servo with Servo.h
+      1 ## Example — Driving a LED from a browser
+      1 ## Example — Drilling station
+      1 ## Example — Diagnosing an ultrasonic sensor that returns 0
+      1 ## Example — Diagnosing an ultrasonic sensor that returns -1
+      1 ## Example — Diagnosing a crash caused by saturation
+      1 ## Example — Diagnosing a `MemoryError` caused by accumulation
+      1 ## Example — Datalogger on an SD card
+      1 ## Example — Counting presses and toggling an LED
+      1 ## Example — Count presses and toggle an LED
+      1 ## Example — Controlling the speed of a motor
+      1 ## Example — Connecting to Wi-Fi
+      1 ## Example — Configuring an LED and a serial port, then generating
+      1 ## Example — Communication between two Picos
+      1 ## Example — Communication between two Arduino boards
+      1 ## Example — Checking a board's power supply
+      1 ## Example — Buzzer alarm plus flashing LED
+      1 ## Example — Button, LED and serial port with the HAL
+      1 ## Example — Blink, modified and debugged
+      1 ## Example — Blink simulated with a button
+      1 ## Example — Automatic gate
+      1 ## Example — An oscillator into the Audio Shield
+      1 ## Example — An LED that refuses to blink
+      1 ## Example — Alarm buzzer and blinking LED
+      1 ## Example — A sweep whose speed is set by a potentiometer
+      1 ## Example — A station doing three things at once
+      1 ## Example — A sketch that plays to the Teensy's strengths
+      1 ## Example — A sketch that mixes Arduino and the native HAL
+      1 ## Example — A sketch that mixes Arduino and ESP-IDF
+      1 ## Example — A relay module that clicks at start-up
+      1 ## Example — A relay module that clacks at start-up
+      1 ## Example — A quarter turn per button press
+      1 ## Example — A periodic measuring station
+      1 ## Example — A modified Blink
+      1 ## Example — A button that types on the keyboard
+      1 ## Example — A button that lights an LED
+      1 ## Example — A button that lights a LED
+      1 ## Example — A bridge between the module and the monitor
+      1 ## Example — A battery-powered project: Pico plus 3 modules
+      1 ## Example — A battery-powered project: Arduino plus three modules
+      1 ## Example — 3-axis arm project
+      1 ## Example
+  -- toutes les formes '## Special case' / '## Case' du corpus EN --
+      2 ## Special case — The second bus and the speed
+      2 ## Special case — Sub-millisecond rates and real time
+      2 ## Special case — A module with no datasheet
+      2 ## Special case — 230 V mains loads
+      1 ## Special case — the limit: towards an RTOS
+      1 ## Special case — the `PID_v1` library
+      1 ## Special case — the English false friend
+      1 ## Special case — several state machines in parallel
+      1 ## Special case — redesign and reverse engineering
+      1 ## Special case — microstepping and smoothing
+      1 ## Special case — custom fonts and accented characters
+      1 ## Special case — continuous-rotation servos
+      1 ## Special case — beyond the first Wi-Fi
+      1 ## Special case — a school project with no real client
+      1 ## Special case — a scaled-down AMDEC on a school project
+      1 ## Special case — a project with no imposed supplier catalogue
+      1 ## Special case — a partial FAST on the critical functions
+      1 ## Special case — a motor with an encoder for closed-loop control
+      1 ## Special case — a cooperative scheduler
+      1 ## Special case — `loop()` is already a task
+      1 ## Special case — `bytearray` and `memoryview`
+      1 ## Special case — `asyncio`, MicroPython's built-in tool
+      1 ## Special case — `ONE_SHOT` and several timers
+      1 ## Special case — `.mpy` files and frozen modules
+      1 ## Special case — Wokwi for the ESP32 and more advanced microcontrollers
+      1 ## Special case — Waking on a watchdog in interrupt mode
+      1 ## Special case — Waking from sleep
+      1 ## Special case — Under the hood: the registers
+      1 ## Special case — USB-to-serial adapter for debugging
+      1 ## Special case — UART1 and long links
+      1 ## Special case — Tinkercad and local simulation
+      1 ## Special case — The serial plotter for watching quantities
+      1 ## Special case — The limit: an RTOS and the second core
+      1 ## Special case — The board as a client (scanning)
+      1 ## Special case — The board as a client (querying an API)
+      1 ## Special case — The `Wire` and `SPI` libraries
+      1 ## Special case — Storage on ESP32
+      1 ## Special case — Spreading the work out with `micropython.schedule`
+      1 ## Special case — Software SPI against hardware SPI
+      1 ## Special case — Software SPI
+      1 ## Special case — Smoothing with an RC filter for a real voltage
+      1 ## Special case — Smoothing with an RC filter
+      1 ## Special case — Several voltages to supply
+      1 ## Special case — Several serial ports, and the plotter
+      1 ## Special case — Several buttons
+      1 ## Special case — Several buses, or the same address
+      1 ## Special case — Several I2C buses
+      1 ## Special case — Sensors on the I2C or SPI bus
+      1 ## Special case — Sensors on an I2C or SPI bus
+      1 ## Special case — Sensors on 3.3 V against 5 V
+      1 ## Special case — STM32duino and PlatformIO
+      1 ## Special case — SPI and e-paper screens
+      1 ## Special case — Reading the compilation report
+      1 ## Special case — Reacting fast, or many buttons
+      1 ## Special case — Proto shields and "do-it-yourself" shields
+      1 ## Special case — PlatformIO and the switch to native
+      1 ## Special case — PlatformIO and the legacy installer
+      1 ## Special case — PlatformIO and register access
+      1 ## Special case — PlatformIO and Arduino inside ESP-IDF
+      1 ## Special case — PWM, ADC and buses
+      1 ## Special case — PWM, ADC and bus pins
+      1 ## Special case — Other editors and other boards
+      1 ## Special case — Open-drain and I2C
+      1 ## Special case — Multi-sheet schematics and the application circuit
+      1 ## Special case — Moore and Mealy
+      1 ## Special case — Modules with no datasheet of their own
+      1 ## Special case — Modules active at the HIGH level
+      1 ## Special case — Light sleep
+      1 ## Special case — Libraries and microstepping
+      1 ## Special case — Interrupts on ESP32
+      1 ## Special case — Interrupt mode and waking from sleep
+      1 ## Special case — Hardware debugging (SWD)
+      1 ## Special case — From the timing diagram to the oscilloscope
+      1 ## Special case — ESP-01, NodeMCU Lua, PlatformIO
+      1 ## Special case — Depth and wake-up sources
+      1 ## Special case — Continuous rotation servos, and libraries
+      1 ## Special case — Combined types and Raw HID
+      1 ## Special case — Closed loop with an encoder
+      1 ## Special case — Changing the frequency of a PWM
+      1 ## Special case — Beyond the ~8.3 s ceiling
+      1 ## Special case — Battery power for standalone projects
+      1 ## Special case — Batteries for standalone projects
+      1 ## Special case — Audio Shield, USB audio, outputs without a codec
+      1 ## Special case — Arduino shields on a Pico, and a home-made carrier board
+      1 ## Special case — Arduino core, ESP-IDF, PlatformIO
+      1 ## Special case — An external I2C EEPROM (24LCxx)
+      1 ## Special case — Alternatives to the Arduino IDE
+      1 ## Special case — Advanced logging libraries
+      1 ## Special case — AND and OR divergences
+      1 ## Special case — A scarce, shared resource
+      1 ## Special case — A safe state after a power cut
+      1 ## Special case — A microcontroller's registers
+      1 ## Special case — A dictionary of states, and parallel machines
+      1 ## Special case — A USB-to-serial adapter for debugging
+      1 ## Special case — A PID class, or a library
+      1 ## Special case — 5 V sensors
+  -- FR : ## Cas particulier, et jumelles EN deja traduites --
+      content/conduite/proj/amdec.md
+      content/conduite/proj/bete-a-cornes.md
+      content/conduite/proj/bom.md
+      content/conduite/proj/cahier-des-charges-fonctionnel.md
+      content/conduite/proj/caracteriser-une-exigence.md
+      content/conduite/proj/decomposition-fonctionnelle.md
+      content/conduite/proj/ecodesign.md
+      content/conduite/proj/etat-de-l-art-technique.md
+      content/conduite/proj/fast.md
+      content/embarque/algorithme/chronogramme.md
+      content/embarque/algorithme/grafcet.md
+      content/embarque/algorithme/machine-a-etats.md
+      content/embarque/alimentation-electronique.md
+      content/embarque/analyse-de-schema-electronique.md
+      content/embarque/boucle-ouverte.md
+      content/embarque/mcu/arduino/arduino-afficheur.md
+      content/embarque/mcu/arduino/arduino-alimentation.md
+      content/embarque/mcu/arduino/arduino-bibliotheques.md
+      content/embarque/mcu/arduino/arduino-capteur-analogique.md
+      content/embarque/mcu/arduino/arduino-capteur-numerique.md
+      content/embarque/mcu/arduino/arduino-debug.md
+      content/embarque/mcu/arduino/arduino-deep-sleep.md
+      content/embarque/mcu/arduino/arduino-eeprom.md
+      content/embarque/mcu/arduino/arduino-entree-tor.md
+      content/embarque/mcu/arduino/arduino-gpio-boot.md
+      content/embarque/mcu/arduino/arduino-gpio.md
+      content/embarque/mcu/arduino/arduino-i2c.md
+      content/embarque/mcu/arduino/arduino-interruptions.md
+      content/embarque/mcu/arduino/arduino-machine-a-etats.md
+      content/embarque/mcu/arduino/arduino-memoire.md
+      content/embarque/mcu/arduino/arduino-module.md
+      content/embarque/mcu/arduino/arduino-moteur-cc.md
+      content/embarque/mcu/arduino/arduino-moteur-pas-a-pas.md
+      content/embarque/mcu/arduino/arduino-pid.md
+      content/embarque/mcu/arduino/arduino-prise-en-main.md
+      content/embarque/mcu/arduino/arduino-programmation-non-bloquante.md
+      content/embarque/mcu/arduino/arduino-serie.md
+      content/embarque/mcu/arduino/arduino-servomoteur.md
+      content/embarque/mcu/arduino/arduino-shield.md
+      content/embarque/mcu/arduino/arduino-sortie-pwm.md
+      content/embarque/mcu/arduino/arduino-sortie-tor.md
+      content/embarque/mcu/arduino/arduino-spi.md
+      content/embarque/mcu/arduino/arduino-temporisation.md
+      content/embarque/mcu/arduino/arduino-timers.md
+      content/embarque/mcu/arduino/arduino-uart.md
+      content/embarque/mcu/arduino/arduino-watchdog.md
+      content/embarque/mcu/arduino/tinkercad.md
+      content/embarque/mcu/chien-de-garde.md
+      content/embarque/mcu/esp32/esp32-arduino-core.md
+      content/embarque/mcu/esp32/esp32-ble.md
+      content/embarque/mcu/esp32/esp32-deep-sleep.md
+      content/embarque/mcu/esp32/esp32-freertos.md
+      content/embarque/mcu/esp32/esp32-i2c.md
+      content/embarque/mcu/esp32/esp32-prise-en-main.md
+      content/embarque/mcu/esp32/esp32-serie.md
+      content/embarque/mcu/esp32/esp32-spi.md
+      content/embarque/mcu/esp32/esp32-uart.md
+      content/embarque/mcu/esp32/esp32-wifi.md
+      content/embarque/mcu/esp8266/esp8266-arduino-core.md
+      content/embarque/mcu/esp8266/esp8266-prise-en-main.md
+      content/embarque/mcu/filtrage.md
+      content/embarque/mcu/interruption.md
+      content/embarque/mcu/lire-une-datasheet.md
+      content/embarque/mcu/manipulation-de-bits.md
+      content/embarque/mcu/micropython/micropython-afficheur.md
+      content/embarque/mcu/micropython/micropython-alimentation.md
+      content/embarque/mcu/micropython/micropython-bibliotheques.md
+      content/embarque/mcu/micropython/micropython-capteur-analogique.md
+      content/embarque/mcu/micropython/micropython-capteur-numerique.md
+      content/embarque/mcu/micropython/micropython-debug.md
+      content/embarque/mcu/micropython/micropython-deep-sleep.md
+      content/embarque/mcu/micropython/micropython-entree-tor.md
+      content/embarque/mcu/micropython/micropython-gpio-boot.md
+      content/embarque/mcu/micropython/micropython-gpio.md
+      content/embarque/mcu/micropython/micropython-i2c.md
+      content/embarque/mcu/micropython/micropython-interruptions.md
+      content/embarque/mcu/micropython/micropython-machine-a-etats.md
+      content/embarque/mcu/micropython/micropython-memoire.md
+      content/embarque/mcu/micropython/micropython-module.md
+      content/embarque/mcu/micropython/micropython-moteur-cc.md
+      content/embarque/mcu/micropython/micropython-moteur-pas-a-pas.md
+      content/embarque/mcu/micropython/micropython-pid.md
+      content/embarque/mcu/micropython/micropython-prise-en-main.md
+      content/embarque/mcu/micropython/micropython-programmation-non-bloquante.md
+      content/embarque/mcu/micropython/micropython-servomoteur.md
+      content/embarque/mcu/micropython/micropython-shield.md
+      content/embarque/mcu/micropython/micropython-simulation.md
+      content/embarque/mcu/micropython/micropython-sortie-pwm.md
+      content/embarque/mcu/micropython/micropython-sortie-tor.md
+      content/embarque/mcu/micropython/micropython-spi.md
+      content/embarque/mcu/micropython/micropython-stockage.md
+      content/embarque/mcu/micropython/micropython-temporisation.md
+      content/embarque/mcu/micropython/micropython-timers.md
+      content/embarque/mcu/micropython/micropython-uart.md
+      content/embarque/mcu/micropython/micropython-watchdog.md
+      content/embarque/mcu/niveaux-de-tension.md
+      content/embarque/mcu/programmation-non-bloquante.md
+      content/embarque/mcu/stm32/stm32-arduino-core.md
+      content/embarque/mcu/stm32/stm32-prise-en-main.md
+      content/embarque/mcu/teensy/teensy-arduino-core.md
+      content/embarque/mcu/teensy/teensy-audio.md
+      content/embarque/mcu/teensy/teensy-prise-en-main.md
+      content/embarque/mcu/teensy/teensy-usb.md
+      content/embarque/mcu/timer.md
+      content/templates/fiche-notion.md
+      content/templates/fiche-tuto.md
+  -- FR : ## Comment la construire, et jumelles --
+      content/conduite/proj/bete-a-cornes.md
+      content/conduite/proj/matrice-de-decision.md
+      content/conduite/proj/matrice-de-risques.md
+      content/conduite/proj/matrice-eco-criteres.md
+      content/conduite/proj/mind-map.md
+      content/conduite/proj/pieuvre.md
+  -- FR : ## Fil rouge --
+      content/conduite/proj/mecatronique.md
+
+--- RELEVE 1e : appariement FR->EN des familles du lot, fiche par fiche ---
+  ## Comment la construire ? : jumelles EN existantes
+      matrice-de-decision      -> ## How do you build one?
+      matrice-de-risques       -> ## How do you build one?
+      matrice-eco-criteres     -> ## How do you build one?
+  porteuses EN de '## How do you build one?'
+      content/en/conduite/proj/gantt-en.md
+      content/en/conduite/proj/matrice-de-decision-en.md
+      content/en/conduite/proj/matrice-de-risques-en.md
+      content/en/conduite/proj/matrice-eco-criteres-en.md
+      content/en/conduite/proj/retroplanning-en.md
+      content/en/conduite/proj/wbs-en.md
+
+  ## Exemple — projet bras 3 axes : porteuses FR
+      content/conduite/proj/cahier-des-charges-fonctionnel.md
+      content/conduite/proj/pieuvre.md
+  porteuses EN de '## Example — 3-axis arm project'
+      content/en/conduite/proj/cahier-des-charges-fonctionnel-en.md
+
+  'fil rouge' dans le corpus FR (prose) et son rendu EN
+38
+      1 Running example
+     17 running example
+
+  ## Format d'enonce / ## Trois disciplines : porteuses FR (unicite)
+      content/conduite/proj/fonction.md
+      content/conduite/proj/mecatronique.md
+
+--- RELEVE 2 : libelles que le corpus ANGLAIS ecrit deja vers les 6 cibles ---
+  cible : mecatronique
+           10 mechatronics
+            1 mechatronic
+            1 Mechatronics
+      (liens SANS libelle : 0)
+  cible : mind-map
+            1 mind map
+            1 Mind map
+      (liens SANS libelle : 0)
+  cible : bete-a-cornes
+            6 bête à cornes
+            4 Bête à cornes
+      (liens SANS libelle : 0)
+  cible : pieuvre
+           16 pieuvre
+            3 Pieuvre
+      (liens SANS libelle : 0)
+  cible : fonction
+           34 CdCF
+           23 FC
+            9 Function
+            9 FP
+            8 functional block diagram
+            8 FS
+            7 functional breakdown
+            7 Functional breakdown
+            6 functions
+            6 Cahier des charges fonctionnel
+            5 function
+            5 cahier des charges fonctionnel
+            5 Functional block diagram
+            4 scoping the embedded need
+            3 functional requirements specification
+            2 service functions
+            2 breakdown
+            2 Functions
+            1 requirements specification
+            1 cahier des charges
+            1 block diagram
+            1 The embedded functions, defined and quantified
+            1 Scoping the embedded need
+            1 Functional requirements specification
+            1 FP/FS/FC
+      (liens SANS libelle : 0)
+  cible : caracteriser-une-exigence
+            7 Characterising a requirement
+            4 level
+            4 flexibility
+            4 criterion
+            2 characterising a requirement
+      (liens SANS libelle : 0)
+
+--- RELEVE 3 : blocs de code clotures dans les 6 sources FR (C113) ---
+  mecatronique                 blocs ``` : 0
+  mind-map                     blocs ``` : 0
+  bete-a-cornes                blocs ``` : 0
+  pieuvre                      blocs ``` : 0
+  fonction                     blocs ``` : 0
+  caracteriser-une-exigence    blocs ``` : 0
+
+--- RELEVE 4 : titres de callout du corpus EN ---
+     54 > [!example] Example: 3-axis arm project
+     47 > [!warning] Watch out
+     43 > [!tip] Tip
+     32 > [!success]- Solution
+     28 > [!warning]
+     25 > [!info] How to read this code
+     24 > [!tip]
+     20 > [!success]- Answer to exercise 2
+     20 > [!success]- Answer to exercise 1
+      8 > [!info]
+      6 > [!note]
+      5 > [!question] The key question
+      5 > [!livrable] Main deliverable
+      3 > [!question] Exercise 1 — Two rhythms
+      2 > [!warning] Feedback is not metrology
+      2 > [!question] Exercise 2 — Three clues, three conclusions
+      2 > [!question] Exercise 2 — An external LED
+      2 > [!question] Exercise 1 — What frequency?
+      2 > [!info] Worth knowing
+      1 > [!warning] Waking on a pin: a limitation on the Pico
+  -- residus francais --
+      Attention : 0
+      Astuce    : 0
+  -- callouts des 6 sources FR --
+      2 > [!warning] Moyen
+      2 > [!failure] Mauvais
+      2 > [!example] Bon
+      1 > [!tip] Astuce
+
+--- RELEVE 5 : vocabulaire anglais du triplet, et usage -ise / -ize ---
+  criterion      : 147
+  criteria       : 102
+  level          : 337
+  flexibility    : 19
+  requirement    : 59
+  "criterion / level / flexibility" (suite exacte) : 3
+  -ise  (organise|characterise|summarise|prioritise|formalise|recognise) : 119
+  -ize  (organize|characterize|summarize|prioritize|formalize|recognize) : 0
+
+--- RELEVE 2bis : CORRECTIF DE MOTIF pour la cible 'fonction' (C110) ---
+  Le motif du releve 2 cherchait le slug en SOUS-CHAINE : il a mordu sur
+  cahier-des-charges-fonctionnel, decomposition-fonctionnelle, fonction-informatique.
+  Motif corrige : la cible est 'fonction' EXACTEMENT, ou se termine par '/fonction'.
+  -- controle du correctif : ce que l ancien motif ramenait a tort --
+      cahier-des-charges-fonctionnel   : 51 liens
+      decomposition-fonctionnelle      : 21 liens
+      fonction-informatique            : 12 liens
+
+--- RELEVE 4bis : le triptyque Bon / Moyen / Mauvais dans le corpus EN ---
+            1 > [!warning] Middling version — correct but with no loop
+            1 > [!warning] Middling version — clean states, hollow transitions
+            1 > [!warning] Fair
+            1 > [!failure] Poor
+            1 > [!example] Good
+  -- porteuses FR du triptyque, et leurs jumelles EN --
+      content/conduite/proj/bete-a-cornes.md
+      content/conduite/proj/caracteriser-une-exigence.md
+      content/conduite/proj/decomposition-fonctionnelle.md
+  -- toutes les formes '> [!example] Example' du corpus EN --
+           54 > [!example] Example: 3-axis arm project
+            1 > [!example] Target version — complete logic, with a loop
+            1 > [!example] Target version — a complete state machine
+            1 > [!example] Good
+            1 > [!example] Example: incubator project
+  -- '> [!question]' du corpus EN, formes de tete --
+            5 > [!question] The key question
+            3 > [!question] Exercise 1 — Two rhythms
+            2 > [!question] Exercise 2 — Three clues, three conclusions
+            2 > [!question] Exercise 2 — An external LED
+            2 > [!question] Exercise 1 — What frequency?
+            1 > [!question] Exercise 3 — Proving that `setup()` runs only once
+
+--- RELEVE 2ter : SECOND CORRECTIF, et le premier etait faux (C110) ---
+  Le releve 2bis exigeait une cible egale a 'fonction' : il rend 0, parce que
+  le corpus ANGLAIS vise 'fonction-en' et jamais 'fonction'. Le motif juste
+  exige la cible egale a '<slug>-en' ou terminee par '/<slug>-en'.
+  cible : mecatronique-en
+           10 mechatronics
+            1 mechatronic
+            1 Mechatronics
+      (liens SANS libelle vers cette cible : 0)
+  cible : mind-map-en
+            1 mind map
+            1 Mind map
+      (liens SANS libelle vers cette cible : 0)
+  cible : bete-a-cornes-en
+            6 bête à cornes
+            4 Bête à cornes
+      (liens SANS libelle vers cette cible : 0)
+  cible : pieuvre-en
+           16 pieuvre
+            3 Pieuvre
+      (liens SANS libelle vers cette cible : 0)
+  cible : fonction-en
+           23 FC
+            9 FP
+            8 FS
+            4 Function
+            2 service functions
+            1 functions
+            1 function
+            1 FP/FS/FC
+      (liens SANS libelle vers cette cible : 0)
+  cible : caracteriser-une-exigence-en
+            7 Characterising a requirement
+            4 level
+            4 flexibility
+            4 criterion
+            2 characterising a requirement
+      (liens SANS libelle vers cette cible : 0)

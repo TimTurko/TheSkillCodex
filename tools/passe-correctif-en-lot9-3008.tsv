@@ -1,0 +1,9 @@
+# Correctif C109 EN du lot 9 - deux points-virgules CREES par la traduction,
+# signales par le seau "C109 creees en EN" a l etape 6 du bloc 72.
+# Table JETABLE (C114), datee, non reutilisable.
+# L18 : voie 1 de C109, decoupage en deux phrases.
+# L86 : voie 3 de C109, parentheses de renvoi - forme deja employee par
+#       cahier-des-charges-fonctionnel-en pour le meme renvoi.
+# chemin<TAB>ancre exacte<TAB>remplacement
+en/conduite/proj/bete-a-cornes-en.md	standard NF X50-151]]; it opens	standard NF X50-151]]. It opens
+en/conduite/proj/bete-a-cornes-en.md	positions exist; see [[specification-technique-en#special-case-a-school-project-with-no-real-client|the special case in the specification phase]] for the detail.	positions exist (see [[specification-technique-en#special-case-a-school-project-with-no-real-client|the special case in the specification phase]] for the detail).

@@ -5472,3 +5472,2753 @@ RÉCIDIVES NOMMÉES.**
 nommées avant la mesure quand il pouvait changer, **trois tests négatifs
 refusés avant toute écriture** sur **trois** outils différents, et **zéro
 fichier perdu** en treize blocs.
+
+---
+---
+
+# SÉANCE 3 DU 30/08 — LOT 9 DU CHANTIER DE TRADUCTION
+
+> **Même date, troisième séance, prompt neuf.** `tools/predictions-260830.md`
+> existe déjà et porte le lot 7 (blocs 41-50), le lot 8 (blocs 51-60) et la
+> reprise d'arbitrages (blocs 61-63) : cette séance **y appende**, le fichier
+> de la sous-règle C116 se nommant par la **date** et non par le lot.
+> **La numérotation des blocs se poursuit : cette séance ouvre au bloc 64.**
+> ⚠ **Le fichier portera donc TROIS lots et une reprise.** L'entrée du 30/08
+> (suite 2) avait déjà consigné « le fichier de prédictions du 30/08 porte
+> deux lots » à la file des arbitrages ; **le fait s'aggrave d'un lot et reste
+> non instruit** — il est reporté tel quel, sans être traité en séance.
+
+---
+
+## En-tête de séance
+
+- **Séance** — 30/08 (troisième séance du jour), **PC perso, onglet Code**,
+  modèle **Opus 5**.
+- **Objet** — **lot 9 du chantier de traduction**, **dixième lot en exécution
+  directe**, **dixième épreuve de la sous-règle C116 amendée**, **huitième
+  séance sous C131**.
+- **Régime** — exécution directe sous C116 (sous-règle et ses amendements des
+  suites 3 et 8 du 29/08), C109 et ses amendements, C110, C113, C118, C119,
+  C120, C121, C123, C124, C125, C127, C129, C130, C131 et son amendement du
+  29/08 (suite 8), plus les **règles d'usage** en vigueur, avec leur marque
+  telle que `conventions.md` la porte à l'ouverture :
+
+  | # | règle d'usage | née | marque |
+  |---|---|---|---|
+  | 1 | un motif qui balaie les deux corpus s'éprouve sur un **échantillon de chaque langue** | 29/08 s9 | **2/N** |
+  | 2 | un **titre de section EN** se relève dans le corpus **avant** d'être écrit | 29/08 s10 | **3/N** |
+  | 3 | un compteur qui se remesure **déclare sa population dans sa sortie** | 29/08 s11 | **2/N** |
+  | 4 | un **répertoire entièrement non suivi** vaut **UNE** entrée de `git status` | 30/08 s1 | **2/N** |
+  | 5 | une **soustraction** se fait sur l'état **d'APRÈS** la passe | 30/08 s1 | **1/N** |
+  | 6 | une **ancre qui couvre N lignes identiques** se prend **en bloc** | 30/08 s1 | **0/N** |
+  | 7 | **`--recaler` est une ÉDITION** : il compte au `numstat` et au `git status` | 30/08 s1 | **1/N** |
+  | 8 | un **`title:` EN** se lit d'abord dans les **libellés que l'anglais écrit déjà** vers la cible | 30/08 s2 | **0/N** |
+  | 9 | un **titre de callout** se relève dans le corpus, comme un titre de section | 30/08 s2 | **0/N** |
+  | 10 | la **liste des artefacts d'un bloc se FERME avant le bloc** | 30/08 s2 | **2/N** |
+  | 11 | une **fiche EN se rédige en partant de son squelette sur disque** — désormais portée par le mode **`--corps`** | 29/08 s7, code 30/08 s3 | **1/N** |
+  | 12 | la **borne de lot cède devant une fiche qu'on ne coupe pas** | 30/08 s3 | **0/N** |
+  | 13 | une **déclaration C131 se termine par le total qu'elle implique** | 29/08 s8 | **2/N** |
+  | 14 | la **batterie ne se filtre jamais au lancement** | 29/08 | **1/N** |
+
+  ⚠ **La clause de périmètre C109 est à 6/N**, et l'**assomption C113 sur les
+  chaînes affichées libres** reste **NON ARBITRÉE** — le lot 8 n'a pas pu la
+  tester, faute de tout bloc de code. Coût du revert connu : **4 littéraux de
+  code et 1 ligne de bloc de sortie sur 2 fiches EN**.
+
+  ⚠ **Fait neuf de ce lot, et il change un geste** : `creer-fiche-en.mjs`
+  porte depuis la séance 3 du 30/08 le mode **`--corps <fiche EN> <fichier de
+  corps>`**, qui **remplace le corps et recopie le front matter à l'octet**
+  sous cinq gardes. **La rédaction des fiches EN de ce lot passera par un
+  fichier de corps, jamais par la réécriture du fichier.** *C'est la première
+  fois qu'un lot dispose de l'outil ; le mode est à 1/N, sur un test positif
+  de non-régression et un test négatif.*
+
+- **Périmètre annoncé par le brief** — l'**anneau 2** à **23 fiches,
+  37 148 mots, 0 porteuse**. **`ded` vaut 0 sur tout le restant**, donc
+  `tot` = `deh` et **C127 est hors sujet pour le quatrième lot d'affilée** ;
+  `mesure-chevron --tout` ne sert qu'à confirmer **34 paires, 0 divergente**.
+  **Gisement de tête nommé** : le palier « Analyse fonctionnelle » de
+  `conduite/proj/` — **8 fiches, 8 190 mots dérivés**, au-dessus de la borne
+  **6 657** —, qui **se coupe en deux lots** ; **`fonction` et
+  `caracteriser-une-exigence` se prennent ENSEMBLE**, leurs six alias
+  (`FP`, `FS`, `FC`, `critere`, `flexibilite`, `niveau`) étant les six
+  `CIBLES SANS FICHE` du corpus.
+- **Blocs prévus** — **64** garde d'ouverture ; **65** composition du lot 9
+  (relevé nominatif de l'anneau 2) ; **66** cadrage (volume, candidats C109) ;
+  G1 ; **67** éprouvage bilingue du motif des puces (C110) et relevé du lot ;
+  **68** passe C109 ; G2 ; **69** les **CINQ** relevés d'avant rédaction, puis
+  génération des squelettes ; G3 ; **70** rédaction des fiches EN **par
+  `--corps`** ; G3bis ; **71** les `title:` EN (C125) ; **72** clôture du
+  lot 9 ; G4 ; **73** clôture §7.
+
+---
+
+## Recoupement du prompt de lancement contre la ligne « Prochaine session »
+
+*La ligne de référence est celle de l'entrée du **30/08 (suite 2)** ; l'entrée
+du **30/08 (suite 3)** la reconduit explicitement — « brief inchangé par
+rapport à l'entrée du 30/08 (suite 2) » — et lui **ajoute un terme**.*
+
+**Ce que le prompt reprend au mot, sans écart :** l'anneau 2 à **23 fiches /
+37 148 mots / 0 porteuse** ; `ded` nul sur tout le restant, donc `tot` = `deh`
+et **C127 hors sujet pour le quatrième lot d'affilée** ; `mesure-chevron
+--tout` en simple confirmation de **34 paires / 0 divergente** ; le palier
+« Analyse fonctionnelle » de `conduite/proj/` comme gisement de tête,
+**8 fiches / 8 190 mots dérivés**, au-dessus de la borne, **donc deux lots** ;
+`fonction` et `caracteriser-une-exigence` **ensemble**, leurs **six alias**
+nommés un par un ; les **CINQ** relevés avant rédaction, titres de callout
+compris, référence `Watch out` **44** et `Tip` **41**.
+
+**Ce que le prompt ajoute, et qui est traçable à une mesure ou à une règle en
+vigueur — donc aucun n'est un écart de brief, et aucun n'est reconduit sans
+remesure (C118) :**
+
+1. **Les cinq relevés sont détaillés avec leur candidate et sa marque** :
+   titres de section (**3/N**, candidate à porter à 4/N) ; `title:` **lus
+   d'abord dans les libellés** (**0/N**) ; motif des puces sur un échantillon
+   de chaque langue ; chaînes affichées sous C113 ; titres de callout
+   (**0/N**). *Traçables au §8 de `conventions.md`, marques vérifiées
+   ci-dessus.*
+2. **L'ordre de lecture des `title:`** — les libellés **avant** les trois
+   tests de C125. *C'est la candidate née du lot 8, écrite en toutes lettres
+   au §8.*
+3. **Les références datées des formes de production EN**, `204 / 140 / 139 /
+   102 / 37 / 30`, avec la mention **« prise AVANT les 5 fiches du lot 8 »**.
+   *Traçable à la ligne « Tailles » du 30/08 (suite 2), qui publie la
+   nouvelle référence **avec son instant** — correctif de la cause nommée
+   « un relevé d'avant-rédaction servi comme état de clôture », deux
+   réfutations au lot 8.* ⚠ **Le prompt reprend l'avertissement, ce qui veut
+   dire que ces six chiffres NE SONT PAS un état de clôture : les cinq fiches
+   du lot 8 ont été écrites après, et le relevé du bloc 69 doit sortir
+   AU-DESSUS.**
+4. **`titres-doublons` FR 243 / 243 / 0, EN 216 / 216 / 0.** *Ligne
+   « Tailles » du 30/08 (suite 2).*
+5. **Puces à tiret du corpus : FR 1 002 / 172 / 248, EN 885 / 149 / 216.**
+   *Même ligne, populations comprises — la redéclaration est la règle
+   d'usage 3, à 2/N.*
+6. **Les deux populations à ne pas confondre** — **corpus restant 26**,
+   **anneau 2 restant 23**. *Même ligne : `restant 31 → 26 fiches` pour le
+   corpus, `23 restantes` pour l'anneau ; l'écart de 3 est nommé de longue
+   date — `xiao-prise-en-main`, `xiao-sense`, `embarque/pcb/kicad`.*
+7. **La garde de péremption au cadrage ET avant chaque passe**, et **la liste
+   des artefacts d'un bloc fermée AVANT le bloc**, avec le motif chiffré
+   (« C131 tombée trois fois le 30/08 »). *Sous-règle C116 (5) et règle
+   d'usage 10.*
+8. **Les deux outils d'écriture nommés** : `remplacer-passe.mjs` et
+   `renommer-titres.mjs`. *Amendement du 29/08 (suite 8) à la sous-règle
+   C116, terme (6).*
+
+⚠ **UN TERME DU PROMPT NE SE RECOUPE PAS, ET C'EST LE TROISIÈME LOT D'AFFILÉE
+QUE LE REGISTRE PREND LE BRIEF EN DÉFAUT.** Le prompt écrit, pour le motif des
+puces : *« réponses publiées **10** des deux côtés, **0/3/1/1/0** »*. **La
+décomposition somme à 5, pas à 10** — elle est donc **incohérente avec son
+propre total**, dans la même phrase. **La réponse publiée au registre est
+`3 / 3 / 0 / 3 / 1 = 10`**, écrite au bloc 54 de ce même fichier (P54.8 et
+P54.9) et à l'entrée du 30/08 (suite 2). *Le lot 7 avait corrigé un **mot** du
+brief, le lot 8 un **chiffre**, celui-ci corrige une **décomposition**.*
+✅ **Conséquence protocolaire, et elle est nulle** : C110 exige que la réponse
+d'un échantillon soit **publiée avant la mesure**, et le registre la porte.
+**Le bloc 67 relira les réponses au registre, jamais au prompt** — et le terme
+qui prouve reste **la décomposition, pas le total**, exactement comme au
+bloc 54.
+
+⚠ **UN TERME MANQUE AU PROMPT, ET IL EST DANS L'ENTRÉE DU 30/08 (SUITE 3).**
+Le prompt ne nomme **pas** le mode **`--corps`**, alors que la ligne
+« Prochaine session » de la suite 3 écrit : *« le lot 9 est le premier qui
+pourra employer `--corps` : la rédaction d'une fiche EN passe désormais par un
+fichier de corps, jamais par la réécriture du fichier. »* **Le prompt dit
+pourtant « plus celles du 30/08 (deux séances) »**, ce qui range la règle dans
+le régime. ✅ **Elle est donc tenue**, et le bloc 70 s'y conforme.
+
+⚠ **Et un dernier terme du prompt est neuf par rapport aux deux entrées** :
+*« un relevé d'avant-rédaction n'est pas un état de clôture »*. *C'est la
+cause n° 3 du bilan du lot 8, promue au rang de point d'attention du brief.*
+
+**Conclusion du recoupement : le prompt est conforme, il durcit le brief sur
+trois points (les cinq relevés détaillés, l'instant des références, la
+fermeture de la liste d'artefacts), et il porte UNE erreur de décomposition
+que le registre corrige sans arbitrage.**
+
+---
+
+## Déclaration C131 d'ouverture — population des compteurs, artefacts versés, et TOTAL
+
+*C131 et son amendement du 29/08 (suite 8) : nommer les artefacts que la séance
+elle-même verse dans la population comptée, **et les additionner** ; la
+déclaration ne vaut que pour le bloc qui l'écrit, et **chaque bloc qui crée ou
+modifie un fichier suivi la rejoue**. Plus la règle d'usage 10 du 30/08
+(suite 2) : **la liste se ferme AVANT le bloc, et aucune commande du bloc
+n'écrit hors de cette liste.***
+
+**Population du compteur `git status --porcelain`** — le dépôt entier, tous
+états confondus (`M`, `??`, `A`, `D`), **moins** ce que `.gitignore` exclut. Le
+`.gitignore` n'exclut que **deux chemins exacts** — `tools/batterie-sortie.txt`
+et `tools/seance-sortie.txt` — donc **tout le reste de `tools/` est compté**,
+fichier de prédictions et copies C124 comprises (arbitrage Tim (f)(ii) du
+29/08).
+
+**Population du compteur `hors artefacts de seance`** — la même, **moins** les
+lignes dont le chemin contient `batterie-sortie` **ou** `predictions-` (deux
+`-notmatch` lus dans le **code** de `batterie.ps1`, jamais dans son en-tête —
+sous-règle C116 (7)).
+
+**État de départ** — `(clean)`, **0 fichier non commité**, injecté par le
+harnais après le commit `4e73aa8` de Tim. `[HORS DÉCOMPTE]`
+
+**Liste FERMÉE des artefacts versés avant que l'étape 1 du bloc 64 ne lise
+`git status` :**
+
+| # | artefact | état git | compté au total | compté hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` (ce texte, appendu avant le bloc 64 — fichier **suivi** depuis `542bb4f`) | ` M` | **oui** | non (`predictions-`) |
+| 2 | `tools/batterie-sortie-3008b19.txt` (copie C124 que l'étape 0 crée **avant** que l'étape 1 ne lise `git status`) | `??` | **oui** | non (`batterie-sortie`) |
+| — | `tools/batterie-sortie.txt` (réécrit en fin de bloc, **et de toute façon après la lecture**) | ignoré | non | non |
+
+**TOTAL impliqué par la déclaration : 1 + 1 = 2 au total, 0 + 0 = 0 hors
+artefacts de séance.**
+
+**Le bloc 64 ne lance qu'UNE commande** (`batterie.ps1 -Phase garde`) et cette
+commande n'écrit que **deux** fichiers : `tools\batterie-sortie.txt` (ignoré)
+et la copie datée ci-dessus. **La liste est close.**
+
+⚠ **Le rang de la copie C124 est prédit, pas composé de mémoire** : l'étape 0
+cherche le **premier rang libre** de `tools\batterie-sortie-<jjMM>b<N>.txt`.
+`Get-Date -Format 'ddMM'` rend **`3008`** ; le listing du répertoire `tools/`
+fait à l'ouverture de cette séance porte `3008b1` à **`3008b18`** sans trou,
+le rang **19** est donc le premier libre.
+
+---
+
+## ⚠ INCIDENT D'OUVERTURE — QUATRIÈME RÉCIDIVE : HEAD ET LE STATUT SONT DANS MON CONTEXTE AVANT LA GARDE
+
+Le harnais injecte de nouveau, en tête de contexte, un bloc `gitStatus` portant
+la **branche** (`main`), le **statut** (`(clean)`) et les **cinq derniers
+commits**, dont `4e73aa8 arbitrages lot 8 rendus: borne levee sur easyeda,
+Ecodesign confirme, mode --corps`.
+
+**Conséquence protocolaire, identique aux trois récidives précédentes :** la
+prédiction du **hash de `HEAD`** et celle du **statut d'ouverture** sont
+**HORS DÉCOMPTE** — elles recopient une donnée déjà présente. Elles sont
+écrites quand même, parce que la garde les compare et qu'un écart resterait un
+arrêt.
+
+⚠ **Ce que l'injection ne dit PAS, et qui reste à décompte plein** : (a)
+l'**horodatage** du commit `4e73aa8`, absent du bloc injecté ; (b) les **deux
+chiffres** de la ligne `fichiers modifies non commites`, le statut injecté
+datant de l'ouverture de la session, avant que j'aie écrit le moindre octet ;
+(c) les **trois dates d'écriture** des fichiers de pilotage.
+
+---
+
+## Bloc 64 — garde de péremption d'ouverture
+
+**Commande unique :**
+`powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+
+*Aucune fiche passée : `-Fiches` et `-FichesEn` vides — la composition du lot 9
+n'est pas encore instruite, et la passer ici reviendrait à inventer un lot
+avant de l'ouvrir. **La batterie ne se filtre jamais au lancement** (règle
+d'usage 14) : la sortie est intégrale, le tri se fait à la lecture.*
+
+**Base de comparaison** — la sortie de la garde du bloc 61, conservée dans
+`tools/batterie-sortie.txt` (dernier lancement de la séance 3), et le commit
+`4e73aa8` que Tim a passé depuis.
+
+### Prédictions
+
+**P64.1 — autocontrôle ASCII (C122) et copie C124.** `lignes non ASCII dans
+batterie.ps1 : 0`, puis `sortie precedente copiee :
+tools\batterie-sortie-3008b19.txt`. *Le fichier n'a pas été touché depuis son
+dernier autocontrôle à 0 ; rang 19 par la déclaration C131 ci-dessus.*
+
+**P64.2 — `HEAD` git, en deux termes de statut différent.** La ligne sort
+sous la forme `HEAD git : 4e73aa8 2026-08-30 HH:mm:ss +0200`.
+- le **hash `4e73aa8`** est **`[HORS DÉCOMPTE]`** (injecté) ;
+- l'**horodatage** est à **décompte plein** : **date `2026-08-30`**, **heure
+  strictement postérieure à `08:42:49`** (heure de la garde du bloc 61, que le
+  travail de la séance 3 puis le commit de Tim ont suivie).
+
+⚠ **P64.3 — deux branches nommées AVANT la mesure.** (a) `HEAD` = `4e73aa8`,
+**branche attendue**, la séance 3 ayant été livrée par Tim : on poursuit ;
+(b) `HEAD` ≠ `4e73aa8`, ou statut d'ouverture portant un fichier de
+`content/` : **ARRÊT**, remontée à Tim, aucune écriture.
+
+**P64.4 — compteurs `git status`.** `fichiers modifies non commites : 2
+(hors artefacts de seance : 0)`, **par la liste fermée de la déclaration C131
+ci-dessus** — le fichier de prédictions en ` M` et la copie
+`batterie-sortie-3008b19.txt` en `??`, tous deux filtrés du second compteur.
+*Le chiffre `hors artefacts` se lit contre la liste nominative, jamais seul
+(sous-règle C116 (9)).*
+
+**P64.5 — dates de dernière écriture, exactement TROIS lignes** (`-Fiches` et
+`-FichesEn` vides) :
+- `JOURNAL.md` — **`2026-08-30`**, heure **strictement postérieure à
+  `08:29:20`** *(la clôture §7 de la séance 3, bloc 63, l'a réécrit après la
+  garde du bloc 61)* ;
+- `conventions.md` — **`2026-08-30`**, heure **strictement postérieure à
+  `08:27:43`** *(quatre éditions au bloc 63)* ;
+- `TODO.md` — **`2026-08-29 21:48:08`**, **inchangé à la seconde** *(aucune
+  séance du 30/08 ne l'a touché ; il est à 282,7 ko depuis, écart toujours non
+  instruit)*.
+
+⚠ *Un commit ne change pas la date d'écriture d'un fichier : `4e73aa8` ne
+déplace aucune des trois. **Les deux écarts prédits viennent de la séance 3
+elle-même, pas d'une main tierce** — c'est la branche (a) de P64.3.*
+
+**P64.6 — invariants d'entête et de sortie.** `phase demandee : garde
+anneau : 2   chevron : False`, `date ISO : 2026-08-30`, heure **strictement
+postérieure à `08:42:49`**, `node : v24.15.0`, et **2 étapes, 2 codes de
+sortie, tous `0`**.
+
+**P64.7 — ce que la sortie NE porte PAS.** Aucune ligne de volume, de contrôle,
+de dérive, d'anneau, de wikilinks, de médias ni de libellés : la phase `garde`
+s'arrête à l'étape 1. *Terme écrit pour réfuter : si une seule de ces lignes
+apparaît, c'est que la phase passée n'est pas celle que je crois.*
+
+### Constats du bloc 64 (sortie `tools/batterie-sortie.txt`, copie C124 `3008b19`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P64.1 | ASCII **0**, copie `tools\batterie-sortie-3008b19.txt` | 0 ; `3008b19` | **tenue** |
+| P64.2a | hash `4e73aa8` | `4e73aa8` | *[hors décompte]* |
+| P64.2b | horodatage `2026-08-30`, heure > `08:42:49` | `2026-08-30 08:57:42 +0200` | **tenue** |
+| P64.3 | branche (a) attendue, (b) = arrêt | branche **(a)** | *[déclarative]* |
+| P64.4 | `2   (hors artefacts de seance : 0)` | 2 / 0 | **tenue** |
+| P64.5 | 3 lignes ; JOURNAL `2026-08-30` > `08:29:20` ; conventions `2026-08-30` > `08:27:43` ; TODO `2026-08-29 21:48:08` à la seconde | 3 lignes ; `08:50:22` ; `08:49:11` ; `2026-08-29 21:48:08` | **tenue** |
+| P64.6 | `cadrage`→`garde`/`2`/`False`, ISO `2026-08-30`, heure > `08:42:49`, `node : v24.15.0`, 2 codes à 0 | `garde   anneau : 2   chevron : False`, `2026-08-30`, `09:10:43`, `v24.15.0`, 2 × 0 | **tenue** |
+| P64.7 | aucune ligne de volume/contrôle/dérive/anneau/wikilinks/médias/libellés | aucune | **tenue** |
+
+**Bilan du bloc 64 : 6 prédictions à décompte plein, 6 tenues, 0 réfutée**
+(plus 1 terme hors décompte et 1 déclarative). **La garde de péremption est
+au vert, branche (a) : on poursuit.**
+
+✅ **LES DEUX SEULS ÉCARTS DE DATE SONT CEUX QUE LA SÉANCE 3 A ÉCRITS, ET ILS
+ÉTAIENT PRÉDITS COMME TELS.** `JOURNAL.md` passe de `08:29:20` à `08:50:22`,
+`conventions.md` de `08:27:43` à `08:49:11` — les deux **entre** la garde du
+bloc 61 et le commit `4e73aa8` de `08:57:42`, ce qui les range dans la clôture
+§7 de la séance 3 et **nulle part ailleurs**. `TODO.md` n'a pas bougé d'une
+seconde depuis le 29/08. *La garde ne dit pas seulement « rien d'inattendu » ;
+elle dit **quelle main** a écrit, et l'ordre des horodatages suffit.*
+
+⚠ *Artefact hors dépôt, nommé pour que la liste C131 reste vraie : le texte de
+ce bloc a été composé dans un fichier du répertoire de travail temporaire de la
+session, **hors `content/` et hors `tools/`**. Il n'entre dans aucun des deux
+compteurs `git status` et n'a pas à figurer à la déclaration ; il est écrit ici
+pour que « aucune commande du bloc n'écrit hors de la liste » se lise sans
+angle mort.*
+
+---
+
+## Déclaration C131 du bloc 65 — rejouée
+
+**Populations** — inchangées et redéclarées : `git status --porcelain` sur le
+dépôt entier moins les **deux chemins exacts** du `.gitignore` ; `hors
+artefacts de seance` = la même moins les lignes portant `batterie-sortie` ou
+`predictions-`.
+
+**Liste FERMÉE des artefacts au moment où l'étape 1 du bloc 65 lira
+`git status` :**
+
+| # | artefact | état git | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` (déjà ` M`, ce texte l'allonge sans changer son état) | ` M` | **oui** | non |
+| 2 | `tools/batterie-sortie-3008b19.txt` (créée au bloc 64) | `??` | **oui** | non |
+| 3 | `tools/batterie-sortie-3008b20.txt` (créée par l'étape 0 du bloc 65, **avant** la lecture) | `??` | **oui** | non |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non |
+
+**TOTAL impliqué : 3 au total, 0 hors artefacts de séance.**
+
+**Le bloc 65 lance UNE commande d'écriture** (`batterie.ps1 -Phase cadrage`,
+qui n'écrit que `batterie-sortie.txt` et sa copie datée) **et une lecture sans
+écriture** (`conduite/proj/index.md`, pour lire les paliers du hub). **La liste
+est close.**
+
+---
+
+## Bloc 65 — composition du lot 9 : relevé nominatif de l'anneau 2 et paliers du hub
+
+**Commandes, dans cet ordre :**
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage`
+   *(sans `-Fiches` : la composition n'est pas encore arrêtée ; la passer ici
+   reviendrait à inventer le lot avant de l'instruire. La batterie ne se filtre
+   jamais au lancement — règle d'usage 14.)*
+2. lecture de `content/conduite/proj/index.md` — **le palier du hub est le
+   critère qui a tranché le lot 8**, et le brief nomme un palier
+   (« Analyse fonctionnelle ») sans en donner la composition.
+
+**Base de comparaison** — la sortie d'état de la clôture du lot 8,
+`tools/batterie-sortie-3008b18.txt`, prise le 30/08 vers 08:3x. **Rien n'a
+touché à `content/` depuis** : la séance 3 n'a écrit ni fiche ni source, et le
+commit `4e73aa8` ne déplace rien.
+
+### Prédictions
+
+**P65.1 — autocontrôle et copie C124.** `lignes non ASCII dans batterie.ps1 :
+0` ; `sortie precedente copiee : tools\batterie-sortie-3008b20.txt`.
+
+**P65.2 — paramètres et horloge.** `phase demandee : cadrage   anneau : 2
+chevron : False` ; `date ISO : 2026-08-30` ; heure **strictement postérieure à
+`09:10:43`**.
+
+**P65.3 — HEAD, au caractère.** `HEAD git : 4e73aa8 2026-08-30 08:57:42
++0200`. *Décompte plein : la prédiction porte sur la **stabilité** de HEAD
+entre deux blocs de ma séance, pas sur la valeur injectée.*
+
+**P65.4 — compteurs git.** `fichiers modifies non commites : 3   (hors
+artefacts de seance : 0)`, par la liste fermée ci-dessus.
+
+**P65.5 — node et dates.** `node : v24.15.0` ; **3 lignes de dates**,
+identiques au bloc 64 **au caractère** : `JOURNAL.md 2026-08-30 08:50:22`,
+`conventions.md 2026-08-30 08:49:11`, `TODO.md 2026-08-29 21:48:08`.
+
+**P65.6 — forme de la sortie.** **QUATRE étapes** titrées `0`, `1`,
+`2 - volume et candidats du lot`, `4 - anneau, dette, chevron, cibles sans
+fiche (--anneau)` — **l'étape 3 n'existe pas**, le `else` du code fusionnant 2
+et 3 —, **4 codes de sortie, tous `0`**. L'étape 2 porte la seule ligne
+`aucune source FR passee (-Fiches) : etapes de lot sautees.`
+
+**P65.7 — en-tête de l'anneau 2, au caractère.** `anneau 0 (index de depart)
+: 4` ; `cibles BRUTES : 222` ; `deja vues aux rangs 0..1 : 77` ;
+`ANNEAU 2 NET : 145` ; `deja traduites : 122` ; `RESTANT : 23`.
+*Le NET se calcule sur le graphe des liens **français** : traduire ne le
+déplace pas, et rien n'a touché à `content/` depuis la clôture du lot 8.*
+
+**P65.8 — la liste nominative des 23, au caractère et dans cet ordre**
+(23 lignes, `chemin` puis mots) :
+
+```
+conduite/proj/afnor-nfx50-151                            91
+conduite/proj/bete-a-cornes                             931
+conduite/proj/caracteriser-une-exigence                2004
+conduite/proj/etat-de-l-art-technique                  2286
+conduite/proj/fonction                                  384
+conduite/proj/mecatronique                              262
+conduite/proj/mind-map                                  908
+conduite/proj/pieuvre                                  1324
+embarque/asservissement                                 925
+embarque/boucle-ouverte                                1100
+embarque/mcu/ascii                                      671
+embarque/mcu/chien-de-garde                            2005
+embarque/mcu/filtrage                                  1397
+embarque/mcu/fonction-informatique                      398
+embarque/mcu/ide                                        385
+embarque/mcu/potentiometre                              519
+embarque/mcu/programmation-non-bloquante               1829
+embarque/mcu/sans-fil/xbee                              135
+embarque/pcb/easyeda                                   9773
+embarque/protection-electronique                       1389
+embarque/simulation/falstad                            3244
+embarque/simulation/ltspice                            3848
+embarque/simulation/wokwi                              1340
+```
+
+**P65.9 — total du restant.** `RESTANT DE L ANNEAU 2 (23 fiches)  37148`,
+**identique au brief**.
+
+**P65.10 — angle mort du chevron.** `fiches porteuses : 0`,
+`clotures en chevron : 0`, et la ligne
+`-> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.`
+⚠ *C'est le terme qui rend **C127 hors sujet pour le quatrième lot d'affilée**
+et qui réduit `mesure-chevron --tout` à une confirmation.*
+
+**P65.11 — orphelines et cibles sans fiche.**
+`ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)` ; puis
+`CIBLES SANS FICHE (6) - liens rouges cote francais :` avec, **dans l'ordre
+alphabétique du script**, `[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`,
+`[[flexibilite]]`, `[[niveau]]`. *Ce sont exactement les six alias que le brief
+attache à `fonction` et `caracteriser-une-exigence`.*
+
+**P65.12 — dette du front courant.** `fiches sources (traduites) : 216` ;
+`cibles rouges distinctes : 26` ; `mots : 39416` ; `dont HORS anneaux 0..2 :
+2`, nommées `embarque/mcu/xiao/xiao-prise-en-main` et
+`embarque/mcu/xiao/xiao-sense`. ⚠ *Les **deux populations** que le prompt
+demande de ne pas confondre : **26** pour le corpus, **23** pour l'anneau 2, et
+l'écart de 3 est ces deux `xiao/` plus `embarque/pcb/kicad`, invisible aux
+trois compteurs.*
+
+**P65.13 — le palier « Analyse fonctionnelle » du hub, terme écrit pour
+réfuter.** Le brief dit **8 fiches, 8 190 mots**. La somme des **huit** lignes
+`conduite/proj/` de P65.8 vaut `91 + 931 + 2004 + 2286 + 384 + 262 + 908 +
+1324` = **8 190**. **Je prédis donc que le palier « Analyse fonctionnelle » de
+`conduite/proj/index.md` recouvre EXACTEMENT ces huit fiches**, sans en
+contenir une neuvième déjà traduite ni en omettre une du restant.
+⚠ *Si le hub range l'une des huit ailleurs — `mecatronique` et
+`afnor-nfx50-151` sont les deux candidates à ne pas être des outils d'analyse
+fonctionnelle —, alors le « 8 fiches / 8 190 mots » du brief est un **compte de
+répertoire** déguisé en palier, et le critère qui a tranché le lot 8 ne
+s'applique pas ici. **C'est le terme qui décide si le lot se compose sur le hub
+ou sur la borne seule.***
+
+**P65.14 — ce que la sortie NE porte PAS.** Ni corpus, ni `--controle`, ni
+dérive, ni foisonnement, ni `--style` EN, ni médias, ni wikilinks, ni
+`--libelles` : la phase `cadrage` s'arrête à l'étape 4.
+
+### Constats du bloc 65 (sortie `tools/batterie-sortie.txt`, copie C124 `3008b20`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P65.1 | ASCII 0 ; copie `3008b20` | 0 ; `tools\batterie-sortie-3008b20.txt` | **tenue** |
+| P65.2 | `cadrage / 2 / False`, ISO `2026-08-30`, heure > `09:10:43` | idem ; `09:12:39` | **tenue** |
+| P65.3 | `HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` au caractère | identique | **tenue** |
+| P65.4 | `3   (hors artefacts de seance : 0)` | 3 / 0 | **tenue** |
+| P65.5 | `v24.15.0` ; 3 dates identiques au caractère | `v24.15.0` ; `08:50:22` / `08:49:11` / `2026-08-29 21:48:08` | **tenue** |
+| P65.6 | 4 étapes `0 / 1 / 2 / 4`, pas d'étape 3, 4 codes à 0, ligne « etapes de lot sautees » | exactement | **tenue** |
+| P65.7 | `4 / 222 / 77 / 145 / 122 / 23` | identique | **tenue** |
+| P65.8 | les 23 lignes au caractère et dans l'ordre | identiques | **tenue** |
+| P65.9 | `RESTANT DE L ANNEAU 2 (23 fiches)  37148` | identique | **tenue** |
+| P65.10 | porteuses 0, clôtures 0, ligne « pas bloquant » | identique | **tenue** |
+| P65.11 | `ATTEIGNABLES ... (0)` ; `CIBLES SANS FICHE (6)` : FC, FP, FS, critere, flexibilite, niveau | identique | **tenue** |
+| P65.12 | dette `216 / 26 / 39416 / 2`, les deux `xiao/` nommées | identique | **tenue** |
+| P65.13 | le palier « Analyse fonctionnelle » recouvre **exactement** les huit fiches du restant | **NEUF entrées** : les huit + `cahier-des-charges-fonctionnel`, **déjà traduite** | **RÉFUTÉE** |
+| P65.14 | ni corpus, ni contrôle, ni dérive, ni foisonnement, ni style, ni médias, ni wikilinks, ni libellés | aucun | **tenue** |
+
+**Bilan du bloc 65 : 14 prédictions à décompte plein, 13 tenues, 1 réfutée.**
+
+⚠ **RÉFUTATION P65.13 — LE PALIER PORTE NEUF FICHES, PAS HUIT, ET LA
+RÉFUTATION RENFORCE LE CRITÈRE AU LIEU DE L'ABATTRE.** Le palier « Analyse
+fonctionnelle » de `conduite/proj/index.md` liste **neuf** entrées, dans cet
+ordre : `mecatronique`, `mind-map`, `bete-a-cornes`, `pieuvre`, `fonction`,
+`caracteriser-une-exigence`, `etat-de-l-art-technique`,
+**`cahier-des-charges-fonctionnel`**, `afnor-nfx50-151`. **La neuvième est
+traduite depuis le 25/08 (suite 3), où elle a été la fiche pivot à N=1 sous
+C116.**
+
+*Ce que la réfutation change, et ce qu'elle ne change pas.* **Elle ne déplace
+aucun volume** : `8 190` reste la somme des huit non traduites, et le brief
+avait raison sur le chiffre. **Elle corrige la nature de l'objet** : « 8 fiches
+/ 8 190 mots » n'est pas la taille du palier, c'est **ce qu'il reste du
+palier**. ✅ **Et elle referme le doute que la prédiction avait écrit** :
+`mecatronique` et `afnor-nfx50-151`, les deux candidates à ne pas être des
+outils d'analyse fonctionnelle, **sont bien dans le palier** — la première en
+tête (« la boucle perception → décision → action qui **définit le champ** »),
+la seconde en queue (« le **cadre normatif** de l'analyse fonctionnelle »).
+**Le critère du palier s'applique donc pleinement, et c'est lui qui découpe.**
+
+⚠ *Le compte de répertoire et le compte de palier coïncident ici par accident :
+`conduite/proj/index.md` porte **30 entrées** réparties en **cinq paliers**
+(mesuré sur le fichier lu à ce bloc : 8 / 9 / 5 / 5 / 3), et
+c'est seulement parce que les quatre autres paliers sont **entièrement
+traduits** que « les 8 de `conduite/proj/` » et « les 8 restants du palier »
+donnent la même liste. **Deux populations de plus à ne pas confondre**, et la
+prochaine coupe dans ce répertoire ne pourra plus s'appuyer sur la
+coïncidence.*
+
+---
+
+## Dossier de composition du lot 9 — instruit sur les sorties des blocs 65
+
+### Ce que le brief impose, et ce qu'il laisse ouvert
+
+**Imposé** : le palier « Analyse fonctionnelle » est le **gisement de tête** ;
+il pèse **8 190** contre une borne de **6 657**, donc il **se coupe en deux
+lots** ; **`fonction` et `caracteriser-une-exigence` se prennent ENSEMBLE**.
+**Ouvert** : *où* passe la coupe, et *avec quoi* le lot se complète.
+
+### Le point de coupe — l'ordre du palier est un ordre de récit, pas un tri
+
+Le palier s'annonce, au hub, comme *« la chaîne d'expression du besoin, du
+brainstorming initial au cahier des charges »*, et ses neuf entrées sont
+**rangées dans l'ordre de cette chaîne**, pas par ordre alphabétique ni par
+poids. **La coupe se prend donc sur la chaîne**, à l'endroit où elle change de
+nature :
+
+| rang | fiche | mots | ce que la chaîne fait à ce rang |
+|---|---|---|---|
+| 1 | `mecatronique` | 262 | définit le champ |
+| 2 | `mind-map` | 908 | recense large |
+| 3 | `bete-a-cornes` | 931 | cadre le besoin |
+| 4 | `pieuvre` | 1 324 | recense les fonctions |
+| 5 | `fonction` | 384 | **type** les fonctions (FP / FS / FC) |
+| 6 | `caracteriser-une-exigence` | 2 004 | **chiffre** les fonctions (critère / niveau / flexibilité) |
+| — | — | — | ⟵ **la coupe : le besoin est exprimé, typé et chiffré** |
+| 7 | `etat-de-l-art-technique` | 2 286 | va chercher les solutions **existantes** |
+| 8 | *(`cahier-des-charges-fonctionnel`, traduite)* | — | formalise |
+| 9 | `afnor-nfx50-151` | 91 | encadre normativement |
+
+**Rangs 1 à 6 = 262 + 908 + 931 + 1 324 + 384 + 2 004 = 5 813 mots, 6 fiches.**
+**Reste 7 + 9 = 2 286 + 91 = 2 377 mots, 2 fiches**, et `5 813 + 2 377 = 8 190`
+referme le palier.
+
+### Les quatre critères, appliqués dans l'ordre
+
+1. **La borne.** 5 813 contre 6 657 : **marge 844**. ⚠ *Ce sera le lot le plus
+   lourd du chantier hors `easyeda` — les huit lots mesurés tiennent entre
+   3 348 et 5 668.* **Aucune découpe de rangs 1..7 ne passe** (8 099), donc la
+   coupe ne peut pas descendre plus bas dans la chaîne.
+2. **La contrainte nommée du brief.** `fonction` (rang 5) et
+   `caracteriser-une-exigence` (rang 6) sont **tous deux du côté haut de la
+   coupe**. ✅ **Contrainte tenue, et elle est ce qui fixe la coupe à 6 et non
+   à 4** : couper après `pieuvre` (3 425) les séparerait de rien, mais couper
+   après `fonction` (3 809) les séparerait l'une de l'autre.
+3. **Pas de fiche orpheline.** Le résidu (`etat-de-l-art-technique` +
+   `afnor-nfx50-151`) fait **deux** fiches, pas une : le lot 10 aura de quoi se
+   composer, et il lui restera **4 280** mots de marge sous la borne pour se
+   compléter ailleurs. *Une coupe à 7 rangs aurait laissé
+   `afnor-nfx50-151` seule à **91 mots**, ce qui est une orpheline au sens
+   strict.*
+4. **Le palier du hub.** La coupe **ne traverse aucun palier** : elle reste
+   **à l'intérieur** de « Analyse fonctionnelle », ce que le brief autorise
+   explicitement. *Le critère du lot 8 — fermer des paliers entiers — est
+   **inapplicable ici**, aucun palier de moins de 6 657 mots ne restant ouvert
+   dans ce répertoire.*
+
+### ⚠ Le seul critère qui plaide contre, et il est écrit
+
+`etat-de-l-art-technique` (rang 7) est **la suite immédiate** de
+`caracteriser-une-exigence` dans la chaîne : le CdCF se nourrit des deux. **Les
+traduire dans deux lots différents fixe le vocabulaire anglais du triplet
+`critère / niveau / flexibilité` avant que la fiche qui l'emploie en tableau
+d'état de l'art ne soit écrite.** *C'est le symétrique exact de l'argument posé
+au lot 8 pour `fast` avant `fonction` — et il s'était résolu par une mesure du
+corpus, pas par un arbitrage.* ✅ **Mesure à faire au bloc 66**, et elle est
+prédite : le corpus anglais écrit-il déjà `criterion / level / flexibility` en
+libellés ou en prose ? **Si oui, il n'y a rien à décider ; si non, le lot 9
+crée la référence et le lot 10 la suit** — ce qui est l'ordre naturel, la
+fiche qui **enseigne** le triplet étant dans le lot 9.
+
+### ⚠ Les six `CIBLES SANS FICHE` — ce que le compteur dit, et ce qu'il ne dit pas
+
+`[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`, `[[flexibilite]]`, `[[niveau]]`
+sortent en **liens rouges côté français**. **Le brief les attache à `fonction`
+et `caracteriser-une-exigence`** — trois pour la typologie, trois pour le
+triplet —, ce que le hub confirme mot pour mot (« la typologie FP / FS / FC »,
+« le triplet critère / niveau / flexibilité »). ⚠ **Mais « cible sans fiche »
+est une mesure du graphe, pas une intention** : elle dit qu'**aucun fichier ne
+porte ces noms**, elle ne dit pas qu'un `aliases:` les capte. **À vérifier au
+bloc 66, sur le front matter des deux sources FR** — et c'est un terme écrit
+pour réfuter, parce que les deux lectures mènent à deux gestes opposés :
+*alias déjà déclaré* ⇒ le rouge est un angle mort du script et **rien n'est à
+faire** ; *alias absent* ⇒ les six liens sont **vraiment rouges à l'écran** et
+le lot touche à six liens du corpus FR, ce qui **change la passe C109**.
+
+### Composition arrêtée
+
+> **LOT 9 = les six premiers rangs du palier « Analyse fonctionnelle » de
+> `conduite/proj/` :**
+> `mecatronique`, `mind-map`, `bete-a-cornes`, `pieuvre`, `fonction`,
+> `caracteriser-une-exigence`.
+> **6 fiches, 5 813 mots dérivés, marge 844, 0 porteuse de chevron.**
+> **Résidu pour le lot 10 : `etat-de-l-art-technique` + `afnor-nfx50-151`,
+> 2 fiches, 2 377 mots.**
+
+⚠ **Décision prise seule sous C117/C120** — aucun des quatre critères n'a
+demandé d'arbitrage, et les deux points ouverts (le vocabulaire du triplet, les
+six alias) sont des **mesures du bloc 66**, pas des questions à Tim.
+
+---
+
+## Déclaration C131 du bloc 66 — rejouée
+
+**Populations** — inchangées, redéclarées : `git status --porcelain` sur le
+dépôt entier moins les deux chemins exacts du `.gitignore` ; `hors artefacts de
+seance` = la même moins `batterie-sortie` et `predictions-`.
+
+**Liste FERMÉE des artefacts au moment où l'étape 1 du bloc 66 lira
+`git status` :**
+
+| # | artefact | état git | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | **oui** | non |
+| 2 | `tools/batterie-sortie-3008b19.txt` (bloc 64) | `??` | **oui** | non |
+| 3 | `tools/batterie-sortie-3008b20.txt` (bloc 65) | `??` | **oui** | non |
+| 4 | `tools/batterie-sortie-3008b21.txt` (étape 0 du bloc 66, **avant** la lecture) | `??` | **oui** | non |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non |
+
+**TOTAL impliqué : 4 au total, 0 hors artefacts de séance.**
+
+**Le bloc 66 lance UNE commande d'écriture** (`batterie.ps1 -Phase cadrage
+-Fiches …`, qui n'écrit que `batterie-sortie.txt` et sa copie datée) **et une
+lecture sans écriture** (les six front matters FR). **La liste est close.**
+
+---
+
+## Bloc 66 — cadrage du lot 9 (volume, candidats C109, alias des six cibles rouges)
+
+**Commandes, dans cet ordre :**
+
+1. ```
+   powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase cadrage -Fiches conduite/proj/mecatronique.md,conduite/proj/mind-map.md,conduite/proj/bete-a-cornes.md,conduite/proj/pieuvre.md,conduite/proj/fonction.md,conduite/proj/caracteriser-une-exigence.md
+   ```
+2. lecture des **six front matters FR**, pour le champ `aliases:`.
+
+⚠ **Déplacement annoncé et non silencieux** : le dossier du bloc 65 écrivait
+« mesure à faire au bloc 66 » pour le **vocabulaire anglais du triplet
+critère / niveau / flexibilité**. Cette mesure est un **relevé de libellés**,
+et sa place est le **bloc 69**, avec les quatre autres relevés d'avant
+rédaction — la faire ici en doublon coûterait un `grep` de plus sans rien
+décider, la composition du lot ne dépendant pas de sa réponse. **Elle est donc
+reportée au bloc 69, où elle porte son propre terme de réfutation.**
+
+### Prédictions
+
+**P66.1 — autocontrôle et copie C124.** `lignes non ASCII dans batterie.ps1 :
+0` ; `sortie precedente copiee : tools\batterie-sortie-3008b21.txt`.
+
+**P66.2 — paramètres, horloge, HEAD.** `phase demandee : cadrage   anneau : 2
+chevron : False` ; `date ISO : 2026-08-30` ; heure **strictement postérieure à
+`09:12:39`** ; `HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère**.
+
+**P66.3 — compteurs git.** `fichiers modifies non commites : 4   (hors
+artefacts de seance : 0)`, par la liste fermée ci-dessus.
+
+**P66.4 — dates d'écriture, NEUF lignes.** Les **3** de pilotage, identiques au
+bloc 65 au caractère (`08:50:22` / `08:49:11` / `2026-08-29 21:48:08`), **puis
+6 lignes de fiches** (`-Fiches` porte 6 chemins, `-FichesEn` est vide).
+**Aucune ligne `ABSENTE`**, et **les six dates strictement antérieures à
+`2026-08-30 00:00:00`** — aucune passe du 30/08 n'a touché à
+`conduite/proj/`, la passe C109 du lot 8 n'ayant porté que sur ses cinq
+sources.
+
+**P66.5 — forme de la sortie.** **CINQ étapes** titrées `0`, `1`,
+`2 - volume du lot (compter-mots --lot)`,
+`3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par
+fiche)`, `4 - anneau, dette, chevron, cibles sans fiche (--anneau)` —
+**l'étape 3 existe cette fois**, `-Fiches` étant non vide —, **5 codes de
+sortie, tous `0`**.
+
+**P66.6 — volume du lot, au mot près et par fiche.** L'étape 2 rend
+**exactement** les valeurs de la liste d'anneau, `compter-mots` étant la même
+source pour les deux (le module est importé par `--anneau`, mesure vérifiée sur
+le lot 8 : cinq fiches, cinq chiffres identiques) :
+
+```
+conduite/proj/mecatronique.md                                262
+conduite/proj/mind-map.md                                    908
+conduite/proj/bete-a-cornes.md                               931
+conduite/proj/pieuvre.md                                    1324
+conduite/proj/fonction.md                                    384
+conduite/proj/caracteriser-une-exigence.md                  2004
+---------------------------------------------------------------
+LOT (6 fiches)                                              5813
+```
+
+⚠ *L'ordre des lignes suit l'ordre de `-Fiches`, qui est l'ordre du palier, pas
+l'ordre alphabétique.* **Marge sous la borne : 6 657 − 5 813 = 844.**
+
+**P66.7 — `C109 de prose` : entre 55 et 80, point estimé 67.** *Base : la
+densité de candidats C109 au millier de mots, mesurée sur quatre lots
+consécutifs et remarquablement stable —* lot 5 `micropython/` **46 / 4 434 =
+10,4** ; lot 6 `stm32/` **50 / 4 726 = 10,6** ; lot 7 **56 / 5 301 = 10,6** ;
+lot 8 `conduite/proj/` **63 / 5 488 = 11,5**. *Le lot 8 est le seul du même
+répertoire et le plus dense des quatre ; `11,5 × 5 813 / 1 000 = 66,8`.*
+
+**P66.8 — décomposition par fiche, points estimés à 11,5 ‰.**
+`mecatronique` **3**, `mind-map` **10**, `bete-a-cornes` **11**, `pieuvre`
+**15**, `fonction` **4**, `caracteriser-une-exigence` **23**.
+⚠ *Terme écrit pour réfuter : **la densité n'est pas uniforme dans un lot**, et
+deux fiches courtes (`mecatronique` 262, `fonction` 384) peuvent parfaitement
+sortir à 0. **Si l'une des deux sort à 0, la ligne `N a reprendre` tombe sous
+6**, et c'est le seul endroit où le total peut être juste pendant que la
+décomposition rate.*
+
+**P66.9 — ligne de tête de `--style`.** `6 fiche(s) lue(s), 6 a reprendre.`
+*Prédite pleine ; voir le terme de réfutation de P66.8.*
+
+**P66.10 — les quatre verdicts mécaniques et le cinquième seau.**
+`typographie francaise : 0`, `C109 creees en EN : 0`,
+`hors alphabet latin : 0`, `virgule ambigue : 0` ; et
+`hors perimetre` **entre 5 et 25, point estimé 15** *(lot 8 : 11 sur 5 fiches
+du même répertoire)*. ⚠ *`hors perimetre` porte **quatre** familles dont
+`tiret d intervalle numerique`, que la ligne de bilan ne nomme pas —
+sous-règle C116 (7), cause de trois réfutations le 29/08.*
+
+**P66.11 — l'étape 4 est identique au bloc 65, au caractère.** Même anneau,
+même liste de 23, même `37148`, mêmes 6 `CIBLES SANS FICHE`, même dette
+`216 / 26 / 39416 / 2`. *Rien n'a été écrit dans `content/` entre les deux
+blocs ; c'est la garde de péremption qui le dit, pas moi.*
+
+**P66.12 — les six alias, terme écrit pour réfuter.** Je prédis que les six
+noms rouges sont **déclarés en `aliases:` dans le front matter des deux
+sources** : `FP`, `FS`, `FC` sur `conduite/proj/fonction.md` ; `critere`,
+`niveau`, `flexibilite` sur `conduite/proj/caracteriser-une-exigence.md`.
+*Motif : `--anneau` résout **chemin complet, suffixe de chemin, nom de fichier
+unique** — sa propre en-tête le dit — et **ne lit aucun `aliases:`** ; un alias
+déclaré sort donc en `CIBLES SANS FICHE` alors que Quartz le rend vert. Le
+brief les appelle « **leurs six alias** », ce qui est une affirmation de front
+matter, pas de graphe.*
+⚠ **Les deux lectures mènent à deux gestes opposés, et c'est pour cela que la
+prédiction est écrite** : *alias déclarés* ⇒ le rouge est un **angle mort de
+`--anneau`**, rien n'est à faire, et **le lot 9 refermera les six d'un coup**
+en traduisant les deux fiches ; *alias absents* ⇒ **six liens vraiment rouges à
+l'écran côté français**, et le lot touche à six liens du corpus FR, ce qui
+**ajoute une décision à la passe C109**.
+
+### Constats du bloc 66 (sortie `tools/batterie-sortie.txt`, copie C124 `3008b21`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P66.1 | ASCII 0 ; copie `3008b21` | 0 ; `tools\batterie-sortie-3008b21.txt` | **tenue** |
+| P66.2 | `cadrage / 2 / False`, heure > `09:12:39`, HEAD au caractère | `09:17:17` ; `4e73aa8 2026-08-30 08:57:42 +0200` | **tenue** |
+| P66.3 | `4   (hors artefacts de seance : 0)` | 4 / 0 | **tenue** |
+| P66.4 | 9 lignes ; 3 de pilotage au caractère ; 6 fiches, aucune `ABSENTE`, toutes < `2026-08-30 00:00:00` | 9 lignes ; `08:50:22` / `08:49:11` / `2026-08-29 21:48:08` ; `2026-06-16` ×3, `2026-08-23` ×2, `2026-06-12` | **tenue** |
+| P66.5 | 5 étapes `0/1/2/3/4`, 5 codes à 0 | exactement | **tenue** |
+| P66.6 | 6 volumes au mot près, ordre de `-Fiches`, `LOT (6 fiches) 5813` | identiques | **tenue** |
+| P66.7 | `C109 de prose` ∈ [55, 80], point 67 | **61** | **tenue** |
+| P66.8 | 3 / 10 / 11 / 15 / 4 / 23 par fiche | **5 / 13 / 7 / 10 / 6 / 20** | **RÉFUTÉE** |
+| P66.9 | `6 fiche(s) lue(s), 6 a reprendre.` | identique | **tenue** |
+| P66.10 | 4 verdicts à 0 ; `hors perimetre` ∈ [5, 25], point 15 | 0 / 0 / 0 / 0 ; **20** | **tenue** |
+| P66.11 | étape 4 identique au bloc 65 au caractère | identique | **tenue** |
+| P66.12 | les six noms déclarés en `aliases:`, `FP/FS/FC` sur `fonction`, `critere/niveau/flexibilite` sur `caracteriser-une-exigence` | **exactement, et dans cet ordre** | **tenue** |
+
+**Bilan du bloc 66 : 12 prédictions à décompte plein, 11 tenues, 1 réfutée.**
+
+⚠ **RÉFUTATION P66.8 — LE TOTAL EST JUSTE, LA DÉCOMPOSITION EST FAUSSE SUR SES
+SIX TERMES, ET L'ERREUR VA DANS LE SENS INVERSE DE CELUI QUE J'AVAIS ÉCRIT.**
+J'ai réparti 61 candidats **au prorata des mots**, à densité uniforme de
+11,5 ‰, et j'ai nommé comme risque que les **deux fiches courtes sortent à 0**.
+**Mesure : ce sont les deux fiches les plus DENSES du lot.**
+
+| fiche | mots | candidats | densité ‰ |
+|---|---|---|---|
+| `mecatronique` | 262 | **5** | **19,1** |
+| `fonction` | 384 | **6** | **15,6** |
+| `mind-map` | 908 | 13 | 14,3 |
+| `caracteriser-une-exigence` | 2 004 | 20 | 10,0 |
+| `pieuvre` | 1 324 | 10 | 7,6 |
+| `bete-a-cornes` | 931 | 7 | 7,5 |
+
+*Cause, et elle est lisible dans les extraits :* **une fiche courte de
+définition est faite d'énoncés en apposition** — `mecatronique` L25 porte
+**trois** points-virgules de prose dans une seule ligne qui enchaîne les
+maillons de la boucle, `fonction` L20 porte deux points-virgules et un tiret
+dans l'énumération FP / FS / FC. **La densité C109 ne suit pas le volume, elle
+suit la proportion d'énumérations**, et une fiche de typologie est une
+énumération de bout en bout. ⚠ *Le rapport entre la plus dense et la moins
+dense est de **2,5**, sur un lot d'un seul répertoire et d'un seul type de
+fiche — le prorata est donc un mauvais estimateur, et il l'était déjà quand il
+tombait juste au total.*
+
+✅ **LA DENSITÉ DE LOT, ELLE, TIENT POUR LE CINQUIÈME LOT D'AFFILÉE** : 61 /
+5 813 = **10,5 ‰**, dans la fourchette 10,4 – 11,5 des quatre lots précédents.
+*Ce qui est prévisible est le lot, jamais la fiche.*
+
+⚠ **CORRECTION D'UNE PHRASE DU DOSSIER DU BLOC 65, ET ELLE PORTE SUR UN
+CHIFFRE DE CLÔTURE.** Le dossier écrivait, dans la branche « alias déclarés »,
+que *« le lot 9 refermera les six d'un coup »*. **C'est faux, et P66.12 le
+prouve en le tenant** : `CIBLES SANS FICHE` compte les **noms de lien sans
+fichier**, et `FP.md`, `FS.md`, `FC.md`, `critere.md`, `niveau.md`,
+`flexibilite.md` **n'existeront pas davantage après la traduction**. **Le
+compteur restera donc à 6 à la clôture du lot 9**, et ce sera une **prédiction
+à décompte plein du bloc 72**. *Ce que le lot ferme, ce sont deux fiches ; ce
+que le compteur mesure, ce sont six noms de fichier absents. Les deux n'ont
+jamais été le même objet.*
+
+⚠ **ET LE COMPTEUR EST UN FAUX POSITIF, MESURÉ.** `--anneau` résout **chemin
+complet, suffixe de chemin, nom de fichier unique** — son en-tête le dit — et
+**ne lit aucun `aliases:`**. Les six noms **sont déclarés** en front matter, et
+Quartz les rend donc **verts à l'écran**. **`CIBLES SANS FICHE` n'est pas une
+mesure de liens rouges ; c'est une mesure de noms de fichier absents, et la
+ligne qui l'affiche dit « liens rouges cote francais ».** *C'est exactement le
+motif de la sous-règle C116 (7) — un compteur se lit dans le code qui
+l'incrémente, jamais dans la ligne qui l'affiche —, et c'est le sixième
+compteur du chantier pris en défaut par cette cause.* **Porté à la file des
+arbitrages, non traité en séance** : le correctif est une lecture d'`aliases:`
+dans le résolveur, et il change un chiffre publié à toutes les clôtures depuis
+le 25/08.
+
+---
+
+## ⛳ GATE G1 — fin de cadrage. Composition du lot 9 arrêtée.
+
+**Fait** — trois blocs (64 garde, 65 composition, 66 cadrage), **une garde de
+péremption au vert en branche (a)**, **zéro écriture dans `content/`**.
+
+**Chiffres qui décident**
+
+- **LOT 9 = 6 fiches, 5 813 mots, marge 844 sous la borne 6 657, 0 porteuse
+  de chevron.** `conduite/proj/` : `mecatronique` 262, `mind-map` 908,
+  `bete-a-cornes` 931, `pieuvre` 1 324, `fonction` 384,
+  `caracteriser-une-exigence` 2 004.
+- **61 candidats C109** à juger un par un, plus les puces à tiret que le
+  bloc 67 relèvera. **20 hors périmètre**, non comptés.
+- **Résidu du palier pour le lot 10** : `etat-de-l-art-technique` 2 286 +
+  `afnor-nfx50-151` 91 = **2 377 mots, 2 fiches**.
+- **Anneau 2 : 145 net, 122 traduites, 23 restantes, 37 148 mots, 0 porteuse.**
+  **C127 hors sujet pour le quatrième lot d'affilée.**
+
+**Prédictions du cadrage : 32 à décompte plein, 30 tenues, 2 réfutées**
+(bloc 64 : 6/6 ; bloc 65 : 13/14 ; bloc 66 : 11/12).
+
+**Ce qui suit** — bloc 67 : garde avant passe, éprouvage bilingue du motif des
+puces sur **quatre échantillons nommés dont les réponses sont au registre**,
+puis relevé des puces des six sources du lot 9.
+
+⚠ **Deux points remontés, aucun bloquant, aucun arbitrage demandé** :
+(1) `CIBLES SANS FICHE` est un faux positif de `--anneau` sur les six alias —
+file des arbitrages ; (2) le lot 9 sera **le plus lourd du chantier hors
+`easyeda`**, 5 813 contre une fourchette historique de 3 348 à 5 668, ce qui
+est **assumé** : la borne est respectée et la coupe est celle du palier.
+
+---
+
+## Déclaration C131 du bloc 67 — rejouée, liste fermée avant le bloc, DEUX instants prédits
+
+**Populations** — inchangées, redéclarées : `git status --porcelain` sur le
+dépôt entier moins les deux chemins exacts du `.gitignore` ; `hors artefacts de
+seance` = la même moins les lignes portant `batterie-sortie` ou `predictions-`.
+
+**Liste FERMÉE des artefacts du bloc 67 :**
+
+| # | artefact | état git | total | hors artefacts | existe quand la garde lit `git status` ? |
+|---|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | oui | non | **oui** |
+| 2 | `tools/batterie-sortie-3008b19.txt` (bloc 64) | `??` | oui | non | **oui** |
+| 3 | `tools/batterie-sortie-3008b20.txt` (bloc 65) | `??` | oui | non | **oui** |
+| 4 | `tools/batterie-sortie-3008b21.txt` (bloc 66) | `??` | oui | non | **oui** |
+| 5 | `tools/batterie-sortie-3008b22.txt` (étape 0 de la garde de CE bloc) | `??` | oui | non | **oui** |
+| 6 | `tools/puces-lot9-3008.txt` (relevé C124 du lot, écrit **après** la garde) | `??` | oui | **OUI** | **non** |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non | — |
+| — | le **script jetable du motif**, écrit dans le répertoire temporaire de la session, **hors dépôt** | — | non | non | — |
+
+**DEUX instants, prédits séparément** *(parade du bloc 59, règle d'usage 10)* :
+- **quand la garde lit `git status`** : `5` au total, `0` hors artefacts ;
+- **en fin de bloc** : `6` au total, `1` hors artefacts.
+
+⚠ *`puces-lot9-3008.txt` ne porte ni `batterie-sortie` ni `predictions-` : il
+**compte** au second compteur. C'est le seul artefact du bloc qui y entre, et
+c'est le terme que les blocs 56 et 58 du lot 8 avaient raté deux fois.*
+
+---
+
+## Bloc 67 — éprouvage bilingue du motif des puces (C110) et relevé du lot 9
+
+**Commandes, dans cet ordre :**
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+   *(garde avant passe, sous-règle C116 (5))*
+2. le motif sur les **quatre échantillons nommés**, deux FR et deux EN
+3. un **cinquième relevé de contrôle** sur les cinq paires du lot 8 — *hors
+   éprouvage C110, sa réponse n'ayant jamais été publiée fiche par fiche*
+4. le motif sur les **six sources du lot 9**, en mode `--lister`, sortie
+   sauvegardée sous `tools/puces-lot9-3008.txt` (C124)
+
+### Le motif, republié EN ENTIER avant son lancement
+
+*Règle d'usage 1 (29/08 suite 9), tenue aux lots 5, 6, 7 et 8. Le script est
+réécrit hors dépôt ; son texte est donc ici.*
+
+- **front matter** retiré, et **seulement s'il ouvre le fichier** ;
+- **blocs de code** masqués par bascule sur `/^\s{0,3}``` /` **après retrait du
+  préfixe de citation** `/^(\s{0,3}>\s?)+/` — le masque C110 est ancré en début
+  de ligne et ne voit pas `> ```cpp` (angle mort du chevron, C127) ;
+- **section courante** lue sur `/^\s{0,3}(#{2,6})\s+(.*)$/`, normalisée en bas
+  de casse, ponctuation de queue retirée (`/[\s:.!?*_`]+$/`) ;
+- **exclusion** si la section courante est l'une des **cinq** : `voir aussi`,
+  `aller plus loin`, `see also`, `going further`, `further reading` ;
+- **puce** : `/^\s{0,6}[-*+]\s+/` sur la ligne déchevronnée ;
+- **retenue** si elle contient `—` (U+2014).
+
+⚠ **Motif identique au caractère à celui des blocs 32, 44 et 54.** **Aucune
+classe de caractères accentués n'y figure** — le piège du bloc Latin-1 (`×`
+U+00D7 et `÷` U+00F7 logés entre les lettres) ne peut donc pas mordre.
+
+### Les quatre échantillons de l'éprouvage, et ce que chacun éprouve
+
+| n° | langue | fiches | réponse publiée au registre | ce qu'il éprouve |
+|---|---|---|---|---|
+| 1 | FR | lot 3 `esp32/` (4) | **2 / 2 / 4 / 4 = 12** | gloses de sections de liens, puces en callout, blocs chevronnés |
+| 2 | EN | lot 3 `esp32/` (4) | **2 / 1 / 4 / 4 = 11** | **l'asymétrie**, seul terme qui prouve que le motif lit le disque |
+| 3 | FR | lot 7 (5) | **3 / 3 / 0 / 3 / 1 = 10** | résidu d'exemptions d'un lot rendu |
+| 4 | EN | lot 7 (5) | **3 / 3 / 0 / 3 / 1 = 10** | report un pour un, décomposition comprise |
+
+⚠ **Les réponses sont relues au REGISTRE, pas au prompt.** Le prompt de
+lancement écrit *« 10 des deux côtés, 0/3/1/1/0 »*, décomposition qui **somme à
+5** et contredit son propre total ; **la valeur publiée aux blocs 54 (P54.8 et
+P54.9) et à l'entrée du 30/08 (suite 2) est `3 / 3 / 0 / 3 / 1`.** *Le terme
+qui prouve est la décomposition, pas le total.*
+
+### Prédictions du bloc 67
+
+**Garde (sous-règle C116 (5))**
+
+**P67.1** — `lignes non ASCII dans batterie.ps1 : 0` ; `sortie precedente
+copiee : tools\batterie-sortie-3008b22.txt`.
+
+**P67.2** — `phase demandee : garde   anneau : 2   chevron : False` ;
+`date ISO : 2026-08-30` ; heure **strictement postérieure à `09:17:17`** ;
+`HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère** ;
+`node : v24.15.0` ; **2 codes de sortie, tous `0`**.
+
+**P67.3** — `fichiers modifies non commites : 5   (hors artefacts de seance :
+0)`, **premier instant de la déclaration C131**.
+
+**P67.4** — **3 lignes de dates seulement** (`-Fiches` vide), identiques au
+bloc 66 **au caractère** : `2026-08-30 08:50:22` / `2026-08-30 08:49:11` /
+`2026-08-29 21:48:08`. ⚠ *Les six lignes de fiches du bloc 66 disparaissent :
+elles venaient de `-Fiches`, pas d'un état du dépôt.*
+
+**Épreuve C110 — les quatre échantillons**
+
+**P67.5** — échantillon 1, FR lot 3 : `esp32-deep-sleep` **2**,
+`esp32-arduino-core` **2**, `esp32-freertos` **4**, `esp32-idf` **4**,
+**TOTAL 12**.
+
+**P67.6** — échantillon 2, EN lot 3 : `esp32-deep-sleep-en` **2**,
+`esp32-arduino-core-en` **1**, `esp32-freertos-en` **4**, `esp32-idf-en` **4**,
+**TOTAL 11**. ⚠ *Onze et non douze : `esp32-arduino-core` L26 porte un tiret
+que sa jumelle rend par une virgule. **Prédire 12 serait prédire la symétrie,
+pas la mesure.***
+
+**P67.7** — échantillon 3, FR lot 7 : `raspberry-pi-gpio` **3**,
+`raspberry-pi-prise-en-main` **3**, `raspberry-pi-projet` **0**,
+`xiao-alimentation` **3**, `xiao-esp32-s3` **1**, **TOTAL 10**.
+
+**P67.8** — échantillon 4, EN lot 7 : `raspberry-pi-gpio-en` **3**,
+`raspberry-pi-prise-en-main-en` **3**, `raspberry-pi-projet-en` **0**,
+`xiao-alimentation-en` **3**, `xiao-esp32-s3-en` **1**, **TOTAL 10**.
+
+**Contrôle hors éprouvage — le report un pour un du lot 8**
+
+**P67.9 — égalité fiche à fiche sur CINQ termes**, `acv-simplifiee`, `bom`,
+`ecodesign`, `fast`, `matrice-eco-criteres` : **la valeur FR et la valeur EN
+sont égales pour chacune des cinq**. *C'est une **forme exacte** et c'est le
+terme qui porte : le lot 8 a été écrit la nuit même, et son report un pour un
+n'a jamais été contrôlé sur les puces après sa passe C109.*
+
+**P67.10 — total FR du lot 8 : entre 0 et 16, point estimé 10.** *Le relevé
+d'avant-passe rendait **22** puces à tiret (`tools/puces-lot8-3008.txt`,
+décomposition `0 / 10 / 4 / 6 / 2`) ; la passe a traité **69** des **85**
+candidats, dont au plus **63** pouvaient être des candidats `--style`, donc
+**au moins 6 puces ont été traitées** et il en reste **au plus 16**.*
+⚠ *L'intervalle est large et il le dit : **la décomposition des 16 gardés n'a
+jamais été publiée** — un lot publie ses traités et ses gardés en total, jamais
+par famille. C'est un manque du registre, pas du motif.*
+
+**Relevé du lot 9**
+
+**P67.11 — TOTAL du lot 9 : entre 8 et 35, point estimé 21.** *Base : la
+densité de puces à tiret au millier de mots des deux lots comparables —
+lot 7 **18 / 5 301 = 3,4 ‰**, lot 8 `conduite/proj/` **22 / 5 488 = 4,0 ‰** ;
+`4,0 × 5 813 / 1 000 = 23,3`, `3,4 × 5 813 / 1 000 = 19,8`.*
+
+**P67.12 — décomposition du lot 9 : AUCUNE prédiction par fiche, et le refus
+est motivé.** *P66.8 vient d'être réfutée sur ses six termes en répartissant au
+prorata des mots, et la cause mesurée — la densité suit la proportion
+d'énumérations, pas le volume — s'applique **exactement de la même façon** aux
+puces à tiret. **Prédire six chiffres au prorata serait rejouer sciemment une
+prédiction dont la cause d'échec est connue depuis dix minutes.*** ⚠ **Ce qui
+est prédit à la place est un ordre** : `caracteriser-une-exigence` (2 004 mots,
+la seule fiche à tableaux du lot) porte **le plus grand nombre de puces à
+tiret** du lot, et `mecatronique` (262 mots) **n'est pas la plus fournie**.
+
+**P67.13 — compteurs `git status` en fin de bloc : 6 au total, 1 hors
+artefacts de séance**, ce seul `1` étant `tools/puces-lot9-3008.txt`.
+*Second instant de la déclaration C131.*
+
+### Constats du bloc 67 (garde `3008b22`, relevé `tools/puces-lot9-3008.txt`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P67.1 | ASCII 0 ; copie `3008b22` | 0 ; `tools\batterie-sortie-3008b22.txt` | **tenue** |
+| P67.2 | `garde / 2 / False`, heure > `09:17:17`, HEAD au caractère, `v24.15.0`, 2 codes à 0 | `09:20:34` ; `4e73aa8 2026-08-30 08:57:42 +0200` ; `v24.15.0` ; 2 × 0 | **tenue** |
+| P67.3 | `5   (hors artefacts de seance : 0)` | 5 / 0 | **tenue** |
+| P67.4 | 3 lignes de dates, identiques au caractère | 3 lignes, identiques | **tenue** |
+| P67.5 | FR lot 3 : 2 / 2 / 4 / 4 = **12** | 2 / 2 / 4 / 4 = 12 | **tenue** |
+| P67.6 | EN lot 3 : 2 / **1** / 4 / 4 = **11** | 2 / 1 / 4 / 4 = 11 | **tenue** |
+| P67.7 | FR lot 7 : 3 / 3 / 0 / 3 / 1 = **10** | identique | **tenue** |
+| P67.8 | EN lot 7 : 3 / 3 / 0 / 3 / 1 = **10** | identique | **tenue** |
+| P67.9 | lot 8 : égalité FR/EN sur les **cinq** termes | `0 / 3 / 1 / 1 / 0` **des deux côtés** | **tenue** |
+| P67.10 | total FR lot 8 ∈ [0, 16], point 10 | **5** | **tenue** |
+| P67.11 | total lot 9 ∈ [8, 35], point 21 | **19** | **tenue** |
+| P67.12 | `caracteriser-une-exigence` la plus fournie ; `mecatronique` pas la plus fournie | 14 ; 0 | **tenue** |
+| P67.13 | fin de bloc **6 / 1**, le `1` étant `puces-lot9-3008.txt` | 6 / 1, et c'est bien lui | **tenue** |
+
+**Bilan du bloc 67 : 13 prédictions à décompte plein, 13 tenues, 0 réfutée.**
+
+✅ **TROISIÈME ÉPREUVE DE LA RÈGLE D'USAGE 1, ET LES QUATRE ÉCHANTILLONS
+TOMBENT FICHE PAR FICHE**, l'asymétrie connue d'`esp32-arduino-core` (2 FR /
+1 EN) comprise. **Le motif est identique au caractère à celui des blocs 32, 44
+et 54**, et il rend les mêmes chiffres sur des fiches qui n'ont pas bougé.
+*La règle passe à **3/N**.*
+
+✅ **ET LE REPORT UN POUR UN DU LOT 8 EST CONTRÔLÉ POUR LA PREMIÈRE FOIS APRÈS
+SA PASSE : CINQ TERMES, CINQ ÉGALITÉS.** `0 / 3 / 1 / 1 / 0` des deux côtés.
+*Le lot 7 avait été contrôlé de la même façon la nuit précédente — dix termes,
+dix justes ; celui-ci en ajoute cinq.*
+
+⚠ **ET C'EST ICI QUE LE « TERME QUI NE SE RECOUPAIT PAS » DU PROMPT TROUVE SA
+CAUSE, ET ELLE N'EST PAS CELLE QUE J'AVAIS ÉCRITE.** Le recoupement d'ouverture
+notait que le prompt écrit *« réponses publiées 10 des deux côtés, 0/3/1/1/0 »*
+et que cette décomposition **somme à 5** au lieu de 10. **Mesure : `0/3/1/1/0`
+n'est pas une décomposition fausse du lot 7 — c'est la décomposition EXACTE du
+LOT 8 après sa passe**, celle que le contrôle P67.9 vient de mesurer des deux
+côtés. **Le prompt attache un total du lot 7 à une décomposition du lot 8.**
+
+⚠ *Ce que cela change à mon constat d'ouverture, et je le corrige :* j'avais
+rangé ce terme en « erreur de décomposition », troisième défaut de brief
+d'affilée. **C'est plus intéressant que ça, et plus gênant.** Le chiffre du
+prompt était **juste et non publié** : `0/3/1/1/0` n'existait **nulle part au
+registre** — ni au JOURNAL, ni au fichier de prédictions —, la décomposition
+des puces gardées d'un lot n'ayant jamais été publiée après passe (c'est
+exactement le manque que P67.10 nommait pour justifier son intervalle large).
+⚠ **Un brief a donc porté un chiffre exact que le dépôt ne pouvait pas
+confirmer**, et le protocole a fait ce qu'il devait : **il l'a écarté au profit
+de la valeur publiée, et il a mesuré.** *Le protocole n'a pas eu tort de s'en
+méfier — un chiffre invérifiable reste invérifiable même quand il se révèle
+juste —, mais le registre, lui, avait un trou, et c'est le trou qu'il faut
+boucher.* ✅ **Bouché ici** : la décomposition post-passe des puces du lot 8 est
+désormais publiée, `0 / 3 / 1 / 1 / 0`, FR et EN.
+
+⚠ **Candidate née de ce constat, à verser au §8 :** *un lot publie ses
+candidats **traités** et **gardés** en total ; il ne publie pas ce qui **reste**
+dans le corpus par famille de motif, et la clôture suivante ne peut donc pas
+s'y recouper.* **La parade tient en une ligne de clôture : relancer le motif
+des puces sur les sources du lot APRÈS la passe, et publier la
+décomposition.** *Ce lot le fera au bloc 72.*
+
+**Relevé du lot 9, `tools/puces-lot9-3008.txt`** — `mecatronique` **0**,
+`mind-map` **0**, `bete-a-cornes` **0**, `pieuvre` **5**, `fonction` **0**,
+`caracteriser-une-exigence` **14**, **TOTAL 19**.
+⚠ **Distribution extrême, et elle contredit la densité que P66.8 cherchait** :
+**deux fiches portent 100 % des puces à tiret**, quatre en portent zéro. *Le
+refus de prédire par fiche (P67.12) était fondé : un prorata aurait donné
+1 / 3 / 3 / 4 / 1 / 7 et raté les six termes.*
+
+**Total des candidats du lot 9 à juger un par un : 61 + 19 = 80.**
+
+---
+
+## Jugement des 80 candidats, un par un (C123 + les quatre cas de l'amendement C109 du 29/08)
+
+⚠ **Les deux instruments se recouvrent sur TROIS lignes, et le compte le dit.**
+`--style` signale **61 occurrences sur 44 lignes** ; le motif des puces signale
+**19 lignes**. **Trois lignes sont dans les deux listes** — `pieuvre` L71
+(absolue), `caracteriser-une-exigence` L31 et L33 —, mais **les occurrences y
+sont distinctes** : d'un côté le séparateur de glose en tête de puce, de
+l'autre une incise ou un point-virgule dans la prose de la même puce. **80
+signalements, 60 lignes distinctes.**
+
+### La règle de lecture appliquée, écrite avant de juger
+
+*Elle réconcilie C123, la borne du 25/08 et les quatre cas du 29/08, et elle
+tient en une phrase :* **l'exemption est une propriété de la FORME GLOSE, pas
+du segment de droite pris seul.**
+
+1. **Prose continue** (hors puce, ou dans une puce après au moins une phrase
+   complète) : le tiret et le point-virgule **tombent**, que le segment de
+   droite porte un verbe conjugué ou non. *C109 « se borne à la ponctuation de
+   prose » et le tiret y est proscrit comme marqueur d'écriture machine ; les
+   exemptions du 23/08 et du 25/08 visent des **items** et des **gloses**, pas
+   de la prose.*
+2. **Tête de puce ou d'énumération en ligne** (`- **Libellé** — …`,
+   `**Libellé (SIGLE)** — …`) : le tiret **reste** si le segment de droite est
+   un groupe nominal, adjectival, infinitif ou participial — **relative
+   comprise** —, et **tombe** si c'est une proposition indépendante à sujet
+   propre, qui se réécrit `- **Libellé.** Phrase.`
+3. **Incise encadrée par deux tirets** : **parenthèses** si le segment nomme un
+   seul objet, **conservée** s'il énumère des exemples (précision du 25/08).
+4. **Renvoi de fin de segment** (`— voir [[x]]`) : parenthèses. *Aucun cas dans
+   ce lot.*
+
+### `conduite/proj/mecatronique.md` — 5 occurrences, 5 traitées, 0 gardée
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 1 | 19 | tiret | **traité** (`:`) | prose ; « la boucle … **est** son motif » a son sujet propre |
+| 2 | 25 | pv | **traité** (`.`) | prose ; « les actionneurs **imposent** » |
+| 3 | 25 | pv | **traité** (`.`) | prose ; « l'électronique **fixe** » |
+| 4 | 25 | pv | **traité** (`.` + « Enfin, ») | prose ; « le comportement logiciel **doit** » — quatrième maillon de la chaîne, le mot de liaison garde l'enchaînement que le point-virgule portait |
+| 5 | 31 | tiret | **traité** (`:`) | prose ; apposition à relative conjuguée (« où les trois disciplines **doivent** s'accorder ») |
+
+⚠ *La L25 porte **trois** points-virgules dans une seule phrase de quatre
+maillons : c'est la chaîne « mécanique → actionneurs → électronique →
+logiciel » qui **est** le contenu enseigné. La couper en quatre phrases sèches
+la casserait ; les trois points tiennent parce que le quatrième maillon reçoit
+un « Enfin, » qui rétablit l'enchaînement.*
+
+### `conduite/proj/mind-map.md` — 13 occurrences, 13 traitées, 0 gardée
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 6 | 16 | tiret | **traité** (`,`) | prose ; participiale absolue à sujet propre (« son usage … **étant** ») — apposition en virgule |
+| 7 | 22 | tiret | **traité** (`:`) | prose ; « on **capture** large » |
+| 8 | 30 | tiret | **traité** (`:`) | prose ; « **c'est** l'échafaudage » |
+| 9 | 30 | pv | **traité** (`.`) | prose ; « le brainstorm de solutions **devient** » |
+| 10 | 40 | tiret | **traité** (`:`) | prose **entre parenthèses** ; « la concision **force** la clarté » |
+| 11 | 40 | pv | **traité** (`.`) | prose ; « des outils … **conviennent** » |
+| 12 | 48 | tiret | **traité** (`,`) | prose ; apposition nominale à relative conjuguée |
+| 13 | 50 | tiret | **traité** (parenthèses) | incise à **deux** tirets nommant un seul objet (25/08) |
+| 14 | 50 | tiret | **traité** (parenthèses) | *idem — même ancre, cas 3* |
+| 15 | 50 | pv | **traité** (`.`) | prose ; « la sécurité opérateur **devient** » |
+| 16 | 50 | pv | **traité** (`.`) | prose ; « l'écoconception **migre** » |
+| 17 | 50 | pv | **traité** (`.`) | prose ; « la conformité CE … **est** écartée » |
+| 18 | 56 | tiret | **traité** (`,`) | prose ; « **c'est** souvent l'idée » |
+
+⚠ **Une ancre couvre les occurrences 13, 14 et 17 EN BLOC** — règle d'usage 6
+du 30/08. *Les trois se chevauchent sur `la **conformité CE**` : trois ancres
+séparées se seraient détruites l'une l'autre après le premier remplacement, et
+la garde d'unicité aurait refusé le lot entier au second.* **C'est la première
+fois de la série que cette règle sert à autre chose qu'à un bloc de lignes
+identiques.**
+
+### `conduite/proj/bete-a-cornes.md` — 7 occurrences, 7 traitées, 0 gardée
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 19 | 20 | tiret | **traité** (`:`) | prose ; « un désaccord … **devient** » |
+| 20 | 56 | tiret | **traité** (`:`) | prose ; « la bête à cornes **doit** rester » |
+| 21 | 58 | tiret | **traité** (`,`) | prose ; apposition nominale à relative conjuguée |
+| 22 | 63 | tiret | **traité** (`:`) | prose ; fragment interrogatif |
+| 23 | 68 | tiret | **traité** (`:`) | prose ; « **c'est** exactement » |
+| 24 | 74 | tiret | **traité** (`:`) | prose ; « il **sera** affiné » |
+| 25 | 76 | tiret | **traité** (`,`) | prose ; antithèse prépositionnelle |
+
+### `conduite/proj/pieuvre.md` — 15 signalements, 10 traités, 5 gardés
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 26 | 39 | pv | **traité** (`.`) | prose ; « un lien … **est** une FC » |
+| 27 | 55 | tiret | **traité** (`:`) | prose ; « la distinction … **se lit** » |
+| 28 | 61 | tiret | **traité** (`:`) | prose ; « ils **décrivent** » |
+| 29 | 67 | **puce** | **GARDÉ** | `- **[[FP]]1** — *énoncé à l'infinitif*` : séparateur de glose, segment infinitif |
+| 30 | 68 | **puce** | **GARDÉ** | *idem* `[[FS]]1` |
+| 31 | 69 | **puce** | **GARDÉ** | *idem* `[[FC]]1` |
+| 32 | 70 | **puce** | **GARDÉ** | *idem* `FC2` |
+| 33 | 71 | **puce** | **GARDÉ** | *idem* `FC3` |
+| 34 | 71 | tiret | **traité** (`,`) | ⚠ **même ligne que 33, verdict opposé** : celui-ci est une incise **dans la prose** de la puce, après deux phrases complètes |
+| 35 | 73 | tiret | **traité** (`:`) | prose ; infinitif, mais prose continue |
+| 36 | 77 | tiret | **traité** (`:`) | prose ; « **c'est** en les passant » |
+| 37 | 79 | tiret | **traité** (`:`) | prose ; libellé `Test simple` suivi d'une citation |
+| 38 | 81 | tiret | **traité** (`,`) | prose ; « il **manque** le second milieu » |
+| 39 | 83 | tiret | **traité** (`.`) | prose ; « **c'est** normal » |
+| 40 | 83 | pv | **traité** (`.`) | prose ; « le projet **n'a** plus lieu d'être » |
+
+⚠ **LA LIGNE 71 PORTE LES DEUX VERDICTS, ET C'EST L'ÉPREUVE LA PLUS NETTE DE
+LA RÈGLE DE LECTURE DE CE LOT.** `- **FC3** — *Préserver la sécurité de
+l'opérateur…*` garde son tiret de glose ; treize mots plus loin, `l'opérateur —
+déjà relié par FP1 côté service rendu` le perd. *Le second segment est
+pourtant **participial**, donc exempté par la lettre de C123 prise seule : ce
+qui le fait tomber n'est pas sa nature grammaticale, c'est sa **position** —
+il est dans la prose, pas en tête de glose.*
+
+✅ **Les cinq puces gardées sont le glossaire FP / FS / FC de la pieuvre**,
+c'est-à-dire l'objet même que l'arbitrage du 22/08 a soustrait à C109 en
+abrogeant le corollaire des puces.
+
+### `conduite/proj/fonction.md` — 6 occurrences, 1 traitée, 5 gardées
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 41 | 20 | tiret | **GARDÉ** | `**fonction principale (FP)** — relation … , **qui** justifie son existence` : glose, groupe nominal + relative (frontière du sujet propre, 29/08) |
+| 42 | 20 | tiret | **GARDÉ** | `**fonction secondaire (FS)** — même structure mais service complémentaire` : nominal |
+| 43 | 20 | tiret | **GARDÉ** | `**fonction contrainte (FC)** — relation … , **exprimant** une contrainte` : nominal + participial |
+| 44 | 20 | pv | **GARDÉ** | séparateur d'**items** d'une énumération en ligne dont les trois segments sont nominaux (amendement du 23/08) |
+| 45 | 20 | pv | **GARDÉ** | *idem* |
+| 46 | 42 | tiret | **traité** (`.`) | prose ; « le système **n'a** pas lieu d'être » |
+
+⚠ **CINQ DES SIX OCCURRENCES DE LA FICHE SONT GARDÉES, ET C'EST LA FICHE QUI
+ENSEIGNE LA TYPOLOGIE.** *La L20 est la définition canonique FP / FS / FC : une
+énumération en ligne de trois entrées de glossaire, séparées par des
+points-virgules d'items et gloses par des tirets. La traiter reviendrait à
+hacher en trois phrases la seule ligne du corpus qui donne la typologie d'un
+seul tenant.* ✅ **Et le lot porte la contre-épreuve** : la L42 de la même
+fiche, prose ordinaire, tombe.
+
+### `conduite/proj/caracteriser-une-exigence.md` — 34 signalements, 23 traités, 11 gardés
+
+| # | ligne | forme | verdict | motif |
+|---|---|---|---|---|
+| 47 | 27 | tiret | **traité** (parenthèses) | incise à **deux** tirets nommant un seul énoncé (25/08) |
+| 48 | 27 | tiret | **traité** (parenthèses) | *idem — même ancre* |
+| 49 | 31 | **puce** | **traité** (`.`) | `- **Rendre l'exigence opposable** — **chaque ligne** du CdCF **engage**` : proposition à sujet propre |
+| 50 | 31 | pv | **traité** (`.`) | prose ; « le projet **vit** dans l'implicite » |
+| 51 | 32 | **puce** | **traité** (`.`) | `- **Préparer l'évaluation finale** — à la livraison, **on reprend**` : sujet propre |
+| 52 | 33 | **puce** | **traité** (`.`) | `- **Prévoir l'arbitrage…** — **la flexibilité dit**` : sujet propre |
+| 53 | 33 | pv | **traité** (`.`) | prose ; « **c'est** un arbitrage prévu » |
+| 54 | 47 | tiret | **traité** (`:`) | prose ; « chaque composant **éclaire** » |
+| 55 | 55 | **puce** | **GARDÉ** | `- **Grandeurs physiques** — masse, longueur…` : énumération nominale |
+| 56 | 56 | **puce** | **GARDÉ** | `- **Grandeurs économiques** — coût d'achat…` : nominale |
+| 57 | 57 | **puce** | **GARDÉ** | `- **Grandeurs temporelles** — durée de vie…` : nominale |
+| 58 | 58 | **puce** | **GARDÉ** | `- **Grandeurs binaires** — présence/absence…` : nominale |
+| 59 | 60 | tiret | **traité** (`:`) | prose ; « **ce sont** des qualités floues » |
+| 60 | 66 | **puce** | **GARDÉ** | `- **Valeur unique** — \`100 g\`…` : valeurs |
+| 61 | 67 | **puce** | **GARDÉ** | `- **Borne** — \`≤ 5 mm\`…` : valeurs |
+| 62 | 68 | **puce** | **GARDÉ** | `- **Plage** — entre \`20 °C\` et…` : prépositionnel |
+| 63 | 69 | **puce** | **GARDÉ** | `- **Cible binaire** — *conforme…*` : adjectival |
+| 64 | 71 | pv | **traité** (`.`) | prose ; « l'état de l'art **dit** » |
+| 65 | 74 | tiret | **traité** (`:`) | prose ; « elle **évite** les ambiguïtés » |
+| 66 | 93 | tiret | **traité** (`:`) | prose ; énumération prépositionnelle, mais en prose continue |
+| 67 | 93 | pv | **traité** (`.`) | prose ; « une exigence F3 **peut** s'effacer » |
+| 68 | 93 | pv | **traité** (`.`) | prose ; « les F1 et F2 **sont** » |
+| 69 | 97 | tiret | **traité** (`,`) | prose ; groupe prépositionnel |
+| 70 | 109 | tiret | **traité** (`:`) | prose ; « chaque partie **s'arc-boutera** » |
+| 71 | 119 | tiret | **traité** (parenthèses) | prose ; énumération de lieux de mesure insérée dans une interrogation |
+| 72 | 119 | tiret | **traité** (`:`) | prose ; « **c'est** un vœu pieux » |
+| 73 | 131 | tiret | **traité** (`:`) | prose ; « la version *Bon* **fait** » |
+| 74 | 139 | tiret | **traité** (`:`) | prose ; « celui-ci **sera** choisi » |
+| 75 | 141 | pv | **traité** (`.`) | prose ; « **on ne sait** pas comment arbitrer » |
+| 76 | 145 | tiret | **traité** (`,`) | prose ; « et **révèle** généralement » |
+| 77 | 151 | **puce** | **GARDÉ** | `- **Conformité réglementaire** — *« conforme à… »*` : citations nominales |
+| 78 | 152 | **puce** | **GARDÉ** | `- **Présence/absence…** — *« démontable… »*` : adjectivales |
+| 79 | 153 | **puce** | **GARDÉ** | `- **Validation par un référent** — *« validé par… »*` : participiales |
+| 80 | 163 | tiret | **traité** (`:`) | prose ; « **c'est** une formule d'évitement » |
+
+⚠ **LES ONZE GARDÉES DE CETTE FICHE SONT TROIS GLOSSAIRES ENTIERS** — les
+quatre familles de critères, les quatre formes de niveau, les trois exigences
+binaires —, **et les trois puces traitées sont les trois seules dont le segment
+de droite est une phrase**. *C'est exactement la frontière du cas 2, et elle
+sépare ici **14 puces d'une même fiche en 11 gloses et 3 phrases**, sans
+qu'aucune ne soit ambiguë.*
+
+### Récapitulatif du jugement
+
+| fiche | signalements | traités | gardés | ancres |
+|---|---|---|---|---|
+| `mecatronique` | 5 | 5 | 0 | 5 |
+| `mind-map` | 13 | 13 | 0 | 11 |
+| `bete-a-cornes` | 7 | 7 | 0 | 7 |
+| `pieuvre` | 15 | 10 | 5 | 10 |
+| `fonction` | 6 | 1 | 5 | 1 |
+| `caracteriser-une-exigence` | 34 | 23 | 11 | 22 |
+| **TOTAL** | **80** | **59** | **21** | **56** |
+
+⚠ **Le taux de conservation, 21 / 80 = 26 %, est le plus haut de la série**
+(lot 8 : 16 / 85 = 19 % ; lot 3 d'`esp32/` : 12 / 32 = 38 % sur les seules
+puces). *Cause nommée : deux des six fiches sont des **fiches de typologie**,
+et une typologie est un glossaire.*
+
+---
+
+## Déclaration C131 du bloc 68 — rejouée, liste fermée avant le bloc, DEUX instants
+
+**Populations** — inchangées, redéclarées : `git status --porcelain` sur le
+dépôt entier moins les deux chemins exacts du `.gitignore` ; `hors artefacts de
+seance` = la même moins `batterie-sortie` et `predictions-`.
+
+**Liste FERMÉE des artefacts du bloc 68 :**
+
+| # | artefact | état | total | hors artefacts | existe à la lecture de la garde ? |
+|---|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | oui | non | oui |
+| 2-6 | `tools/batterie-sortie-3008b19..b23.txt` (b23 créée par l'étape 0 de la garde) | `??` | oui | non | oui |
+| 7 | `tools/puces-lot9-3008.txt` (bloc 67) | `??` | oui | **oui** | oui |
+| 8 | `tools/passe-negatif-lot9-3008.tsv` (table du test négatif) | `??` | oui | **oui** | **non** |
+| 9 | `tools/passe-c109-lot9-3008.tsv` (table de la passe réelle) | `??` | oui | **oui** | **non** |
+| 10 | `tools/batterie-sortie-3008b24.txt` (copie C124 de la **remesure**) | `??` | oui | non | **non** |
+| 11 | `tools/puces-lot9-apres-3008.txt` (relevé des puces **après** passe) | `??` | oui | **oui** | **non** |
+| 12-17 | les **6 sources FR** de `conduite/proj/`, modifiées par `--ecrire` | ` M` | oui | **oui** | **non** |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non | — |
+
+**DEUX instants, prédits séparément :**
+- **quand la garde lit `git status`** : **7** au total, **1** hors artefacts
+  (`puces-lot9-3008.txt` seul) ;
+- **en fin de bloc** : **17** au total, **10** hors artefacts
+  (1 + 2 tables + 1 relevé après + 6 sources).
+
+⚠ *Le second relevé des puces est un artefact **décidé dans ce bloc** : la
+candidate née au bloc 67 — « un lot ne publie pas ce qui reste par famille de
+motif » — impose de mesurer les puces **après** la passe, et non seulement
+avant. **La liste l'intègre AVANT le bloc**, ce qui est exactement la
+différence que la règle d'usage 10 vise.*
+
+---
+
+## Bloc 68 — passe C109 du lot 9 (59 remplacements, 56 ancres, 6 sources FR)
+
+**Commandes, dans cet ordre :**
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. écriture des **deux tables TSV datées et jetables** (C114)
+3. **test négatif délibéré** : `node tools/remplacer-passe.mjs
+   tools/passe-negatif-lot9-3008.tsv`
+4. **contrôle seul** : `node tools/remplacer-passe.mjs
+   tools/passe-c109-lot9-3008.tsv`
+5. **écriture** : la même commande avec `--ecrire`
+6. **remesure immédiate** : `batterie.ps1 -Phase cadrage -Fiches <les 6>`
+7. **remesure des puces** vers `tools/puces-lot9-apres-3008.txt`
+
+### Prédictions du bloc 68
+
+**P68.1 — garde, étape 0.** `lignes non ASCII dans batterie.ps1 : 0` ;
+`sortie precedente copiee : tools\batterie-sortie-3008b23.txt`.
+
+**P68.2 — garde, étape 1.** `phase demandee : garde   anneau : 2   chevron :
+False` ; `date ISO : 2026-08-30` ; heure **> `09:20:34`** ;
+`HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère** ;
+`node : v24.15.0` ; **2 codes de sortie à 0** ; **3 lignes de dates**
+identiques au bloc 67 **au caractère**.
+
+**P68.3 — compteurs git au premier instant.** `fichiers modifies non
+commites : 7   (hors artefacts de seance : 1)`.
+
+**P68.4 — test négatif, forme exacte.** La table négative porte **une seule
+règle**, en **ligne 6** du fichier, dont l'ancre est
+`est **indissociable** - chaque composant` — **un trait d'union ASCII à la
+place du tiret cadratin**, c'est-à-dire la faute qui ne se voit pas à l'œil et
+qui ne lèverait aucune erreur si l'outil ne gardait pas l'unicité d'ancre.
+Sortie attendue : `L6 INTROUVABLE  content/conduite/proj/caracteriser-une-exigence.md`,
+puis `fiches : 1`, `remplacements prets : 0`, `ancres introuvables : 1`,
+`ancres multiples : 0`, `fichiers absents : 0`, `sans front matter : 0`,
+`lignes mal formees : 0`, `INVARIANT D ACCENTS casse sur : 0 fiche(s)`, et
+`REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.` **Code de sortie 1, zéro octet
+écrit.** *Neuvième refus délibéré de la série.*
+
+**P68.5 — contrôle seul, totaux.** `lignes de table : 56` ; `fiches : 6` ;
+`remplacements prets : 56` ; `ancres introuvables : 0` ; `ancres multiples :
+0` ; `fichiers absents : 0` ; `sans front matter : 0` ; `lignes mal formees :
+0` ; `INVARIANT D ACCENTS casse sur : 0 fiche(s)` ; puis
+`CONTROLE SEUL : 56 remplacement(s) prets, 0 fichier ecrit.` **Code 0.**
+
+**P68.6 — contrôle seul, par fiche, et les trois invariants.** `mecatronique`
+**ancres 5/5**, `mind-map` **11/11**, `bete-a-cornes` **7/7**, `pieuvre`
+**10/10**, `fonction` **1/1**, `caracteriser-une-exigence` **22/22** ; et sur
+les **six** : **`ecart +0`** d'accents, et **`lignes N -> N`** inchangé.
+⚠ *L'écart d'accents est le terme qui garde : trois remplacements font passer
+une lettre accentuée de la minuscule à la capitale — `à la livraison` →
+`À la livraison`, et deux capitales sur `l'électronique` et `l'état de l'art`
+qui, elles, ne touchent pas à la lettre accentuée. **`À` et `à` sont tous deux
+dans la classe `[À-ÖØ-öø-ÿŒœŸĀ-ſ]`** du script — je le prédis à **+0**, pas à
+« sans doute inchangé ».*
+
+**P68.7 — écriture.** Six lignes `ECRIT  content/…` portant respectivement
+**(5)**, **(11)**, **(7)**, **(10)**, **(1)**, **(22)** remplacements, puis
+`fichiers ecrits : 6`. **Code 0.**
+
+**P68.8 — remesure `--style` : `6 fiche(s) lue(s), 1 a reprendre.` et
+`C109 de prose : 5`.** Décomposition : `mecatronique` **0**, `mind-map` **0**,
+`bete-a-cornes` **0**, `pieuvre` **0**, `fonction` **5**,
+`caracteriser-une-exigence` **0**.
+⚠ **Les cinq résiduelles sont les cinq gardées de la L20 de `fonction`**, et
+ce sont **les seules gardées du lot que `--style` voit** : les seize autres
+sont des tirets de puce, invisibles à son motif depuis le 23/08. *C'est
+l'angle mort documenté qui rend la mesure lisible : `61 → 5` prouve que les
+59 traitées sont sorties, et le `5` nomme exactement ce que le jugement a
+gardé en prose.*
+
+**P68.9 — `hors perimetre : 20`, inchangé.** *La passe ne touche ni titre, ni
+tableau, ni `alt` — les quatre familles de ce seau sont hors de son périmètre.*
+
+**P68.10 — remesure des puces : TOTAL 16**, décomposition `mecatronique` 0,
+`mind-map` 0, `bete-a-cornes` 0, `pieuvre` **5**, `fonction` 0,
+`caracteriser-une-exigence` **11**.
+⚠ *`pieuvre` reste à 5 et non à 4 : la ligne `FC3` **garde son tiret de
+glose** et perd son incise de prose, donc elle continue de porter un tiret
+cadratin et le motif la compte. **Prédire 4 serait confondre l'occurrence
+traitée avec la ligne.***
+
+**P68.11 — volume après passe : `LOT (6 fiches) 5814`, soit +1 mot**, et le
+seul écart par fiche est `mecatronique` **262 → 263**.
+⚠ *Un seul des 59 remplacements ajoute un mot : le « **Enfin,** » qui rétablit
+l'enchaînement du quatrième maillon de la L25 de `mecatronique`. Tous les
+autres échangent un signe contre un signe — deux-points, virgule, point,
+parenthèses —, et le motif de `compter-mots` (`[0-9A-Za-zÀ-ɏ'’-]+`)
+ne compte **ni le tiret cadratin, ni le point-virgule, ni la parenthèse**.*
+
+**P68.12 — anneau inchangé sauf d'un mot.** `RESTANT : 23` et
+`RESTANT DE L ANNEAU 2 (23 fiches)  37149`, `conduite/proj/mecatronique  263`,
+les 22 autres lignes **au caractère**. `CIBLES SANS FICHE (6)` inchangé, dette
+`216 / 26 / 39416 / 2` inchangée. *Aucune fiche EN n'est encore écrite.*
+
+**P68.13 — compteurs git en fin de bloc : 17 au total, 10 hors artefacts de
+séance**, second instant de la déclaration C131.
+
+### Constats du bloc 68 (garde `3008b23`, remesure `3008b24`, relevé `tools/puces-lot9-apres-3008.txt`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P68.1 | ASCII 0 ; copie `3008b23` | 0 ; `tools\batterie-sortie-3008b23.txt` | **tenue** |
+| P68.2 | `garde / 2 / False`, heure > `09:20:34`, HEAD au caractère, `v24.15.0`, 2 codes à 0, 3 dates identiques | `09:31:29` ; `4e73aa8 2026-08-30 08:57:42 +0200` ; identiques | **tenue** |
+| P68.3 | `7   (hors artefacts de seance : 1)` | 7 / 1 | **tenue** |
+| P68.4 | `L6 INTROUVABLE`, `remplacements prets : 0`, `ancres introuvables : 1`, `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, code 1 | **exactement**, `EXIT=1` | **tenue** |
+| P68.5 | `lignes de table : 56` ; `fiches : 6` ; `remplacements prets : 56` ; 5 seaux à 0 ; `INVARIANT D ACCENTS casse sur : 0 fiche(s)` ; `CONTROLE SEUL : 56 …, 0 fichier ecrit.` | identique, `EXIT=0` | **tenue** |
+| P68.6 | ancres 5/5, 11/11, 7/7, 10/10, 1/1, 22/22 ; **`ecart +0`** sur les six ; lignes inchangées sur les six | identique ; `56 / 160 / 197 / 261 / 68 / 405` **inchangés** ; `21 / 56 / 77 / 78 / 34 / 152` inchangées | **tenue** |
+| P68.7 | 6 × `ECRIT` avec (5)(11)(7)(10)(1)(22) ; `fichiers ecrits : 6` | identique | **tenue** |
+| P68.8 | `6 fiche(s) lue(s), 1 a reprendre.` ; `C109 de prose : 5` ; seule `fonction` listée | identique | **tenue** |
+| P68.9 | `hors perimetre : 20` inchangé | 20 | **tenue** |
+| P68.10 | puces après passe **16**, `0 / 0 / 0 / 5 / 0 / 11` | identique | **tenue** |
+| P68.11 | `LOT (6 fiches) 5814`, `mecatronique 263` | **5813**, **262** | **RÉFUTÉE** |
+| P68.12 | `RESTANT DE L ANNEAU 2 (23 fiches) 37149`, `mecatronique 263`, le reste au caractère | **37148**, **262** ; tout le reste au caractère | **RÉFUTÉE** |
+| P68.13 | fin de bloc **17 / 10** | 17 / 10 | **tenue** |
+
+**Bilan du bloc 68 : 13 prédictions à décompte plein, 11 tenues, 2 réfutées**
+(une seule cause).
+
+⚠ **RÉFUTATIONS P68.11 ET P68.12 — J'AI COMPTÉ LE MOT AJOUTÉ ET PAS LE MOT
+RETIRÉ, DANS LE MÊME REMPLACEMENT.** La règle est
+`du [[firmware]] ; et le comportement` → `du [[firmware]]. Enfin, le
+comportement` : j'ai vu le « **Enfin** » qui entre et **pas le « et » qui
+sort**. Le solde est **nul**, et les deux chiffres dérivés du même
+raisonnement tombent ensemble — le volume du lot **et** la ligne d'anneau de
+la fiche.
+✅ *L'instrument, lui, l'avait dit avant la mesure* : le contrôle seul publiait
+`pts de code 2037 -> 2038`, **+1 point de code**, quand un mot de cinq lettres
+ajouté net en aurait coûté six. **La donnée qui réfutait la prédiction était à
+l'écran deux commandes plus tôt, dans une ligne que je lisais pour autre
+chose.** ⚠ *C'est le troisième défaut de la série trouvé en mesurant autre
+chose, et le premier où la mesure qui l'aurait évité était déjà publiée.*
+⚠ **Candidate : un remplacement qui change le nombre de mots se compte en
+SOLDE, jamais en ajout** — et l'invariant `pts de code` du contrôle seul en est
+le témoin gratuit, disponible **avant** l'écriture.
+
+✅ **LE NEUVIÈME REFUS DÉLIBÉRÉ DE LA SÉRIE, ET IL PORTE SUR LA FAUTE LA MOINS
+VISIBLE À CE JOUR** : un **trait d'union ASCII** à la place d'un tiret
+cadratin, dans une ancre par ailleurs exacte au caractère. *Le corps ne peut
+pas la contenir — c'est précisément ce que la passe retire —, et sans la garde
+d'unicité elle n'aurait produit **aucune erreur** : le lot serait sorti à 55
+remplacements sur 56 et personne n'aurait su lequel manquait.*
+
+✅ **L'INVARIANT D'ACCENTS TIENT À +0 SUR LES SIX FICHES, ET TROIS
+REMPLACEMENTS LE MENAÇAIENT VRAIMENT.** `à la livraison` → `À la livraison`
+change une lettre accentuée en une autre ; `l'électronique` → `L'électronique`
+et `l'état de l'art` → `L'état de l'art` capitalisent une lettre ASCII **devant**
+une lettre accentuée. **Les trois sortent à `ecart +0`**, ce qui était prédit
+au caractère et non « sans doute inchangé ».
+
+---
+
+## ⛳ GATE G2 — fin de passe C109.
+
+**Fait** — **80 signalements jugés un par un et publiés avant la table**, **59
+traités**, **21 gardés**, **56 ancres**, **6 sources FR écrites en une passe
+tout-ou-rien**. **Un test négatif, un refus, zéro octet.**
+
+**`git diff --numstat` sur `content/`** — six fiches, **44 lignes touchées**,
+et **autant d'insertions que de suppressions sur chacune**, ce qui est la
+signature d'une passe de ponctuation :
+
+```
+7  7  content/conduite/proj/bete-a-cornes.md
+17 17  content/conduite/proj/caracteriser-une-exigence.md
+1  1  content/conduite/proj/fonction.md
+3  3  content/conduite/proj/mecatronique.md
+7  7  content/conduite/proj/mind-map.md
+9  9  content/conduite/proj/pieuvre.md
+```
+
+**Chiffres qui ont changé**
+
+- `C109 de prose` **61 → 5** ; les 5 résiduels sont **les cinq gardés de la
+  L20 de `fonction`**, seuls gardés que `--style` voit.
+- **Puces à tiret du lot 19 → 16** ; les 16 sont **5 gloses `FP/FS/FC` de
+  `pieuvre`** et **11 entrées de glossaire de `caracteriser-une-exigence`**.
+- **Volume inchangé : 5 813 mots.** Une passe de ponctuation ne déplace pas le
+  compte de mots — *et c'est ce que j'avais prédit faux.*
+- **Invariant d'accents `+0` sur les six**, lignes de corps inchangées sur les
+  six.
+- `git status` **17 / 10**.
+
+**Ce qui suit** — bloc 69 : garde, puis **les CINQ relevés d'avant rédaction**
+(titres de section, `title:` par les libellés, chaînes affichées C113, titres
+de callout, plus le vocabulaire anglais du triplet reporté du bloc 66), puis
+génération des six squelettes EN.
+
+⚠ **Rien à arbitrer, rien de bloquant.** *Le taux de conservation, 26 %, est le
+plus haut de la série et il est motivé : deux des six fiches sont des fiches de
+typologie, et une typologie est un glossaire.*
+
+---
+
+## Déclaration C131 du bloc 69 — rejouée, liste fermée avant le bloc, DEUX instants
+
+**Populations** — inchangées, redéclarées : `git status --porcelain` sur le
+dépôt entier moins les deux chemins exacts du `.gitignore` ; `hors artefacts de
+seance` = la même moins `batterie-sortie` et `predictions-`.
+
+**Liste FERMÉE des artefacts du bloc 69 :**
+
+| # | artefact | état | total | hors artefacts | existe à la lecture de la garde ? |
+|---|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | oui | non | oui |
+| 2-7 | `tools/batterie-sortie-3008b19..b24.txt` | `??` | oui | non | oui |
+| 8 | `tools/batterie-sortie-3008b25.txt` (étape 0 de la garde) | `??` | oui | non | **oui** |
+| 9 | `tools/puces-lot9-3008.txt` | `??` | oui | oui | oui |
+| 10 | `tools/puces-lot9-apres-3008.txt` | `??` | oui | oui | oui |
+| 11 | `tools/passe-negatif-lot9-3008.tsv` | `??` | oui | oui | oui |
+| 12 | `tools/passe-c109-lot9-3008.tsv` | `??` | oui | oui | oui |
+| 13-18 | les **6 sources FR** modifiées au bloc 68 | ` M` | oui | oui | oui |
+| 19 | `tools/releves-lot9-3008.txt` (**les cinq relevés en un seul fichier**, C124) | `??` | oui | **oui** | **non** |
+| 20-25 | les **6 squelettes EN** de `content/en/conduite/proj/` | `??` | oui | **oui** | **non** |
+
+**DEUX instants :**
+- **quand la garde lit `git status`** : **18** au total, **10** hors artefacts ;
+- **en fin de bloc** : **25** au total, **17** hors artefacts.
+
+⚠ *`content/en/conduite/proj/` est un répertoire **déjà suivi** — il porte les
+cinq fiches du lot 8 — donc les six fiches neuves comptent **une entrée
+chacune**, et non une entrée de répertoire. **La règle d'usage 4 ne s'applique
+pas ici, et c'est écrit pour qu'on ne l'invoque pas à tort.***
+
+---
+
+## Bloc 69 — les CINQ relevés d'avant rédaction, puis génération des six squelettes
+
+**Commandes, dans cet ordre :**
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. les **cinq relevés**, sortie unique `tools/releves-lot9-3008.txt` (C124)
+3. `node tools/creer-fiche-en.mjs <les 6 sources>` — génération des squelettes
+
+⚠ **CINQ RELEVÉS ET NON QUATRE.** Le cinquième — les **titres de callout** —
+est né du lot 8, d'un défaut attrapé en mesurant autre chose ; c'est sa
+**première application à l'endroit prévu**, avant rédaction et non en
+correctif. *La candidate passe de 0/N à 1/N si elle sert.*
+
+### Prédictions du bloc 69
+
+**Garde**
+
+**P69.1** — `lignes non ASCII dans batterie.ps1 : 0` ; `sortie precedente
+copiee : tools\batterie-sortie-3008b25.txt`.
+
+**P69.2** — `garde   anneau : 2   chevron : False` ; `date ISO : 2026-08-30` ;
+heure **> `09:31:29`** ; `HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au
+caractère** ; `node : v24.15.0` ; 2 codes à 0.
+
+**P69.3 — dates d'écriture : les TROIS lignes de pilotage inchangées au
+caractère.** ⚠ *Les six sources FR ont changé au bloc 68, mais `-Fiches` est
+vide : elles **n'apparaissent pas** dans cette garde. Terme écrit pour
+réfuter : si une quatrième ligne sort, c'est que je me trompe sur ce que la
+phase `garde` lit.*
+
+**P69.4 — compteurs git au premier instant :** `18   (hors artefacts de
+seance : 10)`.
+
+**Relevé 1 — titres de section EN (candidate 3/N → 4/N)**
+
+**P69.5 — les six formes de production, contre la référence datée du 30/08
+à 08:0x (`204 / 140 / 139 / 102 / 37 / 30`, prise AVANT les cinq fiches du
+lot 8).** ⚠ **Le prompt le dit lui-même : ce n'est PAS un état de clôture.**
+Les cinq fiches du lot 8 ont été écrites après, donc les six compteurs
+**doivent avoir monté**. Je prédis, en distinguant ce qui est sûr de ce qui ne
+l'est pas :
+- `## See also` **209**, `## What is it for?` **145**, `## Pitfalls` **144**,
+  `## Where it fits in the project` **107** — **+5 exactement**, les cinq
+  fiches du lot 8 étant des fiches-notion complètes qui portent les quatre
+  sections d'ossature ;
+- `## Exercises` **entre 37 et 42, point estimé 37** — *une notion de
+  méthodologie n'a pas toujours d'exercices* ;
+- `## Going further` **entre 30 et 35, point estimé 32**.
+
+**P69.6 — les deux formes fautives du lot 4 restent à ZÉRO** :
+`## Project connection` **0** et `## Step-by-step procedure` **0**. *Troisième
+confirmation du correctif É1 de la suite 10, et aucune autre mesure du dépôt
+ne peut le dire.*
+
+**P69.7 — les titres de section FR des six sources : entre 20 et 34, point
+estimé 27**, dont **au plus 6 hors des familles génériques**. ⚠ *Le lot 7 était
+« le premier hors gabarit » avec 23 titres propres sur 36 ; celui-ci est fait
+de **fiches-notion d'un même palier**, donc je prédis l'inverse : **une forte
+majorité de titres génériques**, et le relevé sert de **confirmation** plutôt
+que d'arbitrage.*
+
+**Relevé 2 — les `title:` EN lus D'ABORD dans les libellés (candidate 0/N)**
+
+**P69.8 — les six cibles reçoivent des libellés du corpus anglais, et je les
+prédis nommément** — *ordre de lecture de la candidate du 30/08 (s2) : les
+libellés **avant** les trois tests de C125* :
+
+| source FR | `title:` FR | `title:` EN prédit | motif |
+|---|---|---|---|
+| `mecatronique` | Mécatronique | **`Mechatronics`** | terme technique international, aucune ambiguïté |
+| `mind-map` | Mind map | **`Mind map`** | ⚠ **le `title:` FR est déjà anglais** — un anglicisme admis du §1 ; le titre EN est identique au FR, et ce sera le premier cas du chantier |
+| `bete-a-cornes` | Bête à cornes | **`Bête à cornes`**, **gardé en français** | méthode AFNOR sans équivalent anglais ; précédents mesurés `Cahier des charges fonctionnel`, `AMDEC`, `Écodesign` |
+| `pieuvre` | Pieuvre | **`Pieuvre`**, gardé en français | *idem*, même famille normative NF X50-151 |
+| `fonction` | Fonction | **`Function`** | mot commun, et ses trois alias `FP/FS/FC` sont déjà écrits **40 fois** en libellés anglais (mesure du lot 8) |
+| `caracteriser-une-exigence` | Caractériser une exigence | **`Characterising a requirement`** | ⚠ **et c'est le seul des six où l'orthographe britannique/américaine se pose** |
+
+⚠ **DEUX TERMES ÉCRITS POUR RÉFUTER.** (1) `bete-a-cornes` et `pieuvre` sont
+les deux seuls titres du lot que le corpus anglais pourrait avoir déjà tranchés
+**contre** le français, et le lot 8 a montré que le corpus tranche parfois en
+gardant le mot français (`Écodesign`) et parfois non. **Si un seul libellé
+anglais écrit `horned beast` ou `octopus diagram`, la prédiction tombe et c'est
+le corpus qui décide, pas moi.** (2) `Characterising` vs `Characterizing` :
+**je relève l'usage du corpus** — la forme `-ise`/`-ize` déjà employée dans
+`content/en/` — **avant** d'écrire le titre, et je ne tranche pas de mémoire.
+
+**Relevé 3 — chaînes affichées sous C113**
+
+**P69.9 — ZÉRO bloc de code dans les six sources**, donc **C113 hors sujet
+pour le DEUXIÈME lot d'affilée**, et **l'assomption sur les chaînes affichées
+libres reste non testée**. *Les six fiches sont des notions de méthodologie de
+`conduite/proj/` ; le lot 8, du même répertoire, n'en portait aucun non plus.*
+⚠ *Terme écrit pour réfuter : `caracteriser-une-exigence` porte du **code
+inline** (`` `± 5 mm` ``, `` `100 g` ``, `` `≤ X` ``) — du code inline n'est
+pas un bloc, et C113 ne le voit pas ; si le relevé en fait un bloc, c'est que
+je confonds les deux.*
+
+**Relevé 4 — titres de callout (candidate 0/N, PREMIÈRE application à
+l'endroit prévu)**
+
+**P69.10 — `> [!warning] Watch out` entre 44 et 55, point estimé 48 ;
+`> [!tip] Tip` entre 41 et 52, point estimé 44 ;
+`Attention` résiduel = 3 ; `Astuce` = 0.** *La référence 44 / 41 est celle du
+lot 8, relevée pendant sa rédaction ; ses cinq fiches ont pu en ajouter.*
+⚠ *`Attention` à **3** est le terme qui prouve que le relevé lit le corpus
+entier et pas seulement les fiches récentes : ce sont trois résidus anciens,
+et le lot 8 les a laissés en place.*
+
+**Relevé 5 — le vocabulaire anglais du triplet (reporté du bloc 66)**
+
+**P69.11 — le corpus anglais écrit DÉJÀ le triplet, et je prédis qu'il
+l'écrit `criterion / level / flexibility`.** *Motif : `cahier-des-charges-
+fonctionnel-en` et `specification-technique-en` sont traduites depuis le 25/08
+et enseignent le CdCF ; elles ne peuvent pas parler d'exigences sans nommer le
+triplet.* ⚠ **Si le corpus ne l'écrit nulle part, alors le lot 9 crée la
+référence** — ce qui reste l'ordre naturel, la fiche qui enseigne le triplet
+étant dans ce lot et non dans le lot 10.
+
+**Génération des six squelettes**
+
+**P69.12 — six blocs `=== conduite/proj/<slug>.md -> content/en/conduite/proj/
+<slug>-en.md ===`**, chacun avec `liens`, `embeds`, `code` **tous `ok`**, et
+**aucun `DIVERGE`**.
+
+**P69.13 — `code : 0 -> 0` sur les six**, corollaire mécanique de P69.9.
+
+**P69.14 — les alias sont RÉSOLUS par le générateur, et c'est ce qui referme
+la boucle du bloc 66.** Je prédis au moins une ligne
+`alias resolus vers leur porteuse` sur `pieuvre` et sur `mind-map` — les deux
+fiches qui écrivent `[[FP]]`, `[[FS]]` et `[[FC]]` en clair —, et **zéro
+`ANCRES DE WIKILINK A REECRIRE A LA MAIN`** sur les six.
+⚠ *Si les alias sont résolus, la conclusion du bloc 66 se confirme d'un
+troisième côté : `CIBLES SANS FICHE` est un défaut de `--anneau` seul, que ni
+le générateur ni Quartz ne partagent.*
+
+**P69.15 — compteurs git en fin de bloc : 25 au total, 17 hors artefacts.**
+
+### Constats du bloc 69 (garde `3008b25`, relevés `tools/releves-lot9-3008.txt`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P69.1 | ASCII 0 ; copie `3008b25` | 0 ; `tools\batterie-sortie-3008b25.txt` | **tenue** |
+| P69.2 | `garde / 2 / False`, heure > `09:31:29`, HEAD au caractère, `v24.15.0`, 2 codes à 0 | `09:35:33` ; identique | **tenue** |
+| P69.3 | **3 lignes** de dates, pilotage seul, au caractère | 3 lignes, identiques | **tenue** |
+| P69.4 | `18   (hors artefacts de seance : 10)` | 18 / 10 | **tenue** |
+| P69.5 | `209 / 145 / 144 / 107 / [37,42] / [30,35]` | **209 / 144 / 143 / 104 / 37 / 31** | **RÉFUTÉE** |
+| P69.6 | `## Project connection` 0, `## Step-by-step procedure` 0 | 0 et 0 | **tenue** |
+| P69.7 | titres FR ∈ [20, 34], point 27 ; **au plus 6** hors familles génériques | **35** ; **10** hors familles | **RÉFUTÉE** |
+| P69.8 | les **six** `title:` EN, nommés un par un | **les six, au caractère** | **tenue** |
+| P69.9 | **0** bloc de code sur les six | 0 / 0 / 0 / 0 / 0 / 0 | **tenue** |
+| P69.10 | `Watch out` ∈ [44,55] ; `Tip` ∈ [41,52] ; `Attention` **3** ; `Astuce` 0 | **47** ; **43** ; **0** ; 0 | **RÉFUTÉE** (`Attention`) |
+| P69.11 | le corpus EN écrit déjà `criterion / level / flexibility` | **3 suites exactes**, et les trois mots en libellés **×4 chacun** | **tenue** |
+| P69.12 | 6 blocs, `liens/embeds/code` tous `ok`, aucun `DIVERGE` | 6 blocs, 18 `ok`, 0 `DIVERGE` | **tenue** |
+| P69.13 | `code : 0 -> 0` sur les six | oui | **tenue** |
+| P69.14 | `alias resolus` sur `pieuvre` et `mind-map` ; **0** ancre à réécrire à la main | alias résolus sur **trois** fiches ; **1** ancre sur `bete-a-cornes` | **RÉFUTÉE** |
+| P69.15 | fin de bloc **25 / 17** | 25 / 17 | **tenue** |
+
+**Bilan du bloc 69 : 15 prédictions à décompte plein, 11 tenues, 4 réfutées.**
+
+---
+
+⚠ **INCIDENT C110 — LE MOTIF DU RELEVÉ 2 A MORDU À TORT, ET MON PREMIER
+CORRECTIF ÉTAIT FAUX AUSSI.** Le motif cherchait le slug de la cible **en
+sous-chaîne** : sur `fonction`, il ramenait les libellés de
+`cahier-des-charges-fonctionnel` (**51** liens), `decomposition-fonctionnelle`
+(**21**) et `fonction-informatique` (**12**), soit **une liste de 25 libellés
+dont la plupart visaient une autre fiche**. ✅ **Vu avant toute décision de
+titre**, parce que la liste rendait `CdCF` **34** en tête sur une cible qui
+s'appelle « Fonction ».
+⚠ **Le correctif du relevé 2bis — cible égale à `fonction` — rend 0**, et le
+zéro est un **faux négatif** : le corpus **anglais** vise toujours `fonction-en`
+et jamais `fonction`. **Deux motifs faux d'affilée sur le même relevé, et le
+second l'était plus discrètement que le premier** — un motif qui sur-compte se
+voit dans sa liste, un motif qui rend zéro ressemble à une réponse.
+✅ **Motif juste, publié au relevé 2ter** : cible **égale à `<slug>-en`** ou
+terminée par `/<slug>-en`. **Les cinq autres cibles rendent le même chiffre
+sous les deux motifs** — leurs slugs n'ont pas d'homographe préfixe dans le
+corpus —, ce qui est exactement pourquoi le défaut n'était visible que sur
+`fonction`.
+⚠ **Candidate : un motif qui cherche une CIBLE de wikilink borne la cible aux
+deux bouts, et le corpus anglais vise `<slug>-en`.** *C110 exige un échantillon
+qui contienne ce qui pourrait faire mordre le motif à tort ; ici les six cibles
+**étaient** l'échantillon, et une seule des six portait le piège. **Le piège
+n'était pas dans la langue, il était dans le nom** : `fonction` est préfixe de
+`fonction-informatique` et sous-chaîne de deux autres slugs.*
+
+✅ **ET LE MOTIF JUSTE DONNE LES SIX TITRES, TOUS LES SIX PRÉDITS AU
+CARACTÈRE.**
+
+| cible | libellés mesurés dans `content/en/` | `title:` EN retenu |
+|---|---|---|
+| `mecatronique-en` | `mechatronics` 10, `Mechatronics` 1, `mechatronic` 1 | **`Mechatronics`** |
+| `mind-map-en` | `mind map` 1, `Mind map` 1 | **`Mind map`** |
+| `bete-a-cornes-en` | `bête à cornes` 6, **`Bête à cornes` 4** | **`Bête à cornes`**, gardé en français |
+| `pieuvre-en` | `pieuvre` 16, **`Pieuvre` 3** | **`Pieuvre`**, gardé en français |
+| `fonction-en` | `FC` 23, `FP` 9, `FS` 8, **`Function` 4**, `service functions` 2, `functions` 1, `function` 1, `FP/FS/FC` 1 | **`Function`** |
+| `caracteriser-une-exigence-en` | **`Characterising a requirement` 7**, `characterising a requirement` 2, `level` 4, `flexibility` 4, `criterion` 4 | **`Characterising a requirement`** |
+
+⚠ **DEUX TITRES RESTENT EN FRANÇAIS, ET C'EST LE CORPUS QUI LE DÉCIDE, PAS
+MOI.** `bête à cornes` et `pieuvre` sont des méthodes NF X50-151 sans nom
+anglais : **dix libellés anglais pour la première, dix-neuf pour la seconde,
+et aucun ne tente `horned beast` ni `octopus diagram`.** *Le terme écrit pour
+réfuter était exactement celui-là, et il ne se déclenche pas.* **Troisième
+famille de la lignée `Cahier des charges fonctionnel` / `AMDEC` / `Écodesign`,
+et la première où DEUX titres d'un même lot en relèvent.**
+
+✅ **`Characterising` — L'ORTHOGRAPHE EST MESURÉE, PAS CHOISIE.** Le corpus
+écrit **119** formes en `-ise` (`organise`, `characterise`, `summarise`,
+`prioritise`, `formalise`, `recognise` et flexions) contre **0** en `-ize`. *Le
+libellé `Characterising a requirement` était déjà là sept fois ; le relevé
+d'orthographe ne fait que confirmer qu'il n'était pas un accident.*
+
+✅ **LE VOCABULAIRE DU TRIPLET ÉTAIT DÉJÀ ÉCRIT, ET LE CRITÈRE DE COMPOSITION
+DU BLOC 65 TOMBE DE LUI-MÊME.** Le seul argument qui plaidait contre la coupe
+après `caracteriser-une-exigence` était que traduire cette fiche avant
+`etat-de-l-art-technique` fixerait le vocabulaire du triplet hors de la fiche
+qui l'emploie en tableau. **Mesure : `criterion / level / flexibility` est écrit
+3 fois en suite exacte dans `content/en/`, et les trois mots sont des libellés
+de wikilink vers `caracteriser-une-exigence-en`, 4 fois chacun.** *Il n'y avait
+rien à décider — exactement comme pour `FP/FS/FC` au lot 8.*
+
+---
+
+⚠ **RÉFUTATION P69.5 — J'AI PRÉDIT « +5 EXACTEMENT » SUR QUATRE COMPTEURS ET
+AUCUN DES QUATRE N'EST À +5.** Contre la référence datée `204 / 140 / 139 /
+102 / 37 / 30` (30/08 08:0x, **avant** les cinq fiches du lot 8), la mesure
+rend `209 / 144 / 143 / 104 / 37 / 31`, soit **+5 / +4 / +4 / +2 / +0 / +1**.
+*Cause : j'ai supposé que « fiche-notion complète » impliquait les quatre
+sections d'ossature. **`## See also` est la seule que les cinq portent
+toutes.*** ⚠ *Et le +2 sur `## Where it fits in the project` dit quelque chose
+du lot 8 que sa propre clôture n'a pas publié : **trois de ses cinq fiches
+n'ont pas de section de raccrochage projet**.*
+✅ **La leçon d'instant, elle, tient** : les six compteurs **ont tous monté ou
+sont restés stables**, aucun n'a baissé, et **prédire l'égalité avec la
+référence aurait été faux six fois sur six**. *C'est ce que le prompt
+demandait de ne pas rater, et ce n'est pas raté.*
+
+⚠ **RÉFUTATION P69.7 — 35 TITRES DE SECTION FR, DONT 10 PROPRES, ET J'AI
+PRÉDIT « FORTE MAJORITÉ DE GÉNÉRIQUES » SUR UN LOT QUI EN PORTE 25 SUR 35.**
+L'intervalle [20, 34] rate de un. *La cause est arithmétique et elle est bête :
+j'ai raisonné « six fiches-notion × 4 à 5 sections » sans compter les **`###`**,
+et ce lot en porte **six** — les trois sous-sections du triplet, deux de
+`pieuvre`, une de `bete-a-cornes`.* ✅ **Le fond de la prédiction tient** : 25
+des 35 sont d'une famille générique, contre 13 sur 36 au lot 7 — *le lot 9 est
+le contraire exact du « premier hors gabarit ».*
+
+**Les dix familles génériques du lot, et leur forme de production, relevées
+avant d'écrire :**
+
+| titre FR | occurrences dans le lot | forme EN retenue | poids au corpus |
+|---|---|---|---|
+| `## Voir aussi` | 6 | `## See also` | **209** |
+| `## À quoi ça sert ?` | 5 | `## What is it for?` | **144** |
+| `## Pièges` | 5 | `## Pitfalls` | **143** |
+| `## Comment la construire ?` | 3 | `## How do you build one?` | **6**, dont 3 jumelles du même répertoire |
+| `## Exemple — Bras 3 axes pédagogique` | 2 | `## Example — 3-axis teaching arm` | **6** |
+| `## Exemple — projet bras 3 axes` | 1 | `## Example — 3-axis arm project` | **1**, et c'est la jumelle de `cahier-des-charges-fonctionnel`, qui porte le **même titre FR** |
+| `## Cas particulier — projet école sans client réel` | 1 | `## Special case — a school project with no real client` | **1**, forme exacte déjà au corpus |
+| `## Cas particulier — exigences binaires et réglementaires` | 1 | `## Special case — binary and regulatory requirements` | **famille `## Special case — ` : 100**, libellé **neuf** |
+| `## Exemple — Bras robotique pédagogique 6 axes` | 1 | `## Example — 6-axis teaching robot arm` | **famille `## Example — ` : 106**, libellé **neuf** |
+| `## Fil rouge` | 1 | `## Running example` | **0 en titre**, mais **18** occurrences de `running example` en **prose** anglaise |
+
+⚠ **Trois formes neuves, déclarées neuves AVANT d'être écrites** — les deux
+libellés d'`Example`/`Special case` ci-dessus et `## Running example`. *La
+troisième est la seule dont la famille n'existe pas en titre ; elle est
+néanmoins **adossée à une mesure**, `running example` étant la façon dont le
+corpus anglais dit « fil rouge » dix-huit fois.*
+
+**Les dix titres propres**, qui nomment le contenu de leur fiche et n'ont
+aucun modèle : `## Trois disciplines, un système`, `## Fil rouge`,
+`### Méthode de remplissage`, `### Familles de milieux à parcourir
+systématiquement`, `### Topologie du diagramme`, `## Format d'énoncé`,
+`## Comment caractériser une exigence ?`, `### Le critère`, `### Le niveau`,
+`### La flexibilité`. ✅ **Aucun n'a de forme de production à respecter, et
+aucun ne doit prendre par accident `## Step by step` (77) ni
+`## In the project` (21)** — terme écrit pour réfuter à la clôture.
+
+---
+
+⚠ **RÉFUTATION P69.10 — LE `3` D'`Attention` N'EXISTAIT DÉJÀ PLUS QUAND LE
+BRIEF L'A ÉCRIT, ET C'EST LA MÊME CAUSE QUE LES SIX COMPTEURS DE SECTION.**
+J'ai prédit `Attention` **3**, « trois résidus anciens que le lot 8 a laissés
+en place » ; la mesure rend **0**. *Le `3` du brief et du JOURNAL est le compte
+des occurrences que le lot 8 **a corrigées** — `fast-en` 2, `matrice-eco-
+criteres-en` 1 —, publié comme s'il décrivait un résidu du corpus.* ⚠ **C'est
+la troisième occurrence de la cause « un relevé d'avant-correctif servi comme
+état d'après », après les deux du lot 8**, et cette fois **elle a voyagé
+jusque dans le prompt de la séance suivante**.
+✅ **Les deux compteurs qui portent le sens sont dans leur intervalle** :
+`Watch out` **47** (44 + 3) et `Tip` **43** (41 + 2) — *les cinq occurrences
+que le lot 8 a écrites, et rien d'autre.*
+
+✅ **PREMIÈRE APPLICATION DU CINQUIÈME RELEVÉ À L'ENDROIT PRÉVU, ET IL ARBITRE
+DÈS SA PREMIÈRE UTILITÉ.** Les six sources FR portent **7 callouts titrés** :
+`> [!warning] Moyen` ×2, `> [!failure] Mauvais` ×2, `> [!example] Bon` ×2,
+`> [!tip] Astuce` ×1. **Le corpus anglais a déjà tranché le triptyque** —
+`> [!example] Good`, `> [!warning] Fair`, `> [!failure] Poor`, une occurrence
+chacun, dans `decomposition-fonctionnelle-en`, **la seule jumelle traduite des
+trois porteuses françaises**. *Sans ce relevé j'aurais écrit `Good` / `Average`
+/ `Bad`, et le corpus dit `Fair` et `Poor`.* Et `Astuce` → **`Tip`** (43).
+**La candidate passe de 0/N à 1/N.**
+
+---
+
+⚠ **RÉFUTATION P69.14 — UNE ANCRE INTRA-PAGE À RÉÉCRIRE, ET LE CORPUS SAIT
+DÉJÀ COMMENT.** J'ai prédit zéro ; `bete-a-cornes` en porte **une** :
+`[[specification-technique#cas-particulier--projet-école-sans-client-réel]]`.
+✅ *Le renvoi FR est **valide** — la section existe, en `#####`, et son slug
+tient les deux tirets parce que le titre porte ` : ` — et sa forme anglaise est
+**déjà écrite** dans `cahier-des-charges-fonctionnel-en`, qui fait le même
+renvoi :* `[[specification-technique-en#special-case-a-school-project-with-no-
+real-client|the special case in the specification phase]]`. **Rien à décider,
+une ligne à recopier.**
+
+✅ **ET LA BOUCLE DU BLOC 66 SE REFERME D'UN TROISIÈME CÔTÉ.** Le générateur
+**résout les alias** : `FP`, `FS`, `FC` → `fonction` (**12 résolutions** sur
+`mind-map` et `pieuvre`), `critere`, `niveau`, `flexibilite` →
+`caracteriser-une-exigence` (**3** sur `fonction`). *Il **retire** en outre le
+bloc `aliases:` des deux fiches EN, quatre lignes chacune.* **`CIBLES SANS
+FICHE` est donc bien un défaut de `--anneau` seul** : ni Quartz, ni le
+générateur ne partagent sa lecture. *Trois instruments, deux d'accord, un
+isolé — et c'est l'isolé qui publie le chiffre à toutes les clôtures.*
+
+---
+
+## ⛳ GATE G3 — avant rédaction.
+
+**Fait** — **cinq relevés** publiés dans `tools/releves-lot9-3008.txt`, **six
+squelettes EN générés**, `liens / embeds / code` **tous `ok`**, zéro
+`DIVERGE`.
+
+**Ce qui est décidé avant d'écrire une ligne**
+
+- **Six `title:`**, tous lus dans les libellés du corpus anglais :
+  `Mechatronics`, `Mind map`, **`Bête à cornes`**, **`Pieuvre`**, `Function`,
+  `Characterising a requirement`.
+- **Dix familles de titres de section**, dont **sept formes de production
+  existantes** et **trois formes neuves déclarées**.
+- **Trois titres de callout** : `Good` / `Fair` / `Poor`, plus `Tip`.
+- **Une ancre intra-page** à recopier depuis `cahier-des-charges-fonctionnel-en`.
+- **`criterion / level / flexibility`** : vocabulaire du triplet **déjà au
+  corpus**, rien à inventer.
+- **C113 hors sujet pour le deuxième lot d'affilée** : zéro bloc de code sur
+  les six sources. **L'assomption sur les chaînes affichées libres reste non
+  testée**, coût du revert inchangé.
+
+**Ce qui suit** — bloc 70 : rédaction des six fiches EN **par le mode
+`--corps`**, qui écrit le corps sans jamais toucher au front matter.
+*Première utilisation du mode sur un lot réel.*
+
+⚠ **Rien à arbitrer.** *Deux titres restent en français et c'est une mesure du
+corpus, pas une préférence ; si Tim veut l'infirmer, le coût du revert est
+**2 `title:` et 29 libellés**.*
+
+---
+
+## Déclaration C131 du bloc 70 — rejouée, liste fermée avant le bloc
+
+**Populations** — inchangées, redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 70 :**
+
+| # | artefact | état | total | hors artefacts |
+|---|---|---|---|---|
+| 1 | `tools/predictions-260830.md` | ` M` | oui | non |
+| 2-8 | `tools/batterie-sortie-3008b19..b25.txt` | `??` | oui | non |
+| 9 | `tools/batterie-sortie-3008b26.txt` (étape 0 de la garde) | `??` | oui | non |
+| 10-13 | `puces-lot9-3008.txt`, `puces-lot9-apres-3008.txt`, les **2 tables TSV** | `??` | oui | oui |
+| 14 | `tools/releves-lot9-3008.txt` | `??` | oui | oui |
+| 15-20 | les **6 sources FR** modifiées au bloc 68 | ` M` | oui | oui |
+| 21-26 | les **6 fiches EN**, déjà `??` depuis le bloc 69 — **`--corps` les réécrit sans créer d'entrée** | `??` | oui | oui |
+| — | les **6 fichiers de corps**, écrits dans le répertoire temporaire de la session, **hors dépôt** | — | non | non |
+| — | `tools/batterie-sortie.txt` | ignoré | non | non |
+
+**UN SEUL instant, et c'est ce qui le rend intéressant : 26 au total, 17 hors
+artefacts, À LA GARDE COMME EN FIN DE BLOC.**
+⚠ *Le bloc écrit **six fichiers de `content/`** et les compteurs ne bougent
+pas : les six sont **déjà** des entrées `??` depuis leur génération au bloc 69,
+et `git status --porcelain` compte des **entrées**, pas des écritures. **Les
+six fichiers de corps sont hors dépôt** et n'en fabriquent aucune. **Prédire un
+mouvement ici serait confondre « le bloc écrit » et « le bloc ajoute une
+ligne au statut ».***
+
+---
+
+## Bloc 70 — rédaction des six fiches EN, par le mode `--corps`
+
+**Commandes, dans cet ordre :**
+
+1. `powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase garde`
+2. pour chacune des six : écriture du **fichier de corps** (hors dépôt), puis
+   `node tools/creer-fiche-en.mjs --corps content/en/conduite/proj/<slug>-en.md <fichier de corps>`
+3. **remesure immédiate** : `--controle` sur tout le corpus, puis
+   `derive-traduction.mjs`
+
+⚠ **PREMIÈRE UTILISATION DU MODE `--corps` SUR UN LOT RÉEL.** Le mode est né
+la séance précédente, sur un test négatif et un test positif de
+non-régression. *Ce qu'il change : **le front matter n'est jamais réécrit**,
+donc l'empreinte `source_sha256` que le générateur vient de poser au bloc 69
+ne peut pas être réinventée. **C'est le défaut qui s'est produit aux lots 7 et
+8, deux fois, et que deux correctifs de code successifs n'avaient pas fermé.***
+
+### Prédictions du bloc 70
+
+**P70.1 — garde.** `lignes non ASCII : 0` ; `sortie precedente copiee :
+tools\batterie-sortie-3008b26.txt` ; `garde   anneau : 2   chevron : False` ;
+heure **> `09:35:33`** ; `HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au
+caractère** ; `node : v24.15.0` ; **3 lignes de dates** de pilotage,
+inchangées **au caractère** ; `fichiers modifies non commites : 26   (hors
+artefacts de seance : 17)`.
+
+**P70.2 — les six `--corps` passent les CINQ gardes, et les trois compteurs
+se reportent un pour un**, avec les valeurs de la source FR mesurées au
+bloc 69 :
+
+| fiche EN | `liens` | `embeds` | `code` |
+|---|---|---|---|
+| `mecatronique-en` | 9 → 9 | 1 → 1 | 0 → 0 |
+| `mind-map-en` | 20 → 20 | 2 → 2 | 0 → 0 |
+| `bete-a-cornes-en` | 7 → 7 | 4 → 4 | 0 → 0 |
+| `pieuvre-en` | 29 → 29 | 2 → 2 | 0 → 0 |
+| `fonction-en` | 11 → 11 | 0 → 0 | 0 → 0 |
+| `caracteriser-une-exigence-en` | 23 → 23 | 0 → 0 | 0 → 0 |
+
+**18 `ok`, zéro `DIVERGE`, zéro `GARDE`.**
+
+**P70.3 — l'invariant du mode, sur les six :** `source_sha256 avant` **=**
+`source_sha256 apres`, **64 hexadécimaux minuscules**, et
+`front matter identique a l octet : oui`. Puis
+`ECRIT  content/en/conduite/proj/<slug>-en.md   (front matter recopie a
+l octet)`.
+
+**P70.4 — `--controle` : `222 fiches`, `0 divergente`, `0 lien non suffixe
+sur 0`.** *216 au lot 8 plus les six de ce lot.*
+
+**P70.5 — `derive-traduction` : `MARQUE INVALIDE 0`, `DERIVE 0`,
+`A JOUR 222`, code de sortie 0 — ET ZÉRO `--recaler`.**
+⚠ **C'est LA prédiction du bloc, et elle est le terme qui juge le mode
+`--corps`.** *Le lot 7 a demandé un `--recaler` après une empreinte
+`PLACEHOLDER` ; le lot 8 en a demandé un après une empreinte **composée de
+tête et bien formée**, que le statut écrit pour ce défaut n'a pas vue. **Si
+`DERIVE` sort à autre chose que 0, le mode n'a pas fermé la trappe** — et il
+n'y aurait plus de troisième correctif à écrire, seulement un constat.*
+
+**P70.6 — compteurs git en fin de bloc : 26 au total, 17 hors artefacts,
+INCHANGÉS.** *Motif à la déclaration C131 ci-dessus.*
+
+**P70.7 — ce que la rédaction doit tenir, et qui se vérifiera au bloc 72** :
+les **dix formes de titre de section** arrêtées au gate G3, les **trois titres
+de callout** `Good` / `Fair` / `Poor` plus `Tip`, **l'ancre intra-page**
+recopiée depuis `cahier-des-charges-fonctionnel-en`, et **aucune apparition
+accidentelle** de `## Step by step` ni de `## In the project`.
+
+### Constats du bloc 70 (garde `3008b26`, six `--corps`, remesure `--controle` + `derive-traduction`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P70.1 | garde : ASCII 0, copie `3008b26`, heure > `09:35:33`, HEAD au caractère, 3 dates identiques, **26 / 17** | 0 ; `3008b26` ; `09:41:43` ; `4e73aa8 … 08:57:42 +0200` ; identiques ; **26 / 17** | **tenue** |
+| P70.2 | les six passent les 5 gardes ; `9/1/0`, `20/2/0`, `7/4/0`, `29/2/0`, `11/0/0`, `23/0/0` ; **18 `ok`, 0 `DIVERGE`** | exactement | **tenue** |
+| P70.3 | `source_sha256 avant = apres` et `front matter identique a l octet : oui` sur les six ; 6 × `ECRIT` | exactement, `EXIT=0` six fois | **tenue** |
+| P70.4 | `--controle` : **222 fiches, 0 divergente, 0 lien non suffixe sur 0** | identique | **tenue** |
+| P70.5 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 222`, code 0, **zéro `--recaler`** | identique, **zéro `--recaler`** | **tenue** |
+| P70.6 | fin de bloc **26 / 17, INCHANGÉS** | 26 / 17 | **tenue** |
+| P70.7 | *(déclarative : se vérifie au bloc 72)* | — | *[reportée]* |
+
+**Bilan du bloc 70 : 6 prédictions à décompte plein, 6 tenues, 0 réfutée**
+(plus 1 reportée au bloc 72).
+
+✅ **LE MODE `--corps` FERME LA TRAPPE, ET C'EST LE PREMIER LOT DEPUIS LE LOT 6
+QUI NE DEMANDE AUCUN `--recaler`.** *Le lot 7 en a demandé un après une
+empreinte `PLACEHOLDER` ; le lot 8 en a demandé un après une empreinte
+**composée de tête et bien formée**, que le statut `MARQUE INVALIDE`, écrit
+exactement pour ce défaut, n'a pas vue.* **Ici : six fiches rédigées, six front
+matters recopiés à l'octet, six `source_sha256` identiques avant et après, et
+`DERIVE 0`.** ⚠ *Le mérite n'est pas dans ma vigilance — il est dans le fait
+que **le geste fautif n'a plus d'occasion de se produire** : un fichier de corps
+ne porte pas de front matter, donc il n'y a plus de front matter à réécrire.
+C'est la différence entre une règle relue et une règle logée dans le code, et
+c'est la troisième fois de ce chantier qu'elle se vérifie.*
+**La règle d'usage 11 passe de 1/N à 2/N**, et pour la première fois sur un lot
+réel.
+
+⚠ **CE QUE LE MODE NE PROUVE PAS, ET QUI EST ÉCRIT.** Les six fiches ont été
+rédigées **en lisant le squelette sur disque**, ce que la règle demandait déjà
+avant le mode. **`--corps` empêche d'inventer une empreinte ; il n'empêche pas
+de mal traduire.** *Le contrôle qui vaut sur la traduction reste `--controle`
+(trois compteurs), `--style` (typographie et C109 créées), `--alt` (les alt) et
+`--libelles` (les libellés), et ils passent au bloc 72.*
+
+✅ **ET UN COMPTEUR QUI NE BOUGE PAS EST AUSSI UNE PRÉDICTION** : `git status`
+sort à **26 / 17 avant et après** un bloc qui a réécrit **six fichiers de
+`content/`**. *Les six étaient déjà des entrées `??` depuis leur génération, et
+les six fichiers de corps vivent hors dépôt. **Prédire un mouvement aurait été
+confondre « le bloc écrit » et « le bloc ajoute une ligne au statut »**, ce qui
+est exactement la famille de confusion qui a fait tomber C131 trois fois le
+30/08.*
+
+**Ce que la rédaction a tenu, et qui se mesure au bloc 72** — les dix formes de
+titre de section, les quatre titres de callout (`Poor` / `Fair` / `Good` /
+`Tip`), l'ancre intra-page recopiée depuis `cahier-des-charges-fonctionnel-en`,
+les deux titres français, et **deux décisions de rédaction prises seules** :
+- la **virgule décimale française devient un point** (`2,4 GHz` → `2.4 GHz`,
+  `± 0,1 mm` → `± 0.1 mm`, `± 0,5 mm` → `± 0.5 mm`) — *verdict **mécanique** de
+  `--style` EN, aucune marge* ;
+- les **séparateurs de milliers** passent à la virgule anglaise
+  (`100 000 h` → `100,000 h`, `10 000 h` → `10,000 h`) — ⚠ *`--style` ne peut
+  pas trancher entre une décimale française et un millier anglais et les sort
+  en **candidats à lire** : **je prédis donc 2 candidats de cette famille au
+  bloc 72**, et ils sont délibérés. Précédent au corpus : `3,000`.*
+- le prix de la borne d'exemple passe de `< 200 € HT` à
+  `< €200 excl. VAT` — *forme du corpus, `excl. VAT` mesuré 10 fois. **C71 ne
+  s'y oppose pas** : c'est un critère chiffré du système conçu, pas un cadrage
+  d'achat — clause de périmètre du 29/08 (suite 5).*
+
+---
+
+## ⛳ GATE G3bis — fin de rédaction, avant les `title:`.
+
+**Fait** — **six fiches EN rédigées par `--corps`**, **zéro octet de front
+matter touché**, **222 fiches contrôlées, 0 divergente**, **`DERIVE 0`**,
+**zéro `--recaler`**.
+
+**Chiffres qui ont changé** — corpus EN **216 → 222 fiches**. `git status`
+inchangé à **26 / 17**.
+
+**Ce qui suit** — bloc 71 : les six `title:` EN par `renommer-titres.mjs`, avec
+**test négatif délibéré**. Les six valeurs sont **déjà arrêtées au gate G3** et
+lues dans les libellés du corpus ; le bloc ne fait que les poser.
+
+⚠ **Rien à arbitrer.** *Le seul point qui pourrait l'être — deux `title:`
+gardés en français — est une mesure du corpus anglais lui-même, et son coût de
+revert est écrit : 2 `title:` et 29 libellés.*
+
+---
+
+## Déclaration C131 du bloc 71 — rejouée, liste fermée avant le bloc, DEUX instants
+
+**Populations** — inchangées, redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 71** — les **26 entrées** existantes,
+plus :
+
+| # | artefact | état | total | hors artefacts | existe à la garde ? |
+|---|---|---|---|---|---|
+| 27 | `tools/batterie-sortie-3008b27.txt` (étape 0 de la garde) | `??` | oui | non | **oui** |
+| 28 | `tools/table-titres-negatif-lot9-3008.tsv` | `??` | oui | **oui** | non |
+| 29 | `tools/table-titres-lot9-3008.tsv` | `??` | oui | **oui** | non |
+
+⚠ *Les **six fiches EN** sont réécrites par `renommer-titres --ecrire` et
+**n'ajoutent aucune entrée** : elles sont `??` depuis le bloc 69.*
+
+**DEUX instants :** **27 / 17** quand la garde lit `git status` ; **29 / 19**
+en fin de bloc.
+
+---
+
+## Bloc 71 — les six `title:` EN (C125), avec test négatif
+
+**Commandes, dans cet ordre :** garde ; écriture des deux tables ; test négatif
+(`renommer-titres.mjs` sur la table négative) ; contrôle seul sur la table
+réelle ; `--ecrire` ; puis `--libelles` en remesure.
+
+⚠ **Les six valeurs sont ARRÊTÉES DEPUIS LE GATE G3** et lues dans les
+libellés du corpus anglais (relevé 2ter). **Ce bloc ne décide rien, il pose.**
+*Trois lignes ne changent rien — `Mind map`, `Bête à cornes`, `Pieuvre` — et
+figurent quand même : une ancre qui vaut son remplacement prouve que le titre a
+été relu. Précédent : lot 8, deux lignes identiques sur cinq.*
+
+### Prédictions du bloc 71
+
+**P71.1 — garde.** ASCII **0** ; copie `tools\batterie-sortie-3008b27.txt` ;
+`garde   anneau : 2   chevron : False` ; heure **> `09:41:43`** ;
+`HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère** ; `node :
+v24.15.0` ; **3 lignes de dates** de pilotage inchangées ;
+`fichiers modifies non commites : 27   (hors artefacts de seance : 17)`.
+
+**P71.2 — test négatif, forme exacte.** La table négative porte **une seule
+ligne**, dont l'ancien titre est **`Mecatronique` SANS ACCENT** là où le front
+matter porte `Mécatronique`. *C'est la faute exacte qui a arrêté un lot de
+38 éditions le 29/08 (`à prevoir` sans accent), et la seule que ce script
+existe pour attraper.* **Attendu : refus, `exit 1`, zéro octet écrit.**
+
+**P71.3 — contrôle seul de la table réelle.** **6 lignes**, **6 ancres
+trouvées**, **0 défaut**, **0 fichier écrit**, `exit 0`.
+
+**P71.4 — écriture.** **6 fichiers écrits**, `exit 0`, et **trois titres
+seulement changent de valeur** :
+
+| fiche EN | ancien `title:` | nouveau `title:` | change ? |
+|---|---|---|---|
+| `mecatronique-en` | `Mécatronique` | **`Mechatronics`** | **oui** |
+| `mind-map-en` | `Mind map` | `Mind map` | non |
+| `bete-a-cornes-en` | `Bête à cornes` | `Bête à cornes` | non |
+| `pieuvre-en` | `Pieuvre` | `Pieuvre` | non |
+| `fonction-en` | `Fonction` | **`Function`** | **oui** |
+| `caracteriser-une-exigence-en` | `Caractériser une exigence` | **`Characterising a requirement`** | **oui** |
+
+⚠ **`mind-map-en` est le PREMIER CAS DU CHANTIER OÙ LE `title:` FRANÇAIS EST
+DÉJÀ ANGLAIS**, « mind map » étant un anglicisme admis du §1 des conventions.
+*La ligne ne change rien et c'est son intérêt : elle prouve que le titre a été
+relu au lieu d'être supposé.*
+
+**P71.5 — `derive-traduction` après l'écriture : `MARQUE INVALIDE 0`,
+`DERIVE 0`, `A JOUR 222`.** ⚠ *`renommer-titres` touche le **front matter**,
+mais pas le `source_sha256` : l'empreinte porte sur la **source FR**, que ce
+bloc ne touche pas. **Prédire un `DERIVE` ici serait confondre l'empreinte de
+la source avec l'état du fichier EN.***
+
+**P71.6 — `--libelles` : `candidats a lire` entre 112 et 150, point estimé
+130.** ⚠ **Et le point estimé n'est PAS 112, contrairement à ce que la
+candidate du lot 8 pourrait laisser croire.** *Le lot 8 avait rendu 112 avant
+et après, parce que ses titres avaient été choisis sur les libellés qui les
+visaient. **Ici, un effet de sens contraire domine** : `fonction-en` et
+`caracteriser-une-exigence-en` **n'existaient pas** avant ce lot, donc les
+libellés qui les visaient comptaient en `cible EN absente` ; ils deviennent
+**jugeables** d'un coup. **`FC` 23, `FP` 9, `FS` 8 et `FP/FS/FC` 1 visent
+désormais un titre `Function`, et `criterion` 4, `level` 4, `flexibility` 4
+visent `Characterising a requirement`** — aucun ne partage de radical avec sa
+cible.* **Je prédis donc une hausse, et je la prédis chiffrée.**
+
+**P71.7 — `cible EN absente` BAISSE**, et c'est le compteur qui explique la
+hausse du précédent. *Terme écrit pour réfuter : si `candidats a lire` monte
+sans que `cible EN absente` baisse, ma cause est fausse.*
+
+**P71.8 — compteurs git en fin de bloc : 29 au total, 19 hors artefacts.**
+
+### Constats du bloc 71 (garde `3008b27`, tables `table-titres[-negatif]-lot9-3008.tsv`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P71.1 | garde : ASCII 0, `3008b27`, heure > `09:41:43`, HEAD au caractère, 3 dates, **27 / 17** | 0 ; `3008b27` ; `09:49:00` ; identique ; **27 / 17** | **tenue** |
+| P71.2 | test négatif : refus, `exit 1`, zéro octet | `L7 INTROUVABLE`, `ancre attendue : Mecatronique`, `title: en place : Mécatronique`, `REFUS : 1 defaut(s)`, `EXIT=1` | **tenue** |
+| P71.3 | contrôle seul : 6 lignes, **6 ancres uniques**, 0 défaut, 0 écrit | identique, `EXIT=0` | **tenue** |
+| P71.4 | 6 fichiers écrits ; **trois titres changent** (`Mechatronics`, `Function`, `Characterising a requirement`), trois identiques | exactement | **tenue** |
+| P71.5 | `MARQUE INVALIDE 0`, `DERIVE 0`, `A JOUR 222` | identique | **tenue** |
+| P71.6 | `candidats a lire` ∈ [112, 150], point **130** | **132** | **tenue** |
+| P71.7 | `cible EN absente` **baisse** | **261 → 158** | **tenue** |
+| P71.8 | fin de bloc **29 / 19** | 29 / 19 | **tenue** |
+
+**Bilan du bloc 71 : 8 prédictions à décompte plein, 8 tenues, 0 réfutée.**
+
+✅ **DIXIÈME REFUS DÉLIBÉRÉ DE LA SÉRIE, ET LA SORTIE NOMME LES DEUX CHAÎNES
+CÔTE À CÔTE** : `ancre attendue : Mecatronique` / `title: en place :
+Mécatronique`. *Un accent d'écart, deux lignes à l'écran, zéro octet écrit.*
+
+✅ **P71.6 EST LA PRÉDICTION LA PLUS INTÉRESSANTE DU BLOC, PARCE QU'ELLE VA
+CONTRE UNE CANDIDATE RÉCENTE.** La candidate du lot 8 dit que choisir un titre
+sur les libellés qui le visent rend `candidats a lire` **invariant** — 112 avant
+et après cinq fiches. **J'ai prédit une hausse quand même, et chiffrée : 130.
+Mesure 132.** *Cause écrite avant la mesure et confirmée par P71.7 : deux des
+six cibles **n'existaient pas**, donc les libellés qui les visaient comptaient
+en `cible EN absente` ; ils basculent d'un coup en jugeables. **`cible EN
+absente` tombe de 261 à 158**, et la hausse de `candidats a lire` est le solde
+de ce basculement.*
+⚠ **Ce que cela dit de la candidate, et il faut l'écrire** : l'invariance du
+lot 8 tenait parce que **ses cinq cibles étaient visées par des libellés que
+leurs titres allaient reprendre**. Ici, `fonction-en` est visée **41 fois** par
+`FC` / `FP` / `FS` / `FP/FS/FC`, et **aucun sigle de ce genre ne partage de
+radical avec `Function`** ; `caracteriser-une-exigence-en` est visée **12 fois**
+par `criterion` / `level` / `flexibility`, qui sont les **trois composants du
+triplet** et pas des synonymes du titre. **La candidate n'est pas fausse, elle
+est incomplète : elle vaut pour un titre, pas pour une fiche visée par ses
+propres alias.** *Ces libellés sont **délibérés** — ce sont les six alias FR —
+et ils feront **grossir la file des 32 libellés parenthésés**, non la traiter.*
+
+---
+
+## Déclaration C131 du bloc 72 — rejouée, liste fermée avant le bloc, DEUX instants
+
+**Populations** — inchangées, redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 72** — les **29 entrées** existantes,
+plus :
+
+| # | artefact | état | total | hors artefacts | existe à la garde ? |
+|---|---|---|---|---|---|
+| 30 | `tools/batterie-sortie-3008b28.txt` (étape 0 de `-Phase etat`) | `??` | oui | non | **oui** |
+| 31 | `tools/verif-formes-lot9-3008.txt` (vérification P70.7 : titres de section, callouts, doublons) | `??` | oui | **oui** | non |
+| 32 | `tools/puces-corpus-lot9-3008.txt` (compteur de puces du corpus, avec sa population) | `??` | oui | **oui** | non |
+
+**DEUX instants :** **30 / 19** quand la garde lit `git status` ; **32 / 21**
+en fin de bloc.
+
+---
+
+## Bloc 72 — clôture du lot 9
+
+**Commandes :**
+
+1. ```
+   powershell -ExecutionPolicy Bypass -File tools/batterie.ps1 -Phase etat -Chevron -Fiches <les 6 FR> -FichesEn <les 6 EN>
+   ```
+2. vérification P70.7 (formes de production, callouts, `titres-doublons`) →
+   `tools/verif-formes-lot9-3008.txt`
+3. compteur de puces du corpus, **population écrite dans la sortie** →
+   `tools/puces-corpus-lot9-3008.txt`
+
+### Prédictions du bloc 72
+
+**P72.1 — garde.** ASCII **0** ; copie `tools\batterie-sortie-3008b28.txt` ;
+`phase demandee : etat   anneau : 2   chevron : True` ; heure **> `09:49:00`** ;
+`HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère** ;
+`27 / 17`… **non : `30   (hors artefacts de seance : 19)`**, premier instant de
+la déclaration ci-dessus ; **15 lignes de dates** (3 de pilotage + 6 FR + 6 EN),
+**aucune `ABSENTE`**, les **6 FR au 30/08 après `09:0x`** (passe du bloc 68) et
+les **6 EN au 30/08 après `09:4x`** (renommage du bloc 71).
+
+**P72.2 — corpus FR : `291242`, INCHANGÉ.** *Notre passe C109 est **neutre en
+mots** — mesuré au bloc 68, et c'est la réfutation P68.11 qui l'a établi.*
+⚠ *Le lot 8 avait rendu +1 ; celui-ci rend +0, et prédire +1 par analogie
+serait recopier un lot au lieu de mesurer le sien.*
+
+**P72.3 — traduites et restant.** `216 → 222 fiches`,
+`251 826 → 257 639 mots FR` ; restant `26 → 20 fiches`,
+`39 416 → 33 603 mots`. **Et `257 639 + 33 603 = 291 242` referme le corpus.**
+
+**P72.4 — `--controle` : `222 fiche(s) controlee(s), 0 divergente(s)` et
+`Liens non suffixes : 0 sur 0 fiche(s)`.**
+
+**P72.5 — dérive : `MARQUE INVALIDE 0`, `DERIVE 0`, `SANS SOURCE 0`,
+`SANS MARQUE 0`, `A JOUR 222`, ET ZÉRO `--recaler` SUR LA SÉANCE ENTIÈRE.**
+
+**P72.6 — foisonnement : `222 paires`, foisonnement du lot entre −2 % et
++8 %, point estimé +3,5 %.** *Moyenne du chantier 3,7 % ; lot 8 +3,26 %.*
+
+**P72.7 — `--style` des six fiches EN.** `typographie francaise : 0`
+(verdict mécanique) ; `C109 creees en EN : 0` ; `hors alphabet latin : 0` ;
+**`virgule ambigue : 2`** ; **`C109 de prose : 5`** ; `hors perimetre` entre
+10 et 30, point estimé 18.
+⚠ **Les deux virgules ambiguës sont délibérées et nommées** : `100,000 h` et
+`10,000 h`, séparateurs de milliers anglais dans les pièges de
+`caracteriser-une-exigence-en`. *Le motif ne peut pas les distinguer d'une
+décimale française — le code le dit en commentaire — et les range en
+**candidat à lire**. Précédent au corpus : `3,000`.*
+⚠ **Les cinq `C109 de prose` sont le report un pour un des cinq gardées de la
+L20 de `fonction`**, et **aucune autre**. *Terme écrit pour réfuter : un
+sixième signalement voudrait dire que la rédaction a **créé** une ponctuation
+que le français n'avait pas — c'est exactement ce que le seau
+`C109 creees en EN` existe pour attraper, et je le prédis à 0.*
+
+**P72.8 — médias : `470` fiches, `699` embeds.** *464 + 6 fiches, 690 + 9
+embeds — 1 sur `mecatronique-en`, 2 sur `mind-map-en`, 4 sur
+`bete-a-cornes-en`, 2 sur `pieuvre-en`, 0 sur les deux dernières.*
+
+**P72.9 — anneau 2 : `NET 145`, `deja traduites 128`, `RESTANT 17`,
+`RESTANT DE L ANNEAU 2 (17 fiches)  31335`, `fiches porteuses 0`.**
+*37 148 − 5 813 = 31 335.*
+
+**P72.10 — `CIBLES SANS FICHE (6)`, INCHANGÉ, et les six mêmes noms.**
+⚠ **C'est la prédiction née de la réfutation P65.13 et de la mesure P66.12.**
+*Le lot traduit les deux fiches qui **portent** ces six alias, et le compteur
+ne bougera pas d'une unité, parce qu'il compte des **noms de fichier absents**
+et non des liens rouges. **Prédire 0 ici serait croire la ligne qui l'affiche
+plutôt que le code qui l'incrémente.***
+
+**P72.11 — chevron `--tout` : `34 paires` des deux côtés, `0 divergente`,
+inchangé.** *C127 hors sujet pour le quatrième lot d'affilée : les six sources
+ne portent aucun bloc de code, donc aucune clôture en chevron.*
+
+**P72.12 — wikilinks : `0 cassée`, `0 ambiguë`, et `mortes` entre 20 et 34,
+point estimé 26 — INCHANGÉ.** ⚠ *Les six fiches EN visent `afnor-nfx50-151-en`
+(4 fois) et `etat-de-l-art-technique-en` (1 fois), **qui n'existent pas
+encore** ; mais ces deux cibles étaient **déjà** mortes, visées par les fiches
+du lot 8. **Le compteur compte des cibles distinctes, pas des liens** — même
+piège que `CIBLES SANS FICHE`, et c'est la deuxième fois de la séance que la
+distinction décide.*
+
+**P72.13 — `--libelles` : `4037 / 3879 / 158 / 132 / 16`, IDENTIQUE au
+bloc 71.** *Rien n'a été écrit entre les deux.*
+
+**P72.14 — `titres-doublons` : FR `243 / 243 / 0`, EN `222 / 222 / 0`.**
+*216 + 6, et aucun doublon : les trois titres neufs sont uniques, et les deux
+titres gardés en français ne collisionnent pas avec leurs sources — la source
+FR est dans une autre population.*
+
+**P72.15 — vérification P70.7, les six formes de production EN.**
+`## See also` **215** (209 + 6) ; `## What is it for?` **149** (144 + 5, pas
+6 : `mecatronique-en` n'en a pas) ; `## Pitfalls` **148** (143 + 5, pas 6 :
+idem) ; `## Where it fits in the project` **104**, **INCHANGÉ** ;
+`## Exercises` **37**, **INCHANGÉ** ; `## Going further` **31**, **INCHANGÉ**.
+⚠ *Trois compteurs à zéro d'écart : **aucune des six fiches n'a de section de
+raccrochage projet, d'exercices ni d'aller plus loin**, et c'est vrai côté
+français aussi. Prédire « +6 partout » serait rejouer exactement la réfutation
+P69.5.*
+
+**P72.16 — les formes de famille et les trois formes neuves.**
+`## How do you build one?` **9** (6 + 3) ;
+`## Example — 3-axis teaching arm` **8** (6 + 2) ;
+`## Example — 3-axis arm project` **2** (1 + 1) ;
+`## Special case — a school project with no real client` **2** (1 + 1) ; et
+les **trois formes neuves à 1 chacune** :
+`## Special case — binary and regulatory requirements`,
+`## Example — 6-axis teaching robot arm`, `## Running example`.
+✅ **Et les deux formes fautives restent à 0** : `## Project connection` et
+`## Step-by-step procedure`. **Terme écrit pour réfuter** :
+`## Step by step` reste à **77** et `## In the project` à **21** — *si l'un des
+deux monte, c'est qu'un des dix titres propres a pris par accident une forme de
+production.*
+
+**P72.17 — vérification des titres de callout.** `> [!warning] Watch out`
+**47**, **INCHANGÉ** *(aucune des six n'emploie ce titre)* ; `> [!tip] Tip`
+**44** (43 + 1) ; `> [!example] Good` **3**, `> [!warning] Fair` **3**,
+`> [!failure] Poor` **3** *(1 + 2 chacun)* ; `Attention` **0** et `Astuce`
+**0**, inchangés.
+
+**P72.18 — puces à tiret du corpus, POPULATION ÉCRITE DANS LA SORTIE.**
+**FR 999 sur 172 porteuses (248 fichiers)** — 1 002 − 3, les trois têtes de
+puce de `caracteriser-une-exigence` traitées au bloc 68, et **aucune porteuse
+perdue** ; **EN 901 sur 151 porteuses (222 fichiers)** — 885 + 16, les seize
+puces gardées et reportées un pour un, sur **deux** porteuses neuves
+(`pieuvre-en` et `caracteriser-une-exigence-en`).
+⚠ *La soustraction se fait sur l'état **d'APRÈS** la passe (règle d'usage 5) :
+19 relevées avant, 16 après, donc **−3 côté FR** et **+16 côté EN**, jamais
+−19 / +19.*
+
+**P72.19 — compteurs git en fin de bloc : 32 au total, 21 hors artefacts.**
+
+---
+
+## ⚠ AMENDEMENT ÉCRIT À LA DÉCLARATION C131 DU BLOC 72 — AVANT TOUTE EXÉCUTION
+
+*Règle d'usage 10, seconde épreuve du 30/08 (s2) : « une liste qui s'ouvre
+**avant** le bloc est une prédiction corrigée, une liste qui s'ouvre **pendant**
+est une réfutation ». **Ceci est écrit avant la première commande du
+correctif.***
+
+**Motif** — l'étape 6 du bloc 72 rend **`C109 creees en EN : 2`**, deux
+occurrences que la traduction a **fabriquées** et qu'aucun arbitrage français
+n'a jamais vues. **Elles se corrigent dans le bloc**, et le correctif demande
+**un artefact de plus** :
+
+| # | artefact | état | total | hors artefacts |
+|---|---|---|---|---|
+| 33 | `tools/passe-correctif-en-lot9-3008.tsv` (table du correctif C109 EN) | `??` | oui | **oui** |
+
+**Instant de fin de bloc corrigé : 33 au total, 22 hors artefacts** (au lieu de
+32 / 21). *`en/conduite/proj/bete-a-cornes-en.md` est déjà une entrée `??` : la
+réécrire n'en ajoute pas.*
+
+---
+
+### ⚠ INCIDENT — LA TRADUCTION A CRÉÉ DEUX POINTS-VIRGULES QUE LE FRANÇAIS N'AVAIT PAS, ET LE SEAU ÉCRIT POUR ÇA LES A VUS
+
+**`en/conduite/proj/bete-a-cornes-en.md   C109 : FR 0 / EN 2   2 CREEE(S) PAR
+LA TRADUCTION`.** Les deux sont dans la même fiche, et les deux viennent du
+même réflexe : **une virgule française rendue par un point-virgule anglais.**
+
+| ligne | français source | ce que j'ai écrit | verdict |
+|---|---|---|---|
+| 18 | `…adossée à la norme NF X50-151**,** elle ouvre la…` | `…standard NF X50-151]]**;** it opens the…` | **créée** |
+| 86 | `…Deux postures honnêtes existent**,** voir le […] pour le détail.` | `…Two honest positions exist**;** see […] for the detail.` | **créée** |
+
+⚠ *C109 s'applique à l'anglais **pour un motif distinct** (amendement du
+22/08) : la construction est native de la prose éditée anglaise, mais le
+**caractère tapé** est un marqueur de texte généré. **Une ponctuation créée par
+la traduction n'a jamais été arbitrée en français** : elle ne peut donc pas être
+« gardée » au titre d'une exemption, puisqu'il n'y a pas eu de jugement.*
+✅ **Et c'est exactement ce que le seau `C109 creees en EN` existe pour
+attraper** — il a mordu au premier lot où il avait quelque chose à mordre.
+*Prédit à **0** en P72.7, sorti à **2** : la réfutation est nette et le
+correctif est mécanique.*
+
+**Résolutions retenues, une par occurrence, et chacune est une des trois voies
+de C109 :**
+
+- **L18 → découpage en deux phrases.** `…backed by [[…|standard NF X50-151]].
+  It opens the [[…|specification phase]] and fixes…` *La voie 1, la plus
+  ancienne.*
+- **L86 → parenthèses de renvoi.** `Two honest positions exist (see [[…]] for
+  the detail).` *La voie 3, spécialisée sur le renvoi (25/08) — et **la forme
+  exacte que `cahier-des-charges-fonctionnel-en` emploie déjà** pour le même
+  renvoi, mesurée au bloc 69.*
+
+### Prédictions du correctif
+
+**P72.20 — table de correctif : 2 lignes, 2 ancres, 1 fiche.** `remplacer-passe`
+rend `fiches : 1`, `remplacements prets : 2`, les cinq seaux de défauts à `0`,
+`INVARIANT D ACCENTS casse sur : 0 fiche(s)`, **`ecart +0`**, lignes de corps
+**inchangées**.
+
+**P72.21 — test négatif du correctif.** L'ancre `existent; see` — **le
+point-virgule collé, sans l'espace qui le précède dans le fichier** — rend
+`INTROUVABLE`, `REFUS : 1 defaut(s)`, `exit 1`, **zéro octet**. *Onzième refus
+délibéré de la série.*
+
+**P72.22 — remesure `--style` des six EN après correctif :
+`C109 creees en EN : 0`, `C109 de prose : 5`, `6 fiche(s) lue(s), 1 a
+reprendre.`** *Les cinq résiduelles sont les cinq gardées de la L20 de
+`fonction`, et rien d'autre.*
+
+**P72.23 — le volume EN bouge d'un mot au plus.** `bete-a-cornes-en` passe de
+**965** à **entre 964 et 967**, point estimé **966** : la L18 gagne un `It`
+(+1 mot) et la L86 perd un `see`… non — *le `see` reste dans la parenthèse.*
+**Point estimé 966, +1 mot exactement.**
+
+### Constats du bloc 72 (état `3008b28`, `verif-formes-lot9-3008.txt`, `puces-corpus-lot9-3008.txt`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P72.1 | garde `etat / 2 / True`, heure > `09:49:00`, HEAD au caractère, **30 / 19**, **15 lignes** de dates, aucune `ABSENTE` | `09:51:32` ; identique ; 30 / 19 ; 15 lignes ; FR `09:32:23`, EN `09:49:22` | **tenue** |
+| P72.2 | corpus FR **291242**, inchangé | 291242 | **tenue** |
+| P72.3 | `222 fiches / 257639` traduites ; `20 fiches / 33603` restant ; somme = 291242 | identique | **tenue** |
+| P72.4 | `222 controlee(s), 0 divergente(s)` ; `0 sur 0` | identique | **tenue** |
+| P72.5 | `0 / 0 / 0 / 0 / 222`, zéro `--recaler` | identique | **tenue** |
+| P72.6 | `222 paires` ; foisonnement du lot ∈ [−2, +8] %, point +3,5 % | 222 ; lot **5 813 → 6 037 = +3,85 %** | **tenue** |
+| P72.7 | `typo 0`, **`creees 0`**, `alphabet 0`, **`virgule ambigue 2`**, **`prose 5`**, `hors perimetre` ∈ [10,30] | 0 ; **2** ; 0 ; **0** ; **7** ; **20** | **RÉFUTÉE** |
+| P72.8 | médias **470** fiches, **699** embeds | 470 / 699 | **tenue** |
+| P72.9 | anneau `145 / 128 / 17`, `31335`, porteuses 0 | identique | **tenue** |
+| P72.10 | `CIBLES SANS FICHE (6)`, **inchangé**, mêmes six noms | 6, mêmes six | **tenue** |
+| P72.11 | chevron `34 paires`, `0 divergente` | identique | **tenue** |
+| P72.12 | `0 cassée`, `0 ambiguë`, mortes ∈ [20,34] point 26, **INCHANGÉ** | 0 ; 0 ; **20** — **changé** | **RÉFUTÉE** |
+| P72.13 | `--libelles` `4037 / 3879 / 158 / 132 / 16` | identique | **tenue** |
+| P72.14 | doublons FR `243/243/0`, EN `222/222/0` | identique | **tenue** |
+| P72.15 | `215 / 149 / 148 / 104 / 37 / 31` | identique | **tenue** |
+| P72.16 | `9 / 8 / 2 / 2` ; trois formes neuves à **1** ; fautives **0/0** ; `Step by step` **77**, `In the project` **21** | identique | **tenue** |
+| P72.17 | `47 / 44 / 3 / 3 / 3` ; `Attention` 0 ; `Astuce` 0 | identique | **tenue** |
+| P72.18 | FR **999 / 172 / 248** ; EN **901 / 151 / 222** | identique | **tenue** |
+| P72.19 | fin de bloc **33 / 22** *(liste amendée)* | **34 / 23** | **RÉFUTÉE** |
+| P72.20 | correctif : 1 fiche, 2 ancres, 5 seaux à 0, `ecart +0`, lignes inchangées | identique | **tenue** |
+| P72.21 | test négatif : `INTROUVABLE`, `REFUS : 1`, `exit 1`, zéro octet | identique | **tenue** |
+| P72.22 | après correctif : `creees 0`, `prose 5`, `6 lue(s), 1 a reprendre` | identique | **tenue** |
+| P72.23 | `bete-a-cornes-en` **966 mots** (+1) | **965**, inchangé | **RÉFUTÉE** |
+
+**Bilan du bloc 72 : 23 prédictions à décompte plein, 19 tenues, 4 réfutées.**
+
+---
+
+⚠ **RÉFUTATION P72.7 — LE SEAU `C109 creees en EN` A MORDU AU PREMIER LOT OÙ
+IL AVAIT QUELQUE CHOSE À MORDRE, ET J'AVAIS PRÉDIT 0.** Deux points-virgules
+créés dans `bete-a-cornes-en`, tous deux d'une virgule française rendue par un
+point-virgule anglais. *Le seau existe depuis le 23/08 ; c'est la **première
+fois** qu'il sort à autre chose que 0 sur un lot de ce chantier.* ✅ **Corrigé
+dans le bloc, par les voies 1 et 3 de C109**, remesuré à **0**.
+⚠ **Et la troisième branche de la réfutation dit quelque chose sur le masquage,
+pas sur moi** : j'avais prédit **2 `virgule ambigue`** pour `100,000 h` et
+`10,000 h` ; la mesure rend **0**, parce que les deux sont **dans du code
+inline** et que `masquerHorsProse` les masque comme du code. *Le contrôle de
+style ne voit que de la prose publiée — c'est écrit dans le code depuis le
+25/08 (suite 5) —, et j'ai prédit contre une règle que je venais de lire.*
+
+⚠ **RÉFUTATION P72.12 — J'AI DIT « INCHANGÉ » SUR UN COMPTEUR QUE LE LOT FAIT
+BAISSER DE SIX.** Les wikilinks morts passent de **26 à 20**. *J'avais raisonné
+juste sur les cibles que le lot **ajoute** — `afnor-nfx50-151-en` et
+`etat-de-l-art-technique-en` étaient déjà mortes — et **oublié les six que le
+lot retire** : `mecatronique-en`, `mind-map-en`, `bete-a-cornes-en`,
+`pieuvre-en`, `fonction-en` et `caracteriser-une-exigence-en` **étaient elles
+aussi des cibles mortes** avant d'exister.* ⚠ **C'est la troisième réfutation
+de la séance dont la cause est « j'ai compté ce qui entre et pas ce qui
+sort »**, après P68.11 et P68.12. *Le compteur des morts et la dette rendent
+d'ailleurs le même chiffre, **20**, et cette égalité était sous mes yeux.*
+
+⚠ **RÉFUTATION P72.19 — L'AMENDEMENT C131 A NOMMÉ LA TABLE DU CORRECTIF ET
+OUBLIÉ CELLE DE SON TEST NÉGATIF.** 34 / 23 au lieu de 33 / 22.
+*L'amendement a été écrit **avant** toute exécution, ce qui est la bonne
+moitié du geste ; il a énuméré `passe-correctif-en-lot9-3008.tsv` et **pas**
+`passe-negatif-correctif-lot9-3008.tsv`, alors que la prédiction P72.21
+**décrivait le test négatif dans le même souffle**.* ⚠ **Le défaut n'est plus
+« la liste s'ouvre pendant le bloc » — elle s'est bien ouverte avant — c'est
+« la liste ne relit pas les prédictions qu'elle accompagne ».** ✅ *Et la
+signature de la famille se confirme une fois de plus : **le sous-compteur qui
+porte le sens est juste** — 23 hors artefacts, soit 22 prévus + la table
+oubliée —, c'est le total qui rate.*
+⚠ **Candidate : une liste d'artefacts se relit CONTRE les prédictions du même
+bloc — un test négatif a toujours sa propre table.**
+
+⚠ **RÉFUTATION P72.23 — MÊME CAUSE QUE P68.11, DIX-HUIT BLOCS PLUS TARD.**
+J'ai prédit `965 → 966` parce que le découpage en deux phrases « gagne un
+`It` » ; **il ne gagne rien** : `; it opens` devient `. It opens`, le mot était
+déjà là. *Deuxième fois de la séance que je compte un mot ajouté qui n'est
+qu'un mot **recapitalisé**.* ✅ **Le volume EN est donc rigoureusement
+inchangé par le correctif, `965`, et le foisonnement du lot reste +3,85 %.**
+
+---
+
+✅ **CE QUE LA CLÔTURE ÉTABLIT, ET QUI N'EST PAS UNE RÉFUTATION.**
+
+**La rédaction a tenu les dix formes de titre, les quatre titres de callout et
+l'ancre intra-page — P70.7 est vérifiée terme à terme.** *Les six formes de
+production sortent à `215 / 149 / 148 / 104 / 37 / 31` : **+6 / +5 / +5 / 0 /
+0 / 0**, exactement la décomposition prédite, y compris les **trois zéros**
+qu'il aurait été si facile de prédire à +6.* **`## Project connection` et
+`## Step-by-step procedure` restent à 0** — quatrième confirmation du correctif
+É1 —, et **ni `## Step by step` (77) ni `## In the project` (21) n'ont bougé**,
+ce qui était le terme écrit pour réfuter sur les **dix titres propres** du lot.
+
+✅ **LES TROIS FORMES NEUVES SONT À 1 CHACUNE, ET ELLES ÉTAIENT DÉCLARÉES
+NEUVES AVANT D'ÊTRE ÉCRITES** : `## Special case — binary and regulatory
+requirements`, `## Example — 6-axis teaching robot arm`, `## Running example`.
+
+✅ **ET LE CINQUIÈME RELEVÉ A PAYÉ DÈS SA PREMIÈRE APPLICATION** : `Good` /
+`Fair` / `Poor` passent de 1 à **3** chacun, `Tip` de 43 à **44**, et
+`Attention` / `Astuce` restent à **0**. *Sans le relevé du bloc 69, j'aurais
+écrit `Good` / `Average` / `Bad` — deux titres sur trois faux, et **aucun
+contrôle du dépôt ne les aurait vus**.* **La candidate passe de 0/N à 1/N.**
+
+---
+
+## ⛳ GATE G4 — clôture du lot 9.
+
+**Fait** — **six fiches EN livrées**, corpus **216 → 222**. **59 remplacements
+C109 sur 56 ancres** côté FR, **2 correctifs C109 côté EN**. **Onze refus
+délibérés dans la série, dont trois dans cette séance.**
+
+**Chiffres qui ont changé**
+
+| compteur | avant | après |
+|---|---|---|
+| corpus FR | 291 242 | **291 242** *(passe neutre en mots)* |
+| fiches traduites | 216 / 251 826 mots FR | **222 / 257 639** |
+| restant | 26 fiches / 39 416 mots | **20 / 33 603** |
+| foisonnement | 216 paires, 261 106 mots EN | **222 paires, 267 143**, moyenne **3,7 %**, lot **+3,85 %** |
+| anneau 2 | 122 traduites, 23 restantes, 37 148 | **128, 17, 31 335** |
+| wikilinks morts | 26 | **20** |
+| médias | 464 fiches, 690 embeds | **470, 699** |
+| titres EN | 216 / 216 / 0 | **222 / 222 / 0** |
+| puces à tiret | FR 1 002 / 172 / 248 ; EN 885 / 149 / 216 | **FR 999 / 172 / 248 ; EN 901 / 151 / 222** |
+| `--libelles` | 3 938 / 3 677 / 261 / 112 / 16 | **4 037 / 3 879 / 158 / 132 / 16** |
+| formes de production EN | 204 / 140 / 139 / 102 / 37 / 30 *(réf. du 30/08 08:0x)* | **215 / 149 / 148 / 104 / 37 / 31** |
+
+**Invariants tenus** — `--controle` **222, 0 divergente** ; dérive
+**`A JOUR 222`, `DERIVE 0`, `MARQUE INVALIDE 0`, zéro `--recaler`** ; chevron
+**34 paires, 0 divergente** ; `CIBLES SANS FICHE` **6, inchangé** ; invariant
+d'accents **+0** sur les sept fiches éditées.
+
+**Ce qui suit** — bloc 73 : clôture §7 (`JOURNAL.md`, `conventions.md`), puis
+le bloc de livraison et le prompt de la séance suivante.
+
+⚠ **Deux points remontés, aucun bloquant.** (1) `CIBLES SANS FICHE` est un
+**faux positif de `--anneau`**, qui ne lit pas les `aliases:` — file des
+arbitrages. (2) Le lot 10 est **déjà composé par ce lot** : le résidu du palier
+« Analyse fonctionnelle », `etat-de-l-art-technique` **2 286** +
+`afnor-nfx50-151` **91** = **2 377 mots**, avec **4 280 mots de marge** sous la
+borne pour se compléter ailleurs.
+
+---
+
+## Déclaration C131 du bloc 73 — rejouée, liste fermée avant le bloc
+
+*Et relue **contre les prédictions du bloc**, ce qui est la candidate née de la
+réfutation P72.19 dix minutes plus tôt.*
+
+**Populations** — inchangées, redéclarées.
+
+**Liste FERMÉE des artefacts du bloc 73** — les **34 entrées** existantes,
+plus :
+
+| # | artefact | état | total | hors artefacts | existe à la garde ? |
+|---|---|---|---|---|---|
+| 35 | `tools/batterie-sortie-3008b29.txt` (étape 0 de la garde) | `??` | oui | non | **oui** |
+| 36 | `conventions.md` (§8 : marques d'épreuve et candidates neuves) | ` M` | oui | **oui** | non |
+| 37 | `JOURNAL.md` (entrée du 30/08 suite 4) | ` M` | oui | **oui** | non |
+
+⚠ **Relecture contre les prédictions** : le bloc lance `normalize-pilotage`,
+qui **peut** toucher `TODO.md` et `BACKLOG.md` ; **P73.2 le prédit à zéro
+fichier modifié**, et si elle est réfutée le compteur monte de deux. **Aucun
+test négatif n'est prévu à ce bloc** — les éditions passent par un script
+jetable à ancre unique, hors dépôt —, donc **aucune table à oublier**.
+**Le script d'édition vit hors dépôt et n'ajoute aucune entrée.**
+
+**DEUX instants :** **35 / 23** quand la garde lit `git status` ; **37 / 25**
+en fin de bloc.
+
+---
+
+## Bloc 73 — clôture §7 (JOURNAL, conventions)
+
+**Commandes :** garde ; `node tools/normalize-pilotage.js` ; éditions ancrées
+de `conventions.md` puis de `JOURNAL.md` ; remesure des quatre tailles ;
+`git status`.
+
+### Prédictions du bloc 73
+
+**P73.1 — garde.** ASCII **0** ; copie `tools\batterie-sortie-3008b29.txt` ;
+`garde   anneau : 2   chevron : False` ; heure **> `09:51:32`** ;
+`HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200` **au caractère** ; `node :
+v24.15.0` ; **3 lignes de dates** inchangées **au caractère**
+(`08:50:22` / `08:49:11` / `2026-08-29 21:48:08`) ;
+`fichiers modifies non commites : 35   (hors artefacts de seance : 23)`.
+
+**P73.2 — `normalize-pilotage` : ZÉRO fichier modifié.** *Les quatre fichiers
+de pilotage ont été normalisés à la clôture de la séance 3, il y a une heure,
+et rien ne les a touchés depuis — la garde le dit à la seconde.*
+
+**P73.3 — volume des deux éditions.** `conventions.md` **entre 90 et 160
+lignes insérées**, point estimé **120** ; `JOURNAL.md` **entre 30 et 55**,
+point estimé **42**.
+⚠ *Les deux fourchettes sont calées sur la **cause** des trois réfutations de
+volume du 30/08 (séance 2) : un texte non écrit se sous-chiffre. Le lot 9 porte
+**dix marques d'épreuve**, **quatre candidates neuves** et **quatre
+réfutations à motif**, contre quatre marques et une candidate au bloc 63 qui
+avait rendu 75 et 29.*
+
+**P73.4 — les quatre tailles, mesurées APRÈS la dernière écriture et jamais
+avant.** *C118 en toutes lettres : la clôture du bloc 63 a publié deux tailles
+composées de tête et les a corrigées par édition ancrée.* Je prédis :
+`conventions.md` **entre 500 et 520 Kio** (494,1 avant), `JOURNAL.md` **entre
+623 et 636 Kio** (622,6 avant), `TODO.md` **282,7 Kio inchangé**,
+`BACKLOG.md` **206,0 Kio inchangé**. **Les valeurs exactes ne seront écrites
+dans le JOURNAL qu'après leur mesure.**
+
+**P73.5 — compteurs git en fin de bloc : 37 au total, 25 hors artefacts.**
+
+### Constats du bloc 73 (garde `3008b29`)
+
+| # | prédiction | constat | verdict |
+|---|---|---|---|
+| P73.1 | ASCII 0 ; `3008b29` ; heure > `09:51:32` ; HEAD au caractère ; 3 dates inchangées ; **35 / 23** | 0 ; `3008b29` ; `09:56:55` ; identique ; identiques ; 35 / 23 | **tenue** |
+| P73.2 | `normalize-pilotage` : **0 fichier modifié** | `Total : 0 caractere(s) a corriger, 0 fichier(s) modifie(s).` | **tenue** |
+| P73.3 | `conventions.md` ∈ [90, 160] insertions, point 120 ; `JOURNAL.md` ∈ [30, 55], point 42 | **110** (+ 9 lignes modifiées) ; **37** | **tenue** |
+| P73.4 | `conventions` ∈ [500, 520] Kio ; `JOURNAL` ∈ [623, **636**] ; TODO 282,7 ; BACKLOG 206,0 | **501,1** ; **636,2 puis 637,7** ; 282,7 ; 206,0 | **RÉFUTÉE** |
+| P73.5 | fin de bloc **37 / 25** | 37 / 25 | **tenue** |
+
+**Bilan du bloc 73 : 5 prédictions à décompte plein, 4 tenues, 1 réfutée.**
+
+⚠ **RÉFUTATION P73.4 — LA BORNE HAUTE RATE DE 0,2 Kio, ET LE FICHIER A GROSSI
+ENCORE APRÈS.** `JOURNAL.md` sort à **636,2 Kio**, hors de `[623, 636]` d'un
+dixième de kilo-octet ; puis **la ligne « Tailles » elle-même**, écrite avec ce
+chiffre, le porte à **637,7**. *C'est la récursion que la clôture du 29/08
+(suite 11) puis celle du bloc 63 avaient déjà nommée : **la taille finale d'un
+fichier de clôture ne peut se publier qu'après sa dernière écriture**, et
+l'écrire est une écriture.*
+✅ **Résolution appliquée, et elle est mécanique** : la correction
+`636,2 → 637,7` est un remplacement **à longueur strictement égale**, donc
+**la taille ne bouge plus**. **Le script refuse d'écrire si les deux chaînes
+n'ont pas la même longueur** — sans quoi il déplacerait ce qu'il corrige.
+⚠ **Candidate : une taille de fichier de pilotage se corrige par un
+remplacement à longueur égale, ou elle ne se corrige pas.**
+
+---
+---
+
+# BILAN GÉNÉRAL — 30/08 (séance 3), LOT 9 (palier « Analyse fonctionnelle »)
+
+**115 prédictions publiées avant leur bloc, 102 tenues, 13 réfutées**
+(64 : 6/6 ; 65 : 13/14 ; 66 : 11/12 ; 67 : 13/13 ; 68 : 11/13 ; 69 : 11/15 ;
+70 : 6/6 ; 71 : 8/8 ; 72 : 19/23 ; 73 : 4/5), plus **1 hors décompte** (le
+hash de `HEAD`, injecté) et **2 déclaratives**. **Taux de tenue : 88,7 %.**
+
+**Dix blocs, cinq gates, zéro arrêt, zéro sollicitation de Tim, deux incidents
+consignés, trois tests négatifs refusés avant toute écriture.**
+
+⚠ **LES TREIZE RÉFUTATIONS SE RANGENT EN SIX CAUSES, ET LA PREMIÈRE VAUT LES
+CINQ AUTRES.**
+
+1. **J'ai compté ce qui ENTRE sans compter ce qui SORT — 4**
+   (P68.11, P68.12, P72.23, P72.12). *« Enfin » entre mais « et » sort ;
+   `It` est recapitalisé, pas ajouté ; le lot ajoute deux cibles mortes mais en
+   **retire six**.* ✅ **Et la donnée qui réfutait la première était publiée
+   deux commandes plus tôt**, dans la ligne `pts de code` du contrôle seul.
+   **Candidate écrite.**
+2. **Un « +N uniforme » projeté sur des compteurs qui ne le sont pas — 3**
+   (P66.8, P69.5, P69.7). *La densité C109 suit la proportion d'énumérations,
+   pas le volume ; les cinq fiches du lot 8 ne portent pas toutes les quatre
+   sections d'ossature ; six fiches-notion portent aussi des `###`.*
+3. **C131, liste d'artefacts incomplète — 1** (P72.19). ⚠ *Cause **neuve** :
+   la liste s'est bien ouverte **avant** le bloc, mais elle n'a pas relu les
+   prédictions qu'elle accompagnait. **Candidate écrite.***
+4. **Prédire contre une règle qu'on vient de lire — 1** (P72.7, terme
+   `virgule ambigue`). *Les deux séparateurs de milliers sont dans du **code
+   inline**, que `masquerHorsProse` masque depuis le 25/08.*
+5. **Un chiffre de brief servi comme un état — 1** (P69.10). *Les « 3
+   `Attention` résiduels » étaient les trois occurrences que le lot 8 **avait
+   corrigées**. Troisième occurrence de cette cause, et la première qui voyage
+   jusque dans le prompt de la séance suivante.*
+6. **Trois isolées** : P65.13 (le palier porte neuf fiches), P69.14 (une ancre
+   intra-page à réécrire), P73.4 (la taille du fichier qu'on est en train
+   d'écrire).
+
+✅ **CE QUI N'A PAS BOUGÉ** : `HEAD` suivi sur **dix** gardes et **identique au
+caractère** de bout en bout ; **trois tests négatifs refusés** sur **deux**
+outils différents, dont un sur un **trait d'union ASCII** et un sur un
+**accent manquant** ; **invariant d'accents `+0`** sur les sept fiches éditées ;
+**zéro fichier perdu** en dix blocs ; et **zéro `--recaler`**, pour la première
+fois depuis le lot 6.
+
+✅ **CE QUE LA SÉANCE ÉTABLIT ET QUI N'EST PAS UN CHIFFRE.** Le mode `--corps`,
+écrit la veille au soir contre un défaut qui avait résisté à deux correctifs de
+prose, **a tenu sur son premier lot réel** : la question « d'où vient cette
+empreinte » ne s'est pas posée une seule fois, parce que **le geste qui la
+posait n'a plus d'occasion d'exister**. *Troisième fois de ce chantier qu'une
+règle passe de la prose au code, et la première où elle passe **avant** d'être
+violée une fois de plus.*

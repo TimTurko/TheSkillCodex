@@ -1,0 +1,74 @@
+# PASSE C109 - LOT 9 (conduite/proj, palier Analyse fonctionnelle :
+# mecatronique, mind-map, bete-a-cornes, pieuvre, fonction,
+# caracteriser-une-exigence). Table JETABLE (C114), datee, non reutilisable.
+# 80 signalements juges, 21 gardes, 59 traites, 56 ancres.
+# Jugement publie un par un dans tools/predictions-260830.md avant cette table.
+# chemin<TAB>ancre exacte<TAB>remplacement
+
+# --- mecatronique : 5 ancres ---
+conduite/proj/mecatronique.md	par des actionneurs — la boucle	par des actionneurs : la boucle
+conduite/proj/mecatronique.md	le choix des actionneurs ; les actionneurs	le choix des actionneurs. Les actionneurs
+conduite/proj/mecatronique.md	une électronique de puissance ; l'électronique	une électronique de puissance. L'électronique
+conduite/proj/mecatronique.md	du [[firmware]] ; et le comportement logiciel doit	du [[firmware]]. Enfin, le comportement logiciel doit
+conduite/proj/mecatronique.md	(informatique embarquée) — un système minimal	(informatique embarquée) : un système minimal
+
+# --- mind-map : 11 ancres ---
+conduite/proj/mind-map.md	**brainstorming structuré** — son usage	**brainstorming structuré**, son usage
+conduite/proj/mind-map.md	outil de premier jet — on capture large	outil de premier jet : on capture large
+conduite/proj/mind-map.md	un livrable formel — c'est l'**échafaudage**	un livrable formel : c'est l'**échafaudage**
+conduite/proj/mind-map.md	[[pieuvre|pieuvre]] ; le brainstorm de solutions	[[pieuvre|pieuvre]]. Le brainstorm de solutions
+conduite/proj/mind-map.md	(pas de phrases — la concision force la clarté)	(pas de phrases : la concision force la clarté)
+conduite/proj/mind-map.md	pour un premier jet ; pour partager	pour un premier jet. Pour partager
+conduite/proj/mind-map.md	ces trois contraintes — des candidats discrets	ces trois contraintes, des candidats discrets
+conduite/proj/mind-map.md	puis se numérote ; la **sécurité opérateur**	puis se numérote. La **sécurité opérateur**
+conduite/proj/mind-map.md	sur le milieu opérateur ; l'**écoconception**	sur le milieu opérateur. L'**écoconception**
+conduite/proj/mind-map.md	des FC ; la **conformité CE** — notée, tracée — est consciemment écartée	des FC. La **conformité CE** (notée, tracée) est consciemment écartée
+conduite/proj/mind-map.md	casse la divergence — et c'est souvent	casse la divergence, et c'est souvent
+
+# --- bete-a-cornes : 7 ancres ---
+conduite/proj/bete-a-cornes.md	gagne son utilité — un désaccord	gagne son utilité : un désaccord
+conduite/proj/bete-a-cornes.md	des choix de solution — la bête à cornes	des choix de solution : la bête à cornes
+conduite/proj/bete-a-cornes.md	de code à refaire — erreur qui aurait été évitée	de code à refaire, erreur qui aurait été évitée
+conduite/proj/bete-a-cornes.md	pour être évaluable — comprendre quoi exactement	pour être évaluable : comprendre quoi exactement
+conduite/proj/bete-a-cornes.md	ouvertes à ce stade — c'est exactement	ouvertes à ce stade : c'est exactement
+conduite/proj/bete-a-cornes.md	même imparfait — il sera affiné	même imparfait : il sera affiné
+conduite/proj/bete-a-cornes.md	affiche ou commande — pas à *quoi*	affiche ou commande, pas à *quoi*
+
+# --- pieuvre : 10 ancres ---
+conduite/proj/pieuvre.md	est une FP ou une FS ; un lien qui ne touche	est une FP ou une FS. Un lien qui ne touche
+conduite/proj/pieuvre.md	du même style — la distinction	du même style : la distinction
+conduite/proj/pieuvre.md	ne se contredisent pas — ils décrivent	ne se contredisent pas : ils décrivent
+conduite/proj/pieuvre.md	l'opérateur — déjà relié par FP1	l'opérateur, déjà relié par FP1
+conduite/proj/pieuvre.md	de l'étape suivante — caractériser chaque fonction	de l'étape suivante : caractériser chaque fonction
+conduite/proj/pieuvre.md	certaines paraissent vides — c'est en les passant	certaines paraissent vides : c'est en les passant
+conduite/proj/pieuvre.md	Test simple — *« puis-je	Test simple : *« puis-je
+conduite/proj/pieuvre.md	est mal classée — ou bien il manque	est mal classée, ou bien il manque
+conduite/proj/pieuvre.md	**qu'une seule FP** — c'est normal	**qu'une seule FP**. C'est normal
+conduite/proj/pieuvre.md	l'existence du système ; sans elle, le projet	l'existence du système. Sans elle, le projet
+
+# --- fonction : 1 ancres ---
+conduite/proj/fonction.md	l'existence du système — sans elle, le système	l'existence du système. Sans elle, le système
+
+# --- caracteriser-une-exigence : 22 ancres ---
+conduite/proj/caracteriser-une-exigence.md	Une fonction énoncée — *« permettre à l'opérateur de positionner un objet léger »* — dit	Une fonction énoncée (*« permettre à l'opérateur de positionner un objet léger »*) dit
+conduite/proj/caracteriser-une-exigence.md	- **Rendre l'exigence opposable** — chaque ligne	- **Rendre l'exigence opposable.** Chaque ligne
+conduite/proj/caracteriser-une-exigence.md	pas de contrat ; sans contrat, le projet	pas de contrat. Sans contrat, le projet
+conduite/proj/caracteriser-une-exigence.md	- **Préparer l'évaluation finale** — à la livraison	- **Préparer l'évaluation finale.** À la livraison
+conduite/proj/caracteriser-une-exigence.md	- **Prévoir l'arbitrage en cours de route** — la flexibilité	- **Prévoir l'arbitrage en cours de route.** La flexibilité
+conduite/proj/caracteriser-une-exigence.md	devient une crise ; avec elle, c'est	devient une crise. Avec elle, c'est
+conduite/proj/caracteriser-une-exigence.md	est **indissociable** — chaque composant	est **indissociable** : chaque composant
+conduite/proj/caracteriser-une-exigence.md	ne sont pas des critères — ce sont	ne sont pas des critères : ce sont
+conduite/proj/caracteriser-une-exigence.md	ce qu'il faut atteindre ; l'état de l'art	ce qu'il faut atteindre. L'état de l'art
+conduite/proj/caracteriser-une-exigence.md	coquetterie d'écriture — elle évite	coquetterie d'écriture : elle évite
+conduite/proj/caracteriser-une-exigence.md	en cas de conflit — entre exigences	en cas de conflit : entre exigences
+conduite/proj/caracteriser-une-exigence.md	verrouille le projet ; une exigence F3	verrouille le projet. Une exigence F3
+conduite/proj/caracteriser-une-exigence.md	s'effacer sans drame ; les F1 et F2	s'effacer sans drame. Les F1 et F2
+conduite/proj/caracteriser-une-exigence.md	du même triplet — depuis l'écriture inopposable	du même triplet, depuis l'écriture inopposable
+conduite/proj/caracteriser-une-exigence.md	devient impossible — chaque partie	devient impossible : chaque partie
+conduite/proj/caracteriser-une-exigence.md	précision *où* exactement — en bout de bras, à l'articulation, en un point unique ou dans tout le volume ?	précision *où* exactement (en bout de bras, à l'articulation, en un point unique ou dans tout le volume) ?
+conduite/proj/caracteriser-une-exigence.md	n'est pas une flexibilité — c'est un vœu pieux	n'est pas une flexibilité : c'est un vœu pieux
+conduite/proj/caracteriser-une-exigence.md	une question de longueur — la version *Bon*	une question de longueur : la version *Bon*
+conduite/proj/caracteriser-une-exigence.md	pas l'instrument de mesure — celui-ci sera choisi	pas l'instrument de mesure : celui-ci sera choisi
+conduite/proj/caracteriser-une-exigence.md	l'écart est admis ; sans cran F	l'écart est admis. Sans cran F
+conduite/proj/caracteriser-une-exigence.md	est non opposable — et révèle	est non opposable, et révèle
+conduite/proj/caracteriser-une-exigence.md	n'est pas un niveau — c'est une formule	n'est pas un niveau : c'est une formule

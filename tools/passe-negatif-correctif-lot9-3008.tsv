@@ -1,0 +1,6 @@
+# Correctif C109 EN du lot 9 : TEST NEGATIF DELIBERE.
+# L ancre porte le point-virgule COLLE (existent; see) la ou le corps
+# ecrit "exist; see". Attendu : INTROUVABLE, REFUS, zero octet.
+# chemin<TAB>ancre exacte<TAB>remplacement
+
+en/conduite/proj/bete-a-cornes-en.md	existent; see	existent (see

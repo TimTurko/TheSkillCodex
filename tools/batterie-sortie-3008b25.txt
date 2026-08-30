@@ -1,0 +1,149 @@
+﻿
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124, etiquette auto)
+==============================================================
+lignes non ASCII dans batterie.ps1 : 0
+sortie precedente copiee : tools\batterie-sortie-3008b24.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - garde de peremption : horloge, HEAD git, dates d ecriture
+==============================================================
+phase demandee : cadrage   anneau : 2   chevron : False
+date ISO : 2026-08-30   heure : 09:32:28
+
+HEAD git : 4e73aa8 2026-08-30 08:57:42 +0200
+fichiers modifies non commites : 16   (hors artefacts de seance : 9)
+node : v24.15.0
+
+dates de derniere ecriture (peremption : tout ecart avec le
+releve precedent = ARRET avant d ecrire) :
+  JOURNAL.md                                          2026-08-30 08:50:22
+  conventions.md                                      2026-08-30 08:49:11
+  TODO.md                                             2026-08-29 21:48:08
+  conduite/proj/mecatronique.md                       2026-08-30 09:32:23
+  conduite/proj/mind-map.md                           2026-08-30 09:32:23
+  conduite/proj/bete-a-cornes.md                      2026-08-30 09:32:23
+  conduite/proj/pieuvre.md                            2026-08-30 09:32:23
+  conduite/proj/fonction.md                           2026-08-30 09:32:23
+  conduite/proj/caracteriser-une-exigence.md          2026-08-30 09:32:23
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - volume du lot (compter-mots --lot)
+==============================================================
+=== COMPTAGE DE MOTS ===
+  Regle C110, figee : mots hors front matter, hors blocs de code clotures,
+  code inline inclus. Un mot = suite de caracteres alphanumeriques,
+  apostrophes et traits d'union, portant au moins un alphanumerique.
+  Motif : [0-9A-Za-z\u00C0-\u024F'\u2019-]+
+
+  conduite/proj/mecatronique.md                               262
+  conduite/proj/mind-map.md                                   908
+  conduite/proj/bete-a-cornes.md                              931
+  conduite/proj/pieuvre.md                                   1324
+  conduite/proj/fonction.md                                   384
+  conduite/proj/caracteriser-une-exigence.md                 2004
+  ---------------------------------------------------------------
+  LOT (6 fiches)                                             5813
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - candidats C109 des sources FR (creer-fiche-en --style, decomposition par fiche)
+==============================================================
+=== CONTROLE DE STYLE ===
+
+  conduite/proj/fonction.md
+      20  [C109] tiret d incise
+          …: **fonction principale (FP)** — relation à travers le système en…
+      20  [C109] tiret d incise
+          …; **fonction secondaire (FS)** — même structure mais service comp…
+      20  [C109] tiret d incise
+          …; **fonction contrainte (FC)** — relation entre le système et un…
+      20  [C109] point-virgule de prose
+          …eux, qui justifie son existence ; **fonction secondaire (FS)** — m…
+      20  [C109] point-virgule de prose
+          …ire, non essentiel à la mission ; **fonction contrainte (FC)** — r…
+
+6 fiche(s) lue(s), 1 a reprendre.
+  typographie francaise : 0   (verdict mecanique)
+  virgule ambigue       : 0   (candidat a lire)
+  C109 creees en EN     : 0   (jamais arbitrees en francais)
+  C109 de prose         : 5   (candidats a lire : le verbe conjugue decide)
+  hors perimetre        : 20   (titres, tableaux et alt, non comptes)
+  hors alphabet latin   : 0   (verdict mecanique : absent de la source FR)
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - anneau, dette, chevron, cibles sans fiche (--anneau)
+==============================================================
+=== ANNEAU 2 ===
+  Resolution : chemin complet, puis suffixe de chemin, puis nom de
+  fichier UNIQUE. Un nom porte par plusieurs fiches sort en AMBIGU
+  et n est jamais ecrase sur une cible unique.
+  Mots : regle C110, importee de tools/compter-mots.mjs.
+  Liens SORTANTS seuls, embeds exclus.
+
+  anneau 0 (index de depart)   : 4
+  sources (anneau 1)          : (voir NET du rang precedent)
+  cibles BRUTES               : 222   (au rang 1, --front rend ce chiffre)
+  deja vues aux rangs 0..1     : 77
+  ANNEAU 2 NET               : 145
+    deja traduites            : 122
+    RESTANT                   : 23
+
+  conduite/proj/afnor-nfx50-151                            91
+  conduite/proj/bete-a-cornes                             931
+  conduite/proj/caracteriser-une-exigence                2004
+  conduite/proj/etat-de-l-art-technique                  2286
+  conduite/proj/fonction                                  384
+  conduite/proj/mecatronique                              262
+  conduite/proj/mind-map                                  908
+  conduite/proj/pieuvre                                  1324
+  embarque/asservissement                                 925
+  embarque/boucle-ouverte                                1100
+  embarque/mcu/ascii                                      671
+  embarque/mcu/chien-de-garde                            2005
+  embarque/mcu/filtrage                                  1397
+  embarque/mcu/fonction-informatique                      398
+  embarque/mcu/ide                                        385
+  embarque/mcu/potentiometre                              519
+  embarque/mcu/programmation-non-bloquante               1829
+  embarque/mcu/sans-fil/xbee                              135
+  embarque/pcb/easyeda                                   9773
+  embarque/protection-electronique                       1389
+  embarque/simulation/falstad                            3244
+  embarque/simulation/ltspice                            3848
+  embarque/simulation/wokwi                              1340
+  ---------------------------------------------------------------
+  RESTANT DE L ANNEAU 2 (23 fiches)                     37148
+
+  ANGLE MORT DU CHEVRON sur le restant de cet anneau
+    fiches porteuses          : 0
+    clotures en chevron       : 0   (deux clotures = un bloc)
+    -> zero fiche porteuse = le correctif n est pas bloquant pour ce lot.
+
+  ATTEIGNABLES PAR AUCUN PARENT TRADUIT (0)
+
+  CIBLES SANS FICHE (6) - liens rouges cote francais :
+    [[FC]]
+    [[FP]]
+    [[FS]]
+    [[critere]]
+    [[flexibilite]]
+    [[niveau]]
+
+=== DETTE DU FRONT COURANT - CE N EST PAS UN ANNEAU ===
+  Sources : les fiches FR ayant une jumelle EN. Cibles : ce qu elles
+  visent sans jumelle EN. Autrement dit : les liens ROUGES visibles
+  depuis la zone anglaise, draft: false depuis le 22/08 (suite 2).
+
+  fiches sources (traduites)   : 216
+  cibles rouges distinctes     : 26
+  mots                         : 39416
+  dont HORS anneaux 0..2       : 2
+
+  Ces cibles-la sont rouges a l ecran et hors du plan par anneaux :
+    embarque/mcu/xiao/xiao-prise-en-main
+    embarque/mcu/xiao/xiao-sense
+--- code de sortie : 0

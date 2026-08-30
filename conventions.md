@@ -1706,7 +1706,7 @@ premières sont des **séparateurs de glose** en tête de puce (cas 2), la
 troisième est une **incise de prose** (C123). L'amendement du 29/08 le disait —
 « C123 gouverne les incises, pas les séparateurs de glose » — et c'est la
 première fois que les deux coexistent dans un même lot.*
-*Éprouvée 6/N, la quatrième confirmée par arbitrage.*
+*Éprouvée 7/N, la quatrième confirmée par arbitrage.*
 
 ### Acquises 24/08 (suite) — deux sous-lots du 2c, treize fiches
 
@@ -2461,6 +2461,107 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
 
 ### Autres en attente
 
+- **Un motif qui cherche une CIBLE de wikilink la borne aux deux bouts, et le
+  corpus anglais vise `<slug>-en`.**
+  *Née le 30/08 (séance 3), lot 9, à la cinquième application de C110 et contre
+  elle — deux fois de suite.* Le relevé des libellés qui visent les six cibles
+  du lot cherchait le slug **en sous-chaîne**. Sur cinq cibles il rendait juste ;
+  sur `fonction`, il ramenait les libellés de `cahier-des-charges-fonctionnel`
+  (**51** liens), `decomposition-fonctionnelle` (**21**) et
+  `fonction-informatique` (**12**), et sortait `CdCF` **34** en tête d'une liste
+  censée nommer la fiche « Fonction ».
+  ⚠ **Le premier correctif était faux aussi, et plus discrètement** : exiger une
+  cible **égale à `fonction`** rend **0**, parce que le corpus anglais vise
+  toujours `fonction-en`. *Un motif qui sur-compte se voit dans sa liste ; un
+  motif qui rend zéro ressemble à une réponse.*
+  ✅ **Motif juste : cible égale à `<slug>-en`, ou terminée par `/<slug>-en`.**
+  Il rend `Function` **4**, `FC` 23, `FP` 9, `FS` 8 — et le titre se décide.
+  ⚠ *C110 exige un échantillon qui contienne ce qui pourrait faire mordre le
+  motif à tort. **Les six cibles étaient l'échantillon**, et une seule portait le
+  piège : `fonction` est préfixe de `fonction-informatique` et sous-chaîne de
+  deux autres slugs. **Le piège n'était pas dans la langue, il était dans le
+  nom.***
+  *Éprouvée 0/N.*
+- **Un remplacement qui change le nombre de mots se compte en SOLDE, jamais en
+  ajout — et l'invariant `pts de code` du contrôle seul est le témoin gratuit.**
+  *Née le 30/08 (séance 3), lot 9, de deux réfutations à cause unique (P68.11 +
+  P68.12, puis P72.23).* La règle `du [[firmware]] ; et le comportement` →
+  `du [[firmware]]. Enfin, le comportement` **ajoute** « Enfin » et **retire**
+  « et » : solde **nul**. J'ai prédit `5 813 → 5 814` et l'anneau `37 148 →
+  37 149` ; les deux tombent ensemble. **Récidive vingt blocs plus tard** :
+  `; it opens` → `. It opens` a été chiffré `+1 mot` alors que le mot était déjà
+  là, seulement recapitalisé.
+  ✅ **La donnée qui réfutait était publiée avant l'écriture** :
+  `remplacer-passe` sort `pts de code 2037 -> 2038`, **+1 point de code**, quand
+  un mot de cinq lettres ajouté net en aurait coûté six. *Le contrôle seul
+  publie déjà de quoi vérifier la prédiction de volume ; il suffit de le lire
+  pour ce qu'il dit.*
+  *Éprouvée 0/N.*
+- **Une liste d'artefacts se relit CONTRE les prédictions du même bloc — un
+  test négatif a toujours sa propre table.**
+  *Née le 30/08 (séance 3), lot 9, d'une réfutation de C131 dont la cause est
+  neuve.* L'amendement de la liste du bloc 72 a été écrit **avant toute
+  exécution**, ce qui est la moitié correcte du geste et ce que la règle du
+  30/08 (séance 2) demande ; il a nommé `passe-correctif-en-lot9-3008.tsv` et
+  **oublié** `passe-negatif-correctif-lot9-3008.tsv`, alors que la prédiction
+  **P72.21 décrivait le test négatif deux paragraphes plus bas**. Compteur
+  sorti à **34 / 23** au lieu de 33 / 22.
+  ⚠ *Le défaut n'est plus « la liste s'ouvre pendant le bloc » — elle s'est bien
+  ouverte avant. C'est **« la liste ne relit pas les prédictions qu'elle
+  accompagne »**.* ✅ **Signature constante de la famille, cinquième fois : le
+  sous-compteur qui porte le sens est juste** (23 = 22 prévus + la table
+  oubliée), **c'est le total qui rate.**
+  *Éprouvée 0/N.*
+- **Un lot publie ce qui RESTE par famille de motif, pas seulement ce qu'il a
+  traité.**
+  *Née le 30/08 (séance 3), lot 9, d'un chiffre exact que le dépôt ne pouvait
+  pas confirmer.* Le prompt de lancement portait, pour le motif des puces,
+  « réponses publiées 10 des deux côtés, **0/3/1/1/0** » — décomposition qui
+  somme à 5 et contredit son propre total. Le recoupement d'ouverture l'a
+  écartée au profit de la valeur publiée (`3/3/0/3/1`, lot 7). ⚠ **Mesure :
+  `0/3/1/1/0` est la décomposition EXACTE du lot 8 après sa passe, des deux
+  côtés** — et elle n'existait **nulle part au registre**, un lot publiant ses
+  candidats *traités* et *gardés* en total et jamais ce qui **reste** par
+  famille.
+  *Le protocole n'a pas eu tort de s'en méfier — un chiffre invérifiable reste
+  invérifiable même quand il se révèle juste —, mais le registre avait un trou.*
+  ✅ **Parade : relancer le motif sur les sources du lot APRÈS la passe et
+  publier la décomposition.** Appliquée au lot 9 dès sa naissance :
+  `tools/puces-lot9-apres-3008.txt`, **16 restantes, `0 / 0 / 0 / 5 / 0 / 11`**.
+  *Éprouvée 1/N.*
+- **Le seau `C109 creees en EN` a mordu pour la première fois, et il a mordu
+  juste.** *30/08 (séance 3), lot 9.* Écrit le 23/08, il était sorti à **0** sur
+  tous les lots. Sur `bete-a-cornes-en` il rend **2** : deux virgules françaises
+  rendues par des points-virgules anglais, `…standard NF X50-151]]; it opens…`
+  et `…positions exist; see …`. ⚠ *Une ponctuation **créée par la traduction**
+  n'a jamais été arbitrée en français : elle ne peut donc pas être « gardée » au
+  titre d'une exemption, faute de jugement.* ✅ **Corrigées dans le bloc**, par
+  la voie 1 (découpage en deux phrases) et la voie 3 (parenthèses de renvoi, la
+  forme que `cahier-des-charges-fonctionnel-en` emploie déjà pour le même
+  renvoi) ; remesure à **0**. *Ce n'est pas une convention neuve : c'est la
+  première épreuve en production d'un contrôle qui attendait depuis sept jours.*
+- **`CIBLES SANS FICHE` de `--anneau` est un faux positif sur les alias, et
+  la ligne qui l'affiche dit le contraire du code qui l'incrémente.**
+  *Née le 30/08 (séance 3), lot 9, mesurée à trois instruments.* Le compteur
+  sort **6** — `[[FC]]`, `[[FP]]`, `[[FS]]`, `[[critere]]`, `[[flexibilite]]`,
+  `[[niveau]]` — sous l'intitulé « **liens rouges cote francais** ». **Mesure :
+  les six sont déclarés en `aliases:`** dans le front matter de
+  `conduite/proj/fonction.md` (FP, FS, FC) et de
+  `conduite/proj/caracteriser-une-exigence.md` (critere, niveau, flexibilite),
+  donc **Quartz les rend verts**. `--anneau` résout *chemin complet, suffixe de
+  chemin, nom de fichier unique* — son en-tête le dit — et **ne lit aucun
+  `aliases:`**. ✅ **Le générateur, lui, les résout** : `creer-fiche-en` a rendu
+  **15 `alias resolus vers leur porteuse`** sur trois fiches du lot. *Trois
+  instruments, deux d'accord, un isolé — et c'est l'isolé qui publie le chiffre
+  à toutes les clôtures depuis le 25/08.*
+  ⚠ **Conséquence mesurée et prédite** : traduire les deux fiches porteuses
+  **ne fait pas bouger le compteur d'une unité** — il compte des **noms de
+  fichier absents**, pas des liens rouges. *Sous-règle C116 (7) en plein, et
+  sixième compteur du chantier pris par cette cause.* **Correctif possible :
+  lire les `aliases:` dans le résolveur ; il change un chiffre publié à toutes
+  les clôtures depuis le 25/08.** *Porté à la file des arbitrages, non traité.*
+  *Éprouvée 0/N.*
+
 > **Arbitrage (d) du 29/08 (suite 8) — aucune promotion à un numéro neuf ; la
 > numérotation reste à 131.** Quatre candidates étaient sur la table à la
 > clôture de la suite 7. **Deux sont des amendements à des règles déjà
@@ -2518,7 +2619,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   épreuve de la clause C125 « un titre qui englobe »**, qui parle de titres
   qualifiés par leur famille : aucun des cinq n'en est un, deux ne changent même
   pas. **La clause reste à 3/N.**
-  *Éprouvée 0/N.*
+  *Éprouvée 1/N.*
 - **Un titre de callout se relève dans le corpus, exactement comme un titre de
   section.**
   *Née le 30/08 (séance 2), lot 8, d'un défaut attrapé par accident.* Les quatre
@@ -2534,7 +2635,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   des blocs, `--style` lit de la ponctuation, `titres-doublons` compare des
   `title:`, `--libelles` compare un libellé à un titre.* **Le geste qui l'évite
   est un cinquième relevé, et il tient en un `grep`.**
-  *Éprouvée 0/N.*
+  *Éprouvée 1/N.*
 - **La liste des artefacts d'un bloc se FERME avant le bloc, et aucune commande
   du bloc n'écrit hors de cette liste.**
   *Née le 30/08 (séance 2), lot 8, de **trois** prises en défaut de C131 dans
@@ -2613,7 +2714,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   être contourné** exactement comme la règle d'usage l'a été, en réécrivant le
   fichier à la main. *La différence est qu'il rend le geste correct **moins
   cher** que le geste fautif, ce qu'aucune phrase de convention ne fait.*
-  *Éprouvée 1/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
+  *Éprouvée 2/N — et, comme pour `derive-traduction` le 29/08, la règle de geste
   reste au §8 sans être seule à se garder.*
 - **Une fiche EN se rédige en partant de son squelette sur disque, jamais en
   réécrivant son front matter de tête.**
@@ -2695,7 +2796,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   échantillons 3 et 4 portent des fiches EN **écrites la nuit même**, ce qui en
   fait aussi un contrôle du report un pour un du lot 7 — **dix termes, dix
   justes**.*
-  *Éprouvée 2/N.*
+  *Éprouvée 3/N.*
 - **Un titre de section EN se relève dans le corpus avant d'être écrit, jamais
   traduit de tête.**
   *Née le 29/08 (suite 10), du même défaut qu'É1 de la suite 9, un lot plus
@@ -2776,7 +2877,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `> [!tip] Astuce` avant de relever que le corpus dit `Watch out` **44** et
   `Tip` **41**. *Trois occurrences corrigées avant toute mesure ; **aucun
   contrôle du dépôt ne les aurait vues**.*
-  *Éprouvée 3/N.*
+  *Éprouvée 4/N.*
 - **Un compteur qui se remesure d'une clôture à l'autre déclare sa population
   DANS SA SORTIE, pas dans le message qui la commente.**
   *Née le 29/08 (suite 11), deuxième clôture d'affilée où le compteur de puces
@@ -2818,7 +2919,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   `matrice-eco-criteres` tombe de 2 puces à 0 et sort de la population des
   porteuses, quand les trois autres fiches traitées y restent. **Un total juste
   sur 173 porteuses aurait été un total juste sur une décomposition fausse.***
-  *Éprouvée 2/N.*
+  *Éprouvée 3/N.*
 - **Un répertoire entièrement non suivi vaut UNE entrée de `git status`, pas
   une par fichier.**
   *Née le 30/08, lot 7, sur une prédiction de garde réfutée d'un point.*
@@ -2866,7 +2967,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   restant le soir même, donc son mot n'y entre jamais. **La règle n'est pas
   « toujours propager », c'est « propager à tous les compteurs qui CONTIENNENT
   la fiche APRÈS l'édition ».***
-  *Éprouvée 1/N.*
+  *Éprouvée 2/N.*
 - **Une ancre qui couvre N lignes identiques se prend EN BLOC, jamais ligne à
   ligne.**
   *Née le 30/08, garde mordue avant toute écriture.* Le correctif d'arbitrage
@@ -2883,7 +2984,7 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   *Corollaire outil* : `remplacer-passe.mjs` ne peut pas porter ce cas, son
   TSV interdisant le saut de ligne dans une ancre ; un **script jetable à
   compte exact** (C114) est la bonne réponse, pas une ancre choisie de force.
-  *Éprouvée 0/N.*
+  *Éprouvée 1/N.*
 - **`--recaler` est une ÉDITION : il compte au `numstat` et au `git status`.**
   *Née le 30/08, deux réfutations d'un même bloc, racine unique.* Le recalage
   d'empreinte était **prévu et prédit** ; ce qui ne l'était pas, c'est qu'il

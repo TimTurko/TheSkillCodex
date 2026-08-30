@@ -1,0 +1,20 @@
+# Titres EN du lot 9 (conduite/proj, palier Analyse fonctionnelle), 30/08 seance 3.
+# Ordre de lecture de la candidate du 30/08 (s2) : les LIBELLES QUE LE CORPUS
+# ANGLAIS ECRIT DEJA vers la cible, AVANT les trois tests de C125. Mesure au
+# bloc 69, releve 2ter (motif borne a <slug>-en) :
+#   mecatronique-en               : mechatronics 10, Mechatronics 1, mechatronic 1
+#   mind-map-en                   : mind map 1, Mind map 1
+#   bete-a-cornes-en              : bete a cornes 6, Bete a cornes 4 (accentues, francais)
+#   pieuvre-en                    : pieuvre 16, Pieuvre 3 (francais)
+#   fonction-en                   : FC 23, FP 9, FS 8, Function 4, ...
+#   caracteriser-une-exigence-en  : Characterising a requirement 7 (+2 bas de casse)
+# Orthographe -ise mesuree : 119 formes en -ise, 0 en -ize dans content/en.
+# Trois lignes ne changent rien (Mind map, Bete a cornes, Pieuvre) et figurent
+# quand meme : une ancre qui vaut son remplacement prouve que le titre a ete RELU.
+# chemin<TAB>ancien titre<TAB>nouveau titre
+en/conduite/proj/mecatronique-en.md	Mécatronique	Mechatronics
+en/conduite/proj/mind-map-en.md	Mind map	Mind map
+en/conduite/proj/bete-a-cornes-en.md	Bête à cornes	Bête à cornes
+en/conduite/proj/pieuvre-en.md	Pieuvre	Pieuvre
+en/conduite/proj/fonction-en.md	Fonction	Function
+en/conduite/proj/caracteriser-une-exigence-en.md	Caractériser une exigence	Characterising a requirement

@@ -1,0 +1,14 @@
+=== PUCES A TIRET DU CORPUS - LOT 9 (30/08, seance 3) ===
+POPULATION, ecrite DANS la sortie (regle d usage 3, 29/08 suite 11) :
+  FR : tous les .md de content/ HORS content/en/
+  EN : tous les .md de content/en/
+Motif : identique au caractere a celui des blocs 32, 44, 54 et 67.
+
+  FR (tous les .md de content/ HORS content/en/)
+      puces a tiret : 999
+      porteuses     : 172
+      FICHIERS      : 248   <- population, ecrite dans la sortie
+  EN (tous les .md de content/en/)
+      puces a tiret : 901
+      porteuses     : 151
+      FICHIERS      : 222   <- population, ecrite dans la sortie

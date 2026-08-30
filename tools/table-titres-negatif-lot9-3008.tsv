@@ -1,0 +1,7 @@
+# Titres EN du lot 9 : TEST NEGATIF DELIBERE (C116 (6)).
+# Une seule ligne, dont l ANCIEN TITRE est ecrit SANS SON ACCENT la ou le
+# front matter porte Mecatronique avec accent. C est la faute exacte qui a
+# arrete un lot de 38 editions le 29/08. Attendu : refus, exit 1, zero octet.
+# chemin<TAB>ancien titre<TAB>nouveau titre
+
+en/conduite/proj/mecatronique-en.md	Mecatronique	Mechatronics

@@ -1,0 +1,39 @@
+  content/conduite/proj/mecatronique.md                        0
+  content/conduite/proj/mind-map.md                            0
+  content/conduite/proj/bete-a-cornes.md                       0
+  content/conduite/proj/pieuvre.md                             5
+      L  50  [exemple — projet bras 3 axes]
+        - **[[FP]]1** — *Permettre à l'opérateur de manipuler le robot pour positionner un objet léger en un point du volume de travail.* Fonction principale 
+      L  51  [exemple — projet bras 3 axes]
+        - **[[FS]]1** — *Permettre à l'opérateur de programmer une séquence de mouvements depuis un poste informatique.* Fonction secondaire qui ajoute un ser
+      L  52  [exemple — projet bras 3 axes]
+        - **[[FC]]1** — *S'adapter à l'alimentation électrique disponible (secteur 230 V via adaptateur).* Contrainte d'adaptation qui ne relie le système qu'
+      L  53  [exemple — projet bras 3 axes]
+        - **FC2** — *Être démontable et reproductible avec les moyens d'un fablab école (imprimante 3D, perceuse, tournevis).* Contrainte d'adaptation à un se
+      L  54  [exemple — projet bras 3 axes]
+        - **FC3** — *Préserver la sécurité de l'opérateur (zones de pincement, organes mobiles).* Contrainte qui ne touche qu'un seul milieu : l'opérateur, dé
+  content/conduite/proj/fonction.md                            0
+  content/conduite/proj/caracteriser-une-exigence.md          11
+      L  34  [le critère]
+        - **Grandeurs physiques** — masse, longueur, vitesse, précision, température, puissance, autonomie
+      L  35  [le critère]
+        - **Grandeurs économiques** — coût d'achat, coût de maintenance, coût total de possession
+      L  36  [le critère]
+        - **Grandeurs temporelles** — durée de vie, MTBF, temps de réponse, temps d'apprentissage
+      L  37  [le critère]
+        - **Grandeurs binaires** — présence/absence, conformité à une norme, validation par un référent
+      L  45  [le niveau]
+        - **Valeur unique** — `100 g`, `230 V`, `12 V`
+      L  46  [le niveau]
+        - **Borne** — `≤ 5 mm`, `≥ 50 mm/s`, `< 200 € HT`
+      L  47  [le niveau]
+        - **Plage** — entre `20 °C` et `30 °C`, `2,4 GHz ± 100 MHz`
+      L  48  [le niveau]
+        - **Cible binaire** — *conforme [[basse-tension|directive basse tension 2014/35/UE]]*, *démontable sans outil spécifique*
+      L 130  [cas particulier — exigences binaires et réglementaires]
+        - **Conformité réglementaire** — *« conforme à la [[basse-tension|directive basse tension 2014/35/UE]] »*, *« [[marquage-ce|marquage CE]] »*, *« [[roh
+      L 131  [cas particulier — exigences binaires et réglementaires]
+        - **Présence/absence d'une caractéristique** — *« démontable sans outil spécifique »*, *« pilotable depuis poste informatique »*, *« arrêt d'urgence a
+      L 132  [cas particulier — exigences binaires et réglementaires]
+        - **Validation par un référent** — *« validé par l'enseignant de mécanique »*, *« approuvé par le responsable sécurité fablab »*.
+  ----------------------------------------------------------   16

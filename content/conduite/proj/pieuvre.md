@@ -36,7 +36,7 @@ Trois temps, dans l'ordre.
 
 1. **Identifier les milieux environnants** par [[mind-map|mind map]] autour du système. Placer le système au centre d'une feuille, et lister tout autour ce qui l'entoure : utilisateurs, matière d'œuvre, énergies, environnement physique, contraintes réglementaires. Pas de filtre à ce stade — un milieu oublié est une fonction qui n'apparaîtra pas dans le CdCF.
 2. **Tracer les liens entre système et milieux**, et formuler chaque lien comme une [[fonction|fonction]] au format **verbe à l'infinitif + complément** (voir la fiche dédiée pour le détail du format d'énoncé et les pièges spécifiques à la formulation).
-3. **Classer en [[FP]] / [[FS]] / [[FC]] et numéroter.** Un lien qui traverse le système entre deux milieux est une FP ou une FS ; un lien qui ne touche qu'un seul milieu est une FC. La numérotation (FP1, FP2…, FS1…, FC1…) sert de référence stable pour toute la suite du projet — du CdCF jusqu'à la grille d'évaluation finale.
+3. **Classer en [[FP]] / [[FS]] / [[FC]] et numéroter.** Un lien qui traverse le système entre deux milieux est une FP ou une FS. Un lien qui ne touche qu'un seul milieu est une FC. La numérotation (FP1, FP2…, FS1…, FC1…) sert de référence stable pour toute la suite du projet — du CdCF jusqu'à la grille d'évaluation finale.
 
 ### Familles de milieux à parcourir systématiquement
 
@@ -52,13 +52,13 @@ Le parcours systématique de ces cinq familles est ce qui rend la pieuvre **robu
 
 ### Topologie du diagramme
 
-La forme classique (convention AFNOR / NF X50-151) est **rayonnante** : système au centre, milieux disposés autour, liens tracés en rayons. Tous les liens sont du même style — la distinction FP / FS / FC se lit dans la **topologie** (FP/FS traversent le système entre deux milieux, FC ne touche qu'un seul milieu) et dans la **numérotation**, jamais dans le style de trait. Cette uniformité visuelle est ce qui rend le diagramme lisible : un lecteur extérieur identifie immédiatement la catégorie d'une fonction par sa géométrie, sans avoir à se référer à une légende.
+La forme classique (convention AFNOR / NF X50-151) est **rayonnante** : système au centre, milieux disposés autour, liens tracés en rayons. Tous les liens sont du même style : la distinction FP / FS / FC se lit dans la **topologie** (FP/FS traversent le système entre deux milieux, FC ne touche qu'un seul milieu) et dans la **numérotation**, jamais dans le style de trait. Cette uniformité visuelle est ce qui rend le diagramme lisible : un lecteur extérieur identifie immédiatement la catégorie d'une fonction par sa géométrie, sans avoir à se référer à une légende.
 
 ## Exemple — projet bras 3 axes
 
 ![Pieuvre du bras 3 axes](/ressources/img/pieuvre/bras-3-axes.svg)
 
-Cette pieuvre porte sur le **système physique** : le bras robotique et ses interactions directes avec son monde. Elle se distingue de la [[bete-a-cornes|bête à cornes]] de l'étape précédente, qui portait sur la commande pédagogique au-dessus du projet (l'enseignant comme commanditaire, le service rendu étant l'illustration d'une démarche projet). Les deux niveaux coexistent dans la posture étudiant-client-de-lui-même et ne se contredisent pas — ils décrivent simplement deux systèmes emboîtés.
+Cette pieuvre porte sur le **système physique** : le bras robotique et ses interactions directes avec son monde. Elle se distingue de la [[bete-a-cornes|bête à cornes]] de l'étape précédente, qui portait sur la commande pédagogique au-dessus du projet (l'enseignant comme commanditaire, le service rendu étant l'illustration d'une démarche projet). Les deux niveaux coexistent dans la posture étudiant-client-de-lui-même et ne se contredisent pas : ils décrivent simplement deux systèmes emboîtés.
 
 **Cinq milieux identifiés** : opérateur, objet à déplacer, poste informatique, alimentation électrique, environnement pédagogique (fablab et moyens de fabrication accessibles).
 
@@ -68,19 +68,19 @@ Cette pieuvre porte sur le **système physique** : le bras robotique et ses inte
 - **[[FS]]1** — *Permettre à l'opérateur de programmer une séquence de mouvements depuis un poste informatique.* Fonction secondaire qui ajoute un service utile (programmation différée), mais sans laquelle le bras remplit déjà sa mission principale.
 - **[[FC]]1** — *S'adapter à l'alimentation électrique disponible (secteur 230 V via adaptateur).* Contrainte d'adaptation qui ne relie le système qu'à un seul milieu : la prise secteur du bâtiment.
 - **FC2** — *Être démontable et reproductible avec les moyens d'un fablab école (imprimante 3D, perceuse, tournevis).* Contrainte d'adaptation à un seul milieu : l'environnement pédagogique du projet.
-- **FC3** — *Préserver la sécurité de l'opérateur (zones de pincement, organes mobiles).* Contrainte qui ne touche qu'un seul milieu : l'opérateur — déjà relié par FP1 côté service rendu, ici côté risque subi. C'est la FC sécurité-utilisateur que le fil [[securite-et-qualite|sécurité et qualité]] suivra jusqu'aux tests de qualification.
+- **FC3** — *Préserver la sécurité de l'opérateur (zones de pincement, organes mobiles).* Contrainte qui ne touche qu'un seul milieu : l'opérateur, déjà relié par FP1 côté service rendu, ici côté risque subi. C'est la FC sécurité-utilisateur que le fil [[securite-et-qualite|sécurité et qualité]] suivra jusqu'aux tests de qualification.
 
-À ce stade, l'énoncé des fonctions ne dit rien des **niveaux attendus** ni des **flexibilités**. La pieuvre dit qu'il faut « positionner un objet léger », pas combien il pèse ni à quelle précision. C'est précisément le rôle de l'étape suivante — caractériser chaque fonction par un triplet [[caracteriser-une-exigence|critère / niveau / flexibilité]].
+À ce stade, l'énoncé des fonctions ne dit rien des **niveaux attendus** ni des **flexibilités**. La pieuvre dit qu'il faut « positionner un objet léger », pas combien il pèse ni à quelle précision. C'est précisément le rôle de l'étape suivante : caractériser chaque fonction par un triplet [[caracteriser-une-exigence|critère / niveau / flexibilité]].
 
 ## Pièges
 
-**Oublier des milieux.** Les trois familles le plus souvent zappées : la **réglementation** (normes applicables, conformité CE, contraintes [[ecoconception|écoconception]]), l'**environnement physique** (température, humidité, vibrations, supports), et les **énergies** (alimentation, fluides). Le geste utile : parcourir explicitement les cinq familles, même si certaines paraissent vides — c'est en les passant en revue qu'on découvre les milieux discrets.
+**Oublier des milieux.** Les trois familles le plus souvent zappées : la **réglementation** (normes applicables, conformité CE, contraintes [[ecoconception|écoconception]]), l'**environnement physique** (température, humidité, vibrations, supports), et les **énergies** (alimentation, fluides). Le geste utile : parcourir explicitement les cinq familles, même si certaines paraissent vides : c'est en les passant en revue qu'on découvre les milieux discrets.
 
-**Énoncer une solution au lieu d'un besoin.** Le piège générique sur la formulation des fonctions est détaillé dans [[fonction|fonction]] : un énoncé qui cite une marque, un composant ou une technologie est mal formulé. Test simple — *« puis-je remplacer cet énoncé par un autre composant sans changer le sens ? »* Si oui, c'est un besoin. Si la phrase devient incohérente, c'est une solution déguisée.
+**Énoncer une solution au lieu d'un besoin.** Le piège générique sur la formulation des fonctions est détaillé dans [[fonction|fonction]] : un énoncé qui cite une marque, un composant ou une technologie est mal formulé. Test simple : *« puis-je remplacer cet énoncé par un autre composant sans changer le sens ? »* Si oui, c'est un besoin. Si la phrase devient incohérente, c'est une solution déguisée.
 
-**Mal classer FP / FS / FC.** La topologie du diagramme doit refléter la sémantique. Une fonction qui ne touche qu'un seul milieu mais classée FP/FS est mal classée — ou bien il manque le second milieu sur le diagramme. Inversement, une fonction tracée entre deux milieux mais classée FC est incohérente : si elle relie deux milieux, c'est qu'elle rend un service à travers le système, donc FP ou FS.
+**Mal classer FP / FS / FC.** La topologie du diagramme doit refléter la sémantique. Une fonction qui ne touche qu'un seul milieu mais classée FP/FS est mal classée, ou bien il manque le second milieu sur le diagramme. Inversement, une fonction tracée entre deux milieux mais classée FC est incohérente : si elle relie deux milieux, c'est qu'elle rend un service à travers le système, donc FP ou FS.
 
-**Confondre FP et FS.** La FP justifie l'existence du système ; sans elle, le projet n'a plus lieu d'être. Test : *« si je retire cette fonction, est-ce que le projet tient encore ? »* Si oui, c'est une FS, pas une FP. Beaucoup de projets école n'ont **qu'une seule FP** — c'est normal et plutôt sain : multiplier les FP révèle souvent un projet mal cadré qui mélange plusieurs objectifs distincts.
+**Confondre FP et FS.** La FP justifie l'existence du système. Sans elle, le projet n'a plus lieu d'être. Test : *« si je retire cette fonction, est-ce que le projet tient encore ? »* Si oui, c'est une FS, pas une FP. Beaucoup de projets école n'ont **qu'une seule FP**. C'est normal et plutôt sain : multiplier les FP révèle souvent un projet mal cadré qui mélange plusieurs objectifs distincts.
 
 **Diagramme rayonnant peu lisible.** Au-delà de 7 ou 8 milieux, la forme rayonnante devient illisible et les liens se croisent. Deux pistes pour respirer : (1) regrouper certains milieux en familles (les trois normes RoHS / REACH / DEEE peuvent former un seul « milieu réglementaire » au lieu de trois), (2) faire deux pieuvres complémentaires sur deux niveaux du système (pieuvre du système global en spécification, pieuvres locales par sous-système à introduire en [[concept|concept]]).
 
