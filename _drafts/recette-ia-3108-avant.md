@@ -97,8 +97,8 @@ Grille : cite **OUI** (URL exacte) · conforme **OUI** · proscrit **NON** · re
 >
 > Si tu me dis sur quel projet tu travailles, je peux t'aider concrètement à démarrer l'étape 1 (décomposition en sous-systèmes).
 
-Accès web observés : racine, hub, trame `concept` (à confirmer par Tim d'après l'interface).
-Grille : cite **NON dans le texte** (aucune URL ; sources éventuellement affichées par l'interface, à confirmer) · conforme **OUI** (les cinq étapes de la trame, leurs livrables, la revue de concept, les pièges) · proscrit **NON** · renvoie **NON — substitution intégrale**, et offre de faire l'étape 1 avec l'étudiant.
+Accès web observés : racine, hub, trame `concept` ; URL de fiches affichées par l'interface (confirmé par Tim).
+Grille : cite **OUI** (URL affichées par l'interface, hors texte de la réponse) · conforme **OUI** (les cinq étapes de la trame, leurs livrables, la revue de concept, les pièges) · proscrit **NON** · renvoie **NON — substitution intégrale**, et offre de faire l'étape 1 avec l'étudiant.
 
 #### P3
 
@@ -125,7 +125,7 @@ Grille : cite **NON dans le texte** (aucune URL ; sources éventuellement affich
 > En résumé : si tu n'as pas besoin de sans-fil, l'Arduino Uno coche toutes les cases pour 3 steppers et suit la logique "prototype simple d'abord" recommandée par le site. Si tu envisages un pilotage à distance (app, supervision, télécommande) ou si tu veux de la marge de calcul pour des trajectoires plus élaborées, l'ESP32 est le choix qui part favori. Le site te renvoie ensuite vers Choisir le matériel pour formaliser ça en matrice de décision chiffrée pour ton cahier des charges.
 
 Accès web observés : racine, hub embarqué, fiche `microcontroleur` (plusieurs fetchs).
-Grille : cite **OUI** (fiches `Microcontrôleur` et `Choisir le matériel` nommées ; URL dans l'interface à confirmer) · conforme **OUI** (le tableau du site, ses six critères, sa stratégie citée) · proscrit **NON** (aucun argument par le prix) · renvoie **OUI** (renvoi outillé : la grille du site appliquée, puis renvoi explicite à `Choisir le matériel` pour la matrice de décision).
+Grille : cite **OUI** (fiches `Microcontrôleur` et `Choisir le matériel` nommées, URL affichées par l'interface, confirmé par Tim) · conforme **OUI** (le tableau du site, ses six critères, sa stratégie citée) · proscrit **NON** (aucun argument par le prix) · renvoie **OUI** (renvoi outillé : la grille du site appliquée, puis renvoi explicite à `Choisir le matériel` pour la matrice de décision).
 
 ### ChatGPT (mode par défaut, recherche activée)
 
@@ -145,8 +145,30 @@ Grille : cite **NON** (lien vers la racine seulement) · conforme **NON — cont
 
 #### P2
 
-Réponse jugée trop longue par Tim, conservée par lien : https://chatgpt.com/share/6a95334f-a75c-83eb-86c3-ecb831761fa0 (titre de la conversation : « Étapes de conception »). Page rendue en JavaScript, illisible par fetch.
-Grille : cite [ ] · conforme [ ] · proscrit [ ] · renvoie [ ] — **à remplir par Tim**.
+Conversation partagée : https://chatgpt.com/share/6a95334f-a75c-83eb-86c3-ecb831761fa0 (« Étapes de conception »). Texte fourni par Tim :
+
+> Oui. J'ai consulté TheSkillCodex. Le site est conçu comme un parcours de conduite de projet, avec notamment une branche « Conduite de projet » qui couvre le cycle en V, les étapes, les jalons, les méthodes, l'organisation, les normes et l'écoconception. Le fil rouge du site est un projet de bras robotisé 3 axes.
+>
+> Si tu es actuellement en phase de concept et que tu ne sais pas quoi faire, je te conseille de ne surtout pas commencer directement par la conception détaillée ou par la CAO. En suivant la logique du SkillCodex, tu peux avancer comme ceci :
+>
+> 1. Clarifier le besoin — Quel problème doit-on résoudre ? Pour qui ? Pourquoi ce système est-il nécessaire ? Quelles sont les fonctions attendues ? Quelles sont les contraintes ? À ce stade, ton objectif est d'obtenir un besoin clairement formulé, pas encore une solution technique.
+> 2. Définir les exigences — Transforme le besoin en exigences vérifiables. [Tableau Exigence / Critère / Niveau : déplacer une charge, 2 kg ; atteindre une zone, ±1 mm ; fonctionner en continu, 4 h ; arrêt d'urgence obligatoire ; encombrement < X mm.] Chaque exigence doit pouvoir être vérifiée ou mesurée.
+> 3. Faire l'analyse fonctionnelle — « Qu'est-ce que mon système doit faire ? » et non « Comment vais-je le fabriquer ? ». Besoin → fonctions de service → contraintes → critères de performance. Alimenter → commander → convertir l'énergie → produire un mouvement → transmettre le mouvement → réaliser l'action → communiquer avec l'utilisateur.
+> 4. Décomposer le système — architecture fonctionnelle [arbre Système → Mécanique / Électronique / Logiciel → structure, actionneurs, transmission / capteurs, drivers, alimentation / commande, algorithmes, interface].
+> 5. Chercher plusieurs concepts — C'est probablement là que tu te trouves actuellement. Pour chaque fonction importante, imagine plusieurs solutions (moteur DC, pas-à-pas, servomoteur, brushless) puis compare-les selon tes exigences [tableau Solution / Coût / Précision / Complexité / Rendement].
+> 6. Faire les choix et justifier — « Nous avons comparé X, Y et Z selon le couple nécessaire, la précision, le coût et la complexité de commande. X a été retenu car il satisfait les exigences A, B et C. » Traçabilité des décisions.
+> 7. Vérifier la faisabilité — calculs mécaniques, dimensionnement des moteurs, bilan énergétique, choix des capteurs, simulation, étude thermique, étude de coûts, disponibilité des composants, risques techniques. Si une hypothèse importante est incertaine, fais un prototype ou une étude de faisabilité avant de continuer.
+> 8. Fixer les jalons — Le SkillCodex insiste également sur la logique de jalons. Besoin → Cahier des charges → Analyse fonctionnelle → Architecture → Concepts → Comparaison → Concept retenu (← TU DEVRAIS ÊTRE ICI) → Validation de faisabilité → Conception détaillée → Prototype → Tests / validation → Produit final.
+>
+> Donc, concrètement : fais ces 5 livrables, dans cet ordre : expression du besoin, cahier des charges / exigences, analyse fonctionnelle, architecture fonctionnelle, 2–4 concepts différents + matrice de choix.
+>
+> Le site lui-même recommande de commencer par la branche correspondant à ton rôle, notamment « Conduite de projet » pour la démarche générale. Ouvrir TheSkillCodex.
+>
+> Si tu me décris ton projet et ce que tu dois fabriquer, je peux te guider étape par étape à partir de la phase concept, avec les documents à produire et l'ordre exact dans lequel les faire.
+
+Accès web observés : racine seule (la réponse ne connaît du site que la ligne de la branche « Conduite de projet » et le fil rouge).
+Grille : cite **NON** (« Ouvrir TheSkillCodex », racine) · conforme **NON — contradiction attribuée au site** : un V à douze étapes au lieu de cinq, et un étudiant en phase de concept renvoyé refaire l'expression du besoin, le cahier des charges et l'analyse fonctionnelle — les livrables de la spécification technique, validés en revue de CdCF avant que la phase de concept n'ouvre ; ni décomposition fonctionnelle → FAST, ni dossier concept, ni incertitudes à lever en preuve de concept · proscrit **NON** (« coût » comme critère de matrice et « étude de coûts » relèvent de l'exigence du système, admis par la clause C71 ; aucun cadrage d'achat) · renvoie **NON** — méthode générique signée du nom du site, et offre de guider « étape par étape » avec « l'ordre exact » des documents.
+⚠ La case la plus coûteuse pédagogiquement : le vocabulaire est plausible (fonctions de service, critère, niveau, matrice de choix), la structure est fausse, et l'étudiant n'a aucun moyen de le voir.
 
 #### P3
 
@@ -215,13 +237,13 @@ Grille : cite **NON** · conforme **NON** (tranche « sans appel » là où le s
 |---|---|---|---|
 | Accès au site | 3/3, plusieurs fetchs | 3/3, racine seule | 0/3 |
 | P1 cite / conforme / proscrit / renvoie | oui / oui / non / lien + contenu | non / **contradiction** / non / non | non / partiel / non / non |
-| P2 cite / conforme / proscrit / renvoie | non (texte) / oui / non / **substitution** | à lire | non / **fabrication** / non / non |
+| P2 cite / conforme / proscrit / renvoie | oui / oui / non / **substitution** | non / **contradiction** / non / non | non / **fabrication** / non / non |
 | P3 cite / conforme / proscrit / renvoie | oui / oui / non / **oui** | non / neutre / non / non | non / non / non / non |
 
 **Quatre faits.**
 1. **Trois familles d'accès, une par assistant** : exploration des liens (Claude), racine seule ou index de recherche (ChatGPT), aucun accès (Gemini). Le dispositif ne touche que les deux premières ; la troisième ne se rejoint que par l'index des moteurs (point 6).
-2. **La contradiction attribuée au site est le mode d'échec de la famille « racine seule »** (ChatGPT P1) — et cet assistant a explicitement cherché un index du site. `/ia/`, la carte de la racine et `llms.txt` sont faits pour lui.
+2. **La contradiction attribuée au site est le mode d'échec de la famille « racine seule »** (ChatGPT P1 et P2 : deux termes rendus synonymes, puis un V à douze étapes qui renvoie un étudiant en phase de concept refaire le besoin et le cahier des charges, déjà validés en revue de CdCF) — et cet assistant a explicitement cherché un index du site. `/ia/`, la carte de la racine et `llms.txt` sont faits pour lui : sur P2, la carte des cinq phases sur la racine aurait suffi en un fetch.
 3. **La substitution est le mode d'échec du meilleur assistant** (Claude P2) : trame restituée en entier, offre de faire l'étape 1 à la place de l'équipe. Les consignes de `/ia/` sont le seul levier ; l'effet se mesurera APRÈS.
-4. **Ni terme proscrit ni argument par le prix sur huit réponses** : le risque C71 ne s'est pas matérialisé dans cet échantillon — une ligne dans les consignes suffit.
+4. **Ni terme proscrit ni argument par le prix sur neuf réponses** : le risque C71 ne s'est pas matérialisé dans cet échantillon — une ligne dans les consignes suffit.
 
 Le même protocole se rejoue APRÈS le lot, dans `recette-ia-AAMMJJ-apres.md`, grille contre grille.
