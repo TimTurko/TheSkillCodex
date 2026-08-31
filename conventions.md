@@ -4664,6 +4664,46 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   monde mais reconnu / non reconnu**, et il faudra un troisième point de
   mesure pour trancher.* *Éprouvée 1/N.*
 
+- **Un compteur qui fonde une DÉCOUPE doit publier sa population
+  NOMINATIVEMENT — un cardinal ne découpe rien.**
+  *Née le 31/08 (séance 13), sur une question de Tim à laquelle le périmètre
+  n'a pas su répondre : « donne-moi le nom des fiches ».* Le chantier des
+  puces est chiffré au mot près depuis la séance 12 — **FR 1 164 gloses sur
+  178 porteuses, EN 1 128 sur 173** — et **aucune de ces 178 n'est nommée
+  nulle part** : `--style` imprime `porteuses du perimetre : 178 fichier(s)`,
+  `puces-tiret.mjs --corpus` imprime `porteuses` et `fichiers` sans les
+  nommer, et son mode `--fiches` **exige en argument la liste qu'aucune
+  sortie ne produit**.
+  ⚠ **Conséquence mesurée sur l'arbitrage** : aucune des trois découpes
+  candidates — module, espèce, densité — n'était constructible au moment où
+  elle a été tranchée. *Un périmètre chiffré n'est pas un périmètre
+  exploitable.*
+  ✅ **C'est la sœur de la règle du 30/08 (séance 12) sur l'exemption muette,
+  prise par l'autre bout** : là une population n'était pas comptée ; ici elle
+  est comptée et pas nommable. **Test mécanique** : *si l'on ne peut pas
+  passer la sortie d'un compteur en argument à l'outil qui traitera sa
+  population, le compteur n'est pas encore un instrument de chantier.*
+  *Éprouvée 0/N.*
+
+- **Un report se vérifie sur sa CONDITION avant d'être accordé — et l'état
+  d'un chantier FERMÉ s'efface plus vite que celui d'un chantier ouvert.**
+  *Née le 31/08 (séance 13).* La demande était de verser trois items au
+  BACKLOG « pour quand on aura terminé la traduction ». **Le chantier de
+  traduction est fermé depuis le 30/08 (séance 10)** — 242 fiches sur 242,
+  291 261 mots sur 291 261, `RESTANT A TRADUIRE : 0 fiches, 0 mots` — **et
+  les trois items étaient déjà au BACKLOG**, versés aux séances 11 et 12. Le
+  report était sans objet dans ses deux termes.
+  ⚠ *Le motif n'est pas une inattention : douze séances d'onglet Code
+  séparent la clôture du chantier de la demande, et une séance de production
+  ne relit pas le JOURNAL en entier. **Rien ne rappelle périodiquement ce qui
+  est fini** — les fichiers de pilotage sont construits pour porter ce qui
+  reste.*
+  ✅ **Deux règles pratiques** : *(1) avant d'accorder un report, vérifier que
+  sa condition n'est pas déjà remplie et que l'item n'est pas déjà rangé où
+  l'on propose de le ranger ; (2) une clôture de séance chat nomme les
+  chantiers FERMÉS autant que les chantiers ouverts — un jalon franchi qu'on
+  ne redit pas redevient une échéance.* *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
