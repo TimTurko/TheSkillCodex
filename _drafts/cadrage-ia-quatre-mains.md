@@ -195,3 +195,66 @@ Servir `/chemin/slug.md` à côté du HTML. Quartz ne le fait pas ; un émetteur
 - `Select-String '^lang:'` sur `content/en/**/*.md` (attendu 0).
 - Compte des fiches publiées dont la première phrase ne tient pas en 300 caractères (la description serait tronquée avec « … ») — `--controle` ne le mesure pas ; un script jetable le rendrait.
 - Lignes de commentaire HTML dans `content/` (9 FR relevées en séance 12) — à confirmer avant tout F.
+
+---
+
+## 6 bis. Mesures rendues le 31/08 (séance 14)
+
+Sondes PowerShell de Tim, puis `tools/seance.ps1` (témoin `tools/seance-sortie-3108s14.txt`). **19 termes prédits, 17 tenus, 2 réfutés** — les deux sur le même objet.
+
+| Mesure | Prédit | Mesuré |
+|---|---|---|
+| `/robots.txt`, `/llms.txt` | 404, 404 | 404, 404 |
+| `/sitemap.xml`, `/static/contentIndex.json` | 200, 200 | 200 `application/xml`, 200 `application/json` |
+| `contentIndex.json` en ligne | 2 à 8 Mo | **4 171 260 octets** |
+| `<loc>` du sitemap / dont `/en/` / dont `/tags/` | lecture | **484 / 242 / 0** — `ContentIndex` n'indexe que les `.md` |
+| `.md` sous `content/en` / avec `lang:` | 242 / 0 | 242 / 0 |
+| ouvertures de commentaire HTML | 8 | 8, toutes dans trois trames FR |
+| H1 dans le corps | 3 | **29 — réfuté** : 20 commentaires Python de blocs de code (prédicat) + 6 hubs de domaine (monde) ; 9 pages réelles |
+| première ligne du corps `#` / prose | 3 / lecture | **9 / 476** — réfuté sur le même monde ; 476 + 9 = 485 |
+| `type:` porté par une étiquette | hors tags 0 | **0** sur 468 (notion 198, trame 26, tuto 244) |
+| `source_fr` : EN avec / sans cible | 242 / 0 | 242 / 0 |
+| FR hors `en` et templates / draft / sans jumelle | 243 / 1 / 1 | 243 / 1 / 1 (`ressources/index.md`) |
+| `description:` explicite | 0 | 0 |
+| premières phrases > 300 caractères bruts | lecture | **29** (17 FR, 12 EN, 301–397) |
+
+**Recette AVANT** (`_drafts/recette-ia-3108-avant.md`) : trois assistants, trois familles d'accès — Claude suit les liens (3/3 cite, 3/3 conforme, 1/3 renvoie), ChatGPT lit la racine seule (0/3 cite, 2 contradictions attribuées au site, dont un V à douze étapes sur le prompt de Tim), Gemini ne lit rien (0/3, une méthode inventée). Zéro terme proscrit, zéro argument par le prix sur neuf réponses.
+
+## 7. Arbitrages rendus (Tim, 31/08)
+
+1. **C + F** : `llms.txt` et Markdown brut par page. 2. **Codes AA : non** (évoluent d'année en année). 3. **Automatique, sans geste étudiant** : l'étudiant donne la racine, rien d'autre → **page `/ia/` unique, bilingue, hors navigation, jamais cachée** ; pas de prompt à coller. 4. **Émetteurs Quartz** (CI, entretien nul). 5. **`robots.txt`** : tout permis + `Sitemap:`. 6. **Indexation : oui**, par balise `google-site-verification` dans `Head.tsx` (le dépôt d'un `.html` dans `content/` perd son extension). 7. **Phrase du hub (a)**. 8. **Analytics : `null`.** **Carte des cinq phases sur la racine : oui.** Pris par Claude avec 1, coût de revert nul : B entier, D1 `hreflang`, D2 abandonné, `aliases: [IA]`, un seul `llms.txt` bilingue à définition FR, préambule = corps de `/ia/`, l'émetteur lit lui-même le premier paragraphe, commentaires HTML retirés du Markdown brut.
+
+## 8. Spécification des blocs — onglet Code, une séance
+
+Toute édition en `--dry` puis live ; prédictions en lignes exactes dans `tools/predictions-AAMMJJ.md` avant chaque bloc ; commits par Tim.
+
+### Bloc A — machinerie Quartz, aucun contenu
+
+- **A1 `quartz/plugins/emitters/rawMarkdown.ts`.** Pour chaque `[tree, file]` du contenu filtré (les brouillons sont déjà exclus) : relire la source `content/<relativePath>`, retirer les commentaires `<!-- … -->` (multi-lignes), écrire `<slug>.md` à côté du HTML via `write({ ctx, content, slug, ext: ".md" })`. Front matter conservé. *Prédictions* : `Get-ChildItem public -Recurse -Filter *.md | Measure-Object` → **484** (+1 quand `/ia/` existe : 485) ; `Select-String '<!--' public\conduite\proj\ecoconception.md` → **0**.
+- **A2 `quartz/plugins/emitters/llmsTxt.ts`.** Carte FR → EN par le `source_fr` des fichiers EN (jamais par le slug : la règle `-en` rate les 7 `index.md`). Préambule = corps de `content/ia/index.md` sans front matter ni commentaires (tant que la page n'existe pas, préambule vide et avertissement au build). Puis, groupées par dossier FR (titre du `index.md` du dossier), **une ligne par paire** : `- [Titre FR](URL FR) · [Title EN](URL EN) — type, phases — définition`. Définition = première phrase du premier paragraphe de la source FR (paragraphe = lignes jusqu'à la première ligne vide ; phrase = jusqu'au premier `. ` ou fin de paragraphe ; `**`/`*` retirés, `[[cible|libellé]]` → libellé, `[[cible]]` → cible) — **sans plafond de longueur**. Dernière ligne : la règle `.md`. Bilan imprimé au build : `llms.txt : N paires, M sans jumelle`. *Prédictions* : **242 paires, 1 sans jumelle** (`ia/index`) une fois la page en place ; taille < 150 Ko.
+- **A3 `quartz/components/Head.tsx`.** (i) `<link rel="alternate" hreflang="en" href=…>` sur toute page FR dont un fichier de `allFiles` porte `frontmatter.source_fr === fileData.relativePath`, et `hreflang="fr"` sur toute page EN vers sa source ; (ii) `<link rel="alternate" type="text/markdown" href="<slug>.md">` ; (iii) `<meta name="google-site-verification" content="<jeton Tim>">`. *Prédictions* : `Select-String 'hreflang' public\conduite\proj\concept.html` → **1** ; `public\en\conduite\proj\concept-en.html` → **1** ; `public\index.html` porte le jeton.
+- **A4 `quartz.layout.ts`.** Explorateur : `node.slugSegment !== "ia"` dans les deux filtres. Pied de page : `links: {}` (le dépôt est privé, un lien GitHub serait un 404 pour l'étudiant). *Prédiction* : `Select-String 'discord' public\index.html` → **0**.
+- **Contrôle local** : `npx quartz build` sur `public/` régénéré (celui du PC pro est périmé). Rien ne part avant A1 et A2 fermés sur leurs nombres.
+
+### Bloc B — passes mécaniques
+
+- **B1 `content/robots.txt`** : `User-agent: *` / `Allow: /` / `Sitemap: https://timturko.github.io/TheSkillCodex/sitemap.xml`. *Prédiction* : `public/robots.txt` présent (`.txt` garde son extension).
+- **B2 passe `lang: en`** : outil jetable `tools/ajouter-lang-en-AAMMsNN.mjs`, insère `lang: en` après la ligne `title:` de chaque `.md` sous `content/en`, **fin de ligne relue par fichier**, `--dry` puis live. *Prédictions* : **242** fichiers ; delta total en octets par `Buffer.byteLength` publié avant écriture (9 par fichier en LF, 10 en CRLF, à compter par le dry) ; `git diff --numstat` : 242 lignes `1\t0` ; `Select-String '^lang: en' content\en -Recurse` → **242** ; `derive-traduction` → `DERIVE 0`, `A JOUR 242` (le sha porte la source FR).
+- **B3 générateur** : `creer-fiche-en.mjs` écrit `lang: en` dans le squelette EN, au même rang.
+
+### Bloc C — contenu, textes validés en séance chat J+1
+
+- **C1 `content/ia/index.md`** : `title`, `description:`, `aliases: [IA]`, `aa: []`, `tags: []`, `lang: fr`, `bilingue: true` (forme à confirmer, § 8 des conventions), `draft: false`. Corps : bloc FR (consignes en registre « on », carte des cinq phases vers leurs trames, trois fils continus, branches et sous-hubs, `choisir-le-materiel` et `matrice-de-decision`, règle de langue, pointeurs `/llms.txt` et `.md`), puis `<section lang="en">` avec le même contenu en anglais. Aucun wiki-link entrant depuis une page humaine ; `audit-wikilinks` la verra orpheline — exemption nommée ou acceptée.
+- **C2 exemption** : `creer-fiche-en.mjs --controle` et `compter-mots --paires` ignorent `bilingue: true` et l'annoncent. **Test négatif** : avant patch `RESTANT A TRADUIRE : 1`, après `0`.
+- **C3 racines** : carte des cinq phases (reprise de `/conduite/`, définitions et livrables, jamais les étapes) et `description:` explicite sur `index.md` ; jumelle `en/index.md` par le circuit de traduction, `--recaler`. La `description:` FR porte l'adresse de `/ia/`.
+- **C4 hub** : phrase de `conduite/index.md` (« à leur étiquette `trame`, `tuto` ou `notion` sous le titre ») + jumelle + `--recaler`.
+- **C5 contrôle en ligne après push et CI** : `Invoke-WebRequest -Method Head` sur `/llms.txt`, `/ia/`, `/conduite/proj/concept.md`, `/robots.txt` → **quatre 200** ; `hreflang` présent sur une page FR publiée ; clic EN → FR depuis `/en/`.
+- **Puis, Tim, hors dépôt** : Search Console « Vérifier » → Sitemaps `sitemap.xml` → Inspection d'URL sur `/` et `/ia/` → Bing : importer depuis Search Console.
+
+### Bloc D — recette APRÈS
+
+Les neuf prompts, mêmes conditions, `_drafts/recette-ia-AAMMJJ-apres.md`, grille contre grille. Gemini : rejouer P2 seul à J+7 et J+21 après indexation.
+
+## 9. Plan validé par Tim (31/08)
+
+J0 : jeton Search Console, clic EN → FR, clôture, commit. J+1 : séance chat courte, rédaction des textes de C1, C3, C4 dans `_drafts/textes-ia-brouillon.md`, relecture Tim. J+1/J+2 : séance Code, blocs A + B + C, build, push, contrôle en ligne, Search Console. J+2 soir : recette APRÈS. J+3 : lecture ; un lot d'une page si les consignes n'ont pas mordu. Rentrée : l'adresse donnée aux étudiants est la racine. Après la rentrée : le TODO dans son ordre — bloc 0 des puces, bloc 1, relecture ciblée, tranche 1, C132.
