@@ -4704,6 +4704,50 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   chantiers FERMÉS autant que les chantiers ouverts — un jalon franchi qu'on
   ne redit pas redevient une échéance.* *Éprouvée 0/N.*
 
+- **Un artefact pour la machine se dérive du texte que l'humain lit ; rien ne
+  s'écrit pour la machine, et rien ne se cache.**
+  *Née le 31/08 (séance 14), cadrage du chantier « site exploitable par une
+  IA ». Mesuré : la description machine de chaque fiche (`<meta description>`,
+  Quartz) est sa première phrase, et 476 fiches sur 476 hors hubs commencent
+  par de la prose — la convention du popover du 19/05 est déjà la convention
+  machine.* ✅ **Corollaires** : *(1) `llms.txt`, Markdown brut, `hreflang`,
+  `description:` sont des projections du front matter et du premier
+  paragraphe, jamais des textes neufs ; (2) une page écrite pour l'assistant
+  (`/ia/`) est une page normale, lisible par qui tape l'URL, hors navigation
+  et non cachée — un texte masqué par CSS ou un commentaire HTML est jeté par
+  les outils de fetch, traité en injection par les assistants, en cloaking
+  par les moteurs ; (3) ses consignes s'écrivent comme des règles d'usage du
+  corpus en registre « on », jamais comme des ordres à la machine — un
+  assistant relaie ce qu'un site préconise et refuse ce qu'une page lui
+  commande ; (4) la profondeur de la racine et de `/ia/` règle le curseur
+  renvoi / substitution : définitions et livrables, jamais les étapes.*
+  *Éprouvée 0/N.*
+
+- **Une fiche bilingue déclare qu'elle l'est, et les contrôles de traduction
+  la lisent.**
+  *Née le 31/08 (séance 14).* `content/ia/index.md` sera la première fiche FR
+  publiée sans jumelle : une page unique en deux blocs, FR puis EN, le bloc
+  anglais sous `<section lang="en">`. Sans déclaration, `--controle` la
+  compterait en `RESTANT A TRADUIRE : 1` et `compter-mots --paires` en
+  dépareillée. ⚠ **Forme du champ à fixer au bloc C, proposition
+  `bilingue: true`** (`lang` reste `fr`, il alimente `<html lang>`) ; les
+  outils l'exemptent nommément et le disent dans leur bilan. *Test négatif
+  obligatoire : avant le patch, `RESTANT A TRADUIRE : 1` ; après, `0`.*
+  *Éprouvée 0/N.*
+
+- **Un prédicat de ligne compte des lignes, pas ce qu'il croit compter : `^# `
+  attrape les commentaires des blocs de code.**
+  *Née le 31/08 (séance 14), réfutation de la seule prédiction tombée de la
+  séance.* Prédit « H1 dans le corps : 3 », mesuré **29** : 20 lignes
+  `# outils.py` et `# Ecrire une valeur` des fiches `micropython-*`, plus
+  **six hubs de domaine** que le monde de la prédiction ignorait. Deux fautes
+  dans un chiffre — un prédicat qui ne masque pas les blocs clôturés, un
+  inventaire de monde incomplet. ✅ **Règle** : *tout compteur qui lit le corps
+  d'une fiche passe par `masquerHorsProse` ou son équivalent avant de
+  compter, et une prédiction de monde nomme la population qu'elle a
+  effectivement inventoriée.* Même famille que C110 (échantillon nommé avant
+  comptage) et que le 20/32 d'`esp32/` (C119). *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes

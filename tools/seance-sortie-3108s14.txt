@@ -1,0 +1,137 @@
+
+==============================================================
+>>> 0 - autocontrole ASCII (C122) et sauvegarde de la sortie (C124)
+==============================================================
+lignes non ASCII dans seance.ps1 : 0
+sortie precedente copiee : tools\seance-sortie-2708s4-serie3.txt
+--- code de sortie : 0
+
+==============================================================
+>>> 1 - ouvertures de commentaire HTML, fichier:ligne (avant tout Markdown brut)
+==============================================================
+  content\conduite\proj\ecoconception.md:45  <!--
+  content\conduite\proj\ecoconception.md:146  <!--
+  content\conduite\proj\ecoconception.md:170  <!--
+  content\conduite\proj\gestion-de-projet.md:50  <!--
+  content\conduite\proj\gestion-de-projet.md:150  <!--
+  content\conduite\proj\gestion-de-projet.md:170  <!--
+  content\conduite\proj\securite-et-qualite.md:41  <!--
+  content\conduite\proj\securite-et-qualite.md:161  <!--
+ouvertures de commentaire HTML : 8
+--- code de sortie : 0
+
+==============================================================
+>>> 2 - H1 dans le corps (description machine polluee)
+==============================================================
+  content\conduite\ese\index.md  -> # ESE — Normes, sécurité, réglementation
+  content\conduite\meo\index.md  -> # MEO — Méthodes, organisation, animation
+  content\conduite\proj\index.md  -> # PROJ — Démarche projet transversale
+  content\embarque\mcu\micropython\micropython-alimentation.md  -> # ... lecture capteurs, affichage OLED, pilotage servo
+  content\embarque\mcu\micropython\micropython-deep-sleep.md  -> # Detecter d'ou vient le demarrage
+  content\embarque\mcu\micropython\micropython-gpio-boot.md  -> # Le relais (actif-bas) part directement à l'état relâché (1), sans passer par 0
+  content\embarque\mcu\micropython\micropython-lire-un-programme.md  -> # ici, le fichier est déjà refermé
+  content\embarque\mcu\micropython\micropython-memoire.md  -> # AVANT — alloue et fragmente a chaque tour
+  content\embarque\mcu\micropython\micropython-modules.md  -> # outils.py
+  content\embarque\mcu\micropython\micropython-servomoteur.md  -> # Valeurs ADC relevees en calibration (a mesurer pour CHAQUE servo)
+  content\embarque\mcu\micropython\micropython-shield.md  -> # Exemple illustratif : la doc de la carte indique le GP de chaque fonction
+  content\embarque\mcu\micropython\micropython-stockage.md  -> # Ecrire une valeur
+  content\embarque\mcu\micropython\micropython-temporisation.md  -> # Clignotement : ce sont des VARIABLES, elles changent en cours d'exécution
+  content\en\conduite\ese\index.md  -> # ESE — Standards, safety, regulation
+  content\en\conduite\meo\index.md  -> # MEO — Methods, organisation, facilitation
+  content\en\conduite\proj\index.md  -> # PROJ — The cross-cutting project method
+  content\en\embarque\mcu\micropython\micropython-alimentation-en.md  -> # ... read sensors, drive the OLED, drive the servo
+  content\en\embarque\mcu\micropython\micropython-deep-sleep-en.md  -> # Detecter d'ou vient le demarrage
+  content\en\embarque\mcu\micropython\micropython-gpio-boot-en.md  -> # The (active-low) relay starts straight in the released state (1), never passing through 0
+  content\en\embarque\mcu\micropython\micropython-lire-un-programme-en.md  -> # here, the file is already closed again
+  content\en\embarque\mcu\micropython\micropython-memoire-en.md  -> # BEFORE - allocates and fragments on every pass
+  content\en\embarque\mcu\micropython\micropython-modules-en.md  -> # outils.py
+  content\en\embarque\mcu\micropython\micropython-servomoteur-en.md  -> # ADC values read during calibration (to measure for EVERY servo)
+  content\en\embarque\mcu\micropython\micropython-shield-en.md  -> # Illustration only: the board's documentation gives the GP for each function
+  content\en\embarque\mcu\micropython\micropython-stockage-en.md  -> # Write a value
+  content\en\embarque\mcu\micropython\micropython-temporisation-en.md  -> # Clignotement : ce sont des VARIABLES, elles changent en cours d'execution
+  content\en\index.md  -> # Welcome to TheSkillCodex
+  content\index.md  -> # Bienvenue sur TheSkillCodex
+  content\ressources\index.md  -> # Ressources
+fichiers avec H1 dans le corps : 29
+--- code de sortie : 0
+
+==============================================================
+>>> 3 - le type: est-il porte par une etiquette (point 7)
+==============================================================
+  type notion : 198
+  type trame : 26
+  type tuto : 244
+fichiers avec type: : 468
+type hors tags : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 4 - source_fr : couverture et cibles (carte hreflang)
+==============================================================
+EN md : 242
+EN avec source_fr : 242
+source_fr sans cible : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 5 - population FR, brouillons, jumelles
+==============================================================
+  [draft] content\ressources\index.md
+  [sans jumelle EN] content\ressources\index.md
+FR md hors en et templates : 243
+draft true FR : 1
+FR md - draft : 242
+FR sans jumelle EN : 1
+--- code de sortie : 0
+
+==============================================================
+>>> 6 - description: explicite en front matter
+==============================================================
+description: en front matter : 0
+--- code de sortie : 0
+
+==============================================================
+>>> 7 - premiere ligne du corps et premiere phrase (ce que la machine lit)
+==============================================================
+  [#] content\conduite\ese\index.md  -> # ESE — Normes, sécurité, réglementation
+  [>300 : 309] content\conduite\ese\iso-12100.md
+  [#] content\conduite\meo\index.md  -> # MEO — Méthodes, organisation, animation
+  [>300 : 321] content\conduite\proj\acv-simplifiee.md
+  [>300 : 397] content\conduite\proj\amdec.md
+  [>300 : 370] content\conduite\proj\dossier-technique.md
+  [>300 : 301] content\conduite\proj\ecoconception.md
+  [>300 : 349] content\conduite\proj\fast.md
+  [#] content\conduite\proj\index.md  -> # PROJ — Démarche projet transversale
+  [>300 : 330] content\embarque\alimentation-electronique.md
+  [>300 : 312] content\embarque\mcu\arduino\arduino.md
+  [>300 : 306] content\embarque\mcu\arduino\arduino-bibliotheques.md
+  [>300 : 317] content\embarque\mcu\arduino\arduino-deep-sleep.md
+  [>300 : 336] content\embarque\mcu\deep-sleep.md
+  [>300 : 356] content\embarque\mcu\gpio.md
+  [>300 : 349] content\embarque\mcu\ide.md
+  [>300 : 314] content\embarque\mcu\interruption.md
+  [>300 : 342] content\embarque\mcu\lire-une-datasheet.md
+  [>300 : 332] content\embarque\mcu\microcontroleur.md
+  [>300 : 337] content\embarque\mcu\raspberry-pi\raspberry-pi.md
+  [#] content\en\conduite\ese\index.md  -> # ESE — Standards, safety, regulation
+  [#] content\en\conduite\meo\index.md  -> # MEO — Methods, organisation, facilitation
+  [>300 : 305] content\en\conduite\meo\unite-si-en.md
+  [>300 : 312] content\en\conduite\proj\acv-simplifiee-en.md
+  [>300 : 396] content\en\conduite\proj\amdec-en.md
+  [>300 : 325] content\en\conduite\proj\decomposition-fonctionnelle-en.md
+  [>300 : 392] content\en\conduite\proj\dossier-technique-en.md
+  [>300 : 307] content\en\conduite\proj\ecoconception-en.md
+  [>300 : 334] content\en\conduite\proj\fast-en.md
+  [#] content\en\conduite\proj\index.md  -> # PROJ — The cross-cutting project method
+  [>300 : 346] content\en\conduite\proj\specification-technique-en.md
+  [>300 : 307] content\en\embarque\mcu\gpio-en.md
+  [>300 : 301] content\en\embarque\mcu\lire-une-datasheet-en.md
+  [>300 : 337] content\en\embarque\mcu\microcontroleur-en.md
+  [>300 : 331] content\en\embarque\mesure\generateur-de-signaux-en.md
+  [#] content\en\index.md  -> # Welcome to TheSkillCodex
+  [#] content\index.md  -> # Bienvenue sur TheSkillCodex
+  [#] content\ressources\index.md  -> # Ressources
+premiere ligne # : 9
+premiere ligne prose : 476
+premieres phrases > 300 : 29
+--- code de sortie : 0
