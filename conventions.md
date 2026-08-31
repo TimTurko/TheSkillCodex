@@ -4748,6 +4748,35 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   effectivement inventoriée.* Même famille que C110 (échantillon nommé avant
   comptage) et que le 20/32 d'`esp32/` (C119). *Éprouvée 0/N.*
 
+- **Un texte NEUF s'écrit à la forme cible d'un chantier cadré, même si le
+  chantier n'a pas commencé.**
+  *Née le 31/08 (séance 15), à la rédaction des quatre textes du chantier IA.*
+  Suivre le style local aurait fait porter à ces textes **une dizaine de gloses
+  au cadratin**, dans les deux langues, sur `index.md` et `conduite/index.md`
+  — **deux fichiers qui sont déjà des porteuses parmi les 178**. ⚠ *Écrire à
+  l'ancienne forme, c'est grossir la population qu'on s'apprête à traiter, et
+  payer deux fois le même geste.* ✅ **Test mécanique** : *un chantier dont le
+  périmètre est chiffré et la découpe arbitrée fixe la forme de tout texte neuf
+  de son périmètre — dès le cadrage, pas à l'ouverture.* **Prix assumé** : la
+  page devient hétérogène jusqu'au passage du chantier, ce qui se voit ; le
+  contraire ne se voit pas et coûte plus cher. *Éprouvée 0/N.*
+
+- **Une validation nomme sa SURFACE : l'argument rendu à l'écran et le livrable
+  écrit sur disque sont deux artefacts.**
+  *Née le 31/08 (séance 15), sur une question de Tim — « où puis-je lire le
+  brouillon ? Si le brouillon est ce que tu appelles la brique D, je suis ok
+  avec ce qui est marqué ».* La séance a produit **deux choses en un tour** :
+  l'argumentaire de posture à l'écran (brique D, C130 — l'écran porte
+  l'actionnable) et `_drafts/textes-ia-brouillon.md` sur disque. **Ma clôture de
+  tour ne disait ni que les deux étaient distincts, ni où lire le second** —
+  elle en donnait la taille en octets, ce qui suppose déjà de savoir qu'il y a
+  un fichier. ✅ **Règle** : *quand un tour rend à la fois un argument et un
+  fichier, la réponse nomme le chemin du fichier et dit en une ligne ce que
+  chacun porte ; une validation reçue sans surface nommée se fait préciser avant
+  d'être prise.* ⚠ *C129 signale les transitions de surface **entre séances** ;
+  rien ne les signalait **à l'intérieur d'un tour**, et c'est le seul endroit où
+  l'ambiguïté peut faire valider le mauvais objet.* *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
