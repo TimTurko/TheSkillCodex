@@ -1,5 +1,6 @@
 ---
 title: NF X50-151
+lang: en
 type: notion
 tags:
   - proj

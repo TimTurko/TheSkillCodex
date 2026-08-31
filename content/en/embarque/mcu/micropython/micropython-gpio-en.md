@@ -1,5 +1,6 @@
 ---
 title: Configuring MicroPython GPIO
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Concept
+lang: en
 type: trame
 phase: 2
 phases:

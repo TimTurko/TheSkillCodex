@@ -1,5 +1,6 @@
 ---
 title: Accuracy, trueness, precision
+lang: en
 type: notion
 tags:
   - eee

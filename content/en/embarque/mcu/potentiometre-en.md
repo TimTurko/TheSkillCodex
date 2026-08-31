@@ -1,5 +1,6 @@
 ---
 title: The potentiometer
+lang: en
 type: notion
 tags:
   - eee

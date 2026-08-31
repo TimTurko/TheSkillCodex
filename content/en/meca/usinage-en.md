@@ -1,5 +1,6 @@
 ---
 title: Machining
+lang: en
 type: notion
 tags:
   - mme

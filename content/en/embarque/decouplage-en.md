@@ -1,5 +1,6 @@
 ---
 title: Decoupling
+lang: en
 type: notion
 tags:
   - eee

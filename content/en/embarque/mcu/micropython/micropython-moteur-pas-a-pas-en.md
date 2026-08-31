@@ -1,5 +1,6 @@
 ---
 title: Driving a stepper motor in MicroPython
+lang: en
 type: tuto
 phases:
   - concept

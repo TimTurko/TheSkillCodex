@@ -1,5 +1,6 @@
 ---
 title: Local and global variables
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

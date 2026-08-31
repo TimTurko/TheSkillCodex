@@ -1,5 +1,6 @@
 ---
 title: Eco-design
+lang: en
 type: trame
 phase: 
 phases:

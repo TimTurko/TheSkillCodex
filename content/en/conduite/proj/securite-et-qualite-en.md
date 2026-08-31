@@ -1,5 +1,6 @@
 ---
 title: Safety and quality
+lang: en
 type: trame
 phase: 
 phases:

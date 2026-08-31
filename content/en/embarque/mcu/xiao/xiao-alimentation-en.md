@@ -1,5 +1,6 @@
 ---
 title: Powering the XIAO ESP32-S3
+lang: en
 type: notion
 phases:
   - concept

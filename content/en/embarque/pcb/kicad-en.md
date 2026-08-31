@@ -1,5 +1,6 @@
 ---
 title: KiCad
+lang: en
 type: tuto
 tags:
   - eee

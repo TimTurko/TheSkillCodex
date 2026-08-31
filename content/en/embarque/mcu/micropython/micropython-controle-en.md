@@ -1,5 +1,6 @@
 ---
 title: Conditions and loops
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

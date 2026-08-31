@@ -1,5 +1,6 @@
 ---
 title: Designing the electronics
+lang: en
 type: trame
 tags:
   - eee

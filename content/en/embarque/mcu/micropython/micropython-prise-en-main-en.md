@@ -1,5 +1,6 @@
 ---
 title: Getting started with MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

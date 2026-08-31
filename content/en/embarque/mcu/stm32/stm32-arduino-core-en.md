@@ -1,5 +1,6 @@
 ---
 title: Programming the STM32 with the Arduino core
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

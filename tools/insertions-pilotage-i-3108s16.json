@@ -1,0 +1,16 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "**seize blocs (162 à 177)**",
+    "texte": "**vingt-quatre blocs (162 à 185)**",
+    "libelle": "JOURNAL : compte de blocs"
+  },
+  {
+    "fichier": "TODO.md",
+    "mode": "remplacer",
+    "ancre": "**seize blocs (162 à 177)**",
+    "texte": "**vingt-quatre blocs (162 à 185)**",
+    "libelle": "TODO : compte de blocs"
+  }
+]

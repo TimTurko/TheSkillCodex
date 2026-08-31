@@ -1,5 +1,6 @@
 ---
 title: Getting started with the ESP32
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Integration and testing
+lang: en
 type: trame
 phase: 5
 phases:

@@ -1,5 +1,6 @@
 ---
 title: Loops
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

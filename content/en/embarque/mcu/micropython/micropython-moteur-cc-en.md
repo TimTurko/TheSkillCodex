@@ -1,5 +1,6 @@
 ---
 title: Driving a DC motor in MicroPython
+lang: en
 type: tuto
 phases:
   - concept

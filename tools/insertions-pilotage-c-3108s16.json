@@ -1,0 +1,16 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "**137 publiées avant leur bloc, 132 tenues, 5 réfutées — 96,4 %**, sur seize blocs. **Quatre tests négatifs délibérés, quatre refus, zéro octet écrit à tort.**",
+    "texte": "**146 publiées avant leur bloc, 140 tenues, 6 réfutées — 95,9 %**, sur dix-huit blocs (162 à 179), les deux derniers étant la correction de ce chiffre même, d'abord composé de tête au lieu d'être additionné sur les bilans. **Cinq tests négatifs délibérés, cinq refus, zéro octet écrit à tort.**",
+    "libelle": "JOURNAL : total de predictions corrige (ancre relue)"
+  },
+  {
+    "fichier": "TODO.md",
+    "mode": "remplacer",
+    "ancre": "⚠ **137 prédictions, 132 tenues, 5 réfutées (96,4 %), quatre tests négatifs délibérés, quatre refus.**",
+    "texte": "⚠ **146 prédictions, 140 tenues, 6 réfutées (95,9 %), cinq tests négatifs délibérés, cinq refus, zéro octet écrit à tort.**",
+    "libelle": "TODO : total de predictions corrige (ancre relue)"
+  }
+]

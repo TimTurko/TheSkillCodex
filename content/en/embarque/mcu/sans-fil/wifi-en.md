@@ -1,5 +1,6 @@
 ---
 title: Wi-Fi
+lang: en
 type: notion
 tags:
   - eee

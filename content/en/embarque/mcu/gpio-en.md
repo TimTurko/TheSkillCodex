@@ -1,5 +1,6 @@
 ---
 title: GPIO
+lang: en
 type: notion
 tags:
   - eee

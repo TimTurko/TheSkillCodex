@@ -1,5 +1,6 @@
 ---
 title: Getting started with the Raspberry Pi
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

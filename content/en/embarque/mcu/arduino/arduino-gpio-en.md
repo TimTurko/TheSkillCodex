@@ -1,5 +1,6 @@
 ---
 title: Configuring Arduino GPIO
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

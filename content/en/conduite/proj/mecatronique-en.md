@@ -1,5 +1,6 @@
 ---
 title: Mechatronics
+lang: en
 type: notion
 phases:
   - specification

@@ -1,5 +1,6 @@
 ---
 title: Arduino
+lang: en
 type: notion
 tags:
   - eee

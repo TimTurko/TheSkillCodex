@@ -1,5 +1,6 @@
 ---
 title: Non-blocking programming
+lang: en
 type: notion
 tags:
   - eee

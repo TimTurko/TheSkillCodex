@@ -1,5 +1,6 @@
 ---
 title: Simplified LCA
+lang: en
 type: notion
 phases:
   - dossier-technique

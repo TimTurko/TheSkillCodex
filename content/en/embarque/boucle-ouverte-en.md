@@ -1,5 +1,6 @@
 ---
 title: Open loop
+lang: en
 type: notion
 tags:
   - eee

@@ -1,5 +1,6 @@
 ---
 title: Logic analyzer
+lang: en
 type: tuto
 tags:
   - eee

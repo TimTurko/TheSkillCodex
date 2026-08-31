@@ -1,5 +1,6 @@
 ---
 title: Powering an Arduino board
+lang: en
 type: tuto
 phases:
   - concept

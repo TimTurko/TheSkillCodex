@@ -1,5 +1,6 @@
 ---
 title: MicroPython
+lang: en
 type: notion
 tags:
   - eee

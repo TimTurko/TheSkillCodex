@@ -1,5 +1,6 @@
 ---
 title: XIAO ESP32-S3 Sense
+lang: en
 type: notion
 phases:
   - concept

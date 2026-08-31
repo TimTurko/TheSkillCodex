@@ -1,5 +1,6 @@
 ---
 title: Technical state of the art
+lang: en
 type: tuto
 phases:
   - specification

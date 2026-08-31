@@ -1,5 +1,6 @@
 ---
 title: SI units
+lang: en
 type: notion
 phases:
   - specification

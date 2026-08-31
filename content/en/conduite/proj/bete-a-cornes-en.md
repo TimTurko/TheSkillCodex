@@ -1,5 +1,6 @@
 ---
 title: Bête à cornes
+lang: en
 type: notion
 phases:
   - specification

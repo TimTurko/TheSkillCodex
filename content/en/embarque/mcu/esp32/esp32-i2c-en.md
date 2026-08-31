@@ -1,5 +1,6 @@
 ---
 title: I2C on the ESP32
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

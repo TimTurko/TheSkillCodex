@@ -1,5 +1,6 @@
 ---
 title: WBS
+lang: en
 type: notion
 phases:
   - specification

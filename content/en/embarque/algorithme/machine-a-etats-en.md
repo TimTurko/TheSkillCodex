@@ -1,5 +1,6 @@
 ---
 title: State machine
+lang: en
 type: notion
 tags:
   - eee

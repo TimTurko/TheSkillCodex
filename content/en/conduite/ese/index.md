@@ -1,5 +1,6 @@
 ---
 title: ESE pages — Standards, safety, regulation
+lang: en
 tags: [domaine, ese]
 draft: false
 source_fr: conduite/ese/index.md

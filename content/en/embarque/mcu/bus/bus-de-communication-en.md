@@ -1,5 +1,6 @@
 ---
 title: Communication buses
+lang: en
 type: notion
 tags:
   - eee

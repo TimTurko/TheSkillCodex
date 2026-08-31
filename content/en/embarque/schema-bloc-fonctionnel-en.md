@@ -1,5 +1,6 @@
 ---
 title: Functional block diagram
+lang: en
 tags:
   - eee
   - notion

@@ -7,10 +7,8 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [],
   footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
+    // Le depot est prive : un lien GitHub serait un 404 pour l'etudiant.
+    links: {},
   }),
 }
 
@@ -40,7 +38,10 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       filterFn: (node) =>
-        node.slugSegment !== "tags" && node.slugSegment !== "templates" && node.slugSegment !== "ressources",
+        node.slugSegment !== "tags" &&
+        node.slugSegment !== "templates" &&
+        node.slugSegment !== "ressources" &&
+        node.slugSegment !== "ia",
     }),
   ],
   right: [
@@ -67,7 +68,10 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
       filterFn: (node) =>
-        node.slugSegment !== "tags" && node.slugSegment !== "templates" && node.slugSegment !== "ressources",
+        node.slugSegment !== "tags" &&
+        node.slugSegment !== "templates" &&
+        node.slugSegment !== "ressources" &&
+        node.slugSegment !== "ia",
     }),
   ],
   right: [],

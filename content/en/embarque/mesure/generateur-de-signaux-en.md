@@ -1,5 +1,6 @@
 ---
 title: Function generator
+lang: en
 type: tuto
 tags:
   - eee

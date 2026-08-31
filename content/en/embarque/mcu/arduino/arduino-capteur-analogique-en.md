@@ -1,5 +1,6 @@
 ---
 title: Reading an analog sensor on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

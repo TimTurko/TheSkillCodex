@@ -1,5 +1,6 @@
 ---
 title: PROJ pages — Project method
+lang: en
 tags: [domaine, proj]
 draft: false
 source_fr: conduite/proj/index.md

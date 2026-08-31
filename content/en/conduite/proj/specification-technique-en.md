@@ -1,5 +1,6 @@
 ---
 title: Technical specification
+lang: en
 type: trame
 phase: 1
 phases:

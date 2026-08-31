@@ -1,5 +1,6 @@
 ---
 title: PCB — printed circuit board
+lang: en
 type: notion
 tags:
   - eee

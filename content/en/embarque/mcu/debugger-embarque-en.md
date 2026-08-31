@@ -1,5 +1,6 @@
 ---
 title: Debugging an embedded system
+lang: en
 type: notion
 tags:
   - eee

@@ -1,5 +1,6 @@
 ---
 title: Getting started with the XIAO ESP32-S3
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

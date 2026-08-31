@@ -95,7 +95,7 @@ Ces fils sont évalués transversalement : ils apparaissent dans les livrables d
 
 ## Comment lire ce site
 
-Le tutoriel comporte **trois types de fiches** que tu reconnaîtras au champ `type:` dans leur en-tête :
+Le tutoriel comporte **trois types de fiches**, reconnaissables à leur étiquette `trame`, `tuto` ou `notion` sous le titre :
 
 - **Fiches trame** : décrivent une phase du cycle en V. Denses, détaillées, elles guident la production des livrables attendus. La présente fiche est une fiche trame.
 - **Fiches tuto** : montrent comment mettre en œuvre un outil ou une méthode (installer un IDE, comprendre les GPIO d'un microcontrôleur, fabriquer un PID numérique). Pratiques, orientées action.

@@ -1,5 +1,6 @@
 ---
 title: Proof of concept
+lang: en
 type: trame
 phase: 3
 phases:

@@ -1,5 +1,6 @@
 ---
 title: Getting started with the Teensy
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

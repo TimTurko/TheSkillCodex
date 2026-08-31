@@ -1,5 +1,6 @@
 ---
 title: EasyEDA
+lang: en
 type: tuto
 tags:
   - eee

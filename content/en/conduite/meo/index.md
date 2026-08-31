@@ -1,5 +1,6 @@
 ---
 title: MEO pages — Methods, organisation, facilitation
+lang: en
 tags: [domaine, meo]
 draft: false
 source_fr: conduite/meo/index.md

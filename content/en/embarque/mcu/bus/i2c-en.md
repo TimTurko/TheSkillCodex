@@ -1,5 +1,6 @@
 ---
 title: I2C
+lang: en
 type: notion
 tags:
   - eee

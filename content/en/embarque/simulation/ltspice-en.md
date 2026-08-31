@@ -1,5 +1,6 @@
 ---
 title: LTspice
+lang: en
 type: tuto
 tags:
   - eee

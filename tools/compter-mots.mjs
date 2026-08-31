@@ -79,6 +79,12 @@ function walk(dir, acc = []) {
 const versWeb = (abs) => relative(CONTENT, abs).split(sep).join('/');
 const lire = (rel) => readFileSync(join(CONTENT, rel.split('/').join(sep)), 'utf8');
 
+// C2 du chantier IA (31/08) : une fiche qui porte `bilingue: true` traite les
+// deux langues dans un seul fichier - content/ia/index.md porte son bloc
+// anglais sous <section lang="en">. Elle n a pas de jumelle EN et n en aura
+// pas : elle sort du RESTANT A TRADUIRE et du foisonnement, et le dit.
+const estBilingue = (rel) => /^bilingue:\s*true\s*$/m.test(lire(rel));
+
 // Perimetre par defaut : les fiches FR PUBLIEES. Hors en/, hors templates/
 // (depublie par ignorePatterns), hors toute fiche en draft: true - c'est ce
 // qui sort ressources/index depuis le 22/08.
@@ -112,7 +118,8 @@ function corpus() {
   }
 
   const faits = fr.filter((r) => traduites.has(r));
-  const restants = fr.filter((r) => !traduites.has(r));
+  const bilingues = fr.filter(estBilingue);
+  const restants = fr.filter((r) => !traduites.has(r) && !estBilingue(r));
   const somme = (l) => l.reduce((a, r) => a + mots.get(r), 0);
   const tries = [...mots.values()].sort((a, b) => a - b);
   const lourde = fr.reduce((a, b) => (mots.get(b) > mots.get(a) ? b : a));
@@ -124,6 +131,7 @@ function corpus() {
   console.log('  fiche la plus lourde : ' + lourde + '  (' + mots.get(lourde) + ')');
   console.log('');
   console.log('  deja traduites       : ' + faits.length + ' fiches, ' + somme(faits) + ' mots FR');
+  console.log('  bilingues exemptees  : ' + bilingues.length + ' fiches, ' + somme(bilingues) + ' mots FR');
   console.log('  RESTANT A TRADUIRE   : ' + restants.length + ' fiches, ' + somme(restants) + ' mots FR');
   console.log('');
   console.log('  Le restant est un COMPTAGE des fiches non traduites, pas une');
@@ -135,6 +143,9 @@ function corpus() {
 // de lot dimensionne quoi que ce soit.
 function paires() {
   enTete();
+  const bilingues = fichesFr().filter(estBilingue);
+  console.log('  bilingues exemptees : ' + bilingues.length + ' fiche(s), hors foisonnement par construction.');
+  console.log('');
   let totFr = 0;
   let totEn = 0;
   let n = 0;

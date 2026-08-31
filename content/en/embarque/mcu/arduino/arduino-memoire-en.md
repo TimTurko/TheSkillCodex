@@ -1,5 +1,6 @@
 ---
 title: Managing memory on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

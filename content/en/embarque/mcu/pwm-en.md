@@ -1,5 +1,6 @@
 ---
 title: PWM
+lang: en
 type: notion
 tags:
   - eee

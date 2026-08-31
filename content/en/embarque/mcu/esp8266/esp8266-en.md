@@ -1,5 +1,6 @@
 ---
 title: ESP8266
+lang: en
 type: notion
 tags:
   - eee

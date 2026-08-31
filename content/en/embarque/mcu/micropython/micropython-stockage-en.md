@@ -1,5 +1,6 @@
 ---
 title: Persistent storage (files, EEPROM)
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

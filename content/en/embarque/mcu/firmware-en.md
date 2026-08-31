@@ -1,5 +1,6 @@
 ---
 title: Firmware
+lang: en
 type: notion
 phases:
   - preuve-de-concept

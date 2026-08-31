@@ -1,5 +1,6 @@
 ---
 title: The SBC on a mechatronics project
+lang: en
 type: tuto
 phases:
   - integration

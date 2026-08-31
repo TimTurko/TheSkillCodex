@@ -1,5 +1,6 @@
 ---
 title: I2C in MicroPython
+lang: en
 type: tuto
 phases:
   - concept

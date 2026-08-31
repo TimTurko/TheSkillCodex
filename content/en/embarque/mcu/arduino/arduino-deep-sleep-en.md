@@ -1,5 +1,6 @@
 ---
 title: Deep sleep on Arduino
+lang: en
 type: tuto
 phases:
   - integration-et-tests

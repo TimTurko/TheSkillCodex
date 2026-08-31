@@ -1,5 +1,6 @@
 ---
 title: Bit manipulation
+lang: en
 type: notion
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Functional breakdown
+lang: en
 type: tuto
 phases:
   - concept

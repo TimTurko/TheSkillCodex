@@ -1,5 +1,6 @@
 ---
 title: Programming the ESP32 with the Arduino core
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

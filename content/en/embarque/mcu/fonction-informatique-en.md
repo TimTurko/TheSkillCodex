@@ -1,5 +1,6 @@
 ---
 title: Function (programming)
+lang: en
 type: notion
 phases:
   - preuve-de-concept

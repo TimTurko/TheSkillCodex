@@ -1,5 +1,6 @@
 ---
 title: Closed-loop control
+lang: en
 type: notion
 tags:
   - eee

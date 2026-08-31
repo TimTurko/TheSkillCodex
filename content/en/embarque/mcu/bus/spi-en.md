@@ -1,5 +1,6 @@
 ---
 title: SPI
+lang: en
 type: notion
 tags:
   - eee

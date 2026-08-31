@@ -1,5 +1,6 @@
 ---
 title: Arduino serial monitor
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

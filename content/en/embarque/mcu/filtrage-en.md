@@ -1,5 +1,6 @@
 ---
 title: Filtering measurements
+lang: en
 type: notion
 tags:
   - eee

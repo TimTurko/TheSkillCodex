@@ -1,5 +1,6 @@
 ---
 title: Timing diagram
+lang: en
 type: notion
 tags:
   - eee

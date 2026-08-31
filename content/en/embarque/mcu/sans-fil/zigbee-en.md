@@ -1,5 +1,6 @@
 ---
 title: Zigbee
+lang: en
 type: notion
 tags:
   - eee

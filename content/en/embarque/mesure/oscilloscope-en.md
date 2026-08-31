@@ -1,5 +1,6 @@
 ---
 title: Oscilloscope
+lang: en
 type: tuto
 tags:
   - eee

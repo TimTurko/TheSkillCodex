@@ -1,5 +1,6 @@
 ---
 title: Deep sleep
+lang: en
 type: notion
 tags:
   - eee

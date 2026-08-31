@@ -1,5 +1,6 @@
 ---
 title: Reading a MicroPython program you did not write
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

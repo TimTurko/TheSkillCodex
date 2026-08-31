@@ -1,5 +1,6 @@
 ---
 title: Driving the GPIO from Linux
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

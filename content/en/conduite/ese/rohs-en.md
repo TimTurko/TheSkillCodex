@@ -1,5 +1,6 @@
 ---
 title: RoHS
+lang: en
 type: notion
 tags:
   - ese

@@ -1,5 +1,6 @@
 ---
 title: Multimeter
+lang: en
 type: tuto
 tags:
   - eee

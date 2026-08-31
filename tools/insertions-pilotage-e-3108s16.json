@@ -1,0 +1,23 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "## 2026-08-31 (séance 16) — Le chantier « site exploitable par une IA » posé en entier, cinq réfutations qui sont toutes la même, et le seul anglais publié que rien ne mesure",
+    "texte": "## 2026-08-31 (séance 16) — Le chantier « site exploitable par une IA » posé en entier, sept réfutations qui sont toutes la même, et le seul anglais publié que rien ne mesure",
+    "libelle": "JOURNAL : titre de l entree"
+  },
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "⚠ **LES CINQ RÉFUTATIONS SONT LA MÊME, ET ELLE N'EST PAS CELLE QU'ON CROIT.** Trois portent sur un `git diff --numstat`, deux sur `git status`.",
+    "texte": "⚠ **LES SEPT RÉFUTATIONS SONT LA MÊME, ET ELLE N'EST PAS CELLE QU'ON CROIT.** Trois portent sur un `git diff --numstat`, deux sur `git status`, deux sur un texte du pilotage — une ancre et une population d'occurrences.",
+    "libelle": "JOURNAL : ouverture du paragraphe des refutations"
+  },
+  {
+    "fichier": "TODO.md",
+    "mode": "remplacer",
+    "ancre": "Parade posée au bloc 168 (recompte nominatif entrée par entrée), tenue **neuf blocs de suite** ; la seconde, au bloc 179 (ancre relue par `grep`), passe du premier coup.",
+    "texte": "Parade posée au bloc 168 (recompte nominatif entrée par entrée), tenue **neuf blocs de suite** ; la seconde, au bloc 179 (ancre relue par `grep`), passe du premier coup ; la troisième, au bloc 181, inventorie la population d'un motif **avant** de prédire son compte.",
+    "libelle": "TODO : troisieme parade"
+  }
+]

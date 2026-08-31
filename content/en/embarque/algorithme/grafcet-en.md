@@ -1,5 +1,6 @@
 ---
 title: GRAFCET
+lang: en
 type: notion
 tags:
   - eee

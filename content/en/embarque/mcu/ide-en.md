@@ -1,5 +1,6 @@
 ---
 title: IDE
+lang: en
 type: notion
 tags:
   - eee

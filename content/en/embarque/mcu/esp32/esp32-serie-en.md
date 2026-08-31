@@ -1,5 +1,6 @@
 ---
 title: ESP32 serial monitor
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

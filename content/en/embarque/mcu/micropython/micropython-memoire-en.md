@@ -1,5 +1,6 @@
 ---
 title: Managing memory in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

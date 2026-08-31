@@ -1,5 +1,6 @@
 ---
 title: Driving a servo on Arduino
+lang: en
 type: tuto
 phases:
   - concept

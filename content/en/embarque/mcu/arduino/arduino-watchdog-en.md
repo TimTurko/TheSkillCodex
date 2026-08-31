@@ -1,5 +1,6 @@
 ---
 title: Watchdog on Arduino
+lang: en
 type: tuto
 phases:
   - integration-et-tests

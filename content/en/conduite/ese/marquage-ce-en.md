@@ -1,5 +1,6 @@
 ---
 title: CE marking
+lang: en
 type: notion
 tags:
   - ese

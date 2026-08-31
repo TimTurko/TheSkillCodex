@@ -1,5 +1,6 @@
 ---
 title: ESP32
+lang: en
 type: notion
 tags:
   - eee

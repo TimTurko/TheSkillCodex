@@ -1,5 +1,6 @@
 ---
 title: Configuring ESP32 GPIO
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

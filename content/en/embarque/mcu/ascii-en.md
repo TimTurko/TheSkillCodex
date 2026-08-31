@@ -1,5 +1,6 @@
 ---
 title: ASCII code
+lang: en
 type: notion
 tags:
   - eee

@@ -1,5 +1,6 @@
 ---
 title: Project archiving
+lang: en
 type: notion
 phases:
   - specification

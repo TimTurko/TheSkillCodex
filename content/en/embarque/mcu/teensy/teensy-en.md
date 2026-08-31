@@ -1,5 +1,6 @@
 ---
 title: Teensy
+lang: en
 type: notion
 tags:
   - eee

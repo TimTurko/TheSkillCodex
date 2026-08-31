@@ -1,5 +1,6 @@
 ---
 title: Modules and import
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

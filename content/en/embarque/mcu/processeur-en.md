@@ -1,5 +1,6 @@
 ---
 title: Processor
+lang: en
 type: notion
 tags:
   - eee

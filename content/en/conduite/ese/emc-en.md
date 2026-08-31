@@ -1,5 +1,6 @@
 ---
 title: Electromagnetic compatibility (EMC)
+lang: en
 type: notion
 tags:
   - ese

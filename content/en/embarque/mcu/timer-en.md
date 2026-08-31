@@ -1,5 +1,6 @@
 ---
 title: Timer
+lang: en
 type: notion
 tags:
   - eee

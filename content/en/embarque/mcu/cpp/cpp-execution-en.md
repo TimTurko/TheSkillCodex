@@ -1,5 +1,6 @@
 ---
 title: How a program runs
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

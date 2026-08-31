@@ -1,5 +1,6 @@
 ---
 title: BOM (bill of materials)
+lang: en
 type: tuto
 phases:
   - dossier-technique

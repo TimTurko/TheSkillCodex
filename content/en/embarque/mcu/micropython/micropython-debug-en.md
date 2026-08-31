@@ -1,5 +1,6 @@
 ---
 title: Debugging a MicroPython program
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Driving a digital output in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

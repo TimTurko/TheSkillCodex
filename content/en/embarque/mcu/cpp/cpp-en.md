@@ -1,5 +1,6 @@
 ---
 title: C++
+lang: en
 type: notion
 tags:
   - eee

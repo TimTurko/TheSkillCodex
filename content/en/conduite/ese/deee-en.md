@@ -1,5 +1,6 @@
 ---
 title: WEEE
+lang: en
 type: notion
 tags:
   - ese

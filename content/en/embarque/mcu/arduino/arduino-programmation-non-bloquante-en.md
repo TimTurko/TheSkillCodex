@@ -1,5 +1,6 @@
 ---
 title: Non-blocking programming on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

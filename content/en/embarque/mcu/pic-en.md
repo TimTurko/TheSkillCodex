@@ -1,5 +1,6 @@
 ---
 title: PIC
+lang: en
 type: notion
 tags:
   - eee

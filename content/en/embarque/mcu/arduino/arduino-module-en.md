@@ -1,5 +1,6 @@
 ---
 title: Wiring a module on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Microcontroller
+lang: en
 type: notion
 tags:
   - eee

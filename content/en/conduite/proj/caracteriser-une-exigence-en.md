@@ -1,5 +1,6 @@
 ---
 title: Characterising a requirement
+lang: en
 type: notion
 phases:
   - specification

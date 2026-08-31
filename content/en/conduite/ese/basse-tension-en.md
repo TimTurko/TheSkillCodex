@@ -1,5 +1,6 @@
 ---
 title: Low Voltage Directive
+lang: en
 type: notion
 tags:
   - ese

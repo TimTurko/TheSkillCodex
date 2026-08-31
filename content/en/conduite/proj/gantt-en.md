@@ -1,5 +1,6 @@
 ---
 title: Gantt chart
+lang: en
 type: tuto
 phases:
   - specification

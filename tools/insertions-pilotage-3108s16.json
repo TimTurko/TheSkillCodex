@@ -1,0 +1,30 @@
+[
+  {
+    "fichier": "conventions.md",
+    "mode": "avant",
+    "ancre": "---\n\n## Annexe — Conventions de référence externes",
+    "fragment": "tools/frag-conv-3108s16.md",
+    "libelle": "conventions § 8 : cinq entrees de la seance 16"
+  },
+  {
+    "fichier": "BACKLOG.md",
+    "mode": "avant",
+    "ancre": "### 31/08 (séance 15) — ce que la rédaction des textes IA laisse ouvert",
+    "fragment": "tools/frag-backlog-3108s16.md",
+    "libelle": "BACKLOG : section 31/08 seance 16"
+  },
+  {
+    "fichier": "TODO.md",
+    "mode": "avant",
+    "ancre": "> **➤ MAJ 31/08 (séance 15)**",
+    "fragment": "tools/frag-todo-3108s16.md",
+    "libelle": "TODO : bloc MAJ seance 16 en tete"
+  },
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "apres",
+    "ancre": "<!-- INSERT_JOURNAL_HERE -->",
+    "fragment": "tools/frag-journal-3108s16.md",
+    "libelle": "JOURNAL : entree § 7 de la seance 16"
+  }
+]

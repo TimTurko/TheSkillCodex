@@ -1,5 +1,6 @@
 ---
 title: Energy chain and information chain
+lang: en
 type: notion
 tags:
   - eee

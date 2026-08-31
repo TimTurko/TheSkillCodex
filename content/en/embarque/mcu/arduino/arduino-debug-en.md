@@ -1,5 +1,6 @@
 ---
 title: Debugging an Arduino program
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Mechanical
+lang: en
 tags: [branche, mme]
 draft: false
 source_fr: meca/index.md

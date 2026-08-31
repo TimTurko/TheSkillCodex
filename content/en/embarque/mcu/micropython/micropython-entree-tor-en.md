@@ -1,5 +1,6 @@
 ---
 title: Reading a digital input in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

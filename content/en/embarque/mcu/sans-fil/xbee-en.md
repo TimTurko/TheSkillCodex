@@ -1,5 +1,6 @@
 ---
 title: XBee
+lang: en
 type: notion
 tags:
   - eee

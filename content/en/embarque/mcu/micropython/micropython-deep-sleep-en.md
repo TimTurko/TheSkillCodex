@@ -1,5 +1,6 @@
 ---
 title: Deep sleep in MicroPython
+lang: en
 type: tuto
 phases:
   - integration-et-tests

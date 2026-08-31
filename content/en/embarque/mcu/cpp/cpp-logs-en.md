@@ -1,5 +1,6 @@
 ---
 title: Reading and understanding errors
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Kinematic diagram
+lang: en
 type: notion
 tags:
   - mme

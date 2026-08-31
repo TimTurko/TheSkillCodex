@@ -1,5 +1,6 @@
 ---
 title: OLED / LCD display
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

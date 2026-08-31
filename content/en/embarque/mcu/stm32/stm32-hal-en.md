@@ -1,5 +1,6 @@
 ---
 title: Programming the STM32 with the HAL
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

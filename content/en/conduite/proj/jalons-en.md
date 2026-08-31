@@ -1,5 +1,6 @@
 ---
 title: Milestones
+lang: en
 type: notion
 phases:
   - specification

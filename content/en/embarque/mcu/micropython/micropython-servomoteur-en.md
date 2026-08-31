@@ -1,5 +1,6 @@
 ---
 title: Driving a servo in MicroPython
+lang: en
 type: tuto
 phases:
   - concept

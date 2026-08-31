@@ -1,5 +1,6 @@
 ---
 title: FAST
+lang: en
 type: tuto
 phases:
   - concept

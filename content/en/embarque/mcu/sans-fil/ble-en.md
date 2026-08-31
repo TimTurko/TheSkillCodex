@@ -1,5 +1,6 @@
 ---
 title: BLE
+lang: en
 type: notion
 tags:
   - eee

@@ -1,0 +1,9 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "**148 publiées avant leur bloc, 142 tenues, 6 réfutées — 96,0 %**, sur dix-neuf blocs (162 à 180), les trois derniers étant la correction de ce chiffre même, d'abord composé de tête au lieu d'être additionné sur les bilans. **Six tests négatifs délibérés, six refus, zéro octet écrit à tort.** Les six réfutations sont **toutes** des comptes de lignes, d'entrées ou de textes de mes propres éditions ; **aucune ne porte sur un verdict, une mesure du corpus ou un contrôle en ligne**.",
+    "texte": "**150 publiées avant leur bloc, 143 tenues, 7 réfutées — 95,3 %**, sur vingt blocs (162 à 181). **Sept tests négatifs délibérés, sept refus, zéro octet écrit à tort.** Les sept réfutations sont **toutes** des comptes de lignes, d'entrées ou de textes de mes propres éditions ; **aucune ne porte sur un verdict, une mesure du corpus ou un contrôle en ligne**. ⚠ *Ce total s'arrête au bloc 181 : les blocs de correction qui l'ont suivi ajoutent chacun leurs prédictions et leur test négatif, donc périment le chiffre qu'ils écrivent. Le registre `tools/predictions-260831.md` fait foi (C130).*",
+    "libelle": "JOURNAL : total arrete au bloc 181, renvoi au registre"
+  }
+]

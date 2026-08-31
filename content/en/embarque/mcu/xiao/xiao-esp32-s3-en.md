@@ -1,5 +1,6 @@
 ---
 title: XIAO ESP32-S3
+lang: en
 type: notion
 tags:
   - eee

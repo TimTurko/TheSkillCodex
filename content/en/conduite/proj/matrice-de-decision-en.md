@@ -1,5 +1,6 @@
 ---
 title: Decision matrix
+lang: en
 type: notion
 phases:
   - concept

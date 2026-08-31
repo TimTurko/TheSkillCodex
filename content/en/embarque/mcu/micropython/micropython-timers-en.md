@@ -1,5 +1,6 @@
 ---
 title: Timers in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

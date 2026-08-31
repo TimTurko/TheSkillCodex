@@ -1,5 +1,6 @@
 ---
 title: Cahier des charges fonctionnel
+lang: en
 type: notion
 phases:
   - specification

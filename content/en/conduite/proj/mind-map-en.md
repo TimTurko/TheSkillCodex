@@ -1,5 +1,6 @@
 ---
 title: Mind map
+lang: en
 type: notion
 phases:
   - specification

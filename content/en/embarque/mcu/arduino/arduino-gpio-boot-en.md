@@ -1,5 +1,6 @@
 ---
 title: GPIO state at power-up on Arduino
+lang: en
 type: tuto
 phases:
   - concept

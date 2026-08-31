@@ -1,5 +1,6 @@
 ---
 title: Dial indicator
+lang: en
 type: notion
 tags:
   - mme

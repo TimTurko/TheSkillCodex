@@ -1,5 +1,6 @@
 ---
 title: Driving a stepper motor on Arduino
+lang: en
 type: tuto
 phases:
   - concept

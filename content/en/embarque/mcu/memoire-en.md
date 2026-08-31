@@ -1,5 +1,6 @@
 ---
 title: Memory
+lang: en
 type: notion
 tags:
   - eee

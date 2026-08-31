@@ -1,5 +1,6 @@
 ---
 title: Choosing the hardware
+lang: en
 type: trame
 tags:
   - eee

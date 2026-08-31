@@ -1,5 +1,6 @@
 ---
 title: Embedded systems
+lang: en
 tags:
   - branche
   - trame

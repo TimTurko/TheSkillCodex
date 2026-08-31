@@ -1,5 +1,6 @@
 ---
 title: Hardening and debugging
+lang: en
 type: trame
 tags:
   - eee

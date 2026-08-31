@@ -1,5 +1,6 @@
 ---
 title: Wireless technologies
+lang: en
 type: notion
 tags:
   - eee

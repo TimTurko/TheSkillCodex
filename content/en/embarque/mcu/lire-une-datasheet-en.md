@@ -1,5 +1,6 @@
 ---
 title: Reading a datasheet
+lang: en
 type: tuto
 tags:
   - eee

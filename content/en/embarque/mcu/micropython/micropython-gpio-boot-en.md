@@ -1,5 +1,6 @@
 ---
 title: GPIO state at power-up in MicroPython
+lang: en
 type: tuto
 phases:
   - concept

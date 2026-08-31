@@ -1,5 +1,6 @@
 ---
 title: Electronic protections
+lang: en
 type: notion
 tags:
   - eee

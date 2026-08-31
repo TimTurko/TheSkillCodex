@@ -1,5 +1,6 @@
 ---
 title: Shield
+lang: en
 type: notion
 tags:
   - eee

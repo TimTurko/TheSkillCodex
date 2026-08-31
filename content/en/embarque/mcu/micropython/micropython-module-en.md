@@ -1,5 +1,6 @@
 ---
 title: Wiring a module in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

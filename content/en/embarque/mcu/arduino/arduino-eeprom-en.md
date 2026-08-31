@@ -1,5 +1,6 @@
 ---
 title: EEPROM storage on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

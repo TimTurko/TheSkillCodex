@@ -1,5 +1,6 @@
 ---
 title: Powering a MicroPython board
+lang: en
 type: tuto
 phases:
   - concept

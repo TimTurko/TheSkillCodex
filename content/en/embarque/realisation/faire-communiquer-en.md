@@ -1,5 +1,6 @@
 ---
 title: Getting things talking
+lang: en
 type: trame
 tags:
   - eee

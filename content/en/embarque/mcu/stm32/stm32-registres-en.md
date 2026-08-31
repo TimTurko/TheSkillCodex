@@ -1,5 +1,6 @@
 ---
 title: Going down to the register on the STM32
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

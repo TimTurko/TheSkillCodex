@@ -1,5 +1,6 @@
 ---
 title: Configuring the STM32 with CubeMX
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Working with audio on the Teensy
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

@@ -1,5 +1,6 @@
 ---
 title: Pieuvre
+lang: en
 type: notion
 phases:
   - specification

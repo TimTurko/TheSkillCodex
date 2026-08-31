@@ -1,5 +1,6 @@
 ---
 title: Reading a schematic
+lang: en
 type: tuto
 phases:
   - concept

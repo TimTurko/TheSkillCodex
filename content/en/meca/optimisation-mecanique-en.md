@@ -1,5 +1,6 @@
 ---
 title: Optimising a mechanical design
+lang: en
 type: notion
 tags:
   - mme

@@ -1,5 +1,6 @@
 ---
 title: Flowchart
+lang: en
 type: notion
 tags:
   - eee

@@ -1,5 +1,6 @@
 ---
 title: The MicroPython language
+lang: en
 type: notion
 tags:
   - eee

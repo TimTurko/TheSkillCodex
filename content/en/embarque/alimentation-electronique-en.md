@@ -1,5 +1,6 @@
 ---
 title: Designing a power supply
+lang: en
 type: notion
 tags:
   - eee

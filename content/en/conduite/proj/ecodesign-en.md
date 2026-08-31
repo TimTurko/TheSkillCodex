@@ -1,5 +1,6 @@
 ---
 title: Écodesign
+lang: en
 type: notion
 phases:
   - specification

@@ -1,5 +1,6 @@
 ---
 title: Code review
+lang: en
 type: notion
 phases:
   - specification

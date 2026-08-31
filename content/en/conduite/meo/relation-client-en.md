@@ -1,5 +1,6 @@
 ---
 title: Client relationship
+lang: en
 type: notion
 phases:
   - specification

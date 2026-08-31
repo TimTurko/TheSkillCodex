@@ -1,5 +1,6 @@
 ---
 title: Function
+lang: en
 type: notion
 phases:
   - specification

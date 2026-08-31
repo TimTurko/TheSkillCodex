@@ -1,5 +1,6 @@
 ---
 title: Using a shield
+lang: en
 type: tuto
 phases:
   - concept

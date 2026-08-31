@@ -11,6 +11,7 @@ export default (() => {
     fileData,
     externalResources,
     ctx,
+    allFiles,
   }: QuartzComponentProps) => {
     const titleSuffix = cfg.pageTitleSuffix ?? ""
     const title =
@@ -35,6 +36,16 @@ export default (() => {
       (e) => e.name === CustomOgImagesEmitterName,
     )
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
+
+    // Jumelles FR <-> EN (bloc A3, 31/08) : la paire se lit sur `source_fr`,
+    // jamais sur le slug, la regle du suffixe `-en` ratant les sept `index.md`.
+    const relativePath = fileData.relativePath
+    const sourceFr = fileData.frontmatter?.source_fr as string | undefined
+    const twinEn = relativePath
+      ? allFiles.find((f) => f.frontmatter?.source_fr === relativePath)
+      : undefined
+    const twinFr = sourceFr ? allFiles.find((f) => f.relativePath === sourceFr) : undefined
+    const absolute = (slug: FullSlug) => joinSegments(url.toString(), slug)
 
     return (
       <head>
@@ -81,6 +92,12 @@ export default (() => {
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
           </>
+        )}
+
+        {twinEn?.slug && <link rel="alternate" hreflang="en" href={absolute(twinEn.slug)} />}
+        {twinFr?.slug && <link rel="alternate" hreflang="fr" href={absolute(twinFr.slug)} />}
+        {relativePath && fileData.slug && (
+          <link rel="alternate" type="text/markdown" href={`${absolute(fileData.slug)}.md`} />
         )}
 
         <link rel="icon" href={iconPath} />

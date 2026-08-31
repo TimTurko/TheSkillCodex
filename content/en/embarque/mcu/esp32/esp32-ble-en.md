@@ -1,5 +1,6 @@
 ---
 title: Bluetooth LE on the ESP32
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

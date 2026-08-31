@@ -131,6 +131,7 @@ const SUFFIXER_INDEX = false;
 // au-dela, les doublons anglais commencent a peser sur la bande top-3 de la
 // recherche francaise et faussent la mesure d'indexation symptomatique.
 const DRAFT_EN = 'false';
+const LANG_EN = 'en';
 
 /* ================================================================ */
 
@@ -454,6 +455,17 @@ function transformerFrontMatter(bloc, relSource, empreinte, journal) {
       continue;
     }
 
+
+    // B3 (31/08) : la fiche EN declare sa langue, au meme rang que la passe
+    // B2 la pose sur les 242 fiches deja ecrites - juste apres title:. Sans
+    // ce champ, renderPage retombe sur cfg.locale et sort <html lang="fr">
+    // sur une page anglaise.
+    if (/^title:/.test(ligne)) {
+      sortie.push(ligne);
+      sortie.push('lang: ' + LANG_EN);
+      continue;
+    }
+
     if (/^draft:/.test(ligne)) {
       sortie.push('draft: ' + DRAFT_EN);
       draftVu = true;
@@ -696,6 +708,17 @@ function controle() {
   let fichesNues = 0;
   let liensNus = 0;
   console.log('=== CONTROLE DES TROIS COMPTEURS ===');
+
+  // C2 du chantier IA (31/08) : une fiche FR qui porte `bilingue: true` porte
+  // les deux langues dans un seul fichier et n aura jamais de jumelle EN.
+  // --controle n itere que sur content/en : l exemption ne peut pas y mordre,
+  // et cette ligne l annonce pour que l absence se lise comme une exemption
+  // et non comme un oubli.
+  const bilingues = walk(CONTENT)
+    .map(versWeb)
+    .filter((w) => !w.startsWith('en/') && !w.startsWith('templates/'))
+    .filter((w) => /^bilingue:\s*true\s*$/m.test(readFileSync(join(CONTENT, w.split('/').join(sep)), 'utf8')));
+  console.log('Exemption bilingue: true : ' + bilingues.length + ' fiche(s) FR hors appariement.');
 
   for (const relEn of fichesEn.sort()) {
     const texteEn = readFileSync(join(CONTENT, relEn.split('/').join(sep)), 'utf8');

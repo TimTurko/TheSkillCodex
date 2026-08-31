@@ -1,5 +1,6 @@
 ---
 title: Soldering
+lang: en
 type: notion
 tags:
   - eee

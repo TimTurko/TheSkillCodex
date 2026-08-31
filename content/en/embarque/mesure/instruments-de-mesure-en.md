@@ -1,5 +1,6 @@
 ---
 title: Measuring instruments
+lang: en
 type: notion
 tags:
   - eee

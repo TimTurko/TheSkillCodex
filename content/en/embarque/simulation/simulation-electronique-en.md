@@ -1,5 +1,6 @@
 ---
 title: Circuit simulation
+lang: en
 type: notion
 tags:
   - eee

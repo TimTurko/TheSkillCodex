@@ -1,5 +1,6 @@
 ---
 title: Cable management
+lang: en
 type: notion
 phases:
   - integration-et-tests

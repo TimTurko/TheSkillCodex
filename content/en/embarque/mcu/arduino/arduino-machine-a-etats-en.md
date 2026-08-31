@@ -1,5 +1,6 @@
 ---
 title: Programming a state machine on Arduino
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

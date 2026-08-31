@@ -1,5 +1,6 @@
 ---
 title: ADC
+lang: en
 type: notion
 tags:
   - eee

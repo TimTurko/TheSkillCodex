@@ -1,5 +1,6 @@
 ---
 title: PPE
+lang: en
 type: notion
 tags:
   - ese

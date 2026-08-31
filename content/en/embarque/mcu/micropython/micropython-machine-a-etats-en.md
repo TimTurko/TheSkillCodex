@@ -1,5 +1,6 @@
 ---
 title: Programming a state machine in MicroPython
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

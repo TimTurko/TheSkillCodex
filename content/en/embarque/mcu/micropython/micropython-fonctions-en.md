@@ -1,5 +1,6 @@
 ---
 title: Functions
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

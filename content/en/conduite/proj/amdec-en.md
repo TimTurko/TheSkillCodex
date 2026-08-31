@@ -1,5 +1,6 @@
 ---
 title: AMDEC
+lang: en
 type: tuto
 phases:
   - concept

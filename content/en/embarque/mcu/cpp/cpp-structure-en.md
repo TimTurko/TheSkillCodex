@@ -1,5 +1,6 @@
 ---
 title: The structure of a program
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

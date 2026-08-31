@@ -1,5 +1,6 @@
 ---
 title: Project planning and tracking
+lang: en
 type: trame
 phases:
   - specification

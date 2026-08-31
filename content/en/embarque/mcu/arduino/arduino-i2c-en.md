@@ -1,5 +1,6 @@
 ---
 title: I2C on Arduino
+lang: en
 type: tuto
 phases:
   - concept

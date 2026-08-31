@@ -1,5 +1,6 @@
 ---
 title: Project management
+lang: en
 tags:
   - hub
   - trame
@@ -14,7 +15,7 @@ phases:
   - integration-et-tests
 draft: false
 source_fr: conduite/index.md
-source_sha256: f3927441c3623fe0690dcb65ff088c8637b71739bb1ae4b2f9a08370afe35d12
+source_sha256: 1740f2390b6a4060af6c877c821cb1a094d544ecea1faee311e6bae5ba1bb341
 ---
 
 The **project path** page describes the five phases of a student-level mechatronics or IoT project, from the initial need to the final presentation. The path follows a **V-model** logic: the left-hand (descending) branch progressively defines the system (specification, concept, proof of concept), while the right-hand (ascending) branch builds and validates it (technical design file, integration and testing). This framework structures the whole tutorial and serves as the entry point for placing every concept, every tool and every deliverable in the flow of the project.
@@ -97,7 +98,7 @@ These threads are assessed across the board: they appear in the deliverables of 
 
 ## How to read this site
 
-The tutorial has **three kinds of page**, which you can tell apart by the `type:` field in their header:
+The tutorial has **three kinds of page**, which you can tell apart by the `trame`, `tuto` or `notion` tag shown under the title:
 
 - **Framework pages**: describe a phase of the V-model. Dense and detailed, they guide the production of the expected deliverables. This page is a framework page.
 - **Tutorials**: show how to put a tool or a method into practice (installing an IDE, understanding the GPIOs of a microcontroller, building a digital PID). Practical, action-oriented.

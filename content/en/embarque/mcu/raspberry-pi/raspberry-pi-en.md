@@ -1,5 +1,6 @@
 ---
 title: Raspberry Pi
+lang: en
 type: notion
 tags:
   - eee

@@ -1,5 +1,6 @@
 ---
 title: The Teensy as a USB device
+lang: en
 type: tuto
 phases:
   - preuve-de-concept

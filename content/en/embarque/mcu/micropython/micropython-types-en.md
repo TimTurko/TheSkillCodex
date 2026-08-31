@@ -1,5 +1,6 @@
 ---
 title: Variables and types
+lang: en
 type: tuto
 phases:
   - preuve-de-concept
