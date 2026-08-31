@@ -1,0 +1,181 @@
+﻿
+================================================================
+ETAPE : 0 - AUTOCONTROLE ASCII DU SCRIPT (C122)
+================================================================
+  lignes non ASCII : 0   (C114 exige 0)
+
+================================================================
+ETAPE : A - PREDICTIONS (ecrites avant lancement)
+================================================================
+R1. LES VINGT ANCIENS TITRES SONT UN INVENTAIRE, DONC UNE
+    PREDICTION, ET LA GARDE D UNICITE EST SA MESURE. Les dix
+    titres FR ont ete LUS en serie 2. Cote EN : cinq ont ete
+    lus en sortie d outil (micropython-temporisation,
+    micropython-capteur-analogique, micropython-sortie-pwm,
+    micropython-moteur-cc, arduino-temporisation), trois sont
+    CITES au JOURNAL (arduino-capteur-analogique,
+    arduino-sortie-pwm, arduino-programmation-non-bloquante) et
+    DEUX SONT DEDUITS (arduino-moteur-cc,
+    micropython-programmation-non-bloquante). PREDICTION : les
+    vingt ancres tombent. SI UNE MANQUE, ELLE EST DANS LES DEUX
+    DEDUITS - et la nommer d avance vaut autant que nommer la
+    coupable, motif tenu depuis le 27/08.
+
+R2. DERIVE, MESUREE AVANT D ETRE REPAREE. PREDICTION FERME :
+    10 fiches EN en derive apres le renommage et AVANT le
+    recalage. Changer un title: francais change le contenu du
+    fichier source, donc son sha256. C est le premier chantier
+    du projet a produire de la derive volontairement ; la
+    reparer sans l avoir mesuree reviendrait a supposer le
+    mecanisme au lieu de le voir. APRES RECALAGE : 0.
+
+R3. LIBELLES : LE COMPTEUR BAISSE, ET LE MECANISME EST NOMME.
+    Le recoupement se fait mot a mot ; allonger un titre en
+    CONSERVANT sa racine ne peut pas faire perdre un
+    recoupement existant, mais il en CREE pour les libelles qui
+    disent exactement le qualificatif. Trois occurrences
+    nommees d avance cessent d etre candidates :
+    [[micropython-temporisation-en|in MicroPython]] dans
+    debugger-embarque-en, [[micropython-moteur-cc-en|in
+    MicroPython]] et [[micropython-sortie-pwm-en|in
+    MicroPython]] dans lire-une-datasheet-en. SI LE COMPTEUR
+    MONTE, mon modele du recoupement est faux, et c est un
+    resultat plus utile qu une baisse conforme.
+
+R4. CONTROLE. PREDICTION FERME : 164 fiches, 0 divergente,
+    0 lien non suffixe. Le renommage ne touche ni lien, ni
+    embed, ni bloc de code - les trois compteurs sont aveugles
+    a un title:, et c est ici la bonne nouvelle.
+
+R5. NON MESURE (C118) : l effet du renommage sur les libelles
+    FRANCAIS, qu aucun outil ne confronte au title: francais.
+    --libelles ne lit que le corpus EN.
+
+================================================================
+ETAPE : B - RENOMMAGE ATOMIQUE DES VINGT TITRES
+================================================================
+--- PASSE 1 : verification des vingt ancres, aucune ecriture ---
+  ok     1 ancre                   : content\embarque\mcu\arduino\arduino-temporisation.md
+  ok     1 ancre                   : content\embarque\mcu\micropython\micropython-temporisation.md
+  ok     1 ancre                   : content\embarque\mcu\arduino\arduino-programmation-non-bloquante.md
+  ok     1 ancre                   : content\embarque\mcu\micropython\micropython-programmation-non-bloquante.md
+  ok     1 ancre                   : content\embarque\mcu\arduino\arduino-capteur-analogique.md
+  ok     1 ancre                   : content\embarque\mcu\micropython\micropython-capteur-analogique.md
+  ok     1 ancre                   : content\embarque\mcu\arduino\arduino-sortie-pwm.md
+  ok     1 ancre                   : content\embarque\mcu\micropython\micropython-sortie-pwm.md
+  ok     1 ancre                   : content\embarque\mcu\arduino\arduino-moteur-cc.md
+  ok     1 ancre                   : content\embarque\mcu\micropython\micropython-moteur-cc.md
+  ok     1 ancre                   : content\en\embarque\mcu\arduino\arduino-temporisation-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\micropython\micropython-temporisation-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\arduino\arduino-programmation-non-bloquante-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\micropython\micropython-programmation-non-bloquante-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\arduino\arduino-capteur-analogique-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\micropython\micropython-capteur-analogique-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\arduino\arduino-sortie-pwm-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\micropython\micropython-sortie-pwm-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\arduino\arduino-moteur-cc-en.md
+  ok     1 ancre                   : content\en\embarque\mcu\micropython\micropython-moteur-cc-en.md
+
+--- PASSE 2 : ecriture des vingt titres ---
+  ecrit  Temporiser sur Arduino
+  ecrit  Temporiser en MicroPython
+  ecrit  Programmation non bloquante sur Arduino
+  ecrit  Programmation non bloquante en MicroPython
+  ecrit  Lire un capteur analogique sur Arduino
+  ecrit  Lire un capteur analogique en MicroPython
+  ecrit  Piloter une sortie PWM sur Arduino
+  ecrit  Piloter une sortie PWM en MicroPython
+  ecrit  Piloter un moteur CC sur Arduino
+  ecrit  Piloter un moteur CC en MicroPython
+  ecrit  Timing delays on Arduino
+  ecrit  Timing delays in MicroPython
+  ecrit  Non-blocking programming on Arduino
+  ecrit  Non-blocking programming in MicroPython
+  ecrit  Reading an analog sensor on Arduino
+  ecrit  Reading an analog sensor in MicroPython
+  ecrit  Driving a PWM output on Arduino
+  ecrit  Driving a PWM output in MicroPython
+  ecrit  Driving a DC motor on Arduino
+  ecrit  Driving a DC motor in MicroPython
+
+================================================================
+ETAPE : C - DERIVE, MESUREE AVANT RECALAGE
+================================================================
+=== DERIVE DE TRADUCTION ===
+164 fiche(s) EN controlee(s)
+
+--- DERIVE (10) ---
+  en/embarque/mcu/arduino/arduino-capteur-analogique-en.md   <- embarque/mcu/arduino/arduino-capteur-analogique.md   consigne be6866938d83 / reel 5ebf78ecd765
+  en/embarque/mcu/arduino/arduino-moteur-cc-en.md   <- embarque/mcu/arduino/arduino-moteur-cc.md   consigne bb7fc05069a3 / reel 10670b7821f6
+  en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md   <- embarque/mcu/arduino/arduino-programmation-non-bloquante.md   consigne 11e7949aae5e / reel 4b4e61db5ddb
+  en/embarque/mcu/arduino/arduino-sortie-pwm-en.md   <- embarque/mcu/arduino/arduino-sortie-pwm.md   consigne e02e7dd7181f / reel 42e74389f54f
+  en/embarque/mcu/arduino/arduino-temporisation-en.md   <- embarque/mcu/arduino/arduino-temporisation.md   consigne 7782874cbbe6 / reel 59b1c56334a8
+  en/embarque/mcu/micropython/micropython-capteur-analogique-en.md   <- embarque/mcu/micropython/micropython-capteur-analogique.md   consigne cfd9685f9a33 / reel 079d85a3571f
+  en/embarque/mcu/micropython/micropython-moteur-cc-en.md   <- embarque/mcu/micropython/micropython-moteur-cc.md   consigne 145ca71a4b79 / reel de2b789b91ea
+  en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md   <- embarque/mcu/micropython/micropython-programmation-non-bloquante.md   consigne 341bbeaf294f / reel c54cb8b4d61e
+  en/embarque/mcu/micropython/micropython-sortie-pwm-en.md   <- embarque/mcu/micropython/micropython-sortie-pwm.md   consigne cd5e98c92cd1 / reel 8b380fd86c9f
+  en/embarque/mcu/micropython/micropython-temporisation-en.md   <- embarque/mcu/micropython/micropython-temporisation.md   consigne e4f5a4273435 / reel fb4eef499ddc
+
+=== BILAN ===
+  DERIVE      10
+  SANS SOURCE 0
+  SANS MARQUE 0
+  A JOUR      154
+
+================================================================
+ETAPE : D - RECALAGE DES DIX JUMELLES EN
+================================================================
+Recale : content/en/embarque/mcu/arduino/arduino-temporisation-en.md
+  7782874cbbe6 -> 59b1c56334a8
+Recale : content/en/embarque/mcu/micropython/micropython-temporisation-en.md
+  e4f5a4273435 -> fb4eef499ddc
+Recale : content/en/embarque/mcu/arduino/arduino-programmation-non-bloquante-en.md
+  11e7949aae5e -> 4b4e61db5ddb
+Recale : content/en/embarque/mcu/micropython/micropython-programmation-non-bloquante-en.md
+  341bbeaf294f -> c54cb8b4d61e
+Recale : content/en/embarque/mcu/arduino/arduino-capteur-analogique-en.md
+  be6866938d83 -> 5ebf78ecd765
+Recale : content/en/embarque/mcu/micropython/micropython-capteur-analogique-en.md
+  cfd9685f9a33 -> 079d85a3571f
+Recale : content/en/embarque/mcu/arduino/arduino-sortie-pwm-en.md
+  e02e7dd7181f -> 42e74389f54f
+Recale : content/en/embarque/mcu/micropython/micropython-sortie-pwm-en.md
+  cd5e98c92cd1 -> 8b380fd86c9f
+Recale : content/en/embarque/mcu/arduino/arduino-moteur-cc-en.md
+  bb7fc05069a3 -> 10670b7821f6
+Recale : content/en/embarque/mcu/micropython/micropython-moteur-cc-en.md
+  145ca71a4b79 -> de2b789b91ea
+
+================================================================
+ETAPE : E - DERIVE ET CONTROLE APRES RECALAGE
+================================================================
+=== DERIVE DE TRADUCTION ===
+164 fiche(s) EN controlee(s)
+
+=== BILAN ===
+  DERIVE      0
+  SANS SOURCE 0
+  SANS MARQUE 0
+  A JOUR      164
+  [ok] en/meca/pied-a-coulisse-en.md   liens 6, embeds 1, code 0
+  [ok] en/meca/pla-en.md   liens 6, embeds 0, code 0
+  [ok] en/meca/schema-cinematique-en.md   liens 7, embeds 2, code 0
+  [ok] en/meca/soudure-en.md   liens 8, embeds 0, code 0
+  [ok] en/meca/usinage-en.md   liens 7, embeds 0, code 0
+
+164 fiche(s) controlee(s), 0 divergente(s).
+Liens non suffixes : 0 sur 0 fiche(s).
+
+================================================================
+ETAPE : F - LIBELLES CONTRE TITRES (bloc le plus verbeux, en dernier)
+================================================================
+  en/meca/comparateur-en.md
+      [[precision-de-mesure-en|systematic error]]   cible intitulee : Accuracy, trueness, precision
+
+  wikilinks a libelle   : 3176
+  cible EN existante    : 2729   (le reste vise une fiche non encore traduite)
+  cible EN absente      : 447
+  candidats a lire      : 91
+  positions de parcours : 16   (patron ┬½ step N ┬╗, exempte : designe un rang, pas un titre)
+
+=== FIN DE SERIE 3 ===
