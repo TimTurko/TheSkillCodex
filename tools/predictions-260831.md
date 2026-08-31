@@ -1458,3 +1458,120 @@ sur **vingt-cinq blocs (162 à 186)**.
 renvoient ici : c'est la règle sortie du bloc 182, versée en § 8 au bloc 183,
 et c'est ce qui a arrêté une récursion de correction qui avait déjà coûté
 quatre blocs.
+
+---
+
+# APRÈS-CLÔTURE — CONTRÔLE EN LIGNE (bloc C5) RENDU PAR TIM
+
+## Déclaration C131 du bloc 187 — rejouée, population REMISE À ZÉRO par le commit
+
+⚠ **La population du compteur a changé de base** : Tim a commité et poussé la
+séance 16 (`git add -A`), donc les **279 entrées** du bloc 186 sont **toutes
+parties dans le commit**, y compris `tools/predictions-260831.md` et les copies
+`batterie-sortie-3108b2/b3.txt` qui étaient filtrées. **L'arbre est reparti de
+propre**, et HEAD n'est plus `3a95a82`.
+
+- **Artefact versé par ce bloc — un seul** :
+  `tools/batterie-sortie-3108b4.txt`, créé par l'étape 0 (`??`, filtré
+  `batterie-sortie`).
+- **Plus l'append en cours sur `tools/predictions-260831.md`**, qui est
+  désormais un fichier **suivi** : il devient une entrée ` M` et non `??`
+  (filtrée `predictions-` dans les deux cas).
+- **Total impliqué : 2. Hors artefacts de séance : 0.**
+
+## Prédictions — bloc 187, garde de péremption après le commit de Tim
+
+- **P187.1** — `lignes non ASCII dans batterie.ps1 : 0`
+- **P187.2** — `sortie precedente copiee : tools\batterie-sortie-3108b4.txt`
+  (rangs 1, 2 et 3 pris ; premier libre : **4**).
+- **P187.3** — `phase demandee : garde   anneau : 2   chevron : False`
+- **P187.4** — `date ISO : 2026-08-31   heure : HH:mm:ss`.
+  ⚠ *Prédiction de monde exposée* : le dernier relevé lit **21:25:16**, et le
+  contrôle en ligne de Tim (commit, CI, quatre sondes, Search Console, Bing)
+  a duré. **Je prédis qu'on est encore le 31/08** ; si l'horloge a passé
+  minuit, elle rend `2026-09-01` et la prédiction est réfutée — la date se
+  **lit**, jamais ne s'incrémente (C119).
+- **P187.5** — `HEAD git : <hash court NEUF> 2026-08-31 HH:MM:SS +0200`.
+  **Le hash n'est pas prédictible** — il n'existait pas quand cette ligne
+  s'écrit. Ce qui est prédit : il est **différent de `3a95a82`**, et sa date
+  de commit est **postérieure à 21:30**.
+- **P187.6** — `fichiers modifies non commites : 2   (hors artefacts de seance : 0)`
+- **P187.7** — `node : v24.15.0`
+- **P187.8** — dates d'écriture, **relation prédite plutôt que valeurs** :
+  les trois sont du **`2026-08-31`**, et `conventions.md` est **antérieur**
+  à `TODO.md` et `JOURNAL.md` — la dernière écriture de `conventions.md` est
+  le bloc 183, celles de `TODO.md` et `JOURNAL.md` le bloc 186.
+
+### Bilan du bloc 187 — garde après le commit de Tim
+
+**8 prédictions, 8 tenues, 0 réfutée.**
+`3108b4` ; `date ISO : 2026-08-31   heure : 22:14:00` — **l'horloge n'a pas
+passé minuit**, la prédiction de monde tient ;
+`HEAD git : 1deaccd 2026-08-31 21:43:35 +0200` — **hash neuf, différent de
+`3a95a82`, daté après 21:30**, les trois termes prédits ;
+`fichiers modifies non commites : 2   (hors artefacts de seance : 0)` ;
+`node v24.15.0` ; et la **relation** de dates prédite tient au chiffre —
+`conventions.md 21:35:49` (bloc 183) **antérieur** à `TODO.md` et
+`JOURNAL.md`, tous deux à `21:37:35` (bloc 186).
+✅ **Aucun état inattendu : le commit de Tim est passé, l'arbre est reparti
+de propre, rien d'autre n'a bougé.**
+
+## Déclaration C131 du bloc 188 — rejouée, deux versements neufs
+
+Les **2** entrées du bloc 187, plus (3) `tools/frag-backlog-b-3108s16.md`,
+(4) `tools/insertions-pilotage-j-3108s16.json`, (5) `BACKLOG.md` ` M`.
+**Total : 5. Hors artefacts : 5 − 2 = 3** (les deux filtrés étant
+`predictions-260831.md` et `batterie-sortie-3108b4.txt`).
+
+## Prédictions — bloc 188, le résultat du contrôle en ligne au BACKLOG
+
+Deux entrées : l'une **remplace** la puce « le contrôle en ligne n'a pas été
+fait » par sa version cochée et chiffrée ; l'autre **insère** la trouvaille du
+`robots.txt` en tête de la section du 31/08 (séance 16). Ancres relues sur le
+fichier, jamais composées.
+
+- **P188.1** — `--negatif` → `REFUS : 1 defaut(s). AUCUN FICHIER ECRIT.`, **code 1**.
+- **P188.2** — `--faire` → `ECRIT : 2 entree(s) dans 1 fichier(s).`, **code 0**.
+- **P188.3** — `git status --porcelain | wc -l` → `5` ; hors artefacts → `3` ;
+  `node tools/normalize-pilotage.js --check` → **0 caractère**, code 0.
+
+### Bilan du bloc 188 — le contrôle en ligne au BACKLOG
+
+**3 prédictions, 3 tenues, 0 réfutée.** Test négatif : refus, code 1, **et
+l'entrée [2] valide n'est pas appliquée non plus**. Écriture :
+`ECRIT : 2 entree(s) dans 1 fichier(s).`, `BACKLOG.md` **232 719 octets**.
+`git status` **5 / 3**, `normalize --check` **0**, code 0.
+
+---
+
+# TOTAL DÉFINITIF, APRÈS LE CONTRÔLE EN LIGNE
+
+**171 prédictions publiées avant leur bloc, 162 tenues, 9 réfutées — 94,7 %**,
+sur **vingt-sept blocs (162 à 188)**.
+**Douze tests négatifs délibérés, douze refus, ZÉRO OCTET ÉCRIT À TORT.**
+*160 + 8 (bloc 187) + 3 (bloc 188) = 171 ; 151 + 8 + 3 = 162 ;
+162 / 171 = 94,7 %.*
+
+✅ **CE QUE LE CONTRÔLE EN LIGNE A FERMÉ, ET C'EST LA PARTIE QUI COMPTE.**
+Les 20 prédictions du build de clôture (bloc 174) portaient sur `public/`
+régénéré en local ; le contrôle en ligne les rejoue **sur le site servi** et
+n'en dément aucune : quatre `200`, `hreflang` présent, clic EN → FR,
+`sitemap.xml` en `application/xml` ouvrant sur `<?xml` — **A5 vérifié en
+production**. *Les neuf réfutations de la séance restent toutes des comptes
+de mes propres éditions ; **aucune n'a jamais porté sur le comportement du
+site**.*
+
+⚠ **UNE TROUVAILLE APRÈS COUP, ET ELLE DÉGRADE UN ARBITRAGE SANS RIEN
+CASSER.** Le `robots.txt` du bloc B1 est servi à
+`/TheSkillCodex/robots.txt` — mais un crawler ne lit que la **racine de
+l'hôte**, `https://timturko.github.io/robots.txt`, **mesurée à `404`**.
+Le fichier n'est donc lu par personne : son `Allow: /` n'ajoute rien au
+défaut, et sa directive `Sitemap:` n'est vue par aucun robot. *L'arbitrage 5
+de la séance 14 est à moitié décoratif — il reste une déclaration d'intention
+lisible par un humain, il n'a aucun effet mécanique.* **Rien à corriger** :
+un vrai `robots.txt` demanderait un dépôt `timturko.github.io` séparé, hors
+périmètre. Versé au BACKLOG.
+⚠ *Ce que ça dit du protocole : la liste des quatre sondes du bloc C5 avait
+été écrite au § 8 **cinq séances plus tôt**, et elle ne contenait ni
+`/sitemap.xml` ni la racine d'hôte. Une liste de contrôle vieillit avec le
+dispositif qu'elle contrôle.*

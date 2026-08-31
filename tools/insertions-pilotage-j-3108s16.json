@@ -1,0 +1,16 @@
+[
+  {
+    "fichier": "BACKLOG.md",
+    "mode": "remplacer",
+    "ancre": "- [ ] **Le contrôle en ligne de la séance 16 n'a pas été fait : il attend le commit et la CI de Tim.** Quatre `Invoke-WebRequest -Method Head` → `/llms.txt`, `/ia/`, `/conduite/proj/concept.md`, `/robots.txt`, quatre `200` attendus ; `hreflang` sur une page FR publiée ; clic EN → FR depuis `/en/` (dû depuis la séance 14). *Tout est vérifié **en local sur `public/` régénéré**, rien ne l'est en ligne.* **Puis, hors dépôt** : Search Console « Vérifier », dépôt du sitemap, inspection d'URL sur `/` et `/ia/`, Bing par import.",
+    "texte": "- [x] **Le contrôle en ligne de la séance 16 est FAIT, et il rend six termes sur six.** *Rendu par Tim le 31/08 au soir, après commit et CI.* **Quatre `200`** sur `/llms.txt`, `/ia/`, `/conduite/proj/concept.md`, `/robots.txt` ; **`hreflang=\"en\"` présent** sur `/conduite/proj/concept` ; **clic EN → FR validé** depuis `/en/` (dû depuis la séance 14, refermé). **Search Console** : propriété présente, **`/` est sur Google**, **`/ia/` en indexation demandée** — seul chemin de découverte de cette page hors sitemap, elle n'a aucun lien entrant par construction. **Bing : import depuis Search Console réussi**, aucune balise `msvalidate.01` à poser. ✅ **A5 vérifié en production** : `sitemap.xml` rend `200`, `application/xml`, **74 695 octets**, et ouvre sur `<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset`. ⚠ **Seul terme encore ouvert** : Search Console affiche « Impossible de récupérer le sitemap » juste après la re-soumission — **statut normal à l'instant du dépôt**, déjà observé le 31/08 à la première soumission. Le fichier est servi, lisible et bien typé : il ne reste que la file d'attente de Google. **À relire à J+2 ; si le statut tient au-delà, c'est une anomalie et la cause est ailleurs que dans le fichier.**",
+    "libelle": "BACKLOG : controle en ligne C5 rendu"
+  },
+  {
+    "fichier": "BACKLOG.md",
+    "mode": "apres",
+    "ancre": "### 31/08 (séance 16) — ce que la pose du chantier IA laisse ouvert",
+    "fragment": "tools/frag-backlog-b-3108s16.md",
+    "libelle": "BACKLOG : robots.txt hors racine d hote"
+  }
+]
