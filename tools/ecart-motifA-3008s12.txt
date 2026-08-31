@@ -1,0 +1,98 @@
+FR  perimetre puce 971   motif A 937   ecart net 34
+     blockquote        : 39
+     puce a +          : 0
+     demi-cadratin     : 4
+     cadratin sans esp : 0
+     autre             : 0
+     SENS INVERSE (A sans P) : 9
+     controle : 43 - 9 = 34   (attendu 34)
+
+EN  perimetre puce 945   motif A 902   ecart net 43
+     blockquote        : 39
+     puce a +          : 0
+     demi-cadratin     : 4
+     cadratin sans esp : 0
+     autre             : 0
+     SENS INVERSE (A sans P) : 0
+     controle : 43 - 0 = 43   (attendu 43)
+
+  FR bq  conduite/proj/concept.md:220  - **I1** — *Le couple disponible des steppers tient-il en accélération maximale 
+  FR bq  conduite/proj/concept.md:221  - **I2** — *L'alimentation tient-elle thermiquement en service prolongé avec une
+  FR bq  conduite/proj/dossier-technique.md:241  - **Partenaire élec** — 3 steppers NEMA 17 (ELEC-MOT-N17), 3 drivers A4988 (ELEC
+  FR bq  conduite/proj/dossier-technique.md:242  - **Partenaire matière** — 1 barre alu 6061 Ø20 mm × 1 m (MAT-ALU-6061-20), viss
+  FR bq  conduite/proj/dossier-technique.md:243  - **Partenaire fablab/atelier** — sous-traitance [[usinage|usinage]] des 3 artic
+  FR bq  conduite/proj/preuve-de-concept.md:56  - **Hypothèse** — une articulation en PLA imprimée à 60 % de remplissage tient u
+  FR bq  conduite/proj/preuve-de-concept.md:57  - **Critère de succès** — après 1000 cycles à 1,2 N·m, le jeu angulaire mesuré a
+  FR bq  conduite/proj/preuve-de-concept.md:58  - **Protocole** — banc d'application de couple statique + cyclique (platine d'an
+  FR bq  conduite/proj/preuve-de-concept.md:96  - **Stock école standard** — [[microcontroleur|microcontrôleur]] [[arduino|Ardui
+  FR bq  conduite/proj/preuve-de-concept.md:97  - **Stock école divers** — articulations en [[pla|PLA]] à 60 % de remplissage (3
+  FR bq  conduite/proj/preuve-de-concept.md:98  - **Acquisition exceptionnelle** — aucune. Le banc tient avec le stock disponibl
+  FR bq  conduite/proj/specification-technique.md:191  - **FP1** — Permettre à l'opérateur de manipuler le robot pour positionner un ob
+  FR bq  conduite/proj/specification-technique.md:192  - **FS1** — Permettre à l'opérateur de programmer une séquence de mouvements dep
+  FR bq  conduite/proj/specification-technique.md:193  - **FC1** — S'adapter à l'alimentation électrique disponible (secteur 230 V via 
+  FR bq  conduite/proj/specification-technique.md:194  - **FC2** — Être démontable et reproductible avec les moyens d'un fablab école (
+  FR bq  conduite/proj/specification-technique.md:256  - **Critère** — précision de positionnement en bout de bras
+  FR bq  conduite/proj/specification-technique.md:257  - **Niveau** — ± 5 mm dans tout le volume de travail accessible
+  FR bq  conduite/proj/specification-technique.md:258  - **Flexibilité** — F1, tolérance jusqu'à ± 10 mm si gain de coût substantiel
+  FR bq  conduite/proj/specification-technique.md:304  - S3 — Revue de CdCF
+  FR bq  conduite/proj/specification-technique.md:305  - S6 — PoC concluant (moteurs pas-à-pas synchronisés, tenue mécanique d'une arti
+  FR bq  conduite/proj/specification-technique.md:306  - S11 — Dossier technique validé, commandes passées
+  FR bq  conduite/proj/specification-technique.md:307  - S14 — Intégration et tests terminés
+  FR bq  conduite/proj/specification-technique.md:308  - S15 — Soutenance finale
+  FR demi  embarque/mcu/ascii.md:20  - **« 0 »–« 9 »** → 48 à 57 (`'0'` = 48)
+  FR demi  embarque/mcu/ascii.md:21  - **« A »–« Z »** → 65 à 90 (`'A'` = 65)
+  FR demi  embarque/mcu/ascii.md:22  - **« a »–« z »** → 97 à 122 (`'a'` = 97, soit 32 de plus que les majuscules)
+  FR bq  embarque/mcu/cpp/cpp-boucles.md:141  - **A (`while`)** : la condition est testée **avant**. Comme le bouton est relâc
+  FR bq  embarque/mcu/cpp/cpp-lire-un-programme.md:141  - **le vert a duré son temps plein** — `millis() - tDebut >= DUREE_VERT`, soit 6
+  FR bq  embarque/mcu/cpp/cpp-lire-un-programme.md:142  - **un piéton a appelé et le minimum est écoulé** — `demandePieton` est vrai **e
+  FR bq  embarque/mcu/cpp/cpp-lire-un-programme.md:155  - **`volatile unsigned long impulsions`** — le `volatile` annonce une variable é
+  FR bq  embarque/mcu/cpp/cpp-lire-un-programme.md:156  - **`File f = SD.open(...)`** — une ressource est **ouverte** : il doit exister 
+  FR bq  embarque/mcu/cpp/cpp-lire-un-programme.md:157  - **`const unsigned long PERIODE = 250`** — majuscules et `const` : c'est un **r
+  FR bq  embarque/mcu/cpp/cpp-structure.md:126  - **Zone 1 — préprocesseur** : les `#include` (bibliothèques) et les `#define` (
+  FR bq  embarque/mcu/cpp/cpp-structure.md:127  - **Zone 2 — déclarations globales** : constantes (`const`), objets de bibliothè
+  FR bq  embarque/mcu/cpp/cpp-structure.md:128  - **Zone 3 — `setup()` / `loop()`** : les **actions** — réglages une fois dans `
+  FR bq  embarque/mcu/cpp/cpp-structure.md:129  - **Zone 4 — fonctions personnelles** : la logique découpée en fonctions nommées
+  FR bq  embarque/mcu/micropython/micropython-lire-un-programme.md:174  - **`from machine import Pin, I2C`** — le programme pilote au moins un composant
+  FR bq  embarque/mcu/micropython/micropython-lire-un-programme.md:175  - **`except OSError:`** — une opération sur un **fichier ou un périphérique** pe
+  FR bq  embarque/mcu/micropython/micropython-lire-un-programme.md:176  - **`INTERVALLE_MS = 250`** — majuscules : c'est un **réglage**, pas un état. Le
+  FR demi  embarque/mcu/stm32/stm32-arduino-core.md:53  - **les broches se nomment par leur port** (`PA5`, `PB6`…), et sur Nucleo les al
+  EN bq  en/conduite/proj/concept-en.md:220  - **U1** — *Does the torque available from the steppers hold at real maximum acc
+  EN bq  en/conduite/proj/concept-en.md:221  - **U2** — *Does the power supply hold thermally in extended service with a curr
+  EN bq  en/conduite/proj/dossier-technique-en.md:241  - **Electronics partner** — 3 NEMA 17 steppers (ELEC-MOT-N17), 3 A4988 drivers (
+  EN bq  en/conduite/proj/dossier-technique-en.md:242  - **Materials partner** — 1 aluminium 6061 bar, Ø20 mm × 1 m (MAT-ALU-6061-20), 
+  EN bq  en/conduite/proj/dossier-technique-en.md:243  - **Fablab and workshop partner** — subcontracted [[usinage-en|machining]] of th
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:56  - **Hypothesis** — a PLA joint printed at 60% infill holds a torque of 1.2 N·m w
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:57  - **Success criterion** — after 1000 cycles at 1.2 N·m, the angular play measure
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:58  - **Protocol** — static and cyclic torque bench (mounting plate, known lever arm
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:96  - **Standard school stock** — [[arduino-en|Arduino]] [[microcontroleur-en|microc
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:97  - **Miscellaneous school stock** — [[pla-en|PLA]] joints at 60% infill (3 joints
+  EN bq  en/conduite/proj/preuve-de-concept-en.md:98  - **Exceptional purchase** — none. The bench can be built from stock.
+  EN bq  en/conduite/proj/specification-technique-en.md:191  - **FP1** — Allow the operator to handle the robot so as to place a light object
+  EN bq  en/conduite/proj/specification-technique-en.md:192  - **FS1** — Allow the operator to program a sequence of movements from a compute
+  EN bq  en/conduite/proj/specification-technique-en.md:193  - **FC1** — Fit the mains supply available (230 V through an adapter).
+  EN bq  en/conduite/proj/specification-technique-en.md:194  - **FC2** — Be demountable and reproducible with the means of a school fablab (3
+  EN bq  en/conduite/proj/specification-technique-en.md:256  - **Criterion** — positioning accuracy at the end of the arm
+  EN bq  en/conduite/proj/specification-technique-en.md:257  - **Level** — ± 5 mm anywhere in the reachable working volume
+  EN bq  en/conduite/proj/specification-technique-en.md:258  - **Flexibility** — F1, tolerance up to ± 10 mm in exchange for a substantial sa
+  EN bq  en/conduite/proj/specification-technique-en.md:304  - W3 — CdCF review
+  EN bq  en/conduite/proj/specification-technique-en.md:305  - W6 — PoC conclusive (stepper motors synchronised, mechanical endurance of one 
+  EN bq  en/conduite/proj/specification-technique-en.md:306  - W11 — Technical design file approved, orders placed
+  EN bq  en/conduite/proj/specification-technique-en.md:307  - W14 — Integration and testing finished
+  EN bq  en/conduite/proj/specification-technique-en.md:308  - W15 — Final presentation
+  EN demi  en/embarque/mcu/ascii-en.md:20  - **"0"–"9"** → 48 to 57 (`'0'` = 48)
+  EN demi  en/embarque/mcu/ascii-en.md:21  - **"A"–"Z"** → 65 to 90 (`'A'` = 65)
+  EN demi  en/embarque/mcu/ascii-en.md:22  - **"a"–"z"** → 97 to 122 (`'a'` = 97, that is 32 more than the capitals)
+  EN bq  en/embarque/mcu/cpp/cpp-boucles-en.md:141  - **A (`while`)**: the condition is tested **first**. Since the button is releas
+  EN bq  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md:141  - **the green has lasted its full time** — `millis() - tDebut >= DUREE_VERT`, th
+  EN bq  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md:142  - **a pedestrian has called and the minimum has elapsed** — `demandePieton` is t
+  EN bq  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md:155  - **`volatile unsigned long impulsions`** — the `volatile` announces a variable 
+  EN bq  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md:156  - **`File f = SD.open(...)`** — a resource is **opened**: there has to be an `f.
+  EN bq  en/embarque/mcu/cpp/cpp-lire-un-programme-en.md:157  - **`const unsigned long PERIODE = 250`** — capitals and `const`: this is a **se
+  EN bq  en/embarque/mcu/cpp/cpp-structure-en.md:126  - **Zone 1 — preprocessor**: the `#include` lines (libraries) and the `#define` 
+  EN bq  en/embarque/mcu/cpp/cpp-structure-en.md:127  - **Zone 2 — global declarations**: constants (`const`), library objects (`Servo
+  EN bq  en/embarque/mcu/cpp/cpp-structure-en.md:128  - **Zone 3 — `setup()` / `loop()`**: the **actions** — settings once in `setup()
+  EN bq  en/embarque/mcu/cpp/cpp-structure-en.md:129  - **Zone 4 — your own functions**: the logic split into named functions.
+  EN bq  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md:174  - **`from machine import Pin, I2C`** — the program drives at least one component
+  EN bq  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md:175  - **`except OSError:`** — an operation on a **file or a device** can fail in a f
+  EN bq  en/embarque/mcu/micropython/micropython-lire-un-programme-en.md:176  - **`INTERVALLE_MS = 250`** — capitals, so this is a **setting**, not a state. T
+  EN demi  en/embarque/mcu/stm32/stm32-arduino-core-en.md:53  - **pins are named by their port** (`PA5`, `PB6`…), and on a Nucleo the Arduino 

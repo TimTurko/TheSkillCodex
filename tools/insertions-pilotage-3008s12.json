@@ -1,0 +1,30 @@
+[
+  {
+    "fichier": "conventions.md",
+    "mode": "avant",
+    "ancre": "---\n\n## Annexe — Conventions de référence externes",
+    "fragment": "tools/frag-conv-3008s12.md",
+    "libelle": "conventions §8 : six entrees neuves de la seance 12"
+  },
+  {
+    "fichier": "conventions.md",
+    "mode": "remplacer",
+    "ancre": "*Corriger le motif de `--style` reste ouvert ; le faire\nd'office rouvrirait un périmètre que l'arbitrage du 22/08 a fermé.*",
+    "fragment": "tools/frag-conv-c109-3008s12.md",
+    "libelle": "amendement C109 du 29/08 (suite 8) : la question ouverte est close, perimetre chiffre"
+  },
+  {
+    "fichier": "BACKLOG.md",
+    "mode": "remplacer",
+    "ancre": "- [ ] **Le chantier des puces à tiret est BLOQUÉ par un défaut d'instrument, et son périmètre ne peut pas être chiffré avant le correctif.** Le motif de `--style` ne voit **ni les tirets de puce ni ceux des listes numérotées** (entrée de la file d'arbitrages) : tant qu'il est aveugle, le périmètre du chantier se dimensionnerait **à l'œil**, ce que C118 interdit. ⚠ *La référence disponible n'est qu'une borne haute : `puces-tiret.mjs --corpus`, motif A, **FR 937 puces / 166 porteuses / 248 fichiers**. Elle ne dit pas combien tombent sous C109.*",
+    "fragment": "tools/frag-backlog-puces-3008s12.md",
+    "libelle": "BACKLOG : l entree bloquante des puces a tiret passe a FAIT"
+  },
+  {
+    "fichier": "BACKLOG.md",
+    "mode": "avant",
+    "ancre": "### 29/08 (suite 5) — ce que la séance d'arbitrages laisse ouvert",
+    "fragment": "tools/frag-backlog-3008s12.md",
+    "libelle": "BACKLOG : section neuve 31/08 (seance 12), quatre entrees"
+  }
+]

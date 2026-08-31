@@ -1,0 +1,93 @@
+=== COUPE C128 DU JOURNAL - frontiere de chantier ===
+  Horloge lue : 2026-08-30  23:42   (etiquette : 30/08)
+  Frontiere   : premiere entree deplacee = ## 2026-08-30 (suite 10)
+
+  entrees dans JOURNAL.md   : 58
+  GARDEES                   : 1
+  DEPLACEES                 : 57
+  plus ancienne gardee      : 2026-08-30 (suite 11)
+  plus recente archivee     : 2026-08-30 (suite 10)
+  plus ancienne archivee    : 2026-08-22
+
+  --- LES 1 ENTREES GARDEES
+    + ## 2026-08-30 (suite 11) — BILAN DE CHANTIER : la prédiction d'instrument tient à 97 % et celle de m
+
+  --- LES 57 ENTREES DEPLACEES
+    - ## 2026-08-30 (suite 10) — LE CORPUS EST FERMÉ : le lot 14 traduit les trois dernières fiches, `ded`
+    - ## 2026-08-30 (suite 9) — Le lot 13 ferme l'anneau 2, la passe C109 est vide, et un contrôle écrit i
+    - ## 2026-08-30 (suite 8) — Le lot 12 ferme `embarque/simulation/`, la référence des puces cesse d'êtr
+    - ## 2026-08-30 (suite 7) — Le lot 11 ferme `embarque/mcu/` en dépassant la borne, et le REGISTRE d'un
+    - ## 2026-08-30 (suite 6) — L'arbitrage (a) rendu : `--corps` pose la ligne blanche, et c'est la premi
+    - ## 2026-08-30 (suite 5) — Le lot 10 ferme le palier « Analyse fonctionnelle » et vide la racine `emb
+    - ## 2026-08-30 (suite 4) — Le lot 9 ouvre le palier « Analyse fonctionnelle », `--corps` ferme la tra
+    - ## 2026-08-30 (suite 3) — Les trois arbitrages du lot 8 rendus : la borne cède devant `easyeda`, `Éc
+    - ## 2026-08-30 (suite 2) — Le lot 8 sort des modules et ouvre `conduite/proj/`, les titres EN se lise
+    - ## 2026-08-30 (suite) — Le lot 7 ferme `raspberry-pi/` mais pas `xiao/`, le foisonnement passe sous 
+    - ## 2026-08-30 — Les deux arbitrages du lot 6 rendus : le code cesse d'être un objet de traduction, e
+    - ## 2026-08-29 (suite 11) — Le lot 6 ferme `stm32/`, le relevé des titres de section passe enfin avan
+    - ## 2026-08-29 (suite 10) — Le lot 5 coupe `stm32/` en deux au palier du hub, le motif des puces est 
+    - ## 2026-08-29 (suite 9) — Le lot 4 sort d'`esp32/` et ferme `teensy/`, les puces à tiret entrent dan
+    - ## 2026-08-29 (suite 8) — Quatre arbitrages rendus, un conflit de séquence résolu dans CLAUDE.md, et
+    - ## 2026-08-29 (suite 7) — Le chantier FR de nommage exécuté en entier, le lot 3 d'`esp32/` rédigé, e
+    - ## 2026-08-29 (suite 6) — Le lot 2 d'`esp32/` rédigé, les trois blocs hors lot livrés, et une passe 
+    - ## 2026-08-29 (suite 5) — Séance d'arbitrages : sept dossiers montés et rendus, C131 neuve, et le ch
+    - ## 2026-08-29 (suite 4) — Le lot 1 d'`esp32/` rédigé, l'écart des placeholders instruit contre les d
+    - ## 2026-08-29 (suite 3) — Bilan du pilote : la sous-règle amendée en quatre points, six arbitrages d
+    - ## 2026-08-29 (suite 2) — Le lot 6 de `micropython/` rédigé en exécution directe, le premier pilote 
+    - ## 2026-08-29 (suite) — Séance annexe : l'arbitrage du débit rendu, la batterie versionnée et éprouv
+    - ## 2026-08-29 — Le lot 5 de `micropython/` rédigé, un cadrage périmé par une session parallèle, et C
+    - ## 2026-08-28 (suite) — Le lot 2 de `cpp/` rédigé et le module clos, une hypothèse mesurée puis écar
+    - ## 2026-08-28 — Le lot 1 de `cpp/` passé, généré et rédigé, une règle de module démentie par la prod
+    - ## 2026-08-27 (suite 7) — L'angle mort du chevron pesé pour la première fois, C127 neuve, et une pré
+    - ## 2026-08-27 (suite 6) — Le module MicroPython fermé, la dette prédite juste pour la première fois,
+    - ## 2026-08-27 (suite 5) — Le lot 4 passé et généré, un brief de cinq séances de retard, et une diffé
+    - ## 2026-08-27 (suite 4) — Les trois verdicts récupérés, C125 amendée, les cinq collisions fermées à 
+    - ## 2026-08-27 (suite 3) — Le lot 3 de MicroPython cadré, rédigé et contrôlé, et C125 qui rend un ver
+    - ## 2026-08-27 (suite) — La remesure d'ouverture, le périmètre du module démenti par la mesure, et le
+    - ## 2026-08-27 — Le lot 1 de MicroPython rédigé, le connecteur réparé, et neuf exemptions perdues dan
+    - ## 2026-08-26 (suite 5) — Le module MicroPython ouvert, le lot 1 cadré et généré, et un pipe échappé
+    - ## 2026-08-26 (suite 4) — Le module Arduino fermé, deux alt qui affirment ce que l'image ne porte pa
+    - ## 2026-08-26 (suite 3) — Le lot 5 rédigé, deux défauts de report en sens contraire, et une addition
+    - ## 2026-08-26 (suite 2) — La clôture retrouvée dans le dépôt, et trois jours de libellé à rendre
+    - ## 2026-08-26 (suite) — Le serveur MCP tombe, le lot 5 se cadre quand même, et l'instrument des pass
+    - ## 2026-08-26 — Le lot 4 du module Arduino, et une exemption perdue que seule sa prédiction a vue
+    - ## 2026-08-25 (suite 8) — Trois lots du module Arduino, dix-huit fiches, et l'autonomie élargie
+    - ## 2026-08-25 (suite 7) — C119 arbitrée, six outils de pilotage traduits, et le module Arduino ouver
+    - ## 2026-08-25 (suite 6) — L'anneau 2 mesuré, trois lots passés, et six erreurs qui n'en font qu'une
+    - ## 2026-08-25 (suite 5) — Les trois trames transverses, et un périmètre annoncé large qui se révèle 
+    - ## 2026-08-25 (suite 4) — Deux lots dans une séance, et une question de Tim qui inverse un diagnosti
+    - ## 2026-08-25 (suite 3) — La fiche pivot, et un fil rouge qui se contredisait entre deux fiches
+    - ## 2026-08-25 (suite 2) — Le groupe schémas/simulation, et une prédiction de lecture démentie pour l
+    - ## 2026-08-25 (suite) — `embarque/mesure/` : le premier lot conduit sous C116, et il tient en trois 
+    - ## 2026-08-24 (suite 3) — Lot 2c : les huit notions transverses de `mcu/`
+    - ## 2026-08-24 (suite 2) — Cinq notions transverses, et un lot qui foisonne à +1,2 %
+    - ## 2026-08-25 — Les sept hubs de famille, et quatre instruments réparés avant la première fiche
+    - ## 2026-08-24 (suite) — Treize fiches, deux sous-lots, et six défauts dont aucun n'a été vu par un c
+    - ## 2026-08-24 — Module d'épreuve MicroPython : les trois inconnues du lot 2c levées sur pièce
+    - ## 2026-08-23 (suite 4) — Trois outils avant le lot 2c, et la règle de comptage devient un script
+    - ## 2026-08-23 (suite 3) — Le lot 2b se ferme, et un critère mécanique remplace quatre arbitrages
+    - ## 2026-08-23 (suite 2) — La première trame du V passe en anglais, et un mot de rapport devient une 
+    - ## 2026-08-23 (suite) — Le lot 2a se ferme, l'accueil devient bilingue, le backtick tombe
+    - ## 2026-08-23 — Lot 2a : les vingt-six passes C109, dix-huit fiches traduites
+    - ## 2026-08-22 (suite 2) — Outillage du chantier bilingue, et le lot 1 traduit
+
+  --- DECOMPTE PAR DATE DES ENTREES DEPLACEES
+    2026-08-30 : 11
+    2026-08-29 : 12
+    2026-08-28 : 2
+    2026-08-27 : 7
+    2026-08-26 : 6
+    2026-08-25 : 9
+    2026-08-24 : 4
+    2026-08-23 : 5
+    2026-08-22 : 1
+    TOTAL : 57
+
+  bloc deplace : 723.0 ko
+
+  JOURNAL.md      : 737.2 ko  ->  14.3 ko
+  JOURNAL-archive : 565.6 ko  ->  1288.8 ko
+
+  --dry : RIEN N A ETE ECRIT. Toutes les ancres et tous les
+  remplacements ont ete resolus - la passe live ne peut plus
+  echouer que sur un fichier modifie entre les deux lancements.

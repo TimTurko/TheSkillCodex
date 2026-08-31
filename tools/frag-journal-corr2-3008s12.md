@@ -1,0 +1,1 @@
+8 réfutées — 93,1 %**, sur les blocs 149 à 158 ; le bloc 159, qui a écrit la présente entrée, et le bloc 160, qui corrige ces deux lignes, ferment leur propre bilan dans `tools/predictions-260830.md`.

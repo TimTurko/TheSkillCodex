@@ -1040,32 +1040,70 @@ function masquerHorsProse(corps) {
 // d'une forme particuliere. C'est la POSITION qui decide - le premier tiret
 // de la ligne est la glose, tous les suivants sont de la prose.
 //
-// Renvoie, pour une ligne donnee, les index de caracteres exemptes.
+// CORRECTIF #10, 30/08 (seance 12). Deux defauts repares du meme geste.
+//
+// (1) L EXEMPTION ETAIT MUETTE. styleFiche() faisait "continue" sur un index
+//     exempte : l occurrence n etait ni comptee, ni affichee, ni rangee hors
+//     perimetre - elle DISPARAISSAIT. C est exactement ce que le commentaire
+//     de la garde d intervalle numerique, dix lignes plus bas, interdit pour
+//     son propre cas : "L exemption sort en hors-perimetre et non en silence
+//     [...] elle reste comptee, donc mesurable." Deux exemptions voisines,
+//     deux regimes opposes, et c est celle qui porte le chantier des puces a
+//     tiret qui etait aveugle - le perimetre de ce chantier ne pouvait donc
+//     se chiffrer qu a l oeil, ce que C118 interdit.
+//     Correctif : la fonction rend une MAP index -> raison, et styleFiche()
+//     pousse l occurrence dans une categorie nommee "glose-liste", exclue du
+//     detail par fiche et du code de sortie, COMPTEE ET AFFICHEE en bilan.
+//
+// (2) LA GLOSE ETAIT CHERCHEE COMME "LE PREMIER TIRET DE LA LIGNE", des deux
+//     especes. Sur une puce qui porte un INTERVALLE NUMERIQUE avant sa glose
+//     - "- **Bandeau LED WS2812** : 3-5 A en blanc plein - alimentation
+//     dediee obligatoire." - c est le demi-cadratin de l intervalle qui etait
+//     pris pour la glose : avale en silence, tandis que le VRAI cadratin de
+//     glose sortait en "C109 tiret d incise". Deux fautes sur une ligne, en
+//     sens contraire. Mesure du 30/08 (seance 12) : QUATRE lignes du corpus
+//     dans ce cas, deux FR et leurs deux jumelles EN, et ce sont elles qui
+//     forment l echantillon C110 de l epreuve.
+//     Correctif : la glose est le premier tiret QUI NE SOIT PAS un intervalle
+//     numerique, meme predicat que la garde de styleFiche().
+//
+// L ESPECE de la ligne est distinguee - puce (- * +) ou liste numerotee
+// (1. 1)) - parce que le chantier des puces a tiret ne porte que sur la
+// premiere et que les deux etaient confondues dans un seul motif.
+//
+// Renvoie { ex: Map index -> raison, hors, espece }.
 function exemptions(ligne) {
-  const ex = new Set();
+  const ex = new Map();
   // Un blockquote se juge sur son contenu : on note le decalage du prefixe.
   const mCite = ligne.match(/^(\s*(?:>\s?)+)/);
   const prefixe = mCite ? mCite[1].length : 0;
   const nu = ligne.slice(prefixe);
 
   // Titre de section ou titre de callout : hors perimetre C109.
-  if (/^#{1,6}\s/.test(nu) || /^\[!\w+\]/.test(nu)) return { ex, hors: 'titre' };
+  if (/^#{1,6}\s/.test(nu) || /^\[!\w+\]/.test(nu)) return { ex, hors: 'titre', espece: null };
 
   // Ligne de tableau : le tiret de cellule est une glose de tableau.
-  if (/^\|/.test(nu)) return { ex, hors: 'tableau' };
+  if (/^\|/.test(nu)) return { ex, hors: 'tableau', espece: null };
 
   const mPuce = nu.match(/^(\s*(?:[-*+]|\d+[.)])\s+)/);
-  if (!mPuce) return { ex, hors: null };
+  if (!mPuce) return { ex, hors: null, espece: null };
 
-  // Premier tiret de la ligne = separateur de glose, exempte.
-  const iTiret = nu.search(/[\u2014\u2013]/);
-  if (iTiret >= 0) ex.add(prefixe + iTiret);
+  const espece = /^\s*\d+[.)]\s/.test(nu) ? 'liste numerotee' : 'puce';
+
+  // Premier tiret de la ligne QUI NE SOIT PAS UN INTERVALLE NUMERIQUE
+  // = separateur de glose, exempte. Meme predicat d intervalle que la garde
+  // de styleFiche() : demi-cadratin encadre de chiffres.
+  for (const m of nu.matchAll(/[\u2014\u2013]/g)) {
+    if (m[0] === '\u2013' && /\d/.test(nu[m.index - 1] || '') && /\d/.test(nu[m.index + 1] || '')) continue;
+    ex.set(prefixe + m.index, 'tiret de glose de ' + espece);
+    break;
+  }
 
   // Point-virgule de FIN d'item = ponctuation mecanique de liste, exemptee.
   const mPv = nu.match(/;\s*$/);
-  if (mPv) ex.add(prefixe + mPv.index);
+  if (mPv) ex.set(prefixe + mPv.index, 'point-virgule de fin d item de ' + espece);
 
-  return { ex, hors: null };
+  return { ex, hors: null, espece };
 }
 
 /* ---------- controle de style d'une fiche ---------- */
@@ -1083,16 +1121,30 @@ function styleFiche(rel, texte) {
   const estEn = rel.startsWith('en/');
 
   const trouve = [];
-  const pousser = (n, col, cat, detail) => {
+  const pousser = (n, col, cat, detail, zone) => {
     const l = brutes[n];
     const d = Math.max(0, col - 32);
     trouve.push({
       ligne: n + 1 + decalage,
       cat,
       detail,
+      // CORRECTIF #10, second geste : la ZONE de l occurrence. 'liens' sous
+      // une section ## Voir aussi / Aller plus loin / See also / Going
+      // further, null ailleurs. C est le CAS 1 de l amendement C109 du 29/08
+      // (suite 8) : glose de liste licite au paragraphe 4, HORS PERIMETRE du
+      // chantier des puces a tiret. Sans ce champ le seau glose-liste donne
+      // un volume, jamais un perimetre.
+      zone: zone || null,
       extrait: (d ? '\u2026' : '') + l.slice(d, col + 34).trim() + (col + 34 < l.length ? '\u2026' : ''),
     });
   };
+
+  // Meme regle de portee que puces-tiret.mjs, ecrite ici parce que --style
+  // decoupe des occurrences la ou puces-tiret compte des lignes : une section
+  // exclue court de son titre au prochain titre de rang <= le sien.
+  const SECTIONS_LIENS = new Set(['Voir aussi', 'Aller plus loin', 'See also', 'Going further']);
+  let sectionLiens = false;
+  let rangLiens = 0;
 
   // L'encart C111 des deux accueils est du FRANCAIS delibere dans une fiche
   // EN : sa typographie francaise y est correcte et ne doit pas etre
@@ -1105,7 +1157,21 @@ function styleFiche(rel, texte) {
     else if (!estCite) citeFr = false;
     if (citeFr) return;
 
-    const { ex, hors } = exemptions(ligne);
+    // Suivi de la section courante, AVANT les exemptions : un titre n est
+    // jamais lui-meme une occurrence, et la zone qu il ouvre vaut pour les
+    // lignes qui SUIVENT.
+    {
+      const nuT = ligne.replace(/^(\s*(?:>\s?)+)/, '');
+      const mT = nuT.match(/^(#{1,6})\s+(.*?)\s*$/);
+      if (mT) {
+        const rang = mT[1].length;
+        if (sectionLiens && rang <= rangLiens) sectionLiens = false;
+        if (SECTIONS_LIENS.has(mT[2].trim())) { sectionLiens = true; rangLiens = rang; }
+      }
+    }
+
+    const { ex, hors, espece } = exemptions(ligne);
+    const zone = sectionLiens ? 'liens' : null;
 
     // Le texte alternatif d'un embed decrit une image : ce n'est pas de la
     // prose de fiche et il sort du perimetre C109, comme les 8 alt classes au
@@ -1137,7 +1203,10 @@ function styleFiche(rel, texte) {
 
     // 3. C109 : tirets d'incise et points-virgules de prose.
     for (const m of ligne.matchAll(/[\u2014\u2013]/g)) {
-      if (ex.has(m.index)) continue;
+      // CORRECTIF #10 : l exemption de glose CESSE D ETRE MUETTE. Elle sort
+      // dans une categorie nommee, comptee et affichee en bilan, comme la
+      // garde d intervalle numerique quinze lignes plus bas le fait deja.
+      if (ex.has(m.index)) { pousser(n, m.index, 'glose-liste', ex.get(m.index), zone); continue; }
       // Le tiret demi-cadratin ENCADRE DE CHIFFRES est un intervalle numerique
       // (0-65535, 3,3-5 V), pas une incise. Faux positif revele le 24/08 par le
       // premier lancement de --style sur du francais : le corpus EN n'avait
@@ -1151,13 +1220,14 @@ function styleFiche(rel, texte) {
       }
       if (dansAlt(m.index)) { pousser(n, m.index, 'hors-perimetre', 'tiret en alt d image'); continue; }
       if (hors) { pousser(n, m.index, 'hors-perimetre', 'tiret en ' + hors); continue; }
-      pousser(n, m.index, 'C109', 'tiret d incise');
+      pousser(n, m.index, 'C109', 'tiret d incise', espece ? 'ligne de liste' : null);
     }
     for (const m of ligne.matchAll(/;/g)) {
-      if (ex.has(m.index)) continue;
+      // CORRECTIF #10, second seau : meme raison, trois lignes plus loin.
+      if (ex.has(m.index)) { pousser(n, m.index, 'glose-liste', ex.get(m.index), zone); continue; }
       if (dansAlt(m.index)) { pousser(n, m.index, 'hors-perimetre', 'point-virgule en alt d image'); continue; }
       if (hors) { pousser(n, m.index, 'hors-perimetre', 'point-virgule en ' + hors); continue; }
-      pousser(n, m.index, 'C109', 'point-virgule de prose');
+      pousser(n, m.index, 'C109', 'point-virgule de prose', espece ? 'ligne de liste' : null);
     }
   });
 
@@ -1207,6 +1277,24 @@ function style(cibles) {
   let c109 = 0;
   let hors = 0;
   let fichesTouchees = 0;
+  // CORRECTIF #10 : les quatre seaux de glose de liste. Ils sont comptes
+  // separement par ESPECE parce que le chantier des puces a tiret ne porte
+  // que sur la puce, et separement par SIGNE parce que le brief ne nomme que
+  // le tiret. Aucun n entre dans le code de sortie.
+  let gloseTiretPuce = 0;
+  let gloseTiretNum = 0;
+  let glosePvPuce = 0;
+  let glosePvNum = 0;
+  // CORRECTIF #10, second geste : le PERIMETRE du chantier des puces a tiret.
+  // Le seau ci-dessus donne un VOLUME ; le perimetre est ce volume MOINS le
+  // cas 1 de l amendement C109 du 29/08 (suite 8), les gloses licites des
+  // sections de liens. Les deux se publient ensemble, jamais l un sans
+  // l autre.
+  let liensTiretPuce = 0;
+  let liensTiretNum = 0;
+  let c109SurListeTiret = 0;
+  let c109SurListePv = 0;
+  let porteusesPerimetre = 0;
 
   console.log('=== CONTROLE DE STYLE ===');
   for (const rel of cibles) {
@@ -1217,7 +1305,11 @@ function style(cibles) {
     }
     const texte = readFileSync(abs, 'utf8');
     const t = styleFiche(rel, texte);
-    const dur = t.filter((x) => x.cat !== 'hors-perimetre');
+    // CORRECTIF #10 : 'glose-liste' est comptee mais n est pas un defaut -
+    // elle sort du detail par fiche, comme 'hors-perimetre'. Sans cette
+    // ligne, les 2 500 gloses du corpus mettraient toutes les fiches "a
+    // reprendre" et le controle deviendrait illisible.
+    const dur = t.filter((x) => x.cat !== 'hors-perimetre' && x.cat !== 'glose-liste');
 
     // Une occurrence C109 reportee du francais a deja ete arbitree ; une
     // occurrence CREEE par la traduction ne l'a jamais ete. C'est le mode
@@ -1266,6 +1358,22 @@ function style(cibles) {
     cand += t.filter((x) => x.cat === 'candidat').length;
     c109 += t.filter((x) => x.cat === 'C109').length;
     hors += t.filter((x) => x.cat === 'hors-perimetre').length;
+    gloseTiretPuce += t.filter((x) => x.detail === 'tiret de glose de puce').length;
+    gloseTiretNum += t.filter((x) => x.detail === 'tiret de glose de liste numerotee').length;
+    glosePvPuce += t.filter((x) => x.detail === 'point-virgule de fin d item de puce').length;
+    glosePvNum += t.filter((x) => x.detail === 'point-virgule de fin d item de liste numerotee').length;
+    const lp = t.filter((x) => x.detail === 'tiret de glose de puce' && x.zone === 'liens').length;
+    const ln = t.filter((x) => x.detail === 'tiret de glose de liste numerotee' && x.zone === 'liens').length;
+    liensTiretPuce += lp;
+    liensTiretNum += ln;
+    // La ligne DECLARE SA POPULATION (regle du 27/08, eprouvee 6/N) : le seau
+    // compte des occurrences C109, donc des TIRETS et des POINTS-VIRGULES.
+    // Sans la decomposition, le total se lit comme un compte de tirets - ce
+    // qu il n est pas, et ce qui a fait rater la prediction du bloc 155.
+    c109SurListeTiret += t.filter((x) => x.cat === 'C109' && x.zone === 'ligne de liste' && x.detail === 'tiret d incise').length;
+    c109SurListePv += t.filter((x) => x.cat === 'C109' && x.zone === 'ligne de liste' && x.detail === 'point-virgule de prose').length;
+    const gloseFiche = t.filter((x) => x.cat === 'glose-liste' && x.detail.startsWith('tiret ')).length;
+    if (gloseFiche - lp - ln > 0) porteusesPerimetre += 1;
     if (!dur.length) continue;
     fichesTouchees += 1;
     console.log('\n  ' + rel);
@@ -1283,6 +1391,21 @@ function style(cibles) {
   console.log('  C109 supprimees en EN : ' + supprimees + '   (rendues sans decision : a lire)');
   console.log('  C109 de prose         : ' + c109 + '   (candidats a lire : le verbe conjugue decide)');
   console.log('  hors perimetre        : ' + hors + '   (titres, tableaux et alt, non comptes)');
+  // CORRECTIF #10 : le perimetre du chantier des puces a tiret, mesure par
+  // l instrument au lieu d etre estime. Population declaree dans la ligne
+  // elle-meme : occurrences (pas lignes), hors code et hors commentaire par
+  // masquerHorsProse, hors titres et tableaux par exemptions().
+  console.log('  glose de liste, tiret : ' + (gloseTiretPuce + gloseTiretNum) +
+    '   (puce ' + gloseTiretPuce + ' / liste numerotee ' + gloseTiretNum + ')');
+  console.log('     dont section de liens : ' + (liensTiretPuce + liensTiretNum) +
+    '   (puce ' + liensTiretPuce + ' / liste numerotee ' + liensTiretNum + ')');
+  console.log('     PERIMETRE cas 2+4     : ' + (gloseTiretPuce - liensTiretPuce + gloseTiretNum - liensTiretNum) +
+    '   (puce ' + (gloseTiretPuce - liensTiretPuce) + ' / liste numerotee ' + (gloseTiretNum - liensTiretNum) + ')');
+  console.log('     porteuses du perimetre : ' + porteusesPerimetre + ' fichier(s)');
+  console.log('  glose de liste, ; fin : ' + (glosePvPuce + glosePvNum) +
+    '   (puce ' + glosePvPuce + ' / liste numerotee ' + glosePvNum + ')');
+  console.log('  C109 sur ligne de liste : ' + (c109SurListeTiret + c109SurListePv) +
+    '   (tiret ' + c109SurListeTiret + ' / point-virgule ' + c109SurListePv + ')');
   console.log('  hors alphabet latin   : ' + etrangers + '   (verdict mecanique : absent de la source FR)');
   process.exit(typo || creees || etrangers ? 1 : 0);
 }

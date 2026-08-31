@@ -1,0 +1,1 @@
+**Onze blocs d'exécution (149 à 159), deux gardes de péremption au vert, `HEAD 6428d1c` stable au caractère sur les deux, un incident d'ouverture, zéro arrêt, ZÉRO OCTET ÉCRIT DANS `content/`.**

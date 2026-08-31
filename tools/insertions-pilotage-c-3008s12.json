@@ -1,0 +1,16 @@
+[
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "**Dix blocs d'exécution (149 à 158), deux gardes de péremption au vert, `HEAD 6428d1c` stable au caractère sur les deux, un incident d'ouverture, zéro arrêt, ZÉRO OCTET ÉCRIT DANS `content/`.**",
+    "fragment": "tools/frag-journal-corr-3008s12.md",
+    "libelle": "JOURNAL : le nombre de blocs de la seance est ONZE, pas dix"
+  },
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "remplacer",
+    "ancre": "8 réfutées — 93,1 %**, sur les blocs 149 à 158.",
+    "fragment": "tools/frag-journal-corr2-3008s12.md",
+    "libelle": "JOURNAL : nommer les blocs 159 et 160, qui ferment leur propre bilan"
+  }
+]

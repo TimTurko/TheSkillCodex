@@ -426,12 +426,44 @@ vers la fiche française sans qu'aucun compteur ne bronche.
 | virgule ambiguë | candidat | `1,000`, séparateur de milliers anglais ou décimale française |
 | C109 créées en EN | verdict | la fiche EN porte plus d'occurrences que sa source FR |
 | C109 de prose | candidat | tiret d'incise et point-virgule, le verbe conjugué décide |
+| C109 supprimées en EN | ni l'un ni l'autre | la source FR porte plus d'occurrences que sa jumelle EN — **compté et affiché, hors du code de sortie** (arbitrage Tim du 30/08) |
+| glose de liste | ni l'un ni l'autre | le tiret de glose et le point-virgule de fin d'item d'une puce ou d'un item numéroté — **exemptés, mais comptés** |
 
 Exemptions : blocs de code et code inline, titres de section et de callout,
 lignes de tableau, texte alternatif d'embed (pour C109 seulement, sa
 typographie reste contrôlée), premier tiret et point-virgule de fin d'item
 sur une puce, et l'encart de langue C111 des deux accueils, qui est du
 français délibéré.
+
+**Correctif #10 (30/08, séance 12) — l'exemption de glose cesse d'être
+muette, et `--style` chiffre le périmètre du chantier des puces à tiret.**
+Trois défauts tombent du même geste. (1) L'exemption de glose faisait
+`continue` : l'occurrence n'était **ni comptée, ni affichée, ni rangée hors
+périmètre**, alors que la garde d'intervalle numérique, dix lignes plus bas,
+sortait déjà en `hors-perimetre` « pour rester mesurable ». (2) La glose était
+cherchée comme *le premier tiret de la ligne*, des deux espèces : sur une puce
+portant un **intervalle numérique** avant sa glose, le demi-cadratin était pris
+pour la glose et le vrai cadratin sortait en faux positif C109. (3) Les
+intervalles numériques logés dans une puce n'étaient donc comptés **nulle
+part** — 9 occurrences par langue.
+
+Le seau `glose de liste` se décompose par **espèce** (puce / liste numérotée)
+et par **zone** : sous `## Voir aussi`, `## Aller plus loin`, `## See also` ou
+`## Going further`, c'est le **cas 1** de l'amendement C109 du 29/08 (suite 8),
+glose licite **hors périmètre** ; ailleurs, c'est le **périmètre** des cas 2
+et 4. La règle de portée d'une section exclue est celle de `puces-tiret.mjs` :
+du titre au prochain titre de rang inférieur ou égal.
+
+⚠ **`puces-tiret.mjs` motif A et le périmètre de `--style` ne comptent pas la
+même chose, et l'écart est mesuré** (30/08, séance 12) : périmètre **FR 1 164 /
+EN 1 128** contre motif A **FR 937 / EN 902**. La différence tient d'abord aux
+**193 FR / 183 EN items de liste numérotée** que le prédicat `/^\s*[-*]\s/` du
+motif A ne peut pas voir, puis, sur les puces seules, à **39 puces logées dans
+un blockquote** par langue, **4 gloses au demi-cadratin**, et **−9 FR** lignes
+de commentaire HTML de gabarit que le motif A compte à tort. *Les deux
+compteurs restent utiles : `puces-tiret.mjs` compte des **lignes** avec un
+motif figé et publié ; `--style` compte des **occurrences** après masquage de
+la prose non publiée.*
 
 `--alt` est le **quatrième tamis**, ouvert le 29/08 (suite 6) sur l'arbitrage Tim ③(c). Jusque-là l'alt d'un embed n'était balayé **que par un tamis sur quatre** : `--style` le range en *hors périmètre* pour les candidats C109 et n'y fait mordre que la typographie française, `audit-medias.mjs` le capture dans son motif mais n'audite que le **chemin**, `--controle` ne compare que des **nombres** d'embeds. **Un alt français à typographie propre ne déclenchait donc rien** — les deux seuls trouvés jusqu'au 29/08 l'ont été à la main, en deux séances.
 

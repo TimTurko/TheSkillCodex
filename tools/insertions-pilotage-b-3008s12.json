@@ -1,0 +1,16 @@
+[
+  {
+    "fichier": "conventions.md",
+    "mode": "avant",
+    "ancre": "---\n\n## Annexe — Conventions de référence externes",
+    "fragment": "tools/frag-conv-bis-3008s12.md",
+    "libelle": "conventions §8 : deux entrees nees des blocs 158 et du decompte"
+  },
+  {
+    "fichier": "JOURNAL.md",
+    "mode": "apres",
+    "ancre": "<!-- INSERT_JOURNAL_HERE -->",
+    "fragment": "tools/frag-journal-3008s12.md",
+    "libelle": "JOURNAL : entree du 30/08 (suite 12)"
+  }
+]

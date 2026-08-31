@@ -1,0 +1,40 @@
+=== COUPE C128 DU FICHIER DE PREDICTIONS - frontiere de chantier ===
+  Horloge lue : 2026-08-30  23:47   (etiquette : 30/08)
+  source      : C:\Users\turko\Documents\TheSkillCodex\tools\predictions-260830.md
+  cible       : C:\Users\turko\Documents\TheSkillCodex\tools\predictions-260830-chantier.md
+
+  ancre de frontiere        : 1 occurrence
+  bloc archive              : 1145121 octets   (1118.3 ko)
+  reste conserve            : 90229 octets   (88.1 ko)
+  conservation              : 1145121 + 90229 = 1235350  OK
+  titres H1 archives        : 13
+  titres H1 conserves       : 4
+  octets NUL                : 1 archive / 1 conserve
+
+  --- LES 13 TITRES H1 ARCHIVES
+    - # PRÉDICTIONS — séance du 30/08 (lot 7 du chantier de traduction)
+    - # BILAN GÉNÉRAL — 30/08, LOT 7 (`raspberry-pi/` + `xiao/`)
+    - # SÉANCE 2 DU 30/08 — LOT 8 DU CHANTIER DE TRADUCTION
+    - # REPRISE — 30/08 (séance 2), arbitrages du lot 8 rendus
+    - # BILAN GÉNÉRAL — 30/08 (séance 2), LOT 8 ET SES ARBITRAGES
+    - # SÉANCE 3 DU 30/08 — LOT 9 DU CHANTIER DE TRADUCTION
+    - # BILAN GÉNÉRAL — 30/08 (séance 3), LOT 9 (palier « Analyse fonctionnelle »)
+    - # SÉANCE 7 DU 30/08 — LOT 11 DU CHANTIER DE TRADUCTION
+    - # SÉANCE 8 DU 30/08 — LOT 12 DU CHANTIER DE TRADUCTION
+    - # SÉANCE 9 DU 30/08 — LOT 13 DU CHANTIER DE TRADUCTION
+    - # BILAN GÉNÉRAL — 30/08 (séance 9), LOT 13 : `easyeda`, DERNIÈRE FICHE DE L'ANNEAU 2
+    - # SÉANCE 10 DU 30/08 — LOT 14, LE DERNIER LOT DU CORPUS
+    - # BILAN GÉNÉRAL — 30/08 (séance 10), LOT 14 : LE CORPUS EST FERMÉ
+
+  --- LES 4 TITRES H1 CONSERVES
+    + # SÉANCE 11 DU 30/08 — BILAN DE CHANTIER, FILE D'ARBITRAGES, SUITE DU DÉPÔT
+    + # BILAN GÉNÉRAL — 30/08 (séance 11) : BILAN DE CHANTIER, ARBITRAGES, SUITE
+    + # TOTAL DE LA SÉANCE 11 — après les trois écritures de pilotage
+    + # SÉANCE 12 DU 30/08 — COUPE C128, CORRECTIF #10 DE `--style`, PÉRIMÈTRE DU CHANTIER DES PUCES
+
+  cible ecrite              : 1145495 octets   (1118.6 ko)
+  source reecrite           : 90501 octets   (88.4 ko)
+
+  --dry : RIEN N A ETE ECRIT. Ancre resolue, conservation verifiee,
+  cible absente - la passe live ne peut plus echouer que sur un
+  fichier modifie entre les deux lancements.
