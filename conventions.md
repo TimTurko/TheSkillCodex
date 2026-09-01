@@ -4902,6 +4902,71 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   inventorier par `grep -n`, motif **insensible à la casse**, **avant** de
   prédire le compte. *Éprouvée 0/N.*
 
+- **Une limite déclarée au protocole ne se relit pas toute seule au moment de
+  CONCLURE.**
+  *Née le 01/09 (séance 17), trois affirmations trop fortes en trois tours.* Le
+  protocole de la recette APRÈS déclare en tête, écart 4, que le champ des
+  **sources affichées n'est pas une trace d'instrument** mais un affichage
+  partiel. J'ai ensuite conclu **trois fois** dessus : « la carte des cinq phases
+  n'a joué aucun rôle » (l'absence de la racine dans un champ non fiable, prise
+  pour une mesure — **réfutée**, la carte était le seul trajet possible) ; « la
+  `description:` adressée aux assistants fait refuser la page par Gemini »
+  (**réfutée** par un paramètre de requête) ; et un « établi si » posé avant le
+  test qui devait l'établir. ✅ **Règle** : *une limite écrite dans un protocole
+  se recopie à côté de chaque verdict qu'elle borne — la déclaration en tête de
+  fichier protège le lecteur, elle ne protège pas le rédacteur.* ⚠ *La cause
+  n'est pas l'absence de discriminant : les trois ont été nommés et joués dans
+  la foulée. C'est d'avoir écrit le verdict **avant** de le jouer, quand il
+  coûtait une requête.* *Éprouvée 0/N.*
+
+- **Un test discriminant se construit en faisant varier l'OBJET, pas le sujet.**
+  *Née le 01/09 (séance 17), et c'est le gain méthodologique de la séance.* Pour
+  savoir pourquoi un assistant refusait deux pages du site, quatre variantes du
+  **sujet** — autres modèles, autres sites, autres pages — ont réduit les
+  hypothèses sans trancher entre « c'est le contenu » et « c'est l'adresse ».
+  **Une variante de l'objet a tranché en une requête** : `?x=1` ajouté à l'URL
+  — GitHub Pages ignore le paramètre, **la même page exactement est servie**,
+  la chaîne d'URL diffère. Refus des deux pages sans le paramètre, lecture des
+  deux avec. ✅ **Règle** : *quand deux causes candidates se distinguent par une
+  propriété de l'objet, chercher la transformation qui **change cette propriété
+  et rien d'autre** — elle vaut mieux que dix observations supplémentaires.*
+  ⚠ *Corollaire : une telle transformation doit être **prouvée neutre** sur le
+  reste — ici, que le serveur ignore la chaîne de requête. Sans cette preuve,
+  on a changé deux choses au lieu d'une.* *Éprouvée 0/N.*
+
+- **Une grille qui n'a pas de case pour la question posée y répond par
+  impression.**
+  *Née le 01/09 (séance 17), cinquième case ajoutée avant de jouer.* La grille
+  de recette du 31/08 portait quatre cases — *cite / conforme / proscrit /
+  renvoie* — et **aucune** n'enregistrait ce que la campagne devait trancher :
+  *l'assistant a-t-il atteint `/ia/`, et par quel canal ?* Le fait aurait été
+  lu dans la prose libre des relevés, donc **pas compté**. La case `atteint
+  /ia/` a rendu **0 sur 9** et, décomposée par canal, **0 sur 3** sur les seules
+  réponses ayant prouvément lu la racine — le chiffre qui ferme une entrée de
+  BACKLOG ouverte depuis deux séances. ✅ **Règle** : *avant de rejouer un
+  protocole, relire la question à laquelle il doit répondre et vérifier qu'une
+  case la porte ; une grille héritée répond aux questions de la campagne
+  précédente.* ⚠ *Ajouter une case n'a pas cassé la comparaison : côté AVANT,
+  les neuf cellules valent **sans objet**, ce qui est une valeur et non un
+  blanc.* *Famille de « une liste de contrôle vieillit avec le dispositif
+  qu'elle contrôle » (31/08, séance 16).* *Éprouvée 0/N.*
+
+- **Un critère de réfutation fixé avant lecture peut porter une hypothèse qu'il
+  ne nomme pas.**
+  *Née le 01/09 (séance 17), sur un critère pourtant écrit dans les règles.* Le
+  critère de « recul de la substitution » a été arrêté en trois termes **avant**
+  toute lecture, et appliqué tel quel — la discipline a tenu. Mais le
+  discriminant bâti pour la question voisine supposait, **sans le dire**, que
+  l'index consulté par un assistant soit celui de Google ou de Bing ; il a son
+  propre robot. *Le critère reste appliqué, sa portée est plus étroite que son
+  énoncé.* ✅ **Règle** : *un critère de réfutation écrit « si X alors Y » nomme
+  aussi **ce qu'il suppose du monde** pour que l'implication tienne ; une
+  hypothèse non nommée ne peut pas être réfutée, seulement subie.*
+  ⚠ *Différence avec C116 : celle-là exige d'ouvrir le code avant de prédire un
+  compteur. Ici il n'y a pas de code à ouvrir — l'objet est un système tiers, et
+  le seul geste disponible est d'écrire l'hypothèse pour qu'elle soit visible.*
+  *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
