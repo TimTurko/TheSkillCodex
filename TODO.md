@@ -5,6 +5,10 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➤ MAJ 03/09 (séance 18, intermédiaire)** — **RACINE ET `/ia/` INDEXÉES PAR GOOGLE, TEST EN LIGNE VERT SUR LES DEUX ; SITEMAP TOUJOURS « IMPOSSIBLE DE RÉCUPÉRER », FORMAT HORS DE CAUSE, DÉPÔT INTOUCHÉ.** PC pro, chat Desktop, Fable 5.1. Relevé Search Console à J+2 en lecture seule. ⚠ **Écart déclaré** : `index.xml` soumis en second sitemap sur ma recommandation, **contre le ② du 01/09** que je n'avais pas lu (§ 6 cas A non appliqué). Prédiction 1 du 08/09 toujours jugeable ; prédictions 3 et 4 devront nommer ce second canal. ⚠ L'hypothèse unifiante de la séance 17 **perd un appui** : Googlebot lit en test en ligne les deux URL que Gemini refuse.
+>
+> **À FAIRE** : ① [Tim] **commit + push du pilotage** (bloc au JOURNAL) ; ② [Tim] **plus aucune action Search Console d'ici le 08/09**, `index.xml` compris, ne pas le retirer ; ③ au rejeu du 08/09, relever en plus **l'état de `index.xml`** et le **test en ligne de `sitemap.xml`** ; ④ le reste **inchangé**, voir la flèche du 01/09 ci-dessous (③ à ⑦).
+
 > **➤ MAJ 01/09 (séance 17)** — **LA RECETTE APRÈS EST FAITE. LE CANAL INVISIBLE EST MESURÉ INSUFFISANT, LA CARTE DES CINQ PHASES EST MESURÉE SUIVIE.** PC perso, chat Desktop, **Opus 5**. Neuf prompts rejoués par Tim entre 07h50 et 08h11, plus **neuf lectures hors campagne** pour instruire Gemini. **Aucune fiche touchée, rien dans `content/`, aucun outil modifié.** Livrable unique hors pilotage : `_drafts/recette-ia-0109-apres.md` (**46 462 o**). Chantier des puces **non ouvert**, bloc 0 et bloc 1 intacts.
 >
 > ❌ **QUESTION 1 — LE CANAL D'ACHEMINEMENT NE SUFFIT PAS. `/ia/` atteinte 0 fois sur 9.** Six réponses ont atteint le site, **trois ont lu la racine** : la `description:` qui porte l'adresse est **0 sur 3**. `llms.txt` n'a été sondé par personne — ChatGPT, sommé de produire l'URL d'une fiche, **compose `/TheSkillCodex/ecoconception/`** au lieu de lire le fichier qui liste les 243 URL. **L'entrée BACKLOG du 31/08 (séance 15) est fermée.**

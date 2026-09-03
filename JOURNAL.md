@@ -10,6 +10,38 @@
 > dernière coupe : 30/08, sessions 22/08 → 30/08 (suite 10)).
 
 <!-- INSERT_JOURNAL_HERE -->
+## 2026-09-03 (séance 18, intermédiaire) — La racine et `/ia/` sont indexées et lisibles par Googlebot, le sitemap reste « impossible à récupérer », et un second sitemap a été soumis en contradiction avec la consigne de J+7
+
+- **Périmètre** — **PC pro, chat Desktop, Fable 5.1**, séance courte hors plan, ouverte par Tim sur une question unique : le sitemap Google. **Aucune fiche touchée, rien dans `content/`, aucun outil modifié, chantier des puces non ouvert.** ⚠ **Défaut d'ouverture, le mien** : Tim ayant fourni un brief, le § 6 cas A imposait `conventions.md` tête + queue et `JOURNAL.md` head 250 ; **je ne les ai pas lus** avant de recommander une action hors dépôt. Le dépôt local était en outre à `3a95a82` (séance 15) au début de la séance ; `git pull` fait par Tim en cours de route, `main` local à **`836db09`**.
+- **Livrables** — **aucun hors pilotage.** Lectures seules : `deploy.yml`, `quartz.config.ts`, `content/robots.txt`, `public/sitemap.xml` (build local de mai, non représentatif), annexe des index de `_drafts/recette-ia-0109-apres.md`.
+- **Décisions Tim** — aucune sollicitée. **Une action hors dépôt faite sur ma recommandation** : soumission de `index.xml` (flux RSS) comme second sitemap dans Search Console. Voir l'écart ci-dessous.
+- **Conventions** — **aucune neuve, la numérotation reste à 131.** Aucune entrée § 8 : le défaut de la séance est une **non-application** du § 6, pas une règle manquante.
+- **Tailles** — mesurées **avant** cette écriture : conventions **603,27 Ko**, TODO **301,01**, BACKLOG **231,97**, JOURNAL **73,89**. Corpus non relancé.
+
+✅ **RELEVÉ SEARCH CONSOLE AU 03/09 (J+2 de la séance 17), fait par Tim, lecture seule.** Inspection d'URL sur **`/`** et sur **`/ia/`** : *URL sur Google, page indexée, diffusée en HTTPS*, trois coches vertes, et **« Tester l'URL en ligne » vert sur les deux**. Inspection sur `sitemap.xml` : *non indexée* — verdict sans portée, un sitemap n'entre jamais dans l'index ; le test en ligne sur ce fichier **n'a pas été rapporté**. Statut du sitemap au rapport Sitemaps : **inchangé, « impossible de récupérer »**. Bing : validé, inchangé.
+
+⚠ **CE QUE LE RELEVÉ FAIT À L'HYPOTHÈSE UNIFIANTE DE LA SÉANCE 17.** Elle disait : *quelque chose empêche l'exploration côté Google*, et le refus de Gemini sur `/` et `/ia/` en serait le symptôme. Or Googlebot, en test en ligne, **lit sans faute les deux URL que Gemini refuse**. L'hypothèse **n'est pas réfutée** — le sitemap reste non récupéré, et la prédiction 1 se juge le 08/09 — mais elle **perd son second appui** : l'exploration Google fonctionne sur les deux pages en cause, le refus de Gemini ne peut donc pas être un défaut d'exploration Google. *À reporter à l'annexe du rejeu.*
+
+✅ **LE FORMAT DU SITEMAP N'EST PAS EN CAUSE, ET IL N'Y A RIEN À CHANGER.** Générateur inchangé depuis la séance 16 (`Plugin.ContentIndex`) : `urlset` sitemaps 0.9, URL absolues `https://`, `lastmod` ISO 8601 (millisecondes acceptées), déclaration XML posée au bloc A5 ; **485 URL, ~80 Ko**, loin des limites. Le statut « impossible de récupérer » sur GitHub Pages est un **faux négatif documenté** qui se résout en jours ou semaines, et Bing lit le fichier. **Aucune modification du dépôt.** Point réel relevé, sans effet : un `robots.txt` sous `/TheSkillCodex/` est **ignoré par les robots**, qui ne lisent que `https://timturko.github.io/robots.txt` (404, donc tout permis) ; la ligne `Sitemap:` y est inerte pour Google. Conservé tel quel, `Allow: /` étant le comportement par défaut.
+
+⚠⚠ **ÉCART À LA CONSIGNE DE LA SÉANCE 17, ET IL EST À MON COMPTE.** Le TODO et le JOURNAL du 01/09 disent **« ne rien toucher au sitemap ni à l'indexation d'ici le 08/09 »**. J'ai recommandé, et Tim a fait, la soumission de `index.xml` comme second sitemap — **sans avoir lu la consigne**, faute des lectures d'ouverture. Conséquences : (1) la **prédiction 1 du 08/09 reste jugeable** — elle porte sur l'état de `sitemap.xml`, que la soumission d'un autre fichier ne modifie pas ; (2) mais si Google découvre des URL par `index.xml` d'ici là, le rejeu de la **prédiction 3** (population refusée par Gemini) et de la **prédiction 4** (ChatGPT par la recherche) devra **nommer ce second canal** comme cause possible. **L'écart est déclaré ici pour que le 08/09 ne conclue pas sans lui.** Les inspections d'URL, elles, sont en lecture seule et n'ont rien brouillé.
+
+**Reste à Tim (C121)** — sur le PC pro, aucune écriture de contenu à livrer ; le commit ne porte que le pilotage :
+
+```powershell
+cd C:\Users\timothe.turko.ICAMAD\Documents\TheSkillCodex
+git status
+git add JOURNAL.md TODO.md
+git commit -m "seance 18 intermediaire : releve Search Console J+2, racine et ia indexees, ecart index.xml declare"
+git push
+```
+
+**Reste aussi, hors dépôt** : **plus aucune action Search Console d'ici le 08/09**, second sitemap compris (ne pas le retirer non plus : le retrait serait une action de plus) ; au rejeu, relever aussi **l'état de `index.xml`** et le **test en ligne de `sitemap.xml`**, non rapporté ce jour.
+
+**Arbitrages en attente** — **inchangés** par rapport à la séance 17 : pointeur visible en bas de racine, arbitrage 6 rouvert, contrôle de l'anglais d'une page `bilingue: true`, et la file.
+
+**Prochaine session** — inchangée : **08/09, rejeu court**, puis **chat Desktop, séance d'arbitrage**. Le prompt de lancement de la séance 17 reste valable, **augmenté d'une ligne** : « la séance 18 a soumis `index.xml` en second sitemap le 03/09, à nommer dans l'annexe du rejeu ».
+
 ## 2026-09-01 (séance 17) — La recette APRÈS tranche les trois questions, le canal invisible tombe à zéro sur neuf, et le refus de Gemini suit l'index de Google et non le contenu
 
 - **Périmètre** — **PC perso, chat Desktop, Opus 5**, séance de **recette** annoncée par la séance 16. Lectures d'ouverture selon le § 6 cas A — `conventions.md` tête + queue, `JOURNAL.md` head 250 — puis `_drafts/recette-ia-3108-avant.md` en entier. **Aucune fiche touchée, rien dans `content/`, aucun outil modifié, chantier des puces non ouvert** (bloc 0 et bloc 1 intacts). ⚠ **Note d'horloge (C119)** : la séance 16 s'est fermée le 31/08 à 22:16 ; l'horloge lit **01/09**, et j'ai d'abord daté la séance du 31/08 en supposant qu'on prolongeait la soirée — **incrémentation implicite, corrigée sur la date lue**. Le modèle de bloc de relevé que j'avais fourni **n'avait pas de champ date**, seulement une heure : le défaut est le mien.
