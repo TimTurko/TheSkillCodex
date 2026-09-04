@@ -936,7 +936,7 @@ Les trois questions ouvertes ont été arbitrées (autonomie déléguée pour le
 2. **5 critères MME effleurés sans fiche centrale** (`RA-MME-C02-1/MME/2`, `/4`, `/6`, `RA-MME-C03-1/MME/2`, `/4`) **actés en E terminal par délégation** — pas de fiche MME phase 2. Le traitement disciplinaire profond est renvoyé aux cours MME ; le wiki les touche via le prisme mécatronique (pré-dim en concept et dossier-technique).
 3. **`schema-cinematique` créé** — fiche-notion MME tenue en frontière interface (lecture des liaisons + ddl + exemple bras 3 axes, renvoi explicite au cours de mécanique). `MME/5` fermé (NC→C), wiki-link du hub résolu.
 
-La cartographie AA est désormais **refermée** : 44 C, 6 E, 4 HS, 3 HS-D, **0 NC**. Le bilan n'est plus provisoire sur ses marges.
+La cartographie AA est désormais **refermée** : 45 C, 5 E, 4 HS, 3 HS-D, **0 NC**. Le bilan n'est plus provisoire sur ses marges.
 
 ### Ambition au-delà du référentiel
 
@@ -990,4 +990,4 @@ Trois chantiers ouverts, dans l'ordre logique :
 2. **Reprendre la rédaction des fiches** selon TODO : `caracteriser-une-exigence` (prioritaire), `pcb`, `amdec`, puis fiches-notion outils, puis fiches phase 2 EEE/MME selon priorisation.
 3. **Valider les conventions C15/C16 et multi-couverture sur les premières fiches-notion phase 2 produites**. Promotion vers le template `fiche-tuto.md` (à produire) une fois la stabilité confirmée sur 2-3 fiches.
 
-Le chantier cartographie AA est clos : 44 C, 6 E, 4 HS, 3 HS-D, **0 NC** — la couverture est mesurée, les trous sont fermés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.
+Le chantier cartographie AA est clos : 45 C, 5 E, 4 HS, 3 HS-D, **0 NC** — la couverture est mesurée, les trous sont fermés, les conventions méthodo sont stables. La phase 1 du wiki est close côté cadre AA.

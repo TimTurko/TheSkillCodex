@@ -1,0 +1,29 @@
+﻿embarque\mcu\micropython\micropython-bibliotheques.md:44	Prendre capture d'écran de *la fenêtre « Gérer les paquets » de Thonny, recherche « ssd1306 » et bouton Installer visible*.
+embarque\mcu\micropython\micropython-debug.md:91	Prendre capture d'écran de *Thonny en débogage pas-à-pas d'un script MicroPython, les valeurs des variables visibles*.
+embarque\mcu\micropython\micropython-pid.md:88	Prendre capture d'écran du *traceur de Thonny affichant deux courbes, la consigne constante et la mesure qui converge vers elle*.
+embarque\mcu\micropython\micropython-prise-en-main.md:36	Prendre capture d'écran de *la page de téléchargement de Thonny sur thonny.org, avec les liens par système d'exploitation*.
+embarque\mcu\micropython\micropython-prise-en-main.md:48	Prendre capture d'écran de *la boîte de dialogue « Installer MicroPython » de Thonny, avec la variante Raspberry Pi Pico 2 sélectionnée*.
+embarque\mcu\micropython\micropython-prise-en-main.md:65	Prendre capture d'écran de *Thonny avec l'interpréteur réglé sur « MicroPython (Raspberry Pi Pico) » et le Shell affichant l'invite puis le résultat d'un print*.
+embarque\mcu\micropython\micropython-prise-en-main.md:103	Prendre capture d'écran de *la boîte « Enregistrer sous » de Thonny proposant « Raspberry Pi Pico » comme destination, le fichier nommé main.py*.
+embarque\mcu\micropython\micropython-repl.md:88	Prendre capture d'écran de *la vue Plotter de Thonny traçant une grandeur qui varie, la courbe ondulant au fil des print*.
+embarque\mcu\micropython\micropython-simulation.md:36	Prendre capture d'écran de *la page de création de projet Wokwi, avec « Raspberry Pi Pico » et le langage « MicroPython » sélectionnés*.
+embarque\mcu\micropython\micropython-simulation.md:73	Prendre capture d'écran de *la simulation Wokwi du circuit bouton et LED, bouton en cours d'appui et LED allumée*.
+embarque\mcu\micropython\micropython-timers.md:65	Prendre capture d'écran du *traceur de Thonny affichant des échantillons régulièrement espacés dans le temps*.
+embarque\mcu\raspberry-pi\raspberry-pi-prise-en-main.md:45	Prendre capture d'écran de *l'onglet « Général » de la personnalisation d'OS de Raspberry Pi Imager, avec les champs nom d'hôte, nom d'utilisateur et mot de passe, et les réglages Wi-Fi*.
+embarque\mcu\raspberry-pi\raspberry-pi-prise-en-main.md:47	Prendre capture d'écran de *l'onglet « Services » de la personnalisation d'OS de Raspberry Pi Imager, la case « Activer SSH » cochée*.
+embarque\mcu\stm32\stm32-arduino-core.md:45	Prendre capture d'écran du *menu Outils de l'IDE Arduino déroulé, montrant Type de carte « Nucleo-64 », la ligne Board part number renseignée à la référence exacte de la carte, et Upload method réglée sur « STM32CubeProgrammer (SWD) »*.
+embarque\mcu\stm32\stm32-cubemx.md:41	Prendre capture d'écran de *la vue Pinout & Configuration de CubeMX, avec quelques broches affectées en surbrillance : LD2 en GPIO_Output, PA2 et PA3 en USART2*.
+embarque\mcu\stm32\stm32-cubemx.md:49	Prendre capture d'écran de *l'onglet Clock Configuration de CubeMX, montrant l'arbre HSE vers PLL, SYSCLK et les prédiviseurs AHB et APB, avec la fréquence du cœur affichée*.
+embarque\mcu\stm32\stm32-cubemx.md:58	Prendre capture d'écran du *panneau de configuration d'un USART dans CubeMX, réglé à 115200 bauds et 8 bits de données, avec l'onglet NVIC Settings visible*.
+embarque\mcu\stm32\stm32-prise-en-main.md:38	Prendre capture d'écran de *la page de téléchargement de STM32CubeIDE sur st.com, avec les liens Windows, Linux et macOS*.
+embarque\mcu\stm32\stm32-prise-en-main.md:50	Prendre capture d'écran de *l'onglet Board Selector de STM32CubeIDE, la carte NUCLEO-F411RE sélectionnée et le bouton Next visible*.
+embarque\mcu\stm32\stm32-prise-en-main.md:69	Prendre capture d'écran de *l'éditeur main.c de CubeIDE, le basculement de LD2 inséré entre les marqueurs USER CODE BEGIN 3 et USER CODE END 3*.
+embarque\mcu\stm32\stm32-prise-en-main.md:114	Prendre capture d'écran de *la perspective Debug de CubeIDE, avec un point d'arrêt posé dans la boucle while et la flèche d'exécution sur une ligne*.
+embarque\mcu\stm32\stm32-registres.md:68	Prendre capture d'écran de *la perspective Debug de CubeIDE, vue Registers ouverte sur GPIOA, où le bit 5 du registre ODR bascule à chaque pas d'exécution*, sous forme de GIF, le mouvement étant le message.
+embarque\mcu\teensy\teensy-audio.md:42	Prendre capture d'écran de *l'Audio System Design Tool ouvert dans le navigateur, avec quelques objets posés — un générateur, un filtre, une sortie I2S — reliés par des cordons*.
+embarque\mcu\teensy\teensy-prise-en-main.md:58	Prendre capture d'écran du *menu Outils de l'IDE Arduino déroulé, montrant « Teensy 4.1 » comme type de carte, le port actif, et la ligne USB Type réglée sur Serial*.
+embarque\mcu\teensy\teensy-prise-en-main.md:79	Prendre capture d'écran de *la console de l'IDE Arduino après une compilation réussie pour Teensy, montrant la taille du binaire sans ligne rouge*.
+embarque\mcu\teensy\teensy-prise-en-main.md:90	Prendre capture d'écran de *la fenêtre du Teensy Loader pendant la programmation, avec le Teensy branché et la LED de la broche 13 allumée*.
+embarque\pcb\kicad.md:18	Prendre capture d'écran de *la fenêtre de démarrage de KiCad et de ses deux éditeurs principaux côte à côte : l'éditeur de schéma (Eeschema) à gauche, l'éditeur de circuit imprimé (Pcbnew) à droite*.
+embarque\pcb\kicad.md:41	Prendre capture d'écran de *Pcbnew montrant une carte 2 couches en cours de routage : composants placés, pistes tracées en rouge (dessus) et vert (dessous), contour de carte visible*.
+embarque\pcb\kicad.md:50	Prendre capture d'écran du *schéma KiCad de la carte : le microcontrôleur au centre, le capteur relié en I²C (deux lignes SDA/SCL), le régulateur d'alimentation, et le connecteur, avec les valeurs annotées*.
