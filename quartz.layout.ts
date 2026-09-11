@@ -5,7 +5,14 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    // Encadre "Signaler une erreur" : site entier, sauf la 404 et la page
+    // /ia/, adressee aux assistants et hors du parcours etudiant.
+    Component.ConditionalRender({
+      component: Component.SignalerErreur(),
+      condition: (page) => page.fileData.slug !== "404" && page.fileData.slug !== "ia/index",
+    }),
+  ],
   footer: Component.Footer({
     // Le depot est prive : un lien GitHub serait un 404 pour l'etudiant.
     links: {},
