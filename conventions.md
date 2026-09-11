@@ -5032,6 +5032,62 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   sur le corpus avant de commander quoi que ce soit.*
   *Éprouvée 0/N.*
 
+- **Une règle publiée pour être relayée publie aussi ses omissions.** *12/09
+  (séance 22), défaut trouvé par la recette et non par une relecture.* La page
+  `/ia/` énonçait C71 sous sa forme d'avant le 29/08 — « un choix se justifie
+  sur l'adéquation technique, jamais sur le prix » — **sans la clause de
+  périmètre** qui exclut de C71 le coût comme exigence chiffrée du système
+  conçu. Gemini l'a relayée **fidèlement** et a produit « le coût ne doit jamais
+  faire partie de vos critères de sélection », qui **contredit
+  `specification-technique`** où le coût vaut la masse, et qui ferait retirer
+  à un étudiant une exigence légitime de son CdCF. *Le défaut n'est pas dans
+  l'assistant : il n'a accès ni à `conventions.md` ni à la clause, seulement au
+  texte publié.* ✅ **Règle** : *toute convention **projetée** sur une surface
+  destinée à être relayée y porte la clause qui la borne, et **un amendement de
+  convention rouvre la projection**.* ⚠ *Ce que ça coûte : `/ia/` cesse d'être un
+  texte écrit une fois. Elle devient une **dérivée** de `conventions.md`, avec
+  la dette d'entretien correspondante et **aucun instrument pour la mesurer** —
+  la seule parade connue est une relecture ligne à ligne, versée au BACKLOG.*
+  ⚠ *Différence avec C124 : là un artefact machine se **dérive** du texte humain
+  par outil, donc il suit. Ici la projection est **manuelle**, donc elle dérive
+  au sens contraire.* *Éprouvée 0/N.*
+
+- **Un témoin de lecture peut être à SENS UNIQUE, et son cas négatif ne vaut
+  alors rien.** *12/09 (séance 22), sur un instrument que j'avais qualifié de
+  meilleur de la campagne.* L'encadré `Signaler une erreur`, né le jour même,
+  était **inconfabulable** : sa restitution exacte prouve qu'un assistant a lu
+  le HTML servi ce jour-là. J'en ai tiré qu'il mesurait la lecture. **Faux dans
+  un sens** : `rawMarkdown` émet la source Markdown, où le bloc `afterBody` est
+  absent **par construction**, et `/ia/` recommande justement ce canal comme la
+  lecture « la plus fidèle et la moins coûteuse ». *Son absence ne distingue
+  donc pas « n'a pas lu » de « a lu l'autre canal » — et l'erreur a été
+  commise dans la foulée, une réponse exacte ayant d'abord été lue comme une
+  confabulation.* ✅ **Règle** : *un témoin bâti sur un artefact publié se
+  vérifie contre **tous les canaux qui servent la page**, pas contre celui que
+  l'auteur a en tête ; et un témoin dont le cas négatif est nul se déclare tel
+  au moment où on le pose.* ⚠ *Famille de « une page bilingue sort de tous les
+  contrôles de la zone anglaise » (31/08) : le défaut naît du **nombre de
+  canaux**, que l'auteur d'un artefact unique oublie de compter.*
+  *Éprouvée 0/N.*
+
+- **Un critère de réfutation portant sur un événement NÉGATIF doit énumérer les
+  façons dont l'événement survient.** *12/09 (séance 22), critère publié avant
+  mesure et pourtant inexploitable.* Écrit avant de jouer : « si l'assistant
+  **refuse** une URL absente de l'index, la corrélation à l'index tombe ». Il a
+  refusé. Mais les deux refus de la campagne disaient « le site bloque les
+  robots » — un accès rapporté comme tenté et empêché — quand celui-ci disait
+  « je ne peux pas naviguer sur Internet », c'est-à-dire une **absence d'outil**,
+  démenti par le sujet lui-même deux messages plus tôt. **Le critère a tiré sur
+  un événement qui n'était pas le sien.** ✅ **Règle** : *un critère de la forme
+  « si X échec alors Y » énumère **les espèces d'échec** avant la mesure ; à
+  défaut, la première occurrence d'une espèce non prévue le déclenche à tort.*
+  ⚠ **Et la parade tenue après coup est la seule licite** : *déclarer que le
+  critère a tiré sur sa lettre, refuser de rendre le verdict, et rejouer* —
+  **jamais réécrire le critère une fois la donnée vue**. ⚠ *Famille du 01/09
+  (un critère peut porter une hypothèse qu'il ne nomme pas) : celui-ci portait
+  une **taxonomie** qu'il ne nommait pas. Un échec est un genre, pas un fait.*
+  *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes

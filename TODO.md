@@ -5,6 +5,22 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➤ MAJ 12/09 (séance 22) — L'ENCADRÉ EST POSÉ EN UN POINT POUR TOUT LE SITE, LE LOT DES 50 FICHES EST DISSOUT, ET LA CONSIGNE DE LUNDI EST MESURÉE.** PC perso, chat Desktop, Opus 5. **Écritures** : 3 fichiers de code + `content/ia/index.md`. Chantier des puces non ouvert.
+>
+> ✅ **LIBELLÉ ARBITRÉ, ET IL A DISSOUT SA PROPRE POPULATION.** Retenu : `[!info] Signaler une erreur` — *« Si vous trouvez une erreur, un lien qui ne mène nulle part, une image manquante ou une explication bancale, dites-le à votre enseignant : la correction profite à la promotion suivante. »* **Forme conditionnelle, donc rien d'affirmé sur la page qui le porte** — et donc **population = le site entier**, plus les 50 fiches. Marqueur temporel écarté par Tim (*il figerait ce que le lecteur a le droit de lire*), « en cours de construction » écarté (*il neutralise l'invitation*), « pas terminées » écarté (*faux*).
+>
+> ✅ **VECTEUR : COMPOSANT, PAS CALLOUT.** `quartz/components/SignalerErreur.tsx` en `sharedPageComponents.afterBody`, exclusions 404 et `/ia/` par `ConditionalRender` dans le layout. **Zéro édition de `content/`, zéro `--recaler`, et les fiches futures l'ont sans geste** — critère de Tim qui a tranché contre ma proposition. **Vérifié en production** : présent sur la racine et sur une jumelle EN en anglais, absent de `/ia/`, palette crème. ⚠ **404 non vérifiée** (coût cosmétique).
+>
+> ✅✅ **CONSIGNE DE LUNDI, MESURÉE SUR SIX MESSAGES AU COMPTE ÉCOLE** : l'étudiant donne **`https://timturko.github.io/TheSkillCodex/ia/?x=1`**. Sans le paramètre, Gemini refuse. **Les deux refus sont exactement les deux URL indexées (`/`, `/ia/`), les quatre lectures sont hors index** — corrélation attestée sur quatre URL, un sujet, une soirée. **Chaîne complète validée** : `/ia/?x=1` puis `conduite/proj/concept` ouverte depuis elle, contenu de fiche restitué juste.
+>
+> ⚠⚠ **À DIRE DE VIVE VOIX EN COURS, ÇA NE TIENT PAS DANS UN PROMPT** : (1) le `?x=1` ne survit pas à une recopie à la main — **lien cliquable, cours ET Moodle** (fait par Tim) ; (2) **le refus n'est pas reproductible** — même URL, même compte, un refus « je ne peux pas naviguer » puis une lecture juste : **parade = nouvelle conversation, même prompt**.
+>
+> ❌ **LA RECETTE A TROUVÉ UN DÉFAUT CHEZ NOUS, CORRIGÉ CE SOIR.** `/ia/` énonçait C71 en absolu, sans la clause du 29/08 ; Gemini a relayé *« le coût ne doit jamais faire partie de vos critères »*, ce qui **retire une exigence légitime du CdCF**. Corrigé FR + EN. ➤ **Entrée neuve** : auditer `/ia/` contre l'état courant des conventions, d'autres règles y étant peut-être aussi en absolu.
+>
+> **ITEMS DE LA SÉANCE 21 FERMÉS PAR CELLE-CI** : ② recette Gemini **jouée** ; ③ encadré de veille **dissout**, pas de séance Code à tenir. Les autres restent.
+>
+> **À FAIRE** : ① [Tim] **dernier push dimanche soir** — 4 fichiers de production + 4 de pilotage, **onglet Actions jusqu'au vert**, `git revert` en repli ; ② [Tim] **prompt type sur Moodle et dans le cours** ; ③ **après le cours** : ouvrir les retours d'usage (prompt type, démo), puis **coupe du JOURNAL vers un SECOND fichier d'archive** (96,20 Ko + cette entrée, seuil 100, archive actuelle à 1,26 Mo), puis **bloc 0 des puces** ; ④ **reporté après le cours, inchangé** : extension des trois modules minces, 2 captures Imager, double titre des neuf hubs ; ⑤ [Tim] **patch § 7 côté claude.ai** + ligne 62 / 57 ; ⑥ C132 à venir (numérotation à **131**).
+
 > **➤ MAJ 11/09 (séance 21) — PRIORISATION À 48 H DU PREMIER COURS.** PC pro, chat Desktop, suite immédiate de la séance 20. **Aucune écriture dans `content/`, aucun outil modifié.** Site vérifié debout par Tim.
 >
 > ✅ **CE QUE LE PREMIER COURS DEMANDE** (lundi, J+2) : **gestion de projet**, **usage du site par assistants IA**, **`schema-bloc-fonctionnel`** projeté, **parcours d'apprentissage C++ sur Arduino**. Chemin de démo : `conduite/proj`, `schema-bloc-fonctionnel`, `cpp`, `arduino`, `/ia/`. **Plateformes actives 2026** : Raspberry Pi (SBC), Arduino, ESP8266, ESP32, Xiao Seeed S3 — **tous les MCU en C/C++**.

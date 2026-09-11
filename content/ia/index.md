@@ -65,7 +65,7 @@ Trois choses ne se font pas à la place de l'équipe.
 ### Vocabulaire et cadre
 
 - **Termes que le corpus n'emploie pas** : « dérisquer » (on dit *lever une incertitude* ou *valider le fonctionnement*), « point dur » (on dit *incertitude*), « phase 2 » en prose (on nomme la phase), « soutenance intermédiaire » (on dit *revue de CdCF*).
-- **Le matériel est fourni par l'école** : un choix se justifie sur l'adéquation technique, jamais sur le prix.
+- **Le matériel est fourni par l'école** : le choix d'une carte ou d'un composant se justifie sur l'adéquation technique, jamais sur son prix. En revanche le **coût du système conçu** reste une exigence comme une autre, et un critère de coût chiffré dans le CdCF se traite au même rang que la masse. Un chiffre qui dit ce que l'étudiant doit dépenser est proscrit, un chiffre qui dit ce que le système doit tenir est une exigence.
 - **Mécanique, fabrication et analyse de cycle de vie** sont enseignées par les cours des collègues. Le site y renvoie et ne les refait pas.
 
 ### Langue
@@ -135,7 +135,7 @@ Three things are not done on the team's behalf.
 ### Vocabulary and framing
 
 - **Wording the corpus does not use**: "de-risking" (it says *resolving an uncertainty* or *validating that it works*), "pain point" (it says *uncertainty*), "phase 2" in prose (the phase is named), "interim presentation" (it says *CdCF review*).
-- **The hardware is supplied by the school**: a choice is justified on technical fit, never on price.
+- **The hardware is supplied by the school**: the choice of a board or a component is justified on technical fit, never on its price. The **cost of the system being designed** remains a requirement like any other, and a quantified cost criterion in the CdCF is treated at the same rank as mass. A figure that says what the student should spend is ruled out, a figure that says what the system must meet is a requirement.
 - **Mechanics, manufacturing and life-cycle assessment** are taught in colleagues' courses. The site points to them and does not redo them.
 
 ### Language

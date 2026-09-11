@@ -10,6 +10,47 @@
 > dernière coupe : 30/08, sessions 22/08 → 30/08 (suite 10)).
 
 <!-- INSERT_JOURNAL_HERE -->
+## 2026-09-12 (séance 22) — Le libellé arbitré en cinq tours dissout le lot des 50 fiches, un composant le remplace en un point de pose, et la corrélation du refus Gemini à l'index tient sur quatre URL
+
+- **Périmètre** — **PC perso, chat Desktop, Opus 5**, J-2 du premier cours. Séance d'arbitrage devenue production puis recette. Lectures § 6 cas A faites, machine confirmée par `list_allowed_directories`. **Chantier des puces non ouvert**, bloc 0 intact.
+- **Livrables** — `quartz/components/SignalerErreur.tsx` (neuf, **2,45 Ko**), `quartz/components/index.ts` (+2 lignes), `quartz.layout.ts` (bloc `afterBody`), et le **correctif C71 sur `content/ia/index.md`** (FR + EN). **Aucun outil créé, aucun script lancé, aucun témoin produit** — la séance n'a pas eu de sortie scriptée.
+- **Décisions Tim** — **le libellé** de l'encadré, en cinq tours ; **vecteur composant** et non callout, donc **lot des 50 fiches clos par dissolution** ; **tout sur le compte école** pour la recette, comparabilité avec le 01/09 abandonnée ; **prompt type intégré au cours et à Moodle**.
+- **Conventions** — aucune neuve, numérotation **131**. **Trois entrées § 8**, prises seules faute d'arbitrage explicite, à coût de revert nul.
+- **Tailles** — avant écriture : conventions **607,54 Ko**, TODO **311,02**, BACKLOG **241,16**, JOURNAL **96,20**. ⚠⚠ **JOURNAL à 4 Ko du seuil** : la coupe est due à la prochaine séance, vers un **second** fichier d'archive (l'actuel est à 1,26 Mo).
+
+✅ **L'ARBITRAGE DU LIBELLÉ A DÉTRUIT SON PROPRE LOT, ET C'EST LE BON RÉSULTAT.** Cinq tours, cinq positions successives de Tim, et chacune a retiré un terme : « Build in progress » (C90), « pas terminées » (**faux** — les 50 sont rédigées, relues, traduites, code commenté), le marqueur temporel *cette année* (**il figerait ce que le lecteur a le droit de lire** — objection de Tim, meilleure que ma version), « jamais utilisé en salle » (écarté), « en cours de construction » (**il neutralise l'invitation qu'il accompagne** : un lecteur à qui on annonce que l'auteur sait déjà ce qui manque ne signale rien). **Ce qui restait ne distinguait plus les 50 fiches de rien.** Libellé retenu, de Tim : titre `Signaler une erreur`, corps *« Si vous trouvez une erreur, un lien qui ne mène nulle part, une image manquante ou une explication bancale, dites-le à votre enseignant : la correction profite à la promotion suivante. »* ➤ **Ce qui le sauve est sa forme conditionnelle** : « si vous trouvez » n'affirme rien sur la page qui le porte, là où mes objections de fausseté visaient des affirmations. **Le seau des 13 fiches à captures devient sans objet.**
+
+✅ **ET LE CRITÈRE DE TIM A TRANCHÉ LE VECTEUR CONTRE MOI.** « Il doit fonctionner pour des fiches qui n'existent pas encore » : un callout Markdown ne couvre **aucune** fiche future, un composant de layout la couvre gratuitement. Retenu : `sharedPageComponents.afterBody`, créneau **vide** et partagé par les pages de contenu **et** de liste. **Zéro édition de `content/` pour l'encadré, zéro jumelle en dérive, zéro `--recaler`, un seul point de pose** — contre 100 éditions et 50 recalages prévus au brief. Bilingue par le champ `lang:` du bloc B, lu comme `renderPage.tsx` le lit. Style hérité sans une ligne de CSS : la charte v2 cible `.callout[data-callout="info"]`, donc la structure réémise suffit. Exclusions par `ConditionalRender` dans le layout, **là où la pose se lit** : la 404 et `/ia/`.
+
+✅ **VÉRIFIÉ EN PRODUCTION, PAS DÉDUIT.** Fetch de la racine déployée : l'encadré y est, sous le filet. Fetch de `/ia/` : **il n'y est pas** — l'exclusion fonctionne et le slug est bien `ia/index`, ce que j'avais appuyé sur l'analogie du `!== "index"` de la racine. ⚠ **Un seul terme reste non vérifié** : la 404, inatteignable par fetch (URL construite refusée). Coût d'un échec : cosmétique. ⚠ *Tim a poussé avant de faire le build local que je demandais ; le rendu en ligne prouve plus fort ce que `tsc` aurait prouvé, mais c'était un coup de chance de séquence.*
+
+✅✅ **LA RECETTE GEMINI FERME LE CHANTIER IA SUR UNE CONSIGNE UTILISABLE.** Six messages, **compte école**, conversation neuve **et précédente supprimée** à chaque fois. **`/ia/` nu refusé, `/ia/?x=1` lue** (titre exact, quatre règles justes) ; **`/` nu refusé** ; **`conduite/proj/gestion-de-projet` non indexée LUE** au second essai, titre juste et description exacte des Livrables 1/3 et 2/3 — **vérifiée sur le disque** ; et **M6, la chaîne complète** : `/ia/?x=1` puis `conduite/proj/concept` ouverte depuis elle, avec *« Décomposer le système »*, le piège des composants trop tôt **et** le `[!warning]` du trou dans le CdCF logé dans un sous-temps de l'étape 1 — il a lu le corps, pas les titres. ➤ **Quatre URL, un sujet, une soirée : les deux refus sont exactement les deux URL indexées, les quatre lectures sont hors index.** Non prouvée causale, seule hypothèse debout, et désormais attestée sur un second compte et un autre réseau. **Consigne de lundi : l'étudiant donne `https://timturko.github.io/TheSkillCodex/ia/?x=1`.**
+
+⚠⚠ **LE REFUS N'EST PAS REPRODUCTIBLE, ET C'EST LE FAIT OPÉRATIONNEL DE LA SÉANCE.** Même URL, même compte, deux conversations neuves : *« je ne peux pas naviguer sur Internet »* d'abord, lecture juste ensuite. Ce n'est pas un accès empêché, c'est une **absence d'outil**, et c'est faux du sujet lui-même puisqu'il avait lu une page deux messages plus tôt. **Témoin nul, pas réfutation.** Parade à dire de vive voix : nouvelle conversation, même prompt.
+
+❌ **LE DÉFAUT TROUVÉ PAR LA RECETTE EST CHEZ NOUS, ET IL EST CORRIGÉ.** M5 a rendu *« Ignorer le prix : le coût ne doit jamais faire partie de vos critères de sélection »* — **faux du corpus** : la clause du 29/08 dit que C71 n'atteint pas le coût comme exigence chiffrée du système conçu, où il vaut la masse. Un étudiant suivant cette consigne **retire une exigence légitime de son CdCF**. **Cause chez nous** : `/ia/` énonçait C71 sous sa forme absolue, sans sa clause, dans les deux langues. L'assistant a relayé fidèlement une règle publiée incomplète. Corrigé ce soir, deux ancres, une correspondance chacune ; le correctif atteint `llms.txt` tout seul, son préambule **étant** le corps de la page.
+
+⚠ **DEUX DÉFAUTS À MON COMPTE, ET LE SECOND EST UN INSTRUMENT QUE J'AI VANTÉ.** (1) J'ai prédit que `write_file` refuserait un chemin pris : **il n'a aucune garde d'existence**, il écrase sans avertir — comportement d'outil prédit sans lire l'outil, famille C116 (7). Le chemin était libre par le relevé du dossier, rien n'a été détruit. (2) J'ai présenté l'encadré comme « le meilleur témoin de lecture de la campagne » parce qu'il est né le jour même, donc inconfabulable. **Il est unidirectionnel** : `rawMarkdown` ne l'émet pas, et `/ia/` recommande justement ce canal — sa restitution prouve, son absence ne prouve rien, et M4 bis a précisément répondu sur le dernier callout du corps. (3) Et ma prédiction M5 est **réfutée** : je le voyais atteindre une fiche, il a répondu depuis `/ia/` seule.
+
+**Bilan des prédictions — écritures : 4 tenues, 1 réfutée. Recette : 5 tenues, 1 réfutée, 1 nulle.** Registre `tools/predictions-260912.md` **non ouvert** (séance chat, prédictions publiées à l'écran) — **écart à C130 déclaré**.
+
+**Reste à Tim (C121)** — **dernier push, dimanche soir**, onglet Actions jusqu'au vert, `git revert` en repli :
+
+```powershell
+cd C:\Users\turko\Documents\TheSkillCodex
+git status
+git add quartz/components/SignalerErreur.tsx quartz/components/index.ts quartz.layout.ts content/ia/index.md
+git add JOURNAL.md TODO.md BACKLOG.md conventions.md
+git commit -m "seance 22 : encadre signaler une erreur en composant, correctif C71 sur ia, recette gemini"
+git push
+```
+
+**Reste aussi, hors dépôt** : le **prompt type sur une surface cliquable** (cours **et** Moodle, décidé) — jamais recopié à la main, le `?x=1` ne survivrait pas ; la parade « nouvelle conversation » à dire en cours ; le **patch § 7 côté claude.ai** et la ligne 62 / 57, dus depuis la séance 14.
+
+**Arbitrages en attente** — ✅ **deux RENDUS** : libellé et vecteur. ✅ **Un CLOS par dissolution** : l'encadré sur 50 fiches. ✅ **Un CLOS par la mesure** : l'acheminement vers `/ia/`, qui fonctionne **avec le paramètre**. ⚠ **Un NEUF** : auditer `/ia/` contre l'état courant des conventions. **Inchangés** : anglais d'une page `bilingue: true`, pointeur visible en bas de racine, arbitrage 6, relecture ciblée des 4 fiches, double titre des neuf hubs, URL absolues sans contrôle, et la file.
+
+**Prochaine session** — **après le cours**. Deux entrées de retour d'usage à ouvrir : ce que les étudiants ont fait du prompt type, et ce que la démo a révélé. Puis **coupe du JOURNAL** vers un second fichier d'archive, et **bloc 0 des puces**. Prompt de lancement livré à l'écran (C129).
+
 ## 2026-09-11 (séance 21) — Git réinstallé, le commit automatique coupé après 407 commits sans auteur, et deux lots du BACKLOG s'avèrent vides à 48 h du premier cours
 
 - **Périmètre** — **PC pro, chat Desktop**, suite immédiate de la séance 20 dans la même conversation. Trois sujets non prévus : réinstallation de git, découverte du commit automatique, priorisation à 48 h du premier cours. **Aucune écriture dans `content/`, aucun outil modifié.**
