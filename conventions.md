@@ -4967,6 +4967,30 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   le seul geste disponible est d'écrire l'hypothèse pour qu'elle soit visible.*
   *Éprouvée 0/N.*
 
+- **Une colonne lue sur une capture à défilement horizontal n'est pas une
+  donnée : l'alignement est une hypothèse.** *11/09 (séance 20). Le rapport
+  Sitemaps a été transmis en capture, barre de défilement visible en bas du
+  tableau ; j'ai lu une date sous l'en-tête « URL envoyées », conclu que
+  « Dernière lecture » était vide, et bâti « jamais tenté » dessus. Les dates
+  existaient et disaient l'inverse : une tentative chacun, jamais reprise.
+  **Un en-tête et une valeur ne sont solidaires que si la colonne entière est
+  visible — sinon le rapprochement est une affirmation sur ce que l'image
+  contient, ce que C108 proscrit déjà pour une photo.** Parade : faire lire la
+  ligne, champ par champ, au lieu de la déduire du cadrage.*
+  *Éprouvée 0/N.*
+
+- **Un instrument externe qui ne rend pas ne conditionne pas l'avancement du
+  chantier : on le soumet, on le consigne, on passe.** *11/09 (séance 20). Le
+  statut du sitemap a gelé le wiki sept jours pour ne rien rendre, et neuf
+  hypothèses sont tombées sans qu'une seule soit côté dépôt — le fichier est
+  conforme, Bing le lit et en a tiré 485 URL, Googlebot déclare y avoir
+  accès. **Le coût du gel n'a pas été la mesure, qui tenait en deux clics,
+  mais la subordination du plan à un verdict qu'aucune action du dépôt ne
+  pouvait produire.** Distinguer un instrument qu'on pilote d'un instrument
+  qu'on observe : le second se relève en passant, il ne commande pas l'ordre
+  des séances.*
+  *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
