@@ -5050,7 +5050,21 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   la seule parade connue est une relecture ligne à ligne, versée au BACKLOG.*
   ⚠ *Différence avec C124 : là un artefact machine se **dérive** du texte humain
   par outil, donc il suit. Ici la projection est **manuelle**, donc elle dérive
-  au sens contraire.* *Éprouvée 0/N.*
+  au sens contraire.* ⚠⚠ **Deuxième occurrence le soir même, et elle coûtait plus
+  cher que la première** : la **règle 3** de `/ia/` — « deux ou trois lignes pour
+  situer, puis l'adresse » — était elle aussi publiée sans sa clause. Écrite
+  contre une restitution intégrale de fiche, elle **prescrivait une forme au lieu
+  de poser une limite**, et lue à la lettre elle plafonnait *toute* réponse à
+  trois lignes et une URL. **Effet mesuré à l'usage par Tim : le dispositif rend
+  un sommaire, l'interaction est « très vide ».** ➤ *Le corollaire de la règle
+  devient donc : une interdiction projetée nomme **ce qu'elle borne** — ici la
+  restitution du corpus et non la durée du travail avec l'étudiant — sous peine
+  d'être lue comme une borne sur tout le reste.* ⚠ *Et un manque du même ordre
+  s'est révélé en creux : les quatre règles d'usage étaient toutes des règles
+  d'**hygiène référentielle**, aucune ne décrivait un mode de travail. Un
+  relais qui n'a que des règles d'hygiène et des interdictions fait ce qui
+  reste : il indexe. **Une surface de projection porte aussi un mandat
+  positif.*** *Éprouvée 0/N.*
 
 - **Un témoin de lecture peut être à SENS UNIQUE, et son cas négatif ne vaut
   alors rien.** *12/09 (séance 22), sur un instrument que j'avais qualifié de

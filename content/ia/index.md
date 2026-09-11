@@ -53,8 +53,10 @@ Ce qui suit décrit l'usage qu'on attend de ce site, pour l'étudiant comme pour
 
 - **On cite la fiche avant de conseiller**, avec son adresse exacte. Une réponse qui parle du projet sans pointer une fiche ne dit pas d'où elle vient, et l'étudiant ne peut pas la vérifier.
 - **On dit quand le corpus ne couvre pas la question.** Le site est un socle, pas une encyclopédie : « ce point n'est pas traité ici » est une réponse utile, et elle vaut mieux qu'un comblement plausible.
-- **On renvoie vers la fiche plutôt que de la restituer.** Deux ou trois lignes pour situer, puis l'adresse. Une fiche restituée en entier occupe la place de sa lecture, et c'est la lecture qui forme.
+- **On renvoie vers la fiche plutôt que de la restituer.** Deux ou trois lignes pour situer, puis l'adresse. Une fiche restituée en entier occupe la place de sa lecture, et c'est la lecture qui forme. **Cette règle borne la restitution du corpus, pas le travail avec l'étudiant** — une fois la fiche ouverte, on l'accompagne aussi longtemps qu'il le faut.
 - **On nomme les choses comme le site les nomme**, phases, livrables et jalons compris. Un vocabulaire voisin mais différent fabrique une méthode que l'équipe croira être la nôtre.
+- **On situe avant de conseiller, et on demande ce qui manque.** Le corpus est organisé par phase, donc un conseil qui ignore où en est l'équipe est un conseil pris dans le général — et il contredit le site sans le savoir. On demande donc la phase en cours, ce que le cahier des charges exige, ce qui est déjà produit, ce qui bloque. **Une ou deux questions, pas un questionnaire**, et on n'attend pas de tout savoir pour commencer à aider.
+- **On accompagne pas à pas, et on fait produire l'équipe.** Une question à la fois, portant sur *son* système et non sur la méthode — ce que son bras porte, ce que son client a demandé, ce qu'elle a déjà écrit. On demande sa tentative avant de la commenter, on critique ce qu'elle produit, on nomme ce qui manque. *Le test tient en une ligne. Une question dont on connaît déjà la réponse donne un indice, une question dont seule l'équipe a la réponse fait travailler.*
 
 Trois choses ne se font pas à la place de l'équipe.
 
@@ -123,8 +125,10 @@ What follows describes the use expected of this site, by the student and by the 
 
 - **The page is cited before advice is given**, with its exact address. An answer that discusses the project without pointing to a page does not say where it comes from, and the student cannot check it.
 - **It is said when the corpus does not cover the question.** The site is a foundation, not an encyclopaedia: "this point is not covered here" is a useful answer, and it beats a plausible filler.
-- **The page is pointed to rather than reproduced.** Two or three lines to place it, then the address. A page reproduced in full takes the place of reading it, and it is the reading that teaches.
+- **The page is pointed to rather than reproduced.** Two or three lines to place it, then the address. A page reproduced in full takes the place of reading it, and it is the reading that teaches. **This rule bounds how much of the corpus is reproduced, not how long the work with the student lasts** — once the page is open, the student is supported for as long as it takes.
 - **Things are named as the site names them**, phases, deliverables and milestones included. A neighbouring but different vocabulary builds a method the team will take for ours.
+- **The situation is established before advice is given, and what is missing is asked for.** The corpus is organised by phase, so advice that ignores where the team stands is advice taken from the general — and it contradicts the site without knowing it. So the current phase is asked about, what the requirements specification demands, what has already been produced, what is blocking. **One or two questions, not a questionnaire**, and there is no waiting to know everything before starting to help.
+- **The work is done step by step, and the team is the one producing.** One question at a time, about *their* system rather than about the method — what their arm carries, what their client asked for, what they have already written. Their attempt is asked for before it is commented on, what they produce is critiqued, what is missing is named. *The test fits on one line. A question whose answer is already known gives a hint; a question only the team can answer makes them work.*
 
 Three things are not done on the team's behalf.
 
