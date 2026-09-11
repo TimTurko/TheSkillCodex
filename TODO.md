@@ -5,6 +5,20 @@
 
 ## Prochaines sessions (ordre logique)
 
+> **➤ MAJ 11/09 (séance 21) — PRIORISATION À 48 H DU PREMIER COURS.** PC pro, chat Desktop, suite immédiate de la séance 20. **Aucune écriture dans `content/`, aucun outil modifié.** Site vérifié debout par Tim.
+>
+> ✅ **CE QUE LE PREMIER COURS DEMANDE** (lundi, J+2) : **gestion de projet**, **usage du site par assistants IA**, **`schema-bloc-fonctionnel`** projeté, **parcours d'apprentissage C++ sur Arduino**. Chemin de démo : `conduite/proj`, `schema-bloc-fonctionnel`, `cpp`, `arduino`, `/ia/`. **Plateformes actives 2026** : Raspberry Pi (SBC), Arduino, ESP8266, ESP32, Xiao Seeed S3 — **tous les MCU en C/C++**.
+>
+> ❌ **DEUX LOTS DU BACKLOG SONT VIDES, NE PAS LES ROUVRIR.** (1) Les « 8 commentaires de gabarit » sont **des notes de conception datées** (décisions 25/05), à **conserver** ; et `rawMarkdown.ts` **les retire déjà** du canal Markdown depuis le bloc A1 du 31/08, donc aucun risque côté assistant IA. (2) Les « 6 hubs à double titre » sont **neuf**, **tous des `index.md` de hub** (5 FR, 4 EN), aucune fiche ordinaire — **vraisemblablement voulu**, à trancher, cosmétique.
+>
+> ✅ **ENCADRÉ DE VEILLE : POPULATION FERMÉE À 50 FICHES** — micropython **39**, stm32 **6**, teensy **5**. MicroPython réellement inutilisé (objection levée : c'est un langage, mais aucun MCU n'est programmé ainsi). ⚠ **Sur les fiches, PAS sur les hubs** : Tim observe que « le parcours marche un peu, la recherche marche beaucoup » — les étudiants n'atteignent pas les hubs. **100 fichiers avec les jumelles → séance Code et outil, pas édition manuelle.**
+>
+> ⚠⚠ **TROIS DES CINQ PLATEFORMES ACTIVES ONT UN MODULE MINCE** : Raspberry Pi **4**, Xiao **4**, ESP8266 **3**, contre Arduino 33 et ESP32 13. **Chantier de rentrée**, à cadrer avant que les projets avancent, C57 à revisiter sur trois branches et non une.
+>
+> ⚠⚠ **RECETTE GEMINI POSÉE, NON JOUÉE, À JOUER AVANT LUNDI.** Les étudiants ont **Gemini Pro par l'école**, donc l'anomalie de la séance 18 porte sur `/` et `/ia/` — **la pièce centrale de la démo**. Quatre messages : `/ia/` nu, puis `/ia/?x=1` si refus, puis la racine, puis `conduite/proj/gestion-de-projet.md`. **Juger sur la sortie texte restituée, pas sur ce que Gemini dit avoir lu.**
+>
+> **À FAIRE** : ① [Tim] **push du pilotage** puis **bascule sur PC perso** (`git pull` à l'arrivée) ; ② [Tim] **recette Gemini**, 4 messages, avant lundi ; ③ **week-end, séance Code : encadré de veille sur les 50 fiches** + arbitrage du libellé en ouverture (« Build in progress » proscrit, « non terminées » faux, « à la place, on » obligatoire) ; ④ ⚠ **dernier push dimanche soir** — **rester sur l'onglet Actions jusqu'au vert**, `git revert` en repli ; ⑤ **reporté après le cours** : bloc 0 des puces, extension des trois modules minces, 2 captures Imager, double titre des hubs ; ⑥ [Tim] **patch § 7 côté claude.ai** + ligne 62 / 57 ; ⑦ C132 à venir (numérotation à **131**).
+
 > **➤ MAJ 11/09 (séance 20)** — **LE CHANTIER INDEXATION EST CLOS SUR UN DÉFAUT HORS DÉPÔT. LE CHANTIER DES PUCES EST ROUVERT.** PC pro, chat Desktop, **Opus 5**, reprise de la conversation de la séance 19 après le gel J+7. **Aucune fiche touchée, rien dans `content/`, aucun outil modifié.**
 >
 > ❌ **REJEU J+7 : RIEN DE NEUF, ET C'EST LE RÉSULTAT.** Les deux sitemaps « impossible de récupérer », type **Inconnu**, **0 page découverte**, dernières lectures **31/08** et **03/09** — une tentative chacun, jamais reprise. **2 URL dans l'index sur ~490**, `/` et `/ia/`, **« non indexées : 0, aucun motif »** : Google ne connaît pas les 488 autres. Les deux indexées sont **exactement les deux soumises à la main**. **Resoumission de `sitemap.xml` faite le 11/09, sans suppression** : date au 11/09, **état inchangé** — prédiction tenue sur ses deux termes.

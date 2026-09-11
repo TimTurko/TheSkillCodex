@@ -1,0 +1,88 @@
+﻿COMM conduite\proj\ecoconception.md:45	<!--
+COMM conduite\proj\ecoconception.md:146	<!--
+COMM conduite\proj\ecoconception.md:170	<!--
+COMM conduite\proj\gestion-de-projet.md:50	<!--
+COMM conduite\proj\gestion-de-projet.md:150	<!--
+COMM conduite\proj\gestion-de-projet.md:170	<!--
+COMM conduite\proj\securite-et-qualite.md:41	<!--
+COMM conduite\proj\securite-et-qualite.md:161	<!--
+COMM templates\fiche-notion.md:13	<!--
+COMM templates\fiche-notion.md:50	<!--
+COMM templates\fiche-notion.md:65	<!--
+COMM templates\fiche-notion.md:82	<!--
+COMM templates\fiche-notion.md:105	<!--
+COMM templates\fiche-notion.md:133	<!--
+COMM templates\fiche-notion.md:160	<!--
+COMM templates\fiche-notion.md:182	<!--
+COMM templates\fiche-notion.md:199	<!--
+COMM templates\fiche-trame.md:16	<!--
+COMM templates\fiche-trame.md:42	<!--
+COMM templates\fiche-trame.md:56	<!--
+COMM templates\fiche-trame.md:73	<!--
+COMM templates\fiche-trame.md:94	<!--
+COMM templates\fiche-trame.md:179	<!--
+COMM templates\fiche-trame.md:191	<!--
+COMM templates\fiche-trame.md:212	<!--
+COMM templates\fiche-trame.md:228	<!--
+COMM templates\fiche-trame.md:242	<!--
+COMM templates\fiche-tuto.md:13	<!--
+COMM templates\fiche-tuto.md:60	<!--
+COMM templates\fiche-tuto.md:75	<!--
+COMM templates\fiche-tuto.md:93	<!--
+COMM templates\fiche-tuto.md:135	<!--
+COMM templates\fiche-tuto.md:163	<!--
+COMM templates\fiche-tuto.md:190	<!--
+COMM templates\fiche-tuto.md:212	<!--
+COMM templates\fiche-tuto.md:237	<!--
+COMM templates\fiche-tuto.md:254	<!--
+TITRE index.md:7	# Bienvenue sur TheSkillCodex
+TITRE conduite\ese\index.md:6	# ESE — Normes, sécurité, réglementation
+TITRE conduite\meo\index.md:6	# MEO — Méthodes, organisation, animation
+TITRE conduite\proj\index.md:6	# PROJ — Démarche projet transversale
+TITRE embarque\mcu\micropython\micropython-alimentation.md:78	# ... lecture capteurs, affichage OLED, pilotage servo
+TITRE embarque\mcu\micropython\micropython-deep-sleep.md:46	# Detecter d'ou vient le demarrage
+TITRE embarque\mcu\micropython\micropython-deep-sleep.md:54	# ... transmettre, ou sauvegarder dans un fichier (voir micropython-stockage) ...
+TITRE embarque\mcu\micropython\micropython-deep-sleep.md:67	# ... travail ...
+TITRE embarque\mcu\micropython\micropython-deep-sleep.md:69	# ... la suite s'execute normalement ...
+TITRE embarque\mcu\micropython\micropython-deep-sleep.md:120	# ... transmettre la mesure ...
+TITRE embarque\mcu\micropython\micropython-gpio-boot.md:66	# Le relais (actif-bas) part directement à l'état relâché (1), sans passer par 0
+TITRE embarque\mcu\micropython\micropython-gpio-boot.md:69	# Le moteur part arrêté
+TITRE embarque\mcu\micropython\micropython-gpio-boot.md:89	# le relais ne colle qu'à la demande explicite (relais.value(0))
+TITRE embarque\mcu\micropython\micropython-lire-un-programme.md:116	# ici, le fichier est déjà refermé
+TITRE embarque\mcu\micropython\micropython-memoire.md:91	# AVANT — alloue et fragmente a chaque tour
+TITRE embarque\mcu\micropython\micropython-memoire.md:102	# APRES (option 1) — traite immediatement, rien n'enfle
+TITRE embarque\mcu\micropython\micropython-memoire.md:107	# APRES (option 2) — une seule allocation a la fin
+TITRE embarque\mcu\micropython\micropython-modules.md:50	# outils.py
+TITRE embarque\mcu\micropython\micropython-modules.md:58	# main.py
+TITRE embarque\mcu\micropython\micropython-servomoteur.md:147	# Valeurs ADC relevees en calibration (a mesurer pour CHAQUE servo)
+TITRE embarque\mcu\micropython\micropython-shield.md:48	# Exemple illustratif : la doc de la carte indique le GP de chaque fonction
+TITRE embarque\mcu\micropython\micropython-stockage.md:40	# Ecrire une valeur
+TITRE embarque\mcu\micropython\micropython-stockage.md:44	# Relire — en gerant l'absence de fichier (premier demarrage)
+TITRE embarque\mcu\micropython\micropython-temporisation.md:129	# Clignotement : ce sont des VARIABLES, elles changent en cours d'exécution
+TITRE embarque\mcu\micropython\micropython-temporisation.md:134	# Bouton : anti-rebond + détection de front
+TITRE en\index.md:11	# Welcome to TheSkillCodex
+TITRE en\conduite\ese\index.md:10	# ESE — Standards, safety, regulation
+TITRE en\conduite\meo\index.md:10	# MEO — Methods, organisation, facilitation
+TITRE en\conduite\proj\index.md:10	# PROJ — The cross-cutting project method
+TITRE en\embarque\mcu\micropython\micropython-alimentation-en.md:81	# ... read sensors, drive the OLED, drive the servo
+TITRE en\embarque\mcu\micropython\micropython-deep-sleep-en.md:49	# Detecter d'ou vient le demarrage
+TITRE en\embarque\mcu\micropython\micropython-deep-sleep-en.md:57	# ... transmettre, ou sauvegarder dans un fichier (voir micropython-stockage) ...
+TITRE en\embarque\mcu\micropython\micropython-deep-sleep-en.md:70	# ... travail ...
+TITRE en\embarque\mcu\micropython\micropython-deep-sleep-en.md:72	# ... la suite s'execute normalement ...
+TITRE en\embarque\mcu\micropython\micropython-deep-sleep-en.md:123	# ... transmettre la mesure ...
+TITRE en\embarque\mcu\micropython\micropython-gpio-boot-en.md:69	# The (active-low) relay starts straight in the released state (1), never passing through 0
+TITRE en\embarque\mcu\micropython\micropython-gpio-boot-en.md:72	# The motor starts stopped
+TITRE en\embarque\mcu\micropython\micropython-gpio-boot-en.md:92	# the relay only pulls in on an explicit request (relais.value(0))
+TITRE en\embarque\mcu\micropython\micropython-lire-un-programme-en.md:119	# here, the file is already closed again
+TITRE en\embarque\mcu\micropython\micropython-memoire-en.md:94	# BEFORE - allocates and fragments on every pass
+TITRE en\embarque\mcu\micropython\micropython-memoire-en.md:105	# AFTER (option 1) - dealt with straight away, nothing swells
+TITRE en\embarque\mcu\micropython\micropython-memoire-en.md:110	# AFTER (option 2) - a single allocation at the end
+TITRE en\embarque\mcu\micropython\micropython-modules-en.md:53	# outils.py
+TITRE en\embarque\mcu\micropython\micropython-modules-en.md:61	# main.py
+TITRE en\embarque\mcu\micropython\micropython-servomoteur-en.md:150	# ADC values read during calibration (to measure for EVERY servo)
+TITRE en\embarque\mcu\micropython\micropython-shield-en.md:51	# Illustration only: the board's documentation gives the GP for each function
+TITRE en\embarque\mcu\micropython\micropython-stockage-en.md:43	# Write a value
+TITRE en\embarque\mcu\micropython\micropython-stockage-en.md:47	# Read it back, handling the case where the file is missing (first start-up)
+TITRE en\embarque\mcu\micropython\micropython-temporisation-en.md:132	# Clignotement : ce sont des VARIABLES, elles changent en cours d'execution
+TITRE en\embarque\mcu\micropython\micropython-temporisation-en.md:137	# Bouton : anti-rebond + detection de front
+TITRE ressources\index.md:7	# Ressources

@@ -5015,6 +5015,23 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   un `git log` dont personne n'avait besoin.*
   *Éprouvée 0/N.*
 
+- **Une formule de BACKLOG n'est pas une mesure : un lot ne devient une
+  priorité qu'après réouverture d'au moins une occurrence.** *11/09
+  (séance 21). Deux lots inscrits au BACKLOG — « 8 commentaires de gabarit
+  restés dans 3 trames », « 6 hubs à double titre » — ont fondé un ordre de
+  priorité à 48 h du premier cours, et **les deux se sont dissous à la
+  première lecture** : les commentaires sont des notes de conception datées,
+  à conserver, et déjà retirées du canal Markdown par `rawMarkdown.ts` depuis
+  le bloc A1 du 31/08 ; les hubs sont neuf et non six, tous des `index.md`,
+  vraisemblablement voulus. **Dans les deux cas la formule d'inscription a
+  été propagée sans qu'une seule occurrence soit rouverte**, et j'ai même
+  inventé un risque de démo pour un défaut dont la parade était en production
+  depuis onze jours. **Le coût n'est pas l'erreur, c'est l'ordre de bataille
+  qu'elle produit à l'approche d'une échéance.** Parade : le qualificatif
+  d'un lot est une hypothèse de son auteur passé, pas un fait — il se relit
+  sur le corpus avant de commander quoi que ce soit.*
+  *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
