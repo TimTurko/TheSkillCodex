@@ -4991,6 +4991,30 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   des séances.*
   *Éprouvée 0/N.*
 
+- **Une convention sur qui écrit dans le dépôt se vérifie contre l'historique,
+  jamais contre les intentions des acteurs.** *11/09 (séance 20). C121 dit
+  « Tim tient tous les commits, Claude ne commite jamais ». Elle a été
+  respectée par les deux parties pendant six mois, et **407 des 464 commits
+  — 87,7 % — ont pourtant été rédigés par une automatisation qu'aucun de nous
+  n'avait en tête**, le plugin Git d'Obsidian à intervalle de dix minutes
+  (`autoSaveInterval: 10`), commit et push compris. Les 57 commits
+  documentaires sont noyés à un contre huit, ce qui fait de `git log` un
+  journal illisible et a produit une prédiction fausse en séance 20 : tête
+  annoncée à `836db09` parce qu'héritée de l'entrée JOURNAL de la séance 18,
+  tête réelle à `daa0833`. **Le défaut n'est pas une violation, c'est un angle
+  mort : une règle formulée sur les acteurs ne couvre pas les processus.** Et
+  la configuration du processus était elle-même exclue de la synchronisation
+  par une ligne nominative de `.gitignore`
+  (`.obsidian/plugins/obsidian-git/data.json`, « specifique appareil ») —
+  décision juste en soi, puisque le fichier est réécrit en continu, mais qui
+  rendait l'angle mort invisible **aux deux postes à la fois** et imposait de
+  couper le réglage deux fois. **Parade : toute convention portant sur
+  l'écriture dans le dépôt s'accompagne d'une commande qui la vérifie contre
+  les faits, et cette commande se joue au moins une fois.** Le défaut n'est
+  apparu que parce que git a été désinstallé par inadvertance, ce qui a forcé
+  un `git log` dont personne n'avait besoin.*
+  *Éprouvée 0/N.*
+
 ---
 
 ## Annexe — Conventions de référence externes
