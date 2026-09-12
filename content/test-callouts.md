@@ -7,23 +7,24 @@ Page de travail temporaire, à supprimer après l'arbitrage des couleurs du mode
 
 Les trois versions sont **identiques en mode clair** — c'est volontaire, et c'est le premier contrôle : si un bloc diffère des deux autres en clair, la proposition touche au mode clair, ce qu'aucune des deux options ne doit faire. Tout l'écart se juge **en mode sombre**.
 
+Révision 2 : les valeurs d'attribut des sélecteurs sont **sans guillemets**, la chaîne de rendu échappant les guillemets d'un `<style>` de contenu en `&quot;` — ce qui tuait silencieusement les seize règles. Le bloc « Fond 16 % » de la section 3 porte, lui, ses couleurs en attribut `style=` inline : c'est le témoin de mécanisme, il départage « la feuille de style est morte » de « les couleurs sont mauvaises ».
+
 <style>
-:root[saved-theme="dark"] .callout.cand[data-callout="question"]{--color:#B5C5D6;--border:#B5C5D6;--bg:#3B5F7F1A}
-:root[saved-theme="dark"] .callout.orig[data-callout="question"]{--color:#dba642;--border:#dba64244;--bg:#dba64210}
-:root[saved-theme="dark"] .callout.cand[data-callout="info"]{--color:#FAF6EC;--border:#FAF6EC;--bg:#8C7E5C1A}
-:root[saved-theme="dark"] .callout.orig[data-callout="info"]{--color:#00b8d4;--border:#00b8d444;--bg:#00b8d410}
-:root[saved-theme="dark"] .callout.cand[data-callout="tip"]{--color:#D8E3D3;--border:#D8E3D3;--bg:#5C85561A}
-:root[saved-theme="dark"] .callout.orig[data-callout="tip"]{--color:#00bfa5;--border:#00bfa544;--bg:#00bfa510}
-:root[saved-theme="dark"] .callout.cand[data-callout="warning"]{--color:#FADFAF;--border:#FADFAF;--bg:#A8761F1A}
-:root[saved-theme="dark"] .callout.orig[data-callout="warning"]{--color:#db8942;--border:#db894244;--bg:#db894210}
-:root[saved-theme="dark"] .callout.cand[data-callout="failure"]{--color:#F6B5A0;--border:#F6B5A0;--bg:#A33A1F1A}
-:root[saved-theme="dark"] .callout.orig[data-callout="failure"]{--color:#db4242;--border:#db424244;--bg:#db424210}
-:root[saved-theme="dark"] .callout.cand[data-callout="example"]{--color:#F9E6D4;--border:#F9E6D4;--bg:#A86A3F1A}
-:root[saved-theme="dark"] .callout.orig[data-callout="example"]{--color:#7a43b5;--border:#7a43b544;--bg:#7a43b510}
-:root[saved-theme="dark"] .callout.cand[data-callout="livrable"]{--color:#EED9FB;--border:#EED9FB;--bg:#6B3B961A}
-:root[saved-theme="dark"] .callout.orig[data-callout="livrable"]{--color:#448aff;--border:#448aff44;--bg:#448aff10}
-:root[saved-theme="dark"] .callout.a16[data-callout="livrable"]{--color:#EED9FB;--border:#EED9FB;--bg:#6B3B9629}
-:root[saved-theme="dark"] .callout.a24[data-callout="livrable"]{--color:#EED9FB;--border:#EED9FB;--bg:#6B3B963D}
+:root[saved-theme=dark] .callout.cand[data-callout=question]{--color:#B5C5D6;--border:#B5C5D6;--bg:#3B5F7F1A}
+:root[saved-theme=dark] .callout.orig[data-callout=question]{--color:#dba642;--border:#dba64244;--bg:#dba64210}
+:root[saved-theme=dark] .callout.cand[data-callout=info]{--color:#FAF6EC;--border:#FAF6EC;--bg:#8C7E5C1A}
+:root[saved-theme=dark] .callout.orig[data-callout=info]{--color:#00b8d4;--border:#00b8d444;--bg:#00b8d410}
+:root[saved-theme=dark] .callout.cand[data-callout=tip]{--color:#D8E3D3;--border:#D8E3D3;--bg:#5C85561A}
+:root[saved-theme=dark] .callout.orig[data-callout=tip]{--color:#00bfa5;--border:#00bfa544;--bg:#00bfa510}
+:root[saved-theme=dark] .callout.cand[data-callout=warning]{--color:#FADFAF;--border:#FADFAF;--bg:#A8761F1A}
+:root[saved-theme=dark] .callout.orig[data-callout=warning]{--color:#db8942;--border:#db894244;--bg:#db894210}
+:root[saved-theme=dark] .callout.cand[data-callout=failure]{--color:#F6B5A0;--border:#F6B5A0;--bg:#A33A1F1A}
+:root[saved-theme=dark] .callout.orig[data-callout=failure]{--color:#db4242;--border:#db424244;--bg:#db424210}
+:root[saved-theme=dark] .callout.cand[data-callout=example]{--color:#F9E6D4;--border:#F9E6D4;--bg:#A86A3F1A}
+:root[saved-theme=dark] .callout.orig[data-callout=example]{--color:#7a43b5;--border:#7a43b544;--bg:#7a43b510}
+:root[saved-theme=dark] .callout.cand[data-callout=livrable]{--color:#EED9FB;--border:#EED9FB;--bg:#6B3B961A}
+:root[saved-theme=dark] .callout.orig[data-callout=livrable]{--color:#448aff;--border:#448aff44;--bg:#448aff10}
+:root[saved-theme=dark] .callout.a24[data-callout=livrable]{--color:#EED9FB;--border:#EED9FB;--bg:#6B3B963D}
 </style>
 
 ## 1. Les sept familles
@@ -31,16 +32,16 @@ Les trois versions sont **identiques en mode clair** — c'est volontaire, et c'
 ### question
 
 > [!question] Actuel — charte v2
-> Le **corps** du callout hérite de `--dark` : c'est lui qui meurt en sombre sous un fond opaque.
+> Le **corps** du callout hérite de `--darkgray`, soit `#d4d4d4` en sombre : c'est lui qui meurt sous un fond opaque.
 
 <blockquote class="callout cand" data-callout="question">
 <div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner"><p>Candidat B — inversion, fond 10 %</p></div></div>
-<div class="callout-content"><p>Le <strong>corps</strong> du callout hérite de <code>--dark</code> : c'est lui qui meurt en sombre sous un fond opaque.</p></div>
+<div class="callout-content"><p>Le <strong>corps</strong> du callout hérite de <code>--darkgray</code>, soit <code>#d4d4d4</code> en sombre : c'est lui qui meurt sous un fond opaque.</p></div>
 </blockquote>
 
 <blockquote class="callout orig" data-callout="question">
 <div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner"><p>Variante A — teintes Quartz</p></div></div>
-<div class="callout-content"><p>Le <strong>corps</strong> du callout hérite de <code>--dark</code> : c'est lui qui meurt en sombre sous un fond opaque.</p></div>
+<div class="callout-content"><p>Le <strong>corps</strong> du callout hérite de <code>--darkgray</code>, soit <code>#d4d4d4</code> en sombre : c'est lui qui meurt sous un fond opaque.</p></div>
 </blockquote>
 
 ### info / note
@@ -174,8 +175,10 @@ digitalWrite(broche, HIGH);
 
 Le 10 % arbitré est en section 1. Ces deux témoins sont là **au cas où 10 % serait trop discret** — ils évitent un aller-retour de plus si c'est le cas, et ne coûtent rien puisque la page est jetable.
 
-<blockquote class="callout a16" data-callout="livrable">
-<div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner"><p>Fond 16 %</p></div></div>
+Le bloc 16 % porte ses couleurs **en attribut inline**, donc dans les deux thèmes : il paraîtra délavé en mode clair, c'est attendu. Il est là comme témoin de mécanisme.
+
+<blockquote class="callout a16" data-callout="livrable" style="--color:#EED9FB;--border:#EED9FB;--bg:#6B3B9629">
+<div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner"><p>Fond 16 % — témoin en attribut inline</p></div></div>
 <div class="callout-content"><p>Même titre, même filet, seul le fond change. La question est : le bloc se détache-t-il de la page sans devenir un îlot lumineux ?</p></div>
 </blockquote>
 
