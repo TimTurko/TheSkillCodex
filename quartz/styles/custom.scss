@@ -76,9 +76,8 @@ article > p:has(img) + p:has(> em:only-child) {
 //              plus profonde de la couleur de fond, pour contraste)
 //   --border : identique à --color
 //
-// Mode sombre : non décliné en v2 (les étudiants travaillent
-// principalement en mode clair). À traiter dans une session ultérieure
-// — voir TODO.md / BACKLOG.md.
+// Mode sombre : décliné en v2.2 par inversion des deux teintes de
+// chaque famille — voir la section « CALLOUTS — mode sombre » plus bas.
 // =====================================================================
 
 // --- [!question] — question centrale d'une phase ou notion -----------
@@ -137,6 +136,92 @@ article > p:has(img) + p:has(> em:only-child) {
   --color: #6B3B96;            // violet profond
   --border: #6B3B96;
   --bg: #EED9FB;               // lavande très clair
+}
+
+// =====================================================================
+// CALLOUTS — mode sombre (charte v2.2, session 2026-09-12, séance 23)
+// =====================================================================
+// Le corps d'un callout est coloré par `base.scss` (`p, ul, li, a, td
+// { color: var(--darkgray) }`), soit #d4d4d4 en mode sombre. Sous un
+// fond pastel OPAQUE, il devenait illisible — rapport de contraste de
+// l'ordre de 1,1:1 sur la famille `question`. Seuls survivaient le
+// titre (forcé à --color) et les pastilles de code inline (qui
+// portent leur propre fond var(--light)).
+//
+// Correctif : en sombre, les DEUX teintes de chaque famille échangent
+// leur rôle. Le pastel — fond en clair — devient la couleur du titre
+// et du filet ; la teinte profonde — titre en clair — devient le fond
+// à 10 % d'alpha (suffixe `1A`) par-dessus le fond de page. Aucune
+// couleur nouvelle : les quatorze valeurs sont celles de la charte.
+//
+// L'identité de famille est donc conservée dans les deux thèmes.
+// C'est ce qui distingue ce correctif de l'autre option instruite —
+// laisser le callouts.scss d'origine reprendre la main en sombre —
+// où `livrable` et `terrain`, qui n'ont aucune entrée dans ce
+// fichier, retombaient tous deux sur le bleu générique.
+//
+// Valeurs vérifiées à l'œil par Tim sur `content/test-callouts.md`
+// (page temporaire, trois versions par famille, deux thèmes) AVANT
+// écriture ici. `note` et `terrain` n'ont pas été rendues
+// individuellement : elles partagent le bloc de leur famille.
+// =====================================================================
+
+:root[saved-theme="dark"] {
+  // --- [!question] ---------------------------------------------------
+  .callout[data-callout="question"] {
+    --color: #B5C5D6;
+    --border: #B5C5D6;
+    --bg: #3B5F7F1A;
+  }
+
+  // --- [!info] / [!note] ---------------------------------------------
+  .callout[data-callout="info"],
+  .callout[data-callout="note"] {
+    --color: #FAF6EC;
+    --border: #FAF6EC;
+    --bg: #8C7E5C1A;
+  }
+
+  // --- [!tip] / [!success] / [!check] / [!done] ----------------------
+  .callout[data-callout="tip"],
+  .callout[data-callout="success"],
+  .callout[data-callout="check"],
+  .callout[data-callout="done"] {
+    --color: #D8E3D3;
+    --border: #D8E3D3;
+    --bg: #5C85561A;
+  }
+
+  // --- [!warning] ----------------------------------------------------
+  .callout[data-callout="warning"] {
+    --color: #FADFAF;
+    --border: #FADFAF;
+    --bg: #A8761F1A;
+  }
+
+  // --- [!danger] / [!failure] / [!bug] -------------------------------
+  .callout[data-callout="danger"],
+  .callout[data-callout="failure"],
+  .callout[data-callout="bug"] {
+    --color: #F6B5A0;
+    --border: #F6B5A0;
+    --bg: #A33A1F1A;
+  }
+
+  // --- [!example] / [!terrain] ---------------------------------------
+  .callout[data-callout="example"],
+  .callout[data-callout="terrain"] {
+    --color: #F9E6D4;
+    --border: #F9E6D4;
+    --bg: #A86A3F1A;
+  }
+
+  // --- [!livrable] (custom) ------------------------------------------
+  .callout[data-callout="livrable"] {
+    --color: #EED9FB;
+    --border: #EED9FB;
+    --bg: #6B3B961A;
+  }
 }
 
 // =====================================================================
