@@ -643,6 +643,40 @@ node tools/mesure-chevron.mjs --montrer <chemin>     # les blocs en entier
 
 ---
 
+## coupe-journal-1209s25.mjs
+
+One-off de la **coupe du JOURNAL du 12/09 (séance 25)** vers un **second
+fichier d'archive**, `JOURNAL-archive-2.md`. Nommé par sa séance, comme
+`coupe-journal-chantier-3008s12.mjs` dont il hérite les gardes. **À copier et
+re-déclarer pour la coupe suivante**, jamais à relancer tel quel : ses titres
+gardés et sa frontière sont codés en dur, et il refuse d'écraser une cible
+existante.
+
+```
+node tools/coupe-journal-1209s25.mjs --verifier-bak   # controle a l octet des .bak du 30/08, rien d ecrit
+node tools/coupe-journal-1209s25.mjs --supprimer-bak  # idem, puis suppression si 6/6 OK
+node tools/coupe-journal-1209s25.mjs --dry            # inventaire, tailles par entree, predictions
+node tools/coupe-journal-1209s25.mjs                  # passe live
+```
+
+**Ce qui a changé par rapport au 30/08** : (1) la cible est un fichier **neuf**
+et non l'archive existante — `JOURNAL-archive.md` est gelé à 1,26 Mo et le
+script ne le lit ni ne l'écrit ; (2) le `--dry` imprime **la taille en octets
+de chaque entrée** (du titre au titre suivant), ce qui permet d'instruire la
+coupe sans lecture intégrale ; (3) trois **critères de conservation à
+l'octet** sont publiés avant écriture et la passe live **relit les fichiers
+sur le disque** pour comparer aux tailles prédites ; (4) **aucun `.bak`
+écrit** — la coupe se lance sur un arbre propre et poussé, git est la
+sauvegarde.
+
+⚠ **Ordre imposé** : `--verifier-bak` / `--supprimer-bak` **avant** la passe
+live, parce qu'un de leurs contrôles lit une entrée du JOURNAL courant que la
+coupe déplace. Et **`\n---\n` n'est pas une ancre dans un fichier de
+prédictions** (234 occurrences dans `predictions-260830-chantier.md`, le
+12/09) : on y ancre sur l'en-tête exact que le script de coupe a écrit.
+
+---
+
 ## Notes Windows
 
 - Git for Windows fournit Git Bash, donc le hook `#!/bin/sh` fonctionne sur les deux PC (pro et perso).

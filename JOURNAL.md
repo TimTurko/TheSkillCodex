@@ -20,6 +20,42 @@
 > dernière coupe : 12/09 (séance 25), sessions 30/08 (suite 11) → 11/09 (séance 20), frontière = clôture du chantier indexation).
 
 <!-- INSERT_JOURNAL_HERE -->
+## 2026-09-12 (séance 25) — Le JOURNAL est coupé à la clôture du chantier indexation vers un second fichier d'archive, les trois `.bak` du 30/08 sont vérifiés à l'octet puis supprimés, et la seule réfutation est une ancre prédite sans lire la pièce
+
+- **Périmètre** — **PC perso, chat Desktop, Opus 5**, J-2 du premier cours, objet unique arbitré à la clôture de la séance 24 : la coupe du JOURNAL. Lectures § 6 cas A faites, machine confirmée par `list_allowed_directories`. **Rien dans `content/`, rien dans `quartz/`, chantier des puces non ouvert.**
+- **Livrables** — `tools/coupe-journal-1209s25.mjs` (neuf, 23 Ko, one-off nommé par sa séance), `JOURNAL-archive-2.md` (neuf, **92 698 o**, dix entrées : 30/08 suite 11 → 11/09 séance 20), `JOURNAL.md` **133 271 → 42 907 o** (quatre entrées gardées : séances 21 → 24, en-tête et pied réécrits). `JOURNAL-archive.md` **non touché**, 1 319 726 o avant comme après, gelé. Trois `.bak` supprimés, **2 569 390 o rendus**.
+- **Décisions Tim** — **trois sollicitées, trois rendues** : (a) point de coupe à la **clôture du chantier indexation** (option (a) sur trois) ; nom **`JOURNAL-archive-2.md`** ; vérification à l'octet puis suppression des `.bak`, **pas de `.bak` pour cette coupe** (git est la sauvegarde).
+- **Conventions** — aucune neuve, numérotation **131**, `conventions.md` non ouvert. Le défaut du jour est une cinquième instance de C116 (7), pas une règle manquante.
+- **Tailles** — avant écriture : conventions **621,58 Ko**, TODO **323,97**, BACKLOG **257,70**, JOURNAL **130,15** (133 271 o) — puis **41,9 Ko** après la coupe, avant cette entrée.
+
+✅ **LA FRONTIÈRE EST UNE DÉCISION DATÉE, PAS UN SEUIL DE TAILLE.** Trois candidats instruits : après la séance 20 (clôture indexation, décision Tim du 11/09), après la séance 17 (fin de la pose du chantier IA), ou C128 strict à une entrée. Retenu le premier : la séance 21 **ouvre** le chantier rentrée (priorisation à 48 h) et les quatre entrées gardées sont exactement celles que la semaine du cours rappellera. Comme le 30/08, la frontière tombe **entre deux entrées de même date** (11/09), donc l'ancre est un titre exact et non une date. *C128 strict a été écarté sur un motif de procédure : la séance 24 renvoie six fois aux décisions des séances 22-23 sans les porter, et `head 250` à 9 Ko ne lirait plus rien de la rentrée.*
+
+✅ **LES TAILLES RECONSTITUÉES SANS OUVRIR LE FICHIER ÉTAIENT JUSTES À QUELQUES OCTETS.** Chaque clôture mesure le JOURNAL avant de s'écrire ; la chaîne de ces relevés donne la taille de chaque entrée par différence, et elle se referme sur les 133 271 o. Mesuré par le script : suite 12 **13 037** (reconstitué 13 037), séance 13 **7 037** (7 038), séance 17 **11 857** (11 858), séance 24 **8 195** (8 200). *Le relevé de taille en tête de chaque entrée est donc un instrument, pas une formalité : il permet d'instruire une coupe de 130 Ko sur `head` + `tail` sans lecture intégrale.*
+
+✅ **CONSERVATION À L'OCTET, PRÉDITE PUIS RELUE.** Le `--dry` publie trois critères — `JOURNAL avant − retiré + deltas = JOURNAL après`, `préambule + bloc + fin = archive 2`, bloc verbatim dans l'archive et absent du JOURNAL — et les tailles attendues sur le disque ; la passe live **relit les deux fichiers** et compare : **42 907 OK, 92 698 OK**. Ancres d'en-tête et de pied résolues par `indexOf` unique, garde de non-écrasement sur la cible, liste gardée comparée titre par titre à sa déclaration. **Toutes les prédictions publiées avant le `--dry` ont tenu** : 14 / 4 / 10, décompte par date aux six termes, bloc dans la fourchette, JOURNAL dans la fourchette.
+
+✅ **LES TROIS `.bak` ÉTAIENT CE QU'ILS SEMBLAIENT ÊTRE, ET C'EST MESURÉ SIX FOIS.** `JOURNAL-archive.md.bak` ≡ archive courante privée du bloc du 30/08 (579 153 o des deux côtés) ; bloc de `JOURNAL.md.bak` ≡ bloc inséré dans l'archive (740 390 o, les 57 titres) ; suite 11 ≡ suite 11 (13 429 o) ; `predictions-260830-chantier.md` sans en-tête ≡ début du `.bak` (**1 145 121 o**, le chiffre de la séance 12) ; reste du `.bak` ≡ préfixe de `predictions-260830.md` sans en-tête (**90 229 o**, idem). Origine : les `writeFileSync(... + '.bak')` des deux scripts de coupe du 30/08 ; `*.bak` ignoré par `.gitignore`, donc jamais versionnés, donc absents du PC pro. **Supprimés par le script, sous condition des six contrôles dans le même lancement.** ⚠ *L'ordre importait : le contrôle sur la suite 11 lit le JOURNAL courant, où elle n'est plus après la coupe — les `.bak` se règlent **avant** la passe live, et c'est écrit dans la consigne.*
+
+❌ **LA SEULE RÉFUTATION EST À MON COMPTE : UNE ANCRE PRÉDITE UNIQUE SANS AVOIR OUVERT LA PIÈCE.** J'ai pris `\n---\n` pour la fin d'en-tête de `predictions-260830-chantier.md` ; le fichier en porte **234**, un par bloc. ABORT propre, rien d'écrit, correctif = l'en-tête exact que `coupe-predictions-3008s12.mjs` avait écrit, comparé par `startsWith`. **Cinquième instance de C116 (7)** : prédire la chaîne que le motif attrape, pas le fait — et cette fois j'avais le script émetteur sous les yeux, qui donnait l'en-tête en toutes lettres. ⚠ *Tim a lancé le `--dry` sans attendre le verdict du `--verifier-bak` ; sans conséquence, les deux passes étant indépendantes en lecture, mais la consigne « si `0 FAUX` » n'a pas été suivie.*
+
+⚠ **CE QUE LA COUPE COÛTE** : l'en-tête du JOURNAL passe de 6 à **17 lignes** pour résumer deux archives. Lisible, versé au BACKLOG : à la prochaine coupe, ne garder ici que les bornes et reporter le détail dans le préambule d'`archive-2`, qui porte déjà une liste « Coupes reçues » faite pour ça.
+
+**Reste à Tim (C121)** — pilotage seul, rien dans `content/` ni `quartz/` :
+
+```powershell
+cd C:\Users\turko\Documents\TheSkillCodex
+git status
+git add JOURNAL.md JOURNAL-archive-2.md TODO.md BACKLOG.md tools/coupe-journal-1209s25.mjs tools/README.md
+git commit -m "seance 25 : coupe du journal vers archive-2, trois bak verifies et supprimes, pilotage"
+git push
+```
+
+`git status` ne doit **pas** montrer `JOURNAL-archive.md`. Onglet Actions jusqu'au vert, sans effet attendu sur le site.
+
+**Arbitrages en attente** — ✅ **trois RENDUS** (frontière, nom, `.bak`). ✅ **Deux items BACKLOG CLOS** : les `.bak` (séance 22) et l'archive à 1,26 Mo (séance 21). **Inchangés** : routage vers les fiches outil, révision C71, scénario à quatre tours, P1 français, anglais d'une page `bilingue: true`, double titre des neuf hubs, familles de callout hors charte, URL absolues sans contrôle, et la file.
+
+**PROCHAINE SESSION — APRÈS LE COURS DU 14/09.** Rien n'est dû avant. Ordre arbitré à la séance 24 : **retours d'usage réels d'abord**, puis routage vers les fiches outil, révision C71, scénario à quatre tours et P1 rejoué, bloc 0 des puces, trois modules minces. Prompt de lancement livré à l'écran (C129).
+
 ## 2026-09-12 (séance 24) — `/ia/` cesse d'être un règlement et devient un prompt à deux régimes, la posture passe de l'interdiction au mimétisme en quatre arbitrages, et treize prompts Gemini mesurent chaque correctif le soir même
 
 - **Périmètre** — **PC perso, chat Desktop, Opus 5**, J-2 puis J-1 du premier cours, même journée que les séances 22 et 23. Lectures § 6 cas A faites, machine confirmée par `list_allowed_directories`, `test-callouts.md` vérifié absent de l'arbre. **Chantier des puces non ouvert**, bloc 0 intact.
