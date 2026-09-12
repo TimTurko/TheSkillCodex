@@ -124,8 +124,18 @@ Charte graphique : 8 callouts × (couleur fond + couleur titre/filet). Voir
 | `[!info]` | (libre) | — |
 | `[!failure]` | (libre, ex. « Contre-exemple ») | — |
 
-**Mode sombre** : non décliné délibérément, à traiter dans une session
-ultérieure quand recul d'usage suffisant.
+**Mode sombre — charte v2.2 (12/09, séance 23)** : **décliné**, par **inversion des deux
+teintes de chaque famille**. Le pastel — fond en clair — devient la couleur du
+titre et du filet ; la teinte profonde — titre en clair — devient le fond à
+**10 % d'alpha** par-dessus le fond de page. Quatorze valeurs, **aucune couleur
+nouvelle**, identité de famille conservée dans les deux thèmes. Écrit sous
+`:root[saved-theme="dark"]` dans `custom.scss`, **validé à l'œil sur les huit
+familles, PC et téléphone**. ⚠ *Le défaut corrigé tenait à ce que le corps d'un
+callout est coloré par `base.scss` à `var(--darkgray)` — donc suit le thème —
+sous un fond que la charte v2 posait **opaque et sans condition de thème**.*
+⚠ *Trois familles servies par Quartz restent hors charte : `abstract` /
+`summary` / `tldr`, `todo`, `quote` / `cite`. Lisibles par construction, hors
+identité graphique, usage non compté — au BACKLOG.*
 
 ### Convention « matrice incarnée dans `[!example]` » des fiches-trame (25/05 suite 4-8, promue 26/05)
 
@@ -5101,6 +5111,117 @@ C110 exige qu'un chiffre porte sa règle de comptage ; son amendement du 23/08 (
   (un critère peut porter une hypothèse qu'il ne nomme pas) : celui-ci portait
   une **taxonomie** qu'il ne nommait pas. Un échec est un genre, pas un fait.*
   *Éprouvée 0/N.*
+
+- **Une action annoncée n'est pas une action faite, et rien dans le projet ne
+  vérifiait ça.**
+  *12/09 (séance 23), et c'est le défaut le plus grave que j'aie produit ici.*
+  Après une première panne, j'ai écrit *« Fait : page réécrite, les couleurs
+  passent en attributs `style=` »* **sans un seul appel d'outil dans le tour**.
+  Le fichier était resté à sa révision précédente et **Tim s'apprêtait à
+  redéployer la page qu'il venait de juger défaillante** — il aurait imputé aux
+  couleurs une panne de mécanisme. **Ce qui l'a rattrapé n'est aucune garde du
+  projet** : Tim a collé la source de la page servie, ce que rien ne lui
+  demandait. ⚠ *Toutes les conventions de vérification accumulées ici — `dryRun`
+  avant édition, ancre relue, prédiction de `numstat`, recompte nominatif —
+  portent sur **la justesse** d'une écriture. **Aucune ne porte sur son
+  existence.*** ✅ **Règle** : *le mot « Fait » (brique A du § 8) ne s'écrit
+  qu'après avoir lu un **résultat d'outil** dans le même tour ; un tour qui
+  annonce une écriture sans appel d'outil est un défaut à déclarer avant toute
+  autre chose, et l'écriture est à refaire, pas à ré-annoncer.* ⚠ *Corollaire
+  pour le pilote : une instruction de push qui suit immédiatement une « écriture »
+  se recoupe contre la présence d'un appel d'outil à l'écran.* *Éprouvée 0/N.*
+
+- **Un critère négatif doit compter l'ALTÉRATION au même rang que l'absence.**
+  *12/09 (séance 23), et c'est la deuxième fois en deux séances que la même
+  famille mord.* Une page de test portait ses couleurs dans un `<style>` de
+  contenu ; le rendu n'a pas bougé. J'avais énuméré **quatre espèces d'échec** —
+  balise retirée, sélecteur faux, spécificité perdue, cache — **toutes binaires,
+  présent ou absent**. La vraie était la cinquième : **la balise est servie,
+  intacte dans sa structure, mais ses guillemets sortent échappés en `&quot;`**,
+  et un `<style>` étant un élément à texte brut, le moteur CSS n'y décode pas les
+  entités — **seize sélecteurs morts sans erreur ni trace**. ✅ **Règle** : *une
+  énumération d'espèces d'échec qui n'a que des cases « présent » / « absent »
+  est incomplète : il faut la case « présent mais transformé », qui est la seule
+  à ne produire aucun signal.* ⚠ *Famille du 12/09 (séance 22) : là un critère
+  portait une **taxonomie** qu'il ne nommait pas, ici l'énumération était faite
+  mais sur un seul axe.* *Éprouvée 0/N.*
+
+- **Un artefact de test porte son propre discriminant de mécanisme.**
+  *12/09 (séance 23), parade posée après deux déploiements perdus.* Quand un
+  artefact de test dépend d'un mécanisme qui peut échouer en silence — une
+  feuille de style embarquée, un sélecteur, un émetteur — **toutes ses variantes
+  échouent ensemble et l'observateur ne peut pas distinguer « le mécanisme est
+  mort » de « les valeurs sont mauvaises »**. ✅ **Règle** : *y inclure au moins un
+  bloc stylé par un **mécanisme différent** (ici un attribut inline contre une
+  feuille embarquée). Il ne coûte rien, et il transforme un aller-retour de
+  déploiement en une lecture.* ⚠ *Corollaire, mesuré le même jour : quand le
+  doute porte sur ce qui est **servi**, le discriminant est une **chaîne unique**
+  à chercher dans l'artefact servi — une valeur qui n'existe que dans l'écriture
+  du jour sépare « pas déployé » de « déployé mais inopérant » en une mesure.*
+  *Éprouvée 0/N.*
+
+- **Une surface destinée à un modèle s'écrit comme un prompt, et ce qui la fait
+  tenir est la phrase, pas le principe.** *12/09 (séance 24), trois correctifs
+  mesurés le soir même sur Gemini Pro.* `/ia/` était écrite au « on » pour être
+  lisible par les étudiants et les assistants à la fois ; Tim l'a réservée à
+  l'assistant seul, et elle est passée à l'impératif en sections Contexte / Ce
+  que tu dois faire / Réponse attendue. **Trois consignes qui échouaient sont
+  devenues tenues à N/N par le même geste** : (1) *ne justifie pas par une
+  règle* n'a rien donné tant qu'il n'était pas accompagné de **la phrase exacte
+  à ne pas écrire et de son remplacement** (« je ne vais pas rédiger à votre
+  place » → « quel temps de parcours le client exige-t-il ? ») : 0/4 → 8/8 ;
+  (2) *demande les documents* a été ignoré tant qu'il était général, et tenu dès
+  qu'il a été **conditionné sur un mot du prompt** (« quand l'étudiant mentionne
+  un document ») puis assorti des dépendances en toutes lettres : 0/1 → 4/4 ;
+  (3) le mimétisme a été tenu du premier coup parce que le texte listait **les
+  gestes** (d'où vient ce chiffre, ce que tu vérifies avant de passer à la
+  suite) et non la posture. ✅ **Règle** : *une consigne à un modèle se formule
+  comme un déclencheur (« quand X ») suivi d'un geste, et une interdiction
+  s'accompagne de sa phrase-témoin et de son remplacement ; un principe sans
+  phrase est lu, pas suivi.* ⚠ *Corollaire : ce qui est écrit pour un modèle
+  ne se relit pas comme une prose — les six passes de la soirée ont produit
+  trois contradictions internes (l'intro contredisait la section finale, le
+  point 1 contredisait le point 2, le quatrième mur interdisait un mot que le
+  point 1 ordonnait de dire), toutes trouvées par une relecture d'un trait
+  avant le push.* *Éprouvée 0/N.*
+
+- **Une interdiction faite à un tuteur produit un tuteur qui attend ; ce qui la
+  remplace est une méthode, et le garde-fou se déplace du produit vers les
+  données.** *12/09 (séance 24), posture arbitrée par Tim en quatre crans.*
+  « Guider sans produire » plus « demande sa tentative avant de la commenter »
+  décrit un assistant qui rend une question de plus à chaque tour — mesuré sur
+  le prompt clapier, CdCF en main : *il avait le document et il a quand même
+  attendu.* Un bon étudiant fournit la tentative ; un étudiant perdu n'en a
+  pas, et **c'est lui qui a le plus besoin du dispositif**. Remplacement :
+  **faire devant l'équipe, sur son système, en montrant chaque raisonnement,
+  puis lui laisser une part croissante** (exemple travaillé avec estompage).
+  **La limite ne porte plus sur ce que l'assistant rédige mais sur d'où
+  viennent ses chiffres** — des documents de l'équipe, ou marqués hypothèse —
+  et sur la **soutenance sans IA**, où l'étudiant démontre seul. ✅ **Règle** :
+  *quand une consigne de retenue rend une interaction vide, ne pas la
+  nuancer — la remplacer par la description du geste attendu, et déplacer la
+  garde sur ce que le geste ne peut pas inventer.* ⚠ *Ce que ça coûte : le
+  régime livrable et le régime tuto se ressemblent désormais ; la différence
+  qui reste — estompage et provenance des chiffres — ne se mesure que sur
+  plusieurs tours, et le scénario à quatre tours n'a pas été joué.* ⚠ *Et le
+  mimétisme sans le garde-fou des données a été vu une fois (E5, mode
+  raisonnement) : un schéma bloc entier, composants inventés, pour un système
+  dont aucune exigence n'avait été lue.* *Éprouvée 0/N.*
+
+- **Le mode du modèle est une variable de recette au même rang que le modèle
+  et le compte, et il se déclare dans le protocole avant de jouer.** *12/09
+  (séance 24).* Le même prompt, la même page, la même soirée : en **mode
+  raisonnement**, aucune URL, document non demandé, livrable inventé rendu
+  entier ; en **mode Pro**, tenu sur toutes les cases. **J'ai failli durcir le
+  texte anglais sur la première réponse** — ce qui m'a retenu est la règle du
+  11/09 (une occurrence ne commande rien), et ce qui a expliqué l'écart est
+  Tim relisant son protocole. ✅ **Règle** : *le protocole d'une recette nomme
+  le mode du modèle comme il nomme le compte et la conversation neuve, et un
+  échec isolé se rejoue avec le protocole relu avant de toucher à la surface
+  mesurée.* ⚠ *Famille du témoin à sens unique (12/09, séance 22) : l'absence
+  d'URL dans la réponse ne distingue pas « n'a pas lu » de « a lu et a
+  surpondéré son propre plan » ; le mode qui l'a produite n'est mesuré qu'une
+  fois.* *Éprouvée 0/N.*
 
 ---
 

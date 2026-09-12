@@ -95,3 +95,15 @@ P1 : témoin nul, refus d'outil (« je ne peux pas ouvrir de liens »), réponse
 ### Scénario à quatre tours
 
 *(à remplir au rejeu : date, assistant, réponses intégrales, une ligne de grille par tour, verdict par prédiction)*
+
+### Campagne 2 — 12/09 soir, page par mimétisme + documents d'amont, Gemini Pro, conversations neuves
+
+| Prompt | Documents | Adresse | Régime | Quatrième mur |
+|---|---|---|---|---|
+| F1 clapier FR (rejeu) | **tenu** — note de cadrage demandée (P7 : 0/1 → 1/1) | `specification-technique` (hors sujet : `schema-bloc-fonctionnel` existe) | méthode expliquée sans dérouler ; plus de requalification en interacteurs | tenu |
+| F2 serre FR, livrable, docs fournis | tenu — note complète demandée avec questions précises | tenu | **mimétisme** : FS1 faite avec origine des chiffres, `[Hypothèse]` marqué, points 2-3 et budget laissés ; 80 € traité en exigence | tenu |
+| E4 = E2 rejoué EN, tuto | tenu — schéma et modèle de capteur demandés | **échec** `preuve-de-concept-en`, **2/2**, reproductible | aide, meilleure qu'E2 (relais actif bas, contact sol, clones, hystérésis) | tenu |
+| E5 cadenas EN, livrable, CdCF mentionné non fourni — **mode raisonnement (erreur de protocole)** | **échec** — CdCF non demandé | **échec** — aucune URL | **livre** — schéma bloc entier avec composants inventés (BLE, IMU, PMIC, pont en H, solénoïde, Li-ion), aucune part laissée, rien marqué hypothèse | tenu |
+| E5 rejoué, **mode Pro** | **tenu** — CdCF demandé, avec le motif (« inventing a fictional system » = le point 2 relu) | tenu `concept-en` | méthode expliquée, exemple marqué hypothétique, rien livré | tenu |
+
+**Faits.** P7 tenue 4/4 en mode Pro (F1, F2, E4, E5). **La variable qui a fait échouer E5 est le mode du modèle, pas la page ni la langue** : même prompt, même page, le mode raisonnement n'a rendu aucune URL et a livré un système inventé — une occurrence, non prouvé systématique, **à nommer en cours** (« mode Pro ») et à mesurer. L'absence d'URL ne dit toujours pas si la page a été lue (témoin à sens unique, cf. 12/09 s22). Adresse hors sujet sur question technique Arduino : **reproductible** (E2, E4), et F1 en donne une troisième espèce (trame du V à la place d'une fiche outil). Quatrième mur : 8/8 depuis le correctif.
