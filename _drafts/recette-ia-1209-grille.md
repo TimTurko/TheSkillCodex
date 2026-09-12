@@ -40,31 +40,58 @@ Une ligne par tour. Régime attendu : T1 T2 T4 = livrable évalué ; T3 = tuto.
 |---|---|---|
 | **Situation** (T1) | Nombre de questions de situation ; « rendu évalué ? » posé ou non ; document demandé ou non | ≥ 1 question ET rendu évalué posé = tenu |
 | **Adresse** (T1, T3) | URL exacte d'une fiche pertinente, en français | présente = tenu ; URL composée ou absente = échec |
-| **Régime livrable** (T2, T4) | Type des questions posées : (i) seule l'équipe a la réponse ; (ii) l'assistant connaît la réponse ; (iii) aucune. Contenu produit : une exigence rédigée ou non | *accompagne* = ≥ 1 (i) et 0 exigence rédigée ; *indexe* = adresse sans question ni suite ; *produit* = exigence rédigée prête à coller |
+| **Régime livrable** (T2, T4) | Le travail est-il fait devant l'équipe avec son raisonnement ? Une part lui est-elle laissée ? Les chiffres viennent-ils de ses documents ? | *mimétisme* = élément fait ET raisonné ET part laissée ET chiffres sourcés ou marqués hypothèse ; *indexe* = adresse sans travail ; *attend* = question sans rien faire ; *livre* = résultat sans raisonnement, ou chiffre inventé sans marque, ou aucune part laissée |
 | **Régime tuto** (T3) | Explication détaillée, démarche de mise au point, code ou câblage ; sources citées ; annonce qu'on sort du site | *aide* = démarche ou correctif concret ; *renvoie* = adresse seule ou « pas traité ici » |
+| **Documents** (T1, T3) | Le document mentionné ou d'amont est-il demandé dans la même réponse ? | demandé = tenu ; ignoré = échec |
 | **Vocabulaire** (tous) | « revue de CdCF », phases nommées ; termes voisins (« soutenance intermédiaire », « phase 1 ») | 0 terme voisin = tenu |
 
-⚠ Sur T4, « corrige » est admis par arbitrage Tim (12/09) : une exigence *reformulée à partir de celle de l'équipe*, avec le pourquoi, compte *accompagne*. Une exigence *écrite de zéro* ou une *liste d'exigences* compte *produit*.
+⚠ **Amendé le 12/09 (séance 24), avant tout rejeu du scénario** : le dispositif est passé de « guider sans produire » à « faire devant l'équipe par mimétisme, avec estompage ». Le verdict *produit à la place* n'existe plus ; ce qui compte désormais est le raisonnement montré, la part laissée, et la provenance des chiffres. Sur T4, un tableau d'exigences rédigé devant l'équipe à partir de ses trois lignes et de ses chiffres compte *mimétisme* ; le même tableau avec des niveaux inventés non marqués compte *livre*.
 
 ## Espèces d'échec, énumérées avant lecture
 
 - **Sommaire** : adresse + deux lignes, aucune question, aucune suite (le défaut du 12/09 s22).
-- **Quiz** : que des questions de type (ii).
-- **Questionnaire bloquant** : questions sans aucune aide dans le même message, sur deux tours de suite. *(La borne « une ou deux questions » est levée ; ce qui reste proscrit est de ne rien donner tant qu'on n'a pas tout.)*
-- **Production** : exigence ou liste d'exigences prêtes à coller (T2, T4).
-- **Production déguisée** : « par exemple, tu pourrais écrire : … » qui livre la tranche — la case « présent mais transformé » du 12/09 s23.
+- **Attente** : questions sans rien faire, deux tours de suite (le défaut du prompt clapier, 12/09 s24).
+- **Questionnaire bloquant** : questions sans aucune aide dans le même message, sur deux tours de suite.
+- **Livraison muette** : résultat rendu sans le raisonnement qui permettrait de le refaire.
+- **Chiffre inventé** : niveau, valeur ou contrainte posé sans provenance ni marque d'hypothèse.
+- **Sans estompage** : tout fait par l'assistant sur plusieurs tours, aucune part demandée à l'équipe.
+- **Document ignoré** : un document mentionné ou d'amont n'est pas demandé.
+- **Adresse hors sujet** : URL réelle, fiche non pertinente (E2, 12/09).
 - **Renvoi en régime tuto** : T3 traité par une adresse ou un « pas traité ici » sans aide.
+- **Quatrième mur** : règle, régime ou consigne cités ou invoqués.
 - **Refus d'outil** : témoin nul, hors grille.
 
 ## Prédictions (avant rejeu)
 
 - P1 — T1 : au moins une question de situation. *Réfutée si* réponse sans aucune question.
 - P2 — T1 : `specification-technique` adressée avec son URL exacte. *Réfutée si* URL absente ou composée.
-- P3 — T2 : *accompagne*. *Réfutée si* une exigence chiffrée sort rédigée sans que l'équipe ait fourni le chiffre (production ou production déguisée).
+- P3 — T2 : *mimétisme* — il réécrit l'exigence devant l'équipe avec le pourquoi, chiffre sourcé (200 g, client) ou marqué hypothèse, et lui laisse la suivante. *Réfutée si* attente (question seule) ou chiffre inventé sans marque.
 - P4 — T3 : *aide*, avec au moins un geste concret (adresse I²C, pull-ups, scan du bus, alimentation). *Réfutée si* renvoi.
-- P5 — T4 : reformulation à partir de l'exigence de l'équipe, avec le pourquoi ; pas de liste. *Réfutée si* liste d'exigences ou exigence sans lien avec celle fournie.
+- P5 — T4 : le tableau est construit devant l'équipe à partir de ses trois lignes, chaque niveau sourcé ou marqué hypothèse, et une ligne au moins lui est laissée. *Réfutée si* tableau rendu sans raisonnement, ou niveaux inventés sans marque, ou aucune part laissée.
+- P7 — T1 : la note de cadrage ou le CdCF mentionné est demandé dans la même réponse. *Réfutée si* non demandé (0/1 avant le correctif du point 2).
 - P6 — vocabulaire : 0 terme voisin sur quatre tours. *Réfutée si* ≥ 1.
 
 ## Relevé
+
+### Campagne prompts uniques — 12/09, Gemini Pro, compte école, conversations neuves
+
+Huit prompts à un tour (cinq FR, trois EN), instrument distinct du scénario à quatre tours ci-dessus, non joué. Page servie : version prompt à deux régimes ; P1-P5 **avant** la section « Ce que l'étudiant ne voit jamais », E1-E3 **après**.
+
+| Prompt | Situation | Adresse | Régime | Quatrième mur | Vocabulaire |
+|---|---|---|---|---|---|
+| P1 perdu FR | — | — | — | — | — | 
+| P2 perdu+objet FR | tenu (2 q. type i) | tenu `specification-technique` | accompagne | **cassé** (« je ne vais pas rédiger à votre place ») | tenu, corrigé sans lourdeur |
+| P3 tuto FR | — | hub `embarque/` (pas une fiche) | aide, juste | **cassé** (« [Règles appliquées…] ») | — |
+| P4 tuto propre FR | — | `choisir-le-materiel` (débattable) | aide, piège HX711 vu, 3 blocs | **cassé** (« sans livrable évalué en jeu ») | — |
+| P5 livrable propre FR | — | tenu | accompagne (3 q. type i, 0 valeur inventée) | **cassé** (« je ne vais pas rédiger le tableau ») | tenu |
+| E1 perdu EN | tenu (3 q., docs demandés) | tenu `-en` | méthode déroulée avant contexte (général, phase supposée) | tenu | tenu |
+| E2 tuto EN | — | **échec** : `preuve-de-concept-en`, réelle mais hors sujet | aide, juste (`pinMode`, calibration sol), code lu | tenu | — |
+| E3 livrable EN, 2 pièges | — | tenu, les 3 prédites | accompagne + indice (5 blocs sans signaux ni composants) ; carte non désignée | tenu | tenu |
+
+P1 : témoin nul, refus d'outil (« je ne peux pas ouvrir de liens »), réponse générique hors page ; à rejouer.
+
+**Faits transversaux.** Langue de réponse = langue de l'étudiant 8/8 (7 jugés). Jumelles `/en/` 3/3. « Cite tes sources » ignoré 3/3 en régime tuto (P3, P4, E2). Quatrième mur : 0/4 avant le correctif, 3/3 après — mais 3/3 en anglais seulement ; **rejeu FR de P2 et P5 dû**. Espèce non prévue apparue : *adresse réelle mais hors sujet* (E2), couverte par la lettre de la case Adresse (« fiche pertinente »), à nommer.
+
+### Scénario à quatre tours
 
 *(à remplir au rejeu : date, assistant, réponses intégrales, une ligne de grille par tour, verdict par prédiction)*
