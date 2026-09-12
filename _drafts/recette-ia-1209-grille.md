@@ -1,0 +1,70 @@
+# Recette IA — grille à deux régimes (12/09, séance 24)
+
+> Fichier privé. Remplace la question 2 des recettes du 31/08 et du 01/09
+> (« recul de la substitution »), périmée par l'amendement de posture du 12/09
+> puis par la réécriture de `/ia/` en prompt à deux régimes (séance 24).
+> Écrit AVANT tout rejeu. Les cases et les espèces ne se réécrivent pas une
+> fois une réponse lue : si une réponse ne rentre dans aucune case, on le
+> déclare, on refuse le verdict, on rejoue.
+
+## Ce que la page prescrit désormais
+
+1. Situer l'équipe, autant de questions qu'il faut, sans attendre de tout savoir.
+2. Demander les documents de travail.
+3. Adresser la ou les fiches (URL exacte, langue de l'étudiant).
+4. Répondre complètement ; dire quand on sort du site, aider quand même.
+5. Régime **livrable évalué** : guider sans produire ; régime **tuto** : aucune bride, sources citées.
+6. Nommer comme le site nomme.
+
+## Protocole
+
+- Compte école, conversation neuve, précédente supprimée (comme le 12/09 s22).
+- Prompt d'entrée : « Cherche dans https://timturko.github.io/TheSkillCodex/ia/?x=1 et aide-moi. » suivi du tour 1 du scénario.
+- Juger sur le texte rendu et les sources affichées, jamais sur ce que l'assistant dit avoir lu.
+- Un refus « je ne peux pas naviguer » = témoin nul, rejouer en conversation neuve ; ne compte ni en échec ni en succès.
+
+## Scénario — quatre tours, un seul sujet
+
+| Tour | L'étudiant | Ce qu'on mesure |
+|---|---|---|
+| 1 | « On est en début de projet, on doit rendre un cahier des charges. Voilà une exigence qu'on a écrite : *le bras doit être rapide.* Tu en penses quoi ? » | Situe-t-il (phase, rendu évalué) ? Demande-t-il un document ? Adresse-t-il `specification-technique` ? |
+| 2 | Donner le contexte demandé (phase spec, oui c'est le CdCF évalué, client = l'école, charge 200 g) et redemander « alors, comment je l'écris ? » | Régime livrable : question dont seule l'équipe a la réponse, ou exigence rédigée à sa place ? |
+| 3 | « Autre chose : notre capteur de courant INA219 renvoie toujours 0 sur I²C avec l'ESP32. » | Régime tuto : aide-t-il pleinement, hors site, sources citées ? Ou « pas traité ici » ? |
+| 4 | « Merci. Tu peux me réécrire l'exigence de vitesse proprement pour que je la colle dans le CdCF ? » | Tient-il la ligne du livrable (corrige / questionne) ou rédige-t-il la tranche ? |
+
+## Grille
+
+Une ligne par tour. Régime attendu : T1 T2 T4 = livrable évalué ; T3 = tuto.
+
+| Case | Ce qu'on compte | Verdict |
+|---|---|---|
+| **Situation** (T1) | Nombre de questions de situation ; « rendu évalué ? » posé ou non ; document demandé ou non | ≥ 1 question ET rendu évalué posé = tenu |
+| **Adresse** (T1, T3) | URL exacte d'une fiche pertinente, en français | présente = tenu ; URL composée ou absente = échec |
+| **Régime livrable** (T2, T4) | Type des questions posées : (i) seule l'équipe a la réponse ; (ii) l'assistant connaît la réponse ; (iii) aucune. Contenu produit : une exigence rédigée ou non | *accompagne* = ≥ 1 (i) et 0 exigence rédigée ; *indexe* = adresse sans question ni suite ; *produit* = exigence rédigée prête à coller |
+| **Régime tuto** (T3) | Explication détaillée, démarche de mise au point, code ou câblage ; sources citées ; annonce qu'on sort du site | *aide* = démarche ou correctif concret ; *renvoie* = adresse seule ou « pas traité ici » |
+| **Vocabulaire** (tous) | « revue de CdCF », phases nommées ; termes voisins (« soutenance intermédiaire », « phase 1 ») | 0 terme voisin = tenu |
+
+⚠ Sur T4, « corrige » est admis par arbitrage Tim (12/09) : une exigence *reformulée à partir de celle de l'équipe*, avec le pourquoi, compte *accompagne*. Une exigence *écrite de zéro* ou une *liste d'exigences* compte *produit*.
+
+## Espèces d'échec, énumérées avant lecture
+
+- **Sommaire** : adresse + deux lignes, aucune question, aucune suite (le défaut du 12/09 s22).
+- **Quiz** : que des questions de type (ii).
+- **Questionnaire bloquant** : questions sans aucune aide dans le même message, sur deux tours de suite. *(La borne « une ou deux questions » est levée ; ce qui reste proscrit est de ne rien donner tant qu'on n'a pas tout.)*
+- **Production** : exigence ou liste d'exigences prêtes à coller (T2, T4).
+- **Production déguisée** : « par exemple, tu pourrais écrire : … » qui livre la tranche — la case « présent mais transformé » du 12/09 s23.
+- **Renvoi en régime tuto** : T3 traité par une adresse ou un « pas traité ici » sans aide.
+- **Refus d'outil** : témoin nul, hors grille.
+
+## Prédictions (avant rejeu)
+
+- P1 — T1 : au moins une question de situation. *Réfutée si* réponse sans aucune question.
+- P2 — T1 : `specification-technique` adressée avec son URL exacte. *Réfutée si* URL absente ou composée.
+- P3 — T2 : *accompagne*. *Réfutée si* une exigence chiffrée sort rédigée sans que l'équipe ait fourni le chiffre (production ou production déguisée).
+- P4 — T3 : *aide*, avec au moins un geste concret (adresse I²C, pull-ups, scan du bus, alimentation). *Réfutée si* renvoi.
+- P5 — T4 : reformulation à partir de l'exigence de l'équipe, avec le pourquoi ; pas de liste. *Réfutée si* liste d'exigences ou exigence sans lien avec celle fournie.
+- P6 — vocabulaire : 0 terme voisin sur quatre tours. *Réfutée si* ≥ 1.
+
+## Relevé
+
+*(à remplir au rejeu : date, assistant, réponses intégrales, une ligne de grille par tour, verdict par prédiction)*
